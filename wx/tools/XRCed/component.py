@@ -17,11 +17,12 @@ import params
 # "root" is a special group for the tree root
 parentChildGroups = {
     'root': ['top_level'],      # top-level objects
-    'frame': ['toolbar','menubar'],
-    'window': ['control', 'window', '!frame'],
-    'sizer': ['control', 'sizer','spacer'],
-    'toolbar': ['tool','separator'],
-    'menu': ['menu', 'menu_item','separator']
+    'frame': ['toolbar', 'menubar'],
+    'window': ['control', 'window', 'sizer', '!frame'],
+    'sizer': ['control', 'sizer', 'spacer'],
+    'menubar': ['menu'],
+    'toolbar': ['tool', 'separator'],
+    'menu': ['menu', 'menu_item', 'separator']
 }
 
 class Component(object):
@@ -108,6 +109,11 @@ class Component(object):
         attrClass = self.specials.get(attribute, Attribute)
         attrClass.add(node, attribute, value)
 
+    def makeTestWin(self, name='', pos=wx.DefaultPosition, size=wx.DefaultSize):
+        '''Method overrided by top-level components to show test view.'''
+        raise NotImplementedError
+
+
 class Container(Component):
     '''Base class for containers.'''
     def canHaveChild(self, component):
@@ -116,7 +122,7 @@ class Container(Component):
             if '!'+component.groups[0] in parentChildGroups.get(g, []): return False
         # Test for any possible parent-child
         groups = Set(component.groups)
-        for g in self.groups: 
+        for g in self.groups:
             if groups.intersection(parentChildGroups.get(g, [])):
                 return True
         return False
@@ -256,7 +262,7 @@ class _ComponentManager:
         self.firstId = self.lastId = -1
         self.menus = {}
         self.panels = {}
-        self.menuNames = ['root', 'control', 'button', 'box', 
+        self.menuNames = ['root', 'item', 'control', 'button', 'box', 
                           'container', 'sizer', 'custom']
         self.panelNames = ['Windows', 'Panels', 'Menus', 'Sizers', 
                            'Controls', 'Custom']

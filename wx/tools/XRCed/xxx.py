@@ -451,7 +451,7 @@ class xxxDialog(xxxContainer):
                  'wxSTAY_ON_TOP', 'wxSYSTEM_MENU', 'wxTHICK_FRAME',
                  'wxRESIZE_BORDER', 'wxRESIZE_BOX', 'wxCLOSE_BOX',
                  'wxMAXIMIZE_BOX', 'wxMINIMIZE_BOX',
-                 'wxDIALOG_MODAL', 'wxDIALOG_MODELESS', 'wxDIALOG_NO_PARENT'
+                 'wxDIALOG_MODAL', 'wxDIALOG_MODELESS', 'wxDIALOG_NO_PARENT',
                  'wxNO_3D', 'wxTAB_TRAVERSAL']                 
     exStyles = ['wxWS_EX_VALIDATE_RECURSIVELY', 'wxDIALOG_EX_METAL']
     styles = ['fg', 'bg', 'font', 'enabled', 'focused', 'hidden', 'exstyle',

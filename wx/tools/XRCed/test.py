@@ -17,6 +17,8 @@ else:
 
 app = wx.PySimpleApp()
 
+wx.FileSystem.AddHandler(wx.MemoryFSHandler())
+
 toolArtProvider = view.ToolArtProvider()
 wx.ArtProvider.Push(toolArtProvider)
 
@@ -43,7 +45,7 @@ g.undoMan = undo.UndoManager()
 
 Manager.init()
 # Load standard plugins
-plugin.load_plugins('plugins')
+plugin.load_plugins(os.path.join(g.basePath, 'plugins'))
 
 # Setup MVP
 view.CreateView()

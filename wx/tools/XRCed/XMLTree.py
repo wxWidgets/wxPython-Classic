@@ -97,3 +97,9 @@ class XMLTree(wx.TreeCtrl):
             map(self.CollapseAll, children)
             if item != self.root:
                 self.Collapse(item)
+
+    # Fix for broken
+
+    def ItemHasChildren(self, item):
+        return self.GetChildrenCount(item)
+

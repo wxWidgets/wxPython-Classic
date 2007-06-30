@@ -30,6 +30,10 @@ if wx.VERSION[:3] < MinWxVersion:
 # you comment above and can uncomment this:
 defaultEncoding = wx.GetDefaultPyEncoding()
 
+# Constant to define standart window name for tested component
+STD_NAME = '_XRCED_T_W'
+TEST_FILE = 'test.xrc'
+
 # Global id constants
 class ID:
     MENU = wx.NewId()

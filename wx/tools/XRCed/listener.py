@@ -98,7 +98,7 @@ class _Listener:
 
         # XMLTree events
         # Register events
-#        tree.Bind(wx.EVT_LEFT_DOWN, self.OnTreeLeftDown)
+        tree.Bind(wx.EVT_LEFT_DOWN, self.OnTreeLeftDown)
         tree.Bind(wx.EVT_RIGHT_DOWN, self.OnTreeRightDown)
         tree.Bind(wx.EVT_TREE_SEL_CHANGING, self.OnTreeSelChanging)
         tree.Bind(wx.EVT_TREE_SEL_CHANGED, self.OnTreeSelChanged)
@@ -353,10 +353,16 @@ Homepage: http://xrced.sourceforge.net\
         self.toolsSizer.Layout()
         
     def OnTest(self, evt):
-        raise NotImplementedError # !!!
+        if not self.tree.GetSelection(): return
+        testWin = Presenter.createTestWin(self.tree.GetSelection())
+        testWin.Bind(wx.EVT_CLOSE, self.OnCloseTestWin)
+        testWin.Bind(wx.EVT_SIZE, self.OnSizeTestWin)
 
-        if not tree.selection: return   # key pressed event
-        tree.ShowTestWindow(tree.selection)
+    def OnCloseTestWin(self, evt):
+        Presenter.closeTestWin()
+
+    def OnSizeTestWin(self, evt):
+        raise NotImplementedError
 
     def OnTestHide(self, evt):
         raise NotImplementedError # !!!
@@ -464,9 +470,9 @@ Homepage: http://xrced.sourceforge.net\
     def OnTreeLeftDown(self, evt):
         pt = evt.GetPosition();
         item, flags = self.tree.HitTest(pt)
-#        print item,flags
         if flags & wx.TREE_HITTEST_NOWHERE or not item:
-            self.tree.UnselectAll()
+            # Unselecting seems to be broken on wxGTK!!!
+            Presenter.unselect()
         evt.Skip()
 
     def OnTreeRightDown(self, evt):
@@ -486,8 +492,9 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnTreeSelChanged(self, evt):
-        if evt.GetOldItem(): 
-            Presenter.update(evt.GetOldItem())
+        if evt.GetOldItem():
+            if not Presenter.applied:
+                Presenter.update(evt.GetOldItem())
         # Tell presenter to update current data and view
         Presenter.setData(evt.GetItem())
         # Set initial sibling/insert modes

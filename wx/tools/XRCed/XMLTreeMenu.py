@@ -10,7 +10,7 @@ from component import Manager
 
 class XMLTreeMenu(wx.Menu):
     '''dynamic pulldown menu for XMLTree'''
-    def __init__(self, tree, createSibling, insertBefore):
+    def __init__(self, comp, tree, createSibling, insertBefore):
         '''
         Create tree pull-down menu. createSibling flag is set if the
         child must be a sibling of the selected item, insertBefore
@@ -25,7 +25,7 @@ class XMLTreeMenu(wx.Menu):
             if item == tree.root or tree.GetItemParent(item) == tree.root and createSibling:
                 menu = self.CreateTopLevelMenu()
             else:
-                menu = self.CreateSubMenus()
+                menu = self.CreateSubMenus(comp)
             # Select correct label for submenu
             if createSibling:
                 if insertBefore:
@@ -65,16 +65,20 @@ class XMLTreeMenu(wx.Menu):
         m.Append(ID.COMMENT, 'comment', 'Create comment node')        
         return m
 
-    def CreateSubMenus(self):
+    def CreateSubMenus(self, comp):
         menu = wx.Menu()
         for name in Manager.menuNames[1:]:
             # Skip empty menu groups
             if not Manager.menus.get(name, []): continue
             m = wx.Menu()
             for index,component,label,help in Manager.menus[name]:
-                m.Append(component.id, label, help)
-            menu.AppendMenu(ID.MENU, name, m)
-            menu.AppendSeparator()
+                if comp.canHaveChild(component):
+                    m.Append(component.id, label, help)
+            if m.GetMenuItemCount():
+                menu.AppendMenu(ID.MENU, name, m)
+                menu.AppendSeparator()
+            else:
+                m.Destroy()
         menu.Append(ID.REF, 'reference...', 'Create object_ref node')
         menu.Append(ID.COMMENT, 'comment', 'Create comment node')
         return menu
