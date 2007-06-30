@@ -31,9 +31,14 @@ class _Model:
             self.dom = MyDocument()
             self.mainNode = self.dom.createElement('resource')
             self.dom.appendChild(self.mainNode)
+            # Dummy node to be replaced by the node being tested
+            self.testElem = self.dom.createElement('dummy')
         else:
             self.dom = dom
+            self.testElem = self.dom.createElement('dummy')
             self.mainNode = dom.documentElement
+        # Test element node is always first
+        self.mainNode.insertBefore(self.testElem, self.mainNode.firstChild)
 
     def loadXML(self, path):
         f = open(path)
@@ -58,10 +63,24 @@ class _Model:
         domCopy = MyDocument()
         mainNode = domCopy.appendChild(self.mainNode.cloneNode(True))
         # Remove first child (testElem)
+        self.mainNode.removeChild(self.mainNode.firstChild).unlink()
         self.indent(mainNode)
         domCopy.writexml(f, encoding = g.currentEncoding)
         f.close()
         domCopy.unlink()
+
+    def saveTestMemoryFile(self):
+        # Save in memory FS
+        memFile = MemoryFile(TEST_FILE)
+        encd = self.dom.encoding
+        if not encd: encd = None
+        try:
+            self.dom.writexml(memFile, encoding=encd)
+        except:
+            inf = sys.exc_info()
+            wx.LogError(traceback.format_exception(inf[0], inf[1], None)[-1])
+            wx.LogError('Error writing temporary file')
+        memFile.close()                 # write to wxMemoryFS        
 
     def indent(self, dom):
         pass # !!! TODO
@@ -74,4 +93,28 @@ class _Model:
     def parseString(self, data):
         return minidom.parseString(data).childNodes[0]
 
+    def setTestElem(self, elem):
+        oldTestElem = Model.testElem
+        self.testElem = elem
+        self.mainNode.replaceChild(elem, oldTestElem)
+        oldTestElem.unlink()
+
 Model = _Model()
+
+class MemoryFile:
+    '''Memory file proxy for python-like file object.'''
+    def __init__(self, name):
+        self.name = name
+        self.buffer = ''
+    def write(self, data):
+        if g.currentEncoding:
+            encoding = g.currentEncoding
+        else:
+            encoding = wx.GetDefaultPyEncoding()
+        try:
+            self.buffer += data.encode(encoding)
+        except UnicodeEncodeError:
+            self.buffer += data.encode(encoding, 'xmlcharrefreplace')
+            
+    def close(self):
+        wx.MemoryFSHandler.AddFile(self.name, self.buffer)
