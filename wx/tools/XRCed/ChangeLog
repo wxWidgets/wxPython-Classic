@@ -1,3 +1,11 @@
+2007-06-30  Scroll  <scroll@localhost.localdomain>
+
+	* first stage of test window refactoring: moved test frame
+	creation to the top-level components (makeTestWin method); fixed
+	pull-down menu populating by adding only relevant entries;
+	implemented more core components (wxDialog, wxToolBar, wxMenuBar);
+	more logic in child/sibling modes
+
 2007-06-19  Scroll  <scroll@localhost.localdomain>
 
 	* implemented SmartContainer; Unique AttributePanel class for all
