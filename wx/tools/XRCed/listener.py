@@ -369,7 +369,8 @@ Homepage: http://xrced.sourceforge.net\
         Presenter.closeTestWin()
 
     def OnSizeTestWin(self, evt):
-        raise NotImplementedError
+        print 'OnSizeTestWin'
+        evt.Skip()
 
     def OnTestHide(self, evt):
         raise NotImplementedError # !!!
