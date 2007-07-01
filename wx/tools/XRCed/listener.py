@@ -384,6 +384,7 @@ Homepage: http://xrced.sourceforge.net\
         elif evt.GetId() == wx.ID_SAVE:
             evt.Enable(Presenter.modified)
         elif evt.GetId() in [wx.ID_PASTE, self.frame.ID_TOOL_PASTE]:
+            evt.Enable(len(self.tree.GetSelections()) == 1)
 # !!! Does not work on wxGTK
 #             enabled = False
 #             if not wx.TheClipboard.IsOpened() and wx.TheClipboard.Open():
@@ -396,7 +397,6 @@ Homepage: http://xrced.sourceforge.net\
 #                         enabled = True
 #                 wx.TheClipboard.Close()
 #             evt.Enable(enabled)
-            evt.Enable(True)
         elif evt.GetId() in [self.frame.ID_TEST,
                              self.frame.ID_MOVEUP, self.frame.ID_MOVEDOWN,
                              self.frame.ID_MOVELEFT, self.frame.ID_MOVERIGHT]:

@@ -171,6 +171,7 @@ class _Presenter:
                                             comp.getTreeImageId(child), data=data)
         view.tree.EnsureVisible(item)
         view.tree.UnselectAll()
+        wx.Yield()
         view.tree.SelectItem(item)
         self.setModified()
         return item
