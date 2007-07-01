@@ -223,7 +223,6 @@ class _Presenter:
             else:
                 panelNode = node
             for a,value in panel.GetValues():
-                print a,value
                 if value: 
                     self.comp.addAttribute(panelNode, a, value)
         view.tree.SetItemImage(item, self.comp.getTreeImageId(node))

@@ -91,8 +91,12 @@ class _Model:
         children = node.childNodes[:]
         # Main node doesn't need to be indented
         if indent:
-            text = domCopy.createTextNode('\n' + ' ' * indent)
-            node.parentNode.insertBefore(text, node)
+            prevNode = node.previousSibling
+            if prevNode and prevNode.nodeType == node.TEXT_NODE:
+                prevNode.data = '\n' + ' ' * indent
+            else:
+                text = domCopy.createTextNode('\n' + ' ' * indent)
+                node.parentNode.insertBefore(text, node)
         if children:
             # Append newline after last child, except for text nodes
             if children[-1].nodeType == minidom.Node.ELEMENT_NODE:

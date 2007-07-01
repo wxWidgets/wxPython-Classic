@@ -10,21 +10,7 @@ from types import *
 from globals import *
 from presenter import Presenter
 
-genericStyles = [
-    'wxSIMPLE_BORDER', 'wxSUNKEN_BORDER', 'wxDOUBLE_BORDER',
-    'wxRAISED_BORDER', 'wxSTATIC_BORDER', 'wxNO_BORDER',
-    'wxCLIP_CHILDREN', 'wxTRANSPARENT_WINDOW', 'wxWANTS_CHARS',
-    'wxNO_FULL_REPAINT_ON_RESIZE', 'wxFULL_REPAINT_ON_RESIZE'
-    ]
-
-genericExStyles = [
-    'wxWS_EX_VALIDATE_RECURSIVELY',
-    'wxWS_EX_BLOCK_EVENTS',
-    'wxWS_EX_TRANSIENT',
-    'wxFRAME_EX_CONTEXTHELP',
-    'wxWS_EX_PROCESS_IDLE',
-    'wxWS_EX_PROCESS_UI_UPDATES'
-    ]
+WARenameDict = {'fg': 'foreground', 'bg': 'background'}
 
 # Global vars initialized in Panel.__init__ for button and textbox size in screen pixels
 buttonSize = textSize = None
@@ -930,8 +916,8 @@ class ParamBitmap(PPanel):
                            defaultFile = os.path.basename(self.value[1]))
         if dlg.ShowModal() == wx.ID_OK:
             # Get common part of selected path and current
-            if g.frame.dataFile:
-                curpath = os.path.abspath(g.frame.dataFile)
+            if Presenter.path:
+                curpath = os.path.abspath(Presenter.path)
             else:
                 curpath = os.path.join(os.getcwd(), '')
             common = os.path.commonprefix([curpath, dlg.GetPath()])

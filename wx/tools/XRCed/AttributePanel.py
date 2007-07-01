@@ -108,18 +108,19 @@ class Panel(wx.Panel):
 
         self.Layout()
 
-        attributes = comp.attributes[:]
+        attributes = comp.attributes #[:]
 #        if comp.styles:
 #            attributes.append('style')
 #        if comp.exStyles:
 #            attributes.append('exstyle')
-        panel = AttributePanel(self.pageA, attributes, comp.params)
+        panel = AttributePanel(self.pageA, attributes, comp.params, comp.renameDict)
         self.SetValues(panel, node)
         panels.append(panel)
         self.pageA.SetPanel(panel)
 
         if comp.windowAttributes:
-            panel = AttributePanel(self.pageWA, comp.windowAttributes)
+            panel = AttributePanel(self.pageWA, comp.windowAttributes,
+                                   rename_dict = params.WARenameDict)
             self.SetValues(panel, node)
             panels.append(panel)
             self.pageWA.SetPanel(panel)
@@ -145,7 +146,8 @@ class Panel(wx.Panel):
         if container and container.requireImplicit(node):
             panel = AttributePanel(self.pageIA, 
                                    container.implicitAttributes, 
-                                   container.implicitParams)
+                                   container.implicitParams,
+                                   container.implicitRenameDict)
             self.SetValues(panel, node.parentNode)
             panels.append(panel)
             self.pageIA.SetPanel(panel)
@@ -180,15 +182,15 @@ class Panel(wx.Panel):
 
 class AttributePanel(wx.Panel):
     '''Particular attribute panel, normally inside a notebook.'''
-    def __init__(self, parent, attributes, paramsDict={}):
+    def __init__(self, parent, attributes, param_dict={}, rename_dict={}):
         wx.Panel.__init__(self, parent, -1)
         self.controls = []
         sizer = wx.FlexGridSizer(len(attributes), 2, 1, 5)
         for a in attributes:
             # Find good control class
-            paramClass = paramsDict.get(a, params.paramDict.get(a, params.ParamText))
-            control = paramClass(self, a)
-            sParam = a
+            paramClass = param_dict.get(a, params.paramDict.get(a, params.ParamText))
+            sParam = rename_dict.get(a, a)
+            control = paramClass(self, sParam)
             if control.isCheck: # checkbox-like control
                 label = wx.StaticText(self, -1, control.defaultString)
                 sizer.AddMany([ (control, 0, wx.ALIGN_CENTER_VERTICAL),

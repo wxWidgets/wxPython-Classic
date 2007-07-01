@@ -45,6 +45,7 @@ class Component(object):
         'wxWS_EX_PROCESS_UI_UPDATES'
         ]
     hasName = True                      # most elements have XRC IDs
+    renameDict = {}
     def __init__(self, klass, groups, attributes, **kargs):
         self.klass = klass
         self.groups = groups
@@ -112,12 +113,11 @@ class Component(object):
         return isinstance(self, Container)
 
     def getAttribute(self, node, attribute):
-        if attribute == '':             # empty string means element node
-            attrClass = self.specials.get('', Attribute)
+        attrClass = self.specials.get(attribute, Attribute)
+        if attribute == 'object':    # object means element node
             return attrClass.get(node)
         for n in node.childNodes:
             if n.nodeType == node.ELEMENT_NODE and n.tagName == attribute:
-                attrClass = self.specials.get(attribute, Attribute)
                 return attrClass.get(n)
         return ''
 
@@ -230,6 +230,7 @@ class RootComponent(Container):
 
 
 class SmartContainer(Container):
+    implicitRenameDict = {}
     def __init__(self, klass, groups, attributes, **kargs):
         Container.__init__(self, klass, groups, attributes, **kargs)
         self.implicitKlass = kargs['implicit_klass']
@@ -321,6 +322,8 @@ class Sizer(SmartContainer):
     hasName = False
     genericStyles = []
     genericExStyles = []    
+    renameDict = {'orient':'orientation'}
+    implicitRenameDict = {'option':'proportion'}
     def __init__(self, klass, groups, attributes, **kargs):
         kargs.setdefault('implicit_klass', 'sizeritem')
         kargs.setdefault('implicit_page', 'SizeItem')

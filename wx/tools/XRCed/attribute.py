@@ -87,7 +87,7 @@ class MultiAttribute:
 class BitmapAttribute:
     '''Content attribute class. Value is a list of strings.'''
     def add(parentNode, attribute, value):
-        if attribute == '':
+        if attribute == 'object':
             elem = parentNode
         else:
             elem = Model.dom.createElement(attribute)

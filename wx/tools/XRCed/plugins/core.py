@@ -11,11 +11,6 @@ import images
 
 print 'creating core components'
 
-# Dictionary for renaming some attributes
-#renameDict = {'orient':'orientation', 'option':'proportion',
-#              'usenotebooksizer':'usesizer', 'dontattachtoframe':'dontattach',
-#              }
-
 ### wxFrame
 
 class CFrame(Container):
@@ -287,6 +282,7 @@ c = CToolBar('wxToolBar', ['toolbar', 'top_level'],
              ['bitmapsize', 'margins', 'packing', 'separation',
               'dontattachtoframe', 'pos', 'size'],
              image=images.getTreeToolBarImage())
+c.renameDict = {'dontattachtoframe':'dontattach'}
 c.genericStyles = c.genericExStyles = []
 c.setParamClass('style', params.ParamNonGenericStyle)
 Manager.register(c)
@@ -324,16 +320,18 @@ Manager.setMenu(c, 'bar', 'StatusBar', 'Status bar', 30)
 
 ### wxBitmap
 
-c = SimpleComponent('wxBitmap', ['top_level'], [''])
-c.setSpecial('', BitmapAttribute)
-c.setParamClass('', params.ParamBitmap)
+c = SimpleComponent('wxBitmap', ['top_level'], ['object'])
+c.renameDict = {'object': ''}
+c.setSpecial('object', BitmapAttribute)
+c.setParamClass('object', params.ParamBitmap)
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'Bitmap', 'Bitmap', 60)
 
 ### wxIcon
 
-c = SimpleComponent('wxIcon', ['top_level'], [''])
-c.setSpecial('', BitmapAttribute)
-c.setParamClass('', params.ParamBitmap)
+c = SimpleComponent('wxIcon', ['top_level'], ['object'])
+c.renameDict = {'object': ''}
+c.setSpecial('object', BitmapAttribute)
+c.setParamClass('object', params.ParamBitmap)
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'Icon', 'Icon', 70)
