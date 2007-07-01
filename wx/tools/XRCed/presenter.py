@@ -173,7 +173,11 @@ class _Presenter:
         '''Update DOM with new attribute values. Update tree if necessary.'''
         node = view.tree.GetPyData(item)
         if self.comp and self.comp.hasName:
-            node.setAttribute('name', view.panel.controlName.GetValue())
+            name = view.panel.controlName.GetValue()
+            if name:
+                node.setAttribute('name', view.panel.controlName.GetValue())
+            elif node.hasAttribute('name'): # clean up empty names
+                node.removeAttribute('name')
         for panel in self.panels:
             # Replace node contents except object children
             for n in panel.node.childNodes[:]:
@@ -181,9 +185,9 @@ class _Presenter:
                     panel.node.removeChild(n)
                     n.unlink()
         for panel in self.panels:
+            print panel.node.getAttribute('class')
             for a,w in panel.controls:
                 value = w.GetValue()
-                #print a,value
                 if value: 
                     self.comp.addAttribute(panel.node, a, value)
         view.tree.SetItemImage(item, self.comp.getTreeImageId(node))
@@ -328,33 +332,37 @@ class _Presenter:
         # Same module list
         res.Load('memory:test.xrc')
         try:
-            g.testWin = testWin = self.comp.makeTestWin(res, name, pos=g.testWinPos)
-            testWin.Show(True)
-            view.tree.SetItemBold(item, True)
-            # Catch some events, set highlight
-            if testWin:
-                testWin.item = item
-                # Add drop target
-                if testWin.panel:
-                    testWin.panel.SetDropTarget(DropTarget())
-                else:
-                    testWin.SetDropTarget(DropTarget())
-                # Reset highlights
-                testWin.highLight = testWin.highLightDT = None
-                if highLight and not self.pendingHighLight:
-                    self.HighLight(highLight)
-        except:
-            if g.testWin:
-                view.tree.SetItemBold(item, False)
-                g.testWinPos = g.testWin.GetPosition()
-                g.testWin.Destroy()
-                g.testWin = None
-            wx.LogError('Error loading resource: %s' % sys.exc_value)
-            if debug: raise
-        # Cleanup
-        res.Unload(TEST_FILE)
-        xrc.XmlResource.Set(None)
-        wx.MemoryFSHandler.RemoveFile(TEST_FILE)
+            try:
+                g.testWin = testWin = self.comp.makeTestWin(res, name, pos=g.testWinPos)
+                testWin.Show(True)
+                view.tree.SetItemBold(item, True)
+                # Catch some events, set highlight
+                if testWin:
+                    testWin.item = item
+                    # Add drop target
+                    if testWin.panel:
+                        testWin.panel.SetDropTarget(DropTarget())
+                    else:
+                        testWin.SetDropTarget(DropTarget())
+                    # Reset highlights
+                    testWin.highLight = testWin.highLightDT = None
+                    if highLight and not self.pendingHighLight:
+                        self.HighLight(highLight)
+            except NotImplementedError:
+                wx.LogError('Test window not implemented for %s' % node.getAttribute('class'))
+            except:
+                if g.testWin:
+                    view.tree.SetItemBold(item, False)
+                    g.testWinPos = g.testWin.GetPosition()
+                    g.testWin.Destroy()
+                    g.testWin = None
+                wx.LogError('Error loading resource: %s' % sys.exc_value)
+                if debug: raise
+        finally:
+            # Cleanup
+            res.Unload(TEST_FILE)
+            xrc.XmlResource.Set(None)
+            wx.MemoryFSHandler.RemoveFile(TEST_FILE)
         return testWin
 
     def closeTestWin(self):

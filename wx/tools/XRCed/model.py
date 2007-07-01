@@ -63,8 +63,8 @@ class _Model:
         domCopy = MyDocument()
         mainNode = domCopy.appendChild(self.mainNode.cloneNode(True))
         # Remove first child (testElem)
-        self.mainNode.removeChild(self.mainNode.firstChild).unlink()
-        self.indent(mainNode)
+        mainNode.removeChild(mainNode.firstChild).unlink()
+        self._indent(domCopy, mainNode)
         domCopy.writexml(f, encoding = g.currentEncoding)
         f.close()
         domCopy.unlink()
@@ -82,8 +82,27 @@ class _Model:
             wx.LogError('Error writing temporary file')
         memFile.close()                 # write to wxMemoryFS        
 
-    def indent(self, dom):
-        pass # !!! TODO
+    def _indent(self, domCopy, node, indent = 0):
+        if node.nodeType == minidom.Node.COMMENT_NODE:
+            text = self.domCopy.createTextNode('\n' + ' ' * indent)
+            node.parentNode.insertBefore(text, node)
+            return                      # no children
+        # Copy child list because it will change soon
+        children = node.childNodes[:]
+        # Main node doesn't need to be indented
+        if indent:
+            text = domCopy.createTextNode('\n' + ' ' * indent)
+            node.parentNode.insertBefore(text, node)
+        if children:
+            # Append newline after last child, except for text nodes
+            if children[-1].nodeType == minidom.Node.ELEMENT_NODE:
+                text = domCopy.createTextNode('\n' + ' ' * indent)
+                node.appendChild(text)
+            # Indent children which are elements
+            for n in children:
+                if n.nodeType == minidom.Node.ELEMENT_NODE or \
+                       n.nodeType == minidom.Node.COMMENT_NODE:
+                    self._indent(domCopy, n, indent + 2)
 
     def createObjectNode(self, className):
         node = self.dom.createElement('object')

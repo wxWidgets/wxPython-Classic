@@ -9,10 +9,13 @@ from model import Model
 class Attribute:
     '''Base class for defining attributes.'''
     def add(parentNode, attribute, value):
-        elem = Model.dom.createElement(attribute)
+        if attribute == '':
+            elem = parentNode
+        else:
+            elem = Model.dom.createElement(attribute)
+            parentNode.appendChild(elem)
         text = Model.dom.createTextNode(value)
         elem.appendChild(text)
-        parentNode.appendChild(elem)
     add = staticmethod(add)
     def get(node):
         '''Get collected element texts.'''
@@ -24,16 +27,14 @@ class Attribute:
 
 class ContentAttribute:
     '''Content attribute class. Value is a list of strings.'''
-    hasName = False
-    
     def add(parentNode, attribute, value):
         contentElem = Model.dom.createElement('content')
+        parentNode.appendChild(contentElem)
         for item in value:
             elem = Model.dom.createElement('item')
             text = Model.dom.createTextNode(item)
             elem.appendChild(text)
             contentElem.appendChild(elem)
-        parentNode.appendChild(contentElem)
     add = staticmethod(add)
     def get(node):
         value = []
@@ -49,12 +50,12 @@ class FontAttribute:
                   'sysfont', 'relativesize']
     def add(parentNode, attribute, value):
         fontElem = Model.dom.createElement('font')
+        parentNode.appendChild(fontElem)
         for a in filter(value.has_key, FontAttribute.attributes):
             elem = Model.dom.createElement(a)
             text = Model.dom.createTextNode(value[a])
             elem.appendChild(text)
             fontElem.appendChild(elem)
-        parentNode.appendChild(fontElem)
     add = staticmethod(add)
     def get(node):
         value = {}
@@ -69,9 +70,9 @@ class MultiAttribute:
     def add(parentNode, attribute, value):
         for v in value:
             elem = Model.dom.createElement(attribute)
+            parentNode.appendChild(elem)
             text = Model.dom.createTextNode(v)
             elem.appendChild(text)
-            parentNode.appendChild(elem)
     add = staticmethod(add)
     def get(node):
         tag = node.tagName  # remember tag name
@@ -82,3 +83,23 @@ class MultiAttribute:
             node = node.nextSibling
         return value
     get = staticmethod(get)
+
+class BitmapAttribute:
+    '''Content attribute class. Value is a list of strings.'''
+    def add(parentNode, attribute, value):
+        if attribute == '':
+            elem = parentNode
+        else:
+            elem = Model.dom.createElement(attribute)
+            parentNode.appendChild(elem)
+        if value[0]:
+            elem.setAttribute('stock_id', value[0])
+        else:
+            if elem.hasAttribute('stock_id'): elem.removeAttribute('stock_id')
+            text = Model.dom.createTextNode(value[1])
+            elem.appendChild(text)
+    add = staticmethod(add)
+    def get(node):
+        return [node.getAttribute('stock_id'), Attribute.get(node)]
+    get = staticmethod(get)
+            

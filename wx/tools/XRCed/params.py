@@ -904,15 +904,15 @@ class ParamBitmap(PPanel):
             self.button.Enable(True)
             self.combo.Enable(False)
     def OnChange(self, evt):
+        if self.freeze: return
         Presenter.setApplied(False)
         self.textModified = True
     def OnCombo(self, evt):
+        if self.freeze: return
         Presenter.setApplied(False)
         self.value[0] = self.combo.GetValue()
     def GetValue(self):
-        if self.textModified:           # text has newer value
-            return [self.combo.GetValue(), self.text.GetValue()]
-        return self.value
+        return [self.combo.GetValue(), self.text.GetValue()]
     def SetValue(self, value):
         self.freeze = True
         if not value:

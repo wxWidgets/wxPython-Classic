@@ -168,9 +168,12 @@ class AttributePanel(wx.Panel):
                 sizer.AddMany([ (control, 0, wx.ALIGN_CENTER_VERTICAL),
                                 (label, 0, wx.ALIGN_CENTER_VERTICAL) ])
             else:
-                label = wx.StaticText(self, -1, sParam, size=labelSize)
-                sizer.AddMany([ (label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 20),
-                                (control, 0, wx.ALIGN_CENTER_VERTICAL | wx.GROW) ])
+                if sParam:
+                    label = wx.StaticText(self, -1, sParam, size=labelSize)
+                    sizer.AddMany([ (label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 20),
+                                    (control, 0, wx.ALIGN_CENTER_VERTICAL | wx.GROW) ])
+                else:
+                    sizer.Add(control, 0, wx.GROW | wx.LEFT, 20)
             self.controls.append((a, control))
         self.SetSizerAndFit(sizer)
         

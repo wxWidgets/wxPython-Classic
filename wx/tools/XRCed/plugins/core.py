@@ -41,7 +41,7 @@ c.addStyles('wxDEFAULT_FRAME_STYLE', 'wxDEFAULT_DIALOG_STYLE', 'wxCAPTION',
             'wxNO_3D', 'wxTAB_TRAVERSAL')
 c.addExStyles('wxWS_EX_VALIDATE_RECURSIVELY', 'wxFRAME_EX_METAL')
 Manager.register(c)
-Manager.setMenu(c, 'root', 'Frame', 'Frame window', 10)
+Manager.setMenu(c, 'TOP_LEVEL', 'Frame', 'Frame window', 10)
 
 ### wxDialog
 
@@ -67,7 +67,7 @@ c.addStyles('wxDEFAULT_DIALOG_STYLE', 'wxDEFAULT_FRAME_STYLE', 'wxCAPTION',
             'wxNO_3D', 'wxTAB_TRAVERSAL')
 c.addExStyles('wxWS_EX_VALIDATE_RECURSIVELY', 'wxDIALOG_EX_METAL')
 Manager.register(c)
-Manager.setMenu(c, 'root', 'Dialog', 'Dialog window', 20)
+Manager.setMenu(c, 'TOP_LEVEL', 'Dialog', 'Dialog window', 20)
 
 ### wxPanel
 
@@ -89,7 +89,7 @@ c = CPanel('wxPanel', ['window','top_level','control'],
 c.addStyles('wxNO_3D', 'wxTAB_TRAVERSAL')
 c.addExStyles('wxWS_EX_VALIDATE_RECURSIVELY')
 Manager.register(c)
-Manager.setMenu(c, 'root', 'Panel', 'Panel window', 30)
+Manager.setMenu(c, 'TOP_LEVEL', 'Panel', 'Panel window', 30)
 Manager.setMenu(c, 'container', 'Panel', 'Panel window', 10)
 
 ### wxBoxSizer
@@ -199,7 +199,9 @@ Manager.setMenu(c, 'control', 'Choice', 'Choice control', 30)
 
 ### wxNotebook
 
-c = SmartContainer('wxNotebook', ['window', 'control'], ['pos', 'size'], 
+# Set special ParentChildGroup for notebook - notebookpage can't contain sizer
+parentChildGroups['notebook'] = ['control', 'window', '!sizer']
+c = SmartContainer('wxNotebook', ['notebook', 'window', 'control'], ['pos', 'size'], 
                    implicit_name='notebookpage', 
                    implicit_page='Page Attributes', 
                    implicit_attributes=['label', 'selected'],
@@ -231,7 +233,8 @@ c = CMenuBar('wxMenuBar', ['menubar', 'top_level'], [],
 c.addStyles('wxMB_DOCKABLE')
 c.setParamClass('style', params.ParamNonGenericStyle)
 Manager.register(c)
-Manager.setMenu(c, 'root', 'MenuBar', 'Menu bar', 40)
+Manager.setMenu(c, 'TOP_LEVEL', 'MenuBar', 'Menu bar', 40)
+Manager.setMenu(c, 'bar', 'MenuBar', 'Menu bar', 10)
 
 ### wxMenu
 
@@ -252,8 +255,8 @@ c = CMenu('wxMenu', ['menu', 'top_level'], ['label', 'help'],
 c.addStyles('wxMENU_TEAROFF')
 c.setParamClass('style', params.ParamNonGenericStyle)
 Manager.register(c)
-Manager.setMenu(c, 'root', 'Menu', 'Menu', 50)
-Manager.setMenu(c, 'item', 'Menu', 'Menu', 20)
+Manager.setMenu(c, 'TOP_LEVEL', 'Menu', 'Menu', 50)
+Manager.setMenu(c, 'ROOT', 'Menu', 'Menu', 20)
 
 ### wxMenuItem
 
@@ -261,8 +264,9 @@ c = Component('wxMenuItem', ['menu_item'],
               ['label', 'bitmap', 'accel', 'help',
                'checkable', 'radio', 'enabled', 'checked'],
               image=images.getTreeMenuItemImage())
+c.setSpecial('bitmap', BitmapAttribute)
 Manager.register(c)
-Manager.setMenu(c, 'item', 'MenuItem', 'Menu item', 10)
+Manager.setMenu(c, 'ROOT', 'MenuItem', 'Menu item', 10)
 
 ### wxToolBar
 
@@ -287,16 +291,21 @@ c = CToolBar('wxToolBar', ['toolbar', 'top_level'],
              image=images.getTreeToolBarImage())
 c.setParamClass('style', params.ParamNonGenericStyle)
 Manager.register(c)
-Manager.setMenu(c, 'root', 'ToolBar', 'Tool bar', 50)
+Manager.setMenu(c, 'TOP_LEVEL', 'ToolBar', 'Tool bar', 50)
+Manager.setMenu(c, 'bar', 'ToolBar', 'Tool bar', 20)
 
 ### wxTool
 
-c = Component('wxTool', ['tool'],
+c = Component('tool', ['tool'],
               ['bitmap', 'bitmap2', 'radio', 'toggle',
                'tooltip', 'longhelp', 'label'],
               image=images.getTreeToolImage())
 Manager.register(c)
-Manager.setMenu(c, 'item', 'Tool', 'Tool', 10)
+c.setSpecial('bitmap', BitmapAttribute)
+c.setSpecial('bitmap2', BitmapAttribute)
+c.setParamClass('bitmap2', params.ParamBitmap)
+c.setParamClass('toggle', params.ParamBool)
+Manager.setMenu(c, 'ROOT', 'Tool', 'Tool', 10)
 
 ### wxSeparator
 
@@ -304,6 +313,32 @@ c = Component('separator', ['separator'], [],
               image=images.getTreeSeparatorImage())
 c.windowAttributes = []
 Manager.register(c)
-Manager.setMenu(c, 'item', 'Separator', 'Separator', 20)
+Manager.setMenu(c, 'ROOT', 'Separator', 'Separator', 20)
 
+### wxStatusBar
 
+c = Component('wxStatusBar', ['statusbar'], ['fields', 'widths', 'styles'])
+c.windowAttributes = []
+c.addStyles('wxST_SIZEGRIP')
+c.setParamClass('fields', params.ParamIntNN)
+c.setParamClass('style', params.ParamNonGenericStyle)
+Manager.register(c)
+Manager.setMenu(c, 'bar', 'StatusBar', 'Status bar', 30)
+
+### wxBitmap
+
+c = Component('wxBitmap', ['top_level'], [''])
+c.windowAttributes = []
+c.setSpecial('', BitmapAttribute)
+c.setParamClass('', params.ParamBitmap)
+Manager.register(c)
+Manager.setMenu(c, 'TOP_LEVEL', 'Bitmap', 'Bitmap', 60)
+
+### wxIcon
+
+c = Component('wxIcon', ['top_level'], [''])
+c.windowAttributes = []
+c.setSpecial('', BitmapAttribute)
+c.setParamClass('', params.ParamBitmap)
+Manager.register(c)
+Manager.setMenu(c, 'TOP_LEVEL', 'Icon', 'Icon', 70)

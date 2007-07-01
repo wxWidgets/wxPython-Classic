@@ -6,7 +6,7 @@
 
 from globals import *
 from model import Model
-from component import Manager
+from component import Manager, Component
 import images
 
 class XMLTree(wx.TreeCtrl):
@@ -55,7 +55,17 @@ class XMLTree(wx.TreeCtrl):
     def AddNode(self, parent, node):
         # Append tree item
         className = node.getAttribute('class')
-        comp = Manager.components[className]
+        try:
+            comp = Manager.components[className]
+        except:
+            # Try to create some generic component on-the-fly
+            attributes = []
+            for n in node.childNodes:
+                if n.nodeType == node.ELEMENT_NODE and not n.tagName in attributes:
+                    attributes.append(n.tagName)
+            comp = Component(className, 'unknown', attributes)
+            Manager.register(comp)
+            wx.LogWarning('Unknown component class "%s", registered as generic' % className)
         item = self.AppendItem(parent, className, image=comp.getTreeImageId(node),
                                data=wx.TreeItemData(node))
         # Different color for comments and references
@@ -73,7 +83,8 @@ class XMLTree(wx.TreeCtrl):
     def Flush(self):
         '''Update all items after changes in model.'''
         self.Clear()
-        for n in filter(is_object, Model.mainNode.childNodes):
+        # (first node is test node)
+        for n in filter(is_object, Model.mainNode.childNodes[1:]):
             self.AddNode(self.root, n)
 
     def ExpandAll(self, item):

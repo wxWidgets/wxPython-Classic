@@ -402,6 +402,7 @@ Homepage: http://xrced.sourceforge.net\
         self.inUpdateUI = False
 
     def OnIdle(self, evt):
+#        print 'onidle',self.inIdle
         if self.inIdle: return          # Recursive call protection
         self.inIdle = True
         if not Presenter.applied:
@@ -410,7 +411,6 @@ Homepage: http://xrced.sourceforge.net\
         self.inIdle = False
         return
 
-        #print 'onidle',tree.needUpdate,tree.pendingHighLight
         try:
             if tree.needUpdate:
                 if conf.autoRefresh:

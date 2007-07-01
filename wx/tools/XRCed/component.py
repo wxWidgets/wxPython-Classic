@@ -17,7 +17,7 @@ import params
 # "root" is a special group for the tree root
 parentChildGroups = {
     'root': ['top_level'],      # top-level objects
-    'frame': ['toolbar', 'menubar'],
+    'frame': ['toolbar', 'menubar', 'statusbar'],
     'window': ['control', 'window', 'sizer', '!frame'],
     'sizer': ['control', 'sizer', 'spacer'],
     'menubar': ['menu'],
@@ -98,6 +98,9 @@ class Component(object):
         return isinstance(self, Container)
 
     def getAttribute(self, node, attribute):
+        if attribute == '':             # empty string means element node
+            attrClass = self.specials.get('', Attribute)
+            return attrClass.get(node)
         for n in node.childNodes:
             if n.nodeType == node.ELEMENT_NODE and n.tagName == attribute:
                 attrClass = self.specials.get(attribute, Attribute)
@@ -105,11 +108,12 @@ class Component(object):
         return ''
 
     def addAttribute(self, node, attribute, value):
+        print 'addAttribute', node.getAttribute('class'), attribute, value
         '''Add attribute element.'''
         attrClass = self.specials.get(attribute, Attribute)
         attrClass.add(node, attribute, value)
 
-    def makeTestWin(self, name='', pos=wx.DefaultPosition, size=wx.DefaultSize):
+    def makeTestWin(self, res, name, pos=wx.DefaultPosition, size=wx.DefaultSize):
         '''Method overrided by top-level components to show test view.'''
         raise NotImplementedError
 
@@ -252,6 +256,9 @@ class BoxSizer(Sizer):
             return self.images[0].Id
         else:
             return self.images[1].Id
+
+
+################################################################################
     
 class _ComponentManager:
     '''Manager instance collects information from component plugins.'''
@@ -262,7 +269,7 @@ class _ComponentManager:
         self.firstId = self.lastId = -1
         self.menus = {}
         self.panels = {}
-        self.menuNames = ['root', 'item', 'control', 'button', 'box', 
+        self.menuNames = ['TOP_LEVEL', 'ROOT', 'bar', 'control', 'button', 'box', 
                           'container', 'sizer', 'custom']
         self.panelNames = ['Windows', 'Panels', 'Menus', 'Sizers', 
                            'Controls', 'Custom']

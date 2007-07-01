@@ -23,8 +23,9 @@ class XMLTreeMenu(wx.Menu):
             item = tree.GetSelection()
             if not item: item = tree.root
             if item == tree.root or tree.GetItemParent(item) == tree.root and createSibling:
-                menu = self.CreateTopLevelMenu()
+                menu = self.CreateTopLevelMenu(comp)
             else:
+                menu = self.CreateTopLevelMenu(comp)
                 menu = self.CreateSubMenus(comp)
             # Select correct label for submenu
             if createSibling:
@@ -56,10 +57,11 @@ class XMLTreeMenu(wx.Menu):
         self.Append(ID.EXPAND, 'Expand', 'Expand tree')
         self.Append(ID.COLLAPSE, 'Collapse', 'Collapse tree')
 
-    def CreateTopLevelMenu(self):
+    def CreateTopLevelMenu(self, comp):
         m = wx.Menu()
-        for index,component,label,help in Manager.menus['root']:
-            m.Append(component.id, label, help)
+        for index,component,label,help in Manager.menus['TOP_LEVEL']:
+            if comp.canHaveChild(component):
+                m.Append(component.id, label, help)
         m.AppendSeparator()
         m.Append(ID.REF, 'reference...', 'Create object_ref node')
         m.Append(ID.COMMENT, 'comment', 'Create comment node')        
@@ -67,7 +69,12 @@ class XMLTreeMenu(wx.Menu):
 
     def CreateSubMenus(self, comp):
         menu = wx.Menu()
-        for name in Manager.menuNames[1:]:
+        for index,component,label,help in Manager.menus['ROOT']:
+            if comp.canHaveChild(component):
+                menu.Append(component.id, label, help)
+        if menu.GetMenuItemCount():
+            menu.AppendSeparator()
+        for name in Manager.menuNames[2:]:
             # Skip empty menu groups
             if not Manager.menus.get(name, []): continue
             m = wx.Menu()

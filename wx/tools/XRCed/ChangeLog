@@ -1,3 +1,12 @@
+2007-07-01  Scroll  <scroll@localhost.localdomain>
+
+	* Bitmap and Icon support, renamed 'root' menu to 'TOP_LEVEL'
+	(top-level components), 'ROOT' reserved for menu items added
+	before submenus; special attribute with empty name used for
+	node-level data (such as in wxBitmap); fixed bitmap param data
+	editing; added fallback to auto-registered generic component if a
+	reistered one not found; correct notebook parent/child group; etc.
+
 2007-06-30  Scroll  <scroll@localhost.localdomain>
 
 	* first stage of test window refactoring: moved test frame
