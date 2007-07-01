@@ -1,5 +1,9 @@
 2007-07-01  Scroll  <scroll@localhost.localdomain>
 
+	* Implemented Replace command including underlying logic for
+	passing compatible attributes and child objects from the old to
+	the new component
+
 	* Bitmap and Icon support, renamed 'root' menu to 'TOP_LEVEL'
 	(top-level components), 'ROOT' reserved for menu items added
 	before submenus; special attribute with empty name used for

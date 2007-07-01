@@ -122,16 +122,17 @@ class _Presenter:
         else:
             self.createSibling = False
         self.insertBefore = forceInsert
-        if self.createSibling:
-            comp = self.container
-        else:
-            comp = self.comp
-        menu = view.XMLTreeMenu(comp, view.tree, self.createSibling, self.insertBefore)
+        menu = view.XMLTreeMenu(self.container, self.comp, view.tree,
+                                self.createSibling, self.insertBefore)
         view.tree.PopupMenu(menu, pos)
         menu.Destroy()        
 
     def create(self, comp, child=None):
-        '''Add DOM node as child or sibling depending on flags. Return new item.'''
+        '''
+        Add DOM node as child or sibling depending on flags. Return new item.
+
+        If child is passed replace by existing data.
+        '''
         if child is None:
             child = Model.createObjectNode(comp.name)
         data = wx.TreeItemData(child)
@@ -151,6 +152,7 @@ class _Presenter:
                 self.container.insertBefore(parentNode, child, node)
                 item = view.tree.InsertItemBefore(parentItem, item, comp.name, 
                                                   comp.getTreeImageId(child), data=data)
+
             else:
                 self.container.insertAfter(parentNode, child, node)
                 item = view.tree.InsertItem(parentItem, item, comp.name, 
@@ -166,6 +168,31 @@ class _Presenter:
                 item = view.tree.AppendItem(item, comp.name, 
                                             comp.getTreeImageId(child), data=data)
         view.tree.EnsureVisible(item)
+        self.setModified()
+        return item
+
+    def replace(self, comp, node=None):
+        '''Replace DOM node by new or passed node. Return new item.'''
+        if node is None:
+            node = Model.createObjectNode(comp.name)
+        if not self.applied:
+            self.update(item)
+        data = wx.TreeItemData(node)
+        item = view.tree.GetSelection()
+        parentItem = view.tree.GetItemParent(item)
+        parentNode = view.tree.GetPyData(parentItem)
+        oldNode = view.tree.GetPyData(item)
+        self.container.replaceChild(parentNode, node, oldNode)
+        # Replace tree item: insert new, remove old
+        item = view.tree.InsertItem(parentItem, item, comp.name, 
+                                    comp.getTreeImageId(node), data=data)
+        view.tree.Delete(view.tree.GetPrevSibling(item))
+        # Add children
+        for n in filter(is_object, node.childNodes):
+            view.tree.AddNode(item, comp.getTreeNode(n))
+        view.tree.EnsureVisible(item)
+        # Update panel
+        view.tree.SelectItem(item)
         self.setModified()
         return item
 
@@ -185,7 +212,6 @@ class _Presenter:
                     panel.node.removeChild(n)
                     n.unlink()
         for panel in self.panels:
-            print panel.node.getAttribute('class')
             for a,w in panel.controls:
                 value = w.GetValue()
                 if value: 
@@ -389,6 +415,8 @@ class DropTarget(wx.PyDropTarget):
 
     # Find best object for dropping
     def WhereToDrop(self, x, y, d):
+        raise NotImplementedError
+        
         # Find object by position
         obj = wx.FindWindowAtPoint(g.testWin.ClientToScreen((x,y)))
         if not obj:
@@ -419,22 +447,26 @@ class DropTarget(wx.PyDropTarget):
         
     # Drop
     def OnData(self, x, y, d):
+        raise NotImplementedError
+        
         self.GetData()
         id = int(self.do.GetDataHere())
         d,other = self.WhereToDrop(x, y, d)
         if d != wx.DragNone:
             obj,parent,parentItem,item = other
-            g.tree.selection = parentItem
+            view.tree.SetSelection(parentItem)
             xxx = g.frame.CreateXXX(parent, parentItem, item,  id)
             # Set coordinates if parent is not sizer
             if not parent.isSizer:
                 xxx.set('pos', '%d,%d' % (x, y))
-                g.panel.SetData(xxx)
-            g.frame.SetStatusText('Object created')
+                view.panel.SetData(xxx)
+            view.frame.SetStatusText('Object created')
         self.RemoveHL()
         return d
 
     def OnDragOver(self, x, y, d):
+        raise NotImplementedError
+        
         d,other = self.WhereToDrop(x, y, d)
         if d != wx.DragNone:
             obj,parent,parentItem,item = other
@@ -458,9 +490,13 @@ class DropTarget(wx.PyDropTarget):
         return d
 
     def OnLeave(self):
+        raise NotImplementedError
+        
         self.RemoveHL()
 
     def RemoveHL(self):
+        raise NotImplementedError
+        
         hl = g.testWin.highLightDT
         if hl:
             if hl.item:

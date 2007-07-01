@@ -10,7 +10,7 @@ from component import Manager
 
 class XMLTreeMenu(wx.Menu):
     '''dynamic pulldown menu for XMLTree'''
-    def __init__(self, comp, tree, createSibling, insertBefore):
+    def __init__(self, container, comp, tree, createSibling, insertBefore):
         '''
         Create tree pull-down menu. createSibling flag is set if the
         child must be a sibling of the selected item, insertBefore
@@ -22,11 +22,13 @@ class XMLTreeMenu(wx.Menu):
         if len(items) <= 1:
             item = tree.GetSelection()
             if not item: item = tree.root
-            if item == tree.root or tree.GetItemParent(item) == tree.root and createSibling:
-                menu = self.CreateTopLevelMenu(comp)
+            if container is Manager.rootComponent and createSibling:
+                menu = self.CreateTopLevelMenu(container)
             else:
-                menu = self.CreateTopLevelMenu(comp)
-                menu = self.CreateSubMenus(comp)
+                if createSibling:
+                    menu = self.CreateSubMenus(container)
+                else:
+                    menu = self.CreateSubMenus(comp)
             # Select correct label for submenu
             if createSibling:
                 if insertBefore:
@@ -42,8 +44,17 @@ class XMLTreeMenu(wx.Menu):
                 else:
                     self.AppendMenu(ID.APPEND, 'Append', menu,
                                     'Create object as the last child')
-
             self.AppendSeparator()
+            
+            if container:
+                if container is Manager.rootComponent:
+                    menu = self.CreateTopLevelMenu(container, ID.SHIFT)
+                else:
+                    menu = self.CreateSubMenus(container, ID.SHIFT)
+                self.AppendMenu(ID.REPLACE, 'Replace With', menu,
+                                'Replace selected object by another')
+                self.AppendSeparator()
+                
             self.Append(wx.ID_CUT, 'Cut', 'Cut to the clipboard')
             self.Append(wx.ID_COPY, 'Copy', 'Copy to the clipboard')
             if createSibling and item != tree.root:
@@ -57,21 +68,21 @@ class XMLTreeMenu(wx.Menu):
         self.Append(ID.EXPAND, 'Expand', 'Expand tree')
         self.Append(ID.COLLAPSE, 'Collapse', 'Collapse tree')
 
-    def CreateTopLevelMenu(self, comp):
+    def CreateTopLevelMenu(self, comp, idShift=0):
         m = wx.Menu()
         for index,component,label,help in Manager.menus['TOP_LEVEL']:
             if comp.canHaveChild(component):
-                m.Append(component.id, label, help)
+                m.Append(component.id + idShift, label, help)
         m.AppendSeparator()
         m.Append(ID.REF, 'reference...', 'Create object_ref node')
         m.Append(ID.COMMENT, 'comment', 'Create comment node')        
         return m
 
-    def CreateSubMenus(self, comp):
+    def CreateSubMenus(self, comp, idShift=0):
         menu = wx.Menu()
         for index,component,label,help in Manager.menus['ROOT']:
             if comp.canHaveChild(component):
-                menu.Append(component.id, label, help)
+                menu.Append(component.id + idShift, label, help)
         if menu.GetMenuItemCount():
             menu.AppendSeparator()
         for name in Manager.menuNames[2:]:
@@ -80,7 +91,7 @@ class XMLTreeMenu(wx.Menu):
             m = wx.Menu()
             for index,component,label,help in Manager.menus[name]:
                 if comp.canHaveChild(component):
-                    m.Append(component.id, label, help)
+                    m.Append(component.id + idShift, label, help)
             if m.GetMenuItemCount():
                 menu.AppendMenu(ID.MENU, name, m)
                 menu.AppendSeparator()

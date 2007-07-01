@@ -26,7 +26,9 @@ class _Listener:
         
         # Component events
         wx.EVT_MENU_RANGE(frame, Manager.firstId, Manager.lastId,
-                          self.OnComponent)
+                          self.OnComponentCreate)
+        wx.EVT_MENU_RANGE(frame, Manager.firstId + ID.SHIFT, Manager.lastId + ID.SHIFT,
+                          self.OnComponentReplace)
 
         # Other events
         wx.EVT_IDLE(frame, self.OnIdle)
@@ -104,10 +106,15 @@ class _Listener:
         tree.Bind(wx.EVT_TREE_SEL_CHANGED, self.OnTreeSelChanged)
         tree.Bind(wx.EVT_TREE_ITEM_COLLAPSED, self.OnTreeItemCollapsed)
 
-    def OnComponent(self, evt):
+    def OnComponentCreate(self, evt):
         '''Hadnler for creating new elements.'''
         comp = Manager.findById(evt.GetId())
         Presenter.create(comp)
+
+    def OnComponentReplace(self, evt):
+        '''Hadnler for creating new elements.'''
+        comp = Manager.findById(evt.GetId() - ID.SHIFT)
+        Presenter.replace(comp)
 
     def OnNew(self, evt):
         '''wx.ID_NEW hadndler.'''

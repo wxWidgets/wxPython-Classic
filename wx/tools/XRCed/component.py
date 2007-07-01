@@ -108,7 +108,6 @@ class Component(object):
         return ''
 
     def addAttribute(self, node, attribute, value):
-        print 'addAttribute', node.getAttribute('class'), attribute, value
         '''Add attribute element.'''
         attrClass = self.specials.get(attribute, Attribute)
         attrClass.add(node, attribute, value)
@@ -116,6 +115,36 @@ class Component(object):
     def makeTestWin(self, res, name, pos=wx.DefaultPosition, size=wx.DefaultSize):
         '''Method overrided by top-level components to show test view.'''
         raise NotImplementedError
+
+    def copyAttributes(self, srcNode, dstNode):
+        '''Copy relevant attribute nodes from oldNode to newNode.'''
+        dstComp = Manager.getNodeComp(dstNode)
+        for n in srcNode.childNodes:
+            if n.nodeType == n.ELEMENT_NODE:
+                a = n.tagName
+                # Check if attributes are compatible
+                srcAttrClass = self.specials.get(a, Attribute)
+                dstAttrClass = dstComp.specials.get(a, Attribute)
+                if srcAttrClass is not dstAttrClass: continue
+                srcParamClass = self.params.get(a, params.paramDict.get(a, params.ParamText))
+                dstParamClass = dstComp.params.get(a, params.paramDict.get(a, params.ParamText))
+                if srcParamClass is not dstParamClass: continue
+                # Style and exstyle are not in attributes and can be treated specially
+                if a == 'style':
+                    styles = self.getAttribute(srcNode, a).split('|')
+                    allStyles = dstComp.styles + params.genericStyles
+                    dstStyles = [s for s in styles if s.strip() in allStyles]
+                    if dstStyles:
+                        dstComp.addAttribute(dstNode, a, '|'.join(dstStyles))
+                elif a == 'exstyle':
+                    styles = self.getAttribute(srcNode, a).split('|')
+                    allStyles = dstComp.exStyles + params.genericExStyles
+                    dstStyles = [s for s in styles if s.strip() in allStyles]
+                    if dstStyles:
+                        dstComp.addAttribute(dstNode, a, '|'.join(dstStyles))
+                elif a in dstComp.attributes:
+                    value = self.getAttribute(srcNode, a)
+                    dstComp.addAttribute(dstNode, a, value)
 
 
 class Container(Component):
@@ -154,6 +183,24 @@ class Container(Component):
     def removeChild(self, parentNode, node):
         '''Some containers may remove additional elements.'''
         parentNode.removeChild(node)
+
+    def copyObjects(self, srcNode, dstNode):
+        # Copy child objects only for the same group
+        dstComp = Manager.getNodeComp(dstNode)
+        if self.groups[0] != dstComp.groups[0]: return
+        children = []
+        for n in filter(is_object, srcNode.childNodes):
+            n = self.getTreeNode(n)
+            if dstComp.canHaveChild(Manager.getNodeComp(n)):
+                dstComp.appendChild(dstNode, n)
+
+    def replaceChild(self, parentNode, newNode, oldNode):
+        # Keep compatible children
+        oldComp = Manager.getNodeComp(oldNode)
+        oldComp.copyAttributes(oldNode, newNode)
+        if oldComp.isContainer():
+            oldComp.copyObjects(oldNode, newNode)
+        parentNode.replaceChild(newNode, oldNode)
 
 class RootComponent(Container):    
     '''Special root component.'''
@@ -215,6 +262,27 @@ class SmartContainer(Container):
             implicitNode.unlink()
         else:
             parentNode.removeChild(node)
+
+    def replaceChild(self, parentNode, newNode, oldNode):
+        # Do similarly to Container for object child nodes
+        oldComp = Manager.getNodeComp(oldNode)
+        oldComp.copyAttributes(oldNode, newNode)
+        if oldComp.isContainer():
+            oldComp.copyObjects(oldNode, newNode)
+        # Special treatment for implicit nodes
+        if self.requireImplicit(oldNode):
+            implicitNode = oldNode.parentNode
+            if self.requireImplicit(newNode):
+                implicitNode.replaceChild(newNode, oldNode)
+            else:
+                parentNode.replaceChild(newNode, implicitNode)
+        else:
+            if self.requireImplicit(newNode):
+                elem = Model.createObjectNode(self.implicitName)
+                elem.appendChild(newNode)
+                parentNode.replaceChild(elem, oldNode)
+            else:
+                parentNode.replaceChild(newNode, oldNode)            
 
     def requireImplicit(self, node):
         # SmartContainer by default requires implicit
@@ -293,6 +361,9 @@ class _ComponentManager:
         for panel,icb in self.panels.items():
             if icb[1].name == name:
                 self.panels[panel].remove(icb)
+
+    def getNodeComp(self, node):
+        return self.components[node.getAttribute('class')]
 
     def setMenu(self, component, menu, label, help, index=sys.maxint):
         '''Set pulldown menu data.'''

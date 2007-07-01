@@ -36,6 +36,7 @@ TEST_FILE = 'test.xrc'
 
 # Global id constants
 class ID:
+    SHIFT = 1000                        # shift ids of replace commands
     MENU = wx.NewId()
     EXPAND = wx.NewId()
     COLLAPSE = wx.NewId()
@@ -44,6 +45,7 @@ class ID:
     INSERT = wx.NewId()
     APPEND = wx.NewId()
     SIBLING = wx.NewId()
+    REPLACE = wx.NewId()
     SUBCLASS = wx.NewId()
     REF = wx.NewId()
     COMMENT = wx.NewId()

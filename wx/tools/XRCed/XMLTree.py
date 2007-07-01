@@ -109,6 +109,14 @@ class XMLTree(wx.TreeCtrl):
             if item != self.root:
                 self.Collapse(item)
 
+    # Override to use same form as InsertItem
+    def InsertItemBefore(self, parent, next, label, image=-1, data=None):
+        prev = self.GetPrevSibling(next)
+        if prev:
+            return self.InsertItem(parent, prev, label, image, data=data)
+        else:
+            return self.PrependItem(parent, label, image, data=data)
+
     # Fix for broken
 
     def ItemHasChildren(self, item):
