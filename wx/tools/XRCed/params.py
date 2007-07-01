@@ -775,7 +775,6 @@ class CheckBox(PPanel):
         self.check.Bind(wx.EVT_CHECKBOX, self.OnCheck)
         self.SetSizer(topSizer)
     def OnCheck(self, evt):
-        if self.freeze: return
         Presenter.setApplied(False)
 
 class ParamBool(CheckBox):
@@ -959,3 +958,51 @@ paramDict = {
     'encoding': ParamEncoding, 'borders': ParamUnit,
     'comment': ParamComment
     }
+
+
+class StylePanel(wx.Panel):
+    '''Style panel.'''
+    def __init__(self, parent, styles, genericStyles=[]):
+        wx.Panel.__init__(self, parent, -1)
+        self.SetFont(g.smallerFont())
+        self.node = None
+        self.controls = []
+        topSizer = wx.BoxSizer(wx.HORIZONTAL)
+        if genericStyles:
+            # Generic styles
+            sizer = wx.GridSizer(len(genericStyles), 1, 0, 5)
+            label = wx.StaticText(self, label='Generic')
+            label.SetFont(g.labelFont())
+            sizer.Add(label, 0, wx.LEFT, 20)
+            for s in genericStyles:
+                if s[:2] == 'wx': label = s[2:]
+                else:             label = s
+                control = wx.CheckBox(self, label=label)
+                sizer.Add(control)
+                self.controls.append((s, control))
+            topSizer.Add(sizer)
+        if styles:
+            # Specific styles
+            sizer = wx.GridSizer(len(styles), 1, 0, 5)
+            if genericStyles:
+                label = wx.StaticText(self, label='Specific')
+                label.SetFont(g.labelFont())
+                sizer.Add(label, 0, wx.LEFT, 20)
+            for s in styles:
+                if s[:2] == 'wx': label = s[2:]
+                else:             label = s
+                control = wx.CheckBox(self, label=label)
+                sizer.Add(control)
+                self.controls.append((s, control))
+            topSizer.Add(sizer)
+        self.Bind(wx.EVT_CHECKBOX, self.OnCheck)
+        self.SetSizerAndFit(topSizer)
+
+    def GetValues(self):
+        checked = []
+        for s,check in self.controls:
+            if check.IsChecked(): checked.append(s)
+        return [('style', '|'.join(checked))]
+
+    def OnCheck(self, evt):
+        Presenter.setApplied(False)

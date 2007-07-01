@@ -22,7 +22,9 @@ class XMLTreeMenu(wx.Menu):
         if len(items) <= 1:
             item = tree.GetSelection()
             if not item: item = tree.root
-            if container is Manager.rootComponent and createSibling:
+            if not container:
+                menu = self.CreateTopLevelMenu(comp)
+            elif container is Manager.rootComponent and createSibling:
                 menu = self.CreateTopLevelMenu(container)
             else:
                 if createSibling:

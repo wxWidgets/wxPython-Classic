@@ -1,5 +1,9 @@
 2007-07-01  Scroll  <scroll@localhost.localdomain>
 
+	* 'name' parameter in Component was confusion, renamed to 'klass';
+	style/exstyle granted separate notebook panels with checkboxes
+	(params.StylePanel class); simplified attribute panel construction
+
 	* Implemented Replace command including underlying logic for
 	passing compatible attributes and child objects from the old to
 	the new component

@@ -30,9 +30,23 @@ class Component(object):
     # Common window attributes
     windowAttributes = ['fg', 'bg', 'font', 'enabled', 
                         'focused', 'hidden', 'tooltip', 'help']
+    genericStyles = [
+        'wxSIMPLE_BORDER', 'wxSUNKEN_BORDER', 'wxDOUBLE_BORDER',
+        'wxRAISED_BORDER', 'wxSTATIC_BORDER', 'wxNO_BORDER',
+        'wxCLIP_CHILDREN', 'wxTRANSPARENT_WINDOW', 'wxWANTS_CHARS',
+        'wxNO_FULL_REPAINT_ON_RESIZE', 'wxFULL_REPAINT_ON_RESIZE'
+        ]
+    genericExStyles = [
+        'wxWS_EX_VALIDATE_RECURSIVELY',
+        'wxWS_EX_BLOCK_EVENTS',
+        'wxWS_EX_TRANSIENT',
+        'wxFRAME_EX_CONTEXTHELP',
+        'wxWS_EX_PROCESS_IDLE',
+        'wxWS_EX_PROCESS_UI_UPDATES'
+        ]
     hasName = True                      # most elements have XRC IDs
-    def __init__(self, name, groups, attributes, **kargs):
-        self.name = name
+    def __init__(self, klass, groups, attributes, **kargs):
+        self.klass = klass
         self.groups = groups
         self.attributes = attributes
         self.styles = []
@@ -70,17 +84,17 @@ class Component(object):
         except IndexError:
             return 0
 
-    # Order components having same index by group and name
+    # Order components having same index by group and klass
     def __cmp__(self, other):
         if self.groups < other.groups: return -1
         elif self.groups == other.groups: 
-            if self.name < other.name: return -1
-            elif self.name == other.name: return 0
+            if self.klass < other.klass: return -1
+            elif self.klass == other.klass: return 0
             else: return 1
         else: return 1
 
     def __repr__(self):
-        return "Component('%s', %s)" % (self.name, self.attributes)
+        return "Component('%s', %s)" % (self.klass, self.attributes)
 
     def canHaveChild(self, component):
         '''True if the current component can have child of given type.
@@ -112,7 +126,7 @@ class Component(object):
         attrClass = self.specials.get(attribute, Attribute)
         attrClass.add(node, attribute, value)
 
-    def makeTestWin(self, res, name, pos=wx.DefaultPosition, size=wx.DefaultSize):
+    def makeTestWin(self, res, klass, pos=wx.DefaultPosition, size=wx.DefaultSize):
         '''Method overrided by top-level components to show test view.'''
         raise NotImplementedError
 
@@ -145,6 +159,12 @@ class Component(object):
                 elif a in dstComp.attributes:
                     value = self.getAttribute(srcNode, a)
                     dstComp.addAttribute(dstNode, a, value)
+
+
+class SimpleComponent(Component):
+    '''Component without window attributes and empty styles.'''
+    windowAttributes = []
+    genericStyles = genericExStyles = []
 
 
 class Container(Component):
@@ -202,15 +222,17 @@ class Container(Component):
             oldComp.copyObjects(oldNode, newNode)
         parentNode.replaceChild(newNode, oldNode)
 
+
 class RootComponent(Container):    
     '''Special root component.'''
     windowAttributes = []
     hasName = False
 
+
 class SmartContainer(Container):
-    def __init__(self, name, groups, attributes, **kargs):
-        Container.__init__(self, name, groups, attributes, **kargs)
-        self.implicitName = kargs['implicit_name']
+    def __init__(self, klass, groups, attributes, **kargs):
+        Container.__init__(self, klass, groups, attributes, **kargs)
+        self.implicitKlass = kargs['implicit_klass']
         self.implicitPageName = kargs['implicit_page']
         self.implicitAttributes = kargs['implicit_attributes']
         # This is optional
@@ -218,7 +240,7 @@ class SmartContainer(Container):
 
     '''Base class for containers with implicit nodes.'''
     def getTreeNode(self, node):
-        if node.getAttribute('class') == self.implicitName:
+        if node.getAttribute('class') == self.implicitKlass:
             for n in node.childNodes:
                 if is_object(n): return n
         # Maybe some children are not implicit
@@ -226,7 +248,7 @@ class SmartContainer(Container):
 
     def appendChild(self, parentNode, node):
         if self.requireImplicit(node):
-            elem = Model.createObjectNode(self.implicitName)
+            elem = Model.createObjectNode(self.implicitKlass)
             elem.appendChild(node)
             parentNode.appendChild(elem)
         else:
@@ -236,7 +258,7 @@ class SmartContainer(Container):
         if self.requireImplicit(nextNode):
             nextNode = nextNode.parentNode
         if self.requireImplicit(node):
-            elem = Model.createObjectNode(self.implicitName)
+            elem = Model.createObjectNode(self.implicitKlass)
             elem.appendChild(node)
             parentNode.insertBefore(elem, nextNode)
         else:
@@ -248,7 +270,7 @@ class SmartContainer(Container):
         else:
             nextNode = prevNode.nextSibling
         if self.requireImplicit(node):
-            elem = Model.createObjectNode(self.implicitName)
+            elem = Model.createObjectNode(self.implicitKlass)
             elem.appendChild(node)
             parentNode.insertBefore(elem, nextNode)
         else:
@@ -278,7 +300,7 @@ class SmartContainer(Container):
                 parentNode.replaceChild(newNode, implicitNode)
         else:
             if self.requireImplicit(newNode):
-                elem = Model.createObjectNode(self.implicitName)
+                elem = Model.createObjectNode(self.implicitKlass)
                 elem.appendChild(newNode)
                 parentNode.replaceChild(elem, oldNode)
             else:
@@ -297,15 +319,16 @@ class Sizer(SmartContainer):
     '''Sizers are not windows and have common implicit node.'''
     windowAttributes = []
     hasName = False
-
-    def __init__(self, name, groups, attributes, **kargs):
-        kargs.setdefault('implicit_name', 'sizeritem')
-        kargs.setdefault('implicit_page', 'SizeItem Attributes')
+    genericStyles = []
+    genericExStyles = []    
+    def __init__(self, klass, groups, attributes, **kargs):
+        kargs.setdefault('implicit_klass', 'sizeritem')
+        kargs.setdefault('implicit_page', 'SizeItem')
         kargs.setdefault('implicit_attributes', ['option', 'flag', 'border', 'minsize', 'ratio'])
         kargs.setdefault('implicit_params', {'option': params.ParamInt, 
                                              'minsize': params.ParamPosSize, 
                                              'ratio': params.ParamPosSize})
-        SmartContainer.__init__(self, name, groups, attributes, **kargs)
+        SmartContainer.__init__(self, klass, groups, attributes, **kargs)
 
     def requireImplicit(self, node):
         '''if there are implicit nodes for this particular component'''
@@ -315,9 +338,9 @@ class Sizer(SmartContainer):
 class BoxSizer(Sizer):
     '''Sizers are not windows and have common implicit node.'''
 
-    def __init__(self, name, groups, attributes, **kargs):
+    def __init__(self, klass, groups, attributes, **kargs):
         self.images = kargs.get('images', None)
-        Sizer.__init__(self, name, groups, attributes, **kargs)
+        Sizer.__init__(self, klass, groups, attributes, **kargs)
 
     def getTreeImageId(self, node):
         if self.getAttribute(node, 'orient') == 'wxVERTICAL':
@@ -347,19 +370,19 @@ class _ComponentManager:
 
     def register(self, component):
         '''Register component object.'''
-        self.components[component.name] = component
+        self.components[component.klass] = component
         # unique wx ID for event handling
         component.id = self.lastId = wx.NewId()
         self.ids[component.id] = component
 
-    def forget(self, name):
+    def forget(self, klass):
         '''Remove registered component.'''
-        del self.components[name]
+        del self.components[klass]
         for menu,iclh in self.menus.items():
-            if iclh[1].name == name:
+            if iclh[1].klass == klass:
                 self.menus[menu].remove(iclh)
         for panel,icb in self.panels.items():
-            if icb[1].name == name:
+            if icb[1].klass == klass:
                 self.panels[panel].remove(icb)
 
     def getNodeComp(self, node):

@@ -4,6 +4,7 @@
 # Created:      17.06.2007
 # RCS-ID:       $Id$
 
+import string
 import wx
 from globals import *
 import params
@@ -13,6 +14,36 @@ labelSize = (100,-1)
 
 # Panel class is the attribute panel containing class name, XRC ID and
 # a notebook with particular pages.
+
+class ScrolledPage(wx.ScrolledWindow):
+    def __init__(self, parent):
+        wx.ScrolledWindow.__init__(self, parent)
+        self.topSizer = wx.BoxSizer()
+        self.SetSizer(self.topSizer)
+        self.panel = None
+
+    def Reset(self):
+        if self.panel:
+            self.panel.Destroy()
+            self.panel = None
+#        try:
+#            sizer = self.topSizer.GetChildren()[0].GetSizer()
+#        except IndexError:
+#            return
+#        for w in self.GetChildren():
+#            w.Destroy()
+#        self.topSizer.Remove(sizer)
+
+    def SetPanel(self, panel):
+        self.Reset()
+        self.panel = panel
+        # Create new sizer
+#        sizer = wx.BoxSizer(wx.VERTICAL)
+#        sizer.Add(panel)#, 0, wx.EXPAND)
+        self.topSizer.Add(panel, 0, wx.ALL, 5)
+        size = self.topSizer.GetMinSize()
+        self.SetScrollbars(1, 1, size.width, size.height, 0, 0, True)
+        
 
 class Panel(wx.Panel):
     '''Attribute panel main class.'''
@@ -32,63 +63,43 @@ class Panel(wx.Panel):
         topSizer.Add(sizer, 0, wx.ALL, 10)
 
         self.nb = wx.Notebook(self, -1)
+        if wx.Platform == '__WXGTK__':
+            _oldAddPage = wx.Notebook.AddPage
+            def _newAddPage(self, page, label):
+                _oldAddPage(self, page, label)
+                page.Show(True)
+            wx.Notebook.AddPage = _newAddPage
 
         # Set common sizes
         params.InitSizes(self)
 
         # Create scrolled windows for panels
-        self.pageA = wx.ScrolledWindow(self.nb, -1)
-        sizer = wx.BoxSizer()
-        sizer.Add(wx.BoxSizer())         # dummy sizer
-        self.pageA.SetSizer(sizer)
+        self.pageA = ScrolledPage(self.nb)
         self.nb.AddPage(self.pageA, 'Attributes')
-        # Second page
-        self.pageWA = wx.ScrolledWindow(self.nb, -1)
+        # Style page
+        self.pageStyle = ScrolledPage(self.nb)
+        self.pageStyle.Hide()
+        # Extra style page
+        self.pageExStyle = ScrolledPage(self.nb)
+        self.pageExStyle.Hide()
+        # Window attributes page
+        self.pageWA = ScrolledPage(self.nb)
         self.pageWA.Hide()
-        sizer = wx.BoxSizer()
-        sizer.Add(wx.BoxSizer())         # dummy sizer
-        self.pageWA.SetSizer(sizer)
-        # Third page
-        self.pageIA = wx.ScrolledWindow(self.nb, -1)
+        # Implicit attributes page
+        self.pageIA = ScrolledPage(self.nb)
         self.pageIA.Hide()
-        sizer = wx.BoxSizer()
-        sizer.Add(wx.BoxSizer())         # dummy sizer
-        self.pageIA.SetSizer(sizer)
 
         topSizer.Add(self.nb, 1, wx.EXPAND | wx.ALL, 5)
         self.SetSizer(topSizer)
 
-    def ResetPage(self, page):
-        '''Destroy child windows and sizer.'''
-        topSizer = page.GetSizer()
-        try:
-            sizer = topSizer.GetChildren()[0].GetSizer()
-        except IndexError:
-            return
-        for w in page.GetChildren():
-            w.Destroy()
-        topSizer.Remove(sizer)
-
-    # Delete child windows and recreate panel sizer
-    def SetPagePanel(self, page, panel):
-        topSizer = page.GetSizer()
-        # Create new sizer
-        sizer = wx.BoxSizer(wx.VERTICAL)
-        topSizer.Add(sizer, 1, wx.ALL, 5)
-        sizer.Add(panel, 0, wx.EXPAND)
-        size = page.GetSizer().GetMinSize()
-        page.SetScrollbars(1, 1, size.width, size.height, 0, 0, True)
-
     def SetData(self, container, comp, node):
         self.nb.SetSelection(0)
         map(self.nb.RemovePage, range(self.nb.GetPageCount()-1, 0, -1))
-        self.ResetPage(self.pageA)
         
         self.comp = comp
         panels = []
         # First panel
         # Remove current objects and sizer
-        self.ResetPage(self.pageA)
         self.controlClass.SetValue(node.getAttribute('class'))
         self.labelName.Show(comp.hasName)
         self.controlName.Show(comp.hasName)
@@ -98,38 +109,47 @@ class Panel(wx.Panel):
         self.Layout()
 
         attributes = comp.attributes[:]
-        if comp.styles:
-            attributes.append('style')
-        if comp.exStyles:
-            attributes.append('exstyle')
+#        if comp.styles:
+#            attributes.append('style')
+#        if comp.exStyles:
+#            attributes.append('exstyle')
         panel = AttributePanel(self.pageA, attributes, comp.params)
         self.SetValues(panel, node)
         panels.append(panel)
-        self.SetPagePanel(self.pageA, panel)
+        self.pageA.SetPanel(panel)
 
         if comp.windowAttributes:
-            # Create attributes page
-            self.ResetPage(self.pageWA)
             panel = AttributePanel(self.pageWA, comp.windowAttributes)
             self.SetValues(panel, node)
             panels.append(panel)
-            self.SetPagePanel(self.pageWA, panel)
-            self.nb.AddPage(self.pageWA, 'Window Attributes')
-            if 'wxGTK' in wx.PlatformInfo:
-                self.pageWA.Show(True)
+            self.pageWA.SetPanel(panel)
+            self.nb.AddPage(self.pageWA, 'WA')
+
+        if comp.styles or comp.genericStyles:
+            # Create style page
+            panel = params.StylePanel(self.pageStyle, comp.styles, comp.genericStyles)
+            self.SetStyleValues(panel, comp.getAttribute(node, 'style'))
+            panels.append(panel)
+            self.pageStyle.SetPanel(panel)
+            self.nb.AddPage(self.pageStyle, 'Style')
+
+        if comp.exStyles or comp.genericExStyles:
+            # Create extra style page
+            panel = params.StylePanel(self.pageExStyle, comp.exStyles + comp.genericExStyles)
+            self.SetStyleValues(panel, comp.getAttribute(node, 'exstyle'))
+            panels.append(panel)
+            self.pageExStyle.SetPanel(panel)
+            self.nb.AddPage(self.pageExStyle, 'ExStyle')
 
         # Additional panel for hidden node
         if container and container.requireImplicit(node):
-            self.ResetPage(self.pageIA)
             panel = AttributePanel(self.pageIA, 
                                    container.implicitAttributes, 
                                    container.implicitParams)
             self.SetValues(panel, node.parentNode)
             panels.append(panel)
-            self.SetPagePanel(self.pageIA, panel)
+            self.pageIA.SetPanel(panel)
             self.nb.AddPage(self.pageIA, container.implicitPageName)
-            if 'wxGTK' in wx.PlatformInfo:
-                self.pageIA.Show(True)
 
         return panels
         
@@ -137,18 +157,24 @@ class Panel(wx.Panel):
         self.comp = None
         self.nb.SetSelection(0)
         map(self.nb.RemovePage, range(self.nb.GetPageCount()-1, 0, -1))
-        self.ResetPage(self.pageA)
+        self.pageA.Reset()
 
         self.controlClass.SetValue('')
         self.labelName.Show(False)
         self.controlName.Show(False)
-        
+
     # Set data for a panel
     def SetValues(self, panel, node):
         panel.node = node
         for a,w in panel.controls:
             value = self.comp.getAttribute(node, a)
             w.SetValue(value)
+
+    # Set data for a style panel
+    def SetStyleValues(self, panel, style):
+        styles = map(string.strip, style.split('|')) # to list
+        for s,w in panel.controls:
+            w.SetValue(s in styles)
 
 ################################################################################
 
@@ -176,4 +202,7 @@ class AttributePanel(wx.Panel):
                     sizer.Add(control, 0, wx.GROW | wx.LEFT, 20)
             self.controls.append((a, control))
         self.SetSizerAndFit(sizer)
+
+    def GetValues(self):
+        return [(a,c.GetValue()) for a,c in self.controls]
         

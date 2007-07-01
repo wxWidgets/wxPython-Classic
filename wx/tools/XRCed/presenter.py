@@ -134,11 +134,13 @@ class _Presenter:
         If child is passed replace by existing data.
         '''
         if child is None:
-            child = Model.createObjectNode(comp.name)
+            child = Model.createObjectNode(comp.klass)
         data = wx.TreeItemData(child)
         item = view.tree.GetSelection()
         if not item: 
             item = view.tree.root
+        elif not self.applied:
+            self.update(item)
         if item == view.tree.root:
             self.createSibling = False # can't create sibling of root
         if self.createSibling:
@@ -150,31 +152,33 @@ class _Presenter:
             node = view.tree.GetPyData(item)
             if self.insertBefore:
                 self.container.insertBefore(parentNode, child, node)
-                item = view.tree.InsertItemBefore(parentItem, item, comp.name, 
+                item = view.tree.InsertItemBefore(parentItem, item, comp.klass, 
                                                   comp.getTreeImageId(child), data=data)
 
             else:
                 self.container.insertAfter(parentNode, child, node)
-                item = view.tree.InsertItem(parentItem, item, comp.name, 
+                item = view.tree.InsertItem(parentItem, item, comp.klass, 
                                             comp.getTreeImageId(child), data=data)
         else:
             if self.insertBefore and view.tree.ItemHasChildren(item):
                 nextNode = view.tree.GetPyData(view.tree.GetFirstChild(item)[0])
                 self.comp.insertBefore(parentNode, child, nextNode)
-                item = view.tree.PrependItem(item, comp.name, 
+                item = view.tree.PrependItem(item, comp.klass, 
                                              comp.getTreeImageId(child), data=data)
             else:
                 self.comp.appendChild(parentNode, child)
-                item = view.tree.AppendItem(item, comp.name, 
+                item = view.tree.AppendItem(item, comp.klass, 
                                             comp.getTreeImageId(child), data=data)
         view.tree.EnsureVisible(item)
+        view.tree.UnselectAll()
+        view.tree.SelectItem(item)
         self.setModified()
         return item
 
     def replace(self, comp, node=None):
         '''Replace DOM node by new or passed node. Return new item.'''
         if node is None:
-            node = Model.createObjectNode(comp.name)
+            node = Model.createObjectNode(comp.klass)
         if not self.applied:
             self.update(item)
         data = wx.TreeItemData(node)
@@ -184,7 +188,7 @@ class _Presenter:
         oldNode = view.tree.GetPyData(item)
         self.container.replaceChild(parentNode, node, oldNode)
         # Replace tree item: insert new, remove old
-        item = view.tree.InsertItem(parentItem, item, comp.name, 
+        item = view.tree.InsertItem(parentItem, item, comp.klass, 
                                     comp.getTreeImageId(node), data=data)
         view.tree.Delete(view.tree.GetPrevSibling(item))
         # Add children
@@ -206,16 +210,21 @@ class _Presenter:
             elif node.hasAttribute('name'): # clean up empty names
                 node.removeAttribute('name')
         for panel in self.panels:
+            if not panel.node: continue
             # Replace node contents except object children
             for n in panel.node.childNodes[:]:
                 if not is_object(n):
                     panel.node.removeChild(n)
                     n.unlink()
         for panel in self.panels:
-            for a,w in panel.controls:
-                value = w.GetValue()
+            if panel.node:
+                panelNode = panel.node
+            else:
+                panelNode = node
+            for a,value in panel.GetValues():
+                print a,value
                 if value: 
-                    self.comp.addAttribute(panel.node, a, value)
+                    self.comp.addAttribute(panelNode, a, value)
         view.tree.SetItemImage(item, self.comp.getTreeImageId(node))
         self.setApplied()
 
@@ -311,7 +320,7 @@ class _Presenter:
         else: container = self.comp
         if not container.canHaveChild(comp):
             wx.LogError('Incompatible parent/child: parent is %s, child is %s!' %
-                        (container.name, comp.name))
+                        (container.klass, comp.klass))
             node.unlink()
             return
 
