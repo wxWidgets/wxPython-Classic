@@ -18,7 +18,7 @@ import unittest
 # TODO: a more organized way of adding them
 import testBitmapButton, testButton, testCheckBox
 import testCheckListBox, testChoice
-import testColour, testControl, testControlWithItems
+import testColour, testComboBox, testControl, testControlWithItems
 import testDialog, testFont, testFrame
 import testGauge, testItemContainer
 import testListBox, testPoint, testRadioBox
@@ -29,7 +29,7 @@ import testToggleButton, testTopLevelWindow
 import testWindow
 
 modules = ( testBitmapButton, testButton, testCheckBox, testCheckListBox, 
-            testChoice, testColour, testControl,
+            testChoice, testColour, testComboBox, testControl,
             testControlWithItems, testDialog, testFont, testFrame,
             testGauge, testItemContainer,
             testListBox, testPoint, testRadioBox, testRadioButton,

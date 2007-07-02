@@ -59,7 +59,6 @@ ColourDatabase
 ColourDialog
 ColourPickerCtrl
 ColourPickerEvent
-ComboBox
 CommandEvent
 Config
 ConfigBase
