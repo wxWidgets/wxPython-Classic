@@ -48,6 +48,67 @@ class Frame(wx.Frame):
         except:
             self.tbicon = None
 
+        self.InitMenuBar()
+
+        # Create toolbar
+        self.tb = tb = self.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
+        # Use tango icons and slightly wider bitmap size on Mac
+        if wx.Platform in ['__WXMAC__', '__WXMSW__']:
+            tb.SetToolBitmapSize((26,26))
+        else:
+            tb.SetToolBitmapSize((24,24))
+        self.InitToolBar(g.conf.embedPanel) # add tools
+
+        # Build interface
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        #sizer.Add(wx.StaticLine(self, -1), 0, wx.EXPAND)
+        # Horizontal sizer for toolbar and splitter
+        self.toolsSizer = sizer1 = wx.BoxSizer()
+        splitter = wx.SplitterWindow(self, -1, style=wx.SP_3DSASH)
+        self.splitter = splitter
+        splitter.SetMinimumPaneSize(100)
+
+        global tree
+        tree = XMLTree(splitter)
+
+        # Miniframe for split mode
+        self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
+                                           (g.conf.panelX, g.conf.panelY),
+                                           (g.conf.panelWidth, g.conf.panelHeight))
+        mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
+        # Use tango icons and slightly wider bitmap size on Mac
+        if wx.Platform in ['__WXMAC__', '__WXMSW__']:
+            mf.tb.SetToolBitmapSize((26,26))
+        else:
+            mf.tb.SetToolBitmapSize((24,24))
+        self.InitMiniToolBar(mf.tb)
+        
+        sizer2 = wx.BoxSizer()
+        mf.SetSizer(sizer2)
+
+        # Create attribute panel
+        global panel
+        if g.conf.embedPanel:
+            panel = Panel(splitter)
+            # Set plitter windows
+            splitter.SplitVertically(tree, panel, g.conf.sashPos)
+        else:
+            panel = Panel(miniFrame)
+            sizer2.Add(panel, 1, wx.EXPAND)
+            miniFrame.Show(True)
+            splitter.Initialize(tree)
+        if wx.Platform == '__WXMAC__':
+            sizer1.Add(splitter, 1, wx.EXPAND|wx.RIGHT, 5)
+        else:
+            sizer1.Add(splitter, 1, wx.EXPAND)
+        sizer.Add(sizer1, 1, wx.EXPAND)
+
+        self.SetSizer(sizer)
+
+    def Clear(self):
+        pass
+
+    def InitMenuBar(self):
         # Make menus
         menuBar = wx.MenuBar()
 
@@ -142,90 +203,6 @@ class Frame(wx.Frame):
         self.menuBar = menuBar
         self.SetMenuBar(menuBar)
 
-        # Create toolbar
-        self.tb = tb = self.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
-        # Use tango icons and slightly wider bitmap size on Mac
-        if wx.Platform in ['__WXMAC__', '__WXMSW__']:
-            tb.SetToolBitmapSize((26,26))
-        else:
-            tb.SetToolBitmapSize((24,24))
-        self.InitToolBar(g.conf.embedPanel)
-
-        # Build interface
-        sizer = wx.BoxSizer(wx.VERTICAL)
-        #sizer.Add(wx.StaticLine(self, -1), 0, wx.EXPAND)
-        # Horizontal sizer for toolbar and splitter
-        self.toolsSizer = sizer1 = wx.BoxSizer()
-        splitter = wx.SplitterWindow(self, -1, style=wx.SP_3DSASH)
-        self.splitter = splitter
-        splitter.SetMinimumPaneSize(100)
-
-        global tree
-        tree = XMLTree(splitter)
-
-        # Miniframe for split mode
-        miniFrame = wx.MiniFrame(self, -1, 'Attributes',
-                                 (g.conf.panelX, g.conf.panelY),
-                                 (g.conf.panelWidth, g.conf.panelHeight))
-        tb = miniFrame.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
-        # Use tango icons and slightly wider bitmap size on Mac
-        if wx.Platform in ['__WXMAC__', '__WXMSW__']:
-            tb.SetToolBitmapSize((26,26))
-        else:
-            tb.SetToolBitmapSize((24,24))
-        bmp = wx.ArtProvider.GetBitmap(self.ART_LOCATE, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_TOOL_LOCATE, bmp,
-                         'Locate', 'Locate control in test window and select it', True)
-        bmp = wx.ArtProvider.GetBitmap(self.ART_TEST, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_TEST, bmp, 'Test', 'Test window')
-        bmp = wx.ArtProvider.GetBitmap(self.ART_REFRESH, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_REFRESH, bmp, 'Refresh', 'Refresh view')
-        bmp = wx.ArtProvider.GetBitmap(self.ART_AUTO_REFRESH, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_AUTO_REFRESH, bmp,
-                         'Auto-refresh', 'Toggle auto-refresh mode', True)
-        tb.AddSeparator()
-        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVEUP, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_MOVEUP, bmp,
-                         'Up', 'Move before previous sibling')
-        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVEDOWN, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_MOVEDOWN, bmp,
-                         'Down', 'Move after next sibling')
-        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVELEFT, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_MOVELEFT, bmp,
-                         'Make Sibling', 'Make sibling of parent')
-        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVERIGHT, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_MOVERIGHT, bmp,
-                         'Make Child', 'Make child of previous sibling')
-        tb.ToggleTool(self.ID_AUTO_REFRESH, g.conf.autoRefresh)
-        tb.Realize() 
-        miniFrame.tb = tb
-        
-        
-        self.miniFrame = miniFrame
-        sizer2 = wx.BoxSizer()
-        miniFrame.SetSizer(sizer2)
-        # Create panel for parameters
-        global panel
-        if g.conf.embedPanel:
-            panel = Panel(splitter)
-            # Set plitter windows
-            splitter.SplitVertically(tree, panel, g.conf.sashPos)
-        else:
-            panel = Panel(miniFrame)
-            sizer2.Add(panel, 1, wx.EXPAND)
-            miniFrame.Show(True)
-            splitter.Initialize(tree)
-        if wx.Platform == '__WXMAC__':
-            sizer1.Add(splitter, 1, wx.EXPAND|wx.RIGHT, 5)
-        else:
-            sizer1.Add(splitter, 1, wx.EXPAND)
-        sizer.Add(sizer1, 1, wx.EXPAND)
-        self.SetAutoLayout(True)
-        self.SetSizer(sizer)
-
-    def Clear(self):
-        pass
-
     def InitToolBar(self, long):
         '''Initialize toolbar, long is boolean.'''
         tb = self.tb
@@ -248,6 +225,19 @@ class Frame(wx.Frame):
         tb.AddSimpleTool(wx.ID_CUT, cut_bmp, 'Cut', 'Cut')
         tb.AddSimpleTool(wx.ID_COPY, copy_bmp, 'Copy', 'Copy')
         tb.AddSimpleTool(self.ID_TOOL_PASTE, paste_bmp, 'Paste', 'Paste')
+        tb.AddSeparator()
+        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVEUP, wx.ART_TOOLBAR)
+        tb.AddSimpleTool(self.ID_MOVEUP, bmp,
+                         'Up', 'Move before previous sibling')
+        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVEDOWN, wx.ART_TOOLBAR)
+        tb.AddSimpleTool(self.ID_MOVEDOWN, bmp,
+                         'Down', 'Move after next sibling')
+        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVELEFT, wx.ART_TOOLBAR)
+        tb.AddSimpleTool(self.ID_MOVELEFT, bmp,
+                         'Make Sibling', 'Make sibling of parent')
+        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVERIGHT, wx.ART_TOOLBAR)
+        tb.AddSimpleTool(self.ID_MOVERIGHT, bmp,
+                         'Make Child', 'Make child of previous sibling')
         if long:
             tb.AddSeparator()
             bmp = wx.ArtProvider.GetBitmap(self.ART_LOCATE, wx.ART_TOOLBAR)
@@ -260,22 +250,23 @@ class Frame(wx.Frame):
             bmp = wx.ArtProvider.GetBitmap(self.ART_AUTO_REFRESH, wx.ART_TOOLBAR)
             tb.AddSimpleTool(self.ID_AUTO_REFRESH, bmp,
                              'Auto-refresh', 'Toggle auto-refresh mode', True)
-            tb.AddSeparator()
-            bmp = wx.ArtProvider.GetBitmap(self.ART_MOVEUP, wx.ART_TOOLBAR)
-            tb.AddSimpleTool(self.ID_MOVEUP, bmp,
-                             'Up', 'Move before previous sibling')
-            bmp = wx.ArtProvider.GetBitmap(self.ART_MOVEDOWN, wx.ART_TOOLBAR)
-            tb.AddSimpleTool(self.ID_MOVEDOWN, bmp,
-                             'Down', 'Move after next sibling')
-            bmp = wx.ArtProvider.GetBitmap(self.ART_MOVELEFT, wx.ART_TOOLBAR)
-            tb.AddSimpleTool(self.ID_MOVELEFT, bmp,
-                             'Make Sibling', 'Make sibling of parent')
-            bmp = wx.ArtProvider.GetBitmap(self.ART_MOVERIGHT, wx.ART_TOOLBAR)
-            tb.AddSimpleTool(self.ID_MOVERIGHT, bmp,
-                             'Make Child', 'Make child of previous sibling')
             tb.ToggleTool(self.ID_AUTO_REFRESH, g.conf.autoRefresh)
         tb.Realize()
         self.minWidth = tb.GetSize()[0] # minimal width is the size of toolbar 
+
+    def InitMiniToolBar(self, tb):
+        bmp = wx.ArtProvider.GetBitmap(self.ART_LOCATE, wx.ART_TOOLBAR)
+        tb.AddSimpleTool(self.ID_TOOL_LOCATE, bmp,
+                         'Locate', 'Locate control in test window and select it', True)
+        bmp = wx.ArtProvider.GetBitmap(self.ART_TEST, wx.ART_TOOLBAR)
+        tb.AddSimpleTool(self.ID_TEST, bmp, 'Test', 'Test window')
+        bmp = wx.ArtProvider.GetBitmap(self.ART_REFRESH, wx.ART_TOOLBAR)
+        tb.AddSimpleTool(self.ID_REFRESH, bmp, 'Refresh', 'Refresh view')
+        bmp = wx.ArtProvider.GetBitmap(self.ART_AUTO_REFRESH, wx.ART_TOOLBAR)
+        tb.AddSimpleTool(self.ID_AUTO_REFRESH, bmp,
+                         'Auto-refresh', 'Toggle auto-refresh mode', True)
+        tb.ToggleTool(self.ID_AUTO_REFRESH, g.conf.autoRefresh)
+        tb.Realize() 
 
     def EmbedUnembed(self, embedPanel):
         conf = g.conf
@@ -359,6 +350,7 @@ class ToolArtProvider(wx.ArtProvider):
                     wx.ART_COPY: images.getCopyImage(),
                     wx.ART_PASTE: images.getPasteImage()
                     })
+
     def CreateBitmap(self, id, client, size):
         bmp = wx.NullBitmap
         if id in self.images:

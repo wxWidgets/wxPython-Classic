@@ -236,7 +236,8 @@ class _Presenter:
         # Reset variables
         self.comp = Manager.rootComponent
         self.container = None
-        view.tree.Flush()
+        view.tree.UnselectAll()
+        #view.tree.Flush()
 
     def delete(self):
         '''Delete selected object(s).'''
