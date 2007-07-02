@@ -26,20 +26,10 @@ class ScrolledPage(wx.ScrolledWindow):
         if self.panel:
             self.panel.Destroy()
             self.panel = None
-#        try:
-#            sizer = self.topSizer.GetChildren()[0].GetSizer()
-#        except IndexError:
-#            return
-#        for w in self.GetChildren():
-#            w.Destroy()
-#        self.topSizer.Remove(sizer)
 
     def SetPanel(self, panel):
         self.Reset()
         self.panel = panel
-        # Create new sizer
-#        sizer = wx.BoxSizer(wx.VERTICAL)
-#        sizer.Add(panel)#, 0, wx.EXPAND)
         self.topSizer.Add(panel, 0, wx.ALL, 5)
         size = self.topSizer.GetMinSize()
         self.SetScrollbars(1, 1, size.width, size.height, 0, 0, True)
@@ -108,11 +98,7 @@ class Panel(wx.Panel):
 
         self.Layout()
 
-        attributes = comp.attributes #[:]
-#        if comp.styles:
-#            attributes.append('style')
-#        if comp.exStyles:
-#            attributes.append('exstyle')
+        attributes = comp.attributes
         panel = AttributePanel(self.pageA, attributes, comp.params, comp.renameDict)
         self.SetValues(panel, node)
         panels.append(panel)
@@ -124,7 +110,7 @@ class Panel(wx.Panel):
             self.SetValues(panel, node)
             panels.append(panel)
             self.pageWA.SetPanel(panel)
-            self.nb.AddPage(self.pageWA, 'WA')
+            self.nb.AddPage(self.pageWA, "Look'n'Feel")
 
         if comp.styles or comp.genericStyles:
             # Create style page
