@@ -1031,6 +1031,7 @@ AUI_NB_WINDOWLIST_BUTTON = _aui.AUI_NB_WINDOWLIST_BUTTON
 AUI_NB_CLOSE_BUTTON = _aui.AUI_NB_CLOSE_BUTTON
 AUI_NB_CLOSE_ON_ACTIVE_TAB = _aui.AUI_NB_CLOSE_ON_ACTIVE_TAB
 AUI_NB_CLOSE_ON_ALL_TABS = _aui.AUI_NB_CLOSE_ON_ALL_TABS
+AUI_NB_MIDDLE_CLICK_CLOSE = _aui.AUI_NB_MIDDLE_CLICK_CLOSE
 AUI_NB_DEFAULT_STYLE = _aui.AUI_NB_DEFAULT_STYLE
 class AuiNotebookEvent(_core.NotifyEvent):
     """Proxy of C++ AuiNotebookEvent class"""
@@ -1438,6 +1439,26 @@ class AuiNotebook(_core.Control):
     def GetAuiManager(*args, **kwargs):
         """GetAuiManager(self) -> AuiManager"""
         return _aui.AuiNotebook_GetAuiManager(*args, **kwargs)
+
+    def SetNormalFont(*args, **kwargs):
+        """SetNormalFont(self, Font font)"""
+        return _aui.AuiNotebook_SetNormalFont(*args, **kwargs)
+
+    def SetSelectedFont(*args, **kwargs):
+        """SetSelectedFont(self, Font font)"""
+        return _aui.AuiNotebook_SetSelectedFont(*args, **kwargs)
+
+    def SetMeasuringFont(*args, **kwargs):
+        """SetMeasuringFont(self, Font font)"""
+        return _aui.AuiNotebook_SetMeasuringFont(*args, **kwargs)
+
+    def GetTabCtrlHeight(*args, **kwargs):
+        """GetTabCtrlHeight(self) -> int"""
+        return _aui.AuiNotebook_GetTabCtrlHeight(*args, **kwargs)
+
+    def GetHeightForPageHeight(*args, **kwargs):
+        """GetHeightForPageHeight(self, int pageHeight) -> int"""
+        return _aui.AuiNotebook_GetHeightForPageHeight(*args, **kwargs)
 
     PageCount = property(GetPageCount,doc="See `GetPageCount`") 
     Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 

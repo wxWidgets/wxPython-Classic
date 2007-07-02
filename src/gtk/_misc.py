@@ -1725,6 +1725,10 @@ class LogChain(Log):
         """GetOldLog(self) -> Log"""
         return _misc_.LogChain_GetOldLog(*args, **kwargs)
 
+    def DetachOldLog(*args, **kwargs):
+        """DetachOldLog(self)"""
+        return _misc_.LogChain_DetachOldLog(*args, **kwargs)
+
     OldLog = property(GetOldLog,doc="See `GetOldLog`") 
 _misc_.LogChain_swigregister(LogChain)
 
