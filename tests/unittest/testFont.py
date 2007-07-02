@@ -73,7 +73,7 @@ class FontTest(unittest.TestCase):
         self.app = wx.PySimpleApp()
     
     def tearDown(self):
-        pass
+        self.app.Destroy()
     
     def testFontstyle(self):
         # wx.FONTSTYLE_MAX dies (on Windows)
