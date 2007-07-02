@@ -43,14 +43,15 @@ class Panel(wx.Panel):
         topSizer = wx.BoxSizer(wx.VERTICAL)
         sizer = wx.FlexGridSizer(2, 2, 1, 5)
         label = wx.StaticText(self, -1, 'class:')
-        self.controlClass = params.ParamText(self, 'class', 200)
+        self.controlClass = params.ParamText(self, 'class', textWidth=200)
         sizer.AddMany([ (label, 0, wx.ALIGN_CENTER_VERTICAL),
                         (self.controlClass, 0, wx.LEFT, 5) ])
         self.labelName = wx.StaticText(self, -1, 'XRC ID:')
-        self.controlName = params.ParamText(self, 'XML_name', 200)
+        self.controlName = params.ParamText(self, 'XML_name', textWidth=200)
         sizer.AddMany([ (self.labelName, 0, wx.ALIGN_CENTER_VERTICAL),
                         (self.controlName, 0, wx.LEFT, 5) ])
         topSizer.Add(sizer, 0, wx.ALL, 10)
+        self.sizer = sizer
 
         self.nb = wx.Notebook(self, -1)
         if wx.Platform == '__WXGTK__':
@@ -151,6 +152,8 @@ class Panel(wx.Panel):
         self.labelName.Show(False)
         self.controlName.Show(False)
 
+        self.Layout()
+
     # Set data for a panel
     def SetValues(self, panel, node):
         panel.node = node
@@ -185,7 +188,7 @@ class AttributePanel(wx.Panel):
                 if sParam:
                     label = wx.StaticText(self, -1, sParam, size=labelSize)
                     sizer.AddMany([ (label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 20),
-                                    (control, 0, wx.ALIGN_CENTER_VERTICAL | wx.GROW) ])
+                                    (control, 0, wx.ALIGN_CENTER_VERTICAL) ])
                 else:
                     sizer.Add(control, 0, wx.GROW | wx.LEFT, 20)
             self.controls.append((a, control))

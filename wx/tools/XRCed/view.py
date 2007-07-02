@@ -50,6 +50,9 @@ class Frame(wx.Frame):
 
         self.InitMenuBar()
 
+        self.ID_TOOL_PASTE = wx.NewId()
+        self.ID_TOOL_LOCATE = wx.NewId()
+
         # Create toolbar
         self.tb = tb = self.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
         # Use tango icons and slightly wider bitmap size on Mac
@@ -112,7 +115,7 @@ class Frame(wx.Frame):
         # Make menus
         menuBar = wx.MenuBar()
 
-        menu = wx.Menu()
+        menu = wx.Menu()                # File menu
         menu.Append(wx.ID_NEW, '&New\tCtrl-N', 'New file')
         menu.AppendSeparator()
         menu.Append(wx.ID_OPEN, '&Open...\tCtrl-O', 'Open XRC file')
@@ -137,7 +140,7 @@ class Frame(wx.Frame):
 
         menuBar.Append(menu, '&File')
 
-        menu = wx.Menu()
+        menu = wx.Menu()                # Edit menu
         menu.Append(wx.ID_UNDO, '&Undo\tCtrl-Z', 'Undo')
         menu.Append(wx.ID_REDO, '&Redo\tCtrl-Y', 'Redo')
         menu.AppendSeparator()
@@ -147,12 +150,12 @@ class Frame(wx.Frame):
         menu.Append(wx.ID_DELETE, '&Delete\tCtrl-D', 'Delete object')
         menu.AppendSeparator()
         self.ID_LOCATE = wx.NewId()
-        self.ID_TOOL_LOCATE = wx.NewId()
         self.ART_LOCATE = 'ART_LOCATE'
-        self.ID_TOOL_PASTE = wx.NewId()
         menu.Append(self.ID_LOCATE, '&Locate\tCtrl-L', 'Locate control in test window and select it')
+        
         menuBar.Append(menu, '&Edit')
-        menu = wx.Menu()
+        
+        menu = wx.Menu()                # View menu
         self.ID_EMBED_PANEL = wx.NewId()
         menu.Append(self.ID_EMBED_PANEL, '&Embed Panel',
                     'Toggle embedding properties panel in the main window', True)
@@ -174,9 +177,13 @@ class Frame(wx.Frame):
         menu.Check(self.ID_AUTO_REFRESH, g.conf.autoRefresh)
         self.ID_TEST_HIDE = wx.NewId()
         menu.Append(self.ID_TEST_HIDE, '&Hide\tF6', 'Close test window')
+        menu.AppendSeparator()
+        self.ID_SHOW_XML = wx.NewId()
+        menu.Append(self.ID_SHOW_XML, 'Show &XML...', 'Show XML source for the selected subtree')
+        
         menuBar.Append(menu, '&View')
 
-        menu = wx.Menu()
+        menu = wx.Menu()                # Move menu
         self.ID_MOVEUP = wx.NewId()
         self.ART_MOVEUP = 'ART_MOVEUP'
         menu.Append(self.ID_MOVEUP, '&Up', 'Move before previous sibling')
@@ -189,15 +196,17 @@ class Frame(wx.Frame):
         self.ID_MOVERIGHT = wx.NewId()
         self.ART_MOVERIGHT = 'ART_MOVERIGHT'
         menu.Append(self.ID_MOVERIGHT, '&Make child', 'Make child of previous sibling')
+        
         menuBar.Append(menu, '&Move')
 
-        menu = wx.Menu()
+        menu = wx.Menu()                # Help menu
         menu.Append(wx.ID_ABOUT, '&About...', 'About XCRed')
         self.ID_README = wx.NewId()
         menu.Append(self.ID_README, '&Readme...\tF1', 'View the README file')
         if debug:
             self.ID_DEBUG_CMD = wx.NewId()
             menu.Append(self.ID_DEBUG_CMD, 'CMD', 'Python command line')
+            
         menuBar.Append(menu, '&Help')
 
         self.menuBar = menuBar
@@ -307,9 +316,9 @@ class Frame(wx.Frame):
 
 # ScrolledMessageDialog - modified from wxPython lib to set fixed-width font
 class ScrolledMessageDialog(wx.Dialog):
-    def __init__(self, parent, msg, caption, pos = wx.DefaultPosition, size = (500,300)):
+    def __init__(self, parent, msg, caption, textSize=(80,40), centered=True):
         from wx.lib.layoutf import Layoutf
-        wx.Dialog.__init__(self, parent, -1, caption, pos, size)
+        wx.Dialog.__init__(self, parent, -1, caption)
         text = wx.TextCtrl(self, -1, msg, wx.DefaultPosition,
                              wx.DefaultSize, wx.TE_MULTILINE | wx.TE_READONLY)
         text.SetFont(g.modernFont())
@@ -318,12 +327,13 @@ class ScrolledMessageDialog(wx.Dialog):
         ok = wx.Button(self, wx.ID_OK, "OK")
         ok.SetDefault()
         text.SetConstraints(Layoutf('t=t5#1;b=t5#2;l=l5#1;r=r5#1', (self,ok)))
-        text.SetSize((w * 80 + 30, h * 40))
+        text.SetSize((w * textSize[0] + 30, h * textSize[1]))
         text.ShowPosition(1)            # scroll to the first line
         ok.SetConstraints(Layoutf('b=b5#1;x%w50#1;w!80;h!35', (self,)))
         self.SetAutoLayout(True)
         self.Fit()
-        self.CenterOnScreen(wx.BOTH)
+        if centered:
+            self.CenterOnScreen(wx.BOTH)
 
 # ArtProvider for toolbar icons
 class ToolArtProvider(wx.ArtProvider):

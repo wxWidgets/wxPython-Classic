@@ -219,7 +219,6 @@ c.addStyles('wxTB_FLAT', 'wxTB_DOCKABLE', 'wxTB_VERTICAL', 'wxTB_HORIZONTAL',
             'wxTB_NOALIGN', 'wxTB_HORZ_LAYOUT', 'wxTB_HORZ_TEXT')
 c.renameDict = {'dontattachtoframe':'dontattach'}
 c.genericStyles = c.genericExStyles = []
-c.setParamClass('style', params.ParamNonGenericStyle)
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'ToolBar', 'Tool bar', 50)
 Manager.setMenu(c, 'bar', 'ToolBar', 'Tool bar', 20)
@@ -249,8 +248,7 @@ Manager.setMenu(c, 'ROOT', 'Separator', 'Separator', 20)
 
 c = SimpleComponent('wxStatusBar', ['statusbar'], ['fields', 'widths', 'styles'])
 c.addStyles('wxST_SIZEGRIP')
-c.setParamClass('fields', params.ParamIntNN)
-c.setParamClass('style', params.ParamNonGenericStyle)
+c.setParamClass('fields', params.MetaParamIntNN(1))
 Manager.register(c)
 Manager.setMenu(c, 'bar', 'StatusBar', 'Status bar', 30)
 

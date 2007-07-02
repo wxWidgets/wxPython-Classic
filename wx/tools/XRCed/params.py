@@ -114,70 +114,6 @@ class ParamFlag(ParamBinaryOr):
     def __init__(self, parent, name):
         ParamBinaryOr.__init__(self, parent, name)
 
-class ParamNonGenericStyle(ParamBinaryOr):
-    def __init__(self, parent, name):
-        self.values = Presenter.comp.styles
-        ParamBinaryOr.__init__(self, parent, name)
-
-class ParamStyle(ParamBinaryOr):
-    equal = {'wxALIGN_CENTER': 'wxALIGN_CENTRE'}
-    def __init__(self, parent, name):
-        ParamBinaryOr.__init__(self, parent, name)
-        self.valuesSpecific = Presenter.comp.styles
-        if self.valuesSpecific:         # override if using specific styles
-            # Remove duplicates
-            self.valuesGeneric = [s for s in genericStyles
-                                  if s not in self.valuesSpecific]
-            wx.EVT_BUTTON(self, self.ID_BUTTON_CHOICES, self.OnButtonChoicesBoth)
-        else:
-            self.values = genericStyles
-    def OnButtonChoicesBoth(self, evt):
-        dlg = g.res.LoadDialog(self, 'DIALOG_STYLES')
-        listBoxSpecific = xrc.XRCCTRL(dlg, 'CHECKLIST_SPECIFIC')
-        listBoxSpecific.InsertItems(self.valuesSpecific, 0)
-        listBoxGeneric = xrc.XRCCTRL(dlg, 'CHECKLIST_GENERIC')
-        listBoxGeneric.InsertItems(self.valuesGeneric, 0)
-        value = map(string.strip, self.text.GetValue().split('|'))
-        if value == ['']: value = []
-        # Set specific styles
-        value2 = []                     # collect generic and ignored here
-        for i in value:
-            try:
-                listBoxSpecific.Check(self.valuesSpecific.index(i))
-            except ValueError:
-                # Try to find equal
-                if self.equal.has_key(i):
-                    listBoxSpecific.Check(self.valuesSpecific.index(self.equal[i]))
-                else:
-                    value2.append(i)
-        ignored = []
-        # Set generic styles, collect non-standart values
-        for i in value2:
-            try:
-                listBoxGeneric.Check(self.valuesGeneric.index(i))
-            except ValueError:
-                # Try to find equal
-                if self.equal.has_key(i):
-                    listBoxGeneric.Check(self.valuesGeneric.index(self.equal[i]))
-                else:
-                    print 'WARNING: unknown flag: %s: ignored.' % i
-                    ignored.append(i)
-        if dlg.ShowModal() == wx.ID_OK:
-            value = [self.valuesSpecific[i]
-                     for i in range(listBoxSpecific.GetCount())
-                     if listBoxSpecific.IsChecked(i)] + \
-                     [self.valuesGeneric[i]
-                      for i in range(listBoxGeneric.GetCount())
-                      if listBoxGeneric.IsChecked(i)] + ignored
-            self.SetValue('|'.join(value))
-            Presenter.setApplied(False)
-        dlg.Destroy()
-
-class ParamExStyle(ParamBinaryOr):
-    def __init__(self, parent, name):
-        self.values = Presenter.comp.exStyles + genericExStyles
-        ParamBinaryOr.__init__(self, parent, name)
-
 class ParamColour(PPanel):
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
@@ -327,41 +263,36 @@ class ParamFont(PPanel):
 ################################################################################
 
 class ParamInt(PPanel):
+    default = None
+    range = (-2147483648, 2147483647)
+    maxValue = None
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
         self.ID_SPIN_CTRL = wx.NewId()
         sizer = wx.BoxSizer()
         self.spin = wx.SpinCtrl(self, self.ID_SPIN_CTRL, size=(60,-1))
-        self.spin.SetRange(-2147483648, 2147483647) # min/max integers
+        self.spin.SetRange(*self.range) # min/max integers
         sizer.Add(self.spin)
         self.SetSizer(sizer)
         wx.EVT_SPINCTRL(self, self.ID_SPIN_CTRL, self.OnChange)
     def GetValue(self):
-        return str(self.spin.GetValue())
+        value = self.spin.GetValue()
+        if self.default is not None and value == self.default: return ''
+        return str(value)
     def SetValue(self, value):
-        self.freeze = True
-        if not value: value = 0
-        self.spin.SetValue(int(value))
-        self.freeze = False
+        if self.default is not None and not value:
+            self.spin.SetValue(self.default)
+        else:
+            self.spin.SetValue(int(value))
 
-# Non-negative number
-class ParamIntNN(PPanel):
-    def __init__(self, parent, name):
-        PPanel.__init__(self, parent, name)
-        self.ID_SPIN_CTRL = wx.NewId()
-        sizer = wx.BoxSizer()
-        self.spin = wx.SpinCtrl(self, self.ID_SPIN_CTRL, size=(60,-1))
-        self.spin.SetRange(0, 10000) # min/max integers
-        sizer.Add(self.spin)
-        self.SetSizer(sizer)
-        wx.EVT_SPINCTRL(self, self.ID_SPIN_CTRL, self.OnChange)
-    def GetValue(self):
-        return str(self.spin.GetValue())
-    def SetValue(self, value):
-        self.freeze = True
-        if not value: value = 0
-        self.spin.SetValue(int(value))
-        self.freeze = False
+def MetaParamInt(default):
+    '''Create ParamInt class with default value.'''
+    return type('ParamInt__default', (ParamInt,), {'default': default})
+
+def MetaParamIntNN(default):
+    '''Create ParamInt class with default value and non-negative range.'''
+    return type('ParamIntNN__default', (ParamInt,),
+                {'default': default, 'range': (0, 2147483647)})
 
 # Same as int but allows dialog units (XXXd)
 class ParamUnit(PPanel):
@@ -444,8 +375,10 @@ class ParamMultilineText(PPanel):
         dlg.Destroy()
 
 class ParamText(PPanel):
-    def __init__(self, parent, name, textWidth=-1, style=0):
+    textWidth = -1
+    def __init__(self, parent, name, style=0, **kargs):
         PPanel.__init__(self, parent, name)
+        textWidth = kargs.get('textWidth', self.textWidth)
         self.ID_TEXT_CTRL = wx.NewId()
         # We use sizer even here to have the same size of text control
         sizer = wx.BoxSizer()
@@ -462,21 +395,14 @@ class ParamText(PPanel):
         self.text.SetValue(value)
         self.freeze = False             # disable other handlers
 
-class ParamAccel(ParamText):
-    def __init__(self, parent, name):
-        ParamText.__init__(self, parent, name, 100)
+def MetaParamText(textWidth):
+    '''ParamText with specified length.'''
+    return type('ParamText__length', (ParamText,),
+                {'textWidth': textWidth})
 
-class ParamPosSize(ParamText):
-    def __init__(self, parent, name):
-        ParamText.__init__(self, parent, name, 80)
-
-class ParamLabel(ParamText):
-    def __init__(self, parent, name):
-        ParamText.__init__(self, parent, name, 200)
-
-class ParamEncoding(ParamText):
-    def __init__(self, parent, name):
-        ParamText.__init__(self, parent, name, 100)
+ParamAccel = MetaParamText(100)
+ParamPosSize = MetaParamText(80)
+ParamEncoding = MetaParamText(100)
 
 class ParamComment(ParamText):
     def __init__(self, parent, name):
@@ -752,8 +678,7 @@ class RadioBox(PPanel):
 # Boxless radiobox
 class CheckBox(PPanel):
     isCheck = True
-    def __init__(self, parent, id, 
-                 pos=wx.DefaultPosition, name='checkbox'):
+    def __init__(self, parent, pos=wx.DefaultPosition, name='checkbox'):
         PPanel.__init__(self, parent, name)
         topSizer = wx.BoxSizer()
         self.check = wx.CheckBox(self, -1, name, size=(-1,buttonSize[1]))
@@ -765,8 +690,6 @@ class CheckBox(PPanel):
 
 class ParamBool(CheckBox):
     defaultString = '(default is False)'
-    def __init__(self, parent, name):
-        CheckBox.__init__(self, parent, -1, name=name)
     def GetValue(self):
         return ('', '1')[self.check.IsChecked()]
     def SetValue(self, value):
@@ -775,8 +698,6 @@ class ParamBool(CheckBox):
 class ParamInverseBool(CheckBox):
     '''like ParamBool but defined if unchecked'''
     defaultString = '(default is True)'
-    def __init__(self, parent, name):
-        CheckBox.__init__(self, parent, -1, name=name)
     def GetValue(self):
         return ('0', '')[self.check.IsChecked()]
     def SetValue(self, value):
@@ -928,15 +849,14 @@ class ParamBitmap(PPanel):
 
 paramDict = {
     'flag': ParamFlag, 'orient': ParamOrient,
-    'style': ParamStyle, 'exstyle': ParamExStyle,
     'pos': ParamPosSize, 'size': ParamPosSize,
     'cellpos': ParamPosSize, 'cellspan': ParamPosSize,
-    'border': ParamUnit, 'cols': ParamIntNN, 'rows': ParamIntNN,
+    'border': ParamUnit, 'cols': MetaParamIntNN(0), 'rows': MetaParamIntNN(0),
     'vgap': ParamUnit, 'hgap': ParamUnit,
     'checkable': ParamBool, 'checked': ParamBool, 'radio': ParamBool,
     'accel': ParamAccel, 'centered': ParamBool,
     'label': ParamMultilineText, 'title': ParamText, 'value': ParamText,
-    'content': ParamContent, 'selection': ParamIntNN,
+    'content': ParamContent, 'selection': MetaParamIntNN(0),
     'min': ParamInt, 'max': ParamInt,
     'fg': ParamColour, 'bg': ParamColour, 'font': ParamFont,
     'enabled': ParamInverseBool, 'focused': ParamBool, 'hidden': ParamBool,

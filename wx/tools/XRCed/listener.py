@@ -33,8 +33,8 @@ class _Listener:
                           self.OnComponentReplace)
 
         # Other events
-        wx.EVT_IDLE(frame, self.OnIdle)
-        wx.EVT_CLOSE(frame, self.OnCloseWindow)
+        frame.Bind(wx.EVT_IDLE, self.OnIdle)
+        frame.Bind(wx.EVT_CLOSE, self.OnCloseWindow)
 #        wx.EVT_KEY_DOWN(frame, tools.OnKeyDown)
 #        wx.EVT_KEY_UP(frame, tools.OnKeyUp)
 #        wx.EVT_ICONIZE(frame, self.OnIconize)
@@ -68,6 +68,7 @@ class _Listener:
         wx.EVT_MENU(frame, frame.ID_REFRESH, self.OnRefresh)
         wx.EVT_MENU(frame, frame.ID_AUTO_REFRESH, self.OnAutoRefresh)
         wx.EVT_MENU(frame, frame.ID_TEST_HIDE, self.OnTestHide)
+        wx.EVT_MENU(frame, frame.ID_SHOW_XML, self.OnShowXML)
         # Move
         wx.EVT_MENU(frame, frame.ID_MOVEUP, self.OnMoveUp)
         wx.EVT_MENU(frame, frame.ID_MOVEDOWN, self.OnMoveDown)
@@ -96,6 +97,7 @@ class _Listener:
         wx.EVT_UPDATE_UI(frame, frame.ID_MOVELEFT, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, frame.ID_MOVERIGHT, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, frame.ID_REFRESH, self.OnUpdateUI)
+        wx.EVT_UPDATE_UI(frame, frame.ID_SHOW_XML, self.OnUpdateUI)
 
         wx.EVT_MENU(frame, ID.COLLAPSE, self.OnCollapse)
         wx.EVT_MENU(frame, ID.EXPAND, self.OnExpand)
@@ -325,8 +327,8 @@ Homepage: http://xrced.sourceforge.net\
         dlg.Destroy()
 
     def OnReadme(self, evt):
-        text = open(os.path.join(basePath, 'README.txt'), 'r').read()
-        dlg = ScrolledMessageDialog(self.frame, text, "XRCed README")
+        text = open(os.path.join(g.basePath, 'README.txt'), 'r').read()
+        dlg = view.ScrolledMessageDialog(self.frame, text, "XRCed README")
         dlg.ShowModal()
         dlg.Destroy()
 
@@ -377,7 +379,10 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnTestHide(self, evt):
-        presenter.closeTestWin()
+        Presenter.closeTestWin()
+
+    def OnShowXML(self, evt):
+        Presenter.showXML()
 
     def OnUpdateUI(self, evt):
         if self.inUpdateUI: return          # Recursive call protection
@@ -386,6 +391,8 @@ Homepage: http://xrced.sourceforge.net\
             evt.Enable(bool(self.tree.GetSelection()))
         elif evt.GetId() == wx.ID_SAVE:
             evt.Enable(Presenter.modified)
+        elif evt.GetId() in [self.frame.ID_SHOW_XML]:
+            evt.Enable(len(self.tree.GetSelections()) == 1)
         elif evt.GetId() in [wx.ID_PASTE, self.frame.ID_TOOL_PASTE]:
             evt.Enable(len(self.tree.GetSelections()) == 1 and self.clipboardHasData)
 # !!! Does not work on wxGTK

@@ -64,7 +64,7 @@ class _Model:
         mainNode = domCopy.appendChild(self.mainNode.cloneNode(True))
         # Remove first child (testElem)
         mainNode.removeChild(mainNode.firstChild).unlink()
-        self._indent(domCopy, mainNode)
+        self.indent(domCopy, mainNode)
         domCopy.writexml(f, encoding = g.currentEncoding)
         f.close()
         domCopy.unlink()
@@ -82,31 +82,31 @@ class _Model:
             wx.LogError('Error writing temporary file')
         memFile.close()                 # write to wxMemoryFS        
 
-    def _indent(self, domCopy, node, indent = 0):
-        if node.nodeType == minidom.Node.COMMENT_NODE:
-            text = self.domCopy.createTextNode('\n' + ' ' * indent)
-            node.parentNode.insertBefore(text, node)
-            return                      # no children
-        # Copy child list because it will change soon
-        children = node.childNodes[:]
-        # Main node doesn't need to be indented
-        if indent:
+    def indent(self, domCopy, node, indent = 0):
+        '''Indent node which must be a comment or an element node and children.'''
+        if indent != 0:
             prevNode = node.previousSibling
-            if prevNode and prevNode.nodeType == node.TEXT_NODE:
+            if prevNode and prevNode.nodeType == prevNode.TEXT_NODE:
                 prevNode.data = '\n' + ' ' * indent
             else:
                 text = domCopy.createTextNode('\n' + ' ' * indent)
                 node.parentNode.insertBefore(text, node)
-        if children:
-            # Append newline after last child, except for text nodes
-            if children[-1].nodeType == minidom.Node.ELEMENT_NODE:
-                text = domCopy.createTextNode('\n' + ' ' * indent)
-                node.appendChild(text)
-            # Indent children which are elements
-            for n in children:
-                if n.nodeType == minidom.Node.ELEMENT_NODE or \
-                       n.nodeType == minidom.Node.COMMENT_NODE:
-                    self._indent(domCopy, n, indent + 2)
+        # Indent element/comment children recurcively
+        if node.hasChildNodes():
+            lastIndented = None
+            for n in node.childNodes[:]:
+                if n.nodeType in [n.ELEMENT_NODE, n.COMMENT_NODE]:
+                    self.indent(domCopy, n, indent + 2)
+                    lastIndented = n
+
+            # Insert newline after last element/comment child
+            if lastIndented:
+                n = lastIndented.nextSibling
+                if n and n.nodeType == n.TEXT_NODE:
+                    n.data = '\n' + ' ' * indent
+                else:
+                    text = domCopy.createTextNode('\n' + ' ' * indent)
+                    node.appendChild(text)
 
     def createObjectNode(self, className):
         node = self.dom.createElement('object')

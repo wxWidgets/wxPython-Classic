@@ -5,9 +5,6 @@
 # RCS-ID:       $Id$
 
 from globals import *
-from xxx import MakeXXXFromDOM
-from tree import *
-#from panel import *
 
 # Undo/redo classes
 class UndoManager:

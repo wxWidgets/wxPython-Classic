@@ -9,7 +9,7 @@ from xml.parsers import expat
 import cPickle
 from globals import *
 import view
-from model import Model
+from model import Model, MyDocument
 from component import Manager
 
 # Presenter class linking model to view objects
@@ -394,6 +394,25 @@ class _Presenter:
         view.testWin.pos = view.testWin.GetFrame().GetPosition()
         view.testWin.size = view.testWin.GetFrame().GetSize()
         view.testWin.Destroy()
+
+    def showXML(self):
+        '''Show some source.'''
+        item = view.tree.GetSelection()
+        node = view.tree.GetPyData(item)
+        dom = MyDocument()
+        node = dom.appendChild(node.cloneNode(True))
+        Model.indent(dom, node)
+        text = node.toxml(Model.dom.encoding)
+        dom.unlink()
+        lines = text.split('\n')
+        maxLen = max(map(len, lines))
+        w = max(40, min(80, maxLen))
+        h = max(20, min(40, len(lines)))
+        dlg = view.ScrolledMessageDialog(view.frame, text, 'XML Source',
+                                         textSize=(w,h), centered=False)
+        dlg.Bind(wx.EVT_CLOSE, lambda evt: dlg.Destroy())
+        dlg.Bind(wx.EVT_BUTTON, lambda evt: dlg.Destroy(), id=wx.ID_OK)
+        dlg.Show()
 
 # Singleton class
 Presenter = _Presenter()
