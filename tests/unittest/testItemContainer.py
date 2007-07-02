@@ -7,8 +7,8 @@ wx.ItemContainer.  Since wx.ItemContainer is uninstantiable, the tests
 for subclasses are implemented with a "test base-class" of sorts.
         
 Methods yet to test:
-__init__, FindString, GetClientData, GetSelection, GetStrings, GetStringSelection,
-Select, SetClientData, SetSelection, SetString, SetStringSelection
+__init__, GetSelection, GetStrings, GetStringSelection,
+Select, SetSelection, SetStringSelection
 """
 
 class ItemContainerTest(unittest.TestCase):
@@ -62,6 +62,18 @@ class ItemContainerBase(unittest.TestCase):
         self.testControl.Clear()
         self.assert_(self.testControl.IsEmpty())
     
+    def testClientData(self):
+        """SetClientData, GetClientData"""
+        self.testControl.AppendItems(['a','b','c','d','e'])
+        self.assertRaises(wx.PyAssertionError, self.testControl.GetClientData, 0)
+        for i in range(self.testControl.GetCount()):
+            if i != 0:
+                self.assertEquals(None, self.testControl.GetClientData(i))
+                # raises exception until one data item added, then returns None
+            data = 'data' + str(i)
+            self.testControl.SetClientData(i,data)
+            self.assertEquals(data, self.testControl.GetClientData(i))
+    
     def testDelete(self):
         """Delete"""
         items = ['one','two','three','four','five']
@@ -88,6 +100,24 @@ class ItemContainerBase(unittest.TestCase):
         self.testControl.Append('a')
         self.assert_(not self.testControl.IsEmpty())
     
+    def testFindString(self):
+        """FindString"""
+        items = ['zero','one','two','three']
+        self.testControl.AppendItems(items)
+        for i in range(len(items)):
+            string = items[i]
+            index = self.testControl.FindString(string)
+            self.assertEquals(i,index)
+        self.assertEquals(wx.NOT_FOUND, self.testControl.FindString('seven'))
+    
+    def testGetSetString(self):
+        """SetString, GetString"""
+        strings = ['a','b','c','d','e']
+        self.testControl.AppendItems(strings)
+        for i in range(len(strings)):
+            self.testControl.SetString(i, str(i)+strings[i])
+            self.assertEquals(str(i)+strings[i], self.testControl.GetString(i))
+            
     def testInsert(self):
         """Insert, GetString"""
         init = ['one','two','three','four','five']
