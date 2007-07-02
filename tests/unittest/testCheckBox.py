@@ -10,7 +10,7 @@ TODO: update/cleanup docs for this class.  They're quite fleshed out, but could
     use a once-over
 
 Methods yet to test:
-__init__, Create, GetClassDefaultAttributes
+__init__, Create
 """
 
 class CheckBoxTest(testControl.ControlTest):

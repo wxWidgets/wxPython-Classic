@@ -7,7 +7,7 @@ import testControl
 This file contains classes and methods for unit testing the API of wx.Button
 
 Methods yet to test:
-__init__, Create, GetClassDefaultAttributes
+__init__, Create
 """
 
 def getIdLabelPairs(without_mnemonic=True):

@@ -7,7 +7,7 @@ import testControlWithItems
 This file contains classes and methods for unit testing the API of wx.Choice.
         
 Methods yet to test:
-__init__, Create, GetClassDefaultAttributes, GetCurrentSelection
+__init__, Create, GetCurrentSelection
 """
 
 class ChoiceTest(testControlWithItems.ControlWithItemsBase):
