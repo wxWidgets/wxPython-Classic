@@ -13,7 +13,7 @@ TODO:
     Fill in the docs!
 
 Methods yet to test:
-__init__, ClearSel, ClearTicks,Create, GetClassDefaultAttributes, GetSelEnd,
+__init__, ClearSel, ClearTicks,Create, GetSelEnd,
 GetSelStart, GetThumbLength, GetTickFreq, SetSelection, SetThumbLength,
 SetTick, SetTickFreq
 """
@@ -22,7 +22,7 @@ class SliderTest(testControl.ControlTest):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
-        self.testControl = wx.Slider(parent=self.frame, id=wx.ID_ANY)
+        self.testControl = wx.Slider(parent=self.frame)
         
     def testGetRange(self):
         """GetRange

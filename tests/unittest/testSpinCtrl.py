@@ -11,7 +11,7 @@ TODO:
     should it be legal for min value to be greater than max value?
 
 Methods yet to test:
-__init__, Create, GetClassDefaultAttributes, SetSelection
+__init__, Create, SetSelection
 """
 
 class SpinCtrlTest(testControl.ControlTest):

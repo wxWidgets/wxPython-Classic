@@ -8,7 +8,7 @@ import testTopLevelWindow
 This file contains classes and methods for unit testing the API of wx.Frame.
 
 Methods yet to test:
-__init__, Command, Create, DoGiveHelp, DoMenuUpdates, GetClassDefaultAttributes,
+__init__, Command, Create, DoGiveHelp, DoMenuUpdates,
 GetStatusBarPane, ProcessCommand, SendSizeEvent, SetStatusBarPane, SetStatusWidths
 """
 

@@ -12,7 +12,7 @@ Note:
     but is in "wxPython in Action".  The same goes for the 'Enable' method.
         
 Methods yet to test:
-__init__, Create, GetClassDefaultAttributes, GetNextItem
+__init__, Create, GetNextItem
 """
 
 class RadioBoxTest(testControl.ControlTest):

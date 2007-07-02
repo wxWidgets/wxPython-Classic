@@ -29,14 +29,6 @@ class ControlTest(testWindow.WindowTest):
         else:
             # if not windows, doesn't raise exception
             class_under_test(None)
-    
-    def testDefaultAttributes(self):
-        """GetClassDefaultAttributes"""
-        attrs = wx.Control.GetClassDefaultAttributes()
-        self.assert_(isinstance(attrs, wx.VisualAttributes))
-        self.assert_(attrs.colBg.IsOk())
-        self.assert_(attrs.colFg.IsOk())
-        self.assert_(attrs.font.IsOk())
 
     # TODO: does this only work on Windows? if so, why?
     def testLabelText(self):

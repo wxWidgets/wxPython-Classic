@@ -8,7 +8,7 @@ This file contains classes and methods for unit testing the API of wx.ListBox.
         
 Methods yet to test:
 __init__, AppendAndEnsureVisible, Create, Deselect, DeselectAll, EnsureVisible,
-GetClassDefaultAttributes, GetSelections, HitTest, Insert, InsertItems, IsSelected,
+GetSelections, HitTest, Insert, InsertItems, IsSelected,
 IsSorted, Select, Set, SetFirstItem, SetFirstItemStr, SetItemBackgroundColour,
 SetItemFont, SetItemForegroundColour, SetSelection, SetStringSelection
 """

@@ -37,7 +37,7 @@ ConvertDialogSizeToPixels, ConvertPixelPointToDialog, ConvertPixelSizeToDialog,
 Create, DestroyChildren, DissociateHandle, DLG_PNT, DLG_SZE, DragAcceptFiles, 
 FindFocus, Fit, FitInside, GetAcceleratorTable, GetAutoLayout, GetBestSize, 
 GetBestSizeTuple, GetBestVirtualSize, GetBorder, GetCapture, GetCaret, GetCharHeight, 
-GetCharWidth, GetClassDefaultAttributes, GetClientAreaOrigin,
+GetCharWidth, GetClientAreaOrigin,
 GetConstraints, GetContainingSizer, GetCursor, 
 GetDefaultAttributes, GetDropTarget, GetEffectiveMinSize, GetEventHandler, GetExtraStyle, 
 GetFullTextExtent, GetHandle, GetHelpTextAtPoint, GetLayoutDirection,
@@ -152,6 +152,14 @@ class WindowTest(unittest.TestCase):
             self.testControl.SetClientSizeWH(w,h)
             self.assertEquals((w,h), self.testControl.GetClientSizeTuple())
     '''
+    
+    def testDefaultAttributes(self):
+        """GetClassDefaultAttributes"""
+        attrs = wx.Control.GetClassDefaultAttributes()
+        self.assert_(isinstance(attrs, wx.VisualAttributes))
+        self.assert_(attrs.colBg.IsOk())
+        self.assert_(attrs.colFg.IsOk())
+        self.assert_(attrs.font.IsOk())
     
     def testDestroy(self):
         """Destroy"""

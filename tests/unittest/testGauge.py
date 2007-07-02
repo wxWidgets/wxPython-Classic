@@ -13,7 +13,7 @@ NOTE:
     SetBezelFace, SetShadowWidth don't seem to work (on Windows at least)
 
 Methods yet to test:
-__init__, Create, GetClassDefaultAttributes, Pulse
+__init__, Create, Pulse
 """
 
 class GaugeTest(testControl.ControlTest):

@@ -8,7 +8,7 @@ This file contains classes and methods for unit testing the API of wx.Dialog.
 
 Methods yet to test:
 __init__, Create, CreateButtonSizer, CreateSeparatedButtonSizer, CreateStdDialogButtonSizer,
-CreateTextSizer, EndModal, GetAffirmativeId, GetClassDefaultAttributes, GetEscapeId,
+CreateTextSizer, EndModal, GetAffirmativeId, GetEscapeId,
 GetReturnCode, IsModal, SetAffirmativeId, SetEscapeId, SetReturnCode, ShowModal
 """
 
