@@ -9,6 +9,7 @@ import os,sys,shutil,tempfile
 from globals import *
 from presenter import Presenter
 from component import Manager
+import view
 
 class _Listener:
     '''
@@ -23,6 +24,7 @@ class _Listener:
 
         # Some local members
         self.inUpdateUI = self.inIdle = False
+        self.clipboardHasData = False
         
         # Component events
         wx.EVT_MENU_RANGE(frame, Manager.firstId, Manager.lastId,
@@ -234,7 +236,7 @@ class _Listener:
     def OnCloseWindow(self, evt):
         '''wx.EVT_CLOSE handler'''
         if not self.AskSave(): return
-        if g.testWin: g.testWin.Destroy()
+        if view.testWin.object: view.testWin.Destroy()
         if not self.frame.IsIconized():
             g.conf.x, g.conf.y = self.frame.GetPosition()
             if wx.Platform == '__WXMAC__':
@@ -361,9 +363,11 @@ Homepage: http://xrced.sourceforge.net\
         
     def OnTest(self, evt):
         if not self.tree.GetSelection(): return
-        testWin = Presenter.createTestWin(self.tree.GetSelection())
-        testWin.Bind(wx.EVT_CLOSE, self.OnCloseTestWin)
-        testWin.Bind(wx.EVT_SIZE, self.OnSizeTestWin)
+        object = Presenter.createTestWin(self.tree.GetSelection())
+        if object:
+            frame = view.testWin.GetFrame()
+            frame.Bind(wx.EVT_CLOSE, self.OnCloseTestWin)
+            frame.Bind(wx.EVT_SIZE, self.OnSizeTestWin)
 
     def OnCloseTestWin(self, evt):
         Presenter.closeTestWin()
@@ -373,9 +377,7 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnTestHide(self, evt):
-        raise NotImplementedError # !!!
-
-        tree.CloseTestWindow()
+        presenter.closeTestWin()
 
     def OnUpdateUI(self, evt):
         if self.inUpdateUI: return          # Recursive call protection
@@ -385,7 +387,7 @@ Homepage: http://xrced.sourceforge.net\
         elif evt.GetId() == wx.ID_SAVE:
             evt.Enable(Presenter.modified)
         elif evt.GetId() in [wx.ID_PASTE, self.frame.ID_TOOL_PASTE]:
-            evt.Enable(len(self.tree.GetSelections()) == 1)
+            evt.Enable(len(self.tree.GetSelections()) == 1 and self.clipboardHasData)
 # !!! Does not work on wxGTK
 #             enabled = False
 #             if not wx.TheClipboard.IsOpened() and wx.TheClipboard.Open():
@@ -404,7 +406,7 @@ Homepage: http://xrced.sourceforge.net\
             evt.Enable(bool(self.tree.GetSelection()))
         elif evt.GetId() in [self.frame.ID_LOCATE, self.frame.ID_TOOL_LOCATE,
                              self.frame.ID_REFRESH]:
-            evt.Enable(g.testWin is not None)
+            evt.Enable(view.testWin.IsShown())
         elif evt.GetId() == wx.ID_UNDO:  evt.Enable(g.undoMan.CanUndo())
         elif evt.GetId() == wx.ID_REDO:  evt.Enable(g.undoMan.CanRedo())
         self.inUpdateUI = False
@@ -416,6 +418,19 @@ Homepage: http://xrced.sourceforge.net\
         if not Presenter.applied:
             item = self.tree.GetSelection()
             if item: Presenter.update(item)
+
+        # Check clipboard
+        self.clipboardHasData = False
+#         if not wx.TheClipboard.IsOpened() and wx.TheClipboard.Open():
+#             data = wx.CustomDataObject('XRCED_elem')
+#             if wx.TheClipboard.IsSupported(data.GetFormat()):
+#                 self.clipboardHasData = True
+#             else:
+#                 data = wx.CustomDataObject('XRCED_node')
+#                 if wx.TheClipboard.IsSupported(data.GetFormat()):
+#                     self.clipboardHasData = True
+#             wx.TheClipboard.Close()
+
         self.inIdle = False
         return
 
@@ -462,14 +477,15 @@ Homepage: http://xrced.sourceforge.net\
     # Expand/collapse subtree
     def OnExpand(self, evt):
         if self.tree.GetSelection(): 
-            map(self.tree.ExpandAll, self.tree.GetSelections())
-        else: self.tree.ExpandAll(self.tree.root)
+            map(self.tree.ExpandAllChildren, self.tree.GetSelections())
+        else: 
+            self.tree.ExpandAll()
 
     def OnCollapse(self, evt):
         if self.tree.GetSelection(): 
-            map(self.tree.CollapseAll, self.tree.GetSelections())
-        else: self.tree.CollapseAll(self.tree.root)
-
+            map(self.tree.CollapseAllChildren, self.tree.GetSelections())
+        else: 
+            self.tree.CollapseAll()
 
     #
     # XMLTree event handlers

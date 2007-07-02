@@ -23,6 +23,7 @@ class _Presenter:
         view.tree.Clear()
         view.tree.SetPyData(view.tree.root, Model.mainNode)
         view.panel.Clear()
+        view.testWin.Init()
         self.panels = []
         self.comp = Manager.rootComponent # component shown in panel (or the root component)
         self.container = None           # current container (None if root)
@@ -341,7 +342,6 @@ class _Presenter:
         return wx.FileConfig(localFilename=name)
 
     def createTestWin(self, item):
-        testWin = g.testWin
         # Create a window with this resource
         node = view.tree.GetPyData(item)
         # Close old window, remember where it was
@@ -367,31 +367,16 @@ class _Presenter:
 #        addHandlers()
         # Same module list
         res.Load('memory:test.xrc')
+        object = None
         try:
             try:
-                g.testWin = testWin = self.comp.makeTestWin(res, name, pos=g.testWinPos)
-                testWin.Show(True)
+                frame, object = self.comp.makeTestWin(res, name)
+                view.testWin.SetView(frame, object, item)
+                view.testWin.Show()
                 view.tree.SetItemBold(item, True)
-                # Catch some events, set highlight
-                if testWin:
-                    testWin.item = item
-                    # Add drop target
-                    if testWin.panel:
-                        testWin.panel.SetDropTarget(DropTarget())
-                    else:
-                        testWin.SetDropTarget(DropTarget())
-                    # Reset highlights
-                    testWin.highLight = testWin.highLightDT = None
-                    if highLight and not self.pendingHighLight:
-                        self.HighLight(highLight)
             except NotImplementedError:
                 wx.LogError('Test window not implemented for %s' % node.getAttribute('class'))
             except:
-                if g.testWin:
-                    view.tree.SetItemBold(item, False)
-                    g.testWinPos = g.testWin.GetPosition()
-                    g.testWin.Destroy()
-                    g.testWin = None
                 wx.LogError('Error loading resource: %s' % sys.exc_value)
                 if debug: raise
         finally:
@@ -399,117 +384,16 @@ class _Presenter:
             res.Unload(TEST_FILE)
             xrc.XmlResource.Set(None)
             wx.MemoryFSHandler.RemoveFile(TEST_FILE)
-        return testWin
+        return object
 
     def closeTestWin(self):
-        if not g.testWin: return
-        view.tree.SetItemBold(g.testWin.item, False)
+        if not view.testWin.object: return
+        view.tree.SetItemBold(view.testWin.item, False)
         view.frame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
-        g.testWinPos = g.testWin.GetPosition()
-        g.testWin.Destroy()
-        g.testWin = None
+        view.frame.miniFrame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
+        view.testWin.pos = view.testWin.GetFrame().GetPosition()
+        view.testWin.size = view.testWin.GetFrame().GetSize()
+        view.testWin.Destroy()
 
 # Singleton class
 Presenter = _Presenter()
-
-
-
-################################################################################
-
-# DragAndDrop
-
-class DropTarget(wx.PyDropTarget):
-    def __init__(self):
-        self.do = MyDataObject()
-        wx.DropTarget.__init__(self, self.do)
-
-    # Find best object for dropping
-    def WhereToDrop(self, x, y, d):
-        raise NotImplementedError
-        
-        # Find object by position
-        obj = wx.FindWindowAtPoint(g.testWin.ClientToScreen((x,y)))
-        if not obj:
-            return wx.DragNone, ()
-        item = g.frame.FindObject(g.testWin.item, obj)
-        if not item:
-            return wx.DragNone, ()
-        xxx = g.tree.GetPyData(item).treeObject()
-        parentItem = None
-        # Check if window has a XRC sizer, then use it as parent
-        if obj.GetSizer():
-            sizer = obj.GetSizer()
-            sizerItem = g.frame.FindObject(g.testWin.item, sizer)
-            if sizerItem:
-                parentItem = sizerItem
-                obj = sizer
-                item = wx.TreeItemId()
-        # if not sizer but can have children, it is parent with free placement
-        elif xxx.hasChildren:
-            parentItem = item
-            item = wx.TreeItemId()
-        # Otherwise, try to add to item's parent
-        if not parentItem:
-            parentItem = g.tree.GetItemParent(item)
-            obj = g.tree.FindNodeObject(parentItem)
-        parent = g.tree.GetPyData(parentItem).treeObject()
-        return d,(obj,parent,parentItem,item)
-        
-    # Drop
-    def OnData(self, x, y, d):
-        raise NotImplementedError
-        
-        self.GetData()
-        id = int(self.do.GetDataHere())
-        d,other = self.WhereToDrop(x, y, d)
-        if d != wx.DragNone:
-            obj,parent,parentItem,item = other
-            view.tree.SetSelection(parentItem)
-            xxx = g.frame.CreateXXX(parent, parentItem, item,  id)
-            # Set coordinates if parent is not sizer
-            if not parent.isSizer:
-                xxx.set('pos', '%d,%d' % (x, y))
-                view.panel.SetData(xxx)
-            view.frame.SetStatusText('Object created')
-        self.RemoveHL()
-        return d
-
-    def OnDragOver(self, x, y, d):
-        raise NotImplementedError
-        
-        d,other = self.WhereToDrop(x, y, d)
-        if d != wx.DragNone:
-            obj,parent,parentItem,item = other
-            pos, size = g.tree.FindNodePos(parentItem, obj), obj.GetSize()
-            hl = g.testWin.highLightDT
-            # Set color of highlighted item back to normal
-            if hl and hl.item:
-                if hl.item != parentItem:
-                    g.tree.SetItemTextColour(hl.item, g.tree.itemColour)
-                    # Highlight future parent
-                    g.tree.itemColour = g.tree.GetItemTextColour(parentItem) # save current
-            if not hl or hl.item != parentItem:
-                g.testWin.highLightDT = updateHL(hl, HighLightDTBox, pos, size)
-                g.testWin.highLightDT.item = parentItem
-            g.tree.SetItemTextColour(parentItem, g.tree.COLOUR_DT)
-            g.tree.EnsureVisible(parentItem)
-            g.frame.SetStatusText('Drop target: %s' % parent.treeName())
-        else:
-            g.frame.SetStatusText('Inappropriate drop target')
-            self.RemoveHL()
-        return d
-
-    def OnLeave(self):
-        raise NotImplementedError
-        
-        self.RemoveHL()
-
-    def RemoveHL(self):
-        raise NotImplementedError
-        
-        hl = g.testWin.highLightDT
-        if hl:
-            if hl.item:
-                g.tree.SetItemTextColour(hl.item, g.tree.itemColour)
-            hl.Remove()
-        

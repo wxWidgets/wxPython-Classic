@@ -11,13 +11,6 @@ from XMLTreeMenu import XMLTreeMenu
 from AttributePanel import Panel
 import images
 
-class TaskBarIcon(wx.TaskBarIcon):
-    def __init__(self, frame):
-        wx.TaskBarIcon.__init__(self)
-        self.frame = frame
-        # Set the image
-        self.SetIcon(images.getIconIcon(), "XRCed")
-
 def CreateView():
     '''
     Create all necessary view objects. Some of them are set as module
@@ -36,6 +29,13 @@ def CreateView():
 
     global frame
     frame = Frame()                     # frame creates other
+
+class TaskBarIcon(wx.TaskBarIcon):
+    def __init__(self, frame):
+        wx.TaskBarIcon.__init__(self)
+        self.frame = frame
+        # Set the image
+        self.SetIcon(images.getIconIcon(), "XRCed")
 
 class Frame(wx.Frame):
     def __init__(self):
@@ -361,3 +361,148 @@ class ToolArtProvider(wx.ArtProvider):
             bmp = wx.BitmapFromImage(img)
         return bmp
 
+################################################################################
+
+class _TestWindow:
+    '''Test window manager showing currently edited subtree.'''
+    def __init__(self):
+        self.Init()
+
+    def Init(self):
+        self.hl = self.hlDT = None      # highlight objects
+        self.frame = self.object = None # currenly shown frame and related object
+        self.item = None
+        self.pos = wx.DefaultPosition
+        self.size = wx.DefaultSize        
+
+    def SetView(self, frame, object, item):
+        if self.object:         # reset old view
+            self.GetFrame().Close()
+            wx.Yield()
+        self.frame = frame
+        self.object = object
+        # Add drop target
+        object.SetDropTarget(DropTarget())
+        self.hl = self.hlDT = None
+        if self.pos != wx.DefaultPosition:
+            self.GetFrame().SetPosition(self.pos)
+        if item == self.item:   # try to keep same size
+            self.GetFrame().SetSize(self.size)
+        self.item = item
+
+    def GetFrame(self):
+        if self.frame: return self.frame
+        else: return self.object
+
+    def Show(self, show=True):
+        self.GetFrame().Show(show)
+
+    def IsShown(self):
+        return self.object is not None and self.object.IsShown()
+
+    def Destroy(self):
+        if self.frame: self.frame.Destroy()
+        elif self.object: self.object.Destroy()
+        self.frame = self.object = None
+
+testWin = _TestWindow()
+
+################################################################################
+
+# DragAndDrop
+
+class DropTarget(wx.PyDropTarget):
+    def __init__(self):
+        self.do = MyDataObject()
+        wx.DropTarget.__init__(self, self.do)
+
+    # Find best object for dropping
+    def WhereToDrop(self, x, y, d):
+        raise NotImplementedError
+        
+        # Find object by position
+        obj = wx.FindWindowAtPoint(g.testWin.ClientToScreen((x,y)))
+        if not obj:
+            return wx.DragNone, ()
+        item = g.frame.FindObject(g.testWin.item, obj)
+        if not item:
+            return wx.DragNone, ()
+        xxx = g.tree.GetPyData(item).treeObject()
+        parentItem = None
+        # Check if window has a XRC sizer, then use it as parent
+        if obj.GetSizer():
+            sizer = obj.GetSizer()
+            sizerItem = g.frame.FindObject(g.testWin.item, sizer)
+            if sizerItem:
+                parentItem = sizerItem
+                obj = sizer
+                item = wx.TreeItemId()
+        # if not sizer but can have children, it is parent with free placement
+        elif xxx.hasChildren:
+            parentItem = item
+            item = wx.TreeItemId()
+        # Otherwise, try to add to item's parent
+        if not parentItem:
+            parentItem = g.tree.GetItemParent(item)
+            obj = g.tree.FindNodeObject(parentItem)
+        parent = g.tree.GetPyData(parentItem).treeObject()
+        return d,(obj,parent,parentItem,item)
+        
+    # Drop
+    def OnData(self, x, y, d):
+        raise NotImplementedError
+        
+        self.GetData()
+        id = int(self.do.GetDataHere())
+        d,other = self.WhereToDrop(x, y, d)
+        if d != wx.DragNone:
+            obj,parent,parentItem,item = other
+            view.tree.SetSelection(parentItem)
+            xxx = g.frame.CreateXXX(parent, parentItem, item,  id)
+            # Set coordinates if parent is not sizer
+            if not parent.isSizer:
+                xxx.set('pos', '%d,%d' % (x, y))
+                view.panel.SetData(xxx)
+            view.frame.SetStatusText('Object created')
+        self.RemoveHL()
+        return d
+
+    def OnDragOver(self, x, y, d):
+        raise NotImplementedError
+        
+        d,other = self.WhereToDrop(x, y, d)
+        if d != wx.DragNone:
+            obj,parent,parentItem,item = other
+            pos, size = g.tree.FindNodePos(parentItem, obj), obj.GetSize()
+            hl = g.testWin.highLightDT
+            # Set color of highlighted item back to normal
+            if hl and hl.item:
+                if hl.item != parentItem:
+                    g.tree.SetItemTextColour(hl.item, g.tree.itemColour)
+                    # Highlight future parent
+                    g.tree.itemColour = g.tree.GetItemTextColour(parentItem) # save current
+            if not hl or hl.item != parentItem:
+                g.testWin.highLightDT = updateHL(hl, HighLightDTBox, pos, size)
+                g.testWin.highLightDT.item = parentItem
+            g.tree.SetItemTextColour(parentItem, g.tree.COLOUR_DT)
+            g.tree.EnsureVisible(parentItem)
+            g.frame.SetStatusText('Drop target: %s' % parent.treeName())
+        else:
+            g.frame.SetStatusText('Inappropriate drop target')
+            self.RemoveHL()
+        return d
+
+    def OnLeave(self):
+        raise NotImplementedError
+        
+        self.RemoveHL()
+
+    def RemoveHL(self):
+        raise NotImplementedError
+        
+        hl = g.testWin.highLightDT
+        if hl:
+            if hl.item:
+                g.tree.SetItemTextColour(hl.item, g.tree.itemColour)
+            hl.Remove()
+        

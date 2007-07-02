@@ -45,6 +45,7 @@ class Component(object):
         'wxWS_EX_PROCESS_UI_UPDATES'
         ]
     hasName = True                      # most elements have XRC IDs
+    isTopLevel = False                  # if can be created as top level window
     renameDict = {}
     def __init__(self, klass, groups, attributes, **kargs):
         self.klass = klass
@@ -126,9 +127,16 @@ class Component(object):
         attrClass = self.specials.get(attribute, Attribute)
         attrClass.add(node, attribute, value)
 
-    def makeTestWin(self, res, klass, pos=wx.DefaultPosition, size=wx.DefaultSize):
-        '''Method overrided by top-level components to show test view.'''
-        raise NotImplementedError
+    def makeTestWin(self, res, name):
+        '''Method can be overrided by derived classes to create test view.'''
+        if not self.hasName: raise NotImplementedError
+
+        if self.isTopLevel:
+            frame = None
+        else:
+            frame = wx.Frame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME)
+        object = res.LoadObject(frame, STD_NAME, self.klass)
+        return frame, object
 
     def copyAttributes(self, srcNode, dstNode):
         '''Copy relevant attribute nodes from oldNode to newNode.'''

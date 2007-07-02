@@ -87,27 +87,17 @@ class XMLTree(wx.TreeCtrl):
         for n in filter(is_object, Model.mainNode.childNodes[1:]):
             self.AddNode(self.root, n)
 
-    def ExpandAll(self, item):
-        if self.ItemHasChildren(item):
-            if not self.IsExpanded(item):
-                self.Expand(item)
-            i, cookie = self.GetFirstChild(item)
-            children = []
-            while i.IsOk():
-                children.append(i)
-                i, cookie = self.GetNextChild(item, cookie)
-            map(self.ExpandAll, children)
+    def ExpandAll(self):
+        i, cookie = self.GetFirstChild(self.root)
+        while i:
+            self.ExpandAllChildren(i)
+            i, cookie = self.GetNextChild(self.root, cookie)
 
-    def CollapseAll(self, item):
-        if self.ItemHasChildren(item):
-            i, cookie = self.GetFirstChild(item)
-            children = []
-            while i.IsOk():
-                children.append(i)
-                i, cookie = self.GetNextChild(item, cookie)
-            map(self.CollapseAll, children)
-            if item != self.root:
-                self.Collapse(item)
+    def CollapseAll(self):
+        i, cookie = self.GetFirstChild(self.root)
+        while i:
+            self.CollapseAllChildren(i)
+            i, cookie = self.GetNextChild(self.root, cookie)
 
     # Override to use same form as InsertItem
     def InsertItemBefore(self, parent, next, label, image=-1, data=None):

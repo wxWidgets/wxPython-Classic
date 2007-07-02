@@ -13,20 +13,10 @@ print 'creating core components'
 
 ### wxFrame
 
-class CFrame(Container):
-    def makeTestWin(self, res, klass, pos=wx.DefaultPosition, size=wx.DefaultSize):
-        testWin = res.LoadFrame(None, STD_NAME)
-        # Create status bar
-        testWin.panel = testWin
-        if size != wx.DefaultSize:
-            testWin.SetClientSize(testWin.GetBestSize())
-        if pos != wx.DefaultPosition:
-            testWin.SetPosition(g.testWinPos)
-        return testWin
-
-c = CFrame('wxFrame', ['frame','window','top_level'], 
-           ['pos', 'size', 'title', 'centered'],
-           image=images.getTreeFrameImage())
+c = Container('wxFrame', ['frame','window','top_level'], 
+              ['pos', 'size', 'title', 'centered'],
+              image=images.getTreeFrameImage())
+c.isTopLevel = True
 c.addStyles('wxDEFAULT_FRAME_STYLE', 'wxDEFAULT_DIALOG_STYLE', 'wxCAPTION', 
             'wxSTAY_ON_TOP', 'wxSYSTEM_MENU', 'wxTHICK_FRAME',
             'wxRESIZE_BORDER', 'wxRESIZE_BOX', 'wxCLOSE_BOX',
@@ -40,20 +30,10 @@ Manager.setMenu(c, 'TOP_LEVEL', 'Frame', 'Frame window', 10)
 
 ### wxDialog
 
-class CDialog(Container):
-    def makeTestWin(self, res, klass, pos=wx.DefaultPosition, size=wx.DefaultSize):
-        testWin = res.LoadDialog(None, STD_NAME)
-        # Create status bar
-        testWin.panel = testWin
-        if size != wx.DefaultSize:
-            testWin.SetClientSize(testWin.GetBestSize())
-        if pos != wx.DefaultPosition:
-            testWin.SetPosition(g.testWinPos)
-        return testWin
-        
-c = CDialog('wxDialog', ['frame','window','top_level'], 
-            ['pos', 'size', 'title', 'centered'],
-            image=images.getTreeFrameImage())
+c = Container('wxDialog', ['frame','window','top_level'], 
+              ['pos', 'size', 'title', 'centered'],
+              image=images.getTreeFrameImage())
+c.isTopLevel = True
 c.addStyles('wxDEFAULT_DIALOG_STYLE', 'wxDEFAULT_FRAME_STYLE', 'wxCAPTION', 
             'wxSTAY_ON_TOP', 'wxSYSTEM_MENU', 'wxTHICK_FRAME',
             'wxRESIZE_BORDER', 'wxRESIZE_BOX', 'wxCLOSE_BOX',
@@ -66,21 +46,9 @@ Manager.setMenu(c, 'TOP_LEVEL', 'Dialog', 'Dialog window', 20)
 
 ### wxPanel
 
-class CPanel(Container):
-    def makeTestWin(self, res, klass, pos=wx.DefaultPosition, size=wx.DefaultSize):
-        # Create containing frame
-        testWin = wx.Frame(None, -1, 'Panel: ' + klass,
-                           pos=pos, name=STD_NAME)
-        testWin.panel = res.LoadPanel(testWin, STD_NAME)
-        if size != wx.DefaultSize:
-            testWin.panel.SetSize(size)
-        if pos != wx.DefaultPosition:
-            testWin.SetPosition(g.testWinPos)
-        return testWin
-
-c = CPanel('wxPanel', ['window','top_level','control'], 
-           ['pos', 'size'],
-           image=images.getTreePanelImage())
+c = Container('wxPanel', ['window','top_level','control'], 
+              ['pos', 'size'],
+              image=images.getTreePanelImage())
 c.addStyles('wxNO_3D', 'wxTAB_TRAVERSAL')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'Panel', 'Panel window', 30)
@@ -209,20 +177,9 @@ Manager.setMenu(c, 'container', 'Notebook', 'Notebook control', 20)
 
 ### wxMenuBar
 
-class CMenuBar(Container):
-    windowAttributes = []
-    def makeTestWin(self, res, klass, pos=wx.DefaultPosition):
-        testWin = wx.Frame(None, -1, 'MenuBar: ' + klass,
-                           pos=pos, name=STD_NAME)
-        testWin.panel = None
-        # Set status bar to display help
-        testWin.CreateStatusBar()
-        testWin.menuBar = res.LoadMenuBar(STD_NAME)
-        testWin.SetMenuBar(testWin.menuBar)
-        return testWin
-
-c = CMenuBar('wxMenuBar', ['menubar', 'top_level'], [],
-             image=images.getTreeMenuBarImage())
+c = Container('wxMenuBar', ['menubar', 'top_level'], [],
+              image=images.getTreeMenuBarImage())
+c.windowAttributes = []
 c.genericStyles = c.genericExStyles = []
 c.addStyles('wxMB_DOCKABLE')
 Manager.register(c)
@@ -231,20 +188,9 @@ Manager.setMenu(c, 'bar', 'MenuBar', 'Menu bar', 10)
 
 ### wxMenu
 
-class CMenu(Container):
-    windowAttributes = []
-    def makeTestWin(self, res, klass, pos=wx.DefaultPosition):
-        testWin = wx.Frame(None, -1, 'Menu: ' + klass,
-                           pos=pos, name=STD_NAME)
-        testWin.panel = None
-        # Set status bar to display help
-        testWin.CreateStatusBar()
-        testWin.menuBar = res.LoadMenu(STD_NAME)
-        testWin.SetMenuBar(testWin.menuBar)
-        return testWin
-
-c = CMenu('wxMenu', ['menu', 'top_level'], ['label', 'help'],
-          image=images.getTreeMenuImage())
+c = Container('wxMenu', ['menu', 'top_level'], ['label', 'help'],
+              image=images.getTreeMenuImage())
+c.windowAttributes = []
 c.genericStyles = c.genericExStyles = []
 c.addStyles('wxMENU_TEAROFF')
 Manager.register(c)
@@ -263,25 +209,14 @@ Manager.setMenu(c, 'ROOT', 'MenuItem', 'Menu item', 10)
 
 ### wxToolBar
 
-class CToolBar(Container):
-    windowAttributes = []
-    styles = ['wxTB_FLAT', 'wxTB_DOCKABLE', 'wxTB_VERTICAL', 'wxTB_HORIZONTAL',
-              'wxTB_3DBUTTONS','wxTB_TEXT', 'wxTB_NOICONS', 'wxTB_NODIVIDER',
-              'wxTB_NOALIGN', 'wxTB_HORZ_LAYOUT', 'wxTB_HORZ_TEXT']
-    def makeTestWin(self, res, klass, pos=wx.DefaultPosition):
-        testWin = wx.Frame(None, -1, 'ToolBar: ' + klass,
-                           pos=pos, name=STD_NAME)
-        testWin.panel = None
-        # Set status bar to display help
-        testWin.CreateStatusBar()
-        testWin.toolBar = res.LoadToolBar(testWin, STD_NAME)
-        testWin.SetToolBar(testWin.toolBar)
-        return testWin
-
-c = CToolBar('wxToolBar', ['toolbar', 'top_level'],
-             ['bitmapsize', 'margins', 'packing', 'separation',
-              'dontattachtoframe', 'pos', 'size'],
-             image=images.getTreeToolBarImage())
+c = Container('wxToolBar', ['toolbar', 'top_level'],
+              ['bitmapsize', 'margins', 'packing', 'separation',
+               'dontattachtoframe', 'pos', 'size'],
+              image=images.getTreeToolBarImage())
+c.windowAttributes = []
+c.addStyles('wxTB_FLAT', 'wxTB_DOCKABLE', 'wxTB_VERTICAL', 'wxTB_HORIZONTAL',
+            'wxTB_3DBUTTONS','wxTB_TEXT', 'wxTB_NOICONS', 'wxTB_NODIVIDER',
+            'wxTB_NOALIGN', 'wxTB_HORZ_LAYOUT', 'wxTB_HORZ_TEXT')
 c.renameDict = {'dontattachtoframe':'dontattach'}
 c.genericStyles = c.genericExStyles = []
 c.setParamClass('style', params.ParamNonGenericStyle)
@@ -306,6 +241,7 @@ Manager.setMenu(c, 'ROOT', 'Tool', 'Tool', 10)
 
 c = SimpleComponent('separator', ['separator'], [],
                     image=images.getTreeSeparatorImage())
+c.hasName = False
 Manager.register(c)
 Manager.setMenu(c, 'ROOT', 'Separator', 'Separator', 20)
 
