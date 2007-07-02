@@ -14,11 +14,7 @@ class ChoiceTest(testControlWithItems.ControlWithItemsBase):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
-        self.testControl = wx.Choice(parent=self.frame, id=wx.ID_ANY)
-    
-    def tearDown(self):
-        self.app.Destroy()
-        self.frame.Destroy()
+        self.testControl = wx.Choice(parent=self.frame)
         
 
 def suite():

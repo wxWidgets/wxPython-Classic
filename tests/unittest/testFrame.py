@@ -16,7 +16,7 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
-        self.testControl = wx.Frame(parent=self.frame, id=wx.ID_ANY)
+        self.testControl = wx.Frame(parent=self.frame)
     
     def testMenuBar(self):
         """SetMenuBar, GetMenuBar"""

@@ -17,10 +17,6 @@ class ControlTest(testWindow.WindowTest):
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Control(parent=self.frame, id=wx.ID_ANY)
     
-    def tearDown(self):
-        self.frame.Destroy()
-        self.app.Destroy()
-    
     # TODO: is this expected behavior? Why does it only happen
     # on Windows? It's a wrapped C++ assertion failure.
     def testAllControlsNeedParents(self):

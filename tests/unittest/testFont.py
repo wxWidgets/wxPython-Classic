@@ -47,6 +47,7 @@ SetWeight
 # TODO:
 #   Verify completeness of this list. Flesh it out, perhaps automate the font creation process,
 #   perhaps return a generator.
+# TODO: take advantage of wx.FontEnumerator class (and write tests for it too)
 def getFontData():
     return (
                 wx.Font(1, wx.FONTFAMILY_DECORATIVE, wx.FONTSTYLE_SLANT, wx.FONTWEIGHT_NORMAL),

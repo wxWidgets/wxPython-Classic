@@ -20,11 +20,7 @@ class TextCtrlTest(testControl.ControlTest):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
-        self.testControl = wx.TextCtrl(parent=self.frame, id=wx.ID_ANY, value="")
-    
-    def tearDown(self):
-        self.app.Destroy()
-        self.frame.Destroy()
+        self.testControl = wx.TextCtrl(parent=self.frame, value="")
     
     # TODO: break up this method into smaller tests
     def testCopyCutPaste(self):

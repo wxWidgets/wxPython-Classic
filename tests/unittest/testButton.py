@@ -82,11 +82,7 @@ class ButtonTest(testControl.ControlTest):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
-        self.testControl = wx.Button(parent=self.frame, id=wx.ID_ANY)
-    
-    def tearDown(self):
-        self.frame.Destroy()
-        self.app.Destroy()
+        self.testControl = wx.Button(parent=self.frame)
     
     def testGetDefaultSize(self):
         """GetDefaultSize

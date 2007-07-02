@@ -16,10 +16,6 @@ class ToggleButtonTest(testControl.ControlTest):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.ToggleButton(parent=self.frame)
-    
-    def tearDown(self):
-        self.frame.Destroy()
-        self.app.Destroy()
         
     def testSetValueFails(self):
         """

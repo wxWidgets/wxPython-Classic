@@ -22,15 +22,10 @@ class BitmapButtonTest(testButton.ButtonTest):
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.BitmapButton(parent=self.frame, bitmap=wx.NullBitmap)
     
-    def tearDown(self):
-        self.app.Destroy()
-        self.frame.Destroy()
-    
     # crashes interpreter on Windows for some reason
     def testAllControlsNeedParents(self):
         if wxtest.PlatformIsNotWindows():
             super(BitmapButtonTest,self).testAllControlsNeedParents()
-        
         
 
 def suite():

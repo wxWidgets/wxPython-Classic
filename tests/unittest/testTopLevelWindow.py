@@ -20,10 +20,6 @@ class TopLevelWindowBase(testWindow.WindowTest):
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = None
     
-    def tearDown(self):
-        self.frame.Destroy()
-        self.app.Destroy()
-    
     def testMaximize(self):
         """Maximize, IsMaximized"""
         self.testControl.Maximize()
