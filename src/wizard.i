@@ -407,6 +407,9 @@ public:
     // page to GetPageAreaSizer and 5 if you don't.
     virtual void SetBorder(int border);
 
+    const wxBitmap& GetBitmap() const { return m_bitmap; }
+    void SetBitmap(const wxBitmap& bitmap);
+
     // is the wizard running?
     bool IsRunning() const;
 
@@ -417,7 +420,8 @@ public:
 
     bool HasNextPage(wxWizardPage* page);
     bool HasPrevPage(wxWizardPage* page);
-    
+
+    %property(Bitmap, GetBitmap, SetBitmap);
     %property(CurrentPage, GetCurrentPage, doc="See `GetCurrentPage`");
     %property(PageAreaSizer, GetPageAreaSizer, doc="See `GetPageAreaSizer`");
     %property(PageSize, GetPageSize, SetPageSize, doc="See `GetPageSize` and `SetPageSize`");
