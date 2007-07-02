@@ -1708,7 +1708,7 @@ class ButtonPanel(wx.PyPanel):
         """
 
         children1 = []
-        children2 = self._mainsizer.GetChildren()
+        children2 = list(self._mainsizer.GetChildren())
         
         for child in children2:
             if child.IsSpacer():
