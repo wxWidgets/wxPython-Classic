@@ -55,14 +55,7 @@ class ID:
 debug = True
 
 class Globals:
-    panel = None
-    tree = None
-    frame = None
-    tools = None
     undoMan = None
-    testWin = None
-    testWinPos = wx.DefaultPosition
-    currentXXX = None
     currentEncoding = defaultEncoding
     conf = None
 
@@ -88,7 +81,7 @@ class Globals:
 
 g = Globals()
 
-
+# Data object used for clipboard
 class MyDataObject(wx.PyDataObjectSimple):
     def __init__(self):
         wx.PyDataObjectSimple.__init__(self, wx.CustomDataFormat('XRCed_DND'))
