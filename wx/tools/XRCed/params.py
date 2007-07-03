@@ -701,7 +701,7 @@ class RadioBox(PPanel):
 # Boxless radiobox
 class CheckBox(PPanel):
     isCheck = True
-    def __init__(self, parent, pos=wx.DefaultPosition, name='checkbox'):
+    def __init__(self, parent, name='checkbox'):
         PPanel.__init__(self, parent, name)
         topSizer = wx.BoxSizer()
         self.check = wx.CheckBox(self, -1, name, size=(-1,buttonSize[1]))
@@ -871,7 +871,7 @@ class ParamBitmap(PPanel):
         dlg.Destroy()
 
 paramDict = {
-    'flag': ParamFlag, 'orient': ParamOrient,
+    'flag': ParamFlag, 'orient': ParamOrient, 'option': ParamInt,
     'pos': ParamPosSize, 'size': ParamPosSize,
     'cellpos': ParamPosSize, 'cellspan': ParamPosSize,
     'border': ParamUnit, 'cols': MetaParamIntNN(0), 'rows': MetaParamIntNN(0),

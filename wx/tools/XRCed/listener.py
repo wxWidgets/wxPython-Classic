@@ -394,7 +394,7 @@ Homepage: http://xrced.sourceforge.net\
         elif evt.GetId() in [self.frame.ID_SHOW_XML]:
             evt.Enable(len(self.tree.GetSelections()) == 1)
         elif evt.GetId() in [wx.ID_PASTE, self.frame.ID_TOOL_PASTE]:
-            evt.Enable(len(self.tree.GetSelections()) == 1 and self.clipboardHasData)
+            evt.Enable(self.clipboardHasData)
 # !!! Does not work on wxGTK
 #             enabled = False
 #             if not wx.TheClipboard.IsOpened() and wx.TheClipboard.Open():
@@ -427,7 +427,8 @@ Homepage: http://xrced.sourceforge.net\
             if item: Presenter.update(item)
 
         # Check clipboard
-        self.clipboardHasData = False
+        self.clipboardHasData = True
+#        self.clipboardHasData = False
 #         if not wx.TheClipboard.IsOpened() and wx.TheClipboard.Open():
 #             data = wx.CustomDataObject('XRCED_elem')
 #             if wx.TheClipboard.IsSupported(data.GetFormat()):

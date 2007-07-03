@@ -233,7 +233,12 @@ c.windowAttributes = []
 c.addStyles('wxTB_FLAT', 'wxTB_DOCKABLE', 'wxTB_VERTICAL', 'wxTB_HORIZONTAL',
             'wxTB_3DBUTTONS','wxTB_TEXT', 'wxTB_NOICONS', 'wxTB_NODIVIDER',
             'wxTB_NOALIGN', 'wxTB_HORZ_LAYOUT', 'wxTB_HORZ_TEXT')
-c.renameDict = {'dontattachtoframe':'dontattach'}
+c.setParamClass('dontattachtoframe', params.ParamBool)
+c.setParamClass('bitmapsize', params.ParamPosSize)
+c.setParamClass('margins', params.ParamPosSize)
+c.setParamClass('packing', params.ParamUnit)
+c.setParamClass('separation', params.ParamUnit)
+c.renameDict = {'dontattachtoframe': "don't attach"}
 c.genericStyles = c.genericExStyles = []
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'ToolBar', 'Tool bar', 50)
