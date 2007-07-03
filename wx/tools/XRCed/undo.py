@@ -5,6 +5,9 @@
 # RCS-ID:       $Id$
 
 from globals import *
+import view
+from component import Manager
+from model import Model
 
 # Undo/redo classes
 class UndoManager:
@@ -12,71 +15,86 @@ class UndoManager:
     undo = []
     redo = []
     def RegisterUndo(self, undoObj):
+        TRACE('RegisterUndo: %s', undoObj.label)
         self.undo.append(undoObj)
-        for i in self.redo: i.destroy()
+        map(Undo.destroy, self.redo)
         self.redo = []
+        self.UpdateToolHelp()
+    def GetUndoLabel(self):
+        return self.undo[-1].label
+    def GetRedoLabel(self):
+        return self.redo[-1].label
     def Undo(self):
         undoObj = self.undo.pop()
         undoObj.undo()
         self.redo.append(undoObj)
-        g.frame.SetModified()
-        g.frame.SetStatusText('Undone')
+        view.frame.SetStatusText('Undone')
+        Presenter.undoSaved = True
+        self.UpdateToolHelp()
     def Redo(self):
         undoObj = self.redo.pop()
         undoObj.redo()
         self.undo.append(undoObj)
-        g.frame.SetModified()
-        g.frame.SetStatusText('Redone')
+        view.frame.SetStatusText('Redone')
+        Presenter.undoSaved = True
+        self.UpdateToolHelp()
     def Clear(self):
-        for i in self.undo: i.destroy()
+        map(Undo.destroy, self.undo)
         self.undo = []
-        for i in self.redo: i.destroy()
+        map(Undo.destroy, self.redo)
         self.redo = []
+        self.UpdateToolHelp()
     def CanUndo(self):
-        return not not self.undo
+        return bool(self.undo)
     def CanRedo(self):
-        return not not self.redo
+        return bool(self.redo)
+    def UpdateToolHelp(self):
+        if g.undoMan.CanUndo(): 
+            msg = 'Undo ' + self.GetUndoLabel()
+            view.frame.tb.SetToolShortHelp(wx.ID_UNDO, msg)
+            view.frame.tb.SetToolLongHelp(wx.ID_UNDO, msg)
+        if g.undoMan.CanRedo(): 
+            msg = 'Redo ' + self.GetRedoLabel()
+            view.frame.tb.SetToolShortHelp(wx.ID_REDO, msg)
+            view.frame.tb.SetToolLongHelp(wx.ID_REDO, msg)
 
-class UndoCutDelete:
-    def __init__(self, itemIndex, parent, elem):
-        self.itemIndex = itemIndex
-        self.parent = parent
-        self.elem = elem
+class Undo:
+    '''ABC for Undo*.'''
+    def redo(self):             # usually redo is same as undo
+        self.undo()
     def destroy(self):
-        if self.elem: self.elem.unlink()
-    def undo(self):
-        item = g.tree.InsertNode(g.tree.ItemAtFullIndex(self.itemIndex[:-1]),
-                                 self.parent, self.elem,
-                                 g.tree.ItemAtFullIndex(self.itemIndex))
-        # Scroll to show new item (!!! redundant?)
-        g.tree.EnsureVisible(item)
-        g.tree.SelectItem(item)
-        self.elem = None
-        # Update testWin if needed
-        if g.testWin and g.tree.IsHighlatable(item):
-            if g.conf.autoRefresh:
-                g.tree.needUpdate = True
-                g.tree.pendingHighLight = item
-            else:
-                g.tree.pendingHighLight = None
-    def redo(self):
-        item = g.tree.ItemAtFullIndex(self.itemIndex)
-        # Delete testWin?
-        if g.testWin:
-            # If deleting top-level item, delete testWin
-            if item == g.testWin.item:
-                g.testWin.Destroy()
-                g.testWin = None
-            else:
-                # Remove highlight, update testWin
-                if g.testWin.highLight:
-                    g.testWin.highLight.Remove()
-                g.tree.needUpdate = True
-        self.elem = g.tree.RemoveLeaf(item)
-        g.tree.UnselectAll()
-        g.panel.Clear()
+        pass
 
-class UndoPasteCreate:
+class UndoCutDelete(Undo):
+    label = 'cut/delete'
+    def __init__(self, itemIndex, node):
+        self.itemIndex = itemIndex
+        self.node = node
+    def destroy(self):
+        if self.node: self.node.unlink()
+    def undo(self):
+        # Updating DOM. Find parent node first
+        parentItem = view.tree.ItemAtFullIndex(self.itemIndex[:-1])
+        parentNode = view.tree.GetPyData(parentItem)
+        parentComp = Manager.getNodeComp(parentNode)
+        nextItem = view.tree.ItemAtFullIndex(self.itemIndex)
+        if nextItem:
+            nextNode = parentComp.getTreeOrImplicitNode(view.tree.GetPyData(nextItem))
+        else:
+            nextNode = None
+        # Insert before next
+        parentNode.insertBefore(self.node, nextNode)
+        # Update tree and presenter
+        view.tree.Flush()
+        item = view.tree.ItemAtFullIndex(self.itemIndex)
+        view.tree.EnsureVisible(item)
+        view.tree.SelectItem(item)
+    def redo(self):
+        item = view.tree.ItemAtFullIndex(self.itemIndex)
+        self.node = Presenter.delete(item)
+
+class UndoPasteCreate(Undo):
+    label = 'paste/create'
     def __init__(self, itemParent, parent, item, selected):
         self.itemParentIndex = g.tree.ItemFullIndex(itemParent)
         self.parent = parent
@@ -118,7 +136,8 @@ class UndoPasteCreate:
             else:
                 g.tree.pendingHighLight = None
 
-class UndoReplace:
+class UndoReplace(Undo):
+    label = 'replace'
     def __init__(self, item):
         self.itemIndex = g.tree.ItemFullIndex(item)
         #self.xxx = g.tree.GetPyData(item)
@@ -162,7 +181,8 @@ class UndoReplace:
     def redo(self):
         return
 
-class UndoMove:
+class UndoMove(Undo):
+    label = 'move'
     def __init__(self, oldParent, oldIndex, newParent, newIndex):
         # Store indexes because items can be invalid already
         self.oldParentIndex = g.tree.ItemFullIndex(oldParent)
@@ -260,34 +280,40 @@ class UndoMove:
             g.tree.needUpdate = True
         g.tree.SelectItem(selected)
 
-class UndoEdit:
-    def __init__(self):
-        self.pages = map(ParamPage.GetState, g.panel.pages)
-        self.selectedIndex = g.tree.ItemFullIndex(g.tree.GetSelection())
-    def destroy(self):
-        pass
-    # Update test view
-    def update(self, selected):
-        g.tree.Apply(g.tree.GetPyData(selected), selected)
-        # Update view
-        if g.testWin:
-            if g.testWin.highLight:
-                g.testWin.highLight.Remove()
-            g.tree.pendingHighLight = selected
-        if g.testWin:
-            g.tree.needUpdate = True
+class UndoEdit(Undo):
+    '''Undo class for using in AttributePanel.'''
+    label = 'edit'
+    def __init__(self, page, panel):
+        item = view.tree.GetSelection()
+        self.index = view.tree.ItemFullIndex(item)
+        self.page = page
+        self.values = panel.GetValues()
     def undo(self):
-        # Restore selection
-        selected = g.tree.ItemAtFullIndex(self.selectedIndex)
-        if selected != g.tree.GetSelection():
-            g.tree.SelectItem(selected)
-        # Save current state for redo
-        map(ParamPage.SaveState, g.panel.pages)
-        pages = map(ParamPage.GetState, g.panel.pages)
-        if self.pages:
-            map(ParamPage.SetState, g.panel.pages, self.pages)
-        self.pages = pages
-        self.update(selected)
+        # Go back to the item if needed
+        item = view.tree.GetSelection()
+        if not item or self.index != view.tree.ItemFullIndex(item):
+            Presenter.unselect()
+            view.tree.SelectItem(view.tree.ItemAtFullIndex(self.index))
+            wx.Yield()          # Refresh panel
+        panel = view.panel.nb.GetPage(self.page).panel
+        values = panel.GetValues()
+        panel.SetValues(self.values)
+        self.values = values
+        view.panel.nb.SetSelection(self.page)
+
+class UndoGlobal(Undo):
+    label = 'global'
+    def __init__(self):
+        self.mainNode = Model.mainNode.cloneNode(True)
+    def destroy(self):
+        self.mainNode.unlink()
+    def undo(self):
+        # Exchange
+        Model.mainNode,self.mainNode = \
+            self.mainNode,Model.dom.replaceChild(self.mainNode, Model.mainNode)
+        Presenter.unselect()
+        view.tree.Flush()
     def redo(self):
         self.undo()
-        self.update(g.tree.GetSelection())
+        Presenter.unselect()
+        view.tree.Flush()

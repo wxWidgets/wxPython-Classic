@@ -11,6 +11,7 @@ from globals import *
 import view
 from model import Model, MyDocument
 from component import Manager
+import undo
 
 # Presenter class linking model to view objects
 class _Presenter:
@@ -18,12 +19,14 @@ class _Presenter:
         Model.init()
         self.path = ''
         # Global modified state
-        self.setModified(False)
+        self.setModified(False) # sets applied
+        self.undoSaved = True   # set to false when some pending undo data
         view.frame.Clear()
         view.tree.Clear()
         view.tree.SetPyData(view.tree.root, Model.mainNode)
         view.panel.Clear()
         view.testWin.Init()
+        g.undoMan.Clear()
         self.panels = []
         self.comp = Manager.rootComponent # component shown in panel (or the root component)
         self.container = None           # current container (None if root)
@@ -33,6 +36,7 @@ class _Presenter:
     def loadXML(self, path):
         Model.loadXML(path)
         view.tree.Flush()
+        view.tree.ExpandAll()
         view.tree.SetPyData(view.tree.root, Model.mainNode)
 
     def saveXML(self, path):
@@ -92,6 +96,18 @@ class _Presenter:
         self.applied = state
         if not state and not self.modified: 
             self.setModified()  # toggle global state
+
+    def undoMayBeNeeded(self, page=None):
+        '''Register pending panel undo if not empty.'''
+        # Register undo
+        if view.panel.undo:
+            if page is None:
+                panel = view.panel.GetActivePanel()
+            else:
+                panel = view.panel.nb.GetPage(page).panel
+            if view.panel.undo.values != panel.GetValues():
+                g.undoMan.RegisterUndo(view.panel.undo)
+                view.panel.undo = None
 
     def setData(self, item):
         '''Set data and view for current tree item.'''
@@ -228,6 +244,7 @@ class _Presenter:
                     self.comp.addAttribute(panelNode, a, value)
         view.tree.SetItemImage(item, self.comp.getTreeImageId(node))
         self.setApplied()
+        self.undoSaved = False
 
     def unselect(self):
         item = view.tree.GetSelection()
@@ -238,20 +255,32 @@ class _Presenter:
         self.comp = Manager.rootComponent
         self.container = None
         view.tree.UnselectAll()
-        #view.tree.Flush()
+        #view.tree.Flush()        # overkill solution
 
-    def delete(self):
+    def delete(self, item):
         '''Delete selected object(s).'''
-        item = view.tree.GetSelection()
         parentItem = view.tree.GetItemParent(item)
         parentNode = view.tree.GetPyData(parentItem)
-        for item in view.tree.GetSelections():
+        node = view.tree.GetPyData(item)
+        node = self.container.removeChild(parentNode, node)
+        view.tree.Delete(item)
+        view.panel.Clear()
+        # Reset variables
+        self.comp = Manager.rootComponent
+        self.container = None
+        self.setApplied()
+        self.setModified()
+        return node
+
+    def deleteMany(self, items):
+        '''Delete selected object(s).'''
+        for item in items:
+            if not item: continue # child already deleted
+            parentItem = view.tree.GetItemParent(item)
+            parentNode = view.tree.GetPyData(parentItem)
             node = view.tree.GetPyData(item)
-            if parentItem == view.tree.root:
-                Model.mainNode.removeChild(node)
-            else:
-                self.container.removeChild(parentNode, node)
-            node.unlink()
+            node = self.container.removeChild(parentNode, node)
+            node.unlink()       # delete completely
             view.tree.Delete(item)
         view.panel.Clear()
         # Reset variables
@@ -262,7 +291,7 @@ class _Presenter:
 
     def cut(self):
         self.copy()
-        self.delete()
+        self.delete(view.tree.GetSelection())
 
     def copy(self):
         # Update values from panel first
@@ -421,3 +450,5 @@ class _Presenter:
 
 # Singleton class
 Presenter = _Presenter()
+
+undo.Presenter = Presenter

@@ -113,6 +113,33 @@ class XMLTree(wx.TreeCtrl):
             return self.GetSelections()[-1]
         else: return None
 
+    # Return item index in parent
+    def ItemIndex(self, item):
+        n = 0                           # index of sibling
+        prev = self.GetPrevSibling(item)
+        while prev.IsOk():
+            prev = self.GetPrevSibling(prev)
+            n += 1
+        return n
+
+    # Full tree index of an item - list of positions
+    def ItemFullIndex(self, item):
+        if not item.IsOk(): return None
+        l = []
+        while item != self.root:
+            l.insert(0, self.ItemIndex(item))
+            item = self.GetItemParent(item)
+        return l
+
+    # Get item position from full index
+    def ItemAtFullIndex(self, index):
+        if index is None: return wx.TreeItemId()
+        item = self.root
+        for i in index:
+            item = self.GetFirstChild(item)[0]
+            for k in range(i): item = self.GetNextSibling(item)
+        return item
+
     # Fix for broken
 
     def ItemHasChildren(self, item):

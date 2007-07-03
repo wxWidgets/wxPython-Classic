@@ -9,6 +9,7 @@ import wx
 from globals import *
 import params
 import component
+import undo
 
 labelSize = (100,-1)
 
@@ -83,6 +84,8 @@ class Panel(wx.Panel):
         topSizer.Add(self.nb, 1, wx.EXPAND | wx.ALL, 5)
         self.SetSizer(topSizer)
 
+        self.undo = None        # pending undo object
+
     def SetData(self, container, comp, node):
         self.nb.SetSelection(0)
         map(self.nb.RemovePage, range(self.nb.GetPageCount()-1, 0, -1))
@@ -97,7 +100,7 @@ class Panel(wx.Panel):
         if comp.hasName:
             self.controlName.SetValue(node.getAttribute('name'))
 
-        self.Layout()
+        self.Layout()           # update after hiding/showing
 
         attributes = comp.attributes
         panel = AttributePanel(self.pageA, attributes, comp.params, comp.renameDict)
@@ -140,6 +143,9 @@ class Panel(wx.Panel):
             self.pageIA.SetPanel(panel)
             self.nb.AddPage(self.pageIA, container.implicitPageName)
 
+        # Create initial undo object
+        self.undo = undo.UndoEdit(0, self.pageA.panel)
+
         return panels
         
     def Clear(self):
@@ -147,12 +153,19 @@ class Panel(wx.Panel):
         self.nb.SetSelection(0)
         map(self.nb.RemovePage, range(self.nb.GetPageCount()-1, 0, -1))
         self.pageA.Reset()
+        self.undo = None
 
         self.controlClass.SetValue('')
         self.labelName.Show(False)
         self.controlName.Show(False)
 
         self.Layout()
+
+    def GetActivePanel(self):
+        if self.nb.GetSelection() >= 0:
+            return self.nb.GetPage(self.nb.GetSelection()).panel
+        else:
+            return None
 
     # Set data for a panel
     def SetValues(self, panel, node):
@@ -163,6 +176,7 @@ class Panel(wx.Panel):
 
     # Set data for a style panel
     def SetStyleValues(self, panel, style):
+        panel.style = style
         styles = map(string.strip, style.split('|')) # to list
         for s,w in panel.controls:
             w.SetValue(s in styles)
@@ -197,3 +211,8 @@ class AttributePanel(wx.Panel):
     def GetValues(self):
         return [(a,c.GetValue()) for a,c in self.controls]
         
+    def SetValues(self, values):
+        for ac,a2v in zip(self.controls, values):
+            a,c = ac
+            v = a2v[1]
+            c.SetValue(v)

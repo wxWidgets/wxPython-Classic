@@ -10,6 +10,7 @@ from globals import *
 from presenter import Presenter
 from component import Manager
 import view
+import undo
 
 class _Listener:
     '''
@@ -102,6 +103,9 @@ class _Listener:
         wx.EVT_MENU(frame, ID.COLLAPSE, self.OnCollapse)
         wx.EVT_MENU(frame, ID.EXPAND, self.OnExpand)
 
+        wx.EVT_UPDATE_UI(frame, ID.COLLAPSE, self.OnUpdateUI)
+        wx.EVT_UPDATE_UI(frame, ID.EXPAND, self.OnUpdateUI)
+
         # XMLTree events
         # Register events
         tree.Bind(wx.EVT_LEFT_DOWN, self.OnTreeLeftDown)
@@ -110,14 +114,22 @@ class _Listener:
         tree.Bind(wx.EVT_TREE_SEL_CHANGED, self.OnTreeSelChanged)
         tree.Bind(wx.EVT_TREE_ITEM_COLLAPSED, self.OnTreeItemCollapsed)
 
+        # Panel events
+        panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGING, self.OnPanelPageChanging)
+        panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.OnPanelPageChanged)
+
+        wx.EVT_MENU_HIGHLIGHT_ALL(self.frame, self.OnMenuHighlight)
+
     def OnComponentCreate(self, evt):
         '''Hadnler for creating new elements.'''
         comp = Manager.findById(evt.GetId())
+        g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
         Presenter.create(comp)
 
     def OnComponentReplace(self, evt):
         '''Hadnler for creating new elements.'''
         comp = Manager.findById(evt.GetId() - ID.SHIFT)
+        g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
         Presenter.replace(comp)
 
     def OnNew(self, evt):
@@ -131,6 +143,9 @@ class _Listener:
         dlg = wx.FileDialog(self.frame, 'Open', os.path.dirname(Presenter.path),
                            '', '*.xrc', wx.OPEN | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
+            # Not we will really try to load
+            # ...but first clear the undo data
+            g.undoMan.Clear()
             path = dlg.GetPath()
             self.frame.SetStatusText('Loading...')
             wx.BeginBusyCursor()
@@ -253,29 +268,28 @@ class _Listener:
         evt.Skip()
 
     def OnUndo(self, evt):
-        raise NotImplementedError # !!!
-
-        # Extra check to not mess with idle updating
-        if undoMan.CanUndo():
-            undoMan.Undo()
-            g.panel.SetModified(False)
-            if not undoMan.CanUndo():
-                self.SetModified(False)
+        if g.undoMan.CanUndo():
+            g.undoMan.Undo()
 
     def OnRedo(self, evt):
-        raise NotImplementedError # !!!
-
-        if undoMan.CanRedo():
-            undoMan.Redo()
-            self.SetModified(True)
+        if g.undoMan.CanRedo():
+            g.undoMan.Redo()
 
     def OnCut(self, evt):
         '''wx.ID_CUT handler.'''
+        g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
         Presenter.cut()
 
     def OnDelete(self, evt):
         '''wx.ID_DELETE handler.'''
-        Presenter.delete()
+        if len(self.tree.GetSelections()) == 1:
+            item = self.tree.GetSelection()
+            index = self.tree.ItemFullIndex(item)
+            node = Presenter.delete(self.tree.GetSelection())
+            g.undoMan.RegisterUndo(undo.UndoCutDelete(index, node))
+        else:
+            g.undoMan.RegisterUndo(undo.UndoGlobal())
+            Presenter.deleteMany(self.tree.GetSelections())
 
     def OnCopy(self, evt):
         '''wx.ID_COPY handler.'''
@@ -283,10 +297,12 @@ class _Listener:
 
     def OnPaste(self, evt):
         '''wx.ID_PASTE handler.'''
+        g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
         Presenter.paste()
 
     def OnPasteSibling(self, evt):
         '''ID.PASTE_SIBLING handler.'''
+        g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
         Presenter.paste()
 
     def ItemsAreCompatible(self, parent, child):
@@ -384,6 +400,22 @@ Homepage: http://xrced.sourceforge.net\
     def OnShowXML(self, evt):
         Presenter.showXML()
 
+    def OnMenuHighlight(self, evt):
+        menuId = evt.GetMenuId()
+        if menuId != -1:
+            menu = evt.GetEventObject()
+            try:
+                help = menu.GetHelpString(menuId)
+                if menuId == wx.ID_UNDO:
+                    help += ' ' + g.undoMan.GetUndoLabel()
+                elif menuId == wx.ID_REDO:
+                    help += ' ' + g.undoMan.GetRedoLabel()
+                self.frame.SetStatusText(help)
+            except:
+                self.frame.SetStatusText('')
+        else:
+            self.frame.SetStatusText('')
+
     def OnUpdateUI(self, evt):
         if self.inUpdateUI: return          # Recursive call protection
         self.inUpdateUI = True
@@ -416,6 +448,10 @@ Homepage: http://xrced.sourceforge.net\
             evt.Enable(view.testWin.IsShown())
         elif evt.GetId() == wx.ID_UNDO:  evt.Enable(g.undoMan.CanUndo())
         elif evt.GetId() == wx.ID_REDO:  evt.Enable(g.undoMan.CanRedo())
+        elif evt.GetId() in [ID.COLLAPSE, ID.EXPAND]:
+            evt.Enable(not self.tree.GetSelection() or
+                       len(self.tree.GetSelections()) == 1 and \
+                           self.tree.ItemHasChildren(self.tree.GetSelection()))
         self.inUpdateUI = False
 
     def OnIdle(self, evt):
@@ -521,6 +557,7 @@ Homepage: http://xrced.sourceforge.net\
             evt.Veto()
             self.frame.SetStatusText('Veto selection (not same level)')
             return
+        Presenter.undoMayBeNeeded()
         evt.Skip()
 
     def OnTreeSelChanged(self, evt):
@@ -539,6 +576,19 @@ Homepage: http://xrced.sourceforge.net\
         if not self.tree.GetSelection():
             if not Presenter.applied: Presenter.update()
             Presenter.setData(None)
+        evt.Skip()
+
+    def OnPanelPageChanging(self, evt):
+        # Register undo if something was changed
+        i = evt.GetOldSelection()
+        if i >= 0: Presenter.undoMayBeNeeded(i)
+        evt.Skip()
+
+    def OnPanelPageChanged(self, evt):
+        # Register new undo 
+        i = evt.GetSelection()
+        panel = view.panel.nb.GetPage(i).panel
+        view.panel.undo = undo.UndoEdit(i, panel)
         evt.Skip()
 
 # Singleton class

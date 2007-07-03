@@ -66,9 +66,10 @@ class XMLTreeMenu(wx.Menu):
                 self.Append(wx.ID_PASTE, 'Paste', 'Paste from the clipboard')
         if items:
             self.Append(wx.ID_DELETE, 'Delete', 'Delete selected objects')
+        if comp.isContainer():
             self.AppendSeparator()
-        self.Append(ID.EXPAND, 'Expand', 'Expand tree')
-        self.Append(ID.COLLAPSE, 'Collapse', 'Collapse tree')
+            self.Append(ID.EXPAND, 'Expand', 'Expand tree')
+            self.Append(ID.COLLAPSE, 'Collapse', 'Collapse tree')
 
     def CreateTopLevelMenu(self, comp, idShift=0):
         m = wx.Menu()

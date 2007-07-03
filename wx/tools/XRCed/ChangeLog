@@ -1,3 +1,9 @@
+2007-07-03  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
+
+	* Some undo/redo refactoring. This are messy at the moment but it
+	is already working for simple actions (Delete, Panel edit if not
+	followed by selecting other items).
+
 2007-07-03  Scroll  <scroll@localhost.localdomain>
 
 	* Improved XML indenting, added new "View>Show XML" command.

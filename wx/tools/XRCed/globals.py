@@ -4,13 +4,13 @@
 # Created:      02.12.2002
 # RCS-ID:       $Id$
 
+import sys
 import wx
 import wx.xrc as xrc
 try:
     import wx.wizard
 except:
     pass
-import sys
 
 # Global constants
 
@@ -52,7 +52,10 @@ class ID:
 
 # Global variables
 
-debug = True
+debug = True                    # default debug flag
+
+def TRACE(msg, *args):
+    if debug: print >> sys.stderr, 'TRACE: ' + (msg % args)
 
 class Globals:
     undoMan = None

@@ -400,6 +400,7 @@ def MetaParamText(textWidth):
                 {'textWidth': textWidth})
 
 ParamAccel = MetaParamText(100)
+ParamHelp = MetaParamText(200)
 ParamPosSize = MetaParamText(80)
 ParamEncoding = MetaParamText(100)
 
@@ -684,6 +685,8 @@ class CheckBox(PPanel):
         self.SetSizer(topSizer)
     def OnCheck(self, evt):
         Presenter.setApplied(False)
+        Presenter.undoMayBeNeeded()
+        evt.Skip()
 
 class ParamBool(CheckBox):
     defaultString = '(default is OFF)'
@@ -848,7 +851,7 @@ paramDict = {
     'border': ParamUnit, 'cols': MetaParamIntNN(0), 'rows': MetaParamIntNN(0),
     'vgap': ParamUnit, 'hgap': ParamUnit,
     'checkable': ParamBool, 'checked': ParamBool, 'radio': ParamBool,
-    'accel': ParamAccel, 'centered': ParamBool,
+    'accel': ParamAccel, 'help': ParamHelp, 'centered': ParamBool,
     'label': ParamMultilineText, 'title': ParamText, 'value': ParamText,
     'content': ParamContent, 'selection': MetaParamIntNN(0),
     'min': ParamInt, 'max': ParamInt,
@@ -903,6 +906,11 @@ class StylePanel(wx.Panel):
         for s,check in self.controls:
             if check.IsChecked(): checked.append(s)
         return [('style', '|'.join(checked))]
+
+    def SetValues(self, values):
+        styles = values[0][1].split('|')
+        for s,check in self.controls:
+            check.SetValue(s in styles)
 
     def OnCheck(self, evt):
         Presenter.setApplied(False)

@@ -34,6 +34,7 @@ class _Model:
             # Dummy node to be replaced by the node being tested
             self.testElem = self.dom.createElement('dummy')
         else:
+            dom.normalize()
             self.dom = dom
             self.testElem = self.dom.createElement('dummy')
             self.mainNode = dom.documentElement

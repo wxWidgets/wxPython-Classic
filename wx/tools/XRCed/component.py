@@ -210,6 +210,10 @@ class Container(Component):
         '''Some containers may hide some internal elements.'''
         return node
 
+    def getTreeOrImplicitNode(self, node):
+        '''Return topmost child (implicit if exists).'''
+        return node
+
     def appendChild(self, parentNode, node):
         '''Append child node. Can be overriden to create implicit nodes.'''
         parentNode.appendChild(node)
@@ -223,8 +227,11 @@ class Container(Component):
         parentNode.insertBefore(node, prevNode.nextSibling)
 
     def removeChild(self, parentNode, node):
-        '''Some containers may remove additional elements.'''
-        parentNode.removeChild(node)
+        '''
+        Remove node and the implicit node (if present). Return
+        top-level removed child.
+        '''
+        return parentNode.removeChild(node)
 
     def copyObjects(self, srcNode, dstNode):
         # Copy child objects only for the same group
@@ -270,10 +277,17 @@ class SmartContainer(Container):
     '''Base class for containers with implicit nodes.'''
     def getTreeNode(self, node):
         if node.getAttribute('class') == self.implicitKlass:
-            for n in node.childNodes:
+            for n in node.childNodes: # find first object
                 if is_object(n): return n
         # Maybe some children are not implicit
         return node
+
+    def getTreeOrImplicitNode(self, node):
+        '''Return topmost child (implicit if exists).'''
+        if node.parentNode.getAttribute('class') == self.implicitKlass:
+            return node.parentNode
+        else:
+            return node
 
     def appendChild(self, parentNode, node):
         if self.requireImplicit(node):
@@ -308,11 +322,10 @@ class SmartContainer(Container):
     def removeChild(self, parentNode, node):
         if self.requireImplicit(node):
             implicitNode = node.parentNode
-            implicitNode.removeChild(node)
-            parentNode.removeChild(implicitNode)
-            implicitNode.unlink()
+            #implicitNode.removeChild(node)
+            return parentNode.removeChild(implicitNode)
         else:
-            parentNode.removeChild(node)
+            return parentNode.removeChild(node)
 
     def replaceChild(self, parentNode, newNode, oldNode):
         # Do similarly to Container for object child nodes
