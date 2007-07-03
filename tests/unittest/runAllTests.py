@@ -21,7 +21,7 @@ import testCheckListBox, testChoice
 import testColour, testComboBox, testControl, testControlWithItems
 import testDialog, testFont, testFrame
 import testGauge, testItemContainer
-import testListBox, testPoint, testRadioBox
+import testListBox, testPanel, testPoint, testRadioBox
 import testRadioButton, testRect, testSize
 import testSizer, testSlider, testSpinCtrl
 import testStaticText, testTextAttr, testTextCtrl
@@ -32,8 +32,8 @@ modules = ( testBitmapButton, testButton, testCheckBox, testCheckListBox,
             testChoice, testColour, testComboBox, testControl,
             testControlWithItems, testDialog, testFont, testFrame,
             testGauge, testItemContainer,
-            testListBox, testPoint, testRadioBox, testRadioButton,
-            testRect, testSize, testSizer,
+            testListBox, testPanel, testPoint, testRadioBox,
+            testRadioButton, testRect, testSize, testSizer,
             testSlider, testSpinCtrl,
             testStaticText, testTextAttr, testTextCtrl, testToggleButton,
             testTopLevelWindow, testWindow)

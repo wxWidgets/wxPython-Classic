@@ -234,7 +234,6 @@ PaintDC
 PaintEvent
 Palette
 PaletteChangedEvent
-Panel
 PasswordEntryDialog
 PCXHandler
 Pen
