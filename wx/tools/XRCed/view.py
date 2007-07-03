@@ -391,7 +391,6 @@ class _TestWindow:
             wx.Yield()
         self.frame = frame
         self.object = object
-        # Add drop target
         object.SetDropTarget(DropTarget())
         self.hl = self.hlDT = None
         if self.pos != wx.DefaultPosition:

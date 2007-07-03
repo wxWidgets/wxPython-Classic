@@ -133,9 +133,19 @@ class Component(object):
 
         if self.isTopLevel:
             frame = None
+            object = res.LoadObject(None, STD_NAME, self.klass)
         else:
-            frame = wx.Frame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME)
-        object = res.LoadObject(frame, STD_NAME, self.klass)
+            frame = wx.MiniFrame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME,
+                                 style=wx.CLOSE_BOX|wx.RESIZE_BORDER)
+            sizer = wx.BoxSizer()
+            sizer.SetMinSize((20,20))
+            object = res.LoadObject(frame, STD_NAME, self.klass)
+            if not isinstance(object, wx.Window): raise NotImplementedError
+            sizer.Add(object)
+            if sizer.GetMinSize() != (20,20):
+                frame.SetSizerAndFit(sizer)
+            else:
+                frame.SetSizer(sizer)
         return frame, object
 
     def copyAttributes(self, srcNode, dstNode):
