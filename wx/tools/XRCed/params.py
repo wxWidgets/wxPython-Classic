@@ -18,6 +18,7 @@ textH = None
 
 def InitParams(panel):
     '''Set pixel common size based on parent window.'''
+
     dc = wx.ClientDC(panel)
     global textH, textB
     if wx.Platform == '__WXMAC__':
@@ -685,7 +686,8 @@ class CheckBox(PPanel):
         self.SetSizer(topSizer)
     def OnCheck(self, evt):
         Presenter.setApplied(False)
-        Presenter.undoMayBeNeeded()
+        if Presenter.panelIsDirty():
+            Presenter.registerUndoEdit()
         evt.Skip()
 
 class ParamBool(CheckBox):

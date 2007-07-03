@@ -97,19 +97,27 @@ class _Presenter:
         if not state and not self.modified: 
             self.setModified()  # toggle global state
 
-    def undoMayBeNeeded(self, page=None):
-        '''Register pending panel undo if not empty.'''
+    def createUndoEdit(self, item=None, page=None):
+        # Create initial undo object
+        if item is None: item = view.tree.GetSelection()
+        if page is None: page = view.panel.nb.GetSelection()
+        view.panel.undo = undo.UndoEdit(item, page)
+
+    def registerUndoEdit(self):
+        g.undoMan.RegisterUndo(view.panel.undo)
+        view.panel.undo = None
+
+    def panelIsDirty(self):
+        '''Check if the panel was changed since last undo.'''
         # Register undo
         if view.panel.undo:
-            if page is None:
-                panel = view.panel.GetActivePanel()
-            else:
-                panel = view.panel.nb.GetPage(page).panel
+            panel = view.panel.GetActivePanel()
             if view.panel.undo.values != panel.GetValues():
-                g.undoMan.RegisterUndo(view.panel.undo)
-                view.panel.undo = None
+                return True
+        return False
 
     def setData(self, item):
+        TRACE('setData')
         '''Set data and view for current tree item.'''
         if not item or item == view.tree.root:
             self.container = None
@@ -128,6 +136,8 @@ class _Presenter:
                 parentClass = parentNode.getAttribute('class')
                 self.container = Manager.components[parentClass]
             self.panels = view.panel.SetData(self.container, self.comp, node)
+            # Create new pending undo
+            self.createUndoEdit(item)
 
     def popupMenu(self, forceSibling, forceInsert, pos):
         '''Show popup menu and set sibling/insert flags.'''

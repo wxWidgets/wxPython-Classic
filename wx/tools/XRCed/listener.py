@@ -557,7 +557,10 @@ Homepage: http://xrced.sourceforge.net\
             evt.Veto()
             self.frame.SetStatusText('Veto selection (not same level)')
             return
-        Presenter.undoMayBeNeeded()
+        # If panel has a pending undo, register it
+        if Presenter.panelIsDirty():
+            g.undoMan.RegisterUndo(self.panel.undo)
+            self.panel.undo = None
         evt.Skip()
 
     def OnTreeSelChanged(self, evt):
@@ -579,16 +582,18 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnPanelPageChanging(self, evt):
+        TRACE('OnPanelPageChanging: %d %d', evt.GetOldSelection(), evt.GetSelection())
         # Register undo if something was changed
         i = evt.GetOldSelection()
-        if i >= 0: Presenter.undoMayBeNeeded(i)
+#        import pdb;pdb.set_trace()
+        if i >= 0 and Presenter.panelIsDirty():
+            g.undoMan.RegisterUndo(self.panel.undo)
         evt.Skip()
 
     def OnPanelPageChanged(self, evt):
+        TRACE('OnPanelPageChanged: %d %d', evt.GetOldSelection(), evt.GetSelection())
         # Register new undo 
-        i = evt.GetSelection()
-        panel = view.panel.nb.GetPage(i).panel
-        view.panel.undo = undo.UndoEdit(i, panel)
+        Presenter.createUndoEdit(page=evt.GetSelection())
         evt.Skip()
 
 # Singleton class

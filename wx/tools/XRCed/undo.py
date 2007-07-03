@@ -70,8 +70,10 @@ class UndoCutDelete(Undo):
     def __init__(self, itemIndex, node):
         self.itemIndex = itemIndex
         self.node = node
+        self.states = view.tree.GetFullState()
     def destroy(self):
         if self.node: self.node.unlink()
+        self.states = None
     def undo(self):
         # Updating DOM. Find parent node first
         parentItem = view.tree.ItemAtFullIndex(self.itemIndex[:-1])
@@ -86,11 +88,13 @@ class UndoCutDelete(Undo):
         parentNode.insertBefore(self.node, nextNode)
         # Update tree and presenter
         view.tree.Flush()
+        view.tree.SetFullState(self.states)
         item = view.tree.ItemAtFullIndex(self.itemIndex)
         view.tree.EnsureVisible(item)
         view.tree.SelectItem(item)
     def redo(self):
         item = view.tree.ItemAtFullIndex(self.itemIndex)
+        view.tree.SelectItem(item)
         self.node = Presenter.delete(item)
 
 class UndoPasteCreate(Undo):
@@ -280,40 +284,49 @@ class UndoMove(Undo):
             g.tree.needUpdate = True
         g.tree.SelectItem(selected)
 
+
 class UndoEdit(Undo):
     '''Undo class for using in AttributePanel.'''
     label = 'edit'
-    def __init__(self, page, panel):
-        item = view.tree.GetSelection()
+    def __init__(self, item, page):
         self.index = view.tree.ItemFullIndex(item)
         self.page = page
+        panel = view.panel.nb.GetPage(page).panel
         self.values = panel.GetValues()
     def undo(self):
+#        import pdb;pdb.set_trace()
         # Go back to the item if needed
         item = view.tree.GetSelection()
         if not item or self.index != view.tree.ItemFullIndex(item):
             Presenter.unselect()
-            view.tree.SelectItem(view.tree.ItemAtFullIndex(self.index))
-            wx.Yield()          # Refresh panel
+            undoItem = view.tree.ItemAtFullIndex(self.index)
+            if item != undoItem:
+                view.tree.SelectItem(view.tree.ItemAtFullIndex(self.index))
+                wx.Yield()          # Refresh panel
         panel = view.panel.nb.GetPage(self.page).panel
         values = panel.GetValues()
         panel.SetValues(self.values)
         self.values = values
-        view.panel.nb.SetSelection(self.page)
+        view.panel.nb.ChangeSelection(self.page)
+        Presenter.createUndoEdit(item, self.page)
 
 class UndoGlobal(Undo):
     label = 'global'
     def __init__(self):
         self.mainNode = Model.mainNode.cloneNode(True)
+        self.states = view.tree.GetFullState()
     def destroy(self):
         self.mainNode.unlink()
     def undo(self):
         # Exchange
         Model.mainNode,self.mainNode = \
             self.mainNode,Model.dom.replaceChild(self.mainNode, Model.mainNode)
+        states = view.tree.GetFullState()
         Presenter.unselect()
         view.tree.Flush()
+        view.tree.SetFullState(self.states)
+        self.states = states
     def redo(self):
         self.undo()
         Presenter.unselect()
-        view.tree.Flush()
+

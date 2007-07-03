@@ -143,9 +143,6 @@ class Panel(wx.Panel):
             self.pageIA.SetPanel(panel)
             self.nb.AddPage(self.pageIA, container.implicitPageName)
 
-        # Create initial undo object
-        self.undo = undo.UndoEdit(0, self.pageA.panel)
-
         return panels
         
     def Clear(self):

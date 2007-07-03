@@ -140,6 +140,33 @@ class XMLTree(wx.TreeCtrl):
             for k in range(i): item = self.GetNextSibling(item)
         return item
 
+    # Get expanded state of all items
+    def GetFullState(self, item=None):
+        if not item: item = self.root
+        states = []
+        item = self.GetFirstChild(item)[0]
+        while item:
+            if self.ItemHasChildren(item):
+                state = self.IsExpanded(item)
+                states.append(self.IsExpanded(item))
+                if state: states.extend(self.GetFullState(item))
+            item = self.GetNextSibling(item)
+        return states
+
+    # Set expanded state of all items
+    def SetFullState(self, states, item=None):
+        if not item:
+            item = self.root
+            states = states[:]
+        item = self.GetFirstChild(item)[0]
+        while item:
+            if self.ItemHasChildren(item):
+                state = states.pop(0)
+                if state: self.Expand(item)
+                else: self.Collapse(item)
+                if state: self.SetFullState(states, item)
+            item = self.GetNextSibling(item)
+
     # Fix for broken
 
     def ItemHasChildren(self, item):
