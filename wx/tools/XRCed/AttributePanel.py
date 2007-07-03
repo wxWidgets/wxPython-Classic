@@ -40,6 +40,9 @@ class Panel(wx.Panel):
     def __init__(self, parent):
         wx.Panel.__init__(self, parent)
 
+        # Set common sizes
+        params.InitSizes(self)
+
         topSizer = wx.BoxSizer(wx.VERTICAL)
         sizer = wx.FlexGridSizer(2, 2, 1, 5)
         label = wx.StaticText(self, -1, 'class:')
@@ -60,9 +63,6 @@ class Panel(wx.Panel):
                 _oldAddPage(self, page, label)
                 page.Show(True)
             wx.Notebook.AddPage = _newAddPage
-
-        # Set common sizes
-        params.InitSizes(self)
 
         # Create scrolled windows for panels
         self.pageA = ScrolledPage(self.nb)
@@ -183,7 +183,7 @@ class AttributePanel(wx.Panel):
             if control.isCheck: # checkbox-like control
                 label = wx.StaticText(self, -1, control.defaultString)
                 sizer.AddMany([ (control, 0, wx.ALIGN_CENTER_VERTICAL),
-                                (label, 0, wx.ALIGN_CENTER_VERTICAL) ])
+                                (label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 2) ])
             else:
                 if sParam:
                     label = wx.StaticText(self, -1, sParam, size=labelSize)

@@ -42,15 +42,6 @@
             <label>This is a label</label>
             <fg>#FF0000</fg>
             <bg>#1E90FF</bg>
-            <font>
-              <size>12</size>
-              <style>normal</style>
-              <weight>bold</weight>
-              <underlined>0</underlined>
-              <family>swiss</family>
-              <face>Sans</face>
-              <encoding>UTF-8</encoding>
-            </font>
           </object>
           <option>2</option>
           <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>

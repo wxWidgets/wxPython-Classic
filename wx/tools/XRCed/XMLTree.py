@@ -112,3 +112,6 @@ class XMLTree(wx.TreeCtrl):
     def ItemHasChildren(self, item):
         return self.GetChildrenCount(item)
 
+    def GetSelection(self):
+        if self.GetSelections(): return wx.TreeCtrl.GetSelection(self)
+        else: return None

@@ -19,12 +19,7 @@ def CreateView():
 
     # Load resources
     res = xrc.EmptyXmlResource()
-    # !!! Blocking of assert failure occurring in older unicode builds
-    try:
-        quietlog = wx.LogNull()
-        res.Load(os.path.join(g.basePath, 'xrced.xrc'))
-    except wx._core.PyAssertionError:
-        print 'PyAssertionError was ignored'
+    res.Load(os.path.join(g.basePath, 'xrced.xrc'))
     g.res = res
 
     global frame
@@ -39,7 +34,7 @@ class TaskBarIcon(wx.TaskBarIcon):
 
 class Frame(wx.Frame):
     def __init__(self):
-        wx.Frame.__init__(self, None, -1, '', size=(600,400))
+        wx.Frame.__init__(self, None, -1, '', size=(640,480))
         bar = self.CreateStatusBar(2)
         bar.SetStatusWidths([-1, 40])
         self.SetIcon(images.getIconIcon())

@@ -140,14 +140,16 @@ class Component(object):
             frame = view.testWin.frame
             if not frame:
                 frame = wx.MiniFrame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME,
-                                     style=wx.CLOSE_BOX|wx.RESIZE_BORDER)
+                                     style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER)
                 frame.panel = wx.Panel(frame)
             else:                       # reuse present frame
                 view.testWin.object.Destroy()
             object = res.LoadObject(frame.panel, STD_NAME, self.klass)
+            object.SetPosition((10,10))
+            object.Fit()
             if not isinstance(object, wx.Window): raise NotImplementedError
             if not view.testWin.frame:
-                frame.panel.SetSize(object.GetBestSize())
+                frame.SetClientSize(object.GetSize()+(20,20))
         return frame, object
 
     def copyAttributes(self, srcNode, dstNode):
