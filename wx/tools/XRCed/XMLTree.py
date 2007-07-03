@@ -11,7 +11,8 @@ import images
 
 class XMLTree(wx.TreeCtrl):
     def __init__(self, parent):
-        style = wx.TR_HAS_BUTTONS | wx.TR_MULTIPLE | wx.TR_EDIT_LABELS | wx.TR_HIDE_ROOT
+        style = wx.TR_HAS_BUTTONS | wx.TR_MULTIPLE | \
+                wx.TR_EDIT_LABELS | wx.TR_HIDE_ROOT | wx.TR_LINES_AT_ROOT
         wx.TreeCtrl.__init__(self, parent, style=style)
 
         # Color scheme
@@ -107,11 +108,18 @@ class XMLTree(wx.TreeCtrl):
         else:
             return self.PrependItem(parent, label, image, data=data)
 
+    def GetSelection(self):
+        if self.GetSelections():
+            return self.GetSelections()[-1]
+        else: return None
+
     # Fix for broken
 
     def ItemHasChildren(self, item):
         return self.GetChildrenCount(item)
 
-    def GetSelection(self):
-        if self.GetSelections(): return wx.TreeCtrl.GetSelection(self)
-        else: return None
+    if wx.Platform == '__WXMSW__':
+        def SelectItem(self, item):
+            wx.TreeCtrl.SelectItem(self, item)
+            evt = wx.TreeEvent(wx.EVT_TREE_SEL_CHANGED.typeId, self, item)
+            wx.PostEvent(self, evt)

@@ -407,7 +407,7 @@ class _Presenter:
         dom = MyDocument()
         node = dom.appendChild(node.cloneNode(True))
         Model.indent(dom, node)
-        text = node.toxml(Model.dom.encoding)
+        text = node.toxml()#Model.dom.encoding)
         dom.unlink()
         lines = text.split('\n')
         maxLen = max(map(len, lines))

@@ -130,15 +130,18 @@ class ParamColour(PPanel):
     def GetValue(self):
         return self.text.GetValue()
     def SetValue(self, value):
-        self.freeze = True
-        self.text.SetValue(value)  # update text ctrl
+        self.text.ChangeValue(value)  # update text ctrl
+        self.UpdateColour(value)
+    def UpdateColour(self, value):
         try:
             colour = wx.Colour(int(value[1:3], 16), int(value[3:5], 16), int(value[5:7], 16))
             self.button.SetBackgroundColour(colour)
         except:                         # ignore errors
-            pass
+            self.button.SetBackgroundColour(self.GetBackgroundColour())
         self.button.Refresh()
-        self.freeze = False
+    def OnChange(self, evt):
+        self.UpdateColour(evt.GetString())
+        evt.Skip()
     def OnPaintButton(self, evt):
         dc = wx.PaintDC(self.button)
         dc.SetBrush(wx.TRANSPARENT_BRUSH)
@@ -304,15 +307,13 @@ class ParamInt(PPanel):
                 self.text.ChangeValue(str(intValue))
                 Presenter.setApplied(False)
         except:
-            # !!! Strange, if I use wx.LogWarning, event is re-generated
-            print 'ERROR: incorrect int value'
+            pass
         self.freeze = False
     def OnSpinUp(self, evt):
-        self.freeze = True
+        if self.freeze: return
         self.Change(1)
     def OnSpinDown(self, evt):
         if self.freeze: return
-        self.freeze = True
         self.Change(-1)
 
 def MetaParamInt(default):
@@ -331,7 +332,7 @@ class ParamUnit(ParamInt):
         # Check if we are working with dialog units
         value = self.text.GetValue()
         units = ''
-        if value[-2:].upper() == 'D':
+        if value[-1:].upper() == 'D':
             units = value[-1]
             value = value[:-1]
         try:
@@ -341,15 +342,8 @@ class ParamUnit(ParamInt):
                 self.text.ChangeValue(str(intValue) + units)
                 Presenter.setApplied(False)
         except:
-            if self.default is not None:
-                self.spin.SetValue(self.default)
+            pass
         self.freeze = False
-    def OnSpinUp(self, evt):
-        if self.freeze: return
-        self.Change(1)
-    def OnSpinDown(self, evt):
-        if self.freeze: return
-        self.Change(-1)
 
 class ParamMultilineText(PPanel):
     def __init__(self, parent, name, textWidth=-1):
