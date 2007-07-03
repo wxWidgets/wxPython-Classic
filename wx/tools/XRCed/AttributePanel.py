@@ -41,7 +41,7 @@ class Panel(wx.Panel):
         wx.Panel.__init__(self, parent)
 
         # Set common sizes
-        params.InitSizes(self)
+        params.InitParams(self)
 
         topSizer = wx.BoxSizer(wx.VERTICAL)
         sizer = wx.FlexGridSizer(2, 2, 1, 5)
@@ -174,7 +174,7 @@ class AttributePanel(wx.Panel):
     def __init__(self, parent, attributes, param_dict={}, rename_dict={}):
         wx.Panel.__init__(self, parent, -1)
         self.controls = []
-        sizer = wx.FlexGridSizer(len(attributes), 2, 1, 5)
+        sizer = wx.FlexGridSizer(len(attributes), 2, 0, 0)
         for a in attributes:
             # Find good control class
             paramClass = param_dict.get(a, params.paramDict.get(a, params.ParamText))
@@ -182,15 +182,15 @@ class AttributePanel(wx.Panel):
             control = paramClass(self, sParam)
             if control.isCheck: # checkbox-like control
                 label = wx.StaticText(self, -1, control.defaultString)
-                sizer.AddMany([ (control, 0, wx.ALIGN_CENTER_VERTICAL),
-                                (label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 2) ])
+                sizer.AddMany([ (control, 1, wx.ALIGN_CENTER_VERTICAL),
+                                (label, 1, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 2) ])
             else:
                 if sParam:
                     label = wx.StaticText(self, -1, sParam, size=labelSize)
                     sizer.AddMany([ (label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 20),
                                     (control, 0, wx.ALIGN_CENTER_VERTICAL) ])
-                else:
-                    sizer.Add(control, 0, wx.GROW | wx.LEFT, 20)
+                else:           # for node-level params
+                    sizer.Add(control, 1, wx.LEFT, 20)
             self.controls.append((a, control))
         self.SetSizerAndFit(sizer)
 

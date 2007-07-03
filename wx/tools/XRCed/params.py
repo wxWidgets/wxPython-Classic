@@ -6,30 +6,52 @@
 
 import string
 import os
-from types import *
+#from types import *
+import wx.combo
 from globals import *
 from presenter import Presenter
 
 WARenameDict = {'fg': 'foreground', 'bg': 'background'}
 
 # Global vars initialized in Panel.__init__ for button and textbox size in screen pixels
-buttonSize = textH = None
-# Default Button size in dialog units
-buttonSizeD = (35,-1)
+textH = None
 
-def InitSizes(panel):
+def InitParams(panel):
     '''Set pixel common size based on parent window.'''
-    cTmp = wx.Button(panel, -1, '')
-    global buttonSize
-    buttonSize = (panel.DLG_SZE(buttonSizeD)[0], cTmp.GetSize()[1])
-    cTmp.Destroy()
-    cTmp = wx.TextCtrl(panel, -1, '')
     dc = wx.ClientDC(panel)
-    global textH
-    textH = dc.GetTextExtent('M')[1] + 4
+    global textH, textB
+    if wx.Platform == '__WXMAC__':
+        textH = dc.GetTextExtent('M')[1] + 4
+        textB = 3               # text border needed for mac highlighting
+    else:
+        textH = dc.GetTextExtent('M')[1] + 6
+        textB = 2
     dc.Destroy()
-    cTmp.Destroy()
+
+    # make a custom bitmap showing "..."
+    bw, bh = 14, 16
+    bmp = wx.EmptyBitmap(bw,bh)
+    dc = wx.MemoryDC(bmp)
     
+    # clear to a specific background colour
+    bgcolor = wx.Colour(255,254,255)
+    dc.SetBackground(wx.Brush(bgcolor))
+    dc.Clear()
+
+    # draw the label onto the bitmap
+    label = "..."
+    font = wx.SystemSettings.GetFont(wx.SYS_DEFAULT_GUI_FONT)
+    font.SetWeight(wx.FONTWEIGHT_BOLD)
+    dc.SetFont(font)
+    tw,th = dc.GetTextExtent(label)
+    dc.DrawText(label, (bw-tw)/2, (bw-tw)/2)
+    del dc
+
+    # now apply a mask using the bgcolor
+    bmp.SetMaskColour(bgcolor)
+    global bmpEdit
+    bmpEdit = bmp
+   
 
 # Class that can properly disable children
 class PPanel(wx.Panel):
@@ -37,6 +59,7 @@ class PPanel(wx.Panel):
     def __init__(self, parent, name):
         wx.Panel.__init__(self, parent, -1, name=name)
         self.freeze = False
+        self.name = name
     def Enable(self, value):
         self.enabled = value
         # Something strange is going on with enable so we make sure...
@@ -55,50 +78,23 @@ class ParamBinaryOr(PPanel):
         self.ID_TEXT_CTRL = wx.NewId()
         self.ID_BUTTON_CHOICES = wx.NewId()
         sizer = wx.BoxSizer()
-        self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=wx.Size(200,textH))
-        sizer.Add(self.text, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 2)
-        self.button = wx.Button(self, self.ID_BUTTON_CHOICES, 'Edit...', 
-                                size=(buttonSize[0], textH))
-        sizer.Add(self.button, 0, wx.EXPAND | wx.LEFT, 3)
+        popup = CheckListBoxComboPopup(self.values)
+        self.combo = wx.combo.ComboCtrl(self, size=(220,-1))
+        self.combo.SetPopupControl(popup)
+        if wx.Platform == '__WXMAC__':
+            sizer.Add(self.combo, 0, wx.ALL, 0)
+        else:
+            sizer.Add(self.combo, 0, wx.ALL, 2)
         self.SetSizerAndFit(sizer)
-        wx.EVT_BUTTON(self, self.ID_BUTTON_CHOICES, self.OnButtonChoices)
-        wx.EVT_TEXT(self, self.ID_TEXT_CTRL, self.OnChange)
+        self.combo.Bind(wx.EVT_TEXT, self.OnChange)
     def GetValue(self):
-        return self.text.GetValue()
+        return self.combo.GetValue()
     def SetValue(self, value):
         self.freeze = True
-        self.text.SetValue(value)
+        self.combo.SetValue(value)
         self.freeze = False
-    def OnButtonChoices(self, evt):
-        dlg = g.res.LoadDialog(self, 'DIALOG_CHOICES')
-        if self.GetName() == 'flag':  dlg.SetTitle('Sizer item flags')
-        elif self.GetName() == 'style':  dlg.SetTitle('Window styles')
-        elif self.GetName() == 'exstyle':  dlg.SetTitle('Extended window styles')
-        listBox = xrc.XRCCTRL(dlg, 'CHECKLIST')
-        listBox.InsertItems(self.values, 0)
-        value = map(string.strip, self.text.GetValue().split('|'))
-        if value == ['']: value = []
-        ignored = []
-        for i in value:
-            try:
-                listBox.Check(self.values.index(i))
-            except ValueError:
-                # Try to find equal
-                if self.equal.has_key(i):
-                    listBox.Check(self.values.index(self.equal[i]))
-                else:
-                    print 'WARNING: unknown flag: %s: ignored.' % i
-                    ignored.append(i)
-        if dlg.ShowModal() == wx.ID_OK:
-            value = []
-            for i in range(listBox.GetCount()):
-                if listBox.IsChecked(i):
-                    value.append(self.values[i])
-            # Add ignored flags
-            value.extend(ignored)
-            self.SetValue('|'.join(value))
-            Presenter.setApplied(False)
-        dlg.Destroy()
+    def SetValues(self):
+        self.combo.InsertItems(self.values, 0)
 
 class ParamFlag(ParamBinaryOr):
     values = ['wxTOP', 'wxBOTTOM', 'wxLEFT', 'wxRIGHT', 'wxALL',
@@ -123,9 +119,9 @@ class ParamColour(PPanel):
         self.ID_BUTTON = wx.NewId()
         sizer = wx.BoxSizer()
         self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=(80,textH))
-        sizer.Add(self.text, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 2)
+        sizer.Add(self.text, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, textB)
         self.button = wx.Panel(self, self.ID_BUTTON, wx.DefaultPosition, wx.Size(20, 20))
-        sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 5)
+        sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 3)
         self.SetSizer(sizer)
         self.textModified = False
         wx.EVT_PAINT(self.button, self.OnPaintButton)
@@ -186,10 +182,14 @@ class ParamFont(PPanel):
         self.ID_TEXT_CTRL = wx.NewId()
         self.ID_BUTTON_SELECT = wx.NewId()
         sizer = wx.BoxSizer()
-        self.button = wx.FontPickerCtrl(self, size=buttonSize,
-                                        style=wx.FNTP_FONTDESC_AS_LABEL|wx.FNTP_USE_TEXTCTRL)
+        self.button = wx.FontPickerCtrl(
+            self, style=wx.FNTP_FONTDESC_AS_LABEL | wx.FNTP_USE_TEXTCTRL
+            )
         self.text = self.button.GetTextCtrl()
-        sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL)
+        if wx.Platform == '__WXMAC__':
+            sizer.Add(self.button, 0, wx.LEFT, -2)
+        else:
+            sizer.Add(self.button, 0, wx.LEFT, textB)
         self.SetSizer(sizer)
         self.Bind(wx.EVT_FONTPICKER_CHANGED, self.OnPickFont)
         self.text.Bind(wx.EVT_TEXT, self.OnText)
@@ -273,12 +273,16 @@ class ParamInt(PPanel):
         self.ID_TEXT_CTRL = wx.NewId()
         self.ID_SPIN_BUTTON = wx.NewId()
         sizer = wx.BoxSizer(wx.HORIZONTAL)
-        self.spin = wx.SpinButton(self, self.ID_SPIN_BUTTON, style = wx.SP_VERTICAL, size=(-1,0))
+        self.spin = wx.SpinButton(self, self.ID_SPIN_BUTTON, style = wx.SP_VERTICAL, size=(-1,textH))
         textW = 60 - self.spin.GetSize()[0]
         self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=(textW,textH))
         self.spin.SetRange(*self.range)
-        sizer.Add(self.text, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 2)
-        sizer.Add(self.spin, 0, wx.EXPAND)
+        if wx.Platform == '__WXMAC__':
+            sizer.Add(self.text, 0, wx.ALIGN_CENTER_VERTICAL | wx.EXPAND | wx.ALL, textB)
+        else:
+            sizer.Add(self.text, 0, wx.ALIGN_CENTER_VERTICAL | wx.EXPAND | \
+                          wx.LEFT | wx.TOP | wx.BOTTOM, textB)
+        sizer.Add(self.spin, 0, wx.ALIGN_CENTER_VERTICAL)
         self.SetSizer(sizer)
         self.spin.Bind(wx.EVT_SPIN_UP, self.OnSpinUp)
         self.spin.Bind(wx.EVT_SPIN_DOWN, self.OnSpinDown)
@@ -321,35 +325,13 @@ def MetaParamIntNN(default):
                 {'default': default, 'range': (0, 2147483647)})
 
 # Same as int but allows dialog units (XXXd)
-class ParamUnit(PPanel):
-    def __init__(self, parent, name):
-        PPanel.__init__(self, parent, name)
-        self.ID_TEXT_CTRL = wx.NewId()
-        self.ID_SPIN_BUTTON = wx.NewId()
-        sizer = wx.BoxSizer(wx.HORIZONTAL)
-        self.spin = wx.SpinButton(self, self.ID_SPIN_BUTTON, style = wx.SP_VERTICAL, size=(-1,0))
-        textW = 60 - self.spin.GetSize()[0]
-        self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=(textW,textH))
-        self.spin.SetRange(-10000, 10000)
-        sizer.Add(self.text, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 2)
-        sizer.Add(self.spin, 0, wx.EXPAND)
-        self.SetSizer(sizer)
-        self.spin.Bind(wx.EVT_SPIN_UP, self.OnSpinUp)
-        self.spin.Bind(wx.EVT_SPIN_DOWN, self.OnSpinDown)
-        self.text.Bind(wx.EVT_TEXT, self.OnChange)
-        
-    def GetValue(self):
-        return self.text.GetValue()
-    def SetValue(self, value):
-        if not value: value = '0'        
-        self.text.ChangeValue(value)
-        self.Change(0)
+class ParamUnit(ParamInt):
     def Change(self, x):
         self.freeze = True
         # Check if we are working with dialog units
         value = self.text.GetValue()
         units = ''
-        if value[-1].upper() == 'D':
+        if value[-2:].upper() == 'D':
             units = value[-1]
             value = value[:-1]
         try:
@@ -359,8 +341,8 @@ class ParamUnit(PPanel):
                 self.text.ChangeValue(str(intValue) + units)
                 Presenter.setApplied(False)
         except:
-            # !!! Strange, if I use wx.LogWarning, event is re-generated
-            print 'ERROR: incorrect unit format'
+            if self.default is not None:
+                self.spin.SetValue(self.default)
         self.freeze = False
     def OnSpinUp(self, evt):
         if self.freeze: return
@@ -375,13 +357,13 @@ class ParamMultilineText(PPanel):
         self.ID_TEXT_CTRL = wx.NewId()
         self.ID_BUTTON_EDIT = wx.NewId()
         sizer = wx.BoxSizer()
-        self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=wx.Size(200,textH))
-        sizer.Add(self.text, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 2)
-        self.button = wx.Button(self, self.ID_BUTTON_EDIT, 'Edit...', size=buttonSize)
-        sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 3)
-        self.SetSizerAndFit(sizer)
-        wx.EVT_BUTTON(self, self.ID_BUTTON_EDIT, self.OnButtonEdit)
-        wx.EVT_TEXT(self, self.ID_TEXT_CTRL, self.OnChange)
+        self.text = wx.TextCtrl(self, size=wx.Size(200,textH))
+        sizer.Add(self.text, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, textB)
+        self.button = wx.BitmapButton(self, bitmap=bmpEdit, size=(-1,textH))
+        sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL)
+        self.SetSizer(sizer)
+        self.button.Bind(wx.EVT_BUTTON, self.OnButtonEdit)
+        self.text.Bind(wx.EVT_TEXT, self.OnChange)
     def GetValue(self):
         return self.text.GetValue()
     def SetValue(self, value):
@@ -408,7 +390,7 @@ class ParamText(PPanel):
         self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=wx.Size(textWidth,textH), style=style)
         if textWidth == -1: option = 1
         else: option = 0
-        sizer.Add(self.text, option, wx.ALIGN_CENTER_VERTICAL | wx.ALL, 2)
+        sizer.Add(self.text, option, wx.ALIGN_CENTER_VERTICAL | wx.ALL, textB)
         self.SetSizer(sizer)
         wx.EVT_TEXT(self, self.ID_TEXT_CTRL, self.OnChange)
     def GetValue(self):
@@ -429,7 +411,7 @@ ParamEncoding = MetaParamText(100)
 
 class ParamComment(ParamText):
     def __init__(self, parent, name):
-        ParamText.__init__(self, parent, name, 330 + buttonSize[0],
+        ParamText.__init__(self, parent, name, 330,
                            style=wx.TE_PROCESS_ENTER)
 
 class ContentDialog(wx.Dialog):
@@ -546,14 +528,14 @@ class ParamContent(PPanel):
         self.ID_TEXT_CTRL = wx.NewId()
         self.ID_BUTTON_EDIT = wx.NewId()
         sizer = wx.BoxSizer()
-        self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=wx.Size(200,textH))
-        sizer.Add(self.text, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 2)
-        self.button = wx.Button(self, self.ID_BUTTON_EDIT, 'Edit...', size=buttonSize)
-        sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 3)
+        self.text = wx.TextCtrl(self, size=wx.Size(200,textH))
+        sizer.Add(self.text, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, textB)
+        self.button = wx.BitmapButton(self, bitmap=bmpEdit, size=(-1,textH))
+        sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL)
         self.SetSizer(sizer)
         self.textModified = False
-        wx.EVT_BUTTON(self, self.ID_BUTTON_EDIT, self.OnButtonEdit)
-        wx.EVT_TEXT(self, self.ID_TEXT_CTRL, self.OnChange)
+        self.button.Bind(wx.EVT_BUTTON, self.OnButtonEdit)
+        self.text.Bind(wx.EVT_TEXT, self.OnChange)
     def OnChange(self, evt):
         Presenter.setApplied(False)
         self.textModified = True
@@ -565,12 +547,10 @@ class ParamContent(PPanel):
                 return []
         return self.value
     def SetValue(self, value):
-        self.freeze = True
         if not value: value = []
         self.value = value
         repr_ = '|'.join(map(str, value))
-        self.text.SetValue(repr_)  # update text ctrl
-        self.freeze = False
+        self.text.ChangeValue(repr_)  # update text ctrl
     def OnButtonEdit(self, evt):
         if self.textModified:           # text has newer value
             self.value = self.GetValue()
@@ -680,7 +660,7 @@ class RadioBox(PPanel):
         self.choices = choices
         topSizer = wx.BoxSizer()
         for i in choices:
-            button = wx.RadioButton(self, -1, i, size=(-1,buttonSize[1]), name=i)
+            button = wx.RadioButton(self, -1, i, name=i)
             topSizer.Add(button, 0, wx.RIGHT, 5)
             wx.EVT_RADIOBUTTON(self, button.GetId(), self.OnRadioChoice)
         self.SetSizer(topSizer)
@@ -704,15 +684,15 @@ class CheckBox(PPanel):
     def __init__(self, parent, name='checkbox'):
         PPanel.__init__(self, parent, name)
         topSizer = wx.BoxSizer()
-        self.check = wx.CheckBox(self, -1, name, size=(-1,buttonSize[1]))
-        topSizer.Add(self.check, 0, wx.RIGHT, 5)
+        self.check = wx.CheckBox(self, -1, name, size=(-1,textH))
+        topSizer.Add(self.check, 0, wx.TOP | wx.BOTTOM, textB)
         self.check.Bind(wx.EVT_CHECKBOX, self.OnCheck)
         self.SetSizer(topSizer)
     def OnCheck(self, evt):
         Presenter.setApplied(False)
 
 class ParamBool(CheckBox):
-    defaultString = '(default is False)'
+    defaultString = '(default is OFF)'
     def GetValue(self):
         return ('', '1')[self.check.IsChecked()]
     def SetValue(self, value):
@@ -720,7 +700,7 @@ class ParamBool(CheckBox):
 
 class ParamInverseBool(CheckBox):
     '''like ParamBool but defined if unchecked'''
-    defaultString = '(default is True)'
+    defaultString = '(default is ON)'
     def GetValue(self):
         return ('0', '')[self.check.IsChecked()]
     def SetValue(self, value):
@@ -756,7 +736,7 @@ class ParamFile(PPanel):
         sizer = wx.BoxSizer()
         self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=wx.Size(200,textH))
         sizer.Add(self.text, 0, wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, 5)
-        self.button = wx.Button(self, self.ID_BUTTON_BROWSE, 'Browse...',size=buttonSize)
+        self.button = wx.Button(self, self.ID_BUTTON_BROWSE, 'Browse...')
         sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL)
         self.SetSizer(sizer)
         self.textModified = False
@@ -804,9 +784,6 @@ class ParamBitmap(PPanel):
         self.text = xrc.XRCCTRL(self, 'TEXT_FILE')
         self.button = xrc.XRCCTRL(self, 'BUTTON_BROWSE')
         self.textModified = False
-        self.SetAutoLayout(True)
-        self.GetSizer().SetMinSize((260, -1))
-        self.GetSizer().Fit(self)
         wx.EVT_RADIOBUTTON(self, xrc.XRCID('RADIO_STD'), self.OnRadioStd)
         wx.EVT_RADIOBUTTON(self, xrc.XRCID('RADIO_FILE'), self.OnRadioFile)
         wx.EVT_BUTTON(self, xrc.XRCID('BUTTON_BROWSE'), self.OnButtonBrowse)
@@ -935,3 +912,53 @@ class StylePanel(wx.Panel):
 
     def OnCheck(self, evt):
         Presenter.setApplied(False)
+
+#############################################################################
+
+class CheckListBoxComboPopup(wx.CheckListBox, wx.combo.ComboPopup):
+        
+    def __init__(self, values):
+        self.values = values
+        self.PostCreate(wx.PreCheckListBox())
+        wx.combo.ComboPopup.__init__(self)
+        
+    def Create(self, parent):
+        wx.CheckListBox.Create(self, parent)
+        self.InsertItems(self.values, 0)
+        return True
+
+    def GetControl(self):
+        return self
+
+    def OnPopup(self):
+        combo = self.GetCombo()
+        value = map(string.strip, combo.GetValue().split('|'))
+        if value == ['']: value = []
+        self.ignored = []
+        for i in value:
+            try:
+                self.Check(self.values.index(i))
+            except ValueError:
+                # Try to find equal
+                if self.equal.has_key(i):
+                    self.Check(self.values.index(self.equal[i]))
+                else:
+                    print 'WARNING: unknown flag: %s: ignored.' % i
+                    self.ignored.append(i)
+
+        wx.combo.ComboPopup.OnPopup(self)
+
+    def OnDismiss(self):
+        combo = self.GetCombo()
+        value = []
+        for i in range(self.GetCount()):
+            if self.IsChecked(i):
+                value.append(self.values[i])
+        # Add ignored flags
+        value.extend(self.ignored)
+        strValue = '|'.join(value)
+        if combo.GetValue() != strValue:
+            combo.SetValue(strValue)
+            Presenter.setApplied(False)
+
+        wx.combo.ComboPopup.OnDismiss(self)

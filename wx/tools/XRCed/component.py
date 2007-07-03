@@ -29,8 +29,8 @@ parentChildGroups = {
 class Component(object):
     '''Base component class.'''
     # Common window attributes
-    windowAttributes = ['fg', 'bg', 'font', 'enabled', 
-                        'focused', 'hidden', 'tooltip', 'help']
+    windowAttributes = ['fg', 'bg', 'font', 'tooltip', 'help', 
+                        'enabled', 'focused', 'hidden']
     genericStyles = [
         'wxSIMPLE_BORDER', 'wxSUNKEN_BORDER', 'wxDOUBLE_BORDER',
         'wxRAISED_BORDER', 'wxSTATIC_BORDER', 'wxNO_BORDER',
