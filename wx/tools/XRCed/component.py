@@ -184,7 +184,7 @@ class Component(object):
 
 
 class SimpleComponent(Component):
-    '''Component without window attributes and empty styles.'''
+    '''Component without window attributes and styles.'''
     windowAttributes = []
     genericStyles = genericExStyles = []
 
@@ -243,6 +243,12 @@ class Container(Component):
         if oldComp.isContainer():
             oldComp.copyObjects(oldNode, newNode)
         parentNode.replaceChild(newNode, oldNode)
+
+
+class SimpleContainer(Container):
+    '''Container without window attributes and styles.'''
+    windowAttributes = []
+    genericStyles = genericExStyles = []
 
 
 class RootComponent(Container):    

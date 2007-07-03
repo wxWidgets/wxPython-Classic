@@ -177,7 +177,7 @@ Manager.setMenu(c, 'container', 'Notebook', 'Notebook control', 20)
 
 ### wxMenuBar
 
-class CMenuBar(Container):
+class CMenuBar(SimpleContainer):
     # Menubar should be shown in a normal frame
     def makeTestWin(self, res, name):
         '''Method can be overrided by derived classes to create test view.'''
@@ -187,8 +187,6 @@ class CMenuBar(Container):
 
 c = CMenuBar('wxMenuBar', ['menubar', 'top_level'], [],
              image=images.getTreeMenuBarImage())
-c.windowAttributes = []
-c.genericStyles = c.genericExStyles = []
 c.addStyles('wxMB_DOCKABLE')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'MenuBar', 'Menu bar', 40)
@@ -196,10 +194,8 @@ Manager.setMenu(c, 'bar', 'MenuBar', 'Menu bar', 10)
 
 ### wxMenu
 
-c = Container('wxMenu', ['menu', 'top_level'], ['label', 'help'],
-              image=images.getTreeMenuImage())
-c.windowAttributes = []
-c.genericStyles = c.genericExStyles = []
+c = SimpleContainer('wxMenu', ['menu', 'top_level'], ['label', 'help'],
+                    image=images.getTreeMenuImage())
 c.addStyles('wxMENU_TEAROFF')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'Menu', 'Menu', 50)
@@ -217,7 +213,7 @@ Manager.setMenu(c, 'ROOT', 'MenuItem', 'Menu item', 10)
 
 ### wxToolBar
 
-class CToolBar(Container):
+class CToolBar(SimpleContainer):
     # Toolbar should be shown in a normal frame
     def makeTestWin(self, res, name):
         '''Method can be overrided by derived classes to create test view.'''
@@ -229,7 +225,6 @@ c = CToolBar('wxToolBar', ['toolbar', 'top_level'],
              ['bitmapsize', 'margins', 'packing', 'separation',
               'dontattachtoframe', 'pos', 'size'],
              image=images.getTreeToolBarImage())
-c.windowAttributes = []
 c.addStyles('wxTB_FLAT', 'wxTB_DOCKABLE', 'wxTB_VERTICAL', 'wxTB_HORIZONTAL',
             'wxTB_3DBUTTONS','wxTB_TEXT', 'wxTB_NOICONS', 'wxTB_NODIVIDER',
             'wxTB_NOALIGN', 'wxTB_HORZ_LAYOUT', 'wxTB_HORZ_TEXT')
@@ -239,7 +234,6 @@ c.setParamClass('margins', params.ParamPosSize)
 c.setParamClass('packing', params.ParamUnit)
 c.setParamClass('separation', params.ParamUnit)
 c.renameDict = {'dontattachtoframe': "don't attach"}
-c.genericStyles = c.genericExStyles = []
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'ToolBar', 'Tool bar', 50)
 Manager.setMenu(c, 'bar', 'ToolBar', 'Tool bar', 20)
