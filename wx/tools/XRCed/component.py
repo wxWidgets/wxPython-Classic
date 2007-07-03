@@ -10,6 +10,7 @@ from globals import *
 from model import Model
 from attribute import *
 import params
+import view
 
 # Group compatibility specifications. 
 # Key is the parent group, value is the list of child groups.
@@ -132,20 +133,21 @@ class Component(object):
         if not self.hasName: raise NotImplementedError
 
         if self.isTopLevel:
+            # Top-level window creates frame itself
             frame = None
             object = res.LoadObject(None, STD_NAME, self.klass)
         else:
-            frame = wx.MiniFrame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME,
-                                 style=wx.CLOSE_BOX|wx.RESIZE_BORDER)
-            sizer = wx.BoxSizer()
-            sizer.SetMinSize((20,20))
-            object = res.LoadObject(frame, STD_NAME, self.klass)
+            frame = view.testWin.frame
+            if not frame:
+                frame = wx.MiniFrame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME,
+                                     style=wx.CLOSE_BOX|wx.RESIZE_BORDER)
+                frame.panel = wx.Panel(frame)
+            else:                       # reuse present frame
+                view.testWin.object.Destroy()
+            object = res.LoadObject(frame.panel, STD_NAME, self.klass)
             if not isinstance(object, wx.Window): raise NotImplementedError
-            sizer.Add(object)
-            if sizer.GetMinSize() != (20,20):
-                frame.SetSizerAndFit(sizer)
-            else:
-                frame.SetSizer(sizer)
+            if not view.testWin.frame:
+                frame.panel.SetSize(object.GetBestSize())
         return frame, object
 
     def copyAttributes(self, srcNode, dstNode):

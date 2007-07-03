@@ -386,9 +386,10 @@ class _TestWindow:
         self.size = wx.DefaultSize        
 
     def SetView(self, frame, object, item):
-        if self.object:         # reset old view
-            self.GetFrame().Close()
-            wx.Yield()
+        if self.object:                 # test window present
+            if not frame or frame and not self.frame:
+                self.GetFrame().Close()
+                wx.Yield()
         self.frame = frame
         self.object = object
         object.SetDropTarget(DropTarget())
@@ -412,7 +413,7 @@ class _TestWindow:
     def Destroy(self):
         if self.frame: self.frame.Destroy()
         elif self.object: self.object.Destroy()
-        self.frame = self.object = None
+        self.frame = self.object = self.item = None
 
 testWin = _TestWindow()
 

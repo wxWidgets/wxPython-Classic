@@ -177,8 +177,16 @@ Manager.setMenu(c, 'container', 'Notebook', 'Notebook control', 20)
 
 ### wxMenuBar
 
-c = Container('wxMenuBar', ['menubar', 'top_level'], [],
-              image=images.getTreeMenuBarImage())
+class CMenuBar(Container):
+    # Menubar should be shown in a normal frame
+    def makeTestWin(self, res, name):
+        '''Method can be overrided by derived classes to create test view.'''
+        frame = wx.Frame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME)
+        object = res.LoadMenuBarOnFrame(frame, STD_NAME)
+        return None, frame
+
+c = CMenuBar('wxMenuBar', ['menubar', 'top_level'], [],
+             image=images.getTreeMenuBarImage())
 c.windowAttributes = []
 c.genericStyles = c.genericExStyles = []
 c.addStyles('wxMB_DOCKABLE')
@@ -209,10 +217,18 @@ Manager.setMenu(c, 'ROOT', 'MenuItem', 'Menu item', 10)
 
 ### wxToolBar
 
-c = Container('wxToolBar', ['toolbar', 'top_level'],
-              ['bitmapsize', 'margins', 'packing', 'separation',
-               'dontattachtoframe', 'pos', 'size'],
-              image=images.getTreeToolBarImage())
+class CToolBar(Container):
+    # Toolbar should be shown in a normal frame
+    def makeTestWin(self, res, name):
+        '''Method can be overrided by derived classes to create test view.'''
+        frame = wx.Frame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME)
+        object = res.LoadToolBar(frame, STD_NAME)
+        return None, frame
+
+c = CToolBar('wxToolBar', ['toolbar', 'top_level'],
+             ['bitmapsize', 'margins', 'packing', 'separation',
+              'dontattachtoframe', 'pos', 'size'],
+             image=images.getTreeToolBarImage())
 c.windowAttributes = []
 c.addStyles('wxTB_FLAT', 'wxTB_DOCKABLE', 'wxTB_VERTICAL', 'wxTB_HORIZONTAL',
             'wxTB_3DBUTTONS','wxTB_TEXT', 'wxTB_NOICONS', 'wxTB_NODIVIDER',

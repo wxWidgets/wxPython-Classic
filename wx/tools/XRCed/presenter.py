@@ -371,6 +371,11 @@ class _Presenter:
         try:
             try:
                 frame, object = self.comp.makeTestWin(res, name)
+                # Reset tree item and locate tool
+                if view.testWin.item:
+                    view.tree.SetItemBold(view.testWin.item, False)
+                    view.frame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
+                    view.frame.miniFrame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
                 view.testWin.SetView(frame, object, item)
                 view.testWin.Show()
                 view.tree.SetItemBold(item, True)
