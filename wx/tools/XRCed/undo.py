@@ -91,6 +91,7 @@ class UndoCutDelete(Undo):
         view.tree.SetFullState(self.states)
         item = view.tree.ItemAtFullIndex(self.itemIndex)
         view.tree.EnsureVisible(item)
+        # This will generate events
         view.tree.SelectItem(item)
     def redo(self):
         item = view.tree.ItemAtFullIndex(self.itemIndex)
@@ -307,6 +308,7 @@ class UndoEdit(Undo):
         values = panel.GetValues()
         panel.SetValues(self.values)
         self.values = values
+        # This will not generate events so we have to update the undo object
         view.panel.nb.ChangeSelection(self.page)
         Presenter.createUndoEdit(item, self.page)
 

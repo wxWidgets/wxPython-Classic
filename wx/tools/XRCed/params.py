@@ -21,11 +21,13 @@ def InitParams(panel):
 
     dc = wx.ClientDC(panel)
     global textH, textB
+    # Default text param size
+    ParamText.textWidth, textH = dc.GetTextExtent('MUUUUUUUUUU')
     if wx.Platform == '__WXMAC__':
-        textH = dc.GetTextExtent('M')[1] + 4
-        textB = 3               # text border needed for mac highlighting
+        textH += 4
+        textB = 3               # bigger text border needed for mac highlighting
     else:
-        textH = dc.GetTextExtent('M')[1] + 6
+        textH += 6
         textB = 2
     dc.Destroy()
 
@@ -268,10 +270,12 @@ class ParamFont(PPanel):
 
 ################################################################################
 
+# This is a replacement for SpinCtrl to make ParamUnit looking similar.
+# Unfortunately there is no SpinCtrl::GetStringValue...
 class ParamInt(PPanel):
-    default = None
+    '''TextCtrl with SpinButton for integer parameters.'''
+    default = 0
     range = (-2147483648, 2147483647)
-    maxValue = None
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
         self.ID_TEXT_CTRL = wx.NewId()
@@ -296,55 +300,54 @@ class ParamInt(PPanel):
         return self.text.GetValue()
     def SetValue(self, value):
         self.text.ChangeValue(value)
-        self.Change(0)
-    def Change(self, x):
-        self.freeze = True
-        # Check if we are working with dialog units
-        value = self.text.GetValue()
+        self.SyncSpin(value)
+    def SyncSpin(self, value):
         try:
-            intValue = int(value) + x
+            intValue = int(value)
             self.spin.SetValue(intValue)
-            if x:                       # 0 can be passed to update spin value only
-                self.text.ChangeValue(str(intValue))
-                Presenter.setApplied(False)
         except:
-            pass
-        self.freeze = False
+            self.spin.SetValue(self.default)
+    def OnChange(self, evt):
+        self.SyncSpin(evt.GetString())
+        evt.Skip()
+    def SyncText(self, spinValue):
+        if self.range[0] <= spinValue <= self.range[1]:
+            self.text.ChangeValue(str(spinValue))
+            Presenter.setApplied(False)
     def OnSpinUp(self, evt):
-        if self.freeze: return
-        self.Change(1)
+        self.SyncText(evt.GetPosition())
+        evt.Skip()
     def OnSpinDown(self, evt):
-        if self.freeze: return
-        self.Change(-1)
+        self.SyncText(evt.GetPosition())
+        evt.Skip()
 
-def MetaParamInt(default):
+def MetaParamInt(**kargs):
     '''Create ParamInt class with default value.'''
-    return type('ParamInt__default', (ParamInt,), {'default': default})
+    return type('ParamInt', (ParamInt,), kargs)
 
-def MetaParamIntNN(default):
-    '''Create ParamInt class with default value and non-negative range.'''
-    return type('ParamIntNN__default', (ParamInt,),
-                {'default': default, 'range': (0, 2147483647)})
+ParamIntNN = MetaParamInt(default=0, range=(0, 2147483647)) # non-negative
+ParamIntP = MetaParamInt(default=1, range=(1, 2147483647)) # positive
 
-# Same as int but allows dialog units (XXXd)
+# Same as ParamInt but allows dialog units (XXXd)
 class ParamUnit(ParamInt):
-    def Change(self, x):
-        self.freeze = True
-        # Check if we are working with dialog units
-        value = self.text.GetValue()
+    def _splitValue(self, value):
         units = ''
         if value[-1:].upper() == 'D':
             units = value[-1]
             value = value[:-1]
+        return value,units
+    def SyncSpin(self, value):
         try:
-            intValue = int(value) + x
+            value,units = self._splitValue(value)
+            intValue = int(value)
             self.spin.SetValue(intValue)
-            if x:                       # 0 can be passed to update spin value only
-                self.text.ChangeValue(str(intValue) + units)
-                Presenter.setApplied(False)
         except:
-            pass
-        self.freeze = False
+            self.spin.SetValue(self.default)
+    def SyncText(self, spinValue):
+        if self.range[0] <= spinValue <= self.range[1]:
+            value,units = self._splitValue(self.text.GetValue())
+            self.text.ChangeValue(str(spinValue)+units)
+            Presenter.setApplied(False)
 
 class ParamMultilineText(PPanel):
     def __init__(self, parent, name, textWidth=-1):
@@ -400,6 +403,7 @@ def MetaParamText(textWidth):
     return type('ParamText__length', (ParamText,),
                 {'textWidth': textWidth})
 
+ParamLongText = MetaParamText(200)
 ParamAccel = MetaParamText(100)
 ParamHelp = MetaParamText(200)
 ParamPosSize = MetaParamText(80)
@@ -847,20 +851,26 @@ class ParamBitmap(PPanel):
         dlg.Destroy()
 
 paramDict = {
+    # sizer params
     'flag': ParamFlag, 'orient': ParamOrient, 'option': ParamInt,
-    'pos': ParamPosSize, 'size': ParamPosSize,
     'cellpos': ParamPosSize, 'cellspan': ParamPosSize,
-    'border': ParamUnit, 'cols': MetaParamIntNN(0), 'rows': MetaParamIntNN(0),
+    'border': ParamUnit, 'borders': ParamUnit,
+    'cols': ParamIntP, 'rows': ParamIntP,
     'vgap': ParamUnit, 'hgap': ParamUnit,
+    # common window params
+    'pos': ParamPosSize, 'size': ParamPosSize,
     'checkable': ParamBool, 'checked': ParamBool, 'radio': ParamBool,
     'accel': ParamAccel, 'help': ParamHelp, 'centered': ParamBool,
     'label': ParamMultilineText, 'title': ParamText, 'value': ParamText,
-    'content': ParamContent, 'selection': MetaParamIntNN(0),
+    'content': ParamContent, 'selection': ParamIntNN,
     'min': ParamInt, 'max': ParamInt,
+    # window attributes
     'fg': ParamColour, 'bg': ParamColour, 'font': ParamFont,
     'enabled': ParamInverseBool, 'focused': ParamBool, 'hidden': ParamBool,
-    'tooltip': ParamText, 'bitmap': ParamBitmap, 'icon': ParamBitmap,
-    'encoding': ParamEncoding, 'borders': ParamUnit,
+    'tooltip': ParamText, 
+    # other
+    'bitmap': ParamBitmap, 'icon': ParamBitmap,
+    'encoding': ParamEncoding, 
     'comment': ParamComment
     }
 

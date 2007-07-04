@@ -135,6 +135,7 @@ Manager.setMenu(c, 'control', 'line', 'wxStaticLine', 20)
 
 c = Component('wxStaticBitmap', ['control','tool'],
               ['pos', 'size', 'bitmap'])
+c.setSpecial('bitmap', BitmapAttribute)
 Manager.register(c)
 Manager.setMenu(c, 'control', 'bitmap', 'wxStaticLine', 30)
 
@@ -183,6 +184,14 @@ c.addStyles('wxSL_HORIZONTAL', 'wxSL_VERTICAL', 'wxSL_AUTOTICKS', 'wxSL_LABELS',
             'wxSL_LEFT', 'wxSL_RIGHT', 'wxSL_TOP', 'wxSL_BOTTOM',
             'wxSL_BOTH', 'wxSL_SELRANGE', 'wxSL_INVERSE')
 Manager.register(c)
+c.setParamClass('value', params.ParamInt)
+c.setParamClass('tickfreq', params.ParamIntNN)
+c.setParamClass('pagesize', params.ParamIntNN)
+c.setParamClass('linesize', params.ParamIntNN)
+c.setParamClass('thumb', params.ParamUnit)
+c.setParamClass('tick', params.ParamInt)
+c.setParamClass('selmin', params.ParamInt)
+c.setParamClass('selmax', params.ParamInt)
 Manager.setMenu(c, 'control', 'slider', 'wxSlider', 60)
 
 ### wxGauge
@@ -190,6 +199,10 @@ Manager.setMenu(c, 'control', 'slider', 'wxSlider', 60)
 c = Component('wxGauge', ['control','tool'],
               ['pos', 'size', 'range', 'value', 'shadow', 'bezel'])
 c.addStyles('wxGA_HORIZONTAL', 'wxGA_VERTICAL', 'wxGA_PROGRESSBAR', 'wxGA_SMOOTH')
+c.setParamClass('range', params.ParamIntNN)
+c.setParamClass('value', params.ParamIntNN)
+c.setParamClass('shadow', params.ParamUnit)
+c.setParamClass('bezel', params.ParamUnit)
 Manager.register(c)
 Manager.setMenu(c, 'control', 'gauge', 'wxGauge', 70)
 
@@ -198,6 +211,7 @@ Manager.setMenu(c, 'control', 'gauge', 'wxGauge', 70)
 c = Component('wxSpinCtrl', ['control','tool'],
               ['pos', 'size', 'value', 'min', 'max'])
 c.addStyles('wxSP_HORIZONTAL', 'wxSP_VERTICAL', 'wxSP_ARROW_KEYS', 'wxSP_WRAP')
+c.setParamClass('value', params.ParamInt)
 Manager.register(c)
 Manager.setMenu(c, 'control', 'spin ctrl', 'wxSpinCtrl', 75)
 
@@ -206,6 +220,10 @@ Manager.setMenu(c, 'control', 'spin ctrl', 'wxSpinCtrl', 75)
 c = Component('wxScrollBar', ['control'],
               ['pos', 'size', 'value', 'thumbsize', 'range', 'pagesize'])
 c.addStyles('wxSB_HORIZONTAL', 'wxSB_VERTICAL')
+c.setParamClass('range', params.ParamIntNN)
+c.setParamClass('value', params.ParamIntNN)
+c.setParamClass('thumbsize', params.ParamUnit)
+c.setParamClass('pagesize', params.ParamUnit)
 Manager.register(c)
 Manager.setMenu(c, 'control', 'scroll bar', 'wxScrollBar', 80)
 
@@ -245,6 +263,8 @@ Manager.setMenu(c, 'control', 'tree ctrl', 'wxTreeCtrl', )
 c = Component('wxHtmlWindow', ['control'],
               ['pos', 'size', 'borders', 'url', 'htmlcode'])
 c.addStyles('wxHW_SCROLLBAR_NEVER', 'wxHW_SCROLLBAR_AUTO', 'wxHW_NO_SELECTION')
+c.setParamClass('url', params.ParamLongText)
+c.setParamClass('htmlcode', params.ParamMultilineText)
 Manager.register(c)
 Manager.setMenu(c, 'control', 'HTML window', 'wxHtmlWindow', 100)
 
@@ -291,7 +311,10 @@ Manager.setMenu(c, 'control', 'listbook', 'wxListbook', 140)
 ### wxSplitterWindow
 
 c = Component('wxSplitterWindow', ['control'],
-              ['pos', 'size', 'orientation', 'sashpos', 'minsize'])
+              ['pos', 'size', 'orientation', 'sashpos', 'minsize'],
+              params={'orientation': params.ParamOrientation, 
+                      'sashpos': params.ParamUnit, 
+                      'minsize': params.ParamUnit})
 c.addStyles('wxSP_3D', 'wxSP_3DSASH', 'wxSP_3DBORDER', 
             'wxSP_FULLSASH', 'wxSP_NOBORDER', 'wxSP_PERMIT_UNSPLIT', 'wxSP_LIVE_UPDATE',
             'wxSP_NO_XP_THEME')
@@ -348,6 +371,7 @@ Manager.setMenu(c, 'button', 'button', 'wxButton', 10)
 c = Component('wxBitmapButton', ['control', 'tool'],
               ['pos', 'size', 'bitmap', 'selected', 'focus', 'disabled', 'default'])
 c.addStyles('wxBU_AUTODRAW', 'wxBU_LEFT', 'wxBU_RIGHT', 'wxBU_TOP', 'wxBU_BOTTOM')
+c.setSpecial('bitmap', BitmapAttribute)
 Manager.register(c)
 Manager.setMenu(c, 'button', 'bitmap button', 'wxBitmapButton', 20)
 
@@ -496,7 +520,7 @@ Manager.setMenu(c, 'ROOT', 'separator', 'separator', 20)
 
 c = SimpleComponent('wxStatusBar', ['statusbar'], ['fields', 'widths', 'styles'])
 c.addStyles('wxST_SIZEGRIP')
-c.setParamClass('fields', params.MetaParamIntNN(1))
+c.setParamClass('fields', params.ParamIntP)
 Manager.register(c)
 Manager.setMenu(c, 'bar', 'status bar', 'wxStatusBar', 30)
 
