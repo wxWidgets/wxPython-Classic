@@ -16,42 +16,40 @@ def WTF(win, filename):
     memory = wx.MemoryDC( )
     x,y = win.GetPosition()
     w,h = win.GetSize()
-#    import pdb;pdb.set_trace()
-    print x,y,w,h
     bitmap = wx.EmptyBitmap(w, h, -1)
     memory.SelectObject(bitmap)
     memory.Blit(0, 0, w, h, context, x, y)
-#    memory.SelectObject(wx.NullBitmap)
     bitmap.SaveFile(filename, wx.BITMAP_TYPE_BMP)
+    bitmap.Destroy()
     memory.Destroy()
     context.Destroy()
-
-def OnCreate(evt):
-    print evt.GetEventObject()
-    w = evt.GetEventObject()
-    WTF(w, os.path.join('bitmaps', w.GetClassName() + '.bmp'))
-    evt.Skip()
 
 def OnCloseFrame(evt):
     frame = evt.GetEventObject()
     for w in frame.GetChildren():
         klass = w.GetClassName()
-        print klass
+        print 'Saving bitmap for', klass
         try:
             WTF(w, os.path.join('bitmaps', klass + '.bmp'))
-            print 'OK'
         except:
-            print 'KO'
+            print 'Sorry, no luck.'
     evt.Skip()
 
 if __name__ == '__main__':
-    global app
+    try: 
+        resFile = sys.argv[1]
+    except:
+        print 'usage: python maketools.py xrc_file'
     app = wx.PySimpleApp()
-    global res
     res = xrc.EmptyXmlResource()
-    res.Load('tools.xrc')
+    res.Load(resFile)
     frame = res.LoadFrame(None, 'FRAME')
-#    frame.Bind(wx.EVT_WINDOW_CREATE, OnCreate)
+    if not frame:
+        print 'error loading FRAME'
+        sys.exit(1)
+    if not os.path.exists('bitmaps'): os.mkdir('bitmaps')
     frame.Bind(wx.EVT_CLOSE, OnCloseFrame)
+    frame.Center(wx.BOTH)
     frame.Show()
+    wx.MessageBox('Just close me now.')
     app.MainLoop()
