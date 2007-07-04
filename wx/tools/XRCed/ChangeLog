@@ -1,3 +1,10 @@
+2007-07-05  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
+
+	* Undo/redo fixes, using UndoGlobal as a temporaty solution for
+	non-implemented undos; added maketools script for auto-generating
+	tool panel bitmaps; reusing old tool panel in tools.py at the
+	moment until the new one is ready
+
 2007-07-03  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
 
 	* Some undo/redo refactoring. This are messy at the moment but it

@@ -175,27 +175,27 @@ class _Presenter:
             parentNode = view.tree.GetPyData(parentItem)
         else:
             parentNode = view.tree.GetPyData(item)
+        label = comp.getTreeText(child)
+        imageId = comp.getTreeImageId(child)
         if self.createSibling:
             node = view.tree.GetPyData(item)
             if self.insertBefore:
                 self.container.insertBefore(parentNode, child, node)
-                item = view.tree.InsertItemBefore(parentItem, item, comp.klass, 
-                                                  comp.getTreeImageId(child), data=data)
+                item = view.tree.InsertItemBefore(
+                    parentItem, item, label, imageId, data=data)
 
             else:
                 self.container.insertAfter(parentNode, child, node)
-                item = view.tree.InsertItem(parentItem, item, comp.klass, 
-                                            comp.getTreeImageId(child), data=data)
+                item = view.tree.InsertItem(
+                    parentItem, item, label, imageId, data=data)
         else:
             if self.insertBefore and view.tree.ItemHasChildren(item):
                 nextNode = view.tree.GetPyData(view.tree.GetFirstChild(item)[0])
                 self.comp.insertBefore(parentNode, child, nextNode)
-                item = view.tree.PrependItem(item, comp.klass, 
-                                             comp.getTreeImageId(child), data=data)
+                item = view.tree.PrependItem(item, label, imageId, data=data)
             else:
                 self.comp.appendChild(parentNode, child)
-                item = view.tree.AppendItem(item, comp.klass, 
-                                            comp.getTreeImageId(child), data=data)
+                item = view.tree.AppendItem(item, label, imageId, data=data)
         view.tree.EnsureVisible(item)
         view.tree.UnselectAll()
         wx.Yield()
@@ -216,8 +216,9 @@ class _Presenter:
         oldNode = view.tree.GetPyData(item)
         self.container.replaceChild(parentNode, node, oldNode)
         # Replace tree item: insert new, remove old
-        item = view.tree.InsertItem(parentItem, item, comp.klass, 
-                                    comp.getTreeImageId(node), data=data)
+        label = comp.getTreeText(node)
+        imageId = comp.getTreeImageId(node)
+        item = view.tree.InsertItem(parentItem, item, label, imageId, data=data)
         view.tree.Delete(view.tree.GetPrevSibling(item))
         # Add children
         for n in filter(is_object, node.childNodes):
@@ -253,6 +254,7 @@ class _Presenter:
                 if value: 
                     self.comp.addAttribute(panelNode, a, value)
         view.tree.SetItemImage(item, self.comp.getTreeImageId(node))
+        view.tree.SetItemText(item, self.comp.getTreeText(node))
         self.setApplied()
         self.undoSaved = False
 

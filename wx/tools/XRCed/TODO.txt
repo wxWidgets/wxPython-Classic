@@ -7,8 +7,6 @@ TODO for XRCed with plugins
 
 - undo/redo
 
-? select same notebook pages after update
-
 - put some default values in tree ctrl etc.
 
 - special (fast) update for some values: pos/size, value/content, sizeritem

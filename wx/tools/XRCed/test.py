@@ -14,6 +14,8 @@ if __name__ == '__main__':
     g.basePath = os.path.dirname(sys.argv[0])
 else:
     g.basePath = os.path.dirname(__file__)
+g.basePath = os.path.abspath(g.basePath)
+print g.basePath
 
 app = wx.PySimpleApp()
 
@@ -55,4 +57,5 @@ Listener.Install(view.frame, view.tree, view.panel)
 if len(sys.argv) > 1:
     Presenter.open(sys.argv[1])
 view.frame.Show()
+view.toolFrame.Show()
 app.MainLoop()

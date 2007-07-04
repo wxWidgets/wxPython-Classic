@@ -6,7 +6,7 @@
 
 from globals import *
 from model import Model
-from component import Manager, Component
+from component import Manager, Component, Container
 import images
 
 class XMLTree(wx.TreeCtrl):
@@ -61,13 +61,21 @@ class XMLTree(wx.TreeCtrl):
         except:
             # Try to create some generic component on-the-fly
             attributes = []
+            isContainer = False
             for n in node.childNodes:
-                if n.nodeType == node.ELEMENT_NODE and not n.tagName in attributes:
+                if is_object(n):
+                    isContainer = True
+                elif n.nodeType == node.ELEMENT_NODE and not n.tagName in attributes:
                     attributes.append(n.tagName)
-            comp = Component(className, 'unknown', attributes)
+            print className, isContainer, attributes
+            if isContainer:
+                comp = Container(className, 'unknown', attributes)
+            else:
+                comp = Component(className, 'unknown', attributes)
             Manager.register(comp)
             wx.LogWarning('Unknown component class "%s", registered as generic' % className)
-        item = self.AppendItem(parent, className, image=comp.getTreeImageId(node),
+        item = self.AppendItem(parent, comp.getTreeText(node), 
+                               image=comp.getTreeImageId(node),
                                data=wx.TreeItemData(node))
         # Different color for comments and references
         if className == 'comment':
@@ -78,8 +86,9 @@ class XMLTree(wx.TreeCtrl):
 #        elif treeObj.hasStyle and treeObj.params.get('hidden', False):
 #            self.SetItemTextColour(item, self.COLOUR_HIDDEN)
         # Try to find children objects
-        for n in filter(is_object, node.childNodes):
-            self.AddNode(item, comp.getTreeNode(n))
+        if comp.isContainer:
+            for n in filter(is_object, node.childNodes):
+                self.AddNode(item, comp.getTreeNode(n))
 
     def Flush(self):
         '''Update all items after changes in model.'''

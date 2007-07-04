@@ -27,6 +27,7 @@ c.addStyles('wxDEFAULT_FRAME_STYLE', 'wxDEFAULT_DIALOG_STYLE', 'wxCAPTION',
 c.addExStyles('wxFRAME_EX_METAL')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'frame', 'wxFrame', 10)
+Manager.setTool(c, 'Windows', images.getToolFrameBitmap(), 10)
 
 ### wxDialog
 
@@ -43,6 +44,7 @@ c.addStyles('wxDEFAULT_DIALOG_STYLE', 'wxDEFAULT_FRAME_STYLE', 'wxCAPTION',
 c.addExStyles('wxDIALOG_EX_METAL')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'dialog', 'wxDialog', 20)
+Manager.setTool(c, 'Windows', images.getToolDialogBitmap(), 20)
 
 ### wxPanel
 
@@ -53,6 +55,7 @@ c.addStyles('wxNO_3D', 'wxTAB_TRAVERSAL')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'panel', 'wxPanel', 30)
 Manager.setMenu(c, 'container', 'panel', 'wxPanel', 10)
+Manager.setTool(c, 'Panels', images.getToolPanelBitmap(), 10)
 
 ### wxBoxSizer
 
@@ -61,6 +64,7 @@ c = BoxSizer('wxBoxSizer', ['sizer'], ['orient'],
              images=[images.getTreeSizerVImage(), images.getTreeSizerHImage()])
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'box sizer', 'wxBoxSizer', 10)
+Manager.setTool(c, 'Sizers', images.getToolBoxSizerBitmap(), 10)
 
 ### wxStaticBoxSizer
 
@@ -69,6 +73,7 @@ c = BoxSizer('wxStaticBoxSizer', ['sizer'], ['label', 'orient'],
              images=[images.getTreeSizerVImage(), images.getTreeSizerHImage()])
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'static box sizer', 'wxStaticBoxSizer', 20)
+Manager.setTool(c, 'Sizers', images.getToolStaticBoxSizerBitmap(), 20)
 
 ### wxGridSizer
 
@@ -78,6 +83,7 @@ c = Sizer('wxGridSizer', ['sizer'],
           image=images.getTreeSizerGridImage())
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'grid sizer', 'wxGridSizer', 30)
+Manager.setTool(c, 'Sizers', images.getToolGridSizerBitmap(), 30)
 
 ### wxFlexGridSizer
 
@@ -91,6 +97,7 @@ c.setSpecial('growablerows', MultiAttribute)
 c.setParamClass('growablerows', params.ParamIntList)
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'flex grid sizer', 'wxFlexGridSizer', 40)
+Manager.setTool(c, 'Sizers', images.getToolFlexGridSizerBitmap(), 40)
 
 ### wxGridBagSizer
 
@@ -106,6 +113,7 @@ c.setImplicitParamClass('cellpos', params.ParamPosSize)
 c.setImplicitParamClass('cellspan', params.ParamPosSize)
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'grid bag sizer', 'wxGridBagSizer', 50)
+Manager.setTool(c, 'Sizers', images.getToolGridBagSizerBitmap(), 50)
 
 ### spacer
 
@@ -113,6 +121,7 @@ c = SimpleComponent('spacer', ['spacer'], ['size', 'option', 'flag', 'border'])
 c.hasName = False
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'spacer', 'spacer', 60)
+Manager.setTool(c, 'Sizers', images.getToolSpacerBitmap(), 60)
 
 ### wxStaticText
 
@@ -173,6 +182,7 @@ c.addStyles('wxCB_SORT')
 c.setSpecial('content', ContentAttribute)
 Manager.register(c)
 Manager.setMenu(c, 'control', 'choice', 'wxChoice', 50)
+Manager.setTool(c, 'Controls', None, 10)
 
 ### wxSlider
 
@@ -193,6 +203,7 @@ c.setParamClass('tick', params.ParamInt)
 c.setParamClass('selmin', params.ParamInt)
 c.setParamClass('selmax', params.ParamInt)
 Manager.setMenu(c, 'control', 'slider', 'wxSlider', 60)
+Manager.setTool(c, 'Controls', None)
 
 ### wxGauge
 
@@ -205,6 +216,7 @@ c.setParamClass('shadow', params.ParamUnit)
 c.setParamClass('bezel', params.ParamUnit)
 Manager.register(c)
 Manager.setMenu(c, 'control', 'gauge', 'wxGauge', 70)
+Manager.setTool(c, 'Controls', None)
 
 ### wxSpinCtrl
 
@@ -214,6 +226,7 @@ c.addStyles('wxSP_HORIZONTAL', 'wxSP_VERTICAL', 'wxSP_ARROW_KEYS', 'wxSP_WRAP')
 c.setParamClass('value', params.ParamInt)
 Manager.register(c)
 Manager.setMenu(c, 'control', 'spin ctrl', 'wxSpinCtrl', 75)
+Manager.setTool(c, 'Controls', None)
 
 ### wxScrollBar
 
@@ -226,6 +239,7 @@ c.setParamClass('thumbsize', params.ParamUnit)
 c.setParamClass('pagesize', params.ParamUnit)
 Manager.register(c)
 Manager.setMenu(c, 'control', 'scroll bar', 'wxScrollBar', 80)
+Manager.setTool(c, 'Controls', None)
 
 ### wxListCtrl
 
@@ -320,6 +334,7 @@ c.addStyles('wxSP_3D', 'wxSP_3DSASH', 'wxSP_3DBORDER',
             'wxSP_NO_XP_THEME')
 Manager.register(c)
 Manager.setMenu(c, 'control', 'splitter window', 'wxSplitterWindow', 150)
+Manager.setTool(c, 'Panels', images.getToolSplitterWindowBitmap(), 20)
 
 ### wxGenericDirCtrl
 
@@ -365,6 +380,7 @@ c.addStyles('wxBU_LEFT', 'wxBU_TOP', 'wxBU_RIGHT', 'wxBU_BOTTOM', 'wxBU_EXACTFIT
             'wxNO_BORDER')
 Manager.register(c)
 Manager.setMenu(c, 'button', 'button', 'wxButton', 10)
+Manager.setTool(c, 'Controls', None)
 
 ### wxBitmapButton
 
@@ -374,6 +390,7 @@ c.addStyles('wxBU_AUTODRAW', 'wxBU_LEFT', 'wxBU_RIGHT', 'wxBU_TOP', 'wxBU_BOTTOM
 c.setSpecial('bitmap', BitmapAttribute)
 Manager.register(c)
 Manager.setMenu(c, 'button', 'bitmap button', 'wxBitmapButton', 20)
+Manager.setTool(c, 'Controls', None)
 
 ### wxRadioButton
 
@@ -381,6 +398,7 @@ c = Component('wxRadioButton', ['control', 'tool'], ['pos', 'size', 'label', 'va
 c.addStyles('wxRB_GROUP', 'wxRB_SINGLE')
 Manager.register(c)
 Manager.setMenu(c, 'button', 'radio button', 'wxRadioButton', 30)
+Manager.setTool(c, 'Controls', None)
 
 ### wxSpinButton
 
@@ -389,6 +407,7 @@ c = Component('wxSpinButton', ['control', 'tool'],
 c.addStyles('wxSP_HORIZONTAL', 'wxSP_VERTICAL', 'wxSP_ARROW_KEYS', 'wxSP_WRAP')
 Manager.register(c)
 Manager.setMenu(c, 'button', 'spin button', 'wxSpinButton', 40)
+Manager.setTool(c, 'Controls', None)
 
 ### wxToggleButton
 
@@ -396,6 +415,7 @@ c = Component('wxToggleButton', ['control', 'tool'],
               ['pos', 'size', 'label', 'checked'])
 Manager.register(c)
 Manager.setMenu(c, 'button', 'toggle button', 'wxToggleButton', 50)
+Manager.setTool(c, 'Controls', None)
 
 ################################################################################
 # Boxes
@@ -425,6 +445,7 @@ c = Component('wxScrolledWindow', ['window', 'control'], ['pos', 'size'])
 c.addStyles('wxHSCROLL', 'wxVSCROLL', 'wxNO_3D', 'wxTAB_TRAVERSAL')
 Manager.register(c)
 Manager.setMenu(c, 'container', 'scrolled window', 'wxScrolledWindow', 170)
+#Manager.setTool(c, 'Panels', images.getToolScrolledWindowBitmap(), 30)
 
 
 

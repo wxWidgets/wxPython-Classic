@@ -4,13 +4,15 @@
 # Created:      31.05.2007
 # RCS-ID:       $Id$
 
-import wx,sys,bisect
+import os,sys,bisect
+import wx
 from sets import Set
 from globals import *
 from model import Model
 from attribute import *
 import params
 import view
+import images
 
 # Group compatibility specifications. 
 # Key is the parent group, value is the list of child groups.
@@ -86,6 +88,13 @@ class Component(object):
             return self.images[0].Id
         except IndexError:
             return 0
+
+    def getTreeText(self, node):
+        label = node.getAttribute('class')
+        if self.hasName:
+            name = node.getAttribute('name')
+            if name: label += ' "%s"' % name
+        return label
 
     # Order components having same index by group and klass
     def __cmp__(self, other):
@@ -438,10 +447,17 @@ class _ComponentManager:
         if menu not in self.menus: self.menus[menu] = []
         bisect.insort_left(self.menus[menu], (index, component, label, help))
 
-    def setTool(self, component, panel, bitmap, index=sys.maxint):
+    def setTool(self, component, panel, bitmap=None, index=sys.maxint):
         '''Set toolpanel data.'''
         if panel not in self.panelNames: self.panelNames.append(panel)
         if panel not in self.panels: self.panels[panel] = []
+        # Auto-select bitmap if not provided
+        if not bitmap:
+            bmpPath = os.path.join('bitmaps', component.klass + '.bmp')
+            if os.path.exists(bmpPath):
+                bitmap = wx.Bitmap(bmpPath)
+            else:
+                bitmap = images.getToolDefaultBitmap()
         bisect.insort_left(self.panels[panel], (index, component, bitmap))
         
     def findById(self, id):

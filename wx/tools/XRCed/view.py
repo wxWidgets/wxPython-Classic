@@ -9,6 +9,7 @@ from globals import *
 from XMLTree import XMLTree
 from XMLTreeMenu import XMLTreeMenu
 from AttributePanel import Panel
+from tools import ToolPanel
 import images
 
 def CreateView():
@@ -25,12 +26,10 @@ def CreateView():
     global frame
     frame = Frame()                     # frame creates other
 
-class TaskBarIcon(wx.TaskBarIcon):
-    def __init__(self, frame):
-        wx.TaskBarIcon.__init__(self)
-        self.frame = frame
-        # Set the image
-        self.SetIcon(images.getIconIcon(), "XRCed")
+    # Tool panel on a MiniFrame
+    global toolFrame
+    toolFrame = wx.MiniFrame(frame, -1, 'Tool Panel')
+    toolPanel = ToolPanel(toolFrame)
 
 class Frame(wx.Frame):
     def __init__(self):
@@ -38,10 +37,6 @@ class Frame(wx.Frame):
         bar = self.CreateStatusBar(2)
         bar.SetStatusWidths([-1, 40])
         self.SetIcon(images.getIconIcon())
-        try:
-            self.tbicon = TaskBarIcon(self)
-        except:
-            self.tbicon = None
 
         self.InitMenuBar()
 
