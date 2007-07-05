@@ -9,7 +9,7 @@ from globals import *
 from XMLTree import XMLTree
 from XMLTreeMenu import XMLTreeMenu
 from AttributePanel import Panel
-from tools import ToolPanel
+from tools import *
 import images
 
 def CreateView():
@@ -28,8 +28,10 @@ def CreateView():
 
     # Tool panel on a MiniFrame
     global toolFrame
-    toolFrame = wx.MiniFrame(frame, -1, 'Tool Panel')
-    toolPanel = ToolPanel(toolFrame)
+    toolFrame = wx.MiniFrame(frame, -1, 'Tools')
+    toolFrame.panel = ToolPanel(toolFrame)
+    if toolFrame.panel.panels:
+        toolFrame.SetTitle(toolFrame.panel.panels[0].name)
 
 class Frame(wx.Frame):
     def __init__(self):
