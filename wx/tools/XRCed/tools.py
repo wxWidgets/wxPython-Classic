@@ -4,37 +4,49 @@
 # Created:      19.03.2003
 # RCS-ID:       $Id$
 
-#from wx.lib import buttons
 from globals import *
 from component import Manager
+import view
 import images
 
-# Tool panel
 class ToolPanel(wx.Panel):
-    TOOL_SIZE = (30, 30)
+    '''Manages a Listbook with tool bitmap buttons.'''
     def __init__(self, parent):
         if wx.Platform == '__WXGTK__':
             wx.Panel.__init__(self, parent, -1,
                              style=wx.RAISED_BORDER|wx.WANTS_CHARS)
         else:
             wx.Panel.__init__(self, parent, -1, style=wx.WANTS_CHARS)
-        # Create sizer for groups
-        self.sizer = wx.BoxSizer(wx.VERTICAL)
-        # Data to create buttons
-        self.groups = []
+        # Top sizer
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        # Listbook
+        self.lb = wx.Toolbook(self, -1, style=wx.BK_TOP)
+        sizer.Add(self.lb, 1, wx.EXPAND)
+        self.panels = []
+        # Image list
+        il = wx.ImageList(48, 48, True)
+        # Default Id 0
+        il.Add(images.getToolPanel_DefaultImage().ConvertToBitmap())
+        self.il = il
+        self.lb.AssignImageList(il)
 #        self.ctrl = self.shift = False
         # Current state (what to enable/disable)
 #        self.state = None
-        self.boxes = {}
-        for panel in Manager.panelNames:
-            panelData = Manager.panels.get(panel, None)
+        for name in Manager.panelNames:
+            panelData = Manager.getPanelData(name)
             if not panelData: continue
-            self.AddGroup(panel)
+            try:
+                im = Manager.panelImages[name]
+                imageId = il.Add(im.Scale(48, 48).ConvertToBitmap())
+            except:
+                imageId = 0
+            panel = self.AddPanel(name, imageId)
             for index,comp,image in panelData:
-                self.AddButton(comp.id, image, comp.klass)
-        self.SetSizerAndFit(self.sizer)
-        # Allow to be resized in vertical direction only
-        self.SetSizeHints(self.GetSize()[0], -1)
+                self.AddButton(panel, comp.id, image, comp.klass)
+            panel.Layout()
+        self.SetSizerAndFit(sizer)
+        # Allow to be resized in horizontal direction only
+        self.SetSizeHints(-1, self.GetSize()[1])
         # Events
 #        wx.EVT_COMMAND_RANGE(self, ID_NEW.PANEL, ID_NEW.LAST,
 #                             wx.wxEVT_COMMAND_BUTTON_CLICKED, g.frame.OnCreate)
@@ -45,82 +57,34 @@ class ToolPanel(wx.Panel):
  #           self.Bind(wx.EVT_LEFT_DOWN, self.OnClickBox)
         self.drag = None
 
-    def AddButton(self, id, bmp, text):
-        button = wx.BitmapButton(self, id, bmp, 
+    def AddButton(self, panel, id, bmp, text):
+        button = wx.BitmapButton(panel, id, bmp, 
                                  style=wx.NO_BORDER|wx.WANTS_CHARS)
 #        button = buttons.GenBitmapButton(self, id, image, size=self.TOOL_SIZE,
 #                                         style=wx.NO_BORDER|wx.WANTS_CHARS)
 #        button.SetBezelWidth(0)
 #        wx.EVT_KEY_DOWN(button, self.OnKeyDown)
 #        wx.EVT_KEY_UP(button, self.OnKeyUp)
-#        wx.EVT_LEFT_DOWN(button, self.OnLeftDownOnButton)
+#        button.Bind(wx.EVT_BUTTON, self.OnButton)
 #        wx.EVT_MOTION(button, self.OnMotionOnButton)
         button.SetToolTipString(text)
-        self.curSizer.Add(button)
-        self.groups[-1][1][id] = button
+        panel.sizer.Add(button, 0, wx.ALIGN_CENTRE)
+        panel.controls[id] = button
 
-    def AddGroup(self, name):
+    def AddPanel(self, name, imageId):
         # Each group is inside box
-        id = wx.NewId()
-        box = wx.StaticBox(self, id, '[+] '+name, style=wx.WANTS_CHARS)
-        box.SetForegroundColour(wx.Colour(64, 64, 64))
-#        box.SetFont(g.smallerFont())
-        box.show = True
-        box.name = name
-        box.gnum = len(self.groups)
-        box.Bind(wx.EVT_LEFT_DOWN, self.OnClickBox)
-        boxSizer = wx.StaticBoxSizer(box, wx.VERTICAL)
-        boxSizer.Add((0, 0))
-        self.boxes[id] = box
-        self.curSizer = wx.GridSizer(0, 3, 3, 3)
-        boxSizer.Add(self.curSizer)
-        self.sizer.Add(boxSizer, 0, wx.TOP | wx.LEFT | wx.RIGHT | wx.EXPAND, 4)
-        self.groups.append((box,{}))
+        panel = wx.Panel(self.lb)
+        panel.SetBackgroundColour(wx.Colour(115, 180, 215))
+        panel.name = name
+        panel.gnum = len(self.panels)
+        panel.controls = {}
+        panel.sizer = wx.FlexGridSizer(0, 3, 5, 5)
+        panel.SetSizer(panel.sizer)
+        self.lb.AddPage(panel, '', imageId=imageId)
+        self.panels.append(panel)
+        return panel
 
-    # Enable/disable group
-    def EnableGroup(self, gnum, enable = True):
-        grp = self.groups[gnum]
-        for b in grp[1].values(): b.Enable(enable)
-
-    # Show/hide group
-    def ShowGroup(self, gnum, show = True):
-        grp = self.groups[gnum]
-        grp[0].show = show
-        for b in grp[1].values(): b.Show(show)
-
-    # Enable/disable group item
-    def EnableGroupItem(self, gnum, id, enable = True):
-        grp = self.groups[gnum]
-        grp[1][id].Enable(enable)
-
-    # Enable/disable group items
-    def EnableGroupItems(self, gnum, ids, enable = True):
-        grp = self.groups[gnum]
-        for id in ids:
-            grp[1][id].Enable(enable)
-
-    def OnClickBox(self, evt):
-        if wx.Platform == '__WXMSW__':
-            box = None
-            for id,b in self.boxes.items():
-                # How to detect a click on a label?
-                if b.GetRect().Inside(evt.GetPosition()):
-                    box = b
-                    break
-            if not box: 
-                evt.Skip()
-                return
-        else:
-            box = self.boxes[evt.GetId()]
-        # Collapse/restore static box, change label
-        self.ShowGroup(box.gnum, not box.show)
-        if box.show: box.SetLabel('[+] ' + box.name)
-        else: box.SetLabel('[-] ' + box.name)
-        self.Layout()
-        self.Refresh()
-        #for b in self.boxes.items():
-
-    # DaD
+    # DnD
     def OnLeftDownOnButton(self, evt):
         self.posDown = evt.GetPosition()
         self.idDown = evt.GetId()
