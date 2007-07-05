@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource>
+  <object class="wxFrame" name="FRAME_Panels">
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <object class="wxGridBagSizer">
+          <object class="sizeritem">
+            <object class="wxListBox">
+              <size>110,100</size>
+              <content>
+                <item>Item 1</item>
+                <item>Item 2</item>
+                <item>Item 3</item>
+                <item>Item 4</item>
+                <item>Item 5</item>
+              </content>
+            </object>
+            <option>1</option>
+            <flag>wxEXPAND</flag>
+            <cellpos>0,0</cellpos>
+          </object>
+          <object class="sizeritem">
+            <object class="wxListCtrl">
+              <size>110,100</size>
+            </object>
+            <option>1</option>
+            <flag>wxEXPAND</flag>
+            <cellpos>0,1</cellpos>
+          </object>
+          <object class="sizeritem">
+            <object class="wxTreeCtrl">
+              <size>120,100</size>
+            </object>
+            <option>1</option>
+            <flag>wxEXPAND</flag>
+            <cellpos>0,2</cellpos>
+          </object>
+          <object class="sizeritem">
+            <object class="wxStaticBox">
+              <label>StaticBox</label>
+            </object>
+            <option>0</option>
+            <flag>wxBOTTOM|wxEXPAND</flag>
+            <border>14</border>
+            <cellpos>1,0</cellpos>
+          </object>
+          <object class="sizeritem">
+            <object class="wxGrid">
+              <size>-1,90</size>
+            </object>
+            <option>0</option>
+            <flag>wxALL|wxEXPAND</flag>
+            <border>8</border>
+            <cellpos>1,1</cellpos>
+            <cellspan>1,2</cellspan>
+          </object>
+          <vgap>8</vgap>
+          <hgap>8</hgap>
+          <growablecols/>
+          <growablerows/>
+        </object>
+        <option>1</option>
+        <flag>wxEXPAND</flag>
+      </object>
+      <object class="sizeritem">
+        <object class="wxButton" name="wxID_OK">
+          <label>Ok</label>
+          <bg>#90EE90</bg>
+        </object>
+        <flag>wxTOP|wxALIGN_CENTRE_HORIZONTAL</flag>
+        <border>10</border>
+      </object>
+    </object>
+    <title/>
+  </object>
+  <object class="wxFrame" name="FRAME_Controls">
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <object class="wxFlexGridSizer">
+          <object class="sizeritem">
+            <object class="wxStaticText">
+              <label>StaticText</label>
+            </object>
+            <option>0</option>
+            <flag>wxALIGN_CENTRE</flag>
+          </object>
+          <object class="sizeritem">
+            <object class="wxStaticBitmap">
+              <size>24,24</size>
+              <bitmap stock_id="wxART_INFORMATION"/>
+              <style>wxRAISED_BORDER</style>
+            </object>
+            <flag>wxALIGN_CENTRE</flag>
+          </object>
+          <object class="sizeritem">
+            <object class="wxStaticLine"/>
+            <flag>wxEXPAND</flag>
+          </object>
+          <object class="sizeritem">
+            <object class="wxButton">
+              <label>Button</label>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxRadioButton">
+              <label>radio</label>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxSpinButton"/>
+          </object>
+          <object class="sizeritem">
+            <object class="wxToggleButton">
+              <label>Toggle</label>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxTextCtrl"/>
+          </object>
+          <object class="sizeritem">
+            <object class="wxChoice">
+              <content>
+                <item>choice</item>
+              </content>
+            </object>
+            <flag>wxEXPAND</flag>
+          </object>
+          <object class="sizeritem">
+            <object class="wxSlider"/>
+            <flag>wxEXPAND</flag>
+          </object>
+          <object class="sizeritem">
+            <object class="wxGauge">
+              <range>20</range>
+              <value>7</value>
+            </object>
+          </object>
+          <object class="sizeritem">
+            <object class="wxSpinCtrl"/>
+          </object>
+          <object class="sizeritem">
+            <object class="wxScrollBar"/>
+          </object>
+          <object class="sizeritem">
+            <object class="wxFilePickerCtrl"/>
+          </object>
+          <rows>3</rows>
+          <vgap>8</vgap>
+          <hgap>8</hgap>
+        </object>
+        <flag>wxALL</flag>
+        <border>10</border>
+      </object>
+      <object class="sizeritem">
+        <object class="wxButton" name="wxID_OK">
+          <label>Ok</label>
+          <bg>#90EE90</bg>
+        </object>
+        <flag>wxTOP|wxALIGN_CENTRE_HORIZONTAL</flag>
+        <border>10</border>
+      </object>
+    </object>
+    <title/>
+  </object>
+  <object class="wxPanel" name="TOOL_PANELS">
+    <object class="wxBoxSizer">
+      <object class="sizeritem">
+        <object class="wxPanel" name="PANEL_Panels">
+          <object class="wxBoxSizer">
+            <orient>wxVERTICAL</orient>
+            <object class="sizeritem">
+              <object class="wxPanel">
+                <size>80,80</size>
+                <bg>#FFFFFF</bg>
+                <style>wxSUNKEN_BORDER</style>
+              </object>
+              <flag>wxEXPAND</flag>
+            </object>
+          </object>
+        </object>
+      </object>
+      
+      <orient/>
+    </object>
+  </object>
+  <object class="wxFrame" name="PANEL_Windows">
+    <title/>
+    <size>100,80</size>
+  </object>
+  <object class="wxMenuBar" name="PANEL_Menus">
+    <object class="wxMenu" name="MENU1">
+      <object class="wxMenuItem" name="MENU_ITEM">
+        <label>Item1</label>
+        <bitmap/>
+      </object>
+      <object class="wxMenuItem" name="MENU_ITEM">
+        <label>Item2</label>
+        <bitmap/>
+      </object>
+      <object class="wxMenuItem" name="MENU_ITEM">
+        <label>Item3</label>
+        <bitmap/>
+      </object>
+      <label>Menu1</label>
+    </object>
+    <object class="wxMenu" name="MENU2">
+      <object class="wxMenuItem" name="MENU_ITEM">
+        <label>Item1</label>
+        <bitmap/>
+      </object>
+      <object class="wxMenuItem" name="MENU_ITEM">
+        <label>Item2</label>
+        <bitmap/>
+      </object>
+      <object class="wxMenuItem" name="MENU_ITEM">
+        <label>Item3</label>
+        <bitmap/>
+      </object>
+      <label>Menu2</label>
+    </object>
+  </object>
+  <object class="wxFrame" name="FRAME">
+    <size>120,80</size>
+    <title>Frame</title>
+    <style>wxCAPTION|wxSYSTEM_MENU|wxRESIZE_BORDER|wxCLOSE_BOX|wxMAXIMIZE_BOX</style>
+  </object>
+  <object class="wxDialog" name="DIALOG">
+    <size>100,80</size>
+    <title>Dialog</title>
+  </object>
+</resource>
