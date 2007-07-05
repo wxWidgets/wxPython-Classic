@@ -50,8 +50,8 @@ class Panel(wx.Panel):
         self.controlClass = params.ParamText(self, 'class', textWidth=200)
         sizer.AddMany([ (label, 0, wx.ALIGN_CENTER_VERTICAL),
                         (self.controlClass, 0, wx.LEFT, 5) ])
-        self.labelName = wx.StaticText(self, -1, 'XRC ID:')
-        self.controlName = params.ParamText(self, 'XML_name', textWidth=200)
+        self.labelName = wx.StaticText(self, -1, 'name:')
+        self.controlName = params.ParamText(self, 'name', textWidth=200)
         sizer.AddMany([ (self.labelName, 0, wx.ALIGN_CENTER_VERTICAL),
                         (self.controlName, 0, wx.LEFT, 5) ])
         topSizer.Add(sizer, 0, wx.ALL, 10)
