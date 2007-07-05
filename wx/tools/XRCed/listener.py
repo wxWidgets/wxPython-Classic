@@ -9,6 +9,7 @@ import os,sys,shutil,tempfile
 from globals import *
 from presenter import Presenter
 from component import Manager
+from model import Model
 import view
 import undo
 
@@ -124,7 +125,12 @@ class _Listener:
         '''Hadnler for creating new elements.'''
         comp = Manager.findById(evt.GetId())
         g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
-        Presenter.create(comp)
+        print comp.groups
+        if comp.groups[0] == 'component':
+            node = Model.createComponentNode('Component')
+            Presenter.create(comp, node)
+        else:
+            Presenter.create(comp)
 
     def OnComponentReplace(self, evt):
         '''Hadnler for creating new elements.'''
@@ -423,8 +429,8 @@ Homepage: http://xrced.sourceforge.net\
             evt.Enable(bool(self.tree.GetSelection()))
         elif evt.GetId() == wx.ID_SAVE:
             evt.Enable(Presenter.modified)
-        elif evt.GetId() in [self.frame.ID_SHOW_XML]:
-            evt.Enable(len(self.tree.GetSelections()) == 1)
+#        elif evt.GetId() in [self.frame.ID_SHOW_XML]:
+#            evt.Enable(len(self.tree.GetSelections()) == 1)
         elif evt.GetId() in [wx.ID_PASTE, self.frame.ID_TOOL_PASTE]:
             evt.Enable(self.clipboardHasData)
 # !!! Does not work on wxGTK
@@ -582,7 +588,7 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnPanelPageChanging(self, evt):
-        TRACE('OnPanelPageChanging: %d %d', evt.GetOldSelection(), evt.GetSelection())
+        TRACE('OnPanelPageChanging: %d > %d', evt.GetOldSelection(), evt.GetSelection())
         # Register undo if something was changed
         i = evt.GetOldSelection()
 #        import pdb;pdb.set_trace()
@@ -591,7 +597,7 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnPanelPageChanged(self, evt):
-        TRACE('OnPanelPageChanged: %d %d', evt.GetOldSelection(), evt.GetSelection())
+        TRACE('OnPanelPageChanged: %d > %d', evt.GetOldSelection(), evt.GetSelection())
         # Register new undo 
         Presenter.createUndoEdit(page=evt.GetSelection())
         evt.Skip()
