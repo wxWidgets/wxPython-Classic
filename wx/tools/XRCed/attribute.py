@@ -78,8 +78,9 @@ class MultiAttribute:
         tag = node.tagName  # remember tag name
         value = []
         # Look for multiple tags
-        while node and node.tagName == tag:
-            value.append(Attribute.get(node))
+        while node:
+            if node.nodeType == node.ELEMENT_NODE and node.tagName == tag:
+                value.append(Attribute.get(node))
             node = node.nextSibling
         return value
     get = staticmethod(get)
