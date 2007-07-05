@@ -444,6 +444,7 @@ class _Presenter:
     def showXML(self):
         '''Show some source.'''
         item = view.tree.GetSelection()
+        if not item: item = view.tree.root
         node = view.tree.GetPyData(item)
         dom = MyDocument()
         node = dom.appendChild(node.cloneNode(True))
