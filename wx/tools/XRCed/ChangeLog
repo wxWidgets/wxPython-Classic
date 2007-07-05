@@ -1,5 +1,10 @@
 2007-07-05  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
 
+	* Added new bitmaps for tool panel. Using BMP format. Files
+	related to core componetns are in plugins/bitmaps, while toolbook
+	tab bitmaps are in the old src-images. Will think about better
+	directory structure. Implemented new tool panel using Toolbook.
+
 	* Undo/redo fixes, using UndoGlobal as a temporaty solution for
 	non-implemented undos; added maketools script for auto-generating
 	tool panel bitmaps; reusing old tool panel in tools.py at the
