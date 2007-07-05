@@ -27,7 +27,7 @@ def InitParams(panel):
         textH += 4
         textB = 3               # bigger text border needed for mac highlighting
     else:
-        textH += 6
+        textH += 8                      # maybe -1 is better...
         textB = 2
     dc.Destroy()
 
