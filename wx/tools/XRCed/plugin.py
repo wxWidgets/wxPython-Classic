@@ -39,22 +39,22 @@ def load_plugins(dir):
                     ff_crx.append(f)
             elif os.path.isdir(f):
                 dirs.append(f)
-        for f in ff_py:
+        for name in ff_py:
             TRACE('* __import__ %s' % name)
             try:
                 __import__(name, globals(), locals(), ['*'])
             except:
                 print 'Error:', sys.exc_value
-        for f in ff_crx:
+        for crx in ff_crx:
             try:
-                load_crx(f)
+                load_crx(crx)
             except:
                 print 'Error:', sys.exc_value
-        for f in dirs:
+        for dir in dirs:
             if os.path.isfile(os.path.join(f, '__init__.py')):
                 TRACE('* __import__ %s/__init__.py' % f)
                 try:
-                    __import__(f, globals(), locals(), ['*'])
+                    __import__(dir, globals(), locals(), ['*'])
                 except:
                     print 'Error:', sys.exc_value
     finally:

@@ -67,7 +67,6 @@ class XMLTree(wx.TreeCtrl):
                     isContainer = True
                 elif n.nodeType == node.ELEMENT_NODE and not n.tagName in attributes:
                     attributes.append(n.tagName)
-            print className, isContainer, attributes
             if isContainer:
                 comp = Container(className, 'unknown', attributes)
             else:
