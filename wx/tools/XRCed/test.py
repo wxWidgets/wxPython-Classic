@@ -53,5 +53,5 @@ Listener.Install(view.frame, view.tree, view.panel)
 if len(sys.argv) > 1:
     Presenter.open(sys.argv[1])
 view.frame.Show()
-#view.toolFrame.Show()
+view.toolFrame.Show()
 app.MainLoop()
