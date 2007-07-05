@@ -14981,6 +14981,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiTabCtrl_IsDragging(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiTabCtrl *arg1 = (wxAuiTabCtrl *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiTabCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabCtrl_IsDragging" "', expected argument " "1"" of type '" "wxAuiTabCtrl const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiTabCtrl * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxAuiTabCtrl const *)arg1)->IsDragging();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *AuiTabCtrl_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -18809,6 +18839,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiTabContainer_swiginit", AuiTabContainer_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_AuiTabCtrl", (PyCFunction) _wrap_new_AuiTabCtrl, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"delete_AuiTabCtrl", (PyCFunction)_wrap_delete_AuiTabCtrl, METH_O, NULL},
+	 { (char *)"AuiTabCtrl_IsDragging", (PyCFunction)_wrap_AuiTabCtrl_IsDragging, METH_O, NULL},
 	 { (char *)"AuiTabCtrl_swigregister", AuiTabCtrl_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiTabCtrl_swiginit", AuiTabCtrl_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PreAuiNotebook", (PyCFunction)_wrap_new_PreAuiNotebook, METH_NOARGS, NULL},

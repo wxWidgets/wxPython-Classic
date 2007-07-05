@@ -7077,7 +7077,7 @@ class PyApp(EvtHandler):
         Create a new application object, starting the bootstrap process.
         """
         _core_.PyApp_swiginit(self,_core_.new_PyApp(*args, **kwargs))
-        self._setOORInfo(self, False);PyApp._setCallbackInfo(self, self, PyApp)
+        self._setOORInfo(self, False);PyApp._setCallbackInfo(self, self, PyApp);self.this.own(True)
 
     __swig_destroy__ = _core_.delete_PyApp
     __del__ = lambda self : None;

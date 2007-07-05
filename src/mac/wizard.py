@@ -388,6 +388,14 @@ class Wizard(_windows.Dialog):
         """SetBorder(self, int border)"""
         return _wizard.Wizard_SetBorder(*args, **kwargs)
 
+    def GetBitmap(*args, **kwargs):
+        """GetBitmap(self) -> Bitmap"""
+        return _wizard.Wizard_GetBitmap(*args, **kwargs)
+
+    def SetBitmap(*args, **kwargs):
+        """SetBitmap(self, Bitmap bitmap)"""
+        return _wizard.Wizard_SetBitmap(*args, **kwargs)
+
     def IsRunning(*args, **kwargs):
         """IsRunning(self) -> bool"""
         return _wizard.Wizard_IsRunning(*args, **kwargs)
@@ -404,6 +412,7 @@ class Wizard(_windows.Dialog):
         """HasPrevPage(self, WizardPage page) -> bool"""
         return _wizard.Wizard_HasPrevPage(*args, **kwargs)
 
+    Bitmap = property(GetBitmap,SetBitmap) 
     CurrentPage = property(GetCurrentPage,doc="See `GetCurrentPage`") 
     PageAreaSizer = property(GetPageAreaSizer,doc="See `GetPageAreaSizer`") 
     PageSize = property(GetPageSize,SetPageSize,doc="See `GetPageSize` and `SetPageSize`") 

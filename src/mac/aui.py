@@ -1336,6 +1336,10 @@ class AuiTabCtrl(_core.Control,AuiTabContainer):
 
     __swig_destroy__ = _aui.delete_AuiTabCtrl
     __del__ = lambda self : None;
+    def IsDragging(*args, **kwargs):
+        """IsDragging(self) -> bool"""
+        return _aui.AuiTabCtrl_IsDragging(*args, **kwargs)
+
 _aui.AuiTabCtrl_swigregister(AuiTabCtrl)
 
 class AuiNotebook(_core.Control):
