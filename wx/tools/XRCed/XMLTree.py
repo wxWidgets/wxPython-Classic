@@ -33,7 +33,7 @@ class XMLTree(wx.TreeCtrl):
         # 0 is the default image index
         il.Add(images.getTreeDefaultImage().Scale(16,16).ConvertToBitmap())
         # 1 is root
-        self.rootImage = il.Add(images.getTreeRootImage().Scale(16,16).ConvertToBitmap())
+#        self.rootImage = il.Add(images.getTreeRootImage().Scale(16,16).ConvertToBitmap())
         # Loop through registered components which have images
         for component in Manager.components.values():
             for im in component.images:
@@ -41,7 +41,7 @@ class XMLTree(wx.TreeCtrl):
         self.il = il
         self.SetImageList(il)
 
-        self.root = self.AddRoot('XML tree', self.rootImage)
+        self.root = self.AddRoot('XML tree') #, self.rootImage)
         self.SetItemHasChildren(self.root)
 #        self.Expand(self.root)
 
