@@ -108,16 +108,22 @@ class _Listener:
         wx.EVT_UPDATE_UI(frame, ID.EXPAND, self.OnUpdateUI)
 
         # XMLTree events
-        # Register events
         tree.Bind(wx.EVT_LEFT_DOWN, self.OnTreeLeftDown)
         tree.Bind(wx.EVT_RIGHT_DOWN, self.OnTreeRightDown)
         tree.Bind(wx.EVT_TREE_SEL_CHANGING, self.OnTreeSelChanging)
         tree.Bind(wx.EVT_TREE_SEL_CHANGED, self.OnTreeSelChanged)
         tree.Bind(wx.EVT_TREE_ITEM_COLLAPSED, self.OnTreeItemCollapsed)
 
-        # Panel events
+        # AttributePanel events
         panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGING, self.OnPanelPageChanging)
         panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.OnPanelPageChanged)
+
+        # ToolPanel events
+        toolPanel = view.toolFrame.panel
+        toolPanel.lb.Bind(wx.EVT_TOOLBOOK_PAGE_CHANGED, self.OnToolPanelPageChanged)
+        wx.EVT_COMMAND_RANGE(toolPanel.lb, Manager.firstId, Manager.lastId,
+                             wx.wxEVT_COMMAND_BUTTON_CLICKED,
+                             self.OnComponentCreate)
 
         wx.EVT_MENU_HIGHLIGHT_ALL(self.frame, self.OnMenuHighlight)
 
@@ -125,7 +131,6 @@ class _Listener:
         '''Hadnler for creating new elements.'''
         comp = Manager.findById(evt.GetId())
         g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
-        print comp.groups
         if comp.groups[0] == 'component':
             node = Model.createComponentNode('Component')
             Presenter.create(comp, node)
@@ -600,6 +605,13 @@ Homepage: http://xrced.sourceforge.net\
         TRACE('OnPanelPageChanged: %d > %d', evt.GetOldSelection(), evt.GetSelection())
         # Register new undo 
         Presenter.createUndoEdit(page=evt.GetSelection())
+        evt.Skip()
+
+    def OnToolPanelPageChanged(self, evt):
+        TRACE('OnToolPanelPageChanged: %d > %d', evt.GetOldSelection(), evt.GetSelection())
+        # Update tool frame (if exists)
+        panel = view.toolFrame.panel.panels[evt.GetSelection()]
+        view.toolFrame.SetTitle(panel.name)
         evt.Skip()
 
 # Singleton class
