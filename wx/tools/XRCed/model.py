@@ -49,6 +49,7 @@ class _Model:
 
         # Set encoding global variable and default encoding
         if dom.encoding:
+            # !!! is this needed?
             g.currentEncoding = dom.encoding
             wx.SetDefaultPyEncoding(g.currentEncoding.encode())
         else:
@@ -111,6 +112,11 @@ class _Model:
 
     def createObjectNode(self, className):
         node = self.dom.createElement('object')
+        node.setAttribute('class', className)
+        return node
+
+    def createComponentNode(self, className):
+        node = self.dom.createElement('component')
         node.setAttribute('class', className)
         return node
 
