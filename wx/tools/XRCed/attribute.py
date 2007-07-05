@@ -28,7 +28,7 @@ class Attribute:
 class ContentAttribute:
     '''Content attribute class. Value is a list of strings.'''
     def add(parentNode, attribute, value):
-        contentElem = Model.dom.createElement('content')
+        contentElem = Model.dom.createElement(attribute)
         parentNode.appendChild(contentElem)
         for item in value:
             elem = Model.dom.createElement('item')
