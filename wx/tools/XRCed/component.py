@@ -19,7 +19,7 @@ import images
 # !value means named main group is excluded from possible children.
 # "root" is a special group for the tree root
 parentChildGroups = {
-    'root': ['top_level'],      # top-level objects
+    'root': ['top_level', 'component'],      # top-level objects
     'frame': ['toolbar', 'menubar', 'statusbar'],
     'window': ['control', 'window', 'sizer', '!frame'],
     'sizer': ['control', 'sizer', 'spacer'],
@@ -423,6 +423,7 @@ class _ComponentManager:
 
     def register(self, component):
         '''Register component object.'''
+        TRACE('register %s' % component.klass)
         self.components[component.klass] = component
         # unique wx ID for event handling
         component.id = self.lastId = wx.NewId()
