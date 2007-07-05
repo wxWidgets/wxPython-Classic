@@ -16,7 +16,7 @@
     <menu>custom</menu>
     <item>custom1</item>
     <help>very custom control</help>
-    <panel>custom</panel>
+    <panel>Custom</panel>
     <bitmap></bitmap>
   </component>
 </resource>
