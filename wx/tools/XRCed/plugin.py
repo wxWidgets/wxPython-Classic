@@ -5,24 +5,10 @@
 # RCS-ID:       $Id$
 
 import os,sys
-
-def load_plugins(dir):
-    sys_path = sys.path
-    cwd = os.getcwd()
-    dir = os.path.abspath(os.path.normpath(dir))
-    os.chdir(dir)
-    sys.path = sys_path + [dir]
-    try:
-        for f in os.listdir('.'):
-            name,ext = os.path.splitext(f)
-            if os.path.isfile(f) and ext == '.py':
-                __import__(name, globals(), locals(), ['*'])
-            elif os.path.isdir(f):
-                if os.path.isfile(os.path.join(f, '__init__.py')):
-                    __import__(f, globals(), locals(), ['*'])
-    finally:
-        sys.path = sys_path
-        os.chdir(cwd)
+from xml.dom import minidom
+from globals import *
+from presenter import Manager
+import component
 
 def load_all_plugins():
     pluginPath = os.getenv('XRCEDPATH')
@@ -31,3 +17,75 @@ def load_all_plugins():
             if os.path.isdir(dir):
                 import_plugins(dir)
 
+def load_plugins(dir):
+    sys_path = sys.path
+    cwd = os.getcwd()
+    dir = os.path.abspath(os.path.normpath(dir))
+    TRACE('* load_plugins %s' % dir)
+    os.chdir(dir)
+    sys.path = sys_path + [dir]
+    try:
+        ff = os.listdir('.')
+        # .py before .crx before subdirs
+        ff_py = []
+        ff_crx = []
+        dirs = []
+        for f in ff:
+            name,ext = os.path.splitext(f)
+            if os.path.isfile(f):
+                if ext == '.py':
+                    ff_py.append(name)
+                elif ext == '.crx':
+                    ff_crx.append(f)
+            elif os.path.isdir(f):
+                dirs.append(f)
+        for f in ff_py:
+            TRACE('* __import__ %s' % name)
+            try:
+                __import__(name, globals(), locals(), ['*'])
+            except:
+                print 'Error:', sys.exc_value
+        for f in ff_crx:
+            try:
+                load_crx(f)
+            except:
+                print 'Error:', sys.exc_value
+        for f in dirs:
+            if os.path.isfile(os.path.join(f, '__init__.py')):
+                TRACE('* __import__ %s/__init__.py' % f)
+                try:
+                    __import__(f, globals(), locals(), ['*'])
+                except:
+                    print 'Error:', sys.exc_value
+    finally:
+        sys.path = sys_path
+        os.chdir(cwd)
+
+def load_crx(filename):
+    dom = minidom.parse(filename)
+    for node in dom.documentElement.childNodes:
+        if node.nodeType == node.ELEMENT_NODE and node.tagName == 'component':
+            create_component(node)
+
+def create_component(node):
+    klass = node.getAttribute('class')
+    name = node.getAttribute('name')
+    TRACE('create_component %s', name)
+    comp = Manager.getNodeComp(node)
+    meta = component.__dict__[comp.klass] # get component class
+    attributes = comp.getAttribute(node, 'attributes')
+    groups = comp.getAttribute(node, 'groups')
+    styles = comp.getAttribute(node, 'styles')
+    menu = comp.getAttribute(node, 'menu')
+    label = comp.getAttribute(node, 'item')
+    if not label: label = name.tolower()
+    help = comp.getAttribute(node, 'help')
+    panel = comp.getAttribute(node, 'panel')
+    bitmap = comp.getAttribute(node, 'bitmap')
+    c = meta(name, groups, attributes)
+    c.addStyles(*styles)
+    Manager.register(c)
+    if menu:
+        Manager.setMenu(c, menu, label, help)
+    if panel:
+        Manager.setTool(c, panel, bitmap[1])
