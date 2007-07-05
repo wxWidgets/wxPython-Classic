@@ -4,7 +4,7 @@
 # Created:      02.12.2002
 # RCS-ID:       $Id$
 
-import sys
+import os,sys
 import wx
 import wx.xrc as xrc
 try:
@@ -84,6 +84,13 @@ class Globals:
 
 g = Globals()
 
+# Set application path for loading resources
+if __name__ == '__main__':
+    g.basePath = os.path.dirname(sys.argv[0])
+else:
+    g.basePath = os.path.dirname(__file__)
+g.basePath = os.path.abspath(g.basePath)
+
 # Data object used for clipboard
 class MyDataObject(wx.PyDataObjectSimple):
     def __init__(self):
@@ -100,7 +107,7 @@ class MyDataObject(wx.PyDataObjectSimple):
 # Test for object elements (!!! move somewhere?)
 def is_object(node):
     return node.nodeType == node.ELEMENT_NODE and \
-           node.tagName in ['object', 'object_ref']
+           node.tagName in ['object', 'object_ref', 'component']
 #or \
 #           node.nodeType == node.COMMENT_NODE
 
