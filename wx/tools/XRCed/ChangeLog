@@ -3,7 +3,10 @@
 	* Added new bitmaps for tool panel. Using BMP format. Files
 	related to core componetns are in plugins/bitmaps, while toolbook
 	tab bitmaps are in the old src-images. Will think about better
-	directory structure. Implemented new tool panel using Toolbook.
+	directory structure. Implemented new tool panel using
+	Toolbook. Trying to generate tool images automatically by
+	misc/maketools.py script. New experimental feature is being
+	tested: components plugins defined as XML resources.
 
 	* Undo/redo fixes, using UndoGlobal as a temporaty solution for
 	non-implemented undos; added maketools script for auto-generating
