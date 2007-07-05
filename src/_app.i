@@ -47,7 +47,7 @@ DocStr(wxPyApp,
 class wxPyApp : public wxEvtHandler {
 public:
 
-    %pythonAppend wxPyApp    "self._setOORInfo(self, False);" setCallbackInfo(PyApp)
+    %pythonAppend wxPyApp    "self._setOORInfo(self, False);" setCallbackInfo(PyApp) ";self.this.own(True)"
     %typemap(out) wxPyApp*;    // turn off this typemap
 
     DocStr(wxPyApp,
