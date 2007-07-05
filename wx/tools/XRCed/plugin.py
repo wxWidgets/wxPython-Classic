@@ -4,7 +4,7 @@
 # Created:      31.05.2007
 # RCS-ID:       $Id$
 
-import os,sys
+import os, sys, glob
 from xml.dom import minidom
 from globals import *
 from presenter import Manager
@@ -25,33 +25,23 @@ def load_plugins(dir):
     os.chdir(dir)
     sys.path = sys_path + [dir]
     try:
-        ff = os.listdir('.')
-        # .py before .crx before subdirs
-        ff_py = []
-        ff_crx = []
-        dirs = []
-        for f in ff:
-            name,ext = os.path.splitext(f)
-            if os.path.isfile(f):
-                if ext == '.py':
-                    ff_py.append(name)
-                elif ext == '.crx':
-                    ff_crx.append(f)
-            elif os.path.isdir(f):
-                dirs.append(f)
-        for name in ff_py:
+        ff_py = glob.glob('*.py')
+        for f in ff_py:
+            name = os.path.splitext(f)[0]
             TRACE('* __import__ %s' % name)
             try:
                 __import__(name, globals(), locals(), ['*'])
             except:
                 print 'Error:', sys.exc_value
+        ff_crx = glob.glob('*.crx')
         for crx in ff_crx:
             try:
                 load_crx(crx)
             except:
                 print 'Error:', sys.exc_value
+        dirs = glob.glob('*/')
         for dir in dirs:
-            if os.path.isfile(os.path.join(f, '__init__.py')):
+            if os.path.isfile(os.path.join(dir, '__init__.py')):
                 TRACE('* __import__ %s/__init__.py' % f)
                 try:
                     __import__(dir, globals(), locals(), ['*'])
@@ -72,6 +62,7 @@ def create_component(node):
     name = node.getAttribute('name')
     TRACE('create_component %s', name)
     comp = Manager.getNodeComp(node)
+    # !!! getattr is better?
     meta = component.__dict__[comp.klass] # get component class
     attributes = comp.getAttribute(node, 'attributes')
     groups = comp.getAttribute(node, 'groups')
