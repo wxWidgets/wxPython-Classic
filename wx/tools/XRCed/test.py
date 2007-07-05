@@ -9,14 +9,6 @@ import view
 import undo
 import plugin
 
-# Set application path for loading resources
-if __name__ == '__main__':
-    g.basePath = os.path.dirname(sys.argv[0])
-else:
-    g.basePath = os.path.dirname(__file__)
-g.basePath = os.path.abspath(g.basePath)
-print g.basePath
-
 app = wx.PySimpleApp()
 
 wx.FileSystem.AddHandler(wx.MemoryFSHandler())
@@ -46,6 +38,10 @@ g.fileHistory.Load(conf)
 g.undoMan = undo.UndoManager()
 
 Manager.init()
+
+# Register meta-components
+import meta
+
 # Load standard plugins
 plugin.load_plugins(os.path.join(g.basePath, 'plugins'))
 
@@ -57,5 +53,5 @@ Listener.Install(view.frame, view.tree, view.panel)
 if len(sys.argv) > 1:
     Presenter.open(sys.argv[1])
 view.frame.Show()
-view.toolFrame.Show()
+#view.toolFrame.Show()
 app.MainLoop()
