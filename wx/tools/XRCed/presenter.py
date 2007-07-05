@@ -252,7 +252,10 @@ class _Presenter:
                 panelNode = node
             for a,value in panel.GetValues():
                 if value: 
-                    self.comp.addAttribute(panelNode, a, value)
+                    try:
+                        self.comp.addAttribute(panelNode, a, value)
+                    except:
+                        print 'Error: ', sys.exc_value
         view.tree.SetItemImage(item, self.comp.getTreeImageId(node))
         view.tree.SetItemText(item, self.comp.getTreeText(node))
         self.setApplied()
