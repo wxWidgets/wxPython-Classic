@@ -415,8 +415,8 @@ class _ComponentManager:
         self.panels = {}
         self.menuNames = ['TOP_LEVEL', 'ROOT', 'bar', 'control', 'button', 'box', 
                           'container', 'sizer', 'custom']
-        self.panelNames = ['Windows', 'Panels', 'Menus', 'Sizers', 
-                           'Controls', 'Custom']
+        self.panelNames = ['Windows', 'Panels', 'Controls', 'Sizers',  'Menus', 'Custom']
+        self.panelImages = {}
 
     def init(self):
         self.firstId = self.lastId = wx.NewId()
@@ -442,11 +442,17 @@ class _ComponentManager:
     def getNodeComp(self, node):
         return self.components[node.getAttribute('class')]
 
+    def getMenuData(self, menu):
+        return self.menus.get(menu, None)
+
     def setMenu(self, component, menu, label, help, index=sys.maxint):
         '''Set pulldown menu data.'''
         if menu not in self.menuNames: self.menuNames.append(menu)
         if menu not in self.menus: self.menus[menu] = []
         bisect.insort_left(self.menus[menu], (index, component, label, help))
+
+    def getPanelData(self, panel):
+        return self.panels.get(panel, None)
 
     def setTool(self, component, panel, bitmap=None, index=sys.maxint):
         '''Set toolpanel data.'''
@@ -466,4 +472,3 @@ class _ComponentManager:
 
 # Singleton object
 Manager = _ComponentManager()
-
