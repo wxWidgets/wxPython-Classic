@@ -1,5 +1,8 @@
 2007-07-05  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
 
+	* Moved deprecated xrced.py,panel.py,tree.py and xxx.py to attic/,
+	test.py renamed to xrced.py.
+
 	* Added new bitmaps for tool panel. Using BMP format. Files
 	related to core componetns are in plugins/bitmaps, while toolbook
 	tab bitmaps are in the old src-images. Will think about better
