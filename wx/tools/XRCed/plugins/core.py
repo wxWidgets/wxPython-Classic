@@ -9,7 +9,7 @@ import images
 
 # Test
 
-print 'creating core components'
+TRACE('*** creating core components')
 
 ### wxFrame
 
