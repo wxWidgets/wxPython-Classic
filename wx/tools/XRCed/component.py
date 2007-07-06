@@ -454,18 +454,19 @@ class _ComponentManager:
     def getPanelData(self, panel):
         return self.panels.get(panel, None)
 
-    def setTool(self, component, panel, bitmap=None, index=sys.maxint):
+    def setTool(self, component, panel, bitmap=None, 
+                pos=(sys.maxint,sys.maxint), span=(1,1)):
         '''Set toolpanel data.'''
         if panel not in self.panelNames: self.panelNames.append(panel)
         if panel not in self.panels: self.panels[panel] = []
         # Auto-select bitmap if not provided
         if not bitmap:
-            bmpPath = os.path.join('bitmaps', component.klass + '.bmp')
+            bmpPath = os.path.join('bitmaps', component.klass + '.png')
             if os.path.exists(bmpPath):
                 bitmap = wx.Bitmap(bmpPath)
             else:
                 bitmap = images.getToolDefaultBitmap()
-        bisect.insort_left(self.panels[panel], (index, component, bitmap))
+        bisect.insort_left(self.panels[panel], (pos, span, component, bitmap))
         
     def findById(self, id):
         return self.ids[id]

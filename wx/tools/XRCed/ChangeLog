@@ -1,3 +1,9 @@
+2007-07-06  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
+
+	* Use GridBagSizer for tool placement, with automatic position
+	checking and generation of default positions; maketools script can
+	now generate PNG files for most controls from tools.xrc on wxGTK.
+
 2007-07-05  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
 
 	* Moved deprecated xrced.py,panel.py,tree.py and xxx.py to attic/,

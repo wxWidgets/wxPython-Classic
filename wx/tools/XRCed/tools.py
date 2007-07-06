@@ -18,6 +18,7 @@ else:
 
 class ToolPanel(wx.Panel):
     '''Manages a Listbook with tool bitmap buttons.'''
+    defaultPos = wx.GBPosition(sys.maxint,sys.maxint)
     def __init__(self, parent):
         if wx.Platform == '__WXGTK__':
             wx.Panel.__init__(self, parent, -1,
@@ -36,9 +37,6 @@ class ToolPanel(wx.Panel):
         il.Add(images.getToolPanel_DefaultImage().ConvertToBitmap())
         self.il = il
         self.lb.AssignImageList(il)
-#        self.ctrl = self.shift = False
-        # Current state (what to enable/disable)
-#        self.state = None
         for name in Manager.panelNames:
             panelData = Manager.getPanelData(name)
             if not panelData: continue
@@ -48,8 +46,8 @@ class ToolPanel(wx.Panel):
             except:
                 imageId = 0
             panel = self.AddPanel(name, imageId)
-            for index,comp,image in panelData:
-                self.AddButton(panel, comp.id, image, comp.klass)
+            for pos,span,comp,bmp in panelData:
+                self.AddButton(panel, pos, span, comp.id, bmp, comp.klass)
         self.lb.Fit()
         self.SetSizerAndFit(sizer)
         # Allow to be resized in horizontal direction only
@@ -58,7 +56,7 @@ class ToolPanel(wx.Panel):
 #        wx.EVT_KEY_UP(self, self.OnKeyUp)
         self.drag = None
 
-    def AddButton(self, panel, id, bmp, text):
+    def AddButton(self, panel, pos, span, id, bmp, text):
         button = wx.BitmapButton(panel, id, bmp, 
                                  style=wx.NO_BORDER | wx.WANTS_CHARS)
         button.SetBezelWidth(0)
@@ -67,18 +65,43 @@ class ToolPanel(wx.Panel):
 #        button.Bind(wx.EVT_BUTTON, self.OnButton)
 #        wx.EVT_MOTION(button, self.OnMotionOnButton)
         button.SetToolTipString(text)
-        panel.sizer.Add(button, 0, wx.ALIGN_CENTRE)
+        # Look for an available place if not specified
+        r0,c0 = 0,0
+        if pos != self.defaultPos:
+            if panel.sizer.CheckForIntersectionPos(pos, span):
+                r0,c0 = pos     # start from pos
+                pos = self.defaultPos   # reset to default
+        if pos == self.defaultPos:
+            # Find the smallest position we can insert into
+            try:
+                for r in range(r0, panel.size.rowspan):
+                    for c in range(c0, panel.size.colspan):
+                        if not panel.sizer.CheckForIntersectionPos((r,c), span):
+                            pos = (r,c)
+                            raise StopIteration
+            except StopIteration:
+                pass
+            if pos == self.defaultPos:  # insert new col/row
+                if panel.size.colspan + span[0] <= panel.size.rowspan + span[1]:
+                    pos = (0,panel.size.colspan)
+                else:
+                    pos = (panel.size.rowspan,0)
+        assert pos[0] >= 0 and pos[1] >= 0, 'invalid position'
+        panel.sizer.Add(button, pos, span, wx.ALIGN_CENTRE)
         panel.controls[id] = button
+        panel.size.rowspan = max(panel.size.rowspan, pos[0]+span[0])
+        panel.size.colspan = max(panel.size.colspan, pos[1]+span[1])
 
     def AddPanel(self, name, imageId):
         # Each group is inside box
         panel = wx.Panel(self.lb)
         panel.SetBackgroundColour(wx.Colour(115, 180, 215))
         panel.name = name
-        panel.gnum = len(self.panels)
         panel.controls = {}
+        panel.size = wx.GBSpan(0, 0) # current size
         topSizer = wx.BoxSizer()
-        panel.sizer = wx.FlexGridSizer(0, 3)#, 5, 5)
+        panel.sizer = wx.GridBagSizer(0, 0)
+        panel.sizer.SetEmptyCellSize((24, 24))
         topSizer.Add(panel.sizer, 1, wx.EXPAND | wx.ALL, 5)
         panel.SetSizer(topSizer)
         self.lb.AddPage(panel, '', imageId=imageId)
