@@ -303,7 +303,6 @@ SashLayoutWindow
 SashWindow
 ScreenDC
 ScrollBar
-ScrolledWindow
 ScrollEvent
 ScrollWinEvent
 SearchCtrl
