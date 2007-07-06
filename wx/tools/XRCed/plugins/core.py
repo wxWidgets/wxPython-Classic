@@ -137,6 +137,7 @@ c = Component('wxStaticText', ['control','tool'],
 c.addStyles('wxALIGN_LEFT', 'wxALIGN_RIGHT', 'wxALIGN_CENTRE', 'wxST_NO_AUTORESIZE')
 Manager.register(c)
 Manager.setMenu(c, 'control', 'label', 'wxStaticText', 10)
+Manager.setTool(c, 'Controls')
 
 ### wxStaticLine
 
@@ -145,6 +146,7 @@ c = Component('wxStaticLine', ['control','tool'],
 c.addStyles('wxLI_HORIZONTAL', 'wxLI_VERTICAL')
 Manager.register(c)
 Manager.setMenu(c, 'control', 'line', 'wxStaticLine', 20)
+Manager.setTool(c, 'Controls')
 
 ### wxStaticBitmap
 

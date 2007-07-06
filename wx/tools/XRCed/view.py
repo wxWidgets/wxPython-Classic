@@ -32,6 +32,8 @@ def CreateView():
     toolFrame.panel = ToolPanel(toolFrame)
     if toolFrame.panel.panels:
         toolFrame.SetTitle(toolFrame.panel.panels[0].name)
+    toolFrame.Fit()
+    toolFrame.SetMinSize(toolFrame.GetSize())
 
 class Frame(wx.Frame):
     def __init__(self):

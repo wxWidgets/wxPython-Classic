@@ -43,10 +43,9 @@ class ToolPanel(wx.Panel):
             panel = self.AddPanel(name, imageId)
             for index,comp,image in panelData:
                 self.AddButton(panel, comp.id, image, comp.klass)
-            panel.Layout()
+        self.lb.Fit()
         self.SetSizerAndFit(sizer)
         # Allow to be resized in horizontal direction only
-        self.SetSizeHints(-1, self.GetSize()[1])
         # Events
 #        wx.EVT_COMMAND_RANGE(self, ID_NEW.PANEL, ID_NEW.LAST,
 #                             wx.wxEVT_COMMAND_BUTTON_CLICKED, g.frame.OnCreate)
@@ -59,7 +58,7 @@ class ToolPanel(wx.Panel):
 
     def AddButton(self, panel, id, bmp, text):
         button = wx.BitmapButton(panel, id, bmp, 
-                                 style=wx.NO_BORDER|wx.WANTS_CHARS)
+                                 style=wx.WANTS_CHARS)
 #        button = buttons.GenBitmapButton(self, id, image, size=self.TOOL_SIZE,
 #                                         style=wx.NO_BORDER|wx.WANTS_CHARS)
 #        button.SetBezelWidth(0)
@@ -68,7 +67,7 @@ class ToolPanel(wx.Panel):
 #        button.Bind(wx.EVT_BUTTON, self.OnButton)
 #        wx.EVT_MOTION(button, self.OnMotionOnButton)
         button.SetToolTipString(text)
-        panel.sizer.Add(button, 0, wx.ALIGN_CENTRE)
+        panel.sizer.Add(button, 0, wx.ALIGN_CENTRE | wx.ALL, 5)
         panel.controls[id] = button
 
     def AddPanel(self, name, imageId):
@@ -78,7 +77,7 @@ class ToolPanel(wx.Panel):
         panel.name = name
         panel.gnum = len(self.panels)
         panel.controls = {}
-        panel.sizer = wx.FlexGridSizer(0, 3, 5, 5)
+        panel.sizer = wx.FlexGridSizer(0, 3)
         panel.SetSizer(panel.sizer)
         self.lb.AddPage(panel, '', imageId=imageId)
         self.panels.append(panel)
