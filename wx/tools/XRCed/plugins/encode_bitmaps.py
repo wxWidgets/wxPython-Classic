@@ -9,7 +9,7 @@ def main():
     output = 'bitmaps.py'
 
     # get the list of BMP files
-    files = glob.glob('bitmaps/*.bmp')
+    files = glob.glob('src-images/*.png')
     files.sort()
 
     # Truncate the inages module
