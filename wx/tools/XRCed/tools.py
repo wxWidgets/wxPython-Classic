@@ -13,6 +13,8 @@ if wx.Platform in ['__WXMAC__', '__WXMSW__']:
     # Mac and Win are better off with generic
     import wx.lib.buttons
     wx.BitmapButton = wx.lib.buttons.GenBitmapButton
+else:
+    wx.BitmapButton.SetBezelWidth = lambda self, w: None
 
 class ToolPanel(wx.Panel):
     '''Manages a Listbook with tool bitmap buttons.'''
@@ -52,25 +54,20 @@ class ToolPanel(wx.Panel):
         self.SetSizerAndFit(sizer)
         # Allow to be resized in horizontal direction only
         # Events
-#        wx.EVT_COMMAND_RANGE(self, ID_NEW.PANEL, ID_NEW.LAST,
-#                             wx.wxEVT_COMMAND_BUTTON_CLICKED, g.frame.OnCreate)
 #        wx.EVT_KEY_DOWN(self, self.OnKeyDown)
 #        wx.EVT_KEY_UP(self, self.OnKeyUp)
-        # wxMSW does not generate click events for StaticBox
- #       if wx.Platform == '__WXMSW__':
- #           self.Bind(wx.EVT_LEFT_DOWN, self.OnClickBox)
         self.drag = None
 
     def AddButton(self, panel, id, bmp, text):
         button = wx.BitmapButton(panel, id, bmp, 
                                  style=wx.NO_BORDER | wx.WANTS_CHARS)
-#        button.SetBezelWidth(0)
+        button.SetBezelWidth(0)
 #        wx.EVT_KEY_DOWN(button, self.OnKeyDown)
 #        wx.EVT_KEY_UP(button, self.OnKeyUp)
 #        button.Bind(wx.EVT_BUTTON, self.OnButton)
 #        wx.EVT_MOTION(button, self.OnMotionOnButton)
         button.SetToolTipString(text)
-        panel.sizer.Add(button, 0, wx.ALIGN_CENTRE | wx.ALL, 5)
+        panel.sizer.Add(button, 0, wx.ALIGN_CENTRE)
         panel.controls[id] = button
 
     def AddPanel(self, name, imageId):
@@ -80,8 +77,10 @@ class ToolPanel(wx.Panel):
         panel.name = name
         panel.gnum = len(self.panels)
         panel.controls = {}
-        panel.sizer = wx.FlexGridSizer(0, 3)
-        panel.SetSizer(panel.sizer)
+        topSizer = wx.BoxSizer()
+        panel.sizer = wx.FlexGridSizer(0, 3)#, 5, 5)
+        topSizer.Add(panel.sizer, 1, wx.EXPAND | wx.ALL, 5)
+        panel.SetSizer(topSizer)
         self.lb.AddPage(panel, '', imageId=imageId)
         self.panels.append(panel)
         return panel
