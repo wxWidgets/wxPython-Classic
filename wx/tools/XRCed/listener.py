@@ -123,7 +123,7 @@ class _Listener:
         toolPanel.lb.Bind(wx.EVT_TOOLBOOK_PAGE_CHANGED, self.OnToolPanelPageChanged)
         wx.EVT_COMMAND_RANGE(toolPanel.lb, Manager.firstId, Manager.lastId,
                              wx.wxEVT_COMMAND_BUTTON_CLICKED,
-                             self.OnComponentCreate)
+                             self.OnComponentTool)
 
         wx.EVT_MENU_HIGHLIGHT_ALL(self.frame, self.OnMenuHighlight)
 
@@ -612,6 +612,25 @@ Homepage: http://xrced.sourceforge.net\
         # Update tool frame (if exists)
         panel = view.toolFrame.panel.panels[evt.GetSelection()]
         view.toolFrame.SetTitle(panel.name)
+        evt.Skip()
+
+    def OnComponentTool(self, evt):
+        '''Hadnler for creating new elements.'''
+        comp = Manager.findById(evt.GetId())
+
+        # Check compatibility
+        if Presenter.createSibling: container = Presenter.container
+        else: container = Presenter.comp
+        if not container.canHaveChild(comp):
+            wx.LogError('Incompatible parent/child: parent is %s, child is %s!' %
+                        (container.klass, comp.klass))
+        else:        
+            g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
+            if comp.groups[0] == 'component':
+                node = Model.createComponentNode('Component')
+                Presenter.create(comp, node)
+            else:
+                Presenter.create(comp)
         evt.Skip()
 
 # Singleton class

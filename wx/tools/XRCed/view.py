@@ -28,7 +28,8 @@ def CreateView():
 
     # Tool panel on a MiniFrame
     global toolFrame
-    toolFrame = wx.MiniFrame(frame, -1, 'Tools')
+    toolFrame = wx.MiniFrame(frame, -1, 'Tools', 
+                             style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER)
     toolFrame.panel = ToolPanel(toolFrame)
     if toolFrame.panel.panels:
         toolFrame.SetTitle(toolFrame.panel.panels[0].name)
@@ -71,7 +72,8 @@ class Frame(wx.Frame):
         # Miniframe for split mode
         self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
                                            (g.conf.panelX, g.conf.panelY),
-                                           (g.conf.panelWidth, g.conf.panelHeight))
+                                           (g.conf.panelWidth, g.conf.panelHeight),
+                                           style=wx.CAPTION|wx.CLOSE_BOX)
         mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
         # Use tango icons and slightly wider bitmap size on Mac
         if wx.Platform in ['__WXMAC__', '__WXMSW__']:
