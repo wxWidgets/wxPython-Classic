@@ -14,33 +14,11 @@ import figleaf
 figleaf.start(ignore_python_lib=False)
 
 import unittest
-# individual modules of the test suite:
-# TODO: a more organized way of adding them
-import testBitmapButton, testButton, testCheckBox
-import testCheckListBox, testChoice
-import testColour, testComboBox, testControl, testControlWithItems
-import testDialog, testFont, testFrame
-import testGauge, testItemContainer
-import testListBox, testPanel, testPoint, testRadioBox
-import testRadioButton, testRect, testScrolledWindow, testSize
-import testSizer, testSlider, testSpinCtrl
-import testStaticText, testTextAttr, testTextCtrl
-import testToggleButton, testTopLevelWindow
-import testWindow
 
-modules = ( testBitmapButton, testButton, testCheckBox, testCheckListBox, 
-            testChoice, testColour, testComboBox, testControl,
-            testControlWithItems, testDialog, testFont, testFrame,
-            testGauge, testItemContainer,
-            testListBox, testPanel, testPoint, testRadioBox,
-            testRadioButton, testRect, testScrolledWindow,
-            testSize, testSizer, testSlider, testSpinCtrl,
-            testStaticText, testTextAttr, testTextCtrl, testToggleButton,
-            testTopLevelWindow, testWindow)
+modules = [__import__(f[:-3]) for f in os.listdir(rootdir) 
+                if f.startswith('test') and f.endswith('.py')]
 
 alltests = unittest.TestSuite([mod.suite() for mod in modules])
-maxstr = max(( mod.__name__ for mod in modules ))
-maxlen = len(maxstr)
 
 results = unittest.TestResult()
 alltests.run(results)
