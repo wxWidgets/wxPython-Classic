@@ -9,6 +9,11 @@ from component import Manager
 import view
 import images
 
+if wx.Platform in ['__WXMAC__', '__WXMSW__']:
+    # Mac and Win are better off with generic
+    import wx.lib.buttons
+    wx.BitmapButton = wx.lib.buttons.GenBitmapButton
+
 class ToolPanel(wx.Panel):
     '''Manages a Listbook with tool bitmap buttons.'''
     def __init__(self, parent):
@@ -58,9 +63,7 @@ class ToolPanel(wx.Panel):
 
     def AddButton(self, panel, id, bmp, text):
         button = wx.BitmapButton(panel, id, bmp, 
-                                 style=wx.WANTS_CHARS)
-#        button = buttons.GenBitmapButton(self, id, image, size=self.TOOL_SIZE,
-#                                         style=wx.NO_BORDER|wx.WANTS_CHARS)
+                                 style=wx.NO_BORDER | wx.WANTS_CHARS)
 #        button.SetBezelWidth(0)
 #        wx.EVT_KEY_DOWN(button, self.OnKeyDown)
 #        wx.EVT_KEY_UP(button, self.OnKeyUp)
