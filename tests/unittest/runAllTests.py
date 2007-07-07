@@ -1,5 +1,6 @@
 import os, sys
 import unittest
+import time
 from optparse import OptionParser
 
 # ------------------- Helper Methods ------------------------
@@ -19,6 +20,7 @@ def stop_figleaf():
 
 def output_summary():
     # TODO: add time and duration of test run to output
+    print "Run completed in %.2f seconds" % (stop_time-start_time) 
     print "%d tests passed in total!" % (total_successes)
     if total_failures > 0:
         print "%d tests failed in total!" % (total_failures)
@@ -86,6 +88,7 @@ modules = [__import__(f[:-3]) for f in os.listdir(rootdir)
 total_successes = 0
 total_failures  = 0
 total_errors    = 0
+start_time = time.time()
 for module in modules:
     # run suite
     suite = module.suite()
@@ -114,6 +117,7 @@ for module in modules:
             for error in results.errors:
                 print "\n------ " + str(error[0]) + " ------"
                 print error[1],
+stop_time = time.time()
 if options.verbose or options.failure_details:
     print "\n----------------------\n"
 
