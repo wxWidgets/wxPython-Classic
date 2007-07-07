@@ -1152,6 +1152,11 @@ class XML_Tree(wx.TreeCtrl):
 
     # Pull-down
     def OnRightDown(self, evt):
+        # Save changes if needed
+        xxx = self.GetPyData(self.selection)
+        if g.panel.IsModified():
+            self.Apply(xxx, self.selection)
+        
         pullDownMenu = g.pullDownMenu
         # select this item
         pt = evt.GetPosition();
