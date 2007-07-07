@@ -52,6 +52,7 @@ class ScrolledWindowTest(testPanel.PanelTest):
     
     # overrides test from testWindow (or rather, it's meant to)
     # kind of needs to sidestep the fact that there's a floor and ceiling
+    # TODO: needs to take into better account when one xmin and ymin aren't the same
     def testVirtualSize(self):
         """SetVirtualSize, GetVirtualSize"""
         self.testControl.SetVirtualSize((1,1))
