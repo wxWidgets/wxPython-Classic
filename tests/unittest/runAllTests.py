@@ -1,5 +1,17 @@
 import os, sys
+import unittest
 from optparse import OptionParser
+
+# ------------------- Helper Methods ------------------------
+
+def output_summary():
+    print "%d tests passed in total!" % (total_successes)
+    if total_failures > 0:
+        print "%d tests failed in total!" % (total_failures)
+    if total_errors > 0:
+        print "%d tests erred in total!" % (total_errors)
+        
+# -----------------------------------------------------------
 
 # Options
 # TODO: would log4py be better than custom flags?
@@ -8,29 +20,44 @@ from optparse import OptionParser
 # TODO: configure which modules run via command line
 usage = "usage: python %prog [options]"
 parser = OptionParser(usage=usage)
-parser.set_defaults(verbose=True, failure_details=False)
+parser.set_defaults(verbose=True, failure_details=False, wiki=False)
 parser.add_option("-v","--verbose",
                     action="store_true", dest="verbose",
-                    help="report on each module individually")
+                    help="report on each module individually [default]")
 parser.add_option("-q","--quiet",
                     action="store_false", dest="verbose",
                     help="only print pass/fail/error totals")
 parser.add_option("-d","--failure-details",
                     action="store_true", dest="failure_details",
-                    help="print information on each failure"
-                    )
-parser.add_option("-f", "--filename",
-                    action="store", dest="filename",
+                    help="print information on each failure")
+parser.add_option("-o", "--output-filename",
+                    action="store", dest="outfilename",
+                    metavar="FILE", default="",
+                    help="redirect output from console to FILE")
+parser.add_option("-f", "--figleaf-filename",
+                    action="store", dest="figleaf",
                     metavar="FILE", default="tests.figleaf",
-                    help="write figleaf output to FILE [default: %default]"),
+                    help="write figleaf output to FILE [default: %default]")
 (options, args) = parser.parse_args()
 
-# Figleaf
+# Options error-checking
+
+
 rootdir = os.path.abspath(sys.path[0])
+# File redirect
+origstdout = None
+if options.outfilename != "":
+    origstdout = sys.stdout
+    try:
+        sys.stdout = open(options.outfilename,'w')
+    except IOError:
+        print "Error opening output file, defaulting to original stdout"
+        sys.stdout = origstdout
+
+# Figleaf
 if not os.path.isdir(rootdir):
     rootdir = os.path.dirname(rootdir)
-figfile = os.path.join(rootdir, options.filename)
-
+figfile = os.path.join(rootdir, options.figleaf)
 if os.path.exists(figfile):
     os.remove(figfile)
 
@@ -39,11 +66,9 @@ if os.path.exists(figfile):
 import figleaf
 figleaf.start(ignore_python_lib=False)
 
-import unittest
-
 modules = [__import__(f[:-3]) for f in os.listdir(rootdir) 
                 if f.startswith('test') and f.endswith('.py')]
-
+                
 total_successes = 0
 total_failures  = 0
 total_errors    = 0
@@ -76,13 +101,12 @@ for module in modules:
                 print "\n------ " + str(error[0]) + " ------"
                 print error[1],
 if options.verbose or options.failure_details:
-    print "----------------------"
+    print "\n----------------------\n"
 
-print "%d tests passed in total!" % (total_successes)
-if total_failures > 0:
-    print "%d tests failed in total!" % (total_failures)
-if total_errors > 0:
-    print "%d tests erred in total!" % (total_errors)
+output_summary()
+if origstdout != None:
+    sys.stdout = origstdout
+    output_summary()
 
 figleaf.stop()
 figleaf.write_coverage(figfile)
