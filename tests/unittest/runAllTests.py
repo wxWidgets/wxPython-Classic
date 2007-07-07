@@ -4,7 +4,21 @@ from optparse import OptionParser
 
 # ------------------- Helper Methods ------------------------
 
+def start_figleaf():
+    if options.figleaf:
+        globals()['figleaf'] = __import__('figleaf')
+        globals()['figfile'] = os.path.join(rootdir, options.figleaf_filename)
+        if os.path.exists(figfile):
+            os.remove(figfile)
+        figleaf.start(ignore_python_lib=False)
+
+def stop_figleaf():
+    if options.figleaf:
+        figleaf.stop()
+        figleaf.write_coverage(figfile)
+
 def output_summary():
+    # TODO: add time and duration of test run to output
     print "%d tests passed in total!" % (total_successes)
     if total_failures > 0:
         print "%d tests failed in total!" % (total_failures)
@@ -20,7 +34,8 @@ def output_summary():
 # TODO: configure which modules run via command line
 usage = "usage: python %prog [options]"
 parser = OptionParser(usage=usage)
-parser.set_defaults(verbose=True, failure_details=False, wiki=False)
+parser.set_defaults(verbose=True, failure_details=False,
+                    wiki=False, figleaf=True)
 parser.add_option("-v","--verbose",
                     action="store_true", dest="verbose",
                     help="report on each module individually [default]")
@@ -35,15 +50,24 @@ parser.add_option("-o", "--output-filename",
                     metavar="FILE", default="",
                     help="redirect output from console to FILE")
 parser.add_option("-f", "--figleaf-filename",
-                    action="store", dest="figleaf",
+                    action="store", dest="figleaf_filename",
                     metavar="FILE", default="tests.figleaf",
                     help="write figleaf output to FILE [default: %default]")
+parser.add_option("-x", "--no-figleaf",
+                    action="store_false", dest="figleaf",
+                    help="don't use figleaf (code coverage tool)")
 (options, args) = parser.parse_args()
 
 # Options error-checking
+if not options.figleaf and options.figleaf_filename != 'tests.figleaf':
+    # not strictly necessary, but -f is useless with -x
+    parser.error("options -f and -x are mutually exclusive")
 
 
 rootdir = os.path.abspath(sys.path[0])
+if not os.path.isdir(rootdir):
+    rootdir = os.path.dirname(rootdir)
+    
 # File redirect
 origstdout = None
 if options.outfilename != "":
@@ -54,17 +78,7 @@ if options.outfilename != "":
         print "Error opening output file, defaulting to original stdout"
         sys.stdout = origstdout
 
-# Figleaf
-if not os.path.isdir(rootdir):
-    rootdir = os.path.dirname(rootdir)
-figfile = os.path.join(rootdir, options.figleaf)
-if os.path.exists(figfile):
-    os.remove(figfile)
-
-# note figleaf dependency
-# may want to revisit this issue in the future
-import figleaf
-figleaf.start(ignore_python_lib=False)
+start_figleaf()
 
 modules = [__import__(f[:-3]) for f in os.listdir(rootdir) 
                 if f.startswith('test') and f.endswith('.py')]
@@ -108,8 +122,7 @@ if origstdout != None:
     sys.stdout = origstdout
     output_summary()
 
-figleaf.stop()
-figleaf.write_coverage(figfile)
+stop_figleaf()
 
 # this is broken for some reason
 #os.system("figleaf2html -d ./tests_code_coverage %s" % figfile)
