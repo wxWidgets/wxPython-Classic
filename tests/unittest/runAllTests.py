@@ -44,11 +44,6 @@ import unittest
 modules = [__import__(f[:-3]) for f in os.listdir(rootdir) 
                 if f.startswith('test') and f.endswith('.py')]
 
-alltests = unittest.TestSuite([mod.suite() for mod in modules])
-
-results = unittest.TestResult()
-alltests.run(results)
-
 total_successes = 0
 total_failures  = 0
 total_errors    = 0
