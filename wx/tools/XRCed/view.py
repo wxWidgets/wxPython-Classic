@@ -12,7 +12,7 @@ from AttributePanel import Panel
 from tools import *
 import images
 
-def CreateView():
+def create_view():
     '''
     Create all necessary view objects. Some of them are set as module
     global variables for convenience.
@@ -24,21 +24,25 @@ def CreateView():
     g.res = res
 
     global frame
-    frame = Frame()                     # frame creates other
+    frame = Frame(g.conf.pos, g.conf.size)
 
     # Tool panel on a MiniFrame
     global toolFrame
-    toolFrame = wx.MiniFrame(frame, -1, 'Tools', 
-                             style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER)
+    toolFrame = wx.MiniFrame(frame, -1, 'Components', 
+                             style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER,
+                             pos=g.conf.toolPanelPos)
+    toolFrame.SetIcon(images.getIconIcon())
     toolFrame.panel = ToolPanel(toolFrame)
     if toolFrame.panel.panels:
         toolFrame.SetTitle(toolFrame.panel.panels[0].name)
     toolFrame.Fit()
     toolFrame.SetMinSize(toolFrame.GetSize())
 
+#############################################################################
+
 class Frame(wx.Frame):
-    def __init__(self):
-        wx.Frame.__init__(self, None, -1, '', size=(640,480))
+    def __init__(self, pos, size):
+        wx.Frame.__init__(self, None, -1, 'XRCed', pos, size)
         bar = self.CreateStatusBar(2)
         bar.SetStatusWidths([-1, 40])
         self.SetIcon(images.getIconIcon())
@@ -58,10 +62,9 @@ class Frame(wx.Frame):
         self.InitToolBar(g.conf.embedPanel) # add tools
 
         # Build interface
-        sizer = wx.BoxSizer(wx.VERTICAL)
+#        sizer = wx.BoxSizer(wx.VERTICAL)
         #sizer.Add(wx.StaticLine(self, -1), 0, wx.EXPAND)
         # Horizontal sizer for toolbar and splitter
-        self.toolsSizer = sizer1 = wx.BoxSizer()
         splitter = wx.SplitterWindow(self, -1, style=wx.SP_3DSASH)
         self.splitter = splitter
         splitter.SetMinimumPaneSize(100)
@@ -71,19 +74,19 @@ class Frame(wx.Frame):
 
         # Miniframe for split mode
         self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
-                                           (g.conf.panelX, g.conf.panelY),
-                                           (g.conf.panelWidth, g.conf.panelHeight),
-                                           style=wx.CAPTION|wx.CLOSE_BOX)
-        mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
-        # Use tango icons and slightly wider bitmap size on Mac
-        if wx.Platform in ['__WXMAC__', '__WXMSW__']:
-            mf.tb.SetToolBitmapSize((26,26))
-        else:
-            mf.tb.SetToolBitmapSize((24,24))
-        self.InitMiniToolBar(mf.tb)
+                                           g.conf.panelPos, g.conf.panelSize,
+                                           style=wx.CAPTION|wx.RESIZE_BORDER)
+        mf.SetIcon(images.getIconIcon())
+#        mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
+#        # Use tango icons and slightly wider bitmap size on Mac
+#        if wx.Platform in ['__WXMAC__', '__WXMSW__']:
+#            mf.tb.SetToolBitmapSize((26,26))
+#        else:
+#            mf.tb.SetToolBitmapSize((24,24))
+#        self.InitMiniFrameToolBar(mf.tb)
         
-        sizer2 = wx.BoxSizer()
-        mf.SetSizer(sizer2)
+        mfSizer = wx.BoxSizer()
+        mf.SetSizer(mfSizer)
 
         # Create attribute panel
         global panel
@@ -92,17 +95,18 @@ class Frame(wx.Frame):
             # Set plitter windows
             splitter.SplitVertically(tree, panel, g.conf.sashPos)
         else:
-            panel = Panel(miniFrame)
-            sizer2.Add(panel, 1, wx.EXPAND)
-            miniFrame.Show(True)
+            panel = Panel(mf)
+            mfSizer.Add(panel, 1, wx.EXPAND)
             splitter.Initialize(tree)
-        if wx.Platform == '__WXMAC__':
-            sizer1.Add(splitter, 1, wx.EXPAND|wx.RIGHT, 5)
-        else:
-            sizer1.Add(splitter, 1, wx.EXPAND)
-        sizer.Add(sizer1, 1, wx.EXPAND)
+            
+#        if wx.Platform == '__WXMAC__':
+#            sizer1.Add(splitter, 1, wx.EXPAND|wx.RIGHT, 5)
+#        else:
+#            sizer1.Add(splitter, 1, wx.EXPAND)
+#        sizer.Add(sizer1, 1, wx.EXPAND)
 
-        self.SetSizer(sizer)
+#        self.SetSizer(sizer)
+
 
     def Clear(self):
         pass
@@ -157,8 +161,7 @@ class Frame(wx.Frame):
                     'Toggle embedding properties panel in the main window', True)
         menu.Check(self.ID_EMBED_PANEL, g.conf.embedPanel)
         self.ID_SHOW_TOOLS = wx.NewId()
-        menu.Append(self.ID_SHOW_TOOLS, 'Show &Tools', 'Toggle tools', True)
-        menu.Check(self.ID_SHOW_TOOLS, g.conf.showTools)
+        menu.Append(self.ID_SHOW_TOOLS, 'Show &Components', 'Show components')
         menu.AppendSeparator()
         self.ID_TEST = wx.NewId()
         self.ART_TEST = 'ART_TEST'
@@ -259,7 +262,7 @@ class Frame(wx.Frame):
         tb.Realize()
         self.minWidth = tb.GetSize()[0] # minimal width is the size of toolbar 
 
-    def InitMiniToolBar(self, tb):
+    def InitMiniFrameToolBar(self, tb):
         bmp = wx.ArtProvider.GetBitmap(self.ART_LOCATE, wx.ART_TOOLBAR)
         tb.AddSimpleTool(self.ID_TOOL_LOCATE, bmp,
                          'Locate', 'Locate control in test window and select it', True)
@@ -278,37 +281,60 @@ class Frame(wx.Frame):
         conf.embedPanel = embedPanel
         if conf.embedPanel:
             # Remember last dimentions
-            conf.panelX, conf.panelY = self.miniFrame.GetPosition()
-            conf.panelWidth, conf.panelHeight = self.miniFrame.GetSize()
-            size = self.GetSize()
-            pos = self.GetPosition()
-            sizePanel = panel.GetSize()
+            conf.panelPos = self.miniFrame.GetPosition()
+            conf.panelSize = self.miniFrame.GetSize()
+            conf.size = self.GetSize()
+            conf.sashPos = self.GetClientSize()[0]
+            panelWidth = panel.GetSize()[0] # client size
             panel.Reparent(self.splitter)
             self.miniFrame.GetSizer().Remove(panel)
             # Widen
-            self.SetDimensions(pos.x, pos.y, size.width + sizePanel.width, size.height)
+            print conf.size.width
+            conf.size.width += panelWidth
+            self.SetSize(conf.size)
+            print conf.size, conf.sashPos
             self.splitter.SplitVertically(tree, panel, conf.sashPos)
             self.miniFrame.Show(False)
         else:
             conf.sashPos = self.splitter.GetSashPosition()
-            pos = self.GetPosition()
-            size = self.GetSize()
-            sizePanel = panel.GetSize()
+            conf.size = self.GetSize()
+            conf.panelSize[0] = panel.GetSize()[0]
+            print conf.size,conf.panelSize
             self.splitter.Unsplit(panel)
             sizer = self.miniFrame.GetSizer()
             panel.Reparent(self.miniFrame)
             panel.Show(True)
             sizer.Add(panel, 1, wx.EXPAND)
             self.miniFrame.Show(True)
-            self.miniFrame.SetDimensions(conf.panelX, conf.panelY,
-                                         conf.panelWidth, conf.panelHeight)
+            self.miniFrame.SetDimensions(conf.panelPos[0], conf.panelPos[1],
+                                         conf.panelSize[0], conf.panelSize[1])
             self.miniFrame.Layout()
             # Reduce width
-            self.SetDimensions(pos.x, pos.y,
-                               max(size.width - sizePanel.width, self.minWidth), size.height)
+            conf.size.width -= conf.panelSize.width
+            self.SetSize(conf.size)
         
         # Set long or short toolbar
         self.InitToolBar(embedPanel)
+
+    def ShowReadme(self):
+        text = open(os.path.join(g.basePath, 'README.txt'), 'r').read()
+        dlg = ScrolledMessageDialog(self.frame, text, "XRCed README")
+        dlg.ShowModal()
+        dlg.Destroy()
+
+    def ShowPrefs(self):
+        dlg = PrefsDialog(self)
+        if dlg.ShowModal() == wx.ID_OK:
+            # Fetch new preferences
+            for id,cdp in dlg.checkControls.items():
+                c,d,p = cdp
+                if dlg.FindWindowById(id).IsChecked():
+                    d[p] = str(c.GetValue())
+                elif p in d: del d[p]
+            g.conf.allowExec = ('ask', 'yes', 'no')[dlg.radio_allow_exec.GetSelection()]
+        dlg.Destroy()        
+
+#############################################################################
 
 # ScrolledMessageDialog - modified from wxPython lib to set fixed-width font
 class ScrolledMessageDialog(wx.Dialog):
@@ -330,6 +356,64 @@ class ScrolledMessageDialog(wx.Dialog):
         self.Fit()
         if centered:
             self.CenterOnScreen(wx.BOTH)
+
+################################################################################
+
+class PrefsDialog(wx.Dialog):
+
+    def __init__(self, parent):
+        pre = wx.PreDialog()
+        g.res.LoadOnDialog(pre, parent, "DIALOG_PREFS")
+        self.PostCreate(pre)
+        self.checkControls = {} # map of check IDs to (control,dict,param)
+
+        self.check_proportion_panel = xrc.XRCCTRL(self, 'check_proportion_panel')
+        id = self.check_proportion_panel.GetId()
+        wx.EVT_CHECKBOX(self, id, self.OnCheck)
+#        self.checkControls[id] = (xrc.XRCCTRL(self, 'spin_proportion_panel'),
+#                                  d, 'option')
+
+        self.check_flag_panel = xrc.XRCCTRL(self, 'check_flag_panel')
+        id = self.check_flag_panel.GetId()
+        wx.EVT_CHECKBOX(self, id, self.OnCheck)
+#        self.checkControls[id] = (xrc.XRCCTRL(self, 'text_flag_panel'),
+#                                  d, 'flag')
+
+        self.check_proportion_panel = xrc.XRCCTRL(self, 'check_proportion_control')
+        id = self.check_proportion_panel.GetId()
+        wx.EVT_CHECKBOX(self, id, self.OnCheck)
+#        self.checkControls[id] = (xrc.XRCCTRL(self, 'spin_proportion_control'),
+#                                  d, 'option')
+
+        self.check_flag_panel = xrc.XRCCTRL(self, 'check_flag_control')
+        id = self.check_flag_panel.GetId()
+        wx.EVT_CHECKBOX(self, id, self.OnCheck)
+#        self.checkControls[id] = (xrc.XRCCTRL(self, 'text_flag_control'),
+#                                  d, 'flag')
+
+        for id,cdp in self.checkControls.items():
+            c,d,p = cdp
+            try:
+                if isinstance(c, wx.SpinCtrl):
+                    c.SetValue(int(d[p]))
+                else:
+                    c.SetValue(d[p])
+                self.FindWindowById(id).SetValue(True)
+            except KeyError:
+                c.Enable(False)
+
+#        self.radio_allow_exec = xrc.XRCCTRL(self, 'radio_allow_exec')
+#        try:
+#            radio = {'ask': 0, 'yes':1, 'no':2}[g.conf.allowExec]
+#        except KeyError:
+#            radio = 0
+#        self.radio_allow_exec.SetSelection(radio)
+
+    def OnCheck(self, evt):
+        self.checkControls[evt.GetId()][0].Enable(evt.IsChecked())
+        evt.Skip()
+
+#############################################################################
 
 # ArtProvider for toolbar icons
 class ToolArtProvider(wx.ArtProvider):

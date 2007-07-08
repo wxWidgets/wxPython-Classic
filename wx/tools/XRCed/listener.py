@@ -10,7 +10,6 @@ from globals import *
 from presenter import Presenter
 from component import Manager
 from model import Model
-import view
 import undo
 
 class _Listener:
@@ -18,11 +17,13 @@ class _Listener:
     Installs event handlers to view objects and delegates some events
     to Presenter.
     '''
-    def Install(self, frame, tree, panel):
+    def Install(self, frame, tree, panel, toolFrame, testWin):
         '''Set event handlers.'''
         self.frame = frame
         self.tree = tree
         self.panel = panel
+        self.toolFrame = toolFrame
+        self.testWin = testWin
 
         # Some local members
         self.inUpdateUI = self.inIdle = False
@@ -49,7 +50,7 @@ class _Listener:
         wx.EVT_MENU(frame, wx.ID_SAVE, self.OnSaveOrSaveAs)
         wx.EVT_MENU(frame, wx.ID_SAVEAS, self.OnSaveOrSaveAs)
 #        wx.EVT_MENU(frame, self.ID_GENERATE_PYTHON, self.OnGeneratePython)
-#        wx.EVT_MENU(frame, self.ID_PREFS, self.OnPrefs)
+        wx.EVT_MENU(frame, frame.ID_PREFS, self.OnPrefs)
         wx.EVT_MENU(frame, wx.ID_EXIT, self.OnExit)
 
         # Edit
@@ -119,13 +120,14 @@ class _Listener:
         panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.OnPanelPageChanged)
 
         # ToolPanel events
-        toolPanel = view.toolFrame.panel
+        toolPanel = self.toolFrame.panel
         toolPanel.lb.Bind(wx.EVT_TOOLBOOK_PAGE_CHANGED, self.OnToolPanelPageChanged)
         wx.EVT_COMMAND_RANGE(toolPanel.lb, Manager.firstId, Manager.lastId,
                              wx.wxEVT_COMMAND_BUTTON_CLICKED,
                              self.OnComponentTool)
 
         wx.EVT_MENU_HIGHLIGHT_ALL(self.frame, self.OnMenuHighlight)
+        self.toolFrame.Bind(wx.EVT_CLOSE, self.OnCloseToolFrame)
 
     def OnComponentCreate(self, evt):
         '''Hadnler for creating new elements.'''
@@ -235,6 +237,9 @@ class _Listener:
         finally:
             wx.EndBusyCursor()        
 
+    def OnPrefs(self, evt):
+        self.frame.ShowPrefs()
+
     def OnExit(self, evt):
         '''wx.ID_EXIT handler'''
         self.frame.Close()
@@ -264,18 +269,21 @@ class _Listener:
     def OnCloseWindow(self, evt):
         '''wx.EVT_CLOSE handler'''
         if not self.AskSave(): return
-        if view.testWin.object: view.testWin.Destroy()
+        if self.testWin.object: self.testWin.Destroy()
+        conf = g.conf
         if not self.frame.IsIconized():
-            g.conf.x, g.conf.y = self.frame.GetPosition()
+            conf.pos = self.frame.GetPosition()
             if wx.Platform == '__WXMAC__':
-                g.conf.width, g.conf.height = self.frame.GetClientSize()
+                conf.size = self.frame.GetClientSize()
             else:
-                g.conf.width, g.conf.height = self.frame.GetSize()
-#            if conf.embedPanel:
-#                conf.sashPos = self.splitter.GetSashPosition()
-#            else:
-#                conf.panelX, conf.panelY = self.miniframe.GetPosition()
-#                conf.panelWidth, conf.panelHeight = self.miniframe.GetSize()
+                conf.size = self.frame.GetSize()
+            if conf.embedPanel:
+                conf.sashPos = self.frame.splitter.GetSashPosition()
+            else:
+                conf.panelPos = self.frame.miniFrame.GetPosition()
+                conf.panelSize = self.frame.miniFrame.GetSize()
+            if conf.showToolPanel:
+                conf.toolPanelPos = self.toolFrame.GetPosition()
         evt.Skip()
 
     def OnUndo(self, evt):
@@ -354,10 +362,7 @@ Homepage: http://xrced.sourceforge.net\
         dlg.Destroy()
 
     def OnReadme(self, evt):
-        text = open(os.path.join(g.basePath, 'README.txt'), 'r').read()
-        dlg = view.ScrolledMessageDialog(self.frame, text, "XRCed README")
-        dlg.ShowModal()
-        dlg.Destroy()
+        self.frame.ShowReadme()
 
     # Simple emulation of python command line
     def OnDebugCMD(self, evt):
@@ -380,21 +385,15 @@ Homepage: http://xrced.sourceforge.net\
         self.frame.EmbedUnembed(evt.IsChecked())
 
     def OnShowTools(self, evt):
-        raise NotImplementedError # !!!
-
-        conf.showTools = evt.IsChecked()
-        g.tools.Show(conf.showTools)
-        if conf.showTools:
-            self.toolsSizer.Prepend(g.tools, 0, wx.EXPAND)
-        else:
-            self.toolsSizer.Remove(g.tools)
-        self.toolsSizer.Layout()
+        conf = g.conf
+        self.toolFrame.Show()
+        conf.showToolPanel = True
         
     def OnTest(self, evt):
         if not self.tree.GetSelection(): return
         object = Presenter.createTestWin(self.tree.GetSelection())
         if object:
-            frame = view.testWin.GetFrame()
+            frame = self.testWin.GetFrame()
             frame.Bind(wx.EVT_CLOSE, self.OnCloseTestWin)
             frame.Bind(wx.EVT_SIZE, self.OnSizeTestWin)
 
@@ -456,7 +455,7 @@ Homepage: http://xrced.sourceforge.net\
             evt.Enable(bool(self.tree.GetSelection()))
         elif evt.GetId() in [self.frame.ID_LOCATE, self.frame.ID_TOOL_LOCATE,
                              self.frame.ID_REFRESH]:
-            evt.Enable(view.testWin.IsShown())
+            evt.Enable(self.testWin.IsShown())
         elif evt.GetId() == wx.ID_UNDO:  evt.Enable(g.undoMan.CanUndo())
         elif evt.GetId() == wx.ID_REDO:  evt.Enable(g.undoMan.CanRedo())
         elif evt.GetId() in [ID.COLLAPSE, ID.EXPAND]:
@@ -513,16 +512,15 @@ Homepage: http://xrced.sourceforge.net\
             self.inIdle = False
 
     def OnIconize(self, evt):
-        raise NotImplementedError # !!!
-
+        conf = g.conf
         if evt.Iconized():
-            conf.x, conf.y = self.GetPosition()
-            conf.width, conf.height = self.GetSize()
+            conf.pos = self.frame.GetPosition()
+            conf.size = self.frame.GetSize()
             if conf.embedPanel:
-                conf.sashPos = self.splitter.GetSashPosition()
+                conf.sashPos = self.frame.splitter.GetSashPosition()
             else:
-                conf.panelX, conf.panelY = self.miniFrame.GetPosition()
-                conf.panelWidth, conf.panelHeight = self.miniFrame.GetSize()
+                conf.panelPos = self.miniFrame.GetPosition()
+                conf.panelSize = self.miniFrame.GetSize()
                 self.miniFrame.Show(False)
         else:
             if not conf.embedPanel:
@@ -610,8 +608,8 @@ Homepage: http://xrced.sourceforge.net\
     def OnToolPanelPageChanged(self, evt):
         TRACE('OnToolPanelPageChanged: %d > %d', evt.GetOldSelection(), evt.GetSelection())
         # Update tool frame (if exists)
-        panel = view.toolFrame.panel.panels[evt.GetSelection()]
-        view.toolFrame.SetTitle(panel.name)
+        panel = self.toolFrame.panel.panels[evt.GetSelection()]
+        self.toolFrame.SetTitle(panel.name)
         evt.Skip()
 
     def OnComponentTool(self, evt):
@@ -632,6 +630,15 @@ Homepage: http://xrced.sourceforge.net\
             else:
                 Presenter.create(comp)
         evt.Skip()
+
+    def OnCloseToolFrame(self, evt):
+        '''wx.EVT_CLOSE handler'''
+        conf = g.conf
+        if not self.toolFrame.IsIconized():
+            if conf.showToolPanel:
+                conf.toolPanelPos = self.toolFrame.GetPosition()
+        self.toolFrame.Show(False)
+        conf.showToolPanel = False
 
 # Singleton class
 Listener = _Listener()

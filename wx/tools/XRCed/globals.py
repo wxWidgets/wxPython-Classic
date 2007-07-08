@@ -14,7 +14,8 @@ except:
 
 # Global constants
 
-progname = 'XRCed'
+progname = 'xrced'
+ProgName = 'XRCed'
 version = '0.2.0-0'
 # Minimal wxWidgets version
 MinWxVersion = (2,8,0)
@@ -53,6 +54,9 @@ class ID:
 # Global variables
 
 debug = True                    # default debug flag
+def set_debug(v):
+    global debug
+    debug = v
 
 def TRACE(msg, *args):
     if debug: print >> sys.stderr, 'TRACE: ' + (msg % args)

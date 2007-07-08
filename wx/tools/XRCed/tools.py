@@ -18,7 +18,7 @@ else:
 
 class ToolPanel(wx.Panel):
     '''Manages a Listbook with tool bitmap buttons.'''
-    defaultPos = wx.GBPosition(sys.maxint,sys.maxint)
+    defaultPos = wx.GBPosition(1000,1000)
     def __init__(self, parent):
         if wx.Platform == '__WXGTK__':
             wx.Panel.__init__(self, parent, -1,

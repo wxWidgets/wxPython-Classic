@@ -445,7 +445,7 @@ class _ComponentManager:
     def getMenuData(self, menu):
         return self.menus.get(menu, None)
 
-    def setMenu(self, component, menu, label, help, index=sys.maxint):
+    def setMenu(self, component, menu, label, help, index=1000):
         '''Set pulldown menu data.'''
         if menu not in self.menuNames: self.menuNames.append(menu)
         if menu not in self.menus: self.menus[menu] = []
@@ -455,7 +455,7 @@ class _ComponentManager:
         return self.panels.get(panel, None)
 
     def setTool(self, component, panel, bitmap=None, 
-                pos=(sys.maxint,sys.maxint), span=(1,1)):
+                pos=(1000,1000), span=(1,1)):
         '''Set toolpanel data.'''
         if panel not in self.panelNames: self.panelNames.append(panel)
         if panel not in self.panels: self.panels[panel] = []
