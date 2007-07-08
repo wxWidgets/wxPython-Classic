@@ -12,30 +12,49 @@ import images
 
 def WTF(win, filename):
     """WindowToFile: save part of the screen as 'filename'."""
-    context = wx.ScreenDC()
-    memory = wx.MemoryDC()
-    x,y = win.GetPosition()
-    w,h = win.GetSize()
-    x0,y0 = win.ClientToScreen((0,0))
-    h += y0 - y + 5
-    w += 10
-    bitmap = wx.EmptyBitmap(w, h, -1)
-    memory.SelectObject(bitmap)
-    memory.Blit(0, 0, w, h, context, x, y)
+    if wx.Platform == '__WXMAC__':
+        # Blit does not write color
+        os.system('screencapture scr.png')
+        screen = wx.Bitmap('scr.png')
+        rect = win.GetRect()
+        #rect.Offset(win.ClientToScreen((0, 0)))
+        bitmap = screen.GetSubBitmap(rect)
+    else:
+        context = wx.ScreenDC()
+        memory = wx.MemoryDC()
+        x,y = win.GetPosition()
+        w,h = win.GetSize()
+        x0,y0 = win.ClientToScreen((0,0))
+        h += y0 - y + 5
+        w += 10
+        bitmap = wx.EmptyBitmap(w, h, -1)
+        memory.SelectObject(bitmap)
+        memory.Blit(0, 0, w, h, context, x, y)
+        memory.Destroy()
+        context.Destroy()
     bitmap.SaveFile(filename, wx.BITMAP_TYPE_PNG)
     bitmap.Destroy()
-    memory.Destroy()
-    context.Destroy()
+
 
 def WCTF(win, dirname):
     """WindowChildrenToFile: save all child windows."""
-    context = wx.ClientDC(win)
-    memory = wx.MemoryDC()
-    x,y = win.GetPosition()
-    w,h = win.GetSize()
-    bitmap = wx.EmptyBitmap(w, h, -1)
-    memory.SelectObject(bitmap)
-    memory.Blit(0, 0, w, h, context, 0, 0)
+    if wx.Platform == '__WXMAC__':
+        # Blit does not write color
+        os.system('screencapture scr.png')
+        screen = wx.Bitmap('scr.png')
+        rect = win.GetClientRect()
+        rect.Offset(win.ClientToScreen((0, 0)))
+        bitmap = screen.GetSubBitmap(rect)
+    else:
+        context = wx.ClientDC(win)
+        memory = wx.MemoryDC()
+        x,y = win.GetPosition()
+        w,h = win.GetSize()
+        bitmap = wx.EmptyBitmap(w, h, -1)
+        memory.SelectObject(bitmap)
+        memory.Blit(0, 0, w, h, context, 0, 0)
+        memory.Destroy()
+        context.Destroy()
     for w in win.GetChildren():
         klass = w.GetClassName()
         if w.GetName() != '-1': # replace by the true name
@@ -46,8 +65,6 @@ def WCTF(win, dirname):
         sub.SaveFile(filename, wx.BITMAP_TYPE_PNG)
         sub.Destroy()
     bitmap.Destroy()
-    memory.Destroy()
-    context.Destroy()
 
 def create_panels(main_frame):
     frame = res.LoadFrame(main_frame, 'FRAME_Panels')
@@ -80,21 +97,21 @@ def create_panels(main_frame):
             p.SetBackgroundColour(wx.WHITE)
             w.AddPage(p, 'choice')
         elif klass == 'wxListbook':
-            il = wx.ImageList(24, 24)
+            il = wx.ImageList(32, 32)
             imageId = il.Add(images.getListbookPageBitmap())
             w.AssignImageList(il)
-            p = wx.Panel(w, size=(20,15), style=wx.SUNKEN_BORDER)
+            p = wx.Panel(w, size=(20,20), style=wx.SUNKEN_BORDER)
             t = wx.StaticText(p, -1, ' ')
             p.SetBackgroundColour(wx.WHITE)
             w.AddPage(p, 'Item1', imageId=imageId)
-            w.AddPage(wx.Panel(w, size=(25,20)), 'Item2')
-            w.AddPage(wx.Panel(w, size=(25,20)), 'Item2')
-            w.AddPage(wx.Panel(w, size=(25,20)), 'Item2')
+            w.AddPage(wx.Panel(w, size=(20,20)), 'Item2')
+            w.AddPage(wx.Panel(w, size=(20,20)), 'Item2')
+            w.AddPage(wx.Panel(w, size=(20,20)), 'Item2')
         elif klass == 'wxScrolledWindow':
-            w.SetVirtualSize((10,10))
-            w.SetScrollbars(1,1,10,10,1,1)
+#            w.SetVirtualSize((20,20))
             sizer = wx.BoxSizer()
             p = wx.Panel(w, size=(100,100), style=wx.SUNKEN_BORDER)
+#            w.SetScrollbars(1,1,10,10,1,1)
             p.SetBackgroundColour(wx.WHITE)
             sizer.Add(p)
             w.SetSizer(sizer)
@@ -119,7 +136,7 @@ def snap(evt):
     elif evt.GetId() == xrc.XRCID('snap_frame'):
         WTF(app.frame_frame, 'bitmaps/wxFrame.png')
     elif evt.GetId() == xrc.XRCID('snap_dialog'):
-        WTF(app.frame_frame, 'bitmaps/wxDialog.png')
+        WTF(app.frame_dialog, 'bitmaps/wxDialog.png')
 
 if __name__ == '__main__':
     try: 
@@ -128,7 +145,7 @@ if __name__ == '__main__':
         print 'usage: python maketools.py xrc_file'
         sys.exit(1)
     global app
-    app = wx.PySimpleApp()
+    app = wx.PySimpleApp(useBestVisual=False)
     res = xrc.EmptyXmlResource()
     res.Load(resFile)
 
@@ -139,6 +156,11 @@ if __name__ == '__main__':
 
     app.frame_panels = create_panels(main_frame)
     app.frame_controls = create_controls(main_frame)
+    app.frame_frame = wx.Frame(main_frame, -1, '', (0,240), (128, 100))
+    app.frame_frame.Show()
+    app.frame_dialog = wx.Dialog(main_frame, -1, '', (140,240), (128, 100))
+    app.frame_dialog.SetSize((128,100))    
+    app.frame_dialog.Show()
 
     if not os.path.exists('bitmaps'): os.mkdir('bitmaps')
 

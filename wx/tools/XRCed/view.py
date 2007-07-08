@@ -12,6 +12,12 @@ from AttributePanel import Panel
 from tools import *
 import images
 
+if wx.Platform == '__WXMAC__': # wxOSX GetSize is broken
+    wx.Frame.GetSize = wx.Frame.GetClientSize
+    wx.MiniFrame.GetSize = wx.MiniFrame.GetClientSize
+    wx.Frame.SetSize = wx.Frame.SetClientSize
+    wx.MiniFrame.SetSize = wx.MiniFrame.SetClientSize
+
 def create_view():
     '''
     Create all necessary view objects. Some of them are set as module
@@ -29,14 +35,14 @@ def create_view():
     # Tool panel on a MiniFrame
     global toolFrame
     toolFrame = wx.MiniFrame(frame, -1, 'Components', 
-                             style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER,
-                             pos=g.conf.toolPanelPos)
+                             style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER)
     toolFrame.SetIcon(images.getIconIcon())
     toolFrame.panel = ToolPanel(toolFrame)
     if toolFrame.panel.panels:
         toolFrame.SetTitle(toolFrame.panel.panels[0].name)
     toolFrame.Fit()
     toolFrame.SetMinSize(toolFrame.GetSize())
+    toolFrame.SetPosition(g.conf.toolPanelPos)
 
 #############################################################################
 
@@ -77,16 +83,20 @@ class Frame(wx.Frame):
                                            g.conf.panelPos, g.conf.panelSize,
                                            style=wx.CAPTION|wx.RESIZE_BORDER)
         mf.SetIcon(images.getIconIcon())
-#        mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
-#        # Use tango icons and slightly wider bitmap size on Mac
-#        if wx.Platform in ['__WXMAC__', '__WXMSW__']:
-#            mf.tb.SetToolBitmapSize((26,26))
-#        else:
-#            mf.tb.SetToolBitmapSize((24,24))
-#        self.InitMiniFrameToolBar(mf.tb)
+        mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
+        # Use tango icons and slightly wider bitmap size on Mac
+        if wx.Platform in ['__WXMAC__', '__WXMSW__']:
+            mf.tb.SetToolBitmapSize((26,26))
+        else:
+            mf.tb.SetToolBitmapSize((24,24))
+        self.InitMiniFrameToolBar(mf.tb)
         
         mfSizer = wx.BoxSizer()
+        mf.SetMinSize((100,100))
         mf.SetSizer(mfSizer)
+        if wx.Platform == '__WXMAC__': # mac don't respect pos and size exactly
+            mf.SetPosition(g.conf.panelPos)
+            mf.SetSize(g.conf.panelSize)
 
         # Create attribute panel
         global panel
@@ -99,6 +109,8 @@ class Frame(wx.Frame):
             mfSizer.Add(panel, 1, wx.EXPAND)
             splitter.Initialize(tree)
             
+        if wx.Platform == '__WXMAC__':
+            self.SetClientSize(size)
 #        if wx.Platform == '__WXMAC__':
 #            sizer1.Add(splitter, 1, wx.EXPAND|wx.RIGHT, 5)
 #        else:
@@ -289,25 +301,22 @@ class Frame(wx.Frame):
             panel.Reparent(self.splitter)
             self.miniFrame.GetSizer().Remove(panel)
             # Widen
-            print conf.size.width
             conf.size.width += panelWidth
             self.SetSize(conf.size)
-            print conf.size, conf.sashPos
             self.splitter.SplitVertically(tree, panel, conf.sashPos)
             self.miniFrame.Show(False)
         else:
             conf.sashPos = self.splitter.GetSashPosition()
             conf.size = self.GetSize()
             conf.panelSize[0] = panel.GetSize()[0]
-            print conf.size,conf.panelSize
             self.splitter.Unsplit(panel)
             sizer = self.miniFrame.GetSizer()
             panel.Reparent(self.miniFrame)
             panel.Show(True)
             sizer.Add(panel, 1, wx.EXPAND)
             self.miniFrame.Show(True)
-            self.miniFrame.SetDimensions(conf.panelPos[0], conf.panelPos[1],
-                                         conf.panelSize[0], conf.panelSize[1])
+            self.miniFrame.SetPosition(conf.panelPos)
+            self.miniFrame.SetSize(conf.panelSize)
             self.miniFrame.Layout()
             # Reduce width
             conf.size.width -= conf.panelSize.width

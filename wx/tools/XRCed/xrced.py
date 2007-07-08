@@ -51,19 +51,13 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
                           help='add support for meta components')
 
         # Process command-line arguments
-        (options, args) = parser.parse_args()
-        print options
+        options, args = parser.parse_args()
         if options.debug:
             set_debug(True)
         if options.meta:
             # Register meta-components
             import meta
             
-#            if wx.Platform != '__WXMAC__': # macs have some extra parameters
-#                print >> sys.stderr, 'Unknown option'
-#                usage()
-#                sys.exit(1)
-
         self.SetAppName(progname)
 
         self.ReadConfig()
@@ -82,23 +76,13 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         Listener.Install(view.frame, view.tree, view.panel,
                          view.toolFrame, view.testWin)
 
-        if len(args) > 1:
-            Presenter.open(sys.argv[1])
+        if args:
+            Presenter.open(args[0])
         view.frame.Show()
         if not g.conf.embedPanel:
             view.frame.miniFrame.Show()
         if g.conf.showToolPanel:
             view.toolFrame.Show()
-
-        # Create main frame
-#        frame = Frame(pos, size)
-        # Mac does not set the correct size
-#        if wx.Platform == '__WXMAC__':
-#            frame.SetClientSize(size)
-#        frame.Show(True)
-        
-        # Load plugins
-#        plugins = os.getenv('XRCEDPATH')
 
         return True
 
@@ -174,10 +158,6 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
 #        if v: conf.Write('Prefs/sizeritem_defaults_control', DictToString(v))
         
         conf.Flush()
-
-        
-    
-
 
 def main():
     app = App(0, useBestVisual=False)
