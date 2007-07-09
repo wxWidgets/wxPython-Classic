@@ -4,6 +4,8 @@ import time
 import wx
 from optparse import OptionParser
 
+# TODO: separate option-logic from test-running from output-reporting
+
 # ------------------- Helper Methods ------------------------
 
 def start_figleaf():
@@ -37,6 +39,14 @@ def output_summary(wiki=False):
             print " * ",
         print "%d tests erred in total!" % (total_errors)
 
+def output_failure_data(failure, wiki):
+    if wiki:
+        print "\n * " + str(failure[0]).replace('.','.!')
+        print " {{{" + str(failure[1]) + "}}}"
+    else:
+        print "\n------ " + str(failure[0]) + " ------"
+        print failure[1],
+
 def wiki_header():
     if options.wiki:
         print "=== %s - %s ===" % (time.asctime(),wx.GetOsDescription())
@@ -53,7 +63,6 @@ def wiki_platform_info():
 
 # Options
 # TODO: would log4py be better than custom flags?
-# TODO: configure which modules run via command line
 usage = "usage: python %prog [options]"
 parser = OptionParser(usage=usage)
 parser.set_defaults(verbose=True, failure_details=False,
@@ -81,6 +90,11 @@ parser.add_option("-w", "--wiki",
 parser.add_option("-x", "--no-figleaf",
                     action="store_false", dest="figleaf",
                     help="don't use figleaf (code coverage tool)")
+parser.add_option("-m", "--modules",
+                    action="store", dest="module_list", default="",
+                    help="run only the comma-separated list of modules given. use either " +
+                            "wx class names or the name of the desired test module. " + 
+                            "don't use spaces in the list")
 (options, args) = parser.parse_args()
 
 # Options error-checking
@@ -109,8 +123,25 @@ if options.outfilename != "":
 
 start_figleaf()
 
-modules = [__import__(f[:-3]) for f in os.listdir(rootdir) 
-                if f.startswith('test') and f.endswith('.py')]
+module_names = [ n[:-3] for n in os.listdir(rootdir)
+                    if n.startswith('test') and n.endswith('.py') ]
+if options.module_list != "":
+    module_name_list = options.module_list.split(',')
+    tmp = []
+    for s in module_name_list:
+        if s.endswith('.py'):
+            s = s[:-3]
+        if s.startswith('wx.'):
+            s = 'test' + s[3:]
+        if not s.startswith('test'):
+            s = 'test' + s
+        if s in module_names:
+            tmp.append(s)
+        else:
+            parser.error('asdf')
+    module_names = tmp
+    
+modules = [ __import__(mod) for mod in module_names ]
                 
 wiki_header()
 wiki_platform_info()
@@ -142,23 +173,13 @@ for module in modules:
             print "%s:\t%d tests failed!" % (module.__name__, failures)
         if options.failure_details:
             for failure in results.failures:
-                if options.wiki:
-                    print "\n * " + str(failure[0]).replace('.','.!')
-                    print " {{{" + str(failure[1]) + "}}}"
-                else:
-                    print "\n------ " + str(failure[0]) + " ------"
-                    print failure[1],
+                output_failure_data(failure, options.wiki)
     if errors > 0:
         if options.verbose:
             print "%s:\t%d tests in error!" % (module.__name__, errors)
         if options.failure_details:
             for error in results.errors:
-                if options.wiki:
-                    print "\n * " + str(error[0]).replace('.','.!')
-                    print " {{{" + str(error[1]) + "}}}"
-                else:
-                    print "\n------ " + str(error[0]) + " ------"
-                    print error[1],
+                output_failure_data(error, options.wiki)
 stop_time = time.time()
 if options.verbose or options.failure_details and not options.wiki:
     print "\n----------------------\n"
