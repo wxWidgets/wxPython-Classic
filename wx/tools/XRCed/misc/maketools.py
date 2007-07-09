@@ -17,7 +17,6 @@ def WTF(win, filename):
         os.system('screencapture scr.png')
         screen = wx.Bitmap('scr.png')
         rect = win.GetRect()
-        #rect.Offset(win.ClientToScreen((0, 0)))
         bitmap = screen.GetSubBitmap(rect)
     else:
         context = wx.ScreenDC()
@@ -30,6 +29,33 @@ def WTF(win, filename):
         bitmap = wx.EmptyBitmap(w, h, -1)
         memory.SelectObject(bitmap)
         memory.Blit(0, 0, w, h, context, x, y)
+        memory.Destroy()
+        context.Destroy()
+    bitmap.SaveFile(filename, wx.BITMAP_TYPE_PNG)
+    bitmap.Destroy()
+
+
+def WTFC(win, filename, obj):
+    """WindowToFileClient"""
+    if wx.Platform == '__WXMAC__':
+        # Blit does not write color
+        os.system('screencapture scr.png')
+        screen = wx.Bitmap('scr.png')
+        rect = win.GetClientRect()
+        rect.Offset(win.ClientToScreen((0, 0)))
+        bitmap = screen.GetSubBitmap(rect)
+    else:
+        context = wx.ScreenDC()
+        memory = wx.MemoryDC()
+        x,y = win.GetPosition()
+        w,h = win.GetSize()
+        x0,y0 = win.ClientToScreen((0,0))
+        h = obj.GetSize()[1]
+#        h += y0 - y + 5
+#        w += 10
+        bitmap = wx.EmptyBitmap(128, h, -1)
+        memory.SelectObject(bitmap)
+        memory.Blit(0, 0, 128, h, context, x0, y + 24)
         memory.Destroy()
         context.Destroy()
     bitmap.SaveFile(filename, wx.BITMAP_TYPE_PNG)
@@ -137,6 +163,12 @@ def snap(evt):
         WTF(app.frame_frame, 'bitmaps/wxFrame.png')
     elif evt.GetId() == xrc.XRCID('snap_dialog'):
         WTF(app.frame_dialog, 'bitmaps/wxDialog.png')
+    elif evt.GetId() == xrc.XRCID('snap_menubar'):
+        WTFC(app.frame_menubar, 'bitmaps/wxMenuBar.png', app.frame_menubar.GetMenuBar())
+    elif evt.GetId() == xrc.XRCID('snap_menu'):
+        WTFC(app.frame_menubar, 'bitmaps/wxMenuBar.png')
+    elif evt.GetId() == xrc.XRCID('snap_toolbar'):
+        WTFC(app.frame_menubar, 'bitmaps/wxToolBar.png', app.frame_menubar.GetToolBar())
 
 if __name__ == '__main__':
     try: 
@@ -155,12 +187,18 @@ if __name__ == '__main__':
     app.main_frame = main_frame
 
     app.frame_panels = create_panels(main_frame)
+    app.frame_panels.SetPosition((0,100))
     app.frame_controls = create_controls(main_frame)
-    app.frame_frame = wx.Frame(main_frame, -1, '', (0,240), (128, 100))
+    app.frame_panels.SetPosition((350,100))
+    app.frame_frame = wx.Frame(main_frame, -1, '', (0,300), (128, 100))
     app.frame_frame.Show()
-    app.frame_dialog = wx.Dialog(main_frame, -1, '', (140,240), (128, 100))
+    app.frame_dialog = wx.Dialog(main_frame, -1, '', (140,300), (128, 100))
     app.frame_dialog.SetSize((128,100))    
     app.frame_dialog.Show()
+    app.frame_menubar = res.LoadFrame(main_frame, 'FRAME_MenuBar')
+    app.frame_menubar.Show()
+    app.frame_menubar = res.LoadFrame(main_frame, 'FRAME_ToolBar')
+    app.frame_menubar.Show()
 
     if not os.path.exists('bitmaps'): os.mkdir('bitmaps')
 
@@ -168,7 +206,10 @@ if __name__ == '__main__':
     main_frame.Bind(wx.EVT_MENU, snap, id=xrc.XRCID('snap_controls'))
     main_frame.Bind(wx.EVT_MENU, snap, id=xrc.XRCID('snap_frame'))
     main_frame.Bind(wx.EVT_MENU, snap, id=xrc.XRCID('snap_dialog'))
+    main_frame.Bind(wx.EVT_MENU, snap, id=xrc.XRCID('snap_menubar'))
+    main_frame.Bind(wx.EVT_MENU, snap, id=xrc.XRCID('snap_toolbar'))
     main_frame.Bind(wx.EVT_MENU, lambda evt: main_frame.Close(), id=wx.ID_EXIT)
+    main_frame.SetStatusText('status')
 
     main_frame.Show()
     app.MainLoop()

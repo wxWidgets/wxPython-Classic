@@ -302,7 +302,57 @@
     <size>100,80</size>
     <title>Dialog</title>
   </object>
-  <object class="wxMenuBar" name="MENUBAR"/>
+  <object class="wxFrame" name="FRAME_MenuBar">
+    <object class="wxMenuBar" name="MENUBAR">
+      <object class="wxMenu" name="MENU">
+        <object class="wxMenuItem">
+          <label>Item 1</label>
+          <bitmap/>
+        </object>
+        <object class="wxMenuItem">
+          <label>Item 2</label>
+          <bitmap/>
+        </object>
+        <object class="wxMenuItem">
+          <label>Item 3</label>
+          <bitmap/>
+        </object>
+        <label>Menu 1</label>
+      </object>
+      <object class="wxMenu" name="MENU">
+        <object class="wxMenuItem">
+          <label>Item 1</label>
+          <bitmap/>
+        </object>
+        <object class="separator"/>
+        <object class="wxMenuItem">
+          <label>Item 2</label>
+          <bitmap/>
+        </object>
+        <object class="wxMenuItem">
+          <label>Item 3</label>
+          <bitmap/>
+        </object>
+        <label>Menu 2</label>
+      </object>
+    </object>
+  </object>
+  <object class="wxFrame" name="FRAME_ToolBar">
+    <object class="wxToolBar">
+      <object class="tool">
+        <bitmap stock_id="wxART_NEW"/>
+        <bitmap2/>
+      </object>
+      <object class="tool">
+        <bitmap stock_id="wxART_FILE_OPEN"/>
+        <bitmap2/>
+      </object>
+      <object class="tool">
+        <bitmap stock_id="wxART_FILE_SAVE"/>
+        <bitmap2/>
+      </object>
+    </object>
+  </object>
   <object class="wxFrame" name="main_frame">
     <object class="wxMenuBar" name="menu_bar">
       <object class="wxMenu" name="Snap">
@@ -326,6 +376,10 @@
           <label>Menubar</label>
           <bitmap/>
         </object>
+        <object class="wxMenuItem" name="snap_toolbar">
+          <label>Toolbar</label>
+          <bitmap/>
+        </object>
         <object class="separator"/>
         <object class="wxMenuItem" name="wxID_EXIT">
           <label>Exit\tCtrl+Q</label>
@@ -336,5 +390,6 @@
     </object>
     <size>100,100</size>
     <centered>1</centered>
+    <object class="wxStatusBar"/>
   </object>
 </resource>
