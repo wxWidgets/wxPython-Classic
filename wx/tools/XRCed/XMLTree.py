@@ -92,6 +92,8 @@ class XMLTree(wx.TreeCtrl):
     def Flush(self):
         '''Update all items after changes in model.'''
         self.Clear()
+        # Update root item
+        self.SetPyData(self.root, Model.mainNode)
         # (first node is test node)
         for n in filter(is_object, Model.mainNode.childNodes[1:]):
             self.AddNode(self.root, n)
