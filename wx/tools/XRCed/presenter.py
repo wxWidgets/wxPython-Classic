@@ -405,10 +405,10 @@ class _Presenter:
         if not g.currentEncoding:
             xmlFlags != xrc.XRC_USE_LOCALE
         res = xrc.EmptyXmlResource(xmlFlags)
-        res.InitAllHandlers()
+        res.InitAllHandlers()   # !!! is this needed?
         xrc.XmlResource.Set(res)        # set as global
-        # Register handlers
-#        addHandlers()
+        # Init other handlers
+        Manager.addXmlHandlers(res)
         # Same module list
         res.Load('memory:test.xrc')
         object = None

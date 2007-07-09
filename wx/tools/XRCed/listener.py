@@ -270,6 +270,7 @@ class _Listener:
     def OnCloseWindow(self, evt):
         '''wx.EVT_CLOSE handler'''
         if not self.AskSave(): return
+        # Remember sizes and positions
         if self.testWin.object: self.testWin.Destroy()
         conf = g.conf
         if not self.frame.IsIconized():
@@ -285,6 +286,7 @@ class _Listener:
                 conf.panelSize = self.frame.miniFrame.GetSize()
             if conf.showToolPanel:
                 conf.toolPanelPos = self.toolFrame.GetPosition()
+                conf.toolPanelSize = self.toolFrame.GetSize()
         evt.Skip()
 
     def OnUndo(self, evt):
@@ -644,6 +646,7 @@ Homepage: http://xrced.sourceforge.net\
         if not self.toolFrame.IsIconized():
             if conf.showToolPanel:
                 conf.toolPanelPos = self.toolFrame.GetPosition()
+                conf.toolPanelSize = self.toolFrame.GetSize()
         self.toolFrame.Show(False)
         conf.showToolPanel = False
 

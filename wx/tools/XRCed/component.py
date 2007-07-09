@@ -417,6 +417,7 @@ class _ComponentManager:
                           'container', 'sizer', 'custom']
         self.panelNames = ['Windows', 'Panels', 'Controls', 'Sizers',  'Menus', 'Custom']
         self.panelImages = {}
+        self.handlers = []      # registered XmlHandlers
 
     def init(self):
         self.firstId = self.lastId = wx.NewId()
@@ -467,9 +468,29 @@ class _ComponentManager:
             else:
                 bitmap = images.getToolDefaultBitmap()
         bisect.insort_left(self.panels[panel], (pos, span, component, bitmap))
+
+    def addXmlHandler(self, h):
+        self.handlers.append(h)
         
     def findById(self, id):
         return self.ids[id]
+
+    def addXmlHandlers(self, res):
+        '''Register XML handlers before creating a test window.'''
+        for h in self.handlers:
+            if g._CFuncPtr and isinstance(h, g._CFuncPtr):
+                try:
+                    apply(h, ())
+                except:
+                    wx.LogError('error calling DL func: "%s"' % h)
+                    print sys.exc_value
+            else:               # assume a python class handler
+                try:
+                    res.AddHandler(apply(h, ()))
+                except:
+                    wx.LogError('error adding XmlHandler: "%s"' % h)
+                    print sys.exc_value
+        
 
 # Singleton object
 Manager = _ComponentManager()

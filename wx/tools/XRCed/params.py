@@ -78,8 +78,6 @@ class PPanel(wx.Panel):
 class ParamBinaryOr(PPanel):
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
-        self.ID_TEXT_CTRL = wx.NewId()
-        self.ID_BUTTON_CHOICES = wx.NewId()
         sizer = wx.BoxSizer()
         popup = CheckListBoxComboPopup(self.values)
         self.combo = wx.combo.ComboCtrl(self, size=(220,-1))
@@ -118,18 +116,16 @@ class ParamFlag(ParamBinaryOr):
 class ParamColour(PPanel):
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
-        self.ID_TEXT_CTRL = wx.NewId()
-        self.ID_BUTTON = wx.NewId()
         sizer = wx.BoxSizer()
-        self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=(80,textH))
+        self.text = wx.TextCtrl(self, size=(80,textH))
         sizer.Add(self.text, 0, wx.ALIGN_CENTER_VERTICAL | wx.ALL, textB)
-        self.button = wx.Panel(self, self.ID_BUTTON, wx.DefaultPosition, wx.Size(20, 20))
+        self.button = wx.Panel(self, size=(20, 20))
         sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 3)
         self.SetSizer(sizer)
         self.textModified = False
-        wx.EVT_PAINT(self.button, self.OnPaintButton)
-        wx.EVT_TEXT(self, self.ID_TEXT_CTRL, self.OnChange)
-        wx.EVT_LEFT_DOWN(self.button, self.OnLeftDown)
+        self.button.Bind(wx.EVT_PAINT, self.OnPaintButton)
+        self.text.Bind(wx.EVT_TEXT, self.OnChange)
+        self.button.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)
     def GetValue(self):
         return self.text.GetValue()
     def SetValue(self, value):
@@ -185,8 +181,6 @@ class FontPickerCtrl(wx.Button):
 class ParamFont(PPanel):
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
-        self.ID_TEXT_CTRL = wx.NewId()
-        self.ID_BUTTON_SELECT = wx.NewId()
         sizer = wx.BoxSizer()
         self.button = wx.FontPickerCtrl(
             self, style=wx.FNTP_FONTDESC_AS_LABEL | wx.FNTP_USE_TEXTCTRL
@@ -278,12 +272,10 @@ class ParamInt(PPanel):
     range = (-2147483648, 2147483647)
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
-        self.ID_TEXT_CTRL = wx.NewId()
-        self.ID_SPIN_BUTTON = wx.NewId()
         sizer = wx.BoxSizer(wx.HORIZONTAL)
-        self.spin = wx.SpinButton(self, self.ID_SPIN_BUTTON, style = wx.SP_VERTICAL, size=(-1,textH))
+        self.spin = wx.SpinButton(self, style = wx.SP_VERTICAL, size=(-1,textH))
         textW = 60 - self.spin.GetSize()[0]
-        self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=(textW,textH))
+        self.text = wx.TextCtrl(self, size=(textW,textH))
         self.spin.SetRange(*self.range)
         if wx.Platform == '__WXMAC__':
             sizer.Add(self.text, 0, wx.ALIGN_CENTER_VERTICAL | wx.EXPAND | wx.ALL, textB)
@@ -352,8 +344,6 @@ class ParamUnit(ParamInt):
 class ParamMultilineText(PPanel):
     def __init__(self, parent, name, textWidth=-1):
         PPanel.__init__(self, parent, name)
-        self.ID_TEXT_CTRL = wx.NewId()
-        self.ID_BUTTON_EDIT = wx.NewId()
         sizer = wx.BoxSizer()
         self.text = wx.TextCtrl(self, size=wx.Size(200,textH))
         sizer.Add(self.text, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, textB)
@@ -382,15 +372,14 @@ class ParamText(PPanel):
     def __init__(self, parent, name, style=0, **kargs):
         PPanel.__init__(self, parent, name)
         textWidth = kargs.get('textWidth', self.textWidth)
-        self.ID_TEXT_CTRL = wx.NewId()
         # We use sizer even here to have the same size of text control
         sizer = wx.BoxSizer()
-        self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=wx.Size(textWidth,textH), style=style)
+        self.text = wx.TextCtrl(self, size=wx.Size(textWidth,textH), style=style)
         if textWidth == -1: option = 1
         else: option = 0
         sizer.Add(self.text, option, wx.ALIGN_CENTER_VERTICAL | wx.ALL, textB)
         self.SetSizer(sizer)
-        wx.EVT_TEXT(self, self.ID_TEXT_CTRL, self.OnChange)
+        self.text.Bind(wx.EVT_TEXT, self.OnChange)
     def GetValue(self):
         return self.text.GetValue()
     def SetValue(self, value):
@@ -525,8 +514,6 @@ class ContentCheckListDialog(wx.Dialog):
 class ParamContent(PPanel):
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
-        self.ID_TEXT_CTRL = wx.NewId()
-        self.ID_BUTTON_EDIT = wx.NewId()
         sizer = wx.BoxSizer()
         self.text = wx.TextCtrl(self, size=wx.Size(200,textH))
         sizer.Add(self.text, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, textB)
@@ -734,17 +721,15 @@ class ParamOrientation(RadioBox):
 class ParamFile(PPanel):
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
-        self.ID_TEXT_CTRL = wx.NewId()
-        self.ID_BUTTON_BROWSE = wx.NewId()
         sizer = wx.BoxSizer()
-        self.text = wx.TextCtrl(self, self.ID_TEXT_CTRL, size=wx.Size(200,textH))
+        self.text = wx.TextCtrl(self, size=wx.Size(200,textH))
         sizer.Add(self.text, 0, wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, 5)
-        self.button = wx.Button(self, self.ID_BUTTON_BROWSE, 'Browse...')
+        self.button = wx.Button(self, -1, 'Browse...')
         sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL)
         self.SetSizer(sizer)
         self.textModified = False
-        wx.EVT_BUTTON(self, self.ID_BUTTON_BROWSE, self.OnButtonBrowse)
-        wx.EVT_TEXT(self, self.ID_TEXT_CTRL, self.OnChange)
+        self.button.Bind(wx.EVT_BUTTON, self.OnButtonBrowse)
+        self.text.Bind(wx.EVT_TEXT, self.OnChange)
     def OnChange(self, evt):
         Presenter.setApplied(False)
         self.textModified = True
@@ -849,6 +834,42 @@ class ParamBitmap(PPanel):
             Presenter.setApplied(False)
             self.textModified = False
         dlg.Destroy()
+
+class ParamImage(PPanel):
+    '''Image selector.'''
+    def __init__(self, parent, name):
+        PPanel.__init__(self, parent, name)
+        sizer = wx.BoxSizer()
+        self.text = wx.TextCtrl(self, size=wx.Size(200,textH))
+        sizer.Add(self.text, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, textB)
+        self.button = wx.Button(self, -1, 'Browse...')
+        sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL)
+        self.SetSizer(sizer)
+        self.button.Bind(wx.EVT_BUTTON, self.OnButtonBrowse)
+        self.text.Bind(wx.EVT_TEXT, self.OnChange)
+    def OnChange(self, evt):
+        Presenter.setApplied(False)
+    def GetValue(self):
+        return self.text.GetValue()
+    def SetValue(self, value):
+        self.text.SetValue(value)
+    def OnButtonBrowse(self, evt):
+        value = self.text.GetValue()
+        dlg = wx.FileDialog(self,
+                           defaultDir = os.path.abspath(os.path.dirname(value)),
+                           defaultFile = os.path.basename(value))
+        if dlg.ShowModal() == wx.ID_OK:
+            # Get common part of selected path and current
+            if Presenter.path:
+                curpath = os.path.abspath(Presenter.path)
+            else:
+                curpath = os.path.join(os.getcwd(), '')
+            common = os.path.commonprefix([curpath, dlg.GetPath()])
+            self.SetValue(dlg.GetPath()[len(common):])
+            Presenter.setApplied(False)
+            self.textModified = False
+        dlg.Destroy()
+
 
 paramDict = {
     # sizer params

@@ -6,18 +6,14 @@
 
 """
 
-xrced -- Simple resource editor for XRC format used by wxWidgets/wxPython
-         GUI toolkit.
+usage: xrced [options] [XRC file]
 
-Usage:
+options:
+  --version      show program's version number and exit
+  -h, --help     show this help message and exit
+  -d, --debug    add Debug command to Help menu
+  -m, --no-meta  disable meta-components
 
-    xrced [ -h ] [ -v ] [ XRC-file ]
-
-Options:
-
-    -h          output short usage info and exit
-
-    -v          output version info and exit
 """
 
 import os
@@ -42,19 +38,22 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         g.undoMan = undo.UndoManager()
         Manager.init()
 
-        parser = OptionParser(prog=progname, version=version,
+        parser = OptionParser(prog=progname, 
+                              version='%s version %s' % (ProgName, version),
                               usage='%prog [options] [XRC file]')
-        #parser.add_option('-v', '--verbose', help='print verbose messages to stdout')
         parser.add_option('-d', '--debug', action='store_true',
                           help='add Debug command to Help menu')
-        parser.add_option('-m', '--meta', action='store_true',
-                          help='add support for meta components')
+        parser.add_option('-m', '--no-meta', action='store_true',
+                          dest = 'no_meta',
+                          help='disable meta-components')
 
         # Process command-line arguments
         options, args = parser.parse_args()
         if options.debug:
             set_debug(True)
-        if options.meta:
+        if options.no_meta:
+            g.useMeta = False
+        else:
             # Register meta-components
             import meta
             
@@ -113,6 +112,8 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         
         conf.toolPanelPos = wx.Point(conf.ReadInt('toolPanelX', -1), 
                                      conf.ReadInt('toolPanelY', -1))
+        conf.toolPanelSize = wx.Size(conf.ReadInt('toolPanelWidth', -1), 
+                                     conf.ReadInt('toolPanelHeight', -1))
         
         # Preferences
 #        conf.allowExec = conf.Read('Prefs/allowExec', 'ask')
@@ -147,6 +148,8 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         conf.WriteInt('showToolPanel', conf.showToolPanel)
         conf.WriteInt('toolPanelX', conf.toolPanelPos.x)
         conf.WriteInt('toolPanelY', conf.toolPanelPos.y)
+        conf.WriteInt('toolPanelWidth', conf.toolPanelSize.x)
+        conf.WriteInt('toolPanelHeight', conf.toolPanelSize.y)
         g.fileHistory.Save(conf)
         # Preferences
         conf.DeleteGroup('Prefs')

@@ -33,12 +33,14 @@ def load_plugins(dir):
                 __import__(name, globals(), locals(), ['*'])
             except:
                 print 'Error:', sys.exc_value
-        ff_crx = glob.glob('*.crx')
-        for crx in ff_crx:
-            try:
-                load_crx(crx)
-            except:
-                print 'Error:', sys.exc_value
+        if g.useMeta:
+            ff_crx = glob.glob('*.crx')
+            for crx in ff_crx:
+                try:
+                    load_crx(crx)
+                except:
+                    print 'Error:', sys.exc_value
+                    raise
         dirs = glob.glob('*/')
         for dir in dirs:
             if os.path.isfile(os.path.join(dir, '__init__.py')):
@@ -52,31 +54,69 @@ def load_plugins(dir):
         os.chdir(cwd)
 
 def load_crx(filename):
+    '''Load components defined in a manifest file.'''
     dom = minidom.parse(filename)
     for node in dom.documentElement.childNodes:
         if node.nodeType == node.ELEMENT_NODE and node.tagName == 'component':
             create_component(node)
 
 def create_component(node):
+    '''Create component from a manifest file.'''
     klass = node.getAttribute('class')
     name = node.getAttribute('name')
     TRACE('create_component %s', name)
     comp = Manager.getNodeComp(node)
-    # !!! getattr is better?
-    meta = component.__dict__[comp.klass] # get component class
+    meta = getattr(component, comp.klass) # get component class
     attributes = comp.getAttribute(node, 'attributes')
     groups = comp.getAttribute(node, 'groups')
     styles = comp.getAttribute(node, 'styles')
-    menu = comp.getAttribute(node, 'menu')
-    label = comp.getAttribute(node, 'item')
-    if not label: label = name.tolower()
-    help = comp.getAttribute(node, 'help')
-    panel = comp.getAttribute(node, 'panel')
-    bitmap = comp.getAttribute(node, 'bitmap')
+    # Create class object
     c = meta(name, groups, attributes)
+    c.hasName = bool(comp.getAttribute(node, 'has-name'))
     c.addStyles(*styles)
     Manager.register(c)
-    if menu:
-        Manager.setMenu(c, menu, label, help)
+    menu = comp.getAttribute(node, 'menu')
+    label = comp.getAttribute(node, 'label')
+    if menu and label:
+        try:
+            index = int(comp.getAttribute(node, 'index'))
+        except:
+            index = 1000
+        help = comp.getAttribute(node, 'help')
+        Manager.setMenu(c, menu, label, help, index)
+    panel = comp.getAttribute(node, 'panel')
     if panel:
-        Manager.setTool(c, panel, bitmap[1])
+        bitmap = comp.getAttribute(node, 'bitmap')
+        try:
+            pos = map(int, comp.getAttribute(node, 'pos').split(','))
+        except:
+            pos = (1000, 1000)
+        try:
+            span = map(int, comp.getAttribute(node, 'span').split(','))
+        except:
+            span = (1, 1)
+        Manager.setTool(c, panel, bitmap, pos, span)
+    dlName = comp.getAttribute(node, 'DL')
+    if dlName:
+        TRACE('Loading dynamic library: %s', dlName)
+        if not g._CFuncPtr:
+            try:
+                import ctypes
+                g._CFuncPtr = ctypes._CFuncPtr
+            except:
+                print 'import ctypes module failed'
+        if g._CFuncPtr:
+            dl = ctypes.CDLL(dlName)
+            try:
+                Manager.addXmlHandler(dl.AddXmlHandlers)
+            except:
+                print 'DL registration failed'
+    module = comp.getAttribute(node, 'module')
+    handler = comp.getAttribute(node, 'handler')
+    if module and handler:
+        TRACE('importing handler %s from %s', handler, module)
+        try:
+            mod = __import__(module, globals(), locals(), [handler])
+            Manager.addXmlHandler(getattr(mod, handler))
+        except:
+            print 'Import failed'

@@ -969,7 +969,7 @@ class XML_Tree(wx.TreeCtrl):
         res.InitAllHandlers()
         xrc.XmlResource.Set(res)        # set as global
         # Register handlers
-        addHandlers()
+        Manager.addXmlHandlers(res)     # !!! add if g.use_custom
         # Same module list
         res.Load('memory:xxx.xrc')
         try:

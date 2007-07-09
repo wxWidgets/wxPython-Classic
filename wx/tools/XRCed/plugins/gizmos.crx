@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<resource>
+  <component class="Component" name="LEDNumberCtrl">
+    <groups>
+      <item>control</item>
+    </groups>
+    <attributes>
+      <item>pos</item>
+      <item>size</item>
+      <item>value</item>
+    </attributes>
+    <styles>
+      <item>wxLED_ALIGN_LEFT</item>
+      <item>wxLED_ALIGN_RIGHT</item>
+      <item>wxLED_ALIGN_CENTER</item>
+      <item>wxLED_ALIGN_FADED</item>
+    </styles>
+    <has-name>1</has-name>
+    <module>gizmos</module>
+    <handler>LEDNumberCtrlXmlHandler</handler>
+    <menu>gizmo</menu>
+    <label>LED number</label>
+    <help>LED-style control</help>
+    <panel>Gizmos</panel>
+    <icon>bitmaps/LEDNumberCtrl.png</icon>
+  </component>
+</resource>

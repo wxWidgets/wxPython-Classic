@@ -65,7 +65,9 @@ class Globals:
     undoMan = None
     currentEncoding = defaultEncoding
     conf = None
-
+    useMeta = True              # use meta-components
+    _CFuncPtr = None             # _CFuncPtr from ctypes
+    
     def _makeFonts(self):
         self._sysFont = wx.SystemSettings.GetFont(wx.SYS_SYSTEM_FONT)
         self._labelFont = wx.Font(self._sysFont.GetPointSize(), wx.DEFAULT, wx.NORMAL, wx.BOLD)

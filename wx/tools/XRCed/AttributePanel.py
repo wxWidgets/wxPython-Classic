@@ -62,9 +62,12 @@ class Panel(wx.Panel):
         pinSizer.Add((0, 0), 1)
         self.pinButton = buttons.GenBitmapToggleButton(
             self, bitmap=images.getToolPinBitmap(),
-            style=wx.NO_BORDER)
+            style=wx.BORDER_NONE)
         self.pinButton.SetBitmapSelected(images.getToolPinDownBitmap())
         self.pinButton.SetToggle(g.conf.panelPinState)
+        self.pinButton.SetToolTipString('Sticky page selection')
+        # No highlighting please
+        self.pinButton.GetBackgroundBrush = lambda dc: None
         pinSizer.Add(self.pinButton)
         topSizer.Add(pinSizer, 0, wx.EXPAND)
         self.sizer = sizer

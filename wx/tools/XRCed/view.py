@@ -45,6 +45,7 @@ def create_view():
     if minSize[0] < 320: minSize[0] = 320
     toolFrame.SetMinSize(minSize)
     toolFrame.SetPosition(g.conf.toolPanelPos)
+    toolFrame.SetSize(g.conf.toolPanelSize)
 
 #############################################################################
 

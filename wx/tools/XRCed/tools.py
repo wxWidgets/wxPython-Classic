@@ -28,7 +28,7 @@ class ToolPanel(wx.Panel):
         # Top sizer
         sizer = wx.BoxSizer(wx.VERTICAL)
         # Listbook
-        self.lb = wx.Toolbook(self, -1, style=wx.BK_TOP)
+        self.lb = wx.Toolbook(self, -1, style=wx.BK_TOP|wx.BK_BUTTONBAR)
         sizer.Add(self.lb, 1, wx.EXPAND)
         self.panels = []
         # Image list
