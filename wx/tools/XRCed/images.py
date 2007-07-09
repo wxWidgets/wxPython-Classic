@@ -65,11 +65,6 @@ def getAutoRefreshImage():
     stream = cStringIO.StringIO(getAutoRefreshData())
     return ImageFromStream(stream)
 
-def getAutoRefreshIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getAutoRefreshBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getCopyData():
     return \
@@ -107,11 +102,6 @@ def getCopyBitmap():
 def getCopyImage():
     stream = cStringIO.StringIO(getCopyData())
     return ImageFromStream(stream)
-
-def getCopyIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getCopyBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getCutData():
@@ -168,104 +158,6 @@ def getCutImage():
     stream = cStringIO.StringIO(getCutData())
     return ImageFromStream(stream)
 
-def getCutIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getCutBitmap())
-    return icon
-
-#----------------------------------------------------------------------
-def getIconData():
-    return \
-'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00 \x00\x00\x00 \x08\x06\x00\
-\x00\x00szz\xf4\x00\x00\x00\x04sBIT\x08\x08\x08\x08|\x08d\x88\x00\x00\x07[ID\
-ATX\x85\xad\x97\x7fL\x1b\xe7\x19\xc7\x9f\xfb}\xe7\xf3\xf9\'56`\x02$\xd8\x904\
-aa\xa3\xa1,4hk\xabLS\x7fhJ\xb3\x1fQ\xabn\xd2\xa4\xad\xdd\x1f\x9d6US\xb5i\xea\
-\x1f\xd1\xbaj\xea\x12\xa5\xaa\xd4U[7\x8d\xd2NM\x9al\xaa2\xb2d\x0b\r\x19a+\
-\x82\xa4$\xc5\xc4&\xc1\x89\x8d\x8d\xc11g\xfb~\xdf\xbd\xb7?B(I\x80\x02\xcbW:\
-\xddI\xcf\xdd\xf7\xf9\xbc\xf7<\xef{\xef\x01\xacQ[[\xb6\xd3\xdf\xde\xf7\xb4\
-\xe7\xc8\xd1\xbf2k}v)\x91\xab\xb9\xa9aS\x84\xea\xe8\xd8\xb9%\x12\xd9t\x7fssS\
-\x9b\xdf\xe7\xafSU\xedO\x00\xf0\xc1=\x03\xf8\xd9\xcf_&\x15\xb9\xc4\x87B\xa1\
-\x9a`ee\x05\xc30\x9by\x87\xa3\x91\xa2\xa8N\xa7\x93o\x08\x05\x83>\xce\xe1\x00\
-\xc30\x00!\x04\xe9L&\xfb\xa3\x1f\xbf\xf8\xe1\xeb\xbf}U_\xe4\x87\x03\x00Z\x17\
-\xc0\x86p\xe8WM\xd1\xae&\x07\xcf7p,[\xc10\x8c\x17\xc7q\x92a\x18LQ\x14\xc8d\
-\xb3@\xd34\\\xbc8\n\x81`\x10\xdcn\xcfF\xaf\xc7%\x00@\x1e\x00\xe0\x9d\xf7\xde\
-gO\x9d<\xb1khh86za8\x0b\x00\xda\x9a\x00Z\xb6\xb5|\xb5\xba\xbaj\xfb\xe5\xa3\
-\xefA"\x9d\x82\xc6\xbd\xcf@6\x93\x01I\x92 11\x01\x91h\x14l\x00P\r\x13\xf2\
-\x05\x11\x90\x8d\x87I\x92\xa8\xb9\x05\xa0\xa9J\xcbs?|\xeew<\xcf\xdf\x97\x9d\
-\x9e\x1e\xcf\xe7g\x8fKei\xe8r"1:y5\x99\xe9\xe9\xfe\xa3\xb4"\x80\xaai\xc3eI\
-\xda>q\xe1<$\x07\xcfA!\xbc\t\xf2\xc5\x12 dCum\x18td\x83,+`\x03\x81D\xb14]\
-\x12\xcb\xffQdea\x94\x0c\xc34\xb3\x1c\x1bp\xb9\x04\xd6\xedr}A\xdbP\xbb\xf5\
-\xca\xe4\xf5\x92\xd3\xe5\xba\xd2\xd1\xde>\xf6`\xfb\x8e\x7f\x8c\xc7\'\xfe\xf5\
-\xfa\xc1\xdf\xa4\x96\x04\xb8:\x99\x1c1m\xdb\x9c\xa9\x8d\x92\xbe\xfb\xdbl\xd9\
-@e\x7fE\xe5\x9c\xa2\xa8\xd7\x87\x07\xff\xeb.\xa5\xd3\x11\x9b\xc0\xdfv\x86\
-\xaa_R\x14\xad\xf0\xe7\xb7\xdf\xbc\xad\xd6\x9a\xae\x7f]\xd14\xd6\x9e\x13\xc1\
-\xb2,8z\xfa<\x91\xca\x15<\xad\xf5\xde\xd6\xae\x07[[#\x91\xc6}\x1d\x1d\xed\
-\xd6\xe3\x8f}mD\x96\x953\x96i\xf5\x16\n\x85\xa1\x05\x00EQ\xc7\xafL\\\x8dq\
-\x1e\xdfeIV\xc6H\x02\x1fL\xa7\xd3\xb3\xf9\xd9\xd9\xd4\xa9c\x1f\xd4\xb81\xf8\
-\xe7\xc6px\xd7\x89\xc1\x01,\x99\xc9\xdc\xd9h\xac\xa6\xeb;\x14E\x85\xb2\xac\
-\x80\xaa(p\xe6\xa3>\x08T\xf8\xa0ng#\x14\xe6\npm2\t\xc1P\x90\x88F"_\xd24\xed\
-\x8b\xe9\xf4\xd4\x93\x13\x13\x13Oc\x8bL\xf0\xf9\xf3\x92]\x1c\xe2\xf9\x177x<\
-\xbf\xac\r\x87\x8fdJ\xa5\x17\xfa/]\xba\xb18\xfe\x8d\xa7\xbe\xd3\xd8\xd4\x14\
-\xed\x0c\x06C\x8f2\x14\xb9\x93\xa2\xa9j\x97\xd7\x0b\xba\xa6\xc2\xf8\xd8\xa7\
-\xe0\xaf\xa8\x80\xcd\x9b7C}]=\x10\x04\x0e\x89D\xe2\xdfg\xce\x9c\xfd\x16\xb1\
-\xc8\xc3\x9e?\x96\x14M\x10\xd7\x91m\xb7\xb9Ir\x17EQ\xa9\xc4\xf4\xf4\xf0\xe2\
-\xf8\xd8\xa7\xa37\xfa\xcf\xf4\x8d\xd8\xf9\x99\x8c\x98\xb8\xfc\xf0\xb5\xd1O\
-\x02\xf1X\xcc\xa4\x04O\xa2\xaa\xa6F\x08T\x06\t\x1b\xc3@V\x14\xd0t\r\xe2\xf1x\
-\xef\xf8x\xe20\xb1\\\xc2;\xa5\x98\xa6hX\xd6\'`Y\xdf\xf5\xf3\xfcW\xfc~\xff\
-\xe1\xd4\xecl\xe1V\xbc}\xcb\x16\xf2\x81H\xa4K@\xe8\xf0\xdct\xb6>\x91\x9c\x1c\
-\xbd4\x1e{\xfe\xc8\x87\x7f{>\x97\xbb\xf1\x07\xdb\x86KE\xb18\xa3\x1b\x06Q.\
-\x95\xd9\xb1\xd8\xe5W\x0e\xbe\xf6\xeb\xb1U\x03\x00\x00\xe8\x08\xe5X\x92\xdc\
-\xc0bXGu \xc0\xd1\x0eG\x7f6\x9f\xd7\x00\x00\xb6\xd7\xd5=,\x00\x1c\x98\x99\
-\x99\xa9\xcb\x8a\xe2\xe4\xac\xaa>[P\xd5>\x1d!\x94\xba>Y\x1a\x1c\xe8?\xcf0\
-\xdc\x89b\xa9t\x12YF\xbf\xd7\xeb\xeb;\xd1{\\\xc7>/\xe9\x9d\xf22LS\x05\xc7\
-\xbd\xbb-\x1c\x8e\x92\x82\xf0\xca\xb4$\xbd\xe9\xe7\xb8\xa7\x18\xd3|5\x93\xcb\
-q9I:.\xaa\xeaOR\x92\x14[\x8d\xdf\x9a\xde\xc0\xbc\x8a\x14\x8e7p8\xfeP\xd0\xe7\
-\xdb\xea\x15\x84VR\xd3\xbe\x97\xcaf\x9d\xb3\xb2|I\xd4\xb4ggT5n\xd9\xcb\xb6\
-\xd3\xff\x07`\xda\xb6e\xda\xf6\x14G\x10?`-\x8b\x07Y\x8e\xdc\x98\x9bc\xae\x8a\
-bR\xd4\xb4\xefOI\xd2\xc8j\x93\x03|6\xf5\xd6$\xd54c\x92aL\x88\x8a\x02\xbaa@Y\
-\xd7A\xb3\xac\xbe\xa2\xae\x0f\xad\xd5k]\x006\x80\xa9[\xd6IQ\xd3l\x13!0o\x8e\
-\xf8#\xd94\x97\\\xef\xef9\x00\x00\x00\x8eai\xdb\xb6\xc1D\x08\x08\x0c\x03\x1d\
-\xa1\xfc\xba|\xd6\x0b`"d\x99\x08\xd9\x16B`\x03\x80\x81\xd0\xaa>\xbf\xf7\x0c\
-\x00\xc30\xc0\x00\x00\xcd7\xdcz\x8d\xd6\x0f\x00`\xc0\nK\xf7j\xb5\xeai877G{<\
-\x1e\xef\xde\xbd{}\x96e\x95\xb3\xc9\xe4\x0e\x07E=\xea\xa4i\xdcD\x08n\xa8\xea\
-;\xb2i&\xd6\n\xb0\xaa\x95pdd\xa4\n\x00~!\xc9\xca3\x00\xe0`h\n\xfe~\xec\x18:\
-\xfa\xd6[x\x80\xe3@2\x0c\xf0\xb7\xb4\xf4=\xbeg\xcf\xc7\xcd\xcd\xcdy\xaf\xd7[\
-P\x14\xa5DQ\x94\x98\xcb\xe5\x8a\xe9tZ\x8eF\xa3Z\xb1X,\x8b\xa2\x98\xd9\xb3g\
-\xcf\xc2>\xf2sw\xc5\x17.\\\x08S\x14\xf5\xb2\xd7\xeb\xdd\x87a\x18\r\x00`\x18\
-\x06\xf0N\'\x0e\xd8g\xfc\x18\x8ew\xc9\xb2\xdcE\x92$\xb2m\xdb"I\xd2\xcad2\x16\
-B\xa8(I\x92\x9c\xcdf5\x84P9\x97\xcb\xfd~\xf7\xee\xdd\xdd\xbd\xbd\xbd\xf2\x8a\
-\x00\x03\x03\x03\x94\xcf\xe7k!I\xf2/n\xb7\xbb\x9e\xa2\xa8\x85l,\xcb\x02EQ\
-\x0b\rh\x03\x00\xc7\xb2\x10\n\x85\xa0\xae\xae\x0e\xa7i\x1a\x07\x00\xaa\xb6\
-\xb6\x16TU\xe5\xb7m\xdb\x06\x9a\xa6A<\x1e\x9f:{\xf6\xec\xc0\xad\xe4+\x02\xd0\
-4\xfdM\xa7\xd3\xf9\x12\xc7q\xf5\x04A\xdcU*\x0b!PM\xf3\xe6\xb5m\x83K\x10\xa0\
-\xa1\xa1\x01(\x8a\xba\xed>\x96ea\xfe\xad)\xc9d\xb2\xbb\xa7\xa7\xe7\xe2\xe2\
-\xf8]\x00\x83\x83\x83>\x8e\xe3^\x08\x04\x02?\xe58\x8e[\x0epS4\n\x8f<\xf1\x04\
-8,\x0b\n\xc5"<\xd4\xd5\x05\xe1p\x180\xec\xee\xb6\xb2m\x1b\x86\x86\x86z\xfb\
-\xfb\xfb\x0f\xde\x19\xbb\r\xa0\xad\xad\rs\xbb\xdd\xaf\t\x82\xf0\xe4J\xc9\x01\
-\x00\xbe\xdc\xd9\t\x0f\xb4\xb7\x83e\x9a\xa0\xeb:0\xf3eYJ\xd7\xae]+\r\x0f\x0f\
-\xbf\xd1\xd3\xd3\x93]\x16\xe0\xf4\xe9\xd3\xad\x14E\x1d\xc00\xac\xcd\xb2,\\\
-\x14E\x9ba\x18\x8c\xa2( \x88\xbbg+\x8e\xe3\xc00\x0c\x00\xc3\x80\x83\xe7\x97\
-\x05-\x14\n\xea\xb9s\xe7\x0e\xec\xdf\xbf\xff\xd4R\xf1\x05\x80T*U\x14E\xf1\r\
-\xf6f\xd1B\x00\xb0\xd1\xe7\xf3\xb1\xa6iFy\x9ew{<\x1e7\x00x\x04A\xa0\x1d\x0e\
-\x07\xf0<\x0f4M/\t\xb7X\xb1X\xec\xe3\xa9\xa9\xa9w\x97\x8b\xafzG\xd4\xd8\xd8\
-\xe8\x88D"\xae@ P#\x08\xc2}\x0c\xc3\xd4x<\x9e\xaa\xaa\xaa*\x0fEQ>\x87\xc3Q\
-\xedr\xb98\x82 \xfc<\xcf;\\.\x17\'\x8a"\xd7\xdd\xdd\xfd\xd8\xa1C\x87N/\xe7\
-\xbb\xaa\xbfc\x00\x80x<.\xc7\xe3q\x19\x00\xee\xac#\xd6\xd9\xd9\xc9VVV\xbaZZZ\
-\xa8|>\xef\x13\x04\xc1QSS\xc3\x19\x86\xe1\xcad2\xfd+\xf9\xfe\x0fj\xeecn\xdf\
-\xd4\xc1k\x00\x00\x00\x00IEND\xaeB`\x82' 
-
-def getIconBitmap():
-    return BitmapFromImage(getIconImage())
-
-def getIconImage():
-    stream = cStringIO.StringIO(getIconData())
-    return ImageFromStream(stream)
-
-def getIconIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getIconBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getLocateData():
     return \
@@ -311,11 +203,6 @@ def getLocateImage():
     stream = cStringIO.StringIO(getLocateData())
     return ImageFromStream(stream)
 
-def getLocateIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getLocateBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getLocateArmedData():
     return \
@@ -344,11 +231,6 @@ def getLocateArmedBitmap():
 def getLocateArmedImage():
     stream = cStringIO.StringIO(getLocateArmedData())
     return ImageFromStream(stream)
-
-def getLocateArmedIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getLocateArmedBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getMoveDownData():
@@ -405,11 +287,6 @@ def getMoveDownImage():
     stream = cStringIO.StringIO(getMoveDownData())
     return ImageFromStream(stream)
 
-def getMoveDownIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getMoveDownBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getMoveLeftData():
     return \
@@ -460,11 +337,6 @@ def getMoveLeftImage():
     stream = cStringIO.StringIO(getMoveLeftData())
     return ImageFromStream(stream)
 
-def getMoveLeftIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getMoveLeftBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getMoveRightData():
     return \
@@ -511,11 +383,6 @@ def getMoveRightBitmap():
 def getMoveRightImage():
     stream = cStringIO.StringIO(getMoveRightData())
     return ImageFromStream(stream)
-
-def getMoveRightIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getMoveRightBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getMoveUpData():
@@ -573,11 +440,6 @@ def getMoveUpImage():
     stream = cStringIO.StringIO(getMoveUpData())
     return ImageFromStream(stream)
 
-def getMoveUpIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getMoveUpBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getNewData():
     return \
@@ -613,11 +475,6 @@ def getNewBitmap():
 def getNewImage():
     stream = cStringIO.StringIO(getNewData())
     return ImageFromStream(stream)
-
-def getNewIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getNewBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getOpenData():
@@ -668,11 +525,6 @@ def getOpenImage():
     stream = cStringIO.StringIO(getOpenData())
     return ImageFromStream(stream)
 
-def getOpenIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getOpenBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getPasteData():
     return \
@@ -714,11 +566,6 @@ def getPasteImage():
     stream = cStringIO.StringIO(getPasteData())
     return ImageFromStream(stream)
 
-def getPasteIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getPasteBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getRedoData():
     return \
@@ -759,11 +606,6 @@ def getRedoBitmap():
 def getRedoImage():
     stream = cStringIO.StringIO(getRedoData())
     return ImageFromStream(stream)
-
-def getRedoIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getRedoBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getRefreshData():
@@ -828,11 +670,6 @@ def getRefreshImage():
     stream = cStringIO.StringIO(getRefreshData())
     return ImageFromStream(stream)
 
-def getRefreshIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getRefreshBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getSaveData():
     return \
@@ -886,11 +723,6 @@ def getSaveBitmap():
 def getSaveImage():
     stream = cStringIO.StringIO(getSaveData())
     return ImageFromStream(stream)
-
-def getSaveIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getSaveBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getTestData():
@@ -950,11 +782,6 @@ def getTestImage():
     stream = cStringIO.StringIO(getTestData())
     return ImageFromStream(stream)
 
-def getTestIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTestBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolBitmapButtonData():
     return \
@@ -989,11 +816,6 @@ def getToolBitmapButtonImage():
     stream = cStringIO.StringIO(getToolBitmapButtonData())
     return ImageFromStream(stream)
 
-def getToolBitmapButtonIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolBitmapButtonBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolBoxSizerData():
     return \
@@ -1010,11 +832,6 @@ def getToolBoxSizerBitmap():
 def getToolBoxSizerImage():
     stream = cStringIO.StringIO(getToolBoxSizerData())
     return ImageFromStream(stream)
-
-def getToolBoxSizerIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolBoxSizerBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolButtonData():
@@ -1035,11 +852,6 @@ def getToolButtonImage():
     stream = cStringIO.StringIO(getToolButtonData())
     return ImageFromStream(stream)
 
-def getToolButtonIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolButtonBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolCheckBoxData():
     return \
@@ -1055,11 +867,6 @@ def getToolCheckBoxBitmap():
 def getToolCheckBoxImage():
     stream = cStringIO.StringIO(getToolCheckBoxData())
     return ImageFromStream(stream)
-
-def getToolCheckBoxIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolCheckBoxBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolCheckListData():
@@ -1082,11 +889,6 @@ def getToolCheckListImage():
     stream = cStringIO.StringIO(getToolCheckListData())
     return ImageFromStream(stream)
 
-def getToolCheckListIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolCheckListBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolChoiceData():
     return \
@@ -1105,11 +907,6 @@ def getToolChoiceBitmap():
 def getToolChoiceImage():
     stream = cStringIO.StringIO(getToolChoiceData())
     return ImageFromStream(stream)
-
-def getToolChoiceIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolChoiceBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolComboBoxData():
@@ -1132,11 +929,6 @@ def getToolComboBoxImage():
     stream = cStringIO.StringIO(getToolComboBoxData())
     return ImageFromStream(stream)
 
-def getToolComboBoxIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolComboBoxBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolDefaultData():
     return \
@@ -1155,11 +947,6 @@ def getToolDefaultImage():
     stream = cStringIO.StringIO(getToolDefaultData())
     return ImageFromStream(stream)
 
-def getToolDefaultIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolDefaultBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolDialogData():
     return \
@@ -1176,11 +963,6 @@ def getToolDialogBitmap():
 def getToolDialogImage():
     stream = cStringIO.StringIO(getToolDialogData())
     return ImageFromStream(stream)
-
-def getToolDialogIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolDialogBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolFlexGridSizerData():
@@ -1199,11 +981,6 @@ def getToolFlexGridSizerImage():
     stream = cStringIO.StringIO(getToolFlexGridSizerData())
     return ImageFromStream(stream)
 
-def getToolFlexGridSizerIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolFlexGridSizerBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolFrameData():
     return \
@@ -1219,11 +996,6 @@ def getToolFrameBitmap():
 def getToolFrameImage():
     stream = cStringIO.StringIO(getToolFrameData())
     return ImageFromStream(stream)
-
-def getToolFrameIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolFrameBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolGaugeData():
@@ -1242,11 +1014,6 @@ def getToolGaugeImage():
     stream = cStringIO.StringIO(getToolGaugeData())
     return ImageFromStream(stream)
 
-def getToolGaugeIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolGaugeBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolGridBagSizerData():
     return \
@@ -1264,11 +1031,6 @@ def getToolGridBagSizerImage():
     stream = cStringIO.StringIO(getToolGridBagSizerData())
     return ImageFromStream(stream)
 
-def getToolGridBagSizerIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolGridBagSizerBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolGridSizerData():
     return \
@@ -1284,11 +1046,6 @@ def getToolGridSizerBitmap():
 def getToolGridSizerImage():
     stream = cStringIO.StringIO(getToolGridSizerData())
     return ImageFromStream(stream)
-
-def getToolGridSizerIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolGridSizerBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolListBoxData():
@@ -1309,11 +1066,6 @@ def getToolListBoxImage():
     stream = cStringIO.StringIO(getToolListBoxData())
     return ImageFromStream(stream)
 
-def getToolListBoxIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolListBoxBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolListCtrlData():
     return \
@@ -1333,11 +1085,6 @@ def getToolListCtrlImage():
     stream = cStringIO.StringIO(getToolListCtrlData())
     return ImageFromStream(stream)
 
-def getToolListCtrlIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolListCtrlBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolMenuData():
     return \
@@ -1355,11 +1102,6 @@ def getToolMenuBitmap():
 def getToolMenuImage():
     stream = cStringIO.StringIO(getToolMenuData())
     return ImageFromStream(stream)
-
-def getToolMenuIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolMenuBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolMenuBarData():
@@ -1379,11 +1121,6 @@ def getToolMenuBarImage():
     stream = cStringIO.StringIO(getToolMenuBarData())
     return ImageFromStream(stream)
 
-def getToolMenuBarIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolMenuBarBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolMenuItemData():
     return \
@@ -1400,11 +1137,6 @@ def getToolMenuItemBitmap():
 def getToolMenuItemImage():
     stream = cStringIO.StringIO(getToolMenuItemData())
     return ImageFromStream(stream)
-
-def getToolMenuItemIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolMenuItemBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolNotebookData():
@@ -1428,11 +1160,6 @@ def getToolNotebookImage():
     stream = cStringIO.StringIO(getToolNotebookData())
     return ImageFromStream(stream)
 
-def getToolNotebookIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolNotebookBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolPanelData():
     return \
@@ -1448,11 +1175,6 @@ def getToolPanelBitmap():
 def getToolPanelImage():
     stream = cStringIO.StringIO(getToolPanelData())
     return ImageFromStream(stream)
-
-def getToolPanelIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolPanelBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolPanel_ControlsData():
@@ -1505,11 +1227,6 @@ def getToolPanel_ControlsBitmap():
 def getToolPanel_ControlsImage():
     stream = cStringIO.StringIO(getToolPanel_ControlsData())
     return ImageFromStream(stream)
-
-def getToolPanel_ControlsIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolPanel_ControlsBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolPanel_DefaultData():
@@ -1652,11 +1369,6 @@ def getToolPanel_DefaultImage():
     stream = cStringIO.StringIO(getToolPanel_DefaultData())
     return ImageFromStream(stream)
 
-def getToolPanel_DefaultIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolPanel_DefaultBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolPanel_MenusData():
     return \
@@ -1730,11 +1442,6 @@ def getToolPanel_MenusImage():
     stream = cStringIO.StringIO(getToolPanel_MenusData())
     return ImageFromStream(stream)
 
-def getToolPanel_MenusIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolPanel_MenusBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolPanel_PanelsData():
     return \
@@ -1786,11 +1493,6 @@ def getToolPanel_PanelsImage():
     stream = cStringIO.StringIO(getToolPanel_PanelsData())
     return ImageFromStream(stream)
 
-def getToolPanel_PanelsIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolPanel_PanelsBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolPanel_SizersData():
     return \
@@ -1812,11 +1514,6 @@ def getToolPanel_SizersBitmap():
 def getToolPanel_SizersImage():
     stream = cStringIO.StringIO(getToolPanel_SizersData())
     return ImageFromStream(stream)
-
-def getToolPanel_SizersIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolPanel_SizersBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolPanel_WindowsData():
@@ -1865,11 +1562,6 @@ def getToolPanel_WindowsImage():
     stream = cStringIO.StringIO(getToolPanel_WindowsData())
     return ImageFromStream(stream)
 
-def getToolPanel_WindowsIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolPanel_WindowsBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolPinData():
     return \
@@ -1913,11 +1605,6 @@ def getToolPinImage():
     stream = cStringIO.StringIO(getToolPinData())
     return ImageFromStream(stream)
 
-def getToolPinIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolPinBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolPinDownData():
     return \
@@ -1959,11 +1646,6 @@ def getToolPinDownImage():
     stream = cStringIO.StringIO(getToolPinDownData())
     return ImageFromStream(stream)
 
-def getToolPinDownIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolPinDownBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolRadioBoxData():
     return \
@@ -1989,11 +1671,6 @@ def getToolRadioBoxImage():
     stream = cStringIO.StringIO(getToolRadioBoxData())
     return ImageFromStream(stream)
 
-def getToolRadioBoxIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolRadioBoxBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolRadioButtonData():
     return \
@@ -2014,11 +1691,6 @@ def getToolRadioButtonImage():
     stream = cStringIO.StringIO(getToolRadioButtonData())
     return ImageFromStream(stream)
 
-def getToolRadioButtonIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolRadioButtonBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolRootData():
     return \
@@ -2036,11 +1708,6 @@ def getToolRootBitmap():
 def getToolRootImage():
     stream = cStringIO.StringIO(getToolRootData())
     return ImageFromStream(stream)
-
-def getToolRootIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolRootBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolScrollBarData():
@@ -2064,11 +1731,6 @@ def getToolScrollBarImage():
     stream = cStringIO.StringIO(getToolScrollBarData())
     return ImageFromStream(stream)
 
-def getToolScrollBarIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolScrollBarBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolSeparatorData():
     return \
@@ -2083,11 +1745,6 @@ def getToolSeparatorBitmap():
 def getToolSeparatorImage():
     stream = cStringIO.StringIO(getToolSeparatorData())
     return ImageFromStream(stream)
-
-def getToolSeparatorIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolSeparatorBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolSliderData():
@@ -2107,11 +1764,6 @@ def getToolSliderImage():
     stream = cStringIO.StringIO(getToolSliderData())
     return ImageFromStream(stream)
 
-def getToolSliderIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolSliderBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolSpacerData():
     return \
@@ -2127,11 +1779,6 @@ def getToolSpacerBitmap():
 def getToolSpacerImage():
     stream = cStringIO.StringIO(getToolSpacerData())
     return ImageFromStream(stream)
-
-def getToolSpacerIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolSpacerBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolSpinButtonData():
@@ -2151,11 +1798,6 @@ def getToolSpinButtonBitmap():
 def getToolSpinButtonImage():
     stream = cStringIO.StringIO(getToolSpinButtonData())
     return ImageFromStream(stream)
-
-def getToolSpinButtonIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolSpinButtonBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolSpinCtrlData():
@@ -2179,11 +1821,6 @@ def getToolSpinCtrlImage():
     stream = cStringIO.StringIO(getToolSpinCtrlData())
     return ImageFromStream(stream)
 
-def getToolSpinCtrlIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolSpinCtrlBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolSplitterWindowData():
     return \
@@ -2200,11 +1837,6 @@ def getToolSplitterWindowBitmap():
 def getToolSplitterWindowImage():
     stream = cStringIO.StringIO(getToolSplitterWindowData())
     return ImageFromStream(stream)
-
-def getToolSplitterWindowIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolSplitterWindowBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolStaticBitmapData():
@@ -2239,11 +1871,6 @@ def getToolStaticBitmapImage():
     stream = cStringIO.StringIO(getToolStaticBitmapData())
     return ImageFromStream(stream)
 
-def getToolStaticBitmapIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolStaticBitmapBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolStaticBoxData():
     return \
@@ -2264,11 +1891,6 @@ def getToolStaticBoxImage():
     stream = cStringIO.StringIO(getToolStaticBoxData())
     return ImageFromStream(stream)
 
-def getToolStaticBoxIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolStaticBoxBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolStaticBoxSizerData():
     return \
@@ -2287,11 +1909,6 @@ def getToolStaticBoxSizerImage():
     stream = cStringIO.StringIO(getToolStaticBoxSizerData())
     return ImageFromStream(stream)
 
-def getToolStaticBoxSizerIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolStaticBoxSizerBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolStaticLineData():
     return \
@@ -2306,11 +1923,6 @@ def getToolStaticLineBitmap():
 def getToolStaticLineImage():
     stream = cStringIO.StringIO(getToolStaticLineData())
     return ImageFromStream(stream)
-
-def getToolStaticLineIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolStaticLineBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolStaticTextData():
@@ -2330,11 +1942,6 @@ def getToolStaticTextImage():
     stream = cStringIO.StringIO(getToolStaticTextData())
     return ImageFromStream(stream)
 
-def getToolStaticTextIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolStaticTextBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolTextCtrlData():
     return \
@@ -2350,11 +1957,6 @@ def getToolTextCtrlBitmap():
 def getToolTextCtrlImage():
     stream = cStringIO.StringIO(getToolTextCtrlData())
     return ImageFromStream(stream)
-
-def getToolTextCtrlIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolTextCtrlBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolToolData():
@@ -2372,11 +1974,6 @@ def getToolToolBitmap():
 def getToolToolImage():
     stream = cStringIO.StringIO(getToolToolData())
     return ImageFromStream(stream)
-
-def getToolToolIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolToolBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getToolToolBarData():
@@ -2397,11 +1994,6 @@ def getToolToolBarImage():
     stream = cStringIO.StringIO(getToolToolBarData())
     return ImageFromStream(stream)
 
-def getToolToolBarIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolToolBarBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolTreeCtrlData():
     return \
@@ -2420,11 +2012,6 @@ def getToolTreeCtrlImage():
     stream = cStringIO.StringIO(getToolTreeCtrlData())
     return ImageFromStream(stream)
 
-def getToolTreeCtrlIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolTreeCtrlBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getToolUnknownData():
     return \
@@ -2442,11 +2029,6 @@ def getToolUnknownImage():
     stream = cStringIO.StringIO(getToolUnknownData())
     return ImageFromStream(stream)
 
-def getToolUnknownIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getToolUnknownBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreeCommentData():
     return \
@@ -2462,11 +2044,6 @@ def getTreeCommentBitmap():
 def getTreeCommentImage():
     stream = cStringIO.StringIO(getTreeCommentData())
     return ImageFromStream(stream)
-
-def getTreeCommentIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeCommentBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getTreeDefaultData():
@@ -2486,11 +2063,6 @@ def getTreeDefaultImage():
     stream = cStringIO.StringIO(getTreeDefaultData())
     return ImageFromStream(stream)
 
-def getTreeDefaultIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeDefaultBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreeDialogData():
     return \
@@ -2508,11 +2080,6 @@ def getTreeDialogImage():
     stream = cStringIO.StringIO(getTreeDialogData())
     return ImageFromStream(stream)
 
-def getTreeDialogIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeDialogBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreeFrameData():
     return \
@@ -2528,11 +2095,6 @@ def getTreeFrameBitmap():
 def getTreeFrameImage():
     stream = cStringIO.StringIO(getTreeFrameData())
     return ImageFromStream(stream)
-
-def getTreeFrameIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeFrameBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getTreeMenuData():
@@ -2552,11 +2114,6 @@ def getTreeMenuImage():
     stream = cStringIO.StringIO(getTreeMenuData())
     return ImageFromStream(stream)
 
-def getTreeMenuIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeMenuBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreeMenuBarData():
     return \
@@ -2574,11 +2131,6 @@ def getTreeMenuBarBitmap():
 def getTreeMenuBarImage():
     stream = cStringIO.StringIO(getTreeMenuBarData())
     return ImageFromStream(stream)
-
-def getTreeMenuBarIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeMenuBarBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getTreeMenuItemData():
@@ -2598,11 +2150,6 @@ def getTreeMenuItemImage():
     stream = cStringIO.StringIO(getTreeMenuItemData())
     return ImageFromStream(stream)
 
-def getTreeMenuItemIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeMenuItemBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreePanelData():
     return \
@@ -2618,11 +2165,6 @@ def getTreePanelBitmap():
 def getTreePanelImage():
     stream = cStringIO.StringIO(getTreePanelData())
     return ImageFromStream(stream)
-
-def getTreePanelIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreePanelBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getTreeRootData():
@@ -2642,11 +2184,6 @@ def getTreeRootImage():
     stream = cStringIO.StringIO(getTreeRootData())
     return ImageFromStream(stream)
 
-def getTreeRootIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeRootBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreeSeparatorData():
     return \
@@ -2662,11 +2199,6 @@ def getTreeSeparatorBitmap():
 def getTreeSeparatorImage():
     stream = cStringIO.StringIO(getTreeSeparatorData())
     return ImageFromStream(stream)
-
-def getTreeSeparatorIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeSeparatorBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getTreeSizerFlexGridData():
@@ -2685,11 +2217,6 @@ def getTreeSizerFlexGridImage():
     stream = cStringIO.StringIO(getTreeSizerFlexGridData())
     return ImageFromStream(stream)
 
-def getTreeSizerFlexGridIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeSizerFlexGridBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreeSizerGridData():
     return \
@@ -2705,11 +2232,6 @@ def getTreeSizerGridBitmap():
 def getTreeSizerGridImage():
     stream = cStringIO.StringIO(getTreeSizerGridData())
     return ImageFromStream(stream)
-
-def getTreeSizerGridIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeSizerGridBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getTreeSizerGridBagData():
@@ -2728,11 +2250,6 @@ def getTreeSizerGridBagImage():
     stream = cStringIO.StringIO(getTreeSizerGridBagData())
     return ImageFromStream(stream)
 
-def getTreeSizerGridBagIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeSizerGridBagBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreeSizerHData():
     return \
@@ -2750,11 +2267,6 @@ def getTreeSizerHImage():
     stream = cStringIO.StringIO(getTreeSizerHData())
     return ImageFromStream(stream)
 
-def getTreeSizerHIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeSizerHBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreeSizerVData():
     return \
@@ -2771,11 +2283,6 @@ def getTreeSizerVBitmap():
 def getTreeSizerVImage():
     stream = cStringIO.StringIO(getTreeSizerVData())
     return ImageFromStream(stream)
-
-def getTreeSizerVIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeSizerVBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getTreeStaticBoxSizerHData():
@@ -2795,11 +2302,6 @@ def getTreeStaticBoxSizerHImage():
     stream = cStringIO.StringIO(getTreeStaticBoxSizerHData())
     return ImageFromStream(stream)
 
-def getTreeStaticBoxSizerHIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeStaticBoxSizerHBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreeStaticBoxSizerVData():
     return \
@@ -2817,11 +2319,6 @@ def getTreeStaticBoxSizerVBitmap():
 def getTreeStaticBoxSizerVImage():
     stream = cStringIO.StringIO(getTreeStaticBoxSizerVData())
     return ImageFromStream(stream)
-
-def getTreeStaticBoxSizerVIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeStaticBoxSizerVBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getTreeToolData():
@@ -2841,11 +2338,6 @@ def getTreeToolImage():
     stream = cStringIO.StringIO(getTreeToolData())
     return ImageFromStream(stream)
 
-def getTreeToolIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeToolBitmap())
-    return icon
-
 #----------------------------------------------------------------------
 def getTreeToolBarData():
     return \
@@ -2864,11 +2356,6 @@ def getTreeToolBarBitmap():
 def getTreeToolBarImage():
     stream = cStringIO.StringIO(getTreeToolBarData())
     return ImageFromStream(stream)
-
-def getTreeToolBarIcon():
-    icon = EmptyIcon()
-    icon.CopyFromBitmap(getTreeToolBarBitmap())
-    return icon
 
 #----------------------------------------------------------------------
 def getUndoData():
@@ -2919,8 +2406,70 @@ def getUndoImage():
     stream = cStringIO.StringIO(getUndoData())
     return ImageFromStream(stream)
 
-def getUndoIcon():
+#----------------------------------------------------------------------
+def getIconData():
+    return \
+'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00 \x00\x00\x00 \x08\x06\x00\
+\x00\x00szz\xf4\x00\x00\x00\x04sBIT\x08\x08\x08\x08|\x08d\x88\x00\x00\x04\
+\xe5IDATX\x85\xa5\x96klSe\x18\xc7\x7f\xe7\xd2v\xbd\x9c\xb6\xdb\xa0\xbb\xe0.\
+\xdd\x85\xe1\x1cB\x0cH&$\x8a1h4b\x82,\x08&~\xd5\xa8\t\t11Q?\x1ab\x081~\xc0D\
+\x13\x12c\x881H\x04"\xc8\x07\xa3\x1f\xd0\xe8`\x8c\xcb !$07\xc6`\xebz\xdb\xba\
+\xd3\x9ev\xed9\xaf\x1f\x16*e\xdd\xd6vOr>\x9c\xcb\xf3\xff\xff\xde\xe7\xbc\xef\
+\xf3\xbeH\xb2\xc2r\xd7\xd1\xef\x8f\tIV8u\xf6\x9c\xf8{\xe0\xb2\x18\xb8:$J\xc9\
++\xe9\x92d\x85b\xf1\xc7\xf9?\x85\xa6i\x00h\xb2\xc0Q\xb3\x1a7&qC\xc7!d\x86\'\
+\xc3\xbc\xf4\xc2\xf3R\xd1\xe42B\x058\xf6\xe3q\x11\x0c\x06\xf1\xaa`SU\xaa\xaa\
+\xaa0d;\x1e\xc9d&\'H\xc6\xc2\xdc~0\x85\xae\xebD"a:\xdb\x9aP\x1d\x9e\x95z\xff\
+\x0f\xb0\xbe\xbb\x03\x9f\xc3\xc9\x9d\xb3?\x13\x9e\x08\xd1\xba{\x0f\xa1\xd0$\
+\x92\xea\xe2\xca\x95\xab44\xd4\xa3\xb9l\xa8\xaa\x8a\xa2(\xc4\x13i\x14en\x81\
+\xd8\xb9\xdf~\x17m-\xf5\xc4\x12i\x9e\xdb\xbcI\xfa\xe1\xf8\t\xf1\xf6\x9e\xbe%\
+\xab\xa4\x02\xe8\x86\xc9\x9c\x99\xe1\xf6\xd0\x10\xf7\x06/\x11[\xd5\x88\xe1p\
+\x11\x7f0FcG\x17i#M\xdaH\xe7\x93B\x93\x93H\xf2B\xdd\x80\xdbA\xb5\xd3\x83\xd3\
+SKhlTD\xd39\x00N\xferF\xec\xda\xf9zQ\x10I\x92\x15N\x9d>!\xecN?##\xff.\xf8 \
+\x14\x9abb\xf4.G\xbf;\xba\xe4H>\xff\xe2\x90\xd8\xfe\xe2v\\N\x17~\x9b\xc4\xed\
+P\x82\x0b\x83C\x8c\xcdd\xd8\xb1\xb1\x89\xaeu\xeb\xf0\xca\x82\xe0\xban\xe9\
+\xf4\xd9_\x85\x91N\xb3w\xf7\x9bR~\x12\x1e\xf9\xe6[\xf1\xa8\xe0\x87\xef\xbd\
+\x9b7\xec\xaa\xa9\x16\xadu\r\xb8\xfd\x1a\'\xfb/\x16\x059x\xe8\xb0\xe8\xed\
+\xed\xc5\xb2L,\xcb\xe2\xfc\x85\x1b\\\xba9\xce\x86\x8e\xd5l\xdb\xdc\x83\xd3Y\
+\x85\xae\xeb4\xd5\xf8\x08\x04\x02\xf3s+\x99\\|\x15<\x1e\x1bW\xf9EcC\x13\xe7n\
+\xdcX\xb4\x12_\x1d\xf9Z\xb8\xddn|>\x1f\xa9\x94A,\x1a\xa5\xa1\xa9\x8d\xe8\xc4\
+\x1d\xa6\xa2\xb3\x04l2\xcd\x1b\x9e\xa1\xa7\xe7)\xdc\x98\xa4R\xa9\xd2\x01\x00\
+z\x9f\xa8\x17\xabjj8s\xfd\xe6\xb2\xcb\xef\xfd\xb7\xf6\n\xad\xb6\x9a\xc6\xf6.\
+\xaa\xeb\xeb\xb0\xd9m\xc8\x92\x84\xc7\xa3\xe1\xaf\xf6\xe3r\xba\x18\x1f\x1f/\
+\x0f\xa0\xdd\xeb\x11\xc1\x9aZ\xec\x9aw\xd1J\xec\xdc\xbcIh\x08R\t\x9d\xd0\xcc\
+4\xffL\x86\xa4O>: <\x81F\xbc^\r\xbb\xdd\x8e\xcf\xe7C\xd3\xbc\x8c\x8e\x8e\xcc\
+\xaf\x82Rc8\xa1K.E\x12m.\xe7\xa2\xdfx%\x98\x9c\x8a\x10I\x1a\\\x0bOI\x00\x07\
+\x0f\x7fY\x00\xfb\xf1\xa7\x9f\x89\xc6\xda\xd5\xec?\xb0_*\xab\x02\x00u.\xa7X\
+\xeb\xf7\xf3\xd7\x83\x89\x05\x15\xe8\xdb\xb8^D\xe3\xd3Dt\x83\xeb\xd1HI]\xb2l\
+\x00\x80n\x9f_t\xae\xa9\xc7\xa1\xf9\xf8\xe9\xe2Ei\xdf\xd6\xad\x02]\xe7^x\x8a\
+\x99L\xb6d\xf3\x8a\x01\x9a\xddv\xd1\xe2\xab\xa53\xd8\x8a,K\xa4\x12I\xeeG#\
+\x84g\x93\xdc\x9c\x99.k\x7f(k\x0e<\x0c#\'1\x93N\x12\x8f\xc4\xa8\x92\x04\xd1d\
+\x9ap:M4\x9b)[K\xae\x04 \x9c\xc9H\xc9\x9cEd6\xc1\xdc\\\x16\xc3\xcc\x92\x99\
+\xcb\x10J\x19e\xef\x8e\x15\x01\x008$\x15=\x9b\xc6\xb2\xd9\xc9\x99&\xc3\t\xbd\
+\xa2\xad\xb9b\x00#\x97F\xb5$D\xc6@\x92*?\x16T\x0c\xe0T\xabH\xe6,R&(r\xc52\
+\x95\x03\x00(\x8a\x82\xaaX\xd8V \xb3"\x00\xd34\x99\x9d3W"\xb12\x00\x9b*\xd0\
+\xec\ni+W\xb1F\xc9}``\xb0_DbI\x00\x9cv\xc1\x07o\xf4a\t\x95lNZ\xd1\x1c(\xa9\
+\x13\x0e\x0c\xf6\x8b\x8e\xf6\x8e\x82g\xdbZ;\xb1\xa9\x02\xbf\xd3\x83b\x81\xd9\
+X\xcf\xae}\xef\xb0\xb6\xbb\x1d\x80`\xb0u\x81N,\x16\'\x91H\xf0\xca\xcb\xaf\
+\xe5\x97\xcd\xb2\x15(f\x9e\x9d\x9d\xaf\x84,\xcb\xd8\x911\xb1\xb0,+\xff~\xcb\
+\x96-\x00\x8c\x8cM\x12\n\x85P\x98?\xc0fr2\x99X\xb4@kI\x80b\xe6\x006\xcd\r@\
+\xce\x94\xb1\xa9\x02\xdd\xc8b\x97e\\\xd5\xbe\xbc9@\xb0\xb9\x9e`s}\x01\xf8\
+\xe5[\x85\x96E\x01\x06\x06\xfb\x05@1\xf3\x87B\x00\xd3\xd9,uxP\x15\x05\x8f\
+\xc7C[[\xdbR\xe3!n\xe8\xbc\xba\xe3\xa5\x82\xae\xb5\x00`\xb1Q\x17$y\\\xec\xe8\
+\xdb\r\x80f\xe5\x88\xa62toXOO\xb0y\xd1\x9c\xd9T\x8e+C\xb7\x16</\x98\x84\xa5\
+\x98?\x0c!\x049=\x95\xff\x1d\xcb\xc5\xf8\xf0\x08OozvA\xcf\xce\x03<j.\x84XQ\
+\x7f\x7f<"\x91\x08k;\x9f,*\x98\xff\x05C\xd7\x86\x88\xc7\xe2E\x05\x02\r-\x05\
+\xf7N\xbb(|\x1f\xa8[\x12`1s\xa8\xf0D\xb4T\xdc\xbd?Q@\xd7\xb2\xa6a\xc9R\xfe\
+\x07D/\xedf\xcd\xc5\x1e!\x00\x00\x00\x00IEND\xaeB`\x82' 
+
+def getIconBitmap():
+    return BitmapFromImage(getIconImage())
+
+def getIconImage():
+    stream = cStringIO.StringIO(getIconData())
+    return ImageFromStream(stream)
+
+def getIconIcon():
     icon = EmptyIcon()
-    icon.CopyFromBitmap(getUndoBitmap())
+    icon.CopyFromBitmap(getIconBitmap())
     return icon
 

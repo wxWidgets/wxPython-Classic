@@ -36,7 +36,8 @@ def create_view():
     global toolFrame
     toolFrame = wx.MiniFrame(frame, -1, 'Components', 
                              style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER)
-    toolFrame.SetIcon(images.getIconIcon())
+    if wx.Platform != '__WXMAC__':
+        toolFrame.SetIcons(frame.icns)
     toolFrame.panel = ToolPanel(toolFrame)
     if toolFrame.panel.panels:
         toolFrame.SetTitle(toolFrame.panel.panels[0].name)
@@ -54,7 +55,9 @@ class Frame(wx.Frame):
         wx.Frame.__init__(self, None, -1, 'XRCed', pos, size)
         bar = self.CreateStatusBar(2)
         bar.SetStatusWidths([-1, 40])
-        self.SetIcon(images.getIconIcon())
+        if wx.Platform != '__WXMAC__':
+            self.icns = wx.IconBundleFromIcon(images.getIconIcon())
+            self.SetIcons(self.icns)
 
         self.InitMenuBar()
 
@@ -85,7 +88,8 @@ class Frame(wx.Frame):
         self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
                                            g.conf.panelPos, g.conf.panelSize,
                                            style=wx.CAPTION|wx.RESIZE_BORDER)
-        mf.SetIcon(images.getIconIcon())
+        if wx.Platform != '__WXMAC__':
+            mf.SetIcons(self.icns)
         mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
         # Use tango icons and slightly wider bitmap size on Mac
         if wx.Platform in ['__WXMAC__', '__WXMSW__']:
