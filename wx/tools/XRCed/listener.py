@@ -118,6 +118,7 @@ class _Listener:
         # AttributePanel events
         panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGING, self.OnPanelPageChanging)
         panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.OnPanelPageChanged)
+        panel.pinButton.Bind(wx.EVT_BUTTON, self.OnPanelTogglePin)
 
         # ToolPanel events
         toolPanel = self.toolFrame.panel
@@ -604,6 +605,12 @@ Homepage: http://xrced.sourceforge.net\
         # Register new undo 
         Presenter.createUndoEdit(page=evt.GetSelection())
         evt.Skip()
+
+    def OnPanelTogglePin(self, evt):
+        g.conf.panelPinState = evt.GetIsDown()
+        evt.Skip()
+
+    # Tool panel
 
     def OnToolPanelPageChanged(self, evt):
         TRACE('OnToolPanelPageChanged: %d > %d', evt.GetOldSelection(), evt.GetSelection())

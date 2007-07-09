@@ -6,12 +6,15 @@
 
 import string
 import wx
+import wx.lib.buttons as buttons
 from globals import *
 import params
 import component
 import undo
+import images
 
-labelSize = (100,-1)
+
+labelSize = (80,-1)
 
 # Panel class is the attribute panel containing class name, XRC ID and
 # a notebook with particular pages.
@@ -45,6 +48,7 @@ class Panel(wx.Panel):
         params.InitParams(self)
 
         topSizer = wx.BoxSizer(wx.VERTICAL)
+        pinSizer = wx.BoxSizer(wx.HORIZONTAL)
         sizer = wx.FlexGridSizer(2, 2, 1, 5)
         label = wx.StaticText(self, -1, 'class:')
         self.controlClass = params.ParamText(self, 'class', textWidth=200)
@@ -54,7 +58,15 @@ class Panel(wx.Panel):
         self.controlName = params.ParamText(self, 'name', textWidth=200)
         sizer.AddMany([ (self.labelName, 0, wx.ALIGN_CENTER_VERTICAL),
                         (self.controlName, 0, wx.LEFT, 5) ])
-        topSizer.Add(sizer, 0, wx.ALL, 10)
+        pinSizer.Add(sizer, 0, wx.ALL, 5)
+        pinSizer.Add((0, 0), 1)
+        self.pinButton = buttons.GenBitmapToggleButton(
+            self, bitmap=images.getToolPinBitmap(),
+            style=wx.NO_BORDER)
+        self.pinButton.SetBitmapSelected(images.getToolPinDownBitmap())
+        self.pinButton.SetToggle(g.conf.panelPinState)
+        pinSizer.Add(self.pinButton)
+        topSizer.Add(pinSizer, 0, wx.EXPAND)
         self.sizer = sizer
 
         self.nb = wx.Notebook(self, -1)
@@ -81,12 +93,13 @@ class Panel(wx.Panel):
         self.pageIA = ScrolledPage(self.nb)
         self.pageIA.Hide()
 
-        topSizer.Add(self.nb, 1, wx.EXPAND | wx.ALL, 5)
+        topSizer.Add(self.nb, 1, wx.EXPAND)
         self.SetSizer(topSizer)
 
         self.undo = None        # pending undo object
 
     def SetData(self, container, comp, node):
+        oldLabel = self.nb.GetPageText(self.nb.GetSelection())
         self.nb.SetSelection(0)
         map(self.nb.RemovePage, range(self.nb.GetPageCount()-1, 0, -1))
         
@@ -142,6 +155,13 @@ class Panel(wx.Panel):
             panels.append(panel)
             self.pageIA.SetPanel(panel)
             self.nb.AddPage(self.pageIA, container.implicitPageName)
+
+        # Select old page if possible and pin is down
+        if g.conf.panelPinState:
+            for i in range(1, self.nb.GetPageCount()):
+                if oldLabel == self.nb.GetPageText(i):
+                    self.nb.SetSelection(i)
+                    break
 
         return panels
         

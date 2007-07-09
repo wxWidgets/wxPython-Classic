@@ -41,7 +41,9 @@ def create_view():
     if toolFrame.panel.panels:
         toolFrame.SetTitle(toolFrame.panel.panels[0].name)
     toolFrame.Fit()
-    toolFrame.SetMinSize(toolFrame.GetSize())
+    minSize = toolFrame.GetSize()
+    if minSize[0] < 320: minSize[0] = 320
+    toolFrame.SetMinSize(minSize)
     toolFrame.SetPosition(g.conf.toolPanelPos)
 
 #############################################################################
