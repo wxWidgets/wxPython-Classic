@@ -70,7 +70,7 @@ c = BoxSizer('wxBoxSizer', ['sizer'], ['orient'],
              images=[images.getTreeSizerVImage(), images.getTreeSizerHImage()])
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'box sizer', 'wxBoxSizer', 10)
-Manager.setTool(c, 'Sizers', images.getToolBoxSizerBitmap())
+Manager.setTool(c, 'Sizers', pos=(0,0))
 
 ### wxStaticBoxSizer
 
@@ -79,7 +79,7 @@ c = BoxSizer('wxStaticBoxSizer', ['sizer'], ['label', 'orient'],
              images=[images.getTreeSizerVImage(), images.getTreeSizerHImage()])
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'static box sizer', 'wxStaticBoxSizer', 20)
-Manager.setTool(c, 'Sizers', images.getToolStaticBoxSizerBitmap())
+Manager.setTool(c, 'Sizers', pos=(0,2))
 
 ### wxGridSizer
 
@@ -89,7 +89,7 @@ c = Sizer('wxGridSizer', ['sizer'],
           image=images.getTreeSizerGridImage())
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'grid sizer', 'wxGridSizer', 30)
-Manager.setTool(c, 'Sizers', images.getToolGridSizerBitmap())
+Manager.setTool(c, 'Sizers', pos=(0,1))
 
 ### wxFlexGridSizer
 
@@ -103,7 +103,7 @@ c.setSpecial('growablerows', MultiAttribute)
 c.setParamClass('growablerows', params.ParamIntList)
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'flex grid sizer', 'wxFlexGridSizer', 40)
-Manager.setTool(c, 'Sizers', images.getToolFlexGridSizerBitmap())
+Manager.setTool(c, 'Sizers', pos=(1,0))
 
 ### wxGridBagSizer
 
@@ -119,7 +119,7 @@ c.setImplicitParamClass('cellpos', params.ParamPosSize)
 c.setImplicitParamClass('cellspan', params.ParamPosSize)
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'grid bag sizer', 'wxGridBagSizer', 50)
-Manager.setTool(c, 'Sizers', images.getToolGridBagSizerBitmap())
+Manager.setTool(c, 'Sizers', pos=(1,1))
 
 ### spacer
 
@@ -127,7 +127,7 @@ c = SimpleComponent('spacer', ['spacer'], ['size', 'option', 'flag', 'border'])
 c.hasName = False
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'spacer', 'spacer', 60)
-Manager.setTool(c, 'Sizers', images.getToolSpacerBitmap())
+Manager.setTool(c, 'Sizers', pos=(1,2))
 
 ### wxStaticText
 
@@ -515,7 +515,7 @@ c.addStyles('wxMB_DOCKABLE')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'menu bar', 'wxMenuBar', 40)
 Manager.setMenu(c, 'bar', 'menu bar', 'wxMenuBar', 10)
-Manager.setTool(c, 'Menus')
+Manager.setTool(c, 'Menus', pos=(1,0))
 
 ### wxMenu
 
@@ -525,7 +525,7 @@ c.addStyles('wxMENU_TEAROFF')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'menu', 'wxMenu', 50)
 Manager.setMenu(c, 'ROOT', 'menu', 'wxMenu', 20)
-Manager.setTool(c, 'Menus')
+Manager.setTool(c, 'Menus', pos=(1,1), span=(2,1))
 
 ### wxMenuItem
 
@@ -536,7 +536,7 @@ c = SimpleComponent('wxMenuItem', ['menu_item'],
 c.setSpecial('bitmap', BitmapAttribute)
 Manager.register(c)
 Manager.setMenu(c, 'ROOT', 'menu item', 'wxMenuItem', 10)
-Manager.setTool(c, 'Menus')
+Manager.setTool(c, 'Menus', pos=(1,2))
 
 ### wxToolBar
 
@@ -564,7 +564,7 @@ c.renameDict = {'dontattachtoframe': "don't attach"}
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'tool bar', 'wxToolBar', 50)
 Manager.setMenu(c, 'bar', 'tool bar', 'wxToolBar', 20)
-Manager.setTool(c, 'Menus')
+Manager.setTool(c, 'Menus', pos=(0,0))
 
 ### wxTool
 
@@ -578,7 +578,7 @@ c.setSpecial('bitmap2', BitmapAttribute)
 c.setParamClass('bitmap2', params.ParamBitmap)
 c.setParamClass('toggle', params.ParamBool)
 Manager.setMenu(c, 'ROOT', 'tool', 'wxTool', 10)
-Manager.setTool(c, 'Menus')
+Manager.setTool(c, 'Menus', pos=(0,1))
 
 ### wxSeparator
 
@@ -587,7 +587,7 @@ c = SimpleComponent('separator', ['separator'], [],
 c.hasName = False
 Manager.register(c)
 Manager.setMenu(c, 'ROOT', 'separator', 'separator', 20)
-Manager.setTool(c, 'Menus')
+Manager.setTool(c, 'Menus', pos=(0,2))
 
 ### wxStatusBar
 
@@ -596,6 +596,7 @@ c.addStyles('wxST_SIZEGRIP')
 c.setParamClass('fields', params.ParamIntP)
 Manager.register(c)
 Manager.setMenu(c, 'bar', 'status bar', 'wxStatusBar', 30)
+Manager.setTool(c, 'Menus', pos=(2,0))
 
 ### wxBitmap
 
