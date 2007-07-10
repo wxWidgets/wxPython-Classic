@@ -162,8 +162,10 @@ class _Listener:
     def OnOpen(self, evt):
         '''wx.ID_OPEN handler.'''
         if not self.AskSave(): return
+        exts = 'XRC files (*.xrc)|*.xrc'
+        if g.useMeta: exts += '|CRX files (*.crx)|*.crx'
         dlg = wx.FileDialog(self.frame, 'Open', os.path.dirname(Presenter.path),
-                           '', '*.xrc', wx.OPEN | wx.CHANGE_DIR)
+                            '', exts, wx.OPEN | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
             # Not we will really try to load
             # ...but first clear the undo data
@@ -204,7 +206,9 @@ class _Listener:
         path = Presenter.path
         if evt.GetId() == wx.ID_SAVEAS or not path:
             dirname = os.path.abspath(os.path.dirname(path))
-            dlg = wx.FileDialog(self.frame, 'Save As', dirname, '', '*.xrc',
+            exts = 'XRC files (*.xrc)|*.xrc'
+            if g.useMeta: exts += '|CRX files (*.crx)|*.crx'
+            dlg = wx.FileDialog(self.frame, 'Save As', dirname, '', exts,
                                wx.SAVE | wx.OVERWRITE_PROMPT | wx.CHANGE_DIR)
             if dlg.ShowModal() == wx.ID_OK:
                 path = dlg.GetPath()

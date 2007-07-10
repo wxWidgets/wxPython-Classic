@@ -104,13 +104,24 @@ class BitmapAttribute:
         return [node.getAttribute('stock_id'), Attribute.get(node)]
     get = staticmethod(get)
             
-class EncodingAttribute:
+class AttributeAttribute:
     '''Attribute as an XML attribute of the element node.'''
+    def add(elem, attribute, value):
+        if value:
+            elem.setAttribute(attribute, value)
+        else:
+            if elem.hasAttribute(attribute): elem.removeAttribute(attribute)
+    add = staticmethod(add)
+    def getAA(elem, attribute):
+        return elem.getAttribute(attribute)
+    getAA = staticmethod(getAA)
+
+class EncodingAttribute(AttributeAttribute):
+    '''Encoding is a special attribute stored in dom object.'''
     def add(elem, attribute, value):
         Model.dom.encoding = value
     add = staticmethod(add)
-    def get(elem):
-        print Model.dom.encoding
+    def getAA(elem, attribute):
         return Model.dom.encoding
-    get = staticmethod(get)
+    getAA = staticmethod(getAA)
             

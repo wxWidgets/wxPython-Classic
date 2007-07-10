@@ -124,10 +124,12 @@ class Component(object):
         return isinstance(self, Container)
 
     def getAttribute(self, node, attribute):
-        attrClass = self.specials.get(attribute, Attribute)
+        attrClass = self.specials.get(attribute, AttributeAttribute)
         # 'object' means attribute is a text node without element tag,
         if attribute == 'object':
             return attrClass.get(node)
+        elif issubclass(attrClass, AttributeAttribute):
+            return attrClass.getAA(node, attribute)
         for n in node.childNodes:
             if n.nodeType == node.ELEMENT_NODE and n.tagName == attribute:
                 return attrClass.get(n)

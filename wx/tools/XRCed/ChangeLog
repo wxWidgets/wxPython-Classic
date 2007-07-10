@@ -1,3 +1,10 @@
+2007-07-11  Scroll  <scroll@localhost.localdomain>
+
+	* When no items are selected the 'root' attributes are shown
+	(currently only encoding); added support for attributes which are
+	stored as XML element attributes (used for CRX component plugins);
+	ignoring files in plugin directory starting with an underscore.
+
 2007-07-09  Scroll  <scroll@localhost.localdomain>
 
 	* Command line arguments are parsed again, using optparse;

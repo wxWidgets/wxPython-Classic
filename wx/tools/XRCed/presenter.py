@@ -24,7 +24,6 @@ class _Presenter:
         view.frame.Clear()
         view.tree.Clear()
         view.tree.SetPyData(view.tree.root, Model.mainNode)
-        view.panel.Clear()
         view.testWin.Init()
         g.undoMan.Clear()
         # Insert/append mode flags
@@ -37,6 +36,7 @@ class _Presenter:
         view.tree.Flush()
         view.tree.ExpandAll()
         view.tree.SetPyData(view.tree.root, Model.mainNode)
+        self.setData(view.tree.root)
 
     def saveXML(self, path):
         Model.saveXML(path)
@@ -276,8 +276,6 @@ class _Presenter:
             item = view.tree.GetSelection()
             if not item: item = view.tree.root
             self.update(item)
-        else:
-            view.panel.Clear()
         view.tree.UnselectAll()
         self.setData(view.tree.root)
 
@@ -288,10 +286,7 @@ class _Presenter:
         node = view.tree.GetPyData(item)
         node = self.container.removeChild(parentNode, node)
         view.tree.Delete(item)
-        view.panel.Clear()
-        # Reset variables
-        self.comp = Manager.rootComponent
-        self.container = None
+        self.unselect()
         self.setApplied()
         self.setModified()
         return node
@@ -306,10 +301,7 @@ class _Presenter:
             node = self.container.removeChild(parentNode, node)
             node.unlink()       # delete completely
             view.tree.Delete(item)
-        view.panel.Clear()
-        # Reset variables
-        self.comp = Manager.rootComponent
-        self.container = None
+        self.unselect()
         self.setApplied()
         self.setModified()
 

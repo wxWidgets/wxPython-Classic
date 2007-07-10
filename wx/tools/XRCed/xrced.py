@@ -12,7 +12,7 @@ options:
   --version      show program's version number and exit
   -h, --help     show this help message and exit
   -d, --debug    add Debug command to Help menu
-  -m, --no-meta  disable meta-components
+  -m, --meta     activate meta-components
 
 """
 
@@ -43,18 +43,16 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
                               usage='%prog [options] [XRC file]')
         parser.add_option('-d', '--debug', action='store_true',
                           help='add Debug command to Help menu')
-        parser.add_option('-m', '--no-meta', action='store_true',
-                          dest = 'no_meta',
-                          help='disable meta-components')
+        parser.add_option('-m', '--meta', action='store_true',
+                          dest = 'meta',
+                          help='activate meta-components')
 
         # Process command-line arguments
         options, args = parser.parse_args()
         if options.debug:
             set_debug(True)
-        if options.no_meta:
-            g.useMeta = False
-        else:
-            # Register meta-components
+        if options.meta:
+            g.useMeta = True
             import meta
             
         self.SetAppName(progname)
@@ -76,7 +74,19 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
                          view.toolFrame, view.testWin)
 
         if args:
-            Presenter.open(args[0])
+            path = args[0]
+            # Change current directory
+            dir = os.path.dirname(path)
+            if dir:
+                os.chdir(dir)
+                path = os.path.basename(path)
+            if os.path.isfile(path):
+                Presenter.open(path)
+            else:
+                # Future name
+                Presenter.path = path
+                # Force update title
+                Presenter.setModified(False)
         view.frame.Show()
         if not g.conf.embedPanel:
             view.frame.miniFrame.Show()

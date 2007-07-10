@@ -6,7 +6,7 @@
 
 from component import *
 import images
-import bitmaps
+import _bitmaps as bitmaps
 
 TRACE('*** creating core components')
 

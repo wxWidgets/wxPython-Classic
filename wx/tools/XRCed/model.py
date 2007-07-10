@@ -50,6 +50,8 @@ class _Model:
         # Set encoding global variable and default encoding
         if dom.encoding:
             wx.SetDefaultPyEncoding(dom.encoding.encode())
+        else:
+            dom.encoding = ''
         
     def saveXML(self, path):
         if self.dom.encoding:

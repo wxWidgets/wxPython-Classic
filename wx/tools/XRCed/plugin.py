@@ -25,21 +25,22 @@ def load_plugins(dir):
     os.chdir(dir)
     sys.path = sys_path + [dir]
     try:
-        ff_py = glob.glob('[^_]*.py')
+        ff_py = glob.glob('[!_]*.py')
+        print ff_py
         for f in ff_py:
             name = os.path.splitext(f)[0]
             TRACE('* __import__ %s' % name)
             try:
                 __import__(name, globals(), locals(), ['*'])
             except:
-                print 'Error:', sys.exc_value
+                print 'ERROR:', sys.exc_value
         if g.useMeta:
             ff_crx = glob.glob('*.crx')
             for crx in ff_crx:
                 try:
                     load_crx(crx)
                 except:
-                    print 'Error:', sys.exc_value
+                    print 'ERROR:', sys.exc_value
                     raise
         dirs = glob.glob('*/')
         for dir in dirs:
@@ -48,7 +49,7 @@ def load_plugins(dir):
                 try:
                     __import__(dir, globals(), locals(), ['*'])
                 except:
-                    print 'Error:', sys.exc_value
+                    print 'ERROR:', sys.exc_value
     finally:
         sys.path = sys_path
         os.chdir(cwd)
