@@ -34,8 +34,9 @@ def create_view():
 
     # Tool panel on a MiniFrame
     global toolFrame
-    toolFrame = wx.MiniFrame(frame, -1, 'Components', 
-                             style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER)
+    toolFrame = wx.MiniFrame(frame, -1, 'Tools', 
+                             style=wx.CAPTION|wx.CLOSE_BOX|\
+                                 wx.RESIZE_BORDER|wx.FRAME_TOOL_WINDOW)
     if wx.Platform != '__WXMAC__':
         toolFrame.SetIcons(frame.icns)
     toolFrame.panel = ToolPanel(toolFrame)
@@ -87,7 +88,8 @@ class Frame(wx.Frame):
         # Miniframe for split mode
         self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
                                            g.conf.panelPos, g.conf.panelSize,
-                                           style=wx.CAPTION|wx.RESIZE_BORDER)
+                                           style=wx.CAPTION|wx.RESIZE_BORDER|\
+                                               wx.FRAME_TOOL_WINDOW)
         if wx.Platform != '__WXMAC__':
             mf.SetIcons(self.icns)
         mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
@@ -480,6 +482,7 @@ class _TestWindow:
         self.item = None
         self.pos = wx.DefaultPosition
         self.size = wx.DefaultSize        
+        self.isDirty = False            # if refresh neeeded
 
     def SetView(self, frame, object, item):
         if self.object:                 # test window present
@@ -504,7 +507,11 @@ class _TestWindow:
         self.GetFrame().Show(show)
 
     def IsShown(self):
-        return self.object is not None and self.object.IsShown()
+        return bool(self.object) and self.object.IsShown()
+
+    def IsDirty(self):
+        '''If test window must be refreshed.'''
+        return self.IsShown() and self.isDirty
 
     def Destroy(self):
         if self.frame: self.frame.Destroy()

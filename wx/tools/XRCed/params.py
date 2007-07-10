@@ -6,10 +6,8 @@
 
 import string
 import os
-#from types import *
 import wx.combo
 from globals import *
-from presenter import Presenter
 
 WARenameDict = {'fg': 'foreground', 'bg': 'background'}
 
@@ -18,6 +16,9 @@ textH = None
 
 def InitParams(panel):
     '''Set pixel common size based on parent window.'''
+
+    global Presenter
+    from presenter import Presenter
 
     dc = wx.ClientDC(panel)
     global textH, textB
@@ -54,7 +55,12 @@ def InitParams(panel):
     bmp.SetMaskColour(bgcolor)
     global bmpEdit
     bmpEdit = bmp
-   
+
+    # Set known encodings
+    for i in range(wx.FontMapper.GetSupportedEncodingsCount()):
+        ParamEncoding.values.append(wx.FontMapper.GetEncodingName(
+                wx.FontMapper.GetEncoding(i)))
+    ParamEncoding.values.sort()
 
 # Class that can properly disable children
 class PPanel(wx.Panel):
@@ -396,7 +402,6 @@ ParamLongText = MetaParamText(200)
 ParamAccel = MetaParamText(100)
 ParamHelp = MetaParamText(200)
 ParamPosSize = MetaParamText(80)
-ParamEncoding = MetaParamText(100)
 
 class ParamComment(ParamText):
     def __init__(self, parent, name):
@@ -870,6 +875,32 @@ class ParamImage(PPanel):
             self.textModified = False
         dlg.Destroy()
 
+class ParamCombo(PPanel):
+    values = []
+    '''Combo box.'''
+    def __init__(self, parent, name):
+        PPanel.__init__(self, parent, name)
+        sizer = wx.BoxSizer()
+        self.combo = wx.ComboBox(self, size=(220,-1))
+        if wx.Platform == '__WXMAC__':
+            sizer.Add(self.combo, 0, wx.ALL, 0)
+        else:
+            sizer.Add(self.combo, 0, wx.ALL, 2)
+        self.SetSizerAndFit(sizer)
+        self.combo.Bind(wx.EVT_TEXT, self.OnChange)
+        self.SetValues()
+    def GetValue(self):
+        return self.combo.GetValue()
+    def SetValue(self, value):
+        self.freeze = True
+        self.combo.SetValue(value)
+        self.freeze = False
+    def SetValues(self):
+        for v in self.values:
+            self.combo.Append(v)
+
+class ParamEncoding(ParamCombo):
+    pass
 
 paramDict = {
     # sizer params
@@ -891,7 +922,6 @@ paramDict = {
     'tooltip': ParamText, 
     # other
     'bitmap': ParamBitmap, 'icon': ParamBitmap,
-    'encoding': ParamEncoding, 
     'comment': ParamComment
     }
 

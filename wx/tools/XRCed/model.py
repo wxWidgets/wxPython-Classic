@@ -49,16 +49,12 @@ class _Model:
 
         # Set encoding global variable and default encoding
         if dom.encoding:
-            # !!! is this needed?
-            g.currentEncoding = dom.encoding
-            wx.SetDefaultPyEncoding(g.currentEncoding.encode())
-        else:
-            g.currentEncoding = ''
+            wx.SetDefaultPyEncoding(dom.encoding.encode())
         
     def saveXML(self, path):
-        if g.currentEncoding:
+        if self.dom.encoding:
             import codecs
-            f = codecs.open(path, 'wt', g.currentEncoding)
+            f = codecs.open(path, 'wt', self.dom.encoding)
         else:
             f = open(path, 'wt')
         # Make temporary copy for formatting it
@@ -67,7 +63,7 @@ class _Model:
         # Remove first child (testElem)
         mainNode.removeChild(mainNode.firstChild).unlink()
         self.indent(domCopy, mainNode)
-        domCopy.writexml(f, encoding = g.currentEncoding)
+        domCopy.writexml(f, encoding = self.dom.encoding)
         f.close()
         domCopy.unlink()
 
@@ -137,8 +133,8 @@ class MemoryFile:
         self.name = name
         self.buffer = ''
     def write(self, data):
-        if g.currentEncoding:
-            encoding = g.currentEncoding
+        if Model.dom.encoding:
+            encoding = Model.dom.encoding
         else:
             encoding = wx.GetDefaultPyEncoding()
         try:

@@ -125,7 +125,8 @@ class Component(object):
 
     def getAttribute(self, node, attribute):
         attrClass = self.specials.get(attribute, Attribute)
-        if attribute == 'object':    # object means element node
+        # 'object' means attribute is a text node without element tag,
+        if attribute == 'object':
             return attrClass.get(node)
         for n in node.childNodes:
             if n.nodeType == node.ELEMENT_NODE and n.tagName == attribute:
@@ -141,24 +142,28 @@ class Component(object):
         '''Method can be overrided by derived classes to create test view.'''
         if not self.hasName: raise NotImplementedError
 
+        testWin = view.testWin
         if self.isTopLevel:
             # Top-level window creates frame itself
             frame = None
             object = res.LoadObject(None, STD_NAME, self.klass)
+            testWin.size = object.GetSize()
         else:
-            frame = view.testWin.frame
+            # Create MiniFrame to hold selected subtree
+            frame = testWin.frame
             if not frame:
                 frame = wx.MiniFrame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME,
                                      style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER)
                 frame.panel = wx.Panel(frame)
             else:                       # reuse present frame
-                view.testWin.object.Destroy()
+                testWin.object.Destroy()
             object = res.LoadObject(frame.panel, STD_NAME, self.klass)
             object.SetPosition((10,10))
             object.Fit()
             if not isinstance(object, wx.Window): raise NotImplementedError
-            if not view.testWin.frame:
+            if not testWin.frame:
                 frame.SetClientSize(object.GetSize()+(20,20))
+                testWin.size = frame.GetSize()
         return frame, object
 
     def copyAttributes(self, srcNode, dstNode):
@@ -267,9 +272,10 @@ class SimpleContainer(Container):
     genericStyles = genericExStyles = []
 
 
-class RootComponent(Container):    
+class RootComponent(Container):
     '''Special root component.'''
     windowAttributes = []
+    genericStyles = genericExStyles = []
     hasName = False
 
 
@@ -407,7 +413,9 @@ class BoxSizer(Sizer):
 class _ComponentManager:
     '''Manager instance collects information from component plugins.'''
     def __init__(self):
-        self.rootComponent = RootComponent('root', ['root'], ['encoding'])
+        self.rootComponent = RootComponent('root', ['root'], ['encoding'], 
+                                           specials={'encoding': EncodingAttribute},
+                                           params={'encoding': params.ParamEncoding})
         self.components = {}
         self.ids = {}
         self.firstId = self.lastId = -1

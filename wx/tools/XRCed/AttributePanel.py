@@ -35,9 +35,8 @@ class ScrolledPage(wx.ScrolledWindow):
         self.Reset()
         self.panel = panel
         self.topSizer.Add(panel, 0, wx.ALL, 5)
-        size = self.topSizer.GetMinSize()
-        self.SetScrollbars(1, 1, size.width, size.height, 0, 0, True)
-        
+        self.Layout()
+        self.SetScrollRate(1, 1)
 
 class Panel(wx.Panel):
     '''Attribute panel main class.'''
@@ -50,9 +49,9 @@ class Panel(wx.Panel):
         topSizer = wx.BoxSizer(wx.VERTICAL)
         pinSizer = wx.BoxSizer(wx.HORIZONTAL)
         sizer = wx.FlexGridSizer(2, 2, 1, 5)
-        label = wx.StaticText(self, -1, 'class:')
+        self.labelClass = wx.StaticText(self, -1, 'class:')
         self.controlClass = params.ParamText(self, 'class', textWidth=200)
-        sizer.AddMany([ (label, 0, wx.ALIGN_CENTER_VERTICAL),
+        sizer.AddMany([ (self.labelClass, 0, wx.ALIGN_CENTER_VERTICAL),
                         (self.controlClass, 0, wx.LEFT, 5) ])
         self.labelName = wx.StaticText(self, -1, 'name:')
         self.controlName = params.ParamText(self, 'name', textWidth=200)
@@ -74,6 +73,7 @@ class Panel(wx.Panel):
 
         self.nb = wx.Notebook(self, -1)
         if wx.Platform == '__WXGTK__':
+            # Redefine AddPage on GTK to fix when page added is not shown
             _oldAddPage = wx.Notebook.AddPage
             def _newAddPage(self, page, label):
                 _oldAddPage(self, page, label)
@@ -108,9 +108,14 @@ class Panel(wx.Panel):
         
         self.comp = comp
         panels = []
-        # First panel
-        # Remove current objects and sizer
-        self.controlClass.SetValue(node.getAttribute('class'))
+        # Class and name
+        if comp.klass != 'root':
+            self.labelClass.Show()
+            self.controlClass.Show()
+            self.controlClass.SetValue(node.getAttribute('class'))
+        else:
+            self.labelClass.Hide()
+            self.controlClass.Hide()
         self.labelName.Show(comp.hasName)
         self.controlName.Show(comp.hasName)
         if comp.hasName:

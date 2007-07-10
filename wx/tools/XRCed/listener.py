@@ -38,7 +38,7 @@ class _Listener:
         # Other events
         frame.Bind(wx.EVT_IDLE, self.OnIdle)
         frame.Bind(wx.EVT_CLOSE, self.OnCloseWindow)
-#        wx.EVT_KEY_DOWN(frame, tools.OnKeyDown)
+#        frame.Bind(wx.EVT_KEY_DOWN, self.OnKeyDown)
 #        wx.EVT_KEY_UP(frame, tools.OnKeyUp)
 #        wx.EVT_ICONIZE(frame, self.OnIconize)
 
@@ -52,6 +52,7 @@ class _Listener:
 #        wx.EVT_MENU(frame, self.ID_GENERATE_PYTHON, self.OnGeneratePython)
         wx.EVT_MENU(frame, frame.ID_PREFS, self.OnPrefs)
         wx.EVT_MENU(frame, wx.ID_EXIT, self.OnExit)
+        wx.EVT_MENU(frame.miniFrame, wx.ID_EXIT, self.OnExit)
 
         # Edit
         wx.EVT_MENU(frame, wx.ID_UNDO, self.OnUndo)
@@ -119,6 +120,13 @@ class _Listener:
         panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGING, self.OnPanelPageChanging)
         panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.OnPanelPageChanged)
         panel.pinButton.Bind(wx.EVT_BUTTON, self.OnPanelTogglePin)
+        # Redirect other command events
+#        self.frame.miniFrame.Bind(wx.EVT_CHAR, lambda evt: self.frame.ProcessEvent(evt))
+#        self.frame.miniFrame.Bind(wx.EVT_KEY_DOWN, lambda evt: self.frame.ProcessEvent(evt))
+#        self.frame.miniFrame.Bind(wx.EVT_KEY_DOWN, self.OnKeyDown)
+#        self.frame.miniFrame.Bind(wx.EVT_KEY_UP, lambda evt: self.frame.ProcessEvent(evt))
+#        self.frame.miniFrame.Bind(wx.EVT_MENU, self.OnMiniFrameMenu)
+#        self.frame.miniFrame.Bind(wx.EVT_COMMAND, self.OnMiniFrameMenu)
 
         # ToolPanel events
         toolPanel = self.toolFrame.panel
@@ -346,7 +354,13 @@ class _Listener:
         raise NotImplementedError
 
     def OnRefresh(self, evt):
-        raise NotImplementedError
+        if view.testWin.IsShown():
+            if view.testWin.IsDirty():
+                presenter.refreshTestWin()
+            else:
+                item = view.testWin.item
+                view.testWin.Destroy()
+                presenter.createTestWin(item)
 
     def OnAutoRefresh(self, evt):
         conf.autoRefresh = evt.IsChecked()
@@ -543,6 +557,14 @@ Homepage: http://xrced.sourceforge.net\
         else: 
             self.tree.CollapseAll()
 
+#    def OnChar(self, evt):
+#        print evt.GetKeyCode()
+#        evt.Skip()
+
+#    def OnKeyDown(self, evt):
+#        print evt.GetKeyCode()
+#        evt.Skip()
+
     #
     # XMLTree event handlers
     #
@@ -579,6 +601,9 @@ Homepage: http://xrced.sourceforge.net\
         if evt.GetOldItem():
             if not Presenter.applied:
                 Presenter.update(evt.GetOldItem())
+            # Refresh test window after finishing
+            if g.conf.autoRefresh and self.testWin.IsDirty(): 
+                wx.CallAfter(Presenter.refreshTestWin)
         # Tell presenter to update current data and view
         Presenter.setData(evt.GetItem())
         # Set initial sibling/insert modes
@@ -606,6 +631,9 @@ Homepage: http://xrced.sourceforge.net\
         TRACE('OnPanelPageChanged: %d > %d', evt.GetOldSelection(), evt.GetSelection())
         # Register new undo 
         Presenter.createUndoEdit(page=evt.GetSelection())
+        # Refresh test window after finishing
+        if g.conf.autoRefresh and self.testWin.IsDirty(): 
+            wx.CallAfter(Presenter.refreshTestWin)
         evt.Skip()
 
     def OnPanelTogglePin(self, evt):
@@ -649,6 +677,11 @@ Homepage: http://xrced.sourceforge.net\
                 conf.toolPanelSize = self.toolFrame.GetSize()
         self.toolFrame.Show(False)
         conf.showToolPanel = False
+
+    # Attribute panel frame events
+    def OnMiniFrameMenu(self, evt):
+        print evt.GetId()
+        evt.Skip()
 
 # Singleton class
 Listener = _Listener()

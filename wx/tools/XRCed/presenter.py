@@ -27,11 +27,10 @@ class _Presenter:
         view.panel.Clear()
         view.testWin.Init()
         g.undoMan.Clear()
-        self.panels = []
-        self.comp = Manager.rootComponent # component shown in panel (or the root component)
-        self.container = None           # current container (None if root)
         # Insert/append mode flags
         self.createSibling = self.insertBefore = False
+        # Select main node attributes
+        self.setData(view.tree.root)
 
     def loadXML(self, path):
         Model.loadXML(path)
@@ -122,8 +121,11 @@ class _Presenter:
         if not item or item == view.tree.root:
             self.container = None
             self.comp = Manager.rootComponent
-            self.panels = []
-            view.panel.Clear()
+#            self.panels = []
+#            view.panel.Clear()
+            self.panels = view.panel.SetData(self.container, self.comp, Model.mainNode)
+            # Create new pending undo
+            self.createUndoEdit(view.tree.root)
         else:
             node = view.tree.GetPyData(item)
             className = node.getAttribute('class')
@@ -201,6 +203,9 @@ class _Presenter:
         wx.Yield()
         view.tree.SelectItem(item)
         self.setModified()
+        # Refresh test window after finishing
+        if g.conf.autoRefresh and view.testWin.IsShown():
+            self.refreshTestWin()
         return item
 
     def replace(self, comp, node=None):
@@ -231,6 +236,7 @@ class _Presenter:
 
     def update(self, item):
         '''Update DOM with new attribute values. Update tree if necessary.'''
+        if not item: item = view.tree.root
         node = view.tree.GetPyData(item)
         if self.comp and self.comp.hasName:
             name = view.panel.controlName.GetValue()
@@ -256,21 +262,24 @@ class _Presenter:
                         self.comp.addAttribute(panelNode, a, value)
                     except:
                         print 'Error: ', sys.exc_value
-        view.tree.SetItemImage(item, self.comp.getTreeImageId(node))
-        view.tree.SetItemText(item, self.comp.getTreeText(node))
+        if item != view.tree.root:
+            view.tree.SetItemImage(item, self.comp.getTreeImageId(node))
+            view.tree.SetItemText(item, self.comp.getTreeText(node))
         self.setApplied()
         self.undoSaved = False
+        # Set dirty flag
+        if view.testWin.IsShown():
+            view.testWin.isDirty = True
 
     def unselect(self):
-        item = view.tree.GetSelection()
-        if item and not self.applied:
+        if not self.applied:
+            item = view.tree.GetSelection()
+            if not item: item = view.tree.root
             self.update(item)
-        view.panel.Clear()
-        # Reset variables
-        self.comp = Manager.rootComponent
-        self.container = None
+        else:
+            view.panel.Clear()
         view.tree.UnselectAll()
-        #view.tree.Flush()        # overkill solution
+        self.setData(view.tree.root)
 
     def delete(self, item):
         '''Delete selected object(s).'''
@@ -390,7 +399,7 @@ class _Presenter:
         node = view.tree.GetPyData(item)
         # Close old window, remember where it was
         highLight = None
-        klass = node.getAttribute('class')
+        comp = Manager.getNodeComp(node)
         # Create memory XML file
         elem = node.cloneNode(True)
         if not node.hasAttribute('name'):
@@ -402,7 +411,7 @@ class _Presenter:
         Model.saveTestMemoryFile()
         xmlFlags = xrc.XRC_NO_SUBCLASSING
         # Use translations if encoding is not specified
-        if not g.currentEncoding:
+        if not Model.dom.encoding:
             xmlFlags != xrc.XRC_USE_LOCALE
         res = xrc.EmptyXmlResource(xmlFlags)
         res.InitAllHandlers()   # !!! is this needed?
@@ -414,7 +423,7 @@ class _Presenter:
         object = None
         try:
             try:
-                frame, object = self.comp.makeTestWin(res, name)
+                frame, object = comp.makeTestWin(res, name)
                 # Reset tree item and locate tool
                 if view.testWin.item:
                     view.tree.SetItemBold(view.testWin.item, False)
@@ -422,6 +431,7 @@ class _Presenter:
                     view.frame.miniFrame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
                 view.testWin.SetView(frame, object, item)
                 view.testWin.Show()
+                view.testWin.isDirty = False
                 view.tree.SetItemBold(item, True)
             except NotImplementedError:
                 wx.LogError('Test window not implemented for %s' % node.getAttribute('class'))
@@ -443,6 +453,13 @@ class _Presenter:
         view.testWin.pos = view.testWin.GetFrame().GetPosition()
         view.testWin.size = view.testWin.GetFrame().GetSize()
         view.testWin.Destroy()
+
+    def refreshTestWin(self):
+        '''Refresh test window after some change.'''
+        if not view.testWin.object: return
+        TRACE('refreshTestWin')
+        # Dumb refresh
+        self.createTestWin(view.testWin.item)
 
     def showXML(self):
         '''Show some source.'''

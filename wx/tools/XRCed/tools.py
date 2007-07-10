@@ -49,6 +49,7 @@ class ToolPanel(wx.Panel):
             for pos,span,comp,bmp in panelData:
                 self.AddButton(panel, pos, span, comp.id, bmp, comp.klass)
         self.lb.Fit()
+        
         self.SetSizerAndFit(sizer)
         # Allow to be resized in horizontal direction only
         # Events
@@ -58,7 +59,7 @@ class ToolPanel(wx.Panel):
 
     def AddButton(self, panel, pos, span, id, bmp, text):
         button = wx.BitmapButton(panel, id, bmp, 
-                                 style=wx.NO_BORDER | wx.WANTS_CHARS)
+                                 style=wx.NO_BORDER)# | wx.WANTS_CHARS)
         button.SetBezelWidth(0)
 #        wx.EVT_KEY_DOWN(button, self.OnKeyDown)
 #        wx.EVT_KEY_UP(button, self.OnKeyUp)

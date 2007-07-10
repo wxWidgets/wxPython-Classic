@@ -63,7 +63,6 @@ def TRACE(msg, *args):
 
 class Globals:
     undoMan = None
-    currentEncoding = defaultEncoding
     conf = None
     useMeta = True              # use meta-components
     _CFuncPtr = None             # _CFuncPtr from ctypes

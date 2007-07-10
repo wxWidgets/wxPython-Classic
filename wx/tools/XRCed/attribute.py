@@ -86,7 +86,7 @@ class MultiAttribute:
     get = staticmethod(get)
 
 class BitmapAttribute:
-    '''Content attribute class. Value is a list of strings.'''
+    '''Bitmap attribute.'''
     def add(parentNode, attribute, value):
         if attribute == 'object':
             elem = parentNode
@@ -102,5 +102,15 @@ class BitmapAttribute:
     add = staticmethod(add)
     def get(node):
         return [node.getAttribute('stock_id'), Attribute.get(node)]
+    get = staticmethod(get)
+            
+class EncodingAttribute:
+    '''Attribute as an XML attribute of the element node.'''
+    def add(elem, attribute, value):
+        Model.dom.encoding = value
+    add = staticmethod(add)
+    def get(elem):
+        print Model.dom.encoding
+        return Model.dom.encoding
     get = staticmethod(get)
             
