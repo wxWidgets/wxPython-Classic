@@ -25,7 +25,7 @@ def load_plugins(dir):
     os.chdir(dir)
     sys.path = sys_path + [dir]
     try:
-        ff_py = glob.glob('*.py')
+        ff_py = glob.glob('[^_]*.py')
         for f in ff_py:
             name = os.path.splitext(f)[0]
             TRACE('* __import__ %s' % name)

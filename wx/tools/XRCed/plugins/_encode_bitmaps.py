@@ -6,7 +6,7 @@ import sys, os, glob
 from wx.tools import img2py
 
 def main():
-    output = 'bitmaps.py'
+    output = '_bitmaps.py'
 
     # get the list of BMP files
     files = glob.glob('src-images/*.png')
