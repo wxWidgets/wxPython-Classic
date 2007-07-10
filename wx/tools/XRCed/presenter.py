@@ -406,7 +406,6 @@ class _Presenter:
         if not Model.dom.encoding:
             xmlFlags != xrc.XRC_USE_LOCALE
         res = xrc.EmptyXmlResource(xmlFlags)
-        res.InitAllHandlers()   # !!! is this needed?
         xrc.XmlResource.Set(res)        # set as global
         # Init other handlers
         Manager.addXmlHandlers(res)
