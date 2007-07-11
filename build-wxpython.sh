@@ -21,15 +21,18 @@ for flag in $*; do
     esac
 done
 
+scriptDir="$(cd $(dirname $0);pwd)"
+scriptName="$(basename $0)"
+
 if [ "$WXWIN" = "" ]; then
-  export WXWIN=`pwd`/../..
+  export WXWIN=$scriptDir/..
 fi
 
 if [ $all = yes ]; then
-  $WXWIN/wxPython/distrib/build_packages.sh 23
-  $WXWIN/wxPython/distrib/build_packages.sh 23 unicode
-  $WXWIN/wxPython/distrib/build_packages.sh 24
-  $WXWIN/wxPython/distrib/build_packages.sh 24 unicode
+  ${scriptDir}/${scriptName}.sh 23
+  ${scriptDir}/${scriptName}.sh 23 unicode
+  ${scriptDir}/${scriptName}.sh 24
+  ${scriptDir}/${scriptName}.sh 24 unicode
 fi
 
 echo "wxWidgets directory is: $WXWIN"
@@ -92,57 +95,36 @@ if [ "$OSTYPE" = "cygwin" ]; then
   export SWIGDIR=`cygpath -w $SWIGDIR`
   
   $WXWIN/wxPython/b $PY_VERSION h $DEBUG_FLAG $UNICODE_FLAG
-  
-  # make the dev package
-  $WXWIN/wxPython/distrib/makedev
-  $WXWIN/wxPython/distrib/makedocs
-  $WXWIN/wxPython/distrib/makedemo
-  
-  $TOOLS/Python$PY_VERSION/python `cygpath -d $WXWIN/wxPython/distrib/make_installer_inno4.py` $UNICODE_FLAG
-elif [ "${OSTYPE:0:6}" = "darwin" ]; then
-  OSX_VERSION=`sw_vers -productVersion`
-  echo "OS X Version: ${OSX_VERSION:0:4}"
-  cd $WXWIN/wxPython
-  
-  if [ ! -d dist ]; then
-    mkdir dist
-  fi
-  # re-generate SWIG files
-  RESWIG=
-  if [ $reswig = yes ]; then
-    RESWIG=reswig
-  fi
-  
-  PY_DOT_VER=2.3
-  if [ "$PY_VERSION" = "24" ]; then
-    PY_DOT_VER=2.4
-  fi
-  
+else
   UNICODE_OPT=
+  UNICODE_WXPY_OPT=0
   if [ $unicode = yes ]; then
     UNICODE_OPT=unicode
+    UNICODE_WXPY_OPT=1
   fi 
   
   DEBUG_OPT=
   if [ $debug = yes ]; then
     DEBUG_OPT=debug
   fi
-  # On Tiger, build Universal.
-  UNIV_OPT=
-  if [ ${OSX_VERSION:0:4} = "10.4" ]; then
-    UNIV_OPT="universal"
+
+  mkdir -p wxpy-bld
+  cd wxpy-bld
+  export INSTALLDIR=$HOME/wxpython-2.8.4
+  if [ "${OSTYPE:0:6}" = "darwin" ]; then
+    $WXWIN/distrib/scripts/mac/macbuild-lipo wxpython $UNICODE_OPT $DEBUG_OPT
+  else
+    $WXWIN/distrib/scripts/unix/unixbuild wxpython $UNICODE_OPT $DEBUG_OPT
   fi
   
-  #sudo $WXWIN/wxPython/distrib/makedocs
-  $WXWIN/wxPython/distrib/makedemo
-  export TARBALLDIR=$WXWIN/wxPython/dist
-  echo "distrib/mac/wxPythonOSX/build $PY_DOT_VER inplace $UNICODE_OPT $RESWIG"
-  
-  distrib/mac/wxPythonOSX/build $PY_DOT_VER inplace $UNICODE_OPT $DEBUG_OPT $RESWIG $UNIV_OPT
-else
-  echo "OSTYPE $OSTYPE not yet supported by this build script."
+  if [ $? != 0 ]; then
+    exit $?
+  fi
+
+  cd ..
+  python$PY_VERSION setup.py build_ext --inplace WX_CONFIG=wxpy-bld/wx-config UNICODE=$UNICODE_WXPY_OPT
 fi
 
 # return to original dir
-cd $WXWIN/wxPython/distrib
+cd $WXWIN/wxPython
 
