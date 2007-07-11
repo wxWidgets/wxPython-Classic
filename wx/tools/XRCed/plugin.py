@@ -87,7 +87,7 @@ def create_component(node):
         Manager.setMenu(c, menu, label, help, index)
     panel = comp.getAttribute(node, 'panel')
     if panel:
-        bitmap = comp.getAttribute(node, 'bitmap')
+        #bitmap = comp.getAttribute(node, 'bitmap')
         try:
             pos = map(int, comp.getAttribute(node, 'pos').split(','))
         except:
@@ -96,7 +96,7 @@ def create_component(node):
             span = map(int, comp.getAttribute(node, 'span').split(','))
         except:
             span = (1, 1)
-        Manager.setTool(c, panel, bitmap, pos, span)
+        Manager.setTool(c, panel, pos=pos, span=span)
     dlName = comp.getAttribute(node, 'DL')
     if dlName:
         TRACE('Loading dynamic library: %s', dlName)

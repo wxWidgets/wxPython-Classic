@@ -22,6 +22,5 @@
     <label>LED number</label>
     <help>LED-style control</help>
     <panel>Gizmos</panel>
-    <icon>bitmaps/LEDNumberCtrl.png</icon>
   </component>
 </resource>
