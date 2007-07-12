@@ -9275,7 +9275,7 @@ class Window(EvtHandler):
         """
         FindWindowById(self, long winid) -> Window
 
-        Find a chld of this window by window ID
+        Find a child of this window by window ID
         """
         return _core_.Window_FindWindowById(*args, **kwargs)
 

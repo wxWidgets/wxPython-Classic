@@ -1152,6 +1152,11 @@ class XML_Tree(wx.TreeCtrl):
 
     # Pull-down
     def OnRightDown(self, evt):
+        # Save changes if needed
+        xxx = self.GetPyData(self.selection)
+        if g.panel.IsModified():
+            self.Apply(xxx, self.selection)
+        
         pullDownMenu = g.pullDownMenu
         # select this item
         pt = evt.GetPosition();
@@ -1264,12 +1269,6 @@ class XML_Tree(wx.TreeCtrl):
                 menu.Append(pullDownMenu.ID_COLLAPSE, 'Collapse', 'Collapse subtree')
         self.PopupMenu(menu, evt.GetPosition())
         menu.Destroy()
-
-    # Redefine to force the update of font dimentions on wxGTK
-    if wx.Platform == '__WXGTK__':
-        def SetItemBold(self, item, state=True):
-            wx.TreeCtrl.SetItemBold(self, item, state)
-            self.SetIndent(self.GetIndent())
 
     # Apply changes
     def Apply(self, xxx, item):

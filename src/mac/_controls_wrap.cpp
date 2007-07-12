@@ -18037,53 +18037,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Slider_SetRange(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxSlider *arg1 = (wxSlider *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "minValue",(char *) "maxValue", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:Slider_SetRange",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSlider, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Slider_SetRange" "', expected argument " "1"" of type '" "wxSlider *""'"); 
-  }
-  arg1 = reinterpret_cast< wxSlider * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Slider_SetRange" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Slider_SetRange" "', expected argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRange(arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_Slider_GetMin(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxSlider *arg1 = (wxSlider *) 0 ;
@@ -18206,6 +18159,53 @@ SWIGINTERN PyObject *_wrap_Slider_SetMax(PyObject *SWIGUNUSEDPARM(self), PyObjec
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetMax(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Slider_SetRange(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxSlider *arg1 = (wxSlider *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "minValue",(char *) "maxValue", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:Slider_SetRange",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSlider, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Slider_SetRange" "', expected argument " "1"" of type '" "wxSlider *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSlider * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Slider_SetRange" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Slider_SetRange" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetRange(arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -47239,11 +47239,11 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Slider_Create", (PyCFunction) _wrap_Slider_Create, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Slider_GetValue", (PyCFunction)_wrap_Slider_GetValue, METH_O, NULL},
 	 { (char *)"Slider_SetValue", (PyCFunction) _wrap_Slider_SetValue, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Slider_SetRange", (PyCFunction) _wrap_Slider_SetRange, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Slider_GetMin", (PyCFunction)_wrap_Slider_GetMin, METH_O, NULL},
 	 { (char *)"Slider_GetMax", (PyCFunction)_wrap_Slider_GetMax, METH_O, NULL},
 	 { (char *)"Slider_SetMin", (PyCFunction) _wrap_Slider_SetMin, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Slider_SetMax", (PyCFunction) _wrap_Slider_SetMax, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Slider_SetRange", (PyCFunction) _wrap_Slider_SetRange, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Slider_SetLineSize", (PyCFunction) _wrap_Slider_SetLineSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Slider_SetPageSize", (PyCFunction) _wrap_Slider_SetPageSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Slider_GetLineSize", (PyCFunction)_wrap_Slider_GetLineSize, METH_O, NULL},

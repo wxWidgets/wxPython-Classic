@@ -2625,10 +2625,6 @@ class Slider(_core.Control):
         """SetValue(self, int value)"""
         return _controls_.Slider_SetValue(*args, **kwargs)
 
-    def SetRange(*args, **kwargs):
-        """SetRange(self, int minValue, int maxValue)"""
-        return _controls_.Slider_SetRange(*args, **kwargs)
-
     def GetMin(*args, **kwargs):
         """GetMin(self) -> int"""
         return _controls_.Slider_GetMin(*args, **kwargs)
@@ -2644,6 +2640,13 @@ class Slider(_core.Control):
     def SetMax(*args, **kwargs):
         """SetMax(self, int maxValue)"""
         return _controls_.Slider_SetMax(*args, **kwargs)
+
+    def SetRange(*args, **kwargs):
+        """SetRange(self, int minValue, int maxValue)"""
+        return _controls_.Slider_SetRange(*args, **kwargs)
+
+    def GetRange(self):
+        return self.GetMin(), self.GetMax()
 
     def SetLineSize(*args, **kwargs):
         """SetLineSize(self, int lineSize)"""
