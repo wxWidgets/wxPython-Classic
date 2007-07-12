@@ -336,7 +336,7 @@ class Frame(wx.Frame):
 
     def ShowReadme(self):
         text = open(os.path.join(g.basePath, 'README.txt'), 'r').read()
-        dlg = ScrolledMessageDialog(self.frame, text, "XRCed README")
+        dlg = ScrolledMessageDialog(frame, text, "XRCed README")
         dlg.ShowModal()
         dlg.Destroy()
 

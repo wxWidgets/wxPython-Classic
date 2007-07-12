@@ -16,7 +16,7 @@ except:
 
 progname = 'xrced'
 ProgName = 'XRCed'
-version = '0.2.0-0'
+version = '0.2.0-alpha'
 # Minimal wxWidgets version
 MinWxVersion = (2,8,0)
 if wx.VERSION[:3] < MinWxVersion:

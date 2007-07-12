@@ -123,8 +123,8 @@ class _Model:
 
     def setTestElem(self, elem):
         oldTestElem = Model.testElem
-        self.testElem = elem
         self.mainNode.replaceChild(elem, oldTestElem)
+        self.testElem = elem
         oldTestElem.unlink()
 
 Model = _Model()

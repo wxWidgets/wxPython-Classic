@@ -84,6 +84,10 @@ class _Listener:
         if debug:
             wx.EVT_MENU(frame, frame.ID_DEBUG_CMD, self.OnDebugCMD)
 
+        # Pulldown menu commands
+        wx.EVT_MENU(frame, ID.COLLAPSE, self.OnCollapse)
+        wx.EVT_MENU(frame, ID.EXPAND, self.OnExpand)
+
         # Update events
         wx.EVT_UPDATE_UI(frame, wx.ID_SAVE, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, wx.ID_CUT, self.OnUpdateUI)
@@ -102,12 +106,10 @@ class _Listener:
         wx.EVT_UPDATE_UI(frame, frame.ID_MOVERIGHT, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, frame.ID_REFRESH, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, frame.ID_SHOW_XML, self.OnUpdateUI)
-
-        wx.EVT_MENU(frame, ID.COLLAPSE, self.OnCollapse)
-        wx.EVT_MENU(frame, ID.EXPAND, self.OnExpand)
-
         wx.EVT_UPDATE_UI(frame, ID.COLLAPSE, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, ID.EXPAND, self.OnUpdateUI)
+
+        wx.EVT_MENU_HIGHLIGHT_ALL(self.frame, self.OnMenuHighlight)
 
         # XMLTree events
         tree.Bind(wx.EVT_LEFT_DOWN, self.OnTreeLeftDown)
@@ -120,22 +122,22 @@ class _Listener:
         panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGING, self.OnPanelPageChanging)
         panel.nb.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.OnPanelPageChanged)
         panel.pinButton.Bind(wx.EVT_BUTTON, self.OnPanelTogglePin)
-        # Redirect other command events
-#        self.frame.miniFrame.Bind(wx.EVT_CHAR, lambda evt: self.frame.ProcessEvent(evt))
-#        self.frame.miniFrame.Bind(wx.EVT_KEY_DOWN, lambda evt: self.frame.ProcessEvent(evt))
-#        self.frame.miniFrame.Bind(wx.EVT_KEY_DOWN, self.OnKeyDown)
-#        self.frame.miniFrame.Bind(wx.EVT_KEY_UP, lambda evt: self.frame.ProcessEvent(evt))
-#        self.frame.miniFrame.Bind(wx.EVT_MENU, self.OnMiniFrameMenu)
-#        self.frame.miniFrame.Bind(wx.EVT_COMMAND, self.OnMiniFrameMenu)
 
-        # ToolPanel events
+        # Make important keys work when focus is in the panel frame
+        self.accels = wx.AcceleratorTable([
+            (wx.ACCEL_NORMAL, wx.WXK_F5, frame.ID_TEST),
+            (wx.ACCEL_NORMAL, wx.WXK_F6, frame.ID_TEST_HIDE)
+            ])
+        self.frame.miniFrame.SetAcceleratorTable(self.accels)
+        # Propagate all menu commands to the frame
+        self.frame.miniFrame.Bind(wx.EVT_MENU, lambda evt: frame.ProcessEvent(evt))
+
+        # Tool panel events
         toolPanel = self.toolFrame.panel
         toolPanel.lb.Bind(wx.EVT_TOOLBOOK_PAGE_CHANGED, self.OnToolPanelPageChanged)
         wx.EVT_COMMAND_RANGE(toolPanel.lb, Manager.firstId, Manager.lastId,
                              wx.wxEVT_COMMAND_BUTTON_CLICKED,
                              self.OnComponentTool)
-
-        wx.EVT_MENU_HIGHLIGHT_ALL(self.frame, self.OnMenuHighlight)
         self.toolFrame.Bind(wx.EVT_CLOSE, self.OnCloseToolFrame)
 
     def OnComponentCreate(self, evt):
@@ -417,6 +419,8 @@ Homepage: http://xrced.sourceforge.net\
             frame = self.testWin.GetFrame()
             frame.Bind(wx.EVT_CLOSE, self.OnCloseTestWin)
             frame.Bind(wx.EVT_SIZE, self.OnSizeTestWin)
+            frame.SetAcceleratorTable(self.accels)
+            frame.Bind(wx.EVT_MENU, lambda evt: self.frame.ProcessEvent(evt))
 
     def OnCloseTestWin(self, evt):
         Presenter.closeTestWin()
@@ -561,14 +565,6 @@ Homepage: http://xrced.sourceforge.net\
         else: 
             self.tree.CollapseAll()
 
-#    def OnChar(self, evt):
-#        print evt.GetKeyCode()
-#        evt.Skip()
-
-#    def OnKeyDown(self, evt):
-#        print evt.GetKeyCode()
-#        evt.Skip()
-
     #
     # XMLTree event handlers
     #
@@ -626,7 +622,6 @@ Homepage: http://xrced.sourceforge.net\
         TRACE('OnPanelPageChanging: %d > %d', evt.GetOldSelection(), evt.GetSelection())
         # Register undo if something was changed
         i = evt.GetOldSelection()
-#        import pdb;pdb.set_trace()
         if i >= 0 and Presenter.panelIsDirty():
             g.undoMan.RegisterUndo(self.panel.undo)
         evt.Skip()
@@ -681,11 +676,6 @@ Homepage: http://xrced.sourceforge.net\
                 conf.toolPanelSize = self.toolFrame.GetSize()
         self.toolFrame.Show(False)
         conf.showToolPanel = False
-
-    # Attribute panel frame events
-    def OnMiniFrameMenu(self, evt):
-        print evt.GetId()
-        evt.Skip()
 
 # Singleton class
 Listener = _Listener()

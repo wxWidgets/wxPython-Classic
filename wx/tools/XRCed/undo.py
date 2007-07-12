@@ -323,6 +323,8 @@ class UndoGlobal(Undo):
         # Exchange
         Model.mainNode,self.mainNode = \
             self.mainNode,Model.dom.replaceChild(self.mainNode, Model.mainNode)
+        # Replace testElem
+        Model.testElem = Model.mainNode.childNodes[0]
         states = view.tree.GetFullState()
         Presenter.unselect()
         view.tree.Flush()
