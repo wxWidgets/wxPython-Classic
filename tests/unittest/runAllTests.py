@@ -26,7 +26,10 @@ def output_summary(wiki=False):
         print "==== Summary ===="
     if wiki:
         print " * ",
-    print "Run completed in %.2f seconds" % (stop_time-start_time) 
+    print "Run completed in %.2f seconds" % (stop_time-start_time)
+    if wiki:
+        print " * ",
+    print "%d classes tested" % (len(modules))
     if wiki:
         print " * ",
     print "%d tests passed in total!" % (total_successes)
@@ -61,6 +64,8 @@ def wiki_platform_info():
         
 # -----------------------------------------------------------
 
+# -------------------- Option Logic -------------------------
+
 # Options
 # TODO: would log4py be better than custom flags?
 usage = "usage: python %prog [options]"
@@ -90,6 +95,7 @@ parser.add_option("-w", "--wiki",
 parser.add_option("-x", "--no-figleaf",
                     action="store_false", dest="figleaf",
                     help="don't use figleaf (code coverage tool)")
+# TODO: make module parsing case-insensitive?
 parser.add_option("-m", "--modules",
                     action="store", dest="module_list", default="",
                     help="run only the comma-separated list of modules given. use either " +
@@ -105,8 +111,10 @@ if not options.figleaf and options.figleaf_filename != 'tests.figleaf':
 if options.wiki:
     options.failure_details = True
     options.verbose = False
+    
+# -----------------------------------------------------------
 
-
+# ------------------- Test Running --------------------------
 rootdir = os.path.abspath(sys.path[0])
 if not os.path.isdir(rootdir):
     rootdir = os.path.dirname(rootdir)
@@ -142,7 +150,7 @@ if options.module_list != "":
     module_names = tmp
     
 modules = [ __import__(mod) for mod in module_names ]
-                
+
 wiki_header()
 wiki_platform_info()
 # TODO: add a preliminary "here's what I was told to run" output,
@@ -183,6 +191,10 @@ for module in modules:
 stop_time = time.time()
 if options.verbose or options.failure_details and not options.wiki:
     print "\n----------------------\n"
+
+# -----------------------------------------------------------
+
+# ------------------- Output Reporting --------------------------
 
 output_summary(options.wiki)
 if origstdout != None:
