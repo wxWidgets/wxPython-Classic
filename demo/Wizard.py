@@ -47,11 +47,13 @@ class SkipNextPage(wiz.PyWizardPage):
 
     def GetNext(self):
         """If the checkbox is set then return the next page's next page"""
-        next = self.next
         if self.cb.GetValue():
-            next = next.GetNext()
-        return next
-
+            self.next.GetNext().SetPrev(self)
+            return self.next.GetNext()
+        else:
+            self.next.GetNext().SetPrev(self.next)
+            return self.next
+        
     def GetPrev(self):
         return self.prev
 
