@@ -36,8 +36,8 @@ FLAGS=$7
 
 #export PATH=/sw/bin:/usr/local/bin:$PATH
 export PATH=/sw/bin:/sw/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:.:/usr/X11R6/bin
-echo "PATH =" $PATH
-echo "which gcc = " `which gcc`
+#echo "PATH =" $PATH
+#echo "which gcc = " `which gcc`
 #exit 0
 
 # untar the source 
