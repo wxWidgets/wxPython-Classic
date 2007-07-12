@@ -10,6 +10,7 @@ from globals import *
 from presenter import Presenter
 from component import Manager
 from model import Model
+import view
 import undo
 
 class _Listener:
@@ -126,7 +127,8 @@ class _Listener:
         # Make important keys work when focus is in the panel frame
         self.accels = wx.AcceleratorTable([
             (wx.ACCEL_NORMAL, wx.WXK_F5, frame.ID_TEST),
-            (wx.ACCEL_NORMAL, wx.WXK_F6, frame.ID_TEST_HIDE)
+            (wx.ACCEL_NORMAL, wx.WXK_F6, frame.ID_TEST_HIDE),
+            (wx.ACCEL_CTRL, ord('r'), frame.ID_REFRESH),
             ])
         self.frame.miniFrame.SetAcceleratorTable(self.accels)
         # Propagate all menu commands to the frame
@@ -169,18 +171,14 @@ class _Listener:
         dlg = wx.FileDialog(self.frame, 'Open', os.path.dirname(Presenter.path),
                             '', exts, wx.OPEN | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
-            # Not we will really try to load
-            # ...but first clear the undo data
+            # Clear old undo data
             g.undoMan.Clear()
             path = dlg.GetPath()
-            self.frame.SetStatusText('Loading...')
             wx.BeginBusyCursor()
             try:
-                if Presenter.open(path):
-                    self.frame.SetStatusText('Data loaded')
-                    self.SaveRecent(path)
-                else:
-                    self.frame.SetStatusText('Failed')
+                Presenter.open(path)
+                self.frame.SetStatusText('Data loaded')
+                self.SaveRecent(path)
             finally:
                 wx.EndBusyCursor()
         dlg.Destroy()
@@ -188,20 +186,19 @@ class _Listener:
     def OnRecentFile(self, evt):
         '''wx.ID_FILE<n> handler.'''
         if not self.AskSave(): return
-        wx.BeginBusyCursor()
 
         # get the pathname based on the menu ID
         fileNum = evt.GetId() - wx.ID_FILE1
         path = g.fileHistory.GetHistoryFile(fileNum)
             
-        if Presenter.open(path):
+        wx.BeginBusyCursor()
+        try:
+            Presenter.open(path)
             self.frame.SetStatusText('Data loaded')
             # add it back to the history so it will be moved up the list
             self.SaveRecent(path)
-        else:
-            self.frame.SetStatusText('Failed')
-
-        wx.EndBusyCursor()
+        finally:
+            wx.EndBusyCursor()
 
     def OnSaveOrSaveAs(self, evt):
         '''wx.ID_SAVE and wx.ID_SAVEAS handler'''
@@ -234,21 +231,17 @@ class _Listener:
             else:
                 # otherwise create a new one
                 g.conf.localconf = Presenter.createLocalConf(path)
-        self.frame.SetStatusText('Saving...')
         wx.BeginBusyCursor()
         try:
-            try:
-                Presenter.save(path) # save temporary file first
-                if g.conf.localconf.ReadBool("autogenerate", False):
-                    pypath = g.conf.localconf.Read("filename")
-                    embed = g.conf.localconf.ReadBool("embedResource", False)
-                    genGettext = g.conf.localconf.ReadBool("genGettext", False)
-                    self.GeneratePython(path, pypath, embed, genGettext)
-                    
-                self.frame.SetStatusText('Data saved')
-                self.SaveRecent(path)
-            except IOError:
-                self.frame.SetStatusText('Failed')
+            Presenter.save(path) # save temporary file first
+            if g.conf.localconf.ReadBool("autogenerate", False):
+                pypath = g.conf.localconf.Read("filename")
+                embed = g.conf.localconf.ReadBool("embedResource", False)
+                genGettext = g.conf.localconf.ReadBool("genGettext", False)
+                self.GeneratePython(path, pypath, embed, genGettext)
+
+            self.frame.SetStatusText('Data saved')
+            self.SaveRecent(path)
         finally:
             wx.EndBusyCursor()        
 
@@ -362,11 +355,11 @@ class _Listener:
     def OnRefresh(self, evt):
         if view.testWin.IsShown():
             if view.testWin.IsDirty():
-                presenter.refreshTestWin()
+                Presenter.refreshTestWin()
             else:
                 item = view.testWin.item
                 view.testWin.Destroy()
-                presenter.createTestWin(item)
+                Presenter.createTestWin(item)
 
     def OnAutoRefresh(self, evt):
         conf.autoRefresh = evt.IsChecked()

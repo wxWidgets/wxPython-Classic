@@ -77,9 +77,8 @@ class _Model:
         try:
             self.dom.writexml(memFile, encoding=encd)
         except:
-            inf = sys.exc_info()
-            wx.LogError(traceback.format_exception(inf[0], inf[1], None)[-1])
-            wx.LogError('Error writing temporary file')
+            logger.exception('error writing temporary XML file')
+            wx.LogError('Error writing temporary XML file')
         memFile.close()                 # write to wxMemoryFS        
 
     def indent(self, domCopy, node, indent = 0):

@@ -44,9 +44,10 @@ class _Presenter:
     def open(self, path):
         if not os.path.exists(path):
             wx.LogError('File does not exists: %s' % path)
-            return False
+            raise IOError
         try:
             self.path = os.path.abspath(path)
+            TRACE('Loading XML file: %s', self.path)
             self.loadXML(self.path)
             # Change dir
             dir = os.path.dirname(self.path)
@@ -54,11 +55,9 @@ class _Presenter:
             self.setModified(False)
             g.conf.localconf = self.createLocalConf(path)
         except:
-            inf = sys.exc_info()
-            wx.LogError('Error reading file: %s' % path)
-            if debug: raise
-            return False
-        return True
+            logger.exception('error loading XML file')
+            wx.LogError('Error loading XML file: %s' % path)
+            raise
             
     def save(self, path):
         # Apply changes if needed
@@ -67,14 +66,15 @@ class _Presenter:
         try:
             tmpFile,tmpName = tempfile.mkstemp(prefix='xrced-')
             os.close(tmpFile)
+            TRACE('Saving temporaty file: %s', tmpName)
             self.saveXML(tmpName)
+            TRACE('moving to main: %s', path)
             shutil.move(tmpName, path)
             self.path = path
             self.setModified(False)
         except:
-            inf = sys.exc_info()
-            wx.LogError('Error writing file: %s' % path)
-            if debug: raise
+            logger.exception('error saving XML file')
+            wx.LogError('Error saving XML file: %s' % path)
             raise
 
     def setModified(self, state=True):
@@ -116,9 +116,9 @@ class _Presenter:
         return False
 
     def setData(self, item):
-        TRACE('setData')
         '''Set data and view for current tree item.'''
         if not item or item == view.tree.root:
+            TRACE('setData: root node')
             self.container = None
             self.comp = Manager.rootComponent
 #            self.panels = []
@@ -129,6 +129,7 @@ class _Presenter:
         else:
             node = view.tree.GetPyData(item)
             className = node.getAttribute('class')
+            TRACE('setData: %s', className)
             self.comp = Manager.components[className]
             parentItem = view.tree.GetItemParent(item)
             parentNode = view.tree.GetPyData(parentItem)
@@ -261,7 +262,7 @@ class _Presenter:
                     try:
                         self.comp.addAttribute(panelNode, a, value)
                     except:
-                        print 'Error: ', sys.exc_value
+                        logging.exception('addAttribute error: %s %s', a, value)
         if item != view.tree.root:
             view.tree.SetItemImage(item, self.comp.getTreeImageId(node))
             view.tree.SetItemText(item, self.comp.getTreeText(node))
@@ -427,7 +428,8 @@ class _Presenter:
             except NotImplementedError:
                 wx.LogError('Test window not implemented for %s' % node.getAttribute('class'))
             except:
-                wx.LogError('Error loading resource: %s' % sys.exc_value)
+                logger.exception('error creating test view')
+                wx.LogError('Error creating test view')
                 if debug: raise
         finally:
             # Cleanup

@@ -29,26 +29,26 @@ def load_plugins(dir):
         ff_py = glob.glob('[!_]*.py')
         for f in ff_py:
             name = os.path.splitext(f)[0]
-            TRACE('* __import__ %s' % name)
+            TRACE('* __import__ %s', name)
             try:
                 __import__(name, globals(), locals(), ['*'])
-            except:
-                print 'ERROR:', sys.exc_value
+            except ImportError:
+                logger.exception('importing %s failed', name)
         ff_crx = glob.glob('*.crx')
         for crx in ff_crx:
+            TRACE('* load_crx %s', crx)
             try:
                 load_crx(crx)
             except:
-                print 'ERROR:', sys.exc_value
-                raise
+                logger.exception('parsing CRX file %s failed', crx)
         dirs = glob.glob('*/')
         for dir in dirs:
             if os.path.isfile(os.path.join(dir, '__init__.py')):
-                TRACE('* __import__ %s/__init__.py' % f)
+                TRACE('* __import__ %s/__init__.py', f)
                 try:
                     __import__(dir, globals(), locals(), ['*'])
-                except:
-                    print 'ERROR:', sys.exc_value
+                except ImportError:
+                    logger.exception('importing %s/__init__.py failed', f)
     finally:
         sys.path = sys_path
         os.chdir(cwd)
@@ -109,7 +109,7 @@ def create_component(node):
             try:
                 Manager.addXmlHandler(dl.AddXmlHandlers)
             except:
-                print 'DL registration failed'
+                logger.exception('DL registration failed')
     module = comp.getAttribute(node, 'module')
     handler = comp.getAttribute(node, 'handler')
     if module and handler:
@@ -117,5 +117,8 @@ def create_component(node):
         try:
             mod = __import__(module, globals(), locals(), [handler])
             Manager.addXmlHandler(getattr(mod, handler))
-        except:
-            print 'Import failed'
+        except ImportError:
+            logger.exception("can't import handler module")
+        except AttributeError:
+            logger.exception("can't find handler class")
+

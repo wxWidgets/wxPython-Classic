@@ -12,6 +12,10 @@ try:
 except:
     pass
 
+import logging
+logging.basicConfig()
+logger = logging.getLogger('xrced')
+
 # Global constants
 
 progname = 'xrced'

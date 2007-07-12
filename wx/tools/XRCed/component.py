@@ -493,14 +493,14 @@ class _ComponentManager:
                 try:
                     apply(h, ())
                 except:
-                    wx.LogError('error calling DL func: "%s"' % h)
-                    print sys.exc_value
+                    logger.exception('error calling DL func "%s"', h)
+                    wx.LogError('error calling DL func "%s"' % h)
             else:               # assume a python class handler
                 try:
                     res.AddHandler(apply(h, ()))
                 except:
-                    wx.LogError('error adding XmlHandler: "%s"' % h)
-                    print sys.exc_value
+                    logger.exception('error adding XmlHandler "%s"', h)
+                    wx.LogError('error adding XmlHandler "%s"' % h)
         
 
 # Singleton object

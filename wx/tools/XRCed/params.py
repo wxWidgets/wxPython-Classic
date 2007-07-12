@@ -1008,7 +1008,7 @@ class CheckListBoxComboPopup(wx.CheckListBox, wx.combo.ComboPopup):
                 if self.equal.has_key(i):
                     self.Check(self.values.index(self.equal[i]))
                 else:
-                    print 'WARNING: unknown flag: %s: ignored.' % i
+                    logger.warning('unknown flag: %s: ignored.', i)
                     self.ignored.append(i)
 
         wx.combo.ComboPopup.OnPopup(self)
