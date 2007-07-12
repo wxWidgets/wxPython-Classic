@@ -932,7 +932,10 @@ class PrintTable:
         printer = wx.Printer(pdd)
         printout = SetPrintout(self)
         if not printer.Print(self.parentFrame, printout):
-            wx.MessageBox("There was a problem printing.\nPerhaps your current printer is not set correctly?", "Printing", wx.OK)
+            if wx.Printer.GetLastError() == wx.PRINTER_ERROR:
+                wx.MessageBox("There was a problem printing.\n"
+                              "Perhaps your current printer is not set correctly?",
+                              "Printing", wx.OK)
         else:
             self.printData = wx.PrintData( printer.GetPrintDialogData().GetPrintData() )
         printout.Destroy()
