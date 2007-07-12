@@ -110,6 +110,7 @@ else
 
   mkdir -p wxpy-bld
   cd wxpy-bld
+  BUILD_DIR=$PWD
   export INSTALLDIR=$HOME/wxpython-2.8.4
   if [ "${OSTYPE:0:6}" = "darwin" ]; then
     $WXWIN/distrib/scripts/mac/macbuild-lipo wxpython $UNICODE_OPT $DEBUG_OPT
@@ -121,8 +122,8 @@ else
     exit $?
   fi
 
-  cd ..
-  python$PY_VERSION setup.py build_ext --inplace WX_CONFIG=wxpy-bld/wx-config UNICODE=$UNICODE_WXPY_OPT
+  cd $scriptDir
+  python$PY_VERSION ./setup.py build_ext --inplace WX_CONFIG=$BUILD_DIR/wx-config UNICODE=$UNICODE_WXPY_OPT
 fi
 
 # return to original dir
