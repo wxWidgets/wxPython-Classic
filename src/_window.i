@@ -1040,7 +1040,7 @@ programmer.", "");
 
     DocDeclStrName(
         wxWindow *, FindWindow( long winid ),
-        "Find a chld of this window by window ID", "",
+        "Find a child of this window by window ID", "",
         FindWindowById);
     
     DocDeclStrName(
