@@ -1,3 +1,9 @@
+2007-07-12  Scroll  <scroll@localhost.localdomain>
+
+	* Changed some meta-component details: meta module is imported
+	always, but the pulldown menu 'component' command is added only
+	with --meta option; added XRCEDPATH scanning for plugins.
+
 2007-07-11  Scroll  <scroll@localhost.localdomain>
 
 	* When no items are selected the 'root' attributes are shown
