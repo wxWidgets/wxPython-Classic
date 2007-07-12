@@ -9,13 +9,14 @@ from xml.dom import minidom
 from globals import *
 from presenter import Manager
 import component
+import meta
 
-def load_all_plugins():
-    pluginPath = os.getenv('XRCEDPATH')
-    if pluginPath:
-        for dir in plugins.split(':'):
+def load_plugins_from_dirs():
+    dirs = os.getenv('XRCEDPATH')
+    if dirs:
+        for dir in dirs.split(':'):
             if os.path.isdir(dir):
-                import_plugins(dir)
+                load_plugins(dir)
 
 def load_plugins(dir):
     sys_path = sys.path
@@ -26,7 +27,6 @@ def load_plugins(dir):
     sys.path = sys_path + [dir]
     try:
         ff_py = glob.glob('[!_]*.py')
-        print ff_py
         for f in ff_py:
             name = os.path.splitext(f)[0]
             TRACE('* __import__ %s' % name)
@@ -34,14 +34,13 @@ def load_plugins(dir):
                 __import__(name, globals(), locals(), ['*'])
             except:
                 print 'ERROR:', sys.exc_value
-        if g.useMeta:
-            ff_crx = glob.glob('*.crx')
-            for crx in ff_crx:
-                try:
-                    load_crx(crx)
-                except:
-                    print 'ERROR:', sys.exc_value
-                    raise
+        ff_crx = glob.glob('*.crx')
+        for crx in ff_crx:
+            try:
+                load_crx(crx)
+            except:
+                print 'ERROR:', sys.exc_value
+                raise
         dirs = glob.glob('*/')
         for dir in dirs:
             if os.path.isfile(os.path.join(dir, '__init__.py')):
@@ -66,13 +65,12 @@ def create_component(node):
     klass = node.getAttribute('class')
     name = node.getAttribute('name')
     TRACE('create_component %s', name)
-    comp = Manager.getNodeComp(node)
-    meta = getattr(component, comp.klass) # get component class
+    comp = getattr(meta, klass)
+    compClass = getattr(component, comp.klass) # get component class
     attributes = comp.getAttribute(node, 'attributes')
     groups = comp.getAttribute(node, 'groups')
     styles = comp.getAttribute(node, 'styles')
-    # Create class object
-    c = meta(name, groups, attributes)
+    c = compClass(name, groups, attributes)
     c.hasName = bool(comp.getAttribute(node, 'has-name'))
     c.addStyles(*styles)
     Manager.register(c)
@@ -87,7 +85,7 @@ def create_component(node):
         Manager.setMenu(c, menu, label, help, index)
     panel = comp.getAttribute(node, 'panel')
     if panel:
-        #bitmap = comp.getAttribute(node, 'bitmap')
+        bitmap = comp.getAttribute(node, 'bitmap')
         try:
             pos = map(int, comp.getAttribute(node, 'pos').split(','))
         except:

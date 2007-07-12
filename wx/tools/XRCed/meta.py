@@ -4,16 +4,14 @@
 # Created:      05.07.2007
 # RCS-ID:       $Id: core.py 47129 2007-07-04 22:38:37Z ROL $
 
-from globals import g
-from component import *
+from globals import *
+import component
+from attribute import *
+import params
 
-# Test
+# Meta-components for loading CRX files
 
-TRACE('*** creating meta components')
-
-### Plugin
-
-c = SimpleComponent(
+Component = component.SimpleComponent(
     'Component', ['component'],
     ['provider', 'version', 'url',
      'groups', 'attributes', 'styles', 'has-name',
@@ -39,5 +37,3 @@ c = SimpleComponent(
             'pos': params.ParamPosSize, 
             'span': params.ParamPosSize})
 
-Manager.register(c)
-Manager.setMenu(c, 'TOP_LEVEL', 'component', 'component plugin')

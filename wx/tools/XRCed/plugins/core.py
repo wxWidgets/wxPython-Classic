@@ -16,6 +16,7 @@ Manager.panelImages['Controls'] = images.getToolPanel_ControlsImage()
 Manager.panelImages['Menus'] = images.getToolPanel_MenusImage()
 Manager.panelImages['Sizers'] = images.getToolPanel_SizersImage()
 Manager.panelImages['Panels'] = images.getToolPanel_PanelsImage()
+Manager.panelImages['Gizmos'] = images.getToolPanel_GizmosImage()
 
 ### wxFrame
 

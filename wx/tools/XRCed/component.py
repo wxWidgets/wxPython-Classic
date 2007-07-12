@@ -425,7 +425,8 @@ class _ComponentManager:
         self.panels = {}
         self.menuNames = ['TOP_LEVEL', 'ROOT', 'bar', 'control', 'button', 'box', 
                           'container', 'sizer', 'custom']
-        self.panelNames = ['Windows', 'Panels', 'Controls', 'Sizers',  'Menus', 'Custom']
+        self.panelNames = ['Windows', 'Panels', 'Controls', 'Sizers',  'Menus',
+                           'Gizmos', 'Custom']
         self.panelImages = {}
         self.handlers = []      # registered XmlHandlers
 

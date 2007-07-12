@@ -54,6 +54,8 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         if options.meta:
             g.useMeta = True
             import meta
+            Manager.register(meta.Component)
+            Manager.setMenu(meta.Component, 'TOP_LEVEL', 'component', 'component plugin')
             
         self.SetAppName(progname)
 
@@ -64,8 +66,10 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         self.toolArtProvider = view.ToolArtProvider()
         wx.ArtProvider.Push(self.toolArtProvider)
 
-        # Load standard plugins
+        # Load standard plugins first
         plugin.load_plugins(os.path.join(g.basePath, 'plugins'))
+        # ... and then from user-defined dirs
+        plugin.load_plugins_from_dirs()
 
         # Setup MVP
         view.create_view()
