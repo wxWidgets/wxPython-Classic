@@ -39,7 +39,7 @@ import distutils.command.clean
 VER_MAJOR        = 2      # The first three must match wxWidgets
 VER_MINOR        = 8
 VER_RELEASE      = 4
-VER_SUBREL       = 1      # wxPython release num for x.y.z release of wxWidgets
+VER_SUBREL       = 2      # wxPython release num for x.y.z release of wxWidgets
 VER_FLAGS        = ""     # release flags, such as prerelease or RC num, etc.
 
 DESCRIPTION      = "Cross platform GUI toolkit for Python"
@@ -679,8 +679,8 @@ if os.name == 'nt':
     if os.environ.has_key('WXWIN'):
         WXDIR = os.environ['WXWIN']
     else:
-        msg("WARNING: WXWIN not set in environment.")
-        WXDIR = '..'  # assumes in CVS tree
+        WXDIR = '..\\wxWidgets'  # assumes in parallel SVN tree
+        msg("WARNING: WXWIN not set in environment. Assuming '%s'" % WXDIR)
     WXPLAT = '__WXMSW__'
     GENDIR = 'msw'
 
@@ -751,7 +751,11 @@ if os.name == 'nt':
 #----------------------------------------------------------------------
 
 elif os.name == 'posix':
-    WXDIR = '..'
+    if os.environ.has_key('WXWIN'):
+        WXDIR = os.environ['WXWIN']
+    else:
+        WXDIR = '../wxWidgets'  # assumes in parallel SVN tree
+        msg("WARNING: WXWIN not set in environment. Assuming '%s'" % WXDIR)
     includes = ['include', 'src']
     defines = [('SWIG_TYPE_TABLE', WXPYTHON_TYPE_TABLE),
                ('SWIG_PYTHON_OUTPUT_TUPLE', None),
