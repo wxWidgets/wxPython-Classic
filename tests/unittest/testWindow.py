@@ -131,13 +131,19 @@ class WindowTest(unittest.TestCase):
         for child in self.children:
             child.Center(wx.CENTER_ON_SCREEN)
 
-    # Looks like this one fails on Windows
-    # (first two attributes of the wx.Rect are 0 in every instance)
     def testClientRect(self):
         """SetClientRect, GetClientRect"""
+        # Robin says:
+        # "Both GetClientAreaOrigin and GetClientSize will call platform specific
+        # methods located in the derived classes, so they can (and do) vary across
+        # platforms and window types.  IMO because of this potential variability
+        # the only valid test for GetClientRect is that it returns a rectangle
+        # positioned at GetClientAreaOrigin and with a size of GetClientSize."
         for rect in testRect.getValidRectData():
             self.testControl.SetClientRect(rect)
-            self.assertEquals(rect, self.testControl.GetClientRect())
+            r = self.testControl.GetClientRect()
+            self.assertEquals(r.GetTopLeft(), self.testControl.GetClientAreaOrigin())
+            self.assertEquals(r.GetSize(), self.testControl.GetClientSize())
     
     def testClientSize(self):
         """SetClientSize, GetClientSize"""
@@ -442,12 +448,14 @@ class WindowTest(unittest.TestCase):
     
     def testVirtualSize(self):
         """SetVirtualSize, GetVirtualSize"""
+        self.testControl.SetVirtualSizeHints(0,0)
         for size in testSize.getValidSizeData():
             self.testControl.SetVirtualSize(size)
             self.assertEquals(size, self.testControl.GetVirtualSize())
     
     def testVirtualSizeWH(self):
         """SetVirtualSizeWH, GetVirtualSizeTuple"""
+        self.testControl.SetVirtualSizeHints(0,0)
         for w,h in testSize.getValidSizeData():
             self.testControl.SetVirtualSizeWH(w,h)
             self.assertEquals((w,h),self.testControl.GetVirtualSizeTuple())
