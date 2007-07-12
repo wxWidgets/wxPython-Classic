@@ -72,13 +72,17 @@ public:
     virtual void SetValue(int value);
 
     // retrieve/change the range
-    virtual void SetRange(int minValue, int maxValue);
     virtual int GetMin() const;
     virtual int GetMax() const;
-    
     void SetMin( int minValue );
     void SetMax( int maxValue );
 
+    virtual void SetRange(int minValue, int maxValue);
+    %pythoncode {
+        def GetRange(self):
+            return self.GetMin(), self.GetMax()
+    }
+    
     // the line/page size is the increment by which the slider moves when
     // cursor arrow key/page up or down are pressed (clicking the mouse is like
     // pressing PageUp/Down) and are by default set to 1 and 1/10 of the range
