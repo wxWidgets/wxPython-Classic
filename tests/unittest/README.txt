@@ -133,14 +133,6 @@ GDIObject
 GDIObjListBase
 GenericDirCtrl
 GIFHandler
-GraphicsBrush
-GraphicsContext
-GraphicsFont
-GraphicsMatrix
-GraphicsObject
-GraphicsPath
-GraphicsPen
-GraphicsRenderer
 GridBagSizer
 GridSizer
 HeaderButtonParams
