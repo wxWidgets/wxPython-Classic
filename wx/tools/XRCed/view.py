@@ -90,12 +90,16 @@ class Frame(wx.Frame):
         tree = XMLTree(splitter)
 
         # Miniframe for split mode
-        self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
+        if wx.Platform != '__WXMAC__':
+            self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
                                            g.conf.panelPos, g.conf.panelSize,
                                            style=wx.CAPTION|wx.RESIZE_BORDER|\
                                                wx.FRAME_TOOL_WINDOW)
-        if wx.Platform != '__WXMAC__':
             mf.SetIcons(self.icns)
+        else:
+            self.miniFrame = mf = wx.Frame(self, -1, 'Attributes',
+                                           g.conf.panelPos, g.conf.panelSize,
+                                           style=wx.CAPTION|wx.RESIZE_BORDER)
         mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
         # Use tango icons and slightly wider bitmap size on Mac
         if wx.Platform in ['__WXMAC__', '__WXMSW__']:
