@@ -175,8 +175,7 @@ class WindowTest(unittest.TestCase):
             self.testControl.Destroy()
         except wx.PyDeadObjectError:
             flag = True
-        finally:
-            self.assert_(flag)
+        self.assert_(flag)
         # put back a dummy object so cleanup can happen
         self.testControl = wx.Window(self.frame)
     
