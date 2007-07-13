@@ -1,3 +1,8 @@
+2007-07-13  Scroll  <scroll@localhost.localdomain>
+
+	* Better error messages; working on new highlighting using plugin
+	classes.
+
 2007-07-12  Scroll  <scroll@localhost.localdomain>
 
 	* Changed some meta-component details: meta module is imported

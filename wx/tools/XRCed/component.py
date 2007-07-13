@@ -168,6 +168,12 @@ class Component(object):
                 testWin.size = frame.GetSize()
         return frame, object
 
+    def getScreenRect(self, obj):
+        if isinstance(obj, wx.Window):
+            return obj.GetRect()
+        else:
+            return None
+
     def copyAttributes(self, srcNode, dstNode):
         '''Copy relevant attribute nodes from oldNode to newNode.'''
         dstComp = Manager.getNodeComp(dstNode)
@@ -267,6 +273,13 @@ class Container(Component):
             oldComp.copyObjects(oldNode, newNode)
         parentNode.replaceChild(newNode, oldNode)
 
+    def getChildObject(self, obj, index):
+        if isinstance(obj, wx.Window) and obj.GetSizer():
+            return obj.GetSizer()
+        try:
+            return obj.GetChildren()[index]
+        except IndexError:
+            return None
 
 class SimpleContainer(Container):
     '''Container without window attributes and styles.'''
@@ -373,7 +386,6 @@ class SmartContainer(Container):
         '''Set special Param class.'''
         self.implicitParams[attrName] = paramClass
 
-
 class Sizer(SmartContainer):
     '''Sizers are not windows and have common implicit node.'''
     windowAttributes = []
@@ -395,6 +407,21 @@ class Sizer(SmartContainer):
         '''if there are implicit nodes for this particular component'''
         return node.getAttribute('class') != 'spacer'
 
+    def getChildObject(self, obj, index):
+        obj = obj.GetChildren()[index]
+        if obj.IsSizer():
+            return obj.GetSizer()
+        elif obj.IsWindow():
+            return obj.GetWindow()
+        elif obj.IsSpacer():
+            return obj.GetSpacer()
+        return None                 # normally this is an error
+
+    def getScreenRect(self, obj):
+        rect = wx.RectPS(obj.GetPosition(), obj.GetSize())
+        return rect
+        #return obj.GetContainingWindow().GetRect()
+    
 
 class BoxSizer(Sizer):
     '''Sizers are not windows and have common implicit node.'''

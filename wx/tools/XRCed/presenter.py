@@ -117,6 +117,7 @@ class _Presenter:
 
     def setData(self, item):
         '''Set data and view for current tree item.'''
+
         if not item or item == view.tree.root:
             TRACE('setData: root node')
             self.container = None
@@ -141,6 +142,26 @@ class _Presenter:
             self.panels = view.panel.SetData(self.container, self.comp, node)
             # Create new pending undo
             self.createUndoEdit(item)
+
+        if view.testWin.object:
+            # Remove previous highlight
+            view.testWin.object.Refresh()
+            wx.Yield()
+        
+            try:
+                obj = view.testWin.FindObject(item)
+                if obj:
+                    rect = self.comp.getScreenRect(obj)
+                    print rect
+                    if rect is not None:
+                        dc = wx.WindowDC(view.testWin.object)
+#                        dc.StartDrawingOnTopWin(view.testWin.object)
+                        dc.SetPen(wx.RED_PEN)
+                        dc.SetBrush(wx.TRANSPARENT_BRUSH)
+                        dc.DrawRectangleRect(rect)
+#                        dc.EndDrawingOnTop()
+            except:
+                logger.exception('highlighting failed')
 
     def popupMenu(self, forceSibling, forceInsert, pos):
         '''Show popup menu and set sibling/insert flags.'''
