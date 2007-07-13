@@ -39,6 +39,11 @@ class GraphicsContextTest(testGraphicsObject.GraphicsObjectTest):
             self.frame.Show() # otherwise segfault
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()
         self.testControl = self.renderer.CreateContext(self.frame)
+    
+    def tearDown(self):
+        self.testControl.Destroy()
+        self.frame.Destroy()
+        self.app.Destroy()
         
     def testConstructorFails(self):
         """__init__"""

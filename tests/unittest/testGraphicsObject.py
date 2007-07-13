@@ -16,6 +16,10 @@ class GraphicsObjectTest(unittest.TestCase):
         self.app = wx.PySimpleApp()
         self.testControl = wx.GraphicsObject()
     
+    def tearDown(self):
+        self.testControl.Destroy()
+        self.app.Destroy()
+    
     def testConstructor(self):
         """__init__"""
         obj = wx.GraphicsObject()

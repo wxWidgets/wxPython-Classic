@@ -20,6 +20,11 @@ class GraphicsRendererTest(unittest.TestCase):
         if wxtest.PlatformIsLinux():
             self.frame.Show()
         self.testControl = wx.GraphicsRenderer.GetDefaultRenderer()
+    
+    def tearDown(self):
+        # crashes if you try to destroy the wx.GraphicsRenderer
+        self.frame.Destroy()
+        self.app.Destroy()
 
     def testConstructorFails(self):
         """__init__"""
