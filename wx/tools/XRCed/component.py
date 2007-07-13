@@ -168,14 +168,19 @@ class Component(object):
                 testWin.size = frame.GetSize()
         return frame, object
 
-    def getScreenRect(self, obj):
+    def getRect(self, obj):
         if isinstance(obj, wx.Window):
-            return obj.GetRect()
+            if obj.IsTopLevel():
+                return obj.GetClientRect()
+            else:
+                return obj.GetRect().Inflate(1, 1)
+        elif isinstance(obj, wx.Rect):
+            return obj
         else:
             return None
 
     def copyAttributes(self, srcNode, dstNode):
-        '''Copy relevant attribute nodes from oldNode to newNode.'''
+        '''Copy relevant attribute nodes from srcNode to dstNode.'''
         dstComp = Manager.getNodeComp(dstNode)
         for n in srcNode.childNodes:
             if n.nodeType == n.ELEMENT_NODE:
@@ -414,10 +419,10 @@ class Sizer(SmartContainer):
         elif obj.IsWindow():
             return obj.GetWindow()
         elif obj.IsSpacer():
-            return obj.GetSpacer()
+            return obj.GetRect()
         return None                 # normally this is an error
 
-    def getScreenRect(self, obj):
+    def getRect(self, obj):
         rect = wx.RectPS(obj.GetPosition(), obj.GetSize())
         return rect
         #return obj.GetContainingWindow().GetRect()

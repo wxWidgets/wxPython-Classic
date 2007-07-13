@@ -151,15 +151,13 @@ class _Presenter:
             try:
                 obj = view.testWin.FindObject(item)
                 if obj:
-                    rect = self.comp.getScreenRect(obj)
+                    rect = self.comp.getRect(obj)
                     print rect
                     if rect is not None:
                         dc = wx.WindowDC(view.testWin.object)
-#                        dc.StartDrawingOnTopWin(view.testWin.object)
                         dc.SetPen(wx.RED_PEN)
                         dc.SetBrush(wx.TRANSPARENT_BRUSH)
                         dc.DrawRectangleRect(rect)
-#                        dc.EndDrawingOnTop()
             except:
                 logger.exception('highlighting failed')
 
@@ -464,6 +462,7 @@ class _Presenter:
         view.tree.SetItemBold(view.testWin.item, False)
         view.frame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
         view.frame.miniFrame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
+        # Remember dimensions
         view.testWin.pos = view.testWin.GetFrame().GetPosition()
         view.testWin.size = view.testWin.GetFrame().GetSize()
         view.testWin.Destroy()

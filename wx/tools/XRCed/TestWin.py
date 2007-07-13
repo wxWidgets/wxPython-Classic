@@ -23,10 +23,10 @@ class TestWindow:
         self.isDirty = False            # if refresh neeeded
 
     def SetView(self, frame, object, item):
+        TRACE('SetView %s %s', frame, object)
         if self.object:                 # test window present
             if not frame or frame and not self.frame:
                 self.GetFrame().Close()
-                wx.Yield()
         self.frame = frame
         self.object = object
         object.SetDropTarget(DropTarget())
