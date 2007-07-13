@@ -1,6 +1,7 @@
 import unittest
 import wx
 
+import wxtest
 import unittest
 
 """
@@ -16,8 +17,10 @@ class GraphicsRendererTest(unittest.TestCase):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(None)
+        if wxtest.PlatformIsLinux():
+            self.frame.Show()
         self.testControl = wx.GraphicsRenderer.GetDefaultRenderer()
-    
+
     def testConstructorFails(self):
         """__init__"""
         self.assertRaises(AttributeError, wx.GraphicsRenderer)
