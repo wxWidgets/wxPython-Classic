@@ -144,20 +144,16 @@ class _Presenter:
             self.createUndoEdit(item)
 
         if view.testWin.object:
-            # Remove previous highlight
-            view.testWin.object.Refresh()
-            wx.Yield()
-        
             try:
                 obj = view.testWin.FindObject(item)
                 if obj:
                     rect = self.comp.getRect(obj)
                     print rect
                     if rect is not None:
-                        dc = wx.WindowDC(view.testWin.object)
-                        dc.SetPen(wx.RED_PEN)
-                        dc.SetBrush(wx.TRANSPARENT_BRUSH)
-                        dc.DrawRectangleRect(rect)
+                        # If framed object use external frame
+                        if obj == view.testWin.object and view.testWin.frame:
+                            rect.x = rect.y = 0
+                        view.testWin.highlight(rect)
             except:
                 logger.exception('highlighting failed')
 

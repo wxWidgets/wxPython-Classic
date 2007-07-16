@@ -15,12 +15,22 @@ class TestWindow:
         self.Init()
 
     def Init(self):
-        self.hl = self.hlDT = None      # highlight objects
+        self.hl = self.hlDT = None      # highlight objects (Rect)
         self.frame = self.object = None # currenly shown frame and related object
         self.item = None
         self.pos = wx.DefaultPosition
         self.size = wx.DefaultSize        
         self.isDirty = False            # if refresh neeeded
+
+    def OnPaint(self, evt):
+        hl = self.hl
+        if hl:
+            # If framed object use external frame
+            dc = wx.ClientDC(self.object)
+            dc.SetPen(wx.RED_PEN)
+            dc.SetBrush(wx.TRANSPARENT_BRUSH)
+            dc.DrawRectangleRect(hl)
+            dc.Destroy()
 
     def SetView(self, frame, object, item):
         TRACE('SetView %s %s', frame, object)
@@ -36,6 +46,7 @@ class TestWindow:
         if item == self.item:   # try to keep same size
             self.GetFrame().SetSize(self.size)
         self.item = item
+        self.hl = None
 
     def GetFrame(self):
         if self.frame: return self.frame
@@ -52,43 +63,10 @@ class TestWindow:
         return self.IsShown() and self.isDirty
 
     def Destroy(self):
+        if self.hl: self.hl.Destroy()
         if self.frame: self.frame.Destroy()
         elif self.object: self.object.Destroy()
         self.frame = self.object = self.item = None
-
-    # Find position relative to the top-level window
-    def FindNodePos(self, item, obj=None):
-        # Root at (0,0)
-        if item == self.item: return wx.Point(0, 0)
-        itemParent = view.tree.GetItemParent(item)
-        # Select book page
-        if not obj: obj = self.FindNodeObject(item)
-#        if view.tree.GetPyData(itemParent).treeObject().__class__ in \
-#               [xxxNotebook, xxxChoicebook, xxxListbook]:
-#            book = self.FindNodeObject(itemParent)
-#            # Find position
-#            for i in range(book.GetPageCount()):
-#                if book.GetPage(i) == obj:
-#                    if book.GetSelection() != i:
-#                        book.SetSelection(i)
-#                        # Remove highlight - otherwise highlight window won't be visible
-#                        if g.testWin.highLight:
-#                            g.testWin.highLight.Remove()
-#                    break
-        # For sizers and notebooks we must select the first window-like parent
-        winParent = itemParent
-        while self.GetPyData(winParent).isSizer:
-            winParent = self.GetItemParent(winParent)
-        # Notebook children are layed out in a little strange way
-        # wxGTK places NB panels relative to the NB parent
-        if wx.Platform == '__WXGTK__':
-            if self.GetPyData(itemParent).treeObject().__class__ == xxxNotebook:
-                winParent = self.GetItemParent(winParent)
-        parentPos = self.FindNodePos(winParent)
-        pos = obj.GetPosition()
-        # Position (-1,-1) is really (0,0)
-        if pos == (-1,-1): pos = (0,0)
-        return parentPos + pos
 
     # Find wx object corresponding to a tree item (or return None)
     def FindObject(self, item):
@@ -117,6 +95,15 @@ class TestWindow:
             comp = Manager.getNodeComp(node)
         print obj
         return obj
+
+    def highlight(self, rect):
+        if not self.hl:
+            if self.frame:
+                self.hl = Highlight(self.frame.panel, rect)
+            else:
+                self.hl = Highlight(self.object, rect)
+        else:
+            self.hl.Move(rect)
     
 ################################################################################
 
@@ -225,81 +212,37 @@ class DropTarget(wx.PyDropTarget):
         
 ################################################################################
 
-class HighLightBox:
-    colour = None
-    def __init__(self, pos, size):
-        colour = g.tree.COLOUR_HL
-        if size.width == -1: size.width = 0
-        if size.height == -1: size.height = 0
-        w = g.testWin.panel
-        l1 = wx.Window(w, -1, pos, wx.Size(size.width, 2))
-        l1.SetBackgroundColour(colour)
-        l2 = wx.Window(w, -1, pos, wx.Size(2, size.height))
-        l2.SetBackgroundColour(colour)
-        l3 = wx.Window(w, -1, wx.Point(pos.x + size.width - 2, pos.y), wx.Size(2, size.height))
-        l3.SetBackgroundColour(colour)
-        l4 = wx.Window(w, -1, wx.Point(pos.x, pos.y + size.height - 2), wx.Size(size.width, 2))
-        l4.SetBackgroundColour(colour)
-        self.lines = [l1, l2, l3, l4]
-        if wx.Platform == '__WXMSW__':
-            for l in self.lines:
-                l.Bind(wx.EVT_PAINT, self.OnPaint)
-        g.testWin.highLight = self
-        self.size = size
+class Highlight:
+    def __init__(self, w, rect, colour=wx.RED):
+        if rect.width == -1: rect.width = 0
+        if rect.height == -1: rect.height = 0
+        self.lines = [wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 2)),
+                      wx.Window(w, -1, rect.GetTopLeft(), (2, rect.height)),
+                      wx.Window(w, -1, (rect.x + rect.width - 2, rect.y), (2, rect.height)),
+                      wx.Window(w, -1, (rect.x, rect.y + rect.height - 2), (rect.width, 2))]
+        [l.SetBackgroundColour(colour) for l in self.lines]
+#        if wx.Platform == '__WXMSW__':
+#            for l in self.lines:
+#                l.Bind(wx.EVT_PAINT, self.OnPaint)
+#        g.testWin.highLight = self
+        self.rect = rect
     # Repainting is not always done for these windows on Windows
     def OnPaint(self, evt):
         w = evt.GetEventObject()
         dc = wx.PaintDC(w)
         w.ClearBackground()
         dc.Destroy()
-    # Move highlight to a new position
-    def Replace(self, pos, size):
+    def Destroy(self):
+        [l.Destroy() for l in self.lines]
+    def Refresh(self):
+        [l.Refresh() for l in self.lines]
+    def Move(self, rect):
+        pos = rect.GetTopLeft()
+        size = rect.GetSize()
         if size.width == -1: size.width = 0
         if size.height == -1: size.height = 0
         self.lines[0].SetDimensions(pos.x, pos.y, size.width, 2)
         self.lines[1].SetDimensions(pos.x, pos.y, 2, size.height)
         self.lines[2].SetDimensions(pos.x + size.width - 2, pos.y, 2, size.height)
         self.lines[3].SetDimensions(pos.x, pos.y + size.height - 2, size.width, 2)
-        self.size = size
-    def Remove(self):
-        map(wx.Window.Destroy, self.lines)
-        g.testWin.highLight = None
-    def Refresh(self):
-        map(wx.Window.Refresh, self.lines)
-
-# Same for drop target
-class HighLightDTBox(HighLightBox):
-    colour = None
-    def __init__(self, pos, size):
-        colour = g.tree.COLOUR_DT
-        if size.width == -1: size.width = 0
-        if size.height == -1: size.height = 0
-        w = g.testWin.panel
-        l1 = wx.Window(w, -1, pos, wx.Size(size.width, 2))
-        l1.SetBackgroundColour(colour)
-        l2 = wx.Window(w, -1, pos, wx.Size(2, size.height))
-        l2.SetBackgroundColour(colour)
-        l3 = wx.Window(w, -1, wx.Point(pos.x + size.width - 2, pos.y), wx.Size(2, size.height))
-        l3.SetBackgroundColour(colour)
-        l4 = wx.Window(w, -1, wx.Point(pos.x, pos.y + size.height - 2), wx.Size(size.width, 2))
-        l4.SetBackgroundColour(colour)
-        self.lines = [l1, l2, l3, l4]
-        self.item = None
-        self.size = size
-    # Remove it
-    def Remove(self):
-        map(wx.Window.Destroy, self.lines)
-        g.testWin.highLightDT = None
-
-def updateHL(hl, hlClass, pos, size):
-    # Need to recreate window if size did not change to force update
-    if hl and hl.size == size:
-        hl.Remove()
-        hl = None
-    if hl:
-        hl.Replace(pos, size)
-    else:
-        hl = hlClass(pos, size)
-    hl.Refresh()
-    return hl
-
+        

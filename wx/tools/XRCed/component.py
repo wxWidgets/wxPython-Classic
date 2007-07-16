@@ -175,7 +175,7 @@ class Component(object):
             else:
                 rect = obj.GetRect()
                 if wx.Platform == '__GTK__': # some controls block screen dc drawing
-                    rect.Inflate(1, 1)
+                    #rect.Inflate(1, 1)
                     if rect.x < 0: rect.x = 0
                     if rect.y < 0: rect.y = 0
                 return rect
