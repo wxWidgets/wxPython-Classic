@@ -35,7 +35,7 @@ AssociateHandle, CacheBestSize, CanSetTransparent, CaptureMouse, CenterOnParent,
 ClearBackground, ClientToScreen, ClientToScreenXY, Close, ConvertDialogPointToPixels, 
 ConvertDialogSizeToPixels, ConvertPixelPointToDialog, ConvertPixelSizeToDialog, 
 Create, DestroyChildren, DissociateHandle, DLG_PNT, DLG_SZE, DragAcceptFiles, 
-FindFocus, Fit, FitInside, GetAcceleratorTable, GetAutoLayout, GetBestSize, 
+FindFocus, Fit, FitInside, GetAutoLayout, GetBestSize, 
 GetBestSizeTuple, GetBestVirtualSize, GetBorder, GetCapture, GetCaret, GetCharHeight, 
 GetCharWidth, GetClientAreaOrigin,
 GetConstraints, GetContainingSizer, GetCursor, 
@@ -53,7 +53,7 @@ MoveAfterInTabOrder, MoveBeforeInTabOrder, Navigate, NewControlId, NextControlId
 PageDown, PageUp, PopEventHandler, PopupMenu, PopupMenuXY, PostCreate, PrepareDC, PrevControlId, 
 PushEventHandler, Raise, Refresh, RefreshRect, RegisterHotKey, ReleaseMouse, RemoveChild, 
 RemoveEventHandler, ScreenToClient, ScreenToClientXY, ScrollLines, ScrollPages, 
-ScrollWindow, SendSizeEvent, SetAcceleratorTable, SetAutoLayout, SetCaret, 
+ScrollWindow, SendSizeEvent, SetAutoLayout, SetCaret, 
 SetConstraints, SetContainingSizer, SetCursor, SetDimensions, SetDoubleBuffered,
 SetDropTarget, SetEventHandler, SetExtraStyle, SetFocus, SetFocusFromKbd, 
 SetHelpTextForId, SetInitialSize, SetLayoutDirection, 
@@ -91,6 +91,16 @@ class WindowTest(unittest.TestCase):
     def tearDown(self):
         self.frame.Destroy()
         self.app.Destroy()
+
+    def testAcceleratorTable(self):
+        """SetAcceleratorTable, GetAcceleratorTable"""
+        aTable = wx.AcceleratorTable([(wx.ACCEL_ALT,  ord('X'), wx.ID_ANY),
+                              (wx.ACCEL_CTRL, ord('H'), wx.ID_ANY),
+                              (wx.ACCEL_CTRL, ord('F'), wx.ID_ANY),
+                              (wx.ACCEL_NORMAL, wx.WXK_F3, wx.ID_ANY)
+                              ])
+        self.testControl.SetAcceleratorTable(aTable)
+        self.assert_(aTable.IsSameAs(self.testControl.GetAcceleratorTable()))
     
     def testBackgroundColor(self):
         """SetBackgroundColour, GetBackgroundColour"""
