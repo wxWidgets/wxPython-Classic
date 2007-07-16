@@ -71,21 +71,21 @@ universal=no
 
 for flag in $*; do
     case ${flag} in
-	skiptar)     skiptar=yes                                ;;
-	skipconfig)  skipconfig=yes; skiptar=yes                ;;
-	skipbuild)   skipbuild=yes; skipconfig=yes; skiptar=yes ;;
-	skipinstall) skipinstall=yes                            ;;
-	skipdmg)     skipdmg=yes                                ;;
-	skipclean)   skipclean=yes                              ;;
-	inplace)     inplace=yes; skiptar=yes                   ;;
-	unicode)     unicode=yes                                ;;
-	ansi)        unicode=no                                 ;;
-	debug)       debug=yes                                  ;;
-	reswig)      reswig=yes                                 ;;
-	universal)   universal=yes                              ;;
-	*)  echo "Unknown flag \"${flag}\""
-	    usage
-	    exit 1
+        skiptar)     skiptar=yes                                ;;
+        skipconfig)  skipconfig=yes; skiptar=yes                ;;
+        skipbuild)   skipbuild=yes; skipconfig=yes; skiptar=yes ;;
+        skipinstall) skipinstall=yes                            ;;
+        skipdmg)     skipdmg=yes                                ;;
+        skipclean)   skipclean=yes                              ;;
+        inplace)     inplace=yes; skiptar=yes                   ;;
+        unicode)     unicode=yes                                ;;
+        ansi)        unicode=no                                 ;;
+        debug)       debug=yes                                  ;;
+        reswig)      reswig=yes                                 ;;
+        universal)   universal=yes                              ;;
+        *)  echo "Unknown flag \"${flag}\""
+            usage
+            exit 1
     esac
 done
 
@@ -250,20 +250,20 @@ fi
 # Configure wxWidgets
 if [ $skipconfig != yes -a $universal != yes ]; then
     $WXDIR/configure \
-	--prefix=$PREFIX \
-	--with-mac \
-	--enable-monolithic \
-	--with-opengl \
-	--enable-sound \
-	--enable-display \
-	--enable-geometry \
-	--enable-graphics_ctx \
-	$DEBUG_FLAG \
-	--enable-precomp=no \
-	--enable-optimise \
-	--disable-debugreport \
-	--disable-precompiled-headers \
-	$UNICODEOPT $OTHER_CFG_OPTS
+        --prefix=$PREFIX \
+        --with-mac \
+        --enable-monolithic \
+        --with-opengl \
+        --enable-sound \
+        --enable-display \
+        --enable-geometry \
+        --enable-graphics_ctx \
+        $DEBUG_FLAG \
+        --enable-precomp=no \
+        --enable-optimise \
+        --disable-debugreport \
+        --disable-precompiled-headers \
+        $UNICODEOPT $OTHER_CFG_OPTS
 
 fi
 
@@ -321,14 +321,14 @@ if [ $skipbuild != yes ]; then
         
         echo "Building wxPython for Intel..."
         
-    cd $WXROOT/wxPython
-    $PYTHON setup.py \
-	UNICODE=$PYUNICODEOPT \
-	NO_SCRIPTS=1 \
-	EP_ADD_OPTS=1 \
-        WX_CONFIG="$INSTALLROOT/$PREFIX/bin/wx-config --prefix=$INSTALLROOT$PREFIX" \
-        BUILD_BASE=$WXBLD/$ARCH/wxPython \
-        ARCH="$ARCH" \
+        cd $WXROOT/wxPython
+        $PYTHON setup.py \
+            UNICODE=$PYUNICODEOPT \
+            NO_SCRIPTS=1 \
+            EP_ADD_OPTS=1 \
+            WX_CONFIG="$INSTALLROOT/$PREFIX/bin/wx-config --prefix=$INSTALLROOT$PREFIX" \
+            BUILD_BASE=$WXBLD/$ARCH/wxPython \
+            ARCH="$ARCH" \
         build
     
     else
@@ -337,12 +337,12 @@ if [ $skipbuild != yes ]; then
         UNICODE=$PYUNICODEOPT \
         NO_SCRIPTS=1 \
         EP_ADD_OPTS=1 \
-	WX_CONFIG="$WXBLD_CONFIG --inplace" \
-	BUILD_BASE=$WXBLD/wxPython \
-	SWIG=$SWIGBIN \
-	USE_SWIG=$SWIGIT \
-	build
-	fi
+        WX_CONFIG="$WXBLD_CONFIG --inplace" \
+        BUILD_BASE=$WXBLD/wxPython \
+        SWIG=$SWIGBIN \
+        USE_SWIG=$SWIGIT \
+        build
+    fi
 fi
 
 #----------------------------------------------------------------------
@@ -365,15 +365,15 @@ if [ $skipinstall != yes ]; then
         export CXX="g++-3.3 -DMAC_OS_X_VERSION_MAX_ALLOWED=1030"
         export CC="gcc-3.3 -DMAC_OS_X_VERSION_MAX_ALLOWED=1030"
         export MACOSX_DEPLOYMENT_TARGET=10.3
-    cd $WXROOT/wxPython
-    $PYTHON setup.py \
-	UNICODE=$PYUNICODEOPT \
-	NO_SCRIPTS=1 \
-	EP_ADD_OPTS=1 \
-	WX_CONFIG="$INSTALLROOT$PREFIX/bin/wx-config --prefix=$INSTALLROOT$PREFIX" \
-        BUILD_BASE=$WXBLD/$ARCH/wxPython \
-        install \
-        --root=$INSTALLROOT/$ARCH
+        cd $WXROOT/wxPython
+        $PYTHON setup.py \
+            UNICODE=$PYUNICODEOPT \
+            NO_SCRIPTS=1 \
+            EP_ADD_OPTS=1 \
+            WX_CONFIG="$INSTALLROOT$PREFIX/bin/wx-config --prefix=$INSTALLROOT$PREFIX" \
+            BUILD_BASE=$WXBLD/$ARCH/wxPython \
+            install \
+            --root=$INSTALLROOT/$ARCH
 
         ARCH=i386
         export CXX="g++-4.0 -arch i386"
@@ -381,13 +381,13 @@ if [ $skipinstall != yes ]; then
         export MACOSX_DEPLOYMENT_TARGET=10.4
         cd $WXROOT/wxPython
         $PYTHON setup.py \
-        UNICODE=$PYUNICODEOPT \
-        NO_SCRIPTS=1 \
-        EP_ADD_OPTS=1 \
-        WX_CONFIG="$INSTALLROOT$PREFIX/bin/wx-config --prefix=$INSTALLROOT$PREFIX" \
-        BUILD_BASE=$WXBLD/$ARCH/wxPython \
-        install \
-        --root=$INSTALLROOT/$ARCH
+            UNICODE=$PYUNICODEOPT \
+            NO_SCRIPTS=1 \
+            EP_ADD_OPTS=1 \
+            WX_CONFIG="$INSTALLROOT$PREFIX/bin/wx-config --prefix=$INSTALLROOT$PREFIX" \
+            BUILD_BASE=$WXBLD/$ARCH/wxPython \
+            install \
+            --root=$INSTALLROOT/$ARCH
         
         echo "Lipoing $INSTALLROOT/ppc and $INSTALLROOT/i386..."
         $PYTHON $WXROOT/distrib/scripts/mac/lipo-dir.py $INSTALLROOT/ppc $INSTALLROOT/i386 $INSTALLROOT
@@ -401,9 +401,9 @@ if [ $skipinstall != yes ]; then
         NO_SCRIPTS=1 \
         EP_ADD_OPTS=1 \
         WX_CONFIG="$INSTALLROOT$PREFIX/bin/wx-config --prefix=$INSTALLROOT$PREFIX" \
-	BUILD_BASE=$WXBLD/wxPython \
-	install \
-	--root=$INSTALLROOT
+        BUILD_BASE=$WXBLD/wxPython \
+        install \
+        --root=$INSTALLROOT
     fi
 
     # Apple's Python Framework (such as what comes with Panther)
@@ -411,13 +411,13 @@ if [ $skipinstall != yes ]; then
     # /Library/Python/$PYVER so we need to move the files so they are
     # installed in the physical location, not the virtual one.
     if [ $APPLE_PYTHON == yes ]; then
-	if [ -e $INSTALLROOT/Library/Python/$PYVER ]; then
-	    rm -r $INSTALLROOT/Library/Python/$PYVER
-	fi	    
-	mkdir -p $INSTALLROOT/Library/Python/$PYVER
-	mv $INSTALLROOT/$SITEPACKAGES/* $INSTALLROOT/Library/Python/$PYVER
-	rm -r $INSTALLROOT/System
-	SITEPACKAGES=/Library/Python/$PYVER
+        if [ -e $INSTALLROOT/Library/Python/$PYVER ]; then
+            rm -r $INSTALLROOT/Library/Python/$PYVER
+        fi          
+        mkdir -p $INSTALLROOT/Library/Python/$PYVER
+        mv $INSTALLROOT/$SITEPACKAGES/* $INSTALLROOT/Library/Python/$PYVER
+        rm -r $INSTALLROOT/System
+        SITEPACKAGES=/Library/Python/$PYVER
     fi
 
     # install wxPython's tool scripts
@@ -434,8 +434,8 @@ if [ $skipinstall != yes ]; then
 
     # Set premissions for files in $INSTALLROOT
     if [ "$UID" = "0" ]; then
-	chown -R root:admin $INSTALLROOT
-	chmod -R g+w        $INSTALLROOT
+        chown -R root:admin $INSTALLROOT
+        chmod -R g+w        $INSTALLROOT
     fi
 fi
 
@@ -456,9 +456,9 @@ if [ $skipdmg != yes ]; then
 
     # Make the welcome message
     case $OSX_VERSION in
-	10.4)  W_MSG="the Tiger (OS X 10.4.x Intel) version of" ;;
-	10.3)  W_MSG="the Panther (OS X 10.3.x) version of" ;;
-	10.2)  W_MSG="the Jaguar (OS X 10.2.x) version of" ;;
+        10.4)  W_MSG="the Tiger (OS X 10.4.x Intel) version of" ;;
+        10.3)  W_MSG="the Panther (OS X 10.3.x) version of" ;;
+        10.2)  W_MSG="the Jaguar (OS X 10.2.x) version of" ;;
     esac
 
     if [ $universal == yes ]; then
@@ -513,18 +513,18 @@ EOF
     # Build the main Installer Package...
     PKGNAME=wxPython${SHORTVER}-osx-$CHARTYPE-$TAG
     if [ $PYVER != 2.3 ]; then
-	PKGNAME=wxPython${SHORTVER}-osx-$CHARTYPE-$TAG-py$PYVER
+        PKGNAME=wxPython${SHORTVER}-osx-$CHARTYPE-$TAG-py$PYVER
     fi
     rm -rf $PKGNAME.pkg
     $PYTHON $PROGDIR/../buildpkg.py \
-	--Title=$PKGNAME \
-	--Version=$VERSION \
-	--Description="wxPython $CHARTYPE runtime $VERSION for $W_MSG MacPython-OSX $PYVER" \
-	--NeedsAuthorization="YES" \
-	--Relocatable="NO" \
-	--InstallOnly="YES" \
-	$INSTALLROOT \
-	$RESOURCEDIR
+        --Title=$PKGNAME \
+        --Version=$VERSION \
+        --Description="wxPython $CHARTYPE runtime $VERSION for $W_MSG MacPython-OSX $PYVER" \
+        --NeedsAuthorization="YES" \
+        --Relocatable="NO" \
+        --InstallOnly="YES" \
+        $INSTALLROOT \
+        $RESOURCEDIR
 
     mv $PKGNAME.pkg $DMGROOT/$PKGNAME.pkg
 
@@ -632,28 +632,28 @@ EOF
 
     # wxDocs
     if [ ! -e $TARBALLDIR/wxPython-docs-$VERSION.tar.bz2 ]; then
-	cat > "$DMGAPPS/Docs/Build ERROR.txt" <<EOF
+        cat > "$DMGAPPS/Docs/Build ERROR.txt" <<EOF
 
 The wxPython-docs tarball was not found when building this disk image!
 
 EOF
 
     else
-	pushd $BUILDROOT
-	tar xjvf $TARBALLDIR/wxPython-docs-$VERSION.tar.bz2
-	popd
+        pushd $BUILDROOT
+        tar xjvf $TARBALLDIR/wxPython-docs-$VERSION.tar.bz2
+        popd
 
         # Make an app to launch viewdocs.py
-	$PYTHONW $PROGDIR/../buildapp.py \
-	    --builddir=$DMGAPPS/Docs \
-	    --name=wxDocsViewer \
-	    --mainprogram=$BUILDROOT/wxPython-$VERSION/docs/viewdocs.py \
-	    --iconfile=$PROGDIR/Info.icns \
-	    build
+        $PYTHONW $PROGDIR/../buildapp.py \
+            --builddir=$DMGAPPS/Docs \
+            --name=wxDocsViewer \
+            --mainprogram=$BUILDROOT/wxPython-$VERSION/docs/viewdocs.py \
+            --iconfile=$PROGDIR/Info.icns \
+            build
 
-	cp $BUILDROOT/wxPython-$VERSION/docs/*.zip $DMGAPPS/Docs/wxDocsViewer.app/Contents/Resources
+        cp $BUILDROOT/wxPython-$VERSION/docs/*.zip $DMGAPPS/Docs/wxDocsViewer.app/Contents/Resources
 
-	cat > "$DMGAPPS/Docs/README 1st.txt" <<EOF
+        cat > "$DMGAPPS/Docs/README 1st.txt" <<EOF
 
 The wxDocsViewer application needs to be copied to your Desktop (or
 someplace else you have write access to) before you can run it, so it
@@ -674,60 +674,60 @@ EOF
 
 
     if [ ! -e $TARBALLDIR/wxPython-demo-$VERSION.tar.bz2 ]; then
-	cat > "$DMGAPPS/Samples/Build ERROR.txt" <<EOF
+        cat > "$DMGAPPS/Samples/Build ERROR.txt" <<EOF
 
 The wxPython-$VERSION-demo tarball was not found when building this disk image!
 
 EOF
-	cp "$DMGAPPS/Samples/Build ERROR.txt" $DMGAPPS
+        cp "$DMGAPPS/Samples/Build ERROR.txt" $DMGAPPS
 
     else
 
         # Copy the demo and samples to the disk image from the tarball
-	pushd $DMGAPPS/Samples
-	tar xjvf $TARBALLDIR/wxPython-demo-$VERSION.tar.bz2
-	mv wxPython-$VERSION/* .
-	rm -rf wxPython-$VERSION
-	rm -f demo/b demo/.setup.sh
-	mv demo/demo.py demo/demo.pyw
-	popd
+        pushd $DMGAPPS/Samples
+        tar xjvf $TARBALLDIR/wxPython-demo-$VERSION.tar.bz2
+        mv wxPython-$VERSION/* .
+        rm -rf wxPython-$VERSION
+        rm -f demo/b demo/.setup.sh
+        mv demo/demo.py demo/demo.pyw
+        popd
 
         # Make an app bundle to run the demo
-	$PYTHONW $PROGDIR/../buildapp.py \
-	    --builddir=$DMGAPPS \
-	    --name="wxPython Demo" \
-	    --mainprogram=$DMGAPPS/Samples/demo/demo.pyw \
-	    --iconfile=$PROGDIR/RunDemo.icns \
-	    build
-	cp -pR $DMGAPPS/Samples/demo/* "$DMGAPPS/wxPython Demo.app/Contents/Resources"
+        $PYTHONW $PROGDIR/../buildapp.py \
+            --builddir=$DMGAPPS \
+            --name="wxPython Demo" \
+            --mainprogram=$DMGAPPS/Samples/demo/demo.pyw \
+            --iconfile=$PROGDIR/RunDemo.icns \
+            build
+        cp -pR $DMGAPPS/Samples/demo/* "$DMGAPPS/wxPython Demo.app/Contents/Resources"
     fi
 
 
     # Make an app bundle to launch PyCrust
     $PYTHONW $PROGDIR/../buildapp.py \
-	--builddir=$DMGAPPS \
-	--name=PyCrust \
-	--mainprogram=$INSTALLROOT$BINPREFIX/pycrust.py \
-	--iconfile=$PROGDIR/PieShell.icns \
-	build
+        --builddir=$DMGAPPS \
+        --name=PyCrust \
+        --mainprogram=$INSTALLROOT$BINPREFIX/pycrust.py \
+        --iconfile=$PROGDIR/PieShell.icns \
+        build
 
 ## TODO: PyAlaMode needs tweaked to be able to run from a bundle.  It
 ## needs to know to ignore command line parameters and etc...
 #      # and PyAlaMode
 #      $PYTHONW $PROGDIR/../buildapp.py \
-#  	--builddir=$DMGAPPS \
-#  	--name=PyAlaMode \
-#  	--mainprogram=$INSTALLROOT$BINPREFIX/pyalamode.py \
-#  	--iconfile=$PROGDIR/PieShell.icns \
-#  	build
+#       --builddir=$DMGAPPS \
+#       --name=PyAlaMode \
+#       --mainprogram=$INSTALLROOT$BINPREFIX/pyalamode.py \
+#       --iconfile=$PROGDIR/PieShell.icns \
+#       build
 
     # Make an app to launch XRCed
     $PYTHONW $PROGDIR/../buildapp.py \
- 	--builddir=$DMGAPPS \
- 	--name=XRCed \
- 	--mainprogram=$INSTALLROOT$BINPREFIX/xrced.py \
- 	--iconfile=$PROGDIR/XRCed.icns \
- 	build
+        --builddir=$DMGAPPS \
+        --name=XRCed \
+        --mainprogram=$INSTALLROOT$BINPREFIX/xrced.py \
+        --iconfile=$PROGDIR/XRCed.icns \
+        build
 
 
 
