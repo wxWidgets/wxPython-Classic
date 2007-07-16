@@ -9,9 +9,9 @@ wx.TopLevelWindow.
 
 Methods yet to test for wx.TopLevelWindow:
 __init__, CenterOnScreen, CentreOnScreen, EnableCloseButton, GetDefaultItem, GetIcon,
-GetTmpDefaultItem, Iconize, IsActive, IsAlwaysMaximized, IsFullScreen, IsIconized,
+GetTmpDefaultItem, Iconize, IsActive, IsAlwaysMaximized, IsIconized,
 MacGetMetalAppearance, MacSetMetalAppearance, RequestUserAttention, Restore, SetDefaultItem,
-SetIcon, SetIcons, SetShape, SetTmpDefaultItem, ShowFullScreen
+SetIcon, SetIcons, SetShape, SetTmpDefaultItem
 """
 
 class TopLevelWindowBase(testWindow.WindowTest):
@@ -19,6 +19,22 @@ class TopLevelWindowBase(testWindow.WindowTest):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = None
+    
+    def tearDown(self):
+        self.frame.Hide()
+        self.frame.Destroy()
+        self.testControl.Hide()
+        self.testControl.Destroy()
+        self.app.Destroy()
+    
+    def testFullScreen(self):
+        """ShowFullScreen, IsFullScreen"""
+        self.assert_(self.testControl.ShowFullScreen(True))
+        self.assert_(not self.testControl.ShowFullScreen(True))
+        self.assert_(self.testControl.IsFullScreen())
+        self.assert_(self.testControl.ShowFullScreen(False))
+        self.assert_(not self.testControl.ShowFullScreen(False))
+        self.assert_(not self.testControl.IsFullScreen())
     
     def testMaximize(self):
         """Maximize, IsMaximized"""
