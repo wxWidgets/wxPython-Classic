@@ -49,23 +49,7 @@ class ScrolledWindowTest(testPanel.PanelTest):
         for w in wins:
             self.testControl.SetTargetWindow(w)
             self.assertEquals(w, self.testControl.GetTargetWindow())
-    
-    # overrides test from testWindow (or rather, it's meant to)
-    # kind of needs to sidestep the fact that there's a floor and ceiling
-    # TODO: needs to take into better account when one xmin and ymin aren't the same
-    def testVirtualSize(self):
-        """SetVirtualSize, GetVirtualSize"""
-        self.testControl.SetVirtualSize((1,1))
-        xmin,ymin = self.testControl.GetVirtualSize()
-        self.testControl.SetVirtualSize((40000,40000))
-        xmax,ymax = self.testControl.GetVirtualSize()
-        #print "maxes: %d, %d" % (xmax,ymax)
-        #print "mins:  %d, %d" % (xmin,ymin)
-        for i in range(min(xmin,ymin), max(xmax,ymax),10): # can't be too slow
-            sz = wx.Size(i,i)
-            self.testControl.SetVirtualSize(sz)
-            self.assertEquals(sz, self.testControl.GetVirtualSize())
-    
+            
 
 def suite():
     suite = unittest.makeSuite(ScrolledWindowTest)
