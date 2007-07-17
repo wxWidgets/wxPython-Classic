@@ -154,7 +154,7 @@ class Panel(wx.Panel):
             self.nb.AddPage(self.pageExStyle, 'ExStyle')
 
         # Additional panel for hidden node
-        if container and container.requireImplicit(node):
+        if container and container.requireImplicit(node) and container.implicitAttributes:
             panel = AttributePanel(self.pageIA, 
                                    container.implicitAttributes, 
                                    container.implicitParams,

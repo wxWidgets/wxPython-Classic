@@ -122,12 +122,22 @@ Manager.register(c)
 Manager.setMenu(c, 'sizer', 'grid bag sizer', 'wxGridBagSizer', 50)
 Manager.setTool(c, 'Sizers', pos=(1,1))
 
+### wxStdDialogButtonSizer
+
+c = Sizer('wxStdDialogButtonSizer', ['btnsizer'], [],
+          implicit_klass='button', 
+          implicit_attributes=[])
+print c.implicitPageName
+Manager.register(c)
+Manager.setMenu(c, 'sizer', 'dialog button sizer', 'wxStdDialogButtonSizer', 60)
+#Manager.setTool(c, 'Sizers', pos=(0,2))
+
 ### spacer
 
 c = SimpleComponent('spacer', ['spacer'], ['size', 'option', 'flag', 'border'])
 c.hasName = False
 Manager.register(c)
-Manager.setMenu(c, 'sizer', 'spacer', 'spacer', 60)
+Manager.setMenu(c, 'sizer', 'spacer', 'spacer', 70)
 Manager.setTool(c, 'Sizers', pos=(1,2))
 
 ### wxStaticText
@@ -344,7 +354,7 @@ Manager.setTool(c, 'Controls', pos=(4,2))
 
 ### wxButton
 
-c = Component('wxButton', ['control', 'tool'],
+c = Component('wxButton', ['control', 'tool', 'stdbtn'],
               ['pos', 'size', 'label', 'default'])
 c.addStyles('wxBU_LEFT', 'wxBU_TOP', 'wxBU_RIGHT', 'wxBU_BOTTOM', 'wxBU_EXACTFIT',
             'wxNO_BORDER')
@@ -428,12 +438,22 @@ Manager.register(c)
 Manager.setMenu(c, 'box', 'list box', 'wxListBox', 40)
 Manager.setTool(c, 'Panels', pos=(0,0))
 
+### wxCheckListBox
+
+c = Component('wxCheckListBox', ['control','tool'],
+              ['pos', 'size', 'content', 'selection'])
+c.setSpecial('content', CheckContentAttribute)
+c.setParamClass('content', params.ParamContentCheckList)
+Manager.register(c)
+Manager.setMenu(c, 'box', 'check list box', 'wxCheckListBox', 50)
+#Manager.setTool(c, 'Panels', pos=(0,0))
+
 ### wxStaticBox
 
 c = Component('wxStaticBox', ['control','tool'],
               ['pos', 'size', 'label'])
 Manager.register(c)
-Manager.setMenu(c, 'box', 'static box', 'wxStaticBox', 50)
+Manager.setMenu(c, 'box', 'static box', 'wxStaticBox', 60)
 Manager.setTool(c, 'Panels', pos=(2,0))
 
 ################################################################################

@@ -148,12 +148,17 @@ class _Presenter:
                 obj = view.testWin.FindObject(item)
                 if obj:
                     rect = self.comp.getRect(obj)
-                    print rect
                     if rect is not None:
                         # If framed object use external frame
                         if obj == view.testWin.object and view.testWin.frame:
                             rect.x = rect.y = 0
                         view.testWin.highlight(rect)
+                    # Special highlighting for sizers
+                    if isinstance(obj, wx.Sizer):
+                        for sizerItem in obj.GetChildren():
+                            rect = sizerItem.GetRect()
+                            view.testWin.highlightSizerItem(rect)
+                        
             except:
                 logger.exception('highlighting failed')
 

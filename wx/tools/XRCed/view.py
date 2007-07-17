@@ -428,13 +428,6 @@ class PrefsDialog(wx.Dialog):
             except KeyError:
                 c.Enable(False)
 
-#        self.radio_allow_exec = xrc.XRCCTRL(self, 'radio_allow_exec')
-#        try:
-#            radio = {'ask': 0, 'yes':1, 'no':2}[g.conf.allowExec]
-#        except KeyError:
-#            radio = 0
-#        self.radio_allow_exec.SetSelection(radio)
-
     def OnCheck(self, evt):
         self.checkControls[evt.GetId()][0].Enable(evt.IsChecked())
         evt.Skip()

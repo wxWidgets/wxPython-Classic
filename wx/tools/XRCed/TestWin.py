@@ -22,16 +22,6 @@ class TestWindow:
         self.size = wx.DefaultSize        
         self.isDirty = False            # if refresh neeeded
 
-    def OnPaint(self, evt):
-        hl = self.hl
-        if hl:
-            # If framed object use external frame
-            dc = wx.ClientDC(self.object)
-            dc.SetPen(wx.RED_PEN)
-            dc.SetBrush(wx.TRANSPARENT_BRUSH)
-            dc.DrawRectangleRect(hl)
-            dc.Destroy()
-
     def SetView(self, frame, object, item):
         TRACE('SetView %s %s', frame, object)
         if self.object:                 # test window present
@@ -89,11 +79,9 @@ class TestWindow:
                 return None
             item = items.pop()
             index = tree.ItemIndex(item)
-            print obj,index
             obj = comp.getChildObject(obj, index)
             node = tree.GetPyData(item)
             comp = Manager.getNodeComp(node)
-        print obj
         return obj
 
     def highlight(self, rect):
@@ -104,7 +92,10 @@ class TestWindow:
                 self.hl = Highlight(self.object, rect)
         else:
             self.hl.Move(rect)
-    
+            
+    def highlightSizerItem(self, rect):
+        self.hl.AddSizerItem(rect)
+  
 ################################################################################
 
 # DragAndDrop
@@ -214,6 +205,8 @@ class DropTarget(wx.PyDropTarget):
 
 class Highlight:
     def __init__(self, w, rect, colour=wx.RED):
+        self.win = w
+        self.colour = colour
         if rect.width == -1: rect.width = 0
         if rect.height == -1: rect.height = 0
         self.lines = [wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 2)),
@@ -241,8 +234,18 @@ class Highlight:
         size = rect.GetSize()
         if size.width == -1: size.width = 0
         if size.height == -1: size.height = 0
+        [l.Destroy() for l in self.lines[4:]]
+        self.lines[4:] = []
         self.lines[0].SetDimensions(pos.x, pos.y, size.width, 2)
         self.lines[1].SetDimensions(pos.x, pos.y, 2, size.height)
         self.lines[2].SetDimensions(pos.x + size.width - 2, pos.y, 2, size.height)
         self.lines[3].SetDimensions(pos.x, pos.y + size.height - 2, size.width, 2)
-        
+    def AddSizerItem(self, rect):
+        w = self.win
+        colour = self.colour
+        lines = [wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 1)),
+                 wx.Window(w, -1, rect.GetTopLeft(), (1, rect.height)),
+                 wx.Window(w, -1, (rect.x + rect.width - 1, rect.y), (1, rect.height)),
+                 wx.Window(w, -1, (rect.x, rect.y + rect.height - 1), (rect.width, 1))]
+        [l.SetBackgroundColour(colour) for l in lines]
+        self.lines.extend(lines)

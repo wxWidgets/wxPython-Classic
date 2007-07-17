@@ -21,8 +21,9 @@ import images
 parentChildGroups = {
     'root': ['top_level', 'component'],      # top-level objects
     'frame': ['toolbar', 'menubar', 'statusbar'],
-    'window': ['control', 'window', 'sizer', '!frame'],
+    'window': ['control', 'window', 'sizer', 'btnsizer', '!frame'],
     'sizer': ['control', 'sizer', 'spacer'],
+    'btnsizer': ['stdbtn'],
     'menubar': ['menu'],
     'toolbar': ['tool', 'separator'],
     'menu': ['menu', 'menu_item', 'separator']
@@ -406,7 +407,7 @@ class Sizer(SmartContainer):
     implicitRenameDict = {'option':'proportion'}
     def __init__(self, klass, groups, attributes, **kargs):
         kargs.setdefault('implicit_klass', 'sizeritem')
-        kargs.setdefault('implicit_page', 'SizeItem')
+        kargs.setdefault('implicit_page', 'SizerItem')
         kargs.setdefault('implicit_attributes', ['option', 'flag', 'border', 'minsize', 'ratio'])
         kargs.setdefault('implicit_params', {'option': params.ParamInt, 
                                              'minsize': params.ParamPosSize, 

@@ -44,6 +44,28 @@ class ContentAttribute:
         return value
     get = staticmethod(get)
 
+class CheckContentAttribute:
+    '''CheckList content. Value is a list of tuples (checked, string).'''
+    def add(parentNode, attribute, value):
+        contentElem = Model.dom.createElement(attribute)
+        parentNode.appendChild(contentElem)
+        for checked,item in value:
+            elem = Model.dom.createElement('item')
+            if checked:
+                elem.setAttribute('checked', '1')
+            text = Model.dom.createTextNode(item)
+            elem.appendChild(text)
+            contentElem.appendChild(elem)
+    add = staticmethod(add)
+    def get(node):
+        value = []
+        for n in node.childNodes:
+            if n.nodeType == node.ELEMENT_NODE and n.tagName == 'item':
+                checked = bool(n.getAttribute('checked'))
+                value.append((checked, Attribute.get(n)))
+        return value
+    get = staticmethod(get)
+
 class FontAttribute:
     '''Font attribute class. Value is a dictionary of font attribtues.'''
     attributes = ['size', 'style', 'weight', 'underlined', 'family', 'face', 'encoding', 
