@@ -61,3 +61,9 @@ def PlatformIsNotLinux():
 
 def PlatformIsNotMac():
     return CURRENT_PLATFORM != MAC
+
+# -----------------------------------------------------------
+
+SIZE         = 34
+VIRTUAL_SIZE = 56
+CLIENT_SIZE  = 78

@@ -1,5 +1,6 @@
 import unittest
 import wx
+import wxtest
 
 """
 This file contains classes and methods for unit testing the API of wx.Size
@@ -12,6 +13,28 @@ SetHeight, SetWidth
 
 asTuple(*args, **kwargs) -> Use Get instead
 """
+
+def getSizes(ctrl, type):
+    set,get = None,None
+    if type == wxtest.SIZE:
+        set,get = ctrl.SetSize, ctrl.GetSize
+    elif type == wxtest.VIRTUAL_SIZE:
+        set,get = ctrl.SetVirtualSize, ctrl.GetVirtualSize
+    elif type == wxtest.CLIENT_SIZE:
+        set,get = ctrl.SetClientSize, ctrl.GetClientSize
+    else:
+        raise TypeError("Incorrect type constant used")
+    set((1,1))
+    xmin,ymin = get()
+    set((40000,40000))
+    xmax,ymax = get()
+    xx = range(xmin,xmax,1000)
+    yy = range(ymin,ymax,1000)
+    xx.append(xmax)
+    yy.append(ymax)
+    return zip(xx,yy)
+
+# -----------------------------------------------------------
 
 def getSizeData():
     return tuple( wx.Size(w,h) for w,h in getSizeTuples() )

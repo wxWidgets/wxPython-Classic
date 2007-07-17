@@ -126,14 +126,11 @@ class WindowTest(unittest.TestCase):
     # not strictly a test, there's no way to verify!
     def testCenter(self):
         """Center, Centre"""
+        self.assertEquals(self.testControl.Center, self.testControl.Centre)
         self.testControl.Center() # default: BOTH
         self.testControl.Center(wx.HORIZONTAL)
         self.testControl.Center(wx.BOTH)
         self.testControl.Center(wx.VERTICAL)
-        self.testControl.Centre() # default: BOTH
-        self.testControl.Centre(wx.HORIZONTAL)
-        self.testControl.Centre(wx.BOTH)
-        self.testControl.Centre(wx.VERTICAL)
         # This test is finicky.
         if wxtest.PlatformIsWindows():
             self.assertRaises(wx.PyAssertionError, self.testControl.Center, wx.CENTER_ON_SCREEN)
@@ -157,29 +154,13 @@ class WindowTest(unittest.TestCase):
  
     def testClientSize(self):
         """SetClientSize, GetClientSize"""
-        self.testControl.SetClientSize((1,1))
-        xmin,ymin = self.testControl.GetClientSize()
-        self.testControl.SetClientSize((40000,40000))
-        xmax,ymax = self.testControl.GetClientSize()
-        xx = range(xmin,xmax,1000)
-        yy = range(ymin,ymax,1000)
-        xx.append(xmax)
-        yy.append(ymax)
-        for x,y in zip(xx,yy):
+        for x,y in testSize.getSizes(self.testControl, wxtest.CLIENT_SIZE):
             self.testControl.SetClientSize(wx.Size(x,y))
             self.assertEquals(wx.Size(x,y), self.testControl.GetClientSize())
     
     def testClientSizeWH(self):
         """SetClientSizeWH, GetClientSizeTuple"""
-        self.testControl.SetClientSize((1,1))
-        xmin,ymin = self.testControl.GetClientSize()
-        self.testControl.SetClientSize((40000,40000))
-        xmax,ymax = self.testControl.GetClientSize()
-        xx = range(xmin,xmax,1000)
-        yy = range(ymin,ymax,1000)
-        xx.append(xmax)
-        yy.append(ymax)
-        for w,h in zip(xx,yy):
+        for w,h in testSize.getSizes(self.testControl, wxtest.CLIENT_SIZE):
             self.testControl.SetClientSizeWH(w,h)
             self.assertEquals((w,h), self.testControl.GetClientSizeTuple())
     
@@ -417,29 +398,13 @@ class WindowTest(unittest.TestCase):
 
     def testSize(self):
         """SetSize, GetSize"""
-        self.testControl.SetSize((1,1))
-        xmin,ymin = self.testControl.GetSize()
-        self.testControl.SetSize((40000,40000))
-        xmax,ymax = self.testControl.GetSize()
-        xx = range(xmin,xmax,1000)
-        yy = range(ymin,ymax,1000)
-        #xx.append(xmax)
-        #yy.append(ymax)
-        for x,y in zip(xx,yy):
+        for x,y in testSize.getSizes(self.testControl, wxtest.SIZE):
             self.testControl.SetSize(wx.Size(x,y))
             self.assertEquals(wx.Size(x,y), self.testControl.GetSize())
     
     def testSizeWH(self):
         """SetSizeWH, GetSizeTuple"""
-        self.testControl.SetSize((1,1))
-        xmin,ymin = self.testControl.GetSize()
-        self.testControl.SetSize((40000,40000))
-        xmax,ymax = self.testControl.GetSize()
-        xx = range(xmin,xmax,1000)
-        yy = range(ymin,ymax,1000)
-        xx.append(xmax)
-        yy.append(ymax)
-        for w,h in zip(xx,yy):
+        for w,h in testSize.getSizes(self.testControl, wxtest.SIZE):
             self.testControl.SetSizeWH(w,h)
             self.assertEquals((w,h), self.testControl.GetSizeTuple())
     
@@ -489,29 +454,13 @@ class WindowTest(unittest.TestCase):
 
     def testVirtualSize(self):
         """SetVirtualSize, GetVirtualSize"""
-        self.testControl.SetVirtualSize((1,1))
-        xmin,ymin = self.testControl.GetVirtualSize()
-        self.testControl.SetVirtualSize((40000,40000))
-        xmax,ymax = self.testControl.GetVirtualSize()
-        xx = range(xmin,xmax,1000)
-        yy = range(ymin,ymax,1000)
-        xx.append(xmax)
-        yy.append(ymax)
-        for x,y in zip(xx,yy): # can't be too slow
+        for x,y in testSize.getSizes(self.testControl, wxtest.VIRTUAL_SIZE):
             self.testControl.SetVirtualSize(wx.Size(x,y))
             self.assertEquals(wx.Size(x,y), self.testControl.GetVirtualSize())
     
     def testVirtualSizeWH(self):
         """SetVirtualSizeWH, GetVirtualSizeTuple"""
-        self.testControl.SetVirtualSize((1,1))
-        xmin,ymin = self.testControl.GetVirtualSize()
-        self.testControl.SetVirtualSize((40000,40000))
-        xmax,ymax = self.testControl.GetVirtualSize()
-        xx = range(xmin,xmax,1000)
-        yy = range(ymin,ymax,1000)
-        xx.append(xmax)
-        yy.append(ymax)
-        for w,h in zip(xx,yy):
+        for w,h in testSize.getSizes(self.testControl, wxtest.VIRTUAL_SIZE):
             self.testControl.SetVirtualSizeWH(w,h)
             self.assertEquals((w,h),self.testControl.GetVirtualSizeTuple())
     
