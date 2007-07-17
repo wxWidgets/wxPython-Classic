@@ -105,7 +105,7 @@ class TextCtrlTest(testControl.ControlTest):
         txt = "The quick brown fox jumps over the lazy dog."
         self.testControl.SetValue(txt)
         for i,j in ((0,2),(1,9),(7,len(txt))):
-            self.assert_(txt[i:j], self.testControl.GetRange(i,j))
+            self.assertEquals(txt[i:j], self.testControl.GetRange(i,j))
         
     def testInsertionPoint(self):
         """SetInsertionPoint, GetInsertionPoint"""
@@ -113,18 +113,18 @@ class TextCtrlTest(testControl.ControlTest):
         self.testControl.SetValue(txt)
         # Is 1 the lowest possible value for GetInsertionPoint()?
         self.testControl.SetInsertionPoint(0)
-        self.assert_(0, self.testControl.GetInsertionPoint())
+        self.assertEquals(0, self.testControl.GetInsertionPoint())
         self.testControl.SetInsertionPoint(10)
-        self.assert_(10, self.testControl.GetInsertionPoint())
+        self.assertEquals(10, self.testControl.GetInsertionPoint())
         self.testControl.SetInsertionPoint(999)
-        self.assert_(len(txt), self.testControl.GetInsertionPoint())
+        self.assertEquals(len(txt), self.testControl.GetInsertionPoint())
     
     def testInsertionPointEnd(self):
         """SetInsertionPointEnd"""
         txt = "The quick brown fox jumps over the lazy dog."
         self.testControl.SetValue(txt)
         self.testControl.SetInsertionPointEnd()
-        self.assert_(len(txt), self.testControl.GetInsertionPoint())
+        self.assertEquals(len(txt), self.testControl.GetInsertionPoint())
     
     def testRemove(self):
         """Remove"""
@@ -154,8 +154,8 @@ class TextCtrlTest(testControl.ControlTest):
         self.testControl.SetValue(txt)
         for i,j in ((0,2),(1,9),(7,len(txt))):
             self.testControl.SetSelection(i,j)
-            self.assert_((i,j), self.testControl.GetSelection())
-            self.assert_(txt[i:j], self.testControl.GetStringSelection())
+            self.assertEquals((i,j), self.testControl.GetSelection())
+            self.assertEquals(txt[i:j], self.testControl.GetStringSelection())
     
     def testValue(self):
         """SetValue, GetValue"""
