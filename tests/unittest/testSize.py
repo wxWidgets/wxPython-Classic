@@ -1,6 +1,8 @@
 import unittest
 import wx
+
 import wxtest
+import math
 
 """
 This file contains classes and methods for unit testing the API of wx.Size
@@ -15,6 +17,7 @@ asTuple(*args, **kwargs) -> Use Get instead
 """
 
 def getSizes(ctrl, type):
+    # determine get/set methods
     set,get = None,None
     if type == wxtest.SIZE:
         set,get = ctrl.SetSize, ctrl.GetSize
@@ -24,15 +27,22 @@ def getSizes(ctrl, type):
         set,get = ctrl.SetClientSize, ctrl.GetClientSize
     else:
         raise TypeError("Incorrect type constant used")
+    # get mins and maxes
     set((1,1))
     xmin,ymin = get()
     set((40000,40000))
     xmax,ymax = get()
-    xx = range(xmin,xmax,1000)
-    yy = range(ymin,ymax,1000)
-    xx.append(xmax)
-    yy.append(ymax)
-    return zip(xx,yy)
+    # generate data sets
+    xset = [xmin,xmax]
+    yset = [ymin,ymax]
+    xrange = xmax-xmin
+    yrange = ymax-ymin
+    xinc = int(math.floor(xrange/11))
+    yinc = int(math.floor(yrange/11))
+    for i in range(1,11):
+        xset.append(xmin+xinc*i)
+        yset.append(ymin+yinc*i)
+    return zip(xset,yset)
 
 # -----------------------------------------------------------
 
