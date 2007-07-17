@@ -1,7 +1,7 @@
 Recent Changes for wxPython
 =====================================================================
 
-2.8.4.1
+2.8.4.2
 -------
 * 
 
@@ -34,6 +34,11 @@ Added some patches from Billy B. that improve the pySketch sample.
 
 Added patch from Chriss Mellon that gives PyShell a custom context
 menu that is better integrated with the shell environment.
+
+There are now new build scripts for making the Universal binaries and
+Installer for OS X.  There is no longer any need for separate builds
+for each OS version, all builds are now Universal and work on both
+Panther and Tiger, and on PPC and i386.
 
 
 

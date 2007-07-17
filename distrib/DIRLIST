@@ -60,8 +60,7 @@ demo/dllwidget
 distrib
 distrib/all
 distrib/mac
-distrib/mac/wxPythonOSX
-distrib/mac/wxPythonOSX/resources
+distrib/mac/resources
 distrib/msw
 docs
 docs/screenshots
