@@ -8,6 +8,10 @@ from optparse import OptionParser
 
 # ------------------- Helper Methods ------------------------
 
+def wiki(string):
+    if options.wiki:
+        print string
+
 def start_figleaf():
     if options.figleaf:
         globals()['figleaf'] = __import__('figleaf')
@@ -32,15 +36,15 @@ def output_summary(wiki=False):
     print "%d classes tested" % (len(modules))
     if wiki:
         print " * ",
-    print "%d tests passed in total!" % (total_successes)
-    if total_failures > 0:
+    print "%d tests passed in total!" % (totals['successes'])
+    if totals['failures'] > 0:
         if wiki:
             print " * ",
-        print "%d tests failed in total!" % (total_failures)
-    if total_errors > 0:
+        print "%d tests failed in total!" % (totals['failures'])
+    if totals['errors'] > 0:
         if wiki:
             print " * ",
-        print "%d tests erred in total!" % (total_errors)
+        print "%d tests erred in total!" % (totals['errors'])
 
 def output_failure_data(failure, wiki):
     if wiki:
@@ -49,21 +53,8 @@ def output_failure_data(failure, wiki):
     else:
         print "\n------ " + str(failure[0]) + " ------"
         print failure[1],
-
-def wiki_header():
-    if options.wiki:
-        print "=== %s - %s ===" % (time.asctime(),wx.GetOsDescription())
-
-def wiki_platform_info():
-    if options.wiki:
-        print "==== Platform Information ===="
-        print " * '''Platform [sys.platform]''': %s" % (sys.platform)
-        print " * '''Python Version [sys.version]''': %s" % (sys.version)
-        print " * '''wx Version [wx.version()]''': %s" % (wx.version())
-        print " * '''OS [wx.!GetOsDescription()]''': %s" % (wx.GetOsDescription())
         
 # -----------------------------------------------------------
-
 # -------------------- Option Logic -------------------------
 
 # Options
@@ -113,7 +104,6 @@ if options.wiki:
     options.verbose = False
     
 # -----------------------------------------------------------
-
 # ------------------- Test Running --------------------------
 rootdir = os.path.abspath(sys.path[0])
 if not os.path.isdir(rootdir):
@@ -128,8 +118,6 @@ if options.outfilename != "":
     except IOError:
         print "Error opening output file, defaulting to original stdout"
         sys.stdout = origstdout
-
-start_figleaf()
 
 module_names = [ n[:-3] for n in os.listdir(rootdir)
                     if n.startswith('test') and n.endswith('.py') ]
@@ -146,62 +134,79 @@ if options.module_list != "":
         if s in module_names:
             tmp.append(s)
         else:
-            parser.error('asdf')
+            parser.error('Class not found under test')
     module_names = tmp
     
 modules = [ __import__(mod) for mod in module_names ]
 
-wiki_header()
-wiki_platform_info()
-# TODO: add a preliminary "here's what I was told to run" output,
-#   and include command-line switches. wiki-only?
-                
-total_successes = 0
-total_failures  = 0
-total_errors    = 0
+# run tests
+results = {}
+start_figleaf()
 start_time = time.time()
-if options.wiki:
-    print "==== Failure Data ===="
 for module in modules:
-    # run suite
     suite = module.suite()
-    results = unittest.TestResult()
-    suite.run(results)
-    # report on it
-    failures  = len(results.failures)
-    errors    = len(results.errors)
-    successes = results.testsRun - failures - errors
-    total_failures  += failures
-    total_errors    += errors
-    total_successes += successes
-    if options.verbose:
-        print "%s:\t%d tests passed" % (module.__name__, successes)
-    if failures > 0:
-        if options.verbose:
-            print "%s:\t%d tests failed!" % (module.__name__, failures)
-        if options.failure_details:
-            for failure in results.failures:
-                output_failure_data(failure, options.wiki)
-    if errors > 0:
-        if options.verbose:
-            print "%s:\t%d tests in error!" % (module.__name__, errors)
-        if options.failure_details:
-            for error in results.errors:
-                output_failure_data(error, options.wiki)
+    result = unittest.TestResult()
+    suite.run(result)
+    results[module.__name__] = result
 stop_time = time.time()
-if options.verbose or options.failure_details and not options.wiki:
-    print "\n----------------------\n"
+stop_figleaf()
+
+# process data
+totals = {}
+data   = {}
+totals['successes'] = 0
+totals['failures']  = 0
+totals['errors']    = 0
+for mod_name, result in results.iteritems():
+    tmp = {}
+    tmp['failures']  = len(result.failures)
+    tmp['errors']    = len(result.errors)
+    tmp['successes'] = result.testsRun - tmp['failures'] - tmp['errors']
+    for s in ('failures','errors','successes'):
+        totals[s] += tmp[s]
+    # TODO: add processing here...
+    tmp['failure_data'] = result.failures
+    tmp['error_data']   = result.errors
+    data[mod_name] = tmp
 
 # -----------------------------------------------------------
+# ------------------- Output Reporting ----------------------
+wiki("=== %s - %s ===" % (time.asctime(),wx.GetOsDescription()))
+wiki("==== Platform Information ====")
+wiki(" * '''Platform [sys.platform]''': %s" % (sys.platform))
+wiki(" * '''Python Version [sys.version]''': %s" % (sys.version))
+wiki(" * '''wx Version [wx.version()]''': %s" % (wx.version()))
+wiki(" * '''OS [wx.!GetOsDescription()]''': %s" % (wx.GetOsDescription()))
 
-# ------------------- Output Reporting --------------------------
+# TODO: add a preliminary "here's what I was told to run" output,
+#   and include command-line switches. wiki-only?
 
 output_summary(options.wiki)
+
+wiki("==== Failure Data ====")
+for mod_name, results in data.iteritems():
+    # report on it
+    if options.verbose:
+        print "%s:\t%d tests passed" % (mod_name, results['successes'])
+    if results['failures'] > 0:
+        if options.verbose:
+            print "%s:\t%d tests failed!" % (mod_name, results['failures'])
+        if options.failure_details:
+            for failure in results['failure_data']:
+                output_failure_data(failure, options.wiki)
+    if results['errors'] > 0:
+        if options.verbose:
+            print "%s:\t%d tests in error!" % (mod_name, results['errors'])
+        if options.failure_details:
+            for error in results['error_data']:
+                output_failure_data(error, options.wiki)
+                
+if options.verbose or options.failure_details and not options.wiki:
+    print "\n----------------------\n"
+    
 if origstdout != None:
     sys.stdout = origstdout
     output_summary()
-
-stop_figleaf()
 
 # this is broken for some reason
 #os.system("figleaf2html -d ./tests_code_coverage %s" % figfile)
