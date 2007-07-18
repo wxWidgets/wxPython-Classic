@@ -144,23 +144,27 @@ class _Presenter:
             self.createUndoEdit(item)
 
         if view.testWin.object:
-            try:
-                obj = view.testWin.FindObject(item)
-                if obj:
-                    rect = self.comp.getRect(obj)
-                    if rect is not None:
-                        # If framed object use external frame
-                        if obj == view.testWin.object and view.testWin.frame:
-                            rect.x = rect.y = 0
-                        view.testWin.highlight(rect)
-                    # Special highlighting for sizers
-                    if isinstance(obj, wx.Sizer):
-                        for sizerItem in obj.GetChildren():
-                            rect = sizerItem.GetRect()
-                            view.testWin.highlightSizerItem(rect)
-                        
-            except:
-                logger.exception('highlighting failed')
+            self.highlight(item)        
+
+    def highlight(self, item):
+        try:
+            obj = view.testWin.FindObject(item)
+            if obj:
+                rect = self.comp.getRect(obj)
+                print rect
+                if rect is not None:
+                    # If framed object use external frame
+                    #if obj == view.testWin.object and view.testWin.frame:
+                    #    rect.x = rect.y = 10
+                    view.testWin.Highlight(rect)
+                # Special highlighting for sizers
+                if isinstance(obj, wx.Sizer):
+                    for sizerItem in obj.GetChildren():
+                        rect = sizerItem.GetRect()
+                        view.testWin.HighlightSizerItem(rect)
+                    
+        except:
+            logger.exception('highlighting failed')
 
     def popupMenu(self, forceSibling, forceInsert, pos):
         '''Show popup menu and set sibling/insert flags.'''

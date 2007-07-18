@@ -30,6 +30,7 @@ class TestWindow:
         self.frame = frame
         self.object = object
         object.SetDropTarget(DropTarget())
+        object.Bind(wx.EVT_PAINT, self.OnPaint)
         self.hl = self.hlDT = None
         if self.pos != wx.DefaultPosition:
             self.GetFrame().SetPosition(self.pos)
@@ -37,6 +38,10 @@ class TestWindow:
             self.GetFrame().SetSize(self.size)
         self.item = item
         self.hl = None
+
+    def OnPaint(self, evt):
+        if self.hl: self.hl.Refresh()
+        evt.Skip()
 
     def GetFrame(self):
         if self.frame: return self.frame
@@ -62,7 +67,6 @@ class TestWindow:
     def FindObject(self, item):
         tree = view.tree
         if not item or item == tree.root: return None
-        #import pdb;pdb.set_trace()
         if item == self.item: return self.object
         # Traverse tree until we reach the root  or the test object
         items = [item]
@@ -84,16 +88,16 @@ class TestWindow:
             comp = Manager.getNodeComp(node)
         return obj
 
-    def highlight(self, rect):
+    def Highlight(self, rect):
         if not self.hl:
-            if self.frame:
-                self.hl = Highlight(self.frame.panel, rect)
-            else:
+#            if self.frame:
+#                self.hl = Highlight(self.frame.panel, rect)
+#            else:
                 self.hl = Highlight(self.object, rect)
         else:
             self.hl.Move(rect)
             
-    def highlightSizerItem(self, rect):
+    def HighlightSizerItem(self, rect):
         self.hl.AddSizerItem(rect)
   
 ################################################################################
@@ -214,10 +218,8 @@ class Highlight:
                       wx.Window(w, -1, (rect.x + rect.width - 2, rect.y), (2, rect.height)),
                       wx.Window(w, -1, (rect.x, rect.y + rect.height - 2), (rect.width, 2))]
         [l.SetBackgroundColour(colour) for l in self.lines]
-#        if wx.Platform == '__WXMSW__':
-#            for l in self.lines:
-#                l.Bind(wx.EVT_PAINT, self.OnPaint)
-#        g.testWin.highLight = self
+        if wx.Platform == '__WXMSW__':
+            [l.Bind(wx.EVT_PAINT, self.OnPaint) for l in self.lines]
         self.rect = rect
     # Repainting is not always done for these windows on Windows
     def OnPaint(self, evt):
@@ -240,6 +242,7 @@ class Highlight:
         self.lines[1].SetDimensions(pos.x, pos.y, 2, size.height)
         self.lines[2].SetDimensions(pos.x + size.width - 2, pos.y, 2, size.height)
         self.lines[3].SetDimensions(pos.x, pos.y + size.height - 2, size.width, 2)
+        self.Refresh()
     def AddSizerItem(self, rect):
         w = self.win
         colour = self.colour
@@ -248,4 +251,6 @@ class Highlight:
                  wx.Window(w, -1, (rect.x + rect.width - 1, rect.y), (1, rect.height)),
                  wx.Window(w, -1, (rect.x, rect.y + rect.height - 1), (rect.width, 1))]
         [l.SetBackgroundColour(colour) for l in lines]
+        if wx.Platform == '__WXMSW__':
+            [l.Bind(wx.EVT_PAINT, self.OnPaint) for l in lines]
         self.lines.extend(lines)

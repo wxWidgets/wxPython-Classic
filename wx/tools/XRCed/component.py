@@ -170,20 +170,14 @@ class Component(object):
         return frame, object
 
     def getRect(self, obj):
+        # Object's rect must be relative to testWin.object
         if isinstance(obj, wx.Window):
-            if obj.IsTopLevel():
+            if obj is view.testWin.object:
                 return obj.GetClientRect()
             else:
-                rect = obj.GetRect()
-                if wx.Platform == '__GTK__': # some controls block screen dc drawing
-                    #rect.Inflate(1, 1)
-                    if rect.x < 0: rect.x = 0
-                    if rect.y < 0: rect.y = 0
-                return rect
+                return obj.GetRect()
         elif isinstance(obj, wx.Rect):
             return obj
-        else:
-            return None
 
     def copyAttributes(self, srcNode, dstNode):
         '''Copy relevant attribute nodes from srcNode to dstNode.'''
@@ -277,6 +271,7 @@ class Container(Component):
                 dstComp.appendChild(dstNode, n)
 
     def replaceChild(self, parentNode, newNode, oldNode):
+        '''Replace oldNode by newNode keeping relevant attributes.'''
         # Keep compatible children
         oldComp = Manager.getNodeComp(oldNode)
         oldComp.copyAttributes(oldNode, newNode)
@@ -285,6 +280,7 @@ class Container(Component):
         parentNode.replaceChild(newNode, oldNode)
 
     def getChildObject(self, obj, index):
+        '''Get index'th child of a tested interface element.'''
         if isinstance(obj, wx.Window) and obj.GetSizer():
             return obj.GetSizer()
         try:
