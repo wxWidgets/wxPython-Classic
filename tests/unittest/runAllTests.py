@@ -206,6 +206,7 @@ wiki(" * '''Platform [sys.platform]''': %s" % (sys.platform))
 wiki(" * '''Python Version [sys.version]''': %s" % (sys.version))
 wiki(" * '''wx Version [wx.version()]''': %s" % (wx.version()))
 wiki(" * '''OS [wx.!GetOsDescription()]''': %s" % (wx.GetOsDescription()))
+wiki(" * '''wx Info [wx.!PlatformInfo]''': %s" % (str(wx.PlatformInfo)))
 
 # TODO: add a preliminary "here's what I was told to run" output,
 #   and include command-line switches. wiki-only?
