@@ -38,6 +38,8 @@ elif sys.platform.find('linux') != -1:
     CURRENT_PLATFORM = LINUX
 elif sys.platform.find('mac') != -1:
     CURRENT_PLATFORM = MAC
+elif sys.platform.find('darwin') != -1:
+    CURRENT_PLATFORM = MAC
 else:
     raise EnvironmentError("Unknown platform!")
 
