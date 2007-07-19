@@ -45,9 +45,5 @@ class GraphicsObjectTest(unittest.TestCase):
         self.assert_(not self.testControl.IsNull())
         
         
-def suite():
-    suite = unittest.makeSuite(GraphicsObjectTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

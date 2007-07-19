@@ -28,9 +28,5 @@ class BitmapButtonTest(testButton.ButtonTest):
             super(BitmapButtonTest,self).testAllControlsNeedParents()
         
 
-def suite():
-    suite = unittest.makeSuite(BitmapButtonTest)
-    return unittest.TestSuite(suite)
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

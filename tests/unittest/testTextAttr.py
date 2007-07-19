@@ -67,9 +67,5 @@ class TextAttrTest(unittest.TestCase):
             self.assertEquals(colour, self.testControl.GetTextColour())
     
 
-def suite():
-    suite = unittest.makeSuite(TextAttrTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

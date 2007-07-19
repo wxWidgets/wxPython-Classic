@@ -103,9 +103,5 @@ class FontTest(unittest.TestCase):
         self.assert_(not attr.font.IsOk())
         
 
-def suite():
-    suite = unittest.makeSuite(FontTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

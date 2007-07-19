@@ -126,9 +126,5 @@ class PointTest(unittest.TestCase):
         self.assertEquals( ONE-ZERO, ONE )
 
 
-def suite():
-    suite = unittest.makeSuite(PointTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

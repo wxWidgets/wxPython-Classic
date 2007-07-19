@@ -19,9 +19,5 @@ class DialogTest(testTopLevelWindow.TopLevelWindowBase):
         self.testControl = wx.Dialog(parent=self.frame)
     
     
-def suite():
-    suite = unittest.makeSuite(DialogTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

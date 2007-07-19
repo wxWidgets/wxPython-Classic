@@ -137,9 +137,5 @@ class ItemContainerBase(unittest.TestCase):
         self.assertEquals(two, self.testControl.GetItems())
         
 
-def suite():
-    suite = unittest.makeSuite(ItemContainerTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main(defaultTest="ItemContainerTest")

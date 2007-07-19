@@ -50,10 +50,6 @@ class ScrolledWindowTest(testPanel.PanelTest):
             self.testControl.SetTargetWindow(w)
             self.assertEquals(w, self.testControl.GetTargetWindow())
             
-
-def suite():
-    suite = unittest.makeSuite(ScrolledWindowTest)
-    return suite
-    
+            
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

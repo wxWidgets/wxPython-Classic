@@ -167,9 +167,5 @@ class TextCtrlTest(testControl.ControlTest):
         self.assertEquals("", self.testControl.GetValue())
         
 
-def suite():
-    suite = unittest.makeSuite(TextCtrlTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

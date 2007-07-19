@@ -469,11 +469,7 @@ class WindowTest(unittest.TestCase):
         Tests to make sure the window's children register as such"""
         for child in self.children:
             self.assertEquals(self.testControl, child.GetParent())
-
-
-def suite():
-    suite = unittest.makeSuite(WindowTest)
-    return suite
+            
     
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

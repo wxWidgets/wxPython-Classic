@@ -170,10 +170,7 @@ class SizeTest(unittest.TestCase):
         for w,h in getSizeTuples():
             size.Set(w,h)
             self.assertEquals((w,h), size.Get())
-
-def suite():
-    suite = unittest.makeSuite(SizeTest)
-    return suite
-    
+            
+            
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

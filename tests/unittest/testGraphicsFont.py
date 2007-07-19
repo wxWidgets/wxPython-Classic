@@ -35,9 +35,5 @@ class GraphicsFontTest(testGraphicsObject.GraphicsObjectTest):
         self.assert_(self.testControl.IsNull())
             
             
-def suite():
-    suite = unittest.makeSuite(GraphicsFontTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

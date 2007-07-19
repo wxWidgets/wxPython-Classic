@@ -30,9 +30,5 @@ class GraphicsPathTest(testGraphicsObject.GraphicsObjectTest):
         self.assertEquals(repr(self.renderer), repr(self.testControl.GetRenderer()))
             
             
-def suite():
-    suite = unittest.makeSuite(GraphicsPathTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

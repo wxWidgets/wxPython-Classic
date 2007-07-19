@@ -67,7 +67,7 @@ def getColourNames():
 
 # -----------------------------------------------------------
 
-class ColorTest(unittest.TestCase):
+class ColourTest(unittest.TestCase):
     def setUp(self):
         self.app = wx.PySimpleApp()
     
@@ -130,10 +130,6 @@ class ColorTest(unittest.TestCase):
             self.assertEquals(i, colour.Alpha())
             
 
-def suite():
-    suite = unittest.makeSuite(ColorTest)
-    return suite
-    
 if __name__ == '__main__':
     # test getColourEquivalents
     print "Testing getColourEquivalents... ",
@@ -145,4 +141,4 @@ if __name__ == '__main__':
         #print 'Colour: ', colour
         assert colour == f.GetBackgroundColour()
     print "Done"
-    unittest.main(defaultTest='suite')
+    unittest.main()

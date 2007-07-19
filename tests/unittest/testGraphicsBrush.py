@@ -40,9 +40,5 @@ class GraphicsBrushTest(testGraphicsObject.GraphicsObjectTest):
         self.assert_(self.testControl.IsNull())
             
             
-def suite():
-    suite = unittest.makeSuite(GraphicsBrushTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

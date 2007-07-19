@@ -78,9 +78,5 @@ class GraphicsRendererTest(unittest.TestCase):
         self.assert_(isinstance(self.testControl.GetDefaultRenderer(), wx.GraphicsRenderer))
             
             
-def suite():
-    suite = unittest.makeSuite(GraphicsRendererTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

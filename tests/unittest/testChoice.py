@@ -16,10 +16,6 @@ class ChoiceTest(testControlWithItems.ControlWithItemsBase):
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Choice(parent=self.frame)
         
-
-def suite():
-    suite = unittest.makeSuite(ChoiceTest)
-    return suite
-    
+        
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

@@ -16,11 +16,7 @@ class StaticTextTest(testControl.ControlTest):
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.name = "Static Text Control"
         self.testControl = wx.StaticText(parent=self.frame, name=self.name)
-                                            
-                                            
-def suite():
-    suite = unittest.makeSuite(StaticTextTest)
-    return unittest.TestSuite(suite)
-    
+        
+        
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

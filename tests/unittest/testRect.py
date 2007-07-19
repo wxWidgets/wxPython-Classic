@@ -76,9 +76,5 @@ class RectTest(unittest.TestCase):
         self.assertEquals((0,0,0,0), rect.Get())
     
 
-def suite():
-    suite = unittest.makeSuite(RectTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

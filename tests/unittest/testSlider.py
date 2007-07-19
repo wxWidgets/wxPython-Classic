@@ -76,9 +76,5 @@ class SliderTest(testControl.ControlTest):
             self.assertEquals(max, self.testControl.GetValue())
         
 
-def suite():
-    suite = unittest.makeSuite(SliderTest)
-    return unittest.TestSuite(suite)
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

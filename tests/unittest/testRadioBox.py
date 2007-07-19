@@ -125,9 +125,5 @@ class RadioBoxTest(testControl.ControlTest):
             self.assertEquals(sel, self.testControl.GetStringSelection())
             
             
-def suite():
-    suite = unittest.makeSuite(RadioBoxTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

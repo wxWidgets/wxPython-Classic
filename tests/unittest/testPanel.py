@@ -17,9 +17,5 @@ class PanelTest(testWindow.WindowTest):
         self.testControl = wx.Panel(parent=self.frame)
     
 
-def suite():
-    suite = unittest.makeSuite(PanelTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

@@ -30,9 +30,5 @@ class GraphicsMatrixTest(testGraphicsObject.GraphicsObjectTest):
         #self.assert_(self.renderer is self.testControl.GetRenderer())
             
             
-def suite():
-    suite = unittest.makeSuite(GraphicsMatrixTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

@@ -42,9 +42,5 @@ class SizerBase(unittest.TestCase):
         self.frame.Destroy()
 
 
-def suite():
-    suite = unittest.makeSuite(SizerTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main(defaultTest="SizerTest")

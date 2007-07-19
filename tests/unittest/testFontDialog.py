@@ -27,9 +27,5 @@ class FontDialogTest(testDialog.DialogTest):
         self.assert_(self.font_data.IsSameAs(self.testControl.GetFontData()))
         
         
-def suite():
-    suite = unittest.makeSuite(FontDialogTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

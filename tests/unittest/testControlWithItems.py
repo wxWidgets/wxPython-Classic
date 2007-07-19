@@ -23,9 +23,5 @@ class ControlWithItemsBase(testControl.ControlTest, testItemContainer.ItemContai
     pass
 
 
-def suite():
-    suite = unittest.makeSuite(ControlWithItemsTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main(defaultTest="ControlWithItemsTest")

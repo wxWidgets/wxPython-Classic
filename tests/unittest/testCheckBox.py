@@ -74,9 +74,5 @@ class CheckBoxTest(testControl.ControlTest):
         self.assert_(not self.testControl.IsChecked())
         
         
-def suite():
-    suite = unittest.makeSuite(CheckBoxTest)
-    return unittest.TestSuite(suite)
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

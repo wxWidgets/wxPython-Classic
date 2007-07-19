@@ -54,9 +54,5 @@ class GaugeTest(testControl.ControlTest):
             self.testControl.SetValue(i)
             self.assertEquals(i, self.testControl.GetValue())
 
-def suite():
-    suite = unittest.makeSuite(GaugeTest)
-    return unittest.TestSuite(suite)
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

@@ -45,9 +45,5 @@ class ComboBoxTest(testChoice.ChoiceTest):
         self.assertNotEquals(txt1, self.testControl.GetValue())
         
 
-def suite():
-    suite = unittest.makeSuite(ComboBoxTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

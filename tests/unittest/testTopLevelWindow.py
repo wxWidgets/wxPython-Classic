@@ -74,10 +74,6 @@ class TopLevelWindowTest(unittest.TestCase):
         self.assertRaises(AttributeError, wx.TopLevelWindow)
 
 # -----------------------------------------------------------
-
-def suite():
-    suite = unittest.makeSuite(TopLevelWindowTest)
-    return suite
     
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main(defaultTest='TopLevelWindowTest')

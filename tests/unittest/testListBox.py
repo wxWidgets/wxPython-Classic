@@ -77,9 +77,5 @@ class ListBoxTest(testControlWithItems.ControlWithItemsBase):
         self.assert_(not self.testControl.IsSorted())
         
 
-def suite():
-    suite = unittest.makeSuite(ListBoxTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

@@ -104,9 +104,5 @@ class ButtonTest(testControl.ControlTest):
         self.assertEquals(self.testControl, self.frame.DefaultItem)
         
 
-def suite():
-    suite = unittest.makeSuite(ButtonTest)
-    return unittest.TestSuite(suite)
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

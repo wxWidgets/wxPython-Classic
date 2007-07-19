@@ -39,9 +39,5 @@ class ControlTest(testWindow.WindowTest):
         self.assertEquals(name, ctrl.GetLabelText())
     
 
-def suite():
-    suite = unittest.makeSuite(ControlTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

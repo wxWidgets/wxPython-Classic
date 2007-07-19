@@ -99,9 +99,5 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
         self.assertNotEquals(tb1, self.testControl.GetToolBar())
     
 
-def suite():
-    suite = unittest.makeSuite(FrameTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

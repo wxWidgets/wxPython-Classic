@@ -17,9 +17,5 @@ class CheckListBoxTest(testListBox.ListBoxTest):
         self.testControl = wx.CheckListBox(parent=self.frame)
         
 
-def suite():
-    suite = unittest.makeSuite(CheckListBoxTest)
-    return suite
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()

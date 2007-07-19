@@ -32,9 +32,5 @@ class ToggleButtonTest(testControl.ControlTest):
         self.assert_(not self.testControl.GetValue())
         
 
-def suite():
-    suite = unittest.makeSuite(ToggleButtonTest)
-    return unittest.TestSuite(suite)
-    
 if __name__ == '__main__':
-    unittest.main(defaultTest='suite')
+    unittest.main()
