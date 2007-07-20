@@ -147,21 +147,13 @@ class _Presenter:
             self.highlight(item)
 
     def highlight(self, item):
+        TRACE('highlight')
         try:
-            obj = view.testWin.FindObject(item)
-            if not obj:
-                view.testWin.RemoveHighlight()
-                return
-            rect = self.comp.getRect(obj)
-            if rect is None:
+            rect = view.testWin.FindObjectRect(item)
+            if not rect:
                 view.testWin.RemoveHighlight()
                 return
             view.testWin.Highlight(rect)
-            # Special highlighting for sizers
-            if isinstance(obj, wx.Sizer):
-                for sizerItem in obj.GetChildren():
-                    rect = sizerItem.GetRect()
-                    view.testWin.HighlightSizerItem(rect)
         except:
             logger.exception('highlighting failed')
 
@@ -224,12 +216,10 @@ class _Presenter:
                 item = view.tree.AppendItem(item, label, imageId, data=data)
         view.tree.EnsureVisible(item)
         view.tree.UnselectAll()
-#        wx.Yield()
+        if view.testWin.IsShown():
+            view.testWin.isDirty = True
         view.tree.SelectItem(item)
         self.setModified()
-        # Refresh test window after finishing
-        if g.conf.autoRefresh and view.testWin.IsShown():
-            self.refreshTestWin()
         return item
 
     def replace(self, comp, node=None):

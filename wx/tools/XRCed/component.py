@@ -172,12 +172,11 @@ class Component(object):
     def getRect(self, obj):
         # Object's rect must be relative to testWin.object
         if isinstance(obj, wx.Window):
-            if obj is view.testWin.object:
-                return None # or obj.GetClientRect()
-            else:
-                return obj.GetRect()
+            return [obj.GetRect()]
         elif isinstance(obj, wx.Rect):
-            return obj
+            return [obj]
+        else:
+            return None
 
     def copyAttributes(self, srcNode, dstNode):
         '''Copy relevant attribute nodes from srcNode to dstNode.'''
@@ -425,10 +424,11 @@ class Sizer(SmartContainer):
         return None                 # normally this is an error
 
     def getRect(self, obj):
-        rect = wx.RectPS(obj.GetPosition(), obj.GetSize())
-        return rect
-        #return obj.GetContainingWindow().GetRect()
-    
+        rects = [wx.RectPS(obj.GetPosition(), obj.GetSize())]
+        for sizerItem in obj.GetChildren():
+            rects.append(sizerItem.GetRect())
+        return rects
+
 
 class BoxSizer(Sizer):
     '''Sizers are not windows and have common implicit node.'''

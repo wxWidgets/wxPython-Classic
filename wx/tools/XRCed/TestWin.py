@@ -63,11 +63,12 @@ class TestWindow:
         elif self.object: self.object.Destroy()
         self.frame = self.object = self.item = None
 
-    # Find wx object corresponding to a tree item (or return None)
-    def FindObject(self, item):
+    # Find the rectangle or rectangles corresponding to a tree item
+    # in the test window (or return None)
+    def FindObjectRect(self, item):
         tree = view.tree
         if not item or item == tree.root: return None
-        if item == self.item: return self.object
+        if item == self.item: return None #self.object
         # Traverse tree until we reach the root  or the test object
         items = [item]
         while 1:
@@ -77,6 +78,7 @@ class TestWindow:
             else: items.append(item)
         # Now traverse back, searching children
         obj = self.object
+        offset = wx.Point(0,0)
         comp = Manager.getNodeComp(tree.GetPyData(self.item))
         while items and obj:
             if not (isinstance(obj, wx.Window) or isinstance(obj, wx.Sizer)):
@@ -86,20 +88,19 @@ class TestWindow:
             obj = comp.getChildObject(obj, index)
             node = tree.GetPyData(item)
             comp = Manager.getNodeComp(node)
-        return obj
+            rect = comp.getRect(obj)
+            if not rect: return None
+            if items:
+                offset += rect[0].GetTopLeft()
+        [r.Offset(offset) for r in rect]
+        return rect
 
     def Highlight(self, rect):
         if not self.hl:
-#            if self.frame:
-#                self.hl = Highlight(self.frame.panel, rect)
-#            else:
-                self.hl = Highlight(self.object, rect)
+            self.hl = Highlight(self.object, rect)
         else:
             self.hl.Move(rect)
             
-    def HighlightSizerItem(self, rect):
-        self.hl.AddSizerItem(rect)
-  
     def RemoveHighlight(self):
         if self.hl is None: return
         self.hl.Destroy()
@@ -204,9 +205,18 @@ class DropTarget(wx.PyDropTarget):
 ################################################################################
 
 class Highlight:
+    '''
+    Create a highlight rectangle by using multiple windows. rect is a
+    single Rect or a list of Rects (for sizeritems).
+    '''
     def __init__(self, w, rect, colour=wx.RED):
         self.win = w
         self.colour = colour
+        if type(rect) == list:
+            rects = rect[1:]
+            rect = rect[0]
+        else:
+            rects = []
         if rect.width == -1: rect.width = 0
         if rect.height == -1: rect.height = 0
         self.lines = [wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 2)),
@@ -216,7 +226,8 @@ class Highlight:
         [l.SetBackgroundColour(colour) for l in self.lines]
         if wx.Platform == '__WXMSW__':
             [l.Bind(wx.EVT_PAINT, self.OnPaint) for l in self.lines]
-        self.rect = rect
+        for r in rects:
+            self.AddSizerItem(r)
     # Repainting is not always done for these windows on Windows
     def OnPaint(self, evt):
         w = evt.GetEventObject()
@@ -228,6 +239,11 @@ class Highlight:
     def Refresh(self):
         [l.Refresh() for l in self.lines]
     def Move(self, rect):
+        if type(rect) == list:
+            rects = rect[1:]
+            rect = rect[0]
+        else:
+            rects = []
         pos = rect.GetTopLeft()
         size = rect.GetSize()
         if size.width == -1: size.width = 0
@@ -238,7 +254,9 @@ class Highlight:
         self.lines[1].SetDimensions(pos.x, pos.y, 2, size.height)
         self.lines[2].SetDimensions(pos.x + size.width - 2, pos.y, 2, size.height)
         self.lines[3].SetDimensions(pos.x, pos.y + size.height - 2, size.width, 2)
-        self.Refresh()
+        for r in rects:
+            self.AddSizerItem(r)
+#        self.Refresh()
     def AddSizerItem(self, rect):
         w = self.win
         colour = self.colour

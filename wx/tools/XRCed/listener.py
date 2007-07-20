@@ -596,10 +596,10 @@ Homepage: http://xrced.sourceforge.net\
             if not Presenter.applied:
                 Presenter.update(evt.GetOldItem())
             # Refresh test window after finishing
-            if g.conf.autoRefresh and self.testWin.IsDirty(): 
+            if g.conf.autoRefresh and self.testWin.IsDirty():
                 wx.CallAfter(Presenter.refreshTestWin)
         # Tell presenter to update current data and view
-        Presenter.setData(evt.GetItem())
+        wx.CallAfter(Presenter.setData, evt.GetItem())
         # Set initial sibling/insert modes
         Presenter.createSibling = not Presenter.comp.isContainer()
         Presenter.insertBefore = False
@@ -625,7 +625,7 @@ Homepage: http://xrced.sourceforge.net\
         # Register new undo 
         Presenter.createUndoEdit(page=evt.GetSelection())
         # Refresh test window after finishing
-        if g.conf.autoRefresh and self.testWin.IsDirty(): 
+        if g.conf.autoRefresh and self.testWin.IsDirty():
             wx.CallAfter(Presenter.refreshTestWin)
         evt.Skip()
 
