@@ -354,12 +354,13 @@ class _Listener:
 
     def OnRefresh(self, evt):
         if view.testWin.IsShown():
-            if view.testWin.IsDirty():
+            if not view.testWin.IsDirty():
                 Presenter.refreshTestWin()
             else:
                 item = view.testWin.item
                 view.testWin.Destroy()
                 Presenter.createTestWin(item)
+                Presenter.highlight(item)
 
     def OnAutoRefresh(self, evt):
         conf.autoRefresh = evt.IsChecked()

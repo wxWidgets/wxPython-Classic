@@ -143,26 +143,25 @@ class _Presenter:
             # Create new pending undo
             self.createUndoEdit(item)
 
-        if view.testWin.object:
-            self.highlight(item)        
+        if view.testWin.IsShown():
+            self.highlight(item)
 
     def highlight(self, item):
         try:
             obj = view.testWin.FindObject(item)
-            if obj:
-                rect = self.comp.getRect(obj)
-                print rect
-                if rect is not None:
-                    # If framed object use external frame
-                    #if obj == view.testWin.object and view.testWin.frame:
-                    #    rect.x = rect.y = 10
-                    view.testWin.Highlight(rect)
-                # Special highlighting for sizers
-                if isinstance(obj, wx.Sizer):
-                    for sizerItem in obj.GetChildren():
-                        rect = sizerItem.GetRect()
-                        view.testWin.HighlightSizerItem(rect)
-                    
+            if not obj:
+                view.testWin.RemoveHighlight()
+                return
+            rect = self.comp.getRect(obj)
+            if rect is None:
+                view.testWin.RemoveHighlight()
+                return
+            view.testWin.Highlight(rect)
+            # Special highlighting for sizers
+            if isinstance(obj, wx.Sizer):
+                for sizerItem in obj.GetChildren():
+                    rect = sizerItem.GetRect()
+                    view.testWin.HighlightSizerItem(rect)
         except:
             logger.exception('highlighting failed')
 
@@ -314,6 +313,13 @@ class _Presenter:
         self.unselect()
         self.setApplied()
         self.setModified()
+
+        if view.testWin.IsShown():
+            if g.conf.autoRefresh:
+                self.refreshTestWin()
+            else:
+                view.testWin.isDirty = True
+
         return node
 
     def deleteMany(self, items):
@@ -415,7 +421,6 @@ class _Presenter:
         # Create a window with this resource
         node = view.tree.GetPyData(item)
         # Close old window, remember where it was
-        highLight = None
         comp = Manager.getNodeComp(node)
         # Create memory XML file
         elem = node.cloneNode(True)
@@ -478,6 +483,7 @@ class _Presenter:
         TRACE('refreshTestWin')
         # Dumb refresh
         self.createTestWin(view.testWin.item)
+        self.highlight(view.tree.GetSelection())
 
     def showXML(self):
         '''Show some source.'''

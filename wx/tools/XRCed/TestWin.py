@@ -100,6 +100,11 @@ class TestWindow:
     def HighlightSizerItem(self, rect):
         self.hl.AddSizerItem(rect)
   
+    def RemoveHighlight(self):
+        if self.hl is None: return
+        self.hl.Destroy()
+        self.hl = None
+        
 ################################################################################
 
 # DragAndDrop
@@ -196,15 +201,6 @@ class DropTarget(wx.PyDropTarget):
         
         self.RemoveHL()
 
-    def RemoveHL(self):
-        raise NotImplementedError
-        
-        hl = g.testWin.highLightDT
-        if hl:
-            if hl.item:
-                g.tree.SetItemTextColour(hl.item, g.tree.itemColour)
-            hl.Remove()
-        
 ################################################################################
 
 class Highlight:

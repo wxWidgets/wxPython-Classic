@@ -173,7 +173,7 @@ class Component(object):
         # Object's rect must be relative to testWin.object
         if isinstance(obj, wx.Window):
             if obj is view.testWin.object:
-                return obj.GetClientRect()
+                return None # or obj.GetClientRect()
             else:
                 return obj.GetRect()
         elif isinstance(obj, wx.Rect):
