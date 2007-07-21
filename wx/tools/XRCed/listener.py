@@ -601,7 +601,9 @@ Homepage: http://xrced.sourceforge.net\
             if g.conf.autoRefresh and self.testWin.IsDirty():
                 wx.CallAfter(Presenter.refreshTestWin)
         # Tell presenter to update current data and view
-        wx.CallAfter(Presenter.setData, evt.GetItem())
+        item = evt.GetItem()
+        if not item: item = self.root
+        wx.CallAfter(Presenter.setData, item)
         # Set initial sibling/insert modes
         Presenter.createSibling = not Presenter.comp.isContainer()
         Presenter.insertBefore = False
@@ -611,7 +613,7 @@ Homepage: http://xrced.sourceforge.net\
         # If no selection, reset panel
         if not self.tree.GetSelection():
             if not Presenter.applied: Presenter.update()
-            Presenter.setData(None)
+            Presenter.setData(self.root)
         evt.Skip()
 
     def OnPanelPageChanging(self, evt):
@@ -647,14 +649,9 @@ Homepage: http://xrced.sourceforge.net\
     def OnComponentTool(self, evt):
         '''Hadnler for creating new elements.'''
         comp = Manager.findById(evt.GetId())
-
+        
         # Check compatibility
-        if Presenter.createSibling: container = Presenter.container
-        else: container = Presenter.comp
-        if not container.canHaveChild(comp):
-            wx.LogError('Incompatible parent/child: parent is %s, child is %s!' %
-                        (container.klass, comp.klass))
-        else:        
+        if Presenter.checkCompatibility(comp):
             g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
             if comp.groups[0] == 'component':
                 node = Model.createComponentNode('Component')

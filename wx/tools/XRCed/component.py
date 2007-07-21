@@ -228,6 +228,10 @@ class Container(Component):
                 return True
         return False
 
+    def isSizer(self):
+        '''If this container manages children positions and sizes.'''
+        return False
+
     def requireImplicit(self, node):
         '''If there are implicit nodes for this particular node.'''
         return False
@@ -279,7 +283,7 @@ class Container(Component):
         parentNode.replaceChild(newNode, oldNode)
 
     def getChildObject(self, obj, index):
-        '''Get index'th child of a tested interface element.'''
+        """Get index'th child of a tested interface element."""
         if isinstance(obj, wx.Window) and obj.GetSizer():
             return obj.GetSizer()
         try:
@@ -409,8 +413,10 @@ class Sizer(SmartContainer):
                                              'ratio': params.ParamPosSize})
         SmartContainer.__init__(self, klass, groups, attributes, **kargs)
 
+    def isSizer(self):
+        return True
+
     def requireImplicit(self, node):
-        '''if there are implicit nodes for this particular component'''
         return node.getAttribute('class') != 'spacer'
 
     def getChildObject(self, obj, index):

@@ -74,6 +74,49 @@ class TestWindow:
         self.frame = self.object = self.item = None
         self.hl = self.hlDT = None
 
+    # Find tree item corresponding to testWin object
+    def FindObjectItem(self, item, obj):
+        # We simply perform depth-first traversal, sinse it's too much
+        # hassle to deal with all sizer/window combinations
+        w = self.FindObject(item)
+#       TRACE('FindObjectItem: %s', w)
+        if w == obj or isinstance(w, wx.SizerItem) and w.GetWindow() == obj:
+            return item
+        if view.tree.ItemHasChildren(item):
+            child = view.tree.GetFirstChild(item)[0]
+            while child:
+                found = self.FindObjectItem(child, obj)
+                if found: return found
+                child = view.tree.GetNextSibling(child)
+        return None
+
+    # Find the object for an item
+    def FindObject(self, item):
+        tree = view.tree
+        if not item or item == tree.root: return None
+        if item == self.item: return None #self.object
+        # Traverse tree until we reach the root  or the test object
+        items = [item]
+        while 1:
+            item = tree.GetItemParent(item)
+            if item == tree.root: return None # item outside if the test subtree
+            elif item == self.item: break
+            else: items.append(item)
+        # Now traverse back, searching children
+        obj = self.object
+        comp = Manager.getNodeComp(tree.GetPyData(self.item))
+        while items and obj:
+            if not (isinstance(obj, wx.Window) or isinstance(obj, wx.Sizer)):
+                return None
+            item = items.pop()
+            index = tree.ItemIndex(item)
+            obj = comp.getChildObject(obj, index)
+            node = tree.GetPyData(item)
+            comp = Manager.getNodeComp(node)
+            rect = comp.getRect(obj)
+            if not rect: return None
+        return obj
+
     # Find the rectangle or rectangles corresponding to a tree item
     # in the test window (or return None)
     def FindObjectRect(self, item):
@@ -112,11 +155,30 @@ class TestWindow:
         else:
             self.hl.Move(rect)
             
+    def HighlightDT(self, rect, item):
+        if not self.hlDT:
+            self.hlDT = Highlight(self.object, rect, wx.BLUE)
+            self.hlDT.origColour = view.tree.GetItemTextColour(item)
+        else:
+            self.hlDT.Move(rect)
+            view.tree.SetItemTextColour(self.hlDT.item, self.hlDT.origColour)
+        view.tree.SetItemTextColour(item, view.tree.COLOUR_DT)            
+        self.hlDT.item = item
+            
     def RemoveHighlight(self):
         if self.hl is None: return
         self.hl.Destroy()
         self.hl = None
         
+    def RemoveHighlightDT(self):
+        if self.hlDT is None: return
+        if self.hlDT.item:
+            view.tree.SetItemTextColour(self.hlDT.item, self.hlDT.origColour)
+        self.hlDT.Destroy()
+        self.hlDT = None
+        view.frame.SetStatusText('')
+
+            
 ################################################################################
 
 # DragAndDrop
@@ -128,90 +190,72 @@ class DropTarget(wx.PyDropTarget):
 
     # Find best object for dropping
     def WhereToDrop(self, x, y, d):
-        raise NotImplementedError
-        
         # Find object by position
-        obj = wx.FindWindowAtPoint(g.testWin.ClientToScreen((x,y)))
+        obj = wx.FindWindowAtPoint(view.testWin.object.ClientToScreen((x,y)))
         if not obj:
             return wx.DragNone, ()
-
-    def Destroy(self):
-        if self.frame: self.frame.Destroy()
-        elif self.object: self.object.Destroy()
-        self.frame = self.object = self.item = None
-
-        item = g.frame.FindObject(g.testWin.item, obj)
+        item = view.testWin.FindObjectItem(view.testWin.item, obj)
         if not item:
             return wx.DragNone, ()
-        xxx = g.tree.GetPyData(item).treeObject()
-        parentItem = None
         # Check if window has a XRC sizer, then use it as parent
         if obj.GetSizer():
-            sizer = obj.GetSizer()
-            sizerItem = g.frame.FindObject(g.testWin.item, sizer)
-            if sizerItem:
-                parentItem = sizerItem
-                obj = sizer
-                item = wx.TreeItemId()
-        # if not sizer but can have children, it is parent with free placement
-        elif xxx.hasChildren:
-            parentItem = item
-            item = wx.TreeItemId()
-        # Otherwise, try to add to item's parent
-        if not parentItem:
-            parentItem = g.tree.GetItemParent(item)
-            obj = g.tree.FindNodeObject(parentItem)
-        parent = g.tree.GetPyData(parentItem).treeObject()
-        return d,(obj,parent,parentItem,item)
-        
+            obj = obj.GetSizer()
+            item = view.testWin.FindObjectItem(view.testWin.item, obj)
+        return d,(obj,item)
+
     # Drop
     def OnData(self, x, y, d):
-        raise NotImplementedError
-        
+#        import pdb;pdb.set_trace()
+        view.testWin.RemoveHighlightDT()
         self.GetData()
         id = int(self.do.GetDataHere())
         d,other = self.WhereToDrop(x, y, d)
         if d != wx.DragNone:
-            obj,parent,parentItem,item = other
-            view.tree.SetSelection(parentItem)
-            xxx = g.frame.CreateXXX(parent, parentItem, item,  id)
-            # Set coordinates if parent is not sizer
-            if not parent.isSizer:
-                xxx.set('pos', '%d,%d' % (x, y))
-                view.panel.SetData(xxx)
+            obj,item = other
+            g.Presenter.setData(item)
+            comp = Manager.findById(id)
+            mouseState = wx.GetMouseState()
+            forceSibling = mouseState.ControlDown()
+            forceInsert = mouseState.ShiftDown()
+            g.Presenter.updateCreateState(forceSibling, forceInsert)
+            if not g.Presenter.checkCompatibility(comp):
+                return wx.DragNone
+            item = g.Presenter.create(comp)
+            node = view.tree.GetPyData(item)
+            parentItem = view.tree.GetItemParent(item)
+            parentNode = view.tree.GetPyData(parentItem)
+            parentComp = Manager.getNodeComp(parentNode)
+            # If pos if not set by default and parent is not a sizer, set pos to
+            # drop coordinates
+            if 'pos' in comp.attributes and not comp.getAttribute(node, 'pos') \
+                   and parentComp.isContainer() and \
+                   not parentComp.isSizer():
+                # Calc relative coords
+                rect = view.testWin.FindObjectRect(parentItem)
+                x -= rect[0].x
+                y -= rect[0].y
+                comp.addAttribute(node, 'pos', '%d,%d' % (x, y))
+                g.Presenter.setData(item)
             view.frame.SetStatusText('Object created')
-        self.RemoveHL()
         return d
 
     def OnDragOver(self, x, y, d):
-        raise NotImplementedError
-        
         d,other = self.WhereToDrop(x, y, d)
         if d != wx.DragNone:
-            obj,parent,parentItem,item = other
-            pos, size = g.tree.FindNodePos(parentItem, obj), obj.GetSize()
-            hl = g.testWin.highLightDT
-            # Set color of highlighted item back to normal
-            if hl and hl.item:
-                if hl.item != parentItem:
-                    g.tree.SetItemTextColour(hl.item, g.tree.itemColour)
-                    # Highlight future parent
-                    g.tree.itemColour = g.tree.GetItemTextColour(parentItem) # save current
-            if not hl or hl.item != parentItem:
-                g.testWin.highLightDT = updateHL(hl, HighLightDTBox, pos, size)
-                g.testWin.highLightDT.item = parentItem
-            g.tree.SetItemTextColour(parentItem, g.tree.COLOUR_DT)
-            g.tree.EnsureVisible(parentItem)
-            g.frame.SetStatusText('Drop target: %s' % parent.treeName())
+            obj,item = other
+            hl = view.testWin.hlDT
+            if not hl or hl.item != item:
+                rect = view.testWin.FindObjectRect(item)
+                view.testWin.HighlightDT(rect, item)
+                view.tree.EnsureVisible(item)
+            view.frame.SetStatusText('Drop target: %s' % view.tree.GetItemText(item))
         else:
-            g.frame.SetStatusText('Inappropriate drop target')
-            self.RemoveHL()
+            view.frame.SetStatusText('Inappropriate drop target')
+            view.testWin.RemoveHighlightDT()
         return d
 
     def OnLeave(self):
-        raise NotImplementedError
-        
-        self.RemoveHL()
+        view.testWin.RemoveHighlightDT()
 
 ################################################################################
 
@@ -250,6 +294,7 @@ class Highlight:
     def Refresh(self):
         [l.Refresh() for l in self.lines]
     def Move(self, rect):
+#        print rect
         if type(rect) == list:
             rects = rect[1:]
             rect = rect[0]

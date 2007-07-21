@@ -9,12 +9,12 @@ from component import Manager
 import view
 import images
 
-if wx.Platform in ['__WXMAC__', '__WXMSW__']:
+#if wx.Platform in ['__WXMAC__', '__WXMSW__']:
     # Mac and Win are better off with generic
-    import wx.lib.buttons
-    wx.BitmapButton = wx.lib.buttons.GenBitmapButton
-else:
-    wx.BitmapButton.SetBezelWidth = lambda self, w: None
+import wx.lib.buttons
+wx.BitmapButton = wx.lib.buttons.GenBitmapButton
+#else:
+#    wx.BitmapButton.SetBezelWidth = lambda self, w: None
 
 class ToolPanel(wx.Panel):
     '''Manages a Listbook with tool bitmap buttons.'''
@@ -53,7 +53,7 @@ class ToolPanel(wx.Panel):
         self.SetSizerAndFit(sizer)
         # Allow to be resized in horizontal direction only
         # Events
-#        wx.EVT_KEY_DOWN(self, self.OnKeyDown)
+        wx.EVT_KEY_DOWN(self, self.OnKeyDown)
 #        wx.EVT_KEY_UP(self, self.OnKeyUp)
         self.drag = None
 
@@ -61,9 +61,12 @@ class ToolPanel(wx.Panel):
         button = wx.BitmapButton(panel, id, bmp, 
                                  style=wx.NO_BORDER)# | wx.WANTS_CHARS)
         button.SetBezelWidth(0)
-#        wx.EVT_KEY_DOWN(button, self.OnKeyDown)
+        wx.EVT_KEY_DOWN(button, self.OnKeyDown)
 #        wx.EVT_KEY_UP(button, self.OnKeyUp)
-#        button.Bind(wx.EVT_BUTTON, self.OnButton)
+        button.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDownOnButton)
+#        button.Bind(wx.EVT_LEFT_UP, self.OnLeftUpOnButton)
+        button.Bind(wx.EVT_MOTION, self.OnMotionOnButton)
+        button.Bind(wx.EVT_BUTTON, self.OnButton)
 #        wx.EVT_MOTION(button, self.OnMotionOnButton)
         button.SetToolTipString(text)
         # Look for an available place if not specified
@@ -109,23 +112,36 @@ class ToolPanel(wx.Panel):
         self.panels.append(panel)
         return panel
 
-    # DnD
+    # Mouse events for DnD and append/insert mode
     def OnLeftDownOnButton(self, evt):
         self.posDown = evt.GetPosition()
-        self.idDown = evt.GetId()
         self.btnDown = evt.GetEventObject()
+        forceSibling = evt.ControlDown()
+        forceInsert = evt.ShiftDown()
+        g.Presenter.updateCreateState(forceSibling, forceInsert)
         evt.Skip()
+
+    def OnButton(self, evt):
+        if not self.drag: evt.Skip()
+        self.drag = False
+
+    # Mouse events for DnD and append/insert mode
+    def OnLeftUpOnButton(self, evt):
+        print 'onleftup'
+        self.btnDown.ReleaseMouse()
+#        evt.Skip()
 
     def OnMotionOnButton(self, evt):
         # Detect dragging
+        print evt
         if evt.Dragging() and evt.LeftIsDown():
             d = evt.GetPosition() - self.posDown
             if max(abs(d[0]), abs(d[1])) >= 5:
                 if self.btnDown.HasCapture(): 
                     # Generate up event to release mouse
                     evt = wx.MouseEvent(wx.EVT_LEFT_UP.typeId)
-                    evt.SetId(self.idDown)
-                    # Set flag to prevent normal button operation this time
+                    #evt.SetId(self.btnDown.GetId())
+                    # Set flag to prevent normal button operation
                     self.drag = True
                     self.btnDown.ProcessEvent(evt)
                 self.StartDrag()
@@ -133,7 +149,7 @@ class ToolPanel(wx.Panel):
 
     def StartDrag(self):
         do = MyDataObject()
-        do.SetData(str(self.idDown))
+        do.SetData(str(self.btnDown.GetId()))
         bm = self.btnDown.GetBitmapLabel()
         # wxGTK requires wxIcon cursor, wxWIN and wxMAC require wxCursor
         if wx.Platform == '__WXGTK__':
@@ -144,11 +160,14 @@ class ToolPanel(wx.Panel):
             curs = wx.CursorFromImage(wx.ImageFromBitmap(bm))
             dragSource = wx.DropSource(self, curs)
         dragSource.SetData(do)
-        g.frame.SetStatusText('Release the mouse button over the test window')
+        view.frame.SetStatusText('Release the mouse button over the test window')
         dragSource.DoDragDrop()
 
     # Process key events
     def OnKeyDown(self, evt):
+        print evt.GetEventObject(), evt.GetKeyCode()
+        evt.Skip()
+        return
         if evt.GetKeyCode() == wx.WXK_CONTROL:
             g.tree.ctrl = True
         elif evt.GetKeyCode() == wx.WXK_SHIFT:
@@ -164,7 +183,7 @@ class ToolPanel(wx.Panel):
         self.UpdateIfNeeded()
         evt.Skip()
 
-    def OnMouse(self, evt):
+    def OnMouse2(self, evt):
         # Update control and shift states
         g.tree.ctrl = evt.ControlDown()
         g.tree.shift = evt.ShiftDown()

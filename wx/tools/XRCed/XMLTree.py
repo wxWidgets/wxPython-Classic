@@ -21,7 +21,7 @@ class XMLTree(wx.TreeCtrl):
         self.COLOUR_REF      = wx.Colour(0, 0, 128)
         self.COLOUR_HIDDEN   = wx.Colour(128, 128, 128)
         self.COLOUR_HL       = wx.Colour(255, 0, 0)
-        self.COLOUR_DT       = wx.Colour(0, 64, 0)
+        self.COLOUR_DT       = wx.Colour(0, 0, 255)
 
         # Comments use italic font
         self.fontComment = wx.FFont(self.GetFont().GetPointSize(),

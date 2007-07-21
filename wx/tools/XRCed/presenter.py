@@ -62,7 +62,7 @@ class _Presenter:
     def save(self, path):
         # Apply changes if needed
         if not self.applied:
-            self.update(view.tree.GetSelection())
+            self.update(self.item)
         try:
             tmpFile,tmpName = tempfile.mkstemp(prefix='xrced-')
             os.close(tmpFile)
@@ -98,7 +98,7 @@ class _Presenter:
 
     def createUndoEdit(self, item=None, page=None):
         # Create initial undo object
-        if item is None: item = view.tree.GetSelection()
+        if item is None: item = self.item
         if page is None: page = view.panel.nb.GetSelection()
         view.panel.undo = undo.UndoEdit(item, page)
 
@@ -118,7 +118,8 @@ class _Presenter:
     def setData(self, item):
         '''Set data and view for current tree item.'''
 
-        if not item or item == view.tree.root:
+        self.item = item
+        if item == view.tree.root:
             TRACE('setData: root node')
             self.container = None
             self.comp = Manager.rootComponent
@@ -157,8 +158,7 @@ class _Presenter:
         except:
             logger.exception('highlighting failed')
 
-    def popupMenu(self, forceSibling, forceInsert, pos):
-        '''Show popup menu and set sibling/insert flags.'''
+    def updateCreateState(self, forceSibling, forceInsert):
         if self.container:
             if self.comp.isContainer():
                 self.createSibling = forceSibling
@@ -166,7 +166,12 @@ class _Presenter:
                 self.createSibling = True
         else:
             self.createSibling = False
-        self.insertBefore = forceInsert
+        self.insertBefore = forceInsert        
+        TRACE('updateCreateState: %s %s', self.createSibling, self.insertBefore)
+
+    def popupMenu(self, forceSibling, forceInsert, pos):
+        '''Show popup menu and set sibling/insert flags.'''
+        self.updateCreateState(forceSibling, forceInsert)
         menu = view.XMLTreeMenu(self.container, self.comp, view.tree,
                                 self.createSibling, self.insertBefore)
         view.tree.PopupMenu(menu, pos)
@@ -181,10 +186,8 @@ class _Presenter:
         if child is None:
             child = Model.createObjectNode(comp.klass)
         data = wx.TreeItemData(child)
-        item = view.tree.GetSelection()
-        if not item: 
-            item = view.tree.root
-        elif not self.applied:
+        item = self.item
+        if not self.applied:
             self.update(item)
         if item == view.tree.root:
             self.createSibling = False # can't create sibling of root
@@ -229,7 +232,7 @@ class _Presenter:
         if not self.applied:
             self.update(item)
         data = wx.TreeItemData(node)
-        item = view.tree.GetSelection()
+        item = self.item
         parentItem = view.tree.GetItemParent(item)
         parentNode = view.tree.GetPyData(parentItem)
         oldNode = view.tree.GetPyData(item)
@@ -250,7 +253,6 @@ class _Presenter:
 
     def update(self, item):
         '''Update DOM with new attribute values. Update tree if necessary.'''
-        if not item: item = view.tree.root
         node = view.tree.GetPyData(item)
         if self.comp and self.comp.hasName:
             name = view.panel.controlName.GetValue()
@@ -287,9 +289,7 @@ class _Presenter:
 
     def unselect(self):
         if not self.applied:
-            item = view.tree.GetSelection()
-            if not item: item = view.tree.root
-            self.update(item)
+            self.update(self.item)
         view.tree.UnselectAll()
         self.setData(view.tree.root)
 
@@ -315,7 +315,7 @@ class _Presenter:
     def deleteMany(self, items):
         '''Delete selected object(s).'''
         for item in items:
-            if not item: continue # child already deleted
+            if not item.IsOk(): continue # child already deleted
             parentItem = view.tree.GetItemParent(item)
             parentNode = view.tree.GetPyData(parentItem)
             node = view.tree.GetPyData(item)
@@ -348,6 +348,16 @@ class _Presenter:
             wx.TheClipboard.Close()
         else:
             wx.MessageBox("Unable to open the clipboard", "Error")        
+
+    def checkCompatibility(self, comp):
+        '''Check parent/child compatibility.'''
+        if self.createSibling: container = self.container
+        else: container = self.comp
+        if not container.canHaveChild(comp):
+            wx.LogError('Incompatible parent/child: parent is %s, child is %s!' %
+                        (container.klass, comp.klass))
+            return False
+        return True
 
     def paste(self):
         success = success_node = False
@@ -384,11 +394,7 @@ class _Presenter:
             raise NotImplementedError
 
         # Check compatibility
-        if self.createSibling: container = self.container
-        else: container = self.comp
-        if not container.canHaveChild(comp):
-            wx.LogError('Incompatible parent/child: parent is %s, child is %s!' %
-                        (container.klass, comp.klass))
+        if not self.checkCompatibility(comp):
             node.unlink()
             return
 
@@ -475,9 +481,7 @@ class _Presenter:
 
     def showXML(self):
         '''Show some source.'''
-        item = view.tree.GetSelection()
-        if not item: item = view.tree.root
-        node = view.tree.GetPyData(item)
+        node = view.tree.GetPyData(self.item)
         dom = MyDocument()
         node = dom.appendChild(node.cloneNode(True))
         Model.indent(dom, node)
@@ -494,6 +498,6 @@ class _Presenter:
         dlg.Show()
 
 # Singleton class
-Presenter = _Presenter()
+Presenter = g.Presenter = _Presenter()
 
 undo.Presenter = Presenter

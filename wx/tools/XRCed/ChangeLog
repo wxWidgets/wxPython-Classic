@@ -1,3 +1,8 @@
+2007-07-21  Scroll  <scroll@localhost.localdomain>
+
+	* Improved highlighting, refactored drop target highlighting and
+	drag'n'drop support.
+
 2007-07-13  Scroll  <scroll@localhost.localdomain>
 
 	* Better error messages; working on new highlighting using plugin
