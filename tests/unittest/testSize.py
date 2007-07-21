@@ -16,22 +16,26 @@ SetHeight, SetWidth
 asTuple(*args, **kwargs) -> Use Get instead
 """
 
-def getSizes(ctrl, type):
+def getSizes(ctrl, kind):
     # determine get/set methods
     set,get = None,None
-    if type == wxtest.SIZE:
+    if kind == wxtest.SIZE:
         set,get = ctrl.SetSize, ctrl.GetSize
-    elif type == wxtest.VIRTUAL_SIZE:
+    elif kind == wxtest.VIRTUAL_SIZE:
         set,get = ctrl.SetVirtualSize, ctrl.GetVirtualSize
-    elif type == wxtest.CLIENT_SIZE:
+    elif kind == wxtest.CLIENT_SIZE:
         set,get = ctrl.SetClientSize, ctrl.GetClientSize
     else:
         raise TypeError("Incorrect type constant used")
     # get mins and maxes
     set((1,1))
     xmin,ymin = get()
-    set((40000,40000))
+    set((2**15,2**15))  # 16-bit signed int (+1)
+                        # for more information, see issue #1756896
     xmax,ymax = get()
+    # print?
+    #print "%s [x]: %s (min), %s (max)" % (str(type(ctrl)), str(xmin), str(xmax))
+    #print "%s [y]: %s (min), %s (max)" % (str(type(ctrl)), str(ymin), str(ymax))
     # generate data sets
     xset = [xmin,xmax]
     yset = [ymin,ymax]
