@@ -435,7 +435,7 @@ class _Presenter:
         try:
             try:
                 frame, object = comp.makeTestWin(res, name)
-                # Reset tree item and locate tool
+                # Reset previous tree item and locate tool
                 if view.testWin.item:
                     view.tree.SetItemBold(view.testWin.item, False)
                     view.frame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
@@ -458,13 +458,11 @@ class _Presenter:
         return object
 
     def closeTestWin(self):
+        TRACE('closeTestWin')
         if not view.testWin.object: return
         view.tree.SetItemBold(view.testWin.item, False)
         view.frame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
         view.frame.miniFrame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
-        # Remember dimensions
-        view.testWin.pos = view.testWin.GetFrame().GetPosition()
-        view.testWin.size = view.testWin.GetFrame().GetSize()
         view.testWin.Destroy()
 
     def refreshTestWin(self):

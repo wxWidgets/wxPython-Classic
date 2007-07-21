@@ -24,8 +24,15 @@ class TestWindow:
 
     def SetView(self, frame, object, item):
         TRACE('SetView %s %s', frame, object)
-        if self.object:                 # test window present
+        restoreSize = False
+        if self.object:
+            # Old window must be destroyed in new uses different frame
+            # or is itself a toplevel window
             if not frame or frame and not self.frame:
+                # Remember old item
+                if item == self.item:
+                    restoreSize = True
+                TRACE('Closing old frame, restoreSize=%d', restoreSize)
                 self.GetFrame().Close()
         self.frame = frame
         self.object = object
@@ -34,14 +41,15 @@ class TestWindow:
         self.hl = self.hlDT = None
         if self.pos != wx.DefaultPosition:
             self.GetFrame().SetPosition(self.pos)
-        if item == self.item:   # try to keep same size
+        if restoreSize:   # keep same size in refreshing
+            TRACE('restoring size %s', self.size)
             self.GetFrame().SetSize(self.size)
         self.item = item
         self.hl = None
-
+        g.Listener.InstallTestWinEvents()
+                
     def OnPaint(self, evt):
         if self.hl: self.hl.Refresh()
-        evt.Skip()
 
     def GetFrame(self):
         if self.frame: return self.frame
@@ -58,10 +66,13 @@ class TestWindow:
         return self.IsShown() and self.isDirty
 
     def Destroy(self):
-        if self.hl: self.hl.Destroy()
-        if self.frame: self.frame.Destroy()
-        elif self.object: self.object.Destroy()
+        TRACE('Destroy')
+        # Remember dimensions
+        self.pos = self.GetFrame().GetPosition()
+        self.size = self.GetFrame().GetSize()
+        self.GetFrame().Destroy()
         self.frame = self.object = self.item = None
+        self.hl = self.hlDT = None
 
     # Find the rectangle or rectangles corresponding to a tree item
     # in the test window (or return None)

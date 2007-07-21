@@ -142,6 +142,13 @@ class _Listener:
                              self.OnComponentTool)
         self.toolFrame.Bind(wx.EVT_CLOSE, self.OnCloseToolFrame)
 
+    def InstallTestWinEvents(self):
+        frame = self.testWin.GetFrame()
+        frame.Bind(wx.EVT_CLOSE, self.OnCloseTestWin)
+        frame.Bind(wx.EVT_SIZE, self.OnSizeTestWin)
+        frame.SetAcceleratorTable(self.accels)
+        frame.Bind(wx.EVT_MENU, lambda evt: self.frame.ProcessEvent(evt))
+
     def OnComponentCreate(self, evt):
         '''Hadnler for creating new elements.'''
         comp = Manager.findById(evt.GetId())
@@ -409,14 +416,9 @@ Homepage: http://xrced.sourceforge.net\
     def OnTest(self, evt):
         if not self.tree.GetSelection(): return
         object = Presenter.createTestWin(self.tree.GetSelection())
-        if object:
-            frame = self.testWin.GetFrame()
-            frame.Bind(wx.EVT_CLOSE, self.OnCloseTestWin)
-            frame.Bind(wx.EVT_SIZE, self.OnSizeTestWin)
-            frame.SetAcceleratorTable(self.accels)
-            frame.Bind(wx.EVT_MENU, lambda evt: self.frame.ProcessEvent(evt))
 
     def OnCloseTestWin(self, evt):
+        TRACE('OnCloseTestWin')
         Presenter.closeTestWin()
 
     def OnSizeTestWin(self, evt):
@@ -672,4 +674,4 @@ Homepage: http://xrced.sourceforge.net\
         conf.showToolPanel = False
 
 # Singleton class
-Listener = _Listener()
+Listener = g.Listener = _Listener()
