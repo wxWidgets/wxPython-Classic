@@ -13,9 +13,7 @@ __init__, Create
 def getIdLabelPairs(without_mnemonic=True):
     """ID/Label pairs were copied from the docs.
     Upon inspection of the wx package, there appear to be more IDs than
-    are documented here.
-    TODO: determine if the below (in the docs) are the only IDs applying to
-        instances of wx.Button, or if there are omissions"""
+    are documented here."""
     pairs = (
                 (wx.ID_ADD,         'Add'),
                 (wx.ID_APPLY,       '&Apply'),
@@ -26,10 +24,10 @@ def getIdLabelPairs(without_mnemonic=True):
                 (wx.ID_CUT,         'Cu&t'),
                 (wx.ID_DELETE,      '&Delete'),
                 (wx.ID_FIND,        '&Find'),
-                # TODO: fix docs or code!
-                (wx.ID_REPLACE, 'Find and rep&lace'),
-                # here's what wx.ID_REPLACE actually is (on Windows at least)
-                #(wx.ID_REPLACE, 'Replace'), # unknown ampersand position
+                #(wx.ID_REPLACE, 'Find and rep&lace'),
+                # The stock labels can be hard to peg down
+                # for more information, see issue #1756947
+                (wx.ID_REPLACE,     'Rep&lace'),
                 (wx.ID_BACKWARD,    '&Back'),
                 (wx.ID_DOWN,        '&Down'),
                 (wx.ID_FORWARD,     '&Forward'),

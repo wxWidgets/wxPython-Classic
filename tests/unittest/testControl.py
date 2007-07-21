@@ -8,7 +8,7 @@ import testWindow
 This file contains classes and methods for unit testing the API of wx.Control.
 
 Methods yet to test for wx.Control:
-__init__, Command, Create, GetAlignment
+Command, Create, GetAlignment
 """
 
 class ControlTest(testWindow.WindowTest):
@@ -17,17 +17,20 @@ class ControlTest(testWindow.WindowTest):
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Control(parent=self.frame, id=wx.ID_ANY)
     
-    # TODO: is this expected behavior? Why does it only happen
-    # on Windows? It's a wrapped C++ assertion failure.
     def testAllControlsNeedParents(self):
+        """__init__
+        The assumption here is that all wx.Controls and subclasses need to have 
+        parents.  Some platforms (GTK) do not enforce this at object creation
+        time; this is to be considered an implementation detail.
+        "wxWidgets does require that non top-level windows have a parent, 
+        it's just not enforced in debug mode on wxGTK like the others do."
+        For more information, see 
+        http://lists.wxwidgets.org/cgi-bin/ezmlm-cgi?12:mss:3440:fjmhidphpdnbhoobomhi
         """
-        All instances of wx.Control need to have a parent
-        (at least on Windows)"""
         class_under_test = type(self.testControl)
-        if wxtest.PlatformIsWindows():
+        if wxtest.PlatformIsNotLinux():
             self.assertRaises(wx.PyAssertionError, class_under_test, None)
         else:
-            # if not windows, doesn't raise exception
             class_under_test(None)
 
     # TODO: does this only work on Windows? if so, why?
