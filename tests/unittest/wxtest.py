@@ -5,7 +5,8 @@ The wxtest module is used for common code across the wx Test Suite.
 
 Its major use is to provide a standard means of determining the current
 platform, for platform-specific testing.  There are currently three choices
-of platform: Windows, Linux, and Mac.
+of platform: Windows, GTK, and Mac (Linux probably should be deprecated).
+These may increase in the future.
 
 The two use case types are as follows (the second is preferred):
     
@@ -20,25 +21,21 @@ The two use case types are as follows (the second is preferred):
         # mac-specific test
     if wxtest.PlatformIsNotWindows():
         # test not to be run on windows
-
-Possible TODO: instead of using sys to determine platform, use contents of wx.PlatformInfo.
-        Also, Linux should maybe be replaced by Gtk
 """
 
 # A poor attempt at enums
 WINDOWS = 100
 LINUX   = 200
 MAC     = 300
+GTK     = LINUX
 
 # Determine current platform
 CURRENT_PLATFORM = None
-if sys.platform.find('win32') != -1:
+if 'wxMSW' in wx.PlatformInfo: # or '__WXMSW__'
     CURRENT_PLATFORM = WINDOWS
-elif sys.platform.find('linux') != -1:
+elif 'wxGTK' in wx.PlatformInfo: # or '__WXGTK__'
     CURRENT_PLATFORM = LINUX
-elif sys.platform.find('mac') != -1:
-    CURRENT_PLATFORM = MAC
-elif sys.platform.find('darwin') != -1:
+elif 'wxMac' in wx.PlatformInfo: # or '__WXMAC__'
     CURRENT_PLATFORM = MAC
 else:
     raise EnvironmentError("Unknown platform!")
@@ -49,8 +46,11 @@ else:
 def PlatformIsWindows():
     return CURRENT_PLATFORM == WINDOWS
 
-def PlatformIsLinux():
+def PlatformIsLinux(): # deprecated?
     return CURRENT_PLATFORM == LINUX
+
+def PlatformIsGtk():
+    return CURRENT_PLATFORM == GTK
 
 def PlatformIsMac():
     return CURRENT_PLATFORM == MAC
@@ -58,8 +58,11 @@ def PlatformIsMac():
 def PlatformIsNotWindows():
     return CURRENT_PLATFORM != WINDOWS
 
-def PlatformIsNotLinux():
+def PlatformIsNotLinux(): # deprecated?
     return CURRENT_PLATFORM != LINUX
+
+def PlatformIsNotGtk():
+    return CURRENT_PLATFORM != GTK
 
 def PlatformIsNotMac():
     return CURRENT_PLATFORM != MAC
