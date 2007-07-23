@@ -1,4 +1,4 @@
-import sys
+import wx
 
 """
 The wxtest module is used for common code across the wx Test Suite.
