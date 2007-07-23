@@ -203,8 +203,13 @@ class DropTarget(wx.DropTarget):
     def WhereToDrop(self, x, y, d):
         print 'whereto',x,y
         # Find object by position
-        obj = wx.FindWindowAtPoint(self.win.ClientToScreen((x,y)))
-        print obj
+        if wx.Platform == '__WXMAC__':
+            scrPos = self.win.ClientToScreen((x,y))
+        else:
+            scrPos = view.testWin.object.ClientToScreen((x,y))
+        print scrPos
+        obj = wx.FindWindowAtPoint(scrPos)
+        print 'obj=', obj
         if not obj:
             return wx.DragNone, ()
         if view.testWin.hlDT and obj in view.testWin.hlDT.lines:
@@ -327,7 +332,9 @@ class Highlight:
         size = rect.GetSize()
         if size.width == -1: size.width = 0
         if size.height == -1: size.height = 0
-        [l.Destroy() for l in self.lines[4:]]
+        for l in self.lines[4:]:
+            l.Hide()
+            wx.CallAfter(l.Destroy)
         self.lines[4:] = []
         self.lines[0].SetDimensions(pos.x, pos.y, size.width, 2)
         self.lines[1].SetDimensions(pos.x, pos.y, 2, size.height)
@@ -343,7 +350,7 @@ class Highlight:
                  wx.Window(w, -1, rect.GetTopLeft(), (1, rect.height)),
                  wx.Window(w, -1, (rect.x + rect.width - 1, rect.y), (1, rect.height)),
                  wx.Window(w, -1, (rect.x, rect.y + rect.height - 1), (rect.width, 1))]
-        for l in self.lines:
+        for l in lines:
             l.SetBackgroundColour(colour)
             l.SetDropTarget(DropTarget(l))
         if wx.Platform == '__WXMSW__':

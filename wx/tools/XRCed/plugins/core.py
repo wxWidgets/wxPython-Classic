@@ -31,7 +31,7 @@ class Frame(Container):
             elif o.getAttribute('class') == 'wxToolBar':
                 if i == index:  return obj.GetToolBar()
                 elif i < index: index -= 1
-        return obj.GetChildren()[index]
+        return Container.getChildObject(self, node, obj, index)
 
 c = Frame('wxFrame', ['frame','window','top_level'], 
               ['pos', 'size', 'title', 'centered'],
