@@ -128,7 +128,7 @@ class TestWindow:
             if item == tree.root: return None # item outside if the test subtree
             elif item == self.item: break
             else: items.append(item)
-        # Now traverse back, searching children
+        # Now traverse back from parents to children
         obj = self.object
         offset = wx.Point(0,0)
         comp = Manager.getNodeComp(tree.GetPyData(self.item))
@@ -143,7 +143,7 @@ class TestWindow:
             comp = Manager.getNodeComp(node)
             rect = comp.getRect(obj)
             if not rect: return None
-            if items:
+            if isinstance(obj, wx.Window) and items:
                 offset += rect[0].GetTopLeft()
         [r.Offset(offset) for r in rect]
         return rect
