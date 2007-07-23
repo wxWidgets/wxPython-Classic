@@ -11,10 +11,13 @@ __init__, Create
 """
 
 def getIdLabelPairs(without_mnemonic=True):
-    """ID/Label pairs were copied from the docs.
-    Upon inspection of the wx package, there appear to be more IDs than
-    are documented here."""
+    """ID/Label pairs were copied from the docs, or alternately from
+    the most recent version of _button.i (the docs should update shortly).
+    The stock labels can be tough to peg down.
+    For more information, see issue #1756947
+    """
     pairs = (
+                (wx.ID_ABOUT,       '&About'),
                 (wx.ID_ADD,         'Add'),
                 (wx.ID_APPLY,       '&Apply'),
                 (wx.ID_BOLD,        '&Bold'),
@@ -23,10 +26,9 @@ def getIdLabelPairs(without_mnemonic=True):
                 (wx.ID_COPY,        '&Copy'),
                 (wx.ID_CUT,         'Cu&t'),
                 (wx.ID_DELETE,      '&Delete'),
+                (wx.ID_EDIT,        '&Edit'),
                 (wx.ID_FIND,        '&Find'),
-                #(wx.ID_REPLACE, 'Find and rep&lace'),
-                # The stock labels can be hard to peg down
-                # for more information, see issue #1756947
+                (wx.ID_FILE,        '&File'),
                 (wx.ID_REPLACE,     'Rep&lace'),
                 (wx.ID_BACKWARD,    '&Back'),
                 (wx.ID_DOWN,        '&Down'),
@@ -57,6 +59,7 @@ def getIdLabelPairs(without_mnemonic=True):
                 (wx.ID_REVERT_TO_SAVED, 'Revert to Saved'),
                 (wx.ID_SAVE,        '&Save'),
                 (wx.ID_SAVEAS,      'Save &As...'),
+                (wx.ID_SELECTALL,   'Select all'),
                 (wx.ID_STOP,        '&Stop'),
                 (wx.ID_UNDELETE,    'Undelete'),
                 (wx.ID_UNDERLINE,   '&Underline'),
