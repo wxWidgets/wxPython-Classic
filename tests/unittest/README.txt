@@ -29,7 +29,6 @@ ANIHandler
 App
 ArtProvider
 AutoBufferedPaintDC
-Bitmap
 BitmapDataObject
 BMPHandler
 BookCtrlBase
@@ -146,7 +145,6 @@ IconBundle
 IconizeEvent
 IconLocation
 IdleEvent
-Image
 Image_HSVValue
 Image_RGBValue
 ImageHandler
