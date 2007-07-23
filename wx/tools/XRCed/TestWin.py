@@ -10,6 +10,7 @@ import view
 from component import Manager
 
 def getAllChildren(w):
+    '''Get all children recursively.'''
     children = []
     for ch in w.GetChildren():
         children.append(ch)
@@ -182,7 +183,8 @@ class TestWindow:
         if self.hlDT is None: return
         if self.hlDT.item:
             view.tree.SetItemTextColour(self.hlDT.item, self.hlDT.origColour)
-        self.hlDT.Destroy()
+        # Destroying is sensitive if done directly in DropTarget methods
+        wx.CallAfter(self.hlDT.Destroy)
         self.hlDT = None
         view.frame.SetStatusText('')
 
@@ -262,7 +264,7 @@ class DropTarget(wx.DropTarget):
             view.frame.SetStatusText('Inappropriate drop target')
             view.testWin.RemoveHighlightDT()
         elif other:
-            if self.left: 
+            if self.left:
                 view.testWin.RemoveHighlightDT()
                 self.onHL = self.left = False
             obj,item = other
@@ -278,7 +280,7 @@ class DropTarget(wx.DropTarget):
     def OnLeave(self):
         # Try to prevent flashing when pointer passes on highlight lines
         if self.onHL:
-            wx.CallAfter(view.testWin.RemoveHighlightDT)
+            view.testWin.RemoveHighlightDT()
             self.onHL = False
         else: self.left = True
 
