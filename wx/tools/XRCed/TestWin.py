@@ -155,18 +155,42 @@ class TestWindow:
         # Now traverse back from parents to children
         obj = self.object
         offset = wx.Point(0,0)
+        rect = None
         comp = Manager.getNodeComp(tree.GetPyData(self.item))
         while items and obj:
             if not (isinstance(obj, wx.Window) or isinstance(obj, wx.Sizer)):
                 return None
             parentItem = item
+            if rect: parentRect = rect[0]
+            parent = obj
             item = items.pop()
             index = tree.ItemIndex(item)
-            obj = comp.getChildObject(tree.GetPyData(parentItem), obj, index)
+            obj = comp.getChildObject(tree.GetPyData(parentItem), parent, index)
             node = tree.GetPyData(item)
             comp = Manager.getNodeComp(node)
             rect = comp.getRect(obj)
             if not rect: return None
+            if isinstance(parent, wx.Sizer) and parentRect:
+                #rect.append(parentRect)
+                sizerItem = parent.GetChildren()[index]
+                flag = sizerItem.GetFlag()
+                border = sizerItem.GetBorder()
+                if border != 0:
+                    r = rect[0]
+                    x = (r.GetLeft() + r.GetRight()) / 2
+                    if flag & wx.TOP:
+                        y = r.GetTop() - border
+                        rect.append(wx.Rect(x, y, 0, border))
+                    if flag & wx.BOTTOM:
+                        y = r.GetBottom() + 1
+                        rect.append(wx.Rect(x, y, 0, border))
+                    y = (r.GetTop() + r.GetBottom()) / 2
+                    if flag & wx.LEFT:
+                        x = r.GetLeft() - border
+                        rect.append(wx.Rect(x, y, border, 0))
+                    if flag & wx.BOTTOM:
+                        x = r.GetRight() + 1
+                        rect.append(wx.Rect(x, y, border, 0))
             if isinstance(obj, wx.Window) and items:
                 offset += rect[0].GetTopLeft()
         [r.Offset(offset) for r in rect]
@@ -306,7 +330,7 @@ class Highlight:
     single Rect or a list of Rects (for sizeritems).
     '''
     ID_HL = wx.NewId()
-    def __init__(self, w, rect, colour=wx.RED, more_lines=True):
+    def __init__(self, w, rect, colour=wx.Colour(222,0,0), more_lines=True):
         self.win = w
         self.colour = colour
         self.moreLines = more_lines
@@ -324,6 +348,7 @@ class Highlight:
         if wx.Platform == '__WXMSW__':
             [l.Bind(wx.EVT_PAINT, self.OnPaint) for l in self.lines]
         if more_lines: [self.AddSizerItem(r) for r in rects]
+
     # Repainting is not always done for these windows on Windows
     def OnPaint(self, evt):
         w = evt.GetEventObject()
@@ -338,8 +363,10 @@ class Highlight:
         else:
             [l.Destroy() for l in self.lines[i:]]
         self.lines[i:] = []
+
     def Refresh(self):
         [l.Refresh() for l in self.lines]
+
     def Move(self, rect):
         rects = rect[1:]
         rect = rect[0]
@@ -353,13 +380,27 @@ class Highlight:
         self.lines[2].SetDimensions(pos.x + size.width - 2, pos.y, 2, size.height)
         self.lines[3].SetDimensions(pos.x, pos.y + size.height - 2, size.width, 2)
         if self.moreLines: [self.AddSizerItem(r) for r in rects]
+
     def AddSizerItem(self, rect):
         w = self.win
-        colour = self.colour
-        lines = [wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 1)),
-                 wx.Window(w, -1, rect.GetTopLeft(), (1, rect.height)),
-                 wx.Window(w, self.ID_HL, (rect.x + rect.width - 1, rect.y), (1, rect.height)),
-                 wx.Window(w, self.ID_HL, (rect.x, rect.y + rect.height - 1), (rect.width, 1))]
+        # 0 means a line from outer box to inner
+        if rect.width == 0 or rect.height == 0:
+            colour = wx.Colour(255,64,0)
+            if rect.height == 0:
+                line = wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 1))
+            else:
+                line = wx.Window(w, -1, rect.GetTopLeft(), (1, rect.height))
+            line.SetBackgroundColour(colour)
+            self.lines.append(line)
+            return
+        colour = wx.Colour(255,0,0)
+        lines = []
+        lines.append(wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 1)))
+        lines.append(wx.Window(w, -1, rect.GetTopLeft(), (1, rect.height)))
+        if rect.height > 1:
+            lines.append(wx.Window(w, self.ID_HL, (rect.x, rect.y + rect.height - 1), (rect.width, 1)))
+        if rect.width > 1:
+            lines.append(wx.Window(w, self.ID_HL, (rect.x + rect.width - 1, rect.y), (1, rect.height)))
         for l in lines:
             l.SetBackgroundColour(colour)
             l.SetDropTarget(DropTarget(l))

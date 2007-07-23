@@ -173,7 +173,7 @@ class Component(object):
         # Object's rect must be relative to testWin.object
         if isinstance(obj, wx.Window):
             return [obj.GetRect()]
-        elif isinstance(obj, wx.Rect):
+        elif isinstance(obj, wx.Rect): # spacer
             return [obj]
         else:
             return None
@@ -432,7 +432,26 @@ class Sizer(SmartContainer):
     def getRect(self, obj):
         rects = [wx.RectPS(obj.GetPosition(), obj.GetSize())]
         for sizerItem in obj.GetChildren():
-            rects.append(sizerItem.GetRect())
+            rect = sizerItem.GetRect()
+            rects.append(rect)
+            # Add lines to show borders
+            flag = sizerItem.GetFlag()
+            border = sizerItem.GetBorder()
+            if border == 0: continue
+            x = (rect.GetLeft() + rect.GetRight()) / 2
+            if flag & wx.TOP:
+                y = rect.GetTop() - border
+                rects.append(wx.Rect(x, y, 0, border))
+            if flag & wx.BOTTOM:
+                y = rect.GetBottom() + 1
+                rects.append(wx.Rect(x, y, 0, border))
+            y = (rect.GetTop() + rect.GetBottom()) / 2
+            if flag & wx.LEFT:
+                x = rect.GetLeft() - border
+                rects.append(wx.Rect(x, y, border, 0))
+            if flag & wx.BOTTOM:
+                x = rect.GetRight() + 1
+                rects.append(wx.Rect(x, y, border, 0))
         return rects
 
 
@@ -449,6 +468,19 @@ class BoxSizer(Sizer):
         else:
             return self.images[1].Id
 
+    def getRect(self, obj):
+        rects = Sizer.getRect(self, obj)
+        for sizerItem in obj.GetChildren():
+            rect = sizerItem.GetRect()
+            flag = sizerItem.GetFlag()
+            if flag & wx.EXPAND:
+                if obj.GetOrientation() == wx.VERTICAL:
+                    y = (rect.GetTop() + rect.GetBottom()) / 2
+                    rects.append(wx.Rect(rect.x, y, rect.width, 0))
+                else:
+                    x = (rect.GetLeft() + rect.GetRight()) / 2
+                    rects.append(wx.Rect(x, rect.y, 0, rect.height))
+        return rects
 
 ################################################################################
     
