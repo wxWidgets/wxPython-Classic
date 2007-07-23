@@ -9,6 +9,12 @@ import wx
 import view
 from component import Manager
 
+def getAllChildren(w, children):
+    for ch in w.GetChildren():
+        children.append(ch)
+        children.extend(getAllChildren(ch, children))
+    return children
+
 class TestWindow:
     '''Test window manager showing currently edited subtree.'''
     def __init__(self):
@@ -36,16 +42,18 @@ class TestWindow:
                 self.GetFrame().Close()
         self.frame = frame
         self.object = object
-        object.SetDropTarget(DropTarget())
+        object.SetDropTarget(DropTarget(object))
+        if wx.Platform == '__WXMAC__':
+            for ch in getAllChildren(object, []):
+                ch.SetDropTarget(DropTarget(ch))
         object.Bind(wx.EVT_PAINT, self.OnPaint)
-        self.hl = self.hlDT = None
         if self.pos != wx.DefaultPosition:
             self.GetFrame().SetPosition(self.pos)
         if restoreSize:   # keep same size in refreshing
             TRACE('restoring size %s', self.size)
             self.GetFrame().SetSize(self.size)
         self.item = item
-        self.hl = None
+        self.hl = self.hlDT = None
         g.Listener.InstallTestWinEvents()
                 
     def OnPaint(self, evt):
@@ -155,6 +163,7 @@ class TestWindow:
             self.hl.Move(rect)
             
     def HighlightDT(self, rect, item):
+        print 'hlDT'
         if not self.hlDT:
             self.hlDT = Highlight(self.object, rect, wx.BLUE)
             self.hlDT.origColour = view.tree.GetItemTextColour(item)
@@ -170,6 +179,7 @@ class TestWindow:
         self.hl = None
         
     def RemoveHighlightDT(self):
+        print 'removehlDT'
         if self.hlDT is None: return
         if self.hlDT.item:
             view.tree.SetItemTextColour(self.hlDT.item, self.hlDT.origColour)
@@ -182,17 +192,25 @@ class TestWindow:
 
 # DragAndDrop
 
-class DropTarget(wx.PyDropTarget):
-    def __init__(self):
+class DropTarget(wx.DropTarget):
+    def __init__(self, win):
+        self.win = win
         self.do = MyDataObject()
         wx.DropTarget.__init__(self, self.do)
+        self.onHL = self.left = False
 
     # Find best object for dropping
     def WhereToDrop(self, x, y, d):
+        print 'whereto',x,y
         # Find object by position
-        obj = wx.FindWindowAtPoint(view.testWin.object.ClientToScreen((x,y)))
+        obj = wx.FindWindowAtPoint(self.win.ClientToScreen((x,y)))
+        print obj
         if not obj:
             return wx.DragNone, ()
+        if view.testWin.hlDT and obj in view.testWin.hlDT.lines:
+            self.onHL = True
+            print 'on hl'
+            return d, ()
         item = view.testWin.FindObjectItem(view.testWin.item, obj)
         if not item:
             return wx.DragNone, ()
@@ -200,16 +218,17 @@ class DropTarget(wx.PyDropTarget):
         if obj.GetSizer():
             obj = obj.GetSizer()
             item = view.testWin.FindObjectItem(view.testWin.item, obj)
-        return d,(obj,item)
+        return d, (obj,item)
 
     # Drop
     def OnData(self, x, y, d):
 #        import pdb;pdb.set_trace()
         view.testWin.RemoveHighlightDT()
+        self.onHL = self.left = False
         self.GetData()
         id = int(self.do.GetDataHere())
         d,other = self.WhereToDrop(x, y, d)
-        if d != wx.DragNone:
+        if d != wx.DragNone and other:
             obj,item = other
             g.Presenter.setData(item)
             comp = Manager.findById(id)
@@ -240,22 +259,28 @@ class DropTarget(wx.PyDropTarget):
 
     def OnDragOver(self, x, y, d):
         d,other = self.WhereToDrop(x, y, d)
-        if d != wx.DragNone:
+        if d == wx.DragNone:
+            view.frame.SetStatusText('Inappropriate drop target')
+            view.testWin.RemoveHighlightDT()
+        elif other:
+            if self.left: 
+                view.testWin.RemoveHighlightDT()
+                self.onHL = self.left = False
             obj,item = other
             hl = view.testWin.hlDT
             if not hl or hl.item != item:
                 rect = view.testWin.FindObjectRect(item)
-                if not rect: return d
+                if not rect: return wx.DragNone
                 view.testWin.HighlightDT(rect, item)
                 view.tree.EnsureVisible(item)
             view.frame.SetStatusText('Drop target: %s' % view.tree.GetItemText(item))
-        else:
-            view.frame.SetStatusText('Inappropriate drop target')
-            view.testWin.RemoveHighlightDT()
         return d
 
     def OnLeave(self):
-        view.testWin.RemoveHighlightDT()
+        if self.onHL: 
+            view.testWin.RemoveHighlightDT()
+            self.onHL = False
+        else: self.left = True
 
 ################################################################################
 
@@ -275,7 +300,9 @@ class Highlight:
                       wx.Window(w, -1, rect.GetTopLeft(), (2, rect.height)),
                       wx.Window(w, -1, (rect.x + rect.width - 2, rect.y), (2, rect.height)),
                       wx.Window(w, -1, (rect.x, rect.y + rect.height - 2), (rect.width, 2))]
-        [l.SetBackgroundColour(colour) for l in self.lines]
+        for l in self.lines:
+            l.SetBackgroundColour(colour)
+            l.SetDropTarget(DropTarget(l))
         if wx.Platform == '__WXMSW__':
             [l.Bind(wx.EVT_PAINT, self.OnPaint) for l in self.lines]
         for r in rects:
@@ -287,16 +314,15 @@ class Highlight:
         w.ClearBackground()
         dc.Destroy()
     def Destroy(self):
-        [l.Destroy() for l in self.lines]
+        for l in self.lines:
+            l.Hide()
+            wx.CallAfter(l.Destroy)
     def Refresh(self):
         [l.Refresh() for l in self.lines]
     def Move(self, rect):
-#        print rect
-        if type(rect) == list:
-            rects = rect[1:]
-            rect = rect[0]
-        else:
-            rects = []
+        print 'move',rect
+        rects = rect[1:]
+        rect = rect[0]
         pos = rect.GetTopLeft()
         size = rect.GetSize()
         if size.width == -1: size.width = 0
@@ -317,7 +343,9 @@ class Highlight:
                  wx.Window(w, -1, rect.GetTopLeft(), (1, rect.height)),
                  wx.Window(w, -1, (rect.x + rect.width - 1, rect.y), (1, rect.height)),
                  wx.Window(w, -1, (rect.x, rect.y + rect.height - 1), (rect.width, 1))]
-        [l.SetBackgroundColour(colour) for l in lines]
+        for l in self.lines:
+            l.SetBackgroundColour(colour)
+            l.SetDropTarget(DropTarget(l))
         if wx.Platform == '__WXMSW__':
             [l.Bind(wx.EVT_PAINT, self.OnPaint) for l in lines]
         self.lines.extend(lines)
