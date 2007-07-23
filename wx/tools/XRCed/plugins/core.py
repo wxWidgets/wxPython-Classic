@@ -20,7 +20,20 @@ Manager.panelImages['Gizmos'] = images.getToolPanel_GizmosImage()
 
 ### wxFrame
 
-c = Container('wxFrame', ['frame','window','top_level'], 
+class Frame(Container):
+    def getChildObject(self, node, obj, index):
+        # Do not count toolbar and menubar
+        objects = filter(is_object, node.childNodes)
+        for i,o in enumerate(objects):
+            if o.getAttribute('class') == 'wxMenuBar':
+                if i == index:  return obj.GetMenuBar()
+                elif i < index: index -= 1
+            elif o.getAttribute('class') == 'wxToolBar':
+                if i == index:  return obj.GetToolBar()
+                elif i < index: index -= 1
+        return obj.GetChildren()[index]
+
+c = Frame('wxFrame', ['frame','window','top_level'], 
               ['pos', 'size', 'title', 'centered'],
               image=images.getTreeFrameImage())
 c.isTopLevel = True
@@ -529,6 +542,8 @@ class CMenuBar(SimpleContainer):
         frame = wx.Frame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME)
         object = res.LoadMenuBarOnFrame(frame, STD_NAME)
         return None, frame
+    def getRect(self, obj):
+        return None
 
 c = CMenuBar('wxMenuBar', ['menubar', 'top_level'], [],
              image=images.getTreeMenuBarImage())
@@ -568,6 +583,8 @@ class CToolBar(SimpleContainer):
         frame = wx.Frame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME)
         object = res.LoadToolBar(frame, STD_NAME)
         return None, frame
+    def getRect(self, obj):
+        return None
 
 c = CToolBar('wxToolBar', ['toolbar', 'top_level'],
              ['bitmapsize', 'margins', 'packing', 'separation',

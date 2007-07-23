@@ -53,7 +53,7 @@ class ToolPanel(wx.Panel):
         self.SetSizerAndFit(sizer)
         # Allow to be resized in horizontal direction only
         # Events
-        wx.EVT_KEY_DOWN(self, self.OnKeyDown)
+#        wx.EVT_KEY_DOWN(self, self.OnKeyDown)
 #        wx.EVT_KEY_UP(self, self.OnKeyUp)
         self.drag = None
 
@@ -61,7 +61,7 @@ class ToolPanel(wx.Panel):
         button = wx.BitmapButton(panel, id, bmp, 
                                  style=wx.NO_BORDER)# | wx.WANTS_CHARS)
         button.SetBezelWidth(0)
-        wx.EVT_KEY_DOWN(button, self.OnKeyDown)
+#        wx.EVT_KEY_DOWN(button, self.OnKeyDown)
 #        wx.EVT_KEY_UP(button, self.OnKeyUp)
         button.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDownOnButton)
 #        button.Bind(wx.EVT_LEFT_UP, self.OnLeftUpOnButton)
@@ -125,15 +125,8 @@ class ToolPanel(wx.Panel):
         if not self.drag: evt.Skip()
         self.drag = False
 
-    # Mouse events for DnD and append/insert mode
-    def OnLeftUpOnButton(self, evt):
-        print 'onleftup'
-        self.btnDown.ReleaseMouse()
-#        evt.Skip()
-
     def OnMotionOnButton(self, evt):
         # Detect dragging
-        print evt
         if evt.Dragging() and evt.LeftIsDown():
             d = evt.GetPosition() - self.posDown
             if max(abs(d[0]), abs(d[1])) >= 5:

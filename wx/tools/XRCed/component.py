@@ -282,7 +282,7 @@ class Container(Component):
             oldComp.copyObjects(oldNode, newNode)
         parentNode.replaceChild(newNode, oldNode)
 
-    def getChildObject(self, obj, index):
+    def getChildObject(self, node, obj, index):
         """Get index'th child of a tested interface element."""
         if isinstance(obj, wx.Window) and obj.GetSizer():
             return obj.GetSizer()
@@ -419,7 +419,7 @@ class Sizer(SmartContainer):
     def requireImplicit(self, node):
         return node.getAttribute('class') != 'spacer'
 
-    def getChildObject(self, obj, index):
+    def getChildObject(self, node, obj, index):
         obj = obj.GetChildren()[index]
         if obj.IsSizer():
             return obj.GetSizer()

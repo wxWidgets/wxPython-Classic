@@ -145,7 +145,6 @@ class _Listener:
     def InstallTestWinEvents(self):
         frame = self.testWin.GetFrame()
         frame.Bind(wx.EVT_CLOSE, self.OnCloseTestWin)
-        frame.Bind(wx.EVT_SIZE, self.OnSizeTestWin)
         frame.SetAcceleratorTable(self.accels)
         frame.Bind(wx.EVT_MENU, lambda evt: self.frame.ProcessEvent(evt))
 
@@ -420,10 +419,6 @@ Homepage: http://xrced.sourceforge.net\
     def OnCloseTestWin(self, evt):
         TRACE('OnCloseTestWin')
         Presenter.closeTestWin()
-
-    def OnSizeTestWin(self, evt):
-        print 'OnSizeTestWin'
-        evt.Skip()
 
     def OnTestHide(self, evt):
         Presenter.closeTestWin()

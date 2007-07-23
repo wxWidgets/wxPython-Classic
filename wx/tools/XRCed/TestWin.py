@@ -74,27 +74,12 @@ class TestWindow:
         self.frame = self.object = self.item = None
         self.hl = self.hlDT = None
 
-    # Find tree item corresponding to testWin object
-    def FindObjectItem(self, item, obj):
-        # We simply perform depth-first traversal, sinse it's too much
-        # hassle to deal with all sizer/window combinations
-        w = self.FindObject(item)
-#       TRACE('FindObjectItem: %s', w)
-        if w == obj or isinstance(w, wx.SizerItem) and w.GetWindow() == obj:
-            return item
-        if view.tree.ItemHasChildren(item):
-            child = view.tree.GetFirstChild(item)[0]
-            while child:
-                found = self.FindObjectItem(child, obj)
-                if found: return found
-                child = view.tree.GetNextSibling(child)
-        return None
-
     # Find the object for an item
     def FindObject(self, item):
         tree = view.tree
-        if not item or item == tree.root: return None
-        if item == self.item: return None #self.object
+        if not item or item == tree.root:
+            return None
+        if item == self.item: return self.object
         # Traverse tree until we reach the root  or the test object
         items = [item]
         while 1:
@@ -108,21 +93,34 @@ class TestWindow:
         while items and obj:
             if not (isinstance(obj, wx.Window) or isinstance(obj, wx.Sizer)):
                 return None
+            parentItem = item
             item = items.pop()
             index = tree.ItemIndex(item)
-            obj = comp.getChildObject(obj, index)
+            obj = comp.getChildObject(tree.GetPyData(parentItem), obj, index)
             node = tree.GetPyData(item)
             comp = Manager.getNodeComp(node)
-            rect = comp.getRect(obj)
-            if not rect: return None
         return obj
+
+    # Find tree item corresponding to testWin object
+    def FindObjectItem(self, item, obj):
+        # We simply perform depth-first traversal, sinse it's too much
+        # hassle to deal with all sizer/window combinations
+        w = self.FindObject(item)
+        if w == obj or isinstance(w, wx.SizerItem) and w.GetWindow() == obj:
+            return item
+        if view.tree.ItemHasChildren(item):
+            child = view.tree.GetFirstChild(item)[0]
+            while child:
+                found = self.FindObjectItem(child, obj)
+                if found: return found
+                child = view.tree.GetNextSibling(child)
+        return None
 
     # Find the rectangle or rectangles corresponding to a tree item
     # in the test window (or return None)
     def FindObjectRect(self, item):
         tree = view.tree
         if not item or item == tree.root: return None
-        if item == self.item: return None #self.object
         # Traverse tree until we reach the root  or the test object
         items = [item]
         while 1:
@@ -137,9 +135,10 @@ class TestWindow:
         while items and obj:
             if not (isinstance(obj, wx.Window) or isinstance(obj, wx.Sizer)):
                 return None
+            parentItem = item
             item = items.pop()
             index = tree.ItemIndex(item)
-            obj = comp.getChildObject(obj, index)
+            obj = comp.getChildObject(tree.GetPyData(parentItem), obj, index)
             node = tree.GetPyData(item)
             comp = Manager.getNodeComp(node)
             rect = comp.getRect(obj)
@@ -197,7 +196,7 @@ class DropTarget(wx.PyDropTarget):
         item = view.testWin.FindObjectItem(view.testWin.item, obj)
         if not item:
             return wx.DragNone, ()
-        # Check if window has a XRC sizer, then use it as parent
+        # If window has a sizer use it as parent
         if obj.GetSizer():
             obj = obj.GetSizer()
             item = view.testWin.FindObjectItem(view.testWin.item, obj)
@@ -246,6 +245,7 @@ class DropTarget(wx.PyDropTarget):
             hl = view.testWin.hlDT
             if not hl or hl.item != item:
                 rect = view.testWin.FindObjectRect(item)
+                if not rect: return d
                 view.testWin.HighlightDT(rect, item)
                 view.tree.EnsureVisible(item)
             view.frame.SetStatusText('Drop target: %s' % view.tree.GetItemText(item))
@@ -267,11 +267,8 @@ class Highlight:
     def __init__(self, w, rect, colour=wx.RED):
         self.win = w
         self.colour = colour
-        if type(rect) == list:
-            rects = rect[1:]
-            rect = rect[0]
-        else:
-            rects = []
+        rects = rect[1:]
+        rect = rect[0]
         if rect.width == -1: rect.width = 0
         if rect.height == -1: rect.height = 0
         self.lines = [wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 2)),
