@@ -291,9 +291,16 @@ EOF
     # make the postflight script
     cat > $RESOURCEDIR/postflight <<EOF
 #!/bin/sh -e
+
 # Compile the .py files in the wxPython pacakge
-$PYTHON \$2$PYLIB/compileall.py \$2$SITEPACKAGES/$PKGDIR
-$PYTHON -O \$2$PYLIB/compileall.py \$2$SITEPACKAGES/$PKGDIR
+COMPILE=\$2$PYLIB/compileall.py
+if [ ! -e \$COMPILE ]; then
+    COMPILE=\$2$PYLIB/compileall.pyc
+fi
+if [ -e \$COMPILE ]; then 
+    $PYTHON    \$COMPILE \$2$SITEPACKAGES/$PKGDIR
+    $PYTHON -O \$COMPILE \$2$SITEPACKAGES/$PKGDIR
+fi
 
 # and all of the wxPython pacakge should be group writable
 chgrp -R admin \$2$SITEPACKAGES/$PKGDIR
@@ -306,7 +313,7 @@ EOF
     # Panther then we need this little tweak to make it compatible.
     if [ $APPLE_PYTHON == yes ]; then
         cat >> $RESOURCEDIR/postflight <<EOF
-# Add a .pth file for Tiger so the wx.pth can be found before the default wx from Apple
+# Add a .pth file for Tiger so our wx.pth can be found before the default wx from Apple
 if [ -e \$2$SITEPACKAGES/site-packages ]; then
     echo "import site; site.addsitedir('$SITEPACKAGES')" > \$2$SITEPACKAGES/site-packages/00-compat-wx-path.pth
 fi
