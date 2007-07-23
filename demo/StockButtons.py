@@ -5,6 +5,7 @@ import wx
 
 
 stockIDs = [
+    wx.ID_ABOUT,
     wx.ID_ADD,
     wx.ID_APPLY,
     wx.ID_BOLD,
@@ -14,7 +15,9 @@ stockIDs = [
     wx.ID_COPY,
     wx.ID_CUT,
     wx.ID_DELETE,
+    wx.ID_EDIT,
     wx.ID_FIND,
+    wx.ID_FILE,
     wx.ID_REPLACE,
     wx.ID_BACKWARD,
     wx.ID_DOWN,
@@ -45,6 +48,7 @@ stockIDs = [
     wx.ID_REVERT_TO_SAVED,
     wx.ID_SAVE,
     wx.ID_SAVEAS,
+    wx.ID_SELECTALL,
     wx.ID_STOP,
     wx.ID_UNDELETE,
     wx.ID_UNDERLINE,
