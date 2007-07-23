@@ -153,6 +153,7 @@ class ToolPanel(wx.Panel):
         view.frame.SetStatusText('Release the mouse button over the test window')
         dragSource.DoDragDrop()
         view.testWin.RemoveHighlightDT()
+        view.testWin.EmptyTrash()
 
     # Process key events
     def OnKeyDown(self, evt):

@@ -29,6 +29,7 @@ class TestWindow:
         self.pos = wx.DefaultPosition
         self.size = wx.DefaultSize        
         self.isDirty = False            # if refresh neeeded
+        self.trash = []                 # trash to be destroyed later
 
     def SetView(self, frame, object, item):
         TRACE('SetView %s %s', frame, object)
@@ -59,7 +60,7 @@ class TestWindow:
         g.Listener.InstallTestWinEvents()
 
     def OnPaint(self, evt):
-        # This is completely crazy way to force wxMSW to refresh
+        # This is a completely crazy way to force wxMSW to refresh
         # highlight _after_ window is painted
         self.object.Bind(wx.EVT_IDLE, self.OnIdle)
         dc = wx.PaintDC(self.object)
@@ -83,6 +84,10 @@ class TestWindow:
     def IsDirty(self):
         '''If test window must be refreshed.'''
         return self.IsShown() and self.isDirty
+
+    def EmptyTrash(self):
+        [l.Destroy() for l in self.trash]
+        self.trash = []
 
     def Destroy(self):
         TRACE('Destroy')
@@ -329,6 +334,7 @@ class Highlight:
         '''Destroy highlight lines from some index.'''
         if wx.Platform == '__WXMAC__':
             [l.Hide() for l in self.lines[i:]]
+            view.testWin.trash.extend(self.lines[i:])
         else:
             [l.Destroy() for l in self.lines[i:]]
         self.lines[i:] = []
