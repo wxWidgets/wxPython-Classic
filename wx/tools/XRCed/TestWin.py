@@ -67,9 +67,9 @@ class TestWindow:
         dc.Destroy()
 
     def OnIdle(self, evt):
+        self.object.Unbind(wx.EVT_IDLE)                
         if self.hl: self.hl.Refresh()
         if self.hlDT: self.hlDT.Refresh()
-        self.object.Unbind(wx.EVT_IDLE)
                 
     def GetFrame(self):
         if self.frame: return self.frame
