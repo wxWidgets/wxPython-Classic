@@ -57,10 +57,19 @@ class TestWindow:
         self.item = item
         self.hl = self.hlDT = None
         g.Listener.InstallTestWinEvents()
-                
-    def OnPaint(self, evt):
-        if self.hl: self.hl.Refresh()
 
+    def OnPaint(self, evt):
+        # This is completely crazy way to force wxMSW to refresh
+        # highlight _after_ window is painted
+        self.object.Bind(wx.EVT_IDLE, self.OnIdle)
+        dc = wx.PaintDC(self.object)
+        dc.Destroy()
+
+    def OnIdle(self, evt):
+        if self.hl: self.hl.Refresh()
+        if self.hlDT: self.hlDT.Refresh()
+        self.object.Unbind(wx.EVT_IDLE)
+                
     def GetFrame(self):
         if self.frame: return self.frame
         else: return self.object
@@ -300,10 +309,10 @@ class Highlight:
         rect = rect[0]
         if rect.width == -1: rect.width = 0
         if rect.height == -1: rect.height = 0
-        self.lines = [wx.Panel(w, self.ID_HL, rect.GetTopLeft(), (rect.width, 2)),
-                      wx.Panel(w, self.ID_HL, rect.GetTopLeft(), (2, rect.height)),
-                      wx.Panel(w, self.ID_HL, (rect.x + rect.width - 2, rect.y), (2, rect.height)),
-                      wx.Panel(w, self.ID_HL, (rect.x, rect.y + rect.height - 2), (rect.width, 2))]
+        self.lines = [wx.Window(w, self.ID_HL, rect.GetTopLeft(), (rect.width, 2)),
+                      wx.Window(w, self.ID_HL, rect.GetTopLeft(), (2, rect.height)),
+                      wx.Window(w, self.ID_HL, (rect.x + rect.width - 2, rect.y), (2, rect.height)),
+                      wx.Window(w, self.ID_HL, (rect.x, rect.y + rect.height - 2), (rect.width, 2))]
         for l in self.lines:
             l.SetBackgroundColour(colour)
             l.SetDropTarget(DropTarget(l))
@@ -341,13 +350,11 @@ class Highlight:
     def AddSizerItem(self, rect):
         w = self.win
         colour = self.colour
-        lines = [wx.Window(w, self.ID_HL, rect.GetTopLeft(), (rect.width, 1)),
-                 wx.Window(w, self.ID_HL, rect.GetTopLeft(), (1, rect.height)),
+        lines = [wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 1)),
+                 wx.Window(w, -1, rect.GetTopLeft(), (1, rect.height)),
                  wx.Window(w, self.ID_HL, (rect.x + rect.width - 1, rect.y), (1, rect.height)),
                  wx.Window(w, self.ID_HL, (rect.x, rect.y + rect.height - 1), (rect.width, 1))]
         for l in lines:
             l.SetBackgroundColour(colour)
             l.SetDropTarget(DropTarget(l))
-        if wx.Platform == '__WXMSW__':
-            [l.Bind(wx.EVT_PAINT, self.OnPaint) for l in lines]
         self.lines.extend(lines)

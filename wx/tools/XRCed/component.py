@@ -149,13 +149,13 @@ class Component(object):
         if self.isTopLevel:
             # Top-level window creates frame itself
             frame = None
-            object = res.LoadObject(None, STD_NAME, self.klass)
+            object = res.LoadObject(view.frame, STD_NAME, self.klass)
             testWin.size = object.GetSize()
         else:
             # Create MiniFrame to hold selected subtree
             frame = testWin.frame
             if not frame:
-                frame = wx.MiniFrame(None, -1, '%s: %s' % (self.klass, name), name=STD_NAME,
+                frame = wx.MiniFrame(view.frame, -1, '%s: %s' % (self.klass, name), name=STD_NAME,
                                      style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER)
                 frame.panel = wx.Panel(frame)
             else:                       # reuse present frame

@@ -37,7 +37,7 @@ class _Listener:
                           self.OnComponentReplace)
 
         # Other events
-        frame.Bind(wx.EVT_IDLE, self.OnIdle)
+#        frame.Bind(wx.EVT_IDLE, self.OnIdle)
         frame.Bind(wx.EVT_CLOSE, self.OnCloseWindow)
 #        frame.Bind(wx.EVT_KEY_DOWN, self.OnKeyDown)
 #        wx.EVT_KEY_UP(frame, tools.OnKeyUp)
@@ -413,8 +413,8 @@ Homepage: http://xrced.sourceforge.net\
         conf.showToolPanel = True
         
     def OnTest(self, evt):
-        if not self.tree.GetSelection(): return
-        object = Presenter.createTestWin(self.tree.GetSelection())
+        if not Presenter.item: return
+        object = Presenter.createTestWin(Presenter.item)
 
     def OnCloseTestWin(self, evt):
         TRACE('OnCloseTestWin')
@@ -481,6 +481,8 @@ Homepage: http://xrced.sourceforge.net\
         self.inUpdateUI = False
 
     def OnIdle(self, evt):
+        evt.Skip()
+        return
 #        print 'onidle',self.inIdle
         if self.inIdle: return          # Recursive call protection
         self.inIdle = True
@@ -597,7 +599,7 @@ Homepage: http://xrced.sourceforge.net\
                 wx.CallAfter(Presenter.refreshTestWin)
         # Tell presenter to update current data and view
         item = evt.GetItem()
-        if not item: item = self.root
+        if not item: item = self.tree.root
         wx.CallAfter(Presenter.setData, item)
         # Set initial sibling/insert modes
         Presenter.createSibling = not Presenter.comp.isContainer()
@@ -608,7 +610,7 @@ Homepage: http://xrced.sourceforge.net\
         # If no selection, reset panel
         if not self.tree.GetSelection():
             if not Presenter.applied: Presenter.update()
-            Presenter.setData(self.root)
+            Presenter.setData(self.tree.root)
         evt.Skip()
 
     def OnPanelPageChanging(self, evt):
