@@ -102,9 +102,9 @@ g.basePath = os.path.abspath(g.basePath)
 
 # Data object used for clipboard
 class MyDataObject(wx.PyDataObjectSimple):
-    def __init__(self):
+    def __init__(self, data=''):
         wx.PyDataObjectSimple.__init__(self, wx.CustomDataFormat('XRCed_DND'))
-        self.data = ''
+        self.data = data
     def GetDataSize(self):
         return len(self.data)
     def GetDataHere(self):

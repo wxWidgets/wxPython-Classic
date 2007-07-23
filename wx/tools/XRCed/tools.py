@@ -64,10 +64,8 @@ class ToolPanel(wx.Panel):
 #        wx.EVT_KEY_DOWN(button, self.OnKeyDown)
 #        wx.EVT_KEY_UP(button, self.OnKeyUp)
         button.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDownOnButton)
-#        button.Bind(wx.EVT_LEFT_UP, self.OnLeftUpOnButton)
         button.Bind(wx.EVT_MOTION, self.OnMotionOnButton)
         button.Bind(wx.EVT_BUTTON, self.OnButton)
-#        wx.EVT_MOTION(button, self.OnMotionOnButton)
         button.SetToolTipString(text)
         # Look for an available place if not specified
         r0,c0 = 0,0
@@ -141,8 +139,6 @@ class ToolPanel(wx.Panel):
         evt.Skip()
 
     def StartDrag(self):
-        do = MyDataObject()
-        do.SetData(str(self.btnDown.GetId()))
         bm = self.btnDown.GetBitmapLabel()
         # wxGTK requires wxIcon cursor, wxWIN and wxMAC require wxCursor
         if wx.Platform == '__WXGTK__':
@@ -152,9 +148,11 @@ class ToolPanel(wx.Panel):
         else:
             curs = wx.CursorFromImage(wx.ImageFromBitmap(bm))
             dragSource = wx.DropSource(self, curs)
+        do = MyDataObject(str(self.btnDown.GetId()))
         dragSource.SetData(do)
         view.frame.SetStatusText('Release the mouse button over the test window')
         dragSource.DoDragDrop()
+        view.testWin.RemoveHighlightDT()
 
     # Process key events
     def OnKeyDown(self, evt):
@@ -176,7 +174,7 @@ class ToolPanel(wx.Panel):
         self.UpdateIfNeeded()
         evt.Skip()
 
-    def OnMouse2(self, evt):
+    def OnMouse(self, evt):
         # Update control and shift states
         g.tree.ctrl = evt.ControlDown()
         g.tree.shift = evt.ShiftDown()

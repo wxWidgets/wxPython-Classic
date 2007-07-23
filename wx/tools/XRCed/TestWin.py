@@ -9,10 +9,11 @@ import wx
 import view
 from component import Manager
 
-def getAllChildren(w, children):
+def getAllChildren(w):
+    children = []
     for ch in w.GetChildren():
         children.append(ch)
-        children.extend(getAllChildren(ch, children))
+        children.extend(getAllChildren(ch))
     return children
 
 class TestWindow:
@@ -44,7 +45,7 @@ class TestWindow:
         self.object = object
         object.SetDropTarget(DropTarget(object))
         if wx.Platform == '__WXMAC__':
-            for ch in getAllChildren(object, []):
+            for ch in getAllChildren(object):
                 ch.SetDropTarget(DropTarget(ch))
         object.Bind(wx.EVT_PAINT, self.OnPaint)
         if self.pos != wx.DefaultPosition:
@@ -163,9 +164,8 @@ class TestWindow:
             self.hl.Move(rect)
             
     def HighlightDT(self, rect, item):
-        print 'hlDT'
         if not self.hlDT:
-            self.hlDT = Highlight(self.object, rect, wx.BLUE)
+            self.hlDT = Highlight(self.object, rect, wx.BLUE, False)
             self.hlDT.origColour = view.tree.GetItemTextColour(item)
         else:
             self.hlDT.Move(rect)
@@ -179,7 +179,6 @@ class TestWindow:
         self.hl = None
         
     def RemoveHighlightDT(self):
-        print 'removehlDT'
         if self.hlDT is None: return
         if self.hlDT.item:
             view.tree.SetItemTextColour(self.hlDT.item, self.hlDT.origColour)
@@ -201,20 +200,16 @@ class DropTarget(wx.DropTarget):
 
     # Find best object for dropping
     def WhereToDrop(self, x, y, d):
-        print 'whereto',x,y
         # Find object by position
-        if wx.Platform == '__WXMAC__':
+        if wx.Platform == '__WXMAC__': # on mac x,y relative to children
             scrPos = self.win.ClientToScreen((x,y))
         else:
             scrPos = view.testWin.object.ClientToScreen((x,y))
-        print scrPos
         obj = wx.FindWindowAtPoint(scrPos)
-        print 'obj=', obj
         if not obj:
             return wx.DragNone, ()
-        if view.testWin.hlDT and obj in view.testWin.hlDT.lines:
+        if obj.GetId() == Highlight.ID_HL:
             self.onHL = True
-            print 'on hl'
             return d, ()
         item = view.testWin.FindObjectItem(view.testWin.item, obj)
         if not item:
@@ -227,7 +222,6 @@ class DropTarget(wx.DropTarget):
 
     # Drop
     def OnData(self, x, y, d):
-#        import pdb;pdb.set_trace()
         view.testWin.RemoveHighlightDT()
         self.onHL = self.left = False
         self.GetData()
@@ -282,8 +276,9 @@ class DropTarget(wx.DropTarget):
         return d
 
     def OnLeave(self):
-        if self.onHL: 
-            view.testWin.RemoveHighlightDT()
+        # Try to prevent flashing when pointer passes on highlight lines
+        if self.onHL:
+            wx.CallAfter(view.testWin.RemoveHighlightDT)
             self.onHL = False
         else: self.left = True
 
@@ -294,62 +289,60 @@ class Highlight:
     Create a highlight rectangle by using multiple windows. rect is a
     single Rect or a list of Rects (for sizeritems).
     '''
-    def __init__(self, w, rect, colour=wx.RED):
+    ID_HL = wx.NewId()
+    def __init__(self, w, rect, colour=wx.RED, more_lines=True):
         self.win = w
         self.colour = colour
+        self.moreLines = more_lines
         rects = rect[1:]
         rect = rect[0]
         if rect.width == -1: rect.width = 0
         if rect.height == -1: rect.height = 0
-        self.lines = [wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 2)),
-                      wx.Window(w, -1, rect.GetTopLeft(), (2, rect.height)),
-                      wx.Window(w, -1, (rect.x + rect.width - 2, rect.y), (2, rect.height)),
-                      wx.Window(w, -1, (rect.x, rect.y + rect.height - 2), (rect.width, 2))]
+        self.lines = [wx.Panel(w, self.ID_HL, rect.GetTopLeft(), (rect.width, 2)),
+                      wx.Panel(w, self.ID_HL, rect.GetTopLeft(), (2, rect.height)),
+                      wx.Panel(w, self.ID_HL, (rect.x + rect.width - 2, rect.y), (2, rect.height)),
+                      wx.Panel(w, self.ID_HL, (rect.x, rect.y + rect.height - 2), (rect.width, 2))]
         for l in self.lines:
             l.SetBackgroundColour(colour)
             l.SetDropTarget(DropTarget(l))
         if wx.Platform == '__WXMSW__':
             [l.Bind(wx.EVT_PAINT, self.OnPaint) for l in self.lines]
-        for r in rects:
-            self.AddSizerItem(r)
+        if more_lines: [self.AddSizerItem(r) for r in rects]
     # Repainting is not always done for these windows on Windows
     def OnPaint(self, evt):
         w = evt.GetEventObject()
         dc = wx.PaintDC(w)
         w.ClearBackground()
         dc.Destroy()
-    def Destroy(self):
-        for l in self.lines:
-            l.Hide()
-            wx.CallAfter(l.Destroy)
+    def Destroy(self, i=0):
+        '''Destroy highlight lines from some index.'''
+        if wx.Platform == '__WXMAC__':
+            [l.Hide() for l in self.lines[i:]]
+        else:
+            [l.Destroy() for l in self.lines[i:]]
+        self.lines[i:] = []
     def Refresh(self):
         [l.Refresh() for l in self.lines]
     def Move(self, rect):
-        print 'move',rect
         rects = rect[1:]
         rect = rect[0]
         pos = rect.GetTopLeft()
         size = rect.GetSize()
         if size.width == -1: size.width = 0
         if size.height == -1: size.height = 0
-        for l in self.lines[4:]:
-            l.Hide()
-            wx.CallAfter(l.Destroy)
-        self.lines[4:] = []
+        self.Destroy(4)
         self.lines[0].SetDimensions(pos.x, pos.y, size.width, 2)
         self.lines[1].SetDimensions(pos.x, pos.y, 2, size.height)
         self.lines[2].SetDimensions(pos.x + size.width - 2, pos.y, 2, size.height)
         self.lines[3].SetDimensions(pos.x, pos.y + size.height - 2, size.width, 2)
-        for r in rects:
-            self.AddSizerItem(r)
-#        self.Refresh()
+        if self.moreLines: [self.AddSizerItem(r) for r in rects]
     def AddSizerItem(self, rect):
         w = self.win
         colour = self.colour
-        lines = [wx.Window(w, -1, rect.GetTopLeft(), (rect.width, 1)),
-                 wx.Window(w, -1, rect.GetTopLeft(), (1, rect.height)),
-                 wx.Window(w, -1, (rect.x + rect.width - 1, rect.y), (1, rect.height)),
-                 wx.Window(w, -1, (rect.x, rect.y + rect.height - 1), (rect.width, 1))]
+        lines = [wx.Window(w, self.ID_HL, rect.GetTopLeft(), (rect.width, 1)),
+                 wx.Window(w, self.ID_HL, rect.GetTopLeft(), (1, rect.height)),
+                 wx.Window(w, self.ID_HL, (rect.x + rect.width - 1, rect.y), (1, rect.height)),
+                 wx.Window(w, self.ID_HL, (rect.x, rect.y + rect.height - 1), (rect.width, 1))]
         for l in lines:
             l.SetBackgroundColour(colour)
             l.SetDropTarget(DropTarget(l))
