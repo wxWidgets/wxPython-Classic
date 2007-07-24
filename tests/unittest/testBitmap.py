@@ -1,47 +1,35 @@
 import unittest
 import wx
 
+import wxtest
+import testSize
+
 """
 This file contains classes and methods for unit testing the API of 
 wx.Bitmap
 
 Methods yet to test:
-
-
-__del__
-__ne__
-__nonzero__
-ConvertToImage
-CopyFromBuffer
-CopyFromBufferRGBA
-CopyFromIcon
-GetDepth
-GetHeight
-GetPalette
-GetSize
-GetSubBitmap
-GetWidth
-LoadFile
-SaveFile
-SetDepth
-SetHeight
-SetMaskColour
-SetSize
-SetWidth
+__del__, __nonzero__, ConvertToImage, CopyFromBuffer, CopyFromBufferRGBA,
+CopyFromIcon, GetPalette, LoadFile, SaveFile, SetMaskColour
 """
-
 
 class BitmapTest(unittest.TestCase):
     def setUp(self):
         self.app = wx.PySimpleApp()
-        self.testControl = wx.EmptyBitmap(1,1)
+        self.testControl = wx.EmptyBitmap(10,10)
     
     def tearDown(self):
         self.testControl.Destroy()
         self.app.Destroy()
     
+    def testDepth(self):
+        """SetDepth, GetDepth"""
+        for i in range(1,1000,20):
+            self.testControl.SetDepth(i)
+            self.assertEquals(i, self.testControl.GetDepth())
+    
     def testEquals(self):
-        """__eq__"""
+        """__eq__, __ne__"""
         a = wx.Bitmap('')
         b = wx.Bitmap('')
         c = wx.Bitmap('')
@@ -49,6 +37,12 @@ class BitmapTest(unittest.TestCase):
         self.assertEquals(a,b)
         self.assertNotEquals(a,c)
         self.assertNotEquals(b,c)
+    
+    def testHeight(self):
+        """SetHeight, GetHeight"""
+        for h in range(2**0, 2**15, 2**7):
+            self.testControl.SetHeight(h)
+            self.assertEquals(h, self.testControl.GetHeight())
     
     def testInit(self):
         """__init__"""
@@ -68,6 +62,44 @@ class BitmapTest(unittest.TestCase):
         m = wx.Mask(self.testControl)
         self.testControl.SetMask(m)
         self.assert_(m.IsSameAs(self.testControl.GetMask()))
+    
+    def testSize(self):
+        """SetSize, GetSize"""
+        for size in testSize.getSizes(self.testControl, wxtest.SIZE):
+            self.testControl.SetSize(size)
+            self.assertEquals(size, self.testControl.GetSize())
+    
+    def testSubBitmap(self):
+        """GetSubBitmap"""
+        # additional setup
+        origmask = wx.Mask(self.testControl, wx.Colour(120,30,90))
+        self.testControl.SetMask(origmask)
+        origdepth = self.testControl.GetDepth()
+        # make SubBitmap
+        sub = self.testControl.GetSubBitmap(wx.Rect(1,1,1,1))
+        self.assert_(isinstance(sub, wx.Bitmap))
+        self.assertEquals(wx.Size(1,1), sub.GetSize())
+        # TODO: ensure it has the right colors or something?
+        # "This function preserves bit depth and mask information."
+        self.assert_(origmask.IsSameAs(sub.GetMask()))
+        self.assertEquals(origdepth, sub.GetDepth())
+        
+    def testSubBitmapInvalidDepth(self):
+        """GetSubBitmap"""
+        self.testControl.SetDepth(25) # invalid depth
+        self.assertRaises(wx.PyAssertionError, self.testControl.GetSubBitmap,
+                                wx.Rect(1,1,1,1))
+    
+    def testSubBitmapOutOfBounds(self):
+        """GetSubBitmap"""
+        self.assertRaises(wx.PyAssertionError, self.testControl.GetSubBitmap,
+                                wx.Rect(10,10,1,1)) # wx.Rect is out of bounds
+    
+    def testWidth(self):
+        """SetWidth, GetWidth"""
+        for w in range(2**0, 2**15, 2**7):
+            self.testControl.SetWidth(w)
+            self.assertEquals(w, self.testControl.GetWidth())
         
 
 if __name__ == '__main__':
