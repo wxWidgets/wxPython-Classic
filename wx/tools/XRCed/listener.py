@@ -143,8 +143,10 @@ class _Listener:
         self.toolFrame.Bind(wx.EVT_CLOSE, self.OnCloseToolFrame)
 
     def InstallTestWinEvents(self):
+        self.idleAfterSizeBound = False
         frame = self.testWin.GetFrame()
         frame.Bind(wx.EVT_CLOSE, self.OnCloseTestWin)
+        frame.Bind(wx.EVT_SIZE, self.OnSizeTestWin)
         frame.SetAcceleratorTable(self.accels)
         frame.Bind(wx.EVT_MENU, lambda evt: self.frame.ProcessEvent(evt))
 
@@ -356,15 +358,19 @@ class _Listener:
         raise NotImplementedError
 
     def OnLocate(self, evt):
-        raise NotImplementedError
+        frame = self.testWin.GetFrame()
+        frame.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDownTestWin)
+        frame.Bind(wx.EVT_MOUSE_CAPTURE_LOST, self.OnCaptureLostTestWin)
+        frame.CaptureMouse()
+        wx.SetCursor(wx.CROSS_CURSOR)
 
     def OnRefresh(self, evt):
-        if view.testWin.IsShown():
-            if not view.testWin.IsDirty():
+        if self.testWin.IsShown():
+            if not self.testWin.IsDirty():
                 Presenter.refreshTestWin()
             else:
-                item = view.testWin.item
-                view.testWin.Destroy()
+                item = self.testWin.item
+                self.testWin.Destroy()
                 Presenter.createTestWin(item)
                 Presenter.highlight(item)
 
@@ -416,12 +422,57 @@ Homepage: http://xrced.sourceforge.net\
         if not Presenter.item: return
         object = Presenter.createTestWin(Presenter.item)
 
+    # Test window events
+
     def OnCloseTestWin(self, evt):
         TRACE('OnCloseTestWin')
         Presenter.closeTestWin()
 
+    def OnSizeTestWin(self, evt):
+        TRACE('OnSizeTestWin')
+        if view.testWin.hl and not self.idleAfterSizeBound:
+            self.idleAfterSizeBound = True
+            frame = self.testWin.GetFrame()
+            frame.Bind(wx.EVT_IDLE, self.OnIdleAfterSize)
+        evt.Skip()
+
+    def OnIdleAfterSize(self, evt):
+        frame = self.testWin.GetFrame()
+        frame.Unbind(wx.EVT_IDLE)
+        self.idleAfterSizeBound = False
+        TRACE('OnIdleAfterSize')
+        Presenter.highlight(Presenter.item)
+
     def OnTestHide(self, evt):
         Presenter.closeTestWin()
+
+    def OnCaptureLostTestWin(self, evt):
+        frame = self.testWin.GetFrame()
+        wx.SetCursor(wx.NullCursor)
+        frame.ReleaseMouse()
+        frame.Unbind(wx.EVT_LEFT_DOWN)
+        self.frame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
+        self.frame.miniFrame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
+
+    def OnLeftDownTestWin(self, evt):
+        frame = self.testWin.GetFrame()
+        wx.SetCursor(wx.NullCursor)
+        frame.ReleaseMouse()
+        frame.Unbind(wx.EVT_LEFT_DOWN)
+        self.frame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
+        self.frame.miniFrame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
+
+        scrPos = view.testWin.object.ClientToScreen(evt.GetPosition())
+        obj = wx.FindWindowAtPoint(scrPos)
+        if not obj: return
+        item = self.testWin.FindObjectItem(self.testWin.item, obj)
+        if not item: return
+        # If window has a sizer use it as parent
+        if obj.GetSizer():
+            obj = obj.GetSizer()
+            item = self.testWin.FindObjectItem(self.testWin.item, obj)
+        self.tree.EnsureVisible(item)
+        self.tree.SelectItem(item)
 
     def OnShowXML(self, evt):
         Presenter.showXML()
