@@ -49,7 +49,8 @@ class TestWindow:
         if wx.Platform == '__WXMAC__':
             for ch in getAllChildren(object):
                 ch.SetDropTarget(DropTarget(ch))
-        object.Bind(wx.EVT_PAINT, self.OnPaint)
+        if wx.Platform == '__WXMSW__':
+            object.Bind(wx.EVT_PAINT, self.OnPaint)
         if self.pos != wx.DefaultPosition:
             self.GetFrame().SetPosition(self.pos)
         if restoreSize:   # keep same size in refreshing
@@ -62,12 +63,12 @@ class TestWindow:
     def OnPaint(self, evt):
         # This is a completely crazy way to force wxMSW to refresh
         # highlight _after_ window is painted
-        self.object.Bind(wx.EVT_IDLE, self.OnIdle)
         dc = wx.PaintDC(self.object)
         dc.Destroy()
+        self.object.Bind(wx.EVT_IDLE, self.OnIdle)
 
     def OnIdle(self, evt):
-        self.object.Unbind(wx.EVT_IDLE)                
+        self.object.Unbind(wx.EVT_IDLE)
         if self.hl: self.hl.Refresh()
         if self.hlDT: self.hlDT.Refresh()
                 
@@ -97,6 +98,7 @@ class TestWindow:
         self.GetFrame().Destroy()
         self.frame = self.object = self.item = None
         self.hl = self.hlDT = None
+        self.trash = []
 
     # Find the object for an item
     def FindObject(self, item):
