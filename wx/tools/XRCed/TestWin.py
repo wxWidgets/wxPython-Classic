@@ -155,46 +155,44 @@ class TestWindow:
         # Now traverse back from parents to children
         obj = self.object
         offset = wx.Point(0,0)
-        rect = None
+        rects = None
         comp = Manager.getNodeComp(tree.GetPyData(self.item))
         while items and obj:
             if not (isinstance(obj, wx.Window) or isinstance(obj, wx.Sizer)):
                 return None
             parentItem = item
-            if rect: parentRect = rect[0]
+            if rects: parentRect = rects[0]
             parent = obj
             item = items.pop()
             index = tree.ItemIndex(item)
             obj = comp.getChildObject(tree.GetPyData(parentItem), parent, index)
             node = tree.GetPyData(item)
             comp = Manager.getNodeComp(node)
-            rect = comp.getRect(obj)
-            if not rect: return None
+            rects = comp.getRect(obj)
+            if not rects: return None
+            r = rects[0]
             if isinstance(parent, wx.Sizer) and parentRect:
                 #rect.append(parentRect)
                 sizerItem = parent.GetChildren()[index]
                 flag = sizerItem.GetFlag()
                 border = sizerItem.GetBorder()
                 if border != 0:
-                    r = rect[0]
                     x = (r.GetLeft() + r.GetRight()) / 2
                     if flag & wx.TOP:
-                        y = r.GetTop() - border
-                        rect.append(wx.Rect(x, y, 0, border))
+                        rects.append(wx.Rect(x, r.GetTop() - border, 0, border))
                     if flag & wx.BOTTOM:
-                        y = r.GetBottom() + 1
-                        rect.append(wx.Rect(x, y, 0, border))
+                        rects.append(wx.Rect(x, r.GetBottom() + 1, 0, border))
                     y = (r.GetTop() + r.GetBottom()) / 2
                     if flag & wx.LEFT:
-                        x = r.GetLeft() - border
-                        rect.append(wx.Rect(x, y, border, 0))
-                    if flag & wx.BOTTOM:
-                        x = r.GetRight() + 1
-                        rect.append(wx.Rect(x, y, border, 0))
+                        rects.append(wx.Rect(r.GetLeft() - border, y, border, 0))
+                    if flag & wx.RIGHT:
+                        rects.append(wx.Rect(r.GetRight() + 1, y, border, 0))
             if isinstance(obj, wx.Window) and items:
-                offset += rect[0].GetTopLeft()
-        [r.Offset(offset) for r in rect]
-        return rect
+                offset += r.GetTopLeft()
+            if isinstance(obj, wx.Notebook) and items:
+                offset += obj.GetClientRect().GetTopLeft()
+        [r.Offset(offset) for r in rects]
+        return rects
 
     def Highlight(self, rect):
         if not self.hl:
@@ -215,6 +213,7 @@ class TestWindow:
     def RemoveHighlight(self):
         if self.hl is None: return
         self.hl.Destroy()
+        self.EmptyTrash()
         self.hl = None
         
     def RemoveHighlightDT(self):

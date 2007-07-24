@@ -440,18 +440,14 @@ class Sizer(SmartContainer):
             if border == 0: continue
             x = (rect.GetLeft() + rect.GetRight()) / 2
             if flag & wx.TOP:
-                y = rect.GetTop() - border
-                rects.append(wx.Rect(x, y, 0, border))
+                rects.append(wx.Rect(x, rect.GetTop() - border, 0, border))
             if flag & wx.BOTTOM:
-                y = rect.GetBottom() + 1
-                rects.append(wx.Rect(x, y, 0, border))
+                rects.append(wx.Rect(x, rect.GetBottom() + 1, 0, border))
             y = (rect.GetTop() + rect.GetBottom()) / 2
             if flag & wx.LEFT:
-                x = rect.GetLeft() - border
-                rects.append(wx.Rect(x, y, border, 0))
-            if flag & wx.BOTTOM:
-                x = rect.GetRight() + 1
-                rects.append(wx.Rect(x, y, border, 0))
+                rects.append(wx.Rect(rect.GetLeft() - border, y, border, 0))
+            if flag & wx.RIGHT:
+                rects.append(wx.Rect(rect.GetRight() + 1, y, border, 0))
         return rects
 
 
