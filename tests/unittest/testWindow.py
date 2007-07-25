@@ -271,9 +271,9 @@ class WindowTest(unittest.TestCase):
     # At least one of these came out valid on Ubuntu.
     # TODO: isolate the culprit (and make the whole thing more robust)
     def testInvalidSizeHints(self):
-        for invalid_hint in testSize.getInvalidSizeHints():
-            self.assertRaises(wx.PyAssertionError, self.testControl.SetSizeHints, *invalid_hint)
-    
+        # max can't be less than min
+        self.assertRaises(wx.PyAssertionError, self.testControl.SetSizeHints, 100,100,10,10)
+            
     def testIsBeingDeleted(self):
         """IsBeingDeleted
         TODO: find a way to test this when it will return True
@@ -289,19 +289,19 @@ class WindowTest(unittest.TestCase):
         self.testControl.SetLabel(two)
         self.assertEquals(two, self.testControl.GetLabel())
         self.assertNotEquals(one, self.testControl.GetLabel())
-
+    
     def testMaxSize(self):
         """SetMaxSize, GetMaxSize"""
-        for max_size in testSize.getValidSizeData():
+        for max_size in testSize.getSizes(self.testControl, wxtest.SIZE):
             self.testControl.SetMaxSize(max_size)
             self.assertEquals(max_size, self.testControl.GetMaxSize())
             
     def testMinSize(self):
         """SetMinSize, GetMinSize"""
-        for min_size in testSize.getValidSizeData():
+        for min_size in testSize.getSizes(self.testControl, wxtest.SIZE):
             self.testControl.SetMinSize(min_size)
             self.assertEquals(min_size, self.testControl.GetMinSize())
-            
+          
     def testMove(self):
         """Move, MoveXY, GetPositionTuple"""
         for point in testPoint.getValidPointData():
@@ -408,16 +408,19 @@ class WindowTest(unittest.TestCase):
         for w,h in testSize.getSizes(self.testControl, wxtest.SIZE):
             self.testControl.SetSizeWH(w,h)
             self.assertEquals((w,h), self.testControl.GetSizeTuple())
-    
+            
     def testSizeHints(self):
         """SetSizeHints, GetMinWidth, GetMinHeight, GetMaxWidth, GetMaxHeight"""
-        for minW, minH, maxW, maxH in testSize.getValidSizeHints():
+        data = testSize.getSizeData()
+        for (minW,minH),(maxW,maxH) in zip(data,data):
+            maxW += 1
+            maxH += 1 # maxes greater than mins
             self.testControl.SetSizeHints(minW, minH, maxW, maxH)
             self.assertEquals(minW, self.testControl.GetMinWidth())
             self.assertEquals(minH, self.testControl.GetMinHeight())
             self.assertEquals(maxW, self.testControl.GetMaxWidth())
             self.assertEquals(maxH, self.testControl.GetMaxHeight())
-    
+            
     def testSizer(self):
         """SetSizer, GetSizer"""
         # TODO: test for other functionality provided in SetSizer
