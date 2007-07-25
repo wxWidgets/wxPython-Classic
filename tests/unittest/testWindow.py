@@ -146,7 +146,7 @@ class WindowTest(unittest.TestCase):
         # platforms and window types.  IMO because of this potential variability
         # the only valid test for GetClientRect is that it returns a rectangle
         # positioned at GetClientAreaOrigin and with a size of GetClientSize."
-        for rect in testRect.getValidRectData():
+        for rect in testRect.getRectData(self.testControl):
             self.testControl.SetClientRect(rect)
             r = self.testControl.GetClientRect()
             self.assertEquals(r.GetTopLeft(), self.testControl.GetClientAreaOrigin())
@@ -186,6 +186,7 @@ class WindowTest(unittest.TestCase):
         # put back a dummy object so cleanup can happen
         self.testControl = wx.Window(self.frame)
     
+    # TODO: split this test
     def testEnableDisable(self):
         """Enable, Disable, IsEnabled"""
         self.testControl.Enable(True)
@@ -366,7 +367,7 @@ class WindowTest(unittest.TestCase):
     
     def testRect(self):
         """SetRect, GetRect"""
-        for rect in testRect.getValidRectData():
+        for rect in testRect.getRectData(self.testControl):
             self.testControl.SetRect(rect)
             self.assertEquals(rect, self.testControl.GetRect())
         
