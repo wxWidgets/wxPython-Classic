@@ -95,6 +95,9 @@ class Panel(wx.Panel):
         # Implicit attributes page
         self.pageIA = ScrolledPage(self.nb)
         self.pageIA.Hide()
+        # Code page
+        self.pageCode = ScrolledPage(self.nb)
+        self.pageCode.Hide()
 
         topSizer.Add(self.nb, 1, wx.EXPAND)
         self.SetSizer(topSizer)
@@ -163,6 +166,14 @@ class Panel(wx.Panel):
             panels.append(panel)
             self.pageIA.SetPanel(panel)
             self.nb.AddPage(self.pageIA, container.implicitPageName)
+
+        if comp.events:
+            # Create code page
+            panel = CodePanel(self.pageCode, comp.events)
+#            self.SetStyleValues(panel, comp.getAttribute(node, 'style'))
+            panels.append(panel)
+            self.pageCode.SetPanel(panel)
+            self.nb.AddPage(self.pageCode, 'Code')
 
         # Select old page if possible and pin is down
         if g.conf.panelPinState:
@@ -241,3 +252,42 @@ class AttributePanel(wx.Panel):
             a,c = ac
             v = a2v[1]
             c.SetValue(v)
+
+################################################################################
+
+class CodePanel(wx.Panel):
+    '''Code generation panel.'''
+    def __init__(self, parent, events):
+        wx.Panel.__init__(self, parent, -1)
+        self.SetFont(g.smallerFont())
+        self.node = None
+        self.controls = []
+        topSizer = wx.BoxSizer(wx.HORIZONTAL)
+        if events:
+            # Specific styles
+            sizer = wx.GridSizer(len(events), 1, 0, 5)
+            label = wx.StaticText(self, label='Events')
+            label.SetFont(g.labelFont())
+            sizer.Add(label, 0, wx.LEFT, 20)
+            for ev in events:
+                control = wx.CheckBox(self, label=ev)
+                sizer.Add(control)
+                self.controls.append((ev, control))
+            topSizer.Add(sizer)
+        self.Bind(wx.EVT_CHECKBOX, self.OnCheck)
+        self.SetSizerAndFit(topSizer)
+
+    def GetValues(self):
+        checked = []
+        for s,check in self.controls:
+            if check.IsChecked(): checked.append(s)
+        return [('events', '|'.join(checked))]
+
+    def SetValues(self, values):
+        events = values[0][1].split('|')
+        for s,check in self.controls:
+            check.SetValue(s in events)
+
+    def OnCheck(self, evt):
+        g.Presenter.setApplied(False)
+

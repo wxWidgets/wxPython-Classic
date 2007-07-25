@@ -12,6 +12,7 @@ from component import Manager
 from model import Model
 import view
 import undo
+from generate import PythonOptions
 
 class _Listener:
     '''
@@ -50,7 +51,7 @@ class _Listener:
         wx.EVT_MENU(frame, wx.ID_OPEN, self.OnOpen)
         wx.EVT_MENU(frame, wx.ID_SAVE, self.OnSaveOrSaveAs)
         wx.EVT_MENU(frame, wx.ID_SAVEAS, self.OnSaveOrSaveAs)
-#        wx.EVT_MENU(frame, self.ID_GENERATE_PYTHON, self.OnGeneratePython)
+        wx.EVT_MENU(frame, frame.ID_GENERATE_PYTHON, self.OnGeneratePython)
         wx.EVT_MENU(frame, frame.ID_PREFS, self.OnPrefs)
         wx.EVT_MENU(frame, wx.ID_EXIT, self.OnExit)
         wx.EVT_MENU(frame.miniFrame, wx.ID_EXIT, self.OnExit)
@@ -246,8 +247,7 @@ class _Listener:
                 pypath = g.conf.localconf.Read("filename")
                 embed = g.conf.localconf.ReadBool("embedResource", False)
                 genGettext = g.conf.localconf.ReadBool("genGettext", False)
-                self.GeneratePython(path, pypath, embed, genGettext)
-
+                Presenter.GeneratePython(path, pypath, embed, genGettext)
             self.frame.SetStatusText('Data saved')
             self.SaveRecent(path)
         finally:
@@ -259,6 +259,15 @@ class _Listener:
     def OnExit(self, evt):
         '''wx.ID_EXIT handler'''
         self.frame.Close()
+        
+    def OnGeneratePython(self, evt):
+        if Presenter.modified or not g.conf.localconf:
+            wx.MessageBox("Save the XRC file first!", "Error")
+            return
+        
+        dlg = PythonOptions(view.frame, g.conf.localconf, Presenter.path)
+        dlg.ShowModal()
+        dlg.Destroy()
         
     def SaveRecent(self, path):
         '''Append path to recently used files.'''

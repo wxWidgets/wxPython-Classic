@@ -75,7 +75,7 @@ class Globals:
         self._sysFont = wx.SystemSettings.GetFont(wx.SYS_SYSTEM_FONT)
         self._labelFont = wx.Font(self._sysFont.GetPointSize(), wx.DEFAULT, wx.NORMAL, wx.BOLD)
         self._modernFont = wx.Font(self._sysFont.GetPointSize(), wx.MODERN, wx.NORMAL, wx.NORMAL)
-        self._smallerFont = wx.Font(self._sysFont.GetPointSize()-2, wx.DEFAULT, wx.NORMAL, wx.NORMAL)
+        self._smallerFont = wx.Font(self._sysFont.GetPointSize()-1, wx.DEFAULT, wx.NORMAL, wx.NORMAL)
         
     def sysFont(self):
         if not hasattr(self, "_sysFont"): self._makeFonts()

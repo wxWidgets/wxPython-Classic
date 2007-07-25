@@ -255,6 +255,9 @@ class _Presenter:
         '''Update DOM with new attribute values. Update tree if necessary.'''
         node = view.tree.GetPyData(item)
         if self.comp and self.comp.hasName:
+            # Update class if needed
+            if view.panel.controlClass.GetValue() != self.comp.klass:
+                node.setAttribute('class', view.panel.controlClass.GetValue())
             name = view.panel.controlName.GetValue()
             if name:
                 node.setAttribute('name', view.panel.controlName.GetValue())
@@ -494,6 +497,16 @@ class _Presenter:
         dlg.Bind(wx.EVT_CLOSE, lambda evt: dlg.Destroy())
         dlg.Bind(wx.EVT_BUTTON, lambda evt: dlg.Destroy(), id=wx.ID_OK)
         dlg.Show()
+
+    def generatePython(self, dataFile, pypath, embed, genGettext):
+        try:
+            import wx.tools.pywxrc
+            rescomp = wx.tools.pywxrc.XmlResourceCompiler()
+            rescomp.MakePythonModule([dataFile], pypath, embed, genGettext)
+        except:
+            logger.exception('error generating python code')
+            wx.LogError('Error generating python code : %s' % pypath)
+            raise
 
 # Singleton class
 Presenter = g.Presenter = _Presenter()

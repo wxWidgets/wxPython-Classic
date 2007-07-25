@@ -69,6 +69,8 @@ class Component(object):
             self.images = [kargs['image']]
         elif not 'image' in self.__dict__:
             self.images = []
+        # Code generation data
+        self.events = []
 
     def addStyles(self, *styles):
         self.styles.extend(styles)
@@ -96,6 +98,9 @@ class Component(object):
             name = node.getAttribute('name')
             if name: label += ' "%s"' % name
         return label
+
+    def addEvents(self, *events):
+        self.events.extend(events)
 
     # Order components having same index by group and klass
     def __cmp__(self, other):
@@ -549,6 +554,11 @@ class _ComponentManager:
         bisect.insort_left(self.panels[panel], (pos, span, component, bitmap))
 
     def addXmlHandler(self, h):
+        '''
+        Add an XML resource handler. h must be a class derived from
+        XmlResourceHandler or a function loaded from a dynamic library
+        using ctypes.
+        '''
         self.handlers.append(h)
         
     def findById(self, id):
@@ -557,6 +567,7 @@ class _ComponentManager:
     def addXmlHandlers(self, res):
         '''Register XML handlers before creating a test window.'''
         for h in self.handlers:
+            TRACE('registering Xml handler %s', h)
             if g._CFuncPtr and isinstance(h, g._CFuncPtr):
                 try:
                     apply(h, ())

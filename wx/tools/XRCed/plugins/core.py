@@ -45,6 +45,7 @@ c.addStyles('wxDEFAULT_FRAME_STYLE', 'wxDEFAULT_DIALOG_STYLE', 'wxCAPTION',
             'wxFRAME_FLOAT_ON_PARENT',
             'wxNO_3D', 'wxTAB_TRAVERSAL')
 c.addExStyles('wxFRAME_EX_METAL')
+c.addEvents('EVT_SIZE', 'EVT_CLOSE')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'frame', 'wxFrame', 10)
 Manager.setTool(c, 'Windows', bitmaps.getwxFrameBitmap(), (0,0))
