@@ -500,8 +500,11 @@ class _Presenter:
 
     def generatePython(self, dataFile, pypath, embed, genGettext):
         try:
-            import wx.tools.pywxrc
-            rescomp = wx.tools.pywxrc.XmlResourceCompiler()
+            try:
+                import pywxrc               # !!! only for testing new pywxrc
+            except ImportError:
+                import wx.tools.pywxrc as pywxrc
+            rescomp = pywxrc.XmlResourceCompiler()
             rescomp.MakePythonModule([dataFile], pypath, embed, genGettext)
         except:
             logger.exception('error generating python code')

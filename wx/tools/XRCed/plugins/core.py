@@ -583,6 +583,7 @@ c = SimpleComponent('wxMenuItem', ['menu_item'],
                      'checkable', 'radio', 'enabled', 'checked'],
                     image=images.getTreeMenuItemImage())
 c.setSpecial('bitmap', BitmapAttribute)
+c.addEvents('EVT_MENU')
 Manager.register(c)
 Manager.setMenu(c, 'ROOT', 'menu item', 'wxMenuItem', 10)
 Manager.setTool(c, 'Menus', pos=(1,2))
@@ -628,6 +629,7 @@ c.setSpecial('bitmap', BitmapAttribute)
 c.setSpecial('bitmap2', BitmapAttribute)
 c.setParamClass('bitmap2', params.ParamBitmap)
 c.setParamClass('toggle', params.ParamBool)
+c.addEvents('EVT_TOOL')
 Manager.setMenu(c, 'ROOT', 'tool', 'wxTool', 10)
 Manager.setTool(c, 'Menus', pos=(0,1))
 

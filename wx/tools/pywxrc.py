@@ -9,6 +9,8 @@
 #
 #              Massive rework by Eli Golovinsky
 #
+#              Editable blocks by Roman Rolinsky
+#
 # RCS-ID:      $Id$
 # Copyright:   (c) 2004 by Total Control Software, 2000 Vaclav Slavik
 # Licence:     wxWindows license
@@ -70,15 +72,23 @@ class xrc%(windowName)s(wx.%(windowClass)s):
         get_resources().LoadOn%(windowClass)s(pre, parent, "%(windowName)s")
         self.PostCreate(pre)
 
-        # Define variables for the controls
+        # Define variables for the controls, bind event handlers
 """
 
     CREATE_WIDGET_VAR = """\
         self.%(widgetName)s = xrc.XRCCTRL(self, \"%(widgetName)s\")
 """
 
-    BIND_EVENT = """\
+    BIND_WIDGET_EVENT = """\
         self.Bind(wx.%(event)s, self.%(eventHandler)s, self.%(widgetName)s)
+"""
+
+    BIND_MENU_EVENT = """\
+        self.Bind(wx.%(event)s, self.%(eventHandler)s, id=%(id)s)
+"""
+
+    BIND_EVENT = """\
+        self.Bind(wx.%(event)s, self.%(eventHandler)s)
 """
 
     CREATE_EVENT_HANDLER = """\
@@ -263,35 +273,50 @@ class XmlResourceCompiler:
                 widgetName = widget.getAttribute("name")
                 if (widgetName != "" and widgetClass != ""):
                     if widgetClass == "MenuItem":
-                        outputList.append(self.templates.CREATE_MENUITEM_VAR % locals())
+                        if windowClass == "MenuBar":
+                            outputList.append(self.templates.CREATE_MENUITEM_VAR % locals())
                     elif widgetClass not in \
                         ['tool', 'unknown', 'notebookpage', 'separator', 'sizeritem']:
                         outputList.append(self.templates.CREATE_WIDGET_VAR % locals())
             outputList.append('\n')
 
-            # Generate event handlers
             eventHandlers = []
-            for widget in topWindow.getElementsByTagName("object"):
-                widgetClass = widget.getAttribute("class")
-                widgetClass = re.sub("^wx", "", widgetClass)
-                widgetName = widget.getAttribute("name")
-                if (widgetName != "" and widgetClass != ""):
-                    if widgetClass not in \
-                        ['MenuItem', 'tool', 'unknown', 'notebookpage', 'separator', 'sizeritem']:
-                        eventNode = widget.getElementsByTagName("XRCED_events")[0]
-                        for event in eventNode.childNodes[0].nodeValue.split('|'):
-                            eventHandler = "On%s_%s" % (event[4:].capitalize(), widgetName)
-                            outputList.append(self.templates.BIND_EVENT % locals())
+            
+            # Generate child event handlers
+            for eventNode in topWindow.getElementsByTagName("XRCED_events"):
+                events = eventNode.childNodes[0].nodeValue.split('|')
+                for event in events:
+                    if eventNode.parentNode is topWindow:
+                        eventHandler = "On%s" % event[4:].capitalize()
+                        outputList.append(self.templates.BIND_EVENT % locals())
+                        eventHandlers.append(eventHandler)
+                    else:
+                        widget = eventNode.parentNode
+                        widgetClass = widget.getAttribute("class")
+                        widgetClass = re.sub("^wx", "", widgetClass)
+                        widgetName = widget.getAttribute("name")
+                        if (widgetName != "" and widgetClass != ""):
+                            if widgetClass == "MenuItem" and windowClass != "MenuBar":
+                                if widgetName[:2] == "wx":
+                                    id = widgetName
+                                    widgetName = re.sub("^wx", "", widgetName)
+                                else:
+                                    id = 'xrc.XRCID("%s")' % widgetName
+                                eventHandler = "On%s_%s" % (event[4:].capitalize(), widgetName)
+                                outputList.append(self.templates.BIND_MENU_EVENT % locals())
+                            else:
+                                eventHandler = "On%s_%s" % (event[4:].capitalize(), widgetName)
+                                outputList.append(self.templates.BIND_WIDGET_EVENT % locals())
                             eventHandlers.append(eventHandler)
             outputList.append("\n")
-            if eventHandlers:
-                for eventHandler in eventHandlers:
-                    block = "xrc%(windowName)s.%(eventHandler)s" % locals()
-                    try:
-                        outputList.append(self.blocks[block])
-                    except KeyError:
-                        outputList.append(self.templates.CREATE_EVENT_HANDLER % locals())
-                    outputList.append("\n")
+
+            for eventHandler in eventHandlers:
+                block = "xrc%(windowName)s.%(eventHandler)s" % locals()
+                try:
+                    outputList.append(self.blocks[block])
+                except KeyError:
+                    outputList.append(self.templates.CREATE_EVENT_HANDLER % locals())
+                outputList.append("\n")
 
             outputList.append("\n")
                     

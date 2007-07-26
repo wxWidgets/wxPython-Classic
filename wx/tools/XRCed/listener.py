@@ -311,6 +311,7 @@ class _Listener:
             if conf.showToolPanel:
                 conf.toolPanelPos = self.toolFrame.GetPosition()
                 conf.toolPanelSize = self.toolFrame.GetSize()
+        self.panel.Destroy()            # destroy panel before tree
         evt.Skip()
 
     def OnUndo(self, evt):
@@ -674,7 +675,7 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnPanelPageChanging(self, evt):
-        TRACE('OnPanelPageChanging: %d > %d', evt.GetOldSelection(), evt.GetSelection())
+        TRACE('OnPanelPageChanging: %d=>%d', evt.GetOldSelection(), evt.GetSelection())
         # Register undo if something was changed
         i = evt.GetOldSelection()
         if i >= 0 and Presenter.panelIsDirty():
@@ -682,7 +683,7 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnPanelPageChanged(self, evt):
-        TRACE('OnPanelPageChanged: %d > %d', evt.GetOldSelection(), evt.GetSelection())
+        TRACE('OnPanelPageChanged: %d=>%d', evt.GetOldSelection(), evt.GetSelection())
         # Register new undo 
         Presenter.createUndoEdit(page=evt.GetSelection())
         # Refresh test window after finishing
