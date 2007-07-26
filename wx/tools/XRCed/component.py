@@ -59,7 +59,10 @@ class Component(object):
         self.exStyles = []
         self.defaults = kargs.get('defaults', {})
         # Special Attribute classes if required
-        self.specials = kargs.get('specials', {'font': FontAttribute})
+        self.specials = kargs.get('specials', {})
+        # Some default special attributes
+        self.specials['font'] = FontAttribute
+        self.specials['XRCED_data'] = CodeAttribute
         # Special Param classes if required
         self.params = kargs.get('params', {})
         # Tree image

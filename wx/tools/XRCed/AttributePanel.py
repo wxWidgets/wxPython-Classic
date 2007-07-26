@@ -170,7 +170,7 @@ class Panel(wx.Panel):
         if comp.events:
             # Create code page
             panel = CodePanel(self.pageCode, comp.events)
-            self.SetEvents(panel, comp.getAttribute(node, 'XRCED_events'))
+            self.SetCodeValues(panel, comp.getAttribute(node, 'XRCED_data'))
             panels.append(panel)
             self.pageCode.SetPanel(panel)
             self.nb.AddPage(self.pageCode, 'Code')
@@ -218,11 +218,14 @@ class Panel(wx.Panel):
             w.SetValue(s in styles)
 
     # Set data for a style panel
-    def SetEvents(self, panel, events):
-        panel.events = events
-        events = map(string.strip, events.split('|')) # to list
-        for ev,w in panel.controls:
-            w.SetValue(ev in events)
+    def SetCodeValues(self, panel, data):
+        if data:
+            events = data['events']
+            events = map(string.strip, events.split('|')) # to list
+            for ev,w in panel.controls:
+                w.SetValue(ev in events)
+            panel.checkVar.SetValue(data.get('assign_var', False))
+            
 
 ################################################################################
 
@@ -252,9 +255,11 @@ class AttributePanel(wx.Panel):
         self.SetSizerAndFit(sizer)
 
     def GetValues(self):
+        '''Generic method used for creating XML and for other operations.'''
         return [(a,c.GetValue()) for a,c in self.controls]
         
     def SetValues(self, values):
+        '''Generic method used for undo.'''
         for ac,a2v in zip(self.controls, values):
             a,c = ac
             v = a2v[1]
@@ -271,7 +276,7 @@ class CodePanel(wx.Panel):
         self.controls = []
         topSizer = wx.BoxSizer(wx.HORIZONTAL)
         if events:
-            # Specific styles
+            # Events on the left
             sizer = wx.GridSizer(len(events), 1, 0, 5)
             label = wx.StaticText(self, label='Events')
             label.SetFont(g.labelFont())
@@ -281,6 +286,12 @@ class CodePanel(wx.Panel):
                 sizer.Add(control)
                 self.controls.append((ev, control))
             topSizer.Add(sizer)
+        # Right sizer
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        self.checkVar = wx.CheckBox(self, label='assign variable')
+        sizer.Add(self.checkVar, 0, wx.LEFT, 20)
+        topSizer.Add(sizer)
+        # Cach all checkbox events
         self.Bind(wx.EVT_CHECKBOX, self.OnCheck)
         self.SetSizerAndFit(topSizer)
 
@@ -288,12 +299,19 @@ class CodePanel(wx.Panel):
         checked = []
         for s,check in self.controls:
             if check.IsChecked(): checked.append(s)
-        return [('XRCED_events', '|'.join(checked))]
+        # Encode data to a dictionary and the cPicke it
+        data = {}
+        if self.checkVar.GetValue(): data['assign_var'] = True
+        data['events'] = '|'.join(checked)
+        return [('XRCED_data', data)]
 
     def SetValues(self, values):
-        events = values[0][1].split('|')
+        print 'SetValues'
+        data = values[0][1]
+        events = data['events']
         for s,check in self.controls:
             check.SetValue(s in events)
+        self.checkVar.SetValue(data.get('assign_var', False))
 
     def OnCheck(self, evt):
         g.Presenter.setApplied(False)

@@ -30,7 +30,7 @@ Usage: python pywxrc.py -h
   -o, --output   output filename, or - for stdout
 """
 
-import sys, os, getopt, glob, re
+import sys, os, getopt, glob, re, cPickle
 import xml.dom.minidom as minidom
 import wx
 import wx.xrc
@@ -283,10 +283,14 @@ class XmlResourceCompiler:
             eventHandlers = []
             
             # Generate child event handlers
-            for eventNode in topWindow.getElementsByTagName("XRCED_events"):
-                events = eventNode.childNodes[0].nodeValue.split('|')
+            for node in topWindow.getElementsByTagName("XRCED_data"):
+                try:
+                    eventNode = node.getElementsByTagName("events")[0]
+                except IndexError:
+                    continue
+                events = eventNode.childNodes[0].data.split('|')
                 for event in events:
-                    if eventNode.parentNode is topWindow:
+                    if node.parentNode is topWindow:
                         eventHandler = "On%s" % event[4:].capitalize()
                         outputList.append(self.templates.BIND_EVENT % locals())
                         eventHandlers.append(eventHandler)

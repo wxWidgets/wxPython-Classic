@@ -4,6 +4,7 @@
 # Created:      25.06.2007
 # RCS-ID:       $Id$
 
+import cPickle
 from model import Model
 
 class Attribute:
@@ -18,11 +19,12 @@ class Attribute:
         elem.appendChild(text)
     add = staticmethod(add)
     def get(node):
-        '''Get collected element texts.'''
-        t = ''
-        for data in [n.data for n in node.childNodes if n.nodeType == node.TEXT_NODE]:
-            t += data
-        return t
+        '''Get text.'''
+        try:
+            n = node.childNodes[0]
+            return n.wholeText
+        except IndexError:
+            return ''
     get = staticmethod(get)
 
 class ContentAttribute:
@@ -66,26 +68,32 @@ class CheckContentAttribute:
         return value
     get = staticmethod(get)
 
-class FontAttribute:
+class DictAttribute:
     '''Font attribute class. Value is a dictionary of font attribtues.'''
-    attributes = ['size', 'style', 'weight', 'underlined', 'family', 'face', 'encoding', 
-                  'sysfont', 'relativesize']
-    def add(parentNode, attribute, value):
-        fontElem = Model.dom.createElement('font')
+    attributes = []
+    @classmethod
+    def add(cls, parentNode, attribute, value):
+        fontElem = Model.dom.createElement(attribute)
         parentNode.appendChild(fontElem)
-        for a in filter(value.has_key, FontAttribute.attributes):
+        for a in filter(value.has_key, cls.attributes):
             elem = Model.dom.createElement(a)
             text = Model.dom.createTextNode(value[a])
             elem.appendChild(text)
             fontElem.appendChild(elem)
-    add = staticmethod(add)
+    @staticmethod
     def get(node):
         value = {}
         for n in node.childNodes:
             if n.nodeType == node.ELEMENT_NODE:
                 value[n.tagName] = Attribute.get(n)
         return value
-    get = staticmethod(get)
+
+class FontAttribute(DictAttribute):
+    attributes = ['size', 'style', 'weight', 'underlined', 'family', 'face', 'encoding', 
+                  'sysfont', 'relativesize']
+
+class CodeAttribute(DictAttribute):
+    attributes = ['events', 'assign_var']
 
 class MultiAttribute:
     '''Repeated attribute like growablecols.'''
@@ -147,3 +155,22 @@ class EncodingAttribute(AttributeAttribute):
         return Model.dom.encoding
     getAA = staticmethod(getAA)
             
+class CDATAAttribute(Attribute):
+    def add(parentNode, attribute, value):
+        '''value is a dictionary.'''
+        if value:
+            elem = Model.dom.createElement(attribute)
+            parentNode.appendChild(elem)
+            data = Model.dom.createCDATASection(cPickle.dumps(value))
+            elem.appendChild(data)
+    add = staticmethod(add)
+    def get(node):
+        '''Get XRCED data from a CDATA text node.'''
+        try:
+            n = node.childNodes[0]
+            if n.nodeType == n.CDATA_SECTION_NODE:
+                return cPickle.loads(n.wholeText.encode())
+        except IndexError:
+            pass
+    get = staticmethod(get)
+    
