@@ -170,7 +170,7 @@ class Panel(wx.Panel):
         if comp.events:
             # Create code page
             panel = CodePanel(self.pageCode, comp.events)
-#            self.SetStyleValues(panel, comp.getAttribute(node, 'style'))
+            self.SetEvents(panel, comp.getAttribute(node, 'XRCED_events'))
             panels.append(panel)
             self.pageCode.SetPanel(panel)
             self.nb.AddPage(self.pageCode, 'Code')
@@ -216,6 +216,13 @@ class Panel(wx.Panel):
         styles = map(string.strip, style.split('|')) # to list
         for s,w in panel.controls:
             w.SetValue(s in styles)
+
+    # Set data for a style panel
+    def SetEvents(self, panel, events):
+        panel.events = events
+        events = map(string.strip, events.split('|')) # to list
+        for ev,w in panel.controls:
+            w.SetValue(ev in events)
 
 ################################################################################
 
@@ -281,7 +288,7 @@ class CodePanel(wx.Panel):
         checked = []
         for s,check in self.controls:
             if check.IsChecked(): checked.append(s)
-        return [('events', '|'.join(checked))]
+        return [('XRCED_events', '|'.join(checked))]
 
     def SetValues(self, values):
         events = values[0][1].split('|')
