@@ -383,6 +383,8 @@ class _Listener:
                 self.testWin.Destroy()
                 Presenter.createTestWin(item)
                 Presenter.highlight(item)
+            # Raise previous window
+            self.frame.Raise()
 
     def OnAutoRefresh(self, evt):
         conf.autoRefresh = evt.IsChecked()
@@ -481,6 +483,7 @@ Homepage: http://xrced.sourceforge.net\
         if obj.GetSizer():
             obj = obj.GetSizer()
             item = self.testWin.FindObjectItem(self.testWin.item, obj)
+        Presenter.unselect()
         self.tree.EnsureVisible(item)
         self.tree.SelectItem(item)
 

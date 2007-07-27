@@ -224,7 +224,7 @@ class Panel(wx.Panel):
             events = map(string.strip, events.split('|')) # to list
             for ev,w in panel.controls:
                 w.SetValue(ev in events)
-            panel.checkVar.SetValue(data.get('assign_var', False))
+            panel.checkVar.SetValue(bool(data.get('assign_var', '0')))
             
 
 ################################################################################
@@ -301,9 +301,13 @@ class CodePanel(wx.Panel):
             if check.IsChecked(): checked.append(s)
         # Encode data to a dictionary and the cPicke it
         data = {}
-        if self.checkVar.GetValue(): data['assign_var'] = True
-        data['events'] = '|'.join(checked)
-        return [('XRCED_data', data)]
+        if self.checkVar.GetValue(): data['assign_var'] = '1'
+        events = '|'.join(checked)
+        if events: data['events'] = events
+        if data:
+            return [('XRCED_data', data)]
+        else:
+            return []
 
     def SetValues(self, values):
         print 'SetValues'
@@ -311,7 +315,7 @@ class CodePanel(wx.Panel):
         events = data['events']
         for s,check in self.controls:
             check.SetValue(s in events)
-        self.checkVar.SetValue(data.get('assign_var', False))
+        self.checkVar.SetValue(bool(data.get('assign_var', '0')))
 
     def OnCheck(self, evt):
         g.Presenter.setApplied(False)
