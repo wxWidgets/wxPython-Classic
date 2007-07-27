@@ -4,8 +4,6 @@ import time
 import wx
 from optparse import OptionParser
 
-# TODO: separate option-logic from test-running from output-reporting
-
 # ------------------- Helper Methods ------------------------
 
 def make_suite(mod, tests=[]):
@@ -103,11 +101,16 @@ parser.add_option("-x", "--no-figleaf",
                     action="store_false", dest="figleaf",
                     help="don't use figleaf (code coverage tool). makes runs quicker.")
 # TODO: make module parsing case-insensitive?
-parser.add_option("-m", "--modules",
+parser.add_option("-m","-i", "--modules","--include-modules",
                     action="store", dest="module_list", default="",
                     help="run only the comma-separated list of modules given. use either " +
                             "wx class names or the name of the desired test module. " + 
                             "don't use spaces in the list")
+parser.add_option("-e", "--exclude-modules",
+                    action="store", dest="module_ex_list", default="",
+                    help="run all modules excluding those given in the comma-separated " + 
+                    "list given. use either wx class names or the name of the desired " +
+                    "test module.")
 # TODO: make other test specification case-insensitive?
 parser.add_option("-t", "--tests",
                     action="store", dest="test_list", default="",
@@ -124,6 +127,8 @@ if not options.figleaf and options.figleaf_filename != 'tests.figleaf':
 if options.wiki:
     options.failure_details = True
     options.verbose = False
+if options.module_list != "" and options.module_ex_list != "":
+    parser.error("options --exclude-modules and --include-modules are mutually exclusive")
     
 # -----------------------------------------------------------
 # ------------------- Test Running --------------------------
@@ -157,9 +162,26 @@ if options.module_list != "":
         if s in module_names:
             tmp.append(s)
         else:
-            parser.error("Class not found under test")
+            parser.error("Class %s not found under test" % (s))
     module_names = tmp
-    
+
+if options.module_ex_list != "":
+    ex_list_raw = options.module_ex_list.split(",")
+    ex_list = []
+    for s in ex_list_raw:
+        if s.endswith(".py"):
+            s = s[:-3]
+        if s.startswith("wx."):
+            s = "test" + s[3:]
+        if not s.startswith("test"):
+            s = "test" + s
+        ex_list.append(s)
+    for s in ex_list:
+        if s in module_names:
+            module_names.remove(s)
+        else:
+            parser.error("Class %s not found under test" % (s))
+        
 modules = [ __import__(mod) for mod in module_names ]
 
 tests = options.test_list.split(",")
@@ -216,7 +238,9 @@ if options.verbose or options.failure_details and not options.wiki:
     print "\n----------------------\n"
 
 wiki("==== Failure Data ====")
-for mod_name, results in data.iteritems():
+data_items = data.items()
+data_items.sort()
+for mod_name, results in data_items:
     # report on it
     if options.verbose:
         print "%s:\t%d tests passed" % (mod_name, results["successes"])
