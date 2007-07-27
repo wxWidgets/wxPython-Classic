@@ -17,7 +17,8 @@ def make_suite(mod, tests=[]):
         for testname in unittest.getTestCaseNames(_class,"test"):
             for t in tests:
                 docstr = getattr(_class, testname).__doc__
-                if testname.find(t) != -1 or docstr != None and docstr.find(t) != -1:
+                if testname.lower().find(t.lower()) != -1 or \
+                       docstr != None and docstr.lower().find(t.lower()) != -1:
                     suite.addTest(_class(testname))
                     break
     return suite
@@ -100,7 +101,6 @@ parser.add_option("-w", "--wiki",
 parser.add_option("-x", "--no-figleaf",
                     action="store_false", dest="figleaf",
                     help="don't use figleaf (code coverage tool). makes runs quicker.")
-# TODO: make module parsing case-insensitive?
 parser.add_option("-m","-i", "--modules","--include-modules",
                     action="store", dest="module_list", default="",
                     help="run only the comma-separated list of modules given. use either " +
@@ -111,7 +111,6 @@ parser.add_option("-e", "--exclude-modules",
                     help="run all modules excluding those given in the comma-separated " + 
                     "list given. use either wx class names or the name of the desired " +
                     "test module.")
-# TODO: make other test specification case-insensitive?
 parser.add_option("-t", "--tests",
                     action="store", dest="test_list", default="",
                     help="run only a targeted list of tests. give a comma-separated list " +
@@ -147,8 +146,12 @@ if options.outfilename != "":
         sys.stdout = origstdout
 
 # which test modules should be run?
-module_names = [ n[:-3] for n in os.listdir(rootdir)
-                    if n.startswith('test') and n.endswith(".py") ]
+# ASSUME: each module name is unique not solely because of case
+module_names = {}
+for name in [ n[:-3] for n in os.listdir(rootdir)
+                    if n.startswith('test') and n.endswith(".py") ]:
+    module_names[ name.lower() ] = name
+
 if options.module_list != "":
     module_name_list = options.module_list.split(",")
     tmp = []
@@ -159,8 +162,8 @@ if options.module_list != "":
             s = "test" + s[3:]
         if not s.startswith("test"):
             s = "test" + s
-        if s in module_names:
-            tmp.append(s)
+        if module_names.has_key(s.lower()):
+            tmp.append(module_names[s.lower()])
         else:
             parser.error("Class %s not found under test" % (s))
     module_names = tmp
@@ -177,11 +180,15 @@ if options.module_ex_list != "":
             s = "test" + s
         ex_list.append(s)
     for s in ex_list:
-        if s in module_names:
-            module_names.remove(s)
+        if module_names.has_key(s.lower()):
+            del module_names[s.lower()]
         else:
             parser.error("Class %s not found under test" % (s))
-        
+
+# the logic for -i changes module_names from a dict to a list
+# normalize other program paths here.
+if type(module_names) == dict:
+    module_names = module_names.values()
 modules = [ __import__(mod) for mod in module_names ]
 
 tests = options.test_list.split(",")
