@@ -16,10 +16,10 @@ def make_suite(mod, tests=[]):
         # go through and make it yourself
         for testname in unittest.getTestCaseNames(_class,"test"):
             for t in tests:
-                if testname.find(t) != -1:
+                docstr = getattr(_class, testname).__doc__
+                if testname.find(t) != -1 or docstr != None and docstr.find(t) != -1:
                     suite.addTest(_class(testname))
                     break
-                # TODO: also check docstring
     return suite
 
 def wiki(string):
@@ -47,7 +47,7 @@ def output_summary(wiki=False):
     print "Run completed in %.2f seconds" % (stop_time-start_time)
     if wiki:
         print " * ",
-    print "%d classes tested" % (len(modules))
+    print "%d classes tested" % (num_classes)
     if wiki:
         print " * ",
     print "%d tests passed in total!" % (totals['successes'])
@@ -189,6 +189,7 @@ if options.test_list == "":
     tests = []
 
 # run tests
+num_classes = 0
 results = {}
 start_figleaf()
 start_time = time.time()
@@ -196,6 +197,8 @@ for module in modules:
     suite = make_suite(module,tests)
     if suite.countTestCases() == 0:
         continue
+    else:
+        num_classes += 1
     result = unittest.TestResult()
     suite.run(result)
     results[module.__name__] = result
