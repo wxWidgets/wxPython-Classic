@@ -40,6 +40,14 @@ Installer for OS X.  There is no longer any need for separate builds
 for each OS version, all builds are now Universal and work on both
 Panther and Tiger, and on PPC and i386.
 
+On the Linux side the debian and ubuntu packages will support multiple
+versions of Python if the Debian/Ubuntu release is setup to support
+more than one version.  To check which versions you can expect to get
+you can run "pyversions -s".  Also there is a new package available
+that contains a debug version of the wxPython extension modules, that
+can be used with the python-dbg package.  In addition the RPMs are now
+being built for Fedora Core 6 and Fedora Core 7.
+
 
 
 
