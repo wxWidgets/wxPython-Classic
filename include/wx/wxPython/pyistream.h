@@ -130,7 +130,7 @@ public:
     
     // wxOutputStream methods that may come in handy...
     void PutC(char c)        { if (m_wxos) m_wxos->PutC(c); }
-    size_t LastWrite()       { if (m_wxos) return m_wxos->LastWrite(); }
+    size_t LastWrite()       { if (m_wxos) return m_wxos->LastWrite(); else return 0; }
     unsigned long SeekO(unsigned long pos, wxSeekMode mode = wxFromStart)
           { if (m_wxos) return m_wxos->SeekO(pos, mode); else return 0; }
     unsigned long TellO() { if (m_wxos) return m_wxos->TellO(); else return 0; }
