@@ -79,9 +79,10 @@ class Button(_core.Control):
 
         Create and show a button.  The preferred way to create standard
         buttons is to use a standard ID and an empty label.  In this case
-        wxWigets will automatically use a stock label that coresponds to the
-        ID given.  In additon, the button will be decorated with stock icons
-        under GTK+ 2.
+        wxWigets will automatically use a stock label that corresponds to the
+        ID given.  These labels may vary across platforms as the platform
+        itself will provide the label if possible.  In addition, the button
+        will be decorated with stock icons under GTK+ 2.
         """
         _controls_.Button_swiginit(self,_controls_.new_Button(*args, **kwargs))
         self._setOORInfo(self)
