@@ -117,19 +117,23 @@ def runTest(frame, nb, log):
 overview = """<html><body>
 <h2><center>wxPython Unicode Support</center></h2>
 
-wxWindows and wxPython can be compiled with unicode support enabled or
-disabled.  Previous to wxPython 2.3.3 non-unicode mode was always
-used.  Starting with 2.3.3 either mode is supported, but only if it is
-also available in wxWindow on the platform.  Currently wxWindows only
-supports unicode on MS Windows platforms, but with the recent release
-of GTK+ 2.0 it is only a matter of time until it can be done on wxGTK
-(Linux and other unixes) as well.
 <p>
-When unicode is enabled, then all functions and methods in wxPython
-that return a wxString from the C++ function will return a Python
-unicode object, and parameters to C++ functions/methods that expect a
-wxString can accept either a Python string or unicode object.  If a
-string object is passed then it will be decoded into unicode using the
+wxWidgets and wxPython can be built to use either ANSI or Unicode strings.
+This demo shows how Unicode can be used to support text in many different
+languages using one locale when Unicode is enabled.</p>
+
+<p>So what is the difference between the ANSI and Unicode builds?</p>
+ 
+<p>If ANSI is used, Python strings (bytes) are always used, and you can only 
+display strings that use either the ASCII encoding, or the system's default
+encoding. Any attempt to display other strings will result in garbled 
+characters.<p>
+
+<p>When unicode is enabled, then all functions and methods in wxPython
+that return a wxString will return an Python unicode object, and parameters 
+that expect a wxString can accept either a Python string or unicode object. (<b>NOTE:</b> If you aren't familiar with the difference between Python 
+strings and Unicode objects, you should view this <a href="http://effbot.org/zone/unicode-objects.htm">Python Unicode Object introduction</a>.)
+If a string object is passed then it will be decoded into unicode using the
 converter pointed to by wxConvCurrent, which will use the default
 system encoding.  If you need to use string in some other encoding
 then you should convert it to unicode using the Python codecs first
