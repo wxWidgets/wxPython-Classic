@@ -139,10 +139,17 @@ Manager.setTool(c, 'Sizers', pos=(1,1))
 
 ### wxStdDialogButtonSizer
 
-c = Sizer('wxStdDialogButtonSizer', ['btnsizer'], [],
+class StdDialogButtonSizer(Sizer):
+    def getChildObject(self, node, obj, index):
+        """Get index'th child of a tested interface element."""
+        windows = filter(wx.SizerItem.IsWindow, obj.GetChildren())
+        try:
+            return windows[index].GetWindow()
+        except IndexError:
+            return None
+c = StdDialogButtonSizer('wxStdDialogButtonSizer', ['btnsizer'], [],
           implicit_klass='button', 
           implicit_attributes=[])
-print c.implicitPageName
 Manager.register(c)
 Manager.setMenu(c, 'sizer', 'dialog button sizer', 'wxStdDialogButtonSizer', 60)
 #Manager.setTool(c, 'Sizers', pos=(0,2))
