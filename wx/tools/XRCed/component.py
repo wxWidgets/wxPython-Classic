@@ -22,7 +22,7 @@ parentChildGroups = {
     'root': ['top_level', 'component'],      # top-level objects
     'frame': ['toolbar', 'menubar', 'statusbar'],
     'window': ['control', 'window', 'sizer', 'btnsizer', '!frame'],
-    'sizer': ['control', 'sizer', 'spacer'],
+    'sizer': ['control', 'sizer', 'btnsizer', 'spacer'],
     'btnsizer': ['stdbtn'],
     'menubar': ['menu'],
     'toolbar': ['tool', 'separator'],
@@ -47,6 +47,48 @@ class Component(object):
         'wxFRAME_EX_CONTEXTHELP',
         'wxWS_EX_PROCESS_IDLE',
         'wxWS_EX_PROCESS_UI_UPDATES'
+        ]
+    genericEvents = [
+        'EVT_SIZE',
+        'EVT_MOVE',
+        'EVT_CLOSE_WINDOW',
+        'EVT_END_SESSION',
+        'EVT_QUERY_END_SESSION',
+        'EVT_ACTIVATE_APP',
+        'EVT_ACTIVATE',
+        'EVT_CREATE',
+        'EVT_DESTROY',
+        'EVT_SHOW',
+        'EVT_ICONIZE',
+        'EVT_MAXIMIZE',
+        'EVT_MOUSE_CAPTURE_CHANGED',
+        'EVT_MOUSE_CAPTURE_LOST',
+        'EVT_PAINT',
+        'EVT_ERASE_BACKGROUND',
+        'EVT_NC_PAINT',
+        'EVT_PAINT_ICON',
+        'EVT_MENU_OPEN',
+        'EVT_MENU_CLOSE',
+        'EVT_MENU_HIGHLIGHT',
+        'EVT_CONTEXT_MENU',
+        'EVT_SYS_COLOUR_CHANGED',
+        'EVT_DISPLAY_CHANGED',
+        'EVT_SETTING_CHANGED',
+        'EVT_QUERY_NEW_PALETTE',
+        'EVT_PALETTE_CHANGED',
+        'EVT_JOY_BUTTON_DOWN',
+        'EVT_JOY_BUTTON_UP',
+        'EVT_JOY_MOVE',
+        'EVT_JOY_ZMOVE',
+        'EVT_DROP_FILES',
+        'EVT_DRAW_ITEM',
+        'EVT_MEASURE_ITEM',
+        'EVT_COMPARE_ITEM',
+        'EVT_INIT_DIALOG',
+        'EVT_UPDATE_UI',
+        'EVT_SIZING',
+        'EVT_MOVING',
+        'EVT_HIBERNATE',
         ]
     hasName = True                      # most elements have XRC IDs
     isTopLevel = False                  # if can be created as top level window
@@ -142,7 +184,7 @@ class Component(object):
         for n in node.childNodes:
             if n.nodeType == node.ELEMENT_NODE and n.tagName == attribute:
                 return attrClass.get(n)
-        return ''
+        return attrClass.get(None)
 
     def addAttribute(self, node, attribute, value):
         '''Add attribute element.'''

@@ -25,6 +25,7 @@ class ScrolledPage(wx.ScrolledWindow):
         self.topSizer = wx.BoxSizer()
         self.SetSizer(self.topSizer)
         self.panel = None
+        self.SetScrollRate(1, 1)
 
     def Reset(self):
         if self.panel:
@@ -36,7 +37,6 @@ class ScrolledPage(wx.ScrolledWindow):
         self.panel = panel
         self.topSizer.Add(panel, 0, wx.ALL, 5)
         self.Layout()
-        self.SetScrollRate(1, 1)
 
 class Panel(wx.Panel):
     '''Attribute panel main class.'''
@@ -128,33 +128,33 @@ class Panel(wx.Panel):
 
         attributes = comp.attributes
         panel = AttributePanel(self.pageA, attributes, comp.params, comp.renameDict)
-        self.SetValues(panel, node)
         panels.append(panel)
         self.pageA.SetPanel(panel)
+        self.SetValues(panel, node)
 
         if comp.windowAttributes:
             panel = AttributePanel(self.pageWA, comp.windowAttributes,
                                    rename_dict = params.WARenameDict)
-            self.SetValues(panel, node)
             panels.append(panel)
             self.pageWA.SetPanel(panel)
             self.nb.AddPage(self.pageWA, "Look'n'Feel")
+            self.SetValues(panel, node)
 
         if comp.styles or comp.genericStyles:
             # Create style page
             panel = params.StylePanel(self.pageStyle, comp.styles, comp.genericStyles)
-            self.SetStyleValues(panel, comp.getAttribute(node, 'style'))
             panels.append(panel)
             self.pageStyle.SetPanel(panel)
             self.nb.AddPage(self.pageStyle, 'Style')
+            self.SetStyleValues(panel, comp.getAttribute(node, 'style'))
 
         if comp.exStyles or comp.genericExStyles:
             # Create extra style page
             panel = params.StylePanel(self.pageExStyle, comp.exStyles + comp.genericExStyles)
-            self.SetStyleValues(panel, comp.getAttribute(node, 'exstyle'))
             panels.append(panel)
             self.pageExStyle.SetPanel(panel)
             self.nb.AddPage(self.pageExStyle, 'ExStyle')
+            self.SetStyleValues(panel, comp.getAttribute(node, 'exstyle'))
 
         # Additional panel for hidden node
         if container and container.requireImplicit(node) and container.implicitAttributes:
@@ -162,18 +162,18 @@ class Panel(wx.Panel):
                                    container.implicitAttributes, 
                                    container.implicitParams,
                                    container.implicitRenameDict)
-            self.SetValues(panel, node.parentNode)
             panels.append(panel)
             self.pageIA.SetPanel(panel)
             self.nb.AddPage(self.pageIA, container.implicitPageName)
+            self.SetValues(panel, node.parentNode)
 
         if comp.events:
             # Create code page
             panel = CodePanel(self.pageCode, comp.events)
-            self.SetCodeValues(panel, comp.getAttribute(node, 'XRCED_data'))
             panels.append(panel)
             self.pageCode.SetPanel(panel)
             self.nb.AddPage(self.pageCode, 'Code')
+            self.SetCodeValues(panel, comp.getAttribute(node, 'XRCED_data'))
 
         # Select old page if possible and pin is down
         if g.conf.panelPinState:
@@ -219,13 +219,8 @@ class Panel(wx.Panel):
 
     # Set data for a style panel
     def SetCodeValues(self, panel, data):
-        if data:
-            events = data['events']
-            events = map(string.strip, events.split('|')) # to list
-            for ev,w in panel.controls:
-                w.SetValue(ev in events)
-            panel.checkVar.SetValue(bool(data.get('assign_var', '0')))
-            
+        panel.SetValues([('XRCED_data', data)])
+
 
 ################################################################################
 
@@ -268,55 +263,105 @@ class AttributePanel(wx.Panel):
 ################################################################################
 
 class CodePanel(wx.Panel):
+    ID_BUTTON_DEL = wx.NewId()
+    ID_COMBO_EVENT = wx.NewId()
+    
     '''Code generation panel.'''
     def __init__(self, parent, events):
         wx.Panel.__init__(self, parent, -1)
         self.SetFont(g.smallerFont())
+        self.events = events
+        self.checks = []
         self.node = None
-        self.controls = []
         topSizer = wx.BoxSizer(wx.HORIZONTAL)
-        if events:
-            # Events on the left
-            sizer = wx.GridSizer(len(events), 1, 0, 5)
-            label = wx.StaticText(self, label='Events')
-            label.SetFont(g.labelFont())
-            sizer.Add(label, 0, wx.LEFT, 20)
-            for ev in events:
-                control = wx.CheckBox(self, label=ev)
-                sizer.Add(control)
-                self.controls.append((ev, control))
-            topSizer.Add(sizer)
+        # Events on the left
+        leftSizer = wx.BoxSizer(wx.VERTICAL)
+        sizer = wx.GridSizer(len(events), 1, 0, 5)
+        label = wx.StaticText(self, label='Events')
+        label.SetFont(g.labelFont())
+        sizer.Add(label, 0, wx.LEFT, 20)
+        for ev in events:
+            check = wx.CheckBox(self, label=ev)
+            sizer.Add(check)
+            self.checks.append((ev, check))
+        leftSizer.Add(sizer)
+        # Additional comboboxes
+        self.extra = []
+        self.eventSizer = wx.FlexGridSizer(1, 2, 0, 0)
+        leftSizer.Add(self.eventSizer)
+        topSizer.Add(leftSizer)
         # Right sizer
-        sizer = wx.BoxSizer(wx.VERTICAL)
+        rightSizer = wx.BoxSizer(wx.VERTICAL)
         self.checkVar = wx.CheckBox(self, label='assign variable')
-        sizer.Add(self.checkVar, 0, wx.LEFT, 20)
-        topSizer.Add(sizer)
+        rightSizer.Add((0, 10))
+        rightSizer.Add(self.checkVar, 0, wx.LEFT, 20)
+        topSizer.Add(rightSizer)
         # Cach all checkbox events
         self.Bind(wx.EVT_CHECKBOX, self.OnCheck)
         self.SetSizerAndFit(topSizer)
+        # Extra combos and buttons
+        self.Bind(wx.EVT_BUTTON, self.OnButtonDel, id=self.ID_BUTTON_DEL)
+        self.Bind(wx.EVT_COMBOBOX, self.OnComboEvent, id=self.ID_COMBO_EVENT)
 
     def GetValues(self):
-        checked = []
-        for s,check in self.controls:
-            if check.IsChecked(): checked.append(s)
+        events = []
+        for s,check in self.checks:
+            if check.IsChecked(): events.append(s)
         # Encode data to a dictionary and the cPicke it
         data = {}
+        for btn,combo in self.extra[:-1]:
+            events.append(combo.GetStringSelection())
+        if events: data['events'] = '|'.join(events)
         if self.checkVar.GetValue(): data['assign_var'] = '1'
-        events = '|'.join(checked)
-        if events: data['events'] = events
         if data:
             return [('XRCED_data', data)]
         else:
             return []
 
+    def AddExtraEvent(self, event=''):
+        btn = wx.BitmapButton(self, self.ID_BUTTON_DEL,
+                              bitmap=wx.ArtProvider.GetBitmap(wx.ART_DEL_BOOKMARK, wx.ART_BUTTON, size=(16,16)),
+                              size=(24,24))
+        if not event: btn.Disable()
+        self.eventSizer.Add(btn, 0, wx.ALIGN_CENTRE_VERTICAL)
+        combo = wx.ComboBox(self, self.ID_COMBO_EVENT, value=event, choices=component.Component.genericEvents)
+        btn.combo = combo
+        self.eventSizer.Add(combo)
+        self.extra.append((btn, combo))
+
     def SetValues(self, values):
-        print 'SetValues'
         data = values[0][1]
-        events = data['events']
-        for s,check in self.controls:
-            check.SetValue(s in events)
-        self.checkVar.SetValue(bool(data.get('assign_var', '0')))
+        events = data.get('events', '').split('|')
+        if events == ['']: events = []
+        for ev,check in self.checks:
+            check.SetValue(ev in events)
+        # Add comboboxes for other events
+        for ev in events:
+            if ev not in self.events:
+                self.AddExtraEvent(ev)
+        # Empty combo box for adding new events
+        self.AddExtraEvent()
+        self.Fit()
+        self.SetMinSize(self.GetBestSize())
+        self.checkVar.SetValue(int(data.get('assign_var', '0')))
 
     def OnCheck(self, evt):
         g.Presenter.setApplied(False)
 
+    def OnButtonDel(self, evt):
+        btn = evt.GetEventObject()
+        self.extra.remove((btn, btn.combo))
+        btn.combo.Destroy()
+        btn.Destroy()
+        self.Fit()
+        self.SetMinSize(self.GetBestSize())
+        g.Presenter.setApplied(False)
+
+    def OnComboEvent(self, evt):
+        if evt.GetEventObject() == self.extra[-1][1]:
+            self.extra[-1][0].Enable()
+            self.AddExtraEvent()
+            self.Fit()
+            self.SetMinSize(self.GetBestSize())
+        g.Presenter.setApplied(False)
+            
