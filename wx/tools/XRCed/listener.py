@@ -247,7 +247,7 @@ class _Listener:
                 pypath = g.conf.localconf.Read("filename")
                 embed = g.conf.localconf.ReadBool("embedResource", False)
                 genGettext = g.conf.localconf.ReadBool("genGettext", False)
-                Presenter.GeneratePython(path, pypath, embed, genGettext)
+                Presenter.generatePython(path, pypath, embed, genGettext)
             self.frame.SetStatusText('Data saved')
             self.SaveRecent(path)
         finally:
@@ -617,10 +617,16 @@ Homepage: http://xrced.sourceforge.net\
             self.tree.ExpandAll()
 
     def OnCollapse(self, evt):
+        # Prevent multiple calls to setData
+        self.tree.Unbind(wx.EVT_TREE_ITEM_COLLAPSED)
         if self.tree.GetSelection(): 
             map(self.tree.CollapseAllChildren, self.tree.GetSelections())
         else: 
             self.tree.CollapseAll()
+        self.tree.Bind(wx.EVT_TREE_ITEM_COLLAPSED, self.OnTreeItemCollapsed)
+        if not self.tree.GetSelection():
+            if not Presenter.applied: Presenter.update()
+            Presenter.setData(self.tree.root)
 
     #
     # XMLTree event handlers
