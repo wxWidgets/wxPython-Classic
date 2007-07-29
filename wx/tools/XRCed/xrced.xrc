@@ -26,14 +26,10 @@
         <object class="wxStdDialogButtonSizer">
           <object class="button">
             <object class="wxButton" name="wxID_OK">
-              <label></label>
-              <label>&amp;Ok</label>
             </object>
           </object>
           <object class="button">
             <object class="wxButton" name="wxID_CANCEL">
-              <label></label>
-              <label>&amp;Cancel</label>
             </object>
           </object>
         </object>
@@ -193,14 +189,10 @@
         <object class="wxStdDialogButtonSizer">
           <object class="button">
             <object class="wxButton" name="wxID_OK">
-              <label></label>
-              <label>&amp;Ok</label>
             </object>
           </object>
           <object class="button">
             <object class="wxButton" name="wxID_CANCEL">
-              <label></label>
-              <label>&amp;Cancel</label>
             </object>
           </object>
         </object>
@@ -232,14 +224,10 @@
         <object class="wxStdDialogButtonSizer">
           <object class="button">
             <object class="wxButton" name="wxID_OK">
-              <label></label>
-              <label>&amp;Ok</label>
             </object>
           </object>
           <object class="button">
             <object class="wxButton" name="wxID_CANCEL">
-              <label></label>
-              <label>&amp;Cancel</label>
             </object>
           </object>
         </object>
@@ -295,14 +283,10 @@
         <object class="wxStdDialogButtonSizer">
           <object class="button">
             <object class="wxButton" name="wxID_OK">
-              <label></label>
-              <label>&amp;Ok</label>
             </object>
           </object>
           <object class="button">
             <object class="wxButton" name="wxID_CANCEL">
-              <label></label>
-              <label>&amp;Cancel</label>
             </object>
           </object>
         </object>
@@ -376,14 +360,10 @@
         <object class="wxStdDialogButtonSizer">
           <object class="button">
             <object class="wxButton" name="wxID_OK">
-              <label></label>
-              <label>&amp;Ok</label>
             </object>
           </object>
           <object class="button">
             <object class="wxButton" name="wxID_CANCEL">
-              <label></label>
-              <label>&amp;Cancel</label>
             </object>
           </object>
         </object>
@@ -707,14 +687,10 @@
         <object class="wxStdDialogButtonSizer">
           <object class="button">
             <object class="wxButton" name="wxID_OK">
-              <label></label>
-              <label>&amp;Ok</label>
             </object>
           </object>
           <object class="button">
             <object class="wxButton" name="wxID_CANCEL">
-              <label></label>
-              <label>&amp;Cancel</label>
             </object>
           </object>
         </object>
