@@ -195,9 +195,8 @@ class Frame(wx.Frame):
         self.ID_TEST = wx.NewId()
         self.ART_TEST = 'ART_TEST'
         menu.Append(self.ID_TEST, '&Test\tF5', 'Show test window')
-        self.ID_REFRESH = wx.NewId()
         self.ART_REFRESH = 'ART_REFRESH'
-        menu.Append(self.ID_REFRESH, '&Refresh\tCtrl-R', 'Refresh test window')
+        menu.Append(wx.ID_REFRESH, '&Refresh\tCtrl-R', 'Refresh test window')
         self.ID_AUTO_REFRESH = wx.NewId()
         self.ART_AUTO_REFRESH = 'ART_AUTO_REFRESH'
         menu.Append(self.ID_AUTO_REFRESH, '&Auto-refresh\tAlt-A',
@@ -283,7 +282,7 @@ class Frame(wx.Frame):
             bmp = wx.ArtProvider.GetBitmap(self.ART_TEST, wx.ART_TOOLBAR)
             tb.AddSimpleTool(self.ID_TEST, bmp, 'Test', 'Test window')
             bmp = wx.ArtProvider.GetBitmap(self.ART_REFRESH, wx.ART_TOOLBAR)
-            tb.AddSimpleTool(self.ID_REFRESH, bmp, 'Refresh', 'Refresh view')
+            tb.AddSimpleTool(wx.ID_REFRESH, bmp, 'Refresh', 'Refresh view')
             bmp = wx.ArtProvider.GetBitmap(self.ART_AUTO_REFRESH, wx.ART_TOOLBAR)
             tb.AddSimpleTool(self.ID_AUTO_REFRESH, bmp,
                              'Auto-refresh', 'Toggle auto-refresh mode', True)
@@ -298,7 +297,7 @@ class Frame(wx.Frame):
         bmp = wx.ArtProvider.GetBitmap(self.ART_TEST, wx.ART_TOOLBAR)
         tb.AddSimpleTool(self.ID_TEST, bmp, 'Test', 'Test window')
         bmp = wx.ArtProvider.GetBitmap(self.ART_REFRESH, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_REFRESH, bmp, 'Refresh', 'Refresh view')
+        tb.AddSimpleTool(wx.ID_REFRESH, bmp, 'Refresh', 'Refresh view')
         bmp = wx.ArtProvider.GetBitmap(self.ART_AUTO_REFRESH, wx.ART_TOOLBAR)
         tb.AddSimpleTool(self.ID_AUTO_REFRESH, bmp,
                          'Auto-refresh', 'Toggle auto-refresh mode', True)
@@ -446,7 +445,8 @@ class ToolArtProvider(wx.ArtProvider):
             'ART_MOVEUP': images.getMoveUpImage(),
             'ART_MOVEDOWN': images.getMoveDownImage(),
             'ART_MOVELEFT': images.getMoveLeftImage(),
-            'ART_MOVERIGHT': images.getMoveRightImage()
+            'ART_MOVERIGHT': images.getMoveRightImage(),
+            'ART_REMOVE': images.getRemoveImage()
             }
         if wx.Platform in ['__WXMAC__', '__WXMSW__']:
             self.images.update({

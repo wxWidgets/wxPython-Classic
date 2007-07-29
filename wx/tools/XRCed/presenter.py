@@ -149,6 +149,9 @@ class _Presenter:
 
     def highlight(self, item):
         TRACE('highlight')
+        if view.testWin.IsDirty():
+            view.testWin.RemoveHighlight()
+            return
         try:
             rect = view.testWin.FindObjectRect(item)
             if not rect:
@@ -444,6 +447,7 @@ class _Presenter:
         try:
             try:
                 frame, object = comp.makeTestWin(res, name)
+                if not object: return None
                 # Reset previous tree item and locate tool
                 if view.testWin.item:
                     view.tree.SetItemBold(view.testWin.item, False)

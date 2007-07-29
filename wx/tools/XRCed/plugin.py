@@ -85,11 +85,10 @@ def create_component(node):
         Manager.setMenu(c, menu, label, help, index)
     panel = comp.getAttribute(node, 'panel')
     if panel:
-        bitmap = comp.getAttribute(node, 'bitmap')
         try:
             pos = map(int, comp.getAttribute(node, 'pos').split(','))
         except:
-            pos = (1000, 1000)
+            pos = component.DEFAULT_POS
         try:
             span = map(int, comp.getAttribute(node, 'span').split(','))
         except:

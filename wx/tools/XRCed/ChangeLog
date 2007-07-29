@@ -1,3 +1,9 @@
+2007-07-29  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
+
+	* Implemented Code attribute page for defining event
+	handlers. Updated pywxrc tool to generate event handler stubs
+	delimited by comment lines to protect user-defined code sections.
+ 
 2007-07-21  Scroll  <scroll@localhost.localdomain>
 
 	* Improved highlighting, refactored drop target highlighting and

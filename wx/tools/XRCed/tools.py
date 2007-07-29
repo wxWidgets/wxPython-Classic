@@ -5,7 +5,7 @@
 # RCS-ID:       $Id$
 
 from globals import *
-from component import Manager
+from component import Manager, DEFAULT_POS
 import view
 import images
 
@@ -18,7 +18,7 @@ BitmapButton = wx.lib.buttons.GenBitmapButton
 
 class ToolPanel(wx.Panel):
     '''Manages a Listbook with tool bitmap buttons.'''
-    defaultPos = wx.GBPosition(1000,1000)
+    defaultPos = wx.GBPosition(*DEFAULT_POS)
     def __init__(self, parent):
         if wx.Platform == '__WXGTK__':
             wx.Panel.__init__(self, parent, -1,

@@ -353,6 +353,25 @@
       </object>
     </object>
   </object>
+  <object class="wxWizard" name="WIZARD">
+    <object class="wxWizardPageSimple" name="page">
+      <object class="wxBoxSizer">
+        
+        <object class="sizeritem">
+          <object class="wxRadioBox">
+            <content>
+              <item>Here</item>
+              <item>There</item>
+            </content>
+            <style>wxRA_SPECIFY_COLS</style>
+          </object>
+        </object>
+      </object>
+      <bitmap>src-images/neat.png</bitmap>
+    </object>
+    <title>Wizard</title>
+    <bitmap stock_id="wxART_MISSING_IMAGE"/>
+  </object>
   <object class="wxFrame" name="FRAME_DialogButtonSizer">
     <object class="wxBoxSizer">
       <object class="sizeritem">

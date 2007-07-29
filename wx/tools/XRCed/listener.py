@@ -71,7 +71,7 @@ class _Listener:
         wx.EVT_MENU(frame, frame.ID_EMBED_PANEL, self.OnEmbedPanel)
         wx.EVT_MENU(frame, frame.ID_SHOW_TOOLS, self.OnShowTools)
         wx.EVT_MENU(frame, frame.ID_TEST, self.OnTest)
-        wx.EVT_MENU(frame, frame.ID_REFRESH, self.OnRefresh)
+        wx.EVT_MENU(frame, wx.ID_REFRESH, self.OnRefresh)
         wx.EVT_MENU(frame, frame.ID_AUTO_REFRESH, self.OnAutoRefresh)
         wx.EVT_MENU(frame, frame.ID_TEST_HIDE, self.OnTestHide)
         wx.EVT_MENU(frame, frame.ID_SHOW_XML, self.OnShowXML)
@@ -106,7 +106,7 @@ class _Listener:
         wx.EVT_UPDATE_UI(frame, frame.ID_MOVEDOWN, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, frame.ID_MOVELEFT, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, frame.ID_MOVERIGHT, self.OnUpdateUI)
-        wx.EVT_UPDATE_UI(frame, frame.ID_REFRESH, self.OnUpdateUI)
+        wx.EVT_UPDATE_UI(frame, wx.ID_REFRESH, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, frame.ID_SHOW_XML, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, ID.COLLAPSE, self.OnUpdateUI)
         wx.EVT_UPDATE_UI(frame, ID.EXPAND, self.OnUpdateUI)
@@ -129,7 +129,7 @@ class _Listener:
         self.accels = wx.AcceleratorTable([
             (wx.ACCEL_NORMAL, wx.WXK_F5, frame.ID_TEST),
             (wx.ACCEL_NORMAL, wx.WXK_F6, frame.ID_TEST_HIDE),
-            (wx.ACCEL_CTRL, ord('r'), frame.ID_REFRESH),
+            (wx.ACCEL_CTRL, ord('r'), wx.ID_REFRESH),
             ])
         self.frame.miniFrame.SetAcceleratorTable(self.accels)
         # Propagate all menu commands to the frame
@@ -387,9 +387,9 @@ class _Listener:
             self.frame.Raise()
 
     def OnAutoRefresh(self, evt):
-        conf.autoRefresh = evt.IsChecked()
-        self.menuBar.Check(ID.AUTO_REFRESH, conf.autoRefresh)
-        self.tb.ToggleTool(ID.AUTO_REFRESH, conf.autoRefresh)
+        g.conf.autoRefresh = evt.IsChecked()
+        self.frame.menuBar.Check(self.frame.ID_AUTO_REFRESH, g.conf.autoRefresh)
+        self.frame.tb.ToggleTool(self.frame.ID_AUTO_REFRESH, g.conf.autoRefresh)
 
     def OnAbout(self, evt):
         str = '''\
@@ -534,7 +534,7 @@ Homepage: http://xrced.sourceforge.net\
                              self.frame.ID_MOVELEFT, self.frame.ID_MOVERIGHT]:
             evt.Enable(bool(self.tree.GetSelection()))
         elif evt.GetId() in [self.frame.ID_LOCATE, self.frame.ID_TOOL_LOCATE,
-                             self.frame.ID_REFRESH]:
+                             wx.ID_REFRESH]:
             evt.Enable(self.testWin.IsShown())
         elif evt.GetId() == wx.ID_UNDO:  evt.Enable(g.undoMan.CanUndo())
         elif evt.GetId() == wx.ID_REDO:  evt.Enable(g.undoMan.CanRedo())

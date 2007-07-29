@@ -173,7 +173,7 @@ class Panel(wx.Panel):
             panels.append(panel)
             self.pageCode.SetPanel(panel)
             self.nb.AddPage(self.pageCode, 'Code')
-            self.SetCodeValues(panel, comp.getAttribute(node, 'XRCED_data'))
+            self.SetCodeValues(panel, comp.getAttribute(node, 'XRCED'))
 
         # Select old page if possible and pin is down
         if g.conf.panelPinState:
@@ -219,7 +219,7 @@ class Panel(wx.Panel):
 
     # Set data for a style panel
     def SetCodeValues(self, panel, data):
-        panel.SetValues([('XRCED_data', data)])
+        panel.SetValues([('XRCED', data)])
 
 
 ################################################################################
@@ -265,6 +265,7 @@ class AttributePanel(wx.Panel):
 class CodePanel(wx.Panel):
     ID_BUTTON_DEL = wx.NewId()
     ID_COMBO_EVENT = wx.NewId()
+    ART_REMOVE = 'ART_REMOVE'
     
     '''Code generation panel.'''
     def __init__(self, parent, events):
@@ -292,9 +293,12 @@ class CodePanel(wx.Panel):
         topSizer.Add(leftSizer)
         # Right sizer
         rightSizer = wx.BoxSizer(wx.VERTICAL)
-        self.checkVar = wx.CheckBox(self, label='assign variable')
         rightSizer.Add((0, 10))
-        rightSizer.Add(self.checkVar, 0, wx.LEFT, 20)
+        if g.Presenter.container is not component.Manager.rootComponent:
+            self.checkVar = wx.CheckBox(self, label='assign variable')
+            rightSizer.Add(self.checkVar, 0, wx.LEFT, 20)
+        else:
+            self.checkVar = None
         topSizer.Add(rightSizer)
         # Cach all checkbox events
         self.Bind(wx.EVT_CHECKBOX, self.OnCheck)
@@ -302,6 +306,7 @@ class CodePanel(wx.Panel):
         # Extra combos and buttons
         self.Bind(wx.EVT_BUTTON, self.OnButtonDel, id=self.ID_BUTTON_DEL)
         self.Bind(wx.EVT_COMBOBOX, self.OnComboEvent, id=self.ID_COMBO_EVENT)
+        self.Bind(wx.EVT_TEXT, self.OnComboText, id=self.ID_COMBO_EVENT)
 
     def GetValues(self):
         events = []
@@ -310,17 +315,17 @@ class CodePanel(wx.Panel):
         # Encode data to a dictionary and the cPicke it
         data = {}
         for btn,combo in self.extra[:-1]:
-            events.append(combo.GetStringSelection())
+            events.append(combo.GetValue())
         if events: data['events'] = '|'.join(events)
-        if self.checkVar.GetValue(): data['assign_var'] = '1'
+        if self.checkVar and self.checkVar.GetValue(): data['assign_var'] = '1'
         if data:
-            return [('XRCED_data', data)]
+            return [('XRCED', data)]
         else:
             return []
 
     def AddExtraEvent(self, event=''):
         btn = wx.BitmapButton(self, self.ID_BUTTON_DEL,
-                              bitmap=wx.ArtProvider.GetBitmap(wx.ART_DEL_BOOKMARK, wx.ART_BUTTON, size=(16,16)),
+                              bitmap=wx.ArtProvider.GetBitmap(self.ART_REMOVE, wx.ART_BUTTON),
                               size=(24,24))
         if not event: btn.Disable()
         self.eventSizer.Add(btn, 0, wx.ALIGN_CENTRE_VERTICAL)
@@ -343,7 +348,8 @@ class CodePanel(wx.Panel):
         self.AddExtraEvent()
         self.Fit()
         self.SetMinSize(self.GetBestSize())
-        self.checkVar.SetValue(int(data.get('assign_var', '0')))
+        if self.checkVar:
+            self.checkVar.SetValue(int(data.get('assign_var', '0')))
 
     def OnCheck(self, evt):
         g.Presenter.setApplied(False)
@@ -355,6 +361,14 @@ class CodePanel(wx.Panel):
         btn.Destroy()
         self.Fit()
         self.SetMinSize(self.GetBestSize())
+        g.Presenter.setApplied(False)
+
+    def OnComboText(self, evt):
+        if evt.GetEventObject() == self.extra[-1][1]:
+            self.extra[-1][0].Enable()
+            self.AddExtraEvent()
+            self.Fit()
+            self.SetMinSize(self.GetBestSize())
         g.Presenter.setApplied(False)
 
     def OnComboEvent(self, evt):

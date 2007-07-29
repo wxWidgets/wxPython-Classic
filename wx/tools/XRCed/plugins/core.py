@@ -44,7 +44,8 @@ c.addStyles('wxDEFAULT_FRAME_STYLE', 'wxDEFAULT_DIALOG_STYLE', 'wxCAPTION',
             'wxFRAME_FLOAT_ON_PARENT',
             'wxNO_3D', 'wxTAB_TRAVERSAL')
 c.addExStyles('wxFRAME_EX_METAL')
-c.addEvents('EVT_SIZE', 'EVT_CLOSE', 'EVT_MENU_HIGHLIGHT', 'EVT_ICONIZE', 'EVT_MAXIMIZE')
+c.addEvents('EVT_SIZE', 'EVT_CLOSE', 'EVT_MENU_HIGHLIGHT', 'EVT_ICONIZE', 'EVT_MAXIMIZE',
+            'EVT_ACTIVATE', 'EVT_UPDATE_UI')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'frame', 'wxFrame', 10)
 Manager.setTool(c, 'Windows', bitmaps.getwxFrameBitmap(), (0,0))
@@ -63,7 +64,7 @@ c.addStyles('wxDEFAULT_DIALOG_STYLE', 'wxDEFAULT_FRAME_STYLE', 'wxCAPTION',
             'wxNO_3D', 'wxTAB_TRAVERSAL')
 c.addExStyles('wxDIALOG_EX_METAL')
 c.addEvents('EVT_INIT_DIALOG', 'EVT_SIZE', 'EVT_CLOSE', 
-            'EVT_ICONIZE', 'EVT_MAXIMIZE')
+            'EVT_ICONIZE', 'EVT_MAXIMIZE', 'EVT_ACTIVATE', 'EVT_UPDATE_UI')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'dialog', 'wxDialog', 20)
 Manager.setTool(c, 'Windows', bitmaps.getwxDialogBitmap(), (0,1))
@@ -78,6 +79,50 @@ Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'panel', 'wxPanel', 30)
 Manager.setMenu(c, 'container', 'panel', 'wxPanel', 10)
 Manager.setTool(c, 'Windows', bitmaps.getwxPanelBitmap(), (0,2))
+
+### wxWizard
+
+class Wizard(Container):
+    genericStyles = genericExStyles = []
+    def makeTestWin(self, res, name):
+        wiz = wx.wizard.PreWizard()
+        res.LoadOnObject(wiz, view.frame, STD_NAME, self.klass)
+        # Find and select first page
+        firstPage = None
+        for w in wiz.GetChildren():
+            if isinstance(w, wx.wizard.WizardPage):
+                firstPage = w
+                break
+        if firstPage:
+            wiz.RunWizard(w)
+        else:
+            wx.LogMessage('Wizard is empty')
+        wiz.Destroy()
+        return None, None
+c = Wizard('wxWizard', ['wizard', 'top_level'], 
+           ['pos', 'title', 'bitmap'],
+           image=images.getTreePanelImage())
+c.addExStyles('wxWIZARD_EX_HELPBUTTON')
+c.setSpecial('bitmap', BitmapAttribute)
+Manager.register(c)
+Manager.setMenu(c, 'TOP_LEVEL', 'wizard', 'wxWizard', 40)
+Manager.setTool(c, 'Windows', bitmaps.getwxWizardBitmap(), (1,0), (1,2))
+
+### wxWizardPage
+
+c = Container('wxWizardPage', ['wizard_page', 'window'], ['bitmap'],
+              image=images.getTreePanelImage())
+c.setSpecial('bitmap', BitmapAttribute)
+Manager.register(c)
+Manager.setMenu(c, 'container', 'wizard page', 'wxWizardPage')
+
+### wxWizardPageSimple
+
+c = Container('wxWizardPageSimple', ['wizard_page', 'window'], ['bitmap'],
+              image=images.getTreePanelImage())
+c.setSpecial('bitmap', BitmapAttribute)
+Manager.register(c)
+Manager.setMenu(c, 'container', 'simple wizard page', 'wxWizardPageSimple')
 
 ### wxBoxSizer
 
@@ -261,7 +306,7 @@ class CMenuBar(SimpleContainer):
 c = CMenuBar('wxMenuBar', ['menubar', 'top_level'], [],
              image=images.getTreeMenuBarImage())
 c.addStyles('wxMB_DOCKABLE')
-c.addEvents('EVT_MENU_RANGE', 'EVT_MENU_OPEN', 'EVT_MENU_CLOSE', 'EVT_MENU_HIGHLIGHT_ALL')
+c.addEvents('EVT_MENU', 'EVT_MENU_OPEN', 'EVT_MENU_CLOSE', 'EVT_MENU_HIGHLIGHT_ALL')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'menu bar', 'wxMenuBar', 40)
 Manager.setMenu(c, 'bar', 'menu bar', 'wxMenuBar', 10)
@@ -272,7 +317,7 @@ Manager.setTool(c, 'Menus', pos=(1,0))
 c = SimpleContainer('wxMenu', ['menu', 'top_level'], ['label', 'help'],
                     image=images.getTreeMenuImage())
 c.addStyles('wxMENU_TEAROFF')
-c.addEvents('EVT_MENU_RANGE', 'EVT_MENU_OPEN', 'EVT_MENU_CLOSE', 'EVT_MENU_HIGHLIGHT_ALL')
+c.addEvents('EVT_MENU', 'EVT_MENU_OPEN', 'EVT_MENU_CLOSE', 'EVT_MENU_HIGHLIGHT_ALL')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'menu', 'wxMenu', 50)
 Manager.setMenu(c, 'ROOT', 'menu', 'wxMenu', 20)
@@ -315,7 +360,7 @@ c.setParamClass('margins', params.ParamPosSize)
 c.setParamClass('packing', params.ParamUnit)
 c.setParamClass('separation', params.ParamUnit)
 c.renameDict = {'dontattachtoframe': "don't attach"}
-c.addEvents('EVT_TOOL_RANGE')
+c.addEvents('EVT_TOOL', 'EVT_TOOL_ENTER', 'EVT_TOOL_RCLICKED')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'tool bar', 'wxToolBar', 50)
 Manager.setMenu(c, 'bar', 'tool bar', 'wxToolBar', 20)

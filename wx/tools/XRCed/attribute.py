@@ -124,6 +124,7 @@ class BitmapAttribute:
     '''Bitmap attribute.'''
     @staticmethod
     def add(parentNode, attribute, value):
+        if not value[0] and not value[1]: return
         if attribute == 'object':
             elem = parentNode
         else:
@@ -137,6 +138,7 @@ class BitmapAttribute:
             elem.appendChild(text)
     @staticmethod
     def get(node):
+        if node is None: return []
         return [node.getAttribute('stock_id'), Attribute.get(node)]
             
 class AttributeAttribute:

@@ -14,6 +14,8 @@ import params
 import view
 import images
 
+DEFAULT_POS = (1000,1000)
+
 # Group compatibility specifications. 
 # Key is the parent group, value is the list of child groups.
 # !value means named main group is excluded from possible children.
@@ -21,12 +23,13 @@ import images
 parentChildGroups = {
     'root': ['top_level', 'component'],      # top-level objects
     'frame': ['toolbar', 'menubar', 'statusbar'],
+    'wizard': ['wizard_page'],
     'window': ['control', 'window', 'sizer', 'btnsizer', '!frame'],
     'sizer': ['control', 'sizer', 'btnsizer', 'spacer'],
     'btnsizer': ['stdbtn'],
     'menubar': ['menu'],
     'toolbar': ['tool', 'separator'],
-    'menu': ['menu', 'menu_item', 'separator']
+    'menu': ['menu', 'menu_item', 'separator'],
 }
 
 class Component(object):
@@ -49,46 +52,18 @@ class Component(object):
         'wxWS_EX_PROCESS_UI_UPDATES'
         ]
     genericEvents = [
-        'EVT_SIZE',
-        'EVT_MOVE',
-        'EVT_CLOSE_WINDOW',
-        'EVT_END_SESSION',
-        'EVT_QUERY_END_SESSION',
-        'EVT_ACTIVATE_APP',
-        'EVT_ACTIVATE',
-        'EVT_CREATE',
-        'EVT_DESTROY',
-        'EVT_SHOW',
-        'EVT_ICONIZE',
-        'EVT_MAXIMIZE',
-        'EVT_MOUSE_CAPTURE_CHANGED',
-        'EVT_MOUSE_CAPTURE_LOST',
-        'EVT_PAINT',
-        'EVT_ERASE_BACKGROUND',
-        'EVT_NC_PAINT',
-        'EVT_PAINT_ICON',
-        'EVT_MENU_OPEN',
-        'EVT_MENU_CLOSE',
-        'EVT_MENU_HIGHLIGHT',
-        'EVT_CONTEXT_MENU',
-        'EVT_SYS_COLOUR_CHANGED',
-        'EVT_DISPLAY_CHANGED',
-        'EVT_SETTING_CHANGED',
-        'EVT_QUERY_NEW_PALETTE',
-        'EVT_PALETTE_CHANGED',
-        'EVT_JOY_BUTTON_DOWN',
-        'EVT_JOY_BUTTON_UP',
-        'EVT_JOY_MOVE',
-        'EVT_JOY_ZMOVE',
-        'EVT_DROP_FILES',
-        'EVT_DRAW_ITEM',
-        'EVT_MEASURE_ITEM',
-        'EVT_COMPARE_ITEM',
-        'EVT_INIT_DIALOG',
-        'EVT_UPDATE_UI',
-        'EVT_SIZING',
-        'EVT_MOVING',
-        'EVT_HIBERNATE',
+        'EVT_WINDOW_CREATE',
+        'EVT_MOVE', 'EVT_SIZE',
+        'EVT_MOUSE_EVENTS', 'EVT_MOTION',
+        'EVT_LEFT_DOWN', 'EVT_LEFT_DCLICK', 
+        'EVT_MIDDLE_DOWN', 'EVT_MIDDLE_DCLICK', 
+        'EVT_RIGHT_DOWN', 'EVT_RIGHT_DCLICK',  'EVT_MOUSEWHEEL'
+        'EVT_ENTER_WINDOW', 'EVT_LEAVE_WINDOW', 
+        'EVT_KEY_DOWN', 'EVT_KEY_UP', 'EVT_CHAR',
+        'EVT_PAINT', 'EVT_ERASE_BACKGROUND',
+        'EVT_CONTEXT_MENU', 'EVT_HELP',
+        'EVT_SET_FOCUS', 'EVT_KILL_FOCUS', 'EVT_CHILD_FOCUS',
+        'EVT_UPDATE_UI', 'EVT_IDLE',
         ]
     hasName = True                      # most elements have XRC IDs
     isTopLevel = False                  # if can be created as top level window
@@ -104,7 +79,7 @@ class Component(object):
         self.specials = kargs.get('specials', {})
         # Some default special attributes
         self.specials['font'] = FontAttribute
-        self.specials['XRCED_data'] = CodeAttribute
+        self.specials['XRCED'] = CodeAttribute
         # Special Param classes if required
         self.params = kargs.get('params', {})
         # Tree image
@@ -211,6 +186,7 @@ class Component(object):
             else:                       # reuse present frame
                 testWin.object.Destroy()
             object = res.LoadObject(frame.panel, STD_NAME, self.klass)
+            if not object: raise NotImplementedError
             object.SetPosition((10,10))
             object.Fit()
             if not isinstance(object, wx.Window): raise NotImplementedError
@@ -341,6 +317,7 @@ class Container(Component):
         except IndexError:
             return None
 
+
 class SimpleContainer(Container):
     '''Container without window attributes and styles.'''
     windowAttributes = []
@@ -445,6 +422,7 @@ class SmartContainer(Container):
     def setImplicitParamClass(self, attrName, paramClass):
         '''Set special Param class.'''
         self.implicitParams[attrName] = paramClass
+
 
 class Sizer(SmartContainer):
     '''Sizers are not windows and have common implicit node.'''
@@ -585,7 +563,7 @@ class _ComponentManager:
         return self.panels.get(panel, None)
 
     def setTool(self, component, panel, bitmap=None, 
-                pos=(1000,1000), span=(1,1)):
+                pos=DEFAULT_POS, span=(1,1)):
         '''Set toolpanel data.'''
         if panel not in self.panelNames: self.panelNames.append(panel)
         if panel not in self.panels: self.panels[panel] = []
