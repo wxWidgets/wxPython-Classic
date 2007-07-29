@@ -141,12 +141,19 @@ Manager.setTool(c, 'Sizers', pos=(1,1))
 
 class StdDialogButtonSizer(Sizer):
     def getChildObject(self, node, obj, index):
-        """Get index'th child of a tested interface element."""
-        windows = filter(wx.SizerItem.IsWindow, obj.GetChildren())
+        # This sizer orders buttons by fixed ordering, so we must
+        # get the ID to find them
         try:
-            return windows[index].GetWindow()
+            n = filter(is_object, node.childNodes)[index]
+            n = filter(is_object, n.childNodes)[0]
+            id = n.getAttribute('name')
         except IndexError:
             return None
+        items = filter(wx.SizerItem.IsWindow, obj.GetChildren())
+        for item in items:
+            w = item.GetWindow()
+            if w.GetName() == id: return w
+        return None
 c = StdDialogButtonSizer('wxStdDialogButtonSizer', ['btnsizer'], [],
           implicit_klass='button', 
           implicit_attributes=[])
