@@ -353,6 +353,22 @@
       </object>
     </object>
   </object>
+  <object class="wxFrame" name="FRAME_DialogButtonSizer">
+    <object class="wxBoxSizer">
+      <object class="sizeritem">
+        <object class="wxStdDialogButtonSizer">
+          <object class="button">
+            <object class="wxButton" name="wxID_OK"/>
+          </object>
+          <object class="button">
+            <object class="wxButton" name="wxID_CANCEL"/>
+          </object>
+        </object>
+        <flag>wxALL</flag>
+        <border>10</border>
+      </object>
+    </object>
+  </object>
   <object class="wxFrame" name="main_frame">
     <object class="wxMenuBar" name="menu_bar">
       <object class="wxMenu" name="Snap">
