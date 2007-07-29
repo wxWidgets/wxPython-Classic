@@ -12,7 +12,7 @@ import images
 #if wx.Platform in ['__WXMAC__', '__WXMSW__']:
     # Mac and Win are better off with generic
 import wx.lib.buttons
-wx.BitmapButton = wx.lib.buttons.GenBitmapButton
+BitmapButton = wx.lib.buttons.GenBitmapButton
 #else:
 #    wx.BitmapButton.SetBezelWidth = lambda self, w: None
 
@@ -58,8 +58,8 @@ class ToolPanel(wx.Panel):
         self.drag = None
 
     def AddButton(self, panel, pos, span, id, bmp, text):
-        button = wx.BitmapButton(panel, id, bmp, 
-                                 style=wx.NO_BORDER)# | wx.WANTS_CHARS)
+        button = BitmapButton(panel, id, bmp, 
+                              style=wx.NO_BORDER)# | wx.WANTS_CHARS)
         button.SetBezelWidth(0)
 #        wx.EVT_KEY_DOWN(button, self.OnKeyDown)
 #        wx.EVT_KEY_UP(button, self.OnKeyUp)
