@@ -1,6 +1,8 @@
 import unittest
 import wx
 
+import wxtest
+
 """
 This file contains classes and methods for unit testing the API of wx.Colour
 (as well as wx.Color, because they're the same thing)
@@ -12,9 +14,13 @@ __repr__, __str__, GetAsString, GetPixel
             
 def getColourEquivalents():
     # doesn't include wx.Colour instances, only equivalents
-    return ( getColourEquivalentNames() +
-                getColourEquivalentHexValues() +
-                getColourEquivalentTuples() )
+    equivalents = list( getColourEquivalentNames() +
+                        getColourEquivalentHexValues() +
+                        getColourEquivalentTuples() )
+    if wxtest.PlatformIsGtk():
+        for s in ['SLATE BLUE', 'NAVY', 'STEEL BLUE', 'FOREST GREEN', 'SEA GREEN', 'DARK GREY', 'MIDNIGHT BLUE', 'DARK GREEN', 'MEDIUM BLUE', 'SKY BLUE', 'LIME GREEN', 'MEDIUM AQUAMARINE', 'CORNFLOWER BLUE', 'MEDIUM SEA GREEN', 'INDIAN RED', 'VIOLET', 'DARK OLIVE GREEN', 'DIM GREY', 'CADET BLUE', 'DARK SLATE BLUE', 'SALMON', 'DARK TURQUOISE', 'AQUAMARINE', 'MEDIUM TURQUOISE', 'MEDIUM SLATE BLUE', 'MEDIUM SPRING GREEN', 'GREY', 'FIREBRICK', 'MAROON', 'SIENNA', 'LIGHT STEEL BLUE', 'PALE GREEN', 'MEDIUM ORCHID', 'GREEN YELLOW', 'YELLOW GREEN', 'BLUE VIOLET', 'KHAKI', 'TURQUOISE', 'PURPLE', 'LIGHT BLUE', 'LIGHT GREY', 'ORANGE', 'VIOLET RED', 'GOLD', 'WHEAT', 'MEDIUM VIOLET RED', 'ORCHID', 'TAN', 'GOLDENROD', 'PLUM', 'ORANGE RED', 'CORAL']:
+            equivalents.remove((s,wx.TheColourDatabase.FindColour(s)))
+    return tuple(equivalents)
     
 def getColourEquivalentNames():
     return tuple((name, wx.TheColourDatabase.FindColour(name)) for name in getColourNames())
