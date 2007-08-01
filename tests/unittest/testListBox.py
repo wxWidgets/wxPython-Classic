@@ -71,10 +71,11 @@ class ListBoxTest(testControlWithItems.ControlWithItemsBase):
     
     def testSorted(self):
         """IsSorted"""
-        self.testControl.InsertItems(['a','b','c'],0)
-        self.assert_(self.testControl.IsSorted())
-        self.testControl = wx.ListBox(self.frame, choices=['z','y','x'])
+        self.testControl = wx.ListBox(self.frame, choices=['c','b','a'])
         self.assert_(not self.testControl.IsSorted())
+        self.testControl = wx.ListBox(self.frame, choices=['c','b','a'],
+                                            style=wx.LB_SORT)
+        self.assert_(self.testControl.IsSorted())
         
 
 if __name__ == '__main__':
