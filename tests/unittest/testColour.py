@@ -42,21 +42,9 @@ def hexify(col):
         bhex = '0' + bhex
     return '#' + rhex + ghex + bhex
 
-# -----------------------------------------------------------
-
-def getColourData():
-    return tuple( wx.Colour(*rgba) for rgba in getColourTuples() )
-
-def getColourTuples():
-    return (
-                (0,0,0,0), (1,1,1), (255,0,0), (0,255,0), (0,0,255),
-                (100,100,100), (32,64,128,254), (254,121,61), (9,12,81),
-                (4,1,7,99), (255,0,0,23), (0,255,0,94), (0,0,255,102),
-                (100,100,100,128), (32,64,128,2), (254,121,61,0), (9,12,81,255),
-        )
-
 def getColourNames():
-    """from inspection of wx.TheColourDatabase"""
+    """from inspection of wx.TheColourDatabase,
+        these appear to be identical on all platforms"""
     return ('BLACK','BLUE','SLATE BLUE','GREEN','SPRING GREEN','CYAN','NAVY',
             'STEEL BLUE','FOREST GREEN','SEA GREEN','DARK GREY','MIDNIGHT BLUE',
             'DARK GREEN','DARK SLATE GREY','MEDIUM BLUE','SKY BLUE','LIME GREEN',
@@ -97,7 +85,7 @@ class ColourTest(unittest.TestCase):
         
     def testGetSetRGB(self):
         """SetRGB, GetRGB"""
-        for color in getColourData():
+        for tup,color in getColourEquivalentTuples():
             sludge = color.GetRGB()
             del color
             color = wx.Colour()
