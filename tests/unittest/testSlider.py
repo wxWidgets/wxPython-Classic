@@ -23,11 +23,14 @@ class SliderTest(testControl.ControlTest):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Slider(parent=self.frame)
-        
+    
+    '''
+    TODO: rectify erratum 'in wxPython in Action'
     def testGetRange(self):
         """GetRange
         'wxPython in Action' pg.207 says wx.Sliders have GetRange"""
         self.assert_(hasattr(self.testControl,'GetRange'))
+    '''
     
     def testLineSize(self):
         """SetLineSize, GetLineSize"""
