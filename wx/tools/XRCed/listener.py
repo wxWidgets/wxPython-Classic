@@ -54,7 +54,8 @@ class _Listener:
         wx.EVT_MENU(frame, frame.ID_GENERATE_PYTHON, self.OnGeneratePython)
         wx.EVT_MENU(frame, frame.ID_PREFS, self.OnPrefs)
         wx.EVT_MENU(frame, wx.ID_EXIT, self.OnExit)
-        wx.EVT_MENU(frame.miniFrame, wx.ID_EXIT, self.OnExit)
+        if frame.miniFrame:
+            wx.EVT_MENU(frame.miniFrame, wx.ID_EXIT, self.OnExit)
 
         # Edit
         wx.EVT_MENU(frame, wx.ID_UNDO, self.OnUndo)
@@ -131,17 +132,19 @@ class _Listener:
             (wx.ACCEL_NORMAL, wx.WXK_F6, frame.ID_TEST_HIDE),
             (wx.ACCEL_CTRL, ord('r'), wx.ID_REFRESH),
             ])
-        self.frame.miniFrame.SetAcceleratorTable(self.accels)
-        # Propagate all menu commands to the frame
-        self.frame.miniFrame.Bind(wx.EVT_MENU, lambda evt: frame.ProcessEvent(evt))
+        if frame.miniFrame:
+            self.frame.miniFrame.SetAcceleratorTable(self.accels)
+            # Propagate all menu commands to the frame
+            self.frame.miniFrame.Bind(wx.EVT_MENU, lambda evt: frame.ProcessEvent(evt))
 
         # Tool panel events
-        toolPanel = self.toolFrame.panel
+        toolPanel = g.toolPanel
         toolPanel.lb.Bind(wx.EVT_TOOLBOOK_PAGE_CHANGED, self.OnToolPanelPageChanged)
         wx.EVT_COMMAND_RANGE(toolPanel.lb, Manager.firstId, Manager.lastId,
                              wx.wxEVT_COMMAND_BUTTON_CLICKED,
                              self.OnComponentTool)
-        self.toolFrame.Bind(wx.EVT_CLOSE, self.OnCloseToolFrame)
+        if toolFrame:
+            toolFrame.Bind(wx.EVT_CLOSE, self.OnCloseToolFrame)
 
     def InstallTestWinEvents(self):
         self.idleAfterSizeBound = False
@@ -297,6 +300,8 @@ class _Listener:
         # Remember sizes and positions
         if self.testWin.object: self.testWin.Destroy()
         conf = g.conf
+        if conf.useAUI:
+            conf.perspective = view.frame.mgr.SavePerspective()
         if not self.frame.IsIconized():
             conf.pos = self.frame.GetPosition()
             if wx.Platform == '__WXMAC__':
@@ -306,9 +311,10 @@ class _Listener:
             if conf.embedPanel:
                 conf.sashPos = self.frame.splitter.GetSashPosition()
             else:
-                conf.panelPos = self.frame.miniFrame.GetPosition()
-                conf.panelSize = self.frame.miniFrame.GetSize()
-            if conf.showToolPanel:
+                if self.frame.miniFrame:
+                    conf.panelPos = self.frame.miniFrame.GetPosition()
+                    conf.panelSize = self.frame.miniFrame.GetSize()
+            if conf.showToolPanel and self.toolFrame:
                 conf.toolPanelPos = self.toolFrame.GetPosition()
                 conf.toolPanelSize = self.toolFrame.GetSize()
         self.panel.Destroy()            # destroy panel before tree
@@ -600,12 +606,12 @@ Homepage: http://xrced.sourceforge.net\
             conf.size = self.frame.GetSize()
             if conf.embedPanel:
                 conf.sashPos = self.frame.splitter.GetSashPosition()
-            else:
+            elif self.miniFrame:
                 conf.panelPos = self.miniFrame.GetPosition()
                 conf.panelSize = self.miniFrame.GetSize()
                 self.miniFrame.Show(False)
         else:
-            if not conf.embedPanel:
+            if not conf.embedPanel and self.miniFrame:
                 self.miniFrame.Show(True)
         evt.Skip()
 
@@ -709,8 +715,9 @@ Homepage: http://xrced.sourceforge.net\
     def OnToolPanelPageChanged(self, evt):
         TRACE('OnToolPanelPageChanged: %d > %d', evt.GetOldSelection(), evt.GetSelection())
         # Update tool frame (if exists)
-        panel = self.toolFrame.panel.panels[evt.GetSelection()]
-        self.toolFrame.SetTitle(panel.name)
+        panel = g.toolPanel.panels[evt.GetSelection()]
+        if self.toolFrame:
+            self.toolFrame.SetTitle(panel.name)
         evt.Skip()
 
     def OnComponentTool(self, evt):

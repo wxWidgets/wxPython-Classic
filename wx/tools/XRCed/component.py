@@ -52,7 +52,7 @@ class Component(object):
         'wxWS_EX_PROCESS_UI_UPDATES'
         ]
     genericEvents = [
-        'EVT_WINDOW_CREATE',
+        'EVT_WINDOW_CREATE', 'EVT_WINDOW_DESTROY',
         'EVT_MOVE', 'EVT_SIZE',
         'EVT_MOUSE_EVENTS', 'EVT_MOTION',
         'EVT_LEFT_DOWN', 'EVT_LEFT_DCLICK', 

@@ -12,6 +12,7 @@ from AttributePanel import Panel
 from TestWin import TestWindow
 from tools import *
 import images
+import wx.aui
 
 if wx.Platform == '__WXMAC__': # wxOSX GetSize is broken
     wx.Frame.GetSize = wx.Frame.GetClientSize
@@ -33,26 +34,35 @@ def create_view():
     global frame
     frame = Frame(g.conf.pos, g.conf.size)
 
-    # Tool panel on a MiniFrame
     global toolFrame
-    toolFrame = wx.MiniFrame(frame, -1, 'Tools', 
-                             style=wx.CAPTION|wx.CLOSE_BOX|\
-                                 wx.RESIZE_BORDER|wx.FRAME_TOOL_WINDOW)
-    if wx.Platform != '__WXMAC__':
-        toolFrame.SetIcons(frame.icns)
-    toolFrame.panel = ToolPanel(toolFrame)
-    if toolFrame.panel.panels:
-        toolFrame.SetTitle(toolFrame.panel.panels[0].name)
-    toolFrame.Fit()
-    minSize = toolFrame.GetSize()
-    if minSize[0] < 320: minSize[0] = 320
-    toolFrame.SetMinSize(minSize)
-    toolFrame.SetPosition(g.conf.toolPanelPos)
-    toolFrame.SetSize(g.conf.toolPanelSize)
+    if g.conf.useAUI:
+        g.toolPanel = ToolPanel(frame)
+        frame.mgr.AddPane(g.toolPanel, wx.aui.AuiPaneInfo().Name('tools').Caption("Tools").
+                          MinSize(g.toolPanel.GetBestSize()).
+                          Right().CloseButton(True).MaximizeButton(False))
+        toolFrame = None
+        frame.mgr.Update()
+#        frame.mgr.LoadPerspective(g.conf.Read('perspective'))
+    else:
+        # Tool panel on a MiniFrame
+        toolFrame = wx.MiniFrame(frame, -1, 'Tools', 
+                                 style=wx.CAPTION|wx.CLOSE_BOX|\
+                                     wx.RESIZE_BORDER|wx.FRAME_TOOL_WINDOW)
+        if wx.Platform != '__WXMAC__':
+            toolFrame.SetIcons(frame.icns)
+        g.toolPanel = toolFrame.panel = ToolPanel(toolFrame)
+        if toolFrame.panel.panels:
+            toolFrame.SetTitle(toolFrame.panel.panels[0].name)
+        toolFrame.Fit()
+        minSize = toolFrame.GetSize()
+        if minSize[0] < 320: minSize[0] = 320
+        toolFrame.SetMinSize(minSize)
+        toolFrame.SetPosition(g.conf.toolPanelPos)
+        toolFrame.SetSize(g.conf.toolPanelSize)
 
     global testWin
     testWin = TestWindow()
-
+                       
 #############################################################################
 
 class Frame(wx.Frame):
@@ -70,72 +80,90 @@ class Frame(wx.Frame):
         self.ID_TOOL_LOCATE = wx.NewId()
 
         # Create toolbar
-        self.tb = tb = self.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
+        self.tb = tb = wx.ToolBar(self, -1, style=wx.TB_FLAT | wx.TB_NODIVIDER)
         # Use tango icons and slightly wider bitmap size on Mac
         if wx.Platform in ['__WXMAC__', '__WXMSW__']:
             tb.SetToolBitmapSize((26,26))
         else:
             tb.SetToolBitmapSize((24,24))
-        self.InitToolBar(g.conf.embedPanel) # add tools
 
-        # Build interface
-#        sizer = wx.BoxSizer(wx.VERTICAL)
-        #sizer.Add(wx.StaticLine(self, -1), 0, wx.EXPAND)
-        # Horizontal sizer for toolbar and splitter
-        splitter = wx.SplitterWindow(self, -1, style=wx.SP_3DSASH)
-        self.splitter = splitter
-        splitter.SetMinimumPaneSize(100)
+        useAUI = g.conf.useAUI
+
+        self.InitToolBar(useAUI or g.conf.embedPanel) # add tools
+
+        if useAUI:
+            self.mgr = wx.aui.AuiManager()
+            self.mgr.SetManagedWindow(self)
+            self.mgr.AddPane(tb, wx.aui.AuiPaneInfo().
+                             Name("tb").Caption("Toolbar").
+                             ToolbarPane().Top().LeftDockable(False).RightDockable(False))
+            parent = self
+            
+        else:
+            self.SetToolBar(tb)
+
+            # Horizontal sizer for toolbar and splitter
+            splitter = wx.SplitterWindow(self, -1, style=wx.SP_3DSASH)
+            self.splitter = splitter
+            splitter.SetMinimumPaneSize(100)
+            parent = splitter
 
         global tree
-        tree = XMLTree(splitter)
+        tree = XMLTree(parent)
 
-        # Miniframe for split mode
-        if wx.Platform != '__WXMAC__':
-            self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
-                                           g.conf.panelPos, g.conf.panelSize,
-                                           style=wx.CAPTION|wx.RESIZE_BORDER|\
-                                               wx.FRAME_TOOL_WINDOW)
-            mf.SetIcons(self.icns)
-        else:
-            self.miniFrame = mf = wx.Frame(self, -1, 'Attributes',
-                                           g.conf.panelPos, g.conf.panelSize,
-                                           style=wx.CAPTION|wx.RESIZE_BORDER)
-        mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
-        # Use tango icons and slightly wider bitmap size on Mac
-        if wx.Platform in ['__WXMAC__', '__WXMSW__']:
-            mf.tb.SetToolBitmapSize((26,26))
-        else:
-            mf.tb.SetToolBitmapSize((24,24))
-        self.InitMiniFrameToolBar(mf.tb)
-        
-        mfSizer = wx.BoxSizer()
-        mf.SetMinSize((100,100))
-        mf.SetSizer(mfSizer)
-        if wx.Platform == '__WXMAC__': # mac don't respect pos and size exactly
-            mf.SetPosition(g.conf.panelPos)
-            mf.SetSize(g.conf.panelSize)
-
-        # Create attribute panel
         global panel
-        if g.conf.embedPanel:
-            panel = Panel(splitter)
-            # Set plitter windows
-            splitter.SplitVertically(tree, panel, g.conf.sashPos)
+        if useAUI:
+            self.mgr.AddPane(tree, wx.aui.AuiPaneInfo().
+                             Name("tree").Caption("XML Tree").
+                             CenterPane())
+
+            panel = Panel(self)
+            self.mgr.AddPane(panel, wx.aui.AuiPaneInfo().
+                             Name("panel").Caption("Attributes").
+                             Right().CloseButton(True).MaximizeButton(False))
+
+            self.miniFrame = None
         else:
-            panel = Panel(mf)
-            mfSizer.Add(panel, 1, wx.EXPAND)
-            splitter.Initialize(tree)
+
+            # Miniframe for split mode
+            if wx.Platform != '__WXMAC__':
+                self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
+                                               g.conf.panelPos, g.conf.panelSize,
+                                               style=wx.CAPTION|wx.RESIZE_BORDER|\
+                                                   wx.FRAME_TOOL_WINDOW)
+                mf.SetIcons(self.icns)
+            else:
+                self.miniFrame = mf = wx.Frame(self, -1, 'Attributes',
+                                               g.conf.panelPos, g.conf.panelSize,
+                                               style=wx.CAPTION|wx.RESIZE_BORDER)
+            mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
+
+            # Use tango icons and slightly wider bitmap size on Mac
+            if wx.Platform in ['__WXMAC__', '__WXMSW__']:
+                mf.tb.SetToolBitmapSize((26,26))
+            else:
+                mf.tb.SetToolBitmapSize((24,24))
+            self.InitMiniFrameToolBar(mf.tb)
+
+            mfSizer = wx.BoxSizer()
+            mf.SetMinSize((100,100))
+            mf.SetSizer(mfSizer)
+            if wx.Platform == '__WXMAC__': # mac don't respect pos and size exactly
+                mf.SetPosition(g.conf.panelPos)
+                mf.SetSize(g.conf.panelSize)
+
+            # Create attribute panel
+            if g.conf.embedPanel:
+                panel = Panel(splitter)
+                # Set plitter windows
+                splitter.SplitVertically(tree, panel, g.conf.sashPos)
+            else:
+                panel = Panel(mf)
+                mfSizer.Add(panel, 1, wx.EXPAND)
+                splitter.Initialize(tree)
             
         if wx.Platform == '__WXMAC__':
             self.SetClientSize(size)
-#        if wx.Platform == '__WXMAC__':
-#            sizer1.Add(splitter, 1, wx.EXPAND|wx.RIGHT, 5)
-#        else:
-#            sizer1.Add(splitter, 1, wx.EXPAND)
-#        sizer.Add(sizer1, 1, wx.EXPAND)
-
-#        self.SetSizer(sizer)
-
 
     def Clear(self):
         pass

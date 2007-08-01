@@ -92,10 +92,11 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
                 # Force update title
                 Presenter.setModified(False)
         view.frame.Show()
-        if not g.conf.embedPanel:
-            view.frame.miniFrame.Show()
-        if g.conf.showToolPanel:
-            view.toolFrame.Show()
+        if not g.conf.useAUI:
+            if not g.conf.embedPanel:
+                view.frame.miniFrame.Show()
+            if g.conf.showToolPanel:
+                view.toolFrame.Show()
 
         return True
 
@@ -106,12 +107,13 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         # Settings
         conf = g.conf = wx.Config(style = wx.CONFIG_USE_LOCAL_FILE)
         conf.localconf = None
-        conf.autoRefresh = conf.ReadInt('autorefresh', True)
+        conf.autoRefresh = conf.ReadBool('autorefresh', True)
         conf.pos = wx.Point(conf.ReadInt('x', -1), conf.ReadInt('y', -1))
         conf.size = wx.Size(conf.ReadInt('width', 800), conf.ReadInt('height', 600))
-        conf.embedPanel = conf.ReadInt('embedPanel', True)
-        conf.panelPinState = conf.ReadInt('panelPinState', False)
-        conf.showToolPanel = conf.ReadInt('showToolPanel', True)
+        conf.useAUI = conf.ReadBool('useAUI', False)
+        conf.embedPanel = conf.ReadBool('embedPanel', True)
+        conf.panelPinState = conf.ReadBool('panelPinState', False)
+        conf.showToolPanel = conf.ReadBool('showToolPanel', True)
         conf.sashPos = conf.ReadInt('sashPos', 200)
 
         # read recently used files
@@ -146,6 +148,9 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         # Write config
         conf = g.conf
         conf.WriteInt('autorefresh', conf.autoRefresh)
+        conf.WriteBool('useAUI', conf.useAUI)
+        if conf.useAUI:
+            conf.Write('perspective', conf.perspective)
         conf.WriteInt('x', conf.pos.x)
         conf.WriteInt('y', conf.pos.y)
         conf.WriteInt('width', conf.size.x)

@@ -46,6 +46,8 @@ class XMLTreeMenu(wx.Menu):
                 else:
                     self.AppendMenu(ID.APPEND, 'Append', menu,
                                     'Create object as the last child')
+            if comp is not Manager.rootComponent:
+                self.Append(ID.SUBCLASS, 'Sublass...', 'Define subclass')
             self.AppendSeparator()
             
             if container:
