@@ -104,7 +104,17 @@ class WindowTest(unittest.TestCase):
     
     def testBackgroundColor(self):
         """SetBackgroundColour, GetBackgroundColour"""
-        for test, actual in testColour.getColourEquivalents():
+        for test, actual in testColour.getColourEquivalentHexValues() + \
+                            testColour.getColourEquivalentTuples():
+            self.assert_(self.testControl.SetBackgroundColour(test))
+                        # return True when background colour changed
+            self.assertEquals(actual, self.testControl.GetBackgroundColour())
+            self.assert_(not self.testControl.SetBackgroundColour(test))
+    
+    # because of the name failures on Ubuntu
+    def testBackgroundColourNames_wxWindowOnly(self):
+        """SetBackgroundColour, GetBackgroundColour"""
+        for test, actual in testColour.getColourEquivalentNames():
             self.assert_(self.testControl.SetBackgroundColour(test))
                         # return True when background colour changed
             self.assertEquals(actual, self.testControl.GetBackgroundColour())
@@ -224,9 +234,19 @@ class WindowTest(unittest.TestCase):
             self.testControl.SetFont(font)
             self.assertEquals(font, self.testControl.GetFont())
             
-    def testForegroundColor(self):
+    def testForegroundColour(self):
         """SetForegroundColour, GetForegroundColour"""
-        for test, actual in testColour.getColourEquivalents():
+        for test, actual in testColour.getColourEquivalentHexValues() + \
+                            testColour.getColourEquivalentTuples():
+            self.assert_(self.testControl.SetForegroundColour(test))
+                            # return True when background colour changed
+            self.assertEquals(actual, self.testControl.GetForegroundColour())
+            self.assert_(not self.testControl.SetForegroundColour(test))
+    
+    # because of the name failures on Ubuntu
+    def testForegroundColourNames_wxWindowOnly(self):
+        """SetForegroundColour, GetForegroundColour"""
+        for test, actual in testColour.getColourEquivalentNames():
             self.assert_(self.testControl.SetForegroundColour(test))
                             # return True when background colour changed
             self.assertEquals(actual, self.testControl.GetForegroundColour())
@@ -329,7 +349,15 @@ class WindowTest(unittest.TestCase):
     # the docs don't say anything about SetOwnBackgroundColour
     def testOwnBackgroundColor(self):
         """SetOwnBackgroundColour"""
-        for test, actual in testColour.getColourEquivalents():
+        for test, actual in testColour.getColourEquivalentHexValues() + \
+                            testColour.getColourEquivalentTuples():
+            self.testControl.SetOwnBackgroundColour(test)
+            self.assertEquals(actual, self.testControl.GetBackgroundColour())
+    
+    # because of the name failures on Ubuntu
+    def testOwnBackgroundColorNames_wxWindowOnly(self):
+        """SetOwnBackgroundColour"""
+        for test, actual in testColour.getColourEquivalentNames():
             self.testControl.SetOwnBackgroundColour(test)
             self.assertEquals(actual, self.testControl.GetBackgroundColour())
     
@@ -341,7 +369,15 @@ class WindowTest(unittest.TestCase):
             
     def testOwnForegroundColor(self):
         """SetOwnForegroundColour"""
-        for test, actual in testColour.getColourEquivalents():
+        for test, actual in testColour.getColourEquivalentHexValues() + \
+                            testColour.getColourEquivalentTuples():
+            self.testControl.SetOwnForegroundColour(test)
+            self.assertEquals(actual, self.testControl.GetForegroundColour())
+    
+    # because of the name failures on Ubuntu
+    def testOwnForegroundColorNames_wxWindowOnly(self):
+        """SetOwnForegroundColour"""
+        for test, actual in testColour.getColourEquivalentNames():
             self.testControl.SetOwnForegroundColour(test)
             self.assertEquals(actual, self.testControl.GetForegroundColour())
     
