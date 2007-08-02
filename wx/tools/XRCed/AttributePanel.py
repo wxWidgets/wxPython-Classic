@@ -339,7 +339,7 @@ class CodePanel(wx.Panel):
     def AddExtraEvent(self, event=''):
         btn = wx.BitmapButton(self, self.ID_BUTTON_DEL,
                               bitmap=wx.ArtProvider.GetBitmap(self.ART_REMOVE, wx.ART_BUTTON),
-                              size=(24,24))
+                              size=(20,20))
         if not event: btn.Disable()
         self.eventSizer.Add(btn, 0, wx.ALIGN_CENTRE_VERTICAL)
         combo = wx.ComboBox(self, self.ID_COMBO_EVENT, value=event, choices=component.Component.genericEvents)
@@ -372,6 +372,7 @@ class CodePanel(wx.Panel):
         self.extra.remove((btn, btn.combo))
         btn.combo.Destroy()
         btn.Destroy()
+        self.eventSizer.Layout()
         self.Fit()
         self.SetMinSize(self.GetBestSize())
         g.Presenter.setApplied(False)
@@ -380,6 +381,7 @@ class CodePanel(wx.Panel):
         if evt.GetEventObject() == self.extra[-1][1]:
             self.extra[-1][0].Enable()
             self.AddExtraEvent()
+            self.eventSizer.Layout()
             self.Fit()
             self.SetMinSize(self.GetBestSize())
         g.Presenter.setApplied(False)
@@ -388,6 +390,7 @@ class CodePanel(wx.Panel):
         if evt.GetEventObject() == self.extra[-1][1]:
             self.extra[-1][0].Enable()
             self.AddExtraEvent()
+            self.eventSizer.Layout()
             self.Fit()
             self.SetMinSize(self.GetBestSize())
         g.Presenter.setApplied(False)
