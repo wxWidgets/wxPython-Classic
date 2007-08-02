@@ -22,7 +22,7 @@ labelSize = (80,-1)
 class ScrolledPage(wx.ScrolledWindow):
     def __init__(self, parent):
         wx.ScrolledWindow.__init__(self, parent)
-        self.topSizer = wx.BoxSizer()
+        self.topSizer = wx.BoxSizer(wx.VERTICAL)
         self.SetSizer(self.topSizer)
         self.panel = None
         self.SetScrollRate(1, 1)
@@ -35,7 +35,7 @@ class ScrolledPage(wx.ScrolledWindow):
     def SetPanel(self, panel):
         self.Reset()
         self.panel = panel
-        self.topSizer.Add(panel, 0, wx.ALL, 5)
+        self.topSizer.Add(panel, 0, wx.ALL | wx.EXPAND, 2)
         self.Layout()
 
 class Panel(wx.Panel):
@@ -228,24 +228,37 @@ class AttributePanel(wx.Panel):
     '''Particular attribute panel, normally inside a notebook.'''
     def __init__(self, parent, attributes, param_dict={}, rename_dict={}):
         wx.Panel.__init__(self, parent, -1)
+        self.bg = self.GetBackgroundColour()
+        self.bg2 = wx.Colour(self.bg.Red()-15, self.bg.Green()-15, self.bg.Blue()-15)
         self.controls = []
         sizer = wx.FlexGridSizer(len(attributes), 2, 0, 0)
+        sizer.AddGrowableCol(1, 0)
         for a in attributes:
             # Find good control class
             paramClass = param_dict.get(a, params.paramDict.get(a, params.ParamText))
             sParam = rename_dict.get(a, a)
             control = paramClass(self, sParam)
+            labelPanel = wx.Panel(self, -1)
+            labelSizer = wx.BoxSizer()
+            labelPanel.SetSizer(labelSizer)
             if control.isCheck: # checkbox-like control
-                label = wx.StaticText(self, -1, control.defaultString)
-                sizer.AddMany([ (control, 1, wx.ALIGN_CENTER_VERTICAL),
-                                (label, 1, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 2) ])
+                label = wx.StaticText(labelPanel, -1, control.defaultString)
+                sizer.AddMany([ (control, 1, wx.EXPAND),
+                                (labelPanel, 1, wx.EXPAND) ])
+                labelSizer.Add(label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 2)
             else:
                 if sParam:
-                    label = wx.StaticText(self, -1, sParam, size=labelSize)
-                    sizer.AddMany([ (label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 20),
-                                    (control, 0, wx.ALIGN_CENTER_VERTICAL) ])
+                    label = wx.StaticText(labelPanel, -1, sParam, size=labelSize)
+                    sizer.AddMany([ (labelPanel, 1, wx.EXPAND),
+                                    (control, 1, wx.EXPAND) ])
                 else:           # for node-level params
+                    label = wx.StaticText(labelPanel, -1, '')
                     sizer.Add(control, 1, wx.LEFT, 20)
+                labelSizer.Add(label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 20)
+            if len(self.controls) % 2:
+                label.SetBackgroundColour(self.bg2)
+                labelPanel.SetBackgroundColour(self.bg2)
+                control.SetBackgroundColour(self.bg2)
             self.controls.append((a, control))
         self.SetSizerAndFit(sizer)
 

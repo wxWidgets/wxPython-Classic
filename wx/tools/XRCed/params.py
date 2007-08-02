@@ -62,6 +62,7 @@ def InitParams(panel):
                 wx.FontMapper.GetEncoding(i)))
     ParamEncoding.values.sort()
 
+
 # Class that can properly disable children
 class PPanel(wx.Panel):
     isCheck = False
@@ -89,9 +90,9 @@ class ParamBinaryOr(PPanel):
         self.combo = wx.combo.ComboCtrl(self, size=(220,-1))
         self.combo.SetPopupControl(popup)
         if wx.Platform == '__WXMAC__':
-            sizer.Add(self.combo, 0, wx.ALL, 0)
+            sizer.Add(self.combo, 1, wx.ALL, 0)
         else:
-            sizer.Add(self.combo, 0, wx.ALL, 2)
+            sizer.Add(self.combo, 1, wx.ALL, 2)
         self.SetSizerAndFit(sizer)
         self.combo.Bind(wx.EVT_TEXT, self.OnChange)
     def GetValue(self):
@@ -352,7 +353,7 @@ class ParamMultilineText(PPanel):
         PPanel.__init__(self, parent, name)
         sizer = wx.BoxSizer()
         self.text = wx.TextCtrl(self, size=wx.Size(200,textH))
-        sizer.Add(self.text, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, textB)
+        sizer.Add(self.text, 1, wx.ALL | wx.ALIGN_CENTER_VERTICAL, textB)
         self.button = wx.BitmapButton(self, bitmap=bmpEdit, size=(-1,textH))
         sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL)
         self.SetSizer(sizer)
@@ -375,14 +376,15 @@ class ParamMultilineText(PPanel):
 
 class ParamText(PPanel):
     textWidth = -1
+    proportion = 0
     def __init__(self, parent, name, style=0, **kargs):
         PPanel.__init__(self, parent, name)
         textWidth = kargs.get('textWidth', self.textWidth)
+        option = kargs.get('proportion', self.proportion)
+        if textWidth == -1: option = 1
         # We use sizer even here to have the same size of text control
         sizer = wx.BoxSizer()
         self.text = wx.TextCtrl(self, size=wx.Size(textWidth,textH), style=style)
-        if textWidth == -1: option = 1
-        else: option = 0
         sizer.Add(self.text, option, wx.ALIGN_CENTER_VERTICAL | wx.ALL, textB)
         self.SetSizer(sizer)
         self.text.Bind(wx.EVT_TEXT, self.OnChange)
@@ -393,14 +395,14 @@ class ParamText(PPanel):
         self.text.SetValue(value)
         self.freeze = False             # disable other handlers
 
-def MetaParamText(textWidth):
+def MetaParamText(textWidth, proportion=0):
     '''ParamText with specified length.'''
     return type('ParamText__length', (ParamText,),
-                {'textWidth': textWidth})
+                {'textWidth': textWidth, 'proportion': proportion})
 
-ParamLongText = MetaParamText(200)
+ParamLongText = MetaParamText(200, 1)
 ParamAccel = MetaParamText(100)
-ParamHelp = MetaParamText(200)
+ParamHelp = MetaParamText(200, 1)
 ParamPosSize = MetaParamText(80)
 
 class ParamComment(ParamText):
@@ -521,7 +523,7 @@ class ParamContent(PPanel):
         PPanel.__init__(self, parent, name)
         sizer = wx.BoxSizer()
         self.text = wx.TextCtrl(self, size=wx.Size(200,textH))
-        sizer.Add(self.text, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, textB)
+        sizer.Add(self.text, 1, wx.ALL | wx.ALIGN_CENTER_VERTICAL, textB)
         self.button = wx.BitmapButton(self, bitmap=bmpEdit, size=(-1,textH))
         sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL)
         self.SetSizer(sizer)
@@ -913,7 +915,7 @@ paramDict = {
     'pos': ParamPosSize, 'size': ParamPosSize,
     'checkable': ParamBool, 'checked': ParamBool, 'radio': ParamBool,
     'accel': ParamAccel, 'help': ParamHelp, 'centered': ParamBool,
-    'label': ParamMultilineText, 'title': ParamText, 'value': ParamText,
+    'label': ParamMultilineText, 'title': ParamLongText, 'value': ParamLongText,
     'content': ParamContent, 'selection': ParamIntNN,
     'min': ParamInt, 'max': ParamInt,
     # window attributes
