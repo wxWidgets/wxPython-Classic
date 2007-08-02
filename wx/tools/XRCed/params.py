@@ -921,7 +921,7 @@ paramDict = {
     # window attributes
     'fg': ParamColour, 'bg': ParamColour, 'font': ParamFont,
     'enabled': ParamInverseBool, 'focused': ParamBool, 'hidden': ParamBool,
-    'tooltip': ParamText, 
+    'tooltip': ParamLongText, 
     # other
     'bitmap': ParamBitmap, 'icon': ParamBitmap,
     'comment': ParamComment
