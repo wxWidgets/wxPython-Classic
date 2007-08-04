@@ -554,8 +554,6 @@ public:
         }
 
         // TODO:  add support for index(value, [start, [stop]])
-        // any others?
-
         KeepGIL(index);
         int index(ItemClass* obj) {
             int idx = self->IndexOf(obj);
