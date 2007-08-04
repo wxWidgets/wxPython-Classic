@@ -33,12 +33,38 @@ def make_suite(mod, tests=[]):
                 tests.remove(test)
     return suite
 
-def wiki(string):
+def wiki(string, level=3, reverse=False):
+    if options.wiki and not reverse or not options.wiki and reverse:
+        output(level, string)
+    
+def wiki_title(number, string):
     if options.wiki:
+        title = "=" * number
+        return title + " " + string + " " + title
+    else:
+        return string
+
+def wiki_bullet():
+    if options.wiki:
+        return " * "
+    else:
+        return ""
+
+def wiki_bold(string):
+    if options.wiki:
+        return "'''" + string + "'''"
+    else:
+        return string
+
+def wiki_summary_item(title, data):
+    return wiki_bullet() + wiki_bold(title) + ": %s" % (data)
+        
+def output(level, string):
+    if options.verbosity >= level:
         print string
 
 def start_figleaf():
-    if options.figleaf:
+    if options.figleaf != "":
         globals()["figleaf"] = __import__("figleaf")
         globals()["figfile"] = os.path.join(rootdir, options.figleaf_filename)
         if os.path.exists(figfile):
@@ -46,107 +72,62 @@ def start_figleaf():
         figleaf.start(ignore_python_lib=False)
 
 def stop_figleaf():
-    if options.figleaf:
+    if options.figleaf != "":
         figleaf.stop()
         figleaf.write_coverage(figfile)
-
-def output_summary(wiki=False):
-    if wiki:
-        print "==== Summary ===="
-    if wiki:
-        print " * ",
-    print "Run completed in %.2f seconds" % (stop_time-start_time)
-    if wiki:
-        print " * ",
-    print "%d classes tested" % (num_classes)
-    if wiki:
-        print " * ",
-    print "%d tests passed in total!" % (totals['successes'])
-    if totals['failures'] > 0:
-        if wiki:
-            print " * ",
-        print "%d tests failed in total!" % (totals['failures'])
-    if totals['errors'] > 0:
-        if wiki:
-            print " * ",
-        print "%d tests erred in total!" % (totals['errors'])
-
-def output_failure_data(failure, wiki):
-    if wiki:
-        print "\n * " + str(failure[0]).replace('.','.!')
-        print " {{{" + str(failure[1]) + "}}}"
-    else:
-        print "\n------ " + str(failure[0]) + " ------"
-        print failure[1],
         
 # -----------------------------------------------------------
 # -------------------- Option Logic -------------------------
 
 # Options
-# TODO: would log4py be better than custom flags?
 usage = "usage: python %prog [options]"
 parser = OptionParser(usage=usage)
-parser.set_defaults(verbose=True, failure_details=False,
-                    wiki=False, figleaf=True)
-parser.add_option("-v","--verbose",
-                    action="store_true", dest="verbose",
-                    help="report on each module individually [default]")
-parser.add_option("-q","--quiet",
-                    action="store_false", dest="verbose",
-                    help="only print pass/fail/error totals")
-parser.add_option("-d","--failure-details",
-                    action="store_true", dest="failure_details",
-                    help="print information on each failure")
-parser.add_option("-o", "--output-filename",
+parser.add_option("-v","--verbosity", default=3,
+                    action="store", type="int", dest="verbosity",
+                    help="An integer [from 0 to 5, default=3] determining " +
+                            "how much test result data will be output.")
+parser.add_option("-o", "--output-filename", default="",
                     action="store", dest="outfilename",
-                    metavar="FILE", default="",
+                    metavar="FILE",
                     help="redirect output from console to FILE")
-parser.add_option("-f", "--figleaf-filename",
-                    action="store", dest="figleaf_filename",
-                    metavar="FILE", default="tests.figleaf",
-                    help="write figleaf output to FILE [default: %default]")
-parser.add_option("-w", "--wiki",
+parser.add_option("-f", "--figleaf", default="",
+                    action="store", dest="figleaf", metavar="FILE",
+                    help="use figleaf, and write figleaf output to FILE. " +
+                            "this slows down the test run")
+parser.add_option("-w", "--wiki", default=False,
                     action="store_true", dest="wiki",
                     help="write data in wiki-markup format (MoinMoin / wxPyWiki)")
-parser.add_option("-x", "--no-figleaf",
-                    action="store_false", dest="figleaf",
-                    help="don't use figleaf (code coverage tool). makes runs quicker.")
-parser.add_option("-m","-i", "--modules","--include-modules",
-                    action="store", dest="module_list", default="",
+parser.add_option("-i", "--include-modules", default="",
+                    action="store", dest="module_list",
                     help="run only the comma-separated list of modules given. use either " +
                             "wx class names or the name of the desired test module. " + 
                             "don't use spaces in the list")
-parser.add_option("-e", "--exclude-modules",
-                    action="store", dest="module_ex_list", default="",
+parser.add_option("-e", "--exclude-modules", default="",
+                    action="store", dest="module_ex_list",
                     help="run all modules excluding those given in the comma-separated " + 
                     "list given. use either wx class names or the name of the desired " +
                     "test module.")
-parser.add_option("-t", "--tests",
-                    action="store", dest="test_list", default="",
+parser.add_option("-t", "--tests", default="",
+                    action="store", dest="test_list",
                     help="run only a targeted list of tests. give a comma-separated list " +
                             "of strings, and each test whose name or docstring contains " +
                             "one of those given will be run.")
 (options, args) = parser.parse_args()
 
 # Options error-checking
-if not options.figleaf and options.figleaf_filename != 'tests.figleaf':
-    # not strictly necessary, but -f is useless with -x
-    parser.error("options -f and -x are mutually exclusive")
-# may need error-checking, might be a bad idea, but i'm making -w override others
-if options.wiki:
-    options.failure_details = True
-    options.verbose = False
 if options.module_list != "" and options.module_ex_list != "":
     parser.error("options --exclude-modules and --include-modules are mutually exclusive")
+# doesn't really matter, but the help screen says it, so enforce it
+if options.verbosity < 0 or options.verbosity > 5:
+    parser.error("verbosity must be between 0 and 5")
     
 # -----------------------------------------------------------
 # ------------------- Test Running --------------------------
 rootdir = os.path.abspath(sys.path[0])
 if not os.path.isdir(rootdir):
     rootdir = os.path.dirname(rootdir)
-    
+
 # File redirect
-origstdout = None
 if options.outfilename != "":
     origstdout = sys.stdout
     try:
@@ -162,6 +143,7 @@ for name in [ n[:-3] for n in os.listdir(rootdir)
                     if n.startswith('test') and n.endswith(".py") ]:
     module_names[ name.lower() ] = name
 
+# process --include-modules option
 if options.module_list != "":
     module_name_list = options.module_list.split(",")
     tmp = []
@@ -178,6 +160,7 @@ if options.module_list != "":
             parser.error("Class %s not found under test" % (s))
     module_names = tmp
 
+# process --exclude-modules option
 if options.module_ex_list != "":
     ex_list_raw = options.module_ex_list.split(",")
     ex_list = []
@@ -240,46 +223,53 @@ for mod_name, result in results.iteritems():
     tmp["error_data"]   = result.errors
     data[mod_name] = tmp
 
+# which options was this run called with?
+opt_string = " ".join(sys.argv[1:])
+# replace short opts with long opts (explicit is better than implicit)
+for opt in parser.option_list:
+    opt_string = opt_string.replace(opt._short_opts[0], opt._long_opts[0])
+
 # -----------------------------------------------------------
 # ------------------- Output Reporting ----------------------
-wiki("=== %s - %s ===" % (time.asctime(),wx.GetOsDescription()))
-wiki("==== Platform Information ====")
-wiki(" * '''Platform [sys.platform]''': %s" % (sys.platform))
-wiki(" * '''Python Version [sys.version]''': %s" % (sys.version))
-wiki(" * '''wx Version [wx.version()]''': %s" % (wx.version()))
-wiki(" * '''OS [wx.!GetOsDescription()]''': %s" % (wx.GetOsDescription()))
-wiki(" * '''wx Info [wx.!PlatformInfo]''': %s" % (str(wx.PlatformInfo)))
+wiki(wiki_title(3, "%s - %s" % (time.asctime(),wx.GetOsDescription())), level=2)
+wiki(wiki_title(4, "Platform Information"), level=3)
+output(3, wiki_summary_item("Platform [sys.platform]",sys.platform))
+output(3, wiki_summary_item("Python Version [sys.version]",sys.version))
+output(3, wiki_summary_item("wx Version [wx.version()]",wx.version()))
+output(3, wiki_summary_item("OS [wx.!GetOsDescription()]",wx.GetOsDescription()))
+output(3, wiki_summary_item("wx Info [wx.!PlatformInfo]",str(wx.PlatformInfo)))
+output(3, wiki_summary_item("runUnitTests.py options",opt_string))
+wiki("\n----------------------\n", level=3, reverse=True)
 
-# TODO: add a preliminary "here's what I was told to run" output,
-#   and include command-line switches. wiki-only?
+output(2, wiki_title(4, "Summary"))
+output(2, wiki_bullet() + "Run completed in %.2f seconds" % (stop_time-start_time))
+output(2, wiki_bullet() + "%d classes tested" % (num_classes))
+output(2, wiki_bullet() + "%d tests passed in total!" % (totals['successes']))
+if totals['failures'] > 0:
+    output(2, wiki_bullet() + "%d tests failed in total!" % (totals['failures']))
+if totals['errors'] > 0:
+    output(2, wiki_bullet() + "%d tests erred in total!" % (totals['errors']))
+wiki("\n----------------------\n", level=2, reverse=True)
 
-output_summary(options.wiki)
-if options.verbose or options.failure_details and not options.wiki:
-    print "\n----------------------\n"
-
-wiki("==== Failure Data ====")
 data_items = data.items()
 data_items.sort()
+
+output(3, wiki_title(4, "Module Data"))
+for mod_name, results in data_items:
+    messages = ["%d passed" % (results["successes"])]
+    if results["failures"] > 0:
+        messages.append("%d failed" % (results["failures"]))
+    if results["errors"] > 0:
+        messages.append("%d erred"  % (results["errors"]))
+    output(3, wiki_bullet() + "%s:  %s" % (mod_name, ", ".join(messages)))
+
+output(4, wiki_title(4,"Failure Data"))
 for mod_name, results in data_items:
     # report on it
-    if options.verbose:
-        print "%s:\t%d tests passed" % (mod_name, results["successes"])
-    if results["failures"] > 0:
-        if options.verbose:
-            print "%s:\t%d tests failed!" % (mod_name, results["failures"])
-        if options.failure_details:
-            for failure in results["failure_data"]:
-                output_failure_data(failure, options.wiki)
-    if results["errors"] > 0:
-        if options.verbose:
-            print "%s:\t%d tests in error!" % (mod_name, results["errors"])
-        if options.failure_details:
-            for error in results["error_data"]:
-                output_failure_data(error, options.wiki)
-    
-if origstdout != None:
-    sys.stdout = origstdout
-    output_summary()
-
-# this is broken for some reason
-#os.system("figleaf2html -d ./tests_code_coverage %s" % figfile)
+    for failure in results["failure_data"] + results["error_data"]:
+        if options.wiki:
+            output(4, wiki_bullet() + str(failure[0]).replace('.','.!'))
+            output(5," {{{" + str(failure[1]) + "}}}")
+        else:
+            output(4,"\tFail: " + str(failure[0]))
+            output(5, "\t\t" + str(failure[1]).replace("\n","\n\t\t"))
