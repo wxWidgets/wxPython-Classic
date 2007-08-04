@@ -538,7 +538,7 @@ public:
                 ListClass::compatibility_iterator node = self->Item(index);
                 if (node) return node->GetData();
             }
-            PyErr_SetString(PyExc_IndexError, "Invalid list index");
+            PyErr_SetString(PyExc_IndexError, "sequence index out of range");
             return NULL;
         }
 
@@ -555,7 +555,15 @@ public:
 
         // TODO:  add support for index(value, [start, [stop]])
         // any others?
-        
+
+        KeepGIL(index);
+        int index(ItemClass* obj) {
+            int idx = self->IndexOf(obj);
+            if (idx == wxNOT_FOUND)
+                PyErr_SetString(PyExc_ValueError,
+                                "sequence.index(x): x not in sequence");
+            return idx;
+        }        
     }
     %pythoncode {
         def __repr__(self):
