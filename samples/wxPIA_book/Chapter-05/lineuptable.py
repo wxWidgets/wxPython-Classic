@@ -26,7 +26,7 @@ class LineupTable(wx.grid.PyGridTableBase):
     def GetColLabelValue(self, col):
         return self.colLabels[col]
 
-    def GetRowLabelValue(self, col):
+    def GetRowLabelValue(self, row):
         return self.entries[row].pos
 
     def IsEmptyCell(self, row, col):
