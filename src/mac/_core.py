@@ -8203,6 +8203,10 @@ class WindowList(object):
         """__iter__(self) -> WindowList_iterator"""
         return _core_.WindowList___iter__(*args, **kwargs)
 
+    def index(*args, **kwargs):
+        """index(self, Window obj) -> int"""
+        return _core_.WindowList_index(*args, **kwargs)
+
     def __repr__(self):
         return "wxWindowList: " + repr(list(self))
 
@@ -10805,6 +10809,10 @@ class MenuItemList(object):
         """__iter__(self) -> MenuItemList_iterator"""
         return _core_.MenuItemList___iter__(*args, **kwargs)
 
+    def index(*args, **kwargs):
+        """index(self, MenuItem obj) -> int"""
+        return _core_.MenuItemList_index(*args, **kwargs)
+
     def __repr__(self):
         return "wxMenuItemList: " + repr(list(self))
 
@@ -11995,6 +12003,10 @@ class SizerItemList(object):
     def __iter__(*args, **kwargs):
         """__iter__(self) -> SizerItemList_iterator"""
         return _core_.SizerItemList___iter__(*args, **kwargs)
+
+    def index(*args, **kwargs):
+        """index(self, SizerItem obj) -> int"""
+        return _core_.SizerItemList_index(*args, **kwargs)
 
     def __repr__(self):
         return "wxSizerItemList: " + repr(list(self))

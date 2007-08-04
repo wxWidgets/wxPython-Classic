@@ -1385,6 +1385,14 @@ class HtmlEasyPrinting(_core.Object):
         """GetPageSetupData(self) -> PageSetupDialogData"""
         return _html.HtmlEasyPrinting_GetPageSetupData(*args, **kwargs)
 
+    def GetParentWindow(*args, **kwargs):
+        """GetParentWindow(self) -> Window"""
+        return _html.HtmlEasyPrinting_GetParentWindow(*args, **kwargs)
+
+    def SetParentWindow(*args, **kwargs):
+        """SetParentWindow(self, Window window)"""
+        return _html.HtmlEasyPrinting_SetParentWindow(*args, **kwargs)
+
     PageSetupData = property(GetPageSetupData,doc="See `GetPageSetupData`") 
     PrintData = property(GetPrintData,doc="See `GetPrintData`") 
 _html.HtmlEasyPrinting_swigregister(HtmlEasyPrinting)
