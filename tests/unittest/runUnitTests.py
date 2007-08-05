@@ -231,8 +231,9 @@ for opt in parser.option_list:
 
 # -----------------------------------------------------------
 # ------------------- Output Reporting ----------------------
+output(1, "") # make things easier to read
 wiki(wiki_title(3, "%s - %s" % (time.asctime(),wx.GetOsDescription())), level=2)
-wiki(wiki_title(4, "Platform Information"), level=3)
+output(3, wiki_title(4, "Platform Information"))
 output(3, wiki_summary_item("Platform [sys.platform]",sys.platform))
 output(3, wiki_summary_item("Python Version [sys.version]",sys.version))
 output(3, wiki_summary_item("wx Version [wx.version()]",wx.version()))
@@ -241,15 +242,15 @@ output(3, wiki_summary_item("wx Info [wx.!PlatformInfo]",str(wx.PlatformInfo)))
 output(3, wiki_summary_item("runUnitTests.py options",opt_string))
 wiki("\n----------------------\n", level=3, reverse=True)
 
-output(2, wiki_title(4, "Summary"))
+output(1, wiki_title(4, "Summary"))
 output(2, wiki_bullet() + "Run completed in %.2f seconds" % (stop_time-start_time))
 output(2, wiki_bullet() + "%d classes tested" % (num_classes))
-output(2, wiki_bullet() + "%d tests passed in total!" % (totals['successes']))
+output(1, wiki_bullet() + "%d tests passed in total!" % (totals['successes']))
 if totals['failures'] > 0:
-    output(2, wiki_bullet() + "%d tests failed in total!" % (totals['failures']))
+    output(1, wiki_bullet() + "%d tests failed in total!" % (totals['failures']))
 if totals['errors'] > 0:
-    output(2, wiki_bullet() + "%d tests erred in total!" % (totals['errors']))
-wiki("\n----------------------\n", level=2, reverse=True)
+    output(1, wiki_bullet() + "%d tests erred in total!" % (totals['errors']))
+wiki("\n----------------------\n", level=3, reverse=True)
 
 data_items = data.items()
 data_items.sort()
@@ -262,14 +263,20 @@ for mod_name, results in data_items:
     if results["errors"] > 0:
         messages.append("%d erred"  % (results["errors"]))
     output(3, wiki_bullet() + "%s:  %s" % (mod_name, ", ".join(messages)))
+wiki("\n----------------------\n", level=3, reverse=True)
 
 output(4, wiki_title(4,"Failure Data"))
 for mod_name, results in data_items:
     # report on it
     for failure in results["failure_data"] + results["error_data"]:
+        type = None
+        if failure in results["failure_data"]:
+            type = "Fail: "
+        elif failure in results["error_data"]:
+            type = "Error: "
         if options.wiki:
-            output(4, wiki_bullet() + str(failure[0]).replace('.','.!'))
+            output(4, wiki_bullet() + type + str(failure[0]).replace('.','.!'))
             output(5," {{{" + str(failure[1]) + "}}}")
         else:
-            output(4,"\tFail: " + str(failure[0]))
-            output(5, "\t\t" + str(failure[1]).replace("\n","\n\t\t"))
+            output(4, "   " + type + str(failure[0]))
+            output(5, "      " + str(failure[1]).replace("\n","\n      "))
