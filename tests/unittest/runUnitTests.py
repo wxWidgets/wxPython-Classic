@@ -228,6 +228,7 @@ opt_string = " ".join(sys.argv[1:])
 # replace short opts with long opts (explicit is better than implicit)
 for opt in parser.option_list:
     opt_string = opt_string.replace(" " + opt._short_opts[0], " " + opt._long_opts[0])
+    opt_string = opt_string.replace(opt._short_opts[0] + " ", opt._long_opts[0] + " ")
 
 # -----------------------------------------------------------
 # ------------------- Output Reporting ----------------------
@@ -263,7 +264,7 @@ for mod_name, results in data_items:
     if results["errors"] > 0:
         messages.append("%d erred"  % (results["errors"]))
     output(3, wiki_bullet() + "%s:  %s" % (mod_name, ", ".join(messages)))
-wiki("\n----------------------\n", level=3, reverse=True)
+wiki("\n----------------------\n", level=4, reverse=True)
 
 output(4, wiki_title(4,"Failure Data"))
 for mod_name, results in data_items:
