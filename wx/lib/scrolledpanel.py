@@ -79,7 +79,13 @@ class ScrolledPanel( wx.PyScrolledWindow ):
         # this handler will try to scroll enough to see it.
         evt.Skip()
         child = evt.GetWindow()
+        self.ScrollChildIntoView(child)
+        
 
+    def ScrollChildIntoView(self, child):
+        """
+        Scrolls the panel such that the specified child window is in view.
+        """        
         sppu_x, sppu_y = self.GetScrollPixelsPerUnit()
         vs_x, vs_y   = self.GetViewStart()
         cr = child.GetRect()
