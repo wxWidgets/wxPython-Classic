@@ -17,7 +17,7 @@ class GraphicsRendererTest(unittest.TestCase):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(None)
-        if wxtest.PlatformIsLinux():
+        if wxtest.PlatformIsGtk():
             self.frame.Show()
         self.testControl = wx.GraphicsRenderer.GetDefaultRenderer()
     

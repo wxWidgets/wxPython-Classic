@@ -28,7 +28,7 @@ class ControlTest(testWindow.WindowTest):
         http://lists.wxwidgets.org/cgi-bin/ezmlm-cgi?12:mss:3440:fjmhidphpdnbhoobomhi
         """
         class_under_test = type(self.testControl)
-        if wxtest.PlatformIsNotLinux():
+        if wxtest.PlatformIsNotGtk():
             self.assertRaises(wx.PyAssertionError, class_under_test, None)
         else:
             class_under_test(None)

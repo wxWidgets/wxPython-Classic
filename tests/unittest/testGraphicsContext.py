@@ -35,7 +35,7 @@ class GraphicsContextTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(None)
-        if wxtest.PlatformIsLinux():
+        if wxtest.PlatformIsGtk():
             self.frame.Show() # otherwise segfault
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()
         self.testControl = self.renderer.CreateContext(self.frame)
