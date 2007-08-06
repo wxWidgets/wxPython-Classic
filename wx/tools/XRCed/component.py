@@ -113,7 +113,9 @@ class Component(object):
             return 0
 
     def getTreeText(self, node):
-        label = node.getAttribute('class')
+        label = node.getAttribute('subclass')
+        if not label:
+            label = node.getAttribute('class')
         if self.hasName:
             name = node.getAttribute('name')
             if name: label += ' "%s"' % name

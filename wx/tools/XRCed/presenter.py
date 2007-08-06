@@ -254,13 +254,46 @@ class _Presenter:
         self.setModified()
         return item
 
+    def subclass(self, item, subclass):
+        node = view.tree.GetPyData(item)
+        if subclass:
+            node.setAttribute('subclass', subclass)
+        elif node.hasAttribute('subclass'):
+            node.removeAttribute('subclass')
+        # Update item label
+        view.tree.SetItemImage(item, self.comp.getTreeImageId(node))
+        view.tree.SetItemText(item, self.comp.getTreeText(node))        
+        # Update panel
+        view.tree.SelectItem(item)
+        self.setModified()        
+
     def update(self, item):
         '''Update DOM with new attribute values. Update tree if necessary.'''
         node = view.tree.GetPyData(item)
+        subclass = node.getAttribute('subclass')
+        # Update (sub)class if needed
+        if not subclass:
+            value = view.panel.controlClass.GetValue()
+            if value != self.comp.klass:
+                TRACE('update class: %s', value)
+                node.setAttribute('class', value)
+        else:
+            value = subclass + '(%s)' % self.comp.klass
+            if view.panel.controlClass.GetValue() != value:
+                value = view.panel.controlClass.GetValue()
+                iLeft = value.find('(')
+                iRight = value.find(')')
+                if iLeft != -1 and iLeft < iRight:
+                    subclass = value[:iLeft]
+                    klass = value[iLeft+1:iRight]
+                    TRACE('update class/subclass: %s', value)
+                    node.setAttribute('class', klass)
+                    node.setAttribute('subclass', subclass)
+                else:
+                    TRACE('remove subclass')
+                    node.removeAttribute('subclass')
+                    node.setAttribute('class', value)
         if self.comp and self.comp.hasName:
-            # Update class if needed
-            if view.panel.controlClass.GetValue() != self.comp.klass:
-                node.setAttribute('class', view.panel.controlClass.GetValue())
             name = view.panel.controlName.GetValue()
             if name:
                 node.setAttribute('name', view.panel.controlName.GetValue())
@@ -473,7 +506,8 @@ class _Presenter:
         if not view.testWin.object: return
         view.tree.SetItemBold(view.testWin.item, False)
         view.frame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
-        view.frame.miniFrame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
+        if view.frame.miniFrame:
+            view.frame.miniFrame.tb.ToggleTool(view.frame.ID_TOOL_LOCATE, False)
         view.testWin.Destroy()
 
     def refreshTestWin(self):

@@ -115,7 +115,11 @@ class Panel(wx.Panel):
         if comp.klass != 'root':
             self.labelClass.Show()
             self.controlClass.Show()
-            self.controlClass.SetValue(node.getAttribute('class'))
+            subclass = node.getAttribute('subclass')
+            if not subclass:
+                self.controlClass.SetValue(node.getAttribute('class'))
+            else:
+                self.controlClass.SetValue(subclass + '(%s)' % node.getAttribute('class'))
         else:
             self.labelClass.Hide()
             self.controlClass.Hide()

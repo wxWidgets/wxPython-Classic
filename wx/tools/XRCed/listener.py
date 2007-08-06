@@ -88,6 +88,7 @@ class _Listener:
             wx.EVT_MENU(frame, frame.ID_DEBUG_CMD, self.OnDebugCMD)
 
         # Pulldown menu commands
+        wx.EVT_MENU(frame, ID.SUBCLASS, self.OnSubclass)
         wx.EVT_MENU(frame, ID.COLLAPSE, self.OnCollapse)
         wx.EVT_MENU(frame, ID.EXPAND, self.OnExpand)
 
@@ -308,15 +309,16 @@ class _Listener:
                 conf.size = self.frame.GetClientSize()
             else:
                 conf.size = self.frame.GetSize()
-            if conf.embedPanel:
-                conf.sashPos = self.frame.splitter.GetSashPosition()
-            else:
-                if self.frame.miniFrame:
-                    conf.panelPos = self.frame.miniFrame.GetPosition()
-                    conf.panelSize = self.frame.miniFrame.GetSize()
-            if conf.showToolPanel and self.toolFrame:
-                conf.toolPanelPos = self.toolFrame.GetPosition()
-                conf.toolPanelSize = self.toolFrame.GetSize()
+            if not conf.useAUI:
+                if conf.embedPanel:
+                    conf.sashPos = self.frame.splitter.GetSashPosition()
+                else:
+                    if self.frame.miniFrame:
+                        conf.panelPos = self.frame.miniFrame.GetPosition()
+                        conf.panelSize = self.frame.miniFrame.GetSize()
+                if conf.showToolPanel and self.toolFrame:
+                    conf.toolPanelPos = self.toolFrame.GetPosition()
+                    conf.toolPanelSize = self.toolFrame.GetSize()
         self.panel.Destroy()            # destroy panel before tree
         evt.Skip()
 
@@ -614,6 +616,15 @@ Homepage: http://xrced.sourceforge.net\
             if not conf.embedPanel and self.miniFrame:
                 self.miniFrame.Show(True)
         evt.Skip()
+
+    def OnSubclass(self, evt):
+        node = self.tree.GetPyData(Presenter.item)
+        subclass = node.getAttribute('subclass')
+        dlg = wx.TextEntryDialog(self.frame, 'Subclass:', defaultValue=subclass)
+        if dlg.ShowModal() == wx.ID_OK:
+            subclass = dlg.GetValue()
+            Presenter.subclass(Presenter.item, subclass)
+        dlg.Destroy()        
 
     # Expand/collapse subtree
     def OnExpand(self, evt):
