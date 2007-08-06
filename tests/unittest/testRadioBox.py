@@ -60,6 +60,14 @@ class RadioBoxTest(testControl.ControlTest):
             index = self.testControl.FindString(self.CHOICES[i])
             self.assertEquals(i, index)
         self.assertEquals(-1,self.testControl.FindString('asdfjkl;'))
+    
+    def testGetName(self):
+        """GetName"""
+        # Overrides testGetName in testControl
+        name = 'Name of Control'
+        ctrl = wx.RadioBox(parent=self.frame, name=name, choices=['a'])
+            # needs a non-empty choices list or throws exception (on Windows)
+        self.assertEquals(name, ctrl.GetName())
         
     def testGetString(self):
         """GetString"""

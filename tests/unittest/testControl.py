@@ -33,13 +33,19 @@ class ControlTest(testWindow.WindowTest):
         else:
             class_under_test(None)
 
-    # TODO: does this only work on Windows? if so, why?
-    def testLabelText(self):
-        """GetLabelText"""
+    def testGetName(self):
+        """GetName"""
         name = 'Name of Control'
         class_under_test = type(self.testControl)
-        ctrl = wx.Control(parent=self.frame, name=name)
-        self.assertEquals(name, ctrl.GetLabelText())
+        ctrl = class_under_test(parent=self.frame, name=name)
+        self.assertEquals(name, ctrl.GetName())
+    
+    def testLabelText(self):
+        """GetLabelText"""
+        label = "Hello &World"
+        self.testControl.SetLabel(label)
+        self.assertEquals(label, self.testControl.GetLabel())
+        self.assertEquals(label.replace('&',''), self.testControl.GetLabelText())
     
 
 if __name__ == '__main__':
