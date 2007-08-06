@@ -29,8 +29,10 @@ def getSizes(ctrl, kind):
     # get mins and maxes
     set((1,1))
     xmin,ymin = get()
-    set((2**15,2**15))  # 16-bit signed int (+1)
-                        # for more information, see issue #1756896
+    set((2**15-1,2**15-1))  # 16-bit signed int
+                            # for more information, see issue #1756896.
+                            # if the limit is exceeded, wx will sometimes return junk
+                            # values rather than asserting the max possible value
     xmax,ymax = get()
     # print?
     #print "%s [x]: %s (min), %s (max)" % (str(type(ctrl)), str(xmin), str(xmax))
