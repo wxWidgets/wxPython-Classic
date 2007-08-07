@@ -1,6 +1,7 @@
 import unittest
 import wx
 
+import wxtest
 import testControl
 
 """
@@ -8,9 +9,6 @@ This file contains classes and methods for unit testing the API of wx.Gauge
 
 TODO:
     Fill in the docs!
-
-NOTE:
-    SetBezelFace, SetShadowWidth don't seem to work (on Windows at least)
 
 Methods yet to test:
 __init__, Create, Pulse
@@ -22,11 +20,19 @@ class GaugeTest(testControl.ControlTest):
         self.frame = wx.Frame(parent=None)
         self.testControl = wx.Gauge(parent=self.frame)
     
+    # C++ docs state:
+    #   This method is not implemented (returns 0) for most platforms.
     def testBezelFace(self):
         """SetBezelFace, GetBezelFace"""
-        for i in range(self.testControl.GetRange()):
-            self.testControl.SetBezelFace(i)
-            self.assertEquals(i, self.testControl.GetBezelFace())
+        if wxtest.PlatformIsMac() or wxtest.PlatformIsGtk() or \
+                wxtest.PlatformIsWindows():
+            for i in range(self.testControl.GetRange()):
+                self.testControl.SetBezelFace(i)
+                self.assertEquals(0, self.testControl.GetBezelFace())
+        else:
+            # this can't happen.
+            # TODO: what platforms does it work on?
+            pass
     
     def testIsVertical(self):
         """IsVertical"""
@@ -42,11 +48,19 @@ class GaugeTest(testControl.ControlTest):
             self.testControl.SetRange(i)
             self.assertEquals(i, self.testControl.GetRange())
     
+    # C++ docs state:
+    #   This method is not implemented (returns 0) for most platforms.
     def testShadowWidth(self):
         """SetShadowWidth, GetShadowWidth"""
-        for i in range(self.testControl.GetRange()):
-            self.testControl.SetShadowWidth(i)
-            self.assertEquals(i, self.testControl.GetShadowWidth())
+        if wxtest.PlatformIsMac() or wxtest.PlatformIsGtk() or \
+                wxtest.PlatformIsWindows():
+            for i in range(self.testControl.GetRange()):
+                self.testControl.SetShadowWidth(i)
+                self.assertEquals(0, self.testControl.GetShadowWidth())
+        else:
+            # this can't happen.
+            # TODO: what platforms does it work on?
+            pass
     
     def testValue(self):
         """SetValue, GetValue"""
