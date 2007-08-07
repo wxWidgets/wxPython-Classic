@@ -92,7 +92,7 @@ class BitmapTest(unittest.TestCase):
                                 wx.Rect(1,1,1,1))
         else:
             b = self.testControl.GetSubBitmap(wx.Rect(1,1,1,1))
-            self.assert_(isinstance(wx.Bitmap, b))
+            self.assert_(isinstance(b, wx.Bitmap))
     
     def testSubBitmapOutOfBounds(self):
         """GetSubBitmap"""
@@ -101,7 +101,7 @@ class BitmapTest(unittest.TestCase):
                                 wx.Rect(10,10,1,1)) # wx.Rect is out of bounds
         else:
             b = self.testControl.GetSubBitmap(wx.Rect(10,10,1,1))
-            self.assert_(isinstance(wx.Bitmap, b))
+            self.assert_(isinstance(b, wx.Bitmap))
     
     def testWidth(self):
         """SetWidth, GetWidth"""
