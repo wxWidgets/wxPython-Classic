@@ -23,8 +23,8 @@ class GraphicsMatrixTest(testGraphicsObject.GraphicsObjectTest):
         self.assertRaises(AttributeError, wx.GraphicsMatrix)
     
     def testGetRenderer(self):
-        """GetRenderer
-        Overrides test in testGraphicsObject.GraphicsObjectTest"""
+        """GetRenderer"""
+        # Overrides test in testGraphicsObject.GraphicsObjectTest
         self.assertEquals(repr(self.renderer), repr(self.testControl.GetRenderer()))
         # I wonder why this fails?
         #self.assert_(self.renderer is self.testControl.GetRenderer())

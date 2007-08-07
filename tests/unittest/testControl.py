@@ -18,15 +18,14 @@ class ControlTest(testWindow.WindowTest):
         self.testControl = wx.Control(parent=self.frame, id=wx.ID_ANY)
     
     def testAllControlsNeedParents(self):
-        """__init__
-        The assumption here is that all wx.Controls and subclasses need to have 
+        """__init__"""
+        '''The assumption here is that all wx.Controls and subclasses need to have 
         parents.  Some platforms (GTK) do not enforce this at object creation
         time; this is to be considered an implementation detail.
         "wxWidgets does require that non top-level windows have a parent, 
         it's just not enforced in debug mode on wxGTK like the others do."
         For more information, see 
-        http://lists.wxwidgets.org/cgi-bin/ezmlm-cgi?12:mss:3440:fjmhidphpdnbhoobomhi
-        """
+        http://lists.wxwidgets.org/cgi-bin/ezmlm-cgi?12:mss:3440:fjmhidphpdnbhoobomhi'''
         class_under_test = type(self.testControl)
         if wxtest.ASSERTIONS_ON:
             self.assertRaises(wx.PyAssertionError, class_under_test, None)

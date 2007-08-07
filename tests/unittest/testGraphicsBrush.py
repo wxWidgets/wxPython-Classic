@@ -29,13 +29,13 @@ class GraphicsBrushTest(testGraphicsObject.GraphicsObjectTest):
         self.assert_(isinstance(brush, wx.GraphicsBrush))
     
     def testGetRenderer(self):
-        """GetRenderer
-        Overrides test in testGraphicsObject.GraphicsObjectTest"""
+        """GetRenderer"""
+        # Overrides test in testGraphicsObject.GraphicsObjectTest
         self.assertEquals(repr(self.renderer), repr(self.testControl.GetRenderer()))
         
     def testIsNullTrue(self):
-        """IsNull
-        Overrides test in testGraphicsObject.GraphicsObjectTest"""
+        """IsNull"""
+        # Overrides test in testGraphicsObject.GraphicsObjectTest
         self.testControl = wx.GraphicsBrush()
         self.assert_(self.testControl.IsNull())
             

@@ -25,8 +25,8 @@ class GraphicsPathTest(testGraphicsObject.GraphicsObjectTest):
         self.assertRaises(AttributeError, wx.GraphicsPath)
     
     def testGetRenderer(self):
-        """GetRenderer
-        Overrides test in testGraphicsObject.GraphicsObjectTest"""
+        """GetRenderer"""
+        # Overrides test in testGraphicsObject.GraphicsObjectTest
         self.assertEquals(repr(self.renderer), repr(self.testControl.GetRenderer()))
             
             

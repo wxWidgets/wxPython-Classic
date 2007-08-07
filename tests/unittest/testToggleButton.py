@@ -18,8 +18,8 @@ class ToggleButtonTest(testControl.ControlTest):
         self.testControl = wx.ToggleButton(parent=self.frame)
         
     def testSetValueFails(self):
-        """
-        That SetValue must be called with one and only one argument"""
+        """SetValue"""
+        # That SetValue must be called with one and only one argument
         self.assertRaises(TypeError, self.testControl.SetValue)
         self.assertRaises(TypeError, self.testControl.SetValue, True, True)
     

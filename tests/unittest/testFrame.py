@@ -31,6 +31,7 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
     
     # see testSize method, below; probably the same issue
     def testRect(self):
+        """SetRect, GetRect"""
         if wxtest.PlatformIsWindows():
             self.testControl.SetRect(wx.Rect(0,0,0,0))
             self.assertEquals(wx.Rect(0,0,123,34),self.testControl.GetRect())
@@ -39,6 +40,7 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
     
     # wx.Frame's size has a minimum on Windows
     def testSize(self):
+        """SetSize, GetSize"""
         if wxtest.PlatformIsWindows():
             self.testControl.SetSize(wx.Size(1,1))
             self.assertEquals(wx.Size(123,34),self.testControl.GetSize())
@@ -57,7 +59,7 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
         self.assertNotEquals(sb1, self.testControl.GetStatusBar())
         
     def testStatusBarCreation(self):
-        """CreateStatusBar"""
+        """CreateStatusBar, GetStatusBar"""
         if wxtest.ASSERTIONS_ON:
             self.assertRaises(wx.PyAssertionError, self.testControl.PushStatusText, 'text')
         else:
@@ -78,7 +80,7 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
             self.testControl.PopStatusText()
     
     def testStatusBarText(self):
-        """SetStatusText"""
+        """SetStatusText, GetStatusBar"""
         sb = self.testControl.CreateStatusBar()
         txts = ('lorem','ipsum','dolor','sit','amet')
         for txt in txts:

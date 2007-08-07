@@ -22,13 +22,14 @@ class SpinCtrlTest(testControl.ControlTest):
     
     # crashes interpreter on Windows for some reason
     def testAllControlsNeedParents(self):
+        """__init"""
         if wxtest.PlatformIsNotWindows():
             super(SpinCtrlTest,self).testAllControlsNeedParents()
     
     def testConstructor(self):
-        """__init__
-        'Nearly all of the complexity of the spin ontrol is in the constructor'
-            - pg.209, 1st paragraph, 'wxPython in Action' """
+        """__init__"""
+        # 'Nearly all of the complexity of the spin ontrol is in the constructor'
+        #    - pg.209, 1st paragraph, 'wxPython in Action'
         a = wx.SpinCtrl(parent=self.frame, min=-1000, max=1000,
                             initial=42)
         self.assertEquals(-1000, a.GetMin())

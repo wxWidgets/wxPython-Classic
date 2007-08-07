@@ -24,13 +24,13 @@ class GraphicsFontTest(testGraphicsObject.GraphicsObjectTest):
         self.assert_(isinstance(font, wx.GraphicsFont))
     
     def testGetRenderer(self):
-        """GetRenderer
-        Overrides test in testGraphicsObject.GraphicsObjectTest"""
+        """GetRenderer"""
+        # Overrides test in testGraphicsObject.GraphicsObjectTest
         self.assertEquals(repr(self.renderer), repr(self.testControl.GetRenderer()))
     
     def testIsNullTrue(self):
-        """IsNull
-        Overrides test in testGraphicsObject.GraphicsObjectTest"""
+        """IsNull"""
+        # Overrides test in testGraphicsObject.GraphicsObjectTest
         self.testControl = wx.GraphicsFont()
         self.assert_(self.testControl.IsNull())
             

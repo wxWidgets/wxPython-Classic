@@ -23,8 +23,8 @@ class GraphicsPenTest(testGraphicsObject.GraphicsObjectTest):
         self.assert_(isinstance(wx.GraphicsPen(),wx.GraphicsPen))
     
     def testGetRenderer(self):
-        """GetRenderer
-        Overrides test in testGraphicsObject.GraphicsObjectTest"""
+        """GetRenderer"""
+        # Overrides test in testGraphicsObject.GraphicsObjectTest
         self.assertEquals(repr(self.renderer), repr(self.testControl.GetRenderer()))
         
         

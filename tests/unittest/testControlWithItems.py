@@ -16,6 +16,7 @@ class ControlWithItemsTest(unittest.TestCase):
         self.app.Destroy()
     
     def testConstructorFails(self):
+        """__init__"""
         self.assertRaises(AttributeError, wx.ControlWithItems)
 
 class ControlWithItemsBase(testControl.ControlTest, testItemContainer.ItemContainerBase):

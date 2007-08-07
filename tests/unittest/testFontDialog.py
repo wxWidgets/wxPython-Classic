@@ -18,8 +18,9 @@ class FontDialogTest(testDialog.DialogTest):
         self.testControl = wx.FontDialog(self.frame, self.font_data)
     
     def testTitle(self):
-        """
-        wx.FontDialog has different parameter list than wx.TopLevelWindow"""
+        """ """
+        # wx.FontDialog has different parameter list than wx.TopLevelWindow
+        # TODO: assert that calling the constructor with 'title' fails
         pass
     
     def testFontData(self):

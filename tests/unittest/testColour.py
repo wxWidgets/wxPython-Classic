@@ -65,6 +65,7 @@ class ColourTest(unittest.TestCase):
         self.app.Destroy()
     
     def testColorColourAlias(self):
+        """ """
         self.assertEquals(wx.Color, wx.Colour)
     
     def testSetFromName(self):

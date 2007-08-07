@@ -34,8 +34,8 @@ class RadioBoxTest(testControl.ControlTest):
         self.assertEquals(len(self.CHOICES), self.testControl.GetColumnCount())
     
     def testCount(self):
-        """GetCount
-        This function needs to be documented."""
+        """GetCount"""
+        # TODO: This function needs to be documented.
         self.assertEquals(len(self.CHOICES), self.testControl.GetCount())
     
     def testEnable(self):

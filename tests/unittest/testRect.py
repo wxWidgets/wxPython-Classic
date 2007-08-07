@@ -5,7 +5,10 @@ import testSize
 import wxtest
 
 """
-This file contains classes and methods for unit testing the API of wx.Rect
+This file contains classes and methods for unit testing the API of wx.Rect.
+
+32767 (or 2**15-1) is the max number that should be used in wx.Rects.
+Most platforms use a short int to store window sizes and positions.
         
 Methods yet to test:
 __add__, __del__, __eq__, __getitem__, __iadd__, __len__, __ne__, __nonzero__,
@@ -22,10 +25,7 @@ def getRectData(ctrl):
     # TODO: more variation in wx.Rects returned?
     return [ wx.Rect(10,10,w,h) for w,h in sizes ]
 
-# TODO: find out if 32767 is some Windows limit, or a hard one.
-#       Can we get rid of this magic number?
-# NOTE: a wx.Rect can be created with values of greater than 32767,
-#       but when returned from wx.Window, that's the max.
+# -----------------------------------------------------------
 
 class RectTest(unittest.TestCase):
     def setUp(self):

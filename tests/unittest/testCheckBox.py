@@ -22,6 +22,7 @@ class CheckBoxTest(testControl.ControlTest):
         self.testControl = wx.CheckBox(parent=self.frame, label=self.LABEL)
     
     def test2StateValueFailure(self):
+        """Set3StateValue"""
         if wxtest.ASSERTIONS_ON:
             self.assertRaises(wx.PyAssertionError, self.testControl.Set3StateValue,
                                 wx.CHK_UNDETERMINED)
@@ -57,8 +58,8 @@ class CheckBoxTest(testControl.ControlTest):
         self.assert_(self.testControl.Is3rdStateAllowedForUser())
         
     def testLabel(self):
-        """
-        Overrides previous testLabel method"""
+        """GetLabel"""
+        # Overrides previous testLabel method
         self.assertEquals(self.LABEL, self.testControl.GetLabel())
     
     def testValueBoolean(self):
@@ -73,8 +74,8 @@ class CheckBoxTest(testControl.ControlTest):
         self.assert_(not self.testControl.IsChecked())
     
     def testValueConstants(self):
-        """SetValue, GetValue, IsChecked
-        TODO: docs can be updated with this functionality"""
+        """SetValue, GetValue, IsChecked"""
+        # TODO: docs can be updated with this functionality
         self.testControl.SetValue(wx.CHK_CHECKED)
         self.assert_(self.testControl.GetValue())
         self.assert_(self.testControl.IsChecked())

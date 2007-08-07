@@ -34,8 +34,8 @@ class ScrolledWindowTest(testPanel.PanelTest):
                 self.assertEquals(i, self.testControl.GetScrollPageSize(orient))
     
     def testScrollRate(self):
-        """SetScrollRate, GetScrollPixelsPerUnit
-        Note asymmetry between accessor methods"""
+        """SetScrollRate, GetScrollPixelsPerUnit"""
+        # Note asymmetry between accessor methods
         for i in range(1000):
             self.testControl.SetScrollRate(i,i)
             self.assertEquals((i,i), self.testControl.GetScrollPixelsPerUnit())

@@ -50,16 +50,16 @@ class ImageTest(unittest.TestCase):
         self.assert_(self.testControl.HasAlpha())
     
     def testAlphaFails(self):
-        """SetAlpha
-        Not all wx.Images have alpha channels"""
+        """SetAlpha"""
+        # Not all wx.Images have alpha channels
         if wxtest.ASSERTIONS_ON:
             self.assertRaises(wx.PyAssertionError, self.testControl.SetAlpha,0,0,0)
         else:
             self.testControl.SetAlpha(0,0,0)
     
     def testAlphaInitFails(self):
-        """InitAlpha
-        'It is an error to call it if the image already has alpha data.'"""
+        """InitAlpha"""
+        # 'It is an error to call it if the image already has alpha data.'
         self.testControl.InitAlpha()
         if wxtest.ASSERTIONS_ON:
             self.assertRaises(wx.PyAssertionError, self.testControl.InitAlpha)

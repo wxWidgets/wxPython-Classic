@@ -86,15 +86,15 @@ class ButtonTest(testControl.ControlTest):
         self.testControl = wx.Button(parent=self.frame)
     
     def testGetDefaultSize(self):
-        """GetDefaultSize
-        (Static method)"""
+        """GetDefaultSize"""
+        # (Static method)
         sz = wx.Button.GetDefaultSize()
         self.assert_(isinstance(sz, wx.Size))
         self.assert_(sz.IsFullySpecified())
         
     def testIdLabelPairs(self):
-        """GetLabelText (from wx.Control)
-        Test the ID/Label pairs"""
+        """GetLabelText"""
+        # Test the ID/Label pairs"""
         for id,label in getIdLabelPairs():
             b = wx.Button(self.frame, id)
             self.assertEquals(label, b.GetLabelText())

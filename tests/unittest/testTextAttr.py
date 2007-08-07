@@ -18,9 +18,7 @@ class TextAttrTest(unittest.TestCase):
         self.testControl = wx.TextAttr()
     
     def tearDown(self):
-        """__del__"""
         self.app.Destroy()
-        del self.testControl
         
     def testBackgroundColour(self):
         """SetBackgroundColour, GetBackgroundColour, HasBackgroundColour"""

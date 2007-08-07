@@ -24,6 +24,7 @@ class BitmapButtonTest(testButton.ButtonTest):
     
     # crashes interpreter on Windows for some reason
     def testAllControlsNeedParents(self):
+        """__init__"""
         if wxtest.PlatformIsNotWindows():
             super(BitmapButtonTest,self).testAllControlsNeedParents()
         

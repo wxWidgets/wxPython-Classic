@@ -76,6 +76,7 @@ class FontTest(unittest.TestCase):
         self.app.Destroy()
     
     def testFontstyle(self):
+        """__init__"""
         # wx.FONTSTYLE_MAX dies (on Windows)
         if wxtest.PlatformIsWindows():
             self.assertRaises(wx.PyAssertionError, wx.Font, 12, wx.FONTFAMILY_DEFAULT,
@@ -84,6 +85,7 @@ class FontTest(unittest.TestCase):
             wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_MAX, wx.FONTWEIGHT_NORMAL)
                                             
     def testFontweight(self):
+        """__init__"""
         # wx.FONTWEIGHT_MAX dies (on Windows)
         if wxtest.PlatformIsWindows():
             self.assertRaises(wx.PyAssertionError, wx.Font, 12, wx.FONTFAMILY_DEFAULT,

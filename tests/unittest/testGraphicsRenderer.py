@@ -43,8 +43,8 @@ class GraphicsRendererTest(unittest.TestCase):
         self.assertEquals(repr(context.GetRenderer()), repr(self.testControl))
     
     def testCreateContextFails(self):
-        """CreateContext
-        CreateContext needs to take an argument"""
+        """CreateContext"""
+        # CreateContext needs to take an argument
         self.assertRaises(NotImplementedError, self.testControl.CreateContext)
     
     def testCreateFont(self):

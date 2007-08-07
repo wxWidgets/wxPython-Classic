@@ -298,16 +298,14 @@ class WindowTest(unittest.TestCase):
     
     # TODO: make the whole thing more robust
     def testInvalidSizeHints(self):
-        # max can't be less than min
-        if wxtest.ASSERTIONS_ON:
+        """SetSizeHints"""
+        # max can't be less than min (except on Ubuntu?)
+        if wxtest.PlatformIsNotGtk():
             self.assertRaises(wx.PyAssertionError, self.testControl.SetSizeHints, 100,100,10,10)
-        else:
-            self.testControl.SetSizeHints(100,100,10,10)
             
     def testIsBeingDeleted(self):
-        """IsBeingDeleted
-        TODO: find a way to test this when it will return True
-        """
+        """IsBeingDeleted"""
+        # TODO: find a way to test this when it will return True
         self.assert_(not self.testControl.IsBeingDeleted())
     
     def testLabel(self):
@@ -355,7 +353,7 @@ class WindowTest(unittest.TestCase):
     # what is the difference between SetOwnBackgroundColour and SetBackgroundColour?
     # the docs don't say anything about SetOwnBackgroundColour
     def testOwnBackgroundColor(self):
-        """SetOwnBackgroundColour"""
+        """SetOwnBackgroundColour, GetBackgroundColour"""
         for test, actual in testColour.getColourEquivalentHexValues() + \
                             testColour.getColourEquivalentTuples():
             self.testControl.SetOwnBackgroundColour(test)
@@ -363,7 +361,7 @@ class WindowTest(unittest.TestCase):
     
     # because of the name failures on Ubuntu
     def testOwnBackgroundColorNames_wxWindowOnly(self):
-        """SetOwnBackgroundColour"""
+        """SetOwnBackgroundColour, GetBackgroundColour"""
         for test, actual in testColour.getColourEquivalentNames():
             self.testControl.SetOwnBackgroundColour(test)
             self.assertEquals(actual, self.testControl.GetBackgroundColour())
@@ -375,7 +373,7 @@ class WindowTest(unittest.TestCase):
             self.assertEquals(font, self.testControl.GetFont())
             
     def testOwnForegroundColor(self):
-        """SetOwnForegroundColour"""
+        """SetOwnForegroundColour, GetForegroundColour"""
         for test, actual in testColour.getColourEquivalentHexValues() + \
                             testColour.getColourEquivalentTuples():
             self.testControl.SetOwnForegroundColour(test)
@@ -383,7 +381,7 @@ class WindowTest(unittest.TestCase):
     
     # because of the name failures on Ubuntu
     def testOwnForegroundColorNames_wxWindowOnly(self):
-        """SetOwnForegroundColour"""
+        """SetOwnForegroundColour, GetForegroundColour"""
         for test, actual in testColour.getColourEquivalentNames():
             self.testControl.SetOwnForegroundColour(test)
             self.assertEquals(actual, self.testControl.GetForegroundColour())
@@ -515,9 +513,9 @@ class WindowTest(unittest.TestCase):
             self.testControl.SetVirtualSizeWH(w,h)
             self.assertEquals((w,h),self.testControl.GetVirtualSizeTuple())
     
-    def testWindowChildren(self):
-        """GetParent
-        Tests to make sure the window's children register as such"""
+    def testWindowChildren_wxWindowOnly(self):
+        """GetParent"""
+        # Tests to make sure the window's children register as such
         for child in self.children:
             self.assertEquals(self.testControl, child.GetParent())
             

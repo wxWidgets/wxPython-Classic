@@ -55,8 +55,8 @@ class GraphicsContextTest(testGraphicsObject.GraphicsObjectTest):
         self.assert_(isinstance(context, wx.GraphicsContext))
     
     def testGetRenderer(self):
-        """GetRenderer
-        Overrides test in testGraphicsObject.GraphicsObjectTest"""
+        """GetRenderer"""
+        # Overrides test in testGraphicsObject.GraphicsObjectTest
         self.assertEquals(repr(self.renderer), repr(self.testControl.GetRenderer()))
             
             
