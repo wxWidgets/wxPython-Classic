@@ -235,13 +235,13 @@ for opt in parser.option_list:
 # ------------------- Output Reporting ----------------------
 output(1, "") # make things easier to read
 wiki(wiki_title(3, "%s - %s" % (time.asctime(),wx.GetOsDescription())), level=2)
-output(3, wiki_title(4, "Platform Information"))
-output(3, wiki_summary_item("Platform [sys.platform]",sys.platform))
-output(3, wiki_summary_item("Python Version [sys.version]",sys.version))
-output(3, wiki_summary_item("wx Version [wx.version()]",wx.version()))
-output(3, wiki_summary_item("OS [wx.!GetOsDescription()]",wx.GetOsDescription()))
-output(3, wiki_summary_item("wx Info [wx.!PlatformInfo]",str(wx.PlatformInfo)))
-output(3, wiki_summary_item("runUnitTests.py options",opt_string))
+output(2, wiki_title(4, "Platform Information"))
+output(2, wiki_summary_item("Platform [sys.platform]",sys.platform))
+output(2, wiki_summary_item("Python Version [sys.version]",sys.version))
+output(2, wiki_summary_item("wx Version [wx.version()]",wx.version()))
+output(2, wiki_summary_item("OS [wx.!GetOsDescription()]",wx.GetOsDescription()))
+output(2, wiki_summary_item("wx Info [wx.!PlatformInfo]",str(wx.PlatformInfo)))
+output(2, wiki_summary_item("runUnitTests.py options",opt_string))
 wiki("\n----------------------\n", level=3, reverse=True)
 
 output(1, wiki_title(4, "Summary"))
