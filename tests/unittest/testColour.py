@@ -14,13 +14,9 @@ __repr__, __str__, GetAsString, GetPixel
             
 def getColourEquivalents():
     # doesn't include wx.Colour instances, only equivalents
-    equivalents = list( getColourEquivalentNames() +
-                        getColourEquivalentHexValues() +
-                        getColourEquivalentTuples() )
-    if wxtest.PlatformIsGtk():
-        for s in ['SLATE BLUE', 'NAVY', 'STEEL BLUE', 'FOREST GREEN', 'SEA GREEN', 'DARK GREY', 'MIDNIGHT BLUE', 'DARK GREEN', 'MEDIUM BLUE', 'SKY BLUE', 'LIME GREEN', 'MEDIUM AQUAMARINE', 'CORNFLOWER BLUE', 'MEDIUM SEA GREEN', 'INDIAN RED', 'VIOLET', 'DARK OLIVE GREEN', 'DIM GREY', 'CADET BLUE', 'DARK SLATE BLUE', 'SALMON', 'DARK TURQUOISE', 'AQUAMARINE', 'MEDIUM TURQUOISE', 'MEDIUM SLATE BLUE', 'MEDIUM SPRING GREEN', 'GREY', 'FIREBRICK', 'MAROON', 'SIENNA', 'LIGHT STEEL BLUE', 'PALE GREEN', 'MEDIUM ORCHID', 'GREEN YELLOW', 'YELLOW GREEN', 'BLUE VIOLET', 'KHAKI', 'TURQUOISE', 'PURPLE', 'LIGHT BLUE', 'LIGHT GREY', 'ORANGE', 'VIOLET RED', 'GOLD', 'WHEAT', 'MEDIUM VIOLET RED', 'ORCHID', 'TAN', 'GOLDENROD', 'PLUM', 'ORANGE RED', 'CORAL']:
-            equivalents.remove((s,wx.TheColourDatabase.FindColour(s)))
-    return tuple(equivalents)
+    return tuple(   getColourEquivalentNames() +
+                    getColourEquivalentHexValues() +
+                    getColourEquivalentTuples() )
     
 def getColourEquivalentNames():
     return tuple((name, wx.TheColourDatabase.FindColour(name)) for name in getColourNames())

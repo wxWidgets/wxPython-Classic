@@ -1,6 +1,7 @@
 import unittest
 import wx
 
+import wxtest
 import testControl
 
 """
@@ -21,8 +22,11 @@ class CheckBoxTest(testControl.ControlTest):
         self.testControl = wx.CheckBox(parent=self.frame, label=self.LABEL)
     
     def test2StateValueFailure(self):
-        self.assertRaises(wx.PyAssertionError, self.testControl.Set3StateValue,
+        if wxtest.ASSERTIONS_ON:
+            self.assertRaises(wx.PyAssertionError, self.testControl.Set3StateValue,
                                 wx.CHK_UNDETERMINED)
+        else:
+            self.testControl.Set3StateValue(wx.CHK_UNDETERMINED)
     
     def test3StateValue(self):
         """Set3StateValue, Get3StateValue"""
@@ -43,8 +47,8 @@ class CheckBoxTest(testControl.ControlTest):
         self.assert_(not self.testControl.Is3rdStateAllowedForUser())
     
     # creating a wx.CheckBox with wx.CHK_ALLOW_3RD_STATE_FOR_USER fails on Windows
-    # the docs are fleshed out, but do not mention this
-    # it works on Ubuntu, but it probably shouldn't (doesn't assert when it should)
+    # the docs are fleshed out, but do not mention this.
+    # assume wx.CHK_3STATE is necessary when wx-assertions is on
     def testIs3rdStateAllowedForUser(self):
         """Is3rdStateAllowedForUser"""
         self.testControl = wx.CheckBox(self.frame, style=wx.CHK_ALLOW_3RD_STATE_FOR_USER |

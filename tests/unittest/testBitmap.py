@@ -87,13 +87,21 @@ class BitmapTest(unittest.TestCase):
     def testSubBitmapInvalidDepth(self):
         """GetSubBitmap"""
         self.testControl.SetDepth(25) # invalid depth
-        self.assertRaises(wx.PyAssertionError, self.testControl.GetSubBitmap,
+        if wxtest.ASSERTIONS_ON:
+            self.assertRaises(wx.PyAssertionError, self.testControl.GetSubBitmap,
                                 wx.Rect(1,1,1,1))
+        else:
+            b = self.testControl.GetSubBitmap(wx.Rect(1,1,1,1))
+            self.assert_(isinstance(wx.Bitmap, b))
     
     def testSubBitmapOutOfBounds(self):
         """GetSubBitmap"""
-        self.assertRaises(wx.PyAssertionError, self.testControl.GetSubBitmap,
+        if wxtest.ASSERTIONS_ON:
+            self.assertRaises(wx.PyAssertionError, self.testControl.GetSubBitmap,
                                 wx.Rect(10,10,1,1)) # wx.Rect is out of bounds
+        else:
+            b = self.testControl.GetSubBitmap(wx.Rect(10,10,1,1))
+            self.assert_(isinstance(wx.Bitmap, b))
     
     def testWidth(self):
         """SetWidth, GetWidth"""

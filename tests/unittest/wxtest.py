@@ -3,9 +3,12 @@ import wx
 """
 The wxtest module is used for common code across the wx Test Suite.
 
-Its major use is to provide a standard means of determining the current
-platform, for platform-specific testing.  There are currently three choices
-of platform: Windows, GTK, and Mac.  These may increase in the future.
+Its major use is to provide a standard means of determining information
+about the current platform, for platform-specific testing.  For example,
+to determine whether wx-assertions are on or off.
+
+There are currently three choices of platform: Windows, GTK, and Mac.
+These may increase in the future.
 
 The two use case types are as follows (the second is preferred):
     
@@ -64,3 +67,17 @@ def PlatformIsNotMac():
 SIZE         = 34
 VIRTUAL_SIZE = 56
 CLIENT_SIZE  = 78
+
+# -----------------------------------------------------------
+
+ASSERTIONS_ON  = None
+ASSERTIONS_OFF = None
+
+if 'wx-assertions-on' in wx.PlatformInfo:
+    ASSERTIONS_ON  = True
+    ASSERTIONS_OFF = False
+elif 'wx-assertions-off' in wx.PlatformInfo:
+    ASSERTIONS_ON  = False
+    ASSERTIONS_OFF = True
+else:
+    raise EnvironmentError("Cannot determine wx-assertion status!")

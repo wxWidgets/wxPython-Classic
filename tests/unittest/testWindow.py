@@ -298,9 +298,11 @@ class WindowTest(unittest.TestCase):
     
     # TODO: make the whole thing more robust
     def testInvalidSizeHints(self):
-        # max can't be less than min (except on Ubuntu?)
-        if wxtest.PlatformIsNotGtk():
+        # max can't be less than min
+        if wxtest.ASSERTIONS_ON:
             self.assertRaises(wx.PyAssertionError, self.testControl.SetSizeHints, 100,100,10,10)
+        else:
+            self.testControl.SetSizeHints(100,100,10,10)
             
     def testIsBeingDeleted(self):
         """IsBeingDeleted

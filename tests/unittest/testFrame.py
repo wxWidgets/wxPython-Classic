@@ -35,7 +35,7 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
             self.testControl.SetRect(wx.Rect(0,0,0,0))
             self.assertEquals(wx.Rect(0,0,123,34),self.testControl.GetRect())
         else:
-            super(FrameTest,self).testSize(self)
+            super(FrameTest,self).testSize()
     
     # wx.Frame's size has a minimum on Windows
     def testSize(self):
@@ -43,7 +43,7 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
             self.testControl.SetSize(wx.Size(1,1))
             self.assertEquals(wx.Size(123,34),self.testControl.GetSize())
         else:
-            super(FrameTest,self).testSize(self)
+            super(FrameTest,self).testSize()
     
     def testStatusBar(self):
         """SetStatusBar, GetStatusBar"""
@@ -58,7 +58,10 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
         
     def testStatusBarCreation(self):
         """CreateStatusBar"""
-        self.assertRaises(wx.PyAssertionError, self.testControl.PushStatusText, 'text')
+        if wxtest.ASSERTIONS_ON:
+            self.assertRaises(wx.PyAssertionError, self.testControl.PushStatusText, 'text')
+        else:
+            self.testControl.PushStatusText('text')
         sb = self.testControl.CreateStatusBar()
         self.testControl.PushStatusText('text') # test that it doesn't blow up
         self.assert_(isinstance(self.testControl.GetStatusBar(), wx.StatusBar))

@@ -1,6 +1,8 @@
 import unittest
 import wx
 
+import wxtest
+
 """
 This file contains classes and methods for unit testing the API of 
 wx.ItemContainer.  Since wx.ItemContainer is uninstantiable, the tests
@@ -62,10 +64,12 @@ class ItemContainerBase(unittest.TestCase):
         self.testControl.Clear()
         self.assert_(self.testControl.IsEmpty())
     
+    # TODO: clean up this method
     def testClientData(self):
         """SetClientData, GetClientData"""
         self.testControl.AppendItems(['a','b','c','d','e'])
-        self.assertRaises(wx.PyAssertionError, self.testControl.GetClientData, 0)
+        if wxtest.ASSERTIONS_ON:
+            self.assertRaises(wx.PyAssertionError, self.testControl.GetClientData, 0)
         for i in range(self.testControl.GetCount()):
             if i != 0:
                 self.assertEquals(None, self.testControl.GetClientData(i))
@@ -87,12 +91,16 @@ class ItemContainerBase(unittest.TestCase):
             self.assertEquals(n, self.testControl.GetCount())
     
     def testDeleteError(self):
-        """Delete
-        Tests that Delete throws exceptions when given out-of-bound index"""
+        """Delete"""
+        # Tests that Delete throws exceptions when given out-of-bound index
         items = ['1','2','3']
         self.testControl.AppendItems(items)
-        self.assertRaises(wx.PyAssertionError, self.testControl.Delete, self.testControl.GetCount())
-        self.assertRaises(wx.PyAssertionError, self.testControl.Delete, -1)
+        if wxtest.ASSERTIONS_ON:
+            self.assertRaises(wx.PyAssertionError, self.testControl.Delete, self.testControl.GetCount())
+            self.assertRaises(wx.PyAssertionError, self.testControl.Delete, -1)
+        else:
+            self.testControl.Delete(self.testControl.GetCount())
+            self.testControl.Delete(-1)
     
     def testEmpty(self):
         """IsEmpty"""

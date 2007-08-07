@@ -1,6 +1,8 @@
 import unittest
 import wx
 
+import wxtest
+
 """
 This file contains classes and methods for unit testing the API of 
 wx.Image
@@ -50,13 +52,19 @@ class ImageTest(unittest.TestCase):
     def testAlphaFails(self):
         """SetAlpha
         Not all wx.Images have alpha channels"""
-        self.assertRaises(wx.PyAssertionError, self.testControl.SetAlpha,0,0,0)
+        if wxtest.ASSERTIONS_ON:
+            self.assertRaises(wx.PyAssertionError, self.testControl.SetAlpha,0,0,0)
+        else:
+            self.testControl.SetAlpha(0,0,0)
     
     def testAlphaInitFails(self):
         """InitAlpha
         'It is an error to call it if the image already has alpha data.'"""
         self.testControl.InitAlpha()
-        self.assertRaises(wx.PyAssertionError, self.testControl.InitAlpha)
+        if wxtest.ASSERTIONS_ON:
+            self.assertRaises(wx.PyAssertionError, self.testControl.InitAlpha)
+        else:
+            self.testControl.InitAlpha()
     
     def testConstructor(self):
         """__init__"""
