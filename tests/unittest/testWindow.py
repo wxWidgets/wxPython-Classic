@@ -73,7 +73,6 @@ class WindowTest(unittest.TestCase):
         # superclass setup
         super(WindowTest,self).__init__(arg)
         # WindowTest setup
-        self.app = wx.PySimpleApp()
         # make derived classes less annoying
         self.children = []
         self.children_ids = []
