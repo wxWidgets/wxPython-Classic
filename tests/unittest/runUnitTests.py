@@ -24,7 +24,10 @@ def make_suite(mod, tests=[]):
     # filter out tests that shouldn't be run in subclasses
     tests = suite._tests
     for test in tests:
-        mname = test._testMethodName
+        if sys.version_info[0:1] >= (2,5):
+            mname = test._testMethodName
+        else:
+            mname = test._TestCase__testMethodName
         if mname.find('_wx') != -1:
             # grab the class: everything between '_wx' and 'Only' at the end
             restriction = mname[mname.find('_wx')+3:-4]
