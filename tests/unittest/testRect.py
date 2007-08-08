@@ -28,7 +28,14 @@ def getRectData(ctrl):
     if wxtest.PlatformIsMac():
         # wxMac is (top, left, bottom, right)
         # height = bottom - top; width = right - left
-        return [ wx.Rect(top,left,h-top,w-left) for w,h in sizes ]
+        rects = []
+        for width,height in sizes:
+            if top + height > 32767:
+                height = height - top
+            if left + width > 32767:
+                width = width - left
+            rects.append(wx.Rect(top, left, height, width))
+        return rects
     else:
         # others are (top, left, width, height)
         return [ wx.Rect(top,left,w,h) for w,h in sizes ]
