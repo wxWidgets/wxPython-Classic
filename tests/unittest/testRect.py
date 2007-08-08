@@ -22,8 +22,16 @@ SetRight, SetSize, SetTop, SetTopLeft, SetTopRight, SetWidth, SetX, SetY, Union
 
 def getRectData(ctrl):
     sizes = testSize.getSizes(ctrl, wxtest.SIZE)
+    top  = 10
+    left = 10
     # TODO: more variation in wx.Rects returned?
-    return [ wx.Rect(10,10,w,h) for w,h in sizes ]
+    if wxtest.PlatformIsMac():
+        # wxMac is (top, left, bottom, right)
+        # height = bottom - top; width = right - left
+        return [ wx.Rect(top,left,h-top,w-left) for w,h in sizes ]
+    else:
+        # others are (top, left, width, height)
+        return [ wx.Rect(top,left,w,h) for w,h in sizes ]
 
 # -----------------------------------------------------------
 
