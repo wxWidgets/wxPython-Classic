@@ -24,7 +24,9 @@ def make_suite(mod, tests=[]):
     # filter out tests that shouldn't be run in subclasses
     tests = suite._tests
     for test in tests:
-        if sys.version_info[0:1] >= (2,5):
+        # TODO: pull logic into wxtest
+        # or use the version of unittest instead
+        if sys.version_info[0:2] >= (2,5):
             mname = test._testMethodName
         else:
             mname = test._TestCase__testMethodName
