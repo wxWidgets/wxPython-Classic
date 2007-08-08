@@ -32,7 +32,7 @@ class GaugeTest(testControl.ControlTest):
         else:
             # this can't happen.
             # TODO: what platforms does it work on?
-            pass
+            raise EnvironmentError("Current platform not represented in wxtest")
     
     def testIsVertical(self):
         """IsVertical"""
@@ -60,7 +60,7 @@ class GaugeTest(testControl.ControlTest):
         else:
             # this can't happen.
             # TODO: what platforms does it work on?
-            pass
+            raise EnvironmentError("Current platform not represented in wxtest")
     
     def testValue(self):
         """SetValue, GetValue"""
