@@ -257,10 +257,15 @@ class WindowTest(unittest.TestCase):
             
     def testFreezeThaw(self):
         """Freeze, Thaw, IsFrozen"""
-        self.testControl.Freeze()
-        self.assert_(self.testControl.IsFrozen())
-        self.testControl.Thaw()
-        self.assert_(not self.testControl.IsFrozen())
+        if wxtest.PlatformIsNotGtk():
+            self.testControl.Freeze()
+            self.assert_(self.testControl.IsFrozen())
+            self.testControl.Thaw()
+            self.assert_(not self.testControl.IsFrozen())
+        else:
+            # wx.Window.Freeze is not implemented on wxGTK
+            self.testControl.Freeze()
+            self.assert_(not self.testControl.IsFrozen())
     
     def testGetChildren(self):
         """GetChildren"""
