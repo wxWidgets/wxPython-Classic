@@ -229,12 +229,29 @@ for mod_name, result in results.iteritems():
     data[mod_name] = tmp
 
 # which options was this run called with?
-opt_string = " ".join(sys.argv[1:])
 # replace short opts with long opts (explicit is better than implicit)
-# TODO: this is fragile, fix it somehow (when there are equal signs)
-for opt in parser.option_list:
-    opt_string = opt_string.replace(" " + opt._short_opts[0], " " + opt._long_opts[0])
-    opt_string = opt_string.replace(opt._short_opts[0] + " ", opt._long_opts[0] + " ")
+opt_string = ""
+args = sys.argv[1:]
+for arg in args:
+    if arg.startswith('-') and not arg.startswith('--'):
+        # handle the case where opt and arg are conjoined
+        arg2 = None
+        if len(arg) > 2:
+            arg2 = arg[2:]
+            arg  = arg[:2]
+        # it's a short opt, now find it
+        for opt in parser.option_list:
+            if arg in opt._short_opts:
+                opt_string += opt._long_opts[0]
+                if opt.action == "store":
+                    opt_string += "="
+                    if arg2 != None:
+                        opt_string += arg2
+                else:
+                    opt_string += " "
+    else:
+        opt_string += arg
+        opt_string += " "
 
 # -----------------------------------------------------------
 # ------------------- Output Reporting ----------------------
@@ -272,7 +289,8 @@ for mod_name, results in data_items:
     output(3, wiki_bullet() + "%s:  %s" % (mod_name, ", ".join(messages)))
 wiki("\n----------------------\n", level=4, reverse=True)
 
-output(4, wiki_title(4,"Failure Data"))
+if results["failures"] + results["errors"] > 0:
+    output(4, wiki_title(4,"Failure Data"))
 for mod_name, results in data_items:
     # report on it
     for failure in results["failure_data"] + results["error_data"]:
