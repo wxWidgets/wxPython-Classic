@@ -3,7 +3,7 @@
 # Inspired By And Heavily Based On wxGenericTreeCtrl.
 #
 # Andrea Gavana, @ 17 May 2006
-# Latest Revision: 16 Apr 2007, 11.00 CET
+# Latest Revision: 09 Aug 2007, 22.00 CET
 #
 #
 # TODO List
@@ -134,8 +134,8 @@ CustomTreeCtrl has been tested on the following platforms:
   * Mac OS (Thanks to John Jackson).
 
 
-Latest Revision: Andrea Gavana @ 16 Apr 2007, 11.00 CET
-Version 1.0
+Latest Revision: Andrea Gavana @ 09 Aug 2007, 22.00 CET
+Version 1.1
 
 """
 
@@ -2816,6 +2816,41 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         return item.GetWindow()
 
 
+    def SetItemWindow(self, item, wnd):
+       """Sets the window for the given item"""
+
+        if not item:
+            raise Exception("\nERROR: Invalid Item")
+
+        if wnd is not None:
+            self._hasWindows = True
+            if item not in self._itemWithWindow:
+                self._itemWithWindow.append(item)
+            else:
+                self.DeleteItemWindow(item)
+        else:
+            self.DeleteItemWindow(item)
+                
+        item.SetWindow(wnd)                
+        self.CalculatePositions()
+        self.Refresh()
+        self.AdjustMyScrollbars()
+       
+
+    def DeleteItemWindow(self, item):
+        """Deletes the window associated to an item (if any). """
+
+        if not item:
+            raise Exception("\nERROR: Invalid Item")
+
+        if item.GetWindow() is None:
+            return
+
+        item.DeleteWindow()
+        if item in self._itemWithWindow:
+            self._itemWithWindow.remove(item)
+        
+
     def GetItemWindowEnabled(self, item):
         """Returns whether the window associated to the item is enabled."""
 
@@ -3086,14 +3121,40 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         return None
 
 
-    def GetPrevVisible(self, item):
+     def GetPrevVisible(self, item):
+        """Returns the previous visible item."""
+ 
+         if not item:
+             raise Exception("\nERROR: Invalid Tree Item. ")
+        
+        # find a previous sibling or parent which is visible
+        lastGoodItem = self.GetPrevSibling(item)
+        if not lastGoodItem or not self.IsVisible(lastGoodItem):
+            parent = self.GetItemParent(item)
+            rootHidden = self.HasFlag(TR_HIDE_ROOT)
+            rootItem = self.GetRootItem()
+ 
+            while parent and not (rootHidden and parent == rootItem):
+                if self.IsVisible(parent):
+                    lastGoodItem = parent
+                    break
+                parent = self.GetItemParent(parent)
 
-        if not item:
-            raise Exception("\nERROR: Invalid Tree Item. ")
-
-        raise Exception("\nERROR: Not Implemented")
-
-        return None
+            if not lastGoodItem:
+                return None
+            
+        # test if found item has visible children, if so and if the found item is not the 
+        # parent of the current item traverse the found item to the last visible child
+        if not self.HasChildren(lastGoodItem) or not self.IsExpanded(lastGoodItem) or \
+           (self.GetItemParent(item) == lastGoodItem):
+            return lastGoodItem
+        
+        lastChild = self.GetLastChild(lastGoodItem)
+        while lastChild and self.IsVisible(lastChild):
+            lastGoodItem = lastChild
+            lastChild = self.GetLastChild(lastGoodItem)
+ 
+        return lastGoodItem
 
 
     def ResetTextControl(self):
@@ -3866,7 +3927,7 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         The base class version compares items alphabetically.
         """
 
-        return self.GetItemText(item1) == self.GetItemText(item2)
+        return cmp(self.GetItemText(item1), self.GetItemText(item2))
 
 
     def SortChildren(self, item):
@@ -5749,7 +5810,60 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
 
         return wx.Size(100, 80)
 
+        
+    def GetMaxWidth(self, respect_expansion_state=True):
+        """
+        Returns the maximum width of the CustomTreeCtrl.
+        If respect_expansion_state is True, only the expanded items (and their
+        children) will be measured. Otherwise all the items are expanded and
+        their width measured.
+        """
 
+        self.Freeze()
+        
+        root = self.GetRootItem()
+        rect = self.GetBoundingRect(root, True)
+
+        # It looks like the space between the "+" and the node
+        # rect occupies 4 pixels approximatively
+        maxwidth = rect.x + rect.width + 4
+        lastheight = rect.y + rect.height
+        
+        if not self.IsExpanded(root):
+            if respect_expansion_state:
+                return maxwidth
+
+        if not respect_expansion_state:
+            self.ExpandAll()
+
+        maxwidth, lastheight = self.RecurseOnChildren(root, maxwidth, respect_expansion_state)
+
+        self.Thaw()
+        
+        return maxwidth
+    
+
+    def RecurseOnChildren(self, item, maxwidth, respect_expansion_state):
+        
+        child, cookie = self.GetFirstChild(item)
+
+        while child.IsOk():
+
+            rect = self.GetBoundingRect(child, True)
+            
+            # It looks like the space between the "+" and the node
+            # rect occupies 4 pixels approximatively
+            maxwidth = max(maxwidth, rect.x + rect.width + 4)
+            lastheight = rect.y + rect.height
+            
+            if self.IsExpanded(child) or not respect_expansion_state:
+                maxwidth, lastheight = self.RecurseOnChildren(child, maxwidth, respect_expansion_state)
+            
+            child, cookie = self.GetNextChild(item, cookie)
+
+        return maxwidth, lastheight
+
+    
     def GetClassDefaultAttributes(self):
         """Gets the class default attributes."""
 
