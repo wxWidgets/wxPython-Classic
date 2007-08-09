@@ -16,7 +16,7 @@
 # ---------------------------------------------------------------------------
 
 set -o errexit
-#set -o xtrace
+set -o xtrace
 
 echo "-=-=-=-  Hello from $HOSTNAME  -=-=-=-"
 
@@ -61,7 +61,6 @@ PYTHONW=`which pythonw$PYVER`
 SHORTVER=${VERSION:0:3}
 PYPREFIX=`$PYTHON -c "import sys; print sys.exec_prefix"`
 PYLIB=$PYPREFIX/lib/python$PYVER
-SITEPACKAGES=$PYLIB/site-packages
 
 # Test if the python we are using is the System installed framework 
 # or one that was installed by the user.  This changes where the 
@@ -103,6 +102,7 @@ function do_universal_build {
         PYUNICODEOPT=0
     fi
 
+    SITEPACKAGES=$PYLIB/site-packages
     PREFIX=/usr/local/lib/wxPython-$CTYPE-$VERSION
     BINPREFIX=/usr/local/bin
     WXROOT=$WXDIR
@@ -264,7 +264,7 @@ function do_universal_build {
     cat > $RESOURCEDIR/Welcome.txt <<EOF
 Welcome!
 
-This Installer package will install the wxPython $CHARTYPE runtime $VERSION for the Universal version of MacPython-OSX $PYVER.  This includes:
+This Installer package will install the wxPython $CTYPE runtime $VERSION for the Universal version of MacPython-OSX $PYVER.  This includes:
 
     * The wxPython extension modules and library packages
     * The wxWidgets shared libraries and headers
@@ -328,12 +328,12 @@ EOF
 
 
     # Build the main Installer Package...
-    PKGNAME=wxPython${SHORTVER}-osx-$CHARTYPE-$TAG-py$PYVER
+    PKGNAME=wxPython${SHORTVER}-osx-$CTYPE-$TAG-py$PYVER
     rm -rf $PKGNAME.pkg
     $PYTHON $PROGDIR/buildpkg.py \
         --Title=$PKGNAME \
         --Version=$VERSION \
-        --Description="wxPython $CHARTYPE runtime $VERSION for the Universal version of MacPython-OSX $PYVER" \
+        --Description="wxPython $CTYPE runtime $VERSION for the Universal version of MacPython-OSX $PYVER" \
         --NeedsAuthorization="YES" \
         --Relocatable="NO" \
         --InstallOnly="YES" \
@@ -352,10 +352,10 @@ Welcome to wxPython!
 
 This disk image contains the following items:
 
-    wxPython${SHORTVER}-osx-$CHARTYPE-$VERSION-$TAG
+    wxPython${SHORTVER}-osx-$CTYPE-$VERSION-$TAG
 
         This Installer contains the wxPython runtime, built using the
-        $CHARTYPE build of the wxWidgets library.  It includes the
+        $CTYPE build of the wxWidgets library.  It includes the
         Python modules and extension modules for wxPython, as well as
         the wxWidgets libraries.
 
@@ -385,7 +385,7 @@ EOF
     cp $PROGDIR/uninstall_wxPython.py $DMGROOT
 
     # Make a disk image to hold these files
-    dmgname=wxPython${SHORTVER}-osx-$CHARTYPE-$VERSION-$TAG-py$PYVER
+    dmgname=wxPython${SHORTVER}-osx-$CTYPE-$VERSION-$TAG-py$PYVER
     $PROGDIR/makedmg $DMGROOT $DMGDIR $dmgname
 
     echo Moving $DMGDIR/$dmgname.dmg to $DESTDIR
@@ -549,6 +549,8 @@ EOF
     echo Moving $DMGDIR/$dmgname.dmg to $DESTDIR
     mv $DMGDIR/$dmgname.dmg  $DESTDIR/$dmgname.dmg
 
+
+    rm -r $TMPDIR || true
 }
 
 
@@ -568,7 +570,6 @@ if [ $SKIPCLEAN != yes ]; then
     echo "Cleaning up..."
     cd $DESTDIR
     rm -r $WXDIR || true
-    rm -r $TMPDIR || true
     rm wxPython-docs-$VERSION.tar.bz2 || true
     rm wxPython-demo-$VERSION.tar.bz2 || true
 fi
