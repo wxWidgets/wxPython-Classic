@@ -62132,6 +62132,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "BORDER_RAISED",SWIG_From_int(static_cast< int >(wxBORDER_RAISED)));
   SWIG_Python_SetConstant(d, "BORDER_SUNKEN",SWIG_From_int(static_cast< int >(wxBORDER_SUNKEN)));
   SWIG_Python_SetConstant(d, "BORDER_DOUBLE",SWIG_From_int(static_cast< int >(wxBORDER_DOUBLE)));
+  SWIG_Python_SetConstant(d, "BORDER_THEME",SWIG_From_int(static_cast< int >(wxBORDER_THEME)));
   SWIG_Python_SetConstant(d, "BORDER_MASK",SWIG_From_int(static_cast< int >(wxBORDER_MASK)));
   SWIG_Python_SetConstant(d, "BG_STYLE_SYSTEM",SWIG_From_int(static_cast< int >(wxBG_STYLE_SYSTEM)));
   SWIG_Python_SetConstant(d, "BG_STYLE_COLOUR",SWIG_From_int(static_cast< int >(wxBG_STYLE_COLOUR)));
