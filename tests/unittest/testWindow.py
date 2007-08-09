@@ -314,9 +314,14 @@ class WindowTest(unittest.TestCase):
     
     def testLabel(self):
         """SetLabel, GetLabel"""
-        one = "here is one label"
+        one = "here is &one label"
         two = "and here there is another"
         self.testControl.SetLabel(one)
+        if wxtest.PlatformIsNotMac():
+            self.assertEquals(one, self.testControl.GetLabel())
+        else:
+            # Set/GetLabel is apparently implemented differently on wxMac
+            self.assertEquals(one.replace('&',''), self.testControl.GetLabel())
         self.assertEquals(one, self.testControl.GetLabel())
         self.testControl.SetLabel(two)
         self.assertEquals(two, self.testControl.GetLabel())

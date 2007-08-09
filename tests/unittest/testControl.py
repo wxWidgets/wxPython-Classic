@@ -40,11 +40,12 @@ class ControlTest(testWindow.WindowTest):
         self.assertEquals(name, ctrl.GetName())
     
     def testLabelText(self):
-        """GetLabelText"""
+        """SetLabel, GetLabelText"""
+        # GetLabelText removes the mnemonics
         label = "Hello &World"
+        labeltext = label.replace('&','')
         self.testControl.SetLabel(label)
-        self.assertEquals(label, self.testControl.GetLabel())
-        self.assertEquals(label.replace('&',''), self.testControl.GetLabelText())
+        self.assertEquals(labeltext, self.testControl.GetLabelText())
     
 
 if __name__ == '__main__':
