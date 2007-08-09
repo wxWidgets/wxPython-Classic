@@ -13041,6 +13041,74 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_GetParentWindow(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxHtmlEasyPrinting *arg1 = (wxHtmlEasyPrinting *) 0 ;
+  wxWindow *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxHtmlEasyPrinting, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HtmlEasyPrinting_GetParentWindow" "', expected argument " "1"" of type '" "wxHtmlEasyPrinting const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxHtmlEasyPrinting * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxWindow *)((wxHtmlEasyPrinting const *)arg1)->GetParentWindow();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxPyMake_wxObject(result, 0); 
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_SetParentWindow(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxHtmlEasyPrinting *arg1 = (wxHtmlEasyPrinting *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "window", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:HtmlEasyPrinting_SetParentWindow",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxHtmlEasyPrinting, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HtmlEasyPrinting_SetParentWindow" "', expected argument " "1"" of type '" "wxHtmlEasyPrinting *""'"); 
+  }
+  arg1 = reinterpret_cast< wxHtmlEasyPrinting * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HtmlEasyPrinting_SetParentWindow" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+  }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetParentWindow(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *HtmlEasyPrinting_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -18029,6 +18097,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"HtmlEasyPrinting_SetStandardFonts", (PyCFunction) _wrap_HtmlEasyPrinting_SetStandardFonts, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlEasyPrinting_GetPrintData", (PyCFunction)_wrap_HtmlEasyPrinting_GetPrintData, METH_O, NULL},
 	 { (char *)"HtmlEasyPrinting_GetPageSetupData", (PyCFunction)_wrap_HtmlEasyPrinting_GetPageSetupData, METH_O, NULL},
+	 { (char *)"HtmlEasyPrinting_GetParentWindow", (PyCFunction)_wrap_HtmlEasyPrinting_GetParentWindow, METH_O, NULL},
+	 { (char *)"HtmlEasyPrinting_SetParentWindow", (PyCFunction) _wrap_HtmlEasyPrinting_SetParentWindow, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlEasyPrinting_swigregister", HtmlEasyPrinting_swigregister, METH_VARARGS, NULL},
 	 { (char *)"HtmlEasyPrinting_swiginit", HtmlEasyPrinting_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_HtmlBookRecord", (PyCFunction) _wrap_new_HtmlBookRecord, METH_VARARGS | METH_KEYWORDS, NULL},

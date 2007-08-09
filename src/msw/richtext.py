@@ -1066,6 +1066,10 @@ class RichTextObjectList(object):
         """__iter__(self) -> RichTextObjectList_iterator"""
         return _richtext.RichTextObjectList___iter__(*args, **kwargs)
 
+    def index(*args, **kwargs):
+        """index(self, RichTextObject obj) -> int"""
+        return _richtext.RichTextObjectList_index(*args, **kwargs)
+
     def __repr__(self):
         return "wxRichTextObjectList: " + repr(list(self))
 

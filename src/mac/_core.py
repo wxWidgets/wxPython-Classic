@@ -342,6 +342,7 @@ BORDER_SIMPLE = _core_.BORDER_SIMPLE
 BORDER_RAISED = _core_.BORDER_RAISED
 BORDER_SUNKEN = _core_.BORDER_SUNKEN
 BORDER_DOUBLE = _core_.BORDER_DOUBLE
+BORDER_THEME = _core_.BORDER_THEME
 BORDER_MASK = _core_.BORDER_MASK
 BG_STYLE_SYSTEM = _core_.BG_STYLE_SYSTEM
 BG_STYLE_COLOUR = _core_.BG_STYLE_COLOUR
@@ -8203,6 +8204,10 @@ class WindowList(object):
         """__iter__(self) -> WindowList_iterator"""
         return _core_.WindowList___iter__(*args, **kwargs)
 
+    def index(*args, **kwargs):
+        """index(self, Window obj) -> int"""
+        return _core_.WindowList_index(*args, **kwargs)
+
     def __repr__(self):
         return "wxWindowList: " + repr(list(self))
 
@@ -10805,6 +10810,10 @@ class MenuItemList(object):
         """__iter__(self) -> MenuItemList_iterator"""
         return _core_.MenuItemList___iter__(*args, **kwargs)
 
+    def index(*args, **kwargs):
+        """index(self, MenuItem obj) -> int"""
+        return _core_.MenuItemList_index(*args, **kwargs)
+
     def __repr__(self):
         return "wxMenuItemList: " + repr(list(self))
 
@@ -11995,6 +12004,10 @@ class SizerItemList(object):
     def __iter__(*args, **kwargs):
         """__iter__(self) -> SizerItemList_iterator"""
         return _core_.SizerItemList___iter__(*args, **kwargs)
+
+    def index(*args, **kwargs):
+        """index(self, SizerItem obj) -> int"""
+        return _core_.SizerItemList_index(*args, **kwargs)
 
     def __repr__(self):
         return "wxSizerItemList: " + repr(list(self))

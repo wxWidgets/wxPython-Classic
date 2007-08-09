@@ -13,20 +13,20 @@
 <div class="section">
 <h1><a id="id1" name="id1">2.8.4.2</a></h1>
 <ul class="simple">
-<li></li>
+<li>8-Aug-2007</li>
 </ul>
 <p>Added some SWIG magic that allows wx C++ lists to be exposed to
 wxPython as sequence-like wrappers around the real list, instead of
 making a Python list that is a copy of the real list as was done
-before.  These sequence-like objects support indexing, iteration and
-containment tests (&quot;obj in seq&quot;) but not anything that would modify the
-sequence.  If you need to have a real list object like before you can
-pass the sequence to Python's list() function to convert it.  Current
-functions that are affected by this are wx.Window.GetChildren,
-wx.GetTopLevelWindows, wx.Sizer.GetChildren, and
-wx.Menu.GetMenuItems.  Care should be taken to be sure that you don't
-try to use the sequence after the C++ object the list belongs to has
-been destroyed.</p>
+before.  These sequence-like objects support indexing, iteration,
+containment tests (&quot;obj in seq&quot;) and index(obj), but not anything that
+would modify the sequence.  If you need to have a real list object
+like before then you can pass the sequence to Python's list() function
+to convert it.  Current functions that are affected by this are
+wx.Window.GetChildren, wx.GetTopLevelWindows, wx.Sizer.GetChildren,
+and wx.Menu.GetMenuItems.  Care should be taken to be sure that you
+don't try to use the sequence after the C++ object the list belongs to
+has been destroyed.</p>
 <p>Updated wrappers for the RichTextCtrl classes that were already
 wrapped, and added support for loading rich xml files and saving as
 HTML or XML.</p>
@@ -37,8 +37,19 @@ Python file-like object can be passed where a wx.OutputStream is
 expected and the data will be written to the file object
 appropriately.</p>
 <p>Added some patches from Billy B. that improve the pySketch sample.</p>
-<p>Added patch from Chriss Mellon that gives PyShell a custom context
+<p>Added patch from Chris Mellon that gives PyShell a custom context
 menu that is better integrated with the shell environment.</p>
+<p>There are now new build scripts for making the Universal binaries and
+Installer for OS X.  There is no longer any need for separate builds
+for each OS version, all builds are now Universal and work on both
+Panther and Tiger, and on PPC and i386.</p>
+<p>On the Linux side the debian and ubuntu packages will support multiple
+versions of Python if the Debian/Ubuntu release is setup to support
+more than one version.  To check which versions you can expect to get
+you can run &quot;pyversions -s&quot;.  Also there is a new package available
+that contains a debug version of the wxPython extension modules, that
+can be used with the python-dbg package.  In addition the RPMs are now
+being built for Fedora Core 6 and Fedora Core 7.</p>
 </div>
 <div class="section">
 <h1><a id="id2" name="id2">2.8.4.0</a></h1>

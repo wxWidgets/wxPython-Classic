@@ -2958,7 +2958,7 @@ SWIGINTERN wxRichTextObject *wxRichTextObjectList___getitem__(wxRichTextObjectLi
                 wxRichTextObjectList::compatibility_iterator node = self->Item(index);
                 if (node) return node->GetData();
             }
-            PyErr_SetString(PyExc_IndexError, "Invalid list index");
+            PyErr_SetString(PyExc_IndexError, "sequence index out of range");
             return NULL;
         }
 SWIGINTERN bool wxRichTextObjectList___contains__(wxRichTextObjectList *self,wxRichTextObject const *obj){
@@ -2966,6 +2966,13 @@ SWIGINTERN bool wxRichTextObjectList___contains__(wxRichTextObjectList *self,wxR
         }
 SWIGINTERN wxRichTextObjectList_iterator *wxRichTextObjectList___iter__(wxRichTextObjectList *self){
             return new wxRichTextObjectList_iterator(self->GetFirst());
+        }
+SWIGINTERN int wxRichTextObjectList_index(wxRichTextObjectList *self,wxRichTextObject *obj){
+            int idx = self->IndexOf(obj);
+            if (idx == wxNOT_FOUND)
+                PyErr_SetString(PyExc_ValueError,
+                                "sequence.index(x): x not in sequence");
+            return idx;
         }
 SWIGINTERN wxRichTextParagraph *new_wxRichTextParagraph(wxString const &text=wxPyEmptyString,wxRichTextObject *parent=NULL,wxRichTextAttr *paraStyle=NULL,wxRichTextAttr *charStyle=NULL){
             wxTextAttrEx* psAttr = NULL;
@@ -9045,6 +9052,43 @@ SWIGINTERN PyObject *_wrap_RichTextObjectList___iter__(PyObject *SWIGUNUSEDPARM(
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextObjectList_iterator, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RichTextObjectList_index(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxRichTextObjectList *arg1 = (wxRichTextObjectList *) 0 ;
+  wxRichTextObject *arg2 = (wxRichTextObject *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "obj", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextObjectList_index",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextObjectList, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObjectList_index" "', expected argument " "1"" of type '" "wxRichTextObjectList *""'"); 
+  }
+  arg1 = reinterpret_cast< wxRichTextObjectList * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRichTextObject, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObjectList_index" "', expected argument " "2"" of type '" "wxRichTextObject *""'"); 
+  }
+  arg2 = reinterpret_cast< wxRichTextObject * >(argp2);
+  {
+    result = (int)wxRichTextObjectList_index(arg1,arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -27173,6 +27217,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RichTextObjectList___getitem__", (PyCFunction) _wrap_RichTextObjectList___getitem__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextObjectList___contains__", (PyCFunction) _wrap_RichTextObjectList___contains__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextObjectList___iter__", (PyCFunction)_wrap_RichTextObjectList___iter__, METH_O, NULL},
+	 { (char *)"RichTextObjectList_index", (PyCFunction) _wrap_RichTextObjectList_index, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextObjectList_swigregister", RichTextObjectList_swigregister, METH_VARARGS, NULL},
 	 { (char *)"delete_RichTextCompositeObject", (PyCFunction)_wrap_delete_RichTextCompositeObject, METH_O, NULL},
 	 { (char *)"RichTextCompositeObject_GetChildren", (PyCFunction)_wrap_RichTextCompositeObject_GetChildren, METH_O, NULL},

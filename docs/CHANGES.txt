@@ -3,20 +3,20 @@ Recent Changes for wxPython
 
 2.8.4.2
 -------
-* 
+* 8-Aug-2007
 
 Added some SWIG magic that allows wx C++ lists to be exposed to
 wxPython as sequence-like wrappers around the real list, instead of
 making a Python list that is a copy of the real list as was done
-before.  These sequence-like objects support indexing, iteration and
-containment tests ("obj in seq") but not anything that would modify the
-sequence.  If you need to have a real list object like before you can
-pass the sequence to Python's list() function to convert it.  Current
-functions that are affected by this are wx.Window.GetChildren,
-wx.GetTopLevelWindows, wx.Sizer.GetChildren, and
-wx.Menu.GetMenuItems.  Care should be taken to be sure that you don't
-try to use the sequence after the C++ object the list belongs to has
-been destroyed.
+before.  These sequence-like objects support indexing, iteration,
+containment tests ("obj in seq") and index(obj), but not anything that
+would modify the sequence.  If you need to have a real list object
+like before then you can pass the sequence to Python's list() function
+to convert it.  Current functions that are affected by this are
+wx.Window.GetChildren, wx.GetTopLevelWindows, wx.Sizer.GetChildren,
+and wx.Menu.GetMenuItems.  Care should be taken to be sure that you
+don't try to use the sequence after the C++ object the list belongs to
+has been destroyed.
 
 Updated wrappers for the RichTextCtrl classes that were already
 wrapped, and added support for loading rich xml files and saving as
@@ -32,7 +32,7 @@ appropriately.
 
 Added some patches from Billy B. that improve the pySketch sample.
 
-Added patch from Chriss Mellon that gives PyShell a custom context
+Added patch from Chris Mellon that gives PyShell a custom context
 menu that is better integrated with the shell environment.
 
 There are now new build scripts for making the Universal binaries and

@@ -3936,7 +3936,7 @@ SWIGINTERN wxWindow *wxWindowList___getitem__(wxWindowList *self,size_t index){
                 wxWindowList::compatibility_iterator node = self->Item(index);
                 if (node) return node->GetData();
             }
-            PyErr_SetString(PyExc_IndexError, "Invalid list index");
+            PyErr_SetString(PyExc_IndexError, "sequence index out of range");
             return NULL;
         }
 SWIGINTERN bool wxWindowList___contains__(wxWindowList *self,wxWindow const *obj){
@@ -3944,6 +3944,13 @@ SWIGINTERN bool wxWindowList___contains__(wxWindowList *self,wxWindow const *obj
         }
 SWIGINTERN wxWindowList_iterator *wxWindowList___iter__(wxWindowList *self){
             return new wxWindowList_iterator(self->GetFirst());
+        }
+SWIGINTERN int wxWindowList_index(wxWindowList *self,wxWindow *obj){
+            int idx = self->IndexOf(obj);
+            if (idx == wxNOT_FOUND)
+                PyErr_SetString(PyExc_ValueError,
+                                "sequence.index(x): x not in sequence");
+            return idx;
         }
 SWIGINTERN wxVisualAttributes *new_wxVisualAttributes(){ return new wxVisualAttributes; }
 SWIGINTERN void delete_wxVisualAttributes(wxVisualAttributes *self){ delete self; }
@@ -4055,7 +4062,7 @@ SWIGINTERN wxMenuItem *wxMenuItemList___getitem__(wxMenuItemList *self,size_t in
                 wxMenuItemList::compatibility_iterator node = self->Item(index);
                 if (node) return node->GetData();
             }
-            PyErr_SetString(PyExc_IndexError, "Invalid list index");
+            PyErr_SetString(PyExc_IndexError, "sequence index out of range");
             return NULL;
         }
 SWIGINTERN bool wxMenuItemList___contains__(wxMenuItemList *self,wxMenuItem const *obj){
@@ -4063,6 +4070,13 @@ SWIGINTERN bool wxMenuItemList___contains__(wxMenuItemList *self,wxMenuItem cons
         }
 SWIGINTERN wxMenuItemList_iterator *wxMenuItemList___iter__(wxMenuItemList *self){
             return new wxMenuItemList_iterator(self->GetFirst());
+        }
+SWIGINTERN int wxMenuItemList_index(wxMenuItemList *self,wxMenuItem *obj){
+            int idx = self->IndexOf(obj);
+            if (idx == wxNOT_FOUND)
+                PyErr_SetString(PyExc_ValueError,
+                                "sequence.index(x): x not in sequence");
+            return idx;
         }
 SWIGINTERN void wxMenu_Destroy(wxMenu *self){ delete self; }
 SWIGINTERN void wxMenuBar_SetAutoWindowMenu(bool enable){}
@@ -4147,7 +4161,7 @@ SWIGINTERN wxSizerItem *wxSizerItemList___getitem__(wxSizerItemList *self,size_t
                 wxSizerItemList::compatibility_iterator node = self->Item(index);
                 if (node) return node->GetData();
             }
-            PyErr_SetString(PyExc_IndexError, "Invalid list index");
+            PyErr_SetString(PyExc_IndexError, "sequence index out of range");
             return NULL;
         }
 SWIGINTERN bool wxSizerItemList___contains__(wxSizerItemList *self,wxSizerItem const *obj){
@@ -4155,6 +4169,13 @@ SWIGINTERN bool wxSizerItemList___contains__(wxSizerItemList *self,wxSizerItem c
         }
 SWIGINTERN wxSizerItemList_iterator *wxSizerItemList___iter__(wxSizerItemList *self){
             return new wxSizerItemList_iterator(self->GetFirst());
+        }
+SWIGINTERN int wxSizerItemList_index(wxSizerItemList *self,wxSizerItem *obj){
+            int idx = self->IndexOf(obj);
+            if (idx == wxNOT_FOUND)
+                PyErr_SetString(PyExc_ValueError,
+                                "sequence.index(x): x not in sequence");
+            return idx;
         }
 SWIGINTERN wxSizerItem *new_wxSizerItem(wxWindow *window,int proportion,int flag,int border,PyObject *userData=NULL){
             wxPyUserData* data = NULL;
@@ -33180,6 +33201,43 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_WindowList_index(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxWindowList *arg1 = (wxWindowList *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "obj", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:WindowList_index",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindowList, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WindowList_index" "', expected argument " "1"" of type '" "wxWindowList *""'"); 
+  }
+  arg1 = reinterpret_cast< wxWindowList * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "WindowList_index" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+  }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  {
+    result = (int)wxWindowList_index(arg1,arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *WindowList_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -42571,6 +42629,43 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_MenuItemList_index(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMenuItemList *arg1 = (wxMenuItemList *) 0 ;
+  wxMenuItem *arg2 = (wxMenuItem *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "obj", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MenuItemList_index",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMenuItemList, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MenuItemList_index" "', expected argument " "1"" of type '" "wxMenuItemList *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMenuItemList * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxMenuItem, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MenuItemList_index" "', expected argument " "2"" of type '" "wxMenuItem *""'"); 
+  }
+  arg2 = reinterpret_cast< wxMenuItem * >(argp2);
+  {
+    result = (int)wxMenuItemList_index(arg1,arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *MenuItemList_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -50286,6 +50381,43 @@ SWIGINTERN PyObject *_wrap_SizerItemList___iter__(PyObject *SWIGUNUSEDPARM(self)
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxSizerItemList_iterator, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SizerItemList_index(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxSizerItemList *arg1 = (wxSizerItemList *) 0 ;
+  wxSizerItem *arg2 = (wxSizerItem *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "obj", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:SizerItemList_index",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSizerItemList, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SizerItemList_index" "', expected argument " "1"" of type '" "wxSizerItemList *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSizerItemList * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxSizerItem, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SizerItemList_index" "', expected argument " "2"" of type '" "wxSizerItem *""'"); 
+  }
+  arg2 = reinterpret_cast< wxSizerItem * >(argp2);
+  {
+    result = (int)wxSizerItemList_index(arg1,arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -59424,6 +59556,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"WindowList___getitem__", (PyCFunction) _wrap_WindowList___getitem__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"WindowList___contains__", (PyCFunction) _wrap_WindowList___contains__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"WindowList___iter__", (PyCFunction)_wrap_WindowList___iter__, METH_O, NULL},
+	 { (char *)"WindowList_index", (PyCFunction) _wrap_WindowList_index, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"WindowList_swigregister", WindowList_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_VisualAttributes", (PyCFunction)_wrap_new_VisualAttributes, METH_NOARGS, NULL},
 	 { (char *)"delete_VisualAttributes", (PyCFunction)_wrap_delete_VisualAttributes, METH_O, NULL},
@@ -59685,6 +59818,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MenuItemList___getitem__", (PyCFunction) _wrap_MenuItemList___getitem__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MenuItemList___contains__", (PyCFunction) _wrap_MenuItemList___contains__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MenuItemList___iter__", (PyCFunction)_wrap_MenuItemList___iter__, METH_O, NULL},
+	 { (char *)"MenuItemList_index", (PyCFunction) _wrap_MenuItemList_index, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MenuItemList_swigregister", MenuItemList_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_Menu", (PyCFunction) _wrap_new_Menu, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Menu_Append", (PyCFunction) _wrap_Menu_Append, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -59881,6 +60015,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SizerItemList___getitem__", (PyCFunction) _wrap_SizerItemList___getitem__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SizerItemList___contains__", (PyCFunction) _wrap_SizerItemList___contains__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SizerItemList___iter__", (PyCFunction)_wrap_SizerItemList___iter__, METH_O, NULL},
+	 { (char *)"SizerItemList_index", (PyCFunction) _wrap_SizerItemList_index, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SizerItemList_swigregister", SizerItemList_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_SizerItem", (PyCFunction)_wrap_new_SizerItem, METH_NOARGS, NULL},
 	 { (char *)"delete_SizerItem", (PyCFunction)_wrap_delete_SizerItem, METH_O, NULL},
