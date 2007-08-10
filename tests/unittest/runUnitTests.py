@@ -247,8 +247,7 @@ for arg in args:
                     opt_string += "="
                     if arg2 != None:
                         opt_string += arg2
-                else:
-                    opt_string += " "
+                opt_string += " "
     else:
         opt_string += arg
         opt_string += " "
@@ -289,7 +288,7 @@ for mod_name, results in data_items:
     output(3, wiki_bullet() + "%s:  %s" % (mod_name, ", ".join(messages)))
 wiki("\n----------------------\n", level=4, reverse=True)
 
-if results["failures"] + results["errors"] > 0:
+if totals["failures"] + totals["errors"] > 0:
     output(4, wiki_title(4,"Failure Data"))
 for mod_name, results in data_items:
     # report on it
