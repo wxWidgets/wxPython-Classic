@@ -29,12 +29,20 @@ class TopLevelWindowBase(testWindow.WindowTest):
     
     def testFullScreen(self):
         """ShowFullScreen, IsFullScreen"""
+        self.testControl.ShowFullScreen(True)
+        self.assert_(self.testControl.IsFullScreen())
+        self.testControl.ShowFullScreen(False)
+        self.assert_(not self.testControl.IsFullScreen())
+    
+    '''
+    # TODO: determine expected behavior of ShowFullScreen's return value, and update test
+    def testShowFullScreen(self):
+        """ShowFullScreen"""
         self.assert_(self.testControl.ShowFullScreen(True))
         self.assert_(not self.testControl.ShowFullScreen(True))
-        self.assert_(self.testControl.IsFullScreen())
         self.assert_(self.testControl.ShowFullScreen(False))
         self.assert_(not self.testControl.ShowFullScreen(False))
-        self.assert_(not self.testControl.IsFullScreen())
+    '''
     
     def testMaximize(self):
         """Maximize, IsMaximized"""
