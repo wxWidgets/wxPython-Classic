@@ -116,6 +116,7 @@ FindReplaceDialog
 FlexGridSizer
 FocusEvent
 FontData
+FontDialog
 FontEnumerator
 FontList
 FontMapper
