@@ -4,39 +4,36 @@ import time
 import wx
 from optparse import OptionParser
 
-# ------------------- Helper Methods ------------------------
+# ----------------- Helper Functions / Classes ---------------------
 
-def make_suite(mod, tests=[]):
-    suite = unittest.TestSuite()
-    _classname = mod.__name__[4:] + "Test"
-    _class = mod.__getattribute__(_classname)
-    if len(tests) == 0:
-        suite = unittest.makeSuite(_class)
-    else:
-        # go through and make it yourself
-        for testname in unittest.getTestCaseNames(_class,"test"):
-            for t in tests:
-                docstr = getattr(_class, testname).__doc__
-                if testname.lower().find(t.lower()) != -1 or \
-                       docstr != None and docstr.lower().find(t.lower()) != -1:
-                    suite.addTest(_class(testname))
-                    break
-    # filter out tests that shouldn't be run in subclasses
-    tests = suite._tests
-    for test in tests:
-        # TODO: pull logic into wxtest
-        # or use the version of unittest instead
-        if sys.version_info[0:2] >= (2,5):
-            mname = test._testMethodName
+# TODO: maybe change some variable names?
+# TODO: maybe put this function as a method somewhere else?
+def _make_clean_opt_string():
+    # which options was this run called with?
+    # replace short opts with long opts (explicit is better than implicit)
+    opt_string = ""
+    args = sys.argv[1:]
+    for arg in args:
+        if arg.startswith('-') and not arg.startswith('--'):
+            # handle the case where opt and arg are conjoined
+            arg2 = None
+            if len(arg) > 2:
+                arg2 = arg[2:]
+                arg  = arg[:2]
+            # it's a short opt, now find it
+            for opt in parser.option_list:
+                if arg in opt._short_opts:
+                    opt_string += opt._long_opts[0]
+                    if opt.action == "store":
+                        opt_string += "="
+                        if arg2 != None:
+                            opt_string += arg2
+                    else:
+                        opt_string += " "
         else:
-            mname = test._TestCase__testMethodName
-        if mname.find('_wx') != -1:
-            # grab the class: everything between '_wx' and 'Only' at the end
-            restriction = mname[mname.find('_wx')+3:-4]
-            if not _class.__name__.startswith(restriction):
-                #print "filtered: %s (class=%s)" % (mname,_class.__name__)
-                tests.remove(test)
-    return suite
+            opt_string += arg
+            opt_string += " "
+    return opt_string
 
 def wiki(string, level=3, reverse=False):
     if options.wiki and not reverse or not options.wiki and reverse:
@@ -68,18 +65,166 @@ def output(level, string):
     if options.verbosity >= level:
         print string
 
-def start_figleaf():
-    if options.figleaf != "":
-        globals()["figleaf"] = __import__("figleaf")
-        globals()["figfile"] = os.path.join(rootdir, options.figleaf_filename)
-        if os.path.exists(figfile):
-            os.remove(figfile)
-        figleaf.start(ignore_python_lib=False)
+class UnitTestSuite():
+    def __init__(self, include="", exclude="", tests=""):
+        # error checking
+        if include != "" and exclude != "":
+            raise ValueError("include and exclude arguments are mutually exclusive")
+        # TODO: could this become a simple os.listdir(".")?
+        _rootdir = os.path.abspath(sys.path[0])
+        if not os.path.isdir(_rootdir):
+            _rootdir = os.path.dirname(_rootdir)
+        self.rootdir = _rootdir # to come in handy later
+        # a dict of all possible test modules that could be run
+        # ASSUME: each module name is unique not solely because of case
+        _module_names = {}
+        for _name in [ n[:-3] for n in os.listdir(self.rootdir)
+                    if n.startswith("test") and n.endswith(".py") ]:
+            _module_names[ _name.lower() ] = _name
+        # make the include/exclude/tests lists
+        _module_specs = None
+        _spec_type    = None
+        _test_specs   = None
+        if include != "":
+            _module_specs = self._clean_listify(include)
+            _spec_type    = "include"
+        elif exclude != "":
+            _module_specs = self._clean_listify(exclude)
+            _spec_type    = "exclude"
+        if tests != "":
+            _test_specs = self._clean_listify(tests, False)
+        # make sure they all exist
+        if _module_specs != None: # TODO: got to be a better place to put this
+            for _mod in _module_specs:
+                if not _module_names.has_key(_mod.lower()):
+                    parser.error("Module %s not found under test" % (_mod))
+        # now import the modules
+        if _module_specs == None:
+            self.modules = [ __import__(name) for name in _module_names.values() ]
+        elif _spec_type == "include":
+            self.modules = [ __import__(name) for name in _module_specs ]
+        elif _spec_type == "exclude":
+            self.modules = [ __import__(name) for name in _module_names.values()
+                                            if name not in _module_specs ]
+        # convert modules into suites
+        self.suites = []
+        for module in self.modules:
+            _classname = module.__name__[4:] + "Test"
+            _class = module.__getattribute__(_classname)
+            # build test suite (whether or not --tests are specified)
+            if _test_specs == None:
+                _suite = unittest.makeSuite(_class)
+            else:
+                _suite = unittest.TestSuite()
+                for _test_name in unittest.getTestCaseNames(_class,"test"):
+                    for _test in _test_specs:
+                        _docstr = getattr(_class, _test_name).__doc__
+                        if _test_name.lower().find(_test.lower()) != -1 or \
+                               _docstr != None and _docstr.lower().find(_test.lower()) != -1:
+                            _suite.addTest(_class(_test_name))
+                        break
+            # filter out tests that shouldn't be run in subclasses
+            _tests = _suite._tests
+            for _t in _tests:
+                # TODO: pull logic into wxtest
+                # or use the version of unittest instead
+                if sys.version_info[0:2] >= (2,5):
+                    _mname = _t._testMethodName
+                else:
+                    _mname = _t._TestCase__testMethodName
+                
+                if _mname.find('_wx') != -1:
+                    # grab the class: everything between '_wx' and 'Only' at the end
+                    restriction = _mname[_mname.find('_wx')+3:-4]
+                    if not _class.__name__.startswith(restriction):
+                        #print "filtered: %s (class=%s)" % (mname,_class.__name__)
+                        _tests.remove(_t)
+            # if suite is non-empty...
+            if _suite.countTestCases() > 0:
+                # add it to the list of suites :-)
+                self.suites.append(_suite)
+    
+    def _clean_listify(self, string, include_or_exclude=True):
+        _clean_list = []
+        _list = string.split(",")
+        for s in _list:
+            if include_or_exclude:
+                if s.endswith(".py"):
+                    s = s[:-3]
+                if s.startswith("wx."):
+                    s = "test" + s[3:]
+                if not s.startswith("test"):
+                    s = "test" + s
+            _clean_list.append(s)
+        # maintains capitalization
+        return _clean_list
+    
+    def _start_figleaf(self):
+        if options.figleaf != "":
+            globals()["figleaf"] = __import__("figleaf")
+            # TODO: perhaps make this class-specific rather than global?
+            globals()["figfile"] = os.path.join(self.rootdir, options.figleaf_filename)
+            if os.path.exists(figfile):
+                os.remove(figfile)
+            figleaf.start(ignore_python_lib=False)
 
-def stop_figleaf():
-    if options.figleaf != "":
-        figleaf.stop()
-        figleaf.write_coverage(figfile)
+    def _stop_figleaf(self):
+        if options.figleaf != "":
+            figleaf.stop()
+            figleaf.write_coverage(figfile)
+        
+    def run(self):
+        test_run_data = UnitTestRunData()
+        self._start_figleaf()
+        self.start_time = time.time()
+        # run tests
+        for _suite in self.suites:
+            _result = unittest.TestResult()
+            _suite.run(_result)
+            _module_name = _suite._tests[0].__class__.__name__ # a bit too roundabout...
+            test_run_data.addResult(_module_name, _result)
+        self.stop_time = time.time()
+        self._stop_figleaf()
+        # process results
+        test_run_data.setTime(self.start_time, self.stop_time)
+        test_run_data.process()
+        # return results
+        return test_run_data
+
+class UnitTestRunData():
+    def __init__(self):
+        self.results = {}
+    
+    def addResult(self, module_name, result):
+        self.results[module_name] = result
+    
+    def setTime(self, start, stop):
+        self.startTime = start
+        self.stopTime  = stop
+    
+    def process(self):
+        # process data
+        self.elapsedTime = self.stopTime - self.startTime
+        self.countSuites = len(self.results)
+        self.countSuccesses = 0
+        self.countFailures  = 0
+        self.countErrors    = 0
+        self.rawData = {}
+        for _module_name, _result in self.results.iteritems():
+            # TODO: revisit all this processing, is everything necessary?
+            tmp = {}
+            # parse results individually
+            tmp["failures"]  = len(_result.failures)
+            tmp["errors"]    = len(_result.errors)
+            tmp["successes"] = _result.testsRun - tmp["failures"] - tmp["errors"]
+            # total results
+            self.countSuccesses += tmp["successes"]
+            self.countFailures  += tmp["failures"]
+            self.countErrors    += tmp["errors"]
+            # TODO: add processing here
+            tmp["failure_data"] = _result.failures
+            tmp["error_data"]   = _result.errors
+            self.rawData[_module_name] = tmp
         
 # -----------------------------------------------------------
 # -------------------- Option Logic -------------------------
@@ -128,9 +273,6 @@ if options.verbosity < 0 or options.verbosity > 5:
     
 # -----------------------------------------------------------
 # ------------------- Test Running --------------------------
-rootdir = os.path.abspath(sys.path[0])
-if not os.path.isdir(rootdir):
-    rootdir = os.path.dirname(rootdir)
 
 # File redirect
 if options.outfilename != "":
@@ -141,116 +283,14 @@ if options.outfilename != "":
         print "Error opening output file, defaulting to original stdout"
         sys.stdout = origstdout
 
-# which test modules should be run?
-# ASSUME: each module name is unique not solely because of case
-module_names = {}
-for name in [ n[:-3] for n in os.listdir(rootdir)
-                    if n.startswith('test') and n.endswith(".py") ]:
-    module_names[ name.lower() ] = name
+unit_test_suite = UnitTestSuite(include=options.module_list,
+                                exclude=options.module_ex_list,
+                                tests=options.test_list)
 
-# process --include-modules option
-if options.module_list != "":
-    module_name_list = options.module_list.split(",")
-    tmp = []
-    for s in module_name_list:
-        if s.endswith(".py"):
-            s = s[:-3]
-        if s.startswith("wx."):
-            s = "test" + s[3:]
-        if not s.startswith("test"):
-            s = "test" + s
-        if module_names.has_key(s.lower()):
-            tmp.append(module_names[s.lower()])
-        else:
-            parser.error("Class %s not found under test" % (s))
-    module_names = tmp
+result_data = unit_test_suite.run()
 
-# process --exclude-modules option
-if options.module_ex_list != "":
-    ex_list_raw = options.module_ex_list.split(",")
-    ex_list = []
-    for s in ex_list_raw:
-        if s.endswith(".py"):
-            s = s[:-3]
-        if s.startswith("wx."):
-            s = "test" + s[3:]
-        if not s.startswith("test"):
-            s = "test" + s
-        ex_list.append(s)
-    for s in ex_list:
-        if module_names.has_key(s.lower()):
-            del module_names[s.lower()]
-        else:
-            parser.error("Class %s not found under test" % (s))
-
-# the logic for -i changes module_names from a dict to a list
-# normalize other program paths here.
-if type(module_names) == dict:
-    module_names = module_names.values()
-modules = [ __import__(mod) for mod in module_names ]
-
-tests = options.test_list.split(",")
-if options.test_list == "":
-    tests = []
-
-# run tests
-num_classes = 0
-results = {}
-start_figleaf()
-start_time = time.time()
-for module in modules:
-    suite = make_suite(module,tests)
-    if suite.countTestCases() == 0:
-        continue
-    else:
-        num_classes += 1
-    result = unittest.TestResult()
-    suite.run(result)
-    results[module.__name__] = result
-stop_time = time.time()
-stop_figleaf()
-
-# process data
-totals = {}
-data   = {}
-totals["successes"] = 0
-totals["failures"]  = 0
-totals["errors"]    = 0
-for mod_name, result in results.iteritems():
-    tmp = {}
-    tmp["failures"]  = len(result.failures)
-    tmp["errors"]    = len(result.errors)
-    tmp["successes"] = result.testsRun - tmp["failures"] - tmp["errors"]
-    for s in ("failures","errors","successes"):
-        totals[s] += tmp[s]
-    # TODO: add processing here...
-    tmp["failure_data"] = result.failures
-    tmp["error_data"]   = result.errors
-    data[mod_name] = tmp
-
-# which options was this run called with?
-# replace short opts with long opts (explicit is better than implicit)
-opt_string = ""
-args = sys.argv[1:]
-for arg in args:
-    if arg.startswith('-') and not arg.startswith('--'):
-        # handle the case where opt and arg are conjoined
-        arg2 = None
-        if len(arg) > 2:
-            arg2 = arg[2:]
-            arg  = arg[:2]
-        # it's a short opt, now find it
-        for opt in parser.option_list:
-            if arg in opt._short_opts:
-                opt_string += opt._long_opts[0]
-                if opt.action == "store":
-                    opt_string += "="
-                    if arg2 != None:
-                        opt_string += arg2
-                opt_string += " "
-    else:
-        opt_string += arg
-        opt_string += " "
+# see refactored method above
+opt_string = _make_clean_opt_string()
 
 # -----------------------------------------------------------
 # ------------------- Output Reporting ----------------------
@@ -266,16 +306,16 @@ output(2, wiki_summary_item("runUnitTests.py options",opt_string))
 wiki("\n----------------------\n", level=3, reverse=True)
 
 output(1, wiki_title(4, "Summary"))
-output(2, wiki_bullet() + "Run completed in %.2f seconds" % (stop_time-start_time))
-output(2, wiki_bullet() + "%d classes tested" % (num_classes))
-output(1, wiki_bullet() + "%d tests passed in total!" % (totals['successes']))
-if totals['failures'] > 0:
-    output(1, wiki_bullet() + "%d tests failed in total!" % (totals['failures']))
-if totals['errors'] > 0:
-    output(1, wiki_bullet() + "%d tests erred in total!" % (totals['errors']))
+output(2, wiki_bullet() + "Run completed in %.2f seconds" % (result_data.elapsedTime))
+output(2, wiki_bullet() + "%d classes tested" % (result_data.countSuites))
+output(1, wiki_bullet() + "%d tests passed in total!" % (result_data.countSuccesses))
+if result_data.countFailures > 0:
+    output(1, wiki_bullet() + "%d tests failed in total!" % (result_data.countFailures))
+if result_data.countErrors > 0:
+    output(1, wiki_bullet() + "%d tests erred in total!" % (result_data.countErrors))
 wiki("\n----------------------\n", level=3, reverse=True)
 
-data_items = data.items()
+data_items = result_data.rawData.items()
 data_items.sort()
 
 output(3, wiki_title(4, "Module Data"))
@@ -288,7 +328,7 @@ for mod_name, results in data_items:
     output(3, wiki_bullet() + "%s:  %s" % (mod_name, ", ".join(messages)))
 wiki("\n----------------------\n", level=4, reverse=True)
 
-if totals["failures"] + totals["errors"] > 0:
+if result_data.countFailures + result_data.countErrors > 0:
     output(4, wiki_title(4,"Failure Data"))
 for mod_name, results in data_items:
     # report on it
