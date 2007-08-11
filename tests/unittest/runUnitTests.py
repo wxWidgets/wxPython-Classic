@@ -242,8 +242,9 @@ parser.add_option("-o", "--output-filename", default="",
                     help="redirect output from console to FILE")
 parser.add_option("-f", "--figleaf", default="",
                     action="store", dest="figleaf", metavar="FILE",
-                    help="use figleaf, and write figleaf output to FILE. " +
-                            "this slows down the test run")
+                    help="use the figleaf code-coverage tool, and write figleaf output to " +
+                    "FILE. you must have figleaf installed to use this option. " +
+                    "using this option will result in a slower test run")
 parser.add_option("-w", "--wiki", default=False,
                     action="store_true", dest="wiki",
                     help="write data in wiki-markup format (MoinMoin / wxPyWiki)")
