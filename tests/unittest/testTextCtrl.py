@@ -67,9 +67,8 @@ class TextCtrlTest(testControl.ControlTest):
     # how can a wx.TextCtrl be both single and multi line simultaneously?
     def testMultiLine(self):
         """IsMultiLine"""
-        multi = wx.TextCtrl(parent=self.frame, id=wx.ID_ANY,
-                                    style=wx.TE_MULTILINE)
-        self.assert_(multi.IsMultiLine())
+        self.testControl = wx.TextCtrl(parent=self.frame, style=wx.TE_MULTILINE)
+        self.assert_(self.testControl.IsMultiLine())
         self.assert_(not self.testControl.IsSingleLine())
         
     def testSingleLine(self):

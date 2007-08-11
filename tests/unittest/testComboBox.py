@@ -28,7 +28,7 @@ class ComboBoxTest(testChoice.ChoiceTest):
         self.assert_(not self.testControl.IsEditable())
     
     def testSetEditable(self):
-        """SetEditable"""
+        """SetEditable, IsEditable"""
         self.testControl.SetEditable(True)
         self.assert_(self.testControl.IsEditable())
         self.testControl.SetEditable(False)
