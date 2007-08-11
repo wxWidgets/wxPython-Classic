@@ -181,7 +181,7 @@ class UnitTestSuite():
         for _suite in self.suites:
             _result = unittest.TestResult()
             _suite.run(_result)
-            _module_name = _suite._tests[0].__class__.__name__ # a bit too roundabout...
+            _module_name = _suite._tests[0].__module__
             test_run_data.addResult(_module_name, _result)
         self.stop_time = time.time()
         self._stop_figleaf()
