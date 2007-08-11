@@ -303,7 +303,7 @@ class XmlResourceCompiler:
             vars = []
             for widget in topWindow.getElementsByTagName("object"):
                 assign_var = False
-                for node in widget.getElementsByTagName("XRCED_data"):
+                for node in widget.getElementsByTagName("XRCED"):
                     if node.parentNode is widget:
                         try:
                             elem = node.getElementsByTagName("assign_var")[0]
@@ -333,7 +333,7 @@ class XmlResourceCompiler:
 
             # Generate child event handlers
             eventHandlers = []            
-            for elem in topWindow.getElementsByTagName("XRCED_data"):
+            for elem in topWindow.getElementsByTagName("XRCED"):
                 try:
                     eventNode = elem.getElementsByTagName("events")[0]
                 except IndexError:
