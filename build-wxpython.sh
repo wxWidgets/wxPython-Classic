@@ -1,22 +1,17 @@
 #!/bin/bash
 
-unicode=no
+unicode=yes
 debug=no
 reswig=no
 all=no
-PY_VERSION=25
-
-if [ "$1" = all ]; then
-  all=yes
-else
-  PY_VERSION=$1
-fi
+PY_VERSION=$1
 
 shift 
 
 for flag in $*; do
     case ${flag} in
       debug)       debug=yes              ;;
+      ansi)        unicode=no             ;;
       unicode)     unicode=yes            ;;
       reswig)      reswig=yes             ;;
     esac
@@ -27,13 +22,6 @@ scriptName="$(basename $0)"
 
 if [ "$WXWIN" = "" ]; then
   export WXWIN=$scriptDir/..
-fi
-
-if [ $all = yes ]; then
-  ${scriptDir}/${scriptName}.sh 23
-  ${scriptDir}/${scriptName}.sh 23 unicode
-  ${scriptDir}/${scriptName}.sh 24
-  ${scriptDir}/${scriptName}.sh 24 unicode
 fi
 
 echo "wxWidgets directory is: $WXWIN"
@@ -124,7 +112,11 @@ else
   fi
 
   cd $scriptDir
-  PY_DOT_VERSION="2.5"
+  # by default, just use the python which is on the path
+  PY_DOT_VERSION=""
+  if [ "$PY_VERSION" = "25" ]; then
+    PY_DOT_VERSION="2.5"
+  fi 
   if [ "$PY_VERSION" = "24" ]; then
     PY_DOT_VERSION="2.4"
   fi
