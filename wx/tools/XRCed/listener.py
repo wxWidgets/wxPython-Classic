@@ -27,6 +27,9 @@ class _Listener:
         self.toolFrame = toolFrame
         self.testWin = testWin
 
+        self.dataElem = wx.CustomDataObject('XRCED_elem')
+        self.dataNode = wx.CustomDataObject('XRCED_node')
+
         # Some local members
         self.inUpdateUI = self.inIdle = False
         self.clipboardHasData = False
@@ -560,21 +563,17 @@ Homepage: http://xrced.sourceforge.net\
             if item: Presenter.update(item)
 
         # Check clipboard
-        self.clipboardHasData = True
-#        self.clipboardHasData = False
-        if 0: #wx.TheClipboard.Open():
-            data = wx.CustomDataObject('XRCED_elem')
-            if wx.TheClipboard.IsSupported(data.GetFormat()):
+#        self.clipboardHasData = True
+        self.clipboardHasData = False
+        wx.TheClipboard.Flush()
+        cbLock = wx.ClipboardLocker()
+        if 0: #cbLock:
+            if wx.TheClipboard.IsSupported(self.dataElem.GetFormat()):
                 self.clipboardHasData = True
             else:
-                data2 = wx.CustomDataObject('XRCED_node')
-                if wx.TheClipboard.IsSupported(data2.GetFormat()):
+                if wx.TheClipboard.IsSupported(self.dataNode.GetFormat()):
                     self.clipboardHasData = True
-                del data2
-            del data
-            wx.TheClipboard.Close()
         self.inIdle = False
-        evt.Skip()
         return
 
     def OnIconize(self, evt):
