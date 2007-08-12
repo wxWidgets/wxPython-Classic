@@ -38,7 +38,7 @@ class _Listener:
                           self.OnComponentReplace)
 
         # Other events
-#        frame.Bind(wx.EVT_IDLE, self.OnIdle)
+        frame.Bind(wx.EVT_IDLE, self.OnIdle)
         frame.Bind(wx.EVT_CLOSE, self.OnCloseWindow)
 #        frame.Bind(wx.EVT_KEY_DOWN, self.OnKeyDown)
 #        wx.EVT_KEY_UP(frame, tools.OnKeyUp)
@@ -553,9 +553,6 @@ Homepage: http://xrced.sourceforge.net\
         self.inUpdateUI = False
 
     def OnIdle(self, evt):
-        evt.Skip()
-        return
-#        print 'onidle',self.inIdle
         if self.inIdle: return          # Recursive call protection
         self.inIdle = True
         if not Presenter.applied:
@@ -563,43 +560,20 @@ Homepage: http://xrced.sourceforge.net\
             if item: Presenter.update(item)
 
         # Check clipboard
-        self.clipboardHasData = True
-#        self.clipboardHasData = False
-#         if not wx.TheClipboard.IsOpened() and wx.TheClipboard.Open():
-#             data = wx.CustomDataObject('XRCED_elem')
-#             if wx.TheClipboard.IsSupported(data.GetFormat()):
-#                 self.clipboardHasData = True
-#             else:
-#                 data = wx.CustomDataObject('XRCED_node')
-#                 if wx.TheClipboard.IsSupported(data.GetFormat()):
-#                     self.clipboardHasData = True
-#             wx.TheClipboard.Close()
+        self.clipboardHasData = False
+        data = wx.CustomDataObject('XRCED_elem')
+        if wx.TheClipboard.IsSupported(data.GetFormat()):
+            self.clipboardHasData = True
+        else:
+            data2 = wx.CustomDataObject('XRCED_node')
+            if wx.TheClipboard.IsSupported(data2.GetFormat()):
+                self.clipboardHasData = True
+            del data2
+        del data
 
         self.inIdle = False
+        evt.Skip()
         return
-
-        try:
-            if tree.needUpdate:
-                if conf.autoRefresh:
-                    if g.testWin:
-                        #self.SetStatusText('Refreshing test window...')
-                        # (re)create
-                        tree.CreateTestWin(g.testWin.item)
-                        #self.SetStatusText('')
-                    tree.needUpdate = False
-            elif tree.pendingHighLight:
-                try:
-                    tree.HighLight(tree.pendingHighLight)
-                except:
-                    # Remove highlight if any problem
-                    if g.testWin and g.testWin.highLight:
-                        g.testWin.highLight.Remove()
-                    tree.pendingHighLight = None
-                    raise
-            else:
-                evt.Skip()
-        finally:
-            self.inIdle = False
 
     def OnIconize(self, evt):
         conf = g.conf
