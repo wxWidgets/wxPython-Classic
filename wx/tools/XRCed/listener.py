@@ -560,17 +560,19 @@ Homepage: http://xrced.sourceforge.net\
             if item: Presenter.update(item)
 
         # Check clipboard
-        self.clipboardHasData = False
-        data = wx.CustomDataObject('XRCED_elem')
-        if wx.TheClipboard.IsSupported(data.GetFormat()):
-            self.clipboardHasData = True
-        else:
-            data2 = wx.CustomDataObject('XRCED_node')
-            if wx.TheClipboard.IsSupported(data2.GetFormat()):
+        self.clipboardHasData = True
+#        self.clipboardHasData = False
+        if 0: #wx.TheClipboard.Open():
+            data = wx.CustomDataObject('XRCED_elem')
+            if wx.TheClipboard.IsSupported(data.GetFormat()):
                 self.clipboardHasData = True
-            del data2
-        del data
-
+            else:
+                data2 = wx.CustomDataObject('XRCED_node')
+                if wx.TheClipboard.IsSupported(data2.GetFormat()):
+                    self.clipboardHasData = True
+                del data2
+            del data
+            wx.TheClipboard.Close()
         self.inIdle = False
         evt.Skip()
         return
