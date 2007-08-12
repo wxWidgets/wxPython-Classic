@@ -232,8 +232,6 @@ class AttributePanel(wx.Panel):
     '''Particular attribute panel, normally inside a notebook.'''
     def __init__(self, parent, attributes, param_dict={}, rename_dict={}):
         wx.Panel.__init__(self, parent, -1)
-        self.bg = self.GetBackgroundColour()
-        self.bg2 = wx.Colour(self.bg.Red()-15, self.bg.Green()-15, self.bg.Blue()-15)
         self.controls = []
         sizer = wx.FlexGridSizer(len(attributes), 2, 0, 0)
         sizer.AddGrowableCol(1, 0)
@@ -259,10 +257,6 @@ class AttributePanel(wx.Panel):
                     label = wx.StaticText(labelPanel, -1, '')
                     sizer.Add(control, 1, wx.LEFT, 20)
                 labelSizer.Add(label, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 20)
-            if len(self.controls) % 2:
-                label.SetBackgroundColour(self.bg2)
-                labelPanel.SetBackgroundColour(self.bg2)
-                control.SetBackgroundColour(self.bg2)
             self.controls.append((a, control))
         self.SetSizerAndFit(sizer)
 
