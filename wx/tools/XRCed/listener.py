@@ -563,8 +563,8 @@ Homepage: http://xrced.sourceforge.net\
             if item: Presenter.update(item)
 
         # Check clipboard
-#        self.clipboardHasData = True
-        self.clipboardHasData = False
+        self.clipboardHasData = True
+#        self.clipboardHasData = False
         wx.TheClipboard.Flush()
         cbLock = wx.ClipboardLocker()
         if 0: #cbLock:
