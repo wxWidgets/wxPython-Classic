@@ -3,10 +3,7 @@
 unicode=yes
 debug=no
 reswig=no
-all=no
-PY_VERSION=$1
-
-shift 
+clean=no
 
 for flag in $*; do
     case ${flag} in
@@ -14,6 +11,7 @@ for flag in $*; do
       ansi)        unicode=no             ;;
       unicode)     unicode=yes            ;;
       reswig)      reswig=yes             ;;
+      clean)       clean=yes              ;;
     esac
 done
 
@@ -24,9 +22,33 @@ if [ "$WXWIN" = "" ]; then
   export WXWIN=$scriptDir/..
 fi
 
+# clean the wxPython build files, this part is platform-agnostic
+# we do the platform-specific clean below.
+if [ $clean = yes ]; then
+  rm -rf $scriptDir/build $scriptDir/build.unicode
+  rm -rf $scriptDir/wx/*.pyd
+  rm -rf $scriptDir/wx/*.so
+fi
+
 echo "wxWidgets directory is: $WXWIN"
 
 if [ "$OSTYPE" = "cygwin" ]; then
+  if [ $clean = yes ]; then
+    rm -rf $WXWIN/build/msw/vc_msw*
+    
+    # TODO: test using .make with a clean argument
+    if [ $ansi = yes ]; then
+      rm -rf $WXWIN/lib/vc_dll/wxmsw28h*
+      rm -rf $WXWIN/lib/vc_dll/vc_mswhdll
+    fi
+    
+    if [ $unicode = yes ]; then
+      rm -rf $WXWIN/lib/vc_dll/wxmsw28uh*
+      rm -rf $WXWIN/lib/vc_dll/vc_mswuhdll
+    fi
+    rm -rf $WXWIN/lib/*h.lib
+  fi
+
   # do setup of build environment vars
   if [ "$TOOLS" = "" ]; then
     export TOOLS=`cygpath C:\\`
@@ -56,7 +78,6 @@ if [ "$OSTYPE" = "cygwin" ]; then
   
   cd $WXWIN/build/msw
   # remove old build files
-  rm -rf vc_msw*
   UNI=
   if [ $unicode = yes ]; then
       UNI=-uni
@@ -69,8 +90,6 @@ if [ "$OSTYPE" = "cygwin" ]; then
 
   # update the language files
   $TOOLS/Python$PY_VERSION/python `cygpath -d $WXWIN/wxPython/distrib/makemo.py`
-  rm -rf build build.unicode
-  rm -rf wx/*.pyd
   
   # re-generate SWIG files
   if [ $reswig = yes ]; then
@@ -85,6 +104,20 @@ if [ "$OSTYPE" = "cygwin" ]; then
   
   $WXWIN/wxPython/b $PY_VERSION h $DEBUG_FLAG $UNICODE_FLAG
 else
+  if [ "$WXPY_BUILD_DIR" = "" ]; then
+    WXPY_BUILD_DIR=$PWD/wxpy-bld
+  fi
+  
+  if [ "$WXPY_INSTALL_DIR" = "" ]; then
+    WXPY_INSTALL_DIR=$HOME/wxpython-2.8.4
+  fi
+  
+  if [ $clean = yes ]; then
+    rm -rf $WXPY_BUILD_DIR
+    rm -rf $WXPY_INSTALLDIR
+    exit 0
+  fi
+
   UNICODE_OPT=
   UNICODE_WXPY_OPT=0
   if [ $unicode = yes ]; then
@@ -97,10 +130,10 @@ else
     DEBUG_OPT=debug
   fi
 
-  mkdir -p wxpy-bld
-  cd wxpy-bld
-  BUILD_DIR=$PWD
-  export INSTALLDIR=$HOME/wxpython-2.8.4
+  mkdir -p $WXPY_BUILD_DIR
+  cd $WXPY_BUILD_DIR
+  export INSTALLDIR=$WXPY_INSTALL_DIR
+  
   if [ "${OSTYPE:0:6}" = "darwin" ]; then
     $WXWIN/distrib/scripts/mac/macbuild-lipo wxpython $UNICODE_OPT $DEBUG_OPT
   else
@@ -112,18 +145,7 @@ else
   fi
 
   cd $scriptDir
-  # by default, just use the python which is on the path
-  PY_DOT_VERSION=""
-  if [ "$PY_VERSION" = "25" ]; then
-    PY_DOT_VERSION="2.5"
-  fi 
-  if [ "$PY_VERSION" = "24" ]; then
-    PY_DOT_VERSION="2.4"
-  fi
-  if [ "$PY_VERSION" = "23" ]; then
-    PY_DOT_VERSION="2.3"
-  fi
-  python$PY_DOT_VERSION ./setup.py build_ext --inplace WX_CONFIG=$BUILD_DIR/wx-config UNICODE=$UNICODE_WXPY_OPT
+  python ./setup.py build_ext --inplace WX_CONFIG=$WXPY_INSTALL_DIR/bin/wx-config UNICODE=$UNICODE_WXPY_OPT
 fi
 
 # return to original dir
