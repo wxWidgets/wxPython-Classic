@@ -22,24 +22,12 @@ if [ "$WXWIN" = "" ]; then
   export WXWIN=`cygpath -d $scriptDir/..`
 fi
 
-<<<<<<< .mine
-export WXWIN_CYGPATH=`cygpath -u $WXWIN`
-
-. $WXWIN_CYGPATH/wxPython/distrib/all/functions.inc
-
-if [ $all = yes ]; then
-  ${scriptDir}/${scriptName}.sh 23
-  ${scriptDir}/${scriptName}.sh 23 unicode
-  ${scriptDir}/${scriptName}.sh 24
-  ${scriptDir}/${scriptName}.sh 24 unicode
-=======
 # clean the wxPython build files, this part is platform-agnostic
 # we do the platform-specific clean below.
 if [ $clean = yes ]; then
   rm -rf $scriptDir/build $scriptDir/build.unicode
   rm -rf $scriptDir/wx/*.pyd
   rm -rf $scriptDir/wx/*.so
->>>>>>> .r48122
 fi
 
 echo "wxWidgets directory is: $WXWIN"
@@ -96,11 +84,7 @@ if [ "$OSTYPE" = "cygwin" ]; then
   cd $WXWIN_CYGPATH/wxPython
 
   # update the language files
-<<<<<<< .mine
-  $TOOLS/Python$PY_VERSION/python `cygpath -d $WXWIN_CYGPATH/wxPython/distrib/makemo.py`
-=======
   $TOOLS/Python$PY_VERSION/python `cygpath -d $WXWIN/wxPython/distrib/makemo.py`
->>>>>>> .r48122
   
   # re-generate SWIG files
   if [ $reswig = yes ]; then
