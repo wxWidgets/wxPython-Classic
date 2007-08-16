@@ -19,15 +19,27 @@ scriptDir="$(cd $(dirname $0);pwd)"
 scriptName="$(basename $0)"
 
 if [ "$WXWIN" = "" ]; then
-  export WXWIN=$scriptDir/..
+  export WXWIN=`cygpath -d $scriptDir/..`
 fi
 
+<<<<<<< .mine
+export WXWIN_CYGPATH=`cygpath -u $WXWIN`
+
+. $WXWIN_CYGPATH/wxPython/distrib/all/functions.inc
+
+if [ $all = yes ]; then
+  ${scriptDir}/${scriptName}.sh 23
+  ${scriptDir}/${scriptName}.sh 23 unicode
+  ${scriptDir}/${scriptName}.sh 24
+  ${scriptDir}/${scriptName}.sh 24 unicode
+=======
 # clean the wxPython build files, this part is platform-agnostic
 # we do the platform-specific clean below.
 if [ $clean = yes ]; then
   rm -rf $scriptDir/build $scriptDir/build.unicode
   rm -rf $scriptDir/wx/*.pyd
   rm -rf $scriptDir/wx/*.so
+>>>>>>> .r48122
 fi
 
 echo "wxWidgets directory is: $WXWIN"
@@ -67,42 +79,50 @@ if [ "$OSTYPE" = "cygwin" ]; then
     UNICODE_FLAG="UNICODE=1"
   fi
 
+  # change the setup.h defines for wxPython
+  update_setup_h $WXWIN_CYGPATH/include/wx/msw
+
   # copy wxPython build scripts
-  cp $WXWIN/wxPython/distrib/msw/.m* $WXWIN/build/msw
+  cp $WXWIN_CYGPATH/wxPython/distrib/msw/.m* $WXWIN/build/msw
   
-  # setup wxPython defines
-  cp $WXWIN/include/wx/msw/setup0.h $WXWIN/include/wx/msw/setup.h
-  $TOOLS/Python$PY_VERSION/python `cygpath -d $WXWIN/wxPython/distrib/create_setup.h.py` $UNICODE_FLAG
-  
-  export PATH=${PATH}:${WXWIN}/lib/vc_dll:${TOOLS}/Python${PY_VERSION}
-  
-  cd $WXWIN/build/msw
+  cd $WXWIN_CYGPATH/build/msw
   # remove old build files
   UNI=
   if [ $unicode = yes ]; then
       UNI=-uni
   fi
   ./.make hybrid$UNI
-  # make tools for docs creation, etc.
-  ./.make_tools
   
-  cd $WXWIN/wxPython
+  cd $WXWIN_CYGPATH/wxPython
 
   # update the language files
+<<<<<<< .mine
+  $TOOLS/Python$PY_VERSION/python `cygpath -d $WXWIN_CYGPATH/wxPython/distrib/makemo.py`
+=======
   $TOOLS/Python$PY_VERSION/python `cygpath -d $WXWIN/wxPython/distrib/makemo.py`
+>>>>>>> .r48122
   
   # re-generate SWIG files
   if [ $reswig = yes ]; then
-    $WXWIN/wxPython/b $PY_VERSION t
+    $WXWIN_CYGPATH/wxPython/b $PY_VERSION t
   fi
   
   # build the hybrid extension
   # NOTE: Win Python needs Windows-style pathnames, so we 
   # need to convert
-  export WXWIN=`cygpath -w $WXWIN`
   export SWIGDIR=`cygpath -w $SWIGDIR`
   
-  $WXWIN/wxPython/b $PY_VERSION h $DEBUG_FLAG $UNICODE_FLAG
+  $WXWIN_CYGPATH/wxPython/b $PY_VERSION h $DEBUG_FLAG $UNICODE_FLAG
+
+  cp $WXWIN_CYGPATH/lib/vc_dll/*.dll $WXWIN_CYGPATH/wxPython/wx
+
+  echo "------------ BUILD FINISHED ------------"
+  echo ""
+  echo "To run the wxPython demo:"
+  echo ""
+  echo "1) set your PYTHONPATH variable to $WXWIN."
+  echo "2) run python demo/demo.py"
+  echo ""
 else
   if [ "$WXPY_BUILD_DIR" = "" ]; then
     WXPY_BUILD_DIR=$PWD/wxpy-bld
