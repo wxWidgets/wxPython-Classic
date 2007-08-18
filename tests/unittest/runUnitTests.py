@@ -33,6 +33,8 @@ def _make_clean_opt_string():
         else:
             opt_string += arg
             opt_string += " "
+    if opt_string == "":
+        opt_string = "NONE"
     return opt_string
 
 def wiki(string, level=3, reverse=False):
@@ -59,6 +61,13 @@ def wiki_bold(string):
         return string
 
 def wiki_summary_item(title, data):
+    # TODO: possible more elegant way with regexes?
+    if options.wiki:
+        # escape the CamelCase for wiki only
+        # ASSUME: max one CamelCase, right after a period
+        i = title.find(".")
+        if i != -1 and title[i+1].isupper():
+            title = title.replace(".", ".!")
     return wiki_bullet() + wiki_bold(title) + ": %s" % (data)
         
 def output(level, string):
@@ -301,8 +310,8 @@ output(2, wiki_title(4, "Platform Information"))
 output(2, wiki_summary_item("Platform [sys.platform]",sys.platform))
 output(2, wiki_summary_item("Python Version [sys.version]",sys.version))
 output(2, wiki_summary_item("wx Version [wx.version()]",wx.version()))
-output(2, wiki_summary_item("OS [wx.!GetOsDescription()]",wx.GetOsDescription()))
-output(2, wiki_summary_item("wx Info [wx.!PlatformInfo]",str(wx.PlatformInfo)))
+output(2, wiki_summary_item("OS [wx.GetOsDescription()]",wx.GetOsDescription()))
+output(2, wiki_summary_item("wx Info [wx.PlatformInfo]",str(wx.PlatformInfo)))
 output(2, wiki_summary_item("runUnitTests.py options",opt_string))
 wiki("\n----------------------\n", level=3, reverse=True)
 
