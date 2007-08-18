@@ -170,6 +170,16 @@ public:
     }
 #endif
 
+#ifdef __WXMAC__
+    bool MacGetUnifiedAppearance() const;
+#else
+    %extend
+    {
+        bool MacGetUnifiedAppearance() const    { return false; }
+    }
+#endif
+
+
     DocDeclStr(
         void , CenterOnScreen(int dir = wxBOTH),
         "Center the window on screen", "");
