@@ -19,9 +19,9 @@ scriptDir="$(cd $(dirname $0);pwd)"
 scriptName="$(basename $0)"
 
 if [ "$WXWIN" = "" ]; then
-  export WXWIN=`cygpath -d $scriptDir/..`
+  export WXWIN=$scriptDir/..
 fi
-
+  
 # clean the wxPython build files, this part is platform-agnostic
 # we do the platform-specific clean below.
 if [ $clean = yes ]; then
@@ -33,6 +33,8 @@ fi
 echo "wxWidgets directory is: $WXWIN"
 
 if [ "$OSTYPE" = "cygwin" ]; then
+  export WXWIN=`cygpath -d $WXWIN`
+
   if [ $clean = yes ]; then
     rm -rf $WXWIN/build/msw/vc_msw*
     
@@ -79,7 +81,12 @@ if [ "$OSTYPE" = "cygwin" ]; then
   if [ $unicode = yes ]; then
       UNI=-uni
   fi
+  
   ./.make hybrid$UNI
+  
+  if [ $? != 0 ]; then
+    exit $?
+  fi
   
   cd $WXWIN_CYGPATH/wxPython
 
@@ -96,17 +103,14 @@ if [ "$OSTYPE" = "cygwin" ]; then
   # need to convert
   export SWIGDIR=`cygpath -w $SWIGDIR`
   
+  # TODO: Currently the b script used here doesn't exit with
+  # non-zero even if there's an error. Once it's been updated to do
+  # so, make sure build-wxpython.sh exits with that same error code.
+  
   $WXWIN_CYGPATH/wxPython/b $PY_VERSION h $DEBUG_FLAG $UNICODE_FLAG
 
   cp $WXWIN_CYGPATH/lib/vc_dll/*.dll $WXWIN_CYGPATH/wxPython/wx
-
-  echo "------------ BUILD FINISHED ------------"
-  echo ""
-  echo "To run the wxPython demo:"
-  echo ""
-  echo "1) set your PYTHONPATH variable to $WXWIN."
-  echo "2) run python demo/demo.py"
-  echo ""
+  
 else
   if [ "$WXPY_BUILD_DIR" = "" ]; then
     WXPY_BUILD_DIR=$PWD/wxpy-bld
@@ -149,9 +153,20 @@ else
   fi
 
   cd $scriptDir
-  python ./setup.py build_ext --inplace WX_CONFIG=$WXPY_INSTALL_DIR/bin/wx-config UNICODE=$UNICODE_WXPY_OPT
+  python ./setup.py build_ext --inplace WX_CONFIG=$WXPY_INSTALL_DIR/bin/wx-config USE_SWIG=1 SWIG=/opt/swig/bin/swig UNICODE=$UNICODE_WXPY_OPT
+  if [ $? != 0 ]; then
+    exit $?
+  fi
 fi
 
 # return to original dir
 cd $WXWIN/wxPython
+
+echo "------------ BUILD FINISHED ------------"
+echo ""
+echo "To run the wxPython demo:"
+echo ""
+echo "1) set your PYTHONPATH variable to $WXWIN."
+echo "2) run python demo/demo.py"
+echo ""
 
