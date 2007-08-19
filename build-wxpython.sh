@@ -151,9 +151,21 @@ else
   if [ $? != 0 ]; then
     exit $?
   fi
+  
+  USE_SWIG=0
+  SWIG_BIN=`which swig`
+  if [ $reswig = yes ]; then
+    if [ ! -f $SWIG_BIN ]; then
+      SWIG_BIN=$SWIGDIR/swig
+    fi
+    
+    if [ -f $SWIG_BIN ]; then
+      USE_SWIG=1
+    fi
+  fi
 
   cd $scriptDir
-  python ./setup.py build_ext --inplace WX_CONFIG=$WXPY_INSTALL_DIR/bin/wx-config USE_SWIG=1 SWIG=/opt/swig/bin/swig UNICODE=$UNICODE_WXPY_OPT
+  python ./setup.py build_ext --inplace WX_CONFIG=$WXPY_INSTALL_DIR/bin/wx-config USE_SWIG=$USE_SWIG SWIG=$SWIG_BIN UNICODE=$UNICODE_WXPY_OPT
   if [ $? != 0 ]; then
     exit $?
   fi
