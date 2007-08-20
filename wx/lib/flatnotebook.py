@@ -11,7 +11,7 @@
 # Python Code By:
 #
 # Andrea Gavana, @ 02 Oct 2006
-# Latest Revision: 28 Jun 2007, 21.00 GMT
+# Latest Revision: 20 Aug 2007, 21.00 GMT
 #
 #
 # For All Kind Of Problems, Requests Of Enhancements And Bug Reports, Please
@@ -58,9 +58,9 @@ License And Version:
 
 FlatNotebook Is Freeware And Distributed Under The wxPython License. 
 
-Latest Revision: Andrea Gavana @ 28 Jun 2007, 21.00 GMT
+Latest Revision: Andrea Gavana @ 20 Aug 2007, 21.00 GMT
 
-Version 2.2.
+Version 2.3.
 
 @undocumented: FNB_HEIGHT_SPACER, VERTICAL_BORDER_PADDING, VC8_SHAPE_LEN,
     wxEVT*, left_arrow_*, right_arrow*, x_button*, down_arrow*,
@@ -1906,7 +1906,7 @@ class FNBRenderer:
         if not page._hasFocus:
             return
 
-        tabPos = page.GetPosition()
+        tabPos = wx.Point(*page.GetPosition())
         if pageContainer.GetParent().GetWindowStyleFlag() & FNB_VC8:
             vc8ShapeLen = self.CalcTabHeight(pageContainer) - VERTICAL_BORDER_PADDING - 2
             tabPos.x += vc8ShapeLen
