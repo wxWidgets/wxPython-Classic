@@ -1,14 +1,12 @@
+"""Unit tests for wx.StaticText.
+
+TODO: test setting different fonts and styles.
+    are there other methods to test or is that it?"""
+    
 import unittest
 import wx
 
 import testControl
-
-"""
-This file contains classes and methods for unit testing the API of wx.StaticText
-
-TODO: test setting different fonts and styles.
-    are there other methods to test or is that it?
-"""
 
 class StaticTextTest(testControl.ControlTest):
     def setUp(self):

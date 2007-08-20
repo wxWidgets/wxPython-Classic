@@ -1,19 +1,15 @@
+"""Unit tests for wx.ComboBox.
+        
+Methods yet to test:
+__init__, CanCopy, CanCut, CanPaste, CanRedo, CanUndo, Copy, Create,
+Cut, GetCurrentSelection, GetInsertionPoint, GetLastPosition, GetMark,
+Paste, Redo, Remove, Replace, SelectAll, SetInsertionPoint, 
+SetInsertionPointEnd, SetMark, SetStringSelection, Undo"""
+
 import unittest
 import wx
 
 import testChoice
-
-"""
-This file contains classes and methods for unit testing the API of 
-wx.ComboBox.
-        
-Methods yet to test:
-
-__init__, CanCopy, CanCut, CanPaste, CanRedo, CanUndo, Copy, Create,
-Cut, GetCurrentSelection, GetInsertionPoint, GetLastPosition, GetMark,
-Paste, Redo, Remove, Replace, SelectAll, SetInsertionPoint, 
-SetInsertionPointEnd, SetMark, SetStringSelection, Undo
-"""
 
 class ComboBoxTest(testChoice.ChoiceTest):
     def setUp(self):

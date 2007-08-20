@@ -1,15 +1,11 @@
-import unittest
-import wx
-
-"""
-This file contains classes and methods for unit testing the API of wx.Point
+"""Unit tests for wx.Point.
         
 Methods yet to test:
 __del__, __getitem__, __iadd__, __isub__, __len__,
-__nonzero__, __reduce__, __repr__, __setitem__, __str__
+__nonzero__, __reduce__, __repr__, __setitem__, __str__"""
 
-asTuple(*args, **kwargs) -> Use Get instead
-"""
+import unittest
+import wx
 
 # the delegation among the following methods is in order to expose
 # "valid" data to the wx.Window tests while still being able to

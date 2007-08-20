@@ -1,11 +1,4 @@
-import unittest
-import wx
-
-import wxtest
-
-"""
-This file contains classes and methods for unit testing the API of 
-wx.Image
+"""Unit tests for wx.Image.
 
 Methods yet to test:
 __del__, __nonzero__, AddHandler, Blur, BlurHorizontal, BlurVertical, CanRead,
@@ -22,9 +15,12 @@ SetOptionInt, SetRGBRect, ShrinkBy, Size
 
 TODO: I don't understand why all the Mask-related methods are implemented within
     the wxImage class.  Wouldn't it be better to abstract it into wx.Mask?
-    Revisit this later.
-"""
+    Revisit this later."""
 
+import unittest
+import wx
+
+import wxtest
 
 class ImageTest(unittest.TestCase):
     def setUp(self):

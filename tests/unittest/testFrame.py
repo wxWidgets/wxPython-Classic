@@ -1,16 +1,14 @@
+"""Unit tests for wx.Frame.
+
+Methods yet to test:
+__init__, Command, Create, DoGiveHelp, DoMenuUpdates, GetStatusBarPane, 
+ProcessCommand, SendSizeEvent, SetStatusBarPane, SetStatusWidths"""
+
 import unittest
 import wx
 
 import wxtest
 import testTopLevelWindow
-
-"""
-This file contains classes and methods for unit testing the API of wx.Frame.
-
-Methods yet to test:
-__init__, Command, Create, DoGiveHelp, DoMenuUpdates,
-GetStatusBarPane, ProcessCommand, SendSizeEvent, SetStatusBarPane, SetStatusWidths
-"""
 
 class FrameTest(testTopLevelWindow.TopLevelWindowBase):
     def setUp(self):

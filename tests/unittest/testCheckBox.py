@@ -1,18 +1,16 @@
-import unittest
-import wx
-
-import wxtest
-import testControl
-
-"""
-This file contains classes and methods for unit testing the API of wx.CheckBox
+"""Unit tests for wx.CheckBox.
 
 TODO: update/cleanup docs for this class.  They're quite fleshed out, but could
     use a once-over
 
 Methods yet to test:
-__init__, Create
-"""
+__init__, Create"""
+
+import unittest
+import wx
+
+import wxtest
+import testControl
 
 class CheckBoxTest(testControl.ControlTest):
     def setUp(self):

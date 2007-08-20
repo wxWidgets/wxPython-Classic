@@ -1,15 +1,13 @@
+"""Unit tests for wx.Control.
+
+Methods yet to test for wx.Control:
+Command, Create, GetAlignment"""
+
 import unittest
 import wx
 
 import wxtest
 import testWindow
-
-"""
-This file contains classes and methods for unit testing the API of wx.Control.
-
-Methods yet to test for wx.Control:
-Command, Create, GetAlignment
-"""
 
 class ControlTest(testWindow.WindowTest):
     def setUp(self):

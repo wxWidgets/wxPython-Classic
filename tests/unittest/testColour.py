@@ -1,16 +1,13 @@
+"""Unit tests for wx.Colour and wx.Color.
+        
+Methods yet to test:
+__del__, __eq__, __getitem__, __len__, __ne__, __nonzero__, __reduce__, 
+__repr__, __str__, GetAsString, GetPixel"""
+
 import unittest
 import wx
 
 import wxtest
-
-"""
-This file contains classes and methods for unit testing the API of wx.Colour
-(as well as wx.Color, because they're the same thing)
-        
-Methods yet to test:
-__del__, __eq__, __getitem__, __len__, __ne__, __nonzero__, __reduce__, 
-__repr__, __str__, GetAsString, GetPixel
-"""
             
 def getColourEquivalents():
     # doesn't include wx.Colour instances, only equivalents

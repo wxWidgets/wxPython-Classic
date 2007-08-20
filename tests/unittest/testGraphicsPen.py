@@ -1,15 +1,12 @@
+"""Unit tests for wx.GraphicsPen.
+
+Methods yet to test:
+__del__"""
+
 import unittest
 import wx
 
 import testGraphicsObject
-
-"""
-This file contains classes and methods for unit testing the API of
-wx.GraphicsPen.
-
-Methods yet to test:
-__del__
-"""
 
 class GraphicsPenTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):

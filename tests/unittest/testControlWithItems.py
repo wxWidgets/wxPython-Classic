@@ -1,12 +1,12 @@
+"""Unit tests for wx.ControlWithItems.
+
+TODO: are there any other methods that need testing?"""
+
 import unittest
 import wx
 
 import testControl
 import testItemContainer
-
-"""
-This file contains classes and methods for unit testing the API of wx.ControlWithItems.
-"""
 
 class ControlWithItemsTest(unittest.TestCase):
     def setUp(self):

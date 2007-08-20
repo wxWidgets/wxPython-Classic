@@ -1,17 +1,13 @@
+"""Unit tests for wx.GraphicsRenderer.
+
+Methods yet to test:
+__del__, CreateContextFromNativeContext, CreateContextFromNativeWindow,
+CreateLinearGradientBrush, CreateMeasuringContext, CreateRadialGradientBrush"""
+
 import unittest
 import wx
 
 import wxtest
-import unittest
-
-"""
-This file contains classes and methods for unit testing the API of
-wx.GraphicsRenderer.
-
-Methods yet to test:
-__del__, CreateContextFromNativeContext, CreateContextFromNativeWindow,
-CreateLinearGradientBrush, CreateMeasuringContext, CreateRadialGradientBrush
-"""
 
 class GraphicsRendererTest(unittest.TestCase):
     def setUp(self):

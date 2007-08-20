@@ -1,15 +1,11 @@
+"""Unit tests for wx.ToggleButton.
+
+This class is virtually fully-tested."""
+
 import unittest
 import wx
 
 import testControl
-
-"""
-This file contains classes and methods for unit testing the API of 
-wx.ToggleButton.
-
-This class is virtually fully-tested.
-"""
-
 
 class ToggleButtonTest(testControl.ControlTest):
     def setUp(self):

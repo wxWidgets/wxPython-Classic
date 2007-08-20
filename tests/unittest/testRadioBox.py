@@ -1,19 +1,16 @@
-import unittest
-import wx
-
-import testControl
-
-"""
-This file contains classes and methods for unit testing the API of
-wx.RadioBox
+"""Unit tests for wx.RadioBox.
 
 Note:
     wx.RadioBox has a GetCount method which isn't in the online docs,
     but is in "wxPython in Action".  The same goes for the 'Enable' method.
         
 Methods yet to test:
-__init__, Create, GetNextItem
-"""
+__init__, Create, GetNextItem"""
+
+import unittest
+import wx
+
+import testControl
 
 class RadioBoxTest(testControl.ControlTest):
     def setUp(self):

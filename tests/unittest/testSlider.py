@@ -1,22 +1,17 @@
-import unittest
-import wx
-
-import testControl
-
-"""
-This file contains classes and methods for unit testing the API of wx.Slider
+"""Unit tests for wx.Slider.
 
 TODO:
     should it be legal for min value to be greater than max value?
 
-TODO:
-    Fill in the docs!
-
 Methods yet to test:
 __init__, ClearSel, ClearTicks,Create, GetSelEnd,
 GetSelStart, GetThumbLength, GetTickFreq, SetSelection, SetThumbLength,
-SetTick, SetTickFreq
-"""
+SetTick, SetTickFreq"""
+
+import unittest
+import wx
+
+import testControl
 
 class SliderTest(testControl.ControlTest):
     def setUp(self):

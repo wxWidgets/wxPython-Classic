@@ -1,15 +1,12 @@
+"""Unit tests for wx.RadioButton.
+        
+Methods yet to test:
+__init__, Create"""
+
 import unittest
 import wx
 
 import testControl
-
-"""
-This file contains classes and methods for unit testing the API of
-wx.RadioButton
-        
-Methods yet to test:
-__init__, Create
-"""
 
 class RadioButtonTest(testControl.ControlTest):
     def setUp(self):

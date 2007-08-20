@@ -1,11 +1,4 @@
-import unittest
-import wx
-
-import testSize
-import wxtest
-
-"""
-This file contains classes and methods for unit testing the API of wx.Rect.
+"""Unit tests for wx.Rect.
 
 32767 (or 2**15-1) is the max number that should be used in wx.Rects.
 Most platforms use a short int to store window sizes and positions.
@@ -17,8 +10,13 @@ ContainsXY, Deflate, GetBottom, GetBottomLeft, GetBottomRight, GetHeight, GetLef
 GetPosition, GetRight, GetSize, GetTop, GetTopLeft, GetTopRight, GetWidth, GetX, GetY,
 Inflate, Inside, InsideRect, InsideXY, Intersect, Intersects, IsEmpty, Offset, OffsetXY,
 Set, SetBottom, SetBottomLeft, SetBottomRight, SetHeight, SetLeft, SetPosition,
-SetRight, SetSize, SetTop, SetTopLeft, SetTopRight, SetWidth, SetX, SetY, Union
-"""
+SetRight, SetSize, SetTop, SetTopLeft, SetTopRight, SetWidth, SetX, SetY, Union"""
+
+import unittest
+import wx
+
+import wxtest
+import testSize
 
 def getRectData(ctrl):
     sizes = testSize.getSizes(ctrl, wxtest.SIZE)

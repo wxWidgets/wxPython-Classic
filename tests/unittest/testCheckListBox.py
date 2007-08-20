@@ -1,14 +1,12 @@
+"""Unit tests for wx.CheckListBox.
+        
+Methods yet to test:
+__init__, Check, Create, GetItemHeight, IsChecked"""
+
 import unittest
 import wx
 
 import testListBox
-
-"""
-This file contains classes and methods for unit testing the API of wx.CheckListBox.
-        
-Methods yet to test:
-__init__, Check, Create, GetItemHeight, IsChecked
-"""
 
 class CheckListBoxTest(testListBox.ListBoxTest):
     def setUp(self):

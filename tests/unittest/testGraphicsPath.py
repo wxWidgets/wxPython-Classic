@@ -1,18 +1,15 @@
-import unittest
-import wx
-
-import testGraphicsObject
-
-"""
-This file contains classes and methods for unit testing the API of
-wx.GraphicsPath.
+"""Unit tests for wx.GraphicsPath.
 
 Methods yet to test:
 __del__, AddArc, AddArcToPoint, AddCircle, AddCurveToPoint, AddEllipse,
 AddLineToPoint, AddPath, AddQuadCurveToPoint, AddRectangle, AddRoundedRectangle,
 CloseSubpath, Contains, GetBox, GetCurrentPoint, GetNativePath, MoveToPoint,
-Transform, UnGetNativePath
-"""
+Transform, UnGetNativePath"""
+
+import unittest
+import wx
+
+import testGraphicsObject
 
 class GraphicsPathTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):

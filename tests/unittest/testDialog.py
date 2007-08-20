@@ -1,16 +1,14 @@
-import unittest
-import wx
-
-import testTopLevelWindow
-
-"""
-This file contains classes and methods for unit testing the API of wx.Dialog.
+"""Unit tests for wx.Dialog.
 
 Methods yet to test:
 __init__, Create, CreateButtonSizer, CreateSeparatedButtonSizer, CreateStdDialogButtonSizer,
 CreateTextSizer, EndModal, GetAffirmativeId, GetEscapeId,
-GetReturnCode, IsModal, SetAffirmativeId, SetEscapeId, SetReturnCode, ShowModal
-"""
+GetReturnCode, IsModal, SetAffirmativeId, SetEscapeId, SetReturnCode, ShowModal"""
+
+import unittest
+import wx
+
+import testTopLevelWindow
 
 class DialogTest(testTopLevelWindow.TopLevelWindowBase):
     def setUp(self):

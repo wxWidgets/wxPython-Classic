@@ -1,17 +1,14 @@
+"""Unit tests for wx.Bitmap.
+
+Methods yet to test:
+__del__, __nonzero__, ConvertToImage, CopyFromBuffer, CopyFromBufferRGBA,
+CopyFromIcon, GetPalette, LoadFile, SaveFile, SetMaskColour"""
+
 import unittest
 import wx
 
 import wxtest
 import testSize
-
-"""
-This file contains classes and methods for unit testing the API of 
-wx.Bitmap
-
-Methods yet to test:
-__del__, __nonzero__, ConvertToImage, CopyFromBuffer, CopyFromBufferRGBA,
-CopyFromIcon, GetPalette, LoadFile, SaveFile, SetMaskColour
-"""
 
 class BitmapTest(unittest.TestCase):
     def setUp(self):

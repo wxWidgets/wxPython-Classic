@@ -1,18 +1,15 @@
-import unittest
-import wx
-
-import testWindow
-
-"""
-This file contains classes and methods for unit testing the API of 
-wx.TopLevelWindow.
+"""Unit tests for wx.TopLevelWindow.
 
 Methods yet to test for wx.TopLevelWindow:
 __init__, CenterOnScreen, CentreOnScreen, EnableCloseButton, GetDefaultItem, GetIcon,
 GetTmpDefaultItem, Iconize, IsActive, IsAlwaysMaximized, IsIconized,
 MacGetMetalAppearance, MacSetMetalAppearance, RequestUserAttention, Restore, SetDefaultItem,
-SetIcon, SetIcons, SetShape, SetTmpDefaultItem
-"""
+SetIcon, SetIcons, SetShape, SetTmpDefaultItem"""
+
+import unittest
+import wx
+
+import testWindow
 
 class TopLevelWindowBase(testWindow.WindowTest):
     def setUp(self):

@@ -1,14 +1,12 @@
+"""Unit tests for wx.Panel.
+
+Methods yet to test:
+__init__, Create, SetFocusIgnoringChildren"""
+
 import unittest
 import wx
 
 import testWindow
-
-"""
-This file contains classes and methods for unit testing the API of wx.Panel.
-
-Methods yet to test:
-__init__, Create, SetFocusIgnoringChildren
-"""
 
 class PanelTest(testWindow.WindowTest):
     def setUp(self):

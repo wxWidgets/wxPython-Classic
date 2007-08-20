@@ -1,10 +1,4 @@
-import unittest
-import wx
-
-import wxtest
-
-"""
-This file contains classes and methods for unit testing the API of wx.Font
+"""Unit tests for wx.Font.
 
 NOTE: The documentation for font currently omits a large number of constants.
     I had to look through the wx module itself to find them, and I'll copy
@@ -41,8 +35,12 @@ GetNoAntiAliasing, GetPixelSize, GetPointSize, GetStyle, GetStyleString, GetUnde
 GetWeight, GetWeightString, IsFixedWidth, IsUsingSizeInPixels, SetDefaultEncoding,
 SetEncoding, SetFaceName, SetFamily, SetNativeFontInfo, SetNativeFontInfoFromString,
 SetNativeFontInfoUserDesc, SetNoAntiAliasing, SetPixelSize, SetPointSize, SetStyle, SetUnderlined
-SetWeight
-"""
+SetWeight"""
+
+import unittest
+import wx
+
+import wxtest
 
 # TODO:
 #   Verify completeness of this list. Flesh it out, perhaps automate the font creation process,

@@ -1,20 +1,16 @@
-import unittest
-import wx
-
-import wxtest
-import testButton
-
-"""
-This file contains classes and methods for unit testing the API of 
-wx.BitmapButton
+"""Unit tests for wx.BitmapButton.
 
 Methods yet to test:
 __init__, Create, GetBitmapDisabled, GetBitmapFocus, GetBitmapHover,
 GetBitmapLabel, GetBitmapSelected, GetMarginX, GetMarginY,
 SetBitmapDisabled, SetBitmapFocus, SetBitmapHover, SetBitmapLabel,
-SetBitmapSelected, SetMargins
-"""
+SetBitmapSelected, SetMargins"""
 
+import unittest
+import wx
+
+import wxtest
+import testButton
 
 class BitmapButtonTest(testButton.ButtonTest):
     def setUp(self):

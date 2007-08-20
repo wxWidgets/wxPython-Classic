@@ -1,14 +1,12 @@
+"""Unit tests for wx.Choice.
+        
+Methods yet to test:
+__init__, Create, GetCurrentSelection"""
+
 import unittest
 import wx
 
 import testControlWithItems
-
-"""
-This file contains classes and methods for unit testing the API of wx.Choice.
-        
-Methods yet to test:
-__init__, Create, GetCurrentSelection
-"""
 
 class ChoiceTest(testControlWithItems.ControlWithItemsBase):
     def setUp(self):

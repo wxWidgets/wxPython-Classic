@@ -1,18 +1,16 @@
-import unittest
-import wx
-
-import wxtest
-import testControl
-
-"""
-This file contains classes and methods for unit testing the API of wx.SpinCtrl
+"""Unit tests for wx.SpinCtrl
 
 TODO:
     should it be legal for min value to be greater than max value?
 
 Methods yet to test:
-__init__, Create, SetSelection
-"""
+__init__, Create, SetSelection"""
+
+import unittest
+import wx
+
+import wxtest
+import testControl
 
 class SpinCtrlTest(testControl.ControlTest):
     def setUp(self):

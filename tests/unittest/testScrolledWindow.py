@@ -1,17 +1,14 @@
-import unittest
-import wx
-
-import testPanel
-
-"""
-This file contains classes and methods for unit testing the API of
-wx.ScrolledWindow
+"""Unit tests for wx.ScrolledWindow.
 
 Methods yet to test:
 __init__, AdjustScrollbars, CalcScrolledPosition, CalcScrollInc,
 CalcUnscrolledPosition, Create, DoPrepareDC, EnableScrolling,
-GetViewStart, Scroll, SetScrollbars
-"""
+GetViewStart, Scroll, SetScrollbars"""
+
+import unittest
+import wx
+
+import testPanel
 
 class ScrolledWindowTest(testPanel.PanelTest):
     def setUp(self):

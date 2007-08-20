@@ -1,19 +1,15 @@
+"""Unit tests for wx.Size.
+        
+Methods yet to test:
+__init__, __del__, __getitem__, __len__, __nonzero__,
+__reduce__, __repr__, __setitem__, __str__, __sub__, DecBy, DecTo,
+IncBy, IncTo, Scale, SetDefaults"""
+
 import unittest
 import wx
 
 import wxtest
 import math
-
-"""
-This file contains classes and methods for unit testing the API of wx.Size
-        
-Methods yet to test:
-__init__, __del__, __getitem__, __len__, __nonzero__,
-__reduce__, __repr__, __setitem__, __str__, __sub__, DecBy, DecTo,
-IncBy, IncTo, Scale, SetDefaults,
-
-asTuple(*args, **kwargs) -> Use Get instead
-"""
 
 def getSizes(ctrl, kind):
     # determine get/set methods

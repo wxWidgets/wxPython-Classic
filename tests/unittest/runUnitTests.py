@@ -1,3 +1,7 @@
+"""Test-runner for wxPython's unit test suite.
+
+TODO: document all functionality"""
+
 import os, sys
 import unittest
 import time

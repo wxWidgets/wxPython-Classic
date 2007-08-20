@@ -1,17 +1,16 @@
+"""Unit tests for wx.ItemContainer.
+
+Since wx.ItemContainer is uninstantiable, the tests for 
+subclasses are implemented with a "test base-class" of sorts.
+        
+Methods yet to test:
+__init__, GetSelection, GetStrings, GetStringSelection,
+Select, SetSelection, SetStringSelection"""
+
 import unittest
 import wx
 
 import wxtest
-
-"""
-This file contains classes and methods for unit testing the API of 
-wx.ItemContainer.  Since wx.ItemContainer is uninstantiable, the tests
-for subclasses are implemented with a "test base-class" of sorts.
-        
-Methods yet to test:
-__init__, GetSelection, GetStrings, GetStringSelection,
-Select, SetSelection, SetStringSelection
-"""
 
 class ItemContainerTest(unittest.TestCase):
     def setUp(self):

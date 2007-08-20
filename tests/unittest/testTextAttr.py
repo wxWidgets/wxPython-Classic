@@ -1,16 +1,14 @@
-import unittest
-import wx
-
-import testColour
-
-"""
-This file contains classes and methods for unit testing the API of wx.TextAttr.
+"""Unit tests for wx.TextAttr.
         
 Methods yet to test:
 Combine, GetAlignment, GetFlags, GetLeftIndent, GetLeftSubIndent, GetRightIndent,
 GetTabs, HasAlignment, HasFlag, HasLeftIndent, HasRightIndent, HasTabs, Init,
-Merge, SetAlignment, SetFlags, SetLeftIndent, SetRightIndent, SetTabs
-"""
+Merge, SetAlignment, SetFlags, SetLeftIndent, SetRightIndent, SetTabs"""
+
+import unittest
+import wx
+
+import testColour
 
 class TextAttrTest(unittest.TestCase):
     def setUp(self):

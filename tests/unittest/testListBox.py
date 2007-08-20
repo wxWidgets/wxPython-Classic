@@ -1,12 +1,4 @@
-import unittest
-import wx
-
-import testControlWithItems
-
-"""
-This file contains classes and methods for unit testing the API of wx.ListBox.
-
-TODO: fill out docs
+"""Unit tests for wx.ListBox.
         
 Methods yet to test:
 __init__, AppendAndEnsureVisible, Create, DeselectAll, EnsureVisible,
@@ -14,9 +6,12 @@ GetSelections, HitTest,
 Set, SetFirstItem, SetFirstItemStr, SetStringSelection
 
 These methods don't have corresponding getters:
-SetItemBackgroundColour, SetItemFont, SetItemForegroundColour
-    
-"""
+SetItemBackgroundColour, SetItemFont, SetItemForegroundColour"""
+
+import unittest
+import wx
+
+import testControlWithItems
 
 class ListBoxTest(testControlWithItems.ControlWithItemsBase):
     def setUp(self):

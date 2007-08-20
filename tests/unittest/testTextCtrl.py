@@ -1,10 +1,4 @@
-import unittest
-import wx
-
-import testControl
-
-"""
-This file contains classes and methods for unit testing the API of wx.TextCtrl
+"""Unit tests for wx.TextCtrl.
         
 Methods yet to test:
 __init__, CanCopy, CanCut, CanPaste, CanRedo, CanUndo, ChangeValue, Create, 
@@ -13,8 +7,12 @@ GetLastPosition, GetLineLength, GetLineText, GetNumberOfLines, GetString,
 GetStyle, HitTest, HitTestPos, IsEditable, IsModified, LoadFile, MacCheckSpelling,
 MarkDirty, PositionToXY, Redo, SaveFile, SelectAll, SendTextUpdatedEvent,
 SetDefaultStyle, SetEditable, SetMaxLength, SetModified, SetStyle, ShowPosition,
-Undo, write, XYToPosition
-"""
+Undo, write, XYToPosition"""
+
+import unittest
+import wx
+
+import testControl
 
 class TextCtrlTest(testControl.ControlTest):
     def setUp(self):

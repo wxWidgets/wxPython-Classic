@@ -1,16 +1,14 @@
-import wx
+"""Common code for wxPython's unit test suite.
 
-"""
-The wxtest module is used for common code across the wx Test Suite.
-
-Its major use is to provide a standard means of determining information
+wxtest's major use is to provide a standard means of determining information
 about the current platform, for platform-specific testing.  For example,
 to determine whether wx-assertions are on or off.
 
 There are currently three choices of platform: Windows, GTK, and Mac.
 These may increase in the future.
 
-The two use case types are as follows (the second is preferred):
+The following are two use cases.
+The second is preferred; may be deprecated.
     
     # Method 1:
     if wxtest.CURRENT_PLATFORM == wxtest.MAC:
@@ -22,10 +20,12 @@ The two use case types are as follows (the second is preferred):
     if wxtest.PlatformIsMac():
         # mac-specific test
     if wxtest.PlatformIsNotWindows():
-        # test not to be run on windows
-"""
+        # test not to be run on windows"""
+        
+import wx
 
 # A poor attempt at enums
+# TODO: how are enums implemented in Python?
 WINDOWS = 100
 GTK     = 200
 MAC     = 300

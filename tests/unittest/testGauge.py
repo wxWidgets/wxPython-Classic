@@ -1,18 +1,13 @@
+"""Unit tests for wx.Gauge.
+
+Methods yet to test:
+__init__, Create, Pulse"""
+
 import unittest
 import wx
 
 import wxtest
 import testControl
-
-"""
-This file contains classes and methods for unit testing the API of wx.Gauge
-
-TODO:
-    Fill in the docs!
-
-Methods yet to test:
-__init__, Create, Pulse
-"""
 
 class GaugeTest(testControl.ControlTest):
     def setUp(self):

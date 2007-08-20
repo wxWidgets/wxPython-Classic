@@ -1,15 +1,10 @@
-import unittest
-import wx
-
-import unittest
-
-"""
-This file contains classes and methods for unit testing the API of
-wx.GraphicsObject.
+"""Unit tests for wx.GraphicsObject.
 
 Methods yet to test:
-__del__
-"""
+__del__"""
+
+import unittest
+import wx
 
 class GraphicsObjectTest(unittest.TestCase):
     def setUp(self):

@@ -2,12 +2,17 @@
             wxPython Unit Test Suite
 --------------------------------------------------
 
-The 'tests' folder contains the wxPython Unit Test Suite,
-within the sub-folder named 'unittest'.
+This top-level 'unittest' folder contains the unit test
+suite for wxPython.
 
-To run the entire unit test suite, type 'python runAllTests.py'
-at the command line. You can also run the test scripts
-individually.
+For information on this suite, and the project itself, see
+http://wiki.wxpython.org/GUI_Unit_Testing_Project
+
+For documentation on running this test suite, see
+http://wiki.wxpython.org/Unit_Testing_Quick_Start_Guide
+
+For documentation on developing the test suite, see
+http://wiki.wxpython.org/Unit_Testing_Development_Guide
 
 It is entirely possible that the old, existing tests (in the 
 'tests' folder) can and should be folded into this Test Suite,

@@ -1,11 +1,4 @@
-import unittest
-import wx
-
-import testGraphicsObject
-
-"""
-This file contains classes and methods for unit testing the API of
-wx.GraphicsBrush.
+"""Unit tests for wx.GraphicsBrush.
 
 TODO: The docs say the only valid way to make an instance
         is with a CreateBrush call on a renderer or context.
@@ -13,8 +6,12 @@ TODO: The docs say the only valid way to make an instance
         is this correct?
 
 Methods yet to test:
-__del__
-"""
+__del__"""
+
+import unittest
+import wx
+
+import testGraphicsObject
 
 class GraphicsBrushTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):

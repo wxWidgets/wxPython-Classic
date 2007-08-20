@@ -1,15 +1,4 @@
-import unittest
-import wx
-
-import wxtest
-import testColour
-import testRect
-import testFont
-import testPoint
-import testSize
-
-"""
-This file contains classes and methods for unit testing the API of wx.Window.
+"""Unit tests for wx.Window.
 
 WindowTest is meant to be the base class of all test cases for classes derived
 from wx.Window.  For the tests to run properly, derived classes must make sure
@@ -61,12 +50,17 @@ SetScrollbar, SetScrollPos, SetSizeHintsSz, SetSizerAndFit, SetThemeEnabled,
 SetTransparent, SetValidator, SetVirtualSizeHints, SetVirtualSizeHintsSz,
 SetWindowStyle, SetWindowStyleFlag, SetWindowVariant,
 ShouldInheritColours, ToggleWindowStyle, TransferDataFromWindow, TransferDataToWindow, 
-UnregisterHotKey, Update, UpdateWindowUI, UseBgCol, Validate, WarpPointer
+UnregisterHotKey, Update, UpdateWindowUI, UseBgCol, Validate, WarpPointer"""
 
-GetAdjustedBestSize -> Use GetEffectiveMinSize instead.
-GetBestFittingSize(*args, **kwargs) -> Use GetEffectiveMinSize instead.
-SetBestFittingSize -> Use SetInitialSize
-"""
+import unittest
+import wx
+
+import wxtest
+import testColour
+import testRect
+import testFont
+import testPoint
+import testSize
 
 class WindowTest(unittest.TestCase):
     def __init__(self, arg):

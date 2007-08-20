@@ -1,8 +1,4 @@
-import unittest
-import wx
-
-"""
-This file contains classes and methods for unit testing the API of wx.Sizer.
+"""Unit tests for wx.Sizer.
 
 Since wx.Sizer is an abstract base class, tests implemented for wx.Sizer will
 instead be run on instances of derived classes.
@@ -15,8 +11,10 @@ GetSize, GetSizeTuple, Hide, Insert,InsertF, InsertItem, InsertSizer, InsertSpac
 InsertStretchSpacer, InsertWindow, IsShown, Layout, Prepend, PrependF, PrependItem,
 PrependSizer, PrependSpacer, PrependStretchSpacer, PrependWindow, RecalcSizes, Remove,
 RemovePos, RemoveSizer, RemoveWindow, Replace, SetContainingWindow, SetDimension,
-SetItemMinSize, SetMinSize, SetSizeHints, SetVirtualSizeHints, Show, ShowItems
-"""
+SetItemMinSize, SetMinSize, SetSizeHints, SetVirtualSizeHints, Show, ShowItems"""
+
+import unittest
+import wx
 
 class SizerTest(unittest.TestCase):
     def setUp(self):

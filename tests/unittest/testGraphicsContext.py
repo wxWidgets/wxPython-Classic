@@ -1,12 +1,4 @@
-import unittest
-import wx
-
-import wxtest
-import testGraphicsObject
-
-"""
-This file contains classes and methods for unit testing the API of
-wx.GraphicsContext.
+"""Unit tests for wx.GraphicsContext.
 
 These tests can pretty much be copied from testGraphicsRenderer:
 CreateBrush
@@ -28,8 +20,13 @@ StrokeLine, StrokeLines, StrokePath, Translate
 
 And finally, is this a typo or what?:
 StrokeLineSegements
-TODO: file a bug report
-"""
+TODO: file a bug report"""
+
+import unittest
+import wx
+
+import wxtest
+import testGraphicsObject
 
 class GraphicsContextTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):
