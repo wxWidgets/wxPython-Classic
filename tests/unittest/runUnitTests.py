@@ -74,7 +74,7 @@ def output(level, string):
     if options.verbosity >= level:
         print string
 
-class UnitTestSuite():
+class UnitTestSuite:
     def __init__(self, include="", exclude="", tests=""):
         # error checking
         if include != "" and exclude != "":
@@ -200,7 +200,7 @@ class UnitTestSuite():
         # return results
         return test_run_data
 
-class UnitTestRunData():
+class UnitTestRunData:
     def __init__(self):
         self.results = {}
     
