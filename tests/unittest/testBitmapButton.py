@@ -18,7 +18,7 @@ class BitmapButtonTest(testButton.ButtonTest):
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.BitmapButton(parent=self.frame, bitmap=wx.NullBitmap)
     
-    # crashes interpreter on Windows for some reason
+    # TODO: crashes interpreter on Windows for some reason
     def testAllControlsNeedParents(self):
         """__init__"""
         if wxtest.PlatformIsNotWindows():

@@ -27,9 +27,10 @@ class BitmapTest(unittest.TestCase):
     
     def testEquals(self):
         """__eq__, __ne__"""
-        a = wx.Bitmap('')
-        b = wx.Bitmap('')
-        c = wx.Bitmap('')
+        ty = type(self.testControl)
+        a = ty("")
+        b = ty("")
+        c = ty("")
         c.SetSize((1,1))
         self.assertEquals(a,b)
         self.assertNotEquals(a,c)
@@ -43,14 +44,15 @@ class BitmapTest(unittest.TestCase):
     
     def testInit(self):
         """__init__"""
-        self.testControl = wx.Bitmap('')
+        self.testControl = wx.Bitmap("")
         self.assert_(isinstance(self.testControl, wx.Bitmap))
     
     def testIsOk(self):
         """IsOk, Ok"""
+        ty = type(self.testControl)
         self.assert_(self.testControl.IsOk())
         self.assert_(self.testControl.Ok())
-        self.testControl = wx.Bitmap('')
+        self.testControl = ty("")
         self.assert_(not self.testControl.IsOk())
         self.assert_(not self.testControl.Ok())
     

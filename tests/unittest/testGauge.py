@@ -39,7 +39,7 @@ class GaugeTest(testControl.ControlTest):
     
     def testRange(self):
         """SetRange, GetRange"""
-        for i in range(1000):
+        for i in range(0,1000,10):
             self.testControl.SetRange(i)
             self.assertEquals(i, self.testControl.GetRange())
     

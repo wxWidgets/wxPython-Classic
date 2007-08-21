@@ -1,5 +1,5 @@
 """Unit tests for wx.Size.
-        
+
 Methods yet to test:
 __init__, __del__, __getitem__, __len__, __nonzero__,
 __reduce__, __repr__, __setitem__, __str__, __sub__, DecBy, DecTo,

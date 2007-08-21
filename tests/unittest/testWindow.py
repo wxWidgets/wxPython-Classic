@@ -7,9 +7,11 @@ few class properties from within the setUp method, and may create a few more.
 
 Required properties:
     frame - just a generic frame, to use as a parent for Windows that need one
-    testControl - an alias of frame.testControl
+        TODO: in the future, consider renaming 'frame' to 'parent'
+    testControl - an instance of the particular class under test
 
 Optional properties:
+        TODO: decide what to do with these; clean them up or move them out
     children - a sequence of frames whose parent is the testControl
     children_ids - IDs corresponding to each child
     children_names - names corresponding to each child
@@ -213,7 +215,7 @@ class WindowTest(unittest.TestCase):
             self.assert_(child.IsEnabled())
     
     def testDisable(self):
-        """Disable"""
+        """Disable, IsEnabled"""
         self.testControl.Enable()
         self.assert_(self.testControl.Disable())
         self.assert_(not self.testControl.IsEnabled())
@@ -350,8 +352,10 @@ class WindowTest(unittest.TestCase):
     
     def testName(self):
         """SetName, GetName"""
-        self.testControl.SetName("The Name of the Panel")
-        self.assertEquals("The Name of the Panel", self.testControl.GetName())
+        # TODO: try it with newlines and special characters
+        name = "The Name of the Panel"
+        self.testControl.SetName(name)
+        self.assertEquals(name, self.testControl.GetName())
         
     # what is the difference between SetOwnBackgroundColour and SetBackgroundColour?
     # the docs don't say anything about SetOwnBackgroundColour

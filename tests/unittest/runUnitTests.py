@@ -18,7 +18,7 @@ def _make_clean_opt_string():
     opt_string = ""
     args = sys.argv[1:]
     for arg in args:
-        if arg.startswith('-') and not arg.startswith('--'):
+        if arg.startswith("-") and not arg.startswith("--"):
             # handle the case where opt and arg are conjoined
             arg2 = None
             if len(arg) > 2:
@@ -276,6 +276,7 @@ parser.add_option("-t", "--tests", default="",
                     help="run only a targeted list of tests. give a comma-separated list " +
                             "of strings, and each test whose name or docstring contains " +
                             "one of those given will be run.")
+# TODO: add "--include-methods" and "--exclude-methods" functionality
 (options, args) = parser.parse_args()
 
 # Options error-checking

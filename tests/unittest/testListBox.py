@@ -14,6 +14,13 @@ import wx
 import testControlWithItems
 
 class ListBoxTest(testControlWithItems.ControlWithItemsBase):
+    def __init__(self, arg):
+        # superclass setup
+        super(ListBoxTest,self).__init__(arg)
+        self.name = "Name of Control"
+        self.choices = ["a","b","c","d","e"]
+        self.more_choices = ["w","x","y","z"]
+        
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
@@ -21,9 +28,8 @@ class ListBoxTest(testControlWithItems.ControlWithItemsBase):
     
     def testDeselect(self):
         """Deselect"""
-        choices = ['a','b','c','d','e']
-        self.testControl.InsertItems(choices,0)
-        for i in range(len(choices)):
+        self.testControl.InsertItems(self.choices,0)
+        for i in range(len(self.choices)):
             self.testControl.Select(i)
             self.assert_(self.testControl.IsSelected(i))
             self.testControl.Deselect(i)
@@ -31,22 +37,21 @@ class ListBoxTest(testControlWithItems.ControlWithItemsBase):
     
     def testInsertItems(self):
         """InsertItems"""
-        one = ['a','b','c']
-        two = ['x','y','z']
-        self.testControl.InsertItems(one,0)
-        self.assertEquals(one, self.testControl.GetItems())
-        self.testControl.InsertItems(two,self.testControl.GetCount())
-        self.assertEquals(one+two, self.testControl.GetItems())
-        self.testControl.InsertItems(two,0)
-        self.assertEquals(two+one+two, self.testControl.GetItems())
+        self.testControl.InsertItems(self.choices,0)
+        self.assertEquals(self.choices, self.testControl.GetItems())
+        self.testControl.InsertItems(self.more_choices,self.testControl.GetCount())
+        even_more = self.choices + self.more_choices
+        self.assertEquals(even_more, self.testControl.GetItems())
+        self.testControl.InsertItems(self.more_choices,0)
+        most = self.more_choices + even_more
+        self.assertEquals(most, self.testControl.GetItems())
     
     def testSelect(self):
         """Select, IsSelected"""
-        choices = ['a','b','c','d','e']
-        self.testControl.InsertItems(choices,0)
-        for i in range(len(choices)):
+        self.testControl.InsertItems(self.choices,0)
+        for i in range(len(self.choices)):
             self.testControl.Select(i)
-            for j in range(len(choices)):
+            for j in range(len(self.choices)):
                 if i == j:
                     self.assert_(self.testControl.IsSelected(j))
                 else:
@@ -54,21 +59,21 @@ class ListBoxTest(testControlWithItems.ControlWithItemsBase):
         
     def testSetSelection(self):
         """SetSelection, IsSelected"""
-        choices = ['a','b','c','d','e']
-        self.testControl.InsertItems(choices,0)
-        for i in range(len(choices)):
+        self.testControl.InsertItems(self.choices,0)
+        for i in range(len(self.choices)):
             self.testControl.SetSelection(i)
-            for j in range(len(choices)):
+            for j in range(len(self.choices)):
                 if i == j:
                     self.assert_(self.testControl.IsSelected(j))
                 else:
                     self.assert_(not self.testControl.IsSelected(j))
-    
+                    
     def testSorted(self):
         """IsSorted"""
-        self.testControl = wx.ListBox(self.frame, choices=['c','b','a'])
+        self.choices.reverse() # prove the wx.LB_SORT flag sorts them
+        self.testControl = wx.ListBox(self.frame, choices=self.choices)
         self.assert_(not self.testControl.IsSorted())
-        self.testControl = wx.ListBox(self.frame, choices=['c','b','a'],
+        self.testControl = wx.ListBox(self.frame, choices=self.choices,
                                             style=wx.LB_SORT)
         self.assert_(self.testControl.IsSorted())
         

@@ -83,7 +83,7 @@ class ButtonTest(testControl.ControlTest):
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Button(parent=self.frame)
     
-    def testGetDefaultSize(self):
+    def testGetDefaultSize_wxButtonOnly(self):
         """GetDefaultSize"""
         # (Static method)
         sz = wx.Button.GetDefaultSize()

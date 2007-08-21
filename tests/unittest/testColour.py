@@ -36,8 +36,8 @@ def hexify(col):
     return '#' + rhex + ghex + bhex
 
 def getColourNames():
-    """from inspection of wx.TheColourDatabase,
-        these appear to be identical on all platforms"""
+    """Colour names from inspection of wx.TheColourDatabase.
+    These appear to be identical on all platforms"""
     return ('BLACK','BLUE','SLATE BLUE','GREEN','SPRING GREEN','CYAN','NAVY',
             'STEEL BLUE','FOREST GREEN','SEA GREEN','DARK GREY','MIDNIGHT BLUE',
             'DARK GREEN','DARK SLATE GREY','MEDIUM BLUE','SKY BLUE','LIME GREEN',
@@ -61,7 +61,7 @@ class ColourTest(unittest.TestCase):
     def tearDown(self):
         self.app.Destroy()
     
-    def testColorColourAlias(self):
+    def testColorColourAlias_wxColourOnly(self):
         """ """
         self.assertEquals(wx.Color, wx.Colour)
     
@@ -102,6 +102,9 @@ class ColourTest(unittest.TestCase):
         for color in (c1, c2, c3):
             self.assert_(color.IsOk())
             self.assert_(color.Ok())
+    
+    def testOkFalse(self):
+        """IsOk, Ok"""
         # HACK: to generate an invalid wx.Colour instance
         # NOTE: cannot access colBg directly without crashing the interpreter
         attr = wx.VisualAttributes()

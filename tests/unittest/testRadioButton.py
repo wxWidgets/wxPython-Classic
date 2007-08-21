@@ -12,8 +12,8 @@ class RadioButtonTest(testControl.ControlTest):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
-        self.LABEL = "Label of the RadioButton!"
-        self.testControl = wx.RadioButton(parent=self.frame, label=self.LABEL,
+        self.label = "Label of the RadioButton!"
+        self.testControl = wx.RadioButton(parent=self.frame, label=self.label,
                                 style=wx.RB_GROUP)
         
     def testDifferentGroupsToggle(self):
@@ -37,7 +37,7 @@ class RadioButtonTest(testControl.ControlTest):
     def testLabel(self):
         """GetLabel"""
         # Overrides previous testLabel method
-        self.assertEquals(self.LABEL, self.testControl.GetLabel())
+        self.assertEquals(self.label, self.testControl.GetLabel())
     
     def testToggle(self):
         """ """

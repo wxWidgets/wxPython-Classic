@@ -8,7 +8,6 @@ CreatePath
 CreatePen
 
 Methods yet to test:
-
 __del__, Clip, ClipRegion, ConcatTransform, CreateFromNative, CreateFromNativeWindow,
 CreateLinearGradientBrush, CreateMeasuringContext, CreateRadialGradientBrush,
 DrawBitmap, DrawEllipse, DrawIcon, DrawLines, DrawPath, DrawRectangle,
@@ -42,7 +41,7 @@ class GraphicsContextTest(testGraphicsObject.GraphicsObjectTest):
         self.frame.Destroy()
         self.app.Destroy()
         
-    def testConstructorFails(self):
+    def testConstructorFails_wxGraphicsContextOnly(self):
         """__init__"""
         self.assertRaises(AttributeError, wx.GraphicsContext)
     

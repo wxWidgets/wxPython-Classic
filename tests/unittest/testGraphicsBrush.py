@@ -16,11 +16,12 @@ import testGraphicsObject
 class GraphicsBrushTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):
         self.app = wx.PySimpleApp()
-        self.brush = wx.Brush(wx.Colour(0,0,0))
+        self.color = wx.Colour(0,0,0)
+        self.brush = wx.Brush(self.color)
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()
         self.testControl = self.renderer.CreateBrush(self.brush)
     
-    def testConstructor(self):
+    def testConstructor_wxGraphicsBrushOnly(self):
         """__init__"""
         brush = wx.GraphicsBrush()
         self.assert_(isinstance(brush, wx.GraphicsBrush))

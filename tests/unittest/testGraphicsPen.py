@@ -15,7 +15,7 @@ class GraphicsPenTest(testGraphicsObject.GraphicsObjectTest):
         self.pen = wx.Pen(wx.Colour(0,0,0))
         self.testControl = self.renderer.CreatePen(self.pen)
         
-    def testConstructorPasses(self):
+    def testConstructorPasses_wxGraphicsPenOnly(self):
         """__init__"""
         self.assert_(isinstance(wx.GraphicsPen(),wx.GraphicsPen))
     

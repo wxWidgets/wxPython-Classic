@@ -1,8 +1,5 @@
 """Unit tests for wx.CheckBox.
 
-TODO: update/cleanup docs for this class.  They're quite fleshed out, but could
-    use a once-over
-
 Methods yet to test:
 __init__, Create"""
 
@@ -16,8 +13,8 @@ class CheckBoxTest(testControl.ControlTest):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
-        self.LABEL = "This is the Label Text!"
-        self.testControl = wx.CheckBox(parent=self.frame, label=self.LABEL)
+        self.label = "This is the Label Text!"
+        self.testControl = wx.CheckBox(parent=self.frame, label=self.label)
     
     def test2StateValueFailure(self):
         """Set3StateValue"""
@@ -58,7 +55,7 @@ class CheckBoxTest(testControl.ControlTest):
     def testLabel(self):
         """GetLabel"""
         # Overrides previous testLabel method
-        self.assertEquals(self.LABEL, self.testControl.GetLabel())
+        self.assertEquals(self.label, self.testControl.GetLabel())
     
     def testValueBoolean(self):
         """SetValue, GetValue, IsChecked"""

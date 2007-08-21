@@ -18,7 +18,7 @@ class ComboBoxTest(testChoice.ChoiceTest):
         self.testControl = wx.ComboBox(parent=self.frame)
     
     def testEditable(self):
-        """IsEditable"""
+        """__init__, IsEditable"""
         self.assert_(self.testControl.IsEditable())
         self.testControl = wx.ComboBox(self.frame, style=wx.CB_READONLY)
         self.assert_(not self.testControl.IsEditable())

@@ -22,7 +22,7 @@ class GraphicsRendererTest(unittest.TestCase):
         self.frame.Destroy()
         self.app.Destroy()
 
-    def testConstructorFails(self):
+    def testConstructorFails_wxGraphicsRendererOnly(self):
         """__init__"""
         self.assertRaises(AttributeError, wx.GraphicsRenderer)
     

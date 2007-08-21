@@ -96,6 +96,9 @@ class FontTest(unittest.TestCase):
         for font in getFontData():
             self.assert_(font.IsOk())
             self.assert_(font.Ok())
+    
+    def testOkFails(self):
+        """IsOk, Ok"""
         # HACK: to generate an invalid wx.Font instance
         # NOTE: cannot access font directly without crashing the interpreter
         attr = wx.VisualAttributes()

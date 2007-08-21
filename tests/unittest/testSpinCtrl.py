@@ -17,22 +17,27 @@ class SpinCtrlTest(testControl.ControlTest):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.SpinCtrl(parent=self.frame)
+        self.min = -1000
+        self.max = 1000
+        self.initial = 42
     
-    # crashes interpreter on Windows for some reason
+    # TODO: crashes interpreter on Windows for some reason
     def testAllControlsNeedParents(self):
-        """__init"""
+        """__init__"""
         if wxtest.PlatformIsNotWindows():
             super(SpinCtrlTest,self).testAllControlsNeedParents()
     
+    # TODO: expand tests for constructor; multiple tests, at least one for each option
     def testConstructor(self):
         """__init__"""
         # 'Nearly all of the complexity of the spin ontrol is in the constructor'
         #    - pg.209, 1st paragraph, 'wxPython in Action'
-        a = wx.SpinCtrl(parent=self.frame, min=-1000, max=1000,
-                            initial=42)
-        self.assertEquals(-1000, a.GetMin())
-        self.assertEquals(1000, a.GetMax())
-        self.assertEquals(42, a.GetValue())
+        self.testControl = wx.SpinCtrl(parent=self.frame,
+                            min=self.min, max=self.max,
+                            initial=self.initial)
+        self.assertEquals(self.min, self.testControl.GetMin())
+        self.assertEquals(self.max, self.testControl.GetMax())
+        self.assertEquals(self.initial, self.testControl.GetValue())
     
     def testMinMaxRange(self):
         """SetRange, GetMin, GetMax"""

@@ -17,7 +17,7 @@ class GraphicsPathTest(testGraphicsObject.GraphicsObjectTest):
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()
         self.testControl = self.renderer.CreatePath()
         
-    def testConstructorFails(self):
+    def testConstructorFails_wxGraphicsPath(self):
         """__init__"""
         self.assertRaises(AttributeError, wx.GraphicsPath)
     

@@ -15,10 +15,10 @@ class GraphicsObjectTest(unittest.TestCase):
         self.testControl.Destroy()
         self.app.Destroy()
     
-    def testConstructor(self):
+    def testConstructor_wxGraphicsObjectTest(self):
         """__init__"""
-        obj = wx.GraphicsObject()
-        self.assert_(isinstance(obj, wx.GraphicsObject))
+        self.testControl = wx.GraphicsObject()
+        self.assert_(isinstance(self.testControl, wx.GraphicsObject))
     
     def testGetRenderer(self):
         """GetRenderer"""
@@ -26,7 +26,7 @@ class GraphicsObjectTest(unittest.TestCase):
         #       or to check anything else?
         self.assertEquals(None, self.testControl.GetRenderer())
     
-    def testIsNullFalse(self):
+    def testIsNullFalse_wxGraphicsObjectOnly(self):
         """IsNull"""
         for obj in (wx.NullGraphicsBrush,
                     wx.NullGraphicsFont,

@@ -15,7 +15,7 @@ class GraphicsMatrixTest(testGraphicsObject.GraphicsObjectTest):
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()
         self.testControl = self.renderer.CreateMatrix()
         
-    def testConstructorFails(self):
+    def testConstructorFails_wxGraphicsMatrixOnly(self):
         """__init__"""
         self.assertRaises(AttributeError, wx.GraphicsMatrix)
     
@@ -23,9 +23,9 @@ class GraphicsMatrixTest(testGraphicsObject.GraphicsObjectTest):
         """GetRenderer"""
         # Overrides test in testGraphicsObject.GraphicsObjectTest
         self.assertEquals(repr(self.renderer), repr(self.testControl.GetRenderer()))
-        # I wonder why this fails?
+        # TODO: I wonder why this fails?
         #self.assert_(self.renderer is self.testControl.GetRenderer())
-            
-            
+
+
 if __name__ == '__main__':
     unittest.main()
