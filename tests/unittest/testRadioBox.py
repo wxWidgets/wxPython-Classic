@@ -1,6 +1,6 @@
 """Unit tests for wx.RadioBox.
 
-Note:
+NOTE:
     wx.RadioBox has a GetCount method which isn't in the online docs,
     but is in "wxPython in Action".  The same goes for the 'Enable' method.
         
@@ -13,12 +13,16 @@ import wx
 import testControl
 
 class RadioBoxTest(testControl.ControlTest):
+    def __init__(self, arg):
+        # superclass setup
+        super(RadioBoxTest,self).__init__(arg)
+        self.choices = ["one","two","three","four","five"]
+        
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
-        self.CHOICES = ['one','two','three','four','five']
         self.testControl = wx.RadioBox(parent=self.frame,
-                                choices=self.CHOICES,
+                                choices=self.choices,
                                 majorDimension=1,
                                 style=wx.RA_SPECIFY_COLS # default
                                 )
@@ -26,14 +30,14 @@ class RadioBoxTest(testControl.ControlTest):
     def testColumnCount(self):
         """GetColumnCount"""
         self.assertEquals(1, self.testControl.GetColumnCount())
-        self.testControl = wx.RadioBox(self.frame, choices=self.CHOICES,
+        self.testControl = wx.RadioBox(self.frame, choices=self.choices,
                                         majorDimension=1, style=wx.RA_SPECIFY_ROWS)
-        self.assertEquals(len(self.CHOICES), self.testControl.GetColumnCount())
+        self.assertEquals(len(self.choices), self.testControl.GetColumnCount())
     
     def testCount(self):
         """GetCount"""
         # TODO: This function needs to be documented.
-        self.assertEquals(len(self.CHOICES), self.testControl.GetCount())
+        self.assertEquals(len(self.choices), self.testControl.GetCount())
     
     def testEnable(self):
         """Enable"""
@@ -53,50 +57,51 @@ class RadioBoxTest(testControl.ControlTest):
     
     def testFindString(self):
         """FindString"""
-        for i in range(len(self.CHOICES)):
-            index = self.testControl.FindString(self.CHOICES[i])
+        for i in range(len(self.choices)):
+            index = self.testControl.FindString(self.choices[i])
             self.assertEquals(i, index)
-        self.assertEquals(-1,self.testControl.FindString('asdfjkl;'))
+        self.assertEquals(-1,self.testControl.FindString("asdfjkl;"))
     
     def testGetName(self):
         """GetName"""
         # Overrides testGetName in testControl
-        name = 'Name of Control'
-        ctrl = wx.RadioBox(parent=self.frame, name=name, choices=['a'])
+        self.testControl = wx.RadioBox(parent=self.frame,
+                                    name=self.name, choices=self.choices)
             # needs a non-empty choices list or throws exception (on Windows)
-        self.assertEquals(name, ctrl.GetName())
+            # TODO: test this or report it
+        self.assertEquals(self.name, self.testControl.GetName())
         
     def testGetString(self):
         """GetString"""
-        for i in range(len(self.CHOICES)):
-            self.assertEquals(self.CHOICES[i], self.testControl.GetString(i))
+        for i in range(len(self.choices)):
+            self.assertEquals(self.choices[i], self.testControl.GetString(i))
     
     def testItemHelpText(self):
         """SetItemHelpText, GetItemHelpText"""
-        for i in range(len(self.CHOICES)):
-            txt = 'HelpText' + str(i)
+        for i in range(len(self.choices)):
+            txt = "HelpText" + str(i)
             self.testControl.SetItemHelpText(i,txt)
             self.assertEquals(txt, self.testControl.GetItemHelpText(i))
     
     def testItemLabel(self):
         """SetItemLabel, GetItemLabel"""
-        for i in range(len(self.CHOICES)):
-            txt = 'LabelText' + str(i)
+        for i in range(len(self.choices)):
+            txt = "LabelText" + str(i)
             self.testControl.SetItemLabel(i,txt)
             self.assertEquals(txt, self.testControl.GetItemLabel(i))
         
     def testItemToolTip(self):
         """SetItemToolTip, GetItemToolTip"""
-        for i in range(len(self.CHOICES)):
-            txt = 'ItemToolTipText' + str(i)
+        for i in range(len(self.choices)):
+            txt = "ItemToolTipText" + str(i)
             self.testControl.SetItemToolTip(i,txt)
             self.assertEquals(txt, self.testControl.GetItemToolTip(i).GetTip())
                         # returns a wx.ToolTip
         
     def testRowCount(self):
         """GetRowCount"""
-        self.assertEquals(len(self.CHOICES), self.testControl.GetRowCount())
-        self.testControl = wx.RadioBox(self.frame, choices=self.CHOICES,
+        self.assertEquals(len(self.choices), self.testControl.GetRowCount())
+        self.testControl = wx.RadioBox(self.frame, choices=self.choices,
                                         majorDimension=1, style=wx.RA_SPECIFY_ROWS)
         self.assertEquals(1, self.testControl.GetRowCount())
     
@@ -108,7 +113,7 @@ class RadioBoxTest(testControl.ControlTest):
     
     def testSetString(self):
         """SetString"""
-        for i in range(len(self.CHOICES)):
+        for i in range(len(self.choices)):
             self.testControl.SetString(i, str(i))
             self.assertEquals(str(i), self.testControl.GetString(i))
     
@@ -124,8 +129,8 @@ class RadioBoxTest(testControl.ControlTest):
     
     def testStringSelection(self):
         """GetStringSelection, SetStringSelection"""
-        for i in range(len(self.CHOICES)):
-            sel = self.CHOICES[i]
+        for i in range(len(self.choices)):
+            sel = self.choices[i]
             self.assert_(self.testControl.SetStringSelection(sel))
             self.assertEquals(sel, self.testControl.GetStringSelection())
             
