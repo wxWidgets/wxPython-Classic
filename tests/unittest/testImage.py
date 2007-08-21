@@ -64,7 +64,7 @@ class ImageTest(unittest.TestCase):
     
     def testConstructor(self):
         """__init__"""
-        self.testControl = wx.Image('')
+        self.testControl = wx.Image("")
         self.assert_(isinstance(self.testControl, wx.Image))
     
     def testHeight(self):
@@ -79,7 +79,7 @@ class ImageTest(unittest.TestCase):
         """IsOk, Ok"""
         self.assert_(self.testControl.IsOk())
         self.assert_(self.testControl.Ok())
-        self.testControl = wx.Image('')
+        self.testControl = wx.Image("")
         self.assert_(not self.testControl.IsOk())
         self.assert_(not self.testControl.Ok())
     
@@ -107,11 +107,15 @@ class ImageTest(unittest.TestCase):
         self.testControl.SetAlpha(1,1,wx.IMAGE_ALPHA_THRESHOLD-1)
         self.assert_(not self.testControl.IsTransparent(0,0))
         self.assert_(self.testControl.IsTransparent(1,1))
+    
+    def testTransparentWithTreshold(self):
+        """IsTransparent"""
+        self.testControl.InitAlpha()
         threshold = 55
-        self.testControl.SetAlpha(2,2,threshold)
-        self.testControl.SetAlpha(3,3,threshold-1)
-        self.assert_(not self.testControl.IsTransparent(2,2,threshold))
-        self.assert_(self.testControl.IsTransparent(3,3,threshold))
+        self.testControl.SetAlpha(0,0,threshold)
+        self.testControl.SetAlpha(1,1,threshold-1)
+        self.assert_(not self.testControl.IsTransparent(0,0,threshold))
+        self.assert_(self.testControl.IsTransparent(1,1,threshold))
     
     def testWidth(self):
         """GetWidth"""
