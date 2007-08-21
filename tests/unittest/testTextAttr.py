@@ -14,6 +14,8 @@ class TextAttrTest(unittest.TestCase):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.testControl = wx.TextAttr()
+        self.colour = wx.Colour(128,128,128)
+        self.font = wx.Font(8, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD)
     
     def tearDown(self):
         self.app.Destroy()
@@ -27,16 +29,23 @@ class TextAttrTest(unittest.TestCase):
             self.assert_(self.testControl.HasBackgroundColour())
             self.assertEquals(colour, self.testControl.GetBackgroundColour())
     
-    def testIsDefault(self):
+    def testIsDefaultBackgroundColour(self):
         """IsDefault"""
-        a,b,c = wx.TextAttr(), wx.TextAttr(), wx.TextAttr()
-        for ctrl in (a,b,c,self.testControl):
-            self.assert_(ctrl.IsDefault())
-        a.SetBackgroundColour(wx.Colour(255,0,0))
-        b.SetTextColour(wx.Colour(0,0,255))
-        c.SetFont(wx.Font(8, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
-        for ctrl in (a,b,c):
-            self.assert_(not ctrl.IsDefault())
+        self.assert_(self.testControl.IsDefault())
+        self.testControl.SetBackgroundColour(self.colour)
+        self.assert_(not self.testControl.IsDefault())
+
+    def testIsDefaultTextColour(self):
+        """IsDefault"""
+        self.assert_(self.testControl.IsDefault())
+        self.testControl.SetTextColour(self.colour)
+        self.assert_(not self.testControl.IsDefault())
+
+    def testIsDefaultFont(self):
+        """IsDefault"""
+        self.assert_(self.testControl.IsDefault())
+        self.testControl.SetFont(self.font)
+        self.assert_(not self.testControl.IsDefault())
     
     def testConstructor(self):
         """__init__"""
@@ -48,10 +57,9 @@ class TextAttrTest(unittest.TestCase):
         """SetFont, GetFont, HasFont"""
         self.assert_(not self.testControl.HasFont())
         self.assertEquals(wx.NullFont, self.testControl.GetFont())
-        fn = wx.Font(12, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
-        self.testControl.SetFont(fn)
+        self.testControl.SetFont(self.font)
         self.assert_(self.testControl.HasFont())
-        self.assertEquals(fn, self.testControl.GetFont())
+        self.assertEquals(self.font, self.testControl.GetFont())
     
     def testTextColour(self):
         """SetTextColour, GetTextColour, HasTextColour"""
