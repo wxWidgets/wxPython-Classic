@@ -591,6 +591,10 @@ class _Presenter:
         # Dumb refresh
         self.createTestWin(view.testWin.item)
         self.highlight(self.item)
+        if view.frame.miniFrame:
+            view.frame.miniFrame.Raise()
+        else:
+            view.frame.Raise()
 
     def showXML(self):
         '''Show some source.'''

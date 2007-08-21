@@ -407,8 +407,6 @@ class _Listener:
                 self.testWin.Destroy()
                 Presenter.createTestWin(item)
                 Presenter.highlight(item)
-            # Raise previous window
-            self.frame.Raise()
 
     def OnAutoRefresh(self, evt):
         g.conf.autoRefresh = evt.IsChecked()
