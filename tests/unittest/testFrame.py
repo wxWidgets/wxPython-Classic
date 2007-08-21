@@ -15,17 +15,22 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Frame(parent=self.frame)
+        self.texts = ["one","two","three","four","five"]
+        self.menubar = wx.MenuBar()
+        self.menubar2 = wx.MenuBar()
+        self.statusbar = wx.StatusBar(parent=self.testControl, id=wx.ID_ANY)
+        self.statusbar2 = wx.StatusBar(parent=self.testControl, id=wx.ID_ANY)
+        self.toolbar = wx.ToolBar(self.testControl)
+        self.toolbar2 = wx.ToolBar(self.testControl)
     
     def testMenuBar(self):
         """SetMenuBar, GetMenuBar"""
-        mb = wx.MenuBar()
-        self.testControl.SetMenuBar(mb)
-        self.assertEquals(mb, self.testControl.GetMenuBar())
-        mb2 = wx.MenuBar()
-        self.assertNotEquals(mb, mb2)
-        self.testControl.SetMenuBar(mb2)
-        self.assertEquals(mb2, self.testControl.GetMenuBar())
-        self.assertNotEquals(mb, self.testControl.GetMenuBar())
+        self.testControl.SetMenuBar(self.menubar)
+        self.assertEquals(self.menubar, self.testControl.GetMenuBar())
+        self.assertNotEquals(self.menubar, self.menubar2)
+        self.testControl.SetMenuBar(self.menubar2)
+        self.assertEquals(self.menubar2, self.testControl.GetMenuBar())
+        self.assertNotEquals(self.menubar, self.testControl.GetMenuBar())
     
     # see testSize method, below; probably the same issue
     def testRect(self):
@@ -47,43 +52,39 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
     
     def testStatusBar(self):
         """SetStatusBar, GetStatusBar"""
-        sb1 = wx.StatusBar(parent=self.testControl, id=wx.ID_ANY)
-        sb2 = wx.StatusBar(parent=self.testControl, id=wx.ID_ANY)
-        self.assertNotEquals(sb1,sb2) # sanity check
-        self.testControl.SetStatusBar(sb1)
-        self.assertEquals(sb1, self.testControl.GetStatusBar())
-        self.testControl.SetStatusBar(sb2)
-        self.assertEquals(sb2, self.testControl.GetStatusBar())
-        self.assertNotEquals(sb1, self.testControl.GetStatusBar())
+        self.assertNotEquals(self.statusbar,self.statusbar2) # sanity check
+        self.testControl.SetStatusBar(self.statusbar)
+        self.assertEquals(self.statusbar, self.testControl.GetStatusBar())
+        self.testControl.SetStatusBar(self.statusbar2)
+        self.assertEquals(self.statusbar2, self.testControl.GetStatusBar())
+        self.assertNotEquals(self.statusbar, self.testControl.GetStatusBar())
         
     def testStatusBarCreation(self):
         """CreateStatusBar, GetStatusBar"""
         if wxtest.ASSERTIONS_ON:
-            self.assertRaises(wx.PyAssertionError, self.testControl.PushStatusText, 'text')
+            self.assertRaises(wx.PyAssertionError, self.testControl.PushStatusText, "text")
         else:
-            self.testControl.PushStatusText('text')
+            self.testControl.PushStatusText("text")
         sb = self.testControl.CreateStatusBar()
-        self.testControl.PushStatusText('text') # test that it doesn't blow up
+        self.testControl.PushStatusText("text") # test that it doesn't blow up
         self.assert_(isinstance(self.testControl.GetStatusBar(), wx.StatusBar))
         self.assertEquals(sb, self.testControl.GetStatusBar())
     
     def testStatusBarPushPop(self):
         """PushStatusText, PopStatusText"""
-        sb = self.testControl.CreateStatusBar()
-        txts = ('one','two','three','four','five')
-        for txt in txts:
+        self.testControl.SetStatusBar(self.statusbar)
+        for txt in self.texts:
             self.testControl.PushStatusText(txt)
-        for t in txts[::-1]:
-            self.assertEquals(t, sb.GetStatusText())
+        for t in self.texts[::-1]:
+            self.assertEquals(t, self.statusbar.GetStatusText())
             self.testControl.PopStatusText()
     
     def testStatusBarText(self):
-        """SetStatusText, GetStatusBar"""
-        sb = self.testControl.CreateStatusBar()
-        txts = ('lorem','ipsum','dolor','sit','amet')
-        for txt in txts:
+        """SetStatusText, GetStatusText"""
+        self.testControl.SetStatusBar(self.statusbar)
+        for txt in self.texts:
             self.testControl.SetStatusText(txt)
-            self.assertEquals(txt, sb.GetStatusText())
+            self.assertEquals(txt, self.statusbar.GetStatusText())
     
     def testToolBar(self):
         """CreateToolBar"""
@@ -92,14 +93,12 @@ class FrameTest(testTopLevelWindow.TopLevelWindowBase):
     
     def testToolBarCreation(self):
         """SetToolBar, GetToolBar"""
-        tb1 = wx.ToolBar(self.testControl)
-        tb2 = wx.ToolBar(self.testControl)
-        self.assertNotEquals(tb1,tb2) # sanity check
-        self.testControl.SetToolBar(tb1)
-        self.assertEquals(tb1, self.testControl.GetToolBar())
-        self.testControl.SetToolBar(tb2)
-        self.assertEquals(tb2, self.testControl.GetToolBar())
-        self.assertNotEquals(tb1, self.testControl.GetToolBar())
+        self.assertNotEquals(self.toolbar,self.toolbar2) # sanity check
+        self.testControl.SetToolBar(self.toolbar)
+        self.assertEquals(self.toolbar, self.testControl.GetToolBar())
+        self.testControl.SetToolBar(self.toolbar2)
+        self.assertEquals(self.toolbar2, self.testControl.GetToolBar())
+        self.assertNotEquals(self.toolbar, self.testControl.GetToolBar())
     
 
 if __name__ == '__main__':
