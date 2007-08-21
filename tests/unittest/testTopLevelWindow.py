@@ -11,7 +11,25 @@ import wx
 
 import testWindow
 
+class TopLevelWindowTest(unittest.TestCase):
+    def setUp(self):
+        self.app = wx.PySimpleApp()
+    
+    def tearDown(self):
+        self.app.Destroy()
+    
+    def testConstructorFails(self):
+        """__init__"""
+        self.assertRaises(AttributeError, wx.TopLevelWindow)
+
+# -----------------------------------------------------------
+
 class TopLevelWindowBase(testWindow.WindowTest):
+    def __init__(self, arg):
+        # superclass setup
+        super(TopLevelWindowBase,self).__init__(arg)
+        self.title = "Lorem Ipsum"
+        
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
@@ -50,36 +68,21 @@ class TopLevelWindowBase(testWindow.WindowTest):
         self.testControl.Maximize(True)
         self.assert_(self.testControl.IsMaximized())
     
+    # TODO: test title with newlines and special characters
     def testTitle(self):
         """SetTitle, GetTitle"""
-        class_under_test = type(self.testControl)
-        title = "Hello, World!"
-        t = class_under_test(parent=self.frame, id=wx.ID_ANY, title=title)
-        self.assertEquals(title, t.GetTitle())
-        self.testControl.SetTitle(title)
-        self.assertEquals(title, self.testControl.GetTitle())
-        title2 = "The quick brown fox jumps over the lazy dog"
-        self.testControl.SetTitle(title2)
-        self.assertEquals(title2, self.testControl.GetTitle())
+        self.testControl.SetTitle(self.title)
+        self.assertEquals(self.title, self.testControl.GetTitle())
+    
+    def testTitleConstructor(self):
+        """__init__, GetTitle"""
+        self.testControl = type(self.testControl)(self.frame, title=self.title)
+        self.assertEquals(self.title, self.testControl.GetTitle())
         
     def testTopLevel(self):
         """IsTopLevel"""
         self.assert_(self.testControl.IsTopLevel())
-
-# -----------------------------------------------------------
-
-class TopLevelWindowTest(unittest.TestCase):
-    def setUp(self):
-        self.app = wx.PySimpleApp()
-    
-    def tearDown(self):
-        self.app.Destroy()
-    
-    def testConstructorFails(self):
-        """__init__"""
-        self.assertRaises(AttributeError, wx.TopLevelWindow)
-
-# -----------------------------------------------------------
+        
     
 if __name__ == '__main__':
     unittest.main(defaultTest='TopLevelWindowTest')
