@@ -12,13 +12,13 @@ class GraphicsFontTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()
-        self.testControl = self.renderer.CreateFont(
-                wx.Font(8, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL))
+        self.font = wx.Font(8, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
+        self.testControl = self.renderer.CreateFont(self.font)
     
-    def testConstructor(self):
+    def testConstructor_wxGraphicsFontOnly(self):
         """__init__"""
-        font = wx.GraphicsFont()
-        self.assert_(isinstance(font, wx.GraphicsFont))
+        self.testControl = wx.GraphicsFont()
+        self.assert_(isinstance(self.testControl, wx.GraphicsFont))
     
     def testGetRenderer(self):
         """GetRenderer"""
