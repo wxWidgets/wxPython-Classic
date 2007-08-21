@@ -10,6 +10,13 @@ import wxtest
 import testWindow
 
 class ControlTest(testWindow.WindowTest):
+    def __init__(self, arg):
+        # superclass setup
+        super(ControlTest,self).__init__(arg)
+        self.name = "Name of Control"
+        self.label_with_mnemonic = "Hello &World"
+        self.label_without_mnemonic = "Hello World"
+    
     def setUp(self):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
@@ -23,7 +30,11 @@ class ControlTest(testWindow.WindowTest):
         "wxWidgets does require that non top-level windows have a parent, 
         it's just not enforced in debug mode on wxGTK like the others do."
         For more information, see 
-        http://lists.wxwidgets.org/cgi-bin/ezmlm-cgi?12:mss:3440:fjmhidphpdnbhoobomhi'''
+        http://lists.wxwidgets.org/cgi-bin/ezmlm-cgi?12:mss:3440:fjmhidphpdnbhoobomhi
+        
+        UPDATE: This may have more to do with the 'wx-assertions-on' flag than GTK itself.
+            More research must be done.
+        '''
         class_under_test = type(self.testControl)
         if wxtest.ASSERTIONS_ON:
             self.assertRaises(wx.PyAssertionError, class_under_test, None)
@@ -32,18 +43,14 @@ class ControlTest(testWindow.WindowTest):
 
     def testGetName(self):
         """GetName"""
-        name = 'Name of Control'
-        class_under_test = type(self.testControl)
-        ctrl = class_under_test(parent=self.frame, name=name)
-        self.assertEquals(name, ctrl.GetName())
+        self.testControl = type(self.testControl)(parent=self.frame, name=self.name)
+        self.assertEquals(self.name, self.testControl.GetName())
     
     def testLabelText(self):
         """SetLabel, GetLabelText"""
         # GetLabelText removes the mnemonics
-        label = "Hello &World"
-        labeltext = label.replace('&','')
-        self.testControl.SetLabel(label)
-        self.assertEquals(labeltext, self.testControl.GetLabelText())
+        self.testControl.SetLabel(self.label_with_mnemonic)
+        self.assertEquals(self.label_without_mnemonic, self.testControl.GetLabelText())
     
 
 if __name__ == '__main__':
