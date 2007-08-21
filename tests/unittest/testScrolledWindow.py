@@ -15,6 +15,7 @@ class ScrolledWindowTest(testPanel.PanelTest):
         self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.ScrolledWindow(parent=self.frame)
+        self.windows = [ wx.Window(self.frame) for i in range(3) ]
     
     def testScale(self):
         """SetScale, GetScaleX, GetScaleY"""
@@ -42,10 +43,13 @@ class ScrolledWindowTest(testPanel.PanelTest):
     
     def testTargetWindow(self):
         """SetTargetWindow, GetTargetWindow"""
-        wins = (wx.Window(self.frame), wx.Window(self.frame), wx.Window(self.frame))
-        for w in wins:
-            self.testControl.SetTargetWindow(w)
-            self.assertEquals(w, self.testControl.GetTargetWindow())
+        for i in range(len(self.windows)):
+            window = self.windows[i]
+            self.testControl.SetTargetWindow(window)
+            self.assertEquals(window, self.testControl.GetTargetWindow())
+            for j in range(len(self.windows)):
+                if i == j: continue
+                self.assertNotEquals(self.windows[j], self.testControl.GetTargetWindow())
             
             
 if __name__ == '__main__':
