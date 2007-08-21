@@ -122,6 +122,10 @@ class ToolPanel(wx.Panel):
     def OnButton(self, evt):
         if not self.drag: evt.Skip()
         self.drag = False
+        if view.frame.miniFrame:
+            view.frame.miniFrame.Raise()
+        else:
+            view.frame.Raise()
 
     def OnMotionOnButton(self, evt):
         # Detect dragging

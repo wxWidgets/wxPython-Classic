@@ -110,6 +110,7 @@ class Panel(wx.Panel):
         map(self.nb.RemovePage, range(self.nb.GetPageCount()-1, 0, -1))
         
         self.comp = comp
+        self.node = node        # main node
         panels = []
         # Class and name
         if comp.klass != 'root':
@@ -217,6 +218,7 @@ class Panel(wx.Panel):
     # Set data for a style panel
     def SetStyleValues(self, panel, style):
         panel.style = style
+        panel.node = self.node
         styles = map(string.strip, style.split('|')) # to list
         for s,w in panel.controls:
             w.SetValue(s in styles)

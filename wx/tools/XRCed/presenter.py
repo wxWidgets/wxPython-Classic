@@ -87,6 +87,12 @@ class _Presenter:
         # Update GUI
         if state:
             view.frame.SetTitle(progname + ': ' + name + ' *')
+            # Update test window
+            if view.testWin.IsShown():
+                if g.conf.autoRefresh:
+                    self.refreshTestWin()
+                else:
+                    view.testWin.isDirty = True
         else:
             view.frame.SetTitle(progname + ': ' + name)
 
@@ -299,22 +305,19 @@ class _Presenter:
                 node.setAttribute('name', view.panel.controlName.GetValue())
             elif node.hasAttribute('name'): # clean up empty names
                 node.removeAttribute('name')
+# !!! Remove: normalize does this
+#        if item != view.tree.root: 
+#            for panel in self.panels:
+#                # Replace node contents except object children
+#                for n in panel.node.childNodes[:]:
+#                    if not is_object(n):
+#                        panel.node.removeChild(n)
+#                        n.unlink()
         for panel in self.panels:
-            if not panel.node: continue
-            # Replace node contents except object children
-            for n in panel.node.childNodes[:]:
-                if not is_object(n):
-                    panel.node.removeChild(n)
-                    n.unlink()
-        for panel in self.panels:
-            if panel.node:
-                panelNode = panel.node
-            else:
-                panelNode = node
             for a,value in panel.GetValues():
                 if value: 
                     try:
-                        self.comp.addAttribute(panelNode, a, value)
+                        self.comp.addAttribute(panel.node, a, value)
                     except:
                         logging.exception('addAttribute error: %s %s', a, value)
         if item != view.tree.root:
@@ -342,14 +345,6 @@ class _Presenter:
         self.unselect()
         self.setApplied()
         self.setModified()
-
-        if view.testWin.IsShown():
-            if g.conf.autoRefresh:
-                self.refreshTestWin()
-            else:
-                view.testWin.isDirty = True
-
-        return node
 
     def deleteMany(self, items):
         '''Delete selected object(s).'''
@@ -446,7 +441,86 @@ class _Presenter:
         for n in filter(is_object, node.childNodes):
             view.tree.AddNode(item, comp.getTreeNode(n))
         self.setModified()
+
+    def moveUp(self):
+        treeNode = view.tree.GetPyData(self.item)
+        node = self.container.getTreeOrImplicitNode(treeNode)
+        parent = node.parentNode
+        prevNode = node.previousSibling
+        parent.removeChild(node)
+        parent.insertBefore(node, prevNode)
+        index = view.tree.ItemFullIndex(self.item)
+        view.tree.Flush()
+        index[-1] -= 1
+        self.item = view.tree.ItemAtFullIndex(index)
+        self.setModified()
+        view.tree.SelectItem(self.item)
         
+    def moveDown(self):
+        treeNode = view.tree.GetPyData(self.item)
+        node = self.container.getTreeOrImplicitNode(treeNode)
+        parent = node.parentNode
+        nextNode = node.nextSibling
+        parent.removeChild(node)
+        parent.insertBefore(node, nextNode)
+        index = view.tree.ItemFullIndex(self.item)
+        view.tree.Flush()
+        index[-1] += 1
+        self.item = view.tree.ItemAtFullIndex(index)
+        self.setModified()
+        view.tree.SelectItem(self.item)
+
+    def moveLeft(self):
+        parentItem = view.tree.GetItemParent(self.item)
+        parent = view.tree.GetPyData(parentItem)
+        grandParent = view.tree.GetPyData(view.tree.GetItemParent(parentItem))
+        if grandParent is Model.mainNode:
+            grandParentComp = Manager.rootComponent
+        else:
+            grandParentComp = Manager.getNodeComp(grandParent)
+        if not grandParentComp.canHaveChild(self.comp):
+            wx.LogError('Incompatible parent/child: parent is %s, child is %s!' %
+                        (grandParentComp.klass, self.comp.klass))
+            return
+
+        node = view.tree.GetPyData(self.item)
+        nextItem = view.tree.GetNextSibling(parentItem)
+        self.container.removeChild(parent, node)
+        if nextItem:
+            nextNode = view.tree.GetPyData(nextItem)
+            grandParentComp.insertBefore(grandParent, node, nextNode)
+        else:
+            grandParentComp.appendChild(grandParent, node)
+        index = view.tree.ItemFullIndex(self.item)
+        view.tree.Flush()
+        index.pop()
+        index[-1] += 1
+        self.item = view.tree.ItemAtFullIndex(index)
+        self.setModified()
+        view.tree.SelectItem(self.item)
+
+    def moveRight(self):
+        parentItem = view.tree.GetItemParent(self.item)
+        parent = view.tree.GetPyData(parentItem)
+        newParent = view.tree.GetPyData(view.tree.GetPrevSibling(self.item))
+        newParentComp = Manager.getNodeComp(newParent)
+        if not newParentComp.canHaveChild(self.comp):
+            wx.LogError('Incompatible parent/child: parent is %s, child is %s!' %
+                        (newParentComp.klass, self.comp.klass))
+            return
+
+        node = view.tree.GetPyData(self.item)
+        self.container.removeChild(parent, node)
+        newParentComp.appendChild(newParent, node)
+        index = view.tree.ItemFullIndex(self.item)
+        n = view.tree.GetChildrenCount(view.tree.GetPrevSibling(parentItem))
+        view.tree.Flush()
+        index[-1] -= 1
+        index.append(n)
+        self.item = view.tree.ItemAtFullIndex(index)
+        self.setModified()
+        view.tree.SelectItem(self.item)
+
     def createLocalConf(self, path):
         name = os.path.splitext(path)[0]
         name += '.xcfg'

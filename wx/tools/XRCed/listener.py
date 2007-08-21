@@ -229,6 +229,11 @@ class _Listener:
                 path = dlg.GetPath()
                 if isinstance(path, unicode):
                     path = path.encode(sys.getfilesystemencoding())
+                if not os.path.splitext(path)[1]:
+                    if g.useMeta:
+                        path += '.crx'
+                    else:
+                        path += '.xrc'
                 dlg.Destroy()
             else:
                 dlg.Destroy()
@@ -367,16 +372,24 @@ class _Listener:
         raise NotImplementedError
 
     def OnMoveUp(self, evt):
-        raise NotImplementedError
+        self.inIdle = True
+        Presenter.moveUp()
+        self.inIdle = False
 
     def OnMoveDown(self, evt):
-        raise NotImplementedError
+        self.inIdle = True
+        Presenter.moveUp()
+        self.inIdle = False
     
     def OnMoveLeft(self, evt):
-        raise NotImplementedError
+        self.inIdle = True
+        Presenter.moveLeft()
+        self.inIdle = False
 
     def OnMoveRight(self, evt):
-        raise NotImplementedError
+        self.inIdle = True
+        Presenter.moveRight()
+        self.inIdle = False
 
     def OnLocate(self, evt):
         frame = self.testWin.GetFrame()
@@ -520,8 +533,17 @@ Homepage: http://xrced.sourceforge.net\
     def OnUpdateUI(self, evt):
         if self.inUpdateUI: return          # Recursive call protection
         self.inUpdateUI = True
+        container = Presenter.container
+        comp = Presenter.comp
+        treeNode = self.tree.GetPyData(Presenter.item)
         if evt.GetId() in [wx.ID_CUT, wx.ID_COPY, wx.ID_DELETE]:
             evt.Enable(bool(self.tree.GetSelection()))
+        elif evt.GetId() in [self.frame.ID_MOVEUP, self.frame.ID_MOVERIGHT]:
+            evt.Enable(view.tree.GetPrevSibling(Presenter.item).IsOk())
+        elif evt.GetId() == self.frame.ID_MOVEDOWN:
+            evt.Enable(view.tree.GetNextSibling(Presenter.item).IsOk())
+        elif evt.GetId() == self.frame.ID_MOVELEFT:
+            evt.Enable(view.tree.GetItemParent(Presenter.item).IsOk())
         elif evt.GetId() == wx.ID_SAVE:
             evt.Enable(Presenter.modified)
 #        elif evt.GetId() in [self.frame.ID_SHOW_XML]:

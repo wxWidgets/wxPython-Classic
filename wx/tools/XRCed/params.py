@@ -11,9 +11,6 @@ from globals import *
 
 WARenameDict = {'fg': 'foreground', 'bg': 'background'}
 
-# Global vars initialized in Panel.__init__ for button and textbox size in screen pixels
-textH = None
-
 def InitParams(panel):
     '''Set pixel common size based on parent window.'''
 
@@ -22,13 +19,10 @@ def InitParams(panel):
 
     dc = wx.ClientDC(panel)
     global textH, textB
-    # Default text param size
-    ParamText.textWidth, textH = dc.GetTextExtent('MUUUUUUUUUU')
+    textH = -1
     if wx.Platform == '__WXMAC__':
-        textH += 4
         textB = 3               # bigger text border needed for mac highlighting
     else:
-        textH += 8                      # maybe -1 is better...
         textB = 2
     dc.Destroy()
 

@@ -334,6 +334,7 @@ class RootComponent(Container):
 
 
 class SmartContainer(Container):
+    '''Base class for containers with implicit nodes.'''
     implicitRenameDict = {}
     def __init__(self, klass, groups, attributes, **kargs):
         Container.__init__(self, klass, groups, attributes, **kargs)
@@ -343,7 +344,6 @@ class SmartContainer(Container):
         # This is optional
         self.implicitParams = kargs.get('implicit_params', {})
 
-    '''Base class for containers with implicit nodes.'''
     def getTreeNode(self, node):
         if node.getAttribute('class') == self.implicitKlass:
             for n in node.childNodes: # find first object
