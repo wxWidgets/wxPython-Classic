@@ -1317,6 +1317,14 @@ class AuiTabContainer(object):
         """SetTabOffset(self, size_t offset)"""
         return _aui.AuiTabContainer_SetTabOffset(*args, **kwargs)
 
+    def IsTabVisible(*args, **kwargs):
+        """IsTabVisible(self, int tabPage, int tabOffset, DC dc, Window wnd) -> bool"""
+        return _aui.AuiTabContainer_IsTabVisible(*args, **kwargs)
+
+    def MakeTabVisible(*args, **kwargs):
+        """MakeTabVisible(self, int tabPage, Window win)"""
+        return _aui.AuiTabContainer_MakeTabVisible(*args, **kwargs)
+
     ActivePage = property(GetActivePage,SetActivePage,doc="See `GetActivePage` and `SetActivePage`") 
     PageCount = property(GetPageCount,doc="See `GetPageCount`") 
     Pages = property(GetPages,doc="See `GetPages`") 
@@ -1464,6 +1472,14 @@ class AuiNotebook(_core.Control):
         """GetHeightForPageHeight(self, int pageHeight) -> int"""
         return _aui.AuiNotebook_GetHeightForPageHeight(*args, **kwargs)
 
+    def AdvanceSelection(*args, **kwargs):
+        """AdvanceSelection(self, bool forward=True)"""
+        return _aui.AuiNotebook_AdvanceSelection(*args, **kwargs)
+
+    def ShowWindowMenu(*args, **kwargs):
+        """ShowWindowMenu(self) -> bool"""
+        return _aui.AuiNotebook_ShowWindowMenu(*args, **kwargs)
+
     PageCount = property(GetPageCount,doc="See `GetPageCount`") 
     Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
 _aui.AuiNotebook_swigregister(AuiNotebook)
@@ -1475,6 +1491,7 @@ def PreAuiNotebook(*args, **kwargs):
     return val
 
 wxEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSE = _aui.wxEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSE
+wxEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSED = _aui.wxEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSED
 wxEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGED = _aui.wxEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGED
 wxEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGING = _aui.wxEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGING
 wxEVT_COMMAND_AUINOTEBOOK_BUTTON = _aui.wxEVT_COMMAND_AUINOTEBOOK_BUTTON
@@ -1482,7 +1499,10 @@ wxEVT_COMMAND_AUINOTEBOOK_BEGIN_DRAG = _aui.wxEVT_COMMAND_AUINOTEBOOK_BEGIN_DRAG
 wxEVT_COMMAND_AUINOTEBOOK_END_DRAG = _aui.wxEVT_COMMAND_AUINOTEBOOK_END_DRAG
 wxEVT_COMMAND_AUINOTEBOOK_DRAG_MOTION = _aui.wxEVT_COMMAND_AUINOTEBOOK_DRAG_MOTION
 wxEVT_COMMAND_AUINOTEBOOK_ALLOW_DND = _aui.wxEVT_COMMAND_AUINOTEBOOK_ALLOW_DND
+wxEVT_COMMAND_AUINOTEBOOK_DRAG_DONE = _aui.wxEVT_COMMAND_AUINOTEBOOK_DRAG_DONE
+wxEVT_COMMAND_AUINOTEBOOK_BG_DCLICK = _aui.wxEVT_COMMAND_AUINOTEBOOK_BG_DCLICK
 EVT_AUINOTEBOOK_PAGE_CLOSE = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSE, 1 )
+EVT_AUINOTEBOOK_PAGE_CLOSED = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSED, 1 )
 EVT_AUINOTEBOOK_PAGE_CHANGED = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGED, 1 )
 EVT_AUINOTEBOOK_PAGE_CHANGING = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGING, 1 )
 EVT_AUINOTEBOOK_BUTTON = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_BUTTON, 1 )
@@ -1490,6 +1510,8 @@ EVT_AUINOTEBOOK_BEGIN_DRAG = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_BEGIN_D
 EVT_AUINOTEBOOK_END_DRAG = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_END_DRAG, 1 )
 EVT_AUINOTEBOOK_DRAG_MOTION = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_DRAG_MOTION, 1 )
 EVT_AUINOTEBOOK_ALLOW_DND = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_ALLOW_DND, 1 )
+EVT_AUINOTEBOOK_DRAG_DONE = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_DRAG_DONE, 1 )
+EVT_AUINOTEBOOK_BG_DCLICK = wx.PyEventBinder( wxEVT_COMMAND_AUINOTEBOOK_BG_DCLICK, 1 )
 
 class AuiMDIParentFrame(_windows.Frame):
     """Proxy of C++ AuiMDIParentFrame class"""

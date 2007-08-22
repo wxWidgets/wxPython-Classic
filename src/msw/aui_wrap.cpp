@@ -14870,6 +14870,121 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiTabContainer_IsTabVisible(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiTabContainer *arg1 = (wxAuiTabContainer *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  wxDC *arg4 = (wxDC *) 0 ;
+  wxWindow *arg5 = (wxWindow *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "tabPage",(char *) "tabOffset",(char *) "dc",(char *) "wnd", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOO:AuiTabContainer_IsTabVisible",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiTabContainer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainer_IsTabVisible" "', expected argument " "1"" of type '" "wxAuiTabContainer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiTabContainer * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "AuiTabContainer_IsTabVisible" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "AuiTabContainer_IsTabVisible" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "AuiTabContainer_IsTabVisible" "', expected argument " "4"" of type '" "wxDC *""'"); 
+  }
+  arg4 = reinterpret_cast< wxDC * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "AuiTabContainer_IsTabVisible" "', expected argument " "5"" of type '" "wxWindow *""'"); 
+  }
+  arg5 = reinterpret_cast< wxWindow * >(argp5);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->IsTabVisible(arg2,arg3,arg4,arg5);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiTabContainer_MakeTabVisible(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiTabContainer *arg1 = (wxAuiTabContainer *) 0 ;
+  int arg2 ;
+  wxWindow *arg3 = (wxWindow *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "tabPage",(char *) "win", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiTabContainer_MakeTabVisible",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiTabContainer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainer_MakeTabVisible" "', expected argument " "1"" of type '" "wxAuiTabContainer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiTabContainer * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "AuiTabContainer_MakeTabVisible" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "AuiTabContainer_MakeTabVisible" "', expected argument " "3"" of type '" "wxWindow *""'"); 
+  }
+  arg3 = reinterpret_cast< wxWindow * >(argp3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->MakeTabVisible(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *AuiTabContainer_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -16251,6 +16366,76 @@ SWIGINTERN PyObject *_wrap_AuiNotebook_GetHeightForPageHeight(PyObject *SWIGUNUS
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiNotebook_AdvanceSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiNotebook *arg1 = (wxAuiNotebook *) 0 ;
+  bool arg2 = (bool) true ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "forward", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:AuiNotebook_AdvanceSelection",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiNotebook, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiNotebook_AdvanceSelection" "', expected argument " "1"" of type '" "wxAuiNotebook *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiNotebook * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_bool(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "AuiNotebook_AdvanceSelection" "', expected argument " "2"" of type '" "bool""'");
+    } 
+    arg2 = static_cast< bool >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->AdvanceSelection(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiNotebook_ShowWindowMenu(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiNotebook *arg1 = (wxAuiNotebook *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiNotebook, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiNotebook_ShowWindowMenu" "', expected argument " "1"" of type '" "wxAuiNotebook *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiNotebook * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->ShowWindowMenu();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -18835,6 +19020,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiTabContainer_AddButton", (PyCFunction) _wrap_AuiTabContainer_AddButton, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabContainer_GetTabOffset", (PyCFunction)_wrap_AuiTabContainer_GetTabOffset, METH_O, NULL},
 	 { (char *)"AuiTabContainer_SetTabOffset", (PyCFunction) _wrap_AuiTabContainer_SetTabOffset, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiTabContainer_IsTabVisible", (PyCFunction) _wrap_AuiTabContainer_IsTabVisible, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiTabContainer_MakeTabVisible", (PyCFunction) _wrap_AuiTabContainer_MakeTabVisible, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabContainer_swigregister", AuiTabContainer_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiTabContainer_swiginit", AuiTabContainer_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_AuiTabCtrl", (PyCFunction) _wrap_new_AuiTabCtrl, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -18870,6 +19057,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiNotebook_SetMeasuringFont", (PyCFunction) _wrap_AuiNotebook_SetMeasuringFont, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiNotebook_GetTabCtrlHeight", (PyCFunction)_wrap_AuiNotebook_GetTabCtrlHeight, METH_O, NULL},
 	 { (char *)"AuiNotebook_GetHeightForPageHeight", (PyCFunction) _wrap_AuiNotebook_GetHeightForPageHeight, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiNotebook_AdvanceSelection", (PyCFunction) _wrap_AuiNotebook_AdvanceSelection, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiNotebook_ShowWindowMenu", (PyCFunction)_wrap_AuiNotebook_ShowWindowMenu, METH_O, NULL},
 	 { (char *)"AuiNotebook_swigregister", AuiNotebook_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiNotebook_swiginit", AuiNotebook_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PreAuiMDIParentFrame", (PyCFunction)_wrap_new_PreAuiMDIParentFrame, METH_NOARGS, NULL},
@@ -21837,6 +22026,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "AUI_NB_MIDDLE_CLICK_CLOSE",SWIG_From_int(static_cast< int >(wxAUI_NB_MIDDLE_CLICK_CLOSE)));
   SWIG_Python_SetConstant(d, "AUI_NB_DEFAULT_STYLE",SWIG_From_int(static_cast< int >(wxAUI_NB_DEFAULT_STYLE)));
   PyDict_SetItemString(d, "wxEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSE", PyInt_FromLong(wxEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSE));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSED", PyInt_FromLong(wxEVT_COMMAND_AUINOTEBOOK_PAGE_CLOSED));
   PyDict_SetItemString(d, "wxEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGED", PyInt_FromLong(wxEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGED));
   PyDict_SetItemString(d, "wxEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGING", PyInt_FromLong(wxEVT_COMMAND_AUINOTEBOOK_PAGE_CHANGING));
   PyDict_SetItemString(d, "wxEVT_COMMAND_AUINOTEBOOK_BUTTON", PyInt_FromLong(wxEVT_COMMAND_AUINOTEBOOK_BUTTON));
@@ -21844,5 +22034,7 @@ SWIGEXPORT void SWIG_init(void) {
   PyDict_SetItemString(d, "wxEVT_COMMAND_AUINOTEBOOK_END_DRAG", PyInt_FromLong(wxEVT_COMMAND_AUINOTEBOOK_END_DRAG));
   PyDict_SetItemString(d, "wxEVT_COMMAND_AUINOTEBOOK_DRAG_MOTION", PyInt_FromLong(wxEVT_COMMAND_AUINOTEBOOK_DRAG_MOTION));
   PyDict_SetItemString(d, "wxEVT_COMMAND_AUINOTEBOOK_ALLOW_DND", PyInt_FromLong(wxEVT_COMMAND_AUINOTEBOOK_ALLOW_DND));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_AUINOTEBOOK_DRAG_DONE", PyInt_FromLong(wxEVT_COMMAND_AUINOTEBOOK_DRAG_DONE));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_AUINOTEBOOK_BG_DCLICK", PyInt_FromLong(wxEVT_COMMAND_AUINOTEBOOK_BG_DCLICK));
 }
 

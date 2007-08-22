@@ -45382,6 +45382,51 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Menu_GetLabelText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMenu *arg1 = (wxMenu *) 0 ;
+  int arg2 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "itemid", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Menu_GetLabelText",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMenu, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Menu_GetLabelText" "', expected argument " "1"" of type '" "wxMenu const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMenu * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Menu_GetLabelText" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxMenu const *)arg1)->GetLabelText(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *Menu_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -46629,6 +46674,150 @@ SWIGINTERN PyObject *_wrap_MenuBar_GetAutoWindowMenu(PyObject *SWIGUNUSEDPARM(se
   }
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MenuBar_GetMenuLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMenuBar *arg1 = (wxMenuBar *) 0 ;
+  size_t arg2 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pos", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MenuBar_GetMenuLabel",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMenuBar, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MenuBar_GetMenuLabel" "', expected argument " "1"" of type '" "wxMenuBar const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMenuBar * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MenuBar_GetMenuLabel" "', expected argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxMenuBar const *)arg1)->GetMenuLabel(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MenuBar_SetMenuLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMenuBar *arg1 = (wxMenuBar *) 0 ;
+  size_t arg2 ;
+  wxString *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  bool temp3 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pos",(char *) "label", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:MenuBar_SetMenuLabel",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMenuBar, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MenuBar_SetMenuLabel" "', expected argument " "1"" of type '" "wxMenuBar *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMenuBar * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MenuBar_SetMenuLabel" "', expected argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  {
+    arg3 = wxString_in_helper(obj2);
+    if (arg3 == NULL) SWIG_fail;
+    temp3 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetMenuLabel(arg2,(wxString const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MenuBar_GetMenuLabelText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMenuBar *arg1 = (wxMenuBar *) 0 ;
+  size_t arg2 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pos", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MenuBar_GetMenuLabelText",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMenuBar, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MenuBar_GetMenuLabelText" "', expected argument " "1"" of type '" "wxMenuBar const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMenuBar * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MenuBar_GetMenuLabelText" "', expected argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxMenuBar const *)arg1)->GetMenuLabelText(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
   }
   return resultobj;
 fail:
@@ -48228,6 +48417,162 @@ SWIGINTERN PyObject *_wrap_MenuItem_ResetOwnerDrawn(PyObject *SWIGUNUSEDPARM(sel
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MenuItem_GetItemLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMenuItem *arg1 = (wxMenuItem *) 0 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMenuItem, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MenuItem_GetItemLabel" "', expected argument " "1"" of type '" "wxMenuItem const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMenuItem * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxMenuItem const *)arg1)->GetItemLabel();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MenuItem_SetItemLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMenuItem *arg1 = (wxMenuItem *) 0 ;
+  wxString *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "str", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MenuItem_SetItemLabel",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMenuItem, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MenuItem_SetItemLabel" "', expected argument " "1"" of type '" "wxMenuItem *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMenuItem * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetItemLabel((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MenuItem_GetItemLabelText(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMenuItem *arg1 = (wxMenuItem *) 0 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMenuItem, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MenuItem_GetItemLabelText" "', expected argument " "1"" of type '" "wxMenuItem const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMenuItem * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxMenuItem const *)arg1)->GetItemLabelText();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MenuItem_GetLabelText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxString *arg1 = 0 ;
+  wxString result;
+  bool temp1 = false ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "label", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:MenuItem_GetLabelText",kwnames,&obj0)) SWIG_fail;
+  {
+    arg1 = wxString_in_helper(obj0);
+    if (arg1 == NULL) SWIG_fail;
+    temp1 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxMenuItem::GetLabelText((wxString const &)*arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  {
+    if (temp1)
+    delete arg1;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp1)
+    delete arg1;
+  }
   return NULL;
 }
 
@@ -59875,6 +60220,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Menu_IsAttached", (PyCFunction)_wrap_Menu_IsAttached, METH_O, NULL},
 	 { (char *)"Menu_SetParent", (PyCFunction) _wrap_Menu_SetParent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Menu_GetParent", (PyCFunction)_wrap_Menu_GetParent, METH_O, NULL},
+	 { (char *)"Menu_GetLabelText", (PyCFunction) _wrap_Menu_GetLabelText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Menu_swigregister", Menu_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Menu_swiginit", Menu_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_MenuBar", (PyCFunction) _wrap_new_MenuBar, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -59906,6 +60252,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MenuBar_UpdateMenus", (PyCFunction)_wrap_MenuBar_UpdateMenus, METH_O, NULL},
 	 { (char *)"MenuBar_SetAutoWindowMenu", (PyCFunction) _wrap_MenuBar_SetAutoWindowMenu, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MenuBar_GetAutoWindowMenu", (PyCFunction)_wrap_MenuBar_GetAutoWindowMenu, METH_NOARGS, NULL},
+	 { (char *)"MenuBar_GetMenuLabel", (PyCFunction) _wrap_MenuBar_GetMenuLabel, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MenuBar_SetMenuLabel", (PyCFunction) _wrap_MenuBar_SetMenuLabel, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MenuBar_GetMenuLabelText", (PyCFunction) _wrap_MenuBar_GetMenuLabelText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MenuBar_swigregister", MenuBar_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MenuBar_swiginit", MenuBar_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_MenuItem", (PyCFunction) _wrap_new_MenuItem, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -59952,6 +60301,10 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MenuItem_IsOwnerDrawn", (PyCFunction)_wrap_MenuItem_IsOwnerDrawn, METH_O, NULL},
 	 { (char *)"MenuItem_SetOwnerDrawn", (PyCFunction) _wrap_MenuItem_SetOwnerDrawn, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MenuItem_ResetOwnerDrawn", (PyCFunction)_wrap_MenuItem_ResetOwnerDrawn, METH_O, NULL},
+	 { (char *)"MenuItem_GetItemLabel", (PyCFunction)_wrap_MenuItem_GetItemLabel, METH_O, NULL},
+	 { (char *)"MenuItem_SetItemLabel", (PyCFunction) _wrap_MenuItem_SetItemLabel, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MenuItem_GetItemLabelText", (PyCFunction)_wrap_MenuItem_GetItemLabelText, METH_O, NULL},
+	 { (char *)"MenuItem_GetLabelText", (PyCFunction) _wrap_MenuItem_GetLabelText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MenuItem_swigregister", MenuItem_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MenuItem_swiginit", MenuItem_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_Control", (PyCFunction) _wrap_new_Control, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -62133,6 +62486,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "BORDER_RAISED",SWIG_From_int(static_cast< int >(wxBORDER_RAISED)));
   SWIG_Python_SetConstant(d, "BORDER_SUNKEN",SWIG_From_int(static_cast< int >(wxBORDER_SUNKEN)));
   SWIG_Python_SetConstant(d, "BORDER_DOUBLE",SWIG_From_int(static_cast< int >(wxBORDER_DOUBLE)));
+  SWIG_Python_SetConstant(d, "BORDER_THEME",SWIG_From_int(static_cast< int >(wxBORDER_THEME)));
   SWIG_Python_SetConstant(d, "BORDER_MASK",SWIG_From_int(static_cast< int >(wxBORDER_MASK)));
   SWIG_Python_SetConstant(d, "BG_STYLE_SYSTEM",SWIG_From_int(static_cast< int >(wxBG_STYLE_SYSTEM)));
   SWIG_Python_SetConstant(d, "BG_STYLE_COLOUR",SWIG_From_int(static_cast< int >(wxBG_STYLE_COLOUR)));

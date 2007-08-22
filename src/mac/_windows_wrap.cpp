@@ -6057,6 +6057,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TopLevelWindow_MacGetUnifiedAppearance(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxTopLevelWindow *arg1 = (wxTopLevelWindow *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTopLevelWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TopLevelWindow_MacGetUnifiedAppearance" "', expected argument " "1"" of type '" "wxTopLevelWindow const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxTopLevelWindow const *)arg1)->MacGetUnifiedAppearance();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_TopLevelWindow_CenterOnScreen(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxTopLevelWindow *arg1 = (wxTopLevelWindow *) 0 ;
@@ -31713,6 +31743,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TopLevelWindow_IsActive", (PyCFunction)_wrap_TopLevelWindow_IsActive, METH_O, NULL},
 	 { (char *)"TopLevelWindow_MacSetMetalAppearance", (PyCFunction) _wrap_TopLevelWindow_MacSetMetalAppearance, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TopLevelWindow_MacGetMetalAppearance", (PyCFunction)_wrap_TopLevelWindow_MacGetMetalAppearance, METH_O, NULL},
+	 { (char *)"TopLevelWindow_MacGetUnifiedAppearance", (PyCFunction)_wrap_TopLevelWindow_MacGetUnifiedAppearance, METH_O, NULL},
 	 { (char *)"TopLevelWindow_CenterOnScreen", (PyCFunction) _wrap_TopLevelWindow_CenterOnScreen, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TopLevelWindow_GetDefaultItem", (PyCFunction)_wrap_TopLevelWindow_GetDefaultItem, METH_O, NULL},
 	 { (char *)"TopLevelWindow_SetDefaultItem", (PyCFunction) _wrap_TopLevelWindow_SetDefaultItem, METH_VARARGS | METH_KEYWORDS, NULL},

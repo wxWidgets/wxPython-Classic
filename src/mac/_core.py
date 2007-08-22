@@ -11064,6 +11064,10 @@ class Menu(EvtHandler):
         """GetParent(self) -> Menu"""
         return _core_.Menu_GetParent(*args, **kwargs)
 
+    def GetLabelText(*args, **kwargs):
+        """GetLabelText(self, int itemid) -> String"""
+        return _core_.Menu_GetLabelText(*args, **kwargs)
+
     EventHandler = property(GetEventHandler,SetEventHandler,doc="See `GetEventHandler` and `SetEventHandler`") 
     HelpString = property(GetHelpString,SetHelpString,doc="See `GetHelpString` and `SetHelpString`") 
     InvokingWindow = property(GetInvokingWindow,SetInvokingWindow,doc="See `GetInvokingWindow` and `SetInvokingWindow`") 
@@ -11200,6 +11204,18 @@ class MenuBar(Window):
         return _core_.MenuBar_GetAutoWindowMenu(*args, **kwargs)
 
     GetAutoWindowMenu = staticmethod(GetAutoWindowMenu)
+    def GetMenuLabel(*args, **kwargs):
+        """GetMenuLabel(self, size_t pos) -> String"""
+        return _core_.MenuBar_GetMenuLabel(*args, **kwargs)
+
+    def SetMenuLabel(*args, **kwargs):
+        """SetMenuLabel(self, size_t pos, String label)"""
+        return _core_.MenuBar_SetMenuLabel(*args, **kwargs)
+
+    def GetMenuLabelText(*args, **kwargs):
+        """GetMenuLabelText(self, size_t pos) -> String"""
+        return _core_.MenuBar_GetMenuLabelText(*args, **kwargs)
+
     def GetMenus(self):
         """Return a list of (menu, label) items for the menus in the MenuBar. """
         return [(self.GetMenu(i), self.GetLabelTop(i)) 
@@ -11411,6 +11427,23 @@ class MenuItem(Object):
         """ResetOwnerDrawn(self)"""
         return _core_.MenuItem_ResetOwnerDrawn(*args, **kwargs)
 
+    def GetItemLabel(*args, **kwargs):
+        """GetItemLabel(self) -> String"""
+        return _core_.MenuItem_GetItemLabel(*args, **kwargs)
+
+    def SetItemLabel(*args, **kwargs):
+        """SetItemLabel(self, String str)"""
+        return _core_.MenuItem_SetItemLabel(*args, **kwargs)
+
+    def GetItemLabelText(*args, **kwargs):
+        """GetItemLabelText(self) -> String"""
+        return _core_.MenuItem_GetItemLabelText(*args, **kwargs)
+
+    def GetLabelText(*args, **kwargs):
+        """GetLabelText(String label) -> String"""
+        return _core_.MenuItem_GetLabelText(*args, **kwargs)
+
+    GetLabelText = staticmethod(GetLabelText)
     Accel = property(GetAccel,SetAccel,doc="See `GetAccel` and `SetAccel`") 
     BackgroundColour = property(GetBackgroundColour,SetBackgroundColour,doc="See `GetBackgroundColour` and `SetBackgroundColour`") 
     Bitmap = property(GetBitmap,SetBitmap,doc="See `GetBitmap` and `SetBitmap`") 
@@ -11425,6 +11458,7 @@ class MenuItem(Object):
     SubMenu = property(GetSubMenu,SetSubMenu,doc="See `GetSubMenu` and `SetSubMenu`") 
     Text = property(GetText,SetText,doc="See `GetText` and `SetText`") 
     TextColour = property(GetTextColour,SetTextColour,doc="See `GetTextColour` and `SetTextColour`") 
+    ItemLabel = property(GetItemLabel) 
 _core_.MenuItem_swigregister(MenuItem)
 
 def MenuItem_GetLabelFromText(*args, **kwargs):
@@ -11434,6 +11468,10 @@ def MenuItem_GetLabelFromText(*args, **kwargs):
 def MenuItem_GetDefaultMarginWidth(*args):
   """MenuItem_GetDefaultMarginWidth() -> int"""
   return _core_.MenuItem_GetDefaultMarginWidth(*args)
+
+def MenuItem_GetLabelText(*args, **kwargs):
+  """MenuItem_GetLabelText(String label) -> String"""
+  return _core_.MenuItem_GetLabelText(*args, **kwargs)
 
 #---------------------------------------------------------------------------
 

@@ -429,6 +429,10 @@ class TopLevelWindow(_core.Window):
         """MacGetMetalAppearance(self) -> bool"""
         return _windows_.TopLevelWindow_MacGetMetalAppearance(*args, **kwargs)
 
+    def MacGetUnifiedAppearance(*args, **kwargs):
+        """MacGetUnifiedAppearance(self) -> bool"""
+        return _windows_.TopLevelWindow_MacGetUnifiedAppearance(*args, **kwargs)
+
     def CenterOnScreen(*args, **kwargs):
         """
         CenterOnScreen(self, int dir=BOTH)
