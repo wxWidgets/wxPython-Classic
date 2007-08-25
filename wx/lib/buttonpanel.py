@@ -92,19 +92,19 @@ inside a very simple frame::
 
           titleBar = ButtonPanel(mainPanel, -1, "A Simple Test & Demo")
 
-          btn1 = ButtonInfo(wx.NewId(), wx.Bitmap("png4.png", wx.BITMAP_TYPE_PNG))
+          btn1 = ButtonInfo(titleBar, wx.NewId(), wx.Bitmap("png4.png", wx.BITMAP_TYPE_PNG))
           titleBar.AddButton(btn1)
           self.Bind(wx.EVT_BUTTON, self.OnButton, btn1)
 
-          btn2 = ButtonInfo(wx.NewId(), wx.Bitmap("png3.png", wx.BITMAP_TYPE_PNG))
+          btn2 = ButtonInfo(titleBar, wx.NewId(), wx.Bitmap("png3.png", wx.BITMAP_TYPE_PNG))
           titleBar.AddButton(btn2)
           self.Bind(wx.EVT_BUTTON, self.OnButton, btn2)
 
-          btn3 = ButtonInfo(wx.NewId(), wx.Bitmap("png2.png", wx.BITMAP_TYPE_PNG))
+          btn3 = ButtonInfo(titleBar, wx.NewId(), wx.Bitmap("png2.png", wx.BITMAP_TYPE_PNG))
           titleBar.AddButton(btn3)
           self.Bind(wx.EVT_BUTTON, self.OnButton, btn3)
 
-          btn4 = ButtonInfo(wx.NewId(), wx.Bitmap("png1.png", wx.BITMAP_TYPE_PNG))
+          btn4 = ButtonInfo(titleBar, wx.NewId(), wx.Bitmap("png1.png", wx.BITMAP_TYPE_PNG))
           titleBar.AddButton(btn4)
           self.Bind(wx.EVT_BUTTON, self.OnButton, btn4)
 
