@@ -2,6 +2,16 @@ import wx
 import restconvert
 html_heading = "<H3><font color=\"red\">%s</font></H3>"
 
+import HTMLParser
+class HTMLStripper(HTMLParser.HTMLParser):
+    def __init__(self):
+        self.reset()
+        self.fed = []
+    def handle_data(self, d):
+        self.fed.append(d)
+    def get_fed_data(self):
+        return ''.join(self.fed)
+
 def stylesAsHtml(styles, extraStyles=False):
     heading = "Window styles"
     if extraStyles:
@@ -15,7 +25,26 @@ def stylesAsHtml(styles, extraStyles=False):
     html += "</table>"
     
     return html
+    
+def commentizeText(text, indent=4):
+    outtext = ""
+    midtext = text
+    midtext = midtext.replace("\n\n\n", "\n\n")
+    for line in midtext.split("\n"):
+        outtext += (" " * indent) + "* " + line + "\n"
+        
+    return outtext
+    
+def stripExtraNewlines(text):
+    outtext = text.strip()
+    while len(outtext) > 1 and outtext[0] == "\n":
+        outtext = outtext[1:]
+        
+    while len(outtext) > 1 and outtext[-1] == "\n":
+        outtext = outtext[0:-1]
 
+    return outtext 
+    
 class wxClass:
     def __init__(self, name, description="", derivedFrom=[], styles=[], extrastyles=[]):
         self.name = name
@@ -49,6 +78,19 @@ class wxClass:
         
         restText += ");"
         return restText
+        
+    def asDoxygen(self, indent=0):
+        doxytext = "\n"
+        doxytext += "\\class " + self.name + "\n\n"
+        doxytext += self.description.strip() + "\n\n"
+        
+        doxytext = doxytext.replace("<P>", "\n")
+        
+        x = HTMLStripper()
+        x.feed(doxytext)
+
+        doxytext = "/**\n%s*/\n\n" % commentizeText(x.get_fed_data(), indent)  + (" " * indent)
+        return doxytext
         
     def createProps(self):
         propsText = ""
@@ -149,6 +191,41 @@ class wxMethod:
             retval += "<font color=\"red\">Remarks</font><h4>%s</h4></font>" % self.remarks
         
         return retval
+        
+    def asDoxygen(self, indent=4):
+        doxytext = ""
+        
+        doxytext += self.description.strip() + "\n\n"
+        for param in self.params:
+            doxytext += "@param " + param[0] + " \n" + param[1] + "\n\n"
+        
+        #if len(self.prototypes) > 0:
+        #    proto = self.prototypes[0]
+        #    type = proto[0]
+        #    type = type.replace("virtual ", "")
+        #    if type.strip() == "void":
+        #        type = ""
+        #    if type != "":
+        #        doxytext += "\n\\return " + proto[0]
+        
+        #doxytext += ""
+        #    counter = 1
+        #    for arg in proto[2]:
+        #        doxytext += "%s %s" % (arg[0], arg[1])
+        #        if counter < len(proto[2]):
+        #            doxytext += ", "
+        #        counter += 1
+        #    doxytext += ");\n\n\n"
+        
+        doxytext = doxytext.replace("<P>", "\n")
+        doxytext = doxytext.replace("\n\n\n", "\n")
+        
+        # TODO convert supported HTML tags before doing this
+        x = HTMLStripper()
+        x.feed(doxytext)
+        
+        doxytext = "/**\n%s%s*/" % (commentizeText(x.get_fed_data(), indent=indent), (" " * indent))
+        return  doxytext
         
     def getAnchorName(self):
         anchorname = self.parent.name.lower() + self.name.lower()

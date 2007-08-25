@@ -58,6 +58,9 @@ def namespacify_wxClasses(contents):
 
 def wxReplaceFunc(match):
     text = match.group()
+    
+    return text
+    
     if text.find("wxWidgets") == -1 and text.find("wxPython") == -1 and text.find("wxPerl") == -1:
         text = text.replace("wx", "wx.")
     return text
@@ -69,6 +72,8 @@ def pythonize_text(contents):
     """
     Remove C++isms that definitely shouldn't be in any text.
     """
+    return contents
+    
     contents = contents.replace("false", "False")
     contents = contents.replace("true", "True")
     contents = contents.replace("non-NULL", "not None")
@@ -85,6 +90,8 @@ def pythonize_args(contents):
     Remove C++isms from arguments (some of these terms may be used in other
     contexts in actual documentation, so we don't remove them there).
     """
+    return contents
+    
     contents = contents.replace("static", "")
     contents = contents.replace("virtual void", "")
     contents = contents.replace("virtual", "")
