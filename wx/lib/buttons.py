@@ -64,7 +64,7 @@ class GenButton(wx.PyControl):
         if cstyle == 0:
             cstyle = wx.BORDER_NONE
         wx.PyControl.__init__(self, parent, id, pos, size, cstyle, validator, name)
-
+        
         self.up = True
         self.hasFocus = False
         self.style = style
@@ -583,6 +583,15 @@ class GenBitmapTextToggleButton(__ToggleMixin, GenBitmapTextButton):
 
 class ThemedGenButton(GenButton):
     " A themed generic button, and base class for the other themed buttons "
+    def __init__(self, *args, **kwargs):
+        GenButton.__init__(self, *args, **kwargs)
+        self.Bind(wx.EVT_ENTER_WINDOW, self.OnMouse)
+        self.Bind(wx.EVT_LEAVE_WINDOW, self.OnMouse)
+        
+    def OnMouse(self, evt):
+        self.Refresh()
+        evt.Skip()
+
     def DrawBezel(self, dc, x1, y1, x2, y2):
         rect = wx.Rect(x1, y1, x2, y2)
         if self.up:
@@ -591,7 +600,11 @@ class ThemedGenButton(GenButton):
             state = wx.CONTROL_PRESSED
         if not self.IsEnabled():
             state = wx.CONTROL_DISABLED
+        pt = self.ScreenToClient(wx.GetMousePosition())
+        if self.GetClientRect().Contains(pt):
+            state = wx.CONTROL_CURRENT
         wx.RendererNative.Get().DrawPushButton(self, dc, rect, state)
+        
  
 class ThemedGenBitmapButton(ThemedGenButton, GenBitmapButton):
     """A themed generic bitmap button."""
