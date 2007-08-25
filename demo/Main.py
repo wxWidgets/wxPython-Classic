@@ -518,7 +518,7 @@ try:
                 # TODO: if this looks fine on Linux too, remove the Mac-specific case 
                 # and use this whenever OS != MSW.
                 self.StyleSetSpec(stc.STC_STYLE_DEFAULT, 
-                                  'fore:#000000,back:#FFFFFF,face:Courier')
+                                  'fore:#000000,back:#FFFFFF,face:Monaco')
             else:
                 self.StyleSetSpec(stc.STC_STYLE_DEFAULT, 
                                   'fore:#000000,back:#FFFFFF,face:Courier,size:9')
@@ -1206,9 +1206,14 @@ class wxPythonDemo(wx.Frame):
                           style=wx.DEFAULT_FRAME_STYLE | wx.NO_FULL_REPAINT_ON_RESIZE)
 
         self.SetMinSize((640,480))
+
+        # Use a panel under the AUI panes in order to work around a
+        # bug on PPC Macs
+        pnl = wx.Panel(self)
+        #pnl = self
         
         self.mgr = wx.aui.AuiManager()
-        self.mgr.SetManagedWindow(self)
+        self.mgr.SetManagedWindow(pnl)
 
         self.loaded = False
         self.cwd = os.getcwd()
@@ -1244,7 +1249,7 @@ class wxPythonDemo(wx.Frame):
         self.ReadConfigurationFile()
         
         # Create a Notebook
-        self.nb = wx.Notebook(self, -1, style=wx.CLIP_CHILDREN)
+        self.nb = wx.Notebook(pnl, -1, style=wx.CLIP_CHILDREN)
         imgList = wx.ImageList(16, 16)
         for png in ["overview", "code", "demo"]:
             bmp = images.catalog[png].getBitmap()
@@ -1257,7 +1262,7 @@ class wxPythonDemo(wx.Frame):
         self.finddata.SetFlags(wx.FR_DOWN)
 
         # Create a TreeCtrl
-        leftPanel = wx.Panel(self, style=wx.TAB_TRAVERSAL|wx.CLIP_CHILDREN)
+        leftPanel = wx.Panel(pnl, style=wx.TAB_TRAVERSAL|wx.CLIP_CHILDREN)
         self.treeMap = {}
         self.searchItems = {}
         
@@ -1309,7 +1314,7 @@ class wxPythonDemo(wx.Frame):
 
 
         # Set up a log window
-        self.log = wx.TextCtrl(self, -1,
+        self.log = wx.TextCtrl(pnl, -1,
                               style = wx.TE_MULTILINE|wx.TE_READONLY|wx.HSCROLL)
         if wx.Platform == "__WXMAC__":
             self.log.MacCheckSpelling(False)
