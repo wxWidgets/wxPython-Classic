@@ -111,7 +111,8 @@ inside a very simple frame::
           vSizer.Add(titleBar, 0, wx.EXPAND)
           vSizer.Add((20, 20))
           vSizer.Add(self.logtext, 1, wx.EXPAND|wx.ALL, 5)
-  
+
+          titleBar.DoLayout()
           vSizer.Layout()
   
   # our normal wxApp-derived class, as usual
