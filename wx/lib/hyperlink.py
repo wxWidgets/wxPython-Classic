@@ -317,7 +317,8 @@ class HyperLinkCtrl(StaticText):
 
         if self.GetFont() != fontTemp:
             self.SetFont(fontTemp)
-            self.Refresh(OnRefresh)            
+
+        self.Refresh(OnRefresh)            
 
 
     def DisplayError(self, ErrorMessage, ReportErrors=True):
