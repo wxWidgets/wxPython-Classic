@@ -16,11 +16,10 @@ if [ $skipdocs != yes ]; then
     done
 	
     # build the doc and demo tarballs
-    distrib/makedemo
-    distrib/makedocs
+    distrib/make_demo_tarball
+    distrib/make_docs_tarball
     mv dist/wxPython-docs-$VERSION.tar.bz2 $STAGING_DIR
     mv dist/wxPython-demo-$VERSION.tar.bz2 $STAGING_DIR
-
 
     # build the new docs too
     if [ $skipnewdocs != yes ]; then

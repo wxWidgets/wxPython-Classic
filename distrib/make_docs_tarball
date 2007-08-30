@@ -9,18 +9,24 @@ fi
 
 
 VERSION=`python -c "import setup;print setup.VERSION"`
-CONTRIBS="gizmos"
+#CONTRIBS="gizmos"
+CONTRIBS=
 DEST=wxPython-$VERSION/docs
 
 
 # **** Make a directory to build up a distribution tree
-mkdir -p _build_docs/$DEST
+mkdir -p _build_docs/$DEST/wx
 cd _build_docs
-mkdir $DEST/wx
+
 DEST=`abspath.py $DEST`
 
-WXDIR=`abspath.py ../..`
+if [ "$WXWIN" != "" ]; then
+    WXDIR=$WXWIN
+else
+    WXDIR=`abspath.py ../../wxWidgets`
+fi
 INI=$WXDIR/docs/latex/wx/tex2rtf_css.ini
+
 
 # **** Build the main docs using tex2rtf
 echo "****" main "****"
@@ -29,6 +35,7 @@ cp $WXDIR/docs/latex/wx/*.css $DEST/wx
 echo tex2rtf $WXDIR/docs/latex/wx/manual.tex $DEST/wx/wx.html -twice -html -macros $INI
 tex2rtf $WXDIR/docs/latex/wx/manual.tex $DEST/wx/wx.html -twice -html -macros $INI
 cp $DEST/wx/wx_contents.html $DEST/wx/index.html
+mkdir -p $WXDIR/docs/html/wx
 cp $DEST/wx/* $WXDIR/docs/html/wx
 
 # **** and the contribs

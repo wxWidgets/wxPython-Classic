@@ -30,8 +30,7 @@ function TestOnline {
 }
 
 
-
-if [ $skipdeb != yes ]; then
+if [ $skiprpm != yes ]; then
     # We use a chroot environment on the build machine for the debian
     # builds, so this build is pretty simple.  Just copy the tarball
     # and a build script to the build machine, and then run

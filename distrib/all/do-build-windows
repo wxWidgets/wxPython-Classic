@@ -133,21 +133,30 @@ mkdir -p ../../htmlhelp
 mv wx.chm ../../htmlhelp
 
 
-
-
-
 echo "Building wxPython and installers..."
 cd $WXDIR/wxPython
+
+case $PYVER in
+    21 | 2.1) VER=21; shift ;;
+    22 | 2.2) VER=22; shift ;;
+    23 | 2.3) VER=23; shift ;;
+    24 | 2.4) VER=24; shift ;;
+    25 | 2.5) VER=25; shift ;;
+
+    *) 	VER=24
+esac
+
+PYTHON=$TOOLS/python$VER/python.exe
 mkdir -p dist
 if [ $CHARTYPE = both -o $CHARTYPE = ansi ]; then
-    b $PYVER d UNICODE=0 USE_SWIG=0
-    b $PYVER h UNICODE=0 USE_SWIG=0 EP_ADD_OPTS=1
-    b $PYVER r UNICODE=0 USE_SWIG=0
+    rm -f wx/*.pyd
+    $PYTHON setup.py HYBRID=1 build_ext --inplace UNICODE=0 EP_ADD_OPTS=1
+    $PYTHON -u distrib/make_installer.py UNICODE=0
 fi
 if [ $CHARTYPE = both -o $CHARTYPE = unicode ]; then
-    b $PYVER d UNICODE=1 USE_SWIG=0
-    b $PYVER h UNICODE=1 USE_SWIG=0 EP_ADD_OPTS=1
-    b $PYVER r UNICODE=1 USE_SWIG=0
+    rm -f wx/*.pyd
+    $PYTHON setup.py HYBRID=1 build_ext --inplace UNICODE=1 EP_ADD_OPTS=1
+    $PYTHON -u distrib/make_installer.py UNICODE=1
 fi
 
 
