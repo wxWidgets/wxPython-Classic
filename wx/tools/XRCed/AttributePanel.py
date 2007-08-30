@@ -109,6 +109,7 @@ class Panel(wx.Panel):
         self.nb.SetSelection(0)
         map(self.nb.RemovePage, range(self.nb.GetPageCount()-1, 0, -1))
         
+        self.container = container
         self.comp = comp
         self.node = node        # main node
         panels = []
@@ -131,8 +132,7 @@ class Panel(wx.Panel):
 
         self.Layout()           # update after hiding/showing
 
-        attributes = comp.attributes
-        panel = AttributePanel(self.pageA, attributes, comp.params, comp.renameDict)
+        panel = AttributePanel(self.pageA, comp.attributes, comp.params, comp.renameDict)
         panels.append(panel)
         self.pageA.SetPanel(panel)
         self.SetValues(panel, node)
@@ -167,6 +167,7 @@ class Panel(wx.Panel):
                                    container.implicitAttributes, 
                                    container.implicitParams,
                                    container.implicitRenameDict)
+            panel.comp = container
             panels.append(panel)
             self.pageIA.SetPanel(panel)
             self.nb.AddPage(self.pageIA, container.implicitPageName)
@@ -211,8 +212,12 @@ class Panel(wx.Panel):
     # Set data for a panel
     def SetValues(self, panel, node):
         panel.node = node
+        if isinstance(panel, AttributePanel) and panel.comp:
+            comp = panel.comp
+        else:
+            comp = self.comp
         for a,w in panel.controls:
-            value = self.comp.getAttribute(node, a)
+            value = comp.getAttribute(node, a)
             w.SetValue(value)
 
     # Set data for a style panel
@@ -235,6 +240,7 @@ class AttributePanel(wx.Panel):
     def __init__(self, parent, attributes, param_dict={}, rename_dict={}):
         wx.Panel.__init__(self, parent, -1)
         self.controls = []
+        self.comp = None                # if not None overrides default component
         sizer = wx.FlexGridSizer(len(attributes), 2, 0, 0)
         sizer.AddGrowableCol(1, 0)
         for a in attributes:

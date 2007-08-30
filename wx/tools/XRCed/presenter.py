@@ -305,19 +305,23 @@ class _Presenter:
                 node.setAttribute('name', view.panel.controlName.GetValue())
             elif node.hasAttribute('name'): # clean up empty names
                 node.removeAttribute('name')
-# !!! Remove: normalize does this
-#        if item != view.tree.root: 
-#            for panel in self.panels:
-#                # Replace node contents except object children
-#                for n in panel.node.childNodes[:]:
-#                    if not is_object(n):
-#                        panel.node.removeChild(n)
-#                        n.unlink()
+        if item != view.tree.root: 
+            for panel in self.panels:
+                if not panel.node: continue
+                # Replace node contents except object children
+                for n in panel.node.childNodes[:]:
+                    if not is_object(n):
+                        panel.node.removeChild(n)
+                        n.unlink()
         for panel in self.panels:
             for a,value in panel.GetValues():
-                if value: 
+                if value:
                     try:
-                        self.comp.addAttribute(panel.node, a, value)
+                        if isinstance(panel, view.AttributePanel) and panel.comp:
+                            comp = panel.comp
+                        else:
+                            comp = self.comp
+                        comp.addAttribute(panel.node, a, value)
                     except:
                         logging.exception('addAttribute error: %s %s', a, value)
         if item != view.tree.root:

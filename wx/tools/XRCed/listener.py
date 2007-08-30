@@ -309,7 +309,7 @@ class _Listener:
         # Remember sizes and positions
         if self.testWin.object: self.testWin.Destroy()
         conf = g.conf
-        if conf.useAUI:
+        if g.useAUI:
             conf.perspective = view.frame.mgr.SavePerspective()
         if not self.frame.IsIconized():
             conf.pos = self.frame.GetPosition()
@@ -317,7 +317,7 @@ class _Listener:
                 conf.size = self.frame.GetClientSize()
             else:
                 conf.size = self.frame.GetSize()
-            if not conf.useAUI:
+            if not g.useAUI:
                 if conf.embedPanel:
                     conf.sashPos = self.frame.splitter.GetSashPosition()
                 else:
@@ -327,8 +327,8 @@ class _Listener:
                 if conf.showToolPanel and self.toolFrame:
                     conf.toolPanelPos = self.toolFrame.GetPosition()
                     conf.toolPanelSize = self.toolFrame.GetSize()
-        self.panel.Destroy()            # destroy panel before tree
-        evt.Skip()
+        #self.panel.Destroy()            # destroy panel before tree
+        self.frame.Destroy()
 
     def OnUndo(self, evt):
         if g.undoMan.CanUndo():

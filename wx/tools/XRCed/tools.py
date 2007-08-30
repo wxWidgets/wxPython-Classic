@@ -32,9 +32,10 @@ class ToolPanel(wx.Panel):
         sizer.Add(self.lb, 1, wx.EXPAND)
         self.panels = []
         # Image list
-        il = wx.ImageList(48, 48, True)
+        thumbSize = g.conf.toolThumbSize
+        il = wx.ImageList(thumbSize, thumbSize, True)
         # Default Id 0
-        il.Add(images.getToolPanel_DefaultImage().ConvertToBitmap())
+        il.Add(images.getToolPanel_DefaultImage().Scale(thumbSize, thumbSize).ConvertToBitmap())
         self.il = il
         self.lb.AssignImageList(il)
         for name in Manager.panelNames:
@@ -42,7 +43,7 @@ class ToolPanel(wx.Panel):
             if not panelData: continue
             try:
                 im = Manager.panelImages[name]
-                imageId = il.Add(im.Scale(48, 48).ConvertToBitmap())
+                imageId = il.Add(im.Scale(thumbSize, thumbSize).ConvertToBitmap())
             except:
                 imageId = 0
             panel = self.AddPanel(name, imageId)

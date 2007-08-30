@@ -1,3 +1,9 @@
+2007-08-30  Scroll  <scroll@localhost.localdomain>
+
+	* Updated Preferences dialog (default not used yet, but appearance
+	is), fixed implicit attributes page for special types, AUI size set
+	correctly, some other fixes.
+
 2007-08-20  Roman Rolinsky  <scroll@lem.local>
 
 	* Umplemented Move Up/Down/Left/Right. Some fixes for control and

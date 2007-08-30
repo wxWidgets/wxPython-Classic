@@ -254,17 +254,17 @@ Manager.setTool(c, 'Panels', pos=(0,3))
 ### wxNotebook
 
 # Set special ParentChildGroup for notebook - notebookpage can't contain sizer
-parentChildGroups['notebook'] = ['control', 'window', '!sizer']
-c = SmartContainer('wxNotebook', ['notebook', 'window', 'control'], ['pos', 'size'], 
+c = SmartContainer('wxNotebook', ['book', 'window', 'control'], ['pos', 'size'], 
                    implicit_klass='notebookpage', 
                    implicit_page='NotebookPage', 
-                   implicit_attributes=['label', 'selected'],
+                   implicit_attributes=['label', 'selected', 'bitmap'],
                    implicit_params={'selected': params.ParamBool})
 c.addStyles('wxNB_TOP', 'wxNB_LEFT', 'wxNB_RIGHT', 'wxNB_BOTTOM',
             'wxNB_FIXEDWIDTH', 'wxNB_MULTILINE', 'wxNB_NOPAGETHEME', 
             'wxNB_FLAT')
 c.setParamClass('selected', params.ParamBool)
 c.setParamClass('label', params.ParamText)
+c.setSpecial('bitmap', BitmapAttribute)
 c.addEvents('EVT_NOTEBOOK_PAGE_CHANGED', 'EVT_NOTEBOOK_PAGE_CHANGING')
 Manager.register(c)
 Manager.setMenu(c, 'container', 'notebook', 'Notebook control', 40)
@@ -272,8 +272,16 @@ Manager.setTool(c, 'Panels', pos=(1,0))
 
 ### wxChoicebook
 
-c = Component('wxChoicebook', ['control'], ['pos', 'size'])
+parentChildGroups['choicebook'] = ['control', 'window', '!sizer']
+c = SmartContainer('wxChoicebook', ['book', 'window', 'control'], ['pos', 'size'],
+                   implicit_klass='choicebookpage', 
+                   implicit_page='ChoicebookPage', 
+                   implicit_attributes=['label', 'selected', 'bitmap'],
+                   implicit_params={'selected': params.ParamBool})
 c.addStyles('wxCHB_DEFAULT', 'wxCHB_LEFT', 'wxCHB_RIGHT', 'wxCHB_TOP', 'wxCHB_BOTTOM')
+c.setParamClass('selected', params.ParamBool)
+c.setParamClass('label', params.ParamText)
+c.setSpecial('bitmap', BitmapAttribute)
 c.addEvents('EVT_CHOICEBOOK_PAGE_CHANGED', 'EVT_CHOICEBOOK_PAGE_CHANGING')
 Manager.register(c)
 Manager.setMenu(c, 'container', 'choicebook', 'wxChoicebook', 50)
@@ -281,8 +289,16 @@ Manager.setTool(c, 'Panels', pos=(1,1))
 
 ### wxListbook
 
-c = Component('wxListbook', ['control'], ['pos', 'size'])
+parentChildGroups['listbook'] = ['control', 'window', '!sizer']
+c = SmartContainer('wxListbook', ['book', 'window', 'control'], ['pos', 'size'],
+                   implicit_klass='listbookpage', 
+                   implicit_page='ListbookPage', 
+                   implicit_attributes=['label', 'selected', 'bitmap'],
+                   implicit_params={'selected': params.ParamBool})
 c.addStyles('wxLB_DEFAULT', 'wxLB_LEFT', 'wxLB_RIGHT', 'wxLB_TOP', 'wxLB_BOTTOM')
+c.setParamClass('selected', params.ParamBool)
+c.setParamClass('label', params.ParamText)
+c.setSpecial('bitmap', BitmapAttribute)
 c.addEvents('EVT_LISTBOOK_PAGE_CHANGED', 'EVT_LISTBOOK_PAGE_CHANGING')
 Manager.register(c)
 Manager.setMenu(c, 'container', 'listbook', 'wxListbook', 60)

@@ -8,7 +8,7 @@ import os
 from globals import *
 from XMLTree import XMLTree
 from XMLTreeMenu import XMLTreeMenu
-from AttributePanel import Panel
+from AttributePanel import Panel, AttributePanel
 from TestWin import TestWindow
 from tools import *
 import images
@@ -35,17 +35,18 @@ def create_view():
     frame = Frame(g.conf.pos, g.conf.size)
 
     global toolFrame
-    if g.conf.useAUI:
+    if g.useAUI:
         g.toolPanel = ToolPanel(frame)
         frame.mgr.AddPane(g.toolPanel, wx.aui.AuiPaneInfo().Name('tools').Caption("Tools").
                           MinSize(g.toolPanel.GetBestSize()).
                           Right().CloseButton(True).MaximizeButton(False))
         toolFrame = None
         frame.mgr.Update()
-#        frame.mgr.LoadPerspective(g.conf.Read('perspective'))
+        if g.conf.HasEntry('perspective'):
+            frame.mgr.LoadPerspective(g.conf.Read('perspective'))
     else:
         # Tool panel on a MiniFrame
-        toolFrame = wx.MiniFrame(frame, -1, 'Tools', 
+        toolFrame = wx.MiniFrame(frame, -1, 'Components', 
                                  style=wx.CAPTION|wx.CLOSE_BOX|\
                                      wx.RESIZE_BORDER|wx.FRAME_TOOL_WINDOW)
         if wx.Platform != '__WXMAC__':
@@ -87,11 +88,9 @@ class Frame(wx.Frame):
         else:
             tb.SetToolBitmapSize((24,24))
 
-        useAUI = g.conf.useAUI
+        self.InitToolBar(g.useAUI or g.conf.embedPanel) # add tools
 
-        self.InitToolBar(useAUI or g.conf.embedPanel) # add tools
-
-        if useAUI:
+        if g.useAUI:
             self.mgr = wx.aui.AuiManager()
             self.mgr.SetManagedWindow(self)
             self.mgr.AddPane(tb, wx.aui.AuiPaneInfo().
@@ -112,7 +111,7 @@ class Frame(wx.Frame):
         tree = XMLTree(parent)
 
         global panel
-        if useAUI:
+        if g.useAUI:
             self.mgr.AddPane(tree, wx.aui.AuiPaneInfo().
                              Name("tree").Caption("XML Tree").
                              CenterPane())
@@ -377,6 +376,7 @@ class Frame(wx.Frame):
 
     def ShowPrefs(self):
         dlg = PrefsDialog(self)
+        conf = g.conf
         if dlg.ShowModal() == wx.ID_OK:
             # Fetch new preferences
             for id,cdp in dlg.checkControls.items():
@@ -384,7 +384,10 @@ class Frame(wx.Frame):
                 if dlg.FindWindowById(id).IsChecked():
                     d[p] = str(c.GetValue())
                 elif p in d: del d[p]
-            g.conf.allowExec = ('ask', 'yes', 'no')[dlg.radio_allow_exec.GetSelection()]
+#            conf.allowExec = ('ask', 'yes', 'no')[dlg.radio_allow_exec.GetSelection()]
+            conf.useAUI = dlg.check_AUI.GetValue()
+            conf.toolThumbSize = dlg.slider_thumbSize.GetValue()
+            conf.toolIconScale = dlg.slider_iconScale.GetValue()
         dlg.Destroy()        
 
 #############################################################################
@@ -419,30 +422,33 @@ class PrefsDialog(wx.Dialog):
         g.res.LoadOnDialog(pre, parent, "DIALOG_PREFS")
         self.PostCreate(pre)
         self.checkControls = {} # map of check IDs to (control,dict,param)
+        conf = g.conf
 
-        self.check_proportion_panel = xrc.XRCCTRL(self, 'check_proportion_panel')
-        id = self.check_proportion_panel.GetId()
-        wx.EVT_CHECKBOX(self, id, self.OnCheck)
-#        self.checkControls[id] = (xrc.XRCCTRL(self, 'spin_proportion_panel'),
-#                                  d, 'option')
+        # Defaults
 
-        self.check_flag_panel = xrc.XRCCTRL(self, 'check_flag_panel')
-        id = self.check_flag_panel.GetId()
+        self.check_proportionContainer = xrc.XRCCTRL(self, 'check_proportionContainer')
+        id = self.check_proportionContainer.GetId()
         wx.EVT_CHECKBOX(self, id, self.OnCheck)
-#        self.checkControls[id] = (xrc.XRCCTRL(self, 'text_flag_panel'),
-#                                  d, 'flag')
+        self.checkControls[id] = (xrc.XRCCTRL(self, 'spin_proportionContainer'),
+                                  conf.defaultsContainer, 'option')
 
-        self.check_proportion_panel = xrc.XRCCTRL(self, 'check_proportion_control')
-        id = self.check_proportion_panel.GetId()
+        self.check_flagContainer = xrc.XRCCTRL(self, 'check_flagContainer')
+        id = self.check_flagContainer.GetId()
         wx.EVT_CHECKBOX(self, id, self.OnCheck)
-#        self.checkControls[id] = (xrc.XRCCTRL(self, 'spin_proportion_control'),
-#                                  d, 'option')
+        self.checkControls[id] = (xrc.XRCCTRL(self, 'text_flagContainer'),
+                                  conf.defaultsContainer, 'flag')
 
-        self.check_flag_panel = xrc.XRCCTRL(self, 'check_flag_control')
-        id = self.check_flag_panel.GetId()
+        self.check_proportionControl = xrc.XRCCTRL(self, 'check_proportionControl')
+        id = self.check_proportionControl.GetId()
         wx.EVT_CHECKBOX(self, id, self.OnCheck)
-#        self.checkControls[id] = (xrc.XRCCTRL(self, 'text_flag_control'),
-#                                  d, 'flag')
+        self.checkControls[id] = (xrc.XRCCTRL(self, 'spin_proportionControl'),
+                                  conf.defaultsControl, 'option')
+
+        self.check_flagControl = xrc.XRCCTRL(self, 'check_flagControl')
+        id = self.check_flagControl.GetId()
+        wx.EVT_CHECKBOX(self, id, self.OnCheck)
+        self.checkControls[id] = (xrc.XRCCTRL(self, 'text_flagControl'),
+                                  conf.defaultsControl, 'flag')
 
         for id,cdp in self.checkControls.items():
             c,d,p = cdp
@@ -454,6 +460,16 @@ class PrefsDialog(wx.Dialog):
                 self.FindWindowById(id).SetValue(True)
             except KeyError:
                 c.Enable(False)
+
+        # Appearance
+
+        self.check_AUI = xrc.XRCCTRL(self, 'check_AUI')
+        self.check_AUI.SetValue(conf.useAUI)
+        self.slider_thumbSize = xrc.XRCCTRL(self, 'slider_thumbSize')
+        self.slider_thumbSize.SetValue(conf.toolThumbSize)
+        self.slider_iconScale = xrc.XRCCTRL(self, 'slider_iconScale')
+        self.slider_iconScale.SetValue(conf.toolIconScale)
+
 
     def OnCheck(self, evt):
         self.checkControls[evt.GetId()][0].Enable(evt.IsChecked())

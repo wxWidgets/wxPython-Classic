@@ -92,7 +92,7 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
                 # Force update title
                 Presenter.setModified(False)
         view.frame.Show()
-        if not g.conf.useAUI:
+        if not g.useAUI:
             if not g.conf.embedPanel:
                 view.frame.miniFrame.Show()
             if g.conf.showToolPanel:
@@ -110,7 +110,7 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         conf.autoRefresh = conf.ReadBool('autorefresh', True)
         conf.pos = wx.Point(conf.ReadInt('x', -1), conf.ReadInt('y', -1))
         conf.size = wx.Size(conf.ReadInt('width', 800), conf.ReadInt('height', 600))
-        conf.useAUI = conf.ReadBool('useAUI', False)
+        g.useAUI = conf.useAUI = conf.ReadBool('useAUI', False)
         conf.embedPanel = conf.ReadBool('embedPanel', True)
         conf.panelPinState = conf.ReadBool('panelPinState', False)
         conf.showToolPanel = conf.ReadBool('showToolPanel', True)
@@ -132,24 +132,29 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
                                      conf.ReadInt('toolPanelHeight', -1))
         
         # Preferences
+        conf.toolThumbSize = conf.ReadInt('Prefs/toolThumbSize', 48)
+        conf.toolIconScale = conf.ReadInt('Prefs/toolIconScale', 100)
 #        conf.allowExec = conf.Read('Prefs/allowExec', 'ask')
-#        p = 'Prefs/sizeritem_defaults_panel'
-#        import xxx
-#        if conf.HasEntry(p):
-            ##sys.modules['xxx'].xxxSizerItem.defaults_panel = ReadDictFromString(conf.Read(p))
-#            xxx.xxxSizerItem.defaults_panel = ReadDictFromString(conf.Read(p))
-#        p = 'Prefs/sizeritem_defaults_control'
-#        if conf.HasEntry(p):
-            ##sys.modules['xxx'].xxxSizerItem.defaults_control = ReadDictFromString(conf.Read(p))
-#            xxx.xxxSizerItem.defaults_control = ReadDictFromString(conf.Read(p))
+        p = 'Prefs/Defaults/Container'
+        if conf.HasEntry(p):
+            conf.defaultsContainer = ReadDictFromString(conf.Read(p))
+        else:
+            conf.defaultsContainer = {}
+        p = 'Prefs/Defaults/Control'
+        if conf.HasEntry(p):
+            conf.defaultsControl = ReadDictFromString(conf.Read(p))
+        else:
+            conf.defaultsControl = {}
+        conf.SetPath('/')
             
     def WriteConfig(self):
         
         # Write config
         conf = g.conf
+        conf.SetPath('/')
         conf.WriteInt('autorefresh', conf.autoRefresh)
         conf.WriteBool('useAUI', conf.useAUI)
-        if conf.useAUI:
+        if g.useAUI:
             conf.Write('perspective', conf.perspective)
         conf.WriteInt('x', conf.pos.x)
         conf.WriteInt('y', conf.pos.y)
@@ -172,14 +177,13 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         g.fileHistory.Save(conf)
         # Preferences
         conf.DeleteGroup('Prefs')
+        conf.WriteInt('Prefs/toolThumbSize', conf.toolThumbSize)
+        conf.WriteInt('Prefs/toolIconScale', conf.toolIconScale)
 #        conf.Write('Prefs/allowExec', conf.allowExec)
-#        import xxx
-        ##v = sys.modules['xxx'].xxxSizerItem.defaults_panel
-#        v = xxx.xxxSizerItem.defaults_panel
-#        if v: conf.Write('Prefs/sizeritem_defaults_panel', DictToString(v))
-        ###v = sys.modules['xxx'].xxxSizerItem.defaults_control
-#        v = xxx.xxxSizerItem.defaults_control
-#        if v: conf.Write('Prefs/sizeritem_defaults_control', DictToString(v))
+        v = conf.defaultsContainer
+        if v: conf.Write('Prefs/Defaults/Container', DictToString(v))
+        v = conf.defaultsControl
+        if v: conf.Write('Prefs/Defaults/Conteol', DictToString(v))
         
         conf.Flush()
 

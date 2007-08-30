@@ -26,6 +26,7 @@ parentChildGroups = {
     'wizard': ['wizard_page'],
     'window': ['control', 'window', 'sizer', 'btnsizer', '!frame'],
     'sizer': ['control', 'sizer', 'btnsizer', 'spacer'],
+    'book': ['control', 'window', '!sizer', '!btnsizer'],
     'btnsizer': ['stdbtn'],
     'menubar': ['menu'],
     'toolbar': ['tool', 'separator'],
@@ -576,6 +577,11 @@ class _ComponentManager:
                 bitmap = wx.Bitmap(bmpPath)
             else:
                 bitmap = images.getToolDefaultBitmap()
+        if g.conf.toolIconScale != 100:
+            im = bitmap.ConvertToImage().Scale(
+                bitmap.GetWidth() * g.conf.toolIconScale / 100,
+                bitmap.GetHeight() * g.conf.toolIconScale / 100)
+            bitmap = im.ConvertToBitmap()
         bisect.insort_left(self.panels[panel], (pos, span, component, bitmap))
 
     def addXmlHandler(self, h):
