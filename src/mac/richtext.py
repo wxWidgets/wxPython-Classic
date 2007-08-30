@@ -305,9 +305,9 @@ _richtext.RichTextRange_swigregister(RichTextRange)
 
 #---------------------------------------------------------------------------
 
-class RichTextAttr(object):
+class TextAttrEx(object):
     """
-    The RichTextAttr class stores information about the various attributes
+    The TextAttrEx class stores information about the various attributes
     for a block of text, including font, colour, indents, alignments, and
     etc.
     """
@@ -315,467 +315,377 @@ class RichTextAttr(object):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, Colour colText=wxNullColour, Colour colBack=wxNullColour, 
-            int alignment=TEXT_ALIGNMENT_DEFAULT) -> RichTextAttr
+        __init__(self) -> TextAttrEx
 
-        The RichTextAttr class stores information about the various attributes
+        The TextAttrEx class stores information about the various attributes
         for a block of text, including font, colour, indents, alignments, and
         etc.
         """
-        _richtext.RichTextAttr_swiginit(self,_richtext.new_RichTextAttr(*args, **kwargs))
-    __swig_destroy__ = _richtext.delete_RichTextAttr
-    __del__ = lambda self : None;
+        _richtext.TextAttrEx_swiginit(self,_richtext.new_TextAttrEx(*args, **kwargs))
     def Init(*args, **kwargs):
-        """
-        Init(self)
-
-        Initialise this object.
-        """
-        return _richtext.RichTextAttr_Init(*args, **kwargs)
+        """Init(self)"""
+        return _richtext.TextAttrEx_Init(*args, **kwargs)
 
     def Copy(*args, **kwargs):
-        """
-        Copy(self, RichTextAttr attr)
-
-        Copy from attr to self.
-        """
-        return _richtext.RichTextAttr_Copy(*args, **kwargs)
-
-    def __eq__(*args, **kwargs):
-        """__eq__(self, RichTextAttr attr) -> bool"""
-        return _richtext.RichTextAttr___eq__(*args, **kwargs)
-
-    def CreateFont(*args, **kwargs):
-        """
-        CreateFont(self) -> Font
-
-        Create font from the font attributes in this attr object.
-        """
-        return _richtext.RichTextAttr_CreateFont(*args, **kwargs)
-
-    def GetFontAttributes(*args, **kwargs):
-        """
-        GetFontAttributes(self, Font font) -> bool
-
-        Set our font attributes from the font.
-        """
-        return _richtext.RichTextAttr_GetFontAttributes(*args, **kwargs)
-
-    def GetFont(self):
-        return self.CreateFont()
-    def SetFont(self, font):
-        return self.GetFontAttributes(font)
+        """Copy(self, TextAttrEx attr)"""
+        return _richtext.TextAttrEx_Copy(*args, **kwargs)
 
     def SetTextColour(*args, **kwargs):
         """SetTextColour(self, Colour colText)"""
-        return _richtext.RichTextAttr_SetTextColour(*args, **kwargs)
+        return _richtext.TextAttrEx_SetTextColour(*args, **kwargs)
 
     def SetBackgroundColour(*args, **kwargs):
         """SetBackgroundColour(self, Colour colBack)"""
-        return _richtext.RichTextAttr_SetBackgroundColour(*args, **kwargs)
+        return _richtext.TextAttrEx_SetBackgroundColour(*args, **kwargs)
+
+    def SetFont(*args, **kwargs):
+        """SetFont(self, Font font, long flags=TEXT_ATTR_FONT)"""
+        return _richtext.TextAttrEx_SetFont(*args, **kwargs)
 
     def SetAlignment(*args, **kwargs):
         """SetAlignment(self, int alignment)"""
-        return _richtext.RichTextAttr_SetAlignment(*args, **kwargs)
+        return _richtext.TextAttrEx_SetAlignment(*args, **kwargs)
 
     def SetTabs(*args, **kwargs):
         """SetTabs(self, wxArrayInt tabs)"""
-        return _richtext.RichTextAttr_SetTabs(*args, **kwargs)
+        return _richtext.TextAttrEx_SetTabs(*args, **kwargs)
 
     def SetLeftIndent(*args, **kwargs):
         """SetLeftIndent(self, int indent, int subIndent=0)"""
-        return _richtext.RichTextAttr_SetLeftIndent(*args, **kwargs)
+        return _richtext.TextAttrEx_SetLeftIndent(*args, **kwargs)
 
     def SetRightIndent(*args, **kwargs):
         """SetRightIndent(self, int indent)"""
-        return _richtext.RichTextAttr_SetRightIndent(*args, **kwargs)
-
-    def SetFontSize(*args, **kwargs):
-        """SetFontSize(self, int pointSize)"""
-        return _richtext.RichTextAttr_SetFontSize(*args, **kwargs)
-
-    def SetFontStyle(*args, **kwargs):
-        """SetFontStyle(self, int fontStyle)"""
-        return _richtext.RichTextAttr_SetFontStyle(*args, **kwargs)
-
-    def SetFontWeight(*args, **kwargs):
-        """SetFontWeight(self, int fontWeight)"""
-        return _richtext.RichTextAttr_SetFontWeight(*args, **kwargs)
-
-    def SetFontFaceName(*args, **kwargs):
-        """SetFontFaceName(self, String faceName)"""
-        return _richtext.RichTextAttr_SetFontFaceName(*args, **kwargs)
-
-    def SetFontUnderlined(*args, **kwargs):
-        """SetFontUnderlined(self, bool underlined)"""
-        return _richtext.RichTextAttr_SetFontUnderlined(*args, **kwargs)
+        return _richtext.TextAttrEx_SetRightIndent(*args, **kwargs)
 
     def SetFlags(*args, **kwargs):
         """SetFlags(self, long flags)"""
-        return _richtext.RichTextAttr_SetFlags(*args, **kwargs)
-
-    def SetCharacterStyleName(*args, **kwargs):
-        """SetCharacterStyleName(self, String name)"""
-        return _richtext.RichTextAttr_SetCharacterStyleName(*args, **kwargs)
-
-    def SetParagraphStyleName(*args, **kwargs):
-        """SetParagraphStyleName(self, String name)"""
-        return _richtext.RichTextAttr_SetParagraphStyleName(*args, **kwargs)
-
-    def SetListStyleName(*args, **kwargs):
-        """SetListStyleName(self, String name)"""
-        return _richtext.RichTextAttr_SetListStyleName(*args, **kwargs)
-
-    def SetParagraphSpacingAfter(*args, **kwargs):
-        """SetParagraphSpacingAfter(self, int spacing)"""
-        return _richtext.RichTextAttr_SetParagraphSpacingAfter(*args, **kwargs)
-
-    def SetParagraphSpacingBefore(*args, **kwargs):
-        """SetParagraphSpacingBefore(self, int spacing)"""
-        return _richtext.RichTextAttr_SetParagraphSpacingBefore(*args, **kwargs)
-
-    def SetLineSpacing(*args, **kwargs):
-        """SetLineSpacing(self, int spacing)"""
-        return _richtext.RichTextAttr_SetLineSpacing(*args, **kwargs)
-
-    def SetBulletStyle(*args, **kwargs):
-        """SetBulletStyle(self, int style)"""
-        return _richtext.RichTextAttr_SetBulletStyle(*args, **kwargs)
-
-    def SetBulletNumber(*args, **kwargs):
-        """SetBulletNumber(self, int n)"""
-        return _richtext.RichTextAttr_SetBulletNumber(*args, **kwargs)
-
-    def SetBulletText(*args, **kwargs):
-        """SetBulletText(self, wxChar symbol)"""
-        return _richtext.RichTextAttr_SetBulletText(*args, **kwargs)
-
-    def SetBulletFont(*args, **kwargs):
-        """SetBulletFont(self, String bulletFont)"""
-        return _richtext.RichTextAttr_SetBulletFont(*args, **kwargs)
-
-    def SetBulletName(*args, **kwargs):
-        """SetBulletName(self, String name)"""
-        return _richtext.RichTextAttr_SetBulletName(*args, **kwargs)
-
-    def SetURL(*args, **kwargs):
-        """SetURL(self, String url)"""
-        return _richtext.RichTextAttr_SetURL(*args, **kwargs)
-
-    def SetPageBreak(*args, **kwargs):
-        """SetPageBreak(self, bool pageBreak=True)"""
-        return _richtext.RichTextAttr_SetPageBreak(*args, **kwargs)
-
-    def SetTextEffects(*args, **kwargs):
-        """SetTextEffects(self, int effects)"""
-        return _richtext.RichTextAttr_SetTextEffects(*args, **kwargs)
-
-    def SetTextEffectFlags(*args, **kwargs):
-        """SetTextEffectFlags(self, int effects)"""
-        return _richtext.RichTextAttr_SetTextEffectFlags(*args, **kwargs)
-
-    def SetOutlineLevel(*args, **kwargs):
-        """SetOutlineLevel(self, int level)"""
-        return _richtext.RichTextAttr_SetOutlineLevel(*args, **kwargs)
-
-    def GetTextColour(*args, **kwargs):
-        """GetTextColour(self) -> Colour"""
-        return _richtext.RichTextAttr_GetTextColour(*args, **kwargs)
-
-    def GetBackgroundColour(*args, **kwargs):
-        """GetBackgroundColour(self) -> Colour"""
-        return _richtext.RichTextAttr_GetBackgroundColour(*args, **kwargs)
-
-    def GetAlignment(*args, **kwargs):
-        """GetAlignment(self) -> int"""
-        return _richtext.RichTextAttr_GetAlignment(*args, **kwargs)
-
-    def GetTabs(*args, **kwargs):
-        """GetTabs(self) -> wxArrayInt"""
-        return _richtext.RichTextAttr_GetTabs(*args, **kwargs)
-
-    def GetLeftIndent(*args, **kwargs):
-        """GetLeftIndent(self) -> long"""
-        return _richtext.RichTextAttr_GetLeftIndent(*args, **kwargs)
-
-    def GetLeftSubIndent(*args, **kwargs):
-        """GetLeftSubIndent(self) -> long"""
-        return _richtext.RichTextAttr_GetLeftSubIndent(*args, **kwargs)
-
-    def GetRightIndent(*args, **kwargs):
-        """GetRightIndent(self) -> long"""
-        return _richtext.RichTextAttr_GetRightIndent(*args, **kwargs)
-
-    def GetFlags(*args, **kwargs):
-        """GetFlags(self) -> long"""
-        return _richtext.RichTextAttr_GetFlags(*args, **kwargs)
-
-    def GetFontSize(*args, **kwargs):
-        """GetFontSize(self) -> int"""
-        return _richtext.RichTextAttr_GetFontSize(*args, **kwargs)
-
-    def GetFontStyle(*args, **kwargs):
-        """GetFontStyle(self) -> int"""
-        return _richtext.RichTextAttr_GetFontStyle(*args, **kwargs)
-
-    def GetFontWeight(*args, **kwargs):
-        """GetFontWeight(self) -> int"""
-        return _richtext.RichTextAttr_GetFontWeight(*args, **kwargs)
-
-    def GetFontUnderlined(*args, **kwargs):
-        """GetFontUnderlined(self) -> bool"""
-        return _richtext.RichTextAttr_GetFontUnderlined(*args, **kwargs)
-
-    def GetFontFaceName(*args, **kwargs):
-        """GetFontFaceName(self) -> String"""
-        return _richtext.RichTextAttr_GetFontFaceName(*args, **kwargs)
-
-    def GetCharacterStyleName(*args, **kwargs):
-        """GetCharacterStyleName(self) -> String"""
-        return _richtext.RichTextAttr_GetCharacterStyleName(*args, **kwargs)
-
-    def GetParagraphStyleName(*args, **kwargs):
-        """GetParagraphStyleName(self) -> String"""
-        return _richtext.RichTextAttr_GetParagraphStyleName(*args, **kwargs)
-
-    def GetListStyleName(*args, **kwargs):
-        """GetListStyleName(self) -> String"""
-        return _richtext.RichTextAttr_GetListStyleName(*args, **kwargs)
-
-    def GetParagraphSpacingAfter(*args, **kwargs):
-        """GetParagraphSpacingAfter(self) -> int"""
-        return _richtext.RichTextAttr_GetParagraphSpacingAfter(*args, **kwargs)
-
-    def GetParagraphSpacingBefore(*args, **kwargs):
-        """GetParagraphSpacingBefore(self) -> int"""
-        return _richtext.RichTextAttr_GetParagraphSpacingBefore(*args, **kwargs)
-
-    def GetLineSpacing(*args, **kwargs):
-        """GetLineSpacing(self) -> int"""
-        return _richtext.RichTextAttr_GetLineSpacing(*args, **kwargs)
-
-    def GetBulletStyle(*args, **kwargs):
-        """GetBulletStyle(self) -> int"""
-        return _richtext.RichTextAttr_GetBulletStyle(*args, **kwargs)
-
-    def GetBulletNumber(*args, **kwargs):
-        """GetBulletNumber(self) -> int"""
-        return _richtext.RichTextAttr_GetBulletNumber(*args, **kwargs)
-
-    def GetBulletText(*args, **kwargs):
-        """GetBulletText(self) -> String"""
-        return _richtext.RichTextAttr_GetBulletText(*args, **kwargs)
-
-    def GetBulletFont(*args, **kwargs):
-        """GetBulletFont(self) -> String"""
-        return _richtext.RichTextAttr_GetBulletFont(*args, **kwargs)
-
-    def GetBulletName(*args, **kwargs):
-        """GetBulletName(self) -> String"""
-        return _richtext.RichTextAttr_GetBulletName(*args, **kwargs)
-
-    def GetURL(*args, **kwargs):
-        """GetURL(self) -> String"""
-        return _richtext.RichTextAttr_GetURL(*args, **kwargs)
-
-    def GetTextEffects(*args, **kwargs):
-        """GetTextEffects(self) -> int"""
-        return _richtext.RichTextAttr_GetTextEffects(*args, **kwargs)
-
-    def GetTextEffectFlags(*args, **kwargs):
-        """GetTextEffectFlags(self) -> int"""
-        return _richtext.RichTextAttr_GetTextEffectFlags(*args, **kwargs)
-
-    def GetOutlineLevel(*args, **kwargs):
-        """GetOutlineLevel(self) -> int"""
-        return _richtext.RichTextAttr_GetOutlineLevel(*args, **kwargs)
+        return _richtext.TextAttrEx_SetFlags(*args, **kwargs)
 
     def HasTextColour(*args, **kwargs):
         """HasTextColour(self) -> bool"""
-        return _richtext.RichTextAttr_HasTextColour(*args, **kwargs)
+        return _richtext.TextAttrEx_HasTextColour(*args, **kwargs)
 
     def HasBackgroundColour(*args, **kwargs):
         """HasBackgroundColour(self) -> bool"""
-        return _richtext.RichTextAttr_HasBackgroundColour(*args, **kwargs)
-
-    def HasAlignment(*args, **kwargs):
-        """HasAlignment(self) -> bool"""
-        return _richtext.RichTextAttr_HasAlignment(*args, **kwargs)
-
-    def HasTabs(*args, **kwargs):
-        """HasTabs(self) -> bool"""
-        return _richtext.RichTextAttr_HasTabs(*args, **kwargs)
-
-    def HasLeftIndent(*args, **kwargs):
-        """HasLeftIndent(self) -> bool"""
-        return _richtext.RichTextAttr_HasLeftIndent(*args, **kwargs)
-
-    def HasRightIndent(*args, **kwargs):
-        """HasRightIndent(self) -> bool"""
-        return _richtext.RichTextAttr_HasRightIndent(*args, **kwargs)
-
-    def HasFontWeight(*args, **kwargs):
-        """HasFontWeight(self) -> bool"""
-        return _richtext.RichTextAttr_HasFontWeight(*args, **kwargs)
-
-    def HasFontSize(*args, **kwargs):
-        """HasFontSize(self) -> bool"""
-        return _richtext.RichTextAttr_HasFontSize(*args, **kwargs)
-
-    def HasFontItalic(*args, **kwargs):
-        """HasFontItalic(self) -> bool"""
-        return _richtext.RichTextAttr_HasFontItalic(*args, **kwargs)
-
-    def HasFontUnderlined(*args, **kwargs):
-        """HasFontUnderlined(self) -> bool"""
-        return _richtext.RichTextAttr_HasFontUnderlined(*args, **kwargs)
-
-    def HasFontFaceName(*args, **kwargs):
-        """HasFontFaceName(self) -> bool"""
-        return _richtext.RichTextAttr_HasFontFaceName(*args, **kwargs)
+        return _richtext.TextAttrEx_HasBackgroundColour(*args, **kwargs)
 
     def HasFont(*args, **kwargs):
         """HasFont(self) -> bool"""
-        return _richtext.RichTextAttr_HasFont(*args, **kwargs)
+        return _richtext.TextAttrEx_HasFont(*args, **kwargs)
 
-    def HasParagraphSpacingAfter(*args, **kwargs):
-        """HasParagraphSpacingAfter(self) -> bool"""
-        return _richtext.RichTextAttr_HasParagraphSpacingAfter(*args, **kwargs)
+    def HasAlignment(*args, **kwargs):
+        """HasAlignment(self) -> bool"""
+        return _richtext.TextAttrEx_HasAlignment(*args, **kwargs)
 
-    def HasParagraphSpacingBefore(*args, **kwargs):
-        """HasParagraphSpacingBefore(self) -> bool"""
-        return _richtext.RichTextAttr_HasParagraphSpacingBefore(*args, **kwargs)
+    def HasTabs(*args, **kwargs):
+        """HasTabs(self) -> bool"""
+        return _richtext.TextAttrEx_HasTabs(*args, **kwargs)
 
-    def HasLineSpacing(*args, **kwargs):
-        """HasLineSpacing(self) -> bool"""
-        return _richtext.RichTextAttr_HasLineSpacing(*args, **kwargs)
+    def HasLeftIndent(*args, **kwargs):
+        """HasLeftIndent(self) -> bool"""
+        return _richtext.TextAttrEx_HasLeftIndent(*args, **kwargs)
 
-    def HasCharacterStyleName(*args, **kwargs):
-        """HasCharacterStyleName(self) -> bool"""
-        return _richtext.RichTextAttr_HasCharacterStyleName(*args, **kwargs)
-
-    def HasParagraphStyleName(*args, **kwargs):
-        """HasParagraphStyleName(self) -> bool"""
-        return _richtext.RichTextAttr_HasParagraphStyleName(*args, **kwargs)
-
-    def HasListStyleName(*args, **kwargs):
-        """HasListStyleName(self) -> bool"""
-        return _richtext.RichTextAttr_HasListStyleName(*args, **kwargs)
-
-    def HasBulletStyle(*args, **kwargs):
-        """HasBulletStyle(self) -> bool"""
-        return _richtext.RichTextAttr_HasBulletStyle(*args, **kwargs)
-
-    def HasBulletNumber(*args, **kwargs):
-        """HasBulletNumber(self) -> bool"""
-        return _richtext.RichTextAttr_HasBulletNumber(*args, **kwargs)
-
-    def HasBulletText(*args, **kwargs):
-        """HasBulletText(self) -> bool"""
-        return _richtext.RichTextAttr_HasBulletText(*args, **kwargs)
-
-    def HasBulletName(*args, **kwargs):
-        """HasBulletName(self) -> bool"""
-        return _richtext.RichTextAttr_HasBulletName(*args, **kwargs)
-
-    def HasURL(*args, **kwargs):
-        """HasURL(self) -> bool"""
-        return _richtext.RichTextAttr_HasURL(*args, **kwargs)
-
-    def HasPageBreak(*args, **kwargs):
-        """HasPageBreak(self) -> bool"""
-        return _richtext.RichTextAttr_HasPageBreak(*args, **kwargs)
-
-    def HasTextEffects(*args, **kwargs):
-        """HasTextEffects(self) -> bool"""
-        return _richtext.RichTextAttr_HasTextEffects(*args, **kwargs)
-
-    def HasTextEffect(*args, **kwargs):
-        """HasTextEffect(self, int effect) -> bool"""
-        return _richtext.RichTextAttr_HasTextEffect(*args, **kwargs)
-
-    def HasOutlineLevel(*args, **kwargs):
-        """HasOutlineLevel(self) -> bool"""
-        return _richtext.RichTextAttr_HasOutlineLevel(*args, **kwargs)
+    def HasRightIndent(*args, **kwargs):
+        """HasRightIndent(self) -> bool"""
+        return _richtext.TextAttrEx_HasRightIndent(*args, **kwargs)
 
     def HasFlag(*args, **kwargs):
         """HasFlag(self, long flag) -> bool"""
-        return _richtext.RichTextAttr_HasFlag(*args, **kwargs)
+        return _richtext.TextAttrEx_HasFlag(*args, **kwargs)
+
+    def GetTextColour(*args, **kwargs):
+        """GetTextColour(self) -> Colour"""
+        return _richtext.TextAttrEx_GetTextColour(*args, **kwargs)
+
+    def GetBackgroundColour(*args, **kwargs):
+        """GetBackgroundColour(self) -> Colour"""
+        return _richtext.TextAttrEx_GetBackgroundColour(*args, **kwargs)
+
+    def GetFont(*args, **kwargs):
+        """GetFont(self) -> Font"""
+        return _richtext.TextAttrEx_GetFont(*args, **kwargs)
+
+    def GetAlignment(*args, **kwargs):
+        """GetAlignment(self) -> int"""
+        return _richtext.TextAttrEx_GetAlignment(*args, **kwargs)
+
+    def GetTabs(*args, **kwargs):
+        """GetTabs(self) -> wxArrayInt"""
+        return _richtext.TextAttrEx_GetTabs(*args, **kwargs)
+
+    def GetLeftIndent(*args, **kwargs):
+        """GetLeftIndent(self) -> long"""
+        return _richtext.TextAttrEx_GetLeftIndent(*args, **kwargs)
+
+    def GetLeftSubIndent(*args, **kwargs):
+        """GetLeftSubIndent(self) -> long"""
+        return _richtext.TextAttrEx_GetLeftSubIndent(*args, **kwargs)
+
+    def GetRightIndent(*args, **kwargs):
+        """GetRightIndent(self) -> long"""
+        return _richtext.TextAttrEx_GetRightIndent(*args, **kwargs)
+
+    def GetFlags(*args, **kwargs):
+        """GetFlags(self) -> long"""
+        return _richtext.TextAttrEx_GetFlags(*args, **kwargs)
+
+    def SetCharacterStyleName(*args, **kwargs):
+        """SetCharacterStyleName(self, String name)"""
+        return _richtext.TextAttrEx_SetCharacterStyleName(*args, **kwargs)
+
+    def SetParagraphStyleName(*args, **kwargs):
+        """SetParagraphStyleName(self, String name)"""
+        return _richtext.TextAttrEx_SetParagraphStyleName(*args, **kwargs)
+
+    def SetListStyleName(*args, **kwargs):
+        """SetListStyleName(self, String name)"""
+        return _richtext.TextAttrEx_SetListStyleName(*args, **kwargs)
+
+    def SetParagraphSpacingAfter(*args, **kwargs):
+        """SetParagraphSpacingAfter(self, int spacing)"""
+        return _richtext.TextAttrEx_SetParagraphSpacingAfter(*args, **kwargs)
+
+    def SetParagraphSpacingBefore(*args, **kwargs):
+        """SetParagraphSpacingBefore(self, int spacing)"""
+        return _richtext.TextAttrEx_SetParagraphSpacingBefore(*args, **kwargs)
+
+    def SetLineSpacing(*args, **kwargs):
+        """SetLineSpacing(self, int spacing)"""
+        return _richtext.TextAttrEx_SetLineSpacing(*args, **kwargs)
+
+    def SetBulletStyle(*args, **kwargs):
+        """SetBulletStyle(self, int style)"""
+        return _richtext.TextAttrEx_SetBulletStyle(*args, **kwargs)
+
+    def SetBulletNumber(*args, **kwargs):
+        """SetBulletNumber(self, int n)"""
+        return _richtext.TextAttrEx_SetBulletNumber(*args, **kwargs)
+
+    def SetBulletText(*args, **kwargs):
+        """SetBulletText(self, String text)"""
+        return _richtext.TextAttrEx_SetBulletText(*args, **kwargs)
+
+    def SetBulletName(*args, **kwargs):
+        """SetBulletName(self, String name)"""
+        return _richtext.TextAttrEx_SetBulletName(*args, **kwargs)
+
+    def SetBulletFont(*args, **kwargs):
+        """SetBulletFont(self, String bulletFont)"""
+        return _richtext.TextAttrEx_SetBulletFont(*args, **kwargs)
+
+    def SetURL(*args, **kwargs):
+        """SetURL(self, String url)"""
+        return _richtext.TextAttrEx_SetURL(*args, **kwargs)
+
+    def SetPageBreak(*args, **kwargs):
+        """SetPageBreak(self, bool pageBreak=True)"""
+        return _richtext.TextAttrEx_SetPageBreak(*args, **kwargs)
+
+    def SetTextEffects(*args, **kwargs):
+        """SetTextEffects(self, int effects)"""
+        return _richtext.TextAttrEx_SetTextEffects(*args, **kwargs)
+
+    def SetTextEffectFlags(*args, **kwargs):
+        """SetTextEffectFlags(self, int effects)"""
+        return _richtext.TextAttrEx_SetTextEffectFlags(*args, **kwargs)
+
+    def SetOutlineLevel(*args, **kwargs):
+        """SetOutlineLevel(self, int level)"""
+        return _richtext.TextAttrEx_SetOutlineLevel(*args, **kwargs)
+
+    def GetCharacterStyleName(*args, **kwargs):
+        """GetCharacterStyleName(self) -> String"""
+        return _richtext.TextAttrEx_GetCharacterStyleName(*args, **kwargs)
+
+    def GetParagraphStyleName(*args, **kwargs):
+        """GetParagraphStyleName(self) -> String"""
+        return _richtext.TextAttrEx_GetParagraphStyleName(*args, **kwargs)
+
+    def GetListStyleName(*args, **kwargs):
+        """GetListStyleName(self) -> String"""
+        return _richtext.TextAttrEx_GetListStyleName(*args, **kwargs)
+
+    def GetParagraphSpacingAfter(*args, **kwargs):
+        """GetParagraphSpacingAfter(self) -> int"""
+        return _richtext.TextAttrEx_GetParagraphSpacingAfter(*args, **kwargs)
+
+    def GetParagraphSpacingBefore(*args, **kwargs):
+        """GetParagraphSpacingBefore(self) -> int"""
+        return _richtext.TextAttrEx_GetParagraphSpacingBefore(*args, **kwargs)
+
+    def GetLineSpacing(*args, **kwargs):
+        """GetLineSpacing(self) -> int"""
+        return _richtext.TextAttrEx_GetLineSpacing(*args, **kwargs)
+
+    def GetBulletStyle(*args, **kwargs):
+        """GetBulletStyle(self) -> int"""
+        return _richtext.TextAttrEx_GetBulletStyle(*args, **kwargs)
+
+    def GetBulletNumber(*args, **kwargs):
+        """GetBulletNumber(self) -> int"""
+        return _richtext.TextAttrEx_GetBulletNumber(*args, **kwargs)
+
+    def GetBulletText(*args, **kwargs):
+        """GetBulletText(self) -> String"""
+        return _richtext.TextAttrEx_GetBulletText(*args, **kwargs)
+
+    def GetBulletName(*args, **kwargs):
+        """GetBulletName(self) -> String"""
+        return _richtext.TextAttrEx_GetBulletName(*args, **kwargs)
+
+    def GetBulletFont(*args, **kwargs):
+        """GetBulletFont(self) -> String"""
+        return _richtext.TextAttrEx_GetBulletFont(*args, **kwargs)
+
+    def GetURL(*args, **kwargs):
+        """GetURL(self) -> String"""
+        return _richtext.TextAttrEx_GetURL(*args, **kwargs)
+
+    def GetTextEffects(*args, **kwargs):
+        """GetTextEffects(self) -> int"""
+        return _richtext.TextAttrEx_GetTextEffects(*args, **kwargs)
+
+    def GetTextEffectFlags(*args, **kwargs):
+        """GetTextEffectFlags(self) -> int"""
+        return _richtext.TextAttrEx_GetTextEffectFlags(*args, **kwargs)
+
+    def GetOutlineLevel(*args, **kwargs):
+        """GetOutlineLevel(self) -> int"""
+        return _richtext.TextAttrEx_GetOutlineLevel(*args, **kwargs)
+
+    def HasFontWeight(*args, **kwargs):
+        """HasFontWeight(self) -> bool"""
+        return _richtext.TextAttrEx_HasFontWeight(*args, **kwargs)
+
+    def HasFontSize(*args, **kwargs):
+        """HasFontSize(self) -> bool"""
+        return _richtext.TextAttrEx_HasFontSize(*args, **kwargs)
+
+    def HasFontItalic(*args, **kwargs):
+        """HasFontItalic(self) -> bool"""
+        return _richtext.TextAttrEx_HasFontItalic(*args, **kwargs)
+
+    def HasFontUnderlined(*args, **kwargs):
+        """HasFontUnderlined(self) -> bool"""
+        return _richtext.TextAttrEx_HasFontUnderlined(*args, **kwargs)
+
+    def HasFontFaceName(*args, **kwargs):
+        """HasFontFaceName(self) -> bool"""
+        return _richtext.TextAttrEx_HasFontFaceName(*args, **kwargs)
+
+    def HasParagraphSpacingAfter(*args, **kwargs):
+        """HasParagraphSpacingAfter(self) -> bool"""
+        return _richtext.TextAttrEx_HasParagraphSpacingAfter(*args, **kwargs)
+
+    def HasParagraphSpacingBefore(*args, **kwargs):
+        """HasParagraphSpacingBefore(self) -> bool"""
+        return _richtext.TextAttrEx_HasParagraphSpacingBefore(*args, **kwargs)
+
+    def HasLineSpacing(*args, **kwargs):
+        """HasLineSpacing(self) -> bool"""
+        return _richtext.TextAttrEx_HasLineSpacing(*args, **kwargs)
+
+    def HasCharacterStyleName(*args, **kwargs):
+        """HasCharacterStyleName(self) -> bool"""
+        return _richtext.TextAttrEx_HasCharacterStyleName(*args, **kwargs)
+
+    def HasParagraphStyleName(*args, **kwargs):
+        """HasParagraphStyleName(self) -> bool"""
+        return _richtext.TextAttrEx_HasParagraphStyleName(*args, **kwargs)
+
+    def HasListStyleName(*args, **kwargs):
+        """HasListStyleName(self) -> bool"""
+        return _richtext.TextAttrEx_HasListStyleName(*args, **kwargs)
+
+    def HasBulletStyle(*args, **kwargs):
+        """HasBulletStyle(self) -> bool"""
+        return _richtext.TextAttrEx_HasBulletStyle(*args, **kwargs)
+
+    def HasBulletNumber(*args, **kwargs):
+        """HasBulletNumber(self) -> bool"""
+        return _richtext.TextAttrEx_HasBulletNumber(*args, **kwargs)
+
+    def HasBulletText(*args, **kwargs):
+        """HasBulletText(self) -> bool"""
+        return _richtext.TextAttrEx_HasBulletText(*args, **kwargs)
+
+    def HasBulletName(*args, **kwargs):
+        """HasBulletName(self) -> bool"""
+        return _richtext.TextAttrEx_HasBulletName(*args, **kwargs)
+
+    def HasURL(*args, **kwargs):
+        """HasURL(self) -> bool"""
+        return _richtext.TextAttrEx_HasURL(*args, **kwargs)
+
+    def HasPageBreak(*args, **kwargs):
+        """HasPageBreak(self) -> bool"""
+        return _richtext.TextAttrEx_HasPageBreak(*args, **kwargs)
+
+    def HasTextEffects(*args, **kwargs):
+        """HasTextEffects(self) -> bool"""
+        return _richtext.TextAttrEx_HasTextEffects(*args, **kwargs)
+
+    def HasTextEffect(*args, **kwargs):
+        """HasTextEffect(self, int effect) -> bool"""
+        return _richtext.TextAttrEx_HasTextEffect(*args, **kwargs)
+
+    def HasOutlineLevel(*args, **kwargs):
+        """HasOutlineLevel(self) -> bool"""
+        return _richtext.TextAttrEx_HasOutlineLevel(*args, **kwargs)
 
     def IsCharacterStyle(*args, **kwargs):
         """IsCharacterStyle(self) -> bool"""
-        return _richtext.RichTextAttr_IsCharacterStyle(*args, **kwargs)
+        return _richtext.TextAttrEx_IsCharacterStyle(*args, **kwargs)
 
     def IsParagraphStyle(*args, **kwargs):
         """IsParagraphStyle(self) -> bool"""
-        return _richtext.RichTextAttr_IsParagraphStyle(*args, **kwargs)
+        return _richtext.TextAttrEx_IsParagraphStyle(*args, **kwargs)
 
     def IsDefault(*args, **kwargs):
-        """
-        IsDefault(self) -> bool
+        """IsDefault(self) -> bool"""
+        return _richtext.TextAttrEx_IsDefault(*args, **kwargs)
 
-        Returns false if we have any attributes set, true otherwise
-        """
-        return _richtext.RichTextAttr_IsDefault(*args, **kwargs)
+    def CombineEx(*args, **kwargs):
+        """CombineEx(TextAttrEx attr, TextAttrEx attrDef, RichTextCtrl text) -> TextAttrEx"""
+        return _richtext.TextAttrEx_CombineEx(*args, **kwargs)
 
-    def Apply(*args, **kwargs):
-        """
-        Apply(self, RichTextAttr style, RichTextAttr compareWith=None) -> bool
-
-        Merges the given attributes. Does not affect self. If compareWith is
-        not None, then it will be used to mask out those attributes that are
-        the same in style and compareWith, for situations where we don't want
-        to explicitly set inherited attributes.
-
-        """
-        return _richtext.RichTextAttr_Apply(*args, **kwargs)
-
-    def Combine(*args, **kwargs):
-        """
-        Combine(self, RichTextAttr style, RichTextAttr compareWith=None) -> RichTextAttr
-
-        Merges the given attributes and returns the result. Does not affect
-        self. If compareWith is not None, then it will be used to mask out
-        those attributes that are the same in style and compareWith, for
-        situations where we don't want to explicitly set inherited attributes.
-
-        """
-        return _richtext.RichTextAttr_Combine(*args, **kwargs)
-
+    CombineEx = staticmethod(CombineEx)
     Alignment = property(GetAlignment,SetAlignment) 
     BackgroundColour = property(GetBackgroundColour,SetBackgroundColour) 
-    BulletFont = property(GetBulletFont,SetBulletFont) 
-    BulletNumber = property(GetBulletNumber,SetBulletNumber) 
-    BulletStyle = property(GetBulletStyle,SetBulletStyle) 
-    BulletText = property(GetBulletText,SetBulletText) 
-    CharacterStyleName = property(GetCharacterStyleName,SetCharacterStyleName) 
     Flags = property(GetFlags,SetFlags) 
     Font = property(GetFont,SetFont) 
-    FontAttributes = property(GetFontAttributes) 
-    FontFaceName = property(GetFontFaceName,SetFontFaceName) 
-    FontSize = property(GetFontSize,SetFontSize) 
-    FontStyle = property(GetFontStyle,SetFontStyle) 
-    FontUnderlined = property(GetFontUnderlined,SetFontUnderlined) 
-    FontWeight = property(GetFontWeight,SetFontWeight) 
     LeftIndent = property(GetLeftIndent,SetLeftIndent) 
     LeftSubIndent = property(GetLeftSubIndent) 
-    LineSpacing = property(GetLineSpacing,SetLineSpacing) 
-    ParagraphSpacingAfter = property(GetParagraphSpacingAfter,SetParagraphSpacingAfter) 
-    ParagraphSpacingBefore = property(GetParagraphSpacingBefore,SetParagraphSpacingBefore) 
-    ParagraphStyleName = property(GetParagraphStyleName,SetParagraphStyleName) 
     RightIndent = property(GetRightIndent,SetRightIndent) 
     Tabs = property(GetTabs,SetTabs) 
     TextColour = property(GetTextColour,SetTextColour) 
+    CharacterStyleName = property(GetCharacterStyleName,SetCharacterStyleName) 
+    ParagraphStyleName = property(GetParagraphStyleName,SetParagraphStyleName) 
     ListStyleName = property(GetListStyleName,SetListStyleName) 
+    ParagraphSpacingAfter = property(GetParagraphSpacingAfter,SetParagraphSpacingAfter) 
+    ParagraphSpacingBefore = property(GetParagraphSpacingBefore,SetParagraphSpacingBefore) 
+    LineSpacing = property(GetLineSpacing,SetLineSpacing) 
+    BulletStyle = property(GetBulletStyle,SetBulletStyle) 
+    BulletNumber = property(GetBulletNumber,SetBulletNumber) 
+    BulletText = property(GetBulletText,SetBulletText) 
     BulletName = property(GetBulletName,SetBulletName) 
+    BulletFont = property(GetBulletFont,SetBulletFont) 
     URL = property(GetURL,SetURL) 
     TextEffects = property(GetTextEffects,SetTextEffects) 
     TextEffectFlags = property(GetTextEffectFlags,SetTextEffectFlags) 
     OutlineLevel = property(GetOutlineLevel,SetOutlineLevel) 
-_richtext.RichTextAttr_swigregister(RichTextAttr)
+_richtext.TextAttrEx_swigregister(TextAttrEx)
 cvar = _richtext.cvar
 RICHTEXT_ALL = cvar.RICHTEXT_ALL
 RICHTEXT_NONE = cvar.RICHTEXT_NONE
+
+def TextAttrEx_CombineEx(*args, **kwargs):
+  """TextAttrEx_CombineEx(TextAttrEx attr, TextAttrEx attrDef, RichTextCtrl text) -> TextAttrEx"""
+  return _richtext.TextAttrEx_CombineEx(*args, **kwargs)
+
+# an alias for compatibility
+RichTextAttr = TextAttrEx
 
 class RichTextObject(_core.Object):
     """
@@ -974,11 +884,11 @@ class RichTextObject(_core.Object):
         return _richtext.RichTextObject_GetBottomMargin(*args, **kwargs)
 
     def SetAttributes(*args, **kwargs):
-        """SetAttributes(self, RichTextAttr attr)"""
+        """SetAttributes(self, TextAttrEx attr)"""
         return _richtext.RichTextObject_SetAttributes(*args, **kwargs)
 
     def GetAttributes(*args, **kwargs):
-        """GetAttributes(self) -> RichTextAttr"""
+        """GetAttributes(self) -> TextAttrEx"""
         return _richtext.RichTextObject_GetAttributes(*args, **kwargs)
 
     Attributes = property(GetAttributes,SetAttributes) 
@@ -1179,15 +1089,15 @@ class RichTextParagraphLayoutBox(RichTextBox):
         return _richtext.RichTextParagraphLayoutBox_Reset(*args, **kwargs)
 
     def AddParagraph(*args, **kwargs):
-        """AddParagraph(self, String text, wxTextAttrEx paraStyle=None) -> RichTextRange"""
+        """AddParagraph(self, String text, TextAttrEx paraStyle=None) -> RichTextRange"""
         return _richtext.RichTextParagraphLayoutBox_AddParagraph(*args, **kwargs)
 
     def AddImage(*args, **kwargs):
-        """AddImage(self, Image image, wxTextAttrEx paraStyle=None) -> RichTextRange"""
+        """AddImage(self, Image image, TextAttrEx paraStyle=None) -> RichTextRange"""
         return _richtext.RichTextParagraphLayoutBox_AddImage(*args, **kwargs)
 
     def AddParagraphs(*args, **kwargs):
-        """AddParagraphs(self, String text, wxTextAttrEx paraStyle=None) -> RichTextRange"""
+        """AddParagraphs(self, String text, TextAttrEx paraStyle=None) -> RichTextRange"""
         return _richtext.RichTextParagraphLayoutBox_AddParagraphs(*args, **kwargs)
 
     def GetLineAtPosition(*args, **kwargs):
@@ -1251,24 +1161,24 @@ class RichTextParagraphLayoutBox(RichTextBox):
         return _richtext.RichTextParagraphLayoutBox_PositionToXY(*args, **kwargs)
 
     def SetStyle(*args, **kwargs):
-        """SetStyle(self, RichTextRange range, RichTextAttr style, int flags=RICHTEXT_SETSTYLE_WITH_UNDO) -> bool"""
+        """SetStyle(self, RichTextRange range, TextAttrEx style, int flags=RICHTEXT_SETSTYLE_WITH_UNDO) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_SetStyle(*args, **kwargs)
 
     def GetStyle(*args, **kwargs):
-        """GetStyle(self, long position, RichTextAttr style) -> bool"""
+        """GetStyle(self, long position, TextAttrEx style) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_GetStyle(*args, **kwargs)
 
     def GetUncombinedStyle(*args, **kwargs):
-        """GetUncombinedStyle(self, long position, RichTextAttr style) -> bool"""
+        """GetUncombinedStyle(self, long position, TextAttrEx style) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_GetUncombinedStyle(*args, **kwargs)
 
     def GetStyleForRange(*args, **kwargs):
-        """GetStyleForRange(self, RichTextRange range, wxTextAttrEx style) -> bool"""
+        """GetStyleForRange(self, RichTextRange range, TextAttrEx style) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_GetStyleForRange(*args, **kwargs)
 
     def CollectStyle(*args, **kwargs):
         """
-        CollectStyle(self, wxTextAttrEx currentStyle, wxTextAttrEx style, long multipleStyleAttributes, 
+        CollectStyle(self, TextAttrEx currentStyle, TextAttrEx style, long multipleStyleAttributes, 
             int multipleTextEffectAttributes) -> bool
         """
         return _richtext.RichTextParagraphLayoutBox_CollectStyle(*args, **kwargs)
@@ -1308,15 +1218,15 @@ class RichTextParagraphLayoutBox(RichTextBox):
         return _richtext.RichTextParagraphLayoutBox_DoNumberList(*args, **kwargs)
 
     def FindNextParagraphNumber(*args, **kwargs):
-        """FindNextParagraphNumber(self, RichTextParagraph previousParagraph, RichTextAttr attr) -> bool"""
+        """FindNextParagraphNumber(self, RichTextParagraph previousParagraph, wxRichTextAttr attr) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_FindNextParagraphNumber(*args, **kwargs)
 
     def HasCharacterAttributes(*args, **kwargs):
-        """HasCharacterAttributes(self, RichTextRange range, RichTextAttr style) -> bool"""
+        """HasCharacterAttributes(self, RichTextRange range, TextAttrEx style) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_HasCharacterAttributes(*args, **kwargs)
 
     def HasParagraphAttributes(*args, **kwargs):
-        """HasParagraphAttributes(self, RichTextRange range, RichTextAttr style) -> bool"""
+        """HasParagraphAttributes(self, RichTextRange range, TextAttrEx style) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_HasParagraphAttributes(*args, **kwargs)
 
     def InsertFragment(*args, **kwargs):
@@ -1344,19 +1254,19 @@ class RichTextParagraphLayoutBox(RichTextBox):
         return _richtext.RichTextParagraphLayoutBox_GetText(*args, **kwargs)
 
     def SetDefaultStyle(*args, **kwargs):
-        """SetDefaultStyle(self, wxTextAttrEx style) -> bool"""
+        """SetDefaultStyle(self, TextAttrEx style) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_SetDefaultStyle(*args, **kwargs)
 
     def GetDefaultStyle(*args, **kwargs):
-        """GetDefaultStyle(self) -> wxTextAttrEx"""
+        """GetDefaultStyle(self) -> TextAttrEx"""
         return _richtext.RichTextParagraphLayoutBox_GetDefaultStyle(*args, **kwargs)
 
     def SetBasicStyle(*args, **kwargs):
-        """SetBasicStyle(self, RichTextAttr style)"""
+        """SetBasicStyle(self, TextAttrEx style)"""
         return _richtext.RichTextParagraphLayoutBox_SetBasicStyle(*args, **kwargs)
 
     def GetBasicStyle(*args, **kwargs):
-        """GetBasicStyle(self) -> wxTextAttrEx"""
+        """GetBasicStyle(self) -> TextAttrEx"""
         return _richtext.RichTextParagraphLayoutBox_GetBasicStyle(*args, **kwargs)
 
     def Invalidate(*args, **kwargs):
@@ -1459,8 +1369,8 @@ class RichTextParagraph(RichTextBox):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, String text=EmptyString, RichTextObject parent=None, 
-            RichTextAttr paraStyle=None, RichTextAttr charStyle=None) -> RichTextParagraph
+        __init__(self, String text, RichTextObject parent=None, TextAttrEx paraStyle=None, 
+            TextAttrEx charStyle=None) -> RichTextParagraph
 
         This object represents a single paragraph (or in a straight text
         editor, a line).
@@ -1481,7 +1391,7 @@ class RichTextParagraph(RichTextBox):
         return _richtext.RichTextParagraph_ClearLines(*args, **kwargs)
 
     def ApplyParagraphStyle(*args, **kwargs):
-        """ApplyParagraphStyle(self, wxTextAttrEx attr, Rect rect)"""
+        """ApplyParagraphStyle(self, TextAttrEx attr, Rect rect)"""
         return _richtext.RichTextParagraph_ApplyParagraphStyle(*args, **kwargs)
 
     def InsertText(*args, **kwargs):
@@ -1525,7 +1435,7 @@ class RichTextParagraph(RichTextBox):
         return _richtext.RichTextParagraph_ClearUnusedLines(*args, **kwargs)
 
     def GetCombinedAttributes(*args, **kwargs):
-        """GetCombinedAttributes(self) -> wxTextAttrEx"""
+        """GetCombinedAttributes(self, TextAttrEx contentStyle=None) -> TextAttrEx"""
         return _richtext.RichTextParagraph_GetCombinedAttributes(*args, **kwargs)
 
     def GetFirstLineBreakPosition(*args, **kwargs):
@@ -1568,7 +1478,7 @@ class RichTextPlainText(RichTextObject):
     def __init__(self, *args, **kwargs): 
         """
         __init__(self, String text=wxEmptyString, RichTextObject parent=None, 
-            wxTextAttrEx style=None) -> RichTextPlainText
+            TextAttrEx style=None) -> RichTextPlainText
 
         This object represents a single piece of text.
         """
@@ -1783,7 +1693,7 @@ class RichTextBuffer(RichTextParagraphLayoutBox):
         return _richtext.RichTextBuffer_CanPasteFromClipboard(*args, **kwargs)
 
     def BeginStyle(*args, **kwargs):
-        """BeginStyle(self, wxTextAttrEx style) -> bool"""
+        """BeginStyle(self, TextAttrEx style) -> bool"""
         return _richtext.RichTextBuffer_BeginStyle(*args, **kwargs)
 
     def EndStyle(*args, **kwargs):
@@ -2007,7 +1917,7 @@ class RichTextBuffer(RichTextParagraphLayoutBox):
         return _richtext.RichTextBuffer_IsModified(*args, **kwargs)
 
     def GetStyleForNewParagraph(*args, **kwargs):
-        """GetStyleForNewParagraph(self, long pos, bool caretPosition=False, bool lookUpNewParaStyle=False) -> RichTextAttr"""
+        """GetStyleForNewParagraph(self, long pos, bool caretPosition=False, bool lookUpNewParaStyle=False) -> TextAttrEx"""
         return _richtext.RichTextBuffer_GetStyleForNewParagraph(*args, **kwargs)
 
     def GetHandlers(*args, **kwargs):
@@ -2304,21 +2214,21 @@ class RichTextRenderer(_core.Object):
     __del__ = lambda self : None;
     def DrawStandardBullet(*args, **kwargs):
         """
-        DrawStandardBullet(self, RichTextParagraph paragraph, DC dc, wxTextAttrEx attr, 
+        DrawStandardBullet(self, RichTextParagraph paragraph, DC dc, TextAttrEx attr, 
             Rect rect) -> bool
         """
         return _richtext.RichTextRenderer_DrawStandardBullet(*args, **kwargs)
 
     def DrawTextBullet(*args, **kwargs):
         """
-        DrawTextBullet(self, RichTextParagraph paragraph, DC dc, wxTextAttrEx attr, 
+        DrawTextBullet(self, RichTextParagraph paragraph, DC dc, TextAttrEx attr, 
             Rect rect, String text) -> bool
         """
         return _richtext.RichTextRenderer_DrawTextBullet(*args, **kwargs)
 
     def DrawBitmapBullet(*args, **kwargs):
         """
-        DrawBitmapBullet(self, RichTextParagraph paragraph, DC dc, wxTextAttrEx attr, 
+        DrawBitmapBullet(self, RichTextParagraph paragraph, DC dc, TextAttrEx attr, 
             Rect rect) -> bool
         """
         return _richtext.RichTextRenderer_DrawBitmapBullet(*args, **kwargs)
@@ -2541,7 +2451,7 @@ class RichTextCtrl(_windows.ScrolledWindow):
 
     def SetStyle(*args, **kwargs):
         """
-        SetStyle(self, RichTextRange range, RichTextAttr style) -> bool
+        SetStyle(self, RichTextRange range, TextAttrEx style) -> bool
 
         Set the style for the text in ``range`` to ``style``
         """
@@ -2549,7 +2459,7 @@ class RichTextCtrl(_windows.ScrolledWindow):
 
     def GetStyle(*args, **kwargs):
         """
-        GetStyle(self, long position, RichTextAttr style) -> bool
+        GetStyle(self, long position, wxRichTextAttr style) -> bool
 
         Retrieve the style used at the given position.  Copies the style
         values at ``position`` into the ``style`` parameter and returns ``True``
@@ -2559,7 +2469,7 @@ class RichTextCtrl(_windows.ScrolledWindow):
 
     def GetStyleForRange(*args, **kwargs):
         """
-        GetStyleForRange(self, RichTextRange range, RichTextAttr style) -> bool
+        GetStyleForRange(self, RichTextRange range, TextAttrEx style) -> bool
 
         Get the common set of styles for the range
         """
@@ -2567,7 +2477,7 @@ class RichTextCtrl(_windows.ScrolledWindow):
 
     def SetStyleEx(*args, **kwargs):
         """
-        SetStyleEx(self, RichTextRange range, RichTextAttr style, int flags=RICHTEXT_SETSTYLE_WITH_UNDO) -> bool
+        SetStyleEx(self, RichTextRange range, TextAttrEx style, int flags=RICHTEXT_SETSTYLE_WITH_UNDO) -> bool
 
         Extended style setting operation with flags including:
         RICHTEXT_SETSTYLE_WITH_UNDO, RICHTEXT_SETSTYLE_OPTIMIZE,
@@ -2577,7 +2487,7 @@ class RichTextCtrl(_windows.ScrolledWindow):
 
     def GetUncombinedStyle(*args, **kwargs):
         """
-        GetUncombinedStyle(self, long position, RichTextAttr style) -> bool
+        GetUncombinedStyle(self, long position, TextAttrEx style) -> bool
 
         Get the content (uncombined) attributes for this position.  Copies the
         style values at ``position`` into the ``style`` parameter and returns
@@ -2587,7 +2497,7 @@ class RichTextCtrl(_windows.ScrolledWindow):
 
     def SetDefaultStyle(*args, **kwargs):
         """
-        SetDefaultStyle(self, RichTextAttr style) -> bool
+        SetDefaultStyle(self, TextAttrEx style) -> bool
 
         Set the style used by default for the rich text document.
         """
@@ -2595,7 +2505,7 @@ class RichTextCtrl(_windows.ScrolledWindow):
 
     def GetDefaultStyle(*args, **kwargs):
         """
-        GetDefaultStyle(self) -> RichTextAttr
+        GetDefaultStyle(self) -> TextAttrEx
 
         Retrieves a copy of the default style object.
         """
@@ -2839,181 +2749,348 @@ class RichTextCtrl(_windows.ScrolledWindow):
         return _richtext.RichTextCtrl_HasSelection(*args, **kwargs)
 
     def WriteImage(*args, **kwargs):
-        """WriteImage(self, Image image, int bitmapType=BITMAP_TYPE_PNG) -> bool"""
+        """
+        WriteImage(self, Image image, int bitmapType=BITMAP_TYPE_PNG) -> bool
+
+        Write an image at the current insertion point. Supply optional type to
+        use for internal and file storage of the raw data.
+
+        """
         return _richtext.RichTextCtrl_WriteImage(*args, **kwargs)
 
     def WriteBitmap(*args, **kwargs):
-        """WriteBitmap(self, Bitmap bitmap, int bitmapType=BITMAP_TYPE_PNG) -> bool"""
+        """
+        WriteBitmap(self, Bitmap bitmap, int bitmapType=BITMAP_TYPE_PNG) -> bool
+
+        Write a bitmap at the current insertion point. Supply optional type to
+        use for internal and file storage of the raw data.
+        """
         return _richtext.RichTextCtrl_WriteBitmap(*args, **kwargs)
 
     def WriteImageFile(*args, **kwargs):
-        """WriteImageFile(self, String filename, int bitmapType) -> bool"""
+        """
+        WriteImageFile(self, String filename, int bitmapType) -> bool
+
+        Load an image from file and write at the current insertion point.
+        """
         return _richtext.RichTextCtrl_WriteImageFile(*args, **kwargs)
 
     def WriteImageBlock(*args, **kwargs):
-        """WriteImageBlock(self, wxRichTextImageBlock imageBlock) -> bool"""
+        """
+        WriteImageBlock(self, wxRichTextImageBlock imageBlock) -> bool
+
+        Write an image block at the current insertion point.
+        """
         return _richtext.RichTextCtrl_WriteImageBlock(*args, **kwargs)
 
     def Newline(*args, **kwargs):
-        """Newline(self) -> bool"""
+        """
+        Newline(self) -> bool
+
+        Insert a newline (actually paragraph) at the current insertion point.
+        """
         return _richtext.RichTextCtrl_Newline(*args, **kwargs)
 
     def LineBreak(*args, **kwargs):
-        """LineBreak(self) -> bool"""
+        """
+        LineBreak(self) -> bool
+
+        Insert a line break at the current insertion point.
+        """
         return _richtext.RichTextCtrl_LineBreak(*args, **kwargs)
 
     def SetBasicStyle(*args, **kwargs):
-        """SetBasicStyle(self, RichTextAttr style)"""
+        """SetBasicStyle(self, TextAttrEx style)"""
         return _richtext.RichTextCtrl_SetBasicStyle(*args, **kwargs)
 
     def GetBasicStyle(*args, **kwargs):
-        """GetBasicStyle(self) -> RichTextAttr"""
+        """
+        GetBasicStyle(self) -> TextAttrEx
+
+        Get basic (overall) style
+        """
         return _richtext.RichTextCtrl_GetBasicStyle(*args, **kwargs)
 
     def BeginStyle(*args, **kwargs):
-        """BeginStyle(self, RichTextAttr style) -> bool"""
+        """
+        BeginStyle(self, TextAttrEx style) -> bool
+
+        Begin using a style
+        """
         return _richtext.RichTextCtrl_BeginStyle(*args, **kwargs)
 
     def EndStyle(*args, **kwargs):
-        """EndStyle(self) -> bool"""
+        """
+        EndStyle(self) -> bool
+
+        End the style
+        """
         return _richtext.RichTextCtrl_EndStyle(*args, **kwargs)
 
     def EndAllStyles(*args, **kwargs):
-        """EndAllStyles(self) -> bool"""
+        """
+        EndAllStyles(self) -> bool
+
+        End all styles
+        """
         return _richtext.RichTextCtrl_EndAllStyles(*args, **kwargs)
 
     def BeginBold(*args, **kwargs):
-        """BeginBold(self) -> bool"""
+        """
+        BeginBold(self) -> bool
+
+        Begin using bold
+        """
         return _richtext.RichTextCtrl_BeginBold(*args, **kwargs)
 
     def EndBold(*args, **kwargs):
-        """EndBold(self) -> bool"""
+        """
+        EndBold(self) -> bool
+
+        End using bold
+        """
         return _richtext.RichTextCtrl_EndBold(*args, **kwargs)
 
     def BeginItalic(*args, **kwargs):
-        """BeginItalic(self) -> bool"""
+        """
+        BeginItalic(self) -> bool
+
+        Begin using italic
+        """
         return _richtext.RichTextCtrl_BeginItalic(*args, **kwargs)
 
     def EndItalic(*args, **kwargs):
-        """EndItalic(self) -> bool"""
+        """
+        EndItalic(self) -> bool
+
+        End using italic
+        """
         return _richtext.RichTextCtrl_EndItalic(*args, **kwargs)
 
     def BeginUnderline(*args, **kwargs):
-        """BeginUnderline(self) -> bool"""
+        """
+        BeginUnderline(self) -> bool
+
+        Begin using underline
+        """
         return _richtext.RichTextCtrl_BeginUnderline(*args, **kwargs)
 
     def EndUnderline(*args, **kwargs):
-        """EndUnderline(self) -> bool"""
+        """
+        EndUnderline(self) -> bool
+
+        End using underline
+        """
         return _richtext.RichTextCtrl_EndUnderline(*args, **kwargs)
 
     def BeginFontSize(*args, **kwargs):
-        """BeginFontSize(self, int pointSize) -> bool"""
+        """
+        BeginFontSize(self, int pointSize) -> bool
+
+        Begin using point size
+        """
         return _richtext.RichTextCtrl_BeginFontSize(*args, **kwargs)
 
     def EndFontSize(*args, **kwargs):
-        """EndFontSize(self) -> bool"""
+        """
+        EndFontSize(self) -> bool
+
+        End using point size
+        """
         return _richtext.RichTextCtrl_EndFontSize(*args, **kwargs)
 
     def BeginFont(*args, **kwargs):
-        """BeginFont(self, Font font) -> bool"""
+        """
+        BeginFont(self, Font font) -> bool
+
+        Begin using this font
+        """
         return _richtext.RichTextCtrl_BeginFont(*args, **kwargs)
 
     def EndFont(*args, **kwargs):
-        """EndFont(self) -> bool"""
+        """
+        EndFont(self) -> bool
+
+        End using a font
+        """
         return _richtext.RichTextCtrl_EndFont(*args, **kwargs)
 
     def BeginTextColour(*args, **kwargs):
-        """BeginTextColour(self, Colour colour) -> bool"""
+        """
+        BeginTextColour(self, Colour colour) -> bool
+
+        Begin using this colour
+        """
         return _richtext.RichTextCtrl_BeginTextColour(*args, **kwargs)
 
     def EndTextColour(*args, **kwargs):
-        """EndTextColour(self) -> bool"""
+        """
+        EndTextColour(self) -> bool
+
+        End using a colour
+        """
         return _richtext.RichTextCtrl_EndTextColour(*args, **kwargs)
 
     def BeginAlignment(*args, **kwargs):
-        """BeginAlignment(self, int alignment) -> bool"""
+        """
+        BeginAlignment(self, int alignment) -> bool
+
+        Begin using alignment
+        """
         return _richtext.RichTextCtrl_BeginAlignment(*args, **kwargs)
 
     def EndAlignment(*args, **kwargs):
-        """EndAlignment(self) -> bool"""
+        """
+        EndAlignment(self) -> bool
+
+        End alignment
+        """
         return _richtext.RichTextCtrl_EndAlignment(*args, **kwargs)
 
     def BeginLeftIndent(*args, **kwargs):
-        """BeginLeftIndent(self, int leftIndent, int leftSubIndent=0) -> bool"""
+        """
+        BeginLeftIndent(self, int leftIndent, int leftSubIndent=0) -> bool
+
+        Begin left indent
+        """
         return _richtext.RichTextCtrl_BeginLeftIndent(*args, **kwargs)
 
     def EndLeftIndent(*args, **kwargs):
-        """EndLeftIndent(self) -> bool"""
+        """
+        EndLeftIndent(self) -> bool
+
+        End left indent
+        """
         return _richtext.RichTextCtrl_EndLeftIndent(*args, **kwargs)
 
     def BeginRightIndent(*args, **kwargs):
-        """BeginRightIndent(self, int rightIndent) -> bool"""
+        """
+        BeginRightIndent(self, int rightIndent) -> bool
+
+        Begin right indent
+        """
         return _richtext.RichTextCtrl_BeginRightIndent(*args, **kwargs)
 
     def EndRightIndent(*args, **kwargs):
-        """EndRightIndent(self) -> bool"""
+        """
+        EndRightIndent(self) -> bool
+
+        End right indent
+        """
         return _richtext.RichTextCtrl_EndRightIndent(*args, **kwargs)
 
     def BeginParagraphSpacing(*args, **kwargs):
-        """BeginParagraphSpacing(self, int before, int after) -> bool"""
+        """
+        BeginParagraphSpacing(self, int before, int after) -> bool
+
+        Begin paragraph spacing
+        """
         return _richtext.RichTextCtrl_BeginParagraphSpacing(*args, **kwargs)
 
     def EndParagraphSpacing(*args, **kwargs):
-        """EndParagraphSpacing(self) -> bool"""
+        """
+        EndParagraphSpacing(self) -> bool
+
+        End paragraph spacing
+        """
         return _richtext.RichTextCtrl_EndParagraphSpacing(*args, **kwargs)
 
     def BeginLineSpacing(*args, **kwargs):
-        """BeginLineSpacing(self, int lineSpacing) -> bool"""
+        """
+        BeginLineSpacing(self, int lineSpacing) -> bool
+
+        Begin line spacing
+        """
         return _richtext.RichTextCtrl_BeginLineSpacing(*args, **kwargs)
 
     def EndLineSpacing(*args, **kwargs):
-        """EndLineSpacing(self) -> bool"""
+        """
+        EndLineSpacing(self) -> bool
+
+        End line spacing
+        """
         return _richtext.RichTextCtrl_EndLineSpacing(*args, **kwargs)
 
     def BeginNumberedBullet(*args, **kwargs):
         """
         BeginNumberedBullet(self, int bulletNumber, int leftIndent, int leftSubIndent, 
             int bulletStyle=wxTEXT_ATTR_BULLET_STYLE_ARABIC|wxTEXT_ATTR_BULLET_STYLE_PERIOD) -> bool
+
+        Begin numbered bullet
         """
         return _richtext.RichTextCtrl_BeginNumberedBullet(*args, **kwargs)
 
     def EndNumberedBullet(*args, **kwargs):
-        """EndNumberedBullet(self) -> bool"""
+        """
+        EndNumberedBullet(self) -> bool
+
+        End numbered bullet
+        """
         return _richtext.RichTextCtrl_EndNumberedBullet(*args, **kwargs)
 
     def BeginSymbolBullet(*args, **kwargs):
-        """BeginSymbolBullet(self, String symbol, int leftIndent, int leftSubIndent, int bulletStyle=TEXT_ATTR_BULLET_STYLE_SYMBOL) -> bool"""
+        """
+        BeginSymbolBullet(self, String symbol, int leftIndent, int leftSubIndent, int bulletStyle=TEXT_ATTR_BULLET_STYLE_SYMBOL) -> bool
+
+        Begin symbol bullet
+        """
         return _richtext.RichTextCtrl_BeginSymbolBullet(*args, **kwargs)
 
     def EndSymbolBullet(*args, **kwargs):
-        """EndSymbolBullet(self) -> bool"""
+        """
+        EndSymbolBullet(self) -> bool
+
+        End symbol bullet
+        """
         return _richtext.RichTextCtrl_EndSymbolBullet(*args, **kwargs)
 
     def BeginStandardBullet(*args, **kwargs):
         """
         BeginStandardBullet(self, String bulletName, int leftIndent, int leftSubIndent, 
             int bulletStyle=TEXT_ATTR_BULLET_STYLE_STANDARD) -> bool
+
+        Begin standard bullet
         """
         return _richtext.RichTextCtrl_BeginStandardBullet(*args, **kwargs)
 
     def EndStandardBullet(*args, **kwargs):
-        """EndStandardBullet(self) -> bool"""
+        """
+        EndStandardBullet(self) -> bool
+
+        End standard bullet
+        """
         return _richtext.RichTextCtrl_EndStandardBullet(*args, **kwargs)
 
     def BeginCharacterStyle(*args, **kwargs):
-        """BeginCharacterStyle(self, String characterStyle) -> bool"""
+        """
+        BeginCharacterStyle(self, String characterStyle) -> bool
+
+        Begin named character style
+        """
         return _richtext.RichTextCtrl_BeginCharacterStyle(*args, **kwargs)
 
     def EndCharacterStyle(*args, **kwargs):
-        """EndCharacterStyle(self) -> bool"""
+        """
+        EndCharacterStyle(self) -> bool
+
+        End named character style
+        """
         return _richtext.RichTextCtrl_EndCharacterStyle(*args, **kwargs)
 
     def BeginParagraphStyle(*args, **kwargs):
-        """BeginParagraphStyle(self, String paragraphStyle) -> bool"""
+        """
+        BeginParagraphStyle(self, String paragraphStyle) -> bool
+
+        Begin named paragraph style
+        """
         return _richtext.RichTextCtrl_BeginParagraphStyle(*args, **kwargs)
 
     def EndParagraphStyle(*args, **kwargs):
-        """EndParagraphStyle(self) -> bool"""
+        """
+        EndParagraphStyle(self) -> bool
+
+        End named character style
+        """
         return _richtext.RichTextCtrl_EndParagraphStyle(*args, **kwargs)
 
     def BeginListStyle(*args, **kwargs):
@@ -3049,179 +3126,372 @@ class RichTextCtrl(_windows.ScrolledWindow):
         return _richtext.RichTextCtrl_EndURL(*args, **kwargs)
 
     def SetDefaultStyleToCursorStyle(*args, **kwargs):
-        """SetDefaultStyleToCursorStyle(self) -> bool"""
+        """
+        SetDefaultStyleToCursorStyle(self) -> bool
+
+        Sets the default style to the style under the cursor
+        """
         return _richtext.RichTextCtrl_SetDefaultStyleToCursorStyle(*args, **kwargs)
 
     def SelectNone(*args, **kwargs):
-        """SelectNone(self)"""
+        """
+        SelectNone(self)
+
+        Clear the selection
+        """
         return _richtext.RichTextCtrl_SelectNone(*args, **kwargs)
 
     def SelectWord(*args, **kwargs):
-        """SelectWord(self, long position) -> bool"""
+        """
+        SelectWord(self, long position) -> bool
+
+        Select the word at the given character position
+        """
         return _richtext.RichTextCtrl_SelectWord(*args, **kwargs)
 
     def GetSelectionRange(*args, **kwargs):
-        """GetSelectionRange(self) -> RichTextRange"""
+        """
+        GetSelectionRange(self) -> RichTextRange
+
+        Get the selection range in character positions.
+        """
         return _richtext.RichTextCtrl_GetSelectionRange(*args, **kwargs)
 
     def SetSelectionRange(*args, **kwargs):
-        """SetSelectionRange(self, RichTextRange range)"""
+        """
+        SetSelectionRange(self, RichTextRange range)
+
+        Set the selection range in character positions. -1, -1 means no selection.
+        """
         return _richtext.RichTextCtrl_SetSelectionRange(*args, **kwargs)
 
     def GetInternalSelectionRange(*args, **kwargs):
-        """GetInternalSelectionRange(self) -> RichTextRange"""
+        """
+        GetInternalSelectionRange(self) -> RichTextRange
+
+        Get the selection range in character positions. -1, -1 means no
+        selection.  The range is in internal format, i.e. a single character
+        selection is denoted by (n, n).
+
+        """
         return _richtext.RichTextCtrl_GetInternalSelectionRange(*args, **kwargs)
 
     def SetInternalSelectionRange(*args, **kwargs):
-        """SetInternalSelectionRange(self, RichTextRange range)"""
+        """
+        SetInternalSelectionRange(self, RichTextRange range)
+
+        Set the selection range in character positions. -1, -1 means no
+        selection.  The range is in internal format, i.e. a single character
+        selection is denoted by (n, n).
+        """
         return _richtext.RichTextCtrl_SetInternalSelectionRange(*args, **kwargs)
 
     def AddParagraph(*args, **kwargs):
-        """AddParagraph(self, String text) -> RichTextRange"""
+        """
+        AddParagraph(self, String text) -> RichTextRange
+
+        Add a new paragraph of text to the end of the buffer
+        """
         return _richtext.RichTextCtrl_AddParagraph(*args, **kwargs)
 
     def AddImage(*args, **kwargs):
-        """AddImage(self, Image image) -> RichTextRange"""
+        """
+        AddImage(self, Image image) -> RichTextRange
+
+        Add an image
+        """
         return _richtext.RichTextCtrl_AddImage(*args, **kwargs)
 
     def LayoutContent(*args, **kwargs):
-        """LayoutContent(self, bool onlyVisibleRect=False) -> bool"""
+        """
+        LayoutContent(self, bool onlyVisibleRect=False) -> bool
+
+        Layout the buffer: which we must do before certain operations, such as
+        setting the caret position.
+        """
         return _richtext.RichTextCtrl_LayoutContent(*args, **kwargs)
 
     def MoveCaret(*args, **kwargs):
-        """MoveCaret(self, long pos, bool showAtLineStart=False) -> bool"""
+        """
+        MoveCaret(self, long pos, bool showAtLineStart=False) -> bool
+
+        Move the caret to the given character position
+        """
         return _richtext.RichTextCtrl_MoveCaret(*args, **kwargs)
 
     def MoveRight(*args, **kwargs):
-        """MoveRight(self, int noPositions=1, int flags=0) -> bool"""
+        """
+        MoveRight(self, int noPositions=1, int flags=0) -> bool
+
+        Move right
+        """
         return _richtext.RichTextCtrl_MoveRight(*args, **kwargs)
 
     def MoveLeft(*args, **kwargs):
-        """MoveLeft(self, int noPositions=1, int flags=0) -> bool"""
+        """
+        MoveLeft(self, int noPositions=1, int flags=0) -> bool
+
+        Move left
+        """
         return _richtext.RichTextCtrl_MoveLeft(*args, **kwargs)
 
     def MoveUp(*args, **kwargs):
-        """MoveUp(self, int noLines=1, int flags=0) -> bool"""
+        """
+        MoveUp(self, int noLines=1, int flags=0) -> bool
+
+        Move up
+        """
         return _richtext.RichTextCtrl_MoveUp(*args, **kwargs)
 
     def MoveDown(*args, **kwargs):
-        """MoveDown(self, int noLines=1, int flags=0) -> bool"""
+        """
+        MoveDown(self, int noLines=1, int flags=0) -> bool
+
+        Move down
+        """
         return _richtext.RichTextCtrl_MoveDown(*args, **kwargs)
 
     def MoveToLineEnd(*args, **kwargs):
-        """MoveToLineEnd(self, int flags=0) -> bool"""
+        """
+        MoveToLineEnd(self, int flags=0) -> bool
+
+        Move to the end of the line
+        """
         return _richtext.RichTextCtrl_MoveToLineEnd(*args, **kwargs)
 
     def MoveToLineStart(*args, **kwargs):
-        """MoveToLineStart(self, int flags=0) -> bool"""
+        """
+        MoveToLineStart(self, int flags=0) -> bool
+
+        Move to the start of the line
+        """
         return _richtext.RichTextCtrl_MoveToLineStart(*args, **kwargs)
 
     def MoveToParagraphEnd(*args, **kwargs):
-        """MoveToParagraphEnd(self, int flags=0) -> bool"""
+        """
+        MoveToParagraphEnd(self, int flags=0) -> bool
+
+        Move to the end of the paragraph
+        """
         return _richtext.RichTextCtrl_MoveToParagraphEnd(*args, **kwargs)
 
     def MoveToParagraphStart(*args, **kwargs):
-        """MoveToParagraphStart(self, int flags=0) -> bool"""
+        """
+        MoveToParagraphStart(self, int flags=0) -> bool
+
+        Move to the start of the paragraph
+        """
         return _richtext.RichTextCtrl_MoveToParagraphStart(*args, **kwargs)
 
     def MoveHome(*args, **kwargs):
-        """MoveHome(self, int flags=0) -> bool"""
+        """
+        MoveHome(self, int flags=0) -> bool
+
+        Move to the start of the buffer
+        """
         return _richtext.RichTextCtrl_MoveHome(*args, **kwargs)
 
     def MoveEnd(*args, **kwargs):
-        """MoveEnd(self, int flags=0) -> bool"""
+        """
+        MoveEnd(self, int flags=0) -> bool
+
+        Move to the end of the buffer
+        """
         return _richtext.RichTextCtrl_MoveEnd(*args, **kwargs)
 
     def PageUp(*args, **kwargs):
-        """PageUp(self, int noPages=1, int flags=0) -> bool"""
+        """
+        PageUp(self, int noPages=1, int flags=0) -> bool
+
+        Move n pages up
+        """
         return _richtext.RichTextCtrl_PageUp(*args, **kwargs)
 
     def PageDown(*args, **kwargs):
-        """PageDown(self, int noPages=1, int flags=0) -> bool"""
+        """
+        PageDown(self, int noPages=1, int flags=0) -> bool
+
+        Move n pages down
+        """
         return _richtext.RichTextCtrl_PageDown(*args, **kwargs)
 
     def WordLeft(*args, **kwargs):
-        """WordLeft(self, int noPages=1, int flags=0) -> bool"""
+        """
+        WordLeft(self, int noPages=1, int flags=0) -> bool
+
+        Move n words left
+        """
         return _richtext.RichTextCtrl_WordLeft(*args, **kwargs)
 
     def WordRight(*args, **kwargs):
-        """WordRight(self, int noPages=1, int flags=0) -> bool"""
+        """
+        WordRight(self, int noPages=1, int flags=0) -> bool
+
+        Move n words right
+        """
         return _richtext.RichTextCtrl_WordRight(*args, **kwargs)
 
     def GetBuffer(*args, **kwargs):
-        """GetBuffer(self) -> RichTextBuffer"""
+        """
+        GetBuffer(self) -> RichTextBuffer
+
+        Returns the buffer associated with the control.
+
+        """
         return _richtext.RichTextCtrl_GetBuffer(*args, **kwargs)
 
     def BeginBatchUndo(*args, **kwargs):
-        """BeginBatchUndo(self, String cmdName) -> bool"""
+        """
+        BeginBatchUndo(self, String cmdName) -> bool
+
+        Start batching undo history for commands
+        """
         return _richtext.RichTextCtrl_BeginBatchUndo(*args, **kwargs)
 
     def EndBatchUndo(*args, **kwargs):
-        """EndBatchUndo(self) -> bool"""
+        """
+        EndBatchUndo(self) -> bool
+
+        End batching undo history for commands.
+        """
         return _richtext.RichTextCtrl_EndBatchUndo(*args, **kwargs)
 
     def BatchingUndo(*args, **kwargs):
-        """BatchingUndo(self) -> bool"""
+        """
+        BatchingUndo(self) -> bool
+
+        Are we batching undo history for commands?
+        """
         return _richtext.RichTextCtrl_BatchingUndo(*args, **kwargs)
 
     def BeginSuppressUndo(*args, **kwargs):
-        """BeginSuppressUndo(self) -> bool"""
+        """
+        BeginSuppressUndo(self) -> bool
+
+        Start suppressing undo history for commands.
+        """
         return _richtext.RichTextCtrl_BeginSuppressUndo(*args, **kwargs)
 
     def EndSuppressUndo(*args, **kwargs):
-        """EndSuppressUndo(self) -> bool"""
+        """
+        EndSuppressUndo(self) -> bool
+
+        End suppressing undo history for commands.
+        """
         return _richtext.RichTextCtrl_EndSuppressUndo(*args, **kwargs)
 
     def SuppressingUndo(*args, **kwargs):
-        """SuppressingUndo(self) -> bool"""
+        """
+        SuppressingUndo(self) -> bool
+
+        Are we suppressing undo history for commands?
+        """
         return _richtext.RichTextCtrl_SuppressingUndo(*args, **kwargs)
 
     def HasCharacterAttributes(*args, **kwargs):
-        """HasCharacterAttributes(self, RichTextRange range, RichTextAttr style) -> bool"""
+        """
+        HasCharacterAttributes(self, RichTextRange range, TextAttrEx style) -> bool
+
+        Test if this whole range has character attributes of the specified
+        kind. If any of the attributes are different within the range, the
+        test fails. You can use this to implement, for example, bold button
+        updating. style must have flags indicating which attributes are of
+        interest.
+
+        """
         return _richtext.RichTextCtrl_HasCharacterAttributes(*args, **kwargs)
 
     def HasParagraphAttributes(*args, **kwargs):
-        """HasParagraphAttributes(self, RichTextRange range, RichTextAttr style) -> bool"""
+        """
+        HasParagraphAttributes(self, RichTextRange range, TextAttrEx style) -> bool
+
+        Test if this whole range has paragraph attributes of the specified
+        kind. If any of the attributes are different within the range, the
+        test fails. You can use this to implement, for example, centering
+        button updating. style must have flags indicating which attributes are
+        of interest.
+
+        """
         return _richtext.RichTextCtrl_HasParagraphAttributes(*args, **kwargs)
 
     def IsSelectionBold(*args, **kwargs):
-        """IsSelectionBold(self) -> bool"""
+        """
+        IsSelectionBold(self) -> bool
+
+        Is all of the selection bold?
+        """
         return _richtext.RichTextCtrl_IsSelectionBold(*args, **kwargs)
 
     def IsSelectionItalics(*args, **kwargs):
-        """IsSelectionItalics(self) -> bool"""
+        """
+        IsSelectionItalics(self) -> bool
+
+        Is all of the selection italics?
+        """
         return _richtext.RichTextCtrl_IsSelectionItalics(*args, **kwargs)
 
     def IsSelectionUnderlined(*args, **kwargs):
-        """IsSelectionUnderlined(self) -> bool"""
+        """
+        IsSelectionUnderlined(self) -> bool
+
+        Is all of the selection underlined?
+        """
         return _richtext.RichTextCtrl_IsSelectionUnderlined(*args, **kwargs)
 
     def IsSelectionAligned(*args, **kwargs):
-        """IsSelectionAligned(self, int alignment) -> bool"""
+        """
+        IsSelectionAligned(self, int alignment) -> bool
+
+        Is all of the selection aligned according to the specified flag?
+        """
         return _richtext.RichTextCtrl_IsSelectionAligned(*args, **kwargs)
 
     def ApplyBoldToSelection(*args, **kwargs):
-        """ApplyBoldToSelection(self) -> bool"""
+        """
+        ApplyBoldToSelection(self) -> bool
+
+        Apply bold to the selection
+        """
         return _richtext.RichTextCtrl_ApplyBoldToSelection(*args, **kwargs)
 
     def ApplyItalicToSelection(*args, **kwargs):
-        """ApplyItalicToSelection(self) -> bool"""
+        """
+        ApplyItalicToSelection(self) -> bool
+
+        Apply italic to the selection
+        """
         return _richtext.RichTextCtrl_ApplyItalicToSelection(*args, **kwargs)
 
     def ApplyUnderlineToSelection(*args, **kwargs):
-        """ApplyUnderlineToSelection(self) -> bool"""
+        """
+        ApplyUnderlineToSelection(self) -> bool
+
+        Apply underline to the selection
+        """
         return _richtext.RichTextCtrl_ApplyUnderlineToSelection(*args, **kwargs)
 
     def ApplyAlignmentToSelection(*args, **kwargs):
-        """ApplyAlignmentToSelection(self, int alignment) -> bool"""
+        """
+        ApplyAlignmentToSelection(self, int alignment) -> bool
+
+        Apply alignment to the selection
+        """
         return _richtext.RichTextCtrl_ApplyAlignmentToSelection(*args, **kwargs)
 
     def ApplyStyle(*args, **kwargs):
-        """ApplyStyle(self, wxRichTextStyleDefinition def) -> bool"""
+        """
+        ApplyStyle(self, wxRichTextStyleDefinition def) -> bool
+
+        Apply a named style to the selection
+        """
         return _richtext.RichTextCtrl_ApplyStyle(*args, **kwargs)
 
     def SetStyleSheet(*args, **kwargs):
-        """SetStyleSheet(self, wxRichTextStyleSheet styleSheet)"""
+        """
+        SetStyleSheet(self, wxRichTextStyleSheet styleSheet)
+
+        Set style sheet, if any.
+        """
         return _richtext.RichTextCtrl_SetStyleSheet(*args, **kwargs)
 
     def GetStyleSheet(*args, **kwargs):
@@ -3229,15 +3499,28 @@ class RichTextCtrl(_windows.ScrolledWindow):
         return _richtext.RichTextCtrl_GetStyleSheet(*args, **kwargs)
 
     def PushStyleSheet(*args, **kwargs):
-        """PushStyleSheet(self, wxRichTextStyleSheet styleSheet) -> bool"""
+        """
+        PushStyleSheet(self, wxRichTextStyleSheet styleSheet) -> bool
+
+        Push style sheet to top of stack
+        """
         return _richtext.RichTextCtrl_PushStyleSheet(*args, **kwargs)
 
     def PopStyleSheet(*args, **kwargs):
-        """PopStyleSheet(self) -> wxRichTextStyleSheet"""
+        """
+        PopStyleSheet(self) -> wxRichTextStyleSheet
+
+        Pop style sheet from top of stack
+        """
         return _richtext.RichTextCtrl_PopStyleSheet(*args, **kwargs)
 
     def ApplyStyleSheet(*args, **kwargs):
-        """ApplyStyleSheet(self, wxRichTextStyleSheet styleSheet=None) -> bool"""
+        """
+        ApplyStyleSheet(self, wxRichTextStyleSheet styleSheet=None) -> bool
+
+        Apply the style sheet to the buffer, for example if the styles have
+        changed.
+        """
         return _richtext.RichTextCtrl_ApplyStyleSheet(*args, **kwargs)
 
     Buffer = property(GetBuffer,doc="See `GetBuffer`") 
