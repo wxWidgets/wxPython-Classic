@@ -380,6 +380,7 @@ public:
     virtual void SetBorder(int border);
 
     const wxBitmap& GetBitmap() const;
+
     void SetBitmap(const wxBitmap& bitmap);
 
     // is the wizard running?
@@ -389,10 +390,10 @@ public:
     // page first and return False without changing the page if
     // TransferDataFromWindow() returns False - otherwise, returns True
     bool ShowPage(wxWizardPage *page, bool goingForward = true);
-
     bool HasNextPage(wxWizardPage* page);
     bool HasPrevPage(wxWizardPage* page);
-    
+
+    %property(Bitmap, GetBitmap, SetBitmap);
     %property(CurrentPage, GetCurrentPage, doc="See `GetCurrentPage`");
     %property(PageAreaSizer, GetPageAreaSizer, doc="See `GetPageAreaSizer`");
     %property(PageSize, GetPageSize, SetPageSize, doc="See `GetPageSize` and `SetPageSize`");
