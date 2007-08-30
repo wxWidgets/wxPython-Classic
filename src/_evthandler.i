@@ -41,7 +41,7 @@ public:
     bool ProcessEvent(wxEvent& event);
 
     // add an event to be processed later
-    void AddPendingEvent(wxEvent& event);
+    void AddPendingEvent(const wxEvent& event);
 
     // process all pending events
     void ProcessPendingEvents();

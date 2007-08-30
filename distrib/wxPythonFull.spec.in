@@ -265,7 +265,10 @@ make prefix=$RPM_BUILD_ROOT%{wxpref} install
 make -C contrib/src/gizmos prefix=$RPM_BUILD_ROOT%{wxpref} install
 make -C contrib/src/stc prefix=$RPM_BUILD_ROOT%{wxpref} install
 
-
+PY_WX_CONFIG_OPTIONS="--version=%{version} --toolkit=%{port} --static=no"
+if [ %{unicode} = 1 ]; then
+    PY_WX_CONFIG_OPTIONS="$PY_WX_CONFIG_OPTIONS --unicode"
+fi
 
 # Install wxPython for wxGTK
 cd $WXDIR/wxPython
@@ -276,6 +279,7 @@ cd $WXDIR/wxPython
 	EP_FULL_VER=%{fullver} \
 	NO_SCRIPTS=1 \
 	WX_CONFIG="$RPM_BUILD_ROOT%{wxpref}/bin/wx-config --prefix=$RPM_BUILD_ROOT%{wxpref} --no_rpath" \
+        SYS_WX_CONFIG="wx-config $PY_WX_CONFIG_OPTIONS" \
        	build_ext --rpath=%{wxpref}/lib \
 	install \
 	--root=$RPM_BUILD_ROOT

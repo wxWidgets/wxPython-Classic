@@ -552,6 +552,10 @@ public:
         ListClass##_iterator* __iter__() {
             return new ListClass##_iterator(self->GetFirst());
         }
+
+        // TODO:  add support for index(value, [start, [stop]])
+        // any others?
+        
     }
     %pythoncode {
         def __repr__(self):

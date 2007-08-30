@@ -64,7 +64,7 @@ public:
     static bool EnableLogging(bool doIt = true);
 
     // static sink function
-    static void OnLog(wxLogLevel level, const wxChar *szString, time_t t);    
+    static void OnLog(wxLogLevel level, const wxString& szString, time_t t);    
 
     // message buffering
     // flush shows all messages if they're not logged immediately (FILE
@@ -106,6 +106,9 @@ public:
     // current is NULL?
     static void DontCreateOnDemand();
 
+    // Make GetActiveTarget() create a new log object again.
+    static void DoCreateOnDemand();
+
     // log the count of repeating messages instead of logging the messages
     // multiple times
     static void SetRepetitionCounting(bool bRepetCounting = true);
@@ -131,7 +134,7 @@ public:
     // sets the timestamp string: this is used as strftime() format string
     // for the log targets which add time stamps to the messages - set it
     // to NULL to disable time stamping completely.
-    static void SetTimestamp(const wxChar *ts);
+    static void SetTimestamp(const wxString& ts);
 
 
     // gets the verbose status
@@ -141,14 +144,14 @@ public:
     static wxTraceMask GetTraceMask();
 
     // is this trace mask in the list?
-    static bool IsAllowedTraceMask(const wxChar *mask);
+    static bool IsAllowedTraceMask(const wxString& mask);
 
     // return the current loglevel limit
     static wxLogLevel GetLogLevel();
 
 
     // get the current timestamp format string (may be NULL)
-    static const wxChar *GetTimestamp();
+    static wxString GetTimestamp();
 
 
     %extend {

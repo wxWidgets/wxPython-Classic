@@ -771,11 +771,8 @@ class ButtonPanelDemo(wx.Frame):
         
         # Here we change the alignment property of ButtonPanel
         current = event.GetId()
-        edit_menu = self.GetMenuBar().FindMenu("Edit")
-        edit_menu = self.GetMenuBar().GetMenu(edit_menu)
-        menu = edit_menu.FindItem("BP_ALIGN_LEFT")
-        
-        alignment = self.alignments[current - menu]
+        item = self.GetMenuBar().FindItemById(current)
+        alignment = getattr(bp, item.GetLabel())
         self.alignment = alignment
 
         self.ChangeLayout()    

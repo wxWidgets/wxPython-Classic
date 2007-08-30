@@ -565,7 +565,8 @@ if BUILD_GLCANVAS:
     gl_libs = []
     gl_libdirs = libdirs[:]
     if os.name == 'posix':
-        gl_config = os.popen(WX_CONFIG + ' --libs gl', 'r').read()[:-1]
+        gl_config = os.popen(WX_CONFIG + ' --libs', 'r').read()[:-1] + \
+                    os.popen(WX_CONFIG + ' --libs gl', 'r').read()[:-1]
         gl_lflags = gl_config.split()
         gl_lflags = adjustLFLAGS(gl_lflags, gl_libdirs, gl_libs)
 

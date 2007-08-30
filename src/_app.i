@@ -47,7 +47,7 @@ DocStr(wxPyApp,
 class wxPyApp : public wxEvtHandler {
 public:
 
-    %pythonAppend wxPyApp    "self._setOORInfo(self, False);" setCallbackInfo(PyApp)
+    %pythonAppend wxPyApp    "self._setOORInfo(self, False);" setCallbackInfo(PyApp) ";self.this.own(True)"
     %typemap(out) wxPyApp*;    // turn off this typemap
 
     DocStr(wxPyApp,
@@ -373,7 +373,7 @@ sent.", "");
 
 
 DocDeclStr(
-    void, wxPostEvent(wxEvtHandler *dest, wxEvent& event),
+    void, wxPostEvent(wxEvtHandler *dest, const wxEvent& event),
     "Send an event to a window or other wx.EvtHandler to be processed
 later.", "");
 

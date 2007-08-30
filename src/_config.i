@@ -259,6 +259,8 @@ subgroups.", "");
         }
     }
 
+    // TODO: ReadBinary and WriteBinary
+    
 
     // write the value (return True on success)
     DocDeclStr(

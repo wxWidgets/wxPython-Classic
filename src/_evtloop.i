@@ -73,10 +73,10 @@ public:
     virtual void WakeUp();
     
     // return currently active (running) event loop, may be NULL
-    static wxEventLoop *GetActive();
+    static wxEventLoopBase* GetActive();
 
     // set currently active (running) event loop
-    static void SetActive(wxEventLoop* loop);
+    static void SetActive(wxEventLoopBase* loop);
 };
 
 

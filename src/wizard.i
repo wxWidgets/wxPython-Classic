@@ -379,6 +379,9 @@ public:
     // page to GetPageAreaSizer and 5 if you don't.
     virtual void SetBorder(int border);
 
+    const wxBitmap& GetBitmap() const;
+    void SetBitmap(const wxBitmap& bitmap);
+
     // is the wizard running?
     bool IsRunning() const;
 

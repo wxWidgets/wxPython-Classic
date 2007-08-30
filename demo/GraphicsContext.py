@@ -53,12 +53,9 @@ class TestPanel(wx.Panel):
         for label, PathFunc in [("StrokePath", gc.StrokePath),
                                 ("FillPath",   gc.FillPath),
                                 ("DrawPath",   gc.DrawPath)]:
-            if "wxGTK" in wx.PlatformInfo:
-                w, h = dc.GetTextExtent(label) # NYI in Cairo context
-            else:
-                w, h = gc.GetTextExtent(label)
-
-            gc.DrawText(label, -w/2, -BASE2-h)
+            w, h = gc.GetTextExtent(label)
+            
+            gc.DrawText(label, -w/2, -BASE2-h-4)
             PathFunc(path)
             gc.Translate(2*BASE, 0)
 

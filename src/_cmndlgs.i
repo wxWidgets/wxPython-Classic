@@ -740,6 +740,24 @@ public:
                         const wxPoint& pos = wxDefaultPosition),
         "Constructor, use `ShowModal` to display the dialog.", "");
 
+    // methods for setting up more custom message dialogs -- all functions
+    // return false if they're not implemented
+    virtual bool SetYesNoLabels(const wxString& yes,
+                                const wxString& no);
+
+    virtual bool SetYesNoCancelLabels(const wxString& yes,
+                                      const wxString& no,
+                                      const wxString& cancel);
+
+    virtual bool SetOKLabel(const wxString& ok);
+
+    virtual bool SetOKCancelLabels(const wxString& ok,
+                                   const wxString& cancel);
+
+    virtual void SetMessage(const wxString& message);
+
+    virtual void SetExtendedMessage(const wxString& extendedMessage);
+   
 };
 
 //---------------------------------------------------------------------------

@@ -125,17 +125,11 @@ public:
     wxString FindFirst(const wxString& spec, int flags = 0);
     wxString FindNext();
 
-    wxString GetProtocol(const wxString& location);
-    wxString GetLeftLocation(const wxString& location);
-    wxString GetAnchor(const wxString& location);
-    wxString GetRightLocation(const wxString& location);
-    wxString GetMimeTypeFromExt(const wxString& location);
-    
-    %property(Anchor, GetAnchor, doc="See `GetAnchor`");
-    %property(LeftLocation, GetLeftLocation, doc="See `GetLeftLocation`");
-    %property(MimeTypeFromExt, GetMimeTypeFromExt, doc="See `GetMimeTypeFromExt`");
-    %property(Protocol, GetProtocol, doc="See `GetProtocol`");
-    %property(RightLocation, GetRightLocation, doc="See `GetRightLocation`");
+    static wxString GetProtocol(const wxString& location);
+    static wxString GetLeftLocation(const wxString& location);
+    static wxString GetAnchor(const wxString& location);
+    static wxString GetRightLocation(const wxString& location);
+    static wxString GetMimeTypeFromExt(const wxString& location);
 };
 
 
