@@ -90,6 +90,15 @@ class GenButton(wx.PyControl):
         self.Bind(wx.EVT_KEY_DOWN,         self.OnKeyDown)
         self.Bind(wx.EVT_KEY_UP,           self.OnKeyUp)
         self.Bind(wx.EVT_PAINT,            self.OnPaint)
+        self.InitOtherEvents()
+
+    def InitOtherEvents(self):
+        """
+        Override in a subclass to initialize any other events that
+        need to be bound.  Added so __init__ doesn't need to be
+        overriden, which is complicated with multiple inheritance
+        """
+        pass
 
 
     def SetInitialSize(self, size=None):
@@ -583,8 +592,8 @@ class GenBitmapTextToggleButton(__ToggleMixin, GenBitmapTextButton):
 
 class ThemedGenButton(GenButton):
     " A themed generic button, and base class for the other themed buttons "
-    def __init__(self, *args, **kwargs):
-        GenButton.__init__(self, *args, **kwargs)
+
+    def InitOtherEvents(self):
         self.Bind(wx.EVT_ENTER_WINDOW, self.OnMouse)
         self.Bind(wx.EVT_LEAVE_WINDOW, self.OnMouse)
         
