@@ -2571,6 +2571,8 @@ class Image_RGBValue(object):
         Constructor.
         """
         _core_.Image_RGBValue_swiginit(self,_core_.new_Image_RGBValue(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_Image_RGBValue
+    __del__ = lambda self : None;
     red = property(_core_.Image_RGBValue_red_get, _core_.Image_RGBValue_red_set)
     green = property(_core_.Image_RGBValue_green_get, _core_.Image_RGBValue_green_set)
     blue = property(_core_.Image_RGBValue_blue_get, _core_.Image_RGBValue_blue_set)
@@ -2592,6 +2594,8 @@ class Image_HSVValue(object):
         Constructor.
         """
         _core_.Image_HSVValue_swiginit(self,_core_.new_Image_HSVValue(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_Image_HSVValue
+    __del__ = lambda self : None;
     hue = property(_core_.Image_HSVValue_hue_get, _core_.Image_HSVValue_hue_set)
     saturation = property(_core_.Image_HSVValue_saturation_get, _core_.Image_HSVValue_saturation_set)
     value = property(_core_.Image_HSVValue_value_get, _core_.Image_HSVValue_value_set)

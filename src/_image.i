@@ -208,6 +208,7 @@ public:
     DocCtorStr(
         wxImage_RGBValue(byte r=0, byte g=0, byte b=0),
         "Constructor.", "");
+    ~wxImage_RGBValue();
     byte red;  
     byte green;
     byte blue;
@@ -225,6 +226,7 @@ public:
     DocCtorStr(
         wxImage_HSVValue(double h=0.0, double s=0.0, double v=0.0),
         "Constructor.", "");
+    ~wxImage_HSVValue();
     double hue;  
     double saturation;
     double value;

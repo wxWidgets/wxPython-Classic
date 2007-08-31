@@ -15697,6 +15697,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_delete_Image_RGBValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxImage_RGBValue *arg1 = (wxImage_RGBValue *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxImage_RGBValue, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Image_RGBValue" "', expected argument " "1"" of type '" "wxImage_RGBValue *""'"); 
+  }
+  arg1 = reinterpret_cast< wxImage_RGBValue * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Image_RGBValue_red_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxImage_RGBValue *arg1 = (wxImage_RGBValue *) 0 ;
@@ -15915,6 +15943,34 @@ SWIGINTERN PyObject *_wrap_new_Image_HSVValue(PyObject *SWIGUNUSEDPARM(self), Py
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxImage_HSVValue, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_Image_HSVValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxImage_HSVValue *arg1 = (wxImage_HSVValue *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxImage_HSVValue, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Image_HSVValue" "', expected argument " "1"" of type '" "wxImage_HSVValue *""'"); 
+  }
+  arg1 = reinterpret_cast< wxImage_HSVValue * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -58753,6 +58809,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ImageHistogram_swigregister", ImageHistogram_swigregister, METH_VARARGS, NULL},
 	 { (char *)"ImageHistogram_swiginit", ImageHistogram_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_Image_RGBValue", (PyCFunction) _wrap_new_Image_RGBValue, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_Image_RGBValue", (PyCFunction)_wrap_delete_Image_RGBValue, METH_O, NULL},
 	 { (char *)"Image_RGBValue_red_set", _wrap_Image_RGBValue_red_set, METH_VARARGS, NULL},
 	 { (char *)"Image_RGBValue_red_get", (PyCFunction)_wrap_Image_RGBValue_red_get, METH_O, NULL},
 	 { (char *)"Image_RGBValue_green_set", _wrap_Image_RGBValue_green_set, METH_VARARGS, NULL},
@@ -58762,6 +58819,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Image_RGBValue_swigregister", Image_RGBValue_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Image_RGBValue_swiginit", Image_RGBValue_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_Image_HSVValue", (PyCFunction) _wrap_new_Image_HSVValue, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_Image_HSVValue", (PyCFunction)_wrap_delete_Image_HSVValue, METH_O, NULL},
 	 { (char *)"Image_HSVValue_hue_set", _wrap_Image_HSVValue_hue_set, METH_VARARGS, NULL},
 	 { (char *)"Image_HSVValue_hue_get", (PyCFunction)_wrap_Image_HSVValue_hue_get, METH_O, NULL},
 	 { (char *)"Image_HSVValue_saturation_set", _wrap_Image_HSVValue_saturation_set, METH_VARARGS, NULL},
