@@ -20,15 +20,17 @@ import os, cPickle
 
 #----------------------------------------------------------------------
 
-wx.RegisterId(5000)  # Give a high starting value for the IDs, just for kicks
+# There are standard IDs for the menu items we need in this app, or we
+# could have used wx.NewId() to autogenerate some new unique ID values
+# instead.
 
-idNEW    = wx.NewId()
-idOPEN   = wx.NewId()
-idSAVE   = wx.NewId()
-idSAVEAS = wx.NewId()
-idCLEAR  = wx.NewId()
-idEXIT   = wx.NewId()
-idABOUT  = wx.NewId()
+idNEW    = wx.ID_NEW
+idOPEN   = wx.ID_OPEN
+idSAVE   = wx.ID_SAVE
+idSAVEAS = wx.ID_SAVEAS
+idCLEAR  = wx.ID_CLEAR
+idEXIT   = wx.ID_EXIT
+idABOUT  = wx.ID_ABOUT
 
 
 
