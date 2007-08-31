@@ -502,8 +502,6 @@ class wx_install_headers(distutils.command.install_headers.install_headers):
             self.outfiles.append(out)
 
 
-
-
 def build_locale_dir(destdir, verbose=1):
     """Build a locale dir under the wxPython package for MSW"""
     moFiles = glob.glob(opj(WXDIR, 'locale', '*.mo'))
@@ -641,6 +639,113 @@ def getExtraPath(shortVer=True, addOpts=False):
     return ep
 
 #----------------------------------------------------------------------
+# These functions and class are copied from distutils in Python 2.5
+# and then grafts them back into the distutils modules so we can change
+# how the -arch and -isysroot compiler args are handled.  Basically if
+# -arch is specified in our compiler args then we need to strip all of
+# the -arch and -isysroot args provided by Python.
+
+import distutils.unixccompiler
+import distutils.sysconfig
+from distutils.errors import DistutilsExecError, CompileError
+
+def _darwin_compiler_fixup(compiler_so, cc_args):
+    """
+    This function will strip '-isysroot PATH' and '-arch ARCH' from the
+    compile flags if the user has specified one them in extra_compile_flags.
+
+    This is needed because '-arch ARCH' adds another architecture to the
+    build, without a way to remove an architecture. Furthermore GCC will
+    barf if multiple '-isysroot' arguments are present.
+    """
+    stripArch = stripSysroot = 0
+
+    compiler_so = list(compiler_so)
+    kernel_version = os.uname()[2] # 8.4.3
+    major_version = int(kernel_version.split('.')[0])
+
+    if major_version < 8:
+        # OSX before 10.4.0, these don't support -arch and -isysroot at
+        # all.
+        stripArch = stripSysroot = True
+    else:
+        stripArch = '-arch' in cc_args
+        stripSysroot = '-isysroot' in cc_args or stripArch  # <== This line changed
+
+    if stripArch:
+        while 1:
+            try:
+                index = compiler_so.index('-arch')
+                # Strip this argument and the next one:
+                del compiler_so[index:index+2]
+            except ValueError:
+                break
+
+    if stripSysroot:
+        try:
+            index = compiler_so.index('-isysroot')
+            # Strip this argument and the next one:
+            del compiler_so[index:index+2]
+        except ValueError:
+            pass
+
+    # Check if the SDK that is used during compilation actually exists, 
+    # the universal build requires the usage of a universal SDK and not all
+    # users have that installed by default.
+    sysroot = None
+    if '-isysroot' in cc_args:
+        idx = cc_args.index('-isysroot')
+        sysroot = cc_args[idx+1]
+    elif '-isysroot' in compiler_so:
+        idx = compiler_so.index('-isysroot')
+        sysroot = compiler_so[idx+1]
+
+    if sysroot and not os.path.isdir(sysroot):
+        log.warn("Compiling with an SDK that doesn't seem to exist: %s",
+                sysroot)
+        log.warn("Please check your Xcode installation")
+
+    return compiler_so
+
+
+def _darwin_compiler_fixup_24(compiler_so, cc_args):
+    compiler_so = _darwin_compiler_fixup(compiler_so, cc_args)
+    return compiler_so, cc_args
+
+
+class MyUnixCCompiler(distutils.unixccompiler.UnixCCompiler):
+    def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts):
+        compiler_so = self.compiler_so
+        if sys.platform == 'darwin':
+            compiler_so = _darwin_compiler_fixup(compiler_so, cc_args + extra_postargs)
+        try:
+            self.spawn(compiler_so + cc_args + [src, '-o', obj] +
+                       extra_postargs)
+        except DistutilsExecError, msg:
+            raise CompileError, msg
+
+
+_orig_parse_makefile = distutils.sysconfig.parse_makefile
+def _parse_makefile(filename, g=None):
+    rv = _orig_parse_makefile(filename, g)
+
+    # If a different deployment target is specified in the
+    # environment then make sure it is put in the global
+    # config dict.
+    if os.getenv('MACOSX_DEPLOYMENT_TARGET'):
+        val = os.getenv('MACOSX_DEPLOYMENT_TARGET')
+        rv['MACOSX_DEPLOYMENT_TARGET'] = val
+        rv['CONFIGURE_MACOSX_DEPLOYMENT_TARGET'] = val
+
+    return rv
+
+
+distutils.unixccompiler.UnixCCompiler = MyUnixCCompiler
+distutils.unixccompiler._darwin_compiler_fixup = _darwin_compiler_fixup
+distutils.unixccompiler._darwin_compiler = _darwin_compiler_fixup_24
+distutils.sysconfig.parse_makefile = _parse_makefile
+
+#----------------------------------------------------------------------
 # sanity checks
 
 if CORE_ONLY:
@@ -679,7 +784,10 @@ if os.name == 'nt':
     if os.environ.has_key('WXWIN'):
         WXDIR = os.environ['WXWIN']
     else:
-        WXDIR = '..\\wxWidgets'  # assumes in parallel SVN tree
+        if os.path.exists('..\\wxWidgets'):
+            WXDIR = '..\\wxWidgets'  # assumes in parallel SVN tree
+        else:
+            WXDIR = '..'  # assumes wxPython is subdir
         msg("WARNING: WXWIN not set in environment. Assuming '%s'" % WXDIR)
     WXPLAT = '__WXMSW__'
     GENDIR = 'msw'
@@ -754,7 +862,10 @@ elif os.name == 'posix':
     if os.environ.has_key('WXWIN'):
         WXDIR = os.environ['WXWIN']
     else:
-        WXDIR = '../wxWidgets'  # assumes in parallel SVN tree
+        if os.path.exists('../wxWidgets'):
+            WXDIR = '../wxWidgets'  # assumes in parallel SVN tree
+        else:
+            WXDIR = '..'  # assumes wxPython is subdir
         msg("WARNING: WXWIN not set in environment. Assuming '%s'" % WXDIR)
     includes = ['include', 'src']
     defines = [('SWIG_TYPE_TABLE', WXPYTHON_TYPE_TABLE),
