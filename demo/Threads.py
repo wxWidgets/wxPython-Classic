@@ -216,7 +216,8 @@ class TestPanel(wx.Panel):
 
 
     def ShutdownDemo(self):
-        self.win.Close()
+        if hasattr(self, 'win') and self.win:
+            self.win.Close()
 
 #---------------------------------------------------------------------------
 
