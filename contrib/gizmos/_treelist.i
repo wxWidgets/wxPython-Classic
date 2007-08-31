@@ -470,6 +470,9 @@ public:
     // get the parent of this item (may return NULL if root)
     wxTreeItemId GetItemParent(const wxTreeItemId& item) const;
 
+    wxTreeItemId GetCurrentItem() const;
+    void SetCurrentItem(const wxTreeItemId& newItem);
+    
     // for this enumeration function you must pass in a "cookie" parameter
     // which is opaque for the application but is necessary for the library
     // to make these functions reentrant (i.e. allow more than one
@@ -699,6 +702,7 @@ public:
     %property(Selection, GetSelection, doc="See `GetSelection`");
     %property(Selections, GetSelections, doc="See `GetSelections`");
     %property(StateImageList, GetStateImageList, SetStateImageList, doc="See `GetStateImageList` and `SetStateImageList`");
+    %property(CurrentItem, GetCurrentItem, SetCurrentItem);
 };
 
 //----------------------------------------------------------------------

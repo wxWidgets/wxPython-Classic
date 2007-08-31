@@ -581,6 +581,14 @@ public:
 
     void SetFocus();
 
+    wxTreeItemId GetCurrentItem() const  { return m_curItem; }
+    void SetCurrentItem(const wxTreeItemId& newItem)
+    {
+        wxTreeListItem *oldItem = m_curItem;
+        m_curItem = (wxTreeListItem*)newItem.m_pItem; 
+        RefreshLine(oldItem);
+    }
+
 protected:
     wxTreeListCtrl* m_owner;
 
@@ -4549,6 +4557,13 @@ size_t wxTreeListCtrl::GetSelections(wxArrayTreeItemIds& arr) const
 
 wxTreeItemId wxTreeListCtrl::GetItemParent(const wxTreeItemId& item) const
 { return m_main_win->GetItemParent(item); }
+
+wxTreeItemId wxTreeListCtrl::GetCurrentItem() const
+{ return m_main_win->GetCurrentItem(); }
+
+void wxTreeListCtrl::SetCurrentItem(const wxTreeItemId& newItem)
+{ m_main_win->SetCurrentItem(newItem); }
+
 
 #if !wxCHECK_VERSION(2, 5, 0)
 wxTreeItemId wxTreeListCtrl::GetFirstChild (const wxTreeItemId& item,

@@ -745,6 +745,14 @@ class TreeListCtrl(_core.Control):
         """GetItemParent(self, TreeItemId item) -> TreeItemId"""
         return _gizmos.TreeListCtrl_GetItemParent(*args, **kwargs)
 
+    def GetCurrentItem(*args, **kwargs):
+        """GetCurrentItem(self) -> TreeItemId"""
+        return _gizmos.TreeListCtrl_GetCurrentItem(*args, **kwargs)
+
+    def SetCurrentItem(*args, **kwargs):
+        """SetCurrentItem(self, TreeItemId newItem)"""
+        return _gizmos.TreeListCtrl_SetCurrentItem(*args, **kwargs)
+
     def GetFirstChild(*args, **kwargs):
         """GetFirstChild(self, TreeItemId item) -> PyObject"""
         return _gizmos.TreeListCtrl_GetFirstChild(*args, **kwargs)
@@ -940,6 +948,7 @@ class TreeListCtrl(_core.Control):
     Selection = property(GetSelection,doc="See `GetSelection`") 
     Selections = property(GetSelections,doc="See `GetSelections`") 
     StateImageList = property(GetStateImageList,SetStateImageList,doc="See `GetStateImageList` and `SetStateImageList`") 
+    CurrentItem = property(GetCurrentItem,SetCurrentItem) 
 _gizmos.TreeListCtrl_swigregister(TreeListCtrl)
 
 def PreTreeListCtrl(*args, **kwargs):
