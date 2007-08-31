@@ -1616,6 +1616,9 @@ class PlotCanvas(wx.Panel):
             self._sb_ignore = False
             return
 
+        if not self.GetShowScrollbars():
+            return
+
         self._adjustingSB = True
         needScrollbars = False
         
