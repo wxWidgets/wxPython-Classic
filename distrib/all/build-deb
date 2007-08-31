@@ -34,7 +34,7 @@ if [ $skipdeb != yes ]; then
 
 	echo "Copying source files and build script..."
 	ssh root@$host "mkdir -p $chRootRoot/$LINUX_BUILD && rm -rf $chRootRoot/$LINUX_BUILD/*"
-	scp $STAGING_DIR/wxPython-src* distrib/all/do-build-deb \
+	scp $STAGING_DIR/wxwidgets*.orig.tar.gz distrib/all/do-build-deb \
             root@$host:$chRootRoot/$LINUX_BUILD
     
 	ssh root@$host "dchroot --chroot $chRootName --directory $LINUX_BUILD \"./do-build-deb $VERSION $VER2\""
