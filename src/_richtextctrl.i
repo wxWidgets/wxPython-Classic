@@ -216,7 +216,7 @@ text control.", "");
 
 
     DocDeclStr(
-        virtual bool , SetStyle(const wxRichTextRange& range, const wxRichTextAttr& style),
+        virtual bool , SetStyle(const wxRichTextRange& range, const wxTextAttrEx& style),
         "Set the style for the text in ``range`` to ``style``", "");
 
     DocDeclStr(
@@ -227,12 +227,12 @@ if successful.  Returns ``False`` otherwise.", "");
 
 
     DocDeclStr(
-        virtual bool , GetStyleForRange(const wxRichTextRange& range, wxRichTextAttr& style),
+        virtual bool , GetStyleForRange(const wxRichTextRange& range, wxTextAttrEx& style),
         "Get the common set of styles for the range", "");
     
 
     DocDeclStr(
-        virtual bool , SetStyleEx(const wxRichTextRange& range, const wxRichTextAttr& style,
+        virtual bool , SetStyleEx(const wxRichTextRange& range, const wxTextAttrEx& style,
                                   int flags = wxRICHTEXT_SETSTYLE_WITH_UNDO),
         "Extended style setting operation with flags including:
 RICHTEXT_SETSTYLE_WITH_UNDO, RICHTEXT_SETSTYLE_OPTIMIZE,
@@ -241,19 +241,19 @@ RICHTEXT_SETSTYLE_PARAGRAPHS_ONLY, RICHTEXT_SETSTYLE_CHARACTERS_ONLY", "");
 
     
     DocDeclStr(
-        virtual bool , GetUncombinedStyle(long position, wxRichTextAttr& style),
+        virtual bool , GetUncombinedStyle(long position, wxTextAttrEx& style),
         "Get the content (uncombined) attributes for this position.  Copies the
 style values at ``position`` into the ``style`` parameter and returns
 ``True`` if successful.  Returns ``False`` otherwise.", "");
 
 
     DocDeclStr(
-        virtual bool , SetDefaultStyle(const wxRichTextAttr& style),
+        virtual bool , SetDefaultStyle(const wxTextAttrEx& style),
         "Set the style used by default for the rich text document.", "");
 
 
     DocDeclStrName(
-        virtual const wxRichTextAttr , GetDefaultStyleEx() const,
+        virtual const wxTextAttrEx , GetDefaultStyleEx() const,
         "Retrieves a copy of the default style object.", "",
         GetDefaultStyle);
 
@@ -448,274 +448,236 @@ flag.", "");
 
 ///// Functionality specific to wxRichTextCtrl
 
-    /// Write an image at the current insertion point. Supply optional type to use
-    /// for internal and file storage of the raw data.
     DocDeclStr(
         virtual bool , WriteImage(const wxImage& image, int bitmapType = wxBITMAP_TYPE_PNG),
-        "", "");
+        "Write an image at the current insertion point. Supply optional type to
+use for internal and file storage of the raw data.
+", "");
 
 
-    /// Write a bitmap at the current insertion point. Supply optional type to use
-    /// for internal and file storage of the raw data.
     DocDeclStrName(
         virtual bool , WriteImage(const wxBitmap& bitmap, int bitmapType = wxBITMAP_TYPE_PNG),
-        "", "",
+        "Write a bitmap at the current insertion point. Supply optional type to
+use for internal and file storage of the raw data.", "",
         WriteBitmap);
 
 
-    /// Load an image from file and write at the current insertion point.
     DocDeclStrName(
         virtual bool , WriteImage(const wxString& filename, int bitmapType),
-        "", "",
+        "Load an image from file and write at the current insertion point.", "",
         WriteImageFile);
 
 
-    /// Write an image block at the current insertion point.
     DocDeclStrName(
         virtual bool , WriteImage(const wxRichTextImageBlock& imageBlock),
-        "", "",
+        "Write an image block at the current insertion point.", "",
         WriteImageBlock);
 
 
-    /// Insert a newline (actually paragraph) at the current insertion point.
     DocDeclStr(
         virtual bool , Newline(),
-        "", "");
+        "Insert a newline (actually paragraph) at the current insertion point.", "");
 
 
-    /// Insert a line break at the current insertion point.
-    virtual bool LineBreak();
+    DocDeclStr(
+        virtual bool , LineBreak(),
+        "Insert a line break at the current insertion point.", "");
+    
 
     
     DocDeclStr(
-        virtual void , SetBasicStyle(const wxRichTextAttr& style),
+        virtual void , SetBasicStyle(const wxTextAttrEx& style),
         "", "");
 
 
-    /// Get basic (overall) style
     DocDeclStr(
-        virtual const wxRichTextAttr , GetBasicStyle() const,
-        "", "");
+        virtual const wxTextAttrEx , GetBasicStyle() const,
+        "Get basic (overall) style", "");
 
 
-    /// Begin using a style
     DocDeclStr(
-        virtual bool , BeginStyle(const wxRichTextAttr& style),
-        "", "");
+        virtual bool , BeginStyle(const wxTextAttrEx& style),
+        "Begin using a style", "");
 
     
-    /// End the style
     DocDeclStr(
         virtual bool , EndStyle(),
-        "", "");
+        "End the style", "");
 
 
-    /// End all styles
     DocDeclStr(
         virtual bool , EndAllStyles(),
-        "", "");
+        "End all styles", "");
 
 
-    /// Begin using bold
     DocDeclStr(
         bool , BeginBold(),
-        "", "");
+        "Begin using bold", "");
 
 
-    /// End using bold
     DocDeclStr(
         bool , EndBold(),
-        "", "");
+        "End using bold", "");
 
 
-    /// Begin using italic
     DocDeclStr(
         bool , BeginItalic(),
-        "", "");
+        "Begin using italic", "");
 
 
-    /// End using italic
     DocDeclStr(
         bool , EndItalic(),
-        "", "");
+        "End using italic", "");
 
 
-    /// Begin using underline
     DocDeclStr(
         bool , BeginUnderline(),
-        "", "");
+        "Begin using underline", "");
 
 
-    /// End using underline
     DocDeclStr(
         bool , EndUnderline(),
-        "", "");
+        "End using underline", "");
 
 
-    /// Begin using point size
     DocDeclStr(
         bool , BeginFontSize(int pointSize),
-        "", "");
+        "Begin using point size", "");
 
 
-    /// End using point size
     DocDeclStr(
         bool , EndFontSize(),
-        "", "");
+        "End using point size", "");
 
 
-    /// Begin using this font
     DocDeclStr(
         bool , BeginFont(const wxFont& font),
-        "", "");
+        "Begin using this font", "");
 
 
-    /// End using a font
     DocDeclStr(
         bool , EndFont(),
-        "", "");
+        "End using a font", "");
 
 
-    /// Begin using this colour
     DocDeclStr(
         bool , BeginTextColour(const wxColour& colour),
-        "", "");
+        "Begin using this colour", "");
 
 
-    /// End using a colour
     DocDeclStr(
         bool , EndTextColour(),
-        "", "");
+        "End using a colour", "");
 
 
-    /// Begin using alignment
     DocDeclStr(
         bool , BeginAlignment(wxTextAttrAlignment alignment),
-        "", "");
+        "Begin using alignment", "");
 
 
-    /// End alignment
     DocDeclStr(
         bool , EndAlignment(),
-        "", "");
+        "End alignment", "");
 
 
-    /// Begin left indent
     DocDeclStr(
         bool , BeginLeftIndent(int leftIndent, int leftSubIndent = 0),
-        "", "");
+        "Begin left indent", "");
 
 
-    /// End left indent
     DocDeclStr(
         bool , EndLeftIndent(),
-        "", "");
+        "End left indent", "");
 
 
-    /// Begin right indent
     DocDeclStr(
         bool , BeginRightIndent(int rightIndent),
-        "", "");
+        "Begin right indent", "");
 
 
-    /// End right indent
     DocDeclStr(
         bool , EndRightIndent(),
-        "", "");
+        "End right indent", "");
 
 
-    /// Begin paragraph spacing
     DocDeclStr(
         bool , BeginParagraphSpacing(int before, int after),
-        "", "");
+        "Begin paragraph spacing", "");
 
 
-    /// End paragraph spacing
     DocDeclStr(
         bool , EndParagraphSpacing(),
-        "", "");
+        "End paragraph spacing", "");
 
 
-    /// Begin line spacing
     DocDeclStr(
         bool , BeginLineSpacing(int lineSpacing),
-        "", "");
+        "Begin line spacing", "");
 
 
-    /// End line spacing
     DocDeclStr(
         bool , EndLineSpacing(),
-        "", "");
+        "End line spacing", "");
 
 
-    /// Begin numbered bullet
     DocDeclStr(
         bool , BeginNumberedBullet(int bulletNumber,
                                    int leftIndent,
                                    int leftSubIndent,
                                    int bulletStyle = wxTEXT_ATTR_BULLET_STYLE_ARABIC|wxTEXT_ATTR_BULLET_STYLE_PERIOD),
-        "", "");
+        "Begin numbered bullet", "");
 
 
-    /// End numbered bullet
     DocDeclStr(
         bool , EndNumberedBullet(),
-        "", "");
+        "End numbered bullet", "");
 
 
-    /// Begin symbol bullet
     DocDeclStr(
         bool , BeginSymbolBullet(const wxString& symbol,
                                  int leftIndent,
                                  int leftSubIndent,
                                  int bulletStyle = wxTEXT_ATTR_BULLET_STYLE_SYMBOL),
-        "", "");
+        "Begin symbol bullet", "");
 
 
-    /// End symbol bullet
     DocDeclStr(
         bool , EndSymbolBullet(),
-        "", "");
+        "End symbol bullet", "");
 
 
-    /// Begin standard bullet
     DocDeclStr(
         bool , BeginStandardBullet(const wxString& bulletName,
                                    int leftIndent,
                                    int leftSubIndent,
                                    int bulletStyle = wxTEXT_ATTR_BULLET_STYLE_STANDARD),
-        "", "");
+        "Begin standard bullet", "");
     
 
 
-    /// End standard bullet
     DocDeclStr(
         bool , EndStandardBullet(),
-        "", "");
+        "End standard bullet", "");
     
     
-    /// Begin named character style
     DocDeclStr(
         bool , BeginCharacterStyle(const wxString& characterStyle),
-        "", "");
+        "Begin named character style", "");
 
 
-    /// End named character style
     DocDeclStr(
         bool , EndCharacterStyle(),
-        "", "");
+        "End named character style", "");
 
 
-    /// Begin named paragraph style
     DocDeclStr(
         bool , BeginParagraphStyle(const wxString& paragraphStyle),
-        "", "");
+        "Begin named paragraph style", "");
 
 
-    /// End named character style
     DocDeclStr(
         bool , EndParagraphStyle(),
-        "", "");
+        "End named character style", "");
 
 
     DocDeclStr(
@@ -732,291 +694,266 @@ flag.", "");
     DocDeclStr(
         bool , EndURL(), "End URL.", "");
 
-    /// Sets the default style to the style under the cursor
     DocDeclStr(
         bool , SetDefaultStyleToCursorStyle(),
-        "", "");
+        "Sets the default style to the style under the cursor", "");
 
 
-    /// Clear the selection
     DocDeclStr(
         virtual void , SelectNone(),
-        "", "");
+        "Clear the selection", "");
 
-    /// Select the word at the given character position
+
     DocDeclStr(
         virtual bool , SelectWord(long position),
-        "", "");
+        "Select the word at the given character position", "");
 
 
-    /// Get/set the selection range in character positions. -1, -1 means no selection.
     DocDeclStr(
         wxRichTextRange , GetSelectionRange() const,
-        "", "");
+        "Get the selection range in character positions.", "");
 
     DocDeclStr(
         void , SetSelectionRange(const wxRichTextRange& range),
-        "", "");
+        "Set the selection range in character positions. -1, -1 means no selection.", "");
 
-    /// Get/set the selection range in character positions. -1, -1 means no selection.
-    /// The range is in internal format, i.e. a single character selection is denoted
-    /// by (n, n)
+
     DocDeclStr(
         const wxRichTextRange& , GetInternalSelectionRange() const,
-        "", "");
+        "Get the selection range in character positions. -1, -1 means no
+selection.  The range is in internal format, i.e. a single character
+selection is denoted by (n, n).
+", "");
 
     DocDeclStr(
         void , SetInternalSelectionRange(const wxRichTextRange& range),
-        "", "");
+        "Set the selection range in character positions. -1, -1 means no
+selection.  The range is in internal format, i.e. a single character
+selection is denoted by (n, n).", "");
 
 
 
-    /// Add a new paragraph of text to the end of the buffer
     DocDeclStr(
         virtual wxRichTextRange , AddParagraph(const wxString& text),
-        "", "");
+        "Add a new paragraph of text to the end of the buffer", "");
 
 
-    /// Add an image
     DocDeclStr(
         virtual wxRichTextRange , AddImage(const wxImage& image),
-        "", "");
+        "Add an image", "");
 
 
-    /// Layout the buffer: which we must do before certain operations, such as
-    /// setting the caret position.
     DocDeclStr(
         virtual bool , LayoutContent(bool onlyVisibleRect = false),
-        "", "");
+        "Layout the buffer: which we must do before certain operations, such as
+setting the caret position.", "");
 
 
-    /// Move the caret to the given character position
     DocDeclStr(
         virtual bool , MoveCaret(long pos, bool showAtLineStart = false),
-        "", "");
+        "Move the caret to the given character position", "");
 
 
-    /// Move right
     DocDeclStr(
         virtual bool , MoveRight(int noPositions = 1, int flags = 0),
-        "", "");
+        "Move right", "");
 
 
-    /// Move left
     DocDeclStr(
         virtual bool , MoveLeft(int noPositions = 1, int flags = 0),
-        "", "");
+        "Move left", "");
 
 
-    /// Move up
     DocDeclStr(
         virtual bool , MoveUp(int noLines = 1, int flags = 0),
-        "", "");
+        "Move up", "");
 
 
-    /// Move up
     DocDeclStr(
         virtual bool , MoveDown(int noLines = 1, int flags = 0),
-        "", "");
+        "Move down", "");
 
 
-    /// Move to the end of the line
     DocDeclStr(
         virtual bool , MoveToLineEnd(int flags = 0),
-        "", "");
+        "Move to the end of the line", "");
 
 
-    /// Move to the start of the line
     DocDeclStr(
         virtual bool , MoveToLineStart(int flags = 0),
-        "", "");
+        "Move to the start of the line", "");
 
 
-    /// Move to the end of the paragraph
     DocDeclStr(
         virtual bool , MoveToParagraphEnd(int flags = 0),
-        "", "");
+        "Move to the end of the paragraph", "");
 
 
-    /// Move to the start of the paragraph
     DocDeclStr(
         virtual bool , MoveToParagraphStart(int flags = 0),
-        "", "");
+        "Move to the start of the paragraph", "");
 
 
-    /// Move to the start of the buffer
     DocDeclStr(
         virtual bool , MoveHome(int flags = 0),
-        "", "");
+        "Move to the start of the buffer", "");
 
 
-    /// Move to the end of the buffer
     DocDeclStr(
         virtual bool , MoveEnd(int flags = 0),
-        "", "");
+        "Move to the end of the buffer", "");
 
 
-    /// Move n pages up
     DocDeclStr(
         virtual bool , PageUp(int noPages = 1, int flags = 0),
-        "", "");
+        "Move n pages up", "");
 
 
-    /// Move n pages down
     DocDeclStr(
         virtual bool , PageDown(int noPages = 1, int flags = 0),
-        "", "");
+        "Move n pages down", "");
 
 
-    /// Move n words left
     DocDeclStr(
         virtual bool , WordLeft(int noPages = 1, int flags = 0),
-        "", "");
+        "Move n words left", "");
 
 
-    /// Move n words right
     DocDeclStr(
         virtual bool , WordRight(int noPages = 1, int flags = 0),
-        "", "");
+        "Move n words right", "");
 
 
-    /// Returns the buffer associated with the control.
     DocDeclStr(
         wxRichTextBuffer& , GetBuffer(),
-        "", "");
+        "Returns the buffer associated with the control.
+", "");
 
 
-    /// Start batching undo history for commands.
     DocDeclStr(
         virtual bool , BeginBatchUndo(const wxString& cmdName),
-        "", "");
+        "Start batching undo history for commands", "");
 
 
-    /// End batching undo history for commands.
     DocDeclStr(
         virtual bool , EndBatchUndo(),
-        "", "");
+        "End batching undo history for commands.", "");
 
 
-    /// Are we batching undo history for commands?
     DocDeclStr(
         virtual bool , BatchingUndo() const,
-        "", "");
+        "Are we batching undo history for commands?", "");
 
 
-    /// Start suppressing undo history for commands.
     DocDeclStr(
         virtual bool , BeginSuppressUndo(),
-        "", "");
+        "Start suppressing undo history for commands.", "");
 
 
-    /// End suppressing undo history for commands.
     DocDeclStr(
         virtual bool , EndSuppressUndo(),
-        "", "");
+        "End suppressing undo history for commands.", "");
 
 
-    /// Are we suppressing undo history for commands?
     DocDeclStr(
         virtual bool , SuppressingUndo() const,
-        "", "");
+        "Are we suppressing undo history for commands?", "");
 
 
-    /// Test if this whole range has character attributes of the specified kind. If any
-    /// of the attributes are different within the range, the test fails. You
-    /// can use this to implement, for example, bold button updating. style must have
-    /// flags indicating which attributes are of interest.
     DocDeclStr(
         virtual bool , HasCharacterAttributes(const wxRichTextRange& range,
-                                              const wxRichTextAttr& style) const,
-        "", "");
+                                              const wxTextAttrEx& style) const,
+        "Test if this whole range has character attributes of the specified
+kind. If any of the attributes are different within the range, the
+test fails. You can use this to implement, for example, bold button
+updating. style must have flags indicating which attributes are of
+interest.
+", "");
 
 
 
-    /// Test if this whole range has paragraph attributes of the specified kind. If any
-    /// of the attributes are different within the range, the test fails. You
-    /// can use this to implement, for example, centering button updating. style must have
-    /// flags indicating which attributes are of interest.
     DocDeclStr(
         virtual bool , HasParagraphAttributes(const wxRichTextRange& range,
-                                              const wxRichTextAttr& style) const,
-        "", "");
+                                              const wxTextAttrEx& style) const,
+        "Test if this whole range has paragraph attributes of the specified
+kind. If any of the attributes are different within the range, the
+test fails. You can use this to implement, for example, centering
+button updating. style must have flags indicating which attributes are
+of interest.
+", "");
 
 
 
-    /// Is all of the selection bold?
     DocDeclStr(
         virtual bool , IsSelectionBold(),
-        "", "");
+        "Is all of the selection bold?", "");
 
 
-    /// Is all of the selection italics?
     DocDeclStr(
         virtual bool , IsSelectionItalics(),
-        "", "");
+        "Is all of the selection italics?", "");
 
 
-    /// Is all of the selection underlined?
     DocDeclStr(
         virtual bool , IsSelectionUnderlined(),
-        "", "");
+        "Is all of the selection underlined?", "");
 
 
-    /// Is all of the selection aligned according to the specified flag?
     DocDeclStr(
         virtual bool , IsSelectionAligned(wxTextAttrAlignment alignment),
-        "", "");
+        "Is all of the selection aligned according to the specified flag?", "");
 
 
-    /// Apply bold to the selection
     DocDeclStr(
         virtual bool , ApplyBoldToSelection(),
-        "", "");
+        "Apply bold to the selection", "");
 
 
-    /// Apply italic to the selection
     DocDeclStr(
         virtual bool , ApplyItalicToSelection(),
-        "", "");
+        "Apply italic to the selection", "");
 
 
-    /// Apply underline to the selection
     DocDeclStr(
         virtual bool , ApplyUnderlineToSelection(),
-        "", "");
+        "Apply underline to the selection", "");
 
 
-    /// Apply alignment to the selection
     DocDeclStr(
         virtual bool , ApplyAlignmentToSelection(wxTextAttrAlignment alignment),
-        "", "");
+        "Apply alignment to the selection", "");
 
 
-    /// Apply a named style to the selection
-    virtual bool ApplyStyle(wxRichTextStyleDefinition* def);
+    DocDeclStr(
+        virtual bool , ApplyStyle(wxRichTextStyleDefinition* def),
+        "Apply a named style to the selection", "");
+    
 
-    /// Set style sheet, if any.
     DocDeclStr(
         void , SetStyleSheet(wxRichTextStyleSheet* styleSheet),
-        "", "");
+        "Set style sheet, if any.", "");
 
     DocDeclStr(
         wxRichTextStyleSheet* , GetStyleSheet() const,
         "", "");
 
 
-    /// Push style sheet to top of stack
-    bool PushStyleSheet(wxRichTextStyleSheet* styleSheet);
+    DocDeclStr(
+        bool , PushStyleSheet(wxRichTextStyleSheet* styleSheet),
+        "Push style sheet to top of stack", "");
+    
 
     
-    /// Pop style sheet from top of stack
-    wxRichTextStyleSheet* PopStyleSheet();
+    DocDeclStr(
+        wxRichTextStyleSheet* , PopStyleSheet(),
+        "Pop style sheet from top of stack", "");
+    
 
     
-    /// Apply the style sheet to the buffer, for example if the styles have changed.
     DocDeclStr(
         bool , ApplyStyleSheet(wxRichTextStyleSheet* styleSheet = NULL),
-        "", "");
+        "Apply the style sheet to the buffer, for example if the styles have
+changed.", "");
 
 
 

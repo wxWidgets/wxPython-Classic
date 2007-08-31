@@ -2115,9 +2115,19 @@ wxString Py2wxString(PyObject* source)
 #if wxUSE_UNICODE
     // Convert to a unicode object, if not already, then to a wxString
     PyObject* uni = source;
-    if (!PyUnicode_Check(source)) {
+    if (PyString_Check(source)) {
         uni = PyUnicode_FromEncodedObject(source, wxPyDefaultEncoding, "strict");
-        if (PyErr_Occurred()) return wxEmptyString;  // TODO:  should we PyErr_Clear?
+        if (PyErr_Occurred()) {
+            PyErr_Clear();
+            return wxEmptyString;
+        }
+    }
+    else if (!PyUnicode_Check(source)) {
+        uni = PyObject_Unicode(source); 
+        if (PyErr_Occurred()) {
+            PyErr_Clear();
+            return wxEmptyString;
+        }
     }
     size_t len = PyUnicode_GET_SIZE(uni);
     if (len) {
@@ -2131,11 +2141,17 @@ wxString Py2wxString(PyObject* source)
     PyObject* str = source;
     if (PyUnicode_Check(source)) {
         str = PyUnicode_AsEncodedString(source, wxPyDefaultEncoding, "strict");
-        if (PyErr_Occurred()) return wxEmptyString;    // TODO:  should we PyErr_Clear?
+        if (PyErr_Occurred()) {
+            PyErr_Clear();
+            return wxEmptyString;
+        }
     }
     else if (!PyString_Check(source)) {
         str = PyObject_Str(source);
-        if (PyErr_Occurred()) return wxEmptyString;    // TODO:  should we PyErr_Clear?
+        if (PyErr_Occurred()) {
+            PyErr_Clear();
+            return wxEmptyString;
+        }
     }
     char* tmpPtr; Py_ssize_t tmpSize;
     PyString_AsStringAndSize(str, &tmpPtr, &tmpSize);

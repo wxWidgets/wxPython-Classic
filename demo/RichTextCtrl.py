@@ -267,7 +267,7 @@ class RichTextFrame(wx.Frame):
         self.rtc.ApplyAlignmentToSelection(rt.TEXT_ALIGNMENT_CENTRE)
         
     def OnIndentMore(self, evt):
-        attr = rt.RichTextAttr()
+        attr = rt.TextAttrEx()
         attr.SetFlags(rt.TEXT_ATTR_LEFT_INDENT)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -281,7 +281,7 @@ class RichTextFrame(wx.Frame):
        
         
     def OnIndentLess(self, evt):
-        attr = rt.RichTextAttr()
+        attr = rt.TextAttrEx()
         attr.SetFlags(rt.TEXT_ATTR_LEFT_INDENT)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -296,7 +296,7 @@ class RichTextFrame(wx.Frame):
 
         
     def OnParagraphSpacingMore(self, evt):
-        attr = rt.RichTextAttr()
+        attr = rt.TextAttrEx()
         attr.SetFlags(rt.TEXT_ATTR_PARA_SPACING_AFTER)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -310,7 +310,7 @@ class RichTextFrame(wx.Frame):
 
         
     def OnParagraphSpacingLess(self, evt):
-        attr = rt.RichTextAttr()
+        attr = rt.TextAttrEx()
         attr.SetFlags(rt.TEXT_ATTR_PARA_SPACING_AFTER)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -325,7 +325,7 @@ class RichTextFrame(wx.Frame):
 
         
     def OnLineSpacingSingle(self, evt): 
-        attr = rt.RichTextAttr()
+        attr = rt.TextAttrEx()
         attr.SetFlags(rt.TEXT_ATTR_LINE_SPACING)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -339,7 +339,7 @@ class RichTextFrame(wx.Frame):
  
                 
     def OnLineSpacingHalf(self, evt):
-        attr = rt.RichTextAttr()
+        attr = rt.TextAttrEx()
         attr.SetFlags(rt.TEXT_ATTR_LINE_SPACING)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -353,7 +353,7 @@ class RichTextFrame(wx.Frame):
 
         
     def OnLineSpacingDouble(self, evt):
-        attr = rt.RichTextAttr()
+        attr = rt.TextAttrEx()
         attr.SetFlags(rt.TEXT_ATTR_LINE_SPACING)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -373,7 +373,7 @@ class RichTextFrame(wx.Frame):
         r = self.rtc.GetSelectionRange()
         fontData = wx.FontData()
         fontData.EnableEffects(False)
-        attr = rt.RichTextAttr()
+        attr = rt.TextAttrEx()
         attr.SetFlags(rt.TEXT_ATTR_FONT)
         if self.rtc.GetStyle(self.rtc.GetInsertionPoint(), attr):
             fontData.SetInitialFont(attr.CreateFont())
@@ -391,7 +391,7 @@ class RichTextFrame(wx.Frame):
 
     def OnColour(self, evt):
         colourData = wx.ColourData()
-        attr = rt.RichTextAttr()
+        attr = rt.TextAttrEx()
         attr.SetFlags(rt.TEXT_ATTR_TEXT_COLOUR)
         if self.rtc.GetStyle(self.rtc.GetInsertionPoint(), attr):
             colourData.SetColour(attr.GetTextColour())
