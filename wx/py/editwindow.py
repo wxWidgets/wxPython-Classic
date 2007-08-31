@@ -43,7 +43,7 @@ elif 'wxGTK' in wx.PlatformInfo and 'gtk2' in wx.PlatformInfo:
 
 elif 'wxMac' in wx.PlatformInfo:
     FACES = { 'times'     : 'Lucida Grande',
-              'mono'      : 'Courier New',
+              'mono'      : 'Monaco',
               'helv'      : 'Geneva',
               'other'     : 'new century schoolbook',
               'size'      : 13,
