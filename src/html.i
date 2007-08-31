@@ -1308,9 +1308,13 @@ public:
                           const wxString& normal_face = wxPyEmptyString,
                           const wxString& fixed_face = wxPyEmptyString);
 
-    wxPrintData *GetPrintData() {return m_PrintData;}
-    wxPageSetupDialogData *GetPageSetupData() {return m_PageSetupData;}
+    wxPrintData *GetPrintData();
+    wxPageSetupDialogData *GetPageSetupData();
 
+    wxWindow* GetParentWindow() const;
+    void SetParentWindow(wxWindow* window);
+
+    
     %property(PageSetupData, GetPageSetupData, doc="See `GetPageSetupData`");
     %property(PrintData, GetPrintData, doc="See `GetPrintData`");
 };
