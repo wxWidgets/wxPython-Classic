@@ -156,7 +156,7 @@ popd > /dev/null
 echo "*** Creating tarball..."
 cp distrib/README.1st.txt ${builddir}/${tarver}
 pushd ${builddir} > /dev/null
-tar cvf ${distdir}/${tarver}.tar ${tarver} > /dev/null
+tar cf ${distdir}/${tarver}.tar ${tarver} > /dev/null
 
 #ext=gz
 #cmd="gzip"
@@ -175,7 +175,7 @@ popd > /dev/null
 #----------------------------------------------------------------------
 # Make the SRPM 
 
-echo "*** Building RPM..."
+echo "*** Building SRPM..."
 
 rpmtop=${builddir}/rpmtop
 for dir in SOURCES SPECS BUILD RPMS SRPMS; do
@@ -194,6 +194,24 @@ cp ${distdir}/${tarver}.tar.bz2 ${rpmtop}/SOURCES
 echo "*** Moving RPM to ${distdir}"
 mv -f `find ${rpmtop} -name "wxPython*.rpm"` ${distdir}
 
+
+#----------------------------------------------------------------------
+# Make another tarball with only the things needed for the Debian build
+
+echo "*** Making trimmed tarball for Debian builds"
+pushd ${builddir} > /dev/null
+
+mv ${tarver} wxwidgets${ver2}-${version}
+
+# remove some of the platform specific dirs
+for dir in msw msdos msvc mac cocoa dfb palmos; do
+    find . -name ${dir} -type d -print | xargs rm -rf
+done
+
+tar cf ${distdir}/wxwidgets${ver2}_${version}.orig.tar wxwidgets${ver2}-${version}
+gzip -9 ${distdir}/wxwidgets${ver2}_${version}.orig.tar
+
+popd > /dev/null
 
 #----------------------------------------------------------------------
 # Cleanup
