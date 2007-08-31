@@ -4,6 +4,7 @@ unicode=no
 debug=no
 reswig=no
 all=no
+PY_VERSION=25
 
 if [ "$1" = all ]; then
   all=yes
@@ -123,7 +124,14 @@ else
   fi
 
   cd $scriptDir
-  python$PY_VERSION ./setup.py build_ext --inplace WX_CONFIG=$BUILD_DIR/wx-config UNICODE=$UNICODE_WXPY_OPT
+  PY_DOT_VERSION="2.5"
+  if [ "$PY_VERSION" = "24" ]; then
+    PY_DOT_VERSION="2.4"
+  fi
+  if [ "$PY_VERSION" = "23" ]; then
+    PY_DOT_VERSION="2.3"
+  fi
+  python$PY_DOT_VERSION ./setup.py build_ext --inplace WX_CONFIG=$BUILD_DIR/wx-config UNICODE=$UNICODE_WXPY_OPT
 fi
 
 # return to original dir
