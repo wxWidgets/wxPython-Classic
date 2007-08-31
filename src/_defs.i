@@ -1034,6 +1034,7 @@ enum wxBorder
     wxBORDER_RAISED,
     wxBORDER_SUNKEN,
     wxBORDER_DOUBLE,
+    wxBORDER_THEME,
     wxBORDER_MASK,
 };
 
