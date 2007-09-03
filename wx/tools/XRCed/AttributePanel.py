@@ -105,6 +105,8 @@ class Panel(wx.Panel):
         self.undo = None        # pending undo object
 
     def SetData(self, container, comp, node):
+        self.Freeze()
+
         oldLabel = self.nb.GetPageText(self.nb.GetSelection())
         self.nb.SetSelection(0)
         map(self.nb.RemovePage, range(self.nb.GetPageCount()-1, 0, -1))
@@ -187,6 +189,8 @@ class Panel(wx.Panel):
                 if oldLabel == self.nb.GetPageText(i):
                     self.nb.SetSelection(i)
                     break
+
+        self.Thaw()
 
         return panels
         

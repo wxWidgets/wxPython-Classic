@@ -274,7 +274,7 @@ class ParamInt(PPanel):
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
         sizer = wx.BoxSizer(wx.HORIZONTAL)
-        self.spin = wx.SpinButton(self, style = wx.SP_VERTICAL, size=(-1,textH))
+        self.spin = wx.SpinButton(self, style = wx.SP_VERTICAL, size=(-1,10))
         textW = 60 - self.spin.GetSize()[0]
         self.text = wx.TextCtrl(self, size=(textW,textH))
         self.spin.SetRange(*self.range)
@@ -283,7 +283,7 @@ class ParamInt(PPanel):
         else:
             sizer.Add(self.text, 0, wx.ALIGN_CENTER_VERTICAL | wx.EXPAND | \
                           wx.LEFT | wx.TOP | wx.BOTTOM, textB)
-        sizer.Add(self.spin, 0, wx.ALIGN_CENTER_VERTICAL)
+        sizer.Add(self.spin, 0, wx.ALIGN_CENTER_VERTICAL | wx.EXPAND)
         self.SetSizer(sizer)
         self.spin.Bind(wx.EVT_SPIN_UP, self.OnSpinUp)
         self.spin.Bind(wx.EVT_SPIN_DOWN, self.OnSpinDown)
@@ -302,6 +302,7 @@ class ParamInt(PPanel):
             self.spin.SetValue(self.default)
     def OnChange(self, evt):
         self.SyncSpin(evt.GetString())
+        Presenter.setApplied(False)
         evt.Skip()
     def SyncText(self, spinValue):
         if self.range[0] <= spinValue <= self.range[1]:
@@ -932,7 +933,7 @@ class StylePanel(wx.Panel):
         topSizer = wx.BoxSizer(wx.HORIZONTAL)
         if genericStyles:
             # Generic styles
-            sizer = wx.GridSizer(len(genericStyles), 1, 0, 5)
+            sizer = wx.GridSizer(len(genericStyles), 1, 1, 5)
             label = wx.StaticText(self, label='Generic')
             label.SetFont(g.labelFont())
             sizer.Add(label, 0, wx.LEFT, 20)
@@ -945,7 +946,7 @@ class StylePanel(wx.Panel):
             topSizer.Add(sizer)
         if styles:
             # Specific styles
-            sizer = wx.GridSizer(len(styles), 1, 0, 5)
+            sizer = wx.GridSizer(len(styles), 1, 1, 5)
             if genericStyles:
                 label = wx.StaticText(self, label='Specific')
                 label.SetFont(g.labelFont())

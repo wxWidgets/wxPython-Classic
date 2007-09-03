@@ -183,7 +183,13 @@ class XMLTree(wx.TreeCtrl):
         return self.GetChildrenCount(item)
 
     if wx.Platform == '__WXMSW__':
+        def UnselectAll(self):
+            print self.GetSelections()
+            wx.TreeCtrl.UnselectAll(self)
+            print self.GetSelections()
+        
         def SelectItem(self, item):
+            print 'SelectItem',self.GetSelections()
             wx.TreeCtrl.SelectItem(self, item)
             evt = wx.TreeEvent(wx.EVT_TREE_SEL_CHANGED.typeId, self, item)
             wx.PostEvent(self, evt)

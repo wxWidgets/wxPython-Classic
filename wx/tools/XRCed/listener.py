@@ -534,7 +534,12 @@ Homepage: http://xrced.sourceforge.net\
         container = Presenter.container
         comp = Presenter.comp
         treeNode = self.tree.GetPyData(Presenter.item)
-        if evt.GetId() in [wx.ID_CUT, wx.ID_COPY, wx.ID_DELETE]:
+        # Wokraround for wxMSW: view.tree.GetPrevSibling crashes
+        if evt.GetId() in [self.frame.ID_MOVEUP, self.frame.ID_MOVERIGHT,
+                           self.frame.ID_MOVEDOWN, self.frame.ID_MOVELEFT] and \
+            Presenter.item is view.tree.root:
+            pass
+        elif evt.GetId() in [wx.ID_CUT, wx.ID_COPY, wx.ID_DELETE]:
             evt.Enable(bool(self.tree.GetSelection()))
         elif evt.GetId() in [self.frame.ID_MOVEUP, self.frame.ID_MOVERIGHT]:
             evt.Enable(view.tree.GetPrevSibling(Presenter.item).IsOk())
@@ -584,6 +589,8 @@ Homepage: http://xrced.sourceforge.net\
 
         # Check clipboard
         self.clipboardHasData = True
+        self.inIdle = False
+        return
 #        self.clipboardHasData = False
         wx.TheClipboard.Flush()
         cbLock = wx.ClipboardLocker()
@@ -658,6 +665,9 @@ Homepage: http://xrced.sourceforge.net\
         Presenter.popupMenu(forceSibling, forceInsert, evt.GetPosition())
 
     def OnTreeSelChanging(self, evt):
+        #TRACE('OnTreeSelChanging: %s=>%s', evt.GetOldItem(), evt.GetItem())
+        #TRACE('Selection: %s', self.tree.GetSelections())
+        if not self.tree.GetSelections(): return
         # Permit multiple selection for same level only
         state = wx.GetMouseState()
         oldItem = evt.GetOldItem()
@@ -673,6 +683,10 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnTreeSelChanged(self, evt):
+        #TRACE('OnTreeSelChanged: %s=>%s', evt.GetOldItem(), evt.GetItem())
+        #TRACE('Selection: %s', self.tree.GetSelections())
+        # On wxMSW (at least) two selection events are generated
+        if not self.tree.GetSelections(): return
         if evt.GetOldItem():
             if not Presenter.applied:
                 Presenter.update(evt.GetOldItem())
