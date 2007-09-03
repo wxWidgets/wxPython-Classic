@@ -327,6 +327,7 @@ class _Listener:
                 if conf.showToolPanel and self.toolFrame:
                     conf.toolPanelPos = self.toolFrame.GetPosition()
                     conf.toolPanelSize = self.toolFrame.GetSize()
+        self.tree.UnselectAll()        
         #self.panel.Destroy()            # destroy panel before tree
         self.frame.Destroy()
 
@@ -589,8 +590,6 @@ Homepage: http://xrced.sourceforge.net\
 
         # Check clipboard
         self.clipboardHasData = True
-        self.inIdle = False
-        return
 #        self.clipboardHasData = False
         wx.TheClipboard.Flush()
         cbLock = wx.ClipboardLocker()
