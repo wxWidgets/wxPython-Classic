@@ -162,7 +162,7 @@ public:
     wxObject* Parse(const wxString& source);
     void InitParser(const wxString& source);
     void DoneParser();
-    void DoParsing(int begin_pos, int end_pos);
+    void DoParsing(/*int begin_pos, int end_pos*/);
     void StopParsing();
     // wxObject* GetProduct();
 
@@ -1317,6 +1317,7 @@ public:
     
     %property(PageSetupData, GetPageSetupData, doc="See `GetPageSetupData`");
     %property(PrintData, GetPrintData, doc="See `GetPrintData`");
+    %property(ParentWindow, GetParentWindow, SetParentWindow);
 };
 
 
