@@ -201,7 +201,7 @@ class HtmlParser(_core.Object):
         return _html.HtmlParser_DoneParser(*args, **kwargs)
 
     def DoParsing(*args, **kwargs):
-        """DoParsing(self, int begin_pos, int end_pos)"""
+        """DoParsing(self)"""
         return _html.HtmlParser_DoParsing(*args, **kwargs)
 
     def StopParsing(*args, **kwargs):
@@ -1374,8 +1374,17 @@ class HtmlEasyPrinting(_core.Object):
         """GetPageSetupData(self) -> PageSetupDialogData"""
         return _html.HtmlEasyPrinting_GetPageSetupData(*args, **kwargs)
 
+    def GetParentWindow(*args, **kwargs):
+        """GetParentWindow(self) -> Window"""
+        return _html.HtmlEasyPrinting_GetParentWindow(*args, **kwargs)
+
+    def SetParentWindow(*args, **kwargs):
+        """SetParentWindow(self, Window window)"""
+        return _html.HtmlEasyPrinting_SetParentWindow(*args, **kwargs)
+
     PageSetupData = property(GetPageSetupData,doc="See `GetPageSetupData`") 
     PrintData = property(GetPrintData,doc="See `GetPrintData`") 
+    ParentWindow = property(GetParentWindow,SetParentWindow) 
 _html.HtmlEasyPrinting_swigregister(HtmlEasyPrinting)
 
 #---------------------------------------------------------------------------

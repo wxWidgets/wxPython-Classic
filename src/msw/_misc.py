@@ -580,10 +580,11 @@ def FindWindowAtPoint(*args, **kwargs):
 def GetTopLevelParent(*args, **kwargs):
   """GetTopLevelParent(Window win) -> Window"""
   return _misc_.GetTopLevelParent(*args, **kwargs)
+BROWSER_NEW_WINDOW = _misc_.BROWSER_NEW_WINDOW
 
 def LaunchDefaultBrowser(*args, **kwargs):
   """
-    LaunchDefaultBrowser(String url) -> bool
+    LaunchDefaultBrowser(String url, int flags=0) -> bool
 
     Launches the user's default browser and tells it to open the location
     at ``url``.  Returns ``True`` if the application was successfully
@@ -639,6 +640,14 @@ class MouseState(object):
         """RightDown(self) -> bool"""
         return _misc_.MouseState_RightDown(*args, **kwargs)
 
+    def Aux1Down(*args, **kwargs):
+        """Aux1Down(self) -> bool"""
+        return _misc_.MouseState_Aux1Down(*args, **kwargs)
+
+    def Aux2Down(*args, **kwargs):
+        """Aux2Down(self) -> bool"""
+        return _misc_.MouseState_Aux2Down(*args, **kwargs)
+
     def ControlDown(*args, **kwargs):
         """ControlDown(self) -> bool"""
         return _misc_.MouseState_ControlDown(*args, **kwargs)
@@ -679,6 +688,14 @@ class MouseState(object):
         """SetRightDown(self, bool down)"""
         return _misc_.MouseState_SetRightDown(*args, **kwargs)
 
+    def SetAux1Down(*args, **kwargs):
+        """SetAux1Down(self, bool down)"""
+        return _misc_.MouseState_SetAux1Down(*args, **kwargs)
+
+    def SetAux2Down(*args, **kwargs):
+        """SetAux2Down(self, bool down)"""
+        return _misc_.MouseState_SetAux2Down(*args, **kwargs)
+
     def SetControlDown(*args, **kwargs):
         """SetControlDown(self, bool down)"""
         return _misc_.MouseState_SetControlDown(*args, **kwargs)
@@ -700,6 +717,8 @@ class MouseState(object):
     leftDown = property(LeftDown, SetLeftDown)
     middleDown = property(MiddleDown, SetMiddleDown)
     rightDown = property(RightDown, SetRightDown)
+    aux1Down = property(Aux1Down, SetAux1Down)
+    aux2Down = property(Aux2Down, SetAux2Down)            
     controlDown = property(ControlDown, SetControlDown)
     shiftDown = property(ShiftDown, SetShiftDown)
     altDown = property(AltDown, SetAltDown)
@@ -782,6 +801,16 @@ class ToolTip(_core.Object):
         return _misc_.ToolTip_SetDelay(*args, **kwargs)
 
     SetDelay = staticmethod(SetDelay)
+    def SetAutoPop(*args, **kwargs):
+        """SetAutoPop(long milliseconds)"""
+        return _misc_.ToolTip_SetAutoPop(*args, **kwargs)
+
+    SetAutoPop = staticmethod(SetAutoPop)
+    def SetReshow(*args, **kwargs):
+        """SetReshow(long milliseconds)"""
+        return _misc_.ToolTip_SetReshow(*args, **kwargs)
+
+    SetReshow = staticmethod(SetReshow)
     Tip = property(GetTip,SetTip,doc="See `GetTip` and `SetTip`") 
     Window = property(GetWindow,doc="See `GetWindow`") 
 _misc_.ToolTip_swigregister(ToolTip)
@@ -793,6 +822,14 @@ def ToolTip_Enable(*args, **kwargs):
 def ToolTip_SetDelay(*args, **kwargs):
   """ToolTip_SetDelay(long milliseconds)"""
   return _misc_.ToolTip_SetDelay(*args, **kwargs)
+
+def ToolTip_SetAutoPop(*args, **kwargs):
+  """ToolTip_SetAutoPop(long milliseconds)"""
+  return _misc_.ToolTip_SetAutoPop(*args, **kwargs)
+
+def ToolTip_SetReshow(*args, **kwargs):
+  """ToolTip_SetReshow(long milliseconds)"""
+  return _misc_.ToolTip_SetReshow(*args, **kwargs)
 
 class Caret(object):
     """Proxy of C++ Caret class"""
@@ -1340,13 +1377,18 @@ class TimerEvent(_core.Event):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, int timerid=0, int interval=0) -> TimerEvent"""
+        """__init__(self, wxTimer timer) -> TimerEvent"""
         _misc_.TimerEvent_swiginit(self,_misc_.new_TimerEvent(*args, **kwargs))
     def GetInterval(*args, **kwargs):
         """GetInterval(self) -> int"""
         return _misc_.TimerEvent_GetInterval(*args, **kwargs)
 
+    def GetTimer(*args, **kwargs):
+        """GetTimer(self) -> wxTimer"""
+        return _misc_.TimerEvent_GetTimer(*args, **kwargs)
+
     Interval = property(GetInterval,doc="See `GetInterval`") 
+    Timer = property(GetTimer) 
 _misc_.TimerEvent_swigregister(TimerEvent)
 
 class TimerRunner(object):
@@ -1410,7 +1452,7 @@ class Log(object):
 
     EnableLogging = staticmethod(EnableLogging)
     def OnLog(*args, **kwargs):
-        """OnLog(LogLevel level, wxChar szString, time_t t)"""
+        """OnLog(LogLevel level, String szString, time_t t)"""
         return _misc_.Log_OnLog(*args, **kwargs)
 
     OnLog = staticmethod(OnLog)
@@ -1458,6 +1500,11 @@ class Log(object):
         return _misc_.Log_DontCreateOnDemand(*args, **kwargs)
 
     DontCreateOnDemand = staticmethod(DontCreateOnDemand)
+    def DoCreateOnDemand(*args, **kwargs):
+        """DoCreateOnDemand()"""
+        return _misc_.Log_DoCreateOnDemand(*args, **kwargs)
+
+    DoCreateOnDemand = staticmethod(DoCreateOnDemand)
     def SetRepetitionCounting(*args, **kwargs):
         """SetRepetitionCounting(bool bRepetCounting=True)"""
         return _misc_.Log_SetRepetitionCounting(*args, **kwargs)
@@ -1494,7 +1541,7 @@ class Log(object):
 
     GetTraceMasks = staticmethod(GetTraceMasks)
     def SetTimestamp(*args, **kwargs):
-        """SetTimestamp(wxChar ts)"""
+        """SetTimestamp(String ts)"""
         return _misc_.Log_SetTimestamp(*args, **kwargs)
 
     SetTimestamp = staticmethod(SetTimestamp)
@@ -1509,7 +1556,7 @@ class Log(object):
 
     GetTraceMask = staticmethod(GetTraceMask)
     def IsAllowedTraceMask(*args, **kwargs):
-        """IsAllowedTraceMask(wxChar mask) -> bool"""
+        """IsAllowedTraceMask(String mask) -> bool"""
         return _misc_.Log_IsAllowedTraceMask(*args, **kwargs)
 
     IsAllowedTraceMask = staticmethod(IsAllowedTraceMask)
@@ -1519,7 +1566,7 @@ class Log(object):
 
     GetLogLevel = staticmethod(GetLogLevel)
     def GetTimestamp(*args, **kwargs):
-        """GetTimestamp() -> wxChar"""
+        """GetTimestamp() -> String"""
         return _misc_.Log_GetTimestamp(*args, **kwargs)
 
     GetTimestamp = staticmethod(GetTimestamp)
@@ -1544,7 +1591,7 @@ def Log_EnableLogging(*args, **kwargs):
   return _misc_.Log_EnableLogging(*args, **kwargs)
 
 def Log_OnLog(*args, **kwargs):
-  """Log_OnLog(LogLevel level, wxChar szString, time_t t)"""
+  """Log_OnLog(LogLevel level, String szString, time_t t)"""
   return _misc_.Log_OnLog(*args, **kwargs)
 
 def Log_FlushActive(*args):
@@ -1579,6 +1626,10 @@ def Log_DontCreateOnDemand(*args):
   """Log_DontCreateOnDemand()"""
   return _misc_.Log_DontCreateOnDemand(*args)
 
+def Log_DoCreateOnDemand(*args):
+  """Log_DoCreateOnDemand()"""
+  return _misc_.Log_DoCreateOnDemand(*args)
+
 def Log_SetRepetitionCounting(*args, **kwargs):
   """Log_SetRepetitionCounting(bool bRepetCounting=True)"""
   return _misc_.Log_SetRepetitionCounting(*args, **kwargs)
@@ -1608,7 +1659,7 @@ def Log_GetTraceMasks(*args):
   return _misc_.Log_GetTraceMasks(*args)
 
 def Log_SetTimestamp(*args, **kwargs):
-  """Log_SetTimestamp(wxChar ts)"""
+  """Log_SetTimestamp(String ts)"""
   return _misc_.Log_SetTimestamp(*args, **kwargs)
 
 def Log_GetVerbose(*args):
@@ -1620,7 +1671,7 @@ def Log_GetTraceMask(*args):
   return _misc_.Log_GetTraceMask(*args)
 
 def Log_IsAllowedTraceMask(*args, **kwargs):
-  """Log_IsAllowedTraceMask(wxChar mask) -> bool"""
+  """Log_IsAllowedTraceMask(String mask) -> bool"""
   return _misc_.Log_IsAllowedTraceMask(*args, **kwargs)
 
 def Log_GetLogLevel(*args):
@@ -1628,7 +1679,7 @@ def Log_GetLogLevel(*args):
   return _misc_.Log_GetLogLevel(*args)
 
 def Log_GetTimestamp(*args):
-  """Log_GetTimestamp() -> wxChar"""
+  """Log_GetTimestamp() -> String"""
   return _misc_.Log_GetTimestamp(*args)
 
 def Log_TimeStamp(*args):
@@ -1715,6 +1766,10 @@ class LogChain(Log):
     def GetOldLog(*args, **kwargs):
         """GetOldLog(self) -> Log"""
         return _misc_.LogChain_GetOldLog(*args, **kwargs)
+
+    def DetachOldLog(*args, **kwargs):
+        """DetachOldLog(self)"""
+        return _misc_.LogChain_DetachOldLog(*args, **kwargs)
 
     OldLog = property(GetOldLog,doc="See `GetOldLog`") 
 _misc_.LogChain_swigregister(LogChain)
@@ -1918,7 +1973,7 @@ class Process(_core.EvtHandler):
         return _misc_.Process_GetErrorStream(*args, **kwargs)
 
     def GetOutputStream(*args, **kwargs):
-        """GetOutputStream(self) -> OutputStream"""
+        """GetOutputStream(self) -> wxOutputStream"""
         return _misc_.Process_GetOutputStream(*args, **kwargs)
 
     def CloseOutput(*args, **kwargs):
@@ -6036,7 +6091,7 @@ class StandardPaths(object):
     that these are just  examples and the actual values may differ. For
     example, under Windows the system administrator may change the
     standard directories locations, i.e. the Windows directory may be
-    named W:\Win2003 instead of the default C:\Windows.
+    named W:/Win2003 instead of the default C:/Windows.
 
     The strings appname and username should be replaced with the value
     returned by `wx.App.GetAppName` and the name of the currently logged
@@ -6083,7 +6138,7 @@ class StandardPaths(object):
         GetConfigDir(self) -> String
 
         Return the directory with system config files: /etc under Unix,
-        'c:\Documents and Settings\All Users\Application Data' under Windows,
+        'c:/Documents and Settings/All Users/Application Data' under Windows,
         /Library/Preferences for Mac
         """
         return _misc_.StandardPaths_GetConfigDir(*args, **kwargs)
@@ -6093,7 +6148,7 @@ class StandardPaths(object):
         GetUserConfigDir(self) -> String
 
         Return the directory for the user config files: $HOME under Unix,
-        'c:\Documents and Settings\username' under Windows, and 
+        'c:/Documents and Settings/username' under Windows, and 
         ~/Library/Preferences under Mac
             
         Only use this if you have a single file to put there, otherwise
@@ -6107,7 +6162,7 @@ class StandardPaths(object):
 
         Return the location of the application's global, (i.e. not
         user-specific,) data files: prefix/share/appname under Unix,
-        'c:\Program Files\appname' under Windows,
+        'c:/Program Files/appname' under Windows,
         appname.app/Contents/SharedSupport app bundle directory under Mac.
         """
         return _misc_.StandardPaths_GetDataDir(*args, **kwargs)
@@ -6127,8 +6182,8 @@ class StandardPaths(object):
         GetUserDataDir(self) -> String
 
         Return the directory for the user-dependent application data files:
-        $HOME/.appname under Unix, c:\Documents and
-        Settings\username\Application Data\appname under Windows and
+        $HOME/.appname under Unix, c:/Documents and
+        Settings/username/Application Data/appname under Windows and
         ~/Library/Application Support/appname under Mac
         """
         return _misc_.StandardPaths_GetUserDataDir(*args, **kwargs)
@@ -6141,7 +6196,7 @@ class StandardPaths(object):
         with the other machines
 
         Same as `GetUserDataDir` for all platforms except Windows where it is
-        the 'Local Settings\Application Data\appname' directory.
+        the 'Local Settings/Application Data/appname' directory.
         """
         return _misc_.StandardPaths_GetUserLocalDataDir(*args, **kwargs)
 
@@ -6187,7 +6242,7 @@ class StandardPaths(object):
 
         Return the Documents directory for the current user.
 
-        C:\Documents and Settings\username\Documents under Windows,
+        C:/Documents and Settings/username/Documents under Windows,
         $HOME under Unix and ~/Documents under Mac
         """
         return _misc_.StandardPaths_GetDocumentsDir(*args, **kwargs)

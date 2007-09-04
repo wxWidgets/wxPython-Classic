@@ -84,7 +84,7 @@ class Colour(_core.Object):
     window colours, etc.  Valid RGB values are in the range 0 to 255.
 
     In wxPython there are typemaps that will automatically convert from a
-    colour name, from a '#RRGGBB' colour hex value string, or from a 3
+    colour name, from a '#RRGGBB' colour hex value string, or from a 3 or 4
     integer tuple to a wx.Colour object when calling C++ methods that
     expect a wxColour.  This means that the following are all
     equivallent::
@@ -106,7 +106,7 @@ class Colour(_core.Object):
         """
         __init__(self, byte red=0, byte green=0, byte blue=0, byte alpha=ALPHA_OPAQUE) -> Colour
 
-        Constructs a colour from red, green and blue values.
+        Constructs a colour from red, green, blue and alpha values.
 
         :see: Alternate constructors `wx.NamedColour` and `wx.ColourRGB`.
 
@@ -223,9 +223,9 @@ class Colour(_core.Object):
 
     def Get(*args, **kwargs):
         """
-        Get() -> (r, g, b)
+        Get(self, bool includeAlpha=False) -> (r,g,b) or (r,g,b,a)
 
-        Returns the RGB intensity values as a tuple.
+        Returns the RGB intensity values as a tuple, optionally the alpha value as well.
         """
         return _gdi_.Colour_Get(*args, **kwargs)
 
@@ -799,8 +799,8 @@ def BitmapFromBuffer(width, height, dataBuffer, alphaBuffer=None):
     expected to contain a series of RGB bytes and be width*height*3
     bytes long.  A buffer object can optionally be supplied for the
     image's alpha channel data, and it is expected to be width*height
-    bytes long.  On Windows the RGB values are 'premultiplied' by the
-    alpha values.  (The other platforms do the multiplication
+    bytes long.  On Windows and Mac the RGB values are 'premultiplied'
+    by the alpha values.  (The other platforms do the multiplication
     themselves.)
 
     Unlike `wx.ImageFromBuffer` the bitmap created with this function
@@ -829,8 +829,8 @@ def BitmapFromBufferRGBA(width, height, dataBuffer):
     parameter must be a Python object that implements the buffer
     interface, such as a string, array, etc.  The dataBuffer object is
     expected to contain a series of RGBA bytes (red, green, blue and
-    alpha) and be width*height*4 bytes long.  On Windows the RGB
-    values are 'premultiplied' by the alpha values.  (The other
+    alpha) and be width*height*4 bytes long.  On Windows and Mac the
+    RGB values are 'premultiplied' by the alpha values.  (The other
     platforms do the multiplication themselves.)
 
     Unlike `wx.ImageFromBuffer` the bitmap created with this function
@@ -1750,6 +1750,7 @@ FONTENCODING_MACROMANIAN = _gdi_.FONTENCODING_MACROMANIAN
 FONTENCODING_MACCELTIC = _gdi_.FONTENCODING_MACCELTIC
 FONTENCODING_MACGAELIC = _gdi_.FONTENCODING_MACGAELIC
 FONTENCODING_MACKEYBOARD = _gdi_.FONTENCODING_MACKEYBOARD
+FONTENCODING_ISO2022_JP = _gdi_.FONTENCODING_ISO2022_JP
 FONTENCODING_MACMIN = _gdi_.FONTENCODING_MACMIN
 FONTENCODING_MACMAX = _gdi_.FONTENCODING_MACMAX
 FONTENCODING_MAX = _gdi_.FONTENCODING_MAX
@@ -6864,6 +6865,15 @@ class RendererNative(object):
 
         """
         return _gdi_.RendererNative_DrawItemSelectionRect(*args, **kwargs)
+
+    def DrawFocusRect(*args, **kwargs):
+        """
+        DrawFocusRect(self, Window win, DC dc, Rect rect, int flags=0)
+
+        Draw the focus rectangle around the label contained in the given rect.
+        Only wxCONTROL_SELECTED makes sense in flags here
+        """
+        return _gdi_.RendererNative_DrawFocusRect(*args, **kwargs)
 
     def GetSplitterParams(*args, **kwargs):
         """

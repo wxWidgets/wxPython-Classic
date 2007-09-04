@@ -2926,10 +2926,10 @@ SWIGINTERN bool wxPen___ne__(wxPen *self,wxPen const *other){ return other ? (*s
 #include <wx/rawbmp.h>
 
 
-// See http://tinyurl.com/e5adr for what premultiplying alpha means.  It
-// appears to me that the other platforms are already doing it, so I'll just
-// automatically do it for wxMSW here.
-#ifdef __WXMSW__
+// See http://tinyurl.com/e5adr for what premultiplying alpha means. wxMSW and
+// wxMac want to have the values premultiplied by the alpha value, but the
+// other platforms don't.  These macros help keep the code clean.
+#if defined(__WXMSW__) || (defined(__WXMAC__) && wxMAC_USE_CORE_GRAPHICS)
 #define wxPy_premultiply(p, a)   ((p) * (a) / 0xff)
 #define wxPy_unpremultiply(p, a) ((a) ? ((p) * 0xff / (a)) : (p))    
 #else
@@ -20998,8 +20998,7 @@ SWIGINTERN PyObject *_wrap_DC_GetAsBitmap(PyObject *SWIGUNUSEDPARM(self), PyObje
   SwigValueWrapper<wxBitmap > result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  wxRect temp2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
@@ -21013,11 +21012,10 @@ SWIGINTERN PyObject *_wrap_DC_GetAsBitmap(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   arg1 = reinterpret_cast< wxDC * >(argp1);
   if (obj1) {
-    res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRect, 0 |  0 );
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DC_GetAsBitmap" "', expected argument " "2"" of type '" "wxRect const *""'"); 
+    {
+      arg2 = &temp2;
+      if ( ! wxRect_helper(obj1, &arg2)) SWIG_fail;
     }
-    arg2 = reinterpret_cast< wxRect * >(argp2);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -22248,13 +22246,13 @@ SWIGINTERN PyObject *_wrap_DC_GetFullTextExtent(PyObject *SWIGUNUSEDPARM(self), 
   if (obj2) {
     res7 = SWIG_ConvertPtr(obj2, &argp7,SWIGTYPE_p_wxFont, 0 |  0 );
     if (!SWIG_IsOK(res7)) {
-      SWIG_exception_fail(SWIG_ArgError(res7), "in method '" "DC_GetFullTextExtent" "', expected argument " "7"" of type '" "wxFont *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res7), "in method '" "DC_GetFullTextExtent" "', expected argument " "7"" of type '" "wxFont const *""'"); 
     }
     arg7 = reinterpret_cast< wxFont * >(argp7);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetTextExtent((wxString const &)*arg2,arg3,arg4,arg5,arg6,arg7);
+    (arg1)->GetTextExtent((wxString const &)*arg2,arg3,arg4,arg5,arg6,(wxFont const *)arg7);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22340,13 +22338,13 @@ SWIGINTERN PyObject *_wrap_DC_GetMultiLineTextExtent(PyObject *SWIGUNUSEDPARM(se
   if (obj2) {
     res6 = SWIG_ConvertPtr(obj2, &argp6,SWIGTYPE_p_wxFont, 0 |  0 );
     if (!SWIG_IsOK(res6)) {
-      SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "DC_GetMultiLineTextExtent" "', expected argument " "6"" of type '" "wxFont *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "DC_GetMultiLineTextExtent" "', expected argument " "6"" of type '" "wxFont const *""'"); 
     }
     arg6 = reinterpret_cast< wxFont * >(argp6);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetMultiLineTextExtent((wxString const &)*arg2,arg3,arg4,arg5,arg6);
+    (arg1)->GetMultiLineTextExtent((wxString const &)*arg2,arg3,arg4,arg5,(wxFont const *)arg6);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25193,8 +25191,7 @@ SWIGINTERN PyObject *_wrap_ScreenDC_StartDrawingOnTop(PyObject *SWIGUNUSEDPARM(s
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  wxRect temp2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
@@ -25208,11 +25205,10 @@ SWIGINTERN PyObject *_wrap_ScreenDC_StartDrawingOnTop(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = reinterpret_cast< wxScreenDC * >(argp1);
   if (obj1) {
-    res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRect, 0 |  0 );
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "ScreenDC_StartDrawingOnTop" "', expected argument " "2"" of type '" "wxRect *""'"); 
+    {
+      arg2 = &temp2;
+      if ( ! wxRect_helper(obj1, &arg2)) SWIG_fail;
     }
-    arg2 = reinterpret_cast< wxRect * >(argp2);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -36113,6 +36109,74 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_RendererNative_DrawFocusRect(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxRendererNative *arg1 = (wxRendererNative *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  wxDC *arg3 = 0 ;
+  wxRect *arg4 = 0 ;
+  int arg5 = (int) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  wxRect temp4 ;
+  int val5 ;
+  int ecode5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "win",(char *) "dc",(char *) "rect",(char *) "flags", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|O:RendererNative_DrawFocusRect",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRendererNative, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RendererNative_DrawFocusRect" "', expected argument " "1"" of type '" "wxRendererNative *""'"); 
+  }
+  arg1 = reinterpret_cast< wxRendererNative * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RendererNative_DrawFocusRect" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+  }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RendererNative_DrawFocusRect" "', expected argument " "3"" of type '" "wxDC &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RendererNative_DrawFocusRect" "', expected argument " "3"" of type '" "wxDC &""'"); 
+  }
+  arg3 = reinterpret_cast< wxDC * >(argp3);
+  {
+    arg4 = &temp4;
+    if ( ! wxRect_helper(obj3, &arg4)) SWIG_fail;
+  }
+  if (obj4) {
+    ecode5 = SWIG_AsVal_int(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "RendererNative_DrawFocusRect" "', expected argument " "5"" of type '" "int""'");
+    } 
+    arg5 = static_cast< int >(val5);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DrawFocusRect(arg2,*arg3,(wxRect const &)*arg4,arg5);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_RendererNative_GetSplitterParams(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRendererNative *arg1 = (wxRendererNative *) 0 ;
@@ -40495,6 +40559,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RendererNative_DrawCheckBox", (PyCFunction) _wrap_RendererNative_DrawCheckBox, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawPushButton", (PyCFunction) _wrap_RendererNative_DrawPushButton, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawItemSelectionRect", (PyCFunction) _wrap_RendererNative_DrawItemSelectionRect, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"RendererNative_DrawFocusRect", (PyCFunction) _wrap_RendererNative_DrawFocusRect, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_GetSplitterParams", (PyCFunction) _wrap_RendererNative_GetSplitterParams, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_Get", (PyCFunction)_wrap_RendererNative_Get, METH_NOARGS, NULL},
 	 { (char *)"RendererNative_GetGeneric", (PyCFunction)_wrap_RendererNative_GetGeneric, METH_NOARGS, NULL},
@@ -42388,6 +42453,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "FONTENCODING_MACCELTIC",SWIG_From_int(static_cast< int >(wxFONTENCODING_MACCELTIC)));
   SWIG_Python_SetConstant(d, "FONTENCODING_MACGAELIC",SWIG_From_int(static_cast< int >(wxFONTENCODING_MACGAELIC)));
   SWIG_Python_SetConstant(d, "FONTENCODING_MACKEYBOARD",SWIG_From_int(static_cast< int >(wxFONTENCODING_MACKEYBOARD)));
+  SWIG_Python_SetConstant(d, "FONTENCODING_ISO2022_JP",SWIG_From_int(static_cast< int >(wxFONTENCODING_ISO2022_JP)));
   SWIG_Python_SetConstant(d, "FONTENCODING_MACMIN",SWIG_From_int(static_cast< int >(wxFONTENCODING_MACMIN)));
   SWIG_Python_SetConstant(d, "FONTENCODING_MACMAX",SWIG_From_int(static_cast< int >(wxFONTENCODING_MACMAX)));
   SWIG_Python_SetConstant(d, "FONTENCODING_MAX",SWIG_From_int(static_cast< int >(wxFONTENCODING_MAX)));

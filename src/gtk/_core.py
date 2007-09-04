@@ -339,6 +339,7 @@ BORDER_SIMPLE = _core_.BORDER_SIMPLE
 BORDER_RAISED = _core_.BORDER_RAISED
 BORDER_SUNKEN = _core_.BORDER_SUNKEN
 BORDER_DOUBLE = _core_.BORDER_DOUBLE
+BORDER_THEME = _core_.BORDER_THEME
 BORDER_MASK = _core_.BORDER_MASK
 BG_STYLE_SYSTEM = _core_.BG_STYLE_SYSTEM
 BG_STYLE_COLOUR = _core_.BG_STYLE_COLOUR
@@ -647,6 +648,7 @@ ITEM_SEPARATOR = _core_.ITEM_SEPARATOR
 ITEM_NORMAL = _core_.ITEM_NORMAL
 ITEM_CHECK = _core_.ITEM_CHECK
 ITEM_RADIO = _core_.ITEM_RADIO
+ITEM_DROPDOWN = _core_.ITEM_DROPDOWN
 ITEM_MAX = _core_.ITEM_MAX
 HT_NOWHERE = _core_.HT_NOWHERE
 HT_SCROLLBAR_FIRST = _core_.HT_SCROLLBAR_FIRST
@@ -978,7 +980,7 @@ class RealPoint(object):
         """
         __sub__(self, RealPoint pt) -> RealPoint
 
-        Subtract pt's proprties from this and return the result
+        Subtract pt's properties from this and return the result.
         """
         return _core_.RealPoint___sub__(*args, **kwargs)
 
@@ -1062,25 +1064,9 @@ class Point(object):
         """
         __sub__(self, Point pt) -> Point
 
-        Subtract pt's proprties from this and return the result
+        Subtract pt's properties from this and return the result.
         """
         return _core_.Point___sub__(*args, **kwargs)
-
-    def __iadd__(*args, **kwargs):
-        """
-        __iadd__(self, Point pt) -> Point
-
-        Add pt to this object.
-        """
-        return _core_.Point___iadd__(*args, **kwargs)
-
-    def __isub__(*args, **kwargs):
-        """
-        __isub__(self, Point pt) -> Point
-
-        Subtract pt from this object.
-        """
-        return _core_.Point___isub__(*args, **kwargs)
 
     def Set(*args, **kwargs):
         """
@@ -1324,22 +1310,6 @@ class Rect(object):
         """
         return _core_.Rect_Union(*args, **kwargs)
 
-    def __add__(*args, **kwargs):
-        """
-        __add__(self, Rect rect) -> Rect
-
-        Add the properties of rect to this rectangle and return the result.
-        """
-        return _core_.Rect___add__(*args, **kwargs)
-
-    def __iadd__(*args, **kwargs):
-        """
-        __iadd__(self, Rect rect) -> Rect
-
-        Add the properties of rect to this rectangle, updating this rectangle.
-        """
-        return _core_.Rect___iadd__(*args, **kwargs)
-
     def __eq__(*args, **kwargs):
         """
         __eq__(self, PyObject other) -> bool
@@ -1355,6 +1325,30 @@ class Rect(object):
         Test for inequality of wx.Rect objects.
         """
         return _core_.Rect___ne__(*args, **kwargs)
+
+    def __add__(*args, **kwargs):
+        """
+        __add__(self, Rect rect) -> Rect
+
+        Add rect's proprties to this and return the result.
+        """
+        return _core_.Rect___add__(*args, **kwargs)
+
+    def __mul__(*args, **kwargs):
+        """
+        __mul__(self, Rect rect) -> Rect
+
+        Calculate the intersection of the rectangles and return the result.
+        """
+        return _core_.Rect___mul__(*args, **kwargs)
+
+    def __iadd__(*args, **kwargs):
+        """
+        __iadd__(self, Rect rect) -> Rect
+
+        Add the properties of rect to this rectangle, updating this rectangle.
+        """
+        return _core_.Rect___iadd__(*args, **kwargs)
 
     def ContainsXY(*args, **kwargs):
         """
@@ -1672,7 +1666,7 @@ class Rect2D(object):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, wxDouble x=0.0, wxDouble y=0.0, wxDouble w=0.0, wxDouble h=0.0) -> Rect2D
+        __init__(self, Double x=0.0, Double y=0.0, Double w=0.0, Double h=0.0) -> Rect2D
 
         wx.Rect2D is a rectangle, with position and size, in a 2D coordinate system
         with floating point component values.
@@ -1689,51 +1683,51 @@ class Rect2D(object):
         return _core_.Rect2D_GetSize(*args, **kwargs)
 
     def GetLeft(*args, **kwargs):
-        """GetLeft(self) -> wxDouble"""
+        """GetLeft(self) -> Double"""
         return _core_.Rect2D_GetLeft(*args, **kwargs)
 
     def SetLeft(*args, **kwargs):
-        """SetLeft(self, wxDouble n)"""
+        """SetLeft(self, Double n)"""
         return _core_.Rect2D_SetLeft(*args, **kwargs)
 
     def MoveLeftTo(*args, **kwargs):
-        """MoveLeftTo(self, wxDouble n)"""
+        """MoveLeftTo(self, Double n)"""
         return _core_.Rect2D_MoveLeftTo(*args, **kwargs)
 
     def GetTop(*args, **kwargs):
-        """GetTop(self) -> wxDouble"""
+        """GetTop(self) -> Double"""
         return _core_.Rect2D_GetTop(*args, **kwargs)
 
     def SetTop(*args, **kwargs):
-        """SetTop(self, wxDouble n)"""
+        """SetTop(self, Double n)"""
         return _core_.Rect2D_SetTop(*args, **kwargs)
 
     def MoveTopTo(*args, **kwargs):
-        """MoveTopTo(self, wxDouble n)"""
+        """MoveTopTo(self, Double n)"""
         return _core_.Rect2D_MoveTopTo(*args, **kwargs)
 
     def GetBottom(*args, **kwargs):
-        """GetBottom(self) -> wxDouble"""
+        """GetBottom(self) -> Double"""
         return _core_.Rect2D_GetBottom(*args, **kwargs)
 
     def SetBottom(*args, **kwargs):
-        """SetBottom(self, wxDouble n)"""
+        """SetBottom(self, Double n)"""
         return _core_.Rect2D_SetBottom(*args, **kwargs)
 
     def MoveBottomTo(*args, **kwargs):
-        """MoveBottomTo(self, wxDouble n)"""
+        """MoveBottomTo(self, Double n)"""
         return _core_.Rect2D_MoveBottomTo(*args, **kwargs)
 
     def GetRight(*args, **kwargs):
-        """GetRight(self) -> wxDouble"""
+        """GetRight(self) -> Double"""
         return _core_.Rect2D_GetRight(*args, **kwargs)
 
     def SetRight(*args, **kwargs):
-        """SetRight(self, wxDouble n)"""
+        """SetRight(self, Double n)"""
         return _core_.Rect2D_SetRight(*args, **kwargs)
 
     def MoveRightTo(*args, **kwargs):
-        """MoveRightTo(self, wxDouble n)"""
+        """MoveRightTo(self, Double n)"""
         return _core_.Rect2D_MoveRightTo(*args, **kwargs)
 
     def GetLeftTop(*args, **kwargs):
@@ -1818,8 +1812,8 @@ class Rect2D(object):
 
     def Inset(*args):
         """
-        Inset(self, wxDouble x, wxDouble y)
-        Inset(self, wxDouble left, wxDouble top, wxDouble right, wxDouble bottom)
+        Inset(self, Double x, Double y)
+        Inset(self, Double left, Double top, Double right, Double bottom)
         """
         return _core_.Rect2D_Inset(*args)
 
@@ -1857,7 +1851,7 @@ class Rect2D(object):
 
     def Scale(*args):
         """
-        Scale(self, wxDouble f)
+        Scale(self, Double f)
         Scale(self, int num, int denum)
         """
         return _core_.Rect2D_Scale(*args)
@@ -1883,7 +1877,7 @@ class Rect2D(object):
     width = property(_core_.Rect2D_width_get, _core_.Rect2D_width_set)
     height = property(_core_.Rect2D_height_get, _core_.Rect2D_height_set)
     def Set(*args, **kwargs):
-        """Set(self, wxDouble x=0, wxDouble y=0, wxDouble width=0, wxDouble height=0)"""
+        """Set(self, Double x=0, Double y=0, Double width=0, Double height=0)"""
         return _core_.Rect2D_Set(*args, **kwargs)
 
     def Get(*args, **kwargs):
@@ -2062,15 +2056,51 @@ DefaultSize = cvar.DefaultSize
 class OutputStream(object):
     """Proxy of C++ OutputStream class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, PyObject p) -> OutputStream"""
+        _core_.OutputStream_swiginit(self,_core_.new_OutputStream(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_OutputStream
+    __del__ = lambda self : None;
+    def close(*args, **kwargs):
+        """close(self)"""
+        return _core_.OutputStream_close(*args, **kwargs)
+
+    def flush(*args, **kwargs):
+        """flush(self)"""
+        return _core_.OutputStream_flush(*args, **kwargs)
+
+    def eof(*args, **kwargs):
+        """eof(self) -> bool"""
+        return _core_.OutputStream_eof(*args, **kwargs)
+
+    def seek(*args, **kwargs):
+        """seek(self, int offset, int whence=0)"""
+        return _core_.OutputStream_seek(*args, **kwargs)
+
+    def tell(*args, **kwargs):
+        """tell(self) -> int"""
+        return _core_.OutputStream_tell(*args, **kwargs)
+
     def write(*args, **kwargs):
-        """write(self, PyObject obj)"""
+        """write(self, PyObject data)"""
         return _core_.OutputStream_write(*args, **kwargs)
+
+    def PutC(*args, **kwargs):
+        """PutC(self, char c)"""
+        return _core_.OutputStream_PutC(*args, **kwargs)
 
     def LastWrite(*args, **kwargs):
         """LastWrite(self) -> size_t"""
         return _core_.OutputStream_LastWrite(*args, **kwargs)
+
+    def SeekO(*args, **kwargs):
+        """SeekO(self, unsigned long pos, int mode=FromStart) -> unsigned long"""
+        return _core_.OutputStream_SeekO(*args, **kwargs)
+
+    def TellO(*args, **kwargs):
+        """TellO(self) -> unsigned long"""
+        return _core_.OutputStream_TellO(*args, **kwargs)
 
 _core_.OutputStream_swigregister(OutputStream)
 
@@ -2158,31 +2188,51 @@ class FileSystemHandler(CPPFileSystemHandler):
         return _core_.FileSystemHandler_FindNext(*args, **kwargs)
 
     def GetProtocol(*args, **kwargs):
-        """GetProtocol(self, String location) -> String"""
+        """GetProtocol(String location) -> String"""
         return _core_.FileSystemHandler_GetProtocol(*args, **kwargs)
 
+    GetProtocol = staticmethod(GetProtocol)
     def GetLeftLocation(*args, **kwargs):
-        """GetLeftLocation(self, String location) -> String"""
+        """GetLeftLocation(String location) -> String"""
         return _core_.FileSystemHandler_GetLeftLocation(*args, **kwargs)
 
+    GetLeftLocation = staticmethod(GetLeftLocation)
     def GetAnchor(*args, **kwargs):
-        """GetAnchor(self, String location) -> String"""
+        """GetAnchor(String location) -> String"""
         return _core_.FileSystemHandler_GetAnchor(*args, **kwargs)
 
+    GetAnchor = staticmethod(GetAnchor)
     def GetRightLocation(*args, **kwargs):
-        """GetRightLocation(self, String location) -> String"""
+        """GetRightLocation(String location) -> String"""
         return _core_.FileSystemHandler_GetRightLocation(*args, **kwargs)
 
+    GetRightLocation = staticmethod(GetRightLocation)
     def GetMimeTypeFromExt(*args, **kwargs):
-        """GetMimeTypeFromExt(self, String location) -> String"""
+        """GetMimeTypeFromExt(String location) -> String"""
         return _core_.FileSystemHandler_GetMimeTypeFromExt(*args, **kwargs)
 
-    Anchor = property(GetAnchor,doc="See `GetAnchor`") 
-    LeftLocation = property(GetLeftLocation,doc="See `GetLeftLocation`") 
-    MimeTypeFromExt = property(GetMimeTypeFromExt,doc="See `GetMimeTypeFromExt`") 
-    Protocol = property(GetProtocol,doc="See `GetProtocol`") 
-    RightLocation = property(GetRightLocation,doc="See `GetRightLocation`") 
+    GetMimeTypeFromExt = staticmethod(GetMimeTypeFromExt)
 _core_.FileSystemHandler_swigregister(FileSystemHandler)
+
+def FileSystemHandler_GetProtocol(*args, **kwargs):
+  """FileSystemHandler_GetProtocol(String location) -> String"""
+  return _core_.FileSystemHandler_GetProtocol(*args, **kwargs)
+
+def FileSystemHandler_GetLeftLocation(*args, **kwargs):
+  """FileSystemHandler_GetLeftLocation(String location) -> String"""
+  return _core_.FileSystemHandler_GetLeftLocation(*args, **kwargs)
+
+def FileSystemHandler_GetAnchor(*args, **kwargs):
+  """FileSystemHandler_GetAnchor(String location) -> String"""
+  return _core_.FileSystemHandler_GetAnchor(*args, **kwargs)
+
+def FileSystemHandler_GetRightLocation(*args, **kwargs):
+  """FileSystemHandler_GetRightLocation(String location) -> String"""
+  return _core_.FileSystemHandler_GetRightLocation(*args, **kwargs)
+
+def FileSystemHandler_GetMimeTypeFromExt(*args, **kwargs):
+  """FileSystemHandler_GetMimeTypeFromExt(String location) -> String"""
+  return _core_.FileSystemHandler_GetMimeTypeFromExt(*args, **kwargs)
 
 class FileSystem(Object):
     """Proxy of C++ FileSystem class"""
@@ -2345,6 +2395,11 @@ class MemoryFSHandler(CPPFileSystemHandler):
 
     RemoveFile = staticmethod(RemoveFile)
     AddFile = staticmethod(MemoryFSHandler_AddFile) 
+    def AddFileWithMimeType(*args, **kwargs):
+        """AddFileWithMimeType(String filename, PyObject data, String mimetype)"""
+        return _core_.MemoryFSHandler_AddFileWithMimeType(*args, **kwargs)
+
+    AddFileWithMimeType = staticmethod(AddFileWithMimeType)
     def CanOpen(*args, **kwargs):
         """CanOpen(self, String location) -> bool"""
         return _core_.MemoryFSHandler_CanOpen(*args, **kwargs)
@@ -2366,6 +2421,10 @@ _core_.MemoryFSHandler_swigregister(MemoryFSHandler)
 def MemoryFSHandler_RemoveFile(*args, **kwargs):
   """MemoryFSHandler_RemoveFile(String filename)"""
   return _core_.MemoryFSHandler_RemoveFile(*args, **kwargs)
+
+def MemoryFSHandler_AddFileWithMimeType(*args, **kwargs):
+  """MemoryFSHandler_AddFileWithMimeType(String filename, PyObject data, String mimetype)"""
+  return _core_.MemoryFSHandler_AddFileWithMimeType(*args, **kwargs)
 
 IMAGE_ALPHA_TRANSPARENT = _core_.IMAGE_ALPHA_TRANSPARENT
 IMAGE_ALPHA_THRESHOLD = _core_.IMAGE_ALPHA_THRESHOLD
@@ -2952,6 +3011,22 @@ class Image(Object):
         Saves an image in the named file.
         """
         return _core_.Image_SaveMimeFile(*args, **kwargs)
+
+    def SaveStream(*args, **kwargs):
+        """
+        SaveStream(self, wxOutputStream stream, int type) -> bool
+
+        Saves an image in the named file.
+        """
+        return _core_.Image_SaveStream(*args, **kwargs)
+
+    def SaveMimeStream(*args, **kwargs):
+        """
+        SaveMimeStream(self, wxOutputStream stream, String mimetype) -> bool
+
+        Saves an image in the named file.
+        """
+        return _core_.Image_SaveMimeStream(*args, **kwargs)
 
     def CanReadStream(*args, **kwargs):
         """
@@ -3990,6 +4065,7 @@ wxEVT_COMMAND_VLBOX_SELECTED = _core_.wxEVT_COMMAND_VLBOX_SELECTED
 wxEVT_COMMAND_COMBOBOX_SELECTED = _core_.wxEVT_COMMAND_COMBOBOX_SELECTED
 wxEVT_COMMAND_TOOL_RCLICKED = _core_.wxEVT_COMMAND_TOOL_RCLICKED
 wxEVT_COMMAND_TOOL_ENTER = _core_.wxEVT_COMMAND_TOOL_ENTER
+wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED = _core_.wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED
 wxEVT_LEFT_DOWN = _core_.wxEVT_LEFT_DOWN
 wxEVT_LEFT_UP = _core_.wxEVT_LEFT_UP
 wxEVT_MIDDLE_DOWN = _core_.wxEVT_MIDDLE_DOWN
@@ -4006,6 +4082,12 @@ wxEVT_SET_FOCUS = _core_.wxEVT_SET_FOCUS
 wxEVT_KILL_FOCUS = _core_.wxEVT_KILL_FOCUS
 wxEVT_CHILD_FOCUS = _core_.wxEVT_CHILD_FOCUS
 wxEVT_MOUSEWHEEL = _core_.wxEVT_MOUSEWHEEL
+wxEVT_AUX1_DOWN = _core_.wxEVT_AUX1_DOWN
+wxEVT_AUX1_UP = _core_.wxEVT_AUX1_UP
+wxEVT_AUX1_DCLICK = _core_.wxEVT_AUX1_DCLICK
+wxEVT_AUX2_DOWN = _core_.wxEVT_AUX2_DOWN
+wxEVT_AUX2_UP = _core_.wxEVT_AUX2_UP
+wxEVT_AUX2_DCLICK = _core_.wxEVT_AUX2_DCLICK
 wxEVT_NC_LEFT_DOWN = _core_.wxEVT_NC_LEFT_DOWN
 wxEVT_NC_LEFT_UP = _core_.wxEVT_NC_LEFT_UP
 wxEVT_NC_MIDDLE_DOWN = _core_.wxEVT_NC_MIDDLE_DOWN
@@ -4079,6 +4161,8 @@ wxEVT_IDLE = _core_.wxEVT_IDLE
 wxEVT_UPDATE_UI = _core_.wxEVT_UPDATE_UI
 wxEVT_SIZING = _core_.wxEVT_SIZING
 wxEVT_MOVING = _core_.wxEVT_MOVING
+wxEVT_MOVE_START = _core_.wxEVT_MOVE_START
+wxEVT_MOVE_END = _core_.wxEVT_MOVE_END
 wxEVT_HIBERNATE = _core_.wxEVT_HIBERNATE
 wxEVT_COMMAND_TEXT_COPY = _core_.wxEVT_COMMAND_TEXT_COPY
 wxEVT_COMMAND_TEXT_CUT = _core_.wxEVT_COMMAND_TEXT_CUT
@@ -4096,6 +4180,8 @@ EVT_SIZE = wx.PyEventBinder( wxEVT_SIZE )
 EVT_SIZING = wx.PyEventBinder( wxEVT_SIZING )
 EVT_MOVE = wx.PyEventBinder( wxEVT_MOVE )
 EVT_MOVING = wx.PyEventBinder( wxEVT_MOVING )
+EVT_MOVE_START = wx.PyEventBinder( wxEVT_MOVE_START )
+EVT_MOVE_END = wx.PyEventBinder( wxEVT_MOVE_END )
 EVT_CLOSE = wx.PyEventBinder( wxEVT_CLOSE_WINDOW )
 EVT_END_SESSION = wx.PyEventBinder( wxEVT_END_SESSION )
 EVT_QUERY_END_SESSION = wx.PyEventBinder( wxEVT_QUERY_END_SESSION )
@@ -4133,7 +4219,7 @@ EVT_WINDOW_CREATE = wx.PyEventBinder( wxEVT_CREATE )
 EVT_WINDOW_DESTROY = wx.PyEventBinder( wxEVT_DESTROY )
 EVT_SET_CURSOR = wx.PyEventBinder( wxEVT_SET_CURSOR )
 EVT_MOUSE_CAPTURE_CHANGED = wx.PyEventBinder( wxEVT_MOUSE_CAPTURE_CHANGED )
-EVT_MOUSE_CAPTURE_LOST = wx.PyEventBinder( wxEVT_MOUSE_CAPTURE_LOST )         
+EVT_MOUSE_CAPTURE_LOST = wx.PyEventBinder( wxEVT_MOUSE_CAPTURE_LOST )
 
 EVT_LEFT_DOWN = wx.PyEventBinder( wxEVT_LEFT_DOWN )
 EVT_LEFT_UP = wx.PyEventBinder( wxEVT_LEFT_UP )
@@ -4148,20 +4234,32 @@ EVT_RIGHT_DCLICK = wx.PyEventBinder( wxEVT_RIGHT_DCLICK )
 EVT_LEAVE_WINDOW = wx.PyEventBinder( wxEVT_LEAVE_WINDOW )
 EVT_ENTER_WINDOW = wx.PyEventBinder( wxEVT_ENTER_WINDOW )
 EVT_MOUSEWHEEL = wx.PyEventBinder( wxEVT_MOUSEWHEEL )
+EVT_MOUSE_AUX1_DOWN = wx.PyEventBinder( wxEVT_AUX1_DOWN )
+EVT_MOUSE_AUX1_UP = wx.PyEventBinder( wxEVT_AUX1_UP )
+EVT_MOUSE_AUX1_DCLICK = wx.PyEventBinder( wxEVT_AUX1_DCLICK )
+EVT_MOUSE_AUX2_DOWN = wx.PyEventBinder( wxEVT_AUX2_DOWN )
+EVT_MOUSE_AUX2_UP = wx.PyEventBinder( wxEVT_AUX2_UP )
+EVT_MOUSE_AUX2_DCLICK = wx.PyEventBinder( wxEVT_AUX2_DCLICK )
 
 EVT_MOUSE_EVENTS = wx.PyEventBinder([ wxEVT_LEFT_DOWN,
-                                     wxEVT_LEFT_UP,
-                                     wxEVT_MIDDLE_DOWN,
-                                     wxEVT_MIDDLE_UP,
-                                     wxEVT_RIGHT_DOWN,
-                                     wxEVT_RIGHT_UP,
-                                     wxEVT_MOTION,
-                                     wxEVT_LEFT_DCLICK,
-                                     wxEVT_MIDDLE_DCLICK,
-                                     wxEVT_RIGHT_DCLICK,
-                                     wxEVT_ENTER_WINDOW,
-                                     wxEVT_LEAVE_WINDOW,
-                                     wxEVT_MOUSEWHEEL
+                                      wxEVT_LEFT_UP,
+                                      wxEVT_MIDDLE_DOWN,
+                                      wxEVT_MIDDLE_UP,
+                                      wxEVT_RIGHT_DOWN,
+                                      wxEVT_RIGHT_UP,
+                                      wxEVT_MOTION,
+                                      wxEVT_LEFT_DCLICK,
+                                      wxEVT_MIDDLE_DCLICK,
+                                      wxEVT_RIGHT_DCLICK,
+                                      wxEVT_ENTER_WINDOW,
+                                      wxEVT_LEAVE_WINDOW,
+                                      wxEVT_MOUSEWHEEL,
+                                      wxEVT_AUX1_DOWN,
+                                      wxEVT_AUX1_UP,      
+                                      wxEVT_AUX1_DCLICK,
+                                      wxEVT_AUX2_DOWN,  
+                                      wxEVT_AUX2_UP,      
+                                      wxEVT_AUX2_DCLICK,
                                      ])
 
 
@@ -4250,6 +4348,7 @@ EVT_TOOL_RANGE = wx.PyEventBinder( wxEVT_COMMAND_TOOL_CLICKED, 2)
 EVT_TOOL_RCLICKED = wx.PyEventBinder( wxEVT_COMMAND_TOOL_RCLICKED, 1)
 EVT_TOOL_RCLICKED_RANGE = wx.PyEventBinder( wxEVT_COMMAND_TOOL_RCLICKED, 2)
 EVT_TOOL_ENTER = wx.PyEventBinder( wxEVT_COMMAND_TOOL_ENTER, 1)
+EVT_TOOL_DROPDOWN = wx.PyEventBinder( wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED, 1)
 EVT_CHECKLISTBOX = wx.PyEventBinder( wxEVT_COMMAND_CHECKLISTBOX_TOGGLED, 1)
 
 
@@ -4746,6 +4845,9 @@ MOUSE_BTN_NONE = _core_.MOUSE_BTN_NONE
 MOUSE_BTN_LEFT = _core_.MOUSE_BTN_LEFT
 MOUSE_BTN_MIDDLE = _core_.MOUSE_BTN_MIDDLE
 MOUSE_BTN_RIGHT = _core_.MOUSE_BTN_RIGHT
+MOUSE_BTN_AUX1 = _core_.MOUSE_BTN_AUX1
+MOUSE_BTN_AUX2 = _core_.MOUSE_BTN_AUX2
+MOUSE_BTN_MAX = _core_.MOUSE_BTN_MAX
 class MouseEvent(Event):
     """
     This event class contains information about the events generated by
@@ -4936,6 +5038,22 @@ class MouseEvent(Event):
         """
         return _core_.MouseEvent_RightDown(*args, **kwargs)
 
+    def Aux1Down(*args, **kwargs):
+        """
+        Aux1Down(self) -> bool
+
+        Returns true if the AUX1 mouse button state changed to down.
+        """
+        return _core_.MouseEvent_Aux1Down(*args, **kwargs)
+
+    def Aux2Down(*args, **kwargs):
+        """
+        Aux2Down(self) -> bool
+
+        Returns true if the AUX2 mouse button state changed to down.
+        """
+        return _core_.MouseEvent_Aux2Down(*args, **kwargs)
+
     def LeftUp(*args, **kwargs):
         """
         LeftUp(self) -> bool
@@ -4960,6 +5078,22 @@ class MouseEvent(Event):
         """
         return _core_.MouseEvent_RightUp(*args, **kwargs)
 
+    def Aux1Up(*args, **kwargs):
+        """
+        Aux1Up(self) -> bool
+
+        Returns true if the AUX1  mouse button state changed to up.
+        """
+        return _core_.MouseEvent_Aux1Up(*args, **kwargs)
+
+    def Aux2Up(*args, **kwargs):
+        """
+        Aux2Up(self) -> bool
+
+        Returns true if the AUX2 mouse button state changed to up.
+        """
+        return _core_.MouseEvent_Aux2Up(*args, **kwargs)
+
     def LeftDClick(*args, **kwargs):
         """
         LeftDClick(self) -> bool
@@ -4983,6 +5117,22 @@ class MouseEvent(Event):
         Returns true if the event was a right button double click.
         """
         return _core_.MouseEvent_RightDClick(*args, **kwargs)
+
+    def Aux1DClick(*args, **kwargs):
+        """
+        Aux1DClick(self) -> bool
+
+        Returns true if the event was a AUX2 button double click.
+        """
+        return _core_.MouseEvent_Aux1DClick(*args, **kwargs)
+
+    def Aux2DClick(*args, **kwargs):
+        """
+        Aux2DClick(self) -> bool
+
+        Returns true if the event was a AUX2 button double click.
+        """
+        return _core_.MouseEvent_Aux2DClick(*args, **kwargs)
 
     def LeftIsDown(*args, **kwargs):
         """
@@ -5018,6 +5168,24 @@ class MouseEvent(Event):
         of the current event type.
         """
         return _core_.MouseEvent_RightIsDown(*args, **kwargs)
+
+    def Aux1IsDown(*args, **kwargs):
+        """
+        Aux1IsDown(self) -> bool
+
+        Returns true if the AUX1 mouse button is currently down, independent
+        of the current event type.
+        """
+        return _core_.MouseEvent_Aux1IsDown(*args, **kwargs)
+
+    def Aux2IsDown(*args, **kwargs):
+        """
+        Aux2IsDown(self) -> bool
+
+        Returns true if the AUX2 mouse button is currently down, independent
+        of the current event type.
+        """
+        return _core_.MouseEvent_Aux2IsDown(*args, **kwargs)
 
     def Dragging(*args, **kwargs):
         """
@@ -5155,6 +5323,8 @@ class MouseEvent(Event):
     m_leftDown = property(_core_.MouseEvent_m_leftDown_get, _core_.MouseEvent_m_leftDown_set)
     m_middleDown = property(_core_.MouseEvent_m_middleDown_get, _core_.MouseEvent_m_middleDown_set)
     m_rightDown = property(_core_.MouseEvent_m_rightDown_get, _core_.MouseEvent_m_rightDown_set)
+    m_aux1Down = property(_core_.MouseEvent_m_aux1Down_get, _core_.MouseEvent_m_aux1Down_set)
+    m_aux2Down = property(_core_.MouseEvent_m_aux2Down_get, _core_.MouseEvent_m_aux2Down_set)
     m_controlDown = property(_core_.MouseEvent_m_controlDown_get, _core_.MouseEvent_m_controlDown_set)
     m_shiftDown = property(_core_.MouseEvent_m_shiftDown_get, _core_.MouseEvent_m_shiftDown_set)
     m_altDown = property(_core_.MouseEvent_m_altDown_get, _core_.MouseEvent_m_altDown_set)
@@ -6887,23 +7057,6 @@ class IdleEvent(Event):
         return _core_.IdleEvent_GetMode(*args, **kwargs)
 
     GetMode = staticmethod(GetMode)
-    def CanSend(*args, **kwargs):
-        """
-        CanSend(Window win) -> bool
-
-        Returns ``True`` if it is appropriate to send idle events to this
-        window.
-
-        This function looks at the mode used (see `wx.IdleEvent.SetMode`), and
-        the wx.WS_EX_PROCESS_IDLE style in window to determine whether idle
-        events should be sent to this window now. By default this will always
-        return ``True`` because the update mode is initially
-        wx.IDLE_PROCESS_ALL. You can change the mode to only send idle events
-        to windows with the wx.WS_EX_PROCESS_IDLE extra window style set.
-        """
-        return _core_.IdleEvent_CanSend(*args, **kwargs)
-
-    CanSend = staticmethod(CanSend)
 _core_.IdleEvent_swigregister(IdleEvent)
 
 def IdleEvent_SetMode(*args, **kwargs):
@@ -6935,22 +7088,6 @@ def IdleEvent_GetMode(*args):
     will process the events.
     """
   return _core_.IdleEvent_GetMode(*args)
-
-def IdleEvent_CanSend(*args, **kwargs):
-  """
-    IdleEvent_CanSend(Window win) -> bool
-
-    Returns ``True`` if it is appropriate to send idle events to this
-    window.
-
-    This function looks at the mode used (see `wx.IdleEvent.SetMode`), and
-    the wx.WS_EX_PROCESS_IDLE style in window to determine whether idle
-    events should be sent to this window now. By default this will always
-    return ``True`` because the update mode is initially
-    wx.IDLE_PROCESS_ALL. You can change the mode to only send idle events
-    to windows with the wx.WS_EX_PROCESS_IDLE extra window style set.
-    """
-  return _core_.IdleEvent_CanSend(*args, **kwargs)
 
 #---------------------------------------------------------------------------
 
@@ -7116,7 +7253,7 @@ class PyApp(EvtHandler):
         Create a new application object, starting the bootstrap process.
         """
         _core_.PyApp_swiginit(self,_core_.new_PyApp(*args, **kwargs))
-        self._setOORInfo(self, False);PyApp._setCallbackInfo(self, self, PyApp)
+        self._setOORInfo(self, False);PyApp._setCallbackInfo(self, self, PyApp);self.this.own(True)
 
     __swig_destroy__ = _core_.delete_PyApp
     __del__ = lambda self : None;
@@ -7199,6 +7336,14 @@ class PyApp(EvtHandler):
         during each event loop iteration.
         """
         return _core_.PyApp_ProcessPendingEvents(*args, **kwargs)
+
+    def HasPendingEvents(*args, **kwargs):
+        """
+        HasPendingEvents(self) -> bool
+
+        Check if there are pending events on global pending event list
+        """
+        return _core_.PyApp_HasPendingEvents(*args, **kwargs)
 
     def Yield(*args, **kwargs):
         """
@@ -7999,61 +8144,89 @@ _sys.__wxPythonCleanup = __wxPyCleanup()
 
 #---------------------------------------------------------------------------
 
-class EventLoop(object):
-    """Proxy of C++ EventLoop class"""
+class EventLoopBase(object):
+    """Proxy of C++ EventLoopBase class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self) -> EventLoop"""
-        _core_.EventLoop_swiginit(self,_core_.new_EventLoop(*args, **kwargs))
-    __swig_destroy__ = _core_.delete_EventLoop
+    __swig_destroy__ = _core_.delete_EventLoopBase
     __del__ = lambda self : None;
+    def IsOk(*args, **kwargs):
+        """IsOk(self) -> bool"""
+        return _core_.EventLoopBase_IsOk(*args, **kwargs)
+
     def Run(*args, **kwargs):
         """Run(self) -> int"""
-        return _core_.EventLoop_Run(*args, **kwargs)
+        return _core_.EventLoopBase_Run(*args, **kwargs)
 
     def Exit(*args, **kwargs):
         """Exit(self, int rc=0)"""
-        return _core_.EventLoop_Exit(*args, **kwargs)
+        return _core_.EventLoopBase_Exit(*args, **kwargs)
 
     def Pending(*args, **kwargs):
         """Pending(self) -> bool"""
-        return _core_.EventLoop_Pending(*args, **kwargs)
+        return _core_.EventLoopBase_Pending(*args, **kwargs)
 
     def Dispatch(*args, **kwargs):
         """Dispatch(self) -> bool"""
-        return _core_.EventLoop_Dispatch(*args, **kwargs)
+        return _core_.EventLoopBase_Dispatch(*args, **kwargs)
 
     def IsRunning(*args, **kwargs):
         """IsRunning(self) -> bool"""
-        return _core_.EventLoop_IsRunning(*args, **kwargs)
+        return _core_.EventLoopBase_IsRunning(*args, **kwargs)
+
+    def WakeUp(*args, **kwargs):
+        """WakeUp(self)"""
+        return _core_.EventLoopBase_WakeUp(*args, **kwargs)
 
     def GetActive(*args, **kwargs):
-        """GetActive() -> EventLoop"""
-        return _core_.EventLoop_GetActive(*args, **kwargs)
+        """GetActive() -> EventLoopBase"""
+        return _core_.EventLoopBase_GetActive(*args, **kwargs)
 
     GetActive = staticmethod(GetActive)
     def SetActive(*args, **kwargs):
-        """SetActive(EventLoop loop)"""
-        return _core_.EventLoop_SetActive(*args, **kwargs)
+        """SetActive(EventLoopBase loop)"""
+        return _core_.EventLoopBase_SetActive(*args, **kwargs)
 
     SetActive = staticmethod(SetActive)
-_core_.EventLoop_swigregister(EventLoop)
+_core_.EventLoopBase_swigregister(EventLoopBase)
 
-def EventLoop_GetActive(*args):
-  """EventLoop_GetActive() -> EventLoop"""
-  return _core_.EventLoop_GetActive(*args)
+def EventLoopBase_GetActive(*args):
+  """EventLoopBase_GetActive() -> EventLoopBase"""
+  return _core_.EventLoopBase_GetActive(*args)
 
-def EventLoop_SetActive(*args, **kwargs):
-  """EventLoop_SetActive(EventLoop loop)"""
-  return _core_.EventLoop_SetActive(*args, **kwargs)
+def EventLoopBase_SetActive(*args, **kwargs):
+  """EventLoopBase_SetActive(EventLoopBase loop)"""
+  return _core_.EventLoopBase_SetActive(*args, **kwargs)
+
+class GUIEventLoop(EventLoopBase):
+    """Proxy of C++ GUIEventLoop class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> GUIEventLoop"""
+        _core_.GUIEventLoop_swiginit(self,_core_.new_GUIEventLoop(*args, **kwargs))
+_core_.GUIEventLoop_swigregister(GUIEventLoop)
+
+class EventLoop(GUIEventLoop):
+    """Class using the old name for compatibility."""
+    pass
+
+class ModalEventLoop(GUIEventLoop):
+    """Proxy of C++ ModalEventLoop class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, Window winModal) -> ModalEventLoop"""
+        _core_.ModalEventLoop_swiginit(self,_core_.new_ModalEventLoop(*args, **kwargs))
+_core_.ModalEventLoop_swigregister(ModalEventLoop)
 
 class EventLoopActivator(object):
     """Proxy of C++ EventLoopActivator class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, EventLoop evtLoop) -> EventLoopActivator"""
+        """__init__(self, wxEventLoop evtLoop) -> EventLoopActivator"""
         _core_.EventLoopActivator_swiginit(self,_core_.new_EventLoopActivator(*args, **kwargs))
     __swig_destroy__ = _core_.delete_EventLoopActivator
     __del__ = lambda self : None;
@@ -8201,6 +8374,57 @@ def GetAccelFromString(label):
 
 #---------------------------------------------------------------------------
 
+class WindowList_iterator(object):
+    """This class serves as an iterator for a wxWindowList object."""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_WindowList_iterator
+    __del__ = lambda self : None;
+    def next(*args, **kwargs):
+        """next(self) -> Window"""
+        return _core_.WindowList_iterator_next(*args, **kwargs)
+
+_core_.WindowList_iterator_swigregister(WindowList_iterator)
+NullAcceleratorTable = cvar.NullAcceleratorTable
+PanelNameStr = cvar.PanelNameStr
+
+class WindowList(object):
+    """
+    This class wraps a wxList-based class and gives it a Python
+    sequence-like interface.  Sequence operations supported are length,
+    index access and iteration.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_WindowList
+    __del__ = lambda self : None;
+    def __len__(*args, **kwargs):
+        """__len__(self) -> size_t"""
+        return _core_.WindowList___len__(*args, **kwargs)
+
+    def __getitem__(*args, **kwargs):
+        """__getitem__(self, size_t index) -> Window"""
+        return _core_.WindowList___getitem__(*args, **kwargs)
+
+    def __contains__(*args, **kwargs):
+        """__contains__(self, Window obj) -> bool"""
+        return _core_.WindowList___contains__(*args, **kwargs)
+
+    def __iter__(*args, **kwargs):
+        """__iter__(self) -> WindowList_iterator"""
+        return _core_.WindowList___iter__(*args, **kwargs)
+
+    def index(*args, **kwargs):
+        """index(self, Window obj) -> int"""
+        return _core_.WindowList_index(*args, **kwargs)
+
+    def __repr__(self):
+        return "wxWindowList: " + repr(list(self))
+
+_core_.WindowList_swigregister(WindowList)
+
 class VisualAttributes(object):
     """struct containing all the visual attributes of a control"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -8230,8 +8454,6 @@ class VisualAttributes(object):
     colFg = property(_get_colFg) 
     colBg = property(_get_colBg) 
 _core_.VisualAttributes_swigregister(VisualAttributes)
-NullAcceleratorTable = cvar.NullAcceleratorTable
-PanelNameStr = cvar.PanelNameStr
 
 WINDOW_VARIANT_NORMAL = _core_.WINDOW_VARIANT_NORMAL
 WINDOW_VARIANT_SMALL = _core_.WINDOW_VARIANT_SMALL
@@ -9232,12 +9454,11 @@ class Window(EvtHandler):
 
     def GetChildren(*args, **kwargs):
         """
-        GetChildren(self) -> PyObject
+        GetChildren(self) -> WindowList
 
-        Returns a list of the window's children.  NOTE: Currently this is a
-        copy of the child window list maintained by the window, so the return
-        value of this function is only valid as long as the window's children
-        do not change.
+        Returns an object containing a list of the window's children.  The
+        object provides a Python sequence-like interface over the internal
+        list maintained by the window..
         """
         return _core_.Window_GetChildren(*args, **kwargs)
 
@@ -9319,7 +9540,7 @@ class Window(EvtHandler):
         """
         FindWindowById(self, long winid) -> Window
 
-        Find a chld of this window by window ID
+        Find a child of this window by window ID
         """
         return _core_.Window_FindWindowById(*args, **kwargs)
 
@@ -10489,6 +10710,14 @@ class Window(EvtHandler):
         """
         return _core_.Window_ShouldInheritColours(*args, **kwargs)
 
+    def CanBeOutsideClientArea(*args, **kwargs):
+        """CanBeOutsideClientArea(self) -> bool"""
+        return _core_.Window_CanBeOutsideClientArea(*args, **kwargs)
+
+    def CanApplyThemeBorder(*args, **kwargs):
+        """CanApplyThemeBorder(self) -> bool"""
+        return _core_.Window_CanApplyThemeBorder(*args, **kwargs)
+
     def CanSetTransparent(*args, **kwargs):
         """
         CanSetTransparent(self) -> bool
@@ -10729,13 +10958,10 @@ def Window_FromHWND(*args, **kwargs):
 
 def GetTopLevelWindows(*args):
   """
-    GetTopLevelWindows() -> PyObject
+    GetTopLevelWindows() -> WindowList
 
-    Returns a list of the the application's top-level windows, (frames,
-    dialogs, etc.)  NOTE: Currently this is a copy of the list maintained
-    by wxWidgets, and so it is only valid as long as no top-level windows
-    are closed or new top-level windows are created.
-
+    Returns a list-like object of the the application's top-level windows, (frames,
+    dialogs, etc.)
     """
   return _core_.GetTopLevelWindows(*args)
 #---------------------------------------------------------------------------
@@ -10810,6 +11036,56 @@ class PyValidator(Validator):
 _core_.PyValidator_swigregister(PyValidator)
 
 #---------------------------------------------------------------------------
+
+class MenuItemList_iterator(object):
+    """This class serves as an iterator for a wxMenuItemList object."""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_MenuItemList_iterator
+    __del__ = lambda self : None;
+    def next(*args, **kwargs):
+        """next(self) -> MenuItem"""
+        return _core_.MenuItemList_iterator_next(*args, **kwargs)
+
+_core_.MenuItemList_iterator_swigregister(MenuItemList_iterator)
+DefaultValidator = cvar.DefaultValidator
+
+class MenuItemList(object):
+    """
+    This class wraps a wxList-based class and gives it a Python
+    sequence-like interface.  Sequence operations supported are length,
+    index access and iteration.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_MenuItemList
+    __del__ = lambda self : None;
+    def __len__(*args, **kwargs):
+        """__len__(self) -> size_t"""
+        return _core_.MenuItemList___len__(*args, **kwargs)
+
+    def __getitem__(*args, **kwargs):
+        """__getitem__(self, size_t index) -> MenuItem"""
+        return _core_.MenuItemList___getitem__(*args, **kwargs)
+
+    def __contains__(*args, **kwargs):
+        """__contains__(self, MenuItem obj) -> bool"""
+        return _core_.MenuItemList___contains__(*args, **kwargs)
+
+    def __iter__(*args, **kwargs):
+        """__iter__(self) -> MenuItemList_iterator"""
+        return _core_.MenuItemList___iter__(*args, **kwargs)
+
+    def index(*args, **kwargs):
+        """index(self, MenuItem obj) -> int"""
+        return _core_.MenuItemList_index(*args, **kwargs)
+
+    def __repr__(self):
+        return "wxMenuItemList: " + repr(list(self))
+
+_core_.MenuItemList_swigregister(MenuItemList)
 
 class Menu(EvtHandler):
     """Proxy of C++ Menu class"""
@@ -10953,7 +11229,7 @@ class Menu(EvtHandler):
         return _core_.Menu_GetMenuItemCount(*args, **kwargs)
 
     def GetMenuItems(*args, **kwargs):
-        """GetMenuItems(self) -> PyObject"""
+        """GetMenuItems(self) -> MenuItemList"""
         return _core_.Menu_GetMenuItems(*args, **kwargs)
 
     def FindItem(*args, **kwargs):
@@ -10991,6 +11267,10 @@ class Menu(EvtHandler):
     def GetLabel(*args, **kwargs):
         """GetLabel(self, int id) -> String"""
         return _core_.Menu_GetLabel(*args, **kwargs)
+
+    def GetLabelText(*args, **kwargs):
+        """GetLabelText(self, int itemid) -> String"""
+        return _core_.Menu_GetLabelText(*args, **kwargs)
 
     def SetHelpString(*args, **kwargs):
         """SetHelpString(self, int id, String helpString)"""
@@ -11066,7 +11346,6 @@ class Menu(EvtHandler):
     Style = property(GetStyle,doc="See `GetStyle`") 
     Title = property(GetTitle,SetTitle,doc="See `GetTitle` and `SetTitle`") 
 _core_.Menu_swigregister(Menu)
-DefaultValidator = cvar.DefaultValidator
 
 #---------------------------------------------------------------------------
 
@@ -11111,13 +11390,20 @@ class MenuBar(Window):
         """IsEnabledTop(self, size_t pos) -> bool"""
         return _core_.MenuBar_IsEnabledTop(*args, **kwargs)
 
-    def SetLabelTop(*args, **kwargs):
-        """SetLabelTop(self, size_t pos, String label)"""
-        return _core_.MenuBar_SetLabelTop(*args, **kwargs)
+    def SetMenuLabel(*args, **kwargs):
+        """SetMenuLabel(self, size_t pos, String label)"""
+        return _core_.MenuBar_SetMenuLabel(*args, **kwargs)
 
-    def GetLabelTop(*args, **kwargs):
-        """GetLabelTop(self, size_t pos) -> String"""
-        return _core_.MenuBar_GetLabelTop(*args, **kwargs)
+    def GetMenuLabel(*args, **kwargs):
+        """GetMenuLabel(self, size_t pos) -> String"""
+        return _core_.MenuBar_GetMenuLabel(*args, **kwargs)
+
+    SetLabelTop = SetMenuLabel
+    GetLabelTop = GetMenuLabel    
+
+    def GetMenuLabelText(*args, **kwargs):
+        """GetMenuLabelText(self, size_t pos) -> String"""
+        return _core_.MenuBar_GetMenuLabelText(*args, **kwargs)
 
     def FindMenuItem(*args, **kwargs):
         """FindMenuItem(self, String menu, String item) -> int"""
@@ -11254,23 +11540,27 @@ class MenuItem(Object):
         """IsSeparator(self) -> bool"""
         return _core_.MenuItem_IsSeparator(*args, **kwargs)
 
-    def SetText(*args, **kwargs):
-        """SetText(self, String str)"""
-        return _core_.MenuItem_SetText(*args, **kwargs)
+    def SetItemLabel(*args, **kwargs):
+        """SetItemLabel(self, String str)"""
+        return _core_.MenuItem_SetItemLabel(*args, **kwargs)
 
-    def GetLabel(*args, **kwargs):
-        """GetLabel(self) -> String"""
-        return _core_.MenuItem_GetLabel(*args, **kwargs)
+    def GetItemLabel(*args, **kwargs):
+        """GetItemLabel(self) -> String"""
+        return _core_.MenuItem_GetItemLabel(*args, **kwargs)
 
-    def GetText(*args, **kwargs):
-        """GetText(self) -> String"""
-        return _core_.MenuItem_GetText(*args, **kwargs)
+    def GetItemLabelText(*args, **kwargs):
+        """GetItemLabelText(self) -> String"""
+        return _core_.MenuItem_GetItemLabelText(*args, **kwargs)
 
-    def GetLabelFromText(*args, **kwargs):
-        """GetLabelFromText(String text) -> String"""
-        return _core_.MenuItem_GetLabelFromText(*args, **kwargs)
+    def GetLabelText(*args, **kwargs):
+        """GetLabelText(String label) -> String"""
+        return _core_.MenuItem_GetLabelText(*args, **kwargs)
 
-    GetLabelFromText = staticmethod(GetLabelFromText)
+    GetLabelText = staticmethod(GetLabelText)
+    GetLabel = GetLabelText
+    GetText = GetItemLabel
+    SetText = SetItemLabel
+
     def GetKind(*args, **kwargs):
         """GetKind(self) -> int"""
         return _core_.MenuItem_GetKind(*args, **kwargs)
@@ -11418,11 +11708,13 @@ class MenuItem(Object):
     SubMenu = property(GetSubMenu,SetSubMenu,doc="See `GetSubMenu` and `SetSubMenu`") 
     Text = property(GetText,SetText,doc="See `GetText` and `SetText`") 
     TextColour = property(GetTextColour,SetTextColour,doc="See `GetTextColour` and `SetTextColour`") 
+    ItemLabel = property(GetItemLabel,SetItemLabel) 
+    ItemLabelText = property(GetItemLabelText) 
 _core_.MenuItem_swigregister(MenuItem)
 
-def MenuItem_GetLabelFromText(*args, **kwargs):
-  """MenuItem_GetLabelFromText(String text) -> String"""
-  return _core_.MenuItem_GetLabelFromText(*args, **kwargs)
+def MenuItem_GetLabelText(*args, **kwargs):
+  """MenuItem_GetLabelText(String label) -> String"""
+  return _core_.MenuItem_GetLabelText(*args, **kwargs)
 
 def MenuItem_GetDefaultMarginWidth(*args):
   """MenuItem_GetDefaultMarginWidth() -> int"""
@@ -11605,6 +11897,23 @@ class ItemContainer(object):
         """
         return _core_.ItemContainer_Insert(*args, **kwargs)
 
+    def InsertItems(*args, **kwargs):
+        """
+        InsertItems(self, List strings, int pos) --> int
+
+        Inserts several items at once into the control.  Returns the index of
+        the last item inserted.
+        """
+        return _core_.ItemContainer_InsertItems(*args, **kwargs)
+
+    def Set(*args, **kwargs):
+        """
+        Set(self, List strings)
+
+        Replace all the items in the control
+        """
+        return _core_.ItemContainer_Set(*args, **kwargs)
+
     def Clear(*args, **kwargs):
         """
         Clear(self)
@@ -11640,6 +11949,10 @@ class ItemContainer(object):
         """
         return _core_.ItemContainer_SetClientData(*args, **kwargs)
 
+    def HasClientData(*args, **kwargs):
+        """HasClientData(self) -> bool"""
+        return _core_.ItemContainer_HasClientData(*args, **kwargs)
+
     def GetCount(*args, **kwargs):
         """
         GetCount(self) -> int
@@ -11667,6 +11980,10 @@ class ItemContainer(object):
     def GetStrings(*args, **kwargs):
         """GetStrings(self) -> wxArrayString"""
         return _core_.ItemContainer_GetStrings(*args, **kwargs)
+
+    def IsSorted(*args, **kwargs):
+        """IsSorted(self) -> bool"""
+        return _core_.ItemContainer_IsSorted(*args, **kwargs)
 
     def SetString(*args, **kwargs):
         """
@@ -11972,6 +12289,57 @@ def SizerFlags_GetDefaultBorder(*args):
     Returns the default border size used by the other border methods
     """
   return _core_.SizerFlags_GetDefaultBorder(*args)
+
+#---------------------------------------------------------------------------
+
+class SizerItemList_iterator(object):
+    """This class serves as an iterator for a wxSizerItemList object."""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_SizerItemList_iterator
+    __del__ = lambda self : None;
+    def next(*args, **kwargs):
+        """next(self) -> SizerItem"""
+        return _core_.SizerItemList_iterator_next(*args, **kwargs)
+
+_core_.SizerItemList_iterator_swigregister(SizerItemList_iterator)
+
+class SizerItemList(object):
+    """
+    This class wraps a wxList-based class and gives it a Python
+    sequence-like interface.  Sequence operations supported are length,
+    index access and iteration.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_SizerItemList
+    __del__ = lambda self : None;
+    def __len__(*args, **kwargs):
+        """__len__(self) -> size_t"""
+        return _core_.SizerItemList___len__(*args, **kwargs)
+
+    def __getitem__(*args, **kwargs):
+        """__getitem__(self, size_t index) -> SizerItem"""
+        return _core_.SizerItemList___getitem__(*args, **kwargs)
+
+    def __contains__(*args, **kwargs):
+        """__contains__(self, SizerItem obj) -> bool"""
+        return _core_.SizerItemList___contains__(*args, **kwargs)
+
+    def __iter__(*args, **kwargs):
+        """__iter__(self) -> SizerItemList_iterator"""
+        return _core_.SizerItemList___iter__(*args, **kwargs)
+
+    def index(*args, **kwargs):
+        """index(self, SizerItem obj) -> int"""
+        return _core_.SizerItemList_index(*args, **kwargs)
+
+    def __repr__(self):
+        return "wxSizerItemList: " + repr(list(self))
+
+_core_.SizerItemList_swigregister(SizerItemList)
 
 class SizerItem(Object):
     """
@@ -12822,9 +13190,10 @@ class Sizer(Object):
 
     def GetChildren(*args, **kwargs):
         """
-        GetChildren(self) -> list
+        GetChildren(self) -> SizerItemList
 
-        Returns a list of all the `wx.SizerItem` objects managed by the sizer.
+        Returns all of the `wx.SizerItem` objects managed by the sizer in a
+        list-like object.
         """
         return _core_.Sizer_GetChildren(*args, **kwargs)
 

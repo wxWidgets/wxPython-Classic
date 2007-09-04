@@ -2464,245 +2464,246 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 /* -------- TYPES TABLE (BEGIN) -------- */
 
 #define SWIGTYPE_p_char swig_types[0]
-#define SWIGTYPE_p_float swig_types[1]
-#define SWIGTYPE_p_form_ops_t swig_types[2]
-#define SWIGTYPE_p_int swig_types[3]
-#define SWIGTYPE_p_unsigned_char swig_types[4]
-#define SWIGTYPE_p_unsigned_int swig_types[5]
-#define SWIGTYPE_p_unsigned_long swig_types[6]
-#define SWIGTYPE_p_wxANIHandler swig_types[7]
-#define SWIGTYPE_p_wxAcceleratorTable swig_types[8]
-#define SWIGTYPE_p_wxActivateEvent swig_types[9]
-#define SWIGTYPE_p_wxArrayString swig_types[10]
-#define SWIGTYPE_p_wxBMPHandler swig_types[11]
-#define SWIGTYPE_p_wxBitmap swig_types[12]
-#define SWIGTYPE_p_wxBitmapButton swig_types[13]
-#define SWIGTYPE_p_wxBookCtrlBase swig_types[14]
-#define SWIGTYPE_p_wxBookCtrlBaseEvent swig_types[15]
-#define SWIGTYPE_p_wxBoxSizer swig_types[16]
-#define SWIGTYPE_p_wxButton swig_types[17]
-#define SWIGTYPE_p_wxCURHandler swig_types[18]
-#define SWIGTYPE_p_wxCalculateLayoutEvent swig_types[19]
-#define SWIGTYPE_p_wxCheckBox swig_types[20]
-#define SWIGTYPE_p_wxCheckListBox swig_types[21]
-#define SWIGTYPE_p_wxChildFocusEvent swig_types[22]
-#define SWIGTYPE_p_wxChoice swig_types[23]
-#define SWIGTYPE_p_wxChoicebook swig_types[24]
-#define SWIGTYPE_p_wxChoicebookEvent swig_types[25]
-#define SWIGTYPE_p_wxClipboardTextEvent swig_types[26]
-#define SWIGTYPE_p_wxCloseEvent swig_types[27]
-#define SWIGTYPE_p_wxCollapsiblePane swig_types[28]
-#define SWIGTYPE_p_wxCollapsiblePaneEvent swig_types[29]
-#define SWIGTYPE_p_wxColour swig_types[30]
-#define SWIGTYPE_p_wxColourData swig_types[31]
-#define SWIGTYPE_p_wxColourDialog swig_types[32]
-#define SWIGTYPE_p_wxColourPickerCtrl swig_types[33]
-#define SWIGTYPE_p_wxColourPickerEvent swig_types[34]
-#define SWIGTYPE_p_wxComboBox swig_types[35]
-#define SWIGTYPE_p_wxCommandEvent swig_types[36]
-#define SWIGTYPE_p_wxContextHelp swig_types[37]
-#define SWIGTYPE_p_wxContextHelpButton swig_types[38]
-#define SWIGTYPE_p_wxContextMenuEvent swig_types[39]
-#define SWIGTYPE_p_wxControl swig_types[40]
-#define SWIGTYPE_p_wxControlWithItems swig_types[41]
-#define SWIGTYPE_p_wxDateEvent swig_types[42]
-#define SWIGTYPE_p_wxDatePickerCtrl swig_types[43]
-#define SWIGTYPE_p_wxDialog swig_types[44]
-#define SWIGTYPE_p_wxDirDialog swig_types[45]
-#define SWIGTYPE_p_wxDirFilterListCtrl swig_types[46]
-#define SWIGTYPE_p_wxDirPickerCtrl swig_types[47]
-#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[48]
-#define SWIGTYPE_p_wxDropFilesEvent swig_types[49]
-#define SWIGTYPE_p_wxDuplexMode swig_types[50]
-#define SWIGTYPE_p_wxDynamicSashSplitEvent swig_types[51]
-#define SWIGTYPE_p_wxDynamicSashUnifyEvent swig_types[52]
-#define SWIGTYPE_p_wxDynamicSashWindow swig_types[53]
-#define SWIGTYPE_p_wxEditableListBox swig_types[54]
-#define SWIGTYPE_p_wxEraseEvent swig_types[55]
-#define SWIGTYPE_p_wxEvent swig_types[56]
-#define SWIGTYPE_p_wxEventBlocker swig_types[57]
-#define SWIGTYPE_p_wxEvtHandler swig_types[58]
-#define SWIGTYPE_p_wxFSFile swig_types[59]
-#define SWIGTYPE_p_wxFileDialog swig_types[60]
-#define SWIGTYPE_p_wxFileDirPickerEvent swig_types[61]
-#define SWIGTYPE_p_wxFilePickerCtrl swig_types[62]
-#define SWIGTYPE_p_wxFileSystem swig_types[63]
-#define SWIGTYPE_p_wxFindDialogEvent swig_types[64]
-#define SWIGTYPE_p_wxFindReplaceData swig_types[65]
-#define SWIGTYPE_p_wxFindReplaceDialog swig_types[66]
-#define SWIGTYPE_p_wxFlexGridSizer swig_types[67]
-#define SWIGTYPE_p_wxFocusEvent swig_types[68]
-#define SWIGTYPE_p_wxFont swig_types[69]
-#define SWIGTYPE_p_wxFontData swig_types[70]
-#define SWIGTYPE_p_wxFontDialog swig_types[71]
-#define SWIGTYPE_p_wxFontPickerCtrl swig_types[72]
-#define SWIGTYPE_p_wxFontPickerEvent swig_types[73]
-#define SWIGTYPE_p_wxFrame swig_types[74]
-#define SWIGTYPE_p_wxGBSizerItem swig_types[75]
-#define SWIGTYPE_p_wxGIFHandler swig_types[76]
-#define SWIGTYPE_p_wxGauge swig_types[77]
-#define SWIGTYPE_p_wxGenericDirCtrl swig_types[78]
-#define SWIGTYPE_p_wxGenericDragImage swig_types[79]
-#define SWIGTYPE_p_wxGridBagSizer swig_types[80]
-#define SWIGTYPE_p_wxGridSizer swig_types[81]
-#define SWIGTYPE_p_wxHelpEvent swig_types[82]
-#define SWIGTYPE_p_wxHyperlinkCtrl swig_types[83]
-#define SWIGTYPE_p_wxHyperlinkEvent swig_types[84]
-#define SWIGTYPE_p_wxICOHandler swig_types[85]
-#define SWIGTYPE_p_wxIcon swig_types[86]
-#define SWIGTYPE_p_wxIconizeEvent swig_types[87]
-#define SWIGTYPE_p_wxIdleEvent swig_types[88]
-#define SWIGTYPE_p_wxImage swig_types[89]
-#define SWIGTYPE_p_wxImageHandler swig_types[90]
-#define SWIGTYPE_p_wxImageList swig_types[91]
-#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[92]
-#define SWIGTYPE_p_wxInitDialogEvent swig_types[93]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[94]
-#define SWIGTYPE_p_wxKeyEvent swig_types[95]
-#define SWIGTYPE_p_wxLEDNumberCtrl swig_types[96]
-#define SWIGTYPE_p_wxLayoutAlgorithm swig_types[97]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[98]
-#define SWIGTYPE_p_wxListBox swig_types[99]
-#define SWIGTYPE_p_wxListEvent swig_types[100]
-#define SWIGTYPE_p_wxListItem swig_types[101]
-#define SWIGTYPE_p_wxListView swig_types[102]
-#define SWIGTYPE_p_wxListbook swig_types[103]
-#define SWIGTYPE_p_wxListbookEvent swig_types[104]
-#define SWIGTYPE_p_wxMDIChildFrame swig_types[105]
-#define SWIGTYPE_p_wxMDIClientWindow swig_types[106]
-#define SWIGTYPE_p_wxMDIParentFrame swig_types[107]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[108]
-#define SWIGTYPE_p_wxMenu swig_types[109]
-#define SWIGTYPE_p_wxMenuBar swig_types[110]
-#define SWIGTYPE_p_wxMenuEvent swig_types[111]
-#define SWIGTYPE_p_wxMenuItem swig_types[112]
-#define SWIGTYPE_p_wxMessageDialog swig_types[113]
-#define SWIGTYPE_p_wxMiniFrame swig_types[114]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[115]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[116]
-#define SWIGTYPE_p_wxMouseEvent swig_types[117]
-#define SWIGTYPE_p_wxMoveEvent swig_types[118]
-#define SWIGTYPE_p_wxMultiChoiceDialog swig_types[119]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[120]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[121]
-#define SWIGTYPE_p_wxNotebook swig_types[122]
-#define SWIGTYPE_p_wxNotebookEvent swig_types[123]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[124]
-#define SWIGTYPE_p_wxNumberEntryDialog swig_types[125]
-#define SWIGTYPE_p_wxObject swig_types[126]
-#define SWIGTYPE_p_wxPCXHandler swig_types[127]
-#define SWIGTYPE_p_wxPNGHandler swig_types[128]
-#define SWIGTYPE_p_wxPNMHandler swig_types[129]
-#define SWIGTYPE_p_wxPageSetupDialog swig_types[130]
-#define SWIGTYPE_p_wxPageSetupDialogData swig_types[131]
-#define SWIGTYPE_p_wxPaintEvent swig_types[132]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[133]
-#define SWIGTYPE_p_wxPanel swig_types[134]
-#define SWIGTYPE_p_wxPaperSize swig_types[135]
-#define SWIGTYPE_p_wxPasswordEntryDialog swig_types[136]
-#define SWIGTYPE_p_wxPickerBase swig_types[137]
-#define SWIGTYPE_p_wxPopupWindow swig_types[138]
-#define SWIGTYPE_p_wxPreviewCanvas swig_types[139]
-#define SWIGTYPE_p_wxPreviewControlBar swig_types[140]
-#define SWIGTYPE_p_wxPreviewFrame swig_types[141]
-#define SWIGTYPE_p_wxPrintData swig_types[142]
-#define SWIGTYPE_p_wxPrintDialog swig_types[143]
-#define SWIGTYPE_p_wxPrintDialogData swig_types[144]
-#define SWIGTYPE_p_wxPrintPreview swig_types[145]
-#define SWIGTYPE_p_wxPrinter swig_types[146]
-#define SWIGTYPE_p_wxProgressDialog swig_types[147]
-#define SWIGTYPE_p_wxPyApp swig_types[148]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[149]
-#define SWIGTYPE_p_wxPyControl swig_types[150]
-#define SWIGTYPE_p_wxPyEvent swig_types[151]
-#define SWIGTYPE_p_wxPyHScrolledWindow swig_types[152]
-#define SWIGTYPE_p_wxPyHVScrolledWindow swig_types[153]
-#define SWIGTYPE_p_wxPyHtmlListBox swig_types[154]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[155]
-#define SWIGTYPE_p_wxPyListCtrl swig_types[156]
-#define SWIGTYPE_p_wxPyPanel swig_types[157]
-#define SWIGTYPE_p_wxPyPopupTransientWindow swig_types[158]
-#define SWIGTYPE_p_wxPyPreviewControlBar swig_types[159]
-#define SWIGTYPE_p_wxPyPreviewFrame swig_types[160]
-#define SWIGTYPE_p_wxPyPrintPreview swig_types[161]
-#define SWIGTYPE_p_wxPyPrintout swig_types[162]
-#define SWIGTYPE_p_wxPyScrolledWindow swig_types[163]
-#define SWIGTYPE_p_wxPySizer swig_types[164]
-#define SWIGTYPE_p_wxPyTaskBarIcon swig_types[165]
-#define SWIGTYPE_p_wxPyTreeCompanionWindow swig_types[166]
-#define SWIGTYPE_p_wxPyTreeCtrl swig_types[167]
-#define SWIGTYPE_p_wxPyTreeItemData swig_types[168]
-#define SWIGTYPE_p_wxPyTreeListCtrl swig_types[169]
-#define SWIGTYPE_p_wxPyVListBox swig_types[170]
-#define SWIGTYPE_p_wxPyVScrolledWindow swig_types[171]
-#define SWIGTYPE_p_wxPyValidator swig_types[172]
-#define SWIGTYPE_p_wxPyWindow swig_types[173]
-#define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[174]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[175]
-#define SWIGTYPE_p_wxRadioBox swig_types[176]
-#define SWIGTYPE_p_wxRadioButton swig_types[177]
-#define SWIGTYPE_p_wxRemotelyScrolledTreeCtrl swig_types[178]
-#define SWIGTYPE_p_wxSashEvent swig_types[179]
-#define SWIGTYPE_p_wxSashLayoutWindow swig_types[180]
-#define SWIGTYPE_p_wxSashWindow swig_types[181]
-#define SWIGTYPE_p_wxScrollBar swig_types[182]
-#define SWIGTYPE_p_wxScrollEvent swig_types[183]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[184]
-#define SWIGTYPE_p_wxScrolledWindow swig_types[185]
-#define SWIGTYPE_p_wxSearchCtrl swig_types[186]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[187]
-#define SWIGTYPE_p_wxShowEvent swig_types[188]
-#define SWIGTYPE_p_wxSimpleHtmlListBox swig_types[189]
-#define SWIGTYPE_p_wxSingleChoiceDialog swig_types[190]
-#define SWIGTYPE_p_wxSizeEvent swig_types[191]
-#define SWIGTYPE_p_wxSizer swig_types[192]
-#define SWIGTYPE_p_wxSizerItem swig_types[193]
-#define SWIGTYPE_p_wxSlider swig_types[194]
-#define SWIGTYPE_p_wxSpinButton swig_types[195]
-#define SWIGTYPE_p_wxSpinCtrl swig_types[196]
-#define SWIGTYPE_p_wxSpinEvent swig_types[197]
-#define SWIGTYPE_p_wxSplashScreen swig_types[198]
-#define SWIGTYPE_p_wxSplashScreenWindow swig_types[199]
-#define SWIGTYPE_p_wxSplitterEvent swig_types[200]
-#define SWIGTYPE_p_wxSplitterScrolledWindow swig_types[201]
-#define SWIGTYPE_p_wxSplitterWindow swig_types[202]
-#define SWIGTYPE_p_wxStaticBitmap swig_types[203]
-#define SWIGTYPE_p_wxStaticBox swig_types[204]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[205]
-#define SWIGTYPE_p_wxStaticLine swig_types[206]
-#define SWIGTYPE_p_wxStaticPicture swig_types[207]
-#define SWIGTYPE_p_wxStaticText swig_types[208]
-#define SWIGTYPE_p_wxStatusBar swig_types[209]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[210]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[211]
-#define SWIGTYPE_p_wxTGAHandler swig_types[212]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[213]
-#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[214]
-#define SWIGTYPE_p_wxTextCtrl swig_types[215]
-#define SWIGTYPE_p_wxTextEntryDialog swig_types[216]
-#define SWIGTYPE_p_wxTextUrlEvent swig_types[217]
-#define SWIGTYPE_p_wxThinSplitterWindow swig_types[218]
-#define SWIGTYPE_p_wxTipWindow swig_types[219]
-#define SWIGTYPE_p_wxToggleButton swig_types[220]
-#define SWIGTYPE_p_wxToolBar swig_types[221]
-#define SWIGTYPE_p_wxToolBarBase swig_types[222]
-#define SWIGTYPE_p_wxToolBarToolBase swig_types[223]
-#define SWIGTYPE_p_wxToolbook swig_types[224]
-#define SWIGTYPE_p_wxToolbookEvent swig_types[225]
-#define SWIGTYPE_p_wxTopLevelWindow swig_types[226]
-#define SWIGTYPE_p_wxTreeEvent swig_types[227]
-#define SWIGTYPE_p_wxTreeItemId swig_types[228]
-#define SWIGTYPE_p_wxTreeListColumnInfo swig_types[229]
-#define SWIGTYPE_p_wxTreebook swig_types[230]
-#define SWIGTYPE_p_wxTreebookEvent swig_types[231]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[232]
-#define SWIGTYPE_p_wxValidator swig_types[233]
-#define SWIGTYPE_p_wxWindow swig_types[234]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[235]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[236]
-#define SWIGTYPE_p_wxXPMHandler swig_types[237]
-static swig_type_info *swig_types[239];
-static swig_module_info swig_module = {swig_types, 238, 0, 0, 0, 0};
+#define SWIGTYPE_p_double swig_types[1]
+#define SWIGTYPE_p_float swig_types[2]
+#define SWIGTYPE_p_form_ops_t swig_types[3]
+#define SWIGTYPE_p_int swig_types[4]
+#define SWIGTYPE_p_unsigned_char swig_types[5]
+#define SWIGTYPE_p_unsigned_int swig_types[6]
+#define SWIGTYPE_p_unsigned_long swig_types[7]
+#define SWIGTYPE_p_wxANIHandler swig_types[8]
+#define SWIGTYPE_p_wxAcceleratorTable swig_types[9]
+#define SWIGTYPE_p_wxActivateEvent swig_types[10]
+#define SWIGTYPE_p_wxArrayString swig_types[11]
+#define SWIGTYPE_p_wxBMPHandler swig_types[12]
+#define SWIGTYPE_p_wxBitmap swig_types[13]
+#define SWIGTYPE_p_wxBitmapButton swig_types[14]
+#define SWIGTYPE_p_wxBookCtrlBase swig_types[15]
+#define SWIGTYPE_p_wxBookCtrlBaseEvent swig_types[16]
+#define SWIGTYPE_p_wxBoxSizer swig_types[17]
+#define SWIGTYPE_p_wxButton swig_types[18]
+#define SWIGTYPE_p_wxCURHandler swig_types[19]
+#define SWIGTYPE_p_wxCalculateLayoutEvent swig_types[20]
+#define SWIGTYPE_p_wxCheckBox swig_types[21]
+#define SWIGTYPE_p_wxCheckListBox swig_types[22]
+#define SWIGTYPE_p_wxChildFocusEvent swig_types[23]
+#define SWIGTYPE_p_wxChoice swig_types[24]
+#define SWIGTYPE_p_wxChoicebook swig_types[25]
+#define SWIGTYPE_p_wxChoicebookEvent swig_types[26]
+#define SWIGTYPE_p_wxClipboardTextEvent swig_types[27]
+#define SWIGTYPE_p_wxCloseEvent swig_types[28]
+#define SWIGTYPE_p_wxCollapsiblePane swig_types[29]
+#define SWIGTYPE_p_wxCollapsiblePaneEvent swig_types[30]
+#define SWIGTYPE_p_wxColour swig_types[31]
+#define SWIGTYPE_p_wxColourData swig_types[32]
+#define SWIGTYPE_p_wxColourDialog swig_types[33]
+#define SWIGTYPE_p_wxColourPickerCtrl swig_types[34]
+#define SWIGTYPE_p_wxColourPickerEvent swig_types[35]
+#define SWIGTYPE_p_wxComboBox swig_types[36]
+#define SWIGTYPE_p_wxCommandEvent swig_types[37]
+#define SWIGTYPE_p_wxContextHelp swig_types[38]
+#define SWIGTYPE_p_wxContextHelpButton swig_types[39]
+#define SWIGTYPE_p_wxContextMenuEvent swig_types[40]
+#define SWIGTYPE_p_wxControl swig_types[41]
+#define SWIGTYPE_p_wxControlWithItems swig_types[42]
+#define SWIGTYPE_p_wxDateEvent swig_types[43]
+#define SWIGTYPE_p_wxDatePickerCtrl swig_types[44]
+#define SWIGTYPE_p_wxDialog swig_types[45]
+#define SWIGTYPE_p_wxDirDialog swig_types[46]
+#define SWIGTYPE_p_wxDirFilterListCtrl swig_types[47]
+#define SWIGTYPE_p_wxDirPickerCtrl swig_types[48]
+#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[49]
+#define SWIGTYPE_p_wxDropFilesEvent swig_types[50]
+#define SWIGTYPE_p_wxDuplexMode swig_types[51]
+#define SWIGTYPE_p_wxDynamicSashSplitEvent swig_types[52]
+#define SWIGTYPE_p_wxDynamicSashUnifyEvent swig_types[53]
+#define SWIGTYPE_p_wxDynamicSashWindow swig_types[54]
+#define SWIGTYPE_p_wxEditableListBox swig_types[55]
+#define SWIGTYPE_p_wxEraseEvent swig_types[56]
+#define SWIGTYPE_p_wxEvent swig_types[57]
+#define SWIGTYPE_p_wxEventBlocker swig_types[58]
+#define SWIGTYPE_p_wxEvtHandler swig_types[59]
+#define SWIGTYPE_p_wxFSFile swig_types[60]
+#define SWIGTYPE_p_wxFileDialog swig_types[61]
+#define SWIGTYPE_p_wxFileDirPickerEvent swig_types[62]
+#define SWIGTYPE_p_wxFilePickerCtrl swig_types[63]
+#define SWIGTYPE_p_wxFileSystem swig_types[64]
+#define SWIGTYPE_p_wxFindDialogEvent swig_types[65]
+#define SWIGTYPE_p_wxFindReplaceData swig_types[66]
+#define SWIGTYPE_p_wxFindReplaceDialog swig_types[67]
+#define SWIGTYPE_p_wxFlexGridSizer swig_types[68]
+#define SWIGTYPE_p_wxFocusEvent swig_types[69]
+#define SWIGTYPE_p_wxFont swig_types[70]
+#define SWIGTYPE_p_wxFontData swig_types[71]
+#define SWIGTYPE_p_wxFontDialog swig_types[72]
+#define SWIGTYPE_p_wxFontPickerCtrl swig_types[73]
+#define SWIGTYPE_p_wxFontPickerEvent swig_types[74]
+#define SWIGTYPE_p_wxFrame swig_types[75]
+#define SWIGTYPE_p_wxGBSizerItem swig_types[76]
+#define SWIGTYPE_p_wxGIFHandler swig_types[77]
+#define SWIGTYPE_p_wxGauge swig_types[78]
+#define SWIGTYPE_p_wxGenericDirCtrl swig_types[79]
+#define SWIGTYPE_p_wxGenericDragImage swig_types[80]
+#define SWIGTYPE_p_wxGridBagSizer swig_types[81]
+#define SWIGTYPE_p_wxGridSizer swig_types[82]
+#define SWIGTYPE_p_wxHelpEvent swig_types[83]
+#define SWIGTYPE_p_wxHyperlinkCtrl swig_types[84]
+#define SWIGTYPE_p_wxHyperlinkEvent swig_types[85]
+#define SWIGTYPE_p_wxICOHandler swig_types[86]
+#define SWIGTYPE_p_wxIcon swig_types[87]
+#define SWIGTYPE_p_wxIconizeEvent swig_types[88]
+#define SWIGTYPE_p_wxIdleEvent swig_types[89]
+#define SWIGTYPE_p_wxImage swig_types[90]
+#define SWIGTYPE_p_wxImageHandler swig_types[91]
+#define SWIGTYPE_p_wxImageList swig_types[92]
+#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[93]
+#define SWIGTYPE_p_wxInitDialogEvent swig_types[94]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[95]
+#define SWIGTYPE_p_wxKeyEvent swig_types[96]
+#define SWIGTYPE_p_wxLEDNumberCtrl swig_types[97]
+#define SWIGTYPE_p_wxLayoutAlgorithm swig_types[98]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[99]
+#define SWIGTYPE_p_wxListBox swig_types[100]
+#define SWIGTYPE_p_wxListEvent swig_types[101]
+#define SWIGTYPE_p_wxListItem swig_types[102]
+#define SWIGTYPE_p_wxListView swig_types[103]
+#define SWIGTYPE_p_wxListbook swig_types[104]
+#define SWIGTYPE_p_wxListbookEvent swig_types[105]
+#define SWIGTYPE_p_wxMDIChildFrame swig_types[106]
+#define SWIGTYPE_p_wxMDIClientWindow swig_types[107]
+#define SWIGTYPE_p_wxMDIParentFrame swig_types[108]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[109]
+#define SWIGTYPE_p_wxMenu swig_types[110]
+#define SWIGTYPE_p_wxMenuBar swig_types[111]
+#define SWIGTYPE_p_wxMenuEvent swig_types[112]
+#define SWIGTYPE_p_wxMenuItem swig_types[113]
+#define SWIGTYPE_p_wxMessageDialog swig_types[114]
+#define SWIGTYPE_p_wxMiniFrame swig_types[115]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[116]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[117]
+#define SWIGTYPE_p_wxMouseEvent swig_types[118]
+#define SWIGTYPE_p_wxMoveEvent swig_types[119]
+#define SWIGTYPE_p_wxMultiChoiceDialog swig_types[120]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[121]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[122]
+#define SWIGTYPE_p_wxNotebook swig_types[123]
+#define SWIGTYPE_p_wxNotebookEvent swig_types[124]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[125]
+#define SWIGTYPE_p_wxNumberEntryDialog swig_types[126]
+#define SWIGTYPE_p_wxObject swig_types[127]
+#define SWIGTYPE_p_wxPCXHandler swig_types[128]
+#define SWIGTYPE_p_wxPNGHandler swig_types[129]
+#define SWIGTYPE_p_wxPNMHandler swig_types[130]
+#define SWIGTYPE_p_wxPageSetupDialog swig_types[131]
+#define SWIGTYPE_p_wxPageSetupDialogData swig_types[132]
+#define SWIGTYPE_p_wxPaintEvent swig_types[133]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[134]
+#define SWIGTYPE_p_wxPanel swig_types[135]
+#define SWIGTYPE_p_wxPaperSize swig_types[136]
+#define SWIGTYPE_p_wxPasswordEntryDialog swig_types[137]
+#define SWIGTYPE_p_wxPickerBase swig_types[138]
+#define SWIGTYPE_p_wxPopupWindow swig_types[139]
+#define SWIGTYPE_p_wxPreviewCanvas swig_types[140]
+#define SWIGTYPE_p_wxPreviewControlBar swig_types[141]
+#define SWIGTYPE_p_wxPreviewFrame swig_types[142]
+#define SWIGTYPE_p_wxPrintData swig_types[143]
+#define SWIGTYPE_p_wxPrintDialog swig_types[144]
+#define SWIGTYPE_p_wxPrintDialogData swig_types[145]
+#define SWIGTYPE_p_wxPrintPreview swig_types[146]
+#define SWIGTYPE_p_wxPrinter swig_types[147]
+#define SWIGTYPE_p_wxProgressDialog swig_types[148]
+#define SWIGTYPE_p_wxPyApp swig_types[149]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[150]
+#define SWIGTYPE_p_wxPyControl swig_types[151]
+#define SWIGTYPE_p_wxPyEvent swig_types[152]
+#define SWIGTYPE_p_wxPyHScrolledWindow swig_types[153]
+#define SWIGTYPE_p_wxPyHVScrolledWindow swig_types[154]
+#define SWIGTYPE_p_wxPyHtmlListBox swig_types[155]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[156]
+#define SWIGTYPE_p_wxPyListCtrl swig_types[157]
+#define SWIGTYPE_p_wxPyPanel swig_types[158]
+#define SWIGTYPE_p_wxPyPopupTransientWindow swig_types[159]
+#define SWIGTYPE_p_wxPyPreviewControlBar swig_types[160]
+#define SWIGTYPE_p_wxPyPreviewFrame swig_types[161]
+#define SWIGTYPE_p_wxPyPrintPreview swig_types[162]
+#define SWIGTYPE_p_wxPyPrintout swig_types[163]
+#define SWIGTYPE_p_wxPyScrolledWindow swig_types[164]
+#define SWIGTYPE_p_wxPySizer swig_types[165]
+#define SWIGTYPE_p_wxPyTaskBarIcon swig_types[166]
+#define SWIGTYPE_p_wxPyTreeCompanionWindow swig_types[167]
+#define SWIGTYPE_p_wxPyTreeCtrl swig_types[168]
+#define SWIGTYPE_p_wxPyTreeItemData swig_types[169]
+#define SWIGTYPE_p_wxPyTreeListCtrl swig_types[170]
+#define SWIGTYPE_p_wxPyVListBox swig_types[171]
+#define SWIGTYPE_p_wxPyVScrolledWindow swig_types[172]
+#define SWIGTYPE_p_wxPyValidator swig_types[173]
+#define SWIGTYPE_p_wxPyWindow swig_types[174]
+#define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[175]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[176]
+#define SWIGTYPE_p_wxRadioBox swig_types[177]
+#define SWIGTYPE_p_wxRadioButton swig_types[178]
+#define SWIGTYPE_p_wxRemotelyScrolledTreeCtrl swig_types[179]
+#define SWIGTYPE_p_wxSashEvent swig_types[180]
+#define SWIGTYPE_p_wxSashLayoutWindow swig_types[181]
+#define SWIGTYPE_p_wxSashWindow swig_types[182]
+#define SWIGTYPE_p_wxScrollBar swig_types[183]
+#define SWIGTYPE_p_wxScrollEvent swig_types[184]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[185]
+#define SWIGTYPE_p_wxScrolledWindow swig_types[186]
+#define SWIGTYPE_p_wxSearchCtrl swig_types[187]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[188]
+#define SWIGTYPE_p_wxShowEvent swig_types[189]
+#define SWIGTYPE_p_wxSimpleHtmlListBox swig_types[190]
+#define SWIGTYPE_p_wxSingleChoiceDialog swig_types[191]
+#define SWIGTYPE_p_wxSizeEvent swig_types[192]
+#define SWIGTYPE_p_wxSizer swig_types[193]
+#define SWIGTYPE_p_wxSizerItem swig_types[194]
+#define SWIGTYPE_p_wxSlider swig_types[195]
+#define SWIGTYPE_p_wxSpinButton swig_types[196]
+#define SWIGTYPE_p_wxSpinCtrl swig_types[197]
+#define SWIGTYPE_p_wxSpinEvent swig_types[198]
+#define SWIGTYPE_p_wxSplashScreen swig_types[199]
+#define SWIGTYPE_p_wxSplashScreenWindow swig_types[200]
+#define SWIGTYPE_p_wxSplitterEvent swig_types[201]
+#define SWIGTYPE_p_wxSplitterScrolledWindow swig_types[202]
+#define SWIGTYPE_p_wxSplitterWindow swig_types[203]
+#define SWIGTYPE_p_wxStaticBitmap swig_types[204]
+#define SWIGTYPE_p_wxStaticBox swig_types[205]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[206]
+#define SWIGTYPE_p_wxStaticLine swig_types[207]
+#define SWIGTYPE_p_wxStaticPicture swig_types[208]
+#define SWIGTYPE_p_wxStaticText swig_types[209]
+#define SWIGTYPE_p_wxStatusBar swig_types[210]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[211]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[212]
+#define SWIGTYPE_p_wxTGAHandler swig_types[213]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[214]
+#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[215]
+#define SWIGTYPE_p_wxTextCtrl swig_types[216]
+#define SWIGTYPE_p_wxTextEntryDialog swig_types[217]
+#define SWIGTYPE_p_wxTextUrlEvent swig_types[218]
+#define SWIGTYPE_p_wxThinSplitterWindow swig_types[219]
+#define SWIGTYPE_p_wxTipWindow swig_types[220]
+#define SWIGTYPE_p_wxToggleButton swig_types[221]
+#define SWIGTYPE_p_wxToolBar swig_types[222]
+#define SWIGTYPE_p_wxToolBarBase swig_types[223]
+#define SWIGTYPE_p_wxToolBarToolBase swig_types[224]
+#define SWIGTYPE_p_wxToolbook swig_types[225]
+#define SWIGTYPE_p_wxToolbookEvent swig_types[226]
+#define SWIGTYPE_p_wxTopLevelWindow swig_types[227]
+#define SWIGTYPE_p_wxTreeEvent swig_types[228]
+#define SWIGTYPE_p_wxTreeItemId swig_types[229]
+#define SWIGTYPE_p_wxTreeListColumnInfo swig_types[230]
+#define SWIGTYPE_p_wxTreebook swig_types[231]
+#define SWIGTYPE_p_wxTreebookEvent swig_types[232]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[233]
+#define SWIGTYPE_p_wxValidator swig_types[234]
+#define SWIGTYPE_p_wxWindow swig_types[235]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[236]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[237]
+#define SWIGTYPE_p_wxXPMHandler swig_types[238]
+static swig_type_info *swig_types[240];
+static swig_module_info swig_module = {swig_types, 239, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3662,7 +3663,7 @@ SWIGINTERN PyObject *_wrap_new_EditableListBox(PyObject *SWIGUNUSEDPARM(self), P
   wxPoint *arg4 = (wxPoint *) &arg4_defvalue ;
   wxSize const &arg5_defvalue = wxDefaultSize ;
   wxSize *arg5 = (wxSize *) &arg5_defvalue ;
-  long arg6 = (long) wxEL_ALLOW_NEW|wxEL_ALLOW_EDIT|wxEL_ALLOW_DELETE ;
+  long arg6 = (long) wxEL_DEFAULT_STYLE ;
   wxString const &arg7_defvalue = wxPyEditableListBoxNameStr ;
   wxString *arg7 = (wxString *) &arg7_defvalue ;
   wxEditableListBox *result = 0 ;
@@ -3758,6 +3759,141 @@ fail:
   {
     if (temp7)
     delete arg7;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_PreEditableListBox(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxEditableListBox *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"new_PreEditableListBox",0,0,0)) SWIG_fail;
+  {
+    if (!wxPyCheckForApp()) SWIG_fail;
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxEditableListBox *)new wxEditableListBox();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxEditableListBox, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EditableListBox_Create(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxEditableListBox *arg1 = (wxEditableListBox *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  int arg3 ;
+  wxString *arg4 = 0 ;
+  wxPoint const &arg5_defvalue = wxDefaultPosition ;
+  wxPoint *arg5 = (wxPoint *) &arg5_defvalue ;
+  wxSize const &arg6_defvalue = wxDefaultSize ;
+  wxSize *arg6 = (wxSize *) &arg6_defvalue ;
+  long arg7 = (long) wxEL_DEFAULT_STYLE ;
+  wxString const &arg8_defvalue = wxEditableListBoxNameStr ;
+  wxString *arg8 = (wxString *) &arg8_defvalue ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  bool temp4 = false ;
+  wxPoint temp5 ;
+  wxSize temp6 ;
+  long val7 ;
+  int ecode7 = 0 ;
+  bool temp8 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "parent",(char *) "id",(char *) "label",(char *) "pos",(char *) "size",(char *) "style",(char *) "name", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|OOOO:EditableListBox_Create",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxEditableListBox, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EditableListBox_Create" "', expected argument " "1"" of type '" "wxEditableListBox *""'"); 
+  }
+  arg1 = reinterpret_cast< wxEditableListBox * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EditableListBox_Create" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+  }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "EditableListBox_Create" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    arg4 = wxString_in_helper(obj3);
+    if (arg4 == NULL) SWIG_fail;
+    temp4 = true;
+  }
+  if (obj4) {
+    {
+      arg5 = &temp5;
+      if ( ! wxPoint_helper(obj4, &arg5)) SWIG_fail;
+    }
+  }
+  if (obj5) {
+    {
+      arg6 = &temp6;
+      if ( ! wxSize_helper(obj5, &arg6)) SWIG_fail;
+    }
+  }
+  if (obj6) {
+    ecode7 = SWIG_AsVal_long(obj6, &val7);
+    if (!SWIG_IsOK(ecode7)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "EditableListBox_Create" "', expected argument " "7"" of type '" "long""'");
+    } 
+    arg7 = static_cast< long >(val7);
+  }
+  if (obj7) {
+    {
+      arg8 = wxString_in_helper(obj7);
+      if (arg8 == NULL) SWIG_fail;
+      temp8 = true;
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp4)
+    delete arg4;
+  }
+  {
+    if (temp8)
+    delete arg8;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp4)
+    delete arg4;
+  }
+  {
+    if (temp8)
+    delete arg8;
   }
   return NULL;
 }
@@ -11507,6 +11643,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DynamicSashWindow_swigregister", DynamicSashWindow_swigregister, METH_VARARGS, NULL},
 	 { (char *)"DynamicSashWindow_swiginit", DynamicSashWindow_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_EditableListBox", (PyCFunction) _wrap_new_EditableListBox, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"new_PreEditableListBox", (PyCFunction)_wrap_new_PreEditableListBox, METH_NOARGS, NULL},
+	 { (char *)"EditableListBox_Create", (PyCFunction) _wrap_EditableListBox_Create, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"EditableListBox_SetStrings", (PyCFunction) _wrap_EditableListBox_SetStrings, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"EditableListBox_GetStrings", (PyCFunction)_wrap_EditableListBox_GetStrings, METH_O, NULL},
 	 { (char *)"EditableListBox_GetListCtrl", (PyCFunction)_wrap_EditableListBox_GetListCtrl, METH_O, NULL},
@@ -13468,6 +13606,7 @@ static void *_p_wxUpdateUIEventTo_p_wxCommandEvent(void *x) {
     return (void *)((wxCommandEvent *)  ((wxUpdateUIEvent *) x));
 }
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_double = {"_p_double", "double *|wxDouble *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_float = {"_p_float", "float *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_form_ops_t = {"_p_form_ops_t", "enum form_ops_t *|form_ops_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
@@ -13708,6 +13847,7 @@ static swig_type_info _swigt__p_wxWindow = {"_p_wxWindow", "wxWindow *", 0, 0, (
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_char,
+  &_swigt__p_double,
   &_swigt__p_float,
   &_swigt__p_form_ops_t,
   &_swigt__p_int,
@@ -13948,6 +14088,7 @@ static swig_type_info *swig_type_initial[] = {
 };
 
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_float[] = {  {&_swigt__p_float, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_form_ops_t[] = {  {&_swigt__p_form_ops_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
@@ -14188,6 +14329,7 @@ static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxToolbook, _p_wxToo
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_char,
+  _swigc__p_double,
   _swigc__p_float,
   _swigc__p_form_ops_t,
   _swigc__p_int,
@@ -14939,6 +15081,8 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "EL_ALLOW_NEW",SWIG_From_int(static_cast< int >(wxEL_ALLOW_NEW)));
   SWIG_Python_SetConstant(d, "EL_ALLOW_EDIT",SWIG_From_int(static_cast< int >(wxEL_ALLOW_EDIT)));
   SWIG_Python_SetConstant(d, "EL_ALLOW_DELETE",SWIG_From_int(static_cast< int >(wxEL_ALLOW_DELETE)));
+  SWIG_Python_SetConstant(d, "EL_NO_REORDER",SWIG_From_int(static_cast< int >(wxEL_NO_REORDER)));
+  SWIG_Python_SetConstant(d, "EL_DEFAULT_STYLE",SWIG_From_int(static_cast< int >(wxEL_DEFAULT_STYLE)));
   SWIG_Python_SetConstant(d, "LED_ALIGN_LEFT",SWIG_From_int(static_cast< int >(wxLED_ALIGN_LEFT)));
   SWIG_Python_SetConstant(d, "LED_ALIGN_RIGHT",SWIG_From_int(static_cast< int >(wxLED_ALIGN_RIGHT)));
   SWIG_Python_SetConstant(d, "LED_ALIGN_CENTER",SWIG_From_int(static_cast< int >(wxLED_ALIGN_CENTER)));

@@ -433,6 +433,10 @@ class TopLevelWindow(_core.Window):
         """MacGetMetalAppearance(self) -> bool"""
         return _windows_.TopLevelWindow_MacGetMetalAppearance(*args, **kwargs)
 
+    def MacGetUnifiedAppearance(*args, **kwargs):
+        """MacGetUnifiedAppearance(self) -> bool"""
+        return _windows_.TopLevelWindow_MacGetUnifiedAppearance(*args, **kwargs)
+
     def CenterOnScreen(*args, **kwargs):
         """
         CenterOnScreen(self, int dir=BOTH)
@@ -520,6 +524,10 @@ class Frame(TopLevelWindow):
     def GetMenuBar(*args, **kwargs):
         """GetMenuBar(self) -> MenuBar"""
         return _windows_.Frame_GetMenuBar(*args, **kwargs)
+
+    def FindItemInMenuBar(*args, **kwargs):
+        """FindItemInMenuBar(self, int menuId) -> MenuItem"""
+        return _windows_.Frame_FindItemInMenuBar(*args, **kwargs)
 
     def ProcessCommand(*args, **kwargs):
         """ProcessCommand(self, int winid) -> bool"""
@@ -1818,9 +1826,9 @@ class VarScrollHelperBase(object):
         """EnablePhysicalScrolling(self, bool scrolling=True)"""
         return _windows_.VarScrollHelperBase_EnablePhysicalScrolling(*args, **kwargs)
 
-    def HitTest(*args, **kwargs):
-        """HitTest(self, int coord) -> int"""
-        return _windows_.VarScrollHelperBase_HitTest(*args, **kwargs)
+    def VirtualHitTest(*args, **kwargs):
+        """VirtualHitTest(self, int coord) -> int"""
+        return _windows_.VarScrollHelperBase_VirtualHitTest(*args, **kwargs)
 
     def RefreshAll(*args, **kwargs):
         """RefreshAll(self)"""
@@ -1995,9 +2003,9 @@ class VarHVScrollHelper(VarVScrollHelper,VarHScrollHelper):
         """RefreshRowsColumns(self, Position from, Position to)"""
         return _windows_.VarHVScrollHelper_RefreshRowsColumns(*args, **kwargs)
 
-    def HitTest(*args, **kwargs):
-        """HitTest(self, Point pos) -> Position"""
-        return _windows_.VarHVScrollHelper_HitTest(*args, **kwargs)
+    def VirtualHitTest(*args, **kwargs):
+        """VirtualHitTest(self, Point pos) -> Position"""
+        return _windows_.VarHVScrollHelper_VirtualHitTest(*args, **kwargs)
 
     def ScrollLayout(*args, **kwargs):
         """ScrollLayout(self) -> bool"""
@@ -2127,14 +2135,6 @@ class HScrolledWindow(Panel,VarHScrollHelper):
             Size size=DefaultSize, long style=0, String name=PanelNameStr) -> bool
         """
         return _windows_.HScrolledWindow_Create(*args, **kwargs)
-
-    def HitTest(*args, **kwargs):
-        """
-        HitTest(self, Point pt) -> int
-
-        Test where the given (in client coords) point lies
-        """
-        return _windows_.HScrolledWindow_HitTest(*args, **kwargs)
 
     def GetColumnsWidth(*args, **kwargs):
         """GetColumnsWidth(self, size_t columnMin, size_t columnMax) -> int"""
@@ -3189,6 +3189,30 @@ class MessageDialog(Dialog):
         _windows_.MessageDialog_swiginit(self,_windows_.new_MessageDialog(*args, **kwargs))
         self._setOORInfo(self)
 
+    def SetYesNoLabels(*args, **kwargs):
+        """SetYesNoLabels(self, String yes, String no) -> bool"""
+        return _windows_.MessageDialog_SetYesNoLabels(*args, **kwargs)
+
+    def SetYesNoCancelLabels(*args, **kwargs):
+        """SetYesNoCancelLabels(self, String yes, String no, String cancel) -> bool"""
+        return _windows_.MessageDialog_SetYesNoCancelLabels(*args, **kwargs)
+
+    def SetOKLabel(*args, **kwargs):
+        """SetOKLabel(self, String ok) -> bool"""
+        return _windows_.MessageDialog_SetOKLabel(*args, **kwargs)
+
+    def SetOKCancelLabels(*args, **kwargs):
+        """SetOKCancelLabels(self, String ok, String cancel) -> bool"""
+        return _windows_.MessageDialog_SetOKCancelLabels(*args, **kwargs)
+
+    def SetMessage(*args, **kwargs):
+        """SetMessage(self, String message)"""
+        return _windows_.MessageDialog_SetMessage(*args, **kwargs)
+
+    def SetExtendedMessage(*args, **kwargs):
+        """SetExtendedMessage(self, String extendedMessage)"""
+        return _windows_.MessageDialog_SetExtendedMessage(*args, **kwargs)
+
 _windows_.MessageDialog_swigregister(MessageDialog)
 
 PD_AUTO_HIDE = _windows_.PD_AUTO_HIDE
@@ -3801,7 +3825,8 @@ class PyPanel(Panel):
     def __init__(self, *args, **kwargs): 
         """
         __init__(self, Window parent, int id=-1, Point pos=DefaultPosition, 
-            Size size=DefaultSize, long style=0, String name=PanelNameStr) -> PyPanel
+            Size size=DefaultSize, long style=wxTAB_TRAVERSAL|wxNO_BORDER, 
+            String name=PanelNameStr) -> PyPanel
         """
         _windows_.PyPanel_swiginit(self,_windows_.new_PyPanel(*args, **kwargs))
         self._setOORInfo(self);PyPanel._setCallbackInfo(self, self, PyPanel)
@@ -3978,7 +4003,8 @@ class PyScrolledWindow(ScrolledWindow):
     def __init__(self, *args, **kwargs): 
         """
         __init__(self, Window parent, int id=-1, Point pos=DefaultPosition, 
-            Size size=DefaultSize, long style=0, String name=PanelNameStr) -> PyScrolledWindow
+            Size size=DefaultSize, long style=wxHSCROLL|wxVSCROLL, 
+            String name=PanelNameStr) -> PyScrolledWindow
         """
         _windows_.PyScrolledWindow_swiginit(self,_windows_.new_PyScrolledWindow(*args, **kwargs))
         self._setOORInfo(self);PyScrolledWindow._setCallbackInfo(self, self, PyScrolledWindow)

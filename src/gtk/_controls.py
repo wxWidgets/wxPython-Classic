@@ -79,9 +79,10 @@ class Button(_core.Control):
 
         Create and show a button.  The preferred way to create standard
         buttons is to use a standard ID and an empty label.  In this case
-        wxWigets will automatically use a stock label that coresponds to the
-        ID given.  In additon, the button will be decorated with stock icons
-        under GTK+ 2.
+        wxWigets will automatically use a stock label that corresponds to the
+        ID given.  These labels may vary across platforms as the platform
+        itself will provide the label if possible.  In addition, the button
+        will be decorated with stock icons under GTK+ 2.
         """
         _controls_.Button_swiginit(self,_controls_.new_Button(*args, **kwargs))
         self._setOORInfo(self)
@@ -1185,6 +1186,15 @@ class StaticText(_core.Control):
         return _controls_.StaticText_EscapeMarkup(*args, **kwargs)
 
     EscapeMarkup = staticmethod(EscapeMarkup)
+    def GetLabelText(*args, **kwargs):
+        """
+        GetLabelText(self) -> String
+
+        Get the string without mnemonic characters ('&') and without markup (if
+        wxST_MARKUP is being used)
+        """
+        return _controls_.StaticText_GetLabelText(*args, **kwargs)
+
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -1363,7 +1373,11 @@ class ListBox(_core.ControlWithItems):
         return _controls_.ListBox_InsertItems(*args, **kwargs)
 
     def Set(*args, **kwargs):
-        """Set(self, wxArrayString items)"""
+        """
+        Set(self, List strings)
+
+        Replace all the items in the control
+        """
         return _controls_.ListBox_Set(*args, **kwargs)
 
     def IsSelected(*args, **kwargs):
@@ -1414,10 +1428,6 @@ class ListBox(_core.ControlWithItems):
     def AppendAndEnsureVisible(*args, **kwargs):
         """AppendAndEnsureVisible(self, String s)"""
         return _controls_.ListBox_AppendAndEnsureVisible(*args, **kwargs)
-
-    def IsSorted(*args, **kwargs):
-        """IsSorted(self) -> bool"""
-        return _controls_.ListBox_IsSorted(*args, **kwargs)
 
     def HitTest(*args, **kwargs):
         """
@@ -2679,10 +2689,6 @@ class Slider(_core.Control):
         """SetValue(self, int value)"""
         return _controls_.Slider_SetValue(*args, **kwargs)
 
-    def SetRange(*args, **kwargs):
-        """SetRange(self, int minValue, int maxValue)"""
-        return _controls_.Slider_SetRange(*args, **kwargs)
-
     def GetMin(*args, **kwargs):
         """GetMin(self) -> int"""
         return _controls_.Slider_GetMin(*args, **kwargs)
@@ -2698,6 +2704,13 @@ class Slider(_core.Control):
     def SetMax(*args, **kwargs):
         """SetMax(self, int maxValue)"""
         return _controls_.Slider_SetMax(*args, **kwargs)
+
+    def SetRange(*args, **kwargs):
+        """SetRange(self, int minValue, int maxValue)"""
+        return _controls_.Slider_SetRange(*args, **kwargs)
+
+    def GetRange(self):
+        return self.GetMin(), self.GetMax()
 
     def SetLineSize(*args, **kwargs):
         """SetLineSize(self, int lineSize)"""
@@ -3649,6 +3662,14 @@ class ToolBarToolBase(_core.Object):
         """Attach(self, ToolBarBase tbar)"""
         return _controls_.ToolBarToolBase_Attach(*args, **kwargs)
 
+    def SetDropdownMenu(*args, **kwargs):
+        """SetDropdownMenu(self, Menu menu)"""
+        return _controls_.ToolBarToolBase_SetDropdownMenu(*args, **kwargs)
+
+    def GetDropdownMenu(*args, **kwargs):
+        """GetDropdownMenu(self) -> Menu"""
+        return _controls_.ToolBarToolBase_GetDropdownMenu(*args, **kwargs)
+
     def GetClientData(*args, **kwargs):
         """GetClientData(self) -> PyObject"""
         return _controls_.ToolBarToolBase_GetClientData(*args, **kwargs)
@@ -3994,6 +4015,10 @@ class ToolBarBase(_core.Control):
     def GetToolsCount(*args, **kwargs):
         """GetToolsCount(self) -> size_t"""
         return _controls_.ToolBarBase_GetToolsCount(*args, **kwargs)
+
+    def SetDropdownMenu(*args, **kwargs):
+        """SetDropdownMenu(self, int toolid, Menu menu) -> bool"""
+        return _controls_.ToolBarBase_SetDropdownMenu(*args, **kwargs)
 
     Margins = property(GetMargins,SetMargins,doc="See `GetMargins` and `SetMargins`") 
     MaxCols = property(GetMaxCols,doc="See `GetMaxCols`") 

@@ -129,6 +129,8 @@ EVT_DYNAMIC_SASH_UNIFY = wx.PyEventBinder( wxEVT_DYNAMIC_SASH_UNIFY, 1 )
 EL_ALLOW_NEW = _gizmos.EL_ALLOW_NEW
 EL_ALLOW_EDIT = _gizmos.EL_ALLOW_EDIT
 EL_ALLOW_DELETE = _gizmos.EL_ALLOW_DELETE
+EL_NO_REORDER = _gizmos.EL_NO_REORDER
+EL_DEFAULT_STYLE = _gizmos.EL_DEFAULT_STYLE
 class EditableListBox(_windows.Panel):
     """Proxy of C++ EditableListBox class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -137,11 +139,18 @@ class EditableListBox(_windows.Panel):
         """
         __init__(self, Window parent, int id=-1, String label=EmptyString, 
             Point pos=DefaultPosition, Size size=DefaultSize, 
-            long style=wxEL_ALLOW_NEW|wxEL_ALLOW_EDIT|wxEL_ALLOW_DELETE, 
-            String name=EditableListBoxNameStr) -> EditableListBox
+            long style=EL_DEFAULT_STYLE, String name=EditableListBoxNameStr) -> EditableListBox
         """
         _gizmos.EditableListBox_swiginit(self,_gizmos.new_EditableListBox(*args, **kwargs))
         self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int id, String label, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=EL_DEFAULT_STYLE, 
+            String name=wxEditableListBoxNameStr) -> bool
+        """
+        return _gizmos.EditableListBox_Create(*args, **kwargs)
 
     def SetStrings(*args, **kwargs):
         """SetStrings(self, wxArrayString strings)"""
@@ -183,6 +192,11 @@ class EditableListBox(_windows.Panel):
     Strings = property(GetStrings,SetStrings,doc="See `GetStrings` and `SetStrings`") 
     UpButton = property(GetUpButton,doc="See `GetUpButton`") 
 _gizmos.EditableListBox_swigregister(EditableListBox)
+
+def PreEditableListBox(*args, **kwargs):
+    """PreEditableListBox() -> EditableListBox"""
+    val = _gizmos.new_PreEditableListBox(*args, **kwargs)
+    return val
 
 class RemotelyScrolledTreeCtrl(_controls.TreeCtrl):
     """Proxy of C++ RemotelyScrolledTreeCtrl class"""
