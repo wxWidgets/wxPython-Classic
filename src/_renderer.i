@@ -275,6 +275,12 @@ The flags parameter may be:
     
     
     DocDeclStr(
+        virtual void , DrawFocusRect(wxWindow* win, wxDC& dc, const wxRect& rect, int flags = 0),
+        "Draw the focus rectangle around the label contained in the given rect.
+Only wxCONTROL_SELECTED makes sense in flags here", "");
+    
+
+    DocDeclStr(
         virtual wxSplitterRenderParams , GetSplitterParams(const wxWindow *win),
         "Get the splitter parameters, see `wx.SplitterRenderParams`.", "");
     

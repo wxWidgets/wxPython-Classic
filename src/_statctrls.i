@@ -148,6 +148,16 @@ string using the corresponding entities (&lt; &gt; &quot; &apos;
 &amp;)", "");
     
 
+    DocDeclStr(
+        virtual wxString , GetLabelText() const,
+        "Get the string without mnemonic characters ('&') and without markup (if
+wxST_MARKUP is being used)", "");
+    
+
+    // get the string without mnemonic characters ('&') and without markup
+    // TODO: static wxString GetLabelText(const wxString& label);
+
+
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
 };

@@ -80,6 +80,12 @@ wxEventType wxNewEventType();
 %constant wxEventType wxEVT_KILL_FOCUS;
 %constant wxEventType wxEVT_CHILD_FOCUS;
 %constant wxEventType wxEVT_MOUSEWHEEL;
+%constant wxEventType wxEVT_AUX1_DOWN;
+%constant wxEventType wxEVT_AUX1_UP;
+%constant wxEventType wxEVT_AUX1_DCLICK;
+%constant wxEventType wxEVT_AUX2_DOWN;
+%constant wxEventType wxEVT_AUX2_UP;
+%constant wxEventType wxEVT_AUX2_DCLICK;
 
 // Non-client mouse events
 %constant wxEventType wxEVT_NC_LEFT_DOWN;
@@ -175,6 +181,8 @@ wxEventType wxNewEventType();
 %constant wxEventType wxEVT_UPDATE_UI;
 %constant wxEventType wxEVT_SIZING;
 %constant wxEventType wxEVT_MOVING;
+%constant wxEventType wxEVT_MOVE_START;
+%constant wxEventType wxEVT_MOVE_END;
 %constant wxEventType wxEVT_HIBERNATE;
 
 %constant wxEventType wxEVT_COMMAND_TEXT_COPY;
@@ -201,6 +209,8 @@ EVT_SIZE = wx.PyEventBinder( wxEVT_SIZE )
 EVT_SIZING = wx.PyEventBinder( wxEVT_SIZING )
 EVT_MOVE = wx.PyEventBinder( wxEVT_MOVE )
 EVT_MOVING = wx.PyEventBinder( wxEVT_MOVING )
+EVT_MOVE_START = wx.PyEventBinder( wxEVT_MOVE_START )
+EVT_MOVE_END = wx.PyEventBinder( wxEVT_MOVE_END )
 EVT_CLOSE = wx.PyEventBinder( wxEVT_CLOSE_WINDOW )
 EVT_END_SESSION = wx.PyEventBinder( wxEVT_END_SESSION )
 EVT_QUERY_END_SESSION = wx.PyEventBinder( wxEVT_QUERY_END_SESSION )
@@ -238,7 +248,7 @@ EVT_WINDOW_CREATE = wx.PyEventBinder( wxEVT_CREATE )
 EVT_WINDOW_DESTROY = wx.PyEventBinder( wxEVT_DESTROY )
 EVT_SET_CURSOR = wx.PyEventBinder( wxEVT_SET_CURSOR )
 EVT_MOUSE_CAPTURE_CHANGED = wx.PyEventBinder( wxEVT_MOUSE_CAPTURE_CHANGED )
-EVT_MOUSE_CAPTURE_LOST = wx.PyEventBinder( wxEVT_MOUSE_CAPTURE_LOST )         
+EVT_MOUSE_CAPTURE_LOST = wx.PyEventBinder( wxEVT_MOUSE_CAPTURE_LOST )
 
 EVT_LEFT_DOWN = wx.PyEventBinder( wxEVT_LEFT_DOWN )
 EVT_LEFT_UP = wx.PyEventBinder( wxEVT_LEFT_UP )
@@ -253,20 +263,32 @@ EVT_RIGHT_DCLICK = wx.PyEventBinder( wxEVT_RIGHT_DCLICK )
 EVT_LEAVE_WINDOW = wx.PyEventBinder( wxEVT_LEAVE_WINDOW )
 EVT_ENTER_WINDOW = wx.PyEventBinder( wxEVT_ENTER_WINDOW )
 EVT_MOUSEWHEEL = wx.PyEventBinder( wxEVT_MOUSEWHEEL )
+EVT_MOUSE_AUX1_DOWN = wx.PyEventBinder( wxEVT_AUX1_DOWN )
+EVT_MOUSE_AUX1_UP = wx.PyEventBinder( wxEVT_AUX1_UP )
+EVT_MOUSE_AUX1_DCLICK = wx.PyEventBinder( wxEVT_AUX1_DCLICK )
+EVT_MOUSE_AUX2_DOWN = wx.PyEventBinder( wxEVT_AUX2_DOWN )
+EVT_MOUSE_AUX2_UP = wx.PyEventBinder( wxEVT_AUX2_UP )
+EVT_MOUSE_AUX2_DCLICK = wx.PyEventBinder( wxEVT_AUX2_DCLICK )
 
 EVT_MOUSE_EVENTS = wx.PyEventBinder([ wxEVT_LEFT_DOWN,
-                                     wxEVT_LEFT_UP,
-                                     wxEVT_MIDDLE_DOWN,
-                                     wxEVT_MIDDLE_UP,
-                                     wxEVT_RIGHT_DOWN,
-                                     wxEVT_RIGHT_UP,
-                                     wxEVT_MOTION,
-                                     wxEVT_LEFT_DCLICK,
-                                     wxEVT_MIDDLE_DCLICK,
-                                     wxEVT_RIGHT_DCLICK,
-                                     wxEVT_ENTER_WINDOW,
-                                     wxEVT_LEAVE_WINDOW,
-                                     wxEVT_MOUSEWHEEL
+                                      wxEVT_LEFT_UP,
+                                      wxEVT_MIDDLE_DOWN,
+                                      wxEVT_MIDDLE_UP,
+                                      wxEVT_RIGHT_DOWN,
+                                      wxEVT_RIGHT_UP,
+                                      wxEVT_MOTION,
+                                      wxEVT_LEFT_DCLICK,
+                                      wxEVT_MIDDLE_DCLICK,
+                                      wxEVT_RIGHT_DCLICK,
+                                      wxEVT_ENTER_WINDOW,
+                                      wxEVT_LEAVE_WINDOW,
+                                      wxEVT_MOUSEWHEEL,
+                                      wxEVT_AUX1_DOWN,
+                                      wxEVT_AUX1_UP,      
+                                      wxEVT_AUX1_DCLICK,
+                                      wxEVT_AUX2_DOWN,  
+                                      wxEVT_AUX2_UP,      
+                                      wxEVT_AUX2_DCLICK,
                                      ])
 
 
@@ -833,11 +855,14 @@ Events
 // the symbolic names for the mouse buttons
 enum
 {
-    wxMOUSE_BTN_ANY     = -1,
-    wxMOUSE_BTN_NONE    = -1,
-    wxMOUSE_BTN_LEFT    = 0,
-    wxMOUSE_BTN_MIDDLE  = 1,
-    wxMOUSE_BTN_RIGHT   = 2
+    wxMOUSE_BTN_ANY,
+    wxMOUSE_BTN_NONE,
+    wxMOUSE_BTN_LEFT,
+    wxMOUSE_BTN_MIDDLE,
+    wxMOUSE_BTN_RIGHT,
+    wxMOUSE_BTN_AUX1,
+    wxMOUSE_BTN_AUX2,
+    wxMOUSE_BTN_MAX
 };
 
 
@@ -966,6 +991,13 @@ and Macs this is the same as `MetaDown`.", "");
         bool , RightDown() const,
         "Returns true if the right mouse button state changed to down.", "");
 
+    DocDeclStr(
+        bool , Aux1Down() const,
+        "Returns true if the AUX1 mouse button state changed to down.", "");
+    
+    DocDeclStr(
+        bool , Aux2Down() const,
+        "Returns true if the AUX2 mouse button state changed to down.", "");
 
 
     DocDeclStr(
@@ -980,6 +1012,13 @@ and Macs this is the same as `MetaDown`.", "");
         bool , RightUp() const,
         "Returns true if the right mouse button state changed to up.", "");
 
+    DocDeclStr(
+        bool , Aux1Up() const,
+        "Returns true if the AUX1  mouse button state changed to up.", "");
+    
+    DocDeclStr(
+        bool , Aux2Up() const,
+        "Returns true if the AUX2 mouse button state changed to up.", "");    
 
 
 
@@ -995,6 +1034,13 @@ and Macs this is the same as `MetaDown`.", "");
         bool , RightDClick() const,
         "Returns true if the event was a right button double click.", "");
 
+    DocDeclStr(
+        bool , Aux1DClick() const,
+        "Returns true if the event was a AUX2 button double click.", "");
+    
+    DocDeclStr(
+        bool , Aux2DClick() const,
+        "Returns true if the event was a AUX2 button double click.", "");    
 
 
     DocDeclStr(
@@ -1021,6 +1067,15 @@ of the current event type.", "");
 of the current event type.", "");
 
 
+    DocDeclStr(
+        bool , Aux1IsDown() const,
+        "Returns true if the AUX1 mouse button is currently down, independent
+of the current event type.", "");
+    
+    DocDeclStr(
+        bool , Aux2IsDown() const,
+        "Returns true if the AUX2 mouse button is currently down, independent
+of the current event type.", "");
 
     DocDeclStr(
         bool , Dragging() const,
@@ -1114,6 +1169,8 @@ public:
     bool          m_leftDown;
     bool          m_middleDown;
     bool          m_rightDown;
+    bool          m_aux1Down;
+    bool          m_aux2Down;
 
     bool          m_controlDown;
     bool          m_shiftDown;
@@ -2552,19 +2609,6 @@ The mode can be one of the following values:
         "Static method returning a value specifying how wxWidgets will send
 idle events: to all windows, or only to those which specify that they
 will process the events.", "");
-
-
-    DocDeclStr(
-        static bool , CanSend(wxWindow* win),
-        "Returns ``True`` if it is appropriate to send idle events to this
-window.
-
-This function looks at the mode used (see `wx.IdleEvent.SetMode`), and
-the wx.WS_EX_PROCESS_IDLE style in window to determine whether idle
-events should be sent to this window now. By default this will always
-return ``True`` because the update mode is initially
-wx.IDLE_PROCESS_ALL. You can change the mode to only send idle events
-to windows with the wx.WS_EX_PROCESS_IDLE extra window style set.", "");
 
 };
 

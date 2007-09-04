@@ -67,23 +67,23 @@ public:
     DEC_PYCALLBACK_STRING_STRINGINT_pure(FindFirst);
     DEC_PYCALLBACK_STRING__pure(FindNext);
 
-    wxString GetProtocol(const wxString& location) {
+    static wxString GetProtocol(const wxString& location) {
         return wxFileSystemHandler::GetProtocol(location);
     }
 
-    wxString GetLeftLocation(const wxString& location) {
+    static wxString GetLeftLocation(const wxString& location) {
         return wxFileSystemHandler::GetLeftLocation(location);
     }
 
-    wxString GetAnchor(const wxString& location) {
+    static wxString GetAnchor(const wxString& location) {
         return wxFileSystemHandler::GetAnchor(location);
     }
 
-    wxString GetRightLocation(const wxString& location) {
+    static wxString GetRightLocation(const wxString& location) {
         return wxFileSystemHandler::GetRightLocation(location);
     }
 
-    wxString GetMimeTypeFromExt(const wxString& location) {
+    static wxString GetMimeTypeFromExt(const wxString& location) {
         return wxFileSystemHandler::GetMimeTypeFromExt(location);
     }
 

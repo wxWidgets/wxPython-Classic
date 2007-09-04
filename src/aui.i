@@ -142,6 +142,7 @@ The following example shows a simple implementation that utilizes
 #define wxABI_VERSION 99999
 
 #define WXDLLIMPEXP_AUI
+#define WXDLLIMPEXP_FWD_AUI
 #define unsigned
 #define wxDEPRECATED(decl)
 #define DECLARE_EVENT_TABLE()

@@ -138,7 +138,6 @@ public:
 
     
     %extend {
-        //KeepGIL(__eq__);
         DocStr(__eq__, "Test for equality of wx.Size objects.", "");
         bool __eq__(PyObject* other) {
             wxSize  temp, *obj = &temp;
@@ -147,11 +146,10 @@ public:
                 PyErr_Clear();
                 return false;
             }
-            return self->operator==(*obj);
+            return *self == *obj;
         }
 
         
-        //KeepGIL(__ne__);
         DocStr(__ne__, "Test for inequality of wx.Size objects.", "");
         bool __ne__(PyObject* other) {
             wxSize  temp, *obj = &temp;
@@ -160,17 +158,22 @@ public:
                 PyErr_Clear();
                 return true;
             }
-            return self->operator!=(*obj);
+            return *self != *obj;
+        }
+    
+
+        DocStr(__add__, "Add sz's proprties to this and return the result.", "");
+        wxSize __add__(const wxSize& sz) {
+            return *self + sz;
+        }
+
+        
+        DocStr(__sub__, "Subtract sz's properties from this and return the result.", "");
+        wxSize __sub__(const wxSize& sz) {
+            return *self - sz;
         }
     }
-
-    DocDeclStr(
-        wxSize, operator+(const wxSize& sz),
-        "Add sz's proprties to this and return the result.", "");
-
-    DocDeclStr(
-        wxSize, operator-(const wxSize& sz),
-        "Subtract sz's properties from this and return the result.", "");
+        
 
     DocDeclStr(
         void, IncTo(const wxSize& sz),
@@ -276,7 +279,6 @@ public:
     ~wxRealPoint();
 
     %extend {
-        //KeepGIL(__eq__);
         DocStr(__eq__, "Test for equality of wx.RealPoint objects.", "");
         bool __eq__(PyObject* other) {
             wxRealPoint  temp, *obj = &temp;
@@ -285,11 +287,10 @@ public:
                 PyErr_Clear();
                 return false;
             }
-            return self->operator==(*obj);
+            return *self == *obj;
         }
 
         
-        //KeepGIL(__ne__);
         DocStr(__ne__, "Test for inequality of wx.RealPoint objects.", "");
         bool __ne__(PyObject* other) {
             wxRealPoint  temp, *obj = &temp;
@@ -298,21 +299,21 @@ public:
                 PyErr_Clear();
                 return true;
             }
-            return self->operator!=(*obj);
+            return *self != *obj;
         }
-    }
 
-    
-    DocDeclStr(
-        wxRealPoint, operator+(const wxRealPoint& pt),
-        "Add pt's proprties to this and return the result.", "");
+        DocStr(__add__, "Add pt's proprties to this and return the result.", "");
+        wxRealPoint __add__(const wxRealPoint& pt) {
+            return *self + pt;
+        }
 
-    DocDeclStr(
-        wxRealPoint, operator-(const wxRealPoint& pt),
-        "Subtract pt's proprties from this and return the result", "");
+        
+        DocStr(__sub__, "Subtract pt's properties from this and return the result.", "");
+        wxRealPoint __sub__(const wxRealPoint& pt) {
+            return *self - pt;
+        }
 
-
-    %extend {
+        
         DocStr(Set, "Set both the x and y properties", "");
         void Set(double x, double y) {
             self->x = x;
@@ -371,7 +372,6 @@ public:
 
     
     %extend {
-        //KeepGIL(__eq__);
         DocStr(__eq__, "Test for equality of wx.Point objects.", "");
         bool __eq__(PyObject* other) {
             wxPoint  temp, *obj = &temp;
@@ -380,11 +380,10 @@ public:
                 PyErr_Clear();
                 return false;
             }
-            return self->operator==(*obj);
+            return *self == *obj; 
         }
 
         
-        //KeepGIL(__ne__);
         DocStr(__ne__, "Test for inequality of wx.Point objects.", "");
         bool __ne__(PyObject* other) {
             wxPoint  temp, *obj = &temp;
@@ -393,57 +392,21 @@ public:
                 PyErr_Clear();
                 return true;
             }
-            return self->operator!=(*obj);
+            return *self != *obj;
         }
-    }
+
+        DocStr(__add__, "Add pt's proprties to this and return the result.", "");
+        wxPoint __add__(const wxPoint& pt) {
+            return *self + pt;
+        }
+
+        
+        DocStr(__sub__, "Subtract pt's properties from this and return the result.", "");
+        wxPoint __sub__(const wxPoint& pt) {
+            return *self - pt;
+        }
 
 
-//     %nokwargs operator+;
-//     %nokwargs operator-;
-//     %nokwargs operator+=;
-//     %nokwargs operator-=;
-    
-    DocDeclStr(
-        wxPoint, operator+(const wxPoint& pt),
-        "Add pt's proprties to this and return the result.", "");
-
-   
-    DocDeclStr(
-        wxPoint, operator-(const wxPoint& pt),
-        "Subtract pt's proprties from this and return the result", "");
-
-
-    DocDeclStr(
-        wxPoint&, operator+=(const wxPoint& pt),
-        "Add pt to this object.", "");
-
-    DocDeclStr(
-        wxPoint&, operator-=(const wxPoint& pt),
-        "Subtract pt from this object.", "");
-
-
-    
-//     DocDeclStr(
-//         wxPoint, operator+(const wxSize& sz),
-//         "Add sz to this Point and return the result.", "");
-
-//     DocDeclStr(
-//         wxPoint, operator-(const wxSize& sz),
-//         "Subtract sz from this Point and return the result", "");
-
-
-//     DocDeclStr(
-//         wxPoint&, operator+=(const wxSize& sz),
-//         "Add sz to this object.", "");
-
-//     DocDeclStr(
-//         wxPoint&, operator-=(const wxSize& sz),
-//         "Subtract sz from this object.", "");
-
-
-    
-    
-    %extend {
         DocStr(Set, "Set both the x and y properties", "");
         void Set(long x, long y) {
             self->x = x;
@@ -651,16 +614,7 @@ bottom, otherwise it is moved to the left or top respectively.", "",
         "Returns the union of this rectangle and rect.", "");
     
     
-    DocDeclStr(
-        wxRect, operator+(const wxRect& rect) const,
-        "Add the properties of rect to this rectangle and return the result.", "");
-
-    DocDeclStr(
-        wxRect&, operator+=(const wxRect& rect),
-        "Add the properties of rect to this rectangle, updating this rectangle.", "");
-
     %extend {
-        //KeepGIL(__eq__);
         DocStr(__eq__, "Test for equality of wx.Rect objects.", "");
         bool __eq__(PyObject* other) {
             wxRect  temp, *obj = &temp;
@@ -669,11 +623,10 @@ bottom, otherwise it is moved to the left or top respectively.", "",
                 PyErr_Clear();
                 return false;
             }
-            return self->operator==(*obj);
+            return *self == *obj; 
         }
 
         
-        //KeepGIL(__ne__);
         DocStr(__ne__, "Test for inequality of wx.Rect objects.", "");
         bool __ne__(PyObject* other) {
             wxRect  temp, *obj = &temp;
@@ -682,9 +635,26 @@ bottom, otherwise it is moved to the left or top respectively.", "",
                 PyErr_Clear();
                 return true;
             }
-            return self->operator!=(*obj);
+            return *self != *obj;
+        }
+
+
+        DocStr(__add__, "Add rect's proprties to this and return the result.", "");
+        wxRect __add__(const wxRect& rect) {
+            return *self + rect;
+        }
+
+        
+        DocStr(__mul__, "Calculate the intersection of the rectangles and return the result.", "");
+        wxRect __mul__(const wxRect& rect) {
+            return *self * rect;
         }
     }
+
+    
+    DocDeclStr(
+        wxRect&, operator+=(const wxRect& rect),
+        "Add the properties of rect to this rectangle, updating this rectangle.", "");
 
     
     DocStr( Contains, "Return True if the point is inside the rect.", "");

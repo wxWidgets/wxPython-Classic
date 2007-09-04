@@ -48,7 +48,9 @@ MustHaveApp(wxStyledTextCtrl);
 
 #define wxUSE_STC 1
 #define WXDLLIMPEXP_STC
+#define WXDLLIMPEXP_FWD_STC
 #define WXDLLIMPEXP_CORE
+#define WXDLLIMPEXP_FWD_CORE
 %include stc.h
 
 

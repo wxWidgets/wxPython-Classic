@@ -381,6 +381,8 @@ public:
     bool        LeftDown();
     bool        MiddleDown();
     bool        RightDown();
+    bool        Aux1Down();
+    bool        Aux2Down();
 
     bool        ControlDown();
     bool        ShiftDown();
@@ -394,6 +396,8 @@ public:
     void        SetLeftDown(bool down);
     void        SetMiddleDown(bool down);
     void        SetRightDown(bool down);
+    void        SetAux1Down(bool down);
+    void        SetAux2Down(bool down);
     
     void        SetControlDown(bool down);
     void        SetShiftDown(bool down);
@@ -406,6 +410,8 @@ public:
         leftDown = property(LeftDown, SetLeftDown)
         middleDown = property(MiddleDown, SetMiddleDown)
         rightDown = property(RightDown, SetRightDown)
+        aux1Down = property(Aux1Down, SetAux1Down)
+        aux2Down = property(Aux2Down, SetAux2Down)            
         controlDown = property(ControlDown, SetControlDown)
         shiftDown = property(ShiftDown, SetShiftDown)
         altDown = property(AltDown, SetAltDown)

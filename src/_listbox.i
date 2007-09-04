@@ -132,9 +132,6 @@ public:
     // listbox and ensures that it is visible i.e. not scrolled out of view
     void AppendAndEnsureVisible(const wxString& s);
 
-    // return True if this listbox is sorted
-    bool IsSorted() const;
-
     // return the index of the item at this position or wxNOT_FOUND
     int HitTest(const wxPoint& pt) const;
 

@@ -108,14 +108,17 @@ public:
 
     void _setCallbackInfo(PyObject* self, PyObject* _class, int incref=0);
 
-    %pythonPrepend Destroy "args[0].this.own(False)";
-    %extend {
-        void Destroy() {
-            self->RemoveIcon();
-            delete self;
-        }
-    }
+//     %pythonPrepend Destroy "args[0].this.own(False)";
+//     %extend {
+//         void Destroy() {
+//             self->RemoveIcon();
+//             delete self;
+//         }
+//     }
 
+    // now has its own delayed desrtuction, like top-level windows
+    void Destroy();
+    
     bool IsOk() const;
     %pythoncode { def __nonzero__(self): return self.IsOk() }
 

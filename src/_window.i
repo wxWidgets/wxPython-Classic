@@ -888,15 +888,7 @@ by default so that the default look and feel is simulated best.", "");
         "Return the themeEnabled flag.", "");
     
 
-// TODO with directors    
-//     // controls by default inherit the colours of their parents, if a
-//     // particular control class doesn't want to do it, it can override
-//     // ShouldInheritColours() to return False
-//     virtual bool ShouldInheritColours() const;
-
-
-
-    
+   
 
     // focus and keyboard handling
     // ---------------------------
@@ -2093,7 +2085,22 @@ The base class version returns false, but this method is overridden in
 wxControl where it returns true.", "");
     
 
+    // returns true if the window can be positioned outside of parent's client
+    // area (normal windows can't, but e.g. menubar or statusbar can):
+    virtual bool CanBeOutsideClientArea() const;
 
+    // returns true if the platform should explicitly apply a theme border
+    virtual bool CanApplyThemeBorder() const;
+    
+//     // this allows you to implement standard control borders without
+//     // repeating the code in different classes that are not derived from
+//     // wxControl
+//     virtual wxBorder GetDefaultBorderForControl() const;
+
+//     // choose the default border for this window
+//     virtual wxBorder GetDefaultBorder() const;
+
+    
     DocDeclStr(
         virtual bool , CanSetTransparent(),
         "Returns ``True`` if the platform supports setting the transparency for

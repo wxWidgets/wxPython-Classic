@@ -184,6 +184,21 @@ optionally associating some data object with the item.", "");
                 return self->Insert(item, pos);
         }
     }
+
+    
+    DocDeclAStrName(
+        int , Insert(const wxArrayString& items, /*unsigned*/ int pos),
+        "InsertItems(self, List strings, int pos) --> int",
+        "Inserts several items at once into the control.  Returns the index of
+the last item inserted.", "",
+        InsertItems);
+
+    
+    DocDeclAStr(
+        void , Set(const wxArrayString& items),
+        "Set(self, List strings)",
+        "Replace all the items in the control", "");
+    
     
     
     DocDeclStr(
@@ -223,6 +238,11 @@ than the number of items in the control.", "");
     }
 
 
+    DocDeclStr(
+        bool , HasClientData() const,
+        "", "");
+    
+    
     
     DocDeclStr(
         virtual /*unsigned*/ int , GetCount() const,
@@ -238,6 +258,11 @@ than the number of items in the control.", "");
     
     DocDeclStr(
         wxArrayString , GetStrings() const,
+        "", "");
+
+    
+    DocDeclStr(
+        bool , IsSorted() const,
         "", "");
     
     DocDeclStr(

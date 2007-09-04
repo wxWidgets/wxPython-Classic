@@ -138,7 +138,7 @@ EVT_TIMER = wx.PyEventBinder( wxEVT_TIMER, 1 )
 class wxTimerEvent : public wxEvent
 {
 public:
-    wxTimerEvent(int timerid = 0, int interval = 0);
+    wxTimerEvent(wxTimer& timer);
     int GetInterval() const;
     wxTimer& GetTimer() const;
     

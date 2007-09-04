@@ -39,6 +39,11 @@ public:
     static void Enable(bool flag);
     static void SetDelay(long milliseconds);
 
+    // set the delay after which the tooltip disappears or how long the tooltip remains visible
+    static void SetAutoPop(long milliseconds);
+    // set the delay between subsequent tooltips to appear
+    static void SetReshow(long milliseconds);
+    
     %property(Tip, GetTip, SetTip, doc="See `GetTip` and `SetTip`");
     %property(Window, GetWindow, doc="See `GetWindow`");
 };

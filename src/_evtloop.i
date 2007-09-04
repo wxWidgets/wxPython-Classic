@@ -48,7 +48,7 @@ public:
 class wxEventLoopBase
 {
 public:
-    wxEventLoopBase();
+    // wxEventLoopBase();    *** It's an ABC, can't instantiate
     virtual ~wxEventLoop();
 
     // use this to check whether the event loop was successfully created before
@@ -80,11 +80,11 @@ public:
 };
 
 
-class wxEventLoopManual : public wxEventLoopBase
-{
-public:
-    wxEventLoopManual();
-};
+// class wxEventLoopManual : public wxEventLoopBase
+// {
+// public:
+//     wxEventLoopManual();
+// };
 
 
 class wxGUIEventLoop : public wxEventLoopBase
@@ -94,6 +94,7 @@ public:
 };
 
 
+
 %pythoncode {
     class EventLoop(GUIEventLoop):
         """Class using the old name for compatibility."""
@@ -101,10 +102,11 @@ public:
 }
 
 
+
 class wxModalEventLoop : public wxGUIEventLoop
 {
 public:
-    wxModalEventLoop(wxWindow *winModal)
+    wxModalEventLoop(wxWindow *winModal);
 };
 
 
@@ -119,6 +121,5 @@ public:
     ~wxEventLoopActivator();
 };
  
-
 
 //---------------------------------------------------------------------------

@@ -49,7 +49,7 @@ public:
     void EnablePhysicalScrolling(bool scrolling = true);
 
     // wxNOT_FOUND if none, i.e. if it is below the last item
-    virtual int HitTest(wxCoord coord) const;
+    virtual int VirtualHitTest(wxCoord coord) const;
 
     // recalculate all our parameters and redisplay all units
     virtual void RefreshAll();
