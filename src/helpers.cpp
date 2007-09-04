@@ -90,6 +90,7 @@ wxMutex*              wxPyTMutex = NULL;
 
 #define DEFAULTENCODING_SIZE 64
 static char wxPyDefaultEncoding[DEFAULTENCODING_SIZE] = "ascii";
+static bool wxPyDefaultEncodingIsUTF8 = false;
 
 static PyObject* wxPython_dict = NULL;
 static PyObject* wxPyAssertionError = NULL;
@@ -2071,6 +2072,9 @@ wxString* wxString_in_helper(PyObject* source) {
         return NULL;
     }
 #if wxUSE_UNICODE
+#if wxUSE_UNICODE_WCHAR
+    // wxString is to contain wchar_t's, so convert if needed to a Unicode
+    // object and then extract the characters.    
     PyObject* uni = source;
     if (PyString_Check(source)) {
         uni = PyUnicode_FromEncodedObject(source, wxPyDefaultEncoding, "strict");
@@ -2085,6 +2089,34 @@ wxString* wxString_in_helper(PyObject* source) {
     if (PyString_Check(source))
         Py_DECREF(uni);
 #else
+    // wxString is to contain a utf-8 encoded byte string.  If source is
+    // already a string and our default encoding is utf-8 then use it,
+    // otherwise convert to Unicode if needed and then encode to utf-8.
+    char* tmpPtr; Py_ssize_t tmpSize;
+    PyObject* str = NULL;
+    PyObject* uni = NULL;
+    if (PyString_Check(source) && wxPyDefaultEncodingIsUTF8) {
+        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+    }
+    else if (PyString_Check(source)) {
+        uni = PyUnicode_FromEncodedObject(source, wxPyDefaultEncoding, "strict");
+        if (PyErr_Occurred()) return NULL;
+        str = PyUnicode_AsUTF8String(uni);
+        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+    }
+    else {
+        str = PyUnicode_AsUTF8String(source);
+        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+    }
+    target = new wxString(tmpPtr, tmpSize);
+    Py_XDECREF(str);
+    Py_XDECREF(uni);    
+#endif // wxUSE_UNICODE_WCHAR
+#else
+    // Finally, if this is not a Unicode build then wxString will contain
+    // bytes that are copied directly from a String object without regard for
+    // encoding.
+    
     // Convert to a string object if it isn't already, then to wxString
     PyObject* str = source;
     if (PyUnicode_Check(source)) {
@@ -2107,13 +2139,17 @@ wxString* wxString_in_helper(PyObject* source) {
 }
 
 
-// Similar to above except doesn't use "new" and doesn't set an exception
+// Similar to above except doesn't use "new" and doesn't set an exception.  It
+// also allows conversion from objects that are not a String or a Unicode to
+// begin with.
 wxString Py2wxString(PyObject* source)
 {
     wxString target;
 
 #if wxUSE_UNICODE
-    // Convert to a unicode object, if not already, then to a wxString
+#if wxUSE_UNICODE_WCHAR
+    // wxString is to contain wchar_t's, so convert if needed to a Unicode
+    // object and then extract the characters.    
     PyObject* uni = source;
     if (PyString_Check(source)) {
         uni = PyUnicode_FromEncodedObject(source, wxPyDefaultEncoding, "strict");
@@ -2136,6 +2172,42 @@ wxString Py2wxString(PyObject* source)
 
     if (!PyUnicode_Check(source))
         Py_DECREF(uni);
+#else
+    // wxString is to contain a utf-8 encoded byte string.  If source is
+    // already a string and our default encoding is utf-8 then use it,
+    // otherwise convert to Unicode if needed and then encode to utf-8.
+    char* tmpPtr; Py_ssize_t tmpSize;
+    PyObject* str = NULL;
+    PyObject* uni = NULL;
+    if (PyString_Check(source) && wxPyDefaultEncodingIsUTF8) {
+        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+    }
+    else if (PyString_Check(source)) {
+        uni = PyUnicode_FromEncodedObject(source, wxPyDefaultEncoding, "strict");
+        if (PyErr_Occurred()) {
+            PyErr_Clear();
+            return wxEmptyString;
+        }
+        str = PyUnicode_AsUTF8String(uni);
+        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+    }
+    else if (!PyUnicode_Check(source)) {
+        uni = PyObject_Unicode(source); 
+        if (PyErr_Occurred()) {
+            PyErr_Clear();
+            return wxEmptyString;
+        }
+        str = PyUnicode_AsUTF8String(uni);
+        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+    }    
+    else {
+        str = PyUnicode_AsUTF8String(source);
+        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+    }
+    target = wxString(tmpPtr, tmpSize);
+    Py_XDECREF(str);
+    Py_XDECREF(uni);    
+#endif // wxUSE_UNICODE_WCHAR
 #else
     // Convert to a string object if it isn't already, then to wxString
     PyObject* str = source;
@@ -2170,9 +2242,9 @@ PyObject* wx2PyString(const wxString& src)
 {
     PyObject* str;
 #if wxUSE_UNICODE
-    str = PyUnicode_FromWideChar(src.c_str(), src.Len());
+    str = PyUnicode_FromWideChar(src.wc_str(), src.length());
 #else
-    str = PyString_FromStringAndSize(src.c_str(), src.Len());
+    str = PyString_FromStringAndSize(src.c_str(), src.length());
 #endif
     return str;
 }
@@ -2181,6 +2253,17 @@ PyObject* wx2PyString(const wxString& src)
 
 void wxSetDefaultPyEncoding(const char* encoding)
 {
+    wxPyDefaultEncodingIsUTF8 = false;
+    if ((strcmp(encoding, "utf-8") == 0) ||
+        (strcmp(encoding, "UTF-8") == 0) ||
+        (strcmp(encoding, "utf8") == 0) ||
+        (strcmp(encoding, "UTF8") == 0) ||
+        (strcmp(encoding, "utf") == 0) ||
+        (strcmp(encoding, "u8") == 0))
+        // Any other equivallent names?
+    {
+        wxPyDefaultEncodingIsUTF8 = true;
+    }
     strncpy(wxPyDefaultEncoding, encoding, DEFAULTENCODING_SIZE);
 }
 
