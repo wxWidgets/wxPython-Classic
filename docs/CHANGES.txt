@@ -88,18 +88,146 @@ the items proportions to return to the old behaviour.
 
 Added support for toolbar buttons with dropdown menus.
 
+Added support for mouse events from two auxillary mouse buttons.
 
 
 
 
 
-2.8.3.1
+2.8.4.2
 -------
-* 
+* 8-Aug-2007
+
+Added some SWIG magic that allows wx C++ lists to be exposed to
+wxPython as sequence-like wrappers around the real list, instead of
+making a Python list that is a copy of the real list as was done
+before.  These sequence-like objects support indexing, iteration,
+containment tests ("obj in seq") and index(obj), but not anything that
+would modify the sequence.  If you need to have a real list object
+like before then you can pass the sequence to Python's list() function
+to convert it.  Current functions that are affected by this are
+wx.Window.GetChildren, wx.GetTopLevelWindows, wx.Sizer.GetChildren,
+and wx.Menu.GetMenuItems.  Care should be taken to be sure that you
+don't try to use the sequence after the C++ object the list belongs to
+has been destroyed.
+
+Updated wrappers for the RichTextCtrl classes that were already
+wrapped, and added support for loading rich xml files and saving as
+HTML or XML.
+
+Added wxRoses sample from Ric Werme.
+
+Added better wrappers for wx.OutputStream and wxPython now deals with
+them similarly to how it handles wx.InputStreams.  Specifically, any
+Python file-like object can be passed where a wx.OutputStream is
+expected and the data will be written to the file object
+appropriately.
+
+Added some patches from Billy B. that improve the pySketch sample.
+
+Added patch from Chris Mellon that gives PyShell a custom context
+menu that is better integrated with the shell environment.
+
+There are now new build scripts for making the Universal binaries and
+Installer for OS X.  There is no longer any need for separate builds
+for each OS version, all builds are now Universal and work on both
+Panther and Tiger, and on PPC and i386.
+
+On the Linux side the debian and ubuntu packages will support multiple
+versions of Python if the Debian/Ubuntu release is setup to support
+more than one version.  To check which versions you can expect to get
+you can run "pyversions -s".  Also there is a new package available
+that contains a debug version of the wxPython extension modules, that
+can be used with the python-dbg package.  In addition the RPMs are now
+being built for Fedora Core 6 and Fedora Core 7.
+
+
+
+
+
+2.8.4.0
+-------
+* 14-May-2007
 
 wxGTK: Make wx.NO_BORDER style work with wx.RadioBox (patch 1525406)
 
-Update to 0.9.1 of TreeMixin.
+Update to 1.0 of TreeMixin.
+
+wx.lib.customtreectrl: Patch from Andrea that fixes the following
+problems/issues:
+
+ * ZeroDivisionError when using the Vista selection style and calling
+   SelectItem; for some strange reason, sometimes the item rect is
+   not initialized and that generates the ZeroDivisionError when
+   painting the selection rectangle;
+
+ * Added a DeleteWindow method to GenericTreeItem class, for items
+   that hold a widget next to them;
+
+ * Renamed CustomTreeCtrl method IsEnabled to IsItemEnabled, otherwise
+   it conflicts with wx.Window.IsEnabled;
+
+ * Now CustomTreeCtrl behaves correctly when the widget attached to an
+   item is narrower (in height) than the item text;
+
+
+wx.lib.flatnotebook: Patch from Andrea that implements the following:
+
+ * A new style FNB_FF2: my intentions were to make it like Firefox 2,
+   however it turned out to be an hybrid between wxAUI notebook glose
+   style & FF2 ...I still think it looks OK. The main purpose for
+   making it more like wxAUI is to allow applications that uses both
+   to have same look and feel (or as close as it can get...);
+
+ * Changed the behavior of the left/right rotation arrows to rotate
+   single tab at a time and not bulk of tabs;
+
+ * Updated the demo module.
+
+XRCed now uses a wx.FileHistory object for managing the recent files
+menu. 
+
+wx.DateSpan and wx.TimeSpan now use lower case property names in order
+to not conflict with the same named static methods that already
+existed.
+
+wx.aui.PyAuiDocArt and wx.aui.PyAuiTabArt can now be derived from in
+wxPython and plugged in to wx.AUI.
+
+XRCed has a new experimental feature to add controls by draging icons
+from the tool palette to the test window. Mouse position is tracked
+to highlight the future parent of the new item.
+
+Updates to MaskedEdit controls from Will Sadkin:
+
+  maskededit.py:
+    Added parameter option stopFieldChangeIfInvalid, which can be used to 
+    relax the validation rules for a control, but make best efforts to stop 
+    navigation out of that field should its current value be invalid.  Note: 
+    this does not prevent the value from remaining invalid if focus for the 
+    control is lost, via mousing etc.
+
+  numctrl.py, demo / MaskedNumCtrl.py:
+    In response to user request, added limitOnFieldChange feature, so that
+    out-of-bounds values can be temporarily added to the control, but should
+    navigation be attempted out of an invalid field, it will not navigate,
+    and if focus is lost on a control so limited with an invalid value, it
+    will change the value to the nearest bound.
+
+  combobox.py:
+    Added handler for EVT_COMBOBOX to address apparently inconsistent behavior
+    of control when the dropdown control is used to do a selection.
+
+  textctrl.py
+    Added support for ChangeValue() function, similar to that of the base
+    control, added in wxPython 2.7.1.1.
+
+Update to latest FloatCanvas from Chris Barker.
+
+The pywxrc tool now properly supports generating classes for menus and
+menubars, and also creating attributes for menus, menubars and menu
+items. 
+
 
 
 
