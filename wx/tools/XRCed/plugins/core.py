@@ -237,7 +237,7 @@ Manager.setTool(c, 'Panels', pos=(1,3))
 
 ### wxSplitterWindow
 
-c = Container('wxSplitterWindow', ['control', 'window'],
+c = Container('wxSplitterWindow', ['book', 'window', 'control'],
               ['pos', 'size', 'orientation', 'sashpos', 'minsize'],
               params={'orientation': params.ParamOrientation, 
                       'sashpos': params.ParamUnit, 
@@ -253,7 +253,6 @@ Manager.setTool(c, 'Panels', pos=(0,3))
 
 ### wxNotebook
 
-# Set special ParentChildGroup for notebook - notebookpage can't contain sizer
 c = SmartContainer('wxNotebook', ['book', 'window', 'control'], ['pos', 'size'], 
                    implicit_klass='notebookpage', 
                    implicit_page='NotebookPage', 
@@ -272,7 +271,6 @@ Manager.setTool(c, 'Panels', pos=(1,0))
 
 ### wxChoicebook
 
-parentChildGroups['choicebook'] = ['control', 'window', '!sizer']
 c = SmartContainer('wxChoicebook', ['book', 'window', 'control'], ['pos', 'size'],
                    implicit_klass='choicebookpage', 
                    implicit_page='ChoicebookPage', 
@@ -289,7 +287,6 @@ Manager.setTool(c, 'Panels', pos=(1,1))
 
 ### wxListbook
 
-parentChildGroups['listbook'] = ['control', 'window', '!sizer']
 c = SmartContainer('wxListbook', ['book', 'window', 'control'], ['pos', 'size'],
                    implicit_klass='listbookpage', 
                    implicit_page='ListbookPage', 
