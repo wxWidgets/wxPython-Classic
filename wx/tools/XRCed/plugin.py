@@ -67,10 +67,19 @@ def create_component(node):
     TRACE('create_component %s', name)
     comp = getattr(meta, klass)
     compClass = getattr(component, comp.klass) # get component class
-    attributes = comp.getAttribute(node, 'attributes')
+    attributesIn = comp.getAttribute(node, 'attributes')
+    # Process attr:klass pairs
+    attributes = []
+    specials = {}
+    for a in attributesIn:
+        i = a.find(':')
+        if i != -1:
+            a,kl = a[:i],a[i+1:]
+            specials[a] = getattr(component, kl)
+        attributes.append(a)
     groups = comp.getAttribute(node, 'groups')
     styles = comp.getAttribute(node, 'styles')
-    c = compClass(name, groups, attributes)
+    c = compClass(name, groups, attributes, specials=specials)
     c.hasName = bool(comp.getAttribute(node, 'has-name'))
     c.addStyles(*styles)
     Manager.register(c)
