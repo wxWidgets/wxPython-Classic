@@ -85,6 +85,29 @@
     <help>tree combined with list control</help>
     <panel>Gizmos</panel>
   </component>
+  <component class="Component" name="DynamicSashWindow" provider="Roman Rolinsky &lt;genericsoma@gmail.com&gt;">
+    <groups>
+      <item>control</item>
+    </groups>
+    <attributes>
+      <item>pos</item>
+      <item>size</item>
+    </attributes>
+    <has-name>1</has-name>
+    <styles>
+      <item>wxDS_MANAGE_SCROLLBARS</item>
+      <item>wxDS_DRAG_CORNER</item>
+    </styles>
+    <events>
+      <item>wxEVT_DYNAMIC_SASH_SPLIT</item>
+      <item>wxEVT_DYNAMIC_SASH_UNIFY</item>
+    </events>
+    <module>xh_gizmos</module>
+    <handler>DynamicSashWindowXmlHandler</handler>
+    <menu>gizmo</menu>
+    <label>dynamic sash window</label>
+    <panel>Gizmos</panel>
+  </component>
   <object class="wxPanel" name="test">
     <object class="wxBoxSizer">
       <object class="sizeritem">
@@ -99,7 +122,11 @@
       <object class="sizeritem">
         <object class="TreeListCtrl"/>
       </object>
+      <object class="sizeritem">
+        <object class="DynamicSashWindow">
+          <size>100,100</size>
+        </object>
+      </object>
     </object>
   </object>
-
 </resource>

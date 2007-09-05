@@ -1,10 +1,8 @@
 # Name:         gizmos.py
-# Purpose:      XML handlers for wx.gismos
+# Purpose:      XML handlers for wx.gismos classes
 # Author:       Roman Rolinsky <rolinsky@femagsoft.com>
 # Created:      09.07.2007
 # RCS-ID:       $Id$
-
-# Python handlers for some of the gizmos controls
 
 import wx
 import wx.xrc as xrc
@@ -127,8 +125,35 @@ class TreeListCtrlXmlHandler(xrc.XmlResourceHandler):
                                 self.GetID(),
                                 self.GetPosition(),
                                 self.GetSize(),
-                                self.GetStyle(defaults=wx.TR_DEFAULT_STYLE),
+                                self.GetStyle(),
                                 name=self.GetName())
+        
+        self.SetupWindow(w)
+        return w
+
+
+class DynamicSashWindowXmlHandler(xrc.XmlResourceHandler):
+    def __init__(self):
+        xrc.XmlResourceHandler.__init__(self)
+        # Standard styles
+        self.AddWindowStyles()
+        # Custom styles
+        self.AddStyle('wxDS_MANAGE_SCROLLBARS', gizmos.DS_MANAGE_SCROLLBARS)
+        self.AddStyle('wxDS_DRAG_CORNER', gizmos.DS_DRAG_CORNER)
+        
+    def CanHandle(self, node):
+        return self.IsOfClass(node, 'DynamicSashWindow')
+
+    # Process XML parameters and create the object
+    def DoCreateResource(self):
+        assert self.GetInstance() is None
+        
+        w = gizmos.DynamicSashWindow(self.GetParentAsWindow(),
+                                     self.GetID(),
+                                     self.GetPosition(),
+                                     self.GetSize(),
+                                     self.GetStyle(),
+                                     self.GetName())
         
         self.SetupWindow(w)
         return w
