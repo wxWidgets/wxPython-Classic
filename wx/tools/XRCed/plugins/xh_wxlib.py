@@ -40,7 +40,7 @@ class FoldPanelBarXmlHandler(xrc.XmlResourceHandler):
                              self.GetSize(),
                              self.GetStyle(),
                              self.GetStyle('exstyle'))
-        #self.SetupWindow(w)
+        self.SetupWindow(w)
         self.isInside = True
         self.CreateChildren(w, True)
         self.isInside = False
