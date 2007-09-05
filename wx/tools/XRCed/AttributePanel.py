@@ -178,6 +178,7 @@ class Panel(wx.Panel):
         if comp.events:
             # Create code page
             panel = CodePanel(self.pageCode, comp.events)
+            panel.node = node
             panels.append(panel)
             self.pageCode.SetPanel(panel)
             self.nb.AddPage(self.pageCode, 'Code')
@@ -296,7 +297,6 @@ class CodePanel(wx.Panel):
         self.SetFont(g.smallerFont())
         self.events = events
         self.checks = []
-        self.node = None
         topSizer = wx.BoxSizer(wx.HORIZONTAL)
         # Events on the left
         leftSizer = wx.BoxSizer(wx.VERTICAL)
