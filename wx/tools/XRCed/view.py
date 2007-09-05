@@ -13,6 +13,7 @@ from TestWin import TestWindow
 from tools import *
 import images
 import wx.aui
+import wx.html
 
 if wx.Platform == '__WXMAC__': # wxOSX GetSize is broken
     wx.Frame.GetSize = wx.Frame.GetClientSize
@@ -79,6 +80,14 @@ class Frame(wx.Frame):
 
         self.ID_TOOL_PASTE = wx.NewId()
         self.ID_TOOL_LOCATE = wx.NewId()
+
+        # Init HTML help
+        wx.FileSystem.AddHandler(wx.ZipFSHandler())
+        self.htmlCtrl = wx.html.HtmlHelpController()
+        programPath = os.path.dirname(sys.argv[0])
+        if not (self.htmlCtrl.AddBook(os.path.join(programPath, "xrced.htb"))) :
+            print >> sys.stderr, "Cannot load help file \"xrced.htb\""
+            self.GetMenuBar().Enable(wx.ID_HELP_CONTENTS, FALSE)        
 
         # Create toolbar
         self.tb = tb = wx.ToolBar(self, -1, style=wx.TB_FLAT | wx.TB_NODIVIDER)
@@ -254,6 +263,7 @@ class Frame(wx.Frame):
         menuBar.Append(menu, '&Move')
 
         menu = wx.Menu()                # Help menu
+        menu.Append(wx.ID_HELP_CONTENTS, '&Contents...', 'On-line help contents')
         menu.Append(wx.ID_ABOUT, '&About...', 'About XCRed')
         self.ID_README = wx.NewId()
         menu.Append(self.ID_README, '&Readme...\tF1', 'View the README file')

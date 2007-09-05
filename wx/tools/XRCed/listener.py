@@ -85,8 +85,9 @@ class _Listener:
         wx.EVT_MENU(frame, frame.ID_MOVELEFT, self.OnMoveLeft)
         wx.EVT_MENU(frame, frame.ID_MOVERIGHT, self.OnMoveRight)        
         # Help
-        wx.EVT_MENU(frame, wx.ID_ABOUT, self.OnAbout)
-        wx.EVT_MENU(frame, frame.ID_README, self.OnReadme)
+        wx.EVT_MENU(frame, wx.ID_ABOUT, self.OnHelpAbout)
+        wx.EVT_MENU(frame, wx.ID_HELP_CONTENTS, self.OnHelpContents)
+        wx.EVT_MENU(frame, frame.ID_README, self.OnHelpReadme)
         if debug:
             wx.EVT_MENU(frame, frame.ID_DEBUG_CMD, self.OnDebugCMD)
 
@@ -428,7 +429,7 @@ class _Listener:
         self.frame.menuBar.Check(self.frame.ID_AUTO_REFRESH, g.conf.autoRefresh)
         self.frame.tb.ToggleTool(self.frame.ID_AUTO_REFRESH, g.conf.autoRefresh)
 
-    def OnAbout(self, evt):
+    def OnHelpAbout(self, evt):
         str = '''\
 XRCed version %s
 
@@ -439,7 +440,10 @@ Homepage: http://xrced.sourceforge.net\
         dlg.ShowModal()
         dlg.Destroy()
 
-    def OnReadme(self, evt):
+    def OnHelpContents(self, evt):
+      self.frame.htmlCtrl.DisplayContents()
+          
+    def OnHelpReadme(self, evt):
         self.frame.ShowReadme()
 
     # Simple emulation of python command line
