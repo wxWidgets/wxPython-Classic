@@ -91,7 +91,7 @@ class Component(object):
         elif not 'image' in self.__dict__:
             self.images = []
         # Code generation data
-        self.events = []
+        self.events = kargs.get('events', [])
 
     def addStyles(self, *styles):
         self.styles.extend(styles)
