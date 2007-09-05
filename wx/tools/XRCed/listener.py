@@ -68,7 +68,7 @@ class _Listener:
         wx.EVT_MENU(frame, wx.ID_PASTE, self.OnPaste)
         wx.EVT_MENU(frame, ID.PASTE_SIBLING, self.OnPasteSibling)
         wx.EVT_MENU(frame, wx.ID_DELETE, self.OnDelete)
-        wx.EVT_MENU(frame, frame.ID_TOOL_PASTE, self.OnPaste)
+        wx.EVT_MENU(frame, frame.ID_TOOL_PASTE, self.OnToolPaste)
         wx.EVT_MENU(frame, frame.ID_LOCATE, self.OnLocate)
         wx.EVT_MENU(frame, frame.ID_TOOL_LOCATE, self.OnLocate)
         # View
@@ -365,6 +365,15 @@ class _Listener:
         g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
         Presenter.paste()
 
+    def OnToolPaste(self, evt):
+        '''ID_TOOL_PASTE handler.'''
+        state = wx.GetMouseState()
+        forceSibling = state.ControlDown()
+        forceInsert = state.ShiftDown()
+        g.Presenter.updateCreateState(forceSibling, forceInsert)
+        g.undoMan.RegisterUndo(undo.UndoGlobal()) 
+        Presenter.paste()
+
     def OnPasteSibling(self, evt):
         '''ID.PASTE_SIBLING handler.'''
         g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
@@ -375,21 +384,25 @@ class _Listener:
 
     def OnMoveUp(self, evt):
         self.inIdle = True
+        g.undoMan.RegisterUndo(undo.UndoGlobal())
         Presenter.moveUp()
         self.inIdle = False
 
     def OnMoveDown(self, evt):
         self.inIdle = True
+        g.undoMan.RegisterUndo(undo.UndoGlobal()) 
         Presenter.moveUp()
         self.inIdle = False
     
     def OnMoveLeft(self, evt):
         self.inIdle = True
+        g.undoMan.RegisterUndo(undo.UndoGlobal()) 
         Presenter.moveLeft()
         self.inIdle = False
 
     def OnMoveRight(self, evt):
         self.inIdle = True
+        g.undoMan.RegisterUndo(undo.UndoGlobal()) 
         Presenter.moveRight()
         self.inIdle = False
 
@@ -548,7 +561,8 @@ Homepage: http://xrced.sourceforge.net\
         elif evt.GetId() == self.frame.ID_MOVEDOWN:
             evt.Enable(view.tree.GetNextSibling(Presenter.item).IsOk())
         elif evt.GetId() == self.frame.ID_MOVELEFT:
-            evt.Enable(view.tree.GetItemParent(Presenter.item).IsOk())
+            evt.Enable(container is not Manager.rootComponent and \
+                       view.tree.GetItemParent(Presenter.item).IsOk())
         elif evt.GetId() == wx.ID_SAVE:
             evt.Enable(Presenter.modified)
 #        elif evt.GetId() in [self.frame.ID_SHOW_XML]:

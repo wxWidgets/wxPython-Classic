@@ -35,7 +35,7 @@ class TestWindow:
         TRACE('SetView %s %s', frame, object)
         restoreSize = False
         if self.object:
-            # Old window must be destroyed in new uses different frame
+            # Old window must be destroyed if new uses different frame
             # or is itself a toplevel window
             if not frame or frame and not self.frame:
                 # Remember old item
@@ -43,8 +43,12 @@ class TestWindow:
                     restoreSize = True
                 TRACE('Closing old frame, restoreSize=%d', restoreSize)
                 self.GetFrame().Close()
+            elif not self.frame:
+                # Destroy old object but re-use frame
+                self.object.Destroy()
         self.frame = frame
         self.object = object
+        self.isDirty = False
         object.SetDropTarget(DropTarget(object))
         if wx.Platform == '__WXMAC__':
             for ch in getAllChildren(object):

@@ -46,9 +46,9 @@ class EditableListBoxXmlHandler(xrc.XmlResourceHandler):
         # Standard styles
         self.AddWindowStyles()
         # Custom styles
-        self.AddStyle('wxLED_ALIGN_LEFT', gizmos.EL_ALLOW_NEW)
-        self.AddStyle('wxLED_ALIGN_RIGHT', gizmos.EL_ALLOW_EDIT)
-        self.AddStyle('wxLED_ALIGN_CENTER', gizmos.EL_ALLOW_DELETE)
+        self.AddStyle('wxEL_ALLOW_NEW', gizmos.EL_ALLOW_NEW)
+        self.AddStyle('wxEL_ALLOW_EDIT', gizmos.EL_ALLOW_EDIT)
+        self.AddStyle('wxEL_ALLOW_DELETE', gizmos.EL_ALLOW_DELETE)
         
     def CanHandle(self, node):
         return self.IsOfClass(node, 'EditableListBox')

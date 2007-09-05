@@ -178,6 +178,7 @@ class Component(object):
             # Top-level window creates frame itself
             frame = None
             object = res.LoadObject(view.frame, STD_NAME, self.klass)
+            object.Fit()
             testWin.size = object.GetSize()
         else:
             # Create MiniFrame to hold selected subtree
@@ -186,11 +187,9 @@ class Component(object):
                 frame = wx.MiniFrame(view.frame, -1, '%s: %s' % (self.klass, name), name=STD_NAME,
                                      style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER)
                 frame.panel = wx.Panel(frame)
-            else:                       # reuse present frame
-                testWin.object.Destroy()
             object = res.LoadObject(frame.panel, STD_NAME, self.klass)
             if not object: raise NotImplementedError
-            object.SetPosition((10,10))
+            object.SetPosition((20,20))
             object.Fit()
             if not isinstance(object, wx.Window): raise NotImplementedError
             if not testWin.frame:

@@ -555,16 +555,16 @@ class _Presenter:
         # Same module list
         res.Load('memory:test.xrc')
         object = None
+        testWin = view.testWin
         try:
             try:
                 frame, object = comp.makeTestWin(res, name)
                 if not object: return None
                 # Reset previous tree item and locate tool
-                if view.testWin.item:
-                    view.tree.SetItemBold(view.testWin.item, False)
-                view.testWin.SetView(frame, object, item)
-                view.testWin.Show()
-                view.testWin.isDirty = False
+                if testWin.item:
+                    view.tree.SetItemBold(testWin.item, False)
+                testWin.SetView(frame, object, item)
+                testWin.Show()
                 view.tree.SetItemBold(item, True)
             except NotImplementedError:
                 wx.LogError('Test window not implemented for %s' % node.getAttribute('class'))
