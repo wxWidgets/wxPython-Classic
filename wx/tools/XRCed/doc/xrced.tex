@@ -1,0 +1,84 @@
+%% LyX 1.5.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+
+\makeatletter
+\usepackage{babel}
+\makeatother
+
+\begin{document}
+\tableofcontents{}
+
+
+\title{XRCed Manual}
+
+
+\date{Roman Rolinsky <genericsoma@gmail.com>}
+
+\maketitle
+
+\section*{Introduction}
+
+XRCed is a resource editor for editing XRC resource files used in
+wxWidgets or wxPython. XRC is an XML-based format for describing the
+layout of the interface. When a XRC file it being parsed in the application
+(using wxXmlResource class), objects corresponding to the interface
+elements defined in .xrc file are created and can be immediately used.
+Please refer to the corresponding documentation depending on your
+language for details. XRC files are actually normal text files. Structure
+of an XML file is defined by a hierarchy of \emph{nodes,} each node
+is delimited by a pair of \emph{tags} in a similar manner to HTML
+format. XRC format uses a special \texttt{object} tag for defining
+interface element nodes, which can contain a number of \emph{attribute}
+nodes with tag names corresponding to the attribute names, e.g. \texttt{<pos>100,100</pos>}.
+Object nodes always have XML attribute {}``class'' defined, e.g.
+\texttt{<object class='wxFrame'>}.
+
+
+\section*{Getting started}
+
+XRCed interface contains these components:
+
+\begin{description}
+\item [{XML\ tree}] a tree representing the structure of the resource
+file.
+\item [{Attribute\ panel}] a panel with the information about the currently
+selected tree item. Class and object name is shown in the upper part
+and a notebook with a number of pages is shown below for editing object's
+attributes.
+\item [{Pull-down\ menu}] is shown when a used right-clicks inside the
+tree control. Is is used for creating new elements and basic operations
+such as copy/paste.
+\item [{Component\ panel}] is a graphical menu for creating new elements
+by clicking on icons or by dragging them on the test window.
+\item [{Test\ window}] can be shown for an already existing part of the
+resource tree to see the resulting appearance of the interface.
+\end{description}
+Using XRCed is easy once you understand some basic principles. First
+of all, it is using a structure-oriented tree-based editing technique,
+versus point-and-click method used in most GUI builders. The tree
+is actually almost a direct respresentation of the hierarchy of \emph{object}
+nodes in XRC file. More precisely, only the nodes corresponding to
+visible interface elements are shown. An example of an object node
+which is not an interface element is the sizeritem node. 
+
+XRCed tries hard to make accessible the full information contained
+in XRC file, so even the nodes which are not shown in the tree must
+be represented. This is done by adding their property pages to the
+attribute panel.
+
+Secondly, creating new elements is context-dependent. The new elements
+are inserted in the tree relative to the current selection (except
+for drag-and-drop mode when the place is determined dynamically).
+Sometimes there is an ambiguity on the exact position, because some
+elements are \emph{containers} which can have children, but it may
+be needed to create the new element as a sibling node instead of a
+child. Sibling mode can be forced by holding \textbf{Ctrl} key when
+inserting a new element. Similarly, a new element can be inserted
+as the first child of a container by holding \textbf{Shift} key (default
+is to append it as the last child).
+\end{document}
