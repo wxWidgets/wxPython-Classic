@@ -81,7 +81,7 @@ class TestDialog(wx.Dialog):
         btnsizer.AddButton(btn)
 
         btn = wx.Button(self, wx.ID_CANCEL)
-        btn.SetHelpText("The Cancel button cnacels the dialog. (Cool, huh?)")
+        btn.SetHelpText("The Cancel button cancels the dialog. (Cool, huh?)")
         btnsizer.AddButton(btn)
         btnsizer.Realize()
 

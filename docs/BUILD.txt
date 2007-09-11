@@ -262,7 +262,7 @@ to accommodate that.  (And send the patches to me.)
 
 The standard Python 2.3 and earlier are built with MS Visual C 6.0 and
 so you must also build with MSVC 6 in order to be used with the stock
-python.exe.  If you woudl rather use a different version of
+python.exe.  If you would rather use a different version of
 VisualStudio keep in mind that you'll also have to build Python and
 any other extension modules that you use with that compiler because a
 different version of the C runtime library is used.  The stock Python
