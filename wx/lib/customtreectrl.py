@@ -2817,7 +2817,7 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
 
 
     def SetItemWindow(self, item, wnd):
-       """Sets the window for the given item"""
+        """Sets the window for the given item"""
 
         if not item:
             raise Exception("\nERROR: Invalid Item")
@@ -3121,11 +3121,11 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         return None
 
 
-     def GetPrevVisible(self, item):
+    def GetPrevVisible(self, item):
         """Returns the previous visible item."""
  
-         if not item:
-             raise Exception("\nERROR: Invalid Tree Item. ")
+        if not item:
+            raise Exception("\nERROR: Invalid Tree Item. ")
         
         # find a previous sibling or parent which is visible
         lastGoodItem = self.GetPrevSibling(item)
