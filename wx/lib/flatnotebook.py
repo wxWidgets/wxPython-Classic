@@ -4604,7 +4604,7 @@ class PageContainer(wx.Panel):
 
                         if imageindex >= 0:
 
-                            bmp = oldNotebook.GetImageList().GetIcon(imageindex)
+                            bmp = oldNotebook.GetImageList().GetBitmap(imageindex)
                             newImageList = newNotebook.GetImageList()
     
                             if not newImageList:
@@ -4614,7 +4614,7 @@ class PageContainer(wx.Panel):
                             else:
                                 imageindex = newImageList.GetImageCount()
 
-                            newImageList.AddIcon(bmp)
+                            newImageList.Add(bmp)
                             newNotebook.SetImageList(newImageList)
                                 
                         newNotebook.InsertPage(nIndex, window, caption, True, imageindex)
@@ -4844,7 +4844,7 @@ class PageContainer(wx.Panel):
                 item.SetBitmap(self.GetImageList().GetBitmap(pi.GetImageIndex()))
 
             popupMenu.AppendItem(item)
-            item.EnableTab(pi.GetEnabled())
+            item.Enable(pi.GetEnabled())
             
         self.PopupMenu(popupMenu)
 
