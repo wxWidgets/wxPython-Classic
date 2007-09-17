@@ -5,7 +5,6 @@
 # RCS-ID:       $Id$
 
 import os
-from globals import *
 from XMLTree import XMLTree
 from XMLTreeMenu import XMLTreeMenu
 from AttributePanel import Panel, AttributePanel
@@ -267,7 +266,7 @@ class Frame(wx.Frame):
         menu.Append(wx.ID_ABOUT, '&About...', 'About XCRed')
         self.ID_README = wx.NewId()
         menu.Append(self.ID_README, '&Readme...\tF1', 'View the README file')
-        if debug:
+        if get_debug():
             self.ID_DEBUG_CMD = wx.NewId()
             menu.Append(self.ID_DEBUG_CMD, 'CMD', 'Python command line')
             

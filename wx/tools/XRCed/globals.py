@@ -57,13 +57,22 @@ class ID:
 
 # Global variables
 
-debug = True                    # default debug flag
+_debug = False                  # default debug flag
 def set_debug(v):
-    global debug
-    debug = v
+    global _debug
+    _debug = v
+def get_debug():
+    return _debug
+
+_verbose = False                # default debug flag
+def set_verbose(v):
+    global _verbose
+    _verbose = v
+def get_verbose():
+    return _verbose
 
 def TRACE(msg, *args):
-    if debug: print >> sys.stderr, 'TRACE: ' + (msg % args)
+    if _debug and _verbose: print >> sys.stderr, 'TRACE: ' + (msg % args)
 
 class Globals:
     undoMan = None

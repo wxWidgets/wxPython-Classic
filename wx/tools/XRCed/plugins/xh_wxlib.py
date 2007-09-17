@@ -21,28 +21,41 @@ class FoldPanelBarXmlHandler(xrc.XmlResourceHandler):
         self.AddStyle('FPB_EXCLUSIVE_FOLD', fpb.FPB_EXCLUSIVE_FOLD)
         self.AddStyle('FPB_HORIZONTAL', fpb.FPB_HORIZONTAL)
         self.AddStyle('FPB_VERTICAL', fpb.FPB_VERTICAL)
-        self.isInside = False
+        self._isInside = False
         
     def CanHandle(self,node):
-        return not self.isInside and self.IsOfClass(node, 'FoldPanelBar') or \
-               self.isInside and self.IsOfClass(node, 'foldpanel')
+        return not self._isInside and self.IsOfClass(node, 'FoldPanelBar') or \
+               self._isInside and self.IsOfClass(node, 'foldpanel')
 
     # Process XML parameters and create the object
     def DoCreateResource(self):
         TRACE('DoCreateResource: %s', self.GetClass())
         if self.GetClass() == 'foldpanel':
-            # !!! Never reached
-            import pdb;pdb.set_trace()
-            return
-        w = fpb.FoldPanelBar(self.GetParentAsWindow(),
-                             self.GetID(),
-                             self.GetPosition(),
-                             self.GetSize(),
-                             self.GetStyle(),
-                             self.GetStyle('exstyle'))
-        self.SetupWindow(w)
-        self.isInside = True
-        self.CreateChildren(w, True)
-        self.isInside = False
-        return w
+            n = self.GetParamNode('object')
+            if n:
+                old_ins = self._isInside
+                self._isInside = False
+                bar = self._w
+                item = self.CreateResFromNode(n, bar, None)
+                self._isInside = old_ins
+                wnd = item
+                if wnd:
+                    item = bar.AddFoldPanel(self.GetText('label'),
+                                            collapsed=self.GetBool('collapsed'))
+                    bar.AddFoldPanelWindow(item, wnd)
+            return wnd
+        else:
+            w = fpb.FoldPanelBar(self.GetParentAsWindow(),
+                                 self.GetID(),
+                                 self.GetPosition(),
+                                 self.GetSize(),
+                                 self.GetStyle(),
+                                 self.GetStyle('exstyle'))
+            self.SetupWindow(w)
+            self._w = w
+            old_ins = self._isInside
+            self._isInside = True
+            self.CreateChildren(w, True)
+            self._isInside = old_ins
+            return w
 

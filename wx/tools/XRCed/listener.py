@@ -88,7 +88,7 @@ class _Listener:
         wx.EVT_MENU(frame, wx.ID_ABOUT, self.OnHelpAbout)
         wx.EVT_MENU(frame, wx.ID_HELP_CONTENTS, self.OnHelpContents)
         wx.EVT_MENU(frame, frame.ID_README, self.OnHelpReadme)
-        if debug:
+        if get_debug():
             wx.EVT_MENU(frame, frame.ID_DEBUG_CMD, self.OnDebugCMD)
 
         # Pulldown menu commands

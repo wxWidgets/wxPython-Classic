@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resource>
+  
   <object class="wxFrame" name="FRAME_Panels">
     <object class="wxBoxSizer">
       <orient>wxVERTICAL</orient>
@@ -257,9 +258,50 @@
     </object>
     <title/>
   </object>
-  <object class="wxFrame" name="PANEL_Windows">
-    <title/>
+  <object class="wxFrame" name="PANEL_Gizmos">
     <size>100,80</size>
+    <object class="wxBoxSizer">
+      <object class="sizeritem">
+        <object class="wxFlexGridSizer">
+          <object class="sizeritem">
+            <object class="DynamicSashWindow">
+              <size>80,80</size>
+              <style>wxDS_MANAGE_SCROLLBARS|wxDS_DRAG_CORNER</style>
+            </object>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="EditableListBox">
+              <size>80,80</size>
+              <content>
+                <item>item1</item>
+                <item>item2</item>
+              </content>
+            </object>
+            <option>1</option>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="TreeListCtrl">
+              <size>40,30</size>
+            </object>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="LEDNumberCtrl">
+              <size>40,30</size>
+              <value>123</value>
+              <style>wxLED_ALIGN_CENTER</style>
+            </object>
+            <border>5</border>
+          </object>
+          <vgap>5</vgap>
+          <hgap>5</hgap>
+        </object>
+        <option>1</option>
+        <flag>wxEXPAND</flag>
+      </object>
+    </object>
   </object>
   <object class="wxMenuBar" name="PANEL_Menus">
     <object class="wxMenu" name="MENU1">
@@ -356,7 +398,6 @@
   <object class="wxWizard" name="WIZARD">
     <object class="wxWizardPageSimple" name="page">
       <object class="wxBoxSizer">
-        
         <object class="sizeritem">
           <object class="wxRadioBox">
             <content>

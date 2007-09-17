@@ -113,6 +113,7 @@ class TreeListCtrlXmlHandler(xrc.XmlResourceHandler):
         self.AddStyle('wxTL_SEARCH_NOCASE ', gizmos.TL_MODE_FIND_NOCASE)
 
         self.AddStyle('wxTR_DONT_ADJUST_MAC', gizmos.TR_DONT_ADJUST_MAC)
+        self.AddStyle('wxTR_DEFAULT_STYLE', wx.TR_DEFAULT_STYLE)
         
     def CanHandle(self, node):
         return self.IsOfClass(node, 'TreeListCtrl')
@@ -123,12 +124,18 @@ class TreeListCtrlXmlHandler(xrc.XmlResourceHandler):
         
         w = gizmos.TreeListCtrl(self.GetParentAsWindow(),
                                 self.GetID(),
-                                self.GetPosition(),
-                                self.GetSize(),
-                                self.GetStyle(),
+                                style=self.GetStyle(),
                                 name=self.GetName())
-        
-        self.SetupWindow(w)
+        w.AddColumn("Main column")
+        w.AddColumn('Column 1')
+        w.SetMainColumn(0)
+        w.SetColumnWidth(0, 50)
+        w.SetColumnWidth(1, 50)
+        root = w.AddRoot('Root')
+        w.SetItemText(root, "col 1", 1)
+        item1 = w.AppendItem(root, 'item 1')
+        w.SetItemText(item1, "col 1", 1)
+        w.Expand(root)
         return w
 
 

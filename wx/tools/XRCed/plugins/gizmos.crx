@@ -22,6 +22,7 @@
     <label>LED number</label>
     <help>LED-style control</help>
     <panel>Gizmos</panel>
+    <pos>1,0</pos>
   </component>
   <component class="Component" name="EditableListBox" provider="Roman Rolinsky &lt;genericsoma@gmail.com&gt;">
     <groups>
@@ -45,6 +46,7 @@
     <label>editable list box</label>
     <help>list box with editable items</help>
     <panel>Gizmos</panel>
+    <pos>0,1</pos>
   </component>
   <component class="Component" name="TreeListCtrl" provider="Roman Rolinsky &lt;genericsoma@gmail.com&gt;">
     <groups>
@@ -84,6 +86,7 @@
     <label>tree list ctrl</label>
     <help>tree combined with list control</help>
     <panel>Gizmos</panel>
+    <pos>0,0</pos>
   </component>
   <component class="Component" name="DynamicSashWindow" provider="Roman Rolinsky &lt;genericsoma@gmail.com&gt;">
     <groups>
@@ -107,6 +110,7 @@
     <menu>gizmo</menu>
     <label>dynamic sash window</label>
     <panel>Gizmos</panel>
+    <pos>0,2</pos>
   </component>
   <object class="wxPanel" name="test">
     <object class="wxBoxSizer">

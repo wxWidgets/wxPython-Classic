@@ -571,7 +571,7 @@ class _Presenter:
             except:
                 logger.exception('error creating test view')
                 wx.LogError('Error creating test view')
-                if debug: raise
+                if get_debug(): raise
         finally:
             # Cleanup
             res.Unload(TEST_FILE)

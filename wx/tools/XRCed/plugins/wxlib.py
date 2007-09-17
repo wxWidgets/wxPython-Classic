@@ -16,7 +16,8 @@ TRACE('*** creating wx.lib components')
 c = SmartContainer('FoldPanelBar', ['book', 'window'], ['pos', 'size'],
                    implicit_klass='foldpanel', 
                    implicit_page='FoldPanel', 
-                   implicit_attributes=['label'])
+                   implicit_attributes=['label', 'collapsed'],
+                   implicit_params={'collapsed': params.ParamBool})
 c.addStyles('FPB_DEFAULT_STYLE', 'FPB_SINGLE_FOLD', 'FPB_COLLAPSE_TO_BOTTOM',
             'FPB_EXCLUSIVE_FOLD', 'FPB_HORIZONTAL', 'FPB_VERTICAL')
 Manager.register(c)

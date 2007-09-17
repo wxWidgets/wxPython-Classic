@@ -13,6 +13,7 @@ options:
   -h, --help     show this help message and exit
   -d, --debug    add Debug command to Help menu
   -m, --meta     activate meta-components
+  -v, --verbose  verbose messages
 
 """
 
@@ -46,11 +47,15 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         parser.add_option('-m', '--meta', action='store_true',
                           dest = 'meta',
                           help='activate meta-components')
+        parser.add_option('-v', '--verbose', action='store_true',
+                          help='verbose messages')
 
         # Process command-line arguments
         options, args = parser.parse_args()
         if options.debug:
             set_debug(True)
+        if options.verbose:
+            set_verbose(True)
         if options.meta:
             g.useMeta = True
             import meta
