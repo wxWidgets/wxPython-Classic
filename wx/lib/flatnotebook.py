@@ -1082,7 +1082,7 @@ class TabNavigatorWindow(wx.Dialog):
     similar to what you would get by hitting Alt+Tab on Windows.
     """
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, icon=None):
         """ Default class constructor. Used internally."""
 
         wx.Dialog.__init__(self, parent, wx.ID_ANY, "", style=0)
@@ -1090,7 +1090,10 @@ class TabNavigatorWindow(wx.Dialog):
         self._selectedItem = -1
         self._indexMap = []
         
-        self._bmp = GetMondrianBitmap()
+        if icon is None:
+            self._bmp = GetMondrianBitmap()
+        else:
+            self._bmp = icon
 
         sz = wx.BoxSizer(wx.VERTICAL)
         
@@ -1285,7 +1288,12 @@ class FNBRenderer:
         self._tabHeight = None
 
         if wx.Platform == "__WXMAC__":
-            self._focusPen = wx.Pen(wx.BLACK, 1, wx.SOLID)
+            #color = wx.SystemSettings_GetColour(wx.SYS_COLOUR_3DSHADOW)
+            # This is the actual highlight color for some reason it does
+            # not exist in SystemSettings. The closest is 3DSHADOW but it
+            # still does not look right.
+            color = wx.Colour(171, 180, 193)
+            self._focusPen = wx.Pen(color, 2, wx.SOLID)
         else:
             self._focusPen = wx.Pen(wx.BLACK, 1, wx.USER_DASH)
             self._focusPen.SetDashes([1, 1])
@@ -1913,7 +1921,10 @@ class FNBRenderer:
             
         rect = wx.RectPS(tabPos, page.GetSize())
         rect = wx.Rect(rect.x+2, rect.y+2, rect.width-4, rect.height-8)
-        
+
+        if wx.Platform == '__WXMAC__':
+            rect.SetWidth(rect.GetWidth() + 1)
+
         dc.SetBrush(wx.TRANSPARENT_BRUSH)
         dc.SetPen(self._focusPen)
         dc.DrawRoundedRectangleRect(rect, 2)
@@ -3041,6 +3052,7 @@ class FlatNotebook(wx.PyPanel):
         self._pages = None
         self._windows = []
         self._popupWin = None
+        self._naviIcon = None
 
         wx.PyPanel.__init__(self, parent, id, pos, size, style)
         
@@ -3478,6 +3490,17 @@ class FlatNotebook(wx.PyPanel):
 
         return self._pages.GetPageCount()
 
+    def SetNavigatorIcon(self, bmp):
+        """ Set the icon used by the L{TabNavigatorWindow} """
+        if isinstance(bmp, wx.Bitmap) and bmp.IsOk():
+            # Make sure image is proper size
+            if bmp.GetSize() != (16, 16):
+                img = bmp.ConvertToImage()
+                img.Rescale(16, 16, wx.IMAGE_QUALITY_HIGH)
+                bmp = wx.BitmapFromImage(img)
+            self._naviIcon = bmp
+        else:
+            raise TypeError, "SetNavigatorIcon requires a valid bitmap"
 
     def OnNavigationKey(self, event):
         """ Handles the wx.EVT_NAVIGATION_KEY event for L{FlatNotebook}. """
@@ -3488,7 +3511,7 @@ class FlatNotebook(wx.PyPanel):
             # change pages
             if self.HasFlag(FNB_SMART_TABS):
                 if not self._popupWin:
-                    self._popupWin = TabNavigatorWindow(self)
+                    self._popupWin = TabNavigatorWindow(self, self._naviIcon)
                     self._popupWin.SetReturnCode(wx.ID_OK)
                     self._popupWin.ShowModal()
                     self._popupWin.Destroy()
@@ -4065,6 +4088,9 @@ class PageContainer(wx.Panel):
 
         where, tabIdx = self.HitTest(event.GetPosition())
         
+        # Make sure selected tab has focus
+        self.SetFocus()
+
         if where == FNB_LEFT_ARROW:
             self.RotateLeft()
             
@@ -4519,7 +4545,8 @@ class PageContainer(wx.Panel):
                 return
                     
         render.DrawTabX(self, dc, self._pagesInfoVec[selection].GetXRect(), selection, self._nTabXButtonStatus)
-            
+        render.DrawFocusRectangle(dc, self, self._pagesInfoVec[selection])
+
         event.Skip()
 
 
@@ -4799,12 +4826,11 @@ class PageContainer(wx.Panel):
         the left/right arrow keys.
         """
         key = event.GetKeyCode()
-        print key
         if key == wx.WXK_LEFT:
             self.GetParent().AdvanceSelection(False)
         elif key == wx.WXK_RIGHT:
             self.GetParent().AdvanceSelection(True)
-        elif key == wx.WXK_TAB:
+        elif key == wx.WXK_TAB and not event.ControlDown():
             flags = 0
             if not event.ShiftDown(): flags |= wx.NavigationKeyEvent.IsForward
             if event.CmdDown():       flags |= wx.NavigationKeyEvent.WinChange
