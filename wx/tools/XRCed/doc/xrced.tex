@@ -1,14 +1,15 @@
-%% LyX 1.4.4 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 1.5.1 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[english]{article}
 \usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
+\usepackage[latin9]{inputenc}
 \setcounter{secnumdepth}{2}
 \setcounter{tocdepth}{2}
 
 \makeatletter
 \usepackage{babel}
 \makeatother
+
 \begin{document}
 \tableofcontents{}
 
@@ -38,7 +39,7 @@ Object nodes always have XML attribute {}``class'' defined, e.g.
 \texttt{<object class='wxFrame'>}.
 
 
-\section*{Getting started}
+\section{Getting started}
 
 XRCed interface contains these components:
 
@@ -80,4 +81,102 @@ child. Sibling mode can be forced by holding \textbf{Ctrl} key when
 inserting a new element. Similarly, a new element can be inserted
 as the first child of a container by holding \textbf{Shift} key (default
 is to append it as the last child).
+
+
+\section{Tree editing}
+
+When you create a new interface element it is attached at some point
+to the existing XML tree. The root node of the tree is created automatically
+and has only one attribute - the encoding. Root is not shown in the
+tree control (to save space), so its attributes are visible when no
+other elements are selected. 
+
+As explained in the previous section, the new elements can be put
+in different locations relative to the parent element. What to do
+if the initial location is not correct, or should be changed in the
+development process? There two ways to re-arrange elements:
+
+\begin{enumerate}
+\item Cut some element, then select the new parent or sibling and paste
+at the new location. Modifier keys can be used in the same way as
+for creating to alter the default paste behaviour when using the pull-down
+command or the tool button (pasting by using the keyboard shortcut
+is always using the default way).
+\item Use one of the {}``Move'' menu or toolbar commands to swap elements
+or change their parent/child configuration. If a move tool button
+is disabled, this means that it does not make sense to do that kind
+of move due to incompatible parent/child configuration.
+\end{enumerate}
+When you cut a subtree, all elements are cut to the clipboard and
+will be pasted to the new location in the same configuration. On some
+platforms the clipboard is shared among different processes, so it
+is possible to start a second copy of XRCed and copy parts of one
+tree into another.
+
+
+\subsection*{Hidden nodes}
+
+Normally one tree element corresponds to a single <object> tag. Sometimes
+it makes sense to associate contents of some <object> tags to element
+attributes related to the parent. A common example is a sizer object,
+which uses \textbf{sizeritem} objects, which have a single child (a
+control or another sizer). For such simple objects an attribute page
+is added to the child element attributes. The side-effect of this
+when copying a child from one parent's subtree into a subtree of a
+parent of a different class, is that the hidden node attributes must
+be discarded. This is done automatically.
+
+
+\section{Defining attributes}
+
+Attributes are edited using the attribute panel. The upper part has
+the class field and, if applicable, the object name field. Lower part
+contains a notebook with one or several pages. Normally the first
+page contains the main attributes, the second is {}``Look'n'Feel''
+for editing visual behaviour attributes such as font, colors, etc.,
+the third is {}``Style'' with styles grouped in two columns - \textbf{Generic}
+and \textbf{Specific, }then there may be {}``ExStyle'' page for
+extra styles and if there is a hidden node a page with its attributes.
+
+
+\subsection*{Changing object's class}
+
+There are two ways to change the class of an element: by editing {}``class:''
+field in the attributes panel or by using {}``Replace With'' pulldown
+menu command. XRCed tried to preserve all attributes compatible with
+the new class.
+
+
+\section{Test window}
+
+Test view is created simply by loading a part of the resource file
+using XRC library, so it should look the same as in your application
+(without the contents and changes performed by the program, of course).
+There are elements which cannot be tested individually, but only as
+a part of a subtree.
+
+{}``Test'' command (View>Test or {}``radioactive sign'' tool or
+F5) creates a view of the selected element or subtree. If a top-level
+element (such as wxDialog) is selected, it is normally created as
+a top-level window. When the selected element cannot be a top-level
+window, a miniframe is created and the test view is put inside. Currenly
+shown parent element is made bold in the tree control while the test
+window is opened.
+
+It is possible to select an element by clicking on it in the test
+window after activating the {}``Locate'' command. While the test
+window is open, it is possible to create new elements by dragging
+a Component icon on the test window. The parent element is highlighted
+by a blue box.
+
+
+\subsection*{Auto-refresh mode}
+
+When auto-refresh is activated, any changes made to the attibutes
+or the tree structure of the currently selected test subtree provoke
+test window refresh (reload from the updated resource). Sometimes
+it may be prefered to freeze the test window while making modifications
+by deactivating auto-refresh (from the View menu or using Alt+A keyboard
+shortcut). To force a refresh, press Ctrl+R or select View>Refresh
+command.
 \end{document}
