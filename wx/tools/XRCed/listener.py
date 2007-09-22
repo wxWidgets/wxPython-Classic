@@ -159,6 +159,10 @@ class _Listener:
         frame.SetAcceleratorTable(self.accels)
         frame.Bind(wx.EVT_MENU, lambda evt: self.frame.ProcessEvent(evt))
 
+    def Uninstall(self):
+        '''Unbind some event before destroying.'''
+        self.frame.Unbind(wx.EVT_IDLE)
+
     def OnComponentCreate(self, evt):
         '''Hadnler for creating new elements.'''
         comp = Manager.findById(evt.GetId())
@@ -307,7 +311,7 @@ class _Listener:
     def OnCloseWindow(self, evt):
         '''wx.EVT_CLOSE handler'''
         if not self.AskSave(): return
-        # Remember sizes and positions
+        # Remember sizes and position
         if self.testWin.object: self.testWin.Destroy()
         conf = g.conf
         if g.useAUI:
@@ -331,6 +335,7 @@ class _Listener:
         self.tree.UnselectAll()
         g.undoMan.Clear()
         #self.panel.Destroy()            # destroy panel before tree
+        self.Uninstall()
         self.frame.Destroy()
 
     def OnUndo(self, evt):
@@ -608,16 +613,20 @@ Homepage: http://xrced.sourceforge.net\
             if item: Presenter.update(item)
 
         # Check clipboard
-        self.clipboardHasData = True
-#        self.clipboardHasData = False
+#        self.clipboardHasData = True
+        self.clipboardHasData = False
         wx.TheClipboard.Flush()
-        cbLock = wx.ClipboardLocker()
-        if 0: #cbLock:
+        if wx.TheClipboard.Open():
+            # Alternqtive way
+            #cbLock = wx.ClipboardLocker()
+            #if cbLock:
             if wx.TheClipboard.IsSupported(self.dataElem.GetFormat()):
                 self.clipboardHasData = True
             else:
                 if wx.TheClipboard.IsSupported(self.dataNode.GetFormat()):
                     self.clipboardHasData = True
+            wx.TheClipboard.Close()
+
         self.inIdle = False
         return
 
@@ -701,8 +710,8 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnTreeSelChanged(self, evt):
-        #TRACE('OnTreeSelChanged: %s=>%s', evt.GetOldItem(), evt.GetItem())
-        #TRACE('Selection: %s', self.tree.GetSelections())
+        TRACE('OnTreeSelChanged: %s=>%s', evt.GetOldItem(), evt.GetItem())
+        TRACE('Selection: %s', self.tree.GetSelections())
         # On wxMSW (at least) two selection events are generated
         if not self.tree.GetSelections(): return
         if evt.GetOldItem():

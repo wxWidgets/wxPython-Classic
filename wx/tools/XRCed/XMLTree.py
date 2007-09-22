@@ -12,7 +12,7 @@ import images
 class XMLTree(wx.TreeCtrl):
     def __init__(self, parent):
         style = wx.TR_HAS_BUTTONS | wx.TR_MULTIPLE | \
-                wx.TR_EDIT_LABELS | wx.TR_HIDE_ROOT | wx.TR_LINES_AT_ROOT
+                wx.TR_HIDE_ROOT | wx.TR_LINES_AT_ROOT
         wx.TreeCtrl.__init__(self, parent, style=style)
 
         # Color scheme

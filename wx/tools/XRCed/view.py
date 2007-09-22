@@ -47,8 +47,9 @@ def create_view():
     else:
         # Tool panel on a MiniFrame
         toolFrame = wx.MiniFrame(frame, -1, 'Components', 
-                                 style=wx.CAPTION|wx.CLOSE_BOX|\
-                                     wx.RESIZE_BORDER|wx.FRAME_TOOL_WINDOW)
+                                 style=wx.CAPTION|wx.CLOSE_BOX|wx.RESIZE_BORDER)
+                                     # This causes hiding on KDE
+                                     # |wx.FRAME_TOOL_WINDOW)
         if wx.Platform != '__WXMAC__':
             toolFrame.SetIcons(frame.icns)
         g.toolPanel = toolFrame.panel = ToolPanel(toolFrame)
@@ -133,16 +134,13 @@ class Frame(wx.Frame):
         else:
 
             # Miniframe for split mode
-            if wx.Platform != '__WXMAC__':
-                self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
-                                               g.conf.panelPos, g.conf.panelSize,
-                                               style=wx.CAPTION|wx.RESIZE_BORDER|\
-                                                   wx.FRAME_TOOL_WINDOW)
-                mf.SetIcons(self.icns)
-            else:
-                self.miniFrame = mf = wx.Frame(self, -1, 'Attributes',
+            self.miniFrame = mf = wx.MiniFrame(self, -1, 'Attributes',
                                                g.conf.panelPos, g.conf.panelSize,
                                                style=wx.CAPTION|wx.RESIZE_BORDER)
+                                               # This causes hiding on KDE
+                                               # |wx.FRAME_TOOL_WINDOW)
+            if wx.Platform != '__WXMAC__':
+                mf.SetIcons(self.icns)
             mf.tb = mf.CreateToolBar(wx.TB_HORIZONTAL | wx.NO_BORDER | wx.TB_FLAT)
 
             # Use tango icons and slightly wider bitmap size on Mac
