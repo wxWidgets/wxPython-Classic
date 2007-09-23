@@ -124,7 +124,8 @@ class ToolPanel(wx.Panel):
         if not self.drag: evt.Skip()
         self.drag = False
         if view.frame.miniFrame:
-            view.frame.miniFrame.Raise()
+            if not g.useAUI and not g.conf.embedPanel:
+                view.frame.miniFrame.Raise()
         else:
             view.frame.Raise()
 
