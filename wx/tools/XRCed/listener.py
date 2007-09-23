@@ -578,18 +578,6 @@ Homepage: http://xrced.sourceforge.net\
 #            evt.Enable(len(self.tree.GetSelections()) == 1)
         elif evt.GetId() in [wx.ID_PASTE, self.frame.ID_TOOL_PASTE]:
             evt.Enable(self.clipboardHasData)
-# !!! Does not work on wxGTK
-#             enabled = False
-#             if not wx.TheClipboard.IsOpened() and wx.TheClipboard.Open():
-#                 data = wx.CustomDataObject('XRCED_elem')
-#                 if wx.TheClipboard.IsSupported(data.GetFormat()):
-#                     enabled = True
-#                 else:
-#                     data = wx.CustomDataObject('XRCED_node')
-#                     if wx.TheClipboard.IsSupported(data.GetFormat()):
-#                         enabled = True
-#                 wx.TheClipboard.Close()
-#             evt.Enable(enabled)
         elif evt.GetId() in [self.frame.ID_TEST,
                              self.frame.ID_MOVEUP, self.frame.ID_MOVEDOWN,
                              self.frame.ID_MOVELEFT, self.frame.ID_MOVERIGHT]:
@@ -614,21 +602,14 @@ Homepage: http://xrced.sourceforge.net\
 
         # Check clipboard
 #        self.clipboardHasData = True
-        self.clipboardHasData = False
-        wx.TheClipboard.Flush()
-        if wx.TheClipboard.Open():
-            # Alternqtive way
-            #cbLock = wx.ClipboardLocker()
-            #if cbLock:
+        if not wx.TheClipboard.IsOpened():
+            self.clipboardHasData = False
             if wx.TheClipboard.IsSupported(self.dataElem.GetFormat()):
                 self.clipboardHasData = True
-            else:
-                if wx.TheClipboard.IsSupported(self.dataNode.GetFormat()):
-                    self.clipboardHasData = True
-            wx.TheClipboard.Close()
+            elif wx.TheClipboard.IsSupported(self.dataNode.GetFormat()):
+                self.clipboardHasData = True
 
         self.inIdle = False
-        return
 
     def OnIconize(self, evt):
         conf = g.conf
