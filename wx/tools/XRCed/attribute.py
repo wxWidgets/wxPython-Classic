@@ -4,13 +4,26 @@
 # Created:      25.06.2007
 # RCS-ID:       $Id$
 
+'''
+Attribute processing classes.
+
+This module contains some predefined classes which can be used to store and
+retrieve XML data into Python objects.
+'''
+
 import cPickle
 from model import Model
 
 class Attribute:
-    '''Base class for defining attributes.'''
+    '''Base class, used for simple attributes, i.e. single attributes
+    storing data as text strings.'''
     @staticmethod
     def add(parentNode, attribute, value):
+        '''Store attribute value in DOM as a text node.
+
+        @param attribute: Attribute name.
+        @param value: Attribute value (Python string).
+        '''
         if attribute == '':
             elem = parentNode
         else:
@@ -20,7 +33,7 @@ class Attribute:
         elem.appendChild(text)
     @staticmethod
     def get(node):
-        '''Get value (or return a default value) from an element node.'''
+        '''Get value (or return a default value) from a DOM C{Element} object.'''
         if node is None: return ''
         try:
             n = node.childNodes[0]
@@ -72,7 +85,7 @@ class CheckContentAttribute:
         return value
 
 class DictAttribute:
-    '''Font attribute class. Value is a dictionary of font attribtues.'''
+    '''DictAttribute uses dictionary object for passing data.'''
     attributes = []
     @classmethod
     def add(cls, parentNode, attribute, value):

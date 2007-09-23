@@ -4,6 +4,21 @@
 # Created:      31.05.2007
 # RCS-ID:       $Id$
 
+"""
+Component plugin classes.
+
+This module defines base classes and for deriving component plugin
+classes and contains some global variables used to register components
+with XRCed.
+
+Components are objects of Component class or one of the derived
+classes used to define specialized components (such as sizers). After
+a component object is constructed and configured it can be registered
+using the Manager global object.
+
+"""
+
+
 import os,sys,bisect
 import wx
 from sets import Set
@@ -32,18 +47,28 @@ parentChildGroups = {
     'toolbar': ['tool', 'separator'],
     'menu': ['menu', 'menu_item', 'separator'],
 }
+'''
+Definition of compatibility of component groups as I{key}:I{group_list} pairs, where
+I{key} is a parent group name and I{group_list} is a list of children group names or
+group names prefixed with '!' character to exclude components having corresponding
+primary group. This dictionary can be modified by component plugins directly
+(some care must be taken not to redefine existing relations or breake them).
+'''
+
 
 class Component(object):
-    '''Base component class.'''
+    '''Base class for component plugins.'''
     # Common window attributes
     windowAttributes = ['fg', 'bg', 'font', 'tooltip', 'help', 
                         'enabled', 'focused', 'hidden']
+    '''Default window attributes for window-like components.'''
     genericStyles = [
         'wxSIMPLE_BORDER', 'wxSUNKEN_BORDER', 'wxDOUBLE_BORDER',
         'wxRAISED_BORDER', 'wxSTATIC_BORDER', 'wxNO_BORDER',
         'wxCLIP_CHILDREN', 'wxTRANSPARENT_WINDOW', 'wxWANTS_CHARS',
         'wxNO_FULL_REPAINT_ON_RESIZE', 'wxFULL_REPAINT_ON_RESIZE'
         ]
+    '''Default generic styles.'''
     genericExStyles = [
         'wxWS_EX_VALIDATE_RECURSIVELY',
         'wxWS_EX_BLOCK_EVENTS',
@@ -52,6 +77,7 @@ class Component(object):
         'wxWS_EX_PROCESS_IDLE',
         'wxWS_EX_PROCESS_UI_UPDATES'
         ]
+    '''Default generic extended styles.'''
     genericEvents = [
         'EVT_WINDOW_CREATE', 'EVT_WINDOW_DESTROY',
         'EVT_MOVE', 'EVT_SIZE',
@@ -66,10 +92,39 @@ class Component(object):
         'EVT_SET_FOCUS', 'EVT_KILL_FOCUS', 'EVT_CHILD_FOCUS',
         'EVT_UPDATE_UI', 'EVT_IDLE',
         ]
+    '''Default generic events.'''
     hasName = True                      # most elements have XRC IDs
+    '''True if component has an XRC ID attribute.'''
     isTopLevel = False                  # if can be created as top level window
+    '''True if component can be a top-level object in XML tree.'''
     renameDict = {}
+    '''Dictionary of I{old_name}:I{new_name} for renaming some attributes
+    in the Attribute Panel.'''
+    
     def __init__(self, klass, groups, attributes, **kargs):
+        '''
+        Construct a new Component object. 
+
+        @param klass: Interface element class name (e.g. C{'wxButton'}).
+        @param groups: List of group names to which this component belongs.
+        First group is considered to be the I{primary group}.
+        @param attributes: List of XRC attribute names.
+
+        B{Supported keyword parameters:}
+
+        @keyword defaults: Dictionary of default attribute values for creating
+        new items.
+        @keyword specials: Dictionary of I{attribute_name}:I{attribute_class} pairs
+         for specifying special attribute classes for some attributes, instead of
+         using default Attribute class.
+        @keyword params: Dictionary of pairs I{attribute_name}:I{param_class} where
+         I{param_class} is a attribute interface class (one of classes in
+         params.py or a custom class). If a param class is not specified, a default
+         value defined by C{paramDict} dictionary is used.
+        @keyword image,images: C{wx.Image} object or a list of C{wx.Image} objects
+         for tree icons.
+        @keyword events: List of event names for code genration panel.
+        '''
         self.klass = klass
         self.groups = groups
         self.attributes = attributes
@@ -94,17 +149,27 @@ class Component(object):
         self.events = kargs.get('events', [])
 
     def addStyles(self, *styles):
+        '''Add more styles.'''
         self.styles.extend(styles)
 
     def addExStyles(self, *styles):
+        '''Add more extra styles.'''
         self.exStyles.extend(styles)
 
     def setSpecial(self, attrName, attrClass):
-        '''Set special Attribute class.'''
+        '''Set special attribute class for processing XML.
+
+        @param attrName: Attribute name.
+        @param attrClass: Attribute class.
+        '''
         self.specials[attrName] = attrClass
 
     def setParamClass(self, attrName, paramClass):
-        '''Set special Param class.'''
+        '''Set special attribute panel class for editing attribute value.
+        
+        @param attrName: Attribute name.
+        @param paramClass: Param class.
+        '''
         self.params[attrName] = paramClass
 
     def getTreeImageId(self, node):
@@ -123,6 +188,7 @@ class Component(object):
         return label
 
     def addEvents(self, *events):
+        '''Add more events.'''
         self.events.extend(events)
 
     # Order components having same index by group and klass
@@ -150,6 +216,7 @@ class Component(object):
         return component.groups == groups
 
     def isContainer(self):
+        '''True if component is a container (can have child nodes).'''
         return isinstance(self, Container)
 
     def getAttribute(self, node, attribute):
@@ -170,7 +237,11 @@ class Component(object):
         attrClass.add(node, attribute, value)
 
     def makeTestWin(self, res, name):
-        '''Method can be overrided by derived classes to create test view.'''
+        '''Method can be overrided by derived classes to create custom test view.
+
+        @param res: C{wx.xrc.XmlResource} object with current test resource.
+        @param name: XRC ID of tested object.
+        '''
         if not self.hasName: raise NotImplementedError
 
         testWin = view.testWin
@@ -198,6 +269,7 @@ class Component(object):
         return frame, object
 
     def getRect(self, obj):
+        '''Return bounding box coordinates for C{obj}.'''
         # Object's rect must be relative to testWin.object
         if isinstance(obj, wx.Window):
             return [obj.GetRect()]
@@ -511,7 +583,7 @@ class BoxSizer(Sizer):
 ################################################################################
     
 class _ComponentManager:
-    '''Manager instance collects information from component plugins.'''
+    '''Component manager used to register component plugins.'''
     def __init__(self):
         self.rootComponent = RootComponent('root', ['root'], ['encoding'], 
                                            specials={'encoding': EncodingAttribute},
@@ -614,3 +686,4 @@ class _ComponentManager:
 
 # Singleton object
 Manager = _ComponentManager()
+'''Singleton global object of L{_ComponentManager} class.'''

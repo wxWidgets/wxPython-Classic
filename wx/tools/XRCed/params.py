@@ -4,6 +4,11 @@
 # Created:      22.08.2001
 # RCS-ID:       $Id$
 
+'''
+Visual C{Param*} classes for populating C{AtrtibutePanel} with attribute editing
+blocks. 
+'''
+
 import string
 import os
 import wx.combo
@@ -59,6 +64,7 @@ def InitParams(panel):
 
 # Class that can properly disable children
 class PPanel(wx.Panel):
+    '''Abstract base class creating an empty C{wx.Panel}.'''
     isCheck = False
     def __init__(self, parent, name):
         wx.Panel.__init__(self, parent, -1, name=name)
@@ -77,6 +83,7 @@ class PPanel(wx.Panel):
         evt.Skip()
 
 class ParamBinaryOr(PPanel):
+    '''Editing binary flag attributes defined by a string separated by '|'.'''
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
         sizer = wx.BoxSizer()
@@ -99,6 +106,7 @@ class ParamBinaryOr(PPanel):
         self.combo.InsertItems(self.values, 0)
 
 class ParamFlag(ParamBinaryOr):
+    '''Sizer flag editing.'''
     values = ['wxTOP', 'wxBOTTOM', 'wxLEFT', 'wxRIGHT', 'wxALL',
               'wxEXPAND', 'wxGROW', 'wxSHAPED', 'wxSTRETCH_NOT',
               'wxALIGN_CENTRE', 'wxALIGN_LEFT', 'wxALIGN_RIGHT',
@@ -115,6 +123,7 @@ class ParamFlag(ParamBinaryOr):
         ParamBinaryOr.__init__(self, parent, name)
 
 class ParamColour(PPanel):
+    '''Color attribute editing.'''
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
         sizer = wx.BoxSizer()
@@ -180,6 +189,7 @@ class FontPickerCtrl(wx.Button):
         wx.Button.__init__(self, parent, id)
 
 class ParamFont(PPanel):
+    '''Font attribute editing.'''
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
         sizer = wx.BoxSizer()
@@ -324,6 +334,8 @@ ParamIntP = MetaParamInt(default=1, range=(1, 2147483647)) # positive
 
 # Same as ParamInt but allows dialog units (XXXd)
 class ParamUnit(ParamInt):
+    '''Similar to L{ParamInt}, 'd' can be appended to the value to specify
+    dialog units mode.'''
     def _splitValue(self, value):
         units = ''
         if value[-1:].upper() == 'D':
@@ -344,6 +356,7 @@ class ParamUnit(ParamInt):
             Presenter.setApplied(False)
 
 class ParamMultilineText(PPanel):
+    '''Multiline text editing.'''
     def __init__(self, parent, name, textWidth=-1):
         PPanel.__init__(self, parent, name)
         sizer = wx.BoxSizer()
@@ -370,6 +383,7 @@ class ParamMultilineText(PPanel):
         dlg.Destroy()
 
 class ParamText(PPanel):
+    '''Text attribute.'''
     textWidth = -1
     proportion = 0
     def __init__(self, parent, name, style=0, **kargs):
@@ -391,7 +405,7 @@ class ParamText(PPanel):
         self.freeze = False             # disable other handlers
 
 def MetaParamText(textWidth, proportion=0):
-    '''ParamText with specified length.'''
+    '''Return a L{ParamText} class with specified width and proportion.'''
     return type('ParamText__length', (ParamText,),
                 {'textWidth': textWidth, 'proportion': proportion})
 
@@ -401,11 +415,13 @@ ParamHelp = MetaParamText(200, 1)
 ParamPosSize = MetaParamText(80)
 
 class ParamComment(ParamText):
+    '''Comment node editing.'''
     def __init__(self, parent, name):
         ParamText.__init__(self, parent, name, 330,
                            style=wx.TE_PROCESS_ENTER)
 
 class ContentDialog(wx.Dialog):
+    '''Dialog for editing content attributes.'''
     def __init__(self, parent, value):
         # Load from resource
         pre = wx.PreDialog()
@@ -456,6 +472,7 @@ class ContentDialog(wx.Dialog):
                        self.list.GetSelection() < self.list.GetCount() - 1)
 
 class ContentCheckListDialog(wx.Dialog):
+    '''Dialog for editing content checklist attributes.'''
     def __init__(self, parent, value):
         pre = wx.PreDialog()
         g.res.LoadOnDialog(pre, parent, 'DIALOG_CONTENT_CHECKLIST')
@@ -514,6 +531,7 @@ class ContentCheckListDialog(wx.Dialog):
                        self.list.GetSelection() < self.list.GetCount() - 1)
 
 class ParamContent(PPanel):
+    '''Editing of content attribute.'''
     def __init__(self, parent, name):
         PPanel.__init__(self, parent, name)
         sizer = wx.BoxSizer()
@@ -555,6 +573,7 @@ class ParamContent(PPanel):
 
 # CheckList content
 class ParamContentCheckList(ParamContent):
+    '''Editing of content check list attribute.'''
     def __init__(self, parent, name):
         ParamContent.__init__(self, parent, name)
     def OnButtonEdit(self, evt):
@@ -578,6 +597,7 @@ class ParamContentCheckList(ParamContent):
         self.freeze = False        
 
 class IntListDialog(wx.Dialog):
+    '''Dialog for editing integer lists.'''
     def __init__(self, parent, value):
         pre = wx.PreDialog()
         g.res.LoadOnDialog(pre, parent, 'DIALOG_INTLIST')
@@ -623,6 +643,7 @@ class IntListDialog(wx.Dialog):
 
 # For growable list
 class ParamIntList(ParamContent):
+    '''Editing integer list attribute.'''
     def __init__(self, parent, name):
         ParamContent.__init__(self, parent, name)
     def OnButtonEdit(self, evt):
@@ -684,6 +705,7 @@ class CheckBox(PPanel):
         evt.Skip()
 
 class ParamBool(CheckBox):
+    '''Editing on/off attributes.'''
     defaultString = '(default is OFF)'
     def GetValue(self):
         return ('', '1')[self.check.IsChecked()]
@@ -691,7 +713,7 @@ class ParamBool(CheckBox):
         self.check.SetValue(value == '1')
 
 class ParamInverseBool(CheckBox):
-    '''like ParamBool but defined if unchecked'''
+    '''like L{ParamBool} but defined if unchecked'''
     defaultString = '(default is ON)'
     def GetValue(self):
         return ('0', '')[self.check.IsChecked()]
@@ -699,6 +721,7 @@ class ParamInverseBool(CheckBox):
         self.check.SetValue(not value or value == '1')
 
 class ParamOrient(RadioBox):
+    '''Orientation attribute editing for sizers.'''
     values = {'horizontal': 'wxHORIZONTAL', 'vertical': 'wxVERTICAL'}
     seulav = {'wxHORIZONTAL': 'horizontal', 'wxVERTICAL': 'vertical'}
     def __init__(self, parent, name):
@@ -710,6 +733,7 @@ class ParamOrient(RadioBox):
         self.SetStringSelection(self.seulav[value])
 
 class ParamOrientation(RadioBox):
+    '''Orientaiton attribute editing for C{wx.SplitterWindow}.'''
     values = {'horizontal': 'horizontal', 'vertical': 'vertical'}
     seulav = {'horizontal': 'horizontal', 'vertical': 'vertical'}
     def __init__(self, parent, name):
@@ -719,48 +743,6 @@ class ParamOrientation(RadioBox):
     def SetValue(self, value):
         if not value: value = 'vertical'
         self.SetStringSelection(self.seulav[value])
-
-class ParamFile(PPanel):
-    def __init__(self, parent, name):
-        PPanel.__init__(self, parent, name)
-        sizer = wx.BoxSizer()
-        self.text = wx.TextCtrl(self, size=wx.Size(200,textH))
-        sizer.Add(self.text, 0, wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, 5)
-        self.button = wx.Button(self, -1, 'Browse...')
-        sizer.Add(self.button, 0, wx.ALIGN_CENTER_VERTICAL)
-        self.SetSizer(sizer)
-        self.textModified = False
-        self.button.Bind(wx.EVT_BUTTON, self.OnButtonBrowse)
-        self.text.Bind(wx.EVT_TEXT, self.OnChange)
-    def OnChange(self, evt):
-        Presenter.setApplied(False)
-        self.textModified = True
-    def GetValue(self):
-        if self.textModified:           # text has newer value
-            return self.text.GetValue()
-        return self.value
-    def SetValue(self, value):
-        self.freeze = True
-        self.value = value
-        self.text.SetValue(value)  # update text ctrl
-        self.freeze = False
-    def OnButtonBrowse(self, evt):
-        if self.textModified:           # text has newer value
-            self.value = self.text.GetValue()
-        dlg = wx.FileDialog(self,
-                           defaultDir = os.path.abspath(os.path.dirname(self.value)),
-                           defaultFile = os.path.basename(self.value))
-        if dlg.ShowModal() == wx.ID_OK:
-            # Get common part of selected path and current
-            if g.frame.dataFile:
-                curpath = os.path.abspath(g.frame.dataFile)
-            else:
-                curpath = os.path.join(os.getcwd(), '')
-            common = os.path.commonprefix([curpath, dlg.GetPath()])
-            self.SetValue(dlg.GetPath()[len(common):])
-            Presenter.setApplied(False)
-            self.textModified = False
-        dlg.Destroy()
 
 class ParamBitmap(PPanel):
     def __init__(self, parent, name):
@@ -897,6 +879,7 @@ class ParamCombo(PPanel):
             self.combo.Append(v)
 
 class ParamEncoding(ParamCombo):
+    '''Editing encoding attribute of the XML root node.'''
     pass
 
 paramDict = {
@@ -921,7 +904,7 @@ paramDict = {
     'bitmap': ParamBitmap, 'icon': ParamBitmap,
     'comment': ParamComment
     }
-
+'''Default classes for standard attributes.'''
 
 class StylePanel(wx.Panel):
     '''Style panel.'''

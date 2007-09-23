@@ -4,6 +4,10 @@
 # Created:      31.05.2007
 # RCS-ID:       $Id$
 
+'''
+Functions for loading plugins.
+'''
+
 import os, sys, glob
 from xml.dom import minidom
 from globals import *
@@ -12,6 +16,7 @@ import component
 import meta
 
 def load_plugins_from_dirs():
+    '''Load plugins from XRCEDPATH directories.'''
     dirs = os.getenv('XRCEDPATH')
     if dirs:
         for dir in dirs.split(':'):
@@ -19,6 +24,7 @@ def load_plugins_from_dirs():
                 load_plugins(dir)
 
 def load_plugins(dir):
+    '''Load plugins from C{dir}.'''
     sys_path = sys.path
     cwd = os.getcwd()
     dir = os.path.abspath(os.path.normpath(dir))
@@ -61,7 +67,10 @@ def load_crx(filename):
             create_component(node)
 
 def create_component(node):
-    '''Create component from a manifest file.'''
+    '''Create component from a manifest data.
+
+    @param node: DOM C{Element} object containing component manifest data.
+    '''
     klass = node.getAttribute('class')
     name = node.getAttribute('name')
     TRACE('create_component %s', name)

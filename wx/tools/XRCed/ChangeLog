@@ -1,3 +1,8 @@
+2007-09-24  Scroll  <scroll@localhost.localdomain>
+
+	* On-line manual has basic usage information, added epydoc
+	documentation strings for component classes. Some bugfixes.
+
 2007-08-30  Scroll  <scroll@localhost.localdomain>
 
 	* Updated Preferences dialog (default not used yet, but appearance
