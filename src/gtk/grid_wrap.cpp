@@ -23573,6 +23573,7 @@ SWIGEXPORT void SWIG_init(void) {
   PyDict_SetItemString(d, "wxEVT_GRID_EDITOR_HIDDEN", PyInt_FromLong(wxEVT_GRID_EDITOR_HIDDEN));
   PyDict_SetItemString(d, "wxEVT_GRID_EDITOR_CREATED", PyInt_FromLong(wxEVT_GRID_EDITOR_CREATED));
   PyDict_SetItemString(d, "wxEVT_GRID_CELL_BEGIN_DRAG", PyInt_FromLong(wxEVT_GRID_CELL_BEGIN_DRAG));
+  PyDict_SetItemString(d, "wxEVT_GRID_COL_MOVE", PyInt_FromLong(wxEVT_GRID_COL_MOVE));
   
   
 }
