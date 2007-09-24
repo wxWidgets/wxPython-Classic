@@ -1,9 +1,35 @@
 Recent Changes for wxPython
 =====================================================================
 
-2.8.5.0
+2.8.6.0
 -------
-*
+* 
+
+This release is mostly about fixing a number of bugs and
+inconsistencies in wxWidgets and wxPython.  In other words, there have
+been a whole lot more changes than what is listed here, but they are
+not new features or API visible changes, which is what are usually
+listed in this file.
+
+Some Menu APIs added to make things more consistent.  Added
+wx.MenuBar.SetMenuLabel, wx.MenuBar.GetMenuLabel,
+wx.MenuBar.GetMenuLabelText, wx.Menu.GetLabelText,
+wx.MenuItem.SetItemLabel, wx.MenuItem.GetItemLabel,
+wx.MenuItem.GetItemLabelText, wx.MenuItem.GetLabelText.  The
+Get...Label functions get the raw label with mnemonics and
+accelerators, and the Get...LabelText functions get the text only,
+without mnemonics/accelerators.
+
+Added wx.BORDER_THEME style.  This style will attempt to use a theme
+specific style, if the current platform and environment is themeable
+and has a specific theme style.  For example, you could use this on
+Windows XP on a custom control to give it a themed border style that
+looks like what is used by default on the native wx.TextCtrl or
+wx.ListBox.  Since there were not any more available bits for border
+styles, this style replaces wx.BORDER_DOUBLE.
+
+
+
 
 
 
