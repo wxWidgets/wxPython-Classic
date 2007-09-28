@@ -3,7 +3,7 @@ Recent Changes for wxPython
 
 2.8.6.0
 -------
-* 
+* 27-Sept-2007
 
 This release is mostly about fixing a number of bugs and
 inconsistencies in wxWidgets and wxPython.  In other words, there have
