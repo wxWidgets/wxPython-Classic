@@ -393,9 +393,11 @@ class Frame(wx.Frame):
                 elif p in d: del d[p]
 #            conf.allowExec = ('ask', 'yes', 'no')[dlg.radio_allow_exec.GetSelection()]
             conf.useAUI = dlg.check_AUI.GetValue()
+            conf.toolPanelType = ['TB','FPB'][dlg.radio_toolPanelType.GetSelection()]
             conf.toolThumbSize = dlg.slider_thumbSize.GetValue()
             conf.toolIconScale = dlg.slider_iconScale.GetValue()
-        dlg.Destroy()        
+            wx.LogMessage('Restart may be needed for some settings to take effect.')
+        dlg.Destroy()
 
 #############################################################################
 
@@ -472,6 +474,8 @@ class PrefsDialog(wx.Dialog):
 
         self.check_AUI = xrc.XRCCTRL(self, 'check_AUI')
         self.check_AUI.SetValue(conf.useAUI)
+        self.radio_toolPanelType = xrc.XRCCTRL(self, 'radio_toolPanelType')
+        self.radio_toolPanelType.SetSelection(['TB','FPB'].index(conf.toolPanelType))
         self.slider_thumbSize = xrc.XRCCTRL(self, 'slider_thumbSize')
         self.slider_thumbSize.SetValue(conf.toolThumbSize)
         self.slider_iconScale = xrc.XRCCTRL(self, 'slider_iconScale')

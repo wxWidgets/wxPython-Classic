@@ -673,10 +673,7 @@
                   <flag>wxALL</flag>
                   <border>5</border>
                 </object>
-              
-      
-      
-    </object>
+              </object>
             </object>
             <label>Defaults</label>
           </object>
@@ -689,6 +686,17 @@
                     <label>Use AUI</label>
                   </object>
                   <flag>wxALL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxRadioBox" name="radio_toolPanelType">
+                    <label>Component panel style</label>
+                    <content>
+                      <item>ToolBook</item>
+                      <item>FoldPanelBar</item>
+                    </content>
+                  </object>
+                  <flag>wxBOTTOM</flag>
                   <border>5</border>
                 </object>
                 <object class="sizeritem">

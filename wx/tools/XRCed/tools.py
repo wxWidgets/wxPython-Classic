@@ -8,6 +8,7 @@ from globals import *
 from component import Manager, DEFAULT_POS
 import view
 import images
+import foldpanelbar as fpb
 
 #if wx.Platform in ['__WXMAC__', '__WXMSW__']:
     # Mac and Win are better off with generic
@@ -25,19 +26,25 @@ class ToolPanel(wx.Panel):
                              style=wx.RAISED_BORDER|wx.WANTS_CHARS)
         else:
             wx.Panel.__init__(self, parent, -1, style=wx.WANTS_CHARS)
+        self.bg = wx.Colour(115, 180, 215)
         # Top sizer
         sizer = wx.BoxSizer(wx.VERTICAL)
-        # Listbook
-        self.lb = wx.Toolbook(self, -1, style=wx.BK_TOP)
-        sizer.Add(self.lb, 1, wx.EXPAND)
+        # Use toolbook or foldpanelbar depending of preferences
+        if g.conf.toolPanelType == 'TB':
+            self.tp = wx.Toolbook(self, -1, style=wx.BK_TOP)
+            sizer.Add(self.tp, 1, wx.EXPAND)
+            # Image list
+            thumbSize = g.conf.toolThumbSize
+            il = wx.ImageList(thumbSize, thumbSize, True)
+            # Default Id 0
+            il.Add(images.getToolPanel_DefaultImage().Scale(thumbSize, thumbSize).ConvertToBitmap())
+            self.il = il
+            self.tp.AssignImageList(il)
+        elif g.conf.toolPanelType == 'FPB':
+            self.tp = fpb.FoldPanelBar(self, -1, wx.DefaultPosition, wx.DefaultSize, 
+                                       fpb.FPB_DEFAULT_STYLE | fpb.FPB_VERTICAL)
+            sizer.Add(self.tp, 1, wx.EXPAND)
         self.panels = []
-        # Image list
-        thumbSize = g.conf.toolThumbSize
-        il = wx.ImageList(thumbSize, thumbSize, True)
-        # Default Id 0
-        il.Add(images.getToolPanel_DefaultImage().Scale(thumbSize, thumbSize).ConvertToBitmap())
-        self.il = il
-        self.lb.AssignImageList(il)
         for name in Manager.panelNames:
             panelData = Manager.getPanelData(name)
             if not panelData: continue
@@ -46,10 +53,19 @@ class ToolPanel(wx.Panel):
                 imageId = il.Add(im.Scale(thumbSize, thumbSize).ConvertToBitmap())
             except:
                 imageId = 0
-            panel = self.AddPanel(name, imageId)
+            panel = self.AddPanel(name)
+            self.panels.append(panel)
             for pos,span,comp,bmp in panelData:
                 self.AddButton(panel, pos, span, comp.id, bmp, comp.klass)
-        self.lb.Fit()
+            panel.Fit()
+            if g.conf.toolPanelType == 'TB':
+                self.tp.AddPage(panel, '', imageId=imageId)
+            else:
+                p = self.tp.AddFoldPanel(name, collapsed=False)
+                p.SetBackgroundColour(self.bg)
+                panel.Reparent(p)
+                p.AddWindow(panel, fpb.FPB_ALIGN_WIDTH)
+        self.tp.Fit()
         
         self.SetSizerAndFit(sizer)
         # Allow to be resized in horizontal direction only
@@ -95,10 +111,10 @@ class ToolPanel(wx.Panel):
         panel.size.rowspan = max(panel.size.rowspan, pos[0]+span[0])
         panel.size.colspan = max(panel.size.colspan, pos[1]+span[1])
 
-    def AddPanel(self, name, imageId):
+    def AddPanel(self, name):
         # Each group is inside box
-        panel = wx.Panel(self.lb)
-        panel.SetBackgroundColour(wx.Colour(115, 180, 215))
+        panel = wx.Panel(self.tp)
+        panel.SetBackgroundColour(self.bg)
         panel.name = name
         panel.controls = {}
         panel.size = wx.GBSpan(0, 0) # current size
@@ -107,8 +123,6 @@ class ToolPanel(wx.Panel):
         panel.sizer.SetEmptyCellSize((24, 24))
         topSizer.Add(panel.sizer, 1, wx.EXPAND | wx.ALL, 5)
         panel.SetSizer(topSizer)
-        self.lb.AddPage(panel, '', imageId=imageId)
-        self.panels.append(panel)
         return panel
 
     # Mouse events for DnD and append/insert mode

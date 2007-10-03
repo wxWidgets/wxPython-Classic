@@ -1,3 +1,7 @@
+2007-10-03  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
+
+	* Added preference option to use FoldPanelBar for component panel.
+
 2007-09-24  Scroll  <scroll@localhost.localdomain>
 
 	* On-line manual has basic usage information, added epydoc
