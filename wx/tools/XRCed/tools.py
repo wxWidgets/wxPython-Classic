@@ -8,7 +8,7 @@ from globals import *
 from component import Manager, DEFAULT_POS
 import view
 import images
-import foldpanelbar as fpb
+import wx.lib.foldpanelbar as fpb
 
 #if wx.Platform in ['__WXMAC__', '__WXMSW__']:
     # Mac and Win are better off with generic

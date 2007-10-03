@@ -383,10 +383,11 @@ Manager.setTool(c, 'Controls', pos=(2,2))
 ### wxRadioBox
 
 c = Component('wxRadioBox', ['control','tool'],
-              ['pos', 'size', 'label', 'content', 'selection', 'dimension'])
-c.addStyles('wxRA_SPECIFY_ROWS', 'wxRA_SPECIFY_COLS', 'wxRA_HORIZONTAL',
-            'wxRA_VERTICAL')
+              ['pos', 'size', 'label', 'dimension', 
+               'content', 'selection', 'dimension'])
+c.addStyles('wxRA_SPECIFY_ROWS', 'wxRA_SPECIFY_COLS')
 c.setSpecial('content', ContentAttribute)
+c.setParamClass('dimension', params.ParamInt)
 c.addEvents('EVT_RADIOBOX')
 Manager.register(c)
 Manager.setMenu(c, 'box', 'radio box', 'wxRadioBox', 30)
