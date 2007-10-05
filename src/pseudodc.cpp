@@ -303,8 +303,10 @@ wxPseudoDC::~wxPseudoDC()
 void wxPseudoDC::RemoveAll(void)
 {
     m_objectlist.Clear();
+    m_objectIndex.clear();
     m_currId = -1;
-	m_lastObjNode = NULL;
+	m_lastObject = NULL;
+    
 }
 
 // ----------------------------------------------------------------------------
@@ -323,37 +325,30 @@ int wxPseudoDC::GetLen(void)
 }
 
 // ----------------------------------------------------------------------------
-// FindObjNode - find and return an object node by id.  If node doesn't exist
+// FindObject - find and return an object node by id.  If node doesn't exist
 //               and create is true then create one and return it.  Otherwise
 //               return NULL.
 // ----------------------------------------------------------------------------
-pdcObjectList::Node *wxPseudoDC::FindObjNode(int id, bool create)
+pdcObject *wxPseudoDC::FindObject(int id, bool create)
 {
     // see if last operation was for same id
-    if (m_lastObjNode && m_lastObjNode->GetData()->GetId() == id)
-        return m_lastObjNode;
-    // if not then search for it
-    pdcObjectList::Node *pt = m_objectlist.GetFirst();
-    while (pt) 
-    {
-        if (pt->GetData()->GetId() == id)
-		{
-        
-            // cache this node for future operations
-            m_lastObjNode = pt;
-            return pt;
+    //~ if (m_lastObject && m_lastObject->GetId() == id)
+        //~ return m_lastObject;
+    // if not then search for it    
+    pdcObjectHash::iterator lookup = m_objectIndex.find(id);
+    if (lookup == m_objectIndex.end()) {//not found
+        if (create) {
+            m_lastObject = new pdcObject(id);
+            m_objectlist.Append(m_lastObject);
+			pdcObjectHash::value_type insert(id, m_lastObject);
+            m_objectIndex.insert(insert);
+            return m_lastObject;
+        } else {
+            return NULL;
         }
-        pt = pt->GetNext();
+    } else { //found
+        return lookup->second;
     }
-    // if create then create and return a new node
-    if (create) 
-    {
-        // cache this node for future operations
-        m_lastObjNode = m_objectlist.Append(new pdcObject(id));
-        return m_lastObjNode;
-    }
-    // otherwise just return NULL
-    return NULL;
 }
 
 // ----------------------------------------------------------------------------
@@ -361,8 +356,8 @@ pdcObjectList::Node *wxPseudoDC::FindObjNode(int id, bool create)
 // ----------------------------------------------------------------------------
 void wxPseudoDC::AddToList(pdcOp *newOp)
 {
-    pdcObjectList::Node *pt = FindObjNode(m_currId, true);
-    pt->GetData()->AddOp(newOp);
+    pdcObject *obj = FindObject(m_currId, true);
+    obj->AddOp(newOp);
 }
 
 // ----------------------------------------------------------------------------
@@ -370,8 +365,8 @@ void wxPseudoDC::AddToList(pdcOp *newOp)
 // ----------------------------------------------------------------------------
 void wxPseudoDC::ClearId(int id)
 {
-    pdcObjectList::Node *pt = FindObjNode(id);
-    if (pt) pt->GetData()->Clear();
+    pdcObject *obj = FindObject(id);
+    if (obj) obj->Clear();
 }
 
 // ----------------------------------------------------------------------------
@@ -379,13 +374,14 @@ void wxPseudoDC::ClearId(int id)
 // ----------------------------------------------------------------------------
 void wxPseudoDC::RemoveId(int id)
 {
-    pdcObjectList::Node *pt = FindObjNode(id);
-    if (pt) 
+    pdcObject *obj = FindObject(id);
+    if (obj) 
     {
-        if (m_lastObjNode == pt)
-            m_lastObjNode = NULL;
-        m_objectlist.DeleteNode(pt);
+        if (m_lastObject == obj)
+            m_lastObject = obj;
+        m_objectlist.DeleteObject(obj);
     }
+    m_objectIndex.erase(id);
 }
 
 // ----------------------------------------------------------------------------
@@ -393,8 +389,8 @@ void wxPseudoDC::RemoveId(int id)
 // ----------------------------------------------------------------------------
 void wxPseudoDC::SetIdBounds(int id, wxRect& rect)
 {
-    pdcObjectList::Node *pt = FindObjNode(id, true);
-    pt->GetData()->SetBounds(rect);
+    pdcObject *obj = FindObject(id, true);
+    obj->SetBounds(rect);
 }
 
 // ----------------------------------------------------------------------------
@@ -402,9 +398,9 @@ void wxPseudoDC::SetIdBounds(int id, wxRect& rect)
 // ----------------------------------------------------------------------------
 void wxPseudoDC::GetIdBounds(int id, wxRect& rect)
 {
-    pdcObjectList::Node *pt = FindObjNode(id);
-	if (pt && pt->GetData()->IsBounded())
-		rect = pt->GetData()->GetBounds();
+    pdcObject *obj = FindObject(id);
+	if (obj && obj->IsBounded())
+		rect = obj->GetBounds();
 	else
 		rect.x = rect.y = rect.width = rect.height = 0;
 }
@@ -414,8 +410,8 @@ void wxPseudoDC::GetIdBounds(int id, wxRect& rect)
 // ----------------------------------------------------------------------------
 void wxPseudoDC::TranslateId(int id, wxCoord dx, wxCoord dy)
 {
-    pdcObjectList::Node *pt = FindObjNode(id);
-    if (pt) pt->GetData()->Translate(dx,dy);
+    pdcObject *obj = FindObject(id);
+    if (obj) obj->Translate(dx,dy);
 }
 
 // ----------------------------------------------------------------------------
@@ -423,8 +419,8 @@ void wxPseudoDC::TranslateId(int id, wxCoord dx, wxCoord dy)
 // ----------------------------------------------------------------------------
 void wxPseudoDC::DrawIdToDC(int id, wxDC *dc)
 {
-    pdcObjectList::Node *pt = FindObjNode(id);
-    if (pt) pt->GetData()->DrawToDC(dc);
+    pdcObject *obj = FindObject(id);
+    if (obj) obj->DrawToDC(dc);
 }
 
 // ----------------------------------------------------------------------------
@@ -432,8 +428,8 @@ void wxPseudoDC::DrawIdToDC(int id, wxDC *dc)
 // ----------------------------------------------------------------------------
 void wxPseudoDC::SetIdGreyedOut(int id, bool greyout)
 {
-    pdcObjectList::Node *pt = FindObjNode(id);
-    if (pt) pt->GetData()->SetGreyedOut(greyout);
+    pdcObject *obj = FindObject(id);
+    if (obj) obj->SetGreyedOut(greyout);
 }
 
 // ----------------------------------------------------------------------------
@@ -441,8 +437,8 @@ void wxPseudoDC::SetIdGreyedOut(int id, bool greyout)
 // ----------------------------------------------------------------------------
 bool wxPseudoDC::GetIdGreyedOut(int id)
 {
-    pdcObjectList::Node *pt = FindObjNode(id);
-    if (pt) return pt->GetData()->GetGreyedOut();
+    pdcObject *obj = FindObject(id);
+    if (obj) return obj->GetGreyedOut();
 	else return false;
 }
 
