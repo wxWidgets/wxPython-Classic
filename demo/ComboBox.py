@@ -24,10 +24,12 @@ class TestComboBox(wx.Panel):
         wx.StaticText(self, -1, "Select one:", (15, 50), (75, 18))
 
         # This combobox is created with a preset list of values.
-        cb = wx.ComboBox(
-            self, 500, "default value", (90, 50), 
-            (95, -1), sampleList, wx.CB_DROPDOWN #|wxTE_PROCESS_ENTER
-            )
+        cb = wx.ComboBox(self, 500, "default value", (90, 50), 
+                         (160, -1), sampleList,
+                         wx.CB_DROPDOWN
+                         #| wx.TE_PROCESS_ENTER
+                         #| wx.CB_SORT
+                         )
 
         self.Bind(wx.EVT_COMBOBOX, self.EvtComboBox, cb)
         self.Bind(wx.EVT_TEXT, self.EvtText, cb)
@@ -40,7 +42,7 @@ class TestComboBox(wx.Panel):
 
         # This combobox is created with no values initially.
         cb = wx.ComboBox(
-            self, 501, "default value", (90, 80), (95, -1), [], wx.CB_DROPDOWN)
+            self, 501, "default value", (90, 80), (160, -1), [], wx.CB_DROPDOWN)
 
         # Here we dynamically add our values to the second combobox.
         for item in sampleList:

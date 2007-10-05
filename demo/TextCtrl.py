@@ -65,10 +65,10 @@ class TestPanel(wx.Panel):
 
         l5 = wx.StaticText(self, -1, "Test Positions")
         t5 = wx.TextCtrl(self, -1, "0123456789\n" * 5, size=(200, 100),
-                        style = wx.TE_MULTILINE
-                        #| wx.TE_RICH
-                        | wx.TE_RICH2
-                        )
+                         style = wx.TE_MULTILINE
+                         #| wx.TE_RICH
+                         | wx.TE_RICH2
+                         )
         t5.Bind(wx.EVT_LEFT_DOWN, self.OnT5LeftDown)
         self.t5 = t5
 
