@@ -260,12 +260,14 @@ class Component(object):
                 frame.panel = wx.Panel(frame)
             object = res.LoadObject(frame.panel, STD_NAME, self.klass)
             if not object: raise NotImplementedError
-            object.SetPosition((20,20))
-            object.Fit()
             if not isinstance(object, wx.Window): raise NotImplementedError
-            if not testWin.frame:
-                frame.SetClientSize(object.GetSize()+(20,20))
-                testWin.size = frame.GetSize()
+            object.SetPosition((10,10))
+            if g.conf.fitTestWin: 
+                object.Fit()
+                if frame:
+                    print "here"
+                    frame.SetClientSize(object.GetSize()+(20,20))
+                    testWin.size = frame.GetSize()
         return frame, object
 
     def getRect(self, obj):

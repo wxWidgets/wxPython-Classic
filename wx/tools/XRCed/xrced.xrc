@@ -676,6 +676,7 @@
               </object>
             </object>
             <label>Defaults</label>
+            <bitmap>bitmaps/preferences-system.png</bitmap>
           </object>
           <object class="listbookpage">
             <object class="wxPanel">
@@ -748,6 +749,7 @@
               </object>
             </object>
             <label>Appearance</label>
+            <bitmap>bitmaps/preferences-desktop.png</bitmap>
           </object>
         </object>
       </object>

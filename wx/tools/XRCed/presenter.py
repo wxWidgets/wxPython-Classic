@@ -34,9 +34,10 @@ class _Presenter:
     def loadXML(self, path):
         Model.loadXML(path)
         view.tree.Flush()
-        view.tree.ExpandAll()
         view.tree.SetPyData(view.tree.root, Model.mainNode)
         self.setData(view.tree.root)
+        if g.conf.expandOnOpen:
+            view.tree.ExpandAll()
 
     def saveXML(self, path):
         Model.saveXML(path)
@@ -79,6 +80,7 @@ class _Presenter:
 
     def setModified(self, state=True):
         '''Set global modified state.'''
+        TRACE('setModified')
         self.modified = state
         # Set applied flag
         if not state: self.applied = True
@@ -89,10 +91,9 @@ class _Presenter:
             view.frame.SetTitle(progname + ': ' + name + ' *')
             # Update test window
             if view.testWin.IsShown():
+                view.testWin.isDirty = True
                 if g.conf.autoRefresh:
                     self.refreshTestWin()
-                else:
-                    view.testWin.isDirty = True
         else:
             view.frame.SetTitle(progname + ': ' + name)
 
@@ -336,6 +337,8 @@ class _Presenter:
     def unselect(self):
         if not self.applied:
             self.update(self.item)
+        if view.testWin.IsShown() and view.testWin.item == self.item:
+            view.testWin.Destroy()
         view.tree.UnselectAll()
         self.setData(view.tree.root)
 
@@ -346,8 +349,9 @@ class _Presenter:
         node = view.tree.GetPyData(item)
         node = self.container.removeChild(parentNode, node)
         view.tree.Delete(item)
-        self.unselect()
+        self.applied = True     # prevent updating unexisting item
         self.setApplied()
+        self.unselect()
         self.setModified()
 
     def deleteMany(self, items):
@@ -360,8 +364,9 @@ class _Presenter:
             node = self.container.removeChild(parentNode, node)
             node.unlink()       # delete completely
             view.tree.Delete(item)
-        self.unselect()
+        self.applied = True     # prevent updating unexisting item
         self.setApplied()
+        self.unselect()
         self.setModified()
 
     def cut(self):
@@ -531,6 +536,7 @@ class _Presenter:
         return wx.FileConfig(localFilename=name)
 
     def createTestWin(self, item):
+        TRACE('createTestWin')
         # Create a window with this resource
         node = view.tree.GetPyData(item)
         # Close old window, remember where it was
@@ -590,7 +596,7 @@ class _Presenter:
 
     def refreshTestWin(self):
         '''Refresh test window after some change.'''
-        if not view.testWin.object: return
+        if not view.testWin.IsDirty(): return
         TRACE('refreshTestWin')
         # Dumb refresh
         self.createTestWin(view.testWin.item)

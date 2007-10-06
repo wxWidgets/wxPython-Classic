@@ -43,7 +43,7 @@ class TestWindow:
                     restoreSize = True
                 TRACE('Closing old frame, restoreSize=%d', restoreSize)
                 self.GetFrame().Close()
-            elif not self.frame:
+            elif self.frame:
                 # Destroy old object but re-use frame
                 self.object.Destroy()
         self.frame = frame

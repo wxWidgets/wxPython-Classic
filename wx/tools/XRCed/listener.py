@@ -68,6 +68,7 @@ class _Listener:
         wx.EVT_MENU(frame, wx.ID_PASTE, self.OnPaste)
         wx.EVT_MENU(frame, ID.PASTE_SIBLING, self.OnPasteSibling)
         wx.EVT_MENU(frame, wx.ID_DELETE, self.OnDelete)
+        wx.EVT_MENU(frame, frame.ID_UNSELECT, self.OnUnselect)
         wx.EVT_MENU(frame, frame.ID_TOOL_PASTE, self.OnToolPaste)
         wx.EVT_MENU(frame, frame.ID_LOCATE, self.OnLocate)
         wx.EVT_MENU(frame, frame.ID_TOOL_LOCATE, self.OnLocate)
@@ -182,6 +183,7 @@ class _Listener:
     def OnNew(self, evt):
         '''wx.ID_NEW hadndler.'''
         if not self.AskSave(): return
+        if self.testWin.IsShown(): self.testWin.Destroy()
         Presenter.init()
 
     def OnOpen(self, evt):
@@ -192,6 +194,7 @@ class _Listener:
         dlg = wx.FileDialog(self.frame, 'Open', os.path.dirname(Presenter.path),
                             '', exts, wx.OPEN | wx.CHANGE_DIR)
         if dlg.ShowModal() == wx.ID_OK:
+            if self.testWin.IsShown(): self.testWin.Destroy()
             # Clear old undo data
             g.undoMan.Clear()
             path = dlg.GetPath()
@@ -214,6 +217,7 @@ class _Listener:
             
         wx.BeginBusyCursor()
         try:
+            if self.testWin.IsShown(): self.testWin.Destroy()
             Presenter.open(path)
             self.frame.SetStatusText('Data loaded')
             # add it back to the history so it will be moved up the list
@@ -384,6 +388,11 @@ class _Listener:
         '''ID.PASTE_SIBLING handler.'''
         g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
         Presenter.paste()
+
+    def OnUnselect(self, evt):
+        self.tree.UnselectAll()
+        if not Presenter.applied: Presenter.update()
+        Presenter.setData(self.tree.root)
 
     def ItemsAreCompatible(self, parent, child):
         raise NotImplementedError

@@ -211,6 +211,9 @@ class Frame(wx.Frame):
         menu.Append(wx.ID_PASTE, '&Paste\tCtrl-V', 'Paste from the clipboard')
         menu.Append(wx.ID_DELETE, '&Delete\tCtrl-D', 'Delete object')
         menu.AppendSeparator()
+        self.ID_UNSELECT = wx.NewId()
+        menu.Append(self.ID_UNSELECT, '&Unselect', 'Clear tree selection')
+        menu.AppendSeparator()
         self.ID_LOCATE = wx.NewId()
         self.ART_LOCATE = 'ART_LOCATE'
         menu.Append(self.ID_LOCATE, '&Locate\tCtrl-L', 'Locate control in test window and select it')
