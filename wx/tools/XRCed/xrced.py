@@ -101,7 +101,7 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
             if not g.conf.embedPanel:
                 view.frame.miniFrame.Show()
             if g.conf.showToolPanel:
-                view.toolFrame.Show()
+                Listener.toolFrame.Show()
 
         return True
 

@@ -35,15 +35,21 @@ def create_view():
     frame = Frame(g.conf.pos, g.conf.size)
 
     global toolFrame
+    toolFrame = create_tools()
+
+    global testWin
+    testWin = TestWindow()
+
+def create_tools():
     if g.useAUI:
         g.toolPanel = ToolPanel(frame)
         frame.mgr.AddPane(g.toolPanel, wx.aui.AuiPaneInfo().Name('tools').Caption("Tools").
                           MinSize(g.toolPanel.GetBestSize()).
                           Right().CloseButton(True).MaximizeButton(False))
-        toolFrame = None
         frame.mgr.Update()
         if g.conf.HasEntry('perspective'):
             frame.mgr.LoadPerspective(g.conf.Read('perspective'))
+        return None
     else:
         # Tool panel on a MiniFrame
         toolFrame = wx.MiniFrame(frame, -1, 'Components', 
@@ -61,10 +67,8 @@ def create_view():
         toolFrame.SetMinSize(minSize)
         toolFrame.SetPosition(g.conf.toolPanelPos)
         toolFrame.SetSize(g.conf.toolPanelSize)
+        return toolFrame
 
-    global testWin
-    testWin = TestWindow()
-                       
 #############################################################################
 
 class Frame(wx.Frame):
@@ -387,6 +391,7 @@ class Frame(wx.Frame):
     def ShowPrefs(self):
         dlg = PrefsDialog(self)
         conf = g.conf
+        toolPanelType = conf.toolPanelType
         if dlg.ShowModal() == wx.ID_OK:
             # Fetch new preferences
             for id,cdp in dlg.checkControls.items():
