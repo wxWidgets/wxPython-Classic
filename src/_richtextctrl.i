@@ -220,7 +220,7 @@ text control.", "");
         "Set the style for the text in ``range`` to ``style``", "");
 
     DocDeclStr(
-        virtual bool , GetStyle(long position, wxRichTextAttr& style),
+        virtual bool , GetStyle(long position, wxTextAttrEx& style),
         "Retrieve the style used at the given position.  Copies the style
 values at ``position`` into the ``style`` parameter and returns ``True``
 if successful.  Returns ``False`` otherwise.", "");

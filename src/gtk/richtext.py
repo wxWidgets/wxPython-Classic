@@ -322,6 +322,8 @@ class TextAttrEx(object):
         etc.
         """
         _richtext.TextAttrEx_swiginit(self,_richtext.new_TextAttrEx(*args, **kwargs))
+    __swig_destroy__ = _richtext.delete_TextAttrEx
+    __del__ = lambda self : None;
     def Init(*args, **kwargs):
         """Init(self)"""
         return _richtext.TextAttrEx_Init(*args, **kwargs)
@@ -1218,7 +1220,7 @@ class RichTextParagraphLayoutBox(RichTextBox):
         return _richtext.RichTextParagraphLayoutBox_DoNumberList(*args, **kwargs)
 
     def FindNextParagraphNumber(*args, **kwargs):
-        """FindNextParagraphNumber(self, RichTextParagraph previousParagraph, wxRichTextAttr attr) -> bool"""
+        """FindNextParagraphNumber(self, RichTextParagraph previousParagraph, TextAttrEx attr) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_FindNextParagraphNumber(*args, **kwargs)
 
     def HasCharacterAttributes(*args, **kwargs):
@@ -2459,7 +2461,7 @@ class RichTextCtrl(_windows.ScrolledWindow):
 
     def GetStyle(*args, **kwargs):
         """
-        GetStyle(self, long position, wxRichTextAttr style) -> bool
+        GetStyle(self, long position, TextAttrEx style) -> bool
 
         Retrieve the style used at the given position.  Copies the style
         values at ``position`` into the ``style`` parameter and returns ``True``

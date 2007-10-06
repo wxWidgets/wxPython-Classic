@@ -5,6 +5,9 @@ Recent Changes for wxPython
 -------
 *
 
+wxMac: Fixed paste bug when the clipboard contains unicode text.
+
+ 
 
 
 2.8.6.0
