@@ -265,7 +265,6 @@ class Component(object):
             if g.conf.fitTestWin: 
                 object.Fit()
                 if frame:
-                    print "here"
                     frame.SetClientSize(object.GetSize()+(20,20))
                     testWin.size = frame.GetSize()
         return frame, object

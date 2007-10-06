@@ -315,8 +315,9 @@ class _Listener:
     def OnCloseWindow(self, evt):
         '''wx.EVT_CLOSE handler'''
         if not self.AskSave(): return
-        # Remember sizes and position
         if self.testWin.object: self.testWin.Destroy()
+        g.undoMan.Clear()        
+        # Remember sizes and position
         conf = g.conf
         if g.useAUI:
             conf.perspective = view.frame.mgr.SavePerspective()

@@ -78,7 +78,7 @@ class _Presenter:
             wx.LogError('Error saving XML file: %s' % path)
             raise
 
-    def setModified(self, state=True):
+    def setModified(self, state=True, setDirty=True):
         '''Set global modified state.'''
         TRACE('setModified')
         self.modified = state
@@ -90,7 +90,7 @@ class _Presenter:
         if state:
             view.frame.SetTitle(progname + ': ' + name + ' *')
             # Update test window
-            if view.testWin.IsShown():
+            if view.testWin.IsShown() and setDirty:
                 view.testWin.isDirty = True
                 if g.conf.autoRefresh:
                     self.refreshTestWin()
@@ -101,7 +101,7 @@ class _Presenter:
         '''Set panel state.'''
         self.applied = state
         if not state and not self.modified: 
-            self.setModified()  # toggle global state
+            self.setModified(setDirty=False)  # toggle global state
 
     def createUndoEdit(self, item=None, page=None):
         # Create initial undo object
