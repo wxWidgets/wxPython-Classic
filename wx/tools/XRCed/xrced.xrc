@@ -751,6 +751,30 @@
             <label>Appearance</label>
             <bitmap>bitmaps/preferences-desktop.png</bitmap>
           </object>
+          <object class="listbookpage">
+            <object class="wxPanel">
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                  <object class="wxCheckBox" name="check_expandOnOpen">
+                    <label>Expand tree on open</label>
+                  </object>
+                  <flag>wxALL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxCheckBox" name="check_fitTestWin">
+                    <label>Fit test window</label>
+                  </object>
+                  <flag>wxTOP|wxLEFT|wxRIGHT</flag>
+                  <border>5</border>
+                </object>
+              
+                
+              </object>
+            </object>
+            <label>Misc</label>
+          </object>
         </object>
       </object>
       <object class="sizeritem">

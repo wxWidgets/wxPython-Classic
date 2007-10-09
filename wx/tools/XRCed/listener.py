@@ -65,11 +65,12 @@ class _Listener:
         wx.EVT_MENU(frame, wx.ID_REDO, self.OnRedo)
         wx.EVT_MENU(frame, wx.ID_CUT, self.OnCut)
         wx.EVT_MENU(frame, wx.ID_COPY, self.OnCopy)
-        wx.EVT_MENU(frame, wx.ID_PASTE, self.OnPaste)
+        wx.EVT_MENU(frame, wx.ID_PASTE, self.OnMenuPaste)
+        wx.EVT_MENU(frame, ID.PASTE, self.OnCmdPaste)
         wx.EVT_MENU(frame, ID.PASTE_SIBLING, self.OnPasteSibling)
         wx.EVT_MENU(frame, wx.ID_DELETE, self.OnDelete)
         wx.EVT_MENU(frame, frame.ID_UNSELECT, self.OnUnselect)
-        wx.EVT_MENU(frame, frame.ID_TOOL_PASTE, self.OnToolPaste)
+        wx.EVT_MENU(frame, frame.ID_TOOL_PASTE, self.OnCmdPaste)
         wx.EVT_MENU(frame, frame.ID_LOCATE, self.OnLocate)
         wx.EVT_MENU(frame, frame.ID_TOOL_LOCATE, self.OnLocate)
         # View
@@ -95,6 +96,7 @@ class _Listener:
         # Pulldown menu commands
         wx.EVT_MENU(frame, ID.SUBCLASS, self.OnSubclass)
         wx.EVT_MENU(frame, ID.COLLAPSE, self.OnCollapse)
+        wx.EVT_MENU(frame, ID.COLLAPSE_ALL, self.OnCollapseAll)
         wx.EVT_MENU(frame, ID.EXPAND, self.OnExpand)
 
         # Update events
@@ -371,15 +373,18 @@ class _Listener:
         '''wx.ID_COPY handler.'''
         Presenter.copy()
 
-    def OnPaste(self, evt):
-        '''wx.ID_PASTE handler.'''
+    def OnMenuPaste(self, evt):
+        '''wx.ID_PASTE handler (for XMLTreeMenu).'''
         g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
         Presenter.paste()
 
-    def OnToolPaste(self, evt):
-        '''ID_TOOL_PASTE handler.'''
+    def OnCmdPaste(self, evt):
+        '''ID.PASTE and ID.TOOL_PASTE handler (for Edit menu and shortcuts).'''
         state = wx.GetMouseState()
-        forceSibling = state.ControlDown()
+        if wx.Platform == '__WXMAC__': # Ctrl+click does not work with tools on Mac
+            forceSibling = state.AltDown()
+        else:
+            forceSibling = state.ControlDown()
         forceInsert = state.ShiftDown()
         g.Presenter.updateCreateState(forceSibling, forceInsert)
         g.undoMan.RegisterUndo(undo.UndoGlobal()) 
@@ -387,6 +392,10 @@ class _Listener:
 
     def OnPasteSibling(self, evt):
         '''ID.PASTE_SIBLING handler.'''
+        forceSibling = True
+        state = wx.GetMouseState()
+        forceInsert = state.ShiftDown()
+        g.Presenter.updateCreateState(forceSibling, forceInsert)        
         g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
         Presenter.paste()
 
@@ -664,6 +673,15 @@ Homepage: http://xrced.sourceforge.net\
         if not self.tree.GetSelection():
             if not Presenter.applied: Presenter.update()
             Presenter.setData(self.tree.root)
+
+    def OnCollapseAll(self, evt):
+        # Prevent multiple calls to setData
+        self.tree.Unbind(wx.EVT_TREE_ITEM_COLLAPSED)
+        self.tree.UnselectAll()
+        self.tree.CollapseAll()
+        self.tree.Bind(wx.EVT_TREE_ITEM_COLLAPSED, self.OnTreeItemCollapsed)
+        if not Presenter.applied: Presenter.update()
+        Presenter.setData(self.tree.root)
 
     #
     # XMLTree event handlers

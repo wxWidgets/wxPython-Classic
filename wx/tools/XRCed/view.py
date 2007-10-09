@@ -212,11 +212,14 @@ class Frame(wx.Frame):
         menu.AppendSeparator()
         menu.Append(wx.ID_CUT, 'Cut\tCtrl-X', 'Cut to the clipboard')
         menu.Append(wx.ID_COPY, '&Copy\tCtrl-C', 'Copy to the clipboard')
-        menu.Append(wx.ID_PASTE, '&Paste\tCtrl-V', 'Paste from the clipboard')
+        menu.Append(ID.PASTE, '&Paste\tCtrl-V', 'Paste from the clipboard')
+        menu.Append(ID.PASTE_SIBLING, '&Paste sibling\tAlt-Ctrl-V', 
+                    'Paste clipboard as a sibling')
         menu.Append(wx.ID_DELETE, '&Delete\tCtrl-D', 'Delete object')
         menu.AppendSeparator()
         self.ID_UNSELECT = wx.NewId()
-        menu.Append(self.ID_UNSELECT, '&Unselect', 'Clear tree selection')
+        menu.Append(self.ID_UNSELECT, '&Unselect All', 'Clear tree selection')
+        menu.Append(ID.COLLAPSE_ALL, '&Collapse All', 'Collapse tree')
         menu.AppendSeparator()
         self.ID_LOCATE = wx.NewId()
         self.ART_LOCATE = 'ART_LOCATE'
@@ -235,6 +238,8 @@ class Frame(wx.Frame):
         self.ID_TEST = wx.NewId()
         self.ART_TEST = 'ART_TEST'
         menu.Append(self.ID_TEST, '&Test\tF5', 'Show test window')
+        self.ID_TEST_HIDE = wx.NewId()
+        menu.Append(self.ID_TEST_HIDE, '&End testing\tF6', 'Close test window')
         self.ART_REFRESH = 'ART_REFRESH'
         menu.Append(wx.ID_REFRESH, '&Refresh\tCtrl-R', 'Refresh test window')
         self.ID_AUTO_REFRESH = wx.NewId()
@@ -242,11 +247,10 @@ class Frame(wx.Frame):
         menu.Append(self.ID_AUTO_REFRESH, '&Auto-refresh\tAlt-A',
                     'Toggle auto-refresh mode', True)
         menu.Check(self.ID_AUTO_REFRESH, g.conf.autoRefresh)
-        self.ID_TEST_HIDE = wx.NewId()
-        menu.Append(self.ID_TEST_HIDE, '&Hide\tF6', 'Close test window')
         menu.AppendSeparator()
         self.ID_SHOW_XML = wx.NewId()
-        menu.Append(self.ID_SHOW_XML, 'Show &XML...', 'Show XML source for the selected subtree')
+        menu.Append(self.ID_SHOW_XML, 'Show &XML...', 
+                    'Display XML source for the selected subtree')
         
         menuBar.Append(menu, '&View')
 
@@ -404,6 +408,8 @@ class Frame(wx.Frame):
             conf.toolPanelType = ['TB','FPB'][dlg.radio_toolPanelType.GetSelection()]
             conf.toolThumbSize = dlg.slider_thumbSize.GetValue()
             conf.toolIconScale = dlg.slider_iconScale.GetValue()
+            conf.expandOnOpen = dlg.check_expandOnOpen.GetValue()
+            conf.fitTestWin = dlg.check_fitTestWin.GetValue()
             wx.LogMessage('Restart may be needed for some settings to take effect.')
         dlg.Destroy()
 
@@ -489,6 +495,10 @@ class PrefsDialog(wx.Dialog):
         self.slider_iconScale = xrc.XRCCTRL(self, 'slider_iconScale')
         self.slider_iconScale.SetValue(conf.toolIconScale)
 
+        self.check_expandOnOpen = xrc.XRCCTRL(self, 'check_expandOnOpen')
+        self.check_expandOnOpen.SetValue(conf.expandOnOpen)
+        self.check_fitTestWin = xrc.XRCCTRL(self, 'check_fitTestWin')
+        self.check_fitTestWin.SetValue(conf.fitTestWin)
 
     def OnCheck(self, evt):
         self.checkControls[evt.GetId()][0].Enable(evt.IsChecked())

@@ -65,7 +65,7 @@ class XMLTreeMenu(wx.Menu):
                 self.Append(ID.PASTE_SIBLING, 'Paste Sibling',
                             'Paste from the clipboard as a sibling')
             else:
-                self.Append(wx.ID_PASTE, 'Paste', 'Paste from the clipboard')
+                self.Append(ID.PASTE, 'Paste', 'Paste from the clipboard')
         if items:
             self.Append(wx.ID_DELETE, 'Delete', 'Delete selected objects')
         if comp.isContainer():
