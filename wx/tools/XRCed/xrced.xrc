@@ -615,6 +615,7 @@
                           <object class="wxCheckBox" name="check_proportionContainer">
                             <label>proportion</label>
                           </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
                         </object>
                         <object class="sizeritem">
                           <object class="wxSpinCtrl" name="spin_proportionContainer">
@@ -625,6 +626,7 @@
                           <object class="wxCheckBox" name="check_flagContainer">
                             <label>flag</label>
                           </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
                         </object>
                         <object class="sizeritem">
                           <object class="wxTextCtrl" name="text_flagContainer">
@@ -650,6 +652,7 @@
                           <object class="wxCheckBox" name="check_proportionControl">
                             <label>proportion</label>
                           </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
                         </object>
                         <object class="sizeritem">
                           <object class="wxSpinCtrl" name="spin_proportionControl">
@@ -660,6 +663,7 @@
                           <object class="wxCheckBox" name="check_flagControl">
                             <label>flag</label>
                           </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
                         </object>
                         <object class="sizeritem">
                           <object class="wxTextCtrl" name="text_flagControl">
@@ -769,8 +773,6 @@
                   <flag>wxTOP|wxLEFT|wxRIGHT</flag>
                   <border>5</border>
                 </object>
-              
-                
               </object>
             </object>
             <label>Misc</label>

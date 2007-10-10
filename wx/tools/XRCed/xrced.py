@@ -28,6 +28,18 @@ import view
 import undo
 import plugin
 
+# Parse string in form var1=val1[,var2=val2]* as dictionary
+def ReadDictFromString(s):
+    d = {}
+    for vv in s.split(','):
+        var,val = vv.split(':')
+        d[var.strip()] = val
+    return d
+
+# Transform dictionary with strings into one string
+def DictToString(d):
+    return ','.join(map(':'.join, d.items()))
+
 class App(wx.App):
     def OnInit(self):
         # Check version

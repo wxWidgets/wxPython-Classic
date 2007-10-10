@@ -431,7 +431,7 @@ class _Presenter:
         data = cPickle.loads(data.GetData()) 
         if success:
             node = Model.parseString(data)
-            comp = Manager.components[node.getAttribute('class')]
+            comp = Manager.getNodeComp(node)
         else:
             node = Model.dom.createComment(data)
             raise NotImplementedError

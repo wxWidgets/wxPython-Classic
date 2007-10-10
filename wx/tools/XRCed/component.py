@@ -123,7 +123,7 @@ class Component(object):
          value defined by C{paramDict} dictionary is used.
         @keyword image,images: C{wx.Image} object or a list of C{wx.Image} objects
          for tree icons.
-        @keyword events: List of event names for code genration panel.
+        @keyword events: List of event names for code generation panel.
         '''
         self.klass = klass
         self.groups = groups
@@ -580,6 +580,29 @@ class BoxSizer(Sizer):
                     x = (rect.GetLeft() + rect.GetRight()) / 2
                     rects.append(wx.Rect(x, rect.y, 0, rect.height))
         return rects
+
+    def setDefaults(self, node):
+        if self.requireImplicit(node):
+            comp = Manager.getNodeComp(node)
+            sizerItem = self.getTreeOrImplicitNode(node)
+            if comp.isContainer():
+                for a,v in g.conf.defaultsContainer.items():
+                    self.addAttribute(sizerItem, a, v)
+            else:
+                for a,v in g.conf.defaultsControl.items():
+                    self.addAttribute(sizerItem, a, v)        
+
+    def appendChild(self, parentNode, node):
+        Sizer.appendChild(self, parentNode, node)
+        self.setDefaults(node)
+
+    def insertBefore(self, parentNode, node, nextNode):
+        Sizer.insertBefore(self, parentNode, nextNode)
+        self.setDefaults(node)
+
+    def insertAfter(self, parentNode, node, prevNode):
+        Sizer.insertAfter(self, parentNode, prevNode)
+        self.setDefaults(node)
 
 ################################################################################
     

@@ -9,6 +9,8 @@ import view
 from component import Manager
 from model import Model
 
+undo_depth = 10                 # max number of undo remembered
+
 # Undo/redo classes
 class UndoManager:
     # Undo/redo stacks
@@ -17,6 +19,7 @@ class UndoManager:
     def RegisterUndo(self, undoObj):
         TRACE('RegisterUndo: %s', undoObj.label)
         self.undo.append(undoObj)
+        while len(self.undo) > undo_depth: self.undo.pop(0)
         map(Undo.destroy, self.redo)
         self.redo = []
         self.UpdateToolHelp()
