@@ -945,7 +945,8 @@ class TreeTextCtrl(wx.TextCtrl):
         w -= image_w + 4 + wcheck
 
         wx.TextCtrl.__init__(self, self._owner, wx.ID_ANY, self._startValue,
-                             wx.Point(x - 4, y), wx.Size(w + 15, h))
+                             wx.Point(x - 4, y), wx.Size(w + 15, h),
+                             wx.WANTS_CHARS)
         if wx.Platform == "__WXMAC__":
             self.SetFont(owner.GetFont())
             bs = self.GetBestSize()
