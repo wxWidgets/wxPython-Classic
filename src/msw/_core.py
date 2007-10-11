@@ -10075,8 +10075,8 @@ class Window(EvtHandler):
         GetHandle(self) -> long
 
         Returns the platform-specific handle (as a long integer) of the
-        physical window.  Currently on wxMac it returns the handle of the
-        toplevel parent of the window.
+        physical window.  On wxMSW this is the win32 window handle, on wxGTK
+        it is the XWindow ID, and on wxMac it is the ControlRef.
         """
         return _core_.Window_GetHandle(*args, **kwargs)
 
@@ -10095,6 +10095,15 @@ class Window(EvtHandler):
         Dissociate the current native handle from the window
         """
         return _core_.Window_DissociateHandle(*args, **kwargs)
+
+    def GetGtkWidget(*args, **kwargs):
+        """
+        GetGtkWidget(self) -> long
+
+        On wxGTK returns a pointer to the GtkWidget for this window as a long
+        integer.  On the other platforms this method returns zero.
+        """
+        return _core_.Window_GetGtkWidget(*args, **kwargs)
 
     def OnPaint(*args, **kwargs):
         """OnPaint(self, PaintEvent event)"""
@@ -10563,6 +10572,7 @@ class Window(EvtHandler):
     Shown = property(IsShown,Show,doc="See `IsShown` and `Show`") 
     Enabled = property(IsEnabled,Enable,doc="See `IsEnabled` and `Enable`") 
     TopLevel = property(IsTopLevel,doc="See `IsTopLevel`") 
+    GtkWidget = property(GetGtkWidget) 
 _core_.Window_swigregister(Window)
 
 def PreWindow(*args, **kwargs):

@@ -3981,6 +3981,13 @@ SWIGINTERN long wxWindow_GetHandle(wxWindow *self){
 SWIGINTERN void wxWindow_AssociateHandle(wxWindow *self,long handle){
             self->AssociateHandle((WXWidget)handle);
         }
+SWIGINTERN long wxWindow_GetGtkWidget(wxWindow *self){
+
+
+
+            return 0;
+
+        }
 SWIGINTERN void wxWindow_DragAcceptFiles(wxWindow *self,bool accept){}
 
 wxWindow* wxFindWindowById( long id, const wxWindow *parent = NULL ) {
@@ -40446,6 +40453,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Window_GetGtkWidget(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxWindow *arg1 = (wxWindow *) 0 ;
+  long result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Window_GetGtkWidget" "', expected argument " "1"" of type '" "wxWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxWindow * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (long)wxWindow_GetGtkWidget(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_long(static_cast< long >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Window_HasScrollbar(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
@@ -60153,6 +60188,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Window_GetHandle", (PyCFunction)_wrap_Window_GetHandle, METH_O, NULL},
 	 { (char *)"Window_AssociateHandle", (PyCFunction) _wrap_Window_AssociateHandle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_DissociateHandle", (PyCFunction)_wrap_Window_DissociateHandle, METH_O, NULL},
+	 { (char *)"Window_GetGtkWidget", (PyCFunction)_wrap_Window_GetGtkWidget, METH_O, NULL},
 	 { (char *)"Window_HasScrollbar", (PyCFunction) _wrap_Window_HasScrollbar, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_SetScrollbar", (PyCFunction) _wrap_Window_SetScrollbar, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_SetScrollPos", (PyCFunction) _wrap_Window_SetScrollPos, METH_VARARGS | METH_KEYWORDS, NULL},
