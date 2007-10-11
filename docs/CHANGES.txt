@@ -7,7 +7,17 @@ Recent Changes for wxPython
 
 wxMac: Fixed paste bug when the clipboard contains unicode text.
 
- 
+AUI: Added missing event binders for the notebok tab events.
+
+wxMac: Fixed bug that resulted in portions of virtual listctrl's to
+not be repainted when scrolling with PgUp/PgDown/Home/End.
+
+wxMac: Fixed bug that broke tab traversal when tabbing runs into a
+wx.StaticBox. 
+
+wxGTK:  Add wx.Window.GetGtkWidget.
+
+
 
 
 2.8.6.0
