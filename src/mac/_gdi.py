@@ -278,7 +278,7 @@ class Palette(GDIObject):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, int n, unsigned char red, unsigned char green, unsigned char blue) -> Palette"""
+        """__init__(self, wxArrayInt red, wxArrayInt green, wxArrayInt blue) -> Palette"""
         _gdi_.Palette_swiginit(self,_gdi_.new_Palette(*args, **kwargs))
     __swig_destroy__ = _gdi_.delete_Palette
     __del__ = lambda self : None;
