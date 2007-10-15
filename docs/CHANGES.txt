@@ -19,7 +19,7 @@ wxGTK:  Add wx.Window.GetGtkWidget.
 
 All: Undprecated wx.ListCtrl.[G|S]etItemSpacing
 
-All: Fixed wx.Palette constructor.  It takes three seqences of
+All: Fixed wx.Palette constructor wrapper.  It takes three seqences of
 integers to specify the R, G, and B values for each color in the
 palette, which must all be the same length and which must contain
 integer values in the range of 0..255 inclusive.
