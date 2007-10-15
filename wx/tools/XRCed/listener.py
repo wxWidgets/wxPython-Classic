@@ -707,7 +707,10 @@ Homepage: http://xrced.sourceforge.net\
         evt.Skip()
 
     def OnTreeRightDown(self, evt):
-        forceSibling = evt.ControlDown()
+        if wx.Platform == '__WXMAC__':
+            forceSibling = evt.AltDown()
+        else:
+            forceSibling = evt.ControlDown()
         forceInsert = evt.ShiftDown()
         Presenter.popupMenu(forceSibling, forceInsert, evt.GetPosition())
 

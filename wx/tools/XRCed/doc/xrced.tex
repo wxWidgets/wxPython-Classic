@@ -77,10 +77,11 @@ for drag-and-drop mode when the place is determined dynamically).
 Sometimes there is an ambiguity on the exact position, because some
 elements are \emph{containers} which can have children, but it may
 be needed to create the new element as a sibling node instead of a
-child. Sibling mode can be forced by holding \textbf{Ctrl} key when
-inserting a new element. Similarly, a new element can be inserted
-as the first child of a container by holding \textbf{Shift} key (default
-is to append it as the last child).
+child. Sibling mode can be forced by holding \textbf{Ctrl} key on
+wxGTK/wxMSW or \textbf{Alt} key on wxMac when inserting a new element.
+Similarly, a new element can be inserted as the first child of a container
+by holding \textbf{Shift} key (default is to append it as the last
+child).
 
 
 \section{Tree editing}
@@ -125,6 +126,26 @@ is added to the child element attributes. The side-effect of this
 when copying a child from one parent's subtree into a subtree of a
 parent of a different class, is that the hidden node attributes must
 be discarded. This is done automatically.
+
+
+\subsection*{Cut/Copy/Paste}
+
+To accelerate your workflow it may be very useful to use keyboard
+shortcuts. XRCed supports standard editing shortcuts for cut/copy/paste
+commands. Pasting operation depends on the state of additional modifier
+keys to select the desired pasting location relative to the active
+tree selection, in a way similar to creating new nodes. \textbf{Shift}
+modifier can be used with the toolbar Paste button or tree pulldown
+menu to activate {}``insert'' mode. To activate sibling mode on
+wxGTK/wxMSW, \textbf{Ctrl} or \textbf{Alt} modifier is used depending
+on the platform and the way of introducing Paste command:
+
+\begin{tabular}{ccc} 
+& \textbf{wxGTK and wxMSW} & \textbf{wxMac}\\
+Tool button & Ctrl & Alt\\
+Pulldown menu & Ctrl & Alt\\
+Ctrl+V or Control+V shortcut & Alt & Alt\\
+\end{tabular} 
 
 
 \section{Defining attributes}
@@ -179,4 +200,6 @@ it may be prefered to freeze the test window while making modifications
 by deactivating auto-refresh (from the View menu or using Alt+A keyboard
 shortcut). To force a refresh, press Ctrl+R or select View>Refresh
 command.
+
+
 \end{document}

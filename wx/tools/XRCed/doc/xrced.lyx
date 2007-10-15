@@ -186,7 +186,11 @@ containers
 \series bold
 Ctrl
 \series default
- key when inserting a new element.
+ key on wxGTK/wxMSW or 
+\series bold
+Alt
+\series default
+ key on wxMac when inserting a new element.
  Similarly, a new element can be inserted as the first child of a container
  by holding 
 \series bold
@@ -266,6 +270,100 @@ sizeritem
  into a subtree of a parent of a different class, is that the hidden node
  attributes must be discarded.
  This is done automatically.
+\end_layout
+
+\begin_layout Subsection*
+Cut/Copy/Paste
+\end_layout
+
+\begin_layout Standard
+To accelerate your workflow it may be very useful to use keyboard shortcuts.
+ XRCed supports standard editing shortcuts for cut/copy/paste commands.
+ Pasting operation depends on the state of additional modifier keys to select
+ the desired pasting location relative to the active tree selection, in
+ a way similar to creating new nodes.
+ 
+\series bold
+Shift
+\series default
+ modifier can be used with the toolbar Paste button or tree pulldown menu
+ to activate 
+\begin_inset Quotes eld
+\end_inset
+
+insert
+\begin_inset Quotes erd
+\end_inset
+
+ mode.
+ To activate sibling mode on wxGTK/wxMSW, 
+\series bold
+Ctrl
+\series default
+ or 
+\series bold
+Alt
+\series default
+ modifier is used depending on the platform and the way of introducing Paste
+ command:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Standard
+
+
+\backslash
+begin{tabular}{ccc} & 
+\backslash
+textbf{wxGTK and wxMSW} & 
+\backslash
+textbf{wxMac}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+
+Tool button & Ctrl & Alt
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+
+Pulldown menu & Ctrl & Alt
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+
+Ctrl+V or Control+V shortcut & Alt & Alt
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Standard
+
+
+\backslash
+end{tabular} 
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -403,6 +501,10 @@ When auto-refresh is activated, any changes made to the attibutes or the
 ns by deactivating auto-refresh (from the View menu or using Alt+A keyboard
  shortcut).
  To force a refresh, press Ctrl+R or select View>Refresh command.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \end_body
