@@ -597,11 +597,11 @@ class BoxSizer(Sizer):
         self.setDefaults(node)
 
     def insertBefore(self, parentNode, node, nextNode):
-        Sizer.insertBefore(self, parentNode, nextNode)
+        Sizer.insertBefore(self, parentNode, node, nextNode)
         self.setDefaults(node)
 
     def insertAfter(self, parentNode, node, prevNode):
-        Sizer.insertAfter(self, parentNode, prevNode)
+        Sizer.insertAfter(self, parentNode, node, prevNode)
         self.setDefaults(node)
 
 ################################################################################
