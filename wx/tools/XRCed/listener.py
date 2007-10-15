@@ -427,7 +427,7 @@ class _Listener:
     def OnMoveDown(self, evt):
         self.inIdle = True
         g.undoMan.RegisterUndo(undo.UndoGlobal()) 
-        Presenter.moveUp()
+        Presenter.moveDown()
         self.inIdle = False
     
     def OnMoveLeft(self, evt):

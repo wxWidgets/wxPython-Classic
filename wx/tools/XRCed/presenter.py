@@ -452,28 +452,37 @@ class _Presenter:
         self.setModified()
 
     def moveUp(self):
+        parentItem = view.tree.GetItemParent(self.item)
         treeNode = view.tree.GetPyData(self.item)
         node = self.container.getTreeOrImplicitNode(treeNode)
         parent = node.parentNode
         prevNode = node.previousSibling
+        while prevNode.nodeType != node.ELEMENT_NODE:
+            prevNode = prevNode.previousSibling
         parent.removeChild(node)
         parent.insertBefore(node, prevNode)
         index = view.tree.ItemFullIndex(self.item)
-        view.tree.Flush()
+        view.tree.FlushSubtree(parentItem, parent)
         index[-1] -= 1
         self.item = view.tree.ItemAtFullIndex(index)
         self.setModified()
         view.tree.SelectItem(self.item)
         
     def moveDown(self):
+        parentItem = view.tree.GetItemParent(self.item)
         treeNode = view.tree.GetPyData(self.item)
         node = self.container.getTreeOrImplicitNode(treeNode)
         parent = node.parentNode
         nextNode = node.nextSibling
+        while nextNode.nodeType != node.ELEMENT_NODE:
+            nextNode = nextNode.nextSibling
+        nextNode = nextNode.nextSibling
+        while nextNode and nextNode.nodeType != node.ELEMENT_NODE:
+            nextNode = nextNode.nextSibling
         parent.removeChild(node)
         parent.insertBefore(node, nextNode)
         index = view.tree.ItemFullIndex(self.item)
-        view.tree.Flush()
+        view.tree.FlushSubtree(parentItem, parent)
         index[-1] += 1
         self.item = view.tree.ItemAtFullIndex(index)
         self.setModified()
@@ -481,8 +490,9 @@ class _Presenter:
 
     def moveLeft(self):
         parentItem = view.tree.GetItemParent(self.item)
+        grandParentItem = view.tree.GetItemParent(parentItem)
         parent = view.tree.GetPyData(parentItem)
-        grandParent = view.tree.GetPyData(view.tree.GetItemParent(parentItem))
+        grandParent = view.tree.GetPyData(grandParentItem)
         if grandParent is Model.mainNode:
             grandParentComp = Manager.rootComponent
         else:
@@ -501,7 +511,7 @@ class _Presenter:
         else:
             grandParentComp.appendChild(grandParent, node)
         index = view.tree.ItemFullIndex(self.item)
-        view.tree.Flush()
+        view.tree.FlushSubtree(grandParentItem, grandParent)
         index.pop()
         index[-1] += 1
         self.item = view.tree.ItemAtFullIndex(index)
@@ -522,8 +532,8 @@ class _Presenter:
         self.container.removeChild(parent, node)
         newParentComp.appendChild(newParent, node)
         index = view.tree.ItemFullIndex(self.item)
-        n = view.tree.GetChildrenCount(view.tree.GetPrevSibling(parentItem))
-        view.tree.Flush()
+        n = view.tree.GetChildrenCount(view.tree.GetPrevSibling(self.item))
+        view.tree.FlushSubtree(parentItem, parent)
         index[-1] -= 1
         index.append(n)
         self.item = view.tree.ItemAtFullIndex(index)

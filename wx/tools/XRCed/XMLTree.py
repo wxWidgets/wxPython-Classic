@@ -52,7 +52,7 @@ class XMLTree(wx.TreeCtrl):
 #        self.Expand(self.root)
 
     # Add tree item for given parent item if node is DOM element node with
-    # object/object_ref tag. xxxParent is parent xxx object
+    # object/object_ref tag
     def AddNode(self, parent, node):
         # Append tree item
         className = node.getAttribute('class')
@@ -97,6 +97,22 @@ class XMLTree(wx.TreeCtrl):
         # (first node is test node)
         for n in filter(is_object, Model.mainNode.childNodes[1:]):
             self.AddNode(self.root, n)
+
+    def FlushSubtree(self, item, node):
+        '''Update all items after changes in model.'''
+        if item == self.root:
+            self.Flush()
+            return
+        self.DeleteChildren(item)
+        className = node.getAttribute('class')
+        try:
+            comp = Manager.components[className]
+        except:
+            # Flush completely if unknown
+            self.Flush()
+            return
+        for n in filter(is_object, node.childNodes):
+            self.AddNode(item, comp.getTreeNode(n))
 
     def ExpandAll(self):
         i, cookie = self.GetFirstChild(self.root)
