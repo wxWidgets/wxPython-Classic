@@ -4588,7 +4588,6 @@ class ListCtrl(_core.Control):
         """GetItemSpacing(self) -> Size"""
         return _controls_.ListCtrl_GetItemSpacing(*args, **kwargs)
 
-    GetItemSpacing = wx._deprecated(GetItemSpacing) 
     def GetSelectedItemCount(*args, **kwargs):
         """GetSelectedItemCount(self) -> int"""
         return _controls_.ListCtrl_GetSelectedItemCount(*args, **kwargs)
