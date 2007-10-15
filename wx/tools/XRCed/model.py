@@ -112,6 +112,11 @@ class _Model:
         node.setAttribute('class', className)
         return node
 
+    def createRefNode(self, ref):
+        node = self.dom.createElement('object_ref')
+        node.setAttribute('ref', ref)
+        return node
+
     def createComponentNode(self, className):
         node = self.dom.createElement('component')
         node.setAttribute('class', className)
@@ -125,6 +130,11 @@ class _Model:
         self.mainNode.replaceChild(elem, oldTestElem)
         self.testElem = elem
         oldTestElem.unlink()
+
+    def findResource(self, name, classname='', recursive=True):
+        found = DoFindResource(self.mainNode, name, classname, recursive)
+        if found: return found
+        wx.LogError('XRC resource "%s" not found!' % name)
 
 Model = _Model()
 
@@ -145,3 +155,25 @@ class MemoryFile:
             
     def close(self):
         wx.MemoryFSHandler.AddFile(self.name, self.buffer)
+
+# Imitation of FindResource/DoFindResource from xmlres.cpp
+def DoFindResource(parent, name, classname, recursive):
+    for n in parent.childNodes:
+        if n.nodeType == minidom.Node.ELEMENT_NODE and \
+               n.tagName in ['object', 'object_ref'] and \
+               n.getAttribute('name') == name:
+            cls = n.getAttribute('class')
+            if not classname or cls == classname:  return n
+            if not cls or n.tagName == 'object_ref':
+                refName = n.getAttribute('ref')
+                if not refName:  continue
+                refNode = FindResource(refName)
+                if refName and refNode.getAttribute('class') == classname:
+                    return n
+    if recursive:
+        for n in parent.childNodes:
+            if n.nodeType == minidom.Node.ELEMENT_NODE and \
+                   n.tagName in ['object', 'object_ref']:
+                found = DoFindResource(n, name, classname, True)
+                if found:  return found
+

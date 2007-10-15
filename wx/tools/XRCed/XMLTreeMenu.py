@@ -78,9 +78,8 @@ class XMLTreeMenu(wx.Menu):
         for index,component,label,help in Manager.menus['TOP_LEVEL']:
             if comp.canHaveChild(component):
                 m.Append(component.id + idShift, label, help)
-# !!! TODO
-#        m.AppendSeparator()
-#        m.Append(ID.REF, 'reference...', 'Create object_ref node')
+        m.AppendSeparator()
+        m.Append(ID.REF, 'reference...', 'Create object_ref node')
 #        m.Append(ID.COMMENT, 'comment', 'Create comment node')        
         return m
 
@@ -103,7 +102,6 @@ class XMLTreeMenu(wx.Menu):
                 menu.AppendSeparator()
             else:
                 m.Destroy()
-# !!! TODO
-#        menu.Append(ID.REF, 'reference...', 'Create object_ref node')
+        menu.Append(ID.REF, 'reference...', 'Create object_ref node')
 #        menu.Append(ID.COMMENT, 'comment', 'Create comment node')
         return menu

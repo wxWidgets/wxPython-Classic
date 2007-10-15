@@ -137,6 +137,11 @@ class _Presenter:
             self.createUndoEdit(view.tree.root)
         else:
             node = view.tree.GetPyData(item)
+            if node.tagName == 'object':
+                refNode = None
+            elif node.tagName == 'object_ref':
+                refNode = node
+                node = Model.findResource(node.getAttribute('ref'))
             className = node.getAttribute('class')
             TRACE('setData: %s', className)
             self.comp = Manager.components[className]
@@ -147,7 +152,7 @@ class _Presenter:
             else:
                 parentClass = parentNode.getAttribute('class')
                 self.container = Manager.components[parentClass]
-            self.panels = view.panel.SetData(self.container, self.comp, node)
+            self.panels = view.panel.SetData(self.container, self.comp, node, refNode)
             # Create new pending undo
             self.createUndoEdit(item)
 
@@ -234,6 +239,15 @@ class _Presenter:
         view.tree.SelectItem(item)
         self.setModified()
         return item
+
+    def createRef(self, ref, child=None):
+        '''Create object_ref element node.'''
+        if child is None:
+            child = Model.createRefNode(ref)
+        refNode = Model.findResource(ref)
+        if not refNode: return None
+        comp = Manager.getNodeComp(refNode)
+        self.create(comp, child)
 
     def replace(self, comp, node=None):
         '''Replace DOM node by new or passed node. Return new item.'''

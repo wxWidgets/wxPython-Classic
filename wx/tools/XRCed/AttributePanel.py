@@ -104,7 +104,7 @@ class Panel(wx.Panel):
 
         self.undo = None        # pending undo object
 
-    def SetData(self, container, comp, node):
+    def SetData(self, container, comp, node, refNode=None):
         self.Freeze()
 
         oldLabel = self.nb.GetPageText(self.nb.GetSelection())
@@ -114,6 +114,7 @@ class Panel(wx.Panel):
         self.container = container
         self.comp = comp
         self.node = node        # main node
+        self.refNode = node
         panels = []
         # Class and name
         if comp.klass != 'root':

@@ -40,6 +40,8 @@ class _Listener:
         wx.EVT_MENU_RANGE(frame, Manager.firstId + ID.SHIFT, Manager.lastId + ID.SHIFT,
                           self.OnComponentReplace)
 
+        wx.EVT_MENU(frame, ID.REF, self.OnReference)
+
         # Other events
         frame.Bind(wx.EVT_IDLE, self.OnIdle)
         frame.Bind(wx.EVT_CLOSE, self.OnCloseWindow)
@@ -181,6 +183,12 @@ class _Listener:
         comp = Manager.findById(evt.GetId() - ID.SHIFT)
         g.undoMan.RegisterUndo(undo.UndoGlobal()) # !!! TODO
         Presenter.replace(comp)
+
+    def OnReference(self, evt):
+        '''Create reference to an existing object.'''
+        ref = wx.GetTextFromUser('Create reference to:', 'Create reference')
+        if not ref: return
+        Presenter.createRef(ref)
 
     def OnNew(self, evt):
         '''wx.ID_NEW hadndler.'''

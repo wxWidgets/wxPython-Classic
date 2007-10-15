@@ -582,6 +582,7 @@ class BoxSizer(Sizer):
         return rects
 
     def setDefaults(self, node):
+        if node.tagName == 'object_ref': return
         if self.requireImplicit(node):
             comp = Manager.getNodeComp(node)
             sizerItem = self.getTreeOrImplicitNode(node)
