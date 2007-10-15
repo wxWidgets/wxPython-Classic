@@ -5859,6 +5859,52 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiPaneInfo_DockFixed(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiPaneInfo *arg1 = (wxAuiPaneInfo *) 0 ;
+  bool arg2 = (bool) true ;
+  wxAuiPaneInfo *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "b", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:AuiPaneInfo_DockFixed",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiPaneInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiPaneInfo_DockFixed" "', expected argument " "1"" of type '" "wxAuiPaneInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiPaneInfo * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_bool(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "AuiPaneInfo_DockFixed" "', expected argument " "2"" of type '" "bool""'");
+    } 
+    arg2 = static_cast< bool >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxAuiPaneInfo &_result_ref = (arg1)->DockFixed(arg2);
+      result = (wxAuiPaneInfo *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_AuiPaneInfo_Dockable(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxAuiPaneInfo *arg1 = (wxAuiPaneInfo *) 0 ;
@@ -18743,6 +18789,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiPaneInfo_RightDockable", (PyCFunction) _wrap_AuiPaneInfo_RightDockable, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiPaneInfo_Floatable", (PyCFunction) _wrap_AuiPaneInfo_Floatable, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiPaneInfo_Movable", (PyCFunction) _wrap_AuiPaneInfo_Movable, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiPaneInfo_DockFixed", (PyCFunction) _wrap_AuiPaneInfo_DockFixed, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiPaneInfo_Dockable", (PyCFunction) _wrap_AuiPaneInfo_Dockable, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiPaneInfo_DefaultPane", (PyCFunction)_wrap_AuiPaneInfo_DefaultPane, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_CentrePane", (PyCFunction)_wrap_AuiPaneInfo_CentrePane, METH_O, NULL},
@@ -21992,6 +22039,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "AuiPaneInfo_optionActive",SWIG_From_int(static_cast< int >(wxAuiPaneInfo::optionActive)));
   SWIG_Python_SetConstant(d, "AuiPaneInfo_optionGripperTop",SWIG_From_int(static_cast< int >(wxAuiPaneInfo::optionGripperTop)));
   SWIG_Python_SetConstant(d, "AuiPaneInfo_optionMaximized",SWIG_From_int(static_cast< int >(wxAuiPaneInfo::optionMaximized)));
+  SWIG_Python_SetConstant(d, "AuiPaneInfo_optionDockFixed",SWIG_From_int(static_cast< int >(wxAuiPaneInfo::optionDockFixed)));
   SWIG_Python_SetConstant(d, "AuiPaneInfo_buttonClose",SWIG_From_int(static_cast< int >(wxAuiPaneInfo::buttonClose)));
   SWIG_Python_SetConstant(d, "AuiPaneInfo_buttonMaximize",SWIG_From_int(static_cast< int >(wxAuiPaneInfo::buttonMaximize)));
   SWIG_Python_SetConstant(d, "AuiPaneInfo_buttonMinimize",SWIG_From_int(static_cast< int >(wxAuiPaneInfo::buttonMinimize)));

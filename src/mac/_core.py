@@ -10076,7 +10076,7 @@ class Window(EvtHandler):
 
         Returns the platform-specific handle (as a long integer) of the
         physical window.  On wxMSW this is the win32 window handle, on wxGTK
-        it is the XWindowID, and on wxMac it is the ControlRef.
+        it is the XWindow ID, and on wxMac it is the ControlRef.
         """
         return _core_.Window_GetHandle(*args, **kwargs)
 
