@@ -1,3 +1,8 @@
+2007-10-16  Roman Rolinsky  <scroll@lem.lan>
+
+	* Platform-specific sibling modifier key, fixes for "move"
+	commands with partial tree flushing.
+
 2007-10-03  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
 
 	* Added preference option to use FoldPanelBar for component panel.
