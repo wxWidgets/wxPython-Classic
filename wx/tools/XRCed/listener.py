@@ -70,7 +70,7 @@ class _Listener:
         wx.EVT_MENU(frame, ID.PASTE_SIBLING, self.OnPasteSibling)
         wx.EVT_MENU(frame, wx.ID_DELETE, self.OnDelete)
         wx.EVT_MENU(frame, frame.ID_UNSELECT, self.OnUnselect)
-        wx.EVT_MENU(frame, frame.ID_TOOL_PASTE, self.OnCmdPaste)
+        wx.EVT_MENU(frame, frame.ID_TOOL_PASTE, self.OnToolPaste)
         wx.EVT_MENU(frame, frame.ID_LOCATE, self.OnLocate)
         wx.EVT_MENU(frame, frame.ID_TOOL_LOCATE, self.OnLocate)
         # View
@@ -379,9 +379,20 @@ class _Listener:
         Presenter.paste()
 
     def OnCmdPaste(self, evt):
-        '''ID.PASTE and ID.TOOL_PASTE handler (for Edit menu and shortcuts).'''
+        '''ID.PASTE handler (for Edit menu and shortcuts).'''
         state = wx.GetMouseState()
-        if wx.Platform == '__WXMAC__': # Ctrl+click does not work with tools on Mac
+        forceSibling = state.AltDown()
+        forceInsert = state.ShiftDown()
+        g.Presenter.updateCreateState(forceSibling, forceInsert)
+        g.undoMan.RegisterUndo(undo.UndoGlobal()) 
+        Presenter.paste()
+
+    def OnToolPaste(self, evt):
+        '''frame.ID_TOOL_PASTE handler.'''
+        state = wx.GetMouseState()
+        # Ctrl+click does not work with tools on Mac, Alt+click often
+        # bound to window move on wxGTK
+        if wx.Platform == '__WXMAC__':
             forceSibling = state.AltDown()
         else:
             forceSibling = state.ControlDown()
