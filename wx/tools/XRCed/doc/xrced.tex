@@ -140,24 +140,37 @@ menu to activate {}``insert'' mode. To activate sibling mode on
 wxGTK/wxMSW, \textbf{Ctrl} or \textbf{Alt} modifier is used depending
 on the platform and the way of introducing Paste command:
 
-\begin{tabular}{ccc} 
-& \textbf{wxGTK and wxMSW} & \textbf{wxMac}\\
-Tool button & Ctrl & Alt\\
-Pulldown menu & Ctrl & Alt\\
-Ctrl+V or Control+V shortcut & Alt & Alt\\
-\end{tabular} 
+\begin{verbatim}
+                           wxGTK and wxMSW  wxMac
+-------------------------------------------------
+Tool button                     Ctrl         Alt 
+Pulldown menu                   Ctrl         Alt 
+Ctrl+V/Control+V shortcut       Alt          Alt
+\end{verbatim}
 
 
 \section{Defining attributes}
 
-Attributes are edited using the attribute panel. The upper part has
-the class field and, if applicable, the object name field. Lower part
-contains a notebook with one or several pages. Normally the first
-page contains the main attributes, the second is {}``Look'n'Feel''
-for editing visual behaviour attributes such as font, colors, etc.,
-the third is {}``Style'' with styles grouped in two columns - \textbf{Generic}
-and \textbf{Specific, }then there may be {}``ExStyle'' page for
-extra styles and if there is a hidden node a page with its attributes.
+%
+\begin{figure}
+\image{}{attpanel.png}
+
+\caption{Attribute panel}
+\label{fig:attpanel}
+\end{figure}
+
+
+Attributes are edited using the attribute panel (Figure \ref{fig:attpanel}).
+The upper part contains the class name field and, if applicable, the
+element name field. Lower part contains a notebook with one or several
+pages. Normally the first page contains the main attributes, the second
+is {}``Look'n'Feel'' page containing visual behaviour attributes
+such as font, colors, etc., the third is {}``Style'' page with styles
+grouped in two columns - \textbf{Generic} and \textbf{Specific, }in
+addition some elements may have {}``ExStyle'' page for defining
+extra styles and if there is a hidden node (such as for sizer items
+or notebook pages) a page with hidden node attributes is shown, named
+correspondingly.
 
 
 \subsection*{Changing object's class}
@@ -202,4 +215,60 @@ shortcut). To force a refresh, press Ctrl+R or select View>Refresh
 command.
 
 
+\subsection*{Highlighting}
+
+Selected elements are highlighted with red lines in the test window.
+For sizers and sizer children in addition to the element bounding
+box XRCed draws some additional lines showing border widths.
+
+%
+\begin{figure}
+\image{}{hl-sizer.png}
+
+\caption{Highlighting for a box sizer}
+\label{fig:hl-sizer}
+\end{figure}
+
+
+%
+\begin{figure}
+\image{}{ex1-tree.png}
+
+\caption{XML tree}
+\label{fig:ex1-tree}
+\end{figure}
+
+
+Figure \ref{fig:hl-sizer} shows how a box sizer is highlighted. The
+tree view for this example is shown on Figure \ref{fig:ex1-tree}.
+The top sizer (which is selected) is highlighted with a 2-pixel darker
+box, and its children (wxBoxSizer and wxStdDialogButtonSizer) are
+highlighted with 1-pixel lighter boxes. Lines sticking out of the
+wxStdDialogButtonSizer indicate that it has borders on all sides.
+Finally, the horizontal line drawn across the wxBoxSizer indicates
+that it has wxEXPAND flag set. 
+
+%
+\begin{figure}
+\image{}{hl-control.png}
+
+\caption{Highlighting for a control inside a sizer}
+\label{fig:hl-control}
+\end{figure}
+
+
+Figure \ref{fig:hl-control} shows how a control inside a sizer (the
+wxTextCtrl object) is highlighted: only the bounding box and borders
+are drawn.
+
+When auto-refresh is off, the highlight follows selection until the
+tree structure is modified. To re-activate highlighting again Refresh
+command must be used.
+
+In addition to the active selection highlighting, when using drag-and-drop
+to place new elements on the test window, an element serving as a
+reference for the new element is highlighted with a blue rectangle.
+The new element will be appended as a child or a next sibling of the
+reference element depending if it is a container or not and the state
+of the modifier key.
 \end{document}

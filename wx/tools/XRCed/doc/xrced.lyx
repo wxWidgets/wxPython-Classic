@@ -316,49 +316,39 @@ status open
 
 
 \backslash
-begin{tabular}{ccc} & 
-\backslash
-textbf{wxGTK and wxMSW} & 
-\backslash
-textbf{wxMac}
-\backslash
-
-\backslash
-
+begin{verbatim}
 \end_layout
 
 \begin_layout Standard
 
-Tool button & Ctrl & Alt
-\backslash
-
-\backslash
-
+                           wxGTK and wxMSW  wxMac
 \end_layout
 
 \begin_layout Standard
 
-Pulldown menu & Ctrl & Alt
-\backslash
-
-\backslash
-
+-------------------------------------------------
 \end_layout
 
 \begin_layout Standard
 
-Ctrl+V or Control+V shortcut & Alt & Alt
-\backslash
+Tool button                     Ctrl         Alt 
+\end_layout
 
-\backslash
+\begin_layout Standard
 
+Pulldown menu                   Ctrl         Alt 
+\end_layout
+
+\begin_layout Standard
+
+Ctrl+V/Control+V shortcut       Alt          Alt
 \end_layout
 
 \begin_layout Standard
 
 
 \backslash
-end{tabular} 
+end{verbatim}
 \end_layout
 
 \end_inset
@@ -371,9 +361,60 @@ Defining attributes
 \end_layout
 
 \begin_layout Standard
-Attributes are edited using the attribute panel.
- The upper part has the class field and, if applicable, the object name
- field.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Standard
+
+
+\backslash
+image{}{attpanel.png}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Caption
+
+\begin_layout Standard
+Attribute panel
+\end_layout
+
+\end_inset
+
+
+\begin_inset LatexCommand label
+name "fig:attpanel"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Attributes are edited using the attribute panel (Figure 
+\begin_inset LatexCommand ref
+reference "fig:attpanel"
+
+\end_inset
+
+).
+ The upper part contains the class name field and, if applicable, the element
+ name field.
  Lower part contains a notebook with one or several pages.
  Normally the first page contains the main attributes, the second is 
 \begin_inset Quotes eld
@@ -383,8 +424,8 @@ Look'n'Feel
 \begin_inset Quotes erd
 \end_inset
 
- for editing visual behaviour attributes such as font, colors, etc., the
- third is 
+ page containing visual behaviour attributes such as font, colors, etc.,
+ the third is 
 \begin_inset Quotes eld
 \end_inset
 
@@ -392,7 +433,7 @@ Style
 \begin_inset Quotes erd
 \end_inset
 
- with styles grouped in two columns - 
+ page with styles grouped in two columns - 
 \series bold
 Generic
 \series default
@@ -400,7 +441,7 @@ Generic
 \series bold
 Specific, 
 \series default
-then there may be 
+in addition some elements may have 
 \begin_inset Quotes eld
 \end_inset
 
@@ -408,7 +449,9 @@ ExStyle
 \begin_inset Quotes erd
 \end_inset
 
- page for extra styles and if there is a hidden node a page with its attributes.
+ page for defining extra styles and if there is a hidden node (such as for
+ sizer items or notebook pages) a page with hidden node attributes is shown,
+ named correspondingly.
 \end_layout
 
 \begin_layout Subsection*
@@ -503,8 +546,200 @@ ns by deactivating auto-refresh (from the View menu or using Alt+A keyboard
  To force a refresh, press Ctrl+R or select View>Refresh command.
 \end_layout
 
+\begin_layout Subsection*
+Highlighting
+\end_layout
+
+\begin_layout Standard
+Selected elements are highlighted with red lines in the test window.
+ For sizers and sizer children in addition to the element bounding box XRCed
+ draws some additional lines showing border widths.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
 \begin_layout Standard
 
+
+\backslash
+image{}{hl-sizer.png}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Caption
+
+\begin_layout Standard
+Highlighting for a box sizer
+\end_layout
+
+\end_inset
+
+
+\begin_inset LatexCommand label
+name "fig:hl-sizer"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Standard
+
+
+\backslash
+image{}{ex1-tree.png}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Caption
+
+\begin_layout Standard
+XML tree
+\end_layout
+
+\end_inset
+
+
+\begin_inset LatexCommand label
+name "fig:ex1-tree"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset LatexCommand ref
+reference "fig:hl-sizer"
+
+\end_inset
+
+ shows how a box sizer is highlighted.
+ The tree view for this example is shown on Figure 
+\begin_inset LatexCommand ref
+reference "fig:ex1-tree"
+
+\end_inset
+
+.
+ The top sizer (which is selected) is highlighted with a 2-pixel darker
+ box, and its children (wxBoxSizer and wxStdDialogButtonSizer) are highlighted
+ with 1-pixel lighter boxes.
+ Lines sticking out of the wxStdDialogButtonSizer indicate that it has borders
+ on all sides.
+ Finally, the horizontal line drawn across the wxBoxSizer indicates that
+ it has wxEXPAND flag set.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Standard
+
+
+\backslash
+image{}{hl-control.png}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Caption
+
+\begin_layout Standard
+Highlighting for a control inside a sizer
+\end_layout
+
+\end_inset
+
+
+\begin_inset LatexCommand label
+name "fig:hl-control"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset LatexCommand ref
+reference "fig:hl-control"
+
+\end_inset
+
+ shows how a control inside a sizer (the wxTextCtrl object) is highlighted:
+ only the bounding box and borders are drawn.
+\end_layout
+
+\begin_layout Standard
+When auto-refresh is off, the highlight follows selection until the tree
+ structure is modified.
+ To re-activate highlighting again Refresh command must be used.
+\end_layout
+
+\begin_layout Standard
+In addition to the active selection highlighting, when using drag-and-drop
+ to place new elements on the test window, an element serving as a reference
+ for the new element is highlighted with a blue rectangle.
+ The new element will be appended as a child or a next sibling of the reference
+ element depending if it is a container or not and the state of the modifier
+ key.
 \end_layout
 
 \end_body
