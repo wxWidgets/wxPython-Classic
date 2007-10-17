@@ -50,13 +50,17 @@ class Panel(wx.Panel):
         pinSizer = wx.BoxSizer(wx.HORIZONTAL)
         sizer = wx.FlexGridSizer(2, 2, 1, 5)
         self.labelClass = wx.StaticText(self, -1, 'class:')
-        self.controlClass = params.ParamText(self, 'class', textWidth=200)
+        self.textClass = params.ParamText(self, 'class', textWidth=200)
         sizer.AddMany([ (self.labelClass, 0, wx.ALIGN_CENTER_VERTICAL),
-                        (self.controlClass, 0, wx.LEFT, 5) ])
+                        (self.textClass, 0, wx.LEFT, 5) ])
+        self.labelRef = wx.StaticText(self, -1, 'ref:')
+        self.textRef = params.ParamText(self, 'ref', textWidth=200)
+        sizer.AddMany([ (self.labelRef, 0, wx.ALIGN_CENTER_VERTICAL),
+                        (self.textRef, 0, wx.LEFT, 5) ])
         self.labelName = wx.StaticText(self, -1, 'name:')
-        self.controlName = params.ParamText(self, 'name', textWidth=200)
+        self.textName = params.ParamText(self, 'name', textWidth=200)
         sizer.AddMany([ (self.labelName, 0, wx.ALIGN_CENTER_VERTICAL),
-                        (self.controlName, 0, wx.LEFT, 5) ])
+                        (self.textName, 0, wx.LEFT, 5) ])
         pinSizer.Add(sizer, 0, wx.ALL, 5)
         pinSizer.Add((0, 0), 1)
         self.pinButton = buttons.GenBitmapToggleButton(
@@ -117,21 +121,31 @@ class Panel(wx.Panel):
         self.refNode = node
         panels = []
         # Class and name
-        if comp.klass != 'root':
+        if refNode:
+            self.labelRef.Show()
+            self.textRef.Show()
+            self.labelClass.Hide()
+            self.textClass.Hide()
+            self.textRef.SetValue(node.getAttribute('ref'))
+        elif comp.klass != 'root':
+            self.labelRef.Hide()
+            self.textRef.Hide()
             self.labelClass.Show()
-            self.controlClass.Show()
+            self.textClass.Show()
             subclass = node.getAttribute('subclass')
             if not subclass:
-                self.controlClass.SetValue(node.getAttribute('class'))
+                self.textClass.SetValue(node.getAttribute('class'))
             else:
-                self.controlClass.SetValue(subclass + '(%s)' % node.getAttribute('class'))
-        else:
+                self.textClass.SetValue(subclass + '(%s)' % node.getAttribute('class'))
+        else:                   # root node
             self.labelClass.Hide()
-            self.controlClass.Hide()
+            self.textClass.Hide()
+            self.labelRef.Hide()
+            self.textRef.Hide()
         self.labelName.Show(comp.hasName)
-        self.controlName.Show(comp.hasName)
+        self.textName.Show(comp.hasName)
         if comp.hasName:
-            self.controlName.SetValue(node.getAttribute('name'))
+            self.textName.SetValue(node.getAttribute('name'))
 
         self.Layout()           # update after hiding/showing
 
@@ -203,9 +217,9 @@ class Panel(wx.Panel):
         self.pageA.Reset()
         self.undo = None
 
-        self.controlClass.SetValue('')
+        self.textClass.SetValue('')
         self.labelName.Show(False)
-        self.controlName.Show(False)
+        self.textName.Show(False)
 
         self.Layout()
 
