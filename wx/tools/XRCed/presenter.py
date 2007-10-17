@@ -137,14 +137,8 @@ class _Presenter:
             self.createUndoEdit(view.tree.root)
         else:
             node = view.tree.GetPyData(item)
-            if node.tagName == 'object':
-                refNode = None
-            elif node.tagName == 'object_ref':
-                refNode = node
-                node = Model.findResource(node.getAttribute('ref'))
-            className = node.getAttribute('class')
-            TRACE('setData: %s', className)
-            self.comp = Manager.components[className]
+            TRACE('setData: %s', node.getAttribute('class'))
+            self.comp = Manager.getNodeComp(node)
             parentItem = view.tree.GetItemParent(item)
             parentNode = view.tree.GetPyData(parentItem)
             if parentNode == Model.mainNode:
@@ -152,7 +146,7 @@ class _Presenter:
             else:
                 parentClass = parentNode.getAttribute('class')
                 self.container = Manager.components[parentClass]
-            self.panels = view.panel.SetData(self.container, self.comp, node, refNode)
+            self.panels = view.panel.SetData(self.container, self.comp, node)
             # Create new pending undo
             self.createUndoEdit(item)
 
@@ -293,31 +287,34 @@ class _Presenter:
         node = view.tree.GetPyData(item)
         subclass = node.getAttribute('subclass')
         # Update (sub)class if needed
+        cls = view.panel.textClass.GetValue()
         if not subclass:
-            value = view.panel.controlClass.GetValue()
-            if value != self.comp.klass:
-                TRACE('update class: %s', value)
-                node.setAttribute('class', value)
+            if cls != self.comp.klass:
+                if node.tagName == 'object_ref' and not cls:
+                    if node.hasAttribute('class'):
+                        node.removeAttribute('class')
+                else:
+                    TRACE('update class: %s', cls)
+                    node.setAttribute('class', cls)
         else:
             value = subclass + '(%s)' % self.comp.klass
-            if view.panel.controlClass.GetValue() != value:
-                value = view.panel.controlClass.GetValue()
-                iLeft = value.find('(')
-                iRight = value.find(')')
+            if cls != value:
+                iLeft = cls.find('(')
+                iRight = cls.find(')')
                 if iLeft != -1 and iLeft < iRight:
-                    subclass = value[:iLeft]
-                    klass = value[iLeft+1:iRight]
-                    TRACE('update class/subclass: %s', value)
+                    subclass = cls[:iLeft]
+                    klass = cls[iLeft+1:iRight]
+                    TRACE('update class/subclass: %s', cls)
                     node.setAttribute('class', klass)
                     node.setAttribute('subclass', subclass)
                 else:
                     TRACE('remove subclass')
                     node.removeAttribute('subclass')
-                    node.setAttribute('class', value)
+                    node.setAttribute('class', cls)
         if self.comp and self.comp.hasName:
-            name = view.panel.controlName.GetValue()
+            name = view.panel.textName.GetValue()
             if name:
-                node.setAttribute('name', view.panel.controlName.GetValue())
+                node.setAttribute('name', name)
             elif node.hasAttribute('name'): # clean up empty names
                 node.removeAttribute('name')
         if item != view.tree.root: 

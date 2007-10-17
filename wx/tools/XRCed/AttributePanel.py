@@ -49,14 +49,14 @@ class Panel(wx.Panel):
         topSizer = wx.BoxSizer(wx.VERTICAL)
         pinSizer = wx.BoxSizer(wx.HORIZONTAL)
         sizer = wx.FlexGridSizer(2, 2, 1, 5)
-        self.labelClass = wx.StaticText(self, -1, 'class:')
-        self.textClass = params.ParamText(self, 'class', textWidth=200)
-        sizer.AddMany([ (self.labelClass, 0, wx.ALIGN_CENTER_VERTICAL),
-                        (self.textClass, 0, wx.LEFT, 5) ])
         self.labelRef = wx.StaticText(self, -1, 'ref:')
         self.textRef = params.ParamText(self, 'ref', textWidth=200)
         sizer.AddMany([ (self.labelRef, 0, wx.ALIGN_CENTER_VERTICAL),
                         (self.textRef, 0, wx.LEFT, 5) ])
+        self.labelClass = wx.StaticText(self, -1, 'class:')
+        self.textClass = params.ParamText(self, 'class', textWidth=200)
+        sizer.AddMany([ (self.labelClass, 0, wx.ALIGN_CENTER_VERTICAL),
+                        (self.textClass, 0, wx.LEFT, 5) ])
         self.labelName = wx.StaticText(self, -1, 'name:')
         self.textName = params.ParamText(self, 'name', textWidth=200)
         sizer.AddMany([ (self.labelName, 0, wx.ALIGN_CENTER_VERTICAL),
@@ -108,7 +108,7 @@ class Panel(wx.Panel):
 
         self.undo = None        # pending undo object
 
-    def SetData(self, container, comp, node, refNode=None):
+    def SetData(self, container, comp, node):
         self.Freeze()
 
         oldLabel = self.nb.GetPageText(self.nb.GetSelection())
@@ -121,15 +121,14 @@ class Panel(wx.Panel):
         self.refNode = node
         panels = []
         # Class and name
-        if refNode:
+        if node.tagName == 'object_ref':
             self.labelRef.Show()
             self.textRef.Show()
-            self.labelClass.Hide()
-            self.textClass.Hide()
             self.textRef.SetValue(node.getAttribute('ref'))
-        elif comp.klass != 'root':
+        else:
             self.labelRef.Hide()
             self.textRef.Hide()
+        if comp.klass != 'root':
             self.labelClass.Show()
             self.textClass.Show()
             subclass = node.getAttribute('subclass')

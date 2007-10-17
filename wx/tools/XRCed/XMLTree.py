@@ -55,10 +55,11 @@ class XMLTree(wx.TreeCtrl):
     # object/object_ref tag
     def AddNode(self, parent, node):
         # Append tree item
-        className = node.getAttribute('class')
         try:
-            comp = Manager.components[className]
+            comp = Manager.getNodeComp(node)
+            className = comp.klass
         except:
+            className = node.getAttribute('class')
             # Try to create some generic component on-the-fly
             attributes = []
             isContainer = False
@@ -80,8 +81,8 @@ class XMLTree(wx.TreeCtrl):
         if className == 'comment':
             self.SetItemTextColour(item, self.COLOUR_COMMENT)
             self.SetItemFont(item, self.fontComment)
-#        elif treeObj.ref:
-#            self.SetItemTextColour(item, self.COLOUR_REF)
+        elif node.tagName == 'object_ref':
+            self.SetItemTextColour(item, self.COLOUR_REF)
 #        elif treeObj.hasStyle and treeObj.params.get('hidden', False):
 #            self.SetItemTextColour(item, self.COLOUR_HIDDEN)
         # Try to find children objects

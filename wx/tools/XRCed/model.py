@@ -164,7 +164,7 @@ def DoFindResource(parent, name, classname, recursive):
                n.getAttribute('name') == name:
             cls = n.getAttribute('class')
             if not classname or cls == classname:  return n
-            if not cls or n.tagName == 'object_ref':
+            if not cls and n.tagName == 'object_ref':
                 refName = n.getAttribute('ref')
                 if not refName:  continue
                 refNode = FindResource(refName)
