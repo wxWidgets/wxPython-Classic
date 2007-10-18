@@ -760,6 +760,42 @@
               <object class="wxBoxSizer">
                 <orient>wxVERTICAL</orient>
                 <object class="sizeritem">
+                  <object class="wxCheckBox" name="check_TB_file">
+                    <label>New/Open/Save</label>
+                  </object>
+                  <flag>wxTOP|wxLEFT</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxCheckBox" name="check_TB_undo">
+                    <label>Undo/Redo</label>
+                  </object>
+                  <flag>wxTOP|wxLEFT</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxCheckBox" name="check_TB_copy">
+                    <label>Cut/Copy/Paste</label>
+                  </object>
+                  <flag>wxTOP|wxLEFT</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxCheckBox" name="check_TB_move">
+                    <label>Move</label>
+                  </object>
+                  <flag>wxTOP|wxLEFT</flag>
+                  <border>5</border>
+                </object>
+              </object>
+            </object>
+            <label>Toolbar</label>
+          </object>
+          <object class="listbookpage">
+            <object class="wxPanel">
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
                   <object class="wxCheckBox" name="check_expandOnOpen">
                     <label>Expand tree on open</label>
                   </object>

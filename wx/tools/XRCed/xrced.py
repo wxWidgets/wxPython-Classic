@@ -154,6 +154,11 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         conf.toolIconScale = conf.ReadInt('Prefs/toolIconScale', 100)
         conf.expandOnOpen = conf.ReadBool('Prefs/expandOnOpen', True)
         conf.fitTestWin = conf.ReadBool('Prefs/fitTestWin', True)
+        # Toolbar configuration
+        conf.TB_file = conf.ReadBool('Prefs/TB_file', True)
+        conf.TB_undo = conf.ReadBool('Prefs/TB_undo', True)
+        conf.TB_copy = conf.ReadBool('Prefs/TB_copy', True)
+        conf.TB_move = conf.ReadBool('Prefs/TB_move', True)
 #        conf.allowExec = conf.Read('Prefs/allowExec', 'ask')
         p = 'Prefs/Defaults/Container'
         if conf.HasEntry(p):
@@ -202,6 +207,10 @@ Please upgrade wxWidgets to %d.%d.%d or higher.''' % MinWxVersion)
         conf.WriteInt('Prefs/toolIconScale', conf.toolIconScale)
         conf.WriteInt('Prefs/expandOnOpen', conf.expandOnOpen)
         conf.WriteInt('Prefs/fitTestWin', conf.fitTestWin)
+        conf.WriteInt('Prefs/TB_file', conf.TB_file)
+        conf.WriteInt('Prefs/TB_undo', conf.TB_undo)
+        conf.WriteInt('Prefs/TB_copy', conf.TB_copy)
+        conf.WriteInt('Prefs/TB_move', conf.TB_move)
 #        conf.Write('Prefs/allowExec', conf.allowExec)
         v = conf.defaultsContainer
         if v: conf.Write('Prefs/Defaults/Container', DictToString(v))

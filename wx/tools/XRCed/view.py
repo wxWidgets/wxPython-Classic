@@ -295,29 +295,33 @@ class Frame(wx.Frame):
         cut_bmp  = wx.ArtProvider.GetBitmap(wx.ART_CUT, wx.ART_TOOLBAR)
         copy_bmp = wx.ArtProvider.GetBitmap(wx.ART_COPY, wx.ART_TOOLBAR)
         paste_bmp= wx.ArtProvider.GetBitmap(wx.ART_PASTE, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(wx.ID_NEW, new_bmp, 'New', 'New file')
-        tb.AddSimpleTool(wx.ID_OPEN, open_bmp, 'Open', 'Open file')
-        tb.AddSimpleTool(wx.ID_SAVE, save_bmp, 'Save', 'Save file')
-        tb.AddSeparator()
-        tb.AddSimpleTool(wx.ID_UNDO, undo_bmp, 'Undo', 'Undo')
-        tb.AddSimpleTool(wx.ID_REDO, redo_bmp, 'Redo', 'Redo')
-        tb.AddSeparator()
-        tb.AddSimpleTool(wx.ID_CUT, cut_bmp, 'Cut', 'Cut')
-        tb.AddSimpleTool(wx.ID_COPY, copy_bmp, 'Copy', 'Copy')
-        tb.AddSimpleTool(self.ID_TOOL_PASTE, paste_bmp, 'Paste', 'Paste')
-        tb.AddSeparator()
-        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVEUP, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_MOVEUP, bmp,
-                         'Up', 'Move before previous sibling')
-        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVEDOWN, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_MOVEDOWN, bmp,
-                         'Down', 'Move after next sibling')
-        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVELEFT, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_MOVELEFT, bmp,
-                         'Make Sibling', 'Make sibling of parent')
-        bmp = wx.ArtProvider.GetBitmap(self.ART_MOVERIGHT, wx.ART_TOOLBAR)
-        tb.AddSimpleTool(self.ID_MOVERIGHT, bmp,
-                         'Make Child', 'Make child of previous sibling')
+        if g.conf.TB_file:
+            tb.AddSimpleTool(wx.ID_NEW, new_bmp, 'New', 'New file')
+            tb.AddSimpleTool(wx.ID_OPEN, open_bmp, 'Open', 'Open file')
+            tb.AddSimpleTool(wx.ID_SAVE, save_bmp, 'Save', 'Save file')
+            tb.AddSeparator()
+        if g.conf.TB_undo:
+            tb.AddSimpleTool(wx.ID_UNDO, undo_bmp, 'Undo', 'Undo')
+            tb.AddSimpleTool(wx.ID_REDO, redo_bmp, 'Redo', 'Redo')
+            tb.AddSeparator()
+        if g.conf.TB_copy:
+            tb.AddSimpleTool(wx.ID_CUT, cut_bmp, 'Cut', 'Cut')
+            tb.AddSimpleTool(wx.ID_COPY, copy_bmp, 'Copy', 'Copy')
+            tb.AddSimpleTool(self.ID_TOOL_PASTE, paste_bmp, 'Paste', 'Paste')
+            tb.AddSeparator()
+        if g.conf.TB_move:
+            bmp = wx.ArtProvider.GetBitmap(self.ART_MOVEUP, wx.ART_TOOLBAR)
+            tb.AddSimpleTool(self.ID_MOVEUP, bmp,
+                             'Up', 'Move before previous sibling')
+            bmp = wx.ArtProvider.GetBitmap(self.ART_MOVEDOWN, wx.ART_TOOLBAR)
+            tb.AddSimpleTool(self.ID_MOVEDOWN, bmp,
+                             'Down', 'Move after next sibling')
+            bmp = wx.ArtProvider.GetBitmap(self.ART_MOVELEFT, wx.ART_TOOLBAR)
+            tb.AddSimpleTool(self.ID_MOVELEFT, bmp,
+                             'Make Sibling', 'Make sibling of parent')
+            bmp = wx.ArtProvider.GetBitmap(self.ART_MOVERIGHT, wx.ART_TOOLBAR)
+            tb.AddSimpleTool(self.ID_MOVERIGHT, bmp,
+                             'Make Child', 'Make child of previous sibling')
         if long:
             tb.AddSeparator()
             bmp = wx.ArtProvider.GetBitmap(self.ART_LOCATE, wx.ART_TOOLBAR)
@@ -409,6 +413,10 @@ class Frame(wx.Frame):
             conf.toolIconScale = dlg.slider_iconScale.GetValue()
             conf.expandOnOpen = dlg.check_expandOnOpen.GetValue()
             conf.fitTestWin = dlg.check_fitTestWin.GetValue()
+            conf.TB_file = dlg.check_TB_file.GetValue()
+            conf.TB_undo = dlg.check_TB_undo.GetValue()
+            conf.TB_copy = dlg.check_TB_copy.GetValue()
+            conf.TB_move = dlg.check_TB_move.GetValue()
             wx.LogMessage('Restart may be needed for some settings to take effect.')
         dlg.Destroy()
 
@@ -498,6 +506,15 @@ class PrefsDialog(wx.Dialog):
         self.check_expandOnOpen.SetValue(conf.expandOnOpen)
         self.check_fitTestWin = xrc.XRCCTRL(self, 'check_fitTestWin')
         self.check_fitTestWin.SetValue(conf.fitTestWin)
+
+        self.check_TB_file = xrc.XRCCTRL(self, 'check_TB_file')
+        self.check_TB_file.SetValue(conf.TB_file)
+        self.check_TB_undo = xrc.XRCCTRL(self, 'check_TB_undo')
+        self.check_TB_undo.SetValue(conf.TB_undo)
+        self.check_TB_copy = xrc.XRCCTRL(self, 'check_TB_copy')
+        self.check_TB_copy.SetValue(conf.TB_copy)
+        self.check_TB_move = xrc.XRCCTRL(self, 'check_TB_move')
+        self.check_TB_move.SetValue(conf.TB_move)
 
     def OnCheck(self, evt):
         self.checkControls[evt.GetId()][0].Enable(evt.IsChecked())
