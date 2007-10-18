@@ -77,18 +77,21 @@ class XMLTree(wx.TreeCtrl):
         item = self.AppendItem(parent, comp.getTreeText(node), 
                                image=comp.getTreeImageId(node),
                                data=wx.TreeItemData(node))
-        # Different color for comments and references
-        if className == 'comment':
-            self.SetItemTextColour(item, self.COLOUR_COMMENT)
-            self.SetItemFont(item, self.fontComment)
-        elif node.tagName == 'object_ref':
-            self.SetItemTextColour(item, self.COLOUR_REF)
-#        elif treeObj.hasStyle and treeObj.params.get('hidden', False):
-#            self.SetItemTextColour(item, self.COLOUR_HIDDEN)
+        self.SetItemStyle(item, node)
         # Try to find children objects
         if comp.isContainer:
             for n in filter(is_object, node.childNodes):
                 self.AddNode(item, comp.getTreeNode(n))
+
+    def SetItemStyle(self, item, node):
+        # Different color for comments and references
+        if node.tagName == 'object_ref':
+            self.SetItemTextColour(item, self.COLOUR_REF)
+#        if className == 'comment':
+#            self.SetItemTextColour(item, self.COLOUR_COMMENT)
+#            self.SetItemFont(item, self.fontComment)
+#        elif treeObj.hasStyle and treeObj.params.get('hidden', False):
+#            self.SetItemTextColour(item, self.COLOUR_HIDDEN)        
 
     def Flush(self):
         '''Update all items after changes in model.'''
