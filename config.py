@@ -192,10 +192,16 @@ HYBRID = 1         # Will use the "hybrid" version of the wxWidgets
                    # assertions in the library.  When any of these is
                    # triggered it is turned into a Python exception so
                    # this is a very useful feature to have turned on.
-
-
+                   
                    # Version part of wxWidgets LIB/DLL names
 WXDLLVER = '%d%d' % (VER_MAJOR, VER_MINOR)
+
+
+COMPILER = 'msvc'  # Used to select which compiler will be used on
+                   # Windows.  This not only affects distutils, but
+                   # also some of the default flags and other
+                   # assumptions in this script.  Current supported
+                   # values are 'msvc' and 'mingw32'
 
 WXPY_SRC = '.'  # Assume we're in the source tree already, but allow the
                 # user to change it, particularly for extension building.
@@ -275,7 +281,7 @@ for flag in [ 'BUILD_ACTIVEX', 'BUILD_DLLWIDGET',
 # String options
 for option in ['WX_CONFIG', 'SYS_WX_CONFIG', 'WXDLLVER', 'BUILD_BASE',
                'WXPORT', 'SWIG', 'CONTRIBS_INC', 'WXPY_SRC', 'FLAVOUR',
-               'VER_FLAGS', 'ARCH',
+               'VER_FLAGS', 'ARCH', 'COMPILER',
                ]:
     for x in range(len(sys.argv)):
         if sys.argv[x].find(option) == 0:
@@ -548,7 +554,7 @@ def find_data_files(srcdir, *wildcards):
 
 
 def makeLibName(name):
-    if os.name == 'posix':
+    if os.name == 'posix' or COMPILER == 'mingw32':
         libname = '%s_%s-%s' % (WXBASENAME, name, WXRELEASE)
     elif name:
         libname = 'wxmsw%s%s_%s' % (WXDLLVER, libFlag(), name)
@@ -559,7 +565,7 @@ def makeLibName(name):
 
 def findLib(name, libdirs):
     name = makeLibName(name)[0]
-    if os.name == 'posix':
+    if os.name == 'posix' or COMPILER == 'mingw32':
         dirs = libdirs + ['/usr/lib', '/usr/local/lib']
         name = 'lib'+name
     else:
@@ -570,6 +576,16 @@ def findLib(name, libdirs):
             return True
     return False
 
+
+def removeDuplicates(seq):
+    seen = {}
+    result = []
+    for item in seq:
+        if item in seen:
+            continue
+        seen[item] = 1
+        result.append(item)
+    return result
 
 def adjustCFLAGS(cflags, defines, includes):
     '''Extract the raw -I, -D, and -U flags and put them into
@@ -588,7 +604,7 @@ def adjustCFLAGS(cflags, defines, includes):
             defines.append( (flag[2:], ) )
         else:
             newCFLAGS.append(flag)
-    return newCFLAGS
+    return removeDuplicates(newCFLAGS)
 
 
 
@@ -602,12 +618,7 @@ def adjustLFLAGS(lflags, libdirs, libs):
             libs.append(flag[2:])
         else:
             newLFLAGS.append(flag)
-
-    # remove any flags for universal binaries, we'll get those from
-    # distutils instead
-    return newLFLAGS #[flag for flag in newLFLAGS
-           # if flag not in ['-isysroot', '-arch', 'ppc', 'i386'] and
-           # not flag.startswith('/Developer') ]
+    return removeDuplicates(newLFLAGS) 
 
 
 
@@ -640,7 +651,7 @@ def getExtraPath(shortVer=True, addOpts=False):
 
 #----------------------------------------------------------------------
 # These functions and class are copied from distutils in Python 2.5
-# and then grafts them back into the distutils modules so we can change
+# and then grafted back into the distutils modules so we can change
 # how the -arch and -isysroot compiler args are handled.  Basically if
 # -arch is specified in our compiler args then we need to strip all of
 # the -arch and -isysroot args provided by Python.
@@ -745,6 +756,33 @@ distutils.unixccompiler._darwin_compiler_fixup = _darwin_compiler_fixup
 distutils.unixccompiler._darwin_compiler = _darwin_compiler_fixup_24
 distutils.sysconfig.parse_makefile = _parse_makefile
 
+
+#----------------------------------------------------------------------
+# Another hack-job for the CygwinCCompiler class, this time replacing
+# the _compile function with one that will pass the -I flags to windres.
+
+import distutils.cygwinccompiler
+from distutils.errors import DistutilsExecError, CompileError
+
+def _compile(self, obj, src, ext, cc_args, extra_postargs, pp_opts):
+    if ext == '.rc' or ext == '.res':
+        # gcc needs '.res' and '.rc' compiled to object files !!!
+        try:
+            #self.spawn(["windres", "-i", src, "-o", obj])
+            self.spawn(["windres", "-i", src, "-o", obj] +
+                       [arg for arg in cc_args if arg.startswith("-I")] )
+        except DistutilsExecError, msg:
+            raise CompileError, msg
+    else: # for other files use the C-compiler
+        try:
+            self.spawn(self.compiler_so + cc_args + [src, '-o', obj] +
+                       extra_postargs)
+        except DistutilsExecError, msg:
+            raise CompileError, msg
+
+distutils.cygwinccompiler.CygwinCCompiler._compile = _compile
+
+
 #----------------------------------------------------------------------
 # sanity checks
 
@@ -772,12 +810,16 @@ if CONTRIBS_INC:
 else:
     CONTRIBS_INC = []
 
+if WXPORT != 'msw':
+    # make sure we only use the compiler value on MSW builds
+    COMPILER=None
+
 
 #----------------------------------------------------------------------
 # Setup some platform specific stuff
 #----------------------------------------------------------------------
 
-if os.name == 'nt':
+if os.name == 'nt' and  COMPILER == 'msvc':
     # Set compile flags and such for MSVC.  These values are derived
     # from the wxWidgets makefiles for MSVC, other compilers settings
     # will probably vary...
@@ -858,7 +900,7 @@ if os.name == 'nt':
 
 #----------------------------------------------------------------------
 
-elif os.name == 'posix':
+elif os.name == 'posix' or COMPILER == 'mingw32':
     if os.environ.has_key('WXWIN'):
         WXDIR = os.environ['WXWIN']
     else:
@@ -937,6 +979,10 @@ elif os.name == 'posix':
             WXPLAT = '__WXX11__'
             portcfg = ''
             BUILD_BASE = BUILD_BASE + '-' + WXPORT
+        elif WXPORT == 'msw':
+            WXPLAT = '__WXMSW__'
+            GENDIR = 'msw'
+            portcfg = ''
         else:
             raise SystemExit, "Unknown WXPORT value: " + WXPORT
 
@@ -946,7 +992,8 @@ elif os.name == 'posix':
         # wx-config doesn't output that for some reason.  For now, just
         # add it unconditionally but we should really check if the lib is
         # really found there or wx-config should be fixed.
-        libdirs.append("/usr/X11R6/lib")
+        if WXPORT != 'msw':
+            libdirs.append("/usr/X11R6/lib")
 
 
     # Move the various -I, -D, etc. flags we got from the *config scripts
@@ -954,10 +1001,22 @@ elif os.name == 'posix':
     cflags = adjustCFLAGS(cflags, defines, includes)
     lflags = adjustLFLAGS(lflags, libdirs, libs)
 
-
+    if debug and WXPORT == 'msw':
+        defines.append( ('_DEBUG', None) )
+        
+##     from pprint import pprint
+##     print 'cflags:',; pprint(cflags)
+##     print 'defines:',; pprint(defines)
+##     print 'includes:',; pprint(includes)
+##     print
+##     print 'lflags:',; pprint(lflags)
+##     print 'libdirs:',; pprint(libdirs)
+##     print 'libs:',; pprint(libs)
+##     print
+    
 #----------------------------------------------------------------------
 else:
-    raise 'Sorry, platform not supported...'
+    raise Exception('Sorry, platform not supported...')
 
 
 #----------------------------------------------------------------------

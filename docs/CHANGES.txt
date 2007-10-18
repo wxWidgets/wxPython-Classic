@@ -24,6 +24,9 @@ integers to specify the R, G, and B values for each color in the
 palette, which must all be the same length and which must contain
 integer values in the range of 0..255 inclusive.
 
+Thanks to some grunt work from Edouard TISSERANT, wxPython now has the
+needed tweaks in config.py to be able to be built with mingw32.  See
+BUILD.txt for details.
 
 
 

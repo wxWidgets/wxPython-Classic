@@ -33,6 +33,7 @@
 #include <wx/settings.h>
 #include <wx/dcclient.h>
 #include <wx/dcscreen.h>
+#include <wx/dcmemory.h>
 #include <wx/scrolwin.h>
 #if wxCHECK_VERSION(2, 7, 0)
 #include <wx/renderer.h>
