@@ -57,7 +57,7 @@ class _Listener:
         wx.EVT_MENU(frame, wx.ID_SAVE, self.OnSaveOrSaveAs)
         wx.EVT_MENU(frame, wx.ID_SAVEAS, self.OnSaveOrSaveAs)
         wx.EVT_MENU(frame, frame.ID_GENERATE_PYTHON, self.OnGeneratePython)
-        wx.EVT_MENU(frame, frame.ID_PREFS, self.OnPrefs)
+        wx.EVT_MENU(frame, wx.ID_PREFERENCES, self.OnPrefs)
         wx.EVT_MENU(frame, wx.ID_EXIT, self.OnExit)
         if frame.miniFrame:
             wx.EVT_MENU(frame.miniFrame, wx.ID_EXIT, self.OnExit)

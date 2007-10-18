@@ -199,8 +199,7 @@ class Frame(wx.Frame):
         menu.Append(self.ID_GENERATE_PYTHON, '&Generate Python...', 
                     'Generate a Python module that uses this XRC')
         menu.AppendSeparator()
-        self.ID_PREFS = wx.NewId()
-        menu.Append(self.ID_PREFS, 'Preferences...', 'Change XRCed settings')
+        menu.Append(wx.ID_PREFERENCES, 'Preferences...', 'Change XRCed settings')
         menu.AppendSeparator()
         menu.Append(wx.ID_EXIT, '&Quit\tCtrl-Q', 'Exit application')
 
