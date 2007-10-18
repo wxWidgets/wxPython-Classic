@@ -650,13 +650,15 @@ class _ComponentManager:
             if icb[1].klass == klass:
                 self.panels[panel].remove(icb)
 
-    def getNodeComp(self, node):
+    def getNodeComp(self, node, defaultClass='unknown'):
         # For ref nodes without class name, need to find ref element
         cls = node.getAttribute('class')
         if node.tagName == 'object_ref':
             if not cls:
                 refNode = Model.findResource(node.getAttribute('ref'))
                 cls = refNode.getAttribute('class')
+        if defaultClass and cls not in self.components:
+            cls = defaultClass
         return self.components[cls]
 
     def getMenuData(self, menu):

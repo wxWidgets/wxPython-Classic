@@ -56,7 +56,7 @@ class XMLTree(wx.TreeCtrl):
     def AddNode(self, parent, node):
         # Append tree item
         try:
-            comp = Manager.getNodeComp(node)
+            comp = Manager.getNodeComp(node, None)
             className = comp.klass
         except:
             className = node.getAttribute('class')

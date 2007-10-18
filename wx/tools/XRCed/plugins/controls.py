@@ -422,6 +422,12 @@ Manager.register(c)
 Manager.setMenu(c, 'box', 'static box', 'wxStaticBox', 60)
 Manager.setTool(c, 'Panels', pos=(2,0))
 
+### unknown
+
+c = Component('unknown', ['control'], ['pos', 'size'])
+Manager.register(c)
+Manager.setMenu(c, 'control', 'unknown', 'unknown control', 1000)
+
 ### wxXXX
 
 #c = Component('wxXXX', ['control','tool'],

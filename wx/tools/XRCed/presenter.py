@@ -226,7 +226,7 @@ class _Presenter:
             else:
                 self.comp.appendChild(parentNode, child)
                 item = view.tree.AppendItem(item, label, imageId, data=data)
-        view.tree.SetItemStyle(item, node)
+        view.tree.SetItemStyle(item, child)
         view.tree.EnsureVisible(item)
         view.tree.UnselectAll()
         if view.testWin.IsShown():
