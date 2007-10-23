@@ -28,10 +28,10 @@ def load_plugins(dir):
     sys_path = sys.path
     cwd = os.getcwd()
     dir = os.path.abspath(os.path.normpath(dir))
-    TRACE('* load_plugins %s' % dir)
+    TRACE('* load_plugins from %s' % dir)
     os.chdir(dir)
     sys.path = sys_path + [dir]
-    try:
+    try:                                # try/finally shield
         ff_py = glob.glob('[!_]*.py')
         for f in ff_py:
             name = os.path.splitext(f)[0]
@@ -50,11 +50,11 @@ def load_plugins(dir):
         dirs = glob.glob('*/')
         for dir in dirs:
             if os.path.isfile(os.path.join(dir, '__init__.py')):
-                TRACE('* __import__ %s/__init__.py', f)
+                TRACE('* import __init__.py in %s', dir)
                 try:
                     __import__(dir, globals(), locals(), ['*'])
                 except ImportError:
-                    logger.exception('importing %s/__init__.py failed', f)
+                    logger.exception('importing __init__.py failed')
     finally:
         sys.path = sys_path
         os.chdir(cwd)

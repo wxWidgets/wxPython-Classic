@@ -1,17 +1,25 @@
 #LyX 1.5.1 created this file. For more info see http://www.lyx.org/
-\lyxformat 245
+\lyxformat 276
 \begin_document
 \begin_header
 \textclass article
 \language english
 \inputencoding auto
-\fontscheme default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
 \graphics default
 \paperfontsize default
 \spacing single
 \papersize default
 \use_geometry false
 \use_amsmath 1
+\use_esint 0
 \cite_engine basic
 \use_bibtopic false
 \paperorientation portrait
@@ -25,14 +33,14 @@
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
-\author ""
-\author ""
+\author "" 
+\author "" 
 \end_header
 
 \begin_body
 
 \begin_layout Standard
-\begin_inset LatexCommand \tableofcontents{}
+\begin_inset LatexCommand tableofcontents
 
 \end_inset
 
@@ -390,9 +398,9 @@ Generic
 \series default
  and 
 \series bold
-Specific, 
+Specific,
 \series default
-then there may be 
+ then there may be 
 \begin_inset Quotes eld
 \end_inset
 
@@ -477,7 +485,7 @@ Locate
 
  command.
  While the test window is open, it is possible to create new elements by
- dragging a Component icon on the test window.
+ dragging a component icon on the test window.
  The parent element is highlighted by a blue box.
 \end_layout
 
@@ -495,8 +503,112 @@ ns by deactivating auto-refresh (from the View menu or using Alt+A keyboard
  To force a refresh, press Ctrl+R or select View>Refresh command.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Section
+Component plugins
+\end_layout
 
+\begin_layout Standard
+Each interface element available in XRCed is defined using a component plugin.
+ This permits easy extension to include new XRC format features and classes
+ and using custom application-specific components.
+\end_layout
+
+\begin_layout Standard
+A component plugin is actually a (singleton) object of 
+\series bold
+Component
+\series default
+ class or one of derived classes, containing the data essential for constructing
+ the visual interface for editing element attributes and defining its behaviour
+ with respect to other components.
+ Components must be registered with the component manager 
+\series bold
+Manager
+\series default
+ object.
+\end_layout
+
+\begin_layout Subsection*
+Defining component plugins
+\end_layout
+
+\begin_layout Standard
+There are two ways to define component plugins.
+\end_layout
+
+\begin_layout Itemize
+Creating an object of one of component classes in a Python module (optionally
+ defining a new class if a specific behaviour which cannot be provided by
+ the standard classes) is needed.
+ XRCed looks in standard 
+\family typewriter
+plugins
+\family default
+ directory (in 
+\family typewriter
+XRCed
+\family default
+ installation directory) and in each of the directories in 
+\family typewriter
+XRCEDPATH
+\family default
+ environment variable.
+ It tries to import all Python files, except with names starting with underscore
+ ('_').
+ It then looks in sub-directories which contain 
+\family typewriter
+__init__.py
+\family default
+ and imports them using *-mode (so it's possible to group plugins by directory
+ without listing too many in 
+\family typewriter
+XRCEDPATH
+\family default
+).
+\end_layout
+
+\begin_layout Itemize
+Another option to define a plugin is to use an XML 
+\emph on
+manifest
+\emph default
+ file.
+ This can be used for simple plugins which do not require defining new component
+ classes or component groups.
+ The structure of this CRX file is very similar to a flat XRC file having
+ only top-level nodes defined using 
+\series bold
+component
+\series default
+ tag instead of 
+\series bold
+object
+\series default
+ (that's why it is called CRX and uses .crx extention).
+ This is done so that CRX files can be edited using XRCed, if you don't
+ want to edit XML by hand.
+ A special command-line options 
+\family typewriter
+-m
+\family default
+ or 
+\family typewriter
+--meta
+\family default
+ should be used when starting XRCed to include support for so-called 
+\emph on
+meta-components.
+ 
+\emph default
+Attributes of meta-components correspond to the constructor parameters of
+ Component classes (class name must be one of known component classes).
+ It is possible to include normal interface elements in the same CRX file,
+ for easy testing of new plugins.
+\end_layout
+
+\begin_layout Standard
+Please refer to the wxPyWiki documentation for further information and examples
+ about component plugins.
 \end_layout
 
 \end_body

@@ -598,7 +598,7 @@
     <object class="wxBoxSizer">
       <orient>wxVERTICAL</orient>
       <object class="sizeritem">
-        <object class="wxListbook">
+        <object class="wxListbook" name="listbook">
           <object class="listbookpage">
             <object class="wxPanel">
               <object class="wxBoxSizer">
@@ -680,7 +680,6 @@
               </object>
             </object>
             <label>Defaults</label>
-            <bitmap>bitmaps/preferences-system.png</bitmap>
           </object>
           <object class="listbookpage">
             <object class="wxPanel">
@@ -753,7 +752,6 @@
               </object>
             </object>
             <label>Appearance</label>
-            <bitmap>bitmaps/preferences-desktop.png</bitmap>
           </object>
           <object class="listbookpage">
             <object class="wxPanel">

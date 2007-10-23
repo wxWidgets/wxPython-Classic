@@ -451,6 +451,8 @@ class PrefsDialog(wx.Dialog):
         pre = wx.PreDialog()
         g.res.LoadOnDialog(pre, parent, "DIALOG_PREFS")
         self.PostCreate(pre)
+        xrc.XRCCTRL(self, 'listbook').AssignImageList(wx.ImageList(0,0))
+        
         self.checkControls = {} # map of check IDs to (control,dict,param)
         conf = g.conf
 
