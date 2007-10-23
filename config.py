@@ -578,14 +578,18 @@ def findLib(name, libdirs):
 
 
 def removeDuplicates(seq):
-    seen = {}
-    result = []
-    for item in seq:
-        if item in seen:
-            continue
-        seen[item] = 1
-        result.append(item)
-    return result
+    # This code causes problems on OS X as we do need some duplicates
+    # there...  TODO: are there actually times when having duplicates hurts us?
+##     seen = {}
+##     result = []
+##     for item in seq:
+##         if item in seen:
+##             continue
+##         seen[item] = 1
+##         result.append(item)
+##     return result
+    return seq
+
 
 def adjustCFLAGS(cflags, defines, includes):
     '''Extract the raw -I, -D, and -U flags and put them into
@@ -1013,6 +1017,7 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
 ##     print 'libdirs:',; pprint(libdirs)
 ##     print 'libs:',; pprint(libs)
 ##     print
+##     sys.exit()
     
 #----------------------------------------------------------------------
 else:
