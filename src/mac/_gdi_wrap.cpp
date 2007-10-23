@@ -7187,6 +7187,59 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Bitmap_HasAlpha(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxBitmap *arg1 = (wxBitmap *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBitmap, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Bitmap_HasAlpha" "', expected argument " "1"" of type '" "wxBitmap const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxBitmap * >(argp1);
+  {
+    result = (bool)((wxBitmap const *)arg1)->HasAlpha();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Bitmap_UseAlpha(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxBitmap *arg1 = (wxBitmap *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBitmap, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Bitmap_UseAlpha" "', expected argument " "1"" of type '" "wxBitmap *""'"); 
+  }
+  arg1 = reinterpret_cast< wxBitmap * >(argp1);
+  {
+    (arg1)->UseAlpha();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Bitmap___eq__(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxBitmap *arg1 = (wxBitmap *) 0 ;
@@ -30953,6 +31006,31 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GCDC_Flush(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGCDC *arg1 = (wxGCDC *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGCDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GCDC_Flush" "', expected argument " "1"" of type '" "wxGCDC *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGCDC * >(argp1);
+  {
+    (arg1)->Flush();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *GCDC_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -38783,6 +38861,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Bitmap_SetSize", (PyCFunction) _wrap_Bitmap_SetSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_CopyFromBuffer", (PyCFunction) _wrap_Bitmap_CopyFromBuffer, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_CopyFromBufferRGBA", (PyCFunction) _wrap_Bitmap_CopyFromBufferRGBA, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Bitmap_HasAlpha", (PyCFunction)_wrap_Bitmap_HasAlpha, METH_O, NULL},
+	 { (char *)"Bitmap_UseAlpha", (PyCFunction)_wrap_Bitmap_UseAlpha, METH_O, NULL},
 	 { (char *)"Bitmap___eq__", (PyCFunction) _wrap_Bitmap___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap___ne__", (PyCFunction) _wrap_Bitmap___ne__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_swigregister", Bitmap_swigregister, METH_VARARGS, NULL},
@@ -39410,6 +39490,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"delete_GCDC", (PyCFunction)_wrap_delete_GCDC, METH_O, NULL},
 	 { (char *)"GCDC_GetGraphicsContext", (PyCFunction)_wrap_GCDC_GetGraphicsContext, METH_O, NULL},
 	 { (char *)"GCDC_SetGraphicsContext", (PyCFunction) _wrap_GCDC_SetGraphicsContext, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GCDC_Flush", (PyCFunction)_wrap_GCDC_Flush, METH_O, NULL},
 	 { (char *)"GCDC_swigregister", GCDC_swigregister, METH_VARARGS, NULL},
 	 { (char *)"GCDC_swiginit", GCDC_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_Overlay", (PyCFunction)_wrap_new_Overlay, METH_NOARGS, NULL},

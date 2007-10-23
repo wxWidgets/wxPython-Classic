@@ -5807,109 +5807,109 @@ class PyControl(_core.Control):
         return _controls_.PyControl_OnInternalIdle(*args, **kwargs)
 
     def base_DoMoveWindow(*args, **kw):
-        return PyScrolledWindow.DoMoveWindow(*args, **kw)
+        return PyControl.DoMoveWindow(*args, **kw)
     base_DoMoveWindow = wx._deprecated(base_DoMoveWindow,
-                                   "Please use PyScrolledWindow.DoMoveWindow instead.")
+                                   "Please use PyControl.DoMoveWindow instead.")
 
     def base_DoSetSize(*args, **kw):
-        return PyScrolledWindow.DoSetSize(*args, **kw)
+        return PyControl.DoSetSize(*args, **kw)
     base_DoSetSize = wx._deprecated(base_DoSetSize,
-                                   "Please use PyScrolledWindow.DoSetSize instead.")
+                                   "Please use PyControl.DoSetSize instead.")
 
     def base_DoSetClientSize(*args, **kw):
-        return PyScrolledWindow.DoSetClientSize(*args, **kw)
+        return PyControl.DoSetClientSize(*args, **kw)
     base_DoSetClientSize = wx._deprecated(base_DoSetClientSize,
-                                   "Please use PyScrolledWindow.DoSetClientSize instead.")
+                                   "Please use PyControl.DoSetClientSize instead.")
 
     def base_DoSetVirtualSize(*args, **kw):
-        return PyScrolledWindow.DoSetVirtualSize(*args, **kw)
+        return PyControl.DoSetVirtualSize(*args, **kw)
     base_DoSetVirtualSize = wx._deprecated(base_DoSetVirtualSize,
-                                   "Please use PyScrolledWindow.DoSetVirtualSize instead.")
+                                   "Please use PyControl.DoSetVirtualSize instead.")
 
     def base_DoGetSize(*args, **kw):
-        return PyScrolledWindow.DoGetSize(*args, **kw)
+        return PyControl.DoGetSize(*args, **kw)
     base_DoGetSize = wx._deprecated(base_DoGetSize,
-                                   "Please use PyScrolledWindow.DoGetSize instead.")
+                                   "Please use PyControl.DoGetSize instead.")
 
     def base_DoGetClientSize(*args, **kw):
-        return PyScrolledWindow.DoGetClientSize(*args, **kw)
+        return PyControl.DoGetClientSize(*args, **kw)
     base_DoGetClientSize = wx._deprecated(base_DoGetClientSize,
-                                   "Please use PyScrolledWindow.DoGetClientSize instead.")
+                                   "Please use PyControl.DoGetClientSize instead.")
 
     def base_DoGetPosition(*args, **kw):
-        return PyScrolledWindow.DoGetPosition(*args, **kw)
+        return PyControl.DoGetPosition(*args, **kw)
     base_DoGetPosition = wx._deprecated(base_DoGetPosition,
-                                   "Please use PyScrolledWindow.DoGetPosition instead.")
+                                   "Please use PyControl.DoGetPosition instead.")
 
     def base_DoGetVirtualSize(*args, **kw):
-        return PyScrolledWindow.DoGetVirtualSize(*args, **kw)
+        return PyControl.DoGetVirtualSize(*args, **kw)
     base_DoGetVirtualSize = wx._deprecated(base_DoGetVirtualSize,
-                                   "Please use PyScrolledWindow.DoGetVirtualSize instead.")
+                                   "Please use PyControl.DoGetVirtualSize instead.")
 
     def base_DoGetBestSize(*args, **kw):
-        return PyScrolledWindow.DoGetBestSize(*args, **kw)
+        return PyControl.DoGetBestSize(*args, **kw)
     base_DoGetBestSize = wx._deprecated(base_DoGetBestSize,
-                                   "Please use PyScrolledWindow.DoGetBestSize instead.")
+                                   "Please use PyControl.DoGetBestSize instead.")
 
     def base_InitDialog(*args, **kw):
-        return PyScrolledWindow.InitDialog(*args, **kw)
+        return PyControl.InitDialog(*args, **kw)
     base_InitDialog = wx._deprecated(base_InitDialog,
-                                   "Please use PyScrolledWindow.InitDialog instead.")
+                                   "Please use PyControl.InitDialog instead.")
 
     def base_TransferDataToWindow(*args, **kw):
-        return PyScrolledWindow.TransferDataToWindow(*args, **kw)
+        return PyControl.TransferDataToWindow(*args, **kw)
     base_TransferDataToWindow = wx._deprecated(base_TransferDataToWindow,
-                                   "Please use PyScrolledWindow.TransferDataToWindow instead.")
+                                   "Please use PyControl.TransferDataToWindow instead.")
 
     def base_TransferDataFromWindow(*args, **kw):
-        return PyScrolledWindow.TransferDataFromWindow(*args, **kw)
+        return PyControl.TransferDataFromWindow(*args, **kw)
     base_TransferDataFromWindow = wx._deprecated(base_TransferDataFromWindow,
-                                   "Please use PyScrolledWindow.TransferDataFromWindow instead.")
+                                   "Please use PyControl.TransferDataFromWindow instead.")
 
     def base_Validate(*args, **kw):
-        return PyScrolledWindow.Validate(*args, **kw)
+        return PyControl.Validate(*args, **kw)
     base_Validate = wx._deprecated(base_Validate,
-                                   "Please use PyScrolledWindow.Validate instead.")
+                                   "Please use PyControl.Validate instead.")
 
     def base_AcceptsFocus(*args, **kw):
-        return PyScrolledWindow.AcceptsFocus(*args, **kw)
+        return PyControl.AcceptsFocus(*args, **kw)
     base_AcceptsFocus = wx._deprecated(base_AcceptsFocus,
-                                   "Please use PyScrolledWindow.AcceptsFocus instead.")
+                                   "Please use PyControl.AcceptsFocus instead.")
 
     def base_AcceptsFocusFromKeyboard(*args, **kw):
-        return PyScrolledWindow.AcceptsFocusFromKeyboard(*args, **kw)
+        return PyControl.AcceptsFocusFromKeyboard(*args, **kw)
     base_AcceptsFocusFromKeyboard = wx._deprecated(base_AcceptsFocusFromKeyboard,
-                                   "Please use PyScrolledWindow.AcceptsFocusFromKeyboard instead.")
+                                   "Please use PyControl.AcceptsFocusFromKeyboard instead.")
 
     def base_GetMaxSize(*args, **kw):
-        return PyScrolledWindow.GetMaxSize(*args, **kw)
+        return PyControl.GetMaxSize(*args, **kw)
     base_GetMaxSize = wx._deprecated(base_GetMaxSize,
-                                   "Please use PyScrolledWindow.GetMaxSize instead.")
+                                   "Please use PyControl.GetMaxSize instead.")
 
     def base_AddChild(*args, **kw):
-        return PyScrolledWindow.AddChild(*args, **kw)
+        return PyControl.AddChild(*args, **kw)
     base_AddChild = wx._deprecated(base_AddChild,
-                                   "Please use PyScrolledWindow.AddChild instead.")
+                                   "Please use PyControl.AddChild instead.")
 
     def base_RemoveChild(*args, **kw):
-        return PyScrolledWindow.RemoveChild(*args, **kw)
+        return PyControl.RemoveChild(*args, **kw)
     base_RemoveChild = wx._deprecated(base_RemoveChild,
-                                   "Please use PyScrolledWindow.RemoveChild instead.")
+                                   "Please use PyControl.RemoveChild instead.")
 
     def base_ShouldInheritColours(*args, **kw):
-        return PyScrolledWindow.ShouldInheritColours(*args, **kw)
+        return PyControl.ShouldInheritColours(*args, **kw)
     base_ShouldInheritColours = wx._deprecated(base_ShouldInheritColours,
-                                   "Please use PyScrolledWindow.ShouldInheritColours instead.")
+                                   "Please use PyControl.ShouldInheritColours instead.")
 
     def base_GetDefaultAttributes(*args, **kw):
-        return PyScrolledWindow.GetDefaultAttributes(*args, **kw)
+        return PyControl.GetDefaultAttributes(*args, **kw)
     base_GetDefaultAttributes = wx._deprecated(base_GetDefaultAttributes,
-                                   "Please use PyScrolledWindow.GetDefaultAttributes instead.")
+                                   "Please use PyControl.GetDefaultAttributes instead.")
 
     def base_OnInternalIdle(*args, **kw):
-        return PyScrolledWindow.OnInternalIdle(*args, **kw)
+        return PyControl.OnInternalIdle(*args, **kw)
     base_OnInternalIdle = wx._deprecated(base_OnInternalIdle,
-                                   "Please use PyScrolledWindow.OnInternalIdle instead.")
+                                   "Please use PyControl.OnInternalIdle instead.")
 
 _controls_.PyControl_swigregister(PyControl)
 

@@ -287,7 +287,7 @@ class Palette(GDIObject):
         return _gdi_.Palette_GetPixel(*args, **kwargs)
 
     def GetRGB(*args, **kwargs):
-        """GetRGB(self, int pixel) -> (R,G,B)"""
+        """GetRGB(self, int pixel) -> (success, R,G,B)"""
         return _gdi_.Palette_GetRGB(*args, **kwargs)
 
     def GetColoursCount(*args, **kwargs):
@@ -688,6 +688,14 @@ class Bitmap(GDIObject):
         See `wx.BitmapFromBufferRGBA` for more .
         """
         return _gdi_.Bitmap_CopyFromBufferRGBA(*args, **kwargs)
+
+    def HasAlpha(*args, **kwargs):
+        """HasAlpha(self) -> bool"""
+        return _gdi_.Bitmap_HasAlpha(*args, **kwargs)
+
+    def UseAlpha(*args, **kwargs):
+        """UseAlpha(self)"""
+        return _gdi_.Bitmap_UseAlpha(*args, **kwargs)
 
     def __nonzero__(self): return self.IsOk() 
     def __eq__(*args, **kwargs):
@@ -5518,7 +5526,7 @@ class GraphicsContext(GraphicsObject):
         """
         ClipRegion(self, Region region)
 
-        Clips drawings to the region, combined to current clipping region.
+        Clips drawings to the region intersected with the current clipping region.
         """
         return _gdi_.GraphicsContext_ClipRegion(*args, **kwargs)
 
@@ -5526,7 +5534,7 @@ class GraphicsContext(GraphicsObject):
         """
         Clip(self, Double x, Double y, Double w, Double h)
 
-        Clips drawings to the rectangle.
+        Clips drawings to the rectangle intersected with the current clipping region..
         """
         return _gdi_.GraphicsContext_Clip(*args, **kwargs)
 
@@ -5938,6 +5946,10 @@ class GCDC(DC):
     def SetGraphicsContext(*args, **kwargs):
         """SetGraphicsContext(self, GraphicsContext ctx)"""
         return _gdi_.GCDC_SetGraphicsContext(*args, **kwargs)
+
+    def Flush(*args, **kwargs):
+        """Flush(self)"""
+        return _gdi_.GCDC_Flush(*args, **kwargs)
 
     GraphicsContext = property(GetGraphicsContext,SetGraphicsContext) 
 _gdi_.GCDC_swigregister(GCDC)
