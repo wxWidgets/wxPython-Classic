@@ -387,6 +387,10 @@ See `wx.BitmapFromBufferRGBA` for more details.", "");
         }        
     }
 
+    // these functions are internal and shouldn't be used, they risk to
+    // disappear in the future
+    bool HasAlpha() const;
+    void UseAlpha();   
     
     %pythoncode { def __nonzero__(self): return self.IsOk() }
 
