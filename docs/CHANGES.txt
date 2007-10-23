@@ -28,6 +28,10 @@ Thanks to some grunt work from Edouard TISSERANT, wxPython now has the
 needed tweaks in config.py to be able to be built with mingw32.  See
 BUILD.txt for details.
 
+Changes in wx.GraphicsContext to make things like the half-pixel
+offsets more consistent across platforms.
+
+
 
 
 
