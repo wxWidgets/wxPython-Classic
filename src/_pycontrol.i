@@ -171,27 +171,27 @@ public:
 
     void OnInternalIdle();
 
-    %MAKE_BASE_FUNC(PyScrolledWindow, DoMoveWindow);
-    %MAKE_BASE_FUNC(PyScrolledWindow, DoSetSize);
-    %MAKE_BASE_FUNC(PyScrolledWindow, DoSetClientSize);
-    %MAKE_BASE_FUNC(PyScrolledWindow, DoSetVirtualSize);
-    %MAKE_BASE_FUNC(PyScrolledWindow, DoGetSize);
-    %MAKE_BASE_FUNC(PyScrolledWindow, DoGetClientSize);
-    %MAKE_BASE_FUNC(PyScrolledWindow, DoGetPosition);
-    %MAKE_BASE_FUNC(PyScrolledWindow, DoGetVirtualSize);
-    %MAKE_BASE_FUNC(PyScrolledWindow, DoGetBestSize);
-    %MAKE_BASE_FUNC(PyScrolledWindow, InitDialog);
-    %MAKE_BASE_FUNC(PyScrolledWindow, TransferDataToWindow);
-    %MAKE_BASE_FUNC(PyScrolledWindow, TransferDataFromWindow);
-    %MAKE_BASE_FUNC(PyScrolledWindow, Validate);
-    %MAKE_BASE_FUNC(PyScrolledWindow, AcceptsFocus);
-    %MAKE_BASE_FUNC(PyScrolledWindow, AcceptsFocusFromKeyboard);
-    %MAKE_BASE_FUNC(PyScrolledWindow, GetMaxSize);
-    %MAKE_BASE_FUNC(PyScrolledWindow, AddChild);
-    %MAKE_BASE_FUNC(PyScrolledWindow, RemoveChild);
-    %MAKE_BASE_FUNC(PyScrolledWindow, ShouldInheritColours);
-    %MAKE_BASE_FUNC(PyScrolledWindow, GetDefaultAttributes);
-    %MAKE_BASE_FUNC(PyScrolledWindow, OnInternalIdle);
+    %MAKE_BASE_FUNC(PyControl, DoMoveWindow);
+    %MAKE_BASE_FUNC(PyControl, DoSetSize);
+    %MAKE_BASE_FUNC(PyControl, DoSetClientSize);
+    %MAKE_BASE_FUNC(PyControl, DoSetVirtualSize);
+    %MAKE_BASE_FUNC(PyControl, DoGetSize);
+    %MAKE_BASE_FUNC(PyControl, DoGetClientSize);
+    %MAKE_BASE_FUNC(PyControl, DoGetPosition);
+    %MAKE_BASE_FUNC(PyControl, DoGetVirtualSize);
+    %MAKE_BASE_FUNC(PyControl, DoGetBestSize);
+    %MAKE_BASE_FUNC(PyControl, InitDialog);
+    %MAKE_BASE_FUNC(PyControl, TransferDataToWindow);
+    %MAKE_BASE_FUNC(PyControl, TransferDataFromWindow);
+    %MAKE_BASE_FUNC(PyControl, Validate);
+    %MAKE_BASE_FUNC(PyControl, AcceptsFocus);
+    %MAKE_BASE_FUNC(PyControl, AcceptsFocusFromKeyboard);
+    %MAKE_BASE_FUNC(PyControl, GetMaxSize);
+    %MAKE_BASE_FUNC(PyControl, AddChild);
+    %MAKE_BASE_FUNC(PyControl, RemoveChild);
+    %MAKE_BASE_FUNC(PyControl, ShouldInheritColours);
+    %MAKE_BASE_FUNC(PyControl, GetDefaultAttributes);
+    %MAKE_BASE_FUNC(PyControl, OnInternalIdle);
 
 };
 
