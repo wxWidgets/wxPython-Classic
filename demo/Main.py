@@ -667,9 +667,9 @@ class DemoCodePanel(wx.Panel):
     def ActiveModuleChanged(self):
         self.LoadDemoSource(self.demoModules.GetSource())
         self.UpdateControlState()
-        self.mainFrame.Freeze()        
+        self.mainFrame.pnl.Freeze()        
         self.ReloadDemo()
-        self.mainFrame.Thaw()
+        self.mainFrame.pnl.Thaw()
 
         
     def LoadDemoSource(self, source):
@@ -1177,7 +1177,7 @@ class DemoTaskBarIcon(wx.TaskBarIcon):
 
 
     def OnTaskBarClose(self, evt):
-        self.frame.Close()
+        wx.CallAfter(self.frame.Close)
 
 
     def OnTaskBarChange(self, evt):
@@ -1210,7 +1210,7 @@ class wxPythonDemo(wx.Frame):
         # Use a panel under the AUI panes in order to work around a
         # bug on PPC Macs
         pnl = wx.Panel(self)
-        #pnl = self
+        self.pnl = pnl
         
         self.mgr = wx.aui.AuiManager()
         self.mgr.SetManagedWindow(pnl)
@@ -1686,7 +1686,7 @@ class wxPythonDemo(wx.Frame):
     def LoadDemo(self, demoName):
         try:
             wx.BeginBusyCursor()
-            self.Freeze()
+            self.pnl.Freeze()
             
             os.chdir(self.cwd)
             self.ShutdownDemoModule()
@@ -1710,7 +1710,7 @@ class wxPythonDemo(wx.Frame):
                     self.UpdateNotebook(0)
         finally:
             wx.EndBusyCursor()
-            self.Thaw()
+            self.pnl.Thaw()
 
     #---------------------------------------------
     def LoadDemoSource(self):
@@ -1775,7 +1775,7 @@ class wxPythonDemo(wx.Frame):
     def UpdateNotebook(self, select = -1):
         nb = self.nb
         debug = False
-        self.Freeze()
+        self.pnl.Freeze()
         
         def UpdatePage(page, pageText):
             pageExists = False
@@ -1816,7 +1816,7 @@ class wxPythonDemo(wx.Frame):
         if select >= 0 and select < nb.GetPageCount():
             nb.SetSelection(select)
 
-        self.Thaw()
+        self.pnl.Thaw()
         
     #---------------------------------------------
     def SetOverview(self, name, text):
