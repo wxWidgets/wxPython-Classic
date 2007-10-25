@@ -133,8 +133,6 @@ class _Presenter:
 #            self.panels = []
 #            view.panel.Clear()
             self.panels = view.panel.SetData(self.container, self.comp, Model.mainNode)
-            # Create new pending undo
-            self.createUndoEdit(view.tree.root)
         else:
             node = view.tree.GetPyData(item)
             TRACE('setData: %s', node.getAttribute('class'))
@@ -147,8 +145,8 @@ class _Presenter:
                 parentClass = parentNode.getAttribute('class')
                 self.container = Manager.components[parentClass]
             self.panels = view.panel.SetData(self.container, self.comp, node)
-            # Create new pending undo
-            self.createUndoEdit(item)
+        # Create new pending undo
+        self.createUndoEdit(self.item)
 
         if view.testWin.IsShown():
             self.highlight(item)
@@ -246,6 +244,8 @@ class _Presenter:
 
     def replace(self, comp, node=None):
         '''Replace DOM node by new or passed node. Return new item.'''
+        TRACE('replace')
+        import pdb;pdb.set_trace()
         if node is None:
             node = Model.createObjectNode(comp.klass)
         if not self.applied:
@@ -261,6 +261,7 @@ class _Presenter:
         imageId = comp.getTreeImageId(node)
         item = view.tree.InsertItem(parentItem, item, label, imageId, data=data)
         view.tree.Delete(view.tree.GetPrevSibling(item))
+        self.item = item
         # Add children
         for n in filter(is_object, node.childNodes):
             view.tree.AddNode(item, comp.getTreeNode(n))
@@ -349,8 +350,8 @@ class _Presenter:
     def unselect(self):
         if not self.applied:
             self.update(self.item)
-        if view.testWin.IsShown() and view.testWin.item == self.item:
-            view.testWin.Destroy()
+            if view.testWin.IsShown() and view.testWin.item == self.item:
+                view.testWin.Destroy()
         view.tree.UnselectAll()
         self.setData(view.tree.root)
 

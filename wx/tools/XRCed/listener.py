@@ -326,6 +326,7 @@ class _Listener:
         '''wx.EVT_CLOSE handler'''
         if not self.AskSave(): return
         if self.testWin.object: self.testWin.Destroy()
+        self.panel.undo = False # prevent undo
         g.undoMan.Clear()        
         # Remember sizes and position
         conf = g.conf
@@ -778,7 +779,8 @@ Homepage: http://xrced.sourceforge.net\
     def OnPanelPageChanged(self, evt):
         TRACE('OnPanelPageChanged: %d=>%d', evt.GetOldSelection(), evt.GetSelection())
         # Register new undo 
-        Presenter.createUndoEdit(page=evt.GetSelection())
+        if Presenter.panelIsDirty():
+            Presenter.createUndoEdit(page=evt.GetSelection())
         # Refresh test window after finishing
         if g.conf.autoRefresh and self.testWin.IsDirty():
             wx.CallAfter(Presenter.refreshTestWin)

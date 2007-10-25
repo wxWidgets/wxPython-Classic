@@ -95,7 +95,7 @@ class TestWindow:
         self.trash = []
 
     def Destroy(self):
-        TRACE('Destroy')
+        TRACE('Destroy test window')
         # Remember dimensions
         self.pos = self.GetFrame().GetPosition()
         self.size = self.GetFrame().GetSize()
@@ -384,6 +384,7 @@ class Highlight:
         self.lines[1].SetDimensions(pos.x, pos.y, 2, size.height)
         self.lines[2].SetDimensions(pos.x + size.width - 2, pos.y, 2, size.height)
         self.lines[3].SetDimensions(pos.x, pos.y + size.height - 2, size.width, 2)
+        [l.Raise() for l in self.lines]
         if self.moreLines: [self.AddSizerItem(r) for r in rects]
 
     def AddSizerItem(self, rect):

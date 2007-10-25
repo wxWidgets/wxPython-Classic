@@ -287,11 +287,15 @@ Manager.setTool(c, 'Panels', pos=(1,1))
 
 ### wxListbook
 
-c = SmartContainer('wxListbook', ['book', 'window', 'control'], ['pos', 'size'],
-                   implicit_klass='listbookpage', 
-                   implicit_page='ListbookPage', 
-                   implicit_attributes=['label', 'selected', 'bitmap'],
-                   implicit_params={'selected': params.ParamBool})
+class ListBook(SmartContainer):
+    def getChildObject(self, node, obj, index):
+        # Listbook's first child is ListView
+        return obj.GetChildren()[index+1]
+c = ListBook('wxListbook', ['book', 'window', 'control'], ['pos', 'size'],
+             implicit_klass='listbookpage', 
+             implicit_page='ListbookPage', 
+             implicit_attributes=['label', 'selected', 'bitmap'],
+             implicit_params={'selected': params.ParamBool})
 c.addStyles('wxLB_DEFAULT', 'wxLB_LEFT', 'wxLB_RIGHT', 'wxLB_TOP', 'wxLB_BOTTOM')
 c.setParamClass('selected', params.ParamBool)
 c.setParamClass('label', params.ParamText)
