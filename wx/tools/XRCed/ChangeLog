@@ -1,3 +1,9 @@
+2007-10-25  Roman Rolinsky  <rolinsky@hartman.femagsoft.com>
+
+	* Added components for: wxHyperlinkCtrl, wxPropertySheetDialog,
+	wxTreeBook. Fixed a number of bugs related to highlighting,
+	exiting, etc. Updated documentation.
+
 2007-10-16  Roman Rolinsky  <scroll@lem.lan>
 
 	* Platform-specific sibling modifier key, fixes for "move"

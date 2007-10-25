@@ -304,6 +304,16 @@ Manager.register(c)
 Manager.setMenu(c, 'control', 'grid', 'wxGrid', 190)
 Manager.setTool(c, 'Panels', pos=(2,1), span=(1,2))
 
+### wxHyperlinkCtrl
+
+c = Component('wxHyperlinkCtrl', ['control','tool'],
+              ['pos', 'size', 'label', 'url'],
+              params={'url': params.ParamText})
+c.addStyles('wxHL_CONTEXTMENU', 'wxHL_ALIGN_LEFT', 'wxHL_ALIGN_RIGHT',
+            'wxHL_ALIGN_CENTRE', 'wxHL_DEFAULT_STYLE')
+Manager.register(c)
+Manager.setMenu(c, 'control', 'hyperlink', 'wxHyperlinkCtrl', 200)
+
 ################################################################################
 # Buttons
 
