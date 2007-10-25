@@ -43,7 +43,7 @@ c.addStyles('wxDEFAULT_FRAME_STYLE', 'wxDEFAULT_DIALOG_STYLE', 'wxCAPTION',
             'wxFRAME_NO_TASKBAR', 'wxFRAME_SHAPED', 'wxFRAME_TOOL_WINDOW',
             'wxFRAME_FLOAT_ON_PARENT',
             'wxNO_3D', 'wxTAB_TRAVERSAL')
-c.addExStyles('wxFRAME_EX_METAL')
+c.addExStyles('wxFRAME_EX_CONTEXTHELP', 'wxWS_EX_VALIDATE_RECURSIVELY', 'wxFRAME_EX_METAL')
 c.addEvents('EVT_SIZE', 'EVT_CLOSE', 'EVT_MENU_HIGHLIGHT', 'EVT_ICONIZE', 'EVT_MAXIMIZE',
             'EVT_ACTIVATE', 'EVT_UPDATE_UI')
 Manager.register(c)
@@ -53,16 +53,17 @@ Manager.setTool(c, 'Windows', bitmaps.getwxFrameBitmap(), (0,0))
 ### wxDialog
 
 c = Container('wxDialog', ['frame','window','top_level'], 
-              ['pos', 'size', 'title', 'centered'],
+              ['pos', 'size', 'title', 'centered', 'icon'],
               image=images.getTreeFrameImage())
 c.isTopLevel = True
+c.setSpecial('icon', BitmapAttribute)
 c.addStyles('wxDEFAULT_DIALOG_STYLE', 'wxDEFAULT_FRAME_STYLE', 'wxCAPTION', 
             'wxSTAY_ON_TOP', 'wxSYSTEM_MENU', 'wxTHICK_FRAME',
             'wxRESIZE_BORDER', 'wxRESIZE_BOX', 'wxCLOSE_BOX',
             'wxMAXIMIZE_BOX', 'wxMINIMIZE_BOX',
             'wxDIALOG_MODAL', 'wxDIALOG_MODELESS', 'wxDIALOG_NO_PARENT',
             'wxNO_3D', 'wxTAB_TRAVERSAL')
-c.addExStyles('wxDIALOG_EX_METAL')
+c.addExStyles('wxDIALOG_EX_CONTEXTHELP', 'wxWS_EX_VALIDATE_RECURSIVELY', 'wxDIALOG_EX_METAL')
 c.addEvents('EVT_INIT_DIALOG', 'EVT_SIZE', 'EVT_CLOSE', 
             'EVT_ICONIZE', 'EVT_MAXIMIZE', 'EVT_ACTIVATE', 'EVT_UPDATE_UI')
 Manager.register(c)
@@ -123,6 +124,41 @@ c = Container('wxWizardPageSimple', ['wizard_page', 'window'], ['bitmap'],
 c.setSpecial('bitmap', BitmapAttribute)
 Manager.register(c)
 Manager.setMenu(c, 'container', 'simple wizard page', 'wxWizardPageSimple')
+
+### wxPropertySheetDialog
+
+class ParamButtons(params.ParamBinaryOr):
+    '''Button flags.'''
+    values = ['wxOK', 'wxCANCEL', 'wxYES', 'wxNO', 'wxHELP', 'wxNO_DEFAULT']
+class ParamSheetStyle(params.ParamBinaryOr):
+    '''Button flags.'''
+    values = ['wxPROPSHEET_DEFAULT', 'wxPROPSHEET_NOTEBOOK',
+            'wxPROPSHEET_CHOICEBOOK', 'wxPROPSHEET_LISTBOOK', 
+# Tool book needs an image list
+#            'wxPROPSHEET_TOOLBOOK', 'wxPROPSHEET_BUTTONTOOLBOOK',
+            'wxPROPSHEET_TREEBOOK', 'wxPROPSHEET_SHRINKTOFIT']
+c = SmartContainer('wxPropertySheetDialog', ['frame','book','window','top_level'], 
+                   ['pos', 'size', 'title', 'centered', 'icon', 'sheetstyle', 'buttons'],
+                   params={'buttons': ParamButtons, 'sheetstyle': ParamSheetStyle},
+                   implicit_klass='propertysheetpage', 
+                   implicit_page='PropertySheetPage', 
+                   implicit_attributes=['label', 'selected', 'bitmap'],
+                   implicit_params={'label': params.ParamText, 'selected': params.ParamBool},
+                   image=images.getTreeDialogImage())
+c.isTopLevel = True
+c.setSpecial('bitmap', BitmapAttribute)
+c.setSpecial('icon', BitmapAttribute)
+c.addStyles('wxDEFAULT_DIALOG_STYLE', 'wxCAPTION', 'wxFRAME_SHAPED',
+            'wxTAB_TRAVERSAL', 'wxSTAY_ON_TOP', 'wxSYSTEM_MENU', 
+            'wxRESIZE_BORDER', 'wxCLOSE_BOX', 'wxMAXIMIZE_BOX', 'wxMINIMIZE_BOX',
+            'wxDIALOG_MODAL', 'wxDIALOG_MODELESS', 'wxDIALOG_NO_PARENT',
+            'wxNO_3D', 'wxTAB_TRAVERSAL')
+c.addExStyles('wxDIALOG_EX_CONTEXTHELP', 'wxWS_EX_VALIDATE_RECURSIVELY', 'wxDIALOG_EX_METAL')
+c.addEvents('EVT_INIT_DIALOG', 'EVT_SIZE', 'EVT_CLOSE', 
+            'EVT_ICONIZE', 'EVT_MAXIMIZE', 'EVT_ACTIVATE', 'EVT_UPDATE_UI')
+Manager.register(c)
+Manager.setMenu(c, 'TOP_LEVEL', 'propery sheet dialog', 'wxPropertySheetDialog', 50)
+Manager.setTool(c, 'Windows', bitmaps.getwxDialogBitmap(), (1,1))
 
 ### wxBoxSizer
 
@@ -257,12 +293,10 @@ c = SmartContainer('wxNotebook', ['book', 'window', 'control'], ['pos', 'size'],
                    implicit_klass='notebookpage', 
                    implicit_page='NotebookPage', 
                    implicit_attributes=['label', 'selected', 'bitmap'],
-                   implicit_params={'selected': params.ParamBool})
+                   implicit_params={'label': params.ParamText, 'selected': params.ParamBool})
 c.addStyles('wxNB_TOP', 'wxNB_LEFT', 'wxNB_RIGHT', 'wxNB_BOTTOM',
             'wxNB_FIXEDWIDTH', 'wxNB_MULTILINE', 'wxNB_NOPAGETHEME', 
             'wxNB_FLAT')
-c.setParamClass('selected', params.ParamBool)
-c.setParamClass('label', params.ParamText)
 c.setSpecial('bitmap', BitmapAttribute)
 c.addEvents('EVT_NOTEBOOK_PAGE_CHANGED', 'EVT_NOTEBOOK_PAGE_CHANGING')
 Manager.register(c)
@@ -275,10 +309,8 @@ c = SmartContainer('wxChoicebook', ['book', 'window', 'control'], ['pos', 'size'
                    implicit_klass='choicebookpage', 
                    implicit_page='ChoicebookPage', 
                    implicit_attributes=['label', 'selected', 'bitmap'],
-                   implicit_params={'selected': params.ParamBool})
+                   implicit_params={'label': params.ParamText, 'selected': params.ParamBool})
 c.addStyles('wxCHB_DEFAULT', 'wxCHB_LEFT', 'wxCHB_RIGHT', 'wxCHB_TOP', 'wxCHB_BOTTOM')
-c.setParamClass('selected', params.ParamBool)
-c.setParamClass('label', params.ParamText)
 c.setSpecial('bitmap', BitmapAttribute)
 c.addEvents('EVT_CHOICEBOOK_PAGE_CHANGED', 'EVT_CHOICEBOOK_PAGE_CHANGING')
 Manager.register(c)
@@ -295,15 +327,34 @@ c = ListBook('wxListbook', ['book', 'window', 'control'], ['pos', 'size'],
              implicit_klass='listbookpage', 
              implicit_page='ListbookPage', 
              implicit_attributes=['label', 'selected', 'bitmap'],
-             implicit_params={'selected': params.ParamBool})
+             implicit_params={'label': params.ParamText, 'selected': params.ParamBool})
 c.addStyles('wxLB_DEFAULT', 'wxLB_LEFT', 'wxLB_RIGHT', 'wxLB_TOP', 'wxLB_BOTTOM')
-c.setParamClass('selected', params.ParamBool)
-c.setParamClass('label', params.ParamText)
 c.setSpecial('bitmap', BitmapAttribute)
 c.addEvents('EVT_LISTBOOK_PAGE_CHANGED', 'EVT_LISTBOOK_PAGE_CHANGING')
 Manager.register(c)
 Manager.setMenu(c, 'container', 'listbook', 'wxListbook', 60)
 Manager.setTool(c, 'Panels', pos=(1,2))
+
+### wxTreebook
+
+class TreeBook(SmartContainer):
+    def getChildObject(self, node, obj, index):
+        # Listbook's first child is ListView
+        return obj.GetChildren()[index+1]
+c = TreeBook('wxTreebook', ['book', 'window', 'control'], ['pos', 'size'],
+             implicit_klass='treebookpage', 
+             implicit_page='TreebookPage', 
+             implicit_attributes=['label', 'selected', 'bitmap', 'depth'],
+             implicit_params={'label': params.ParamText, 
+                              'selected': params.ParamBool, 
+                              'depth': params.ParamInt})
+c.addStyles('wxBK_DEFAULT', 'wxBK_LEFT', 'wxBK_RIGHT', 'wxBK_TOP', 'wxBK_BOTTOM')
+c.setSpecial('bitmap', BitmapAttribute)
+c.addEvents('EVT_TREEBOOK_PAGE_CHANGED', 'EVT_TREEBOOK_PAGE_CHANGING',
+            'EVT_TREEBOOK_NODE_COLLAPSED', 'EVT_TREEBOOK_NODE_EXPANDED')
+Manager.register(c)
+Manager.setMenu(c, 'container', 'treebook', 'wxTreebook', 70)
+#Manager.setTool(c, 'Panels', pos=(1,2))
 
 ################################################################################
 # Menus

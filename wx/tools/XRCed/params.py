@@ -119,8 +119,6 @@ class ParamFlag(ParamBinaryOr):
              'wxALIGN_CENTER_HORIZONTAL': 'wxALIGN_CENTRE_HORIZONTAL',
              'wxUP': 'wxTOP', 'wxDOWN': 'wxBOTTOM', 'wxNORTH': 'wxTOP',
              'wxSOUTH': 'wxBOTTOM', 'wxWEST': 'wxLEFT', 'wxEAST': 'wxRIGHT'}
-    def __init__(self, parent, name):
-        ParamBinaryOr.__init__(self, parent, name)
 
 class ParamColour(PPanel):
     '''Color attribute editing.'''
