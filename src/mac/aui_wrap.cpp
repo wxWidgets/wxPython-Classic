@@ -13763,7 +13763,6 @@ SWIGINTERN PyObject *_wrap_AuiTabContainer_SetArtProvider(PyObject *SWIGUNUSEDPA
   wxAuiTabArt *arg2 = (wxAuiTabArt *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -13777,11 +13776,10 @@ SWIGINTERN PyObject *_wrap_AuiTabContainer_SetArtProvider(PyObject *SWIGUNUSEDPA
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainer_SetArtProvider" "', expected argument " "1"" of type '" "wxAuiTabContainer *""'"); 
   }
   arg1 = reinterpret_cast< wxAuiTabContainer * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxAuiTabArt, 0 |  0 );
+  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxAuiTabArt, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiTabContainer_SetArtProvider" "', expected argument " "2"" of type '" "wxAuiTabArt *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiTabContainer_SetArtProvider" "', expected argument " "2"" of type '" "wxAuiTabArt *""'");
   }
-  arg2 = reinterpret_cast< wxAuiTabArt * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetArtProvider(arg2);
@@ -15390,7 +15388,6 @@ SWIGINTERN PyObject *_wrap_AuiNotebook_SetArtProvider(PyObject *SWIGUNUSEDPARM(s
   wxAuiTabArt *arg2 = (wxAuiTabArt *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -15404,11 +15401,10 @@ SWIGINTERN PyObject *_wrap_AuiNotebook_SetArtProvider(PyObject *SWIGUNUSEDPARM(s
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiNotebook_SetArtProvider" "', expected argument " "1"" of type '" "wxAuiNotebook *""'"); 
   }
   arg1 = reinterpret_cast< wxAuiNotebook * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxAuiTabArt, 0 |  0 );
+  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxAuiTabArt, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiNotebook_SetArtProvider" "', expected argument " "2"" of type '" "wxAuiTabArt *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiNotebook_SetArtProvider" "', expected argument " "2"" of type '" "wxAuiTabArt *""'");
   }
-  arg2 = reinterpret_cast< wxAuiTabArt * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetArtProvider(arg2);

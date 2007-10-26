@@ -3960,6 +3960,7 @@ public:
 
     wxGraphicsContext* GetGraphicsContext() { return NULL; }
     void SetGraphicsContext( wxGraphicsContext* ) {}
+    void Flush() {}
 };
 
 #endif
