@@ -308,11 +308,13 @@ Manager.setTool(c, 'Panels', pos=(2,1), span=(1,2))
 
 c = Component('wxHyperlinkCtrl', ['control','tool'],
               ['pos', 'size', 'label', 'url'],
-              params={'url': params.ParamText})
+              params={'url': params.ParamText},
+              defaults={'url': 'http://'})
 c.addStyles('wxHL_CONTEXTMENU', 'wxHL_ALIGN_LEFT', 'wxHL_ALIGN_RIGHT',
             'wxHL_ALIGN_CENTRE', 'wxHL_DEFAULT_STYLE')
 Manager.register(c)
 Manager.setMenu(c, 'control', 'hyperlink', 'wxHyperlinkCtrl', 200)
+Manager.setTool(c, 'Controls', pos=(3,0))
 
 ################################################################################
 # Buttons

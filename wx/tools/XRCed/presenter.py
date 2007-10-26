@@ -192,6 +192,9 @@ class _Presenter:
         '''
         if child is None:
             child = Model.createObjectNode(comp.klass)
+            # Set default values
+            for k,v in comp.defaults.items():
+                comp.addAttribute(child, k, v)
         data = wx.TreeItemData(child)
         item = self.item
         if not self.applied:

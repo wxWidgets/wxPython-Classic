@@ -471,7 +471,10 @@ class _Listener:
     def OnAutoRefresh(self, evt):
         g.conf.autoRefresh = evt.IsChecked()
         self.frame.menuBar.Check(self.frame.ID_AUTO_REFRESH, g.conf.autoRefresh)
-        self.frame.tb.ToggleTool(self.frame.ID_AUTO_REFRESH, g.conf.autoRefresh)
+        if g.conf.embedPanel:
+            self.frame.tb.ToggleTool(self.frame.ID_AUTO_REFRESH, g.conf.autoRefresh)
+        else:
+            self.frame.miniFrame.tb.ToggleTool(self.frame.ID_AUTO_REFRESH, g.conf.autoRefresh)
 
     def OnHelpAbout(self, evt):
         str = '''\

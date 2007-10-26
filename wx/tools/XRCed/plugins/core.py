@@ -269,7 +269,7 @@ c.addEvents('EVT_SCROLLWIN_TOP',
             'EVT_SCROLLWIN_THUMBRELEASE')
 Manager.register(c)
 Manager.setMenu(c, 'container', 'scrolled window', 'wxScrolledWindow', 20)
-Manager.setTool(c, 'Panels', pos=(1,3))
+Manager.setTool(c, 'Panels', pos=(1,4))
 
 ### wxSplitterWindow
 
@@ -285,7 +285,7 @@ c.addEvents('EVT_SPLITTER_SASH_POS_CHANGING', 'EVT_SPLITTER_SASH_POS_CHANGED',
             'EVT_SPLITTER_UNSPLIT', 'EVT_SPLITTER_DCLICK')
 Manager.register(c)
 Manager.setMenu(c, 'container', 'splitter window', 'wxSplitterWindow', 30)
-Manager.setTool(c, 'Panels', pos=(0,3))
+Manager.setTool(c, 'Panels', pos=(0,4))
 
 ### wxNotebook
 
@@ -315,7 +315,7 @@ c.setSpecial('bitmap', BitmapAttribute)
 c.addEvents('EVT_CHOICEBOOK_PAGE_CHANGED', 'EVT_CHOICEBOOK_PAGE_CHANGING')
 Manager.register(c)
 Manager.setMenu(c, 'container', 'choicebook', 'wxChoicebook', 50)
-Manager.setTool(c, 'Panels', pos=(1,1))
+Manager.setTool(c, 'Panels', pos=(1,3))
 
 ### wxListbook
 
@@ -333,7 +333,7 @@ c.setSpecial('bitmap', BitmapAttribute)
 c.addEvents('EVT_LISTBOOK_PAGE_CHANGED', 'EVT_LISTBOOK_PAGE_CHANGING')
 Manager.register(c)
 Manager.setMenu(c, 'container', 'listbook', 'wxListbook', 60)
-Manager.setTool(c, 'Panels', pos=(1,2))
+Manager.setTool(c, 'Panels', pos=(0,3))
 
 ### wxTreebook
 
@@ -354,7 +354,7 @@ c.addEvents('EVT_TREEBOOK_PAGE_CHANGED', 'EVT_TREEBOOK_PAGE_CHANGING',
             'EVT_TREEBOOK_NODE_COLLAPSED', 'EVT_TREEBOOK_NODE_EXPANDED')
 Manager.register(c)
 Manager.setMenu(c, 'container', 'treebook', 'wxTreebook', 70)
-#Manager.setTool(c, 'Panels', pos=(1,2))
+Manager.setTool(c, 'Panels', pos=(1,1), span=(1,2))
 
 ################################################################################
 # Menus
