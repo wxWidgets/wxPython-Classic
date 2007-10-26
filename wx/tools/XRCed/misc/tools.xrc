@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resource>
-  
   <object class="wxFrame" name="FRAME_Panels">
     <object class="wxBoxSizer">
       <orient>wxVERTICAL</orient>
@@ -70,21 +69,80 @@
             <cellpos>1,0</cellpos>
           </object>
           <object class="sizeritem">
-            <object class="wxChoicebook">
-              <size>40,30d</size>
-              <bg>#7F7F7F</bg>
-            </object>
-            <flag>wxEXPAND</flag>
-            <cellpos>1,1</cellpos>
-          </object>
-          <object class="sizeritem">
             <object class="wxListbook">
+              <object class="listbookpage">
+                <object class="wxPanel">
+                  <bg>#FFFFFF</bg>
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <size>-1,30d</size>
+                        <label>list
+book</label>
+                      </object>
+                    </object>
+                  </object>
+                </object>
+                <label>Item1</label>
+                <bitmap>src-images/ListbookPage.png</bitmap>
+              </object>
               <size>40,30d</size>
               <style>wxLB_LEFT</style>
             </object>
-            <option>0</option>
-            <flag>wxEXPAND</flag>
-            <cellpos>1,2</cellpos>
+            <cellpos>0,3</cellpos>
+          </object>
+          <object class="sizeritem">
+            <object class="wxTreebook">
+              <object class="treebookpage">
+                <object class="wxPanel">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <size>35,35d</size>
+                        <label>tree
+book</label>
+                      </object>
+                      <option>1</option>
+                    </object>
+                  </object>
+                  <size>35,35d</size>
+                  <bg>#FFFFFF</bg>
+                </object>
+                <label>Item1</label>
+              </object>
+              <object class="treebookpage">
+                <object class="wxPanel">
+                  <bg>#BFBFBF</bg>
+                </object>
+                <label>Item2</label>
+                <depth>1</depth>
+              </object>
+              <size>85,35d</size>
+            </object>
+            <cellpos>1,1</cellpos>
+            <cellspan>1,2</cellspan>
+          </object>
+          <object class="sizeritem">
+            <object class="wxChoicebook">
+              <object class="choicebookpage">
+                <object class="wxPanel">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <size>40,-1d</size>
+                        <label>choice
+book</label>
+                      </object>
+                    </object>
+                  </object>
+                  <size>40,40</size>
+                  <bg>#FFFFFF</bg>
+                </object>
+                <label>Item1</label>
+              </object>
+              <size>40,30d</size>
+            </object>
+            <cellpos>1,3</cellpos>
           </object>
           <object class="sizeritem">
             <object class="wxSplitterWindow">
@@ -101,14 +159,14 @@
               <sashpos>15d</sashpos>
             </object>
             <flag>wxEXPAND</flag>
-            <cellpos>0,3</cellpos>
+            <cellpos>0,4</cellpos>
           </object>
           <object class="sizeritem">
             <object class="wxScrolledWindow">
               <size>40,30d</size>
               <bg>#FFFFFF</bg>
             </object>
-            <cellpos>1,3</cellpos>
+            <cellpos>1,4</cellpos>
           </object>
           <vgap>8</vgap>
           <hgap>8</hgap>
@@ -247,6 +305,22 @@
               <checked>1</checked>
             </object>
           </object>
+          <object class="sizeritem">
+            <object class="wxPanel" name="wxHyperlinkCtrl">
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                  <object class="wxHyperlinkCtrl">
+                    <url>http://www</url>
+                  </object>
+                  <flag>wxALL</flag>
+                  <border>3</border>
+                </object>
+              </object>
+              <size>40,-1d</size>
+            </object>
+          </object>
+          
           <cols>4</cols>
           <rows>5</rows>
           <vgap>8</vgap>
