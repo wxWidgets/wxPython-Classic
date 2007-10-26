@@ -662,19 +662,19 @@ class ParamIntList(ParamContent):
 
 # Boxless radiobox
 class RadioBox(PPanel):
-    def __init__(self, parent, id, choices,
-                 pos=wx.DefaultPosition, name='radiobox'):
+    def __init__(self, parent, name='radiobox'):
         PPanel.__init__(self, parent, name)
-        self.choices = choices
         topSizer = wx.BoxSizer()
-        for i in choices:
+        self.choicesInv = {}
+        for i,v in self.choices.items():
+            self.choicesInv[v] = i
             button = wx.RadioButton(self, -1, i, name=i)
             topSizer.Add(button, 0, wx.RIGHT, 5)
             wx.EVT_RADIOBUTTON(self, button.GetId(), self.OnRadioChoice)
         self.SetSizer(topSizer)
     def SetStringSelection(self, value):
         self.freeze = True
-        for i in self.choices:
+        for i in self.choices.keys():
             self.FindWindowByName(i).SetValue(i == value)
         self.value = value
         self.freeze = False
@@ -685,6 +685,11 @@ class RadioBox(PPanel):
             Presenter.setApplied(False)
     def GetStringSelection(self):
         return self.value
+    def GetValue(self):
+        return self.choices[self.GetStringSelection()]
+    def SetValue(self, value):
+        if not value: value = self.default
+        self.SetStringSelection(self.choicesInv[value])
 
 # Boxless radiobox
 class CheckBox(PPanel):
@@ -720,27 +725,13 @@ class ParamInverseBool(CheckBox):
 
 class ParamOrient(RadioBox):
     '''Orientation attribute editing for sizers.'''
-    values = {'horizontal': 'wxHORIZONTAL', 'vertical': 'wxVERTICAL'}
-    seulav = {'wxHORIZONTAL': 'horizontal', 'wxVERTICAL': 'vertical'}
-    def __init__(self, parent, name):
-        RadioBox.__init__(self, parent, -1, choices=self.values.keys(), name=name)
-    def GetValue(self):
-        return self.values[self.GetStringSelection()]
-    def SetValue(self, value):
-        if not value: value = 'wxHORIZONTAL'
-        self.SetStringSelection(self.seulav[value])
+    choices = {'horizontal': 'wxHORIZONTAL', 'vertical': 'wxVERTICAL'}
+    default = 'wxHORIZONTAL'
 
 class ParamOrientation(RadioBox):
     '''Orientaiton attribute editing for C{wx.SplitterWindow}.'''
-    values = {'horizontal': 'horizontal', 'vertical': 'vertical'}
-    seulav = {'horizontal': 'horizontal', 'vertical': 'vertical'}
-    def __init__(self, parent, name):
-        RadioBox.__init__(self, parent, -1, choices=self.values.keys(), name=name)
-    def GetValue(self):
-        return self.values[self.GetStringSelection()]
-    def SetValue(self, value):
-        if not value: value = 'vertical'
-        self.SetStringSelection(self.seulav[value])
+    choices = {'horizontal': 'horizontal', 'vertical': 'vertical'}
+    default = 'vertical'
 
 class ParamBitmap(PPanel):
     def __init__(self, parent, name):

@@ -23,3 +23,16 @@ c.addStyles('FPB_DEFAULT_STYLE', 'FPB_SINGLE_FOLD', 'FPB_COLLAPSE_TO_BOTTOM',
 Manager.register(c)
 Manager.addXmlHandler(FoldPanelBarXmlHandler)
 Manager.setMenu(c, 'bar', 'fold panel bar', 'FoldPanelBar')
+
+# wxTicker
+
+class ParamDirection(params.RadioBox):
+    choices = {'right to left': 'rtl', 'left to right': 'ltr'}
+    default = 'rtl'
+c = Component('wxTicker', ['control'], 
+              ['pos', 'size', 'start', 'text', 'ppf', 'fps', 'direction'],
+              params={'ppf': params.ParamInt, 'fps': params.ParamInt,
+                      'direction': ParamDirection})
+Manager.register(c)
+Manager.addXmlHandler(wxTickerXmlHandler)
+Manager.setMenu(c, 'control', 'ticker', 'Ticker')
