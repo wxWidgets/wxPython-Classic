@@ -248,7 +248,6 @@ class _Presenter:
     def replace(self, comp, node=None):
         '''Replace DOM node by new or passed node. Return new item.'''
         TRACE('replace')
-        import pdb;pdb.set_trace()
         if node is None:
             node = Model.createObjectNode(comp.klass)
         if not self.applied:

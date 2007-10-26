@@ -158,7 +158,7 @@ c.addEvents('EVT_INIT_DIALOG', 'EVT_SIZE', 'EVT_CLOSE',
             'EVT_ICONIZE', 'EVT_MAXIMIZE', 'EVT_ACTIVATE', 'EVT_UPDATE_UI')
 Manager.register(c)
 Manager.setMenu(c, 'TOP_LEVEL', 'propery sheet dialog', 'wxPropertySheetDialog', 50)
-Manager.setTool(c, 'Windows', bitmaps.getwxDialogBitmap(), (1,1))
+Manager.setTool(c, 'Windows', bitmaps.getwxPropertySheetDialogBitmap(), (1,1))
 
 ### wxBoxSizer
 

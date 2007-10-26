@@ -320,7 +320,6 @@ book</label>
               <size>40,-1d</size>
             </object>
           </object>
-          
           <cols>4</cols>
           <rows>5</rows>
           <vgap>8</vgap>
@@ -417,6 +416,30 @@ book</label>
   <object class="wxDialog" name="DIALOG">
     <size>100,80</size>
     <title>Dialog</title>
+  </object>
+  <object class="wxPropertySheetDialog" name="PROPSHEETDIALOG">
+    <object class="propertysheetpage">
+      <object class="wxPanel">
+        <object class="wxBoxSizer">
+          <orient>wxVERTICAL</orient>
+          <object class="sizeritem">
+            <object class="wxCheckBox">
+              <label>item1</label>
+            </object>
+            <flag>wxALL</flag>
+            <border>5</border>
+          </object>
+        </object>
+      </object>
+      <label>Page1</label>
+    </object>
+    <object class="propertysheetpage">
+      <object class="wxPanel"/>
+    </object>
+    <size>100,80</size>
+    <title>Props</title>
+    <sheetstyle>wxPROPSHEET_DEFAULT</sheetstyle>
+    <style>wxDEFAULT_DIALOG_STYLE</style>
   </object>
   <object class="wxFrame" name="FRAME_MenuBar">
     <object class="wxMenuBar" name="MENUBAR">
@@ -521,6 +544,9 @@ book</label>
         <object class="wxMenuItem" name="snap_dialog">
           <label>Dialog</label>
           <bitmap/>
+        </object>
+        <object class="wxMenuItem" name="snap_propsheetdialog">
+          <label>PropertySheetDialog</label>
         </object>
         <object class="wxMenuItem" name="snap_menubar">
           <label>Menubar</label>
