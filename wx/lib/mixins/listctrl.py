@@ -672,45 +672,6 @@ HISTORY:
 1.1     - Initial version
 """
 
-from wx import ImageFromStream, BitmapFromImage
-import cStringIO, zlib
-
-def getUncheckData():
-    return zlib.decompress(
-"x\xda\xeb\x0c\xf0s\xe7\xe5\x92\xe2b``\xe0\xf5\xf4p\t\x02\xd2\x02 \xcc\xc1\
-\x06$\xe5?\xffO\x04R,\xc5N\x9e!\x1c@P\xc3\x91\xd2\x01\xe4\xbb{\xba8\x86X\xf4\
-&\xa7\xa4$\xa5-`1\x08\\2\xbb\xb1\xb1\x91\xf5\xd8\x84o\xeb\xff\xfaw\x1d[.=[2\
-\x90'\x01\x08v\xec]\xd3\xa3qvU`l\x81\xd9\xd18\t\xd3\x84+\x0cll[\xa6t\xcc9\
-\xd4\xc1\xda\xc3<O\x9a1\xc3\x88\xc3j\xfa\x86_\xee@#\x19<]\xfd\\\xd69%4\x01\
-\x00\xdc\x80-\x05" )
-
-def getUncheckBitmap():
-    return BitmapFromImage(getUncheckImage())
-
-def getUncheckImage():
-    stream = cStringIO.StringIO(getUncheckData())
-    return ImageFromStream(stream)
-
-def getCheckData():
-    return zlib.decompress(
-'x\xda\xeb\x0c\xf0s\xe7\xe5\x92\xe2b``\xe0\xf5\xf4p\t\x02\xd2\x02 \xcc\xc1\
-\x06$\xe5?\xffO\x04R,\xc5N\x9e!\x1c@P\xc3\x91\xd2\x01\xe47{\xba8\x86X\xf4&\
-\xa7\xa4$\xa5-`1\x08\\2\xbb\xb1\xb1\x91\xf5\xd8\x84o\xeb\xff\xfaw\x1d[.=[2\
-\x90\'\x01\x08v\xec\\2C\xe3\xec+\xc3\xbd\x05fG\xe3\x14n1\xcc5\xad\x8a8\x1a\
-\xb9\xa1\xeb\xd1\x853-\xaa\xc76\xecb\xb8i\x16c&\\\xc2\xb8\xe9Xvbx\xa1T\xc3U\
-\xd6p\'\xbd\x85\x19\xff\xbe\xbf\xd7\xe7R\xcb`\xd8\xa5\xf8\x83\xe1^\xc4\x0e\
-\xa1"\xce\xc3n\x93x\x14\xd8\x16\xb0(\x15q)\x8b\x19\xf0U\xe4\xb10\x08V\xa8\
-\x99\xf3\xdd\xde\xad\x06t\x0e\x83\xa7\xab\x9f\xcb:\xa7\x84&\x00\xe0HE\xab' )
-
-def getCheckBitmap():
-    return BitmapFromImage(getCheckImage())
-
-def getCheckImage():
-    stream = cStringIO.StringIO(getCheckData())
-    return ImageFromStream(stream)
-
-
-
 class CheckListCtrlMixin:
     """
     This is a mixin for ListCtrl which add a checkbox in the first
@@ -731,10 +692,13 @@ class CheckListCtrlMixin:
     """
     def __init__(self, check_image=None, uncheck_image=None):
         self.__imagelist_ = wx.ImageList(16, 16)
+
         if not check_image:
-            check_image = getCheckBitmap()
+            check_image = self.__CreateBitmap(wx.CONTROL_CHECKED)
+
         if not uncheck_image:
-            uncheck_image = getUncheckBitmap()
+            uncheck_image = self.__CreateBitmap()
+
         self.uncheck_image = self.__imagelist_.Add(uncheck_image)
         self.check_image = self.__imagelist_.Add(check_image)
         self.SetImageList(self.__imagelist_, wx.IMAGE_LIST_SMALL)
@@ -744,6 +708,18 @@ class CheckListCtrlMixin:
         
         # override the default methods of ListCtrl/ListView
         self.InsertStringItem = self.__InsertStringItem_
+
+    def __CreateBitmap(self, flag=0):
+        """Create a bitmap of the platforms native checkbox. The flag
+        is used to determine the checkboxes state (see wx.CONTROL_*)
+
+        """
+        bmp = wx.EmptyBitmap(16, 16)
+        dc = wx.MemoryDC(bmp)
+        dc.Clear()
+        wx.RendererNative.Get().DrawCheckBox(self, dc, (0, 0, 16, 16), flag)
+        dc.SelectObject(wx.NullBitmap)
+        return bmp
 
     # NOTE: if you use InsertItem, InsertImageItem or InsertImageStringItem,
     #       you must set the image yourself.
