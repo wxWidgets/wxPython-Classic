@@ -4719,8 +4719,8 @@ msgid "Save &As..."
 msgstr "&Farklý kaydet"
 
 #: ../src/common/docview.cpp:300
-msgid "Save As"
-msgstr "Farklý Kaydet"
+msgid "Save as"
+msgstr "Farklý kaydet"
 
 #: ../src/common/stockitem.cpp:212
 #, fuzzy
@@ -4803,7 +4803,7 @@ msgid "Select a document view"
 msgstr "Bir döküman görünümü seçiniz"
 
 #: ../src/common/docview.cpp:1589
-msgid "Open File"
+msgid "Select a file"
 msgstr "Bir dosya seçiniz"
 
 #: ../src/common/stockitem.cpp:153
