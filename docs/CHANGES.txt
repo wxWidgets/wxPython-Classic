@@ -3,7 +3,7 @@ Recent Changes for wxPython
 
 2.8.6.1
 -------
-*
+* 26-Oct-2007
 
 wxMac: Fixed paste bug when the clipboard contains unicode text.
 
@@ -30,6 +30,11 @@ BUILD.txt for details.
 
 Changes in wx.GraphicsContext to make things like the half-pixel
 offsets more consistent across platforms.
+
+wxMSW: If freezing a top-level window wxWidgets will actually freeze
+the TLW's children instead.  This works around a feature of MS Windows
+that allowed windows beneath the frozen one in Z-order to paint
+through, and also mouse events clicking through to the lower window.
 
 
 
@@ -107,7 +112,7 @@ for each OS version, all builds are now Universal and work on both
 Panther and Tiger, and on PPC and i386.
 
 On the Linux side the debian and ubuntu packages will support multiple
-versions of Python if the Debian/Ubuntu release is setup to support
+versions of Python if the Debian/Ubuntu release is set up to support
 more than one version.  To check which versions you can expect to get
 you can run "pyversions -s".  Also there is a new package available
 that contains a debug version of the wxPython extension modules, that
