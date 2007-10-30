@@ -2948,12 +2948,15 @@ SWIGINTERN int
 SWIG_AsVal_unsigned_SS_long (PyObject* obj, unsigned long* val)
 {
     long v = 0;
-    if (SWIG_AsVal_long(obj, &v) && v < 0) {
-        return SWIG_TypeError;
+    int res = SWIG_AsVal_long(obj, &v);
+    if (SWIG_IsOK(res)) {
+        if ( v < 0) {
+            return SWIG_ValueError;
+        }
+        else if (val)
+            *val = (unsigned long)v;
     }
-    else if (val)
-        *val = (unsigned long)v;
-    return SWIG_OK;
+    return res;
 }
 
 
