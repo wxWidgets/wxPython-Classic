@@ -20,7 +20,9 @@ class TextCtrlTest(testControl.ControlTest):
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.empty_value = ""
         self.default_value = self.empty_value
-        self.value = "Hello, World!\nLorem Ipsum!"
+        # value of GetValue() is only defined to maintain \n for multi-line controls
+        # so don't test with \n for single-line controls.
+        self.value = "Hello, World! Lorem Ipsum!"
         self.text = "The quick brown fox jumps over the lazy dog."
         self.testControl = wx.TextCtrl(parent=self.frame, value=self.default_value)
     
