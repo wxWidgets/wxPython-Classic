@@ -82,16 +82,20 @@ class BitmapTest(unittest.TestCase):
         # "This function preserves bit depth and mask information."
         self.assert_(origmask.IsSameAs(sub.GetMask()))
         self.assertEquals(origdepth, sub.GetDepth())
-        
+    
+    
+    # FIXME: This is the wrong test for this condition. In fact, this test
+    # shows that SetDepth is doing the wrong thing by creating an invalid 
+    # bitmap, instead of asserting or simply not setting the depth to an
+    # invalid value. 
+    '''
     def testSubBitmapInvalidDepth(self):
         """GetSubBitmap"""
         self.testControl.SetDepth(25) # invalid depth
         if wxtest.ASSERTIONS_ON:
             self.assertRaises(wx.PyAssertionError, self.testControl.GetSubBitmap,
                                 wx.Rect(1,1,1,1))
-        else:
-            b = self.testControl.GetSubBitmap(wx.Rect(1,1,1,1))
-            self.assert_(isinstance(b, wx.Bitmap))
+    '''
     
     def testSubBitmapOutOfBounds(self):
         """GetSubBitmap"""
