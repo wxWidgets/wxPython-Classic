@@ -10,6 +10,8 @@ import unittest
 import wx
 
 import testWindow
+import testSize
+import wxtest
 
 class TopLevelWindowTest(unittest.TestCase):
     def setUp(self):
@@ -82,6 +84,29 @@ class TopLevelWindowBase(testWindow.WindowTest):
     def testTopLevel(self):
         """IsTopLevel"""
         self.assert_(self.testControl.IsTopLevel())
+        
+    # Although SizeHints are a method of wx.Window, they are basically deprecated
+    # for all but TopLevelWindows, so we should test them here. 
+    
+    def testSizeHints(self):
+        """SetSizeHints, GetMinWidth, GetMinHeight, GetMaxWidth, GetMaxHeight"""
+        data = testSize.getSizeData()
+        for (minW,minH),(maxW,maxH) in zip(data,data):
+            maxW += 1
+            maxH += 1 # maxes greater than mins
+            self.testControl.SetSizeHints(minW, minH, maxW, maxH)
+            self.assertEquals(minW, self.testControl.GetMinWidth())
+            self.assertEquals(minH, self.testControl.GetMinHeight())
+            self.assertEquals(maxW, self.testControl.GetMaxWidth())
+            self.assertEquals(maxH, self.testControl.GetMaxHeight())
+            
+    # TODO: make the whole thing more robust
+    def testInvalidSizeHints(self):
+        """SetSizeHints"""
+        # max can't be less than min (except on Ubuntu?)
+        if wxtest.PlatformIsNotGtk():
+            self.assertRaises(wx.PyAssertionError, self.testControl.SetSizeHints, 100,100,10,10)
+            
         
     
 if __name__ == '__main__':
