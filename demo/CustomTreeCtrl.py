@@ -1240,7 +1240,7 @@ class CustomTreeCtrl(CT.CustomTreeCtrl):
 
     def __init__(self, parent, id=wx.ID_ANY, pos=wx.DefaultPosition,
                  size=wx.DefaultSize,
-                 style=wx.SUNKEN_BORDER | CT.TR_HAS_BUTTONS | CT.TR_HAS_VARIABLE_ROW_HEIGHT,
+                 style=wx.SUNKEN_BORDER | CT.TR_HAS_BUTTONS | CT.TR_HAS_VARIABLE_ROW_HEIGHT | wx.WANTS_CHARS,
                  log=None):
 
         CT.CustomTreeCtrl.__init__(self, parent, id, pos, size, style)
