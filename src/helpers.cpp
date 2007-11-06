@@ -1814,7 +1814,10 @@ void wxPyCallbackHelper::clearRecursionGuard(PyObject* method) const
 {
     PyFunctionObject* func = (PyFunctionObject*)PyMethod_Function(method);
     if (PyObject_HasAttr(m_self, func->func_name)) {
-        PyObject_DelAttr(m_self, func->func_name);
+        PyObject* attr = PyObject_GetAttr(m_self, func->func_name);
+        if ( attr == Py_None )
+	    PyObject_DelAttr(m_self, func->func_name);
+        Py_DECREF(attr);
     }
 }
 
