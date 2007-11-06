@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import sys, os, re
 import glob
 from docparser.wxclasses import *
