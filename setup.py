@@ -780,7 +780,7 @@ if BUILD_DLLWIDGET:
 
     
 #----------------------------------------------------------------------
-# Tools, scripts data files, etc.
+# Tools, scripts, data files, etc.
 #----------------------------------------------------------------------
 
 if NO_SCRIPTS:
@@ -802,7 +802,8 @@ else:
 
 
 
-DATA_FILES += find_data_files('wx/tools/XRCed', '*.txt', '*.xrc')
+DATA_FILES += find_data_files('wx/tools/XRCed', '*.txt', '*.xrc', '*.htb')
+DATA_FILES += find_data_files('wx/tools/XRCed/plugins', '*.crx')
 DATA_FILES += find_data_files('wx/py', '*.txt', '*.ico', '*.css', '*.html')
 DATA_FILES += find_data_files('wx', '*.txt', '*.css', '*.html')
 
@@ -877,6 +878,7 @@ if __name__ == "__main__":
                           'wx.py',
                           'wx.tools',
                           'wx.tools.XRCed',
+                          'wx.tools.XRCed.plugins',
                           ],
 
               extra_path = EXTRA_PATH,

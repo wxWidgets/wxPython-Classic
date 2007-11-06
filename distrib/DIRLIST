@@ -130,6 +130,12 @@ wx/py/tests
 wx/tools
 wx/tools/XRCed
 wx/tools/XRCed/src-images
+wx/tools/XRCed/doc
+wx/tools/XRCed/misc
+wx/tools/XRCed/misc/src-images
+wx/tools/XRCed/plugins
+wx/tools/XRCed/plugins/bitmaps
+wx/tools/XRCed/plugins/src-images
 wxaddons
 wxPython
 wxPython/lib
