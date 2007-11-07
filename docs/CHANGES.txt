@@ -1,12 +1,32 @@
 Recent Changes for wxPython
 =====================================================================
 
-2.8.6.2
+2.8.7.0
 -------
 *
 
 Applied Patch [ 1783958 ] to use the native renderer for drawing the
 checkboxes in CheckListCtrlMixin.
+
+Incorporated the new version of XRCed.  This is the result of a Google
+Summer of Code 2007 project by Roman Rolinsky, and includes a number
+of UI enhancements, as well as a mechanism for adding support for new
+components without needing changes to XRCed itself.  These new
+components can be those supported at the C++ layer of XRC, as well as
+custom XRC handlers written in Python.  See
+http://wiki.wxpython.org/XRCed_Refactoring_Project
+
+wxMac: Fixed wx.BusyInfo so it doesn't steal the activated status
+from the parent window.  (This actually applies to all frames with the
+wx.FRAME_TOOL_WINDOW style and no decorations.)
+
+wxMac: Fixed the lack of painting the area between scrollbars on
+Leopard.  
+
+wxMac: Fixed assertion errors dealing with toolbars on Leopard.
+
+wxMac: Multiline textcontrols now support attributes for margins and
+alignement; only a single tab distance can be set though.
 
 
 
