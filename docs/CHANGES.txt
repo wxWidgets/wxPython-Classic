@@ -28,6 +28,11 @@ wxMac: Fixed assertion errors dealing with toolbars on Leopard.
 wxMac: Multiline textcontrols now support attributes for margins and
 alignement; only a single tab distance can be set though.
 
+Added the wx.Image.AdjustChannels method.  This function muliplies all
+4 channels (red, green, blue, alpha) with a factor (around
+1.0). Useful for gamma correction, colour correction and to add a
+certain amount of transparency to a image.
+
 
 
 
