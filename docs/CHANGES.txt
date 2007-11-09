@@ -33,6 +33,11 @@ Added the wx.Image.AdjustChannels method.  This function muliplies all
 1.0). Useful for gamma correction, colour correction and to add a
 certain amount of transparency to a image.
 
+Added Editra to the distribution, to give us a simple yet powerful
+code editor to replace the never finished PyAlaMode and related
+tools.  Many thanks to Cody Precord for the work he has done on this
+tool and for allowing us to make it part of wxPython.  For more
+information see the Editra website at http://editra.org/
 
 
 
