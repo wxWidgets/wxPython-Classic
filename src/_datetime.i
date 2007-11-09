@@ -347,9 +347,10 @@ public:
 
         // returns the number of days in this year (356 or 355 for Gregorian
         // calendar usually :-)
-    %Rename(GetNumberOfDaysinYear, 
+    %Rename(GetNumberOfDaysInYear, 
         static wxDateTime_t, GetNumberOfDays(int year, Calendar cal = Gregorian));
-
+    %pythoncode { GetNumberOfDaysinYear = GetNumberOfDaysInYear # for compatibility }
+    
         // get the number of the days in the given month (default value for
         // the year means the current one)
     %Rename(GetNumberOfDaysInMonth, 
