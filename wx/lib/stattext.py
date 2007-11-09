@@ -101,17 +101,15 @@ class GenStaticText(wx.PyControl):
     def Enable(self, enable=True):
         """Overridden Enable() method to properly refresh the widget. """
 
-       wx.PyControl.Enable(self, enable)
-       if "__WXMSW__" in wx.PlatformInfo:
-           self.Refresh()
+        wx.PyControl.Enable(self, enable)
+        self.Refresh()
 
 
     def Disable(self):
         """Overridden Disable() method to properly refresh the widget. """
 
-       wx.PyControl.Disable(self)
-       if "__WXMSW__" in wx.PlatformInfo:
-           self.Refresh()
+        wx.PyControl.Disable(self)
+        self.Refresh()
 
            
     def AcceptsFocus(self):
