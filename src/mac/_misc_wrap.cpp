@@ -23473,7 +23473,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_DateTime_GetNumberOfDaysinYear(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_DateTime_GetNumberOfDaysInYear(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   int arg1 ;
   wxDateTime::Calendar arg2 = (wxDateTime::Calendar) wxDateTime::Gregorian ;
@@ -23488,16 +23488,16 @@ SWIGINTERN PyObject *_wrap_DateTime_GetNumberOfDaysinYear(PyObject *SWIGUNUSEDPA
     (char *) "year",(char *) "cal", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:DateTime_GetNumberOfDaysinYear",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:DateTime_GetNumberOfDaysInYear",kwnames,&obj0,&obj1)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(obj0, &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "DateTime_GetNumberOfDaysinYear" "', expected argument " "1"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "DateTime_GetNumberOfDaysInYear" "', expected argument " "1"" of type '" "int""'");
   } 
   arg1 = static_cast< int >(val1);
   if (obj1) {
     ecode2 = SWIG_AsVal_int(obj1, &val2);
     if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DateTime_GetNumberOfDaysinYear" "', expected argument " "2"" of type '" "wxDateTime::Calendar""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DateTime_GetNumberOfDaysInYear" "', expected argument " "2"" of type '" "wxDateTime::Calendar""'");
     } 
     arg2 = static_cast< wxDateTime::Calendar >(val2);
   }
@@ -39837,7 +39837,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DateTime_GetCurrentMonth", (PyCFunction) _wrap_DateTime_GetCurrentMonth, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_IsLeapYear", (PyCFunction) _wrap_DateTime_IsLeapYear, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_GetCentury", (PyCFunction) _wrap_DateTime_GetCentury, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"DateTime_GetNumberOfDaysinYear", (PyCFunction) _wrap_DateTime_GetNumberOfDaysinYear, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DateTime_GetNumberOfDaysInYear", (PyCFunction) _wrap_DateTime_GetNumberOfDaysInYear, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_GetNumberOfDaysInMonth", (PyCFunction) _wrap_DateTime_GetNumberOfDaysInMonth, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_GetMonthName", (PyCFunction) _wrap_DateTime_GetMonthName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_GetWeekDayName", (PyCFunction) _wrap_DateTime_GetWeekDayName, METH_VARARGS | METH_KEYWORDS, NULL},

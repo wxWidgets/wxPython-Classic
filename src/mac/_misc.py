@@ -3552,11 +3552,12 @@ class DateTime(object):
         return _misc_.DateTime_GetCentury(*args, **kwargs)
 
     GetCentury = staticmethod(GetCentury)
-    def GetNumberOfDaysinYear(*args, **kwargs):
-        """GetNumberOfDaysinYear(int year, int cal=Gregorian) -> int"""
-        return _misc_.DateTime_GetNumberOfDaysinYear(*args, **kwargs)
+    def GetNumberOfDaysInYear(*args, **kwargs):
+        """GetNumberOfDaysInYear(int year, int cal=Gregorian) -> int"""
+        return _misc_.DateTime_GetNumberOfDaysInYear(*args, **kwargs)
 
-    GetNumberOfDaysinYear = staticmethod(GetNumberOfDaysinYear)
+    GetNumberOfDaysInYear = staticmethod(GetNumberOfDaysInYear)
+    GetNumberOfDaysinYear = GetNumberOfDaysInYear # for compatibility 
     def GetNumberOfDaysInMonth(*args, **kwargs):
         """GetNumberOfDaysInMonth(int month, int year=Inv_Year, int cal=Gregorian) -> int"""
         return _misc_.DateTime_GetNumberOfDaysInMonth(*args, **kwargs)
@@ -4083,9 +4084,9 @@ def DateTime_GetCentury(*args, **kwargs):
   """DateTime_GetCentury(int year=Inv_Year) -> int"""
   return _misc_.DateTime_GetCentury(*args, **kwargs)
 
-def DateTime_GetNumberOfDaysinYear(*args, **kwargs):
-  """DateTime_GetNumberOfDaysinYear(int year, int cal=Gregorian) -> int"""
-  return _misc_.DateTime_GetNumberOfDaysinYear(*args, **kwargs)
+def DateTime_GetNumberOfDaysInYear(*args, **kwargs):
+  """DateTime_GetNumberOfDaysInYear(int year, int cal=Gregorian) -> int"""
+  return _misc_.DateTime_GetNumberOfDaysInYear(*args, **kwargs)
 
 def DateTime_GetNumberOfDaysInMonth(*args, **kwargs):
   """DateTime_GetNumberOfDaysInMonth(int month, int year=Inv_Year, int cal=Gregorian) -> int"""

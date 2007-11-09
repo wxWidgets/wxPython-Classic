@@ -3367,6 +3367,19 @@ class Image(Object):
 
     HSVtoRGB = staticmethod(HSVtoRGB)
     def __nonzero__(self): return self.IsOk() 
+    def AdjustChannels(*args, **kwargs):
+        """
+        AdjustChannels(self, double factor_red, double factor_green, double factor_blue, 
+            double factor_alpha=1.0) -> Image
+
+        This function muliplies all 4 channels (red, green, blue, alpha) with
+        a factor (around 1.0). Useful for gamma correction, colour correction
+        and to add a certain amount of transparency to a image (fade in fade
+        out effects). If factor_alpha is given but the original image has no
+        alpha channel then a alpha channel will be added.
+        """
+        return _core_.Image_AdjustChannels(*args, **kwargs)
+
     AlphaBuffer = property(GetAlphaBuffer,SetAlphaBuffer,doc="See `GetAlphaBuffer` and `SetAlphaBuffer`") 
     AlphaData = property(GetAlphaData,SetAlphaData,doc="See `GetAlphaData` and `SetAlphaData`") 
     Data = property(GetData,SetData,doc="See `GetData` and `SetData`") 

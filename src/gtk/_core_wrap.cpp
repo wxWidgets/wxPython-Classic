@@ -3693,6 +3693,104 @@ SWIGINTERN wxBitmap wxImage_ConvertToMonoBitmap(wxImage *self,byte red,byte gree
             wxBitmap bitmap( mono, 1 );
             return bitmap;
         }
+SWIGINTERN wxImage wxImage_AdjustChannels(wxImage *self,double factor_red,double factor_green,double factor_blue,double factor_alpha=1.0){
+            wxCHECK_MSG( self->Ok(), wxNullImage, wxT("invalid image") );
+
+            wxImage dst_image( self->GetWidth(), self->GetHeight(), false );
+
+            unsigned rgblen =   3 * self->GetWidth() * self->GetHeight();
+            unsigned alphalen = self->GetWidth() * self->GetHeight();
+            unsigned char* src_data =  self->GetData();
+            unsigned char* src_alpha = self->GetAlpha();
+            unsigned char* dst_data =  dst_image.GetData();
+            unsigned char* dst_alpha = NULL;
+
+            wxCHECK_MSG( dst_data, wxNullImage, wxT("unable to create image") );
+
+            // adjust rgb
+            if ( factor_red == 1.0 && factor_green == 1.0 && factor_blue == 1.0)
+            {
+                // nothing to do for RGB
+                memcpy(dst_data, src_data, rgblen);
+            }
+            else
+            {
+                // rgb pixel for pixel
+                for ( unsigned i = 0; i < rgblen; i= i + 3 )
+                {
+                    dst_data[i] =     (unsigned char) wxMin( 255, (int) (factor_red * src_data[i]) );
+                    dst_data[i + 1] = (unsigned char) wxMin( 255, (int) (factor_green * src_data[i + 1]) );
+                    dst_data[i + 2] = (unsigned char) wxMin( 255, (int) (factor_blue * src_data[i + 2]) );
+                }
+            }
+    
+            // adjust the mask colour
+            if ( self->HasMask() )
+            {
+                dst_image.SetMaskColour((unsigned char) wxMin( 255, (int) (factor_red * self->GetMaskRed() ) ),
+                                        (unsigned char) wxMin( 255, (int) (factor_green * self->GetMaskGreen() ) ),
+                                        (unsigned char) wxMin( 255, (int) (factor_blue * self->GetMaskBlue() ) ) );
+            }
+    
+            // adjust the alpha channel
+            if ( src_alpha )
+            {
+                // source image already has alpha information
+                dst_image.SetAlpha(); // create an empty alpha channel (not initialized)
+                dst_alpha = dst_image.GetAlpha();
+
+                wxCHECK_MSG( dst_alpha, wxNullImage, wxT("unable to create alpha data") );
+
+                if ( factor_alpha == 1.0)
+                {
+                    // no need to adjust
+                    memcpy(dst_alpha, src_alpha, alphalen);
+                }
+                else
+                {
+                    // alpha value for alpha value
+                    for ( unsigned i = 0; i < alphalen; ++i )
+                    {
+                        dst_alpha[i] = (unsigned char) wxMin( 255, (int) (factor_alpha * src_alpha[i]) );
+                    }
+                }
+            }
+            else if ( factor_alpha != 1.0 )
+            {
+                // no alpha yet but we want to adjust -> create
+                dst_image.SetAlpha(); // create an empty alpha channel (not initialized)
+                dst_alpha = dst_image.GetAlpha();
+        
+                wxCHECK_MSG( dst_alpha, wxNullImage, wxT("unable to create alpha data") );
+        
+                for ( unsigned i = 0; i < alphalen; ++i )
+                {
+                    dst_alpha[i] = (unsigned char) wxMin( 255, (int) (factor_alpha * 255) );
+                }
+            }
+
+            // do we have an alpha channel and a mask in the new image?
+            if ( dst_alpha && dst_image.HasMask() )
+            {
+                // make the mask transparent honoring the alpha channel
+                const unsigned char mr = dst_image.GetMaskRed();
+                const unsigned char mg = dst_image.GetMaskGreen();
+                const unsigned char mb = dst_image.GetMaskBlue();
+
+                for ( unsigned i = 0; i < alphalen; ++i )
+                {
+                    int n = i * 3;
+                    dst_alpha[i] = ( dst_data[n] == mr && dst_data[n + 1] == mg && dst_data[n + 2] == mb )
+                        ? wxIMAGE_ALPHA_TRANSPARENT
+                        : dst_alpha[i];
+                }
+
+                // remove the now mask
+                dst_image.SetMask(false);
+            }
+
+            return dst_image;
+        }
 
     wxImage* _ImageFromBuffer(int width, int height,
                               buffer data, int DATASIZE,
@@ -20315,6 +20413,74 @@ SWIGINTERN PyObject *_wrap_Image_HSVtoRGB(PyObject *SWIGUNUSEDPARM(self), PyObje
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxImage_RGBValue(static_cast< const wxImage_RGBValue& >(result))), SWIGTYPE_p_wxImage_RGBValue, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Image_AdjustChannels(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxImage *arg1 = (wxImage *) 0 ;
+  double arg2 ;
+  double arg3 ;
+  double arg4 ;
+  double arg5 = (double) 1.0 ;
+  SwigValueWrapper<wxImage > result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  double val5 ;
+  int ecode5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "factor_red",(char *) "factor_green",(char *) "factor_blue",(char *) "factor_alpha", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|O:Image_AdjustChannels",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxImage, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Image_AdjustChannels" "', expected argument " "1"" of type '" "wxImage *""'"); 
+  }
+  arg1 = reinterpret_cast< wxImage * >(argp1);
+  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Image_AdjustChannels" "', expected argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Image_AdjustChannels" "', expected argument " "3"" of type '" "double""'");
+  } 
+  arg3 = static_cast< double >(val3);
+  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "Image_AdjustChannels" "', expected argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  if (obj4) {
+    ecode5 = SWIG_AsVal_double(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Image_AdjustChannels" "', expected argument " "5"" of type '" "double""'");
+    } 
+    arg5 = static_cast< double >(val5);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxImage_AdjustChannels(arg1,arg2,arg3,arg4,arg5);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxImage(static_cast< const wxImage& >(result))), SWIGTYPE_p_wxImage, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -59498,6 +59664,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Image_RotateHue", (PyCFunction) _wrap_Image_RotateHue, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Image_RGBtoHSV", (PyCFunction) _wrap_Image_RGBtoHSV, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Image_HSVtoRGB", (PyCFunction) _wrap_Image_HSVtoRGB, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Image_AdjustChannels", (PyCFunction) _wrap_Image_AdjustChannels, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Image_swigregister", Image_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Image_swiginit", Image_swiginit, METH_VARARGS, NULL},
 	 { (char *)"_ImageFromBuffer", (PyCFunction) _wrap__ImageFromBuffer, METH_VARARGS | METH_KEYWORDS, NULL},
