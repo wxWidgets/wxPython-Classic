@@ -136,12 +136,32 @@ Source: "wx\tools\XRCed\*.ico";                DestDir: "{app}\%(PKGDIR)s\wx\too
 Source: "wx\tools\XRCed\*.png";                DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
 Source: "wx\tools\XRCed\*.sh";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
 Source: "wx\tools\XRCed\*.htb";                DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\plugins\*.py";         DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\plugins\*.crx";        DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
+Source: "wx\tools\XRCed\plugins\*.py";         DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\plugins"; Components: core
+Source: "wx\tools\XRCed\plugins\*.crx";        DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\plugins"; Components: core
 
-;;Source: "wx\tools\XRCed\plugins\*.xrc";        DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-;;Source: "wx\tools\XRCed\src-images\*.png";     DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\src-images"; Components: core
-
+Source: "wx\tools\Editra\docs\*.txt";                        DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\docs"; Components: core
+Source: "wx\tools\Editra\locale\en_US\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\en_US\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\es_ES\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\es_ES\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\ja_JP\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ja_JP\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\pixmaps\*.png";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps"; Components: core
+Source: "wx\tools\Editra\pixmaps\*.ico";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps"; Components: core
+Source: "wx\tools\Editra\pixmaps\*.icns";                    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps"; Components: core
+Source: "wx\tools\Editra\pixmaps\theme\Default\README";      DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Default"; Components: core
+Source: "wx\tools\Editra\pixmaps\theme\Tango\AUTHORS";       DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Tango"; Components: core
+Source: "wx\tools\Editra\pixmaps\theme\Tango\COPYING";       DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Tango"; Components: core
+Source: "wx\tools\Editra\pixmaps\theme\Tango\menu\*.png";    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Tango\menu"; Components: core
+Source: "wx\tools\Editra\pixmaps\theme\Tango\mime\*.png";    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Tango\mime"; Components: core
+Source: "wx\tools\Editra\pixmaps\theme\Tango\toolbar\*.png"; DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Tango\toolbar"; Components: core
+Source: "wx\tools\Editra\plugins\*.egg";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\plugins"; Components: core
+Source: "wx\tools\Editra\src\*.py";                          DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src"; Components: core
+Source: "wx\tools\Editra\src\autocomp\*.py";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp"; Components: core
+Source: "wx\tools\Editra\src\extern\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
+Source: "wx\tools\Editra\src\extern\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
+Source: "wx\tools\Editra\src\syntax\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
+Source: "wx\tools\Editra\src\syntax\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
+Source: "wx\tools\Editra\styles\*.ess";                      DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\styles"; Components: core
+Source: "wx\tools\Editra\*";                                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\*.py";                              DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 
 Source: "wxPython\*.py";                          DestDir: "{app}\%(PKGDIR)s\wxPython"; Components: core
 Source: "wxPython\lib\*.py";                      DestDir: "{app}\%(PKGDIR)s\wxPython\lib"; Components: core
@@ -233,7 +253,17 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\XRCed\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\XRCed\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\XRCed\plugins\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\XRCed\plugins\*.pyo";
 
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\*.pyo";
 
 Type: files; Name: "{app}\%(PKGDIR)s\wxPython\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wxPython\*.pyo";

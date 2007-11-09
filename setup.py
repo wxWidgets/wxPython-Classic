@@ -798,14 +798,30 @@ else:
                opj('scripts/pywrap'),
                opj('scripts/pywxrc'),
                opj('scripts/xrced'),
+               opj('scripts/editra'),
                ]
 
 
 
+DATA_FILES += find_data_files('wx/lib/editor', '*.txt')
+DATA_FILES += find_data_files('wx/py', '*.txt', '*.ico', '*.css', '*.html')
+
 DATA_FILES += find_data_files('wx/tools/XRCed', '*.txt', '*.xrc', '*.htb')
 DATA_FILES += find_data_files('wx/tools/XRCed/plugins', '*.crx')
-DATA_FILES += find_data_files('wx/py', '*.txt', '*.ico', '*.css', '*.html')
-DATA_FILES += find_data_files('wx', '*.txt', '*.css', '*.html')
+
+DATA_FILES += find_data_files('wx/tools/Editra/docs', '*.txt')
+DATA_FILES += find_data_files('wx/tools/Editra/locale', '*.mo')
+DATA_FILES += find_data_files('wx/tools/Editra/pixmaps',
+                              '*.png', '*.icns', '*.ico', 'README', 'AUTHORS', 'COPYING')
+DATA_FILES += find_data_files('wx/tools/Editra/plugins', '*.egg')
+DATA_FILES += find_data_files('wx/tools/Editra/src', 'README')
+DATA_FILES += find_data_files('wx/tools/Editra/styles', '*.ess')
+DATA_FILES += find_data_files('wx/tools/Editra', '[A-Z]*', recursive=False)
+
+
+## import pprint
+## pprint.pprint(DATA_FILES)
+## sys.exit()
 
 
 if NO_HEADERS:
@@ -879,6 +895,11 @@ if __name__ == "__main__":
                           'wx.tools',
                           'wx.tools.XRCed',
                           'wx.tools.XRCed.plugins',
+                          'wx.tools.Editra',
+                          'wx.tools.Editra.src',
+                          'wx.tools.Editra.src.autocomp',
+                          'wx.tools.Editra.src.extern',
+                          'wx.tools.Editra.src.syntax',
                           ],
 
               extra_path = EXTRA_PATH,
