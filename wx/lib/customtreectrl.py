@@ -3,7 +3,7 @@
 # Inspired By And Heavily Based On wxGenericTreeCtrl.
 #
 # Andrea Gavana, @ 17 May 2006
-# Latest Revision: 09 Aug 2007, 22.00 CET
+# Latest Revision: 09 Nov 2007, 18.00 CET
 #
 #
 # TODO List
@@ -134,8 +134,8 @@ CustomTreeCtrl has been tested on the following platforms:
   * Mac OS (Thanks to John Jackson).
 
 
-Latest Revision: Andrea Gavana @ 09 Aug 2007, 22.00 CET
-Version 1.1
+Latest Revision: Andrea Gavana @ 09 Nov 2007, 18.00 CET
+Version 1.2
 
 """
 
@@ -945,8 +945,8 @@ class TreeTextCtrl(wx.TextCtrl):
         w -= image_w + 4 + wcheck
 
         wx.TextCtrl.__init__(self, self._owner, wx.ID_ANY, self._startValue,
-                             wx.Point(x - 4, y), wx.Size(w + 15, h),
-                             wx.WANTS_CHARS)
+                             wx.Point(x - 4, y), wx.Size(w + 25, h),
+                             wx.WANTS_CHARS|wx.TE_MULTILINE)
         if wx.Platform == "__WXMAC__":
             self.SetFont(owner.GetFont())
             bs = self.GetBestSize()
