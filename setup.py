@@ -808,6 +808,7 @@ DATA_FILES += find_data_files('wx/py', '*.txt', '*.ico', '*.css', '*.html')
 
 DATA_FILES += find_data_files('wx/tools/XRCed', '*.txt', '*.xrc', '*.htb')
 DATA_FILES += find_data_files('wx/tools/XRCed/plugins', '*.crx')
+DATA_FILES += find_data_files('wx/tools/XRCed/plugins/bitmaps', '*.png')
 
 DATA_FILES += find_data_files('wx/tools/Editra/docs', '*.txt')
 DATA_FILES += find_data_files('wx/tools/Editra/locale', '*.mo')

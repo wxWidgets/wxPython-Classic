@@ -23,6 +23,7 @@ will be created.
 import sys, os, time
 
 KEEP_TEMPS = False
+
 # default InnoSetup installer location
 ISCC = r"%s\InnoSetup5\ISCC.exe %s"
 
@@ -104,40 +105,39 @@ Source: "wx\_wizard.pyd";                      DestDir: "{app}\%(PKGDIR)s\wx"; C
 Source: "wx\_xrc.pyd";                         DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
 Source: "wx\_aui.pyd";                         DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
 Source: "wx\_richtext.pyd";                    DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
-;;Source: "wx\_iewin.pyd";                       DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
-;;Source: "wx\_ogl.pyd";                         DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
 
 
-Source: "wx\*.py";                             DestDir: "{app}\%(PKGDIR)s\wx"; Components: core
-Source: "wx\build\*.py";                       DestDir: "{app}\%(PKGDIR)s\wx\build"; Components: core
-Source: "wx\lib\*.py";                         DestDir: "{app}\%(PKGDIR)s\wx\lib"; Components: core
-Source: "wx\lib\analogclock\*.py";             DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock"; Components: core
-Source: "wx\lib\analogclock\lib_setup\*.py";   DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock\lib_setup"; Components: core
-Source: "wx\lib\art\*.py";                     DestDir: "{app}\%(PKGDIR)s\wx\lib\art"; Components: core
-Source: "wx\lib\colourchooser\*.py";           DestDir: "{app}\%(PKGDIR)s\wx\lib\colourchooser"; Components: core
-Source: "wx\lib\editor\*.py";                  DestDir: "{app}\%(PKGDIR)s\wx\lib\editor"; Components: core
-Source: "wx\lib\editor\*.txt";                 DestDir: "{app}\%(PKGDIR)s\wx\lib\editor"; Components: core
-Source: "wx\lib\mixins\*.py";                  DestDir: "{app}\%(PKGDIR)s\wx\lib\mixins"; Components: core
-Source: "wx\lib\masked\*.py";                  DestDir: "{app}\%(PKGDIR)s\wx\lib\masked"; Components: core
-Source: "wx\lib\ogl\*.py";                     DestDir: "{app}\%(PKGDIR)s\wx\lib\ogl"; Components: core
-Source: "wx\lib\floatcanvas\*.py";             DestDir: "{app}\%(PKGDIR)s\wx\lib\floatcanvas"; Components: core
-Source: "wx\lib\floatcanvas\Utilities\*.py";   DestDir: "{app}\%(PKGDIR)s\wx\lib\floatcanvas\Utilities"; Components: core
-Source: "wx\py\*.py";                          DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
-Source: "wx\py\*.txt";                         DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
-Source: "wx\py\*.ico";                         DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
-Source: "wx\py\*.png";                         DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
-Source: "wx\py\tests\*.py";                    DestDir: "{app}\%(PKGDIR)s\wx\py\tests"; Components: core
-Source: "wx\tools\*.py";                       DestDir: "{app}\%(PKGDIR)s\wx\tools"; Components: core
-Source: "wx\tools\XRCed\*.txt";                DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\sawfishrc";            DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\*.py";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\*.xrc";                DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\*.ico";                DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\*.png";                DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\*.sh";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\*.htb";                DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\plugins\*.py";         DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\plugins"; Components: core
-Source: "wx\tools\XRCed\plugins\*.crx";        DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\plugins"; Components: core
+Source: "wx\*.py";                              DestDir: "{app}\%(PKGDIR)s\wx"; Components: core
+Source: "wx\build\*.py";                        DestDir: "{app}\%(PKGDIR)s\wx\build"; Components: core
+Source: "wx\lib\*.py";                          DestDir: "{app}\%(PKGDIR)s\wx\lib"; Components: core
+Source: "wx\lib\analogclock\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock"; Components: core
+Source: "wx\lib\analogclock\lib_setup\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock\lib_setup"; Components: core
+Source: "wx\lib\art\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\art"; Components: core
+Source: "wx\lib\colourchooser\*.py";            DestDir: "{app}\%(PKGDIR)s\wx\lib\colourchooser"; Components: core
+Source: "wx\lib\editor\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\lib\editor"; Components: core
+Source: "wx\lib\editor\*.txt";                  DestDir: "{app}\%(PKGDIR)s\wx\lib\editor"; Components: core
+Source: "wx\lib\mixins\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\lib\mixins"; Components: core
+Source: "wx\lib\masked\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\lib\masked"; Components: core
+Source: "wx\lib\ogl\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\ogl"; Components: core
+Source: "wx\lib\floatcanvas\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\floatcanvas"; Components: core
+Source: "wx\lib\floatcanvas\Utilities\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\lib\floatcanvas\Utilities"; Components: core
+Source: "wx\py\*.py";                           DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
+Source: "wx\py\*.txt";                          DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
+Source: "wx\py\*.ico";                          DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
+Source: "wx\py\*.png";                          DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
+Source: "wx\py\tests\*.py";                     DestDir: "{app}\%(PKGDIR)s\wx\py\tests"; Components: core
+Source: "wx\tools\*.py";                        DestDir: "{app}\%(PKGDIR)s\wx\tools"; Components: core
+Source: "wx\tools\XRCed\*.txt";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
+Source: "wx\tools\XRCed\sawfishrc";             DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
+Source: "wx\tools\XRCed\*.py";                  DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
+Source: "wx\tools\XRCed\*.xrc";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
+Source: "wx\tools\XRCed\*.ico";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
+Source: "wx\tools\XRCed\*.png";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
+Source: "wx\tools\XRCed\*.sh";                  DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
+Source: "wx\tools\XRCed\*.htb";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
+Source: "wx\tools\XRCed\plugins\*.py";          DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\plugins"; Components: core
+Source: "wx\tools\XRCed\plugins\*.crx";         DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\plugins"; Components: core
+Source: "wx\tools\XRCed\plugins\bitmaps\*.png"; DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\plugins\bitmaps"; Components: core
 
 Source: "wx\tools\Editra\docs\*.txt";                        DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\docs"; Components: core
 Source: "wx\tools\Editra\locale\en_US\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\en_US\LC_MESSAGES"; Components: core
@@ -192,7 +192,7 @@ Source: "scripts\pycrust";                  DestDir: "{code:GetPythonDir}\Script
 Source: "scripts\pywrap";                   DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
 Source: "scripts\pywxrc";                   DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
 Source: "scripts\xrced";                    DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
-
+Source: "scripts\editra";                   DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
 
 Source: "distrib\README.win32.txt";         DestDir: "{app}\%(PKGDIR)s\docs";  Flags: isreadme; Components: core
 Source: "licence\*.txt";                    DestDir: "{app}\%(PKGDIR)s\docs\licence"; Components: core
@@ -262,6 +262,8 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\*.pyo";
 
@@ -550,14 +552,17 @@ Source: "samples\wxPIA_book\Chapter-17\*";            DestDir: "{app}\wxPython\s
 Source: "samples\wxPIA_book\Chapter-18\*";            DestDir: "{app}\wxPython\samples\wxPIA_book\Chapter-18";
 
 
-Source: "scripts\pyshell";                  DestDir: "{app}\scripts"; DestName: "pyshell.pyw";
-Source: "scripts\pycrust";                  DestDir: "{app}\scripts"; DestName: "pycrust.pyw";
-Source: "scripts\pyalamode";                DestDir: "{app}\scripts"; DestName: "pyalamode.pyw";
-Source: "scripts\pyalacarte";               DestDir: "{app}\scripts"; DestName: "pyalacarte.pyw";
-Source: "scripts\xrced";                    DestDir: "{app}\scripts"; DestName: "xrced.pyw";
+Source: "scripts\pyshell";                      DestDir: "{app}\scripts"; DestName: "pyshell.pyw";
+Source: "scripts\pycrust";                      DestDir: "{app}\scripts"; DestName: "pycrust.pyw";
+Source: "scripts\xrced";                        DestDir: "{app}\scripts"; DestName: "xrced.pyw";
+Source: "scripts\editra";                       DestDir: "{app}\scripts"; DestName: "editra.pyw";
+Source: "scripts\pyalamode";                    DestDir: "{app}\scripts"; DestName: "pyalamode.pyw";
+Source: "scripts\pyalacarte";                   DestDir: "{app}\scripts"; DestName: "pyalacarte.pyw";
 
-Source: "wx\py\PyCrust.ico";                DestDir: "{app}\scripts";
-Source: "wx\tools\XRCed\xrced.ico";         DestDir: "{app}\scripts";
+Source: "wx\py\PyCrust.ico";                    DestDir: "{app}\scripts";
+Source: "wx\tools\XRCed\xrced.ico";             DestDir: "{app}\scripts";
+Source: "wx\tools\Editra\pixmaps\editra.ico";   DestDir: "{app}\scripts";
+
 
 
 ;;------------------------------------------------------------
@@ -566,9 +571,11 @@ Source: "wx\tools\XRCed\xrced.ico";         DestDir: "{app}\scripts";
 Name: "{group}\Run the wxPython DEMO"; Filename: "{app}\demo\demo.pyw";           WorkingDir: "{app}\demo";   IconFilename: "{app}\demo\wxpdemo.ico";
 Name: "{group}\PyCrust";               Filename: "{app}\scripts\pycrust.pyw";     WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
 Name: "{group}\PyShell";               Filename: "{app}\scripts\pyshell.pyw";     WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
-Name: "{group}\PyAlaMode";             Filename: "{app}\scripts\pyalamode.pyw";   WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
-Name: "{group}\PyAlaCarte";            Filename: "{app}\scripts\pyalacarte.pyw";  WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
 Name: "{group}\Resource Editor";       Filename: "{app}\scripts\xrced.pyw";       WorkingDir: "c:\";          IconFilename: "{app}\scripts\xrced.ico";
+Name: "{group}\Editra";                Filename: "{app}\scripts\editra.pyw";      WorkingDir: "c:\";          IconFilename: "{app}\scripts\editra.ico";
+
+;;Name: "{group}\PyAlaMode";             Filename: "{app}\scripts\pyalamode.pyw";   WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
+;;Name: "{group}\PyAlaCarte";            Filename: "{app}\scripts\pyalacarte.pyw";  WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
 
 Name: "{group}\Sample Apps";           Filename: "{app}\samples";
 
