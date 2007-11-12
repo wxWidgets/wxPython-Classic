@@ -795,7 +795,6 @@ else:
                opj('scripts/pycrust'),
                opj('scripts/pyshell'),
                opj('scripts/pywrap'),
-               opj('scripts/pywrap'),
                opj('scripts/pywxrc'),
                opj('scripts/xrced'),
                opj('scripts/editra'),
@@ -817,6 +816,7 @@ DATA_FILES += find_data_files('wx/tools/Editra/pixmaps',
 DATA_FILES += find_data_files('wx/tools/Editra/plugins', '*.egg')
 DATA_FILES += find_data_files('wx/tools/Editra/src', 'README')
 DATA_FILES += find_data_files('wx/tools/Editra/styles', '*.ess')
+DATA_FILES += find_data_files('wx/tools/Editra/tests', '*')
 DATA_FILES += find_data_files('wx/tools/Editra', '[A-Z]*', recursive=False)
 
 

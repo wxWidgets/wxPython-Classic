@@ -160,6 +160,7 @@ Source: "wx\tools\Editra\src\extern\README";                 DestDir: "{app}\%(P
 Source: "wx\tools\Editra\src\syntax\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
 Source: "wx\tools\Editra\src\syntax\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
 Source: "wx\tools\Editra\styles\*.ess";                      DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\styles"; Components: core
+Source: "wx\tools\Editra\tests\*.*";                         DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\tests"; Components: core
 Source: "wx\tools\Editra\*";                                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 Source: "wx\tools\Editra\*.py";                              DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 
@@ -571,7 +572,7 @@ Source: "wx\tools\Editra\pixmaps\editra.ico";   DestDir: "{app}\scripts";
 Name: "{group}\Run the wxPython DEMO"; Filename: "{app}\demo\demo.pyw";           WorkingDir: "{app}\demo";   IconFilename: "{app}\demo\wxpdemo.ico";
 Name: "{group}\PyCrust";               Filename: "{app}\scripts\pycrust.pyw";     WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
 Name: "{group}\PyShell";               Filename: "{app}\scripts\pyshell.pyw";     WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
-Name: "{group}\Resource Editor";       Filename: "{app}\scripts\xrced.pyw";       WorkingDir: "c:\";          IconFilename: "{app}\scripts\xrced.ico";
+Name: "{group}\XRC Resource Editor";   Filename: "{app}\scripts\xrced.pyw";       WorkingDir: "c:\";          IconFilename: "{app}\scripts\xrced.ico";
 Name: "{group}\Editra";                Filename: "{app}\scripts\editra.pyw";      WorkingDir: "c:\";          IconFilename: "{app}\scripts\editra.ico";
 
 ;;Name: "{group}\PyAlaMode";             Filename: "{app}\scripts\pyalamode.pyw";   WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
