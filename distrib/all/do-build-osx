@@ -419,6 +419,7 @@ installed wxPython runtime to be able to use any of them.
    PyCrust              An application that provides an interactive
                         Python shell and also namespace inspectors.
 
+   Editra               A simple yet powerful programmer's editor.
 
 
    Docs/wxDocsViewer    An application that allows you to view the
@@ -523,22 +524,22 @@ EOF
         --iconfile=$PROGDIR/PieShell.icns \
         build
 
-## TODO: PyAlaMode needs tweaked to be able to run from a bundle.  It
-## needs to know to ignore command line parameters and etc...
-#      # and PyAlaMode
-#      $PYTHONW $PROGDIR/buildapp.py \
-#       --builddir=$DMGAPPS \
-#       --name=PyAlaMode \
-#       --mainprogram=$INSTALLROOT$BINPREFIX/pyalamode.py \
-#       --iconfile=$PROGDIR/PieShell.icns \
-#       build
 
     # Make an app to launch XRCed
     $PYTHONW $PROGDIR/buildapp.py \
         --builddir=$DMGAPPS \
         --name=XRCed \
         --mainprogram=$INSTALLROOT$BINPREFIX/xrced.py \
-        --iconfile=$PROGDIR/XRCed.icns \
+        --iconfile=$WXDIR/wxPython/wx/tools/XRCed/XRCed.icns \
+        build
+
+
+    # Make an app to launch Editra
+    $PYTHONW $PROGDIR/buildapp.py \
+        --builddir=$DMGAPPS \
+        --name=Editra \
+        --mainprogram=$INSTALLROOT$BINPREFIX/editra.py \
+        --iconfile=$WXDIR/wxPython/wx/tools/Editra/pixmaps/editra.icns \
         build
 
 
