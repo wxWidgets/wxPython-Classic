@@ -531,6 +531,7 @@ EOF
         --name=XRCed \
         --mainprogram=$INSTALLROOT$BINPREFIX/xrced.py \
         --iconfile=$WXDIR/wxPython/wx/tools/XRCed/XRCed.icns \
+	--argv \
         build
 
 
@@ -539,8 +540,11 @@ EOF
         --builddir=$DMGAPPS \
         --name=Editra \
         --mainprogram=$INSTALLROOT$BINPREFIX/editra.py \
-        --iconfile=$WXDIR/wxPython/wx/tools/Editra/pixmaps/editra.icns \
+        --iconfile=$WXDIR/wxPython/wx/tools/Editra/pixmaps/Editra.icns \
+	--resource=$WXDIR/wxPython/wx/tools/Editra/pixmaps/editra_doc.icns \
+	--argv \
         build
+    $PYTHONW $PROGDIR/updateEditraPlist.py $DMGAPPS/Editra.app/Contents/Info.plist
 
 
     # and then finally make a disk image containing everything
