@@ -90,6 +90,7 @@ class GenButton(wx.PyControl):
         self.Bind(wx.EVT_KEY_DOWN,         self.OnKeyDown)
         self.Bind(wx.EVT_KEY_UP,           self.OnKeyUp)
         self.Bind(wx.EVT_PAINT,            self.OnPaint)
+        self.Bind(wx.EVT_SIZE,             self.OnSize)
         self.InitOtherEvents()
 
     def InitOtherEvents(self):
@@ -283,6 +284,12 @@ class GenButton(wx.PyControl):
         self.DrawLabel(dc, width, height)
         if self.hasFocus and self.useFocusInd:
             self.DrawFocusIndicator(dc, width, height)
+
+
+    def OnSize(self, event):
+
+        self.Refresh()
+        event.Skip()
 
 
     def GetBackgroundBrush(self, dc):
