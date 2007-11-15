@@ -34,10 +34,14 @@ Added the wx.Image.AdjustChannels method.  This function muliplies all
 certain amount of transparency to a image.
 
 Added Editra to the distribution, to give us a simple yet powerful
-code editor to replace the never finished PyAlaMode editor and related
-tools.  Many thanks to Cody Precord for the work he has done on this
-tool and for allowing us to make it part of wxPython.  For more
-information see the Editra website at http://editra.org/
+programmer's code editor to replace the never finished PyAlaMode
+editor and related tools.  Many thanks to Cody Precord for the work he
+has done on this tool and for allowing us to make it part of wxPython.
+Editra has syntax highlighting and other support for over 40
+programming languages, excellent OS X integration, is extendable via
+plugins, and for those that are on the VI side of the fence there is a
+VI emulation mode.  For more information see the Editra website at
+http://editra.org/
 
 wxGTK: wx.Frame.ShowFullScreen now preserves the menubar's
 accelerators.
