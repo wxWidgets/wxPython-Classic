@@ -83,6 +83,7 @@ _treeList = [
         'SizedControls',
         'AUI_MDI',
         'TreeMixin',
+        'AdjustChannels',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -267,6 +268,7 @@ _treeList = [
 
     # Images
     ('Using Images', [
+        'AdjustChannels',
         'AlphaDrawing',
         'AnimateCtrl',
         'ArtProvider',
