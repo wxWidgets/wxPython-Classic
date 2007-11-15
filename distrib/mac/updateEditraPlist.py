@@ -11,26 +11,27 @@ bundles, but until then this is easy enough to workaround...
 import sys, os
 import plistlib
 
-import wx.tools.Editra.src.ed_glob as ed_glob
-import wx.tools.Editra.src.syntax.syntax as syntax
+# $WXDIR/wxPython/wx/tools shoudl be on the PTYHONPATH...
+import Editra.src.info as info
+import Editra.src.syntax.synextreg as synextreg
 
 # NOTE: This is copied and adapted from Editra/setup.py, take care
 # that they are kept in sync...
 YEAR = 2007
-PLIST = dict(CFBundleName = ed_glob.PROG_NAME,
+PLIST = dict(CFBundleName = info.PROG_NAME,
              CFBundleIconFile = 'Editra.icns',
-             CFBundleShortVersionString = ed_glob.VERSION,
-             CFBundleGetInfoString = ed_glob.PROG_NAME + " " + ed_glob.VERSION,
-             CFBundleExecutable = ed_glob.PROG_NAME,
-             CFBundleIdentifier = "org.editra.%s" % ed_glob.PROG_NAME.title(),
-             CFBundleDocumentTypes = [dict(CFBundleTypeExtensions=syntax.GetFileExtensions(),
+             CFBundleShortVersionString = info.VERSION,
+             CFBundleGetInfoString = info.PROG_NAME + " " + info.VERSION,
+             CFBundleExecutable = info.PROG_NAME,
+             CFBundleIdentifier = "org.editra.%s" % info.PROG_NAME.title(),
+             CFBundleDocumentTypes = [dict(CFBundleTypeExtensions=synextreg.GetFileExtensions(),
                                            CFBundleTypeIconFile='editra_doc.icns',
                                            CFBundleTypeRole="Editor"
                                           ),
                                      ],
        #      NSAppleScriptEnabled="YES",
-             NSHumanReadableCopyright = u"Copyright %s 2005-%d" % (ed_glob.AUTHOR, YEAR),
-             CFBundleDisplayName = ed_glob.PROG_NAME,             
+             NSHumanReadableCopyright = u"Copyright %s 2005-%d" % (info.AUTHOR, YEAR),
+             CFBundleDisplayName = info.PROG_NAME,             
              )
 
 

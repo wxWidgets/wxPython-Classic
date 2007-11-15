@@ -544,7 +544,8 @@ EOF
 	--resource=$WXDIR/wxPython/wx/tools/Editra/pixmaps/editra_doc.icns \
 	--argv \
         build
-    $PYTHONW $PROGDIR/updateEditraPlist.py $DMGAPPS/Editra.app/Contents/Info.plist
+    PYTHONPATH=$WXDIR/wxPython/wx/tools \
+        $PYTHONW $PROGDIR/updateEditraPlist.py $DMGAPPS/Editra.app/Contents/Info.plist
 
 
     # and then finally make a disk image containing everything
