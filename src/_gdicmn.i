@@ -622,7 +622,7 @@ that means:
 
     
     DocDeclStr(
-        wxRect&, Deflate(wxCoord dx, wxCoord dy),
+        wxRect, Deflate(wxCoord dx, wxCoord dy),
         "Decrease the rectangle size. This method is the opposite of `Inflate`
 in that Deflate(a,b) is equivalent to Inflate(-a,-b).  Please refer to
 `Inflate` for a full description.", "");
