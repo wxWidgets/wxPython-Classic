@@ -165,14 +165,35 @@ class RichTextFrame(wx.Frame):
         self.rtc.WriteText("A design that can easily be extended to other content types, ultimately with text boxes, tables, controls, and so on")
         self.rtc.EndSymbolBullet()
 
+        self.rtc.BeginSymbolBullet('*', 100, 60)
         self.rtc.Newline()
 
+        # Make a style suitable for showing a URL
+        urlStyle = rt.TextAttrEx()
+        urlStyle.SetTextColour(wx.BLUE)
+        urlStyle.SetFontUnderlined(True)
+
+        self.rtc.WriteText("RichTextCtrl can also display URLs, such as this one: ")
+        self.rtc.BeginStyle(urlStyle)
+        self.rtc.BeginURL("http://wxPython.org/")
+        self.rtc.WriteText("The wxPython Web Site")
+        self.rtc.EndURL();
+        self.rtc.EndStyle();
+        self.rtc.WriteText(". Click on the URL to generate an event.")
+
+        self.rtc.Bind(wx.EVT_TEXT_URL, self.OnURL)
+        
+        self.rtc.Newline()
         self.rtc.WriteText("Note: this sample content was generated programmatically from within the MyFrame constructor in the demo. The images were loaded from inline XPMs. Enjoy wxRichTextCtrl!")
 
         self.rtc.EndParagraphSpacing()
 
         self.rtc.EndSuppressUndo()
         self.rtc.Thaw()
+        
+
+    def OnURL(self, evt):
+        wx.MessageBox(evt.GetString(), "URL Clicked")
         
 
     def OnFileOpen(self, evt):
