@@ -3,6 +3,10 @@ import  wx
 import  wx.grid             as  gridlib
 #import  wx.lib.mixins.grid  as  mixins
 
+#print wx.version()
+#import os; print "pid:", os.getpid(); raw_input("Press Enter...")
+
+
 #---------------------------------------------------------------------------
 
 class SimpleGrid(gridlib.Grid): ##, mixins.GridAutoEditMixin):
