@@ -422,6 +422,34 @@ public:
     void SetTextEffectFlags(int effects);
     void SetOutlineLevel(int level);
 
+    %extend {
+        void SetFontSize(int pointSize) {
+            wxFont f = self->GetFont();
+            f.SetPointSize(pointSize);
+            self->SetFont(f);
+        }
+        void SetFontStyle(int fontStyle) {
+            wxFont f = self->GetFont();
+            f.SetStyle(fontStyle);
+            self->SetFont(f);
+        }   
+        void SetFontWeight(int fontWeight) {
+            wxFont f = self->GetFont();
+            f.SetWeight(fontWeight);
+            self->SetFont(f);
+        }
+        void SetFontFaceName(const wxString& faceName) {
+            wxFont f = self->GetFont();
+            f.SetFaceName(faceName);
+            self->SetFont(f);
+        }
+        void SetFontUnderlined(bool underlined) {
+            wxFont f = self->GetFont();
+            f.SetUnderlined(underlined);
+            self->SetFont(f);
+        }
+    }
+    
     const wxString& GetCharacterStyleName() const;
     const wxString& GetParagraphStyleName() const;
     const wxString& GetListStyleName() const;
