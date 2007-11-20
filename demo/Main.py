@@ -847,6 +847,8 @@ def SearchDemo(name, keyword):
     fid = open(GetOriginalFilename(name), "rt")
     fullText = fid.read()
     fid.close()
+    if type(keyword) is unicode:
+        fullText = fullText.decode('iso8859-1')
     if fullText.find(keyword) >= 0:
         return True
 
@@ -1273,8 +1275,7 @@ class wxPythonDemo(wx.Frame):
         self.filter = wx.SearchCtrl(leftPanel, style=wx.TE_PROCESS_ENTER)
         self.filter.ShowCancelButton(True)
         self.filter.Bind(wx.EVT_TEXT, self.RecreateTree)
-        self.filter.Bind(wx.EVT_SEARCHCTRL_CANCEL_BTN,
-                         lambda e: self.filter.SetValue(''))
+        self.filter.Bind(wx.EVT_SEARCHCTRL_CANCEL_BTN, self.OnSearchCancelBtn)
         self.filter.Bind(wx.EVT_TEXT_ENTER, self.OnSearch)
 
         searchMenu = wx.Menu()
@@ -1636,6 +1637,11 @@ class wxPythonDemo(wx.Frame):
         wx.EndBusyCursor()
         self.RecreateTree()            
 
+
+    def OnSearchCancelBtn(self, event):
+        self.filter.SetValue('')
+        self.OnSearch()
+        
 
     def SetTreeModified(self, modified):
         item = self.tree.GetSelection()
