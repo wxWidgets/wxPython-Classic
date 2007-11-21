@@ -2885,6 +2885,31 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
   }
 }
 
+SWIGINTERN void wxTextAttrEx_SetFontSize(wxTextAttrEx *self,int pointSize){
+            wxFont f = self->GetFont();
+            f.SetPointSize(pointSize);
+            self->SetFont(f);
+        }
+SWIGINTERN void wxTextAttrEx_SetFontStyle(wxTextAttrEx *self,int fontStyle){
+            wxFont f = self->GetFont();
+            f.SetStyle(fontStyle);
+            self->SetFont(f);
+        }
+SWIGINTERN void wxTextAttrEx_SetFontWeight(wxTextAttrEx *self,int fontWeight){
+            wxFont f = self->GetFont();
+            f.SetWeight(fontWeight);
+            self->SetFont(f);
+        }
+SWIGINTERN void wxTextAttrEx_SetFontFaceName(wxTextAttrEx *self,wxString const &faceName){
+            wxFont f = self->GetFont();
+            f.SetFaceName(faceName);
+            self->SetFont(f);
+        }
+SWIGINTERN void wxTextAttrEx_SetFontUnderlined(wxTextAttrEx *self,bool underlined){
+            wxFont f = self->GetFont();
+            f.SetUnderlined(underlined);
+            self->SetFont(f);
+        }
 SWIGINTERN wxString wxRichTextObject_Dump(wxRichTextObject *self){
             wxStringOutputStream strstream;
             wxTextOutputStream txtstream(strstream);
@@ -5391,6 +5416,203 @@ SWIGINTERN PyObject *_wrap_TextAttrEx_SetOutlineLevel(PyObject *SWIGUNUSEDPARM(s
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetOutlineLevel(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrEx_SetFontSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pointSize", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetFontSize",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetFontSize" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetFontSize" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxTextAttrEx_SetFontSize(arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrEx_SetFontStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "fontStyle", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetFontStyle",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetFontStyle" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetFontStyle" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxTextAttrEx_SetFontStyle(arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrEx_SetFontWeight(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "fontWeight", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetFontWeight",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetFontWeight" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetFontWeight" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxTextAttrEx_SetFontWeight(arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrEx_SetFontFaceName(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
+  wxString *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "faceName", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetFontFaceName",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetFontFaceName" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxTextAttrEx_SetFontFaceName(arg1,(wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrEx_SetFontUnderlined(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "underlined", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetFontUnderlined",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetFontUnderlined" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetFontUnderlined" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxTextAttrEx_SetFontUnderlined(arg1,arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26654,6 +26876,11 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextAttrEx_SetTextEffects", (PyCFunction) _wrap_TextAttrEx_SetTextEffects, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrEx_SetTextEffectFlags", (PyCFunction) _wrap_TextAttrEx_SetTextEffectFlags, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrEx_SetOutlineLevel", (PyCFunction) _wrap_TextAttrEx_SetOutlineLevel, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextAttrEx_SetFontSize", (PyCFunction) _wrap_TextAttrEx_SetFontSize, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextAttrEx_SetFontStyle", (PyCFunction) _wrap_TextAttrEx_SetFontStyle, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextAttrEx_SetFontWeight", (PyCFunction) _wrap_TextAttrEx_SetFontWeight, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextAttrEx_SetFontFaceName", (PyCFunction) _wrap_TextAttrEx_SetFontFaceName, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextAttrEx_SetFontUnderlined", (PyCFunction) _wrap_TextAttrEx_SetFontUnderlined, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrEx_GetCharacterStyleName", (PyCFunction)_wrap_TextAttrEx_GetCharacterStyleName, METH_O, NULL},
 	 { (char *)"TextAttrEx_GetParagraphStyleName", (PyCFunction)_wrap_TextAttrEx_GetParagraphStyleName, METH_O, NULL},
 	 { (char *)"TextAttrEx_GetListStyleName", (PyCFunction)_wrap_TextAttrEx_GetListStyleName, METH_O, NULL},

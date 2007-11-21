@@ -496,6 +496,26 @@ class TextAttrEx(object):
         """SetOutlineLevel(self, int level)"""
         return _richtext.TextAttrEx_SetOutlineLevel(*args, **kwargs)
 
+    def SetFontSize(*args, **kwargs):
+        """SetFontSize(self, int pointSize)"""
+        return _richtext.TextAttrEx_SetFontSize(*args, **kwargs)
+
+    def SetFontStyle(*args, **kwargs):
+        """SetFontStyle(self, int fontStyle)"""
+        return _richtext.TextAttrEx_SetFontStyle(*args, **kwargs)
+
+    def SetFontWeight(*args, **kwargs):
+        """SetFontWeight(self, int fontWeight)"""
+        return _richtext.TextAttrEx_SetFontWeight(*args, **kwargs)
+
+    def SetFontFaceName(*args, **kwargs):
+        """SetFontFaceName(self, String faceName)"""
+        return _richtext.TextAttrEx_SetFontFaceName(*args, **kwargs)
+
+    def SetFontUnderlined(*args, **kwargs):
+        """SetFontUnderlined(self, bool underlined)"""
+        return _richtext.TextAttrEx_SetFontUnderlined(*args, **kwargs)
+
     def GetCharacterStyleName(*args, **kwargs):
         """GetCharacterStyleName(self) -> String"""
         return _richtext.TextAttrEx_GetCharacterStyleName(*args, **kwargs)
