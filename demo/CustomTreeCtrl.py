@@ -1448,7 +1448,7 @@ class CustomTreeCtrl(CT.CustomTreeCtrl):
             event.Skip()
             return
 
-        if not self.IsEnabled(item):
+        if not self.IsItemEnabled(item):
             event.Skip()
             return
 
@@ -1469,7 +1469,7 @@ class CustomTreeCtrl(CT.CustomTreeCtrl):
         haswin = self.GetItemWindow(item)
 
         # Enabling/Disabling Items
-        enabled = self.IsEnabled(item)
+        enabled = self.IsItemEnabled(item)
 
         # Generic Item's Info
         children = self.GetChildrenCount(item)
