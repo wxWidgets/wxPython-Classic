@@ -585,7 +585,7 @@ class FlatNotebookDemo(wx.Frame):
         if dlg.ShowModal() == wx.ID_OK:
         
             val = dlg.GetValue()
-            self.book.Enable(int(val))	
+            self.book.EnableTab(int(val))	
 
 
     def OnDisableTab(self, event):
@@ -595,7 +595,7 @@ class FlatNotebookDemo(wx.Frame):
         if dlg.ShowModal() == wx.ID_OK:
         
             val = dlg.GetValue()
-            self.book.Enable(int(val), False)	
+            self.book.EnableTab(int(val), False)	
 
 
     def OnEnableDrag(self, event):
