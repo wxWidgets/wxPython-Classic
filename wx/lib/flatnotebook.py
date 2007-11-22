@@ -11,7 +11,7 @@
 # Python Code By:
 #
 # Andrea Gavana, @ 02 Oct 2006
-# Latest Revision: 20 Aug 2007, 21.00 GMT
+# Latest Revision: 22 Nov 2007, 14.00 GMT
 #
 #
 # For All Kind Of Problems, Requests Of Enhancements And Bug Reports, Please
@@ -58,9 +58,9 @@ License And Version:
 
 FlatNotebook Is Freeware And Distributed Under The wxPython License. 
 
-Latest Revision: Andrea Gavana @ 20 Aug 2007, 21.00 GMT
+Latest Revision: Andrea Gavana @ 22 Nov 2007, 14.00 GMT
 
-Version 2.3.
+Version 2.4.
 
 @undocumented: FNB_HEIGHT_SPACER, VERTICAL_BORDER_PADDING, VC8_SHAPE_LEN,
     wxEVT*, left_arrow_*, right_arrow*, x_button*, down_arrow*,
@@ -1275,16 +1275,11 @@ class FNBRenderer:
     """
     Parent class for the 4 renderers defined: I{Standard}, I{VC71}, I{Fancy}
     and I{VC8}. This class implements the common methods of all 4 renderers.
-    @undocumented: _GetBitmap*
     """
 
     def __init__(self):
         """Default class constructor. """
         
-        self._tabXBgBmp = wx.EmptyBitmap(16, 16)
-        self._xBgBmp = wx.EmptyBitmap(16, 14)
-        self._leftBgBmp = wx.EmptyBitmap(16, 14)
-        self._rightBgBmp = wx.EmptyBitmap(16, 14)
         self._tabHeight = None
 
         if wx.Platform == "__WXMAC__":
@@ -1312,7 +1307,6 @@ class FNBRenderer:
             return clientWidth - 38
         else:
             return clientWidth - 54
-
 
 
     def GetRightButtonPos(self, pageContainer):
@@ -1379,6 +1373,12 @@ class FNBRenderer:
         return 53
 
 
+    def DrawArrowAccordingToState(self, dc, pc, rect):
+
+        lightFactor = (pc.HasFlag(FNB_BACKGROUND_GRADIENT) and [70] or [0])[0]
+        PaintStraightGradientBox(dc, rect, pc._tabAreaColor, LightColour(pc._tabAreaColor, lightFactor))
+
+    
     def DrawLeftArrow(self, pageContainer, dc):
         """ Draw the left navigation arrow. """
 
@@ -1408,8 +1408,8 @@ class FNBRenderer:
 
         # Erase old bitmap
         posx = self.GetLeftButtonPos(pc)
-        dc.DrawBitmap(self._leftBgBmp, posx, 6)
-
+        self.DrawArrowAccordingToState(dc, pc, wx.Rect(posx, 6, 16, 14))
+        
         # Draw the new bitmap
         dc.DrawBitmap(arrowBmp, posx, 6, True)
 
@@ -1444,7 +1444,7 @@ class FNBRenderer:
 
         # erase old bitmap
         posx = self.GetRightButtonPos(pc)
-        dc.DrawBitmap(self._rightBgBmp, posx, 6)
+        self.DrawArrowAccordingToState(dc, pc, wx.Rect(posx, 6, 16, 14))
 
         # Draw the new bitmap
         dc.DrawBitmap(arrowBmp, posx, 6, True)
@@ -1475,7 +1475,7 @@ class FNBRenderer:
 
         # erase old bitmap
         posx = self.GetDropArrowButtonPos(pc)
-        dc.DrawBitmap(self._rightBgBmp, posx, 6)
+        self.DrawArrowAccordingToState(dc, pc, wx.Rect(posx, 6, 16, 14))
 
         # Draw the new bitmap
         dc.DrawBitmap(downBmp, posx, 6, True)
@@ -1507,7 +1507,7 @@ class FNBRenderer:
         
         # erase old bitmap
         posx = self.GetXPos(pc) 
-        dc.DrawBitmap(self._xBgBmp, posx, 6)
+        self.DrawArrowAccordingToState(dc, pc, wx.Rect(posx, 6, 16, 14))
 
         # Draw the new bitmap
         dc.DrawBitmap(xbmp, posx, 6, True)
@@ -1536,24 +1536,12 @@ class FNBRenderer:
         # Set the masking
         xBmp.SetMask(wx.Mask(xBmp, MASK_COLOR))
 
-        # erase old button
-        dc.DrawBitmap(self._tabXBgBmp, rect.x, rect.y)
-
         # Draw the new bitmap
         dc.DrawBitmap(xBmp, rect.x, rect.y, True)
 
         # Update the vector
         rr = wx.Rect(rect.x, rect.y, 14, 13)
         pc._pagesInfoVec[tabIdx].SetXRect(rr)
-
-
-    def _GetBitmap(self, dc, rect, bmp):
-
-        mem_dc = wx.MemoryDC()
-        mem_dc.SelectObject(bmp)
-        mem_dc.Blit(0, 0, rect.width, rect.height, dc, rect.x, rect.y)
-        mem_dc.SelectObject(wx.NullBitmap)
-        return bmp
 
 
     def DrawTabsLine(self, pageContainer, dc, selTabX1=-1, selTabX2=-1):
@@ -1764,33 +1752,6 @@ class FNBRenderer:
             dc.SetBrush(wx.TRANSPARENT_BRUSH)
 
         dc.DrawRectangle(0, 0, size.x, size.y)
-
-        # Take 3 bitmaps for the background for the buttons
-        
-        mem_dc = wx.MemoryDC()
-        #---------------------------------------
-        # X button
-        #---------------------------------------
-        rect = wx.Rect(self.GetXPos(pc), 6, 16, 14)
-        mem_dc.SelectObject(self._xBgBmp)
-        mem_dc.Blit(0, 0, rect.width, rect.height, dc, rect.x, rect.y)
-        mem_dc.SelectObject(wx.NullBitmap)
-
-        #---------------------------------------
-        # Right button
-        #---------------------------------------
-        rect = wx.Rect(self.GetRightButtonPos(pc), 6, 16, 14)
-        mem_dc.SelectObject(self._rightBgBmp)
-        mem_dc.Blit(0, 0, rect.width, rect.height, dc, rect.x, rect.y)
-        mem_dc.SelectObject(wx.NullBitmap)
-
-        #---------------------------------------
-        # Left button
-        #---------------------------------------
-        rect = wx.Rect(self.GetLeftButtonPos(pc), 6, 16, 14)
-        mem_dc.SelectObject(self._leftBgBmp)
-        mem_dc.Blit(0, 0, rect.width, rect.height, dc, rect.x, rect.y)
-        mem_dc.SelectObject(wx.NullBitmap)
 
         # We always draw the bottom/upper line of the tabs
         # regradless the style
@@ -2133,7 +2094,6 @@ class FNBRendererDefault(FNBRenderer):
             # this bitmap will be used later to delete old buttons
             tabCloseButtonYCoord = imageYCoord
             x_rect = wx.Rect(tabCloseButtonXCoord, tabCloseButtonYCoord, 16, 16)
-            self._tabXBgBmp = self._GetBitmap(dc, x_rect, self._tabXBgBmp)
 
             # Draw the tab
             self.DrawTabX(pc, dc, x_rect, tabIdx, btnStatus)            
@@ -2233,7 +2193,6 @@ class FNBRendererFirefox2(FNBRenderer):
             # this bitmap will be used later to delete old buttons
             tabCloseButtonYCoord = imageYCoord
             x_rect = wx.Rect(tabCloseButtonXCoord, tabCloseButtonYCoord, 16, 16)
-            self._tabXBgBmp = self._GetBitmap(dc, x_rect, self._tabXBgBmp)
 
             # Draw the tab
             self.DrawTabX(pc, dc, x_rect, tabIdx, btnStatus)
@@ -2345,7 +2304,6 @@ class FNBRendererVC71(FNBRenderer):
             # this bitmap will be used later to delete old buttons
             tabCloseButtonYCoord = imageYCoord
             x_rect = wx.Rect(tabCloseButtonXCoord, tabCloseButtonYCoord, 16, 16)
-            self._tabXBgBmp = self._GetBitmap(dc, x_rect, self._tabXBgBmp)
 
             # Draw the tab
             self.DrawTabX(pc, dc, x_rect, tabIdx, btnStatus)                    
@@ -2449,7 +2407,6 @@ class FNBRendererFancy(FNBRenderer):
             # this bitmap will be used later to delete old buttons
             tabCloseButtonYCoord = imageYCoord
             x_rect = wx.Rect(tabCloseButtonXCoord, tabCloseButtonYCoord, 16, 16)
-            self._tabXBgBmp = self._GetBitmap(dc, x_rect, self._tabXBgBmp)
 
             # Draw the tab
             self.DrawTabX(pc, dc, x_rect, tabIdx, btnStatus)            
@@ -2521,33 +2478,6 @@ class FNBRendererVC8(FNBRenderer):
 
         dc.SetBrush(wx.TRANSPARENT_BRUSH)
         dc.DrawRectangle(0, 0, size.x, size.y)
-
-        # Take 3 bitmaps for the background for the buttons
-        
-        mem_dc = wx.MemoryDC()
-        #---------------------------------------
-        # X button
-        #---------------------------------------
-        rect = wx.Rect(self.GetXPos(pc), 6, 16, 14)
-        mem_dc.SelectObject(self._xBgBmp)
-        mem_dc.Blit(0, 0, rect.width, rect.height, dc, rect.x, rect.y)
-        mem_dc.SelectObject(wx.NullBitmap)
-
-        #---------------------------------------
-        # Right button
-        #---------------------------------------
-        rect = wx.Rect(self.GetRightButtonPos(pc), 6, 16, 14)
-        mem_dc.SelectObject(self._rightBgBmp)
-        mem_dc.Blit(0, 0, rect.width, rect.height, dc, rect.x, rect.y)
-        mem_dc.SelectObject(wx.NullBitmap)
-
-        #---------------------------------------
-        # Left button
-        #---------------------------------------
-        rect = wx.Rect(self.GetLeftButtonPos(pc), 6, 16, 14)
-        mem_dc.SelectObject(self._leftBgBmp)
-        mem_dc.Blit(0, 0, rect.width, rect.height, dc, rect.x, rect.y)
-        mem_dc.SelectObject(wx.NullBitmap)
     
         # We always draw the bottom/upper line of the tabs
         # regradless the style
@@ -2772,7 +2702,6 @@ class FNBRendererVC8(FNBRenderer):
             # this bitmap will be used later to delete old buttons
             tabCloseButtonYCoord = imageYCoord
             x_rect = wx.Rect(tabCloseButtonXCoord, tabCloseButtonYCoord, 16, 16)
-            self._tabXBgBmp = self._GetBitmap(dc, x_rect, self._tabXBgBmp)
             # Draw the tab
             self.DrawTabX(pc, dc, x_rect, tabIdx, btnStatus)
 
