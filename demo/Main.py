@@ -84,6 +84,7 @@ _treeList = [
         'AUI_MDI',
         'TreeMixin',
         'AdjustChannels',
+        'RendererNative',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -302,6 +303,7 @@ _treeList = [
         'OGL',
         'PrintFramework',
         'PseudoDC',
+        'RendererNative',
         'ShapedWindow',
         'Sound',
         'StandardPaths',
