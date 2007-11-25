@@ -63,7 +63,7 @@ class TestPanel(wx.Panel):
     def __init__(self, parent, log):
         self.log = log
         wx.Panel.__init__(self, parent, -1)
-        date = TestDateControl(self, -1, pos = (30,30), size = (100,22))
+        date = TestDateControl(self, -1, pos = (30,30), size = (120,22))
 
 #----------------------------------------------------------------------
 

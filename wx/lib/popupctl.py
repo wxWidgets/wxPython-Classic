@@ -9,6 +9,10 @@
 # RCS-ID:       $Id$
 # License:      wxWindows license
 #----------------------------------------------------------------------
+# 11/24/2007 - Cody Precord
+#
+# o Use RendererNative to draw button
+#
 # 12/09/2003 - Jeff Grimmett (grimmtooth@softhome.net)
 #
 # o 2.5 compatability update.
@@ -30,23 +34,10 @@ class PopButton(wx.PyControl):
         self.up = True
         self.didDown = False
 
-        self.InitColours()
-
         self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)
         self.Bind(wx.EVT_LEFT_UP, self.OnLeftUp)
         self.Bind(wx.EVT_MOTION, self.OnMotion)
         self.Bind(wx.EVT_PAINT, self.OnPaint)
-
-    def InitColours(self):
-        faceClr = wx.SystemSettings_GetColour(wx.SYS_COLOUR_BTNFACE)
-        self.faceDnClr = faceClr
-        self.SetBackgroundColour(faceClr)
-
-        shadowClr    = wx.SystemSettings_GetColour(wx.SYS_COLOUR_BTNSHADOW)
-        highlightClr = wx.SystemSettings_GetColour(wx.SYS_COLOUR_BTNHIGHLIGHT)
-        self.shadowPen    = wx.Pen(shadowClr, 1, wx.SOLID)
-        self.highlightPen = wx.Pen(highlightClr, 1, wx.SOLID)
-        self.blackPen     = wx.Pen(wx.BLACK, 1, wx.SOLID)
 
     def Notify(self):
         evt = GenButtonEvent(wx.wxEVT_COMMAND_BUTTON_CLICKED, self.GetId())
@@ -97,51 +88,13 @@ class PopButton(wx.PyControl):
                     return
         event.Skip()
 
-    def DrawBezel(self, dc, x1, y1, x2, y2):
-        # draw the upper left sides
-        if self.up:
-            dc.SetPen(self.highlightPen)
-        else:
-            dc.SetPen(self.shadowPen)
-        for i in range(2):
-            dc.DrawLine(x1+i, y1, x1+i, y2-i)
-            dc.DrawLine(x1, y1+i, x2-i, y1+i)
-
-        # draw the lower right sides
-        if self.up:
-            dc.SetPen(self.shadowPen)
-        else:
-            dc.SetPen(self.highlightPen)
-        for i in range(2):
-            dc.DrawLine(x1+i, y2-i, x2+1, y2-i)
-            dc.DrawLine(x2-i, y1+i, x2-i, y2)
-
-    def DrawArrow(self,dc):
-        w, h = self.GetSize()
-        mx = w / 2
-        my = h / 2
-        dc.SetPen(self.highlightPen)
-        dc.DrawLine(mx-5,my-5, mx+5,my-5)
-        dc.DrawLine(mx-5,my-5, mx,my+5)
-        dc.SetPen(self.shadowPen)
-        dc.DrawLine(mx+4,my-5, mx,my+5)
-        dc.SetPen(self.blackPen)
-        dc.DrawLine(mx+5,my-5, mx,my+5)
-
     def OnPaint(self, event):
-        width, height = self.GetClientSize()
-        x1 = y1 = 0
-        x2 = width - 1
-        y2 = height - 1
         dc = wx.BufferedPaintDC(self)
         if self.up:
-            dc.SetBackground(wx.Brush(self.GetBackgroundColour(), wx.SOLID))
+            flag = wx.CONTROL_CURRENT
         else:
-            dc.SetBackground(wx.Brush(self.faceDnClr, wx.SOLID))
-        dc.Clear()
-        self.DrawBezel(dc, x1, y1, x2, y2)
-        self.DrawArrow(dc)
-
+            flag = wx.CONTROL_PRESSED
+        wx.RendererNative.Get().DrawComboBoxDropButton(self, dc, self.GetClientRect(), flag)
 
 #---------------------------------------------------------------------------
 
@@ -198,8 +151,8 @@ class PopupControl(wx.PyControl):
             del _kwargs['value']
         apply(wx.PyControl.__init__,(self,) + _args,_kwargs)
 
-        self.textCtrl = wx.TextCtrl(self,-1,'',pos = (0,0))
-        self.bCtrl = PopButton(self,-1)
+        self.textCtrl = wx.TextCtrl(self, wx.ID_ANY, '', pos = (0,0))
+        self.bCtrl = PopButton(self, wx.ID_ANY)
         self.pop = None
         self.content = None
         self.OnSize(None)
@@ -215,8 +168,8 @@ class PopupControl(wx.PyControl):
 
     def OnSize(self,evt):
         w,h = self.GetClientSize()
-        self.textCtrl.SetDimensions(0,0,w-17,h)
-        self.bCtrl.SetDimensions(w-17,0,17,h)
+        self.textCtrl.SetDimensions(0,0,w-24,h)
+        self.bCtrl.SetDimensions(w-20, 0, 20, h)
 
     def OnButton(self,evt):
         if not self.pop:
