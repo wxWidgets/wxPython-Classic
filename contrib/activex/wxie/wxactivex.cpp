@@ -1801,12 +1801,15 @@ void wxActiveX::OnMouse(wxMouseEvent& event)
 
 bool wxActiveX::MSWTranslateMessage(WXMSG *msg){
 	
-	if (msg->message == WM_KEYDOWN){		
-		HRESULT result = m_oleInPlaceActiveObject->TranslateAccelerator(msg);
-		return (result == S_OK);
-	}
+    if (msg->message == WM_KEYDOWN) {
+        if ( m_oleInPlaceActiveObject.Ok() )
+        {
+            HRESULT result = m_oleInPlaceActiveObject->TranslateAccelerator(msg);
+            return (result == S_OK);
+        }
+    }
 	
-	return wxWindow::MSWTranslateMessage(msg);
+    return wxWindow::MSWTranslateMessage(msg);
 }
 
 long wxActiveX::MSWWindowProc(WXUINT nMsg, WXWPARAM wParam, WXLPARAM lParam)
