@@ -1,7 +1,7 @@
 Recent Changes for wxPython
 =====================================================================
 
-2.8.7.0
+2.8.7.1
 -------
 *
 
@@ -48,6 +48,11 @@ accelerators.
 
 wxGTK: wx.GetClientDisplayRect fixed.
 
+Applied patch [1838043], which adds a demo of the wx.RendererNative
+class functionality.
+
+Applied patch [1837449], which uses wx.RenderNative for drawing the
+combo button in the PopupControl.
 
 
 
