@@ -79,7 +79,10 @@ import random
 import math
 import weakref
 import cPickle
-    
+
+if wx.Platform == '__WXMAC__':
+    import Carbon.Appearance
+
 # Check for the new method in 2.7 (not present in 2.6.3.3)
 if wx.VERSION_STRING < "2.7":
     wx.Rect.Contains = lambda self, point: wx.Rect.Inside(self, point)
@@ -1283,12 +1286,12 @@ class FNBRenderer:
         self._tabHeight = None
 
         if wx.Platform == "__WXMAC__":
-            #color = wx.SystemSettings_GetColour(wx.SYS_COLOUR_3DSHADOW)
-            # This is the actual highlight color for some reason it does
-            # not exist in SystemSettings. The closest is 3DSHADOW but it
-            # still does not look right.
-            color = wx.Colour(171, 180, 193)
-            self._focusPen = wx.Pen(color, 2, wx.SOLID)
+            # Hack to get proper highlight color for focus rectangle from
+            # current theme by creating a theme brush and getting its color.
+            # kThemeBrushFocusHighlight is available on Mac OS 8.5 and higher
+            brush = wx.BLACK_BRUSH
+            brush.MacSetTheme(Carbon.Appearance.kThemeBrushFocusHighlight)
+            self._focusPen = wx.Pen(brush.GetColour(), 2, wx.SOLID)
         else:
             self._focusPen = wx.Pen(wx.BLACK, 1, wx.USER_DASH)
             self._focusPen.SetDashes([1, 1])
