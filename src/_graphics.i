@@ -658,6 +658,7 @@ public:
     static wxGraphicsContext* Create( const wxWindowDC& dc);
     static wxGraphicsContext* Create( wxWindow* window ) ;
 
+    %pythonAppend Create "";
     DocDeclStrName(
         static wxGraphicsContext* , Create(),
         "Create a lightwieght context that can be used for measuring text only.", "",

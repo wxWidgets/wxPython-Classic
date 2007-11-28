@@ -5415,9 +5415,7 @@ class GraphicsContext(GraphicsObject):
 
         Create a lightwieght context that can be used for measuring text only.
         """
-        val = _gdi_.GraphicsContext_CreateMeasuringContext(*args)
-        val.__dc = args[0] # save a ref so the dc will not be deleted before self
-        return val
+        return _gdi_.GraphicsContext_CreateMeasuringContext(*args)
 
     CreateMeasuringContext = staticmethod(CreateMeasuringContext)
     def CreateFromNative(*args, **kwargs):
@@ -5827,9 +5825,7 @@ def GraphicsContext_CreateMeasuringContext(*args):
 
     Create a lightwieght context that can be used for measuring text only.
     """
-  val = _gdi_.GraphicsContext_CreateMeasuringContext(*args)
-  val.__dc = args[0] # save a ref so the dc will not be deleted before self
-  return val
+  return _gdi_.GraphicsContext_CreateMeasuringContext(*args)
 
 def GraphicsContext_CreateFromNative(*args, **kwargs):
   """
