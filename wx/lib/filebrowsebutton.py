@@ -180,11 +180,15 @@ class FileBrowseButton(wx.Panel):
         self.callCallback =  save
 
 
-    def Enable (self, value):
+    def Enable (self, value=True):
         """ Convenient enabling/disabling of entire control """
         self.label.Enable (value)
         self.textControl.Enable (value)
         return self.browseButton.Enable (value)
+
+    def Disable (self,):
+        """ Convenient disabling of entire control """
+        self.Enable(False)
 
     def GetLabel( self ):
         """ Retrieve the label's current text """
