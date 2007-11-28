@@ -54,6 +54,11 @@ class functionality.
 Applied patch [1837449], which uses wx.RenderNative for drawing the
 combo button in the PopupControl.
 
+Added GetDirItemData to wx.GenericDirCtrl, which returns a reference
+to the data object associated with an item in the control.  (Patch
+#1836326) 
+
+
 
 
 

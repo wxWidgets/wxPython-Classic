@@ -5590,6 +5590,23 @@ DIRCTRL_SELECT_FIRST = _controls_.DIRCTRL_SELECT_FIRST
 DIRCTRL_SHOW_FILTERS = _controls_.DIRCTRL_SHOW_FILTERS
 DIRCTRL_3D_INTERNAL = _controls_.DIRCTRL_3D_INTERNAL
 DIRCTRL_EDIT_LABELS = _controls_.DIRCTRL_EDIT_LABELS
+class DirItemData(_core.Object):
+    """Proxy of C++ DirItemData class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    def SetNewDirName(*args, **kwargs):
+        """SetNewDirName(self, String path)"""
+        return _controls_.DirItemData_SetNewDirName(*args, **kwargs)
+
+    m_path = property(_controls_.DirItemData_m_path_get, _controls_.DirItemData_m_path_set)
+    m_name = property(_controls_.DirItemData_m_name_get, _controls_.DirItemData_m_name_set)
+    m_isHidden = property(_controls_.DirItemData_m_isHidden_get, _controls_.DirItemData_m_isHidden_set)
+    m_isExpanded = property(_controls_.DirItemData_m_isExpanded_get, _controls_.DirItemData_m_isExpanded_set)
+    m_isDir = property(_controls_.DirItemData_m_isDir_get, _controls_.DirItemData_m_isDir_set)
+_controls_.DirItemData_swigregister(DirItemData)
+DirDialogDefaultFolderStr = cvar.DirDialogDefaultFolderStr
+
 class GenericDirCtrl(_core.Control):
     """Proxy of C++ GenericDirCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -5679,6 +5696,10 @@ class GenericDirCtrl(_core.Control):
         """GetFilterListCtrl(self) -> DirFilterListCtrl"""
         return _controls_.GenericDirCtrl_GetFilterListCtrl(*args, **kwargs)
 
+    def GetDirItemData(*args, **kwargs):
+        """GetDirItemData(self, TreeItemId id) -> DirItemData"""
+        return _controls_.GenericDirCtrl_GetDirItemData(*args, **kwargs)
+
     def FindChild(*args, **kwargs):
         """
         FindChild(wxTreeItemId parentId, wxString path) -> (item, done)
@@ -5708,7 +5729,6 @@ class GenericDirCtrl(_core.Control):
     RootId = property(GetRootId,doc="See `GetRootId`") 
     TreeCtrl = property(GetTreeCtrl,doc="See `GetTreeCtrl`") 
 _controls_.GenericDirCtrl_swigregister(GenericDirCtrl)
-DirDialogDefaultFolderStr = cvar.DirDialogDefaultFolderStr
 
 def PreGenericDirCtrl(*args, **kwargs):
     """PreGenericDirCtrl() -> GenericDirCtrl"""

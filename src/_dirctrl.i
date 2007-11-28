@@ -37,21 +37,21 @@ enum
 
 
 
-#if 0
+
 class wxDirItemData : public wxObject // wxTreeItemData
 {
 public:
-  wxDirItemData(const wxString& path, const wxString& name, bool isDir);
-//  ~wxDirItemDataEx();
-  void SetNewDirName( wxString path );
-  wxString m_path, m_name;
-  bool m_isHidden;
-  bool m_isExpanded;
-  bool m_isDir;
+    // We only allow this to be returned from GetDirItemData, not created from
+    // Python, so no need to wrap the ctor/dtor    
+    //wxDirItemData(const wxString& path, const wxString& name, bool isDir);
+    //~wxDirItemDataEx();
+    
+    void SetNewDirName( wxString path );
+    wxString m_path, m_name;
+    bool m_isHidden;
+    bool m_isExpanded;
+    bool m_isDir;
 };
-#endif
-
-
 
 
 MustHaveApp(wxGenericDirCtrl);
@@ -114,6 +114,12 @@ public:
     virtual wxPyTreeCtrl* GetTreeCtrl() const;
     virtual wxDirFilterListCtrl* GetFilterListCtrl() const;
 
+    %extend {
+        wxDirItemData *GetDirItemData(const wxTreeItemId& id) const
+        {
+            return (wxDirItemData*)self->GetTreeCtrl()->GetItemData(id);
+        }
+    }
     
     // Parse the filter into an array of filters and an array of descriptions
 //     virtual int ParseFilter(const wxString& filterStr, wxArrayString& filters, wxArrayString& descriptions);
