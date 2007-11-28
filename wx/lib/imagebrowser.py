@@ -497,7 +497,7 @@ class ImageDialog(wx.Dialog):
 
         self.ResetFiles()
 
-    def ChangeFileTypes(self, ft_tuple)
+    def ChangeFileTypes(self, ft_tuple):
         # Change list of file types to be supported
         self.fl_ext_types = ft_tuple
         self.set_type, self.fl_ext = self.fl_ext_types[0]  # initial file filter setting
