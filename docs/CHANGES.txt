@@ -3,7 +3,7 @@ Recent Changes for wxPython
 
 2.8.7.1
 -------
-*
+* 29-Nov-2007
 
 Applied Patch [ 1783958 ] to use the native renderer for drawing the
 checkboxes in CheckListCtrlMixin.
