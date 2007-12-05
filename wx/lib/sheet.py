@@ -79,7 +79,7 @@ class CCellEditor(wx.grid.PyGridCellEditor):
             to do something out of the ordinary.
         """
         # Call base class method.
-        super(CCellEditor, self).PaintBackground(self, rect, attr)
+        super(CCellEditor, self).PaintBackground(rect, attr)
 
     def BeginEdit(self, row, col, grid):
         """ Fetch the value from the table and prepare edit control to begin editing.
