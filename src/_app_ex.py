@@ -68,8 +68,6 @@ class PyOnDemandOutputWindow:
 
 #----------------------------------------------------------------------
 
-_defRedirect = (wx.Platform == '__WXMSW__' or wx.Platform == '__WXMAC__')
-        
 class App(wx.PyApp):
     """
     The ``wx.App`` class represents the application and is used to:
@@ -96,8 +94,11 @@ class App(wx.PyApp):
     
     outputWindowClass = PyOnDemandOutputWindow
 
-    def __init__(self, redirect=_defRedirect, filename=None,
-                 useBestVisual=False, clearSigInt=True):
+    def __init__(self,
+                 redirect=False,
+                 filename=None,
+                 useBestVisual=False,
+                 clearSigInt=True):
         """
         Construct a ``wx.App`` object.  
 
