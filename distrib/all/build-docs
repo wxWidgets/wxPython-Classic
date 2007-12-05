@@ -8,7 +8,7 @@ if [ $skipdocs != yes ]; then
     echo "Regenerating the reST docs..."
     cd docs
     for x in *.txt; do
-	docutils-html $x `basename $x .txt`.html
+	rst2html $x `basename $x .txt`.html
     done
     cd -
     for doc in CHANGES BUILD INSTALL MigrationGuide default; do

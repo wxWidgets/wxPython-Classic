@@ -36,8 +36,6 @@ export WXWIN
 export WXDIR
 export TOOLS=/cygdrive/c/TOOLS
 
-. $WXDIR/wxPython/distrib/all/functions.inc
-
 # setup the compiler
 if [ $PYVER = 2.3 ]; then
     echo "Using MSVC ver 6"
@@ -63,6 +61,8 @@ cd $WXDIR
 names=`find wxPython -name "*.py" -o -name "*.txt" -o -name "*.htm*" -o -name "*.css" -o -name "*.xml" `
 unix2dos -D $names
 
+
+. $WXDIR/wxPython/distrib/all/functions.inc
 
 # change to the right spot in the source tree and copy our build scripts
 echo "Setting up for the build..."
