@@ -376,7 +376,7 @@ class RichTextFrame(wx.Frame):
         attr = rt.TextAttrEx()
         attr.SetFlags(rt.TEXT_ATTR_FONT)
         if self.rtc.GetStyle(self.rtc.GetInsertionPoint(), attr):
-            fontData.SetInitialFont(attr.CreateFont())
+            fontData.SetInitialFont(attr.GetFont())
 
         dlg = wx.FontDialog(self, fontData)
         if dlg.ShowModal() == wx.ID_OK:

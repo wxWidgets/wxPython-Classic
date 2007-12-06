@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // Name:        _richtextbuffer.i
-// Purpose:     wxRichTextAttr
+// Purpose:     wxTextAttrEx, wxRichTextRange, wxRichTextObject and derived classes
 //
 // Author:      Robin Dunn
 //
@@ -365,7 +365,8 @@ class wxTextAttrEx //: public wxTextAttr
 public:
     // ctors
     wxTextAttrEx();
-
+    ~wxTextAttrEx();
+    
     // Initialise this object
     void Init();
 
@@ -503,222 +504,6 @@ public:
 
 
 
-// //---------------------------------------------------------------------------
-// %newgroup
-
-
-// DocStr(wxRichTextAttr,
-// "The RichTextAttr class stores information about the various attributes
-// for a block of text, including font, colour, indents, alignments, and
-// etc.", "");
-
-// class wxRichTextAttr
-// {
-// public:
-
-//     wxRichTextAttr(const wxColour& colText = wxNullColour,
-//                    const wxColour& colBack = wxNullColour,
-//                    wxTextAttrAlignment alignment = wxTEXT_ALIGNMENT_DEFAULT);
-
-//     ~wxRichTextAttr();
-
-// //     // Making a wxTextAttrEx object.
-// //     operator wxTextAttrEx () const ;
-
-// //     // Copy to a wxTextAttr
-// //     void CopyTo(wxTextAttrEx& attr) const;
-
-
-//     DocDeclStr(
-//         void , Init(),
-//         "Initialise this object.", "");
-
-
-//     DocDeclStr(
-//         void , Copy(const wxRichTextAttr& attr),
-//         "Copy from attr to self.", "");
-
-
-//     // Equality test
-//     bool operator== (const wxRichTextAttr& attr) const;
-
-
-
-//     DocDeclStr(
-//         wxFont , CreateFont() const,
-//         "Create font from the font attributes in this attr object.", "");
-
-
-//     DocDeclStr(
-//         bool , GetFontAttributes(const wxFont& font),
-//         "Set our font attributes from the font.", "");
-
-
-//     %pythoncode {
-//         def GetFont(self):
-//             return self.CreateFont()
-//         def SetFont(self, font):
-//             return self.GetFontAttributes(font)
-//     }
-
-//     // setters
-//     void SetTextColour(const wxColour& colText);
-//     void SetBackgroundColour(const wxColour& colBack);
-//     void SetAlignment(wxTextAttrAlignment alignment);
-//     void SetTabs(const wxArrayInt& tabs);
-//     void SetLeftIndent(int indent, int subIndent = 0);
-//     void SetRightIndent(int indent);
-
-//     void SetFontSize(int pointSize);
-//     void SetFontStyle(int fontStyle);
-//     void SetFontWeight(int fontWeight);
-//     void SetFontFaceName(const wxString& faceName);
-//     void SetFontUnderlined(bool underlined);
-
-//     void SetFlags(long flags);
-
-//     void SetCharacterStyleName(const wxString& name);
-//     void SetParagraphStyleName(const wxString& name);
-//     void SetListStyleName(const wxString& name);
-//     void SetParagraphSpacingAfter(int spacing);
-//     void SetParagraphSpacingBefore(int spacing);
-//     void SetLineSpacing(int spacing);
-//     void SetBulletStyle(int style);
-//     void SetBulletNumber(int n);
-//     void SetBulletText(wxChar symbol);
-//     void SetBulletFont(const wxString& bulletFont);
-//     void SetBulletName(const wxString& name);
-//     void SetURL(const wxString& url);
-//     void SetPageBreak(bool pageBreak = true);
-//     void SetTextEffects(int effects);
-//     void SetTextEffectFlags(int effects);
-//     void SetOutlineLevel(int level);
-
-//     const wxColour& GetTextColour() const;
-//     const wxColour& GetBackgroundColour() const;
-//     wxTextAttrAlignment GetAlignment() const;
-//     const wxArrayInt& GetTabs() const;
-//     long GetLeftIndent() const;
-//     long GetLeftSubIndent() const;
-//     long GetRightIndent() const;
-//     long GetFlags() const;
-
-//     int GetFontSize() const;
-//     int GetFontStyle() const;
-//     int GetFontWeight() const;
-//     bool GetFontUnderlined() const;
-//     const wxString& GetFontFaceName() const;
-
-//     const wxString& GetCharacterStyleName() const;
-//     const wxString& GetParagraphStyleName() const;
-//     const wxString& GetListStyleName() const;
-//     int GetParagraphSpacingAfter() const;
-//     int GetParagraphSpacingBefore() const;
-//     int GetLineSpacing() const;
-//     int GetBulletStyle() const;
-//     int GetBulletNumber() const;
-//     const wxString& GetBulletText() const;
-//     const wxString& GetBulletFont() const;
-//     const wxString& GetBulletName() const;
-//     const wxString& GetURL() const;
-//     int GetTextEffects() const;
-//     int GetTextEffectFlags() const;
-//     int GetOutlineLevel() const;
-
-//     // accessors
-//     bool HasTextColour() const;
-//     bool HasBackgroundColour() const;
-//     bool HasAlignment() const;
-//     bool HasTabs() const;
-//     bool HasLeftIndent() const;
-//     bool HasRightIndent() const;
-//     bool HasFontWeight() const;
-//     bool HasFontSize() const;
-//     bool HasFontItalic() const;
-//     bool HasFontUnderlined() const;
-//     bool HasFontFaceName() const;
-//     bool HasFont() const;
-
-//     bool HasParagraphSpacingAfter() const;
-//     bool HasParagraphSpacingBefore() const;
-//     bool HasLineSpacing() const;
-//     bool HasCharacterStyleName() const;
-//     bool HasParagraphStyleName() const;
-//     bool HasListStyleName() const;
-//     bool HasBulletStyle() const;
-//     bool HasBulletNumber() const;
-//     bool HasBulletText() const;
-//     bool HasBulletName() const;
-//     bool HasURL() const;
-//     bool HasPageBreak() const;
-//     bool HasTextEffects() const;
-//     bool HasTextEffect(int effect) const;
-//     bool HasOutlineLevel() const;
-
-//     bool HasFlag(long flag) const;
-
-//     bool IsCharacterStyle() const;
-//     bool IsParagraphStyle() const;
-
-
-//     DocDeclStr(
-//         bool , IsDefault() const,
-//         "Returns false if we have any attributes set, true otherwise", "");
-
-
-//     DocDeclStr(
-//         bool , Apply(const wxRichTextAttr& style, const wxRichTextAttr* compareWith = NULL),
-//         "Merges the given attributes. Does not affect self. If compareWith is
-// not None, then it will be used to mask out those attributes that are
-// the same in style and compareWith, for situations where we don't want
-// to explicitly set inherited attributes.
-// ", "");
-
-
-//     DocDeclStr(
-//         wxRichTextAttr , Combine(const wxRichTextAttr& style, const wxRichTextAttr* compareWith = NULL) const,
-//         "Merges the given attributes and returns the result. Does not affect
-// self. If compareWith is not None, then it will be used to mask out
-// those attributes that are the same in style and compareWith, for
-// situations where we don't want to explicitly set inherited attributes.
-// ", "");
-
-
-
-//     %property(Alignment, GetAlignment, SetAlignment);
-//     %property(BackgroundColour, GetBackgroundColour, SetBackgroundColour);
-//     %property(BulletFont, GetBulletFont, SetBulletFont);
-//     %property(BulletNumber, GetBulletNumber, SetBulletNumber);
-//     %property(BulletStyle, GetBulletStyle, SetBulletStyle);
-//     %property(BulletText, GetBulletText, SetBulletText);
-//     %property(CharacterStyleName, GetCharacterStyleName, SetCharacterStyleName);
-//     %property(Flags, GetFlags, SetFlags);
-//     %property(Font, GetFont, SetFont);
-//     %property(FontAttributes, GetFontAttributes);
-//     %property(FontFaceName, GetFontFaceName, SetFontFaceName);
-//     %property(FontSize, GetFontSize, SetFontSize);
-//     %property(FontStyle, GetFontStyle, SetFontStyle);
-//     %property(FontUnderlined, GetFontUnderlined, SetFontUnderlined);
-//     %property(FontWeight, GetFontWeight, SetFontWeight);
-//     %property(LeftIndent, GetLeftIndent, SetLeftIndent);
-//     %property(LeftSubIndent, GetLeftSubIndent);
-//     %property(LineSpacing, GetLineSpacing, SetLineSpacing);
-//     %property(ParagraphSpacingAfter, GetParagraphSpacingAfter, SetParagraphSpacingAfter);
-//     %property(ParagraphSpacingBefore, GetParagraphSpacingBefore, SetParagraphSpacingBefore);
-//     %property(ParagraphStyleName, GetParagraphStyleName, SetParagraphStyleName);
-//     %property(RightIndent, GetRightIndent, SetRightIndent);
-//     %property(Tabs, GetTabs, SetTabs);
-//     %property(TextColour, GetTextColour, SetTextColour);
-
-//     %property(ListStyleName, GetListStyleName, SetListStyleName);
-//     %property(BulletName, GetBulletName, SetBulletName);
-//     %property(URL, GetURL, SetURL);
-//     %property(TextEffects, GetTextEffects, SetTextEffects);
-//     %property(TextEffectFlags, GetTextEffectFlags, SetTextEffectFlags);
-//     %property(OutlineLevel, GetOutlineLevel, SetOutlineLevel);
-// };
-
-
 %pythoncode {
     %# an alias for compatibility
     RichTextAttr = TextAttrEx
@@ -737,9 +522,7 @@ public:
 // 4. Decide how to typemap and tweak the virtuals that pass back
 //    values in their parameters (yuck! damn C++)
 // 5. better handling of streams
-// 6. list-like wrapper for C++ wxLists
-// 7. wrappers for wxTextAttrEx --> wxRichTextAttr (as needed)
-// 8. Add more properties
+// 6. Add more properties
 
 
 
@@ -1204,9 +987,18 @@ public:
                               int specifiedLevel = -1);
 
     /// Fills in the attributes for numbering a paragraph after previousParagraph.
-    // TODO: wxTextAttrEx ???
-    virtual bool FindNextParagraphNumber(wxRichTextParagraph* previousParagraph,
-                                         wxRichTextAttr& attr) const;
+    %extend {
+        virtual bool FindNextParagraphNumber(wxRichTextParagraph* previousParagraph,
+                                         wxTextAttrEx& attr) const
+        {
+            wxRichTextAttr rta;
+            bool rval;
+            rval = self->FindNextParagraphNumber(previousParagraph, rta);
+            attr = rta;
+            return rval;
+        }
+    }
+        
 
     /// Test if this whole range has character attributes of the specified kind. If any
     /// of the attributes are different within the range, the test fails. You
