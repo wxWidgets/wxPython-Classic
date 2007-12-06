@@ -1000,6 +1000,10 @@ object provides a Python sequence-like interface over the internal
 list maintained by the window..", "");
     wxWindowList& GetChildren(); 
 
+#if 0 // we'll add these later so wxPython 2.8.7.1 can still be built with wxWidgets 2.8.7.0
+    wxWindow *GetPrevSibling() const;
+    wxWindow *GetNextSibling() const;
+#endif
 
     DocDeclStr(
         wxWindow *, GetParent() const,
