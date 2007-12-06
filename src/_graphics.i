@@ -327,6 +327,7 @@ public:
 
     wxGraphicsContext* GetGraphicsContext() { return NULL; }
     void SetGraphicsContext( wxGraphicsContext* ) {}
+    void Flush() {}
 };
 
 #endif
@@ -1054,7 +1055,7 @@ public:
 
     // flushing the content of this dc immediately onto screen
     void Flush();
-    
+
     %property(GraphicsContext, GetGraphicsContext, SetGraphicsContext);
 };
 
