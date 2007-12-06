@@ -559,7 +559,8 @@ class BPArt:
         if buttonStatus == "Pressed" or isToggled:
             dx = dy = 1
             
-        dc.DrawBitmap(buttonBitmap, bmpxpos+dx, bmpypos+dy, True)
+        if buttonBitmap:
+            dc.DrawBitmap(buttonBitmap, bmpxpos+dx, bmpypos+dy, True)
 
         if text != "":
             isEnabled = buttonStatus != "Disabled"
