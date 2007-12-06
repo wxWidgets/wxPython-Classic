@@ -81,6 +81,9 @@ _selected = None
 class VersionError(Exception):
     pass
 
+class AlreadyImportedError(VersionError):
+    pass
+
 #----------------------------------------------------------------------
 
 def select(versions, optionsRequired=False):
@@ -138,7 +141,7 @@ def select(versions, optionsRequired=False):
     # If we get here then this is the first time wxversion is used, 
     # ensure that wxPython hasn't been imported yet.
     if sys.modules.has_key('wx') or sys.modules.has_key('wxPython'):
-        raise VersionError("wxversion.select() must be called before wxPython is imported")
+        raise AlreadyImportedError("wxversion.select() must be called before wxPython is imported")
     
     # Look for a matching version and manipulate the sys.path as
     # needed to allow it to be imported.
@@ -175,7 +178,7 @@ def ensureMinimal(minVersion, optionsRequired=False):
 
     # ensure that wxPython hasn't been imported yet.
     if sys.modules.has_key('wx') or sys.modules.has_key('wxPython'):
-        raise VersionError("wxversion.ensureMinimal() must be called before wxPython is imported")
+        raise AlreadyImportedError("wxversion.ensureMinimal() must be called before wxPython is imported")
 
     bestMatch = None
     minv = _wxPackageInfo(minVersion)
