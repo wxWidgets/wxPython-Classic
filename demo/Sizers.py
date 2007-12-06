@@ -262,7 +262,7 @@ def makeBorderInBox(win):
 #----------------------------------------------------------------------
 
 def makeGrid1(win):
-    gs = wx.GridSizer(3, 3, 2, 2)  # rows, cols, hgap, vgap
+    gs = wx.GridSizer(3, 3, 2, 2)  # rows, cols, vgap, hgap
 
     gs.AddMany([ (SampleWindow(win, 'one'),   0, wx.EXPAND),
                  (SampleWindow(win, 'two'),   0, wx.EXPAND),
@@ -281,7 +281,7 @@ def makeGrid1(win):
 #----------------------------------------------------------------------
 
 def makeGrid2(win):
-    gs = wx.GridSizer(3, 3)  # rows, cols, hgap, vgap
+    gs = wx.GridSizer(3, 3)  # rows, cols, vgap, hgap
 
     box = wx.BoxSizer(wx.VERTICAL)
     box.Add(SampleWindow(win, 'A'), 0, wx.EXPAND)
@@ -309,7 +309,7 @@ def makeGrid2(win):
 #----------------------------------------------------------------------
 
 def makeGrid3(win):
-    gs = wx.FlexGridSizer(3, 3, 2, 2)  # rows, cols, hgap, vgap
+    gs = wx.FlexGridSizer(3, 3, 2, 2)  # rows, cols, vgap, hgap
 
     gs.AddMany([ (SampleWindow(win, 'one'),   0, wx.EXPAND),
                  (SampleWindow(win, 'two'),   0, wx.EXPAND),
@@ -333,7 +333,7 @@ def makeGrid3(win):
 def makeGrid4(win):
     bpos = wx.DefaultPosition
     bsize = wx.Size(100, 50)
-    gs = wx.GridSizer(3, 3, 2, 2)  # rows, cols, hgap, vgap
+    gs = wx.GridSizer(3, 3, 2, 2)  # rows, cols, vgap, hgap
 
     gs.AddMany([ (SampleWindow(win, 'one', bpos, bsize),
                   0, wx.ALIGN_TOP | wx.ALIGN_LEFT ),
@@ -362,7 +362,7 @@ def makeGrid4(win):
 def makeShapes(win):
     bpos = wx.DefaultPosition
     bsize = wx.Size(100, 50)
-    gs = wx.GridSizer(3, 3, 2, 2)  # rows, cols, hgap, vgap
+    gs = wx.GridSizer(3, 3, 2, 2)  # rows, cols, vgap, hgap
 
     gs.AddMany([ (SampleWindow(win, 'one', bpos, bsize),
                   0, wx.SHAPED | wx.ALIGN_TOP | wx.ALIGN_LEFT ),
