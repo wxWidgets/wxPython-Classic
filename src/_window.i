@@ -1724,8 +1724,8 @@ mouse cursor will be used.", "");
     %extend {
         DocStr(GetHandle,
                "Returns the platform-specific handle (as a long integer) of the
-physical window.  Currently on wxMac it returns the handle of the
-toplevel parent of the window.", "");
+physical window.  On wxMSW this is the win32 window handle, on wxGTK
+it is the XWindow ID, and on wxMac it is the ControlRef.", "");
         long GetHandle() {
             return wxPyGetWinHandle(self);
         }
@@ -1744,7 +1744,20 @@ toplevel parent of the window.", "");
     DocDeclStr(
         virtual void , DissociateHandle(),
         "Dissociate the current native handle from the window", "");
+
     
+    %extend {
+        DocStr(GetGtkWidget,
+               "On wxGTK returns a pointer to the GtkWidget for this window as a long
+integer.  On the other platforms this method returns zero.","");
+        long GetGtkWidget() {
+#ifdef __WXGTK__
+            return (long)self->GetHandle();
+#else
+            return 0;
+#endif
+        }
+    }
 
     
 #ifdef __WXMSW__
@@ -2206,7 +2219,8 @@ opaque.", "");
     %property(Shown, IsShown, Show, doc="See `IsShown` and `Show`");
     %property(Enabled, IsEnabled, Enable, doc="See `IsEnabled` and `Enable`");
     %property(TopLevel, IsTopLevel, doc="See `IsTopLevel`");
-    
+
+    %property(GtkWidget, GetGtkWidget);
 };
 
 
