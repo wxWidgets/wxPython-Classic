@@ -838,7 +838,10 @@ if INSTALL_MULTIVERSION:
     CLEANUP.append("src/wx.pth")
 else:
     EXTRA_PATH = None
-       
+
+BUILD_OPTIONS = { 'build_base' : BUILD_BASE }
+if WXPORT == 'msw':
+    BUILD_OPTIONS[ 'compiler' ] = COMPILER
 
 
 #----------------------------------------------------------------------
@@ -891,7 +894,7 @@ if __name__ == "__main__":
               ext_package = PKGDIR,
               ext_modules = wxpExtensions,
 
-              options = { 'build'            : { 'build_base' : BUILD_BASE },
+              options = { 'build'            : BUILD_OPTIONS,                          
                           },
 
               scripts =    SCRIPTS,
