@@ -292,6 +292,7 @@ class InspectionFrame(wx.Frame):
 
     def LoadSettings(self, config):
         self.crust.LoadSettings(config)
+        self.info.LoadSettings(config)
 
         pos  = wx.Point(config.ReadInt('Window/PosX', -1),
                         config.ReadInt('Window/PosY', -1))
@@ -309,6 +310,7 @@ class InspectionFrame(wx.Frame):
 
     def SaveSettings(self, config):
         self.crust.SaveSettings(config)
+        self.info.SaveSettings(config)
 
         if not self.IsIconized() and not self.IsMaximized():
             w, h = self.GetSize()
@@ -478,6 +480,14 @@ class InspectionInfoPanel(wx.stc.StyledTextCtrl):
         self.SetMarginWidth(1, 0)
         self.SetSelForeground(True, wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHTTEXT))
         self.SetSelBackground(True, wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHT))
+
+
+    def LoadSettings(self, config):
+        zoom = config.ReadInt('View/Zoom/Info', 0)
+        self.SetZoom(zoom)
+
+    def SaveSettings(self, config):
+        config.WriteInt('View/Zoom/Info', self.GetZoom())
         
 
     def Update(self, obj):
