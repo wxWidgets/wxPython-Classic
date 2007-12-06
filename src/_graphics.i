@@ -738,13 +738,13 @@ on a stack", "");
 
     DocDeclStrName(
         virtual void , Clip( const wxRegion &region ),
-        "Clips drawings to the region, combined to current clipping region.", "",
+        "Clips drawings to the region intersected with the current clipping region.", "",
         ClipRegion);
 
     
     DocDeclStr(
         virtual void , Clip( wxDouble x, wxDouble y, wxDouble w, wxDouble h ),
-        "Clips drawings to the rectangle.", "");
+        "Clips drawings to the rectangle intersected with the current clipping region..", "");
 
 
     DocDeclStr(
@@ -1052,6 +1052,9 @@ public:
     wxGraphicsContext* GetGraphicsContext();
     virtual void SetGraphicsContext( wxGraphicsContext* ctx );
 
+    // flushing the content of this dc immediately onto screen
+    void Flush();
+    
     %property(GraphicsContext, GetGraphicsContext, SetGraphicsContext);
 };
 
