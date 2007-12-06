@@ -93,6 +93,137 @@ Added support for mouse events from two auxillary mouse buttons.
 
 
 
+2.8.7.1
+-------
+* 29-Nov-2007
+
+Applied Patch [ 1783958 ] to use the native renderer for drawing the
+checkboxes in CheckListCtrlMixin.
+
+Incorporated the new version of XRCed.  This is the result of a Google
+Summer of Code 2007 project by Roman Rolinsky, and includes a number
+of UI enhancements, as well as a mechanism for adding support for new
+components without needing changes to XRCed itself.  These new
+components can be those supported at the C++ layer of XRC, as well as
+custom XRC handlers written in Python.  See
+http://wiki.wxpython.org/XRCed_Refactoring_Project
+
+wxMac: Fixed wx.BusyInfo so it doesn't steal the activated status
+from the parent window.  (This actually applies to all frames with the
+wx.FRAME_TOOL_WINDOW style and no decorations.)
+
+wxMac: Fixed the lack of painting the area between scrollbars on
+Leopard.  
+
+wxMac: Fixed assertion errors dealing with toolbars on Leopard.
+
+wxMac: Multiline textcontrols now support attributes for margins and
+alignement; only a single tab distance can be set though.
+
+Added the wx.Image.AdjustChannels method.  This function muliplies all
+4 channels (red, green, blue, alpha) with a factor (around
+1.0). Useful for gamma correction, colour correction and to add a
+certain amount of transparency to a image.
+
+Added Editra to the distribution, to give us a simple yet powerful
+programmer's code editor to replace the never finished PyAlaMode
+editor and related tools.  Many thanks to Cody Precord for the work he
+has done on this tool and for allowing us to make it part of wxPython.
+Editra has syntax highlighting and other support for over 40
+programming languages, excellent OS X integration, is extendable via
+plugins, and for those that are on the VI side of the fence there is a
+VI emulation mode.  For more information see the Editra website at
+http://editra.org/
+
+wxGTK: wx.Frame.ShowFullScreen now preserves the menubar's
+accelerators.
+
+wxGTK: wx.GetClientDisplayRect fixed.
+
+Applied patch [1838043], which adds a demo of the wx.RendererNative
+class functionality.
+
+Applied patch [1837449], which uses wx.RenderNative for drawing the
+combo button in the PopupControl.
+
+Added GetDirItemData to wx.GenericDirCtrl, which returns a reference
+to the data object associated with an item in the control.  (Patch
+#1836326) 
+
+
+
+
+
+2.8.6.1
+-------
+* 26-Oct-2007
+
+wxMac: Fixed paste bug when the clipboard contains unicode text.
+
+AUI: Added missing event binders for the notebok tab events.
+
+wxMac: Fixed bug that resulted in portions of virtual listctrl's to
+not be repainted when scrolling with PgUp/PgDown/Home/End.
+
+wxMac: Fixed bug that broke tab traversal when tabbing runs into a
+wx.StaticBox. 
+
+wxGTK:  Add wx.Window.GetGtkWidget.
+
+All: Undprecated wx.ListCtrl.[G|S]etItemSpacing
+
+All: Fixed wx.Palette constructor wrapper.  It takes three seqences of
+integers to specify the R, G, and B values for each color in the
+palette, which must all be the same length and which must contain
+integer values in the range of 0..255 inclusive.
+
+Thanks to some grunt work from Edouard TISSERANT, wxPython now has the
+needed tweaks in config.py to be able to be built with mingw32.  See
+BUILD.txt for details.
+
+Changes in wx.GraphicsContext to make things like the half-pixel
+offsets more consistent across platforms.
+
+wxMSW: If freezing a top-level window wxWidgets will actually freeze
+the TLW's children instead.  This works around a feature of MS Windows
+that allowed windows beneath the frozen one in Z-order to paint
+through, and also mouse events clicking through to the lower window.
+
+
+
+
+
+2.8.6.0
+-------
+* 27-Sept-2007
+
+This release is mostly about fixing a number of bugs and
+inconsistencies in wxWidgets and wxPython.  In other words, there have
+been a whole lot more changes than what is listed here, but they are
+not new features or API visible changes, which is what are usually
+listed in this file.
+
+Some Menu APIs added to make things more consistent.  Added
+wx.MenuBar.SetMenuLabel, wx.MenuBar.GetMenuLabel,
+wx.MenuBar.GetMenuLabelText, wx.Menu.GetLabelText,
+wx.MenuItem.SetItemLabel, wx.MenuItem.GetItemLabel,
+wx.MenuItem.GetItemLabelText, wx.MenuItem.GetLabelText.  The
+Get...Label functions get the raw label with mnemonics and
+accelerators, and the Get...LabelText functions get the text only,
+without mnemonics/accelerators.
+
+Added wx.BORDER_THEME style.  This style will attempt to use a theme
+specific style, if the current platform and environment is themeable
+and has a specific theme style.  For example, you could use this on
+Windows XP on a custom control to give it a themed border style that
+looks like what is used by default on the native wx.TextCtrl or
+wx.ListBox.  Since there were not any more available bits for border
+styles, this style replaces wx.BORDER_DOUBLE.
+
+
+
+
+
 
 2.8.4.2
 -------
