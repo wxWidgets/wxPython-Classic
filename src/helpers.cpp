@@ -496,7 +496,6 @@ void wxPyApp::_BootstrapApp()
             goto error;
     }
     if (wxPyCBH_findCallback(m_myInst, "OnInit")) {
-
         PyObject* method = m_myInst.GetLastFound();
         PyObject* argTuple = PyTuple_New(0);
         retval = PyEval_CallObject(method, argTuple);
@@ -3156,7 +3155,8 @@ PyObject* wxPyImageHandler::py_Image(wxImage* image) {
 }
 
 PyObject* wxPyImageHandler::py_OutputStream(wxOutputStream* stream) {
-    return wxPyConstructObject(stream, wxT("wxOutputStream"), 0);
+    return wxPyConstructObject(new wxPyOutputStream(stream),
+                               wxT("wxPyOutputStream"), 0);
 }
 
 wxPyImageHandler::wxPyImageHandler():
