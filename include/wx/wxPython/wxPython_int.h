@@ -2617,7 +2617,7 @@ extern wxPyApp *wxPythonApp;
         wxFont rv;                                                              \
         bool found;                                                             \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
-        if (wxPyCBH_findCallback(m_myInst, #CBNAME)) {                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
             PyObject* ro;                                                       \
             wxFont* ptr;                                                        \
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(i)", a));    \
@@ -2643,7 +2643,7 @@ extern wxPyApp *wxPythonApp;
         wxColour rv;                                                            \
         bool found;                                                             \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
-        if (wxPyCBH_findCallback(m_myInst, #CBNAME)) {                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
             PyObject* ro;                                                       \
             wxColour* ptr;                                                      \
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(i)", a));    \
