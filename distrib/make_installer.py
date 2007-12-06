@@ -710,7 +710,7 @@ def main():
     ISSFILE         = "__wxPython.iss"
     ISSDEMOFILE     = "__wxPythonDemo.iss"
     UNINSTALL_BATCH = get_batch_files()
-    PKGDIR          = open('src/wx.pth').read()
+    PKGDIR          = open('src/wx.pth').read().strip()
     LOCALE          = build_locale_string(PKGDIR)
     RTDLL,CPPDLL    = get_runtime_dlls(PYVER, PKGDIR)
 
