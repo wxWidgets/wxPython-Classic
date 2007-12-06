@@ -20,7 +20,7 @@ _acroversion = None
 def get_acroversion():
     " Return version of Adobe Acrobat executable or None"
     global _acroversion
-    if _acroversion == None:
+    if _acroversion == None and wx.PlatformInfo[1] == 'wxMSW':
         import _winreg
         adobesoft = _winreg.OpenKey(_winreg.HKEY_LOCAL_MACHINE, r'Software\Adobe')
         acrokeys, acroversions = [], []
@@ -383,7 +383,7 @@ if get_acroversion() >= 7.0:
 
         
 
-else:
+elif get_acroversion() is not None:
     import wx.activex
 
     clsID = '{CA8A9780-280D-11CF-A24D-444553540000}'
