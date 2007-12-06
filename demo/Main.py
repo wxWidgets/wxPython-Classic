@@ -59,6 +59,7 @@ _demoPngs = ["overview", "recent", "frame", "dialog", "moredialog", "core",
 _treeList = [
     # new stuff
     ('Recent Additions/Updates', [
+        'RendererNative',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -276,6 +277,7 @@ _treeList = [
         'OGL',
         'PrintFramework',
         'PseudoDC',
+        'RendererNative',
         'ShapedWindow',
         'Sound',
         'StandardPaths',
