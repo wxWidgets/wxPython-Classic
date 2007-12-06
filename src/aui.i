@@ -191,6 +191,12 @@ The following example shows a simple implementation that utilizes
 %ignore wxAuiiNotebook::~wxAuiNotebook;
 %rename(PreAuiNotebook) wxAuiNotebook::wxAuiNotebook();
 
+// NB: Since we can't target the use of a typemap to specific methods make
+// sure to check that the disown is only applied where it is expected...
+%disownarg( wxAuiDockArt* art_provider );
+%disownarg( wxAuiTabArt* art );
+
+
 // Link error...
 %ignore wxAuiDefaultTabArt::SetWindow;        
 
