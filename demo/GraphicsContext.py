@@ -3,6 +3,8 @@ import wx
 import colorsys
 from math import cos, sin, radians
 
+from Main import opj
+
 #----------------------------------------------------------------------
 
 BASE  = 80.0    # sizes used in shapes drawn below
@@ -85,14 +87,19 @@ class TestPanel(wx.Panel):
         gc.PushState()             # save it again
         gc.Translate(400, 200)
         gc.DrawText("Rotate", 0, -BASE2)
-        
+
+        # Move the origin over to the next location
         gc.Translate(0, 75)
+
+        # draw our path again, rotating it about the central point,
+        # and changing colors as we go
         for angle in range(0, 360, 30):
-            gc.PushState()         # save this new current state so we can pop back to 
-                                   # it at the end of the loop
+            gc.PushState()         # save this new current state so we can 
+                                   # pop back to it at the end of the loop
             r, g, b = [int(c * 255) for c in colorsys.hsv_to_rgb(float(angle)/360, 1, 1)]
             gc.SetBrush(wx.Brush(wx.Colour(r, g, b, 64)))
-
+            gc.SetPen(wx.Pen(wx.Colour(r, g, b, 128)))
+            
             # use translate to artfully reposition each drawn path
             gc.Translate(1.5 * BASE2 * cos(radians(angle)),
                          1.5 * BASE2 * sin(radians(angle)))
@@ -103,6 +110,19 @@ class TestPanel(wx.Panel):
             # now draw it
             gc.DrawPath(path)
             gc.PopState()
+
+        # Draw a bitmap with an alpha channel on top of the last group
+        bmp = wx.Bitmap(opj('bitmaps/toucan.png'))
+        bsz = bmp.GetSize()
+        gc.DrawBitmap(bmp,
+                      #-bsz.width, 
+                      #-bsz.height/2,
+
+                      -bsz.width/2.5, 
+                      -bsz.height/2.5,
+                      
+                      bsz.width, bsz.height)
+
 
         gc.PopState()
         
