@@ -250,7 +250,9 @@ class GridColMover(wx.EvtHandler):
         self.Bind(wx.EVT_LEFT_UP, self.OnRelease)
 
     def OnMouseMove(self,evt):
-        if self.isDragging:
+        if not self.isDragging:
+          evt.Skip()
+        else:
             _rlSize = self.grid.GetRowLabelSize()
             if abs(self.startX - evt.m_x) >= 3 \
                    and abs(evt.m_x - self.lastX) >= 3:
