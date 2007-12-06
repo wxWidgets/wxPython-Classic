@@ -135,7 +135,9 @@ Source: "wx\tools\XRCed\*.xrc";                DestDir: "{app}\%(PKGDIR)s\wx\too
 Source: "wx\tools\XRCed\*.ico";                DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
 Source: "wx\tools\XRCed\*.png";                DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
 Source: "wx\tools\XRCed\*.sh";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
-Source: "wx\tools\XRCed\src-images\*.png";     DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\src-images"; Components: core
+Source: "wx\tools\XRCed\*.htb";                DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed"; Components: core
+
+;;Source: "wx\tools\XRCed\src-images\*.png";     DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\src-images"; Components: core
 
 
 Source: "wxPython\*.py";                          DestDir: "{app}\%(PKGDIR)s\wxPython"; Components: core
