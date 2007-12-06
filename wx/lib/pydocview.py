@@ -2368,10 +2368,7 @@ class DocSDIFrame(wx.lib.docview.DocChildFrame, DocFrameMixIn):
         """
         Called when the application is exitting.
         """
-        if self._childView.GetDocumentManager().Clear(force = False):
-            self.Destroy()
-        else:
-            event.Veto()
+        self._childView.GetDocumentManager().Clear(force = False)
 
 
     def OnMRUFile(self, event):
