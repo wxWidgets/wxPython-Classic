@@ -9,6 +9,9 @@ TIMEIT = False
 # how big to make the bitmaps
 DIM = 100
 
+# should we use a wx.GraphicsContext for painting?
+TEST_GC = False
+
 #----------------------------------------------------------------------
 # attempt to import a numeric module if requested to
 
@@ -67,10 +70,17 @@ class TestPanel(wx.Panel):
 
     def OnPaint(self, evt):
         dc = wx.PaintDC(self)
-        dc.DrawBitmap(self.redBmp,    50,  50, True)
-        dc.DrawBitmap(self.greenBmp, 110, 110, True)
-        dc.DrawBitmap(self.blueBmp,  170,  50, True)
-
+        if not TEST_GC:
+            dc.DrawBitmap(self.redBmp,    50,  50, True)
+            dc.DrawBitmap(self.greenBmp, 110, 110, True)
+            dc.DrawBitmap(self.blueBmp,  170,  50, True)
+            self.log.write("using wx.DC\n")
+        else:
+            gc = wx.GraphicsContext.Create(dc)
+            gc.DrawBitmap(self.redBmp, 50, 50, DIM,DIM)
+            gc.DrawBitmap(self.greenBmp, 110, 110, DIM,DIM)
+            gc.DrawBitmap(self.blueBmp,  170,  50, DIM,DIM)
+            self.log.write("using wx.GraphicsContext\n")
 
     def MakeBitmap(self, red, green, blue, alpha=128):
         # Create the bitmap that we will stuff pixel values into using
