@@ -899,6 +899,7 @@ if __name__ == "__main__":
                           'wx.tools.Editra',
                           'wx.tools.Editra.src',
                           'wx.tools.Editra.src.autocomp',
+                          'wx.tools.Editra.src.eclib',
                           'wx.tools.Editra.src.extern',
                           'wx.tools.Editra.src.syntax',
                           ],
