@@ -2493,153 +2493,153 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxChildFocusEvent swig_types[27]
 #define SWIGTYPE_p_wxClipboardTextEvent swig_types[28]
 #define SWIGTYPE_p_wxCloseEvent swig_types[29]
-#define SWIGTYPE_p_wxColour swig_types[30]
-#define SWIGTYPE_p_wxColourData swig_types[31]
-#define SWIGTYPE_p_wxColourDialog swig_types[32]
-#define SWIGTYPE_p_wxCommandEvent swig_types[33]
-#define SWIGTYPE_p_wxCommandProcessor swig_types[34]
-#define SWIGTYPE_p_wxContextMenuEvent swig_types[35]
-#define SWIGTYPE_p_wxControl swig_types[36]
-#define SWIGTYPE_p_wxControlWithItems swig_types[37]
-#define SWIGTYPE_p_wxDC swig_types[38]
-#define SWIGTYPE_p_wxDateEvent swig_types[39]
-#define SWIGTYPE_p_wxDialog swig_types[40]
-#define SWIGTYPE_p_wxDirDialog swig_types[41]
-#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[42]
-#define SWIGTYPE_p_wxDropFilesEvent swig_types[43]
-#define SWIGTYPE_p_wxDuplexMode swig_types[44]
-#define SWIGTYPE_p_wxEraseEvent swig_types[45]
-#define SWIGTYPE_p_wxEvent swig_types[46]
-#define SWIGTYPE_p_wxEventBlocker swig_types[47]
-#define SWIGTYPE_p_wxEvtHandler swig_types[48]
-#define SWIGTYPE_p_wxFSFile swig_types[49]
-#define SWIGTYPE_p_wxFileDialog swig_types[50]
-#define SWIGTYPE_p_wxFileSystem swig_types[51]
-#define SWIGTYPE_p_wxFindDialogEvent swig_types[52]
-#define SWIGTYPE_p_wxFindReplaceData swig_types[53]
-#define SWIGTYPE_p_wxFindReplaceDialog swig_types[54]
-#define SWIGTYPE_p_wxFlexGridSizer swig_types[55]
-#define SWIGTYPE_p_wxFocusEvent swig_types[56]
-#define SWIGTYPE_p_wxFont swig_types[57]
-#define SWIGTYPE_p_wxFontData swig_types[58]
-#define SWIGTYPE_p_wxFontDialog swig_types[59]
-#define SWIGTYPE_p_wxFrame swig_types[60]
-#define SWIGTYPE_p_wxGBSizerItem swig_types[61]
-#define SWIGTYPE_p_wxGIFHandler swig_types[62]
-#define SWIGTYPE_p_wxGridBagSizer swig_types[63]
-#define SWIGTYPE_p_wxGridSizer swig_types[64]
-#define SWIGTYPE_p_wxICOHandler swig_types[65]
-#define SWIGTYPE_p_wxIconizeEvent swig_types[66]
-#define SWIGTYPE_p_wxIdleEvent swig_types[67]
-#define SWIGTYPE_p_wxImage swig_types[68]
-#define SWIGTYPE_p_wxImageHandler swig_types[69]
-#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[70]
-#define SWIGTYPE_p_wxInitDialogEvent swig_types[71]
-#define SWIGTYPE_p_wxInputStream swig_types[72]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[73]
-#define SWIGTYPE_p_wxKeyEvent swig_types[74]
-#define SWIGTYPE_p_wxLayoutAlgorithm swig_types[75]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[76]
-#define SWIGTYPE_p_wxList swig_types[77]
-#define SWIGTYPE_p_wxMDIChildFrame swig_types[78]
-#define SWIGTYPE_p_wxMDIClientWindow swig_types[79]
-#define SWIGTYPE_p_wxMDIParentFrame swig_types[80]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[81]
-#define SWIGTYPE_p_wxMenu swig_types[82]
-#define SWIGTYPE_p_wxMenuBar swig_types[83]
-#define SWIGTYPE_p_wxMenuEvent swig_types[84]
-#define SWIGTYPE_p_wxMenuItem swig_types[85]
-#define SWIGTYPE_p_wxMessageDialog swig_types[86]
-#define SWIGTYPE_p_wxMiniFrame swig_types[87]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[88]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[89]
-#define SWIGTYPE_p_wxMouseEvent swig_types[90]
-#define SWIGTYPE_p_wxMoveEvent swig_types[91]
-#define SWIGTYPE_p_wxMultiChoiceDialog swig_types[92]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[93]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[94]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[95]
-#define SWIGTYPE_p_wxNumberEntryDialog swig_types[96]
-#define SWIGTYPE_p_wxObject swig_types[97]
-#define SWIGTYPE_p_wxOutputStream swig_types[98]
-#define SWIGTYPE_p_wxPCXHandler swig_types[99]
-#define SWIGTYPE_p_wxPNGHandler swig_types[100]
-#define SWIGTYPE_p_wxPNMHandler swig_types[101]
-#define SWIGTYPE_p_wxPageSetupDialog swig_types[102]
-#define SWIGTYPE_p_wxPageSetupDialogData swig_types[103]
-#define SWIGTYPE_p_wxPaintEvent swig_types[104]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[105]
-#define SWIGTYPE_p_wxPanel swig_types[106]
-#define SWIGTYPE_p_wxPaperSize swig_types[107]
-#define SWIGTYPE_p_wxPasswordEntryDialog swig_types[108]
-#define SWIGTYPE_p_wxPoint swig_types[109]
-#define SWIGTYPE_p_wxPopupWindow swig_types[110]
-#define SWIGTYPE_p_wxPreviewCanvas swig_types[111]
-#define SWIGTYPE_p_wxPreviewControlBar swig_types[112]
-#define SWIGTYPE_p_wxPreviewFrame swig_types[113]
-#define SWIGTYPE_p_wxPrintData swig_types[114]
-#define SWIGTYPE_p_wxPrintDialog swig_types[115]
-#define SWIGTYPE_p_wxPrintDialogData swig_types[116]
-#define SWIGTYPE_p_wxPrintPreview swig_types[117]
-#define SWIGTYPE_p_wxPrinter swig_types[118]
-#define SWIGTYPE_p_wxProgressDialog swig_types[119]
-#define SWIGTYPE_p_wxPyApp swig_types[120]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[121]
-#define SWIGTYPE_p_wxPyEvent swig_types[122]
-#define SWIGTYPE_p_wxPyHScrolledWindow swig_types[123]
-#define SWIGTYPE_p_wxPyHVScrolledWindow swig_types[124]
-#define SWIGTYPE_p_wxPyHtmlListBox swig_types[125]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[126]
-#define SWIGTYPE_p_wxPyPanel swig_types[127]
-#define SWIGTYPE_p_wxPyPopupTransientWindow swig_types[128]
-#define SWIGTYPE_p_wxPyPreviewControlBar swig_types[129]
-#define SWIGTYPE_p_wxPyPreviewFrame swig_types[130]
-#define SWIGTYPE_p_wxPyPrintPreview swig_types[131]
-#define SWIGTYPE_p_wxPyPrintout swig_types[132]
-#define SWIGTYPE_p_wxPyScrolledWindow swig_types[133]
-#define SWIGTYPE_p_wxPySizer swig_types[134]
-#define SWIGTYPE_p_wxPyTaskBarIcon swig_types[135]
-#define SWIGTYPE_p_wxPyVListBox swig_types[136]
-#define SWIGTYPE_p_wxPyVScrolledWindow swig_types[137]
-#define SWIGTYPE_p_wxPyValidator swig_types[138]
-#define SWIGTYPE_p_wxPyWindow swig_types[139]
-#define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[140]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[141]
-#define SWIGTYPE_p_wxRect swig_types[142]
-#define SWIGTYPE_p_wxRichTextAction swig_types[143]
-#define SWIGTYPE_p_wxRichTextAttr swig_types[144]
-#define SWIGTYPE_p_wxRichTextBox swig_types[145]
-#define SWIGTYPE_p_wxRichTextBuffer swig_types[146]
-#define SWIGTYPE_p_wxRichTextCommand swig_types[147]
-#define SWIGTYPE_p_wxRichTextCompositeObject swig_types[148]
-#define SWIGTYPE_p_wxRichTextCtrl swig_types[149]
-#define SWIGTYPE_p_wxRichTextEvent swig_types[150]
-#define SWIGTYPE_p_wxRichTextFileHandler swig_types[151]
-#define SWIGTYPE_p_wxRichTextFileHandlerList swig_types[152]
-#define SWIGTYPE_p_wxRichTextFileHandlerList_iterator swig_types[153]
-#define SWIGTYPE_p_wxRichTextHTMLHandler swig_types[154]
-#define SWIGTYPE_p_wxRichTextImage swig_types[155]
-#define SWIGTYPE_p_wxRichTextImageBlock swig_types[156]
-#define SWIGTYPE_p_wxRichTextLine swig_types[157]
-#define SWIGTYPE_p_wxRichTextLineList swig_types[158]
-#define SWIGTYPE_p_wxRichTextListStyleDefinition swig_types[159]
-#define SWIGTYPE_p_wxRichTextObject swig_types[160]
-#define SWIGTYPE_p_wxRichTextObjectList swig_types[161]
-#define SWIGTYPE_p_wxRichTextObjectList_iterator swig_types[162]
-#define SWIGTYPE_p_wxRichTextParagraph swig_types[163]
-#define SWIGTYPE_p_wxRichTextParagraphLayoutBox swig_types[164]
-#define SWIGTYPE_p_wxRichTextPlainText swig_types[165]
-#define SWIGTYPE_p_wxRichTextPlainTextHandler swig_types[166]
-#define SWIGTYPE_p_wxRichTextRange swig_types[167]
-#define SWIGTYPE_p_wxRichTextRenderer swig_types[168]
-#define SWIGTYPE_p_wxRichTextStdRenderer swig_types[169]
-#define SWIGTYPE_p_wxRichTextStyleDefinition swig_types[170]
-#define SWIGTYPE_p_wxRichTextStyleSheet swig_types[171]
-#define SWIGTYPE_p_wxRichTextXMLHandler swig_types[172]
-#define SWIGTYPE_p_wxSashEvent swig_types[173]
-#define SWIGTYPE_p_wxSashLayoutWindow swig_types[174]
-#define SWIGTYPE_p_wxSashWindow swig_types[175]
-#define SWIGTYPE_p_wxScrollEvent swig_types[176]
+#define SWIGTYPE_p_wxColourData swig_types[30]
+#define SWIGTYPE_p_wxColourDialog swig_types[31]
+#define SWIGTYPE_p_wxCommandEvent swig_types[32]
+#define SWIGTYPE_p_wxCommandProcessor swig_types[33]
+#define SWIGTYPE_p_wxContextMenuEvent swig_types[34]
+#define SWIGTYPE_p_wxControl swig_types[35]
+#define SWIGTYPE_p_wxControlWithItems swig_types[36]
+#define SWIGTYPE_p_wxDC swig_types[37]
+#define SWIGTYPE_p_wxDateEvent swig_types[38]
+#define SWIGTYPE_p_wxDialog swig_types[39]
+#define SWIGTYPE_p_wxDirDialog swig_types[40]
+#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[41]
+#define SWIGTYPE_p_wxDropFilesEvent swig_types[42]
+#define SWIGTYPE_p_wxDuplexMode swig_types[43]
+#define SWIGTYPE_p_wxEraseEvent swig_types[44]
+#define SWIGTYPE_p_wxEvent swig_types[45]
+#define SWIGTYPE_p_wxEventBlocker swig_types[46]
+#define SWIGTYPE_p_wxEvtHandler swig_types[47]
+#define SWIGTYPE_p_wxFSFile swig_types[48]
+#define SWIGTYPE_p_wxFileDialog swig_types[49]
+#define SWIGTYPE_p_wxFileSystem swig_types[50]
+#define SWIGTYPE_p_wxFindDialogEvent swig_types[51]
+#define SWIGTYPE_p_wxFindReplaceData swig_types[52]
+#define SWIGTYPE_p_wxFindReplaceDialog swig_types[53]
+#define SWIGTYPE_p_wxFlexGridSizer swig_types[54]
+#define SWIGTYPE_p_wxFocusEvent swig_types[55]
+#define SWIGTYPE_p_wxFont swig_types[56]
+#define SWIGTYPE_p_wxFontData swig_types[57]
+#define SWIGTYPE_p_wxFontDialog swig_types[58]
+#define SWIGTYPE_p_wxFrame swig_types[59]
+#define SWIGTYPE_p_wxGBSizerItem swig_types[60]
+#define SWIGTYPE_p_wxGIFHandler swig_types[61]
+#define SWIGTYPE_p_wxGridBagSizer swig_types[62]
+#define SWIGTYPE_p_wxGridSizer swig_types[63]
+#define SWIGTYPE_p_wxICOHandler swig_types[64]
+#define SWIGTYPE_p_wxIconizeEvent swig_types[65]
+#define SWIGTYPE_p_wxIdleEvent swig_types[66]
+#define SWIGTYPE_p_wxImage swig_types[67]
+#define SWIGTYPE_p_wxImageHandler swig_types[68]
+#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[69]
+#define SWIGTYPE_p_wxInitDialogEvent swig_types[70]
+#define SWIGTYPE_p_wxInputStream swig_types[71]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[72]
+#define SWIGTYPE_p_wxKeyEvent swig_types[73]
+#define SWIGTYPE_p_wxLayoutAlgorithm swig_types[74]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[75]
+#define SWIGTYPE_p_wxList swig_types[76]
+#define SWIGTYPE_p_wxMDIChildFrame swig_types[77]
+#define SWIGTYPE_p_wxMDIClientWindow swig_types[78]
+#define SWIGTYPE_p_wxMDIParentFrame swig_types[79]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[80]
+#define SWIGTYPE_p_wxMenu swig_types[81]
+#define SWIGTYPE_p_wxMenuBar swig_types[82]
+#define SWIGTYPE_p_wxMenuEvent swig_types[83]
+#define SWIGTYPE_p_wxMenuItem swig_types[84]
+#define SWIGTYPE_p_wxMessageDialog swig_types[85]
+#define SWIGTYPE_p_wxMiniFrame swig_types[86]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[87]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[88]
+#define SWIGTYPE_p_wxMouseEvent swig_types[89]
+#define SWIGTYPE_p_wxMoveEvent swig_types[90]
+#define SWIGTYPE_p_wxMultiChoiceDialog swig_types[91]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[92]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[93]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[94]
+#define SWIGTYPE_p_wxNumberEntryDialog swig_types[95]
+#define SWIGTYPE_p_wxObject swig_types[96]
+#define SWIGTYPE_p_wxOutputStream swig_types[97]
+#define SWIGTYPE_p_wxPCXHandler swig_types[98]
+#define SWIGTYPE_p_wxPNGHandler swig_types[99]
+#define SWIGTYPE_p_wxPNMHandler swig_types[100]
+#define SWIGTYPE_p_wxPageSetupDialog swig_types[101]
+#define SWIGTYPE_p_wxPageSetupDialogData swig_types[102]
+#define SWIGTYPE_p_wxPaintEvent swig_types[103]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[104]
+#define SWIGTYPE_p_wxPanel swig_types[105]
+#define SWIGTYPE_p_wxPaperSize swig_types[106]
+#define SWIGTYPE_p_wxPasswordEntryDialog swig_types[107]
+#define SWIGTYPE_p_wxPoint swig_types[108]
+#define SWIGTYPE_p_wxPopupWindow swig_types[109]
+#define SWIGTYPE_p_wxPreviewCanvas swig_types[110]
+#define SWIGTYPE_p_wxPreviewControlBar swig_types[111]
+#define SWIGTYPE_p_wxPreviewFrame swig_types[112]
+#define SWIGTYPE_p_wxPrintData swig_types[113]
+#define SWIGTYPE_p_wxPrintDialog swig_types[114]
+#define SWIGTYPE_p_wxPrintDialogData swig_types[115]
+#define SWIGTYPE_p_wxPrintPreview swig_types[116]
+#define SWIGTYPE_p_wxPrinter swig_types[117]
+#define SWIGTYPE_p_wxProgressDialog swig_types[118]
+#define SWIGTYPE_p_wxPyApp swig_types[119]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[120]
+#define SWIGTYPE_p_wxPyEvent swig_types[121]
+#define SWIGTYPE_p_wxPyHScrolledWindow swig_types[122]
+#define SWIGTYPE_p_wxPyHVScrolledWindow swig_types[123]
+#define SWIGTYPE_p_wxPyHtmlListBox swig_types[124]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[125]
+#define SWIGTYPE_p_wxPyPanel swig_types[126]
+#define SWIGTYPE_p_wxPyPopupTransientWindow swig_types[127]
+#define SWIGTYPE_p_wxPyPreviewControlBar swig_types[128]
+#define SWIGTYPE_p_wxPyPreviewFrame swig_types[129]
+#define SWIGTYPE_p_wxPyPrintPreview swig_types[130]
+#define SWIGTYPE_p_wxPyPrintout swig_types[131]
+#define SWIGTYPE_p_wxPyScrolledWindow swig_types[132]
+#define SWIGTYPE_p_wxPySizer swig_types[133]
+#define SWIGTYPE_p_wxPyTaskBarIcon swig_types[134]
+#define SWIGTYPE_p_wxPyVListBox swig_types[135]
+#define SWIGTYPE_p_wxPyVScrolledWindow swig_types[136]
+#define SWIGTYPE_p_wxPyValidator swig_types[137]
+#define SWIGTYPE_p_wxPyWindow swig_types[138]
+#define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[139]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[140]
+#define SWIGTYPE_p_wxRect swig_types[141]
+#define SWIGTYPE_p_wxRichTextAction swig_types[142]
+#define SWIGTYPE_p_wxRichTextBox swig_types[143]
+#define SWIGTYPE_p_wxRichTextBuffer swig_types[144]
+#define SWIGTYPE_p_wxRichTextCommand swig_types[145]
+#define SWIGTYPE_p_wxRichTextCompositeObject swig_types[146]
+#define SWIGTYPE_p_wxRichTextCtrl swig_types[147]
+#define SWIGTYPE_p_wxRichTextEvent swig_types[148]
+#define SWIGTYPE_p_wxRichTextFileHandler swig_types[149]
+#define SWIGTYPE_p_wxRichTextFileHandlerList swig_types[150]
+#define SWIGTYPE_p_wxRichTextFileHandlerList_iterator swig_types[151]
+#define SWIGTYPE_p_wxRichTextFontTable swig_types[152]
+#define SWIGTYPE_p_wxRichTextHTMLHandler swig_types[153]
+#define SWIGTYPE_p_wxRichTextImage swig_types[154]
+#define SWIGTYPE_p_wxRichTextImageBlock swig_types[155]
+#define SWIGTYPE_p_wxRichTextLine swig_types[156]
+#define SWIGTYPE_p_wxRichTextLineList swig_types[157]
+#define SWIGTYPE_p_wxRichTextListStyleDefinition swig_types[158]
+#define SWIGTYPE_p_wxRichTextObject swig_types[159]
+#define SWIGTYPE_p_wxRichTextObjectList swig_types[160]
+#define SWIGTYPE_p_wxRichTextObjectList_iterator swig_types[161]
+#define SWIGTYPE_p_wxRichTextParagraph swig_types[162]
+#define SWIGTYPE_p_wxRichTextParagraphLayoutBox swig_types[163]
+#define SWIGTYPE_p_wxRichTextPlainText swig_types[164]
+#define SWIGTYPE_p_wxRichTextPlainTextHandler swig_types[165]
+#define SWIGTYPE_p_wxRichTextRange swig_types[166]
+#define SWIGTYPE_p_wxRichTextRenderer swig_types[167]
+#define SWIGTYPE_p_wxRichTextStdRenderer swig_types[168]
+#define SWIGTYPE_p_wxRichTextStyleDefinition swig_types[169]
+#define SWIGTYPE_p_wxRichTextStyleSheet swig_types[170]
+#define SWIGTYPE_p_wxRichTextXMLHandler swig_types[171]
+#define SWIGTYPE_p_wxSashEvent swig_types[172]
+#define SWIGTYPE_p_wxSashLayoutWindow swig_types[173]
+#define SWIGTYPE_p_wxSashWindow swig_types[174]
+#define SWIGTYPE_p_wxScrollEvent swig_types[175]
+#define SWIGTYPE_p_wxScrollHelper swig_types[176]
 #define SWIGTYPE_p_wxScrollWinEvent swig_types[177]
 #define SWIGTYPE_p_wxScrolledWindow swig_types[178]
 #define SWIGTYPE_p_wxSetCursorEvent swig_types[179]
@@ -2661,20 +2661,24 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxTGAHandler swig_types[195]
 #define SWIGTYPE_p_wxTIFFHandler swig_types[196]
 #define SWIGTYPE_p_wxTaskBarIconEvent swig_types[197]
-#define SWIGTYPE_p_wxTextAttrEx swig_types[198]
-#define SWIGTYPE_p_wxTextCoord swig_types[199]
-#define SWIGTYPE_p_wxTextCtrlHitTestResult swig_types[200]
-#define SWIGTYPE_p_wxTextEntryDialog swig_types[201]
-#define SWIGTYPE_p_wxTipWindow swig_types[202]
-#define SWIGTYPE_p_wxTopLevelWindow swig_types[203]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[204]
-#define SWIGTYPE_p_wxValidator swig_types[205]
-#define SWIGTYPE_p_wxWindow swig_types[206]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[207]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[208]
-#define SWIGTYPE_p_wxXPMHandler swig_types[209]
-static swig_type_info *swig_types[211];
-static swig_module_info swig_module = {swig_types, 210, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxTextAreaBase swig_types[198]
+#define SWIGTYPE_p_wxTextAttr swig_types[199]
+#define SWIGTYPE_p_wxTextCoord swig_types[200]
+#define SWIGTYPE_p_wxTextCtrlHitTestResult swig_types[201]
+#define SWIGTYPE_p_wxTextCtrlIface swig_types[202]
+#define SWIGTYPE_p_wxTextEntry swig_types[203]
+#define SWIGTYPE_p_wxTextEntryDialog swig_types[204]
+#define SWIGTYPE_p_wxTipWindow swig_types[205]
+#define SWIGTYPE_p_wxTopLevelWindow swig_types[206]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[207]
+#define SWIGTYPE_p_wxValidator swig_types[208]
+#define SWIGTYPE_p_wxWindow swig_types[209]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[210]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[211]
+#define SWIGTYPE_p_wxWrapSizer swig_types[212]
+#define SWIGTYPE_p_wxXPMHandler swig_types[213]
+static swig_type_info *swig_types[215];
+static swig_module_info swig_module = {swig_types, 214, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2788,6 +2792,11 @@ class wxMetaFileDC;
 class wxPrinterDC;
 
 
+ static const wxString wxPyEmptyString(wxEmptyString); 
+
+#include <wx/sstream.h>
+#include "wx/wxPython/pyistream.h"
+
 
   #define SWIG_From_long   PyInt_FromLong 
 
@@ -2797,11 +2806,6 @@ SWIG_From_int  (int value)
 {    
   return SWIG_From_long  (value);
 }
-
- static const wxString wxPyEmptyString(wxEmptyString); 
-
-#include <wx/sstream.h>
-#include "wx/wxPython/pyistream.h"
 
 
 bool wxRichTextRange_helper(PyObject* source, wxRichTextRange** obj)
@@ -2938,12 +2942,15 @@ SWIGINTERN int
 SWIG_AsVal_unsigned_SS_long (PyObject* obj, unsigned long* val)
 {
     long v = 0;
-    if (SWIG_AsVal_long(obj, &v) && v < 0) {
-        return SWIG_TypeError;
+    int res = SWIG_AsVal_long(obj, &v);
+    if (SWIG_IsOK(res)) {
+        if ( v < 0) {
+            return SWIG_ValueError;
+        }
+        else if (val)
+            *val = (unsigned long)v;
     }
-    else if (val)
-        *val = (unsigned long)v;
-    return SWIG_OK;
+    return res;
 }
 
 
@@ -2977,7 +2984,14 @@ SWIGINTERN int wxRichTextObjectList_index(wxRichTextObjectList *self,wxRichTextO
                                 "sequence.index(x): x not in sequence");
             return idx;
         }
-SWIGINTERN wxTextAttrEx wxRichTextParagraph_GetCombinedAttributes(wxRichTextParagraph *self,wxTextAttrEx *contentStyle=NULL){
+SWIGINTERN bool wxRichTextParagraphLayoutBox_FindNextParagraphNumber(wxRichTextParagraphLayoutBox const *self,wxRichTextParagraph *previousParagraph,wxTextAttr &attr){
+            wxRichTextAttr rta;
+            bool rval;
+            rval = self->FindNextParagraphNumber(previousParagraph, rta);
+            attr = rta;
+            return rval;
+        }
+SWIGINTERN wxTextAttr wxRichTextParagraph_GetCombinedAttributes(wxRichTextParagraph *self,wxTextAttr *contentStyle=NULL){
             if (contentStyle)
                 return self->GetCombinedAttributes(*contentStyle);
             else
@@ -3100,6 +3114,162 @@ SWIG_AsVal_float (PyObject * obj, float *val)
 #ifdef __cplusplus
 extern "C" {
 #endif
+SWIGINTERN PyObject *_wrap_new_RichTextFontTable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxRichTextFontTable *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"new_RichTextFontTable",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxRichTextFontTable *)new wxRichTextFontTable();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextFontTable, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_RichTextFontTable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxRichTextFontTable *arg1 = (wxRichTextFontTable *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextFontTable, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_RichTextFontTable" "', expected argument " "1"" of type '" "wxRichTextFontTable *""'"); 
+  }
+  arg1 = reinterpret_cast< wxRichTextFontTable * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RichTextFontTable_IsOk(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxRichTextFontTable *arg1 = (wxRichTextFontTable *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextFontTable, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextFontTable_IsOk" "', expected argument " "1"" of type '" "wxRichTextFontTable const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxRichTextFontTable * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxRichTextFontTable const *)arg1)->IsOk();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RichTextFontTable_FindFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxRichTextFontTable *arg1 = (wxRichTextFontTable *) 0 ;
+  wxTextAttr *arg2 = 0 ;
+  wxFont result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "fontSpec", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextFontTable_FindFont",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextFontTable, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextFontTable_FindFont" "', expected argument " "1"" of type '" "wxRichTextFontTable *""'"); 
+  }
+  arg1 = reinterpret_cast< wxRichTextFontTable * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttr,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextFontTable_FindFont" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextFontTable_FindFont" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxTextAttr * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (arg1)->FindFont((wxTextAttr const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxFont(static_cast< const wxFont& >(result))), SWIGTYPE_p_wxFont, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RichTextFontTable_Clear(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxRichTextFontTable *arg1 = (wxRichTextFontTable *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextFontTable, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextFontTable_Clear" "', expected argument " "1"" of type '" "wxRichTextFontTable *""'"); 
+  }
+  arg1 = reinterpret_cast< wxRichTextFontTable * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->Clear();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *RichTextFontTable_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxRichTextFontTable, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *RichTextFontTable_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
 SWIGINTERN PyObject *_wrap_new_RichTextRange(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   long arg1 = (long) 0 ;
@@ -3756,2865 +3926,6 @@ SWIGINTERN PyObject *RICHTEXT_NONE_get(void) {
   return pyobj;
 }
 
-
-SWIGINTERN PyObject *_wrap_new_TextAttrEx(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *result = 0 ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"new_TextAttrEx",0,0,0)) SWIG_fail;
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxTextAttrEx *)new wxTextAttrEx();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrEx, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_Init(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_Init" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Init();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_Copy(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxTextAttrEx *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "attr", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_Copy",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_Copy" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TextAttrEx_Copy" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "TextAttrEx_Copy" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
-  }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Copy((wxTextAttrEx const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetTextColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxColour *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  wxColour temp2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "colText", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetTextColour",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetTextColour" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    arg2 = &temp2;
-    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTextColour((wxColour const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetBackgroundColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxColour *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  wxColour temp2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "colBack", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetBackgroundColour",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetBackgroundColour" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    arg2 = &temp2;
-    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBackgroundColour((wxColour const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxFont *arg2 = 0 ;
-  long arg3 = (long) wxTEXT_ATTR_FONT ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  long val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "font",(char *) "flags", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:TextAttrEx_SetFont",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetFont" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxFont,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TextAttrEx_SetFont" "', expected argument " "2"" of type '" "wxFont const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "TextAttrEx_SetFont" "', expected argument " "2"" of type '" "wxFont const &""'"); 
-  }
-  arg2 = reinterpret_cast< wxFont * >(argp2);
-  if (obj2) {
-    ecode3 = SWIG_AsVal_long(obj2, &val3);
-    if (!SWIG_IsOK(ecode3)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextAttrEx_SetFont" "', expected argument " "3"" of type '" "long""'");
-    } 
-    arg3 = static_cast< long >(val3);
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFont((wxFont const &)*arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetAlignment(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxTextAttrAlignment arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "alignment", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetAlignment",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetAlignment" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetAlignment" "', expected argument " "2"" of type '" "wxTextAttrAlignment""'");
-  } 
-  arg2 = static_cast< wxTextAttrAlignment >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAlignment(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetTabs(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxArrayInt *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "tabs", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetTabs",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetTabs" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    if (! PySequence_Check(obj1)) {
-      PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
-      SWIG_fail;
-    }
-    arg2 = new wxArrayInt;
-    temp2 = true;
-    int i, len=PySequence_Length(obj1);
-    for (i=0; i<len; i++) {
-      PyObject* item = PySequence_GetItem(obj1, i);
-      PyObject* number  = PyNumber_Int(item);
-      if (!number) {
-        PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
-        SWIG_fail;
-      }       
-      arg2->Add(PyInt_AS_LONG(number));
-      Py_DECREF(item);
-      Py_DECREF(number);
-    }
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTabs((wxArrayInt const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2) delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2) delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetLeftIndent(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  int arg3 = (int) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "indent",(char *) "subIndent", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:TextAttrEx_SetLeftIndent",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetLeftIndent" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetLeftIndent" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  if (obj2) {
-    ecode3 = SWIG_AsVal_int(obj2, &val3);
-    if (!SWIG_IsOK(ecode3)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextAttrEx_SetLeftIndent" "', expected argument " "3"" of type '" "int""'");
-    } 
-    arg3 = static_cast< int >(val3);
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetLeftIndent(arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetRightIndent(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "indent", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetRightIndent",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetRightIndent" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetRightIndent" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRightIndent(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetFlags(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  long arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "flags", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetFlags",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetFlags" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetFlags" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFlags(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasTextColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasTextColour" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasTextColour();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasBackgroundColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasBackgroundColour" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasBackgroundColour();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasFont" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasFont();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasAlignment(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasAlignment" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasAlignment();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasTabs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasTabs" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasTabs();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasLeftIndent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasLeftIndent" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasLeftIndent();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasRightIndent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasRightIndent" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasRightIndent();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasFlag(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  long arg2 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "flag", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_HasFlag",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasFlag" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_HasFlag" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasFlag(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetTextColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxColour *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetTextColour" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxColour const &_result_ref = ((wxTextAttrEx const *)arg1)->GetTextColour();
-      result = (wxColour *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColour, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetBackgroundColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxColour *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetBackgroundColour" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxColour const &_result_ref = ((wxTextAttrEx const *)arg1)->GetBackgroundColour();
-      result = (wxColour *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColour, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxFont *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetFont" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxFont const &_result_ref = ((wxTextAttrEx const *)arg1)->GetFont();
-      result = (wxFont *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    wxFont* resultptr = new wxFont(*result);
-    resultobj = SWIG_NewPointerObj((void*)(resultptr), SWIGTYPE_p_wxFont, 1);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetAlignment(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxTextAttrAlignment result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetAlignment" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxTextAttrAlignment)((wxTextAttrEx const *)arg1)->GetAlignment();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetTabs(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxArrayInt *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetTabs" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxArrayInt const &_result_ref = ((wxTextAttrEx const *)arg1)->GetTabs();
-      result = (wxArrayInt *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = wxArrayInt2PyList_helper(*result);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetLeftIndent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  long result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetLeftIndent" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxTextAttrEx const *)arg1)->GetLeftIndent();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_long(static_cast< long >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetLeftSubIndent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  long result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetLeftSubIndent" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxTextAttrEx const *)arg1)->GetLeftSubIndent();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_long(static_cast< long >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetRightIndent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  long result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetRightIndent" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxTextAttrEx const *)arg1)->GetRightIndent();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_long(static_cast< long >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetFlags(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  long result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetFlags" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxTextAttrEx const *)arg1)->GetFlags();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_long(static_cast< long >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetCharacterStyleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "name", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetCharacterStyleName",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetCharacterStyleName" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCharacterStyleName((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetParagraphStyleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "name", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetParagraphStyleName",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetParagraphStyleName" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetParagraphStyleName((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetListStyleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "name", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetListStyleName",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetListStyleName" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetListStyleName((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetParagraphSpacingAfter(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "spacing", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetParagraphSpacingAfter",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetParagraphSpacingAfter" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetParagraphSpacingAfter" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetParagraphSpacingAfter(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetParagraphSpacingBefore(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "spacing", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetParagraphSpacingBefore",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetParagraphSpacingBefore" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetParagraphSpacingBefore" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetParagraphSpacingBefore(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetLineSpacing(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "spacing", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetLineSpacing",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetLineSpacing" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetLineSpacing" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetLineSpacing(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetBulletStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "style", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetBulletStyle",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetBulletStyle" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetBulletStyle" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBulletStyle(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetBulletNumber(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "n", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetBulletNumber",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetBulletNumber" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetBulletNumber" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBulletNumber(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetBulletText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "text", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetBulletText",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetBulletText" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBulletText((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetBulletName(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "name", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetBulletName",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetBulletName" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBulletName((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetBulletFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "bulletFont", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetBulletFont",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetBulletFont" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBulletFont((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetURL(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "url", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetURL",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetURL" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetURL((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetPageBreak(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool arg2 = (bool) true ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "pageBreak", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:TextAttrEx_SetPageBreak",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetPageBreak" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  if (obj1) {
-    ecode2 = SWIG_AsVal_bool(obj1, &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetPageBreak" "', expected argument " "2"" of type '" "bool""'");
-    } 
-    arg2 = static_cast< bool >(val2);
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPageBreak(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetTextEffects(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "effects", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetTextEffects",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetTextEffects" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetTextEffects" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTextEffects(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetTextEffectFlags(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "effects", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetTextEffectFlags",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetTextEffectFlags" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetTextEffectFlags" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTextEffectFlags(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_SetOutlineLevel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "level", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_SetOutlineLevel",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_SetOutlineLevel" "', expected argument " "1"" of type '" "wxTextAttrEx *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_SetOutlineLevel" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetOutlineLevel(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetCharacterStyleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetCharacterStyleName" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxString const &_result_ref = ((wxTextAttrEx const *)arg1)->GetCharacterStyleName();
-      result = (wxString *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
-#else
-    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
-#endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetParagraphStyleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetParagraphStyleName" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxString const &_result_ref = ((wxTextAttrEx const *)arg1)->GetParagraphStyleName();
-      result = (wxString *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
-#else
-    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
-#endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetListStyleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetListStyleName" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxString const &_result_ref = ((wxTextAttrEx const *)arg1)->GetListStyleName();
-      result = (wxString *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
-#else
-    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
-#endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetParagraphSpacingAfter(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetParagraphSpacingAfter" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxTextAttrEx const *)arg1)->GetParagraphSpacingAfter();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetParagraphSpacingBefore(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetParagraphSpacingBefore" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxTextAttrEx const *)arg1)->GetParagraphSpacingBefore();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetLineSpacing(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetLineSpacing" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxTextAttrEx const *)arg1)->GetLineSpacing();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetBulletStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetBulletStyle" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxTextAttrEx const *)arg1)->GetBulletStyle();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetBulletNumber(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetBulletNumber" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxTextAttrEx const *)arg1)->GetBulletNumber();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetBulletText(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetBulletText" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxString const &_result_ref = ((wxTextAttrEx const *)arg1)->GetBulletText();
-      result = (wxString *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
-#else
-    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
-#endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetBulletName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetBulletName" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxString const &_result_ref = ((wxTextAttrEx const *)arg1)->GetBulletName();
-      result = (wxString *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
-#else
-    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
-#endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetBulletFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetBulletFont" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxString const &_result_ref = ((wxTextAttrEx const *)arg1)->GetBulletFont();
-      result = (wxString *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
-#else
-    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
-#endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetURL(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  wxString *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetURL" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxString const &_result_ref = ((wxTextAttrEx const *)arg1)->GetURL();
-      result = (wxString *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
-#else
-    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
-#endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetTextEffects(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetTextEffects" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxTextAttrEx const *)arg1)->GetTextEffects();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetTextEffectFlags(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetTextEffectFlags" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxTextAttrEx const *)arg1)->GetTextEffectFlags();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_GetOutlineLevel(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_GetOutlineLevel" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxTextAttrEx const *)arg1)->GetOutlineLevel();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasFontWeight(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasFontWeight" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasFontWeight();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasFontSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasFontSize" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasFontSize();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasFontItalic(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasFontItalic" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasFontItalic();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasFontUnderlined(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasFontUnderlined" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasFontUnderlined();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasFontFaceName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasFontFaceName" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasFontFaceName();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasParagraphSpacingAfter(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasParagraphSpacingAfter" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasParagraphSpacingAfter();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasParagraphSpacingBefore(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasParagraphSpacingBefore" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasParagraphSpacingBefore();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasLineSpacing(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasLineSpacing" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasLineSpacing();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasCharacterStyleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasCharacterStyleName" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasCharacterStyleName();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasParagraphStyleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasParagraphStyleName" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasParagraphStyleName();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasListStyleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasListStyleName" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasListStyleName();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasBulletStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasBulletStyle" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasBulletStyle();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasBulletNumber(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasBulletNumber" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasBulletNumber();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasBulletText(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasBulletText" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasBulletText();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasBulletName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasBulletName" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasBulletName();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasURL(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasURL" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasURL();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasPageBreak(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasPageBreak" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasPageBreak();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasTextEffects(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasTextEffects" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasTextEffects();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasTextEffect(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  int arg2 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "effect", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrEx_HasTextEffect",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasTextEffect" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrEx_HasTextEffect" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasTextEffect(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_HasOutlineLevel(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_HasOutlineLevel" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->HasOutlineLevel();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_IsCharacterStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_IsCharacterStyle" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->IsCharacterStyle();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_IsParagraphStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_IsParagraphStyle" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->IsParagraphStyle();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_IsDefault(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = (wxTextAttrEx *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_IsDefault" "', expected argument " "1"" of type '" "wxTextAttrEx const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrEx const *)arg1)->IsDefault();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrEx_CombineEx(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrEx *arg1 = 0 ;
-  wxTextAttrEx *arg2 = 0 ;
-  wxRichTextCtrl *arg3 = (wxRichTextCtrl *) 0 ;
-  wxTextAttrEx result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "attr",(char *) "attrDef",(char *) "text", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:TextAttrEx_CombineEx",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrEx_CombineEx" "', expected argument " "1"" of type '" "wxTextAttrEx const &""'"); 
-  }
-  if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "TextAttrEx_CombineEx" "', expected argument " "1"" of type '" "wxTextAttrEx const &""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrEx * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TextAttrEx_CombineEx" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "TextAttrEx_CombineEx" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
-  }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "TextAttrEx_CombineEx" "', expected argument " "3"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg3 = reinterpret_cast< wxRichTextCtrl * >(argp3);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = wxTextAttrEx::CombineEx((wxTextAttrEx const &)*arg1,(wxTextAttrEx const &)*arg2,(wxRichTextCtrl const *)arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxTextAttrEx(static_cast< const wxTextAttrEx& >(result))), SWIGTYPE_p_wxTextAttrEx, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *TextAttrEx_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_wxTextAttrEx, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *TextAttrEx_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  return SWIG_Python_InitShadowInstance(args);
-}
 
 SWIGINTERN PyObject *_wrap_delete_RichTextObject(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
@@ -7960,7 +5271,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextObject_SetAttributes(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextObject *arg1 = (wxRichTextObject *) 0 ;
-  wxTextAttrEx *arg2 = 0 ;
+  wxTextAttr *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -7977,17 +5288,17 @@ SWIGINTERN PyObject *_wrap_RichTextObject_SetAttributes(PyObject *SWIGUNUSEDPARM
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_SetAttributes" "', expected argument " "1"" of type '" "wxRichTextObject *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextObject * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_SetAttributes" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_SetAttributes" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_SetAttributes" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_SetAttributes" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
+  arg2 = reinterpret_cast< wxTextAttr * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAttributes((wxTextAttrEx const &)*arg2);
+    (arg1)->SetAttributes((wxTextAttr const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8001,7 +5312,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextObject_GetAttributes(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxRichTextObject *arg1 = (wxRichTextObject *) 0 ;
-  wxTextAttrEx result;
+  wxTextAttr result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8019,7 +5330,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetAttributes(PyObject *SWIGUNUSEDPARM
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxTextAttrEx(static_cast< const wxTextAttrEx& >(result))), SWIGTYPE_p_wxTextAttrEx, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_NewPointerObj((new wxTextAttr(static_cast< const wxTextAttr& >(result))), SWIGTYPE_p_wxTextAttr, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -9335,7 +6646,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_AddParagraph(PyObject *SWI
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   wxString *arg2 = 0 ;
-  wxTextAttrEx *arg3 = (wxTextAttrEx *) NULL ;
+  wxTextAttr *arg3 = (wxTextAttr *) NULL ;
   wxRichTextRange result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9361,11 +6672,11 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_AddParagraph(PyObject *SWI
     temp2 = true;
   }
   if (obj2) {
-    res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+    res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxTextAttr, 0 |  0 );
     if (!SWIG_IsOK(res3)) {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_AddParagraph" "', expected argument " "3"" of type '" "wxTextAttrEx *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_AddParagraph" "', expected argument " "3"" of type '" "wxTextAttr *""'"); 
     }
-    arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+    arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -9392,7 +6703,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_AddImage(PyObject *SWIGUNU
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   wxImage *arg2 = 0 ;
-  wxTextAttrEx *arg3 = (wxTextAttrEx *) NULL ;
+  wxTextAttr *arg3 = (wxTextAttr *) NULL ;
   wxRichTextRange result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9422,11 +6733,11 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_AddImage(PyObject *SWIGUNU
   }
   arg2 = reinterpret_cast< wxImage * >(argp2);
   if (obj2) {
-    res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+    res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxTextAttr, 0 |  0 );
     if (!SWIG_IsOK(res3)) {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_AddImage" "', expected argument " "3"" of type '" "wxTextAttrEx *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_AddImage" "', expected argument " "3"" of type '" "wxTextAttr *""'"); 
     }
-    arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+    arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -9445,7 +6756,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_AddParagraphs(PyObject *SW
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   wxString *arg2 = 0 ;
-  wxTextAttrEx *arg3 = (wxTextAttrEx *) NULL ;
+  wxTextAttr *arg3 = (wxTextAttr *) NULL ;
   wxRichTextRange result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9471,11 +6782,11 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_AddParagraphs(PyObject *SW
     temp2 = true;
   }
   if (obj2) {
-    res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+    res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxTextAttr, 0 |  0 );
     if (!SWIG_IsOK(res3)) {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_AddParagraphs" "', expected argument " "3"" of type '" "wxTextAttrEx *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_AddParagraphs" "', expected argument " "3"" of type '" "wxTextAttr *""'"); 
     }
-    arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+    arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -10155,7 +7466,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetStyle(PyObject *SWIGUNU
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   wxRichTextRange *arg2 = 0 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   int arg4 = (int) wxRICHTEXT_SETSTYLE_WITH_UNDO ;
   bool result;
   void *argp1 = 0 ;
@@ -10183,14 +7494,14 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetStyle(PyObject *SWIGUNU
     arg2 = &temp2;
     if ( ! wxRichTextRange_helper(obj1, &arg2)) SWIG_fail;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_SetStyle" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_SetStyle" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_SetStyle" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_SetStyle" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   if (obj3) {
     ecode4 = SWIG_AsVal_int(obj3, &val4);
     if (!SWIG_IsOK(ecode4)) {
@@ -10200,7 +7511,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetStyle(PyObject *SWIGUNU
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetStyle((wxRichTextRange const &)*arg2,(wxTextAttrEx const &)*arg3,arg4);
+    result = (bool)(arg1)->SetStyle((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3,arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10217,7 +7528,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetStyle(PyObject *SWIGUNU
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   long arg2 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -10243,14 +7554,14 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetStyle(PyObject *SWIGUNU
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextParagraphLayoutBox_GetStyle" "', expected argument " "2"" of type '" "long""'");
   } 
   arg2 = static_cast< long >(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0 );
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_GetStyle" "', expected argument " "3"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_GetStyle" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_GetStyle" "', expected argument " "3"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_GetStyle" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->GetStyle(arg2,*arg3);
@@ -10270,7 +7581,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetUncombinedStyle(PyObjec
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   long arg2 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -10296,14 +7607,14 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetUncombinedStyle(PyObjec
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextParagraphLayoutBox_GetUncombinedStyle" "', expected argument " "2"" of type '" "long""'");
   } 
   arg2 = static_cast< long >(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0 );
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_GetUncombinedStyle" "', expected argument " "3"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_GetUncombinedStyle" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_GetUncombinedStyle" "', expected argument " "3"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_GetUncombinedStyle" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->GetUncombinedStyle(arg2,*arg3);
@@ -10323,7 +7634,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetStyleForRange(PyObject 
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   wxRichTextRange *arg2 = 0 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -10347,14 +7658,14 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetStyleForRange(PyObject 
     arg2 = &temp2;
     if ( ! wxRichTextRange_helper(obj1, &arg2)) SWIG_fail;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0 );
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_GetStyleForRange" "', expected argument " "3"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_GetStyleForRange" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_GetStyleForRange" "', expected argument " "3"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_GetStyleForRange" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->GetStyleForRange((wxRichTextRange const &)*arg2,*arg3);
@@ -10373,8 +7684,8 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_CollectStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
-  wxTextAttrEx *arg2 = 0 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg2 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   long *arg4 = 0 ;
   int *arg5 = 0 ;
   bool result;
@@ -10403,22 +7714,22 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_CollectStyle(PyObject *SWI
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextParagraphLayoutBox_CollectStyle" "', expected argument " "1"" of type '" "wxRichTextParagraphLayoutBox *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextParagraphLayoutBox * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0 );
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttr,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraphLayoutBox_CollectStyle" "', expected argument " "2"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraphLayoutBox_CollectStyle" "', expected argument " "2"" of type '" "wxTextAttr &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_CollectStyle" "', expected argument " "2"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_CollectStyle" "', expected argument " "2"" of type '" "wxTextAttr &""'"); 
   }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  arg2 = reinterpret_cast< wxTextAttr * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_CollectStyle" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_CollectStyle" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_CollectStyle" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_CollectStyle" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_long,  0 );
   if (!SWIG_IsOK(res4)) {
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextParagraphLayoutBox_CollectStyle" "', expected argument " "4"" of type '" "long &""'"); 
@@ -10437,7 +7748,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_CollectStyle(PyObject *SWI
   arg5 = reinterpret_cast< int * >(argp5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CollectStyle(*arg2,(wxTextAttrEx const &)*arg3,*arg4,*arg5);
+    result = (bool)(arg1)->CollectStyle(*arg2,(wxTextAttr const &)*arg3,*arg4,*arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10863,7 +8174,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_FindNextParagraphNumber(Py
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   wxRichTextParagraph *arg2 = (wxRichTextParagraph *) 0 ;
-  wxRichTextAttr *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -10889,17 +8200,17 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_FindNextParagraphNumber(Py
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraphLayoutBox_FindNextParagraphNumber" "', expected argument " "2"" of type '" "wxRichTextParagraph *""'"); 
   }
   arg2 = reinterpret_cast< wxRichTextParagraph * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxRichTextAttr,  0 );
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_FindNextParagraphNumber" "', expected argument " "3"" of type '" "wxRichTextAttr &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_FindNextParagraphNumber" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_FindNextParagraphNumber" "', expected argument " "3"" of type '" "wxRichTextAttr &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_FindNextParagraphNumber" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
-  arg3 = reinterpret_cast< wxRichTextAttr * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextParagraphLayoutBox const *)arg1)->FindNextParagraphNumber(arg2,*arg3);
+    result = (bool)wxRichTextParagraphLayoutBox_FindNextParagraphNumber((wxRichTextParagraphLayoutBox const *)arg1,arg2,*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10916,7 +8227,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_HasCharacterAttributes(PyO
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   wxRichTextRange *arg2 = 0 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -10940,17 +8251,17 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_HasCharacterAttributes(PyO
     arg2 = &temp2;
     if ( ! wxRichTextRange_helper(obj1, &arg2)) SWIG_fail;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_HasCharacterAttributes" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_HasCharacterAttributes" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_HasCharacterAttributes" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_HasCharacterAttributes" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextParagraphLayoutBox const *)arg1)->HasCharacterAttributes((wxRichTextRange const &)*arg2,(wxTextAttrEx const &)*arg3);
+    result = (bool)((wxRichTextParagraphLayoutBox const *)arg1)->HasCharacterAttributes((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10967,7 +8278,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_HasParagraphAttributes(PyO
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   wxRichTextRange *arg2 = 0 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -10991,17 +8302,17 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_HasParagraphAttributes(PyO
     arg2 = &temp2;
     if ( ! wxRichTextRange_helper(obj1, &arg2)) SWIG_fail;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_HasParagraphAttributes" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_HasParagraphAttributes" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_HasParagraphAttributes" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_HasParagraphAttributes" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextParagraphLayoutBox const *)arg1)->HasParagraphAttributes((wxRichTextRange const &)*arg2,(wxTextAttrEx const &)*arg3);
+    result = (bool)((wxRichTextParagraphLayoutBox const *)arg1)->HasParagraphAttributes((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11264,7 +8575,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetDefaultStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
-  wxTextAttrEx *arg2 = 0 ;
+  wxTextAttr *arg2 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -11282,17 +8593,17 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetDefaultStyle(PyObject *
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextParagraphLayoutBox_SetDefaultStyle" "', expected argument " "1"" of type '" "wxRichTextParagraphLayoutBox *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextParagraphLayoutBox * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraphLayoutBox_SetDefaultStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraphLayoutBox_SetDefaultStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_SetDefaultStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_SetDefaultStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
+  arg2 = reinterpret_cast< wxTextAttr * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetDefaultStyle((wxTextAttrEx const &)*arg2);
+    result = (bool)(arg1)->SetDefaultStyle((wxTextAttr const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11308,7 +8619,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetDefaultStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
-  wxTextAttrEx *result = 0 ;
+  wxTextAttr *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -11323,13 +8634,13 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetDefaultStyle(PyObject *
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     {
-      wxTextAttrEx const &_result_ref = ((wxRichTextParagraphLayoutBox const *)arg1)->GetDefaultStyle();
-      result = (wxTextAttrEx *) &_result_ref;
+      wxTextAttr const &_result_ref = ((wxRichTextParagraphLayoutBox const *)arg1)->GetDefaultStyle();
+      result = (wxTextAttr *) &_result_ref;
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttr, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -11339,7 +8650,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetBasicStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
-  wxTextAttrEx *arg2 = 0 ;
+  wxTextAttr *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -11356,17 +8667,17 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetBasicStyle(PyObject *SW
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextParagraphLayoutBox_SetBasicStyle" "', expected argument " "1"" of type '" "wxRichTextParagraphLayoutBox *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextParagraphLayoutBox * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraphLayoutBox_SetBasicStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraphLayoutBox_SetBasicStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_SetBasicStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_SetBasicStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
+  arg2 = reinterpret_cast< wxTextAttr * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBasicStyle((wxTextAttrEx const &)*arg2);
+    (arg1)->SetBasicStyle((wxTextAttr const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11380,7 +8691,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetBasicStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
-  wxTextAttrEx *result = 0 ;
+  wxTextAttr *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -11395,13 +8706,13 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetBasicStyle(PyObject *SW
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     {
-      wxTextAttrEx const &_result_ref = ((wxRichTextParagraphLayoutBox const *)arg1)->GetBasicStyle();
-      result = (wxTextAttrEx *) &_result_ref;
+      wxTextAttr const &_result_ref = ((wxRichTextParagraphLayoutBox const *)arg1)->GetBasicStyle();
+      result = (wxTextAttr *) &_result_ref;
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttr, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -12049,8 +9360,8 @@ SWIGINTERN PyObject *_wrap_new_RichTextParagraph(PyObject *SWIGUNUSEDPARM(self),
   PyObject *resultobj = 0;
   wxString *arg1 = 0 ;
   wxRichTextObject *arg2 = (wxRichTextObject *) NULL ;
-  wxTextAttrEx *arg3 = (wxTextAttrEx *) NULL ;
-  wxTextAttrEx *arg4 = (wxTextAttrEx *) NULL ;
+  wxTextAttr *arg3 = (wxTextAttr *) NULL ;
+  wxTextAttr *arg4 = (wxTextAttr *) NULL ;
   wxRichTextParagraph *result = 0 ;
   bool temp1 = false ;
   void *argp2 = 0 ;
@@ -12081,18 +9392,18 @@ SWIGINTERN PyObject *_wrap_new_RichTextParagraph(PyObject *SWIGUNUSEDPARM(self),
     arg2 = reinterpret_cast< wxRichTextObject * >(argp2);
   }
   if (obj2) {
-    res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+    res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxTextAttr, 0 |  0 );
     if (!SWIG_IsOK(res3)) {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_RichTextParagraph" "', expected argument " "3"" of type '" "wxTextAttrEx *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_RichTextParagraph" "', expected argument " "3"" of type '" "wxTextAttr *""'"); 
     }
-    arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+    arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   }
   if (obj3) {
-    res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+    res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_wxTextAttr, 0 |  0 );
     if (!SWIG_IsOK(res4)) {
-      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_RichTextParagraph" "', expected argument " "4"" of type '" "wxTextAttrEx *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_RichTextParagraph" "', expected argument " "4"" of type '" "wxTextAttr *""'"); 
     }
-    arg4 = reinterpret_cast< wxTextAttrEx * >(argp4);
+    arg4 = reinterpret_cast< wxTextAttr * >(argp4);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -12245,7 +9556,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextParagraph_ApplyParagraphStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextParagraph *arg1 = (wxRichTextParagraph *) 0 ;
-  wxTextAttrEx *arg2 = 0 ;
+  wxTextAttr *arg2 = 0 ;
   wxRect *arg3 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -12265,21 +9576,21 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_ApplyParagraphStyle(PyObject *SWIGU
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "1"" of type '" "wxRichTextParagraph *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextParagraph * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
+  arg2 = reinterpret_cast< wxTextAttr * >(argp2);
   {
     arg3 = &temp3;
     if ( ! wxRect_helper(obj2, &arg3)) SWIG_fail;
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ApplyParagraphStyle((wxTextAttrEx const &)*arg2,(wxRect const &)*arg3);
+    (arg1)->ApplyParagraphStyle((wxTextAttr const &)*arg2,(wxRect const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12782,8 +10093,8 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextParagraph_GetCombinedAttributes(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextParagraph *arg1 = (wxRichTextParagraph *) 0 ;
-  wxTextAttrEx *arg2 = (wxTextAttrEx *) NULL ;
-  wxTextAttrEx result;
+  wxTextAttr *arg2 = (wxTextAttr *) NULL ;
+  wxTextAttr result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -12801,11 +10112,11 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_GetCombinedAttributes(PyObject *SWI
   }
   arg1 = reinterpret_cast< wxRichTextParagraph * >(argp1);
   if (obj1) {
-    res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+    res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxTextAttr, 0 |  0 );
     if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraph_GetCombinedAttributes" "', expected argument " "2"" of type '" "wxTextAttrEx *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraph_GetCombinedAttributes" "', expected argument " "2"" of type '" "wxTextAttr *""'"); 
     }
-    arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
+    arg2 = reinterpret_cast< wxTextAttr * >(argp2);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -12813,7 +10124,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_GetCombinedAttributes(PyObject *SWI
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxTextAttrEx(static_cast< const wxTextAttrEx& >(result))), SWIGTYPE_p_wxTextAttrEx, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_NewPointerObj((new wxTextAttr(static_cast< const wxTextAttr& >(result))), SWIGTYPE_p_wxTextAttr, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -12932,7 +10243,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextPlainText(PyObject *SWIGUNUSEDPARM(self),
   wxString const &arg1_defvalue = wxEmptyString ;
   wxString *arg1 = (wxString *) &arg1_defvalue ;
   wxRichTextObject *arg2 = (wxRichTextObject *) NULL ;
-  wxTextAttrEx *arg3 = (wxTextAttrEx *) NULL ;
+  wxTextAttr *arg3 = (wxTextAttr *) NULL ;
   wxRichTextPlainText *result = 0 ;
   bool temp1 = false ;
   void *argp2 = 0 ;
@@ -12962,11 +10273,11 @@ SWIGINTERN PyObject *_wrap_new_RichTextPlainText(PyObject *SWIGUNUSEDPARM(self),
     arg2 = reinterpret_cast< wxRichTextObject * >(argp2);
   }
   if (obj2) {
-    res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxTextAttrEx, 0 |  0 );
+    res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxTextAttr, 0 |  0 );
     if (!SWIG_IsOK(res3)) {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_RichTextPlainText" "', expected argument " "3"" of type '" "wxTextAttrEx *""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_RichTextPlainText" "', expected argument " "3"" of type '" "wxTextAttr *""'"); 
     }
-    arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+    arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -13859,6 +11170,78 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_RichTextBuffer_GetFontTable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxRichTextBuffer *arg1 = (wxRichTextBuffer *) 0 ;
+  wxRichTextFontTable *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextBuffer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextBuffer_GetFontTable" "', expected argument " "1"" of type '" "wxRichTextBuffer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxRichTextBuffer * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxRichTextFontTable &_result_ref = (arg1)->GetFontTable();
+      result = (wxRichTextFontTable *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextFontTable, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RichTextBuffer_SetFontTable(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxRichTextBuffer *arg1 = (wxRichTextBuffer *) 0 ;
+  wxRichTextFontTable *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "table", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextBuffer_SetFontTable",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextBuffer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextBuffer_SetFontTable" "', expected argument " "1"" of type '" "wxRichTextBuffer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxRichTextBuffer * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxRichTextFontTable,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextBuffer_SetFontTable" "', expected argument " "2"" of type '" "wxRichTextFontTable const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextBuffer_SetFontTable" "', expected argument " "2"" of type '" "wxRichTextFontTable const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxRichTextFontTable * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetFontTable((wxRichTextFontTable const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_RichTextBuffer_Init(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxRichTextBuffer *arg1 = (wxRichTextBuffer *) 0 ;
@@ -14611,7 +11994,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextBuffer *arg1 = (wxRichTextBuffer *) 0 ;
-  wxTextAttrEx *arg2 = 0 ;
+  wxTextAttr *arg2 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -14629,17 +12012,17 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginStyle(PyObject *SWIGUNUSEDPARM(se
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextBuffer_BeginStyle" "', expected argument " "1"" of type '" "wxRichTextBuffer *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextBuffer * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextBuffer_BeginStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextBuffer_BeginStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextBuffer_BeginStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextBuffer_BeginStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
+  arg2 = reinterpret_cast< wxTextAttr * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->BeginStyle((wxTextAttrEx const &)*arg2);
+    result = (bool)(arg1)->BeginStyle((wxTextAttr const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16827,7 +14210,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetStyleForNewParagraph(PyObject *SWIG
   long arg2 ;
   bool arg3 = (bool) false ;
   bool arg4 = (bool) false ;
-  wxTextAttrEx result;
+  wxTextAttr result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
@@ -16875,7 +14258,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetStyleForNewParagraph(PyObject *SWIG
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxTextAttrEx(static_cast< const wxTextAttrEx& >(result))), SWIGTYPE_p_wxTextAttrEx, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_NewPointerObj((new wxTextAttr(static_cast< const wxTextAttr& >(result))), SWIGTYPE_p_wxTextAttr, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -18440,7 +15823,7 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_DrawStandardBullet(PyObject *SWIGUNU
   wxRichTextRenderer *arg1 = (wxRichTextRenderer *) 0 ;
   wxRichTextParagraph *arg2 = (wxRichTextParagraph *) 0 ;
   wxDC *arg3 = 0 ;
-  wxTextAttrEx *arg4 = 0 ;
+  wxTextAttr *arg4 = 0 ;
   wxRect *arg5 = 0 ;
   bool result;
   void *argp1 = 0 ;
@@ -18480,21 +15863,21 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_DrawStandardBullet(PyObject *SWIGUNU
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextRenderer_DrawStandardBullet" "', expected argument " "3"" of type '" "wxDC &""'"); 
   }
   arg3 = reinterpret_cast< wxDC * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextRenderer_DrawStandardBullet" "', expected argument " "4"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextRenderer_DrawStandardBullet" "', expected argument " "4"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextRenderer_DrawStandardBullet" "', expected argument " "4"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextRenderer_DrawStandardBullet" "', expected argument " "4"" of type '" "wxTextAttr const &""'"); 
   }
-  arg4 = reinterpret_cast< wxTextAttrEx * >(argp4);
+  arg4 = reinterpret_cast< wxTextAttr * >(argp4);
   {
     arg5 = &temp5;
     if ( ! wxRect_helper(obj4, &arg5)) SWIG_fail;
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DrawStandardBullet(arg2,*arg3,(wxTextAttrEx const &)*arg4,(wxRect const &)*arg5);
+    result = (bool)(arg1)->DrawStandardBullet(arg2,*arg3,(wxTextAttr const &)*arg4,(wxRect const &)*arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18512,7 +15895,7 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_DrawTextBullet(PyObject *SWIGUNUSEDP
   wxRichTextRenderer *arg1 = (wxRichTextRenderer *) 0 ;
   wxRichTextParagraph *arg2 = (wxRichTextParagraph *) 0 ;
   wxDC *arg3 = 0 ;
-  wxTextAttrEx *arg4 = 0 ;
+  wxTextAttr *arg4 = 0 ;
   wxRect *arg5 = 0 ;
   wxString *arg6 = 0 ;
   bool result;
@@ -18555,14 +15938,14 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_DrawTextBullet(PyObject *SWIGUNUSEDP
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextRenderer_DrawTextBullet" "', expected argument " "3"" of type '" "wxDC &""'"); 
   }
   arg3 = reinterpret_cast< wxDC * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextRenderer_DrawTextBullet" "', expected argument " "4"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextRenderer_DrawTextBullet" "', expected argument " "4"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextRenderer_DrawTextBullet" "', expected argument " "4"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextRenderer_DrawTextBullet" "', expected argument " "4"" of type '" "wxTextAttr const &""'"); 
   }
-  arg4 = reinterpret_cast< wxTextAttrEx * >(argp4);
+  arg4 = reinterpret_cast< wxTextAttr * >(argp4);
   {
     arg5 = &temp5;
     if ( ! wxRect_helper(obj4, &arg5)) SWIG_fail;
@@ -18574,7 +15957,7 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_DrawTextBullet(PyObject *SWIGUNUSEDP
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DrawTextBullet(arg2,*arg3,(wxTextAttrEx const &)*arg4,(wxRect const &)*arg5,(wxString const &)*arg6);
+    result = (bool)(arg1)->DrawTextBullet(arg2,*arg3,(wxTextAttr const &)*arg4,(wxRect const &)*arg5,(wxString const &)*arg6);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18600,7 +15983,7 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_DrawBitmapBullet(PyObject *SWIGUNUSE
   wxRichTextRenderer *arg1 = (wxRichTextRenderer *) 0 ;
   wxRichTextParagraph *arg2 = (wxRichTextParagraph *) 0 ;
   wxDC *arg3 = 0 ;
-  wxTextAttrEx *arg4 = 0 ;
+  wxTextAttr *arg4 = 0 ;
   wxRect *arg5 = 0 ;
   bool result;
   void *argp1 = 0 ;
@@ -18640,21 +16023,21 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_DrawBitmapBullet(PyObject *SWIGUNUSE
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextRenderer_DrawBitmapBullet" "', expected argument " "3"" of type '" "wxDC &""'"); 
   }
   arg3 = reinterpret_cast< wxDC * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextRenderer_DrawBitmapBullet" "', expected argument " "4"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextRenderer_DrawBitmapBullet" "', expected argument " "4"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextRenderer_DrawBitmapBullet" "', expected argument " "4"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextRenderer_DrawBitmapBullet" "', expected argument " "4"" of type '" "wxTextAttr const &""'"); 
   }
-  arg4 = reinterpret_cast< wxTextAttrEx * >(argp4);
+  arg4 = reinterpret_cast< wxTextAttr * >(argp4);
   {
     arg5 = &temp5;
     if ( ! wxRect_helper(obj4, &arg5)) SWIG_fail;
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DrawBitmapBullet(arg2,*arg3,(wxTextAttrEx const &)*arg4,(wxRect const &)*arg5);
+    result = (bool)(arg1)->DrawBitmapBullet(arg2,*arg3,(wxTextAttr const &)*arg4,(wxRect const &)*arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19096,277 +16479,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_RichTextCtrl_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "value", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_SetValue",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_SetValue" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetValue((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_GetRange(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  long arg3 ;
-  wxString result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  long val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "from",(char *) "to", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:RichTextCtrl_GetRange",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_GetRange" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_GetRange" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  ecode3 = SWIG_AsVal_long(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "RichTextCtrl_GetRange" "', expected argument " "3"" of type '" "long""'");
-  } 
-  arg3 = static_cast< long >(val3);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxRichTextCtrl const *)arg1)->GetRange(arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
-#else
-    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
-#endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_GetLineLength(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "lineNo", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_GetLineLength",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_GetLineLength" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_GetLineLength" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxRichTextCtrl const *)arg1)->GetLineLength(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_GetLineText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  wxString result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "lineNo", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_GetLineText",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_GetLineText" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_GetLineText" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxRichTextCtrl const *)arg1)->GetLineText(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
-#else
-    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
-#endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_GetNumberOfLines(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_GetNumberOfLines" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxRichTextCtrl const *)arg1)->GetNumberOfLines();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_IsModified(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_IsModified" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextCtrl const *)arg1)->IsModified();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_IsEditable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_IsEditable" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextCtrl const *)arg1)->IsEditable();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_RichTextCtrl_IsSingleLine(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
@@ -19420,87 +16532,6 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_IsMultiLine(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_GetSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long *arg2 = (long *) 0 ;
-  long *arg3 = (long *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long temp2 ;
-  int res2 = SWIG_TMPOBJ ;
-  long temp3 ;
-  int res3 = SWIG_TMPOBJ ;
-  PyObject *swig_obj[1] ;
-  
-  arg2 = &temp2;
-  arg3 = &temp3;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_GetSelection" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxRichTextCtrl const *)arg1)->GetSelection(arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  if (SWIG_IsTmpObj(res2)) {
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg2)));
-  } else {
-    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
-  }
-  if (SWIG_IsTmpObj(res3)) {
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg3)));
-  } else {
-    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_GetStringSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  wxString result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_GetStringSelection" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxRichTextCtrl const *)arg1)->GetStringSelection();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
-#else
-    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
-#endif
   }
   return resultobj;
 fail:
@@ -19647,143 +16678,6 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetDelayedLayoutThreshold(PyObject *SWIG
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_From_long(static_cast< long >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_Clear(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_Clear" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Clear();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_Replace(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  long arg3 ;
-  wxString *arg4 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  long val3 ;
-  int ecode3 = 0 ;
-  bool temp4 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "from",(char *) "to",(char *) "value", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:RichTextCtrl_Replace",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_Replace" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_Replace" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  ecode3 = SWIG_AsVal_long(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "RichTextCtrl_Replace" "', expected argument " "3"" of type '" "long""'");
-  } 
-  arg3 = static_cast< long >(val3);
-  {
-    arg4 = wxString_in_helper(obj3);
-    if (arg4 == NULL) SWIG_fail;
-    temp4 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Replace(arg2,arg3,(wxString const &)*arg4);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp4)
-    delete arg4;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp4)
-    delete arg4;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_Remove(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  long arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  long val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "from",(char *) "to", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:RichTextCtrl_Remove",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_Remove" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_Remove" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  ecode3 = SWIG_AsVal_long(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "RichTextCtrl_Remove" "', expected argument " "3"" of type '" "long""'");
-  } 
-  arg3 = static_cast< long >(val3);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Remove(arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -19977,60 +16871,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_RichTextCtrl_MarkDirty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_MarkDirty" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->MarkDirty();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_DiscardEdits(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_DiscardEdits" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DiscardEdits();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_RichTextCtrl_SetMaxLength(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
@@ -20069,101 +16909,11 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_RichTextCtrl_WriteText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "text", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_WriteText",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_WriteText" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->WriteText((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_AppendText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "text", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_AppendText",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_AppendText" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AppendText((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_RichTextCtrl_SetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
   wxRichTextRange *arg2 = 0 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -20187,70 +16937,17 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetStyle(PyObject *SWIGUNUSEDPARM(self),
     arg2 = &temp2;
     if ( ! wxRichTextRange_helper(obj1, &arg2)) SWIG_fail;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_SetStyle" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_SetStyle" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_SetStyle" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_SetStyle" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetStyle((wxRichTextRange const &)*arg2,(wxTextAttrEx const &)*arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_GetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  wxRichTextAttr *arg3 = 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "position",(char *) "style", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:RichTextCtrl_GetStyle",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_GetStyle" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_GetStyle" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxRichTextAttr,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_GetStyle" "', expected argument " "3"" of type '" "wxRichTextAttr &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_GetStyle" "', expected argument " "3"" of type '" "wxRichTextAttr &""'"); 
-  }
-  arg3 = reinterpret_cast< wxRichTextAttr * >(argp3);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetStyle(arg2,*arg3);
+    result = (bool)(arg1)->SetStyle((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20267,7 +16964,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetStyleForRange(PyObject *SWIGUNUSEDPAR
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
   wxRichTextRange *arg2 = 0 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -20291,14 +16988,14 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetStyleForRange(PyObject *SWIGUNUSEDPAR
     arg2 = &temp2;
     if ( ! wxRichTextRange_helper(obj1, &arg2)) SWIG_fail;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0 );
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_GetStyleForRange" "', expected argument " "3"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_GetStyleForRange" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_GetStyleForRange" "', expected argument " "3"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_GetStyleForRange" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->GetStyleForRange((wxRichTextRange const &)*arg2,*arg3);
@@ -20318,7 +17015,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetStyleEx(PyObject *SWIGUNUSEDPARM(self
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
   wxRichTextRange *arg2 = 0 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   int arg4 = (int) wxRICHTEXT_SETSTYLE_WITH_UNDO ;
   bool result;
   void *argp1 = 0 ;
@@ -20346,14 +17043,14 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetStyleEx(PyObject *SWIGUNUSEDPARM(self
     arg2 = &temp2;
     if ( ! wxRichTextRange_helper(obj1, &arg2)) SWIG_fail;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_SetStyleEx" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_SetStyleEx" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_SetStyleEx" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_SetStyleEx" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   if (obj3) {
     ecode4 = SWIG_AsVal_int(obj3, &val4);
     if (!SWIG_IsOK(ecode4)) {
@@ -20363,7 +17060,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetStyleEx(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetStyleEx((wxRichTextRange const &)*arg2,(wxTextAttrEx const &)*arg3,arg4);
+    result = (bool)(arg1)->SetStyleEx((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3,arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20380,7 +17077,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetUncombinedStyle(PyObject *SWIGUNUSEDP
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
   long arg2 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -20406,14 +17103,14 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetUncombinedStyle(PyObject *SWIGUNUSEDP
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_GetUncombinedStyle" "', expected argument " "2"" of type '" "long""'");
   } 
   arg2 = static_cast< long >(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0 );
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_GetUncombinedStyle" "', expected argument " "3"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_GetUncombinedStyle" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_GetUncombinedStyle" "', expected argument " "3"" of type '" "wxTextAttrEx &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_GetUncombinedStyle" "', expected argument " "3"" of type '" "wxTextAttr &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->GetUncombinedStyle(arg2,*arg3);
@@ -20429,54 +17126,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_RichTextCtrl_SetDefaultStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  wxTextAttrEx *arg2 = 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "style", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_SetDefaultStyle",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_SetDefaultStyle" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextCtrl_SetDefaultStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_SetDefaultStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
-  }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetDefaultStyle((wxTextAttrEx const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_RichTextCtrl_GetDefaultStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  wxTextAttrEx result;
+  wxTextAttr result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -20494,7 +17147,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetDefaultStyle(PyObject *SWIGUNUSEDPARM
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxTextAttrEx(static_cast< const wxTextAttrEx& >(result))), SWIGTYPE_p_wxTextAttrEx, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_NewPointerObj((new wxTextAttr(static_cast< const wxTextAttr& >(result))), SWIGTYPE_p_wxTextAttr, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -20852,197 +17505,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_RichTextCtrl_XYToPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  long arg3 ;
-  long result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  long val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "x",(char *) "y", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:RichTextCtrl_XYToPosition",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_XYToPosition" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_XYToPosition" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  ecode3 = SWIG_AsVal_long(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "RichTextCtrl_XYToPosition" "', expected argument " "3"" of type '" "long""'");
-  } 
-  arg3 = static_cast< long >(val3);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxRichTextCtrl const *)arg1)->XYToPosition(arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_long(static_cast< long >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_PositionToXY(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  long *arg3 = (long *) 0 ;
-  long *arg4 = (long *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  long temp3 ;
-  int res3 = SWIG_TMPOBJ ;
-  long temp4 ;
-  int res4 = SWIG_TMPOBJ ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "pos", NULL 
-  };
-  
-  arg3 = &temp3;
-  arg4 = &temp4;
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_PositionToXY",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_PositionToXY" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_PositionToXY" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxRichTextCtrl const *)arg1)->PositionToXY(arg2,arg3,arg4);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  if (SWIG_IsTmpObj(res3)) {
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg3)));
-  } else {
-    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
-  }
-  if (SWIG_IsTmpObj(res4)) {
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg4)));
-  } else {
-    int new_flags = SWIG_IsNewObj(res4) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg4), SWIGTYPE_p_long, new_flags));
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_ShowPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "position", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_ShowPosition",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_ShowPosition" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_ShowPosition" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ShowPosition(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_HitTest(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  wxPoint *arg2 = 0 ;
-  long *arg3 = (long *) 0 ;
-  wxTextCtrlHitTestResult result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  wxPoint temp2 ;
-  long temp3 ;
-  int res3 = SWIG_TMPOBJ ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "pt", NULL 
-  };
-  
-  arg3 = &temp3;
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_HitTest",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_HitTest" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    arg2 = &temp2;
-    if ( ! wxPoint_helper(obj1, &arg2)) SWIG_fail;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxRichTextCtrl const *)arg1)->HitTest((wxPoint const &)*arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxTextCtrlHitTestResult(static_cast< const wxTextCtrlHitTestResult& >(result))), SWIGTYPE_p_wxTextCtrlHitTestResult, SWIG_POINTER_OWN |  0 );
-  if (SWIG_IsTmpObj(res3)) {
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg3)));
-  } else {
-    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_RichTextCtrl_HitTestXY(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
@@ -21098,87 +17560,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_RichTextCtrl_Copy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_Copy" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Copy();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_Cut(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_Cut" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Cut();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_Paste(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_Paste" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Paste();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_RichTextCtrl_DeleteSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
@@ -21200,96 +17581,6 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_DeleteSelection(PyObject *SWIGUNUSEDPARM
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_CanCopy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_CanCopy" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextCtrl const *)arg1)->CanCopy();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_CanCut(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_CanCut" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextCtrl const *)arg1)->CanCut();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_CanPaste(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_CanPaste" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextCtrl const *)arg1)->CanPaste();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -21320,353 +17611,6 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_CanDeleteSelection(PyObject *SWIGUNUSEDP
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_Undo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_Undo" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Undo();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_Redo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_Redo" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Redo();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_CanUndo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_CanUndo" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextCtrl const *)arg1)->CanUndo();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_CanRedo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_CanRedo" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextCtrl const *)arg1)->CanRedo();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_SetInsertionPoint(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "pos", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_SetInsertionPoint",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_SetInsertionPoint" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_SetInsertionPoint" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetInsertionPoint(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_SetInsertionPointEnd(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_SetInsertionPointEnd" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetInsertionPointEnd();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_GetInsertionPoint(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_GetInsertionPoint" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxRichTextCtrl const *)arg1)->GetInsertionPoint();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_long(static_cast< long >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_GetLastPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_GetLastPosition" "', expected argument " "1"" of type '" "wxRichTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxRichTextCtrl const *)arg1)->GetLastPosition();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_long(static_cast< long >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_SetSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  long arg2 ;
-  long arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  long val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "from",(char *) "to", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:RichTextCtrl_SetSelection",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_SetSelection" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_SetSelection" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  ecode3 = SWIG_AsVal_long(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "RichTextCtrl_SetSelection" "', expected argument " "3"" of type '" "long""'");
-  } 
-  arg3 = static_cast< long >(val3);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelection(arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_SelectAll(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_SelectAll" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SelectAll();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextCtrl_SetEditable(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "editable", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextCtrl_SetEditable",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_SetEditable" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextCtrl_SetEditable" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetEditable(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -21977,7 +17921,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextCtrl_SetBasicStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  wxTextAttrEx *arg2 = 0 ;
+  wxTextAttr *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -21994,17 +17938,17 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetBasicStyle(PyObject *SWIGUNUSEDPARM(s
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_SetBasicStyle" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextCtrl_SetBasicStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextCtrl_SetBasicStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_SetBasicStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_SetBasicStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
+  arg2 = reinterpret_cast< wxTextAttr * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBasicStyle((wxTextAttrEx const &)*arg2);
+    (arg1)->SetBasicStyle((wxTextAttr const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22018,7 +17962,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextCtrl_GetBasicStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  wxTextAttrEx result;
+  wxTextAttr result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -22036,7 +17980,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetBasicStyle(PyObject *SWIGUNUSEDPARM(s
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxTextAttrEx(static_cast< const wxTextAttrEx& >(result))), SWIGTYPE_p_wxTextAttrEx, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_NewPointerObj((new wxTextAttr(static_cast< const wxTextAttr& >(result))), SWIGTYPE_p_wxTextAttr, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -22046,7 +17990,7 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
-  wxTextAttrEx *arg2 = 0 ;
+  wxTextAttr *arg2 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -22064,17 +18008,17 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginStyle(PyObject *SWIGUNUSEDPARM(self
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextCtrl_BeginStyle" "', expected argument " "1"" of type '" "wxRichTextCtrl *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextCtrl * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextCtrl_BeginStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextCtrl_BeginStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_BeginStyle" "', expected argument " "2"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_BeginStyle" "', expected argument " "2"" of type '" "wxTextAttr const &""'"); 
   }
-  arg2 = reinterpret_cast< wxTextAttrEx * >(argp2);
+  arg2 = reinterpret_cast< wxTextAttr * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->BeginStyle((wxTextAttrEx const &)*arg2);
+    result = (bool)(arg1)->BeginStyle((wxTextAttr const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24918,7 +20862,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_HasCharacterAttributes(PyObject *SWIGUNU
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
   wxRichTextRange *arg2 = 0 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -24942,17 +20886,17 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_HasCharacterAttributes(PyObject *SWIGUNU
     arg2 = &temp2;
     if ( ! wxRichTextRange_helper(obj1, &arg2)) SWIG_fail;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_HasCharacterAttributes" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_HasCharacterAttributes" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_HasCharacterAttributes" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_HasCharacterAttributes" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextCtrl const *)arg1)->HasCharacterAttributes((wxRichTextRange const &)*arg2,(wxTextAttrEx const &)*arg3);
+    result = (bool)((wxRichTextCtrl const *)arg1)->HasCharacterAttributes((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24969,7 +20913,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_HasParagraphAttributes(PyObject *SWIGUNU
   PyObject *resultobj = 0;
   wxRichTextCtrl *arg1 = (wxRichTextCtrl *) 0 ;
   wxRichTextRange *arg2 = 0 ;
-  wxTextAttrEx *arg3 = 0 ;
+  wxTextAttr *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -24993,17 +20937,17 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_HasParagraphAttributes(PyObject *SWIGUNU
     arg2 = &temp2;
     if ( ! wxRichTextRange_helper(obj1, &arg2)) SWIG_fail;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrEx,  0  | 0);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttr,  0  | 0);
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_HasParagraphAttributes" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextCtrl_HasParagraphAttributes" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_HasParagraphAttributes" "', expected argument " "3"" of type '" "wxTextAttrEx const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextCtrl_HasParagraphAttributes" "', expected argument " "3"" of type '" "wxTextAttr const &""'"); 
   }
-  arg3 = reinterpret_cast< wxTextAttrEx * >(argp3);
+  arg3 = reinterpret_cast< wxTextAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextCtrl const *)arg1)->HasParagraphAttributes((wxRichTextRange const &)*arg2,(wxTextAttrEx const &)*arg3);
+    result = (bool)((wxRichTextCtrl const *)arg1)->HasParagraphAttributes((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26554,6 +22498,13 @@ SWIGINTERN PyObject *RichTextXMLHandler_swiginit(PyObject *SWIGUNUSEDPARM(self),
 }
 
 static PyMethodDef SwigMethods[] = {
+	 { (char *)"new_RichTextFontTable", (PyCFunction)_wrap_new_RichTextFontTable, METH_NOARGS, NULL},
+	 { (char *)"delete_RichTextFontTable", (PyCFunction)_wrap_delete_RichTextFontTable, METH_O, NULL},
+	 { (char *)"RichTextFontTable_IsOk", (PyCFunction)_wrap_RichTextFontTable_IsOk, METH_O, NULL},
+	 { (char *)"RichTextFontTable_FindFont", (PyCFunction) _wrap_RichTextFontTable_FindFont, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"RichTextFontTable_Clear", (PyCFunction)_wrap_RichTextFontTable_Clear, METH_O, NULL},
+	 { (char *)"RichTextFontTable_swigregister", RichTextFontTable_swigregister, METH_VARARGS, NULL},
+	 { (char *)"RichTextFontTable_swiginit", RichTextFontTable_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_RichTextRange", (PyCFunction) _wrap_new_RichTextRange, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"delete_RichTextRange", (PyCFunction)_wrap_delete_RichTextRange, METH_O, NULL},
 	 { (char *)"RichTextRange___eq__", (PyCFunction) _wrap_RichTextRange___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -26575,91 +22526,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RichTextRange_Get", (PyCFunction)_wrap_RichTextRange_Get, METH_O, NULL},
 	 { (char *)"RichTextRange_swigregister", RichTextRange_swigregister, METH_VARARGS, NULL},
 	 { (char *)"RichTextRange_swiginit", RichTextRange_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_TextAttrEx", (PyCFunction)_wrap_new_TextAttrEx, METH_NOARGS, NULL},
-	 { (char *)"TextAttrEx_Init", (PyCFunction)_wrap_TextAttrEx_Init, METH_O, NULL},
-	 { (char *)"TextAttrEx_Copy", (PyCFunction) _wrap_TextAttrEx_Copy, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetTextColour", (PyCFunction) _wrap_TextAttrEx_SetTextColour, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetBackgroundColour", (PyCFunction) _wrap_TextAttrEx_SetBackgroundColour, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetFont", (PyCFunction) _wrap_TextAttrEx_SetFont, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetAlignment", (PyCFunction) _wrap_TextAttrEx_SetAlignment, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetTabs", (PyCFunction) _wrap_TextAttrEx_SetTabs, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetLeftIndent", (PyCFunction) _wrap_TextAttrEx_SetLeftIndent, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetRightIndent", (PyCFunction) _wrap_TextAttrEx_SetRightIndent, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetFlags", (PyCFunction) _wrap_TextAttrEx_SetFlags, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_HasTextColour", (PyCFunction)_wrap_TextAttrEx_HasTextColour, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasBackgroundColour", (PyCFunction)_wrap_TextAttrEx_HasBackgroundColour, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasFont", (PyCFunction)_wrap_TextAttrEx_HasFont, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasAlignment", (PyCFunction)_wrap_TextAttrEx_HasAlignment, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasTabs", (PyCFunction)_wrap_TextAttrEx_HasTabs, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasLeftIndent", (PyCFunction)_wrap_TextAttrEx_HasLeftIndent, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasRightIndent", (PyCFunction)_wrap_TextAttrEx_HasRightIndent, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasFlag", (PyCFunction) _wrap_TextAttrEx_HasFlag, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_GetTextColour", (PyCFunction)_wrap_TextAttrEx_GetTextColour, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetBackgroundColour", (PyCFunction)_wrap_TextAttrEx_GetBackgroundColour, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetFont", (PyCFunction)_wrap_TextAttrEx_GetFont, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetAlignment", (PyCFunction)_wrap_TextAttrEx_GetAlignment, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetTabs", (PyCFunction)_wrap_TextAttrEx_GetTabs, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetLeftIndent", (PyCFunction)_wrap_TextAttrEx_GetLeftIndent, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetLeftSubIndent", (PyCFunction)_wrap_TextAttrEx_GetLeftSubIndent, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetRightIndent", (PyCFunction)_wrap_TextAttrEx_GetRightIndent, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetFlags", (PyCFunction)_wrap_TextAttrEx_GetFlags, METH_O, NULL},
-	 { (char *)"TextAttrEx_SetCharacterStyleName", (PyCFunction) _wrap_TextAttrEx_SetCharacterStyleName, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetParagraphStyleName", (PyCFunction) _wrap_TextAttrEx_SetParagraphStyleName, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetListStyleName", (PyCFunction) _wrap_TextAttrEx_SetListStyleName, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetParagraphSpacingAfter", (PyCFunction) _wrap_TextAttrEx_SetParagraphSpacingAfter, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetParagraphSpacingBefore", (PyCFunction) _wrap_TextAttrEx_SetParagraphSpacingBefore, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetLineSpacing", (PyCFunction) _wrap_TextAttrEx_SetLineSpacing, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetBulletStyle", (PyCFunction) _wrap_TextAttrEx_SetBulletStyle, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetBulletNumber", (PyCFunction) _wrap_TextAttrEx_SetBulletNumber, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetBulletText", (PyCFunction) _wrap_TextAttrEx_SetBulletText, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetBulletName", (PyCFunction) _wrap_TextAttrEx_SetBulletName, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetBulletFont", (PyCFunction) _wrap_TextAttrEx_SetBulletFont, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetURL", (PyCFunction) _wrap_TextAttrEx_SetURL, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetPageBreak", (PyCFunction) _wrap_TextAttrEx_SetPageBreak, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetTextEffects", (PyCFunction) _wrap_TextAttrEx_SetTextEffects, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetTextEffectFlags", (PyCFunction) _wrap_TextAttrEx_SetTextEffectFlags, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_SetOutlineLevel", (PyCFunction) _wrap_TextAttrEx_SetOutlineLevel, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_GetCharacterStyleName", (PyCFunction)_wrap_TextAttrEx_GetCharacterStyleName, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetParagraphStyleName", (PyCFunction)_wrap_TextAttrEx_GetParagraphStyleName, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetListStyleName", (PyCFunction)_wrap_TextAttrEx_GetListStyleName, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetParagraphSpacingAfter", (PyCFunction)_wrap_TextAttrEx_GetParagraphSpacingAfter, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetParagraphSpacingBefore", (PyCFunction)_wrap_TextAttrEx_GetParagraphSpacingBefore, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetLineSpacing", (PyCFunction)_wrap_TextAttrEx_GetLineSpacing, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetBulletStyle", (PyCFunction)_wrap_TextAttrEx_GetBulletStyle, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetBulletNumber", (PyCFunction)_wrap_TextAttrEx_GetBulletNumber, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetBulletText", (PyCFunction)_wrap_TextAttrEx_GetBulletText, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetBulletName", (PyCFunction)_wrap_TextAttrEx_GetBulletName, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetBulletFont", (PyCFunction)_wrap_TextAttrEx_GetBulletFont, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetURL", (PyCFunction)_wrap_TextAttrEx_GetURL, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetTextEffects", (PyCFunction)_wrap_TextAttrEx_GetTextEffects, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetTextEffectFlags", (PyCFunction)_wrap_TextAttrEx_GetTextEffectFlags, METH_O, NULL},
-	 { (char *)"TextAttrEx_GetOutlineLevel", (PyCFunction)_wrap_TextAttrEx_GetOutlineLevel, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasFontWeight", (PyCFunction)_wrap_TextAttrEx_HasFontWeight, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasFontSize", (PyCFunction)_wrap_TextAttrEx_HasFontSize, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasFontItalic", (PyCFunction)_wrap_TextAttrEx_HasFontItalic, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasFontUnderlined", (PyCFunction)_wrap_TextAttrEx_HasFontUnderlined, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasFontFaceName", (PyCFunction)_wrap_TextAttrEx_HasFontFaceName, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasParagraphSpacingAfter", (PyCFunction)_wrap_TextAttrEx_HasParagraphSpacingAfter, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasParagraphSpacingBefore", (PyCFunction)_wrap_TextAttrEx_HasParagraphSpacingBefore, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasLineSpacing", (PyCFunction)_wrap_TextAttrEx_HasLineSpacing, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasCharacterStyleName", (PyCFunction)_wrap_TextAttrEx_HasCharacterStyleName, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasParagraphStyleName", (PyCFunction)_wrap_TextAttrEx_HasParagraphStyleName, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasListStyleName", (PyCFunction)_wrap_TextAttrEx_HasListStyleName, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasBulletStyle", (PyCFunction)_wrap_TextAttrEx_HasBulletStyle, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasBulletNumber", (PyCFunction)_wrap_TextAttrEx_HasBulletNumber, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasBulletText", (PyCFunction)_wrap_TextAttrEx_HasBulletText, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasBulletName", (PyCFunction)_wrap_TextAttrEx_HasBulletName, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasURL", (PyCFunction)_wrap_TextAttrEx_HasURL, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasPageBreak", (PyCFunction)_wrap_TextAttrEx_HasPageBreak, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasTextEffects", (PyCFunction)_wrap_TextAttrEx_HasTextEffects, METH_O, NULL},
-	 { (char *)"TextAttrEx_HasTextEffect", (PyCFunction) _wrap_TextAttrEx_HasTextEffect, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_HasOutlineLevel", (PyCFunction)_wrap_TextAttrEx_HasOutlineLevel, METH_O, NULL},
-	 { (char *)"TextAttrEx_IsCharacterStyle", (PyCFunction)_wrap_TextAttrEx_IsCharacterStyle, METH_O, NULL},
-	 { (char *)"TextAttrEx_IsParagraphStyle", (PyCFunction)_wrap_TextAttrEx_IsParagraphStyle, METH_O, NULL},
-	 { (char *)"TextAttrEx_IsDefault", (PyCFunction)_wrap_TextAttrEx_IsDefault, METH_O, NULL},
-	 { (char *)"TextAttrEx_CombineEx", (PyCFunction) _wrap_TextAttrEx_CombineEx, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrEx_swigregister", TextAttrEx_swigregister, METH_VARARGS, NULL},
-	 { (char *)"TextAttrEx_swiginit", TextAttrEx_swiginit, METH_VARARGS, NULL},
 	 { (char *)"delete_RichTextObject", (PyCFunction)_wrap_delete_RichTextObject, METH_O, NULL},
 	 { (char *)"RichTextObject_Draw", (PyCFunction) _wrap_RichTextObject_Draw, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextObject_Layout", (PyCFunction) _wrap_RichTextObject_Layout, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -26858,6 +22724,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RichTextBuffer_SetStyleSheetAndNotify", (PyCFunction) _wrap_RichTextBuffer_SetStyleSheetAndNotify, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextBuffer_PushStyleSheet", (PyCFunction) _wrap_RichTextBuffer_PushStyleSheet, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextBuffer_PopStyleSheet", (PyCFunction)_wrap_RichTextBuffer_PopStyleSheet, METH_O, NULL},
+	 { (char *)"RichTextBuffer_GetFontTable", (PyCFunction)_wrap_RichTextBuffer_GetFontTable, METH_O, NULL},
+	 { (char *)"RichTextBuffer_SetFontTable", (PyCFunction) _wrap_RichTextBuffer_SetFontTable, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextBuffer_Init", (PyCFunction)_wrap_RichTextBuffer_Init, METH_O, NULL},
 	 { (char *)"RichTextBuffer_ResetAndClearCommands", (PyCFunction)_wrap_RichTextBuffer_ResetAndClearCommands, METH_O, NULL},
 	 { (char *)"RichTextBuffer_LoadFile", (PyCFunction) _wrap_RichTextBuffer_LoadFile, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -26989,69 +22857,30 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_PreRichTextCtrl", (PyCFunction)_wrap_new_PreRichTextCtrl, METH_NOARGS, NULL},
 	 { (char *)"RichTextCtrl_Create", (PyCFunction) _wrap_RichTextCtrl_Create, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_GetValue", (PyCFunction)_wrap_RichTextCtrl_GetValue, METH_O, NULL},
-	 { (char *)"RichTextCtrl_SetValue", (PyCFunction) _wrap_RichTextCtrl_SetValue, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_GetRange", (PyCFunction) _wrap_RichTextCtrl_GetRange, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_GetLineLength", (PyCFunction) _wrap_RichTextCtrl_GetLineLength, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_GetLineText", (PyCFunction) _wrap_RichTextCtrl_GetLineText, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_GetNumberOfLines", (PyCFunction)_wrap_RichTextCtrl_GetNumberOfLines, METH_O, NULL},
-	 { (char *)"RichTextCtrl_IsModified", (PyCFunction)_wrap_RichTextCtrl_IsModified, METH_O, NULL},
-	 { (char *)"RichTextCtrl_IsEditable", (PyCFunction)_wrap_RichTextCtrl_IsEditable, METH_O, NULL},
 	 { (char *)"RichTextCtrl_IsSingleLine", (PyCFunction)_wrap_RichTextCtrl_IsSingleLine, METH_O, NULL},
 	 { (char *)"RichTextCtrl_IsMultiLine", (PyCFunction)_wrap_RichTextCtrl_IsMultiLine, METH_O, NULL},
-	 { (char *)"RichTextCtrl_GetSelection", (PyCFunction)_wrap_RichTextCtrl_GetSelection, METH_O, NULL},
-	 { (char *)"RichTextCtrl_GetStringSelection", (PyCFunction)_wrap_RichTextCtrl_GetStringSelection, METH_O, NULL},
 	 { (char *)"RichTextCtrl_GetFilename", (PyCFunction)_wrap_RichTextCtrl_GetFilename, METH_O, NULL},
 	 { (char *)"RichTextCtrl_SetFilename", (PyCFunction) _wrap_RichTextCtrl_SetFilename, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_SetDelayedLayoutThreshold", (PyCFunction) _wrap_RichTextCtrl_SetDelayedLayoutThreshold, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_GetDelayedLayoutThreshold", (PyCFunction)_wrap_RichTextCtrl_GetDelayedLayoutThreshold, METH_O, NULL},
-	 { (char *)"RichTextCtrl_Clear", (PyCFunction)_wrap_RichTextCtrl_Clear, METH_O, NULL},
-	 { (char *)"RichTextCtrl_Replace", (PyCFunction) _wrap_RichTextCtrl_Replace, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_Remove", (PyCFunction) _wrap_RichTextCtrl_Remove, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_LoadFile", (PyCFunction) _wrap_RichTextCtrl_LoadFile, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_SaveFile", (PyCFunction) _wrap_RichTextCtrl_SaveFile, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_SetHandlerFlags", (PyCFunction) _wrap_RichTextCtrl_SetHandlerFlags, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_GetHandlerFlags", (PyCFunction)_wrap_RichTextCtrl_GetHandlerFlags, METH_O, NULL},
-	 { (char *)"RichTextCtrl_MarkDirty", (PyCFunction)_wrap_RichTextCtrl_MarkDirty, METH_O, NULL},
-	 { (char *)"RichTextCtrl_DiscardEdits", (PyCFunction)_wrap_RichTextCtrl_DiscardEdits, METH_O, NULL},
 	 { (char *)"RichTextCtrl_SetMaxLength", (PyCFunction) _wrap_RichTextCtrl_SetMaxLength, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_WriteText", (PyCFunction) _wrap_RichTextCtrl_WriteText, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_AppendText", (PyCFunction) _wrap_RichTextCtrl_AppendText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_SetStyle", (PyCFunction) _wrap_RichTextCtrl_SetStyle, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_GetStyle", (PyCFunction) _wrap_RichTextCtrl_GetStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_GetStyleForRange", (PyCFunction) _wrap_RichTextCtrl_GetStyleForRange, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_SetStyleEx", (PyCFunction) _wrap_RichTextCtrl_SetStyleEx, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_GetUncombinedStyle", (PyCFunction) _wrap_RichTextCtrl_GetUncombinedStyle, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_SetDefaultStyle", (PyCFunction) _wrap_RichTextCtrl_SetDefaultStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_GetDefaultStyle", (PyCFunction)_wrap_RichTextCtrl_GetDefaultStyle, METH_O, NULL},
 	 { (char *)"RichTextCtrl_SetListStyle", (PyCFunction) _wrap_RichTextCtrl_SetListStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_ClearListStyle", (PyCFunction) _wrap_RichTextCtrl_ClearListStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_NumberList", (PyCFunction) _wrap_RichTextCtrl_NumberList, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_PromoteList", (PyCFunction) _wrap_RichTextCtrl_PromoteList, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_Delete", (PyCFunction) _wrap_RichTextCtrl_Delete, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_XYToPosition", (PyCFunction) _wrap_RichTextCtrl_XYToPosition, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_PositionToXY", (PyCFunction) _wrap_RichTextCtrl_PositionToXY, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_ShowPosition", (PyCFunction) _wrap_RichTextCtrl_ShowPosition, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_HitTest", (PyCFunction) _wrap_RichTextCtrl_HitTest, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_HitTestXY", (PyCFunction) _wrap_RichTextCtrl_HitTestXY, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_Copy", (PyCFunction)_wrap_RichTextCtrl_Copy, METH_O, NULL},
-	 { (char *)"RichTextCtrl_Cut", (PyCFunction)_wrap_RichTextCtrl_Cut, METH_O, NULL},
-	 { (char *)"RichTextCtrl_Paste", (PyCFunction)_wrap_RichTextCtrl_Paste, METH_O, NULL},
 	 { (char *)"RichTextCtrl_DeleteSelection", (PyCFunction)_wrap_RichTextCtrl_DeleteSelection, METH_O, NULL},
-	 { (char *)"RichTextCtrl_CanCopy", (PyCFunction)_wrap_RichTextCtrl_CanCopy, METH_O, NULL},
-	 { (char *)"RichTextCtrl_CanCut", (PyCFunction)_wrap_RichTextCtrl_CanCut, METH_O, NULL},
-	 { (char *)"RichTextCtrl_CanPaste", (PyCFunction)_wrap_RichTextCtrl_CanPaste, METH_O, NULL},
 	 { (char *)"RichTextCtrl_CanDeleteSelection", (PyCFunction)_wrap_RichTextCtrl_CanDeleteSelection, METH_O, NULL},
-	 { (char *)"RichTextCtrl_Undo", (PyCFunction)_wrap_RichTextCtrl_Undo, METH_O, NULL},
-	 { (char *)"RichTextCtrl_Redo", (PyCFunction)_wrap_RichTextCtrl_Redo, METH_O, NULL},
-	 { (char *)"RichTextCtrl_CanUndo", (PyCFunction)_wrap_RichTextCtrl_CanUndo, METH_O, NULL},
-	 { (char *)"RichTextCtrl_CanRedo", (PyCFunction)_wrap_RichTextCtrl_CanRedo, METH_O, NULL},
-	 { (char *)"RichTextCtrl_SetInsertionPoint", (PyCFunction) _wrap_RichTextCtrl_SetInsertionPoint, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_SetInsertionPointEnd", (PyCFunction)_wrap_RichTextCtrl_SetInsertionPointEnd, METH_O, NULL},
-	 { (char *)"RichTextCtrl_GetInsertionPoint", (PyCFunction)_wrap_RichTextCtrl_GetInsertionPoint, METH_O, NULL},
-	 { (char *)"RichTextCtrl_GetLastPosition", (PyCFunction)_wrap_RichTextCtrl_GetLastPosition, METH_O, NULL},
-	 { (char *)"RichTextCtrl_SetSelection", (PyCFunction) _wrap_RichTextCtrl_SetSelection, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextCtrl_SelectAll", (PyCFunction)_wrap_RichTextCtrl_SelectAll, METH_O, NULL},
-	 { (char *)"RichTextCtrl_SetEditable", (PyCFunction) _wrap_RichTextCtrl_SetEditable, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_HasSelection", (PyCFunction)_wrap_RichTextCtrl_HasSelection, METH_O, NULL},
 	 { (char *)"RichTextCtrl_WriteImage", (PyCFunction) _wrap_RichTextCtrl_WriteImage, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextCtrl_WriteBitmap", (PyCFunction) _wrap_RichTextCtrl_WriteBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -27189,6 +23018,12 @@ static PyMethodDef SwigMethods[] = {
 static void *_p_wxRichTextBufferTo_p_wxRichTextParagraphLayoutBox(void *x) {
     return (void *)((wxRichTextParagraphLayoutBox *)  ((wxRichTextBuffer *) x));
 }
+static void *_p_wxRichTextCtrlTo_p_wxTextEntry(void *x) {
+    return (void *)((wxTextEntry *) (wxTextCtrlIface *) ((wxRichTextCtrl *) x));
+}
+static void *_p_wxTextCtrlIfaceTo_p_wxTextEntry(void *x) {
+    return (void *)((wxTextEntry *)  ((wxTextCtrlIface *) x));
+}
 static void *_p_wxContextMenuEventTo_p_wxEvent(void *x) {
     return (void *)((wxEvent *) (wxCommandEvent *) ((wxContextMenuEvent *) x));
 }
@@ -27324,6 +23159,12 @@ static void *_p_wxScrollWinEventTo_p_wxEvent(void *x) {
 static void *_p_wxTaskBarIconEventTo_p_wxEvent(void *x) {
     return (void *)((wxEvent *)  ((wxTaskBarIconEvent *) x));
 }
+static void *_p_wxControlWithItemsTo_p_wxControl(void *x) {
+    return (void *)((wxControl *)  ((wxControlWithItems *) x));
+}
+static void *_p_wxRichTextCtrlTo_p_wxControl(void *x) {
+    return (void *)((wxControl *)  ((wxRichTextCtrl *) x));
+}
 static void *_p_wxRichTextBoxTo_p_wxRichTextCompositeObject(void *x) {
     return (void *)((wxRichTextCompositeObject *)  ((wxRichTextBox *) x));
 }
@@ -27341,6 +23182,21 @@ static void *_p_wxRichTextEventTo_p_wxNotifyEvent(void *x) {
 }
 static void *_p_wxSplitterEventTo_p_wxNotifyEvent(void *x) {
     return (void *)((wxNotifyEvent *)  ((wxSplitterEvent *) x));
+}
+static void *_p_wxRichTextCtrlTo_p_wxTextCtrlIface(void *x) {
+    return (void *)((wxTextCtrlIface *)  ((wxRichTextCtrl *) x));
+}
+static void *_p_wxScrolledWindowTo_p_wxScrollHelper(void *x) {
+    return (void *)((wxScrollHelper *)  ((wxScrolledWindow *) x));
+}
+static void *_p_wxPyScrolledWindowTo_p_wxScrollHelper(void *x) {
+    return (void *)((wxScrollHelper *) (wxScrolledWindow *) ((wxPyScrolledWindow *) x));
+}
+static void *_p_wxRichTextCtrlTo_p_wxScrollHelper(void *x) {
+    return (void *)((wxScrollHelper *)  ((wxRichTextCtrl *) x));
+}
+static void *_p_wxPreviewCanvasTo_p_wxScrollHelper(void *x) {
+    return (void *)((wxScrollHelper *) (wxScrolledWindow *) ((wxPreviewCanvas *) x));
 }
 static void *_p_wxRichTextParagraphLayoutBoxTo_p_wxRichTextBox(void *x) {
     return (void *)((wxRichTextBox *)  ((wxRichTextParagraphLayoutBox *) x));
@@ -27514,7 +23370,7 @@ static void *_p_wxMDIParentFrameTo_p_wxEvtHandler(void *x) {
     return (void *)((wxEvtHandler *) (wxWindow *)(wxTopLevelWindow *)(wxFrame *) ((wxMDIParentFrame *) x));
 }
 static void *_p_wxRichTextCtrlTo_p_wxEvtHandler(void *x) {
-    return (void *)((wxEvtHandler *) (wxWindow *)(wxPanel *)(wxScrolledWindow *) ((wxRichTextCtrl *) x));
+    return (void *)((wxEvtHandler *) (wxWindow *)(wxControl *) ((wxRichTextCtrl *) x));
 }
 static void *_p_wxRichTextPlainTextHandlerTo_p_wxRichTextFileHandler(void *x) {
     return (void *)((wxRichTextFileHandler *)  ((wxRichTextPlainTextHandler *) x));
@@ -27645,6 +23501,9 @@ static void *_p_wxMouseEventTo_p_wxObject(void *x) {
 static void *_p_wxCloseEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *) ((wxCloseEvent *) x));
 }
+static void *_p_wxWrapSizerTo_p_wxObject(void *x) {
+    return (void *)((wxObject *) (wxSizer *)(wxBoxSizer *) ((wxWrapSizer *) x));
+}
 static void *_p_wxScrollEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *)(wxCommandEvent *) ((wxScrollEvent *) x));
 }
@@ -27662,6 +23521,9 @@ static void *_p_wxControlWithItemsTo_p_wxObject(void *x) {
 }
 static void *_p_wxRichTextObjectTo_p_wxObject(void *x) {
     return (void *)((wxObject *)  ((wxRichTextObject *) x));
+}
+static void *_p_wxRichTextFontTableTo_p_wxObject(void *x) {
+    return (void *)((wxObject *)  ((wxRichTextFontTable *) x));
 }
 static void *_p_wxFlexGridSizerTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxSizer *)(wxGridSizer *) ((wxFlexGridSizer *) x));
@@ -27789,9 +23651,6 @@ static void *_p_wxStaticBoxSizerTo_p_wxObject(void *x) {
 static void *_p_wxGridBagSizerTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxSizer *)(wxGridSizer *)(wxFlexGridSizer *) ((wxGridBagSizer *) x));
 }
-static void *_p_wxRichTextEventTo_p_wxObject(void *x) {
-    return (void *)((wxObject *) (wxEvent *)(wxCommandEvent *)(wxNotifyEvent *) ((wxRichTextEvent *) x));
-}
 static void *_p_wxNcPaintEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *) ((wxNcPaintEvent *) x));
 }
@@ -27800,6 +23659,9 @@ static void *_p_wxPaintEventTo_p_wxObject(void *x) {
 }
 static void *_p_wxClipboardTextEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *)(wxCommandEvent *) ((wxClipboardTextEvent *) x));
+}
+static void *_p_wxRichTextEventTo_p_wxObject(void *x) {
+    return (void *)((wxObject *) (wxEvent *)(wxCommandEvent *)(wxNotifyEvent *) ((wxRichTextEvent *) x));
 }
 static void *_p_wxFSFileTo_p_wxObject(void *x) {
     return (void *)((wxObject *)  ((wxFSFile *) x));
@@ -27811,7 +23673,7 @@ static void *_p_wxSetCursorEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *) ((wxSetCursorEvent *) x));
 }
 static void *_p_wxRichTextCtrlTo_p_wxObject(void *x) {
-    return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxPanel *)(wxScrolledWindow *) ((wxRichTextCtrl *) x));
+    return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxControl *) ((wxRichTextCtrl *) x));
 }
 static void *_p_wxMenuTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *) ((wxMenu *) x));
@@ -28192,55 +24054,7 @@ static void *_p_wxMDIParentFrameTo_p_wxWindow(void *x) {
     return (void *)((wxWindow *) (wxTopLevelWindow *)(wxFrame *) ((wxMDIParentFrame *) x));
 }
 static void *_p_wxRichTextCtrlTo_p_wxWindow(void *x) {
-    return (void *)((wxWindow *) (wxPanel *)(wxScrolledWindow *) ((wxRichTextCtrl *) x));
-}
-static void *_p_wxPyScrolledWindowTo_p_wxScrolledWindow(void *x) {
-    return (void *)((wxScrolledWindow *)  ((wxPyScrolledWindow *) x));
-}
-static void *_p_wxRichTextCtrlTo_p_wxScrolledWindow(void *x) {
-    return (void *)((wxScrolledWindow *)  ((wxRichTextCtrl *) x));
-}
-static void *_p_wxPreviewCanvasTo_p_wxScrolledWindow(void *x) {
-    return (void *)((wxScrolledWindow *)  ((wxPreviewCanvas *) x));
-}
-static void *_p_wxScrolledWindowTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *)  ((wxScrolledWindow *) x));
-}
-static void *_p_wxPyVScrolledWindowTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *)  ((wxPyVScrolledWindow *) x));
-}
-static void *_p_wxPyHScrolledWindowTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *)  ((wxPyHScrolledWindow *) x));
-}
-static void *_p_wxPyHVScrolledWindowTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *)  ((wxPyHVScrolledWindow *) x));
-}
-static void *_p_wxPyScrolledWindowTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *) (wxScrolledWindow *) ((wxPyScrolledWindow *) x));
-}
-static void *_p_wxPyVListBoxTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *) (wxPyVScrolledWindow *) ((wxPyVListBox *) x));
-}
-static void *_p_wxPyHtmlListBoxTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *) (wxPyVScrolledWindow *)(wxPyVListBox *) ((wxPyHtmlListBox *) x));
-}
-static void *_p_wxSimpleHtmlListBoxTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *) (wxPyVScrolledWindow *)(wxPyVListBox *)(wxPyHtmlListBox *) ((wxSimpleHtmlListBox *) x));
-}
-static void *_p_wxPyPanelTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *)  ((wxPyPanel *) x));
-}
-static void *_p_wxRichTextCtrlTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *) (wxScrolledWindow *) ((wxRichTextCtrl *) x));
-}
-static void *_p_wxPreviewCanvasTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *) (wxScrolledWindow *) ((wxPreviewCanvas *) x));
-}
-static void *_p_wxPreviewControlBarTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *)  ((wxPreviewControlBar *) x));
-}
-static void *_p_wxPyPreviewControlBarTo_p_wxPanel(void *x) {
-    return (void *)((wxPanel *) (wxPreviewControlBar *) ((wxPyPreviewControlBar *) x));
+    return (void *)((wxWindow *) (wxControl *) ((wxRichTextCtrl *) x));
 }
 static void *_p_wxSashEventTo_p_wxCommandEvent(void *x) {
     return (void *)((wxCommandEvent *)  ((wxSashEvent *) x));
@@ -28284,6 +24098,12 @@ static void *_p_wxFindDialogEventTo_p_wxCommandEvent(void *x) {
 static void *_p_wxUpdateUIEventTo_p_wxCommandEvent(void *x) {
     return (void *)((wxCommandEvent *)  ((wxUpdateUIEvent *) x));
 }
+static void *_p_wxRichTextCtrlTo_p_wxTextAreaBase(void *x) {
+    return (void *)((wxTextAreaBase *) (wxTextCtrlIface *) ((wxRichTextCtrl *) x));
+}
+static void *_p_wxTextCtrlIfaceTo_p_wxTextAreaBase(void *x) {
+    return (void *)((wxTextAreaBase *)  ((wxTextCtrlIface *) x));
+}
 static void *_p_wxPyValidatorTo_p_wxValidator(void *x) {
     return (void *)((wxValidator *)  ((wxPyValidator *) x));
 }
@@ -28307,7 +24127,6 @@ static swig_type_info _swigt__p_wxArrayInt = {"_p_wxArrayInt", "wxArrayInt *", 0
 static swig_type_info _swigt__p_wxArrayString = {"_p_wxArrayString", "wxArrayString *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxBitmap = {"_p_wxBitmap", "wxBitmap *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxChar = {"_p_wxChar", "wxChar *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxColour = {"_p_wxColour", "wxColour *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxCommandEvent = {"_p_wxCommandEvent", "wxCommandEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxSashEvent = {"_p_wxSashEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxWindowDestroyEvent = {"_p_wxWindowDestroyEvent", 0, 0, 0, 0, 0};
@@ -28322,6 +24141,8 @@ static swig_type_info _swigt__p_wxWindowCreateEvent = {"_p_wxWindowCreateEvent",
 static swig_type_info _swigt__p_wxFindDialogEvent = {"_p_wxFindDialogEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxUpdateUIEvent = {"_p_wxUpdateUIEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxCommandProcessor = {"_p_wxCommandProcessor", "wxCommandProcessor *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxControl = {"_p_wxControl", "wxControl *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxControlWithItems = {"_p_wxControlWithItems", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxDC = {"_p_wxDC", "wxDC *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDuplexMode = {"_p_wxDuplexMode", "enum wxDuplexMode *|wxDuplexMode *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxEvent = {"_p_wxEvent", "wxEvent *", 0, 0, (void*)0, 0};
@@ -28371,31 +24192,31 @@ static swig_type_info _swigt__p_wxMessageDialog = {"_p_wxMessageDialog", 0, 0, 0
 static swig_type_info _swigt__p_wxNumberEntryDialog = {"_p_wxNumberEntryDialog", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxFileDialog = {"_p_wxFileDialog", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxMultiChoiceDialog = {"_p_wxMultiChoiceDialog", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPanel = {"_p_wxPanel", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxStatusBar = {"_p_wxStatusBar", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPyHVScrolledWindow = {"_p_wxPyHVScrolledWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPyHScrolledWindow = {"_p_wxPyHScrolledWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPyVScrolledWindow = {"_p_wxPyVScrolledWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxTipWindow = {"_p_wxTipWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPyPopupTransientWindow = {"_p_wxPyPopupTransientWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPopupWindow = {"_p_wxPopupWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxSashLayoutWindow = {"_p_wxSashLayoutWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxSplashScreenWindow = {"_p_wxSplashScreenWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxSplitterWindow = {"_p_wxSplitterWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxSashWindow = {"_p_wxSashWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPyScrolledWindow = {"_p_wxPyScrolledWindow", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxScrolledWindow = {"_p_wxScrolledWindow", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxTopLevelWindow = {"_p_wxTopLevelWindow", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxMDIClientWindow = {"_p_wxMDIClientWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxPyVScrolledWindow = {"_p_wxPyVScrolledWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxPyHScrolledWindow = {"_p_wxPyHScrolledWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxPyHVScrolledWindow = {"_p_wxPyHVScrolledWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxPyScrolledWindow = {"_p_wxPyScrolledWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxSashWindow = {"_p_wxSashWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxSplitterWindow = {"_p_wxSplitterWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxSplashScreenWindow = {"_p_wxSplashScreenWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxSashLayoutWindow = {"_p_wxSashLayoutWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxPopupWindow = {"_p_wxPopupWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxPyPopupTransientWindow = {"_p_wxPyPopupTransientWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxTipWindow = {"_p_wxTipWindow", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyPreviewFrame = {"_p_wxPyPreviewFrame", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPreviewFrame = {"_p_wxPreviewFrame", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxControl = {"_p_wxControl", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxMDIChildFrame = {"_p_wxMDIChildFrame", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyApp = {"_p_wxPyApp", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxControlWithItems = {"_p_wxControlWithItems", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxPreviewCanvas = {"_p_wxPreviewCanvas", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyWindow = {"_p_wxPyWindow", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxPyVListBox = {"_p_wxPyVListBox", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxPyHtmlListBox = {"_p_wxPyHtmlListBox", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPreviewCanvas = {"_p_wxPreviewCanvas", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxSimpleHtmlListBox = {"_p_wxSimpleHtmlListBox", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPyHtmlListBox = {"_p_wxPyHtmlListBox", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPyVListBox = {"_p_wxPyVListBox", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPreviewControlBar = {"_p_wxPreviewControlBar", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyPreviewControlBar = {"_p_wxPyPreviewControlBar", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyTaskBarIcon = {"_p_wxPyTaskBarIcon", 0, 0, 0, 0, 0};
@@ -28417,11 +24238,12 @@ static swig_type_info _swigt__p_wxMenuItem = {"_p_wxMenuItem", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPySizer = {"_p_wxPySizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxLayoutAlgorithm = {"_p_wxLayoutAlgorithm", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxFindReplaceData = {"_p_wxFindReplaceData", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxWrapSizer = {"_p_wxWrapSizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPageSetupDialogData = {"_p_wxPageSetupDialogData", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPrintDialogData = {"_p_wxPrintDialogData", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPrinter = {"_p_wxPrinter", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxFlexGridSizer = {"_p_wxFlexGridSizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxGridSizer = {"_p_wxGridSizer", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxFlexGridSizer = {"_p_wxFlexGridSizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxAcceleratorTable = {"_p_wxAcceleratorTable", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxColourData = {"_p_wxColourData", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyPrintout = {"_p_wxPyPrintout", 0, 0, 0, 0, 0};
@@ -28432,9 +24254,9 @@ static swig_type_info _swigt__p_wxFileSystem = {"_p_wxFileSystem", 0, 0, 0, 0, 0
 static swig_type_info _swigt__p_wxPrintPreview = {"_p_wxPrintPreview", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyPrintPreview = {"_p_wxPyPrintPreview", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxLayoutConstraints = {"_p_wxLayoutConstraints", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxStaticBoxSizer = {"_p_wxStaticBoxSizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxBoxSizer = {"_p_wxBoxSizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxSizer = {"_p_wxSizer", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxStaticBoxSizer = {"_p_wxStaticBoxSizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxGridBagSizer = {"_p_wxGridBagSizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxFSFile = {"_p_wxFSFile", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxGBSizerItem = {"_p_wxGBSizerItem", 0, 0, 0, 0, 0};
@@ -28456,12 +24278,10 @@ static swig_type_info _swigt__p_wxPCXHandler = {"_p_wxPCXHandler", 0, 0, 0, 0, 0
 static swig_type_info _swigt__p_wxJPEGHandler = {"_p_wxJPEGHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPNMHandler = {"_p_wxPNMHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxOutputStream = {"_p_wxOutputStream", "wxOutputStream *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxPanel = {"_p_wxPanel", "wxPanel *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPaperSize = {"_p_wxPaperSize", "enum wxPaperSize *|wxPaperSize *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPoint = {"_p_wxPoint", "wxPoint *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRect = {"_p_wxRect", "wxRect *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextAction = {"_p_wxRichTextAction", "wxRichTextAction *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxRichTextAttr = {"_p_wxRichTextAttr", "wxRichTextAttr *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextBox = {"_p_wxRichTextBox", "wxRichTextBox *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextBuffer = {"_p_wxRichTextBuffer", "wxRichTextBuffer *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextCommand = {"_p_wxRichTextCommand", "wxRichTextCommand *", 0, 0, (void*)0, 0};
@@ -28471,6 +24291,7 @@ static swig_type_info _swigt__p_wxRichTextEvent = {"_p_wxRichTextEvent", "wxRich
 static swig_type_info _swigt__p_wxRichTextFileHandler = {"_p_wxRichTextFileHandler", "wxRichTextFileHandler *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextFileHandlerList = {"_p_wxRichTextFileHandlerList", "wxRichTextFileHandlerList *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextFileHandlerList_iterator = {"_p_wxRichTextFileHandlerList_iterator", "wxRichTextFileHandlerList_iterator *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxRichTextFontTable = {"_p_wxRichTextFontTable", "wxRichTextFontTable *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextHTMLHandler = {"_p_wxRichTextHTMLHandler", "wxRichTextHTMLHandler *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextImage = {"_p_wxRichTextImage", "wxRichTextImage *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextImageBlock = {"_p_wxRichTextImageBlock", "wxRichTextImageBlock *", 0, 0, (void*)0, 0};
@@ -28490,11 +24311,14 @@ static swig_type_info _swigt__p_wxRichTextStdRenderer = {"_p_wxRichTextStdRender
 static swig_type_info _swigt__p_wxRichTextStyleDefinition = {"_p_wxRichTextStyleDefinition", "wxRichTextStyleDefinition *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextStyleSheet = {"_p_wxRichTextStyleSheet", "wxRichTextStyleSheet *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextXMLHandler = {"_p_wxRichTextXMLHandler", "wxRichTextXMLHandler *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxScrolledWindow = {"_p_wxScrolledWindow", "wxScrolledWindow *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxScrollHelper = {"_p_wxScrollHelper", "wxScrollHelper *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxSize = {"_p_wxSize", "wxSize *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxTextAttrEx = {"_p_wxTextAttrEx", "wxTextAttrEx *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxTextAreaBase = {"_p_wxTextAreaBase", "wxTextAreaBase *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxTextAttr = {"_p_wxTextAttr", "wxTextAttr *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextCoord = {"_p_wxTextCoord", "wxTextCoord *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextCtrlHitTestResult = {"_p_wxTextCtrlHitTestResult", "wxTextCtrlHitTestResult *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxTextCtrlIface = {"_p_wxTextCtrlIface", "wxTextCtrlIface *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxTextEntry = {"_p_wxTextEntry", "wxTextEntry *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxValidator = {"_p_wxValidator", "wxValidator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWindow = {"_p_wxWindow", "wxWindow *", 0, 0, (void*)0, 0};
 
@@ -28529,7 +24353,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxChildFocusEvent,
   &_swigt__p_wxClipboardTextEvent,
   &_swigt__p_wxCloseEvent,
-  &_swigt__p_wxColour,
   &_swigt__p_wxColourData,
   &_swigt__p_wxColourDialog,
   &_swigt__p_wxCommandEvent,
@@ -28643,7 +24466,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxQueryNewPaletteEvent,
   &_swigt__p_wxRect,
   &_swigt__p_wxRichTextAction,
-  &_swigt__p_wxRichTextAttr,
   &_swigt__p_wxRichTextBox,
   &_swigt__p_wxRichTextBuffer,
   &_swigt__p_wxRichTextCommand,
@@ -28653,6 +24475,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxRichTextFileHandler,
   &_swigt__p_wxRichTextFileHandlerList,
   &_swigt__p_wxRichTextFileHandlerList_iterator,
+  &_swigt__p_wxRichTextFontTable,
   &_swigt__p_wxRichTextHTMLHandler,
   &_swigt__p_wxRichTextImage,
   &_swigt__p_wxRichTextImageBlock,
@@ -28676,6 +24499,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxSashLayoutWindow,
   &_swigt__p_wxSashWindow,
   &_swigt__p_wxScrollEvent,
+  &_swigt__p_wxScrollHelper,
   &_swigt__p_wxScrollWinEvent,
   &_swigt__p_wxScrolledWindow,
   &_swigt__p_wxSetCursorEvent,
@@ -28697,9 +24521,12 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxTGAHandler,
   &_swigt__p_wxTIFFHandler,
   &_swigt__p_wxTaskBarIconEvent,
-  &_swigt__p_wxTextAttrEx,
+  &_swigt__p_wxTextAreaBase,
+  &_swigt__p_wxTextAttr,
   &_swigt__p_wxTextCoord,
   &_swigt__p_wxTextCtrlHitTestResult,
+  &_swigt__p_wxTextCtrlIface,
+  &_swigt__p_wxTextEntry,
   &_swigt__p_wxTextEntryDialog,
   &_swigt__p_wxTipWindow,
   &_swigt__p_wxTopLevelWindow,
@@ -28708,6 +24535,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxWindow,
   &_swigt__p_wxWindowCreateEvent,
   &_swigt__p_wxWindowDestroyEvent,
+  &_swigt__p_wxWrapSizer,
   &_swigt__p_wxXPMHandler,
 };
 
@@ -28731,7 +24559,6 @@ static swig_cast_info _swigc__p_wxArrayInt[] = {  {&_swigt__p_wxArrayInt, 0, 0, 
 static swig_cast_info _swigc__p_wxArrayString[] = {  {&_swigt__p_wxArrayString, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxBitmap[] = {  {&_swigt__p_wxBitmap, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxChar[] = {  {&_swigt__p_wxChar, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxColour[] = {  {&_swigt__p_wxColour, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSashEvent[] = {{&_swigt__p_wxSashEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWindowDestroyEvent[] = {{&_swigt__p_wxWindowDestroyEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSplitterEvent[] = {{&_swigt__p_wxSplitterEvent, 0, 0, 0},{0, 0, 0, 0}};
@@ -28746,6 +24573,8 @@ static swig_cast_info _swigc__p_wxFindDialogEvent[] = {{&_swigt__p_wxFindDialogE
 static swig_cast_info _swigc__p_wxUpdateUIEvent[] = {{&_swigt__p_wxUpdateUIEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxCommandEvent[] = {  {&_swigt__p_wxSashEvent, _p_wxSashEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxWindowDestroyEvent, _p_wxWindowDestroyEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxSplitterEvent, _p_wxSplitterEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxRichTextEvent, _p_wxRichTextEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxClipboardTextEvent, _p_wxClipboardTextEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxScrollEvent, _p_wxScrollEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxPyCommandEvent, _p_wxPyCommandEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxCommandEvent, 0, 0, 0},  {&_swigt__p_wxContextMenuEvent, _p_wxContextMenuEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxChildFocusEvent, _p_wxChildFocusEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxDateEvent, _p_wxDateEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxWindowCreateEvent, _p_wxWindowCreateEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxNotifyEvent, _p_wxNotifyEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxFindDialogEvent, _p_wxFindDialogEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxUpdateUIEvent, _p_wxUpdateUIEventTo_p_wxCommandEvent, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxCommandProcessor[] = {  {&_swigt__p_wxCommandProcessor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxControlWithItems[] = {{&_swigt__p_wxControlWithItems, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxControl[] = {  {&_swigt__p_wxControl, 0, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxControl, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxControl, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDC[] = {  {&_swigt__p_wxDC, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDuplexMode[] = {  {&_swigt__p_wxDuplexMode, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMenuEvent[] = {{&_swigt__p_wxMenuEvent, 0, 0, 0},{0, 0, 0, 0}};
@@ -28794,31 +24623,31 @@ static swig_cast_info _swigc__p_wxMessageDialog[] = {{&_swigt__p_wxMessageDialog
 static swig_cast_info _swigc__p_wxNumberEntryDialog[] = {{&_swigt__p_wxNumberEntryDialog, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFileDialog[] = {{&_swigt__p_wxFileDialog, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMultiChoiceDialog[] = {{&_swigt__p_wxMultiChoiceDialog, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPanel[] = {{&_swigt__p_wxPanel, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxStatusBar[] = {{&_swigt__p_wxStatusBar, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPyHVScrolledWindow[] = {{&_swigt__p_wxPyHVScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPyHScrolledWindow[] = {{&_swigt__p_wxPyHScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPyVScrolledWindow[] = {{&_swigt__p_wxPyVScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxTipWindow[] = {{&_swigt__p_wxTipWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPyPopupTransientWindow[] = {{&_swigt__p_wxPyPopupTransientWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPopupWindow[] = {{&_swigt__p_wxPopupWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxSashLayoutWindow[] = {{&_swigt__p_wxSashLayoutWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxSplashScreenWindow[] = {{&_swigt__p_wxSplashScreenWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxSplitterWindow[] = {{&_swigt__p_wxSplitterWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxSashWindow[] = {{&_swigt__p_wxSashWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPyScrolledWindow[] = {{&_swigt__p_wxPyScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxScrolledWindow[] = {{&_swigt__p_wxScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTopLevelWindow[] = {{&_swigt__p_wxTopLevelWindow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMDIClientWindow[] = {{&_swigt__p_wxMDIClientWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPyVScrolledWindow[] = {{&_swigt__p_wxPyVScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPyHScrolledWindow[] = {{&_swigt__p_wxPyHScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPyHVScrolledWindow[] = {{&_swigt__p_wxPyHVScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPyScrolledWindow[] = {{&_swigt__p_wxPyScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxSashWindow[] = {{&_swigt__p_wxSashWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxSplitterWindow[] = {{&_swigt__p_wxSplitterWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxSplashScreenWindow[] = {{&_swigt__p_wxSplashScreenWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxSashLayoutWindow[] = {{&_swigt__p_wxSashLayoutWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPopupWindow[] = {{&_swigt__p_wxPopupWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPyPopupTransientWindow[] = {{&_swigt__p_wxPyPopupTransientWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxTipWindow[] = {{&_swigt__p_wxTipWindow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyPreviewFrame[] = {{&_swigt__p_wxPyPreviewFrame, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPreviewFrame[] = {{&_swigt__p_wxPreviewFrame, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxControl[] = {{&_swigt__p_wxControl, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMDIChildFrame[] = {{&_swigt__p_wxMDIChildFrame, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyApp[] = {{&_swigt__p_wxPyApp, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxControlWithItems[] = {{&_swigt__p_wxControlWithItems, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPreviewCanvas[] = {{&_swigt__p_wxPreviewCanvas, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyWindow[] = {{&_swigt__p_wxPyWindow, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPyVListBox[] = {{&_swigt__p_wxPyVListBox, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPyHtmlListBox[] = {{&_swigt__p_wxPyHtmlListBox, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPreviewCanvas[] = {{&_swigt__p_wxPreviewCanvas, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSimpleHtmlListBox[] = {{&_swigt__p_wxSimpleHtmlListBox, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPyHtmlListBox[] = {{&_swigt__p_wxPyHtmlListBox, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPyVListBox[] = {{&_swigt__p_wxPyVListBox, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPreviewControlBar[] = {{&_swigt__p_wxPreviewControlBar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyPreviewControlBar[] = {{&_swigt__p_wxPyPreviewControlBar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyTaskBarIcon[] = {{&_swigt__p_wxPyTaskBarIcon, 0, 0, 0},{0, 0, 0, 0}};
@@ -28829,7 +24658,7 @@ static swig_cast_info _swigc__p_wxColourDialog[] = {{&_swigt__p_wxColourDialog, 
 static swig_cast_info _swigc__p_wxDialog[] = {{&_swigt__p_wxDialog, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMenu[] = {{&_swigt__p_wxMenu, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMDIParentFrame[] = {{&_swigt__p_wxMDIParentFrame, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxEvtHandler[] = {  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyPanel, _p_wxPyPanelTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPanel, _p_wxPanelTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxStatusBar, _p_wxStatusBarTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxTopLevelWindow, _p_wxTopLevelWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMDIClientWindow, _p_wxMDIClientWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyVScrolledWindow, _p_wxPyVScrolledWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyHScrolledWindow, _p_wxPyHScrolledWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSashWindow, _p_wxSashWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSplitterWindow, _p_wxSplitterWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSplashScreenWindow, _p_wxSplashScreenWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSashLayoutWindow, _p_wxSashLayoutWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPopupWindow, _p_wxPopupWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyPopupTransientWindow, _p_wxPyPopupTransientWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxTipWindow, _p_wxTipWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxEvtHandler, 0, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyWindow, _p_wxPyWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyVListBox, _p_wxPyVListBoxTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyHtmlListBox, _p_wxPyHtmlListBoxTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSimpleHtmlListBox, _p_wxSimpleHtmlListBoxTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPreviewControlBar, _p_wxPreviewControlBarTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyPreviewControlBar, _p_wxPyPreviewControlBarTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyTaskBarIcon, _p_wxPyTaskBarIconTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxEvtHandler, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxEvtHandler[] = {  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyPanel, _p_wxPyPanelTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPanel, _p_wxPanelTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxStatusBar, _p_wxStatusBarTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyHScrolledWindow, _p_wxPyHScrolledWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyVScrolledWindow, _p_wxPyVScrolledWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxTipWindow, _p_wxTipWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyPopupTransientWindow, _p_wxPyPopupTransientWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPopupWindow, _p_wxPopupWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSashLayoutWindow, _p_wxSashLayoutWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSplashScreenWindow, _p_wxSplashScreenWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSplitterWindow, _p_wxSplitterWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSashWindow, _p_wxSashWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxTopLevelWindow, _p_wxTopLevelWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMDIClientWindow, _p_wxMDIClientWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxEvtHandler, 0, 0, 0},  {&_swigt__p_wxPyWindow, _p_wxPyWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxSimpleHtmlListBox, _p_wxSimpleHtmlListBoxTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyHtmlListBox, _p_wxPyHtmlListBoxTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyVListBox, _p_wxPyVListBoxTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPreviewControlBar, _p_wxPreviewControlBarTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyPreviewControlBar, _p_wxPyPreviewControlBarTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyTaskBarIcon, _p_wxPyTaskBarIconTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxEvtHandler, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFont[] = {  {&_swigt__p_wxFont, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxImage[] = {  {&_swigt__p_wxImage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxInputStream[] = {  {&_swigt__p_wxInputStream, 0, 0, 0},{0, 0, 0, 0}};
@@ -28840,11 +24669,12 @@ static swig_cast_info _swigc__p_wxMenuItem[] = {{&_swigt__p_wxMenuItem, 0, 0, 0}
 static swig_cast_info _swigc__p_wxPySizer[] = {{&_swigt__p_wxPySizer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLayoutAlgorithm[] = {{&_swigt__p_wxLayoutAlgorithm, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFindReplaceData[] = {{&_swigt__p_wxFindReplaceData, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxWrapSizer[] = {{&_swigt__p_wxWrapSizer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPageSetupDialogData[] = {{&_swigt__p_wxPageSetupDialogData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPrintDialogData[] = {{&_swigt__p_wxPrintDialogData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPrinter[] = {{&_swigt__p_wxPrinter, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxFlexGridSizer[] = {{&_swigt__p_wxFlexGridSizer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGridSizer[] = {{&_swigt__p_wxGridSizer, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxFlexGridSizer[] = {{&_swigt__p_wxFlexGridSizer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxAcceleratorTable[] = {{&_swigt__p_wxAcceleratorTable, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxColourData[] = {{&_swigt__p_wxColourData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyPrintout[] = {{&_swigt__p_wxPyPrintout, 0, 0, 0},{0, 0, 0, 0}};
@@ -28855,9 +24685,9 @@ static swig_cast_info _swigc__p_wxFileSystem[] = {{&_swigt__p_wxFileSystem, 0, 0
 static swig_cast_info _swigc__p_wxPrintPreview[] = {{&_swigt__p_wxPrintPreview, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyPrintPreview[] = {{&_swigt__p_wxPyPrintPreview, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLayoutConstraints[] = {{&_swigt__p_wxLayoutConstraints, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxStaticBoxSizer[] = {{&_swigt__p_wxStaticBoxSizer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxBoxSizer[] = {{&_swigt__p_wxBoxSizer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSizer[] = {{&_swigt__p_wxSizer, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxStaticBoxSizer[] = {{&_swigt__p_wxStaticBoxSizer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGridBagSizer[] = {{&_swigt__p_wxGridBagSizer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFSFile[] = {{&_swigt__p_wxFSFile, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGBSizerItem[] = {{&_swigt__p_wxGBSizerItem, 0, 0, 0},{0, 0, 0, 0}};
@@ -28878,14 +24708,12 @@ static swig_cast_info _swigc__p_wxGIFHandler[] = {{&_swigt__p_wxGIFHandler, 0, 0
 static swig_cast_info _swigc__p_wxPCXHandler[] = {{&_swigt__p_wxPCXHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxJPEGHandler[] = {{&_swigt__p_wxJPEGHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPNMHandler[] = {{&_swigt__p_wxPNMHandler, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxObject[] = {  {&_swigt__p_wxUpdateUIEvent, _p_wxUpdateUIEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextPlainText, _p_wxRichTextPlainTextTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvent, _p_wxEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxInitDialogEvent, _p_wxInitDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindDialogEvent, _p_wxFindDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIndividualLayoutConstraint, _p_wxIndividualLayoutConstraintTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuItem, _p_wxMenuItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxImage, _p_wxImageTo_p_wxObject, 0, 0},  {&_swigt__p_wxPySizer, _p_wxPySizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxLayoutAlgorithm, _p_wxLayoutAlgorithmTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyTaskBarIcon, _p_wxPyTaskBarIconTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextBuffer, _p_wxRichTextBufferTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextParagraph, _p_wxRichTextParagraphTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewControlBar, _p_wxPreviewControlBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPreviewControlBar, _p_wxPyPreviewControlBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindReplaceData, _p_wxFindReplaceDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxCloseEvent, _p_wxCloseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseEvent, _p_wxMouseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEraseEvent, _p_wxEraseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollEvent, _p_wxScrollEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPageSetupDialogData, _p_wxPageSetupDialogDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintDialogData, _p_wxPrintDialogDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrinter, _p_wxPrinterTo_p_wxObject, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxObject, 0, 0},  {&_swigt__p_wxObject, 0, 0, 0},  {&_swigt__p_wxRichTextObject, _p_wxRichTextObjectTo_p_wxObject, 0, 0},  {&_swigt__p_wxFlexGridSizer, _p_wxFlexGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridSizer, _p_wxGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxAcceleratorTable, _p_wxAcceleratorTableTo_p_wxObject, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourData, _p_wxColourDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxIdleEvent, _p_wxIdleEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowCreateEvent, _p_wxWindowCreateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryNewPaletteEvent, _p_wxQueryNewPaletteEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMaximizeEvent, _p_wxMaximizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIconizeEvent, _p_wxIconizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxActivateEvent, _p_wxActivateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizeEvent, _p_wxSizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMoveEvent, _p_wxMoveEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDateEvent, _p_wxDateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureLostEvent, _p_wxMouseCaptureLostEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCalculateLayoutEvent, _p_wxCalculateLayoutEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPrintout, _p_wxPyPrintoutTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxStdDialogButtonSizer, _p_wxStdDialogButtonSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextCompositeObject, _p_wxRichTextCompositeObjectTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowDestroyEvent, _p_wxWindowDestroyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNavigationKeyEvent, _p_wxNavigationKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxKeyEvent, _p_wxKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashEvent, _p_wxSashEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyVListBox, _p_wxPyVListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHtmlListBox, _p_wxPyHtmlListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxSimpleHtmlListBox, _p_wxSimpleHtmlListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxFontData, _p_wxFontDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintData, _p_wxPrintDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPanel, _p_wxPyPanelTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryLayoutInfoEvent, _p_wxQueryLayoutInfoEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileSystem, _p_wxFileSystemTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintPreview, _p_wxPrintPreviewTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPrintPreview, _p_wxPyPrintPreviewTo_p_wxObject, 0, 0},  {&_swigt__p_wxLayoutConstraints, _p_wxLayoutConstraintsTo_p_wxObject, 0, 0},  {&_swigt__p_wxStaticBoxSizer, _p_wxStaticBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBoxSizer, _p_wxBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizer, _p_wxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridBagSizer, _p_wxGridBagSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaintEvent, _p_wxPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNcPaintEvent, _p_wxNcPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxClipboardTextEvent, _p_wxClipboardTextEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextEvent, _p_wxRichTextEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFSFile, _p_wxFSFileTo_p_wxObject, 0, 0},  {&_swigt__p_wxSetCursorEvent, _p_wxSetCursorEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplitterEvent, _p_wxSplitterEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxObject, 0, 0},  {&_swigt__p_wxGBSizerItem, _p_wxGBSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizerItem, _p_wxSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintDialog, _p_wxPrintDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPageSetupDialog, _p_wxPageSetupDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextImage, _p_wxRichTextImageTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvent, _p_wxPyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNotifyEvent, _p_wxNotifyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextFileHandler, _p_wxRichTextFileHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvtHandler, _p_wxEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTGAHandler, _p_wxTGAHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTIFFHandler, _p_wxTIFFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxXPMHandler, _p_wxXPMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageHandler, _p_wxImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyImageHandler, _p_wxPyImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBMPHandler, _p_wxBMPHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxICOHandler, _p_wxICOHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxCURHandler, _p_wxCURHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxANIHandler, _p_wxANIHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNGHandler, _p_wxPNGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGIFHandler, _p_wxGIFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPCXHandler, _p_wxPCXHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxJPEGHandler, _p_wxJPEGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNMHandler, _p_wxPNMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextHTMLHandler, _p_wxRichTextHTMLHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextXMLHandler, _p_wxRichTextXMLHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxShowEvent, _p_wxShowEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextPlainTextHandler, _p_wxRichTextPlainTextHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTipWindow, _p_wxTipWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPopupTransientWindow, _p_wxPyPopupTransientWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPopupWindow, _p_wxPopupWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashLayoutWindow, _p_wxSashLayoutWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplashScreenWindow, _p_wxSplashScreenWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplitterWindow, _p_wxSplitterWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashWindow, _p_wxSashWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxTopLevelWindow, _p_wxTopLevelWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIClientWindow, _p_wxMDIClientWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyVScrolledWindow, _p_wxPyVScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHScrolledWindow, _p_wxPyHScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextBox, _p_wxRichTextBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextRenderer, _p_wxRichTextRendererTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextStdRenderer, _p_wxRichTextStdRendererTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextParagraphLayoutBox, _p_wxRichTextParagraphLayoutBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyWindow, _p_wxPyWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureChangedEvent, _p_wxMouseCaptureChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSysColourChangedEvent, _p_wxSysColourChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDisplayChangedEvent, _p_wxDisplayChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaletteChangedEvent, _p_wxPaletteChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPanel, _p_wxPanelTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollWinEvent, _p_wxScrollWinEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxTaskBarIconEvent, _p_wxTaskBarIconEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxContextMenuEvent, _p_wxContextMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuEvent, _p_wxMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCommandEvent, _p_wxCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyCommandEvent, _p_wxPyCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxStatusBar, _p_wxStatusBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxDropFilesEvent, _p_wxDropFilesEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFocusEvent, _p_wxFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxChildFocusEvent, _p_wxChildFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxObject, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxObject[] = {  {&_swigt__p_wxUpdateUIEvent, _p_wxUpdateUIEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextPlainText, _p_wxRichTextPlainTextTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvent, _p_wxEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxInitDialogEvent, _p_wxInitDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindDialogEvent, _p_wxFindDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIndividualLayoutConstraint, _p_wxIndividualLayoutConstraintTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuItem, _p_wxMenuItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxImage, _p_wxImageTo_p_wxObject, 0, 0},  {&_swigt__p_wxPySizer, _p_wxPySizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxLayoutAlgorithm, _p_wxLayoutAlgorithmTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyTaskBarIcon, _p_wxPyTaskBarIconTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextBuffer, _p_wxRichTextBufferTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextParagraph, _p_wxRichTextParagraphTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewControlBar, _p_wxPreviewControlBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPreviewControlBar, _p_wxPyPreviewControlBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindReplaceData, _p_wxFindReplaceDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxCloseEvent, _p_wxCloseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseEvent, _p_wxMouseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEraseEvent, _p_wxEraseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWrapSizer, _p_wxWrapSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollEvent, _p_wxScrollEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPageSetupDialogData, _p_wxPageSetupDialogDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintDialogData, _p_wxPrintDialogDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrinter, _p_wxPrinterTo_p_wxObject, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxObject, 0, 0},  {&_swigt__p_wxObject, 0, 0, 0},  {&_swigt__p_wxRichTextObject, _p_wxRichTextObjectTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextFontTable, _p_wxRichTextFontTableTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridSizer, _p_wxGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxFlexGridSizer, _p_wxFlexGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxAcceleratorTable, _p_wxAcceleratorTableTo_p_wxObject, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourData, _p_wxColourDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxIdleEvent, _p_wxIdleEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowCreateEvent, _p_wxWindowCreateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryNewPaletteEvent, _p_wxQueryNewPaletteEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMaximizeEvent, _p_wxMaximizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIconizeEvent, _p_wxIconizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxActivateEvent, _p_wxActivateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizeEvent, _p_wxSizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMoveEvent, _p_wxMoveEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDateEvent, _p_wxDateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureLostEvent, _p_wxMouseCaptureLostEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCalculateLayoutEvent, _p_wxCalculateLayoutEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPrintout, _p_wxPyPrintoutTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxStdDialogButtonSizer, _p_wxStdDialogButtonSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextCompositeObject, _p_wxRichTextCompositeObjectTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowDestroyEvent, _p_wxWindowDestroyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNavigationKeyEvent, _p_wxNavigationKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxKeyEvent, _p_wxKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashEvent, _p_wxSashEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyVListBox, _p_wxPyVListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHtmlListBox, _p_wxPyHtmlListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxSimpleHtmlListBox, _p_wxSimpleHtmlListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxFontData, _p_wxFontDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintData, _p_wxPrintDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPanel, _p_wxPyPanelTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryLayoutInfoEvent, _p_wxQueryLayoutInfoEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileSystem, _p_wxFileSystemTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintPreview, _p_wxPrintPreviewTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPrintPreview, _p_wxPyPrintPreviewTo_p_wxObject, 0, 0},  {&_swigt__p_wxLayoutConstraints, _p_wxLayoutConstraintsTo_p_wxObject, 0, 0},  {&_swigt__p_wxBoxSizer, _p_wxBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizer, _p_wxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxStaticBoxSizer, _p_wxStaticBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridBagSizer, _p_wxGridBagSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaintEvent, _p_wxPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNcPaintEvent, _p_wxNcPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxClipboardTextEvent, _p_wxClipboardTextEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextEvent, _p_wxRichTextEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFSFile, _p_wxFSFileTo_p_wxObject, 0, 0},  {&_swigt__p_wxSetCursorEvent, _p_wxSetCursorEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplitterEvent, _p_wxSplitterEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxObject, 0, 0},  {&_swigt__p_wxGBSizerItem, _p_wxGBSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizerItem, _p_wxSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintDialog, _p_wxPrintDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPageSetupDialog, _p_wxPageSetupDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextImage, _p_wxRichTextImageTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvent, _p_wxPyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNotifyEvent, _p_wxNotifyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvtHandler, _p_wxEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTGAHandler, _p_wxTGAHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTIFFHandler, _p_wxTIFFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxXPMHandler, _p_wxXPMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageHandler, _p_wxImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyImageHandler, _p_wxPyImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBMPHandler, _p_wxBMPHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxICOHandler, _p_wxICOHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxCURHandler, _p_wxCURHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxANIHandler, _p_wxANIHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNGHandler, _p_wxPNGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGIFHandler, _p_wxGIFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPCXHandler, _p_wxPCXHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxJPEGHandler, _p_wxJPEGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNMHandler, _p_wxPNMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextHTMLHandler, _p_wxRichTextHTMLHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextXMLHandler, _p_wxRichTextXMLHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxShowEvent, _p_wxShowEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextFileHandler, _p_wxRichTextFileHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextPlainTextHandler, _p_wxRichTextPlainTextHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHScrolledWindow, _p_wxPyHScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyVScrolledWindow, _p_wxPyVScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxTipWindow, _p_wxTipWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPopupTransientWindow, _p_wxPyPopupTransientWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPopupWindow, _p_wxPopupWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashLayoutWindow, _p_wxSashLayoutWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplashScreenWindow, _p_wxSplashScreenWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplitterWindow, _p_wxSplitterWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashWindow, _p_wxSashWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxTopLevelWindow, _p_wxTopLevelWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIClientWindow, _p_wxMDIClientWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextBox, _p_wxRichTextBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextRenderer, _p_wxRichTextRendererTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextStdRenderer, _p_wxRichTextStdRendererTo_p_wxObject, 0, 0},  {&_swigt__p_wxRichTextParagraphLayoutBox, _p_wxRichTextParagraphLayoutBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyWindow, _p_wxPyWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureChangedEvent, _p_wxMouseCaptureChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSysColourChangedEvent, _p_wxSysColourChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDisplayChangedEvent, _p_wxDisplayChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaletteChangedEvent, _p_wxPaletteChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPanel, _p_wxPanelTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollWinEvent, _p_wxScrollWinEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxTaskBarIconEvent, _p_wxTaskBarIconEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxContextMenuEvent, _p_wxContextMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuEvent, _p_wxMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCommandEvent, _p_wxCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyCommandEvent, _p_wxPyCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxStatusBar, _p_wxStatusBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxDropFilesEvent, _p_wxDropFilesEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFocusEvent, _p_wxFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxChildFocusEvent, _p_wxChildFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxObject, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxOutputStream[] = {  {&_swigt__p_wxOutputStream, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPanel[] = {  {&_swigt__p_wxPyVListBox, _p_wxPyVListBoxTo_p_wxPanel, 0, 0},  {&_swigt__p_wxPyHtmlListBox, _p_wxPyHtmlListBoxTo_p_wxPanel, 0, 0},  {&_swigt__p_wxSimpleHtmlListBox, _p_wxSimpleHtmlListBoxTo_p_wxPanel, 0, 0},  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxPanel, 0, 0},  {&_swigt__p_wxPyVScrolledWindow, _p_wxPyVScrolledWindowTo_p_wxPanel, 0, 0},  {&_swigt__p_wxPyHScrolledWindow, _p_wxPyHScrolledWindowTo_p_wxPanel, 0, 0},  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxPanel, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxPanel, 0, 0},  {&_swigt__p_wxPreviewControlBar, _p_wxPreviewControlBarTo_p_wxPanel, 0, 0},  {&_swigt__p_wxPyPreviewControlBar, _p_wxPyPreviewControlBarTo_p_wxPanel, 0, 0},  {&_swigt__p_wxPyPanel, _p_wxPyPanelTo_p_wxPanel, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxPanel, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxPanel, 0, 0},  {&_swigt__p_wxPanel, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPaperSize[] = {  {&_swigt__p_wxPaperSize, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPoint[] = {  {&_swigt__p_wxPoint, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRect[] = {  {&_swigt__p_wxRect, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextAction[] = {  {&_swigt__p_wxRichTextAction, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxRichTextAttr[] = {  {&_swigt__p_wxRichTextAttr, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextBox[] = {  {&_swigt__p_wxRichTextBox, 0, 0, 0},  {&_swigt__p_wxRichTextParagraphLayoutBox, _p_wxRichTextParagraphLayoutBoxTo_p_wxRichTextBox, 0, 0},  {&_swigt__p_wxRichTextBuffer, _p_wxRichTextBufferTo_p_wxRichTextBox, 0, 0},  {&_swigt__p_wxRichTextParagraph, _p_wxRichTextParagraphTo_p_wxRichTextBox, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextBuffer[] = {  {&_swigt__p_wxRichTextBuffer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextCommand[] = {  {&_swigt__p_wxRichTextCommand, 0, 0, 0},{0, 0, 0, 0}};
@@ -28895,6 +24723,7 @@ static swig_cast_info _swigc__p_wxRichTextEvent[] = {  {&_swigt__p_wxRichTextEve
 static swig_cast_info _swigc__p_wxRichTextFileHandler[] = {  {&_swigt__p_wxRichTextFileHandler, 0, 0, 0},  {&_swigt__p_wxRichTextPlainTextHandler, _p_wxRichTextPlainTextHandlerTo_p_wxRichTextFileHandler, 0, 0},  {&_swigt__p_wxRichTextHTMLHandler, _p_wxRichTextHTMLHandlerTo_p_wxRichTextFileHandler, 0, 0},  {&_swigt__p_wxRichTextXMLHandler, _p_wxRichTextXMLHandlerTo_p_wxRichTextFileHandler, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextFileHandlerList[] = {  {&_swigt__p_wxRichTextFileHandlerList, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextFileHandlerList_iterator[] = {  {&_swigt__p_wxRichTextFileHandlerList_iterator, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxRichTextFontTable[] = {  {&_swigt__p_wxRichTextFontTable, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextHTMLHandler[] = {  {&_swigt__p_wxRichTextHTMLHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextImage[] = {  {&_swigt__p_wxRichTextImage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextImageBlock[] = {  {&_swigt__p_wxRichTextImageBlock, 0, 0, 0},{0, 0, 0, 0}};
@@ -28914,13 +24743,16 @@ static swig_cast_info _swigc__p_wxRichTextStdRenderer[] = {  {&_swigt__p_wxRichT
 static swig_cast_info _swigc__p_wxRichTextStyleDefinition[] = {  {&_swigt__p_wxRichTextStyleDefinition, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextStyleSheet[] = {  {&_swigt__p_wxRichTextStyleSheet, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextXMLHandler[] = {  {&_swigt__p_wxRichTextXMLHandler, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxScrolledWindow[] = {  {&_swigt__p_wxScrolledWindow, 0, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxScrolledWindow, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxScrolledWindow, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxScrolledWindow, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxScrollHelper[] = {  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxScrollHelper, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxScrollHelper, 0, 0},  {&_swigt__p_wxScrollHelper, 0, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxScrollHelper, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxScrollHelper, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSize[] = {  {&_swigt__p_wxSize, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxTextAttrEx[] = {  {&_swigt__p_wxTextAttrEx, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxTextAreaBase[] = {  {&_swigt__p_wxTextAreaBase, 0, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxTextAreaBase, 0, 0},  {&_swigt__p_wxTextCtrlIface, _p_wxTextCtrlIfaceTo_p_wxTextAreaBase, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxTextAttr[] = {  {&_swigt__p_wxTextAttr, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextCoord[] = {  {&_swigt__p_wxTextCoord, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextCtrlHitTestResult[] = {  {&_swigt__p_wxTextCtrlHitTestResult, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxTextCtrlIface[] = {  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxTextCtrlIface, 0, 0},  {&_swigt__p_wxTextCtrlIface, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxTextEntry[] = {  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxTextEntry, 0, 0},  {&_swigt__p_wxTextEntry, 0, 0, 0},  {&_swigt__p_wxTextCtrlIface, _p_wxTextCtrlIfaceTo_p_wxTextEntry, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxValidator[] = {  {&_swigt__p_wxValidator, 0, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxValidator, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyPanel, _p_wxPyPanelTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPanel, _p_wxPanelTo_p_wxWindow, 0, 0},  {&_swigt__p_wxStatusBar, _p_wxStatusBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSashLayoutWindow, _p_wxSashLayoutWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTopLevelWindow, _p_wxTopLevelWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSplashScreenWindow, _p_wxSplashScreenWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSplitterWindow, _p_wxSplitterWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSashWindow, _p_wxSashWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMDIClientWindow, _p_wxMDIClientWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyVScrolledWindow, _p_wxPyVScrolledWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyHScrolledWindow, _p_wxPyHScrolledWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxWindow, 0, 0, 0},  {&_swigt__p_wxPopupWindow, _p_wxPopupWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyPopupTransientWindow, _p_wxPyPopupTransientWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTipWindow, _p_wxTipWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyWindow, _p_wxPyWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyVListBox, _p_wxPyVListBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyHtmlListBox, _p_wxPyHtmlListBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSimpleHtmlListBox, _p_wxSimpleHtmlListBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPreviewControlBar, _p_wxPreviewControlBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyPreviewControlBar, _p_wxPyPreviewControlBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxWindow, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyPanel, _p_wxPyPanelTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPanel, _p_wxPanelTo_p_wxWindow, 0, 0},  {&_swigt__p_wxStatusBar, _p_wxStatusBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyHScrolledWindow, _p_wxPyHScrolledWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyVScrolledWindow, _p_wxPyVScrolledWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTipWindow, _p_wxTipWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyPopupTransientWindow, _p_wxPyPopupTransientWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPopupWindow, _p_wxPopupWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSashLayoutWindow, _p_wxSashLayoutWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTopLevelWindow, _p_wxTopLevelWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSplashScreenWindow, _p_wxSplashScreenWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSplitterWindow, _p_wxSplitterWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSashWindow, _p_wxSashWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMDIClientWindow, _p_wxMDIClientWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxWindow, 0, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyWindow, _p_wxPyWindowTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSimpleHtmlListBox, _p_wxSimpleHtmlListBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyHtmlListBox, _p_wxPyHtmlListBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyVListBox, _p_wxPyVListBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPreviewControlBar, _p_wxPreviewControlBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyPreviewControlBar, _p_wxPyPreviewControlBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxWindow, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxWindow, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_char,
@@ -28953,7 +24785,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxChildFocusEvent,
   _swigc__p_wxClipboardTextEvent,
   _swigc__p_wxCloseEvent,
-  _swigc__p_wxColour,
   _swigc__p_wxColourData,
   _swigc__p_wxColourDialog,
   _swigc__p_wxCommandEvent,
@@ -29067,7 +24898,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxQueryNewPaletteEvent,
   _swigc__p_wxRect,
   _swigc__p_wxRichTextAction,
-  _swigc__p_wxRichTextAttr,
   _swigc__p_wxRichTextBox,
   _swigc__p_wxRichTextBuffer,
   _swigc__p_wxRichTextCommand,
@@ -29077,6 +24907,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxRichTextFileHandler,
   _swigc__p_wxRichTextFileHandlerList,
   _swigc__p_wxRichTextFileHandlerList_iterator,
+  _swigc__p_wxRichTextFontTable,
   _swigc__p_wxRichTextHTMLHandler,
   _swigc__p_wxRichTextImage,
   _swigc__p_wxRichTextImageBlock,
@@ -29100,6 +24931,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxSashLayoutWindow,
   _swigc__p_wxSashWindow,
   _swigc__p_wxScrollEvent,
+  _swigc__p_wxScrollHelper,
   _swigc__p_wxScrollWinEvent,
   _swigc__p_wxScrolledWindow,
   _swigc__p_wxSetCursorEvent,
@@ -29121,9 +24953,12 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxTGAHandler,
   _swigc__p_wxTIFFHandler,
   _swigc__p_wxTaskBarIconEvent,
-  _swigc__p_wxTextAttrEx,
+  _swigc__p_wxTextAreaBase,
+  _swigc__p_wxTextAttr,
   _swigc__p_wxTextCoord,
   _swigc__p_wxTextCtrlHitTestResult,
+  _swigc__p_wxTextCtrlIface,
+  _swigc__p_wxTextEntry,
   _swigc__p_wxTextEntryDialog,
   _swigc__p_wxTipWindow,
   _swigc__p_wxTopLevelWindow,
@@ -29132,6 +24967,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxWindow,
   _swigc__p_wxWindowCreateEvent,
   _swigc__p_wxWindowDestroyEvent,
+  _swigc__p_wxWrapSizer,
   _swigc__p_wxXPMHandler,
 };
 
@@ -29636,13 +25472,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_InstallConstants(d,swig_const_table);
   
   
-  SWIG_Python_SetConstant(d, "USE_TEXTATTREX",SWIG_From_int(static_cast< int >(0)));
-  SWIG_Python_SetConstant(d, "TEXT_ALIGNMENT_DEFAULT",SWIG_From_int(static_cast< int >(wxTEXT_ALIGNMENT_DEFAULT)));
-  SWIG_Python_SetConstant(d, "TEXT_ALIGNMENT_LEFT",SWIG_From_int(static_cast< int >(wxTEXT_ALIGNMENT_LEFT)));
-  SWIG_Python_SetConstant(d, "TEXT_ALIGNMENT_CENTRE",SWIG_From_int(static_cast< int >(wxTEXT_ALIGNMENT_CENTRE)));
-  SWIG_Python_SetConstant(d, "TEXT_ALIGNMENT_CENTER",SWIG_From_int(static_cast< int >(wxTEXT_ALIGNMENT_CENTER)));
-  SWIG_Python_SetConstant(d, "TEXT_ALIGNMENT_RIGHT",SWIG_From_int(static_cast< int >(wxTEXT_ALIGNMENT_RIGHT)));
-  SWIG_Python_SetConstant(d, "TEXT_ALIGNMENT_JUSTIFIED",SWIG_From_int(static_cast< int >(wxTEXT_ALIGNMENT_JUSTIFIED)));
   SWIG_Python_SetConstant(d, "RICHTEXT_TYPE_ANY",SWIG_From_int(static_cast< int >(wxRICHTEXT_TYPE_ANY)));
   SWIG_Python_SetConstant(d, "RICHTEXT_TYPE_TEXT",SWIG_From_int(static_cast< int >(wxRICHTEXT_TYPE_TEXT)));
   SWIG_Python_SetConstant(d, "RICHTEXT_TYPE_XML",SWIG_From_int(static_cast< int >(wxRICHTEXT_TYPE_XML)));
@@ -29673,64 +25502,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "RICHTEXT_SETSTYLE_REMOVE",SWIG_From_int(static_cast< int >(wxRICHTEXT_SETSTYLE_REMOVE)));
   SWIG_Python_SetConstant(d, "RICHTEXT_INSERT_NONE",SWIG_From_int(static_cast< int >(wxRICHTEXT_INSERT_NONE)));
   SWIG_Python_SetConstant(d, "RICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE",SWIG_From_int(static_cast< int >(wxRICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_TEXT_COLOUR",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_TEXT_COLOUR)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BACKGROUND_COLOUR",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BACKGROUND_COLOUR)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_FACE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_FACE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_SIZE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_SIZE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_WEIGHT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_WEIGHT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_ITALIC",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_ITALIC)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT_UNDERLINE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT_UNDERLINE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_FONT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_FONT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_ALIGNMENT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_ALIGNMENT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_LEFT_INDENT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_LEFT_INDENT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_RIGHT_INDENT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_RIGHT_INDENT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_TABS",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_TABS)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_PARA_SPACING_AFTER",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_PARA_SPACING_AFTER)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_PARA_SPACING_BEFORE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_PARA_SPACING_BEFORE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_LINE_SPACING",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_LINE_SPACING)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_CHARACTER_STYLE_NAME",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_CHARACTER_STYLE_NAME)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_PARAGRAPH_STYLE_NAME",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_PARAGRAPH_STYLE_NAME)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_NUMBER",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_NUMBER)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_TEXT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_TEXT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_NAME",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_NAME)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_URL",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_URL)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_PAGE_BREAK",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_PAGE_BREAK)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECTS",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECTS)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_OUTLINE_LEVEL",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_OUTLINE_LEVEL)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_NONE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_NONE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_ARABIC",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_ARABIC)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_LETTERS_UPPER",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_LETTERS_UPPER)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_LETTERS_LOWER",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_LETTERS_LOWER)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_ROMAN_UPPER",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_ROMAN_UPPER)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_ROMAN_LOWER",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_ROMAN_LOWER)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_SYMBOL",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_SYMBOL)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_BITMAP",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_BITMAP)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_PARENTHESES",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_PARENTHESES)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_PERIOD",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_PERIOD)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_STANDARD",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_STANDARD)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_RIGHT_PARENTHESIS",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_RIGHT_PARENTHESIS)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_OUTLINE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_OUTLINE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_ALIGN_LEFT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_ALIGN_LEFT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_ALIGN_RIGHT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_ALIGN_RIGHT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_BULLET_STYLE_ALIGN_CENTRE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_BULLET_STYLE_ALIGN_CENTRE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_NONE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_NONE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_CAPITALS",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_CAPITALS)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_SMALL_CAPITALS",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_SMALL_CAPITALS)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_STRIKETHROUGH",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_STRIKETHROUGH)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_DOUBLE_STRIKETHROUGH",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_DOUBLE_STRIKETHROUGH)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_SHADOW",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_SHADOW)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_EMBOSS",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_EMBOSS)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_OUTLINE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_OUTLINE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_ENGRAVE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_ENGRAVE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_SUPERSCRIPT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_SUPERSCRIPT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_EFFECT_SUBSCRIPT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_EFFECT_SUBSCRIPT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_LINE_SPACING_NORMAL",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_LINE_SPACING_NORMAL)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_LINE_SPACING_HALF",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_LINE_SPACING_HALF)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_LINE_SPACING_TWICE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_LINE_SPACING_TWICE)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_CHARACTER",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_CHARACTER)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_PARAGRAPH",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_PARAGRAPH)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_ALL",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_ALL)));
   PyDict_SetItemString(d,(char*)"cvar", SWIG_globals());
   SWIG_addvarlink(SWIG_globals(),(char*)"RICHTEXT_ALL",RICHTEXT_ALL_get, RICHTEXT_ALL_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"RICHTEXT_NONE",RICHTEXT_NONE_get, RICHTEXT_NONE_set);

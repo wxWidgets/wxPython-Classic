@@ -132,7 +132,133 @@ def Panel_GetClassDefaultAttributes(*args, **kwargs):
 
 #---------------------------------------------------------------------------
 
-class ScrolledWindow(Panel):
+class ScrollHelper(object):
+    """Proxy of C++ ScrollHelper class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, Window winToScroll) -> ScrollHelper"""
+        _windows_.ScrollHelper_swiginit(self,_windows_.new_ScrollHelper(*args, **kwargs))
+    def SetScrollbars(*args, **kwargs):
+        """
+        SetScrollbars(self, int pixelsPerUnitX, int pixelsPerUnitY, int noUnitsX, 
+            int noUnitsY, int xPos=0, int yPos=0, bool noRefresh=False)
+        """
+        return _windows_.ScrollHelper_SetScrollbars(*args, **kwargs)
+
+    def Scroll(*args, **kwargs):
+        """Scroll(self, int x, int y)"""
+        return _windows_.ScrollHelper_Scroll(*args, **kwargs)
+
+    def GetScrollPageSize(*args, **kwargs):
+        """GetScrollPageSize(self, int orient) -> int"""
+        return _windows_.ScrollHelper_GetScrollPageSize(*args, **kwargs)
+
+    def SetScrollPageSize(*args, **kwargs):
+        """SetScrollPageSize(self, int orient, int pageSize)"""
+        return _windows_.ScrollHelper_SetScrollPageSize(*args, **kwargs)
+
+    def GetScrollLines(*args, **kwargs):
+        """GetScrollLines(self, int orient) -> int"""
+        return _windows_.ScrollHelper_GetScrollLines(*args, **kwargs)
+
+    def SetScrollRate(*args, **kwargs):
+        """SetScrollRate(self, int xstep, int ystep)"""
+        return _windows_.ScrollHelper_SetScrollRate(*args, **kwargs)
+
+    def GetScrollPixelsPerUnit(*args, **kwargs):
+        """
+        GetScrollPixelsPerUnit() -> (xUnit, yUnit)
+
+        Get the size of one logical unit in physical units.
+        """
+        return _windows_.ScrollHelper_GetScrollPixelsPerUnit(*args, **kwargs)
+
+    def EnableScrolling(*args, **kwargs):
+        """EnableScrolling(self, bool x_scrolling, bool y_scrolling)"""
+        return _windows_.ScrollHelper_EnableScrolling(*args, **kwargs)
+
+    def GetViewStart(*args, **kwargs):
+        """
+        GetViewStart() -> (x,y)
+
+        Get the view start
+        """
+        return _windows_.ScrollHelper_GetViewStart(*args, **kwargs)
+
+    def SetScale(*args, **kwargs):
+        """SetScale(self, double xs, double ys)"""
+        return _windows_.ScrollHelper_SetScale(*args, **kwargs)
+
+    def GetScaleX(*args, **kwargs):
+        """GetScaleX(self) -> double"""
+        return _windows_.ScrollHelper_GetScaleX(*args, **kwargs)
+
+    def GetScaleY(*args, **kwargs):
+        """GetScaleY(self) -> double"""
+        return _windows_.ScrollHelper_GetScaleY(*args, **kwargs)
+
+    def CalcScrolledPosition(*args):
+        """
+        CalcScrolledPosition(self, Point pt) -> Point
+        CalcScrolledPosition(int x, int y) -> (sx, sy)
+
+        Translate between scrolled and unscrolled coordinates.
+        """
+        return _windows_.ScrollHelper_CalcScrolledPosition(*args)
+
+    def CalcUnscrolledPosition(*args):
+        """
+        CalcUnscrolledPosition(self, Point pt) -> Point
+        CalcUnscrolledPosition(int x, int y) -> (ux, uy)
+
+        Translate between scrolled and unscrolled coordinates.
+        """
+        return _windows_.ScrollHelper_CalcUnscrolledPosition(*args)
+
+    def AdjustScrollbars(*args, **kwargs):
+        """AdjustScrollbars(self)"""
+        return _windows_.ScrollHelper_AdjustScrollbars(*args, **kwargs)
+
+    def CalcScrollInc(*args, **kwargs):
+        """CalcScrollInc(self, ScrollWinEvent event) -> int"""
+        return _windows_.ScrollHelper_CalcScrollInc(*args, **kwargs)
+
+    def SetTargetWindow(*args, **kwargs):
+        """SetTargetWindow(self, Window target)"""
+        return _windows_.ScrollHelper_SetTargetWindow(*args, **kwargs)
+
+    def GetTargetWindow(*args, **kwargs):
+        """GetTargetWindow(self) -> Window"""
+        return _windows_.ScrollHelper_GetTargetWindow(*args, **kwargs)
+
+    def SetTargetRect(*args, **kwargs):
+        """SetTargetRect(self, Rect rect)"""
+        return _windows_.ScrollHelper_SetTargetRect(*args, **kwargs)
+
+    def GetTargetRect(*args, **kwargs):
+        """GetTargetRect(self) -> Rect"""
+        return _windows_.ScrollHelper_GetTargetRect(*args, **kwargs)
+
+    def IsAutoScrolling(*args, **kwargs):
+        """IsAutoScrolling(self) -> bool"""
+        return _windows_.ScrollHelper_IsAutoScrolling(*args, **kwargs)
+
+    def StopAutoScrolling(*args, **kwargs):
+        """StopAutoScrolling(self)"""
+        return _windows_.ScrollHelper_StopAutoScrolling(*args, **kwargs)
+
+    def SendAutoScrollEvents(*args, **kwargs):
+        """SendAutoScrollEvents(self, ScrollWinEvent event) -> bool"""
+        return _windows_.ScrollHelper_SendAutoScrollEvents(*args, **kwargs)
+
+    ScaleX = property(GetScaleX) 
+    ScaleY = property(GetScaleY) 
+    TargetWindow = property(GetTargetWindow,SetTargetWindow) 
+    ViewStart = property(GetViewStart) 
+_windows_.ScrollHelper_swigregister(ScrollHelper)
+
+class ScrolledWindow(Panel,ScrollHelper):
     """Proxy of C++ ScrolledWindow class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -155,111 +281,6 @@ class ScrolledWindow(Panel):
         """
         return _windows_.ScrolledWindow_Create(*args, **kwargs)
 
-    def SetScrollbars(*args, **kwargs):
-        """
-        SetScrollbars(self, int pixelsPerUnitX, int pixelsPerUnitY, int noUnitsX, 
-            int noUnitsY, int xPos=0, int yPos=0, bool noRefresh=False)
-        """
-        return _windows_.ScrolledWindow_SetScrollbars(*args, **kwargs)
-
-    def Scroll(*args, **kwargs):
-        """Scroll(self, int x, int y)"""
-        return _windows_.ScrolledWindow_Scroll(*args, **kwargs)
-
-    def GetScrollPageSize(*args, **kwargs):
-        """GetScrollPageSize(self, int orient) -> int"""
-        return _windows_.ScrolledWindow_GetScrollPageSize(*args, **kwargs)
-
-    def SetScrollPageSize(*args, **kwargs):
-        """SetScrollPageSize(self, int orient, int pageSize)"""
-        return _windows_.ScrolledWindow_SetScrollPageSize(*args, **kwargs)
-
-    def SetScrollRate(*args, **kwargs):
-        """SetScrollRate(self, int xstep, int ystep)"""
-        return _windows_.ScrolledWindow_SetScrollRate(*args, **kwargs)
-
-    def GetScrollPixelsPerUnit(*args, **kwargs):
-        """
-        GetScrollPixelsPerUnit() -> (xUnit, yUnit)
-
-        Get the size of one logical unit in physical units.
-        """
-        return _windows_.ScrolledWindow_GetScrollPixelsPerUnit(*args, **kwargs)
-
-    def EnableScrolling(*args, **kwargs):
-        """EnableScrolling(self, bool x_scrolling, bool y_scrolling)"""
-        return _windows_.ScrolledWindow_EnableScrolling(*args, **kwargs)
-
-    def GetViewStart(*args, **kwargs):
-        """
-        GetViewStart() -> (x,y)
-
-        Get the view start
-        """
-        return _windows_.ScrolledWindow_GetViewStart(*args, **kwargs)
-
-    def SetScale(*args, **kwargs):
-        """SetScale(self, double xs, double ys)"""
-        return _windows_.ScrolledWindow_SetScale(*args, **kwargs)
-
-    def GetScaleX(*args, **kwargs):
-        """GetScaleX(self) -> double"""
-        return _windows_.ScrolledWindow_GetScaleX(*args, **kwargs)
-
-    def GetScaleY(*args, **kwargs):
-        """GetScaleY(self) -> double"""
-        return _windows_.ScrolledWindow_GetScaleY(*args, **kwargs)
-
-    def CalcScrolledPosition(*args):
-        """
-        CalcScrolledPosition(self, Point pt) -> Point
-        CalcScrolledPosition(int x, int y) -> (sx, sy)
-
-        Translate between scrolled and unscrolled coordinates.
-        """
-        return _windows_.ScrolledWindow_CalcScrolledPosition(*args)
-
-    def CalcUnscrolledPosition(*args):
-        """
-        CalcUnscrolledPosition(self, Point pt) -> Point
-        CalcUnscrolledPosition(int x, int y) -> (ux, uy)
-
-        Translate between scrolled and unscrolled coordinates.
-        """
-        return _windows_.ScrolledWindow_CalcUnscrolledPosition(*args)
-
-    def AdjustScrollbars(*args, **kwargs):
-        """AdjustScrollbars(self)"""
-        return _windows_.ScrolledWindow_AdjustScrollbars(*args, **kwargs)
-
-    def CalcScrollInc(*args, **kwargs):
-        """CalcScrollInc(self, ScrollWinEvent event) -> int"""
-        return _windows_.ScrolledWindow_CalcScrollInc(*args, **kwargs)
-
-    def SetTargetWindow(*args, **kwargs):
-        """SetTargetWindow(self, Window target)"""
-        return _windows_.ScrolledWindow_SetTargetWindow(*args, **kwargs)
-
-    def GetTargetWindow(*args, **kwargs):
-        """GetTargetWindow(self) -> Window"""
-        return _windows_.ScrolledWindow_GetTargetWindow(*args, **kwargs)
-
-    def SetTargetRect(*args, **kwargs):
-        """SetTargetRect(self, Rect rect)"""
-        return _windows_.ScrolledWindow_SetTargetRect(*args, **kwargs)
-
-    def GetTargetRect(*args, **kwargs):
-        """GetTargetRect(self) -> Rect"""
-        return _windows_.ScrolledWindow_GetTargetRect(*args, **kwargs)
-
-    def DoPrepareDC(*args, **kwargs):
-        """
-        DoPrepareDC(self, DC dc)
-
-        Normally what is called by `PrepareDC`.
-        """
-        return _windows_.ScrolledWindow_DoPrepareDC(*args, **kwargs)
-
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -278,10 +299,6 @@ class ScrolledWindow(Panel):
         return _windows_.ScrolledWindow_GetClassDefaultAttributes(*args, **kwargs)
 
     GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
-    ScaleX = property(GetScaleX,doc="See `GetScaleX`") 
-    ScaleY = property(GetScaleY,doc="See `GetScaleY`") 
-    TargetWindow = property(GetTargetWindow,SetTargetWindow,doc="See `GetTargetWindow` and `SetTargetWindow`") 
-    ViewStart = property(GetViewStart,doc="See `GetViewStart`") 
 _windows_.ScrolledWindow_swigregister(ScrolledWindow)
 
 def PreScrolledWindow(*args, **kwargs):
@@ -926,6 +943,10 @@ class StatusBar(_core.Window):
     def GetBorderY(*args, **kwargs):
         """GetBorderY(self) -> int"""
         return _windows_.StatusBar_GetBorderY(*args, **kwargs)
+
+    def ShowsSizeGrip(*args, **kwargs):
+        """ShowsSizeGrip(self) -> bool"""
+        return _windows_.StatusBar_ShowsSizeGrip(*args, **kwargs)
 
     def GetClassDefaultAttributes(*args, **kwargs):
         """
@@ -2427,6 +2448,25 @@ class TaskBarIcon(_core.EvtHandler):
         """PopupMenu(self, Menu menu) -> bool"""
         return _windows_.TaskBarIcon_PopupMenu(*args, **kwargs)
 
+    def ShowBalloon(*args, **kwargs):
+        """
+        ShowBalloon(self, String title, String text, unsigned int msec=0, int flags=0) -> bool
+
+        Show a balloon notification (the icon must have been already
+        initialized using SetIcon).  Only implemented for Windows.
+
+        title and text are limited to 63 and 255 characters respectively, msec
+        is the timeout, in milliseconds, before the balloon disappears (will
+        be clamped down to the allowed 10-30s range by Windows if it's outside
+        it) and flags can include wxICON_ERROR/INFO/WARNING to show a
+        corresponding icon
+
+        Returns True if balloon was shown, False on error (incorrect parameters
+        or function unsupported by OS)
+
+        """
+        return _windows_.TaskBarIcon_ShowBalloon(*args, **kwargs)
+
 _windows_.TaskBarIcon_swigregister(TaskBarIcon)
 
 class TaskBarIconEvent(_core.Event):
@@ -2446,6 +2486,8 @@ wxEVT_TASKBAR_RIGHT_UP = _windows_.wxEVT_TASKBAR_RIGHT_UP
 wxEVT_TASKBAR_LEFT_DCLICK = _windows_.wxEVT_TASKBAR_LEFT_DCLICK
 wxEVT_TASKBAR_RIGHT_DCLICK = _windows_.wxEVT_TASKBAR_RIGHT_DCLICK
 wxEVT_TASKBAR_CLICK = _windows_.wxEVT_TASKBAR_CLICK
+wxEVT_TASKBAR_BALLOON_TIMEOUT = _windows_.wxEVT_TASKBAR_BALLOON_TIMEOUT
+wxEVT_TASKBAR_BALLOON_CLICK = _windows_.wxEVT_TASKBAR_BALLOON_CLICK
 EVT_TASKBAR_MOVE = wx.PyEventBinder (         wxEVT_TASKBAR_MOVE )
 EVT_TASKBAR_LEFT_DOWN = wx.PyEventBinder (    wxEVT_TASKBAR_LEFT_DOWN )
 EVT_TASKBAR_LEFT_UP = wx.PyEventBinder (      wxEVT_TASKBAR_LEFT_UP )
@@ -2454,6 +2496,8 @@ EVT_TASKBAR_RIGHT_UP = wx.PyEventBinder (     wxEVT_TASKBAR_RIGHT_UP )
 EVT_TASKBAR_LEFT_DCLICK = wx.PyEventBinder (  wxEVT_TASKBAR_LEFT_DCLICK )
 EVT_TASKBAR_RIGHT_DCLICK = wx.PyEventBinder ( wxEVT_TASKBAR_RIGHT_DCLICK )
 EVT_TASKBAR_CLICK =  wx.PyEventBinder (       wxEVT_TASKBAR_CLICK )
+EVT_TASKBAR_BALLOON_TIMEOUT = wx.PyEventBinder ( wxEVT_TASKBAR_BALLOON_TIMEOUT )
+EVT_TASKBAR_BALLOON_CLICK = wx.PyEventBinder ( wxEVT_TASKBAR_BALLOON_CLICK )
 
 #---------------------------------------------------------------------------
 
@@ -2465,6 +2509,7 @@ class ColourData(_core.Object):
     """
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
+    NUM_CUSTOM = _windows_.ColourData_NUM_CUSTOM
     def __init__(self, *args, **kwargs): 
         """
         __init__(self) -> ColourData
@@ -2530,6 +2575,22 @@ class ColourData(_core.Object):
         """
         return _windows_.ColourData_SetCustomColour(*args, **kwargs)
 
+    def ToString(*args, **kwargs):
+        """
+        ToString(self) -> String
+
+        Serialize to a string.
+        """
+        return _windows_.ColourData_ToString(*args, **kwargs)
+
+    def FromString(*args, **kwargs):
+        """
+        FromString(self, String str) -> bool
+
+        Restore from a serialized string.
+        """
+        return _windows_.ColourData_FromString(*args, **kwargs)
+
     ChooseFull = property(GetChooseFull,SetChooseFull,doc="See `GetChooseFull` and `SetChooseFull`") 
     Colour = property(GetColour,SetColour,doc="See `GetColour` and `SetColour`") 
     CustomColour = property(GetCustomColour,SetCustomColour,doc="See `GetCustomColour` and `SetCustomColour`") 
@@ -2571,7 +2632,7 @@ _windows_.ColourDialog_swigregister(ColourDialog)
 def GetColourFromUser(*args, **kwargs):
   """
     GetColourFromUser(Window parent=(wxWindow *) NULL, Colour colInit=wxNullColour, 
-        String caption=EmptyString) -> Colour
+        String caption=EmptyString, ColourData data=None) -> Colour
     """
   return _windows_.GetColourFromUser(*args, **kwargs)
 DD_CHANGE_DIR = _windows_.DD_CHANGE_DIR

@@ -2477,164 +2477,167 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxActivateEvent swig_types[11]
 #define SWIGTYPE_p_wxAlphaPixelData swig_types[12]
 #define SWIGTYPE_p_wxAlphaPixelData_Accessor swig_types[13]
-#define SWIGTYPE_p_wxAutoBufferedPaintDC swig_types[14]
-#define SWIGTYPE_p_wxBMPHandler swig_types[15]
-#define SWIGTYPE_p_wxBitmap swig_types[16]
-#define SWIGTYPE_p_wxBoxSizer swig_types[17]
-#define SWIGTYPE_p_wxBrush swig_types[18]
-#define SWIGTYPE_p_wxBrushList swig_types[19]
-#define SWIGTYPE_p_wxBufferedDC swig_types[20]
-#define SWIGTYPE_p_wxBufferedPaintDC swig_types[21]
-#define SWIGTYPE_p_wxCURHandler swig_types[22]
-#define SWIGTYPE_p_wxChildFocusEvent swig_types[23]
-#define SWIGTYPE_p_wxClientDC swig_types[24]
-#define SWIGTYPE_p_wxClipboardTextEvent swig_types[25]
-#define SWIGTYPE_p_wxCloseEvent swig_types[26]
-#define SWIGTYPE_p_wxColour swig_types[27]
-#define SWIGTYPE_p_wxColourDatabase swig_types[28]
-#define SWIGTYPE_p_wxCommandEvent swig_types[29]
-#define SWIGTYPE_p_wxContextMenuEvent swig_types[30]
-#define SWIGTYPE_p_wxControl swig_types[31]
-#define SWIGTYPE_p_wxControlWithItems swig_types[32]
-#define SWIGTYPE_p_wxCursor swig_types[33]
-#define SWIGTYPE_p_wxDC swig_types[34]
-#define SWIGTYPE_p_wxDCBrushChanger swig_types[35]
-#define SWIGTYPE_p_wxDCClipper swig_types[36]
-#define SWIGTYPE_p_wxDCOverlay swig_types[37]
-#define SWIGTYPE_p_wxDCPenChanger swig_types[38]
-#define SWIGTYPE_p_wxDCTextColourChanger swig_types[39]
-#define SWIGTYPE_p_wxDash swig_types[40]
-#define SWIGTYPE_p_wxDateEvent swig_types[41]
-#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[42]
-#define SWIGTYPE_p_wxDropFilesEvent swig_types[43]
-#define SWIGTYPE_p_wxDuplexMode swig_types[44]
-#define SWIGTYPE_p_wxEffects swig_types[45]
-#define SWIGTYPE_p_wxEncodingConverter swig_types[46]
-#define SWIGTYPE_p_wxEraseEvent swig_types[47]
-#define SWIGTYPE_p_wxEvent swig_types[48]
-#define SWIGTYPE_p_wxEventBlocker swig_types[49]
-#define SWIGTYPE_p_wxEvtHandler swig_types[50]
-#define SWIGTYPE_p_wxFSFile swig_types[51]
-#define SWIGTYPE_p_wxFileSystem swig_types[52]
-#define SWIGTYPE_p_wxFlexGridSizer swig_types[53]
-#define SWIGTYPE_p_wxFocusEvent swig_types[54]
-#define SWIGTYPE_p_wxFont swig_types[55]
-#define SWIGTYPE_p_wxFontList swig_types[56]
-#define SWIGTYPE_p_wxFontMapper swig_types[57]
-#define SWIGTYPE_p_wxGBSizerItem swig_types[58]
-#define SWIGTYPE_p_wxGCDC swig_types[59]
-#define SWIGTYPE_p_wxGDIObjListBase swig_types[60]
-#define SWIGTYPE_p_wxGDIObject swig_types[61]
-#define SWIGTYPE_p_wxGIFHandler swig_types[62]
-#define SWIGTYPE_p_wxGraphicsBrush swig_types[63]
-#define SWIGTYPE_p_wxGraphicsContext swig_types[64]
-#define SWIGTYPE_p_wxGraphicsFont swig_types[65]
-#define SWIGTYPE_p_wxGraphicsMatrix swig_types[66]
-#define SWIGTYPE_p_wxGraphicsObject swig_types[67]
-#define SWIGTYPE_p_wxGraphicsPath swig_types[68]
-#define SWIGTYPE_p_wxGraphicsPen swig_types[69]
-#define SWIGTYPE_p_wxGraphicsRenderer swig_types[70]
-#define SWIGTYPE_p_wxGridBagSizer swig_types[71]
-#define SWIGTYPE_p_wxGridSizer swig_types[72]
-#define SWIGTYPE_p_wxHeaderButtonParams swig_types[73]
-#define SWIGTYPE_p_wxICOHandler swig_types[74]
-#define SWIGTYPE_p_wxIcon swig_types[75]
-#define SWIGTYPE_p_wxIconBundle swig_types[76]
-#define SWIGTYPE_p_wxIconLocation swig_types[77]
-#define SWIGTYPE_p_wxIconizeEvent swig_types[78]
-#define SWIGTYPE_p_wxIdleEvent swig_types[79]
-#define SWIGTYPE_p_wxImage swig_types[80]
-#define SWIGTYPE_p_wxImageHandler swig_types[81]
-#define SWIGTYPE_p_wxImageList swig_types[82]
-#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[83]
-#define SWIGTYPE_p_wxInitDialogEvent swig_types[84]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[85]
-#define SWIGTYPE_p_wxKeyEvent swig_types[86]
-#define SWIGTYPE_p_wxLanguageInfo swig_types[87]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[88]
-#define SWIGTYPE_p_wxLocale swig_types[89]
-#define SWIGTYPE_p_wxMask swig_types[90]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[91]
-#define SWIGTYPE_p_wxMemoryDC swig_types[92]
-#define SWIGTYPE_p_wxMenu swig_types[93]
-#define SWIGTYPE_p_wxMenuBar swig_types[94]
-#define SWIGTYPE_p_wxMenuEvent swig_types[95]
-#define SWIGTYPE_p_wxMenuItem swig_types[96]
-#define SWIGTYPE_p_wxMetaFile swig_types[97]
-#define SWIGTYPE_p_wxMetaFileDC swig_types[98]
-#define SWIGTYPE_p_wxMirrorDC swig_types[99]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[100]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[101]
-#define SWIGTYPE_p_wxMouseEvent swig_types[102]
-#define SWIGTYPE_p_wxMoveEvent swig_types[103]
-#define SWIGTYPE_p_wxNativeEncodingInfo swig_types[104]
-#define SWIGTYPE_p_wxNativeFontInfo swig_types[105]
-#define SWIGTYPE_p_wxNativePixelData swig_types[106]
-#define SWIGTYPE_p_wxNativePixelData_Accessor swig_types[107]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[108]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[109]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[110]
-#define SWIGTYPE_p_wxObject swig_types[111]
-#define SWIGTYPE_p_wxOverlay swig_types[112]
-#define SWIGTYPE_p_wxPCXHandler swig_types[113]
-#define SWIGTYPE_p_wxPNGHandler swig_types[114]
-#define SWIGTYPE_p_wxPNMHandler swig_types[115]
-#define SWIGTYPE_p_wxPaintDC swig_types[116]
-#define SWIGTYPE_p_wxPaintEvent swig_types[117]
-#define SWIGTYPE_p_wxPalette swig_types[118]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[119]
-#define SWIGTYPE_p_wxPaperSize swig_types[120]
-#define SWIGTYPE_p_wxPen swig_types[121]
-#define SWIGTYPE_p_wxPenList swig_types[122]
-#define SWIGTYPE_p_wxPixelDataBase swig_types[123]
-#define SWIGTYPE_p_wxPoint swig_types[124]
-#define SWIGTYPE_p_wxPoint2D swig_types[125]
-#define SWIGTYPE_p_wxPostScriptDC swig_types[126]
-#define SWIGTYPE_p_wxPrintData swig_types[127]
-#define SWIGTYPE_p_wxPrinterDC swig_types[128]
-#define SWIGTYPE_p_wxPseudoDC swig_types[129]
-#define SWIGTYPE_p_wxPyApp swig_types[130]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[131]
-#define SWIGTYPE_p_wxPyEvent swig_types[132]
-#define SWIGTYPE_p_wxPyFontEnumerator swig_types[133]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[134]
-#define SWIGTYPE_p_wxPyLocale swig_types[135]
-#define SWIGTYPE_p_wxPySizer swig_types[136]
-#define SWIGTYPE_p_wxPyValidator swig_types[137]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[138]
-#define SWIGTYPE_p_wxRect swig_types[139]
-#define SWIGTYPE_p_wxRect2D swig_types[140]
-#define SWIGTYPE_p_wxRegion swig_types[141]
-#define SWIGTYPE_p_wxRegionIterator swig_types[142]
-#define SWIGTYPE_p_wxRendererNative swig_types[143]
-#define SWIGTYPE_p_wxRendererVersion swig_types[144]
-#define SWIGTYPE_p_wxSVGFileDC swig_types[145]
-#define SWIGTYPE_p_wxScreenDC swig_types[146]
-#define SWIGTYPE_p_wxScrollEvent swig_types[147]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[148]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[149]
-#define SWIGTYPE_p_wxShowEvent swig_types[150]
-#define SWIGTYPE_p_wxSize swig_types[151]
-#define SWIGTYPE_p_wxSizeEvent swig_types[152]
-#define SWIGTYPE_p_wxSizer swig_types[153]
-#define SWIGTYPE_p_wxSizerItem swig_types[154]
-#define SWIGTYPE_p_wxSplitterRenderParams swig_types[155]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[156]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[157]
-#define SWIGTYPE_p_wxStockGDI swig_types[158]
-#define SWIGTYPE_p_wxString swig_types[159]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[160]
-#define SWIGTYPE_p_wxTGAHandler swig_types[161]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[162]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[163]
-#define SWIGTYPE_p_wxValidator swig_types[164]
-#define SWIGTYPE_p_wxWindow swig_types[165]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[166]
-#define SWIGTYPE_p_wxWindowDC swig_types[167]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[168]
-#define SWIGTYPE_p_wxXPMHandler swig_types[169]
-static swig_type_info *swig_types[171];
-static swig_module_info swig_module = {swig_types, 170, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxArrayInt swig_types[14]
+#define SWIGTYPE_p_wxAutoBufferedPaintDC swig_types[15]
+#define SWIGTYPE_p_wxBMPHandler swig_types[16]
+#define SWIGTYPE_p_wxBitmap swig_types[17]
+#define SWIGTYPE_p_wxBoxSizer swig_types[18]
+#define SWIGTYPE_p_wxBrush swig_types[19]
+#define SWIGTYPE_p_wxBrushList swig_types[20]
+#define SWIGTYPE_p_wxBufferedDC swig_types[21]
+#define SWIGTYPE_p_wxBufferedPaintDC swig_types[22]
+#define SWIGTYPE_p_wxCURHandler swig_types[23]
+#define SWIGTYPE_p_wxChildFocusEvent swig_types[24]
+#define SWIGTYPE_p_wxClientDC swig_types[25]
+#define SWIGTYPE_p_wxClipboardTextEvent swig_types[26]
+#define SWIGTYPE_p_wxCloseEvent swig_types[27]
+#define SWIGTYPE_p_wxColour swig_types[28]
+#define SWIGTYPE_p_wxColourDatabase swig_types[29]
+#define SWIGTYPE_p_wxCommandEvent swig_types[30]
+#define SWIGTYPE_p_wxContextMenuEvent swig_types[31]
+#define SWIGTYPE_p_wxControl swig_types[32]
+#define SWIGTYPE_p_wxControlWithItems swig_types[33]
+#define SWIGTYPE_p_wxCursor swig_types[34]
+#define SWIGTYPE_p_wxDC swig_types[35]
+#define SWIGTYPE_p_wxDCBrushChanger swig_types[36]
+#define SWIGTYPE_p_wxDCClipper swig_types[37]
+#define SWIGTYPE_p_wxDCImpl swig_types[38]
+#define SWIGTYPE_p_wxDCOverlay swig_types[39]
+#define SWIGTYPE_p_wxDCPenChanger swig_types[40]
+#define SWIGTYPE_p_wxDCTextColourChanger swig_types[41]
+#define SWIGTYPE_p_wxDash swig_types[42]
+#define SWIGTYPE_p_wxDateEvent swig_types[43]
+#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[44]
+#define SWIGTYPE_p_wxDropFilesEvent swig_types[45]
+#define SWIGTYPE_p_wxDuplexMode swig_types[46]
+#define SWIGTYPE_p_wxEffects swig_types[47]
+#define SWIGTYPE_p_wxEncodingConverter swig_types[48]
+#define SWIGTYPE_p_wxEraseEvent swig_types[49]
+#define SWIGTYPE_p_wxEvent swig_types[50]
+#define SWIGTYPE_p_wxEventBlocker swig_types[51]
+#define SWIGTYPE_p_wxEvtHandler swig_types[52]
+#define SWIGTYPE_p_wxFSFile swig_types[53]
+#define SWIGTYPE_p_wxFileSystem swig_types[54]
+#define SWIGTYPE_p_wxFlexGridSizer swig_types[55]
+#define SWIGTYPE_p_wxFocusEvent swig_types[56]
+#define SWIGTYPE_p_wxFont swig_types[57]
+#define SWIGTYPE_p_wxFontList swig_types[58]
+#define SWIGTYPE_p_wxFontMapper swig_types[59]
+#define SWIGTYPE_p_wxGBSizerItem swig_types[60]
+#define SWIGTYPE_p_wxGCDC swig_types[61]
+#define SWIGTYPE_p_wxGDIObjListBase swig_types[62]
+#define SWIGTYPE_p_wxGDIObject swig_types[63]
+#define SWIGTYPE_p_wxGIFHandler swig_types[64]
+#define SWIGTYPE_p_wxGraphicsBrush swig_types[65]
+#define SWIGTYPE_p_wxGraphicsContext swig_types[66]
+#define SWIGTYPE_p_wxGraphicsFont swig_types[67]
+#define SWIGTYPE_p_wxGraphicsMatrix swig_types[68]
+#define SWIGTYPE_p_wxGraphicsObject swig_types[69]
+#define SWIGTYPE_p_wxGraphicsPath swig_types[70]
+#define SWIGTYPE_p_wxGraphicsPen swig_types[71]
+#define SWIGTYPE_p_wxGraphicsRenderer swig_types[72]
+#define SWIGTYPE_p_wxGridBagSizer swig_types[73]
+#define SWIGTYPE_p_wxGridSizer swig_types[74]
+#define SWIGTYPE_p_wxHeaderButtonParams swig_types[75]
+#define SWIGTYPE_p_wxICOHandler swig_types[76]
+#define SWIGTYPE_p_wxIcon swig_types[77]
+#define SWIGTYPE_p_wxIconBundle swig_types[78]
+#define SWIGTYPE_p_wxIconLocation swig_types[79]
+#define SWIGTYPE_p_wxIconizeEvent swig_types[80]
+#define SWIGTYPE_p_wxIdleEvent swig_types[81]
+#define SWIGTYPE_p_wxImage swig_types[82]
+#define SWIGTYPE_p_wxImageHandler swig_types[83]
+#define SWIGTYPE_p_wxImageList swig_types[84]
+#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[85]
+#define SWIGTYPE_p_wxInitDialogEvent swig_types[86]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[87]
+#define SWIGTYPE_p_wxKeyEvent swig_types[88]
+#define SWIGTYPE_p_wxLanguageInfo swig_types[89]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[90]
+#define SWIGTYPE_p_wxLocale swig_types[91]
+#define SWIGTYPE_p_wxMask swig_types[92]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[93]
+#define SWIGTYPE_p_wxMemoryDC swig_types[94]
+#define SWIGTYPE_p_wxMenu swig_types[95]
+#define SWIGTYPE_p_wxMenuBar swig_types[96]
+#define SWIGTYPE_p_wxMenuEvent swig_types[97]
+#define SWIGTYPE_p_wxMenuItem swig_types[98]
+#define SWIGTYPE_p_wxMetaFile swig_types[99]
+#define SWIGTYPE_p_wxMetaFileDC swig_types[100]
+#define SWIGTYPE_p_wxMirrorDC swig_types[101]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[102]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[103]
+#define SWIGTYPE_p_wxMouseEvent swig_types[104]
+#define SWIGTYPE_p_wxMoveEvent swig_types[105]
+#define SWIGTYPE_p_wxNativeEncodingInfo swig_types[106]
+#define SWIGTYPE_p_wxNativeFontInfo swig_types[107]
+#define SWIGTYPE_p_wxNativePixelData swig_types[108]
+#define SWIGTYPE_p_wxNativePixelData_Accessor swig_types[109]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[110]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[111]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[112]
+#define SWIGTYPE_p_wxObject swig_types[113]
+#define SWIGTYPE_p_wxOverlay swig_types[114]
+#define SWIGTYPE_p_wxPCXHandler swig_types[115]
+#define SWIGTYPE_p_wxPNGHandler swig_types[116]
+#define SWIGTYPE_p_wxPNMHandler swig_types[117]
+#define SWIGTYPE_p_wxPaintDC swig_types[118]
+#define SWIGTYPE_p_wxPaintEvent swig_types[119]
+#define SWIGTYPE_p_wxPalette swig_types[120]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[121]
+#define SWIGTYPE_p_wxPaperSize swig_types[122]
+#define SWIGTYPE_p_wxPen swig_types[123]
+#define SWIGTYPE_p_wxPenList swig_types[124]
+#define SWIGTYPE_p_wxPixelDataBase swig_types[125]
+#define SWIGTYPE_p_wxPoint swig_types[126]
+#define SWIGTYPE_p_wxPoint2D swig_types[127]
+#define SWIGTYPE_p_wxPostScriptDC swig_types[128]
+#define SWIGTYPE_p_wxPrintData swig_types[129]
+#define SWIGTYPE_p_wxPrinterDC swig_types[130]
+#define SWIGTYPE_p_wxPseudoDC swig_types[131]
+#define SWIGTYPE_p_wxPyApp swig_types[132]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[133]
+#define SWIGTYPE_p_wxPyEvent swig_types[134]
+#define SWIGTYPE_p_wxPyFontEnumerator swig_types[135]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[136]
+#define SWIGTYPE_p_wxPyLocale swig_types[137]
+#define SWIGTYPE_p_wxPySizer swig_types[138]
+#define SWIGTYPE_p_wxPyValidator swig_types[139]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[140]
+#define SWIGTYPE_p_wxRect swig_types[141]
+#define SWIGTYPE_p_wxRect2D swig_types[142]
+#define SWIGTYPE_p_wxRegion swig_types[143]
+#define SWIGTYPE_p_wxRegionIterator swig_types[144]
+#define SWIGTYPE_p_wxRendererNative swig_types[145]
+#define SWIGTYPE_p_wxRendererVersion swig_types[146]
+#define SWIGTYPE_p_wxSVGFileDC swig_types[147]
+#define SWIGTYPE_p_wxScreenDC swig_types[148]
+#define SWIGTYPE_p_wxScrollEvent swig_types[149]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[150]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[151]
+#define SWIGTYPE_p_wxShowEvent swig_types[152]
+#define SWIGTYPE_p_wxSize swig_types[153]
+#define SWIGTYPE_p_wxSizeEvent swig_types[154]
+#define SWIGTYPE_p_wxSizer swig_types[155]
+#define SWIGTYPE_p_wxSizerItem swig_types[156]
+#define SWIGTYPE_p_wxSplitterRenderParams swig_types[157]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[158]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[159]
+#define SWIGTYPE_p_wxStockGDI swig_types[160]
+#define SWIGTYPE_p_wxString swig_types[161]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[162]
+#define SWIGTYPE_p_wxTGAHandler swig_types[163]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[164]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[165]
+#define SWIGTYPE_p_wxValidator swig_types[166]
+#define SWIGTYPE_p_wxWindow swig_types[167]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[168]
+#define SWIGTYPE_p_wxWindowDC swig_types[169]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[170]
+#define SWIGTYPE_p_wxWrapSizer swig_types[171]
+#define SWIGTYPE_p_wxXPMHandler swig_types[172]
+static swig_type_info *swig_types[174];
+static swig_module_info swig_module = {swig_types, 173, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2738,6 +2741,11 @@ namespace swig {
 
  static const wxString wxPyEmptyString(wxEmptyString); 
 
+#ifdef __WXMAC__
+#include <wx/mac/carbon/private.h>
+#endif
+
+
   #define SWIG_From_long   PyInt_FromLong 
 
 
@@ -2775,12 +2783,15 @@ SWIGINTERN int
 SWIG_AsVal_unsigned_SS_long (PyObject* obj, unsigned long* val)
 {
     long v = 0;
-    if (SWIG_AsVal_long(obj, &v) && v < 0) {
-        return SWIG_TypeError;
+    int res = SWIG_AsVal_long(obj, &v);
+    if (SWIG_IsOK(res)) {
+        if ( v < 0) {
+            return SWIG_ValueError;
+        }
+        else if (val)
+            *val = (unsigned long)v;
     }
-    else if (val)
-        *val = (unsigned long)v;
-    return SWIG_OK;
+    return res;
 }
 
 
@@ -2799,6 +2810,29 @@ SWIG_AsVal_unsigned_SS_char (PyObject * obj, unsigned char *val)
   return res;
 }
 
+
+SWIGINTERN int
+SWIG_AsVal_int (PyObject * obj, int *val)
+{
+  long v;
+  int res = SWIG_AsVal_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v < INT_MIN || v > INT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = static_cast< int >(v);
+    }
+  }  
+  return res;
+}
+
+SWIGINTERN wxColour *new_wxColour(int themeBrushID){
+
+                return new wxColour(wxMacCreateCGColorFromHITheme(themeBrushID));
+
+
+
+            }
 
 SWIGINTERNINLINE PyObject* 
 SWIG_From_unsigned_SS_long  (unsigned long value)
@@ -2872,22 +2906,39 @@ SWIGINTERN PyObject *wxColour_Get(wxColour *self,bool includeAlpha=false){
 SWIGINTERN unsigned long wxColour_GetRGB(wxColour *self){
             return self->Red() | (self->Green() << 8) | (self->Blue() << 16);
         }
+SWIGINTERN wxPalette *new_wxPalette(wxArrayInt const &red,wxArrayInt const &green,wxArrayInt const &blue){
+            wxPalette* self = new wxPalette();
+            int count = red.Count();
 
-SWIGINTERN int
-SWIG_AsVal_int (PyObject * obj, int *val)
-{
-  long v;
-  int res = SWIG_AsVal_long (obj, &v);
-  if (SWIG_IsOK(res)) {
-    if ((v < INT_MIN || v > INT_MAX)) {
-      return SWIG_OverflowError;
-    } else {
-      if (val) *val = static_cast< int >(v);
-    }
-  }  
-  return res;
-}
+            wxCHECK_MSG( count == green.Count() && count == blue.Count(),
+                         self,
+                         wxT("Palette list lengths must be equal"));
 
+            int idx;
+            unsigned char* ra = new unsigned char[count];
+            unsigned char* ga = new unsigned char[count];
+            unsigned char* ba = new unsigned char[count];
+            for (idx=0; idx<count; idx++)
+            {
+                int rv = red.Item(idx);
+                int gv = green.Item(idx);
+                int bv = blue.Item(idx);
+                wxCHECK_MSG( rv >=0 && rv <=255 &&
+                             gv >=0 && gv <=255 &&
+                             bv >=0 && bv <=255,
+                             self,
+                             wxT("Palette values must be in the range 0..255"));
+                ra[idx] = (unsigned char)rv;
+                ga[idx] = (unsigned char)gv;
+                ba[idx] = (unsigned char)bv;
+            }
+            self->Create(count, ra, ga, ba);
+            delete [] ra;
+            delete [] ga;
+            delete [] ba;
+
+            return self;
+        }
 SWIGINTERN PyObject *wxPen_GetDashes(wxPen *self){
             wxDash* dashes;
             int count = self->GetDashes(&dashes);
@@ -2922,29 +2973,6 @@ SWIGINTERN void wxPen__SetDashes(wxPen *self,PyObject *_self,PyObject *pyDashes)
         }
 SWIGINTERN bool wxPen___eq__(wxPen *self,wxPen const *other){ return other ? (*self == *other) : false; }
 SWIGINTERN bool wxPen___ne__(wxPen *self,wxPen const *other){ return other ? (*self != *other) : true;  }
-
-SWIGINTERNINLINE PyObject *
-SWIG_From_short  (short value)
-{    
-  return SWIG_From_long  (value);
-}
-
-
-SWIGINTERN int
-SWIG_AsVal_short (PyObject * obj, short *val)
-{
-  long v;
-  int res = SWIG_AsVal_long (obj, &v);
-  if (SWIG_IsOK(res)) {
-    if ((v < SHRT_MIN || v > SHRT_MAX)) {
-      return SWIG_OverflowError;
-    } else {
-      if (val) *val = static_cast< short >(v);
-    }
-  }  
-  return res;
-}
-
 
 #include <wx/rawbmp.h>
 
@@ -3803,6 +3831,12 @@ public:
         return NULL;
     }
 
+    virtual bool StartDoc( const wxString& message ) { return false; }
+    virtual void EndDoc() {}
+    virtual void StartPage( wxDouble, wxDouble) {}
+    virtual void EndPage() {}
+    virtual void Flush() {}
+
     wxGraphicsPath CreatePath()  { return wxNullGraphicsPath; }
 
     virtual wxGraphicsPen CreatePen(const wxPen& )  { return wxNullGraphicsPen; }
@@ -3829,6 +3863,9 @@ public:
     virtual void * GetNativeContext() { return NULL; }
     virtual int GetLogicalFunction() const { return 0; }
     virtual bool SetLogicalFunction(int ) {}    
+    virtual void GetSize( wxDouble*, wxDouble* );
+    virtual void GetDPI( wxDouble*, wxDouble* );
+    
     virtual void Translate( wxDouble , wxDouble ) {}
     virtual void Scale( wxDouble , wxDouble ) {}
     virtual void Rotate( wxDouble ) {}
@@ -3937,6 +3974,7 @@ public:
 
     wxGraphicsContext* GetGraphicsContext() { return NULL; }
     void SetGraphicsContext( wxGraphicsContext* ) {}
+    void Flush() {}
 };
 
 #endif
@@ -4233,6 +4271,36 @@ SWIGINTERN PyObject *_wrap_new_ColourRGB(PyObject *SWIGUNUSEDPARM(self), PyObjec
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxColour *)new wxColour(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_MacThemeColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  wxColour *result = 0 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "themeBrushID", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:new_MacThemeColour",kwnames,&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_MacThemeColour" "', expected argument " "1"" of type '" "int""'");
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxColour *)new_wxColour(arg1);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4782,58 +4850,109 @@ SWIGINTERN PyObject *Colour_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *a
 
 SWIGINTERN PyObject *_wrap_new_Palette(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  int arg1 ;
-  unsigned char *arg2 = (unsigned char *) 0 ;
-  unsigned char *arg3 = (unsigned char *) 0 ;
-  unsigned char *arg4 = (unsigned char *) 0 ;
+  wxArrayInt *arg1 = 0 ;
+  wxArrayInt *arg2 = 0 ;
+  wxArrayInt *arg3 = 0 ;
   wxPalette *result = 0 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  bool temp1 = false ;
+  bool temp2 = false ;
+  bool temp3 = false ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "n",(char *) "red",(char *) "green",(char *) "blue", NULL 
+    (char *) "red",(char *) "green",(char *) "blue", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:new_Palette",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  ecode1 = SWIG_AsVal_int(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_Palette" "', expected argument " "1"" of type '" "int""'");
-  } 
-  arg1 = static_cast< int >(val1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_unsigned_char, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Palette" "', expected argument " "2"" of type '" "unsigned char const *""'"); 
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:new_Palette",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  {
+    if (! PySequence_Check(obj0)) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+      SWIG_fail;
+    }
+    arg1 = new wxArrayInt;
+    temp1 = true;
+    int i, len=PySequence_Length(obj0);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(obj0, i);
+      PyObject* number  = PyNumber_Int(item);
+      if (!number) {
+        PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+        SWIG_fail;
+      }       
+      arg1->Add(PyInt_AS_LONG(number));
+      Py_DECREF(item);
+      Py_DECREF(number);
+    }
   }
-  arg2 = reinterpret_cast< unsigned char * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_unsigned_char, 0 |  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_Palette" "', expected argument " "3"" of type '" "unsigned char const *""'"); 
+  {
+    if (! PySequence_Check(obj1)) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+      SWIG_fail;
+    }
+    arg2 = new wxArrayInt;
+    temp2 = true;
+    int i, len=PySequence_Length(obj1);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(obj1, i);
+      PyObject* number  = PyNumber_Int(item);
+      if (!number) {
+        PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+        SWIG_fail;
+      }       
+      arg2->Add(PyInt_AS_LONG(number));
+      Py_DECREF(item);
+      Py_DECREF(number);
+    }
   }
-  arg3 = reinterpret_cast< unsigned char * >(argp3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_unsigned_char, 0 |  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_Palette" "', expected argument " "4"" of type '" "unsigned char const *""'"); 
+  {
+    if (! PySequence_Check(obj2)) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+      SWIG_fail;
+    }
+    arg3 = new wxArrayInt;
+    temp3 = true;
+    int i, len=PySequence_Length(obj2);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(obj2, i);
+      PyObject* number  = PyNumber_Int(item);
+      if (!number) {
+        PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+        SWIG_fail;
+      }       
+      arg3->Add(PyInt_AS_LONG(number));
+      Py_DECREF(item);
+      Py_DECREF(number);
+    }
   }
-  arg4 = reinterpret_cast< unsigned char * >(argp4);
   {
     if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPalette *)new wxPalette(arg1,(unsigned char const *)arg2,(unsigned char const *)arg3,(unsigned char const *)arg4);
+    result = (wxPalette *)new_wxPalette((wxArrayInt const &)*arg1,(wxArrayInt const &)*arg2,(wxArrayInt const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPalette, SWIG_POINTER_NEW |  0 );
+  {
+    if (temp1) delete arg1;
+  }
+  {
+    if (temp2) delete arg2;
+  }
+  {
+    if (temp3) delete arg3;
+  }
   return resultobj;
 fail:
+  {
+    if (temp1) delete arg1;
+  }
+  {
+    if (temp2) delete arg2;
+  }
+  {
+    if (temp3) delete arg3;
+  }
   return NULL;
 }
 
@@ -6054,72 +6173,6 @@ SWIGINTERN PyObject *_wrap_Brush_IsOk(PyObject *SWIGUNUSEDPARM(self), PyObject *
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Brush_MacGetTheme(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxBrush *arg1 = (wxBrush *) 0 ;
-  short result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBrush, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Brush_MacGetTheme" "', expected argument " "1"" of type '" "wxBrush *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBrush * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (short)(arg1)->MacGetTheme();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_short(static_cast< short >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Brush_MacSetTheme(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxBrush *arg1 = (wxBrush *) 0 ;
-  short arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  short val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "macThemeBrush", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Brush_MacSetTheme",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBrush, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Brush_MacSetTheme" "', expected argument " "1"" of type '" "wxBrush *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBrush * >(argp1);
-  ecode2 = SWIG_AsVal_short(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Brush_MacSetTheme" "', expected argument " "2"" of type '" "short""'");
-  } 
-  arg2 = static_cast< short >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->MacSetTheme(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -17801,6 +17854,64 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DC_GetImpl(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = (wxDC *) 0 ;
+  wxDCImpl *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DC_GetImpl" "', expected argument " "1"" of type '" "wxDC *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxDCImpl *)(arg1)->GetImpl();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDCImpl, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DC_GetWindow(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = (wxDC *) 0 ;
+  wxWindow *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DC_GetWindow" "', expected argument " "1"" of type '" "wxDC *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxWindow *)(arg1)->GetWindow();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxPyMake_wxObject(result, 0); 
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DC_FloodFill(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDC *arg1 = (wxDC *) 0 ;
@@ -21904,6 +22015,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DC_GetResolution(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = (wxDC *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DC_GetResolution" "', expected argument " "1"" of type '" "wxDC *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)(arg1)->GetResolution();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DC_DeviceToLogicalX(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDC *arg1 = (wxDC *) 0 ;
@@ -23333,33 +23472,6 @@ SWIGINTERN PyObject *_wrap_DC_SetLogicalFunction(PyObject *SWIGUNUSEDPARM(self),
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetLogicalFunction(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_DC_ComputeScaleAndOrigin(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxDC *arg1 = (wxDC *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDC, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DC_ComputeScaleAndOrigin" "', expected argument " "1"" of type '" "wxDC *""'"); 
-  }
-  arg1 = reinterpret_cast< wxDC * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ComputeScaleAndOrigin();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25329,125 +25441,6 @@ SWIGINTERN PyObject *_wrap_new_PostScriptDC(PyObject *SWIGUNUSEDPARM(self), PyOb
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPostScriptDC, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_PostScriptDC_GetPrintData(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxPostScriptDC *arg1 = (wxPostScriptDC *) 0 ;
-  wxPrintData *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPostScriptDC, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PostScriptDC_GetPrintData" "', expected argument " "1"" of type '" "wxPostScriptDC *""'"); 
-  }
-  arg1 = reinterpret_cast< wxPostScriptDC * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxPrintData &_result_ref = (arg1)->GetPrintData();
-      result = (wxPrintData *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPrintData, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_PostScriptDC_SetPrintData(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxPostScriptDC *arg1 = (wxPostScriptDC *) 0 ;
-  wxPrintData *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "data", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PostScriptDC_SetPrintData",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPostScriptDC, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PostScriptDC_SetPrintData" "', expected argument " "1"" of type '" "wxPostScriptDC *""'"); 
-  }
-  arg1 = reinterpret_cast< wxPostScriptDC * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxPrintData,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PostScriptDC_SetPrintData" "', expected argument " "2"" of type '" "wxPrintData const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PostScriptDC_SetPrintData" "', expected argument " "2"" of type '" "wxPrintData const &""'"); 
-  }
-  arg2 = reinterpret_cast< wxPrintData * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPrintData((wxPrintData const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_PostScriptDC_SetResolution(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  int arg1 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  PyObject * obj0 = 0 ;
-  char *  kwnames[] = {
-    (char *) "ppi", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:PostScriptDC_SetResolution",kwnames,&obj0)) SWIG_fail;
-  ecode1 = SWIG_AsVal_int(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "PostScriptDC_SetResolution" "', expected argument " "1"" of type '" "int""'");
-  } 
-  arg1 = static_cast< int >(val1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxPostScriptDC::SetResolution(arg1);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_PostScriptDC_GetResolution(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  int result;
-  
-  if (!SWIG_Python_UnpackTuple(args,"PostScriptDC_GetResolution",0,0,0)) SWIG_fail;
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)wxPostScriptDC::GetResolution();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -28283,6 +28276,176 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GraphicsContext_StartDoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  wxString *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "message", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsContext_StartDoc",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_StartDoc" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    result = (bool)(arg1)->StartDoc((wxString const &)*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_EndDoc(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_EndDoc" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  {
+    (arg1)->EndDoc();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_StartPage(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  wxDouble arg2 = (wxDouble) 0 ;
+  wxDouble arg3 = (wxDouble) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "width",(char *) "height", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|OO:GraphicsContext_StartPage",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_StartPage" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_double(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsContext_StartPage" "', expected argument " "2"" of type '" "wxDouble""'");
+    } 
+    arg2 = static_cast< wxDouble >(val2);
+  }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_double(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "GraphicsContext_StartPage" "', expected argument " "3"" of type '" "wxDouble""'");
+    } 
+    arg3 = static_cast< wxDouble >(val3);
+  }
+  {
+    (arg1)->StartPage(arg2,arg3);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_EndPage(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_EndPage" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  {
+    (arg1)->EndPage();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_Flush(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_Flush" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  {
+    (arg1)->Flush();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_GraphicsContext_CreatePath(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
@@ -28959,6 +29122,96 @@ SWIGINTERN PyObject *_wrap_GraphicsContext_SetLogicalFunction(PyObject *SWIGUNUS
   }
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_GetSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  wxDouble *arg2 = (wxDouble *) 0 ;
+  wxDouble *arg3 = (wxDouble *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxDouble temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  wxDouble temp3 ;
+  int res3 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
+  
+  arg2 = &temp2;
+  arg3 = &temp3;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_GetSize" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  {
+    (arg1)->GetSize(arg2,arg3);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_double((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_double, new_flags));
+  }
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_double((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_double, new_flags));
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_GetDPI(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  wxDouble *arg2 = (wxDouble *) 0 ;
+  wxDouble *arg3 = (wxDouble *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxDouble temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  wxDouble temp3 ;
+  int res3 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
+  
+  arg2 = &temp2;
+  arg3 = &temp3;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_GetDPI" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  {
+    (arg1)->GetDPI(arg2,arg3);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_double((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_double, new_flags));
+  }
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_double((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_double, new_flags));
   }
   return resultobj;
 fail:
@@ -38956,6 +39209,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_Colour", (PyCFunction) _wrap_new_Colour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_NamedColour", (PyCFunction) _wrap_new_NamedColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_ColourRGB", (PyCFunction) _wrap_new_ColourRGB, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"new_MacThemeColour", (PyCFunction) _wrap_new_MacThemeColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"delete_Colour", (PyCFunction)_wrap_delete_Colour, METH_O, NULL},
 	 { (char *)"Colour_Red", (PyCFunction)_wrap_Colour_Red, METH_O, NULL},
 	 { (char *)"Colour_Green", (PyCFunction)_wrap_Colour_Green, METH_O, NULL},
@@ -39012,8 +39266,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Brush_GetStipple", (PyCFunction)_wrap_Brush_GetStipple, METH_O, NULL},
 	 { (char *)"Brush_IsHatch", (PyCFunction)_wrap_Brush_IsHatch, METH_O, NULL},
 	 { (char *)"Brush_IsOk", (PyCFunction)_wrap_Brush_IsOk, METH_O, NULL},
-	 { (char *)"Brush_MacGetTheme", (PyCFunction)_wrap_Brush_MacGetTheme, METH_O, NULL},
-	 { (char *)"Brush_MacSetTheme", (PyCFunction) _wrap_Brush_MacSetTheme, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Brush_swigregister", Brush_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Brush_swiginit", Brush_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_Bitmap", (PyCFunction) _wrap_new_Bitmap, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -39350,6 +39602,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"EncodingConverter_swigregister", EncodingConverter_swigregister, METH_VARARGS, NULL},
 	 { (char *)"EncodingConverter_swiginit", EncodingConverter_swiginit, METH_VARARGS, NULL},
 	 { (char *)"delete_DC", (PyCFunction)_wrap_delete_DC, METH_O, NULL},
+	 { (char *)"DC_GetImpl", (PyCFunction)_wrap_DC_GetImpl, METH_O, NULL},
+	 { (char *)"DC_GetWindow", (PyCFunction)_wrap_DC_GetWindow, METH_O, NULL},
 	 { (char *)"DC_FloodFill", (PyCFunction) _wrap_DC_FloodFill, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_FloodFillPoint", (PyCFunction) _wrap_DC_FloodFillPoint, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_GradientFillConcentric", (PyCFunction) _wrap_DC_GradientFillConcentric, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -39425,6 +39679,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DC_GetSizeTuple", (PyCFunction)_wrap_DC_GetSizeTuple, METH_O, NULL},
 	 { (char *)"DC_GetSizeMM", (PyCFunction)_wrap_DC_GetSizeMM, METH_O, NULL},
 	 { (char *)"DC_GetSizeMMTuple", (PyCFunction)_wrap_DC_GetSizeMMTuple, METH_O, NULL},
+	 { (char *)"DC_GetResolution", (PyCFunction)_wrap_DC_GetResolution, METH_O, NULL},
 	 { (char *)"DC_DeviceToLogicalX", (PyCFunction) _wrap_DC_DeviceToLogicalX, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_DeviceToLogicalY", (PyCFunction) _wrap_DC_DeviceToLogicalY, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_DeviceToLogicalXRel", (PyCFunction) _wrap_DC_DeviceToLogicalXRel, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -39464,7 +39719,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DC_SetAxisOrientation", (PyCFunction) _wrap_DC_SetAxisOrientation, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_GetLogicalFunction", (PyCFunction)_wrap_DC_GetLogicalFunction, METH_O, NULL},
 	 { (char *)"DC_SetLogicalFunction", (PyCFunction) _wrap_DC_SetLogicalFunction, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"DC_ComputeScaleAndOrigin", (PyCFunction)_wrap_DC_ComputeScaleAndOrigin, METH_O, NULL},
 	 { (char *)"DC_CalcBoundingBox", (PyCFunction) _wrap_DC_CalcBoundingBox, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_CalcBoundingBoxPoint", (PyCFunction) _wrap_DC_CalcBoundingBoxPoint, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_ResetBoundingBox", (PyCFunction)_wrap_DC_ResetBoundingBox, METH_O, NULL},
@@ -39537,10 +39791,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MirrorDC_swigregister", MirrorDC_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MirrorDC_swiginit", MirrorDC_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PostScriptDC", (PyCFunction) _wrap_new_PostScriptDC, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"PostScriptDC_GetPrintData", (PyCFunction)_wrap_PostScriptDC_GetPrintData, METH_O, NULL},
-	 { (char *)"PostScriptDC_SetPrintData", (PyCFunction) _wrap_PostScriptDC_SetPrintData, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"PostScriptDC_SetResolution", (PyCFunction) _wrap_PostScriptDC_SetResolution, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"PostScriptDC_GetResolution", (PyCFunction)_wrap_PostScriptDC_GetResolution, METH_NOARGS, NULL},
 	 { (char *)"PostScriptDC_swigregister", PostScriptDC_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PostScriptDC_swiginit", PostScriptDC_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_MetaFile", (PyCFunction) _wrap_new_MetaFile, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -39617,6 +39867,11 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GraphicsContext_CreateMeasuringContext", (PyCFunction)_wrap_GraphicsContext_CreateMeasuringContext, METH_NOARGS, NULL},
 	 { (char *)"GraphicsContext_CreateFromNative", (PyCFunction) _wrap_GraphicsContext_CreateFromNative, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_CreateFromNativeWindow", (PyCFunction) _wrap_GraphicsContext_CreateFromNativeWindow, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsContext_StartDoc", (PyCFunction) _wrap_GraphicsContext_StartDoc, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsContext_EndDoc", (PyCFunction)_wrap_GraphicsContext_EndDoc, METH_O, NULL},
+	 { (char *)"GraphicsContext_StartPage", (PyCFunction) _wrap_GraphicsContext_StartPage, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsContext_EndPage", (PyCFunction)_wrap_GraphicsContext_EndPage, METH_O, NULL},
+	 { (char *)"GraphicsContext_Flush", (PyCFunction)_wrap_GraphicsContext_Flush, METH_O, NULL},
 	 { (char *)"GraphicsContext_CreatePath", (PyCFunction)_wrap_GraphicsContext_CreatePath, METH_O, NULL},
 	 { (char *)"GraphicsContext_CreatePen", (PyCFunction) _wrap_GraphicsContext_CreatePen, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_CreateBrush", (PyCFunction) _wrap_GraphicsContext_CreateBrush, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -39632,6 +39887,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GraphicsContext_GetNativeContext", (PyCFunction)_wrap_GraphicsContext_GetNativeContext, METH_O, NULL},
 	 { (char *)"GraphicsContext_GetLogicalFunction", (PyCFunction)_wrap_GraphicsContext_GetLogicalFunction, METH_O, NULL},
 	 { (char *)"GraphicsContext_SetLogicalFunction", (PyCFunction) _wrap_GraphicsContext_SetLogicalFunction, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsContext_GetSize", (PyCFunction)_wrap_GraphicsContext_GetSize, METH_O, NULL},
+	 { (char *)"GraphicsContext_GetDPI", (PyCFunction)_wrap_GraphicsContext_GetDPI, METH_O, NULL},
 	 { (char *)"GraphicsContext_Translate", (PyCFunction) _wrap_GraphicsContext_Translate, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_Scale", (PyCFunction) _wrap_GraphicsContext_Scale, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_Rotate", (PyCFunction) _wrap_GraphicsContext_Rotate, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -40334,6 +40591,9 @@ static void *_p_wxPyCommandEventTo_p_wxObject(void *x) {
 static void *_p_wxCommandEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *) ((wxCommandEvent *) x));
 }
+static void *_p_wxWrapSizerTo_p_wxObject(void *x) {
+    return (void *)((wxObject *) (wxSizer *)(wxBoxSizer *) ((wxWrapSizer *) x));
+}
 static void *_p_wxDropFilesEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *) ((wxDropFilesEvent *) x));
 }
@@ -40390,6 +40650,7 @@ static swig_type_info _swigt__p_unsigned_long = {"_p_unsigned_long", "unsigned l
 static swig_type_info _swigt__p_void = {"_p_void", "void *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxAlphaPixelData = {"_p_wxAlphaPixelData", "wxAlphaPixelData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxAlphaPixelData_Accessor = {"_p_wxAlphaPixelData_Accessor", "wxAlphaPixelData_Accessor *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxArrayInt = {"_p_wxArrayInt", "wxArrayInt *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxAutoBufferedPaintDC = {"_p_wxAutoBufferedPaintDC", "wxAutoBufferedPaintDC *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxBitmap = {"_p_wxBitmap", "wxBitmap *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxBrush = {"_p_wxBrush", "wxBrush *", 0, 0, (void*)0, 0};
@@ -40403,6 +40664,7 @@ static swig_type_info _swigt__p_wxCursor = {"_p_wxCursor", "wxCursor *", 0, 0, (
 static swig_type_info _swigt__p_wxDC = {"_p_wxDC", "wxDC *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDCBrushChanger = {"_p_wxDCBrushChanger", "wxDCBrushChanger *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDCClipper = {"_p_wxDCClipper", "wxDCClipper *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxDCImpl = {"_p_wxDCImpl", "wxDCImpl *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDCOverlay = {"_p_wxDCOverlay", "wxDCOverlay *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDCPenChanger = {"_p_wxDCPenChanger", "wxDCPenChanger *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDCTextColourChanger = {"_p_wxDCTextColourChanger", "wxDCTextColourChanger *", 0, 0, (void*)0, 0};
@@ -40514,6 +40776,7 @@ static swig_type_info _swigt__p_wxMouseEvent = {"_p_wxMouseEvent", 0, 0, 0, 0, 0
 static swig_type_info _swigt__p_wxEraseEvent = {"_p_wxEraseEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyCommandEvent = {"_p_wxPyCommandEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxCommandEvent = {"_p_wxCommandEvent", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxWrapSizer = {"_p_wxWrapSizer", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxDropFilesEvent = {"_p_wxDropFilesEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxFocusEvent = {"_p_wxFocusEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxChildFocusEvent = {"_p_wxChildFocusEvent", 0, 0, 0, 0, 0};
@@ -40565,6 +40828,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxActivateEvent,
   &_swigt__p_wxAlphaPixelData,
   &_swigt__p_wxAlphaPixelData_Accessor,
+  &_swigt__p_wxArrayInt,
   &_swigt__p_wxAutoBufferedPaintDC,
   &_swigt__p_wxBMPHandler,
   &_swigt__p_wxBitmap,
@@ -40588,6 +40852,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxDC,
   &_swigt__p_wxDCBrushChanger,
   &_swigt__p_wxDCClipper,
+  &_swigt__p_wxDCImpl,
   &_swigt__p_wxDCOverlay,
   &_swigt__p_wxDCPenChanger,
   &_swigt__p_wxDCTextColourChanger,
@@ -40720,6 +40985,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxWindowCreateEvent,
   &_swigt__p_wxWindowDC,
   &_swigt__p_wxWindowDestroyEvent,
+  &_swigt__p_wxWrapSizer,
   &_swigt__p_wxXPMHandler,
 };
 
@@ -40734,6 +41000,7 @@ static swig_cast_info _swigc__p_unsigned_long[] = {  {&_swigt__p_unsigned_long, 
 static swig_cast_info _swigc__p_void[] = {  {&_swigt__p_void, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxAlphaPixelData[] = {  {&_swigt__p_wxAlphaPixelData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxAlphaPixelData_Accessor[] = {  {&_swigt__p_wxAlphaPixelData_Accessor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxArrayInt[] = {  {&_swigt__p_wxArrayInt, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxAutoBufferedPaintDC[] = {  {&_swigt__p_wxAutoBufferedPaintDC, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxBitmap[] = {  {&_swigt__p_wxBitmap, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxBrush[] = {  {&_swigt__p_wxBrush, 0, 0, 0},{0, 0, 0, 0}};
@@ -40747,6 +41014,7 @@ static swig_cast_info _swigc__p_wxCursor[] = {  {&_swigt__p_wxCursor, 0, 0, 0},{
 static swig_cast_info _swigc__p_wxDC[] = {  {&_swigt__p_wxPrinterDC, _p_wxPrinterDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxAutoBufferedPaintDC, _p_wxAutoBufferedPaintDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxBufferedPaintDC, _p_wxBufferedPaintDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxPaintDC, _p_wxPaintDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxSVGFileDC, _p_wxSVGFileDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxMetaFileDC, _p_wxMetaFileDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxClientDC, _p_wxClientDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxPostScriptDC, _p_wxPostScriptDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxDC, 0, 0, 0},  {&_swigt__p_wxWindowDC, _p_wxWindowDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxScreenDC, _p_wxScreenDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxBufferedDC, _p_wxBufferedDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxMemoryDC, _p_wxMemoryDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxGCDC, _p_wxGCDCTo_p_wxDC, 0, 0},  {&_swigt__p_wxMirrorDC, _p_wxMirrorDCTo_p_wxDC, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDCBrushChanger[] = {  {&_swigt__p_wxDCBrushChanger, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDCClipper[] = {  {&_swigt__p_wxDCClipper, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxDCImpl[] = {  {&_swigt__p_wxDCImpl, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDCOverlay[] = {  {&_swigt__p_wxDCOverlay, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDCPenChanger[] = {  {&_swigt__p_wxDCPenChanger, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDCTextColourChanger[] = {  {&_swigt__p_wxDCTextColourChanger, 0, 0, 0},{0, 0, 0, 0}};
@@ -40857,13 +41125,14 @@ static swig_cast_info _swigc__p_wxMouseEvent[] = {{&_swigt__p_wxMouseEvent, 0, 0
 static swig_cast_info _swigc__p_wxEraseEvent[] = {{&_swigt__p_wxEraseEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyCommandEvent[] = {{&_swigt__p_wxPyCommandEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxCommandEvent[] = {{&_swigt__p_wxCommandEvent, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxWrapSizer[] = {{&_swigt__p_wxWrapSizer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDropFilesEvent[] = {{&_swigt__p_wxDropFilesEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFocusEvent[] = {{&_swigt__p_wxFocusEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxChildFocusEvent[] = {{&_swigt__p_wxChildFocusEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxControlWithItems[] = {{&_swigt__p_wxControlWithItems, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyValidator[] = {{&_swigt__p_wxPyValidator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxValidator[] = {{&_swigt__p_wxValidator, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxObject[] = {  {&_swigt__p_wxLayoutConstraints, _p_wxLayoutConstraintsTo_p_wxObject, 0, 0},  {&_swigt__p_wxRegionIterator, _p_wxRegionIteratorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPen, _p_wxPenTo_p_wxObject, 0, 0},  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizerItem, _p_wxSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxGBSizerItem, _p_wxGBSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollEvent, _p_wxScrollEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIndividualLayoutConstraint, _p_wxIndividualLayoutConstraintTo_p_wxObject, 0, 0},  {&_swigt__p_wxStaticBoxSizer, _p_wxStaticBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBoxSizer, _p_wxBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizer, _p_wxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGCDC, _p_wxGCDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridBagSizer, _p_wxGridBagSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxUpdateUIEvent, _p_wxUpdateUIEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvent, _p_wxEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridSizer, _p_wxGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxFlexGridSizer, _p_wxFlexGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxInitDialogEvent, _p_wxInitDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMask, _p_wxMaskTo_p_wxObject, 0, 0},  {&_swigt__p_wxPseudoDC, _p_wxPseudoDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxClipboardTextEvent, _p_wxClipboardTextEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaintEvent, _p_wxPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNcPaintEvent, _p_wxNcPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaletteChangedEvent, _p_wxPaletteChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDisplayChangedEvent, _p_wxDisplayChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureChangedEvent, _p_wxMouseCaptureChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSysColourChangedEvent, _p_wxSysColourChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsPen, _p_wxGraphicsPenTo_p_wxObject, 0, 0},  {&_swigt__p_wxFont, _p_wxFontTo_p_wxObject, 0, 0},  {&_swigt__p_wxSetCursorEvent, _p_wxSetCursorEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxClientDC, _p_wxClientDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxFSFile, _p_wxFSFileTo_p_wxObject, 0, 0},  {&_swigt__p_wxMemoryDC, _p_wxMemoryDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxRegion, _p_wxRegionTo_p_wxObject, 0, 0},  {&_swigt__p_wxPySizer, _p_wxPySizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxDC, _p_wxDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxIcon, _p_wxIconTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowDC, _p_wxWindowDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxGDIObject, _p_wxGDIObjectTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsObject, _p_wxGraphicsObjectTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsPath, _p_wxGraphicsPathTo_p_wxObject, 0, 0},  {&_swigt__p_wxEffects, _p_wxEffectsTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvent, _p_wxPyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNotifyEvent, _p_wxNotifyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPostScriptDC, _p_wxPostScriptDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsContext, _p_wxGraphicsContextTo_p_wxObject, 0, 0},  {&_swigt__p_wxShowEvent, _p_wxShowEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuItem, _p_wxMenuItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowCreateEvent, _p_wxWindowCreateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryNewPaletteEvent, _p_wxQueryNewPaletteEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMaximizeEvent, _p_wxMaximizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIconizeEvent, _p_wxIconizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizeEvent, _p_wxSizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMoveEvent, _p_wxMoveEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxActivateEvent, _p_wxActivateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIdleEvent, _p_wxIdleEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDateEvent, _p_wxDateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvtHandler, _p_wxEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTGAHandler, _p_wxTGAHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTIFFHandler, _p_wxTIFFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxXPMHandler, _p_wxXPMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageHandler, _p_wxImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyImageHandler, _p_wxPyImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBMPHandler, _p_wxBMPHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxICOHandler, _p_wxICOHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxCURHandler, _p_wxCURHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxANIHandler, _p_wxANIHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNGHandler, _p_wxPNGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGIFHandler, _p_wxGIFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPCXHandler, _p_wxPCXHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxJPEGHandler, _p_wxJPEGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNMHandler, _p_wxPNMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureLostEvent, _p_wxMouseCaptureLostEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxAutoBufferedPaintDC, _p_wxAutoBufferedPaintDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxBufferedPaintDC, _p_wxBufferedPaintDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaintDC, _p_wxPaintDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrinterDC, _p_wxPrinterDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxScreenDC, _p_wxScreenDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxAcceleratorTable, _p_wxAcceleratorTableTo_p_wxObject, 0, 0},  {&_swigt__p_wxStdDialogButtonSizer, _p_wxStdDialogButtonSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxImage, _p_wxImageTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollWinEvent, _p_wxScrollWinEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsBrush, _p_wxGraphicsBrushTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsRenderer, _p_wxGraphicsRendererTo_p_wxObject, 0, 0},  {&_swigt__p_wxBufferedDC, _p_wxBufferedDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxPalette, _p_wxPaletteTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageList, _p_wxImageListTo_p_wxObject, 0, 0},  {&_swigt__p_wxCursor, _p_wxCursorTo_p_wxObject, 0, 0},  {&_swigt__p_wxObject, 0, 0, 0},  {&_swigt__p_wxGraphicsFont, _p_wxGraphicsFontTo_p_wxObject, 0, 0},  {&_swigt__p_wxMirrorDC, _p_wxMirrorDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxEncodingConverter, _p_wxEncodingConverterTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowDestroyEvent, _p_wxWindowDestroyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNavigationKeyEvent, _p_wxNavigationKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxKeyEvent, _p_wxKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSVGFileDC, _p_wxSVGFileDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxMetaFileDC, _p_wxMetaFileDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileSystem, _p_wxFileSystemTo_p_wxObject, 0, 0},  {&_swigt__p_wxBitmap, _p_wxBitmapTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsMatrix, _p_wxGraphicsMatrixTo_p_wxObject, 0, 0},  {&_swigt__p_wxContextMenuEvent, _p_wxContextMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuEvent, _p_wxMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxObject, 0, 0},  {&_swigt__p_wxCloseEvent, _p_wxCloseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseEvent, _p_wxMouseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEraseEvent, _p_wxEraseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyCommandEvent, _p_wxPyCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCommandEvent, _p_wxCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDropFilesEvent, _p_wxDropFilesEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFocusEvent, _p_wxFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxChildFocusEvent, _p_wxChildFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxBrush, _p_wxBrushTo_p_wxObject, 0, 0},  {&_swigt__p_wxMetaFile, _p_wxMetaFileTo_p_wxObject, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxObject, 0, 0},  {&_swigt__p_wxColour, _p_wxColourTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxObject, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxObject[] = {  {&_swigt__p_wxLayoutConstraints, _p_wxLayoutConstraintsTo_p_wxObject, 0, 0},  {&_swigt__p_wxRegionIterator, _p_wxRegionIteratorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPen, _p_wxPenTo_p_wxObject, 0, 0},  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizerItem, _p_wxSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxGBSizerItem, _p_wxGBSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollEvent, _p_wxScrollEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIndividualLayoutConstraint, _p_wxIndividualLayoutConstraintTo_p_wxObject, 0, 0},  {&_swigt__p_wxStaticBoxSizer, _p_wxStaticBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBoxSizer, _p_wxBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizer, _p_wxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGCDC, _p_wxGCDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridBagSizer, _p_wxGridBagSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxUpdateUIEvent, _p_wxUpdateUIEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvent, _p_wxEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridSizer, _p_wxGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxFlexGridSizer, _p_wxFlexGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxInitDialogEvent, _p_wxInitDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMask, _p_wxMaskTo_p_wxObject, 0, 0},  {&_swigt__p_wxPseudoDC, _p_wxPseudoDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxClipboardTextEvent, _p_wxClipboardTextEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaintEvent, _p_wxPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNcPaintEvent, _p_wxNcPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaletteChangedEvent, _p_wxPaletteChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDisplayChangedEvent, _p_wxDisplayChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureChangedEvent, _p_wxMouseCaptureChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSysColourChangedEvent, _p_wxSysColourChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsPen, _p_wxGraphicsPenTo_p_wxObject, 0, 0},  {&_swigt__p_wxFont, _p_wxFontTo_p_wxObject, 0, 0},  {&_swigt__p_wxSetCursorEvent, _p_wxSetCursorEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxClientDC, _p_wxClientDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxFSFile, _p_wxFSFileTo_p_wxObject, 0, 0},  {&_swigt__p_wxMemoryDC, _p_wxMemoryDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxRegion, _p_wxRegionTo_p_wxObject, 0, 0},  {&_swigt__p_wxPySizer, _p_wxPySizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxDC, _p_wxDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxIcon, _p_wxIconTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowDC, _p_wxWindowDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxGDIObject, _p_wxGDIObjectTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsObject, _p_wxGraphicsObjectTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsPath, _p_wxGraphicsPathTo_p_wxObject, 0, 0},  {&_swigt__p_wxEffects, _p_wxEffectsTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvent, _p_wxPyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNotifyEvent, _p_wxNotifyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPostScriptDC, _p_wxPostScriptDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsContext, _p_wxGraphicsContextTo_p_wxObject, 0, 0},  {&_swigt__p_wxShowEvent, _p_wxShowEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuItem, _p_wxMenuItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowCreateEvent, _p_wxWindowCreateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryNewPaletteEvent, _p_wxQueryNewPaletteEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMaximizeEvent, _p_wxMaximizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIconizeEvent, _p_wxIconizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizeEvent, _p_wxSizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMoveEvent, _p_wxMoveEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxActivateEvent, _p_wxActivateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIdleEvent, _p_wxIdleEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDateEvent, _p_wxDateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvtHandler, _p_wxEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTGAHandler, _p_wxTGAHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTIFFHandler, _p_wxTIFFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxXPMHandler, _p_wxXPMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageHandler, _p_wxImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyImageHandler, _p_wxPyImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBMPHandler, _p_wxBMPHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxICOHandler, _p_wxICOHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxCURHandler, _p_wxCURHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxANIHandler, _p_wxANIHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNGHandler, _p_wxPNGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGIFHandler, _p_wxGIFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPCXHandler, _p_wxPCXHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxJPEGHandler, _p_wxJPEGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNMHandler, _p_wxPNMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureLostEvent, _p_wxMouseCaptureLostEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxAutoBufferedPaintDC, _p_wxAutoBufferedPaintDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxBufferedPaintDC, _p_wxBufferedPaintDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaintDC, _p_wxPaintDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrinterDC, _p_wxPrinterDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxScreenDC, _p_wxScreenDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxAcceleratorTable, _p_wxAcceleratorTableTo_p_wxObject, 0, 0},  {&_swigt__p_wxStdDialogButtonSizer, _p_wxStdDialogButtonSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxImage, _p_wxImageTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollWinEvent, _p_wxScrollWinEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsBrush, _p_wxGraphicsBrushTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsRenderer, _p_wxGraphicsRendererTo_p_wxObject, 0, 0},  {&_swigt__p_wxBufferedDC, _p_wxBufferedDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxPalette, _p_wxPaletteTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageList, _p_wxImageListTo_p_wxObject, 0, 0},  {&_swigt__p_wxCursor, _p_wxCursorTo_p_wxObject, 0, 0},  {&_swigt__p_wxObject, 0, 0, 0},  {&_swigt__p_wxGraphicsFont, _p_wxGraphicsFontTo_p_wxObject, 0, 0},  {&_swigt__p_wxMirrorDC, _p_wxMirrorDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxEncodingConverter, _p_wxEncodingConverterTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowDestroyEvent, _p_wxWindowDestroyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNavigationKeyEvent, _p_wxNavigationKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxKeyEvent, _p_wxKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSVGFileDC, _p_wxSVGFileDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxMetaFileDC, _p_wxMetaFileDCTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileSystem, _p_wxFileSystemTo_p_wxObject, 0, 0},  {&_swigt__p_wxBitmap, _p_wxBitmapTo_p_wxObject, 0, 0},  {&_swigt__p_wxGraphicsMatrix, _p_wxGraphicsMatrixTo_p_wxObject, 0, 0},  {&_swigt__p_wxContextMenuEvent, _p_wxContextMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuEvent, _p_wxMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxObject, 0, 0},  {&_swigt__p_wxCloseEvent, _p_wxCloseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseEvent, _p_wxMouseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEraseEvent, _p_wxEraseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyCommandEvent, _p_wxPyCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCommandEvent, _p_wxCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWrapSizer, _p_wxWrapSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxDropFilesEvent, _p_wxDropFilesEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFocusEvent, _p_wxFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxChildFocusEvent, _p_wxChildFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxBrush, _p_wxBrushTo_p_wxObject, 0, 0},  {&_swigt__p_wxMetaFile, _p_wxMetaFileTo_p_wxObject, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxObject, 0, 0},  {&_swigt__p_wxColour, _p_wxColourTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxObject, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxOverlay[] = {  {&_swigt__p_wxOverlay, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPaintDC[] = {  {&_swigt__p_wxPaintDC, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPalette[] = {  {&_swigt__p_wxPalette, 0, 0, 0},{0, 0, 0, 0}};
@@ -40909,6 +41178,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxActivateEvent,
   _swigc__p_wxAlphaPixelData,
   _swigc__p_wxAlphaPixelData_Accessor,
+  _swigc__p_wxArrayInt,
   _swigc__p_wxAutoBufferedPaintDC,
   _swigc__p_wxBMPHandler,
   _swigc__p_wxBitmap,
@@ -40932,6 +41202,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxDC,
   _swigc__p_wxDCBrushChanger,
   _swigc__p_wxDCClipper,
+  _swigc__p_wxDCImpl,
   _swigc__p_wxDCOverlay,
   _swigc__p_wxDCPenChanger,
   _swigc__p_wxDCTextColourChanger,
@@ -41064,6 +41335,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxWindowCreateEvent,
   _swigc__p_wxWindowDC,
   _swigc__p_wxWindowDestroyEvent,
+  _swigc__p_wxWrapSizer,
   _swigc__p_wxXPMHandler,
 };
 

@@ -567,7 +567,7 @@ def Choice_GetClassDefaultAttributes(*args, **kwargs):
 
 #---------------------------------------------------------------------------
 
-class ComboBox(_core.Control,_core.ItemContainer):
+class ComboBox(_core.Control,_core.ItemContainer,_core.TextEntry):
     """
     A combobox is like a combination of an edit control and a
     listbox. It can be displayed as static list with editable or
@@ -601,75 +601,6 @@ class ComboBox(_core.Control,_core.ItemContainer):
         """
         return _controls_.ComboBox_Create(*args, **kwargs)
 
-    def GetValue(*args, **kwargs):
-        """
-        GetValue(self) -> String
-
-        Returns the current value in the combobox text field.
-        """
-        return _controls_.ComboBox_GetValue(*args, **kwargs)
-
-    def SetValue(*args, **kwargs):
-        """SetValue(self, String value)"""
-        return _controls_.ComboBox_SetValue(*args, **kwargs)
-
-    def Copy(*args, **kwargs):
-        """
-        Copy(self)
-
-        Copies the selected text to the clipboard.
-        """
-        return _controls_.ComboBox_Copy(*args, **kwargs)
-
-    def Cut(*args, **kwargs):
-        """
-        Cut(self)
-
-        Copies the selected text to the clipboard and removes the selection.
-        """
-        return _controls_.ComboBox_Cut(*args, **kwargs)
-
-    def Paste(*args, **kwargs):
-        """
-        Paste(self)
-
-        Pastes text from the clipboard to the text field.
-        """
-        return _controls_.ComboBox_Paste(*args, **kwargs)
-
-    def SetInsertionPoint(*args, **kwargs):
-        """
-        SetInsertionPoint(self, long pos)
-
-        Sets the insertion point in the combobox text field.
-        """
-        return _controls_.ComboBox_SetInsertionPoint(*args, **kwargs)
-
-    def GetInsertionPoint(*args, **kwargs):
-        """
-        GetInsertionPoint(self) -> long
-
-        Returns the insertion point for the combobox's text field.
-        """
-        return _controls_.ComboBox_GetInsertionPoint(*args, **kwargs)
-
-    def GetLastPosition(*args, **kwargs):
-        """
-        GetLastPosition(self) -> long
-
-        Returns the last position in the combobox text field.
-        """
-        return _controls_.ComboBox_GetLastPosition(*args, **kwargs)
-
-    def Replace(*args, **kwargs):
-        """
-        Replace(self, long from, long to, String value)
-
-        Replaces the text between two positions with the given text, in the
-        combobox text field.
-        """
-        return _controls_.ComboBox_Replace(*args, **kwargs)
-
     def SetMark(*args, **kwargs):
         """
         SetMark(self, long from, long to)
@@ -678,8 +609,18 @@ class ComboBox(_core.Control,_core.ItemContainer):
         """
         return _controls_.ComboBox_SetMark(*args, **kwargs)
 
-    def GetMark(self):
-        return (0,0)
+    def GetMark(*args, **kwargs):
+        """
+        GetMark(self) -> (from, to)
+
+        Gets the positions of the begining and ending of the selection mark in
+        the combobox text field.
+        """
+        return _controls_.ComboBox_GetMark(*args, **kwargs)
+
+    def IsEmpty(*args, **kwargs):
+        """IsEmpty(self) -> bool"""
+        return _controls_.ComboBox_IsEmpty(*args, **kwargs)
 
     def GetCurrentSelection(*args, **kwargs):
         """
@@ -702,104 +643,6 @@ class ComboBox(_core.Control,_core.ItemContainer):
         """
         return _controls_.ComboBox_SetStringSelection(*args, **kwargs)
 
-    def SetEditable(*args, **kwargs):
-        """SetEditable(self, bool editable)"""
-        return _controls_.ComboBox_SetEditable(*args, **kwargs)
-
-    def SetInsertionPointEnd(*args, **kwargs):
-        """
-        SetInsertionPointEnd(self)
-
-        Sets the insertion point at the end of the combobox text field.
-        """
-        return _controls_.ComboBox_SetInsertionPointEnd(*args, **kwargs)
-
-    def Remove(*args, **kwargs):
-        """
-        Remove(self, long from, long to)
-
-        Removes the text between the two positions in the combobox text field.
-        """
-        return _controls_.ComboBox_Remove(*args, **kwargs)
-
-    def IsEditable(*args, **kwargs):
-        """
-        IsEditable(self) -> bool
-
-        Returns True if the combo is ediatable (not read-only.)
-        """
-        return _controls_.ComboBox_IsEditable(*args, **kwargs)
-
-    def Undo(*args, **kwargs):
-        """
-        Undo(self)
-
-        Redoes the last undo in the text field. Windows only.
-        """
-        return _controls_.ComboBox_Undo(*args, **kwargs)
-
-    def Redo(*args, **kwargs):
-        """
-        Redo(self)
-
-        Undoes the last edit in the text field. Windows only.
-        """
-        return _controls_.ComboBox_Redo(*args, **kwargs)
-
-    def SelectAll(*args, **kwargs):
-        """
-        SelectAll(self)
-
-        Select all the text in the combo's text field.
-        """
-        return _controls_.ComboBox_SelectAll(*args, **kwargs)
-
-    def CanCopy(*args, **kwargs):
-        """
-        CanCopy(self) -> bool
-
-        Returns True if the combobox is editable and there is a text selection
-        to copy to the clipboard.  Only available on Windows.
-        """
-        return _controls_.ComboBox_CanCopy(*args, **kwargs)
-
-    def CanCut(*args, **kwargs):
-        """
-        CanCut(self) -> bool
-
-        Returns True if the combobox is editable and there is a text selection
-        to copy to the clipboard.  Only available on Windows.
-        """
-        return _controls_.ComboBox_CanCut(*args, **kwargs)
-
-    def CanPaste(*args, **kwargs):
-        """
-        CanPaste(self) -> bool
-
-        Returns True if the combobox is editable and there is text on the
-        clipboard that can be pasted into the text field. Only available on
-        Windows.
-        """
-        return _controls_.ComboBox_CanPaste(*args, **kwargs)
-
-    def CanUndo(*args, **kwargs):
-        """
-        CanUndo(self) -> bool
-
-        Returns True if the combobox is editable and the last edit can be
-        undone.  Only available on Windows.
-        """
-        return _controls_.ComboBox_CanUndo(*args, **kwargs)
-
-    def CanRedo(*args, **kwargs):
-        """
-        CanRedo(self) -> bool
-
-        Returns True if the combobox is editable and the last undo can be
-        redone.  Only available on Windows.
-        """
-        return _controls_.ComboBox_CanRedo(*args, **kwargs)
-
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -818,11 +661,8 @@ class ComboBox(_core.Control,_core.ItemContainer):
         return _controls_.ComboBox_GetClassDefaultAttributes(*args, **kwargs)
 
     GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
-    CurrentSelection = property(GetCurrentSelection,doc="See `GetCurrentSelection`") 
-    InsertionPoint = property(GetInsertionPoint,SetInsertionPoint,doc="See `GetInsertionPoint` and `SetInsertionPoint`") 
-    LastPosition = property(GetLastPosition,doc="See `GetLastPosition`") 
-    Mark = property(GetMark,SetMark,doc="See `GetMark` and `SetMark`") 
-    Value = property(GetValue,SetValue,doc="See `GetValue` and `SetValue`") 
+    CurrentSelection = property(GetCurrentSelection) 
+    Mark = property(GetMark,SetMark) 
 _controls_.ComboBox_swigregister(ComboBox)
 ComboBoxNameStr = cvar.ComboBoxNameStr
 
@@ -1575,6 +1415,52 @@ TEXT_ATTR_ALIGNMENT = _controls_.TEXT_ATTR_ALIGNMENT
 TEXT_ATTR_LEFT_INDENT = _controls_.TEXT_ATTR_LEFT_INDENT
 TEXT_ATTR_RIGHT_INDENT = _controls_.TEXT_ATTR_RIGHT_INDENT
 TEXT_ATTR_TABS = _controls_.TEXT_ATTR_TABS
+TEXT_ATTR_PARA_SPACING_AFTER = _controls_.TEXT_ATTR_PARA_SPACING_AFTER
+TEXT_ATTR_LINE_SPACING = _controls_.TEXT_ATTR_LINE_SPACING
+TEXT_ATTR_CHARACTER_STYLE_NAME = _controls_.TEXT_ATTR_CHARACTER_STYLE_NAME
+TEXT_ATTR_PARAGRAPH_STYLE_NAME = _controls_.TEXT_ATTR_PARAGRAPH_STYLE_NAME
+TEXT_ATTR_LIST_STYLE_NAME = _controls_.TEXT_ATTR_LIST_STYLE_NAME
+TEXT_ATTR_BULLET_STYLE = _controls_.TEXT_ATTR_BULLET_STYLE
+TEXT_ATTR_BULLET_NUMBER = _controls_.TEXT_ATTR_BULLET_NUMBER
+TEXT_ATTR_BULLET_TEXT = _controls_.TEXT_ATTR_BULLET_TEXT
+TEXT_ATTR_BULLET_NAME = _controls_.TEXT_ATTR_BULLET_NAME
+TEXT_ATTR_URL = _controls_.TEXT_ATTR_URL
+TEXT_ATTR_PAGE_BREAK = _controls_.TEXT_ATTR_PAGE_BREAK
+TEXT_ATTR_EFFECTS = _controls_.TEXT_ATTR_EFFECTS
+TEXT_ATTR_OUTLINE_LEVEL = _controls_.TEXT_ATTR_OUTLINE_LEVEL
+TEXT_ATTR_CHARACTER = _controls_.TEXT_ATTR_CHARACTER
+TEXT_ATTR_PARAGRAPH = _controls_.TEXT_ATTR_PARAGRAPH
+TEXT_ATTR_ALL = _controls_.TEXT_ATTR_ALL
+TEXT_ATTR_BULLET_STYLE_NONE = _controls_.TEXT_ATTR_BULLET_STYLE_NONE
+TEXT_ATTR_BULLET_STYLE_ARABIC = _controls_.TEXT_ATTR_BULLET_STYLE_ARABIC
+TEXT_ATTR_BULLET_STYLE_LETTERS_UPPER = _controls_.TEXT_ATTR_BULLET_STYLE_LETTERS_UPPER
+TEXT_ATTR_BULLET_STYLE_LETTERS_LOWER = _controls_.TEXT_ATTR_BULLET_STYLE_LETTERS_LOWER
+TEXT_ATTR_BULLET_STYLE_ROMAN_UPPER = _controls_.TEXT_ATTR_BULLET_STYLE_ROMAN_UPPER
+TEXT_ATTR_BULLET_STYLE_ROMAN_LOWER = _controls_.TEXT_ATTR_BULLET_STYLE_ROMAN_LOWER
+TEXT_ATTR_BULLET_STYLE_SYMBOL = _controls_.TEXT_ATTR_BULLET_STYLE_SYMBOL
+TEXT_ATTR_BULLET_STYLE_BITMAP = _controls_.TEXT_ATTR_BULLET_STYLE_BITMAP
+TEXT_ATTR_BULLET_STYLE_PARENTHESES = _controls_.TEXT_ATTR_BULLET_STYLE_PARENTHESES
+TEXT_ATTR_BULLET_STYLE_PERIOD = _controls_.TEXT_ATTR_BULLET_STYLE_PERIOD
+TEXT_ATTR_BULLET_STYLE_STANDARD = _controls_.TEXT_ATTR_BULLET_STYLE_STANDARD
+TEXT_ATTR_BULLET_STYLE_RIGHT_PARENTHESIS = _controls_.TEXT_ATTR_BULLET_STYLE_RIGHT_PARENTHESIS
+TEXT_ATTR_BULLET_STYLE_OUTLINE = _controls_.TEXT_ATTR_BULLET_STYLE_OUTLINE
+TEXT_ATTR_BULLET_STYLE_ALIGN_LEFT = _controls_.TEXT_ATTR_BULLET_STYLE_ALIGN_LEFT
+TEXT_ATTR_BULLET_STYLE_ALIGN_RIGHT = _controls_.TEXT_ATTR_BULLET_STYLE_ALIGN_RIGHT
+TEXT_ATTR_BULLET_STYLE_ALIGN_CENTRE = _controls_.TEXT_ATTR_BULLET_STYLE_ALIGN_CENTRE
+TEXT_ATTR_EFFECT_NONE = _controls_.TEXT_ATTR_EFFECT_NONE
+TEXT_ATTR_EFFECT_CAPITALS = _controls_.TEXT_ATTR_EFFECT_CAPITALS
+TEXT_ATTR_EFFECT_SMALL_CAPITALS = _controls_.TEXT_ATTR_EFFECT_SMALL_CAPITALS
+TEXT_ATTR_EFFECT_STRIKETHROUGH = _controls_.TEXT_ATTR_EFFECT_STRIKETHROUGH
+TEXT_ATTR_EFFECT_DOUBLE_STRIKETHROUGH = _controls_.TEXT_ATTR_EFFECT_DOUBLE_STRIKETHROUGH
+TEXT_ATTR_EFFECT_SHADOW = _controls_.TEXT_ATTR_EFFECT_SHADOW
+TEXT_ATTR_EFFECT_EMBOSS = _controls_.TEXT_ATTR_EFFECT_EMBOSS
+TEXT_ATTR_EFFECT_OUTLINE = _controls_.TEXT_ATTR_EFFECT_OUTLINE
+TEXT_ATTR_EFFECT_ENGRAVE = _controls_.TEXT_ATTR_EFFECT_ENGRAVE
+TEXT_ATTR_EFFECT_SUPERSCRIPT = _controls_.TEXT_ATTR_EFFECT_SUPERSCRIPT
+TEXT_ATTR_EFFECT_SUBSCRIPT = _controls_.TEXT_ATTR_EFFECT_SUBSCRIPT
+TEXT_ATTR_LINE_SPACING_NORMAL = _controls_.TEXT_ATTR_LINE_SPACING_NORMAL
+TEXT_ATTR_LINE_SPACING_HALF = _controls_.TEXT_ATTR_LINE_SPACING_HALF
+TEXT_ATTR_LINE_SPACING_TWICE = _controls_.TEXT_ATTR_LINE_SPACING_TWICE
 TE_HT_UNKNOWN = _controls_.TE_HT_UNKNOWN
 TE_HT_BEFORE = _controls_.TE_HT_BEFORE
 TE_HT_ON_TEXT = _controls_.TE_HT_ON_TEXT
@@ -1599,11 +1485,22 @@ class TextAttr(object):
         """Init(self)"""
         return _controls_.TextAttr_Init(*args, **kwargs)
 
-    def Merge(*args, **kwargs):
-        """Merge(TextAttr base, TextAttr overlay) -> TextAttr"""
-        return _controls_.TextAttr_Merge(*args, **kwargs)
+    def Copy(*args, **kwargs):
+        """Copy(self, TextAttr attr)"""
+        return _controls_.TextAttr_Copy(*args, **kwargs)
 
-    Merge = staticmethod(Merge)
+    def EqPartial(*args, **kwargs):
+        """EqPartial(self, TextAttr attr, int flags) -> bool"""
+        return _controls_.TextAttr_EqPartial(*args, **kwargs)
+
+    def CreateFont(*args, **kwargs):
+        """CreateFont(self) -> Font"""
+        return _controls_.TextAttr_CreateFont(*args, **kwargs)
+
+    def GetFontAttributes(*args, **kwargs):
+        """GetFontAttributes(self, Font font, int flags=TEXT_ATTR_FONT) -> bool"""
+        return _controls_.TextAttr_GetFontAttributes(*args, **kwargs)
+
     def SetTextColour(*args, **kwargs):
         """SetTextColour(self, Colour colText)"""
         return _controls_.TextAttr_SetTextColour(*args, **kwargs)
@@ -1611,10 +1508,6 @@ class TextAttr(object):
     def SetBackgroundColour(*args, **kwargs):
         """SetBackgroundColour(self, Colour colBack)"""
         return _controls_.TextAttr_SetBackgroundColour(*args, **kwargs)
-
-    def SetFont(*args, **kwargs):
-        """SetFont(self, Font font, long flags=TEXT_ATTR_FONT)"""
-        return _controls_.TextAttr_SetFont(*args, **kwargs)
 
     def SetAlignment(*args, **kwargs):
         """SetAlignment(self, int alignment)"""
@@ -1632,41 +1525,101 @@ class TextAttr(object):
         """SetRightIndent(self, int indent)"""
         return _controls_.TextAttr_SetRightIndent(*args, **kwargs)
 
+    def SetFontSize(*args, **kwargs):
+        """SetFontSize(self, int pointSize)"""
+        return _controls_.TextAttr_SetFontSize(*args, **kwargs)
+
+    def SetFontStyle(*args, **kwargs):
+        """SetFontStyle(self, int fontStyle)"""
+        return _controls_.TextAttr_SetFontStyle(*args, **kwargs)
+
+    def SetFontWeight(*args, **kwargs):
+        """SetFontWeight(self, int fontWeight)"""
+        return _controls_.TextAttr_SetFontWeight(*args, **kwargs)
+
+    def SetFontFaceName(*args, **kwargs):
+        """SetFontFaceName(self, String faceName)"""
+        return _controls_.TextAttr_SetFontFaceName(*args, **kwargs)
+
+    def SetFontUnderlined(*args, **kwargs):
+        """SetFontUnderlined(self, bool underlined)"""
+        return _controls_.TextAttr_SetFontUnderlined(*args, **kwargs)
+
+    def SetFontEncoding(*args, **kwargs):
+        """SetFontEncoding(self, wxFontEncoding encoding)"""
+        return _controls_.TextAttr_SetFontEncoding(*args, **kwargs)
+
+    def SetFont(*args, **kwargs):
+        """SetFont(self, Font font, int flags=TEXT_ATTR_FONT)"""
+        return _controls_.TextAttr_SetFont(*args, **kwargs)
+
     def SetFlags(*args, **kwargs):
         """SetFlags(self, long flags)"""
         return _controls_.TextAttr_SetFlags(*args, **kwargs)
 
-    def HasTextColour(*args, **kwargs):
-        """HasTextColour(self) -> bool"""
-        return _controls_.TextAttr_HasTextColour(*args, **kwargs)
+    def SetCharacterStyleName(*args, **kwargs):
+        """SetCharacterStyleName(self, String name)"""
+        return _controls_.TextAttr_SetCharacterStyleName(*args, **kwargs)
 
-    def HasBackgroundColour(*args, **kwargs):
-        """HasBackgroundColour(self) -> bool"""
-        return _controls_.TextAttr_HasBackgroundColour(*args, **kwargs)
+    def SetParagraphStyleName(*args, **kwargs):
+        """SetParagraphStyleName(self, String name)"""
+        return _controls_.TextAttr_SetParagraphStyleName(*args, **kwargs)
 
-    def HasFont(*args, **kwargs):
-        """HasFont(self) -> bool"""
-        return _controls_.TextAttr_HasFont(*args, **kwargs)
+    def SetListStyleName(*args, **kwargs):
+        """SetListStyleName(self, String name)"""
+        return _controls_.TextAttr_SetListStyleName(*args, **kwargs)
 
-    def HasAlignment(*args, **kwargs):
-        """HasAlignment(self) -> bool"""
-        return _controls_.TextAttr_HasAlignment(*args, **kwargs)
+    def SetParagraphSpacingAfter(*args, **kwargs):
+        """SetParagraphSpacingAfter(self, int spacing)"""
+        return _controls_.TextAttr_SetParagraphSpacingAfter(*args, **kwargs)
 
-    def HasTabs(*args, **kwargs):
-        """HasTabs(self) -> bool"""
-        return _controls_.TextAttr_HasTabs(*args, **kwargs)
+    def SetParagraphSpacingBefore(*args, **kwargs):
+        """SetParagraphSpacingBefore(self, int spacing)"""
+        return _controls_.TextAttr_SetParagraphSpacingBefore(*args, **kwargs)
 
-    def HasLeftIndent(*args, **kwargs):
-        """HasLeftIndent(self) -> bool"""
-        return _controls_.TextAttr_HasLeftIndent(*args, **kwargs)
+    def SetLineSpacing(*args, **kwargs):
+        """SetLineSpacing(self, int spacing)"""
+        return _controls_.TextAttr_SetLineSpacing(*args, **kwargs)
 
-    def HasRightIndent(*args, **kwargs):
-        """HasRightIndent(self) -> bool"""
-        return _controls_.TextAttr_HasRightIndent(*args, **kwargs)
+    def SetBulletStyle(*args, **kwargs):
+        """SetBulletStyle(self, int style)"""
+        return _controls_.TextAttr_SetBulletStyle(*args, **kwargs)
 
-    def HasFlag(*args, **kwargs):
-        """HasFlag(self, long flag) -> bool"""
-        return _controls_.TextAttr_HasFlag(*args, **kwargs)
+    def SetBulletNumber(*args, **kwargs):
+        """SetBulletNumber(self, int n)"""
+        return _controls_.TextAttr_SetBulletNumber(*args, **kwargs)
+
+    def SetBulletText(*args, **kwargs):
+        """SetBulletText(self, String text)"""
+        return _controls_.TextAttr_SetBulletText(*args, **kwargs)
+
+    def SetBulletFont(*args, **kwargs):
+        """SetBulletFont(self, String bulletFont)"""
+        return _controls_.TextAttr_SetBulletFont(*args, **kwargs)
+
+    def SetBulletName(*args, **kwargs):
+        """SetBulletName(self, String name)"""
+        return _controls_.TextAttr_SetBulletName(*args, **kwargs)
+
+    def SetURL(*args, **kwargs):
+        """SetURL(self, String url)"""
+        return _controls_.TextAttr_SetURL(*args, **kwargs)
+
+    def SetPageBreak(*args, **kwargs):
+        """SetPageBreak(self, bool pageBreak=True)"""
+        return _controls_.TextAttr_SetPageBreak(*args, **kwargs)
+
+    def SetTextEffects(*args, **kwargs):
+        """SetTextEffects(self, int effects)"""
+        return _controls_.TextAttr_SetTextEffects(*args, **kwargs)
+
+    def SetTextEffectFlags(*args, **kwargs):
+        """SetTextEffectFlags(self, int effects)"""
+        return _controls_.TextAttr_SetTextEffectFlags(*args, **kwargs)
+
+    def SetOutlineLevel(*args, **kwargs):
+        """SetOutlineLevel(self, int level)"""
+        return _controls_.TextAttr_SetOutlineLevel(*args, **kwargs)
 
     def GetTextColour(*args, **kwargs):
         """GetTextColour(self) -> Colour"""
@@ -1675,10 +1628,6 @@ class TextAttr(object):
     def GetBackgroundColour(*args, **kwargs):
         """GetBackgroundColour(self) -> Colour"""
         return _controls_.TextAttr_GetBackgroundColour(*args, **kwargs)
-
-    def GetFont(*args, **kwargs):
-        """GetFont(self) -> Font"""
-        return _controls_.TextAttr_GetFont(*args, **kwargs)
 
     def GetAlignment(*args, **kwargs):
         """GetAlignment(self) -> int"""
@@ -1704,36 +1653,318 @@ class TextAttr(object):
         """GetFlags(self) -> long"""
         return _controls_.TextAttr_GetFlags(*args, **kwargs)
 
+    def GetFontSize(*args, **kwargs):
+        """GetFontSize(self) -> int"""
+        return _controls_.TextAttr_GetFontSize(*args, **kwargs)
+
+    def GetFontStyle(*args, **kwargs):
+        """GetFontStyle(self) -> int"""
+        return _controls_.TextAttr_GetFontStyle(*args, **kwargs)
+
+    def GetFontWeight(*args, **kwargs):
+        """GetFontWeight(self) -> int"""
+        return _controls_.TextAttr_GetFontWeight(*args, **kwargs)
+
+    def GetFontUnderlined(*args, **kwargs):
+        """GetFontUnderlined(self) -> bool"""
+        return _controls_.TextAttr_GetFontUnderlined(*args, **kwargs)
+
+    def GetFontFaceName(*args, **kwargs):
+        """GetFontFaceName(self) -> String"""
+        return _controls_.TextAttr_GetFontFaceName(*args, **kwargs)
+
+    def GetFontEncoding(*args, **kwargs):
+        """GetFontEncoding(self) -> wxFontEncoding"""
+        return _controls_.TextAttr_GetFontEncoding(*args, **kwargs)
+
+    def GetFont(*args, **kwargs):
+        """GetFont(self) -> Font"""
+        return _controls_.TextAttr_GetFont(*args, **kwargs)
+
+    def GetCharacterStyleName(*args, **kwargs):
+        """GetCharacterStyleName(self) -> String"""
+        return _controls_.TextAttr_GetCharacterStyleName(*args, **kwargs)
+
+    def GetParagraphStyleName(*args, **kwargs):
+        """GetParagraphStyleName(self) -> String"""
+        return _controls_.TextAttr_GetParagraphStyleName(*args, **kwargs)
+
+    def GetListStyleName(*args, **kwargs):
+        """GetListStyleName(self) -> String"""
+        return _controls_.TextAttr_GetListStyleName(*args, **kwargs)
+
+    def GetParagraphSpacingAfter(*args, **kwargs):
+        """GetParagraphSpacingAfter(self) -> int"""
+        return _controls_.TextAttr_GetParagraphSpacingAfter(*args, **kwargs)
+
+    def GetParagraphSpacingBefore(*args, **kwargs):
+        """GetParagraphSpacingBefore(self) -> int"""
+        return _controls_.TextAttr_GetParagraphSpacingBefore(*args, **kwargs)
+
+    def GetLineSpacing(*args, **kwargs):
+        """GetLineSpacing(self) -> int"""
+        return _controls_.TextAttr_GetLineSpacing(*args, **kwargs)
+
+    def GetBulletStyle(*args, **kwargs):
+        """GetBulletStyle(self) -> int"""
+        return _controls_.TextAttr_GetBulletStyle(*args, **kwargs)
+
+    def GetBulletNumber(*args, **kwargs):
+        """GetBulletNumber(self) -> int"""
+        return _controls_.TextAttr_GetBulletNumber(*args, **kwargs)
+
+    def GetBulletText(*args, **kwargs):
+        """GetBulletText(self) -> String"""
+        return _controls_.TextAttr_GetBulletText(*args, **kwargs)
+
+    def GetBulletFont(*args, **kwargs):
+        """GetBulletFont(self) -> String"""
+        return _controls_.TextAttr_GetBulletFont(*args, **kwargs)
+
+    def GetBulletName(*args, **kwargs):
+        """GetBulletName(self) -> String"""
+        return _controls_.TextAttr_GetBulletName(*args, **kwargs)
+
+    def GetURL(*args, **kwargs):
+        """GetURL(self) -> String"""
+        return _controls_.TextAttr_GetURL(*args, **kwargs)
+
+    def GetTextEffects(*args, **kwargs):
+        """GetTextEffects(self) -> int"""
+        return _controls_.TextAttr_GetTextEffects(*args, **kwargs)
+
+    def GetTextEffectFlags(*args, **kwargs):
+        """GetTextEffectFlags(self) -> int"""
+        return _controls_.TextAttr_GetTextEffectFlags(*args, **kwargs)
+
+    def GetOutlineLevel(*args, **kwargs):
+        """GetOutlineLevel(self) -> int"""
+        return _controls_.TextAttr_GetOutlineLevel(*args, **kwargs)
+
+    def HasTextColour(*args, **kwargs):
+        """HasTextColour(self) -> bool"""
+        return _controls_.TextAttr_HasTextColour(*args, **kwargs)
+
+    def HasBackgroundColour(*args, **kwargs):
+        """HasBackgroundColour(self) -> bool"""
+        return _controls_.TextAttr_HasBackgroundColour(*args, **kwargs)
+
+    def HasAlignment(*args, **kwargs):
+        """HasAlignment(self) -> bool"""
+        return _controls_.TextAttr_HasAlignment(*args, **kwargs)
+
+    def HasTabs(*args, **kwargs):
+        """HasTabs(self) -> bool"""
+        return _controls_.TextAttr_HasTabs(*args, **kwargs)
+
+    def HasLeftIndent(*args, **kwargs):
+        """HasLeftIndent(self) -> bool"""
+        return _controls_.TextAttr_HasLeftIndent(*args, **kwargs)
+
+    def HasRightIndent(*args, **kwargs):
+        """HasRightIndent(self) -> bool"""
+        return _controls_.TextAttr_HasRightIndent(*args, **kwargs)
+
+    def HasFontWeight(*args, **kwargs):
+        """HasFontWeight(self) -> bool"""
+        return _controls_.TextAttr_HasFontWeight(*args, **kwargs)
+
+    def HasFontSize(*args, **kwargs):
+        """HasFontSize(self) -> bool"""
+        return _controls_.TextAttr_HasFontSize(*args, **kwargs)
+
+    def HasFontItalic(*args, **kwargs):
+        """HasFontItalic(self) -> bool"""
+        return _controls_.TextAttr_HasFontItalic(*args, **kwargs)
+
+    def HasFontUnderlined(*args, **kwargs):
+        """HasFontUnderlined(self) -> bool"""
+        return _controls_.TextAttr_HasFontUnderlined(*args, **kwargs)
+
+    def HasFontFaceName(*args, **kwargs):
+        """HasFontFaceName(self) -> bool"""
+        return _controls_.TextAttr_HasFontFaceName(*args, **kwargs)
+
+    def HasFontEncoding(*args, **kwargs):
+        """HasFontEncoding(self) -> bool"""
+        return _controls_.TextAttr_HasFontEncoding(*args, **kwargs)
+
+    def HasFont(*args, **kwargs):
+        """HasFont(self) -> bool"""
+        return _controls_.TextAttr_HasFont(*args, **kwargs)
+
+    def HasParagraphSpacingAfter(*args, **kwargs):
+        """HasParagraphSpacingAfter(self) -> bool"""
+        return _controls_.TextAttr_HasParagraphSpacingAfter(*args, **kwargs)
+
+    def HasParagraphSpacingBefore(*args, **kwargs):
+        """HasParagraphSpacingBefore(self) -> bool"""
+        return _controls_.TextAttr_HasParagraphSpacingBefore(*args, **kwargs)
+
+    def HasLineSpacing(*args, **kwargs):
+        """HasLineSpacing(self) -> bool"""
+        return _controls_.TextAttr_HasLineSpacing(*args, **kwargs)
+
+    def HasCharacterStyleName(*args, **kwargs):
+        """HasCharacterStyleName(self) -> bool"""
+        return _controls_.TextAttr_HasCharacterStyleName(*args, **kwargs)
+
+    def HasParagraphStyleName(*args, **kwargs):
+        """HasParagraphStyleName(self) -> bool"""
+        return _controls_.TextAttr_HasParagraphStyleName(*args, **kwargs)
+
+    def HasListStyleName(*args, **kwargs):
+        """HasListStyleName(self) -> bool"""
+        return _controls_.TextAttr_HasListStyleName(*args, **kwargs)
+
+    def HasBulletStyle(*args, **kwargs):
+        """HasBulletStyle(self) -> bool"""
+        return _controls_.TextAttr_HasBulletStyle(*args, **kwargs)
+
+    def HasBulletNumber(*args, **kwargs):
+        """HasBulletNumber(self) -> bool"""
+        return _controls_.TextAttr_HasBulletNumber(*args, **kwargs)
+
+    def HasBulletText(*args, **kwargs):
+        """HasBulletText(self) -> bool"""
+        return _controls_.TextAttr_HasBulletText(*args, **kwargs)
+
+    def HasBulletName(*args, **kwargs):
+        """HasBulletName(self) -> bool"""
+        return _controls_.TextAttr_HasBulletName(*args, **kwargs)
+
+    def HasURL(*args, **kwargs):
+        """HasURL(self) -> bool"""
+        return _controls_.TextAttr_HasURL(*args, **kwargs)
+
+    def HasPageBreak(*args, **kwargs):
+        """HasPageBreak(self) -> bool"""
+        return _controls_.TextAttr_HasPageBreak(*args, **kwargs)
+
+    def HasTextEffects(*args, **kwargs):
+        """HasTextEffects(self) -> bool"""
+        return _controls_.TextAttr_HasTextEffects(*args, **kwargs)
+
+    def HasTextEffect(*args, **kwargs):
+        """HasTextEffect(self, int effect) -> bool"""
+        return _controls_.TextAttr_HasTextEffect(*args, **kwargs)
+
+    def HasOutlineLevel(*args, **kwargs):
+        """HasOutlineLevel(self) -> bool"""
+        return _controls_.TextAttr_HasOutlineLevel(*args, **kwargs)
+
+    def HasFlag(*args, **kwargs):
+        """HasFlag(self, long flag) -> bool"""
+        return _controls_.TextAttr_HasFlag(*args, **kwargs)
+
+    def IsCharacterStyle(*args, **kwargs):
+        """IsCharacterStyle(self) -> bool"""
+        return _controls_.TextAttr_IsCharacterStyle(*args, **kwargs)
+
+    def IsParagraphStyle(*args, **kwargs):
+        """IsParagraphStyle(self) -> bool"""
+        return _controls_.TextAttr_IsParagraphStyle(*args, **kwargs)
+
     def IsDefault(*args, **kwargs):
         """IsDefault(self) -> bool"""
         return _controls_.TextAttr_IsDefault(*args, **kwargs)
+
+    def Apply(*args, **kwargs):
+        """Apply(self, TextAttr style, TextAttr compareWith=None) -> bool"""
+        return _controls_.TextAttr_Apply(*args, **kwargs)
+
+    def Merge(*args, **kwargs):
+        """Merge(self, TextAttr overlay)"""
+        return _controls_.TextAttr_Merge(*args, **kwargs)
 
     def Combine(*args, **kwargs):
         """Combine(TextAttr attr, TextAttr attrDef, TextCtrl text) -> TextAttr"""
         return _controls_.TextAttr_Combine(*args, **kwargs)
 
     Combine = staticmethod(Combine)
-    Alignment = property(GetAlignment,SetAlignment,doc="See `GetAlignment` and `SetAlignment`") 
-    BackgroundColour = property(GetBackgroundColour,SetBackgroundColour,doc="See `GetBackgroundColour` and `SetBackgroundColour`") 
-    Flags = property(GetFlags,SetFlags,doc="See `GetFlags` and `SetFlags`") 
-    Font = property(GetFont,SetFont,doc="See `GetFont` and `SetFont`") 
-    LeftIndent = property(GetLeftIndent,SetLeftIndent,doc="See `GetLeftIndent` and `SetLeftIndent`") 
-    LeftSubIndent = property(GetLeftSubIndent,doc="See `GetLeftSubIndent`") 
-    RightIndent = property(GetRightIndent,SetRightIndent,doc="See `GetRightIndent` and `SetRightIndent`") 
-    Tabs = property(GetTabs,SetTabs,doc="See `GetTabs` and `SetTabs`") 
-    TextColour = property(GetTextColour,SetTextColour,doc="See `GetTextColour` and `SetTextColour`") 
+    def TabsEq(*args, **kwargs):
+        """TabsEq(wxArrayInt tabs1, wxArrayInt tabs2) -> bool"""
+        return _controls_.TextAttr_TabsEq(*args, **kwargs)
+
+    TabsEq = staticmethod(TabsEq)
+    def RemoveStyle(*args, **kwargs):
+        """RemoveStyle(TextAttr destStyle, TextAttr style) -> bool"""
+        return _controls_.TextAttr_RemoveStyle(*args, **kwargs)
+
+    RemoveStyle = staticmethod(RemoveStyle)
+    def CombineBitlists(*args, **kwargs):
+        """CombineBitlists(int valueA, int valueB, int flagsA, int flagsB) -> bool"""
+        return _controls_.TextAttr_CombineBitlists(*args, **kwargs)
+
+    CombineBitlists = staticmethod(CombineBitlists)
+    def BitlistsEqPartial(*args, **kwargs):
+        """BitlistsEqPartial(int valueA, int valueB, int flags) -> bool"""
+        return _controls_.TextAttr_BitlistsEqPartial(*args, **kwargs)
+
+    BitlistsEqPartial = staticmethod(BitlistsEqPartial)
+    def SplitParaCharStyles(*args, **kwargs):
+        """SplitParaCharStyles(TextAttr style, TextAttr parStyle, TextAttr charStyle) -> bool"""
+        return _controls_.TextAttr_SplitParaCharStyles(*args, **kwargs)
+
+    SplitParaCharStyles = staticmethod(SplitParaCharStyles)
+    Alignment = property(GetAlignment,SetAlignment) 
+    BackgroundColour = property(GetBackgroundColour,SetBackgroundColour) 
+    Flags = property(GetFlags,SetFlags) 
+    Font = property(GetFont,SetFont) 
+    LeftIndent = property(GetLeftIndent,SetLeftIndent) 
+    LeftSubIndent = property(GetLeftSubIndent) 
+    RightIndent = property(GetRightIndent,SetRightIndent) 
+    Tabs = property(GetTabs,SetTabs) 
+    TextColour = property(GetTextColour,SetTextColour) 
+    FontSize = property(GetFontSize,SetFontSize) 
+    FontStyle = property(GetFontStyle,SetFontStyle) 
+    FontWeight = property(GetFontWeight,SetFontWeight) 
+    FontUnderlined = property(GetFontUnderlined,SetFontUnderlined) 
+    FontFaceName = property(GetFontFaceName,SetFontFaceName) 
+    FontEncoding = property(GetFontEncoding,SetFontEncoding) 
+    CharacterStyleName = property(GetCharacterStyleName,SetCharacterStyleName) 
+    ParagraphStyleName = property(GetParagraphStyleName,SetParagraphStyleName) 
+    ListStyleName = property(GetListStyleName,SetListStyleName) 
+    ParagraphSpacingAfter = property(GetParagraphSpacingAfter,SetParagraphSpacingAfter) 
+    ParagraphSpacingBefore = property(GetParagraphSpacingBefore,SetParagraphSpacingBefore) 
+    LineSpacing = property(GetLineSpacing,SetLineSpacing) 
+    BulletStyle = property(GetBulletStyle,SetBulletStyle) 
+    BulletNumber = property(GetBulletNumber,SetBulletNumber) 
+    BulletText = property(GetBulletText,SetBulletText) 
+    BulletFont = property(GetBulletFont,SetBulletFont) 
+    BulletName = property(GetBulletName,SetBulletName) 
+    URL = property(GetURL,SetURL) 
+    TextEffects = property(GetTextEffects,SetTextEffects) 
+    TextEffectFlags = property(GetTextEffectFlags,SetTextEffectFlags) 
+    OutlineLevel = property(GetOutlineLevel,SetOutlineLevel) 
 _controls_.TextAttr_swigregister(TextAttr)
 TextCtrlNameStr = cvar.TextCtrlNameStr
-
-def TextAttr_Merge(*args, **kwargs):
-  """TextAttr_Merge(TextAttr base, TextAttr overlay) -> TextAttr"""
-  return _controls_.TextAttr_Merge(*args, **kwargs)
 
 def TextAttr_Combine(*args, **kwargs):
   """TextAttr_Combine(TextAttr attr, TextAttr attrDef, TextCtrl text) -> TextAttr"""
   return _controls_.TextAttr_Combine(*args, **kwargs)
 
-class TextCtrl(_core.Control):
+def TextAttr_TabsEq(*args, **kwargs):
+  """TextAttr_TabsEq(wxArrayInt tabs1, wxArrayInt tabs2) -> bool"""
+  return _controls_.TextAttr_TabsEq(*args, **kwargs)
+
+def TextAttr_RemoveStyle(*args, **kwargs):
+  """TextAttr_RemoveStyle(TextAttr destStyle, TextAttr style) -> bool"""
+  return _controls_.TextAttr_RemoveStyle(*args, **kwargs)
+
+def TextAttr_CombineBitlists(*args, **kwargs):
+  """TextAttr_CombineBitlists(int valueA, int valueB, int flagsA, int flagsB) -> bool"""
+  return _controls_.TextAttr_CombineBitlists(*args, **kwargs)
+
+def TextAttr_BitlistsEqPartial(*args, **kwargs):
+  """TextAttr_BitlistsEqPartial(int valueA, int valueB, int flags) -> bool"""
+  return _controls_.TextAttr_BitlistsEqPartial(*args, **kwargs)
+
+def TextAttr_SplitParaCharStyles(*args, **kwargs):
+  """TextAttr_SplitParaCharStyles(TextAttr style, TextAttr parStyle, TextAttr charStyle) -> bool"""
+  return _controls_.TextAttr_SplitParaCharStyles(*args, **kwargs)
+
+class TextCtrl(_core.Control,_core.TextAreaBase,_core.TextEntry):
     """Proxy of C++ TextCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -1756,46 +1987,6 @@ class TextCtrl(_core.Control):
         """
         return _controls_.TextCtrl_Create(*args, **kwargs)
 
-    def GetValue(*args, **kwargs):
-        """GetValue(self) -> String"""
-        return _controls_.TextCtrl_GetValue(*args, **kwargs)
-
-    def SetValue(*args, **kwargs):
-        """SetValue(self, String value)"""
-        return _controls_.TextCtrl_SetValue(*args, **kwargs)
-
-    def IsEmpty(*args, **kwargs):
-        """IsEmpty(self) -> bool"""
-        return _controls_.TextCtrl_IsEmpty(*args, **kwargs)
-
-    def ChangeValue(*args, **kwargs):
-        """ChangeValue(self, String value)"""
-        return _controls_.TextCtrl_ChangeValue(*args, **kwargs)
-
-    def GetRange(*args, **kwargs):
-        """GetRange(self, long from, long to) -> String"""
-        return _controls_.TextCtrl_GetRange(*args, **kwargs)
-
-    def GetLineLength(*args, **kwargs):
-        """GetLineLength(self, long lineNo) -> int"""
-        return _controls_.TextCtrl_GetLineLength(*args, **kwargs)
-
-    def GetLineText(*args, **kwargs):
-        """GetLineText(self, long lineNo) -> String"""
-        return _controls_.TextCtrl_GetLineText(*args, **kwargs)
-
-    def GetNumberOfLines(*args, **kwargs):
-        """GetNumberOfLines(self) -> int"""
-        return _controls_.TextCtrl_GetNumberOfLines(*args, **kwargs)
-
-    def IsModified(*args, **kwargs):
-        """IsModified(self) -> bool"""
-        return _controls_.TextCtrl_IsModified(*args, **kwargs)
-
-    def IsEditable(*args, **kwargs):
-        """IsEditable(self) -> bool"""
-        return _controls_.TextCtrl_IsEditable(*args, **kwargs)
-
     def IsSingleLine(*args, **kwargs):
         """IsSingleLine(self) -> bool"""
         return _controls_.TextCtrl_IsSingleLine(*args, **kwargs)
@@ -1804,181 +1995,9 @@ class TextCtrl(_core.Control):
         """IsMultiLine(self) -> bool"""
         return _controls_.TextCtrl_IsMultiLine(*args, **kwargs)
 
-    def GetSelection(*args, **kwargs):
-        """
-        GetSelection() -> (from, to)
-
-        If the return values from and to are the same, there is no selection.
-        """
-        return _controls_.TextCtrl_GetSelection(*args, **kwargs)
-
-    def GetStringSelection(*args, **kwargs):
-        """GetStringSelection(self) -> String"""
-        return _controls_.TextCtrl_GetStringSelection(*args, **kwargs)
-
-    def Clear(*args, **kwargs):
-        """Clear(self)"""
-        return _controls_.TextCtrl_Clear(*args, **kwargs)
-
-    def Replace(*args, **kwargs):
-        """Replace(self, long from, long to, String value)"""
-        return _controls_.TextCtrl_Replace(*args, **kwargs)
-
-    def Remove(*args, **kwargs):
-        """Remove(self, long from, long to)"""
-        return _controls_.TextCtrl_Remove(*args, **kwargs)
-
-    def LoadFile(*args, **kwargs):
-        """LoadFile(self, String file, int fileType=TEXT_TYPE_ANY) -> bool"""
-        return _controls_.TextCtrl_LoadFile(*args, **kwargs)
-
-    def SaveFile(*args, **kwargs):
-        """SaveFile(self, String file=EmptyString, int fileType=TEXT_TYPE_ANY) -> bool"""
-        return _controls_.TextCtrl_SaveFile(*args, **kwargs)
-
-    def MarkDirty(*args, **kwargs):
-        """MarkDirty(self)"""
-        return _controls_.TextCtrl_MarkDirty(*args, **kwargs)
-
-    def DiscardEdits(*args, **kwargs):
-        """DiscardEdits(self)"""
-        return _controls_.TextCtrl_DiscardEdits(*args, **kwargs)
-
-    def SetModified(*args, **kwargs):
-        """SetModified(self, bool modified)"""
-        return _controls_.TextCtrl_SetModified(*args, **kwargs)
-
-    def SetMaxLength(*args, **kwargs):
-        """SetMaxLength(self, unsigned long len)"""
-        return _controls_.TextCtrl_SetMaxLength(*args, **kwargs)
-
-    def WriteText(*args, **kwargs):
-        """WriteText(self, String text)"""
-        return _controls_.TextCtrl_WriteText(*args, **kwargs)
-
-    def AppendText(*args, **kwargs):
-        """AppendText(self, String text)"""
-        return _controls_.TextCtrl_AppendText(*args, **kwargs)
-
     def EmulateKeyPress(*args, **kwargs):
         """EmulateKeyPress(self, KeyEvent event) -> bool"""
         return _controls_.TextCtrl_EmulateKeyPress(*args, **kwargs)
-
-    def SetStyle(*args, **kwargs):
-        """SetStyle(self, long start, long end, TextAttr style) -> bool"""
-        return _controls_.TextCtrl_SetStyle(*args, **kwargs)
-
-    def GetStyle(*args, **kwargs):
-        """GetStyle(self, long position, TextAttr style) -> bool"""
-        return _controls_.TextCtrl_GetStyle(*args, **kwargs)
-
-    def SetDefaultStyle(*args, **kwargs):
-        """SetDefaultStyle(self, TextAttr style) -> bool"""
-        return _controls_.TextCtrl_SetDefaultStyle(*args, **kwargs)
-
-    def GetDefaultStyle(*args, **kwargs):
-        """GetDefaultStyle(self) -> TextAttr"""
-        return _controls_.TextCtrl_GetDefaultStyle(*args, **kwargs)
-
-    def XYToPosition(*args, **kwargs):
-        """XYToPosition(self, long x, long y) -> long"""
-        return _controls_.TextCtrl_XYToPosition(*args, **kwargs)
-
-    def PositionToXY(*args, **kwargs):
-        """PositionToXY(long pos) -> (x, y)"""
-        return _controls_.TextCtrl_PositionToXY(*args, **kwargs)
-
-    def ShowPosition(*args, **kwargs):
-        """ShowPosition(self, long pos)"""
-        return _controls_.TextCtrl_ShowPosition(*args, **kwargs)
-
-    def HitTest(*args, **kwargs):
-        """
-        HitTest(Point pt) -> (result, col, row)
-
-        Find the row, col coresponding to the character at the point given in
-        pixels. NB: pt is in device coords but is not adjusted for the client
-        area origin nor scrolling.
-        """
-        return _controls_.TextCtrl_HitTest(*args, **kwargs)
-
-    def HitTestPos(*args, **kwargs):
-        """
-        HitTestPos(Point pt) -> (result, position)
-
-        Find the character position in the text coresponding to the point
-        given in pixels. NB: pt is in device coords but is not adjusted for
-        the client area origin nor scrolling. 
-        """
-        return _controls_.TextCtrl_HitTestPos(*args, **kwargs)
-
-    def Copy(*args, **kwargs):
-        """Copy(self)"""
-        return _controls_.TextCtrl_Copy(*args, **kwargs)
-
-    def Cut(*args, **kwargs):
-        """Cut(self)"""
-        return _controls_.TextCtrl_Cut(*args, **kwargs)
-
-    def Paste(*args, **kwargs):
-        """Paste(self)"""
-        return _controls_.TextCtrl_Paste(*args, **kwargs)
-
-    def CanCopy(*args, **kwargs):
-        """CanCopy(self) -> bool"""
-        return _controls_.TextCtrl_CanCopy(*args, **kwargs)
-
-    def CanCut(*args, **kwargs):
-        """CanCut(self) -> bool"""
-        return _controls_.TextCtrl_CanCut(*args, **kwargs)
-
-    def CanPaste(*args, **kwargs):
-        """CanPaste(self) -> bool"""
-        return _controls_.TextCtrl_CanPaste(*args, **kwargs)
-
-    def Undo(*args, **kwargs):
-        """Undo(self)"""
-        return _controls_.TextCtrl_Undo(*args, **kwargs)
-
-    def Redo(*args, **kwargs):
-        """Redo(self)"""
-        return _controls_.TextCtrl_Redo(*args, **kwargs)
-
-    def CanUndo(*args, **kwargs):
-        """CanUndo(self) -> bool"""
-        return _controls_.TextCtrl_CanUndo(*args, **kwargs)
-
-    def CanRedo(*args, **kwargs):
-        """CanRedo(self) -> bool"""
-        return _controls_.TextCtrl_CanRedo(*args, **kwargs)
-
-    def SetInsertionPoint(*args, **kwargs):
-        """SetInsertionPoint(self, long pos)"""
-        return _controls_.TextCtrl_SetInsertionPoint(*args, **kwargs)
-
-    def SetInsertionPointEnd(*args, **kwargs):
-        """SetInsertionPointEnd(self)"""
-        return _controls_.TextCtrl_SetInsertionPointEnd(*args, **kwargs)
-
-    def GetInsertionPoint(*args, **kwargs):
-        """GetInsertionPoint(self) -> long"""
-        return _controls_.TextCtrl_GetInsertionPoint(*args, **kwargs)
-
-    def GetLastPosition(*args, **kwargs):
-        """GetLastPosition(self) -> long"""
-        return _controls_.TextCtrl_GetLastPosition(*args, **kwargs)
-
-    def SetSelection(*args, **kwargs):
-        """SetSelection(self, long from, long to)"""
-        return _controls_.TextCtrl_SetSelection(*args, **kwargs)
-
-    def SelectAll(*args, **kwargs):
-        """SelectAll(self)"""
-        return _controls_.TextCtrl_SelectAll(*args, **kwargs)
-
-    def SetEditable(*args, **kwargs):
-        """SetEditable(self, bool editable)"""
-        return _controls_.TextCtrl_SetEditable(*args, **kwargs)
 
     def MacCheckSpelling(*args, **kwargs):
         """MacCheckSpelling(self, bool check)"""
@@ -1991,10 +2010,6 @@ class TextCtrl(_core.Control):
     def write(*args, **kwargs):
         """write(self, String text)"""
         return _controls_.TextCtrl_write(*args, **kwargs)
-
-    def GetString(*args, **kwargs):
-        """GetString(self, long from, long to) -> String"""
-        return _controls_.TextCtrl_GetString(*args, **kwargs)
 
     def GetClassDefaultAttributes(*args, **kwargs):
         """
@@ -2014,13 +2029,6 @@ class TextCtrl(_core.Control):
         return _controls_.TextCtrl_GetClassDefaultAttributes(*args, **kwargs)
 
     GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
-    DefaultStyle = property(GetDefaultStyle,SetDefaultStyle,doc="See `GetDefaultStyle` and `SetDefaultStyle`") 
-    InsertionPoint = property(GetInsertionPoint,SetInsertionPoint,doc="See `GetInsertionPoint` and `SetInsertionPoint`") 
-    LastPosition = property(GetLastPosition,doc="See `GetLastPosition`") 
-    NumberOfLines = property(GetNumberOfLines,doc="See `GetNumberOfLines`") 
-    Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
-    StringSelection = property(GetStringSelection,doc="See `GetStringSelection`") 
-    Value = property(GetValue,SetValue,doc="See `GetValue` and `SetValue`") 
 _controls_.TextCtrl_swigregister(TextCtrl)
 
 def PreTextCtrl(*args, **kwargs):
@@ -2075,7 +2083,7 @@ _controls_.TextUrlEvent_swigregister(TextUrlEvent)
 
 EVT_TEXT        = wx.PyEventBinder( wxEVT_COMMAND_TEXT_UPDATED, 1)
 EVT_TEXT_ENTER  = wx.PyEventBinder( wxEVT_COMMAND_TEXT_ENTER, 1)
-EVT_TEXT_URL    = wx.PyEventBinder( wxEVT_COMMAND_TEXT_URL, 1) 
+EVT_TEXT_URL    = wx.PyEventBinder( wxEVT_COMMAND_TEXT_URL, 1)
 EVT_TEXT_MAXLEN = wx.PyEventBinder( wxEVT_COMMAND_TEXT_MAXLEN, 1)
 
 #---------------------------------------------------------------------------
@@ -5660,6 +5668,23 @@ DIRCTRL_SELECT_FIRST = _controls_.DIRCTRL_SELECT_FIRST
 DIRCTRL_SHOW_FILTERS = _controls_.DIRCTRL_SHOW_FILTERS
 DIRCTRL_3D_INTERNAL = _controls_.DIRCTRL_3D_INTERNAL
 DIRCTRL_EDIT_LABELS = _controls_.DIRCTRL_EDIT_LABELS
+class DirItemData(_core.Object):
+    """Proxy of C++ DirItemData class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    def SetNewDirName(*args, **kwargs):
+        """SetNewDirName(self, String path)"""
+        return _controls_.DirItemData_SetNewDirName(*args, **kwargs)
+
+    m_path = property(_controls_.DirItemData_m_path_get, _controls_.DirItemData_m_path_set)
+    m_name = property(_controls_.DirItemData_m_name_get, _controls_.DirItemData_m_name_set)
+    m_isHidden = property(_controls_.DirItemData_m_isHidden_get, _controls_.DirItemData_m_isHidden_set)
+    m_isExpanded = property(_controls_.DirItemData_m_isExpanded_get, _controls_.DirItemData_m_isExpanded_set)
+    m_isDir = property(_controls_.DirItemData_m_isDir_get, _controls_.DirItemData_m_isDir_set)
+_controls_.DirItemData_swigregister(DirItemData)
+DirDialogDefaultFolderStr = cvar.DirDialogDefaultFolderStr
+
 class GenericDirCtrl(_core.Control):
     """Proxy of C++ GenericDirCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -5668,9 +5693,9 @@ class GenericDirCtrl(_core.Control):
         """
         __init__(self, Window parent, int id=-1, String dir=DirDialogDefaultFolderStr, 
             Point pos=DefaultPosition, Size size=DefaultSize, 
-            long style=wxDIRCTRL_3D_INTERNAL|wxSUNKEN_BORDER, 
-            String filter=EmptyString, 
-            int defaultFilter=0, String name=TreeCtrlNameStr) -> GenericDirCtrl
+            long style=DIRCTRL_3D_INTERNAL, 
+            String filter=EmptyString, int defaultFilter=0, 
+            String name=TreeCtrlNameStr) -> GenericDirCtrl
         """
         _controls_.GenericDirCtrl_swiginit(self,_controls_.new_GenericDirCtrl(*args, **kwargs))
         self._setOORInfo(self)
@@ -5679,9 +5704,9 @@ class GenericDirCtrl(_core.Control):
         """
         Create(self, Window parent, int id=-1, String dir=DirDialogDefaultFolderStr, 
             Point pos=DefaultPosition, Size size=DefaultSize, 
-            long style=wxDIRCTRL_3D_INTERNAL|wxSUNKEN_BORDER, 
-            String filter=EmptyString, 
-            int defaultFilter=0, String name=TreeCtrlNameStr) -> bool
+            long style=DIRCTRL_3D_INTERNAL, 
+            String filter=EmptyString, int defaultFilter=0, 
+            String name=TreeCtrlNameStr) -> bool
         """
         return _controls_.GenericDirCtrl_Create(*args, **kwargs)
 
@@ -5749,6 +5774,10 @@ class GenericDirCtrl(_core.Control):
         """GetFilterListCtrl(self) -> DirFilterListCtrl"""
         return _controls_.GenericDirCtrl_GetFilterListCtrl(*args, **kwargs)
 
+    def GetDirItemData(*args, **kwargs):
+        """GetDirItemData(self, TreeItemId id) -> DirItemData"""
+        return _controls_.GenericDirCtrl_GetDirItemData(*args, **kwargs)
+
     def FindChild(*args, **kwargs):
         """
         FindChild(wxTreeItemId parentId, wxString path) -> (item, done)
@@ -5778,7 +5807,6 @@ class GenericDirCtrl(_core.Control):
     RootId = property(GetRootId,doc="See `GetRootId`") 
     TreeCtrl = property(GetTreeCtrl,doc="See `GetTreeCtrl`") 
 _controls_.GenericDirCtrl_swigregister(GenericDirCtrl)
-DirDialogDefaultFolderStr = cvar.DirDialogDefaultFolderStr
 
 def PreGenericDirCtrl(*args, **kwargs):
     """PreGenericDirCtrl() -> GenericDirCtrl"""
@@ -5884,109 +5912,109 @@ class PyControl(_core.Control):
         return _controls_.PyControl_OnInternalIdle(*args, **kwargs)
 
     def base_DoMoveWindow(*args, **kw):
-        return PyScrolledWindow.DoMoveWindow(*args, **kw)
+        return PyControl.DoMoveWindow(*args, **kw)
     base_DoMoveWindow = wx._deprecated(base_DoMoveWindow,
-                                   "Please use PyScrolledWindow.DoMoveWindow instead.")
+                                   "Please use PyControl.DoMoveWindow instead.")
 
     def base_DoSetSize(*args, **kw):
-        return PyScrolledWindow.DoSetSize(*args, **kw)
+        return PyControl.DoSetSize(*args, **kw)
     base_DoSetSize = wx._deprecated(base_DoSetSize,
-                                   "Please use PyScrolledWindow.DoSetSize instead.")
+                                   "Please use PyControl.DoSetSize instead.")
 
     def base_DoSetClientSize(*args, **kw):
-        return PyScrolledWindow.DoSetClientSize(*args, **kw)
+        return PyControl.DoSetClientSize(*args, **kw)
     base_DoSetClientSize = wx._deprecated(base_DoSetClientSize,
-                                   "Please use PyScrolledWindow.DoSetClientSize instead.")
+                                   "Please use PyControl.DoSetClientSize instead.")
 
     def base_DoSetVirtualSize(*args, **kw):
-        return PyScrolledWindow.DoSetVirtualSize(*args, **kw)
+        return PyControl.DoSetVirtualSize(*args, **kw)
     base_DoSetVirtualSize = wx._deprecated(base_DoSetVirtualSize,
-                                   "Please use PyScrolledWindow.DoSetVirtualSize instead.")
+                                   "Please use PyControl.DoSetVirtualSize instead.")
 
     def base_DoGetSize(*args, **kw):
-        return PyScrolledWindow.DoGetSize(*args, **kw)
+        return PyControl.DoGetSize(*args, **kw)
     base_DoGetSize = wx._deprecated(base_DoGetSize,
-                                   "Please use PyScrolledWindow.DoGetSize instead.")
+                                   "Please use PyControl.DoGetSize instead.")
 
     def base_DoGetClientSize(*args, **kw):
-        return PyScrolledWindow.DoGetClientSize(*args, **kw)
+        return PyControl.DoGetClientSize(*args, **kw)
     base_DoGetClientSize = wx._deprecated(base_DoGetClientSize,
-                                   "Please use PyScrolledWindow.DoGetClientSize instead.")
+                                   "Please use PyControl.DoGetClientSize instead.")
 
     def base_DoGetPosition(*args, **kw):
-        return PyScrolledWindow.DoGetPosition(*args, **kw)
+        return PyControl.DoGetPosition(*args, **kw)
     base_DoGetPosition = wx._deprecated(base_DoGetPosition,
-                                   "Please use PyScrolledWindow.DoGetPosition instead.")
+                                   "Please use PyControl.DoGetPosition instead.")
 
     def base_DoGetVirtualSize(*args, **kw):
-        return PyScrolledWindow.DoGetVirtualSize(*args, **kw)
+        return PyControl.DoGetVirtualSize(*args, **kw)
     base_DoGetVirtualSize = wx._deprecated(base_DoGetVirtualSize,
-                                   "Please use PyScrolledWindow.DoGetVirtualSize instead.")
+                                   "Please use PyControl.DoGetVirtualSize instead.")
 
     def base_DoGetBestSize(*args, **kw):
-        return PyScrolledWindow.DoGetBestSize(*args, **kw)
+        return PyControl.DoGetBestSize(*args, **kw)
     base_DoGetBestSize = wx._deprecated(base_DoGetBestSize,
-                                   "Please use PyScrolledWindow.DoGetBestSize instead.")
+                                   "Please use PyControl.DoGetBestSize instead.")
 
     def base_InitDialog(*args, **kw):
-        return PyScrolledWindow.InitDialog(*args, **kw)
+        return PyControl.InitDialog(*args, **kw)
     base_InitDialog = wx._deprecated(base_InitDialog,
-                                   "Please use PyScrolledWindow.InitDialog instead.")
+                                   "Please use PyControl.InitDialog instead.")
 
     def base_TransferDataToWindow(*args, **kw):
-        return PyScrolledWindow.TransferDataToWindow(*args, **kw)
+        return PyControl.TransferDataToWindow(*args, **kw)
     base_TransferDataToWindow = wx._deprecated(base_TransferDataToWindow,
-                                   "Please use PyScrolledWindow.TransferDataToWindow instead.")
+                                   "Please use PyControl.TransferDataToWindow instead.")
 
     def base_TransferDataFromWindow(*args, **kw):
-        return PyScrolledWindow.TransferDataFromWindow(*args, **kw)
+        return PyControl.TransferDataFromWindow(*args, **kw)
     base_TransferDataFromWindow = wx._deprecated(base_TransferDataFromWindow,
-                                   "Please use PyScrolledWindow.TransferDataFromWindow instead.")
+                                   "Please use PyControl.TransferDataFromWindow instead.")
 
     def base_Validate(*args, **kw):
-        return PyScrolledWindow.Validate(*args, **kw)
+        return PyControl.Validate(*args, **kw)
     base_Validate = wx._deprecated(base_Validate,
-                                   "Please use PyScrolledWindow.Validate instead.")
+                                   "Please use PyControl.Validate instead.")
 
     def base_AcceptsFocus(*args, **kw):
-        return PyScrolledWindow.AcceptsFocus(*args, **kw)
+        return PyControl.AcceptsFocus(*args, **kw)
     base_AcceptsFocus = wx._deprecated(base_AcceptsFocus,
-                                   "Please use PyScrolledWindow.AcceptsFocus instead.")
+                                   "Please use PyControl.AcceptsFocus instead.")
 
     def base_AcceptsFocusFromKeyboard(*args, **kw):
-        return PyScrolledWindow.AcceptsFocusFromKeyboard(*args, **kw)
+        return PyControl.AcceptsFocusFromKeyboard(*args, **kw)
     base_AcceptsFocusFromKeyboard = wx._deprecated(base_AcceptsFocusFromKeyboard,
-                                   "Please use PyScrolledWindow.AcceptsFocusFromKeyboard instead.")
+                                   "Please use PyControl.AcceptsFocusFromKeyboard instead.")
 
     def base_GetMaxSize(*args, **kw):
-        return PyScrolledWindow.GetMaxSize(*args, **kw)
+        return PyControl.GetMaxSize(*args, **kw)
     base_GetMaxSize = wx._deprecated(base_GetMaxSize,
-                                   "Please use PyScrolledWindow.GetMaxSize instead.")
+                                   "Please use PyControl.GetMaxSize instead.")
 
     def base_AddChild(*args, **kw):
-        return PyScrolledWindow.AddChild(*args, **kw)
+        return PyControl.AddChild(*args, **kw)
     base_AddChild = wx._deprecated(base_AddChild,
-                                   "Please use PyScrolledWindow.AddChild instead.")
+                                   "Please use PyControl.AddChild instead.")
 
     def base_RemoveChild(*args, **kw):
-        return PyScrolledWindow.RemoveChild(*args, **kw)
+        return PyControl.RemoveChild(*args, **kw)
     base_RemoveChild = wx._deprecated(base_RemoveChild,
-                                   "Please use PyScrolledWindow.RemoveChild instead.")
+                                   "Please use PyControl.RemoveChild instead.")
 
     def base_ShouldInheritColours(*args, **kw):
-        return PyScrolledWindow.ShouldInheritColours(*args, **kw)
+        return PyControl.ShouldInheritColours(*args, **kw)
     base_ShouldInheritColours = wx._deprecated(base_ShouldInheritColours,
-                                   "Please use PyScrolledWindow.ShouldInheritColours instead.")
+                                   "Please use PyControl.ShouldInheritColours instead.")
 
     def base_GetDefaultAttributes(*args, **kw):
-        return PyScrolledWindow.GetDefaultAttributes(*args, **kw)
+        return PyControl.GetDefaultAttributes(*args, **kw)
     base_GetDefaultAttributes = wx._deprecated(base_GetDefaultAttributes,
-                                   "Please use PyScrolledWindow.GetDefaultAttributes instead.")
+                                   "Please use PyControl.GetDefaultAttributes instead.")
 
     def base_OnInternalIdle(*args, **kw):
-        return PyScrolledWindow.OnInternalIdle(*args, **kw)
+        return PyControl.OnInternalIdle(*args, **kw)
     base_OnInternalIdle = wx._deprecated(base_OnInternalIdle,
-                                   "Please use PyScrolledWindow.OnInternalIdle instead.")
+                                   "Please use PyControl.OnInternalIdle instead.")
 
 _controls_.PyControl_swigregister(PyControl)
 

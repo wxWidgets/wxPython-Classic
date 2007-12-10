@@ -332,7 +332,7 @@ class XmlNode(object):
         """
         __init__(self, XmlNode parent=None, int type=0, String name=EmptyString, 
             String content=EmptyString, XmlProperty props=None, 
-            XmlNode next=None) -> XmlNode
+            XmlNode next=None, int lineNo=-1) -> XmlNode
         """
         _xrc.XmlNode_swiginit(self,_xrc.new_XmlNode(*args, **kwargs))
     __swig_destroy__ = _xrc.delete_XmlNode
@@ -397,6 +397,18 @@ class XmlNode(object):
         """GetChildren(self) -> XmlNode"""
         return _xrc.XmlNode_GetChildren(*args, **kwargs)
 
+    def GetAttribute(*args, **kwargs):
+        """GetAttribute(self, String attrName, String defaultVal) -> String"""
+        return _xrc.XmlNode_GetAttribute(*args, **kwargs)
+
+    def HasAttribute(*args, **kwargs):
+        """HasAttribute(self, String attrName) -> bool"""
+        return _xrc.XmlNode_HasAttribute(*args, **kwargs)
+
+    def GetLineNumber(*args, **kwargs):
+        """GetLineNumber(self) -> int"""
+        return _xrc.XmlNode_GetLineNumber(*args, **kwargs)
+
     def GetProperties(*args, **kwargs):
         """GetProperties(self) -> XmlProperty"""
         return _xrc.XmlNode_GetProperties(*args, **kwargs)
@@ -437,6 +449,14 @@ class XmlNode(object):
         """SetProperties(self, XmlProperty prop)"""
         return _xrc.XmlNode_SetProperties(*args, **kwargs)
 
+    def SetAttributes(*args, **kwargs):
+        """SetAttributes(self, wxXmlAttribute attr)"""
+        return _xrc.XmlNode_SetAttributes(*args, **kwargs)
+
+    def AddAttribute(*args, **kwargs):
+        """AddAttribute(self, wxXmlAttribute attr)"""
+        return _xrc.XmlNode_AddAttribute(*args, **kwargs)
+
     Children = property(GetChildren,SetChildren,doc="See `GetChildren` and `SetChildren`") 
     Content = property(GetContent,SetContent,doc="See `GetContent` and `SetContent`") 
     Name = property(GetName,SetName,doc="See `GetName` and `SetName`") 
@@ -476,7 +496,7 @@ class XmlDocument(_core.Object):
         return _xrc.XmlDocument_Save(*args, **kwargs)
 
     def SaveToStream(*args, **kwargs):
-        """SaveToStream(self, OutputStream stream, int indentstep=1) -> bool"""
+        """SaveToStream(self, wxOutputStream stream, int indentstep=1) -> bool"""
         return _xrc.XmlDocument_SaveToStream(*args, **kwargs)
 
     def IsOk(*args, **kwargs):

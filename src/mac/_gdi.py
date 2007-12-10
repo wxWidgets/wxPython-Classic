@@ -108,7 +108,7 @@ class Colour(_core.Object):
 
         Constructs a colour from red, green, blue and alpha values.
 
-        :see: Alternate constructors `wx.NamedColour` and `wx.ColourRGB`.
+        :see: Alternate constructors `wx.NamedColour`, `wx.ColourRGB` and `MacThemeColour`.
 
         """
         _gdi_.Colour_swiginit(self,_gdi_.new_Colour(*args, **kwargs))
@@ -269,6 +269,16 @@ def ColourRGB(*args, **kwargs):
     val = _gdi_.new_ColourRGB(*args, **kwargs)
     return val
 
+def MacThemeColour(*args, **kwargs):
+    """
+    MacThemeColour(int themeBrushID) -> Colour
+
+    Creates a color (or pattern) from a Mac theme brush ID.  Raises a
+    NotImplemented exception on other platforms.
+    """
+    val = _gdi_.new_MacThemeColour(*args, **kwargs)
+    return val
+
 Color = Colour
 NamedColor = NamedColour
 ColorRGB = ColourRGB
@@ -278,7 +288,7 @@ class Palette(GDIObject):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, int n, unsigned char red, unsigned char green, unsigned char blue) -> Palette"""
+        """__init__(self, wxArrayInt red, wxArrayInt green, wxArrayInt blue) -> Palette"""
         _gdi_.Palette_swiginit(self,_gdi_.new_Palette(*args, **kwargs))
     __swig_destroy__ = _gdi_.delete_Palette
     __del__ = lambda self : None;
@@ -287,7 +297,7 @@ class Palette(GDIObject):
         return _gdi_.Palette_GetPixel(*args, **kwargs)
 
     def GetRGB(*args, **kwargs):
-        """GetRGB(self, int pixel) -> (R,G,B)"""
+        """GetRGB(self, int pixel) -> (success, R,G,B)"""
         return _gdi_.Palette_GetRGB(*args, **kwargs)
 
     def GetColoursCount(*args, **kwargs):
@@ -481,14 +491,6 @@ class Brush(GDIObject):
         return _gdi_.Brush_IsOk(*args, **kwargs)
 
     Ok = IsOk 
-    def MacGetTheme(*args, **kwargs):
-        """MacGetTheme(self) -> short"""
-        return _gdi_.Brush_MacGetTheme(*args, **kwargs)
-
-    def MacSetTheme(*args, **kwargs):
-        """MacSetTheme(self, short macThemeBrush)"""
-        return _gdi_.Brush_MacSetTheme(*args, **kwargs)
-
     def __nonzero__(self): return self.IsOk() 
     Colour = property(GetColour,SetColour,doc="See `GetColour` and `SetColour`") 
     Stipple = property(GetStipple,SetStipple,doc="See `GetStipple` and `SetStipple`") 
@@ -2963,6 +2965,14 @@ class DC(_core.Object):
     def BeginDrawing(self):  pass
     def EndDrawing(self):  pass
 
+    def GetImpl(*args, **kwargs):
+        """GetImpl(self) -> wxDCImpl"""
+        return _gdi_.DC_GetImpl(*args, **kwargs)
+
+    def GetWindow(*args, **kwargs):
+        """GetWindow(self) -> Window"""
+        return _gdi_.DC_GetWindow(*args, **kwargs)
+
     def FloodFill(*args, **kwargs):
         """
         FloodFill(self, int x, int y, Colour col, int style=FLOOD_SURFACE) -> bool
@@ -3833,6 +3843,10 @@ class DC(_core.Object):
         """
         return _gdi_.DC_GetSizeMMTuple(*args, **kwargs)
 
+    def GetResolution(*args, **kwargs):
+        """GetResolution(self) -> int"""
+        return _gdi_.DC_GetResolution(*args, **kwargs)
+
     def DeviceToLogicalX(*args, **kwargs):
         """
         DeviceToLogicalX(self, int x) -> int
@@ -4157,17 +4171,6 @@ class DC(_core.Object):
 
         """
         return _gdi_.DC_SetLogicalFunction(*args, **kwargs)
-
-    def ComputeScaleAndOrigin(*args, **kwargs):
-        """
-        ComputeScaleAndOrigin(self)
-
-        Performs all necessary computations for given platform and context
-        type after each change of scale and origin parameters. Usually called
-        automatically internally after such changes.
-
-        """
-        return _gdi_.DC_ComputeScaleAndOrigin(*args, **kwargs)
 
     def SetOptimization(self, optimize):
         pass
@@ -4950,52 +4953,7 @@ class PostScriptDC(DC):
         object.
         """
         _gdi_.PostScriptDC_swiginit(self,_gdi_.new_PostScriptDC(*args, **kwargs))
-    def GetPrintData(*args, **kwargs):
-        """GetPrintData(self) -> wxPrintData"""
-        return _gdi_.PostScriptDC_GetPrintData(*args, **kwargs)
-
-    def SetPrintData(*args, **kwargs):
-        """SetPrintData(self, wxPrintData data)"""
-        return _gdi_.PostScriptDC_SetPrintData(*args, **kwargs)
-
-    def SetResolution(*args, **kwargs):
-        """
-        SetResolution(int ppi)
-
-        Set resolution (in pixels per inch) that will be used in PostScript
-        output. Default is 720ppi.
-        """
-        return _gdi_.PostScriptDC_SetResolution(*args, **kwargs)
-
-    SetResolution = staticmethod(SetResolution)
-    def GetResolution(*args, **kwargs):
-        """
-        GetResolution() -> int
-
-        Return resolution used in PostScript output.
-        """
-        return _gdi_.PostScriptDC_GetResolution(*args, **kwargs)
-
-    GetResolution = staticmethod(GetResolution)
-    PrintData = property(GetPrintData,SetPrintData,doc="See `GetPrintData` and `SetPrintData`") 
 _gdi_.PostScriptDC_swigregister(PostScriptDC)
-
-def PostScriptDC_SetResolution(*args, **kwargs):
-  """
-    PostScriptDC_SetResolution(int ppi)
-
-    Set resolution (in pixels per inch) that will be used in PostScript
-    output. Default is 720ppi.
-    """
-  return _gdi_.PostScriptDC_SetResolution(*args, **kwargs)
-
-def PostScriptDC_GetResolution(*args):
-  """
-    PostScriptDC_GetResolution() -> int
-
-    Return resolution used in PostScript output.
-    """
-  return _gdi_.PostScriptDC_GetResolution(*args)
 
 #---------------------------------------------------------------------------
 
@@ -5495,9 +5453,7 @@ class GraphicsContext(GraphicsObject):
 
         Create a lightwieght context that can be used for measuring text only.
         """
-        val = _gdi_.GraphicsContext_CreateMeasuringContext(*args)
-        val.__dc = args[0] # save a ref so the dc will not be deleted before self
-        return val
+        return _gdi_.GraphicsContext_CreateMeasuringContext(*args)
 
     CreateMeasuringContext = staticmethod(CreateMeasuringContext)
     def CreateFromNative(*args, **kwargs):
@@ -5522,6 +5478,49 @@ class GraphicsContext(GraphicsObject):
         return _gdi_.GraphicsContext_CreateFromNativeWindow(*args, **kwargs)
 
     CreateFromNativeWindow = staticmethod(CreateFromNativeWindow)
+    def StartDoc(*args, **kwargs):
+        """
+        StartDoc(self, String message) -> bool
+
+        Begin a new document (relevant only for printing / pdf etc) if there
+        is a progress dialog, message will be shown
+        """
+        return _gdi_.GraphicsContext_StartDoc(*args, **kwargs)
+
+    def EndDoc(*args, **kwargs):
+        """
+        EndDoc(self)
+
+        Done with that document (relevant only for printing / pdf etc) 
+        """
+        return _gdi_.GraphicsContext_EndDoc(*args, **kwargs)
+
+    def StartPage(*args, **kwargs):
+        """
+        StartPage(self, Double width=0, Double height=0)
+
+        Opens a new page (relevant only for printing / pdf etc) with the given
+        size in points (if both are null the default page size will be used)
+
+        """
+        return _gdi_.GraphicsContext_StartPage(*args, **kwargs)
+
+    def EndPage(*args, **kwargs):
+        """
+        EndPage(self)
+
+        Ends the current page  (relevant only for printing / pdf etc) 
+        """
+        return _gdi_.GraphicsContext_EndPage(*args, **kwargs)
+
+    def Flush(*args, **kwargs):
+        """
+        Flush(self)
+
+        Make sure that the current content of this context is immediately visible
+        """
+        return _gdi_.GraphicsContext_Flush(*args, **kwargs)
+
     def CreatePath(*args, **kwargs):
         """
         CreatePath(self) -> GraphicsPath
@@ -5606,7 +5605,7 @@ class GraphicsContext(GraphicsObject):
         """
         ClipRegion(self, Region region)
 
-        Clips drawings to the region, combined to current clipping region.
+        Clips drawings to the region intersected with the current clipping region.
         """
         return _gdi_.GraphicsContext_ClipRegion(*args, **kwargs)
 
@@ -5614,7 +5613,7 @@ class GraphicsContext(GraphicsObject):
         """
         Clip(self, Double x, Double y, Double w, Double h)
 
-        Clips drawings to the rectangle.
+        Clips drawings to the rectangle intersected with the current clipping region..
         """
         return _gdi_.GraphicsContext_Clip(*args, **kwargs)
 
@@ -5650,6 +5649,22 @@ class GraphicsContext(GraphicsObject):
         Sets the current logical function, returns ``True`` if it supported
         """
         return _gdi_.GraphicsContext_SetLogicalFunction(*args, **kwargs)
+
+    def GetSize(*args, **kwargs):
+        """
+        GetSize(self) --> (width, height)
+
+        Returns the size of the graphics context in device coordinates
+        """
+        return _gdi_.GraphicsContext_GetSize(*args, **kwargs)
+
+    def GetDPI(*args, **kwargs):
+        """
+        GetDPI(self) --> (dpiX, dpiY)
+
+        Returns the resolution of the graphics context in device points per inch
+        """
+        return _gdi_.GraphicsContext_GetDPI(*args, **kwargs)
 
     def Translate(*args, **kwargs):
         """
@@ -5907,9 +5922,7 @@ def GraphicsContext_CreateMeasuringContext(*args):
 
     Create a lightwieght context that can be used for measuring text only.
     """
-  val = _gdi_.GraphicsContext_CreateMeasuringContext(*args)
-  val.__dc = args[0] # save a ref so the dc will not be deleted before self
-  return val
+  return _gdi_.GraphicsContext_CreateMeasuringContext(*args)
 
 def GraphicsContext_CreateFromNative(*args, **kwargs):
   """

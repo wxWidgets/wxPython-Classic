@@ -481,6 +481,10 @@ class AuiPaneInfo(object):
         """Movable(self, bool b=True) -> AuiPaneInfo"""
         return _aui.AuiPaneInfo_Movable(*args, **kwargs)
 
+    def DockFixed(*args, **kwargs):
+        """DockFixed(self, bool b=True) -> AuiPaneInfo"""
+        return _aui.AuiPaneInfo_DockFixed(*args, **kwargs)
+
     def Dockable(*args, **kwargs):
         """Dockable(self, bool b=True) -> AuiPaneInfo"""
         return _aui.AuiPaneInfo_Dockable(*args, **kwargs)
@@ -526,6 +530,7 @@ class AuiPaneInfo(object):
     optionActive = _aui.AuiPaneInfo_optionActive
     optionGripperTop = _aui.AuiPaneInfo_optionGripperTop
     optionMaximized = _aui.AuiPaneInfo_optionMaximized
+    optionDockFixed = _aui.AuiPaneInfo_optionDockFixed
     buttonClose = _aui.AuiPaneInfo_buttonClose
     buttonMaximize = _aui.AuiPaneInfo_buttonMaximize
     buttonMinimize = _aui.AuiPaneInfo_buttonMinimize
@@ -1674,13 +1679,6 @@ class AuiMDIChildFrame(_windows.Panel):
     def Activate(*args, **kwargs):
         """Activate(self)"""
         return _aui.AuiMDIChildFrame_Activate(*args, **kwargs)
-
-    def DoSetSizeHints(*args, **kwargs):
-        """
-        DoSetSizeHints(self, int minW, int minH, int maxW=wxDefaultCoord, int maxH=wxDefaultCoord, 
-            int incW=wxDefaultCoord, int incH=wxDefaultCoord)
-        """
-        return _aui.AuiMDIChildFrame_DoSetSizeHints(*args, **kwargs)
 
     def Maximize(*args, **kwargs):
         """Maximize(self, bool maximize=True)"""

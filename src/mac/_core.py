@@ -175,6 +175,8 @@ PRINT_QUALITY_HIGH = _core_.PRINT_QUALITY_HIGH
 PRINT_QUALITY_MEDIUM = _core_.PRINT_QUALITY_MEDIUM
 PRINT_QUALITY_LOW = _core_.PRINT_QUALITY_LOW
 PRINT_QUALITY_DRAFT = _core_.PRINT_QUALITY_DRAFT
+ID_AUTO_LOWEST = _core_.ID_AUTO_LOWEST
+ID_AUTO_HIGHEST = _core_.ID_AUTO_HIGHEST
 ID_ANY = _core_.ID_ANY
 ID_SEPARATOR = _core_.ID_SEPARATOR
 ID_NONE = _core_.ID_NONE
@@ -273,6 +275,8 @@ ID_ZOOM_IN = _core_.ID_ZOOM_IN
 ID_ZOOM_OUT = _core_.ID_ZOOM_OUT
 ID_UNDELETE = _core_.ID_UNDELETE
 ID_REVERT_TO_SAVED = _core_.ID_REVERT_TO_SAVED
+ID_FILEDLGG = _core_.ID_FILEDLGG
+ID_FILECTRL = _core_.ID_FILECTRL
 ID_HIGHEST = _core_.ID_HIGHEST
 MENU_TEAROFF = _core_.MENU_TEAROFF
 MB_DOCKABLE = _core_.MB_DOCKABLE
@@ -344,6 +348,7 @@ BORDER_MASK = _core_.BORDER_MASK
 BG_STYLE_SYSTEM = _core_.BG_STYLE_SYSTEM
 BG_STYLE_COLOUR = _core_.BG_STYLE_COLOUR
 BG_STYLE_CUSTOM = _core_.BG_STYLE_CUSTOM
+BG_STYLE_TRANSPARENT = _core_.BG_STYLE_TRANSPARENT
 DEFAULT = _core_.DEFAULT
 DECORATIVE = _core_.DECORATIVE
 ROMAN = _core_.ROMAN
@@ -3895,6 +3900,10 @@ class EvtHandler(Object):
         """ProcessEvent(self, Event event) -> bool"""
         return _core_.EvtHandler_ProcessEvent(*args, **kwargs)
 
+    def SafelyProcessEvent(*args, **kwargs):
+        """SafelyProcessEvent(self, Event event) -> bool"""
+        return _core_.EvtHandler_SafelyProcessEvent(*args, **kwargs)
+
     def AddPendingEvent(*args, **kwargs):
         """AddPendingEvent(self, Event event)"""
         return _core_.EvtHandler_AddPendingEvent(*args, **kwargs)
@@ -5222,6 +5231,14 @@ class MouseEvent(Event):
         """
         return _core_.MouseEvent_Leaving(*args, **kwargs)
 
+    def GetClickCount(*args, **kwargs):
+        """
+        GetClickCount(self) -> int
+
+        Returns the number of mouse clicks associated with this event.
+        """
+        return _core_.MouseEvent_GetClickCount(*args, **kwargs)
+
     def GetPosition(*args, **kwargs):
         """
         GetPosition(self) -> Point
@@ -5329,6 +5346,7 @@ class MouseEvent(Event):
     m_shiftDown = property(_core_.MouseEvent_m_shiftDown_get, _core_.MouseEvent_m_shiftDown_set)
     m_altDown = property(_core_.MouseEvent_m_altDown_get, _core_.MouseEvent_m_altDown_set)
     m_metaDown = property(_core_.MouseEvent_m_metaDown_get, _core_.MouseEvent_m_metaDown_set)
+    m_clickCount = property(_core_.MouseEvent_m_clickCount_get, _core_.MouseEvent_m_clickCount_set)
     m_wheelRotation = property(_core_.MouseEvent_m_wheelRotation_get, _core_.MouseEvent_m_wheelRotation_set)
     m_wheelDelta = property(_core_.MouseEvent_m_wheelDelta_get, _core_.MouseEvent_m_wheelDelta_set)
     m_linesPerAction = property(_core_.MouseEvent_m_linesPerAction_get, _core_.MouseEvent_m_linesPerAction_set)
@@ -7278,6 +7296,26 @@ class PyApp(EvtHandler):
         """
         return _core_.PyApp_SetAppName(*args, **kwargs)
 
+    def GetAppDisplayName(*args, **kwargs):
+        """
+        GetAppDisplayName(self) -> String
+
+        Get the application display name.
+        """
+        return _core_.PyApp_GetAppDisplayName(*args, **kwargs)
+
+    def SetAppDisplayName(*args, **kwargs):
+        """
+        SetAppDisplayName(self, String name)
+
+        Set the application display name.  The display name is the name shown
+        to the user in titles, reports, etc while the app name is used for
+        paths, config, and other places the user doesn't see, for example the
+        app name could be myapp while display name could be 'My App'
+
+        """
+        return _core_.PyApp_SetAppDisplayName(*args, **kwargs)
+
     def GetClassName(*args, **kwargs):
         """
         GetClassName(self) -> String
@@ -7311,6 +7349,24 @@ class PyApp(EvtHandler):
         automatically by `wx.Config` and such.
         """
         return _core_.PyApp_SetVendorName(*args, **kwargs)
+
+    def GetVendorDisplayName(*args, **kwargs):
+        """
+        GetVendorDisplayName(self) -> String
+
+        Get the vendor display name.
+        """
+        return _core_.PyApp_GetVendorDisplayName(*args, **kwargs)
+
+    def SetVendorDisplayName(*args, **kwargs):
+        """
+        SetVendorDisplayName(self, String name)
+
+        Set the vendor display name.  The display name is shown in
+        titles/reports/dialogs to the user, while the vendor name is used in
+        some areas such as wxConfig, wxStandardPaths, etc.
+        """
+        return _core_.PyApp_SetVendorDisplayName(*args, **kwargs)
 
     def GetTraits(*args, **kwargs):
         """
@@ -7608,6 +7664,16 @@ class PyApp(EvtHandler):
         return _core_.PyApp_GetComCtl32Version(*args, **kwargs)
 
     GetComCtl32Version = staticmethod(GetComCtl32Version)
+    def GetShell32Version(*args, **kwargs):
+        """
+        GetShell32Version() -> int
+
+        Returns 400, 470, 471, etc. for shell32.dll 4.00, 4.70, 4.71 or 0 if
+        it wasn't found at all.  Raises an exception on non-Windows platforms.
+        """
+        return _core_.PyApp_GetShell32Version(*args, **kwargs)
+
+    GetShell32Version = staticmethod(GetShell32Version)
     def IsDisplayAvailable(*args, **kwargs):
         """
         IsDisplayAvailable() -> bool
@@ -7641,6 +7707,8 @@ class PyApp(EvtHandler):
     UseBestVisual = property(GetUseBestVisual,SetUseBestVisual,doc="See `GetUseBestVisual` and `SetUseBestVisual`") 
     VendorName = property(GetVendorName,SetVendorName,doc="See `GetVendorName` and `SetVendorName`") 
     Active = property(IsActive) 
+    AppDisplayName = property(GetAppDisplayName,SetAppDisplayName) 
+    VendorDisplayName = property(GetVendorDisplayName,SetVendorDisplayName) 
 _core_.PyApp_swigregister(PyApp)
 
 def PyApp_IsMainLoopRunning(*args):
@@ -7700,6 +7768,15 @@ def PyApp_GetComCtl32Version(*args):
     it wasn't found at all.  Raises an exception on non-Windows platforms.
     """
   return _core_.PyApp_GetComCtl32Version(*args)
+
+def PyApp_GetShell32Version(*args):
+  """
+    PyApp_GetShell32Version() -> int
+
+    Returns 400, 470, 471, etc. for shell32.dll 4.00, 4.70, 4.71 or 0 if
+    it wasn't found at all.  Raises an exception on non-Windows platforms.
+    """
+  return _core_.PyApp_GetShell32Version(*args)
 
 def PyApp_IsDisplayAvailable(*args):
   """
@@ -7890,8 +7967,6 @@ class PyOnDemandOutputWindow:
 
 #----------------------------------------------------------------------
 
-_defRedirect = (wx.Platform == '__WXMSW__' or wx.Platform == '__WXMAC__')
-        
 class App(wx.PyApp):
     """
     The ``wx.App`` class represents the application and is used to:
@@ -7918,8 +7993,11 @@ class App(wx.PyApp):
     
     outputWindowClass = PyOnDemandOutputWindow
 
-    def __init__(self, redirect=_defRedirect, filename=None,
-                 useBestVisual=False, clearSigInt=True):
+    def __init__(self,
+                 redirect=False,
+                 filename=None,
+                 useBestVisual=False,
+                 clearSigInt=True):
         """
         Construct a ``wx.App`` object.  
 
@@ -8460,6 +8538,11 @@ WINDOW_VARIANT_SMALL = _core_.WINDOW_VARIANT_SMALL
 WINDOW_VARIANT_MINI = _core_.WINDOW_VARIANT_MINI
 WINDOW_VARIANT_LARGE = _core_.WINDOW_VARIANT_LARGE
 WINDOW_VARIANT_MAX = _core_.WINDOW_VARIANT_MAX
+SHOW_EFFECT_ROLL = _core_.SHOW_EFFECT_ROLL
+SHOW_EFFECT_SLIDE = _core_.SHOW_EFFECT_SLIDE
+SHOW_EFFECT_BLEND = _core_.SHOW_EFFECT_BLEND
+SHOW_EFFECT_EXPAND = _core_.SHOW_EFFECT_EXPAND
+SHOW_EFFECT_MAX = _core_.SHOW_EFFECT_MAX
 class Window(EvtHandler):
     """
     wx.Window is the base class for all windows and represents any visible
@@ -8608,35 +8691,36 @@ class Window(EvtHandler):
         """
         return _core_.Window_GetId(*args, **kwargs)
 
+    def IsAutoGeneratedId(*args, **kwargs):
+        """
+        IsAutoGeneratedId(int id) -> bool
+
+        Returns true if this id value belong to the range reserved for the
+        auto-generated (by NewControlId()) ids (they're always negative)
+        """
+        return _core_.Window_IsAutoGeneratedId(*args, **kwargs)
+
+    IsAutoGeneratedId = staticmethod(IsAutoGeneratedId)
     def NewControlId(*args, **kwargs):
         """
-        NewControlId() -> int
+        NewControlId(int count=1) -> int
 
-        Generate a control id for the controls which were not given one.
+        Generate a unique id (or count of them consecutively), returns a valid
+        id in IsAutoGeneratedId() range or wx.ID_NONE if failed
         """
         return _core_.Window_NewControlId(*args, **kwargs)
 
     NewControlId = staticmethod(NewControlId)
-    def NextControlId(*args, **kwargs):
+    def ReleaseControlId(*args, **kwargs):
         """
-        NextControlId(int winid) -> int
+        ReleaseControlId(int id)
 
-        Get the id of the control following the one with the given
-        autogenerated) id
+        Mark an id previously returned by NewControlId() as being unused any
+        more so that it can be reused again for another control later
         """
-        return _core_.Window_NextControlId(*args, **kwargs)
+        return _core_.Window_ReleaseControlId(*args, **kwargs)
 
-    NextControlId = staticmethod(NextControlId)
-    def PrevControlId(*args, **kwargs):
-        """
-        PrevControlId(int winid) -> int
-
-        Get the id of the control preceding the one with the given
-        autogenerated) id
-        """
-        return _core_.Window_PrevControlId(*args, **kwargs)
-
-    PrevControlId = staticmethod(PrevControlId)
+    ReleaseControlId = staticmethod(ReleaseControlId)
     def GetLayoutDirection(*args, **kwargs):
         """
         GetLayoutDirection(self) -> int
@@ -9161,6 +9245,19 @@ class Window(EvtHandler):
         """
         return _core_.Window_GetBestVirtualSize(*args, **kwargs)
 
+    def InformFirstDirection(*args, **kwargs):
+        """
+        InformFirstDirection(self, int direction, int size, int availableOtherDir) -> bool
+
+        wxSizer and friends use this to give a chance to a component to recalc
+        its min size once one of the final size components is known. Override 
+        this function when that is useful (such as for wxStaticText which can 
+        stretch over several lines). Parameter availableOtherDir
+        tells the item how much more space there is available in the opposite 
+        direction (-1 if unknown).
+        """
+        return _core_.Window_InformFirstDirection(*args, **kwargs)
+
     def Show(*args, **kwargs):
         """
         Show(self, bool show=True) -> bool
@@ -9180,6 +9277,34 @@ class Window(EvtHandler):
         Equivalent to calling Show(False).
         """
         return _core_.Window_Hide(*args, **kwargs)
+
+    def ShowWithEffect(*args, **kwargs):
+        """
+        ShowWithEffect(self, int effect, unsigned int timeout=0, int dir=BOTTOM) -> bool
+
+        Show the window with a special effect, not implemented on most
+        platforms (where it is the same as Show())
+
+        Timeout specifies how long the animation should take, in ms, the
+        default value of 0 means to use the default (system-dependent) value.
+
+        Direction is only used with wxSHOW_EFFECT_ROLL and SLIDE values.
+        """
+        return _core_.Window_ShowWithEffect(*args, **kwargs)
+
+    def HideWithEffect(*args, **kwargs):
+        """
+        HideWithEffect(self, int effect, unsigned int timeout=0, int dir=BOTTOM) -> bool
+
+        Hide the window with a special effect, not implemented on most
+        platforms (where it is the same as Hide())
+
+        Timeout specifies how long the animation should take, in ms, the
+        default value of 0 means to use the default (system-dependent) value.
+
+        Direction is only used with wxSHOW_EFFECT_ROLL and SLIDE values.
+        """
+        return _core_.Window_HideWithEffect(*args, **kwargs)
 
     def Enable(*args, **kwargs):
         """
@@ -9439,7 +9564,6 @@ class Window(EvtHandler):
         The default tab order is the same as creation order.  This function
         and `MoveBeforeInTabOrder` allow to change it after creating all the
         windows.
-
         """
         return _core_.Window_MoveAfterInTabOrder(*args, **kwargs)
 
@@ -9461,6 +9585,14 @@ class Window(EvtHandler):
         list maintained by the window..
         """
         return _core_.Window_GetChildren(*args, **kwargs)
+
+    def GetPrevSibling(*args, **kwargs):
+        """GetPrevSibling(self) -> Window"""
+        return _core_.Window_GetPrevSibling(*args, **kwargs)
+
+    def GetNextSibling(*args, **kwargs):
+        """GetNextSibling(self) -> Window"""
+        return _core_.Window_GetNextSibling(*args, **kwargs)
 
     def GetParent(*args, **kwargs):
         """
@@ -9622,6 +9754,18 @@ class Window(EvtHandler):
         there.)
         """
         return _core_.Window_RemoveEventHandler(*args, **kwargs)
+
+    def HandleWindowEvent(*args, **kwargs):
+        """
+        HandleWindowEvent(self, Event event) -> bool
+
+        Process an event by calling GetEventHandler()->ProcessEvent() and
+        handling any exceptions thrown by event handlers. It's mostly useful
+        when processing wx events when called from C code (e.g. in GTK+
+        callback) when the exception wouldn't correctly propagate to
+        wx.EventLoop.
+        """
+        return _core_.Window_HandleWindowEvent(*args, **kwargs)
 
     def SetValidator(*args, **kwargs):
         """
@@ -10322,6 +10466,15 @@ class Window(EvtHandler):
         """
         return _core_.Window_PopupMenu(*args, **kwargs)
 
+    def GetPopupMenuSelectionFromUser(*args, **kwargs):
+        """
+        GetPopupMenuSelectionFromUser(self, Menu menu, Point pos) -> int
+
+        Simply return the id of the selected item or wxID_NONE without
+        generating any events.
+        """
+        return _core_.Window_GetPopupMenuSelectionFromUser(*args, **kwargs)
+
     def HasMultiplePages(*args, **kwargs):
         """HasMultiplePages(self) -> bool"""
         return _core_.Window_HasMultiplePages(*args, **kwargs)
@@ -10331,8 +10484,8 @@ class Window(EvtHandler):
         GetHandle(self) -> long
 
         Returns the platform-specific handle (as a long integer) of the
-        physical window.  Currently on wxMac it returns the handle of the
-        toplevel parent of the window.
+        physical window.  On wxMSW this is the win32 window handle, on wxGTK
+        it is the XWindow ID, and on wxMac it is the ControlRef.
         """
         return _core_.Window_GetHandle(*args, **kwargs)
 
@@ -10351,6 +10504,15 @@ class Window(EvtHandler):
         Dissociate the current native handle from the window
         """
         return _core_.Window_DissociateHandle(*args, **kwargs)
+
+    def GetGtkWidget(*args, **kwargs):
+        """
+        GetGtkWidget(self) -> long
+
+        On wxGTK returns a pointer to the GtkWidget for this window as a long
+        integer.  On the other platforms this method returns zero.
+        """
+        return _core_.Window_GetGtkWidget(*args, **kwargs)
 
     def HasScrollbar(*args, **kwargs):
         """
@@ -10465,6 +10627,14 @@ class Window(EvtHandler):
         This is just a wrapper for ScrollPages(1).
         """
         return _core_.Window_PageDown(*args, **kwargs)
+
+    def AlwaysShowScrollbars(*args, **kwargs):
+        """AlwaysShowScrollbars(self, bool horz=True, bool vert=True)"""
+        return _core_.Window_AlwaysShowScrollbars(*args, **kwargs)
+
+    def IsScrollbarAlwaysShown(*args, **kwargs):
+        """IsScrollbarAlwaysShown(self, int orient) -> bool"""
+        return _core_.Window_IsScrollbarAlwaysShown(*args, **kwargs)
 
     def SetHelpText(*args, **kwargs):
         """
@@ -10823,6 +10993,7 @@ class Window(EvtHandler):
     Shown = property(IsShown,Show,doc="See `IsShown` and `Show`") 
     Enabled = property(IsEnabled,Enable,doc="See `IsEnabled` and `Enable`") 
     TopLevel = property(IsTopLevel,doc="See `IsTopLevel`") 
+    GtkWidget = property(GetGtkWidget) 
 _core_.Window_swigregister(Window)
 
 def PreWindow(*args, **kwargs):
@@ -10834,31 +11005,32 @@ def PreWindow(*args, **kwargs):
     val = _core_.new_PreWindow(*args, **kwargs)
     return val
 
-def Window_NewControlId(*args):
+def Window_IsAutoGeneratedId(*args, **kwargs):
   """
-    Window_NewControlId() -> int
+    Window_IsAutoGeneratedId(int id) -> bool
 
-    Generate a control id for the controls which were not given one.
+    Returns true if this id value belong to the range reserved for the
+    auto-generated (by NewControlId()) ids (they're always negative)
     """
-  return _core_.Window_NewControlId(*args)
+  return _core_.Window_IsAutoGeneratedId(*args, **kwargs)
 
-def Window_NextControlId(*args, **kwargs):
+def Window_NewControlId(*args, **kwargs):
   """
-    Window_NextControlId(int winid) -> int
+    Window_NewControlId(int count=1) -> int
 
-    Get the id of the control following the one with the given
-    autogenerated) id
+    Generate a unique id (or count of them consecutively), returns a valid
+    id in IsAutoGeneratedId() range or wx.ID_NONE if failed
     """
-  return _core_.Window_NextControlId(*args, **kwargs)
+  return _core_.Window_NewControlId(*args, **kwargs)
 
-def Window_PrevControlId(*args, **kwargs):
+def Window_ReleaseControlId(*args, **kwargs):
   """
-    Window_PrevControlId(int winid) -> int
+    Window_ReleaseControlId(int id)
 
-    Get the id of the control preceding the one with the given
-    autogenerated) id
+    Mark an id previously returned by NewControlId() as being unused any
+    more so that it can be reused again for another control later
     """
-  return _core_.Window_PrevControlId(*args, **kwargs)
+  return _core_.Window_ReleaseControlId(*args, **kwargs)
 
 def Window_FindFocus(*args):
   """
@@ -12074,6 +12246,389 @@ _core_.ControlWithItems_swigregister(ControlWithItems)
 
 #---------------------------------------------------------------------------
 
+class TextEntry(object):
+    """Proxy of C++ TextEntry class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_TextEntry
+    __del__ = lambda self : None;
+    def SetValue(*args, **kwargs):
+        """
+        SetValue(self, String value)
+
+        Set the value in the text entry field.  Generates a text change event.
+        """
+        return _core_.TextEntry_SetValue(*args, **kwargs)
+
+    def ChangeValue(*args, **kwargs):
+        """
+        ChangeValue(self, String value)
+
+        Set the value in the text entry field.  Generates a text change event.
+        """
+        return _core_.TextEntry_ChangeValue(*args, **kwargs)
+
+    def WriteText(*args, **kwargs):
+        """
+        WriteText(self, String text)
+
+        Insert text at the current insertion point in the text field,
+        replacing any text that is currently selected.
+        """
+        return _core_.TextEntry_WriteText(*args, **kwargs)
+
+    def AppendText(*args, **kwargs):
+        """
+        AppendText(self, String text)
+
+        Add text to the end of the text field, without removing any existing
+        text.  Will reset the selection if any.
+        """
+        return _core_.TextEntry_AppendText(*args, **kwargs)
+
+    def GetValue(*args, **kwargs):
+        """
+        GetValue(self) -> String
+
+        Returns the current value in the text field.
+        """
+        return _core_.TextEntry_GetValue(*args, **kwargs)
+
+    def GetRange(*args, **kwargs):
+        """
+        GetRange(self, long from, long to) -> String
+
+        Returns a subset of the value in the text field.
+        """
+        return _core_.TextEntry_GetRange(*args, **kwargs)
+
+    GetString = wx._deprecated(GetRange, "Use `GetRange` instead.") 
+    def IsEmpty(*args, **kwargs):
+        """
+        IsEmpty(self) -> bool
+
+        Returns True if the value in the text field is empty.
+        """
+        return _core_.TextEntry_IsEmpty(*args, **kwargs)
+
+    def Replace(*args, **kwargs):
+        """
+        Replace(self, long from, long to, String value)
+
+        Replaces the text between two positions with the given text.
+        """
+        return _core_.TextEntry_Replace(*args, **kwargs)
+
+    def Remove(*args, **kwargs):
+        """
+        Remove(self, long from, long to)
+
+        Removes the text between two positions in the text field
+        """
+        return _core_.TextEntry_Remove(*args, **kwargs)
+
+    def Clear(*args, **kwargs):
+        """
+        Clear(self)
+
+        Clear all text from the text field
+        """
+        return _core_.TextEntry_Clear(*args, **kwargs)
+
+    def Copy(*args, **kwargs):
+        """
+        Copy(self)
+
+        Copies the selected text to the clipboard.
+        """
+        return _core_.TextEntry_Copy(*args, **kwargs)
+
+    def Cut(*args, **kwargs):
+        """
+        Cut(self)
+
+        Copies the selected text to the clipboard and removes the selection.
+        """
+        return _core_.TextEntry_Cut(*args, **kwargs)
+
+    def Paste(*args, **kwargs):
+        """
+        Paste(self)
+
+        Pastes text from the clipboard to the text field.
+        """
+        return _core_.TextEntry_Paste(*args, **kwargs)
+
+    def CanCopy(*args, **kwargs):
+        """
+        CanCopy(self) -> bool
+
+        Returns True if the text field has a text selection to copy to the
+        clipboard.
+        """
+        return _core_.TextEntry_CanCopy(*args, **kwargs)
+
+    def CanCut(*args, **kwargs):
+        """
+        CanCut(self) -> bool
+
+        Returns True if the text field is editable and there is a text
+        selection to copy to the clipboard.
+        """
+        return _core_.TextEntry_CanCut(*args, **kwargs)
+
+    def CanPaste(*args, **kwargs):
+        """
+        CanPaste(self) -> bool
+
+        Returns True if the text field is editable and there is text on the
+        clipboard that can be pasted into the text field.
+        """
+        return _core_.TextEntry_CanPaste(*args, **kwargs)
+
+    def Undo(*args, **kwargs):
+        """
+        Undo(self)
+
+        Undoes the last edit in the text field
+        """
+        return _core_.TextEntry_Undo(*args, **kwargs)
+
+    def Redo(*args, **kwargs):
+        """
+        Redo(self)
+
+        Redoes the last undo in the text field
+        """
+        return _core_.TextEntry_Redo(*args, **kwargs)
+
+    def CanUndo(*args, **kwargs):
+        """
+        CanUndo(self) -> bool
+
+        Returns True if the text field is editable and the last edit can be
+        undone.
+        """
+        return _core_.TextEntry_CanUndo(*args, **kwargs)
+
+    def CanRedo(*args, **kwargs):
+        """
+        CanRedo(self) -> bool
+
+        Returns True if the text field is editable and the last undo can be
+        redone.
+        """
+        return _core_.TextEntry_CanRedo(*args, **kwargs)
+
+    def SetInsertionPoint(*args, **kwargs):
+        """
+        SetInsertionPoint(self, long pos)
+
+        Sets the insertion point in the combobox text field.
+        """
+        return _core_.TextEntry_SetInsertionPoint(*args, **kwargs)
+
+    def GetInsertionPoint(*args, **kwargs):
+        """
+        GetInsertionPoint(self) -> long
+
+        Returns the insertion point for the combobox's text field.
+        """
+        return _core_.TextEntry_GetInsertionPoint(*args, **kwargs)
+
+    def SetInsertionPointEnd(*args, **kwargs):
+        """
+        SetInsertionPointEnd(self)
+
+        Move the insertion point to the end of the current value.
+        """
+        return _core_.TextEntry_SetInsertionPointEnd(*args, **kwargs)
+
+    def GetLastPosition(*args, **kwargs):
+        """
+        GetLastPosition(self) -> long
+
+        Returns the last position in the combobox text field.
+        """
+        return _core_.TextEntry_GetLastPosition(*args, **kwargs)
+
+    def SetSelection(*args, **kwargs):
+        """
+        SetSelection(self, long from, long to)
+
+        Selects the text starting at the first position up to (but not
+        including) the character at the last position.  If both parameters are
+        -1 then all text in the control is selected.
+        """
+        return _core_.TextEntry_SetSelection(*args, **kwargs)
+
+    def SelectAll(*args, **kwargs):
+        """
+        SelectAll(self)
+
+        Select all text in the text field.
+        """
+        return _core_.TextEntry_SelectAll(*args, **kwargs)
+
+    def HasSelection(*args, **kwargs):
+        """
+        HasSelection(self) -> bool
+
+        Returns True if there is a non-empty selection in the text field.
+        """
+        return _core_.TextEntry_HasSelection(*args, **kwargs)
+
+    def GetStringSelection(*args, **kwargs):
+        """
+        GetStringSelection(self) -> String
+
+        Returns the selected text.
+        """
+        return _core_.TextEntry_GetStringSelection(*args, **kwargs)
+
+    def GetSelection(*args, **kwargs):
+        """
+        GetSelection() -> (from, to)
+
+        If the return values from and to are the same, there is no selection.
+        """
+        return _core_.TextEntry_GetSelection(*args, **kwargs)
+
+    def AutoComplete(*args, **kwargs):
+        """AutoComplete(self, wxArrayString choices) -> bool"""
+        return _core_.TextEntry_AutoComplete(*args, **kwargs)
+
+    def AutoCompleteFileNames(*args, **kwargs):
+        """AutoCompleteFileNames(self) -> bool"""
+        return _core_.TextEntry_AutoCompleteFileNames(*args, **kwargs)
+
+    def IsEditable(*args, **kwargs):
+        """IsEditable(self) -> bool"""
+        return _core_.TextEntry_IsEditable(*args, **kwargs)
+
+    def SetEditable(*args, **kwargs):
+        """SetEditable(self, bool editable)"""
+        return _core_.TextEntry_SetEditable(*args, **kwargs)
+
+    def SetMaxLength(*args, **kwargs):
+        """
+        SetMaxLength(self, long len)
+
+        Set the max number of characters which may be entered in a single line
+        text control.
+        """
+        return _core_.TextEntry_SetMaxLength(*args, **kwargs)
+
+    InsertionPoint = property(GetInsertionPoint,SetInsertionPoint) 
+    LastPosition = property(GetLastPosition) 
+    Value = property(GetValue,SetValue) 
+_core_.TextEntry_swigregister(TextEntry)
+
+class TextAreaBase(object):
+    """multiline text control specific methods"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_TextAreaBase
+    __del__ = lambda self : None;
+    def GetLineLength(*args, **kwargs):
+        """GetLineLength(self, long lineNo) -> int"""
+        return _core_.TextAreaBase_GetLineLength(*args, **kwargs)
+
+    def GetLineText(*args, **kwargs):
+        """GetLineText(self, long lineNo) -> String"""
+        return _core_.TextAreaBase_GetLineText(*args, **kwargs)
+
+    def GetNumberOfLines(*args, **kwargs):
+        """GetNumberOfLines(self) -> int"""
+        return _core_.TextAreaBase_GetNumberOfLines(*args, **kwargs)
+
+    def LoadFile(*args, **kwargs):
+        """LoadFile(self, String file, int fileType=wxTEXT_TYPE_ANY) -> bool"""
+        return _core_.TextAreaBase_LoadFile(*args, **kwargs)
+
+    def SaveFile(*args, **kwargs):
+        """SaveFile(self, String file=wxEmptyString, int fileType=wxTEXT_TYPE_ANY) -> bool"""
+        return _core_.TextAreaBase_SaveFile(*args, **kwargs)
+
+    def IsModified(*args, **kwargs):
+        """IsModified(self) -> bool"""
+        return _core_.TextAreaBase_IsModified(*args, **kwargs)
+
+    def MarkDirty(*args, **kwargs):
+        """MarkDirty(self)"""
+        return _core_.TextAreaBase_MarkDirty(*args, **kwargs)
+
+    def DiscardEdits(*args, **kwargs):
+        """DiscardEdits(self)"""
+        return _core_.TextAreaBase_DiscardEdits(*args, **kwargs)
+
+    def SetModified(*args, **kwargs):
+        """SetModified(self, bool modified)"""
+        return _core_.TextAreaBase_SetModified(*args, **kwargs)
+
+    def SetStyle(*args, **kwargs):
+        """SetStyle(self, long start, long end, wxTextAttr style) -> bool"""
+        return _core_.TextAreaBase_SetStyle(*args, **kwargs)
+
+    def GetStyle(*args, **kwargs):
+        """GetStyle(self, long position, wxTextAttr style) -> bool"""
+        return _core_.TextAreaBase_GetStyle(*args, **kwargs)
+
+    def SetDefaultStyle(*args, **kwargs):
+        """SetDefaultStyle(self, wxTextAttr style) -> bool"""
+        return _core_.TextAreaBase_SetDefaultStyle(*args, **kwargs)
+
+    def GetDefaultStyle(*args, **kwargs):
+        """GetDefaultStyle(self) -> wxTextAttr"""
+        return _core_.TextAreaBase_GetDefaultStyle(*args, **kwargs)
+
+    def XYToPosition(*args, **kwargs):
+        """XYToPosition(self, long x, long y) -> long"""
+        return _core_.TextAreaBase_XYToPosition(*args, **kwargs)
+
+    def PositionToXY(*args, **kwargs):
+        """PositionToXY(long pos) -> (x, y)"""
+        return _core_.TextAreaBase_PositionToXY(*args, **kwargs)
+
+    def ShowPosition(*args, **kwargs):
+        """ShowPosition(self, long pos)"""
+        return _core_.TextAreaBase_ShowPosition(*args, **kwargs)
+
+    def HitTest(*args, **kwargs):
+        """
+        HitTest(Point pt) -> (result, col, row)
+
+        Find the row, col coresponding to the character at the point given in
+        pixels. NB: pt is in device coords but is not adjusted for the client
+        area origin nor scrolling.
+        """
+        return _core_.TextAreaBase_HitTest(*args, **kwargs)
+
+    def HitTestPos(*args, **kwargs):
+        """
+        HitTestPos(Point pt) -> (result, position)
+
+        Find the character position in the text coresponding to the point
+        given in pixels. NB: pt is in device coords but is not adjusted for
+        the client area origin nor scrolling. 
+        """
+        return _core_.TextAreaBase_HitTestPos(*args, **kwargs)
+
+    DefaultStyle = property(GetDefaultStyle,SetDefaultStyle) 
+    NumberOfLines = property(GetNumberOfLines) 
+_core_.TextAreaBase_swigregister(TextAreaBase)
+
+class TextCtrlIface(TextAreaBase,TextEntry):
+    """This class defines the wx.TextCtrl interface"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+_core_.TextCtrlIface_swigregister(TextCtrlIface)
+
+#---------------------------------------------------------------------------
+
 class SizerFlags(object):
     """
     Normally, when you add an item to a sizer via `wx.Sizer.Add`, you have
@@ -12478,6 +13033,14 @@ class SizerItem(Object):
         """
         return _core_.SizerItem_GetRect(*args, **kwargs)
 
+    def SetId(*args, **kwargs):
+        """SetId(self, int id)"""
+        return _core_.SizerItem_SetId(*args, **kwargs)
+
+    def GetId(*args, **kwargs):
+        """GetId(self) -> int"""
+        return _core_.SizerItem_GetId(*args, **kwargs)
+
     def IsWindow(*args, **kwargs):
         """
         IsWindow(self) -> bool
@@ -12654,6 +13217,17 @@ class SizerItem(Object):
         """
         return _core_.SizerItem_GetPosition(*args, **kwargs)
 
+    def InformFirstDirection(*args, **kwargs):
+        """
+        InformFirstDirection(self, int direction, int size, int availableOtherDir=-1) -> bool
+
+        Called once the first component of an item has been decided. This is
+        used in algorithms that depend on knowing the size in one direction
+        before the min size in the other direction can be known.  Returns true
+        if it made use of the information (and min size was changed).
+        """
+        return _core_.SizerItem_InformFirstDirection(*args, **kwargs)
+
     def GetUserData(*args, **kwargs):
         """
         GetUserData(self) -> PyObject
@@ -12684,6 +13258,7 @@ class SizerItem(Object):
     Spacer = property(GetSpacer,AssignSpacer,doc="See `GetSpacer` and `AssignSpacer`") 
     UserData = property(GetUserData,SetUserData,doc="See `GetUserData` and `SetUserData`") 
     Window = property(GetWindow,AssignWindow,doc="See `GetWindow` and `AssignWindow`") 
+    Id = property(GetId,SetId) 
 _core_.SizerItem_swigregister(SizerItem)
 
 def SizerItemWindow(*args, **kwargs):
@@ -12849,6 +13424,10 @@ class Sizer(Object):
     def _SetItemMinSize(*args, **kwargs):
         """_SetItemMinSize(self, PyObject item, Size size)"""
         return _core_.Sizer__SetItemMinSize(*args, **kwargs)
+
+    def GetItemById(*args, **kwargs):
+        """GetItemById(self, int id, bool recursive=False) -> SizerItem"""
+        return _core_.Sizer_GetItemById(*args, **kwargs)
 
     def _ReplaceWin(*args, **kwargs):
         """_ReplaceWin(self, Window oldwin, Window newwin, bool recursive=False) -> bool"""
@@ -13188,6 +13767,16 @@ class Sizer(Object):
         """
         return _core_.Sizer_DeleteWindows(*args, **kwargs)
 
+    def InformFirstDirection(*args, **kwargs):
+        """
+        InformFirstDirection(self, int direction, int size, int availableOtherDir) -> bool
+
+        Inform sizer about the first direction that has been decided (by
+        parent item).  Returns true if it made use of the informtion (and
+        recalculated min size).
+        """
+        return _core_.Sizer_InformFirstDirection(*args, **kwargs)
+
     def GetChildren(*args, **kwargs):
         """
         GetChildren(self) -> SizerItemList
@@ -13346,6 +13935,26 @@ class BoxSizer(Sizer):
 
     Orientation = property(GetOrientation,SetOrientation,doc="See `GetOrientation` and `SetOrientation`") 
 _core_.BoxSizer_swigregister(BoxSizer)
+
+#---------------------------------------------------------------------------
+
+EXTEND_LAST_ON_EACH_LINE = _core_.EXTEND_LAST_ON_EACH_LINE
+class WrapSizer(BoxSizer):
+    """
+    A box sizer that can wrap items on several lines when widths exceed
+    available width.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, int orient=HORIZONTAL, int flags=EXTEND_LAST_ON_EACH_LINE) -> WrapSizer
+
+        A box sizer that can wrap items on several lines when widths exceed
+        available width.
+        """
+        _core_.WrapSizer_swiginit(self,_core_.new_WrapSizer(*args, **kwargs))
+_core_.WrapSizer_swigregister(WrapSizer)
 
 #---------------------------------------------------------------------------
 
