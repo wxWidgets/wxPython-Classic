@@ -13,6 +13,12 @@
 // Not a %module
 
 
+%{
+#ifdef __WXMAC__
+#include <wx/mac/carbon/private.h>
+#endif
+%}
+
 //---------------------------------------------------------------------------
 %newgroup;
 
@@ -61,20 +67,36 @@ public:
         wxColour(byte red=0, byte green=0, byte blue=0, byte alpha=wxALPHA_OPAQUE),
         "Constructs a colour from red, green, blue and alpha values.
 
-:see: Alternate constructors `wx.NamedColour` and `wx.ColourRGB`.
+:see: Alternate constructors `wx.NamedColour`, `wx.ColourRGB` and `MacThemeColour`.
 ", "");
     
-    DocCtorStrName(
-        wxColour( const wxString& colorName),
+    %RenameDocCtor(
+        NamedColour,
         "Constructs a colour object using a colour name listed in
 ``wx.TheColourDatabase``.", "",
-        NamedColour);
-    
-    DocCtorStrName(
-        wxColour( unsigned long colRGB ),
-        "Constructs a colour from a packed RGB value.", "",
-        ColourRGB);
+        wxColour( const wxString& colorName));
 
+    
+    %RenameDocCtor(
+        ColourRGB,
+        "Constructs a colour from a packed RGB value.", "",
+        wxColour( unsigned long colRGB ));
+
+    %extend {
+        %RenameDocCtor(
+            MacThemeColour,
+            "Creates a color (or pattern) from a Mac theme brush ID.  Raises a
+NotImplemented exception on other platforms.", "",
+            wxColour( int themeBrushID ))
+            {
+#ifdef __WXMAC__
+                return new wxColour(wxMacCreateCGColorFromHITheme(themeBrushID));
+#else
+                wxPyRaiseNotImplemented(); return NULL;
+#endif
+            }
+    }
+    
     ~wxColour();
 
     

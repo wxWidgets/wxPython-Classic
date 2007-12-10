@@ -93,6 +93,26 @@ Added support for mouse events from two auxillary mouse buttons.
 The methods that wx.TextCtrl and wx.ComboBox have in common have been
 factored out into a new base class that they share, wx.TextEntry.
 
+wx.richtext.RichTextCtrl and related classes were refactored such that
+the RTC uses the same attributes object as wx.TextCtrl.  This means that
+instead of using wx.richtext.RichtextAttr or TextAttrEx you'll just
+use wx.TextAttr instead.  Also, all of the flags and styles related to
+the text attributes have been moved out of the wx.richtext module and
+into the main wx namespace.  Finally, wx.TextCtrl and RichTextCtrl now
+share some common base classes.
+
+wx.Brush.MacSetTheme has been removed, and has been replaced by being
+able to create a wx.Colour using a Mac themed brush ID instead.  So if
+you used to have code like this::
+
+    brush = wx.Brush(someColour)
+    brush.SetMacTheme(kThemeBrushDialogBackgroundActive)
+
+You'll want to replace it with code like this::
+
+    brush = wx.Brush(wx.MacThemeColour(kThemeBrushDialogBackgroundActive))
+
+
 
 
 

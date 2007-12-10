@@ -1286,12 +1286,11 @@ class FNBRenderer:
         self._tabHeight = None
 
         if wx.Platform == "__WXMAC__":
-            # Hack to get proper highlight color for focus rectangle from
-            # current theme by creating a theme brush and getting its color.
-            # kThemeBrushFocusHighlight is available on Mac OS 8.5 and higher
-            brush = wx.BLACK_BRUSH
-            brush.MacSetTheme(Carbon.Appearance.kThemeBrushFocusHighlight)
-            self._focusPen = wx.Pen(brush.GetColour(), 2, wx.SOLID)
+            # Get proper highlight color for focus rectangle from the
+            # current Mac theme.  kThemeBrushFocusHighlight is
+            # available on Mac OS 8.5 and higher
+            c = wx.MacThemeColour(Carbon.Appearance.kThemeBrushFocusHighlight)
+            self._focusPen = wx.Pen(c, 2, wx.SOLID)
         else:
             self._focusPen = wx.Pen(wx.BLACK, 1, wx.USER_DASH)
             self._focusPen.SetDashes([1, 1])
