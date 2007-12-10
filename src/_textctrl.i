@@ -400,7 +400,7 @@ public:
 // edit text
 MustHaveApp(wxTextCtrl);
 class wxTextCtrl : public wxControl,
-                   public wxTextArea,
+                   public wxTextAreaBase,
                    public wxTextEntry
 {
 public:
