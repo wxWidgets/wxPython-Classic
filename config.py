@@ -533,23 +533,33 @@ def build_locale_list(srcdir):
     return file_list
 
 
-def find_data_files(srcdir, *wildcards):
+def find_data_files(srcdir, *wildcards, **kw):
     # get a list of all files under the srcdir matching wildcards,
     # returned in a format to be used for install_data
-
+    
     def walk_helper(arg, dirname, files):
+        if '.svn' in dirname:
+            return
         names = []
         lst, wildcards = arg
         for wc in wildcards:
+            wc_name = opj(dirname, wc)
             for f in files:
                 filename = opj(dirname, f)
-                if fnmatch.fnmatch(filename, wc) and not os.path.isdir(filename):
+                
+                if fnmatch.fnmatch(filename, wc_name) and not os.path.isdir(filename):
                     names.append(filename)
         if names:
             lst.append( (dirname, names ) )
 
     file_list = []
-    os.path.walk(srcdir, walk_helper, (file_list, wildcards))
+    recursive = kw.get('recursive', True)
+    if recursive:
+        os.path.walk(srcdir, walk_helper, (file_list, wildcards))
+    else:
+        walk_helper((file_list, wildcards),
+                    srcdir,
+                    [os.path.basename(f) for f in glob.glob(opj(srcdir, '*'))])
     return file_list
 
 
@@ -566,7 +576,17 @@ def makeLibName(name):
 def findLib(name, libdirs):
     name = makeLibName(name)[0]
     if os.name == 'posix' or COMPILER == 'mingw32':
-        dirs = libdirs + ['/usr/lib', '/usr/local/lib']
+        lflags = os.popen(WX_CONFIG + ' --libs', 'r').read()[:-1]
+        lflags = lflags.split()
+        
+        # if wx-config --libs output does not start with -L, wx is
+        # installed with a standard prefix and wx-config does not
+        # output these libdirs because they are already searched by
+        # default by the compiler and linker.
+        if lflags[0][:2] != '-L':  
+           dirs = libdirs + ['/usr/lib', '/usr/local/lib']
+        else:
+           dirs = libdirs
         name = 'lib'+name
     else:
         dirs = libdirs[:]
