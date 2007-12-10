@@ -76,6 +76,20 @@ public:
         "Set the application name. This value may be used automatically by
 `wx.Config` and such.", "");
 
+    
+    DocDeclStr(
+        wxString , GetAppDisplayName() const,
+        "Get the application display name.", "");
+    
+    DocDeclStr(
+        void , SetAppDisplayName(const wxString& name),
+        "Set the application display name.  The display name is the name shown
+to the user in titles, reports, etc while the app name is used for
+paths, config, and other places the user doesn't see, for example the
+app name could be myapp while display name could be 'My App'
+", "");
+    
+    
     DocDeclStr(
         wxString, GetClassName() const,
         "Get the application's class name.", "");
@@ -92,6 +106,16 @@ X-resources if applicable for the platform", "");
         "Set the application's vendor name. This value may be used
 automatically by `wx.Config` and such.", "");
 
+    DocDeclStr(
+        const wxString& , GetVendorDisplayName() const,
+        "Get the vendor display name.", "");
+    
+    DocDeclStr(
+        void , SetVendorDisplayName(const wxString& name),
+        "Set the vendor display name.  The display name is shown in
+titles/reports/dialogs to the user, while the vendor name is used in
+some areas such as wxConfig, wxStandardPaths, etc.", "");
+    
 
     DocDeclStr(
         wxAppTraits*, GetTraits(),
@@ -299,6 +323,20 @@ it wasn't found at all.  Raises an exception on non-Windows platforms.", "");
     }
 #endif
 
+    
+    DocStr(GetShell32Version,
+           "Returns 400, 470, 471, etc. for shell32.dll 4.00, 4.70, 4.71 or 0 if
+it wasn't found at all.  Raises an exception on non-Windows platforms.", "");
+#ifdef __WXMSW__
+    static int GetShell32Version();
+#else
+    %extend {
+        static int GetShell32Version()
+            { wxPyRaiseNotImplemented(); return 0; }
+    }
+#endif
+    
+    
     %extend {
         DocStr(IsDisplayAvailable,
                "Tests if it is possible to create a GUI in the current environment.
@@ -333,6 +371,9 @@ This will mean different things on the different platforms.
     %property(VendorName, GetVendorName, SetVendorName, doc="See `GetVendorName` and `SetVendorName`");
 
     %property(Active, IsActive);
+    %property(AppDisplayName, GetAppDisplayName, SetAppDisplayName);
+    %property(VendorDisplayName, GetVendorDisplayName, SetVendorDisplayName);
+    
 };
 
 

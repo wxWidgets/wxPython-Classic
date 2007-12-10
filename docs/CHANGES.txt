@@ -90,6 +90,10 @@ Added support for toolbar buttons with dropdown menus.
 
 Added support for mouse events from two auxillary mouse buttons.
 
+The methods that wx.TextCtrl and wx.ComboBox have in common have been
+factored out into a new base class that they share, wx.TextEntry.
+
+
 
 
 

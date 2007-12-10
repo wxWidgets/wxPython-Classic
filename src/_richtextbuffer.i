@@ -81,93 +81,37 @@ enum {
     wxRICHTEXT_INSERT_NONE,
     wxRICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE,
 
-
-    // TODO:  Rename these to be wxRICHTEXT_* ??
-
-    wxTEXT_ATTR_TEXT_COLOUR,
-    wxTEXT_ATTR_BACKGROUND_COLOUR,
-    wxTEXT_ATTR_FONT_FACE,
-    wxTEXT_ATTR_FONT_SIZE,
-    wxTEXT_ATTR_FONT_WEIGHT,
-    wxTEXT_ATTR_FONT_ITALIC,
-    wxTEXT_ATTR_FONT_UNDERLINE,
-    wxTEXT_ATTR_FONT,
-    wxTEXT_ATTR_ALIGNMENT,
-    wxTEXT_ATTR_LEFT_INDENT,
-    wxTEXT_ATTR_RIGHT_INDENT,
-    wxTEXT_ATTR_TABS,
-
-    wxTEXT_ATTR_PARA_SPACING_AFTER,
-    wxTEXT_ATTR_PARA_SPACING_BEFORE,
-    wxTEXT_ATTR_LINE_SPACING,
-    wxTEXT_ATTR_CHARACTER_STYLE_NAME,
-    wxTEXT_ATTR_PARAGRAPH_STYLE_NAME,
-    wxTEXT_ATTR_BULLET_STYLE,
-    wxTEXT_ATTR_BULLET_NUMBER,
-    wxTEXT_ATTR_BULLET_TEXT,
-    wxTEXT_ATTR_BULLET_NAME,
-    wxTEXT_ATTR_URL,
-    wxTEXT_ATTR_PAGE_BREAK,
-    wxTEXT_ATTR_EFFECTS,
-    wxTEXT_ATTR_OUTLINE_LEVEL,
-
-/*!
- * Styles for wxTextAttrEx::SetBulletStyle
- */
-    wxTEXT_ATTR_BULLET_STYLE_NONE,
-    wxTEXT_ATTR_BULLET_STYLE_ARABIC,
-    wxTEXT_ATTR_BULLET_STYLE_LETTERS_UPPER,
-    wxTEXT_ATTR_BULLET_STYLE_LETTERS_LOWER,
-    wxTEXT_ATTR_BULLET_STYLE_ROMAN_UPPER,
-    wxTEXT_ATTR_BULLET_STYLE_ROMAN_LOWER,
-    wxTEXT_ATTR_BULLET_STYLE_SYMBOL,
-    wxTEXT_ATTR_BULLET_STYLE_BITMAP,
-    wxTEXT_ATTR_BULLET_STYLE_PARENTHESES,
-    wxTEXT_ATTR_BULLET_STYLE_PERIOD,
-    wxTEXT_ATTR_BULLET_STYLE_STANDARD,
-    wxTEXT_ATTR_BULLET_STYLE_RIGHT_PARENTHESIS,
-    wxTEXT_ATTR_BULLET_STYLE_OUTLINE,
-
-    wxTEXT_ATTR_BULLET_STYLE_ALIGN_LEFT,
-    wxTEXT_ATTR_BULLET_STYLE_ALIGN_RIGHT,
-    wxTEXT_ATTR_BULLET_STYLE_ALIGN_CENTRE,
-
-/*!
- * Styles for wxTextAttrEx::SetTextEffects
- */
-    wxTEXT_ATTR_EFFECT_NONE,
-    wxTEXT_ATTR_EFFECT_CAPITALS,
-    wxTEXT_ATTR_EFFECT_SMALL_CAPITALS,
-    wxTEXT_ATTR_EFFECT_STRIKETHROUGH,
-    wxTEXT_ATTR_EFFECT_DOUBLE_STRIKETHROUGH,
-    wxTEXT_ATTR_EFFECT_SHADOW,
-    wxTEXT_ATTR_EFFECT_EMBOSS,
-    wxTEXT_ATTR_EFFECT_OUTLINE,
-    wxTEXT_ATTR_EFFECT_ENGRAVE,
-    wxTEXT_ATTR_EFFECT_SUPERSCRIPT,
-    wxTEXT_ATTR_EFFECT_SUBSCRIPT,
-
-/*!
- * Line spacing values
- */
-    wxTEXT_ATTR_LINE_SPACING_NORMAL,
-    wxTEXT_ATTR_LINE_SPACING_HALF,
-    wxTEXT_ATTR_LINE_SPACING_TWICE,
-
-/*!
- * Character and paragraph combined styles
- */
-    wxTEXT_ATTR_CHARACTER,
-    wxTEXT_ATTR_PARAGRAPH,
-    wxTEXT_ATTR_ALL,
-
  };
 
 
 //---------------------------------------------------------------------------
 %newgroup
 
+// RTC is now using the same attr class as wx.TextCtrl.
+class wxTextAttr;
 
+
+%pythoncode {
+    %# an alias for compatibility
+    RichTextAttr = wx.TextAttr
+    TextAttrEx = wx.TextAttr
+}
+
+
+class wxRichTextFontTable: public wxObject
+{
+public:
+    wxRichTextFontTable();
+    virtual ~wxRichTextFontTable();
+
+    bool IsOk() const;
+
+    wxFont FindFont(const wxTextAttr& fontSpec);
+    void Clear();
+};
+
+
+//---------------------------------------------------------------------------
 
 %typemap(in) wxRichTextRange& (wxRichTextRange temp) {
     $1 = &temp;
@@ -188,7 +132,6 @@ bool wxRichTextRange_helper(PyObject* source, wxRichTextRange** obj)
     return wxPyTwoIntItem_helper(source, obj, wxT("wxRichTextRange"));
 }
 %}
-
 
 
 DocStr(wxRichTextRange,
@@ -348,166 +291,6 @@ wxRichTextRange wxPy_RTR_NONE;
 %threadWrapperOn
 
 
-
-
-//---------------------------------------------------------------------------
-%newgroup
-
-
-DocStr(wxTextAttrEx,
-"The TextAttrEx class stores information about the various attributes
-for a block of text, including font, colour, indents, alignments, and
-etc.", "");
-
-
-class wxTextAttrEx //: public wxTextAttr
-{
-public:
-    // ctors
-    wxTextAttrEx();
-    ~wxTextAttrEx();
-    
-    // Initialise this object
-    void Init();
-
-    // Copy
-    void Copy(const wxTextAttrEx& attr);
-
-    
-    // Stuff from wxTextAttr.  Just duck typing for now...
-    void SetTextColour(const wxColour& colText);
-    void SetBackgroundColour(const wxColour& colBack);
-    void SetFont(const wxFont& font, long flags = wxTEXT_ATTR_FONT);
-    void SetAlignment(wxTextAttrAlignment alignment);
-    void SetTabs(const wxArrayInt& tabs);
-    void SetLeftIndent(int indent, int subIndent=0);
-    void SetRightIndent(int indent);
-    void SetFlags(long flags);
-
-    bool HasTextColour() const;
-    bool HasBackgroundColour() const;
-    bool HasFont() const;
-    bool HasAlignment() const;
-    bool HasTabs() const;
-    bool HasLeftIndent() const;
-    bool HasRightIndent() const;
-    bool HasFlag(long flag) const;
-
-    const wxColour& GetTextColour() const;
-    const wxColour& GetBackgroundColour() const;
-    const wxFont& GetFont() const;
-    wxTextAttrAlignment GetAlignment() const;
-    const wxArrayInt& GetTabs() const;
-    long GetLeftIndent() const;
-    long GetLeftSubIndent() const;
-    long GetRightIndent() const;
-    long GetFlags() const;
-
-    
-    // setters
-    void SetCharacterStyleName(const wxString& name);
-    void SetParagraphStyleName(const wxString& name);
-    void SetListStyleName(const wxString& name);
-    void SetParagraphSpacingAfter(int spacing);
-    void SetParagraphSpacingBefore(int spacing);
-    void SetLineSpacing(int spacing);
-    void SetBulletStyle(int style);
-    void SetBulletNumber(int n);
-    void SetBulletText(const wxString& text);
-    void SetBulletName(const wxString& name);
-    void SetBulletFont(const wxString& bulletFont);
-    void SetURL(const wxString& url);
-    void SetPageBreak(bool pageBreak = true);
-    void SetTextEffects(int effects);
-    void SetTextEffectFlags(int effects);
-    void SetOutlineLevel(int level);
-
-    const wxString& GetCharacterStyleName() const;
-    const wxString& GetParagraphStyleName() const;
-    const wxString& GetListStyleName() const;
-    int GetParagraphSpacingAfter() const;
-    int GetParagraphSpacingBefore() const;
-    int GetLineSpacing() const;
-    int GetBulletStyle() const;
-    int GetBulletNumber() const;
-    const wxString& GetBulletText() const;
-    const wxString& GetBulletName() const;
-    const wxString& GetBulletFont() const;
-    const wxString& GetURL() const;
-    int GetTextEffects() const;
-    int GetTextEffectFlags() const;
-    int GetOutlineLevel() const;
-
-    bool HasFontWeight() const;
-    bool HasFontSize() const;
-    bool HasFontItalic() const;
-    bool HasFontUnderlined() const;
-    bool HasFontFaceName() const;
-
-    bool HasParagraphSpacingAfter() const;
-    bool HasParagraphSpacingBefore() const;
-    bool HasLineSpacing() const;
-    bool HasCharacterStyleName() const;
-    bool HasParagraphStyleName() const;
-    bool HasListStyleName() const;
-    bool HasBulletStyle() const;
-    bool HasBulletNumber() const;
-    bool HasBulletText() const;
-    bool HasBulletName() const;
-    bool HasURL() const;
-    bool HasPageBreak() const;
-    bool HasTextEffects() const;
-    bool HasTextEffect(int effect) const;
-    bool HasOutlineLevel() const;
-
-    // Is this a character style?
-    bool IsCharacterStyle() const;
-    bool IsParagraphStyle() const;
-
-    // returns false if we have any attributes set, true otherwise
-    bool IsDefault() const;
-
-    // return the attribute having the valid font and colours: it uses the
-    // attributes set in attr and falls back first to attrDefault and then to
-    // the text control font/colours for those attributes which are not set
-    static wxTextAttrEx CombineEx(const wxTextAttrEx& attr,
-                                  const wxTextAttrEx& attrDef,
-                                  const wxRichTextCtrl *text);
-
-    
-    %property(Alignment, GetAlignment, SetAlignment);
-    %property(BackgroundColour, GetBackgroundColour, SetBackgroundColour);
-    %property(Flags, GetFlags, SetFlags);
-    %property(Font, GetFont, SetFont);
-    %property(LeftIndent, GetLeftIndent, SetLeftIndent);
-    %property(LeftSubIndent, GetLeftSubIndent);
-    %property(RightIndent, GetRightIndent, SetRightIndent);
-    %property(Tabs, GetTabs, SetTabs);
-    %property(TextColour, GetTextColour, SetTextColour);
-
-    %property(CharacterStyleName, GetCharacterStyleName, SetCharacterStyleName);
-    %property(ParagraphStyleName, GetParagraphStyleName, SetParagraphStyleName);
-    %property(ListStyleName, GetListStyleName, SetListStyleName);
-    %property(ParagraphSpacingAfter, GetParagraphSpacingAfter, SetParagraphSpacingAfter);
-    %property(ParagraphSpacingBefore, GetParagraphSpacingBefore, SetParagraphSpacingBefore);
-    %property(LineSpacing, GetLineSpacing, SetLineSpacing);
-    %property(BulletStyle, GetBulletStyle, SetBulletStyle);
-    %property(BulletNumber, GetBulletNumber, SetBulletNumber);
-    %property(BulletText, GetBulletText, SetBulletText);
-    %property(BulletName, GetBulletName, SetBulletName);
-    %property(BulletFont, GetBulletFont, SetBulletFont);
-    %property(URL, GetURL, SetURL);
-    %property(TextEffects, GetTextEffects, SetTextEffects);
-    %property(TextEffectFlags, GetTextEffectFlags, SetTextEffectFlags);
-    %property(OutlineLevel, GetOutlineLevel, SetOutlineLevel);
-};
-
-
-
-%pythoncode {
-    %# an alias for compatibility
-    RichTextAttr = TextAttrEx
-}
 
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
@@ -719,8 +502,8 @@ public:
 
 
     /// Set attributes object
-    void SetAttributes(const wxTextAttrEx& attr);
-    wxTextAttrEx GetAttributes();
+    void SetAttributes(const wxTextAttr& attr);
+    wxTextAttr GetAttributes();
     %property(Attributes, GetAttributes, SetAttributes);
 
     /// Set/get stored descent
@@ -869,13 +652,13 @@ public:
     virtual void Reset();
 
     /// Convenience function to add a paragraph of text
-    virtual wxRichTextRange AddParagraph(const wxString& text, wxTextAttrEx* paraStyle = NULL);
+    virtual wxRichTextRange AddParagraph(const wxString& text, wxTextAttr* paraStyle = NULL);
 
     /// Convenience function to add an image
-    virtual wxRichTextRange AddImage(const wxImage& image, wxTextAttrEx* paraStyle = NULL);
+    virtual wxRichTextRange AddImage(const wxImage& image, wxTextAttr* paraStyle = NULL);
 
     /// Adds multiple paragraphs, based on newlines.
-    virtual wxRichTextRange AddParagraphs(const wxString& text, wxTextAttrEx* paraStyle = NULL);
+    virtual wxRichTextRange AddParagraphs(const wxString& text, wxTextAttr* paraStyle = NULL);
 
     /// Get the line at the given position. If caretPosition is true, the position is
     /// a caret position, which is normally a smaller number.
@@ -930,26 +713,26 @@ public:
 
     /// Set text attributes: character and/or paragraph styles.
     virtual bool SetStyle(const wxRichTextRange& range,
-                          const wxTextAttrEx& style,
+                          const wxTextAttr& style,
                           int flags = wxRICHTEXT_SETSTYLE_WITH_UNDO);
 
     /// Get the conbined text attributes for this position.
-    virtual bool GetStyle(long position, wxTextAttrEx& style);
+    virtual bool GetStyle(long position, wxTextAttr& style);
 
     /// Get the content (uncombined) attributes for this position.
-    virtual bool GetUncombinedStyle(long position, wxTextAttrEx& style);
+    virtual bool GetUncombinedStyle(long position, wxTextAttr& style);
 
 //     /// Implementation helper for GetStyle. If combineStyles is true, combine base, paragraph and
 //     /// context attributes.
-//     virtual bool DoGetStyle(long position, wxTextAttrEx& style, bool combineStyles = true);
+//     virtual bool DoGetStyle(long position, wxTextAttr& style, bool combineStyles = true);
 
     /// Get the combined style for a range - if any attribute is different within the range,
     /// that attribute is not present within the flags
-    virtual bool GetStyleForRange(const wxRichTextRange& range, wxTextAttrEx& style);
+    virtual bool GetStyleForRange(const wxRichTextRange& range, wxTextAttr& style);
 
     /// Combines 'style' with 'currentStyle' for the purpose of summarising the attributes of a range of
     /// content.
-    bool CollectStyle(wxTextAttrEx& currentStyle, const wxTextAttrEx& style, long& multipleStyleAttributes, int& multipleTextEffectAttributes);
+    bool CollectStyle(wxTextAttr& currentStyle, const wxTextAttr& style, long& multipleStyleAttributes, int& multipleTextEffectAttributes);
 
     /// Set list style
     //virtual bool SetListStyle(const wxRichTextRange& range, wxRichTextListStyleDefinition* def, int flags = wxRICHTEXT_SETSTYLE_WITH_UNDO, int startFrom = 1, int specifiedLevel = -1);
@@ -989,7 +772,7 @@ public:
     /// Fills in the attributes for numbering a paragraph after previousParagraph.
     %extend {
         virtual bool FindNextParagraphNumber(wxRichTextParagraph* previousParagraph,
-                                         wxTextAttrEx& attr) const
+                                         wxTextAttr& attr) const
         {
             wxRichTextAttr rta;
             bool rval;
@@ -1005,14 +788,14 @@ public:
     /// can use this to implement, for example, bold button updating. style must have
     /// flags indicating which attributes are of interest.
     virtual bool HasCharacterAttributes(const wxRichTextRange& range,
-                                        const wxTextAttrEx& style) const;
+                                        const wxTextAttr& style) const;
 
     /// Test if this whole range has paragraph attributes of the specified kind. If any
     /// of the attributes are different within the range, the test fails. You
     /// can use this to implement, for example, centering button updating. style must have
     /// flags indicating which attributes are of interest.
     virtual bool HasParagraphAttributes(const wxRichTextRange& range,
-                                        const wxTextAttrEx& style) const;
+                                        const wxTextAttr& style) const;
     
     /// Clone
     virtual wxRichTextObject* Clone() const;
@@ -1039,16 +822,16 @@ public:
 
     /// Set default style for new content. Setting it to a default attribute
     /// makes new content take on the 'basic' style.
-    virtual bool SetDefaultStyle(const wxTextAttrEx& style);
+    virtual bool SetDefaultStyle(const wxTextAttr& style);
 
     /// Get default style
-    virtual const wxTextAttrEx& GetDefaultStyle() const;
+    virtual const wxTextAttr& GetDefaultStyle() const;
 
     /// Set basic (overall) style
-    virtual void SetBasicStyle(const wxTextAttrEx& style);
+    virtual void SetBasicStyle(const wxTextAttr& style);
 
     /// Get basic (overall) style
-    virtual const wxTextAttrEx& GetBasicStyle() const;
+    virtual const wxTextAttr& GetBasicStyle() const;
 
     /// Invalidate the buffer. With no argument, invalidates whole buffer.
     void Invalidate(const wxRichTextRange& invalidRange = wxRICHTEXT_ALL);
@@ -1128,7 +911,7 @@ class wxRichTextParagraph: public wxRichTextBox
 {
 public:
     wxRichTextParagraph(const wxString& text, wxRichTextObject* parent = NULL,
-                        wxTextAttrEx* paraStyle = NULL, wxTextAttrEx* charStyle = NULL);
+                        wxTextAttr* paraStyle = NULL, wxTextAttr* charStyle = NULL);
 
     virtual ~wxRichTextParagraph();
 
@@ -1152,7 +935,7 @@ public:
 // Implementation
 
     /// Apply paragraph styles such as centering to the wrapped lines
-    virtual void ApplyParagraphStyle(const wxTextAttrEx& attr, const wxRect& rect);
+    virtual void ApplyParagraphStyle(const wxTextAttr& attr, const wxRect& rect);
 
     /// Insert text at the given position
     virtual bool InsertText(long pos, const wxString& text);
@@ -1190,7 +973,7 @@ public:
     /// Get combined attributes of the base style, paragraph style and
     /// character style. We use this to dynamically retrieve the actual style.
     %extend {
-        wxTextAttrEx GetCombinedAttributes(wxTextAttrEx* contentStyle=NULL)
+        wxTextAttr GetCombinedAttributes(wxTextAttr* contentStyle=NULL)
         {
             if (contentStyle)
                 return self->GetCombinedAttributes(*contentStyle);
@@ -1227,7 +1010,7 @@ class wxRichTextPlainText: public wxRichTextObject
 public:
     wxRichTextPlainText(const wxString& text = wxEmptyString,
                         wxRichTextObject* parent = NULL,
-                        wxTextAttrEx* style = NULL);
+                        wxTextAttr* style = NULL);
 
     /// Get the first position from pos that has a line break character.
     long GetFirstLineBreakPosition(long pos);
@@ -1337,8 +1120,8 @@ class wxRichTextImage: public wxRichTextObject
 public:
     // TODO: Which of these constructors?
     wxRichTextImage(wxRichTextObject* parent = NULL);
-    //wxRichTextImage(const wxImage& image, wxRichTextObject* parent = NULL, wxTextAttrEx* charStyle = NULL);
-    //wxRichTextImage(const wxRichTextImageBlock& imageBlock, wxRichTextObject* parent = NULL, wxTextAttrEx* charStyle = NULL);
+    //wxRichTextImage(const wxImage& image, wxRichTextObject* parent = NULL, wxTextAttr* charStyle = NULL);
+    //wxRichTextImage(const wxRichTextImageBlock& imageBlock, wxRichTextObject* parent = NULL, wxTextAttr* charStyle = NULL);
 
 
 // Accessors
@@ -1405,6 +1188,11 @@ public:
     /// Pop style sheet from top of stack
     wxRichTextStyleSheet* PopStyleSheet();
 
+    /// Set/get table storing fonts
+    wxRichTextFontTable& GetFontTable();
+    void SetFontTable(const wxRichTextFontTable& table);
+    
+    
 // Operations
 
     /// Initialisation
@@ -1435,7 +1223,7 @@ public:
 
     /// Convenience function to add a paragraph of text
     virtual wxRichTextRange AddParagraph(const wxString& text,
-                                         wxTextAttrEx* paraStyle = NULL);
+                                         wxTextAttr* paraStyle = NULL);
 
     /// Begin collapsing undo/redo commands. Note that this may not work properly
     /// if combining commands that delete or insert content, changing ranges for
@@ -1476,7 +1264,7 @@ public:
     virtual bool CanPasteFromClipboard() const;
 
     /// Begin using a style
-    virtual bool BeginStyle(const wxTextAttrEx& style);
+    virtual bool BeginStyle(const wxTextAttr& style);
 
     /// End the style
     virtual bool EndStyle();
@@ -1643,7 +1431,7 @@ public:
     /// Get the style that is appropriate for a new paragraph at this position.
     /// If the previous paragraph has a paragraph style name, look up the next-paragraph
     /// style.
-    wxTextAttrEx GetStyleForNewParagraph(long pos,
+    wxTextAttr GetStyleForNewParagraph(long pos,
                                          bool caretPosition = false,
                                          bool lookUpNewParaStyle=false) const;
 
@@ -1876,19 +1664,19 @@ public:
     /// Draw a standard bullet, as specified by the value of GetBulletName
     virtual bool DrawStandardBullet(wxRichTextParagraph* paragraph,
                                     wxDC& dc,
-                                    const wxTextAttrEx& attr,
+                                    const wxTextAttr& attr,
                                     const wxRect& rect) = 0;
 
     /// Draw a bullet that can be described by text, such as numbered or symbol bullets
     virtual bool DrawTextBullet(wxRichTextParagraph* paragraph,
-                                wxDC& dc, const wxTextAttrEx& attr,
+                                wxDC& dc, const wxTextAttr& attr,
                                 const wxRect& rect,
                                 const wxString& text) = 0;
 
     /// Draw a bitmap bullet, where the bullet bitmap is specified by the value of GetBulletName
     virtual bool DrawBitmapBullet(wxRichTextParagraph* paragraph,
                                   wxDC& dc,
-                                  const wxTextAttrEx& attr,
+                                  const wxTextAttr& attr,
                                   const wxRect& rect) = 0;
 
     /// Enumerate the standard bullet names currently supported
@@ -1907,20 +1695,20 @@ public:
     /// Draw a standard bullet, as specified by the value of GetBulletName
     virtual bool DrawStandardBullet(wxRichTextParagraph* paragraph,
                                     wxDC& dc,
-                                    const wxTextAttrEx& attr,
+                                    const wxTextAttr& attr,
                                     const wxRect& rect);
 
     /// Draw a bullet that can be described by text, such as numbered or symbol bullets
     virtual bool DrawTextBullet(wxRichTextParagraph* paragraph,
                                 wxDC& dc,
-                                const wxTextAttrEx& attr,
+                                const wxTextAttr& attr,
                                 const wxRect& rect,
                                 const wxString& text);
 
     /// Draw a bitmap bullet, where the bullet bitmap is specified by the value of GetBulletName
     virtual bool DrawBitmapBullet(wxRichTextParagraph* paragraph,
                                   wxDC& dc,
-                                  const wxTextAttrEx& attr,
+                                  const wxTextAttr& attr,
                                   const wxRect& rect);
 
     /// Enumerate the standard bullet names currently supported

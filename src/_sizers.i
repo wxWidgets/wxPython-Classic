@@ -317,6 +317,8 @@ added, if needed.", "");
         wxRect , GetRect(),
         "Returns the rectangle that the sizer item should occupy", "");
 
+    void SetId(int id);
+    int GetId() const;
 
     DocDeclStr(
         bool , IsWindow(),
@@ -430,6 +432,13 @@ window then it is shown or hidden as needed.", "");
         wxPoint , GetPosition(),
         "Returns the current position of the item, as set in the last Layout.", "");
 
+    DocDeclStr(
+        bool , InformFirstDirection( int direction, int size, int availableOtherDir=-1 ),
+        "Called once the first component of an item has been decided. This is
+used in algorithms that depend on knowing the size in one direction
+before the min size in the other direction can be known.  Returns true
+if it made use of the information (and min size was changed).", "");
+    
 
     // wxObject* GetUserData();
     %extend {
@@ -475,6 +484,7 @@ isn't any.", "");
     %property(Spacer, GetSpacer, AssignSpacer, doc="See `GetSpacer` and `AssignSpacer`");
     %property(UserData, GetUserData, SetUserData, doc="See `GetUserData` and `SetUserData`");
     %property(Window, GetWindow, AssignWindow, doc="See `GetWindow` and `AssignWindow`");
+    %property(Id, GetId, SetId);
 };
 
 
@@ -964,6 +974,7 @@ the item to be found.", "");
         }
     }
 
+    wxSizerItem* GetItemById( int id, bool recursive = false );
     
     %Rename(_ReplaceWin,
             bool, Replace( wxWindow *oldwin, wxWindow *newwin, bool recursive = false ));
@@ -1250,7 +1261,12 @@ as well.", "");
         void , DeleteWindows(),
         "Destroy all windows managed by the sizer.", "");
 
-
+    DocDeclStr(
+        virtual bool , InformFirstDirection( int direction, int size, int availableOtherDir ),
+        "Inform sizer about the first direction that has been decided (by
+parent item).  Returns true if it made use of the informtion (and
+recalculated min size).", "");
+    
 
     DocStr(GetChildren,
            "Returns all of the `wx.SizerItem` objects managed by the sizer in a
@@ -1436,6 +1452,23 @@ sizer.", "");
     
     %property(Orientation, GetOrientation, SetOrientation, doc="See `GetOrientation` and `SetOrientation`");
 };
+
+//---------------------------------------------------------------------------
+%newgroup;
+
+
+DocStr( wxWrapSizer,
+"A box sizer that can wrap items on several lines when widths exceed
+available width.", "");
+
+enum { wxEXTEND_LAST_ON_EACH_LINE };
+
+class wxWrapSizer: public wxBoxSizer
+{
+public:
+    wxWrapSizer( int orient=wxHORIZONTAL, int flags=wxEXTEND_LAST_ON_EACH_LINE );
+};
+
 
 //---------------------------------------------------------------------------
 %newgroup;

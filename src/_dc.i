@@ -21,7 +21,7 @@
 %}
 
 // TODO: 1. wrappers for wxDrawObject and wxDC::DrawObject
-
+//       2. Does the factory and wxDCImpl classes need to be exposed?
 
 //---------------------------------------------------------------------------
 
@@ -66,6 +66,9 @@ public:
         def EndDrawing(self):  pass
     }
     
+
+    wxDCImpl *GetImpl();
+    wxWindow *GetWindow();
 
     
 // TODO    virtual void DrawObject(wxDrawObject* drawobject);
@@ -531,6 +534,7 @@ printer). *Message* is a message to show whilst printing.", "");
         "Ends a document page (only relevant when outputting to a printer).", "");
     
 
+    
 
     // set objects to use for drawing
     // ------------------------------
@@ -695,8 +699,10 @@ fit on the printer page::
         "GetSizeMMTuple() -> (width, height)",
         GetSizeMMTuple);
 
+    
+    int GetResolution();
 
-
+    
     // coordinates conversions
     // -----------------------
 
@@ -941,12 +947,11 @@ colour.
 ", "");
     
 
-    DocDeclStr(
-        void , ComputeScaleAndOrigin(),
-        "Performs all necessary computations for given platform and context
-type after each change of scale and origin parameters. Usually called
-automatically internally after such changes.
-", "");
+//     DocDeclStr(
+//         void , ComputeScaleAndOrigin(),
+//         "Performs all necessary computations for given platform and context
+// type after each change of scale and origin parameters. Usually called
+// automatically internally after such changes.", "");
     
 
     
@@ -1523,8 +1528,6 @@ destroyed safely.", "");
     DocDeclStr(
         void , SelectObjectAsSource(const wxBitmap& bmp),
         "", "");
-    
-    
 };
 
 
@@ -1767,19 +1770,19 @@ public:
         "Constructs a PostScript printer device context from a `wx.PrintData`
 object.", "");
 
-    wxPrintData& GetPrintData();
-    void SetPrintData(const wxPrintData& data);
+//     wxPrintData& GetPrintData();
+//     void SetPrintData(const wxPrintData& data);
 
-    DocDeclStr(
-        static void , SetResolution(int ppi),
-        "Set resolution (in pixels per inch) that will be used in PostScript
-output. Default is 720ppi.", "");
+//     DocDeclStr(
+//         static void , SetResolution(int ppi),
+//         "Set resolution (in pixels per inch) that will be used in PostScript
+// output. Default is 720ppi.", "");
     
-    DocDeclStr(
-        static int , GetResolution(),
-        "Return resolution used in PostScript output.", "");
+//     DocDeclStr(
+//         static int , GetResolution(),
+//         "Return resolution used in PostScript output.", "");
 
-    %property(PrintData, GetPrintData, SetPrintData, doc="See `GetPrintData` and `SetPrintData`");
+//     %property(PrintData, GetPrintData, SetPrintData, doc="See `GetPrintData` and `SetPrintData`");
 };
 
 //---------------------------------------------------------------------------
@@ -1898,14 +1901,11 @@ public:
 
 class wxSVGFileDC : public wxDC
 {
-    %nokwargs wxSVGFileDC;
+    wxSVGFileDC(wxString filename,
+                int width=320,
+                int height=240,
+                double dpi=72.0);
     
-    wxSVGFileDC(wxString f);
-    wxSVGFileDC(wxString f, int Width, int Height);
-    wxSVGFileDC(wxString f, int Width, int Height, float dpi);
-    
-    ~wxSVGFileDC();
-
 };
 
 //---------------------------------------------------------------------------

@@ -40,6 +40,12 @@ public:
     // process an event right now
     bool ProcessEvent(wxEvent& event);
 
+    // Process an event by calling ProcessEvent and handling any exceptions
+    // thrown by event handlers. It's mostly useful when processing wx events
+    // when called from C code (e.g. in GTK+ callback) when the exception
+    // wouldn't correctly propagate to wxEventLoop.
+    bool SafelyProcessEvent(wxEvent& event);
+
     // add an event to be processed later
     void AddPendingEvent(const wxEvent& event);
 

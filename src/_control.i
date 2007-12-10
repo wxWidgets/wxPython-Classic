@@ -214,7 +214,6 @@ than the number of items in the control.", "");
     
 
 
-    
      %extend {
         DocStr(GetClientData,
                "Returns the client data associated with the given item, (if any.)", "");
@@ -334,5 +333,298 @@ class wxControlWithItems : public wxControl, public wxItemContainer
 public:
 };
 
+//---------------------------------------------------------------------------
+%newgroup;
+
+
+class wxTextEntry
+{
+public:
+    // wxTextEntry() { m_eventsBlock = 0; }  ****  It's an ABC, can't instantiate
+    virtual ~wxTextEntry();
+
+
+    DocDeclStr(
+        virtual void , SetValue(const wxString& value),
+        "Set the value in the text entry field.  Generates a text change event.", "");
+    
+    DocDeclStr(
+        virtual void , ChangeValue(const wxString& value),
+        "Set the value in the text entry field.  Generates a text change event.", "");
+    
+
+    DocDeclStr(
+        virtual void , WriteText(const wxString& text),
+        "Insert text at the current insertion point in the text field,
+replacing any text that is currently selected.", "");
+    
+    DocDeclStr(
+        virtual void , AppendText(const wxString& text),
+        "Add text to the end of the text field, without removing any existing
+text.  Will reset the selection if any.", "");
+    
+
+    DocDeclStr(
+        virtual wxString , GetValue(),
+        "Returns the current value in the text field.", "");
+    
+    DocDeclStr(
+        virtual wxString , GetRange(long from, long to) const,
+        "Returns a subset of the value in the text field.", "");
+
+    // Just for backwards compatibility
+    %pythoncode { GetString = wx._deprecated(GetRange, "Use `GetRange` instead.") }
+    
+    DocDeclStr(
+        bool , IsEmpty() const,
+        "Returns True if the value in the text field is empty.", "");
+    
+
+
+    DocDeclStr(
+        virtual void , Replace(long from, long to, const wxString& value),
+        "Replaces the text between two positions with the given text.", "");
+    
+    DocDeclStr(
+        virtual void , Remove(long from, long to),
+        "Removes the text between two positions in the text field", "");
+    
+    DocDeclStr(
+        virtual void , Clear(),
+        "Clear all text from the text field", "");
+    
+
+
+    // clipboard operations
+    // --------------------
+
+    DocDeclStr(
+        virtual void , Copy(),
+        "Copies the selected text to the clipboard.", "");
+    
+    DocDeclStr(
+        virtual void , Cut(),
+        "Copies the selected text to the clipboard and removes the selection.", "");
+    
+    DocDeclStr(
+        virtual void , Paste(),
+        "Pastes text from the clipboard to the text field.", "");
+    
+
+    DocDeclStr(
+        virtual bool , CanCopy() const,
+        "Returns True if the text field has a text selection to copy to the
+clipboard.", "");
+    
+    DocDeclStr(
+        virtual bool , CanCut() const,
+        "Returns True if the text field is editable and there is a text
+selection to copy to the clipboard.", "");
+    
+    DocDeclStr(
+        virtual bool , CanPaste() const,
+        "Returns True if the text field is editable and there is text on the
+clipboard that can be pasted into the text field.", "");
+    
+
+    // undo/redo
+    // ---------
+
+    DocDeclStr(
+        virtual void , Undo(),
+        "Undoes the last edit in the text field", "");
+    
+    DocDeclStr(
+        virtual void , Redo(),
+        "Redoes the last undo in the text field", "");
+    
+
+    DocDeclStr(
+        virtual bool , CanUndo() const,
+        "Returns True if the text field is editable and the last edit can be
+undone.", "");
+    
+    DocDeclStr(
+        virtual bool , CanRedo() const,
+        "Returns True if the text field is editable and the last undo can be
+redone.", "");
+    
+
+
+
+    DocDeclStr(
+        virtual void , SetInsertionPoint(long pos),
+        "Sets the insertion point in the combobox text field.", "");
+    
+    DocDeclStr(
+        virtual long , GetInsertionPoint() const,
+        "Returns the insertion point for the combobox's text field.", "");
+    
+
+    DocDeclStr(
+        virtual void , SetInsertionPointEnd(),
+        "Move the insertion point to the end of the current value.", "");
+    
+
+    DocDeclStr(
+        virtual long , GetLastPosition() const,
+        "Returns the last position in the combobox text field.", "");
+
+
+
+    DocDeclStr(
+        virtual void , SetSelection(long from, long to),
+        "Selects the text starting at the first position up to (but not
+including) the character at the last position.  If both parameters are
+-1 then all text in the control is selected.", "");
+    
+    DocDeclStr(
+        virtual void , SelectAll(),
+        "Select all text in the text field.", "");
+    
+    DocDeclStr(
+        bool , HasSelection() const,
+        "Returns True if there is a non-empty selection in the text field.", "");
+    
+    DocDeclStr(
+        virtual wxString , GetStringSelection() const,
+        "Returns the selected text.", "");
+    
+
+    DocDeclAStr(
+        virtual void, GetSelection(long* OUTPUT, long* OUTPUT) const,
+        "GetSelection() -> (from, to)",
+        "If the return values from and to are the same, there is no selection.", "");
+    
+
+    // auto-completion
+    // ---------------
+
+    // these functions allow to auto-complete the text already entered into the
+    // control using either the given fixed list of strings, the paths from the
+    // file system or, in the future, an arbitrary user-defined completer
+    //
+    // they all return true if completion was enabled or false on error (most
+    // commonly meaning that this functionality is not available under the
+    // current platform)
+
+    virtual bool AutoComplete(const wxArrayString& choices);
+    virtual bool AutoCompleteFileNames();
+
+
+    // status
+    // ------
+
+    virtual bool IsEditable() const;
+    virtual void SetEditable(bool editable);
+
+
+    DocDeclStr(
+        virtual void , SetMaxLength(long len),
+        "Set the max number of characters which may be entered in a single line
+text control.", "");
+    
+
+
+    %property(InsertionPoint, GetInsertionPoint, SetInsertionPoint);
+    %property(LastPosition, GetLastPosition);
+    %property(Value, GetValue, SetValue);
+    
+};
+
+
+    
+DocStr(wxTextAreaBase,
+"multiline text control specific methods","");           
+
+class wxTextAreaBase
+{
+public:
+//    wxTextAreaBase();  // ****   An ABC
+    virtual ~wxTextAreaBase() ;
+
+    // lines access
+    // ------------
+
+    virtual int GetLineLength(long lineNo) const;
+    virtual wxString GetLineText(long lineNo) const;
+    virtual int GetNumberOfLines() const;
+
+
+    // file IO
+    // -------
+
+    bool LoadFile(const wxString& file, int fileType = wxTEXT_TYPE_ANY);
+    bool SaveFile(const wxString& file = wxEmptyString,
+                  int fileType = wxTEXT_TYPE_ANY);
+
+    // dirty flag handling
+    // -------------------
+
+    virtual bool IsModified() const;
+    virtual void MarkDirty();
+    virtual void DiscardEdits();
+    void SetModified(bool modified);
+
+
+    // styles handling
+    // ---------------
+
+    // text control under some platforms supports the text styles: these
+    // methods allow to apply the given text style to the given selection or to
+    // set/get the style which will be used for all appended text
+    virtual bool SetStyle(long start, long end, const wxTextAttr& style);
+    virtual bool GetStyle(long position, wxTextAttr& style);
+    virtual bool SetDefaultStyle(const wxTextAttr& style);
+    virtual const wxTextAttr& GetDefaultStyle() const;
+
+
+    // coordinates translation
+    // -----------------------
+
+    // translate between the position (which is just an index in the text ctrl
+    // considering all its contents as a single strings) and (x, y) coordinates
+    // which represent column and line.
+    virtual long XYToPosition(long x, long y) const;
+    DocDeclA(
+        virtual /*bool*/ void, PositionToXY(long pos, long *OUTPUT, long *OUTPUT) const,
+        "PositionToXY(long pos) -> (x, y)");
+
+    virtual void ShowPosition(long pos);
+
+    DocDeclAStr(
+        virtual wxTextCtrlHitTestResult, HitTest(const wxPoint& pt,
+                                                 long* OUTPUT, long* OUTPUT) const,
+        "HitTest(Point pt) -> (result, col, row)",
+        "Find the row, col coresponding to the character at the point given in
+pixels. NB: pt is in device coords but is not adjusted for the client
+area origin nor scrolling.", "");
+
+
+    DocDeclAStrName(
+        virtual wxTextCtrlHitTestResult , HitTest(const wxPoint& pt, long *OUTPUT) const,
+        "HitTestPos(Point pt) -> (result, position)",
+        "Find the character position in the text coresponding to the point
+given in pixels. NB: pt is in device coords but is not adjusted for
+the client area origin nor scrolling. ", "",
+        HitTestPos);
+
+
+    %property(DefaultStyle, GetDefaultStyle, SetDefaultStyle);
+    %property(NumberOfLines, GetNumberOfLines);
+};
+
+    
+DocStr(wxTextCtrlIface,
+"This class defines the wx.TextCtrl interface", "");
+class  wxTextCtrlIface : public wxTextAreaBase,
+                         public wxTextEntry
+{
+public:
+    // wxTextCtrlIface();   ****  An ABC
+
+};
+
+    
 //---------------------------------------------------------------------------
 

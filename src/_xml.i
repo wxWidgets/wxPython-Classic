@@ -84,7 +84,8 @@ public:
               const wxString& name = wxPyEmptyString,
               const wxString& content = wxPyEmptyString,
               wxXmlProperty *props = NULL,
-              wxXmlNode *next = NULL);
+              wxXmlNode *next = NULL,
+              int lineNo=-1);
     ~wxXmlNode();
 
 
@@ -118,6 +119,13 @@ public:
     wxXmlNode *GetNext() const;
     wxXmlNode *GetChildren() const;
 
+//    bool GetAttribute(const wxString& attrName, wxString *value) const;
+    wxString GetAttribute(const wxString& attrName,
+                         const wxString& defaultVal) const;
+    bool HasAttribute(const wxString& attrName) const;
+
+    int GetLineNumber() const;
+
     wxXmlProperty *GetProperties() const;
     wxString GetPropVal(const wxString& propName,
                         const wxString& defaultVal) const;
@@ -132,6 +140,9 @@ public:
     void SetChildren(wxXmlNode *child);
 
     void SetProperties(wxXmlProperty *prop);
+
+    void SetAttributes(wxXmlAttribute *attr);
+    virtual void AddAttribute(wxXmlAttribute *attr);
 
     %property(Children, GetChildren, SetChildren, doc="See `GetChildren` and `SetChildren`");
     %property(Content, GetContent, SetContent, doc="See `GetContent` and `SetContent`");

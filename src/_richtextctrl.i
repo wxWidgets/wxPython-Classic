@@ -48,7 +48,9 @@ DocStr(wxRichTextCtrl,
 "", "");
 
 
-class wxRichTextCtrl : public wxScrolledWindow
+class wxRichTextCtrl : public wxControl,
+                       public wxTextCtrlIface,
+                       public ScrollHelper
 {
 public:
     %pythonAppend wxRichTextCtrl         "self._setOORInfo(self)"
@@ -216,23 +218,23 @@ text control.", "");
 
 
     DocDeclStr(
-        virtual bool , SetStyle(const wxRichTextRange& range, const wxTextAttrEx& style),
+        virtual bool , SetStyle(const wxRichTextRange& range, const wxTextAttr& style),
         "Set the style for the text in ``range`` to ``style``", "");
 
     DocDeclStr(
-        virtual bool , GetStyle(long position, wxTextAttrEx& style),
+        virtual bool , GetStyle(long position, wxTextAttr& style),
         "Retrieve the style used at the given position.  Copies the style
 values at ``position`` into the ``style`` parameter and returns ``True``
 if successful.  Returns ``False`` otherwise.", "");
 
 
     DocDeclStr(
-        virtual bool , GetStyleForRange(const wxRichTextRange& range, wxTextAttrEx& style),
+        virtual bool , GetStyleForRange(const wxRichTextRange& range, wxTextAttr& style),
         "Get the common set of styles for the range", "");
     
 
     DocDeclStr(
-        virtual bool , SetStyleEx(const wxRichTextRange& range, const wxTextAttrEx& style,
+        virtual bool , SetStyleEx(const wxRichTextRange& range, const wxTextAttr& style,
                                   int flags = wxRICHTEXT_SETSTYLE_WITH_UNDO),
         "Extended style setting operation with flags including:
 RICHTEXT_SETSTYLE_WITH_UNDO, RICHTEXT_SETSTYLE_OPTIMIZE,
@@ -241,19 +243,19 @@ RICHTEXT_SETSTYLE_PARAGRAPHS_ONLY, RICHTEXT_SETSTYLE_CHARACTERS_ONLY", "");
 
     
     DocDeclStr(
-        virtual bool , GetUncombinedStyle(long position, wxTextAttrEx& style),
+        virtual bool , GetUncombinedStyle(long position, wxTextAttr& style),
         "Get the content (uncombined) attributes for this position.  Copies the
 style values at ``position`` into the ``style`` parameter and returns
 ``True`` if successful.  Returns ``False`` otherwise.", "");
 
 
     DocDeclStr(
-        virtual bool , SetDefaultStyle(const wxTextAttrEx& style),
+        virtual bool , SetDefaultStyle(const wxTextAttr& style),
         "Set the style used by default for the rich text document.", "");
 
 
     DocDeclStrName(
-        virtual const wxTextAttrEx , GetDefaultStyleEx() const,
+        virtual const wxTextAttr , GetDefaultStyleEx() const,
         "Retrieves a copy of the default style object.", "",
         GetDefaultStyle);
 
@@ -486,17 +488,17 @@ use for internal and file storage of the raw data.", "",
 
     
     DocDeclStr(
-        virtual void , SetBasicStyle(const wxTextAttrEx& style),
+        virtual void , SetBasicStyle(const wxTextAttr& style),
         "", "");
 
 
     DocDeclStr(
-        virtual const wxTextAttrEx , GetBasicStyle() const,
+        virtual const wxTextAttr , GetBasicStyle() const,
         "Get basic (overall) style", "");
 
 
     DocDeclStr(
-        virtual bool , BeginStyle(const wxTextAttrEx& style),
+        virtual bool , BeginStyle(const wxTextAttr& style),
         "Begin using a style", "");
 
     
@@ -862,7 +864,7 @@ setting the caret position.", "");
 
     DocDeclStr(
         virtual bool , HasCharacterAttributes(const wxRichTextRange& range,
-                                              const wxTextAttrEx& style) const,
+                                              const wxTextAttr& style) const,
         "Test if this whole range has character attributes of the specified
 kind. If any of the attributes are different within the range, the
 test fails. You can use this to implement, for example, bold button
@@ -874,7 +876,7 @@ interest.
 
     DocDeclStr(
         virtual bool , HasParagraphAttributes(const wxRichTextRange& range,
-                                              const wxTextAttrEx& style) const,
+                                              const wxTextAttr& style) const,
         "Test if this whole range has paragraph attributes of the specified
 kind. If any of the attributes are different within the range, the
 test fails. You can use this to implement, for example, centering
@@ -957,140 +959,12 @@ changed.", "");
 
 
 
-    %property(Buffer, GetBuffer, doc="See `GetBuffer`");
-    %property(DefaultStyle, GetDefaultStyle, SetDefaultStyle, doc="See `GetDefaultStyle` and `SetDefaultStyle`");
-    %property(DelayedLayoutThreshold, GetDelayedLayoutThreshold, SetDelayedLayoutThreshold, doc="See `GetDelayedLayoutThreshold` and `SetDelayedLayoutThreshold`");
-    %property(Filename, GetFilename, SetFilename, doc="See `GetFilename` and `SetFilename`");
-    %property(InsertionPoint, GetInsertionPoint, SetInsertionPoint, doc="See `GetInsertionPoint` and `SetInsertionPoint`");
-    %property(InternalSelectionRange, GetInternalSelectionRange, SetInternalSelectionRange, doc="See `GetInternalSelectionRange` and `SetInternalSelectionRange`");
-    %property(LastPosition, GetLastPosition, doc="See `GetLastPosition`");
-    %property(NumberOfLines, GetNumberOfLines, doc="See `GetNumberOfLines`");
-    %property(Selection, GetSelection, SetSelectionRange, doc="See `GetSelection` and `SetSelection`");
-    %property(SelectionRange, GetSelectionRange, SetSelectionRange, doc="See `GetSelectionRange` and `SetSelectionRange`");
-    %property(StringSelection, GetStringSelection, doc="See `GetStringSelection`");
-    %property(StyleSheet, GetStyleSheet, SetStyleSheet, doc="See `GetStyleSheet` and `SetStyleSheet`");
-    %property(Value, GetValue, SetValue, doc="See `GetValue` and `SetValue`");
-
-
-
-    // TODO:  Some of these methods may be useful too...
-    
-
-//     /// Set up scrollbars, e.g. after a resize
-//     virtual void SetupScrollbars(bool atTop = false);
-
-//     /// Keyboard navigation
-//     virtual bool KeyboardNavigate(int keyCode, int flags);
-
-//     /// Paint the background
-//     virtual void PaintBackground(wxDC& dc);
-
-// #if wxRICHTEXT_BUFFERED_PAINTING
-//     /// Recreate buffer bitmap if necessary
-//     virtual bool RecreateBuffer(const wxSize& size = wxDefaultSize);
-// #endif
-
-//     /// Set the selection
-//     virtual void DoSetSelection(long from, long to, bool scrollCaret = true);
-
-//     /// Write text
-//     virtual void DoWriteText(const wxString& value, int flags = 0);
-
-//     /// Should we inherit colours?
-//     virtual bool ShouldInheritColours() const { return false; }
-
-//     /// Position the caret
-//     virtual void PositionCaret();
-
-//     /// Extend the selection, returning true if the selection was
-//     /// changed. Selections are in caret positions.
-//     virtual bool ExtendSelection(long oldPosition, long newPosition, int flags);
-
-//     /// Scroll into view. This takes a _caret_ position.
-//     virtual bool ScrollIntoView(long position, int keyCode);
-
-//     /// The caret position is the character position just before the caret.
-//     /// A value of -1 means the caret is at the start of the buffer.
-//     void SetCaretPosition(long position, bool showAtLineStart = false) ;
-//     long GetCaretPosition() const { return m_caretPosition; }
-
-//     /// The adjusted caret position is the character position adjusted to take
-//     /// into account whether we're at the start of a paragraph, in which case
-//     /// style information should be taken from the next position, not current one.
-//     long GetAdjustedCaretPosition(long caretPos) const;
-
-//     /// Move caret one visual step forward: this may mean setting a flag
-//     /// and keeping the same position if we're going from the end of one line
-//     /// to the start of the next, which may be the exact same caret position.
-//     void MoveCaretForward(long oldPosition) ;
-
-//     /// Move caret one visual step forward: this may mean setting a flag
-//     /// and keeping the same position if we're going from the end of one line
-//     /// to the start of the next, which may be the exact same caret position.
-//     void MoveCaretBack(long oldPosition) ;
-
-//     /// Get the caret height and position for the given character position
-//     bool GetCaretPositionForIndex(long position, wxRect& rect);
-
-//     /// Gets the line for the visible caret position. If the caret is
-//     /// shown at the very end of the line, it means the next character is actually
-//     /// on the following line. So let's get the line we're expecting to find
-//     /// if this is the case.
-//     wxRichTextLine* GetVisibleLineForCaretPosition(long caretPosition) const;
-
-//     /// Gets the command processor
-//     wxCommandProcessor* GetCommandProcessor() const { return GetBuffer().GetCommandProcessor(); }
-
-//     /// Delete content if there is a selection, e.g. when pressing a key.
-//     /// Returns the new caret position in newPos, or leaves it if there
-//     /// was no action.
-//     bool DeleteSelectedContent(long* newPos= NULL);
-
-//     /// Transform logical to physical
-//     wxPoint GetPhysicalPoint(const wxPoint& ptLogical) const;
-
-//     /// Transform physical to logical
-//     wxPoint GetLogicalPoint(const wxPoint& ptPhysical) const;
-
-//     /// Finds the caret position for the next word. Direction
-//     /// is 1 (forward) or -1 (backwards).
-//     virtual long FindNextWordPosition(int direction = 1) const;
-
-//     /// Is the given position visible on the screen?
-//     bool IsPositionVisible(long pos) const;
-
-//     /// Returns the first visible position in the current view
-//     long GetFirstVisiblePosition() const;
-
-//     /// Returns the caret position since the default formatting was changed. As
-//     /// soon as this position changes, we no longer reflect the default style
-//     /// in the UI. A value of -2 means that we should only reflect the style of the
-//     /// content under the caret.
-//     long GetCaretPositionForDefaultStyle() const { return m_caretPositionForDefaultStyle; }
-
-//     /// Set the caret position for the default style that the user is selecting.
-//     void SetCaretPositionForDefaultStyle(long pos) { m_caretPositionForDefaultStyle = pos; }
-
-//     /// Should the UI reflect the default style chosen by the user, rather than the style under
-//     /// the caret?
-//     bool IsDefaultStyleShowing() const { return m_caretPositionForDefaultStyle != -2; }
-
-//     /// Convenience function that tells the control to start reflecting the default
-//     /// style, since the user is changing it.
-//     void SetAndShowDefaultStyle(const wxRichTextAttr& attr)
-//     {
-//         SetDefaultStyle(attr);
-//         SetCaretPositionForDefaultStyle(GetCaretPosition());
-//     }
-
-//     /// Get the first visible point in the window
-//     wxPoint GetFirstVisiblePoint() const;
-
-// // Implementation
-
-//      /// Font names take a long time to retrieve, so cache them (on demand)
-//      static const wxArrayString& GetAvailableFontNames();
-//      static void ClearAvailableFontNames();
+    %property(Buffer, GetBuffer);
+    %property(DelayedLayoutThreshold, GetDelayedLayoutThreshold, SetDelayedLayoutThreshold);
+    %property(Filename, GetFilename, SetFilename);
+    %property(InternalSelectionRange, GetInternalSelectionRange, SetInternalSelectionRange);
+    %property(SelectionRange, GetSelectionRange, SetSelectionRange);
+    %property(StyleSheet, GetStyleSheet, SetStyleSheet);
     
 };
 

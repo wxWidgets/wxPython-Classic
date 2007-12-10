@@ -468,14 +468,11 @@ void wxPyApp::_BootstrapApp()
         setlocale(LC_NUMERIC, "C");
 #endif
 
-//        wxSystemOptions::SetOption(wxT("mac.textcontrol-use-mlte"), 1);
-        
         wxPyEndBlockThreads(blocked);
         haveInitialized = true;
     }
     else {
         this->argc = 0;
-        this->argv = NULL;
     }
     
 

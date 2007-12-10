@@ -63,9 +63,9 @@ Events
 MustHaveApp(wxComboBox);
 
 #ifdef __WXMSW__
-class wxComboBox : public wxChoice
+class wxComboBox : public wxChoice, public wxTextEntry
 #else
-class wxComboBox : public wxControl, public wxItemContainer
+class wxComboBox : public wxControl, public wxItemContainer, public wxTextEntry
 #endif
 {
 public:
@@ -109,67 +109,32 @@ public:
         "Actually create the GUI wxComboBox control for 2-phase creation", "");
     
 
-    DocDeclStr(
-        virtual wxString , GetValue() const,
-        "Returns the current value in the combobox text field.", "");
-    
-    DocDeclStr(
-        virtual void , SetValue(const wxString& value),
-        "", "");
-    
-
-    DocDeclStr(
-        virtual void , Copy(),
-        "Copies the selected text to the clipboard.", "");
-    
-    DocDeclStr(
-        virtual void , Cut(),
-        "Copies the selected text to the clipboard and removes the selection.", "");
-    
-    DocDeclStr(
-        virtual void , Paste(),
-        "Pastes text from the clipboard to the text field.", "");
-    
-    
-    DocDeclStr(
-        virtual void , SetInsertionPoint(long pos),
-        "Sets the insertion point in the combobox text field.", "");
-    
-    DocDeclStr(
-        virtual long , GetInsertionPoint() const,
-        "Returns the insertion point for the combobox's text field.", "");
-    
-    DocDeclStr(
-        virtual long , GetLastPosition() const,
-        "Returns the last position in the combobox text field.", "");
-    
-    DocDeclStr(
-        virtual void , Replace(long from, long to, const wxString& value),
-        "Replaces the text between two positions with the given text, in the
-combobox text field.", "");
     
     DocDeclStr(
         void , SetSelection(int n),
         "Sets the item at index 'n' to be the selected item.", "");
     
-    DocDeclStrName(
-        virtual void , SetSelection(long from, long to),
-        "Selects the text between the two positions in the combobox text field.", "",
-        SetMark);    
+    DocStr(SetMark,
+           "Selects the text between the two positions in the combobox text field.", "");
+    %extend {
+        void SetMark(long from, long to)
+        {
+            self->SetSelection(from, to);
+        }
+    }
 
-#ifndef __WXMAC__
     DocDeclAStrName(
         virtual void , GetSelection(long* OUTPUT, long* OUTPUT),
         "GetMark(self) -> (from, to)",
         "Gets the positions of the begining and ending of the selection mark in
 the combobox text field.", "",
         GetMark);
-#else
-    %pythoncode {
-        def GetMark(self):
-            return (0,0)
-    }
-#endif
+
+
+    DocDeclStr(
+        bool , IsEmpty() const,
+        "", "");
+    
     
 
     DocDeclStr(
@@ -189,75 +154,14 @@ function.", "");
         void , SetString(int n, const wxString& string),
         "Set the label for the n'th item (zero based) in the list.", "");
     
-    DocDeclStr(
-        virtual void , SetEditable(bool editable),
-        "", "");
-    
 
-    DocDeclStr(
-        virtual void , SetInsertionPointEnd(),
-        "Sets the insertion point at the end of the combobox text field.", "");
-    
-    DocDeclStr(
-        virtual void , Remove(long from, long to),
-        "Removes the text between the two positions in the combobox text field.", "");
-
-
-
-    DocDeclStr(
-        bool , IsEditable() const,
-        "Returns True if the combo is ediatable (not read-only.)", "");
-    
-
-    DocDeclStr(
-        void , Undo(),
-        "Redoes the last undo in the text field. Windows only.", "");
-    
-    DocDeclStr(
-        void , Redo(),
-        "Undoes the last edit in the text field. Windows only.", "");
-    
-    DocDeclStr(
-        void , SelectAll(),
-        "Select all the text in the combo's text field.", "");
-    
-
-    DocDeclStr(
-        bool , CanCopy() const,
-        "Returns True if the combobox is editable and there is a text selection
-to copy to the clipboard.  Only available on Windows.", "");
-    
-    DocDeclStr(
-        bool , CanCut() const,
-        "Returns True if the combobox is editable and there is a text selection
-to copy to the clipboard.  Only available on Windows.", "");
-    
-    DocDeclStr(
-        bool , CanPaste() const,
-        "Returns True if the combobox is editable and there is text on the
-clipboard that can be pasted into the text field. Only available on
-Windows.", "");
-    
-    DocDeclStr(
-        bool , CanUndo() const,
-        "Returns True if the combobox is editable and the last edit can be
-undone.  Only available on Windows.", "");
-    
-    DocDeclStr(
-        bool , CanRedo() const,
-        "Returns True if the combobox is editable and the last undo can be
-redone.  Only available on Windows.", "");
-    
 
     
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
 
-    %property(CurrentSelection, GetCurrentSelection, doc="See `GetCurrentSelection`");
-    %property(InsertionPoint, GetInsertionPoint, SetInsertionPoint, doc="See `GetInsertionPoint` and `SetInsertionPoint`");
-    %property(LastPosition, GetLastPosition, doc="See `GetLastPosition`");
-    %property(Mark, GetMark, SetMark, doc="See `GetMark` and `SetMark`");
-    %property(Value, GetValue, SetValue, doc="See `GetValue` and `SetValue`");
+    %property(CurrentSelection, GetCurrentSelection);
+    %property(Mark, GetMark, SetMark);
 
 };
 

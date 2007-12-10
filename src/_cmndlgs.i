@@ -33,6 +33,12 @@ chooser dialog, used to transfer settings and results to and from the
 
 class wxColourData : public wxObject {
 public:
+    // number of custom colours we store
+    enum
+    {
+        NUM_CUSTOM = 16
+    };
+    
     DocCtorStr(
         wxColourData(),
         "Constructor, sets default values.", "");
@@ -72,6 +78,14 @@ black.", "");
         "Sets the i'th custom colour for the colour dialog. i should be an
 integer between 0 and 15. The default custom colours are all invalid colours.", "");
 
+    DocDeclStr(
+        wxString , ToString() const,
+        "Serialize to a string.", "");
+    
+    DocDeclStr(
+        bool , FromString(const wxString& str),
+        "Restore from a serialized string.", "");
+        
 
     %property(ChooseFull, GetChooseFull, SetChooseFull, doc="See `GetChooseFull` and `SetChooseFull`");
     %property(Colour, GetColour, SetColour, doc="See `GetColour` and `SetColour`");
@@ -107,7 +121,8 @@ instance.", "");
 
 wxColour wxGetColourFromUser(wxWindow *parent = (wxWindow *)NULL,
                              const wxColour& colInit = wxNullColour,
-                             const wxString& caption = wxPyEmptyString);
+                             const wxString& caption = wxPyEmptyString,
+                             wxColourData* data = NULL);
 
 
 //--------------------------------------------------------------------------------

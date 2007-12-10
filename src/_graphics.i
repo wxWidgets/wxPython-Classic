@@ -193,6 +193,12 @@ public:
         return NULL;
     }
 
+    virtual bool StartDoc( const wxString& message ) { return false; }
+    virtual void EndDoc() {}
+    virtual void StartPage( wxDouble, wxDouble) {}
+    virtual void EndPage() {}
+    virtual void Flush() {}
+
     wxGraphicsPath CreatePath()  { return wxNullGraphicsPath; }
 
     virtual wxGraphicsPen CreatePen(const wxPen& )  { return wxNullGraphicsPen; }
@@ -219,6 +225,9 @@ public:
     virtual void * GetNativeContext() { return NULL; }
     virtual int GetLogicalFunction() const { return 0; }
     virtual bool SetLogicalFunction(int ) {}    
+    virtual void GetSize( wxDouble*, wxDouble* );
+    virtual void GetDPI( wxDouble*, wxDouble* );
+    
     virtual void Translate( wxDouble , wxDouble ) {}
     virtual void Scale( wxDouble , wxDouble ) {}
     virtual void Rotate( wxDouble ) {}
@@ -680,6 +689,34 @@ wxPython we still need a way to make this value usable.", "");
 we still need a way to make this value usable.", "");
     
 
+    DocDeclStr(
+        virtual bool , StartDoc( const wxString& message ) ,
+        "Begin a new document (relevant only for printing / pdf etc) if there
+is a progress dialog, message will be shown", "");
+    
+    
+    DocDeclStr(
+        virtual void , EndDoc(),
+        "Done with that document (relevant only for printing / pdf etc) ", "");
+    
+
+    DocDeclStr(
+        virtual void , StartPage( wxDouble width = 0, wxDouble height = 0 ),
+        "Opens a new page (relevant only for printing / pdf etc) with the given
+size in points (if both are null the default page size will be used)
+", "");
+    
+    
+    DocDeclStr(
+        virtual void , EndPage(),
+        "Ends the current page  (relevant only for printing / pdf etc) ", "");
+    
+    
+    DocDeclStr(
+        virtual void , Flush(),
+        "Make sure that the current content of this context is immediately visible", "");
+    
+
 
     DocDeclStr(
         virtual wxGraphicsPath , CreatePath(),
@@ -770,6 +807,19 @@ pointer for GDIPlus and cairo_t pointer for cairo).", "");
         "Sets the current logical function, returns ``True`` if it supported", "");
        
     
+    DocDeclAStr(
+        virtual void , GetSize( wxDouble* OUTPUT, wxDouble* OUTPUT),
+        "GetSize(self) --> (width, height)",
+        "Returns the size of the graphics context in device coordinates", "");
+    
+
+    DocDeclAStr(
+        virtual void , GetDPI( wxDouble* OUTPUT, wxDouble* OUTPUT),
+        "GetDPI(self) --> (dpiX, dpiY)",
+        "Returns the resolution of the graphics context in device points per inch", "");
+    
+    
+
     DocDeclStr(
         virtual void , Translate( wxDouble dx , wxDouble dy ),
         "Translates the current transformation matrix.", "");
@@ -1053,9 +1103,6 @@ public:
 
     wxGraphicsContext* GetGraphicsContext();
     virtual void SetGraphicsContext( wxGraphicsContext* ctx );
-
-    // flushing the content of this dc immediately onto screen
-    void Flush();
 
     %property(GraphicsContext, GetGraphicsContext, SetGraphicsContext);
 };

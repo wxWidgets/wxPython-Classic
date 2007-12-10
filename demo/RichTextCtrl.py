@@ -120,7 +120,7 @@ class RichTextFrame(wx.Frame):
         self.rtc.WriteText("The following paragraph is right-aligned with 1.5 line spacing:")
 
         self.rtc.BeginAlignment(rt.TEXT_ALIGNMENT_RIGHT)
-        self.rtc.BeginLineSpacing(rt.TEXT_ATTR_LINE_SPACING_HALF)
+        self.rtc.BeginLineSpacing(wx.TEXT_ATTR_LINE_SPACING_HALF)
         self.rtc.Newline()
 
         self.rtc.WriteText("It was in January, the most down-trodden month of an Edinburgh winter. An attractive woman came into the cafe, which is nothing remarkable.")
@@ -268,7 +268,7 @@ class RichTextFrame(wx.Frame):
         
     def OnIndentMore(self, evt):
         attr = rt.TextAttrEx()
-        attr.SetFlags(rt.TEXT_ATTR_LEFT_INDENT)
+        attr.SetFlags(wx.TEXT_ATTR_LEFT_INDENT)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
             r = rt.RichTextRange(ip, ip)
@@ -276,13 +276,13 @@ class RichTextFrame(wx.Frame):
                 r = self.rtc.GetSelectionRange()
 
             attr.SetLeftIndent(attr.GetLeftIndent() + 100)
-            attr.SetFlags(rt.TEXT_ATTR_LEFT_INDENT)
+            attr.SetFlags(wx.TEXT_ATTR_LEFT_INDENT)
             self.rtc.SetStyle(r, attr)
        
         
     def OnIndentLess(self, evt):
         attr = rt.TextAttrEx()
-        attr.SetFlags(rt.TEXT_ATTR_LEFT_INDENT)
+        attr.SetFlags(wx.TEXT_ATTR_LEFT_INDENT)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
             r = rt.RichTextRange(ip, ip)
@@ -291,13 +291,13 @@ class RichTextFrame(wx.Frame):
 
         if attr.GetLeftIndent() >= 100:
             attr.SetLeftIndent(attr.GetLeftIndent() - 100)
-            attr.SetFlags(rt.TEXT_ATTR_LEFT_INDENT)
+            attr.SetFlags(wx.TEXT_ATTR_LEFT_INDENT)
             self.rtc.SetStyle(r, attr)
 
         
     def OnParagraphSpacingMore(self, evt):
         attr = rt.TextAttrEx()
-        attr.SetFlags(rt.TEXT_ATTR_PARA_SPACING_AFTER)
+        attr.SetFlags(wx.TEXT_ATTR_PARA_SPACING_AFTER)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
             r = rt.RichTextRange(ip, ip)
@@ -305,13 +305,13 @@ class RichTextFrame(wx.Frame):
                 r = self.rtc.GetSelectionRange()
 
             attr.SetParagraphSpacingAfter(attr.GetParagraphSpacingAfter() + 20);
-            attr.SetFlags(rt.TEXT_ATTR_PARA_SPACING_AFTER)
+            attr.SetFlags(wx.TEXT_ATTR_PARA_SPACING_AFTER)
             self.rtc.SetStyle(r, attr)
 
         
     def OnParagraphSpacingLess(self, evt):
         attr = rt.TextAttrEx()
-        attr.SetFlags(rt.TEXT_ATTR_PARA_SPACING_AFTER)
+        attr.SetFlags(wx.TEXT_ATTR_PARA_SPACING_AFTER)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
             r = rt.RichTextRange(ip, ip)
@@ -320,48 +320,48 @@ class RichTextFrame(wx.Frame):
 
             if attr.GetParagraphSpacingAfter() >= 20:
                 attr.SetParagraphSpacingAfter(attr.GetParagraphSpacingAfter() - 20);
-                attr.SetFlags(rt.TEXT_ATTR_PARA_SPACING_AFTER)
+                attr.SetFlags(wx.TEXT_ATTR_PARA_SPACING_AFTER)
                 self.rtc.SetStyle(r, attr)
 
         
     def OnLineSpacingSingle(self, evt): 
         attr = rt.TextAttrEx()
-        attr.SetFlags(rt.TEXT_ATTR_LINE_SPACING)
+        attr.SetFlags(wx.TEXT_ATTR_LINE_SPACING)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
             r = rt.RichTextRange(ip, ip)
             if self.rtc.HasSelection():
                 r = self.rtc.GetSelectionRange()
 
-            attr.SetFlags(rt.TEXT_ATTR_LINE_SPACING)
+            attr.SetFlags(wx.TEXT_ATTR_LINE_SPACING)
             attr.SetLineSpacing(10)
             self.rtc.SetStyle(r, attr)
  
                 
     def OnLineSpacingHalf(self, evt):
         attr = rt.TextAttrEx()
-        attr.SetFlags(rt.TEXT_ATTR_LINE_SPACING)
+        attr.SetFlags(wx.TEXT_ATTR_LINE_SPACING)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
             r = rt.RichTextRange(ip, ip)
             if self.rtc.HasSelection():
                 r = self.rtc.GetSelectionRange()
 
-            attr.SetFlags(rt.TEXT_ATTR_LINE_SPACING)
+            attr.SetFlags(wx.TEXT_ATTR_LINE_SPACING)
             attr.SetLineSpacing(15)
             self.rtc.SetStyle(r, attr)
 
         
     def OnLineSpacingDouble(self, evt):
         attr = rt.TextAttrEx()
-        attr.SetFlags(rt.TEXT_ATTR_LINE_SPACING)
+        attr.SetFlags(wx.TEXT_ATTR_LINE_SPACING)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
             r = rt.RichTextRange(ip, ip)
             if self.rtc.HasSelection():
                 r = self.rtc.GetSelectionRange()
 
-            attr.SetFlags(rt.TEXT_ATTR_LINE_SPACING)
+            attr.SetFlags(wx.TEXT_ATTR_LINE_SPACING)
             attr.SetLineSpacing(20)
             self.rtc.SetStyle(r, attr)
 
@@ -374,7 +374,7 @@ class RichTextFrame(wx.Frame):
         fontData = wx.FontData()
         fontData.EnableEffects(False)
         attr = rt.TextAttrEx()
-        attr.SetFlags(rt.TEXT_ATTR_FONT)
+        attr.SetFlags(wx.TEXT_ATTR_FONT)
         if self.rtc.GetStyle(self.rtc.GetInsertionPoint(), attr):
             fontData.SetInitialFont(attr.GetFont())
 
@@ -383,7 +383,7 @@ class RichTextFrame(wx.Frame):
             fontData = dlg.GetFontData()
             font = fontData.GetChosenFont()
             if font:
-                attr.SetFlags(rt.TEXT_ATTR_FONT)
+                attr.SetFlags(wx.TEXT_ATTR_FONT)
                 attr.SetFont(font)
                 self.rtc.SetStyle(r, attr)
         dlg.Destroy()
@@ -392,7 +392,7 @@ class RichTextFrame(wx.Frame):
     def OnColour(self, evt):
         colourData = wx.ColourData()
         attr = rt.TextAttrEx()
-        attr.SetFlags(rt.TEXT_ATTR_TEXT_COLOUR)
+        attr.SetFlags(wx.TEXT_ATTR_TEXT_COLOUR)
         if self.rtc.GetStyle(self.rtc.GetInsertionPoint(), attr):
             colourData.SetColour(attr.GetTextColour())
 
@@ -405,7 +405,7 @@ class RichTextFrame(wx.Frame):
                     self.rtc.BeginTextColour(colour)
                 else:
                     r = self.rtc.GetSelectionRange()
-                    attr.SetFlags(rt.TEXT_ATTR_TEXT_COLOUR)
+                    attr.SetFlags(wx.TEXT_ATTR_TEXT_COLOUR)
                     attr.SetTextColour(colour)
                     self.rtc.SetStyle(r, attr)
         dlg.Destroy()

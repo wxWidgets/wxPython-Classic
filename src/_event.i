@@ -1099,7 +1099,10 @@ false and Dragging returns true.", "");
         bool , Leaving() const,
         "Returns true if the mouse was leaving the window.", "");
 
-
+    DocDeclStr(
+        int , GetClickCount() const,
+        "Returns the number of mouse clicks associated with this event.", "");
+    
 
     DocStr(GetPosition,   // sets the docstring for both
            "Returns the pixel position of the mouse in window coordinates when the
@@ -1177,6 +1180,8 @@ public:
     bool          m_altDown;
     bool          m_metaDown;
 
+    int           m_clickCount;
+    
     int           m_wheelRotation;
     int           m_wheelDelta;
     int           m_linesPerAction;

@@ -808,6 +808,9 @@ enum {
     wxPRINT_QUALITY_LOW,
     wxPRINT_QUALITY_DRAFT,
 
+    wxID_AUTO_LOWEST,
+    wxID_AUTO_HIGHEST,
+
     wxID_ANY,
     wxID_SEPARATOR,
     wxID_NONE,
@@ -916,6 +919,8 @@ enum {
     wxID_UNDELETE,
     wxID_REVERT_TO_SAVED,
    
+    wxID_FILEDLGG,
+    wxID_FILECTRL,
     wxID_HIGHEST,
 
     wxMENU_TEAROFF,
@@ -1043,7 +1048,8 @@ enum wxBackgroundStyle
 {
   wxBG_STYLE_SYSTEM,
   wxBG_STYLE_COLOUR,
-  wxBG_STYLE_CUSTOM
+  wxBG_STYLE_CUSTOM,
+  wxBG_STYLE_TRANSPARENT
 };
 
 

@@ -108,15 +108,6 @@ public:
 
     void _setCallbackInfo(PyObject* self, PyObject* _class, int incref=0);
 
-//     %pythonPrepend Destroy "args[0].this.own(False)";
-//     %extend {
-//         void Destroy() {
-//             self->RemoveIcon();
-//             delete self;
-//         }
-//     }
-
-    // now has its own delayed desrtuction, like top-level windows
     void Destroy();
     
     bool IsOk() const;
@@ -127,6 +118,34 @@ public:
     bool SetIcon(const wxIcon& icon, const wxString& tooltip = wxPyEmptyString);
     bool RemoveIcon();
     bool PopupMenu(wxMenu *menu);
+
+    DocStr(ShowBalloon,
+           "Show a balloon notification (the icon must have been already
+initialized using SetIcon).  Only implemented for Windows.
+
+title and text are limited to 63 and 255 characters respectively, msec
+is the timeout, in milliseconds, before the balloon disappears (will
+be clamped down to the allowed 10-30s range by Windows if it's outside
+it) and flags can include wxICON_ERROR/INFO/WARNING to show a
+corresponding icon
+
+Returns True if balloon was shown, False on error (incorrect parameters
+or function unsupported by OS)
+", "");
+#ifdef __WXMSW__
+    bool ShowBalloon(const wxString& title,
+                     const wxString& text,
+                     unsigned msec = 0,
+                     int flags = 0);
+
+#else
+    %extend {
+        bool ShowBalloon(const wxString& title,
+                         const wxString& text,
+                         unsigned msec = 0,
+                         int flags = 0)  { return false; }
+    }
+#endif    
 };
 
 
@@ -147,6 +166,8 @@ public:
 %constant wxEventType wxEVT_TASKBAR_LEFT_DCLICK;
 %constant wxEventType wxEVT_TASKBAR_RIGHT_DCLICK;
 %constant wxEventType wxEVT_TASKBAR_CLICK;
+%constant wxEventType wxEVT_TASKBAR_BALLOON_TIMEOUT;
+%constant wxEventType wxEVT_TASKBAR_BALLOON_CLICK;
 
 
 %pythoncode {
@@ -158,6 +179,8 @@ EVT_TASKBAR_RIGHT_UP = wx.PyEventBinder (     wxEVT_TASKBAR_RIGHT_UP )
 EVT_TASKBAR_LEFT_DCLICK = wx.PyEventBinder (  wxEVT_TASKBAR_LEFT_DCLICK )
 EVT_TASKBAR_RIGHT_DCLICK = wx.PyEventBinder ( wxEVT_TASKBAR_RIGHT_DCLICK )
 EVT_TASKBAR_CLICK =  wx.PyEventBinder (       wxEVT_TASKBAR_CLICK )
+EVT_TASKBAR_BALLOON_TIMEOUT = wx.PyEventBinder ( wxEVT_TASKBAR_BALLOON_TIMEOUT )
+EVT_TASKBAR_BALLOON_CLICK = wx.PyEventBinder ( wxEVT_TASKBAR_BALLOON_CLICK )
 }
 
 //---------------------------------------------------------------------------

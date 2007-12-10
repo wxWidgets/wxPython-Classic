@@ -65,6 +65,16 @@ public:
         ResourceCat_Max
     };
 
+    // what should we use to construct paths unique to this application:
+    // (AppInfo_AppName and AppInfo_VendorName can be combined together)
+    enum
+    {
+        AppInfo_None       = 0,  // nothing
+        AppInfo_AppName    = 1,  // the application name
+        AppInfo_VendorName = 2   // the vendor name
+    };
+
+    
     DocStr(
         Get,
         "Return the global standard paths singleton", "");    
@@ -195,6 +205,12 @@ Python is installed. (This function only has meaning on Unix systems.)", "");
         wxString GetInstallPrefix() { return wxEmptyString; }
     }
 #endif
+
+
+    // Information used by AppendAppInfo
+    void UseAppInfo(int info);
+    bool UsesAppInfo(int info) const;
+    
 };
 
 

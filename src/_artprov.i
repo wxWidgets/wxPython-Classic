@@ -319,6 +319,13 @@ wx.NullBitmap if no provider provides it.", "");
 wx.NullIcon if no provider provides it.", "");
 
     DocDeclStr(
+        static wxIcon , GetMessageBoxIcon(int flags),
+        "Helper used by several generic classes: return the icon corresponding
+to the standard wx.ICON_INFORMATION/WARNING/ERROR/QUESTION flags (only
+one can be set)", "");
+    
+
+    DocDeclStr(
         static wxIconBundle , GetIconBundle(const wxArtID& id,
                                             const wxArtClient& client = wxART_OTHER),
         "Query the providers for iconbundle with given ID and return it. Return
