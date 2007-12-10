@@ -889,6 +889,12 @@ if __name__ == "__main__":
                           'wx.tools',
                           'wx.tools.XRCed',
                           'wx.tools.XRCed.plugins',
+                          'wx.tools.Editra',
+                          'wx.tools.Editra.src',
+                          'wx.tools.Editra.src.autocomp',
+                          'wx.tools.Editra.src.eclib',
+                          'wx.tools.Editra.src.extern',
+                          'wx.tools.Editra.src.syntax',
                           ],
 
               extra_path = EXTRA_PATH,
