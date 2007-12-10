@@ -395,6 +395,7 @@ typedef double          wxDouble;
     decl
 %enddef
 
+// Combine renaming and docstrings
 #ifdef _DO_FULL_DOCS
     %define %RenameDocCtor(newname, docstr, details, decl)
         %feature("docstring") decl docstr details;

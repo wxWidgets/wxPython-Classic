@@ -1556,8 +1556,6 @@ colour or other colour, or it may not be used at all.", "");
 //     virtual bool ProvidesBackground() const;
 
 
-    // Set/get the background style.
-    // Pass one of wxBG_STYLE_SYSTEM, wxBG_STYLE_COLOUR, wxBG_STYLE_CUSTOM
     DocDeclStr(
         virtual bool , SetBackgroundStyle(wxBackgroundStyle style),
         "Returns the background style of the window. The background style
