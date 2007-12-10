@@ -34,8 +34,6 @@ class wxPrinterDC;
 
 %}
 
-#define USE_TEXTATTREX 0
-
 //----------------------------------------------------------------------
 
 %import windows.i
@@ -47,18 +45,7 @@ MAKE_CONST_WXSTRING_NOSWIG(EmptyString);
 
 //----------------------------------------------------------------------
 
-// TODO:  These are already defined in _textctrl.i, do we really need them here?
-enum wxTextAttrAlignment
-{
-    wxTEXT_ALIGNMENT_DEFAULT,
-    wxTEXT_ALIGNMENT_LEFT,
-    wxTEXT_ALIGNMENT_CENTRE,
-    wxTEXT_ALIGNMENT_CENTER = wxTEXT_ALIGNMENT_CENTRE,
-    wxTEXT_ALIGNMENT_RIGHT,
-    wxTEXT_ALIGNMENT_JUSTIFIED
-};
-
-//----------------------------------------------------------------------
+enum wxTextAttrAlignment;
 
 %include _richtextbuffer.i
 %include _richtextctrl.i

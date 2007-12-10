@@ -50,7 +50,7 @@ DocStr(wxRichTextCtrl,
 
 class wxRichTextCtrl : public wxControl,
                        public wxTextCtrlIface,
-                       public ScrollHelper
+                       public wxScrollHelper
 {
 public:
     %pythonAppend wxRichTextCtrl         "self._setOORInfo(self)"
