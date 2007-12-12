@@ -13,10 +13,6 @@ logicList = [
     ('wx.INVERT', wx.INVERT),
     ('wx.NAND', wx.NAND),
 
-    # this one causes an assert on wxGTK, and doesn't seem to
-    # do much on MSW anyway, so I'll just take it out....
-    #('wxNOR', wxNOR),
-
     ('wx.NO_OP', wx.NO_OP),
     ('wx.OR', wx.OR),
     ('wx.OR_INVERT', wx.OR_INVERT),
@@ -30,6 +26,8 @@ if 'mac-cg' in wx.PlatformInfo:
     # that's all, folks!
     logicList = [
         ('wx.COPY', wx.COPY),
+        ('wx.INVERT', wx.INVERT),
+        ('wx.XOR', wx.XOR),
     ]    
 
 import images
