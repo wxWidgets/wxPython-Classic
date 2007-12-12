@@ -303,7 +303,8 @@ class GenButton(wx.PyControl):
                 parDef = self.GetParent().GetBackgroundColour() == parAttr.colBg
                 if myDef and parDef:
                     if wx.Platform == "__WXMAC__":
-                        brush.MacSetTheme(1) # 1 == kThemeBrushDialogBackgroundActive
+                        c = wx.MacThemeColour(1) # 1 == kThemeBrushDialogBackgroundActive
+                        brush = wx.Brush(c)
                     elif wx.Platform == "__WXMSW__":
                         if self.DoEraseBackground(dc):
                             brush = None
