@@ -35,7 +35,7 @@
 #include <wx/gtk1/win_gtk.h>
 #endif
 #define GetXWindow(wxwin) (wxwin)->m_wxwindow ? \
-                          GDK_WINDOW_XWINDOW(GTK_PIZZA((wxwin)->m_wxwindow)->bin_window) : \
+                          GDK_WINDOW_XWINDOW(WX_PIZZA((wxwin)->m_wxwindow)->m_backing_window) : \
                           GDK_WINDOW_XWINDOW((wxwin)->m_widget->window)
 #include <locale.h>
 #endif
@@ -2049,7 +2049,6 @@ long wxPyGetWinHandle(wxWindow* win) {
 #endif
 
 #ifdef __WXMAC__
-    //return (long)MAC_WXHWND(win->MacGetTopLevelWindowRef());
     return (long)win->GetHandle();
 #endif
 
