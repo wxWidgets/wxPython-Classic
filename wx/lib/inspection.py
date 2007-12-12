@@ -120,7 +120,6 @@ class InspectionFrame(wx.Frame):
         self.started = False
 
         self.SetIcon(getIconIcon())
-        self.MacSetMetalAppearance(True)
         self.MakeToolBar()
         panel = wx.Panel(self, size=self.GetClientSize())
         
