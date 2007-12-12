@@ -106,7 +106,7 @@ able to create a wx.Colour using a Mac themed brush ID instead.  So if
 you used to have code like this::
 
     brush = wx.Brush(someColour)
-    brush.SetMacTheme(kThemeBrushDialogBackgroundActive)
+    brush.MacSetTheme(kThemeBrushDialogBackgroundActive)
 
 You'll want to replace it with code like this::
 
