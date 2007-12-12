@@ -2893,6 +2893,7 @@ bool wxDrawWindowOnDC(wxWindow* window, const wxDC& dc
     )
 {
 #ifdef __WXMSW__
+    HDC hdc = (HDC)((wxMSWDCImpl*)dc.GetImpl())->GetHDC();
 #if 0
     switch (method)
     {
@@ -2901,7 +2902,7 @@ bool wxDrawWindowOnDC(wxWindow* window, const wxDC& dc
             // "standard" convention that not all widgets adhear to.  For
             // example, for some widgets backgrounds or non-client areas may
             // not be painted.
-            ::SendMessage(GetHwndOf(window), WM_PAINT, (long)GetHdcOf(dc), 0);
+            ::SendMessage(GetHwndOf(window), WM_PAINT, (long)hdc, 0);
             break;
 
         case 2:
@@ -2917,7 +2918,7 @@ bool wxDrawWindowOnDC(wxWindow* window, const wxDC& dc
             // ** For example the radio buttons in a wxRadioBox are not its
             // children by default, but you can capture it via the panel
             // instead, or change RADIOBTN_PARENT_IS_RADIOBOX in radiobox.cpp.
-            ::SendMessage(GetHwndOf(window), WM_PRINT, (long)GetHdcOf(dc),
+            ::SendMessage(GetHwndOf(window), WM_PRINT, (long)hdc,
                           PRF_CLIENT | PRF_NONCLIENT | PRF_CHILDREN |
                           PRF_ERASEBKGND | PRF_OWNED );
             return true;
@@ -2956,12 +2957,12 @@ bool wxDrawWindowOnDC(wxWindow* window, const wxDC& dc
             if (pfnPrintWindow)
             {
                 //printf("Using PrintWindow\n");
-                pfnPrintWindow(GetHwndOf(window), GetHdcOf(dc), 0);
+                pfnPrintWindow(GetHwndOf(window), hdc, 0);
             }
             else
             {
                 //printf("Using WM_PRINT\n");
-                ::SendMessage(GetHwndOf(window), WM_PRINT, (long)GetHdcOf(dc),
+                ::SendMessage(GetHwndOf(window), WM_PRINT, (long)hdc,
                               PRF_CLIENT | PRF_NONCLIENT | PRF_CHILDREN |
                               PRF_ERASEBKGND | PRF_OWNED );
             }

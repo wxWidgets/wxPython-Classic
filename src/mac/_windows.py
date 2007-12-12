@@ -944,10 +944,6 @@ class StatusBar(_core.Window):
         """GetBorderY(self) -> int"""
         return _windows_.StatusBar_GetBorderY(*args, **kwargs)
 
-    def ShowsSizeGrip(*args, **kwargs):
-        """ShowsSizeGrip(self) -> bool"""
-        return _windows_.StatusBar_ShowsSizeGrip(*args, **kwargs)
-
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes

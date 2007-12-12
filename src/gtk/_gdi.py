@@ -4277,6 +4277,10 @@ class DC(_core.Object):
         """
         return _gdi_.DC_SetLayoutDirection(*args, **kwargs)
 
+    def GetHDC(*args, **kwargs):
+        """GetHDC(self) -> long"""
+        return _gdi_.DC_GetHDC(*args, **kwargs)
+
     def _DrawPointList(*args, **kwargs):
         """_DrawPointList(self, PyObject pyCoords, PyObject pyPens, PyObject pyBrushes) -> PyObject"""
         return _gdi_.DC__DrawPointList(*args, **kwargs)

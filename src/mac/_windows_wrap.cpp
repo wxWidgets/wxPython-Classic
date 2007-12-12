@@ -3369,6 +3369,11 @@ SWIGINTERNINLINE PyObject*
 
 #include <wx/mdi.h>
 
+
+#ifdef __WXMSW__
+#include <wx/msw/dc.h>
+#endif
+
  // C++ version of Python aware wxWindow
 class wxPyWindow : public wxWindow
 {
@@ -3385,7 +3390,7 @@ public:
 
     bool DoEraseBackground(wxDC* dc) {
 #ifdef __WXMSW__
-        return wxWindow::DoEraseBackground(dc->GetHDC());
+        return wxWindow::DoEraseBackground(((wxMSWDCImpl*)dc->GetImpl())->GetHDC());
 #else
         dc->SetBackground(wxBrush(GetBackgroundColour()));
         dc->Clear();
@@ -3475,7 +3480,7 @@ public:
 
     bool DoEraseBackground(wxDC* dc) {
 #ifdef __WXMSW__
-        return wxWindow::DoEraseBackground(dc->GetHDC());
+        return wxWindow::DoEraseBackground(((wxMSWDCImpl*)dc->GetImpl())->GetHDC());
 #else
         dc->SetBackground(wxBrush(GetBackgroundColour()));
         dc->Clear();
@@ -3566,7 +3571,7 @@ public:
 
     bool DoEraseBackground(wxDC* dc) {
 #ifdef __WXMSW__
-        return wxWindow::DoEraseBackground(dc->GetHDC());
+        return wxWindow::DoEraseBackground(((wxMSWDCImpl*)dc->GetImpl())->GetHDC());
 #else
         dc->SetBackground(wxBrush(GetBackgroundColour()));
         dc->Clear();
@@ -9712,36 +9717,6 @@ SWIGINTERN PyObject *_wrap_StatusBar_GetBorderY(PyObject *SWIGUNUSEDPARM(self), 
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_StatusBar_ShowsSizeGrip(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxStatusBar *arg1 = (wxStatusBar *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxStatusBar, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBar_ShowsSizeGrip" "', expected argument " "1"" of type '" "wxStatusBar const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxStatusBar * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxStatusBar const *)arg1)->ShowsSizeGrip();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -34638,7 +34613,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"StatusBar_SetMinHeight", (PyCFunction) _wrap_StatusBar_SetMinHeight, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StatusBar_GetBorderX", (PyCFunction)_wrap_StatusBar_GetBorderX, METH_O, NULL},
 	 { (char *)"StatusBar_GetBorderY", (PyCFunction)_wrap_StatusBar_GetBorderY, METH_O, NULL},
-	 { (char *)"StatusBar_ShowsSizeGrip", (PyCFunction)_wrap_StatusBar_ShowsSizeGrip, METH_O, NULL},
 	 { (char *)"StatusBar_GetClassDefaultAttributes", (PyCFunction) _wrap_StatusBar_GetClassDefaultAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StatusBar_swigregister", StatusBar_swigregister, METH_VARARGS, NULL},
 	 { (char *)"StatusBar_swiginit", StatusBar_swiginit, METH_VARARGS, NULL},

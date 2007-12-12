@@ -139,6 +139,7 @@ SYS_NETWORK_PRESENT = _misc_.SYS_NETWORK_PRESENT
 SYS_PENWINDOWS_PRESENT = _misc_.SYS_PENWINDOWS_PRESENT
 SYS_SHOW_SOUNDS = _misc_.SYS_SHOW_SOUNDS
 SYS_SWAP_BUTTONS = _misc_.SYS_SWAP_BUTTONS
+SYS_DCLICK_MSEC = _misc_.SYS_DCLICK_MSEC
 SYS_CAN_DRAW_FRAME_DECORATIONS = _misc_.SYS_CAN_DRAW_FRAME_DECORATIONS
 SYS_CAN_ICONIZE_FRAME = _misc_.SYS_CAN_ICONIZE_FRAME
 SYS_TABLET_PRESENT = _misc_.SYS_TABLET_PRESENT
@@ -2769,6 +2770,17 @@ class ArtProvider(object):
         return _misc_.ArtProvider_GetIcon(*args, **kwargs)
 
     GetIcon = staticmethod(GetIcon)
+    def GetMessageBoxIcon(*args, **kwargs):
+        """
+        GetMessageBoxIcon(int flags) -> Icon
+
+        Helper used by several generic classes: return the icon corresponding
+        to the standard wx.ICON_INFORMATION/WARNING/ERROR/QUESTION flags (only
+        one can be set)
+        """
+        return _misc_.ArtProvider_GetMessageBoxIcon(*args, **kwargs)
+
+    GetMessageBoxIcon = staticmethod(GetMessageBoxIcon)
     def GetIconBundle(*args, **kwargs):
         """
         GetIconBundle(wxArtID id, wxArtClient client=wxART_OTHER) -> wxIconBundle
@@ -2905,6 +2917,16 @@ def ArtProvider_GetIcon(*args, **kwargs):
     wx.NullIcon if no provider provides it.
     """
   return _misc_.ArtProvider_GetIcon(*args, **kwargs)
+
+def ArtProvider_GetMessageBoxIcon(*args, **kwargs):
+  """
+    ArtProvider_GetMessageBoxIcon(int flags) -> Icon
+
+    Helper used by several generic classes: return the icon corresponding
+    to the standard wx.ICON_INFORMATION/WARNING/ERROR/QUESTION flags (only
+    one can be set)
+    """
+  return _misc_.ArtProvider_GetMessageBoxIcon(*args, **kwargs)
 
 def ArtProvider_GetIconBundle(*args, **kwargs):
   """
@@ -6114,6 +6136,9 @@ class StandardPaths(object):
     ResourceCat_None = _misc_.StandardPaths_ResourceCat_None
     ResourceCat_Messages = _misc_.StandardPaths_ResourceCat_Messages
     ResourceCat_Max = _misc_.StandardPaths_ResourceCat_Max
+    AppInfo_None = _misc_.StandardPaths_AppInfo_None
+    AppInfo_AppName = _misc_.StandardPaths_AppInfo_AppName
+    AppInfo_VendorName = _misc_.StandardPaths_AppInfo_VendorName
     def Get(*args, **kwargs):
         """
         Get() -> StandardPaths
@@ -6274,6 +6299,14 @@ class StandardPaths(object):
         Python is installed. (This function only has meaning on Unix systems.)
         """
         return _misc_.StandardPaths_GetInstallPrefix(*args, **kwargs)
+
+    def UseAppInfo(*args, **kwargs):
+        """UseAppInfo(self, int info)"""
+        return _misc_.StandardPaths_UseAppInfo(*args, **kwargs)
+
+    def UsesAppInfo(*args, **kwargs):
+        """UsesAppInfo(self, int info) -> bool"""
+        return _misc_.StandardPaths_UsesAppInfo(*args, **kwargs)
 
 _misc_.StandardPaths_swigregister(StandardPaths)
 

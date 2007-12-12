@@ -3576,6 +3576,9 @@ SWIGINTERN wxPyLocale *new_wxPyLocale(int language=-1,int flags=wxLOCALE_LOAD_DE
         }
 
 #include "wx/wxPython/pydrawxxx.h"
+#ifdef __WXMSW__
+#include <wx/msw/dc.h>
+#endif
 
 SWIGINTERN wxColour wxDC_GetPixel(wxDC *self,int x,int y){
             wxColour col;
@@ -3625,6 +3628,14 @@ SWIGINTERN void wxDC_SetDeviceOriginPoint(wxDC *self,wxPoint const &point){
 SWIGINTERN void wxDC_CalcBoundingBoxPoint(wxDC *self,wxPoint const &point){
             self->CalcBoundingBox(point.x, point.y);
         }
+SWIGINTERN long wxDC_GetHDC(wxDC *self){
+
+
+
+            wxPyRaiseNotImplemented();
+            return 0;
+
+        }
 SWIGINTERN PyObject *wxDC__DrawPointList(wxDC *self,PyObject *pyCoords,PyObject *pyPens,PyObject *pyBrushes){
             return wxPyDrawXXXList(*self, wxPyDrawXXXPoint, pyCoords, pyPens, pyBrushes);
         }
@@ -3667,17 +3678,10 @@ public:
 class wxMetaFileDC : public wxClientDC {
 public:
     wxMetaFileDC(const wxString&, int, int, const wxString&)
+        : wxClientDC((wxWindow*)NULL)
         { wxPyRaiseNotImplemented(); }
 };
 
-
-
-class  wxPrinterDC : public wxClientDC {
-public:
-    wxPrinterDC(const wxPrintData&)
-        { wxPyRaiseNotImplemented(); }
-
-};
 
 
 #include <wx/dcsvg.h>
@@ -23941,6 +23945,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DC_GetHDC(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = (wxDC *) 0 ;
+  long result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DC_GetHDC" "', expected argument " "1"" of type '" "wxDC *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (long)wxDC_GetHDC(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_long(static_cast< long >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DC__DrawPointList(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDC *arg1 = (wxDC *) 0 ;
@@ -39611,6 +39643,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DC_GetBoundingBox", (PyCFunction)_wrap_DC_GetBoundingBox, METH_O, NULL},
 	 { (char *)"DC_GetLayoutDirection", (PyCFunction)_wrap_DC_GetLayoutDirection, METH_O, NULL},
 	 { (char *)"DC_SetLayoutDirection", (PyCFunction) _wrap_DC_SetLayoutDirection, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DC_GetHDC", (PyCFunction)_wrap_DC_GetHDC, METH_O, NULL},
 	 { (char *)"DC__DrawPointList", (PyCFunction) _wrap_DC__DrawPointList, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC__DrawLineList", (PyCFunction) _wrap_DC__DrawLineList, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC__DrawRectangleList", (PyCFunction) _wrap_DC__DrawRectangleList, METH_VARARGS | METH_KEYWORDS, NULL},

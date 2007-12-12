@@ -2832,6 +2832,9 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
 SWIGINTERN void wxComboBox_SetMark(wxComboBox *self,long from,long to){
             self->SetSelection(from, to);
         }
+SWIGINTERN bool wxComboBox_IsEmpty(wxComboBox *self){
+            return self->wxItemContainer::IsEmpty();
+        }
  static const wxString wxPyGaugeNameStr(wxGaugeNameStr); 
  static const wxString wxPyStaticBitmapNameStr(wxStaticBitmapNameStr); 
  static const wxString wxPyStaticBoxNameStr(wxStaticBoxNameStr); 
@@ -3273,6 +3276,11 @@ SWIGINTERNINLINE PyObject*
   return PyBool_FromLong(value ? 1 : 0);
 }
 
+
+#ifdef __WXMSW__
+#include <wx/msw/dc.h>
+#endif
+
  // C++ version of Python aware wxControl
 class wxPyControl : public wxControl
 {
@@ -3290,7 +3298,7 @@ public:
 
     bool DoEraseBackground(wxDC* dc) {
 #ifdef __WXMSW__
-        return wxWindow::DoEraseBackground(dc->GetHDC());
+        return wxWindow::DoEraseBackground(((wxMSWDCImpl*)dc->GetImpl())->GetHDC());
 #else
         dc->SetBackground(wxBrush(GetBackgroundColour()));
         dc->Clear();
@@ -5996,12 +6004,12 @@ SWIGINTERN PyObject *_wrap_ComboBox_IsEmpty(PyObject *SWIGUNUSEDPARM(self), PyOb
   swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxComboBox, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ComboBox_IsEmpty" "', expected argument " "1"" of type '" "wxComboBox const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ComboBox_IsEmpty" "', expected argument " "1"" of type '" "wxComboBox *""'"); 
   }
   arg1 = reinterpret_cast< wxComboBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxComboBox const *)arg1)->IsEmpty();
+    result = (bool)wxComboBox_IsEmpty(arg1);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
