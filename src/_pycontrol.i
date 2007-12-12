@@ -13,12 +13,16 @@
 // Not a %module
 
 
+%{
+#ifdef __WXMSW__
+#include <wx/msw/dc.h>
+#endif
+%}
+
 //---------------------------------------------------------------------------
 %newgroup
 
 
-
-//---------------------------------------------------------------------------
 
 %{ // C++ version of Python aware wxControl
 class wxPyControl : public wxControl
@@ -37,7 +41,7 @@ public:
 
     bool DoEraseBackground(wxDC* dc) {
 #ifdef __WXMSW__
-        return wxWindow::DoEraseBackground(dc->GetHDC());
+        return wxWindow::DoEraseBackground(((wxMSWDCImpl*)dc->GetImpl())->GetHDC());
 #else
         dc->SetBackground(wxBrush(GetBackgroundColour()));
         dc->Clear();

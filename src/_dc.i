@@ -18,6 +18,9 @@
 
 %{
 #include "wx/wxPython/pydrawxxx.h"
+#ifdef __WXMSW__
+#include <wx/msw/dc.h>
+#endif
 %}
 
 // TODO: 1. wrappers for wxDrawObject and wxDC::DrawObject
@@ -1055,9 +1058,17 @@ supported.", "");
 
     
 
+    %extend {
+        long GetHDC()
+        {
 #ifdef __WXMSW__
-    long GetHDC();
+            return (long)((wxMSWDCImpl*)self->GetImpl())->GetHDC();
+#else
+            wxPyRaiseNotImplemented();
+            return 0;
 #endif
+        }
+    }
 
 
     %extend { // See drawlist.cpp for impplementaion of these...
@@ -1828,7 +1839,8 @@ public:
     wxMetaFileDC(const wxString& filename = wxPyEmptyString,
                  int width = 0, int height = 0,
                  const wxString& description = wxPyEmptyString);
-    wxMetaFile* Close();
+//    wxMetaFile* Close();
+//    wxMetafile *GetMetafile() const 
 };
 
 
@@ -1845,6 +1857,7 @@ public:
 class wxMetaFileDC : public wxClientDC {
 public:
     wxMetaFileDC(const wxString&, int, int, const wxString&)
+        : wxClientDC((wxWindow*)NULL)
         { wxPyRaiseNotImplemented(); }
 };
 
@@ -1870,28 +1883,11 @@ public:
 
 MustHaveApp(wxPrinterDC);
 
-#if defined(__WXMSW__) || defined(__WXMAC__)
-
 class  wxPrinterDC : public wxDC {
 public:
     wxPrinterDC(const wxPrintData& printData);
 };
 
-#else
-%{
-class  wxPrinterDC : public wxClientDC {
-public:
-    wxPrinterDC(const wxPrintData&)
-        { wxPyRaiseNotImplemented(); }
-
-};
-%}
-
-class  wxPrinterDC : public wxDC {
-public:
-    wxPrinterDC(const wxPrintData& printData);
-};
-#endif
 
 //---------------------------------------------------------------------------
 

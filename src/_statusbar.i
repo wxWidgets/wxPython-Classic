@@ -96,10 +96,6 @@ public:
     virtual int GetBorderX() const;
     virtual int GetBorderY() const;
 
-    // true if the status bar shows the size grip: for this it must have
-    // wxST_SIZEGRIP style and the window it is attached to must be resizeable
-    // and not maximized
-    bool ShowsSizeGrip() const;
 
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);

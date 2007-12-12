@@ -131,9 +131,11 @@ the combobox text field.", "",
         GetMark);
 
 
-    DocDeclStr(
-        bool , IsEmpty() const,
-        "", "");
+    %extend {
+        bool IsEmpty() {
+            return self->wxItemContainer::IsEmpty();
+        }
+    }
     
     
 
