@@ -1624,6 +1624,7 @@ void wxTreeListItem::DeleteChildren (wxTreeListMainWindow *tree) {
         if (tree) {
             tree->SendDeleteEvent (child);
             if (tree->m_selectItem == child) tree->m_selectItem = (wxTreeListItem*)NULL;
+            if (tree->m_curItem == child) tree->m_curItem = this;
         }
         child->DeleteChildren (tree);
         delete child;
