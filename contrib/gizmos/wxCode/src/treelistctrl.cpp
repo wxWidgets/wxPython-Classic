@@ -1622,6 +1622,7 @@ void wxTreeListItem::DeleteChildren (wxTreeListMainWindow *tree) {
         if (tree) {
             tree->SendDeleteEvent (child);
             if (tree->m_selectItem == child) tree->m_selectItem = (wxTreeListItem*)NULL;
+            if (tree->m_curItem == child) tree->m_curItem = this;
         }
         child->DeleteChildren (tree);
         delete child;
@@ -1863,11 +1864,11 @@ void wxTreeListMainWindow::Init() {
 
     m_findTimer = new wxTimer (this, -1);
 
-// #if defined( __WXMAC__ ) && defined(__WXMAC_CARBON__)
-//     m_normalFont.MacCreateThemeFont (kThemeViewsFont);
-// #else
+#if defined( __WXMAC__ ) && defined(__WXMAC_CARBON__)
+    m_normalFont.MacCreateFromThemeFont (kThemeViewsFont);
+#else
     m_normalFont = wxSystemSettings::GetFont (wxSYS_DEFAULT_GUI_FONT);
-// #endif
+#endif
     m_boldFont = wxFont( m_normalFont.GetPointSize(),
                          m_normalFont.GetFamily(),
                          m_normalFont.GetStyle(),
