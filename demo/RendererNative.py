@@ -63,33 +63,38 @@ class TestPanel(wx.Panel):
         render.DrawHeaderButton(self, dc, (xpos, 125, self.GetTextExtent(hb_lbl)[0] + 30, 16),
                                 sortArrow=wx.HDR_SORT_ICON_UP, params=opts)
 
-        #---- Second Row ----#
+        hb_lbl = "HeaderButton Current"
+        opts.m_labelText = hb_lbl
+        render.DrawHeaderButton(self, dc, (xpos, 150, self.GetTextExtent(hb_lbl)[0] + 30, 16),
+                                wx.CONTROL_CURRENT, params=opts)
+
+       #---- Second Row ----#
 
         #---- Third Row ----#
         # Draw ItemSelectionRect
         isr_lbl = "DrawItemSelectionRect:"
-        dc.DrawText(isr_lbl, 15, 160)
-        render.DrawItemSelectionRect(self, dc, (15, 180, 40, 24), wx.CONTROL_SELECTED)
-        render.DrawItemSelectionRect(self, dc, (65, 180, 40, 24), wx.CONTROL_CURRENT)
-        render.DrawItemSelectionRect(self, dc, (115, 180, 40, 24), wx.CONTROL_FOCUSED)
+        dc.DrawText(isr_lbl, 15, 185)
+        render.DrawItemSelectionRect(self, dc, (15, 205, 40, 24), wx.CONTROL_SELECTED)
+        render.DrawItemSelectionRect(self, dc, (65, 205, 40, 24), wx.CONTROL_CURRENT)
+        render.DrawItemSelectionRect(self, dc, (115, 205, 40, 24), wx.CONTROL_FOCUSED)
         #---- Third Row End ----#
 
         #---- Fourth Row ----#
         # DrawPushButton
         pb_lbl = "DrawPushButton:"
-        dc.DrawText(pb_lbl, 15, 230)
-        render.DrawPushButton(self, dc, (15, 250, 45, 24), wx.CONTROL_CURRENT)
-        render.DrawPushButton(self, dc, (70, 250, 45, 24), wx.CONTROL_PRESSED | wx.CONTROL_SELECTED)
-        render.DrawPushButton(self, dc, (125, 250, 45, 24), wx.CONTROL_ISDEFAULT)
-        render.DrawPushButton(self, dc, (180, 250, 45, 24), wx.CONTROL_CURRENT | wx.CONTROL_DISABLED)
+        dc.DrawText(pb_lbl, 15, 255)
+        render.DrawPushButton(self, dc, (15, 275, 45, 24), wx.CONTROL_CURRENT)
+        render.DrawPushButton(self, dc, (70, 275, 45, 24), wx.CONTROL_PRESSED | wx.CONTROL_SELECTED)
+        render.DrawPushButton(self, dc, (125, 275, 45, 24), wx.CONTROL_ISDEFAULT)
+        render.DrawPushButton(self, dc, (180, 275, 45, 24), wx.CONTROL_CURRENT | wx.CONTROL_DISABLED)
         #---- Fourth Row End ----#
 
         #---- Fifth Row ----#
         # DrawTreeItemButton
         ti_lbl = "DrawTreeItemButton:"
-        dc.DrawText(ti_lbl, 15, 305)
-        render.DrawTreeItemButton(self, dc, (15, 325, 16, 16))
-        render.DrawTreeItemButton(self, dc, (45, 325, 16, 16), wx.CONTROL_EXPANDED)
+        dc.DrawText(ti_lbl, 15, 330)
+        render.DrawTreeItemButton(self, dc, (15, 350, 16, 16))
+        render.DrawTreeItemButton(self, dc, (45, 350, 16, 16), wx.CONTROL_EXPANDED)
         #---- Fifth Row End ----#
 
 #----------------------------------------------------------------------
