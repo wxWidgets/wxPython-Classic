@@ -30,7 +30,7 @@ If you do you can simply register an event handler and the editor
 will let you know when the visible portion of the text needs
 styling.
 
-wx.StyledTextEditor also supports setting markers in the margin...
+wx.StyledTextCtrl also supports setting markers in the margin...
 
 
 
@@ -262,7 +262,7 @@ def runTest(frame, nb, log):
 
     ed.StartStyling(836, stc.STC_INDICS_MASK)
     ed.SetStyling(10, stc.STC_INDIC0_MASK)
-    ed.SetStyling(10, stc.STC_INDIC1_MASK)
+    ed.SetStyling(8, stc.STC_INDIC1_MASK)
     ed.SetStyling(10, stc.STC_INDIC2_MASK | stc.STC_INDIC1_MASK)
 
 
