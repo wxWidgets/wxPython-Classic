@@ -2101,7 +2101,7 @@ wxString* wxString_in_helper(PyObject* source) {
     }
     else {
         str = PyUnicode_AsUTF8String(source);
-        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+        PyString_AsStringAndSize(str, &tmpPtr, &tmpSize);
     }
     target = new wxString(tmpPtr, tmpSize);
     Py_XDECREF(str);
