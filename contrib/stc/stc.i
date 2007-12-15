@@ -61,124 +61,136 @@ MustHaveApp(wxStyledTextCtrl);
     }
 
     
-    %property(Anchor, GetAnchor, SetAnchor, doc="See `GetAnchor` and `SetAnchor`");
-    %property(BackSpaceUnIndents, GetBackSpaceUnIndents, SetBackSpaceUnIndents, doc="See `GetBackSpaceUnIndents` and `SetBackSpaceUnIndents`");
-    %property(BufferedDraw, GetBufferedDraw, SetBufferedDraw, doc="See `GetBufferedDraw` and `SetBufferedDraw`");
-    %property(CaretForeground, GetCaretForeground, SetCaretForeground, doc="See `GetCaretForeground` and `SetCaretForeground`");
-    %property(CaretLineBack, GetCaretLineBack, SetCaretLineBack, doc="See `GetCaretLineBack` and `SetCaretLineBack`");
-    %property(CaretLineBackAlpha, GetCaretLineBackAlpha, SetCaretLineBackAlpha, doc="See `GetCaretLineBackAlpha` and `SetCaretLineBackAlpha`");
-    %property(CaretLineBackground, GetCaretLineBackground, SetCaretLineBackground, doc="See `GetCaretLineBackground` and `SetCaretLineBackground`");
-    %property(CaretLineVisible, GetCaretLineVisible, SetCaretLineVisible, doc="See `GetCaretLineVisible` and `SetCaretLineVisible`");
-    %property(CaretPeriod, GetCaretPeriod, SetCaretPeriod, doc="See `GetCaretPeriod` and `SetCaretPeriod`");
-    %property(CaretSticky, GetCaretSticky, SetCaretSticky, doc="See `GetCaretSticky` and `SetCaretSticky`");
-    %property(CaretWidth, GetCaretWidth, SetCaretWidth, doc="See `GetCaretWidth` and `SetCaretWidth`");
-    %property(CodePage, GetCodePage, SetCodePage, doc="See `GetCodePage` and `SetCodePage`");
-    %property(ControlCharSymbol, GetControlCharSymbol, SetControlCharSymbol, doc="See `GetControlCharSymbol` and `SetControlCharSymbol`");
-    %property(CurLine, GetCurLine, doc="See `GetCurLine`");
-    %property(CurLineRaw, GetCurLineRaw, doc="See `GetCurLineRaw`");
-    %property(CurLineUTF8, GetCurLineUTF8, doc="See `GetCurLineUTF8`");
-    %property(CurrentLine, GetCurrentLine, doc="See `GetCurrentLine`");
-    %property(CurrentPos, GetCurrentPos, SetCurrentPos, doc="See `GetCurrentPos` and `SetCurrentPos`");
-    %property(DocPointer, GetDocPointer, SetDocPointer, doc="See `GetDocPointer` and `SetDocPointer`");
-    %property(EOLMode, GetEOLMode, SetEOLMode, doc="See `GetEOLMode` and `SetEOLMode`");
-    %property(EdgeColour, GetEdgeColour, SetEdgeColour, doc="See `GetEdgeColour` and `SetEdgeColour`");
-    %property(EdgeColumn, GetEdgeColumn, SetEdgeColumn, doc="See `GetEdgeColumn` and `SetEdgeColumn`");
-    %property(EdgeMode, GetEdgeMode, SetEdgeMode, doc="See `GetEdgeMode` and `SetEdgeMode`");
-    %property(EndAtLastLine, GetEndAtLastLine, SetEndAtLastLine, doc="See `GetEndAtLastLine` and `SetEndAtLastLine`");
-    %property(EndStyled, GetEndStyled, doc="See `GetEndStyled`");
-    %property(FirstVisibleLine, GetFirstVisibleLine, doc="See `GetFirstVisibleLine`");
-    %property(HighlightGuide, GetHighlightGuide, SetHighlightGuide, doc="See `GetHighlightGuide` and `SetHighlightGuide`");
-    %property(Indent, GetIndent, SetIndent, doc="See `GetIndent` and `SetIndent`");
-    %property(IndentationGuides, GetIndentationGuides, SetIndentationGuides, doc="See `GetIndentationGuides` and `SetIndentationGuides`");
-    %property(LastKeydownProcessed, GetLastKeydownProcessed, SetLastKeydownProcessed, doc="See `GetLastKeydownProcessed` and `SetLastKeydownProcessed`");
-    %property(LayoutCache, GetLayoutCache, SetLayoutCache, doc="See `GetLayoutCache` and `SetLayoutCache`");
-    %property(Length, GetLength, doc="See `GetLength`");
-    %property(Lexer, GetLexer, SetLexer, doc="See `GetLexer` and `SetLexer`");
-    %property(LineCount, GetLineCount, doc="See `GetLineCount`");
-    %property(MarginLeft, GetMarginLeft, SetMarginLeft, doc="See `GetMarginLeft` and `SetMarginLeft`");
-    %property(MarginRight, GetMarginRight, SetMarginRight, doc="See `GetMarginRight` and `SetMarginRight`");
-    %property(MaxLineState, GetMaxLineState, doc="See `GetMaxLineState`");
-    %property(ModEventMask, GetModEventMask, SetModEventMask, doc="See `GetModEventMask` and `SetModEventMask`");
-    %property(Modify, GetModify, doc="See `GetModify`");
-    %property(MouseDownCaptures, GetMouseDownCaptures, SetMouseDownCaptures, doc="See `GetMouseDownCaptures` and `SetMouseDownCaptures`");
-    %property(MouseDwellTime, GetMouseDwellTime, SetMouseDwellTime, doc="See `GetMouseDwellTime` and `SetMouseDwellTime`");
-    %property(Overtype, GetOvertype, SetOvertype, doc="See `GetOvertype` and `SetOvertype`");
-    %property(PasteConvertEndings, GetPasteConvertEndings, SetPasteConvertEndings, doc="See `GetPasteConvertEndings` and `SetPasteConvertEndings`");
-    %property(PrintColourMode, GetPrintColourMode, SetPrintColourMode, doc="See `GetPrintColourMode` and `SetPrintColourMode`");
-    %property(PrintMagnification, GetPrintMagnification, SetPrintMagnification, doc="See `GetPrintMagnification` and `SetPrintMagnification`");
-    %property(PrintWrapMode, GetPrintWrapMode, SetPrintWrapMode, doc="See `GetPrintWrapMode` and `SetPrintWrapMode`");
-    %property(ReadOnly, GetReadOnly, SetReadOnly, doc="See `GetReadOnly` and `SetReadOnly`");
-    %property(STCCursor, GetSTCCursor, SetSTCCursor, doc="See `GetSTCCursor` and `SetSTCCursor`");
-    %property(STCFocus, GetSTCFocus, SetSTCFocus, doc="See `GetSTCFocus` and `SetSTCFocus`");
-    %property(ScrollWidth, GetScrollWidth, SetScrollWidth, doc="See `GetScrollWidth` and `SetScrollWidth`");
-    %property(SearchFlags, GetSearchFlags, SetSearchFlags, doc="See `GetSearchFlags` and `SetSearchFlags`");
-    %property(SelAlpha, GetSelAlpha, SetSelAlpha, doc="See `GetSelAlpha` and `SetSelAlpha`");
-    %property(SelectedText, GetSelectedText, doc="See `GetSelectedText`");
-    %property(SelectedTextRaw, GetSelectedTextRaw, doc="See `GetSelectedTextRaw`");
-    %property(SelectedTextUTF8, GetSelectedTextUTF8, doc="See `GetSelectedTextUTF8`");
+    %property(Anchor, GetAnchor, SetAnchor);
+    %property(BackSpaceUnIndents, GetBackSpaceUnIndents, SetBackSpaceUnIndents);
+    %property(BufferedDraw, GetBufferedDraw, SetBufferedDraw);
+    %property(CaretForeground, GetCaretForeground, SetCaretForeground);
+    %property(CaretLineBack, GetCaretLineBack, SetCaretLineBack);
+    %property(CaretLineBackAlpha, GetCaretLineBackAlpha, SetCaretLineBackAlpha);
+    %property(CaretLineBackground, GetCaretLineBackground, SetCaretLineBackground);
+    %property(CaretLineVisible, GetCaretLineVisible, SetCaretLineVisible);
+    %property(CaretPeriod, GetCaretPeriod, SetCaretPeriod);
+    %property(CaretSticky, GetCaretSticky, SetCaretSticky);
+    %property(CaretWidth, GetCaretWidth, SetCaretWidth);
+    %property(CodePage, GetCodePage, SetCodePage);
+    %property(ControlCharSymbol, GetControlCharSymbol, SetControlCharSymbol);
+    %property(CurLine, GetCurLine);
+    %property(CurLineRaw, GetCurLineRaw);
+    %property(CurLineUTF8, GetCurLineUTF8);
+    %property(CurrentLine, GetCurrentLine);
+    %property(CurrentPos, GetCurrentPos, SetCurrentPos);
+    %property(DocPointer, GetDocPointer, SetDocPointer);
+    %property(EOLMode, GetEOLMode, SetEOLMode);
+    %property(EdgeColour, GetEdgeColour, SetEdgeColour);
+    %property(EdgeColumn, GetEdgeColumn, SetEdgeColumn);
+    %property(EdgeMode, GetEdgeMode, SetEdgeMode);
+    %property(EndAtLastLine, GetEndAtLastLine, SetEndAtLastLine);
+    %property(EndStyled, GetEndStyled);
+    %property(FirstVisibleLine, GetFirstVisibleLine);
+    %property(HighlightGuide, GetHighlightGuide, SetHighlightGuide);
+    %property(Indent, GetIndent, SetIndent);
+    %property(IndentationGuides, GetIndentationGuides, SetIndentationGuides);
+    %property(LastKeydownProcessed, GetLastKeydownProcessed, SetLastKeydownProcessed);
+    %property(LayoutCache, GetLayoutCache, SetLayoutCache);
+    %property(Length, GetLength);
+    %property(Lexer, GetLexer, SetLexer);
+    %property(LineCount, GetLineCount);
+    %property(MarginLeft, GetMarginLeft, SetMarginLeft);
+    %property(MarginRight, GetMarginRight, SetMarginRight);
+    %property(MaxLineState, GetMaxLineState);
+    %property(ModEventMask, GetModEventMask, SetModEventMask);
+    %property(Modify, GetModify);
+    %property(MouseDownCaptures, GetMouseDownCaptures, SetMouseDownCaptures);
+    %property(MouseDwellTime, GetMouseDwellTime, SetMouseDwellTime);
+    %property(Overtype, GetOvertype, SetOvertype);
+    %property(PasteConvertEndings, GetPasteConvertEndings, SetPasteConvertEndings);
+    %property(PrintColourMode, GetPrintColourMode, SetPrintColourMode);
+    %property(PrintMagnification, GetPrintMagnification, SetPrintMagnification);
+    %property(PrintWrapMode, GetPrintWrapMode, SetPrintWrapMode);
+    %property(ReadOnly, GetReadOnly, SetReadOnly);
+    %property(STCCursor, GetSTCCursor, SetSTCCursor);
+    %property(STCFocus, GetSTCFocus, SetSTCFocus);
+    %property(ScrollWidth, GetScrollWidth, SetScrollWidth);
+    %property(SearchFlags, GetSearchFlags, SetSearchFlags);
+    %property(SelAlpha, GetSelAlpha, SetSelAlpha);
+    %property(SelectedText, GetSelectedText);
+    %property(SelectedTextRaw, GetSelectedTextRaw);
+    %property(SelectedTextUTF8, GetSelectedTextUTF8);
 
-    //%property(Selection, GetSelection, SetSelection, doc="See `GetSelection` and `SetSelection`");
-    %property(Selection, GetSelection, doc="See `GetSelection`");
+    //%property(Selection, GetSelection, SetSelection);
+    %property(Selection, GetSelection);
     
-    %property(SelectionEnd, GetSelectionEnd, SetSelectionEnd, doc="See `GetSelectionEnd` and `SetSelectionEnd`");
-    %property(SelectionMode, GetSelectionMode, SetSelectionMode, doc="See `GetSelectionMode` and `SetSelectionMode`");
-    %property(SelectionStart, GetSelectionStart, SetSelectionStart, doc="See `GetSelectionStart` and `SetSelectionStart`");
-    %property(Status, GetStatus, SetStatus, doc="See `GetStatus` and `SetStatus`");
-    %property(StyleBits, GetStyleBits, SetStyleBits, doc="See `GetStyleBits` and `SetStyleBits`");
-    %property(StyleBitsNeeded, GetStyleBitsNeeded, doc="See `GetStyleBitsNeeded`");
-    %property(TabIndents, GetTabIndents, SetTabIndents, doc="See `GetTabIndents` and `SetTabIndents`");
-    %property(TabWidth, GetTabWidth, SetTabWidth, doc="See `GetTabWidth` and `SetTabWidth`");
-    %property(TargetEnd, GetTargetEnd, SetTargetEnd, doc="See `GetTargetEnd` and `SetTargetEnd`");
-    %property(TargetStart, GetTargetStart, SetTargetStart, doc="See `GetTargetStart` and `SetTargetStart`");
-    %property(Text, GetText, SetText, doc="See `GetText` and `SetText`");
-    %property(TextLength, GetTextLength, doc="See `GetTextLength`");
-    %property(TextRaw, GetTextRaw, SetTextRaw, doc="See `GetTextRaw` and `SetTextRaw`");
-    %property(TextUTF8, GetTextUTF8, SetTextUTF8, doc="See `GetTextUTF8` and `SetTextUTF8`");
-    %property(TwoPhaseDraw, GetTwoPhaseDraw, SetTwoPhaseDraw, doc="See `GetTwoPhaseDraw` and `SetTwoPhaseDraw`");
-    %property(UndoCollection, GetUndoCollection, SetUndoCollection, doc="See `GetUndoCollection` and `SetUndoCollection`");
-    %property(UseAntiAliasing, GetUseAntiAliasing, SetUseAntiAliasing, doc="See `GetUseAntiAliasing` and `SetUseAntiAliasing`");
-    %property(UseHorizontalScrollBar, GetUseHorizontalScrollBar, SetUseHorizontalScrollBar, doc="See `GetUseHorizontalScrollBar` and `SetUseHorizontalScrollBar`");
-    %property(UseTabs, GetUseTabs, SetUseTabs, doc="See `GetUseTabs` and `SetUseTabs`");
-    %property(UseVerticalScrollBar, GetUseVerticalScrollBar, SetUseVerticalScrollBar, doc="See `GetUseVerticalScrollBar` and `SetUseVerticalScrollBar`");
-    %property(ViewEOL, GetViewEOL, SetViewEOL, doc="See `GetViewEOL` and `SetViewEOL`");
-    %property(ViewWhiteSpace, GetViewWhiteSpace, SetViewWhiteSpace, doc="See `GetViewWhiteSpace` and `SetViewWhiteSpace`");
-    %property(WrapMode, GetWrapMode, SetWrapMode, doc="See `GetWrapMode` and `SetWrapMode`");
-    %property(WrapStartIndent, GetWrapStartIndent, SetWrapStartIndent, doc="See `GetWrapStartIndent` and `SetWrapStartIndent`");
-    %property(WrapVisualFlags, GetWrapVisualFlags, SetWrapVisualFlags, doc="See `GetWrapVisualFlags` and `SetWrapVisualFlags`");
-    %property(WrapVisualFlagsLocation, GetWrapVisualFlagsLocation, SetWrapVisualFlagsLocation, doc="See `GetWrapVisualFlagsLocation` and `SetWrapVisualFlagsLocation`");
-    %property(XOffset, GetXOffset, SetXOffset, doc="See `GetXOffset` and `SetXOffset`");
-    %property(Zoom, GetZoom, SetZoom, doc="See `GetZoom` and `SetZoom`");
+    %property(SelectionEnd, GetSelectionEnd, SetSelectionEnd);
+    %property(SelectionMode, GetSelectionMode, SetSelectionMode);
+    %property(SelectionStart, GetSelectionStart, SetSelectionStart);
+    %property(Status, GetStatus, SetStatus);
+    %property(StyleBits, GetStyleBits, SetStyleBits);
+    %property(StyleBitsNeeded, GetStyleBitsNeeded);
+    %property(TabIndents, GetTabIndents, SetTabIndents);
+    %property(TabWidth, GetTabWidth, SetTabWidth);
+    %property(TargetEnd, GetTargetEnd, SetTargetEnd);
+    %property(TargetStart, GetTargetStart, SetTargetStart);
+    %property(Text, GetText, SetText);
+    %property(TextLength, GetTextLength);
+    %property(TextRaw, GetTextRaw, SetTextRaw);
+    %property(TextUTF8, GetTextUTF8, SetTextUTF8);
+    %property(TwoPhaseDraw, GetTwoPhaseDraw, SetTwoPhaseDraw);
+    %property(UndoCollection, GetUndoCollection, SetUndoCollection);
+    %property(UseAntiAliasing, GetUseAntiAliasing, SetUseAntiAliasing);
+    %property(UseHorizontalScrollBar, GetUseHorizontalScrollBar, SetUseHorizontalScrollBar);
+    %property(UseTabs, GetUseTabs, SetUseTabs);
+    %property(UseVerticalScrollBar, GetUseVerticalScrollBar, SetUseVerticalScrollBar);
+    %property(ViewEOL, GetViewEOL, SetViewEOL);
+    %property(ViewWhiteSpace, GetViewWhiteSpace, SetViewWhiteSpace);
+    %property(WrapMode, GetWrapMode, SetWrapMode);
+    %property(WrapStartIndent, GetWrapStartIndent, SetWrapStartIndent);
+    %property(WrapVisualFlags, GetWrapVisualFlags, SetWrapVisualFlags);
+    %property(WrapVisualFlagsLocation, GetWrapVisualFlagsLocation, SetWrapVisualFlagsLocation);
+    %property(XOffset, GetXOffset, SetXOffset);
+    %property(Zoom, GetZoom, SetZoom);
+
+    %property(SelEOLFilled, GetSelEOLFilled, SetSelEOLFilled);
+    %property(ScrollWidthTracking, GetScrollWidthTracking, SetScrollWidthTracking);
+    %property(HotspotActiveForeground, GetHotspotActiveForeground, SetHotspotActiveForeground);
+    %property(HotspotActiveBackground, GetHotspotActiveBackground, SetHotspotActiveBackground);
+    %property(HotspotActiveUnderline, GetHotspotActiveUnderline, SetHotspotActiveUnderline);
+    %property(HotspotSingleLine, GetHotspotSingleLine, SetHotspotSingleLine);
+    %property(CaretStyle, GetCaretStyle, SetCaretStyle);
+    %property(IndicatorCurrent, GetIndicatorCurrent, SetIndicatorCurrent);
+    %property(IndicatorValue, GetIndicatorValue, SetIndicatorValue);
+    %property(PositionCacheSize, GetPositionCacheSize, SetPositionCacheSize);
+    
 }
 
 
 %extend wxStyledTextEvent {
-    %property(Alt, GetAlt, doc="See `GetAlt`");
-    %property(Control, GetControl, doc="See `GetControl`");
-    %property(DragAllowMove, GetDragAllowMove, SetDragAllowMove, doc="See `GetDragAllowMove` and `SetDragAllowMove`");
-    %property(DragResult, GetDragResult, SetDragResult, doc="See `GetDragResult` and `SetDragResult`");
-    %property(DragText, GetDragText, SetDragText, doc="See `GetDragText` and `SetDragText`");
-    %property(FoldLevelNow, GetFoldLevelNow, SetFoldLevelNow, doc="See `GetFoldLevelNow` and `SetFoldLevelNow`");
-    %property(FoldLevelPrev, GetFoldLevelPrev, SetFoldLevelPrev, doc="See `GetFoldLevelPrev` and `SetFoldLevelPrev`");
-    %property(Key, GetKey, SetKey, doc="See `GetKey` and `SetKey`");
-    %property(LParam, GetLParam, SetLParam, doc="See `GetLParam` and `SetLParam`");
-    %property(Length, GetLength, SetLength, doc="See `GetLength` and `SetLength`");
-    %property(Line, GetLine, SetLine, doc="See `GetLine` and `SetLine`");
-    %property(LinesAdded, GetLinesAdded, SetLinesAdded, doc="See `GetLinesAdded` and `SetLinesAdded`");
-    %property(ListType, GetListType, SetListType, doc="See `GetListType` and `SetListType`");
-    %property(Margin, GetMargin, SetMargin, doc="See `GetMargin` and `SetMargin`");
-    %property(Message, GetMessage, SetMessage, doc="See `GetMessage` and `SetMessage`");
-    %property(ModificationType, GetModificationType, SetModificationType, doc="See `GetModificationType` and `SetModificationType`");
-    %property(Modifiers, GetModifiers, SetModifiers, doc="See `GetModifiers` and `SetModifiers`");
-    %property(Position, GetPosition, SetPosition, doc="See `GetPosition` and `SetPosition`");
-    %property(Shift, GetShift, doc="See `GetShift`");
-    %property(Text, GetText, SetText, doc="See `GetText` and `SetText`");
-    %property(WParam, GetWParam, SetWParam, doc="See `GetWParam` and `SetWParam`");
-    %property(X, GetX, SetX, doc="See `GetX` and `SetX`");
-    %property(Y, GetY, SetY, doc="See `GetY` and `SetY`");
+    %property(Alt, GetAlt);
+    %property(Control, GetControl);
+    %property(DragAllowMove, GetDragAllowMove, SetDragAllowMove);
+    %property(DragResult, GetDragResult, SetDragResult);
+    %property(DragText, GetDragText, SetDragText);
+    %property(FoldLevelNow, GetFoldLevelNow, SetFoldLevelNow);
+    %property(FoldLevelPrev, GetFoldLevelPrev, SetFoldLevelPrev);
+    %property(Key, GetKey, SetKey);
+    %property(LParam, GetLParam, SetLParam);
+    %property(Length, GetLength, SetLength);
+    %property(Line, GetLine, SetLine);
+    %property(LinesAdded, GetLinesAdded, SetLinesAdded);
+    %property(ListType, GetListType, SetListType);
+    %property(Margin, GetMargin, SetMargin);
+    %property(Message, GetMessage, SetMessage);
+    %property(ModificationType, GetModificationType, SetModificationType);
+    %property(Modifiers, GetModifiers, SetModifiers);
+    %property(Position, GetPosition, SetPosition);
+    %property(Shift, GetShift);
+    %property(Text, GetText, SetText);
+    %property(WParam, GetWParam, SetWParam);
+    %property(X, GetX, SetX);
+    %property(Y, GetY, SetY);
 }
 
 //---------------------------------------------------------------------------
-// Python functions to act like the event macros
+// STC Events
 
 %pythoncode {
 EVT_STC_CHANGE = wx.PyEventBinder( wxEVT_STC_CHANGE, 1 )
@@ -207,6 +219,8 @@ EVT_STC_HOTSPOT_CLICK = wx.PyEventBinder( wxEVT_STC_HOTSPOT_CLICK, 1 )
 EVT_STC_HOTSPOT_DCLICK = wx.PyEventBinder( wxEVT_STC_HOTSPOT_DCLICK, 1 )
 EVT_STC_CALLTIP_CLICK = wx.PyEventBinder( wxEVT_STC_CALLTIP_CLICK, 1 )
 EVT_STC_AUTOCOMP_SELECTION = wx.PyEventBinder( wxEVT_STC_AUTOCOMP_SELECTION, 1 )
+EVT_STC_INDICATOR_CLICK = wx.PyEventBinder( wxEVT_STC_INDICATOR_CLICK, 1 )
+EVT_STC_INDICATOR_RELEASE = wx.PyEventBinder( wxEVT_STC_INDICATOR_RELEASE, 1 )    
 }
 
 //---------------------------------------------------------------------------

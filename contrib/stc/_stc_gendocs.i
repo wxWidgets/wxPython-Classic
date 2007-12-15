@@ -212,6 +212,46 @@ DocStr(wxStyledTextCtrl::StyleResetDefault,
 DocStr(wxStyledTextCtrl::StyleSetUnderline,
 "Set a style to be underlined or not.", "");
 
+DocStr(wxStyledTextCtrl::StyleGetForeground,
+"Get the foreground colour of a style.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetBackground,
+"Get the background colour of a style.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetBold,
+"Get is a style bold or not.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetItalic,
+"Get is a style italic or not.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetSize,
+"Get the size of characters of a style.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetFaceName,
+"Get the font facename of a style", "");
+
+DocStr(wxStyledTextCtrl::StyleGetEOLFilled,
+"Get is a style to have its end of line filled or not.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetUnderline,
+"Get is a style underlined or not.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetCase,
+"Get is a style mixed case, or to force upper or lower case.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetCharacterSet,
+"Get the character set of the font in a style.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetVisible,
+"Get is a style visible or not.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetChangeable,
+"Get is a style changeable or not (read only).
+Experimental feature, currently buggy.", "");
+
+DocStr(wxStyledTextCtrl::StyleGetHotSpot,
+"Get is a style a hotspot or not.", "");
+
 DocStr(wxStyledTextCtrl::StyleSetCase,
 "Set a style to be mixed case, or to force upper or lower case.", "");
 
@@ -229,6 +269,12 @@ DocStr(wxStyledTextCtrl::GetSelAlpha,
 
 DocStr(wxStyledTextCtrl::SetSelAlpha,
 "Set the alpha of the selection.", "");
+
+DocStr(wxStyledTextCtrl::GetSelEOLFilled,
+"Is the selection end of line filled?", "");
+
+DocStr(wxStyledTextCtrl::SetSelEOLFilled,
+"Set the selection to have its end of line filled or not.", "");
 
 DocStr(wxStyledTextCtrl::SetCaretForeground,
 "Set the foreground colour of the caret.", "");
@@ -276,6 +322,12 @@ DocStr(wxStyledTextCtrl::IndicatorSetForeground,
 
 DocStr(wxStyledTextCtrl::IndicatorGetForeground,
 "Retrieve the foreground colour of an indicator.", "");
+
+DocStr(wxStyledTextCtrl::IndicatorSetUnder,
+"Set an indicator to draw under text or over(default).", "");
+
+DocStr(wxStyledTextCtrl::IndicatorGetUnder,
+"Retrieve whether indicator drawn under or over text.", "");
 
 DocStr(wxStyledTextCtrl::SetWhitespaceForeground,
 "Set the foreground colour of all whitespace and whether to use this setting.", "");
@@ -777,6 +829,12 @@ DocStr(wxStyledTextCtrl::SetScrollWidth,
 DocStr(wxStyledTextCtrl::GetScrollWidth,
 "Retrieve the document width assumed for scrolling.", "");
 
+DocStr(wxStyledTextCtrl::SetScrollWidthTracking,
+"Sets whether the maximum width line displayed is used to set scroll width.", "");
+
+DocStr(wxStyledTextCtrl::GetScrollWidthTracking,
+"Retrieve whether the scroll width tracks wide lines.", "");
+
 DocStr(wxStyledTextCtrl::TextWidth,
 "Measure the pixel width of some text in a particular style.
 NUL terminated text argument.
@@ -938,6 +996,9 @@ DocStr(wxStyledTextCtrl::DelWordLeft,
 
 DocStr(wxStyledTextCtrl::DelWordRight,
 "Delete the word to the right of the caret.", "");
+
+DocStr(wxStyledTextCtrl::DelWordRightEnd,
+"Delete the word to the right of the caret, but not the trailing non-word characters.", "");
 
 DocStr(wxStyledTextCtrl::LineCut,
 "Cut the line containing the caret.", "");
@@ -1178,14 +1239,26 @@ DocStr(wxStyledTextCtrl::GetPrintWrapMode,
 DocStr(wxStyledTextCtrl::SetHotspotActiveForeground,
 "Set a fore colour for active hotspots.", "");
 
+DocStr(wxStyledTextCtrl::GetHotspotActiveForeground,
+"Get the fore colour for active hotspots.", "");
+
 DocStr(wxStyledTextCtrl::SetHotspotActiveBackground,
 "Set a back colour for active hotspots.", "");
+
+DocStr(wxStyledTextCtrl::GetHotspotActiveBackground,
+"Get the back colour for active hotspots.", "");
 
 DocStr(wxStyledTextCtrl::SetHotspotActiveUnderline,
 "Enable / Disable underlining active hotspots.", "");
 
+DocStr(wxStyledTextCtrl::GetHotspotActiveUnderline,
+"Get whether underlining for active hotspots.", "");
+
 DocStr(wxStyledTextCtrl::SetHotspotSingleLine,
 "Limit hotspots to single line so hotspots on two lines don't merge.", "");
+
+DocStr(wxStyledTextCtrl::GetHotspotSingleLine,
+"Get the HotspotSingleLine property", "");
 
 DocStr(wxStyledTextCtrl::ParaDown,
 "Move caret between paragraphs (delimited by empty lines).", "");
@@ -1319,6 +1392,48 @@ DocStr(wxStyledTextCtrl::SetCaretLineBackAlpha,
 
 DocStr(wxStyledTextCtrl::GetCaretLineBackAlpha,
 "Get the background alpha of the caret line.", "");
+
+DocStr(wxStyledTextCtrl::SetCaretStyle,
+"Set the style of the caret to be drawn.", "");
+
+DocStr(wxStyledTextCtrl::GetCaretStyle,
+"Returns the current style of the caret.", "");
+
+DocStr(wxStyledTextCtrl::SetIndicatorCurrent,
+"Set the indicator used for IndicatorFillRange and IndicatorClearRange", "");
+
+DocStr(wxStyledTextCtrl::GetIndicatorCurrent,
+"Get the current indicator", "");
+
+DocStr(wxStyledTextCtrl::SetIndicatorValue,
+"Set the value used for IndicatorFillRange", "");
+
+DocStr(wxStyledTextCtrl::GetIndicatorValue,
+"Get the current indicator vaue", "");
+
+DocStr(wxStyledTextCtrl::IndicatorFillRange,
+"Turn a indicator on over a range.", "");
+
+DocStr(wxStyledTextCtrl::IndicatorClearRange,
+"Turn a indicator off over a range.", "");
+
+DocStr(wxStyledTextCtrl::IndicatorAllOnFor,
+"Are any indicators present at position?", "");
+
+DocStr(wxStyledTextCtrl::IndicatorValueAt,
+"What value does a particular indicator have at at a position?", "");
+
+DocStr(wxStyledTextCtrl::IndicatorStart,
+"Where does a particular indicator start?", "");
+
+DocStr(wxStyledTextCtrl::IndicatorEnd,
+"Where does a particular indicator end?", "");
+
+DocStr(wxStyledTextCtrl::SetPositionCacheSize,
+"Set number of entries in position cache", "");
+
+DocStr(wxStyledTextCtrl::GetPositionCacheSize,
+"How many entries are allocated to the position cache?", "");
 
 DocStr(wxStyledTextCtrl::StartRecord,
 "Start notifying the container of all key presses and commands.", "");

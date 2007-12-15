@@ -957,7 +957,7 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
     cflags = os.popen(WX_CONFIG + ' --cxxflags', 'r').read()[:-1]
     cflags = cflags.split()
     if debug:
-        cflags.append('-g')
+        cflags.append('-ggdb')
         cflags.append('-O0')
     else:
         cflags.append('-O3')

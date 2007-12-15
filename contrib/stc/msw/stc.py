@@ -150,7 +150,6 @@ STC_CHARSET_8859_15 = _stc.STC_CHARSET_8859_15
 STC_CASE_MIXED = _stc.STC_CASE_MIXED
 STC_CASE_UPPER = _stc.STC_CASE_UPPER
 STC_CASE_LOWER = _stc.STC_CASE_LOWER
-STC_INDIC_MAX = _stc.STC_INDIC_MAX
 STC_INDIC_PLAIN = _stc.STC_INDIC_PLAIN
 STC_INDIC_SQUIGGLE = _stc.STC_INDIC_SQUIGGLE
 STC_INDIC_TT = _stc.STC_INDIC_TT
@@ -159,10 +158,16 @@ STC_INDIC_STRIKE = _stc.STC_INDIC_STRIKE
 STC_INDIC_HIDDEN = _stc.STC_INDIC_HIDDEN
 STC_INDIC_BOX = _stc.STC_INDIC_BOX
 STC_INDIC_ROUNDBOX = _stc.STC_INDIC_ROUNDBOX
+STC_INDIC_MAX = _stc.STC_INDIC_MAX
+STC_INDIC_CONTAINER = _stc.STC_INDIC_CONTAINER
 STC_INDIC0_MASK = _stc.STC_INDIC0_MASK
 STC_INDIC1_MASK = _stc.STC_INDIC1_MASK
 STC_INDIC2_MASK = _stc.STC_INDIC2_MASK
 STC_INDICS_MASK = _stc.STC_INDICS_MASK
+STC_IV_NONE = _stc.STC_IV_NONE
+STC_IV_REAL = _stc.STC_IV_REAL
+STC_IV_LOOKFORWARD = _stc.STC_IV_LOOKFORWARD
+STC_IV_LOOKBOTH = _stc.STC_IV_LOOKBOTH
 STC_PRINT_NORMAL = _stc.STC_PRINT_NORMAL
 STC_PRINT_INVERTLIGHT = _stc.STC_PRINT_INVERTLIGHT
 STC_PRINT_BLACKONWHITE = _stc.STC_PRINT_BLACKONWHITE
@@ -218,6 +223,9 @@ STC_SEL_LINES = _stc.STC_SEL_LINES
 STC_ALPHA_TRANSPARENT = _stc.STC_ALPHA_TRANSPARENT
 STC_ALPHA_OPAQUE = _stc.STC_ALPHA_OPAQUE
 STC_ALPHA_NOALPHA = _stc.STC_ALPHA_NOALPHA
+STC_CARETSTYLE_INVISIBLE = _stc.STC_CARETSTYLE_INVISIBLE
+STC_CARETSTYLE_LINE = _stc.STC_CARETSTYLE_LINE
+STC_CARETSTYLE_BLOCK = _stc.STC_CARETSTYLE_BLOCK
 STC_KEYWORDSET_MAX = _stc.STC_KEYWORDSET_MAX
 STC_MOD_INSERTTEXT = _stc.STC_MOD_INSERTTEXT
 STC_MOD_DELETETEXT = _stc.STC_MOD_DELETETEXT
@@ -232,6 +240,9 @@ STC_MOD_CHANGEMARKER = _stc.STC_MOD_CHANGEMARKER
 STC_MOD_BEFOREINSERT = _stc.STC_MOD_BEFOREINSERT
 STC_MOD_BEFOREDELETE = _stc.STC_MOD_BEFOREDELETE
 STC_MULTILINEUNDOREDO = _stc.STC_MULTILINEUNDOREDO
+STC_STARTACTION = _stc.STC_STARTACTION
+STC_MOD_CHANGEINDICATOR = _stc.STC_MOD_CHANGEINDICATOR
+STC_MOD_CHANGELINESTATE = _stc.STC_MOD_CHANGELINESTATE
 STC_MODEVENTMASKALL = _stc.STC_MODEVENTMASKALL
 STC_KEY_DOWN = _stc.STC_KEY_DOWN
 STC_KEY_UP = _stc.STC_KEY_UP
@@ -250,6 +261,9 @@ STC_KEY_RETURN = _stc.STC_KEY_RETURN
 STC_KEY_ADD = _stc.STC_KEY_ADD
 STC_KEY_SUBTRACT = _stc.STC_KEY_SUBTRACT
 STC_KEY_DIVIDE = _stc.STC_KEY_DIVIDE
+STC_KEY_WIN = _stc.STC_KEY_WIN
+STC_KEY_RWIN = _stc.STC_KEY_RWIN
+STC_KEY_MENU = _stc.STC_KEY_MENU
 STC_SCMOD_NORM = _stc.STC_SCMOD_NORM
 STC_SCMOD_SHIFT = _stc.STC_SCMOD_SHIFT
 STC_SCMOD_CTRL = _stc.STC_SCMOD_CTRL
@@ -331,6 +345,14 @@ STC_LEX_FREEBASIC = _stc.STC_LEX_FREEBASIC
 STC_LEX_INNOSETUP = _stc.STC_LEX_INNOSETUP
 STC_LEX_OPAL = _stc.STC_LEX_OPAL
 STC_LEX_SPICE = _stc.STC_LEX_SPICE
+STC_LEX_D = _stc.STC_LEX_D
+STC_LEX_CMAKE = _stc.STC_LEX_CMAKE
+STC_LEX_GAP = _stc.STC_LEX_GAP
+STC_LEX_PLM = _stc.STC_LEX_PLM
+STC_LEX_PROGRESS = _stc.STC_LEX_PROGRESS
+STC_LEX_ABAQUS = _stc.STC_LEX_ABAQUS
+STC_LEX_ASYMPTOTE = _stc.STC_LEX_ASYMPTOTE
+STC_LEX_R = _stc.STC_LEX_R
 STC_LEX_AUTOMATIC = _stc.STC_LEX_AUTOMATIC
 STC_P_DEFAULT = _stc.STC_P_DEFAULT
 STC_P_COMMENTLINE = _stc.STC_P_COMMENTLINE
@@ -368,6 +390,24 @@ STC_C_WORD2 = _stc.STC_C_WORD2
 STC_C_COMMENTDOCKEYWORD = _stc.STC_C_COMMENTDOCKEYWORD
 STC_C_COMMENTDOCKEYWORDERROR = _stc.STC_C_COMMENTDOCKEYWORDERROR
 STC_C_GLOBALCLASS = _stc.STC_C_GLOBALCLASS
+STC_D_DEFAULT = _stc.STC_D_DEFAULT
+STC_D_COMMENT = _stc.STC_D_COMMENT
+STC_D_COMMENTLINE = _stc.STC_D_COMMENTLINE
+STC_D_COMMENTDOC = _stc.STC_D_COMMENTDOC
+STC_D_COMMENTNESTED = _stc.STC_D_COMMENTNESTED
+STC_D_NUMBER = _stc.STC_D_NUMBER
+STC_D_WORD = _stc.STC_D_WORD
+STC_D_WORD2 = _stc.STC_D_WORD2
+STC_D_WORD3 = _stc.STC_D_WORD3
+STC_D_TYPEDEF = _stc.STC_D_TYPEDEF
+STC_D_STRING = _stc.STC_D_STRING
+STC_D_STRINGEOL = _stc.STC_D_STRINGEOL
+STC_D_CHARACTER = _stc.STC_D_CHARACTER
+STC_D_OPERATOR = _stc.STC_D_OPERATOR
+STC_D_IDENTIFIER = _stc.STC_D_IDENTIFIER
+STC_D_COMMENTLINEDOC = _stc.STC_D_COMMENTLINEDOC
+STC_D_COMMENTDOCKEYWORD = _stc.STC_D_COMMENTDOCKEYWORD
+STC_D_COMMENTDOCKEYWORDERROR = _stc.STC_D_COMMENTDOCKEYWORDERROR
 STC_TCL_DEFAULT = _stc.STC_TCL_DEFAULT
 STC_TCL_COMMENT = _stc.STC_TCL_COMMENT
 STC_TCL_COMMENTLINE = _stc.STC_TCL_COMMENTLINE
@@ -533,6 +573,9 @@ STC_PL_STRING_QX = _stc.STC_PL_STRING_QX
 STC_PL_STRING_QR = _stc.STC_PL_STRING_QR
 STC_PL_STRING_QW = _stc.STC_PL_STRING_QW
 STC_PL_POD_VERB = _stc.STC_PL_POD_VERB
+STC_PL_SUB_PROTOTYPE = _stc.STC_PL_SUB_PROTOTYPE
+STC_PL_FORMAT_IDENT = _stc.STC_PL_FORMAT_IDENT
+STC_PL_FORMAT = _stc.STC_PL_FORMAT
 STC_RB_DEFAULT = _stc.STC_RB_DEFAULT
 STC_RB_ERROR = _stc.STC_RB_ERROR
 STC_RB_COMMENTLINE = _stc.STC_RB_COMMENTLINE
@@ -638,6 +681,7 @@ STC_ERR_IFORT = _stc.STC_ERR_IFORT
 STC_ERR_ABSF = _stc.STC_ERR_ABSF
 STC_ERR_TIDY = _stc.STC_ERR_TIDY
 STC_ERR_JAVA_STACK = _stc.STC_ERR_JAVA_STACK
+STC_ERR_VALUE = _stc.STC_ERR_VALUE
 STC_BAT_DEFAULT = _stc.STC_BAT_DEFAULT
 STC_BAT_COMMENT = _stc.STC_BAT_COMMENT
 STC_BAT_WORD = _stc.STC_BAT_WORD
@@ -950,6 +994,7 @@ STC_YAML_REFERENCE = _stc.STC_YAML_REFERENCE
 STC_YAML_DOCUMENT = _stc.STC_YAML_DOCUMENT
 STC_YAML_TEXT = _stc.STC_YAML_TEXT
 STC_YAML_ERROR = _stc.STC_YAML_ERROR
+STC_YAML_OPERATOR = _stc.STC_YAML_OPERATOR
 STC_TEX_DEFAULT = _stc.STC_TEX_DEFAULT
 STC_TEX_SPECIAL = _stc.STC_TEX_SPECIAL
 STC_TEX_GROUP = _stc.STC_TEX_GROUP
@@ -1167,6 +1212,7 @@ STC_T3_HTML_STRING = _stc.STC_T3_HTML_STRING
 STC_T3_USER1 = _stc.STC_T3_USER1
 STC_T3_USER2 = _stc.STC_T3_USER2
 STC_T3_USER3 = _stc.STC_T3_USER3
+STC_T3_BRACE = _stc.STC_T3_BRACE
 STC_REBOL_DEFAULT = _stc.STC_REBOL_DEFAULT
 STC_REBOL_COMMENTLINE = _stc.STC_REBOL_COMMENTLINE
 STC_REBOL_COMMENTBLOCK = _stc.STC_REBOL_COMMENTBLOCK
@@ -1307,6 +1353,110 @@ STC_SPICE_NUMBER = _stc.STC_SPICE_NUMBER
 STC_SPICE_DELIMITER = _stc.STC_SPICE_DELIMITER
 STC_SPICE_VALUE = _stc.STC_SPICE_VALUE
 STC_SPICE_COMMENTLINE = _stc.STC_SPICE_COMMENTLINE
+STC_CMAKE_DEFAULT = _stc.STC_CMAKE_DEFAULT
+STC_CMAKE_COMMENT = _stc.STC_CMAKE_COMMENT
+STC_CMAKE_STRINGDQ = _stc.STC_CMAKE_STRINGDQ
+STC_CMAKE_STRINGLQ = _stc.STC_CMAKE_STRINGLQ
+STC_CMAKE_STRINGRQ = _stc.STC_CMAKE_STRINGRQ
+STC_CMAKE_COMMANDS = _stc.STC_CMAKE_COMMANDS
+STC_CMAKE_PARAMETERS = _stc.STC_CMAKE_PARAMETERS
+STC_CMAKE_VARIABLE = _stc.STC_CMAKE_VARIABLE
+STC_CMAKE_USERDEFINED = _stc.STC_CMAKE_USERDEFINED
+STC_CMAKE_WHILEDEF = _stc.STC_CMAKE_WHILEDEF
+STC_CMAKE_FOREACHDEF = _stc.STC_CMAKE_FOREACHDEF
+STC_CMAKE_IFDEFINEDEF = _stc.STC_CMAKE_IFDEFINEDEF
+STC_CMAKE_MACRODEF = _stc.STC_CMAKE_MACRODEF
+STC_CMAKE_STRINGVAR = _stc.STC_CMAKE_STRINGVAR
+STC_CMAKE_NUMBER = _stc.STC_CMAKE_NUMBER
+STC_GAP_DEFAULT = _stc.STC_GAP_DEFAULT
+STC_GAP_IDENTIFIER = _stc.STC_GAP_IDENTIFIER
+STC_GAP_KEYWORD = _stc.STC_GAP_KEYWORD
+STC_GAP_KEYWORD2 = _stc.STC_GAP_KEYWORD2
+STC_GAP_KEYWORD3 = _stc.STC_GAP_KEYWORD3
+STC_GAP_KEYWORD4 = _stc.STC_GAP_KEYWORD4
+STC_GAP_STRING = _stc.STC_GAP_STRING
+STC_GAP_CHAR = _stc.STC_GAP_CHAR
+STC_GAP_OPERATOR = _stc.STC_GAP_OPERATOR
+STC_GAP_COMMENT = _stc.STC_GAP_COMMENT
+STC_GAP_NUMBER = _stc.STC_GAP_NUMBER
+STC_GAP_STRINGEOL = _stc.STC_GAP_STRINGEOL
+STC_PLM_DEFAULT = _stc.STC_PLM_DEFAULT
+STC_PLM_COMMENT = _stc.STC_PLM_COMMENT
+STC_PLM_STRING = _stc.STC_PLM_STRING
+STC_PLM_NUMBER = _stc.STC_PLM_NUMBER
+STC_PLM_IDENTIFIER = _stc.STC_PLM_IDENTIFIER
+STC_PLM_OPERATOR = _stc.STC_PLM_OPERATOR
+STC_PLM_CONTROL = _stc.STC_PLM_CONTROL
+STC_PLM_KEYWORD = _stc.STC_PLM_KEYWORD
+STC_4GL_DEFAULT = _stc.STC_4GL_DEFAULT
+STC_4GL_NUMBER = _stc.STC_4GL_NUMBER
+STC_4GL_WORD = _stc.STC_4GL_WORD
+STC_4GL_STRING = _stc.STC_4GL_STRING
+STC_4GL_CHARACTER = _stc.STC_4GL_CHARACTER
+STC_4GL_PREPROCESSOR = _stc.STC_4GL_PREPROCESSOR
+STC_4GL_OPERATOR = _stc.STC_4GL_OPERATOR
+STC_4GL_IDENTIFIER = _stc.STC_4GL_IDENTIFIER
+STC_4GL_BLOCK = _stc.STC_4GL_BLOCK
+STC_4GL_END = _stc.STC_4GL_END
+STC_4GL_COMMENT1 = _stc.STC_4GL_COMMENT1
+STC_4GL_COMMENT2 = _stc.STC_4GL_COMMENT2
+STC_4GL_COMMENT3 = _stc.STC_4GL_COMMENT3
+STC_4GL_COMMENT4 = _stc.STC_4GL_COMMENT4
+STC_4GL_COMMENT5 = _stc.STC_4GL_COMMENT5
+STC_4GL_COMMENT6 = _stc.STC_4GL_COMMENT6
+STC_4GL_DEFAULT_ = _stc.STC_4GL_DEFAULT_
+STC_4GL_NUMBER_ = _stc.STC_4GL_NUMBER_
+STC_4GL_WORD_ = _stc.STC_4GL_WORD_
+STC_4GL_STRING_ = _stc.STC_4GL_STRING_
+STC_4GL_CHARACTER_ = _stc.STC_4GL_CHARACTER_
+STC_4GL_PREPROCESSOR_ = _stc.STC_4GL_PREPROCESSOR_
+STC_4GL_OPERATOR_ = _stc.STC_4GL_OPERATOR_
+STC_4GL_IDENTIFIER_ = _stc.STC_4GL_IDENTIFIER_
+STC_4GL_BLOCK_ = _stc.STC_4GL_BLOCK_
+STC_4GL_END_ = _stc.STC_4GL_END_
+STC_4GL_COMMENT1_ = _stc.STC_4GL_COMMENT1_
+STC_4GL_COMMENT2_ = _stc.STC_4GL_COMMENT2_
+STC_4GL_COMMENT3_ = _stc.STC_4GL_COMMENT3_
+STC_4GL_COMMENT4_ = _stc.STC_4GL_COMMENT4_
+STC_4GL_COMMENT5_ = _stc.STC_4GL_COMMENT5_
+STC_4GL_COMMENT6_ = _stc.STC_4GL_COMMENT6_
+STC_ABAQUS_DEFAULT = _stc.STC_ABAQUS_DEFAULT
+STC_ABAQUS_COMMENT = _stc.STC_ABAQUS_COMMENT
+STC_ABAQUS_COMMENTBLOCK = _stc.STC_ABAQUS_COMMENTBLOCK
+STC_ABAQUS_NUMBER = _stc.STC_ABAQUS_NUMBER
+STC_ABAQUS_STRING = _stc.STC_ABAQUS_STRING
+STC_ABAQUS_OPERATOR = _stc.STC_ABAQUS_OPERATOR
+STC_ABAQUS_WORD = _stc.STC_ABAQUS_WORD
+STC_ABAQUS_PROCESSOR = _stc.STC_ABAQUS_PROCESSOR
+STC_ABAQUS_COMMAND = _stc.STC_ABAQUS_COMMAND
+STC_ABAQUS_SLASHCOMMAND = _stc.STC_ABAQUS_SLASHCOMMAND
+STC_ABAQUS_STARCOMMAND = _stc.STC_ABAQUS_STARCOMMAND
+STC_ABAQUS_ARGUMENT = _stc.STC_ABAQUS_ARGUMENT
+STC_ABAQUS_FUNCTION = _stc.STC_ABAQUS_FUNCTION
+STC_ASY_DEFAULT = _stc.STC_ASY_DEFAULT
+STC_ASY_COMMENT = _stc.STC_ASY_COMMENT
+STC_ASY_COMMENTLINE = _stc.STC_ASY_COMMENTLINE
+STC_ASY_NUMBER = _stc.STC_ASY_NUMBER
+STC_ASY_WORD = _stc.STC_ASY_WORD
+STC_ASY_STRING = _stc.STC_ASY_STRING
+STC_ASY_CHARACTER = _stc.STC_ASY_CHARACTER
+STC_ASY_OPERATOR = _stc.STC_ASY_OPERATOR
+STC_ASY_IDENTIFIER = _stc.STC_ASY_IDENTIFIER
+STC_ASY_STRINGEOL = _stc.STC_ASY_STRINGEOL
+STC_ASY_COMMENTLINEDOC = _stc.STC_ASY_COMMENTLINEDOC
+STC_ASY_WORD2 = _stc.STC_ASY_WORD2
+STC_R_DEFAULT = _stc.STC_R_DEFAULT
+STC_R_COMMENT = _stc.STC_R_COMMENT
+STC_R_KWORD = _stc.STC_R_KWORD
+STC_R_BASEKWORD = _stc.STC_R_BASEKWORD
+STC_R_OTHERKWORD = _stc.STC_R_OTHERKWORD
+STC_R_NUMBER = _stc.STC_R_NUMBER
+STC_R_STRING = _stc.STC_R_STRING
+STC_R_STRING2 = _stc.STC_R_STRING2
+STC_R_OPERATOR = _stc.STC_R_OPERATOR
+STC_R_IDENTIFIER = _stc.STC_R_IDENTIFIER
+STC_R_INFIX = _stc.STC_R_INFIX
+STC_R_INFIXEOL = _stc.STC_R_INFIXEOL
 STC_CMD_REDO = _stc.STC_CMD_REDO
 STC_CMD_SELECTALL = _stc.STC_CMD_SELECTALL
 STC_CMD_UNDO = _stc.STC_CMD_UNDO
@@ -1351,6 +1501,7 @@ STC_CMD_ZOOMIN = _stc.STC_CMD_ZOOMIN
 STC_CMD_ZOOMOUT = _stc.STC_CMD_ZOOMOUT
 STC_CMD_DELWORDLEFT = _stc.STC_CMD_DELWORDLEFT
 STC_CMD_DELWORDRIGHT = _stc.STC_CMD_DELWORDRIGHT
+STC_CMD_DELWORDRIGHTEND = _stc.STC_CMD_DELWORDRIGHTEND
 STC_CMD_LINECUT = _stc.STC_CMD_LINECUT
 STC_CMD_LINEDELETE = _stc.STC_CMD_LINEDELETE
 STC_CMD_LINETRANSPOSE = _stc.STC_CMD_LINETRANSPOSE
@@ -1972,6 +2123,111 @@ class StyledTextCtrl(_core.Control):
         """
         return _stc.StyledTextCtrl_StyleSetUnderline(*args, **kwargs)
 
+    def StyleGetForeground(*args, **kwargs):
+        """
+        StyleGetForeground(self, int style) -> Colour
+
+        Get the foreground colour of a style.
+        """
+        return _stc.StyledTextCtrl_StyleGetForeground(*args, **kwargs)
+
+    def StyleGetBackground(*args, **kwargs):
+        """
+        StyleGetBackground(self, int style) -> Colour
+
+        Get the background colour of a style.
+        """
+        return _stc.StyledTextCtrl_StyleGetBackground(*args, **kwargs)
+
+    def StyleGetBold(*args, **kwargs):
+        """
+        StyleGetBold(self, int style) -> bool
+
+        Get is a style bold or not.
+        """
+        return _stc.StyledTextCtrl_StyleGetBold(*args, **kwargs)
+
+    def StyleGetItalic(*args, **kwargs):
+        """
+        StyleGetItalic(self, int style) -> bool
+
+        Get is a style italic or not.
+        """
+        return _stc.StyledTextCtrl_StyleGetItalic(*args, **kwargs)
+
+    def StyleGetSize(*args, **kwargs):
+        """
+        StyleGetSize(self, int style) -> int
+
+        Get the size of characters of a style.
+        """
+        return _stc.StyledTextCtrl_StyleGetSize(*args, **kwargs)
+
+    def StyleGetFaceName(*args, **kwargs):
+        """
+        StyleGetFaceName(self, int style) -> String
+
+        Get the font facename of a style
+        """
+        return _stc.StyledTextCtrl_StyleGetFaceName(*args, **kwargs)
+
+    def StyleGetEOLFilled(*args, **kwargs):
+        """
+        StyleGetEOLFilled(self, int style) -> bool
+
+        Get is a style to have its end of line filled or not.
+        """
+        return _stc.StyledTextCtrl_StyleGetEOLFilled(*args, **kwargs)
+
+    def StyleGetUnderline(*args, **kwargs):
+        """
+        StyleGetUnderline(self, int style) -> bool
+
+        Get is a style underlined or not.
+        """
+        return _stc.StyledTextCtrl_StyleGetUnderline(*args, **kwargs)
+
+    def StyleGetCase(*args, **kwargs):
+        """
+        StyleGetCase(self, int style) -> int
+
+        Get is a style mixed case, or to force upper or lower case.
+        """
+        return _stc.StyledTextCtrl_StyleGetCase(*args, **kwargs)
+
+    def StyleGetCharacterSet(*args, **kwargs):
+        """
+        StyleGetCharacterSet(self, int style) -> int
+
+        Get the character set of the font in a style.
+        """
+        return _stc.StyledTextCtrl_StyleGetCharacterSet(*args, **kwargs)
+
+    def StyleGetVisible(*args, **kwargs):
+        """
+        StyleGetVisible(self, int style) -> bool
+
+        Get is a style visible or not.
+        """
+        return _stc.StyledTextCtrl_StyleGetVisible(*args, **kwargs)
+
+    def StyleGetChangeable(*args, **kwargs):
+        """
+        StyleGetChangeable(self, int style) -> bool
+
+        Get is a style changeable or not (read only).
+        Experimental feature, currently buggy.
+        """
+        return _stc.StyledTextCtrl_StyleGetChangeable(*args, **kwargs)
+
+    def StyleGetHotSpot(*args, **kwargs):
+        """
+        StyleGetHotSpot(self, int style) -> bool
+
+        Get is a style a hotspot or not.
+        """
+        return _stc.StyledTextCtrl_StyleGetHotSpot(*args, **kwargs)
+
     def StyleSetCase(*args, **kwargs):
         """
         StyleSetCase(self, int style, int caseForce)
@@ -2019,6 +2275,22 @@ class StyledTextCtrl(_core.Control):
         Set the alpha of the selection.
         """
         return _stc.StyledTextCtrl_SetSelAlpha(*args, **kwargs)
+
+    def GetSelEOLFilled(*args, **kwargs):
+        """
+        GetSelEOLFilled(self) -> bool
+
+        Is the selection end of line filled?
+        """
+        return _stc.StyledTextCtrl_GetSelEOLFilled(*args, **kwargs)
+
+    def SetSelEOLFilled(*args, **kwargs):
+        """
+        SetSelEOLFilled(self, bool filled)
+
+        Set the selection to have its end of line filled or not.
+        """
+        return _stc.StyledTextCtrl_SetSelEOLFilled(*args, **kwargs)
 
     def SetCaretForeground(*args, **kwargs):
         """
@@ -2141,6 +2413,22 @@ class StyledTextCtrl(_core.Control):
         Retrieve the foreground colour of an indicator.
         """
         return _stc.StyledTextCtrl_IndicatorGetForeground(*args, **kwargs)
+
+    def IndicatorSetUnder(*args, **kwargs):
+        """
+        IndicatorSetUnder(self, int indic, bool under)
+
+        Set an indicator to draw under text or over(default).
+        """
+        return _stc.StyledTextCtrl_IndicatorSetUnder(*args, **kwargs)
+
+    def IndicatorGetUnder(*args, **kwargs):
+        """
+        IndicatorGetUnder(self, int indic) -> bool
+
+        Retrieve whether indicator drawn under or over text.
+        """
+        return _stc.StyledTextCtrl_IndicatorGetUnder(*args, **kwargs)
 
     def SetWhitespaceForeground(*args, **kwargs):
         """
@@ -2566,7 +2854,7 @@ class StyledTextCtrl(_core.Control):
 
     def SetIndentationGuides(*args, **kwargs):
         """
-        SetIndentationGuides(self, bool show)
+        SetIndentationGuides(self, int indentView)
 
         Show or hide indentation guides.
         """
@@ -2574,7 +2862,7 @@ class StyledTextCtrl(_core.Control):
 
     def GetIndentationGuides(*args, **kwargs):
         """
-        GetIndentationGuides(self) -> bool
+        GetIndentationGuides(self) -> int
 
         Are the indentation guides visible?
         """
@@ -3428,6 +3716,22 @@ class StyledTextCtrl(_core.Control):
         """
         return _stc.StyledTextCtrl_GetScrollWidth(*args, **kwargs)
 
+    def SetScrollWidthTracking(*args, **kwargs):
+        """
+        SetScrollWidthTracking(self, bool tracking)
+
+        Sets whether the maximum width line displayed is used to set scroll width.
+        """
+        return _stc.StyledTextCtrl_SetScrollWidthTracking(*args, **kwargs)
+
+    def GetScrollWidthTracking(*args, **kwargs):
+        """
+        GetScrollWidthTracking(self) -> bool
+
+        Retrieve whether the scroll width tracks wide lines.
+        """
+        return _stc.StyledTextCtrl_GetScrollWidthTracking(*args, **kwargs)
+
     def TextWidth(*args, **kwargs):
         """
         TextWidth(self, int style, String text) -> int
@@ -3844,6 +4148,14 @@ class StyledTextCtrl(_core.Control):
         Delete the word to the right of the caret.
         """
         return _stc.StyledTextCtrl_DelWordRight(*args, **kwargs)
+
+    def DelWordRightEnd(*args, **kwargs):
+        """
+        DelWordRightEnd(self)
+
+        Delete the word to the right of the caret, but not the trailing non-word characters.
+        """
+        return _stc.StyledTextCtrl_DelWordRightEnd(*args, **kwargs)
 
     def LineCut(*args, **kwargs):
         """
@@ -4425,6 +4737,14 @@ class StyledTextCtrl(_core.Control):
         """
         return _stc.StyledTextCtrl_SetHotspotActiveForeground(*args, **kwargs)
 
+    def GetHotspotActiveForeground(*args, **kwargs):
+        """
+        GetHotspotActiveForeground(self) -> Colour
+
+        Get the fore colour for active hotspots.
+        """
+        return _stc.StyledTextCtrl_GetHotspotActiveForeground(*args, **kwargs)
+
     def SetHotspotActiveBackground(*args, **kwargs):
         """
         SetHotspotActiveBackground(self, bool useSetting, Colour back)
@@ -4432,6 +4752,14 @@ class StyledTextCtrl(_core.Control):
         Set a back colour for active hotspots.
         """
         return _stc.StyledTextCtrl_SetHotspotActiveBackground(*args, **kwargs)
+
+    def GetHotspotActiveBackground(*args, **kwargs):
+        """
+        GetHotspotActiveBackground(self) -> Colour
+
+        Get the back colour for active hotspots.
+        """
+        return _stc.StyledTextCtrl_GetHotspotActiveBackground(*args, **kwargs)
 
     def SetHotspotActiveUnderline(*args, **kwargs):
         """
@@ -4441,6 +4769,14 @@ class StyledTextCtrl(_core.Control):
         """
         return _stc.StyledTextCtrl_SetHotspotActiveUnderline(*args, **kwargs)
 
+    def GetHotspotActiveUnderline(*args, **kwargs):
+        """
+        GetHotspotActiveUnderline(self) -> bool
+
+        Get whether underlining for active hotspots.
+        """
+        return _stc.StyledTextCtrl_GetHotspotActiveUnderline(*args, **kwargs)
+
     def SetHotspotSingleLine(*args, **kwargs):
         """
         SetHotspotSingleLine(self, bool singleLine)
@@ -4448,6 +4784,14 @@ class StyledTextCtrl(_core.Control):
         Limit hotspots to single line so hotspots on two lines don't merge.
         """
         return _stc.StyledTextCtrl_SetHotspotSingleLine(*args, **kwargs)
+
+    def GetHotspotSingleLine(*args, **kwargs):
+        """
+        GetHotspotSingleLine(self) -> bool
+
+        Get the HotspotSingleLine property
+        """
+        return _stc.StyledTextCtrl_GetHotspotSingleLine(*args, **kwargs)
 
     def ParaDown(*args, **kwargs):
         """
@@ -4780,6 +5124,118 @@ class StyledTextCtrl(_core.Control):
         """
         return _stc.StyledTextCtrl_GetCaretLineBackAlpha(*args, **kwargs)
 
+    def SetCaretStyle(*args, **kwargs):
+        """
+        SetCaretStyle(self, int caretStyle)
+
+        Set the style of the caret to be drawn.
+        """
+        return _stc.StyledTextCtrl_SetCaretStyle(*args, **kwargs)
+
+    def GetCaretStyle(*args, **kwargs):
+        """
+        GetCaretStyle(self) -> int
+
+        Returns the current style of the caret.
+        """
+        return _stc.StyledTextCtrl_GetCaretStyle(*args, **kwargs)
+
+    def SetIndicatorCurrent(*args, **kwargs):
+        """
+        SetIndicatorCurrent(self, int indicator)
+
+        Set the indicator used for IndicatorFillRange and IndicatorClearRange
+        """
+        return _stc.StyledTextCtrl_SetIndicatorCurrent(*args, **kwargs)
+
+    def GetIndicatorCurrent(*args, **kwargs):
+        """
+        GetIndicatorCurrent(self) -> int
+
+        Get the current indicator
+        """
+        return _stc.StyledTextCtrl_GetIndicatorCurrent(*args, **kwargs)
+
+    def SetIndicatorValue(*args, **kwargs):
+        """
+        SetIndicatorValue(self, int value)
+
+        Set the value used for IndicatorFillRange
+        """
+        return _stc.StyledTextCtrl_SetIndicatorValue(*args, **kwargs)
+
+    def GetIndicatorValue(*args, **kwargs):
+        """
+        GetIndicatorValue(self) -> int
+
+        Get the current indicator vaue
+        """
+        return _stc.StyledTextCtrl_GetIndicatorValue(*args, **kwargs)
+
+    def IndicatorFillRange(*args, **kwargs):
+        """
+        IndicatorFillRange(self, int position, int fillLength)
+
+        Turn a indicator on over a range.
+        """
+        return _stc.StyledTextCtrl_IndicatorFillRange(*args, **kwargs)
+
+    def IndicatorClearRange(*args, **kwargs):
+        """
+        IndicatorClearRange(self, int position, int clearLength)
+
+        Turn a indicator off over a range.
+        """
+        return _stc.StyledTextCtrl_IndicatorClearRange(*args, **kwargs)
+
+    def IndicatorAllOnFor(*args, **kwargs):
+        """
+        IndicatorAllOnFor(self, int position) -> int
+
+        Are any indicators present at position?
+        """
+        return _stc.StyledTextCtrl_IndicatorAllOnFor(*args, **kwargs)
+
+    def IndicatorValueAt(*args, **kwargs):
+        """
+        IndicatorValueAt(self, int indicator, int position) -> int
+
+        What value does a particular indicator have at at a position?
+        """
+        return _stc.StyledTextCtrl_IndicatorValueAt(*args, **kwargs)
+
+    def IndicatorStart(*args, **kwargs):
+        """
+        IndicatorStart(self, int indicator, int position) -> int
+
+        Where does a particular indicator start?
+        """
+        return _stc.StyledTextCtrl_IndicatorStart(*args, **kwargs)
+
+    def IndicatorEnd(*args, **kwargs):
+        """
+        IndicatorEnd(self, int indicator, int position) -> int
+
+        Where does a particular indicator end?
+        """
+        return _stc.StyledTextCtrl_IndicatorEnd(*args, **kwargs)
+
+    def SetPositionCacheSize(*args, **kwargs):
+        """
+        SetPositionCacheSize(self, int size)
+
+        Set number of entries in position cache
+        """
+        return _stc.StyledTextCtrl_SetPositionCacheSize(*args, **kwargs)
+
+    def GetPositionCacheSize(*args, **kwargs):
+        """
+        GetPositionCacheSize(self) -> int
+
+        How many entries are allocated to the position cache?
+        """
+        return _stc.StyledTextCtrl_GetPositionCacheSize(*args, **kwargs)
+
     def StartRecord(*args, **kwargs):
         """
         StartRecord(self)
@@ -4904,6 +5360,10 @@ class StyledTextCtrl(_core.Control):
 
         """
         return _stc.StyledTextCtrl_StyleSetSpec(*args, **kwargs)
+
+    def StyleGetFont(*args, **kwargs):
+        """StyleGetFont(self, int style) -> Font"""
+        return _stc.StyledTextCtrl_StyleGetFont(*args, **kwargs)
 
     def StyleSetFont(*args, **kwargs):
         """
@@ -5277,90 +5737,100 @@ class StyledTextCtrl(_core.Control):
     GetCaretLineBack = GetCaretLineBackground
     SetCaretLineBack = SetCaretLineBackground
 
-    Anchor = property(GetAnchor,SetAnchor,doc="See `GetAnchor` and `SetAnchor`") 
-    BackSpaceUnIndents = property(GetBackSpaceUnIndents,SetBackSpaceUnIndents,doc="See `GetBackSpaceUnIndents` and `SetBackSpaceUnIndents`") 
-    BufferedDraw = property(GetBufferedDraw,SetBufferedDraw,doc="See `GetBufferedDraw` and `SetBufferedDraw`") 
-    CaretForeground = property(GetCaretForeground,SetCaretForeground,doc="See `GetCaretForeground` and `SetCaretForeground`") 
-    CaretLineBack = property(GetCaretLineBack,SetCaretLineBack,doc="See `GetCaretLineBack` and `SetCaretLineBack`") 
-    CaretLineBackAlpha = property(GetCaretLineBackAlpha,SetCaretLineBackAlpha,doc="See `GetCaretLineBackAlpha` and `SetCaretLineBackAlpha`") 
-    CaretLineBackground = property(GetCaretLineBackground,SetCaretLineBackground,doc="See `GetCaretLineBackground` and `SetCaretLineBackground`") 
-    CaretLineVisible = property(GetCaretLineVisible,SetCaretLineVisible,doc="See `GetCaretLineVisible` and `SetCaretLineVisible`") 
-    CaretPeriod = property(GetCaretPeriod,SetCaretPeriod,doc="See `GetCaretPeriod` and `SetCaretPeriod`") 
-    CaretSticky = property(GetCaretSticky,SetCaretSticky,doc="See `GetCaretSticky` and `SetCaretSticky`") 
-    CaretWidth = property(GetCaretWidth,SetCaretWidth,doc="See `GetCaretWidth` and `SetCaretWidth`") 
-    CodePage = property(GetCodePage,SetCodePage,doc="See `GetCodePage` and `SetCodePage`") 
-    ControlCharSymbol = property(GetControlCharSymbol,SetControlCharSymbol,doc="See `GetControlCharSymbol` and `SetControlCharSymbol`") 
-    CurLine = property(GetCurLine,doc="See `GetCurLine`") 
-    CurLineRaw = property(GetCurLineRaw,doc="See `GetCurLineRaw`") 
-    CurLineUTF8 = property(GetCurLineUTF8,doc="See `GetCurLineUTF8`") 
-    CurrentLine = property(GetCurrentLine,doc="See `GetCurrentLine`") 
-    CurrentPos = property(GetCurrentPos,SetCurrentPos,doc="See `GetCurrentPos` and `SetCurrentPos`") 
-    DocPointer = property(GetDocPointer,SetDocPointer,doc="See `GetDocPointer` and `SetDocPointer`") 
-    EOLMode = property(GetEOLMode,SetEOLMode,doc="See `GetEOLMode` and `SetEOLMode`") 
-    EdgeColour = property(GetEdgeColour,SetEdgeColour,doc="See `GetEdgeColour` and `SetEdgeColour`") 
-    EdgeColumn = property(GetEdgeColumn,SetEdgeColumn,doc="See `GetEdgeColumn` and `SetEdgeColumn`") 
-    EdgeMode = property(GetEdgeMode,SetEdgeMode,doc="See `GetEdgeMode` and `SetEdgeMode`") 
-    EndAtLastLine = property(GetEndAtLastLine,SetEndAtLastLine,doc="See `GetEndAtLastLine` and `SetEndAtLastLine`") 
-    EndStyled = property(GetEndStyled,doc="See `GetEndStyled`") 
-    FirstVisibleLine = property(GetFirstVisibleLine,doc="See `GetFirstVisibleLine`") 
-    HighlightGuide = property(GetHighlightGuide,SetHighlightGuide,doc="See `GetHighlightGuide` and `SetHighlightGuide`") 
-    Indent = property(GetIndent,SetIndent,doc="See `GetIndent` and `SetIndent`") 
-    IndentationGuides = property(GetIndentationGuides,SetIndentationGuides,doc="See `GetIndentationGuides` and `SetIndentationGuides`") 
-    LastKeydownProcessed = property(GetLastKeydownProcessed,SetLastKeydownProcessed,doc="See `GetLastKeydownProcessed` and `SetLastKeydownProcessed`") 
-    LayoutCache = property(GetLayoutCache,SetLayoutCache,doc="See `GetLayoutCache` and `SetLayoutCache`") 
-    Length = property(GetLength,doc="See `GetLength`") 
-    Lexer = property(GetLexer,SetLexer,doc="See `GetLexer` and `SetLexer`") 
-    LineCount = property(GetLineCount,doc="See `GetLineCount`") 
-    MarginLeft = property(GetMarginLeft,SetMarginLeft,doc="See `GetMarginLeft` and `SetMarginLeft`") 
-    MarginRight = property(GetMarginRight,SetMarginRight,doc="See `GetMarginRight` and `SetMarginRight`") 
-    MaxLineState = property(GetMaxLineState,doc="See `GetMaxLineState`") 
-    ModEventMask = property(GetModEventMask,SetModEventMask,doc="See `GetModEventMask` and `SetModEventMask`") 
-    Modify = property(GetModify,doc="See `GetModify`") 
-    MouseDownCaptures = property(GetMouseDownCaptures,SetMouseDownCaptures,doc="See `GetMouseDownCaptures` and `SetMouseDownCaptures`") 
-    MouseDwellTime = property(GetMouseDwellTime,SetMouseDwellTime,doc="See `GetMouseDwellTime` and `SetMouseDwellTime`") 
-    Overtype = property(GetOvertype,SetOvertype,doc="See `GetOvertype` and `SetOvertype`") 
-    PasteConvertEndings = property(GetPasteConvertEndings,SetPasteConvertEndings,doc="See `GetPasteConvertEndings` and `SetPasteConvertEndings`") 
-    PrintColourMode = property(GetPrintColourMode,SetPrintColourMode,doc="See `GetPrintColourMode` and `SetPrintColourMode`") 
-    PrintMagnification = property(GetPrintMagnification,SetPrintMagnification,doc="See `GetPrintMagnification` and `SetPrintMagnification`") 
-    PrintWrapMode = property(GetPrintWrapMode,SetPrintWrapMode,doc="See `GetPrintWrapMode` and `SetPrintWrapMode`") 
-    ReadOnly = property(GetReadOnly,SetReadOnly,doc="See `GetReadOnly` and `SetReadOnly`") 
-    STCCursor = property(GetSTCCursor,SetSTCCursor,doc="See `GetSTCCursor` and `SetSTCCursor`") 
-    STCFocus = property(GetSTCFocus,SetSTCFocus,doc="See `GetSTCFocus` and `SetSTCFocus`") 
-    ScrollWidth = property(GetScrollWidth,SetScrollWidth,doc="See `GetScrollWidth` and `SetScrollWidth`") 
-    SearchFlags = property(GetSearchFlags,SetSearchFlags,doc="See `GetSearchFlags` and `SetSearchFlags`") 
-    SelAlpha = property(GetSelAlpha,SetSelAlpha,doc="See `GetSelAlpha` and `SetSelAlpha`") 
-    SelectedText = property(GetSelectedText,doc="See `GetSelectedText`") 
-    SelectedTextRaw = property(GetSelectedTextRaw,doc="See `GetSelectedTextRaw`") 
-    SelectedTextUTF8 = property(GetSelectedTextUTF8,doc="See `GetSelectedTextUTF8`") 
-    Selection = property(GetSelection,doc="See `GetSelection`") 
-    SelectionEnd = property(GetSelectionEnd,SetSelectionEnd,doc="See `GetSelectionEnd` and `SetSelectionEnd`") 
-    SelectionMode = property(GetSelectionMode,SetSelectionMode,doc="See `GetSelectionMode` and `SetSelectionMode`") 
-    SelectionStart = property(GetSelectionStart,SetSelectionStart,doc="See `GetSelectionStart` and `SetSelectionStart`") 
-    Status = property(GetStatus,SetStatus,doc="See `GetStatus` and `SetStatus`") 
-    StyleBits = property(GetStyleBits,SetStyleBits,doc="See `GetStyleBits` and `SetStyleBits`") 
-    StyleBitsNeeded = property(GetStyleBitsNeeded,doc="See `GetStyleBitsNeeded`") 
-    TabIndents = property(GetTabIndents,SetTabIndents,doc="See `GetTabIndents` and `SetTabIndents`") 
-    TabWidth = property(GetTabWidth,SetTabWidth,doc="See `GetTabWidth` and `SetTabWidth`") 
-    TargetEnd = property(GetTargetEnd,SetTargetEnd,doc="See `GetTargetEnd` and `SetTargetEnd`") 
-    TargetStart = property(GetTargetStart,SetTargetStart,doc="See `GetTargetStart` and `SetTargetStart`") 
-    Text = property(GetText,SetText,doc="See `GetText` and `SetText`") 
-    TextLength = property(GetTextLength,doc="See `GetTextLength`") 
-    TextRaw = property(GetTextRaw,SetTextRaw,doc="See `GetTextRaw` and `SetTextRaw`") 
-    TextUTF8 = property(GetTextUTF8,SetTextUTF8,doc="See `GetTextUTF8` and `SetTextUTF8`") 
-    TwoPhaseDraw = property(GetTwoPhaseDraw,SetTwoPhaseDraw,doc="See `GetTwoPhaseDraw` and `SetTwoPhaseDraw`") 
-    UndoCollection = property(GetUndoCollection,SetUndoCollection,doc="See `GetUndoCollection` and `SetUndoCollection`") 
-    UseAntiAliasing = property(GetUseAntiAliasing,SetUseAntiAliasing,doc="See `GetUseAntiAliasing` and `SetUseAntiAliasing`") 
-    UseHorizontalScrollBar = property(GetUseHorizontalScrollBar,SetUseHorizontalScrollBar,doc="See `GetUseHorizontalScrollBar` and `SetUseHorizontalScrollBar`") 
-    UseTabs = property(GetUseTabs,SetUseTabs,doc="See `GetUseTabs` and `SetUseTabs`") 
-    UseVerticalScrollBar = property(GetUseVerticalScrollBar,SetUseVerticalScrollBar,doc="See `GetUseVerticalScrollBar` and `SetUseVerticalScrollBar`") 
-    ViewEOL = property(GetViewEOL,SetViewEOL,doc="See `GetViewEOL` and `SetViewEOL`") 
-    ViewWhiteSpace = property(GetViewWhiteSpace,SetViewWhiteSpace,doc="See `GetViewWhiteSpace` and `SetViewWhiteSpace`") 
-    WrapMode = property(GetWrapMode,SetWrapMode,doc="See `GetWrapMode` and `SetWrapMode`") 
-    WrapStartIndent = property(GetWrapStartIndent,SetWrapStartIndent,doc="See `GetWrapStartIndent` and `SetWrapStartIndent`") 
-    WrapVisualFlags = property(GetWrapVisualFlags,SetWrapVisualFlags,doc="See `GetWrapVisualFlags` and `SetWrapVisualFlags`") 
-    WrapVisualFlagsLocation = property(GetWrapVisualFlagsLocation,SetWrapVisualFlagsLocation,doc="See `GetWrapVisualFlagsLocation` and `SetWrapVisualFlagsLocation`") 
-    XOffset = property(GetXOffset,SetXOffset,doc="See `GetXOffset` and `SetXOffset`") 
-    Zoom = property(GetZoom,SetZoom,doc="See `GetZoom` and `SetZoom`") 
+    Anchor = property(GetAnchor,SetAnchor) 
+    BackSpaceUnIndents = property(GetBackSpaceUnIndents,SetBackSpaceUnIndents) 
+    BufferedDraw = property(GetBufferedDraw,SetBufferedDraw) 
+    CaretForeground = property(GetCaretForeground,SetCaretForeground) 
+    CaretLineBack = property(GetCaretLineBack,SetCaretLineBack) 
+    CaretLineBackAlpha = property(GetCaretLineBackAlpha,SetCaretLineBackAlpha) 
+    CaretLineBackground = property(GetCaretLineBackground,SetCaretLineBackground) 
+    CaretLineVisible = property(GetCaretLineVisible,SetCaretLineVisible) 
+    CaretPeriod = property(GetCaretPeriod,SetCaretPeriod) 
+    CaretSticky = property(GetCaretSticky,SetCaretSticky) 
+    CaretWidth = property(GetCaretWidth,SetCaretWidth) 
+    CodePage = property(GetCodePage,SetCodePage) 
+    ControlCharSymbol = property(GetControlCharSymbol,SetControlCharSymbol) 
+    CurLine = property(GetCurLine) 
+    CurLineRaw = property(GetCurLineRaw) 
+    CurLineUTF8 = property(GetCurLineUTF8) 
+    CurrentLine = property(GetCurrentLine) 
+    CurrentPos = property(GetCurrentPos,SetCurrentPos) 
+    DocPointer = property(GetDocPointer,SetDocPointer) 
+    EOLMode = property(GetEOLMode,SetEOLMode) 
+    EdgeColour = property(GetEdgeColour,SetEdgeColour) 
+    EdgeColumn = property(GetEdgeColumn,SetEdgeColumn) 
+    EdgeMode = property(GetEdgeMode,SetEdgeMode) 
+    EndAtLastLine = property(GetEndAtLastLine,SetEndAtLastLine) 
+    EndStyled = property(GetEndStyled) 
+    FirstVisibleLine = property(GetFirstVisibleLine) 
+    HighlightGuide = property(GetHighlightGuide,SetHighlightGuide) 
+    Indent = property(GetIndent,SetIndent) 
+    IndentationGuides = property(GetIndentationGuides,SetIndentationGuides) 
+    LastKeydownProcessed = property(GetLastKeydownProcessed,SetLastKeydownProcessed) 
+    LayoutCache = property(GetLayoutCache,SetLayoutCache) 
+    Length = property(GetLength) 
+    Lexer = property(GetLexer,SetLexer) 
+    LineCount = property(GetLineCount) 
+    MarginLeft = property(GetMarginLeft,SetMarginLeft) 
+    MarginRight = property(GetMarginRight,SetMarginRight) 
+    MaxLineState = property(GetMaxLineState) 
+    ModEventMask = property(GetModEventMask,SetModEventMask) 
+    Modify = property(GetModify) 
+    MouseDownCaptures = property(GetMouseDownCaptures,SetMouseDownCaptures) 
+    MouseDwellTime = property(GetMouseDwellTime,SetMouseDwellTime) 
+    Overtype = property(GetOvertype,SetOvertype) 
+    PasteConvertEndings = property(GetPasteConvertEndings,SetPasteConvertEndings) 
+    PrintColourMode = property(GetPrintColourMode,SetPrintColourMode) 
+    PrintMagnification = property(GetPrintMagnification,SetPrintMagnification) 
+    PrintWrapMode = property(GetPrintWrapMode,SetPrintWrapMode) 
+    ReadOnly = property(GetReadOnly,SetReadOnly) 
+    STCCursor = property(GetSTCCursor,SetSTCCursor) 
+    STCFocus = property(GetSTCFocus,SetSTCFocus) 
+    ScrollWidth = property(GetScrollWidth,SetScrollWidth) 
+    SearchFlags = property(GetSearchFlags,SetSearchFlags) 
+    SelAlpha = property(GetSelAlpha,SetSelAlpha) 
+    SelectedText = property(GetSelectedText) 
+    SelectedTextRaw = property(GetSelectedTextRaw) 
+    SelectedTextUTF8 = property(GetSelectedTextUTF8) 
+    Selection = property(GetSelection) 
+    SelectionEnd = property(GetSelectionEnd,SetSelectionEnd) 
+    SelectionMode = property(GetSelectionMode,SetSelectionMode) 
+    SelectionStart = property(GetSelectionStart,SetSelectionStart) 
+    Status = property(GetStatus,SetStatus) 
+    StyleBits = property(GetStyleBits,SetStyleBits) 
+    StyleBitsNeeded = property(GetStyleBitsNeeded) 
+    TabIndents = property(GetTabIndents,SetTabIndents) 
+    TabWidth = property(GetTabWidth,SetTabWidth) 
+    TargetEnd = property(GetTargetEnd,SetTargetEnd) 
+    TargetStart = property(GetTargetStart,SetTargetStart) 
+    Text = property(GetText,SetText) 
+    TextLength = property(GetTextLength) 
+    TextRaw = property(GetTextRaw,SetTextRaw) 
+    TextUTF8 = property(GetTextUTF8,SetTextUTF8) 
+    TwoPhaseDraw = property(GetTwoPhaseDraw,SetTwoPhaseDraw) 
+    UndoCollection = property(GetUndoCollection,SetUndoCollection) 
+    UseAntiAliasing = property(GetUseAntiAliasing,SetUseAntiAliasing) 
+    UseHorizontalScrollBar = property(GetUseHorizontalScrollBar,SetUseHorizontalScrollBar) 
+    UseTabs = property(GetUseTabs,SetUseTabs) 
+    UseVerticalScrollBar = property(GetUseVerticalScrollBar,SetUseVerticalScrollBar) 
+    ViewEOL = property(GetViewEOL,SetViewEOL) 
+    ViewWhiteSpace = property(GetViewWhiteSpace,SetViewWhiteSpace) 
+    WrapMode = property(GetWrapMode,SetWrapMode) 
+    WrapStartIndent = property(GetWrapStartIndent,SetWrapStartIndent) 
+    WrapVisualFlags = property(GetWrapVisualFlags,SetWrapVisualFlags) 
+    WrapVisualFlagsLocation = property(GetWrapVisualFlagsLocation,SetWrapVisualFlagsLocation) 
+    XOffset = property(GetXOffset,SetXOffset) 
+    Zoom = property(GetZoom,SetZoom) 
+    SelEOLFilled = property(GetSelEOLFilled,SetSelEOLFilled) 
+    ScrollWidthTracking = property(GetScrollWidthTracking,SetScrollWidthTracking) 
+    HotspotActiveForeground = property(GetHotspotActiveForeground,SetHotspotActiveForeground) 
+    HotspotActiveBackground = property(GetHotspotActiveBackground,SetHotspotActiveBackground) 
+    HotspotActiveUnderline = property(GetHotspotActiveUnderline,SetHotspotActiveUnderline) 
+    HotspotSingleLine = property(GetHotspotSingleLine,SetHotspotSingleLine) 
+    CaretStyle = property(GetCaretStyle,SetCaretStyle) 
+    IndicatorCurrent = property(GetIndicatorCurrent,SetIndicatorCurrent) 
+    IndicatorValue = property(GetIndicatorValue,SetIndicatorValue) 
+    PositionCacheSize = property(GetPositionCacheSize,SetPositionCacheSize) 
 _stc.StyledTextCtrl_swigregister(StyledTextCtrl)
 cvar = _stc.cvar
 STCNameStr = cvar.STCNameStr
@@ -5551,29 +6021,29 @@ class StyledTextEvent(_core.CommandEvent):
         """GetAlt(self) -> bool"""
         return _stc.StyledTextEvent_GetAlt(*args, **kwargs)
 
-    Alt = property(GetAlt,doc="See `GetAlt`") 
-    Control = property(GetControl,doc="See `GetControl`") 
-    DragAllowMove = property(GetDragAllowMove,SetDragAllowMove,doc="See `GetDragAllowMove` and `SetDragAllowMove`") 
-    DragResult = property(GetDragResult,SetDragResult,doc="See `GetDragResult` and `SetDragResult`") 
-    DragText = property(GetDragText,SetDragText,doc="See `GetDragText` and `SetDragText`") 
-    FoldLevelNow = property(GetFoldLevelNow,SetFoldLevelNow,doc="See `GetFoldLevelNow` and `SetFoldLevelNow`") 
-    FoldLevelPrev = property(GetFoldLevelPrev,SetFoldLevelPrev,doc="See `GetFoldLevelPrev` and `SetFoldLevelPrev`") 
-    Key = property(GetKey,SetKey,doc="See `GetKey` and `SetKey`") 
-    LParam = property(GetLParam,SetLParam,doc="See `GetLParam` and `SetLParam`") 
-    Length = property(GetLength,SetLength,doc="See `GetLength` and `SetLength`") 
-    Line = property(GetLine,SetLine,doc="See `GetLine` and `SetLine`") 
-    LinesAdded = property(GetLinesAdded,SetLinesAdded,doc="See `GetLinesAdded` and `SetLinesAdded`") 
-    ListType = property(GetListType,SetListType,doc="See `GetListType` and `SetListType`") 
-    Margin = property(GetMargin,SetMargin,doc="See `GetMargin` and `SetMargin`") 
-    Message = property(GetMessage,SetMessage,doc="See `GetMessage` and `SetMessage`") 
-    ModificationType = property(GetModificationType,SetModificationType,doc="See `GetModificationType` and `SetModificationType`") 
-    Modifiers = property(GetModifiers,SetModifiers,doc="See `GetModifiers` and `SetModifiers`") 
-    Position = property(GetPosition,SetPosition,doc="See `GetPosition` and `SetPosition`") 
-    Shift = property(GetShift,doc="See `GetShift`") 
-    Text = property(GetText,SetText,doc="See `GetText` and `SetText`") 
-    WParam = property(GetWParam,SetWParam,doc="See `GetWParam` and `SetWParam`") 
-    X = property(GetX,SetX,doc="See `GetX` and `SetX`") 
-    Y = property(GetY,SetY,doc="See `GetY` and `SetY`") 
+    Alt = property(GetAlt) 
+    Control = property(GetControl) 
+    DragAllowMove = property(GetDragAllowMove,SetDragAllowMove) 
+    DragResult = property(GetDragResult,SetDragResult) 
+    DragText = property(GetDragText,SetDragText) 
+    FoldLevelNow = property(GetFoldLevelNow,SetFoldLevelNow) 
+    FoldLevelPrev = property(GetFoldLevelPrev,SetFoldLevelPrev) 
+    Key = property(GetKey,SetKey) 
+    LParam = property(GetLParam,SetLParam) 
+    Length = property(GetLength,SetLength) 
+    Line = property(GetLine,SetLine) 
+    LinesAdded = property(GetLinesAdded,SetLinesAdded) 
+    ListType = property(GetListType,SetListType) 
+    Margin = property(GetMargin,SetMargin) 
+    Message = property(GetMessage,SetMessage) 
+    ModificationType = property(GetModificationType,SetModificationType) 
+    Modifiers = property(GetModifiers,SetModifiers) 
+    Position = property(GetPosition,SetPosition) 
+    Shift = property(GetShift) 
+    Text = property(GetText,SetText) 
+    WParam = property(GetWParam,SetWParam) 
+    X = property(GetX,SetX) 
+    Y = property(GetY,SetY) 
 _stc.StyledTextEvent_swigregister(StyledTextEvent)
 
 wxEVT_STC_CHANGE = _stc.wxEVT_STC_CHANGE
@@ -5602,6 +6072,8 @@ wxEVT_STC_HOTSPOT_CLICK = _stc.wxEVT_STC_HOTSPOT_CLICK
 wxEVT_STC_HOTSPOT_DCLICK = _stc.wxEVT_STC_HOTSPOT_DCLICK
 wxEVT_STC_CALLTIP_CLICK = _stc.wxEVT_STC_CALLTIP_CLICK
 wxEVT_STC_AUTOCOMP_SELECTION = _stc.wxEVT_STC_AUTOCOMP_SELECTION
+wxEVT_STC_INDICATOR_CLICK = _stc.wxEVT_STC_INDICATOR_CLICK
+wxEVT_STC_INDICATOR_RELEASE = _stc.wxEVT_STC_INDICATOR_RELEASE
 EVT_STC_CHANGE = wx.PyEventBinder( wxEVT_STC_CHANGE, 1 )
 EVT_STC_STYLENEEDED = wx.PyEventBinder( wxEVT_STC_STYLENEEDED, 1 )
 EVT_STC_CHARADDED = wx.PyEventBinder( wxEVT_STC_CHARADDED, 1 )
@@ -5628,6 +6100,8 @@ EVT_STC_HOTSPOT_CLICK = wx.PyEventBinder( wxEVT_STC_HOTSPOT_CLICK, 1 )
 EVT_STC_HOTSPOT_DCLICK = wx.PyEventBinder( wxEVT_STC_HOTSPOT_DCLICK, 1 )
 EVT_STC_CALLTIP_CLICK = wx.PyEventBinder( wxEVT_STC_CALLTIP_CLICK, 1 )
 EVT_STC_AUTOCOMP_SELECTION = wx.PyEventBinder( wxEVT_STC_AUTOCOMP_SELECTION, 1 )
+EVT_STC_INDICATOR_CLICK = wx.PyEventBinder( wxEVT_STC_INDICATOR_CLICK, 1 )
+EVT_STC_INDICATOR_RELEASE = wx.PyEventBinder( wxEVT_STC_INDICATOR_RELEASE, 1 )    
 
 
 
