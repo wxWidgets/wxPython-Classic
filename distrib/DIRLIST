@@ -174,7 +174,8 @@ wx/tools/Editra/src/extern
 wx/tools/Editra/src/syntax
 wx/tools/Editra/styles
 wx/tools/Editra/templates
-wx/tools/Editra/tests
+wx/tools/Editra/tests/syntax
+
 wxaddons
 wxPython
 wxPython/lib

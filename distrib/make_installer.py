@@ -156,13 +156,13 @@ Source: "wx\tools\Editra\pixmaps\theme\Tango\toolbar\*.png"; DestDir: "{app}\%(P
 Source: "wx\tools\Editra\plugins\*.egg";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\plugins"; Components: core
 Source: "wx\tools\Editra\src\*.py";                          DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src"; Components: core
 Source: "wx\tools\Editra\src\autocomp\*.py";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp"; Components: core
-Source: "wx\tools\Editra\src\eclib\*.py";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\eclib"; Components: core
+Source: "wx\tools\Editra\src\eclib\*.py";                    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\eclib"; Components: core
 Source: "wx\tools\Editra\src\extern\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
 Source: "wx\tools\Editra\src\extern\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
 Source: "wx\tools\Editra\src\syntax\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
 Source: "wx\tools\Editra\src\syntax\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
 Source: "wx\tools\Editra\styles\*.ess";                      DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\styles"; Components: core
-Source: "wx\tools\Editra\tests\*.*";                         DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\tests"; Components: core
+Source: "wx\tools\Editra\tests\syntax\*.*";                  DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\tests\syntax"; Components: core
 Source: "wx\tools\Editra\*";                                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 Source: "wx\tools\Editra\*.py";                              DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 
