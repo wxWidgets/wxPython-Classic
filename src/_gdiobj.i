@@ -19,11 +19,12 @@ MustHaveApp(wxGDIObject);
 
 class wxGDIObject : public wxObject {
 public:
-    wxGDIObject();
+    //wxGDIObject();      ****  It's an ABC
     ~wxGDIObject();
 
-    bool IsNull();
-
+    bool IsNull() const;
+    bool IsOk() const;
+    %pythoncode { Ok = IsOk }    
 };
 
 //---------------------------------------------------------------------------
