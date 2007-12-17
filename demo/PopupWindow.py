@@ -9,9 +9,9 @@
 import  wx
 
 havePopupWindow = 1
-if wx.Platform == '__WXMAC__':
-    havePopupWindow = 0
-    wx.PopupWindow = wx.PopupTransientWindow = wx.Window
+## if wx.Platform == '__WXMAC__':
+##     havePopupWindow = 0
+##     wx.PopupWindow = wx.PopupTransientWindow = wx.Window
 
 #---------------------------------------------------------------------------
 

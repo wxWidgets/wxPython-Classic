@@ -20,7 +20,6 @@
 %}
 
 //---------------------------------------------------------------------------
-#ifndef __WXMAC__
 %newgroup;
 
 MustHaveApp(wxPopupWindow);
@@ -101,41 +100,4 @@ public:
     virtual void Dismiss();   
 };
 
-//---------------------------------------------------------------------------
-
-
-
-#else  // On Mac we need to provide dummy classes to keep the renamers in sync
-%{
-class wxPopupWindow : public wxWindow {
-public:
-    wxPopupWindow(wxWindow *, int)  { wxPyRaiseNotImplemented(); }
-    wxPopupWindow()                 { wxPyRaiseNotImplemented(); }
-};
-
-class wxPyPopupTransientWindow : public wxPopupWindow
-{
-public:
-    wxPyPopupTransientWindow(wxWindow *, int)  { wxPyRaiseNotImplemented(); }
-    wxPyPopupTransientWindow()                 { wxPyRaiseNotImplemented(); }
-};
-%}
-
-
-class wxPopupWindow : public wxWindow {
-public:
-    wxPopupWindow(wxWindow *parent, int flags = wxBORDER_NONE);
-    %RenameCtor(PrePopupWindow, wxPopupWindow());
-};
-
-%rename(PopupTransientWindow) wxPyPopupTransientWindow;
-class wxPyPopupTransientWindow : public wxPopupWindow
-{
-public:
-    wxPyPopupTransientWindow(wxWindow *parent, int style = wxBORDER_NONE);
-    %RenameCtor(PrePopupTransientWindow, wxPyPopupTransientWindow());
-};
-
-
-#endif
 //---------------------------------------------------------------------------
