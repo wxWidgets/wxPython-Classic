@@ -2481,6 +2481,7 @@ void wxTreeListMainWindow::Delete (const wxTreeItemId& itemId) {
 
     SendDeleteEvent (item);
     if (m_selectItem == item) m_selectItem = (wxTreeListItem*)NULL;
+    if (m_curItem == item) m_curItem = parent;
     item->DeleteChildren (this);
 
     if (item == m_select_me)
@@ -2719,6 +2720,7 @@ void wxTreeListMainWindow::SelectItem (const wxTreeItemId& itemId,
         RefreshLine (item);
         if (unselect_others) {
             m_selectItem = (item->IsSelected())? item: (wxTreeListItem*)NULL;
+            m_curItem = m_selectItem;
         }
     }
 
