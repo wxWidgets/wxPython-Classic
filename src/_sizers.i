@@ -1229,7 +1229,7 @@ sizer's minimal size. This will not alter the on screen size of the
 window, but may cause the addition/removal/alteration of scrollbars
 required to view the virtual area in windows which manage it.
 
-:see: `wx.ScrolledWindow.SetScrollbars`, `SetVirtualSizeHints`
+:see: `wx.ScrolledWindow.SetScrollbars`
 ", "");
 
 
@@ -1250,6 +1250,7 @@ this will set them appropriately.
 
 :see: `wx.ScrolledWindow.SetScrollbars`
 ", "");
+    %pythoncode { SetVirtualSizeHints = wx._deprecated(SetVirtualSizeHints) }
 
 
     DocDeclStr(

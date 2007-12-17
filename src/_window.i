@@ -679,15 +679,16 @@ The resizing increments are only significant under Motif or Xt.", "
 
     
     DocStr(SetVirtualSizeHints,
-        "Allows specification of minimum and maximum virtual window sizes. If a
-pair of values is not set (or set to -1), the default values will be
-used.  If this function is called, the user will not be able to size
-the virtual area of the window outside the given bounds.", "");
+        "", "");
     virtual void SetVirtualSizeHints( int minW, int minH,
                                       int maxW = -1, int maxH = -1 );
     %Rename(SetVirtualSizeHintsSz, void,  SetVirtualSizeHints(
                 const wxSize& minSize, const wxSize& maxSize=wxDefaultSize));
 
+    %pythoncode {
+        SetVirtualSizeHints = wx._deprecated(SetVirtualSizeHints)
+        SetVirtualSizeHintsSz = wx._deprecated(SetVirtualSizeHintsSz)
+    }
 
     
     DocDeclStr(
