@@ -604,6 +604,7 @@ protected:
 
     wxTreeListItem       *m_rootItem; // root item
     wxTreeListItem       *m_curItem; // current item, either selected or marked
+    wxTreeListItem       *m_drag_item; // Item being dragged currently
     wxTreeListItem       *m_shiftItem; // item, where the shift key was pressed
     wxTreeListItem       *m_editItem; // item, which is currently edited
     wxTreeListItem       *m_selectItem; // current selected item, not with wxTR_MULTIPLE
@@ -622,6 +623,7 @@ protected:
     wxBrush             *m_hilightBrush,
                         *m_hilightUnfocusedBrush;
     bool                 m_hasFocus;
+    bool                 m_should_return;
 public:
     bool                 m_dirty;
 protected:
@@ -1826,9 +1828,11 @@ void wxTreeListMainWindow::Init() {
     m_select_me = (wxTreeListItem*)NULL;
     
     m_curColumn = -1; // no current column
+    m_drag_item = (wxTreeListItem*)NULL;
 
     m_hasFocus = false;
     m_dirty = false;
+    m_should_return = false;
 
     m_lineHeight = LINEHEIGHT;
     m_indent = MININDENT; // min. indent
@@ -3841,9 +3845,12 @@ void wxTreeListMainWindow::OnMouse (wxMouseEvent &event) {
                                                 this, flags, m_curColumn, 0);
 
     // we only process dragging here
-    if (event.Dragging()){
+    if (event.Dragging() && m_should_return) { 
         if (m_isDragging) return; // nothing to do, already done
         if (item == NULL) return; // we need an item to dragging
+        else{
+            SetCurrentItem( item );
+        }
 
         // determine drag start
         if (m_dragCount == 0) {
@@ -3866,9 +3873,9 @@ void wxTreeListMainWindow::OnMouse (wxMouseEvent &event) {
         wxTreeEvent nevent (command, m_owner->GetId());
         nevent.SetEventObject (m_owner);
 #if !wxCHECK_VERSION(2, 5, 0)
-        nevent.SetItem ((long)item); // the item the drag is ended
+        nevent.SetItem ((long)m_drag_item); // the item the drag is ended
 #else
-        nevent.SetItem (item); // the item the drag is ended
+        nevent.SetItem (m_drag_item); // the item the drag is ended
 #endif
         nevent.SetPoint (p);
         nevent.Veto(); // dragging must be explicit allowed!
@@ -3891,6 +3898,7 @@ void wxTreeListMainWindow::OnMouse (wxMouseEvent &event) {
         nevent.SetItem (item); // the item the drag is started
 #endif
         nevent.SetPoint (p);
+        m_drag_item = (wxTreeListItem *)NULL;
         m_owner->GetEventHandler()->ProcessEvent (nevent);
 
     }else if (m_dragCount > 0) { // just in case dragging is initiated
@@ -3928,7 +3936,7 @@ void wxTreeListMainWindow::OnMouse (wxMouseEvent &event) {
         m_owner->GetEventHandler()->ProcessEvent (nevent);
 
     }else if (event.LeftUp()) {
-
+        m_should_return = false;
         if (m_lastOnSame) {
             if ((item == m_curItem) && (m_curColumn != -1) &&
                 (m_owner->GetHeaderWindow()->IsColumnEditable (m_curColumn)) &&
@@ -3964,6 +3972,10 @@ void wxTreeListMainWindow::OnMouse (wxMouseEvent &event) {
     }else if (event.LeftDown() || event.RightDown() || event.LeftDClick()) {
 
         if (event.LeftDown() || event.RightDown()) {
+            if (event.LeftDown( )){
+                m_drag_item = item;
+                m_should_return = true;
+            }
             SetFocus();
             m_lastOnSame = item == m_curItem;
         }
@@ -3982,9 +3994,11 @@ void wxTreeListMainWindow::OnMouse (wxMouseEvent &event) {
 
         // determine the selection if the current item is not selected
         if (!item->IsSelected()) {
+            if ( !m_should_return) return;
             bool unselect_others = !((event.ShiftDown() || event.ControlDown()) &&
                                      HasFlag(wxTR_MULTIPLE));
             SelectItem (item, m_shiftItem, unselect_others);
+            m_should_return = true;
             EnsureVisible (item);
             m_curItem = item; // make the new item the current item
             m_left_down_selection = true;
