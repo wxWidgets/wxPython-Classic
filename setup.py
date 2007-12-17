@@ -816,7 +816,7 @@ DATA_FILES += find_data_files('wx/tools/Editra/pixmaps',
 DATA_FILES += find_data_files('wx/tools/Editra/plugins', '*.egg')
 DATA_FILES += find_data_files('wx/tools/Editra/src', 'README')
 DATA_FILES += find_data_files('wx/tools/Editra/styles', '*.ess')
-DATA_FILES += find_data_files('wx/tools/Editra/tests', '*')
+DATA_FILES += find_data_files('wx/tools/Editra/tests/syntax', '*')
 DATA_FILES += find_data_files('wx/tools/Editra', '[A-Z]*', recursive=False)
 
 
