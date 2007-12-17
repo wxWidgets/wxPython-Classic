@@ -590,8 +590,11 @@ class DragImage(wx.DragImage):
         bitmap = wx.EmptyBitmap(self._total_w, self._total_h)
         memory.SelectObject(bitmap)
 
-        memory.SetTextBackground(self._backgroundColour)
-        memory.SetBackground(wx.Brush(self._backgroundColour))
+        if wx.Platform == '__WXMAC__':
+            memory.SetBackground(wx.TRANSPARENT_BRUSH)
+        else:
+            memory.SetBackground(wx.Brush(self._backgroundColour))
+        memory.SetBackgroundMode(wx.TRANSPARENT)
         memory.SetFont(self._font)
         memory.SetTextForeground(self._colour)
         memory.Clear()
@@ -607,6 +610,21 @@ class DragImage(wx.DragImage):
 
         memory.SelectObject(wx.NullBitmap)
 
+        # Gtk and Windows unfortunatly don't do so well with transparent
+        # drawing so this hack corrects the image to have a transparent
+        # background.
+        if wx.Platform != '__WXMAC__':
+            timg = bitmap.ConvertToImage()
+            if not timg.HasAlpha():
+                timg.InitAlpha()
+            for y in xrange(timg.GetHeight()):
+                for x in xrange(timg.GetWidth()):
+                    pix = wx.Colour(timg.GetRed(x, y),
+                                    timg.GetGreen(x, y),
+                                    timg.GetBlue(x, y))
+                    if pix == self._backgroundColour:
+                        timg.SetAlpha(x, y, 0)
+            bitmap = timg.ConvertToBitmap()
         return bitmap        
             
     
