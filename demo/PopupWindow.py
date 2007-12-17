@@ -8,11 +8,6 @@
 
 import  wx
 
-havePopupWindow = 1
-## if wx.Platform == '__WXMAC__':
-##     havePopupWindow = 0
-##     wx.PopupWindow = wx.PopupTransientWindow = wx.Window
-
 #---------------------------------------------------------------------------
 
 class TestPopup(wx.PopupWindow):
@@ -189,14 +184,8 @@ class TestPopupWithListbox(wx.PopupWindow):
 #---------------------------------------------------------------------------
 
 def runTest(frame, nb, log):
-    if havePopupWindow:
-        win = TestPanel(nb, log)
-        return win
-    else:
-        from Main import MessagePanel
-        win = MessagePanel(nb, 'wx.PopupWindow is not available on this platform.',
-                           'Sorry', wx.ICON_WARNING)
-        return win
+    win = TestPanel(nb, log)
+    return win
 
 #---------------------------------------------------------------------------
 
