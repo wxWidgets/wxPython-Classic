@@ -966,9 +966,13 @@ class TreeTextCtrl(ExpandoTextCtrl):
         x += image_w + wcheck
         w -= image_w + 4 + wcheck
 
+        expandoStyle = wx.WANTS_CHARS
+        if wx.Platform in ["__WXGTK__", "__WXMAC__"]:
+            expandoStyle |= wx.SIMPLE_BORDER
+            
         ExpandoTextCtrl.__init__(self, self._owner, wx.ID_ANY, self._startValue,
                                  wx.Point(x - 4, y), wx.Size(w + 25, h),
-                                 wx.WANTS_CHARS)
+                                 expandoStyle)
 
         if wx.Platform == "__WXMAC__":
             self.SetFont(owner.GetFont())
@@ -1028,7 +1032,9 @@ class TreeTextCtrl(ExpandoTextCtrl):
                 self._aboutToFinish = True
                 # Remove the "\n" at the end... Why this is adding a
                 # newline character? It never did before (!)
-                self.SetValue(self.GetValue()[0:-1])
+                insertionPoint = self.GetInsertionPoint()
+                value = self.GetValue()
+                self.SetValue(value[0:insertionPoint-1]+value[insertionPoint:])
                 # Notify the owner about the changes
                 self.AcceptChanges()
                 # Even if vetoed, close the control (consistent with MSW)
@@ -1691,7 +1697,10 @@ class GenericTreeItem:
                     return self, flags
 
                 if point.x < self._x:
-                    flags |= TREE_HITTEST_ONITEMINDENT
+                    if theCtrl.HasFlag(TR_FULL_ROW_HIGHLIGHT):
+                        flags |= TREE_HITTEST_ONITEM
+                    else:
+                        flags |= TREE_HITTEST_ONITEMINDENT
                 if point.x > self._x + self._width:
                     if theCtrl.HasFlag(TR_FULL_ROW_HIGHLIGHT):
                         flags |= TREE_HITTEST_ONITEM
