@@ -116,6 +116,14 @@ You'll want to replace it with code like this::
 
 
 
+2.8.7.2
+-------
+*
+
+Added the PlateButton class from Cody Precord.
+
+
+
 
 2.8.7.1
 -------
