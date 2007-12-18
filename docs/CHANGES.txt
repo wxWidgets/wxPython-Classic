@@ -5,6 +5,10 @@ Recent Changes for wxPython
 -------
 *
 
+Added the PlateButton class from Cody Precord.
+
+
+
 
 2.8.7.1
 -------
