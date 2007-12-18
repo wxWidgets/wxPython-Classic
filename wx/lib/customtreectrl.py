@@ -67,7 +67,9 @@ to the standard wx.TreeCtrl behaviour this class supports:
 * Hyperlink-type items: they look like an hyperlink, with the proper mouse cursor on
   hovering.
 
-* Multiline text items.
+* Multiline text items (NOTE: to add a newline character in a multiline item, press
+  Shift+Enter as the Enter key alone is consumed by CustomTreeCtrl to finish the editing
+  and Ctr++Enter is consumed by the platform for tab navigation).
 
 * Enabling/disabling items (together with their plain or grayed out icons).
 
@@ -143,6 +145,8 @@ Version 1.2
 import wx
 import zlib
 import cStringIO
+
+from wx.lib.expando import ExpandoTextCtrl
 
 # ----------------------------------------------------------------------------
 # Constants
@@ -609,7 +613,7 @@ class DragImage(wx.DragImage):
         memory.DrawLabel(self._text, textrect)
 
         memory.SelectObject(wx.NullBitmap)
-
+        
         # Gtk and Windows unfortunatly don't do so well with transparent
         # drawing so this hack corrects the image to have a transparent
         # background.
@@ -626,7 +630,7 @@ class DragImage(wx.DragImage):
                         timg.SetAlpha(x, y, 0)
             bitmap = timg.ConvertToBitmap()
         return bitmap        
-            
+
     
 # ----------------------------------------------------------------------------
 # TreeItemAttr: a structure containing the visual attributes of an item
@@ -901,10 +905,10 @@ class TreeRenameTimer(wx.Timer):
 
 # -----------------------------------------------------------------------------
 # Auxiliary Classes: TreeTextCtrl
-# This Is The Temporary wx.TextCtrl Created When You Edit The Text Of An Item
+# This Is The Temporary ExpandoTextCtrl Created When You Edit The Text Of An Item
 # -----------------------------------------------------------------------------
 
-class TreeTextCtrl(wx.TextCtrl):
+class TreeTextCtrl(ExpandoTextCtrl):
     """Control used for in-place edit."""
 
     def __init__(self, owner, item=None):
@@ -962,9 +966,10 @@ class TreeTextCtrl(wx.TextCtrl):
         x += image_w + wcheck
         w -= image_w + 4 + wcheck
 
-        wx.TextCtrl.__init__(self, self._owner, wx.ID_ANY, self._startValue,
-                             wx.Point(x - 4, y), wx.Size(w + 25, h),
-                             wx.WANTS_CHARS|wx.TE_MULTILINE)
+        ExpandoTextCtrl.__init__(self, self._owner, wx.ID_ANY, self._startValue,
+                                 wx.Point(x - 4, y), wx.Size(w + 25, h),
+                                 wx.WANTS_CHARS)
+
         if wx.Platform == "__WXMAC__":
             self.SetFont(owner.GetFont())
             bs = self.GetBestSize()
@@ -1014,13 +1019,20 @@ class TreeTextCtrl(wx.TextCtrl):
         """Handles the wx.EVT_CHAR event for TreeTextCtrl."""
 
         keycode = event.GetKeyCode()
+        shiftDown = event.ShiftDown()
 
         if keycode == wx.WXK_RETURN:
-            self._aboutToFinish = True
-            # Notify the owner about the changes
-            self.AcceptChanges()
-            # Even if vetoed, close the control (consistent with MSW)
-            wx.CallAfter(self.Finish)
+            if shiftDown:
+                event.Skip()
+            else:
+                self._aboutToFinish = True
+                # Remove the "\n" at the end... Why this is adding a
+                # newline character? It never did before (!)
+                self.SetValue(self.GetValue()[0:-1])
+                # Notify the owner about the changes
+                self.AcceptChanges()
+                # Even if vetoed, close the control (consistent with MSW)
+                wx.CallAfter(self.Finish)
 
         elif keycode == wx.WXK_ESCAPE:
             self.StopEditing()
@@ -1038,8 +1050,10 @@ class TreeTextCtrl(wx.TextCtrl):
             parentSize = self._owner.GetSize()
             myPos = self.GetPosition()
             mySize = self.GetSize()
-            
-            sx, sy = self.GetTextExtent(self.GetValue() + "M")
+
+            dc = wx.ClientDC(self)
+            sx, sy, dummy = dc.GetMultiLineTextExtent(self.GetValue() + "M")
+
             if myPos.x + sx > parentSize.x:
                 sx = parentSize.x - myPos.x
             if mySize.x > sx:
@@ -1679,7 +1693,10 @@ class GenericTreeItem:
                 if point.x < self._x:
                     flags |= TREE_HITTEST_ONITEMINDENT
                 if point.x > self._x + self._width:
-                    flags |= TREE_HITTEST_ONITEMRIGHT
+                    if theCtrl.HasFlag(TR_FULL_ROW_HIGHLIGHT):
+                        flags |= TREE_HITTEST_ONITEM
+                    else:
+                        flags |= TREE_HITTEST_ONITEMRIGHT
                         
                 return self, flags
             
@@ -3750,7 +3767,9 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         # to keep going anyhow !!!
         if is_single:
             if item.IsSelected():
-                return # nothing to do
+                # Handles hypertext items
+                self.HandleHyperLink(item)
+                return # nothing else to do
             unselect_others = True
             extended_select = False
         
@@ -3758,6 +3777,8 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         
             # selection change if there is more than one item currently selected
             if len(self.GetSelections()) == 1:
+                # Handles hypertext items
+                self.HandleHyperLink(item)
                 return
 
         event = TreeEvent(wxEVT_TREE_SEL_CHANGING, self.GetId())
@@ -3812,11 +3833,8 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         self.GetEventHandler().ProcessEvent(event)
 
         # Handles hypertext items
-        if self.IsItemHyperText(item):
-            event = TreeEvent(wxEVT_TREE_ITEM_HYPERLINK, self.GetId())
-            event._item = item
-            self.GetEventHandler().ProcessEvent(event)
-
+        self.HandleHyperLink(item)
+        
 
     def SelectItem(self, item, select=True):
         """Selects/deselects an item."""
@@ -3868,6 +3886,18 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
 
         return array
 
+
+    def HandleHyperLink(self, item):
+        """
+        Handles the hyperlink items. Put in a separate method to avoid repetitive
+        calls to the same code spread aound the file.
+        """
+
+        if self.IsItemHyperText(item):
+            event = TreeEvent(wxEVT_TREE_ITEM_HYPERLINK, self.GetId())
+            event._item = item
+            self.GetEventHandler().ProcessEvent(event)
+        
 
     def EnsureVisible(self, item):
         """Ensure that an item is visible in CustomTreeCtrl."""
@@ -5535,7 +5565,11 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
                                                                                             event.CmdDown())
 
                         self.DoSelectItem(item, unselect_others, extended_select)
-                
+
+                # Handle hyperlink items... which are a bit odd sometimes
+                elif self.IsSelected(item) and item.IsHyperText():
+                    self.HandleHyperLink(item)
+                    
                 # For some reason, Windows isn't recognizing a left double-click,
                 # so we need to simulate it here.  Allow 200 milliseconds for now.
                 if event.LeftDClick():
