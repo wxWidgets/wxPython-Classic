@@ -3,7 +3,7 @@
 # Inspired By And Heavily Based On wxGenericTreeCtrl.
 #
 # Andrea Gavana, @ 17 May 2006
-# Latest Revision: 09 Nov 2007, 18.00 CET
+# Latest Revision: 19 Dec 2007, 22.00 CET
 #
 #
 # TODO List
@@ -136,8 +136,8 @@ CustomTreeCtrl has been tested on the following platforms:
   * Mac OS (Thanks to John Jackson).
 
 
-Latest Revision: Andrea Gavana @ 09 Nov 2007, 18.00 CET
-Version 1.2
+Latest Revision: Andrea Gavana @ 19 Dec 2007, 22.00 CET
+Version 1.3
 
 """
 
@@ -969,9 +969,13 @@ class TreeTextCtrl(ExpandoTextCtrl):
         expandoStyle = wx.WANTS_CHARS
         if wx.Platform in ["__WXGTK__", "__WXMAC__"]:
             expandoStyle |= wx.SIMPLE_BORDER
+            xSize, ySize = w + 25, h
+        else:
+            expandoStyle |= wx.SUNKEN_BORDER
+            xSize, ySize = w + 25, h+2
             
         ExpandoTextCtrl.__init__(self, self._owner, wx.ID_ANY, self._startValue,
-                                 wx.Point(x - 4, y), wx.Size(w + 25, h),
+                                 wx.Point(x - 4, y), wx.Size(xSize, ySize),
                                  expandoStyle)
 
         if wx.Platform == "__WXMAC__":
@@ -2876,7 +2880,7 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         else:
             self.DeleteItemWindow(item)
                 
-        item.SetWindow(wnd)                
+        item.SetWindow(wnd)
         self.CalculatePositions()
         self.Refresh()
         self.AdjustMyScrollbars()
@@ -3207,6 +3211,10 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
 
         self._textCtrl.Destroy()
         self._textCtrl = None
+
+        self.CalculatePositions()
+        self.Refresh()
+        self.AdjustMyScrollbars()
 
 
     def FindItem(self, idParent, prefixOrig):
