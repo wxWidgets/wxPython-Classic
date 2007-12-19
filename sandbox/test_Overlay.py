@@ -27,7 +27,7 @@ class TestPanel(wx.Panel):
         dc.SetPen(wx.Pen("red", 2))
         dc.SetBrush(wx.CYAN_BRUSH)
         dc.DrawPolygon(coords)
-        dc.DrawLabel("Draw the mouse across this window to see \n"
+        dc.DrawLabel("Drag the mouse across this window to see \n"
                     "a rubber-band effect using wx.Overlay",
                     (140, 50, -1, -1))
         
