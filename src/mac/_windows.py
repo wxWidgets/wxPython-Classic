@@ -1748,6 +1748,8 @@ class LayoutAlgorithm(_core.Object):
 
 _windows_.LayoutAlgorithm_swigregister(LayoutAlgorithm)
 
+#---------------------------------------------------------------------------
+
 class PopupWindow(_core.Window):
     """Proxy of C++ PopupWindow class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -1755,12 +1757,24 @@ class PopupWindow(_core.Window):
     def __init__(self, *args, **kwargs): 
         """__init__(self, Window parent, int flags=BORDER_NONE) -> PopupWindow"""
         _windows_.PopupWindow_swiginit(self,_windows_.new_PopupWindow(*args, **kwargs))
+        self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """Create(self, Window parent, int flags=BORDER_NONE) -> bool"""
+        return _windows_.PopupWindow_Create(*args, **kwargs)
+
+    def Position(*args, **kwargs):
+        """Position(self, Point ptOrigin, Size size)"""
+        return _windows_.PopupWindow_Position(*args, **kwargs)
+
 _windows_.PopupWindow_swigregister(PopupWindow)
 
 def PrePopupWindow(*args, **kwargs):
     """PrePopupWindow() -> PopupWindow"""
     val = _windows_.new_PrePopupWindow(*args, **kwargs)
     return val
+
+#---------------------------------------------------------------------------
 
 class PopupTransientWindow(PopupWindow):
     """Proxy of C++ PopupTransientWindow class"""
@@ -1769,6 +1783,20 @@ class PopupTransientWindow(PopupWindow):
     def __init__(self, *args, **kwargs): 
         """__init__(self, Window parent, int style=BORDER_NONE) -> PopupTransientWindow"""
         _windows_.PopupTransientWindow_swiginit(self,_windows_.new_PopupTransientWindow(*args, **kwargs))
+        self._setOORInfo(self);PopupTransientWindow._setCallbackInfo(self, self, PopupTransientWindow)
+
+    def _setCallbackInfo(*args, **kwargs):
+        """_setCallbackInfo(self, PyObject self, PyObject _class)"""
+        return _windows_.PopupTransientWindow__setCallbackInfo(*args, **kwargs)
+
+    def Popup(*args, **kwargs):
+        """Popup(self, Window focus=None)"""
+        return _windows_.PopupTransientWindow_Popup(*args, **kwargs)
+
+    def Dismiss(*args, **kwargs):
+        """Dismiss(self)"""
+        return _windows_.PopupTransientWindow_Dismiss(*args, **kwargs)
+
 _windows_.PopupTransientWindow_swigregister(PopupTransientWindow)
 
 def PrePopupTransientWindow(*args, **kwargs):

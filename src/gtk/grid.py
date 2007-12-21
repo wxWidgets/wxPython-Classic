@@ -1473,6 +1473,10 @@ class Grid(_windows.ScrolledWindow):
         """GetCellHighlightROPenWidth(self) -> int"""
         return _grid.Grid_GetCellHighlightROPenWidth(*args, **kwargs)
 
+    def SetUseNativeColLabels(*args, **kwargs):
+        """SetUseNativeColLabels(self, bool native=True)"""
+        return _grid.Grid_SetUseNativeColLabels(*args, **kwargs)
+
     def SetRowLabelSize(*args, **kwargs):
         """SetRowLabelSize(self, int width)"""
         return _grid.Grid_SetRowLabelSize(*args, **kwargs)

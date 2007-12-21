@@ -13579,6 +13579,46 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Grid_SetUseNativeColLabels(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  bool arg2 = (bool) true ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "native", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:Grid_SetUseNativeColLabels",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_SetUseNativeColLabels" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_bool(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_SetUseNativeColLabels" "', expected argument " "2"" of type '" "bool""'");
+    } 
+    arg2 = static_cast< bool >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetUseNativeColLabels(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Grid_SetRowLabelSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxGrid *arg1 = (wxGrid *) 0 ;
@@ -21030,6 +21070,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Grid_GetCellHighlightColour", (PyCFunction)_wrap_Grid_GetCellHighlightColour, METH_O, NULL},
 	 { (char *)"Grid_GetCellHighlightPenWidth", (PyCFunction)_wrap_Grid_GetCellHighlightPenWidth, METH_O, NULL},
 	 { (char *)"Grid_GetCellHighlightROPenWidth", (PyCFunction)_wrap_Grid_GetCellHighlightROPenWidth, METH_O, NULL},
+	 { (char *)"Grid_SetUseNativeColLabels", (PyCFunction) _wrap_Grid_SetUseNativeColLabels, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetRowLabelSize", (PyCFunction) _wrap_Grid_SetRowLabelSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetColLabelSize", (PyCFunction) _wrap_Grid_SetColLabelSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetLabelBackgroundColour", (PyCFunction) _wrap_Grid_SetLabelBackgroundColour, METH_VARARGS | METH_KEYWORDS, NULL},

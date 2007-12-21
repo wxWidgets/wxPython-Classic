@@ -4083,25 +4083,6 @@ SWIGINTERN wxRect wxPseudoDC_GetIdBounds(wxPseudoDC *self,int id){
 #ifdef __cplusplus
 extern "C" {
 #endif
-SWIGINTERN PyObject *_wrap_new_GDIObject(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxGDIObject *result = 0 ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"new_GDIObject",0,0,0)) SWIG_fail;
-  {
-    if (!wxPyCheckForApp()) SWIG_fail;
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGDIObject *)new wxGDIObject();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGDIObject, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_delete_GDIObject(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxGDIObject *arg1 = (wxGDIObject *) 0 ;
@@ -4142,12 +4123,42 @@ SWIGINTERN PyObject *_wrap_GDIObject_IsNull(PyObject *SWIGUNUSEDPARM(self), PyOb
   swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGDIObject, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GDIObject_IsNull" "', expected argument " "1"" of type '" "wxGDIObject *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GDIObject_IsNull" "', expected argument " "1"" of type '" "wxGDIObject const *""'"); 
   }
   arg1 = reinterpret_cast< wxGDIObject * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsNull();
+    result = (bool)((wxGDIObject const *)arg1)->IsNull();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GDIObject_IsOk(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGDIObject *arg1 = (wxGDIObject *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGDIObject, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GDIObject_IsOk" "', expected argument " "1"" of type '" "wxGDIObject const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGDIObject * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxGDIObject const *)arg1)->IsOk();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4165,10 +4176,6 @@ SWIGINTERN PyObject *GDIObject_swigregister(PyObject *SWIGUNUSEDPARM(self), PyOb
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
   SWIG_TypeNewClientData(SWIGTYPE_p_wxGDIObject, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *GDIObject_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  return SWIG_Python_InitShadowInstance(args);
 }
 
 SWIGINTERN PyObject *_wrap_new_Colour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
@@ -39113,11 +39120,10 @@ SWIGINTERN PyObject *PseudoDC_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject 
 }
 
 static PyMethodDef SwigMethods[] = {
-	 { (char *)"new_GDIObject", (PyCFunction)_wrap_new_GDIObject, METH_NOARGS, NULL},
 	 { (char *)"delete_GDIObject", (PyCFunction)_wrap_delete_GDIObject, METH_O, NULL},
 	 { (char *)"GDIObject_IsNull", (PyCFunction)_wrap_GDIObject_IsNull, METH_O, NULL},
+	 { (char *)"GDIObject_IsOk", (PyCFunction)_wrap_GDIObject_IsOk, METH_O, NULL},
 	 { (char *)"GDIObject_swigregister", GDIObject_swigregister, METH_VARARGS, NULL},
-	 { (char *)"GDIObject_swiginit", GDIObject_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_Colour", (PyCFunction) _wrap_new_Colour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_NamedColour", (PyCFunction) _wrap_new_NamedColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_ColourRGB", (PyCFunction) _wrap_new_ColourRGB, METH_VARARGS | METH_KEYWORDS, NULL},

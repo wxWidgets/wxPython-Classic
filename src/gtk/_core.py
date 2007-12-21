@@ -9125,26 +9125,15 @@ class Window(EvtHandler):
         return _core_.Window_SetSizeHintsSz(*args, **kwargs)
 
     def SetVirtualSizeHints(*args, **kwargs):
-        """
-        SetVirtualSizeHints(self, int minW, int minH, int maxW=-1, int maxH=-1)
-
-        Allows specification of minimum and maximum virtual window sizes. If a
-        pair of values is not set (or set to -1), the default values will be
-        used.  If this function is called, the user will not be able to size
-        the virtual area of the window outside the given bounds.
-        """
+        """SetVirtualSizeHints(self, int minW, int minH, int maxW=-1, int maxH=-1)"""
         return _core_.Window_SetVirtualSizeHints(*args, **kwargs)
 
     def SetVirtualSizeHintsSz(*args, **kwargs):
-        """
-        SetVirtualSizeHintsSz(self, Size minSize, Size maxSize=DefaultSize)
-
-        Allows specification of minimum and maximum virtual window sizes. If a
-        pair of values is not set (or set to -1), the default values will be
-        used.  If this function is called, the user will not be able to size
-        the virtual area of the window outside the given bounds.
-        """
+        """SetVirtualSizeHintsSz(self, Size minSize, Size maxSize=DefaultSize)"""
         return _core_.Window_SetVirtualSizeHintsSz(*args, **kwargs)
+
+    SetVirtualSizeHints = wx._deprecated(SetVirtualSizeHints)
+    SetVirtualSizeHintsSz = wx._deprecated(SetVirtualSizeHintsSz)
 
     def GetMaxSize(*args, **kwargs):
         """GetMaxSize(self) -> Size"""
@@ -13719,7 +13708,7 @@ class Sizer(Object):
         window, but may cause the addition/removal/alteration of scrollbars
         required to view the virtual area in windows which manage it.
 
-        :see: `wx.ScrolledWindow.SetScrollbars`, `SetVirtualSizeHints`
+        :see: `wx.ScrolledWindow.SetScrollbars`
 
         """
         return _core_.Sizer_FitInside(*args, **kwargs)
@@ -13750,6 +13739,7 @@ class Sizer(Object):
         """
         return _core_.Sizer_SetVirtualSizeHints(*args, **kwargs)
 
+    SetVirtualSizeHints = wx._deprecated(SetVirtualSizeHints) 
     def Clear(*args, **kwargs):
         """
         Clear(self, bool deleteWindows=False)

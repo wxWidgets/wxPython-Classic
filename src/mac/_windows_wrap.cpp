@@ -2860,18 +2860,23 @@ SWIGINTERN wxRect wxStatusBar_GetFieldRect(wxStatusBar *self,int i){
 #include <wx/popupwin.h>
 
 
-class wxPopupWindow : public wxWindow {
-public:
-    wxPopupWindow(wxWindow *, int)  { wxPyRaiseNotImplemented(); }
-    wxPopupWindow()                 { wxPyRaiseNotImplemented(); }
-};
-
-class wxPyPopupTransientWindow : public wxPopupWindow
+class wxPyPopupTransientWindow : public wxPopupTransientWindow
 {
 public:
-    wxPyPopupTransientWindow(wxWindow *, int)  { wxPyRaiseNotImplemented(); }
-    wxPyPopupTransientWindow()                 { wxPyRaiseNotImplemented(); }
+    wxPyPopupTransientWindow() : wxPopupTransientWindow() {}
+    wxPyPopupTransientWindow(wxWindow* parent, int style = wxBORDER_NONE)
+        : wxPopupTransientWindow(parent, style) {}
+
+    DEC_PYCALLBACK_BOOL_ME(ProcessLeftDown);
+    DEC_PYCALLBACK__(OnDismiss);
+    DEC_PYCALLBACK_BOOL_(CanDismiss);
+    PYPRIVATE;
 };
+
+
+IMP_PYCALLBACK_BOOL_ME(wxPyPopupTransientWindow, wxPopupTransientWindow, ProcessLeftDown);
+IMP_PYCALLBACK__(wxPyPopupTransientWindow, wxPopupTransientWindow, OnDismiss);
+IMP_PYCALLBACK_BOOL_(wxPyPopupTransientWindow, wxPopupTransientWindow, CanDismiss);
 
 
 #include <wx/tipwin.h>
@@ -13482,6 +13487,7 @@ SWIGINTERN PyObject *_wrap_new_PopupWindow(PyObject *SWIGUNUSEDPARM(self), PyObj
     arg2 = static_cast< int >(val2);
   }
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxPopupWindow *)new wxPopupWindow(arg1,arg2);
     wxPyEndAllowThreads(__tstate);
@@ -13500,12 +13506,108 @@ SWIGINTERN PyObject *_wrap_new_PrePopupWindow(PyObject *SWIGUNUSEDPARM(self), Py
   
   if (!SWIG_Python_UnpackTuple(args,"new_PrePopupWindow",0,0,0)) SWIG_fail;
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxPopupWindow *)new wxPopupWindow();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPopupWindow, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PopupWindow_Create(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPopupWindow *arg1 = (wxPopupWindow *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  int arg3 = (int) wxBORDER_NONE ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "parent",(char *) "flags", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:PopupWindow_Create",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPopupWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PopupWindow_Create" "', expected argument " "1"" of type '" "wxPopupWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPopupWindow * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PopupWindow_Create" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+  }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PopupWindow_Create" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->Create(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PopupWindow_Position(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPopupWindow *arg1 = (wxPopupWindow *) 0 ;
+  wxPoint *arg2 = 0 ;
+  wxSize *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxPoint temp2 ;
+  wxSize temp3 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "ptOrigin",(char *) "size", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:PopupWindow_Position",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPopupWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PopupWindow_Position" "', expected argument " "1"" of type '" "wxPopupWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPopupWindow * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxPoint_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    arg3 = &temp3;
+    if ( ! wxSize_helper(obj2, &arg3)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->Position((wxPoint const &)*arg2,(wxSize const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -13552,6 +13654,7 @@ SWIGINTERN PyObject *_wrap_new_PopupTransientWindow(PyObject *SWIGUNUSEDPARM(sel
     arg2 = static_cast< int >(val2);
   }
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxPyPopupTransientWindow *)new wxPyPopupTransientWindow(arg1,arg2);
     wxPyEndAllowThreads(__tstate);
@@ -13570,12 +13673,115 @@ SWIGINTERN PyObject *_wrap_new_PrePopupTransientWindow(PyObject *SWIGUNUSEDPARM(
   
   if (!SWIG_Python_UnpackTuple(args,"new_PrePopupTransientWindow",0,0,0)) SWIG_fail;
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxPyPopupTransientWindow *)new wxPyPopupTransientWindow();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPyPopupTransientWindow, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PopupTransientWindow__setCallbackInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyPopupTransientWindow *arg1 = (wxPyPopupTransientWindow *) 0 ;
+  PyObject *arg2 = (PyObject *) 0 ;
+  PyObject *arg3 = (PyObject *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "self",(char *) "_class", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:PopupTransientWindow__setCallbackInfo",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyPopupTransientWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PopupTransientWindow__setCallbackInfo" "', expected argument " "1"" of type '" "wxPyPopupTransientWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyPopupTransientWindow * >(argp1);
+  arg2 = obj1;
+  arg3 = obj2;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->_setCallbackInfo(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PopupTransientWindow_Popup(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyPopupTransientWindow *arg1 = (wxPyPopupTransientWindow *) 0 ;
+  wxWindow *arg2 = (wxWindow *) NULL ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "focus", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:PopupTransientWindow_Popup",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyPopupTransientWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PopupTransientWindow_Popup" "', expected argument " "1"" of type '" "wxPyPopupTransientWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyPopupTransientWindow * >(argp1);
+  if (obj1) {
+    res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PopupTransientWindow_Popup" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+    }
+    arg2 = reinterpret_cast< wxWindow * >(argp2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->Popup(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PopupTransientWindow_Dismiss(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyPopupTransientWindow *arg1 = (wxPyPopupTransientWindow *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyPopupTransientWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PopupTransientWindow_Dismiss" "', expected argument " "1"" of type '" "wxPyPopupTransientWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyPopupTransientWindow * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->Dismiss();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -34725,10 +34931,15 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"LayoutAlgorithm_swiginit", LayoutAlgorithm_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PopupWindow", (PyCFunction) _wrap_new_PopupWindow, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_PrePopupWindow", (PyCFunction)_wrap_new_PrePopupWindow, METH_NOARGS, NULL},
+	 { (char *)"PopupWindow_Create", (PyCFunction) _wrap_PopupWindow_Create, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PopupWindow_Position", (PyCFunction) _wrap_PopupWindow_Position, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PopupWindow_swigregister", PopupWindow_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PopupWindow_swiginit", PopupWindow_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PopupTransientWindow", (PyCFunction) _wrap_new_PopupTransientWindow, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_PrePopupTransientWindow", (PyCFunction)_wrap_new_PrePopupTransientWindow, METH_NOARGS, NULL},
+	 { (char *)"PopupTransientWindow__setCallbackInfo", (PyCFunction) _wrap_PopupTransientWindow__setCallbackInfo, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PopupTransientWindow_Popup", (PyCFunction) _wrap_PopupTransientWindow_Popup, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PopupTransientWindow_Dismiss", (PyCFunction)_wrap_PopupTransientWindow_Dismiss, METH_O, NULL},
 	 { (char *)"PopupTransientWindow_swigregister", PopupTransientWindow_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PopupTransientWindow_swiginit", PopupTransientWindow_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_TipWindow", (PyCFunction) _wrap_new_TipWindow, METH_VARARGS | METH_KEYWORDS, NULL},

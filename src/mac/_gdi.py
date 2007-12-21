@@ -58,16 +58,19 @@ wx = _core
 class GDIObject(_core.Object):
     """Proxy of C++ GDIObject class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self) -> GDIObject"""
-        _gdi_.GDIObject_swiginit(self,_gdi_.new_GDIObject(*args, **kwargs))
     __swig_destroy__ = _gdi_.delete_GDIObject
     __del__ = lambda self : None;
     def IsNull(*args, **kwargs):
         """IsNull(self) -> bool"""
         return _gdi_.GDIObject_IsNull(*args, **kwargs)
 
+    def IsOk(*args, **kwargs):
+        """IsOk(self) -> bool"""
+        return _gdi_.GDIObject_IsOk(*args, **kwargs)
+
+    Ok = IsOk 
 _gdi_.GDIObject_swigregister(GDIObject)
 
 #---------------------------------------------------------------------------
