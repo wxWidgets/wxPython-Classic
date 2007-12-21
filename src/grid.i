@@ -1863,6 +1863,7 @@ public:
     int      GetCellHighlightPenWidth();
     int      GetCellHighlightROPenWidth();
 
+    void     SetUseNativeColLabels( bool native = true );
     void     SetRowLabelSize( int width );
     void     SetColLabelSize( int height );
     void     SetLabelBackgroundColour( const wxColour& );
