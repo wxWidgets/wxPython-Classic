@@ -35,13 +35,15 @@ class wxDCOverlay
 public:
 
     %nokwargs wxDCOverlay;
+    %pythonAppend wxDCOverlay
+        "self.__dc = args[1] # save a ref so the dc will not be deleted before self";
     
     // connects this overlay to the corresponding drawing dc, if the overlay is not initialized yet
     // this call will do so
-    wxDCOverlay(wxOverlay &overlay, wxWindowDC *dc, int x , int y , int width , int height);
+    wxDCOverlay(wxOverlay &overlay, wxDC *dc, int x , int y , int width , int height);
 
     // convenience wrapper that behaves the same using the entire area of the dc
-    wxDCOverlay(wxOverlay &overlay, wxWindowDC *dc);
+    wxDCOverlay(wxOverlay &overlay, wxDC *dc);
 
     // removes the connection between the overlay and the dc
     virtual ~wxDCOverlay();
