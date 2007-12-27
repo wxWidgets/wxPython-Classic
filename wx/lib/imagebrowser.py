@@ -511,7 +511,11 @@ class ImageDialog(wx.Dialog):
         if self.fl_ext == "All":
             all_files = []
 
-            for ftypes in self.fl_types[1:-1]:    # get list of all available image types
+            if self.fl_types[-1:-1] == '*.*':
+                allTypes = self.fl_types[1:-1]
+            else:
+                allTypes = self.fl_types[1:]
+            for ftypes in allTypes:    # get list of all
                 filter = self.fl_ext_types[ftypes]
                 #print "filter = ", filter
                 self.fl_val = FindFiles(self, self.set_dir, filter)
