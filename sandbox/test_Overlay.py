@@ -21,15 +21,17 @@ class TestPanel(wx.Panel):
     def OnPaint(self, evt):
         # Just some simple stuff to paint in the window for an example
         dc = wx.PaintDC(self)
-        coords = ((40,40),(200,220),(210,120),(120,300))
         dc.SetBackground(wx.Brush("sky blue"))
         dc.Clear() 
+        dc.DrawLabel("Drag the mouse across this window to see \n"
+                     "a rubber-band effect using wx.Overlay",
+                     (140, 50, -1, -1))
+
+        coords = ((40,40),(200,220),(210,120),(120,300))
+        dc = wx.GCDC(dc)
         dc.SetPen(wx.Pen("red", 2))
         dc.SetBrush(wx.CYAN_BRUSH)
         dc.DrawPolygon(coords)
-        dc.DrawLabel("Drag the mouse across this window to see \n"
-                    "a rubber-band effect using wx.Overlay",
-                    (140, 50, -1, -1))
         
 
     def OnLeftDown(self, evt):
@@ -49,16 +51,14 @@ class TestPanel(wx.Panel):
             dc = wx.ClientDC(self)
             odc = wx.DCOverlay(self.overlay, dc)
             odc.Clear()
+
+            if 'wxMac' not in wx.PlatformInfo:
+                dc = wx.GCDC(dc)
             
             dc.SetPen(wx.Pen("black", 2))
-            if 'wxMac' in wx.PlatformInfo:
-                dc.SetBrush(wx.Brush(wx.Colour(0xC0, 0xC0, 0xC0, 0x80)))
-            else:
-                dc.SetBrush(wx.TRANSPARENT_BRUSH)
+            dc.SetBrush(wx.Brush(wx.Colour(0xC0, 0xC0, 0xC0, 0x80)))
             dc.DrawRectangleRect(rect)
 
-            del odc # work around a bug in the Python wrappers to make
-                    # sure the odc is destroyed before the dc is.
 
 
     def OnLeftUp(self, evt):
@@ -78,6 +78,7 @@ class TestPanel(wx.Panel):
 
 app = wx.App(redirect=False)
 frm = wx.Frame(None, title="wx.Overlay Test", size=(450,450))
+#frm.SetTransparent(254)
 pnl = TestPanel(frm)
 frm.Show()
 app.MainLoop()
