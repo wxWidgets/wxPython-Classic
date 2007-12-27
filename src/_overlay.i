@@ -35,6 +35,8 @@ class wxDCOverlay
 public:
 
     %nokwargs wxDCOverlay;
+    %pythonAppend wxDCOverlay
+        "self.__dc = args[1] # save a ref so the dc will not be deleted before self";
     
     // connects this overlay to the corresponding drawing dc, if the overlay is not initialized yet
     // this call will do so
