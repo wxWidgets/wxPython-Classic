@@ -7,6 +7,11 @@ Recent Changes for wxPython
 
 Added the PlateButton class from Cody Precord.
 
+Added wx.PyEvtHandler, which suports overriding the ProcessEvent
+method in derived classes.  Instances of this class can be pushed onto
+the event handler chain of a window in order to hook into the event
+processing algorithm. 
+
 
 
 

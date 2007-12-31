@@ -179,7 +179,7 @@ class wxPyControl;
 class wxPyPrintout;
 class wxGenericDragImage;
 class wxPyTaskBarIcon;
-
+class wxPyEvtHandler;
 
 #ifdef __WXMAC__
 class wxPopupWindow;
