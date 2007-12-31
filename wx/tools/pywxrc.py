@@ -844,7 +844,10 @@ class XmlResourceCompiler:
 
 #---------------------------------------------------------------------------
 
-def main(args):
+def main(*args):
+    if not args:
+        args = sys.argv[1:]
+        
     resourceFilename = ""
     outputFilename = None
     embedResources = False

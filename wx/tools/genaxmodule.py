@@ -19,7 +19,10 @@ import wx.activex
 import sys
 
 
-def main(args):
+def main(*args):
+    if not args:
+        args = sys.argv
+        
     if len(args) < 3:
         print __doc__
         sys.exit(1)
