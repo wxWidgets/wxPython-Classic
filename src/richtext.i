@@ -58,6 +58,8 @@ enum wxTextAttrAlignment
     wxTEXT_ALIGNMENT_JUSTIFIED
 };
 
+enum wxTextCtrlHitTestResult;
+
 //----------------------------------------------------------------------
 
 %include _richtextbuffer.i
