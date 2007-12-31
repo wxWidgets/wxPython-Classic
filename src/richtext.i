@@ -46,6 +46,7 @@ MAKE_CONST_WXSTRING_NOSWIG(EmptyString);
 //----------------------------------------------------------------------
 
 enum wxTextAttrAlignment;
+enum wxTextCtrlHitTestResult;
 
 %include _richtextbuffer.i
 %include _richtextctrl.i
