@@ -294,7 +294,10 @@ def img2py(image_file, python_file, append=DEFAULT_APPEND, compressed=DEFAULT_CO
         
 
     
-def main(args):
+def main(*args):
+    if not args:
+        args = sys.argv[1:]
+        
     if not args or ("-h" in args):
         print __doc__
         return
