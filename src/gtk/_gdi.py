@@ -5949,6 +5949,8 @@ class DCOverlay(object):
         __init__(self, Overlay overlay, WindowDC dc) -> DCOverlay
         """
         _gdi_.DCOverlay_swiginit(self,_gdi_.new_DCOverlay(*args))
+        self.__dc = args[1] # save a ref so the dc will not be deleted before self
+
     __swig_destroy__ = _gdi_.delete_DCOverlay
     __del__ = lambda self : None;
     def Clear(*args, **kwargs):

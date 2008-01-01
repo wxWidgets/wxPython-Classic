@@ -3895,6 +3895,43 @@ class EvtHandler(Object):
     PreviousHandler = property(GetPreviousHandler,SetPreviousHandler,doc="See `GetPreviousHandler` and `SetPreviousHandler`") 
 _core_.EvtHandler_swigregister(EvtHandler)
 
+class PyEvtHandler(EvtHandler):
+    """
+    The wx.PyEvtHandler class can be used to intercept calls to the
+    `ProcessEvent` method.  Simply derive a new class from this one,
+    override ProcessEvent, and then push an instance of the class onto the
+    event handler chain for a window using `wx.Window.PushEventHandler`.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self) -> PyEvtHandler
+
+        The wx.PyEvtHandler class can be used to intercept calls to the
+        `ProcessEvent` method.  Simply derive a new class from this one,
+        override ProcessEvent, and then push an instance of the class onto the
+        event handler chain for a window using `wx.Window.PushEventHandler`.
+        """
+        _core_.PyEvtHandler_swiginit(self,_core_.new_PyEvtHandler(*args, **kwargs))
+        self._setOORInfo(self);PyEvtHandler._setCallbackInfo(self, self, PyEvtHandler)
+
+    def _setCallbackInfo(*args, **kwargs):
+        """_setCallbackInfo(self, PyObject self, PyObject _class)"""
+        return _core_.PyEvtHandler__setCallbackInfo(*args, **kwargs)
+
+    def ProcessEvent(*args, **kwargs):
+        """
+        ProcessEvent(self, Event event) -> bool
+
+        Override this method to intercept the events being sent to the window.
+        The default implementation searches the event tables and calls event
+        handler functions if matching event bindings are found.
+        """
+        return _core_.PyEvtHandler_ProcessEvent(*args, **kwargs)
+
+_core_.PyEvtHandler_swigregister(PyEvtHandler)
+
 #---------------------------------------------------------------------------
 
 class PyEventBinder(object):
