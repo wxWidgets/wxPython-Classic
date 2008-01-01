@@ -21,7 +21,20 @@
 #----------------------------------------------------------------------
 
 import sys, os, glob, fnmatch, tempfile
-from distutils.core      import setup, Extension
+
+EGGing = 'bdist_egg' in sys.argv or 'egg_info' in sys.argv
+if not EGGing:
+    from distutils.core import setup, Extension
+else:
+    # EXPERIMENTAL Egg support...
+    try:
+        import ez_setup
+        ez_setup.use_setuptools()
+        from setuptools import setup, Extension
+    except ImportError:
+        print "Setuptools must be installed to build an egg"
+        sys.exit(1)
+
 from distutils.file_util import copy_file
 from distutils.dir_util  import mkpath
 from distutils.dep_util  import newer
@@ -49,7 +62,7 @@ URL              = "http://wxPython.org/"
 DOWNLOAD_URL     = "http://wxPython.org/download.php"
 LICENSE          = "wxWidgets Library License (LGPL derivative)"
 PLATFORMS        = "WIN32,OSX,POSIX"
-KEYWORDS         = "GUI,wx,wxWindows,wxWidgets,cross-platform"
+KEYWORDS         = "GUI,wx,wxWindows,wxWidgets,cross-platform,awesome"
 
 LONG_DESCRIPTION = """\
 wxPython is a GUI toolkit for Python that is a wrapper around the
@@ -506,6 +519,7 @@ class wx_install_headers(distutils.command.install_headers.install_headers):
             self.mkpath(install_dir)
             (out, _) = self.copy_file(header, install_dir)
             self.outfiles.append(out)
+
 
 
 def build_locale_dir(destdir, verbose=1):
@@ -1087,7 +1101,7 @@ if UNICODE:
     BUILD_BASE = BUILD_BASE + '.unicode'
 
 if os.path.exists('DAILY_BUILD'):
-    VER_FLAGS += '.' + open('DAILY_BUILD').read().strip()
+    VER_FLAGS += '.pre' + open('DAILY_BUILD').read().strip()
 
 VERSION = "%s.%s.%s.%s%s" % (VER_MAJOR, VER_MINOR, VER_RELEASE,
                              VER_SUBREL, VER_FLAGS)

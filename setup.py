@@ -69,8 +69,6 @@ SUBREL_VERSION  = %(VER_SUBREL)s
 
 VERSION = (MAJOR_VERSION, MINOR_VERSION, RELEASE_VERSION,
            SUBREL_VERSION, '%(VER_FLAGS)s')
-
-RELEASE_NUMBER = RELEASE_VERSION  # for compatibility
 """ % globals())
 
 CLEANUP.append('wx/__version__.py')
@@ -91,22 +89,22 @@ if USE_SWIG:
         msg('Using SWIG-' + SVER)
     except:
         msg('\nUnable to get SWIG version number\n')
-        
+
 
 
 #----------------------------------------------------------------------
 # patch distutils if it can't cope with the "classifiers" or
-# "download_url" keywords 
+# "download_url" keywords
 #----------------------------------------------------------------------
 
-if sys.version < '2.2.3': 
-    from distutils.dist import DistributionMetadata 
-    DistributionMetadata.classifiers = None 
+if sys.version < '2.2.3':
+    from distutils.dist import DistributionMetadata
+    DistributionMetadata.classifiers = None
     DistributionMetadata.download_url = None
     depends = {}
 else:
     depends = {'depends' : depends}
-    
+
 
 #----------------------------------------------------------------------
 # Define the CORE extension module
@@ -155,7 +153,7 @@ for file in ['preamble.txt', 'licence.txt', 'licendoc.txt', 'lgpl.txt']:
 CLEANUP.append('licence')
 
 
-if os.name == 'nt':
+if sys.platform in ['win32', 'darwin']:
     build_locale_dir(opj(PKGDIR, 'locale'))
     DATA_FILES += build_locale_list(opj(PKGDIR, 'locale'))
 
@@ -535,10 +533,10 @@ swig_sources = run_swig(['animate.i'], 'src', GENDIR, PKGDIR,
                             USE_SWIG, swig_force, swig_args, swig_deps)
 ext = Extension('_animate',
                 swig_sources,
-                
+
                 include_dirs =  includes + CONTRIBS_INC,
                 define_macros = defines,
-                
+
                 library_dirs = libdirs,
                 libraries = libs,
 
@@ -570,7 +568,7 @@ if BUILD_GLCANVAS:
         gl_lflags = gl_config.split()
         gl_lflags = adjustLFLAGS(gl_lflags, gl_libdirs, gl_libs)
 
-        
+
     else:
         gl_libs = libs + ['opengl32', 'glu32'] + makeLibName('gl')
         gl_lflags = lflags
@@ -579,7 +577,7 @@ if BUILD_GLCANVAS:
         if not ARCH == "":
             gl_lflags.append("-arch")
             gl_lflags.append(ARCH)
-    
+
     ext = Extension('_glcanvas',
                     swig_sources,
 
@@ -788,12 +786,116 @@ if BUILD_DLLWIDGET:
 
 
 
+#----------------------------------------------------------------------
+
+if EGGing:
+    # Replace the make_zipfile function used by the bdist_egg command
+    # so we can do some postprocessing of what will become the content
+    # of the egg file before it is made.
     
+    import setuptools.command.bdist_egg
+    old_make_zipfile = setuptools.command.bdist_egg.make_zipfile
+
+    def my_make_zipfile(zip_filename, base_dir, *args, **kw):
+        if sys.platform == 'darwin':
+            # copy wx dylibs into the egg, and set the @loader_path in
+            # the wxPython .so's to find our copies.
+                   
+            # find all wx dylibs used by the wxPython .so files, use a
+            # set to collapse the duplicates.
+            dylibs = set()
+            soFiles = glob.glob(opj(base_dir, 'wx', '*.so'))
+            for f in soFiles:
+                info = os.popen('otool -L %s | grep libwx | grep -v loader_path' % f).read().strip()
+                for line in info.split('\n'):
+                    if not line: continue
+                    so = line.split()[0]
+                    dylibs.add(so)
+                    cmd = ['install_name_tool',
+                           '-change',
+                           so,
+                           '@loader_path/../Library/%s' % os.path.basename(so),
+                           f ]
+                    spawn(cmd)
+
+            # Copy the shared library files into the egg, and fix up
+            # dependency paths where needed.
+            dest = opj(base_dir, 'Library')
+            if not os.path.exists(dest):
+                os.mkdir(dest)
+            for f in dylibs:
+                copy_file(f, dest)
+                info = os.popen('otool -L %s | grep libwx | grep -v ":$" | grep -v loader_path' % f).read().strip()
+                for line in info.split('\n'):
+                    if not line: continue
+
+                    so = line.split()[0]
+                    cmd = ['install_name_tool',
+                           '-change',
+                           so,
+                           '@loader_path/../Library/%s' % os.path.basename(so),
+                           '%s/%s' % (dest, os.path.basename(f)) ]
+                    spawn(cmd)
+                
+        
+        if os.name == 'nt':
+            # copy the wx DLLs and others into the wx package dir
+            # inside the egg.
+            dllFiles = glob.glob(opj(WXDIR, 'lib', 'vc_dll',
+                                     'wxmsw%s%s_*.dll' % (WXDLLVER, libFlag()))) + \
+                       glob.glob(opj(WXDIR, 'lib', 'vc_dll',
+                                     'wxbase%s%s_*.dll' % (WXDLLVER, libFlag()))) + \
+                       [ 'distrib/msw/gdiplus.dll',
+                         'distrib/msw/msvcp71.dll' ]
+            for f in dllFiles:
+                copy_file(f, opj(base_dir, 'wx'))
+                        
+        return old_make_zipfile(zip_filename, base_dir, *args, **kw)
+
+    setuptools.command.bdist_egg.make_zipfile = my_make_zipfile
+
+
 #----------------------------------------------------------------------
 # Tools, scripts, data files, etc.
 #----------------------------------------------------------------------
 
-if NO_SCRIPTS:
+
+WX_PKGLIST =      [ 'wx',
+                    'wx.build',
+                    'wx.lib',
+                    'wx.lib.analogclock',
+                    'wx.lib.analogclock.lib_setup',
+                    'wx.lib.art',
+                    'wx.lib.colourchooser',
+                    'wx.lib.editor',
+                    'wx.lib.floatcanvas',
+                    'wx.lib.floatcanvas.Utilities',
+                    'wx.lib.masked',
+                    'wx.lib.mixins',
+                    'wx.lib.ogl',
+                    'wx.py',
+                    'wx.tools',
+                    'wx.tools.XRCed',
+                    'wx.tools.XRCed.plugins',
+                    'wx.tools.Editra',
+                    'wx.tools.Editra.src',
+                    'wx.tools.Editra.src.autocomp',
+                    'wx.tools.Editra.src.eclib',
+                    'wx.tools.Editra.src.extern',
+                    'wx.tools.Editra.src.syntax',
+                    ]
+
+if not EGGing:
+    WX_PKGLIST += [ 'wxPython',
+                    'wxPython.lib',
+                    'wxPython.lib.colourchooser',
+                    'wxPython.lib.editor',
+                    'wxPython.lib.mixins',
+                    'wxPython.tools',
+                    ]
+                     
+
+if NO_SCRIPTS or EGGing:
     SCRIPTS = None
 else:
     SCRIPTS = [opj('scripts/helpviewer'),
@@ -835,7 +937,7 @@ DATA_FILES += find_data_files('wx/tools/Editra', '[A-Z]*', recursive=False)
 ## sys.exit()
 
 
-if NO_HEADERS:
+if NO_HEADERS or EGGing:
     HEADERS = None
 else:
     h_files = glob.glob(opj("include/wx/wxPython/*.h"))
@@ -849,7 +951,6 @@ else:
               zip(i_files, ["/wxPython/i_files"]*len(i_files))
 
 
-
 if INSTALL_MULTIVERSION:
     EXTRA_PATH = getExtraPath(addOpts=EP_ADD_OPTS, shortVer=not EP_FULL_VER)
     open("src/wx.pth", "w").write(EXTRA_PATH + "\n")
@@ -857,10 +958,37 @@ if INSTALL_MULTIVERSION:
 else:
     EXTRA_PATH = None
 
+
 BUILD_OPTIONS = { 'build_base' : BUILD_BASE }
 if WXPORT == 'msw':
     BUILD_OPTIONS[ 'compiler' ] = COMPILER
 
+
+other_kw = {}
+if EGGing:
+    # These args are only used with setuptools, which for now is only
+    # when we are building an egg.
+    other_kw = dict(
+        zip_safe = False,
+        entry_points = {
+            'console_scripts' : [ 'img2png = wx.tools.img2png:main',
+                                  'img2xpm = wx.tools.img2xpm:main',
+                                  'img2py = wx.tools.img2py:main',
+                                  'pywxrc = wx.tools.pywxrc:main',
+                                  ], 
+            'gui_scripts'     : [ 'pycrust = wx.py.PyCrust:main',
+                                  'pyshell = wx.py.PyShell:main',
+                                  'pywrap = wx.py.PyWrap:main',
+                                  'helpviewer = wx.tools.helpviewer:main',
+                                  'editra = wx.tools.Editra.launcher:main',
+                                  'xrced = wx.tools.XRCed.xrced:main',
+                                  ], 
+            },
+        )
+    
+    if os.name == 'nt':
+        other_kw['entry_points']['console_scripts'].append(
+            'genaxmodule = wx.tools.genaxmodule:main')
 
 #----------------------------------------------------------------------
 # Do the Setup/Build/Install/Whatever
@@ -868,7 +996,7 @@ if WXPORT == 'msw':
 
 if __name__ == "__main__":
     if not PREP_ONLY:
-        
+
         setup(name             = 'wxPython',
               version          = VERSION,
               description      = DESCRIPTION,
@@ -882,49 +1010,17 @@ if __name__ == "__main__":
               classifiers      = filter(None, CLASSIFIERS.split("\n")),
               keywords         = KEYWORDS,
 
-              packages = ['wxPython',
-                          'wxPython.lib',
-                          'wxPython.lib.colourchooser',
-                          'wxPython.lib.editor',
-                          'wxPython.lib.mixins',
-                          'wxPython.tools',
+              packages         = WX_PKGLIST,
+              extra_path       = EXTRA_PATH,
+              ext_package      = PKGDIR,
+              ext_modules      = wxpExtensions,
+              
 
-                          'wx',
-                          'wx.build',
-                          'wx.lib',
-                          'wx.lib.analogclock',
-                          'wx.lib.analogclock.lib_setup',
-                          'wx.lib.art',
-                          'wx.lib.colourchooser',
-                          'wx.lib.editor',
-                          'wx.lib.floatcanvas',
-                          'wx.lib.floatcanvas.Utilities',
-                          'wx.lib.masked',
-                          'wx.lib.mixins',
-                          'wx.lib.ogl',
-                          'wx.py',
-                          'wx.tools',
-                          'wx.tools.XRCed',
-                          'wx.tools.XRCed.plugins',
-                          'wx.tools.Editra',
-                          'wx.tools.Editra.src',
-                          'wx.tools.Editra.src.autocomp',
-                          'wx.tools.Editra.src.eclib',
-                          'wx.tools.Editra.src.extern',
-                          'wx.tools.Editra.src.syntax',
-                          ],
+              options          = { 'build' : BUILD_OPTIONS,  },
 
-              extra_path = EXTRA_PATH,
-
-              ext_package = PKGDIR,
-              ext_modules = wxpExtensions,
-
-              options = { 'build'            : BUILD_OPTIONS,                          
-                          },
-
-              scripts =    SCRIPTS,
-              data_files = DATA_FILES,
-              headers =    HEADERS,
+              scripts          = SCRIPTS,
+              data_files       = DATA_FILES,
+              headers          = HEADERS,
 
               # Override some of the default distutils command classes with my own
               cmdclass = { 'install' :        wx_install,
@@ -932,9 +1028,12 @@ if __name__ == "__main__":
                            'install_headers': wx_install_headers,
                            'clean':           wx_extra_clean,
                            },
+
+              **other_kw
               )
 
-        setup(name = 'wxaddons', 
+        if not EGGing:
+            setup(name = 'wxaddons',
                   version          = VERSION,
                   description      = DESCRIPTION,
                   long_description = LONG_DESCRIPTION,
@@ -947,34 +1046,37 @@ if __name__ == "__main__":
                   classifiers      = filter(None, CLASSIFIERS.split("\n")),
                   keywords         = KEYWORDS,
                   
-                  packages = ['wxaddons']
-             )
-
-        if INSTALL_MULTIVERSION:
-            setup(name             = 'wxPython-common',
-                  version          = VERSION,
-                  description      = DESCRIPTION,
-                  long_description = LONG_DESCRIPTION,
-                  author           = AUTHOR,
-                  author_email     = AUTHOR_EMAIL,
-                  url              = URL,
-                  download_url     = DOWNLOAD_URL,
-                  license          = LICENSE,
-                  platforms        = PLATFORMS,
-                  classifiers      = filter(None, CLASSIFIERS.split("\n")),
-                  keywords         = KEYWORDS,
-
-                  package_dir = { '': 'wxversion' },
-                  py_modules = ['wxversion'],
-
-                  data_files = [('', ['src/wx.pth'])],
-                  
-                  options = { 'build'            : { 'build_base' : BUILD_BASE },
+                  packages = ['wxaddons'],
+                  options = { 'build' : BUILD_OPTIONS,
                               },
-                  
-                  cmdclass = { 'install_data':    wx_smart_install_data,
-                               },
-                  )
-            
+                 )
+
+            if INSTALL_MULTIVERSION:
+                setup(name             = 'wxPython-common',
+                      version          = VERSION,
+                      description      = DESCRIPTION,
+                      long_description = LONG_DESCRIPTION,
+                      author           = AUTHOR,
+                      author_email     = AUTHOR_EMAIL,
+                      url              = URL,
+                      download_url     = DOWNLOAD_URL,
+                      license          = LICENSE,
+                      platforms        = PLATFORMS,
+                      classifiers      = filter(None, CLASSIFIERS.split("\n")),
+                      keywords         = KEYWORDS,
+
+                      package_dir = { '': 'wxversion' },
+                      py_modules = ['wxversion'],
+
+                      data_files = [('', ['src/wx.pth'])],
+
+                      options = { 'build' : BUILD_OPTIONS,
+                                  },
+
+                      cmdclass = { 'install_data':    wx_smart_install_data,
+                                   },
+                      )
+
+
 #----------------------------------------------------------------------
 #----------------------------------------------------------------------
