@@ -459,7 +459,7 @@ read the above sections as well, as the answer could be there.
 
 1. If you don't already have cygwin installed on your Windows box
    please do so know.  Make sure you have these additional packages
-   installed as well:
+   installed as well::
 
          autoconf
        	 automake
