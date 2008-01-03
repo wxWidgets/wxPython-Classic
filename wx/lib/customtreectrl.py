@@ -143,8 +143,6 @@ Version 1.3
 
 
 import wx
-import zlib
-import cStringIO
 
 from wx.lib.expando import ExpandoTextCtrl
 
@@ -309,106 +307,43 @@ EVT_TREE_ITEM_CHECKING = wx.PyEventBinder(wxEVT_TREE_ITEM_CHECKING, 1)
 EVT_TREE_ITEM_CHECKED = wx.PyEventBinder(wxEVT_TREE_ITEM_CHECKED, 1)
 EVT_TREE_ITEM_HYPERLINK = wx.PyEventBinder(wxEVT_TREE_ITEM_HYPERLINK, 1)
 
+from wx.lib.embeddedimage import PyEmbeddedImage
 
-def GetFlaggedData():
-    return zlib.decompress(
-'x\xda\x012\x02\xcd\xfd\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\r\x00\
-\x00\x00\r\x08\x06\x00\x00\x00r\xeb\xe4|\x00\x00\x00\x04sBIT\x08\x08\x08\x08\
-|\x08d\x88\x00\x00\x01\xe9IDAT(\x91u\x92\xd1K\xd3a\x14\x86\x9f\xef|J2J\xc3%\
-\x85\x8e\x1cb\x93Hl\xd9,\x06F]4\x10\tD3\x83\x88\xc8\xbf\xc0\xb4\xaeBP1\xe9\
-\xa2(\xec\xaan\xc3\x82pD\xa1\x84\xb0\x88@3\x8c\xc9\xa2bT\xa2^\x8c\x81V3\xb6\
-\xb5\x9f\xce9\xbe.j\xb20\xdf\xeb\xf7\xe19\x07^\xa5D\x93\x9f\x9ea\xbf\t\x04\
-\xbf\x12\x8b[\xd8Kl\xf8<.\xeet\xb5\xab\xfc\x8e\xca\x87*ZzM\xf3\xb1j|G\xab\
-\xf0\xd4\x94\x13\x9a_&0\xbb\xc8\xd8\xf4g\xa2\xcfo\xa8-P\xc7\xf5\x07\xa6\xedD\
-\r\x8d\xb5\xfb\x11\x11\xb4\xd6\x88h\xb4\xd6L}\x8a\xf0\xe4\xd5G\x1e\rt*\x00\
-\xc9\x19\xb6\x03D4\xa7\xdcU\\8\xed\xa6\xa2\xa5\xd7\x00\xe8\xab\xf7\x9e\x9a\
-\xca\xb2\x9d\\\xf2\xd5!"dT\x86\xc9\xe4\x14\x83s\x83HF\xe3\xdc\xe5\xa4\xa8\
-\xb0\x88\xaa\xf2=D\x7f$il>\xdf\xafSe\xf5\xfd\x9dM\x87\xa9\xdc\xb7\x1b\xad5\
-\x93\xc9)\xfc\xe9Q\x12\xe9\x04\x13\x0b\x13\x94\xaaR\xdc{\x8f "\xec(,\xe0\xfe\
-\xb3\xb7H,a\xe1\xa9)\xdf<e$2Ble\x85\x94e\xb1\x96\xcep\xfb\xdd-D\x04\xa5\x14\
-\xdeZ\'\xb1\x84\x85\xd8\x8bm\x84\xe6\x977\x7f8kog)\xba\xc4\xb7\xe5\xef$\xe2?\
-\xe9\xa9\xbf\x86R\n\x11a&\x1c\xc1^lC|\r.\x02\xb3\x8b\x9b\xa6&G\x13W\xaa\xbb\
-\x91_\x05\x0c\x1d\xbfI\xc7\xa1\x8e\xbf&a|:\x8c\xaf\xc1\x05J4\x8e\xd6>36\x192\
-\xc9d\xdc\xa4RI\xb3\xbaj\x99tz\xcd\xac\xaf\xa7\xcd\xc6F\xc6d\xb3Y\xf32\xf8\
-\xc58Z\xfb\x8c\x12\xfd\x07R\xa2\xb98\xf0\xd0\xbcx\xf3a[\xe0\xf2\xd0c\x93\xeb\
-nYD\xdb\xc9:\xcex\x0f\xe2\xadu2\x13\x8e0>\x1d\xc6\xff\xfa\xfd\xff\x17\x91K\
-\xf7\xf0\xa8\t\x04\xe7X\x89[\x94\x96\xd8\xf0y\x0ep\xb7\xeb\xdc?\xdb\xfb\r|\
-\xd0\xd1]\x98\xbdm\xdc\x00\x00\x00\x00IEND\xaeB`\x82\x91\xe2\x08\x8f' )
+Flagged = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABHNCSVQICAgIfAhkiAAAAelJ"
+    "REFUKJF1ktFL02EUhp/vfEoySsMlhY4cYpNIbNksBkZdNBAJRDODiMi/wLSuQlAx6aIo7Kpu"
+    "w4JwRKGEsIhAM4zJomJUol6MgVYztrWfzjm+LmqyMN/r9+E5B16lRJOfnmG/CQS/Eotb2Ets"
+    "+Dwu7nS1q/yOyocqWnpN87FqfEer8NSUE5pfJjC7yNj0Z6LPb6gtUMf1B6btRA2NtfsREbTW"
+    "iGi01kx9ivDk1UceDXQqAMkZtgNENKfcVVw47aaipdcA6Kv3nprKsp1c8tUhImRUhsnkFINz"
+    "g0hG49zlpKiwiKryPUR/JGlsPt+vU2X1/Z1Nh6nctxutNZPJKfzpURLpBBMLE5SqUtx7jyAi"
+    "7Cgs4P6zt0gsYeGpKd88ZSQyQmxlhZRlsZbOcPvdLUQEpRTeWiexhIXYi22E5pc3fzhrb2cp"
+    "usS35e8k4j/pqb+GUgoRYSYcwV5sQ3wNLgKzi5umJkcTV6q7kV8FDB2/Scehjr8mYXw6jK/B"
+    "BUo0jtY+MzYZMslk3KRSSbO6apl0es2sr6fNxkbGZLNZ8zL4xTha+4wS/QdSork48NC8ePNh"
+    "W+Dy0GOT625ZRNvJOs54D+KtdTITjjA+Hcb/+v3/F5FL9/CoCQTnWIlblJbY8HkOcLfr3D/b"
+    "+w180NFdmL1t3AAAAABJRU5ErkJggg==")
 
-def GetFlaggedBitmap():
-    return wx.BitmapFromImage(GetFlaggedImage())
+NotFlagged = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABHNCSVQICAgIfAhkiAAAAWRJ"
+    "REFUKJGV0jFLgmEUhuHnPe83OTi4iQ4ifENklIiDBjWIEDiIUYst0R+ImgoEEWqOaAjaWoQo"
+    "gsIgMMEgJLRQoRARRLA2MdTUzOQ0hCCoSGd+Ls5yC0ESg7d1eM7RVAHVegs6rQZuu4qDzVUx"
+    "uBGDyOAN8JLdDJfVBJuqR7ZYQSxdQuQxj/erPTGEVnaO2TevwjltBJGElAqklFAUBYnXN5zF"
+    "XxAObQgAoP6HcUBKicU5M/yuWRi8AQYAsX10yfVGAwG/cyQgkiAiEEnsntxCUQgUTRXgspom"
+    "AiKCxzGFaKoAqtZbsKn6iYCI4LCYUK23QDqtBtliZSIgIiRzZei0GpDbriKWLk0ERIRIIge3"
+    "XQUESRh9Qb6+f+Za7YMbjRo3m5/cbre40/nibvebe70fvnvKs9EXZEHyDwmSWAud8s1DZixY"
+    "3w9zfztUxPLCDDyOKTgsJiRzZUQSOVzEM6OL+E97v/G1pZkwDG/WAAAAAElFTkSuQmCC")
 
-def GetFlaggedImage():
-    stream = cStringIO.StringIO(GetFlaggedData())
-    return wx.ImageFromStream(stream)
+Checked = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABHNCSVQICAgIfAhkiAAAAKlJ"
+    "REFUKJFjlAls+M9AImBhYGBgODYxFi7AyMjEwMQEwczMzAxMTMxwmomJiUEzrp+BCdkEQhqY"
+    "mCDKmYjRYLDBCCrHjNBESAMDAwPcNrgmmAarXXZYNcDUMDIyompiZoZYbbrVAkPDjYjrDIyM"
+    "jKg2wUyGAVwaGBlRnAdx0oWAcyjxga4BxXnIwXol5BJODWh+QsQDExMzXg0YoQfTjE8DAwMD"
+    "AyM5aQ8AoE8ebApv5jgAAAAASUVORK5CYII=")
 
-#----------------------------------------------------------------------
-def GetNotFlaggedData():
-    return zlib.decompress(
-'x\xda\x01\xad\x01R\xfe\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\r\x00\
-\x00\x00\r\x08\x06\x00\x00\x00r\xeb\xe4|\x00\x00\x00\x04sBIT\x08\x08\x08\x08\
-|\x08d\x88\x00\x00\x01dIDAT(\x91\x95\xd21K\x82a\x14\x86\xe1\xe7=\xef798\xb8\
-\x89\x0e"|Cd\x94\x88\x83\x065\x88\x108\x88Q\x8b-\xd1\x1f\x88\x9a\n\x04\x11j\
-\x8eh\x08\xdaZ\x84(\x82\xc2 0\xc1 $\xb4P\xa1\x10\x11D\xb061\xd4\xd4\xcc\xe44\
-\x84 \xa8Hg~.\xcer\x0bA\x12\x83\xb7ux\xce\xd1T\x01\xd5z\x0b:\xad\x06n\xbb\
-\x8a\x83\xcdU1\xb8\x11\x83\xc8\xe0\r\xf0\x92\xdd\x0c\x97\xd5\x04\x9b\xaaG\
-\xb6XA,]B\xe41\x8f\xf7\xab=1\x84Vv\x8e\xd97\xaf\xc29m\x04\x91\x84\x94\n\xa4\
-\x94P\x14\x05\x89\xd77\x9c\xc5_\x10\x0em\x08\x00\xa0\xfe\x87q@J\x89\xc593\
-\xfc\xaeY\x18\xbc\x01\x06\x00\xb1}t\xc9\xf5F\x03\x01\xbfs$ \x92 "\x10I\xec\
-\x9e\xdcBQ\x08\x14M\x15\xe0\xb2\x9a&\x02"\x82\xc71\x85h\xaa\x00\xaa\xd6[\xb0\
-\xa9\xfa\x89\x80\x88\xe0\xb0\x98P\xad\xb7@:\xad\x06\xd9be" "$se\xe8\xb4\x1a\
-\x90\xdb\xae"\x96.M\x04D\x84H"\x07\xb7]\x05\x04I\x18}A\xbe\xbe\x7f\xe6Z\xed\
-\x83\x1b\x8d\x1a7\x9b\x9f\xdcn\xb7\xb8\xd3\xf9\xe2n\xf7\x9b{\xbd\x1f\xbe{\
-\xca\xb3\xd1\x17dA\xf2\x0f\t\x92X\x0b\x9d\xf2\xcdCf,X\xdf\x0fs\x7f;T\xc4\xf2\
-\xc2\x0c<\x8e)8,&$seD\x129\\\xc43\xa3\x8b\xf8O{\xbf\xf1\xb5\xa5\x990\x0co\
-\xd6\x00\x00\x00\x00IEND\xaeB`\x82&\x11\xab!' )
-
-def GetNotFlaggedBitmap():
-    return wx.BitmapFromImage(GetNotFlaggedImage())
-
-def GetNotFlaggedImage():
-    stream = cStringIO.StringIO(GetNotFlaggedData())
-    return wx.ImageFromStream(stream)
-
-#----------------------------------------------------------------------
-def GetCheckedData():
-    return zlib.decompress(
-"x\xda\xeb\x0c\xf0s\xe7\xe5\x92\xe2b``\xe0\xf5\xf4p\t\x02\xd1 \xcc\xc1\x06$\
-\x8b^?\xa9\x01R,\xc5N\x9e!\x1c@P\xc3\x91\xd2\x01\xe4\xaf\xf4tq\x0c\xd1\x98\
-\x98<\x853\xe7\xc7y\x07\xa5\x84\xc4\x84\x84\x04\x0b3C1\xbd\x03'N\x1c9p\x84\
-\xe5\xe0\x993gx||\xce\x14\xcc\xea\xec\xect4^7\xbf\x91\xf3&\x8b\x93\xd4\x8c\
-\x19\n\xa7fv\\L\xd8p\x90C\xebx\xcf\x05\x17\x0ff \xb8c\xb6Cm\x06\xdb\xea\xd8\
-\xb2\x08\xd3\x03W\x0c\x8c\x8c\x16e%\xa5\xb5E\xe4\xee\xba\xca\xe4|\xb8\xb7\
-\xe35OOO\xcf\n\xb3\x83>m\x8c1R\x12\x92\x81s\xd8\x0b/\xb56\x14k|l\\\xc7x\xb4\
-\xf2\xc4\xc1*\xd5'B~\xbc\x19uNG\x98\x85\x85\x8d\xe3x%\x16\xb2_\xee\xf1\x07\
-\x99\xcb\xacl\x99\xc9\xcf\xb0\xc0_.\x87+\xff\x99\x05\xd0\xd1\x0c\x9e\xae~.\
-\xeb\x9c\x12\x9a\x00\x92\xccS\x9f" )
-
-def GetCheckedBitmap():
-    return wx.BitmapFromImage(GetCheckedImage())
-
-def GetCheckedImage():
-    stream = cStringIO.StringIO(GetCheckedData())
-    return wx.ImageFromStream(stream)
-
-#----------------------------------------------------------------------
-def GetNotCheckedData():
-    return zlib.decompress(
-"x\xda\xeb\x0c\xf0s\xe7\xe5\x92\xe2b``\xe0\xf5\xf4p\t\x02\xd1 \xcc\xc1\x06$\
-\x8b^?\xa9\x01R,\xc5N\x9e!\x1c@P\xc3\x91\xd2\x01\xe4\xe7z\xba8\x86hL\x9c{\
-\xe9 o\x83\x01\x07\xeb\x85\xf3\xed\x86w\x0ed\xdaT\x96\x8a\xbc\x9fw\xe7\xc4\
-\xd9/\x01\x8b\x97\x8a\xd7\xab*\xfar\xf0Ob\x93^\xf6\xd5%\x9d\x85A\xe6\xf6\x1f\
-\x11\x8f{/\x0b\xf8wX+\x9d\xf2\xb6:\x96\xca\xfe\x9a3\xbeA\xe7\xed\x1b\xc6%\
-\xfb=X3'sI-il\t\xb9\xa0\xc0;#\xd4\x835m\x9a\xf9J\x85\xda\x16.\x86\x03\xff\
-\xee\xdcc\xdd\xc0\xce\xf9\xc8\xcc(\xbe\x1bh1\x83\xa7\xab\x9f\xcb:\xa7\x84&\
-\x00\x87S=\xbe" )
-
-def GetNotCheckedBitmap():
-    return wx.BitmapFromImage(GetNotCheckedImage())
-
-def GetNotCheckedImage():
-    stream = cStringIO.StringIO(GetNotCheckedData())
-    return wx.ImageFromStream(stream)
+NotChecked = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABHNCSVQICAgIfAhkiAAAAG1J"
+    "REFUKJGd0sENgDAIBdDPhzHcwGk8eXUU757cyM30UKOlF38lIU0ID5IGG6b1RGcEABzb/BRI"
+    "3ulwD7g7IspLOsZlB+sJX4As7ewBpL9IBWmTChqkgYRU0CANmFVIBWaWN6kgfYQKAMD+3N4F"
+    "sAcJ4jYyX4sAAAAASUVORK5CYII=")
 
 
 def GrayOut(anImage):
@@ -4146,10 +4081,10 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         if imglist is None:
             
             self._imageListCheck = wx.ImageList(sizex, sizey)
-            self._imageListCheck.Add(GetCheckedBitmap())
-            self._imageListCheck.Add(GetNotCheckedBitmap())
-            self._imageListCheck.Add(GetFlaggedBitmap())
-            self._imageListCheck.Add(GetNotFlaggedBitmap())
+            self._imageListCheck.Add(Checked.GetBitmap())
+            self._imageListCheck.Add(NotChecked.GetBitmap())
+            self._imageListCheck.Add(Flagged.GetBitmap())
+            self._imageListCheck.Add(NotFlagged.GetBitmap())
 
         else:
 

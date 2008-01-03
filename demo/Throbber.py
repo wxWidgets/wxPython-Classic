@@ -2,7 +2,7 @@
 import  wx
 import  wx.lib.throbber as  throb
 
-import throbImages # this was created using a modified version of img2py
+import throbImages 
 
 from wx.lib.throbber import __doc__ as docString
 

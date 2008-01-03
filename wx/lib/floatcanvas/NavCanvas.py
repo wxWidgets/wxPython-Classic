@@ -51,16 +51,16 @@ class NavCanvas(wx.Panel):
         self.ToolBar = tb
         tb.SetToolBitmapSize((24,24))
 
-        self.PointerTool = tb.AddRadioTool(wx.ID_ANY, bitmap=Resources.getPointerBitmap(), shortHelp = "Pointer")
+        self.PointerTool = tb.AddRadioTool(wx.ID_ANY, bitmap=Resources.Pointer.GetBitmap(), shortHelp = "Pointer")
         self.Bind(wx.EVT_TOOL, lambda evt : self.SetMode(Mode=self.GUIMouse), self.PointerTool)
 
-        self.ZoomInTool = tb.AddRadioTool(wx.ID_ANY, bitmap=Resources.getMagPlusBitmap(), shortHelp = "Zoom In")
+        self.ZoomInTool = tb.AddRadioTool(wx.ID_ANY, bitmap=Resources.MagPlus.GetBitmap(), shortHelp = "Zoom In")
         self.Bind(wx.EVT_TOOL, lambda evt : self.SetMode(Mode=self.GUIZoomIn), self.ZoomInTool)
     
-        self.ZoomOutTool = tb.AddRadioTool(wx.ID_ANY, bitmap=Resources.getMagMinusBitmap(), shortHelp = "Zoom Out")
+        self.ZoomOutTool = tb.AddRadioTool(wx.ID_ANY, bitmap=Resources.MagMinus.GetBitmap(), shortHelp = "Zoom Out")
         self.Bind(wx.EVT_TOOL, lambda evt : self.SetMode(Mode=self.GUIZoomOut), self.ZoomOutTool)
 
-        self.MoveTool = tb.AddRadioTool(wx.ID_ANY, bitmap=Resources.getHandBitmap(), shortHelp = "Move")
+        self.MoveTool = tb.AddRadioTool(wx.ID_ANY, bitmap=Resources.Hand.GetBitmap(), shortHelp = "Move")
         self.Bind(wx.EVT_TOOL, lambda evt : self.SetMode(Mode=self.GUIMove), self.MoveTool)
 
         tb.AddSeparator()

@@ -1134,7 +1134,7 @@ class DemoTaskBarIcon(wx.TaskBarIcon):
         self.frame = frame
 
         # Set the image
-        icon = self.MakeIcon(images.getWXPdemoImage())
+        icon = self.MakeIcon(images.WXPdemo.GetImage())
         self.SetIcon(icon, "wxPython Demo")
         self.imgidx = 1
         
@@ -1232,7 +1232,7 @@ class wxPythonDemo(wx.Frame):
         self.firstTime = True
         self.finddlg = None
 
-        icon = images.getWXPdemoIcon()
+        icon = images.WXPdemo.GetIcon()
         self.SetIcon(icon)
 
         try:
@@ -1260,7 +1260,7 @@ class wxPythonDemo(wx.Frame):
         self.nb = wx.Notebook(pnl, -1, style=wx.CLIP_CHILDREN)
         imgList = wx.ImageList(16, 16)
         for png in ["overview", "code", "demo"]:
-            bmp = images.catalog[png].getBitmap()
+            bmp = images.catalog[png].GetBitmap()
             imgList.Add(bmp)
         self.nb.AssignImageList(imgList)
 
@@ -1416,7 +1416,7 @@ class wxPythonDemo(wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnToggleRedirect, item)
  
         exitItem = wx.MenuItem(menu, -1, 'E&xit\tCtrl-Q', 'Get the heck outta here!')
-        exitItem.SetBitmap(images.catalog['exit'].getBitmap())
+        exitItem.SetBitmap(images.catalog['exit'].GetBitmap())
         menu.AppendItem(exitItem)
         self.Bind(wx.EVT_MENU, self.OnFileExit, exitItem)
         wx.App.SetMacExitMenuItemId(exitItem.GetId())
@@ -1430,7 +1430,7 @@ class wxPythonDemo(wx.Frame):
             for childItem in item[1]:
                 mi = submenu.Append(-1, childItem)
                 self.Bind(wx.EVT_MENU, self.OnDemoMenu, mi)
-            menuItem.SetBitmap(images.catalog[_demoPngs[indx+1]].getBitmap())
+            menuItem.SetBitmap(images.catalog[_demoPngs[indx+1]].GetBitmap())
             menuItem.SetSubMenu(submenu)
             menu.AppendItem(menuItem)
         self.mainmenu.Append(menu, '&Demo')
@@ -1456,19 +1456,19 @@ class wxPythonDemo(wx.Frame):
             self.perspectives_menu = perspectivesMenu
 
             item = wx.MenuItem(menu, -1, 'Save Perspective', 'Save AUI perspective')
-            item.SetBitmap(images.catalog['saveperspective'].getBitmap())
+            item.SetBitmap(images.catalog['saveperspective'].GetBitmap())
             menu.AppendItem(item)
             self.Bind(wx.EVT_MENU, self.OnSavePerspective, item)
 
             item = wx.MenuItem(menu, -1, 'Delete Perspective', 'Delete AUI perspective')
-            item.SetBitmap(images.catalog['deleteperspective'].getBitmap())
+            item.SetBitmap(images.catalog['deleteperspective'].GetBitmap())
             menu.AppendItem(item)
             self.Bind(wx.EVT_MENU, self.OnDeletePerspective, item)
 
             menu.AppendSeparator()
 
             item = wx.MenuItem(menu, -1, 'Restore Tree Expansion', 'Restore the initial tree expansion state')
-            item.SetBitmap(images.catalog['expansion'].getBitmap())
+            item.SetBitmap(images.catalog['expansion'].GetBitmap())
             menu.AppendItem(item)
             self.Bind(wx.EVT_MENU, self.OnTreeExpansion, item)
 
@@ -1477,23 +1477,23 @@ class wxPythonDemo(wx.Frame):
         # Make a Help menu
         menu = wx.Menu()
         findItem = wx.MenuItem(menu, -1, '&Find\tCtrl-F', 'Find in the Demo Code')
-        findItem.SetBitmap(images.catalog['find'].getBitmap())
+        findItem.SetBitmap(images.catalog['find'].GetBitmap())
         if 'wxMac' not in wx.PlatformInfo:
             findNextItem = wx.MenuItem(menu, -1, 'Find &Next\tF3', 'Find Next')
         else:
             findNextItem = wx.MenuItem(menu, -1, 'Find &Next\tCtrl-G', 'Find Next')
-        findNextItem.SetBitmap(images.catalog['findnext'].getBitmap())
+        findNextItem.SetBitmap(images.catalog['findnext'].GetBitmap())
         menu.AppendItem(findItem)
         menu.AppendItem(findNextItem)
         menu.AppendSeparator()
 
         shellItem = wx.MenuItem(menu, -1, 'Open Py&Shell Window\tF5',
                                 'An interactive interpreter window with the demo app and frame objects in the namesapce')
-        shellItem.SetBitmap(images.catalog['pyshell'].getBitmap())
+        shellItem.SetBitmap(images.catalog['pyshell'].GetBitmap())
         menu.AppendItem(shellItem)
         inspToolItem = wx.MenuItem(menu, -1, 'Open &Widget Inspector\tF6',
                                    'A tool that lets you browse the live widgets and sizers in an application')
-        inspToolItem.SetBitmap(images.catalog['inspect'].getBitmap())
+        inspToolItem.SetBitmap(images.catalog['inspect'].GetBitmap())
         menu.AppendItem(inspToolItem)
         if 'wxMac' not in wx.PlatformInfo:
             menu.AppendSeparator()
@@ -2169,10 +2169,10 @@ class wxPythonDemoTree(ExpansionState, TreeBaseClass):
     def BuildTreeImageList(self):
         imgList = wx.ImageList(16, 16)
         for png in _demoPngs:
-            imgList.Add(images.catalog[png].getBitmap())
+            imgList.Add(images.catalog[png].GetBitmap())
             
         # add the image for modified demos.
-        imgList.Add(images.catalog["custom"].getBitmap())
+        imgList.Add(images.catalog["custom"].GetBitmap())
 
         self.AssignImageList(imgList)
         

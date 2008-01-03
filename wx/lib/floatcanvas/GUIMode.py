@@ -18,28 +18,28 @@ import numpy as N
 
 ## create all the Cursors, so they don't need to be created each time.
 if "wxMac" in wx.PlatformInfo: # use 16X16 cursors for wxMac
-    HandCursor = wx.CursorFromImage(Resources.getHand16Image())
-    GrabHandCursor = wx.CursorFromImage(Resources.getGrabHand16Image())
+    HandCursor = wx.CursorFromImage(Resources.Hand16.GetImage())
+    GrabHandCursor = wx.CursorFromImage(Resources.GrabHand16.GetImage())
 
-    img = Resources.getMagPlus16Image()
+    img = Resources.MagPlus16.GetImage()
     img.SetOptionInt(wx.IMAGE_OPTION_CUR_HOTSPOT_X, 6)
     img.SetOptionInt(wx.IMAGE_OPTION_CUR_HOTSPOT_Y, 6)
     MagPlusCursor = wx.CursorFromImage(img)
 
-    img = Resources.getMagMinus16Image()
+    img = Resources.MagMinus16.GetImage()
     img.SetOptionInt(wx.IMAGE_OPTION_CUR_HOTSPOT_X, 6)
     img.SetOptionInt(wx.IMAGE_OPTION_CUR_HOTSPOT_Y, 6)
     MagMinusCursor = wx.CursorFromImage(img)
 else: # use 24X24 cursors for GTK and Windows
-    HandCursor = wx.CursorFromImage(Resources.getHandImage())
-    GrabHandCursor = wx.CursorFromImage(Resources.getGrabHandImage())
+    HandCursor = wx.CursorFromImage(Resources.Hand.GetImage())
+    GrabHandCursor = wx.CursorFromImage(Resources.GrabHand.GetImage())
 
-    img = Resources.getMagPlusImage()
+    img = Resources.MagPlus.GetImage()
     img.SetOptionInt(wx.IMAGE_OPTION_CUR_HOTSPOT_X, 9)
     img.SetOptionInt(wx.IMAGE_OPTION_CUR_HOTSPOT_Y, 9)
     MagPlusCursor = wx.CursorFromImage(img)
 
-    img = Resources.getMagMinusImage()
+    img = Resources.MagMinus.GetImage()
     img.SetOptionInt(wx.IMAGE_OPTION_CUR_HOTSPOT_X, 9)
     img.SetOptionInt(wx.IMAGE_OPTION_CUR_HOTSPOT_Y, 9)
     MagMinusCursor = wx.CursorFromImage(img)

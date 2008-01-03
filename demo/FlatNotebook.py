@@ -5,32 +5,6 @@ import images
 
 
 #----------------------------------------------------------------------
-def GetMondrianData():
-    return \
-'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00 \x00\x00\x00 \x08\x06\x00\
-\x00\x00szz\xf4\x00\x00\x00\x04sBIT\x08\x08\x08\x08|\x08d\x88\x00\x00\x00qID\
-ATX\x85\xed\xd6;\n\x800\x10E\xd1{\xc5\x8d\xb9r\x97\x16\x0b\xad$\x8a\x82:\x16\
-o\xda\x84pB2\x1f\x81Fa\x8c\x9c\x08\x04Z{\xcf\xa72\xbcv\xfa\xc5\x08 \x80r\x80\
-\xfc\xa2\x0e\x1c\xe4\xba\xfaX\x1d\xd0\xde]S\x07\x02\xd8>\xe1wa-`\x9fQ\xe9\
-\x86\x01\x04\x10\x00\\(Dk\x1b-\x04\xdc\x1d\x07\x14\x98;\x0bS\x7f\x7f\xf9\x13\
-\x04\x10@\xf9X\xbe\x00\xc9 \x14K\xc1<={\x00\x00\x00\x00IEND\xaeB`\x82' 
-
-
-def GetMondrianBitmap():
-    return wx.BitmapFromImage(GetMondrianImage())
-
-
-def GetMondrianImage():
-    import cStringIO
-    stream = cStringIO.StringIO(GetMondrianData())
-    return wx.ImageFromStream(stream)
-
-
-def GetMondrianIcon():
-    icon = wx.EmptyIcon()
-    icon.CopyFromBitmap(GetMondrianBitmap())
-    return icon
-#----------------------------------------------------------------------
 
 
 MENU_EDIT_DELETE_ALL = wx.NewId()
@@ -85,9 +59,9 @@ class FlatNotebookDemo(wx.Frame):
         self._newPageCounter = 0
 
         self._ImageList = wx.ImageList(16, 16)
-        self._ImageList.Add(images.get_book_redBitmap())
-        self._ImageList.Add(images.get_book_greenBitmap())
-        self._ImageList.Add(images.get_book_blueBitmap())
+        self._ImageList.Add(images._book_red.GetBitmap())
+        self._ImageList.Add(images._book_green.GetBitmap())
+        self._ImageList.Add(images._book_blue.GetBitmap())
 
         self.statusbar = self.CreateStatusBar(2, wx.ST_SIZEGRIP)
         self.statusbar.SetStatusWidths([-2, -1])
@@ -98,7 +72,7 @@ class FlatNotebookDemo(wx.Frame):
         for i in range(len(statusbar_fields)):
             self.statusbar.SetStatusText(statusbar_fields[i], i)
 
-        self.SetIcon(GetMondrianIcon())
+        self.SetIcon(images.Mondrian.GetIcon())
         self.CreateMenuBar()
         self.CreateRightClickMenu()
         self.LayoutItems()

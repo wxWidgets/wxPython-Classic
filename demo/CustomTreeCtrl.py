@@ -712,7 +712,7 @@ class TreeIcons(wx.Dialog):
             bmp = wx.EmptyBitmap(16,16)
             self.ClearBmp(bmp)
         elif input > 36:
-            bmp = images.getSmilesBitmap()
+            bmp = images.Smiles.GetBitmap()
         else:
             bmp = wx.ArtProvider_GetBitmap(eval(ArtIDs[input]), wx.ART_OTHER, (16,16))
             if not bmp.Ok():
@@ -732,7 +732,7 @@ class TreeIcons(wx.Dialog):
                 bmp = wx.EmptyBitmap(16,16)
                 self.ClearBmp(bmp)
             elif input > 35:
-                bmp = images.getSmilesBitmap()
+                bmp = images.Smiles.GetBitmap()
             else:
                 bmp = wx.ArtProvider_GetBitmap(eval(ArtIDs[input+1]), wx.ART_OTHER, (16,16))
                 if not bmp.Ok():
@@ -1265,7 +1265,7 @@ class CustomTreeCtrl(CT.CustomTreeCtrl):
             bmp = wx.ArtProvider_GetBitmap(eval(items), wx.ART_TOOLBAR, (16, 16))
             il.Add(bmp)
 
-        smileidx = il.Add(images.getSmilesBitmap())
+        smileidx = il.Add(images.Smiles.GetBitmap())
         numicons = il.GetImageCount()
 
         self.AssignImageList(il)

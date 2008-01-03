@@ -38,13 +38,13 @@ class TestMaskWindow(wx.ScrolledWindow):
         self.SetBackgroundColour(wx.Colour(0,128,0))
 
         # A reference bitmap that we won't mask
-        self.bmp_nomask  = images.getTestStar2Bitmap()
+        self.bmp_nomask  = images.TestStar2.GetBitmap()
 
         # One that we will
-        self.bmp_withmask  = images.getTestStar2Bitmap()
+        self.bmp_withmask  = images.TestStar2.GetBitmap()
 
         # this mask comes from a monochrome bitmap
-        self.bmp_themask = images.getTestMaskBitmap()
+        self.bmp_themask = images.TestMask.GetBitmap()
         mask = wx.Mask(self.bmp_themask)
 
         # set the mask on our bitmap
@@ -52,7 +52,7 @@ class TestMaskWindow(wx.ScrolledWindow):
 
         # Now we'll create a mask in a bit of an easier way, by picking a
         # colour in the image that is to be the transparent colour.
-        self.bmp_withcolourmask  = images.getTestStar2Bitmap()
+        self.bmp_withcolourmask  = images.TestStar2.GetBitmap()
         mask = wx.Mask(self.bmp_withcolourmask, wx.WHITE)
         self.bmp_withcolourmask.SetMask(mask)
 

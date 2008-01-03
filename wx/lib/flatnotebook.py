@@ -628,31 +628,14 @@ down_arrow_xpm = [
 
 
 #----------------------------------------------------------------------
-def GetMondrianData():
-    return \
-'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00 \x00\x00\x00 \x08\x06\x00\
-\x00\x00szz\xf4\x00\x00\x00\x04sBIT\x08\x08\x08\x08|\x08d\x88\x00\x00\x00qID\
-ATX\x85\xed\xd6;\n\x800\x10E\xd1{\xc5\x8d\xb9r\x97\x16\x0b\xad$\x8a\x82:\x16\
-o\xda\x84pB2\x1f\x81Fa\x8c\x9c\x08\x04Z{\xcf\xa72\xbcv\xfa\xc5\x08 \x80r\x80\
-\xfc\xa2\x0e\x1c\xe4\xba\xfaX\x1d\xd0\xde]S\x07\x02\xd8>\xe1wa-`\x9fQ\xe9\
-\x86\x01\x04\x10\x00\\(Dk\x1b-\x04\xdc\x1d\x07\x14\x98;\x0bS\x7f\x7f\xf9\x13\
-\x04\x10@\xf9X\xbe\x00\xc9 \x14K\xc1<={\x00\x00\x00\x00IEND\xaeB`\x82' 
+from wx.lib.embeddedimage import PyEmbeddedImage
 
+Mondrian = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAHFJ"
+    "REFUWIXt1jsKgDAQRdF7xY25cpcWC60kioI6Fm/ahHBCMh+BRmGMnAgEWnvPpzK8dvrFCCCA"
+    "coD8og4c5Lr6WB3Q3l1TBwLYPuF3YS1gn1HphgEEEABcKERrGy0E3B0HFJg7C1N/f/kTBBBA"
+    "+Vi+AMkgFEvBPD17AAAAAElFTkSuQmCC")
 
-def GetMondrianBitmap():
-    return wx.BitmapFromImage(GetMondrianImage().Scale(16, 16))
-
-
-def GetMondrianImage():
-    import cStringIO
-    stream = cStringIO.StringIO(GetMondrianData())
-    return wx.ImageFromStream(stream)
-
-
-def GetMondrianIcon():
-    icon = wx.EmptyIcon()
-    icon.CopyFromBitmap(GetMondrianBitmap())
-    return icon
 #----------------------------------------------------------------------
 
 
@@ -1094,7 +1077,7 @@ class TabNavigatorWindow(wx.Dialog):
         self._indexMap = []
         
         if icon is None:
-            self._bmp = GetMondrianBitmap()
+            self._bmp = Mondrian.GetBitmap()
         else:
             self._bmp = icon
 

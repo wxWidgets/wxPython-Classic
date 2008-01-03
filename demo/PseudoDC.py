@@ -48,7 +48,7 @@ class MyCanvas(wx.ScrolledWindow):
         self.drawing = False
 
         self.SetBackgroundColour("WHITE")
-        bmp = images.getTest2Bitmap()
+        bmp = images.Test2.GetBitmap()
         mask = wx.Mask(bmp, wx.BLUE)
         bmp.SetMask(mask)
         self.bmp = bmp

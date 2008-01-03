@@ -510,9 +510,9 @@ class PlotCanvas(wx.Panel):
 
         # set curser as cross-hairs
         self.canvas.SetCursor(wx.CROSS_CURSOR)
-        self.HandCursor = wx.CursorFromImage(getHandImage())
-        self.GrabHandCursor = wx.CursorFromImage(getGrabHandImage())
-        self.MagCursor = wx.CursorFromImage(getMagPlusImage())
+        self.HandCursor = wx.CursorFromImage(Hand.GetImage())
+        self.GrabHandCursor = wx.CursorFromImage(GrabHand.GetImage())
+        self.MagCursor = wx.CursorFromImage(MagPlus.GetImage())
             
         # Things for printing
         self.print_data = wx.PrintData()
@@ -1748,83 +1748,33 @@ class PlotPrintout(wx.Printout):
 
 
 #----------------------------------------------------------------------
-from wx import ImageFromStream, BitmapFromImage
-import cStringIO, zlib
+from wx.lib.embeddedimage import PyEmbeddedImage
 
+MagPlus = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAOFJ"
+    "REFUeJy1VdEOxCAIo27//8XbuKfuPASGZ0Zisoi2FJABbZM3bY8c13lo5GvbjioBPAUEB0Yc"
+    "VZ0iGRRc56Ee8DcikEgrJD8EFpzRegQASiRtBtzuA0hrdRPYQxaEKyJPG6IHyiK3xnNZvUSS"
+    "NvUuzgYh0il4y14nCFPk5XgmNbRbQbVotGo9msj47G3UXJ7fuz8Q8FAGEu0/PbZh2D3NoshU"
+    "1VUydBGVZKMimlGeErdNGUmf/x7YpjMjcf8HVYvS2adr6aFVlCy/5Ijk9q8SeCR9isJR8SeJ"
+    "8pv7S0Wu2Acr0qdj3w7DRAAAAABJRU5ErkJggg==")
 
-def getMagPlusData():
-    return zlib.decompress(
-'x\xda\x01*\x01\xd5\xfe\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x18\
-\x00\x00\x00\x18\x08\x06\x00\x00\x00\xe0w=\xf8\x00\x00\x00\x04sBIT\x08\x08\
-\x08\x08|\x08d\x88\x00\x00\x00\xe1IDATx\x9c\xb5U\xd1\x0e\xc4 \x08\xa3n\xff\
-\xff\xc5\xdb\xb8\xa7\xee<\x04\x86gFb\xb2\x88\xb6\x14\x90\x01m\x937m\x8f\x1c\
-\xd7yh\xe4k\xdb\x8e*\x01<\x05\x04\x07F\x1cU\x9d"\x19\x14\\\xe7\xa1\x1e\xf07"\
-\x90H+$?\x04\x16\x9c\xd1z\x04\x00J$m\x06\xdc\xee\x03Hku\x13\xd8C\x16\x84+"O\
-\x1b\xa2\x07\xca"\xb7\xc6sY\xbdD\x926\xf5.\xce\x06!\xd2)x\xcb^\'\x08S\xe4\
-\xe5x&5\xb4[A\xb5h\xb4j=\x9a\xc8\xf8\xecm\xd4\\\x9e\xdf\xbb?\x10\xf0P\x06\
-\x12\xed?=\xb6a\xd8=\xcd\xa2\xc8T\xd5U2t\x11\x95d\xa3"\x9aQ\x9e\x12\xb7M\x19\
-I\x9f\xff\x1e\xd8\xa63#q\xff\x07U\x8b\xd2\xd9\xa7k\xe9\xa1U\x94,\xbf\xe4\x88\
-\xe4\xf6\xaf\x12x$}\x8a\xc2Q\xf1\'\x89\xf2\x9b\xfbKE\xae\xd8\x07+\xd2\xa7c\
-\xdf\x0e\xc3D\x00\x00\x00\x00IEND\xaeB`\x82\xe2ovy' )
+GrabHand = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAARFJ"
+    "REFUeJy1VdESgzAIS2j//4s3s5fRQ6Rad5M7H0oxCZhWSpK1TjwUBCBJAIBItL1fijlfe1yJ"
+    "8noCGC9KgrXO7f0SyZEDAF/H2opsAHv9V/548nplT5Jo7YAFQKQ1RMWzmHUS96suqdBrHkuV"
+    "uxpdJjCS8CfGXWdJ2glzcquKSR5c46QOtCpgNyIHj6oieAXg3282QvMX45hy8a8H0VonJZUO"
+    "clesjOPg/dhBTq64o1Kacz4Ri2x5RKsf8+wcWQaJJL+A+xRcZHeQeBKjK+5EFiVJ4xy4x2Mn"
+    "1Vk4U5/DWmfPieiqbye7a3tV/cCsWKu76K76KUFFchVnhigJ/hmktelm/m3e3b8k+Ec8PqLH"
+    "CT4JRfyK9o1xYwAAAABJRU5ErkJggg==")
 
-def getMagPlusBitmap():
-    return BitmapFromImage(getMagPlusImage())
-
-def getMagPlusImage():
-    stream = cStringIO.StringIO(getMagPlusData())
-    return ImageFromStream(stream)
-
-#----------------------------------------------------------------------
-def getGrabHandData():
-    return zlib.decompress(
-'x\xda\x01Z\x01\xa5\xfe\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x18\
-\x00\x00\x00\x18\x08\x06\x00\x00\x00\xe0w=\xf8\x00\x00\x00\x04sBIT\x08\x08\
-\x08\x08|\x08d\x88\x00\x00\x01\x11IDATx\x9c\xb5U\xd1\x12\x830\x08Kh\xff\xff\
-\x8b7\xb3\x97\xd1C\xa4Zw\x93;\x1fJ1\t\x98VJ\x92\xb5N<\x14\x04 I\x00\x80H\xb4\
-\xbd_\x8a9_{\\\x89\xf2z\x02\x18/J\x82\xb5\xce\xed\xfd\x12\xc9\x91\x03\x00_\
-\xc7\xda\x8al\x00{\xfdW\xfex\xf2zeO\x92h\xed\x80\x05@\xa45D\xc5\xb3\x98u\x12\
-\xf7\xab.\xa9\xd0k\x1eK\x95\xbb\x1a]&0\x92\xf0\'\xc6]gI\xda\tsr\xab\x8aI\x1e\
-\\\xe3\xa4\x0e\xb4*`7"\x07\x8f\xaa"x\x05\xe0\xdfo6B\xf3\x17\xe3\x98r\xf1\xaf\
-\x07\xd1Z\'%\x95\x0erW\xac\x8c\xe3\xe0\xfd\xd8AN\xae\xb8\xa3R\x9as>\x11\x8bl\
-yD\xab\x1f\xf3\xec\x1cY\x06\x89$\xbf\x80\xfb\x14\\dw\x90x\x12\xa3+\xeeD\x16%\
-I\xe3\x1c\xb8\xc7c\'\xd5Y8S\x9f\xc3Zg\xcf\x89\xe8\xaao\'\xbbk{U\xfd\xc0\xacX\
-\xab\xbb\xe8\xae\xfa)AEr\x15g\x86(\t\xfe\x19\xa4\xb5\xe9f\xfem\xde\xdd\xbf$\
-\xf8G<>\xa2\xc7\t>\tE\xfc\x8a\xf6\x8dqc\x00\x00\x00\x00IEND\xaeB`\x82\xdb\
-\xd0\x8f\n' )
-
-def getGrabHandBitmap():
-    return BitmapFromImage(getGrabHandImage())
-
-def getGrabHandImage():
-    stream = cStringIO.StringIO(getGrabHandData())
-    return ImageFromStream(stream)
-
-#----------------------------------------------------------------------
-def getHandData():
-    return zlib.decompress(
-'x\xda\x01Y\x01\xa6\xfe\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x18\
-\x00\x00\x00\x18\x08\x06\x00\x00\x00\xe0w=\xf8\x00\x00\x00\x04sBIT\x08\x08\
-\x08\x08|\x08d\x88\x00\x00\x01\x10IDATx\x9c\xad\x96\xe1\x02\xc2 \x08\x849\
-\xf5\xfd\x9fx\xdb\xf5\'\x8c!\xa8\xab\xee\x975\xe5\x83\x0b\\@\xa9\xb2\xab\xeb\
-<\xa8\xebR\x1bv\xce\xb4\'\xc1\x81OL\x92\xdc\x81\x0c\x00\x1b\x88\xa4\x94\xda\
-\xe0\x83\x8b\x88\x00\x10\x92\xcb\x8a\xca,K\x1fT\xa1\x1e\x04\xe0f_\n\x88\x02\
-\xf1:\xc3\x83>\x81\x0c\x92\x02v\xe5+\xba\xce\x83\xb7f\xb8\xd1\x9c\x8fz8\xb2*\
-\x93\xb7l\xa8\xe0\x9b\xa06\xb8]_\xe7\xc1\x01\x10U\xe1m\x98\xc9\xefm"ck\xea\
-\x1a\x80\xa0Th\xb9\xfd\x877{V*Qk\xda,\xb4\x8b\xf4;[\xa1\xcf6\xaa4\x9cd\x85X\
-\xb0\r\\j\x83\x9dd\x92\xc3 \xf6\xbd\xab\x0c2\x05\xc0p\x9a\xa7]\xf4\x14\x18]3\
-7\x80}h?\xff\xa2\xa2\xe5e\x90\xact\xaf\xe8B\x14y[4\x83|\x13\xdc\x9e\xeb\x16e\
-\x90\xa7\xf2I\rw\x91\x87d\xd7p\x96\xbd\xd70\x07\xda\xe3v\x9a\xf5\xc5\xb2\xb2\
-+\xb24\xbc\xaew\xedZe\x9f\x02"\xc8J\xdb\x83\xf6oa\xf5\xb7\xa5\xbf8\x12\xffW\
-\xcf_\xbd;\xe4\x8c\x03\x10\xdb^\x00\x00\x00\x00IEND\xaeB`\x82\xd1>\x97B' )
-
-def getHandBitmap():
-    return BitmapFromImage(getHandImage())
-
-def getHandImage():
-    stream = cStringIO.StringIO(getHandData())
-    return ImageFromStream(stream)
-
-
+Hand = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAARBJ"
+    "REFUeJytluECwiAIhDn1/Z942/UnjCGoq+6XNeWDC1xAqbKr6zyo61Ibds60J8GBT0yS3IEM"
+    "ABuIpJTa4IOLiAAQksuKyixLH1ShHgTgZl8KiALxOsODPoEMkgJ25Su6zoO3ZrjRnI96OLIq"
+    "k7dsqOCboDa4XV/nwQEQVeFtmMnvbSJja+oagKBUaLn9hzd7VipRa9ostIv0O1uhzzaqNJxk"
+    "hViwDVxqg51kksMg9r2rDDIFwHCap130FBhdMzeAfWg//6Ki5WWQrHSv6EIUeVs0g3wT3J7r"
+    "FmWQp/JJDXeRh2TXcJa91zAH2uN2mvXFsrIrsjS8rnftWmWfAiLIStuD9m9h9belvzgS/1fP"
+    "X7075IwDENteAAAAAElFTkSuQmCC")
 
 #---------------------------------------------------------------------------
 # if running standalone...

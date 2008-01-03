@@ -257,7 +257,7 @@ class Editor(wx.ScrolledWindow):
 ##------------------ eofMarker stuff
 
     def LoadImages(self):
-        self.eofMarker = images.GetBitmap(images.EofImageData)
+        self.eofMarker = images.EofImage.GetBitmap()
 
     def DrawEofMarker(self,dc):
         x = 0
