@@ -86,7 +86,7 @@ class TestPanel(wx.Panel):
         cnum = cursors[choice]
         
         if cnum == CUSTOMID:
-            image = images.getPointyImage()
+            image = images.Pointy.GetImage()
 
             # since this image didn't come from a .cur file, tell it where the hotspot is
             image.SetOptionInt(wx.IMAGE_OPTION_CUR_HOTSPOT_X, 1)

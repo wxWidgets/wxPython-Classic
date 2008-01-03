@@ -51,13 +51,13 @@ class TestPanel(wx.Panel):
         sizer.Add(b, flag=wx.ADJUST_MINSIZE) 
 
         # An image button
-        bmp = images.getTest2Bitmap()
+        bmp = images.Test2.GetBitmap()
         b = buttons.GenBitmapButton(self, -1, bmp)
         self.Bind(wx.EVT_BUTTON, self.OnButton, b)
         sizer.Add(b)
 
         # An image button, disabled.
-        bmp = images.getTest2Bitmap()
+        bmp = images.Test2.GetBitmap()
         b = buttons.GenBitmapButton(self, -1, bmp)
         self.Bind(wx.EVT_BUTTON, self.OnButton, b)
         sizer.Add(b)
@@ -67,11 +67,11 @@ class TestPanel(wx.Panel):
         # undesireable part of the image
         b = buttons.GenBitmapButton(self, -1, None)
         self.Bind(wx.EVT_BUTTON, self.OnButton, b)
-        bmp = images.getBulb1Bitmap()
+        bmp = images.Bulb1.GetBitmap()
         mask = wx.Mask(bmp, wx.BLUE)
         bmp.SetMask(mask)
         b.SetBitmapLabel(bmp)
-        bmp = images.getBulb2Bitmap()
+        bmp = images.Bulb2.GetBitmap()
         mask = wx.Mask(bmp, wx.BLUE)
         bmp.SetMask(mask)
         b.SetBitmapSelected(bmp)
@@ -86,11 +86,11 @@ class TestPanel(wx.Panel):
         # An image toggle button
         b = buttons.GenBitmapToggleButton(self, -1, None)
         self.Bind(wx.EVT_BUTTON, self.OnToggleButton, b)
-        bmp = images.getBulb1Bitmap()
+        bmp = images.Bulb1.GetBitmap()
         mask = wx.Mask(bmp, wx.BLUE)
         bmp.SetMask(mask)
         b.SetBitmapLabel(bmp)
-        bmp = images.getBulb2Bitmap()
+        bmp = images.Bulb2.GetBitmap()
         mask = wx.Mask(bmp, wx.BLUE)
         bmp.SetMask(mask)
         b.SetBitmapSelected(bmp)
@@ -101,11 +101,11 @@ class TestPanel(wx.Panel):
         # A bitmap button with text.
         b = buttons.GenBitmapTextButton(self, -1, None, "Bitmapped Text", size = (200, 45))
         self.Bind(wx.EVT_BUTTON, self.OnButton, b)
-        bmp = images.getBulb1Bitmap()
+        bmp = images.Bulb1.GetBitmap()
         mask = wx.Mask(bmp, wx.BLUE)
         bmp.SetMask(mask)
         b.SetBitmapLabel(bmp)
-        bmp = images.getBulb2Bitmap()
+        bmp = images.Bulb2.GetBitmap()
         mask = wx.Mask(bmp, wx.BLUE)
         bmp.SetMask(mask)
         b.SetBitmapSelected(bmp)
@@ -120,7 +120,7 @@ class TestPanel(wx.Panel):
         sizer.Add(b, flag=wx.ALIGN_CENTER_VERTICAL)
 
         # A flat image button
-        bmp = images.getTest2Bitmap()
+        bmp = images.Test2.GetBitmap()
         bmp.SetMaskColour("blue")
         b = buttons.GenBitmapButton(self, -1, bmp, style=wx.BORDER_NONE)
         self.Bind(wx.EVT_BUTTON, self.OnButton, b)

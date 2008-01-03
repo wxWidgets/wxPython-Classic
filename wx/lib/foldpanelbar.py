@@ -122,43 +122,17 @@ import wx
 # Collapsed And Expanded Bitmap Images
 # Created With img2py.py 
 #----------------------------------------------------------------------
+from wx.lib.embeddedimage import PyEmbeddedImage
 
-def GetCollapsedIconData():
-    return \
-'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x10\x00\x00\x00\x10\x08\x06\
-\x00\x00\x00\x1f\xf3\xffa\x00\x00\x00\x04sBIT\x08\x08\x08\x08|\x08d\x88\x00\
-\x00\x007IDAT8\x8dcddbf\xa0\x040Q\xa4{\xf0\x1b\xf0\xff\xdf\xdf\xff\x03\xe7\
-\x02\x98\xed\x84\\A\x1b\x17\xa0\xdb\x8a\xcf\x15\xd4w\x01.\xdbp\x89S\xec\x02\
-\xc6\xd1\xbc\xc0\x00\x00\x9a\xf5\x1b\xfa\xf9m$?\x00\x00\x00\x00IEND\xaeB`\
-\x82' 
+CollapsedIcon = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAADdJ"
+    "REFUOI1jZGRiZqAEMFGke/Ab8P/f3/8D5wKY7YRcQRsXoNuKzxXUdwEu23CJU+wCxtG8wAAA"
+    "mvUb+vltJD8AAAAASUVORK5CYII=")
 
-def GetCollapsedIconBitmap():
-    return wx.BitmapFromImage(GetCollapsedIconImage())
-
-def GetCollapsedIconImage():
-    import  cStringIO
-    stream = cStringIO.StringIO(GetCollapsedIconData())
-    return wx.ImageFromStream(stream)
-
-#----------------------------------------------------------------------
-def GetExpandedIconData():
-    return \
-'\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x10\x00\x00\x00\x10\x08\x06\
-\x00\x00\x00\x1f\xf3\xffa\x00\x00\x00\x04sBIT\x08\x08\x08\x08|\x08d\x88\x00\
-\x00\x00BIDAT8\x8dcddbf\xa0\x040Q\xa4{P\x18\xc0\x82.\xf0\xff\xdf\xdf\xff\xb8\
-\x143213R\xdd\x05\x18\x06`\xb3\x05\x9f8m\x02\x11\xdd6\\\xb6\xd3\xce\x05\xc8\
-\xb6\xe2\xb3\x9d*.`\x1c\xcd\x0b\x0c\x00\x9e\xbc\x04W\x19\xcfa\xb5\x00\x00\
-\x00\x00IEND\xaeB`\x82' 
-
-def GetExpandedIconBitmap():
-    return wx.BitmapFromImage(GetExpandedIconImage())
-
-def GetExpandedIconImage():
-    import  cStringIO
-    stream = cStringIO.StringIO(GetExpandedIconData())
-    return wx.ImageFromStream(stream)
-
-#----------------------------------------------------------------------
+ExpandedIcon = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAEJJ"
+    "REFUOI1jZGRiZqAEMFGke1AYwIIu8P/f3/+4FDMyMTNS3QUYBmCzBZ84bQIR3TZcttPOBci2"
+    "4rOdKi5gHM0LDACevARXGc9htQAAAABJRU5ErkJggg==")
 
 #----------------------------------------------------------------------
 # FOLDPANELBAR Starts Here
@@ -512,9 +486,9 @@ class CaptionBar(wx.Window):
         if foldIcons is None:
             foldIcons = wx.ImageList(16, 16)
 
-            bmp = GetExpandedIconBitmap()
+            bmp = ExpandedIcon.GetBitmap()
             foldIcons.Add(bmp)
-            bmp = GetCollapsedIconBitmap()
+            bmp = CollapsedIcon.GetBitmap()
             foldIcons.Add(bmp)
 
         # set initial size
@@ -1072,9 +1046,9 @@ class FoldPanelBar(wx.Panel):
         if foldIcons is None:
             foldIcons = wx.ImageList(16, 16)
 
-            bmp = GetExpandedIconBitmap()
+            bmp = ExpandedIcon.GetBitmap()
             foldIcons.Add(bmp)
-            bmp = GetCollapsedIconBitmap()
+            bmp = CollapsedIcon.GetBitmap()
             foldIcons.Add(bmp)
     
         item = FoldPanelItem(self._foldPanel, -1, caption=caption,
@@ -1500,9 +1474,9 @@ class FoldPanelItem(wx.Panel):
         if foldIcons is None:
             foldIcons = wx.ImageList(16, 16)
 
-            bmp = GetExpandedIconBitmap()
+            bmp = ExpandedIcon.GetBitmap()
             foldIcons.Add(bmp)
-            bmp = GetCollapsedIconBitmap()
+            bmp = CollapsedIcon.GetBitmap()
             foldIcons.Add(bmp)
         
         self._foldIcons = foldIcons

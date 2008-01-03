@@ -8,14 +8,32 @@
 # Copyright:   (c) 2002 by Total Control Software
 # Licence:     wxWindows license
 #----------------------------------------------------------------------
-# 12/21/2003 - Jeff Grimmett (grimmtooth@softhome.net)
 #
+# Changes:
+#    - Cliff Wells <LogiplexSoftware@earthlink.net>
+#      20021206: Added catalog (-c) option.
+#
+# 12/21/2003 - Jeff Grimmett (grimmtooth@softhome.net)
+#        V2.5 compatibility update 
 #
 # 2/25/2007 - Gianluca Costa (archimede86@katamail.com)
+#        -Refactorization of the script-creation code in a specific "img2py()" function
+#        -Added regex parsing instead of module importing
+#        -Added some "try/finally" statements
+#        -Added default values as named constants
+#        -Made some parts of code a bit easier to read
+#        -Updated the module docstring
+#        -Corrected a bug with EmptyIcon
 #
+# 11/26/2007 - Anthony Tuininga (anthony.tuininga@gmail.com)
+#        -Use base64 encoding instead of simple repr
+#        -Remove compression which doesn't buy anything in most cases and
+#         costs more in many cases
+#        -Use wx.lib.embeddedimage.PyEmbeddedImage class which has methods
+#         rather than using standalone methods
 #
-# o V2.5 compatibility update 
-#
+
+
 
 """
 img2py.py  --  Convert an image to PNG format and embed it in a Python
@@ -52,95 +70,25 @@ Options:
                    to instead of overwritten.  This in combination with -n will
                    allow you to put multiple images in one Python source file.
 
-    -u             Don't use compression.  Leaves the data uncompressed.
-
     -i             Also output a function to return the image as a wxIcon.
 
-
+    -f             Generate code compatible with the old function interface.
+                   (This option is ON by default in 2.8, use -F to turn off.)
+    
 You can also import this module from your Python scripts, and use its img2py()
 function. See its docstring for more info.
 """
 
-#
-# Changes:
-#    - Cliff Wells <LogiplexSoftware@earthlink.net>
-#      20021206: Added catalog (-c) option.
-#
-# 12/21/2003 - Jeff Grimmett (grimmtooth@softhome.net)
-#
-#
-# 2/25/2007 - Gianluca Costa (archimede86@katamail.com)
-#        -Refactorization of the script-creation code in a specific "img2py()" function
-#        -Added regex parsing instead of module importing
-#        -Added some "try/finally" statements
-#        -Added default values as named constants
-#        -Made some parts of code a bit easier to read
-#        -Updated the module docstring
-#        -Corrected a bug with EmptyIcon
-#
-# o V2.5 compatibility update 
-#
-import  cPickle
-import  cStringIO
-import  getopt
-import  glob
-import  os
-import  os.path
-import  sys
-import  tempfile
-import  zlib
-import  re
+import base64
+import getopt
+import glob
+import os
+import re
+import sys
+import tempfile
 
-import  wx
-import  img2img
-
-
-def crunch_data(data, compressed):
-    # compress it?
-    if compressed:
-        data = zlib.compress(data, 9)
-
-    # convert to a printable format, so it can be in a Python source file
-    data = repr(data)
-
-    # This next bit is borrowed from PIL.  It is used to wrap the text intelligently.
-    fp = cStringIO.StringIO()
-    data += " "  # buffer for the +1 test
-    c = i = 0
-    word = ""
-    octdigits = "01234567"
-    hexdigits = "0123456789abcdef"
-    while i < len(data):
-        if data[i] != "\\":
-            word = data[i]
-            i += 1
-        else:
-            if data[i+1] in octdigits:
-                for n in xrange(2, 5):
-                    if data[i+n] not in octdigits:
-                        break
-                word = data[i:i+n]
-                i += n
-            elif data[i+1] == 'x':
-                for n in xrange(2, 5):
-                    if data[i+n] not in hexdigits:
-                        break
-                word = data[i:i+n]
-                i += n
-            else:
-                word = data[i:i+2]
-                i += 2
-
-        l = len(word)
-        if c + l >= 78-1:
-            fp.write("\\\n")
-            c = 0
-        fp.write(word)
-        c += l
-
-    # return the formatted compressed data
-    return fp.getvalue()
-
+import wx
+import img2img
 
 app = None
 DEFAULT_APPEND = False
@@ -149,11 +97,20 @@ DEFAULT_MASKCLR = None
 DEFAULT_IMGNAME = ""
 DEFAULT_ICON = False
 DEFAULT_CATALOG = False
+DEFAULT_COMPATIBLE = True   # True for 2.8, change to False in 2.9...
 
-#THIS IS USED TO IDENTIFY, IN THE GENERATED SCRIPT, LINES IN THE FORM "index.append('Image name')"
+# THIS IS USED TO IDENTIFY, IN THE GENERATED SCRIPT, LINES IN THE FORM
+# "index.append('Image name')"
 indexPattern = re.compile(r"\s*index.append\('(.+)'\)\s*")
 
-def img2py(image_file, python_file, append=DEFAULT_APPEND, compressed=DEFAULT_COMPRESSED, maskClr=DEFAULT_MASKCLR, imgName=DEFAULT_IMGNAME, icon=DEFAULT_ICON, catalog=DEFAULT_CATALOG):
+def img2py(image_file, python_file,
+           append=DEFAULT_APPEND,
+           compressed=DEFAULT_COMPRESSED,
+           maskClr=DEFAULT_MASKCLR,
+           imgName=DEFAULT_IMGNAME,
+           icon=DEFAULT_ICON,
+           catalog=DEFAULT_CATALOG,
+           functionCompatibile=DEFAULT_COMPATIBLE):
     """
     Converts an image file to a data structure written in a Python file
     --image_file: string; the path of the source image file
@@ -171,13 +128,20 @@ def img2py(image_file, python_file, append=DEFAULT_APPEND, compressed=DEFAULT_CO
         if not ok:
             print msg
             return
-            
-        data = open(tfname, "rb").read()
-        data = crunch_data(data, compressed)
+
+        lines = []
+        data = base64.b64encode(open(tfname, "rb").read())
+        while data:
+            part = data[:72]
+            data = data[72:]
+            output = '    "%s"' % part
+            if not data:
+                output += ")"
+            lines.append(output)
+        data = "\n".join(lines)
     finally:
         if os.path.exists(tfname):
             os.remove(tfname)
-    
 
     old_index = []
     if catalog and append:
@@ -199,84 +163,62 @@ def img2py(image_file, python_file, append=DEFAULT_APPEND, compressed=DEFAULT_CO
                         old_index.append(lineMatcher.groups()[0])
         finally:
             sourcePy.close()
-                    
-                    
+
         if append_catalog:
             out = open(python_file, "a")
             try:
                 out.write("\n# ***************** Catalog starts here *******************")
                 out.write("\n\ncatalog = {}\n")
                 out.write("index = []\n\n")
-                out.write("class ImageClass: pass\n\n")
             finally:
                 out.close()
-        
-        
-    
+ 
     if append:
         out = open(python_file, "a")
     else:
         out = open(python_file, "w")
         
     try:
-        if catalog:
-            imgPath, imgFile = os.path.split(image_file)
-    
-            if not imgName:
-                imgName = os.path.splitext(imgFile)[0]
-                print "\nWarning: -n not specified. Using filename (%s) for catalog entry." % imgName
-    
+        imgPath, imgFile = os.path.split(image_file)
+        if not imgName:
+            imgName = os.path.splitext(imgFile)[0]
+            print "\nWarning: -n not specified. Using filename (%s) for name of image and/or catalog entry." % imgName
+
         out.write("#" + "-" * 70 + "\n")
         if not append:
             out.write("# This file was generated by %s\n#\n" % sys.argv[0])
-            out.write("from wx import ImageFromStream, BitmapFromImage, EmptyIcon\n")        
-            if compressed:
-                out.write("import cStringIO, zlib\n\n\n")
-            else:
-                out.write("import cStringIO\n\n\n")
-    
+            out.write("from wx.lib.embeddedimage import PyEmbeddedImage\n\n")        
             if catalog:
                 out.write("catalog = {}\n")
                 out.write("index = []\n\n")
-                out.write("class ImageClass: pass\n\n")
-    
-        if compressed:
-            out.write("def get%sData():\n"
-                      "    return zlib.decompress(\n%s)\n\n"
-                      % (imgName, data))
-        else:
-            out.write("def get%sData():\n"
-                      "    return \\\n%s\n\n"
-                      % (imgName, data))
-    
-    
-        out.write("def get%sBitmap():\n"
-                  "    return BitmapFromImage(get%sImage())\n\n"
-                  "def get%sImage():\n"
-                  "    stream = cStringIO.StringIO(get%sData())\n"
-                  "    return ImageFromStream(stream)\n\n"
-                  % tuple([imgName] * 4))
-        if icon:
-            out.write("def get%sIcon():\n"
-                      "    icon = EmptyIcon()\n"
-                      "    icon.CopyFromBitmap(get%sBitmap())\n"
-                      "    return icon\n\n"
-                      % tuple([imgName] * 2))
-    
+
+        letters = []
+        for letter in imgName:
+            if not letter.isalnum():
+                letter = "_"
+            letters.append(letter)
+        if not letters[0].isalpha() and letters[0] != '_':
+            letters.insert(0, "_")
+        varName = "".join(letters)
+
+        out.write("%s = PyEmbeddedImage(\n%s\n" % (varName, data))
+
         if catalog:
             if imgName in old_index:
                 print "Warning: %s already in catalog." % imgName
                 print "         Only the last entry will be accessible.\n"
             old_index.append(imgName)
             out.write("index.append('%s')\n" % imgName)
-            out.write("catalog['%s'] = ImageClass()\n" % imgName)
-            out.write("catalog['%s'].getData = get%sData\n" % tuple([imgName] * 2))
-            out.write("catalog['%s'].getImage = get%sImage\n" % tuple([imgName] * 2))
-            out.write("catalog['%s'].getBitmap = get%sBitmap\n" % tuple([imgName] * 2))
+            out.write("catalog['%s'] = %s\n" % (imgName, varName))
+
+        if functionCompatibile:
+            out.write("get%sData = %s.GetData\n" % (varName, varName))
+            out.write("get%sImage = %s.GetImage\n" % (varName, varName))
+            out.write("get%sBitmap = %s.GetBitmap\n" % (varName, varName))
             if icon:
-                out.write("catalog['%s'].getIcon = get%sIcon\n" % tuple([imgName] * 2))
-            out.write("\n\n")
-    
+                out.write("get%sIcon = %s.GetIcon\n" % (varName, varName))
+
+        out.write("\n")
 
         if imgName:
             n_msg = ' using "%s"' % imgName
@@ -294,7 +236,7 @@ def img2py(image_file, python_file, append=DEFAULT_APPEND, compressed=DEFAULT_CO
         
 
     
-def main(*args):
+def main(args=None):
     if not args:
         args = sys.argv[1:]
         
@@ -308,9 +250,10 @@ def main(*args):
     imgName = DEFAULT_IMGNAME
     icon = DEFAULT_ICON
     catalog = DEFAULT_CATALOG
+    compatible = DEFAULT_COMPATIBLE
 
     try:
-        opts, fileArgs = getopt.getopt(args, "auicn:m:")
+        opts, fileArgs = getopt.getopt(args, "auicfFn:m:")
     except getopt.GetoptError:
         print __doc__
         return
@@ -318,8 +261,6 @@ def main(*args):
     for opt, val in opts:
         if opt == "-a":
             append = True
-        elif opt == "-u":
-            compressed = False
         elif opt == "-n":
             imgName = val
         elif opt == "-m":
@@ -328,15 +269,18 @@ def main(*args):
             icon = True
         elif opt == "-c":
             catalog = True
+        elif opt == "-f":
+            compatible = True
+        elif opt == "-F":
+            compatible = False
 
     if len(fileArgs) != 2:
         print __doc__
         return
 
     image_file, python_file = fileArgs
-    img2py(image_file, python_file, append, compressed, maskClr, imgName, icon, catalog)
-    
-
-    
+    img2py(image_file, python_file,
+           append, compressed, maskClr, imgName, icon, catalog, compatible)
+ 
 if __name__ == "__main__":
     main(sys.argv[1:])

@@ -14,12 +14,12 @@ class TestPanel(wx.Panel):
         bcb = wx.combo.BitmapComboBox(self, pos=(25,25), size=(200,-1))
 
         for x in range(12):
-            funcName = 'getLB%02dImage' % (x+1)
-            func = getattr(images, funcName)
-            img = func()
+            name = 'LB%02d' % (x+1)
+            obj = getattr(images, name)
+            img = obj.GetImage()
             img.Rescale(20,20)
             bmp = img.ConvertToBitmap()
-            bcb.Append('images.%s()' % funcName, bmp, funcName)
+            bcb.Append('images.%s' % name, bmp, name)
 
         self.Bind(wx.EVT_COMBOBOX, self.OnCombo, bcb)
 

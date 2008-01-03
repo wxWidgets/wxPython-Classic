@@ -25,8 +25,8 @@ class TestLB(wx.Listbook):
         # make an image list using the LBXX images
         il = wx.ImageList(32, 32)
         for x in range(12):
-            f = getattr(images, 'getLB%02dBitmap' % (x+1))
-            bmp = f()
+            obj = getattr(images, 'LB%02d' % (x+1))
+            bmp = obj.GetBitmap()
             il.Add(bmp)
         self.AssignImageList(il)
 

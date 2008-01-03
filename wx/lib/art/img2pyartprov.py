@@ -51,8 +51,7 @@ class Img2PyArtProvider(wx.ArtProvider):
         if artId.startswith(self.artIdPrefix):
             name = artId[len(self.artIdPrefix):]
             if name in self.catalog:
-                return self.catalog[name].getBitmap()
+                return self.catalog[name].GetBitmap()
 
         return _NULL_BMP
-    
-    
+

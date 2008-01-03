@@ -15,7 +15,7 @@ class TestWindow(wx.ScrolledWindow):
         self.clrList = wx.lib.colourdb.getColourInfoList()
 
         # Just for style points, we'll use this as a background image.
-        self.bg_bmp = images.getGridBGBitmap()
+        self.bg_bmp = images.GridBG.GetBitmap()
 
         # This could also be done by getting the window's default font;
         # either way, we need to have a font loaded for later on.
