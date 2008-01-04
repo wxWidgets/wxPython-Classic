@@ -175,7 +175,7 @@ class PythonSTC(stc.StyledTextCtrl):
 
 
         # register some images for use in the AutoComplete box.
-        self.RegisterImage(1, images.getSmilesBitmap())
+        self.RegisterImage(1, images.Smiles.GetBitmap())
         self.RegisterImage(2, 
             wx.ArtProvider.GetBitmap(wx.ART_NEW, size=(16,16)))
         self.RegisterImage(3, 
