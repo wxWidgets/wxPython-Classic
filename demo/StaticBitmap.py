@@ -23,12 +23,12 @@ class TestPanel(wx.Panel):
 
         StaticText(self, -1, "This is a wx.StaticBitmap.", (45, 15))
 
-        bmp = images.getTest2Bitmap()
+        bmp = images.Test2.GetBitmap()
         mask = wx.Mask(bmp, wx.BLUE)
         bmp.SetMask(mask)
         StaticBitmap(self, -1, bmp, (80, 50), (bmp.GetWidth(), bmp.GetHeight()))
 
-        bmp = images.getRobinBitmap()
+        bmp = images.Robin.GetBitmap()
         StaticBitmap(self, -1, bmp, (80, 150))
 
         StaticText(self, -1, "Hey, if Ousterhout can do it, so can I.", (200, 175))

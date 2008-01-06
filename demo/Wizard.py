@@ -88,7 +88,7 @@ class UseAltBitmapPage(wiz.PyWizardPage):
         # contents of the wizard, or need to also change the
         # next/prev order then it can be done by overriding
         # GetBitmap.
-        return images.getWizTest2Bitmap()
+        return images.WizTest2.GetBitmap()
 
 #----------------------------------------------------------------------
 
@@ -145,7 +145,7 @@ class TestPanel(wx.Panel):
 
     def OnRunSimpleWizard(self, evt):
         # Create the wizard and the pages
-        wizard = wiz.Wizard(self, -1, "Simple Wizard", images.getWizTest1Bitmap())
+        wizard = wiz.Wizard(self, -1, "Simple Wizard", images.WizTest1.GetBitmap())
         page1 = TitledPage(wizard, "Page 1")
         page2 = TitledPage(wizard, "Page 2")
         page3 = TitledPage(wizard, "Page 3")
@@ -178,8 +178,8 @@ wxWizardPageSimple class can easily be used for the pages."""))
         #wizard = wx.PreWizard()
         #wizard.SetExtraStyle(wx.WIZARD_EX_HELPBUTTON)
         #wizard.Create(self, self.ID_wiz, "Simple Wizard",
-        #              images.getWizTest1Bitmap())
-        wizard = wiz.Wizard(self, -1, "Dynamic Wizard", images.getWizTest1Bitmap())
+        #              images.WizTest1.GetBitmap())
+        wizard = wiz.Wizard(self, -1, "Dynamic Wizard", images.WizTest1.GetBitmap())
 
         page1 = TitledPage(wizard, "Page 1")
         page2 = SkipNextPage(wizard, "Page 2")

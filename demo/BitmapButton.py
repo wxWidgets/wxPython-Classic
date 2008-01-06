@@ -25,10 +25,10 @@ class TestPanel(wx.Panel):
                 mask = wx.Mask(bmp, wx.BLUE)
             except wx.PyAssertionError:
                 self.log.write("Caught wx.PyAssertionError!  I will fix the problem.\n")
-                bmp = images.getTest2Bitmap()
+                bmp = images.Test2.GetBitmap()
                 mask = wx.MaskColour(bmp, wx.BLUE)
         else:
-            bmp = images.getTest2Bitmap()
+            bmp = images.Test2.GetBitmap()
             mask = wx.Mask(bmp, wx.BLUE)
 
         bmp.SetMask(mask)
@@ -41,7 +41,7 @@ class TestPanel(wx.Panel):
                             style = wx.NO_BORDER)
         
         # hide a little surprise in the button...
-        b.SetBitmapSelected(images.getRobinBitmap())
+        b.SetBitmapSelected(images.Robin.GetBitmap())
 
         b.SetToolTipString("This is a bitmap button with \nwx.NO_BORDER style.")
         self.Bind(wx.EVT_BUTTON, self.OnClick, b)

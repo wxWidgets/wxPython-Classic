@@ -103,9 +103,9 @@ class TestListCtrlPanel(wx.Panel, listmix.ColumnSorterMixin):
             
         self.il = wx.ImageList(16, 16)
 
-        self.idx1 = self.il.Add(images.getSmilesBitmap())
-        self.sm_up = self.il.Add(images.getSmallUpArrowBitmap())
-        self.sm_dn = self.il.Add(images.getSmallDnArrowBitmap())
+        self.idx1 = self.il.Add(images.Smiles.GetBitmap())
+        self.sm_up = self.il.Add(images.SmallUpArrow.GetBitmap())
+        self.sm_dn = self.il.Add(images.SmallDnArrow.GetBitmap())
 
         self.list = TestListCtrl(self, tID,
                                  style=wx.LC_REPORT 

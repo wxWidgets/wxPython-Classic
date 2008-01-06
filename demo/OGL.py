@@ -330,7 +330,7 @@ class TestWindow(ogl.ShapeCanvas):
             345, 145, wx.Pen(wx.RED, 2), rRectBrush, "Rounded Rect"
             )
 
-        bmp = images.getTest2Bitmap()
+        bmp = images.Test2.GetBitmap()
         mask = wx.Mask(bmp, wx.BLUE)
         bmp.SetMask(mask)
 

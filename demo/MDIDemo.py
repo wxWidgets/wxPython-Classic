@@ -33,7 +33,7 @@ class MyParentFrame(wx.MDIParentFrame):
         self.Bind(wx.EVT_MENU, self.OnExit, id=ID_Exit)
 
         if SHOW_BACKGROUND:
-            self.bg_bmp = images.getGridBGBitmap()
+            self.bg_bmp = images.GridBG.GetBitmap()
             self.GetClientWindow().Bind(
                 wx.EVT_ERASE_BACKGROUND, self.OnEraseBackground
                 )

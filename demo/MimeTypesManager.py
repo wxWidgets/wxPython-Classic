@@ -91,7 +91,7 @@ class MimeTypesDemoPanel(wx.Panel):
         t.SetFont(bfont)
         llsizer.Add(t, (0, 0), (1, 1), wx.ALL | wx.EXPAND | wx.ALIGN_CENTER, 2)
 
-        self.icon = wx.StaticBitmap(self, -1, images.getNoIconBitmap())
+        self.icon = wx.StaticBitmap(self, -1, images.NoIcon.GetBitmap())
         llsizer.Add(self.icon, (0, 1), (1, 1), wx.ALL | wx.ALIGN_CENTER, 2)
 
         self.iconsource = wx.TextCtrl(self, -1, value="", size=(125, -1), style = wx.TE_READONLY )
@@ -267,7 +267,7 @@ class MimeTypesDemoPanel(wx.Panel):
         info = ft.GetIconInfo()
 
         if info is None:
-            bmp = images.getNoIconBitmap()
+            bmp = images.NoIcon.GetBitmap()
             self.icon.SetBitmap(bmp)
             self.iconsource.SetValue("")
             self.iconoffset.SetValue("")
@@ -276,7 +276,7 @@ class MimeTypesDemoPanel(wx.Panel):
             if icon.Ok():
                 self.icon.SetIcon(icon)
             else:
-                bmp = images.getNoIconBitmap()
+                bmp = images.NoIcon.GetBitmap()
                 self.icon.SetBitmap(bmp)                
             self.iconsource.SetValue(file)
             self.iconoffset.SetValue(convert(idx))

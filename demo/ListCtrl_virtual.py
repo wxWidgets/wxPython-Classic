@@ -14,7 +14,7 @@ class TestVirtualList(wx.ListCtrl):
         self.log = log
 
         self.il = wx.ImageList(16, 16)
-        self.idx1 = self.il.Add(images.getSmilesBitmap())
+        self.idx1 = self.il.Add(images.Smiles.GetBitmap())
         self.SetImageList(self.il, wx.IMAGE_LIST_SMALL)
 
 
