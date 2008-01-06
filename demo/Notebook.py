@@ -37,7 +37,7 @@ class TestNB(wx.Notebook):
         # Show how to put an image on one of the notebook tabs,
         # first make the image list:
         il = wx.ImageList(16, 16)
-        idx1 = il.Add(images.getSmilesBitmap())
+        idx1 = il.Add(images.Smiles.GetBitmap())
         self.AssignImageList(il)
 
         # now put an image on the first tab we just created:

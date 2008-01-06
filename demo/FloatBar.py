@@ -57,7 +57,7 @@ class TestFloatBar(wx.Frame):
 
         tb.AddSeparator()
 
-        tb.AddCheckTool(60, images.getTog1Bitmap(), images.getTog2Bitmap())
+        tb.AddCheckTool(60, images.Tog1.GetBitmap(), images.Tog2.GetBitmap())
         self.Bind(wx.EVT_TOOL, self.OnToolClick, id=60)
         self.Bind(wx.EVT_TOOL_RCLICKED, self.OnToolRClick, id=60)
 

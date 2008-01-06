@@ -27,7 +27,7 @@ class TestPanel(wx.Panel):
         fldridx     = il.Add(wx.ArtProvider_GetBitmap(wx.ART_FOLDER,      wx.ART_OTHER, isz))
         fldropenidx = il.Add(wx.ArtProvider_GetBitmap(wx.ART_FILE_OPEN,   wx.ART_OTHER, isz))
         fileidx     = il.Add(wx.ArtProvider_GetBitmap(wx.ART_NORMAL_FILE, wx.ART_OTHER, isz))
-        smileidx    = il.Add(images.getSmilesBitmap())
+        smileidx    = il.Add(images.Smiles.GetBitmap())
 
         self.tree.SetImageList(il)
         self.il = il

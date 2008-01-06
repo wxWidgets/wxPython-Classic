@@ -78,7 +78,7 @@ class TestPanel(wx.Panel):
         menu = wx.Menu()
         # Show how to put an icon in the menu
         item = wx.MenuItem(menu, self.popupID1,"One")
-        bmp = images.getSmilesBitmap()
+        bmp = images.Smiles.GetBitmap()
         item.SetBitmap(bmp)
         menu.AppendItem(item)
         # add some other items

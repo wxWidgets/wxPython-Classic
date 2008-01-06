@@ -196,9 +196,9 @@ class MegaImageRenderer(Grid.PyGridCellRenderer):
         """
         Grid.PyGridCellRenderer.__init__(self)
         self.table = table
-        self._choices = [images.getSmilesBitmap,
-                         images.getMondrianBitmap,
-                         images.getWXPdemoBitmap,
+        self._choices = [images.Smiles.GetBitmap,
+                         images.Mondrian.GetBitmap,
+                         images.WXPdemo.GetBitmap,
                          ]
 
         self.colSize = None

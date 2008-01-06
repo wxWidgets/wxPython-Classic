@@ -114,8 +114,8 @@ class TestToolBar(wx.Frame):
 
         tb.AddSeparator()
 
-        #tool = tb.AddCheckTool(50, images.getTog1Bitmap(), shortHelp="Toggle this")
-        tool = tb.AddCheckLabelTool(50, "Checkable", images.getTog1Bitmap(),
+        #tool = tb.AddCheckTool(50, images.Tog1.GetBitmap(), shortHelp="Toggle this")
+        tool = tb.AddCheckLabelTool(50, "Checkable", images.Tog1.GetBitmap(),
                                     shortHelp="Toggle this")
         self.Bind(wx.EVT_TOOL, self.OnToolClick, id=50)
 

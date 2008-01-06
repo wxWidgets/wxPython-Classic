@@ -79,7 +79,7 @@ check the source for this sample to see how to implement them.
         menu5 = wx.Menu()
         # Show how to put an icon in the menu
         item = wx.MenuItem(menu5, 500, "&Smile!\tCtrl+S", "This one has an icon")
-        item.SetBitmap(images.getSmilesBitmap())
+        item.SetBitmap(images.Smiles.GetBitmap())
         menu5.AppendItem(item)
 
         # Shortcuts

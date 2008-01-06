@@ -327,23 +327,23 @@ class CalendFrame(wx.Frame):
         tb = self.CreateToolBar(wx.TB_HORIZONTAL|wx.NO_BORDER)
 
         mID = wx.NewId()
-        SetToolPath(self, tb, mID, images.getDbDecBitmap(), 'Dec Year')
+        SetToolPath(self, tb, mID, images.DbDec.GetBitmap(), 'Dec Year')
         self.Bind(wx.EVT_TOOL, self.OnDecYear, id=mID)
 
         mID = wx.NewId()
-        SetToolPath(self, tb, mID, images.getDecBitmap(), 'Dec Month')
+        SetToolPath(self, tb, mID, images.Dec.GetBitmap(), 'Dec Month')
         self.Bind(wx.EVT_TOOL, self.OnDecMonth, id=mID)
 
         mID = wx.NewId()
-        SetToolPath(self, tb, mID, images.getPtBitmap(), 'Current Month')
+        SetToolPath(self, tb, mID, images.Pt.GetBitmap(), 'Current Month')
         self.Bind(wx.EVT_TOOL, self.OnCurrent, id=mID)
 
         mID = wx.NewId()
-        SetToolPath(self, tb, mID, images.getIncBitmap(), 'Inc Month')
+        SetToolPath(self, tb, mID, images.Inc.GetBitmap(), 'Inc Month')
         self.Bind(wx.EVT_TOOL, self.OnIncMonth, id=mID)
 
         mID = wx.NewId()
-        SetToolPath(self, tb, mID, images.getDbIncBitmap(), 'Inc Year')
+        SetToolPath(self, tb, mID, images.DbInc.GetBitmap(), 'Inc Year')
         self.Bind(wx.EVT_TOOL, self.OnIncYear, id=mID)
 
         tb.Realize()
