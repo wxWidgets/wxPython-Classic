@@ -868,7 +868,7 @@ setting the caret position.", "");
         "Test if this whole range has character attributes of the specified
 kind. If any of the attributes are different within the range, the
 test fails. You can use this to implement, for example, bold button
-updating. style must have flags indicating which attributes are of
+updating. ``style`` must have flags indicating which attributes are of
 interest.
 ", "");
 
