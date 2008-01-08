@@ -1005,7 +1005,19 @@ option is not present, the function returns 0.", "
     %extend {
         static PyObject* GetHandlers() {
             wxList& list = wxImage::GetHandlers();
-            return wxPy_ConvertList(&list);
+            wxList::compatibility_iterator node = list.GetFirst();
+
+            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            PyObject* pyList = PyList_New(0);
+            while (node) {
+                wxObject* wxObj = node->GetData();
+                PyObject* pyObj = wxPyMake_wxObject(wxObj,false);
+                PyList_Append(pyList, pyObj);
+                Py_DECREF(pyObj);  // the Append also does an INCREF, that's one more than we need.
+                node = node->GetNext();
+            }
+            wxPyEndBlockThreads(blocked);
+            return pyList;
         }
     }
     

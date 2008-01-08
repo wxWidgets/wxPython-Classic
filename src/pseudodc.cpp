@@ -236,7 +236,7 @@ pdcDrawSplineOp::~pdcDrawSplineOp()
 // ----------------------------------------------------------------------------
 void pdcObject::DrawToDC(wxDC *dc)
 {
-    pdcOpList::Node *node = m_oplist.GetFirst(); 
+    pdcOpList::compatibility_iterator node = m_oplist.GetFirst(); 
     while(node)
     {
         node->GetData()->DrawToDC(dc, m_greyedout);
@@ -249,17 +249,17 @@ void pdcObject::DrawToDC(wxDC *dc)
 // ----------------------------------------------------------------------------
 void pdcObject::Translate(wxCoord dx, wxCoord dy)
 {
-    pdcOpList::Node *node = m_oplist.GetFirst(); 
+    pdcOpList::compatibility_iterator node = m_oplist.GetFirst(); 
     while(node)
     {
         node->GetData()->Translate(dx,dy);
         node = node->GetNext();
     }
-	if (m_bounded) 
-	{
-		m_bounds.x += dx;
-		m_bounds.y += dy;
-	}
+    if (m_bounded) 
+    {
+        m_bounds.x += dx;
+        m_bounds.y += dy;
+    }
 }
 
 // ----------------------------------------------------------------------------
@@ -268,19 +268,18 @@ void pdcObject::Translate(wxCoord dx, wxCoord dy)
 // ----------------------------------------------------------------------------
 void pdcObject::SetGreyedOut(bool greyout) 
 {
-	m_greyedout=greyout;
-	if (greyout)
-	{
-		pdcOpList::Node *node = m_oplist.GetFirst(); 
+    m_greyedout=greyout;
+    if (greyout)
+    {
+        pdcOpList::compatibility_iterator node = m_oplist.GetFirst(); 
         pdcOp *obj;
-		while(node)
-		{
-
-			obj = node->GetData();
+        while(node)
+        {
+            obj = node->GetData();
             obj->CacheGrey();
-			node = node->GetNext();
-		}
-	}
+            node = node->GetNext();
+        }
+    }
 }
 
 // ============================================================================
@@ -314,7 +313,7 @@ void wxPseudoDC::RemoveAll(void)
 // ----------------------------------------------------------------------------
 int wxPseudoDC::GetLen(void)
 {
-    pdcObjectList::Node *pt = m_objectlist.GetFirst();
+    pdcObjectList::compatibility_iterator pt = m_objectlist.GetFirst();
     int len=0;
     while (pt) 
     {
@@ -449,7 +448,7 @@ bool wxPseudoDC::GetIdGreyedOut(int id)
 PyObject *wxPseudoDC::FindObjectsByBBox(wxCoord x, wxCoord y)
 {
     //wxPyBlock_t blocked = wxPyBeginBlockThreads();
-    pdcObjectList::Node *pt = m_objectlist.GetFirst();
+    pdcObjectList::compatibility_iterator pt = m_objectlist.GetFirst();
     pdcObject *obj;
     PyObject* pyList = NULL;
     pyList = PyList_New(0);
@@ -477,7 +476,7 @@ PyObject *wxPseudoDC::FindObjects(wxCoord x, wxCoord y,
                                   wxCoord radius, const wxColor& bg)
 {
     //wxPyBlock_t blocked = wxPyBeginBlockThreads();
-    pdcObjectList::Node *pt = m_objectlist.GetFirst();
+    pdcObjectList::compatibility_iterator pt = m_objectlist.GetFirst();
     pdcObject *obj;
     PyObject* pyList = NULL;
     pyList = PyList_New(0);
@@ -595,7 +594,7 @@ PyObject *wxPseudoDC::FindObjects(wxCoord x, wxCoord y,
 // ----------------------------------------------------------------------------
 void wxPseudoDC::DrawToDCClipped(wxDC *dc, const wxRect& rect)
 {
-    pdcObjectList::Node *pt = m_objectlist.GetFirst();
+    pdcObjectList::compatibility_iterator pt = m_objectlist.GetFirst();
     pdcObject *obj;
     while (pt) 
     {
@@ -607,7 +606,7 @@ void wxPseudoDC::DrawToDCClipped(wxDC *dc, const wxRect& rect)
 }
 void wxPseudoDC::DrawToDCClippedRgn(wxDC *dc, const wxRegion& region)
 {
-    pdcObjectList::Node *pt = m_objectlist.GetFirst();
+    pdcObjectList::compatibility_iterator pt = m_objectlist.GetFirst();
     pdcObject *obj;
     while (pt) 
     {
@@ -624,7 +623,7 @@ void wxPseudoDC::DrawToDCClippedRgn(wxDC *dc, const wxRegion& region)
 // ----------------------------------------------------------------------------
 void wxPseudoDC::DrawToDC(wxDC *dc)
 {
-    pdcObjectList::Node *pt = m_objectlist.GetFirst();
+    pdcObjectList::compatibility_iterator pt = m_objectlist.GetFirst();
     while (pt) 
     {
         pt->GetData()->DrawToDC(dc);

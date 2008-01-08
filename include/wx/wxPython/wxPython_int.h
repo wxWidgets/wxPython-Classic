@@ -151,7 +151,6 @@ PyObject* wxPyMake_wxObject(wxObject* source, bool setThisOwn, bool checkEvtHand
 PyObject* wxPyMake_wxSizer(wxSizer* source, bool setThisOwn);
 void      wxPyPtrTypeMap_Add(const char* commonName, const char* ptrName);
 
-PyObject* wxPy_ConvertList(wxListBase* list);
 long      wxPyGetWinHandle(wxWindow* win);
 
 void wxPy_ReinitStockObjects(int pass);
@@ -382,7 +381,7 @@ struct wxPyCoreAPI {
     wxPyBlock_t         (*p_wxPyBeginBlockThreads)();
     void                (*p_wxPyEndBlockThreads)(wxPyBlock_t blocked);
 
-    PyObject*           (*p_wxPy_ConvertList)(wxListBase* list);
+    void*               unused1; // this slot is no longer used
 
     wxString*           (*p_wxString_in_helper)(PyObject* source);
     wxString            (*p_Py2wxString)(PyObject* source);

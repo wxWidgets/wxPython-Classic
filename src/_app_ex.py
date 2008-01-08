@@ -14,11 +14,24 @@ class PyOnDemandOutputWindow:
         self.pos    = wx.DefaultPosition
         self.size   = (450, 300)
         self.parent = None
+        self.triggers = []
+
 
     def SetParent(self, parent):
         """Set the window to be used as the popup Frame's parent."""
         self.parent = parent
 
+
+    def RaiseWhenSeen(self, trigger):
+        """
+        Trigger is a string or list of strings that will cause the
+        output window to be raised when that trigger text is written.
+        """
+        import types
+        if type(trigger) in types.StringTypes:
+            trigger = [trigger]
+        self.triggers = trigger
+        
 
     def CreateOutputWindow(self, st):
         self.frame = wx.Frame(self.parent, -1, self.title, self.pos, self.size,
@@ -51,9 +64,18 @@ class PyOnDemandOutputWindow:
                 self.CreateOutputWindow(text)
         else:
             if not wx.Thread_IsMain():
-                wx.CallAfter(self.text.AppendText, text)
+                wx.CallAfter(self.__write, text)
             else:
-                self.text.AppendText(text)
+                self.__write(text)
+
+    def __write(self, text):
+        # helper function for actually writing the text, and
+        # optionally raising the frame if needed
+        self.text.AppendText(text)
+        for item in self.triggers:
+            if item in text:
+                self.frame.Raise()
+                break
 
 
     def close(self):

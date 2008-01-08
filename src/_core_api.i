@@ -186,7 +186,7 @@ static wxPyCoreAPI API = {
     wxPyBeginBlockThreads,
     wxPyEndBlockThreads,
                                              
-    wxPy_ConvertList,
+    NULL,
                                              
     wxString_in_helper,
     Py2wxString,
