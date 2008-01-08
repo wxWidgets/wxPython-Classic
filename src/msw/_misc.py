@@ -4065,23 +4065,23 @@ class DateTime(object):
         return _misc_.DateTime___ne__(*args, **kwargs)
 
     def ParseRfc822Date(*args, **kwargs):
-        """ParseRfc822Date(self, String date) -> int"""
+        """ParseRfc822Date(self, String date) -> char"""
         return _misc_.DateTime_ParseRfc822Date(*args, **kwargs)
 
     def ParseFormat(*args, **kwargs):
-        """ParseFormat(self, String date, String format=DefaultDateTimeFormat, DateTime dateDef=DefaultDateTime) -> int"""
+        """ParseFormat(self, String date, String format=DefaultDateTimeFormat, DateTime dateDef=DefaultDateTime) -> char"""
         return _misc_.DateTime_ParseFormat(*args, **kwargs)
 
     def ParseDateTime(*args, **kwargs):
-        """ParseDateTime(self, String datetime) -> int"""
+        """ParseDateTime(self, String datetime) -> char"""
         return _misc_.DateTime_ParseDateTime(*args, **kwargs)
 
     def ParseDate(*args, **kwargs):
-        """ParseDate(self, String date) -> int"""
+        """ParseDate(self, String date) -> char"""
         return _misc_.DateTime_ParseDate(*args, **kwargs)
 
     def ParseTime(*args, **kwargs):
-        """ParseTime(self, String time) -> int"""
+        """ParseTime(self, String time) -> char"""
         return _misc_.DateTime_ParseTime(*args, **kwargs)
 
     def Format(*args, **kwargs):

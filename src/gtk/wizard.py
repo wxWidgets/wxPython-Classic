@@ -61,6 +61,13 @@ import _core
 wx = _core 
 __docfilter__ = wx.__DocFilter(globals()) 
 WIZARD_EX_HELPBUTTON = _wizard.WIZARD_EX_HELPBUTTON
+WIZARD_VALIGN_TOP = _wizard.WIZARD_VALIGN_TOP
+WIZARD_VALIGN_CENTRE = _wizard.WIZARD_VALIGN_CENTRE
+WIZARD_VALIGN_BOTTOM = _wizard.WIZARD_VALIGN_BOTTOM
+WIZARD_HALIGN_LEFT = _wizard.WIZARD_HALIGN_LEFT
+WIZARD_HALIGN_CENTRE = _wizard.WIZARD_HALIGN_CENTRE
+WIZARD_HALIGN_RIGHT = _wizard.WIZARD_HALIGN_RIGHT
+WIZARD_TILE = _wizard.WIZARD_TILE
 wxEVT_WIZARD_PAGE_CHANGED = _wizard.wxEVT_WIZARD_PAGE_CHANGED
 wxEVT_WIZARD_PAGE_CHANGING = _wizard.wxEVT_WIZARD_PAGE_CHANGING
 wxEVT_WIZARD_CANCEL = _wizard.wxEVT_WIZARD_CANCEL
@@ -400,6 +407,35 @@ class Wizard(_windows.Dialog):
         """IsRunning(self) -> bool"""
         return _wizard.Wizard_IsRunning(*args, **kwargs)
 
+    def SetBitmapBackgroundColour(*args, **kwargs):
+        """SetBitmapBackgroundColour(self, Colour colour)"""
+        return _wizard.Wizard_SetBitmapBackgroundColour(*args, **kwargs)
+
+    def GetBitmapBackgroundColour(*args, **kwargs):
+        """GetBitmapBackgroundColour(self) -> Colour"""
+        return _wizard.Wizard_GetBitmapBackgroundColour(*args, **kwargs)
+
+    def SetBitmapPlacement(*args, **kwargs):
+        """SetBitmapPlacement(self, int placement)"""
+        return _wizard.Wizard_SetBitmapPlacement(*args, **kwargs)
+
+    def GetBitmapPlacement(*args, **kwargs):
+        """GetBitmapPlacement(self) -> int"""
+        return _wizard.Wizard_GetBitmapPlacement(*args, **kwargs)
+
+    def SetMinimumBitmapWidth(*args, **kwargs):
+        """SetMinimumBitmapWidth(self, int w)"""
+        return _wizard.Wizard_SetMinimumBitmapWidth(*args, **kwargs)
+
+    def GetMinimumBitmapWidth(*args, **kwargs):
+        """GetMinimumBitmapWidth(self) -> int"""
+        return _wizard.Wizard_GetMinimumBitmapWidth(*args, **kwargs)
+
+    def TileBitmap(*args, **kwargs):
+        """TileBitmap(Rect rect, DC dc, Bitmap bitmap) -> bool"""
+        return _wizard.Wizard_TileBitmap(*args, **kwargs)
+
+    TileBitmap = staticmethod(TileBitmap)
     def ShowPage(*args, **kwargs):
         """ShowPage(self, WizardPage page, bool goingForward=True) -> bool"""
         return _wizard.Wizard_ShowPage(*args, **kwargs)
@@ -422,6 +458,10 @@ def PreWizard(*args, **kwargs):
     """PreWizard() -> Wizard"""
     val = _wizard.new_PreWizard(*args, **kwargs)
     return val
+
+def Wizard_TileBitmap(*args, **kwargs):
+  """Wizard_TileBitmap(Rect rect, DC dc, Bitmap bitmap) -> bool"""
+  return _wizard.Wizard_TileBitmap(*args, **kwargs)
 
 
 

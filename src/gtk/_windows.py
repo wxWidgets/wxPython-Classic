@@ -353,7 +353,7 @@ DIALOG_EX_CONTEXTHELP = _windows_.DIALOG_EX_CONTEXTHELP
 # deprecated
 RESIZE_BOX  = MAXIMIZE_BOX
 THICK_FRAME = RESIZE_BORDER
-     
+
 # Obsolete
 wxDIALOG_MODAL = 0
 wxDIALOG_MODELESS = 0
@@ -658,6 +658,13 @@ def Frame_GetClassDefaultAttributes(*args, **kwargs):
 
 #---------------------------------------------------------------------------
 
+DIALOG_ADAPTATION_NONE = _windows_.DIALOG_ADAPTATION_NONE
+DIALOG_ADAPTATION_STANDARD_SIZER = _windows_.DIALOG_ADAPTATION_STANDARD_SIZER
+DIALOG_ADAPTATION_ANY_SIZER = _windows_.DIALOG_ADAPTATION_ANY_SIZER
+DIALOG_ADAPTATION_LOOSE_BUTTONS = _windows_.DIALOG_ADAPTATION_LOOSE_BUTTONS
+DIALOG_ADAPTATION_MODE_DEFAULT = _windows_.DIALOG_ADAPTATION_MODE_DEFAULT
+DIALOG_ADAPTATION_MODE_ENABLED = _windows_.DIALOG_ADAPTATION_MODE_ENABLED
+DIALOG_ADAPTATION_MODE_DISABLED = _windows_.DIALOG_ADAPTATION_MODE_DISABLED
 class Dialog(TopLevelWindow):
     """Proxy of C++ Dialog class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -739,6 +746,74 @@ class Dialog(TopLevelWindow):
         """EndModal(self, int retCode)"""
         return _windows_.Dialog_EndModal(*args, **kwargs)
 
+    def DoLayoutAdaptation(*args, **kwargs):
+        """DoLayoutAdaptation(self) -> bool"""
+        return _windows_.Dialog_DoLayoutAdaptation(*args, **kwargs)
+
+    def CanDoLayoutAdaptation(*args, **kwargs):
+        """CanDoLayoutAdaptation(self) -> bool"""
+        return _windows_.Dialog_CanDoLayoutAdaptation(*args, **kwargs)
+
+    def GetContentWindow(*args, **kwargs):
+        """GetContentWindow(self) -> Window"""
+        return _windows_.Dialog_GetContentWindow(*args, **kwargs)
+
+    def AddMainButtonId(*args, **kwargs):
+        """AddMainButtonId(self, int id)"""
+        return _windows_.Dialog_AddMainButtonId(*args, **kwargs)
+
+    def GetMainButtonIds(*args, **kwargs):
+        """GetMainButtonIds(self) -> wxArrayInt"""
+        return _windows_.Dialog_GetMainButtonIds(*args, **kwargs)
+
+    def IsMainButtonId(*args, **kwargs):
+        """IsMainButtonId(self, int id) -> bool"""
+        return _windows_.Dialog_IsMainButtonId(*args, **kwargs)
+
+    def SetLayoutAdaptationLevel(*args, **kwargs):
+        """SetLayoutAdaptationLevel(self, int level)"""
+        return _windows_.Dialog_SetLayoutAdaptationLevel(*args, **kwargs)
+
+    def GetLayoutAdaptationLevel(*args, **kwargs):
+        """GetLayoutAdaptationLevel(self) -> int"""
+        return _windows_.Dialog_GetLayoutAdaptationLevel(*args, **kwargs)
+
+    def SetLayoutAdaptationMode(*args, **kwargs):
+        """SetLayoutAdaptationMode(self, int mode)"""
+        return _windows_.Dialog_SetLayoutAdaptationMode(*args, **kwargs)
+
+    def GetLayoutAdaptationMode(*args, **kwargs):
+        """GetLayoutAdaptationMode(self) -> int"""
+        return _windows_.Dialog_GetLayoutAdaptationMode(*args, **kwargs)
+
+    def SetLayoutAdaptationDone(*args, **kwargs):
+        """SetLayoutAdaptationDone(self, bool adaptationDone)"""
+        return _windows_.Dialog_SetLayoutAdaptationDone(*args, **kwargs)
+
+    def GetLayoutAdaptationDone(*args, **kwargs):
+        """GetLayoutAdaptationDone(self) -> bool"""
+        return _windows_.Dialog_GetLayoutAdaptationDone(*args, **kwargs)
+
+    def SetLayoutAdapter(*args, **kwargs):
+        """SetLayoutAdapter(DialogLayoutAdapter adapter) -> DialogLayoutAdapter"""
+        return _windows_.Dialog_SetLayoutAdapter(*args, **kwargs)
+
+    SetLayoutAdapter = staticmethod(SetLayoutAdapter)
+    def GetLayoutAdapter(*args, **kwargs):
+        """GetLayoutAdapter() -> DialogLayoutAdapter"""
+        return _windows_.Dialog_GetLayoutAdapter(*args, **kwargs)
+
+    GetLayoutAdapter = staticmethod(GetLayoutAdapter)
+    def IsLayoutAdaptationEnabled(*args, **kwargs):
+        """IsLayoutAdaptationEnabled() -> bool"""
+        return _windows_.Dialog_IsLayoutAdaptationEnabled(*args, **kwargs)
+
+    IsLayoutAdaptationEnabled = staticmethod(IsLayoutAdaptationEnabled)
+    def EnableLayoutAdaptation(*args, **kwargs):
+        """EnableLayoutAdaptation(bool enable)"""
+        return _windows_.Dialog_EnableLayoutAdaptation(*args, **kwargs)
+
+    EnableLayoutAdaptation = staticmethod(EnableLayoutAdaptation)
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -767,6 +842,22 @@ def PreDialog(*args, **kwargs):
     val = _windows_.new_PreDialog(*args, **kwargs)
     return val
 
+def Dialog_SetLayoutAdapter(*args, **kwargs):
+  """Dialog_SetLayoutAdapter(DialogLayoutAdapter adapter) -> DialogLayoutAdapter"""
+  return _windows_.Dialog_SetLayoutAdapter(*args, **kwargs)
+
+def Dialog_GetLayoutAdapter(*args):
+  """Dialog_GetLayoutAdapter() -> DialogLayoutAdapter"""
+  return _windows_.Dialog_GetLayoutAdapter(*args)
+
+def Dialog_IsLayoutAdaptationEnabled(*args):
+  """Dialog_IsLayoutAdaptationEnabled() -> bool"""
+  return _windows_.Dialog_IsLayoutAdaptationEnabled(*args)
+
+def Dialog_EnableLayoutAdaptation(*args, **kwargs):
+  """Dialog_EnableLayoutAdaptation(bool enable)"""
+  return _windows_.Dialog_EnableLayoutAdaptation(*args, **kwargs)
+
 def Dialog_GetClassDefaultAttributes(*args, **kwargs):
   """
     Dialog_GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -783,6 +874,95 @@ def Dialog_GetClassDefaultAttributes(*args, **kwargs):
     this.
     """
   return _windows_.Dialog_GetClassDefaultAttributes(*args, **kwargs)
+
+class DialogLayoutAdapter(_core.Object):
+    """Proxy of C++ DialogLayoutAdapter class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    def CanDoLayoutAdaptation(*args, **kwargs):
+        """CanDoLayoutAdaptation(self, Dialog dialog) -> bool"""
+        return _windows_.DialogLayoutAdapter_CanDoLayoutAdaptation(*args, **kwargs)
+
+    def DoLayoutAdaptation(*args, **kwargs):
+        """DoLayoutAdaptation(self, Dialog dialog) -> bool"""
+        return _windows_.DialogLayoutAdapter_DoLayoutAdaptation(*args, **kwargs)
+
+_windows_.DialogLayoutAdapter_swigregister(DialogLayoutAdapter)
+
+class StandardDialogLayoutAdapter(DialogLayoutAdapter):
+    """Proxy of C++ StandardDialogLayoutAdapter class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> StandardDialogLayoutAdapter"""
+        _windows_.StandardDialogLayoutAdapter_swiginit(self,_windows_.new_StandardDialogLayoutAdapter(*args, **kwargs))
+    def CreateScrolledWindow(*args, **kwargs):
+        """CreateScrolledWindow(self, Window parent) -> ScrolledWindow"""
+        return _windows_.StandardDialogLayoutAdapter_CreateScrolledWindow(*args, **kwargs)
+
+    def FindButtonSizer(*args, **kwargs):
+        """
+        FindButtonSizer(self, bool stdButtonSizer, Dialog dialog, Sizer sizer, int retBorder, 
+            int accumlatedBorder=0) -> Sizer
+        """
+        return _windows_.StandardDialogLayoutAdapter_FindButtonSizer(*args, **kwargs)
+
+    def IsOrdinaryButtonSizer(*args, **kwargs):
+        """IsOrdinaryButtonSizer(self, Dialog dialog, BoxSizer sizer) -> bool"""
+        return _windows_.StandardDialogLayoutAdapter_IsOrdinaryButtonSizer(*args, **kwargs)
+
+    def IsStandardButton(*args, **kwargs):
+        """IsStandardButton(self, Dialog dialog, wxButton button) -> bool"""
+        return _windows_.StandardDialogLayoutAdapter_IsStandardButton(*args, **kwargs)
+
+    def FindLooseButtons(*args, **kwargs):
+        """
+        FindLooseButtons(self, Dialog dialog, StdDialogButtonSizer buttonSizer, Sizer sizer, 
+            int count) -> bool
+        """
+        return _windows_.StandardDialogLayoutAdapter_FindLooseButtons(*args, **kwargs)
+
+    def ReparentControls(*args, **kwargs):
+        """ReparentControls(self, Window parent, Window reparentTo, Sizer buttonSizer=None)"""
+        return _windows_.StandardDialogLayoutAdapter_ReparentControls(*args, **kwargs)
+
+    def DoReparentControls(*args, **kwargs):
+        """DoReparentControls(Window parent, Window reparentTo, Sizer buttonSizer=None)"""
+        return _windows_.StandardDialogLayoutAdapter_DoReparentControls(*args, **kwargs)
+
+    DoReparentControls = staticmethod(DoReparentControls)
+    def FitWithScrolling(*args, **kwargs):
+        """FitWithScrolling(self, Dialog dialog, ScrolledWindow scrolledWindow) -> bool"""
+        return _windows_.StandardDialogLayoutAdapter_FitWithScrolling(*args, **kwargs)
+
+    def DoFitWithScrolling(*args, **kwargs):
+        """DoFitWithScrolling(Dialog dialog, ScrolledWindow scrolledWindow) -> bool"""
+        return _windows_.StandardDialogLayoutAdapter_DoFitWithScrolling(*args, **kwargs)
+
+    DoFitWithScrolling = staticmethod(DoFitWithScrolling)
+    def MustScroll(*args, **kwargs):
+        """MustScroll(self, Dialog dialog, Size windowSize, Size displaySize) -> int"""
+        return _windows_.StandardDialogLayoutAdapter_MustScroll(*args, **kwargs)
+
+    def DoMustScroll(*args, **kwargs):
+        """DoMustScroll(Dialog dialog, Size windowSize, Size displaySize) -> int"""
+        return _windows_.StandardDialogLayoutAdapter_DoMustScroll(*args, **kwargs)
+
+    DoMustScroll = staticmethod(DoMustScroll)
+_windows_.StandardDialogLayoutAdapter_swigregister(StandardDialogLayoutAdapter)
+
+def StandardDialogLayoutAdapter_DoReparentControls(*args, **kwargs):
+  """StandardDialogLayoutAdapter_DoReparentControls(Window parent, Window reparentTo, Sizer buttonSizer=None)"""
+  return _windows_.StandardDialogLayoutAdapter_DoReparentControls(*args, **kwargs)
+
+def StandardDialogLayoutAdapter_DoFitWithScrolling(*args, **kwargs):
+  """StandardDialogLayoutAdapter_DoFitWithScrolling(Dialog dialog, ScrolledWindow scrolledWindow) -> bool"""
+  return _windows_.StandardDialogLayoutAdapter_DoFitWithScrolling(*args, **kwargs)
+
+def StandardDialogLayoutAdapter_DoMustScroll(*args, **kwargs):
+  """StandardDialogLayoutAdapter_DoMustScroll(Dialog dialog, Size windowSize, Size displaySize) -> int"""
+  return _windows_.StandardDialogLayoutAdapter_DoMustScroll(*args, **kwargs)
 
 #---------------------------------------------------------------------------
 

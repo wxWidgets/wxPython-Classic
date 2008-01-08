@@ -68,7 +68,7 @@ class GLContext(_core.Object):
     __swig_destroy__ = _glcanvas.delete_GLContext
     __del__ = lambda self : None;
     def SetCurrent(*args, **kwargs):
-        """SetCurrent(self, GLCanvas win)"""
+        """SetCurrent(self, GLCanvas win) -> bool"""
         return _glcanvas.GLContext_SetCurrent(*args, **kwargs)
 
 _glcanvas.GLContext_swigregister(GLContext)
@@ -118,7 +118,7 @@ class GLCanvas(_core.Window):
         return _glcanvas.GLCanvas_SetColour(*args, **kwargs)
 
     def SwapBuffers(*args, **kwargs):
-        """SwapBuffers(self)"""
+        """SwapBuffers(self) -> bool"""
         return _glcanvas.GLCanvas_SwapBuffers(*args, **kwargs)
 
     def GetContext(*args, **kwargs):
@@ -127,7 +127,7 @@ class GLCanvas(_core.Window):
 
     def SetCurrent(*args):
         """
-        SetCurrent(self, GLContext context)
+        SetCurrent(self, GLContext context) -> bool
         SetCurrent(self)
         """
         return _glcanvas.GLCanvas_SetCurrent(*args)

@@ -1485,6 +1485,14 @@ class Grid(_windows.ScrolledWindow):
         """SetColLabelSize(self, int height)"""
         return _grid.Grid_SetColLabelSize(*args, **kwargs)
 
+    def HideRowLabels(*args, **kwargs):
+        """HideRowLabels(self)"""
+        return _grid.Grid_HideRowLabels(*args, **kwargs)
+
+    def HideColLabels(*args, **kwargs):
+        """HideColLabels(self)"""
+        return _grid.Grid_HideColLabels(*args, **kwargs)
+
     def SetLabelBackgroundColour(*args, **kwargs):
         """SetLabelBackgroundColour(self, Colour ?)"""
         return _grid.Grid_SetLabelBackgroundColour(*args, **kwargs)
