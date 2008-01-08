@@ -48,7 +48,7 @@ public:
     wxGLContext(wxGLCanvas *win, const wxGLContext* other = NULL);
     ~wxGLContext();
 
-    void SetCurrent(const wxGLCanvas& win);
+    bool SetCurrent(const wxGLCanvas& win);
 };
 
 //---------------------------------------------------------------------------
@@ -129,9 +129,9 @@ public:
                     const wxPalette& palette = wxNullPalette ));
 
     %nokwargs SetCurrent;
-    void SetCurrent(const wxGLContext& context);
+    bool SetCurrent(const wxGLContext& context);
     void SetColour(const wxString& colour);
-    void SwapBuffers();
+    bool SwapBuffers();
 
     // deprecated...
     wxGLContext* GetContext();

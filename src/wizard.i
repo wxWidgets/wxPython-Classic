@@ -23,7 +23,7 @@ or pages."
 #include "wx/wxPython/printfw.h"
 
 #include <wx/wizard.h>
-    
+
 %}
 
 //----------------------------------------------------------------------
@@ -38,6 +38,14 @@ MAKE_CONST_WXSTRING_NOSWIG(EmptyString);
 
 enum {
     wxWIZARD_EX_HELPBUTTON,
+
+    wxWIZARD_VALIGN_TOP,
+    wxWIZARD_VALIGN_CENTRE,
+    wxWIZARD_VALIGN_BOTTOM,
+    wxWIZARD_HALIGN_LEFT,
+    wxWIZARD_HALIGN_CENTRE,
+    wxWIZARD_HALIGN_RIGHT,
+    wxWIZARD_TILE,
 };
 
 %constant wxEventType wxEVT_WIZARD_PAGE_CHANGED;
@@ -203,7 +211,7 @@ public:
     %pythonAppend wxPyWizardPage   "self._setOORInfo(self);" setCallbackInfo(PyWizardPage)
     %pythonAppend wxPyWizardPage() ""
     %typemap(out) wxPyWizardPage*;    // turn off this typemap
-    
+
     // ctor accepts an optional bitmap which will be used for this page instead
     // of the default one for this wizard (should be of the same size). Notice
     // that no other parameters are needed because the wizard will resize and
@@ -278,7 +286,7 @@ public:
     %MAKE_BASE_FUNC(PyWizardPage, ShouldInheritColours);
     %MAKE_BASE_FUNC(PyWizardPage, GetDefaultAttributes);
     %MAKE_BASE_FUNC(PyWizardPage, OnInternalIdle);
-    
+
 };
 
 //----------------------------------------------------------------------
@@ -297,7 +305,7 @@ public:
 
     %pythonAppend wxWizardPageSimple   "self._setOORInfo(self)"
     %pythonAppend wxWizardPageSimple() ""
-    
+
     // ctor takes the previous and next pages
     wxWizardPageSimple(wxWizard *parent,
                        wxWizardPage *prev = NULL,
@@ -328,7 +336,7 @@ class  wxWizard : public wxDialog
 public:
     %pythonAppend wxWizard   "self._setOORInfo(self)"
     %pythonAppend wxWizard() ""
-    
+
     // ctor
     wxWizard(wxWindow *parent,
              int id = -1,
@@ -385,6 +393,21 @@ public:
 
     // is the wizard running?
     bool IsRunning() const;
+
+    // Set/get bitmap background colour
+    void SetBitmapBackgroundColour(const wxColour& colour);
+    const wxColour& GetBitmapBackgroundColour() const;
+
+    // Set/get bitmap placement (centred, tiled etc.)
+    void SetBitmapPlacement(int placement);
+    int GetBitmapPlacement() const;
+
+    // Set/get minimum bitmap width
+    void SetMinimumBitmapWidth(int w);
+    int GetMinimumBitmapWidth() const;
+
+    // Tile bitmap
+    static bool TileBitmap(const wxRect& rect, wxDC& dc, const wxBitmap& bitmap);
 
     // show the prev/next page, but call TransferDataFromWindow on the current
     // page first and return False without changing the page if

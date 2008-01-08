@@ -50,7 +50,10 @@
 //      SetSizeHints
 //      SetVirtualSizeHints
 //      Show
-
+//
+//      GetWindowSizeForVirtualSize
+//      DoFreeze
+//      DoThaw
 
 //---------------------------------------------------------------------------
 

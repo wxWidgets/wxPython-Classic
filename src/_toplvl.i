@@ -38,7 +38,7 @@ enum
     wxRESIZE_BORDER,
 
     wxDIALOG_NO_PARENT,
-    
+
     wxDEFAULT_FRAME_STYLE,
     wxDEFAULT_DIALOG_STYLE,
 
@@ -61,7 +61,7 @@ enum
     %# deprecated
     RESIZE_BOX  = MAXIMIZE_BOX
     THICK_FRAME = RESIZE_BORDER
-         
+
     %# Obsolete
     wxDIALOG_MODAL = 0
     wxDIALOG_MODELESS = 0
@@ -112,7 +112,7 @@ public:
     // return true if the frame is always maximized
     // due to native guidelines or current policy
     virtual bool IsAlwaysMaximized() const;
-    
+
     // return True if the frame is iconized
     virtual bool IsIconized() const;
 
@@ -185,16 +185,16 @@ public:
         "Center the window on screen", "");
     %pythoncode { CentreOnScreen = CenterOnScreen }
 
-    
+
     DocDeclStr(
         virtual wxWindow *, GetDefaultItem() const,
         "Get the default child of this parent, i.e. the one which is activated
 by pressing <Enter> such as the OK button on a wx.Dialog.", "");
-    
+
     DocDeclStr(
         virtual wxWindow *, SetDefaultItem(wxWindow * child),
         "Set this child as default, return the old default.", "");
-    
+
     DocDeclStr(
         virtual void , SetTmpDefaultItem(wxWindow * win),
         "Set this child as temporary default", "");
@@ -202,7 +202,7 @@ by pressing <Enter> such as the OK button on a wx.Dialog.", "");
     DocDeclStr(
         virtual wxWindow *, GetTmpDefaultItem() const,
         "Return the temporary default item, which can be None.", "");
-       
+
     %property(DefaultItem, GetDefaultItem, SetDefaultItem, doc="See `GetDefaultItem` and `SetDefaultItem`");
     %property(Icon, GetIcon, SetIcon, doc="See `GetIcon` and `SetIcon`");
     %property(Title, GetTitle, SetTitle, doc="See `GetTitle` and `SetTitle`");
@@ -345,6 +345,30 @@ public:
 //---------------------------------------------------------------------------
 %newgroup
 
+enum {
+    // Don't do any layout adaptation
+    wxDIALOG_ADAPTATION_NONE,
+
+    // Only look for wxStdDialogButtonSizer for non-scrolling part
+    wxDIALOG_ADAPTATION_STANDARD_SIZER,
+
+    // Also look for any suitable sizer for non-scrolling part
+    wxDIALOG_ADAPTATION_ANY_SIZER,
+
+    // Also look for 'loose' standard buttons for non-scrolling part
+    wxDIALOG_ADAPTATION_LOOSE_BUTTONS,
+};
+
+// Layout adaptation mode, for SetLayoutAdaptationMode
+enum wxDialogLayoutAdaptationMode
+{
+    wxDIALOG_ADAPTATION_MODE_DEFAULT = 0,   // use global adaptation enabled status
+    wxDIALOG_ADAPTATION_MODE_ENABLED = 1,   // enable this dialog overriding global status
+    wxDIALOG_ADAPTATION_MODE_DISABLED = 2   // disable this dialog overriding global status
+};
+
+
+
 MustHaveApp(wxDialog);
 
 class wxDialog : public wxTopLevelWindow
@@ -422,7 +446,7 @@ public:
     // static line for the platforms which use static lines for items
     // separation (i.e. not Mac)
     wxSizer *CreateSeparatedButtonSizer(long flags);
-   
+
     wxStdDialogButtonSizer* CreateStdDialogButtonSizer( long flags );
 
     //void SetModal( bool flag );
@@ -437,6 +461,48 @@ public:
     // may be called to terminate the dialog with the given return code
     virtual void EndModal(int retCode);
 
+
+    // Do layout adaptation
+    virtual bool DoLayoutAdaptation();
+
+    // Can we do layout adaptation?
+    virtual bool CanDoLayoutAdaptation();
+
+    // Returns a content window if there is one. This can be used by the layout adapter, for
+    // example to make the pages of a book control into scrolling windows
+    virtual wxWindow* GetContentWindow() const;
+
+    // Add an id to the list of main button identifiers that should be in the button sizer
+    void AddMainButtonId(wxWindowID id);
+    wxArrayInt& GetMainButtonIds();
+
+    // Is this id in the main button id array?
+    bool IsMainButtonId(wxWindowID id) const;
+
+    // Level of adaptation, from none (Level 0) to full (Level 3). To disable adaptation,
+    // set level 0, for example in your dialog constructor. You might
+    // do this if you know that you are displaying on a large screen and you don't want the
+    // dialog changed.
+    void SetLayoutAdaptationLevel(int level);
+    int GetLayoutAdaptationLevel() const;
+
+    /// Override global adaptation enabled/disabled status
+    void SetLayoutAdaptationMode(wxDialogLayoutAdaptationMode mode);
+    wxDialogLayoutAdaptationMode GetLayoutAdaptationMode() const;
+
+    // Returns true if the adaptation has been done
+    void SetLayoutAdaptationDone(bool adaptationDone);
+    bool GetLayoutAdaptationDone() const;
+
+    // Set layout adapter class, returning old adapter
+    static wxDialogLayoutAdapter* SetLayoutAdapter(wxDialogLayoutAdapter* adapter);
+    static wxDialogLayoutAdapter* GetLayoutAdapter();
+
+    // Global switch for layout adaptation
+    static bool IsLayoutAdaptationEnabled();
+    static void EnableLayoutAdaptation(bool enable);
+
+    
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
 
@@ -444,6 +510,78 @@ public:
     %property(EscapeId, GetEscapeId, SetEscapeId, doc="See `GetEscapeId` and `SetEscapeId`");
     %property(ReturnCode, GetReturnCode, SetReturnCode, doc="See `GetReturnCode` and `SetReturnCode`");
 };
+
+
+
+/*!
+ * Base class for layout adapters - code that, for example, turns a dialog into a
+ * scrolling dialog if there isn't enough screen space. You can derive further
+ * adapter classes to do any other kind of adaptation, such as applying a watermark, or adding
+ * a help mechanism.
+ */
+
+// TODO:  Virtualize this for wxPython
+class wxDialogLayoutAdapter: public wxObject
+{
+public:
+    wxDialogLayoutAdapter() {}
+
+    // Override this function to indicate that adaptation should be done
+    virtual bool CanDoLayoutAdaptation(wxDialog* dialog) = 0;
+
+    // Override this function to do the adaptation
+    virtual bool DoLayoutAdaptation(wxDialog* dialog) = 0;
+};
+
+/*!
+ * Standard adapter. Does scrolling adaptation for paged and regular dialogs.
+ *
+ */
+
+class wxStandardDialogLayoutAdapter: public wxDialogLayoutAdapter
+{
+public:
+    wxStandardDialogLayoutAdapter() {}
+
+
+    // Indicate that adaptation should be done
+    virtual bool CanDoLayoutAdaptation(wxDialog* dialog);
+
+    // Do layout adaptation
+    virtual bool DoLayoutAdaptation(wxDialog* dialog);
+
+
+    // Create the scrolled window
+    virtual wxScrolledWindow* CreateScrolledWindow(wxWindow* parent);
+
+    // Find a standard or horizontal box sizer
+    virtual wxSizer* FindButtonSizer(bool stdButtonSizer, wxDialog* dialog, wxSizer* sizer, int& retBorder, int accumlatedBorder = 0);
+
+    // Check if this sizer contains standard buttons, and so can be repositioned in the dialog
+    virtual bool IsOrdinaryButtonSizer(wxDialog* dialog, wxBoxSizer* sizer);
+
+    // Check if this is a standard button
+    virtual bool IsStandardButton(wxDialog* dialog, wxButton* button);
+
+    // Find 'loose' main buttons in the existing layout and add them to the standard dialog sizer
+    virtual bool FindLooseButtons(wxDialog* dialog, wxStdDialogButtonSizer* buttonSizer, wxSizer* sizer, int& count);
+
+    // Reparent the controls to the scrolled window, except those in buttonSizer
+    virtual void ReparentControls(wxWindow* parent, wxWindow* reparentTo, wxSizer* buttonSizer = NULL);
+    static void DoReparentControls(wxWindow* parent, wxWindow* reparentTo, wxSizer* buttonSizer = NULL);
+
+    // A function to fit the dialog around its contents, and then adjust for screen size.
+    // If scrolled windows are passed, scrolling is enabled in the required orientation(s).
+    virtual bool FitWithScrolling(wxDialog* dialog, wxScrolledWindow* scrolledWindow);
+//    virtual bool FitWithScrolling(wxDialog* dialog, wxWindowList& windows);
+    static bool DoFitWithScrolling(wxDialog* dialog, wxScrolledWindow* scrolledWindow);
+//    static bool DoFitWithScrolling(wxDialog* dialog, wxWindowList& windows);
+
+    // Find whether scrolling will be necessary for the dialog, returning wxVERTICAL, wxHORIZONTAL or both
+    virtual int MustScroll(wxDialog* dialog, wxSize& windowSize, wxSize& displaySize);
+    static int DoMustScroll(wxDialog* dialog, wxSize& windowSize, wxSize& displaySize);
+};
+
 
 //---------------------------------------------------------------------------
 %newgroup
