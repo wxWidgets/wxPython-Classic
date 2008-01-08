@@ -639,7 +639,7 @@ private:
     DECLARE_CLASS(wxActiveXEvent)
 };
 
-const wxEventType& RegisterActiveXEvent(const wxChar *eventName);
+const wxEventType& RegisterActiveXEvent(const wxString& eventName);
 const wxEventType& RegisterActiveXEvent(DISPID event);
 
 typedef void (wxEvtHandler::*wxActiveXEventFunction)(wxActiveXEvent&);

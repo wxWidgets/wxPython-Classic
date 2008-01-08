@@ -446,7 +446,7 @@ void wxActiveX::CreateActiveX(LPOLESTR progId)
 typedef map<wxString, wxEventType *, NS_wxActiveX::less_wxStringI> ActiveXNamedEventMap;
 static ActiveXNamedEventMap sg_NamedEventMap;
 
-const wxEventType& RegisterActiveXEvent(const wxChar *eventName)
+const wxEventType& RegisterActiveXEvent(const wxString& eventName)
 {
     wxString ev = eventName;
     ActiveXNamedEventMap::iterator it = sg_NamedEventMap.find(ev);
