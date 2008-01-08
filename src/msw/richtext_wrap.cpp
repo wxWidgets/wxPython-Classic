@@ -2989,7 +2989,9 @@ SWIGINTERN wxRichTextObject *wxRichTextObjectList___getitem__(wxRichTextObjectLi
             return NULL;
         }
 SWIGINTERN bool wxRichTextObjectList___contains__(wxRichTextObjectList *self,wxRichTextObject const *obj){
-            return self->Find(obj) != NULL;
+            wxRichTextObjectList::compatibility_iterator node;
+            node = self->Find(obj);
+            return node;
         }
 SWIGINTERN wxRichTextObjectList_iterator *wxRichTextObjectList___iter__(wxRichTextObjectList *self){
             return new wxRichTextObjectList_iterator(self->GetFirst());

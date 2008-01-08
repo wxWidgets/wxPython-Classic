@@ -2883,13 +2883,13 @@ def EncodingConverter_CanConvert(*args, **kwargs):
   return _gdi_.EncodingConverter_CanConvert(*args, **kwargs)
 
 #----------------------------------------------------------------------------
-# On MSW add the directory where the wxWidgets catalogs were installed
-# to the default catalog path.
-if wx.Platform == "__WXMSW__":
-    import os
-    _localedir = os.path.join(os.path.split(__file__)[0], "locale")
+# Add the directory where the wxWidgets catalogs were installed
+# to the default catalog path, if they were put in the pacakge dir.
+import os
+_localedir = os.path.join(os.path.dirname(__file__), "locale")
+if os.path.exists(_localedir):
     Locale.AddCatalogLookupPathPrefix(_localedir)
-    del os
+del os
 
 #----------------------------------------------------------------------------
 

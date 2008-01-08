@@ -2852,7 +2852,7 @@ static wxPyCoreAPI API = {
     wxPyBeginBlockThreads,
     wxPyEndBlockThreads,
                                              
-    wxPy_ConvertList,
+    NULL,
                                              
     wxString_in_helper,
     Py2wxString,
@@ -3683,7 +3683,19 @@ SWIGINTERN void wxImage_SetAlphaBuffer(wxImage *self,buffer alpha,int ALPHASIZE)
         }
 SWIGINTERN PyObject *wxImage_GetHandlers(){
             wxList& list = wxImage::GetHandlers();
-            return wxPy_ConvertList(&list);
+            wxList::compatibility_iterator node = list.GetFirst();
+
+            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            PyObject* pyList = PyList_New(0);
+            while (node) {
+                wxObject* wxObj = node->GetData();
+                PyObject* pyObj = wxPyMake_wxObject(wxObj,false);
+                PyList_Append(pyList, pyObj);
+                Py_DECREF(pyObj);  // the Append also does an INCREF, that's one more than we need.
+                node = node->GetNext();
+            }
+            wxPyEndBlockThreads(blocked);
+            return pyList;
         }
 SWIGINTERN wxBitmap wxImage_ConvertToBitmap(wxImage *self,int depth=-1){
             wxBitmap bitmap(*self, depth);
@@ -4071,7 +4083,9 @@ SWIGINTERN wxWindow *wxWindowList___getitem__(wxWindowList *self,size_t index){
             return NULL;
         }
 SWIGINTERN bool wxWindowList___contains__(wxWindowList *self,wxWindow const *obj){
-            return self->Find(obj) != NULL;
+            wxWindowList::compatibility_iterator node;
+            node = self->Find(obj);
+            return node;
         }
 SWIGINTERN wxWindowList_iterator *wxWindowList___iter__(wxWindowList *self){
             return new wxWindowList_iterator(self->GetFirst());
@@ -4204,7 +4218,9 @@ SWIGINTERN wxMenuItem *wxMenuItemList___getitem__(wxMenuItemList *self,size_t in
             return NULL;
         }
 SWIGINTERN bool wxMenuItemList___contains__(wxMenuItemList *self,wxMenuItem const *obj){
-            return self->Find(obj) != NULL;
+            wxMenuItemList::compatibility_iterator node;
+            node = self->Find(obj);
+            return node;
         }
 SWIGINTERN wxMenuItemList_iterator *wxMenuItemList___iter__(wxMenuItemList *self){
             return new wxMenuItemList_iterator(self->GetFirst());
@@ -4288,7 +4304,9 @@ SWIGINTERN wxSizerItem *wxSizerItemList___getitem__(wxSizerItemList *self,size_t
             return NULL;
         }
 SWIGINTERN bool wxSizerItemList___contains__(wxSizerItemList *self,wxSizerItem const *obj){
-            return self->Find(obj) != NULL;
+            wxSizerItemList::compatibility_iterator node;
+            node = self->Find(obj);
+            return node;
         }
 SWIGINTERN wxSizerItemList_iterator *wxSizerItemList___iter__(wxSizerItemList *self){
             return new wxSizerItemList_iterator(self->GetFirst());
