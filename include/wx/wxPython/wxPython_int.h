@@ -135,13 +135,13 @@ const char* wxGetDefaultPyEncoding();
 void wxPyEventThunker(wxObject*, wxEvent& event);
 
 
-bool wxPyCheckSwigType(const wxChar* className);
+bool wxPyCheckSwigType(const wxString& className);
 PyObject* wxPyConstructObject(void* ptr,
-                              const wxChar* className,
+                              const wxString& className,
                               int setThisOwn=0);
 bool wxPyConvertSwigPtr(PyObject* obj, void **ptr,
-                        const wxChar* className);
-PyObject* wxPyMakeSwigPtr(void* ptr, const wxChar* classname);
+                        const wxString& className);
+PyObject* wxPyMakeSwigPtr(void* ptr, const wxString& classname);
 
 
 PyObject* wx2PyString(const wxString& src);
@@ -151,7 +151,6 @@ PyObject* wxPyMake_wxObject(wxObject* source, bool setThisOwn, bool checkEvtHand
 PyObject* wxPyMake_wxSizer(wxSizer* source, bool setThisOwn);
 void      wxPyPtrTypeMap_Add(const char* commonName, const char* ptrName);
 
-PyObject* wxPy_ConvertList(wxListBase* list);
 long      wxPyGetWinHandle(wxWindow* win);
 
 void wxPy_ReinitStockObjects(int pass);
@@ -373,17 +372,17 @@ class wxPyCallbackHelper;
 
 struct wxPyCoreAPI {
 
-    bool                (*p_wxPyCheckSwigType)(const wxChar* className);
-    PyObject*           (*p_wxPyConstructObject)(void* ptr, const wxChar* className, int setThisOwn);
-    bool                (*p_wxPyConvertSwigPtr)(PyObject* obj, void **ptr, const wxChar* className);
-    PyObject*           (*p_wxPyMakeSwigPtr)(void* ptr, const wxChar* className);
+    bool                (*p_wxPyCheckSwigType)(const wxString& className);
+    PyObject*           (*p_wxPyConstructObject)(void* ptr, const wxString& className, int setThisOwn);
+    bool                (*p_wxPyConvertSwigPtr)(PyObject* obj, void **ptr, const wxString& className);
+    PyObject*           (*p_wxPyMakeSwigPtr)(void* ptr, const wxString& className);
         
     PyThreadState*      (*p_wxPyBeginAllowThreads)();
     void                (*p_wxPyEndAllowThreads)(PyThreadState* state);
     wxPyBlock_t         (*p_wxPyBeginBlockThreads)();
     void                (*p_wxPyEndBlockThreads)(wxPyBlock_t blocked);
 
-    PyObject*           (*p_wxPy_ConvertList)(wxListBase* list);
+    void*               unused1; // this slot is no longer used
 
     wxString*           (*p_wxString_in_helper)(PyObject* source);
     wxString            (*p_Py2wxString)(PyObject* source);

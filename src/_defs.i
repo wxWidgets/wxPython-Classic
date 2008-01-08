@@ -545,7 +545,9 @@ public:
 
         KeepGIL(__contains__);
         bool __contains__(const ItemClass* obj) {
-            return self->Find(obj) != NULL;
+            ListClass::compatibility_iterator node;
+            node = self->Find(obj);
+            return node;
         }
 
         KeepGIL(__iter__);

@@ -780,69 +780,30 @@ public:
 
    
         
-    // ------------------------------------------------------------------------
-    // conversion from text: all conversions from text return -1 on failure,
-    // or the index in the string where the next character following the date
-    // specification (i.e. the one where the scan had to stop) is located.
+    
+    // parse a string in RFC 822 format (found e.g. in mail headers and
+    // having the form "Wed, 10 Feb 1999 19:07:07 +0100")
+    char* ParseRfc822Date(const wxString& date);
 
-    %extend {
+    // parse a date/time in the given format (see strptime(3)), fill in
+    // the missing (in the string) fields with the values of dateDef (by
+    // default, they will not change if they had valid values or will
+    // default to Today() otherwise)
+    char* ParseFormat(const wxString& date,
+                      const wxString& format = wxPyDefaultDateTimeFormat,
+                      const wxDateTime& dateDef = wxDefaultDateTime);
 
-        // parse a string in RFC 822 format (found e.g. in mail headers and
-        // having the form "Wed, 10 Feb 1999 19:07:07 +0100")
-        int ParseRfc822Date(const wxString& date) {
-            const wxChar* rv;
-            const wxChar* _date = date;
-            rv = self->ParseRfc822Date(_date);
-            if (rv == NULL) return -1;
-            return rv - _date;
-        }
+    // parse a string containing the date/time in "free" format, this
+    // function will try to make an educated guess at the string contents
+    char* ParseDateTime(const wxString& datetime);
 
+    // parse a string containing the date only in "free" format (less
+    // flexible than ParseDateTime)
+    char* ParseDate(const wxString& date);
 
-        // parse a date/time in the given format (see strptime(3)), fill in
-        // the missing (in the string) fields with the values of dateDef (by
-        // default, they will not change if they had valid values or will
-        // default to Today() otherwise)
-        int ParseFormat(const wxString& date,
-                        const wxString& format = wxPyDefaultDateTimeFormat,
-                        const wxDateTime& dateDef = wxDefaultDateTime) {
-            const wxChar* rv;
-            const wxChar* _date = date;
-            rv = self->ParseFormat(_date, format, dateDef);
-            if (rv == NULL) return -1;
-            return rv - _date;
-        }
-
-        // parse a string containing the date/time in "free" format, this
-        // function will try to make an educated guess at the string contents
-        int ParseDateTime(const wxString& datetime) {
-            const wxChar* rv;
-            const wxChar* _datetime = datetime;
-            rv = self->ParseDateTime(_datetime);
-            if (rv == NULL) return -1;
-            return rv - _datetime;
-        }
-
-
-        // parse a string containing the date only in "free" format (less
-        // flexible than ParseDateTime)
-        int ParseDate(const wxString& date) {
-            const wxChar* rv;
-            const wxChar* _date = date;
-            rv = self->ParseDate(_date);
-            if (rv == NULL) return -1;
-            return rv - _date;
-        }
-
-        // parse a string containing the time only in "free" format
-        int ParseTime(const wxString& time) {
-            const wxChar* rv;
-            const wxChar* _time = time;
-            rv = self->ParseTime(_time);
-            if (rv == NULL) return -1;
-            return rv - _time;
-        }
-    }
-
+    // parse a string containing the time only in "free" format
+    char* ParseTime(const wxString& time);
+    
 
         // this function accepts strftime()-like format string (default
         // argument corresponds to the preferred date and time representation

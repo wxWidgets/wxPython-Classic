@@ -2014,29 +2014,6 @@ wxPyCommandEvent::~wxPyCommandEvent() {
 
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
-// Convert a wxList to a Python List, only works for lists of wxObjects
-
-PyObject* wxPy_ConvertList(wxListBase* listbase) {
-    wxList*     list = (wxList*)listbase;  // this is probably bad...
-    PyObject*   pyList;
-    PyObject*   pyObj;
-    wxObject*   wxObj;
-    wxNode*     node = list->GetFirst();
-
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-    pyList = PyList_New(0);
-    while (node) {
-        wxObj = node->GetData();
-        pyObj = wxPyMake_wxObject(wxObj,false);
-        PyList_Append(pyList, pyObj);
-        Py_DECREF(pyObj);  // the Append also does an INCREF, that's one more than we need.
-        node = node->GetNext();
-    }
-    wxPyEndBlockThreads(blocked);
-    return pyList;
-}
-
-//----------------------------------------------------------------------
 
 long wxPyGetWinHandle(wxWindow* win) {
 

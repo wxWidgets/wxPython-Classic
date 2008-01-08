@@ -66,7 +66,6 @@ inline wxPyCoreAPI* wxPyGetCoreAPIPtr()
 #define wxPyEndBlockThreads(a)                  (wxPyGetCoreAPIPtr()->p_wxPyEndBlockThreads(a))
 
 #define wxPyConstructObject(a,b,c)              (wxPyGetCoreAPIPtr()->p_wxPyConstructObject(a,b,c))
-#define wxPy_ConvertList(a)                     (wxPyGetCoreAPIPtr()->p_wxPy_ConvertList(a))
                                          
 #define wxString_in_helper(a)                   (wxPyGetCoreAPIPtr()->p_wxString_in_helper(a))
 #define Py2wxString(a)                          (wxPyGetCoreAPIPtr()->p_Py2wxString(a))
