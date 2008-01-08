@@ -68,7 +68,7 @@ class PyColourSlider(canvas.Canvas):
         """Returns the colour value for a position on the slider. The position
         must be within the valid height of the slider, or results can be
         unpredictable."""
-        return self.buffer.GetPixel(0, pos)
+        return self.buffer.GetPixelColour(0, pos)
 
     def DrawBuffer(self):
         """Actual implementation of the widget's drawing. We simply draw

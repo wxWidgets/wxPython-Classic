@@ -126,7 +126,7 @@ class PyPalette(canvas.Canvas):
         """Returns a colour value at a specific x, y coordinate pair. This
         is useful for determining the colour found a specific mouse click
         in an external event handler."""
-        return self.buffer.GetPixel(x, y)
+        return self.buffer.GetPixelColour(x, y)
 
     def DrawBuffer(self):
         """Draws the palette XPM into the memory buffer."""

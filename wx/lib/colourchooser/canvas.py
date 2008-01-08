@@ -53,6 +53,19 @@ class BitmapBuffer(wx.MemoryDC):
         """Returns the internal bitmap for direct drawing."""
         return self.bitmap
 
+    # GetPixel seems to always return (-1, -1, -1, 255)
+    # on OS X so this is a workaround for that issue.
+    def GetPixelColour(self, x, y):
+        """Gets the color value of the pixel at the given
+        cords. 
+
+        """
+        img = self.GetAsBitmap().ConvertToImage()
+        red = img.GetRed(x, y)
+        green = img.GetGreen(x, y)
+        blue = img.GetBlue(x, y)
+        return wx.Colour(red, green, blue)
+
 class Canvas(wx.Window):
     """A canvas class for arbitrary drawing.
 
