@@ -1113,7 +1113,6 @@ wxMINOR_VERSION = wx._core.MINOR_VERSION
 wxRELEASE_VERSION = wx._core.RELEASE_VERSION
 wxSUBREL_VERSION = wx._core.SUBREL_VERSION
 wxVERSION = wx._core.VERSION
-wxRELEASE_NUMBER = wx._core.RELEASE_NUMBER
 wxPyUnbornObjectError = wx._core.PyUnbornObjectError
 wxPyDeadObjectError = wx._core.PyDeadObjectError
 wxCallAfter = wx._core.CallAfter

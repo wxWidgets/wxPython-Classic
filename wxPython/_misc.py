@@ -453,7 +453,6 @@ wxDateTime_ConvertYearToBC = wx._misc.DateTime_ConvertYearToBC
 wxDateTime_GetCurrentMonth = wx._misc.DateTime_GetCurrentMonth
 wxDateTime_IsLeapYear = wx._misc.DateTime_IsLeapYear
 wxDateTime_GetCentury = wx._misc.DateTime_GetCentury
-wxDateTime_GetNumberOfDaysinYear = wx._misc.DateTime_GetNumberOfDaysinYear
 wxDateTime_GetNumberOfDaysInMonth = wx._misc.DateTime_GetNumberOfDaysInMonth
 wxDateTime_GetMonthName = wx._misc.DateTime_GetMonthName
 wxDateTime_GetWeekDayName = wx._misc.DateTime_GetWeekDayName
