@@ -19,7 +19,7 @@ import wx.activex
 import sys
 
 
-def main(*args):
+def main(args=None):
     if not args:
         args = sys.argv
         
