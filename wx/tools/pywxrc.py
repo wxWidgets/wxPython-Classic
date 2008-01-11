@@ -21,12 +21,13 @@ pywxrc -- Python XML resource compiler
           (see http://wiki.wxpython.org/index.cgi/pywxrc for more info)
 
 Usage: python pywxrc.py -h
-       python pywxrc.py [-p] [-g] [-e] [-o filename] xrc input files... 
+       python pywxrc.py [-p] [-g] [-e] [-v] [-o filename] xrc input files... 
        
   -h, --help     show help message
   -p, --python   generate python module
   -g, --gettext  output list of translatable strings (may be combined with -p)
   -e, --embed    embed XRC resources in the output file
+  -v, --novar    suppress default assignment of variables
   -o, --output   output filename, or - for stdout
 """
 
@@ -261,11 +262,13 @@ class XmlResourceCompiler:
     """This class generates Python code from XML resource files (XRC)."""
 
     def MakePythonModule(self, inputFiles, outputFilename,
-                         embedResources=False, generateGetText=False):
+                         embedResources=False, generateGetText=False,
+                         assignVariables=True):
 
         self.blocks = {}
         self.outputFilename = outputFilename
         outputFile = self._OpenOutputFile(outputFilename)
+        self.assignVariables = assignVariables
 
         classes = []
         subclasses = []
@@ -366,6 +369,7 @@ class XmlResourceCompiler:
     #-------------------------------------------------------------------
 
     def CheckAssignVar(self, widget):
+        if self.assignVariables: return True # assign_var override mode
         assign_var = False
         for node in widget.getElementsByTagName("XRCED"):
             if node.parentNode is widget:
@@ -844,7 +848,7 @@ class XmlResourceCompiler:
 
 #---------------------------------------------------------------------------
 
-def main(*args):
+def main(args):
     if not args:
         args = sys.argv[1:]
         
@@ -852,12 +856,13 @@ def main(*args):
     outputFilename = None
     embedResources = False
     generateGetText = False
+    assignVariables = True
     generatePython = False
 
     try:
         opts, args = getopt.gnu_getopt(args,
-                                       "hpgeo:",
-                                       "help python gettext embed output=".split())
+                                       "hpgevo:",
+                                       "help python gettext embed novar output=".split())
     except getopt.GetoptError, e:
         print "\nError : %s\n" % str(e)
         print __doc__
@@ -884,6 +889,9 @@ def main(*args):
         if opt in ["-e", "--embed"]:
             embedResources = True
 
+        if opt in ["-v", "--novar"]:
+            assignVariables = False
+
         if opt in ["-g", "--gettext"]:
             generateGetText = True
 
@@ -901,7 +909,8 @@ def main(*args):
             if not outputFilename:
                 outputFilename = os.path.splitext(args[0])[0] + "_xrc.py"
             comp.MakePythonModule(inputFiles, outputFilename,
-                                  embedResources, generateGetText)
+                                  embedResources, generateGetText, 
+                                  assignVariables)
 
         elif generateGetText:
             if not outputFilename:
@@ -922,4 +931,3 @@ def main(*args):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-
