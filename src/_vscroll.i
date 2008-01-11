@@ -1039,6 +1039,13 @@ public:
                 long style = wxHLB_DEFAULT_STYLE,
                 const wxValidator& validator = wxDefaultValidator,
                 const wxString& name = wxPySimpleHtmlListBoxNameStr);
+
+    %extend {
+        void _Clear() {
+            self->Clear();
+        }
+    }
+    %pythoncode { Clear = _Clear }
 };
 
 //---------------------------------------------------------------------------
