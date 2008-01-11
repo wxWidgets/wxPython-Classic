@@ -848,7 +848,7 @@ class XmlResourceCompiler:
 
 #---------------------------------------------------------------------------
 
-def main(args):
+def main(args=None):
     if not args:
         args = sys.argv[1:]
         
