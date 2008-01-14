@@ -3,7 +3,7 @@
 # Inspired By And Heavily Based On wxGenericTreeCtrl.
 #
 # Andrea Gavana, @ 17 May 2006
-# Latest Revision: 19 Dec 2007, 22.00 CET
+# Latest Revision: 14 Jan 2008, 22.00 CET
 #
 #
 # TODO List
@@ -136,8 +136,8 @@ CustomTreeCtrl has been tested on the following platforms:
   * Mac OS (Thanks to John Jackson).
 
 
-Latest Revision: Andrea Gavana @ 19 Dec 2007, 22.00 CET
-Version 1.3
+Latest Revision: Andrea Gavana @ 14 Jan 2008, 22.00 CET
+Version 1.4
 
 """
 
@@ -1824,7 +1824,9 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         self._boldFont = wx.Font(self._normalFont.GetPointSize(), self._normalFont.GetFamily(),
                                  self._normalFont.GetStyle(), wx.BOLD, self._normalFont.GetUnderlined(),
                                  self._normalFont.GetFaceName(), self._normalFont.GetEncoding())
-
+        self._italicFont = wx.Font(self._normalFont.GetPointSize(), self._normalFont.GetFamily(),
+                                   wx.FONTSTYLE_ITALIC, wx.NORMAL, self._normalFont.GetUnderlined(),
+                                   self._normalFont.GetFaceName(), self._normalFont.GetEncoding())
 
         # Hyperlinks things
         self._hypertextfont = wx.Font(self._normalFont.GetPointSize(), self._normalFont.GetFamily(),
@@ -2404,7 +2406,11 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         if not item:
             raise Exception("\nERROR: Invalid Tree Item. ")
 
-        return item.Attr().GetFont()
+        font = item.Attr().GetFont()
+        if font.IsOk():
+            return font
+
+        return wx.SystemSettings_GetFont(wx.SYS_DEFAULT_GUI_FONT)
 
 
     def IsItemHyperText(self, item):
@@ -2481,16 +2487,8 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
             raise Exception("\nERROR: Invalid Tree Item. ")
 
         if item.IsItalic() != italic:
-            itemFont = self.GetItemFont(item)
-            if itemFont != wx.NullFont:
-                style = wx.ITALIC
-                if not italic:
-                    style = ~style
-
-                item.SetItalic(italic)
-                itemFont.SetStyle(style)
-                self.SetItemFont(item, itemFont)
-                self._dirty = True
+            item.SetItalic(italic)
+            self._dirty = True
 
 
     def SetItemDropHighlight(self, item, highlight=True):
@@ -2566,6 +2564,9 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         self._boldFont = wx.Font(self._normalFont.GetPointSize(), self._normalFont.GetFamily(),
                                  self._normalFont.GetStyle(), wx.BOLD, self._normalFont.GetUnderlined(),
                                  self._normalFont.GetFaceName(), self._normalFont.GetEncoding())
+        self._italicFont = wx.Font(self._normalFont.GetPointSize(), self._normalFont.GetFamily(),
+                                   wx.FONTSTYLE_ITALIC, wx.NORMAL, self._normalFont.GetUnderlined(),
+                                   self._normalFont.GetFaceName(), self._normalFont.GetEncoding())
 
         return True
 
@@ -4304,8 +4305,11 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         
         if attr and attr.HasFont():
             dc.SetFont(attr.GetFont())
-        elif item.IsBold():
-            dc.SetFont(self._boldFont)
+        else:
+            if item.IsBold():
+                dc.SetFont(self._boldFont)
+            elif item.IsItalic():
+                dc.SetFont(self._italicFont)
         if item.IsHyperText():
             dc.SetFont(self.GetHyperTextFont())
             if item.GetVisited():
@@ -5584,10 +5588,13 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
 
         if attr and attr.HasFont():
             dc.SetFont(attr.GetFont())
-        elif item.IsBold():
-            dc.SetFont(self._boldFont)
         else:
-            dc.SetFont(self._normalFont)
+            if item.IsBold():
+                dc.SetFont(self._boldFont)
+            elif item.IsItalic():
+                dc.SetFont(self._italicFont)
+            else:
+                dc.SetFont(self._normalFont)
 
         text_w, text_h, dummy = dc.GetMultiLineTextExtent(item.GetText())
         text_h+=2
