@@ -960,6 +960,11 @@ only called internally.", "");
         static wxWindow *, FindFocus(),
         "Returns the window or control that currently has the keyboard focus,
 or None.", "");
+
+
+    DocDeclStr(
+        virtual bool , HasFocus() const,
+        "Returns ``True`` if the window has the keyboard focus.", "");
     
 
     DocDeclStr(
