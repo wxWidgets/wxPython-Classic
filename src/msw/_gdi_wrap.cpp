@@ -26636,6 +26636,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_MetaFileDC_Close(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMetaFileDC *arg1 = (wxMetaFileDC *) 0 ;
+  wxMetaFile *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMetaFileDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MetaFileDC_Close" "', expected argument " "1"" of type '" "wxMetaFileDC *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMetaFileDC * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxMetaFile *)(arg1)->Close();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxMetaFile, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *MetaFileDC_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -40646,6 +40674,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MetaFile_swigregister", MetaFile_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MetaFile_swiginit", MetaFile_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_MetaFileDC", (PyCFunction) _wrap_new_MetaFileDC, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MetaFileDC_Close", (PyCFunction)_wrap_MetaFileDC_Close, METH_O, NULL},
 	 { (char *)"MetaFileDC_swigregister", MetaFileDC_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MetaFileDC_swiginit", MetaFileDC_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PrinterDC", (PyCFunction) _wrap_new_PrinterDC, METH_VARARGS | METH_KEYWORDS, NULL},

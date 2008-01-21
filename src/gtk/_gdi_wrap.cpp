@@ -3681,6 +3681,7 @@ public:
     wxMetaFileDC(const wxString&, int, int, const wxString&)
         : wxClientDC((wxWindow*)NULL)
         { wxPyRaiseNotImplemented(); }
+    wxMetaFile* Close() { return NULL; }
 };
 
 

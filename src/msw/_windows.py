@@ -2597,6 +2597,11 @@ class SimpleHtmlListBox(HtmlListBox,_core.ItemContainer):
         """
         return _windows_.SimpleHtmlListBox_Create(*args, **kwargs)
 
+    def _Clear(*args, **kwargs):
+        """_Clear(self)"""
+        return _windows_.SimpleHtmlListBox__Clear(*args, **kwargs)
+
+    Clear = _Clear 
 _windows_.SimpleHtmlListBox_swigregister(SimpleHtmlListBox)
 SimpleHtmlListBoxNameStr = cvar.SimpleHtmlListBoxNameStr
 

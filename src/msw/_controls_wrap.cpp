@@ -51863,6 +51863,8 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "BK_RIGHT",SWIG_From_int(static_cast< int >(wxBK_RIGHT)));
   SWIG_Python_SetConstant(d, "BK_ALIGN_MASK",SWIG_From_int(static_cast< int >(wxBK_ALIGN_MASK)));
   SWIG_Python_SetConstant(d, "BK_BUTTONBAR",SWIG_From_int(static_cast< int >(wxBK_BUTTONBAR)));
+  SWIG_Python_SetConstant(d, "TBK_BUTTONBAR",SWIG_From_int(static_cast< int >(wxTBK_BUTTONBAR)));
+  SWIG_Python_SetConstant(d, "TBK_HORZ_LAYOUT",SWIG_From_int(static_cast< int >(wxTBK_HORZ_LAYOUT)));
   SWIG_Python_SetConstant(d, "BK_HITTEST_NOWHERE",SWIG_From_int(static_cast< int >(wxBK_HITTEST_NOWHERE)));
   SWIG_Python_SetConstant(d, "BK_HITTEST_ONICON",SWIG_From_int(static_cast< int >(wxBK_HITTEST_ONICON)));
   SWIG_Python_SetConstant(d, "BK_HITTEST_ONLABEL",SWIG_From_int(static_cast< int >(wxBK_HITTEST_ONLABEL)));

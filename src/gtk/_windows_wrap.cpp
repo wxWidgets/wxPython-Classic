@@ -3245,6 +3245,9 @@ void wxPyHtmlListBox::OnLinkClicked(size_t n,
     const wxArrayString wxPyEmptyStringArray;
 
  static const wxString wxPySimpleHtmlListBoxNameStr(wxSimpleHtmlListBoxNameStr); 
+SWIGINTERN void wxSimpleHtmlListBox__Clear(wxSimpleHtmlListBox *self){
+            self->Clear();
+        }
 
 
 
@@ -19814,6 +19817,33 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_SimpleHtmlListBox__Clear(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxSimpleHtmlListBox *arg1 = (wxSimpleHtmlListBox *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxSimpleHtmlListBox, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SimpleHtmlListBox__Clear" "', expected argument " "1"" of type '" "wxSimpleHtmlListBox *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSimpleHtmlListBox * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxSimpleHtmlListBox__Clear(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *SimpleHtmlListBox_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -36304,6 +36334,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_SimpleHtmlListBox", (PyCFunction) _wrap_new_SimpleHtmlListBox, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_PreSimpleHtmlListBox", (PyCFunction)_wrap_new_PreSimpleHtmlListBox, METH_NOARGS, NULL},
 	 { (char *)"SimpleHtmlListBox_Create", (PyCFunction) _wrap_SimpleHtmlListBox_Create, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"SimpleHtmlListBox__Clear", (PyCFunction)_wrap_SimpleHtmlListBox__Clear, METH_O, NULL},
 	 { (char *)"SimpleHtmlListBox_swigregister", SimpleHtmlListBox_swigregister, METH_VARARGS, NULL},
 	 { (char *)"SimpleHtmlListBox_swiginit", SimpleHtmlListBox_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_TaskBarIcon", (PyCFunction)_wrap_new_TaskBarIcon, METH_NOARGS, NULL},

@@ -9520,6 +9520,14 @@ class Window(EvtHandler):
         return _core_.Window_FindFocus(*args, **kwargs)
 
     FindFocus = staticmethod(FindFocus)
+    def HasFocus(*args, **kwargs):
+        """
+        HasFocus(self) -> bool
+
+        Returns ``True`` if the window has the keyboard focus.
+        """
+        return _core_.Window_HasFocus(*args, **kwargs)
+
     def AcceptsFocus(*args, **kwargs):
         """
         AcceptsFocus(self) -> bool

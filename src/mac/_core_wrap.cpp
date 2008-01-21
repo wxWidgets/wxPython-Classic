@@ -38660,6 +38660,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Window_HasFocus(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxWindow *arg1 = (wxWindow *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Window_HasFocus" "', expected argument " "1"" of type '" "wxWindow const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxWindow * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxWindow const *)arg1)->HasFocus();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Window_AcceptsFocus(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
@@ -64842,6 +64872,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Window_SetFocus", (PyCFunction)_wrap_Window_SetFocus, METH_O, NULL},
 	 { (char *)"Window_SetFocusFromKbd", (PyCFunction)_wrap_Window_SetFocusFromKbd, METH_O, NULL},
 	 { (char *)"Window_FindFocus", (PyCFunction)_wrap_Window_FindFocus, METH_NOARGS, NULL},
+	 { (char *)"Window_HasFocus", (PyCFunction)_wrap_Window_HasFocus, METH_O, NULL},
 	 { (char *)"Window_AcceptsFocus", (PyCFunction)_wrap_Window_AcceptsFocus, METH_O, NULL},
 	 { (char *)"Window_CanAcceptFocus", (PyCFunction)_wrap_Window_CanAcceptFocus, METH_O, NULL},
 	 { (char *)"Window_AcceptsFocusFromKeyboard", (PyCFunction)_wrap_Window_AcceptsFocusFromKeyboard, METH_O, NULL},

@@ -5109,6 +5109,10 @@ class MetaFileDC(DC):
             String description=EmptyString) -> MetaFileDC
         """
         _gdi_.MetaFileDC_swiginit(self,_gdi_.new_MetaFileDC(*args, **kwargs))
+    def Close(*args, **kwargs):
+        """Close(self) -> MetaFile"""
+        return _gdi_.MetaFileDC_Close(*args, **kwargs)
+
 _gdi_.MetaFileDC_swigregister(MetaFileDC)
 
 class PrinterDC(DC):
