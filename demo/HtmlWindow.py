@@ -132,7 +132,8 @@ class TestHtmlPanel(wx.Panel):
 
 
     def OnLoadFile(self, event):
-        dlg = wx.FileDialog(self, wildcard = '*.htm*', style=wx.OPEN)
+        dlg = wx.FileDialog(self, style=wx.OPEN,
+                            wildcard='HTML Files|*.htm;*.html', )
 
         if dlg.ShowModal():
             path = dlg.GetPath()
