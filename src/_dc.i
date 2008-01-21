@@ -1839,7 +1839,7 @@ public:
     wxMetaFileDC(const wxString& filename = wxPyEmptyString,
                  int width = 0, int height = 0,
                  const wxString& description = wxPyEmptyString);
-//    wxMetaFile* Close();
+    wxMetaFile* Close();
 //    wxMetafile *GetMetafile() const 
 };
 
@@ -1859,6 +1859,7 @@ public:
     wxMetaFileDC(const wxString&, int, int, const wxString&)
         : wxClientDC((wxWindow*)NULL)
         { wxPyRaiseNotImplemented(); }
+    wxMetaFile* Close() { return NULL; }
 };
 
 %}
