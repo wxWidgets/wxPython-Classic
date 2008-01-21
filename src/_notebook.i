@@ -28,7 +28,10 @@ enum {
     wxBK_LEFT,
     wxBK_RIGHT,
     wxBK_ALIGN_MASK,
-    wxBK_BUTTONBAR,
+
+    wxBK_BUTTONBAR,   // deprecated
+    wxTBK_BUTTONBAR,   
+    wxTBK_HORZ_LAYOUT,
 
     // hittest flags
     wxBK_HITTEST_NOWHERE = 1,   // not on tab
