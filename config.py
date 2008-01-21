@@ -92,7 +92,6 @@ Topic :: Software Development :: User Interfaces
 # Config values below this point can be reset on the setup.py command line.
 
 BUILD_GLCANVAS = 1 # If true, build the contrib/glcanvas extension module
-BUILD_OGL = 0      # If true, build the contrib/ogl extension module
 BUILD_STC = 1      # If true, build the contrib/stc extension module
 BUILD_GIZMOS = 1   # Build a module for the gizmos contrib library
 BUILD_DLLWIDGET = 0# Build a module that enables unknown wx widgets
@@ -278,8 +277,7 @@ WXPYTHON_TYPE_TABLE = '_wxPython_table'
 
 # Boolean (int) flags
 for flag in [ 'BUILD_ACTIVEX', 'BUILD_DLLWIDGET',
-              'BUILD_GIZMOS', 'BUILD_GLCANVAS', 
-              'BUILD_OGL', 'BUILD_STC',     
+              'BUILD_GIZMOS', 'BUILD_GLCANVAS', 'BUILD_STC',     
              'CORE_ONLY', 'PREP_ONLY', 'USE_SWIG', 'UNICODE',
              'UNDEF_NDEBUG', 'NO_SCRIPTS', 'NO_HEADERS', 'BUILD_RENAMERS',
              'FULL_DOCS', 'INSTALL_MULTIVERSION', 'EP_ADD_OPTS', 'EP_FULL_VER',
@@ -826,7 +824,6 @@ distutils.cygwinccompiler.CygwinCCompiler._compile = _compile
 
 if CORE_ONLY:
     BUILD_GLCANVAS = 0
-    BUILD_OGL = 0
     BUILD_STC = 0
     BUILD_GIZMOS = 0
     BUILD_DLLWIDGET = 0
