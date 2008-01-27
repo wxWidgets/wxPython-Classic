@@ -68,13 +68,12 @@ Requirements:
 """
 
 __author__ = "Cody Precord <cprecord@editra.org>"
-__svnid__ = "$Id: platebtn.py 50678 2007-12-13 10:14:44Z CJP $"
-__revision__ = "$Revision: 50678 $"
+__svnid__ = "$Id: platebtn.py 51224 2008-01-15 12:51:16Z CJP $"
+__revision__ = "$Revision: 51224 $"
 
 #-----------------------------------------------------------------------------#
 # Imports
 import wx
-import wx.lib.imageutils as imageutils
 
 # Used on OSX to get access to carbon api constants
 if wx.Platform == '__WXMAC__':
@@ -175,11 +174,9 @@ class PlateButton(wx.PyControl):
         self.InheritAttributes()
         self._bmp = dict(enable=bmp)
         if bmp is not None:
-            img = wx.ImageFromBitmap(bmp)
-            img.SetMask(True)
-            img.ConvertAlphaToMask()
-            imageutils.grayOut(img)
-            self._bmp['disable'] = wx.BitmapFromImage(img)
+            img = bmp.ConvertToImage()
+            img = img.ConvertToGreyscale(.795, .073, .026) #(.634, .224, .143)
+            self._bmp['disable'] = img.ConvertToBitmap()
         else:
             self._bmp['disable'] = None
 
@@ -289,7 +286,14 @@ class PlateButton(wx.PyControl):
 
     def __DrawButton(self):
         """Draw the button"""
-        dc = wx.PaintDC(self)
+        # TODO using a buffered paintdc on windows with the nobg style
+        #      causes lots of weird drawing. So currently the use of a
+        #      buffered dc is dissabled for this style.
+        if PB_STYLE_NOBG & self._style:
+            dc = wx.PaintDC(self)
+        else:
+            dc = wx.AutoBufferedPaintDCFactory(self)
+
         gc = wx.GCDC(dc)
 
         # Setup
@@ -340,7 +344,7 @@ class PlateButton(wx.PyControl):
         if self._state['cur'] != PLATE_PRESSED:
             txt_x = self.__DrawBitmap(gc)
             gc.DrawText(self.GetLabel(), txt_x + 2, txt_y)
-            self.__DrawDropArrow(gc, txt_x + tw + 6, (height / 2) - 2) 
+            self.__DrawDropArrow(gc, txt_x + tw + 6, (height / 2) - 2)
 
     def __InitColors(self):
         """Initialize the default colors"""
@@ -556,11 +560,9 @@ class PlateButton(wx.PyControl):
 
         """
         self._bmp['enable'] = bmp
-        img = wx.ImageFromBitmap(bmp)
-        img.SetMask(True)
-        img.ConvertAlphaToMask()
-        imageutils.grayOut(img)
-        self._bmp['disable'] = wx.BitmapFromImage(img)
+        img = bmp.ConvertToImage()
+        img = img.ConvertToGreyscale(.795, .073, .026) #(.634, .224, .143)
+        self._bmp['disable'] = img.ConvertToBitmap()
         self.InvalidateBestSize()
 
     def SetBitmapDisabled(self, bmp):
