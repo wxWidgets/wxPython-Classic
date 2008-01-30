@@ -70,4 +70,4 @@ The most exciting phrase to hear in science, the one that heralds new discoverie
 Always listen to experts. They'll tell you what can't be done and why. Then do it. --Robert Heinlein
 Still waters run deep.
 Premature optimization is the root of all evil.  -- Donald Knuth
-
+If at first you don't succeed, you must be a programmer.
