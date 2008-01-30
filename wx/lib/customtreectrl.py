@@ -3,7 +3,7 @@
 # Inspired By And Heavily Based On wxGenericTreeCtrl.
 #
 # Andrea Gavana, @ 17 May 2006
-# Latest Revision: 14 Jan 2008, 22.00 CET
+# Latest Revision: 30 Jan 2008, 21.00 GMT
 #
 #
 # TODO List
@@ -136,8 +136,8 @@ CustomTreeCtrl has been tested on the following platforms:
   * Mac OS (Thanks to John Jackson).
 
 
-Latest Revision: Andrea Gavana @ 14 Jan 2008, 22.00 CET
-Version 1.4
+Latest Revision: Andrea Gavana @ 30 Jan 2008, 21.00 GMT
+Version 1.5
 
 """
 
@@ -857,6 +857,7 @@ class TreeTextCtrl(ExpandoTextCtrl):
         self._startValue = item.GetText()
         self._finished = False
         self._aboutToFinish = False
+        self._currentValue = self._startValue
 
         w = self._itemEdited.GetWidth()
         h = self._itemEdited.GetHeight()
@@ -969,11 +970,7 @@ class TreeTextCtrl(ExpandoTextCtrl):
                 event.Skip()
             else:
                 self._aboutToFinish = True
-                # Remove the "\n" at the end... Why this is adding a
-                # newline character? It never did before (!)
-                insertionPoint = self.GetInsertionPoint()
-                value = self.GetValue()
-                self.SetValue(value[0:insertionPoint-1]+value[insertionPoint:])
+                self.SetValue(self._currentValue)
                 # Notify the owner about the changes
                 self.AcceptChanges()
                 # Even if vetoed, close the control (consistent with MSW)
@@ -1005,6 +1002,7 @@ class TreeTextCtrl(ExpandoTextCtrl):
                 sx = mySize.x
                 
             self.SetSize((sx, -1))
+            self._currentValue = self.GetValue()
 
         event.Skip()
 
