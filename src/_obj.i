@@ -49,4 +49,23 @@ object.", "");
 };
 
 
+
+
+class wxObjectRefData
+{
+public:
+    wxObjectRefData();
+    %extend {
+        ~wxObjectRefData() { self->DecRef(); }
+    }
+    
+    int GetRefCount() const;
+    void IncRef();
+    void DecRef();
+};
+
+
+
+
+
 //---------------------------------------------------------------------------

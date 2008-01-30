@@ -254,6 +254,8 @@ bool wxPoint2D_helper(PyObject* source, wxPoint2D** obj);
 bool wxRect2D_helper(PyObject* source, wxRect2D** obj);
 bool wxPosition_helper(PyObject* source, wxPosition** obj);
 
+wxVariant wxVariant_in_helper(PyObject* source);
+PyObject* wxVariant_out_helper(wxVariant& value);
 
 bool wxPySimple_typecheck(PyObject* source, const wxChar* classname, int seqLen);
 bool wxColour_typecheck(PyObject* source);
@@ -434,7 +436,6 @@ struct wxPyCoreAPI {
 
     bool                (*p_wxPyCheckForApp)();
 
-    // Add all new items at the end...
     PyObject*           (*p_wxArrayDoublePyList_helper)(const wxArrayDouble& arr);
     wxPoint2D*          (*p_wxPoint2D_LIST_helper)(PyObject* source, size_t* npoints);
     bool                (*p_wxRect2D_helper)(PyObject* source, wxRect2D** obj);
@@ -442,6 +443,11 @@ struct wxPyCoreAPI {
 
     wxPyCBOutputStream*  (*p_wxPyCBOutputStream_create)(PyObject *py, bool block);
     wxPyCBOutputStream*  (*p_wxPyCBOutputStream_copy)(wxPyCBOutputStream* other);
+
+    wxVariant            (*p_wxVariant_in_helper)(PyObject* source);
+    PyObject*            (*p_wxVariant_out_helper)(wxVariant& value);
+
+    // Add all new items at the end...
 };
 
 

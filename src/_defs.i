@@ -684,6 +684,100 @@ typedef wxList ListClass##_t;
 
 
 
+
+// and now something similar for wxArray
+
+%define wxARRAY_WRAPPER(ArrayClass, ItemClass)
+// first a bit of C++ code...    
+%{
+class ArrayClass##_iterator
+{
+public:
+    ArrayClass##_iterator(ArrayClass &array)
+    : m_array(array), m_idx(0) {}
+    
+    ItemClass* next() {
+        ItemClass* obj = NULL;
+        if (m_idx < m_array.GetCount()) {
+            obj = (ItemClass*)&m_array.Item(m_idx);
+            m_idx += 1;
+        }
+        else PyErr_SetString(PyExc_StopIteration, "");
+        return obj;
+    }
+private:
+    ArrayClass& m_array;
+    size_t      m_idx;
+};
+%}
+
+// Now declare the classes for SWIG
+
+DocStr(ArrayClass##_iterator,
+"This class serves as an iterator for a ArrayClass object.", "");
+
+class ArrayClass##_iterator
+{
+public:
+    //ArrayClass##_iterator();
+    ~ArrayClass_iterator();
+    KeepGIL(next);
+    ItemClass* next();
+};
+
+
+DocStr(ArrayClass,
+"This class wraps a wxArray-based class and gives it a Python
+sequence-like interface.  Sequence operations supported are length,
+index access and iteration.", "");
+
+class ArrayClass
+{
+public:
+    //ArrayClass();      This will always be created by some C++ function
+    ~ArrayClass();
+
+    %extend {
+        KeepGIL(__len__);
+        size_t __len__() {
+            return self->GetCount();
+        }
+
+        KeepGIL(__getitem__);
+        ItemClass* __getitem__(size_t index) {
+            if (index < self->GetCount()) {
+                return (ItemClass*)&self->Item(index);
+            }
+            PyErr_SetString(PyExc_IndexError, "sequence index out of range");
+            return NULL;
+        }
+
+// TODO        
+//         KeepGIL(__contains__);
+//         bool __contains__(const ItemClass* obj) {
+//         }
+
+        KeepGIL(__iter__);
+        %newobject __iter__;
+        ArrayClass##_iterator* __iter__() {
+            return new ArrayClass##_iterator(*self);
+        }
+
+// TODO        
+//         KeepGIL(index);
+//         int index(ItemClass* obj) {
+//         }
+        
+    }
+    
+    %pythoncode {
+        def __repr__(self):
+            return "ArrayClass: " + repr(list(self))
+    }
+};
+%enddef
+
+
 //---------------------------------------------------------------------------
 
 %{

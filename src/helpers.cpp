@@ -3108,6 +3108,118 @@ PyObject* wxArrayDouble2PyList_helper(const wxArrayDouble& arr)
 
 
 //----------------------------------------------------------------------
+
+// A wxVariantData class that can hold a PyObject
+class wxVariantDataPyObject : public wxVariantData
+{
+public:
+    wxVariantDataPyObject()
+        : m_obj(NULL) {}
+    
+    wxVariantDataPyObject(PyObject* obj)
+        : m_obj(obj) { Py_INCREF(m_obj); }
+
+    PyObject* GetValue() const { return m_obj; }
+    void SetValue(PyObject* obj);
+
+    virtual bool Eq(wxVariantData& data) const;
+    
+    virtual wxString GetType() const { return wxT("PyObject"); }
+    wxVariantData* Clone() const { return new wxVariantDataPyObject(m_obj); }
+
+protected:
+    ~wxVariantDataPyObject()    { Py_XDECREF(m_obj); }
+    PyObject*   m_obj;
+};
+
+
+void wxVariantDataPyObject::SetValue(PyObject* obj)
+{
+    Py_XDECREF(m_obj);
+    m_obj = obj;
+    Py_XINCREF(m_obj);
+}
+
+bool wxVariantDataPyObject::Eq(wxVariantData& data) const
+{
+    wxASSERT_MSG( (data.GetType() == wxT("PyObject")),
+                  wxT("wxVariantDataPyObject::Eq: argument mismatch") );
+    wxVariantDataPyObject& otherData = (wxVariantDataPyObject&) data;
+
+    if ( !m_obj || !otherData.m_obj )
+        return false;
+
+    int result;
+    PyObject_Cmp(m_obj, otherData.m_obj, &result);
+    return result == 0;
+}
+
+
+
+// Helper functions for wxVariant typemaps.  For the basic types that
+// wxVariant knows about we will try to store/fetch nativly, otherwise
+// we'll just carry the PyObject through.
+
+wxVariant wxVariant_in_helper(PyObject* source)
+{
+    wxVariant ret;
+    
+    if (PyBool_Check(source))
+        ret = (bool)(source == Py_True);
+    else if (PyInt_Check(source))
+        ret = PyInt_AS_LONG(source);
+    else if (PyFloat_Check(source))
+        ret = PyFloat_AS_DOUBLE(source);
+    else if (PyString_Check(source) || PyUnicode_Check(source))
+        ret = Py2wxString(source);
+    else
+        ret = new wxVariantDataPyObject(source);
+
+    return ret;
+}
+
+PyObject* wxVariant_out_helper(wxVariant& value)
+{
+    PyObject* ret;
+
+    if ( value.IsType("bool") )
+    {
+        if ( value.GetBool() )
+            ret = Py_True;
+        else
+            ret = Py_False;
+        Py_INCREF(ret);
+    }
+    else if ( value.IsType("long") )
+    {
+        ret = PyInt_FromLong(value.GetLong());
+    }
+    else if ( value.IsType("double") )
+    {
+        ret = PyFloat_FromDouble(value.GetDouble());
+    }
+    else if ( value.IsType("string") )
+    {
+        ret = wx2PyString(value.GetString());
+    }
+    else if ( value.IsType("PyObject") )
+    {
+        wxVariantDataPyObject* data = (wxVariantDataPyObject*)value.GetData();
+        ret = data->GetValue();
+        Py_INCREF(ret);
+    }
+    else
+    {
+        wxString msg = "Unexpected type (\"" + value.GetType() + "\") in wxVariant.";
+        PyErr_SetString(PyExc_TypeError, msg.mb_str());
+        ret = NULL;
+    }
+    return ret;
+}
+
+
+
+//----------------------------------------------------------------------
 // wxPyImageHandler methods
 //
 // TODO: Switch these to use wxPython's standard macros and helper classes

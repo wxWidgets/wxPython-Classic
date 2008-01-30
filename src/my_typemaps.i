@@ -373,6 +373,20 @@ MAKE_INT_ARRAY_TYPEMAPS(styles, styles_field)
 
 
 
+
+//---------------------------------------------------------------------------
+// Typemaps for wxVariant
+
+%typemap(in) wxVariant& (wxVariant temp) {
+    temp = wxVariant_in_helper($input);
+    $1 = &temp;
+}
+
+%typemap(out) wxVariant {
+    $result = wxVariant_out_helper($1);
+}
+
+
 //---------------------------------------------------------------------------
 // Typemaps to convert return values that are base class pointers
 // to the real derived type, if possible.  See wxPyMake_wxObject in

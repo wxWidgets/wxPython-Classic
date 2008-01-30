@@ -186,7 +186,8 @@ static wxPyCoreAPI API = {
     wxPyBeginBlockThreads,
     wxPyEndBlockThreads,
                                              
-    NULL,
+    NULL,  // A function was removed, reserve the slot so the others don't
+           // change location
                                              
     wxString_in_helper,
     Py2wxString,
@@ -244,6 +245,9 @@ static wxPyCoreAPI API = {
     
     wxPyCBOutputStream_create,
     wxPyCBOutputStream_copy,
+
+    wxVariant_in_helper,
+    wxVariant_out_helper,
 };
 
 #endif

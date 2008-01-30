@@ -126,5 +126,8 @@ inline wxPyCoreAPI* wxPyGetCoreAPIPtr()
 #define wxPyCBOutputStream_create(a, b)         (wxPyGetCoreAPIPtr()->p_wxPyCBOutputStream_create(a, b))
 #define wxPyCBOutputStream_copy(a)              (wxPyGetCoreAPIPtr()->p_wxPyCBOutputStream_copy(a))
 
+#define wxVariant_in_helper(a)                  (wxPyGetCoreAPIPtr()->p_wxVariant_in_helper(a))
+#define wxVariant_out_helper(a)                 (wxPyGetCoreAPIPtr()->p_wxVariant_out_helper(a))
+
 //----------------------------------------------------------------------
 #endif
