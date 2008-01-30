@@ -165,8 +165,10 @@ wx/tools/Editra/plugins/filebrowser
 wx/tools/Editra/plugins/filebrowser/filebrowser
 wx/tools/Editra/plugins/hello
 wx/tools/Editra/plugins/hello/hello
-wx/tools/Editra/plugins/pyshell
-wx/tools/Editra/plugins/pyshell/pyshell
+wx/tools/Editra/plugins/Launch
+wx/tools/Editra/plugins/Launch/launch
+wx/tools/Editra/plugins/PyShell
+wx/tools/Editra/plugins/PyShell/PyShell
 wx/tools/Editra/scripts
 wx/tools/Editra/scripts/i18n
 wx/tools/Editra/src
