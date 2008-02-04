@@ -82,8 +82,7 @@ class GenButton(wx.PyControl):
 
         self.Bind(wx.EVT_LEFT_DOWN,        self.OnLeftDown)
         self.Bind(wx.EVT_LEFT_UP,          self.OnLeftUp)
-        if wx.Platform == '__WXMSW__':
-            self.Bind(wx.EVT_LEFT_DCLICK,  self.OnLeftDown)
+        self.Bind(wx.EVT_LEFT_DCLICK,      self.OnLeftDown)
         self.Bind(wx.EVT_MOTION,           self.OnMotion)
         self.Bind(wx.EVT_SET_FOCUS,        self.OnGainFocus)
         self.Bind(wx.EVT_KILL_FOCUS,       self.OnLoseFocus)
