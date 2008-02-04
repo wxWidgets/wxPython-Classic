@@ -1039,7 +1039,7 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
     cflags = adjustCFLAGS(cflags, defines, includes)
     lflags = adjustLFLAGS(lflags, libdirs, libs)
 
-    if debug and WXPORT == 'msw':
+    if debug and WXPORT == 'msw' and COMPILER != 'mingw32':
         defines.append( ('_DEBUG', None) )
         
 ##     from pprint import pprint
