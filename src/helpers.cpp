@@ -3157,7 +3157,7 @@ bool wxVariantDataPyObject::Eq(wxVariantData& data) const
 
 
 // Helper functions for wxVariant typemaps.  For the basic types that
-// wxVariant knows about we will try to store/fetch nativly, otherwise
+// wxVariant knows about we will try to store/fetch natively, otherwise
 // we'll just carry the PyObject through.
 
 wxVariant wxVariant_in_helper(PyObject* source)
@@ -3178,10 +3178,12 @@ wxVariant wxVariant_in_helper(PyObject* source)
     return ret;
 }
 
-PyObject* wxVariant_out_helper(wxVariant& value)
+PyObject* wxVariant_out_helper(const wxVariant& value)
 {
     PyObject* ret;
 
+// TODO:  These too?  "char", "datetime", "arrstring", "wxObject"
+    
     if ( value.IsType("bool") )
     {
         if ( value.GetBool() )
