@@ -121,7 +121,7 @@ public:
 
         def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY):
             """
-            Disconencts the event handler binding for event from self.
+            Disconnects the event handler binding for event from self.
             Returns True if successful.
             """
             if source is not None:

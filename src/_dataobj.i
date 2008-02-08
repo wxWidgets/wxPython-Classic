@@ -513,7 +513,7 @@ public:
 
 DocStr(wxDataObjectComposite,
 "wx.DataObjectComposite is the simplest `wx.DataObject` derivation
-which may be sued to support multiple formats. It contains several
+which may be used to support multiple formats. It contains several
 'wx.DataObjectSimple` objects and supports any format supported by at
 least one of them. Only one of these data objects is *preferred* (the
 first one if not explicitly changed by using the second parameter of
