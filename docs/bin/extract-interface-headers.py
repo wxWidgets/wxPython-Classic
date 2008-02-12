@@ -1,5 +1,12 @@
 #!/usr/bin/python
 
+# use as
+# ./extract-interface-headers.py wxPython-path/src wxWidgets-path/html-manual-path
+#
+# 
+#
+
+
 import sys, os, re
 import glob
 from docparser.wxclasses import *
@@ -85,9 +92,20 @@ def inject_docs_into_header(classname, text):
             type = "(virtual void )"
             methodname = methods[method].name
             if len(methods[method].prototypes) > 0:
+                
+                outtype = methods[method].prototypes[0][0].strip()
+                
+                
                 x = HTMLStripper()
-                x.feed(methods[method].prototypes[0][0].strip())
+                x.feed(outtype)
                 type = x.get_fed_data()
+                
+                # fix wxDateTime& being transformed erraneously to wxDateTime
+                if outtype[-1:] == '&':
+                    type = type+ '&'
+                
+                #print "outtype is", outtype, "type is", type
+                
                 # usually headers don't declare methods as virtual, so we add it ourself.
                 # however, if they do declare it, we'll get virtual virtual unless we 
                 # remove one of them.
@@ -105,6 +123,8 @@ def inject_docs_into_header(classname, text):
             
             methodname = methodname.strip() + "\\("
             methodregexstr = type + "(" + methodname + ")"
+            
+            print "methodregexstr: ", methodregexstr
             
             methodregex = """(.*?)(\s*?)%s(.*?)""" % methodregexstr.replace(" ", "\s*?")
             #print "method is: %s, %s" % (classname, methodregex)
@@ -380,8 +400,9 @@ if __name__ == "__main__":
             afile = open(headerpath, "w")
             afile.write(headertext)
             afile.close()
+        
             
-        print "There were %d functions which had documententation added." % documented_count
+        print "There were %d functions which had documentation added." % documented_count
         print "There are %d functions that couldn't be found in the headers." % (len(undocumented))
         
         undocumented.sort()
