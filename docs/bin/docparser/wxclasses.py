@@ -1,3 +1,4 @@
+import sys, os, re
 import wx
 import restconvert
 html_heading = "<H3><font color=\"red\">%s</font></H3>"
@@ -55,6 +56,7 @@ class wxClass:
         self.methods = {}
         self.propConflicts = []
         self.props = []
+        self.inclusionFile = ""
         
     def asHtml(self):
         html = "<H1>%s</H1>" % self.name
@@ -80,8 +82,16 @@ class wxClass:
         return restText
         
     def asDoxygen(self, indent=0):
+        
+        incfilename = self.name.lower() + ".h"
+        if incfilename.startswith("wx"):
+            incfilename = incfilename[2:]
+        
         doxytext = "\n"
         doxytext += "\\class " + self.name + "\n\n"
+        #doxytext += "\\class " + self.name + " " + \
+                    #incfilename + \
+                    #" \"wx/" + self.inclusionFile + "\"\n\n"
         doxytext += self.description.strip() + "\n\n"
         
         doxytext = doxytext.replace("<P>", "\n")
@@ -90,7 +100,7 @@ class wxClass:
         x.feed(doxytext)
 
         doxytext = "/**\n%s*/\n\n" % commentizeText(x.get_fed_data(), indent)  + (" " * indent)
-        return doxytext
+        return doxytext.replace("\n*", "\n *")
         
     def createProps(self):
         propsText = ""
@@ -224,8 +234,9 @@ class wxMethod:
         x = HTMLStripper()
         x.feed(doxytext)
         
-        doxytext = "/**\n%s%s*/" % (commentizeText(x.get_fed_data(), indent=indent), (" " * indent))
-        return  doxytext
+        indentstr = " " * indent
+        doxytext = "%s/**\n%s%s*/" % (indentstr, commentizeText(x.get_fed_data(), indent=indent), indentstr)
+        return doxytext.replace("\n" + indentstr + "*", "\n" + indentstr + " *")
         
     def getAnchorName(self):
         anchorname = self.parent.name.lower() + self.name.lower()
@@ -248,3 +259,34 @@ class wxMethod:
         retval += "remarks: \n" + self.remarks
         
         return retval
+        
+    def getPrototype(self):
+        
+        # to remove HTML:
+        def replace_empty(match):
+            return ""
+        html_re = re.compile("""<[^>]*>""", re.MULTILINE | re.DOTALL)
+        
+        retval=""
+        for proto in self.prototypes:
+            if len(proto) == 3:
+                #print "function %s has prototype: %s" % (self.name, str(proto))
+                args = ""
+                for a in proto[2]:
+                    if len(a) == 2:
+                        type = str(a[0])
+                        type = html_re.sub(replace_empty, type)
+                        
+                        name = str(a[1])
+                        name = html_re.sub(replace_empty, name)
+                        
+                        args += str(type).strip() + " " + str(name).strip() + ", "
+                        
+                args = args.strip()
+                if args.endswith(","): args = args[:-1]
+                retval += html_re.sub(replace_empty, str(proto[0])).strip() + " " + \
+                          str(proto[1]).strip() + "(" + args + ");\n    "
+            else:
+                print "warning..."
+        return retval.replace("&amp;", "&");
+
