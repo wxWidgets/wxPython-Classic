@@ -16,6 +16,7 @@ win_styles_extra_re = """<B><FONT COLOR="#FF0000">Extra window styles</FONT></B>
 win_style_re = """<TR><TD VALIGN=TOP WIDTH=.*?>\s*?<FONT FACE=".*?">\s*?<B>(.*?)</B>\s*?</FONT></TD>\s*?<TD VALIGN=TOP>\s*?<FONT FACE=".*?">(.*?)</FONT></TD></TR>"""
 derived_re = """<B><FONT COLOR="#FF0000">Derived from</FONT></B><P>(.*?)<P>"""
 derived_class_re = """<A HREF=".*?">(.*?)</A>"""
+include_re = """<FONT COLOR="#FF0000">Include files</FONT></B><P>(.*?)<P>"""
 
 #
 # Method REs
@@ -282,8 +283,8 @@ def getMethod(match, parent):
     method = wxMethod(name, parent, protos, params, desc)
     method.pythonNote = note
     method.pythonOverrides = overrides
-    if len(method.pythonOverrides) > 0:
-        print "has overrides!\n\n\n\n"
+    ##if len(method.pythonOverrides) > 0:
+        ##print "has overrides!\n\n\n\n"
     return method
 
 def getClassDerivedFrom(text):
@@ -298,6 +299,22 @@ def getClassDerivedFrom(text):
         derived_classes, returntext = findAllMatches(derived_class_re, match.group(1), getDerivedClassesFromMatch)
         
     return derived_classes
+    
+
+def getClassIncludeFile(text):
+
+    def getDerivedClassesFromMatch(match):
+        return namespacify_wxClasses(match.group(1))
+
+    include_regex = re.compile(include_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    match = include_regex.search(text)
+    if match:
+        ret = match.group(1).strip().replace("&lt;", "").replace("&gt;", "")
+        if ret.startswith("wx/"):
+            ret = ret[3:]
+        return ret
+    return ""
+    
     
 def getClassDescription(text):
     
@@ -341,10 +358,10 @@ def getClassMethods(doc, parent):
         start = match.end()
         newmethod = getMethod(match, parent)
         basename = parent.name.replace("wx", "")
-        isConstructor = (basename == newmethod.name.replace("wx.", ""))
-        if isConstructor or eval("newmethod.name in dir(wx.%s)" % basename):
-            print "Adding %s.%s" % (parent.name, newmethod.name)
-            methods[newmethod.name] = newmethod
+        #isConstructor = (basename == newmethod.name.replace("wx.", ""))
+        #if isConstructor or eval("newmethod.name in dir(wx.%s)" % basename):
+            ###print "Adding %s.%s" % (parent.name, newmethod.name)
+        methods[newmethod.name] = newmethod
         match = method_regex.search(contents, start)
     
     lastmethod_regex = re.compile(lastmethod_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
@@ -352,26 +369,26 @@ def getClassMethods(doc, parent):
     if match: 
         newmethod = getMethod(match, parent)
         basename = parent.name.replace("wx", "")
-        isConstructor = (basename == newmethod.name.replace("wx.", ""))
-        if isConstructor or eval("newmethod.name in dir(wx.%s)" % basename):
-            print "Adding %s.%s" % (parent.name, newmethod.name)
-            methods[newmethod.name] = newmethod
+        #isConstructor = (basename == newmethod.name.replace("wx.", ""))
+        #if isConstructor or eval("newmethod.name in dir(wx.%s)" % basename):
+            ###print "Adding %s.%s" % (parent.name, newmethod.name)
+        methods[newmethod.name] = newmethod
     
-    for name in methods:
-        if name[0:3] == "Get":
-            propname = name[3:]
-            basename = parent.name.replace("wx", "")
-            if not propname in eval("dir(wx.%s)" % basename):
-                parent.props.append(propname)
-            else:
-                parent.propConflicts.append(parent.name + "." + propname)
-    # get rid of the destructor and operator methods
-    ignore_methods = ["~" + namespacify_wxClasses(parent.name), "operator ==", 
-                        "operator &lt;&lt;", "operator &gt;&gt;", "operator =", 
-                        "operator !=", "operator*", "operator++" ]
-    for method in ignore_methods:
-        if method in methods:
-            methods.pop(method)
+    #for name in methods:
+        #if name[0:3] == "Get":
+            #propname = name[3:]
+            #basename = parent.name.replace("wx", "")
+            #if not propname in eval("dir(wx.%s)" % basename):
+                #parent.props.append(propname)
+            #else:
+                #parent.propConflicts.append(parent.name + "." + propname)
+    ## get rid of the destructor and operator methods
+    #ignore_methods = ["~" + namespacify_wxClasses(parent.name), "operator ==", 
+                        #"operator &lt;&lt;", "operator &gt;&gt;", "operator =", 
+                        #"operator !=", "operator*", "operator++" ]
+    #for method in ignore_methods:
+        #if method in methods:
+            #methods.pop(method)
             
     return methods
         
@@ -387,15 +404,25 @@ def getClasses(doc):
         name = result.group(2).strip()
         classpage = result.group(1).split("#")[0]
         basename = name.replace("wx", "")
-        if basename in dir(wx):
-            classfile = os.path.join(os.path.dirname(doc), classpage)
-            classtext = open(classfile, "rb").read()
-            derivedClasses = getClassDerivedFrom(classtext)
-            description = getClassDescription(classtext)
-            styles = getClassStyles(classtext)
-            extra_styles = getClassStyles(classtext, extraStyles=True)
-            classes[name] = wxClass(name, description, derivedClasses, styles, extra_styles)
-            classes[name].methods = getClassMethods(classfile, classes[name])
+        
+        #print "basename: ",basename
+        
+        #if basename in dir(wx):
+        classfile = os.path.join(os.path.dirname(doc), classpage)
+        if not os.path.exists(classfile):
+            print "could not open %s" % classfile
+            sys.exit(1)
+        
+        classtext = open(classfile, "rb").read()
+        derivedClasses = getClassDerivedFrom(classtext)
+        description = getClassDescription(classtext)
+        styles = getClassStyles(classtext)
+        extra_styles = getClassStyles(classtext, extraStyles=True)
+        classes[name] = wxClass(name, description, derivedClasses, styles, extra_styles)
+        classes[name].methods = getClassMethods(classfile, classes[name])
+        classes[name].inclusionFile = getClassIncludeFile(classtext)
+        #else:
+            #print "   not found"
         result = link_regex.search(contents, start)
 
     return classes
