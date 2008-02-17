@@ -16,7 +16,7 @@ win_styles_extra_re = """<B><FONT COLOR="#FF0000">Extra window styles</FONT></B>
 win_style_re = """<TR><TD VALIGN=TOP WIDTH=.*?>\s*?<FONT FACE=".*?">\s*?<B>(.*?)</B>\s*?</FONT></TD>\s*?<TD VALIGN=TOP>\s*?<FONT FACE=".*?">(.*?)</FONT></TD></TR>"""
 derived_re = """<B><FONT COLOR="#FF0000">Derived from</FONT></B><P>(.*?)<P>"""
 derived_class_re = """<A HREF=".*?">(.*?)</A>"""
-include_re = """<FONT COLOR="#FF0000">Include files</FONT></B><P>(.*?)<P>"""
+include_re = """<FONT COLOR="#FF0000">Include files</FONT></B>\s?<P>(.*?)<P>"""
 
 #
 # Method REs
@@ -272,15 +272,19 @@ def getMethod(match, parent):
     protos, remainder = getMethodProtos(match.group(2))
     
     isConstructor = False
-    #print "name: %s, parent name: %s" % (name, parent.name)
-    if name == parent.name.replace("wx", "wx."):
+    isDestructor = False
+    if name == parent.name:
         isConstructor = True
+    elif name == "~" + parent.name:
+        isDestructor = True
     overrides, remainder = getMethodWxPythonOverrides(remainder, isConstructor)
+    
+    #print "name: %s, parent name: %s, ctor=%s, dtor=%s" % (name, parent.name, isConstructor, isDestructor)
     
     note, remainder = getMethodWxPythonNote(remainder)
     params, remainder = getMethodParams(remainder)
     desc = getMethodDesc(remainder)
-    method = wxMethod(name, parent, protos, params, desc)
+    method = wxMethod(name, parent, protos, params, desc, isConstructor, isDestructor)
     method.pythonNote = note
     method.pythonOverrides = overrides
     ##if len(method.pythonOverrides) > 0:
@@ -310,10 +314,15 @@ def getClassIncludeFile(text):
     match = include_regex.search(text)
     if match:
         ret = match.group(1).strip().replace("&lt;", "").replace("&gt;", "")
+        if ".h" not in ret:
+            print "ERROR: cannot get include file from %s" % text
+            sys.exit(1)
+        ret = ret[:ret.find(".h")+2]
         if ret.startswith("wx/"):
             ret = ret[3:]
         return ret
-    return ""
+    print "ERROR: cannot get include file from %s" % text
+    sys.exit(1)
     
     
 def getClassDescription(text):
@@ -405,14 +414,13 @@ def getClasses(doc):
         classpage = result.group(1).split("#")[0]
         basename = name.replace("wx", "")
         
-        #print "basename: ",basename
-        
         #if basename in dir(wx):
         classfile = os.path.join(os.path.dirname(doc), classpage)
         if not os.path.exists(classfile):
             print "could not open %s" % classfile
             sys.exit(1)
         
+        #print "Parsing ", classfile
         classtext = open(classfile, "rb").read()
         derivedClasses = getClassDerivedFrom(classtext)
         description = getClassDescription(classtext)
@@ -421,8 +429,7 @@ def getClasses(doc):
         classes[name] = wxClass(name, description, derivedClasses, styles, extra_styles)
         classes[name].methods = getClassMethods(classfile, classes[name])
         classes[name].inclusionFile = getClassIncludeFile(classtext)
-        #else:
-            #print "   not found"
+        
         result = link_regex.search(contents, start)
 
     return classes

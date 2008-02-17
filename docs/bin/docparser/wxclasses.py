@@ -27,14 +27,32 @@ def stylesAsHtml(styles, extraStyles=False):
     
     return html
     
+def lastLineLength(str):
+    if "\n" not in str:
+        return len(str)
+    return len(str.split("\n")[-1])
+    
 def commentizeText(text, indent=4):
     outtext = ""
     midtext = text
+    indentstr = " " * indent
+    
+    # highly unoptimized system to make justified text
+    
+    #lst = midtext.replace("\n", " ").split(" ")
+    #outtext=indentstr + "*"
+    #for word in lst:
+        #if lastLineLength(outtext)+len(word)>80:
+            #outtext += "\n" + indentstr + "*"
+        #else:
+            #outtext += " " + word.strip()
+    
+    midtext = midtext.replace("\n\n\n", "\n\n")
     midtext = midtext.replace("\n\n\n", "\n\n")
     for line in midtext.split("\n"):
-        outtext += (" " * indent) + "* " + line + "\n"
+        outtext += indentstr + "* " + line + "\n"
         
-    return outtext
+    return outtext + "\n"
     
 def stripExtraNewlines(text):
     outtext = text.strip()
@@ -99,7 +117,7 @@ class wxClass:
         x = HTMLStripper()
         x.feed(doxytext)
 
-        doxytext = "/**\n%s*/\n\n" % commentizeText(x.get_fed_data(), indent)  + (" " * indent)
+        doxytext = "/**\n%s*/\n\n" % commentizeText(x.get_fed_data(), indent)
         return doxytext.replace("\n*", "\n *")
         
     def createProps(self):
@@ -130,12 +148,14 @@ class wxClass:
         return propsText
                 
 class wxMethod:
-    def __init__(self, name, parent, prototypes=[], params={}, description="", remarks=""):
+    def __init__(self, name, parent, prototypes=[], params={}, description="", isCtor=False, isDtor=False, remarks=""):
         self.name = name
         self.parent = parent
         self.prototypes = prototypes
         self.params = params
         self.description = description
+        self.isCtor = isCtor
+        self.isDtor = isDtor
         self.remarks = remarks
         self.pythonNote = ""
         self.pythonOverrides = []
@@ -236,7 +256,7 @@ class wxMethod:
         
         indentstr = " " * indent
         doxytext = "%s/**\n%s%s*/" % (indentstr, commentizeText(x.get_fed_data(), indent=indent), indentstr)
-        return doxytext.replace("\n" + indentstr + "*", "\n" + indentstr + " *")
+        return doxytext.replace("\n" + indentstr + "*", "\n" + indentstr + " *").replace(" *   ", " * ")
         
     def getAnchorName(self):
         anchorname = self.parent.name.lower() + self.name.lower()
@@ -271,6 +291,14 @@ class wxMethod:
         for proto in self.prototypes:
             if len(proto) == 3:
                 #print "function %s has prototype: %s" % (self.name, str(proto))
+                retval += "    "
+                
+                rettype = html_re.sub(replace_empty, str(proto[0])).strip() + " "
+                if not self.isCtor and not self.isDtor:
+                    retval += rettype
+                retval += str(proto[1]).strip()
+                
+                offset = lastLineLength(retval)+1
                 args = ""
                 for a in proto[2]:
                     if len(a) == 2:
@@ -280,13 +308,22 @@ class wxMethod:
                         name = str(a[1])
                         name = html_re.sub(replace_empty, name)
                         
-                        args += str(type).strip() + " " + str(name).strip() + ", "
+                        param = str(type).strip() + " " + str(name).strip() + ", "
                         
+                        if offset+lastLineLength(args)+len(param)>70:
+                            args = args[:-1]
+                            args += "\n" + " " * offset + param
+                        else:
+                            args += param
+                        
+                        
+                # final touches on args string
                 args = args.strip()
                 if args.endswith(","): args = args[:-1]
-                retval += html_re.sub(replace_empty, str(proto[0])).strip() + " " + \
-                          str(proto[1]).strip() + "(" + args + ");\n    "
+                
+                retval += "(" + args + ");\n    "
             else:
-                print "warning..."
-        return retval.replace("&amp;", "&");
+                print "WARNING: prototype has not 3 elements..."
+                sys.exit(1)
+        return retval.replace("&amp;", "&").rstrip();
 

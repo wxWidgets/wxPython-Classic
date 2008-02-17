@@ -3,8 +3,10 @@
 # use as
 # ./extract-interface-headers.py wxPython-path/src wxWidgets-path/html-manual-path
 #
-# 
-#
+
+# turn on/off the INJECT_MODE
+#INJECT_MODE = True
+INJECT_MODE = False
 
 
 import sys, os, re
@@ -388,28 +390,12 @@ if __name__ == "__main__":
         print "Pulls wx interface headers out of swig .i files, and generates new .i files for"
         print "use by wxPython. Output is stored in ./wx_interface."
         sys.exit(1)
-
-
-    #teststring = "{ a } { x } { y } { z }"
-    
-    #print replace_bracketed_text(teststring)
-    
-    #sys.exit(0)
     
     idir = sys.argv[1]
     outdir = "./wx_interface"
     if not os.path.exists(outdir):
         os.makedirs(outdir)
     
-    # first, we split the headers and the .i file apart
-    for ifile in glob.glob(os.path.join(idir, "_*.i")):
-        #print "ifile = %s" % ifile
-        if not os.path.basename(ifile) in ignore_ifiles:
-            i_file_to_header_and_docstring_file(ifile, outdir)
-    
-    # reformat nicely the *.h files before injecting docs into them
-    ##os.system("astyle -s4 wx_interface/*h") #  -- makes things worse
-
     # now, we parse the docs, and integrate the .i file into the docs
     docspath = sys.argv[2]
     if not os.path.isdir(docspath):
@@ -433,106 +419,233 @@ if __name__ == "__main__":
     processed_classes = []
     not_recognized = []
     
-    print "List of recognized classes: %s" % names
+    #print "List of recognized classes: %s" % names
     #print len(names)
     #sys.exit(1)
     
-    # now inject docs
-    count = 0
-    for headerfile in headerkeys:
-        headerpath = os.path.join(outdir, headerfile)
-        afile = open(headerpath, "r")
+    if INJECT_MODE:
+        # first, we split the headers and the .i file apart
+        for ifile in glob.glob(os.path.join(idir, "_*.i")):
+            #print "ifile = %s" % ifile
+            if not os.path.basename(ifile) in ignore_ifiles:
+                i_file_to_header_and_docstring_file(ifile, outdir)
+        
+        # reformat nicely the *.h files before injecting docs into them
+        ##os.system("astyle -n -s4 wx_interface/*h") #  -- makes things worse
+        
+        # now inject docs
+        for headerfile in headerkeys:
+            headerpath = os.path.join(outdir, headerfile)
+            afile = open(headerpath, "r")
+            headertext = afile.read()
+            afile.close()
+            
+            #if headerfile=='cmndlgs.h':
+            print "injecting docs into headers for %s: %s" % (headerfile, "")
+            ###headertext = class_re.sub(replace_class_in_header, headertext)
+            
+            while 1:
+                matches = class_re.findall(headertext)
+                
+                ok = False
+                for match in matches:
+                    classname = match[1].split(":")[0].strip()
+                    classname = classname.split(" ")[0].strip()
+                    
+                    if classname not in classes:
+                        print "WARNING: %s is not in classes list" % classname
+                        not_recognized.append(classname)
+                        continue
+                    if classname not in processed_classes:
+                        ok = True
+                        break
+                    #else:
+                        #print "WARNING: %s has already been processed" %classname
+                
+                if not ok:
+                    break
+                
+                print "  found", classname
+                
+                # get the text ranging from the beginning of the class declaration
+                # down to the end of the file
+                line = match[0]+match[1]
+                endpos = startpos = headertext.find(line)
+                if startpos == -1:
+                    print "ERROR: can't find %s" % line
+                    sys.exit(1)
+                    
+                classtxt = headertext[startpos+len(line)+1:]
+                endpos += len(line)+1
+                
+                if classtxt.find("{")>40:
+                    print "ERROR; can't find start bracket"
+                    sys.exit(1)
+                    
+                tmp = classtxt.find("{")+1
+                classtxt = classtxt[tmp:]
+                endpos += tmp
+                
+                # search the matching close bracket of this class decl
+                nestlevel = 1
+                for n in range(len(classtxt)):
+                    if nestlevel==0:
+                        break
+                    c = classtxt[n]
+                    if c=='{': nestlevel+=1
+                    if c=='}': nestlevel-=1
+                
+                # now we've got the text belonging to the class
+                classtxt = classtxt[:n-1]
+                endpos += n+2
+                
+                # add class docs
+                classdocs = classes[classname].asDoxygen() + "\n\n"
+        
+                if not line.endswith("\n"):
+                    line += "\n"
+        
+                newclasstxt = "\n\n" + classdocs.strip() +"\n"+ line.strip() + "\n{\n" + \
+                    inject_docs_into_header(classname, classtxt) + "\n};\n"
+                
+                #if classname=='wxUpdateUIEvent':
+                    #print "classtxt:", classtxt
+                    #print "\n\n\n\nnewclasstxt:", newclasstxt, "\n\n"
+    
+                # substitute classtxt with newclasstxt
+                headertext = headertext[:startpos] + newclasstxt + headertext[endpos:]
+                
+                processed_classes.append(classname)
+                #print "processed_classes:",processed_classes
+    
+            afile = open(headerpath, "w")
+            afile.write(headertext)
+            afile.close()
+        
+    
+    # reformat the headers
+    ###os.system("astyle -n -s4 wx_interface/*h")
+     
+    # generally there are big number of newlines attached...
+    for file in glob.glob("wx_interface/*.h"):
+        afile = open(file, "r")
         headertext = afile.read()
         afile.close()
         
-        #if headerfile=='cmndlgs.h':
-        print "injecting docs into headers for %s: %s" % (headerfile, "")
-        ###headertext = class_re.sub(replace_class_in_header, headertext)
-        
-        while 1:
-            matches = class_re.findall(headertext)
+        separator = "//---------------------------------------------------------------------------\n\n"
+        headertext = headertext.replace("\n\n\n\n", "\n\n")
+        headertext = headertext.replace("\n\n\n\n", "\n\n")
+        headertext = headertext.replace("\n\n\n\n", "\n\n")
+        headertext = headertext.replace(separator + "\n\n", separator)
+        headertext = headertext.replace(separator + "\n\n", separator)
             
-            ok = False
-            for match in matches:
-                classname = match[1].split(":")[0].strip()
-                classname = classname.split(" ")[0].strip()
-                
-                if classname not in classes:
-                    print "WARNING: %s is not in classes list" % classname
-                    not_recognized.append(classname)
-                    continue
-                if classname not in processed_classes:
-                    ok = True
-                    break
-                #else:
-                    #print "WARNING: %s has already been processed" %classname
-            
-            if not ok:
-                break
-            
-            print "  found", classname
-            
-            # get the text ranging from the beginning of the class declaration
-            # down to the end of the file
-            line = match[0]+match[1]
-            endpos = startpos = headertext.find(line)
-            if startpos == -1:
-                print "ERROR: can't find %s" % line
-                sys.exit(1)
-                
-            classtxt = headertext[startpos+len(line)+1:]
-            endpos += len(line)+1
-            
-            if classtxt.find("{")>40:
-                print "ERROR; can't find start bracket"
-                sys.exit(1)
-                
-            tmp = classtxt.find("{")+1
-            classtxt = classtxt[tmp:]
-            endpos += tmp
-            
-            # search the matching close bracket of this class decl
-            nestlevel = 1
-            for n in range(len(classtxt)):
-                if nestlevel==0:
-                    break
-                c = classtxt[n]
-                if c=='{': nestlevel+=1
-                if c=='}': nestlevel-=1
-            
-            # now we've got the text belonging to the class
-            classtxt = classtxt[:n-1]
-            endpos += n+2
-            
-            # add class docs
-            classdocs = classes[classname].asDoxygen() + "\n\n"
-    
-            if not line.endswith("\n"):
-                line += "\n"
-    
-            newclasstxt = "\n\n" + classdocs.strip() +"\n"+ line.strip() + "\n{\n" + \
-                inject_docs_into_header(classname, classtxt) + "\n};\n"
-            
-            #if classname=='wxUpdateUIEvent':
-                #print "classtxt:", classtxt
-                #print "\n\n\n\nnewclasstxt:", newclasstxt, "\n\n"
-
-            # substitute classtxt with newclasstxt
-            headertext = headertext[:startpos] + newclasstxt + headertext[endpos:]
-            
-            processed_classes.append(classname)
-            #print "processed_classes:",processed_classes
-
-        afile = open(headerpath, "w")
+        afile = open(file, "w")
         afile.write(headertext)
         afile.close()
-    
+        
     not_processed = set(classes).difference(set(processed_classes))
-    print "list of classes NOT in HTML docs but in headers (probably not meant to be documented): %s" % set(not_recognized)
-    print "list of classes in HTML docs but NOT in headers (BIG PROBLEM): %s" % not_processed
-    print "There were %d classes in HTML docs; %d were in headers" % (len(classes), len(processed_classes))
-    print "There were %d functions which had documentation added." % documented_count
-    print "There are %d functions that couldn't be found in the headers but are in the HTML docs." % (len(undocumented))
+    print "list of classes in HTML docs but NOT in SWIG headers (BIG PROBLEM): %s" % not_processed
+    
+    # for classes which were not in the SWIG headers, generate new headers
+    for cn in not_processed:
+        
+        # by FM
+        fname = classes[cn].inclusionFile
+        #fname = cn.lower().replace(" ", "") + ".h"
+        #if fname.startswith("wx"):
+            #fname = fname[2:]
+        
+        dirname = "wx_interface/" + fname
+        dirname = dirname[:dirname.rfind("/")]
+        if not os.path.exists(dirname):
+            print "making dir", dirname
+            os.makedirs(dirname)
+        
+        
+        funcs=""
+        funcs_list = classes[cn].methods.keys()
+        funcs_list.sort()
+        
+        # first process all ctors
+        for mn in funcs_list:
+            m=classes[cn].methods[mn]
+            if m.isCtor:
+                funcs += m.asDoxygen() + "\n"
+                funcs += m.getPrototype() + "\n"
+                funcs += "\n"
+                documented_count += 1
+        
+        # now process all dtors
+        for mn in funcs_list:
+            m=classes[cn].methods[mn]
+            if m.isDtor:
+                funcs += m.asDoxygen() + "\n"
+                funcs += m.getPrototype() + "\n"
+                funcs += "\n"
+                documented_count += 1
+        
+        # now process everything else
+        for mn in funcs_list:
+            m=classes[cn].methods[mn]
+            if not m.isCtor and not m.isDtor:
+                funcs += m.asDoxygen() + "\n"
+                funcs += m.getPrototype() + "\n"
+                funcs += "\n"
+                documented_count += 1
+        
+        derived_from = ""
+        if classes[cn].derivedFrom != []:
+            derived_from = ": public " + classes[cn].derivedFrom[0]
+        
+        if os.path.exists("wx_interface/" + fname):
+            
+            print "appending %s docs to the header %s" % (cn, fname)
+        
+            # append to the existing header
+            txt = """
+
+%s
+class %s %s
+{
+public:
+%s
+};
+""" % (classes[cn].asDoxygen().strip(), cn, derived_from, "    "+funcs.strip())
+
+            afile = open("wx_interface/" + fname, "a+")
+            afile.write(txt)
+            afile.close()
+        else:
+            
+            print "creating the header for %s as %s" % (cn, fname)
+            
+            # create a brand new header
+            
+            txt = """/////////////////////////////////////////////////////////////////////////////
+// Name:        %s
+// Purpose:     documentation for %s class
+// Author:      wxWidgets team
+// RCS-ID:      $Id$
+// Licence:     wxWindows license
+/////////////////////////////////////////////////////////////////////////////
+
+%s
+class %s %s
+{
+public:
+%s
+};
+""" % (fname, cn, classes[cn].asDoxygen().strip(), cn, derived_from, "    "+funcs.strip() )
+        
+            afile = open("wx_interface/" + fname, "w")
+            afile.write(txt)
+            afile.close()
+            
+    
+    print "list of classes NOT in HTML docs but in SWIG headers (probably not meant to be documented): %s" % set(not_recognized)
+    print "There were %d classes in HTML docs; %d were in SWIG headers; %d were generated" % (len(classes), len(processed_classes), len(not_processed))
+    print "There were %d functions which had documentation added/generated." % documented_count
+    print "There are %d functions that couldn't be found in the SWIG headers but are in the HTML docs." % (len(undocumented))
     
     undocumented.sort()
     afile = open(os.path.join(outdir, "unfound_functions.txt"), "w")
@@ -540,7 +653,7 @@ if __name__ == "__main__":
         afile.write(func + "\n")
     afile.close()
     
-    print "There are %d functions where the docs likely have an incorrect method signature (HTML doc signature != header signature)." % (len(broken_sig))
+    print "There are %d functions where the docs likely have an incorrect method signature (HTML doc signature != SWIG header signature)." % (len(broken_sig))
     
     broken_sig.sort()
     afile = open(os.path.join(outdir, "broken_sig_functions.txt"), "w")
