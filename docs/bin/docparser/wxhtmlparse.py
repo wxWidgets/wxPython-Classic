@@ -17,6 +17,8 @@ win_style_re = """<TR><TD VALIGN=TOP WIDTH=.*?>\s*?<FONT FACE=".*?">\s*?<B>(.*?)
 derived_re = """<B><FONT COLOR="#FF0000">Derived from</FONT></B><P>(.*?)<P>"""
 derived_class_re = """<A HREF=".*?">(.*?)</A>"""
 include_re = """<FONT COLOR="#FF0000">Include files</FONT></B>\s?<P>(.*?)<P>"""
+library_re = """<FONT COLOR="#FF0000">Library</FONT></B>\s?<P>(.*?)<P>"""
+seealso_re = """<FONT COLOR="#FF0000">See also</FONT></B>\s?<P>(.*?)<P>"""
 
 #
 # Method REs
@@ -324,7 +326,45 @@ def getClassIncludeFile(text):
     print "ERROR: cannot get include file from %s" % text
     sys.exit(1)
     
+
+def getClassLibrary(text):
+
+    def getDerivedClassesFromMatch(match):
+        return namespacify_wxClasses(match.group(1))
+
+    library_regex = re.compile(library_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    match = library_regex.search(text)
+    if match:
+        ret = match.group(1).strip()
+        
+        x = HTMLStripper()
+        x.feed(ret)
+        return x.get_fed_data()
     
+    #print "ERROR: cannot get library file from %s" % text
+    #sys.exit(1)
+    return "wxBase"
+    
+
+def getClassSeeAlso(text):
+
+    def getDerivedClassesFromMatch(match):
+        return namespacify_wxClasses(match.group(1))
+
+    seealso_regex = re.compile(seealso_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    match = seealso_regex.search(text)
+    if match:
+        ret = match.group(1).strip()
+        
+        x = HTMLStripper()
+        x.feed(ret)
+        ret = x.get_fed_data()
+        return ret.replace("\n", ", ").replace("  ", " ").replace(", , ", ", ").strip()
+    
+    #print "ERROR: cannot get library file from %s" % text
+    #sys.exit(1)
+    return ""
+
 def getClassDescription(text):
     
     def getClassDescriptionFromMatch(match):
@@ -426,7 +466,9 @@ def getClasses(doc):
         description = getClassDescription(classtext)
         styles = getClassStyles(classtext)
         extra_styles = getClassStyles(classtext, extraStyles=True)
-        classes[name] = wxClass(name, description, derivedClasses, styles, extra_styles)
+        lib = getClassLibrary(classtext)
+        sa = getClassSeeAlso(classtext)
+        classes[name] = wxClass(name, description, derivedClasses, styles, extra_styles, lib, sa)
         classes[name].methods = getClassMethods(classfile, classes[name])
         classes[name].inclusionFile = getClassIncludeFile(classtext)
         

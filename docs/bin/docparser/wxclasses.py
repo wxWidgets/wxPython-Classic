@@ -34,8 +34,12 @@ def lastLineLength(str):
     
 def commentizeText(text, indent=4):
     outtext = ""
-    midtext = text
+    midtext = text.strip()
     indentstr = " " * indent
+    
+    #print "-----------------------------------"
+    #print text
+    #print "-----------------------------------"
     
     # highly unoptimized system to make justified text
     
@@ -46,13 +50,21 @@ def commentizeText(text, indent=4):
             #outtext += "\n" + indentstr + "*"
         #else:
             #outtext += " " + word.strip()
+    MAX=80
     
     midtext = midtext.replace("\n\n\n", "\n\n")
     midtext = midtext.replace("\n\n\n", "\n\n")
     for line in midtext.split("\n"):
-        outtext += indentstr + "* " + line + "\n"
+        if len(line)>MAX:
+            idx = line[:MAX].rfind(" ")
+            firstpart = line[:idx]
+            secondpart = line[idx+1:]
+            outtext += indentstr + "* " + firstpart + "\n"
+            outtext += indentstr + "* " + secondpart + "\n"
+        else:
+            outtext += indentstr + "* " + line + "\n"
         
-    return outtext + "\n"
+    return outtext  # + "\n"
     
 def stripExtraNewlines(text):
     outtext = text.strip()
@@ -65,7 +77,7 @@ def stripExtraNewlines(text):
     return outtext 
     
 class wxClass:
-    def __init__(self, name, description="", derivedFrom=[], styles=[], extrastyles=[]):
+    def __init__(self, name, description="", derivedFrom=[], styles=[], extrastyles=[], lib="Base", sa=""):
         self.name = name
         self.description = description
         self.derivedFrom = derivedFrom
@@ -75,6 +87,8 @@ class wxClass:
         self.propConflicts = []
         self.props = []
         self.inclusionFile = ""
+        self.lib = lib
+        self.seeAlso = sa
         
     def asHtml(self):
         html = "<H1>%s</H1>" % self.name
@@ -110,10 +124,44 @@ class wxClass:
         #doxytext += "\\class " + self.name + " " + \
                     #incfilename + \
                     #" \"wx/" + self.inclusionFile + "\"\n\n"
+                    
         doxytext += self.description.strip() + "\n\n"
-        
         doxytext = doxytext.replace("<P>", "\n")
+
+        def genStyleList(styles):
+            text = ""
+            for style in styles:
+                desc = "       " + style[1].strip().replace("\n", " ")
+                
+                x = HTMLStripper()
+                x.feed(desc)
+                desc = x.get_fed_data()
+                
+                # styles start from 9-th column in the semifinal doxytext... 80-9=71=MAX
+                MAX=75
+                while lastLineLength(desc)>MAX:
+                    lines = desc.split("\n")
+                    lastline = lines[-1]
+                    idx = lastline[:MAX].rfind(" ")
+                    desc = "\n".join(lines[:-1]) + "\n" + lastline[:idx] + "\n      " + lastline[idx:]
+
+                if desc.startswith("\n"): desc = desc[1:]
+                text += "@style{%s}:\n%s\n" % (style[0].strip(), desc)
+            return text
+
+        if len(self.styles)>0:
+            doxytext += "\n@beginStyleTable\n"
+            doxytext += genStyleList(self.styles)
+            doxytext += "@endStyleTable\n"
+        if len(self.extrastyles)>0:
+            doxytext += "\n@beginExtraStyleTable\n"
+            doxytext += genStyleList(self.extrastyles)
+            doxytext += "@endExtraStyleTable\n"
+
+        doxytext += "\n@library{%s}\n\n" % self.lib
         
+        doxytext += "\n@seealso %s\n\n" % self.seeAlso
+
         x = HTMLStripper()
         x.feed(doxytext)
 
