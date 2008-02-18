@@ -43,9 +43,10 @@ TAB_SIZE               = 8
 #
 
 # event aliases
-ALIASES = beginEventTable="\section events Events\n <table border='0' cellspacing='4' class='events'><tr><td align='center'><b>Event</b></td><td align='center'><b>Description</b></td></tr>"
-ALIASES += event{2}="<tr><td valign='top' class='eventName'><b>\1</b></td><td valign='top' class='eventDesc'>\2</td></tr>\n"
-ALIASES += endEventTable="</table>"
+ALIASES = beginEventTable="\section events Events\n"
+ALIASES += event{1}="\li \b \1"
+ALIASES += event{2}="\li \b \1, \2"
+ALIASES += endEventTable="\n"
 
 # style aliases
 ALIASES += beginStyleTable="\section styles Styles\n"
