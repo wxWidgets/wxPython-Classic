@@ -407,11 +407,18 @@ if __name__ == "__main__":
     if not os.path.exists(classes_page):
         sys.exit(1)
     
+    func_page = os.path.join(docspath, "wx_functionsalphabetically.html")
+    print "docspath: %s" % (func_page)
+    if not os.path.exists(func_page):
+        sys.exit(1)
+    
     # now, parse the classes.
     print "parsing wx HTML docs..."
     classes = getClasses(classes_page)
     names = classes.keys()
     names.sort()
+    
+    functions = getFunctions(func_page)
     
     headerkeys = classes_in_header.keys()
     headerkeys.sort()
@@ -639,6 +646,75 @@ public:
             afile.write(txt)
             afile.close()
             
+    
+    # now output global functions
+    print "OUTPUTTING GLOBAL FUNCTIONS NOW"
+
+    # for classes which were not in the SWIG headers, generate new headers
+    touched_files = []
+    for fn in functions:
+        
+        # by FM
+        fname = functions[fn].inclusionFile
+        #fname = cn.lower().replace(" ", "") + ".h"
+        #if fname.startswith("wx"):
+            #fname = fname[2:]
+        
+        dirname = "wx_interface/" + fname
+        dirname = dirname[:dirname.rfind("/")]
+        if not os.path.exists(dirname):
+            print "making dir", dirname
+            os.makedirs(dirname)
+        
+        txt = doxifyFormatting(functions[fn].asDoxygen()) + "\n"
+        txt += functions[fn].getPrototype() + "\n"
+        txt += "\n"
+        
+        # remove indentation
+        txt = txt[4:]
+        txt = txt.replace("\n    ", "\n")
+        
+        documented_count += 1
+        
+        if os.path.exists("wx_interface/" + fname):
+            
+            print "appending %s docs to the header %s" % (fn, fname)
+            
+            if fname not in touched_files:
+                touched_files.append(fname)
+                txt = """
+
+// ============================================================================
+// Global functions
+// ============================================================================
+
+""" + txt
+            
+            afile = open("wx_interface/" + fname, "a+")
+            afile.write(txt)
+            afile.close()
+        else:
+            
+            print "creating the header for %s as %s" % (fn, fname)
+            touched_files.append(fname)
+            
+            # create a brand new header
+            
+            txt = """/////////////////////////////////////////////////////////////////////////////
+// Name:        %s
+// Purpose:     documentation for global functions
+// Author:      wxWidgets team
+// RCS-ID:      $Id$
+// Licence:     wxWindows license
+/////////////////////////////////////////////////////////////////////////////
+
+%s
+""" % (fname, txt)
+        
+            afile = open("wx_interface/" + fname, "w")
+            afile.write(txt)
+            afile.close()
+    
     
     # generally there are big number of newlines attached...
     for file in glob.glob("wx_interface/*.h"):

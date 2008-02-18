@@ -243,6 +243,7 @@ class wxMethod:
         self.pythonOverrides = []
         self.returnDesc = stripHTML(retDesc).replace("\n", " ")
         self.seeAlso = stripHTML(sa).replace("\n", " ")
+        self.inclusionFile = ""
         
     def asReST(self):
         restText = ""

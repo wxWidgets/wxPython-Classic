@@ -199,6 +199,14 @@ def convertFormatting(text):
     basic_typetext_regex = re.compile(basic_typetext_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
     text = basic_typetext_regex.sub(replace_typetext, text)
 
+
+    def replace_code(match):
+        ret = match.group(1).strip()
+        return "\n@code\n" + ret + "\n@endcode\n"
+
+    code_regex = re.compile(code_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    text = code_regex.sub(replace_code, text)
+
     return text
 
 
@@ -387,6 +395,31 @@ def getMethod(match, parent):
         ##print "has overrides!\n\n\n\n"
     return method
 
+
+def getFunction(match):
+    name = match.group(1)
+    if name.find("::") != -1:
+        name = name.split("::")[1]
+    name = namespacify_wxClasses(name).strip()
+    start = match.end()
+    protos, remainder = getMethodProtos(match.group(2))
+    
+    print "name: %s" % name
+    #print remainder
+    
+    note, remainder = getMethodWxPythonNote(remainder)
+    params, remainder = getMethodParams(remainder)
+    desc = getMethodDesc(remainder)
+    remarks = getMethodRemarks(remainder)
+    retdesc = getMethodRetDesc(remainder)
+    sa = getMethodSeeAlso(remainder)
+    
+    method = wxMethod(name, "", protos, params, desc, False, False, remarks, retdesc, sa)
+    method.pythonNote = note
+    method.inclusionFile = getFuncIncludeFile(remainder)
+    return method
+
+
 def getClassDerivedFrom(text):
 
     def getDerivedClassesFromMatch(match):
@@ -416,6 +449,20 @@ def getClassIncludeFile(text):
         return ret
     print "ERROR: cannot get include file from %s" % text
     sys.exit(1)
+
+def getFuncIncludeFile(text):
+
+    include_regex = re.compile(include_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    match = include_regex.search(text)
+    if match:
+        ret = match.group(1).strip().replace("&lt;", "").replace("&gt;", "")
+        if ".h" not in ret:
+            return "functions.h"
+        ret = ret[:ret.find(".h")+2]
+        if ret.startswith("wx/"):
+            ret = ret[3:]
+        return ret
+    return "functions.h"
     
 
 def getClassLibrary(text):
@@ -601,3 +648,55 @@ def getClasses(doc):
         result = link_regex.search(contents, start)
 
     return classes
+
+
+def getFunctions(doc):
+    global docspath
+    contents = open(doc, "rb").read()
+    link_regex = re.compile(basic_link_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    funcstart = contents.find("<H2>Alphabetical functions and macros list</H2>")
+    result = link_regex.search(contents, funcstart)
+    
+    processed_files = []
+    functions = {}
+    while result:
+        funcstart = result.end()
+        name = result.group(2).strip()
+        classpage = result.group(1).split("#")[0]
+        basename = name.replace("wx", "")
+        
+        #if basename in dir(wx):
+        funcfile = os.path.join(os.path.dirname(doc), classpage)
+        if not os.path.exists(funcfile):
+            print "could not open %s" % funcfile
+            sys.exit(1)
+        
+        if funcfile in processed_files:
+            result = link_regex.search(contents, funcstart)
+            continue
+        
+        print "Parsing ", funcfile
+        functext = open(funcfile, "rb").read()
+        
+            
+        method_regex = re.compile(method_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+        match = method_regex.search(functext)
+        start = 0
+        methods = {}
+        while match:
+            start = match.end()
+            newmethod = getFunction(match)
+            functions[newmethod.name] = newmethod
+            match = method_regex.search(functext, start)
+        
+        lastmethod_regex = re.compile(lastmethod_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+        match = lastmethod_regex.search(functext, start)
+        if match: 
+            newmethod = getFunction(match)
+            
+        processed_files.append(funcfile)
+        result = link_regex.search(contents, funcstart)
+
+    print "functions are: ", functions
+
+    return functions

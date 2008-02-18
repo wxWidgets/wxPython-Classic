@@ -67,6 +67,8 @@ ALIASES += true="\b true"
 ALIASES += false="\b false"
 ALIASES += NULL="\b NULL"
 
+# NOTE: we could put aliases also for e.g. @wxDefaultSize, @wxDefaultPosition, @wxID_ANY, etc
+
 OPTIMIZE_OUTPUT_FOR_C  = NO
 OPTIMIZE_OUTPUT_JAVA   = NO
 BUILTIN_STL_SUPPORT    = NO
