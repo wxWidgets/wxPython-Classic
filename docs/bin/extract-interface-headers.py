@@ -412,13 +412,22 @@ if __name__ == "__main__":
     if not os.path.exists(func_page):
         sys.exit(1)
     
+    to_page = os.path.join(docspath, "wx_overviews.html")
+    print "docspath: %s" % (to_page)
+    if not os.path.exists(to_page):
+        sys.exit(1)
+    
     # now, parse the classes.
     print "parsing wx HTML docs..."
     classes = getClasses(classes_page)
     names = classes.keys()
     names.sort()
     
+    # parse global functions
     functions = getFunctions(func_page)
+    
+    # parse topic overviews
+    topicOverviews = getTO(to_page)
     
     headerkeys = classes_in_header.keys()
     headerkeys.sort()
@@ -714,6 +723,36 @@ public:
             afile = open("wx_interface/" + fname, "w")
             afile.write(txt)
             afile.close()
+    
+    
+    # now generate topic overviews
+    print "OUTPUTTING TOPIC OVERVIEWS NOW"
+    
+    for to in topicOverviews:
+
+        dirname = "overviews/" + to + ".h"
+        if not os.path.exists("overviews"):
+            os.makedirs("overviews")
+        
+        txt = doxifyFormatting(topicOverviews[to])
+        print "creating the to for %s as %s" % (to, dirname)
+            
+        # create a brand new header
+        
+        txt = """/////////////////////////////////////////////////////////////////////////////
+// Name:        %s
+// Purpose:     topic overview
+// Author:      wxWidgets team
+// RCS-ID:      $Id$
+// Licence:     wxWindows license
+/////////////////////////////////////////////////////////////////////////////
+
+%s
+""" % (to, txt)
+        
+        afile = open(dirname, "w")
+        afile.write(txt)
+        afile.close()
     
     
     # generally there are big number of newlines attached...

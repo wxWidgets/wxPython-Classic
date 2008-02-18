@@ -160,12 +160,16 @@ def convertFormatting(text):
                 # to give to doxygen also the list of arguments:
                 return "#" + ret
             else:
-                # this is probably a link to a topic overview or similar
                 ret = match.group(1).strip()
                 if "#" not in ret and "http:" in ret:
-                    return ret
+                    return ret          # http link
+                
+                # this is probably a link to a topic overview or similar
                 ret = ret.split("#")[1]
-                return "@ref " + ret.strip()
+                ret = ret.replace("overview", "").strip()
+                if ret.startswith("wx"):
+                    ret = ret[2:]
+                return "@ref " + ret + "_overview"
         elif "::" not in ret:
             ret = "#" + ret
 
@@ -404,7 +408,7 @@ def getFunction(match):
     start = match.end()
     protos, remainder = getMethodProtos(match.group(2))
     
-    print "name: %s" % name
+    #print "name: %s" % name
     #print remainder
     
     note, remainder = getMethodWxPythonNote(remainder)
@@ -675,7 +679,7 @@ def getFunctions(doc):
             result = link_regex.search(contents, funcstart)
             continue
         
-        print "Parsing ", funcfile
+        #print "Parsing ", funcfile
         functext = open(funcfile, "rb").read()
         
             
@@ -697,6 +701,85 @@ def getFunctions(doc):
         processed_files.append(funcfile)
         result = link_regex.search(contents, funcstart)
 
-    print "functions are: ", functions
+    print "functions are: ", functions.keys()
 
     return functions
+        
+        
+
+def getTO(doc):
+    global docspath
+    contents = open(doc, "rb").read()
+    link_regex = re.compile(basic_link_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    funcstart = contents.find("<H2>Topic overviews</H2>")
+    result = link_regex.search(contents, funcstart)
+    
+    processed_files = []
+    to = {}
+    while result:
+        funcstart = result.end()
+        name = result.group(2).strip()
+        classpage = result.group(1).split("#")[0]
+        basename = name.replace("wx", "")
+        
+        #if basename in dir(wx):
+        funcfile = os.path.join(os.path.dirname(doc), classpage)
+        if not os.path.exists(funcfile):
+            print "could not open %s" % funcfile
+            sys.exit(1)
+        
+        if funcfile in processed_files:
+            result = link_regex.search(contents, funcstart)
+            continue
+        
+        #print "Parsing TO ", funcfile
+        totext = open(funcfile, "rb").read()
+        
+        # get long name
+        to_regex = re.compile("""<H2>(.*?)</H2>""", re.MULTILINE | re.DOTALL | re.IGNORECASE)
+        match = to_regex.search(totext)
+        if not match:
+            print "Can't match in", totext
+            sys.exit(1)
+        start = match.end()
+        longname = match.group(1).strip()
+        
+        # get shortname
+        to_link_regex = re.compile("""<A NAME="(.*?)"></A><CENTER>""", re.MULTILINE | re.DOTALL | re.IGNORECASE)
+        match = to_link_regex.search(totext)
+        if not match:
+            print "Can't match in", totext
+            sys.exit(1)
+
+        shortname = match.group(1).strip()
+        if shortname.startswith("wx"):
+            shortname = shortname[2:]
+        shortname = shortname.replace("overview", "")
+
+        doxytext = totext[start:]
+
+        # substitute subsections
+        to_regex = re.compile("""<HR>\n<A NAME="(.*?)"></A>\n<H3>(.*?)</H3>""", re.MULTILINE | re.DOTALL | re.IGNORECASE)
+        
+        def replace_sect(match):
+            return "@section %s %s" % (match.group(1).strip(), match.group(2).strip())
+        
+        doxytext = to_regex.sub(replace_sect, doxytext)
+        
+        # elaborate to text
+        doxytext = stripHTML(convertFormatting(doxytext))
+        doxytext = "/*!\n\n@page %s_overview %s\n\n%s\n\n*/\n\n" % (shortname, longname, doxytext.strip())
+        
+        #indent_regex = re.compile("""\*  \S""", re.MULTILINE | re.DOTALL | re.IGNORECASE)
+        #doxtext = indent_regex.sub("* ", doxytext)
+        
+        to[shortname] = doxytext.replace("\n", "\n ")
+            
+        processed_files.append(funcfile)
+        result = link_regex.search(contents, funcstart)
+
+    print "topic overviews are: ", to.keys()
+
+    return to
+        
+        
