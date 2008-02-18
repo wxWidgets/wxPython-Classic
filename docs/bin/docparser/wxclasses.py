@@ -179,7 +179,7 @@ class wxClass:
         doxytext += "\n@library{%s}\n\n" % self.lib
         
         if len(self.seeAlso.strip())>0:
-            doxytext += "\n@seealso %s\n\n" % justifyKeepingIndent(75, 8, self.seeAlso.strip(), ",")
+            doxytext += "\n@seealso %s\n\n" % justifyKeepingIndent(75, 8, self.seeAlso.strip())
 
         x = HTMLStripper()
         x.feed(doxytext)
@@ -327,7 +327,7 @@ class wxMethod:
         
         # NOTE: we won't use @seealso which generates a section and is good only for wxClass!
         if len(self.seeAlso.strip())>0:
-            doxytext += "\n@sa %s\n\n" % justifyKeepingIndent(75, 4, self.seeAlso.strip(), ", ")
+            doxytext += "\n@sa %s\n\n" % justifyKeepingIndent(75, 5, self.seeAlso.strip())
         
         # TODO convert supported HTML tags before doing this
         x = HTMLStripper()
