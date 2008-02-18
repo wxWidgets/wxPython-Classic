@@ -544,7 +544,7 @@ if __name__ == "__main__":
         afile.close()
         
     not_processed = set(classes).difference(set(processed_classes))
-    print "list of classes in HTML docs but NOT in SWIG headers (BIG PROBLEM): %s" % not_processed
+    #print "list of classes in HTML docs but NOT in SWIG headers (BIG PROBLEM): %s" % not_processed
     
     # for classes which were not in the SWIG headers, generate new headers
     for cn in not_processed:

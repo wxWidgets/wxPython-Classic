@@ -12,6 +12,12 @@ class HTMLStripper(HTMLParser.HTMLParser):
         self.fed.append(d)
     def get_fed_data(self):
         return ''.join(self.fed)
+    
+    
+def stripHTML(txt):
+    x = HTMLStripper()
+    x.feed(txt)
+    return x.get_fed_data()
 
 def stylesAsHtml(styles, extraStyles=False):
     heading = "Window styles"
@@ -76,6 +82,25 @@ def stripExtraNewlines(text):
 
     return outtext 
     
+    
+def justifyKeepingIndent(MAX, indent, desc, sep=" "):
+    while lastLineLength(desc)>MAX:
+        lines = desc.split("\n")
+        lastline = lines[-1]
+        idx = lastline[:MAX].rfind(sep[0])
+        if idx<MAX/2:
+            if len(sep)>1:
+                idx = lastline[:MAX].rfind(sep[1])
+            if idx<MAX/2:
+                print "ERROR: can't find separator %s in %s for text %s" % (sep, lastline[:MAX], desc)
+                sys.exit(1)
+        desc = "\n".join(lines[:-1]) + "\n" + lastline[:idx] + "\n" + " "*indent + lastline[idx:]
+        #print "desc now is:\n%s" % desc
+
+    if desc.startswith("\n"):
+        desc = desc[1:]
+    return desc
+
 class wxClass:
     def __init__(self, name, description="", derivedFrom=[], styles=[], extrastyles=[], lib="Base", sa=""):
         self.name = name
@@ -87,8 +112,10 @@ class wxClass:
         self.propConflicts = []
         self.props = []
         self.inclusionFile = ""
-        self.lib = lib
-        self.seeAlso = sa
+        self.lib = stripHTML(lib)
+        self.seeAlso = stripHTML(sa)
+        
+        
         
     def asHtml(self):
         html = "<H1>%s</H1>" % self.name
@@ -136,16 +163,7 @@ class wxClass:
                 x = HTMLStripper()
                 x.feed(desc)
                 desc = x.get_fed_data()
-                
-                # styles start from 9-th column in the semifinal doxytext... 80-9=71=MAX
-                MAX=75
-                while lastLineLength(desc)>MAX:
-                    lines = desc.split("\n")
-                    lastline = lines[-1]
-                    idx = lastline[:MAX].rfind(" ")
-                    desc = "\n".join(lines[:-1]) + "\n" + lastline[:idx] + "\n      " + lastline[idx:]
-
-                if desc.startswith("\n"): desc = desc[1:]
+                desc = justifyKeepingIndent(75, 6, desc)
                 text += "@style{%s}:\n%s\n" % (style[0].strip(), desc)
             return text
 
@@ -160,7 +178,8 @@ class wxClass:
 
         doxytext += "\n@library{%s}\n\n" % self.lib
         
-        doxytext += "\n@seealso %s\n\n" % self.seeAlso
+        if len(self.seeAlso.strip())>0:
+            doxytext += "\n@seealso %s\n\n" % justifyKeepingIndent(75, 8, self.seeAlso.strip(), ",")
 
         x = HTMLStripper()
         x.feed(doxytext)
@@ -196,7 +215,7 @@ class wxClass:
         return propsText
                 
 class wxMethod:
-    def __init__(self, name, parent, prototypes=[], params={}, description="", isCtor=False, isDtor=False, remarks=""):
+    def __init__(self, name, parent, prototypes=[], params={}, description="", isCtor=False, isDtor=False, remarks="", retDesc="", sa=""):
         self.name = name
         self.parent = parent
         self.prototypes = prototypes
@@ -204,9 +223,11 @@ class wxMethod:
         self.description = description
         self.isCtor = isCtor
         self.isDtor = isDtor
-        self.remarks = remarks
+        self.remarks = stripHTML(remarks).replace("\n", " ")
         self.pythonNote = ""
         self.pythonOverrides = []
+        self.returnDesc = stripHTML(retDesc).replace("\n", " ")
+        self.seeAlso = stripHTML(sa).replace("\n", " ")
         
     def asReST(self):
         restText = ""
@@ -297,6 +318,16 @@ class wxMethod:
         
         doxytext = doxytext.replace("<P>", "\n")
         doxytext = doxytext.replace("\n\n\n", "\n")
+        
+        if len(self.returnDesc.strip())>0:
+            doxytext += "\n@returns %s\n\n" % self.returnDesc.strip()
+        
+        if len(self.remarks.strip())>0:
+            doxytext += "\n@remarks %s\n\n" % self.remarks.strip()
+        
+        # NOTE: we won't use @seealso which generates a section and is good only for wxClass!
+        if len(self.seeAlso.strip())>0:
+            doxytext += "\n@sa %s\n\n" % justifyKeepingIndent(75, 4, self.seeAlso.strip(), ", ")
         
         # TODO convert supported HTML tags before doing this
         x = HTMLStripper()

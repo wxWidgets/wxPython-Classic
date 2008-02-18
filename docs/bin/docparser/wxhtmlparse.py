@@ -37,6 +37,13 @@ args_re = "<B>(.*?)</B>.*?<I>(.*?)</I>"
 code_re = "<PRE>(.*?)</PRE>"
 link_re = "<A href=\"(.*?)\"><B>(.*?)</B></A><BR>"
 
+remarks_re = """<B><FONT COLOR="#FF0000">Remarks</FONT></B><P>(.*?)<P>"""
+retval_re = """<B><FONT COLOR="#FF0000">Return value</FONT></B><P>(.*?)<P>"""
+
+
+
+basic_link_re = "<A href=\"(.*?)\">(.*?)</A>"
+
 #
 # wxPython/wxPerl note REs
 # 
@@ -77,16 +84,16 @@ def pythonize_text(contents):
     """
     return contents
     
-    contents = contents.replace("false", "False")
-    contents = contents.replace("true", "True")
-    contents = contents.replace("non-NULL", "not None")
-    contents = contents.replace("NULL", "None")
-    contents = contents.replace("const ", "")
-    contents = contents.replace("::", ".")
-    contents = contents.replace("\r\n", "\n")
-    contents = contents.replace("\r", "\n")
-    contents = contents.replace("''", "\"")
-    return namespacify_wxClasses(contents)
+    #contents = contents.replace("false", "False")
+    #contents = contents.replace("true", "True")
+    #contents = contents.replace("non-NULL", "not None")
+    #contents = contents.replace("NULL", "None")
+    #contents = contents.replace("const ", "")
+    #contents = contents.replace("::", ".")
+    #contents = contents.replace("\r\n", "\n")
+    #contents = contents.replace("\r", "\n")
+    #contents = contents.replace("''", "\"")
+    #return namespacify_wxClasses(contents)
 
 def pythonize_args(contents):
     """
@@ -133,6 +140,20 @@ def formatMethodProtos(protos):
     
     return protos
 
+def convertFormatting(text):
+    def replace_basic_link(match):
+        ret = match.group(2).strip()
+        if "::" not in ret:
+            ret = "#" + ret
+        return ret
+    
+    # the desc could contain links which need an initial # in doxy world
+    basic_link_regex = re.compile(basic_link_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    ret = basic_link_regex.sub(replace_basic_link, text)
+
+    # TODO: replace signature of \texttt and \it and similar
+
+    return ret
 
 
 # functions for getting data from methods 
@@ -226,7 +247,26 @@ def getPrototypeFromMatch(match):
 def getProtoArgsFromMatch(match):
     return [match.group(1), match.group(2)]
 
+def getMethodRemarks(text):
+    remarks_regex = re.compile(remarks_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    match = remarks_regex.search(text)
+    if match:
+        return match.group(1).strip()
+    return ""
 
+def getMethodRetDesc(text):
+    retval_regex = re.compile(retval_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    match = retval_regex.search(text)
+    if match:
+        return match.group(1).strip()
+    return ""
+
+def getMethodSeeAlso(text):
+    seealso_regex = re.compile(seealso_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    match = seealso_regex.search(text)
+    if match:
+        return match.group(1).strip()
+    return ""
 
 # These methods parse the docs, finding matches and then using the FromMatch
 # functions to parse the data. After that, the results are "Pythonized"
@@ -246,7 +286,7 @@ def getMethodDesc(text):
     if end != -1:
         return_text = text[0:end]
         
-    return pythonize_text(return_text)
+    return pythonize_text(convertFormatting(return_text))
     
 
 def removeWxPerlNotes(text):
@@ -286,7 +326,11 @@ def getMethod(match, parent):
     note, remainder = getMethodWxPythonNote(remainder)
     params, remainder = getMethodParams(remainder)
     desc = getMethodDesc(remainder)
-    method = wxMethod(name, parent, protos, params, desc, isConstructor, isDestructor)
+    remarks = getMethodRemarks(remainder)
+    retdesc = getMethodRetDesc(remainder)
+    sa = getMethodSeeAlso(remainder)
+    
+    method = wxMethod(name, parent, protos, params, desc, isConstructor, isDestructor, remarks, retdesc, sa)
     method.pythonNote = note
     method.pythonOverrides = overrides
     ##if len(method.pythonOverrides) > 0:
@@ -309,9 +353,6 @@ def getClassDerivedFrom(text):
 
 def getClassIncludeFile(text):
 
-    def getDerivedClassesFromMatch(match):
-        return namespacify_wxClasses(match.group(1))
-
     include_regex = re.compile(include_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
     match = include_regex.search(text)
     if match:
@@ -329,9 +370,6 @@ def getClassIncludeFile(text):
 
 def getClassLibrary(text):
 
-    def getDerivedClassesFromMatch(match):
-        return namespacify_wxClasses(match.group(1))
-
     library_regex = re.compile(library_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
     match = library_regex.search(text)
     if match:
@@ -348,9 +386,6 @@ def getClassLibrary(text):
 
 def getClassSeeAlso(text):
 
-    def getDerivedClassesFromMatch(match):
-        return namespacify_wxClasses(match.group(1))
-
     seealso_regex = re.compile(seealso_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
     match = seealso_regex.search(text)
     if match:
@@ -359,7 +394,20 @@ def getClassSeeAlso(text):
         x = HTMLStripper()
         x.feed(ret)
         ret = x.get_fed_data()
-        return ret.replace("\n", ", ").replace("  ", " ").replace(", , ", ", ").strip()
+        ret = ret.replace("\n", ", ").replace("  ", " ").replace(", , ", ", ").strip()
+        
+        out = ""
+        for word in ret.split(","):
+            word = word.strip()
+            if " " not in word:
+                # should be a link probably...
+                out += "#" + word + ", "
+            else:
+                out += word + ", "
+        if len(out)>0:
+            out = out[:-2]
+                
+        return out
     
     #print "ERROR: cannot get library file from %s" % text
     #sys.exit(1)
@@ -370,9 +418,10 @@ def getClassDescription(text):
     def getClassDescriptionFromMatch(match):
         return match.group(1)
     
+    
     desc, returntext = findAllMatches(class_desc_re, text, getClassDescriptionFromMatch)
     
-    return pythonize_text(desc[0])
+    return convertFormatting(desc[0])  # pythonize_text(desc[0])
     
 def getClassStyles(text, extraStyles=False):
     styles_re = win_styles_re
