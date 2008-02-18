@@ -44,8 +44,14 @@ remarks_re = """<B><FONT COLOR="#FF0000">Remarks</FONT></B><P>(.*?)<P>"""
 retval_re = """<B><FONT COLOR="#FF0000">Return value</FONT></B><P>(.*?)<P>"""
 
 
+#
+# Formatting REs
+#
 
 basic_link_re = "<A href=\"(.*?)\">(.*?)</A>"
+basic_bold_re = "<B>(.*?)</B>"
+basic_italic_re = "<I>(.*?)</I>"
+basic_typetext_re = "<TT>(.*?)</TT>"
 
 #
 # wxPython/wxPerl note REs
@@ -86,8 +92,8 @@ def pythonize_text(contents):
     Remove C++isms that definitely shouldn't be in any text.
     """
     
-    contents = contents.replace("false", "@false")
-    contents = contents.replace("true", "@true")
+    #contents = contents.replace("false", "@false")
+    #contents = contents.replace("true", "@true")
     #contents = contents.replace("non-NULL", "not None")
     #contents = contents.replace("NULL", "None")
     #contents = contents.replace("const ", "")
@@ -146,17 +152,54 @@ def formatMethodProtos(protos):
 def convertFormatting(text):
     def replace_basic_link(match):
         ret = match.group(2).strip()
-        if "::" not in ret:
+        if ret=="":
+            return ""
+        elif " " in ret:
+            if "(" in ret and ")" in ret:
+                # this is something like "wxDateTime(long tm)" and it's valid
+                # to give to doxygen also the list of arguments:
+                return "#" + ret
+            else:
+                # this is probably a link to a topic overview or similar
+                ret = match.group(1).strip()
+                if "#" not in ret and "http:" in ret:
+                    return ret
+                ret = ret.split("#")[1]
+                return "@ref " + ret.strip()
+        elif "::" not in ret:
             ret = "#" + ret
+
         return ret
     
     # the desc could contain links which need an initial # in doxy world
     basic_link_regex = re.compile(basic_link_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
-    ret = basic_link_regex.sub(replace_basic_link, text)
+    text = basic_link_regex.sub(replace_basic_link, text)
 
-    # TODO: replace signature of \texttt and \it and similar
 
-    return ret
+    def replace_bold(match):
+        ret = match.group(1).strip()
+        return "@b " + ret
+
+    basic_bold_regex = re.compile(basic_bold_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    text = basic_bold_regex.sub(replace_bold, text)
+    
+    
+    def replace_italic(match):
+        ret = match.group(1).strip()
+        return "@e " + ret
+
+    basic_italic_regex = re.compile(basic_italic_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    text = basic_italic_regex.sub(replace_italic, text)
+    
+    
+    def replace_typetext(match):
+        ret = match.group(1).strip()
+        return "@c " + ret
+
+    basic_typetext_regex = re.compile(basic_typetext_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    text = basic_typetext_regex.sub(replace_typetext, text)
+
+    return text
 
 
 # functions for getting data from methods 
@@ -268,7 +311,11 @@ def getMethodSeeAlso(text):
     seealso_regex = re.compile(seealso_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
     match = seealso_regex.search(text)
     if match:
-        return match.group(1).strip()
+        ret = match.group(1).strip()
+        ret = stripHTML(convertFormatting(ret))
+        ret = ret.replace("\n", ", ").replace("  ", " ").replace(", , ", ", ").strip()
+        ret = ret.replace(",,", ",")
+        return ret
     return ""
 
 # These methods parse the docs, finding matches and then using the FromMatch
@@ -408,37 +455,32 @@ def getClassSeeAlso(text):
     match = seealso_regex.search(text)
     if match:
         ret = match.group(1).strip()
-        
-        x = HTMLStripper()
-        x.feed(ret)
-        ret = x.get_fed_data()
+        ret = stripHTML(convertFormatting(ret))
         ret = ret.replace("\n", ", ").replace("  ", " ").replace(", , ", ", ").strip()
+        ret = ret.replace(",,", ",")
         
-        out = ""
-        for word in ret.split(","):
-            word = word.strip()
-            if " " not in word:
-                # should be a link probably...
-                out += "#" + word + ", "
-            else:
-                out += word + ", "
-        if len(out)>0:
-            out = out[:-2]
+        #out = ""
+        #for word in ret.split(","):
+            #word = word.strip()
+            #if " " not in word:
+                ## should be a link probably...
+                #out += "#" + word + ", "
+            #else:
+                #out += word + ", "
+        #if len(out)>0:
+            #out = out[:-2]
                 
-        return out
+        return ret
     
     #print "ERROR: cannot get library file from %s" % text
     #sys.exit(1)
     return ""
 
 def getClassDescription(text):
-    
     def getClassDescriptionFromMatch(match):
         return match.group(1)
     
-    
     desc, returntext = findAllMatches(class_desc_re, text, getClassDescriptionFromMatch)
-    
     return convertFormatting(desc[0])  # pythonize_text(desc[0])
     
 def getClassStyles(text, extraStyles=False):

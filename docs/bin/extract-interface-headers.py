@@ -551,11 +551,22 @@ if __name__ == "__main__":
         funcs_list = classes[cn].methods.keys()
         funcs_list.sort()
         
+        def doxifyFormatting(txt):
+            txt = txt.replace("true", "@true")
+            txt = txt.replace("@@true", "@true")
+            txt = txt.replace("@c @true", "@true")
+            txt = txt.replace("false", "@false")
+            txt = txt.replace("@@false", "@false")
+            txt = txt.replace("@c @false", "@false")
+            txt = txt.replace("NULL", "@NULL")
+            txt = txt.replace("@c @NULL", "@NULL")
+            return txt
+        
         # first process all ctors
         for mn in funcs_list:
             m=classes[cn].methods[mn]
             if m.isCtor:
-                funcs += m.asDoxygen() + "\n"
+                funcs += doxifyFormatting(m.asDoxygen()) + "\n"
                 funcs += m.getPrototype() + "\n"
                 funcs += "\n"
                 documented_count += 1
@@ -564,7 +575,7 @@ if __name__ == "__main__":
         for mn in funcs_list:
             m=classes[cn].methods[mn]
             if m.isDtor:
-                funcs += m.asDoxygen() + "\n"
+                funcs += doxifyFormatting(m.asDoxygen()) + "\n"
                 funcs += m.getPrototype() + "\n"
                 funcs += "\n"
                 documented_count += 1
@@ -573,7 +584,7 @@ if __name__ == "__main__":
         for mn in funcs_list:
             m=classes[cn].methods[mn]
             if not m.isCtor and not m.isDtor:
-                funcs += m.asDoxygen() + "\n"
+                funcs += doxifyFormatting(m.asDoxygen()) + "\n"
                 funcs += m.getPrototype() + "\n"
                 funcs += "\n"
                 documented_count += 1
@@ -581,6 +592,8 @@ if __name__ == "__main__":
         derived_from = ""
         if classes[cn].derivedFrom != []:
             derived_from = ": public " + classes[cn].derivedFrom[0]
+        
+        cdesc = doxifyFormatting(classes[cn].asDoxygen()).strip()
         
         if os.path.exists("wx_interface/" + fname):
             
@@ -595,7 +608,7 @@ class %s %s
 public:
 %s
 };
-""" % (classes[cn].asDoxygen().strip(), cn, derived_from, "    "+funcs.strip())
+""" % (cdesc, cn, derived_from, "    "+funcs.strip())
 
             afile = open("wx_interface/" + fname, "a+")
             afile.write(txt)
@@ -620,7 +633,7 @@ class %s %s
 public:
 %s
 };
-""" % (fname, cn, classes[cn].asDoxygen().strip(), cn, derived_from, "    "+funcs.strip() )
+""" % (fname, cn, cdesc, cn, derived_from, "    "+funcs.strip() )
         
             afile = open("wx_interface/" + fname, "w")
             afile.write(txt)
@@ -638,13 +651,11 @@ public:
         #headertext = headertext.replace("\n\n\n\n", "\n\n")
         #headertext = headertext.replace("\n\n\n\n", "\n\n")
         #headertext = headertext.replace(separator + "\n\n", separator)
-        #headertext = headertext.replace(separator + "\n\n", separator)
-        headertext = headertext.replace("true", "@true")
-        headertext = headertext.replace("@@true", "@true")
-        headertext = headertext.replace("false", "@false")
-        headertext = headertext.replace("@@false", "@false")
-        headertext = headertext.replace("NULL", "@NULL")
-        headertext = headertext.replace("@@NULL", "@NULL")
+        
+        headertext = headertext.replace("If the default size (-1, -1) is specified",
+                                        "If wxDefaultSize is specified")
+        headertext = headertext.replace("A value of -1 indicates a default value",
+                                        "The value wxID_ANY indicates a default value")
         
         # don't know why these are left around:
         headertext = headertext.replace("</B> <B>", "")
