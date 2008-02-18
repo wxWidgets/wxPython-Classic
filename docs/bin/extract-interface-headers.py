@@ -526,22 +526,7 @@ if __name__ == "__main__":
     # reformat the headers
     ###os.system("astyle -n -s4 wx_interface/*h")
      
-    # generally there are big number of newlines attached...
-    for file in glob.glob("wx_interface/*.h"):
-        afile = open(file, "r")
-        headertext = afile.read()
-        afile.close()
-        
-        separator = "//---------------------------------------------------------------------------\n\n"
-        headertext = headertext.replace("\n\n\n\n", "\n\n")
-        headertext = headertext.replace("\n\n\n\n", "\n\n")
-        headertext = headertext.replace("\n\n\n\n", "\n\n")
-        headertext = headertext.replace(separator + "\n\n", separator)
-        headertext = headertext.replace(separator + "\n\n", separator)
-            
-        afile = open(file, "w")
-        afile.write(headertext)
-        afile.close()
+
         
     not_processed = set(classes).difference(set(processed_classes))
     #print "list of classes in HTML docs but NOT in SWIG headers (BIG PROBLEM): %s" % not_processed
@@ -641,6 +626,29 @@ public:
             afile.write(txt)
             afile.close()
             
+    
+    # generally there are big number of newlines attached...
+    for file in glob.glob("wx_interface/*.h"):
+        afile = open(file, "r")
+        headertext = afile.read()
+        afile.close()
+        
+        #separator = "//---------------------------------------------------------------------------\n\n"
+        #headertext = headertext.replace("\n\n\n\n", "\n\n")
+        #headertext = headertext.replace("\n\n\n\n", "\n\n")
+        #headertext = headertext.replace("\n\n\n\n", "\n\n")
+        #headertext = headertext.replace(separator + "\n\n", separator)
+        #headertext = headertext.replace(separator + "\n\n", separator)
+        headertext = headertext.replace("true", "@true")
+        headertext = headertext.replace("@@true", "@true")
+        headertext = headertext.replace("false", "@false")
+        headertext = headertext.replace("@@false", "@false")
+        headertext = headertext.replace("NULL", "@NULL")
+        headertext = headertext.replace("@@NULL", "@NULL")
+            
+        afile = open(file, "w")
+        afile.write(headertext)
+        afile.close()
     
     print "list of classes NOT in HTML docs but in SWIG headers (probably not meant to be documented): %s" % set(not_recognized)
     print "There were %d classes in HTML docs; %d were in SWIG headers; %d were generated" % (len(classes), len(processed_classes), len(not_processed))

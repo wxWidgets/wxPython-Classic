@@ -296,7 +296,7 @@ class wxMethod:
         
         doxytext += self.description.strip() + "\n\n"
         for param in self.params:
-            doxytext += "@param " + param[0] + " \n" + param[1] + "\n\n"
+            doxytext += "\n@param " + param[0] + " \n" + param[1] + "\n"
         
         #if len(self.prototypes) > 0:
         #    proto = self.prototypes[0]
@@ -320,10 +320,10 @@ class wxMethod:
         doxytext = doxytext.replace("\n\n\n", "\n")
         
         if len(self.returnDesc.strip())>0:
-            doxytext += "\n@returns %s\n\n" % self.returnDesc.strip()
+            doxytext += "\n@returns %s\n\n" % justifyKeepingIndent(65, 10, self.returnDesc.strip())
         
         if len(self.remarks.strip())>0:
-            doxytext += "\n@remarks %s\n\n" % self.remarks.strip()
+            doxytext += "\n@remarks %s\n\n" % justifyKeepingIndent(65, 10, self.remarks.strip())
         
         # NOTE: we won't use @seealso which generates a section and is good only for wxClass!
         if len(self.seeAlso.strip())>0:
@@ -335,7 +335,9 @@ class wxMethod:
         
         indentstr = " " * indent
         doxytext = "%s/**\n%s%s*/" % (indentstr, commentizeText(x.get_fed_data(), indent=indent), indentstr)
-        return doxytext.replace("\n" + indentstr + "*", "\n" + indentstr + " *").replace(" *   ", " * ")
+        doxytext = doxytext.replace("\n" + indentstr + "*", "\n" + indentstr + " *").replace(" *   ", " * ")
+        
+        return doxytext
         
     def getAnchorName(self):
         anchorname = self.parent.name.lower() + self.name.lower()

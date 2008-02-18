@@ -56,6 +56,9 @@ ALIASES += endExtraStyleTable="\n"
 # misc aliases
 ALIASES += library{1}="\section lib Library\n \b \1"
 ALIASES += seealso="\section sa See also\n"    # the default \sa command does not generate a \section!
+ALIASES += true="\b true"
+ALIASES += false="\b false"
+ALIASES += NULL="\b NULL"
 
 OPTIMIZE_OUTPUT_FOR_C  = NO
 OPTIMIZE_OUTPUT_JAVA   = NO

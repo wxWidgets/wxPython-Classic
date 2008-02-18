@@ -82,10 +82,9 @@ def pythonize_text(contents):
     """
     Remove C++isms that definitely shouldn't be in any text.
     """
-    return contents
     
-    #contents = contents.replace("false", "False")
-    #contents = contents.replace("true", "True")
+    contents = contents.replace("false", "@false")
+    contents = contents.replace("true", "@true")
     #contents = contents.replace("non-NULL", "not None")
     #contents = contents.replace("NULL", "None")
     #contents = contents.replace("const ", "")
@@ -94,6 +93,7 @@ def pythonize_text(contents):
     #contents = contents.replace("\r", "\n")
     #contents = contents.replace("''", "\"")
     #return namespacify_wxClasses(contents)
+    return contents
 
 def pythonize_args(contents):
     """
@@ -102,21 +102,21 @@ def pythonize_args(contents):
     """
     return contents
     
-    contents = contents.replace("static", "")
-    contents = contents.replace("virtual void", "")
-    contents = contents.replace("virtual", "")
-    contents = contents.replace("void*", "int")
-    contents = contents.replace("void", "")
+    #contents = contents.replace("static", "")
+    #contents = contents.replace("virtual void", "")
+    #contents = contents.replace("virtual", "")
+    #contents = contents.replace("void*", "int")
+    #contents = contents.replace("void", "")
     
-    contents = contents.replace("off_t", "long")
-    contents = contents.replace("size_t", "long")
-    contents = contents.replace("*", "")
-    contents = contents.replace("&amp;", "")
-    contents = contents.replace("&", "")
-    contents = contents.replace("char", "string") 
-    contents = contents.replace("wxChar", "string") 
-    contents = contents.replace("wxCoord", "int")
-    contents = contents.replace("<A HREF=\"wx_wxstring.html#wxstring\">wxString</A>", "string")
+    #contents = contents.replace("off_t", "long")
+    #contents = contents.replace("size_t", "long")
+    #contents = contents.replace("*", "")
+    #contents = contents.replace("&amp;", "")
+    #contents = contents.replace("&", "")
+    #contents = contents.replace("char", "string") 
+    #contents = contents.replace("wxChar", "string") 
+    #contents = contents.replace("wxCoord", "int")
+    #contents = contents.replace("<A HREF=\"wx_wxstring.html#wxstring\">wxString</A>", "string")
     
     return pythonize_text(contents)
     
