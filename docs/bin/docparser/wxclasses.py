@@ -102,10 +102,12 @@ def justifyKeepingIndent(MAX, indent, desc, sep=" "):
     return desc
 
 class wxClass:
-    def __init__(self, name, description="", derivedFrom=[], styles=[], extrastyles=[], lib="Base", sa=""):
+    def __init__(self, name, description="", derivedFrom=[], events=[], \
+                 styles=[], extrastyles=[], lib="Base", sa=""):
         self.name = name
         self.description = description
         self.derivedFrom = derivedFrom
+        self.events = events
         self.styles = styles
         self.extrastyles = extrastyles
         self.methods = {}
@@ -114,7 +116,7 @@ class wxClass:
         self.inclusionFile = ""
         self.lib = stripHTML(lib)
         self.seeAlso = stripHTML(sa)
-        
+        self.objects = ""
         
         
     def asHtml(self):
@@ -159,12 +161,18 @@ class wxClass:
             text = ""
             for style in styles:
                 desc = "       " + style[1].strip().replace("\n", " ")
-                
-                x = HTMLStripper()
-                x.feed(desc)
-                desc = x.get_fed_data()
+                desc = stripHTML(desc)
                 desc = justifyKeepingIndent(75, 6, desc)
                 text += "@style{%s}:\n%s\n" % (style[0].strip(), desc)
+            return text
+        
+        def genEventList(styles):
+            text = ""
+            for style in styles:
+                desc = "       " + style[1].strip().replace("\n", " ")
+                desc = stripHTML(desc)
+                desc = justifyKeepingIndent(75, 6, desc)
+                text += "@event{%s}:\n%s\n" % (style[0].strip(), desc)
             return text
 
         if len(self.styles)>0:
@@ -176,15 +184,22 @@ class wxClass:
             doxytext += genStyleList(self.extrastyles)
             doxytext += "@endExtraStyleTable\n"
 
+        if len(self.events)>0:
+            doxytext += "\n@beginEventTable\n"
+            doxytext += genEventList(self.events)
+            doxytext += "@endEventTable\n"
+
         doxytext += "\n@library{%s}\n\n" % self.lib
         
+        if len(self.objects.strip())>0:
+            doxytext += "\n@stdobjects\n%s\n\n" % self.objects.strip()
+                        #justifyKeepingIndent(75, 8, self.objects.strip())
+        
         if len(self.seeAlso.strip())>0:
-            doxytext += "\n@seealso %s\n\n" % justifyKeepingIndent(75, 8, self.seeAlso.strip())
+            doxytext += "\n@seealso\n%s\n\n" % self.seeAlso.strip()
+                        #justifyKeepingIndent(75, 8, self.seeAlso.strip())
 
-        x = HTMLStripper()
-        x.feed(doxytext)
-
-        doxytext = "/**\n%s*/\n\n" % commentizeText(x.get_fed_data(), indent)
+        doxytext = "/**\n%s*/\n\n" % commentizeText(stripHTML(doxytext), indent)
         return doxytext.replace("\n*", "\n *")
         
     def createProps(self):

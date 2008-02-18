@@ -645,6 +645,11 @@ public:
         headertext = headertext.replace("@@false", "@false")
         headertext = headertext.replace("NULL", "@NULL")
         headertext = headertext.replace("@@NULL", "@NULL")
+        
+        # don't know why these are left around:
+        headertext = headertext.replace("</B> <B>", "")
+        headertext = headertext.replace("&lt;", "<")
+        headertext = headertext.replace("&gt;", ">")
             
         afile = open(file, "w")
         afile.write(headertext)

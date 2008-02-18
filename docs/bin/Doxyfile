@@ -38,11 +38,14 @@ TAB_SIZE               = 8
 
 
 #
-# This is the most important part of the wxWidgets Doxyfile:
+# This is the most important part of the wxWidgets Doxyfile; aliases allow
+# us to keep the headers readable and "implement" wxWidgets-specific commands.
 #
-#ALIASES = "beginEventTable=\section events Events\n <table border='0' cellspacing='4' class='events'><tr><td align='center'><b>Event</b></td><td align='center'><b>Description</b></td></tr>"
-#ALIASES += "event{2}=<tr><td valign='top' class='eventName'><b>\1</b></td><td valign='top' class='eventDesc'>\2</td></tr>\n"
-#ALIASES += "endEventTable=</table>"
+
+# event aliases
+ALIASES = beginEventTable="\section events Events\n <table border='0' cellspacing='4' class='events'><tr><td align='center'><b>Event</b></td><td align='center'><b>Description</b></td></tr>"
+ALIASES += event{2}="<tr><td valign='top' class='eventName'><b>\1</b></td><td valign='top' class='eventDesc'>\2</td></tr>\n"
+ALIASES += endEventTable="</table>"
 
 # style aliases
 ALIASES += beginStyleTable="\section styles Styles\n"
@@ -56,6 +59,9 @@ ALIASES += endExtraStyleTable="\n"
 # misc aliases
 ALIASES += library{1}="\section lib Library\n \b \1"
 ALIASES += seealso="\section sa See also\n"    # the default \sa command does not generate a \section!
+ALIASES += stdobjects="\section stdobj Predefined objects\n \b"
+
+# some formatting aliases
 ALIASES += true="\b true"
 ALIASES += false="\b false"
 ALIASES += NULL="\b NULL"

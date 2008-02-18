@@ -13,12 +13,15 @@ outputdir = "output"
 class_desc_re = """<H2>.*?</H2>(.*?)<B><FONT COLOR="#FF0000">"""
 win_styles_re = """<B><FONT COLOR="#FF0000">Window styles</FONT></B><P>(.*?)<B><FONT COLOR="#FF0000">"""
 win_styles_extra_re = """<B><FONT COLOR="#FF0000">Extra window styles</FONT></B><P>(.*?)<B><FONT COLOR="#FF0000">"""
-win_style_re = """<TR><TD VALIGN=TOP WIDTH=.*?>\s*?<FONT FACE=".*?">\s*?<B>(.*?)</B>\s*?</FONT></TD>\s*?<TD VALIGN=TOP>\s*?<FONT FACE=".*?">(.*?)</FONT></TD></TR>"""
 derived_re = """<B><FONT COLOR="#FF0000">Derived from</FONT></B><P>(.*?)<P>"""
 derived_class_re = """<A HREF=".*?">(.*?)</A>"""
 include_re = """<FONT COLOR="#FF0000">Include files</FONT></B>\s?<P>(.*?)<P>"""
 library_re = """<FONT COLOR="#FF0000">Library</FONT></B>\s?<P>(.*?)<P>"""
 seealso_re = """<FONT COLOR="#FF0000">See also</FONT></B>\s?<P>(.*?)<P>"""
+event_re = """<FONT COLOR="#FF0000">Event handling</FONT></B><P>(.*?)<P>"""
+objects_re = """<FONT COLOR="#FF0000">Predefined objects</FONT></B><P>(.*?)<FONT COLOR="#FF0000">"""
+table_row_re = """<TR><TD VALIGN=TOP.*?>\s*?<FONT FACE=".*?">\s*?<B>(.*?)</B>\s*?</FONT></TD>\s*?<TD VALIGN=TOP>\s*?<FONT FACE=".*?">(.*?)</FONT></TD></TR>"""
+
 
 #
 # Method REs
@@ -71,9 +74,9 @@ def wxReplaceFunc(match):
     
     return text
     
-    if text.find("wxWidgets") == -1 and text.find("wxPython") == -1 and text.find("wxPerl") == -1:
-        text = text.replace("wx", "wx.")
-    return text
+    #if text.find("wxWidgets") == -1 and text.find("wxPython") == -1 and text.find("wxPerl") == -1:
+        #text = text.replace("wx", "wx.")
+    #return text
 
 
 
@@ -384,6 +387,21 @@ def getClassLibrary(text):
     return "wxBase"
     
 
+def getClassPredefinedObjects(text):
+
+    objects_regex = re.compile(objects_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    match = objects_regex.search(text)
+    if match:
+        ret = match.group(1).strip()
+        
+        x = HTMLStripper()
+        x.feed(ret)
+        return x.get_fed_data()
+    
+    #print "ERROR: cannot get library file from %s" % text
+    #sys.exit(1)
+    return ""
+
 def getClassSeeAlso(text):
 
     seealso_regex = re.compile(seealso_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
@@ -435,10 +453,23 @@ def getClassStyles(text, extraStyles=False):
         def getClassStyleFromMatch(match):
             return [namespacify_wxClasses(match.group(1)), pythonize_text(match.group(2))]
             
-        styles, remainder = findAllMatches(win_style_re, match.group(1), getClassStyleFromMatch)
+        styles, remainder = findAllMatches(table_row_re, match.group(1), getClassStyleFromMatch)
         
     return styles
 
+def getClassEvents(text):
+    event_regex = re.compile(event_re, re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    match = event_regex.search(text)
+    
+    events = []
+    if match:
+        def getClassEventFromMatch(match):
+            return [namespacify_wxClasses(match.group(1)), pythonize_text(match.group(2))]
+            
+        events, remainder = findAllMatches(table_row_re, match.group(1), getClassEventFromMatch)
+        
+    return events
+    
 # Main functions - these drive the process.
 def getClassMethods(doc, parent):
     contents = open(doc, "rb").read()
@@ -514,12 +545,16 @@ def getClasses(doc):
         derivedClasses = getClassDerivedFrom(classtext)
         description = getClassDescription(classtext)
         styles = getClassStyles(classtext)
+        
         extra_styles = getClassStyles(classtext, extraStyles=True)
         lib = getClassLibrary(classtext)
         sa = getClassSeeAlso(classtext)
-        classes[name] = wxClass(name, description, derivedClasses, styles, extra_styles, lib, sa)
+        events = getClassEvents(classtext)
+        
+        classes[name] = wxClass(name, description, derivedClasses, events, styles, extra_styles, lib, sa)
         classes[name].methods = getClassMethods(classfile, classes[name])
         classes[name].inclusionFile = getClassIncludeFile(classtext)
+        classes[name].objects = getClassPredefinedObjects(classtext)
         
         result = link_regex.search(contents, start)
 
