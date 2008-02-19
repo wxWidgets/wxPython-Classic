@@ -587,7 +587,7 @@ public:
     {
         wxTreeListItem *oldItem = m_curItem;
         m_curItem = (wxTreeListItem*)newItem.m_pItem; 
-        RefreshLine(oldItem);
+        if (oldItem) RefreshLine(oldItem);
     }
 
 protected:
@@ -2485,7 +2485,6 @@ void wxTreeListMainWindow::Delete (const wxTreeItemId& itemId) {
 
     SendDeleteEvent (item);
     if (m_selectItem == item) m_selectItem = (wxTreeListItem*)NULL;
-    if (m_curItem == item) m_curItem = parent;
     item->DeleteChildren (this);
 
     if (item == m_select_me)
@@ -3690,7 +3689,7 @@ void wxTreeListMainWindow::OnChar (wxKeyEvent &event) {
         EnsureVisible (newItem);
         wxTreeListItem *oldItem = m_curItem;
         m_curItem = (wxTreeListItem*)newItem.m_pItem; // make the new item the current item
-        RefreshLine (oldItem);
+        if (oldItem) RefreshLine (oldItem);
     }
 }
 
@@ -4165,6 +4164,7 @@ void wxTreeListMainWindow::CalculatePositions() {
 
 void wxTreeListMainWindow::RefreshSubtree (wxTreeListItem *item) {
     if (m_dirty) return;
+    wxCHECK_RET (item != NULL, _T("bug : invalid item in wxTreeListMainWindow::RefreshSubtree") );
 
     wxClientDC dc(this);
     PrepareDC(dc);
@@ -4185,6 +4185,7 @@ void wxTreeListMainWindow::RefreshSubtree (wxTreeListItem *item) {
 
 void wxTreeListMainWindow::RefreshLine (wxTreeListItem *item) {
     if (m_dirty) return;
+    wxCHECK_RET (item != NULL, _T("bug : invalid item in wxTreeListMainWindow::RefreshLine") );
 
     wxClientDC dc(this);
     PrepareDC( dc );
