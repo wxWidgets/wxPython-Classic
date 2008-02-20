@@ -167,6 +167,7 @@ class PrintFrameworkSample(wx.Frame):
             data = dlg.GetPageSetupData()
             self.pdata = wx.PrintData(data.GetPrintData()) # force a copy
             self.pdata.SetPaperId(data.GetPaperId())
+            #print "paperID %r, paperSize %r" % (self.pdata.GetPaperId(), self.pdata.GetPaperSize())
             self.margins = (data.GetMarginTopLeft(),
                             data.GetMarginBottomRight())
         dlg.Destroy()

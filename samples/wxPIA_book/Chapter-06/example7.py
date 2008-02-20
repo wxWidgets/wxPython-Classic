@@ -13,6 +13,7 @@ class SketchFrame(wx.Frame):
                 size=(800,600))
         self.filename = ""
         self.sketch = SketchWindow(self, -1)
+        self.sketch.SetMinSize((10,10))
         wx.EVT_MOTION(self.sketch, self.OnSketchMotion)
         self.initStatusBar()
         self.createMenuBar()
