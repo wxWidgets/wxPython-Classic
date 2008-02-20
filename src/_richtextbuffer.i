@@ -80,7 +80,7 @@ enum {
  */
     wxRICHTEXT_INSERT_NONE,
     wxRICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE,
-
+    wxRICHTEXT_INSERT_INTERACTIVE,
 
     // TODO:  Rename these to be wxRICHTEXT_* ??
 
