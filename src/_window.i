@@ -577,6 +577,27 @@ the borders, scrollbars, other decorations...)", "");
         wxRect , GetClientRect() const,
         "Get the client area position and size as a `wx.Rect` object.", "");
     
+    DocDeclStr(
+        virtual wxSize , ClientToWindowSize(const wxSize& size) const,
+        "Converts client area size ``size to corresponding window size. In
+other words, the returned value is what `GetSize` would return if this
+window had client area of given size.  Components with
+``wx.DefaultCoord`` (-1) value are left unchanged.
+
+Note that the conversion is not always exact, it assumes that
+non-client area doesn't change and so doesn't take into account things
+like menu bar (un)wrapping or (dis)appearance of the scrollbars.", "");
+    
+    DocDeclStr(
+        virtual wxSize , WindowToClientSize(const wxSize& size) const,
+        "Converts window size ``size`` to corresponding client area size. In
+other words, the returned value is what `GetClientSize` would return
+if this window had given window size. Components with
+``wxDefaultCoord`` (-1) value are left unchanged.
+
+Note that the conversion is not always exact, it assumes that
+non-client area doesn't change and so doesn't take into account things
+like menu bar (un)wrapping or (dis)appearance of the scrollbars.", "");
 
     
     DocStr(GetBestSize,
@@ -729,8 +750,17 @@ max size.", "");
     DocDeclStr(
         int , GetMaxHeight() const,
         "", "");
+
     
-    
+    // Like Set*Size, but for client, not window, size
+    virtual void SetMinClientSize(const wxSize& size);
+    virtual void SetMaxClientSize(const wxSize& size);
+
+    // Like Get*Size, but for client, not window, size
+    virtual wxSize GetMinClientSize() const;
+    virtual wxSize GetMaxClientSize() const;
+ 
+
     
     DocStr(SetVirtualSize,
            "Set the the virtual size of a window in pixels.  For most windows this
@@ -1024,6 +1054,13 @@ for the tab key, since the standard default behaviour for a multiline
 text control with the wx.TE_PROCESS_TAB style is to insert a tab and
 not navigate to the next control.");
 
+    
+    DocDeclStr(
+        bool , HandleAsNavigationKey(const wxKeyEvent& event),
+        "This function will generate the appropriate call to `Navigate` if the
+key event is one normally used for keyboard navigation.  Returns
+``True`` if the key pressed was for navigation and was handled,
+``False`` otherwise.", "");
     
 
     DocDeclStr(
@@ -2292,6 +2329,9 @@ opaque.", "");
     %property(TopLevel, IsTopLevel, doc="See `IsTopLevel`");
 
     %property(GtkWidget, GetGtkWidget);
+
+    %property(MinClientSize, GetMinClientSize, SetMinClientSize);
+    %property(MaxClientSize, GetMaxClientSize, SetMaxClientSize);
 };
 
 

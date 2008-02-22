@@ -1178,7 +1178,13 @@ here, depending on which is bigger.", "");
         wxSize , GetMinSize(),
         "Returns the minimal size of the sizer. This is either the combined
 minimal size of all the children and their borders or the minimal size
-set by SetMinSize, depending on which is bigger.", "");
+set by `SetMinSize`, depending on which is bigger.
+
+Note that the returned value is *client* size, not window size.  In
+particular, if you use the value to set toplevel window's minimal or
+actual size, use `wx.Window.SetMinClientSize` or
+`wx.Window.SetClientSize`, *not* `wx.Window.SetMinSize` or
+`wx.Window.SetSize`.", "");
 
 
     %pythoncode {
@@ -1212,7 +1218,28 @@ EVT_SIZE handler, but it is also useful to call it from user code when
 one of the items in a sizer change size, or items are added or
 removed.", "");
 
+    
+    DocDeclStr(
+        wxSize , ComputeFittingClientSize(wxWindow *window),
+        "Computes client area size for ``window`` so that it matches the
+sizer's minimal size. Unlike `GetMinSize`, this method accounts for
+other constraints imposed on ``window``, namely display's size
+(returned size will never be too large for the display) and maximum
+window size if previously set by `wx.Window.SetMaxSize`.
 
+The returned value is suitable for passing to
+`wx.Window.SetClientSize` or `wx`Window.SetMinClientSize`.", "");
+    
+    DocDeclStr(
+        wxSize , ComputeFittingWindowSize(wxWindow *window),
+        "Like `ComputeFittingClientSize`, but converts the result into *window*
+size.
+
+The returned value is suitable for passing to `wx.Window.SetSize` or
+`wx.Window.SetMinSize`.
+", "");
+
+    
     DocDeclStr(
         wxSize , Fit( wxWindow *window ),
         "Tell the sizer to resize the *window* to match the sizer's minimal
