@@ -248,6 +248,7 @@ enum wxLanguage
     wxLANGUAGE_UZBEK,
     wxLANGUAGE_UZBEK_CYRILLIC,
     wxLANGUAGE_UZBEK_LATIN,
+    wxLANGUAGE_VALENCIAN,
     wxLANGUAGE_VIETNAMESE,
     wxLANGUAGE_VOLAPUK,
     wxLANGUAGE_WELSH,
@@ -273,6 +274,12 @@ struct wxLanguageInfo
     int Language;                   // wxLanguage id
     wxString CanonicalName;         // Canonical name, e.g. fr_FR
     wxString Description;           // human-readable name of the language
+    wxLayoutDirection LayoutDirection;
+
+    // return the locale name corresponding to this language usable with
+    // setlocale() on the current system
+    wxString GetLocaleName() const;
+
 };
 
 // wxLocaleCategory: the category of locale settings
