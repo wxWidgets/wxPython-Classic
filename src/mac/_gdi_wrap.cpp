@@ -16106,6 +16106,93 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_LanguageInfo_LayoutDirection_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLanguageInfo *arg1 = (wxLanguageInfo *) 0 ;
+  wxLayoutDirection arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"LanguageInfo_LayoutDirection_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLanguageInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LanguageInfo_LayoutDirection_set" "', expected argument " "1"" of type '" "wxLanguageInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLanguageInfo * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "LanguageInfo_LayoutDirection_set" "', expected argument " "2"" of type '" "wxLayoutDirection""'");
+  } 
+  arg2 = static_cast< wxLayoutDirection >(val2);
+  if (arg1) (arg1)->LayoutDirection = arg2;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LanguageInfo_LayoutDirection_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLanguageInfo *arg1 = (wxLanguageInfo *) 0 ;
+  wxLayoutDirection result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLanguageInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LanguageInfo_LayoutDirection_get" "', expected argument " "1"" of type '" "wxLanguageInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLanguageInfo * >(argp1);
+  result = (wxLayoutDirection) ((arg1)->LayoutDirection);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LanguageInfo_GetLocaleName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLanguageInfo *arg1 = (wxLanguageInfo *) 0 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLanguageInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LanguageInfo_GetLocaleName" "', expected argument " "1"" of type '" "wxLanguageInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLanguageInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxLanguageInfo const *)arg1)->GetLocaleName();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *LanguageInfo_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -39604,6 +39691,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"LanguageInfo_CanonicalName_get", (PyCFunction)_wrap_LanguageInfo_CanonicalName_get, METH_O, NULL},
 	 { (char *)"LanguageInfo_Description_set", _wrap_LanguageInfo_Description_set, METH_VARARGS, NULL},
 	 { (char *)"LanguageInfo_Description_get", (PyCFunction)_wrap_LanguageInfo_Description_get, METH_O, NULL},
+	 { (char *)"LanguageInfo_LayoutDirection_set", _wrap_LanguageInfo_LayoutDirection_set, METH_VARARGS, NULL},
+	 { (char *)"LanguageInfo_LayoutDirection_get", (PyCFunction)_wrap_LanguageInfo_LayoutDirection_get, METH_O, NULL},
+	 { (char *)"LanguageInfo_GetLocaleName", (PyCFunction)_wrap_LanguageInfo_GetLocaleName, METH_O, NULL},
 	 { (char *)"LanguageInfo_swigregister", LanguageInfo_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_Locale", (PyCFunction) _wrap_new_Locale, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"delete_Locale", (PyCFunction)_wrap_delete_Locale, METH_O, NULL},
@@ -42251,6 +42341,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "LANGUAGE_UZBEK",SWIG_From_int(static_cast< int >(wxLANGUAGE_UZBEK)));
   SWIG_Python_SetConstant(d, "LANGUAGE_UZBEK_CYRILLIC",SWIG_From_int(static_cast< int >(wxLANGUAGE_UZBEK_CYRILLIC)));
   SWIG_Python_SetConstant(d, "LANGUAGE_UZBEK_LATIN",SWIG_From_int(static_cast< int >(wxLANGUAGE_UZBEK_LATIN)));
+  SWIG_Python_SetConstant(d, "LANGUAGE_VALENCIAN",SWIG_From_int(static_cast< int >(wxLANGUAGE_VALENCIAN)));
   SWIG_Python_SetConstant(d, "LANGUAGE_VIETNAMESE",SWIG_From_int(static_cast< int >(wxLANGUAGE_VIETNAMESE)));
   SWIG_Python_SetConstant(d, "LANGUAGE_VOLAPUK",SWIG_From_int(static_cast< int >(wxLANGUAGE_VOLAPUK)));
   SWIG_Python_SetConstant(d, "LANGUAGE_WELSH",SWIG_From_int(static_cast< int >(wxLANGUAGE_WELSH)));

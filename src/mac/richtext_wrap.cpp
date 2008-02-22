@@ -25526,6 +25526,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "RICHTEXT_SETSTYLE_REMOVE",SWIG_From_int(static_cast< int >(wxRICHTEXT_SETSTYLE_REMOVE)));
   SWIG_Python_SetConstant(d, "RICHTEXT_INSERT_NONE",SWIG_From_int(static_cast< int >(wxRICHTEXT_INSERT_NONE)));
   SWIG_Python_SetConstant(d, "RICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE",SWIG_From_int(static_cast< int >(wxRICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_INSERT_INTERACTIVE",SWIG_From_int(static_cast< int >(wxRICHTEXT_INSERT_INTERACTIVE)));
   PyDict_SetItemString(d,(char*)"cvar", SWIG_globals());
   SWIG_addvarlink(SWIG_globals(),(char*)"RICHTEXT_ALL",RICHTEXT_ALL_get, RICHTEXT_ALL_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"RICHTEXT_NONE",RICHTEXT_NONE_get, RICHTEXT_NONE_set);
@@ -25561,6 +25562,7 @@ SWIGEXPORT void SWIG_init(void) {
   PyDict_SetItemString(d, "wxEVT_COMMAND_RICHTEXT_CONTENT_DELETED", PyInt_FromLong(wxEVT_COMMAND_RICHTEXT_CONTENT_DELETED));
   PyDict_SetItemString(d, "wxEVT_COMMAND_RICHTEXT_STYLE_CHANGED", PyInt_FromLong(wxEVT_COMMAND_RICHTEXT_STYLE_CHANGED));
   PyDict_SetItemString(d, "wxEVT_COMMAND_RICHTEXT_SELECTION_CHANGED", PyInt_FromLong(wxEVT_COMMAND_RICHTEXT_SELECTION_CHANGED));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_RICHTEXT_BUFFER_RESET", PyInt_FromLong(wxEVT_COMMAND_RICHTEXT_BUFFER_RESET));
   SWIG_addvarlink(SWIG_globals(),(char*)"HtmlName",HtmlName_get, HtmlName_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"HtmlExt",HtmlExt_get, HtmlExt_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"XmlName",XmlName_get, XmlName_set);

@@ -3556,6 +3556,50 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GLCanvas_IsDisplaySupported(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  int *arg1 = (int *) 0 ;
+  bool result;
+  int *temp1 ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "attribList", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:GLCanvas_IsDisplaySupported",kwnames,&obj0)) SWIG_fail;
+  {
+    int i;
+    if (PySequence_Check(obj0)) {
+      int size = PyObject_Length(obj0);
+      temp1 = new int[size+1]; // (int*)malloc((size + 1) * sizeof(int));
+      for (i = 0; i < size; i++) {
+        temp1[i] = PyInt_AsLong(PySequence_GetItem(obj0, i));
+      }
+      temp1[size] = 0;
+      arg1 = temp1;
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxGLCanvas::IsDisplaySupported((int const *)arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    delete [] arg1;
+  }
+  return resultobj;
+fail:
+  {
+    delete [] arg1;
+  }
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *GLCanvas_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -3583,6 +3627,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GLCanvas_SetupPalette", (PyCFunction) _wrap_GLCanvas_SetupPalette, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GLCanvas_CreateDefaultPalette", (PyCFunction)_wrap_GLCanvas_CreateDefaultPalette, METH_O, NULL},
 	 { (char *)"GLCanvas_GetPalette", (PyCFunction)_wrap_GLCanvas_GetPalette, METH_O, NULL},
+	 { (char *)"GLCanvas_IsDisplaySupported", (PyCFunction) _wrap_GLCanvas_IsDisplaySupported, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GLCanvas_swigregister", GLCanvas_swigregister, METH_VARARGS, NULL},
 	 { (char *)"GLCanvas_swiginit", GLCanvas_swiginit, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }

@@ -2654,6 +2654,7 @@ LANGUAGE_URDU_PAKISTAN = _gdi_.LANGUAGE_URDU_PAKISTAN
 LANGUAGE_UZBEK = _gdi_.LANGUAGE_UZBEK
 LANGUAGE_UZBEK_CYRILLIC = _gdi_.LANGUAGE_UZBEK_CYRILLIC
 LANGUAGE_UZBEK_LATIN = _gdi_.LANGUAGE_UZBEK_LATIN
+LANGUAGE_VALENCIAN = _gdi_.LANGUAGE_VALENCIAN
 LANGUAGE_VIETNAMESE = _gdi_.LANGUAGE_VIETNAMESE
 LANGUAGE_VOLAPUK = _gdi_.LANGUAGE_VOLAPUK
 LANGUAGE_WELSH = _gdi_.LANGUAGE_WELSH
@@ -2672,6 +2673,11 @@ class LanguageInfo(object):
     Language = property(_gdi_.LanguageInfo_Language_get, _gdi_.LanguageInfo_Language_set)
     CanonicalName = property(_gdi_.LanguageInfo_CanonicalName_get, _gdi_.LanguageInfo_CanonicalName_set)
     Description = property(_gdi_.LanguageInfo_Description_get, _gdi_.LanguageInfo_Description_set)
+    LayoutDirection = property(_gdi_.LanguageInfo_LayoutDirection_get, _gdi_.LanguageInfo_LayoutDirection_set)
+    def GetLocaleName(*args, **kwargs):
+        """GetLocaleName(self) -> String"""
+        return _gdi_.LanguageInfo_GetLocaleName(*args, **kwargs)
+
 _gdi_.LanguageInfo_swigregister(LanguageInfo)
 
 LOCALE_CAT_NUMBER = _gdi_.LOCALE_CAT_NUMBER

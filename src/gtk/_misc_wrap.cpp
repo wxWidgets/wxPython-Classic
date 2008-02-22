@@ -3720,6 +3720,101 @@ SWIGINTERN bool wxDateTime___ne__(wxDateTime *self,wxDateTime const *other){
             if (!other || !self->IsValid() || !other->IsValid()) return self != other; 
             return (*self != *other);
         }
+
+SWIGINTERN int
+SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
+{
+  if (PyString_Check(obj)) {
+    char *cstr; Py_ssize_t len;
+    PyString_AsStringAndSize(obj, &cstr, &len);
+    if (cptr)  {
+      if (alloc) {
+	/* 
+	   In python the user should not be able to modify the inner
+	   string representation. To warranty that, if you define
+	   SWIG_PYTHON_SAFE_CSTRINGS, a new/copy of the python string
+	   buffer is always returned.
+
+	   The default behavior is just to return the pointer value,
+	   so, be careful.
+	*/ 
+#if defined(SWIG_PYTHON_SAFE_CSTRINGS)
+	if (*alloc != SWIG_OLDOBJ) 
+#else
+	if (*alloc == SWIG_NEWOBJ) 
+#endif
+	  {
+	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
+	    *alloc = SWIG_NEWOBJ;
+	  }
+	else {
+	  *cptr = cstr;
+	  *alloc = SWIG_OLDOBJ;
+	}
+      } else {
+	*cptr = PyString_AsString(obj);
+      }
+    }
+    if (psize) *psize = len + 1;
+    return SWIG_OK;
+  } else {
+    swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
+    if (pchar_descriptor) {
+      void* vptr = 0;
+      if (SWIG_ConvertPtr(obj, &vptr, pchar_descriptor, 0) == SWIG_OK) {
+	if (cptr) *cptr = (char *) vptr;
+	if (psize) *psize = vptr ? (strlen((char *)vptr) + 1) : 0;
+	if (alloc) *alloc = SWIG_OLDOBJ;
+	return SWIG_OK;
+      }
+    }
+  }
+  return SWIG_TypeError;
+}
+
+
+SWIGINTERN int
+SWIG_AsCharArray(PyObject * obj, char *val, size_t size)
+{ 
+  char* cptr = 0; size_t csize = 0; int alloc = SWIG_OLDOBJ;
+  int res = SWIG_AsCharPtrAndSize(obj, &cptr, &csize, &alloc);
+  if (SWIG_IsOK(res)) {
+    if ((csize == size + 1) && cptr && !(cptr[csize-1])) --csize;
+    if (csize <= size) {
+      if (val) {
+	if (csize) memcpy(val, cptr, csize*sizeof(char));
+	if (csize < size) memset(val + csize, 0, (size - csize)*sizeof(char));
+      }
+      if (alloc == SWIG_NEWOBJ) {
+	delete[] cptr;
+	res = SWIG_DelNewMask(res);
+      }      
+      return res;
+    }
+    if (alloc == SWIG_NEWOBJ) delete[] cptr;
+  }
+  return SWIG_TypeError;
+}
+
+
+SWIGINTERN int
+SWIG_AsVal_char (PyObject * obj, char *val)
+{    
+  int res = SWIG_AsCharArray(obj, val, 1);
+  if (!SWIG_IsOK(res)) {
+    long v;
+    res = SWIG_AddCast(SWIG_AsVal_long (obj, &v));
+    if (SWIG_IsOK(res)) {
+      if ((CHAR_MIN <= v) && (v <= CHAR_MAX)) {
+	if (val) *val = static_cast< char >(v);
+      } else {
+	res = SWIG_OverflowError;
+      }
+    }
+  }
+  return res;
+}
+
 SWIGINTERN wxTimeSpan wxTimeSpan___add__(wxTimeSpan *self,wxTimeSpan const &other){ return *self + other; }
 SWIGINTERN wxTimeSpan wxTimeSpan___sub__(wxTimeSpan *self,wxTimeSpan const &other){ return *self - other; }
 SWIGINTERN wxTimeSpan wxTimeSpan___mul__(wxTimeSpan *self,int n){ return *self * n; }
@@ -28667,6 +28762,161 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DateTime_ParseISODate(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDateTime *arg1 = (wxDateTime *) 0 ;
+  wxString *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "date", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:DateTime_ParseISODate",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDateTime, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DateTime_ParseISODate" "', expected argument " "1"" of type '" "wxDateTime *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDateTime * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->ParseISODate((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DateTime_ParseISOTime(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDateTime *arg1 = (wxDateTime *) 0 ;
+  wxString *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "time", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:DateTime_ParseISOTime",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDateTime, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DateTime_ParseISOTime" "', expected argument " "1"" of type '" "wxDateTime *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDateTime * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->ParseISOTime((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DateTime_ParseISOCombined(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDateTime *arg1 = (wxDateTime *) 0 ;
+  wxString *arg2 = 0 ;
+  char arg3 = (char) 'T' ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  char val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "datetime",(char *) "sep", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:DateTime_ParseISOCombined",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDateTime, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DateTime_ParseISOCombined" "', expected argument " "1"" of type '" "wxDateTime *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDateTime * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_char(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DateTime_ParseISOCombined" "', expected argument " "3"" of type '" "char""'");
+    } 
+    arg3 = static_cast< char >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->ParseISOCombined((wxString const &)*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DateTime_ParseDateTime(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDateTime *arg1 = (wxDateTime *) 0 ;
@@ -28996,6 +29246,53 @@ SWIGINTERN PyObject *_wrap_DateTime_FormatISOTime(PyObject *SWIGUNUSEDPARM(self)
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = ((wxDateTime const *)arg1)->FormatISOTime();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DateTime_FormatISOCombined(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDateTime *arg1 = (wxDateTime *) 0 ;
+  char arg2 = (char) 'T' ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "sep", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:DateTime_FormatISOCombined",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDateTime, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DateTime_FormatISOCombined" "', expected argument " "1"" of type '" "wxDateTime const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDateTime * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_char(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DateTime_FormatISOCombined" "', expected argument " "2"" of type '" "char""'");
+    } 
+    arg2 = static_cast< char >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxDateTime const *)arg1)->FormatISOCombined(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -40285,6 +40582,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DateTime___ne__", (PyCFunction) _wrap_DateTime___ne__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_ParseRfc822Date", (PyCFunction) _wrap_DateTime_ParseRfc822Date, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_ParseFormat", (PyCFunction) _wrap_DateTime_ParseFormat, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DateTime_ParseISODate", (PyCFunction) _wrap_DateTime_ParseISODate, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DateTime_ParseISOTime", (PyCFunction) _wrap_DateTime_ParseISOTime, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DateTime_ParseISOCombined", (PyCFunction) _wrap_DateTime_ParseISOCombined, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_ParseDateTime", (PyCFunction) _wrap_DateTime_ParseDateTime, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_ParseDate", (PyCFunction) _wrap_DateTime_ParseDate, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_ParseTime", (PyCFunction) _wrap_DateTime_ParseTime, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -40293,6 +40593,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DateTime_FormatTime", (PyCFunction)_wrap_DateTime_FormatTime, METH_O, NULL},
 	 { (char *)"DateTime_FormatISODate", (PyCFunction)_wrap_DateTime_FormatISODate, METH_O, NULL},
 	 { (char *)"DateTime_FormatISOTime", (PyCFunction)_wrap_DateTime_FormatISOTime, METH_O, NULL},
+	 { (char *)"DateTime_FormatISOCombined", (PyCFunction) _wrap_DateTime_FormatISOCombined, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_swigregister", DateTime_swigregister, METH_VARARGS, NULL},
 	 { (char *)"DateTime_swiginit", DateTime_swiginit, METH_VARARGS, NULL},
 	 { (char *)"TimeSpan_Milliseconds", (PyCFunction) _wrap_TimeSpan_Milliseconds, METH_VARARGS | METH_KEYWORDS, NULL},

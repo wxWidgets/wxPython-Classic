@@ -729,6 +729,29 @@ _wxPySetDictionary = _core_._wxPySetDictionary
 cvar = _core_.cvar
 EmptyString = cvar.EmptyString
 
+class ObjectRefData(object):
+    """Proxy of C++ ObjectRefData class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> ObjectRefData"""
+        _core_.ObjectRefData_swiginit(self,_core_.new_ObjectRefData(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_ObjectRefData
+    __del__ = lambda self : None;
+    def GetRefCount(*args, **kwargs):
+        """GetRefCount(self) -> int"""
+        return _core_.ObjectRefData_GetRefCount(*args, **kwargs)
+
+    def IncRef(*args, **kwargs):
+        """IncRef(self)"""
+        return _core_.ObjectRefData_IncRef(*args, **kwargs)
+
+    def DecRef(*args, **kwargs):
+        """DecRef(self)"""
+        return _core_.ObjectRefData_DecRef(*args, **kwargs)
+
+_core_.ObjectRefData_swigregister(ObjectRefData)
+
 #---------------------------------------------------------------------------
 
 BITMAP_TYPE_INVALID = _core_.BITMAP_TYPE_INVALID
@@ -3958,7 +3981,7 @@ class EvtHandler(Object):
 
     def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY):
         """
-        Disconencts the event handler binding for event from self.
+        Disconnects the event handler binding for event from self.
         Returns True if successful.
         """
         if source is not None:
@@ -7633,6 +7656,15 @@ class PyApp(EvtHandler):
         """
         return _core_.PyApp_GetAssertMode(*args, **kwargs)
 
+    def MacHideApp(*args, **kwargs):
+        """
+        MacHideApp(self)
+
+        Hide all application windows just as the user can do with the system
+        Hide command.  Mac only.
+        """
+        return _core_.PyApp_MacHideApp(*args, **kwargs)
+
     def GetMacSupportPCMenuShortcuts(*args, **kwargs):
         """GetMacSupportPCMenuShortcuts() -> bool"""
         return _core_.PyApp_GetMacSupportPCMenuShortcuts(*args, **kwargs)
@@ -9015,6 +9047,36 @@ class Window(EvtHandler):
         """
         return _core_.Window_GetClientRect(*args, **kwargs)
 
+    def ClientToWindowSize(*args, **kwargs):
+        """
+        ClientToWindowSize(self, Size size) -> Size
+
+        Converts client area size ``size to corresponding window size. In
+        other words, the returned value is what `GetSize` would return if this
+        window had client area of given size.  Components with
+        ``wx.DefaultCoord`` (-1) value are left unchanged.
+
+        Note that the conversion is not always exact, it assumes that
+        non-client area doesn't change and so doesn't take into account things
+        like menu bar (un)wrapping or (dis)appearance of the scrollbars.
+        """
+        return _core_.Window_ClientToWindowSize(*args, **kwargs)
+
+    def WindowToClientSize(*args, **kwargs):
+        """
+        WindowToClientSize(self, Size size) -> Size
+
+        Converts window size ``size`` to corresponding client area size. In
+        other words, the returned value is what `GetClientSize` would return
+        if this window had given window size. Components with
+        ``wxDefaultCoord`` (-1) value are left unchanged.
+
+        Note that the conversion is not always exact, it assumes that
+        non-client area doesn't change and so doesn't take into account things
+        like menu bar (un)wrapping or (dis)appearance of the scrollbars.
+        """
+        return _core_.Window_WindowToClientSize(*args, **kwargs)
+
     def GetBestSize(*args, **kwargs):
         """
         GetBestSize(self) -> Size
@@ -9209,6 +9271,22 @@ class Window(EvtHandler):
     def GetMaxHeight(*args, **kwargs):
         """GetMaxHeight(self) -> int"""
         return _core_.Window_GetMaxHeight(*args, **kwargs)
+
+    def SetMinClientSize(*args, **kwargs):
+        """SetMinClientSize(self, Size size)"""
+        return _core_.Window_SetMinClientSize(*args, **kwargs)
+
+    def SetMaxClientSize(*args, **kwargs):
+        """SetMaxClientSize(self, Size size)"""
+        return _core_.Window_SetMaxClientSize(*args, **kwargs)
+
+    def GetMinClientSize(*args, **kwargs):
+        """GetMinClientSize(self) -> Size"""
+        return _core_.Window_GetMinClientSize(*args, **kwargs)
+
+    def GetMaxClientSize(*args, **kwargs):
+        """GetMaxClientSize(self) -> Size"""
+        return _core_.Window_GetMaxClientSize(*args, **kwargs)
 
     def SetVirtualSize(*args, **kwargs):
         """
@@ -9582,6 +9660,17 @@ class Window(EvtHandler):
         equivalient to self.GetParent().NavigateIn().
         """
         return _core_.Window_Navigate(*args, **kwargs)
+
+    def HandleAsNavigationKey(*args, **kwargs):
+        """
+        HandleAsNavigationKey(self, KeyEvent event) -> bool
+
+        This function will generate the appropriate call to `Navigate` if the
+        key event is one normally used for keyboard navigation.  Returns
+        ``True`` if the key pressed was for navigation and was handled,
+        ``False`` otherwise.
+        """
+        return _core_.Window_HandleAsNavigationKey(*args, **kwargs)
 
     def MoveAfterInTabOrder(*args, **kwargs):
         """
@@ -11024,6 +11113,8 @@ class Window(EvtHandler):
     Enabled = property(IsEnabled,Enable,doc="See `IsEnabled` and `Enable`") 
     TopLevel = property(IsTopLevel,doc="See `IsTopLevel`") 
     GtkWidget = property(GetGtkWidget) 
+    MinClientSize = property(GetMinClientSize,SetMinClientSize) 
+    MaxClientSize = property(GetMaxClientSize,SetMaxClientSize) 
 _core_.Window_swigregister(Window)
 
 def PreWindow(*args, **kwargs):
@@ -13676,7 +13767,13 @@ class Sizer(Object):
 
         Returns the minimal size of the sizer. This is either the combined
         minimal size of all the children and their borders or the minimal size
-        set by SetMinSize, depending on which is bigger.
+        set by `SetMinSize`, depending on which is bigger.
+
+        Note that the returned value is *client* size, not window size.  In
+        particular, if you use the value to set toplevel window's minimal or
+        actual size, use `wx.Window.SetMinClientSize` or
+        `wx.Window.SetClientSize`, *not* `wx.Window.SetMinSize` or
+        `wx.Window.SetSize`.
         """
         return _core_.Sizer_GetMinSize(*args, **kwargs)
 
@@ -13719,6 +13816,34 @@ class Sizer(Object):
         removed.
         """
         return _core_.Sizer_Layout(*args, **kwargs)
+
+    def ComputeFittingClientSize(*args, **kwargs):
+        """
+        ComputeFittingClientSize(self, Window window) -> Size
+
+        Computes client area size for ``window`` so that it matches the
+        sizer's minimal size. Unlike `GetMinSize`, this method accounts for
+        other constraints imposed on ``window``, namely display's size
+        (returned size will never be too large for the display) and maximum
+        window size if previously set by `wx.Window.SetMaxSize`.
+
+        The returned value is suitable for passing to
+        `wx.Window.SetClientSize` or `wx`Window.SetMinClientSize`.
+        """
+        return _core_.Sizer_ComputeFittingClientSize(*args, **kwargs)
+
+    def ComputeFittingWindowSize(*args, **kwargs):
+        """
+        ComputeFittingWindowSize(self, Window window) -> Size
+
+        Like `ComputeFittingClientSize`, but converts the result into *window*
+        size.
+
+        The returned value is suitable for passing to `wx.Window.SetSize` or
+        `wx.Window.SetMinSize`.
+
+        """
+        return _core_.Sizer_ComputeFittingWindowSize(*args, **kwargs)
 
     def Fit(*args, **kwargs):
         """

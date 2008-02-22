@@ -4072,6 +4072,18 @@ class DateTime(object):
         """ParseFormat(self, String date, String format=DefaultDateTimeFormat, DateTime dateDef=DefaultDateTime) -> char"""
         return _misc_.DateTime_ParseFormat(*args, **kwargs)
 
+    def ParseISODate(*args, **kwargs):
+        """ParseISODate(self, String date) -> bool"""
+        return _misc_.DateTime_ParseISODate(*args, **kwargs)
+
+    def ParseISOTime(*args, **kwargs):
+        """ParseISOTime(self, String time) -> bool"""
+        return _misc_.DateTime_ParseISOTime(*args, **kwargs)
+
+    def ParseISOCombined(*args, **kwargs):
+        """ParseISOCombined(self, String datetime, char sep='T') -> bool"""
+        return _misc_.DateTime_ParseISOCombined(*args, **kwargs)
+
     def ParseDateTime(*args, **kwargs):
         """ParseDateTime(self, String datetime) -> char"""
         return _misc_.DateTime_ParseDateTime(*args, **kwargs)
@@ -4103,6 +4115,10 @@ class DateTime(object):
     def FormatISOTime(*args, **kwargs):
         """FormatISOTime(self) -> String"""
         return _misc_.DateTime_FormatISOTime(*args, **kwargs)
+
+    def FormatISOCombined(*args, **kwargs):
+        """FormatISOCombined(self, char sep='T') -> String"""
+        return _misc_.DateTime_FormatISOCombined(*args, **kwargs)
 
     def __repr__(self):
         if self.IsValid():
@@ -5011,7 +5027,7 @@ _misc_.PyDataObjectSimple_swigregister(PyDataObjectSimple)
 class DataObjectComposite(DataObject):
     """
     wx.DataObjectComposite is the simplest `wx.DataObject` derivation
-    which may be sued to support multiple formats. It contains several
+    which may be used to support multiple formats. It contains several
     'wx.DataObjectSimple` objects and supports any format supported by at
     least one of them. Only one of these data objects is *preferred* (the
     first one if not explicitly changed by using the second parameter of
@@ -5030,7 +5046,7 @@ class DataObjectComposite(DataObject):
         __init__(self) -> DataObjectComposite
 
         wx.DataObjectComposite is the simplest `wx.DataObject` derivation
-        which may be sued to support multiple formats. It contains several
+        which may be used to support multiple formats. It contains several
         'wx.DataObjectSimple` objects and supports any format supported by at
         least one of them. Only one of these data objects is *preferred* (the
         first one if not explicitly changed by using the second parameter of

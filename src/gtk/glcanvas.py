@@ -136,7 +136,17 @@ class GLCanvas(_core.Window):
         """InitVisual(self, int attribList) -> bool"""
         return _glcanvas.GLCanvas_InitVisual(*args, **kwargs)
 
-    Context = property(GetContext,doc="See `GetContext`") 
+    def GetPalette(*args, **kwargs):
+        """GetPalette(self) -> Palette"""
+        return _glcanvas.GLCanvas_GetPalette(*args, **kwargs)
+
+    def IsDisplaySupported(*args, **kwargs):
+        """IsDisplaySupported(int attribList) -> bool"""
+        return _glcanvas.GLCanvas_IsDisplaySupported(*args, **kwargs)
+
+    IsDisplaySupported = staticmethod(IsDisplaySupported)
+    Context = property(GetContext) 
+    Palette = property(GetPalette) 
 _glcanvas.GLCanvas_swigregister(GLCanvas)
 
 def GLCanvasWithContext(*args, **kwargs):
@@ -149,6 +159,10 @@ def GLCanvasWithContext(*args, **kwargs):
     val = _glcanvas.new_GLCanvasWithContext(*args, **kwargs)
     val._setOORInfo(val)
     return val
+
+def GLCanvas_IsDisplaySupported(*args, **kwargs):
+  """GLCanvas_IsDisplaySupported(int attribList) -> bool"""
+  return _glcanvas.GLCanvas_IsDisplaySupported(*args, **kwargs)
 
 
 
