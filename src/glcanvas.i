@@ -153,10 +153,14 @@ public:
 //     void SetupPixelFormat(int *attribList = NULL);
     void SetupPalette(const wxPalette& palette);
     wxPalette CreateDefaultPalette();
-    wxPalette* GetPalette();
 #endif
 
-    %property(Context, GetContext, doc="See `GetContext`");
+    wxPalette* GetPalette();
+    static bool IsDisplaySupported(const int *attribList);
+    
+    
+    %property(Context, GetContext);
+    %property(Palette, GetPalette);
 };
 
 
