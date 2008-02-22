@@ -264,6 +264,16 @@ systems where more than one is available, (Sun, SGI, XFree86 4, etc.)", "");
         int,  GetAssertMode(),
         "Get the current OnAssert behaviour setting.", "");
 
+    DocStr(MacHideApp,
+           "Hide all application windows just as the user can do with the system
+Hide command.  Mac only.", "");
+#ifdef __WXMAC__
+    void MacHideApp();
+#else
+    %extend {
+        void MacHideApp() {}
+    }
+#endif
 
     static bool GetMacSupportPCMenuShortcuts();  // TODO, deprecate this
     static long GetMacAboutMenuItemId();
