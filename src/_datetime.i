@@ -793,6 +793,16 @@ public:
                       const wxString& format = wxPyDefaultDateTimeFormat,
                       const wxDateTime& dateDef = wxDefaultDateTime);
 
+    
+    // parse a string containing date, time or both in ISO 8601 format
+    //
+    // notice that these functions are new in wx 3.0 and so we don't
+    // provide compatibility overloads for them
+    bool ParseISODate(const wxString& date);
+    bool ParseISOTime(const wxString& time);
+    bool ParseISOCombined(const wxString& datetime, char sep = 'T');
+
+    
     // parse a string containing the date/time in "free" format, this
     // function will try to make an educated guess at the string contents
     char* ParseDateTime(const wxString& datetime);
@@ -826,6 +836,11 @@ public:
         // (HH:MM:SS)
     wxString FormatISOTime() const;
 
+        // return the combined date time representation in ISO 8601 format; the
+        // separator character should be 'T' according to the standard but it
+        // can also be useful to set it to ' '
+    wxString FormatISOCombined(char sep = 'T') const;
+    
     %pythoncode {
     def __repr__(self):
         if self.IsValid():
