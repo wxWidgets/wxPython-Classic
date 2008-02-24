@@ -556,7 +556,7 @@ def BuildDrawFrame(): # this gets called when needed, rather than on import
             dx = 80
             dy = 40
             x, y = 20, 20
-            FontSize = 10
+            FontSize = 8
 
             #Add one that is not HitAble
             Canvas.AddRectangle((x,y), (w, h), LineWidth = 2)
