@@ -67,7 +67,7 @@ enum {
 };
 %pythoncode {
     wx.TR_COLUMN_LINES = TR_COLUMN_LINES
-    wxTR_VIRTUAL = TR_VIRTUAL    
+    wx.TR_VIRTUAL = TR_VIRTUAL    
 }
 
 
