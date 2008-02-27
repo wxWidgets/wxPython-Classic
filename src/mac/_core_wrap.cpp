@@ -31910,6 +31910,33 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PyApp_MacHideApp(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_MacHideApp" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->MacHideApp();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PyApp_GetMacSupportPCMenuShortcuts(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   bool result;
@@ -60256,6 +60283,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyApp_GetPrintMode", (PyCFunction)_wrap_PyApp_GetPrintMode, METH_O, NULL},
 	 { (char *)"PyApp_SetAssertMode", (PyCFunction) _wrap_PyApp_SetAssertMode, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_GetAssertMode", (PyCFunction)_wrap_PyApp_GetAssertMode, METH_O, NULL},
+	 { (char *)"PyApp_MacHideApp", (PyCFunction)_wrap_PyApp_MacHideApp, METH_O, NULL},
 	 { (char *)"PyApp_GetMacSupportPCMenuShortcuts", (PyCFunction)_wrap_PyApp_GetMacSupportPCMenuShortcuts, METH_NOARGS, NULL},
 	 { (char *)"PyApp_GetMacAboutMenuItemId", (PyCFunction)_wrap_PyApp_GetMacAboutMenuItemId, METH_NOARGS, NULL},
 	 { (char *)"PyApp_GetMacPreferencesMenuItemId", (PyCFunction)_wrap_PyApp_GetMacPreferencesMenuItemId, METH_NOARGS, NULL},

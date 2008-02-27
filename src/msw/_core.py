@@ -3883,7 +3883,7 @@ class EvtHandler(Object):
 
     def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY):
         """
-        Disconencts the event handler binding for event from self.
+        Disconnects the event handler binding for event from self.
         Returns True if successful.
         """
         if source is not None:
@@ -7410,6 +7410,15 @@ class PyApp(EvtHandler):
         Get the current OnAssert behaviour setting.
         """
         return _core_.PyApp_GetAssertMode(*args, **kwargs)
+
+    def MacHideApp(*args, **kwargs):
+        """
+        MacHideApp(self)
+
+        Hide all application windows just as the user can do with the system
+        Hide command.  Mac only.
+        """
+        return _core_.PyApp_MacHideApp(*args, **kwargs)
 
     def GetMacSupportPCMenuShortcuts(*args, **kwargs):
         """GetMacSupportPCMenuShortcuts() -> bool"""

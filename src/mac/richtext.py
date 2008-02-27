@@ -94,6 +94,7 @@ RICHTEXT_SETSTYLE_RESET = _richtext.RICHTEXT_SETSTYLE_RESET
 RICHTEXT_SETSTYLE_REMOVE = _richtext.RICHTEXT_SETSTYLE_REMOVE
 RICHTEXT_INSERT_NONE = _richtext.RICHTEXT_INSERT_NONE
 RICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE = _richtext.RICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE
+RICHTEXT_INSERT_INTERACTIVE = _richtext.RICHTEXT_INSERT_INTERACTIVE
 TEXT_ATTR_TEXT_COLOUR = _richtext.TEXT_ATTR_TEXT_COLOUR
 TEXT_ATTR_BACKGROUND_COLOUR = _richtext.TEXT_ATTR_BACKGROUND_COLOUR
 TEXT_ATTR_FONT_FACE = _richtext.TEXT_ATTR_FONT_FACE
@@ -119,6 +120,7 @@ TEXT_ATTR_URL = _richtext.TEXT_ATTR_URL
 TEXT_ATTR_PAGE_BREAK = _richtext.TEXT_ATTR_PAGE_BREAK
 TEXT_ATTR_EFFECTS = _richtext.TEXT_ATTR_EFFECTS
 TEXT_ATTR_OUTLINE_LEVEL = _richtext.TEXT_ATTR_OUTLINE_LEVEL
+TEXT_ATTR_KEEP_FIRST_PARA_STYLE = _richtext.TEXT_ATTR_KEEP_FIRST_PARA_STYLE
 TEXT_ATTR_BULLET_STYLE_NONE = _richtext.TEXT_ATTR_BULLET_STYLE_NONE
 TEXT_ATTR_BULLET_STYLE_ARABIC = _richtext.TEXT_ATTR_BULLET_STYLE_ARABIC
 TEXT_ATTR_BULLET_STYLE_LETTERS_UPPER = _richtext.TEXT_ATTR_BULLET_STYLE_LETTERS_UPPER
@@ -2382,6 +2384,38 @@ class RichTextCtrl(_windows.ScrolledWindow):
         during sizing.
         """
         return _richtext.RichTextCtrl_GetDelayedLayoutThreshold(*args, **kwargs)
+
+    def SetTextCursor(*args, **kwargs):
+        """
+        SetTextCursor(self, Cursor cursor)
+
+        Set text cursor
+        """
+        return _richtext.RichTextCtrl_SetTextCursor(*args, **kwargs)
+
+    def GetTextCursor(*args, **kwargs):
+        """
+        GetTextCursor(self) -> Cursor
+
+        Get text cursor
+        """
+        return _richtext.RichTextCtrl_GetTextCursor(*args, **kwargs)
+
+    def SetURLCursor(*args, **kwargs):
+        """
+        SetURLCursor(self, Cursor cursor)
+
+        Set URL cursor
+        """
+        return _richtext.RichTextCtrl_SetURLCursor(*args, **kwargs)
+
+    def GetURLCursor(*args, **kwargs):
+        """
+        GetURLCursor(self) -> Cursor
+
+        Get URL cursor
+        """
+        return _richtext.RichTextCtrl_GetURLCursor(*args, **kwargs)
 
     def Clear(*args, **kwargs):
         """Clear(self)"""
