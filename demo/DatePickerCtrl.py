@@ -10,12 +10,15 @@ class TestPanel(wx.Panel):
 
         dpc = wx.DatePickerCtrl(self, size=(120,-1),
                                 style=wx.DP_DROPDOWN | wx.DP_SHOWCENTURY)
+        self.Bind(wx.EVT_DATE_CHANGED, self.OnDateChanged, dpc)
         
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(dpc, 0, wx.ALL, 50)
 
         self.SetSizer(sizer)
-        
+
+    def OnDateChanged(self, evt):
+        self.log.write("OnDateChanged: %s\n" % evt.GetDate())
 
 #----------------------------------------------------------------------
 
