@@ -111,6 +111,11 @@ enum {
     wxTEXT_ATTR_EFFECTS,
     wxTEXT_ATTR_OUTLINE_LEVEL,
 
+// A special flag telling the buffer to keep the first paragraph style
+// as-is, when deleting a paragraph marker. In future we might pass a
+// flag to InsertFragment and DeleteRange to indicate the appropriate mode.
+    wxTEXT_ATTR_KEEP_FIRST_PARA_STYLE,
+    
 /*!
  * Styles for wxTextAttrEx::SetBulletStyle
  */

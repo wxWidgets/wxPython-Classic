@@ -155,6 +155,27 @@ during sizing.", "");
 during sizing.", "");
 
 
+    DocDeclStr(
+        void , SetTextCursor(const wxCursor& cursor ),
+        "Set text cursor", "");
+    
+
+    DocDeclStr(
+        wxCursor , GetTextCursor() const,
+        "Get text cursor", "");
+    
+
+    DocDeclStr(
+        void , SetURLCursor(const wxCursor& cursor ),
+        "Set URL cursor", "");
+    
+
+    DocDeclStr(
+        wxCursor , GetURLCursor() const,
+        "Get URL cursor", "");
+    
+
+    
 
     DocDeclStr(
         virtual void , Clear(),
