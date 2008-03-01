@@ -800,7 +800,7 @@ Window Styles
 
 MustHaveApp(wxProgressDialog);
 
-class wxProgressDialog : public wxFrame {
+class wxProgressDialog : public wxDialog {
 public:
     %pythonAppend wxProgressDialog   "self._setOORInfo(self)"
 
