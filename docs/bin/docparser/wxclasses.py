@@ -3,6 +3,402 @@ import wx
 import restconvert
 html_heading = "<H3><font color=\"red\">%s</font></H3>"
 
+
+classes_categories = { \
+ "wxTopLevelWindow" : "manwnd",
+ "wxDialog" : "manwnd",
+ "wxFrame" : "manwnd",
+ "wxMDIChildFrame" : "manwnd",
+ "wxMDIParentFrame" : "manwnd",
+ "wxMiniFrame" : "manwnd",
+ "wxPropertySheetDialog" : "manwnd",
+ "wxSplashScreen" : "manwnd",
+ "wxTipWindow" : "manwnd",
+ "wxWizard" : "manwnd",
+ "wxPanel" : "miscwnd",
+ "wxScrolledWindow" : "miscwnd",
+ "wxGrid" : "miscwnd",
+ "wxSplitterWindow" : "miscwnd",
+ "wxStatusBar" : "miscwnd",
+ "wxToolBar" : "miscwnd",
+ "wxNotebook" : "miscwnd",
+ "wxListbook" : "miscwnd",
+ "wxChoicebook" : "miscwnd",
+ "wxTreebook" : "miscwnd",
+ "wxSashWindow" : "miscwnd",
+ "wxSashLayoutWindow" : "miscwnd",
+ "wxVScrolledWindow" : "miscwnd",
+ "wxWizardPage" : "miscwnd",
+ "wxWizardPageSimple" : "miscwnd",
+ "wxDialog" : "cmndlg",
+ "wxColourDialog" : "cmndlg",
+ "wxDirDialog" : "cmndlg",
+ "wxFileDialog" : "cmndlg",
+ "wxFindReplaceDialog" : "cmndlg",
+ "wxMultiChoiceDialog" : "cmndlg",
+ "wxSingleChoiceDialog" : "cmndlg",
+ "wxTextEntryDialog" : "cmndlg",
+ "wxPasswordEntryDialog" : "cmndlg",
+ "wxFontDialog" : "cmndlg",
+ "wxPageSetupDialog" : "cmndlg",
+ "wxPrintDialog" : "cmndlg",
+ "wxProgressDialog" : "cmndlg",
+ "wxMessageDialog" : "cmndlg",
+ "wxSymbolPickerDialog" : "cmndlg",
+ "wxRichTextFormattingDialog" : "cmndlg",
+ "wxWizard" : "cmndlg",
+ "wxAnimationCtrl" : "ctrl",
+ "wxControl" : "ctrl",
+ "wxButton" : "ctrl",
+ "wxBitmapButton" : "ctrl",
+ "wxBitmapComboBox" : "ctrl",
+ "wxToggleButton" : "ctrl",
+ "wxBitmapToggleButton" : "ctrl",
+ "wxCalendarCtrl" : "ctrl",
+ "wxCheckBox" : "ctrl",
+ "wxCheckListBox" : "ctrl",
+ "wxChoice" : "ctrl",
+ "wxCollapsiblePane" : "ctrl",
+ "wxComboBox" : "ctrl",
+ "wxComboCtrl" : "ctrl",
+ "wxDataViewCtrl" : "ctrl",
+ "wxDataViewTreeCtrl" : "ctrl",
+ "wxGauge" : "ctrl",
+ "wxGenericDirCtrl" : "ctrl",
+ "wxHtmlListBox" : "ctrl",
+ "wxSimpleHtmlListBox" : "ctrl",
+ "wxStaticBox" : "ctrl",
+ "wxListBox" : "ctrl",
+ "wxListCtrl" : "ctrl",
+ "wxListView" : "ctrl",
+ "wxOwnerDrawnComboBox" : "ctrl",
+ "wxRichTextCtrl" : "ctrl",
+ "wxTextCtrl" : "ctrl",
+ "wxTreeCtrl" : "ctrl",
+ "wxScrollBar" : "ctrl",
+ "wxSpinButton" : "ctrl",
+ "wxSpinCtrl" : "ctrl",
+ "wxStaticText" : "ctrl",
+ "wxHyperlinkCtrl" : "ctrl",
+ "wxStaticBitmap" : "ctrl",
+ "wxRadioBox" : "ctrl",
+ "wxRadioButton" : "ctrl",
+ "wxSlider" : "ctrl",
+ "wxVListBox" : "ctrl",
+ "wxColourPickerCtrl" : "miscpickers",
+ "wxDirPickerCtrl" : "miscpickers",
+ "wxFilePickerCtrl" : "miscpickers",
+ "wxFontPickerCtrl" : "miscpickers",
+ "wxDatePickerCtrl" : "miscpickers",
+ "wxMenu" : "menus",
+ "wxMenuBar" : "menus",
+ "wxMenuItem" : "menus",
+ "wxAuiManager" : "aui",
+ "wxAuiNotebook" : "aui",
+ "wxAuiPaneInfo" : "aui",
+ "wxAuiDockArt" : "aui",
+ "wxAuiTabArt" : "aui",
+ "wxSizer" : "winlayout",
+ "wxGridSizer" : "winlayout",
+ "wxFlexGridSizer" : "winlayout",
+ "wxGridBagSizer" : "winlayout",
+ "wxBoxSizer" : "winlayout",
+ "wxStaticBoxSizer" : "winlayout",
+ "wxWrapSizer" : "winlayout",
+ "wxIndividualLayoutConstraint" : "winlayout",
+ "wxLayoutConstraints" : "winlayout",
+ "wxLayoutAlgorithm" : "winlayout",
+ "wxAutoBufferedPaintDC" : "dc",
+ "wxBufferedDC" : "dc",
+ "wxBufferedPaintDC" : "dc",
+ "wxClientDC" : "dc",
+ "wxPaintDC" : "dc",
+ "wxWindowDC" : "dc",
+ "wxScreenDC" : "dc",
+ "wxDC" : "dc",
+ "wxMemoryDC" : "dc",
+ "wxMetafileDC" : "dc",
+ "wxMirrorDC" : "dc",
+ "wxPostScriptDC" : "dc",
+ "wxPrinterDC" : "dc",
+ "wxColour" : "gdi",
+ "wxDCClipper" : "gdi",
+ "wxBitmap" : "gdi",
+ "wxBrush" : "gdi",
+ "wxBrushList" : "gdi",
+ "wxCursor" : "gdi",
+ "wxFont" : "gdi",
+ "wxFontList" : "gdi",
+ "wxIcon" : "gdi",
+ "wxImage" : "gdi",
+ "wxImageList" : "gdi",
+ "wxMask" : "gdi",
+ "wxPen" : "gdi",
+ "wxPenList" : "gdi",
+ "wxPalette" : "gdi",
+ "wxRegion" : "gdi",
+ "wxRendererNative" : "gdi",
+ "wxActivateEvent" : "events",
+ "wxCalendarEvent" : "events",
+ "wxCalculateLayoutEvent" : "events",
+ "wxChildFocusEvent" : "events",
+ "wxClipboardTextEvent" : "events",
+ "wxCloseEvent" : "events",
+ "wxCommandEvent" : "events",
+ "wxContextMenuEvent" : "events",
+ "wxDateEvent" : "events",
+ "wxDialUpEvent" : "events",
+ "wxDropFilesEvent" : "events",
+ "wxEraseEvent" : "events",
+ "wxEvent" : "events",
+ "wxFindDialogEvent" : "events",
+ "wxFocusEvent" : "events",
+ "wxKeyEvent" : "events",
+ "wxIconizeEvent" : "events",
+ "wxIdleEvent" : "events",
+ "wxInitDialogEvent" : "events",
+ "wxJoystickEvent" : "events",
+ "wxListEvent" : "events",
+ "wxMaximizeEvent" : "events",
+ "wxMenuEvent" : "events",
+ "wxMouseCaptureChangedEvent" : "events",
+ "wxMouseCaptureLostEvent" : "events",
+ "wxMouseEvent" : "events",
+ "wxMoveEvent" : "events",
+ "wxNavigationKeyEvent" : "events",
+ "wxNotebookEvent" : "events",
+ "wxNotifyEvent" : "events",
+ "wxPaintEvent" : "events",
+ "wxProcessEvent" : "events",
+ "wxQueryLayoutInfoEvent" : "events",
+ "wxRichTextEvent" : "events",
+ "wxScrollEvent" : "events",
+ "wxScrollWinEvent" : "events",
+ "wxSizeEvent" : "events",
+ "wxSocketEvent" : "events",
+ "wxSpinEvent" : "events",
+ "wxSplitterEvent" : "events",
+ "wxSysColourChangedEvent" : "events",
+ "wxTimerEvent" : "events",
+ "wxTreebookEvent" : "events",
+ "wxTreeEvent" : "events",
+ "wxUpdateUIEvent" : "events",
+ "wxWindowCreateEvent" : "events",
+ "wxWindowDestroyEvent" : "events",
+ "wxWizardEvent" : "events",
+ "wxValidator" : "val",
+ "wxTextValidator" : "val",
+ "wxGenericValidator" : "val",
+ "wxCmdLineParser" : "data",
+ "wxDateSpan" : "data",
+ "wxDateTime" : "data",
+ "wxLongLong" : "data",
+ "wxObject" : "data",
+ "wxPathList" : "data",
+ "wxPoint" : "data",
+ "wxRect" : "data",
+ "wxRegEx" : "data",
+ "wxRegion" : "data",
+ "wxString" : "data",
+ "wxStringTokenizer" : "data",
+ "wxRealPoint" : "data",
+ "wxSize" : "data",
+ "wxTimeSpan" : "data",
+ "wxURI" : "data",
+ "wxVariant" : "data",
+ "wxArray<T>" : "containers",
+ "wxArrayString" : "containers",
+ "wxHashMap<T>" : "containers",
+ "wxHashSet<T>" : "containers",
+ "wxHashTable" : "containers",
+ "wxList<T>" : "containers",
+ "wxVector<T>" : "containers",
+ "wxObjectDataPtr<T>" : "smartpointers",
+ "wxScopedPtr<T>" : "smartpointers",
+ "wxSharedPtr<T>" : "smartpointers",
+ "wxWeakRef<T>" : "smartpointers",
+ "wxClassInfo" : "rtti",
+ "wxObject" : "rtti",
+ "RTTI macros" : "rtti",
+ "wxLog" : "logging",
+ "wxLogStderr" : "logging",
+ "wxLogStream" : "logging",
+ "wxLogTextCtrl" : "logging",
+ "wxLogWindow" : "logging",
+ "wxLogGui" : "logging",
+ "wxLogNull" : "logging",
+ "wxLogChain" : "logging",
+ "wxLogInterposer" : "logging",
+ "wxLogInterposerTemp" : "logging",
+ "wxStreamToTextRedirector" : "logging",
+ "Log functions" : "logging",
+ "wxDebugContext" : "debugging",
+ "Debugging macros" : "debugging",
+ "WXDEBUG_NEW" : "debugging",
+ "wxDebugReport" : "debugging",
+ "wxDebugReportCompress" : "debugging",
+ "wxDebugReportUpload" : "debugging",
+ "wxDebugReportPreview" : "debugging",
+ "wxDebugReportPreviewStd" : "debugging",
+ "wxDialUpManager" : "net",
+ "wxIPV4address" : "net",
+ "wxIPaddress" : "net",
+ "wxSocketBase" : "net",
+ "wxSocketClient" : "net",
+ "wxSocketServer" : "net",
+ "wxSocketEvent" : "net",
+ "wxFTP" : "net",
+ "wxHTTP" : "net",
+ "wxURL" : "net",
+ "wxClient, wxDDEClient" : "ipc",
+ "wxConnection, wxDDEConnection" : "ipc",
+ "wxServer, wxDDEServer" : "ipc",
+ "wxDocument" : "dvf",
+ "wxView" : "dvf",
+ "wxDocTemplate" : "dvf",
+ "wxDocManager" : "dvf",
+ "wxDocChildFrame" : "dvf",
+ "wxDocParentFrame" : "dvf",
+ "wxPreviewFrame" : "printing",
+ "wxPreviewCanvas" : "printing",
+ "wxPreviewControlBar" : "printing",
+ "wxPrintDialog" : "printing",
+ "wxPageSetupDialog" : "printing",
+ "wxPrinter" : "printing",
+ "wxPrinterDC" : "printing",
+ "wxPrintout" : "printing",
+ "wxPrintPreview" : "printing",
+ "wxPrintData" : "printing",
+ "wxPrintDialogData" : "printing",
+ "wxPageSetupDialogData" : "printing",
+ "wxDataObject" : "dnd",
+ "wxDataFormat" : "dnd",
+ "wxTextDataObject" : "dnd",
+ "wxFileDataObject" : "dnd",
+ "wxBitmapDataObject" : "dnd",
+ "wxURLDataObject" : "dnd",
+ "wxCustomDataObject" : "dnd",
+ "wxClipboard" : "dnd",
+ "wxDropTarget" : "dnd",
+ "wxFileDropTarget" : "dnd",
+ "wxTextDropTarget" : "dnd",
+ "wxDropSource" : "dnd",
+ "wxFileName" : "file",
+ "wxDir" : "file",
+ "wxDirTraverser" : "file",
+ "wxFile" : "file",
+ "wxFFile" : "file",
+ "wxTempFile" : "file",
+ "wxTextFile" : "file",
+ "wxStandardPaths" : "file",
+ "wxPathList" : "file",
+ "wxStreamBase" : "streams",
+ "wxStreamBuffer" : "streams",
+ "wxInputStream" : "streams",
+ "wxOutputStream" : "streams",
+ "wxCountingOutputStream" : "streams",
+ "wxFilterInputStream" : "streams",
+ "wxFilterOutputStream" : "streams",
+ "wxBufferedInputStream" : "streams",
+ "wxBufferedOutputStream" : "streams",
+ "wxMemoryInputStream" : "streams",
+ "wxMemoryOutputStream" : "streams",
+ "wxDataInputStream" : "streams",
+ "wxDataOutputStream" : "streams",
+ "wxTextInputStream" : "streams",
+ "wxTextOutputStream" : "streams",
+ "wxFileInputStream" : "streams",
+ "wxFileOutputStream" : "streams",
+ "wxFFileInputStream" : "streams",
+ "wxFFileOutputStream" : "streams",
+ "wxTempFileOutputStream" : "streams",
+ "wxStringInputStream" : "streams",
+ "wxStringOutputStream" : "streams",
+ "wxZlibInputStream" : "streams",
+ "wxZlibOutputStream" : "streams",
+ "wxZipInputStream" : "streams",
+ "wxZipOutputStream" : "streams",
+ "wxTarInputStream" : "streams",
+ "wxTarOutputStream" : "streams",
+ "wxSocketInputStream" : "streams",
+ "wxSocketOutputStream" : "streams",
+ "wxThread" : "thread",
+ "wxThreadHelper" : "thread",
+ "wxMutex" : "thread",
+ "wxMutexLocker" : "thread",
+ "wxCriticalSection" : "thread",
+ "wxCriticalSectionLocker" : "thread",
+ "wxCondition" : "thread",
+ "wxSemaphore" : "thread",
+ "wxHtmlHelpController" : "html",
+ "wxHtmlWindow" : "html",
+ "wxHtmlEasyPrinting" : "html",
+ "wxHtmlPrintout" : "html",
+ "wxHtmlParser" : "html",
+ "wxHtmlTagHandler" : "html",
+ "wxHtmlWinParser" : "html",
+ "wxHtmlWinTagHandler" : "html",
+ "wxTextAttr" : "rich",
+ "wxRichTextCtrl" : "rich",
+ "wxRichTextBuffer" : "rich",
+ "wxRichTextCharacterStyleDefinition" : "rich",
+ "wxRichTextParagraphStyleDefinition" : "rich",
+ "wxRichTextListStyleDefinition" : "rich",
+ "wxRichTextStyleSheet" : "rich",
+ "wxRichTextStyleComboCtrl" : "rich",
+ "wxRichTextStyleListBox" : "rich",
+ "wxRichTextStyleOrganiserDialog" : "rich",
+ "wxRichTextEvent" : "rich",
+ "wxRichTextRange" : "rich",
+ "wxRichTextFileHandler" : "rich",
+ "wxRichTextHTMLHandler" : "rich",
+ "wxRichTextXMLHandler" : "rich",
+ "wxRichTextFormattingDialog" : "rich",
+ "wxRichTextPrinting" : "rich",
+ "wxRichTextPrintout" : "rich",
+ "wxRichTextHeaderFooterData" : "rich",
+ "wxStyledTextCtrl" : "stc",
+ "wxFSFile" : "vfs",
+ "wxFileSystem" : "vfs",
+ "wxFileSystemHandler" : "vfs",
+ "wxXmlDocument" : "xml",
+ "wxXmlNode" : "xml",
+ "wxXmlAttribute" : "xml",
+ "wxXmlResource" : "xrc",
+ "wxXmlResourceHandler" : "xrc",
+ "wxHelpController" : "help",
+ "wxHtmlHelpController" : "help",
+ "wxContextHelp" : "help",
+ "wxContextHelpButton" : "help",
+ "wxHelpProvider" : "help",
+ "wxSimpleHelpProvider" : "help",
+ "wxHelpControllerHelpProvider" : "help",
+ "wxToolTip" : "help",
+ "wxMediaCtrl" : "media",
+ "wxGLCanvas" : "gl",
+ "wxGLContext" : "gl",
+ "wxApp" : "appmanagement",
+ "wxCmdLineParser" : "appmanagement",
+ "wxDllLoader" : "appmanagement",
+ "wxProcess" : "appmanagement",
+ "wxCaret" : "misc",
+ "wxConfigBase" : "misc",
+ "wxTimer" : "misc",
+ "wxStopWatch" : "misc",
+ "wxMimeTypesManager" : "misc",
+ "wxSystemSettings" : "misc",
+ "wxSystemOptions" : "misc",
+ "wxAcceleratorTable" : "misc",
+ "wxAutomationObject" : "misc",
+ "wxFontMapper" : "misc",
+ "wxEncodingConverter" : "misc",
+ "wxCalendarDateAttr" : "misc",
+ "wxQuantize" : "misc",
+ "wxSingleInstanceChecker" : "misc"}
+
+
+
+
 import HTMLParser
 class HTMLStripper(HTMLParser.HTMLParser):
     def __init__(self):
@@ -114,9 +510,17 @@ class wxClass:
         self.propConflicts = []
         self.props = []
         self.inclusionFile = ""
-        self.lib = stripHTML(lib)
+        self.lib = stripHTML(lib).lower()
         self.seeAlso = stripHTML(sa)
         self.objects = ""
+        
+        if self.lib not in [ "wxcore", "wxbase", "wxaui", "wxnet", "wxrichtext", "wxxml", \
+                             "wxadv", "wxmedia", "wxgl", "wxhtml", "wxqa", "wxxrc", "wxstc" ]:
+            if self.lib.startswith("none"):
+                self.lib = "none"
+            else:
+                print "ERROR: invalid library %s" % self.lib
+                sys.exit(1)
         
         
     def asHtml(self):
@@ -148,8 +552,14 @@ class wxClass:
         if incfilename.startswith("wx"):
             incfilename = incfilename[2:]
         
+        #fname = self.inclusionFile
+        #if '/' in fname:
+            #fname = fname[fname.find("/")+1:]
+        fname = self.inclusionFile
+        
         doxytext = "\n"
-        doxytext += "\\class " + self.name + "\n\n"
+        doxytext += "@class " + self.name + "\n"
+        doxytext += "@wxheader{" + fname + "}" # wx/" + self.inclusionFile + "\n\n"
         #doxytext += "\\class " + self.name + " " + \
                     #incfilename + \
                     #" \"wx/" + self.inclusionFile + "\"\n\n"
@@ -163,7 +573,7 @@ class wxClass:
                 desc = "       " + style[1].strip().replace("\n", " ")
                 desc = stripHTML(desc)
                 desc = justifyKeepingIndent(75, 6, desc)
-                text += "@style{%s}:\n%s\n" % (style[0].strip(), desc)
+                text += "@style{%s}:\n%s\n" % (style[0].strip().replace(",", "\,"), desc)
             return text
         
         def genEventList(styles):
@@ -172,7 +582,7 @@ class wxClass:
                 desc = "       " + style[1].strip().replace("\n", " ")
                 desc = stripHTML(desc)
                 desc = justifyKeepingIndent(75, 6, desc)
-                text += "@event{%s}:\n%s\n" % (style[0].strip(), desc)
+                text += "@event{%s}:\n%s\n" % (style[0].strip().replace(",", "\,"), desc)
             return text
 
         if len(self.styles)>0:
@@ -189,7 +599,21 @@ class wxClass:
             doxytext += genEventList(self.events)
             doxytext += "@endEventTable\n"
 
-        doxytext += "\n@library{%s}\n\n" % self.lib
+        if self.lib == "none":
+            doxytext += "\n@nolibrary\n"
+        else:
+            doxytext += "\n@library{%s}\n" % self.lib
+        
+        if self.name in classes_categories:
+            cat = classes_categories[self.name]
+            doxytext += "@category{%s}\n" % cat
+            if cat=="ctrl" or cat=="miscpickers":
+                fname = self.name[2:] + ".png"
+                doxytext += "@appearance{%s}\n\n" % fname.lower()
+            else:
+                doxytext += "\n"
+        else:
+            doxytext += "@category{FIXME}\n\n"
         
         if len(self.objects.strip())>0:
             doxytext += "\n@stdobjects\n%s\n\n" % self.objects.strip()
@@ -209,7 +633,7 @@ class wxClass:
             if conflict in propList:
                 propList.remove(conflict)
         
-        basename = self.name.replace("wx", "")                
+        basename = self.name.replace("wx", "")
         for prop in propList:
             if prop != "":
                 propname = prop
@@ -228,7 +652,7 @@ class wxClass:
             propsText += "\n\n"
         
         return propsText
-                
+
 class wxMethod:
     def __init__(self, name, parent, prototypes=[], params={}, description="", isCtor=False, isDtor=False, remarks="", retDesc="", sa=""):
         self.name = name
@@ -346,11 +770,15 @@ class wxMethod:
             doxytext += "\n@sa %s\n\n" % justifyKeepingIndent(75, 5, self.seeAlso.strip())
         
         # TODO convert supported HTML tags before doing this
-        x = HTMLStripper()
-        x.feed(doxytext)
+        doxytext = stripHTML(doxytext)
+        
+        # inside class X references to members of the same class can be
+        # done simply using # prefix or () suffix
+        if self.parent!="":
+            doxytext = doxytext.replace(self.parent.name + "::", "#")
         
         indentstr = " " * indent
-        doxytext = "%s/**\n%s%s*/" % (indentstr, commentizeText(x.get_fed_data(), indent=indent), indentstr)
+        doxytext = "%s/**\n%s%s*/" % (indentstr, commentizeText(doxytext, indent=indent), indentstr)
         doxytext = doxytext.replace("\n" + indentstr + "*", "\n" + indentstr + " *").replace(" *   ", " * ")
         
         return doxytext

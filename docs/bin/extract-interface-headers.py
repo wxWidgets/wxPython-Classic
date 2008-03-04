@@ -7,7 +7,8 @@
 # turn on/off the INJECT_MODE
 #INJECT_MODE = True
 INJECT_MODE = False
-
+TOPIC_OVERVIEWS = False
+GFUNCTIONS = True
 
 import sys, os, re
 import glob
@@ -559,6 +560,9 @@ if __name__ == "__main__":
         dirname = "wx_interface/" + fname
         dirname = dirname[:dirname.rfind("/")]
         if not os.path.exists(dirname):
+            if "<" in dirname or ">" in dirname:
+                print "ERROR: invalid recognized include file name: ", dirname
+                sys.exit(1)
             print "making dir", dirname
             os.makedirs(dirname)
         
@@ -656,146 +660,151 @@ public:
             afile.close()
             
     
-    # now output global functions
-    print "OUTPUTTING GLOBAL FUNCTIONS NOW"
-
-    # for classes which were not in the SWIG headers, generate new headers
-    touched_files = []
-    for fn in functions:
-        
-        # by FM
-        fname = functions[fn].inclusionFile
-        #fname = cn.lower().replace(" ", "") + ".h"
-        #if fname.startswith("wx"):
-            #fname = fname[2:]
-        
-        dirname = "wx_interface/" + fname
-        dirname = dirname[:dirname.rfind("/")]
-        if not os.path.exists(dirname):
-            print "making dir", dirname
-            os.makedirs(dirname)
-        
-        txt = doxifyFormatting(functions[fn].asDoxygen()) + "\n"
-        txt += functions[fn].getPrototype() + "\n"
-        txt += "\n"
-        
-        # remove indentation
-        txt = txt[4:]
-        txt = txt.replace("\n    ", "\n")
-        
-        documented_count += 1
-        
-        if os.path.exists("wx_interface/" + fname):
+    if GFUNCTIONS==True:
+        # now output global functions
+        print "OUTPUTTING GLOBAL FUNCTIONS NOW"
+    
+        # for classes which were not in the SWIG headers, generate new headers
+        touched_files = []
+        for fn in functions:
             
-            print "appending %s docs to the header %s" % (fn, fname)
+            # by FM
+            fname = functions[fn].inclusionFile
+            #fname = cn.lower().replace(" ", "") + ".h"
+            #if fname.startswith("wx"):
+                #fname = fname[2:]
             
-            if fname not in touched_files:
+            dirname = "wx_interface/" + fname
+            dirname = dirname[:dirname.rfind("/")]
+            if not os.path.exists(dirname):
+                print "making dir", dirname
+                os.makedirs(dirname)
+            
+            txt = doxifyFormatting(functions[fn].asDoxygen()) + "\n"
+            txt += functions[fn].getPrototype() + "\n"
+            txt += "\n"
+            
+            # remove indentation
+            txt = txt[4:]
+            txt = txt.replace("\n    ", "\n")
+            
+            documented_count += 1
+            
+            if os.path.exists("wx_interface/" + fname):
+                
+                print "appending %s docs to the header %s" % (fn, fname)
+                
+                if fname not in touched_files:
+                    touched_files.append(fname)
+                    txt = """
+    
+    // ============================================================================
+    // Global functions
+    // ============================================================================
+    
+    """ + txt
+                
+                afile = open("wx_interface/" + fname, "a+")
+                afile.write(txt)
+                afile.close()
+            else:
+                
+                print "creating the header for %s as %s" % (fn, fname)
                 touched_files.append(fname)
-                txt = """
-
-// ============================================================================
-// Global functions
-// ============================================================================
-
-""" + txt
+                
+                # create a brand new header
+                
+                txt = """/////////////////////////////////////////////////////////////////////////////
+    // Name:        %s
+    // Purpose:     documentation for global functions
+    // Author:      wxWidgets team
+    // RCS-ID:      $Id$
+    // Licence:     wxWindows license
+    /////////////////////////////////////////////////////////////////////////////
+    
+    %s
+    """ % (fname, txt)
             
-            afile = open("wx_interface/" + fname, "a+")
-            afile.write(txt)
-            afile.close()
-        else:
+                afile = open("wx_interface/" + fname, "w")
+                afile.write(txt)
+                afile.close()
+    
+    
+    if TOPIC_OVERVIEWS==True:
+        # now generate topic overviews
+        print "OUTPUTTING TOPIC OVERVIEWS NOW"
+        
+        topicOverviews=[]
+        for to in topicOverviews:
+    
+            dirname = "overviews/" + to + ".h"
+            if not os.path.exists("overviews"):
+                os.makedirs("overviews")
             
-            print "creating the header for %s as %s" % (fn, fname)
-            touched_files.append(fname)
-            
+            txt = doxifyFormatting(topicOverviews[to])
+            print "creating the to for %s as %s" % (to, dirname)
+                
             # create a brand new header
             
             txt = """/////////////////////////////////////////////////////////////////////////////
-// Name:        %s
-// Purpose:     documentation for global functions
-// Author:      wxWidgets team
-// RCS-ID:      $Id$
-// Licence:     wxWindows license
-/////////////////////////////////////////////////////////////////////////////
-
-%s
-""" % (fname, txt)
-        
-            afile = open("wx_interface/" + fname, "w")
+    // Name:        %s
+    // Purpose:     topic overview
+    // Author:      wxWidgets team
+    // RCS-ID:      $Id$
+    // Licence:     wxWindows license
+    /////////////////////////////////////////////////////////////////////////////
+    
+    %s
+    """ % (to, txt)
+            
+            afile = open(dirname, "w")
             afile.write(txt)
             afile.close()
-    
-    
-    # now generate topic overviews
-    print "OUTPUTTING TOPIC OVERVIEWS NOW"
-    
-    for to in topicOverviews:
-
-        dirname = "overviews/" + to + ".h"
-        if not os.path.exists("overviews"):
-            os.makedirs("overviews")
         
-        txt = doxifyFormatting(topicOverviews[to])
-        print "creating the to for %s as %s" % (to, dirname)
+        
+        # generally there are big number of newlines attached...
+        for file in glob.glob("wx_interface/*.h"):
+            afile = open(file, "r")
+            headertext = afile.read()
+            afile.close()
             
-        # create a brand new header
-        
-        txt = """/////////////////////////////////////////////////////////////////////////////
-// Name:        %s
-// Purpose:     topic overview
-// Author:      wxWidgets team
-// RCS-ID:      $Id$
-// Licence:     wxWindows license
-/////////////////////////////////////////////////////////////////////////////
-
-%s
-""" % (to, txt)
-        
-        afile = open(dirname, "w")
-        afile.write(txt)
-        afile.close()
-    
-    
-    # generally there are big number of newlines attached...
-    for file in glob.glob("wx_interface/*.h"):
-        afile = open(file, "r")
-        headertext = afile.read()
-        afile.close()
-        
-        #separator = "//---------------------------------------------------------------------------\n\n"
-        #headertext = headertext.replace("\n\n\n\n", "\n\n")
-        #headertext = headertext.replace("\n\n\n\n", "\n\n")
-        #headertext = headertext.replace("\n\n\n\n", "\n\n")
-        #headertext = headertext.replace(separator + "\n\n", separator)
-        
-        headertext = headertext.replace("If the default size (-1, -1) is specified",
-                                        "If wxDefaultSize is specified")
-        headertext = headertext.replace("A value of -1 indicates a default value",
-                                        "The value wxID_ANY indicates a default value")
-        
-        # don't know why these are left around:
-        headertext = headertext.replace("</B> <B>", "")
-        headertext = headertext.replace("&lt;", "<")
-        headertext = headertext.replace("&gt;", ">")
+            #separator = "//---------------------------------------------------------------------------\n\n"
+            #headertext = headertext.replace("\n\n\n\n", "\n\n")
+            #headertext = headertext.replace("\n\n\n\n", "\n\n")
+            #headertext = headertext.replace("\n\n\n\n", "\n\n")
+            #headertext = headertext.replace(separator + "\n\n", separator)
             
-        afile = open(file, "w")
-        afile.write(headertext)
-        afile.close()
+            headertext = headertext.replace("If the default size (-1, -1) is specified",
+                                            "If wxDefaultSize is specified")
+            headertext = headertext.replace("A value of -1 indicates a default value",
+                                            "The value wxID_ANY indicates a default value")
+            
+            # don't know why these are left around:
+            headertext = headertext.replace("</B> <B>", "")
+            headertext = headertext.replace("&lt;", "<")
+            headertext = headertext.replace("&gt;", ">")
+                
+            afile = open(file, "w")
+            afile.write(headertext)
+            afile.close()
     
     print "list of classes NOT in HTML docs but in SWIG headers (probably not meant to be documented): %s" % set(not_recognized)
     print "There were %d classes in HTML docs; %d were in SWIG headers; %d were generated" % (len(classes), len(processed_classes), len(not_processed))
     print "There were %d functions which had documentation added/generated." % documented_count
     print "There are %d functions that couldn't be found in the SWIG headers but are in the HTML docs." % (len(undocumented))
     
-    undocumented.sort()
-    afile = open(os.path.join(outdir, "unfound_functions.txt"), "w")
-    for func in undocumented:
-        afile.write(func + "\n")
-    afile.close()
+    #undocumented.sort()
+    #afile = open(os.path.join(outdir, "unfound_functions.txt"), "w")
+    #for func in undocumented:
+        #afile.write(func + "\n")
+    #afile.close()
     
-    print "There are %d functions where the docs likely have an incorrect method signature (HTML doc signature != SWIG header signature)." % (len(broken_sig))
+    #print "There are %d functions where the docs likely have an incorrect method signature (HTML doc signature != SWIG header signature)." % (len(broken_sig))
     
-    broken_sig.sort()
-    afile = open(os.path.join(outdir, "broken_sig_functions.txt"), "w")
-    for func in broken_sig:
-        afile.write(func + "\n")
-    afile.close()
+    #broken_sig.sort()
+    #afile = open(os.path.join(outdir, "broken_sig_functions.txt"), "w")
+    #for func in broken_sig:
+        #afile.write(func + "\n")
+    #afile.close()
+
+    #print classes.keys()

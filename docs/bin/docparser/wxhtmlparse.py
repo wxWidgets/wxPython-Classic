@@ -4,8 +4,6 @@ from docparser.wxclasses import *
 import wx
 
 
-outputdir = "output"
-
 #
 # Class REs
 #
@@ -42,6 +40,169 @@ link_re = "<A href=\"(.*?)\"><B>(.*?)</B></A><BR>"
 
 remarks_re = """<B><FONT COLOR="#FF0000">Remarks</FONT></B><P>(.*?)<P>"""
 retval_re = """<B><FONT COLOR="#FF0000">Return value</FONT></B><P>(.*?)<P>"""
+
+include_files_dict = \
+{'wxConstCast' : 'object.h', 
+'wxCreateDynamicObject' : 'object.h', 
+'wxDynamicCast' : 'object.h', 
+'wxDynamicCastThis' : 'object.h', 
+'wxStaticCast' : 'object.h', 
+'wx_const_cast' : 'object.h', 
+'wx_reinterpret_cast' : 'object.h', 
+'wx_static_cast' : 'object.h', 
+'wx_truncate_cast' : 'object.h', 
+'wxOnAssert' : 'debug.h', 
+'wxASSERT' : 'debug.h', 
+'wxASSERT_MIN_BITSIZE' : 'debug.h', 
+'wxASSERT_MSG' : 'debug.h', 
+'wxCOMPILE_TIME_ASSERT' : 'debug.h', 
+'wxCOMPILE_TIME_ASSERT2' : 'debug.h', 
+'wxFAIL' : 'debug.h', 
+'wxFAIL_MSG' : 'debug.h', 
+'wxCHECK' : 'debug.h', 
+'wxCHECK_MSG' : 'debug.h', 
+'wxCHECK_RET' : 'debug.h', 
+'wxCHECK2' : 'debug.h', 
+'wxCHECK2_MSG' : 'debug.h', 
+'wxIsDebuggerRunning' : 'debug.h', 
+'wxAtomicInc' : 'atomic.h', 
+'wxAtomicDec' : 'atomic.h', 
+'wxBase64DecodedSize' : 'base64.h', 
+'wxBase64EncodedSize' : 'base64.h', 
+'wxCONCAT' : 'cpp.h', 
+'wxDYNLIB_FUNCTION' : 'dynlib.h', 
+'wxDEPRECATED' : 'defs.h', 
+'wxDEPRECATED_BUT_USED_INTERNALLY' : 'defs.h', 
+'wxDEPRECATED_INLINE' : 'defs.h', 
+'wxEXPLICIT' : 'defs.h', 
+'wxFindWindowAtPoint' : 'window.h', 
+'wxFindWindowAtPointer' : 'window.h', 
+'wxFromString' : 'string.h', 
+'wxSTRINGIZE' : 'cpp.h', 
+'wxSTRINGIZE_T' : 'cpp.h', 
+'wxSUPPRESS_GCC_PRIVATE_DTOR_WARNING' : 'defs.h', 
+'wxToString' : 'string.h', 
+'wxVaCopy' : 'defs.h', 
+'__WXFUNCTION__' : 'debug.h', 
+'wxClientDisplayRect' : 'gdicmn.h', 
+'wxColourDisplay' : 'gdicmn.h', 
+'wxDisplayDepth' : 'gdicmn.h', 
+'wxDisplaySize' : 'gdicmn.h', 
+'wxDisplaySizeMM' : 'gdicmn.h', 
+'wxMakeMetafilePlaceable' : 'metafile.h', 
+'wxSetCursor' : 'gdicmn.h', 
+'wxDos2UnixFilename' : 'filefn.h', 
+'wxFileExists' : 'filefn.h', 
+'wxFileModificationTime' : 'filefn.h', 
+'wxFileNameFromPath' : 'filefn.h', 
+'wxFindFirstFile' : 'filefn.h', 
+'wxFindNextFile' : 'filefn.h', 
+'wxGetDiskSpace' : 'filefn.h', 
+'wxGetOSDirectory' : 'filefn.h', 
+'wxIsAbsolutePath' : 'filefn.h', 
+'wxDirExists' : 'filefn.h', 
+'wxPathOnly' : 'filefn.h', 
+'wxUnix2DosFilename' : 'filefn.h', 
+'wxCHANGE_UMASK' : 'filefn.h', 
+'wxConcatFiles' : 'filefn.h', 
+'wxCopyFile' : 'filefn.h', 
+'wxGetCwd' : 'filefn.h', 
+'wxGetWorkingDirectory' : 'filefn.h', 
+'wxGetTempFileName' : 'filefn.h', 
+'wxIsWild' : 'filefn.h', 
+'wxMatchWild' : 'filefn.h', 
+'wxMkdir' : 'filefn.h', 
+'wxParseCommonDialogsFilter' : 'filefn.h', 
+'wxRemoveFile' : 'filefn.h', 
+'wxRenameFile' : 'filefn.h', 
+'wxRmdir' : 'filefn.h', 
+'wxSetWorkingDirectory' : 'filefn.h', 
+'wxSplitPath' : 'filefn.h', 
+'wxCHECK_GCC_VERSION' : 'platform.h', 
+'wxCHECK_SUNCC_VERSION' : 'platform.h', 
+'wxCHECK_VERSION' : 'platform.h', 
+'wxCHECK_VERSION_FULL' : 'platform.h', 
+'wxCHECK_VISUALC_VERSION' : 'platform.h', 
+'wxCHECK_W32API_VERSION' : 'platform.h', 
+'wxClipboardOpen' : 'clipboard.h', 
+'wxCloseClipboard' : 'clipboard.h', 
+'wxEmptyClipboard' : 'clipboard.h', 
+'wxEnumClipboardFormats' : 'clipboard.h', 
+'wxGetClipboardData' : 'clipboard.h', 
+'wxGetClipboardFormatName' : 'clipboard.h', 
+'wxIsClipboardFormatAvailable' : 'clipboard.h', 
+'wxOpenClipboard' : 'clipboard.h', 
+'wxRegisterClipboardFormat' : 'clipboard.h', 
+'wxSetClipboardData' : 'clipboard.h', 
+'wxCRIT_SECT_DECLARE' : 'thread.h', 
+'wxCRIT_SECT_DECLARE_MEMBER' : 'thread.h', 
+'wxCRIT_SECT_LOCKER' : 'thread.h', 
+'wxCRITICAL_SECTION' : 'thread.h', 
+'wxENTER_CRIT_SECT' : 'thread.h', 
+'wxIsMainThread' : 'thread.h', 
+'wxLEAVE_CRIT_SECT' : 'thread.h', 
+'wxMutexGuiEnter' : 'thread.h', 
+'wxMutexGuiLeave' : 'thread.h', 
+'wxLogError' : 'app.h', 
+'wxLogFatalError' : 'app.h', 
+'wxLogWarning' : 'app.h', 
+'wxLogMessage' : 'app.h', 
+'wxLogVerbose' : 'app.h', 
+'wxLogStatus' : 'app.h', 
+'wxLogSysError' : 'app.h', 
+'wxLogDebug' : 'app.h', 
+'wxLogTrace' : 'app.h', 
+'wxSysErrorCode' : 'app.h', 
+'wxSysErrorMsg' : 'app.h', 
+'wxGetApp' : 'app.h', 
+'wxHandleFatalExceptions' : 'app.h', 
+'wxFinite' : 'math.h', 
+'wxIsNaN' : 'math.h', 
+'wxGetenv' : 'utils.h', 
+'wxGetEnv' : 'utils.h', 
+'wxSetEnv' : 'utils.h', 
+'wxUnsetEnv' : 'utils.h', 
+'wxUsleep' : 'utils.h', 
+'wxGetPrinterCommand' : 'dcps.h', 
+'wxGetPrinterFile' : 'dcps.h', 
+'wxGetPrinterMode' : 'dcps.h', 
+'wxGetPrinterOptions' : 'dcps.h', 
+'wxGetPrinterOrientation' : 'dcps.h', 
+'wxGetPrinterPreviewCommand' : 'dcps.h', 
+'wxGetPrinterScaling' : 'dcps.h', 
+'wxGetPrinterTranslation' : 'dcps.h', 
+'wxSetPrinterCommand' : 'dcps.h', 
+'wxSetPrinterFile' : 'dcps.h', 
+'wxSetPrinterMode' : 'dcps.h', 
+'wxSetPrinterOptions' : 'dcps.h', 
+'wxSetPrinterOrientation' : 'dcps.h', 
+'wxSetPrinterPreviewCommand' : 'dcps.h', 
+'wxSetPrinterScaling' : 'dcps.h', 
+'wxSetPrinterTranslation' : 'dcps.h', 
+'wxGetTranslation' : 'intl.h', 
+'wxIsEmpty' : 'wxcrt.h', 
+'wxS' : 'chartype.h', 
+'wxStrcmp' : 'wxcrt.h', 
+'wxStricmp' : 'wxcrt.h', 
+'wxStringEq' : 'wxcrt.h', 
+'wxStringMatch' : 'wxcrt.h', 
+'wxStringTokenize' : 'wxcrt.h', 
+'wxStrlen' : 'wxcrt.h', 
+'wxSnprintf' : 'wxcrt.h', 
+'wxT' : 'chartype.h', 
+'wxTRANSLATE' : 'intl.h', 
+'wxVsnprintf' : 'wxcrt.h', 
+'_' : 'intl.h', 
+'wxPLURAL' : 'intl.h', 
+'_T' : 'defs.h', 
+'wxINTXX_SWAP_ALWAYS' : 'defs.h', 
+'wxINTXX_SWAP_ON_BE' : 'defs.h', 
+'wxINTXX_SWAP_ON_LE' : 'defs.h', 
+'wxIMPLEMENT_APP' : 'app.h' }
+
+all_classes = ['wxRealPoint', 'wxKeyEvent', 'wxWindow', 'wxCustomDataObject', 'wxSashWindow', 'wxTreeItemData', 'wxSystemSettings', 'wxNotebookEvent', 'wxVListBox', 'wxURI', 'wxJoystickEvent', 'wxMBConvUTF7', 'wxPoint', 'wxMBConvUTF8', 'wxCountingOutputStream', 'wxDataObjectComposite', 'wxMBConvUTF16', 'wxDataViewIconText', 'wxScreenDC', 'wxGraphicsPath', 'wxTextDropTarget', 'wxWeakRefDynamic', 'wxSysColourChangedEvent', 'wxImageList', 'wxBufferedInputStream', 'wxFilePickerCtrl', 'wxGridCellFloatRenderer', 'wxTextValidator', 'wxDDEConnection', 'wxWeakRef', 'wxCSConv', 'wxCommand', 'wxTempFileOutputStream', 'wxSashEvent', 'wxMultiChoiceDialog', 'wxStaticLine', 'wxWindowDisabler', 'wxGraphicsObject', 'wxTextInputStream', 'wxListCtrl', 'wxStringClientData', 'wxFileCtrl', 'wxStreamBuffer', 'wxHyperlinkEvent', 'wxWindowCreateEvent', 'wxDataViewEvent', 'wxAutomationObject', 'wxPageSetupDialog', 'wxPaintDC', 'wxHtmlHelpDialog', 'wxPickerBase', 'wxVariant', 'wxSpinEvent', 'wxCalendarEvent', 'wxRegionIterator', 'wxConvAuto', 'wxDocMDIParentFrame', 'wxFontPickerCtrl', 'wxIPV4address', 'wxPaintEvent', 'wxSocketServer', 'wxGraphicsContext', 'wxBitmapToggleButton', 'wxFontDialog', 'wxOutputStream', 'wxTextAttr', 'wxHelpController', 'wxFilterClassFactory', 'wxMaximizeEvent', 'wxDocMDIChildFrame', 'wxAcceleratorEntry', 'wxDialUpManager', 'wxDataViewIndexListModel', 'wxDocTemplate', 'wxPreviewControlBar', 'wxUpdateUIEvent', 'wxBitmapHandler', 'wxScrollWinEvent', 'wxMDIClientWindow', 'wxDataObjectSimple', 'wxDialog', 'wxImageHandler', 'wxRichTextEvent', 'wxArchiveInputStream', 'wxTempFile', 'wxWindowUpdateLocker', 'wxArchiveOutputStream', 'wxHtmlTagsModule', 'wxMirrorDC', 'wxLocale', 'wxFindDialogEvent', 'wxControlWithItems', 'wxColourDialog', 'wxFontData', 'wxStackFrame', 'wxHtmlHelpWindow', 'wxHtmlDCRenderer', 'wxDataViewModel', 'wxSplitterRenderParams', 'wxTextCtrl', 'wxDC', 'wxHelpProvider', 'wxRichTextStyleListCtrl', 'wxHashMap', 'wxGLContext', 'wxGraphicsRenderer', 'wxCondition', 'wxGridTableBase', 'wxApp', 'wxActiveXEvent', 'wxMDIParentFrame', 'wxFilterOutputStream', 'wxClientDC', 'wxWizardPage', 'wxRect', 'wxClipboardTextEvent', 'wxStopWatch', 'wxConnection', 'wxFrame', 'wxDateTime', 'wxZipNotifier', 'wxRichTextStyleDefinition', 'wxIPaddress', 'wxWrapSizer', 'wxStdDialogButtonSizer', 'wxBitmapButton', 'wxStringBuffer', 'wxHtmlTagHandler', 'wxSizerItem', 'wxAuiManager', 'wxMenuBar', 'wxIndividualLayoutConstraint', 'wxMetafileDC', 'wxDataOutputStream', 'wxGridCellEditor', 'wxBufferedDC', 'wxTimer', 'wxDirPickerCtrl', 'wxStyledTextEvent', 'wxWizardEvent', 'wxMediaEvent', 'wxFileCtrlEvent', 'wxRichTextBuffer', 'wxIconBundle', 'wxDocManager', 'wxDataViewCustomRenderer', 'wxDirDialog', 'wxDialUpEvent', 'wxGBPosition', 'wxDirTraverser', 'wxColourData', 'wxTaskBarIcon', 'wxVarHScrollHelper', 'wxMouseEvent', 'wxDataViewBitmapRenderer', 'wxDropFilesEvent', 'wxMBConvFile', 'wxAuiDockArt', 'wxRichTextHTMLHandler', 'wxCaret', 'wxHelpControllerHelpProvider', 'wxSocketClient', 'wxCommandEvent', 'wxXLocale', 'wxDialogLayoutAdapter', 'wxTarInputStream', 'wxZlibOutputStream', 'wxDebugReportPreview', 'wxLogWindow', 'wxXmlNode', 'wxDateTimeWorkDays', 'wxHtmlModalHelp', 'wxGenericValidator', 'wxXmlResourceHandler', 'wxLogInterposerTemp', 'wxLogChain', 'wxPreviewCanvas', 'wxActivateEvent', 'wxVarVScrollHelper', 'wxHtmlColourCell', 'wxGridCellTextEditor', 'wxListView', 'wxHTTP', 'wxDocument', 'wxAppTraits', 'wxRichTextStyleOrganiserDialog', 'wxGLCanvas', 'wxSystemOptions', 'wxTarClassFactory', 'wxSizeEvent', 'wxWizardPageSimple', 'wxFilterInputStream', 'wxDataViewItemAttr', 'wxBusyInfo', 'wxTimerEvent', 'wxListEvent', 'wxColour', 'wxXmlAttribute', 'wxGridCellStringRenderer', 'wxDataViewIconTextRenderer', 'wxXmlDocument', 'wxContextMenuEvent', 'wxCriticalSectionLocker', 'wxHtmlWindow', 'wxFFileOutputStream', 'wxHtmlHelpFrame', 'wxMimeTypesManager', 'wxRegKey', 'wxCursor', 'wxGBSizerItem', 'wxPasswordEntryDialog', 'wxClientDataContainer', 'wxCollapsiblePaneEvent', 'wxNotebook', 'wxDCClipper', 'wxBitmapDataObject', 'wxDataViewItem', 'wxRichTextFormattingDialog', 'wxFFile', 'wxPageSetupDialogData', 'wxString', 'wxLayoutConstraints', 'wxDataFormat', 'wxScopedPtr', 'wxGridBagSizer', 'wxBitmap', 'wxBufferedOutputStream', 'wxFile', 'wxStandardPaths', 'wxHashTable', 'wxGridCellChoiceEditor', 'wxLogGui', 'wxEraseEvent', 'wxPanel', 'wxCollapsiblePane', 'wxPreviewFrame', 'wxFocusEvent', 'wxDataViewCtrl', 'wxChildFocusEvent', 'wxLogStream', 'wxScrolledWindow', 'wxDynamicLibraryDetails', 'wxMask', 'wxGDIObject', 'wxClientData', 'wxTextOutputStream', 'wxRecursionGuardFlag', 'wxMDIChildFrame', 'wxAboutDialogInfo', 'wxGridEditorCreatedEvent', 'wxPostScriptDC', 'wxList', 'wxSplitterWindow', 'wxRichTextCtrl', 'wxThreadHelper', 'wxRegion', 'wxXmlResource', 'wxDataViewModelNotifier', 'wxProtocol', 'wxMiniFrame', 'wxSocketEvent', 'wxDebugContext', 'wxLayoutAlgorithm', 'wxSizerFlags', 'wxObjectRefData', 'wxRadioBox', 'wxArchiveEntry', 'wxRichTextFormattingDialogFactory', 'wxArrayString', 'wxMBConvUTF32', 'wxTopLevelWindow', 'wxProcess', 'wxHtmlWinTagHandler', 'wxHtmlListBox', 'wxVariantData', 'wxVarScrollHelperBase', 'wxTreebookEvent', 'wxURLDataObject', 'wxAuiPaneInfo', 'wxRichTextParagraphStyleDefinition', 'wxInputStream', 'wxSockAddress', 'wxDataInputStream', 'wxSlider', 'wxAcceleratorTable', 'wxLogStderr', 'wxDelegateRendererNative', 'wxRichTextStyleListBox', 'wxDebugReportCompress', 'wxStaticText', 'wxClient', 'wxSplashScreen', 'wxDateSpan', 'wxZipEntry', 'wxSocketBase', 'wxDebugReport', 'wxPlatformInfo', 'wxSplitterEvent', 'wxAuiNotebook', 'wxAutoBufferedPaintDC', 'wxSimpleHtmlListBox', 'wxMouseCaptureLostEvent', 'wxButton', 'wxGauge', 'wxBrushList', 'wxTreeCtrl', 'wxNotifyEvent', 'wxQuantize', 'wxArchiveClassFactory', 'wxComboCtrl', 'wxDatagramSocket', 'wxColourPickerCtrl', 'wxHtmlHelpController', 'wxTCPServer', 'wxFileOutputStream', 'wxFileConfig', 'wxTarOutputStream', 'wxHelpEvent', 'wxToolBar', 'wxMetafile', 'wxRichTextCharacterStyleDefinition', 'wxProgressDialog', 'wxHtmlEasyPrinting', 'wxHtmlLinkEvent', 'wxContextHelp', 'wxVector', 'wxDebugStreamBuf', 'wxLogBuffer', 'wxRegEx', 'wxSocketOutputStream', 'wxSpinCtrl', 'wxHashSet', 'wxScrollEvent', 'wxPrintPreview', 'wxPalette', 'wxGridRangeSelectEvent', 'wxGenericDirCtrl', 'wxIdleEvent', 'wxListItem', 'wxScopedArray', 'wxDataObject', 'wxStackWalker', 'wxCommandProcessor', 'wxInitDialogEvent', 'wxTreeItemId', 'wxSashLayoutWindow', 'wxTarEntry', 'wxPrinterDC', 'wxWindowDestroyEvent', 'wxIcon', 'wxTrackable', 'wxBufferedPaintDC', 'wxGraphicsBrush', 'wxToolTip', 'wxRichTextFileHandler', 'wxValidator', 'wxActiveXContainer', 'wxDropTarget', 'wxGridCellRenderer', 'wxToggleButton', 'wxDataViewRenderer', 'wxAccessible', 'wxContextHelpButton', 'wxBitmapComboBox', 'wxHtmlWidgetCell', 'wxZipInputStream', 'wxDataViewTextRenderer', 'wxHtmlHelpData', 'wxTCPClient', 'wxComboBox', 'wxDataViewProgressRenderer', 'wxNotebookSizer', 'wxRichTextHeaderFooterData', 'wxHtmlCell', 'wxFont', 'wxRecursionGuard', 'wxSearchCtrl', 'wxMemoryOutputStream', 'wxNavigationKeyEvent', 'wxArray', 'wxZlibInputStream', 'wxDataViewSpinRenderer', 'wxStringInputStream', 'wxProcessEvent', 'wxPrinter', 'wxView', 'wxStreamBase', 'wxColourDatabase', 'wxGridCellNumberEditor', 'wxFlexGridSizer', 'wxMouseCaptureChangedEvent', 'wxMediaCtrl', 'wxPrintout', 'wxPrintDialog', 'wxDDEClient', 'wxNotificationMessage', 'wxPathList', 'wxStaticBitmap', 'wxArchiveNotifier', 'wxStringBufferLength', 'wxSVGFileDC', 'wxVScrolledWindow', 'wxLogInterposer', 'wxDebugReportPreviewStd', 'wxServer', 'wxQueryLayoutInfoEvent', 'wxFileDialog', 'wxDllLoader', 'wxRendererNative', 'wxDataViewToggleRenderer', 'wxListbook', 'wxMenuItem', 'wxRichTextPrintout', 'wxDynamicLibrary', 'wxSound', 'wxDateEvent', 'wxMoveEvent', 'wxFontEnumerator', 'wxGridSizeEvent', 'wxFTP', 'wxWizard', 'wxHtmlWinParser', 'wxDataViewTreeCtrl', 'wxFontMapper', 'wxDataViewTreeStore', 'wxPrintData', 'wxRichTextXMLHandler', 'wxChoicebook', 'wxSingleChoiceDialog', 'wxObject', 'wxFontPickerEvent', 'wxControl', 'wxDropSource', 'wxRichTextStyleComboCtrl', 'wxHtmlParser', 'wxFindReplaceData', 'wxPosition', 'wxMBConv', 'wxAnimationCtrl', 'wxHVScrolledWindow', 'wxHtmlCellEvent', 'wxLogTextCtrl', 'wxStatusBar', 'wxTextDataObject', 'wxSizer', 'wxVarHVScrollHelper', 'wxMenu', 'wxFileType', 'wxRadioButton', 'wxFontList', 'wxCheckListBox', 'wxSocketInputStream', 'wxDocChildFrame', 'wxCloseEvent', 'wxChoice', 'wxMenuEvent', 'wxCalendarDateAttr', 'wxRichTextPrinting', 'wxGridCellNumberRenderer', 'wxMessageDialog', 'wxAnimation', 'wxEncodingConverter', 'wxCriticalSection', 'wxTextFile', 'wxWindowDC', 'wxColourPickerEvent', 'wxTimeSpan', 'wxDataViewDateRenderer', 'wxGridSizer', 'wxThread', 'wxHyperlinkCtrl', 'wxHScrolledWindow', 'wxEditableListBox', 'wxEventBlocker', 'wxSize', 'wxDateTimeHolidayAuthority', 'wxDisplay', 'wxFileDataObject', 'wxGraphicsFont', 'wxDocParentFrame', 'wxURL', 'wxStyledTextCtrl', 'wxHtmlContainerCell', 'wxArchiveIterator', 'wxDDEServer', 'wxStaticBoxSizer', 'wxZipClassFactory', 'wxEvtHandler', 'wxSpinButton', 'wxFindReplaceDialog', 'wxDataViewTextRendererAttr', 'wxFileInputStream', 'wxIconizeEvent', 'wxComboPopup', 'wxHtmlTag', 'wxIdManager', 'wxClassInfo', 'wxMemoryDC', 'wxToolbook', 'wxListItemAttr', 'wxStringTokenizer', 'wxFileSystem', 'wxTCPConnection', 'wxPen', 'wxArtProvider', 'wxLongLong', 'wxListBox', 'wxSemaphore', 'wxFileDropTarget', 'wxDebugReportUpload', 'wxMutexLocker', 'wxLog', 'wxGraphicsPen', 'wxDatePickerCtrl', 'wxTipWindow', 'wxGBSpan', 'wxAuiTabArt', 'wxRichTextListStyleDefinition', 'wxRichTextRange', 'wxMemoryBuffer', 'wxPropertySheetDialog', 'wxMemoryFSHandler', 'wxDir', 'wxGridCellAttr', 'wxCalculateLayoutEvent', 'wxBusyCursor', 'wxJoystick', 'wxDataViewColumn', 'wxPrintDialogData', 'wxZipOutputStream', 'wxStringOutputStream', 'wxBrush', 'wxTipProvider', 'wxImage', 'wxFileHistory', 'wxGraphicsMatrix', 'wxFileDirPickerEvent', 'wxLogNull', 'wxEvent', 'wxGridCellBoolRenderer', 'wxMemoryInputStream', 'wxGridEvent', 'wxFFileInputStream', 'wxScopedTiedPtr', 'wxClipboard', 'wxStaticBox', 'wxMutex', 'wxObjectDataPtr', 'wxStreamToTextRedirector', 'wxModule', 'wxPenList', 'wxFFileStream', 'wxHtmlPrintout', 'wxConfigBase', 'wxGridCellFloatEditor', 'wxTreebook', 'wxPowerEvent', 'wxScrollBar', 'wxHtmlLinkInfo', 'wxSharedPtr', 'wxSimpleHelpProvider', 'wxScopedPtr', 'wxGrid', 'wxHtmlFilter', 'wxIconLocation', 'wxMessageQueue', 'wxGridCellBoolEditor', 'wxFileStream', 'wxNode', 'wxCalendarCtrl', 'wxSingleInstanceChecker', 'wxCmdLineParser', 'wxTreeEvent', 'wxGridUpdateLocker', 'wxRendererVersion', 'wxOwnerDrawnComboBox', 'wxFSFile', 'wxFileSystemHandler', 'wxDragImage', 'wxSymbolPickerDialog', 'wxCheckBox', 'wxRichTextStyleSheet', 'wxTextEntryDialog', 'wxBoxSizer', 'wxSetCursorEvent', 'wxFileName']
+
+
 
 
 #
@@ -135,9 +296,9 @@ def formatMethodProtos(protos):
     """
     for proto in protos:
         proto[0] = pythonize_args(proto[0])
-        proto[0] = proto[0].strip()
+        proto[0] = stripHTML(proto[0].strip())
         
-        proto[1] = namespacify_wxClasses(proto[1])
+        proto[1] = stripHTML(namespacify_wxClasses(proto[1]))
         for arg in proto[2]:
             arg[0] = pythonize_args(arg[0])
             arg[0].strip()
@@ -151,17 +312,28 @@ def formatMethodProtos(protos):
 
 def convertFormatting(text):
     def replace_basic_link(match):
+        htmlfile = match.group(1).strip()
         ret = match.group(2).strip()
+        
+        if ret.endswith("()"):
+            ret = ret[:-2]
+        
+        def doxylink(str):
+            if str.startswith("wx") and (str.lower() != str):
+                return str      # doxygen will autolink this
+            return "#" + str
+        
+        #print "ret is", ret
         if ret=="":
             return ""
         elif " " in ret:
             if "(" in ret and ")" in ret:
                 # this is something like "wxDateTime(long tm)" and it's valid
                 # to give to doxygen also the list of arguments:
-                return "#" + ret
+                return doxylink(ret)
             else:
-                ret = match.group(1).strip()
-                if "#" not in ret and "http:" in ret:
+                ret = htmlfile
+                if "#" not in ret and ("http:" in ret or "www" in ret):
                     return ret          # http link
                 
                 # this is probably a link to a topic overview or similar
@@ -169,9 +341,37 @@ def convertFormatting(text):
                 ret = ret.replace("overview", "").strip()
                 if ret.startswith("wx"):
                     ret = ret[2:]
-                return "@ref " + ret + "_overview"
+                return "@ref overview_" + ret
         elif "::" not in ret:
-            ret = "#" + ret
+            if not "#" in htmlfile:
+                return doxylink(ret)
+            
+            # remove the prefix
+            htmlfile = htmlfile[htmlfile.find("#")+1:]
+            if not htmlfile.startswith("wx"):
+                return "@ref overview_" + htmlfile
+            
+            # remove the suffix
+            suffix = ret.lower()
+            if htmlfile.endswith(suffix):
+                htmlfile = htmlfile[:htmlfile.find(suffix)]
+
+            # adjust the string
+            htmlfile = htmlfile.strip()
+            if htmlfile=="":
+                if ret in all_classes:
+                    return ret
+                #print "htmlfile error while looking at", text
+                #sys.exit(1)
+                return ret
+            
+            #print "searching for ", htmlfile
+            for c in all_classes:
+                if htmlfile == c.lower():
+                    print "searching for ", htmlfile, "; found", c + "::" + ret
+                    return c + "::" + ret
+                
+            return doxylink(ret)
 
         return ret
     
@@ -421,6 +621,13 @@ def getFunction(match):
     method = wxMethod(name, "", protos, params, desc, False, False, remarks, retdesc, sa)
     method.pythonNote = note
     method.inclusionFile = getFuncIncludeFile(remainder)
+    
+    if method.inclusionFile=="":
+        if name not in include_files_dict:
+            print "ERROR"
+            sys.exit(1)
+        method.inclusionFile = include_files_dict[name]
+    
     return method
 
 
@@ -450,6 +657,10 @@ def getClassIncludeFile(text):
         ret = ret[:ret.find(".h")+2]
         if ret.startswith("wx/"):
             ret = ret[3:]
+            
+        if "<" in ret or ">" in ret:
+            print "ERROR: cannot get include file from %s" % ret
+            
         return ret
     print "ERROR: cannot get include file from %s" % text
     sys.exit(1)
@@ -460,13 +671,13 @@ def getFuncIncludeFile(text):
     match = include_regex.search(text)
     if match:
         ret = match.group(1).strip().replace("&lt;", "").replace("&gt;", "")
-        if ".h" not in ret:
-            return "functions.h"
-        ret = ret[:ret.find(".h")+2]
-        if ret.startswith("wx/"):
-            ret = ret[3:]
-        return ret
-    return "functions.h"
+        if ".h" in ret:
+            ret = ret[:ret.find(".h")+2]
+            if ret.startswith("wx/"):
+                ret = ret[3:]
+            return ret
+
+    return ""
     
 
 def getClassLibrary(text):
@@ -701,7 +912,7 @@ def getFunctions(doc):
         processed_files.append(funcfile)
         result = link_regex.search(contents, funcstart)
 
-    print "functions are: ", functions.keys()
+    print "functions are %d" % len(functions.keys())
 
     return functions
         
