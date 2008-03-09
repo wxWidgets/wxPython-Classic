@@ -11,13 +11,13 @@ bundles, but until then this is easy enough to workaround...
 import sys, os
 import plistlib
 
-# $WXDIR/wxPython/wx/tools shoudl be on the PTYHONPATH...
+# $WXDIR/wxPython/wx/tools should be on the PTYHONPATH...
 import Editra.src.info as info
 import Editra.src.syntax.synextreg as synextreg
 
 # NOTE: This is copied and adapted from Editra/setup.py, take care
 # that they are kept in sync...
-YEAR = 2007
+YEAR = 2008
 PLIST = dict(CFBundleName = info.PROG_NAME,
              CFBundleIconFile = 'Editra.icns',
              CFBundleShortVersionString = info.VERSION,
