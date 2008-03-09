@@ -564,6 +564,10 @@ the borders, scrollbars, other decorations...)", "");
         "Get the client area position and size as a `wx.Rect` object.", "");
     
 
+    // client<->window size conversion
+    wxSize ClientToWindowSize(const wxSize& size) const;
+    wxSize WindowToClientSize(const wxSize& size) const;
+
     
     DocStr(GetBestSize,
            "This function returns the best acceptable minimal size for the

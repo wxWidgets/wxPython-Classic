@@ -110,6 +110,10 @@ calling Align(wx.ALIGN_BOTTOM)", "");
         wxSizerFlags& , FixedMinSize(),
         "Sets the wx.FIXED_MINSIZE flag.", "");
     
+    DocDeclStr(
+        wxSizerFlags& , ReserveSpaceEvenIfHidden(),
+        "Makes the item ignore window's visibility status", "");
+    
 
     
     %extend {
@@ -1177,6 +1181,9 @@ EVT_SIZE handler, but it is also useful to call it from user code when
 one of the items in a sizer change size, or items are added or
 removed.", "");
 
+
+    wxSize ComputeFittingClientSize(wxWindow *window);
+    wxSize ComputeFittingWindowSize(wxWindow *window);
 
     DocDeclStr(
         wxSize , Fit( wxWindow *window ),

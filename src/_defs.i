@@ -1025,6 +1025,7 @@ enum wxStretch
     wxEXPAND,
     wxSHAPED,
     wxFIXED_MINSIZE,
+    wxRESERVE_SPACE_EVEN_IF_HIDDEN,
     wxTILE,
     wxADJUST_MINSIZE,
 };
