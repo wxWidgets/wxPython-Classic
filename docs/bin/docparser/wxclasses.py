@@ -5,16 +5,16 @@ html_heading = "<H3><font color=\"red\">%s</font></H3>"
 
 
 classes_categories = { \
- "wxTopLevelWindow" : "manwnd",
- "wxDialog" : "manwnd",
- "wxFrame" : "manwnd",
- "wxMDIChildFrame" : "manwnd",
- "wxMDIParentFrame" : "manwnd",
- "wxMiniFrame" : "manwnd",
- "wxPropertySheetDialog" : "manwnd",
- "wxSplashScreen" : "manwnd",
- "wxTipWindow" : "manwnd",
- "wxWizard" : "manwnd",
+ "wxTopLevelWindow" : "managedwnd",
+ "wxDialog" : "managedwnd",
+ "wxFrame" : "managedwnd",
+ "wxMDIChildFrame" : "managedwnd",
+ "wxMDIParentFrame" : "managedwnd",
+ "wxMiniFrame" : "managedwnd",
+ "wxPropertySheetDialog" : "managedwnd",
+ "wxSplashScreen" : "managedwnd",
+ "wxTipWindow" : "managedwnd",
+ "wxWizard" : "managedwnd",
  "wxPanel" : "miscwnd",
  "wxScrolledWindow" : "miscwnd",
  "wxGrid" : "miscwnd",
@@ -186,9 +186,9 @@ classes_categories = { \
  "wxWindowCreateEvent" : "events",
  "wxWindowDestroyEvent" : "events",
  "wxWizardEvent" : "events",
- "wxValidator" : "val",
- "wxTextValidator" : "val",
- "wxGenericValidator" : "val",
+ "wxValidator" : "validator",
+ "wxTextValidator" : "validator",
+ "wxGenericValidator" : "validator",
  "wxCmdLineParser" : "data",
  "wxDateSpan" : "data",
  "wxDateTime" : "data",
@@ -338,25 +338,25 @@ classes_categories = { \
  "wxHtmlTagHandler" : "html",
  "wxHtmlWinParser" : "html",
  "wxHtmlWinTagHandler" : "html",
- "wxTextAttr" : "rich",
- "wxRichTextCtrl" : "rich",
- "wxRichTextBuffer" : "rich",
- "wxRichTextCharacterStyleDefinition" : "rich",
- "wxRichTextParagraphStyleDefinition" : "rich",
- "wxRichTextListStyleDefinition" : "rich",
- "wxRichTextStyleSheet" : "rich",
- "wxRichTextStyleComboCtrl" : "rich",
- "wxRichTextStyleListBox" : "rich",
- "wxRichTextStyleOrganiserDialog" : "rich",
- "wxRichTextEvent" : "rich",
- "wxRichTextRange" : "rich",
- "wxRichTextFileHandler" : "rich",
- "wxRichTextHTMLHandler" : "rich",
- "wxRichTextXMLHandler" : "rich",
- "wxRichTextFormattingDialog" : "rich",
- "wxRichTextPrinting" : "rich",
- "wxRichTextPrintout" : "rich",
- "wxRichTextHeaderFooterData" : "rich",
+ "wxTextAttr" : "richtext",
+ "wxrichtextTextCtrl" : "richtext",
+ "wxrichtextTextBuffer" : "richtext",
+ "wxrichtextTextCharacterStyleDefinition" : "richtext",
+ "wxrichtextTextParagraphStyleDefinition" : "richtext",
+ "wxrichtextTextListStyleDefinition" : "richtext",
+ "wxrichtextTextStyleSheet" : "richtext",
+ "wxrichtextTextStyleComboCtrl" : "richtext",
+ "wxrichtextTextStyleListBox" : "richtext",
+ "wxrichtextTextStyleOrganiserDialog" : "richtext",
+ "wxrichtextTextEvent" : "richtext",
+ "wxrichtextTextRange" : "richtext",
+ "wxrichtextTextFileHandler" : "richtext",
+ "wxrichtextTextHTMLHandler" : "richtext",
+ "wxrichtextTextXMLHandler" : "richtext",
+ "wxrichtextTextFormattingDialog" : "richtext",
+ "wxrichtextTextPrinting" : "richtext",
+ "wxrichtextTextPrintout" : "richtext",
+ "wxrichtextTextHeaderFooterData" : "richtext",
  "wxStyledTextCtrl" : "stc",
  "wxFSFile" : "vfs",
  "wxFileSystem" : "vfs",
@@ -397,6 +397,16 @@ classes_categories = { \
  "wxSingleInstanceChecker" : "misc"}
 
 
+def doxifyFormatting(txt):
+    txt = txt.replace("true", "@true")
+    txt = txt.replace("@@true", "@true")
+    txt = txt.replace("@c @true", "@true")
+    txt = txt.replace("false", "@false")
+    txt = txt.replace("@@false", "@false")
+    txt = txt.replace("@c @false", "@false")
+    txt = txt.replace("NULL", "@NULL")
+    txt = txt.replace("@c @NULL", "@NULL")
+    return txt
 
 
 import HTMLParser
@@ -552,18 +562,16 @@ class wxClass:
         if incfilename.startswith("wx"):
             incfilename = incfilename[2:]
         
-        #fname = self.inclusionFile
-        #if '/' in fname:
-            #fname = fname[fname.find("/")+1:]
         fname = self.inclusionFile
         
         doxytext = "\n"
         doxytext += "@class " + self.name + "\n"
-        doxytext += "@wxheader{" + fname + "}" # wx/" + self.inclusionFile + "\n\n"
-        #doxytext += "\\class " + self.name + " " + \
-                    #incfilename + \
-                    #" \"wx/" + self.inclusionFile + "\"\n\n"
-                    
+        if '/' in fname:
+            fname = fname[fname.find("/")+1:]
+            doxytext += "@headerfile " + fname + " wx/" + self.inclusionFile + "\n\n"
+        else:
+            doxytext += "@wxheader{" + fname + "}\n"
+        
         doxytext += self.description.strip() + "\n\n"
         doxytext = doxytext.replace("<P>", "\n")
 
@@ -582,7 +590,11 @@ class wxClass:
                 desc = "       " + style[1].strip().replace("\n", " ")
                 desc = stripHTML(desc)
                 desc = justifyKeepingIndent(75, 6, desc)
-                text += "@event{%s}:\n%s\n" % (style[0].strip().replace(",", "\,"), desc)
+                
+                #style[0] = style[0].replace(",", "\,")
+                # we don't need this, thanks to the @event overloading hack
+                
+                text += "@event{%s}:\n%s\n" % (style[0].strip(), desc)
             return text
 
         if len(self.styles)>0:
@@ -623,8 +635,9 @@ class wxClass:
             doxytext += "\n@seealso\n%s\n\n" % self.seeAlso.strip()
                         #justifyKeepingIndent(75, 8, self.seeAlso.strip())
 
-        doxytext = "/**\n%s*/\n\n" % commentizeText(stripHTML(doxytext), indent)
-        return doxytext.replace("\n*", "\n *")
+        doxytext = "/**\n%s*/\n\n" % commentizeText(stripHTML(doxytext), indent).replace("\n* ", "\n    ")
+        doxytext = doxifyFormatting(doxytext)
+        return doxytext.replace("/**\n* ", "/**\n    ")
         
     def createProps(self):
         propsText = ""
@@ -668,6 +681,28 @@ class wxMethod:
         self.returnDesc = stripHTML(retDesc).replace("\n", " ")
         self.seeAlso = stripHTML(sa).replace("\n", " ")
         self.inclusionFile = ""
+        
+        count=0
+        for c in self.name:
+            if c.upper()==c:
+                count+=1
+        #print self.name  + " has %d uppercase chars" % count
+        #if len(self.prototypes)==0:
+            #print "no protos", self.name
+            #sys.exit(1)
+        
+        #self.isDefine = (len(self.prototypes)>1 and \
+                         ##str(self.prototypes[0]).strip() == "" and \
+                         #abs(count-len(self.name))<3)
+        self.isDefine = abs(count-len(self.name))<3 and len(self.name) > 6
+        if self.isDefine:
+            print "FOUND A MACRO", self.name
+            
+        if "@b const" in description:
+            self.isconst = True
+            self.description = self.description.replace("@b const", "")
+        else:
+            self.isconst = False
         
     def asReST(self):
         restText = ""
@@ -735,8 +770,18 @@ class wxMethod:
         doxytext = ""
         
         doxytext += self.description.strip() + "\n\n"
+        
+        # TODO convert supported HTML tags before doing this
+        doxytext = stripHTML(doxytext)
+        
+        paramtext =""
         for param in self.params:
-            doxytext += "\n@param " + param[0] + " \n" + param[1] + "\n"
+            txt = stripHTML(param[1])
+            paramtext += "\n@param " + param[0] + " \n    " + \
+                        txt.strip().replace("\n", "\n    ")
+                        
+        #print paramtext
+        doxytext += "\n" + paramtext + "\n"
         
         #if len(self.prototypes) > 0:
         #    proto = self.prototypes[0]
@@ -760,14 +805,14 @@ class wxMethod:
         doxytext = doxytext.replace("\n\n\n", "\n")
         
         if len(self.returnDesc.strip())>0:
-            doxytext += "\n@returns %s\n\n" % justifyKeepingIndent(65, 10, self.returnDesc.strip())
+            doxytext += "\n@returns %s\n\n" % justifyKeepingIndent(65, 8, self.returnDesc.strip())
         
         if len(self.remarks.strip())>0:
-            doxytext += "\n@remarks %s\n\n" % justifyKeepingIndent(65, 10, self.remarks.strip())
+            doxytext += "\n@remarks %s\n\n" % justifyKeepingIndent(65, 8, self.remarks.strip())
         
         # NOTE: we won't use @seealso which generates a section and is good only for wxClass!
         if len(self.seeAlso.strip())>0:
-            doxytext += "\n@sa %s\n\n" % justifyKeepingIndent(75, 5, self.seeAlso.strip())
+            doxytext += "\n@see %s\n\n" % justifyKeepingIndent(75, 4, self.seeAlso.strip())
         
         # TODO convert supported HTML tags before doing this
         doxytext = stripHTML(doxytext)
@@ -775,11 +820,55 @@ class wxMethod:
         # inside class X references to members of the same class can be
         # done simply using # prefix or () suffix
         if self.parent!="":
-            doxytext = doxytext.replace(self.parent.name + "::", "#")
+            prefix = self.parent.name + "::"
+            doxylink_re = prefix + "([a-zA-Z]*)([\s\.,:;])"
+            #print "searching", doxylink_re
+            doxylink_regex = re.compile(doxylink_re)
+            
+            def replace_explicit_link(match):
+                funcname = match.group(1)
+                #print "found", funcname
+                if funcname.endswith("()"):
+                    return funcname + match.group(2)
+                return funcname + "()" + match.group(2)
+            
+            doxytext = doxylink_regex.sub(replace_explicit_link, doxytext)
+            
+            
+        
+        # to remove HTML:
+        def replace_empty(match):
+            return ""
+        html_re = re.compile("""<[^>]*>""", re.MULTILINE | re.DOTALL)
+
+            
+            
+        # replace @e followed by argument names with @a
+        paramnames = []
+        for proto in self.prototypes:
+            if len(proto) == 3:
+                for a in proto[2]:
+                    if len(a) == 2:
+                        name = str(a[1]).strip()
+                        name = html_re.sub(replace_empty, name)
+                        if "=" in name:
+                            name=name[:name.find("=")].strip()
+                        paramnames.append(name)
+        
+        for n in paramnames:
+            doxytext = doxytext.replace("@e " + n + " ", "@a " + n + " ")
         
         indentstr = " " * indent
         doxytext = "%s/**\n%s%s*/" % (indentstr, commentizeText(doxytext, indent=indent), indentstr)
-        doxytext = doxytext.replace("\n" + indentstr + "*", "\n" + indentstr + " *").replace(" *   ", " * ")
+        doxytext = doxytext.replace("\n" + indentstr + "* ", "\n" + 2*indentstr) #.replace(" *   ", "   ")
+        
+        doxytext = doxifyFormatting(doxytext)
+        
+        # call doxifyFormatting before getPrototype()!!
+        doxytext += "\n" + self.getPrototype() + "\n"
+        
+        if len(self.prototypes)>1:
+            doxytext = indentstr + "//@{\n" + doxytext + indentstr + "//@}\n"
         
         return doxytext
         
@@ -811,7 +900,7 @@ class wxMethod:
         def replace_empty(match):
             return ""
         html_re = re.compile("""<[^>]*>""", re.MULTILINE | re.DOTALL)
-        
+                
         retval=""
         for proto in self.prototypes:
             if len(proto) == 3:
@@ -819,6 +908,10 @@ class wxMethod:
                 retval += "    "
                 
                 rettype = html_re.sub(replace_empty, str(proto[0])).strip() + " "
+                rettype = rettype.replace("*", "* ").replace("& ", "& ").replace("=", " = ")
+                rettype = rettype.replace("  ", " ")
+                rettype = rettype.replace(" *", "*").replace(" &", "&")
+                
                 if not self.isCtor and not self.isDtor:
                     retval += rettype
                 retval += str(proto[1]).strip()
@@ -843,12 +936,32 @@ class wxMethod:
                         
                         
                 # final touches on args string
+                # attach * and & qualifier to the argument type
+                args = args.replace("*", "* ").replace("& ", "& ").replace("=", " = ")
+                args = args.replace("  ", " ")
+                args = args.replace(" *", "*").replace(" &", "&")
+
                 args = args.strip()
                 if args.endswith(","): args = args[:-1]
                 
-                retval += "(" + args + ");\n    "
+                retval += "(" + args
+                 
+                if self.isconst: 
+                    retval += ") const;\n    "
+                else:
+                    retval += ");\n    "
+
             else:
                 print "WARNING: prototype has not 3 elements..."
                 sys.exit(1)
-        return retval.replace("&amp;", "&").rstrip();
+                
+        retval = retval.replace("&amp;", "&").rstrip();
+        
+        if len(self.prototypes)==1 and self.isDefine:
+            if retval.endswith(";"):
+                retval = retval[:-1]
+                retval += "     /* implementation is private */"
+            return "#define " + retval.strip()
+                
+        return retval
 

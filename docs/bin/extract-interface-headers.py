@@ -571,23 +571,11 @@ if __name__ == "__main__":
         funcs_list = classes[cn].methods.keys()
         funcs_list.sort()
         
-        def doxifyFormatting(txt):
-            txt = txt.replace("true", "@true")
-            txt = txt.replace("@@true", "@true")
-            txt = txt.replace("@c @true", "@true")
-            txt = txt.replace("false", "@false")
-            txt = txt.replace("@@false", "@false")
-            txt = txt.replace("@c @false", "@false")
-            txt = txt.replace("NULL", "@NULL")
-            txt = txt.replace("@c @NULL", "@NULL")
-            return txt
-        
         # first process all ctors
         for mn in funcs_list:
             m=classes[cn].methods[mn]
             if m.isCtor:
-                funcs += doxifyFormatting(m.asDoxygen()) + "\n"
-                funcs += m.getPrototype() + "\n"
+                funcs += m.asDoxygen()
                 funcs += "\n"
                 documented_count += 1
         
@@ -595,8 +583,7 @@ if __name__ == "__main__":
         for mn in funcs_list:
             m=classes[cn].methods[mn]
             if m.isDtor:
-                funcs += doxifyFormatting(m.asDoxygen()) + "\n"
-                funcs += m.getPrototype() + "\n"
+                funcs += m.asDoxygen()
                 funcs += "\n"
                 documented_count += 1
         
@@ -604,8 +591,7 @@ if __name__ == "__main__":
         for mn in funcs_list:
             m=classes[cn].methods[mn]
             if not m.isCtor and not m.isDtor:
-                funcs += doxifyFormatting(m.asDoxygen()) + "\n"
-                funcs += m.getPrototype() + "\n"
+                funcs += m.asDoxygen()
                 funcs += "\n"
                 documented_count += 1
         
@@ -613,7 +599,7 @@ if __name__ == "__main__":
         if classes[cn].derivedFrom != []:
             derived_from = ": public " + classes[cn].derivedFrom[0]
         
-        cdesc = doxifyFormatting(classes[cn].asDoxygen()).strip()
+        cdesc = classes[cn].asDoxygen().strip()
         
         if os.path.exists("wx_interface/" + fname):
             
@@ -680,8 +666,8 @@ public:
                 print "making dir", dirname
                 os.makedirs(dirname)
             
-            txt = doxifyFormatting(functions[fn].asDoxygen()) + "\n"
-            txt += functions[fn].getPrototype() + "\n"
+            txt = functions[fn].asDoxygen()
+            #txt += functions[fn].getPrototype() + "\n"
             txt += "\n"
             
             # remove indentation
@@ -697,12 +683,12 @@ public:
                 if fname not in touched_files:
                     touched_files.append(fname)
                     txt = """
-    
-    // ============================================================================
-    // Global functions
-    // ============================================================================
-    
-    """ + txt
+
+// ============================================================================
+// Global functions/macros
+// ============================================================================
+
+""" + txt
                 
                 afile = open("wx_interface/" + fname, "a+")
                 afile.write(txt)
@@ -741,7 +727,7 @@ public:
             if not os.path.exists("overviews"):
                 os.makedirs("overviews")
             
-            txt = doxifyFormatting(topicOverviews[to])
+            txt = topicOverviews[to]
             print "creating the to for %s as %s" % (to, dirname)
                 
             # create a brand new header
@@ -761,32 +747,51 @@ public:
             afile.write(txt)
             afile.close()
         
+    
+    
+    
+    
+    ########################################
+    ## END OF GENERATION PART
+    
+    
+    
+    
+    
+    # generally there are big number of newlines attached...
+    for file in glob.glob("wx_interface/*.h"):
+        afile = open(file, "r")
+        headertext = afile.read()
+        afile.close()
         
-        # generally there are big number of newlines attached...
-        for file in glob.glob("wx_interface/*.h"):
-            afile = open(file, "r")
-            headertext = afile.read()
-            afile.close()
+        #separator = "//---------------------------------------------------------------------------\n\n"
+        #headertext = headertext.replace("\n\n\n\n", "\n\n")
+        #headertext = headertext.replace("\n\n\n\n", "\n\n")
+        #headertext = headertext.replace("\n\n\n\n", "\n\n")
+        #headertext = headertext.replace(separator + "\n\n", separator)
+        
+        headertext = headertext.replace("If the default size (-1, -1) is specified",
+                                        "If wxDefaultSize is specified")
+        headertext = headertext.replace("A value of (-1, -1) indicates a default size",
+                                        "The value wxDefaultSize indicates a default size")
+        
+        headertext = headertext.replace("A value of -1 indicates a default value",
+                                        "The value wxID_ANY indicates a default value")
+        
+        headertext = headertext.replace("If the position (-1, -1) is specified",
+                                        "If wxDefaultPosition is specified")
+        headertext = headertext.replace("A value of (-1, -1) indicates a default position",
+                                        "The value wxDefaultPosition indicates a default position")
+        
+        # don't know why these are left around:
+        headertext = headertext.replace("</B> <B>", "")
+        headertext = headertext.replace("&lt;", "<")
+        headertext = headertext.replace("&gt;", ">")
+        #headertext = headertext.replace("@b wxPython note", "@")
             
-            #separator = "//---------------------------------------------------------------------------\n\n"
-            #headertext = headertext.replace("\n\n\n\n", "\n\n")
-            #headertext = headertext.replace("\n\n\n\n", "\n\n")
-            #headertext = headertext.replace("\n\n\n\n", "\n\n")
-            #headertext = headertext.replace(separator + "\n\n", separator)
-            
-            headertext = headertext.replace("If the default size (-1, -1) is specified",
-                                            "If wxDefaultSize is specified")
-            headertext = headertext.replace("A value of -1 indicates a default value",
-                                            "The value wxID_ANY indicates a default value")
-            
-            # don't know why these are left around:
-            headertext = headertext.replace("</B> <B>", "")
-            headertext = headertext.replace("&lt;", "<")
-            headertext = headertext.replace("&gt;", ">")
-                
-            afile = open(file, "w")
-            afile.write(headertext)
-            afile.close()
+        afile = open(file, "w")
+        afile.write(headertext)
+        afile.close()
     
     print "list of classes NOT in HTML docs but in SWIG headers (probably not meant to be documented): %s" % set(not_recognized)
     print "There were %d classes in HTML docs; %d were in SWIG headers; %d were generated" % (len(classes), len(processed_classes), len(not_processed))
