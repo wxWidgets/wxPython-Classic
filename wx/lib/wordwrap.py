@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------
-# Name:        wx.lib.wrap
+# Name:        wx.lib.wordwrap
 # Purpose:     Contains a function to aid in word-wrapping some text
 #
 # Author:      Robin Dunn
