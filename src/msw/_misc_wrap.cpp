@@ -36548,6 +36548,7 @@ SWIGINTERN PyObject *_wrap_new_Display(PyObject *SWIGUNUSEDPARM(self), PyObject 
     arg1 = static_cast< unsigned int >(val1);
   }
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxDisplay *)new wxDisplay(arg1);
     wxPyEndAllowThreads(__tstate);

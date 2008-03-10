@@ -333,6 +333,7 @@ GROW = _core_.GROW
 EXPAND = _core_.EXPAND
 SHAPED = _core_.SHAPED
 FIXED_MINSIZE = _core_.FIXED_MINSIZE
+RESERVE_SPACE_EVEN_IF_HIDDEN = _core_.RESERVE_SPACE_EVEN_IF_HIDDEN
 TILE = _core_.TILE
 ADJUST_MINSIZE = _core_.ADJUST_MINSIZE
 BORDER_DEFAULT = _core_.BORDER_DEFAULT
@@ -8771,6 +8772,14 @@ class Window(EvtHandler):
         """
         return _core_.Window_GetClientRect(*args, **kwargs)
 
+    def ClientToWindowSize(*args, **kwargs):
+        """ClientToWindowSize(self, Size size) -> Size"""
+        return _core_.Window_ClientToWindowSize(*args, **kwargs)
+
+    def WindowToClientSize(*args, **kwargs):
+        """WindowToClientSize(self, Size size) -> Size"""
+        return _core_.Window_WindowToClientSize(*args, **kwargs)
+
     def GetBestSize(*args, **kwargs):
         """
         GetBestSize(self) -> Size
@@ -12013,6 +12022,14 @@ class SizerFlags(object):
         """
         return _core_.SizerFlags_FixedMinSize(*args, **kwargs)
 
+    def ReserveSpaceEvenIfHidden(*args, **kwargs):
+        """
+        ReserveSpaceEvenIfHidden(self) -> SizerFlags
+
+        Makes the item ignore window's visibility status
+        """
+        return _core_.SizerFlags_ReserveSpaceEvenIfHidden(*args, **kwargs)
+
     def Border(*args, **kwargs):
         """
         Border(self, int direction=ALL, int borderInPixels=-1) -> SizerFlags
@@ -12899,6 +12916,14 @@ class Sizer(Object):
         removed.
         """
         return _core_.Sizer_Layout(*args, **kwargs)
+
+    def ComputeFittingClientSize(*args, **kwargs):
+        """ComputeFittingClientSize(self, Window window) -> Size"""
+        return _core_.Sizer_ComputeFittingClientSize(*args, **kwargs)
+
+    def ComputeFittingWindowSize(*args, **kwargs):
+        """ComputeFittingWindowSize(self, Window window) -> Size"""
+        return _core_.Sizer_ComputeFittingWindowSize(*args, **kwargs)
 
     def Fit(*args, **kwargs):
         """
