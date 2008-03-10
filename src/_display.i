@@ -94,6 +94,7 @@ const wxVideoMode     wxDefaultVideoMode;
 //---------------------------------------------------------------------------
 
 
+MustHaveApp(wxDisplay);
 
 DocStr(wxDisplay,
        "Represents a display/monitor attached to the system", "");
