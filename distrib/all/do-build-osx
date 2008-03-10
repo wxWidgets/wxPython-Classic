@@ -332,12 +332,12 @@ fi
 \$PYTHON    -m compileall \$2$SITEPACKAGES/$PKGDIR
 \$PYTHON -O -m compileall \$2$SITEPACKAGES/$PKGDIR
 
-# and all of the wxPython pacakge should be group writable
+# and all of the wxPython package should be group writable
 chgrp -R admin \$2$SITEPACKAGES/$PKGDIR
 chmod -R g+w \$2$SITEPACKAGES/$PKGDIR
 
 # install a .pth file in any Python $PYVER installs we can find
-for dir in /Library/Python/$PYVER/site-pacakges \
+for dir in /Library/Python/$PYVER/site-packages \
            /Library/Frameworks/Python.framework/Versions/$PYVER/lib/python$PYVER/site-packages; do
     if [ -d \$dir ]; then
         echo Writing wxredirect.pth in \$dir
