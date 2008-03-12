@@ -459,6 +459,11 @@ used when using a single mask colour for transparency.", "");
     DocDeclStr(
         wxImage , ShrinkBy( int xFactor , int yFactor ) const ,
         "Return a version of the image scaled smaller by the given factors.", "");
+
+
+    // Accomodate the in-place edits of the next two methods so chaining of
+    // method calls will work.
+    %typemap(out) wxImage& { $result = $self; Py_INCREF($result); }
     
     DocDeclStr(
         wxImage& , Rescale(int width, int height, int quality = wxIMAGE_QUALITY_NORMAL),
@@ -485,6 +490,8 @@ newly exposed areas.
 Returns the (modified) image itself.", "
 
 :see: `Size`");
+
+    %typemap(out) wxImage&;    // turn off this typemap
     
     
     DocDeclStr(
