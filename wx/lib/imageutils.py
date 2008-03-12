@@ -22,6 +22,11 @@ def grayOut(anImage):
         maskColor = (anImage.GetMaskRed(), anImage.GetMaskGreen(), anImage.GetMaskBlue())
     else:
         maskColor = None
+    if anImage.HasAlpha():
+        alpha = anImage.GetAlphaData()
+    else:
+        alpha = None
+        
     data = map(ord, list(anImage.GetData()))
 
     for i in range(0, len(data), 3):
@@ -30,7 +35,9 @@ def grayOut(anImage):
         for x in range(3):
             data[i+x] = pixel[x]
     anImage.SetData(''.join(map(chr, data)))
-
+    if alpha:
+        anImage.SetAlphaData(alpha)
+        
 
 def makeGray((r,g,b), factor, maskColor):
     """
