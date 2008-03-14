@@ -194,9 +194,6 @@ public:
     // Partial equality test taking flags into account
     bool EqPartial(const wxTextAttr& attr, int flags) const;
 
-    // Create font from font attributes.
-    wxFont CreateFont() const;
-
     // Get attributes from font.
     bool GetFontAttributes(const wxFont& font, int flags = wxTEXT_ATTR_FONT);
 
@@ -267,7 +264,8 @@ public:
     wxFontEncoding GetFontEncoding() const;
 
     wxFont GetFont() const;
-
+    %pythoncode { CreateFont = GetFont }
+    
     const wxString& GetCharacterStyleName() const;
     const wxString& GetParagraphStyleName() const;
     const wxString& GetListStyleName() const;
