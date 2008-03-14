@@ -1076,7 +1076,8 @@ enum wxOrientation
 {
     wxHORIZONTAL,
     wxVERTICAL,
-    wxBOTH
+    wxBOTH,
+    wxORIENTATION_MASK
 };
 
 enum wxDirection
@@ -1094,7 +1095,8 @@ enum wxDirection
     wxWEST,
     wxEAST,
 
-    wxALL
+    wxALL,
+    wxDIRECTION_MASK
 };
 
 enum wxAlignment
@@ -1115,6 +1117,14 @@ enum wxAlignment
     wxALIGN_MASK,
 };
 
+enum wxSizerFlagBits
+{
+    wxFIXED_MINSIZE                = 0x8000,
+    wxRESERVE_SPACE_EVEN_IF_HIDDEN = 0x0002,
+    wxSIZER_FLAG_BITS_MASK         = 0x8002
+};
+%pythoncode { ADJUST_MINSIZE = 0 }
+
 enum wxStretch
 {
     wxSTRETCH_NOT,
@@ -1122,10 +1132,9 @@ enum wxStretch
     wxGROW,
     wxEXPAND,
     wxSHAPED,
-    wxFIXED_MINSIZE,
     wxTILE,
+    wxSTRETCH_MASK
 };
-%pythoncode { ADJUST_MINSIZE = 0 }
 
 enum wxBorder
 {
