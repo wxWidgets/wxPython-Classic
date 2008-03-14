@@ -81,7 +81,13 @@ enum {
     wxRICHTEXT_INSERT_NONE,
     wxRICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE,
     wxRICHTEXT_INSERT_INTERACTIVE,
- };
+
+    
+// A special flag telling the buffer to keep the first paragraph style
+// as-is, when deleting a paragraph marker. In future we might pass a
+// flag to InsertFragment and DeleteRange to indicate the appropriate mode.
+    wxTEXT_ATTR_KEEP_FIRST_PARA_STYLE,
+};
 
 
 //---------------------------------------------------------------------------
