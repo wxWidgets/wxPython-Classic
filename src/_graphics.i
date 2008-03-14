@@ -82,6 +82,15 @@ public :
 wxGraphicsFont wxNullGraphicsFont;
 
 
+class wxGraphicsBitmap : public wxGraphicsObject
+{
+public :
+    wxGraphicsBitmap() {}
+    virtual ~wxGraphicsBitmap() {}
+} ;
+wxGraphicsBitmap wxNullGraphicsBitmap;
+
+
 
 class wxGraphicsPath : public wxGraphicsObject
 {
@@ -214,6 +223,9 @@ public:
 
     virtual wxGraphicsFont CreateFont( const wxFont &, const wxColour & )  { return wxNullGraphicsFont; }
 
+    virtual wxGraphicsBitmap CreateBitmap( const wxBitmap & ) const { return wxNullGraphicsBitmap; }
+    virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &, wxDouble, wxDouble, wxDouble, wxDouble ) const  { return wxNullGraphicsBitmap; }
+    
     virtual wxGraphicsMatrix CreateMatrix( wxDouble, wxDouble, wxDouble, wxDouble,
                                             wxDouble, wxDouble)  { return wxNullGraphicsMatrix; }
 
@@ -256,6 +268,7 @@ public:
                                 wxDouble *, wxDouble * ) const {}
     virtual void GetPartialTextExtents(const wxString& , wxArrayDouble& ) const  {}
 
+    virtual void DrawBitmap( const wxGraphicsBitmap &, wxDouble, wxDouble, wxDouble, wxDouble ) {}
     virtual void DrawBitmap( const wxBitmap &, wxDouble , wxDouble , wxDouble , wxDouble  )  {}
     virtual void DrawIcon( const wxIcon &, wxDouble , wxDouble , wxDouble , wxDouble  )  {}
 
@@ -304,6 +317,8 @@ public :
     virtual wxGraphicsBrush CreateRadialGradientBrush(wxDouble , wxDouble , wxDouble , wxDouble , wxDouble ,
                                                       const wxColour &, const wxColour &)  { return wxNullGraphicsBrush; }
     virtual wxGraphicsFont CreateFont( const wxFont & , const wxColour & ) { return wxNullGraphicsFont; }
+    virtual wxGraphicsBitmap CreateBitmap( const wxBitmap & ) const { return wxNullGraphicsBitmap; }
+    virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &, wxDouble, wxDouble, wxDouble, wxDouble ) const  { return wxNullGraphicsBitmap; }
 };
 
 
@@ -422,6 +437,16 @@ class wxGraphicsFont : public wxGraphicsObject
 public :
     wxGraphicsFont();
     virtual ~wxGraphicsFont();
+};
+
+
+DocStr(wxGraphicsBitmap,
+"", "");
+class wxGraphicsBitmap : public wxGraphicsObject
+{
+public :
+    wxGraphicsBitmap();
+    virtual ~wxGraphicsBitmap();
 };
 
 
@@ -639,6 +664,7 @@ points)", "");
 const wxGraphicsPen     wxNullGraphicsPen;
 const wxGraphicsBrush   wxNullGraphicsBrush;
 const wxGraphicsFont    wxNullGraphicsFont;
+const wxGraphicsBitmap  wxNullGraphicsBitmap;
 const wxGraphicsMatrix  wxNullGraphicsMatrix;
 const wxGraphicsPath    wxNullGraphicsPath;
 %mutable;
@@ -754,6 +780,16 @@ radius r and color cColour.", "");
         virtual wxGraphicsFont , CreateFont( const wxFont &font , const wxColour &col = *wxBLACK ),
         "Creates a native graphics font from a `wx.Font` and a text colour.", "");
 
+
+    DocDeclStr(
+        virtual wxGraphicsBitmap , CreateBitmap( const wxBitmap &bitmap ) const,
+        "Create a native bitmap representation.", "");
+    
+    
+    DocDeclStr(
+        virtual wxGraphicsBitmap , CreateSubBitmap( const wxGraphicsBitmap &bitmap, wxDouble x, wxDouble y, wxDouble w, wxDouble h  ) const,
+        "Create a native bitmap representation using a subset of a wx.Bitmap.", "");
+    
 
     DocDeclStr(
         virtual wxGraphicsMatrix , CreateMatrix( wxDouble a=1.0, wxDouble b=0.0,
@@ -963,10 +999,12 @@ coresponding character in ``text``.", "");
     }
 
 
-    DocDeclStr(
-        virtual void , DrawBitmap( const wxBitmap &bmp, wxDouble x, wxDouble y, wxDouble w, wxDouble h ),
-        "Draws the bitmap. In case of a mono bitmap, this is treated as a mask
-and the current brush is used for filling.", "");
+    %nokwargs DrawBitmap;
+    DocStr(DrawBitmap,
+           "Draws the bitmap. In case of a mono bitmap, this is treated as a mask
+and the current brush is used for filling.", "");    
+    virtual void DrawBitmap( const wxGraphicsBitmap &bmp, wxDouble x, wxDouble y, wxDouble w, wxDouble h );
+    virtual void DrawBitmap( const wxBitmap &bmp, wxDouble x, wxDouble y, wxDouble w, wxDouble h );    
 
 
     DocDeclStr(
@@ -1079,7 +1117,9 @@ public :
                                                         const wxColour &oColor, const wxColour &cColor);
 
     virtual wxGraphicsFont CreateFont( const wxFont &font , const wxColour &col = *wxBLACK );
-    
+    virtual wxGraphicsBitmap CreateBitmap( const wxBitmap &bitmap );
+    virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &bitmap, wxDouble x, wxDouble y, wxDouble w, wxDouble h  );
+
 };
 
 
