@@ -30,7 +30,7 @@
 //---------------------------------------------------------------------------
 %newgroup;
 
-enum {
+enum wxAcceleratorEntryFlags {
     wxACCEL_ALT,
     wxACCEL_CTRL,
     wxACCEL_SHIFT,
