@@ -184,6 +184,11 @@ all top level windows have been closed and destroyed.", "");
         virtual wxLayoutDirection , GetLayoutDirection() const,
         "Return the layout direction for the current locale.", "");
     
+
+    DocDeclStr(
+        virtual bool , SetNativeTheme(const wxString& theme),
+        "Change the theme used by the application, return true on success.", "");
+    
     
     DocDeclStr(
         virtual void, ExitMainLoop(),
