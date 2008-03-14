@@ -1123,6 +1123,10 @@ class TabNavigatorWindow(wx.Dialog):
         self.GetSizer().Layout()
         self.Centre()
 
+        # Set focus on the list box to avoid having to click on it to change
+        # the tab selection under GTK.
+        self._listBox.SetFocus()
+
 
     def OnKeyUp(self, event):
         """Handles the wx.EVT_KEY_UP for the L{TabNavigatorWindow}."""
