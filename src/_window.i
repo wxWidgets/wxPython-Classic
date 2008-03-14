@@ -1992,6 +1992,9 @@ window.  Note that the text is actually stored by the current
         void , SetHelpTextForId(const wxString& text),
         "Associate this help text with all windows with the same id as this
 one.", "");
+    %pythoncode { SetHelpTextForId = wx._deprecated(SetHelpTextForId,
+                                                    'Use wx.HelpProvider.Get().AddHelp(id, text)') }
+   
     
 
     DocDeclStr(
