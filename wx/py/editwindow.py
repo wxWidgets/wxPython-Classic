@@ -46,7 +46,7 @@ elif 'wxMac' in wx.PlatformInfo:
               'mono'      : 'Monaco',
               'helv'      : 'Geneva',
               'other'     : 'new century schoolbook',
-              'size'      : 13,
+              'size'      : 12,
               'lnsize'    : 10,
               'backcol'   : '#FFFFFF',
               'calltipbg' : '#FFFFB8',
