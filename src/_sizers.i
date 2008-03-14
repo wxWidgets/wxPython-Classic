@@ -110,7 +110,10 @@ calling Align(wx.ALIGN_BOTTOM)", "");
         wxSizerFlags& , FixedMinSize(),
         "Sets the wx.FIXED_MINSIZE flag.", "");
     
-
+    DocDeclStr(
+        wxSizerFlags& , ReserveSpaceEvenIfHidden(),
+        "Makes the item ignore window's visibility status", "");
+    
     
     %extend {
         DocDeclStr(
