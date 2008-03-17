@@ -1005,7 +1005,7 @@ class AuiDefaultDockArt(AuiDockArt):
         _aui.AuiDefaultDockArt_swiginit(self,_aui.new_AuiDefaultDockArt(*args, **kwargs))
 _aui.AuiDefaultDockArt_swigregister(AuiDefaultDockArt)
 
-class AuiFloatingFrame(_windows.MiniFrame):
+class AuiFloatingFrame(_windows.Frame):
     """Proxy of C++ AuiFloatingFrame class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr

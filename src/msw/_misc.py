@@ -1242,10 +1242,6 @@ class PlatformInformation(object):
     ToolkitMinorVersion = property(GetToolkitMinorVersion,doc="See `GetToolkitMinorVersion`") 
 _misc_.PlatformInformation_swigregister(PlatformInformation)
 
-
-def DrawWindowOnDC(*args, **kwargs):
-  """DrawWindowOnDC(Window window, DC dc) -> bool"""
-  return _misc_.DrawWindowOnDC(*args, **kwargs)
 #---------------------------------------------------------------------------
 
 class TipProvider(object):

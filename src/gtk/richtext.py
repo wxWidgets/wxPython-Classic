@@ -88,6 +88,7 @@ RICHTEXT_SETSTYLE_REMOVE = _richtext.RICHTEXT_SETSTYLE_REMOVE
 RICHTEXT_INSERT_NONE = _richtext.RICHTEXT_INSERT_NONE
 RICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE = _richtext.RICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE
 RICHTEXT_INSERT_INTERACTIVE = _richtext.RICHTEXT_INSERT_INTERACTIVE
+TEXT_ATTR_KEEP_FIRST_PARA_STYLE = _richtext.TEXT_ATTR_KEEP_FIRST_PARA_STYLE
 #---------------------------------------------------------------------------
 
 # an alias for compatibility
@@ -1910,6 +1911,38 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
         """
         return _richtext.RichTextCtrl_GetDelayedLayoutThreshold(*args, **kwargs)
 
+    def SetTextCursor(*args, **kwargs):
+        """
+        SetTextCursor(self, Cursor cursor)
+
+        Set text cursor
+        """
+        return _richtext.RichTextCtrl_SetTextCursor(*args, **kwargs)
+
+    def GetTextCursor(*args, **kwargs):
+        """
+        GetTextCursor(self) -> Cursor
+
+        Get text cursor
+        """
+        return _richtext.RichTextCtrl_GetTextCursor(*args, **kwargs)
+
+    def SetURLCursor(*args, **kwargs):
+        """
+        SetURLCursor(self, Cursor cursor)
+
+        Set URL cursor
+        """
+        return _richtext.RichTextCtrl_SetURLCursor(*args, **kwargs)
+
+    def GetURLCursor(*args, **kwargs):
+        """
+        GetURLCursor(self) -> Cursor
+
+        Get URL cursor
+        """
+        return _richtext.RichTextCtrl_GetURLCursor(*args, **kwargs)
+
     def LoadFile(*args, **kwargs):
         """
         LoadFile(self, String file, int type=RICHTEXT_TYPE_ANY) -> bool
@@ -2837,6 +2870,8 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
     InternalSelectionRange = property(GetInternalSelectionRange,SetInternalSelectionRange) 
     SelectionRange = property(GetSelectionRange,SetSelectionRange) 
     StyleSheet = property(GetStyleSheet,SetStyleSheet) 
+    TextCursor = property(GetTextCursor,SetTextCursor) 
+    URLCursor = property(GetURLCursor,SetURLCursor) 
 _richtext.RichTextCtrl_swigregister(RichTextCtrl)
 RichTextCtrlNameStr = cvar.RichTextCtrlNameStr
 

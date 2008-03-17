@@ -5250,6 +5250,17 @@ class GraphicsFont(GraphicsObject):
     __del__ = lambda self : None;
 _gdi_.GraphicsFont_swigregister(GraphicsFont)
 
+class GraphicsBitmap(GraphicsObject):
+    """Proxy of C++ GraphicsBitmap class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> GraphicsBitmap"""
+        _gdi_.GraphicsBitmap_swiginit(self,_gdi_.new_GraphicsBitmap(*args, **kwargs))
+    __swig_destroy__ = _gdi_.delete_GraphicsBitmap
+    __del__ = lambda self : None;
+_gdi_.GraphicsBitmap_swigregister(GraphicsBitmap)
+
 class GraphicsMatrix(GraphicsObject):
     """
     A wx.GraphicsMatrix is a native representation of an affine
@@ -5689,6 +5700,23 @@ class GraphicsContext(GraphicsObject):
         """
         return _gdi_.GraphicsContext_CreateFont(*args, **kwargs)
 
+    def CreateBitmap(*args, **kwargs):
+        """
+        CreateBitmap(self, Bitmap bitmap) -> GraphicsBitmap
+
+        Create a native bitmap representation.
+        """
+        return _gdi_.GraphicsContext_CreateBitmap(*args, **kwargs)
+
+    def CreateSubBitmap(*args, **kwargs):
+        """
+        CreateSubBitmap(self, GraphicsBitmap bitmap, Double x, Double y, Double w, 
+            Double h) -> GraphicsBitmap
+
+        Create a native bitmap representation using a subset of a wx.Bitmap.
+        """
+        return _gdi_.GraphicsContext_CreateSubBitmap(*args, **kwargs)
+
     def CreateMatrix(*args, **kwargs):
         """
         CreateMatrix(self, Double a=1.0, Double b=0.0, Double c=0.0, Double d=1.0, 
@@ -5931,14 +5959,15 @@ class GraphicsContext(GraphicsObject):
         """
         return _gdi_.GraphicsContext_GetPartialTextExtents(*args, **kwargs)
 
-    def DrawBitmap(*args, **kwargs):
+    def DrawBitmap(*args):
         """
+        DrawBitmap(self, GraphicsBitmap bmp, Double x, Double y, Double w, Double h)
         DrawBitmap(self, Bitmap bmp, Double x, Double y, Double w, Double h)
 
         Draws the bitmap. In case of a mono bitmap, this is treated as a mask
         and the current brush is used for filling.
         """
-        return _gdi_.GraphicsContext_DrawBitmap(*args, **kwargs)
+        return _gdi_.GraphicsContext_DrawBitmap(*args)
 
     def DrawIcon(*args, **kwargs):
         """
@@ -6017,6 +6046,7 @@ cvar = _gdi_.cvar
 NullGraphicsPen = cvar.NullGraphicsPen
 NullGraphicsBrush = cvar.NullGraphicsBrush
 NullGraphicsFont = cvar.NullGraphicsFont
+NullGraphicsBitmap = cvar.NullGraphicsBitmap
 NullGraphicsMatrix = cvar.NullGraphicsMatrix
 NullGraphicsPath = cvar.NullGraphicsPath
 
@@ -6126,6 +6156,17 @@ class GraphicsRenderer(_core.Object):
     def CreateFont(*args, **kwargs):
         """CreateFont(self, Font font, Colour col=*wxBLACK) -> GraphicsFont"""
         return _gdi_.GraphicsRenderer_CreateFont(*args, **kwargs)
+
+    def CreateBitmap(*args, **kwargs):
+        """CreateBitmap(self, Bitmap bitmap) -> GraphicsBitmap"""
+        return _gdi_.GraphicsRenderer_CreateBitmap(*args, **kwargs)
+
+    def CreateSubBitmap(*args, **kwargs):
+        """
+        CreateSubBitmap(self, GraphicsBitmap bitmap, Double x, Double y, Double w, 
+            Double h) -> GraphicsBitmap
+        """
+        return _gdi_.GraphicsRenderer_CreateSubBitmap(*args, **kwargs)
 
 _gdi_.GraphicsRenderer_swigregister(GraphicsRenderer)
 

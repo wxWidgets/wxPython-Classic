@@ -305,6 +305,7 @@ CENTER = _core_.CENTER
 HORIZONTAL = _core_.HORIZONTAL
 VERTICAL = _core_.VERTICAL
 BOTH = _core_.BOTH
+ORIENTATION_MASK = _core_.ORIENTATION_MASK
 LEFT = _core_.LEFT
 RIGHT = _core_.RIGHT
 UP = _core_.UP
@@ -316,6 +317,7 @@ SOUTH = _core_.SOUTH
 WEST = _core_.WEST
 EAST = _core_.EAST
 ALL = _core_.ALL
+DIRECTION_MASK = _core_.DIRECTION_MASK
 ALIGN_NOT = _core_.ALIGN_NOT
 ALIGN_CENTER_HORIZONTAL = _core_.ALIGN_CENTER_HORIZONTAL
 ALIGN_CENTRE_HORIZONTAL = _core_.ALIGN_CENTRE_HORIZONTAL
@@ -328,14 +330,17 @@ ALIGN_CENTRE_VERTICAL = _core_.ALIGN_CENTRE_VERTICAL
 ALIGN_CENTER = _core_.ALIGN_CENTER
 ALIGN_CENTRE = _core_.ALIGN_CENTRE
 ALIGN_MASK = _core_.ALIGN_MASK
+FIXED_MINSIZE = _core_.FIXED_MINSIZE
+RESERVE_SPACE_EVEN_IF_HIDDEN = _core_.RESERVE_SPACE_EVEN_IF_HIDDEN
+SIZER_FLAG_BITS_MASK = _core_.SIZER_FLAG_BITS_MASK
+ADJUST_MINSIZE = 0 
 STRETCH_NOT = _core_.STRETCH_NOT
 SHRINK = _core_.SHRINK
 GROW = _core_.GROW
 EXPAND = _core_.EXPAND
 SHAPED = _core_.SHAPED
-FIXED_MINSIZE = _core_.FIXED_MINSIZE
 TILE = _core_.TILE
-ADJUST_MINSIZE = 0 
+STRETCH_MASK = _core_.STRETCH_MASK
 BORDER_DEFAULT = _core_.BORDER_DEFAULT
 BORDER_NONE = _core_.BORDER_NONE
 BORDER_STATIC = _core_.BORDER_STATIC
@@ -7524,6 +7529,14 @@ class PyApp(EvtHandler):
         """
         return _core_.PyApp_GetLayoutDirection(*args, **kwargs)
 
+    def SetNativeTheme(*args, **kwargs):
+        """
+        SetNativeTheme(self, String theme) -> bool
+
+        Change the theme used by the application, return true on success.
+        """
+        return _core_.PyApp_SetNativeTheme(*args, **kwargs)
+
     def ExitMainLoop(*args, **kwargs):
         """
         ExitMainLoop(self)
@@ -10774,6 +10787,8 @@ class Window(EvtHandler):
         """
         return _core_.Window_SetHelpTextForId(*args, **kwargs)
 
+    SetHelpTextForId = wx._deprecated(SetHelpTextForId,
+                                                       'Use wx.HelpProvider.Get().AddHelp(id, text)') 
     def GetHelpTextAtPoint(*args, **kwargs):
         """
         GetHelpTextAtPoint(self, Point pt, wxHelpEvent::Origin origin) -> String
@@ -12871,6 +12886,14 @@ class SizerFlags(object):
         Sets the wx.FIXED_MINSIZE flag.
         """
         return _core_.SizerFlags_FixedMinSize(*args, **kwargs)
+
+    def ReserveSpaceEvenIfHidden(*args, **kwargs):
+        """
+        ReserveSpaceEvenIfHidden(self) -> SizerFlags
+
+        Makes the item ignore window's visibility status
+        """
+        return _core_.SizerFlags_ReserveSpaceEvenIfHidden(*args, **kwargs)
 
     def Border(*args, **kwargs):
         """

@@ -3465,7 +3465,7 @@ PD_ESTIMATED_TIME = _windows_.PD_ESTIMATED_TIME
 PD_REMAINING_TIME = _windows_.PD_REMAINING_TIME
 PD_SMOOTH = _windows_.PD_SMOOTH
 PD_CAN_SKIP = _windows_.PD_CAN_SKIP
-class ProgressDialog(Frame):
+class ProgressDialog(Dialog):
     """
     A dialog that shows a short message and a progress bar. Optionally, it
     can display an ABORT button.

@@ -1493,10 +1493,6 @@ class TextAttr(object):
         """EqPartial(self, TextAttr attr, int flags) -> bool"""
         return _controls_.TextAttr_EqPartial(*args, **kwargs)
 
-    def CreateFont(*args, **kwargs):
-        """CreateFont(self) -> Font"""
-        return _controls_.TextAttr_CreateFont(*args, **kwargs)
-
     def GetFontAttributes(*args, **kwargs):
         """GetFontAttributes(self, Font font, int flags=TEXT_ATTR_FONT) -> bool"""
         return _controls_.TextAttr_GetFontAttributes(*args, **kwargs)
@@ -1681,6 +1677,7 @@ class TextAttr(object):
         """GetFont(self) -> Font"""
         return _controls_.TextAttr_GetFont(*args, **kwargs)
 
+    CreateFont = GetFont 
     def GetCharacterStyleName(*args, **kwargs):
         """GetCharacterStyleName(self) -> String"""
         return _controls_.TextAttr_GetCharacterStyleName(*args, **kwargs)

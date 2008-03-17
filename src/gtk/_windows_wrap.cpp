@@ -37064,7 +37064,7 @@ static void *_p_wxMessageDialogTo_p_wxEvtHandler(void *x) {
     return (void *)((wxEvtHandler *) (wxWindow *)(wxTopLevelWindow *)(wxDialog *) ((wxMessageDialog *) x));
 }
 static void *_p_wxProgressDialogTo_p_wxEvtHandler(void *x) {
-    return (void *)((wxEvtHandler *) (wxWindow *)(wxTopLevelWindow *)(wxFrame *) ((wxProgressDialog *) x));
+    return (void *)((wxEvtHandler *) (wxWindow *)(wxTopLevelWindow *)(wxDialog *) ((wxProgressDialog *) x));
 }
 static void *_p_wxFindReplaceDialogTo_p_wxEvtHandler(void *x) {
     return (void *)((wxEvtHandler *) (wxWindow *)(wxTopLevelWindow *)(wxDialog *) ((wxFindReplaceDialog *) x));
@@ -37194,9 +37194,6 @@ static void *_p_wxSimpleHtmlListBoxTo_p_wxPyHtmlListBox(void *x) {
 }
 static void *_p_wxMDIChildFrameTo_p_wxFrame(void *x) {
     return (void *)((wxFrame *)  ((wxMDIChildFrame *) x));
-}
-static void *_p_wxProgressDialogTo_p_wxFrame(void *x) {
-    return (void *)((wxFrame *)  ((wxProgressDialog *) x));
 }
 static void *_p_wxPreviewFrameTo_p_wxFrame(void *x) {
     return (void *)((wxFrame *)  ((wxPreviewFrame *) x));
@@ -37373,7 +37370,7 @@ static void *_p_wxMessageDialogTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxTopLevelWindow *)(wxDialog *) ((wxMessageDialog *) x));
 }
 static void *_p_wxProgressDialogTo_p_wxObject(void *x) {
-    return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxTopLevelWindow *)(wxFrame *) ((wxProgressDialog *) x));
+    return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxTopLevelWindow *)(wxDialog *) ((wxProgressDialog *) x));
 }
 static void *_p_wxFindReplaceDialogTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxTopLevelWindow *)(wxDialog *) ((wxFindReplaceDialog *) x));
@@ -37718,7 +37715,7 @@ static void *_p_wxFileDialogTo_p_wxTopLevelWindow(void *x) {
     return (void *)((wxTopLevelWindow *) (wxDialog *) ((wxFileDialog *) x));
 }
 static void *_p_wxProgressDialogTo_p_wxTopLevelWindow(void *x) {
-    return (void *)((wxTopLevelWindow *) (wxFrame *) ((wxProgressDialog *) x));
+    return (void *)((wxTopLevelWindow *) (wxDialog *) ((wxProgressDialog *) x));
 }
 static void *_p_wxFindReplaceDialogTo_p_wxTopLevelWindow(void *x) {
     return (void *)((wxTopLevelWindow *) (wxDialog *) ((wxFindReplaceDialog *) x));
@@ -37763,7 +37760,7 @@ static void *_p_wxFileDialogTo_p_wxWindow(void *x) {
     return (void *)((wxWindow *) (wxTopLevelWindow *)(wxDialog *) ((wxFileDialog *) x));
 }
 static void *_p_wxProgressDialogTo_p_wxWindow(void *x) {
-    return (void *)((wxWindow *) (wxTopLevelWindow *)(wxFrame *) ((wxProgressDialog *) x));
+    return (void *)((wxWindow *) (wxTopLevelWindow *)(wxDialog *) ((wxProgressDialog *) x));
 }
 static void *_p_wxFindReplaceDialogTo_p_wxWindow(void *x) {
     return (void *)((wxWindow *) (wxTopLevelWindow *)(wxDialog *) ((wxFindReplaceDialog *) x));
@@ -37917,6 +37914,9 @@ static void *_p_wxNumberEntryDialogTo_p_wxDialog(void *x) {
 }
 static void *_p_wxMessageDialogTo_p_wxDialog(void *x) {
     return (void *)((wxDialog *)  ((wxMessageDialog *) x));
+}
+static void *_p_wxProgressDialogTo_p_wxDialog(void *x) {
+    return (void *)((wxDialog *)  ((wxProgressDialog *) x));
 }
 static void *_p_wxFindReplaceDialogTo_p_wxDialog(void *x) {
     return (void *)((wxDialog *)  ((wxFindReplaceDialog *) x));
@@ -38431,7 +38431,7 @@ static swig_cast_info _swigc__p_wxDateEvent[] = {{&_swigt__p_wxDateEvent, 0, 0, 
 static swig_cast_info _swigc__p_wxUpdateUIEvent[] = {{&_swigt__p_wxUpdateUIEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxCommandEvent[] = {  {&_swigt__p_wxSashEvent, _p_wxSashEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxWindowDestroyEvent, _p_wxWindowDestroyEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxSplitterEvent, _p_wxSplitterEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxClipboardTextEvent, _p_wxClipboardTextEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxScrollEvent, _p_wxScrollEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxPyCommandEvent, _p_wxPyCommandEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxCommandEvent, 0, 0, 0},  {&_swigt__p_wxContextMenuEvent, _p_wxContextMenuEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxChildFocusEvent, _p_wxChildFocusEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxWindowCreateEvent, _p_wxWindowCreateEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxDateEvent, _p_wxDateEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxNotifyEvent, _p_wxNotifyEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxFindDialogEvent, _p_wxFindDialogEventTo_p_wxCommandEvent, 0, 0},  {&_swigt__p_wxUpdateUIEvent, _p_wxUpdateUIEventTo_p_wxCommandEvent, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDC[] = {  {&_swigt__p_wxDC, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxDialog[] = {  {&_swigt__p_wxDialog, 0, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxDialog, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxDialog[] = {  {&_swigt__p_wxDialog, 0, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxDialog, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxDialog, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDialogLayoutAdapter[] = {  {&_swigt__p_wxDialogLayoutAdapter, 0, 0, 0},  {&_swigt__p_wxStandardDialogLayoutAdapter, _p_wxStandardDialogLayoutAdapterTo_p_wxDialogLayoutAdapter, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDirDialog[] = {  {&_swigt__p_wxDirDialog, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDuplexMode[] = {  {&_swigt__p_wxDuplexMode, 0, 0, 0},{0, 0, 0, 0}};
@@ -38477,7 +38477,7 @@ static swig_cast_info _swigc__p_wxFindReplaceDialog[] = {  {&_swigt__p_wxFindRep
 static swig_cast_info _swigc__p_wxFont[] = {  {&_swigt__p_wxFont, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFontData[] = {  {&_swigt__p_wxFontData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFontDialog[] = {  {&_swigt__p_wxFontDialog, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxFrame[] = {  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxFrame, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxFrame, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxFrame, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxFrame, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxFrame, 0, 0},  {&_swigt__p_wxFrame, 0, 0, 0},  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxFrame, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxFrame, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxFrame[] = {  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxFrame, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxFrame, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxFrame, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxFrame, 0, 0},  {&_swigt__p_wxFrame, 0, 0, 0},  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxFrame, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxFrame, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxHtmlLinkInfo[] = {  {&_swigt__p_wxHtmlLinkInfo, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxIcon[] = {  {&_swigt__p_wxIcon, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxIconBundle[] = {  {&_swigt__p_wxIconBundle, 0, 0, 0},{0, 0, 0, 0}};
@@ -38577,7 +38577,7 @@ static swig_cast_info _swigc__p_wxTaskBarIconEvent[] = {  {&_swigt__p_wxTaskBarI
 static swig_cast_info _swigc__p_wxTextEntryDialog[] = {  {&_swigt__p_wxTextEntryDialog, 0, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxTextEntryDialog, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTipWindow[] = {  {&_swigt__p_wxTipWindow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxToolBar[] = {  {&_swigt__p_wxToolBar, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxTopLevelWindow[] = {  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxTopLevelWindow, 0, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxTopLevelWindow, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxTopLevelWindow[] = {  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxTopLevelWindow, 0, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxTopLevelWindow, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxValidator[] = {  {&_swigt__p_wxValidator, 0, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxValidator, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxVarHScrollHelper[] = {  {&_swigt__p_wxPyHScrolledWindow, _p_wxPyHScrolledWindowTo_p_wxVarHScrollHelper, 0, 0},  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxVarHScrollHelper, 0, 0},  {&_swigt__p_wxVarHScrollHelper, 0, 0, 0},  {&_swigt__p_wxVarHVScrollHelper, _p_wxVarHVScrollHelperTo_p_wxVarHScrollHelper, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxVarHVScrollHelper[] = {  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxVarHVScrollHelper, 0, 0},  {&_swigt__p_wxVarHVScrollHelper, 0, 0, 0},{0, 0, 0, 0}};

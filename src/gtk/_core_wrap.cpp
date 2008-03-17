@@ -17549,7 +17549,9 @@ SWIGINTERN PyObject *_wrap_Image_Rescale(PyObject *SWIGUNUSEDPARM(self), PyObjec
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxImage, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -17629,7 +17631,9 @@ SWIGINTERN PyObject *_wrap_Image_Resize(PyObject *SWIGUNUSEDPARM(self), PyObject
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxImage, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -32608,6 +32612,54 @@ SWIGINTERN PyObject *_wrap_PyApp_GetLayoutDirection(PyObject *SWIGUNUSEDPARM(sel
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PyApp_SetNativeTheme(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  wxString *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "theme", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyApp_SetNativeTheme",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_SetNativeTheme" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->SetNativeTheme((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -54989,6 +55041,39 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_SizerFlags_ReserveSpaceEvenIfHidden(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxSizerFlags *arg1 = (wxSizerFlags *) 0 ;
+  wxSizerFlags *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxSizerFlags, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SizerFlags_ReserveSpaceEvenIfHidden" "', expected argument " "1"" of type '" "wxSizerFlags *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSizerFlags * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxSizerFlags &_result_ref = (arg1)->ReserveSpaceEvenIfHidden();
+      result = (wxSizerFlags *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_SizerFlags_Border(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxSizerFlags *arg1 = (wxSizerFlags *) 0 ;
@@ -65184,6 +65269,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyApp_MainLoop", (PyCFunction)_wrap_PyApp_MainLoop, METH_O, NULL},
 	 { (char *)"PyApp_Exit", (PyCFunction)_wrap_PyApp_Exit, METH_O, NULL},
 	 { (char *)"PyApp_GetLayoutDirection", (PyCFunction)_wrap_PyApp_GetLayoutDirection, METH_O, NULL},
+	 { (char *)"PyApp_SetNativeTheme", (PyCFunction) _wrap_PyApp_SetNativeTheme, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_ExitMainLoop", (PyCFunction)_wrap_PyApp_ExitMainLoop, METH_O, NULL},
 	 { (char *)"PyApp_Pending", (PyCFunction)_wrap_PyApp_Pending, METH_O, NULL},
 	 { (char *)"PyApp_Dispatch", (PyCFunction)_wrap_PyApp_Dispatch, METH_O, NULL},
@@ -65802,6 +65888,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SizerFlags_Bottom", (PyCFunction)_wrap_SizerFlags_Bottom, METH_O, NULL},
 	 { (char *)"SizerFlags_Shaped", (PyCFunction)_wrap_SizerFlags_Shaped, METH_O, NULL},
 	 { (char *)"SizerFlags_FixedMinSize", (PyCFunction)_wrap_SizerFlags_FixedMinSize, METH_O, NULL},
+	 { (char *)"SizerFlags_ReserveSpaceEvenIfHidden", (PyCFunction)_wrap_SizerFlags_ReserveSpaceEvenIfHidden, METH_O, NULL},
 	 { (char *)"SizerFlags_Border", (PyCFunction) _wrap_SizerFlags_Border, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SizerFlags_DoubleBorder", (PyCFunction) _wrap_SizerFlags_DoubleBorder, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SizerFlags_TripleBorder", (PyCFunction) _wrap_SizerFlags_TripleBorder, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -68004,6 +68091,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "HORIZONTAL",SWIG_From_int(static_cast< int >(wxHORIZONTAL)));
   SWIG_Python_SetConstant(d, "VERTICAL",SWIG_From_int(static_cast< int >(wxVERTICAL)));
   SWIG_Python_SetConstant(d, "BOTH",SWIG_From_int(static_cast< int >(wxBOTH)));
+  SWIG_Python_SetConstant(d, "ORIENTATION_MASK",SWIG_From_int(static_cast< int >(wxORIENTATION_MASK)));
   SWIG_Python_SetConstant(d, "LEFT",SWIG_From_int(static_cast< int >(wxLEFT)));
   SWIG_Python_SetConstant(d, "RIGHT",SWIG_From_int(static_cast< int >(wxRIGHT)));
   SWIG_Python_SetConstant(d, "UP",SWIG_From_int(static_cast< int >(wxUP)));
@@ -68015,6 +68103,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "WEST",SWIG_From_int(static_cast< int >(wxWEST)));
   SWIG_Python_SetConstant(d, "EAST",SWIG_From_int(static_cast< int >(wxEAST)));
   SWIG_Python_SetConstant(d, "ALL",SWIG_From_int(static_cast< int >(wxALL)));
+  SWIG_Python_SetConstant(d, "DIRECTION_MASK",SWIG_From_int(static_cast< int >(wxDIRECTION_MASK)));
   SWIG_Python_SetConstant(d, "ALIGN_NOT",SWIG_From_int(static_cast< int >(wxALIGN_NOT)));
   SWIG_Python_SetConstant(d, "ALIGN_CENTER_HORIZONTAL",SWIG_From_int(static_cast< int >(wxALIGN_CENTER_HORIZONTAL)));
   SWIG_Python_SetConstant(d, "ALIGN_CENTRE_HORIZONTAL",SWIG_From_int(static_cast< int >(wxALIGN_CENTRE_HORIZONTAL)));
@@ -68027,13 +68116,16 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "ALIGN_CENTER",SWIG_From_int(static_cast< int >(wxALIGN_CENTER)));
   SWIG_Python_SetConstant(d, "ALIGN_CENTRE",SWIG_From_int(static_cast< int >(wxALIGN_CENTRE)));
   SWIG_Python_SetConstant(d, "ALIGN_MASK",SWIG_From_int(static_cast< int >(wxALIGN_MASK)));
+  SWIG_Python_SetConstant(d, "FIXED_MINSIZE",SWIG_From_int(static_cast< int >(wxFIXED_MINSIZE)));
+  SWIG_Python_SetConstant(d, "RESERVE_SPACE_EVEN_IF_HIDDEN",SWIG_From_int(static_cast< int >(wxRESERVE_SPACE_EVEN_IF_HIDDEN)));
+  SWIG_Python_SetConstant(d, "SIZER_FLAG_BITS_MASK",SWIG_From_int(static_cast< int >(wxSIZER_FLAG_BITS_MASK)));
   SWIG_Python_SetConstant(d, "STRETCH_NOT",SWIG_From_int(static_cast< int >(wxSTRETCH_NOT)));
   SWIG_Python_SetConstant(d, "SHRINK",SWIG_From_int(static_cast< int >(wxSHRINK)));
   SWIG_Python_SetConstant(d, "GROW",SWIG_From_int(static_cast< int >(wxGROW)));
   SWIG_Python_SetConstant(d, "EXPAND",SWIG_From_int(static_cast< int >(wxEXPAND)));
   SWIG_Python_SetConstant(d, "SHAPED",SWIG_From_int(static_cast< int >(wxSHAPED)));
-  SWIG_Python_SetConstant(d, "FIXED_MINSIZE",SWIG_From_int(static_cast< int >(wxFIXED_MINSIZE)));
   SWIG_Python_SetConstant(d, "TILE",SWIG_From_int(static_cast< int >(wxTILE)));
+  SWIG_Python_SetConstant(d, "STRETCH_MASK",SWIG_From_int(static_cast< int >(wxSTRETCH_MASK)));
   SWIG_Python_SetConstant(d, "BORDER_DEFAULT",SWIG_From_int(static_cast< int >(wxBORDER_DEFAULT)));
   SWIG_Python_SetConstant(d, "BORDER_NONE",SWIG_From_int(static_cast< int >(wxBORDER_NONE)));
   SWIG_Python_SetConstant(d, "BORDER_STATIC",SWIG_From_int(static_cast< int >(wxBORDER_STATIC)));

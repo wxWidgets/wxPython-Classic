@@ -10196,34 +10196,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextAttr_CreateFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttr *arg1 = (wxTextAttr *) 0 ;
-  wxFont result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttr, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttr_CreateFont" "', expected argument " "1"" of type '" "wxTextAttr const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttr * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxTextAttr const *)arg1)->CreateFont();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxFont(static_cast< const wxFont& >(result))), SWIGTYPE_p_wxFont, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_TextAttr_GetFontAttributes(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxTextAttr *arg1 = (wxTextAttr *) 0 ;
@@ -47983,7 +47955,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextAttr_Init", (PyCFunction)_wrap_TextAttr_Init, METH_O, NULL},
 	 { (char *)"TextAttr_Copy", (PyCFunction) _wrap_TextAttr_Copy, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttr_EqPartial", (PyCFunction) _wrap_TextAttr_EqPartial, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttr_CreateFont", (PyCFunction)_wrap_TextAttr_CreateFont, METH_O, NULL},
 	 { (char *)"TextAttr_GetFontAttributes", (PyCFunction) _wrap_TextAttr_GetFontAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttr_SetTextColour", (PyCFunction) _wrap_TextAttr_SetTextColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttr_SetBackgroundColour", (PyCFunction) _wrap_TextAttr_SetBackgroundColour, METH_VARARGS | METH_KEYWORDS, NULL},
