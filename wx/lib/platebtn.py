@@ -146,8 +146,7 @@ def GetHighlightColour():
     if wx.Platform == '__WXMAC__':
         brush = wx.Brush(wx.BLACK)
         # kThemeBrushButtonPressedLightHighlight
-        brush.MacSetTheme(Carbon.Appearance.kThemeBrushFocusHighlight)
-        return brush.GetColour()
+        return wx.MacThemeColour(Carbon.Appearance.kThemeBrushFocusHighlight)
     else:
         return wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHT)
 
@@ -321,9 +320,9 @@ class PlateButton(wx.PyControl):
         elif self._state['cur'] == PLATE_PRESSED:
             gc.SetTextForeground(self._color['ptxt'])
             if wx.Platform == '__WXMAC__':
-                brush = wx.Brush(wx.BLACK)
-                brush.MacSetTheme(Carbon.Appearance.kThemeBrushFocusHighlight)
-                pen = wx.Pen(brush.GetColour(), 1, wx.SOLID)
+                c = wx.MacThemeColour(Carbon.Appearance.kThemeBrushFocusHighlight)
+                brush = wx.Brush(c)
+                pen = wx.Pen(c, 1, wx.SOLID)
             else:
                 pen = wx.Pen(AdjustColour(self._color['press'], -80, 220), 1)
             gc.SetPen(pen)
