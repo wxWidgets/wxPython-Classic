@@ -573,7 +573,7 @@ the borders, scrollbars, other decorations...)", "");
            "This function returns the best acceptable minimal size for the
 window, if applicable. For example, for a static text control, it will
 be the minimal size such that the control label is not truncated. For
-windows containing subwindows (suzh aswx.Panel), the size returned by
+windows containing subwindows (such as wx.Panel), the size returned by
 this function will be the same as the size the window would have had
 after calling Fit.", "");
     wxSize GetBestSize() const;
@@ -615,7 +615,7 @@ the results.
     DocDeclStr(
         void , Center( int direction = wxBOTH ),
         "Centers the window.  The parameter specifies the direction for
-cetering, and may be wx.HORIZONTAL, wx.VERTICAL or wx.BOTH. It may
+centering, and may be wx.HORIZONTAL, wx.VERTICAL or wx.BOTH. It may
 also include wx.CENTER_ON_SCREEN flag if you want to center the window
 on the entire screen and not on its parent window.  If it is a
 top-level window and has no parent then it will always be centered
