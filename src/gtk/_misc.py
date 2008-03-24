@@ -941,9 +941,12 @@ class WindowDisabler(object):
     """Proxy of C++ WindowDisabler class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self, Window winToSkip=None) -> WindowDisabler"""
-        _misc_.WindowDisabler_swiginit(self,_misc_.new_WindowDisabler(*args, **kwargs))
+    def __init__(self, *args): 
+        """
+        __init__(self, bool disable=True) -> WindowDisabler
+        __init__(self, Window winToSkip) -> WindowDisabler
+        """
+        _misc_.WindowDisabler_swiginit(self,_misc_.new_WindowDisabler(*args))
     __swig_destroy__ = _misc_.delete_WindowDisabler
     __del__ = lambda self : None;
 _misc_.WindowDisabler_swigregister(WindowDisabler)

@@ -119,7 +119,9 @@ MustHaveApp(wxWindowDisabler);
 
 class wxWindowDisabler {
 public:
-    wxWindowDisabler(wxWindow *winToSkip = NULL);
+    %nokwargs wxWindowDisabler;
+    wxWindowDisabler(bool disable = true);
+    wxWindowDisabler(wxWindow *winToSkip);
     ~wxWindowDisabler();
 };
 
@@ -444,7 +446,7 @@ public:
 
 
 %inline %{
-
+#if 0
 bool wxDrawWindowOnDC(wxWindow* window, const wxDC& dc
 #if 0
                       , int method
@@ -531,7 +533,7 @@ bool wxDrawWindowOnDC(wxWindow* window, const wxDC& dc
     return false;
 #endif  // __WXMSW__    
 }
-
+#endif
 %}
 
 

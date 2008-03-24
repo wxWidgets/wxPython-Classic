@@ -16,6 +16,26 @@
 //---------------------------------------------------------------------------
 %newgroup
 
+enum wxBrushStyle
+{
+    wxBRUSHSTYLE_INVALID,
+
+    wxBRUSHSTYLE_SOLID,
+    wxBRUSHSTYLE_TRANSPARENT,
+    wxBRUSHSTYLE_STIPPLE_MASK_OPAQUE,
+    wxBRUSHSTYLE_STIPPLE_MASK,
+    wxBRUSHSTYLE_STIPPLE,
+    wxBRUSHSTYLE_BDIAGONAL_HATCH,
+    wxBRUSHSTYLE_CROSSDIAG_HATCH,
+    wxBRUSHSTYLE_FDIAGONAL_HATCH,
+    wxBRUSHSTYLE_CROSS_HATCH,
+    wxBRUSHSTYLE_HORIZONTAL_HATCH,
+    wxBRUSHSTYLE_VERTICAL_HATCH,
+    wxBRUSHSTYLE_FIRST_HATCH,
+    wxBRUSHSTYLE_LAST_HATCH,
+};
+
+
 DocStr(wxBrush,
 "A brush is a drawing tool for filling in areas. It is used for
 painting the background of rectangles, ellipses, etc. when drawing on
@@ -38,7 +58,7 @@ MustHaveApp(wxBrush);
 class wxBrush : public wxGDIObject {
 public:
     DocCtorStr(
-        wxBrush(const wxColour& colour, int style=wxSOLID),
+        wxBrush(const wxColour& colour, wxBrushStyle style=wxSOLID),
         "Constructs a brush from a `wx.Colour` object and a style.",
         "The style parameter may be one of the following:
 
@@ -72,7 +92,7 @@ public:
         "Set the brush's `wx.Colour`.", "");
 
     DocDeclStr(
-        virtual void , SetStyle(int style),
+        virtual void , SetStyle(wxBrushStyle style),
         "Sets the style of the brush. See `__init__` for a listing of styles.", "");
 
     DocDeclStr(
@@ -85,7 +105,7 @@ public:
         "Returns the `wx.Colour` of the brush.", "");
 
     DocDeclStr(
-        int , GetStyle() const,
+        wxBrushStyle , GetStyle() const,
         "Returns the style of the brush.  See `__init__` for a listing of
 styles.", "");
 

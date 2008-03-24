@@ -141,12 +141,15 @@ public:
     int GetPosition() const;
     void SetPosition(int pos);
 
-    %property(Position, GetPosition, SetPosition, doc="See `GetPosition` and `SetPosition`");
+    int GetValue() const;
+    void SetValue(int value);
+    
+    %property(Position, GetPosition, SetPosition);
+    %property(Value, GetValue, SetValue);
 };
 
 
 %constant wxEventType wxEVT_COMMAND_SPINCTRL_UPDATED;
-
 
 %pythoncode {
 EVT_SPIN_UP   = wx.PyEventBinder( wx.wxEVT_SCROLL_LINEUP, 1)
@@ -155,5 +158,71 @@ EVT_SPIN      = wx.PyEventBinder( wx.wxEVT_SCROLL_THUMBTRACK, 1)
 EVT_SPINCTRL  = wx.PyEventBinder( wxEVT_COMMAND_SPINCTRL_UPDATED, 1)
 }
 
+
+//---------------------------------------------------------------------------
+
+
+MustHaveApp(wxSpinCtrlDouble);
+
+class wxSpinCtrlDouble : public wxControl
+{
+public:
+    %pythonAppend wxSpinCtrlDouble         "self._setOORInfo(self)"
+    %pythonAppend wxSpinCtrlDouble()       ""
+
+    wxSpinCtrlDouble(wxWindow *parent,
+                     wxWindowID id = wxID_ANY,
+                     const wxString& value = wxEmptyString,
+                     const wxPoint& pos = wxDefaultPosition,
+                     const wxSize& size = wxDefaultSize,
+                     long style = wxSP_ARROW_KEYS,
+                     double min = 0, double max = 100, double initial = 0, double inc = 1,
+                     const wxString& name = "wxSpinCtrlDouble");
+    %RenameCtor(PreSpinCtrlDouble, wxSpinCtrlDouble());
+
+    bool Create(wxWindow *parent,
+                wxWindowID id = wxID_ANY,
+                const wxString& value = wxEmptyString,
+                const wxPoint& pos = wxDefaultPosition,
+                const wxSize& size = wxDefaultSize,
+                long style = wxSP_ARROW_KEYS,
+                double min = 0, double max = 100, double initial = 0, double inc = 1,
+                const wxString& name = "wxSpinCtrlDouble");
+    
+    // accessors
+    double GetValue() const;
+    double GetMin() const;
+    double GetMax() const;
+    double GetIncrement() const;
+    unsigned GetDigits() const;
+
+    // operations
+    void SetValue(const wxString& value);
+    void SetValue(double value);
+    void SetRange(double minVal, double maxVal);
+    void SetIncrement(double inc);
+    void SetDigits(unsigned digits);
+
+};
+
+
+
+class wxSpinDoubleEvent : public wxNotifyEvent
+{
+public:
+    wxSpinDoubleEvent(wxEventType commandType = wxEVT_NULL, int winid = 0,
+                      double value = 0);
+    double GetValue() const;
+    void   SetValue(double value);
+
+    virtual wxEvent *Clone() const;
+
+};
+
+%constant wxEventType wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED;
+
+%pythoncode {
+EVT_SPINCTRLDOUBLE = wx.PyEventBinder( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, 1 )
+}
 
 //---------------------------------------------------------------------------

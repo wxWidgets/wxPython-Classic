@@ -1190,12 +1190,6 @@ enum {
   wxCROSS_HATCH,
   wxHORIZONTAL_HATCH,
   wxVERTICAL_HATCH,
-  wxJOIN_BEVEL,
-  wxJOIN_MITER,
-  wxJOIN_ROUND,
-  wxCAP_ROUND,
-  wxCAP_PROJECTING,
-  wxCAP_BUTT
 };
 
 typedef enum {

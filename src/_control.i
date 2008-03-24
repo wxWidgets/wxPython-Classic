@@ -204,6 +204,7 @@ the last item inserted.", "",
     DocDeclStr(
         virtual void , Clear(),
         "Removes all items from the control.", "");
+
     
     DocDeclStr(
         virtual void , Delete(/*unsigned*/ int n),
@@ -393,6 +394,7 @@ text.  Will reset the selection if any.", "");
         virtual void , Clear(),
         "Clear all text from the text field", "");
     
+    void RemoveSelection();
 
 
     // clipboard operations

@@ -52969,6 +52969,33 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TextEntry_RemoveSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_RemoveSelection" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->RemoveSelection();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_TextEntry_Copy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextEntry *arg1 = (wxTextEntry *) 0 ;
@@ -65829,6 +65856,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextEntry_Replace", (PyCFunction) _wrap_TextEntry_Replace, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextEntry_Remove", (PyCFunction) _wrap_TextEntry_Remove, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextEntry_Clear", (PyCFunction)_wrap_TextEntry_Clear, METH_O, NULL},
+	 { (char *)"TextEntry_RemoveSelection", (PyCFunction)_wrap_TextEntry_RemoveSelection, METH_O, NULL},
 	 { (char *)"TextEntry_Copy", (PyCFunction)_wrap_TextEntry_Copy, METH_O, NULL},
 	 { (char *)"TextEntry_Cut", (PyCFunction)_wrap_TextEntry_Cut, METH_O, NULL},
 	 { (char *)"TextEntry_Paste", (PyCFunction)_wrap_TextEntry_Paste, METH_O, NULL},
@@ -68169,12 +68197,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "CROSS_HATCH",SWIG_From_int(static_cast< int >(wxCROSS_HATCH)));
   SWIG_Python_SetConstant(d, "HORIZONTAL_HATCH",SWIG_From_int(static_cast< int >(wxHORIZONTAL_HATCH)));
   SWIG_Python_SetConstant(d, "VERTICAL_HATCH",SWIG_From_int(static_cast< int >(wxVERTICAL_HATCH)));
-  SWIG_Python_SetConstant(d, "JOIN_BEVEL",SWIG_From_int(static_cast< int >(wxJOIN_BEVEL)));
-  SWIG_Python_SetConstant(d, "JOIN_MITER",SWIG_From_int(static_cast< int >(wxJOIN_MITER)));
-  SWIG_Python_SetConstant(d, "JOIN_ROUND",SWIG_From_int(static_cast< int >(wxJOIN_ROUND)));
-  SWIG_Python_SetConstant(d, "CAP_ROUND",SWIG_From_int(static_cast< int >(wxCAP_ROUND)));
-  SWIG_Python_SetConstant(d, "CAP_PROJECTING",SWIG_From_int(static_cast< int >(wxCAP_PROJECTING)));
-  SWIG_Python_SetConstant(d, "CAP_BUTT",SWIG_From_int(static_cast< int >(wxCAP_BUTT)));
   SWIG_Python_SetConstant(d, "CLEAR",SWIG_From_int(static_cast< int >(wxCLEAR)));
   SWIG_Python_SetConstant(d, "XOR",SWIG_From_int(static_cast< int >(wxXOR)));
   SWIG_Python_SetConstant(d, "INVERT",SWIG_From_int(static_cast< int >(wxINVERT)));

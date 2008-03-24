@@ -5222,7 +5222,7 @@ SWIGINTERN PyObject *_wrap_new_Pen(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
   PyObject *resultobj = 0;
   wxColour *arg1 = 0 ;
   int arg2 = (int) 1 ;
-  int arg3 = (int) wxSOLID ;
+  wxPenStyle arg3 = (wxPenStyle) wxSOLID ;
   wxPen *result = 0 ;
   wxColour temp1 ;
   int val2 ;
@@ -5251,9 +5251,9 @@ SWIGINTERN PyObject *_wrap_new_Pen(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
   if (obj2) {
     ecode3 = SWIG_AsVal_int(obj2, &val3);
     if (!SWIG_IsOK(ecode3)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Pen" "', expected argument " "3"" of type '" "int""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Pen" "', expected argument " "3"" of type '" "wxPenStyle""'");
     } 
-    arg3 = static_cast< int >(val3);
+    arg3 = static_cast< wxPenStyle >(val3);
   }
   {
     if (!wxPyCheckForApp()) SWIG_fail;
@@ -5300,7 +5300,7 @@ fail:
 SWIGINTERN PyObject *_wrap_Pen_GetCap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPen *arg1 = (wxPen *) 0 ;
-  int result;
+  wxPenCap result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5314,7 +5314,7 @@ SWIGINTERN PyObject *_wrap_Pen_GetCap(PyObject *SWIGUNUSEDPARM(self), PyObject *
   arg1 = reinterpret_cast< wxPen * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetCap();
+    result = (wxPenCap)(arg1)->GetCap();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5356,7 +5356,7 @@ fail:
 SWIGINTERN PyObject *_wrap_Pen_GetJoin(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPen *arg1 = (wxPen *) 0 ;
-  int result;
+  wxPenJoin result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5370,7 +5370,7 @@ SWIGINTERN PyObject *_wrap_Pen_GetJoin(PyObject *SWIGUNUSEDPARM(self), PyObject 
   arg1 = reinterpret_cast< wxPen * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetJoin();
+    result = (wxPenJoin)(arg1)->GetJoin();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5384,7 +5384,7 @@ fail:
 SWIGINTERN PyObject *_wrap_Pen_GetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPen *arg1 = (wxPen *) 0 ;
-  int result;
+  wxPenStyle result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -5398,7 +5398,7 @@ SWIGINTERN PyObject *_wrap_Pen_GetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject
   arg1 = reinterpret_cast< wxPen * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetStyle();
+    result = (wxPenStyle)(arg1)->GetStyle();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5470,7 +5470,7 @@ fail:
 SWIGINTERN PyObject *_wrap_Pen_SetCap(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPen *arg1 = (wxPen *) 0 ;
-  int arg2 ;
+  wxPenCap arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -5489,9 +5489,9 @@ SWIGINTERN PyObject *_wrap_Pen_SetCap(PyObject *SWIGUNUSEDPARM(self), PyObject *
   arg1 = reinterpret_cast< wxPen * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Pen_SetCap" "', expected argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Pen_SetCap" "', expected argument " "2"" of type '" "wxPenCap""'");
   } 
-  arg2 = static_cast< int >(val2);
+  arg2 = static_cast< wxPenCap >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetCap(arg2);
@@ -5544,7 +5544,7 @@ fail:
 SWIGINTERN PyObject *_wrap_Pen_SetJoin(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPen *arg1 = (wxPen *) 0 ;
-  int arg2 ;
+  wxPenJoin arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -5563,9 +5563,9 @@ SWIGINTERN PyObject *_wrap_Pen_SetJoin(PyObject *SWIGUNUSEDPARM(self), PyObject 
   arg1 = reinterpret_cast< wxPen * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Pen_SetJoin" "', expected argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Pen_SetJoin" "', expected argument " "2"" of type '" "wxPenJoin""'");
   } 
-  arg2 = static_cast< int >(val2);
+  arg2 = static_cast< wxPenJoin >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetJoin(arg2);
@@ -5582,7 +5582,7 @@ fail:
 SWIGINTERN PyObject *_wrap_Pen_SetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPen *arg1 = (wxPen *) 0 ;
-  int arg2 ;
+  wxPenStyle arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -5601,9 +5601,9 @@ SWIGINTERN PyObject *_wrap_Pen_SetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject
   arg1 = reinterpret_cast< wxPen * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Pen_SetStyle" "', expected argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Pen_SetStyle" "', expected argument " "2"" of type '" "wxPenStyle""'");
   } 
-  arg2 = static_cast< int >(val2);
+  arg2 = static_cast< wxPenStyle >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetStyle(arg2);
@@ -5954,7 +5954,7 @@ SWIGINTERN PyObject *Pen_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args
 SWIGINTERN PyObject *_wrap_new_Brush(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxColour *arg1 = 0 ;
-  int arg2 = (int) wxSOLID ;
+  wxBrushStyle arg2 = (wxBrushStyle) wxSOLID ;
   wxBrush *result = 0 ;
   wxColour temp1 ;
   int val2 ;
@@ -5973,9 +5973,9 @@ SWIGINTERN PyObject *_wrap_new_Brush(PyObject *SWIGUNUSEDPARM(self), PyObject *a
   if (obj1) {
     ecode2 = SWIG_AsVal_int(obj1, &val2);
     if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Brush" "', expected argument " "2"" of type '" "int""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Brush" "', expected argument " "2"" of type '" "wxBrushStyle""'");
     } 
-    arg2 = static_cast< int >(val2);
+    arg2 = static_cast< wxBrushStyle >(val2);
   }
   {
     if (!wxPyCheckForApp()) SWIG_fail;
@@ -6092,7 +6092,7 @@ fail:
 SWIGINTERN PyObject *_wrap_Brush_SetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxBrush *arg1 = (wxBrush *) 0 ;
-  int arg2 ;
+  wxBrushStyle arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -6111,9 +6111,9 @@ SWIGINTERN PyObject *_wrap_Brush_SetStyle(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxBrush * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Brush_SetStyle" "', expected argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Brush_SetStyle" "', expected argument " "2"" of type '" "wxBrushStyle""'");
   } 
-  arg2 = static_cast< int >(val2);
+  arg2 = static_cast< wxBrushStyle >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetStyle(arg2);
@@ -6199,7 +6199,7 @@ fail:
 SWIGINTERN PyObject *_wrap_Brush_GetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxBrush *arg1 = (wxBrush *) 0 ;
-  int result;
+  wxBrushStyle result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -6213,7 +6213,7 @@ SWIGINTERN PyObject *_wrap_Brush_GetStyle(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxBrush * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxBrush const *)arg1)->GetStyle();
+    result = (wxBrushStyle)((wxBrush const *)arg1)->GetStyle();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34435,9 +34435,9 @@ SWIGINTERN PyObject *_wrap_FontList_FindOrCreateFont(PyObject *SWIGUNUSEDPARM(se
   PyObject *resultobj = 0;
   wxFontList *arg1 = (wxFontList *) 0 ;
   int arg2 ;
-  int arg3 ;
-  int arg4 ;
-  int arg5 ;
+  wxFontFamily arg3 ;
+  wxFontStyle arg4 ;
+  wxFontWeight arg5 ;
   bool arg6 = (bool) false ;
   wxString const &arg7_defvalue = wxPyEmptyString ;
   wxString *arg7 = (wxString *) &arg7_defvalue ;
@@ -34483,19 +34483,19 @@ SWIGINTERN PyObject *_wrap_FontList_FindOrCreateFont(PyObject *SWIGUNUSEDPARM(se
   arg2 = static_cast< int >(val2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "FontList_FindOrCreateFont" "', expected argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "FontList_FindOrCreateFont" "', expected argument " "3"" of type '" "wxFontFamily""'");
   } 
-  arg3 = static_cast< int >(val3);
+  arg3 = static_cast< wxFontFamily >(val3);
   ecode4 = SWIG_AsVal_int(obj3, &val4);
   if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "FontList_FindOrCreateFont" "', expected argument " "4"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "FontList_FindOrCreateFont" "', expected argument " "4"" of type '" "wxFontStyle""'");
   } 
-  arg4 = static_cast< int >(val4);
+  arg4 = static_cast< wxFontStyle >(val4);
   ecode5 = SWIG_AsVal_int(obj4, &val5);
   if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "FontList_FindOrCreateFont" "', expected argument " "5"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "FontList_FindOrCreateFont" "', expected argument " "5"" of type '" "wxFontWeight""'");
   } 
-  arg5 = static_cast< int >(val5);
+  arg5 = static_cast< wxFontWeight >(val5);
   if (obj5) {
     ecode6 = SWIG_AsVal_bool(obj5, &val6);
     if (!SWIG_IsOK(ecode6)) {
@@ -43230,6 +43230,47 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "C2S_HTML_SYNTAX",SWIG_From_int(static_cast< int >(wxC2S_HTML_SYNTAX)));
   SWIG_Python_SetConstant(d, "ALPHA_TRANSPARENT",SWIG_From_int(static_cast< int >(wxALPHA_TRANSPARENT)));
   SWIG_Python_SetConstant(d, "ALPHA_OPAQUE",SWIG_From_int(static_cast< int >(wxALPHA_OPAQUE)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_INVALID",SWIG_From_int(static_cast< int >(wxPENSTYLE_INVALID)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_SOLID",SWIG_From_int(static_cast< int >(wxPENSTYLE_SOLID)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_DOT",SWIG_From_int(static_cast< int >(wxPENSTYLE_DOT)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_LONG_DASH",SWIG_From_int(static_cast< int >(wxPENSTYLE_LONG_DASH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_SHORT_DASH",SWIG_From_int(static_cast< int >(wxPENSTYLE_SHORT_DASH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_DOT_DASH",SWIG_From_int(static_cast< int >(wxPENSTYLE_DOT_DASH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_USER_DASH",SWIG_From_int(static_cast< int >(wxPENSTYLE_USER_DASH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_TRANSPARENT",SWIG_From_int(static_cast< int >(wxPENSTYLE_TRANSPARENT)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_STIPPLE_MASK_OPAQUE",SWIG_From_int(static_cast< int >(wxPENSTYLE_STIPPLE_MASK_OPAQUE)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_STIPPLE_MASK",SWIG_From_int(static_cast< int >(wxPENSTYLE_STIPPLE_MASK)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_STIPPLE",SWIG_From_int(static_cast< int >(wxPENSTYLE_STIPPLE)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_BDIAGONAL_HATCH",SWIG_From_int(static_cast< int >(wxPENSTYLE_BDIAGONAL_HATCH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_CROSSDIAG_HATCH",SWIG_From_int(static_cast< int >(wxPENSTYLE_CROSSDIAG_HATCH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_FDIAGONAL_HATCH",SWIG_From_int(static_cast< int >(wxPENSTYLE_FDIAGONAL_HATCH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_CROSS_HATCH",SWIG_From_int(static_cast< int >(wxPENSTYLE_CROSS_HATCH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_HORIZONTAL_HATCH",SWIG_From_int(static_cast< int >(wxPENSTYLE_HORIZONTAL_HATCH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_VERTICAL_HATCH",SWIG_From_int(static_cast< int >(wxPENSTYLE_VERTICAL_HATCH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_FIRST_HATCH",SWIG_From_int(static_cast< int >(wxPENSTYLE_FIRST_HATCH)));
+  SWIG_Python_SetConstant(d, "PENSTYLE_LAST_HATCH",SWIG_From_int(static_cast< int >(wxPENSTYLE_LAST_HATCH)));
+  SWIG_Python_SetConstant(d, "JOIN_INVALID",SWIG_From_int(static_cast< int >(wxJOIN_INVALID)));
+  SWIG_Python_SetConstant(d, "JOIN_BEVEL",SWIG_From_int(static_cast< int >(wxJOIN_BEVEL)));
+  SWIG_Python_SetConstant(d, "JOIN_MITER",SWIG_From_int(static_cast< int >(wxJOIN_MITER)));
+  SWIG_Python_SetConstant(d, "JOIN_ROUND",SWIG_From_int(static_cast< int >(wxJOIN_ROUND)));
+  SWIG_Python_SetConstant(d, "CAP_INVALID",SWIG_From_int(static_cast< int >(wxCAP_INVALID)));
+  SWIG_Python_SetConstant(d, "CAP_ROUND",SWIG_From_int(static_cast< int >(wxCAP_ROUND)));
+  SWIG_Python_SetConstant(d, "CAP_PROJECTING",SWIG_From_int(static_cast< int >(wxCAP_PROJECTING)));
+  SWIG_Python_SetConstant(d, "CAP_BUTT",SWIG_From_int(static_cast< int >(wxCAP_BUTT)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_INVALID",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_INVALID)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_SOLID",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_SOLID)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_TRANSPARENT",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_TRANSPARENT)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_STIPPLE_MASK_OPAQUE",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_STIPPLE_MASK_OPAQUE)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_STIPPLE_MASK",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_STIPPLE_MASK)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_STIPPLE",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_STIPPLE)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_BDIAGONAL_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_BDIAGONAL_HATCH)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_CROSSDIAG_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_CROSSDIAG_HATCH)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_FDIAGONAL_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_FDIAGONAL_HATCH)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_CROSS_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_CROSS_HATCH)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_HORIZONTAL_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_HORIZONTAL_HATCH)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_VERTICAL_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_VERTICAL_HATCH)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_FIRST_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_FIRST_HATCH)));
+  SWIG_Python_SetConstant(d, "BRUSHSTYLE_LAST_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_LAST_HATCH)));
   SWIG_Python_SetConstant(d, "OutRegion",SWIG_From_int(static_cast< int >(wxOutRegion)));
   SWIG_Python_SetConstant(d, "PartRegion",SWIG_From_int(static_cast< int >(wxPartRegion)));
   SWIG_Python_SetConstant(d, "InRegion",SWIG_From_int(static_cast< int >(wxInRegion)));

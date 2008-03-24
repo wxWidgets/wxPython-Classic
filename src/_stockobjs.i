@@ -212,8 +212,8 @@ public:
 class wxFontList : public wxGDIObjListBase {
 public:
 
-    wxFont * FindOrCreateFont(int point_size, int family, int style, int weight,
-                              bool underline = false,
+    wxFont * FindOrCreateFont(int point_size, wxFontFamily family, wxFontStyle style,
+                              wxFontWeight weight, bool underline = false,
                               const wxString& facename = wxPyEmptyString,
                               wxFontEncoding encoding = wxFONTENCODING_DEFAULT);
 };

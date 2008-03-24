@@ -9373,24 +9373,20 @@ SWIGINTERN PyObject *BusyCursor_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObjec
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_new_WindowDisabler(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_new_WindowDisabler__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
-  wxWindow *arg1 = (wxWindow *) NULL ;
+  bool arg1 = (bool) true ;
   wxWindowDisabler *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  char *  kwnames[] = {
-    (char *) "winToSkip", NULL 
-  };
+  bool val1 ;
+  int ecode1 = 0 ;
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|O:new_WindowDisabler",kwnames,&obj0)) SWIG_fail;
-  if (obj0) {
-    res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_WindowDisabler" "', expected argument " "1"" of type '" "wxWindow *""'"); 
-    }
-    arg1 = reinterpret_cast< wxWindow * >(argp1);
+  if ((nobjs < 0) || (nobjs > 1)) SWIG_fail;
+  if (swig_obj[0]) {
+    ecode1 = SWIG_AsVal_bool(swig_obj[0], &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_WindowDisabler" "', expected argument " "1"" of type '" "bool""'");
+    } 
+    arg1 = static_cast< bool >(val1);
   }
   {
     if (!wxPyCheckForApp()) SWIG_fail;
@@ -9402,6 +9398,64 @@ SWIGINTERN PyObject *_wrap_new_WindowDisabler(PyObject *SWIGUNUSEDPARM(self), Py
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxWindowDisabler, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_WindowDisabler__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxWindow *arg1 = (wxWindow *) 0 ;
+  wxWindowDisabler *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_WindowDisabler" "', expected argument " "1"" of type '" "wxWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxWindow * >(argp1);
+  {
+    if (!wxPyCheckForApp()) SWIG_fail;
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxWindowDisabler *)new wxWindowDisabler(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxWindowDisabler, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_WindowDisabler(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"new_WindowDisabler",0,1,argv))) SWIG_fail;
+  --argc;
+  if ((argc >= 0) && (argc <= 1)) {
+    int _v = 0;
+    if (argc > 0) {
+      {
+        {
+          int res = SWIG_AsVal_bool(argv[0], NULL);
+          _v = SWIG_CheckState(res);
+        }
+      }
+      if (!_v) goto check_1;
+    }
+    return _wrap_new_WindowDisabler__SWIG_0(self, argc, argv);
+  }
+check_1:
+  
+  if (argc == 1) {
+    return _wrap_new_WindowDisabler__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'new_WindowDisabler'");
   return NULL;
 }
 
@@ -40073,7 +40127,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"delete_BusyCursor", (PyCFunction)_wrap_delete_BusyCursor, METH_O, NULL},
 	 { (char *)"BusyCursor_swigregister", BusyCursor_swigregister, METH_VARARGS, NULL},
 	 { (char *)"BusyCursor_swiginit", BusyCursor_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_WindowDisabler", (PyCFunction) _wrap_new_WindowDisabler, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"new_WindowDisabler", _wrap_new_WindowDisabler, METH_VARARGS, NULL},
 	 { (char *)"delete_WindowDisabler", (PyCFunction)_wrap_delete_WindowDisabler, METH_O, NULL},
 	 { (char *)"WindowDisabler_swigregister", WindowDisabler_swigregister, METH_VARARGS, NULL},
 	 { (char *)"WindowDisabler_swiginit", WindowDisabler_swiginit, METH_VARARGS, NULL},

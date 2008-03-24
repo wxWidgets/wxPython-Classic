@@ -2406,7 +2406,16 @@ class SpinEvent(_core.NotifyEvent):
         """SetPosition(self, int pos)"""
         return _controls_.SpinEvent_SetPosition(*args, **kwargs)
 
-    Position = property(GetPosition,SetPosition,doc="See `GetPosition` and `SetPosition`") 
+    def GetValue(*args, **kwargs):
+        """GetValue(self) -> int"""
+        return _controls_.SpinEvent_GetValue(*args, **kwargs)
+
+    def SetValue(*args, **kwargs):
+        """SetValue(self, int value)"""
+        return _controls_.SpinEvent_SetValue(*args, **kwargs)
+
+    Position = property(GetPosition,SetPosition) 
+    Value = property(GetValue,SetValue) 
 _controls_.SpinEvent_swigregister(SpinEvent)
 
 wxEVT_COMMAND_SPINCTRL_UPDATED = _controls_.wxEVT_COMMAND_SPINCTRL_UPDATED
@@ -2414,6 +2423,97 @@ EVT_SPIN_UP   = wx.PyEventBinder( wx.wxEVT_SCROLL_LINEUP, 1)
 EVT_SPIN_DOWN = wx.PyEventBinder( wx.wxEVT_SCROLL_LINEDOWN, 1)
 EVT_SPIN      = wx.PyEventBinder( wx.wxEVT_SCROLL_THUMBTRACK, 1)
 EVT_SPINCTRL  = wx.PyEventBinder( wxEVT_COMMAND_SPINCTRL_UPDATED, 1)
+
+class SpinCtrlDouble(_core.Control):
+    """Proxy of C++ SpinCtrlDouble class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int id=ID_ANY, String value=wxEmptyString, 
+            Point pos=DefaultPosition, Size size=DefaultSize, 
+            long style=SP_ARROW_KEYS, double min=0, 
+            double max=100, double initial=0, double inc=1, 
+            String name="wxSpinCtrlDouble") -> SpinCtrlDouble
+        """
+        _controls_.SpinCtrlDouble_swiginit(self,_controls_.new_SpinCtrlDouble(*args, **kwargs))
+        self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int id=ID_ANY, String value=wxEmptyString, 
+            Point pos=DefaultPosition, Size size=DefaultSize, 
+            long style=SP_ARROW_KEYS, double min=0, 
+            double max=100, double initial=0, double inc=1, 
+            String name="wxSpinCtrlDouble") -> bool
+        """
+        return _controls_.SpinCtrlDouble_Create(*args, **kwargs)
+
+    def GetValue(*args, **kwargs):
+        """GetValue(self) -> double"""
+        return _controls_.SpinCtrlDouble_GetValue(*args, **kwargs)
+
+    def GetMin(*args, **kwargs):
+        """GetMin(self) -> double"""
+        return _controls_.SpinCtrlDouble_GetMin(*args, **kwargs)
+
+    def GetMax(*args, **kwargs):
+        """GetMax(self) -> double"""
+        return _controls_.SpinCtrlDouble_GetMax(*args, **kwargs)
+
+    def GetIncrement(*args, **kwargs):
+        """GetIncrement(self) -> double"""
+        return _controls_.SpinCtrlDouble_GetIncrement(*args, **kwargs)
+
+    def GetDigits(*args, **kwargs):
+        """GetDigits(self) -> unsigned int"""
+        return _controls_.SpinCtrlDouble_GetDigits(*args, **kwargs)
+
+    def SetValue(*args):
+        """
+        SetValue(self, String value)
+        SetValue(self, double value)
+        """
+        return _controls_.SpinCtrlDouble_SetValue(*args)
+
+    def SetRange(*args, **kwargs):
+        """SetRange(self, double minVal, double maxVal)"""
+        return _controls_.SpinCtrlDouble_SetRange(*args, **kwargs)
+
+    def SetIncrement(*args, **kwargs):
+        """SetIncrement(self, double inc)"""
+        return _controls_.SpinCtrlDouble_SetIncrement(*args, **kwargs)
+
+    def SetDigits(*args, **kwargs):
+        """SetDigits(self, unsigned int digits)"""
+        return _controls_.SpinCtrlDouble_SetDigits(*args, **kwargs)
+
+_controls_.SpinCtrlDouble_swigregister(SpinCtrlDouble)
+
+def PreSpinCtrlDouble(*args, **kwargs):
+    """PreSpinCtrlDouble() -> SpinCtrlDouble"""
+    val = _controls_.new_PreSpinCtrlDouble(*args, **kwargs)
+    return val
+
+class SpinDoubleEvent(_core.NotifyEvent):
+    """Proxy of C++ SpinDoubleEvent class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, EventType commandType=wxEVT_NULL, int winid=0, double value=0) -> SpinDoubleEvent"""
+        _controls_.SpinDoubleEvent_swiginit(self,_controls_.new_SpinDoubleEvent(*args, **kwargs))
+    def GetValue(*args, **kwargs):
+        """GetValue(self) -> double"""
+        return _controls_.SpinDoubleEvent_GetValue(*args, **kwargs)
+
+    def SetValue(*args, **kwargs):
+        """SetValue(self, double value)"""
+        return _controls_.SpinDoubleEvent_SetValue(*args, **kwargs)
+
+_controls_.SpinDoubleEvent_swigregister(SpinDoubleEvent)
+
+wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED = _controls_.wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED
+EVT_SPINCTRLDOUBLE = wx.PyEventBinder( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, 1 )
 
 #---------------------------------------------------------------------------
 
