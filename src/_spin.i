@@ -197,12 +197,23 @@ public:
     unsigned GetDigits() const;
 
     // operations
-    void SetValue(const wxString& value);
+//    void SetValue(const wxString& value);
     void SetValue(double value);
     void SetRange(double minVal, double maxVal);
+    %pythoncode {
+        def SetMin(self, minVal):
+            self.SetRange(minVal, self.GetMax())
+        def SetMax(self, maxVal):
+            self.SetRange(self.GetMin(), maxVal)
+    }
     void SetIncrement(double inc);
     void SetDigits(unsigned digits);
 
+    %property(Value, GetValue, SetValue);
+    %property(Min, GetMin, SetMin);
+    %property(Max, GetMax, SetMax);
+    %property(Increment, GetIncrement, SetIncrement);
+    %property(Digits, GetDigits, SetDigits);
 };
 
 
@@ -217,6 +228,7 @@ public:
 
     virtual wxEvent *Clone() const;
 
+    %property(Value, GetValue, SetValue);
 };
 
 %constant wxEventType wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED;
