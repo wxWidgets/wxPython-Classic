@@ -14995,6 +14995,80 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PopupTransientWindow_CanDismiss(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyPopupTransientWindow *arg1 = (wxPyPopupTransientWindow *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyPopupTransientWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PopupTransientWindow_CanDismiss" "', expected argument " "1"" of type '" "wxPyPopupTransientWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyPopupTransientWindow * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->CanDismiss();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PopupTransientWindow_ProcessLeftDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyPopupTransientWindow *arg1 = (wxPyPopupTransientWindow *) 0 ;
+  wxMouseEvent *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "event", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PopupTransientWindow_ProcessLeftDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyPopupTransientWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PopupTransientWindow_ProcessLeftDown" "', expected argument " "1"" of type '" "wxPyPopupTransientWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyPopupTransientWindow * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxMouseEvent,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PopupTransientWindow_ProcessLeftDown" "', expected argument " "2"" of type '" "wxMouseEvent &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PopupTransientWindow_ProcessLeftDown" "', expected argument " "2"" of type '" "wxMouseEvent &""'"); 
+  }
+  arg2 = reinterpret_cast< wxMouseEvent * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->ProcessLeftDown(*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *PopupTransientWindow_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -36275,6 +36349,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PopupTransientWindow__setCallbackInfo", (PyCFunction) _wrap_PopupTransientWindow__setCallbackInfo, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PopupTransientWindow_Popup", (PyCFunction) _wrap_PopupTransientWindow_Popup, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PopupTransientWindow_Dismiss", (PyCFunction)_wrap_PopupTransientWindow_Dismiss, METH_O, NULL},
+	 { (char *)"PopupTransientWindow_CanDismiss", (PyCFunction)_wrap_PopupTransientWindow_CanDismiss, METH_O, NULL},
+	 { (char *)"PopupTransientWindow_ProcessLeftDown", (PyCFunction) _wrap_PopupTransientWindow_ProcessLeftDown, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PopupTransientWindow_swigregister", PopupTransientWindow_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PopupTransientWindow_swiginit", PopupTransientWindow_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_TipWindow", (PyCFunction) _wrap_new_TipWindow, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -38135,7 +38211,6 @@ static swig_type_info _swigt__p_wxDuplexMode = {"_p_wxDuplexMode", "enum wxDuple
 static swig_type_info _swigt__p_wxEvent = {"_p_wxEvent", "wxEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxMenuEvent = {"_p_wxMenuEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxCloseEvent = {"_p_wxCloseEvent", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxMouseEvent = {"_p_wxMouseEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxEraseEvent = {"_p_wxEraseEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxSetCursorEvent = {"_p_wxSetCursorEvent", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxInitDialogEvent = {"_p_wxInitDialogEvent", 0, 0, 0, 0, 0};
@@ -38187,6 +38262,7 @@ static swig_type_info _swigt__p_wxMenu = {"_p_wxMenu", "wxMenu *", 0, 0, (void*)
 static swig_type_info _swigt__p_wxMenuBar = {"_p_wxMenuBar", "wxMenuBar *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxMessageDialog = {"_p_wxMessageDialog", "wxMessageDialog *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxMiniFrame = {"_p_wxMiniFrame", "wxMiniFrame *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxMouseEvent = {"_p_wxMouseEvent", "wxMouseEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxMultiChoiceDialog = {"_p_wxMultiChoiceDialog", "wxMultiChoiceDialog *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxNotifyEvent = {"_p_wxNotifyEvent", "wxNotifyEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxNumberEntryDialog = {"_p_wxNumberEntryDialog", "wxNumberEntryDialog *", 0, 0, (void*)0, 0};
@@ -38506,7 +38582,6 @@ static swig_cast_info _swigc__p_wxDirDialog[] = {  {&_swigt__p_wxDirDialog, 0, 0
 static swig_cast_info _swigc__p_wxDuplexMode[] = {  {&_swigt__p_wxDuplexMode, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMenuEvent[] = {{&_swigt__p_wxMenuEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxCloseEvent[] = {{&_swigt__p_wxCloseEvent, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxMouseEvent[] = {{&_swigt__p_wxMouseEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxEraseEvent[] = {{&_swigt__p_wxEraseEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSetCursorEvent[] = {{&_swigt__p_wxSetCursorEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxInitDialogEvent[] = {{&_swigt__p_wxInitDialogEvent, 0, 0, 0},{0, 0, 0, 0}};
@@ -38559,6 +38634,7 @@ static swig_cast_info _swigc__p_wxMenu[] = {  {&_swigt__p_wxMenu, 0, 0, 0},{0, 0
 static swig_cast_info _swigc__p_wxMenuBar[] = {  {&_swigt__p_wxMenuBar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMessageDialog[] = {  {&_swigt__p_wxMessageDialog, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMiniFrame[] = {  {&_swigt__p_wxMiniFrame, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxMouseEvent[] = {  {&_swigt__p_wxMouseEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMultiChoiceDialog[] = {  {&_swigt__p_wxMultiChoiceDialog, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxNotifyEvent[] = {  {&_swigt__p_wxSplitterEvent, _p_wxSplitterEventTo_p_wxNotifyEvent, 0, 0},  {&_swigt__p_wxNotifyEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxNumberEntryDialog[] = {  {&_swigt__p_wxNumberEntryDialog, 0, 0, 0},{0, 0, 0, 0}};

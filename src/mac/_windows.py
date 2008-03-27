@@ -1977,6 +1977,14 @@ class PopupTransientWindow(PopupWindow):
         """Dismiss(self)"""
         return _windows_.PopupTransientWindow_Dismiss(*args, **kwargs)
 
+    def CanDismiss(*args, **kwargs):
+        """CanDismiss(self) -> bool"""
+        return _windows_.PopupTransientWindow_CanDismiss(*args, **kwargs)
+
+    def ProcessLeftDown(*args, **kwargs):
+        """ProcessLeftDown(self, MouseEvent event) -> bool"""
+        return _windows_.PopupTransientWindow_ProcessLeftDown(*args, **kwargs)
+
 _windows_.PopupTransientWindow_swigregister(PopupTransientWindow)
 
 def PrePopupTransientWindow(*args, **kwargs):

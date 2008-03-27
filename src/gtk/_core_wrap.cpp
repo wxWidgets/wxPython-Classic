@@ -2607,20 +2607,21 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxTextCtrlHitTestResult swig_types[141]
 #define SWIGTYPE_p_wxTextCtrlIface swig_types[142]
 #define SWIGTYPE_p_wxTextEntry swig_types[143]
-#define SWIGTYPE_p_wxToolTip swig_types[144]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[145]
-#define SWIGTYPE_p_wxValidator swig_types[146]
-#define SWIGTYPE_p_wxVisualAttributes swig_types[147]
-#define SWIGTYPE_p_wxWindow swig_types[148]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[149]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[150]
-#define SWIGTYPE_p_wxWindowList swig_types[151]
-#define SWIGTYPE_p_wxWindowList_iterator swig_types[152]
-#define SWIGTYPE_p_wxWrapSizer swig_types[153]
-#define SWIGTYPE_p_wxXPMHandler swig_types[154]
-#define SWIGTYPE_p_wxZipFSHandler swig_types[155]
-static swig_type_info *swig_types[157];
-static swig_module_info swig_module = {swig_types, 156, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxTextEntryBase swig_types[144]
+#define SWIGTYPE_p_wxToolTip swig_types[145]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[146]
+#define SWIGTYPE_p_wxValidator swig_types[147]
+#define SWIGTYPE_p_wxVisualAttributes swig_types[148]
+#define SWIGTYPE_p_wxWindow swig_types[149]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[150]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[151]
+#define SWIGTYPE_p_wxWindowList swig_types[152]
+#define SWIGTYPE_p_wxWindowList_iterator swig_types[153]
+#define SWIGTYPE_p_wxWrapSizer swig_types[154]
+#define SWIGTYPE_p_wxXPMHandler swig_types[155]
+#define SWIGTYPE_p_wxZipFSHandler swig_types[156]
+static swig_type_info *swig_types[158];
+static swig_module_info swig_module = {swig_types, 157, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -52506,20 +52507,20 @@ SWIGINTERN PyObject *ControlWithItems_swigregister(PyObject *SWIGUNUSEDPARM(self
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_delete_TextEntry(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_delete_TextEntryBase(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_TextEntry" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_TextEntryBase" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     delete arg1;
@@ -52534,9 +52535,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_SetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   wxString *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -52547,12 +52548,12 @@ SWIGINTERN PyObject *_wrap_TextEntry_SetValue(PyObject *SWIGUNUSEDPARM(self), Py
     (char *) "self",(char *) "value", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntry_SetValue",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntryBase_SetValue",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_SetValue" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_SetValue" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     arg2 = wxString_in_helper(obj1);
     if (arg2 == NULL) SWIG_fail;
@@ -52579,9 +52580,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_ChangeValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_ChangeValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   wxString *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -52592,12 +52593,12 @@ SWIGINTERN PyObject *_wrap_TextEntry_ChangeValue(PyObject *SWIGUNUSEDPARM(self),
     (char *) "self",(char *) "value", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntry_ChangeValue",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntryBase_ChangeValue",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_ChangeValue" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_ChangeValue" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     arg2 = wxString_in_helper(obj1);
     if (arg2 == NULL) SWIG_fail;
@@ -52624,9 +52625,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_WriteText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_WriteText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   wxString *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -52637,12 +52638,12 @@ SWIGINTERN PyObject *_wrap_TextEntry_WriteText(PyObject *SWIGUNUSEDPARM(self), P
     (char *) "self",(char *) "text", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntry_WriteText",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntryBase_WriteText",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_WriteText" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_WriteText" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     arg2 = wxString_in_helper(obj1);
     if (arg2 == NULL) SWIG_fail;
@@ -52669,9 +52670,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_AppendText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_AppendText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   wxString *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -52682,12 +52683,12 @@ SWIGINTERN PyObject *_wrap_TextEntry_AppendText(PyObject *SWIGUNUSEDPARM(self), 
     (char *) "self",(char *) "text", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntry_AppendText",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntryBase_AppendText",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_AppendText" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_AppendText" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     arg2 = wxString_in_helper(obj1);
     if (arg2 == NULL) SWIG_fail;
@@ -52714,9 +52715,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   wxString result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -52724,11 +52725,11 @@ SWIGINTERN PyObject *_wrap_TextEntry_GetValue(PyObject *SWIGUNUSEDPARM(self), Py
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_GetValue" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_GetValue" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (arg1)->GetValue();
@@ -52748,9 +52749,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_GetRange(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_GetRange(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   long arg2 ;
   long arg3 ;
   wxString result;
@@ -52767,25 +52768,25 @@ SWIGINTERN PyObject *_wrap_TextEntry_GetRange(PyObject *SWIGUNUSEDPARM(self), Py
     (char *) "self",(char *) "from",(char *) "to", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:TextEntry_GetRange",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:TextEntryBase_GetRange",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_GetRange" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_GetRange" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   ecode2 = SWIG_AsVal_long(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntry_GetRange" "', expected argument " "2"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntryBase_GetRange" "', expected argument " "2"" of type '" "long""'");
   } 
   arg2 = static_cast< long >(val2);
   ecode3 = SWIG_AsVal_long(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextEntry_GetRange" "', expected argument " "3"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextEntryBase_GetRange" "', expected argument " "3"" of type '" "long""'");
   } 
   arg3 = static_cast< long >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxTextEntry const *)arg1)->GetRange(arg2,arg3);
+    result = ((wxTextEntryBase const *)arg1)->GetRange(arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -52802,9 +52803,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_IsEmpty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_IsEmpty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -52812,14 +52813,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_IsEmpty(PyObject *SWIGUNUSEDPARM(self), PyO
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_IsEmpty" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_IsEmpty" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextEntry const *)arg1)->IsEmpty();
+    result = (bool)((wxTextEntryBase const *)arg1)->IsEmpty();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -52832,9 +52833,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_Replace(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_Replace(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   long arg2 ;
   long arg3 ;
   wxString *arg4 = 0 ;
@@ -52853,20 +52854,20 @@ SWIGINTERN PyObject *_wrap_TextEntry_Replace(PyObject *SWIGUNUSEDPARM(self), PyO
     (char *) "self",(char *) "from",(char *) "to",(char *) "value", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:TextEntry_Replace",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:TextEntryBase_Replace",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_Replace" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_Replace" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   ecode2 = SWIG_AsVal_long(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntry_Replace" "', expected argument " "2"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntryBase_Replace" "', expected argument " "2"" of type '" "long""'");
   } 
   arg2 = static_cast< long >(val2);
   ecode3 = SWIG_AsVal_long(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextEntry_Replace" "', expected argument " "3"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextEntryBase_Replace" "', expected argument " "3"" of type '" "long""'");
   } 
   arg3 = static_cast< long >(val3);
   {
@@ -52895,9 +52896,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_Remove(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_Remove(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   long arg2 ;
   long arg3 ;
   void *argp1 = 0 ;
@@ -52913,20 +52914,20 @@ SWIGINTERN PyObject *_wrap_TextEntry_Remove(PyObject *SWIGUNUSEDPARM(self), PyOb
     (char *) "self",(char *) "from",(char *) "to", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:TextEntry_Remove",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:TextEntryBase_Remove",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_Remove" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_Remove" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   ecode2 = SWIG_AsVal_long(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntry_Remove" "', expected argument " "2"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntryBase_Remove" "', expected argument " "2"" of type '" "long""'");
   } 
   arg2 = static_cast< long >(val2);
   ecode3 = SWIG_AsVal_long(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextEntry_Remove" "', expected argument " "3"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextEntryBase_Remove" "', expected argument " "3"" of type '" "long""'");
   } 
   arg3 = static_cast< long >(val3);
   {
@@ -52942,20 +52943,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_Clear(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_Clear(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_Clear" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_Clear" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->Clear();
@@ -52969,20 +52970,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_RemoveSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_RemoveSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_RemoveSelection" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_RemoveSelection" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->RemoveSelection();
@@ -52996,20 +52997,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_Copy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_Copy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_Copy" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_Copy" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->Copy();
@@ -53023,20 +53024,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_Cut(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_Cut(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_Cut" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_Cut" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->Cut();
@@ -53050,20 +53051,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_Paste(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_Paste(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_Paste" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_Paste" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->Paste();
@@ -53077,9 +53078,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_CanCopy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_CanCopy(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53087,14 +53088,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_CanCopy(PyObject *SWIGUNUSEDPARM(self), PyO
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_CanCopy" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_CanCopy" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextEntry const *)arg1)->CanCopy();
+    result = (bool)((wxTextEntryBase const *)arg1)->CanCopy();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53107,9 +53108,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_CanCut(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_CanCut(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53117,14 +53118,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_CanCut(PyObject *SWIGUNUSEDPARM(self), PyOb
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_CanCut" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_CanCut" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextEntry const *)arg1)->CanCut();
+    result = (bool)((wxTextEntryBase const *)arg1)->CanCut();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53137,9 +53138,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_CanPaste(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_CanPaste(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53147,14 +53148,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_CanPaste(PyObject *SWIGUNUSEDPARM(self), Py
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_CanPaste" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_CanPaste" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextEntry const *)arg1)->CanPaste();
+    result = (bool)((wxTextEntryBase const *)arg1)->CanPaste();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53167,20 +53168,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_Undo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_Undo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_Undo" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_Undo" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->Undo();
@@ -53194,20 +53195,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_Redo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_Redo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_Redo" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_Redo" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->Redo();
@@ -53221,9 +53222,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_CanUndo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_CanUndo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53231,14 +53232,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_CanUndo(PyObject *SWIGUNUSEDPARM(self), PyO
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_CanUndo" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_CanUndo" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextEntry const *)arg1)->CanUndo();
+    result = (bool)((wxTextEntryBase const *)arg1)->CanUndo();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53251,9 +53252,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_CanRedo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_CanRedo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53261,14 +53262,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_CanRedo(PyObject *SWIGUNUSEDPARM(self), PyO
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_CanRedo" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_CanRedo" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextEntry const *)arg1)->CanRedo();
+    result = (bool)((wxTextEntryBase const *)arg1)->CanRedo();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53281,9 +53282,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_SetInsertionPoint(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_SetInsertionPoint(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   long arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53295,15 +53296,15 @@ SWIGINTERN PyObject *_wrap_TextEntry_SetInsertionPoint(PyObject *SWIGUNUSEDPARM(
     (char *) "self",(char *) "pos", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntry_SetInsertionPoint",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntryBase_SetInsertionPoint",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_SetInsertionPoint" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_SetInsertionPoint" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   ecode2 = SWIG_AsVal_long(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntry_SetInsertionPoint" "', expected argument " "2"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntryBase_SetInsertionPoint" "', expected argument " "2"" of type '" "long""'");
   } 
   arg2 = static_cast< long >(val2);
   {
@@ -53319,9 +53320,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_GetInsertionPoint(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_GetInsertionPoint(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   long result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53329,14 +53330,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_GetInsertionPoint(PyObject *SWIGUNUSEDPARM(
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_GetInsertionPoint" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_GetInsertionPoint" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxTextEntry const *)arg1)->GetInsertionPoint();
+    result = (long)((wxTextEntryBase const *)arg1)->GetInsertionPoint();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53347,20 +53348,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_SetInsertionPointEnd(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_SetInsertionPointEnd(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_SetInsertionPointEnd" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_SetInsertionPointEnd" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetInsertionPointEnd();
@@ -53374,9 +53375,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_GetLastPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_GetLastPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   long result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53384,14 +53385,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_GetLastPosition(PyObject *SWIGUNUSEDPARM(se
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_GetLastPosition" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_GetLastPosition" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxTextEntry const *)arg1)->GetLastPosition();
+    result = (long)((wxTextEntryBase const *)arg1)->GetLastPosition();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53402,9 +53403,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_SetSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_SetSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   long arg2 ;
   long arg3 ;
   void *argp1 = 0 ;
@@ -53420,20 +53421,20 @@ SWIGINTERN PyObject *_wrap_TextEntry_SetSelection(PyObject *SWIGUNUSEDPARM(self)
     (char *) "self",(char *) "from",(char *) "to", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:TextEntry_SetSelection",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:TextEntryBase_SetSelection",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_SetSelection" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_SetSelection" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   ecode2 = SWIG_AsVal_long(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntry_SetSelection" "', expected argument " "2"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntryBase_SetSelection" "', expected argument " "2"" of type '" "long""'");
   } 
   arg2 = static_cast< long >(val2);
   ecode3 = SWIG_AsVal_long(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextEntry_SetSelection" "', expected argument " "3"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextEntryBase_SetSelection" "', expected argument " "3"" of type '" "long""'");
   } 
   arg3 = static_cast< long >(val3);
   {
@@ -53449,20 +53450,20 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_SelectAll(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_SelectAll(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_SelectAll" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_SelectAll" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SelectAll();
@@ -53476,9 +53477,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_HasSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_HasSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53486,14 +53487,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_HasSelection(PyObject *SWIGUNUSEDPARM(self)
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_HasSelection" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_HasSelection" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextEntry const *)arg1)->HasSelection();
+    result = (bool)((wxTextEntryBase const *)arg1)->HasSelection();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53506,9 +53507,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_GetStringSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_GetStringSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   wxString result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53516,14 +53517,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_GetStringSelection(PyObject *SWIGUNUSEDPARM
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_GetStringSelection" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_GetStringSelection" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxTextEntry const *)arg1)->GetStringSelection();
+    result = ((wxTextEntryBase const *)arg1)->GetStringSelection();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53540,9 +53541,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_GetSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_GetSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   long *arg2 = (long *) 0 ;
   long *arg3 = (long *) 0 ;
   void *argp1 = 0 ;
@@ -53557,14 +53558,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_GetSelection(PyObject *SWIGUNUSEDPARM(self)
   arg3 = &temp3;
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_GetSelection" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_GetSelection" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxTextEntry const *)arg1)->GetSelection(arg2,arg3);
+    ((wxTextEntryBase const *)arg1)->GetSelection(arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53587,9 +53588,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_AutoComplete(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_AutoComplete(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   wxArrayString *arg2 = 0 ;
   bool result;
   void *argp1 = 0 ;
@@ -53601,12 +53602,12 @@ SWIGINTERN PyObject *_wrap_TextEntry_AutoComplete(PyObject *SWIGUNUSEDPARM(self)
     (char *) "self",(char *) "choices", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntry_AutoComplete",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntryBase_AutoComplete",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_AutoComplete" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_AutoComplete" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     if (! PySequence_Check(obj1)) {
       PyErr_SetString(PyExc_TypeError, "Sequence of strings expected.");
@@ -53645,9 +53646,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_AutoCompleteFileNames(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_AutoCompleteFileNames(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53655,11 +53656,11 @@ SWIGINTERN PyObject *_wrap_TextEntry_AutoCompleteFileNames(PyObject *SWIGUNUSEDP
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_AutoCompleteFileNames" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_AutoCompleteFileNames" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->AutoCompleteFileNames();
@@ -53675,9 +53676,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_IsEditable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_IsEditable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53685,14 +53686,14 @@ SWIGINTERN PyObject *_wrap_TextEntry_IsEditable(PyObject *SWIGUNUSEDPARM(self), 
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_IsEditable" "', expected argument " "1"" of type '" "wxTextEntry const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_IsEditable" "', expected argument " "1"" of type '" "wxTextEntryBase const *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextEntry const *)arg1)->IsEditable();
+    result = (bool)((wxTextEntryBase const *)arg1)->IsEditable();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -53705,9 +53706,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_SetEditable(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_SetEditable(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53719,15 +53720,15 @@ SWIGINTERN PyObject *_wrap_TextEntry_SetEditable(PyObject *SWIGUNUSEDPARM(self),
     (char *) "self",(char *) "editable", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntry_SetEditable",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntryBase_SetEditable",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_SetEditable" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_SetEditable" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   ecode2 = SWIG_AsVal_bool(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntry_SetEditable" "', expected argument " "2"" of type '" "bool""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntryBase_SetEditable" "', expected argument " "2"" of type '" "bool""'");
   } 
   arg2 = static_cast< bool >(val2);
   {
@@ -53743,9 +53744,9 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextEntry_SetMaxLength(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextEntryBase_SetMaxLength(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxTextEntry *arg1 = (wxTextEntry *) 0 ;
+  wxTextEntryBase *arg1 = (wxTextEntryBase *) 0 ;
   long arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -53757,15 +53758,15 @@ SWIGINTERN PyObject *_wrap_TextEntry_SetMaxLength(PyObject *SWIGUNUSEDPARM(self)
     (char *) "self",(char *) "len", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntry_SetMaxLength",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntry, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextEntryBase_SetMaxLength",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextEntryBase, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntry_SetMaxLength" "', expected argument " "1"" of type '" "wxTextEntry *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextEntryBase_SetMaxLength" "', expected argument " "1"" of type '" "wxTextEntryBase *""'"); 
   }
-  arg1 = reinterpret_cast< wxTextEntry * >(argp1);
+  arg1 = reinterpret_cast< wxTextEntryBase * >(argp1);
   ecode2 = SWIG_AsVal_long(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntry_SetMaxLength" "', expected argument " "2"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextEntryBase_SetMaxLength" "', expected argument " "2"" of type '" "long""'");
   } 
   arg2 = static_cast< long >(val2);
   {
@@ -53780,6 +53781,13 @@ fail:
   return NULL;
 }
 
+
+SWIGINTERN PyObject *TextEntryBase_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxTextEntryBase, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
 
 SWIGINTERN PyObject *TextEntry_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
@@ -65845,42 +65853,43 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ItemContainer_Select", (PyCFunction) _wrap_ItemContainer_Select, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ItemContainer_swigregister", ItemContainer_swigregister, METH_VARARGS, NULL},
 	 { (char *)"ControlWithItems_swigregister", ControlWithItems_swigregister, METH_VARARGS, NULL},
-	 { (char *)"delete_TextEntry", (PyCFunction)_wrap_delete_TextEntry, METH_O, NULL},
-	 { (char *)"TextEntry_SetValue", (PyCFunction) _wrap_TextEntry_SetValue, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_ChangeValue", (PyCFunction) _wrap_TextEntry_ChangeValue, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_WriteText", (PyCFunction) _wrap_TextEntry_WriteText, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_AppendText", (PyCFunction) _wrap_TextEntry_AppendText, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_GetValue", (PyCFunction)_wrap_TextEntry_GetValue, METH_O, NULL},
-	 { (char *)"TextEntry_GetRange", (PyCFunction) _wrap_TextEntry_GetRange, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_IsEmpty", (PyCFunction)_wrap_TextEntry_IsEmpty, METH_O, NULL},
-	 { (char *)"TextEntry_Replace", (PyCFunction) _wrap_TextEntry_Replace, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_Remove", (PyCFunction) _wrap_TextEntry_Remove, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_Clear", (PyCFunction)_wrap_TextEntry_Clear, METH_O, NULL},
-	 { (char *)"TextEntry_RemoveSelection", (PyCFunction)_wrap_TextEntry_RemoveSelection, METH_O, NULL},
-	 { (char *)"TextEntry_Copy", (PyCFunction)_wrap_TextEntry_Copy, METH_O, NULL},
-	 { (char *)"TextEntry_Cut", (PyCFunction)_wrap_TextEntry_Cut, METH_O, NULL},
-	 { (char *)"TextEntry_Paste", (PyCFunction)_wrap_TextEntry_Paste, METH_O, NULL},
-	 { (char *)"TextEntry_CanCopy", (PyCFunction)_wrap_TextEntry_CanCopy, METH_O, NULL},
-	 { (char *)"TextEntry_CanCut", (PyCFunction)_wrap_TextEntry_CanCut, METH_O, NULL},
-	 { (char *)"TextEntry_CanPaste", (PyCFunction)_wrap_TextEntry_CanPaste, METH_O, NULL},
-	 { (char *)"TextEntry_Undo", (PyCFunction)_wrap_TextEntry_Undo, METH_O, NULL},
-	 { (char *)"TextEntry_Redo", (PyCFunction)_wrap_TextEntry_Redo, METH_O, NULL},
-	 { (char *)"TextEntry_CanUndo", (PyCFunction)_wrap_TextEntry_CanUndo, METH_O, NULL},
-	 { (char *)"TextEntry_CanRedo", (PyCFunction)_wrap_TextEntry_CanRedo, METH_O, NULL},
-	 { (char *)"TextEntry_SetInsertionPoint", (PyCFunction) _wrap_TextEntry_SetInsertionPoint, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_GetInsertionPoint", (PyCFunction)_wrap_TextEntry_GetInsertionPoint, METH_O, NULL},
-	 { (char *)"TextEntry_SetInsertionPointEnd", (PyCFunction)_wrap_TextEntry_SetInsertionPointEnd, METH_O, NULL},
-	 { (char *)"TextEntry_GetLastPosition", (PyCFunction)_wrap_TextEntry_GetLastPosition, METH_O, NULL},
-	 { (char *)"TextEntry_SetSelection", (PyCFunction) _wrap_TextEntry_SetSelection, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_SelectAll", (PyCFunction)_wrap_TextEntry_SelectAll, METH_O, NULL},
-	 { (char *)"TextEntry_HasSelection", (PyCFunction)_wrap_TextEntry_HasSelection, METH_O, NULL},
-	 { (char *)"TextEntry_GetStringSelection", (PyCFunction)_wrap_TextEntry_GetStringSelection, METH_O, NULL},
-	 { (char *)"TextEntry_GetSelection", (PyCFunction)_wrap_TextEntry_GetSelection, METH_O, NULL},
-	 { (char *)"TextEntry_AutoComplete", (PyCFunction) _wrap_TextEntry_AutoComplete, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_AutoCompleteFileNames", (PyCFunction)_wrap_TextEntry_AutoCompleteFileNames, METH_O, NULL},
-	 { (char *)"TextEntry_IsEditable", (PyCFunction)_wrap_TextEntry_IsEditable, METH_O, NULL},
-	 { (char *)"TextEntry_SetEditable", (PyCFunction) _wrap_TextEntry_SetEditable, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextEntry_SetMaxLength", (PyCFunction) _wrap_TextEntry_SetMaxLength, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_TextEntryBase", (PyCFunction)_wrap_delete_TextEntryBase, METH_O, NULL},
+	 { (char *)"TextEntryBase_SetValue", (PyCFunction) _wrap_TextEntryBase_SetValue, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_ChangeValue", (PyCFunction) _wrap_TextEntryBase_ChangeValue, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_WriteText", (PyCFunction) _wrap_TextEntryBase_WriteText, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_AppendText", (PyCFunction) _wrap_TextEntryBase_AppendText, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_GetValue", (PyCFunction)_wrap_TextEntryBase_GetValue, METH_O, NULL},
+	 { (char *)"TextEntryBase_GetRange", (PyCFunction) _wrap_TextEntryBase_GetRange, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_IsEmpty", (PyCFunction)_wrap_TextEntryBase_IsEmpty, METH_O, NULL},
+	 { (char *)"TextEntryBase_Replace", (PyCFunction) _wrap_TextEntryBase_Replace, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_Remove", (PyCFunction) _wrap_TextEntryBase_Remove, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_Clear", (PyCFunction)_wrap_TextEntryBase_Clear, METH_O, NULL},
+	 { (char *)"TextEntryBase_RemoveSelection", (PyCFunction)_wrap_TextEntryBase_RemoveSelection, METH_O, NULL},
+	 { (char *)"TextEntryBase_Copy", (PyCFunction)_wrap_TextEntryBase_Copy, METH_O, NULL},
+	 { (char *)"TextEntryBase_Cut", (PyCFunction)_wrap_TextEntryBase_Cut, METH_O, NULL},
+	 { (char *)"TextEntryBase_Paste", (PyCFunction)_wrap_TextEntryBase_Paste, METH_O, NULL},
+	 { (char *)"TextEntryBase_CanCopy", (PyCFunction)_wrap_TextEntryBase_CanCopy, METH_O, NULL},
+	 { (char *)"TextEntryBase_CanCut", (PyCFunction)_wrap_TextEntryBase_CanCut, METH_O, NULL},
+	 { (char *)"TextEntryBase_CanPaste", (PyCFunction)_wrap_TextEntryBase_CanPaste, METH_O, NULL},
+	 { (char *)"TextEntryBase_Undo", (PyCFunction)_wrap_TextEntryBase_Undo, METH_O, NULL},
+	 { (char *)"TextEntryBase_Redo", (PyCFunction)_wrap_TextEntryBase_Redo, METH_O, NULL},
+	 { (char *)"TextEntryBase_CanUndo", (PyCFunction)_wrap_TextEntryBase_CanUndo, METH_O, NULL},
+	 { (char *)"TextEntryBase_CanRedo", (PyCFunction)_wrap_TextEntryBase_CanRedo, METH_O, NULL},
+	 { (char *)"TextEntryBase_SetInsertionPoint", (PyCFunction) _wrap_TextEntryBase_SetInsertionPoint, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_GetInsertionPoint", (PyCFunction)_wrap_TextEntryBase_GetInsertionPoint, METH_O, NULL},
+	 { (char *)"TextEntryBase_SetInsertionPointEnd", (PyCFunction)_wrap_TextEntryBase_SetInsertionPointEnd, METH_O, NULL},
+	 { (char *)"TextEntryBase_GetLastPosition", (PyCFunction)_wrap_TextEntryBase_GetLastPosition, METH_O, NULL},
+	 { (char *)"TextEntryBase_SetSelection", (PyCFunction) _wrap_TextEntryBase_SetSelection, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_SelectAll", (PyCFunction)_wrap_TextEntryBase_SelectAll, METH_O, NULL},
+	 { (char *)"TextEntryBase_HasSelection", (PyCFunction)_wrap_TextEntryBase_HasSelection, METH_O, NULL},
+	 { (char *)"TextEntryBase_GetStringSelection", (PyCFunction)_wrap_TextEntryBase_GetStringSelection, METH_O, NULL},
+	 { (char *)"TextEntryBase_GetSelection", (PyCFunction)_wrap_TextEntryBase_GetSelection, METH_O, NULL},
+	 { (char *)"TextEntryBase_AutoComplete", (PyCFunction) _wrap_TextEntryBase_AutoComplete, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_AutoCompleteFileNames", (PyCFunction)_wrap_TextEntryBase_AutoCompleteFileNames, METH_O, NULL},
+	 { (char *)"TextEntryBase_IsEditable", (PyCFunction)_wrap_TextEntryBase_IsEditable, METH_O, NULL},
+	 { (char *)"TextEntryBase_SetEditable", (PyCFunction) _wrap_TextEntryBase_SetEditable, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_SetMaxLength", (PyCFunction) _wrap_TextEntryBase_SetMaxLength, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextEntryBase_swigregister", TextEntryBase_swigregister, METH_VARARGS, NULL},
 	 { (char *)"TextEntry_swigregister", TextEntry_swigregister, METH_VARARGS, NULL},
 	 { (char *)"delete_TextAreaBase", (PyCFunction)_wrap_delete_TextAreaBase, METH_O, NULL},
 	 { (char *)"TextAreaBase_GetLineLength", (PyCFunction) _wrap_TextAreaBase_GetLineLength, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -66563,9 +66572,6 @@ static void *_p_wxFlexGridSizerTo_p_wxGridSizer(void *x) {
 static void *_p_wxControlWithItemsTo_p_wxControl(void *x) {
     return (void *)((wxControl *)  ((wxControlWithItems *) x));
 }
-static void *_p_wxTextCtrlIfaceTo_p_wxTextEntry(void *x) {
-    return (void *)((wxTextEntry *)  ((wxTextCtrlIface *) x));
-}
 static void *_p_wxControlWithItemsTo_p_wxItemContainer(void *x) {
     return (void *)((wxItemContainer *)  ((wxControlWithItems *) x));
 }
@@ -66721,6 +66727,12 @@ static void *_p_wxModalEventLoopTo_p_wxEventLoopBase(void *x) {
 }
 static void *_p_wxModalEventLoopTo_p_wxGUIEventLoop(void *x) {
     return (void *)((wxGUIEventLoop *)  ((wxModalEventLoop *) x));
+}
+static void *_p_wxTextEntryTo_p_wxTextEntryBase(void *x) {
+    return (void *)((wxTextEntryBase *)  ((wxTextEntry *) x));
+}
+static void *_p_wxTextCtrlIfaceTo_p_wxTextEntryBase(void *x) {
+    return (void *)((wxTextEntryBase *)  ((wxTextCtrlIface *) x));
 }
 static void *_p_wxChildFocusEventTo_p_wxCommandEvent(void *x) {
     return (void *)((wxCommandEvent *)  ((wxChildFocusEvent *) x));
@@ -66896,6 +66908,7 @@ static swig_type_info _swigt__p_wxTextAttr = {"_p_wxTextAttr", "wxTextAttr *", 0
 static swig_type_info _swigt__p_wxTextCtrlHitTestResult = {"_p_wxTextCtrlHitTestResult", "wxTextCtrlHitTestResult *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextCtrlIface = {"_p_wxTextCtrlIface", "wxTextCtrlIface *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextEntry = {"_p_wxTextEntry", "wxTextEntry *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxTextEntryBase = {"_p_wxTextEntryBase", "wxTextEntryBase *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxToolTip = {"_p_wxToolTip", "wxToolTip *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxUpdateUIEvent = {"_p_wxUpdateUIEvent", "wxUpdateUIEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxValidator = {"_p_wxValidator", "wxValidator *", 0, 0, (void*)0, 0};
@@ -67054,6 +67067,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxTextCtrlHitTestResult,
   &_swigt__p_wxTextCtrlIface,
   &_swigt__p_wxTextEntry,
+  &_swigt__p_wxTextEntryBase,
   &_swigt__p_wxToolTip,
   &_swigt__p_wxUpdateUIEvent,
   &_swigt__p_wxValidator,
@@ -67211,7 +67225,8 @@ static swig_cast_info _swigc__p_wxTextAreaBase[] = {  {&_swigt__p_wxTextAreaBase
 static swig_cast_info _swigc__p_wxTextAttr[] = {  {&_swigt__p_wxTextAttr, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextCtrlHitTestResult[] = {  {&_swigt__p_wxTextCtrlHitTestResult, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextCtrlIface[] = {  {&_swigt__p_wxTextCtrlIface, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxTextEntry[] = {  {&_swigt__p_wxTextEntry, 0, 0, 0},  {&_swigt__p_wxTextCtrlIface, _p_wxTextCtrlIfaceTo_p_wxTextEntry, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxTextEntry[] = {  {&_swigt__p_wxTextEntry, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxTextEntryBase[] = {  {&_swigt__p_wxTextEntry, _p_wxTextEntryTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextCtrlIface, _p_wxTextCtrlIfaceTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextEntryBase, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxToolTip[] = {  {&_swigt__p_wxToolTip, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxUpdateUIEvent[] = {  {&_swigt__p_wxUpdateUIEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxValidator[] = {  {&_swigt__p_wxValidator, 0, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxValidator, 0, 0},{0, 0, 0, 0}};
@@ -67370,6 +67385,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxTextCtrlHitTestResult,
   _swigc__p_wxTextCtrlIface,
   _swigc__p_wxTextEntry,
+  _swigc__p_wxTextEntryBase,
   _swigc__p_wxToolTip,
   _swigc__p_wxUpdateUIEvent,
   _swigc__p_wxValidator,

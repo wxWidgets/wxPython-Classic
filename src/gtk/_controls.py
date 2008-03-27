@@ -2461,16 +2461,18 @@ class SpinCtrlDouble(_core.Control):
         """GetDigits(self) -> unsigned int"""
         return _controls_.SpinCtrlDouble_GetDigits(*args, **kwargs)
 
-    def SetValue(*args):
-        """
-        SetValue(self, String value)
-        SetValue(self, double value)
-        """
-        return _controls_.SpinCtrlDouble_SetValue(*args)
+    def SetValue(*args, **kwargs):
+        """SetValue(self, double value)"""
+        return _controls_.SpinCtrlDouble_SetValue(*args, **kwargs)
 
     def SetRange(*args, **kwargs):
         """SetRange(self, double minVal, double maxVal)"""
         return _controls_.SpinCtrlDouble_SetRange(*args, **kwargs)
+
+    def SetMin(self, minVal):
+        self.SetRange(minVal, self.GetMax())
+    def SetMax(self, maxVal):
+        self.SetRange(self.GetMin(), maxVal)
 
     def SetIncrement(*args, **kwargs):
         """SetIncrement(self, double inc)"""
@@ -2480,6 +2482,11 @@ class SpinCtrlDouble(_core.Control):
         """SetDigits(self, unsigned int digits)"""
         return _controls_.SpinCtrlDouble_SetDigits(*args, **kwargs)
 
+    Value = property(GetValue,SetValue) 
+    Min = property(GetMin,SetMin) 
+    Max = property(GetMax,SetMax) 
+    Increment = property(GetIncrement,SetIncrement) 
+    Digits = property(GetDigits,SetDigits) 
 _controls_.SpinCtrlDouble_swigregister(SpinCtrlDouble)
 
 def PreSpinCtrlDouble(*args, **kwargs):
@@ -2502,6 +2509,7 @@ class SpinDoubleEvent(_core.NotifyEvent):
         """SetValue(self, double value)"""
         return _controls_.SpinDoubleEvent_SetValue(*args, **kwargs)
 
+    Value = property(GetValue,SetValue) 
 _controls_.SpinDoubleEvent_swigregister(SpinDoubleEvent)
 
 wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED = _controls_.wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED
@@ -7350,7 +7358,15 @@ _controls_.CollapsiblePaneEvent_swigregister(CollapsiblePaneEvent)
 
 #---------------------------------------------------------------------------
 
-class SearchCtrl(TextCtrl):
+class SearchCtrlBase(_core.Control,_core.TextCtrlIface):
+    """Proxy of C++ SearchCtrlBase class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+_controls_.SearchCtrlBase_swigregister(SearchCtrlBase)
+SearchCtrlNameStr = cvar.SearchCtrlNameStr
+
+class SearchCtrl(SearchCtrlBase):
     """
     A search control is a composite of a `wx.TextCtrl` with optional
     bitmap buttons and a drop-down menu.  Controls like this can typically
@@ -7527,7 +7543,6 @@ class SearchCtrl(TextCtrl):
     CancelButtonVisible = property(IsCancelButtonVisible,ShowCancelButton) 
     DescriptiveText = property(GetDescriptiveText,SetDescriptiveText) 
 _controls_.SearchCtrl_swigregister(SearchCtrl)
-SearchCtrlNameStr = cvar.SearchCtrlNameStr
 
 def PreSearchCtrl(*args, **kwargs):
     """

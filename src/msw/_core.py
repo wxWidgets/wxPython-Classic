@@ -12373,12 +12373,12 @@ _core_.ControlWithItems_swigregister(ControlWithItems)
 
 #---------------------------------------------------------------------------
 
-class TextEntry(object):
-    """Proxy of C++ TextEntry class"""
+class TextEntryBase(object):
+    """Proxy of C++ TextEntryBase class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
-    __swig_destroy__ = _core_.delete_TextEntry
+    __swig_destroy__ = _core_.delete_TextEntryBase
     __del__ = lambda self : None;
     def SetValue(*args, **kwargs):
         """
@@ -12386,7 +12386,7 @@ class TextEntry(object):
 
         Set the value in the text entry field.  Generates a text change event.
         """
-        return _core_.TextEntry_SetValue(*args, **kwargs)
+        return _core_.TextEntryBase_SetValue(*args, **kwargs)
 
     def ChangeValue(*args, **kwargs):
         """
@@ -12394,7 +12394,7 @@ class TextEntry(object):
 
         Set the value in the text entry field.  Generates a text change event.
         """
-        return _core_.TextEntry_ChangeValue(*args, **kwargs)
+        return _core_.TextEntryBase_ChangeValue(*args, **kwargs)
 
     def WriteText(*args, **kwargs):
         """
@@ -12403,7 +12403,7 @@ class TextEntry(object):
         Insert text at the current insertion point in the text field,
         replacing any text that is currently selected.
         """
-        return _core_.TextEntry_WriteText(*args, **kwargs)
+        return _core_.TextEntryBase_WriteText(*args, **kwargs)
 
     def AppendText(*args, **kwargs):
         """
@@ -12412,7 +12412,7 @@ class TextEntry(object):
         Add text to the end of the text field, without removing any existing
         text.  Will reset the selection if any.
         """
-        return _core_.TextEntry_AppendText(*args, **kwargs)
+        return _core_.TextEntryBase_AppendText(*args, **kwargs)
 
     def GetValue(*args, **kwargs):
         """
@@ -12420,7 +12420,7 @@ class TextEntry(object):
 
         Returns the current value in the text field.
         """
-        return _core_.TextEntry_GetValue(*args, **kwargs)
+        return _core_.TextEntryBase_GetValue(*args, **kwargs)
 
     def GetRange(*args, **kwargs):
         """
@@ -12428,7 +12428,7 @@ class TextEntry(object):
 
         Returns a subset of the value in the text field.
         """
-        return _core_.TextEntry_GetRange(*args, **kwargs)
+        return _core_.TextEntryBase_GetRange(*args, **kwargs)
 
     GetString = wx._deprecated(GetRange, "Use `GetRange` instead.") 
     def IsEmpty(*args, **kwargs):
@@ -12437,7 +12437,7 @@ class TextEntry(object):
 
         Returns True if the value in the text field is empty.
         """
-        return _core_.TextEntry_IsEmpty(*args, **kwargs)
+        return _core_.TextEntryBase_IsEmpty(*args, **kwargs)
 
     def Replace(*args, **kwargs):
         """
@@ -12445,7 +12445,7 @@ class TextEntry(object):
 
         Replaces the text between two positions with the given text.
         """
-        return _core_.TextEntry_Replace(*args, **kwargs)
+        return _core_.TextEntryBase_Replace(*args, **kwargs)
 
     def Remove(*args, **kwargs):
         """
@@ -12453,7 +12453,7 @@ class TextEntry(object):
 
         Removes the text between two positions in the text field
         """
-        return _core_.TextEntry_Remove(*args, **kwargs)
+        return _core_.TextEntryBase_Remove(*args, **kwargs)
 
     def Clear(*args, **kwargs):
         """
@@ -12461,11 +12461,11 @@ class TextEntry(object):
 
         Clear all text from the text field
         """
-        return _core_.TextEntry_Clear(*args, **kwargs)
+        return _core_.TextEntryBase_Clear(*args, **kwargs)
 
     def RemoveSelection(*args, **kwargs):
         """RemoveSelection(self)"""
-        return _core_.TextEntry_RemoveSelection(*args, **kwargs)
+        return _core_.TextEntryBase_RemoveSelection(*args, **kwargs)
 
     def Copy(*args, **kwargs):
         """
@@ -12473,7 +12473,7 @@ class TextEntry(object):
 
         Copies the selected text to the clipboard.
         """
-        return _core_.TextEntry_Copy(*args, **kwargs)
+        return _core_.TextEntryBase_Copy(*args, **kwargs)
 
     def Cut(*args, **kwargs):
         """
@@ -12481,7 +12481,7 @@ class TextEntry(object):
 
         Copies the selected text to the clipboard and removes the selection.
         """
-        return _core_.TextEntry_Cut(*args, **kwargs)
+        return _core_.TextEntryBase_Cut(*args, **kwargs)
 
     def Paste(*args, **kwargs):
         """
@@ -12489,7 +12489,7 @@ class TextEntry(object):
 
         Pastes text from the clipboard to the text field.
         """
-        return _core_.TextEntry_Paste(*args, **kwargs)
+        return _core_.TextEntryBase_Paste(*args, **kwargs)
 
     def CanCopy(*args, **kwargs):
         """
@@ -12498,7 +12498,7 @@ class TextEntry(object):
         Returns True if the text field has a text selection to copy to the
         clipboard.
         """
-        return _core_.TextEntry_CanCopy(*args, **kwargs)
+        return _core_.TextEntryBase_CanCopy(*args, **kwargs)
 
     def CanCut(*args, **kwargs):
         """
@@ -12507,7 +12507,7 @@ class TextEntry(object):
         Returns True if the text field is editable and there is a text
         selection to copy to the clipboard.
         """
-        return _core_.TextEntry_CanCut(*args, **kwargs)
+        return _core_.TextEntryBase_CanCut(*args, **kwargs)
 
     def CanPaste(*args, **kwargs):
         """
@@ -12516,7 +12516,7 @@ class TextEntry(object):
         Returns True if the text field is editable and there is text on the
         clipboard that can be pasted into the text field.
         """
-        return _core_.TextEntry_CanPaste(*args, **kwargs)
+        return _core_.TextEntryBase_CanPaste(*args, **kwargs)
 
     def Undo(*args, **kwargs):
         """
@@ -12524,7 +12524,7 @@ class TextEntry(object):
 
         Undoes the last edit in the text field
         """
-        return _core_.TextEntry_Undo(*args, **kwargs)
+        return _core_.TextEntryBase_Undo(*args, **kwargs)
 
     def Redo(*args, **kwargs):
         """
@@ -12532,7 +12532,7 @@ class TextEntry(object):
 
         Redoes the last undo in the text field
         """
-        return _core_.TextEntry_Redo(*args, **kwargs)
+        return _core_.TextEntryBase_Redo(*args, **kwargs)
 
     def CanUndo(*args, **kwargs):
         """
@@ -12541,7 +12541,7 @@ class TextEntry(object):
         Returns True if the text field is editable and the last edit can be
         undone.
         """
-        return _core_.TextEntry_CanUndo(*args, **kwargs)
+        return _core_.TextEntryBase_CanUndo(*args, **kwargs)
 
     def CanRedo(*args, **kwargs):
         """
@@ -12550,7 +12550,7 @@ class TextEntry(object):
         Returns True if the text field is editable and the last undo can be
         redone.
         """
-        return _core_.TextEntry_CanRedo(*args, **kwargs)
+        return _core_.TextEntryBase_CanRedo(*args, **kwargs)
 
     def SetInsertionPoint(*args, **kwargs):
         """
@@ -12558,7 +12558,7 @@ class TextEntry(object):
 
         Sets the insertion point in the combobox text field.
         """
-        return _core_.TextEntry_SetInsertionPoint(*args, **kwargs)
+        return _core_.TextEntryBase_SetInsertionPoint(*args, **kwargs)
 
     def GetInsertionPoint(*args, **kwargs):
         """
@@ -12566,7 +12566,7 @@ class TextEntry(object):
 
         Returns the insertion point for the combobox's text field.
         """
-        return _core_.TextEntry_GetInsertionPoint(*args, **kwargs)
+        return _core_.TextEntryBase_GetInsertionPoint(*args, **kwargs)
 
     def SetInsertionPointEnd(*args, **kwargs):
         """
@@ -12574,7 +12574,7 @@ class TextEntry(object):
 
         Move the insertion point to the end of the current value.
         """
-        return _core_.TextEntry_SetInsertionPointEnd(*args, **kwargs)
+        return _core_.TextEntryBase_SetInsertionPointEnd(*args, **kwargs)
 
     def GetLastPosition(*args, **kwargs):
         """
@@ -12582,7 +12582,7 @@ class TextEntry(object):
 
         Returns the last position in the combobox text field.
         """
-        return _core_.TextEntry_GetLastPosition(*args, **kwargs)
+        return _core_.TextEntryBase_GetLastPosition(*args, **kwargs)
 
     def SetSelection(*args, **kwargs):
         """
@@ -12592,7 +12592,7 @@ class TextEntry(object):
         including) the character at the last position.  If both parameters are
         -1 then all text in the control is selected.
         """
-        return _core_.TextEntry_SetSelection(*args, **kwargs)
+        return _core_.TextEntryBase_SetSelection(*args, **kwargs)
 
     def SelectAll(*args, **kwargs):
         """
@@ -12600,7 +12600,7 @@ class TextEntry(object):
 
         Select all text in the text field.
         """
-        return _core_.TextEntry_SelectAll(*args, **kwargs)
+        return _core_.TextEntryBase_SelectAll(*args, **kwargs)
 
     def HasSelection(*args, **kwargs):
         """
@@ -12608,7 +12608,7 @@ class TextEntry(object):
 
         Returns True if there is a non-empty selection in the text field.
         """
-        return _core_.TextEntry_HasSelection(*args, **kwargs)
+        return _core_.TextEntryBase_HasSelection(*args, **kwargs)
 
     def GetStringSelection(*args, **kwargs):
         """
@@ -12616,7 +12616,7 @@ class TextEntry(object):
 
         Returns the selected text.
         """
-        return _core_.TextEntry_GetStringSelection(*args, **kwargs)
+        return _core_.TextEntryBase_GetStringSelection(*args, **kwargs)
 
     def GetSelection(*args, **kwargs):
         """
@@ -12624,23 +12624,23 @@ class TextEntry(object):
 
         If the return values from and to are the same, there is no selection.
         """
-        return _core_.TextEntry_GetSelection(*args, **kwargs)
+        return _core_.TextEntryBase_GetSelection(*args, **kwargs)
 
     def AutoComplete(*args, **kwargs):
         """AutoComplete(self, wxArrayString choices) -> bool"""
-        return _core_.TextEntry_AutoComplete(*args, **kwargs)
+        return _core_.TextEntryBase_AutoComplete(*args, **kwargs)
 
     def AutoCompleteFileNames(*args, **kwargs):
         """AutoCompleteFileNames(self) -> bool"""
-        return _core_.TextEntry_AutoCompleteFileNames(*args, **kwargs)
+        return _core_.TextEntryBase_AutoCompleteFileNames(*args, **kwargs)
 
     def IsEditable(*args, **kwargs):
         """IsEditable(self) -> bool"""
-        return _core_.TextEntry_IsEditable(*args, **kwargs)
+        return _core_.TextEntryBase_IsEditable(*args, **kwargs)
 
     def SetEditable(*args, **kwargs):
         """SetEditable(self, bool editable)"""
-        return _core_.TextEntry_SetEditable(*args, **kwargs)
+        return _core_.TextEntryBase_SetEditable(*args, **kwargs)
 
     def SetMaxLength(*args, **kwargs):
         """
@@ -12649,11 +12649,18 @@ class TextEntry(object):
         Set the max number of characters which may be entered in a single line
         text control.
         """
-        return _core_.TextEntry_SetMaxLength(*args, **kwargs)
+        return _core_.TextEntryBase_SetMaxLength(*args, **kwargs)
 
     InsertionPoint = property(GetInsertionPoint,SetInsertionPoint) 
     LastPosition = property(GetLastPosition) 
     Value = property(GetValue,SetValue) 
+_core_.TextEntryBase_swigregister(TextEntryBase)
+
+class TextEntry(TextEntryBase):
+    """Proxy of C++ TextEntry class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
 _core_.TextEntry_swigregister(TextEntry)
 
 class TextAreaBase(object):
@@ -12751,7 +12758,7 @@ class TextAreaBase(object):
     NumberOfLines = property(GetNumberOfLines) 
 _core_.TextAreaBase_swigregister(TextAreaBase)
 
-class TextCtrlIface(TextAreaBase,TextEntry):
+class TextCtrlIface(TextAreaBase,TextEntryBase):
     """This class defines the wx.TextCtrl interface"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"

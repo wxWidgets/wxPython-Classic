@@ -564,6 +564,7 @@ def BrushFromBitmap(*args, **kwargs):
     val = _gdi_.new_BrushFromBitmap(*args, **kwargs)
     return val
 
+BITMAP_SCREEN_DEPTH = _gdi_.BITMAP_SCREEN_DEPTH
 class Bitmap(GDIObject):
     """
     The wx.Bitmap class encapsulates the concept of a platform-dependent
@@ -785,7 +786,7 @@ _gdi_.Bitmap_swigregister(Bitmap)
 
 def EmptyBitmap(*args, **kwargs):
     """
-    EmptyBitmap(int width, int height, int depth=-1) -> Bitmap
+    EmptyBitmap(int width, int height, int depth=BITMAP_SCREEN_DEPTH) -> Bitmap
 
     Creates a new bitmap of the given size.  A depth of -1 indicates the
     depth of the current screen or visual. Some platforms only support 1
@@ -805,7 +806,7 @@ def BitmapFromIcon(*args, **kwargs):
 
 def BitmapFromImage(*args, **kwargs):
     """
-    BitmapFromImage(Image image, int depth=-1) -> Bitmap
+    BitmapFromImage(Image image, int depth=BITMAP_SCREEN_DEPTH) -> Bitmap
 
     Creates bitmap object from a `wx.Image`. This has to be done to
     actually display a `wx.Image` as you cannot draw an image directly on
@@ -6222,6 +6223,7 @@ class GCDC(DC):
     def __init__(self, *args): 
         """
         __init__(self, WindowDC dc) -> GCDC
+        __init__(self, MemoryDC dc) -> GCDC
         __init__(self, Window window) -> GCDC
         """
         _gdi_.GCDC_swiginit(self,_gdi_.new_GCDC(*args))

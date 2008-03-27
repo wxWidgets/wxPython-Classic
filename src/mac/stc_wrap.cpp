@@ -24717,7 +24717,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_addvarlink(SWIG_globals(),(char*)"STCNameStr",STCNameStr_get, STCNameStr_set);
   SWIG_Python_SetConstant(d, "USE_STC",SWIG_From_int(static_cast< int >(1)));
   SWIG_Python_SetConstant(d, "STC_USE_DND",SWIG_From_int(static_cast< int >(1)));
-  SWIG_Python_SetConstant(d, "STC_USE_POPUP",SWIG_From_int(static_cast< int >(1)));
   SWIG_Python_SetConstant(d, "STC_INVALID_POSITION",SWIG_From_int(static_cast< int >(-1)));
   SWIG_Python_SetConstant(d, "STC_START",SWIG_From_int(static_cast< int >(2000)));
   SWIG_Python_SetConstant(d, "STC_OPTIONAL_START",SWIG_From_int(static_cast< int >(3000)));

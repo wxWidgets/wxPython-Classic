@@ -63,7 +63,6 @@ wx = _core
 __docfilter__ = wx.__DocFilter(globals()) 
 USE_STC = _stc.USE_STC
 STC_USE_DND = _stc.STC_USE_DND
-STC_USE_POPUP = _stc.STC_USE_POPUP
 STC_INVALID_POSITION = _stc.STC_INVALID_POSITION
 STC_START = _stc.STC_START
 STC_OPTIONAL_START = _stc.STC_OPTIONAL_START

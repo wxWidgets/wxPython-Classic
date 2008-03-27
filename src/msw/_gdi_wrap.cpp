@@ -3975,24 +3975,30 @@ public :
 
 
 
-class wxGCDC: public wxWindowDC
+class wxGCDC: public wxDC
 {
 public:
-    wxGCDC(const wxWindowDC&) {
+    wxGCDC(const wxWindowDC&)
+        : wxDC(NULL)
+    {
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         PyErr_SetString(PyExc_NotImplementedError,
                         "wxGCDC is not available on this platform.");
         wxPyEndBlockThreads(blocked);
      }
 
-    wxGCDC(const wxWindow*) {
+    wxGCDC(const wxMemoryDC&)
+        : wxDC(NULL)
+    {
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         PyErr_SetString(PyExc_NotImplementedError,
                         "wxGCDC is not available on this platform.");
         wxPyEndBlockThreads(blocked);
      }
 
-    wxGCDC() {
+    wxGCDC()
+        : wxDC(NULL)
+    {
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         PyErr_SetString(PyExc_NotImplementedError,
                         "wxGCDC is not available on this platform.");
@@ -6402,7 +6408,7 @@ SWIGINTERN PyObject *_wrap_new_EmptyBitmap(PyObject *SWIGUNUSEDPARM(self), PyObj
   PyObject *resultobj = 0;
   int arg1 ;
   int arg2 ;
-  int arg3 = (int) -1 ;
+  int arg3 = (int) wxBITMAP_SCREEN_DEPTH ;
   wxBitmap *result = 0 ;
   int val1 ;
   int ecode1 = 0 ;
@@ -6486,7 +6492,7 @@ fail:
 SWIGINTERN PyObject *_wrap_new_BitmapFromImage(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxImage *arg1 = 0 ;
-  int arg2 = (int) -1 ;
+  int arg2 = (int) wxBITMAP_SCREEN_DEPTH ;
   wxBitmap *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -32806,6 +32812,36 @@ fail:
 
 SWIGINTERN PyObject *_wrap_new_GCDC__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
+  wxMemoryDC *arg1 = 0 ;
+  wxGCDC *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_wxMemoryDC,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GCDC" "', expected argument " "1"" of type '" "wxMemoryDC const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_GCDC" "', expected argument " "1"" of type '" "wxMemoryDC const &""'"); 
+  }
+  arg1 = reinterpret_cast< wxMemoryDC * >(argp1);
+  {
+    if (!wxPyCheckForApp()) SWIG_fail;
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxGCDC *)new wxGCDC((wxMemoryDC const &)*arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGCDC, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_GCDC__SWIG_2(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
   wxGCDC *result = 0 ;
   void *argp1 = 0 ;
@@ -32840,16 +32876,27 @@ SWIGINTERN PyObject *_wrap_new_GCDC(PyObject *self, PyObject *args) {
   if (argc == 1) {
     int _v = 0;
     {
-      int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_wxWindowDC, 0);
+      int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_wxMemoryDC, 0);
       _v = SWIG_CheckState(res);
     }
     if (!_v) goto check_1;
-    return _wrap_new_GCDC__SWIG_0(self, argc, argv);
+    return _wrap_new_GCDC__SWIG_1(self, argc, argv);
   }
 check_1:
   
   if (argc == 1) {
-    return _wrap_new_GCDC__SWIG_1(self, argc, argv);
+    int _v = 0;
+    {
+      int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_wxWindowDC, 0);
+      _v = SWIG_CheckState(res);
+    }
+    if (!_v) goto check_2;
+    return _wrap_new_GCDC__SWIG_0(self, argc, argv);
+  }
+check_2:
+  
+  if (argc == 1) {
+    return _wrap_new_GCDC__SWIG_2(self, argc, argv);
   }
   
 fail:
@@ -43271,6 +43318,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "BRUSHSTYLE_VERTICAL_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_VERTICAL_HATCH)));
   SWIG_Python_SetConstant(d, "BRUSHSTYLE_FIRST_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_FIRST_HATCH)));
   SWIG_Python_SetConstant(d, "BRUSHSTYLE_LAST_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_LAST_HATCH)));
+  SWIG_Python_SetConstant(d, "BITMAP_SCREEN_DEPTH",SWIG_From_int(static_cast< int >(wxBITMAP_SCREEN_DEPTH)));
   SWIG_Python_SetConstant(d, "OutRegion",SWIG_From_int(static_cast< int >(wxOutRegion)));
   SWIG_Python_SetConstant(d, "PartRegion",SWIG_From_int(static_cast< int >(wxPartRegion)));
   SWIG_Python_SetConstant(d, "InRegion",SWIG_From_int(static_cast< int >(wxInRegion)));
