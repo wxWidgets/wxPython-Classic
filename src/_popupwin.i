@@ -97,7 +97,11 @@ public:
     virtual void Popup(wxWindow *focus = NULL);
 
     // hide the window
-    virtual void Dismiss();   
+    virtual void Dismiss();
+
+    virtual bool CanDismiss();
+    virtual bool ProcessLeftDown(wxMouseEvent& event);
+
 };
 
 //---------------------------------------------------------------------------
