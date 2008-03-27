@@ -25,12 +25,12 @@
 #endif
 
 #ifdef __WXGTK__
-#include <gdk/gdk.h>
+//#include <gdk/gdk.h>
 #include <gdk/gdkx.h>
-#include <gtk/gtk.h>
-#include <gdk/gdkprivate.h>
+// #include <gtk/gtk.h>
+// #include <gdk/gdkprivate.h>
 #ifdef __WXGTK20__
-#include <wx/gtk/win_gtk.h>
+#include <wx/gtk/private/win_gtk.h>
 #else
 #include <wx/gtk1/win_gtk.h>
 #endif
@@ -2021,7 +2021,7 @@ long wxPyGetWinHandle(wxWindow* win) {
     return (long)win->GetHandle();
 #endif
 
-#if defined(__WXGTK__) || defined(__WXX11)
+#if defined(__WXGTK__) || defined(__WXX11__)
     return (long)GetXWindow(win);
 #endif
 
