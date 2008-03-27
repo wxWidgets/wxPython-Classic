@@ -64,8 +64,10 @@
 
 //---------------------------------------------------------------------------
 
-// TODO:  When the API stabalizes and is available on other platforms, add
-// wrappers for the new wxBitmap, wxRawBitmap, wxDIB stuff...
+enum {
+    wxBITMAP_SCREEN_DEPTH
+};
+
 
 DocStr(wxBitmap,
 "The wx.Bitmap class encapsulates the concept of a platform-dependent
@@ -132,7 +134,7 @@ public:
     ~wxBitmap();
 
     DocCtorStrName(
-        wxBitmap(int width, int height, int depth=-1),
+        wxBitmap(int width, int height, int depth=wxBITMAP_SCREEN_DEPTH),
         "Creates a new bitmap of the given size.  A depth of -1 indicates the
 depth of the current screen or visual. Some platforms only support 1
 for monochrome and -1 for the current display depth.", "",
@@ -144,7 +146,7 @@ for monochrome and -1 for the current display depth.", "",
         BitmapFromIcon);
 
     DocCtorStrName(
-        wxBitmap(const wxImage& image, int depth=-1),
+        wxBitmap(const wxImage& image, int depth=wxBITMAP_SCREEN_DEPTH),
         "Creates bitmap object from a `wx.Image`. This has to be done to
 actually display a `wx.Image` as you cannot draw an image directly on
 a window. The resulting bitmap will use the provided colour depth (or
