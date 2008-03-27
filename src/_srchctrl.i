@@ -107,8 +107,18 @@ Events
     =========================    =========================================
 ");
 
+#ifdef __WXMAC__
+class wxSearchCtrlBase : public wxTextCtrl
+{
+};
+#else
+class wxSearchCtrlBase : public wxControl,
+                         public wxTextCtrlIface
+{
+};
+#endif
 
-class wxSearchCtrl : public wxTextCtrl
+class wxSearchCtrl : public wxSearchCtrlBase
 {
 public:
     %pythonAppend wxSearchCtrl         "self._setOORInfo(self)";
@@ -134,7 +144,6 @@ public:
                 long style = 0,
                 const wxValidator& validator = wxDefaultValidator,
                 const wxString& name = wxPySearchCtrlNameStr);
-
 
     DocDeclStr(
         virtual void , SetMenu( wxMenu* menu ),

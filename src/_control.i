@@ -311,7 +311,7 @@ slightly more natural for controls which support multiple selection.", "");
             for i in items:
                 self.Append(i)        
     }
-    
+
     %property(Count, GetCount, doc="See `GetCount`");
     %property(Items, GetItems, SetItems, doc="See `GetItems` and `SetItems`");
     %property(Selection, GetSelection, SetSelection, doc="See `GetSelection` and `SetSelection`");
@@ -338,11 +338,11 @@ public:
 %newgroup;
 
 
-class wxTextEntry
+class wxTextEntryBase
 {
 public:
-    // wxTextEntry() { m_eventsBlock = 0; }  ****  It's an ABC, can't instantiate
-    virtual ~wxTextEntry();
+    // wxTextEntryBase() { m_eventsBlock = 0; }  ****  It's an ABC, can't instantiate
+    virtual ~wxTextEntryBase();
 
 
     DocDeclStr(
@@ -535,6 +535,8 @@ text control.", "");
 };
 
 
+class wxTextEntry : public wxTextEntryBase {};
+
     
 DocStr(wxTextAreaBase,
 "multiline text control specific methods","");           
@@ -620,7 +622,7 @@ the client area origin nor scrolling. ", "",
 DocStr(wxTextCtrlIface,
 "This class defines the wx.TextCtrl interface", "");
 class  wxTextCtrlIface : public wxTextAreaBase,
-                         public wxTextEntry
+                         public wxTextEntryBase
 {
 public:
     // wxTextCtrlIface();   ****  An ABC
