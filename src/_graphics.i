@@ -323,24 +323,30 @@ public :
 
 
 
-class wxGCDC: public wxWindowDC
+class wxGCDC: public wxDC
 {
 public:
-    wxGCDC(const wxWindowDC&) {
+    wxGCDC(const wxWindowDC&)
+        : wxDC(NULL)
+    {
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         PyErr_SetString(PyExc_NotImplementedError,
                         "wxGCDC is not available on this platform.");
         wxPyEndBlockThreads(blocked);
      }
 
-    wxGCDC(const wxWindow*) {
+    wxGCDC(const wxMemoryDC&)
+        : wxDC(NULL)
+    {
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         PyErr_SetString(PyExc_NotImplementedError,
                         "wxGCDC is not available on this platform.");
         wxPyEndBlockThreads(blocked);
      }
 
-    wxGCDC() {
+    wxGCDC()
+        : wxDC(NULL)
+    {
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         PyErr_SetString(PyExc_NotImplementedError,
                         "wxGCDC is not available on this platform.");
@@ -1137,6 +1143,7 @@ public:
     %pythonAppend wxGCDC
         "self.__dc = args[0] # save a ref so the other dc will not be deleted before self";
     wxGCDC(const wxWindowDC& dc);
+    wxGCDC(const wxMemoryDC& dc);
     wxGCDC(wxWindow* window);
     //wxGCDC();
     virtual ~wxGCDC();
