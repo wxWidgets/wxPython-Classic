@@ -46,7 +46,7 @@ import images
 
 #---------------------------------------------------------------------------
 
-USE_CUSTOMTREECTRL = False
+USE_CUSTOMTREECTRL = True
 ALLOW_AUI_FLOATING = False
 DEFAULT_PERSPECTIVE = "Default Perspective"
 
@@ -61,6 +61,7 @@ _treeList = [
     ('Recent Additions/Updates', [
         'RendererNative',
         'PlateButton',
+        'SpinCtrlDouble',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -123,6 +124,7 @@ _treeList = [
         'Slider',
         'SpinButton',
         'SpinCtrl',
+        'SpinCtrlDouble',
         'SplitterWindow',
         'StaticBitmap',
         'StaticBox',
@@ -1317,6 +1319,8 @@ class wxPythonDemo(wx.Frame):
         leftBox.Add(self.tree, 1, wx.EXPAND)
         leftBox.Add(wx.StaticText(leftPanel, label = "Filter Demos:"), 0, wx.TOP|wx.LEFT, 5)
         leftBox.Add(self.filter, 0, wx.EXPAND|wx.ALL, 5)
+        if 'wxMac' in wx.PlatformInfo:
+            leftBox.Add((5,5))  # Make sure there is room for the focus ring
         leftPanel.SetSizer(leftBox)
 
         # select initial items
