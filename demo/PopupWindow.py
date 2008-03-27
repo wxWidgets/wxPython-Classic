@@ -44,6 +44,7 @@ class TestPopup(wx.PopupWindow):
         st.Bind(wx.EVT_RIGHT_UP, self.OnRightUp)
 
         wx.CallAfter(self.Refresh)
+        
 
     def OnMouseLeftDown(self, evt):
         self.Refresh()
@@ -59,11 +60,13 @@ class TestPopup(wx.PopupWindow):
             self.Move(nPos)
 
     def OnMouseLeftUp(self, evt):
-        self.ReleaseMouse()
+        if self.HasCapture():
+            self.ReleaseMouse()
 
     def OnRightUp(self, evt):
         self.Show(False)
         self.Destroy()
+
 
 
 class TestTransientPopup(wx.PopupTransientWindow):
@@ -71,25 +74,44 @@ class TestTransientPopup(wx.PopupTransientWindow):
     def __init__(self, parent, style, log):
         wx.PopupTransientWindow.__init__(self, parent, style)
         self.log = log
-        self.SetBackgroundColour("#FFB6C1")
-        st = wx.StaticText(self, -1,
+        panel = wx.Panel(self)
+        panel.SetBackgroundColour("#FFB6C1")
+        
+        st = wx.StaticText(panel, -1,
                           "wx.PopupTransientWindow is a\n"
                           "wx.PopupWindow which disappears\n"
                           "automatically when the user\n"
                           "clicks the mouse outside it or if it\n"
                           "(or its first child) loses focus in \n"
-                          "any other way."
-                          ,
-                          pos=(10,10))
-        sz = st.GetBestSize()
-        self.SetSize( (sz.width+20, sz.height+20) )
+                          "any other way.")
+        btn = wx.Button(panel, -1, "Press Me")
+        spin = wx.SpinCtrl(panel, -1, "Hello", size=(100,-1))
+        btn.Bind(wx.EVT_BUTTON, self.OnButton)
 
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        sizer.Add(st, 0, wx.ALL, 5)
+        sizer.Add(btn, 0, wx.ALL, 5)
+        sizer.Add(spin, 0, wx.ALL, 5)
+        panel.SetSizer(sizer)
+
+        sizer.Fit(panel)
+        sizer.Fit(self)
+        self.Layout()
+        
+        
     def ProcessLeftDown(self, evt):
-        self.log.write("ProcessLeftDown\n")
-        return False
+        self.log.write("ProcessLeftDown: %s\n" % evt.GetPosition())
+        return wx.PopupTransientWindow.ProcessLeftDown(self, evt)
 
     def OnDismiss(self):
         self.log.write("OnDismiss\n")
+
+    def OnButton(self, evt):
+        btn = evt.GetEventObject()
+        if btn.GetLabel() == "Press Me":
+            btn.SetLabel("Pressed")
+        else:
+            btn.SetLabel("Press Me")
 
 
 
@@ -112,7 +134,7 @@ class TestPanel(wx.Panel):
 
 
     def OnShowPopup(self, evt):
-        win = TestPopup(self, wx.SIMPLE_BORDER)
+        win = TestPopup(self.GetTopLevelParent(), wx.SIMPLE_BORDER)
         #win = TestPopupWithListbox(self, wx.SIMPLE_BORDER, self.log)
 
         # Show the popup right below or above the button
