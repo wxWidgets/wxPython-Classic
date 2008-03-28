@@ -447,7 +447,7 @@ equal to -1.
     ========================  ======================================
     wx.SIZE_AUTO              A -1 indicates that a class-specific
                               default should be used.
-    wx.SIZE_USE_EXISTING      Axisting dimensions should be used if
+    wx.SIZE_USE_EXISTING      Existing dimensions should be used if
                               -1 values are supplied.
     wxSIZE_ALLOW_MINUS_ONE    Allow dimensions of -1 and less to be
                               interpreted as real dimensions, not
