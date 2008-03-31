@@ -1838,5 +1838,25 @@ public:
 };
 #endif
 
+
+
+#ifdef __WXGTK__
+%{
+#include <wx/gtk/gnome/gprint.h>
+%}
+
+class wxGnomePrintDC: public wxDC
+{
+public:
+    wxGnomePrintDC( const wxPrintData& data );
+
+    static void SetResolution(int ppi);
+    static int GetResolution();
+};
+#endif
+
+
+
+
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
