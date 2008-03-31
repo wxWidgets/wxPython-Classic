@@ -17012,7 +17012,9 @@ SWIGINTERN PyObject *_wrap_Image_Rescale(PyObject *SWIGUNUSEDPARM(self), PyObjec
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxImage, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -17092,7 +17094,9 @@ SWIGINTERN PyObject *_wrap_Image_Resize(PyObject *SWIGUNUSEDPARM(self), PyObject
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxImage, 0 |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;

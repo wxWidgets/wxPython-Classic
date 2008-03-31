@@ -4957,6 +4957,33 @@ class PrinterDC(DC):
         _gdi_.PrinterDC_swiginit(self,_gdi_.new_PrinterDC(*args, **kwargs))
 _gdi_.PrinterDC_swigregister(PrinterDC)
 
+class GnomePrintDC(DC):
+    """Proxy of C++ GnomePrintDC class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, wxPrintData data) -> GnomePrintDC"""
+        _gdi_.GnomePrintDC_swiginit(self,_gdi_.new_GnomePrintDC(*args, **kwargs))
+    def SetResolution(*args, **kwargs):
+        """SetResolution(int ppi)"""
+        return _gdi_.GnomePrintDC_SetResolution(*args, **kwargs)
+
+    SetResolution = staticmethod(SetResolution)
+    def GetResolution(*args, **kwargs):
+        """GetResolution() -> int"""
+        return _gdi_.GnomePrintDC_GetResolution(*args, **kwargs)
+
+    GetResolution = staticmethod(GetResolution)
+_gdi_.GnomePrintDC_swigregister(GnomePrintDC)
+
+def GnomePrintDC_SetResolution(*args, **kwargs):
+  """GnomePrintDC_SetResolution(int ppi)"""
+  return _gdi_.GnomePrintDC_SetResolution(*args, **kwargs)
+
+def GnomePrintDC_GetResolution(*args):
+  """GnomePrintDC_GetResolution() -> int"""
+  return _gdi_.GnomePrintDC_GetResolution(*args)
+
 #---------------------------------------------------------------------------
 
 class GraphicsObject(_core.Object):

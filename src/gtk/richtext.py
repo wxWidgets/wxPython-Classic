@@ -821,9 +821,13 @@ class RichTextObject(_core.Object):
         """CanMerge(self, RichTextObject object) -> bool"""
         return _richtext.RichTextObject_CanMerge(*args, **kwargs)
 
-    def Merge(*args, **kwargs):
+    def Merge(self, obj):
         """Merge(self, RichTextObject object) -> bool"""
-        return _richtext.RichTextObject_Merge(*args, **kwargs)
+        val = _richtext.RichTextObject_Merge(self, obj)
+        if val:
+            obj.this.own(True)
+        return val
+
 
     def Dump(*args, **kwargs):
         """Dump(self) -> String"""
