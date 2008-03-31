@@ -13,7 +13,7 @@ PROGRAM = embedded
 OBJECTS = $(PROGRAM).o
 
 WX_CFG = wx-config
-PYVER = 2.4
+PYVER = 2.5
 
 EXTRAINC=-I../../include -I/usr/include/python$(PYVER)
 EXTRALIB=-L/usr/lib/python$(PYVER)/config -lpython$(PYVER)

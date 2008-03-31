@@ -162,7 +162,8 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
     // And get a panel from Python
     wxWindow* p2 = DoPythonStuff(sp);
 
-    sp->SplitHorizontally(p1, p2, GetClientSize().y/4);
+    if (p2)
+        sp->SplitHorizontally(p1, p2, GetClientSize().y/4);
 }
 
 void MyFrame::OnExit(wxCommandEvent& event)
