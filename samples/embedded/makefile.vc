@@ -6,8 +6,8 @@
 
 
 WXDIR = $(WXWIN)
-PYTHONDIR = c:\tools\Python24
-VER = 26d
+PYTHONDIR = c:\tools\Python25
+VER = 28d
 
 INCLUDES = -I$(WXDIR)\lib\vc_dll\mswd -I$(WXDIR)\include -I$(WXDIR)\wxPython\include -I$(PYTHONDIR)\include -I$(PYTHONDIR)\PC
 CXXFLAGS = /c /nologo /Od /MDd /W3 /GX /Z7 /D_DEBUG -DWIN32 -D_WINDOWS -D__WXMSW__ -DWXUSINGDLL=1 -DWXP_USE_THREAD=1 -UNDEBUG -D__WXDEBUG__ /Gy
