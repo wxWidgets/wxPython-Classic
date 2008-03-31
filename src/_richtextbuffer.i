@@ -626,6 +626,14 @@ class. (This class hasn't been implemented yet!)", "");
 }
 
 
+// Typemap to use wxRTTI to return a proxy object whose type matches the real
+// type of the C++ pointer.  NOTE: It's not a true OOR like can be done for
+// wxWindow pointers, but at least the type is corerct.
+%typemap(out) wxRichTextObject* {
+    $result = wxPyMake_wxObject($1, (bool)$owner);
+}
+
+
 class wxRichTextObject: public wxObject
 {
 public:
@@ -667,6 +675,7 @@ public:
 
     /// Do a split, returning an object containing the second part, and setting
     /// the first part in 'this'.
+    %newobject DoSplit;
     virtual wxRichTextObject* DoSplit(long pos);
 
     /// Calculate range. By default, guess that the object is 1 unit long.
@@ -686,6 +695,14 @@ public:
 
     /// Returns true if this object merged itself with the given one.
     /// The calling code will then delete the given object.
+    %feature("shadow") Merge %{
+        def Merge(self, obj):
+            """Merge(self, RichTextObject object) -> bool"""
+            val = _richtext.RichTextObject_Merge(self, obj)
+            if val:
+                obj.this.own(True)
+            return val
+    %}
     virtual bool Merge(wxRichTextObject* object);
 
     /// Dump to output stream for debugging
@@ -767,6 +784,7 @@ public:
 // Operations
 
     /// Clone the object
+    %newobject Clone;  
     virtual wxRichTextObject* Clone() const;
 
     /// Copy
