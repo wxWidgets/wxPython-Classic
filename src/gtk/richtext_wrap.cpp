@@ -4392,7 +4392,9 @@ SWIGINTERN PyObject *_wrap_RichTextObject_DoSplit(PyObject *SWIGUNUSEDPARM(self)
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextObject, 0 |  0 );
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)SWIG_POINTER_OWN);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -5014,7 +5016,9 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetParent(PyObject *SWIGUNUSEDPARM(sel
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextObject, 0 |  0 );
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)0);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -5458,7 +5462,9 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Clone(PyObject *SWIGUNUSEDPARM(self), 
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextObject, 0 |  0 );
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)SWIG_POINTER_OWN);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -5704,7 +5710,9 @@ SWIGINTERN PyObject *_wrap_RichTextObjectList_iterator_next(PyObject *SWIGUNUSED
     result = (wxRichTextObject *)(arg1)->next();
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextObject, 0 |  0 );
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)0);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -5802,7 +5810,9 @@ SWIGINTERN PyObject *_wrap_RichTextObjectList___getitem__(PyObject *SWIGUNUSEDPA
     result = (wxRichTextObject *)wxRichTextObjectList___getitem__(arg1,arg2);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextObject, 0 |  0 );
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)0);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -6037,7 +6047,9 @@ SWIGINTERN PyObject *_wrap_RichTextCompositeObject_GetChild(PyObject *SWIGUNUSED
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextObject, 0 |  0 );
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)0);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -7136,7 +7148,9 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetLeafObjectAtPosition(Py
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextObject, 0 |  0 );
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)0);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -9707,7 +9721,9 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_SplitAt(PyObject *SWIGUNUSEDPARM(se
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextObject, 0 |  0 );
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)0);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -9975,7 +9991,9 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_FindObjectAtPosition(PyObject *SWIG
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextObject, 0 |  0 );
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)0);
+  }
   return resultobj;
 fail:
   return NULL;

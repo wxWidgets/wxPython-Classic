@@ -295,7 +295,7 @@ class PyDataViewModelNotifier(DataViewModelNotifier):
         class instead of `DataViewModelNotifier`.
         """
         _dataview.PyDataViewModelNotifier_swiginit(self,_dataview.new_PyDataViewModelNotifier(*args, **kwargs))
-        self._setOORInfo(self);PyDataViewModelNotifier._setCallbackInfo(self, self, PyDataViewModelNotifier)
+        PyDataViewModelNotifier._setCallbackInfo(self, self, PyDataViewModelNotifier)
 
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
@@ -637,7 +637,7 @@ class PyDataViewModel(DataViewModel):
         class instead of `DataViewModel`.
         """
         _dataview.PyDataViewModel_swiginit(self,_dataview.new_PyDataViewModel(*args, **kwargs))
-        self._setOORInfo(self);PyDataViewModel._setCallbackInfo(self, self, PyDataViewModel)
+        PyDataViewModel._setCallbackInfo(self, self, PyDataViewModel)
 
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
@@ -797,7 +797,7 @@ class PyDataViewIndexListModel(DataViewIndexListModel):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self) -> PyDataViewIndexListModel
+        __init__(self, unsigned int initial_size=0) -> PyDataViewIndexListModel
 
         This class is a version of `DataViewIndexListModel` that has been
         engineered to know how to reflect the C++ virtual method calls to
@@ -805,7 +805,7 @@ class PyDataViewIndexListModel(DataViewIndexListModel):
         class instead of `DataViewIndexListModel`.
         """
         _dataview.PyDataViewIndexListModel_swiginit(self,_dataview.new_PyDataViewIndexListModel(*args, **kwargs))
-        self._setOORInfo(self);PyDataViewIndexListModel._setCallbackInfo(self, self, PyDataViewIndexListModel)
+        PyDataViewIndexListModel._setCallbackInfo(self, self, PyDataViewIndexListModel)
 
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
@@ -1308,8 +1308,8 @@ class DataViewCtrl(_core.Control):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, Window parent, int id, Point pos=DefaultPosition, Size size=DefaultSize, 
-            long style=0, Validator validator=DefaultValidator) -> DataViewCtrl
+        __init__(self, Window parent, int id=ID_ANY, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=0, Validator validator=DefaultValidator) -> DataViewCtrl
         """
         _dataview.DataViewCtrl_swiginit(self,_dataview.new_DataViewCtrl(*args, **kwargs))
         self._setOORInfo(self)
@@ -1322,6 +1322,7 @@ class DataViewCtrl(_core.Control):
         """GetModel(self) -> DataViewModel"""
         return _dataview.DataViewCtrl_GetModel(*args, **kwargs)
 
+    SetModel = AssociateModel 
     def PrependTextColumn(*args, **kwargs):
         """
         PrependTextColumn(self, PyObject label_or_bitmap, unsigned int model_column, 
@@ -1526,6 +1527,12 @@ class DataViewCtrl(_core.Control):
         """GetItemRect(self, DataViewItem item, DataViewColumn column=None) -> Rect"""
         return _dataview.DataViewCtrl_GetItemRect(*args, **kwargs)
 
+    Model = property(GetModel,SetModel) 
+    ColumnCount = property(GetColumnCount) 
+    ExpanderColumn = property(GetExpanderColumn,SetExpanderColumn) 
+    SortingColumn = property(GetSortingColumn) 
+    Indent = property(GetIndent,SetIndent) 
+    Selection = property(GetSelection) 
 _dataview.DataViewCtrl_swigregister(DataViewCtrl)
 
 def PreDataViewCtrl(*args, **kwargs):

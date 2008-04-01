@@ -2843,6 +2843,25 @@ SWIG_From_int  (int value)
     }
 
 
+#define PYCALLBACK_UINT_DVIDVIA_const(PCLASS, CBNAME)                           \
+    unsigned int CBNAME(const wxDataViewItem &a, wxDataViewItemArray &b) const { \
+        unsigned int rval;                                                      \
+        bool found;                                                             \
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
+            PyObject* ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
+            PyObject* bo = wxPyConstructObject((void*)&b, wxT("wxDataViewItemArray"), 0); \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", ao, bo)); \
+            Py_DECREF(ao);                                                      \
+            Py_DECREF(bo);                                                      \
+        }                                                                       \
+        wxPyEndBlockThreads(blocked);                                           \
+        if (! found)                                                            \
+            rval = PCLASS::CBNAME(a, b);                                        \
+        return rval;                                                            \
+    }
+
+
 #define PYCALLBACK_BOOL_DVIA(PCLASS, CBNAME)                                    \
     bool CBNAME(const wxDataViewItemArray &a) {                                 \
         bool rval = false;                                                      \
@@ -3003,6 +3022,30 @@ SWIG_From_int  (int value)
     }
 
 
+#define PYCALLBACK_DVI_DVI_const(PCLASS, CBNAME)                                \
+    wxDataViewItem CBNAME(const wxDataViewItem &a) const {                      \
+        wxDataViewItem rval;                                                    \
+        bool found;                                                             \
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
+            PyObject* ro;                                                       \
+            wxDataViewItem* ptr;                                                \
+            PyObject* ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(O)", ao));   \
+            Py_DECREF(ao);                                                      \
+            if (ro) {                                                           \
+                if (wxPyConvertSwigPtr(ro, (void**)&ptr, wxT("wxDataViewItem")))  \
+                    rval = *ptr;                                                \
+                Py_DECREF(ro);                                                  \
+            }                                                                   \
+        }                                                                       \
+        wxPyEndBlockThreads(blocked);                                           \
+        if (! found)                                                            \
+            rval = PCLASS::CBNAME(a);                                           \
+        return rval;                                                            \
+    }
+
+
 #define PYCALLBACK_INT_DVIDVIINTBOOL(PCLASS, CBNAME)                            \
     int CBNAME(const wxDataViewItem &a, const wxDataViewItem &b,                \
                unsigned int c, bool d ) {                                       \
@@ -3010,8 +3053,6 @@ SWIG_From_int  (int value)
         bool found;                                                             \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            PyObject* ro;                                                       \
-            wxDataViewItem* ptr;                                                \
             PyObject* ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
             PyObject* bo = wxPyConstructObject((void*)&b, wxT("wxDataViewItem"), 0); \
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOii)", ao, bo, c, d)); \
@@ -3404,15 +3445,16 @@ SWIGINTERN wxVariant wxDataViewIndexListModel_GetValue(wxDataViewIndexListModel 
 class wxPyDataViewIndexListModel : public wxDataViewIndexListModel
 {
 public:
-    wxPyDataViewIndexListModel() {}
+    wxPyDataViewIndexListModel( unsigned int initial_size = 0)
+        : wxDataViewIndexListModel(initial_size) {}
 
     PYCALLBACK_UINT__pure_const(wxDataViewIndexListModel, GetColumnCount);
     PYCALLBACK_STRING_UINT_pure_const(wxDataViewIndexListModel, GetColumnType);
 
-    PYCALLBACK_DVI_DVI_pure_const(wxDataViewIndexListModel, GetParent);
-    PYCALLBACK_BOOL_DVI_pure_const(wxDataViewIndexListModel, IsContainer);
+    PYCALLBACK_DVI_DVI_const(wxDataViewIndexListModel, GetParent);
+    PYCALLBACK_BOOL_DVI_const(wxDataViewIndexListModel, IsContainer);
     PYCALLBACK_BOOL_DVI_const(wxDataViewIndexListModel, HasContainerColumns);
-    PYCALLBACK_UINT_DVIDVIA_pure_const(wxDataViewIndexListModel, GetChildren);
+    PYCALLBACK_UINT_DVIDVIA_const(wxDataViewIndexListModel, GetChildren);
 
     PYCALLBACK_BOOL_DVI(wxDataViewIndexListModel, IsDraggable);
     // GetDragDataSize
@@ -3451,7 +3493,7 @@ public:
         bool rval = false;
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
+        if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
             PyObject* vo = wxVariant_out_helper(variant);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oii)", vo, row, col));
             Py_DECREF(vo);
@@ -6779,14 +6821,28 @@ SWIGINTERN PyObject *DataViewIndexListModel_swigregister(PyObject *SWIGUNUSEDPAR
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_new_PyDataViewIndexListModel(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_PyDataViewIndexListModel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
+  unsigned int arg1 = (unsigned int) 0 ;
   wxPyDataViewIndexListModel *result = 0 ;
+  unsigned int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "initial_size", NULL 
+  };
   
-  if (!SWIG_Python_UnpackTuple(args,"new_PyDataViewIndexListModel",0,0,0)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|O:new_PyDataViewIndexListModel",kwnames,&obj0)) SWIG_fail;
+  if (obj0) {
+    ecode1 = SWIG_AsVal_unsigned_SS_int(obj0, &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_PyDataViewIndexListModel" "', expected argument " "1"" of type '" "unsigned int""'");
+    } 
+    arg1 = static_cast< unsigned int >(val1);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPyDataViewIndexListModel *)new wxPyDataViewIndexListModel();
+    result = (wxPyDataViewIndexListModel *)new wxPyDataViewIndexListModel(arg1);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9982,7 +10038,7 @@ SWIGINTERN PyObject *DataViewColumn_swiginit(PyObject *SWIGUNUSEDPARM(self), PyO
 SWIGINTERN PyObject *_wrap_new_DataViewCtrl(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
-  int arg2 ;
+  int arg2 = (int) wxID_ANY ;
   wxPoint const &arg3_defvalue = wxDefaultPosition ;
   wxPoint *arg3 = (wxPoint *) &arg3_defvalue ;
   wxSize const &arg4_defvalue = wxDefaultSize ;
@@ -10011,17 +10067,19 @@ SWIGINTERN PyObject *_wrap_new_DataViewCtrl(PyObject *SWIGUNUSEDPARM(self), PyOb
     (char *) "parent",(char *) "id",(char *) "pos",(char *) "size",(char *) "style",(char *) "validator", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOOO:new_DataViewCtrl",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|OOOOO:new_DataViewCtrl",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_DataViewCtrl" "', expected argument " "1"" of type '" "wxWindow *""'"); 
   }
   arg1 = reinterpret_cast< wxWindow * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_DataViewCtrl" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_DataViewCtrl" "', expected argument " "2"" of type '" "int""'");
+    } 
+    arg2 = static_cast< int >(val2);
+  }
   if (obj2) {
     {
       arg3 = &temp3;
@@ -12703,7 +12761,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewIndexListModel_GetItem", (PyCFunction) _wrap_DataViewIndexListModel_GetItem, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewIndexListModel_GetLastIndex", (PyCFunction)_wrap_DataViewIndexListModel_GetLastIndex, METH_O, NULL},
 	 { (char *)"DataViewIndexListModel_swigregister", DataViewIndexListModel_swigregister, METH_VARARGS, NULL},
-	 { (char *)"new_PyDataViewIndexListModel", (PyCFunction)_wrap_new_PyDataViewIndexListModel, METH_NOARGS, NULL},
+	 { (char *)"new_PyDataViewIndexListModel", (PyCFunction) _wrap_new_PyDataViewIndexListModel, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyDataViewIndexListModel__setCallbackInfo", (PyCFunction) _wrap_PyDataViewIndexListModel__setCallbackInfo, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyDataViewIndexListModel_swigregister", PyDataViewIndexListModel_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PyDataViewIndexListModel_swiginit", PyDataViewIndexListModel_swiginit, METH_VARARGS, NULL},

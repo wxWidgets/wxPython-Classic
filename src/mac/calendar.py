@@ -161,6 +161,16 @@ class CalendarDateAttr(object):
         """GetBorder(self) -> int"""
         return _calendar.CalendarDateAttr_GetBorder(*args, **kwargs)
 
+    def GetMark(*args, **kwargs):
+        """GetMark() -> CalendarDateAttr"""
+        return _calendar.CalendarDateAttr_GetMark(*args, **kwargs)
+
+    GetMark = staticmethod(GetMark)
+    def SetMark(*args, **kwargs):
+        """SetMark(CalendarDateAttr m)"""
+        return _calendar.CalendarDateAttr_SetMark(*args, **kwargs)
+
+    SetMark = staticmethod(SetMark)
     BackgroundColour = property(GetBackgroundColour,SetBackgroundColour,doc="See `GetBackgroundColour` and `SetBackgroundColour`") 
     Border = property(GetBorder,SetBorder,doc="See `GetBorder` and `SetBorder`") 
     BorderColour = property(GetBorderColour,SetBorderColour,doc="See `GetBorderColour` and `SetBorderColour`") 
@@ -168,12 +178,20 @@ class CalendarDateAttr(object):
     TextColour = property(GetTextColour,SetTextColour,doc="See `GetTextColour` and `SetTextColour`") 
 _calendar.CalendarDateAttr_swigregister(CalendarDateAttr)
 
+def CalendarDateAttr_GetMark(*args):
+  """CalendarDateAttr_GetMark() -> CalendarDateAttr"""
+  return _calendar.CalendarDateAttr_GetMark(*args)
+
+def CalendarDateAttr_SetMark(*args, **kwargs):
+  """CalendarDateAttr_SetMark(CalendarDateAttr m)"""
+  return _calendar.CalendarDateAttr_SetMark(*args, **kwargs)
+
 class CalendarEvent(_core.DateEvent):
     """Proxy of C++ CalendarEvent class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, CalendarCtrl cal, EventType type) -> CalendarEvent"""
+        """__init__(self, Window win, DateTime dt, EventType type) -> CalendarEvent"""
         _calendar.CalendarEvent_swiginit(self,_calendar.new_CalendarEvent(*args, **kwargs))
     def SetWeekDay(*args, **kwargs):
         """SetWeekDay(self, int wd)"""
@@ -196,16 +214,19 @@ _calendar.CalendarEvent_swigregister(CalendarEvent)
 
 wxEVT_CALENDAR_DOUBLECLICKED = _calendar.wxEVT_CALENDAR_DOUBLECLICKED
 wxEVT_CALENDAR_SEL_CHANGED = _calendar.wxEVT_CALENDAR_SEL_CHANGED
+wxEVT_CALENDAR_WEEKDAY_CLICKED = _calendar.wxEVT_CALENDAR_WEEKDAY_CLICKED
+wxEVT_CALENDAR_PAGE_CHANGED = _calendar.wxEVT_CALENDAR_PAGE_CHANGED
 wxEVT_CALENDAR_DAY_CHANGED = _calendar.wxEVT_CALENDAR_DAY_CHANGED
 wxEVT_CALENDAR_MONTH_CHANGED = _calendar.wxEVT_CALENDAR_MONTH_CHANGED
 wxEVT_CALENDAR_YEAR_CHANGED = _calendar.wxEVT_CALENDAR_YEAR_CHANGED
-wxEVT_CALENDAR_WEEKDAY_CLICKED = _calendar.wxEVT_CALENDAR_WEEKDAY_CLICKED
 EVT_CALENDAR =                 wx.PyEventBinder( wxEVT_CALENDAR_DOUBLECLICKED, 1)
 EVT_CALENDAR_SEL_CHANGED =     wx.PyEventBinder( wxEVT_CALENDAR_SEL_CHANGED, 1)
+EVT_CALENDAR_WEEKDAY_CLICKED = wx.PyEventBinder( wxEVT_CALENDAR_WEEKDAY_CLICKED, 1)
+EVT_CALENDAR_PAGE_CHANGED =    wx.PyEventBinder( wxEVT_CALENDAR_PAGE_CHANGED, 1)
+    
 EVT_CALENDAR_DAY =             wx.PyEventBinder( wxEVT_CALENDAR_DAY_CHANGED, 1)
 EVT_CALENDAR_MONTH =           wx.PyEventBinder( wxEVT_CALENDAR_MONTH_CHANGED, 1)
 EVT_CALENDAR_YEAR =            wx.PyEventBinder( wxEVT_CALENDAR_YEAR_CHANGED, 1)
-EVT_CALENDAR_WEEKDAY_CLICKED = wx.PyEventBinder( wxEVT_CALENDAR_WEEKDAY_CLICKED, 1)
 
 class CalendarCtrl(_core.Control):
     """
@@ -260,9 +281,17 @@ class CalendarCtrl(_core.Control):
         """
         return _calendar.CalendarCtrl_Create(*args, **kwargs)
 
+    def AllowMonthChange(*args, **kwargs):
+        """AllowMonthChange(self) -> bool"""
+        return _calendar.CalendarCtrl_AllowMonthChange(*args, **kwargs)
+
+    def GenerateEvent(*args, **kwargs):
+        """GenerateEvent(self, EventType type)"""
+        return _calendar.CalendarCtrl_GenerateEvent(*args, **kwargs)
+
     def SetDate(*args, **kwargs):
         """
-        SetDate(self, DateTime date)
+        SetDate(self, DateTime date) -> bool
 
         Sets the current date.
         """

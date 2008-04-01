@@ -3237,7 +3237,7 @@ void wxPyHtmlListBox::OnLinkClicked(size_t n,
     }
     wxPyEndBlockThreads(blocked);
     if (! found)
-        wxPyHtmlListBox::OnLinkClicked(n, link);
+        wxHtmlListBox::OnLinkClicked(n, link);
 }
  
 
