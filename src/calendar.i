@@ -22,6 +22,7 @@
 #include "wx/wxPython/pyclasses.h"
 
 #include <wx/calctrl.h>
+#include <wx/generic/calctrlg.h>
 %}
 
 //----------------------------------------------------------------------
@@ -104,6 +105,11 @@ public:
     wxFont GetFont() const;
     wxCalendarDateBorder GetBorder() const;
 
+    // get or change the "mark" attribute, i.e. the one used for the items
+    // marked with wxCalendarCtrl::Mark()
+    static const wxCalendarDateAttr& GetMark();
+    static void SetMark(wxCalendarDateAttr const& m);
+    
     %property(BackgroundColour, GetBackgroundColour, SetBackgroundColour, doc="See `GetBackgroundColour` and `SetBackgroundColour`");
     %property(Border, GetBorder, SetBorder, doc="See `GetBorder` and `SetBorder`");
     %property(BorderColour, GetBorderColour, SetBorderColour, doc="See `GetBorderColour` and `SetBorderColour`");
@@ -118,7 +124,7 @@ class wxCalendarCtrl;
 class wxCalendarEvent : public wxDateEvent
 {
 public:
-    wxCalendarEvent(wxCalendarCtrl *cal, wxEventType type);
+    wxCalendarEvent(wxWindow *win, const wxDateTime& dt, wxEventType type);
 
     void SetWeekDay(const wxDateTime::WeekDay wd);
     wxDateTime::WeekDay GetWeekDay() const;
@@ -139,19 +145,24 @@ public:
 
 %constant wxEventType wxEVT_CALENDAR_DOUBLECLICKED;
 %constant wxEventType wxEVT_CALENDAR_SEL_CHANGED;
+%constant wxEventType wxEVT_CALENDAR_WEEKDAY_CLICKED;
+%constant wxEventType wxEVT_CALENDAR_PAGE_CHANGED;
+
 %constant wxEventType wxEVT_CALENDAR_DAY_CHANGED;
 %constant wxEventType wxEVT_CALENDAR_MONTH_CHANGED;
 %constant wxEventType wxEVT_CALENDAR_YEAR_CHANGED;
-%constant wxEventType wxEVT_CALENDAR_WEEKDAY_CLICKED;
+
 
 
 %pythoncode {
 EVT_CALENDAR =                 wx.PyEventBinder( wxEVT_CALENDAR_DOUBLECLICKED, 1)
 EVT_CALENDAR_SEL_CHANGED =     wx.PyEventBinder( wxEVT_CALENDAR_SEL_CHANGED, 1)
+EVT_CALENDAR_WEEKDAY_CLICKED = wx.PyEventBinder( wxEVT_CALENDAR_WEEKDAY_CLICKED, 1)
+EVT_CALENDAR_PAGE_CHANGED =    wx.PyEventBinder( wxEVT_CALENDAR_PAGE_CHANGED, 1)
+    
 EVT_CALENDAR_DAY =             wx.PyEventBinder( wxEVT_CALENDAR_DAY_CHANGED, 1)
 EVT_CALENDAR_MONTH =           wx.PyEventBinder( wxEVT_CALENDAR_MONTH_CHANGED, 1)
 EVT_CALENDAR_YEAR =            wx.PyEventBinder( wxEVT_CALENDAR_YEAR_CHANGED, 1)
-EVT_CALENDAR_WEEKDAY_CLICKED = wx.PyEventBinder( wxEVT_CALENDAR_WEEKDAY_CLICKED, 1)
 }
 
 
@@ -160,7 +171,9 @@ EVT_CALENDAR_WEEKDAY_CLICKED = wx.PyEventBinder( wxEVT_CALENDAR_WEEKDAY_CLICKED,
 MAKE_CONST_WXSTRING(CalendarNameStr);
 
 
-DocStr(wxCalendarCtrl,
+%rename (CalendarCtrl) wxGenericCalendarCtrl;
+
+DocStr(wxGenericCalendarCtrl,
 "The calendar control allows the user to pick a date interactively.
 
 The CalendarCtrl displays a window containing several parts: the
@@ -226,17 +239,18 @@ event.
     
 ");       
 
-       
-MustHaveApp(wxCalendarCtrl);
 
-class wxCalendarCtrl : public wxControl
+       
+MustHaveApp(wxGenericCalendarCtrl);
+
+class wxGenericCalendarCtrl : public wxControl
 {
 public:
-    %pythonAppend wxCalendarCtrl      "self._setOORInfo(self)"
-    %pythonAppend wxCalendarCtrl()    ""
+    %pythonAppend wxGenericCalendarCtrl      "self._setOORInfo(self)"
+    %pythonAppend wxGenericCalendarCtrl()    ""
 
     DocCtorStr(
-        wxCalendarCtrl(wxWindow *parent,
+        wxGenericCalendarCtrl(wxWindow *parent,
                        wxWindowID id=-1,
                        const wxDateTime& date = wxDefaultDateTime,
                        const wxPoint& pos = wxDefaultPosition,
@@ -246,7 +260,7 @@ public:
         "Create and show a calendar control.", "");
 
     DocCtorStrName(
-        wxCalendarCtrl(),
+        wxGenericCalendarCtrl(),
         "Precreate a CalendarCtrl for 2-phase creation.", "",
         PreCalendarCtrl);
 
@@ -262,9 +276,16 @@ public:
 creation.", "");
     
 
+    // do we allow changing the month/year?
+    bool AllowMonthChange() const;
 
+
+    // generate the given calendar event(s)
+    void GenerateEvent(wxEventType type);
+
+    
     DocDeclStr(
-        void, SetDate(const wxDateTime& date),
+        bool, SetDate(const wxDateTime& date),
         "Sets the current date.", "");
 
     DocDeclStr(
@@ -293,8 +314,6 @@ creation.", "");
         bool, SetDateRange(const wxDateTime& lowerdate = wxDefaultDateTime,
                            const wxDateTime& upperdate = wxDefaultDateTime),
         "set the range in which selection can occur", "");
-
-
     
 
     DocDeclStr(
