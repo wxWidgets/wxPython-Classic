@@ -183,6 +183,25 @@ enum {
     }
 
 
+#define PYCALLBACK_UINT_DVIDVIA_const(PCLASS, CBNAME)                           \
+    unsigned int CBNAME(const wxDataViewItem &a, wxDataViewItemArray &b) const { \
+        unsigned int rval;                                                      \
+        bool found;                                                             \
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
+            PyObject* ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
+            PyObject* bo = wxPyConstructObject((void*)&b, wxT("wxDataViewItemArray"), 0); \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", ao, bo)); \
+            Py_DECREF(ao);                                                      \
+            Py_DECREF(bo);                                                      \
+        }                                                                       \
+        wxPyEndBlockThreads(blocked);                                           \
+        if (! found)                                                            \
+            rval = PCLASS::CBNAME(a, b);                                        \
+        return rval;                                                            \
+    }
+
+
 #define PYCALLBACK_BOOL_DVIA(PCLASS, CBNAME)                                    \
     bool CBNAME(const wxDataViewItemArray &a) {                                 \
         bool rval = false;                                                      \
@@ -343,6 +362,30 @@ enum {
     }
 
 
+#define PYCALLBACK_DVI_DVI_const(PCLASS, CBNAME)                                \
+    wxDataViewItem CBNAME(const wxDataViewItem &a) const {                      \
+        wxDataViewItem rval;                                                    \
+        bool found;                                                             \
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
+            PyObject* ro;                                                       \
+            wxDataViewItem* ptr;                                                \
+            PyObject* ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(O)", ao));   \
+            Py_DECREF(ao);                                                      \
+            if (ro) {                                                           \
+                if (wxPyConvertSwigPtr(ro, (void**)&ptr, wxT("wxDataViewItem")))  \
+                    rval = *ptr;                                                \
+                Py_DECREF(ro);                                                  \
+            }                                                                   \
+        }                                                                       \
+        wxPyEndBlockThreads(blocked);                                           \
+        if (! found)                                                            \
+            rval = PCLASS::CBNAME(a);                                           \
+        return rval;                                                            \
+    }
+
+
 #define PYCALLBACK_INT_DVIDVIINTBOOL(PCLASS, CBNAME)                            \
     int CBNAME(const wxDataViewItem &a, const wxDataViewItem &b,                \
                unsigned int c, bool d ) {                                       \
@@ -350,8 +393,6 @@ enum {
         bool found;                                                             \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            PyObject* ro;                                                       \
-            wxDataViewItem* ptr;                                                \
             PyObject* ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
             PyObject* bo = wxPyConstructObject((void*)&b, wxT("wxDataViewItem"), 0); \
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOii)", ao, bo, c, d)); \
@@ -621,7 +662,7 @@ class instead of `DataViewModelNotifier`.", "");
 
 class wxPyDataViewModelNotifier : public wxDataViewModelNotifier {
 public:
-    %pythonAppend wxPyDataViewModelNotifier  "self._setOORInfo(self);"  setCallbackInfo(PyDataViewModelNotifier);
+    %pythonAppend wxPyDataViewModelNotifier  setCallbackInfo(PyDataViewModelNotifier);
     wxPyDataViewModelNotifier();
     void _setCallbackInfo(PyObject* self, PyObject* _class);
 };
@@ -990,7 +1031,7 @@ class instead of `DataViewModel`.", "");
 class wxPyDataViewModel: public wxDataViewModel
 {
 public:
-    %pythonAppend wxPyDataViewModel  "self._setOORInfo(self);"  setCallbackInfo(PyDataViewModel);
+    %pythonAppend wxPyDataViewModel   setCallbackInfo(PyDataViewModel);
     wxPyDataViewModel();
     void _setCallbackInfo(PyObject* self, PyObject* _class);
 };
@@ -1112,15 +1153,16 @@ useful after major changes when calling methods like `RowChanged` or
 class wxPyDataViewIndexListModel : public wxDataViewIndexListModel
 {
 public:
-    wxPyDataViewIndexListModel() {}
+    wxPyDataViewIndexListModel( unsigned int initial_size = 0)
+        : wxDataViewIndexListModel(initial_size) {}
 
     PYCALLBACK_UINT__pure_const(wxDataViewIndexListModel, GetColumnCount);
     PYCALLBACK_STRING_UINT_pure_const(wxDataViewIndexListModel, GetColumnType);
 
-    PYCALLBACK_DVI_DVI_pure_const(wxDataViewIndexListModel, GetParent);
-    PYCALLBACK_BOOL_DVI_pure_const(wxDataViewIndexListModel, IsContainer);
+    PYCALLBACK_DVI_DVI_const(wxDataViewIndexListModel, GetParent);
+    PYCALLBACK_BOOL_DVI_const(wxDataViewIndexListModel, IsContainer);
     PYCALLBACK_BOOL_DVI_const(wxDataViewIndexListModel, HasContainerColumns);
-    PYCALLBACK_UINT_DVIDVIA_pure_const(wxDataViewIndexListModel, GetChildren);
+    PYCALLBACK_UINT_DVIDVIA_const(wxDataViewIndexListModel, GetChildren);
 
     PYCALLBACK_BOOL_DVI(wxDataViewIndexListModel, IsDraggable);
     // GetDragDataSize
@@ -1159,7 +1201,7 @@ public:
         bool rval = false;
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
+        if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
             PyObject* vo = wxVariant_out_helper(variant);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oii)", vo, row, col));
             Py_DECREF(vo);
@@ -1208,9 +1250,9 @@ class wxPyDataViewIndexListModel: public wxDataViewIndexListModel
 {
 public:
     %pythonAppend wxPyDataViewIndexListModel
-        "self._setOORInfo(self);"  setCallbackInfo(PyDataViewIndexListModel);
+         setCallbackInfo(PyDataViewIndexListModel);
 
-    wxPyDataViewIndexListModel();
+    wxPyDataViewIndexListModel(unsigned int initial_size = 0);
     void _setCallbackInfo(PyObject* self, PyObject* _class);
 };
 
@@ -1768,7 +1810,7 @@ public:
     %pythonAppend wxDataViewCtrl()       ""
     %typemap(out) wxDataViewCtrl*;       // turn off this typemap
 
-    wxDataViewCtrl(wxWindow *parent, wxWindowID id,
+    wxDataViewCtrl(wxWindow *parent, wxWindowID id=wxID_ANY,
                    const wxPoint& pos = wxDefaultPosition,
                    const wxSize& size = wxDefaultSize,
                    long style = 0,
@@ -1781,6 +1823,8 @@ public:
 
     virtual bool AssociateModel( wxDataViewModel *model );
     wxDataViewModel* GetModel();
+    %pythoncode { SetModel = AssociateModel }
+    
 
     // All these Prepend and Append convenience methods are overloaded
     // on the first parameter, which can be either a wxString or a
@@ -2010,6 +2054,14 @@ public:
                                 const wxDataViewColumn *column = NULL );
     virtual void HitTest( const wxPoint & point, wxDataViewItem &item, wxDataViewColumn* &column ) const;
     virtual wxRect GetItemRect( const wxDataViewItem & item, const wxDataViewColumn *column = NULL ) const;
+
+    
+    %property(Model, GetModel, SetModel);
+    %property(ColumnCount, GetColumnCount);
+    %property(ExpanderColumn, GetExpanderColumn, SetExpanderColumn);
+    %property(SortingColumn, GetSortingColumn);
+    %property(Indent, GetIndent, SetIndent);
+    %property(Selection, GetSelection);
 };
 
 //---------------------------------------------------------------------------
