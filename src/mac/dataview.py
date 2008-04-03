@@ -1294,6 +1294,20 @@ class DataViewColumn(_core.Object):
         """GetRenderer(self) -> DataViewRenderer"""
         return _dataview.DataViewColumn_GetRenderer(*args, **kwargs)
 
+    Title = property(GetTitle,SetTitle) 
+    Alignment = property(GetAlignment,SetAlignment) 
+    Width = property(GetWidth,SetWidth) 
+    MinWidth = property(GetMinWidth,SetMinWidth) 
+    Flags = property(GetFlags,SetFlags) 
+    Hidden = property(IsHidden,SetHidden) 
+    Reorderable = property(IsReorderable,SetReorderable) 
+    Resizeable = property(IsResizeable,SetResizeable) 
+    Sortable = property(IsSortable,SetSortable) 
+    SortOrderAscending = property(IsSortOrderAscending,SetSortOrder) 
+    Bitmap = property(GetBitmap,SetBitmap) 
+    ModelColumn = property(GetModelColumn) 
+    Owner = property(GetOwner,SetOwner) 
+    Renderer = property(GetRenderer) 
 _dataview.DataViewColumn_swigregister(DataViewColumn)
 
 DV_SINGLE = _dataview.DV_SINGLE
@@ -1322,7 +1336,6 @@ class DataViewCtrl(_core.Control):
         """GetModel(self) -> DataViewModel"""
         return _dataview.DataViewCtrl_GetModel(*args, **kwargs)
 
-    SetModel = AssociateModel 
     def PrependTextColumn(*args, **kwargs):
         """
         PrependTextColumn(self, PyObject label_or_bitmap, unsigned int model_column, 
@@ -1443,6 +1456,10 @@ class DataViewCtrl(_core.Control):
         """GetColumn(self, unsigned int pos) -> DataViewColumn"""
         return _dataview.DataViewCtrl_GetColumn(*args, **kwargs)
 
+    def GetColumns(self):
+        """Returns a list of column objects."""
+        return [self.GetColumn(i) for i in range(self.GetColumnCount())]
+
     def GetColumnPosition(*args, **kwargs):
         """GetColumnPosition(self, DataViewColumn column) -> int"""
         return _dataview.DataViewCtrl_GetColumnPosition(*args, **kwargs)
@@ -1527,8 +1544,9 @@ class DataViewCtrl(_core.Control):
         """GetItemRect(self, DataViewItem item, DataViewColumn column=None) -> Rect"""
         return _dataview.DataViewCtrl_GetItemRect(*args, **kwargs)
 
-    Model = property(GetModel,SetModel) 
+    Model = property(GetModel,AssociateModel) 
     ColumnCount = property(GetColumnCount) 
+    Columns = property(GetColumns) 
     ExpanderColumn = property(GetExpanderColumn,SetExpanderColumn) 
     SortingColumn = property(GetSortingColumn) 
     Indent = property(GetIndent,SetIndent) 

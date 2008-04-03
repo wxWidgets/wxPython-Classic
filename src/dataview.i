@@ -1554,7 +1554,7 @@ public:
         }
         else {
             PyErr_SetString(PyExc_NotImplementedError,
-              "The GetValue method should be implemented in derived class");
+              "The SetValue method should be implemented in derived class");
         }
         wxPyEndBlockThreads(blocked);
         return rval;
@@ -1782,6 +1782,21 @@ public:
     wxDataViewCtrl *GetOwner() const;
     wxDataViewRenderer* GetRenderer() const;
 
+    %property(Title, GetTitle, SetTitle);
+    %property(Alignment, GetAlignment, SetAlignment);
+    %property(Width, GetWidth, SetWidth);
+    %property(MinWidth, GetMinWidth, SetMinWidth);
+    %property(Flags, GetFlags, SetFlags);
+    %property(Hidden, IsHidden, SetHidden);
+    %property(Reorderable, IsReorderable, SetReorderable);
+    %property(Resizeable, IsResizeable, SetResizeable);
+    %property(Sortable, IsSortable, SetSortable);
+    %property(SortOrderAscending, IsSortOrderAscending, SetSortOrder);
+    %property(Bitmap, GetBitmap, SetBitmap);
+    %property(ModelColumn, GetModelColumn);
+    %property(Owner, GetOwner, SetOwner);
+    %property(Renderer, GetRenderer);
+
 };
 
 
@@ -1823,7 +1838,7 @@ public:
 
     virtual bool AssociateModel( wxDataViewModel *model );
     wxDataViewModel* GetModel();
-    %pythoncode { SetModel = AssociateModel }
+    //%pythoncode { SetModel = AssociateModel }
     
 
     // All these Prepend and Append convenience methods are overloaded
@@ -2024,8 +2039,13 @@ public:
 
     virtual unsigned int GetColumnCount() const;
     virtual wxDataViewColumn* GetColumn( unsigned int pos ) const;
+    %pythoncode {
+        def GetColumns(self):
+            """Returns a list of column objects."""
+            return [self.GetColumn(i) for i in range(self.GetColumnCount())]
+    }
+    
     virtual int GetColumnPosition( const wxDataViewColumn *column ) const;
-
     virtual bool DeleteColumn( wxDataViewColumn *column );
     virtual bool ClearColumns();
 
@@ -2056,8 +2076,9 @@ public:
     virtual wxRect GetItemRect( const wxDataViewItem & item, const wxDataViewColumn *column = NULL ) const;
 
     
-    %property(Model, GetModel, SetModel);
+    %property(Model, GetModel, AssociateModel);
     %property(ColumnCount, GetColumnCount);
+    %property(Columns, GetColumns);
     %property(ExpanderColumn, GetExpanderColumn, SetExpanderColumn);
     %property(SortingColumn, GetSortingColumn);
     %property(Indent, GetIndent, SetIndent);
@@ -2127,9 +2148,6 @@ EVT_DATAVIEW_COLUMN_REORDERED          = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 
 }
 
-//---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 

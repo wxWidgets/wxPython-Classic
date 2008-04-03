@@ -62,7 +62,7 @@ _treeList = [
         'RendererNative',
         'PlateButton',
         'SpinCtrlDouble',
-        'DVCSimple',
+        'DVC_IndexListModel',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -107,7 +107,7 @@ _treeList = [
         'CheckListBox',
         'Choice',
         'ComboBox',
-        'DVCSimple',
+        'DVC_IndexListModel',
         'Gauge',
         'Grid',
         'Grid_MegaExample',

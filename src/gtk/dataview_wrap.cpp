@@ -3588,7 +3588,7 @@ public:
         }
         else {
             PyErr_SetString(PyExc_NotImplementedError,
-              "The GetValue method should be implemented in derived class");
+              "The SetValue method should be implemented in derived class");
         }
         wxPyEndBlockThreads(blocked);
         return rval;
