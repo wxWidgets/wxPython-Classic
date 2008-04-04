@@ -76,12 +76,6 @@ public:
     // Get whether there's a sash in this position
     bool GetSashVisible(wxSashEdgePosition edge) const;
 
-//     // Set whether there's a border in this position
-//     void SetSashBorder(wxSashEdgePosition edge, bool border);
-
-//     // Get whether there's a border in this position
-//     bool HasBorder(wxSashEdgePosition edge) const;
-
     // Get border size
     int GetEdgeMargin(wxSashEdgePosition edge) const;
 
