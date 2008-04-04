@@ -1306,7 +1306,7 @@ class DataViewColumn(_core.Object):
     SortOrderAscending = property(IsSortOrderAscending,SetSortOrder) 
     Bitmap = property(GetBitmap,SetBitmap) 
     ModelColumn = property(GetModelColumn) 
-    Owner = property(GetOwner) 
+    Owner = property(GetOwner,SetOwner) 
     Renderer = property(GetRenderer) 
 _dataview.DataViewColumn_swigregister(DataViewColumn)
 
