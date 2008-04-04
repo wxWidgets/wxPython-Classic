@@ -113,6 +113,18 @@ You'll want to replace it with code like this::
     brush = wx.Brush(wx.MacThemeColour(kThemeBrushDialogBackgroundActive))
 
 
+wx.calendar:  A native implementation of the CalendarCtrl was added
+for the Windows and GTK ports, however the native classes tend to not
+implement all of the functionality that the old generic version of the
+contorl provides.  To be able to provide a way for you to work around
+issues related to this I've added wrappers for both the CalendarCtrl
+and also GenericCalendarCtrl, so if you depend on the ability to do
+things like set holidays or change the attributes of specific days in
+the calendar then please change your code to use the GenericCalendarCtrl 
+class instead.
+
+
+
 
 
 

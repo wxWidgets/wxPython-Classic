@@ -1,53 +1,95 @@
 
 import  wx
-import  wx.calendar
+import  wx.calendar as wxcal
 
 #----------------------------------------------------------------------
+
+description = """\
+This sample shows the wx.calendar.CalendarCtrl in a variety of styles
+and modes.  If this platform supports a native calendar widget then
+that is what is shown to the left.  However it may not support all of
+the features and attributes of the older wx calendar, so we now have
+the ability to explicitly use the generic widget via the
+GenericCalendarCtrl class, and that is what is used for the two
+calendars below.
+""".replace('\n', ' ')
+
 
 class TestPanel(wx.Panel):
     def __init__(self, parent, ID, log):
         wx.Panel.__init__(self, parent, ID)
         self.log = log
 
-        cal = wx.calendar.CalendarCtrl(self, -1, wx.DateTime_Now(), pos = (25,50),
-                             style = wx.calendar.CAL_SHOW_HOLIDAYS
-                             | wx.calendar.CAL_SUNDAY_FIRST
-                             | wx.calendar.CAL_SEQUENTIAL_MONTH_SELECTION
-                             )
-        self.cal = cal
-        self.Bind(wx.calendar.EVT_CALENDAR, self.OnCalSelected, id=cal.GetId())
+        native = wxcal.CalendarCtrl(self, -1, wx.DateTime.Now(),
+                                    style=wxcal.CAL_SEQUENTIAL_MONTH_SELECTION)
 
-        # Set up control to display a set of holidays:
-        self.Bind(wx.calendar.EVT_CALENDAR_MONTH, self.OnChangeMonth, cal)
+        txt = wx.StaticText(self, -1, description)
+        txt.Wrap(300)
+
+        cal = self.cal = wxcal.GenericCalendarCtrl(self, -1, wx.DateTime.Now(), 
+                             style = wxcal.CAL_SHOW_HOLIDAYS
+                             | wxcal.CAL_SUNDAY_FIRST
+                             | wxcal.CAL_SEQUENTIAL_MONTH_SELECTION
+                             )
+
+        cal2 = wxcal.GenericCalendarCtrl(self, -1, wx.DateTime.Now())
+
+
+        # Track a few holidays
         self.holidays = [(1,1), (10,31), (12,25) ]    # (these don't move around)
         self.OnChangeMonth()
 
-        cal2 = wx.calendar.CalendarCtrl(self, -1, wx.DateTime_Now(), pos = (325,50))
-        self.Bind(wx.calendar.EVT_CALENDAR_SEL_CHANGED,
-                  self.OnCalSelChanged, cal2)
+
+        # bind some event handlers to each calendar
+        for c in native, cal, cal2:
+            c.Bind(wxcal.EVT_CALENDAR,                 self.OnCalSelected)
+            c.Bind(wxcal.EVT_CALENDAR_MONTH,           self.OnChangeMonth)
+            c.Bind(wxcal.EVT_CALENDAR_SEL_CHANGED,     self.OnCalSelChanged)
+            c.Bind(wxcal.EVT_CALENDAR_WEEKDAY_CLICKED, self.OnCalWeekdayClicked)
+
+        # create some sizers for layout
+        fgs = wx.FlexGridSizer(cols=2, hgap=50, vgap=50)
+        fgs.Add(native)
+        fgs.Add(txt)
+        fgs.Add(cal)
+        fgs.Add(cal2)
+        box = wx.BoxSizer()
+        box.Add(fgs, 1, wx.EXPAND|wx.ALL, 25)
+        self.SetSizer(box)
+        
 
     def OnCalSelected(self, evt):
         self.log.write('OnCalSelected: %s\n' % evt.GetDate())
 
-    def OnChangeMonth(self, evt=None):
-        cur_month = self.cal.GetDate().GetMonth() + 1   # convert wxDateTime 0-11 => 1-12
-        for month, day in self.holidays:
-            if month == cur_month:
-                self.cal.SetHoliday(day)
-        if cur_month == 8:
-            attr = wx.calendar.CalendarDateAttr(border=wx.calendar.CAL_BORDER_SQUARE,
-                                                colBorder="blue")
-            self.cal.SetAttr(14, attr)
-        else:
-            self.cal.ResetAttr(14)
+    def OnCalWeekdayClicked(self, evt):
+        self.log.write('OnCalWeekdayClicked: %s\n' % evt.GetWeekDay())
 
     def OnCalSelChanged(self, evt):
         cal = evt.GetEventObject()
-        self.log.write("OnCalSelChanged:\n\t%s: %s\n\t%s: %s\n\t%s: %s\n\t" %
-                       ("EventObject", cal,
+        self.log.write("OnCalSelChanged:\n\t%s: %s\n\t%s: %s" %
+                       ("EventObject", cal.__class__,
                         "Date       ", cal.GetDate(),
-                        "Ticks      ", cal.GetDate().GetTicks(),
                         ))
+
+    def OnChangeMonth(self, evt=None):
+        if evt is None:
+            cal = self.cal
+        else:
+            cal = evt.GetEventObject()
+        self.log.write('OnChangeMonth: %s\n' % cal.GetDate())
+        cur_month = cal.GetDate().GetMonth() + 1   # convert wxDateTime 0-11 => 1-12
+        for month, day in self.holidays:
+            if month == cur_month:
+                cal.SetHoliday(day)
+
+        # August 14th is a special day, mark it with a blue square...
+        if cur_month == 8:
+            attr = wxcal.CalendarDateAttr(border=wxcal.CAL_BORDER_SQUARE,
+                                          colBorder="blue")
+            cal.SetAttr(14, attr)
+        else:
+            cal.ResetAttr(14)
+
 
 #----------------------------------------------------------------------
 
