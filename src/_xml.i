@@ -95,6 +95,7 @@ public:
 
     void AddChild(wxXmlNode *child);
     bool InsertChild(wxXmlNode *child, wxXmlNode *before_node);
+    bool InsertChildAfter(wxXmlNode *child, wxXmlNode *precedingNode);
     bool RemoveChild(wxXmlNode *child);
     void AddProperty(wxXmlProperty *prop);
     %Rename(AddPropertyName,  void,  AddProperty(const wxString& name, const wxString& value));
