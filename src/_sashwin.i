@@ -78,9 +78,11 @@ public:
 
     // Set whether there's a border in this position
     void SetSashBorder(wxSashEdgePosition edge, bool border);
-
+    %pythoncode { SetSashBorder = wx._deprecated(SetSashBorder) }
+    
     // Get whether there's a border in this position
     bool HasBorder(wxSashEdgePosition edge) const;
+    %pythoncode { HasBorder = wx._deprecated(HasBorder) }
 
     // Get border size
     int GetEdgeMargin(wxSashEdgePosition edge) const;
