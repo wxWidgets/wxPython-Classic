@@ -5421,6 +5421,56 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_XmlNode_InsertChildAfter(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxXmlNode *arg1 = (wxXmlNode *) 0 ;
+  wxXmlNode *arg2 = (wxXmlNode *) 0 ;
+  wxXmlNode *arg3 = (wxXmlNode *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "child",(char *) "precedingNode", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:XmlNode_InsertChildAfter",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxXmlNode, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "XmlNode_InsertChildAfter" "', expected argument " "1"" of type '" "wxXmlNode *""'"); 
+  }
+  arg1 = reinterpret_cast< wxXmlNode * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxXmlNode, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "XmlNode_InsertChildAfter" "', expected argument " "2"" of type '" "wxXmlNode *""'"); 
+  }
+  arg2 = reinterpret_cast< wxXmlNode * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxXmlNode, 0 |  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "XmlNode_InsertChildAfter" "', expected argument " "3"" of type '" "wxXmlNode *""'"); 
+  }
+  arg3 = reinterpret_cast< wxXmlNode * >(argp3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->InsertChildAfter(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_XmlNode_RemoveChild(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxXmlNode *arg1 = (wxXmlNode *) 0 ;
@@ -8826,6 +8876,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_XmlNodeEasy", (PyCFunction) _wrap_new_XmlNodeEasy, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlNode_AddChild", (PyCFunction) _wrap_XmlNode_AddChild, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlNode_InsertChild", (PyCFunction) _wrap_XmlNode_InsertChild, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"XmlNode_InsertChildAfter", (PyCFunction) _wrap_XmlNode_InsertChildAfter, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlNode_RemoveChild", (PyCFunction) _wrap_XmlNode_RemoveChild, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlNode_AddProperty", (PyCFunction) _wrap_XmlNode_AddProperty, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlNode_AddPropertyName", (PyCFunction) _wrap_XmlNode_AddPropertyName, METH_VARARGS | METH_KEYWORDS, NULL},

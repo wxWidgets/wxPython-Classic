@@ -345,6 +345,10 @@ class XmlNode(object):
         """InsertChild(self, XmlNode child, XmlNode before_node) -> bool"""
         return _xrc.XmlNode_InsertChild(*args, **kwargs)
 
+    def InsertChildAfter(*args, **kwargs):
+        """InsertChildAfter(self, XmlNode child, XmlNode precedingNode) -> bool"""
+        return _xrc.XmlNode_InsertChildAfter(*args, **kwargs)
+
     def RemoveChild(*args, **kwargs):
         """RemoveChild(self, XmlNode child) -> bool"""
         return _xrc.XmlNode_RemoveChild(*args, **kwargs)

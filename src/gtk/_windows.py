@@ -1426,10 +1426,12 @@ class SashWindow(_core.Window):
         """SetSashBorder(self, int edge, bool border)"""
         return _windows_.SashWindow_SetSashBorder(*args, **kwargs)
 
+    SetSashBorder = wx._deprecated(SetSashBorder) 
     def HasBorder(*args, **kwargs):
         """HasBorder(self, int edge) -> bool"""
         return _windows_.SashWindow_HasBorder(*args, **kwargs)
 
+    HasBorder = wx._deprecated(HasBorder) 
     def GetEdgeMargin(*args, **kwargs):
         """GetEdgeMargin(self, int edge) -> int"""
         return _windows_.SashWindow_GetEdgeMargin(*args, **kwargs)
