@@ -21,6 +21,7 @@ import wx.py
 import wx.stc
 import wx.aui
 import sys
+import inspect
 
 #----------------------------------------------------------------------------
 
@@ -130,7 +131,7 @@ class InspectionFrame(wx.Frame):
                                      | wx.aui.AUI_MGR_ALLOW_ACTIVE_PANE)
 
         # make the child tools        
-        self.tree = InspectionTree(panel)
+        self.tree = InspectionTree(panel, size=(100,300))
         self.info = InspectionInfoPanel(panel,
                                         style=wx.NO_BORDER,
                                         )
@@ -138,8 +139,9 @@ class InspectionFrame(wx.Frame):
         if not locals:
             locals = {}
         myIntroText = (
-            "Python %s on %s\nNOTE: The 'obj' variable refers to the object selected in the tree."
-            % (sys.version.split()[0], sys.platform))
+            "Python %s on %s, wxPython %s\n"
+            "NOTE: The 'obj' variable refers to the object selected in the tree."
+            % (sys.version.split()[0], sys.platform, wx.version()))
         self.crust = wx.py.crust.Crust(panel, locals=locals,
                                        intro=myIntroText,
                                        showInterpIntro=False,
@@ -329,7 +331,14 @@ class InspectionFrame(wx.Frame):
 # should inspection frame (and children) be includeed in the tree?
 INCLUDE_INSPECTOR = True
 
-class InspectionTree(wx.TreeCtrl):
+USE_CUSTOMTREECTRL = False
+if USE_CUSTOMTREECTRL:
+    import wx.lib.customtreectrl as CT
+    TreeBaseClass = CT.CustomTreeCtrl
+else:
+    TreeBaseClass = wx.TreeCtrl
+
+class InspectionTree(TreeBaseClass):
     """
     All of the widgets in the app, and optionally their sizers, are
     loaded into this tree.
@@ -337,7 +346,7 @@ class InspectionTree(wx.TreeCtrl):
     def __init__(self, *args, **kw):
         #s = kw.get('style', 0)
         #kw['style'] = s | wx.TR_DEFAULT_STYLE | wx.TR_HIDE_ROOT
-        wx.TreeCtrl.__init__(self, *args, **kw)
+        TreeBaseClass.__init__(self, *args, **kw)
         self.roots = []
         self.built = False
         self.Bind(wx.EVT_TREE_SEL_CHANGED, self.OnSelectionChanged)
@@ -520,6 +529,7 @@ class InspectionInfoPanel(wx.stc.StyledTextCtrl):
         st.append(self.Fmt('name',       obj.GetName()))
         st.append(self.Fmt('class',      obj.__class__))
         st.append(self.Fmt('bases',      obj.__class__.__bases__))
+        st.append(self.Fmt('module',     inspect.getmodule(obj)))
         if hasattr(obj, 'this'):
             st.append(self.Fmt('this',      repr(obj.this)))
         st.append(self.Fmt('id',         obj.GetId()))
