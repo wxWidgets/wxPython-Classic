@@ -52,7 +52,8 @@ one (except for refresh which is allowed to have a greater value)", "");
         "Returns the screen's bits per pixel (e.g. 32), 1 is monochrome and 0
 means unspecified/known", "");
 
-
+    int GetRefresh() const;
+    
     DocDeclStr(
         bool , IsOk() const,
         "returns true if the object has been initialized", "");
@@ -77,6 +78,7 @@ means unspecified/known", "");
     %property(Depth, GetDepth, doc="See `GetDepth`");
     %property(Height, GetHeight, doc="See `GetHeight`");
     %property(Width, GetWidth, doc="See `GetWidth`");
+    %property(Refresh, GetRefresh);
 };
 
 
