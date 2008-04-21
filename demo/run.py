@@ -18,6 +18,7 @@ on the command line.
 """
 
 import wx
+import wx.lib.inspection
 import wx.lib.mixins.inspection
 import sys, os
 
@@ -60,6 +61,8 @@ class RunDemoApp(wx.App, wx.lib.mixins.inspection.InspectionMixin):
 
         menuBar = wx.MenuBar()
         menu = wx.Menu()
+        item = menu.Append(-1, "&Widget Inspector\tF6", "Show the wxPython Widget Inspection Tool")
+        self.Bind(wx.EVT_MENU, self.OnWidgetInspector, item)
         item = menu.Append(-1, "E&xit\tCtrl-Q", "Exit demo")
         self.Bind(wx.EVT_MENU, self.OnExitApp, item)
         menuBar.Append(menu, "&File")
@@ -126,6 +129,9 @@ class RunDemoApp(wx.App, wx.lib.mixins.inspection.InspectionMixin):
             self.window.ShutdownDemo()
         evt.Skip()
 
+    def OnWidgetInspector(self, evt):
+        wx.lib.inspection.InspectionTool().Show()
+    
 
 #----------------------------------------------------------------------------
 
