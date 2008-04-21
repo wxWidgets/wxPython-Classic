@@ -61,7 +61,7 @@ class GenButton(wx.PyControl):
                  style = 0, validator = wx.DefaultValidator,
                  name = "genbutton"):
         cstyle = style
-        if cstyle == 0:
+        if cstyle & wx.BORDER_MASK == 0:
             cstyle = wx.BORDER_NONE
         wx.PyControl.__init__(self, parent, id, pos, size, cstyle, validator, name)
         
@@ -121,7 +121,7 @@ class GenButton(wx.PyControl):
         defSize = wx.Button.GetDefaultSize()
         width = 12 + w
         if useMin and width < defSize.width:
-           width = defSize.width
+            width = defSize.width
         height = 11 + h
         if useMin and height < defSize.height:
             height = defSize.height
@@ -189,12 +189,9 @@ class GenButton(wx.PyControl):
         self.focusClr = wx.Colour(hr, hg, hb)
 
         textClr = self.GetForegroundColour()
-        if wx.Platform == "__WXMAC__":
-            self.focusIndPen = wx.Pen(textClr, 1, wx.SOLID)
-        else:
-            self.focusIndPen  = wx.Pen(textClr, 1, wx.USER_DASH)
-            self.focusIndPen.SetDashes([1,1])
-            self.focusIndPen.SetCap(wx.CAP_BUTT)
+        self.focusIndPen  = wx.Pen(textClr, 1, wx.USER_DASH)
+        self.focusIndPen.SetDashes([1,1])
+        self.focusIndPen.SetCap(wx.CAP_BUTT)
         
         
     def SetBackgroundColour(self, colour):
@@ -245,7 +242,7 @@ class GenButton(wx.PyControl):
             dc.DrawLine(x2-i, y1+i, x2-i, y2)
 
 
-    def DrawLabel(self, dc, width, height, dw=0, dy=0):
+    def DrawLabel(self, dc, width, height, dx=0, dy=0):
         dc.SetFont(self.GetFont())
         if self.IsEnabled():
             dc.SetTextForeground(self.GetForegroundColour())
@@ -254,8 +251,8 @@ class GenButton(wx.PyControl):
         label = self.GetLabel()
         tw, th = dc.GetTextExtent(label)
         if not self.up:
-            dw = dy = self.labelDelta
-        dc.DrawText(label, (width-tw)/2+dw, (height-th)/2+dy)
+            dx = dy = self.labelDelta
+        dc.DrawText(label, (width-tw)/2+dx, (height-th)/2+dy)
 
 
     def DrawFocusIndicator(self, dc, w, h):
@@ -286,7 +283,6 @@ class GenButton(wx.PyControl):
 
 
     def OnSize(self, event):
-
         self.Refresh()
         event.Skip()
 
@@ -443,7 +439,7 @@ class GenBitmapButton(GenButton):
             return -1, -1, False
         return self.bmpLabel.GetWidth()+2, self.bmpLabel.GetHeight()+2, False
 
-    def DrawLabel(self, dc, width, height, dw=0, dy=0):
+    def DrawLabel(self, dc, width, height, dx=0, dy=0):
         bmp = self.bmpLabel
         if self.bmpDisabled and not self.IsEnabled():
             bmp = self.bmpDisabled
@@ -453,9 +449,9 @@ class GenBitmapButton(GenButton):
             bmp = self.bmpSelected
         bw,bh = bmp.GetWidth(), bmp.GetHeight()
         if not self.up:
-            dw = dy = self.labelDelta
+            dx = dy = self.labelDelta
         hasMask = bmp.GetMask() != None
-        dc.DrawBitmap(bmp, (width-bw)/2+dw, (height-bh)/2+dy, hasMask)
+        dc.DrawBitmap(bmp, (width-bw)/2+dx, (height-bh)/2+dy, hasMask)
 
 
 #----------------------------------------------------------------------
@@ -487,9 +483,9 @@ class GenBitmapTextButton(GenBitmapButton):
         return width, height, True
 
 
-    def DrawLabel(self, dc, width, height, dw=0, dy=0):
+    def DrawLabel(self, dc, width, height, dx=0, dy=0):
         bmp = self.bmpLabel
-        if bmp != None:     # if the bitmap is used
+        if bmp is not None:     # if the bitmap is used
             if self.bmpDisabled and not self.IsEnabled():
                 bmp = self.bmpDisabled
             if self.bmpFocus and self.hasFocus:
@@ -498,8 +494,8 @@ class GenBitmapTextButton(GenBitmapButton):
                 bmp = self.bmpSelected
             bw,bh = bmp.GetWidth(), bmp.GetHeight()
             if not self.up:
-                dw = dy = self.labelDelta
-            hasMask = bmp.GetMask() != None
+                dx = dy = self.labelDelta
+            hasMask = bmp.GetMask() is not None
         else:
             bw = bh = 0     # no bitmap -> size is zero
 
@@ -512,14 +508,14 @@ class GenBitmapTextButton(GenBitmapButton):
         label = self.GetLabel()
         tw, th = dc.GetTextExtent(label)        # size of text
         if not self.up:
-            dw = dy = self.labelDelta
+            dx = dy = self.labelDelta
 
-        pos_x = (width-bw-tw)/2+dw      # adjust for bitmap and text to centre
-        if bmp !=None:
+        pos_x = (width-bw-tw)/2+dx      # adjust for bitmap and text to centre
+        if bmp is not None:
             dc.DrawBitmap(bmp, pos_x, (height-bh)/2+dy, hasMask) # draw bitmap if available
             pos_x = pos_x + 2   # extra spacing from bitmap
 
-        dc.DrawText(label, pos_x + dw+bw, (height-th)/2+dy)      # draw the text
+        dc.DrawText(label, pos_x + dx+bw, (height-th)/2+dy)      # draw the text
 
 
 #----------------------------------------------------------------------
