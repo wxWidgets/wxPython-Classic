@@ -732,7 +732,7 @@ class MSWComboTreeBox(NativeComboTreeBox):
 
     def _keyShouldPopUpTree(self, keyEvent):
         return super(MSWComboTreeBox, self)._keyShouldPopUpTree(keyEvent) or \
-            (keyEvent.GetKeyCode() == wx.WXK_F4) or \
+            (keyEvent.GetKeyCode() == wx.WXK_F4 and not keyEvent.HasModifiers()) or \
             ((keyEvent.AltDown() or keyEvent.MetaDown()) and \
               keyEvent.GetKeyCode() == wx.WXK_UP)
 
