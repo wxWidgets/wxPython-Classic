@@ -275,6 +275,14 @@ Hide command.  Mac only.", "");
     }
 #endif
 
+#ifdef __WXMAC__
+    void MacRequestUserAttention(wxNotificationOptions);
+#else
+    %extend {
+        void MacRequestUserAttention(wxNotificationOptions) { }
+    }
+#endif
+
     static bool GetMacSupportPCMenuShortcuts();  // TODO, deprecate this
     static long GetMacAboutMenuItemId();
     static long GetMacPreferencesMenuItemId();

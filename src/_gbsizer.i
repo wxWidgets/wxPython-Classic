@@ -402,6 +402,9 @@ is successful and after the next Layout() the item will be resized.
 
 //---------------------------------------------------------------------------
 
+wxLIST_WRAPPER_FAKE(wxSizerItemList, wxSizerItem,  wxGBSizerItemList, wxGBSizerItem);
+
+
 DocStr(wxGridBagSizer,
 "A `wx.Sizer` that can lay out items in a virtual grid like a
 `wx.FlexGridSizer` but in this case explicit positioning of the items
@@ -580,6 +583,12 @@ there is no item at that point. The (x,y) coordinates in pt correspond
 to the client coordinates of the window using the sizer for
 layout. (non-recursive)", "");
     
+
+    DocStr(GetChildren,
+           "Returns all of the `wx.GBSizerItem` objects managed by the sizer in a
+list-like object.", "");
+    wxGBSizerItemList& GetChildren();
+
 
     
 //     DocDeclStr(

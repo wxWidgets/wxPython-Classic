@@ -474,10 +474,17 @@ FORWARD_DECLARE(wxStaticBox,      StaticBox);
 
 
 //---------------------------------------------------------------------------
-// This macro makes a class to wrap a type specific class derived from wxList,
-// and make it look like a Python sequence, including iterator support
+// These macros makes a class to wrap a type specific class derived from wxList,
+// and make it look like a Python sequence, including iterator support.
 
-%define wxLIST_WRAPPER(ListClass, ItemClass)
+
+%define wxLIST_WRAPPER_TYPEDEF(ListClass, FakeListClass)
+%{
+    typedef ListClass FakeListClass;    
+%}
+%enddef
+
+%define wxLIST_WRAPPER_MAIN(ListClass, ItemClass, RealItemClass)    
 // first a bit of C++ code...    
 %{
 class ListClass##_iterator
@@ -487,13 +494,13 @@ public:
         : m_node(start) {}
     
     ItemClass* next() {
-        ItemClass* obj = NULL;
+        RealItemClass* obj = NULL;
         if (m_node) {
             obj = m_node->GetData();
             m_node = m_node->GetNext();
         }
         else PyErr_SetString(PyExc_StopIteration, "");
-        return obj;
+        return (ItemClass*)obj;
     }
 private:
     ListClass::compatibility_iterator m_node;
@@ -536,7 +543,7 @@ public:
         ItemClass* __getitem__(size_t index) {
             if (index < self->size()) {
                 ListClass::compatibility_iterator node = self->Item(index);
-                if (node) return node->GetData();
+                if (node) return (ItemClass*)node->GetData();
             }
             PyErr_SetString(PyExc_IndexError, "sequence index out of range");
             return NULL;
@@ -545,7 +552,7 @@ public:
         KeepGIL(__contains__);
         bool __contains__(const ItemClass* obj) {
             ListClass::compatibility_iterator node;
-            node = self->Find(obj);
+            node = self->Find((RealItemClass*)obj);
             return node;
         }
 
@@ -558,7 +565,7 @@ public:
         // TODO:  add support for index(value, [start, [stop]])
         KeepGIL(index);
         int index(ItemClass* obj) {
-            int idx = self->IndexOf(obj);
+            int idx = self->IndexOf((RealItemClass*)obj);
             if (idx == wxNOT_FOUND)
                 PyErr_SetString(PyExc_ValueError,
                                 "sequence.index(x): x not in sequence");
@@ -570,6 +577,22 @@ public:
             return "ListClass: " + repr(list(self))
     }
 };
+%enddef
+
+
+// This is the one that will normally be used.  It wraps the real C++ classes
+// as needed, with the same names.
+%define wxLIST_WRAPPER(ListClass, ItemClass)
+    wxLIST_WRAPPER_MAIN(ListClass, ItemClass, ItemClass)
+%enddef
+
+
+// This one can be used to do some SWIG trickery to pretend that the type
+// contained in the list is a different (derived) type.  For example the item
+// list used by a wxGridBagSizer contains wxGBSizerItems, not wxSizerItems.
+%define wxLIST_WRAPPER_FAKE(ListClass, ItemClass, FakeListClass, FakeItemClass)
+    wxLIST_WRAPPER_TYPEDEF(ListClass, FakeListClass)
+    wxLIST_WRAPPER_MAIN(FakeListClass, FakeItemClass, ItemClass)
 %enddef
 
 
@@ -1439,6 +1462,14 @@ enum wxUpdateUI
     wxUPDATE_UI_NONE          = 0x0000,
     wxUPDATE_UI_RECURSE       = 0x0001,
     wxUPDATE_UI_FROMIDLE      = 0x0002 // Invoked from On(Internal)Idle
+};
+
+
+enum wxNotificationOptions
+{
+    wxNOTIFY_NONE           = 0x0000,
+    wxNOTIFY_ONCE           = 0x0001,
+    wxNOTIFY_REPEAT         = 0x0002
 };
 
 
