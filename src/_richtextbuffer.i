@@ -61,6 +61,8 @@ enum {
  */
     wxRICHTEXT_FORMATTED,
     wxRICHTEXT_UNFORMATTED,
+    wxRICHTEXT_CACHE_SIZE,
+    wxRICHTEXT_HEIGHT_ONLY,
 
 /*!
  * Flags for SetStyle/SetListStyle

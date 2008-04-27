@@ -417,7 +417,7 @@ void wxPyApp::_BootstrapApp()
 {
     static      bool haveInitialized = false;
     bool        result;
-    wxPyBlock_t     blocked;
+    wxPyBlock_t blocked;
     PyObject*   retval = NULL;
     PyObject*   pyint  = NULL;
 

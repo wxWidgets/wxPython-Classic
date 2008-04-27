@@ -353,10 +353,12 @@ public:
 #ifdef __WXMAC__
     static void SetAutoWindowMenu( bool enable );
     static bool GetAutoWindowMenu();
+    static void MacSetCommonMenuBar(wxMenuBar* menubar);
 #else
     %extend {
         static void SetAutoWindowMenu( bool enable ) {}
         static bool GetAutoWindowMenu() { return false; }
+        static void MacSetCommonMenuBar(wxMenuBar* menubar) {}
     }
 #endif
 

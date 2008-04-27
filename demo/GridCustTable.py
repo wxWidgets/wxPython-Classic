@@ -57,21 +57,22 @@ class CustomDataTable(gridlib.PyGridTableBase):
             return ''
 
     def SetValue(self, row, col, value):
-        try:
-            self.data[row][col] = value
-        except IndexError:
-            # add a new row
-            self.data.append([''] * self.GetNumberCols())
-            self.SetValue(row, col, value)
+        def innerSetValue(row, col, value):
+            try:
+                self.data[row][col] = value
+            except IndexError:
+                # add a new row
+                self.data.append([''] * self.GetNumberCols())
+                innerSetValue(row, col, value)
 
-            # tell the grid we've added a row
-            msg = gridlib.GridTableMessage(self,            # The table
-                    gridlib.GRIDTABLE_NOTIFY_ROWS_APPENDED, # what we did to it
-                    1                                       # how many
-                    )
+                # tell the grid we've added a row
+                msg = gridlib.GridTableMessage(self,            # The table
+                        gridlib.GRIDTABLE_NOTIFY_ROWS_APPENDED, # what we did to it
+                        1                                       # how many
+                        )
 
-            self.GetView().ProcessTableMessage(msg)
-
+                self.GetView().ProcessTableMessage(msg)
+        innerSetValue(row, col, value) 
 
     #--------------------------------------------------
     # Some optional methods

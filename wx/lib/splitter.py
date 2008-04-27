@@ -538,6 +538,7 @@ class MultiSplitterWindow(wx.PyPanel):
 
 
     def _GetWindowMin(self, window):
+        # NOTE:  Should this use GetEffectiveMinSize?
         if self._orient == wx.HORIZONTAL:
             return window.GetMinWidth()
         else:
