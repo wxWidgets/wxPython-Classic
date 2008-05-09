@@ -72,7 +72,7 @@ class TestPanel(wx.Panel):
         t5.Bind(wx.EVT_LEFT_DOWN, self.OnT5LeftDown)
         self.t5 = t5
 
-        space = 4
+        space = 6
         bsizer = wx.BoxSizer(wx.VERTICAL)
         bsizer.Add(b, 0, wx.GROW|wx.ALL, space)
         bsizer.Add(b2, 0, wx.GROW|wx.ALL, space)
