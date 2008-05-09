@@ -70,10 +70,11 @@ class BaseMaskedTextCtrl( wx.TextCtrl, MaskedEditMixin ):
                   setupEventHandling = True,        ## setup event handling by default
                   **kwargs):
 
-        wx.TextCtrl.__init__(self, parent, id, value='',
-                            pos=pos, size = size,
-                            style=style, validator=validator,
-                            name=name)
+        if not hasattr(self, 'this'):
+            wx.TextCtrl.__init__(self, parent, id, value='',
+                                 pos=pos, size = size,
+                                 style=style, validator=validator,
+                                 name=name)
 
         self._PostInit(setupEventHandling = setupEventHandling,
                       name=name, value=value,**kwargs )
