@@ -164,6 +164,7 @@ _treeList = [
     ('"Book" Controls', [
         'AUI_Notebook',
         'Choicebook',
+        'FlatNotebook',
         'Listbook',
         'Notebook',
         'Toolbook',
