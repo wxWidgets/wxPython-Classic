@@ -8,14 +8,24 @@ class TestPanel(wx.Panel):
         self.log = log
         wx.Panel.__init__(self, parent, -1)
 
-        dpc = wx.DatePickerCtrl(self, size=(120,-1),
-                                style=wx.DP_DROPDOWN | wx.DP_SHOWCENTURY)
-        self.Bind(wx.EVT_DATE_CHANGED, self.OnDateChanged, dpc)
-        
         sizer = wx.BoxSizer(wx.VERTICAL)
+        self.SetSizer(sizer)
+
+        dpc = wx.DatePickerCtrl(self, size=(120,-1),
+                                style = wx.DP_DROPDOWN
+                                      | wx.DP_SHOWCENTURY
+                                      | wx.DP_ALLOWNONE )
+        self.Bind(wx.EVT_DATE_CHANGED, self.OnDateChanged, dpc)
         sizer.Add(dpc, 0, wx.ALL, 50)
 
-        self.SetSizer(sizer)
+        if 'wxMSW' in wx.PlatformInfo:
+            dpc = wx.GenericDatePickerCtrl(self, size=(120,-1),
+                                           style = wx.DP_DROPDOWN
+                                               | wx.DP_SHOWCENTURY
+                                               | wx.DP_ALLOWNONE )
+            self.Bind(wx.EVT_DATE_CHANGED, self.OnDateChanged, dpc)
+            sizer.Add(dpc, 0, wx.LEFT, 50)
+
 
     def OnDateChanged(self, evt):
         self.log.write("OnDateChanged: %s\n" % evt.GetDate())
