@@ -46,7 +46,7 @@ import images
 
 #---------------------------------------------------------------------------
 
-USE_CUSTOMTREECTRL = True
+USE_CUSTOMTREECTRL = False
 ALLOW_AUI_FLOATING = False
 DEFAULT_PERSPECTIVE = "Default Perspective"
 
@@ -143,6 +143,7 @@ _treeList = [
     ('"Book" Controls', [
         'AUI_Notebook',
         'Choicebook',
+        'FlatNotebook',
         'Listbook',
         'Notebook',
         'Toolbook',

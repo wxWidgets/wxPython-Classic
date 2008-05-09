@@ -1777,9 +1777,11 @@ public:
 
     /// Obtains the latest settings used by the help frame and the help
     /// frame.
-    virtual wxFrame *GetFrameParameters(wxSize *size = NULL,
-                                        wxPoint *pos = NULL,
-                                        bool *newFrameEachTime = NULL);
+
+    // TODO: return a tuple of values    
+//     virtual wxFrame *GetFrameParameters(wxSize *size = NULL,
+//                                         wxPoint *pos = NULL,
+//                                         bool *newFrameEachTime = NULL);
 
     virtual bool Quit() /* = 0 */;
 

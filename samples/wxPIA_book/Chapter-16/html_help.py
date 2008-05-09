@@ -29,8 +29,9 @@ class MyHtmlFrame(wx.Frame):
         p.SetSizer(sizer)
         
         self.InitHelp()
+        self.Bind(wx.EVT_CLOSE, self.OnCloseWindow)
 
-
+        
     def InitHelp(self):
         def _addBook(filename):
             if not self.help.AddBook(filename):
@@ -38,11 +39,14 @@ class MyHtmlFrame(wx.Frame):
                               "Error", wx.OK|wx.ICON_EXCLAMATION)
 
         self.help = wx.html.HtmlHelpController()
-
         _addBook("helpfiles/testing.hhp")
         _addBook("helpfiles/another.hhp")
 
 
+    def OnCloseWindow(self, evt):
+        del self.help
+        evt.Skip()
+        
     def OnShowHelpContents(self, evt):
         self.help.DisplayContents()
 
