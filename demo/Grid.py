@@ -54,13 +54,9 @@ def runTest(frame, nb, log):
 
 overview = """\
 <html><body>
-<h2>wx.Grid</h2>
+<h2>wx.grid.Grid</h2>
 
-This demo shows various ways of using the <b><i>new and
-improved</i></b> wx.Grid class.  Unfortunatly it has not been
-documented yet, and while it is somewhat backwards compatible, if you
-try to go by the current wx.Grid documentation you will probably just
-confuse yourself.
+This demo shows various ways of using the wx.grid.Grid class. 
 <p>
 You can look at the sources for these samples to learn a lot about how
 the new classes work.
