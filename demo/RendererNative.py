@@ -10,8 +10,10 @@ class TestPanel(wx.Panel):
         # Event Handlers
         self.Bind(wx.EVT_PAINT, self.OnPaint)
 
+
     def OnPaint(self, event):
-        dc = wx.PaintDC(self)
+        dc = wx.GCDC(wx.PaintDC(self))
+        #dc = wx.PaintDC(self)
         render = wx.RendererNative.Get()
 
         # Setup Brushes
@@ -23,7 +25,6 @@ class TestPanel(wx.Panel):
         # various states. The wx.CONTROL_* flags are used to tell the
         # Renderer which state to draw the control in.
 
-        #---- First Row ----#
         # Draw some checkboxes
         cb_lbl = "DrawCheckBoxes:"
         dc.DrawText(cb_lbl, 15, 15)
@@ -31,6 +32,13 @@ class TestPanel(wx.Panel):
         render.DrawCheckBox(self, dc, (45, 35, 16, 16), wx.CONTROL_CHECKABLE)
         render.DrawCheckBox(self, dc, (65, 35, 16, 16))
         render.DrawCheckBox(self, dc, (85, 35, 16, 16), wx.CONTROL_CHECKED | wx.CONTROL_DISABLED)
+
+        lbl = "DrawRadioButton:"
+        dc.DrawText(lbl, 375, 15)
+        render.DrawRadioButton(self, dc, (385, 35, 16, 16), wx.CONTROL_CHECKED)
+        render.DrawRadioButton(self, dc, (405, 35, 16, 16), wx.CONTROL_CHECKABLE)
+        render.DrawRadioButton(self, dc, (425, 35, 16, 16))
+        render.DrawRadioButton(self, dc, (445, 35, 16, 16), wx.CONTROL_CHECKED | wx.CONTROL_DISABLED)
 
         # Draw ComboBoxDropButton
         xpos = self.GetTextExtent(cb_lbl)[0] + 40
@@ -40,9 +48,7 @@ class TestPanel(wx.Panel):
         render.DrawComboBoxDropButton(self, dc, (xpos + 44, 35, 24, 24), wx.CONTROL_PRESSED)
         render.DrawComboBoxDropButton(self, dc, (xpos + 84, 35, 24, 24), wx.CONTROL_CURRENT | wx.CONTROL_DISABLED)
         render.DrawComboBoxDropButton(self, dc, (xpos + 124, 35, 24, 24), wx.CONTROL_PRESSED | wx.CONTROL_DISABLED)
-        #---- First Row End ----#
 
-        #---- Second Row ----#
         # Draw DropArrow
         da_lbl = "DrawDropArrow:"
         dc.DrawText(da_lbl, 15, 80)
@@ -68,18 +74,13 @@ class TestPanel(wx.Panel):
         render.DrawHeaderButton(self, dc, (xpos, 150, self.GetTextExtent(hb_lbl)[0] + 30, 16),
                                 wx.CONTROL_CURRENT, params=opts)
 
-       #---- Second Row ----#
-
-        #---- Third Row ----#
         # Draw ItemSelectionRect
         isr_lbl = "DrawItemSelectionRect:"
         dc.DrawText(isr_lbl, 15, 185)
         render.DrawItemSelectionRect(self, dc, (15, 205, 40, 24), wx.CONTROL_SELECTED)
         render.DrawItemSelectionRect(self, dc, (65, 205, 40, 24), wx.CONTROL_CURRENT)
         render.DrawItemSelectionRect(self, dc, (115, 205, 40, 24), wx.CONTROL_FOCUSED)
-        #---- Third Row End ----#
 
-        #---- Fourth Row ----#
         # DrawPushButton
         pb_lbl = "DrawPushButton:"
         dc.DrawText(pb_lbl, 15, 255)
@@ -87,15 +88,30 @@ class TestPanel(wx.Panel):
         render.DrawPushButton(self, dc, (70, 275, 45, 24), wx.CONTROL_PRESSED | wx.CONTROL_SELECTED)
         render.DrawPushButton(self, dc, (125, 275, 45, 24), wx.CONTROL_ISDEFAULT)
         render.DrawPushButton(self, dc, (180, 275, 45, 24), wx.CONTROL_CURRENT | wx.CONTROL_DISABLED)
-        #---- Fourth Row End ----#
 
-        #---- Fifth Row ----#
         # DrawTreeItemButton
         ti_lbl = "DrawTreeItemButton:"
         dc.DrawText(ti_lbl, 15, 330)
         render.DrawTreeItemButton(self, dc, (15, 350, 16, 16))
         render.DrawTreeItemButton(self, dc, (45, 350, 16, 16), wx.CONTROL_EXPANDED)
-        #---- Fifth Row End ----#
+
+        dc.DrawText("DrawComboBox:", 270, 185)
+        render.DrawComboBox(self, dc, (270, 205, 100, 21))
+        render.DrawComboBox(self, dc, (270, 230, 100, 21), wx.CONTROL_DISABLED)
+        render.DrawComboBox(self, dc, (270, 255, 100, 21), wx.CONTROL_CURRENT)
+        render.DrawComboBox(self, dc, (270, 280, 100, 21), wx.CONTROL_PRESSED | wx.CONTROL_SELECTED)
+        render.DrawComboBox(self, dc, (270, 305, 100, 21), wx.CONTROL_FOCUSED)
+
+        dc.DrawText("DrawChoice:", 400, 185)
+        render.DrawChoice(self, dc, (400, 205, 100, 21))
+        render.DrawChoice(self, dc, (400, 230, 100, 21), wx.CONTROL_DISABLED)
+        render.DrawChoice(self, dc, (400, 255, 100, 21), wx.CONTROL_CURRENT)
+        render.DrawChoice(self, dc, (400, 280, 100, 21), wx.CONTROL_PRESSED | wx.CONTROL_SELECTED)
+        render.DrawChoice(self, dc, (400, 305, 100, 21), wx.CONTROL_FOCUSED)
+
+        dc.DrawText("DrawTextCtrl:", 270, 350)
+        render.DrawTextCtrl(self, dc, (270, 375, 100, 21))
+        render.DrawTextCtrl(self, dc, (380, 375, 100, 21), wx.CONTROL_FOCUSED)
 
 #----------------------------------------------------------------------
 
