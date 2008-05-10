@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# set -o xtrace
+#set -o xtrace
 
 function error {
     echo -----------------
@@ -128,6 +128,7 @@ if [ ! $? = 0 ]; then error 2; fi
 echo -----------------
 echo --   SUCCESS!  --
 echo -----------------
+date
 # copy DLLs to a dir on the PATH
 # copy /U $WXWIN/lib/vc_dll/*.dll $WXWIN/BIN
 # copy /U $WXWIN/lib/vc_dll/*.pdb $WXWIN/BIN
