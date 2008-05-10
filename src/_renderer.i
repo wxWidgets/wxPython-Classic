@@ -279,6 +279,34 @@ The flags parameter may be:
     
 
 
+    %extend {
+        void DrawChoice(wxWindow *win, wxDC& dc, const wxRect& rect, int flags=0)
+        {
+        #if defined(__WXMSW__) || defined(__WXMAC__)
+            wxRenderer_DrawChoice(win, dc, rect, flags);
+        #endif
+        }
+        void DrawComboBox(wxWindow *win, wxDC& dc, const wxRect& rect, int flags=0)
+        {
+        #if defined(__WXMSW__) || defined(__WXMAC__)
+            wxRenderer_DrawComboBox(win, dc, rect, flags);
+        #endif
+        }
+        void DrawTextCtrl(wxWindow *win, wxDC& dc, const wxRect& rect, int flags=0)
+        {
+        #if defined(__WXMSW__) || defined(__WXMAC__)
+            wxRenderer_DrawTextCtrl(win, dc, rect, flags);
+        #endif
+        }
+        void DrawRadioButton(wxWindow *win, wxDC& dc, const wxRect& rect, int flags=0)
+        {
+        #if defined(__WXMSW__) || defined(__WXMAC__)
+            wxRenderer_DrawRadioButton(win, dc, rect, flags);
+        #endif
+        }
+    }
+    
+
     MustHaveApp(Get);
     DocDeclStr(
         static wxRendererNative& , Get(),
@@ -329,4 +357,23 @@ compatibility of dynamically loaded renderers.", "");
 };
 
 
+
 //---------------------------------------------------------------------------
+
+#if defined(__WXMSW__) || defined(__WXMAC__)
+
+void wxRenderer_DrawChoice(wxWindow* win, wxDC& dc,
+                             const wxRect& rect, int flags=0);
+
+void wxRenderer_DrawComboBox(wxWindow* win, wxDC& dc,
+                             const wxRect& rect, int flags=0);
+
+void wxRenderer_DrawTextCtrl(wxWindow* win, wxDC& dc,
+                             const wxRect& rect, int flags=0);
+
+void wxRenderer_DrawRadioButton(wxWindow* win, wxDC& dc,
+                                const wxRect& rect, int flags=0);
+#endif
+
+//---------------------------------------------------------------------------
+
