@@ -1901,10 +1901,6 @@ class HelpControllerBase(_core.Object):
         """
         return _html.HelpControllerBase_SetFrameParameters(*args, **kwargs)
 
-    def GetFrameParameters(*args, **kwargs):
-        """GetFrameParameters(self, Size size=None, Point pos=None, bool newFrameEachTime=None) -> Frame"""
-        return _html.HelpControllerBase_GetFrameParameters(*args, **kwargs)
-
     def Quit(*args, **kwargs):
         """Quit(self) -> bool"""
         return _html.HelpControllerBase_Quit(*args, **kwargs)

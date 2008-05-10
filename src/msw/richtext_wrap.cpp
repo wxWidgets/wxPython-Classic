@@ -2931,7 +2931,7 @@ public:
             m_node = m_node->GetNext();
         }
         else PyErr_SetString(PyExc_StopIteration, "");
-        return obj;
+        return (wxRichTextObject*)obj;
     }
 private:
     wxRichTextObjectList::compatibility_iterator m_node;
@@ -2984,21 +2984,21 @@ SWIG_AsVal_size_t (PyObject * obj, size_t *val)
 SWIGINTERN wxRichTextObject *wxRichTextObjectList___getitem__(wxRichTextObjectList *self,size_t index){
             if (index < self->size()) {
                 wxRichTextObjectList::compatibility_iterator node = self->Item(index);
-                if (node) return node->GetData();
+                if (node) return (wxRichTextObject*)node->GetData();
             }
             PyErr_SetString(PyExc_IndexError, "sequence index out of range");
             return NULL;
         }
 SWIGINTERN bool wxRichTextObjectList___contains__(wxRichTextObjectList *self,wxRichTextObject const *obj){
             wxRichTextObjectList::compatibility_iterator node;
-            node = self->Find(obj);
+            node = self->Find((wxRichTextObject*)obj);
             return node;
         }
 SWIGINTERN wxRichTextObjectList_iterator *wxRichTextObjectList___iter__(wxRichTextObjectList *self){
             return new wxRichTextObjectList_iterator(self->GetFirst());
         }
 SWIGINTERN int wxRichTextObjectList_index(wxRichTextObjectList *self,wxRichTextObject *obj){
-            int idx = self->IndexOf(obj);
+            int idx = self->IndexOf((wxRichTextObject*)obj);
             if (idx == wxNOT_FOUND)
                 PyErr_SetString(PyExc_ValueError,
                                 "sequence.index(x): x not in sequence");
@@ -30051,6 +30051,8 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_OUTSIDE",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_OUTSIDE)));
   SWIG_Python_SetConstant(d, "RICHTEXT_FORMATTED",SWIG_From_int(static_cast< int >(wxRICHTEXT_FORMATTED)));
   SWIG_Python_SetConstant(d, "RICHTEXT_UNFORMATTED",SWIG_From_int(static_cast< int >(wxRICHTEXT_UNFORMATTED)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_CACHE_SIZE",SWIG_From_int(static_cast< int >(wxRICHTEXT_CACHE_SIZE)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_HEIGHT_ONLY",SWIG_From_int(static_cast< int >(wxRICHTEXT_HEIGHT_ONLY)));
   SWIG_Python_SetConstant(d, "RICHTEXT_SETSTYLE_NONE",SWIG_From_int(static_cast< int >(wxRICHTEXT_SETSTYLE_NONE)));
   SWIG_Python_SetConstant(d, "RICHTEXT_SETSTYLE_WITH_UNDO",SWIG_From_int(static_cast< int >(wxRICHTEXT_SETSTYLE_WITH_UNDO)));
   SWIG_Python_SetConstant(d, "RICHTEXT_SETSTYLE_OPTIMIZE",SWIG_From_int(static_cast< int >(wxRICHTEXT_SETSTYLE_OPTIMIZE)));

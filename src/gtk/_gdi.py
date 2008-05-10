@@ -6729,6 +6729,22 @@ class RendererNative(object):
         """
         return _gdi_.RendererNative_GetSplitterParams(*args, **kwargs)
 
+    def DrawChoice(*args, **kwargs):
+        """DrawChoice(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawChoice(*args, **kwargs)
+
+    def DrawComboBox(*args, **kwargs):
+        """DrawComboBox(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawComboBox(*args, **kwargs)
+
+    def DrawTextCtrl(*args, **kwargs):
+        """DrawTextCtrl(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawTextCtrl(*args, **kwargs)
+
+    def DrawRadioButton(*args, **kwargs):
+        """DrawRadioButton(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawRadioButton(*args, **kwargs)
+
     def Get(*args, **kwargs):
         """
         Get() -> RendererNative

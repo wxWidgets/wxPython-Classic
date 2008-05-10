@@ -6729,6 +6729,22 @@ class RendererNative(object):
         """
         return _gdi_.RendererNative_GetSplitterParams(*args, **kwargs)
 
+    def DrawChoice(*args, **kwargs):
+        """DrawChoice(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawChoice(*args, **kwargs)
+
+    def DrawComboBox(*args, **kwargs):
+        """DrawComboBox(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawComboBox(*args, **kwargs)
+
+    def DrawTextCtrl(*args, **kwargs):
+        """DrawTextCtrl(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawTextCtrl(*args, **kwargs)
+
+    def DrawRadioButton(*args, **kwargs):
+        """DrawRadioButton(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawRadioButton(*args, **kwargs)
+
     def Get(*args, **kwargs):
         """
         Get() -> RendererNative
@@ -6824,6 +6840,22 @@ def RendererNative_Set(*args, **kwargs):
     """
   return _gdi_.RendererNative_Set(*args, **kwargs)
 
+
+def Renderer_DrawChoice(*args, **kwargs):
+  """Renderer_DrawChoice(Window win, DC dc, Rect rect, int flags=0)"""
+  return _gdi_.Renderer_DrawChoice(*args, **kwargs)
+
+def Renderer_DrawComboBox(*args, **kwargs):
+  """Renderer_DrawComboBox(Window win, DC dc, Rect rect, int flags=0)"""
+  return _gdi_.Renderer_DrawComboBox(*args, **kwargs)
+
+def Renderer_DrawTextCtrl(*args, **kwargs):
+  """Renderer_DrawTextCtrl(Window win, DC dc, Rect rect, int flags=0)"""
+  return _gdi_.Renderer_DrawTextCtrl(*args, **kwargs)
+
+def Renderer_DrawRadioButton(*args, **kwargs):
+  """Renderer_DrawRadioButton(Window win, DC dc, Rect rect, int flags=0)"""
+  return _gdi_.Renderer_DrawRadioButton(*args, **kwargs)
 #---------------------------------------------------------------------------
 
 class PseudoDC(_core.Object):

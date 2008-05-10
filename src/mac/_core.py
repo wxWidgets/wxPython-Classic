@@ -680,6 +680,9 @@ MOD_ALL = _core_.MOD_ALL
 UPDATE_UI_NONE = _core_.UPDATE_UI_NONE
 UPDATE_UI_RECURSE = _core_.UPDATE_UI_RECURSE
 UPDATE_UI_FROMIDLE = _core_.UPDATE_UI_FROMIDLE
+NOTIFY_NONE = _core_.NOTIFY_NONE
+NOTIFY_ONCE = _core_.NOTIFY_ONCE
+NOTIFY_REPEAT = _core_.NOTIFY_REPEAT
 Layout_Default = _core_.Layout_Default
 Layout_LeftToRight = _core_.Layout_LeftToRight
 Layout_RightToLeft = _core_.Layout_RightToLeft
@@ -7421,6 +7424,10 @@ class PyApp(EvtHandler):
         """
         return _core_.PyApp_MacHideApp(*args, **kwargs)
 
+    def MacRequestUserAttention(*args, **kwargs):
+        """MacRequestUserAttention(self, int ?)"""
+        return _core_.PyApp_MacRequestUserAttention(*args, **kwargs)
+
     def GetMacSupportPCMenuShortcuts(*args, **kwargs):
         """GetMacSupportPCMenuShortcuts() -> bool"""
         return _core_.PyApp_GetMacSupportPCMenuShortcuts(*args, **kwargs)
@@ -11308,6 +11315,11 @@ class MenuBar(Window):
         return _core_.MenuBar_GetAutoWindowMenu(*args, **kwargs)
 
     GetAutoWindowMenu = staticmethod(GetAutoWindowMenu)
+    def MacSetCommonMenuBar(*args, **kwargs):
+        """MacSetCommonMenuBar(MenuBar menubar)"""
+        return _core_.MenuBar_MacSetCommonMenuBar(*args, **kwargs)
+
+    MacSetCommonMenuBar = staticmethod(MacSetCommonMenuBar)
     def GetMenuLabel(*args, **kwargs):
         """GetMenuLabel(self, size_t pos) -> String"""
         return _core_.MenuBar_GetMenuLabel(*args, **kwargs)
@@ -11344,6 +11356,10 @@ def MenuBar_SetAutoWindowMenu(*args, **kwargs):
 def MenuBar_GetAutoWindowMenu(*args):
   """MenuBar_GetAutoWindowMenu() -> bool"""
   return _core_.MenuBar_GetAutoWindowMenu(*args)
+
+def MenuBar_MacSetCommonMenuBar(*args, **kwargs):
+  """MenuBar_MacSetCommonMenuBar(MenuBar menubar)"""
+  return _core_.MenuBar_MacSetCommonMenuBar(*args, **kwargs)
 
 #---------------------------------------------------------------------------
 
@@ -13845,6 +13861,55 @@ def GBSizerItemSpacer(*args, **kwargs):
     val = _core_.new_GBSizerItemSpacer(*args, **kwargs)
     return val
 
+class GBSizerItemList_iterator(object):
+    """This class serves as an iterator for a wxGBSizerItemList object."""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_GBSizerItemList_iterator
+    __del__ = lambda self : None;
+    def next(*args, **kwargs):
+        """next(self) -> GBSizerItem"""
+        return _core_.GBSizerItemList_iterator_next(*args, **kwargs)
+
+_core_.GBSizerItemList_iterator_swigregister(GBSizerItemList_iterator)
+
+class GBSizerItemList(object):
+    """
+    This class wraps a wxList-based class and gives it a Python
+    sequence-like interface.  Sequence operations supported are length,
+    index access and iteration.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_GBSizerItemList
+    __del__ = lambda self : None;
+    def __len__(*args, **kwargs):
+        """__len__(self) -> size_t"""
+        return _core_.GBSizerItemList___len__(*args, **kwargs)
+
+    def __getitem__(*args, **kwargs):
+        """__getitem__(self, size_t index) -> GBSizerItem"""
+        return _core_.GBSizerItemList___getitem__(*args, **kwargs)
+
+    def __contains__(*args, **kwargs):
+        """__contains__(self, GBSizerItem obj) -> bool"""
+        return _core_.GBSizerItemList___contains__(*args, **kwargs)
+
+    def __iter__(*args, **kwargs):
+        """__iter__(self) -> GBSizerItemList_iterator"""
+        return _core_.GBSizerItemList___iter__(*args, **kwargs)
+
+    def index(*args, **kwargs):
+        """index(self, GBSizerItem obj) -> int"""
+        return _core_.GBSizerItemList_index(*args, **kwargs)
+
+    def __repr__(self):
+        return "wxGBSizerItemList: " + repr(list(self))
+
+_core_.GBSizerItemList_swigregister(GBSizerItemList)
+
 class GridBagSizer(FlexGridSizer):
     """
     A `wx.Sizer` that can lay out items in a virtual grid like a
@@ -13998,6 +14063,15 @@ class GridBagSizer(FlexGridSizer):
         layout. (non-recursive)
         """
         return _core_.GridBagSizer_FindItemAtPoint(*args, **kwargs)
+
+    def GetChildren(*args, **kwargs):
+        """
+        GetChildren(self) -> GBSizerItemList
+
+        Returns all of the `wx.GBSizerItem` objects managed by the sizer in a
+        list-like object.
+        """
+        return _core_.GridBagSizer_GetChildren(*args, **kwargs)
 
     def CheckForIntersection(*args, **kwargs):
         """
