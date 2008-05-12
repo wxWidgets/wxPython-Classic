@@ -520,15 +520,16 @@ try:
             # Global default style
             if wx.Platform == '__WXMSW__':
                 self.StyleSetSpec(stc.STC_STYLE_DEFAULT, 
-                                  'fore:#000000,back:#FFFFFF,face:Courier New,size:9')
+                                  'fore:#000000,back:#FFFFFF,face:Courier New')
             elif wx.Platform == '__WXMAC__':
                 # TODO: if this looks fine on Linux too, remove the Mac-specific case 
                 # and use this whenever OS != MSW.
                 self.StyleSetSpec(stc.STC_STYLE_DEFAULT, 
                                   'fore:#000000,back:#FFFFFF,face:Monaco')
             else:
+                defsize = wx.SystemSettings.GetFont(wx.SYS_ANSI_FIXED_FONT).GetPointSize()
                 self.StyleSetSpec(stc.STC_STYLE_DEFAULT, 
-                                  'fore:#000000,back:#FFFFFF,face:Courier,size:9')
+                                  'fore:#000000,back:#FFFFFF,face:Courier,size:%d'%defsize)
     
             # Clear styles and revert to default.
             self.StyleClearAll()
