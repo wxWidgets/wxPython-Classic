@@ -35,10 +35,10 @@ Supported platforms: wxMSW and wxMAC natively, wxGTK by means of a
 workaround.
 
 Author: Frank Niessink <frank@niessink.com>
-Copyright 2006, Frank Niessink
+Copyright 2006, 2008, Frank Niessink
 License: wxWidgets license
-Version: 0.9
-Date: September 6, 2006
+Version: 1.0
+Date: May 2, 2008
 """
 
 import wx
@@ -362,12 +362,16 @@ class BaseComboTreeBox(object):
 
     def OnText(self, event):
         event.Skip()
-        item = self.FindString(self._text.GetValue())
-        if item:
-            if self._tree.GetSelection() != item:
+        textValue = self._text.GetValue()
+        selection = self._tree.GetSelection()
+        if not selection or self._tree.GetItemText(selection) != textValue:
+            # We need to change the selection because it doesn't match the
+            # text just entered
+            item = self.FindString(textValue)
+            if item:
                 self._tree.SelectItem(item)
-        else:
-            self._tree.Unselect()
+            else:
+                self._tree.Unselect()
 
     # Methods called by the PopupFrame, to let the ComboTreeBox know
     # about what the user did.
