@@ -189,7 +189,11 @@ class InspectionFrame(wx.Frame):
 
         refreshBmp = Refresh.GetBitmap()
         findWidgetBmp = Find.GetBitmap()
-        showSizersBmp = ShowSizers.GetBitmap() 
+        showSizersBmp = ShowSizers.GetBitmap()
+        expandTreeBmp = ExpandTree.GetBitmap()
+        collapseTreeBmp = CollapseTree.GetBitmap()
+        highlightItemBmp = HighlightItem.GetBitmap()
+        
         toggleFillingBmp = ShowFilling.GetBitmap()
 
         refreshTool = tbar.AddLabelTool(-1, 'Refresh', refreshBmp,
@@ -199,6 +203,13 @@ class InspectionFrame(wx.Frame):
         showSizersTool = tbar.AddLabelTool(-1, 'Sizers', showSizersBmp,
                                            shortHelp='Include sizers in widget tree',
                                            kind=wx.ITEM_CHECK)
+        expandTreeTool = tbar.AddLabelTool(-1, 'Expand', expandTreeBmp,
+                                           shortHelp='Expand all tree items')
+        collapseTreeTool = tbar.AddLabelTool(-1, 'Collapse', collapseTreeBmp,
+                                            shortHelp='Collapse all tree items')
+        highlightItemTool = tbar.AddLabelTool(-1, 'Highlight', highlightItemBmp,
+                                           shortHelp='Attempt to highlight live item')
+        
         toggleFillingTool = tbar.AddLabelTool(-1, 'Filling', toggleFillingBmp,
                                               shortHelp='Show PyCrust \'filling\'',
                                               kind=wx.ITEM_CHECK)
@@ -207,10 +218,12 @@ class InspectionFrame(wx.Frame):
         self.Bind(wx.EVT_TOOL,      self.OnRefreshTree,     refreshTool)
         self.Bind(wx.EVT_TOOL,      self.OnFindWidget,      findWidgetTool)
         self.Bind(wx.EVT_TOOL,      self.OnShowSizers,      showSizersTool)
+        self.Bind(wx.EVT_TOOL,      self.OnExpandTree,      expandTreeTool)
+        self.Bind(wx.EVT_TOOL,      self.OnCollapseTree,    collapseTreeTool)
+        self.Bind(wx.EVT_TOOL,      self.OnHighlightItem,      highlightItemTool)
         self.Bind(wx.EVT_TOOL,      self.OnToggleFilling,   toggleFillingTool)
         self.Bind(wx.EVT_UPDATE_UI, self.OnShowSizersUI,    showSizersTool)
         self.Bind(wx.EVT_UPDATE_UI, self.OnToggleFillingUI, toggleFillingTool)
-
 
 
     def _postStartup(self):
@@ -241,6 +254,16 @@ class InspectionFrame(wx.Frame):
         else:
             self.tree.SelectObj(obj)
 
+
+    def HighlightCurrentItem(self):
+        """
+        Draw a highlight rectangle around the item represented by the
+        current tree selection.
+        """
+        if not hasattr(self, 'highlighter'):
+            self.highlighter = _InspectionHighlighter()
+        self.highlighter.HighlightCurrentItem(self.tree)
+        
 
     def RefreshTree(self):
         self.tree.BuildTree(self.obj, includeSizers=self.includeSizers)
@@ -276,6 +299,23 @@ class InspectionFrame(wx.Frame):
     def OnShowSizers(self, evt):
         self.includeSizers = not self.includeSizers
         self.RefreshTree()
+
+
+    def OnExpandTree(self, evt):
+        current = self.tree.GetSelection()
+        self.tree.ExpandAll()
+        self.tree.EnsureVisible(current)
+
+
+    def OnCollapseTree(self, evt):
+        current = self.tree.GetSelection()
+        self.tree.CollapseAll()
+        self.tree.EnsureVisible(current)
+        self.tree.SelectItem(current)
+
+
+    def OnHighlightItem(self, evt):
+        self.HighlightCurrentItem()
 
 
     def OnToggleFilling(self, evt):
@@ -643,7 +683,7 @@ itemFlags = {
 #    wx.GROW : 'wx.GROW',
     wx.SHAPED : 'wx.SHAPED',
     wx.STRETCH_NOT : 'wx.STRETCH_NOT',
-    wx.ALIGN_CENTER : 'wx.ALIGN_CENTER',
+#    wx.ALIGN_CENTER : 'wx.ALIGN_CENTER',
     wx.ALIGN_LEFT : 'wx.ALIGN_LEFT',
     wx.ALIGN_RIGHT : 'wx.ALIGN_RIGHT',
     wx.ALIGN_TOP : 'wx.ALIGN_TOP',
@@ -659,6 +699,228 @@ flexmodeFlags = {
     wx.FLEX_GROWMODE_SPECIFIED : 'wx.FLEX_GROWMODE_SPECIFIED',
     wx.FLEX_GROWMODE_ALL : 'wx.FLEX_GROWMODE_ALL',
     }
+
+
+
+
+#---------------------------------------------------------------------------
+
+class _InspectionHighlighter(object):
+    """
+    All the highlighting code.  A separate class to help reduce the
+    clutter in InspectionFrame.
+    """
+    
+    # should non TLWs be flashed too?  Otherwise use a highlight rectangle
+    flashAll = False
+
+    color1 = 'red'  # for widgets and sizers
+    color2 = 'red'  # for items in sizers
+
+    
+    def HighlightCurrentItem(self, tree):
+        """
+        Draw a highlight rectangle around the item represented by the
+        current tree selection.
+        """
+        item = tree.GetSelection()
+        obj = tree.GetItemPyData(item)
+
+        if isinstance(obj, wx.Window):
+            self.HighlightWindow(obj)
+
+        elif isinstance(obj, wx.Sizer):
+            self.HighlightSizer(obj)
+
+        elif isinstance(obj, wx.SizerItem):   # Spacer
+            pItem = tree.GetItemParent(item)
+            sizer = tree.GetItemPyData(pItem)
+            self.HighlightSizerItem(obj, sizer)
+
+        else:
+            raise RuntimeError("unknown object type: %s" % obj.__class__.__name__)
+
+
+    def HighlightWindow(self, win):
+        rect = win.GetRect()
+        tlw = win.GetTopLevelParent()
+        if self.flashAll or tlw is win:
+            self.FlickerTLW(win)
+            return
+        else:
+            pos, useWinDC = self.FindHighlightPos(tlw, win.ClientToScreen((0,0)))
+            rect.SetPosition(pos)
+            self.DoHighlight(tlw, rect, self.color1, useWinDC)
+
+
+    def HighlightSizerItem(self, item, sizer, penWidth=2):
+        win = sizer.GetContainingWindow()
+        tlw = win.GetTopLevelParent()
+        rect = item.GetRect()
+        pos = rect.GetPosition()
+        pos, useWinDC = self.FindHighlightPos(tlw, win.ClientToScreen(pos))
+        rect.SetPosition(pos)
+        if rect.width < 1: rect.width = 1
+        if rect.width < 1: rect.width = 1
+        self.DoHighlight(tlw, rect, self.color1, useWinDC, penWidth)
+
+
+    def HighlightSizer(self, sizer):
+        # first do the outline of the whole sizer like normal
+        win = sizer.GetContainingWindow()
+        tlw = win.GetTopLevelParent()
+        pos = sizer.GetPosition()
+        pos, useWinDC = self.FindHighlightPos(tlw, win.ClientToScreen(pos))
+        rect = wx.RectPS(pos, sizer.GetSize())
+        dc = self.DoHighlight(tlw, rect, self.color1, useWinDC)
+        dc.SetPen(wx.Pen(self.color2, 1))
+        
+        # Next highlight the area allocated to each item in the sizer
+        # wx.BoxSizer, wx.StaticBoxSizer
+        if isinstance(sizer, wx.BoxSizer):
+            # NOTE: we have to do some reverse-engineering here for
+            # borders because the sizer and sizer item don't give us
+            # enough information to know for sure where item
+            # (allocated) boundaries are, just the boundaries of the
+            # actual widgets. TODO: It would be nice to add something
+            # to wx.SizerItem that would give us the full bounds, but
+            # that will have to wait until 2.9...
+            x, y = rect.GetPosition()
+            if sizer.Orientation == wx.HORIZONTAL:
+                y1 = y + rect.height
+                for item in sizer.GetChildren():
+                    ir = self.AdjustRect(tlw, win, item.Rect)
+                    x = ir.x
+                    if item.Flag & wx.LEFT:
+                        x -= item.Border
+                    dc.DrawLine(x, y, x, y1)
+                    if item.IsSizer():
+                        dc.DrawRectangleRect(ir)
+
+            if sizer.Orientation == wx.VERTICAL:
+                x1 = x + rect.width
+                for item in sizer.GetChildren():
+                    ir = self.AdjustRect(tlw, win, item.Rect)
+                    y = ir.y
+                    if item.Flag & wx.TOP:
+                        y -= item.Border
+                    dc.DrawLine(x, y, x1, y)
+                    if item.IsSizer():
+                        dc.DrawRectangleRect(ir)
+
+        # wx.FlexGridSizer, wx.GridBagSizer
+        elif isinstance(sizer, wx.FlexGridSizer):
+            sizer.Layout()
+            y = rect.y
+            for rh in sizer.RowHeights[:-1]:
+                y += rh
+                dc.DrawLine(rect.x, y, rect.x+rect.width, y)
+                y+= sizer.VGap
+                dc.DrawLine(rect.x, y, rect.x+rect.width, y)
+            x = rect.x
+            for cw in sizer.ColWidths[:-1]:
+                x += cw
+                dc.DrawLine(x, rect.y, x, rect.y+rect.height)
+                x+= sizer.HGap
+                dc.DrawLine(x, rect.y, x, rect.y+rect.height)
+
+        # wx.GridSizer
+        elif isinstance(sizer, wx.GridSizer):
+            # NOTE: More reverse engineering (see above.) This time we
+            # need to determine what the sizer is using for row
+            # heights and column widths.
+            #rh = cw = 0
+            #for item in sizer.GetChildren():
+            #    rh = max(rh, item.Size.height)
+            #    cw = max(cw, item.Size.width)
+            cw = (rect.width - sizer.HGap*(sizer.Cols-1)) / sizer.Cols
+            rh = (rect.height - sizer.VGap*(sizer.Rows-1)) / sizer.Rows
+            y = rect.y
+            for i in range(sizer.Rows-1):
+                y += rh
+                dc.DrawLine(rect.x, y, rect.x+rect.width, y)
+                y+= sizer.VGap
+                dc.DrawLine(rect.x, y, rect.x+rect.width, y)
+            x = rect.x
+            for i in range(sizer.Cols-1):
+                x += cw
+                dc.DrawLine(x, rect.y, x, rect.y+rect.height)
+                x+= sizer.HGap
+                dc.DrawLine(x, rect.y, x, rect.y+rect.height)
+
+        # Anything else is probably a custom sizer, just highlight the items
+        else:
+            del dc
+            for item in sizer.GetChildren():
+                self.HighlightSizerItem(item, sizer, 1)
+            
+
+    def FindHighlightPos(self, tlw, pos):
+        if 'wxMac' in wx.PlatformInfo:
+            # We'll be using a WindowDC in this case so adjust the
+            # position accordingly
+            pos = tlw.ScreenToClient(pos)
+            useWinDC = True
+        else:
+            useWinDC = False
+        return pos, useWinDC
+
+
+    def AdjustRect(self, tlw, win,  rect):
+        pos, j = self.FindHighlightPos(tlw, win.ClientToScreen(rect.Position))
+        rect.Position = pos
+        return wx.RectPS(pos, rect.Size)
+
+    
+    def DoHighlight(self, tlw, rect, colour, useWinDC, penWidth=2):
+        if useWinDC:
+            dc = wx.WindowDC(tlw)
+        else:
+            dc = wx.ScreenDC()
+        dc.SetPen(wx.Pen(colour, penWidth))
+        dc.SetBrush(wx.TRANSPARENT_BRUSH)
+
+        drawRect = wx.Rect(*rect)
+
+        if False: ## 'wxMSW' in wx.PlatformInfo:
+            cr = tlw.GetClientRect()
+            if tlw.ClientToScreen(cr.GetPosition()) == rect.GetPosition() and \
+                   cr.GetSize() == rect.GetSize():
+                # this helps on windows to avoid areas that might not
+                # be refreshed properly...
+                drawRect.Deflate(1,1) 
+                                  
+        dc.DrawRectangleRect(drawRect)
+
+        drawRect.Inflate(2,2)
+        if not useWinDC:
+            pos = tlw.ScreenToClient(drawRect.GetPosition())
+            drawRect.SetPosition(pos)
+        wx.CallLater(3000, tlw.RefreshRect, drawRect)
+
+        return dc
+
+
+    def FlickerTLW(self, tlw):
+        """
+        Use a timer to alternate a TLW between shown and hidded state a
+        few times.  Use to highlight a TLW since drawing and clearing an
+        outline is trickier.
+        """
+        self.flickerCount = 0
+        tlw.Hide()        
+        self.cl = wx.CallLater(300, self._Toggle, tlw)
+
+    def _Toggle(self, tlw):
+        if tlw.IsShown():
+            tlw.Hide()
+            self.cl.Restart()
+        else:
+            tlw.Show()
+            self.flickerCount += 1
+            if self.flickerCount < 4:
+                self.cl.Restart()
+        
 
 #---------------------------------------------------------------------------
 from wx.lib.embeddedimage import PyEmbeddedImage
@@ -770,3 +1032,37 @@ Icon = PyEmbeddedImage(
     "prMcqAhbAtknJx+3AKRHgGhnv4iApQY+jtSWpOY27BnifNt5uyk9BekAoZNwl21yDBSBi/63"
     "yOMiLAXaf8AuwP9n94vzaTYBsgHeht4lXXmb7yQAAAAASUVORK5CYII=")
 
+CollapseTree = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAf9J"
+    "REFUSIm9lD9r20AYhx9Fxe5SKDIynVJodFMaChkC6eBCJ+WWdulSb1o6RR8gH6AfQF5aSksX"
+    "aQ0eajwVkinO1MFk0YXg0uLSISZDoQhcddAf5MR241buD4670/tyD+/vXh0sWdqUb1vAQ2Bj"
+    "Suwb0E7Xx38DaAKPgTuAnJLfSSEAn4DWIoAm8ByQruti2zYAlmUBoJSi2+3ieV4R1v0TJANs"
+    "AS8Ap9PpYFkWUSSuJFcqIUopAKSUAO+A18yxS0/nZ8AD13WFbdtEkWB9Hep1ODqC0QgMA8bj"
+    "GqYJhmGgaRq9Xm8I3AY+zgKspPMGIIuHZ6qn4/Q02UeRIIpEZqEkua+ZWpkXLEM3ipvEe9C0"
+    "ad2bqN+P89zr6P9WoJRidVXQ78e55/U09h1YW5vMTTWcB8i66B7wq1arie1ti/G4hmEknfNl"
+    "BD8Kh1cqIbp+ThAEVKtVBoNBCziZBfjX/wDgEHg0C7D0O8gs+grcAm76vi80TcM04eJCYZqg"
+    "6+ecnR0TBAGu6+L7PlJKhAgJQ+6SvF/vrwNsAm+BD0B8eTQajXztOMT7HnFrL48fpGNCizzX"
+    "Q5IXdDfdN/Y92Hna5s2rJ+y+zPPm3skiOoCkip+f23Fr70o1pWgCkoGKkKV3URnKqyjaxTKs"
+    "omCX4+SQ0pS1aew4xJub5VZwGZQdfv83yOfTR/iA1xwAAAAASUVORK5CYII=")
+
+ExpandTree = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAepJ"
+    "REFUSIm1lDFr20AYhp+ri+iSxUUhW4dIU9wlQ4YOKnRSj4K7Z9NSCFg/ID+gP0BZWkpLF3kN"
+    "Giq0pkOpMxWSTFIIFIqHQCFbUQnXQTpFslXXptYLx90nvdzD9913Bx1LtHzbA54Aj1v+nQFf"
+    "yvXpMoD7M/E+8AzYAmSLP66BbSBcBTACXED6vo/rugBYlgVAlmUkSSKDIND+rXJeCNEl2gNe"
+    "AV4cx1iWRZ7bc2bDSMmyDAApJcAH4C0LytUr5wPA8n3fdl2XPLfZ2YHNTbi+vjPf3j7ENKHf"
+    "7yOEYDKZTIHfwNe/Ae7V0pX1zbUGA8FgILi8LOI8t8lzW5dQ0t4Mc4DO1ADoA724ACEEQtx1"
+    "8XBYZDLrXQnQhRoA3SEAUaSIItWIz89Vm3e6DOAMiJMkwTBSALa3i6Gl14aRYhgpSZLgOA7A"
+    "t0WA/70HAJ+Bp//KoDPpi/YD2AAehGFoCyEwTbi5yTBN6PV+cnV1yng8xvd9wjBESoltp6Qp"
+    "jyjer4/LAPeB98AnQM0Ox3GqteehjgPU0WH1/6QcDa3yXE8pDnRUxs5xAM9fRrx7M2T0uvIt"
+    "PJNVdAJFFr++R+rocC6btagB0aA6pPMuWoeqLOrlootSUSuX51WQtUm3qfI81O7uejOYBenN"
+    "X/wBVz/ONKbGYPkAAAAASUVORK5CYII=")
+
+HighlightItem = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABHNCSVQICAgIfAhkiAAAAQZJ"
+    "REFUSInFlTGSgjAUhv8XuIRl9ga0XgmuoI5abwfH8Ai22GlJZ0otuQD5t3DZ1V1CwgzgP8OQ"
+    "QCZfkv+9FxEVYUrFbYO2oW+wqEiGAtRzhyRIQh9eH+RXAMBmvfIuohcwheLnTnZ6vM3NjAaQ"
+    "1mTahvrAHwCzj+BJVI83sesHAMjRM3OVgNkFm/WK292+EzKvB86zr5Lu76b2AubdAbqMda0+"
+    "UOIqFdY2lKMHYGrw06DL3Tbrxzmi/Iq0JNLyO/Pxm/Uze/BXVRIUKajvKM6AXuh/kfjeHTC7"
+    "TAdw1RfahmlJFOewgtjvQY/0QgeNe3MUOVQsw2/OwQBRkQy5Op2lYixN7sEXVhRd4PXVHvwA"
+    "AAAASUVORK5CYII=")

@@ -41,15 +41,22 @@ wx.DefaultDateTime even if wx.DP_ALLOWNONE was specified.
 Made a little hack in wx.lib.masked.TextCtrl that allows it to be
 wrapped around an already existing TextCtrl instead of always creating
 its own.  This is useful for example with the wx.TextCtrl that is
-built-in to the customizable wx.combo.ComboCtrl, or with textctrl that
-is part of an XRC layout.  To use it you need to do a little trick
-like this::
+built-in to the customizable wx.combo.ComboCtrl, or with a textctrl
+that is part of an XRC layout.  To use it you need to do a little
+trick like this::
 
        existingTextCtrl = combo.GetTextCtrl()
        maskedCtrl = wx.lib.masked.TextCtrl.__new__(wx.lib.masked.TextCtrl)
        maskedCtrl.this = existingTextCtrl.this
        maskedCtrl.__init__(parent)
 
+Enhanced the Widget Inspection Tool with some new functionality.
+Added tools to the toolbar to expand and collapse the widget tree,
+which is very helpful for not getting lost in very large applications
+with many hundreds of widgets.  Also added a toolbar tool for
+highlighting the currently selected widget or sizer in the live
+application.  The tool will flash top-level windows and for all other
+items it will draw an outline around the item for a few seconds.
 
 
 
