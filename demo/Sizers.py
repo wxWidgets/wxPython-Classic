@@ -545,20 +545,17 @@ class TestFrame(wx.Frame):
 
 #----------------------------------------------------------------------
 
-
-
 class TestSelectionPanel(wx.Panel):
-    def __init__(self, parent, frame):
-        wx.Panel.__init__(self, parent, -1)
-        self.frame = frame
+    def __init__(self, parent):
+        wx.Panel.__init__(self, parent)
 
         self.list = wx.ListBox(self, -1,
                               wx.DLG_PNT(self, 10, 10), wx.DLG_SZE(self, 100, 100),
                               [])
-        self.Bind(wx.EVT_LISTBOX, self.OnSelect, id=self.list.GetId())
-        self.Bind(wx.EVT_LISTBOX_DCLICK, self.OnDClick, id=self.list.GetId())
+        self.Bind(wx.EVT_LISTBOX, self.OnSelect, self.list)
+        self.Bind(wx.EVT_LISTBOX_DCLICK, self.OnDClick, self.list)
 
-        self.btn = wx.Button(self, -1, "Try it!", wx.DLG_PNT(self, 120, 10)).SetDefault()
+        wx.Button(self, -1, "Try it!", wx.DLG_PNT(self, 120, 10)).SetDefault()
         self.Bind(wx.EVT_BUTTON, self.OnDClick)
 
         self.text = wx.TextCtrl(self, -1, "",
@@ -584,12 +581,12 @@ class TestSelectionPanel(wx.Panel):
             win = TestFrame(self, title, func)
             win.CentreOnParent(wx.BOTH)
             win.Show(True)
-            win.MakeModal(True)
+
 
 #----------------------------------------------------------------------
 
 def runTest(frame, nb, log):
-    win = TestSelectionPanel(nb, frame)
+    win = TestSelectionPanel(nb)
     return win
 
 overview = ""
@@ -597,38 +594,8 @@ overview = ""
 #----------------------------------------------------------------------
 
 if __name__ == '__main__':
-
-    class MainFrame(wx.Frame):
-        def __init__(self):
-            wx.Frame.__init__(self, None, -1, "Testing...")
-
-            self.CreateStatusBar()
-            mainmenu = wx.MenuBar()
-            menu = wx.Menu()
-            menu.Append(200, 'E&xit', 'Get the heck outta here!')
-            mainmenu.Append(menu, "&File")
-            self.SetMenuBar(mainmenu)
-            self.Bind(wx.EVT_MENU, self.OnExit, id=200)
-            self.panel = TestSelectionPanel(self, self)
-            self.SetSize((400, 380))
-            self.Bind(wx.EVT_CLOSE, self.OnCloseWindow)
-
-        def OnCloseWindow(self, event):
-            self.Destroy()
-
-        def OnExit(self, event):
-            self.Close(True)
-
-
-    class TestApp(wx.App):
-        def OnInit(self):
-            frame = MainFrame()
-            frame.Show(True)
-            self.SetTopWindow(frame)
-            return True
-
-    app = TestApp(False)
-    app.MainLoop()
-
+    import sys,os
+    import run
+    run.main(['', os.path.basename(sys.argv[0])] + sys.argv[1:])
 
 #----------------------------------------------------------------------
