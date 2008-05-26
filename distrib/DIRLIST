@@ -149,10 +149,14 @@ wx/tools/Editra/locale/en_US
 wx/tools/Editra/locale/en_US/LC_MESSAGES
 wx/tools/Editra/locale/es_ES
 wx/tools/Editra/locale/es_ES/LC_MESSAGES
+wx/tools/Editra/locale/fr_FR
+wx/tools/Editra/locale/fr_FR/LC_MESSAGES
 wx/tools/Editra/locale/ja_JP
 wx/tools/Editra/locale/ja_JP/LC_MESSAGES
 wx/tools/Editra/locale/nl_NL
 wx/tools/Editra/locale/nl_NL/LC_MESSAGES
+wx/tools/Editra/locale/nn_NO
+wx/tools/Editra/locale/nn_NO/LC_MESSAGES
 wx/tools/Editra/locale/ru_RU
 wx/tools/Editra/locale/ru_RU/LC_MESSAGES
 wx/tools/Editra/locale/zh_CN
