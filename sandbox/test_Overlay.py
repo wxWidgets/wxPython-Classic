@@ -52,6 +52,9 @@ class TestPanel(wx.Panel):
             odc = wx.DCOverlay(self.overlay, dc)
             odc.Clear()
 
+            # Mac's DC is already the same as a GCDC, and it causes
+            # problems with the overlay if we try to use an actual
+            # wx.GCDC so don't try it.
             if 'wxMac' not in wx.PlatformInfo:
                 dc = wx.GCDC(dc)
             
