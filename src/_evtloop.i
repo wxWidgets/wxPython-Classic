@@ -85,4 +85,11 @@ public:
  
 
 
+
+class wxEventLoopGuarantor
+{
+public:
+    wxEventLoopGuarantor();
+    ~wxEventLoopGuarantor();
+};
 //---------------------------------------------------------------------------

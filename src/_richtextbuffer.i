@@ -1828,6 +1828,11 @@ enum {
     // Don't write header and footer (or BODY), so we can include the
     // fragment in a larger document
     wxRICHTEXT_HANDLER_NO_HEADER_FOOTER,
+
+    // Convert the more common face names to names that will work on the
+    // current platform in a larger document
+    wxRICHTEXT_HANDLER_CONVERT_FACENAMES,
+    
 };
 
 
