@@ -58,12 +58,11 @@ Have fun!
 R'bot
 
 EOF
-    fi
 
     echo "Cleaning up staging dir..."
     rm -r $STAGING_DIR/*
     rmdir $STAGING_DIR
-
+    fi
     exit 0
 fi
 
@@ -110,12 +109,10 @@ R'bot
 
 EOF
 
-    fi
-
     echo "Cleaning up staging dir..."
     rm $STAGING_DIR/*
     rmdir $STAGING_DIR
-
+    fi
     exit 0
 fi
 
