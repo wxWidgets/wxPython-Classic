@@ -4022,24 +4022,16 @@ SWIGINTERNINLINE PyObject*
 }
 
 SWIGINTERN void wxRendererNative_DrawChoice(wxRendererNative *self,wxWindow *win,wxDC &dc,wxRect const &rect,int flags=0){
-        
             wxRenderer_DrawChoice(win, dc, rect, flags);
-        
         }
 SWIGINTERN void wxRendererNative_DrawComboBox(wxRendererNative *self,wxWindow *win,wxDC &dc,wxRect const &rect,int flags=0){
-        
             wxRenderer_DrawComboBox(win, dc, rect, flags);
-        
         }
 SWIGINTERN void wxRendererNative_DrawTextCtrl(wxRendererNative *self,wxWindow *win,wxDC &dc,wxRect const &rect,int flags=0){
-        
             wxRenderer_DrawTextCtrl(win, dc, rect, flags);
-        
         }
 SWIGINTERN void wxRendererNative_DrawRadioButton(wxRendererNative *self,wxWindow *win,wxDC &dc,wxRect const &rect,int flags=0){
-        
             wxRenderer_DrawRadioButton(win, dc, rect, flags);
-        
         }
 
 #include "wx/wxPython/pseudodc.h"
@@ -42980,6 +42972,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "LANGUAGE_ROMANIAN",SWIG_From_int(static_cast< int >(wxLANGUAGE_ROMANIAN)));
   SWIG_Python_SetConstant(d, "LANGUAGE_RUSSIAN",SWIG_From_int(static_cast< int >(wxLANGUAGE_RUSSIAN)));
   SWIG_Python_SetConstant(d, "LANGUAGE_RUSSIAN_UKRAINE",SWIG_From_int(static_cast< int >(wxLANGUAGE_RUSSIAN_UKRAINE)));
+  SWIG_Python_SetConstant(d, "LANGUAGE_SAMI",SWIG_From_int(static_cast< int >(wxLANGUAGE_SAMI)));
   SWIG_Python_SetConstant(d, "LANGUAGE_SAMOAN",SWIG_From_int(static_cast< int >(wxLANGUAGE_SAMOAN)));
   SWIG_Python_SetConstant(d, "LANGUAGE_SANGHO",SWIG_From_int(static_cast< int >(wxLANGUAGE_SANGHO)));
   SWIG_Python_SetConstant(d, "LANGUAGE_SANSKRIT",SWIG_From_int(static_cast< int >(wxLANGUAGE_SANSKRIT)));
@@ -43043,6 +43036,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "LANGUAGE_UZBEK",SWIG_From_int(static_cast< int >(wxLANGUAGE_UZBEK)));
   SWIG_Python_SetConstant(d, "LANGUAGE_UZBEK_CYRILLIC",SWIG_From_int(static_cast< int >(wxLANGUAGE_UZBEK_CYRILLIC)));
   SWIG_Python_SetConstant(d, "LANGUAGE_UZBEK_LATIN",SWIG_From_int(static_cast< int >(wxLANGUAGE_UZBEK_LATIN)));
+  SWIG_Python_SetConstant(d, "LANGUAGE_VALENCIAN",SWIG_From_int(static_cast< int >(wxLANGUAGE_VALENCIAN)));
   SWIG_Python_SetConstant(d, "LANGUAGE_VIETNAMESE",SWIG_From_int(static_cast< int >(wxLANGUAGE_VIETNAMESE)));
   SWIG_Python_SetConstant(d, "LANGUAGE_VOLAPUK",SWIG_From_int(static_cast< int >(wxLANGUAGE_VOLAPUK)));
   SWIG_Python_SetConstant(d, "LANGUAGE_WELSH",SWIG_From_int(static_cast< int >(wxLANGUAGE_WELSH)));

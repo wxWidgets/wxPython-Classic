@@ -8114,6 +8114,17 @@ class EventLoopActivator(object):
     __del__ = lambda self : None;
 _core_.EventLoopActivator_swigregister(EventLoopActivator)
 
+class EventLoopGuarantor(object):
+    """Proxy of C++ EventLoopGuarantor class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> EventLoopGuarantor"""
+        _core_.EventLoopGuarantor_swiginit(self,_core_.new_EventLoopGuarantor(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_EventLoopGuarantor
+    __del__ = lambda self : None;
+_core_.EventLoopGuarantor_swigregister(EventLoopGuarantor)
+
 #---------------------------------------------------------------------------
 
 ACCEL_ALT = _core_.ACCEL_ALT

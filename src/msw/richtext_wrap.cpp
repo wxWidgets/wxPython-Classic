@@ -30132,6 +30132,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "RICHTEXT_HANDLER_SAVE_IMAGES_TO_FILES",SWIG_From_int(static_cast< int >(wxRICHTEXT_HANDLER_SAVE_IMAGES_TO_FILES)));
   SWIG_Python_SetConstant(d, "RICHTEXT_HANDLER_SAVE_IMAGES_TO_BASE64",SWIG_From_int(static_cast< int >(wxRICHTEXT_HANDLER_SAVE_IMAGES_TO_BASE64)));
   SWIG_Python_SetConstant(d, "RICHTEXT_HANDLER_NO_HEADER_FOOTER",SWIG_From_int(static_cast< int >(wxRICHTEXT_HANDLER_NO_HEADER_FOOTER)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_HANDLER_CONVERT_FACENAMES",SWIG_From_int(static_cast< int >(wxRICHTEXT_HANDLER_CONVERT_FACENAMES)));
   SWIG_addvarlink(SWIG_globals(),(char*)"TextName",TextName_get, TextName_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"TextExt",TextExt_get, TextExt_set);
   SWIG_Python_SetConstant(d, "RE_READONLY",SWIG_From_int(static_cast< int >(wxRE_READONLY)));
