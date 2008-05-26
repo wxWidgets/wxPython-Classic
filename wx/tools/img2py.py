@@ -144,7 +144,7 @@ def img2py(image_file, python_file,
             os.remove(tfname)
 
     old_index = []
-    if catalog and append:
+    if catalog and append and python_file != '-':
         # check to see if catalog exists already (file may have been created
         # with an earlier version of img2py or without -c option)
         pyPath, pyFile = os.path.split(python_file)
@@ -172,8 +172,10 @@ def img2py(image_file, python_file,
                 out.write("index = []\n\n")
             finally:
                 out.close()
- 
-    if append:
+
+    if python_file == '-':
+        out = sys.stdout
+    elif append:
         out = open(python_file, "a")
     else:
         out = open(python_file, "w")
@@ -232,7 +234,8 @@ def img2py(image_file, python_file,
 
         print "Embedded %s%s into %s%s" % (image_file, n_msg, python_file, m_msg)
     finally:
-        out.close()
+        if python_file != '-':
+            out.close()
         
 
     
