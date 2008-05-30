@@ -773,6 +773,7 @@ BITMAP_TYPE_ANI = _core_.BITMAP_TYPE_ANI
 BITMAP_TYPE_IFF = _core_.BITMAP_TYPE_IFF
 BITMAP_TYPE_TGA = _core_.BITMAP_TYPE_TGA
 BITMAP_TYPE_MACCURSOR = _core_.BITMAP_TYPE_MACCURSOR
+BITMAP_TYPE_MAX = _core_.BITMAP_TYPE_MAX
 BITMAP_TYPE_ANY = _core_.BITMAP_TYPE_ANY
 CURSOR_NONE = _core_.CURSOR_NONE
 CURSOR_ARROW = _core_.CURSOR_ARROW
@@ -2382,11 +2383,11 @@ _core_.ZipFSHandler_swigregister(ZipFSHandler)
 
 
 def __wxMemoryFSHandler_AddFile_wxImage(*args, **kwargs):
-  """__wxMemoryFSHandler_AddFile_wxImage(String filename, Image image, long type)"""
+  """__wxMemoryFSHandler_AddFile_wxImage(String filename, Image image, int type)"""
   return _core_.__wxMemoryFSHandler_AddFile_wxImage(*args, **kwargs)
 
 def __wxMemoryFSHandler_AddFile_wxBitmap(*args, **kwargs):
-  """__wxMemoryFSHandler_AddFile_wxBitmap(String filename, Bitmap bitmap, long type)"""
+  """__wxMemoryFSHandler_AddFile_wxBitmap(String filename, Bitmap bitmap, int type)"""
   return _core_.__wxMemoryFSHandler_AddFile_wxBitmap(*args, **kwargs)
 
 def __wxMemoryFSHandler_AddFile_Data(*args, **kwargs):
@@ -3925,6 +3926,10 @@ class EvtHandler(Object):
     def SafelyProcessEvent(*args, **kwargs):
         """SafelyProcessEvent(self, Event event) -> bool"""
         return _core_.EvtHandler_SafelyProcessEvent(*args, **kwargs)
+
+    def QueueEvent(*args, **kwargs):
+        """QueueEvent(self, Event event)"""
+        return _core_.EvtHandler_QueueEvent(*args, **kwargs)
 
     def AddPendingEvent(*args, **kwargs):
         """AddPendingEvent(self, Event event)"""
@@ -8614,8 +8619,14 @@ WINDOW_VARIANT_SMALL = _core_.WINDOW_VARIANT_SMALL
 WINDOW_VARIANT_MINI = _core_.WINDOW_VARIANT_MINI
 WINDOW_VARIANT_LARGE = _core_.WINDOW_VARIANT_LARGE
 WINDOW_VARIANT_MAX = _core_.WINDOW_VARIANT_MAX
-SHOW_EFFECT_ROLL = _core_.SHOW_EFFECT_ROLL
-SHOW_EFFECT_SLIDE = _core_.SHOW_EFFECT_SLIDE
+SHOW_EFFECT_ROLL_TO_LEFT = _core_.SHOW_EFFECT_ROLL_TO_LEFT
+SHOW_EFFECT_ROLL_TO_RIGHT = _core_.SHOW_EFFECT_ROLL_TO_RIGHT
+SHOW_EFFECT_ROLL_TO_TOP = _core_.SHOW_EFFECT_ROLL_TO_TOP
+SHOW_EFFECT_ROLL_TO_BOTTOM = _core_.SHOW_EFFECT_ROLL_TO_BOTTOM
+SHOW_EFFECT_SLIDE_TO_LEFT = _core_.SHOW_EFFECT_SLIDE_TO_LEFT
+SHOW_EFFECT_SLIDE_TO_RIGHT = _core_.SHOW_EFFECT_SLIDE_TO_RIGHT
+SHOW_EFFECT_SLIDE_TO_TOP = _core_.SHOW_EFFECT_SLIDE_TO_TOP
+SHOW_EFFECT_SLIDE_TO_BOTTOM = _core_.SHOW_EFFECT_SLIDE_TO_BOTTOM
 SHOW_EFFECT_BLEND = _core_.SHOW_EFFECT_BLEND
 SHOW_EFFECT_EXPAND = _core_.SHOW_EFFECT_EXPAND
 SHOW_EFFECT_MAX = _core_.SHOW_EFFECT_MAX
@@ -9387,7 +9398,7 @@ class Window(EvtHandler):
 
     def ShowWithEffect(*args, **kwargs):
         """
-        ShowWithEffect(self, int effect, unsigned int timeout=0, int dir=BOTTOM) -> bool
+        ShowWithEffect(self, int effect, unsigned int timeout=0) -> bool
 
         Show the window with a special effect, not implemented on most
         platforms (where it is the same as Show())
@@ -9395,13 +9406,12 @@ class Window(EvtHandler):
         Timeout specifies how long the animation should take, in ms, the
         default value of 0 means to use the default (system-dependent) value.
 
-        Direction is only used with wxSHOW_EFFECT_ROLL and SLIDE values.
         """
         return _core_.Window_ShowWithEffect(*args, **kwargs)
 
     def HideWithEffect(*args, **kwargs):
         """
-        HideWithEffect(self, int effect, unsigned int timeout=0, int dir=BOTTOM) -> bool
+        HideWithEffect(self, int effect, unsigned int timeout=0) -> bool
 
         Hide the window with a special effect, not implemented on most
         platforms (where it is the same as Hide())
@@ -9409,7 +9419,6 @@ class Window(EvtHandler):
         Timeout specifies how long the animation should take, in ms, the
         default value of 0 means to use the default (system-dependent) value.
 
-        Direction is only used with wxSHOW_EFFECT_ROLL and SLIDE values.
         """
         return _core_.Window_HideWithEffect(*args, **kwargs)
 
@@ -11778,6 +11787,11 @@ class MenuBar(Window):
         return _core_.MenuBar_GetAutoWindowMenu(*args, **kwargs)
 
     GetAutoWindowMenu = staticmethod(GetAutoWindowMenu)
+    def MacSetCommonMenuBar(*args, **kwargs):
+        """MacSetCommonMenuBar(MenuBar menubar)"""
+        return _core_.MenuBar_MacSetCommonMenuBar(*args, **kwargs)
+
+    MacSetCommonMenuBar = staticmethod(MacSetCommonMenuBar)
     def GetMenus(self):
         """Return a list of (menu, label) items for the menus in the MenuBar. """
         return [(self.GetMenu(i), self.GetLabelTop(i)) 
@@ -11802,6 +11816,10 @@ def MenuBar_SetAutoWindowMenu(*args, **kwargs):
 def MenuBar_GetAutoWindowMenu(*args):
   """MenuBar_GetAutoWindowMenu() -> bool"""
   return _core_.MenuBar_GetAutoWindowMenu(*args)
+
+def MenuBar_MacSetCommonMenuBar(*args, **kwargs):
+  """MenuBar_MacSetCommonMenuBar(MenuBar menubar)"""
+  return _core_.MenuBar_MacSetCommonMenuBar(*args, **kwargs)
 
 #---------------------------------------------------------------------------
 
@@ -13754,16 +13772,12 @@ class Sizer(Object):
         return self.Remove(*args, **kw)
 
 
-    def SetDimension(*args, **kwargs):
+    def SetDimension(*args):
         """
         SetDimension(self, int x, int y, int width, int height)
-
-        Call this to force the sizer to take the given dimension and thus
-        force the items owned by the sizer to resize themselves according to
-        the rules defined by the parameter in the `Add`, `Insert` or `Prepend`
-        methods.
+        SetDimension(self, Point pos, Size size)
         """
-        return _core_.Sizer_SetDimension(*args, **kwargs)
+        return _core_.Sizer_SetDimension(*args)
 
     def SetMinSize(*args, **kwargs):
         """
@@ -14836,6 +14850,55 @@ def GBSizerItemSpacer(*args, **kwargs):
     val = _core_.new_GBSizerItemSpacer(*args, **kwargs)
     return val
 
+class GBSizerItemList_iterator(object):
+    """This class serves as an iterator for a wxGBSizerItemList object."""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_GBSizerItemList_iterator
+    __del__ = lambda self : None;
+    def next(*args, **kwargs):
+        """next(self) -> GBSizerItem"""
+        return _core_.GBSizerItemList_iterator_next(*args, **kwargs)
+
+_core_.GBSizerItemList_iterator_swigregister(GBSizerItemList_iterator)
+
+class GBSizerItemList(object):
+    """
+    This class wraps a wxList-based class and gives it a Python
+    sequence-like interface.  Sequence operations supported are length,
+    index access and iteration.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_GBSizerItemList
+    __del__ = lambda self : None;
+    def __len__(*args, **kwargs):
+        """__len__(self) -> size_t"""
+        return _core_.GBSizerItemList___len__(*args, **kwargs)
+
+    def __getitem__(*args, **kwargs):
+        """__getitem__(self, size_t index) -> GBSizerItem"""
+        return _core_.GBSizerItemList___getitem__(*args, **kwargs)
+
+    def __contains__(*args, **kwargs):
+        """__contains__(self, GBSizerItem obj) -> bool"""
+        return _core_.GBSizerItemList___contains__(*args, **kwargs)
+
+    def __iter__(*args, **kwargs):
+        """__iter__(self) -> GBSizerItemList_iterator"""
+        return _core_.GBSizerItemList___iter__(*args, **kwargs)
+
+    def index(*args, **kwargs):
+        """index(self, GBSizerItem obj) -> int"""
+        return _core_.GBSizerItemList_index(*args, **kwargs)
+
+    def __repr__(self):
+        return "wxGBSizerItemList: " + repr(list(self))
+
+_core_.GBSizerItemList_swigregister(GBSizerItemList)
+
 class GridBagSizer(FlexGridSizer):
     """
     A `wx.Sizer` that can lay out items in a virtual grid like a
@@ -14989,6 +15052,15 @@ class GridBagSizer(FlexGridSizer):
         layout. (non-recursive)
         """
         return _core_.GridBagSizer_FindItemAtPoint(*args, **kwargs)
+
+    def GetChildren(*args, **kwargs):
+        """
+        GetChildren(self) -> GBSizerItemList
+
+        Returns all of the `wx.GBSizerItem` objects managed by the sizer in a
+        list-like object.
+        """
+        return _core_.GridBagSizer_GetChildren(*args, **kwargs)
 
     def CheckForIntersection(*args, **kwargs):
         """

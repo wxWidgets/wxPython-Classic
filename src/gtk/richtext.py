@@ -76,6 +76,8 @@ RICHTEXT_HITTEST_ON = _richtext.RICHTEXT_HITTEST_ON
 RICHTEXT_HITTEST_OUTSIDE = _richtext.RICHTEXT_HITTEST_OUTSIDE
 RICHTEXT_FORMATTED = _richtext.RICHTEXT_FORMATTED
 RICHTEXT_UNFORMATTED = _richtext.RICHTEXT_UNFORMATTED
+RICHTEXT_CACHE_SIZE = _richtext.RICHTEXT_CACHE_SIZE
+RICHTEXT_HEIGHT_ONLY = _richtext.RICHTEXT_HEIGHT_ONLY
 RICHTEXT_SETSTYLE_NONE = _richtext.RICHTEXT_SETSTYLE_NONE
 RICHTEXT_SETSTYLE_WITH_UNDO = _richtext.RICHTEXT_SETSTYLE_WITH_UNDO
 RICHTEXT_SETSTYLE_OPTIMIZE = _richtext.RICHTEXT_SETSTYLE_OPTIMIZE
@@ -614,7 +616,7 @@ class RichTextCompositeObject(RichTextObject):
         return _richtext.RichTextCompositeObject_DeleteChildren(*args, **kwargs)
 
     def Defragment(*args, **kwargs):
-        """Defragment(self) -> bool"""
+        """Defragment(self, RichTextRange range=wxRICHTEXT_ALL) -> bool"""
         return _richtext.RichTextCompositeObject_Defragment(*args, **kwargs)
 
 _richtext.RichTextCompositeObject_swigregister(RichTextCompositeObject)
@@ -766,7 +768,8 @@ class RichTextParagraphLayoutBox(RichTextBox):
     def CollectStyle(*args, **kwargs):
         """
         CollectStyle(self, TextAttr currentStyle, TextAttr style, long multipleStyleAttributes, 
-            int multipleTextEffectAttributes) -> bool
+            int multipleTextEffectAttributes, 
+            int absentStyleAttributes, int absentTextEffectAttributes) -> bool
         """
         return _richtext.RichTextParagraphLayoutBox_CollectStyle(*args, **kwargs)
 
@@ -933,6 +936,10 @@ class RichTextLine(object):
         """GetDescent(self) -> int"""
         return _richtext.RichTextLine_GetDescent(*args, **kwargs)
 
+    def GetObjectSizes(*args, **kwargs):
+        """GetObjectSizes(self) -> wxArrayInt"""
+        return _richtext.RichTextLine_GetObjectSizes(*args, **kwargs)
+
     def Init(*args, **kwargs):
         """Init(self, RichTextParagraph parent)"""
         return _richtext.RichTextLine_Init(*args, **kwargs)
@@ -1002,7 +1009,10 @@ class RichTextParagraph(RichTextBox):
         return _richtext.RichTextParagraph_GetContiguousPlainText(*args, **kwargs)
 
     def FindWrapPosition(*args, **kwargs):
-        """FindWrapPosition(self, RichTextRange range, DC dc, int availableSpace, long wrapPosition) -> bool"""
+        """
+        FindWrapPosition(self, RichTextRange range, DC dc, int availableSpace, long wrapPosition, 
+            wxArrayInt partialExtents) -> bool
+        """
         return _richtext.RichTextParagraph_FindWrapPosition(*args, **kwargs)
 
     def FindObjectAtPosition(*args, **kwargs):
@@ -1697,6 +1707,7 @@ RICHTEXT_HANDLER_SAVE_IMAGES_TO_MEMORY = _richtext.RICHTEXT_HANDLER_SAVE_IMAGES_
 RICHTEXT_HANDLER_SAVE_IMAGES_TO_FILES = _richtext.RICHTEXT_HANDLER_SAVE_IMAGES_TO_FILES
 RICHTEXT_HANDLER_SAVE_IMAGES_TO_BASE64 = _richtext.RICHTEXT_HANDLER_SAVE_IMAGES_TO_BASE64
 RICHTEXT_HANDLER_NO_HEADER_FOOTER = _richtext.RICHTEXT_HANDLER_NO_HEADER_FOOTER
+RICHTEXT_HANDLER_CONVERT_FACENAMES = _richtext.RICHTEXT_HANDLER_CONVERT_FACENAMES
 class RichTextFileHandler(_core.Object):
     """Base class for file handlers"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')

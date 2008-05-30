@@ -6554,7 +6554,72 @@ DP_SPIN = _controls_.DP_SPIN
 DP_DROPDOWN = _controls_.DP_DROPDOWN
 DP_SHOWCENTURY = _controls_.DP_SHOWCENTURY
 DP_ALLOWNONE = _controls_.DP_ALLOWNONE
-class DatePickerCtrl(_core.Control):
+class DatePickerCtrlBase(_core.Control):
+    """Proxy of C++ DatePickerCtrlBase class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    def SetValue(*args, **kwargs):
+        """
+        SetValue(self, DateTime dt)
+
+        Changes the current value of the control. The date should be valid and
+        included in the currently selected range, if any.
+
+        Calling this method does not result in a date change event.
+        """
+        return _controls_.DatePickerCtrlBase_SetValue(*args, **kwargs)
+
+    def GetValue(*args, **kwargs):
+        """
+        GetValue(self) -> DateTime
+
+        Returns the currently selected date. If there is no selection or the
+        selection is outside of the current range, an invalid `wx.DateTime`
+        object is returned.
+        """
+        return _controls_.DatePickerCtrlBase_GetValue(*args, **kwargs)
+
+    def SetRange(*args, **kwargs):
+        """
+        SetRange(self, DateTime dt1, DateTime dt2)
+
+        Sets the valid range for the date selection. If dt1 is valid, it
+        becomes the earliest date (inclusive) accepted by the control. If dt2
+        is valid, it becomes the latest possible date.
+
+        If the current value of the control is outside of the newly set range
+        bounds, the behaviour is undefined.
+        """
+        return _controls_.DatePickerCtrlBase_SetRange(*args, **kwargs)
+
+    def GetLowerLimit(*args, **kwargs):
+        """
+        GetLowerLimit(self) -> DateTime
+
+        Get the lower limit of the valid range for the date selection, if any.
+        If there is no range or there is no lower limit, then the
+        `wx.DateTime` value returned will be invalid.
+        """
+        return _controls_.DatePickerCtrlBase_GetLowerLimit(*args, **kwargs)
+
+    def GetUpperLimit(*args, **kwargs):
+        """
+        GetUpperLimit(self) -> DateTime
+
+        Get the upper limit of the valid range for the date selection, if any.
+        If there is no range or there is no upper limit, then the
+        `wx.DateTime` value returned will be invalid.
+        """
+        return _controls_.DatePickerCtrlBase_GetUpperLimit(*args, **kwargs)
+
+    LowerLimit = property(GetLowerLimit,doc="See `GetLowerLimit`") 
+    UpperLimit = property(GetUpperLimit,doc="See `GetUpperLimit`") 
+    Value = property(GetValue,SetValue,doc="See `GetValue` and `SetValue`") 
+_controls_.DatePickerCtrlBase_swigregister(DatePickerCtrlBase)
+DatePickerCtrlNameStr = cvar.DatePickerCtrlNameStr
+
+class DatePickerCtrl(DatePickerCtrlBase):
     """
     This control allows the user to select a date. Unlike
     `wx.calendar.CalendarCtrl`, which is a relatively big control,
@@ -6591,65 +6656,7 @@ class DatePickerCtrl(_core.Control):
         """
         return _controls_.DatePickerCtrl_Create(*args, **kwargs)
 
-    def SetValue(*args, **kwargs):
-        """
-        SetValue(self, DateTime dt)
-
-        Changes the current value of the control. The date should be valid and
-        included in the currently selected range, if any.
-
-        Calling this method does not result in a date change event.
-        """
-        return _controls_.DatePickerCtrl_SetValue(*args, **kwargs)
-
-    def GetValue(*args, **kwargs):
-        """
-        GetValue(self) -> DateTime
-
-        Returns the currently selected date. If there is no selection or the
-        selection is outside of the current range, an invalid `wx.DateTime`
-        object is returned.
-        """
-        return _controls_.DatePickerCtrl_GetValue(*args, **kwargs)
-
-    def SetRange(*args, **kwargs):
-        """
-        SetRange(self, DateTime dt1, DateTime dt2)
-
-        Sets the valid range for the date selection. If dt1 is valid, it
-        becomes the earliest date (inclusive) accepted by the control. If dt2
-        is valid, it becomes the latest possible date.
-
-        If the current value of the control is outside of the newly set range
-        bounds, the behaviour is undefined.
-        """
-        return _controls_.DatePickerCtrl_SetRange(*args, **kwargs)
-
-    def GetLowerLimit(*args, **kwargs):
-        """
-        GetLowerLimit(self) -> DateTime
-
-        Get the lower limit of the valid range for the date selection, if any.
-        If there is no range or there is no lower limit, then the
-        `wx.DateTime` value returned will be invalid.
-        """
-        return _controls_.DatePickerCtrl_GetLowerLimit(*args, **kwargs)
-
-    def GetUpperLimit(*args, **kwargs):
-        """
-        GetUpperLimit(self) -> DateTime
-
-        Get the upper limit of the valid range for the date selection, if any.
-        If there is no range or there is no upper limit, then the
-        `wx.DateTime` value returned will be invalid.
-        """
-        return _controls_.DatePickerCtrl_GetUpperLimit(*args, **kwargs)
-
-    LowerLimit = property(GetLowerLimit,doc="See `GetLowerLimit`") 
-    UpperLimit = property(GetUpperLimit,doc="See `GetUpperLimit`") 
-    Value = property(GetValue,SetValue,doc="See `GetValue` and `SetValue`") 
 _controls_.DatePickerCtrl_swigregister(DatePickerCtrl)
-DatePickerCtrlNameStr = cvar.DatePickerCtrlNameStr
 
 def PreDatePickerCtrl(*args, **kwargs):
     """
@@ -6658,6 +6665,47 @@ def PreDatePickerCtrl(*args, **kwargs):
     Precreate a DatePickerCtrl for use in 2-phase creation.
     """
     val = _controls_.new_PreDatePickerCtrl(*args, **kwargs)
+    return val
+
+class GenericDatePickerCtrl(DatePickerCtrl):
+    """Proxy of C++ GenericDatePickerCtrl class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int id=-1, DateTime dt=wxDefaultDateTime, 
+            Point pos=DefaultPosition, Size size=DefaultSize, 
+            long style=wxDP_DEFAULT|wxDP_SHOWCENTURY, 
+            Validator validator=DefaultValidator, 
+            String name=DatePickerCtrlNameStr) -> GenericDatePickerCtrl
+
+        Create a new GenericDatePickerCtrl.
+        """
+        _controls_.GenericDatePickerCtrl_swiginit(self,_controls_.new_GenericDatePickerCtrl(*args, **kwargs))
+        self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int id=-1, DateTime dt=wxDefaultDateTime, 
+            Point pos=DefaultPosition, Size size=DefaultSize, 
+            long style=wxDP_DEFAULT|wxDP_SHOWCENTURY, 
+            Validator validator=DefaultValidator, 
+            String name=DatePickerCtrlNameStr) -> bool
+
+        Create the GUI parts of the GenericDatePickerCtrl, for use in 2-phase
+        creation.
+        """
+        return _controls_.GenericDatePickerCtrl_Create(*args, **kwargs)
+
+_controls_.GenericDatePickerCtrl_swigregister(GenericDatePickerCtrl)
+
+def PreGenericDatePickerCtrl(*args, **kwargs):
+    """
+    PreGenericDatePickerCtrl() -> GenericDatePickerCtrl
+
+    Precreate a GenericDatePickerCtrl for use in 2-phase creation.
+    """
+    val = _controls_.new_PreGenericDatePickerCtrl(*args, **kwargs)
     return val
 
 HL_CONTEXTMENU = _controls_.HL_CONTEXTMENU

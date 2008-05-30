@@ -5915,6 +5915,10 @@ class VideoMode(object):
         """
         return _misc_.VideoMode_GetDepth(*args, **kwargs)
 
+    def GetRefresh(*args, **kwargs):
+        """GetRefresh(self) -> int"""
+        return _misc_.VideoMode_GetRefresh(*args, **kwargs)
+
     def IsOk(*args, **kwargs):
         """
         IsOk(self) -> bool
@@ -5939,6 +5943,7 @@ class VideoMode(object):
     Depth = property(GetDepth,doc="See `GetDepth`") 
     Height = property(GetHeight,doc="See `GetHeight`") 
     Width = property(GetWidth,doc="See `GetWidth`") 
+    Refresh = property(GetRefresh) 
 _misc_.VideoMode_swigregister(VideoMode)
 
 class Display(object):

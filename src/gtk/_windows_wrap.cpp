@@ -2846,6 +2846,11 @@ SWIGINTERN bool wxTopLevelWindow_MacGetUnifiedAppearance(wxTopLevelWindow const 
 #define wxDEFAULT_MINIFRAME_STYLE wxCAPTION | wxRESIZE_BORDER | wxTINY_CAPTION_HORIZ
 
 
+#define wxSPLASH_CENTER_ON_PARENT wxSPLASH_CENTRE_ON_PARENT
+#define wxSPLASH_CENTER_ON_SCREEN wxSPLASH_CENTRE_ON_SCREEN
+#define wxSPLASH_NO_CENTER wxSPLASH_NO_CENTRE
+
+
 
 SWIGINTERN wxRect wxStatusBar_GetFieldRect(wxStatusBar *self,int i){
             wxRect r;
@@ -39401,6 +39406,9 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "SPLASH_CENTRE_ON_PARENT",SWIG_From_int(static_cast< int >(wxSPLASH_CENTRE_ON_PARENT)));
   SWIG_Python_SetConstant(d, "SPLASH_CENTRE_ON_SCREEN",SWIG_From_int(static_cast< int >(wxSPLASH_CENTRE_ON_SCREEN)));
   SWIG_Python_SetConstant(d, "SPLASH_NO_CENTRE",SWIG_From_int(static_cast< int >(wxSPLASH_NO_CENTRE)));
+  SWIG_Python_SetConstant(d, "SPLASH_CENTER_ON_PARENT",SWIG_From_int(static_cast< int >(wxSPLASH_CENTER_ON_PARENT)));
+  SWIG_Python_SetConstant(d, "SPLASH_CENTER_ON_SCREEN",SWIG_From_int(static_cast< int >(wxSPLASH_CENTER_ON_SCREEN)));
+  SWIG_Python_SetConstant(d, "SPLASH_NO_CENTER",SWIG_From_int(static_cast< int >(wxSPLASH_NO_CENTER)));
   SWIG_Python_SetConstant(d, "SPLASH_TIMEOUT",SWIG_From_int(static_cast< int >(wxSPLASH_TIMEOUT)));
   SWIG_Python_SetConstant(d, "SPLASH_NO_TIMEOUT",SWIG_From_int(static_cast< int >(wxSPLASH_NO_TIMEOUT)));
   SWIG_Python_SetConstant(d, "SB_NORMAL",SWIG_From_int(static_cast< int >(wxSB_NORMAL)));
