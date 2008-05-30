@@ -11,7 +11,7 @@
 # Python Code By:
 #
 # Andrea Gavana, @ 02 Oct 2006
-# Latest Revision: 22 Nov 2007, 14.00 GMT
+# Latest Revision: 30 May 2008, 23.00 GMT
 #
 #
 # For All Kind Of Problems, Requests Of Enhancements And Bug Reports, Please
@@ -58,9 +58,9 @@ License And Version:
 
 FlatNotebook Is Freeware And Distributed Under The wxPython License. 
 
-Latest Revision: Andrea Gavana @ 22 Nov 2007, 14.00 GMT
+Latest Revision: Andrea Gavana @ 30 May 2008, 23.00 GMT
 
-Version 2.4.
+Version 2.5.
 
 @undocumented: FNB_HEIGHT_SPACER, VERTICAL_BORDER_PADDING, VC8_SHAPE_LEN,
     wxEVT*, left_arrow_*, right_arrow*, x_button*, down_arrow*,
@@ -3421,6 +3421,7 @@ class FlatNotebook(wx.PyPanel):
         else:
             raise TypeError, "SetNavigatorIcon requires a valid bitmap"
 
+
     def OnNavigationKey(self, event):
         """ Handles the wx.EVT_NAVIGATION_KEY event for L{FlatNotebook}. """
 
@@ -3708,6 +3709,12 @@ class FlatNotebook(wx.PyPanel):
         return self._pages._activeTabColor
 
 
+    def EnsureVisible(self, page):
+       """ Ensures that a tab is visible. """
+
+       self._pages.DoSetSelection(page)
+
+       
 # ---------------------------------------------------------------------------- #
 # Class PageContainer
 # Acts as a container for the pages you add to FlatNotebook
