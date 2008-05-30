@@ -86,16 +86,19 @@ def _paramMinCount(callableObject):
     is number of default arguments. The 'self' parameter, in the case
     of methods, is not counted.
     """
-    if type(callableObject) is InstanceType:
-        min, d = _paramMinCountFunc(callableObject.__call__.im_func)
-        return min-1, d
-    elif ismethod(callableObject):
-        min, d = _paramMinCountFunc(callableObject.im_func)
-        return min-1, d
-    elif isfunction(callableObject):
-        return _paramMinCountFunc(callableObject)
-    else:
-        raise 'Cannot determine type of callable: '+repr(callableObject)
+    try:
+        func = callableObject.__call__.im_func
+    except AttributeError:
+        try:
+            func = callableObject.im_func
+        except AttributeError:
+            try:
+                return _paramMinCountFunc(callableObject)
+            except exc:
+                raise 'Cannot determine type of callable: %s' % repr(callableObject)
+ 
+    min, d = _paramMinCountFunc(func)
+    return min-1, d
 
 
 def _tupleize(items):
