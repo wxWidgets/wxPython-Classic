@@ -3707,6 +3707,12 @@ class FlatNotebook(wx.PyPanel):
         return self._pages._activeTabColor
 
 
+    def EnsureVisible(self, page):
+       """ Ensures that a tab is visible. """
+
+       self._pages.DoSetSelection(page)
+
+       
 # ---------------------------------------------------------------------------- #
 # Class PageContainer
 # Acts as a container for the pages you add to FlatNotebook
