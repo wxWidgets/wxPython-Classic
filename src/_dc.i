@@ -24,7 +24,7 @@
 %}
 
 // TODO: 1. wrappers for wxDrawObject and wxDC::DrawObject
-//       2. Does the factory and wxDCImpl classes need to be exposed?
+//       2. Do the factory and wxDCImpl classes need to be exposed?
 
 //---------------------------------------------------------------------------
 

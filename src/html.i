@@ -674,6 +674,17 @@ public:
 };
 
 
+
+class wxHtmlWordWithTabsCell : public wxHtmlWordCell
+{
+public:
+    wxHtmlWordWithTabsCell(const wxString& word,
+                           const wxString& wordOrig,
+                           size_t linepos,
+                           const wxDC& dc);
+};
+
+
 class wxHtmlContainerCell : public wxHtmlCell {
 public:
     wxHtmlContainerCell(wxHtmlContainerCell *parent);

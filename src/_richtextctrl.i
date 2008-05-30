@@ -472,21 +472,24 @@ flag.", "");
 ///// Functionality specific to wxRichTextCtrl
 
     DocDeclStr(
-        virtual bool , WriteImage(const wxImage& image, int bitmapType = wxBITMAP_TYPE_PNG),
+        virtual bool , WriteImage(const wxImage& image,
+                                  wxBitmapType bitmapType = wxBITMAP_TYPE_PNG),
         "Write an image at the current insertion point. Supply optional type to
 use for internal and file storage of the raw data.
 ", "");
 
 
     DocDeclStrName(
-        virtual bool , WriteImage(const wxBitmap& bitmap, int bitmapType = wxBITMAP_TYPE_PNG),
+        virtual bool , WriteImage(const wxBitmap& bitmap,
+                                  wxBitmapType bitmapType = wxBITMAP_TYPE_PNG),
         "Write a bitmap at the current insertion point. Supply optional type to
 use for internal and file storage of the raw data.", "",
         WriteBitmap);
 
 
     DocDeclStrName(
-        virtual bool , WriteImage(const wxString& filename, int bitmapType),
+        virtual bool , WriteImage(const wxString& filename,
+                                  wxBitmapType bitmapType),
         "Load an image from file and write at the current insertion point.", "",
         WriteImageFile);
 

@@ -1153,6 +1153,7 @@ the item to be found.", "");
     }
 
 
+    %nokwargs SetDimension;
     DocDeclStr(
         void , SetDimension( int x, int y, int width, int height ),
         "Call this to force the sizer to take the given dimension and thus
@@ -1160,6 +1161,9 @@ force the items owned by the sizer to resize themselves according to
 the rules defined by the parameter in the `Add`, `Insert` or `Prepend`
 methods.", "");
 
+    void SetDimension(const wxPoint& pos, const wxSize& size);
+
+    
     DocDeclStr(
         void , SetMinSize( const wxSize &size ),
         "Call this to give the sizer a minimal size. Normally, the sizer will

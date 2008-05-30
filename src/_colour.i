@@ -234,11 +234,5 @@ is returned if the pixel is invalid (on X, unallocated).", "");
     
 };
 
-%pythoncode {
-    Color = Colour
-    NamedColor = NamedColour
-    ColorRGB = ColourRGB
-}
-
 //---------------------------------------------------------------------------
 
