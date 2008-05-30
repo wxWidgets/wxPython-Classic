@@ -731,9 +731,9 @@ been added. You can also add your own notifier in order to get
 informed about any changes to the data in the list model.
 
 Currently wxWidgets provides the following models in addition to this
-base class: `DataViewIndexListModel`, `DataViewTreeStore`.  To create
-your own model from Python you will need to use the `PyDataViewModel`
-as your base class.
+base class: `DataViewIndexListModel`, `DataViewVirtualListModel-, and
+`DataViewTreeStore`.  To create your own model from Python you will
+need to use the `PyDataViewModel` as your base class.
 
 :note: The C++ DataView classes use the wxVariant class to pass around
     dynamically typed data values.  In wxPython we have typemaps that
@@ -920,7 +920,7 @@ index or order of appearance) is required, then this should be used.", "");
 
 
     // internal
-    virtual bool IsIndexListModel() const;
+    virtual bool IsVirtualListModel() const;
 };
 
 
@@ -1040,29 +1040,16 @@ public:
 //---------------------------------------------------------------------------
 %newgroup
 
+// The wxDataViewIndexListModel and wxDataViewVirtualIndexModel both have the
+// same API and semantics, so use a macro for declaring them, and the related
+// Py classes.
+%define DECLARE_INDEX_MODEL(ClassName, PyClassName)
 
-
-DocStr(wxDataViewIndexListModel,
-"DataViewIndexListModel is a specialized data model which lets you
-address an item by its position (row) rather than its `DataViewItem`
-(which you can obtain from this class). This model also provides its
-own `Compare` method which sorts the model's data by the index.  To
-implement a custom list-based data model derive a new class from
-`PyDataViewIndexListModel` and implement the required methods.
-
-This model is special in that it is implemented differently under OS X
-and other platforms. Under OS X a DataViewItem is always persistent
-and this is also the case for this class. Under other platforms, the
-meaning of a DataViewItem is changed to reflect a row number for
-DataViewIndexListModel. The consequence of this is that
-DataViewIndexListModel can be used as a virtual model with an almost
-infinate number of items on platforms other than OS X.", "");
-
-class wxDataViewIndexListModel: public wxDataViewModel
+class ClassName: public wxDataViewModel
 {
 public:
-    // wxDataViewIndexListModel( unsigned int initial_size = 0 );   **** ABC
-    ~wxDataViewIndexListModel();
+    // ClassName( unsigned int initial_size = 0 );   **** ABC
+    ~ClassName();
 
 
     %extend {
@@ -1142,7 +1129,6 @@ useful after major changes when calling methods like `RowChanged` or
 
 
     // internal
-    virtual bool IsIndexListModel() const;
     unsigned int GetLastIndex() const;
 };
 
@@ -1150,26 +1136,26 @@ useful after major changes when calling methods like `RowChanged` or
 %{
 // Create a C++ class for the Py version
 
-class wxPyDataViewIndexListModel : public wxDataViewIndexListModel
+class PyClassName : public ClassName
 {
 public:
-    wxPyDataViewIndexListModel( unsigned int initial_size = 0)
-        : wxDataViewIndexListModel(initial_size) {}
+    PyClassName( unsigned int initial_size = 0)
+        : ClassName(initial_size) {}
 
-    PYCALLBACK_UINT__pure_const(wxDataViewIndexListModel, GetColumnCount);
-    PYCALLBACK_STRING_UINT_pure_const(wxDataViewIndexListModel, GetColumnType);
+    PYCALLBACK_UINT__pure_const(ClassName, GetColumnCount);
+    PYCALLBACK_STRING_UINT_pure_const(ClassName, GetColumnType);
 
-    PYCALLBACK_DVI_DVI_const(wxDataViewIndexListModel, GetParent);
-    PYCALLBACK_BOOL_DVI_const(wxDataViewIndexListModel, IsContainer);
-    PYCALLBACK_BOOL_DVI_const(wxDataViewIndexListModel, HasContainerColumns);
-    PYCALLBACK_UINT_DVIDVIA_const(wxDataViewIndexListModel, GetChildren);
+    PYCALLBACK_DVI_DVI_const(ClassName, GetParent);
+    PYCALLBACK_BOOL_DVI_const(ClassName, IsContainer);
+    PYCALLBACK_BOOL_DVI_const(ClassName, HasContainerColumns);
+    PYCALLBACK_UINT_DVIDVIA_const(ClassName, GetChildren);
 
-    PYCALLBACK_BOOL_DVI(wxDataViewIndexListModel, IsDraggable);
+    PYCALLBACK_BOOL_DVI(ClassName, IsDraggable);
     // GetDragDataSize
     // GetDragData
 
-    PYCALLBACK_INT_DVIDVIINTBOOL(wxDataViewIndexListModel, Compare);
-    PYCALLBACK_BOOL__const(wxDataViewIndexListModel, HasDefaultCompare);
+    PYCALLBACK_INT_DVIDVIINTBOOL(ClassName, Compare);
+    PYCALLBACK_BOOL__const(ClassName, HasDefaultCompare);
 
 
     virtual void GetValue( wxVariant &variant,
@@ -1238,23 +1224,64 @@ public:
 };
 %}
 
-
 // tell SWIG about the Py class
+class PyClassName: public ClassName
+{
+public:
+    %pythonAppend PyClassName
+         setCallbackInfo(PyDataViewIndexListModel);
+
+    PyClassName(unsigned int initial_size = 0);
+    void _setCallbackInfo(PyObject* self, PyObject* _class);
+};
+
+%enddef    //------- end of macro -----------
+
+
+
+
+DocStr(wxDataViewIndexListModel,
+"DataViewIndexListModel is a specialized data model which lets you
+address an item by its position (row) rather than its `DataViewItem`
+(which you can obtain from this class). This model also provides its
+own `Compare` method which sorts the model's data by the index.  To
+implement a custom list-based data model derive a new class from
+`PyDataViewIndexListModel` and implement the required methods.
+
+This model is not a virtual model since the control stores each
+`DataViewItem` in memory. Use a `DataViewVirtualListModel` if you need
+to display millions of items or have other reasons to use a virtual
+control.", "");
+
 DocStr(wxPyDataViewIndexListModel,
 "This class is a version of `DataViewIndexListModel` that has been
 engineered to know how to reflect the C++ virtual method calls to
 Python methods in the derived class.  Use this class as your base
 class instead of `DataViewIndexListModel`.", "");
 
-class wxPyDataViewIndexListModel: public wxDataViewIndexListModel
-{
-public:
-    %pythonAppend wxPyDataViewIndexListModel
-         setCallbackInfo(PyDataViewIndexListModel);
+DECLARE_INDEX_MODEL(wxDataViewIndexListModel, wxPyDataViewIndexListModel);
 
-    wxPyDataViewIndexListModel(unsigned int initial_size = 0);
-    void _setCallbackInfo(PyObject* self, PyObject* _class);
-};
+
+DocStr(wxDataViewVirtualListModel,
+"DataViewVirtualListModel is a specialized data model which lets you
+address an item by its position (row) rather than its `DataViewItem`
+and as such offers the exact same interface as
+`DataViewIndexListModel`. The important difference is that under
+platforms other than OS X, using this model will result in a truely
+virtual control able to handle millions of items as the control
+doesn't store any per-item data in memory (a feature not supported by
+the Carbon API under OS X).
+
+To implement a custom list-based data model derive a new class from
+`PyDataViewVirtualListModel` and implement the required methods.", "");
+
+DocStr(PyClassName,
+"This class is a version of `DataViewVirtualListModel` that has been
+engineered to know how to reflect the C++ virtual method calls to
+Python methods in the derived class.  Use this class as your base
+class instead of `DataViewVirtualListModel`.", "");
+
+DECLARE_INDEX_MODEL(wxDataViewVirtualListModel, wxPyDataViewVirtualListModel);
 
 
 
@@ -1363,6 +1390,13 @@ public:
     virtual bool FinishEditing();
 
     wxControl *GetEditorCtrl();
+
+    %property(Owner, GetOwner, SetOwner);
+    %property(Value, GetValue, SetValue);
+    %property(VariantType, GetVariantType);
+    %property(Mode, GetMode, SetMode);
+    %property(Alignment, GetAlignment, SetAlignment);
+    %property(EditorCtrl, GetEditorCtrl);
 };
 
 
@@ -1538,7 +1572,7 @@ public:
     PYCALLBACK_BOOL_RECTDCINT_pure(wxDataViewCustomRenderer, Render);
     PYCALLBACK_BOOL_RECTDVMDVIUINT(wxDataViewCustomRenderer, Activate);
     PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, LeftClick);
-    PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, RightClick);
+//    PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, RightClick);
     PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, StartDrag);
 
 
@@ -1630,7 +1664,7 @@ public:
     DocDeclStr(
         void , RenderText( const wxString &text, int xoffset, wxRect cell, wxDC *dc, int state ),
         "This method should be called from within your `Render` override
-whenever you need to render simple text. This will ensure that the
+whenever you need to render simple text. This will help ensure that the
 correct colour, font and vertical alignment will be chosen so the text
 will look the same as text drawn by native renderers.", "");
 
@@ -1660,13 +1694,13 @@ overridden in derived classes.", "");
                                  unsigned int col),
         "Overrride this to react to a left click.", "");
 
-    DocDeclStr(
-        virtual bool , RightClick(wxPoint cursor,
-                                  wxRect cell,
-                                  wxDataViewModel *model,
-                                  const wxDataViewItem & item, 
-                                  unsigned int col),
-        "Overrride this to react to a right click.", "");
+//     DocDeclStr(
+//         virtual bool , RightClick(wxPoint cursor,
+//                                   wxRect cell,
+//                                   wxDataViewModel *model,
+//                                   const wxDataViewItem & item, 
+//                                   unsigned int col),
+//         "Overrride this to react to a right click.", "");
 
     DocDeclStr(
         virtual bool , StartDrag(wxPoint cursor,
@@ -1812,6 +1846,7 @@ enum {
     wxDV_VERT_RULES,
 
     wxDV_ROW_LINES,
+    wxDV_VARIABLE_LINE_HEIGHT,
 };
 
 
@@ -2033,10 +2068,11 @@ public:
     }
 
 
-
     virtual bool PrependColumn( wxDataViewColumn *col );
+    virtual bool InsertColumn( unsigned int pos, wxDataViewColumn *col );
     virtual bool AppendColumn( wxDataViewColumn *col );
 
+    
     virtual unsigned int GetColumnCount() const;
     virtual wxDataViewColumn* GetColumn( unsigned int pos ) const;
     %pythoncode {

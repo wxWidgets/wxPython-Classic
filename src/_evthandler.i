@@ -46,6 +46,8 @@ public:
     // wouldn't correctly propagate to wxEventLoop.
     bool SafelyProcessEvent(wxEvent& event);
 
+    void QueueEvent(wxEvent *event);
+    
     // add an event to be processed later
     void AddPendingEvent(const wxEvent& event);
 

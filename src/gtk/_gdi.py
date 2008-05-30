@@ -282,10 +282,6 @@ def MacThemeColour(*args, **kwargs):
     val = _gdi_.new_MacThemeColour(*args, **kwargs)
     return val
 
-Color = Colour
-NamedColor = NamedColour
-ColorRGB = ColourRGB
-
 class Palette(GDIObject):
     """Proxy of C++ Palette class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -2642,6 +2638,7 @@ LANGUAGE_RHAETO_ROMANCE = _gdi_.LANGUAGE_RHAETO_ROMANCE
 LANGUAGE_ROMANIAN = _gdi_.LANGUAGE_ROMANIAN
 LANGUAGE_RUSSIAN = _gdi_.LANGUAGE_RUSSIAN
 LANGUAGE_RUSSIAN_UKRAINE = _gdi_.LANGUAGE_RUSSIAN_UKRAINE
+LANGUAGE_SAMI = _gdi_.LANGUAGE_SAMI
 LANGUAGE_SAMOAN = _gdi_.LANGUAGE_SAMOAN
 LANGUAGE_SANGHO = _gdi_.LANGUAGE_SANGHO
 LANGUAGE_SANSKRIT = _gdi_.LANGUAGE_SANSKRIT
@@ -5486,6 +5483,7 @@ class GraphicsContext(GraphicsObject):
         """
         Create(WindowDC dc) -> GraphicsContext
         Create(Window window) -> GraphicsContext
+        Create(PrinterDC dc) -> GraphicsContext
 
         Creates a wx.GraphicsContext either from a window or a DC.
         """
@@ -5882,7 +5880,6 @@ class GraphicsContext(GraphicsObject):
 
     def DrawBitmap(*args):
         """
-        DrawBitmap(self, GraphicsBitmap bmp, Double x, Double y, Double w, Double h)
         DrawBitmap(self, Bitmap bmp, Double x, Double y, Double w, Double h)
 
         Draws the bitmap. In case of a mono bitmap, this is treated as a mask
@@ -5974,7 +5971,8 @@ NullGraphicsPath = cvar.NullGraphicsPath
 def GraphicsContext_Create(*args):
   """
     Create(WindowDC dc) -> GraphicsContext
-    GraphicsContext_Create(Window window) -> GraphicsContext
+    Create(Window window) -> GraphicsContext
+    GraphicsContext_Create(PrinterDC dc) -> GraphicsContext
 
     Creates a wx.GraphicsContext either from a window or a DC.
     """
@@ -6025,6 +6023,7 @@ class GraphicsRenderer(_core.Object):
     def CreateContext(*args):
         """
         CreateContext(self, WindowDC dc) -> GraphicsContext
+        CreateContext(self, PrinterDC dc) -> GraphicsContext
         CreateContext(self, Window window) -> GraphicsContext
         """
         return _gdi_.GraphicsRenderer_CreateContext(*args)
@@ -6077,17 +6076,6 @@ class GraphicsRenderer(_core.Object):
     def CreateFont(*args, **kwargs):
         """CreateFont(self, Font font, Colour col=*wxBLACK) -> GraphicsFont"""
         return _gdi_.GraphicsRenderer_CreateFont(*args, **kwargs)
-
-    def CreateBitmap(*args, **kwargs):
-        """CreateBitmap(self, Bitmap bitmap) -> GraphicsBitmap"""
-        return _gdi_.GraphicsRenderer_CreateBitmap(*args, **kwargs)
-
-    def CreateSubBitmap(*args, **kwargs):
-        """
-        CreateSubBitmap(self, GraphicsBitmap bitmap, Double x, Double y, Double w, 
-            Double h) -> GraphicsBitmap
-        """
-        return _gdi_.GraphicsRenderer_CreateSubBitmap(*args, **kwargs)
 
 _gdi_.GraphicsRenderer_swigregister(GraphicsRenderer)
 
@@ -6876,6 +6864,22 @@ class RendererNative(object):
         Get the splitter parameters, see `wx.SplitterRenderParams`.
         """
         return _gdi_.RendererNative_GetSplitterParams(*args, **kwargs)
+
+    def DrawChoice(*args, **kwargs):
+        """DrawChoice(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawChoice(*args, **kwargs)
+
+    def DrawComboBox(*args, **kwargs):
+        """DrawComboBox(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawComboBox(*args, **kwargs)
+
+    def DrawTextCtrl(*args, **kwargs):
+        """DrawTextCtrl(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawTextCtrl(*args, **kwargs)
+
+    def DrawRadioButton(*args, **kwargs):
+        """DrawRadioButton(self, Window win, DC dc, Rect rect, int flags=0)"""
+        return _gdi_.RendererNative_DrawRadioButton(*args, **kwargs)
 
     def Get(*args, **kwargs):
         """

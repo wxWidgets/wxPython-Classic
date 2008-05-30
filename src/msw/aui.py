@@ -57,7 +57,8 @@ The following example shows a simple implementation that utilizes
     class MyFrame(wx.Frame):
 
         def __init__(self, parent, id=-1, title='wx.aui Test',
-                     size=(800, 600), style=wx.DEFAULT_FRAME_STYLE):
+                     pos=wx.DefaultPosition, size=(800, 600),
+                     style=wx.DEFAULT_FRAME_STYLE):
             wx.Frame.__init__(self, parent, id, title, pos, size, style)
 
             self._mgr = wx.aui.AuiManager(self)

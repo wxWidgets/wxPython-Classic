@@ -184,6 +184,12 @@ public:
         return NULL;
     }
 
+    static wxGraphicsContext * Create( const wxPrinterDC& dc) {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.GraphicsContext is not available on this platform.");
+        return NULL;
+    }
+
     static wxGraphicsContext* CreateFromNative( void *  )  {
         PyErr_SetString(PyExc_NotImplementedError,
                         "wx.GraphicsContext is not available on this platform.");
@@ -300,6 +306,7 @@ public :
     }
 
     virtual wxGraphicsContext * CreateContext( const wxWindowDC& ) { return NULL; }
+    virtual wxGraphicsContext * CreateContext( const wxPrinterDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContextFromNativeContext( void *  ) { return NULL; }
     virtual wxGraphicsContext * CreateContextFromNativeWindow( void *  )  { return NULL; }
     virtual wxGraphicsContext * CreateContext( wxWindow*  ) { return NULL; }
@@ -698,6 +705,7 @@ public:
            "Creates a wx.GraphicsContext either from a window or a DC.", "");
     static wxGraphicsContext* Create( const wxWindowDC& dc);
     static wxGraphicsContext* Create( wxWindow* window ) ;
+    static wxGraphicsContext* Create( const wxPrinterDC& dc) ;
 
     %pythonAppend Create "";
     DocDeclStrName(
@@ -1008,8 +1016,10 @@ coresponding character in ``text``.", "");
     %nokwargs DrawBitmap;
     DocStr(DrawBitmap,
            "Draws the bitmap. In case of a mono bitmap, this is treated as a mask
-and the current brush is used for filling.", "");    
+and the current brush is used for filling.", "");
+#ifndef __WXGTK__
     virtual void DrawBitmap( const wxGraphicsBitmap &bmp, wxDouble x, wxDouble y, wxDouble w, wxDouble h );
+#endif
     virtual void DrawBitmap( const wxBitmap &bmp, wxDouble x, wxDouble y, wxDouble w, wxDouble h );    
 
 
@@ -1095,6 +1105,7 @@ public :
     %nokwargs CreateContext;
     %newobject CreateContext;
     virtual wxGraphicsContext * CreateContext( const wxWindowDC& dc) ;
+    virtual wxGraphicsContext * CreateContext( const wxPrinterDC& dc) ;
     virtual wxGraphicsContext * CreateContext( wxWindow* window );
     
     // create a context that can be used for measuring texts only, no drawing allowed
@@ -1123,9 +1134,10 @@ public :
                                                         const wxColour &oColor, const wxColour &cColor);
 
     virtual wxGraphicsFont CreateFont( const wxFont &font , const wxColour &col = *wxBLACK );
+#ifndef __WXGTK__
     virtual wxGraphicsBitmap CreateBitmap( const wxBitmap &bitmap );
     virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &bitmap, wxDouble x, wxDouble y, wxDouble w, wxDouble h  );
-
+#endif
 };
 
 

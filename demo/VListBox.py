@@ -1,5 +1,6 @@
 
 import  wx
+from wx import html
 
 #----------------------------------------------------------------------
 
@@ -52,11 +53,30 @@ class MyVListBox(wx.VListBox):
 # itself as a wx.HtmlCell.
 class MyHtmlListBox(wx.HtmlListBox):
 
+    def __init__(self, *args, **kw):
+        self.log = kw.pop('log')
+        wx.HtmlListBox.__init__(self, *args, **kw)
+
     def OnGetItem(self, n):
+        if n == 1:
+            return """<table border="0" cellpadding="0" cellspacing="0">
+<tr>
+    <td width="33">col 1</td>
+    <td width="75">Lorem ipsum <a href="http://www.wxpython.org">dolor</a>
+    sit amet, consectetuer adipiscing elit.</td>
+    <td width="300">foobar</td>
+</tr>
+</table>"""
         if n % 2 == 0:
             return "This is item# <b>%d</b>" % n
         else:
             return "This is item# <b>%d</b> <br>Any <font color='RED'>HTML</font> is okay." % n
+
+    def OnLinkClicked(self, n, linkinfo):
+        self.log.WriteText('OnLinkClicked: %s\n' % linkinfo.GetHref())
+        #there's a bug in the wxPython wrapper as of 2.8.7.1
+        #super(MyHtmlListBox, self).OnLinkClicked(n, linkinfo)
+
 
 #----------------------------------------------------------------------
 
@@ -75,13 +95,19 @@ class TestPanel(wx.Panel):
         vlbSizer.Add(wx.StaticText(self, -1, "wx.VListBox"), 0, 5, wx.ALL)
         vlbSizer.Add(vlb)
 
-        hlb = MyHtmlListBox(self, -1, size=(150, 250), style=wx.BORDER_SUNKEN)
+        hlb = MyHtmlListBox(self, -1, size=(150, 250), style=wx.BORDER_SUNKEN,
+                            log=log)
         hlb.SetItemCount(50)
         hlb.SetSelection(0)
         hlbSizer = wx.BoxSizer(wx.VERTICAL)
         hlbSizer.Add((spacer, spacer))
         hlbSizer.Add(wx.StaticText(self, -1, "wx.HtmlListBox"), 0, 5, wx.ALL)
         hlbSizer.Add(hlb)
+
+        self.Bind(html.EVT_HTML_CELL_CLICKED, self.OnCellClicked, hlb )
+        self.Bind(html.EVT_HTML_CELL_HOVER, self.OnCellMouseHover, hlb )
+        #there's a bug in the wxPython wrapper as of 2.8.7.1
+        #self.Bind(html.EVT_HTML_LINK_CLICKED, self.OnLinkClicked, hlb )
 
         sizer = wx.BoxSizer(wx.HORIZONTAL)
         sizer.Add((spacer, spacer))
@@ -92,6 +118,26 @@ class TestPanel(wx.Panel):
 
         self.SetSizer(sizer)
 
+    #there's a bug in the wxPython wrapper as of 2.8.7.1
+    #def OnLinkClicked(self, event):
+    #    linkinfo = event.GetLinkInfo()
+    #    self.log.WriteText('OnLinkClicked: %s\n' % linkinfo.GetHref())
+    #
+    def OnCellMouseHover(self, event):
+        cell = event.GetCell()
+        self.log.WriteText('OnCellMouseHover: %s\n' % (cell))
+        if isinstance(cell, html.HtmlWordCell):
+            sel = html.HtmlSelection()
+            self.log.WriteText('     %s\n' % cell.ConvertToText(sel))
+        event.Skip()
+
+    def OnCellClicked(self, event):
+        cell = event.GetCell()
+        self.log.WriteText('OnCellClicked: %s\n' % (cell))
+        if isinstance(cell, html.HtmlWordCell):
+            sel = html.HtmlSelection()
+            self.log.WriteText('     %s\n' % cell.ConvertToText(sel))
+        event.Skip()
 
 #----------------------------------------------------------------------
 
@@ -127,4 +173,3 @@ if __name__ == '__main__':
     import sys,os
     import run
     run.main(['', os.path.basename(sys.argv[0])] + sys.argv[1:])
-

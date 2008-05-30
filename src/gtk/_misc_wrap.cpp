@@ -36742,6 +36742,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_VideoMode_GetRefresh(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVideoMode *arg1 = (wxVideoMode *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVideoMode, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VideoMode_GetRefresh" "', expected argument " "1"" of type '" "wxVideoMode const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVideoMode * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)((wxVideoMode const *)arg1)->GetRefresh();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_VideoMode_IsOk(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxVideoMode *arg1 = (wxVideoMode *) 0 ;
@@ -40839,6 +40867,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"VideoMode_GetWidth", (PyCFunction)_wrap_VideoMode_GetWidth, METH_O, NULL},
 	 { (char *)"VideoMode_GetHeight", (PyCFunction)_wrap_VideoMode_GetHeight, METH_O, NULL},
 	 { (char *)"VideoMode_GetDepth", (PyCFunction)_wrap_VideoMode_GetDepth, METH_O, NULL},
+	 { (char *)"VideoMode_GetRefresh", (PyCFunction)_wrap_VideoMode_GetRefresh, METH_O, NULL},
 	 { (char *)"VideoMode_IsOk", (PyCFunction)_wrap_VideoMode_IsOk, METH_O, NULL},
 	 { (char *)"VideoMode___eq__", (PyCFunction) _wrap_VideoMode___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"VideoMode___ne__", (PyCFunction) _wrap_VideoMode___ne__, METH_VARARGS | METH_KEYWORDS, NULL},

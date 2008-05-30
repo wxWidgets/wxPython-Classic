@@ -75,8 +75,14 @@ enum wxWindowVariant
 
 enum wxShowEffect
 {
-    wxSHOW_EFFECT_ROLL,
-    wxSHOW_EFFECT_SLIDE,
+    wxSHOW_EFFECT_ROLL_TO_LEFT,
+    wxSHOW_EFFECT_ROLL_TO_RIGHT,
+    wxSHOW_EFFECT_ROLL_TO_TOP,
+    wxSHOW_EFFECT_ROLL_TO_BOTTOM,
+    wxSHOW_EFFECT_SLIDE_TO_LEFT,
+    wxSHOW_EFFECT_SLIDE_TO_RIGHT,
+    wxSHOW_EFFECT_SLIDE_TO_TOP,
+    wxSHOW_EFFECT_SLIDE_TO_BOTTOM,
     wxSHOW_EFFECT_BLEND,
     wxSHOW_EFFECT_EXPAND,
     wxSHOW_EFFECT_MAX
@@ -833,28 +839,24 @@ because it already was in the requested state.", "");
     
     DocDeclStr(
         virtual bool , ShowWithEffect(wxShowEffect effect,
-                                      unsigned timeout = 0,
-                                      wxDirection dir = wxBOTTOM),
+                                      unsigned timeout = 0),
         "Show the window with a special effect, not implemented on most
 platforms (where it is the same as Show())
 
 Timeout specifies how long the animation should take, in ms, the
 default value of 0 means to use the default (system-dependent) value.
-
-Direction is only used with wxSHOW_EFFECT_ROLL and SLIDE values.", "");
+", "");
 
     
     DocDeclStr(
         virtual bool , HideWithEffect(wxShowEffect effect,
-                                      unsigned timeout = 0,
-                                      wxDirection dir = wxBOTTOM),
+                                      unsigned timeout = 0),
         "Hide the window with a special effect, not implemented on most
 platforms (where it is the same as Hide())
 
 Timeout specifies how long the animation should take, in ms, the
 default value of 0 means to use the default (system-dependent) value.
-
-Direction is only used with wxSHOW_EFFECT_ROLL and SLIDE values.", "");
+", "");
     
 
     DocDeclStr(

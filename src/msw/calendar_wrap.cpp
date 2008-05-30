@@ -6848,6 +6848,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "CAL_NO_MONTH_CHANGE",SWIG_From_int(static_cast< int >(wxCAL_NO_MONTH_CHANGE)));
   SWIG_Python_SetConstant(d, "CAL_SEQUENTIAL_MONTH_SELECTION",SWIG_From_int(static_cast< int >(wxCAL_SEQUENTIAL_MONTH_SELECTION)));
   SWIG_Python_SetConstant(d, "CAL_SHOW_SURROUNDING_WEEKS",SWIG_From_int(static_cast< int >(wxCAL_SHOW_SURROUNDING_WEEKS)));
+  SWIG_Python_SetConstant(d, "CAL_SHOW_WEEK_NUMBERS",SWIG_From_int(static_cast< int >(wxCAL_SHOW_WEEK_NUMBERS)));
   SWIG_Python_SetConstant(d, "CAL_HITTEST_NOWHERE",SWIG_From_int(static_cast< int >(wxCAL_HITTEST_NOWHERE)));
   SWIG_Python_SetConstant(d, "CAL_HITTEST_HEADER",SWIG_From_int(static_cast< int >(wxCAL_HITTEST_HEADER)));
   SWIG_Python_SetConstant(d, "CAL_HITTEST_DAY",SWIG_From_int(static_cast< int >(wxCAL_HITTEST_DAY)));

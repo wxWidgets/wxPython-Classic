@@ -59,6 +59,7 @@ enum wxBitmapType
 //    wxBITMAP_TYPE_ICON_RESOURCE,
 //    wxBITMAP_TYPE_MACCURSOR_RESOURCE,
 
+    wxBITMAP_TYPE_MAX,
     wxBITMAP_TYPE_ANY = 50
 };
 

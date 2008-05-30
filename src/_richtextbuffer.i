@@ -23,7 +23,7 @@
 //---------------------------------------------------------------------------
 %newgroup
 
-enum {
+enum wxRichTextFileType {
 /*!
  * File types
  */
@@ -429,7 +429,9 @@ public:
     /// is invalid for this object.
     virtual bool GetRangeSize(const wxRichTextRange& range, wxSize& OUTPUT /*size*/,
                               int& OUTPUT /*descent*/, wxDC& dc, int flags,
-                              wxPoint position = wxPoint(0,0)) const;
+                              wxPoint position = wxPoint(0,0)
+          /** TODO */         /*wxArrayInt* partialExtents=NULL*/
+                              ) const;
 
     /// Do a split, returning an object containing the second part, and setting
     /// the first part in 'this'.
@@ -616,7 +618,7 @@ public:
     bool DeleteChildren();
 
     /// Recursively merge all pieces that can be merged.
-    bool Defragment();
+    bool Defragment(const wxRichTextRange& range = wxRICHTEXT_ALL);
 };
 
 
@@ -758,7 +760,10 @@ public:
 
     /// Combines 'style' with 'currentStyle' for the purpose of summarising the attributes of a range of
     /// content.
-    bool CollectStyle(wxTextAttr& currentStyle, const wxTextAttr& style, long& multipleStyleAttributes, int& multipleTextEffectAttributes);
+    //TODO:  Should these be OUTPUT args?
+    bool CollectStyle(wxTextAttr& currentStyle, const wxTextAttr& style,
+                      long& multipleStyleAttributes, int& multipleTextEffectAttributes,
+                      int& absentStyleAttributes, int& absentTextEffectAttributes);
 
     /// Set list style
     //virtual bool SetListStyle(const wxRichTextRange& range, wxRichTextListStyleDefinition* def, int flags = wxRICHTEXT_SETSTYLE_WITH_UNDO, int startFrom = 1, int specifiedLevel = -1);
@@ -912,6 +917,8 @@ public:
     void SetDescent(int descent);
     int GetDescent() const;
 
+    wxArrayInt& GetObjectSizes() { return m_objectSizes; }
+
 // Operations
 
     /// Initialisation
@@ -982,7 +989,7 @@ public:
 
     /// Find a suitable wrap position. wrapPosition is the last position in the line to the left
     /// of the split.
-    bool FindWrapPosition(const wxRichTextRange& range, wxDC& dc, int availableSpace, long& wrapPosition);
+    bool FindWrapPosition(const wxRichTextRange& range, wxDC& dc, int availableSpace, long& wrapPosition, wxArrayInt* partialExtents);
 
     /// Find the object at the given position
     wxRichTextObject* FindObjectAtPosition(long position);
@@ -1082,11 +1089,11 @@ public:
     // to conserve space.
     // If it's not a JPEG we can make use of 'image', already scaled, so we don't have to
     // load the image a 2nd time.
-    virtual bool MakeImageBlock(const wxString& filename, int imageType, wxImage& image, bool convertToJPEG = true);
+    virtual bool MakeImageBlock(const wxString& filename, wxBitmapType imageType, wxImage& image, bool convertToJPEG = true);
 
     // Make an image block from the wxImage in the given
     // format.
-    virtual bool MakeImageBlock(wxImage& image, int imageType, int quality = 80);
+    virtual bool MakeImageBlock(wxImage& image, wxBitmapType imageType, int quality = 80);
 
     // Write to a file
     bool Write(const wxString& filename);
@@ -1095,7 +1102,7 @@ public:
     bool WriteHex(wxOutputStream& stream);
 
     // Read data in hex from a stream
-    bool ReadHex(wxInputStream& stream, int length, int imageType);
+    bool ReadHex(wxInputStream& stream, int length, wxBitmapType imageType);
 
     // Copy from 'block'
     void Copy(const wxRichTextImageBlock& block);
@@ -1108,11 +1115,11 @@ public:
 
     unsigned char* GetData() const;
     size_t GetDataSize() const;
-    int GetImageType() const;
+    wxBitmapType GetImageType() const;
 
     void SetData(unsigned char* image);
     void SetDataSize(size_t size);
-    void SetImageType(int imageType);
+    void SetImageType(wxBitmapType imageType);
 
     bool IsOk() const;
 
@@ -1228,18 +1235,18 @@ public:
     virtual void ResetAndClearCommands();
 
     /// Load a file
-    virtual bool LoadFile(const wxString& filename, int type = wxRICHTEXT_TYPE_ANY);
+    virtual bool LoadFile(const wxString& filename, wxRichTextFileType type = wxRICHTEXT_TYPE_ANY);
 
     /// Save a file
-    virtual bool SaveFile(const wxString& filename, int type = wxRICHTEXT_TYPE_ANY);
+    virtual bool SaveFile(const wxString& filename, wxRichTextFileType type = wxRICHTEXT_TYPE_ANY);
 
     /// Load from a stream
     %Rename(LoadStream,
-            virtual bool , LoadFile(wxInputStream& stream, int type = wxRICHTEXT_TYPE_ANY));
+            virtual bool , LoadFile(wxInputStream& stream, wxRichTextFileType type = wxRICHTEXT_TYPE_ANY));
 
     /// Save to a stream
     %Rename(SaveStream,
-            virtual bool , SaveFile(wxOutputStream& stream, int type = wxRICHTEXT_TYPE_ANY));
+            virtual bool , SaveFile(wxOutputStream& stream, wxRichTextFileType type = wxRICHTEXT_TYPE_ANY));
 
     /// Set the handler flags, controlling loading and saving
     void SetHandlerFlags(int flags) { m_handlerFlags = flags; }
@@ -1485,15 +1492,17 @@ public:
 
     /// Finds a handler by extension and type
     %Rename(FindHandlerByExtension,
-            static wxRichTextFileHandler*, FindHandler(const wxString& extension, int imageType));
+            static wxRichTextFileHandler*, FindHandler(const wxString& extension,
+                                                       wxRichTextFileType imageType));
 
     /// Finds a handler by filename or, if supplied, type
     %Rename(FindHandlerByFilename,
-            static wxRichTextFileHandler* , FindHandlerFilenameOrType(const wxString& filename, int imageType));
+            static wxRichTextFileHandler* , FindHandlerFilenameOrType(const wxString& filename,
+                                                                      wxRichTextFileType imageType));
 
     /// Finds a handler by type
     %Rename(FindHandlerByType,
-            static wxRichTextFileHandler* , FindHandler(int imageType));
+            static wxRichTextFileHandler* , FindHandler(wxRichTextFileType imageType));
 
 
     // TODO: Handle returning the types array?
@@ -1589,6 +1598,10 @@ enum {
     // Don't write header and footer (or BODY), so we can include the
     // fragment in a larger document
     wxRICHTEXT_HANDLER_NO_HEADER_FOOTER,
+
+    // Convert the more common face names to names that will work on the
+    // current platform in a larger document
+    wxRICHTEXT_HANDLER_CONVERT_FACENAMES,    
 };
 
 
@@ -1663,7 +1676,7 @@ class wxRichTextPlainTextHandler: public wxRichTextFileHandler
 public:
     wxRichTextPlainTextHandler(const wxString& name = wxPyTextName,
                                const wxString& ext =  wxPyTextExt,
-                               int type = wxRICHTEXT_TYPE_TEXT);
+                               wxRichTextFileType type = wxRICHTEXT_TYPE_TEXT);
 };
 
 

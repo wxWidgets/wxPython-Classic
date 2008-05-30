@@ -1568,12 +1568,12 @@ enum wxUpdateUI
 };
 
 
-enum wxNotificationOptions
-{
-    wxNOTIFY_NONE           = 0x0000,
-    wxNOTIFY_ONCE           = 0x0001,
-    wxNOTIFY_REPEAT         = 0x0002
-};
+// enum wxNotificationOptions
+// {
+//     wxNOTIFY_NONE           = 0x0000,
+//     wxNOTIFY_ONCE           = 0x0001,
+//     wxNOTIFY_REPEAT         = 0x0002
+// };
 
 
 enum wxLayoutDirection

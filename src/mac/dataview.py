@@ -383,9 +383,9 @@ class DataViewModel(_core.ObjectRefData):
     informed about any changes to the data in the list model.
 
     Currently wxWidgets provides the following models in addition to this
-    base class: `DataViewIndexListModel`, `DataViewTreeStore`.  To create
-    your own model from Python you will need to use the `PyDataViewModel`
-    as your base class.
+    base class: `DataViewIndexListModel`, `DataViewVirtualListModel-, and
+    `DataViewTreeStore`.  To create your own model from Python you will
+    need to use the `PyDataViewModel` as your base class.
 
     :note: The C++ DataView classes use the wxVariant class to pass around
         dynamically typed data values.  In wxPython we have typemaps that
@@ -612,9 +612,9 @@ class DataViewModel(_core.ObjectRefData):
         """
         return _dataview.DataViewModel_HasDefaultCompare(*args, **kwargs)
 
-    def IsIndexListModel(*args, **kwargs):
-        """IsIndexListModel(self) -> bool"""
-        return _dataview.DataViewModel_IsIndexListModel(*args, **kwargs)
+    def IsVirtualListModel(*args, **kwargs):
+        """IsVirtualListModel(self) -> bool"""
+        return _dataview.DataViewModel_IsVirtualListModel(*args, **kwargs)
 
 _dataview.DataViewModel_swigregister(DataViewModel)
 
@@ -656,13 +656,10 @@ class DataViewIndexListModel(DataViewModel):
     implement a custom list-based data model derive a new class from
     `PyDataViewIndexListModel` and implement the required methods.
 
-    This model is special in that it is implemented differently under OS X
-    and other platforms. Under OS X a DataViewItem is always persistent
-    and this is also the case for this class. Under other platforms, the
-    meaning of a DataViewItem is changed to reflect a row number for
-    DataViewIndexListModel. The consequence of this is that
-    DataViewIndexListModel can be used as a virtual model with an almost
-    infinate number of items on platforms other than OS X.
+    This model is not a virtual model since the control stores each
+    `DataViewItem` in memory. Use a `DataViewVirtualListModel` if you need
+    to display millions of items or have other reasons to use a virtual
+    control.
     """
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"
@@ -813,6 +810,157 @@ class PyDataViewIndexListModel(DataViewIndexListModel):
 
 _dataview.PyDataViewIndexListModel_swigregister(PyDataViewIndexListModel)
 
+class DataViewVirtualListModel(DataViewModel):
+    """
+    DataViewVirtualListModel is a specialized data model which lets you
+    address an item by its position (row) rather than its `DataViewItem`
+    and as such offers the exact same interface as
+    `DataViewIndexListModel`. The important difference is that under
+    platforms other than OS X, using this model will result in a truely
+    virtual control able to handle millions of items as the control
+    doesn't store any per-item data in memory (a feature not supported by
+    the Carbon API under OS X).
+
+    To implement a custom list-based data model derive a new class from
+    `PyDataViewVirtualListModel` and implement the required methods.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _dataview.delete_DataViewVirtualListModel
+    __del__ = lambda self : None;
+    def GetValue(*args, **kwargs):
+        """
+        GetValue(self, unsigned int row, unsigned int col) -> wxVariant
+
+        Override this method to return the data value to be used for the item
+        at the given row and column.
+        """
+        return _dataview.DataViewVirtualListModel_GetValue(*args, **kwargs)
+
+    def SetValue(*args, **kwargs):
+        """
+        SetValue(self, wxVariant variant, unsigned int row, unsigned int col) -> bool
+
+        This is called in order to set a value in the data model.
+        """
+        return _dataview.DataViewVirtualListModel_SetValue(*args, **kwargs)
+
+    def GetAttr(*args, **kwargs):
+        """
+        GetAttr(self, unsigned int row, unsigned int col, DataViewItemAttr attr) -> bool
+
+        Override this to indicate that the item has special font
+        attributes. This only affects the `DataViewTextRendererText` renderer.
+        Return ``False`` if the default attributes should be used.
+        """
+        return _dataview.DataViewVirtualListModel_GetAttr(*args, **kwargs)
+
+    def RowPrepended(*args, **kwargs):
+        """
+        RowPrepended(self)
+
+        Call this after a row has been prepended to the model.
+        """
+        return _dataview.DataViewVirtualListModel_RowPrepended(*args, **kwargs)
+
+    def RowInserted(*args, **kwargs):
+        """
+        RowInserted(self, unsigned int before)
+
+        Call this after a row has been inserted at the given position
+        """
+        return _dataview.DataViewVirtualListModel_RowInserted(*args, **kwargs)
+
+    def RowAppended(*args, **kwargs):
+        """
+        RowAppended(self)
+
+        Call this after a row has been appended to the model.
+        """
+        return _dataview.DataViewVirtualListModel_RowAppended(*args, **kwargs)
+
+    def RowDeleted(*args, **kwargs):
+        """
+        RowDeleted(self, unsigned int row)
+
+        Call this after a row has been deleted.
+        """
+        return _dataview.DataViewVirtualListModel_RowDeleted(*args, **kwargs)
+
+    def RowsDeleted(*args, **kwargs):
+        """
+        RowsDeleted(self, wxArrayInt rows)
+
+        Call this after rows have been deleted. The array will internally get
+        copied and sorted in descending order so that the rows with the
+        highest position will be deleted first.
+        """
+        return _dataview.DataViewVirtualListModel_RowsDeleted(*args, **kwargs)
+
+    def RowChanged(*args, **kwargs):
+        """
+        RowChanged(self, unsigned int row)
+
+        Call this after a row has been changed.
+        """
+        return _dataview.DataViewVirtualListModel_RowChanged(*args, **kwargs)
+
+    def RowValueChanged(*args, **kwargs):
+        """
+        RowValueChanged(self, unsigned int row, unsigned int col)
+
+        Call this after a value has been changed.
+        """
+        return _dataview.DataViewVirtualListModel_RowValueChanged(*args, **kwargs)
+
+    def Reset(*args, **kwargs):
+        """
+        Reset(self, unsigned int new_size)
+
+        Call this if the data has to be read again from the model. This is
+        useful after major changes when calling methods like `RowChanged` or
+        `RowDeleted` (possibly thousands of times) doesn't make sense.
+        """
+        return _dataview.DataViewVirtualListModel_Reset(*args, **kwargs)
+
+    def GetRow(*args, **kwargs):
+        """
+        GetRow(self, DataViewItem item) -> unsigned int
+
+        Returns the row position of item.
+        """
+        return _dataview.DataViewVirtualListModel_GetRow(*args, **kwargs)
+
+    def GetItem(*args, **kwargs):
+        """
+        GetItem(self, unsigned int row) -> DataViewItem
+
+        Returns the DataViewItem for the item at row.
+        """
+        return _dataview.DataViewVirtualListModel_GetItem(*args, **kwargs)
+
+    def GetLastIndex(*args, **kwargs):
+        """GetLastIndex(self) -> unsigned int"""
+        return _dataview.DataViewVirtualListModel_GetLastIndex(*args, **kwargs)
+
+_dataview.DataViewVirtualListModel_swigregister(DataViewVirtualListModel)
+
+class PyDataViewVirtualListModel(DataViewVirtualListModel):
+    """Proxy of C++ PyDataViewVirtualListModel class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, unsigned int initial_size=0) -> PyDataViewVirtualListModel"""
+        _dataview.PyDataViewVirtualListModel_swiginit(self,_dataview.new_PyDataViewVirtualListModel(*args, **kwargs))
+        PyDataViewIndexListModel._setCallbackInfo(self, self, PyDataViewIndexListModel)
+
+    def _setCallbackInfo(*args, **kwargs):
+        """_setCallbackInfo(self, PyObject self, PyObject _class)"""
+        return _dataview.PyDataViewVirtualListModel__setCallbackInfo(*args, **kwargs)
+
+_dataview.PyDataViewVirtualListModel_swigregister(PyDataViewVirtualListModel)
+
 DATAVIEW_CELL_INERT = _dataview.DATAVIEW_CELL_INERT
 DATAVIEW_CELL_ACTIVATABLE = _dataview.DATAVIEW_CELL_ACTIVATABLE
 DATAVIEW_CELL_EDITABLE = _dataview.DATAVIEW_CELL_EDITABLE
@@ -915,6 +1063,12 @@ class DataViewRenderer(_core.Object):
         """GetEditorCtrl(self) -> Control"""
         return _dataview.DataViewRenderer_GetEditorCtrl(*args, **kwargs)
 
+    Owner = property(GetOwner,SetOwner) 
+    Value = property(GetValue,SetValue) 
+    VariantType = property(GetVariantType) 
+    Mode = property(GetMode,SetMode) 
+    Alignment = property(GetAlignment,SetAlignment) 
+    EditorCtrl = property(GetEditorCtrl) 
 _dataview.DataViewRenderer_swigregister(DataViewRenderer)
 
 class DataViewTextRenderer(DataViewRenderer):
@@ -1106,7 +1260,7 @@ class PyDataViewCustomRenderer(DataViewCustomRenderer):
         RenderText(self, String text, int xoffset, Rect cell, DC dc, int state)
 
         This method should be called from within your `Render` override
-        whenever you need to render simple text. This will ensure that the
+        whenever you need to render simple text. This will help ensure that the
         correct colour, font and vertical alignment will be chosen so the text
         will look the same as text drawn by native renderers.
         """
@@ -1148,15 +1302,6 @@ class PyDataViewCustomRenderer(DataViewCustomRenderer):
         Overrride this to react to a left click.
         """
         return _dataview.PyDataViewCustomRenderer_LeftClick(*args, **kwargs)
-
-    def RightClick(*args, **kwargs):
-        """
-        RightClick(self, Point cursor, Rect cell, DataViewModel model, DataViewItem item, 
-            unsigned int col) -> bool
-
-        Overrride this to react to a right click.
-        """
-        return _dataview.PyDataViewCustomRenderer_RightClick(*args, **kwargs)
 
     def StartDrag(*args, **kwargs):
         """
@@ -1316,6 +1461,7 @@ DV_NO_HEADER = _dataview.DV_NO_HEADER
 DV_HORIZ_RULES = _dataview.DV_HORIZ_RULES
 DV_VERT_RULES = _dataview.DV_VERT_RULES
 DV_ROW_LINES = _dataview.DV_ROW_LINES
+DV_VARIABLE_LINE_HEIGHT = _dataview.DV_VARIABLE_LINE_HEIGHT
 class DataViewCtrl(_core.Control):
     """Proxy of C++ DataViewCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -1443,6 +1589,10 @@ class DataViewCtrl(_core.Control):
     def PrependColumn(*args, **kwargs):
         """PrependColumn(self, DataViewColumn col) -> bool"""
         return _dataview.DataViewCtrl_PrependColumn(*args, **kwargs)
+
+    def InsertColumn(*args, **kwargs):
+        """InsertColumn(self, unsigned int pos, DataViewColumn col) -> bool"""
+        return _dataview.DataViewCtrl_InsertColumn(*args, **kwargs)
 
     def AppendColumn(*args, **kwargs):
         """AppendColumn(self, DataViewColumn col) -> bool"""

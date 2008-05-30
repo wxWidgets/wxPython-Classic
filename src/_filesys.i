@@ -215,13 +215,13 @@ public:
 %inline %{
     void __wxMemoryFSHandler_AddFile_wxImage(const wxString& filename,
                                              wxImage& image,
-                                             long type) {
+                                             wxBitmapType type) {
         wxMemoryFSHandler::AddFile(filename, image, type);
     }
 
     void __wxMemoryFSHandler_AddFile_wxBitmap(const wxString& filename,
                                               const wxBitmap& bitmap,
-                                              long type) {
+                                              wxBitmapType type) {
         wxMemoryFSHandler::AddFile(filename, bitmap, type);
     }
 

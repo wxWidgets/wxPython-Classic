@@ -13,30 +13,55 @@ musicdata = [[str(k)] + list(v) for k,v in musicdata]
 
 #----------------------------------------------------------------------
 
+# This model class provides the data to the view when it is asked for.
+# Since it is a list-only model (no hierachical data) then it is able
+# to be referenced by row rather than by item object, so in this way
+# it is easier to comprehend and use than other model types.  In this
+# example we also provide a Compare function to assist with sorting of
+# items in our model.  Notice that the data items in the model don't
+# ever change position due to a sort or column reordering.  The view
+# manages all of that and maps view rows and columns to the model's
+# rows and columns as needed.
+#
+# For this example our data is stored in a simple list of lists.  In
+# real life you can use whatever you want to hold your data.
+
 class TestModel(dv.PyDataViewIndexListModel):
     def __init__(self, data, log):
         dv.PyDataViewIndexListModel.__init__(self, len(musicdata))
         self.data = data
         self.log = log
-        
-    def GetValue(self, row, col):
-        #self.log.write("GetValue: (%d,%d)\n" % (row, col))
-        return self.data[row][col]
 
-    def SetValue(self, value, row, col):
-        self.log.write("SetValue: (%d,%d) %s\n" % (row, col, value))
-        self.data[row][col] = value
-        
-    def GetColumnCount(self):
-        return len(self.data[0])
-
+    # All of our columns are strings.  If the model or the renderers
+    # in the view are other types then that should be reflected here.
     def GetColumnType(self, col):
         return "string"
 
+    # This method is called to provide the data object for a
+    # particular row,col
+    def GetValue(self, row, col):
+        return self.data[row][col]
+
+    # This method is called when the user edits a data item in the view.
+    def SetValue(self, value, row, col):
+        self.log.write("SetValue: (%d,%d) %s\n" % (row, col, value))
+        self.data[row][col] = value
+
+    # Report how many columns this model provides data for.
+    def GetColumnCount(self):
+        return len(self.data[0])
+
+    # This is called to assist with sorting the data in the view.  The
+    # first two args are instances of the DataViewItem class, so we
+    # need to convert them to row numbers with the GetRow method.
+    # Then it's just a matter of fetching the right values from the
+    # list of lists and comparing them.  The return value is -1, 0, or
+    # 1, just like Python's cmp() function.
     def Compare(self, item1, item2, col, ascending):
+        if not ascending: # swap sort order?
+            row2, row1 = row1, row2
         row1 = self.GetRow(item1)
         row2 = self.GetRow(item2)
-        #self.log.write("Compare: %2d %2d %d %d\n" % (row1, row2, col, ascending))
         if col == 0:
             return cmp(int(self.data[row1][col]), int(self.data[row2][col]))
         else:
@@ -93,7 +118,9 @@ class TestPanel(wx.Panel):
         # Prepend methods, and we can modify some of it's properties
         # like this.
         c0.Alignment = wx.ALIGN_RIGHT
+        c0.Renderer.Alignment = wx.ALIGN_RIGHT
         c0.MinWidth = 40
+        # ? c0.Renderer.Alignment = wx.ALIGN_RIGHT
 
         # Through the magic of Python we can also access the columns
         # as a list via the Columns property.  Here we'll mark them
@@ -104,7 +131,7 @@ class TestPanel(wx.Panel):
 
         # Let's change our minds and not let the first col be moved.
         c0.Reorderable = False
-        
+
         # use the Sizer property (same as SetSizer)
         self.Sizer = wx.BoxSizer(wx.VERTICAL) 
         self.Sizer.Add(self.dvc, 1, wx.EXPAND)
@@ -126,6 +153,7 @@ class TestPanel(wx.Panel):
         # Bind some events so we can see what the DVC sends us
         self.Bind(dv.EVT_DATAVIEW_ITEM_EDITING_DONE, self.OnEditingDone, self.dvc)
         self.Bind(dv.EVT_DATAVIEW_ITEM_VALUE_CHANGED, self.OnValueChanged, self.dvc)
+
 
     def OnNewView(self, evt):
         f = wx.Frame(None, title="New view, shared model", size=(600,400))

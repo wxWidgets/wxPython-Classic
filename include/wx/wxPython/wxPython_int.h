@@ -41,6 +41,7 @@
 #include <wx/fs_mem.h>
 #include <wx/fs_zip.h>
 #include <wx/gbsizer.h>
+#include <wx/wrapsizer.h>
 #include <wx/geometry.h>
 #include <wx/htmllbox.h>
 #include <wx/image.h>

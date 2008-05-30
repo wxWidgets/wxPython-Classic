@@ -794,6 +794,15 @@ class HtmlWordCell(HtmlCell):
 
 _html.HtmlWordCell_swigregister(HtmlWordCell)
 
+class HtmlWordWithTabsCell(HtmlWordCell):
+    """Proxy of C++ HtmlWordWithTabsCell class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, String word, String wordOrig, size_t linepos, DC dc) -> HtmlWordWithTabsCell"""
+        _html.HtmlWordWithTabsCell_swiginit(self,_html.new_HtmlWordWithTabsCell(*args, **kwargs))
+_html.HtmlWordWithTabsCell_swigregister(HtmlWordWithTabsCell)
+
 class HtmlContainerCell(HtmlCell):
     """Proxy of C++ HtmlContainerCell class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -1890,10 +1899,6 @@ class HelpControllerBase(_core.Object):
             bool newFrameEachTime=False)
         """
         return _html.HelpControllerBase_SetFrameParameters(*args, **kwargs)
-
-    def GetFrameParameters(*args, **kwargs):
-        """GetFrameParameters(self, Size size=None, Point pos=None, bool newFrameEachTime=None) -> Frame"""
-        return _html.HelpControllerBase_GetFrameParameters(*args, **kwargs)
 
     def Quit(*args, **kwargs):
         """Quit(self) -> bool"""
