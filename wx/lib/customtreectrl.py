@@ -3,7 +3,7 @@
 # Inspired By And Heavily Based On wxGenericTreeCtrl.
 #
 # Andrea Gavana, @ 17 May 2006
-# Latest Revision: 30 Jan 2008, 21.00 GMT
+# Latest Revision: 30 May 2008, 22.00 GMT
 #
 #
 # TODO List
@@ -136,8 +136,8 @@ CustomTreeCtrl has been tested on the following platforms:
   * Mac OS (Thanks to John Jackson).
 
 
-Latest Revision: Andrea Gavana @ 30 Jan 2008, 21.00 GMT
-Version 1.5
+Latest Revision: Andrea Gavana @ 30 May 2008, 22.00 GMT
+Version 1.6
 
 """
 
@@ -1009,18 +1009,14 @@ class TreeTextCtrl(ExpandoTextCtrl):
 
     def OnKillFocus(self, event):
         """Handles the wx.EVT_KILL_FOCUS event for TreeTextCtrl."""
-
-        # I commented out those lines, and everything seems to work fine.
-        # But why in the world are these lines of code here? Maybe GTK
-        # or MAC give troubles?
         
-##        if not self._finished and not self._aboutToFinish:
-##        
-##            # We must finish regardless of success, otherwise we'll get
-##            # focus problems:
-##            
-##            if not self.AcceptChanges():
-##                self._owner.OnRenameCancelled(self._itemEdited)
+        if not self._finished and not self._aboutToFinish:
+        
+            # We must finish regardless of success, otherwise we'll get
+            # focus problems:
+            
+            if not self.AcceptChanges():
+                self._owner.OnRenameCancelled(self._itemEdited)
         
         # We must let the native text control handle focus, too, otherwise
         # it could have problems with the cursor (e.g., in wxGTK).
@@ -1939,6 +1935,7 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
         if self._renameTimer and self._renameTimer.IsRunning():
             self._renameTimer.Stop()
             del self._renameTimer
+            self._renameTimer = None
 
         if self._findTimer and self._findTimer.IsRunning():
             self._findTimer.Stop()
@@ -2129,8 +2126,6 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
 
         if item.GetType() == 2:    # it's a radio button
             if not checked and item.IsChecked():  # Try To Unckeck?
-                if item.HasChildren():
-                    self.UnCheckRadioParent(item, checked)
                 return
             else:
                 if not self.UnCheckRadioParent(item, checked):
@@ -4386,6 +4381,14 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
                         wx.RendererNative.Get().DrawItemSelectionRect(self, dc, itemrect, flags) 
                     else:
                         dc.DrawRectangleRect(itemrect)
+            else:
+               if drawItemBackground:
+                   minusicon = wcheck + image_w - 2
+                   itemrect = wx.Rect(item.GetX()+minusicon,
+                                      item.GetY()+offset,
+                                      item.GetWidth()-minusicon,
+                                      total_h-offset)
+                   dc.DrawRectangleRect(itemrect)
                 
         else:
 
@@ -5497,7 +5500,8 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
                 if item.GetType() > 0 and (flags & TREE_HITTEST_ONITEMCHECKICON):
 
                     if event.LeftDown():
-                        
+                        if flags & TREE_HITTEST_ONITEM and self.HasFlag(TR_FULL_ROW_HIGHLIGHT):
+                            self.DoSelectItem(item, not self.HasFlag(TR_MULTIPLE))
                         self.CheckItem(item, not self.IsItemChecked(item))
                         
                     return                                            
