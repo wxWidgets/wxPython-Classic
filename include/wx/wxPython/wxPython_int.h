@@ -660,6 +660,8 @@ public:
     virtual void ExitMainLoop();
     // virtual int FilterEvent(wxEvent& event); // This one too????
 
+    virtual bool OnExceptionInMainLoop() { return false; }
+
     // For catching Apple Events
     virtual void MacOpenFile(const wxString& fileName);
     virtual void MacOpenURL(const wxString& url);

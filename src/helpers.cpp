@@ -175,10 +175,15 @@ bool wxPyApp::OnInitGui() {
 int wxPyApp::OnExit() {
     int rval=0;
     wxPyThreadBlocker blocker;
-    if (wxPyCBH_findCallback(m_myInst, "OnExit"))
-        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
-    blocker.Unblock();
-    wxApp::OnExit();  // in this case always call the base class version
+
+    //XXX: testing
+    if (!PyErr_Occurred()) {
+        if (wxPyCBH_findCallback(m_myInst, "OnExit"))
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+        blocker.Unblock();
+        wxApp::OnExit();  // in this case always call the base class version
+    }
+
     return rval;
 }
 
@@ -187,11 +192,18 @@ int wxPyApp::OnExit() {
 void wxPyApp::ExitMainLoop() {
     bool found;
     wxPyThreadBlocker blocker;
-    if ((found = wxPyCBH_findCallback(m_myInst, "ExitMainLoop")))
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
-    blocker.Unblock();
-    if (! found)
+
+    //XXX: testing
+    if (!PyErr_Occurred()) {
+        if ((found = wxPyCBH_findCallback(m_myInst, "ExitMainLoop")))
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+        blocker.Unblock();
+        if (! found)
+            wxApp::ExitMainLoop();
+    } else {
+        blocker.Unblock();
         wxApp::ExitMainLoop();
+    }
 }  
 
 
@@ -1562,7 +1574,6 @@ wxFileOffset wxPyCBOutputStream::OnSysSeek(wxFileOffset off, wxSeekMode mode) {
 
     PyTuple_SET_ITEM(arglist, 1, PyInt_FromLong(mode));
 
-
     PyObject* result = PyEval_CallObject(m_seek, arglist);
     Py_DECREF(arglist);
     Py_XDECREF(result);
@@ -1640,7 +1651,9 @@ void wxPyCallback::EventThunker(wxEvent& event) {
     }
 
     if (!arg) {
-        PyErr_Print();
+        Py_DECREF(arg);
+        wxThrowPyException();
+        //PyErr_Print();
     } else {
         // "intern" the pre/post method names to speed up the HasAttr
         static PyObject* s_preName  = NULL;
@@ -1657,7 +1670,9 @@ void wxPyCallback::EventThunker(wxEvent& event) {
                 Py_DECREF(result);   // result is ignored, but we still need to decref it
                 PyErr_Clear();       // Just in case...
             } else {
-                PyErr_Print();
+                Py_DECREF(arg);
+                wxThrowPyException();
+                //PyErr_Print();
             }
         }
 
@@ -1669,7 +1684,9 @@ void wxPyCallback::EventThunker(wxEvent& event) {
             Py_DECREF(result);   // result is ignored, but we still need to decref it
             PyErr_Clear();       // Just in case...
         } else {
-            PyErr_Print();
+            Py_DECREF(tuple);
+            wxThrowPyException();
+            //PyErr_Print();
         }
 
         // Check if the event object needs some post cleanup
@@ -1679,7 +1696,9 @@ void wxPyCallback::EventThunker(wxEvent& event) {
                 Py_DECREF(result);   // result is ignored, but we still need to decref it
                 PyErr_Clear();       // Just in case...
             } else {
-                PyErr_Print();
+                Py_DECREF(tuple);
+                wxThrowPyException();
+                //PyErr_Print();
             }
         }
 
@@ -1692,7 +1711,9 @@ void wxPyCallback::EventThunker(wxEvent& event) {
                 event.Skip(PyInt_AsLong(result));
                 Py_DECREF(result);
             } else {
-                PyErr_Print();
+                Py_DECREF(tuple);
+                wxThrowPyException();
+                //PyErr_Print();
             }
         }
         Py_DECREF(tuple);
