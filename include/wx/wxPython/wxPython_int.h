@@ -159,6 +159,8 @@ void wxPy_ReinitStockObjects(int pass);
 bool wxPyInstance_Check(PyObject* obj);
 bool wxPySwigInstance_Check(PyObject* obj);
 
+void wxThrowPyException();
+
 
 #endif // wxPyUSE_EXPORTED_API
 //---------------------------------------------------------------------------
@@ -448,6 +450,7 @@ struct wxPyCoreAPI {
     wxVariant            (*p_wxVariant_in_helper)(PyObject* source);
     PyObject*            (*p_wxVariant_out_helper)(const wxVariant& value);
 
+    void                (*p_wxThrowPyException)();
     // Add all new items at the end...
 };
 
@@ -604,7 +607,10 @@ int  wxPyCBH_callCallback(const wxPyCallbackHelper& cbh, PyObject* argTuple);
 PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject* argTuple);
 void wxPyCBH_delete(wxPyCallbackHelper* cbh);
 
-
+// Thrown to propogate errors to the exception handler
+class wxPyException
+{
+};
 
 
 //---------------------------------------------------------------------------

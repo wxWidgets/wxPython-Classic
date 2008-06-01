@@ -2983,7 +2983,14 @@ SWIGINTERN PyObject *_wrap_new_MediaEvent(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxMediaEvent *)new wxMediaEvent(arg1,arg2);
+    try 
+    {
+      result = (wxMediaEvent *)new wxMediaEvent(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3307,7 +3314,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Create(PyObject *SWIGUNUSEDPARM(self), PyOb
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8,(wxValidator const &)*arg9,(wxString const &)*arg10);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8,(wxValidator const &)*arg9,(wxString const &)*arg10);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3361,7 +3375,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Play(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxMediaCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Play();
+    try 
+    {
+      result = (bool)(arg1)->Play();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3391,7 +3412,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Pause(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg1 = reinterpret_cast< wxMediaCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Pause();
+    try 
+    {
+      result = (bool)(arg1)->Pause();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3421,7 +3449,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Stop(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxMediaCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Stop();
+    try 
+    {
+      result = (bool)(arg1)->Stop();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3451,7 +3486,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_GetState(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxMediaCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxMediaState)(arg1)->GetState();
+    try 
+    {
+      result = (wxMediaState)(arg1)->GetState();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3479,7 +3521,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_GetPlaybackRate(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxMediaCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (double)(arg1)->GetPlaybackRate();
+    try 
+    {
+      result = (double)(arg1)->GetPlaybackRate();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3518,7 +3567,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_SetPlaybackRate(PyObject *SWIGUNUSEDPARM(se
   arg2 = static_cast< double >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetPlaybackRate(arg2);
+    try 
+    {
+      result = (bool)(arg1)->SetPlaybackRate(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3569,7 +3625,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Seek(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->Seek(arg2,arg3);
+    try 
+    {
+      result = (arg1)->Seek(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3602,7 +3665,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Tell(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxMediaCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->Tell();
+    try 
+    {
+      result = (arg1)->Tell();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3635,7 +3705,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Length(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxMediaCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->Length();
+    try 
+    {
+      result = (arg1)->Length();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3668,7 +3745,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_GetVolume(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxMediaCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (double)(arg1)->GetVolume();
+    try 
+    {
+      result = (double)(arg1)->GetVolume();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3707,7 +3791,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_SetVolume(PyObject *SWIGUNUSEDPARM(self), P
   arg2 = static_cast< double >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetVolume(arg2);
+    try 
+    {
+      result = (bool)(arg1)->SetVolume(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3750,7 +3841,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_ShowPlayerControls(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ShowPlayerControls(arg2);
+    try 
+    {
+      result = (bool)(arg1)->ShowPlayerControls(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3790,7 +3888,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Load(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Load((wxString const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->Load((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3838,7 +3943,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_LoadURI(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->LoadURI((wxString const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->LoadURI((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3894,7 +4006,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_LoadURIWithProxy(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->LoadURIWithProxy((wxString const &)*arg2,(wxString const &)*arg3);
+    try 
+    {
+      result = (bool)(arg1)->LoadURIWithProxy((wxString const &)*arg2,(wxString const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3940,7 +4059,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_GetDownloadProgress(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxMediaCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetDownloadProgress();
+    try 
+    {
+      result = (arg1)->GetDownloadProgress();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3973,7 +4099,14 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_GetDownloadTotal(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxMediaCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetDownloadTotal();
+    try 
+    {
+      result = (arg1)->GetDownloadTotal();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }

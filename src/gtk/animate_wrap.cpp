@@ -2796,8 +2796,15 @@ SWIGINTERN PyObject *_wrap_delete_AnimationBase(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxAnimationBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -2825,7 +2832,14 @@ SWIGINTERN PyObject *_wrap_AnimationBase_IsOk(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxAnimationBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxAnimationBase const *)arg1)->IsOk();
+    try 
+    {
+      result = (bool)((wxAnimationBase const *)arg1)->IsOk();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -2866,7 +2880,14 @@ SWIGINTERN PyObject *_wrap_AnimationBase_GetDelay(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxAnimationBase const *)arg1)->GetDelay(arg2);
+    try 
+    {
+      result = (int)((wxAnimationBase const *)arg1)->GetDelay(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -2894,7 +2915,14 @@ SWIGINTERN PyObject *_wrap_AnimationBase_GetFrameCount(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxAnimationBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxAnimationBase const *)arg1)->GetFrameCount();
+    try 
+    {
+      result = (int)((wxAnimationBase const *)arg1)->GetFrameCount();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -2933,7 +2961,14 @@ SWIGINTERN PyObject *_wrap_AnimationBase_GetFrame(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxAnimationBase const *)arg1)->GetFrame(arg2);
+    try 
+    {
+      result = ((wxAnimationBase const *)arg1)->GetFrame(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -2961,7 +2996,14 @@ SWIGINTERN PyObject *_wrap_AnimationBase_GetSize(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxAnimationBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxAnimationBase const *)arg1)->GetSize();
+    try 
+    {
+      result = ((wxAnimationBase const *)arg1)->GetSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3010,7 +3052,14 @@ SWIGINTERN PyObject *_wrap_AnimationBase_LoadFile(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->LoadFile((wxString const &)*arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->LoadFile((wxString const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3079,7 +3128,14 @@ SWIGINTERN PyObject *_wrap_AnimationBase_Load(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Load(*arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->Load(*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3112,7 +3168,14 @@ SWIGINTERN PyObject *_wrap_new_Animation__SWIG_0(PyObject *SWIGUNUSEDPARM(self),
   if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxAnimation *)new wxAnimation();
+    try 
+    {
+      result = (wxAnimation *)new wxAnimation();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3147,7 +3210,14 @@ SWIGINTERN PyObject *_wrap_new_Animation__SWIG_1(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxAnimation *)new_wxAnimation__SWIG_1((wxString const &)*arg1,arg2);
+    try 
+    {
+      result = (wxAnimation *)new_wxAnimation__SWIG_1((wxString const &)*arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3201,8 +3271,15 @@ SWIGINTERN PyObject *_wrap_delete_Animation(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxAnimation * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3241,7 +3318,14 @@ SWIGINTERN PyObject *_wrap_Animation_GetFramePosition(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = wxAnimation_GetFramePosition((wxAnimation const *)arg1,arg2);
+    try 
+    {
+      result = wxAnimation_GetFramePosition((wxAnimation const *)arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3280,7 +3364,14 @@ SWIGINTERN PyObject *_wrap_Animation_GetFrameSize(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = wxAnimation_GetFrameSize((wxAnimation const *)arg1,arg2);
+    try 
+    {
+      result = wxAnimation_GetFrameSize((wxAnimation const *)arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3319,7 +3410,14 @@ SWIGINTERN PyObject *_wrap_Animation_GetDisposalMethod(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxAnimationDisposal)wxAnimation_GetDisposalMethod((wxAnimation const *)arg1,arg2);
+    try 
+    {
+      result = (wxAnimationDisposal)wxAnimation_GetDisposalMethod((wxAnimation const *)arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3358,7 +3456,14 @@ SWIGINTERN PyObject *_wrap_Animation_GetTransparentColour(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = wxAnimation_GetTransparentColour((wxAnimation const *)arg1,arg2);
+    try 
+    {
+      result = wxAnimation_GetTransparentColour((wxAnimation const *)arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3386,7 +3491,14 @@ SWIGINTERN PyObject *_wrap_Animation_GetBackgroundColour(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxAnimation * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = wxAnimation_GetBackgroundColour((wxAnimation const *)arg1);
+    try 
+    {
+      result = wxAnimation_GetBackgroundColour((wxAnimation const *)arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3460,7 +3572,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_LoadFile(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->LoadFile((wxString const &)*arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->LoadFile((wxString const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3511,7 +3630,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_SetAnimation(PyObject *SWIGUNUSEDPA
   arg2 = reinterpret_cast< wxAnimation * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAnimation((wxAnimation const &)*arg2);
+    try 
+    {
+      (arg1)->SetAnimation((wxAnimation const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3539,7 +3665,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_GetAnimation(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxAnimationCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxAnimationCtrlBase const *)arg1)->GetAnimation();
+    try 
+    {
+      result = ((wxAnimationCtrlBase const *)arg1)->GetAnimation();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3567,7 +3700,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_Play(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxAnimationCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Play();
+    try 
+    {
+      result = (bool)(arg1)->Play();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3596,7 +3736,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_Stop(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxAnimationCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Stop();
+    try 
+    {
+      (arg1)->Stop();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3624,7 +3771,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_IsPlaying(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxAnimationCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxAnimationCtrlBase const *)arg1)->IsPlaying();
+    try 
+    {
+      result = (bool)((wxAnimationCtrlBase const *)arg1)->IsPlaying();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3667,7 +3821,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_SetInactiveBitmap(PyObject *SWIGUNU
   arg2 = reinterpret_cast< wxBitmap * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetInactiveBitmap((wxBitmap const &)*arg2);
+    try 
+    {
+      (arg1)->SetInactiveBitmap((wxBitmap const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3695,7 +3856,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_GetInactiveBitmap(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxAnimationCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxAnimationCtrlBase const *)arg1)->GetInactiveBitmap();
+    try 
+    {
+      result = ((wxAnimationCtrlBase const *)arg1)->GetInactiveBitmap();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3933,7 +4101,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrl_Create(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxAnimation const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxAnimation const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3983,7 +4158,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrl_SetUseWindowBackgroundColour(PyObject *
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxAnimationCtrl_SetUseWindowBackgroundColour(arg1,arg2);
+    try 
+    {
+      wxAnimationCtrl_SetUseWindowBackgroundColour(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4011,7 +4193,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrl_IsUsingWindowBackgroundColour(PyObject 
   arg1 = reinterpret_cast< wxAnimationCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxAnimationCtrl_IsUsingWindowBackgroundColour((wxAnimationCtrl const *)arg1);
+    try 
+    {
+      result = (bool)wxAnimationCtrl_IsUsingWindowBackgroundColour((wxAnimationCtrl const *)arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4054,7 +4243,14 @@ SWIGINTERN PyObject *_wrap_AnimationCtrl_DrawCurrentFrame(PyObject *SWIGUNUSEDPA
   arg2 = reinterpret_cast< wxDC * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxAnimationCtrl_DrawCurrentFrame(arg1,*arg2);
+    try 
+    {
+      wxAnimationCtrl_DrawCurrentFrame(arg1,*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4082,9 +4278,16 @@ SWIGINTERN PyObject *_wrap_AnimationCtrl_GetBackingStore(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxAnimationCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxBitmap &_result_ref = wxAnimationCtrl_GetBackingStore(arg1);
-      result = (wxBitmap *) &_result_ref;
+      {
+        wxBitmap &_result_ref = wxAnimationCtrl_GetBackingStore(arg1);
+        result = (wxBitmap *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;

@@ -3271,7 +3271,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl__setCallbackInfo(PyObject *SWIGUNUSEDPARM(s
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3298,7 +3305,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_ShowPopup(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ShowPopup();
+    try 
+    {
+      (arg1)->ShowPopup();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3325,7 +3339,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_HidePopup(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->HidePopup();
+    try 
+    {
+      (arg1)->HidePopup();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3352,7 +3373,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_OnButtonClick(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnButtonClick();
+    try 
+    {
+      (arg1)->OnButtonClick();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3380,7 +3408,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_IsPopupShown(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyComboCtrl const *)arg1)->IsPopupShown();
+    try 
+    {
+      result = (bool)((wxPyComboCtrl const *)arg1)->IsPopupShown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3418,7 +3453,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetPopupControl(PyObject *SWIGUNUSEDPARM(se
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPopupControl(arg2);
+    try 
+    {
+      (arg1)->SetPopupControl(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3446,7 +3488,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetPopupControl(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPyComboPopup *)(arg1)->GetPopupControl();
+    try 
+    {
+      result = (wxPyComboPopup *)(arg1)->GetPopupControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3474,7 +3523,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetPopupWindow(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxPyComboCtrl const *)arg1)->GetPopupWindow();
+    try 
+    {
+      result = (wxWindow *)((wxPyComboCtrl const *)arg1)->GetPopupWindow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3504,7 +3560,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetTextCtrl(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxTextCtrl *)((wxPyComboCtrl const *)arg1)->GetTextCtrl();
+    try 
+    {
+      result = (wxTextCtrl *)((wxPyComboCtrl const *)arg1)->GetTextCtrl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3534,7 +3597,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetButton(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxPyComboCtrl const *)arg1)->GetButton();
+    try 
+    {
+      result = (wxWindow *)((wxPyComboCtrl const *)arg1)->GetButton();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3564,7 +3634,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetValue(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyComboCtrl const *)arg1)->GetValue();
+    try 
+    {
+      result = ((wxPyComboCtrl const *)arg1)->GetValue();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3607,7 +3684,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetValue(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetValue((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetValue((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3642,7 +3726,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Copy(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Copy();
+    try 
+    {
+      (arg1)->Copy();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3669,7 +3760,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Cut(PyObject *SWIGUNUSEDPARM(self), PyObjec
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Cut();
+    try 
+    {
+      (arg1)->Cut();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3696,7 +3794,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Paste(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Paste();
+    try 
+    {
+      (arg1)->Paste();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3734,7 +3839,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetInsertionPoint(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< long >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetInsertionPoint(arg2);
+    try 
+    {
+      (arg1)->SetInsertionPoint(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3761,7 +3873,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetInsertionPointEnd(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetInsertionPointEnd();
+    try 
+    {
+      (arg1)->SetInsertionPointEnd();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3789,7 +3908,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetInsertionPoint(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxPyComboCtrl const *)arg1)->GetInsertionPoint();
+    try 
+    {
+      result = (long)((wxPyComboCtrl const *)arg1)->GetInsertionPoint();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3817,7 +3943,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetLastPosition(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxPyComboCtrl const *)arg1)->GetLastPosition();
+    try 
+    {
+      result = (long)((wxPyComboCtrl const *)arg1)->GetLastPosition();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3872,7 +4005,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Replace(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Replace(arg2,arg3,(wxString const &)*arg4);
+    try 
+    {
+      (arg1)->Replace(arg2,arg3,(wxString const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3927,7 +4067,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Remove(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg3 = static_cast< long >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Remove(arg2,arg3);
+    try 
+    {
+      (arg1)->Remove(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3954,7 +4101,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Undo(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Undo();
+    try 
+    {
+      (arg1)->Undo();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4001,7 +4155,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetMark(PyObject *SWIGUNUSEDPARM(self), PyO
   arg3 = static_cast< long >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelection(arg2,arg3);
+    try 
+    {
+      (arg1)->SetSelection(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4038,7 +4199,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetText(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetText((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetText((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4094,7 +4262,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetValueWithEvent(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetValueWithEvent((wxString const &)*arg2,arg3);
+    try 
+    {
+      (arg1)->SetValueWithEvent((wxString const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4140,7 +4315,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetPopupMinWidth(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPopupMinWidth(arg2);
+    try 
+    {
+      (arg1)->SetPopupMinWidth(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4178,7 +4360,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetPopupMaxHeight(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPopupMaxHeight(arg2);
+    try 
+    {
+      (arg1)->SetPopupMaxHeight(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4225,7 +4414,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetPopupExtents(PyObject *SWIGUNUSEDPARM(se
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPopupExtents(arg2,arg3);
+    try 
+    {
+      (arg1)->SetPopupExtents(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4263,7 +4459,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetCustomPaintWidth(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCustomPaintWidth(arg2);
+    try 
+    {
+      (arg1)->SetCustomPaintWidth(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4291,7 +4494,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetCustomPaintWidth(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyComboCtrl const *)arg1)->GetCustomPaintWidth();
+    try 
+    {
+      result = (int)((wxPyComboCtrl const *)arg1)->GetCustomPaintWidth();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4329,7 +4539,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetPopupAnchor(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPopupAnchor(arg2);
+    try 
+    {
+      (arg1)->SetPopupAnchor(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4402,7 +4619,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetButtonPosition(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetButtonPosition(arg2,arg3,arg4,arg5);
+    try 
+    {
+      (arg1)->SetButtonPosition(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4430,7 +4654,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetButtonSize(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetButtonSize();
+    try 
+    {
+      result = (arg1)->GetButtonSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4527,7 +4758,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetButtonBitmaps(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetButtonBitmaps((wxBitmap const &)*arg2,arg3,(wxBitmap const &)*arg4,(wxBitmap const &)*arg5,(wxBitmap const &)*arg6);
+    try 
+    {
+      (arg1)->SetButtonBitmaps((wxBitmap const &)*arg2,arg3,(wxBitmap const &)*arg4,(wxBitmap const &)*arg5,(wxBitmap const &)*arg6);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4565,7 +4803,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetTextIndent(PyObject *SWIGUNUSEDPARM(self
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTextIndent(arg2);
+    try 
+    {
+      (arg1)->SetTextIndent(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4593,7 +4838,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetTextIndent(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyComboCtrl const *)arg1)->GetTextIndent();
+    try 
+    {
+      result = (int)((wxPyComboCtrl const *)arg1)->GetTextIndent();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4621,9 +4873,16 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetTextRect(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxRect const &_result_ref = ((wxPyComboCtrl const *)arg1)->GetTextRect();
-      result = (wxRect *) &_result_ref;
+      {
+        wxRect const &_result_ref = ((wxPyComboCtrl const *)arg1)->GetTextRect();
+        result = (wxRect *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -4664,7 +4923,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_UseAltPopupWindow(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->UseAltPopupWindow(arg2);
+    try 
+    {
+      (arg1)->UseAltPopupWindow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4704,7 +4970,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_EnablePopupAnimation(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnablePopupAnimation(arg2);
+    try 
+    {
+      (arg1)->EnablePopupAnimation(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4746,7 +5019,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_IsKeyPopupToggle(PyObject *SWIGUNUSEDPARM(s
   arg2 = reinterpret_cast< wxKeyEvent * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyComboCtrl const *)arg1)->IsKeyPopupToggle((wxKeyEvent const &)*arg2);
+    try 
+    {
+      result = (bool)((wxPyComboCtrl const *)arg1)->IsKeyPopupToggle((wxKeyEvent const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4805,7 +5085,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_PrepareBackground(PyObject *SWIGUNUSEDPARM(
   arg4 = static_cast< int >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyComboCtrl const *)arg1)->PrepareBackground(*arg2,(wxRect const &)*arg3,arg4);
+    try 
+    {
+      ((wxPyComboCtrl const *)arg1)->PrepareBackground(*arg2,(wxRect const &)*arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4833,7 +5120,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_ShouldDrawFocus(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyComboCtrl const *)arg1)->ShouldDrawFocus();
+    try 
+    {
+      result = (bool)((wxPyComboCtrl const *)arg1)->ShouldDrawFocus();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4863,9 +5157,16 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetBitmapNormal(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxBitmap const &_result_ref = ((wxPyComboCtrl const *)arg1)->GetBitmapNormal();
-      result = (wxBitmap *) &_result_ref;
+      {
+        wxBitmap const &_result_ref = ((wxPyComboCtrl const *)arg1)->GetBitmapNormal();
+        result = (wxBitmap *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -4897,9 +5198,16 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetBitmapPressed(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxBitmap const &_result_ref = ((wxPyComboCtrl const *)arg1)->GetBitmapPressed();
-      result = (wxBitmap *) &_result_ref;
+      {
+        wxBitmap const &_result_ref = ((wxPyComboCtrl const *)arg1)->GetBitmapPressed();
+        result = (wxBitmap *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -4931,9 +5239,16 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetBitmapHover(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxBitmap const &_result_ref = ((wxPyComboCtrl const *)arg1)->GetBitmapHover();
-      result = (wxBitmap *) &_result_ref;
+      {
+        wxBitmap const &_result_ref = ((wxPyComboCtrl const *)arg1)->GetBitmapHover();
+        result = (wxBitmap *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -4965,9 +5280,16 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetBitmapDisabled(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxBitmap const &_result_ref = ((wxPyComboCtrl const *)arg1)->GetBitmapDisabled();
-      result = (wxBitmap *) &_result_ref;
+      {
+        wxBitmap const &_result_ref = ((wxPyComboCtrl const *)arg1)->GetBitmapDisabled();
+        result = (wxBitmap *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -4999,7 +5321,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetInternalFlags(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (unsigned int)((wxPyComboCtrl const *)arg1)->GetInternalFlags();
+    try 
+    {
+      result = (unsigned int)((wxPyComboCtrl const *)arg1)->GetInternalFlags();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5027,7 +5356,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_IsCreated(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyComboCtrl const *)arg1)->IsCreated();
+    try 
+    {
+      result = (bool)((wxPyComboCtrl const *)arg1)->IsCreated();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5056,7 +5392,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_OnPopupDismiss(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnPopupDismiss();
+    try 
+    {
+      (arg1)->OnPopupDismiss();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5095,7 +5438,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_IsPopupWindowState(PyObject *SWIGUNUSEDPARM
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyComboCtrl const *)arg1)->IsPopupWindowState(arg2);
+    try 
+    {
+      result = (bool)((wxPyComboCtrl const *)arg1)->IsPopupWindowState(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5125,7 +5475,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetPopupWindowState(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyComboCtrl const *)arg1)->GetPopupWindowState();
+    try 
+    {
+      result = (int)((wxPyComboCtrl const *)arg1)->GetPopupWindowState();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5163,7 +5520,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetCtrlMainWnd(PyObject *SWIGUNUSEDPARM(sel
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCtrlMainWnd(arg2);
+    try 
+    {
+      (arg1)->SetCtrlMainWnd(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5191,7 +5555,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetMainWindowOfCompositeControl(PyObject *S
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)(arg1)->GetMainWindowOfCompositeControl();
+    try 
+    {
+      result = (wxWindow *)(arg1)->GetMainWindowOfCompositeControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5211,7 +5582,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetFeatures(PyObject *SWIGUNUSEDPARM(self),
   if (!SWIG_Python_UnpackTuple(args,"ComboCtrl_GetFeatures",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)wxPyComboCtrl::GetFeatures();
+    try 
+    {
+      result = (int)wxPyComboCtrl::GetFeatures();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5256,7 +5634,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_DoShowPopup(PyObject *SWIGUNUSEDPARM(self),
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoShowPopup((wxRect const &)*arg2,arg3);
+    try 
+    {
+      (arg1)->DoShowPopup((wxRect const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5302,7 +5687,14 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_AnimateShow(PyObject *SWIGUNUSEDPARM(self),
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->AnimateShow((wxRect const &)*arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->AnimateShow((wxRect const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5361,8 +5753,15 @@ SWIGINTERN PyObject *_wrap_delete_ComboPopup(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5397,7 +5796,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup__setCallbackInfo(PyObject *SWIGUNUSEDPARM(
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5424,7 +5830,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_Init(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Init();
+    try 
+    {
+      (arg1)->Init();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5463,7 +5876,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_Create(PyObject *SWIGUNUSEDPARM(self), PyO
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5493,7 +5913,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_GetControl(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)(arg1)->GetControl();
+    try 
+    {
+      result = (wxWindow *)(arg1)->GetControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5522,7 +5949,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_OnPopup(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnPopup();
+    try 
+    {
+      (arg1)->OnPopup();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5549,7 +5983,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_OnDismiss(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnDismiss();
+    try 
+    {
+      (arg1)->OnDismiss();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5586,7 +6027,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_SetStringValue(PyObject *SWIGUNUSEDPARM(se
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetStringValue((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetStringValue((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5622,7 +6070,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_GetStringValue(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyComboPopup const *)arg1)->GetStringValue();
+    try 
+    {
+      result = ((wxPyComboPopup const *)arg1)->GetStringValue();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5676,7 +6131,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_PaintComboControl(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PaintComboControl(*arg2,(wxRect const &)*arg3);
+    try 
+    {
+      (arg1)->PaintComboControl(*arg2,(wxRect const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5717,7 +6179,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_OnComboKeyEvent(PyObject *SWIGUNUSEDPARM(s
   arg2 = reinterpret_cast< wxKeyEvent * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnComboKeyEvent(*arg2);
+    try 
+    {
+      (arg1)->OnComboKeyEvent(*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5744,7 +6213,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_OnComboDoubleClick(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnComboDoubleClick();
+    try 
+    {
+      (arg1)->OnComboDoubleClick();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5801,7 +6277,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_GetAdjustedSize(PyObject *SWIGUNUSEDPARM(s
   arg4 = static_cast< int >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetAdjustedSize(arg2,arg3,arg4);
+    try 
+    {
+      result = (arg1)->GetAdjustedSize(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5829,7 +6312,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_LazyCreate(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->LazyCreate();
+    try 
+    {
+      result = (bool)(arg1)->LazyCreate();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5858,7 +6348,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_Dismiss(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Dismiss();
+    try 
+    {
+      (arg1)->Dismiss();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5886,7 +6383,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_IsCreated(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyComboPopup const *)arg1)->IsCreated();
+    try 
+    {
+      result = (bool)((wxPyComboPopup const *)arg1)->IsCreated();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5936,7 +6440,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_DefaultPaintComboControl(PyObject *SWIGUNU
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxPyComboPopup::DefaultPaintComboControl(arg1,*arg2,(wxRect const &)*arg3);
+    try 
+    {
+      wxPyComboPopup::DefaultPaintComboControl(arg1,*arg2,(wxRect const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5964,7 +6475,14 @@ SWIGINTERN PyObject *_wrap_ComboPopup_GetCombo(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPyComboCtrl *)(arg1)->GetCombo();
+    try 
+    {
+      result = (wxPyComboCtrl *)(arg1)->GetCombo();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6186,7 +6704,14 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox__setCallbackInfo(PyObject *SWIGUNU
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6327,7 +6852,14 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_Create(PyObject *SWIGUNUSEDPARM(se
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,(wxArrayString const &)*arg7,arg8,(wxValidator const &)*arg9,(wxString const &)*arg10);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,(wxArrayString const &)*arg7,arg8,(wxValidator const &)*arg9,(wxString const &)*arg10);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6379,7 +6911,14 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_GetWidestItemWidth(PyObject *SWIGU
   arg1 = reinterpret_cast< wxPyOwnerDrawnComboBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetWidestItemWidth();
+    try 
+    {
+      result = (int)(arg1)->GetWidestItemWidth();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6407,7 +6946,14 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_GetWidestItem(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxPyOwnerDrawnComboBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetWidestItem();
+    try 
+    {
+      result = (int)(arg1)->GetWidestItem();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6454,7 +7000,14 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_SetMark(PyObject *SWIGUNUSEDPARM(s
   arg3 = static_cast< long >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelection(arg2,arg3);
+    try 
+    {
+      (arg1)->SetSelection(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6520,7 +7073,14 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_OnDrawItem(PyObject *SWIGUNUSEDPAR
   arg5 = static_cast< int >(val5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyOwnerDrawnComboBox const *)arg1)->OnDrawItem(*arg2,(wxRect const &)*arg3,arg4,arg5);
+    try 
+    {
+      ((wxPyOwnerDrawnComboBox const *)arg1)->OnDrawItem(*arg2,(wxRect const &)*arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6559,7 +7119,14 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_OnMeasureItem(PyObject *SWIGUNUSED
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyOwnerDrawnComboBox const *)arg1)->OnMeasureItem(arg2);
+    try 
+    {
+      result = (int)((wxPyOwnerDrawnComboBox const *)arg1)->OnMeasureItem(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6598,7 +7165,14 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_OnMeasureItemWidth(PyObject *SWIGU
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyOwnerDrawnComboBox const *)arg1)->OnMeasureItemWidth(arg2);
+    try 
+    {
+      result = (int)((wxPyOwnerDrawnComboBox const *)arg1)->OnMeasureItemWidth(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6664,7 +7238,14 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_OnDrawBackground(PyObject *SWIGUNU
   arg5 = static_cast< int >(val5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyOwnerDrawnComboBox const *)arg1)->OnDrawBackground(*arg2,(wxRect const &)*arg3,arg4,arg5);
+    try 
+    {
+      ((wxPyOwnerDrawnComboBox const *)arg1)->OnDrawBackground(*arg2,(wxRect const &)*arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6990,7 +7571,14 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_Create(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,(wxArrayString const &)*arg7,arg8,(wxValidator const &)*arg9,(wxString const &)*arg10);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,(wxArrayString const &)*arg7,arg8,(wxValidator const &)*arg9,(wxString const &)*arg10);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7072,7 +7660,14 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_Append(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)wxBitmapComboBox_Append(arg1,(wxString const &)*arg2,(wxBitmap const &)*arg3,arg4);
+    try 
+    {
+      result = (int)wxBitmapComboBox_Append(arg1,(wxString const &)*arg2,(wxBitmap const &)*arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7119,7 +7714,14 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_GetItemBitmap(PyObject *SWIGUNUSEDPARM
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxBitmapComboBox const *)arg1)->GetItemBitmap(arg2);
+    try 
+    {
+      result = ((wxBitmapComboBox const *)arg1)->GetItemBitmap(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7183,7 +7785,14 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_Insert(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)wxBitmapComboBox_Insert(arg1,(wxString const &)*arg2,(wxBitmap const &)*arg3,arg4,arg5);
+    try 
+    {
+      result = (int)wxBitmapComboBox_Insert(arg1,(wxString const &)*arg2,(wxBitmap const &)*arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7241,7 +7850,14 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_SetItemBitmap(PyObject *SWIGUNUSEDPARM
   arg3 = reinterpret_cast< wxBitmap * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetItemBitmap(arg2,(wxBitmap const &)*arg3);
+    try 
+    {
+      (arg1)->SetItemBitmap(arg2,(wxBitmap const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7269,7 +7885,14 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_GetBitmapSize(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxBitmapComboBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxBitmapComboBox const *)arg1)->GetBitmapSize();
+    try 
+    {
+      result = ((wxBitmapComboBox const *)arg1)->GetBitmapSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }

@@ -4062,7 +4062,14 @@ SWIGINTERN PyObject *_wrap_Panel_Create(PyObject *SWIGUNUSEDPARM(self), PyObject
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4099,7 +4106,14 @@ SWIGINTERN PyObject *_wrap_Panel_SetFocusIgnoringChildren(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxPanel * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFocusIgnoringChildren();
+    try 
+    {
+      (arg1)->SetFocusIgnoringChildren();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4173,7 +4187,14 @@ SWIGINTERN PyObject *_wrap_new_ScrollHelper(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxScrollHelper *)new wxScrollHelper(arg1);
+    try 
+    {
+      result = (wxScrollHelper *)new wxScrollHelper(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4271,7 +4292,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_SetScrollbars(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetScrollbars(arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+    try 
+    {
+      (arg1)->SetScrollbars(arg2,arg3,arg4,arg5,arg6,arg7,arg8);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4318,7 +4346,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_Scroll(PyObject *SWIGUNUSEDPARM(self), P
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Scroll(arg2,arg3);
+    try 
+    {
+      (arg1)->Scroll(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4357,7 +4392,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_GetScrollPageSize(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxScrollHelper const *)arg1)->GetScrollPageSize(arg2);
+    try 
+    {
+      result = (int)((wxScrollHelper const *)arg1)->GetScrollPageSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4404,7 +4446,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_SetScrollPageSize(PyObject *SWIGUNUSEDPA
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetScrollPageSize(arg2,arg3);
+    try 
+    {
+      (arg1)->SetScrollPageSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4443,7 +4492,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_GetScrollLines(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxScrollHelper const *)arg1)->GetScrollLines(arg2);
+    try 
+    {
+      result = (int)((wxScrollHelper const *)arg1)->GetScrollLines(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4490,7 +4546,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_SetScrollRate(PyObject *SWIGUNUSEDPARM(s
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetScrollRate(arg2,arg3);
+    try 
+    {
+      (arg1)->SetScrollRate(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4525,7 +4588,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_GetScrollPixelsPerUnit(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxScrollHelper const *)arg1)->GetScrollPixelsPerUnit(arg2,arg3);
+    try 
+    {
+      ((wxScrollHelper const *)arg1)->GetScrollPixelsPerUnit(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4584,7 +4654,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_EnableScrolling(PyObject *SWIGUNUSEDPARM
   arg3 = static_cast< bool >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableScrolling(arg2,arg3);
+    try 
+    {
+      (arg1)->EnableScrolling(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4619,7 +4696,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_GetViewStart(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxScrollHelper const *)arg1)->GetViewStart(arg2,arg3);
+    try 
+    {
+      ((wxScrollHelper const *)arg1)->GetViewStart(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4678,7 +4762,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_SetScale(PyObject *SWIGUNUSEDPARM(self),
   arg3 = static_cast< double >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetScale(arg2,arg3);
+    try 
+    {
+      (arg1)->SetScale(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4706,7 +4797,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_GetScaleX(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (double)((wxScrollHelper const *)arg1)->GetScaleX();
+    try 
+    {
+      result = (double)((wxScrollHelper const *)arg1)->GetScaleX();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4734,7 +4832,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_GetScaleY(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (double)((wxScrollHelper const *)arg1)->GetScaleY();
+    try 
+    {
+      result = (double)((wxScrollHelper const *)arg1)->GetScaleY();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4766,7 +4871,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_CalcScrolledPosition__SWIG_0(PyObject *S
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxScrollHelper const *)arg1)->CalcScrolledPosition((wxPoint const &)*arg2);
+    try 
+    {
+      result = ((wxScrollHelper const *)arg1)->CalcScrolledPosition((wxPoint const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4815,7 +4927,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_CalcScrolledPosition__SWIG_1(PyObject *S
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxScrollHelper const *)arg1)->CalcScrolledPosition(arg2,arg3,arg4,arg5);
+    try 
+    {
+      ((wxScrollHelper const *)arg1)->CalcScrolledPosition(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4878,7 +4997,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_CalcUnscrolledPosition__SWIG_0(PyObject 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxScrollHelper const *)arg1)->CalcUnscrolledPosition((wxPoint const &)*arg2);
+    try 
+    {
+      result = ((wxScrollHelper const *)arg1)->CalcUnscrolledPosition((wxPoint const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4927,7 +5053,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_CalcUnscrolledPosition__SWIG_1(PyObject 
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxScrollHelper const *)arg1)->CalcUnscrolledPosition(arg2,arg3,arg4,arg5);
+    try 
+    {
+      ((wxScrollHelper const *)arg1)->CalcUnscrolledPosition(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4985,7 +5118,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_AdjustScrollbars(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AdjustScrollbars();
+    try 
+    {
+      (arg1)->AdjustScrollbars();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5027,7 +5167,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_CalcScrollInc(PyObject *SWIGUNUSEDPARM(s
   arg2 = reinterpret_cast< wxScrollWinEvent * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->CalcScrollInc(*arg2);
+    try 
+    {
+      result = (int)(arg1)->CalcScrollInc(*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5065,7 +5212,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_SetTargetWindow(PyObject *SWIGUNUSEDPARM
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTargetWindow(arg2);
+    try 
+    {
+      (arg1)->SetTargetWindow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5093,7 +5247,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_GetTargetWindow(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxScrollHelper const *)arg1)->GetTargetWindow();
+    try 
+    {
+      result = (wxWindow *)((wxScrollHelper const *)arg1)->GetTargetWindow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5131,7 +5292,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_SetTargetRect(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTargetRect((wxRect const &)*arg2);
+    try 
+    {
+      (arg1)->SetTargetRect((wxRect const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5159,7 +5327,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_GetTargetRect(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxScrollHelper const *)arg1)->GetTargetRect();
+    try 
+    {
+      result = ((wxScrollHelper const *)arg1)->GetTargetRect();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5187,7 +5362,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_IsAutoScrolling(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxScrollHelper const *)arg1)->IsAutoScrolling();
+    try 
+    {
+      result = (bool)((wxScrollHelper const *)arg1)->IsAutoScrolling();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5216,7 +5398,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_StopAutoScrolling(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->StopAutoScrolling();
+    try 
+    {
+      (arg1)->StopAutoScrolling();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5258,7 +5447,14 @@ SWIGINTERN PyObject *_wrap_ScrollHelper_SendAutoScrollEvents(PyObject *SWIGUNUSE
   arg2 = reinterpret_cast< wxScrollWinEvent * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxScrollHelper const *)arg1)->SendAutoScrollEvents(*arg2);
+    try 
+    {
+      result = (bool)((wxScrollHelper const *)arg1)->SendAutoScrollEvents(*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5474,7 +5670,14 @@ SWIGINTERN PyObject *_wrap_ScrolledWindow_Create(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5648,7 +5851,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_Maximize(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Maximize(arg2);
+    try 
+    {
+      (arg1)->Maximize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5675,7 +5885,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_Restore(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Restore();
+    try 
+    {
+      (arg1)->Restore();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5715,7 +5932,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_Iconize(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Iconize(arg2);
+    try 
+    {
+      (arg1)->Iconize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5743,7 +5967,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_IsMaximized(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTopLevelWindow const *)arg1)->IsMaximized();
+    try 
+    {
+      result = (bool)((wxTopLevelWindow const *)arg1)->IsMaximized();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5773,7 +6004,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_IsAlwaysMaximized(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTopLevelWindow const *)arg1)->IsAlwaysMaximized();
+    try 
+    {
+      result = (bool)((wxTopLevelWindow const *)arg1)->IsAlwaysMaximized();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5803,7 +6041,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_IsIconized(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTopLevelWindow const *)arg1)->IsIconized();
+    try 
+    {
+      result = (bool)((wxTopLevelWindow const *)arg1)->IsIconized();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5833,7 +6078,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_GetIcon(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxTopLevelWindow const *)arg1)->GetIcon();
+    try 
+    {
+      result = ((wxTopLevelWindow const *)arg1)->GetIcon();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5874,7 +6126,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_SetIcon(PyObject *SWIGUNUSEDPARM(self)
   arg2 = reinterpret_cast< wxIcon * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetIcon((wxIcon const &)*arg2);
+    try 
+    {
+      (arg1)->SetIcon((wxIcon const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5915,7 +6174,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_SetIcons(PyObject *SWIGUNUSEDPARM(self
   arg2 = reinterpret_cast< wxIconBundle * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetIcons((wxIconBundle const &)*arg2);
+    try 
+    {
+      (arg1)->SetIcons((wxIconBundle const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5965,7 +6231,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_ShowFullScreen(PyObject *SWIGUNUSEDPAR
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ShowFullScreen(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->ShowFullScreen(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5995,7 +6268,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_IsFullScreen(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTopLevelWindow const *)arg1)->IsFullScreen();
+    try 
+    {
+      result = (bool)((wxTopLevelWindow const *)arg1)->IsFullScreen();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6034,7 +6314,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_SetTitle(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTitle((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetTitle((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6070,7 +6357,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_GetTitle(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxTopLevelWindow const *)arg1)->GetTitle();
+    try 
+    {
+      result = ((wxTopLevelWindow const *)arg1)->GetTitle();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6115,7 +6409,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_EnableCloseButton(PyObject *SWIGUNUSED
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->EnableCloseButton(arg2);
+    try 
+    {
+      result = (bool)(arg1)->EnableCloseButton(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6159,7 +6460,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_SetShape(PyObject *SWIGUNUSEDPARM(self
   arg2 = reinterpret_cast< wxRegion * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetShape((wxRegion const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->SetShape((wxRegion const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6201,7 +6509,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_RequestUserAttention(PyObject *SWIGUNU
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RequestUserAttention(arg2);
+    try 
+    {
+      (arg1)->RequestUserAttention(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6229,7 +6544,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_IsActive(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsActive();
+    try 
+    {
+      result = (bool)(arg1)->IsActive();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6269,7 +6591,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_MacSetMetalAppearance(PyObject *SWIGUN
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxTopLevelWindow_MacSetMetalAppearance(arg1,arg2);
+    try 
+    {
+      wxTopLevelWindow_MacSetMetalAppearance(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6297,7 +6626,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_MacGetMetalAppearance(PyObject *SWIGUN
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxTopLevelWindow_MacGetMetalAppearance((wxTopLevelWindow const *)arg1);
+    try 
+    {
+      result = (bool)wxTopLevelWindow_MacGetMetalAppearance((wxTopLevelWindow const *)arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6327,7 +6663,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_MacGetUnifiedAppearance(PyObject *SWIG
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxTopLevelWindow_MacGetUnifiedAppearance((wxTopLevelWindow const *)arg1);
+    try 
+    {
+      result = (bool)wxTopLevelWindow_MacGetUnifiedAppearance((wxTopLevelWindow const *)arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6369,7 +6712,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_CenterOnScreen(PyObject *SWIGUNUSEDPAR
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->CenterOnScreen(arg2);
+    try 
+    {
+      (arg1)->CenterOnScreen(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6397,7 +6747,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_GetDefaultItem(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxTopLevelWindow const *)arg1)->GetDefaultItem();
+    try 
+    {
+      result = (wxWindow *)((wxTopLevelWindow const *)arg1)->GetDefaultItem();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6438,7 +6795,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_SetDefaultItem(PyObject *SWIGUNUSEDPAR
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)(arg1)->SetDefaultItem(arg2);
+    try 
+    {
+      result = (wxWindow *)(arg1)->SetDefaultItem(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6478,7 +6842,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_SetTmpDefaultItem(PyObject *SWIGUNUSED
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTmpDefaultItem(arg2);
+    try 
+    {
+      (arg1)->SetTmpDefaultItem(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6506,7 +6877,14 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_GetTmpDefaultItem(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxTopLevelWindow const *)arg1)->GetTmpDefaultItem();
+    try 
+    {
+      result = (wxWindow *)((wxTopLevelWindow const *)arg1)->GetTmpDefaultItem();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6748,7 +7126,14 @@ SWIGINTERN PyObject *_wrap_Frame_Create(PyObject *SWIGUNUSEDPARM(self), PyObject
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6793,7 +7178,14 @@ SWIGINTERN PyObject *_wrap_Frame_SendSizeEvent(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SendSizeEvent();
+    try 
+    {
+      (arg1)->SendSizeEvent();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6831,7 +7223,14 @@ SWIGINTERN PyObject *_wrap_Frame_SetMenuBar(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg2 = reinterpret_cast< wxMenuBar * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMenuBar(arg2);
+    try 
+    {
+      (arg1)->SetMenuBar(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6859,7 +7258,14 @@ SWIGINTERN PyObject *_wrap_Frame_GetMenuBar(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxMenuBar *)((wxFrame const *)arg1)->GetMenuBar();
+    try 
+    {
+      result = (wxMenuBar *)((wxFrame const *)arg1)->GetMenuBar();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6900,7 +7306,14 @@ SWIGINTERN PyObject *_wrap_Frame_FindItemInMenuBar(PyObject *SWIGUNUSEDPARM(self
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxMenuItem *)((wxFrame const *)arg1)->FindItemInMenuBar(arg2);
+    try 
+    {
+      result = (wxMenuItem *)((wxFrame const *)arg1)->FindItemInMenuBar(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6941,7 +7354,14 @@ SWIGINTERN PyObject *_wrap_Frame_ProcessCommand(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ProcessCommand(arg2);
+    try 
+    {
+      result = (bool)(arg1)->ProcessCommand(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7017,7 +7437,14 @@ SWIGINTERN PyObject *_wrap_Frame_CreateStatusBar(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxStatusBar *)(arg1)->CreateStatusBar(arg2,arg3,arg4,(wxString const &)*arg5);
+    try 
+    {
+      result = (wxStatusBar *)(arg1)->CreateStatusBar(arg2,arg3,arg4,(wxString const &)*arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7055,7 +7482,14 @@ SWIGINTERN PyObject *_wrap_Frame_GetStatusBar(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxStatusBar *)((wxFrame const *)arg1)->GetStatusBar();
+    try 
+    {
+      result = (wxStatusBar *)((wxFrame const *)arg1)->GetStatusBar();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7095,7 +7529,14 @@ SWIGINTERN PyObject *_wrap_Frame_SetStatusBar(PyObject *SWIGUNUSEDPARM(self), Py
   arg2 = reinterpret_cast< wxStatusBar * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetStatusBar(arg2);
+    try 
+    {
+      (arg1)->SetStatusBar(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7143,7 +7584,14 @@ SWIGINTERN PyObject *_wrap_Frame_SetStatusText(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetStatusText((wxString const &)*arg2,arg3);
+    try 
+    {
+      (arg1)->SetStatusText((wxString const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7188,7 +7636,14 @@ SWIGINTERN PyObject *_wrap_Frame_SetStatusWidths(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetStatusWidths(arg2,(int const *)arg3);
+    try 
+    {
+      (arg1)->SetStatusWidths(arg2,(int const *)arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7242,7 +7697,14 @@ SWIGINTERN PyObject *_wrap_Frame_PushStatusText(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PushStatusText((wxString const &)*arg2,arg3);
+    try 
+    {
+      (arg1)->PushStatusText((wxString const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7290,7 +7752,14 @@ SWIGINTERN PyObject *_wrap_Frame_PopStatusText(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PopStatusText(arg2);
+    try 
+    {
+      (arg1)->PopStatusText(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7328,7 +7797,14 @@ SWIGINTERN PyObject *_wrap_Frame_SetStatusBarPane(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetStatusBarPane(arg2);
+    try 
+    {
+      (arg1)->SetStatusBarPane(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7356,7 +7832,14 @@ SWIGINTERN PyObject *_wrap_Frame_GetStatusBarPane(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxFrame const *)arg1)->GetStatusBarPane();
+    try 
+    {
+      result = (int)((wxFrame const *)arg1)->GetStatusBarPane();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7419,7 +7902,14 @@ SWIGINTERN PyObject *_wrap_Frame_CreateToolBar(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxToolBar *)(arg1)->CreateToolBar(arg2,arg3,(wxString const &)*arg4);
+    try 
+    {
+      result = (wxToolBar *)(arg1)->CreateToolBar(arg2,arg3,(wxString const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7457,7 +7947,14 @@ SWIGINTERN PyObject *_wrap_Frame_GetToolBar(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxToolBar *)((wxFrame const *)arg1)->GetToolBar();
+    try 
+    {
+      result = (wxToolBar *)((wxFrame const *)arg1)->GetToolBar();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7497,7 +7994,14 @@ SWIGINTERN PyObject *_wrap_Frame_SetToolBar(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg2 = reinterpret_cast< wxToolBar * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetToolBar(arg2);
+    try 
+    {
+      (arg1)->SetToolBar(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7543,7 +8047,14 @@ SWIGINTERN PyObject *_wrap_Frame_DoGiveHelp(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg3 = static_cast< bool >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoGiveHelp((wxString const &)*arg2,arg3);
+    try 
+    {
+      (arg1)->DoGiveHelp((wxString const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7591,7 +8102,14 @@ SWIGINTERN PyObject *_wrap_Frame_DoMenuUpdates(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoMenuUpdates(arg2);
+    try 
+    {
+      (arg1)->DoMenuUpdates(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7868,7 +8386,14 @@ SWIGINTERN PyObject *_wrap_Dialog_Create(PyObject *SWIGUNUSEDPARM(self), PyObjec
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7924,7 +8449,14 @@ SWIGINTERN PyObject *_wrap_Dialog_SetReturnCode(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetReturnCode(arg2);
+    try 
+    {
+      (arg1)->SetReturnCode(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7952,7 +8484,14 @@ SWIGINTERN PyObject *_wrap_Dialog_GetReturnCode(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxDialog const *)arg1)->GetReturnCode();
+    try 
+    {
+      result = (int)((wxDialog const *)arg1)->GetReturnCode();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7990,7 +8529,14 @@ SWIGINTERN PyObject *_wrap_Dialog_SetAffirmativeId(PyObject *SWIGUNUSEDPARM(self
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAffirmativeId(arg2);
+    try 
+    {
+      (arg1)->SetAffirmativeId(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8018,7 +8564,14 @@ SWIGINTERN PyObject *_wrap_Dialog_GetAffirmativeId(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxDialog const *)arg1)->GetAffirmativeId();
+    try 
+    {
+      result = (int)((wxDialog const *)arg1)->GetAffirmativeId();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8056,7 +8609,14 @@ SWIGINTERN PyObject *_wrap_Dialog_SetEscapeId(PyObject *SWIGUNUSEDPARM(self), Py
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetEscapeId(arg2);
+    try 
+    {
+      (arg1)->SetEscapeId(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8084,7 +8644,14 @@ SWIGINTERN PyObject *_wrap_Dialog_GetEscapeId(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxDialog const *)arg1)->GetEscapeId();
+    try 
+    {
+      result = (int)((wxDialog const *)arg1)->GetEscapeId();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8125,7 +8692,14 @@ SWIGINTERN PyObject *_wrap_Dialog_GetParentForModalDialog(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxDialog const *)arg1)->GetParentForModalDialog(arg2);
+    try 
+    {
+      result = (wxWindow *)((wxDialog const *)arg1)->GetParentForModalDialog(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8165,7 +8739,14 @@ SWIGINTERN PyObject *_wrap_Dialog_CreateTextSizer(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSizer *)(arg1)->CreateTextSizer((wxString const &)*arg2);
+    try 
+    {
+      result = (wxSizer *)(arg1)->CreateTextSizer((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8214,7 +8795,14 @@ SWIGINTERN PyObject *_wrap_Dialog__CreateButtonSizer(PyObject *SWIGUNUSEDPARM(se
   arg2 = static_cast< long >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSizer *)(arg1)->CreateButtonSizer(arg2);
+    try 
+    {
+      result = (wxSizer *)(arg1)->CreateButtonSizer(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8255,7 +8843,14 @@ SWIGINTERN PyObject *_wrap_Dialog_CreateSeparatedButtonSizer(PyObject *SWIGUNUSE
   arg2 = static_cast< long >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSizer *)(arg1)->CreateSeparatedButtonSizer(arg2);
+    try 
+    {
+      result = (wxSizer *)(arg1)->CreateSeparatedButtonSizer(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8296,7 +8891,14 @@ SWIGINTERN PyObject *_wrap_Dialog_CreateStdDialogButtonSizer(PyObject *SWIGUNUSE
   arg2 = static_cast< long >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxStdDialogButtonSizer *)(arg1)->CreateStdDialogButtonSizer(arg2);
+    try 
+    {
+      result = (wxStdDialogButtonSizer *)(arg1)->CreateStdDialogButtonSizer(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8324,7 +8926,14 @@ SWIGINTERN PyObject *_wrap_Dialog_IsModal(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxDialog const *)arg1)->IsModal();
+    try 
+    {
+      result = (bool)((wxDialog const *)arg1)->IsModal();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8354,7 +8963,14 @@ SWIGINTERN PyObject *_wrap_Dialog_ShowModal(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->ShowModal();
+    try 
+    {
+      result = (int)(arg1)->ShowModal();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8392,7 +9008,14 @@ SWIGINTERN PyObject *_wrap_Dialog_EndModal(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EndModal(arg2);
+    try 
+    {
+      (arg1)->EndModal(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8420,7 +9043,14 @@ SWIGINTERN PyObject *_wrap_Dialog_DoLayoutAdaptation(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DoLayoutAdaptation();
+    try 
+    {
+      result = (bool)(arg1)->DoLayoutAdaptation();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8450,7 +9080,14 @@ SWIGINTERN PyObject *_wrap_Dialog_CanDoLayoutAdaptation(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanDoLayoutAdaptation();
+    try 
+    {
+      result = (bool)(arg1)->CanDoLayoutAdaptation();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8480,7 +9117,14 @@ SWIGINTERN PyObject *_wrap_Dialog_GetContentWindow(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxDialog const *)arg1)->GetContentWindow();
+    try 
+    {
+      result = (wxWindow *)((wxDialog const *)arg1)->GetContentWindow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8520,7 +9164,14 @@ SWIGINTERN PyObject *_wrap_Dialog_AddMainButtonId(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AddMainButtonId(arg2);
+    try 
+    {
+      (arg1)->AddMainButtonId(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8548,9 +9199,16 @@ SWIGINTERN PyObject *_wrap_Dialog_GetMainButtonIds(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxArrayInt &_result_ref = (arg1)->GetMainButtonIds();
-      result = (wxArrayInt *) &_result_ref;
+      {
+        wxArrayInt &_result_ref = (arg1)->GetMainButtonIds();
+        result = (wxArrayInt *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -8592,7 +9250,14 @@ SWIGINTERN PyObject *_wrap_Dialog_IsMainButtonId(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxDialog const *)arg1)->IsMainButtonId(arg2);
+    try 
+    {
+      result = (bool)((wxDialog const *)arg1)->IsMainButtonId(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8632,7 +9297,14 @@ SWIGINTERN PyObject *_wrap_Dialog_SetLayoutAdaptationLevel(PyObject *SWIGUNUSEDP
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetLayoutAdaptationLevel(arg2);
+    try 
+    {
+      (arg1)->SetLayoutAdaptationLevel(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8660,7 +9332,14 @@ SWIGINTERN PyObject *_wrap_Dialog_GetLayoutAdaptationLevel(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxDialog const *)arg1)->GetLayoutAdaptationLevel();
+    try 
+    {
+      result = (int)((wxDialog const *)arg1)->GetLayoutAdaptationLevel();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8698,7 +9377,14 @@ SWIGINTERN PyObject *_wrap_Dialog_SetLayoutAdaptationMode(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< wxDialogLayoutAdaptationMode >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetLayoutAdaptationMode(arg2);
+    try 
+    {
+      (arg1)->SetLayoutAdaptationMode(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8726,7 +9412,14 @@ SWIGINTERN PyObject *_wrap_Dialog_GetLayoutAdaptationMode(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxDialogLayoutAdaptationMode)((wxDialog const *)arg1)->GetLayoutAdaptationMode();
+    try 
+    {
+      result = (wxDialogLayoutAdaptationMode)((wxDialog const *)arg1)->GetLayoutAdaptationMode();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8764,7 +9457,14 @@ SWIGINTERN PyObject *_wrap_Dialog_SetLayoutAdaptationDone(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetLayoutAdaptationDone(arg2);
+    try 
+    {
+      (arg1)->SetLayoutAdaptationDone(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8792,7 +9492,14 @@ SWIGINTERN PyObject *_wrap_Dialog_GetLayoutAdaptationDone(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxDialog const *)arg1)->GetLayoutAdaptationDone();
+    try 
+    {
+      result = (bool)((wxDialog const *)arg1)->GetLayoutAdaptationDone();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8824,7 +9531,14 @@ SWIGINTERN PyObject *_wrap_Dialog_SetLayoutAdapter(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxDialogLayoutAdapter * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxDialogLayoutAdapter *)wxDialog::SetLayoutAdapter(arg1);
+    try 
+    {
+      result = (wxDialogLayoutAdapter *)wxDialog::SetLayoutAdapter(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8842,7 +9556,14 @@ SWIGINTERN PyObject *_wrap_Dialog_GetLayoutAdapter(PyObject *SWIGUNUSEDPARM(self
   if (!SWIG_Python_UnpackTuple(args,"Dialog_GetLayoutAdapter",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxDialogLayoutAdapter *)wxDialog::GetLayoutAdapter();
+    try 
+    {
+      result = (wxDialogLayoutAdapter *)wxDialog::GetLayoutAdapter();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8860,7 +9581,14 @@ SWIGINTERN PyObject *_wrap_Dialog_IsLayoutAdaptationEnabled(PyObject *SWIGUNUSED
   if (!SWIG_Python_UnpackTuple(args,"Dialog_IsLayoutAdaptationEnabled",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxDialog::IsLayoutAdaptationEnabled();
+    try 
+    {
+      result = (bool)wxDialog::IsLayoutAdaptationEnabled();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8891,7 +9619,14 @@ SWIGINTERN PyObject *_wrap_Dialog_EnableLayoutAdaptation(PyObject *SWIGUNUSEDPAR
   arg1 = static_cast< bool >(val1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxDialog::EnableLayoutAdaptation(arg1);
+    try 
+    {
+      wxDialog::EnableLayoutAdaptation(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8974,7 +9709,14 @@ SWIGINTERN PyObject *_wrap_DialogLayoutAdapter_CanDoLayoutAdaptation(PyObject *S
   arg2 = reinterpret_cast< wxDialog * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanDoLayoutAdaptation(arg2);
+    try 
+    {
+      result = (bool)(arg1)->CanDoLayoutAdaptation(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9015,7 +9757,14 @@ SWIGINTERN PyObject *_wrap_DialogLayoutAdapter_DoLayoutAdaptation(PyObject *SWIG
   arg2 = reinterpret_cast< wxDialog * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DoLayoutAdaptation(arg2);
+    try 
+    {
+      result = (bool)(arg1)->DoLayoutAdaptation(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9042,7 +9791,14 @@ SWIGINTERN PyObject *_wrap_new_StandardDialogLayoutAdapter(PyObject *SWIGUNUSEDP
   if (!SWIG_Python_UnpackTuple(args,"new_StandardDialogLayoutAdapter",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxStandardDialogLayoutAdapter *)new wxStandardDialogLayoutAdapter();
+    try 
+    {
+      result = (wxStandardDialogLayoutAdapter *)new wxStandardDialogLayoutAdapter();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9081,7 +9837,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_CreateScrolledWindow(PyOb
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxScrolledWindow *)(arg1)->CreateScrolledWindow(arg2);
+    try 
+    {
+      result = (wxScrolledWindow *)(arg1)->CreateScrolledWindow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9163,7 +9926,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_FindButtonSizer(PyObject 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSizer *)(arg1)->FindButtonSizer(arg2,arg3,arg4,*arg5,arg6);
+    try 
+    {
+      result = (wxSizer *)(arg1)->FindButtonSizer(arg2,arg3,arg4,*arg5,arg6);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9213,7 +9983,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_IsOrdinaryButtonSizer(PyO
   arg3 = reinterpret_cast< wxBoxSizer * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsOrdinaryButtonSizer(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->IsOrdinaryButtonSizer(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9263,7 +10040,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_IsStandardButton(PyObject
   arg3 = reinterpret_cast< wxButton * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsStandardButton(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->IsStandardButton(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9334,7 +10118,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_FindLooseButtons(PyObject
   arg5 = reinterpret_cast< int * >(argp5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->FindLooseButtons(arg2,arg3,arg4,*arg5);
+    try 
+    {
+      result = (bool)(arg1)->FindLooseButtons(arg2,arg3,arg4,*arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9394,7 +10185,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_ReparentControls(PyObject
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ReparentControls(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->ReparentControls(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9443,7 +10241,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_DoReparentControls(PyObje
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxStandardDialogLayoutAdapter::DoReparentControls(arg1,arg2,arg3);
+    try 
+    {
+      wxStandardDialogLayoutAdapter::DoReparentControls(arg1,arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9491,7 +10296,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_FitWithScrolling(PyObject
   arg3 = reinterpret_cast< wxScrolledWindow * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->FitWithScrolling(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->FitWithScrolling(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9532,7 +10344,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_DoFitWithScrolling(PyObje
   arg2 = reinterpret_cast< wxScrolledWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxStandardDialogLayoutAdapter::DoFitWithScrolling(arg1,arg2);
+    try 
+    {
+      result = (bool)wxStandardDialogLayoutAdapter::DoFitWithScrolling(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9587,7 +10406,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_MustScroll(PyObject *SWIG
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->MustScroll(arg2,*arg3,*arg4);
+    try 
+    {
+      result = (int)(arg1)->MustScroll(arg2,*arg3,*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9631,7 +10457,14 @@ SWIGINTERN PyObject *_wrap_StandardDialogLayoutAdapter_DoMustScroll(PyObject *SW
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)wxStandardDialogLayoutAdapter::DoMustScroll(arg1,*arg2,*arg3);
+    try 
+    {
+      result = (int)wxStandardDialogLayoutAdapter::DoMustScroll(arg1,*arg2,*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9875,7 +10708,14 @@ SWIGINTERN PyObject *_wrap_MiniFrame_Create(PyObject *SWIGUNUSEDPARM(self), PyOb
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10028,7 +10868,14 @@ SWIGINTERN PyObject *_wrap_SplashScreenWindow_SetBitmap(PyObject *SWIGUNUSEDPARM
   arg2 = reinterpret_cast< wxBitmap * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBitmap((wxBitmap const &)*arg2);
+    try 
+    {
+      (arg1)->SetBitmap((wxBitmap const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10056,9 +10903,16 @@ SWIGINTERN PyObject *_wrap_SplashScreenWindow_GetBitmap(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxSplashScreenWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxBitmap &_result_ref = (arg1)->GetBitmap();
-      result = (wxBitmap *) &_result_ref;
+      {
+        wxBitmap &_result_ref = (arg1)->GetBitmap();
+        result = (wxBitmap *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -10204,7 +11058,14 @@ SWIGINTERN PyObject *_wrap_SplashScreen_GetSplashStyle(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxSplashScreen * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)((wxSplashScreen const *)arg1)->GetSplashStyle();
+    try 
+    {
+      result = (long)((wxSplashScreen const *)arg1)->GetSplashStyle();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10232,7 +11093,14 @@ SWIGINTERN PyObject *_wrap_SplashScreen_GetSplashWindow(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxSplashScreen * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSplashScreenWindow *)((wxSplashScreen const *)arg1)->GetSplashWindow();
+    try 
+    {
+      result = (wxSplashScreenWindow *)((wxSplashScreen const *)arg1)->GetSplashWindow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10260,7 +11128,14 @@ SWIGINTERN PyObject *_wrap_SplashScreen_GetTimeout(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxSplashScreen * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSplashScreen const *)arg1)->GetTimeout();
+    try 
+    {
+      result = (int)((wxSplashScreen const *)arg1)->GetTimeout();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10434,7 +11309,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_Create(PyObject *SWIGUNUSEDPARM(self), PyOb
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,arg4,(wxString const &)*arg5);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,arg4,(wxString const &)*arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10484,7 +11366,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_SetFieldsCount(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFieldsCount(arg2);
+    try 
+    {
+      (arg1)->SetFieldsCount(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10512,7 +11401,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_GetFieldsCount(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxStatusBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxStatusBar const *)arg1)->GetFieldsCount();
+    try 
+    {
+      result = (int)((wxStatusBar const *)arg1)->GetFieldsCount();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10560,7 +11456,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_SetStatusText(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetStatusText((wxString const &)*arg2,arg3);
+    try 
+    {
+      (arg1)->SetStatusText((wxString const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10609,7 +11512,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_GetStatusText(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxStatusBar const *)arg1)->GetStatusText(arg2);
+    try 
+    {
+      result = ((wxStatusBar const *)arg1)->GetStatusText(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10663,7 +11573,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_PushStatusText(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PushStatusText((wxString const &)*arg2,arg3);
+    try 
+    {
+      (arg1)->PushStatusText((wxString const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10711,7 +11628,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_PopStatusText(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PopStatusText(arg2);
+    try 
+    {
+      (arg1)->PopStatusText(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10748,7 +11672,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_SetStatusWidths(PyObject *SWIGUNUSEDPARM(se
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetStatusWidths(arg2,(int const *)arg3);
+    try 
+    {
+      (arg1)->SetStatusWidths(arg2,(int const *)arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10791,7 +11722,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_SetStatusStyles(PyObject *SWIGUNUSEDPARM(se
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetStatusStyles(arg2,(int const *)arg3);
+    try 
+    {
+      (arg1)->SetStatusStyles(arg2,(int const *)arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10836,7 +11774,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_GetFieldRect(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = wxStatusBar_GetFieldRect(arg1,arg2);
+    try 
+    {
+      result = wxStatusBar_GetFieldRect(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10874,7 +11819,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_SetMinHeight(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMinHeight(arg2);
+    try 
+    {
+      (arg1)->SetMinHeight(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10902,7 +11854,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_GetBorderX(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxStatusBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxStatusBar const *)arg1)->GetBorderX();
+    try 
+    {
+      result = (int)((wxStatusBar const *)arg1)->GetBorderX();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10930,7 +11889,14 @@ SWIGINTERN PyObject *_wrap_StatusBar_GetBorderY(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxStatusBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxStatusBar const *)arg1)->GetBorderY();
+    try 
+    {
+      result = (int)((wxStatusBar const *)arg1)->GetBorderY();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11197,7 +12163,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_Create(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11235,7 +12208,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_GetWindow1(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxSplitterWindow const *)arg1)->GetWindow1();
+    try 
+    {
+      result = (wxWindow *)((wxSplitterWindow const *)arg1)->GetWindow1();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11265,7 +12245,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_GetWindow2(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxSplitterWindow const *)arg1)->GetWindow2();
+    try 
+    {
+      result = (wxWindow *)((wxSplitterWindow const *)arg1)->GetWindow2();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11305,7 +12292,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SetSplitMode(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSplitMode(arg2);
+    try 
+    {
+      (arg1)->SetSplitMode(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11333,7 +12327,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_GetSplitMode(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSplitMode)((wxSplitterWindow const *)arg1)->GetSplitMode();
+    try 
+    {
+      result = (wxSplitMode)((wxSplitterWindow const *)arg1)->GetSplitMode();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11371,7 +12372,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_Initialize(PyObject *SWIGUNUSEDPARM(se
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Initialize(arg2);
+    try 
+    {
+      (arg1)->Initialize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11430,7 +12438,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SplitVertically(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SplitVertically(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->SplitVertically(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11491,7 +12506,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SplitHorizontally(PyObject *SWIGUNUSED
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SplitHorizontally(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->SplitHorizontally(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11534,7 +12556,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_Unsplit(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Unsplit(arg2);
+    try 
+    {
+      result = (bool)(arg1)->Unsplit(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11584,7 +12613,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_ReplaceWindow(PyObject *SWIGUNUSEDPARM
   arg3 = reinterpret_cast< wxWindow * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ReplaceWindow(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->ReplaceWindow(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11613,7 +12649,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_UpdateSize(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->UpdateSize();
+    try 
+    {
+      (arg1)->UpdateSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11641,7 +12684,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_IsSplit(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxSplitterWindow const *)arg1)->IsSplit();
+    try 
+    {
+      result = (bool)((wxSplitterWindow const *)arg1)->IsSplit();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11681,7 +12731,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SetSashSize(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSashSize(arg2);
+    try 
+    {
+      (arg1)->SetSashSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11719,7 +12776,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SetBorderSize(PyObject *SWIGUNUSEDPARM
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBorderSize(arg2);
+    try 
+    {
+      (arg1)->SetBorderSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11747,7 +12811,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_GetSashSize(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSplitterWindow const *)arg1)->GetSashSize();
+    try 
+    {
+      result = (int)((wxSplitterWindow const *)arg1)->GetSashSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11775,7 +12846,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_GetBorderSize(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSplitterWindow const *)arg1)->GetBorderSize();
+    try 
+    {
+      result = (int)((wxSplitterWindow const *)arg1)->GetBorderSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11824,7 +12902,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SetSashPosition(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSashPosition(arg2,arg3);
+    try 
+    {
+      (arg1)->SetSashPosition(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11852,7 +12937,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_GetSashPosition(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSplitterWindow const *)arg1)->GetSashPosition();
+    try 
+    {
+      result = (int)((wxSplitterWindow const *)arg1)->GetSashPosition();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11890,7 +12982,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SetSashGravity(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< double >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSashGravity(arg2);
+    try 
+    {
+      (arg1)->SetSashGravity(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11918,7 +13017,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_GetSashGravity(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (double)((wxSplitterWindow const *)arg1)->GetSashGravity();
+    try 
+    {
+      result = (double)((wxSplitterWindow const *)arg1)->GetSashGravity();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11956,7 +13062,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SetMinimumPaneSize(PyObject *SWIGUNUSE
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMinimumPaneSize(arg2);
+    try 
+    {
+      (arg1)->SetMinimumPaneSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11984,7 +13097,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_GetMinimumPaneSize(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSplitterWindow const *)arg1)->GetMinimumPaneSize();
+    try 
+    {
+      result = (int)((wxSplitterWindow const *)arg1)->GetMinimumPaneSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12043,7 +13163,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SashHitTest(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SashHitTest(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->SashHitTest(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12072,7 +13199,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SizeWindows(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SizeWindows();
+    try 
+    {
+      (arg1)->SizeWindows();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12110,7 +13244,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_SetNeedUpdating(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetNeedUpdating(arg2);
+    try 
+    {
+      (arg1)->SetNeedUpdating(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12138,7 +13279,14 @@ SWIGINTERN PyObject *_wrap_SplitterWindow_GetNeedUpdating(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxSplitterWindow const *)arg1)->GetNeedUpdating();
+    try 
+    {
+      result = (bool)((wxSplitterWindow const *)arg1)->GetNeedUpdating();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12227,7 +13375,14 @@ SWIGINTERN PyObject *_wrap_new_SplitterEvent(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSplitterEvent *)new wxSplitterEvent(arg1,arg2);
+    try 
+    {
+      result = (wxSplitterEvent *)new wxSplitterEvent(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12265,7 +13420,14 @@ SWIGINTERN PyObject *_wrap_SplitterEvent_SetSashPosition(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSashPosition(arg2);
+    try 
+    {
+      (arg1)->SetSashPosition(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12293,7 +13455,14 @@ SWIGINTERN PyObject *_wrap_SplitterEvent_GetSashPosition(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxSplitterEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSplitterEvent const *)arg1)->GetSashPosition();
+    try 
+    {
+      result = (int)((wxSplitterEvent const *)arg1)->GetSashPosition();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12321,7 +13490,14 @@ SWIGINTERN PyObject *_wrap_SplitterEvent_GetWindowBeingRemoved(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxSplitterEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxSplitterEvent const *)arg1)->GetWindowBeingRemoved();
+    try 
+    {
+      result = (wxWindow *)((wxSplitterEvent const *)arg1)->GetWindowBeingRemoved();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12351,7 +13527,14 @@ SWIGINTERN PyObject *_wrap_SplitterEvent_GetX(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxSplitterEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSplitterEvent const *)arg1)->GetX();
+    try 
+    {
+      result = (int)((wxSplitterEvent const *)arg1)->GetX();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12379,7 +13562,14 @@ SWIGINTERN PyObject *_wrap_SplitterEvent_GetY(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxSplitterEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSplitterEvent const *)arg1)->GetY();
+    try 
+    {
+      result = (int)((wxSplitterEvent const *)arg1)->GetY();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12633,7 +13823,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_Create(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12690,7 +13887,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_SetSashVisible(PyObject *SWIGUNUSEDPARM(se
   arg3 = static_cast< bool >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSashVisible(arg2,arg3);
+    try 
+    {
+      (arg1)->SetSashVisible(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12729,7 +13933,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_GetSashVisible(PyObject *SWIGUNUSEDPARM(se
   arg2 = static_cast< wxSashEdgePosition >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxSashWindow const *)arg1)->GetSashVisible(arg2);
+    try 
+    {
+      result = (bool)((wxSashWindow const *)arg1)->GetSashVisible(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12770,7 +13981,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_GetEdgeMargin(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< wxSashEdgePosition >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSashWindow const *)arg1)->GetEdgeMargin(arg2);
+    try 
+    {
+      result = (int)((wxSashWindow const *)arg1)->GetEdgeMargin(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12808,7 +14026,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_SetDefaultBorderSize(PyObject *SWIGUNUSEDP
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultBorderSize(arg2);
+    try 
+    {
+      (arg1)->SetDefaultBorderSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12836,7 +14061,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_GetDefaultBorderSize(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxSashWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSashWindow const *)arg1)->GetDefaultBorderSize();
+    try 
+    {
+      result = (int)((wxSashWindow const *)arg1)->GetDefaultBorderSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12874,7 +14106,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_SetExtraBorderSize(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetExtraBorderSize(arg2);
+    try 
+    {
+      (arg1)->SetExtraBorderSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12902,7 +14141,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_GetExtraBorderSize(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxSashWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSashWindow const *)arg1)->GetExtraBorderSize();
+    try 
+    {
+      result = (int)((wxSashWindow const *)arg1)->GetExtraBorderSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12940,7 +14186,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_SetMinimumSizeX(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMinimumSizeX(arg2);
+    try 
+    {
+      (arg1)->SetMinimumSizeX(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12978,7 +14231,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_SetMinimumSizeY(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMinimumSizeY(arg2);
+    try 
+    {
+      (arg1)->SetMinimumSizeY(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13006,7 +14266,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_GetMinimumSizeX(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxSashWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSashWindow const *)arg1)->GetMinimumSizeX();
+    try 
+    {
+      result = (int)((wxSashWindow const *)arg1)->GetMinimumSizeX();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13034,7 +14301,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_GetMinimumSizeY(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxSashWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSashWindow const *)arg1)->GetMinimumSizeY();
+    try 
+    {
+      result = (int)((wxSashWindow const *)arg1)->GetMinimumSizeY();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13072,7 +14346,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_SetMaximumSizeX(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMaximumSizeX(arg2);
+    try 
+    {
+      (arg1)->SetMaximumSizeX(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13110,7 +14391,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_SetMaximumSizeY(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMaximumSizeY(arg2);
+    try 
+    {
+      (arg1)->SetMaximumSizeY(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13138,7 +14426,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_GetMaximumSizeX(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxSashWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSashWindow const *)arg1)->GetMaximumSizeX();
+    try 
+    {
+      result = (int)((wxSashWindow const *)arg1)->GetMaximumSizeX();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13166,7 +14461,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_GetMaximumSizeY(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxSashWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxSashWindow const *)arg1)->GetMaximumSizeY();
+    try 
+    {
+      result = (int)((wxSashWindow const *)arg1)->GetMaximumSizeY();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13225,7 +14527,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_SashHitTest(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSashEdgePosition)(arg1)->SashHitTest(arg2,arg3,arg4);
+    try 
+    {
+      result = (wxSashEdgePosition)(arg1)->SashHitTest(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13252,7 +14561,14 @@ SWIGINTERN PyObject *_wrap_SashWindow_SizeWindows(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxSashWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SizeWindows();
+    try 
+    {
+      (arg1)->SizeWindows();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13306,7 +14622,14 @@ SWIGINTERN PyObject *_wrap_new_SashEvent(PyObject *SWIGUNUSEDPARM(self), PyObjec
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSashEvent *)new wxSashEvent(arg1,arg2);
+    try 
+    {
+      result = (wxSashEvent *)new wxSashEvent(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13344,7 +14667,14 @@ SWIGINTERN PyObject *_wrap_SashEvent_SetEdge(PyObject *SWIGUNUSEDPARM(self), PyO
   arg2 = static_cast< wxSashEdgePosition >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetEdge(arg2);
+    try 
+    {
+      (arg1)->SetEdge(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13372,7 +14702,14 @@ SWIGINTERN PyObject *_wrap_SashEvent_GetEdge(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxSashEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSashEdgePosition)((wxSashEvent const *)arg1)->GetEdge();
+    try 
+    {
+      result = (wxSashEdgePosition)((wxSashEvent const *)arg1)->GetEdge();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13408,7 +14745,14 @@ SWIGINTERN PyObject *_wrap_SashEvent_SetDragRect(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDragRect((wxRect const &)*arg2);
+    try 
+    {
+      (arg1)->SetDragRect((wxRect const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13436,7 +14780,14 @@ SWIGINTERN PyObject *_wrap_SashEvent_GetDragRect(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxSashEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxSashEvent const *)arg1)->GetDragRect();
+    try 
+    {
+      result = ((wxSashEvent const *)arg1)->GetDragRect();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13474,7 +14825,14 @@ SWIGINTERN PyObject *_wrap_SashEvent_SetDragStatus(PyObject *SWIGUNUSEDPARM(self
   arg2 = static_cast< wxSashDragStatus >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDragStatus(arg2);
+    try 
+    {
+      (arg1)->SetDragStatus(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13502,7 +14860,14 @@ SWIGINTERN PyObject *_wrap_SashEvent_GetDragStatus(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxSashEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxSashDragStatus)((wxSashEvent const *)arg1)->GetDragStatus();
+    try 
+    {
+      result = (wxSashDragStatus)((wxSashEvent const *)arg1)->GetDragStatus();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13545,7 +14910,14 @@ SWIGINTERN PyObject *_wrap_new_QueryLayoutInfoEvent(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxQueryLayoutInfoEvent *)new wxQueryLayoutInfoEvent(arg1);
+    try 
+    {
+      result = (wxQueryLayoutInfoEvent *)new wxQueryLayoutInfoEvent(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13583,7 +14955,14 @@ SWIGINTERN PyObject *_wrap_QueryLayoutInfoEvent_SetRequestedLength(PyObject *SWI
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRequestedLength(arg2);
+    try 
+    {
+      (arg1)->SetRequestedLength(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13611,7 +14990,14 @@ SWIGINTERN PyObject *_wrap_QueryLayoutInfoEvent_GetRequestedLength(PyObject *SWI
   arg1 = reinterpret_cast< wxQueryLayoutInfoEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxQueryLayoutInfoEvent const *)arg1)->GetRequestedLength();
+    try 
+    {
+      result = (int)((wxQueryLayoutInfoEvent const *)arg1)->GetRequestedLength();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13649,7 +15035,14 @@ SWIGINTERN PyObject *_wrap_QueryLayoutInfoEvent_SetFlags(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFlags(arg2);
+    try 
+    {
+      (arg1)->SetFlags(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13677,7 +15070,14 @@ SWIGINTERN PyObject *_wrap_QueryLayoutInfoEvent_GetFlags(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxQueryLayoutInfoEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxQueryLayoutInfoEvent const *)arg1)->GetFlags();
+    try 
+    {
+      result = (int)((wxQueryLayoutInfoEvent const *)arg1)->GetFlags();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13713,7 +15113,14 @@ SWIGINTERN PyObject *_wrap_QueryLayoutInfoEvent_SetSize(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSize((wxSize const &)*arg2);
+    try 
+    {
+      (arg1)->SetSize((wxSize const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13741,7 +15148,14 @@ SWIGINTERN PyObject *_wrap_QueryLayoutInfoEvent_GetSize(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxQueryLayoutInfoEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxQueryLayoutInfoEvent const *)arg1)->GetSize();
+    try 
+    {
+      result = ((wxQueryLayoutInfoEvent const *)arg1)->GetSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13779,7 +15193,14 @@ SWIGINTERN PyObject *_wrap_QueryLayoutInfoEvent_SetOrientation(PyObject *SWIGUNU
   arg2 = static_cast< wxLayoutOrientation >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetOrientation(arg2);
+    try 
+    {
+      (arg1)->SetOrientation(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13807,7 +15228,14 @@ SWIGINTERN PyObject *_wrap_QueryLayoutInfoEvent_GetOrientation(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxQueryLayoutInfoEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxLayoutOrientation)((wxQueryLayoutInfoEvent const *)arg1)->GetOrientation();
+    try 
+    {
+      result = (wxLayoutOrientation)((wxQueryLayoutInfoEvent const *)arg1)->GetOrientation();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13845,7 +15273,14 @@ SWIGINTERN PyObject *_wrap_QueryLayoutInfoEvent_SetAlignment(PyObject *SWIGUNUSE
   arg2 = static_cast< wxLayoutAlignment >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAlignment(arg2);
+    try 
+    {
+      (arg1)->SetAlignment(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13873,7 +15308,14 @@ SWIGINTERN PyObject *_wrap_QueryLayoutInfoEvent_GetAlignment(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxQueryLayoutInfoEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxLayoutAlignment)((wxQueryLayoutInfoEvent const *)arg1)->GetAlignment();
+    try 
+    {
+      result = (wxLayoutAlignment)((wxQueryLayoutInfoEvent const *)arg1)->GetAlignment();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13916,7 +15358,14 @@ SWIGINTERN PyObject *_wrap_new_CalculateLayoutEvent(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxCalculateLayoutEvent *)new wxCalculateLayoutEvent(arg1);
+    try 
+    {
+      result = (wxCalculateLayoutEvent *)new wxCalculateLayoutEvent(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13954,7 +15403,14 @@ SWIGINTERN PyObject *_wrap_CalculateLayoutEvent_SetFlags(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFlags(arg2);
+    try 
+    {
+      (arg1)->SetFlags(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13982,7 +15438,14 @@ SWIGINTERN PyObject *_wrap_CalculateLayoutEvent_GetFlags(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxCalculateLayoutEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxCalculateLayoutEvent const *)arg1)->GetFlags();
+    try 
+    {
+      result = (int)((wxCalculateLayoutEvent const *)arg1)->GetFlags();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14018,7 +15481,14 @@ SWIGINTERN PyObject *_wrap_CalculateLayoutEvent_SetRect(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRect((wxRect const &)*arg2);
+    try 
+    {
+      (arg1)->SetRect((wxRect const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14046,7 +15516,14 @@ SWIGINTERN PyObject *_wrap_CalculateLayoutEvent_GetRect(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxCalculateLayoutEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalculateLayoutEvent const *)arg1)->GetRect();
+    try 
+    {
+      result = ((wxCalculateLayoutEvent const *)arg1)->GetRect();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14260,7 +15737,14 @@ SWIGINTERN PyObject *_wrap_SashLayoutWindow_Create(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14298,7 +15782,14 @@ SWIGINTERN PyObject *_wrap_SashLayoutWindow_GetAlignment(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxSashLayoutWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxLayoutAlignment)(arg1)->GetAlignment();
+    try 
+    {
+      result = (wxLayoutAlignment)(arg1)->GetAlignment();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14326,7 +15817,14 @@ SWIGINTERN PyObject *_wrap_SashLayoutWindow_GetOrientation(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxSashLayoutWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxLayoutOrientation)(arg1)->GetOrientation();
+    try 
+    {
+      result = (wxLayoutOrientation)(arg1)->GetOrientation();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14364,7 +15862,14 @@ SWIGINTERN PyObject *_wrap_SashLayoutWindow_SetAlignment(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< wxLayoutAlignment >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAlignment(arg2);
+    try 
+    {
+      (arg1)->SetAlignment(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14400,7 +15905,14 @@ SWIGINTERN PyObject *_wrap_SashLayoutWindow_SetDefaultSize(PyObject *SWIGUNUSEDP
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultSize((wxSize const &)*arg2);
+    try 
+    {
+      (arg1)->SetDefaultSize((wxSize const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14438,7 +15950,14 @@ SWIGINTERN PyObject *_wrap_SashLayoutWindow_SetOrientation(PyObject *SWIGUNUSEDP
   arg2 = static_cast< wxLayoutOrientation >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetOrientation(arg2);
+    try 
+    {
+      (arg1)->SetOrientation(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14467,7 +15986,14 @@ SWIGINTERN PyObject *_wrap_new_LayoutAlgorithm(PyObject *SWIGUNUSEDPARM(self), P
   if (!SWIG_Python_UnpackTuple(args,"new_LayoutAlgorithm",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxLayoutAlgorithm *)new wxLayoutAlgorithm();
+    try 
+    {
+      result = (wxLayoutAlgorithm *)new wxLayoutAlgorithm();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14494,8 +16020,15 @@ SWIGINTERN PyObject *_wrap_delete_LayoutAlgorithm(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxLayoutAlgorithm * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14543,7 +16076,14 @@ SWIGINTERN PyObject *_wrap_LayoutAlgorithm_LayoutMDIFrame(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->LayoutMDIFrame(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->LayoutMDIFrame(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14595,7 +16135,14 @@ SWIGINTERN PyObject *_wrap_LayoutAlgorithm_LayoutFrame(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->LayoutFrame(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->LayoutFrame(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14647,7 +16194,14 @@ SWIGINTERN PyObject *_wrap_LayoutAlgorithm_LayoutWindow(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->LayoutWindow(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->LayoutWindow(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14771,7 +16325,14 @@ SWIGINTERN PyObject *_wrap_PopupWindow_Create(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14816,7 +16377,14 @@ SWIGINTERN PyObject *_wrap_PopupWindow_Position(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Position((wxPoint const &)*arg2,(wxSize const &)*arg3);
+    try 
+    {
+      (arg1)->Position((wxPoint const &)*arg2,(wxSize const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14923,7 +16491,14 @@ SWIGINTERN PyObject *_wrap_PopupTransientWindow__setCallbackInfo(PyObject *SWIGU
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14963,7 +16538,14 @@ SWIGINTERN PyObject *_wrap_PopupTransientWindow_Popup(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Popup(arg2);
+    try 
+    {
+      (arg1)->Popup(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14990,7 +16572,14 @@ SWIGINTERN PyObject *_wrap_PopupTransientWindow_Dismiss(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxPyPopupTransientWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Dismiss();
+    try 
+    {
+      (arg1)->Dismiss();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15018,7 +16607,14 @@ SWIGINTERN PyObject *_wrap_PopupTransientWindow_CanDismiss(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxPyPopupTransientWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanDismiss();
+    try 
+    {
+      result = (bool)(arg1)->CanDismiss();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15062,7 +16658,14 @@ SWIGINTERN PyObject *_wrap_PopupTransientWindow_ProcessLeftDown(PyObject *SWIGUN
   arg2 = reinterpret_cast< wxMouseEvent * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ProcessLeftDown(*arg2);
+    try 
+    {
+      result = (bool)(arg1)->ProcessLeftDown(*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15178,7 +16781,14 @@ SWIGINTERN PyObject *_wrap_TipWindow_SetBoundingRect(PyObject *SWIGUNUSEDPARM(se
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBoundingRect((wxRect const &)*arg2);
+    try 
+    {
+      (arg1)->SetBoundingRect((wxRect const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15205,7 +16815,14 @@ SWIGINTERN PyObject *_wrap_TipWindow_Close(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg1 = reinterpret_cast< wxTipWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Close();
+    try 
+    {
+      (arg1)->Close();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15256,7 +16873,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_EnablePhysicalScrolling(PyObject 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnablePhysicalScrolling(arg2);
+    try 
+    {
+      (arg1)->EnablePhysicalScrolling(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15295,7 +16919,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_VirtualHitTest(PyObject *SWIGUNUS
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxVarScrollHelperBase const *)arg1)->VirtualHitTest(arg2);
+    try 
+    {
+      result = (int)((wxVarScrollHelperBase const *)arg1)->VirtualHitTest(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15322,7 +16953,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_RefreshAll(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxVarScrollHelperBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RefreshAll();
+    try 
+    {
+      (arg1)->RefreshAll();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15350,7 +16988,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_GetVisibleBegin(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxVarScrollHelperBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (size_t)((wxVarScrollHelperBase const *)arg1)->GetVisibleBegin();
+    try 
+    {
+      result = (size_t)((wxVarScrollHelperBase const *)arg1)->GetVisibleBegin();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15378,7 +17023,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_GetVisibleEnd(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxVarScrollHelperBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (size_t)((wxVarScrollHelperBase const *)arg1)->GetVisibleEnd();
+    try 
+    {
+      result = (size_t)((wxVarScrollHelperBase const *)arg1)->GetVisibleEnd();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15417,7 +17069,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_IsVisible(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxVarScrollHelperBase const *)arg1)->IsVisible(arg2);
+    try 
+    {
+      result = (bool)((wxVarScrollHelperBase const *)arg1)->IsVisible(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15458,7 +17117,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_CalcScrolledPosition(PyObject *SW
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxVarScrollHelperBase const *)arg1)->CalcScrolledPosition(arg2);
+    try 
+    {
+      result = (int)((wxVarScrollHelperBase const *)arg1)->CalcScrolledPosition(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15497,7 +17163,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_CalcUnscrolledPosition(PyObject *
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxVarScrollHelperBase const *)arg1)->CalcUnscrolledPosition(arg2);
+    try 
+    {
+      result = (int)((wxVarScrollHelperBase const *)arg1)->CalcUnscrolledPosition(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15524,7 +17197,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_UpdateScrollbar(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxVarScrollHelperBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->UpdateScrollbar();
+    try 
+    {
+      (arg1)->UpdateScrollbar();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15551,7 +17231,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_RemoveScrollbar(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxVarScrollHelperBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RemoveScrollbar();
+    try 
+    {
+      (arg1)->RemoveScrollbar();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15589,7 +17276,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_SetTargetWindow(PyObject *SWIGUNU
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTargetWindow(arg2);
+    try 
+    {
+      (arg1)->SetTargetWindow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15617,7 +17311,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_GetTargetWindow(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxVarScrollHelperBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxVarScrollHelperBase const *)arg1)->GetTargetWindow();
+    try 
+    {
+      result = (wxWindow *)((wxVarScrollHelperBase const *)arg1)->GetTargetWindow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15647,7 +17348,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_GetOrientationTargetSize(PyObject
   arg1 = reinterpret_cast< wxVarScrollHelperBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxVarScrollHelperBase const *)arg1)->GetOrientationTargetSize();
+    try 
+    {
+      result = (int)((wxVarScrollHelperBase const *)arg1)->GetOrientationTargetSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15675,7 +17383,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_GetNonOrientationTargetSize(PyObj
   arg1 = reinterpret_cast< wxVarScrollHelperBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxVarScrollHelperBase const *)arg1)->GetNonOrientationTargetSize();
+    try 
+    {
+      result = (int)((wxVarScrollHelperBase const *)arg1)->GetNonOrientationTargetSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15703,7 +17418,14 @@ SWIGINTERN PyObject *_wrap_VarScrollHelperBase_GetOrientation(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxVarScrollHelperBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxOrientation)((wxVarScrollHelperBase const *)arg1)->GetOrientation();
+    try 
+    {
+      result = (wxOrientation)((wxVarScrollHelperBase const *)arg1)->GetOrientation();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15748,7 +17470,14 @@ SWIGINTERN PyObject *_wrap_VarVScrollHelper_SetRowCount(PyObject *SWIGUNUSEDPARM
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowCount(arg2);
+    try 
+    {
+      (arg1)->SetRowCount(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15787,7 +17516,14 @@ SWIGINTERN PyObject *_wrap_VarVScrollHelper_ScrollToRow(PyObject *SWIGUNUSEDPARM
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ScrollToRow(arg2);
+    try 
+    {
+      result = (bool)(arg1)->ScrollToRow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15828,7 +17564,14 @@ SWIGINTERN PyObject *_wrap_VarVScrollHelper_ScrollRows(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ScrollRows(arg2);
+    try 
+    {
+      result = (bool)(arg1)->ScrollRows(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15869,7 +17612,14 @@ SWIGINTERN PyObject *_wrap_VarVScrollHelper_ScrollRowPages(PyObject *SWIGUNUSEDP
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ScrollRowPages(arg2);
+    try 
+    {
+      result = (bool)(arg1)->ScrollRowPages(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15909,7 +17659,14 @@ SWIGINTERN PyObject *_wrap_VarVScrollHelper_RefreshRow(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RefreshRow(arg2);
+    try 
+    {
+      (arg1)->RefreshRow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15956,7 +17713,14 @@ SWIGINTERN PyObject *_wrap_VarVScrollHelper_RefreshRows(PyObject *SWIGUNUSEDPARM
   arg3 = static_cast< size_t >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RefreshRows(arg2,arg3);
+    try 
+    {
+      (arg1)->RefreshRows(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15984,7 +17748,14 @@ SWIGINTERN PyObject *_wrap_VarVScrollHelper_GetRowCount(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxVarVScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (size_t)((wxVarVScrollHelper const *)arg1)->GetRowCount();
+    try 
+    {
+      result = (size_t)((wxVarVScrollHelper const *)arg1)->GetRowCount();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16012,7 +17783,14 @@ SWIGINTERN PyObject *_wrap_VarVScrollHelper_GetVisibleRowsBegin(PyObject *SWIGUN
   arg1 = reinterpret_cast< wxVarVScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (size_t)((wxVarVScrollHelper const *)arg1)->GetVisibleRowsBegin();
+    try 
+    {
+      result = (size_t)((wxVarVScrollHelper const *)arg1)->GetVisibleRowsBegin();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16040,7 +17818,14 @@ SWIGINTERN PyObject *_wrap_VarVScrollHelper_GetVisibleRowsEnd(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxVarVScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (size_t)((wxVarVScrollHelper const *)arg1)->GetVisibleRowsEnd();
+    try 
+    {
+      result = (size_t)((wxVarVScrollHelper const *)arg1)->GetVisibleRowsEnd();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16079,7 +17864,14 @@ SWIGINTERN PyObject *_wrap_VarVScrollHelper_IsRowVisible(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxVarVScrollHelper const *)arg1)->IsRowVisible(arg2);
+    try 
+    {
+      result = (bool)((wxVarVScrollHelper const *)arg1)->IsRowVisible(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16126,7 +17918,14 @@ SWIGINTERN PyObject *_wrap_VarHScrollHelper_SetColumnCount(PyObject *SWIGUNUSEDP
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColumnCount(arg2);
+    try 
+    {
+      (arg1)->SetColumnCount(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16165,7 +17964,14 @@ SWIGINTERN PyObject *_wrap_VarHScrollHelper_ScrollToColumn(PyObject *SWIGUNUSEDP
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ScrollToColumn(arg2);
+    try 
+    {
+      result = (bool)(arg1)->ScrollToColumn(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16206,7 +18012,14 @@ SWIGINTERN PyObject *_wrap_VarHScrollHelper_ScrollColumns(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ScrollColumns(arg2);
+    try 
+    {
+      result = (bool)(arg1)->ScrollColumns(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16247,7 +18060,14 @@ SWIGINTERN PyObject *_wrap_VarHScrollHelper_ScrollColumnPages(PyObject *SWIGUNUS
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ScrollColumnPages(arg2);
+    try 
+    {
+      result = (bool)(arg1)->ScrollColumnPages(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16287,7 +18107,14 @@ SWIGINTERN PyObject *_wrap_VarHScrollHelper_RefreshColumn(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RefreshColumn(arg2);
+    try 
+    {
+      (arg1)->RefreshColumn(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16334,7 +18161,14 @@ SWIGINTERN PyObject *_wrap_VarHScrollHelper_RefreshColumns(PyObject *SWIGUNUSEDP
   arg3 = static_cast< size_t >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RefreshColumns(arg2,arg3);
+    try 
+    {
+      (arg1)->RefreshColumns(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16362,7 +18196,14 @@ SWIGINTERN PyObject *_wrap_VarHScrollHelper_GetColumnCount(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxVarHScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (size_t)((wxVarHScrollHelper const *)arg1)->GetColumnCount();
+    try 
+    {
+      result = (size_t)((wxVarHScrollHelper const *)arg1)->GetColumnCount();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16390,7 +18231,14 @@ SWIGINTERN PyObject *_wrap_VarHScrollHelper_GetVisibleColumnsBegin(PyObject *SWI
   arg1 = reinterpret_cast< wxVarHScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (size_t)((wxVarHScrollHelper const *)arg1)->GetVisibleColumnsBegin();
+    try 
+    {
+      result = (size_t)((wxVarHScrollHelper const *)arg1)->GetVisibleColumnsBegin();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16418,7 +18266,14 @@ SWIGINTERN PyObject *_wrap_VarHScrollHelper_GetVisibleColumnsEnd(PyObject *SWIGU
   arg1 = reinterpret_cast< wxVarHScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (size_t)((wxVarHScrollHelper const *)arg1)->GetVisibleColumnsEnd();
+    try 
+    {
+      result = (size_t)((wxVarHScrollHelper const *)arg1)->GetVisibleColumnsEnd();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16457,7 +18312,14 @@ SWIGINTERN PyObject *_wrap_VarHScrollHelper_IsColumnVisible(PyObject *SWIGUNUSED
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxVarHScrollHelper const *)arg1)->IsColumnVisible(arg2);
+    try 
+    {
+      result = (bool)((wxVarHScrollHelper const *)arg1)->IsColumnVisible(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16513,7 +18375,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_SetRowColumnCount(PyObject *SWIGUNU
   arg3 = static_cast< size_t >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowColumnCount(arg2,arg3);
+    try 
+    {
+      (arg1)->SetRowColumnCount(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16564,7 +18433,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_EnablePhysicalScrolling(PyObject *S
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnablePhysicalScrolling(arg2,arg3);
+    try 
+    {
+      (arg1)->EnablePhysicalScrolling(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16606,7 +18482,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_ScrollToRowColumn(PyObject *SWIGUNU
   arg2 = reinterpret_cast< wxPosition * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ScrollToRowColumn((wxPosition const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->ScrollToRowColumn((wxPosition const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16649,7 +18532,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_RefreshRowColumn(PyObject *SWIGUNUS
   arg2 = reinterpret_cast< wxPosition * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RefreshRowColumn((wxPosition const &)*arg2);
+    try 
+    {
+      (arg1)->RefreshRowColumn((wxPosition const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16702,7 +18592,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_RefreshRowsColumns(PyObject *SWIGUN
   arg3 = reinterpret_cast< wxPosition * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RefreshRowsColumns((wxPosition const &)*arg2,(wxPosition const &)*arg3);
+    try 
+    {
+      (arg1)->RefreshRowsColumns((wxPosition const &)*arg2,(wxPosition const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16739,7 +18636,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_VirtualHitTest(PyObject *SWIGUNUSED
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxVarHVScrollHelper const *)arg1)->VirtualHitTest((wxPoint const &)*arg2);
+    try 
+    {
+      result = ((wxVarHVScrollHelper const *)arg1)->VirtualHitTest((wxPoint const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16767,7 +18671,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_ScrollLayout(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxVarHVScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ScrollLayout();
+    try 
+    {
+      result = (bool)(arg1)->ScrollLayout();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16797,7 +18708,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_GetRowColumnCount(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxVarHVScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxVarHVScrollHelper const *)arg1)->GetRowColumnCount();
+    try 
+    {
+      result = ((wxVarHVScrollHelper const *)arg1)->GetRowColumnCount();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16825,7 +18743,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_GetVisibleBegin(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxVarHVScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxVarHVScrollHelper const *)arg1)->GetVisibleBegin();
+    try 
+    {
+      result = ((wxVarHVScrollHelper const *)arg1)->GetVisibleBegin();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16853,7 +18778,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_GetVisibleEnd(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxVarHVScrollHelper * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxVarHVScrollHelper const *)arg1)->GetVisibleEnd();
+    try 
+    {
+      result = ((wxVarHVScrollHelper const *)arg1)->GetVisibleEnd();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16895,7 +18827,14 @@ SWIGINTERN PyObject *_wrap_VarHVScrollHelper_IsVisible(PyObject *SWIGUNUSEDPARM(
   arg2 = reinterpret_cast< wxPosition * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxVarHVScrollHelper const *)arg1)->IsVisible((wxPosition const &)*arg2);
+    try 
+    {
+      result = (bool)((wxVarHVScrollHelper const *)arg1)->IsVisible((wxPosition const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17050,7 +18989,14 @@ SWIGINTERN PyObject *_wrap_VScrolledWindow__setCallbackInfo(PyObject *SWIGUNUSED
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17142,7 +19088,14 @@ SWIGINTERN PyObject *_wrap_VScrolledWindow_Create(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17200,7 +19153,14 @@ SWIGINTERN PyObject *_wrap_VScrolledWindow_GetRowsHeight(PyObject *SWIGUNUSEDPAR
   arg3 = static_cast< size_t >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyVScrolledWindow const *)arg1)->GetRowsHeight(arg2,arg3);
+    try 
+    {
+      result = (int)((wxPyVScrolledWindow const *)arg1)->GetRowsHeight(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17228,7 +19188,14 @@ SWIGINTERN PyObject *_wrap_VScrolledWindow_EstimateTotalHeight(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxPyVScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyVScrolledWindow const *)arg1)->EstimateTotalHeight();
+    try 
+    {
+      result = (int)((wxPyVScrolledWindow const *)arg1)->EstimateTotalHeight();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17265,7 +19232,14 @@ SWIGINTERN PyObject *_wrap_VScrolledWindow_HitTest(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyVScrolledWindow const *)arg1)->HitTest((wxPoint const &)*arg2);
+    try 
+    {
+      result = (int)((wxPyVScrolledWindow const *)arg1)->HitTest((wxPoint const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17422,7 +19396,14 @@ SWIGINTERN PyObject *_wrap_HScrolledWindow__setCallbackInfo(PyObject *SWIGUNUSED
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17514,7 +19495,14 @@ SWIGINTERN PyObject *_wrap_HScrolledWindow_Create(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17572,7 +19560,14 @@ SWIGINTERN PyObject *_wrap_HScrolledWindow_GetColumnsWidth(PyObject *SWIGUNUSEDP
   arg3 = static_cast< size_t >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyHScrolledWindow const *)arg1)->GetColumnsWidth(arg2,arg3);
+    try 
+    {
+      result = (int)((wxPyHScrolledWindow const *)arg1)->GetColumnsWidth(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17600,7 +19595,14 @@ SWIGINTERN PyObject *_wrap_HScrolledWindow_EstimateTotalWidth(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxPyHScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyHScrolledWindow const *)arg1)->EstimateTotalWidth();
+    try 
+    {
+      result = (int)((wxPyHScrolledWindow const *)arg1)->EstimateTotalWidth();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17757,7 +19759,14 @@ SWIGINTERN PyObject *_wrap_HVScrolledWindow__setCallbackInfo(PyObject *SWIGUNUSE
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17849,7 +19858,14 @@ SWIGINTERN PyObject *_wrap_HVScrolledWindow_Create(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17907,7 +19923,14 @@ SWIGINTERN PyObject *_wrap_HVScrolledWindow_GetRowsHeight(PyObject *SWIGUNUSEDPA
   arg3 = static_cast< size_t >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyHVScrolledWindow const *)arg1)->GetRowsHeight(arg2,arg3);
+    try 
+    {
+      result = (int)((wxPyHVScrolledWindow const *)arg1)->GetRowsHeight(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17935,7 +19958,14 @@ SWIGINTERN PyObject *_wrap_HVScrolledWindow_EstimateTotalHeight(PyObject *SWIGUN
   arg1 = reinterpret_cast< wxPyHVScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyHVScrolledWindow const *)arg1)->EstimateTotalHeight();
+    try 
+    {
+      result = (int)((wxPyHVScrolledWindow const *)arg1)->EstimateTotalHeight();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17983,7 +20013,14 @@ SWIGINTERN PyObject *_wrap_HVScrolledWindow_GetColumnsWidth(PyObject *SWIGUNUSED
   arg3 = static_cast< size_t >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyHVScrolledWindow const *)arg1)->GetColumnsWidth(arg2,arg3);
+    try 
+    {
+      result = (int)((wxPyHVScrolledWindow const *)arg1)->GetColumnsWidth(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18011,7 +20048,14 @@ SWIGINTERN PyObject *_wrap_HVScrolledWindow_EstimateTotalWidth(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxPyHVScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyHVScrolledWindow const *)arg1)->EstimateTotalWidth();
+    try 
+    {
+      result = (int)((wxPyHVScrolledWindow const *)arg1)->EstimateTotalWidth();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18188,7 +20232,14 @@ SWIGINTERN PyObject *_wrap_VListBox__setCallbackInfo(PyObject *SWIGUNUSEDPARM(se
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18280,7 +20331,14 @@ SWIGINTERN PyObject *_wrap_VListBox_Create(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18318,7 +20376,14 @@ SWIGINTERN PyObject *_wrap_VListBox_GetItemCount(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (size_t)((wxPyVListBox const *)arg1)->GetItemCount();
+    try 
+    {
+      result = (size_t)((wxPyVListBox const *)arg1)->GetItemCount();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18346,7 +20411,14 @@ SWIGINTERN PyObject *_wrap_VListBox_HasMultipleSelection(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyVListBox const *)arg1)->HasMultipleSelection();
+    try 
+    {
+      result = (bool)((wxPyVListBox const *)arg1)->HasMultipleSelection();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18376,7 +20448,14 @@ SWIGINTERN PyObject *_wrap_VListBox_GetSelection(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPyVListBox const *)arg1)->GetSelection();
+    try 
+    {
+      result = (int)((wxPyVListBox const *)arg1)->GetSelection();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18415,7 +20494,14 @@ SWIGINTERN PyObject *_wrap_VListBox_IsCurrent(PyObject *SWIGUNUSEDPARM(self), Py
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyVListBox const *)arg1)->IsCurrent(arg2);
+    try 
+    {
+      result = (bool)((wxPyVListBox const *)arg1)->IsCurrent(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18456,7 +20542,14 @@ SWIGINTERN PyObject *_wrap_VListBox_IsSelected(PyObject *SWIGUNUSEDPARM(self), P
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyVListBox const *)arg1)->IsSelected(arg2);
+    try 
+    {
+      result = (bool)((wxPyVListBox const *)arg1)->IsSelected(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18486,7 +20579,14 @@ SWIGINTERN PyObject *_wrap_VListBox_GetSelectedCount(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (size_t)((wxPyVListBox const *)arg1)->GetSelectedCount();
+    try 
+    {
+      result = (size_t)((wxPyVListBox const *)arg1)->GetSelectedCount();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18514,7 +20614,14 @@ SWIGINTERN PyObject *_wrap_VListBox_GetFirstSelected(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyObject *)wxPyVListBox_GetFirstSelected(arg1);
+    try 
+    {
+      result = (PyObject *)wxPyVListBox_GetFirstSelected(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18553,7 +20660,14 @@ SWIGINTERN PyObject *_wrap_VListBox_GetNextSelected(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< unsigned long >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyObject *)wxPyVListBox_GetNextSelected(arg1,arg2);
+    try 
+    {
+      result = (PyObject *)wxPyVListBox_GetNextSelected(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18581,7 +20695,14 @@ SWIGINTERN PyObject *_wrap_VListBox_GetMargins(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyVListBox const *)arg1)->GetMargins();
+    try 
+    {
+      result = ((wxPyVListBox const *)arg1)->GetMargins();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18609,9 +20730,16 @@ SWIGINTERN PyObject *_wrap_VListBox_GetSelectionBackground(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxColour const &_result_ref = ((wxPyVListBox const *)arg1)->GetSelectionBackground();
-      result = (wxColour *) &_result_ref;
+      {
+        wxColour const &_result_ref = ((wxPyVListBox const *)arg1)->GetSelectionBackground();
+        result = (wxColour *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -18650,7 +20778,14 @@ SWIGINTERN PyObject *_wrap_VListBox_SetItemCount(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetItemCount(arg2);
+    try 
+    {
+      (arg1)->SetItemCount(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18677,7 +20812,14 @@ SWIGINTERN PyObject *_wrap_VListBox_Clear(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Clear();
+    try 
+    {
+      (arg1)->Clear();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18715,7 +20857,14 @@ SWIGINTERN PyObject *_wrap_VListBox_SetSelection(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelection(arg2);
+    try 
+    {
+      (arg1)->SetSelection(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18765,7 +20914,14 @@ SWIGINTERN PyObject *_wrap_VListBox_Select(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Select(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->Select(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18815,7 +20971,14 @@ SWIGINTERN PyObject *_wrap_VListBox_SelectRange(PyObject *SWIGUNUSEDPARM(self), 
   arg3 = static_cast< size_t >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SelectRange(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->SelectRange(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18855,7 +21018,14 @@ SWIGINTERN PyObject *_wrap_VListBox_Toggle(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Toggle(arg2);
+    try 
+    {
+      (arg1)->Toggle(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18883,7 +21053,14 @@ SWIGINTERN PyObject *_wrap_VListBox_SelectAll(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SelectAll();
+    try 
+    {
+      result = (bool)(arg1)->SelectAll();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18913,7 +21090,14 @@ SWIGINTERN PyObject *_wrap_VListBox_DeselectAll(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DeselectAll();
+    try 
+    {
+      result = (bool)(arg1)->DeselectAll();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18951,7 +21135,14 @@ SWIGINTERN PyObject *_wrap_VListBox_SetMargins(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMargins((wxPoint const &)*arg2);
+    try 
+    {
+      (arg1)->SetMargins((wxPoint const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18998,7 +21189,14 @@ SWIGINTERN PyObject *_wrap_VListBox_SetMarginsXY(PyObject *SWIGUNUSEDPARM(self),
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMargins(arg2,arg3);
+    try 
+    {
+      (arg1)->SetMargins(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19034,7 +21232,14 @@ SWIGINTERN PyObject *_wrap_VListBox_SetSelectionBackground(PyObject *SWIGUNUSEDP
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelectionBackground((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetSelectionBackground((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19061,7 +21266,14 @@ SWIGINTERN PyObject *_wrap_VListBox_RefreshSelected(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPyVListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RefreshSelected();
+    try 
+    {
+      (arg1)->RefreshSelected();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19118,7 +21330,14 @@ SWIGINTERN PyObject *_wrap_VListBox_OnDrawSeparator(PyObject *SWIGUNUSEDPARM(sel
   arg4 = static_cast< size_t >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyVListBox const *)arg1)->OnDrawSeparator(*arg2,*arg3,arg4);
+    try 
+    {
+      ((wxPyVListBox const *)arg1)->OnDrawSeparator(*arg2,*arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19175,7 +21394,14 @@ SWIGINTERN PyObject *_wrap_VListBox_OnDrawBackground(PyObject *SWIGUNUSEDPARM(se
   arg4 = static_cast< size_t >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyVListBox const *)arg1)->OnDrawBackground(*arg2,(wxRect const &)*arg3,arg4);
+    try 
+    {
+      ((wxPyVListBox const *)arg1)->OnDrawBackground(*arg2,(wxRect const &)*arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19332,7 +21558,14 @@ SWIGINTERN PyObject *_wrap_HtmlListBox__setCallbackInfo(PyObject *SWIGUNUSEDPARM
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19424,7 +21657,14 @@ SWIGINTERN PyObject *_wrap_HtmlListBox_Create(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19472,7 +21712,14 @@ SWIGINTERN PyObject *_wrap_HtmlListBox_SetItemCount(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetItemCount(arg2);
+    try 
+    {
+      (arg1)->SetItemCount(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19500,9 +21747,16 @@ SWIGINTERN PyObject *_wrap_HtmlListBox_GetFileSystem(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPyHtmlListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxFileSystem &_result_ref = (arg1)->GetFileSystem();
-      result = (wxFileSystem *) &_result_ref;
+      {
+        wxFileSystem &_result_ref = (arg1)->GetFileSystem();
+        result = (wxFileSystem *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -19553,7 +21807,14 @@ SWIGINTERN PyObject *_wrap_HtmlListBox_OnLinkClicked(PyObject *SWIGUNUSEDPARM(se
   arg3 = reinterpret_cast< wxHtmlLinkInfo * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnLinkClicked(arg2,(wxHtmlLinkInfo const &)*arg3);
+    try 
+    {
+      (arg1)->OnLinkClicked(arg2,(wxHtmlLinkInfo const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19869,7 +22130,14 @@ SWIGINTERN PyObject *_wrap_SimpleHtmlListBox_Create(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,(wxArrayString const &)*arg6,arg7,(wxValidator const &)*arg8,(wxString const &)*arg9);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,(wxArrayString const &)*arg6,arg7,(wxValidator const &)*arg8,(wxString const &)*arg9);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19912,7 +22180,14 @@ SWIGINTERN PyObject *_wrap_SimpleHtmlListBox__Clear(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxSimpleHtmlListBox * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxSimpleHtmlListBox__Clear(arg1);
+    try 
+    {
+      wxSimpleHtmlListBox__Clear(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19969,8 +22244,15 @@ SWIGINTERN PyObject *_wrap_delete_TaskBarIcon(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPyTaskBarIcon * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20016,7 +22298,14 @@ SWIGINTERN PyObject *_wrap_TaskBarIcon__setCallbackInfo(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20043,7 +22332,14 @@ SWIGINTERN PyObject *_wrap_TaskBarIcon_Destroy(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxPyTaskBarIcon * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Destroy();
+    try 
+    {
+      (arg1)->Destroy();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20071,7 +22367,14 @@ SWIGINTERN PyObject *_wrap_TaskBarIcon_IsOk(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxPyTaskBarIcon * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyTaskBarIcon const *)arg1)->IsOk();
+    try 
+    {
+      result = (bool)((wxPyTaskBarIcon const *)arg1)->IsOk();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20101,7 +22404,14 @@ SWIGINTERN PyObject *_wrap_TaskBarIcon_IsIconInstalled(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPyTaskBarIcon * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPyTaskBarIcon const *)arg1)->IsIconInstalled();
+    try 
+    {
+      result = (bool)((wxPyTaskBarIcon const *)arg1)->IsIconInstalled();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20156,7 +22466,14 @@ SWIGINTERN PyObject *_wrap_TaskBarIcon_SetIcon(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetIcon((wxIcon const &)*arg2,(wxString const &)*arg3);
+    try 
+    {
+      result = (bool)(arg1)->SetIcon((wxIcon const &)*arg2,(wxString const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20194,7 +22511,14 @@ SWIGINTERN PyObject *_wrap_TaskBarIcon_RemoveIcon(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPyTaskBarIcon * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->RemoveIcon();
+    try 
+    {
+      result = (bool)(arg1)->RemoveIcon();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20235,7 +22559,14 @@ SWIGINTERN PyObject *_wrap_TaskBarIcon_PopupMenu(PyObject *SWIGUNUSEDPARM(self),
   arg2 = reinterpret_cast< wxMenu * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->PopupMenu(arg2);
+    try 
+    {
+      result = (bool)(arg1)->PopupMenu(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20305,7 +22636,14 @@ SWIGINTERN PyObject *_wrap_TaskBarIcon_ShowBalloon(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxPyTaskBarIcon_ShowBalloon(arg1,(wxString const &)*arg2,(wxString const &)*arg3,arg4,arg5);
+    try 
+    {
+      result = (bool)wxPyTaskBarIcon_ShowBalloon(arg1,(wxString const &)*arg2,(wxString const &)*arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20373,7 +22711,14 @@ SWIGINTERN PyObject *_wrap_new_TaskBarIconEvent(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = reinterpret_cast< wxTaskBarIcon * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxTaskBarIconEvent *)new wxTaskBarIconEvent(arg1,arg2);
+    try 
+    {
+      result = (wxTaskBarIconEvent *)new wxTaskBarIconEvent(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20522,7 +22867,14 @@ SWIGINTERN PyObject *_wrap_new_ColourData(PyObject *SWIGUNUSEDPARM(self), PyObje
   if (!SWIG_Python_UnpackTuple(args,"new_ColourData",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxColourData *)new wxColourData();
+    try 
+    {
+      result = (wxColourData *)new wxColourData();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20549,8 +22901,15 @@ SWIGINTERN PyObject *_wrap_delete_ColourData(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxColourData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20578,7 +22937,14 @@ SWIGINTERN PyObject *_wrap_ColourData_GetChooseFull(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxColourData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetChooseFull();
+    try 
+    {
+      result = (bool)(arg1)->GetChooseFull();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20608,7 +22974,14 @@ SWIGINTERN PyObject *_wrap_ColourData_GetColour(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxColourData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetColour();
+    try 
+    {
+      result = (arg1)->GetColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20647,7 +23020,14 @@ SWIGINTERN PyObject *_wrap_ColourData_GetCustomColour(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetCustomColour(arg2);
+    try 
+    {
+      result = (arg1)->GetCustomColour(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20685,7 +23065,14 @@ SWIGINTERN PyObject *_wrap_ColourData_SetChooseFull(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetChooseFull(arg2);
+    try 
+    {
+      (arg1)->SetChooseFull(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20721,7 +23108,14 @@ SWIGINTERN PyObject *_wrap_ColourData_SetColour(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20766,7 +23160,14 @@ SWIGINTERN PyObject *_wrap_ColourData_SetCustomColour(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCustomColour(arg2,(wxColour const &)*arg3);
+    try 
+    {
+      (arg1)->SetCustomColour(arg2,(wxColour const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20794,7 +23195,14 @@ SWIGINTERN PyObject *_wrap_ColourData_ToString(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxColourData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxColourData const *)arg1)->ToString();
+    try 
+    {
+      result = ((wxColourData const *)arg1)->ToString();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20838,7 +23246,14 @@ SWIGINTERN PyObject *_wrap_ColourData_FromString(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->FromString((wxString const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->FromString((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20929,9 +23344,16 @@ SWIGINTERN PyObject *_wrap_ColourDialog_GetColourData(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxColourDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxColourData &_result_ref = (arg1)->GetColourData();
-      result = (wxColourData *) &_result_ref;
+      {
+        wxColourData &_result_ref = (arg1)->GetColourData();
+        result = (wxColourData *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -21007,7 +23429,14 @@ SWIGINTERN PyObject *_wrap_GetColourFromUser(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = wxGetColourFromUser(arg1,(wxColour const &)*arg2,(wxString const &)*arg3,arg4);
+    try 
+    {
+      result = wxGetColourFromUser(arg1,(wxColour const &)*arg2,(wxString const &)*arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21162,7 +23591,14 @@ SWIGINTERN PyObject *_wrap_DirDialog_GetPath(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxDirDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetPath();
+    try 
+    {
+      result = (arg1)->GetPath();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21196,7 +23632,14 @@ SWIGINTERN PyObject *_wrap_DirDialog_GetMessage(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxDirDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetMessage();
+    try 
+    {
+      result = (arg1)->GetMessage();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21239,7 +23682,14 @@ SWIGINTERN PyObject *_wrap_DirDialog_SetMessage(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMessage((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetMessage((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21284,7 +23734,14 @@ SWIGINTERN PyObject *_wrap_DirDialog_SetPath(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPath((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetPath((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21468,7 +23925,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_SetMessage(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMessage((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetMessage((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21513,7 +23977,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_SetPath(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPath((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetPath((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21558,7 +24029,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_SetDirectory(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDirectory((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetDirectory((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21603,7 +24081,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_SetFilename(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFilename((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetFilename((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21648,7 +24133,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_SetWildcard(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetWildcard((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetWildcard((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21694,7 +24186,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_SetFilterIndex(PyObject *SWIGUNUSEDPARM(se
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFilterIndex(arg2);
+    try 
+    {
+      (arg1)->SetFilterIndex(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21722,7 +24221,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_GetMessage(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxFileDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxFileDialog const *)arg1)->GetMessage();
+    try 
+    {
+      result = ((wxFileDialog const *)arg1)->GetMessage();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21756,7 +24262,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_GetPath(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxFileDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxFileDialog const *)arg1)->GetPath();
+    try 
+    {
+      result = ((wxFileDialog const *)arg1)->GetPath();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21790,7 +24303,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_GetDirectory(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxFileDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxFileDialog const *)arg1)->GetDirectory();
+    try 
+    {
+      result = ((wxFileDialog const *)arg1)->GetDirectory();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21824,7 +24344,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_GetFilename(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxFileDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxFileDialog const *)arg1)->GetFilename();
+    try 
+    {
+      result = ((wxFileDialog const *)arg1)->GetFilename();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21858,7 +24385,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_GetWildcard(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxFileDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxFileDialog const *)arg1)->GetWildcard();
+    try 
+    {
+      result = ((wxFileDialog const *)arg1)->GetWildcard();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21892,7 +24426,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_GetFilterIndex(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxFileDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxFileDialog const *)arg1)->GetFilterIndex();
+    try 
+    {
+      result = (int)((wxFileDialog const *)arg1)->GetFilterIndex();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21920,7 +24461,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_GetFilenames(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxFileDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyObject *)wxFileDialog_GetFilenames(arg1);
+    try 
+    {
+      result = (PyObject *)wxFileDialog_GetFilenames(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21948,7 +24496,14 @@ SWIGINTERN PyObject *_wrap_FileDialog_GetPaths(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxFileDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyObject *)wxFileDialog_GetPaths(arg1);
+    try 
+    {
+      result = (PyObject *)wxFileDialog_GetPaths(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22111,7 +24666,14 @@ SWIGINTERN PyObject *_wrap_MultiChoiceDialog_SetSelections(PyObject *SWIGUNUSEDP
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelections((wxArrayInt const &)*arg2);
+    try 
+    {
+      (arg1)->SetSelections((wxArrayInt const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22145,7 +24707,14 @@ SWIGINTERN PyObject *_wrap_MultiChoiceDialog_GetSelections(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxMultiChoiceDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyObject *)wxMultiChoiceDialog_GetSelections(arg1);
+    try 
+    {
+      result = (PyObject *)wxMultiChoiceDialog_GetSelections(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22282,7 +24851,14 @@ SWIGINTERN PyObject *_wrap_SingleChoiceDialog_GetSelection(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxSingleChoiceDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetSelection();
+    try 
+    {
+      result = (int)(arg1)->GetSelection();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22310,7 +24886,14 @@ SWIGINTERN PyObject *_wrap_SingleChoiceDialog_GetStringSelection(PyObject *SWIGU
   arg1 = reinterpret_cast< wxSingleChoiceDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetStringSelection();
+    try 
+    {
+      result = (arg1)->GetStringSelection();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22354,7 +24937,14 @@ SWIGINTERN PyObject *_wrap_SingleChoiceDialog_SetSelection(PyObject *SWIGUNUSEDP
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelection(arg2);
+    try 
+    {
+      (arg1)->SetSelection(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22499,7 +25089,14 @@ SWIGINTERN PyObject *_wrap_TextEntryDialog_GetValue(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxTextEntryDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetValue();
+    try 
+    {
+      result = (arg1)->GetValue();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22542,7 +25139,14 @@ SWIGINTERN PyObject *_wrap_TextEntryDialog_SetValue(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetValue((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetValue((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22662,7 +25266,14 @@ SWIGINTERN PyObject *_wrap_new_PasswordEntryDialog(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPasswordEntryDialog *)new wxPasswordEntryDialog(arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4,arg5,(wxPoint const &)*arg6);
+    try 
+    {
+      result = (wxPasswordEntryDialog *)new wxPasswordEntryDialog(arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4,arg5,(wxPoint const &)*arg6);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22841,7 +25452,14 @@ SWIGINTERN PyObject *_wrap_NumberEntryDialog_GetValue(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxNumberEntryDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)(arg1)->GetValue();
+    try 
+    {
+      result = (long)(arg1)->GetValue();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22870,7 +25488,14 @@ SWIGINTERN PyObject *_wrap_new_FontData(PyObject *SWIGUNUSEDPARM(self), PyObject
   if (!SWIG_Python_UnpackTuple(args,"new_FontData",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxFontData *)new wxFontData();
+    try 
+    {
+      result = (wxFontData *)new wxFontData();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22897,8 +25522,15 @@ SWIGINTERN PyObject *_wrap_delete_FontData(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg1 = reinterpret_cast< wxFontData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22936,7 +25568,14 @@ SWIGINTERN PyObject *_wrap_FontData_EnableEffects(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableEffects(arg2);
+    try 
+    {
+      (arg1)->EnableEffects(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22964,7 +25603,14 @@ SWIGINTERN PyObject *_wrap_FontData_GetAllowSymbols(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxFontData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetAllowSymbols();
+    try 
+    {
+      result = (bool)(arg1)->GetAllowSymbols();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22994,7 +25640,14 @@ SWIGINTERN PyObject *_wrap_FontData_GetColour(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxFontData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetColour();
+    try 
+    {
+      result = (arg1)->GetColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23022,7 +25675,14 @@ SWIGINTERN PyObject *_wrap_FontData_GetChosenFont(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxFontData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetChosenFont();
+    try 
+    {
+      result = (arg1)->GetChosenFont();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23050,7 +25710,14 @@ SWIGINTERN PyObject *_wrap_FontData_GetEnableEffects(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxFontData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetEnableEffects();
+    try 
+    {
+      result = (bool)(arg1)->GetEnableEffects();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23080,7 +25747,14 @@ SWIGINTERN PyObject *_wrap_FontData_GetInitialFont(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxFontData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetInitialFont();
+    try 
+    {
+      result = (arg1)->GetInitialFont();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23108,7 +25782,14 @@ SWIGINTERN PyObject *_wrap_FontData_GetShowHelp(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxFontData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetShowHelp();
+    try 
+    {
+      result = (bool)(arg1)->GetShowHelp();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23148,7 +25829,14 @@ SWIGINTERN PyObject *_wrap_FontData_SetAllowSymbols(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAllowSymbols(arg2);
+    try 
+    {
+      (arg1)->SetAllowSymbols(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23189,7 +25877,14 @@ SWIGINTERN PyObject *_wrap_FontData_SetChosenFont(PyObject *SWIGUNUSEDPARM(self)
   arg2 = reinterpret_cast< wxFont * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetChosenFont((wxFont const &)*arg2);
+    try 
+    {
+      (arg1)->SetChosenFont((wxFont const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23225,7 +25920,14 @@ SWIGINTERN PyObject *_wrap_FontData_SetColour(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23266,7 +25968,14 @@ SWIGINTERN PyObject *_wrap_FontData_SetInitialFont(PyObject *SWIGUNUSEDPARM(self
   arg2 = reinterpret_cast< wxFont * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetInitialFont((wxFont const &)*arg2);
+    try 
+    {
+      (arg1)->SetInitialFont((wxFont const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23313,7 +26022,14 @@ SWIGINTERN PyObject *_wrap_FontData_SetRange(PyObject *SWIGUNUSEDPARM(self), PyO
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRange(arg2,arg3);
+    try 
+    {
+      (arg1)->SetRange(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23351,7 +26067,14 @@ SWIGINTERN PyObject *_wrap_FontData_SetShowHelp(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetShowHelp(arg2);
+    try 
+    {
+      (arg1)->SetShowHelp(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23433,9 +26156,16 @@ SWIGINTERN PyObject *_wrap_FontDialog_GetFontData(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxFontDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxFontData &_result_ref = (arg1)->GetFontData();
-      result = (wxFontData *) &_result_ref;
+      {
+        wxFontData &_result_ref = (arg1)->GetFontData();
+        result = (wxFontData *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -23505,7 +26235,14 @@ SWIGINTERN PyObject *_wrap_GetFontFromUser(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = wxGetFontFromUser(arg1,(wxFont const &)*arg2,(wxString const &)*arg3);
+    try 
+    {
+      result = wxGetFontFromUser(arg1,(wxFont const &)*arg2,(wxString const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23646,7 +26383,14 @@ SWIGINTERN PyObject *_wrap_MessageDialog_SetYesNoLabels(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetYesNoLabels((wxString const &)*arg2,(wxString const &)*arg3);
+    try 
+    {
+      result = (bool)(arg1)->SetYesNoLabels((wxString const &)*arg2,(wxString const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23718,7 +26462,14 @@ SWIGINTERN PyObject *_wrap_MessageDialog_SetYesNoCancelLabels(PyObject *SWIGUNUS
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetYesNoCancelLabels((wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4);
+    try 
+    {
+      result = (bool)(arg1)->SetYesNoCancelLabels((wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23782,7 +26533,14 @@ SWIGINTERN PyObject *_wrap_MessageDialog_SetOKLabel(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetOKLabel((wxString const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->SetOKLabel((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23838,7 +26596,14 @@ SWIGINTERN PyObject *_wrap_MessageDialog_SetOKCancelLabels(PyObject *SWIGUNUSEDP
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetOKCancelLabels((wxString const &)*arg2,(wxString const &)*arg3);
+    try 
+    {
+      result = (bool)(arg1)->SetOKCancelLabels((wxString const &)*arg2,(wxString const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23893,7 +26658,14 @@ SWIGINTERN PyObject *_wrap_MessageDialog_SetMessage(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMessage((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetMessage((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23938,7 +26710,14 @@ SWIGINTERN PyObject *_wrap_MessageDialog_SetExtendedMessage(PyObject *SWIGUNUSED
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetExtendedMessage((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetExtendedMessage((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24098,7 +26877,14 @@ SWIGINTERN PyObject *_wrap_ProgressDialog_Update(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Update(arg2,(wxString const &)*arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->Update(arg2,(wxString const &)*arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24159,7 +26945,14 @@ SWIGINTERN PyObject *_wrap_ProgressDialog_Pulse(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Pulse((wxString const &)*arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->Pulse((wxString const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24202,7 +26995,14 @@ SWIGINTERN PyObject *_wrap_ProgressDialog_Resume(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxProgressDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Resume();
+    try 
+    {
+      (arg1)->Resume();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24256,7 +27056,14 @@ SWIGINTERN PyObject *_wrap_new_FindDialogEvent(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxFindDialogEvent *)new wxFindDialogEvent(arg1,arg2);
+    try 
+    {
+      result = (wxFindDialogEvent *)new wxFindDialogEvent(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24284,7 +27091,14 @@ SWIGINTERN PyObject *_wrap_FindDialogEvent_GetFlags(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxFindDialogEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetFlags();
+    try 
+    {
+      result = (int)(arg1)->GetFlags();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24312,9 +27126,16 @@ SWIGINTERN PyObject *_wrap_FindDialogEvent_GetFindString(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxFindDialogEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxString const &_result_ref = (arg1)->GetFindString();
-      result = (wxString *) &_result_ref;
+      {
+        wxString const &_result_ref = (arg1)->GetFindString();
+        result = (wxString *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -24349,9 +27170,16 @@ SWIGINTERN PyObject *_wrap_FindDialogEvent_GetReplaceString(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxFindDialogEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxString const &_result_ref = (arg1)->GetReplaceString();
-      result = (wxString *) &_result_ref;
+      {
+        wxString const &_result_ref = (arg1)->GetReplaceString();
+        result = (wxString *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -24386,7 +27214,14 @@ SWIGINTERN PyObject *_wrap_FindDialogEvent_GetDialog(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxFindDialogEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxFindReplaceDialog *)(arg1)->GetDialog();
+    try 
+    {
+      result = (wxFindReplaceDialog *)(arg1)->GetDialog();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24424,7 +27259,14 @@ SWIGINTERN PyObject *_wrap_FindDialogEvent_SetFlags(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFlags(arg2);
+    try 
+    {
+      (arg1)->SetFlags(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24461,7 +27303,14 @@ SWIGINTERN PyObject *_wrap_FindDialogEvent_SetFindString(PyObject *SWIGUNUSEDPAR
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFindString((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetFindString((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24506,7 +27355,14 @@ SWIGINTERN PyObject *_wrap_FindDialogEvent_SetReplaceString(PyObject *SWIGUNUSED
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetReplaceString((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetReplaceString((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24557,7 +27413,14 @@ SWIGINTERN PyObject *_wrap_new_FindReplaceData(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxFindReplaceData *)new wxFindReplaceData(arg1);
+    try 
+    {
+      result = (wxFindReplaceData *)new wxFindReplaceData(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24584,8 +27447,15 @@ SWIGINTERN PyObject *_wrap_delete_FindReplaceData(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxFindReplaceData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24613,9 +27483,16 @@ SWIGINTERN PyObject *_wrap_FindReplaceData_GetFindString(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxFindReplaceData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxString const &_result_ref = (arg1)->GetFindString();
-      result = (wxString *) &_result_ref;
+      {
+        wxString const &_result_ref = (arg1)->GetFindString();
+        result = (wxString *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -24650,9 +27527,16 @@ SWIGINTERN PyObject *_wrap_FindReplaceData_GetReplaceString(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxFindReplaceData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxString const &_result_ref = (arg1)->GetReplaceString();
-      result = (wxString *) &_result_ref;
+      {
+        wxString const &_result_ref = (arg1)->GetReplaceString();
+        result = (wxString *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -24687,7 +27571,14 @@ SWIGINTERN PyObject *_wrap_FindReplaceData_GetFlags(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxFindReplaceData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetFlags();
+    try 
+    {
+      result = (int)(arg1)->GetFlags();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24725,7 +27616,14 @@ SWIGINTERN PyObject *_wrap_FindReplaceData_SetFlags(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFlags(arg2);
+    try 
+    {
+      (arg1)->SetFlags(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24762,7 +27660,14 @@ SWIGINTERN PyObject *_wrap_FindReplaceData_SetFindString(PyObject *SWIGUNUSEDPAR
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFindString((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetFindString((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24807,7 +27712,14 @@ SWIGINTERN PyObject *_wrap_FindReplaceData_SetReplaceString(PyObject *SWIGUNUSED
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetReplaceString((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetReplaceString((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -24979,7 +27891,14 @@ SWIGINTERN PyObject *_wrap_FindReplaceDialog_Create(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,arg5);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25017,7 +27936,14 @@ SWIGINTERN PyObject *_wrap_FindReplaceDialog_GetData(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxFindReplaceDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxFindReplaceData *)(arg1)->GetData();
+    try 
+    {
+      result = (wxFindReplaceData *)(arg1)->GetData();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25055,7 +27981,14 @@ SWIGINTERN PyObject *_wrap_FindReplaceDialog_SetData(PyObject *SWIGUNUSEDPARM(se
   arg2 = reinterpret_cast< wxFindReplaceData * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetData(arg2);
+    try 
+    {
+      (arg1)->SetData(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25299,7 +28232,14 @@ SWIGINTERN PyObject *_wrap_MDIParentFrame_Create(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25344,7 +28284,14 @@ SWIGINTERN PyObject *_wrap_MDIParentFrame_ActivateNext(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxMDIParentFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ActivateNext();
+    try 
+    {
+      (arg1)->ActivateNext();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25371,7 +28318,14 @@ SWIGINTERN PyObject *_wrap_MDIParentFrame_ActivatePrevious(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxMDIParentFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ActivatePrevious();
+    try 
+    {
+      (arg1)->ActivatePrevious();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25398,7 +28352,14 @@ SWIGINTERN PyObject *_wrap_MDIParentFrame_ArrangeIcons(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxMDIParentFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ArrangeIcons();
+    try 
+    {
+      (arg1)->ArrangeIcons();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25425,7 +28386,14 @@ SWIGINTERN PyObject *_wrap_MDIParentFrame_Cascade(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxMDIParentFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Cascade();
+    try 
+    {
+      (arg1)->Cascade();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25453,7 +28421,14 @@ SWIGINTERN PyObject *_wrap_MDIParentFrame_GetActiveChild(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxMDIParentFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxMDIChildFrame *)(arg1)->GetActiveChild();
+    try 
+    {
+      result = (wxMDIChildFrame *)(arg1)->GetActiveChild();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25483,7 +28458,14 @@ SWIGINTERN PyObject *_wrap_MDIParentFrame_GetClientWindow(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxMDIParentFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxMDIClientWindow *)(arg1)->GetClientWindow();
+    try 
+    {
+      result = (wxMDIClientWindow *)(arg1)->GetClientWindow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25525,7 +28507,14 @@ SWIGINTERN PyObject *_wrap_MDIParentFrame_Tile(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Tile(arg2);
+    try 
+    {
+      (arg1)->Tile(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25769,7 +28758,14 @@ SWIGINTERN PyObject *_wrap_MDIChildFrame_Create(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25814,7 +28810,14 @@ SWIGINTERN PyObject *_wrap_MDIChildFrame_Activate(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxMDIChildFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Activate();
+    try 
+    {
+      (arg1)->Activate();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25936,7 +28939,14 @@ SWIGINTERN PyObject *_wrap_MDIClientWindow_Create(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26095,7 +29105,14 @@ SWIGINTERN PyObject *_wrap_PyWindow__setCallbackInfo(PyObject *SWIGUNUSEDPARM(se
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26134,7 +29151,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_DoEraseBackground(PyObject *SWIGUNUSEDPARM(s
   arg2 = reinterpret_cast< wxDC * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DoEraseBackground(arg2);
+    try 
+    {
+      result = (bool)(arg1)->DoEraseBackground(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26201,7 +29225,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_DoMoveWindow(PyObject *SWIGUNUSEDPARM(self),
   arg5 = static_cast< int >(val5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoMoveWindow(arg2,arg3,arg4,arg5);
+    try 
+    {
+      (arg1)->DoMoveWindow(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26277,7 +29308,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_DoSetSize(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoSetSize(arg2,arg3,arg4,arg5,arg6);
+    try 
+    {
+      (arg1)->DoSetSize(arg2,arg3,arg4,arg5,arg6);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26324,7 +29362,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_DoSetClientSize(PyObject *SWIGUNUSEDPARM(sel
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoSetClientSize(arg2,arg3);
+    try 
+    {
+      (arg1)->DoSetClientSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26371,7 +29416,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_DoSetVirtualSize(PyObject *SWIGUNUSEDPARM(se
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoSetVirtualSize(arg2,arg3);
+    try 
+    {
+      (arg1)->DoSetVirtualSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26406,7 +29458,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_DoGetSize(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPyWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyWindow const *)arg1)->DoGetSize(arg2,arg3);
+    try 
+    {
+      ((wxPyWindow const *)arg1)->DoGetSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26453,7 +29512,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_DoGetClientSize(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPyWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyWindow const *)arg1)->DoGetClientSize(arg2,arg3);
+    try 
+    {
+      ((wxPyWindow const *)arg1)->DoGetClientSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26500,7 +29566,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_DoGetPosition(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPyWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyWindow const *)arg1)->DoGetPosition(arg2,arg3);
+    try 
+    {
+      ((wxPyWindow const *)arg1)->DoGetPosition(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26540,7 +29613,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_DoGetVirtualSize(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPyWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyWindow const *)arg1)->DoGetVirtualSize();
+    try 
+    {
+      result = ((wxPyWindow const *)arg1)->DoGetVirtualSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26568,7 +29648,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_DoGetBestSize(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPyWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyWindow const *)arg1)->DoGetBestSize();
+    try 
+    {
+      result = ((wxPyWindow const *)arg1)->DoGetBestSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26596,7 +29683,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_GetDefaultAttributes(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxPyWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetDefaultAttributes();
+    try 
+    {
+      result = (arg1)->GetDefaultAttributes();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26623,7 +29717,14 @@ SWIGINTERN PyObject *_wrap_PyWindow_OnInternalIdle(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxPyWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnInternalIdle();
+    try 
+    {
+      (arg1)->OnInternalIdle();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26780,7 +29881,14 @@ SWIGINTERN PyObject *_wrap_PyPanel__setCallbackInfo(PyObject *SWIGUNUSEDPARM(sel
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26819,7 +29927,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_DoEraseBackground(PyObject *SWIGUNUSEDPARM(se
   arg2 = reinterpret_cast< wxDC * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DoEraseBackground(arg2);
+    try 
+    {
+      result = (bool)(arg1)->DoEraseBackground(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26886,7 +30001,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_DoMoveWindow(PyObject *SWIGUNUSEDPARM(self), 
   arg5 = static_cast< int >(val5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoMoveWindow(arg2,arg3,arg4,arg5);
+    try 
+    {
+      (arg1)->DoMoveWindow(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26962,7 +30084,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_DoSetSize(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoSetSize(arg2,arg3,arg4,arg5,arg6);
+    try 
+    {
+      (arg1)->DoSetSize(arg2,arg3,arg4,arg5,arg6);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27009,7 +30138,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_DoSetClientSize(PyObject *SWIGUNUSEDPARM(self
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoSetClientSize(arg2,arg3);
+    try 
+    {
+      (arg1)->DoSetClientSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27056,7 +30192,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_DoSetVirtualSize(PyObject *SWIGUNUSEDPARM(sel
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoSetVirtualSize(arg2,arg3);
+    try 
+    {
+      (arg1)->DoSetVirtualSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27091,7 +30234,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_DoGetSize(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxPyPanel * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyPanel const *)arg1)->DoGetSize(arg2,arg3);
+    try 
+    {
+      ((wxPyPanel const *)arg1)->DoGetSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27138,7 +30288,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_DoGetClientSize(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxPyPanel * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyPanel const *)arg1)->DoGetClientSize(arg2,arg3);
+    try 
+    {
+      ((wxPyPanel const *)arg1)->DoGetClientSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27185,7 +30342,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_DoGetPosition(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPyPanel * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyPanel const *)arg1)->DoGetPosition(arg2,arg3);
+    try 
+    {
+      ((wxPyPanel const *)arg1)->DoGetPosition(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27225,7 +30389,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_DoGetVirtualSize(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPyPanel * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyPanel const *)arg1)->DoGetVirtualSize();
+    try 
+    {
+      result = ((wxPyPanel const *)arg1)->DoGetVirtualSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27253,7 +30424,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_DoGetBestSize(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPyPanel * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyPanel const *)arg1)->DoGetBestSize();
+    try 
+    {
+      result = ((wxPyPanel const *)arg1)->DoGetBestSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27281,7 +30459,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_GetDefaultAttributes(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxPyPanel * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetDefaultAttributes();
+    try 
+    {
+      result = (arg1)->GetDefaultAttributes();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27308,7 +30493,14 @@ SWIGINTERN PyObject *_wrap_PyPanel_OnInternalIdle(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPyPanel * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnInternalIdle();
+    try 
+    {
+      (arg1)->OnInternalIdle();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27465,7 +30657,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow__setCallbackInfo(PyObject *SWIGUNUSE
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27504,7 +30703,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_DoEraseBackground(PyObject *SWIGUNUS
   arg2 = reinterpret_cast< wxDC * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DoEraseBackground(arg2);
+    try 
+    {
+      result = (bool)(arg1)->DoEraseBackground(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27571,7 +30777,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_DoMoveWindow(PyObject *SWIGUNUSEDPAR
   arg5 = static_cast< int >(val5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoMoveWindow(arg2,arg3,arg4,arg5);
+    try 
+    {
+      (arg1)->DoMoveWindow(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27647,7 +30860,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_DoSetSize(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoSetSize(arg2,arg3,arg4,arg5,arg6);
+    try 
+    {
+      (arg1)->DoSetSize(arg2,arg3,arg4,arg5,arg6);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27694,7 +30914,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_DoSetClientSize(PyObject *SWIGUNUSED
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoSetClientSize(arg2,arg3);
+    try 
+    {
+      (arg1)->DoSetClientSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27741,7 +30968,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_DoSetVirtualSize(PyObject *SWIGUNUSE
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DoSetVirtualSize(arg2,arg3);
+    try 
+    {
+      (arg1)->DoSetVirtualSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27776,7 +31010,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_DoGetSize(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPyScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyScrolledWindow const *)arg1)->DoGetSize(arg2,arg3);
+    try 
+    {
+      ((wxPyScrolledWindow const *)arg1)->DoGetSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27823,7 +31064,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_DoGetClientSize(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxPyScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyScrolledWindow const *)arg1)->DoGetClientSize(arg2,arg3);
+    try 
+    {
+      ((wxPyScrolledWindow const *)arg1)->DoGetClientSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27870,7 +31118,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_DoGetPosition(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxPyScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxPyScrolledWindow const *)arg1)->DoGetPosition(arg2,arg3);
+    try 
+    {
+      ((wxPyScrolledWindow const *)arg1)->DoGetPosition(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27910,7 +31165,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_DoGetVirtualSize(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxPyScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyScrolledWindow const *)arg1)->DoGetVirtualSize();
+    try 
+    {
+      result = ((wxPyScrolledWindow const *)arg1)->DoGetVirtualSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27938,7 +31200,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_DoGetBestSize(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxPyScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyScrolledWindow const *)arg1)->DoGetBestSize();
+    try 
+    {
+      result = ((wxPyScrolledWindow const *)arg1)->DoGetBestSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27966,7 +31235,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_GetDefaultAttributes(PyObject *SWIGU
   arg1 = reinterpret_cast< wxPyScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetDefaultAttributes();
+    try 
+    {
+      result = (arg1)->GetDefaultAttributes();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -27993,7 +31269,14 @@ SWIGINTERN PyObject *_wrap_PyScrolledWindow_OnInternalIdle(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxPyScrolledWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnInternalIdle();
+    try 
+    {
+      (arg1)->OnInternalIdle();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28062,7 +31345,14 @@ SWIGINTERN PyObject *_wrap_new_PrintData__SWIG_0(PyObject *SWIGUNUSEDPARM(self),
   if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPrintData *)new wxPrintData();
+    try 
+    {
+      result = (wxPrintData *)new wxPrintData();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28091,7 +31381,14 @@ SWIGINTERN PyObject *_wrap_new_PrintData__SWIG_1(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPrintData *)new wxPrintData((wxPrintData const &)*arg1);
+    try 
+    {
+      result = (wxPrintData *)new wxPrintData((wxPrintData const &)*arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28137,8 +31434,15 @@ SWIGINTERN PyObject *_wrap_delete_PrintData(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28166,7 +31470,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetNoCopies(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetNoCopies();
+    try 
+    {
+      result = (int)(arg1)->GetNoCopies();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28194,7 +31505,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetCollate(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetCollate();
+    try 
+    {
+      result = (bool)(arg1)->GetCollate();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28224,7 +31542,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetOrientation(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetOrientation();
+    try 
+    {
+      result = (int)(arg1)->GetOrientation();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28252,7 +31577,14 @@ SWIGINTERN PyObject *_wrap_PrintData_IsOrientationReversed(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPrintData const *)arg1)->IsOrientationReversed();
+    try 
+    {
+      result = (bool)((wxPrintData const *)arg1)->IsOrientationReversed();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28282,7 +31614,14 @@ SWIGINTERN PyObject *_wrap_PrintData_IsOk(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsOk();
+    try 
+    {
+      result = (bool)(arg1)->IsOk();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28312,9 +31651,16 @@ SWIGINTERN PyObject *_wrap_PrintData_GetPrinterName(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxString const &_result_ref = (arg1)->GetPrinterName();
-      result = (wxString *) &_result_ref;
+      {
+        wxString const &_result_ref = (arg1)->GetPrinterName();
+        result = (wxString *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -28349,7 +31695,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetColour(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetColour();
+    try 
+    {
+      result = (bool)(arg1)->GetColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28379,7 +31732,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetDuplex(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxDuplexMode)(arg1)->GetDuplex();
+    try 
+    {
+      result = (wxDuplexMode)(arg1)->GetDuplex();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28407,7 +31767,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetPaperId(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPaperSize)(arg1)->GetPaperId();
+    try 
+    {
+      result = (wxPaperSize)(arg1)->GetPaperId();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28435,9 +31802,16 @@ SWIGINTERN PyObject *_wrap_PrintData_GetPaperSize(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxSize const &_result_ref = (arg1)->GetPaperSize();
-      result = (wxSize *) &_result_ref;
+      {
+        wxSize const &_result_ref = (arg1)->GetPaperSize();
+        result = (wxSize *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -28466,7 +31840,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetQuality(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetQuality();
+    try 
+    {
+      result = (int)(arg1)->GetQuality();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28494,7 +31875,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetBin(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPrintBin)(arg1)->GetBin();
+    try 
+    {
+      result = (wxPrintBin)(arg1)->GetBin();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28522,7 +31910,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetPrintMode(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPrintMode)((wxPrintData const *)arg1)->GetPrintMode();
+    try 
+    {
+      result = (wxPrintMode)((wxPrintData const *)arg1)->GetPrintMode();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28550,7 +31945,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetMedia(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPrintData const *)arg1)->GetMedia();
+    try 
+    {
+      result = (int)((wxPrintData const *)arg1)->GetMedia();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28588,7 +31990,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetNoCopies(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetNoCopies(arg2);
+    try 
+    {
+      (arg1)->SetNoCopies(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28626,7 +32035,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetCollate(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCollate(arg2);
+    try 
+    {
+      (arg1)->SetCollate(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28664,7 +32080,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetOrientation(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetOrientation(arg2);
+    try 
+    {
+      (arg1)->SetOrientation(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28702,7 +32125,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetOrientationReversed(PyObject *SWIGUNUSED
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetOrientationReversed(arg2);
+    try 
+    {
+      (arg1)->SetOrientationReversed(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28739,7 +32169,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetPrinterName(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPrinterName((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetPrinterName((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28785,7 +32222,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetColour(PyObject *SWIGUNUSEDPARM(self), P
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColour(arg2);
+    try 
+    {
+      (arg1)->SetColour(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28823,7 +32267,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetDuplex(PyObject *SWIGUNUSEDPARM(self), P
   arg2 = static_cast< wxDuplexMode >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDuplex(arg2);
+    try 
+    {
+      (arg1)->SetDuplex(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28861,7 +32312,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetPaperId(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< wxPaperSize >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPaperId(arg2);
+    try 
+    {
+      (arg1)->SetPaperId(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28897,7 +32355,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetPaperSize(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPaperSize((wxSize const &)*arg2);
+    try 
+    {
+      (arg1)->SetPaperSize((wxSize const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28935,7 +32400,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetQuality(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetQuality(arg2);
+    try 
+    {
+      (arg1)->SetQuality(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -28973,7 +32445,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetBin(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg2 = static_cast< wxPrintBin >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBin(arg2);
+    try 
+    {
+      (arg1)->SetBin(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29011,7 +32490,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetPrintMode(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< wxPrintMode >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPrintMode(arg2);
+    try 
+    {
+      (arg1)->SetPrintMode(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29049,7 +32535,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetMedia(PyObject *SWIGUNUSEDPARM(self), Py
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMedia(arg2);
+    try 
+    {
+      (arg1)->SetMedia(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29077,7 +32570,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetFilename(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPrintData const *)arg1)->GetFilename();
+    try 
+    {
+      result = ((wxPrintData const *)arg1)->GetFilename();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29120,7 +32620,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetFilename(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFilename((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetFilename((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29156,7 +32663,14 @@ SWIGINTERN PyObject *_wrap_PrintData_GetPrivData(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyObject *)wxPrintData_GetPrivData(arg1);
+    try 
+    {
+      result = (PyObject *)wxPrintData_GetPrivData(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29188,7 +32702,14 @@ SWIGINTERN PyObject *_wrap_PrintData_SetPrivData(PyObject *SWIGUNUSEDPARM(self),
   arg2 = obj1;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxPrintData_SetPrivData(arg1,arg2);
+    try 
+    {
+      wxPrintData_SetPrivData(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29217,7 +32738,14 @@ SWIGINTERN PyObject *_wrap_new_PageSetupDialogData__SWIG_0(PyObject *SWIGUNUSEDP
   if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPageSetupDialogData *)new wxPageSetupDialogData();
+    try 
+    {
+      result = (wxPageSetupDialogData *)new wxPageSetupDialogData();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29246,7 +32774,14 @@ SWIGINTERN PyObject *_wrap_new_PageSetupDialogData__SWIG_1(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPageSetupDialogData *)new wxPageSetupDialogData((wxPageSetupDialogData const &)*arg1);
+    try 
+    {
+      result = (wxPageSetupDialogData *)new wxPageSetupDialogData((wxPageSetupDialogData const &)*arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29275,7 +32810,14 @@ SWIGINTERN PyObject *_wrap_new_PageSetupDialogData__SWIG_2(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPageSetupDialogData *)new wxPageSetupDialogData((wxPrintData const &)*arg1);
+    try 
+    {
+      result = (wxPageSetupDialogData *)new wxPageSetupDialogData((wxPrintData const &)*arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29332,8 +32874,15 @@ SWIGINTERN PyObject *_wrap_delete_PageSetupDialogData(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29371,7 +32920,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_EnableHelp(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableHelp(arg2);
+    try 
+    {
+      (arg1)->EnableHelp(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29409,7 +32965,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_EnableMargins(PyObject *SWIGUNUSE
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableMargins(arg2);
+    try 
+    {
+      (arg1)->EnableMargins(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29447,7 +33010,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_EnableOrientation(PyObject *SWIGU
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableOrientation(arg2);
+    try 
+    {
+      (arg1)->EnableOrientation(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29485,7 +33055,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_EnablePaper(PyObject *SWIGUNUSEDP
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnablePaper(arg2);
+    try 
+    {
+      (arg1)->EnablePaper(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29523,7 +33100,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_EnablePrinter(PyObject *SWIGUNUSE
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnablePrinter(arg2);
+    try 
+    {
+      (arg1)->EnablePrinter(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29551,7 +33135,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetDefaultMinMargins(PyObject *SW
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetDefaultMinMargins();
+    try 
+    {
+      result = (bool)(arg1)->GetDefaultMinMargins();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29581,7 +33172,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetEnableMargins(PyObject *SWIGUN
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetEnableMargins();
+    try 
+    {
+      result = (bool)(arg1)->GetEnableMargins();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29611,7 +33209,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetEnableOrientation(PyObject *SW
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetEnableOrientation();
+    try 
+    {
+      result = (bool)(arg1)->GetEnableOrientation();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29641,7 +33246,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetEnablePaper(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetEnablePaper();
+    try 
+    {
+      result = (bool)(arg1)->GetEnablePaper();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29671,7 +33283,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetEnablePrinter(PyObject *SWIGUN
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetEnablePrinter();
+    try 
+    {
+      result = (bool)(arg1)->GetEnablePrinter();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29701,7 +33320,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetEnableHelp(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetEnableHelp();
+    try 
+    {
+      result = (bool)(arg1)->GetEnableHelp();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29731,7 +33357,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetDefaultInfo(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetDefaultInfo();
+    try 
+    {
+      result = (bool)(arg1)->GetDefaultInfo();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29761,7 +33394,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetMarginTopLeft(PyObject *SWIGUN
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetMarginTopLeft();
+    try 
+    {
+      result = (arg1)->GetMarginTopLeft();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29789,7 +33429,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetMarginBottomRight(PyObject *SW
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetMarginBottomRight();
+    try 
+    {
+      result = (arg1)->GetMarginBottomRight();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29817,7 +33464,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetMinMarginTopLeft(PyObject *SWI
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetMinMarginTopLeft();
+    try 
+    {
+      result = (arg1)->GetMinMarginTopLeft();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29845,7 +33499,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetMinMarginBottomRight(PyObject 
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetMinMarginBottomRight();
+    try 
+    {
+      result = (arg1)->GetMinMarginBottomRight();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29873,7 +33534,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetPaperId(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPaperSize)(arg1)->GetPaperId();
+    try 
+    {
+      result = (wxPaperSize)(arg1)->GetPaperId();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29901,7 +33569,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetPaperSize(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetPaperSize();
+    try 
+    {
+      result = (arg1)->GetPaperSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -29929,9 +33604,16 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_GetPrintData(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxPrintData &_result_ref = (arg1)->GetPrintData();
-      result = (wxPrintData *) &_result_ref;
+      {
+        wxPrintData &_result_ref = (arg1)->GetPrintData();
+        result = (wxPrintData *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -29960,7 +33642,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_IsOk(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsOk();
+    try 
+    {
+      result = (bool)(arg1)->IsOk();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30000,7 +33689,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_SetDefaultInfo(PyObject *SWIGUNUS
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultInfo(arg2);
+    try 
+    {
+      (arg1)->SetDefaultInfo(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30038,7 +33734,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_SetDefaultMinMargins(PyObject *SW
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultMinMargins(arg2);
+    try 
+    {
+      (arg1)->SetDefaultMinMargins(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30074,7 +33777,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_SetMarginTopLeft(PyObject *SWIGUN
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMarginTopLeft((wxPoint const &)*arg2);
+    try 
+    {
+      (arg1)->SetMarginTopLeft((wxPoint const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30110,7 +33820,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_SetMarginBottomRight(PyObject *SW
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMarginBottomRight((wxPoint const &)*arg2);
+    try 
+    {
+      (arg1)->SetMarginBottomRight((wxPoint const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30146,7 +33863,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_SetMinMarginTopLeft(PyObject *SWI
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMinMarginTopLeft((wxPoint const &)*arg2);
+    try 
+    {
+      (arg1)->SetMinMarginTopLeft((wxPoint const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30182,7 +33906,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_SetMinMarginBottomRight(PyObject 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMinMarginBottomRight((wxPoint const &)*arg2);
+    try 
+    {
+      (arg1)->SetMinMarginBottomRight((wxPoint const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30220,7 +33951,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_SetPaperId(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< wxPaperSize >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPaperId(arg2);
+    try 
+    {
+      (arg1)->SetPaperId(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30256,7 +33994,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_SetPaperSize(PyObject *SWIGUNUSED
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPaperSize((wxSize const &)*arg2);
+    try 
+    {
+      (arg1)->SetPaperSize((wxSize const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30297,7 +34042,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_SetPrintData(PyObject *SWIGUNUSED
   arg2 = reinterpret_cast< wxPrintData * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPrintData((wxPrintData const &)*arg2);
+    try 
+    {
+      (arg1)->SetPrintData((wxPrintData const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30324,7 +34076,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_CalculateIdFromPaperSize(PyObject
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->CalculateIdFromPaperSize();
+    try 
+    {
+      (arg1)->CalculateIdFromPaperSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30351,7 +34110,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialogData_CalculatePaperSizeFromId(PyObject
   arg1 = reinterpret_cast< wxPageSetupDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->CalculatePaperSizeFromId();
+    try 
+    {
+      (arg1)->CalculatePaperSizeFromId();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30431,8 +34197,15 @@ SWIGINTERN PyObject *_wrap_delete_PageSetupDialog(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPageSetupDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30460,9 +34233,16 @@ SWIGINTERN PyObject *_wrap_PageSetupDialog_GetPageSetupData(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxPageSetupDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxPageSetupDialogData &_result_ref = (arg1)->GetPageSetupData();
-      result = (wxPageSetupDialogData *) &_result_ref;
+      {
+        wxPageSetupDialogData &_result_ref = (arg1)->GetPageSetupData();
+        result = (wxPageSetupDialogData *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -30491,9 +34271,16 @@ SWIGINTERN PyObject *_wrap_PageSetupDialog_GetPageSetupDialogData(PyObject *SWIG
   arg1 = reinterpret_cast< wxPageSetupDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxPageSetupDialogData &_result_ref = (arg1)->GetPageSetupDialogData();
-      result = (wxPageSetupDialogData *) &_result_ref;
+      {
+        wxPageSetupDialogData &_result_ref = (arg1)->GetPageSetupDialogData();
+        result = (wxPageSetupDialogData *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -30522,7 +34309,14 @@ SWIGINTERN PyObject *_wrap_PageSetupDialog_ShowModal(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPageSetupDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->ShowModal();
+    try 
+    {
+      result = (int)(arg1)->ShowModal();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30551,7 +34345,14 @@ SWIGINTERN PyObject *_wrap_new_PrintDialogData__SWIG_0(PyObject *SWIGUNUSEDPARM(
   if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPrintDialogData *)new wxPrintDialogData();
+    try 
+    {
+      result = (wxPrintDialogData *)new wxPrintDialogData();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30580,7 +34381,14 @@ SWIGINTERN PyObject *_wrap_new_PrintDialogData__SWIG_1(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPrintData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPrintDialogData *)new wxPrintDialogData((wxPrintData const &)*arg1);
+    try 
+    {
+      result = (wxPrintDialogData *)new wxPrintDialogData((wxPrintData const &)*arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30609,7 +34417,14 @@ SWIGINTERN PyObject *_wrap_new_PrintDialogData__SWIG_2(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPrintDialogData *)new wxPrintDialogData((wxPrintDialogData const &)*arg1);
+    try 
+    {
+      result = (wxPrintDialogData *)new wxPrintDialogData((wxPrintDialogData const &)*arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30666,8 +34481,15 @@ SWIGINTERN PyObject *_wrap_delete_PrintDialogData(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30695,7 +34517,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetFromPage(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPrintDialogData const *)arg1)->GetFromPage();
+    try 
+    {
+      result = (int)((wxPrintDialogData const *)arg1)->GetFromPage();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30723,7 +34552,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetToPage(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPrintDialogData const *)arg1)->GetToPage();
+    try 
+    {
+      result = (int)((wxPrintDialogData const *)arg1)->GetToPage();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30751,7 +34587,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetMinPage(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPrintDialogData const *)arg1)->GetMinPage();
+    try 
+    {
+      result = (int)((wxPrintDialogData const *)arg1)->GetMinPage();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30779,7 +34622,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetMaxPage(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPrintDialogData const *)arg1)->GetMaxPage();
+    try 
+    {
+      result = (int)((wxPrintDialogData const *)arg1)->GetMaxPage();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30807,7 +34657,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetNoCopies(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxPrintDialogData const *)arg1)->GetNoCopies();
+    try 
+    {
+      result = (int)((wxPrintDialogData const *)arg1)->GetNoCopies();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30835,7 +34692,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetAllPages(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPrintDialogData const *)arg1)->GetAllPages();
+    try 
+    {
+      result = (bool)((wxPrintDialogData const *)arg1)->GetAllPages();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30865,7 +34729,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetSelection(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPrintDialogData const *)arg1)->GetSelection();
+    try 
+    {
+      result = (bool)((wxPrintDialogData const *)arg1)->GetSelection();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30895,7 +34766,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetCollate(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPrintDialogData const *)arg1)->GetCollate();
+    try 
+    {
+      result = (bool)((wxPrintDialogData const *)arg1)->GetCollate();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30925,7 +34803,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetPrintToFile(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPrintDialogData const *)arg1)->GetPrintToFile();
+    try 
+    {
+      result = (bool)((wxPrintDialogData const *)arg1)->GetPrintToFile();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -30965,7 +34850,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_SetFromPage(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFromPage(arg2);
+    try 
+    {
+      (arg1)->SetFromPage(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31003,7 +34895,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_SetToPage(PyObject *SWIGUNUSEDPARM(se
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetToPage(arg2);
+    try 
+    {
+      (arg1)->SetToPage(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31041,7 +34940,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_SetMinPage(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMinPage(arg2);
+    try 
+    {
+      (arg1)->SetMinPage(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31079,7 +34985,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_SetMaxPage(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMaxPage(arg2);
+    try 
+    {
+      (arg1)->SetMaxPage(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31117,7 +35030,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_SetNoCopies(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetNoCopies(arg2);
+    try 
+    {
+      (arg1)->SetNoCopies(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31155,7 +35075,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_SetAllPages(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAllPages(arg2);
+    try 
+    {
+      (arg1)->SetAllPages(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31193,7 +35120,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_SetSelection(PyObject *SWIGUNUSEDPARM
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelection(arg2);
+    try 
+    {
+      (arg1)->SetSelection(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31231,7 +35165,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_SetCollate(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCollate(arg2);
+    try 
+    {
+      (arg1)->SetCollate(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31269,7 +35210,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_SetPrintToFile(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPrintToFile(arg2);
+    try 
+    {
+      (arg1)->SetPrintToFile(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31307,7 +35255,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_EnablePrintToFile(PyObject *SWIGUNUSE
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnablePrintToFile(arg2);
+    try 
+    {
+      (arg1)->EnablePrintToFile(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31345,7 +35300,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_EnableSelection(PyObject *SWIGUNUSEDP
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableSelection(arg2);
+    try 
+    {
+      (arg1)->EnableSelection(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31383,7 +35345,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_EnablePageNumbers(PyObject *SWIGUNUSE
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnablePageNumbers(arg2);
+    try 
+    {
+      (arg1)->EnablePageNumbers(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31421,7 +35390,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_EnableHelp(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableHelp(arg2);
+    try 
+    {
+      (arg1)->EnableHelp(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31449,7 +35425,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetEnablePrintToFile(PyObject *SWIGUN
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPrintDialogData const *)arg1)->GetEnablePrintToFile();
+    try 
+    {
+      result = (bool)((wxPrintDialogData const *)arg1)->GetEnablePrintToFile();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31479,7 +35462,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetEnableSelection(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPrintDialogData const *)arg1)->GetEnableSelection();
+    try 
+    {
+      result = (bool)((wxPrintDialogData const *)arg1)->GetEnableSelection();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31509,7 +35499,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetEnablePageNumbers(PyObject *SWIGUN
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPrintDialogData const *)arg1)->GetEnablePageNumbers();
+    try 
+    {
+      result = (bool)((wxPrintDialogData const *)arg1)->GetEnablePageNumbers();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31539,7 +35536,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetEnableHelp(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPrintDialogData const *)arg1)->GetEnableHelp();
+    try 
+    {
+      result = (bool)((wxPrintDialogData const *)arg1)->GetEnableHelp();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31569,7 +35573,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_IsOk(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxPrintDialogData const *)arg1)->IsOk();
+    try 
+    {
+      result = (bool)((wxPrintDialogData const *)arg1)->IsOk();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31599,9 +35610,16 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_GetPrintData(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxPrintDialogData * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxPrintData &_result_ref = (arg1)->GetPrintData();
-      result = (wxPrintData *) &_result_ref;
+      {
+        wxPrintData &_result_ref = (arg1)->GetPrintData();
+        result = (wxPrintData *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -31643,7 +35661,14 @@ SWIGINTERN PyObject *_wrap_PrintDialogData_SetPrintData(PyObject *SWIGUNUSEDPARM
   arg2 = reinterpret_cast< wxPrintData * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPrintData((wxPrintData const &)*arg2);
+    try 
+    {
+      (arg1)->SetPrintData((wxPrintData const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31723,8 +35748,15 @@ SWIGINTERN PyObject *_wrap_delete_PrintDialog(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPrintDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31752,7 +35784,14 @@ SWIGINTERN PyObject *_wrap_PrintDialog_ShowModal(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPrintDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->ShowModal();
+    try 
+    {
+      result = (int)(arg1)->ShowModal();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31780,9 +35819,16 @@ SWIGINTERN PyObject *_wrap_PrintDialog_GetPrintDialogData(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxPrintDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxPrintDialogData &_result_ref = (arg1)->GetPrintDialogData();
-      result = (wxPrintDialogData *) &_result_ref;
+      {
+        wxPrintDialogData &_result_ref = (arg1)->GetPrintDialogData();
+        result = (wxPrintDialogData *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -31811,9 +35857,16 @@ SWIGINTERN PyObject *_wrap_PrintDialog_GetPrintData(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPrintDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxPrintData &_result_ref = (arg1)->GetPrintData();
-      result = (wxPrintData *) &_result_ref;
+      {
+        wxPrintData &_result_ref = (arg1)->GetPrintData();
+        result = (wxPrintData *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -31842,7 +35895,14 @@ SWIGINTERN PyObject *_wrap_PrintDialog_GetPrintDC(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPrintDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxDC *)(arg1)->GetPrintDC();
+    try 
+    {
+      result = (wxDC *)(arg1)->GetPrintDC();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31915,8 +35975,15 @@ SWIGINTERN PyObject *_wrap_delete_Printer(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxPrinter * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -31964,7 +36031,14 @@ SWIGINTERN PyObject *_wrap_Printer_CreateAbortWindow(PyObject *SWIGUNUSEDPARM(se
   arg3 = reinterpret_cast< wxPyPrintout * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)(arg1)->CreateAbortWindow(arg2,arg3);
+    try 
+    {
+      result = (wxWindow *)(arg1)->CreateAbortWindow(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32021,7 +36095,14 @@ SWIGINTERN PyObject *_wrap_Printer_ReportError(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ReportError(arg2,arg3,(wxString const &)*arg4);
+    try 
+    {
+      (arg1)->ReportError(arg2,arg3,(wxString const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32068,7 +36149,14 @@ SWIGINTERN PyObject *_wrap_Printer_Setup(PyObject *SWIGUNUSEDPARM(self), PyObjec
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Setup(arg2);
+    try 
+    {
+      result = (bool)(arg1)->Setup(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32129,7 +36217,14 @@ SWIGINTERN PyObject *_wrap_Printer_Print(PyObject *SWIGUNUSEDPARM(self), PyObjec
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Print(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->Print(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32170,7 +36265,14 @@ SWIGINTERN PyObject *_wrap_Printer_PrintDialog(PyObject *SWIGUNUSEDPARM(self), P
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxDC *)(arg1)->PrintDialog(arg2);
+    try 
+    {
+      result = (wxDC *)(arg1)->PrintDialog(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32200,9 +36302,16 @@ SWIGINTERN PyObject *_wrap_Printer_GetPrintDialogData(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPrinter * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxPrintDialogData &_result_ref = ((wxPrinter const *)arg1)->GetPrintDialogData();
-      result = (wxPrintDialogData *) &_result_ref;
+      {
+        wxPrintDialogData &_result_ref = ((wxPrinter const *)arg1)->GetPrintDialogData();
+        result = (wxPrintDialogData *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -32231,7 +36340,14 @@ SWIGINTERN PyObject *_wrap_Printer_GetAbort(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxPrinter * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetAbort();
+    try 
+    {
+      result = (bool)(arg1)->GetAbort();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32251,7 +36367,14 @@ SWIGINTERN PyObject *_wrap_Printer_GetLastError(PyObject *SWIGUNUSEDPARM(self), 
   if (!SWIG_Python_UnpackTuple(args,"Printer_GetLastError",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPrinterError)wxPrinter::GetLastError();
+    try 
+    {
+      result = (wxPrinterError)wxPrinter::GetLastError();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32330,8 +36453,15 @@ SWIGINTERN PyObject *_wrap_delete_Printout(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32366,7 +36496,14 @@ SWIGINTERN PyObject *_wrap_Printout__setCallbackInfo(PyObject *SWIGUNUSEDPARM(se
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32394,7 +36531,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetTitle(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyPrintout const *)arg1)->GetTitle();
+    try 
+    {
+      result = ((wxPyPrintout const *)arg1)->GetTitle();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32428,7 +36572,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetDC(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxDC *)(arg1)->GetDC();
+    try 
+    {
+      result = (wxDC *)(arg1)->GetDC();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32468,7 +36619,14 @@ SWIGINTERN PyObject *_wrap_Printout_SetDC(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg2 = reinterpret_cast< wxDC * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDC(arg2);
+    try 
+    {
+      (arg1)->SetDC(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32504,7 +36662,14 @@ SWIGINTERN PyObject *_wrap_Printout_FitThisSizeToPaper(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->FitThisSizeToPaper((wxSize const &)*arg2);
+    try 
+    {
+      (arg1)->FitThisSizeToPaper((wxSize const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32540,7 +36705,14 @@ SWIGINTERN PyObject *_wrap_Printout_FitThisSizeToPage(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->FitThisSizeToPage((wxSize const &)*arg2);
+    try 
+    {
+      (arg1)->FitThisSizeToPage((wxSize const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32588,7 +36760,14 @@ SWIGINTERN PyObject *_wrap_Printout_FitThisSizeToPageMargins(PyObject *SWIGUNUSE
   arg3 = reinterpret_cast< wxPageSetupDialogData * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->FitThisSizeToPageMargins((wxSize const &)*arg2,(wxPageSetupDialogData const &)*arg3);
+    try 
+    {
+      (arg1)->FitThisSizeToPageMargins((wxSize const &)*arg2,(wxPageSetupDialogData const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32615,7 +36794,14 @@ SWIGINTERN PyObject *_wrap_Printout_MapScreenSizeToPaper(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->MapScreenSizeToPaper();
+    try 
+    {
+      (arg1)->MapScreenSizeToPaper();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32642,7 +36828,14 @@ SWIGINTERN PyObject *_wrap_Printout_MapScreenSizeToPage(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->MapScreenSizeToPage();
+    try 
+    {
+      (arg1)->MapScreenSizeToPage();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32683,7 +36876,14 @@ SWIGINTERN PyObject *_wrap_Printout_MapScreenSizeToPageMargins(PyObject *SWIGUNU
   arg2 = reinterpret_cast< wxPageSetupDialogData * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->MapScreenSizeToPageMargins((wxPageSetupDialogData const &)*arg2);
+    try 
+    {
+      (arg1)->MapScreenSizeToPageMargins((wxPageSetupDialogData const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32710,7 +36910,14 @@ SWIGINTERN PyObject *_wrap_Printout_MapScreenSizeToDevice(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->MapScreenSizeToDevice();
+    try 
+    {
+      (arg1)->MapScreenSizeToDevice();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32738,7 +36945,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetLogicalPaperRect(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyPrintout const *)arg1)->GetLogicalPaperRect();
+    try 
+    {
+      result = ((wxPyPrintout const *)arg1)->GetLogicalPaperRect();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32766,7 +36980,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetLogicalPageRect(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyPrintout const *)arg1)->GetLogicalPageRect();
+    try 
+    {
+      result = ((wxPyPrintout const *)arg1)->GetLogicalPageRect();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32808,7 +37029,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetLogicalPageMarginsRect(PyObject *SWIGUNUS
   arg2 = reinterpret_cast< wxPageSetupDialogData * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyPrintout const *)arg1)->GetLogicalPageMarginsRect((wxPageSetupDialogData const &)*arg2);
+    try 
+    {
+      result = ((wxPyPrintout const *)arg1)->GetLogicalPageMarginsRect((wxPageSetupDialogData const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32855,7 +37083,14 @@ SWIGINTERN PyObject *_wrap_Printout_SetLogicalOrigin(PyObject *SWIGUNUSEDPARM(se
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetLogicalOrigin(arg2,arg3);
+    try 
+    {
+      (arg1)->SetLogicalOrigin(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32902,7 +37137,14 @@ SWIGINTERN PyObject *_wrap_Printout_OffsetLogicalOrigin(PyObject *SWIGUNUSEDPARM
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OffsetLogicalOrigin(arg2,arg3);
+    try 
+    {
+      (arg1)->OffsetLogicalOrigin(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32949,7 +37191,14 @@ SWIGINTERN PyObject *_wrap_Printout_SetPageSizePixels(PyObject *SWIGUNUSEDPARM(s
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPageSizePixels(arg2,arg3);
+    try 
+    {
+      (arg1)->SetPageSizePixels(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -32984,7 +37233,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetPageSizePixels(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetPageSizePixels(arg2,arg3);
+    try 
+    {
+      (arg1)->GetPageSizePixels(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33043,7 +37299,14 @@ SWIGINTERN PyObject *_wrap_Printout_SetPageSizeMM(PyObject *SWIGUNUSEDPARM(self)
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPageSizeMM(arg2,arg3);
+    try 
+    {
+      (arg1)->SetPageSizeMM(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33078,7 +37341,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetPageSizeMM(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetPageSizeMM(arg2,arg3);
+    try 
+    {
+      (arg1)->GetPageSizeMM(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33137,7 +37407,14 @@ SWIGINTERN PyObject *_wrap_Printout_SetPPIScreen(PyObject *SWIGUNUSEDPARM(self),
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPPIScreen(arg2,arg3);
+    try 
+    {
+      (arg1)->SetPPIScreen(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33172,7 +37449,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetPPIScreen(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetPPIScreen(arg2,arg3);
+    try 
+    {
+      (arg1)->GetPPIScreen(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33231,7 +37515,14 @@ SWIGINTERN PyObject *_wrap_Printout_SetPPIPrinter(PyObject *SWIGUNUSEDPARM(self)
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPPIPrinter(arg2,arg3);
+    try 
+    {
+      (arg1)->SetPPIPrinter(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33266,7 +37557,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetPPIPrinter(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetPPIPrinter(arg2,arg3);
+    try 
+    {
+      (arg1)->GetPPIPrinter(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33314,7 +37612,14 @@ SWIGINTERN PyObject *_wrap_Printout_SetPaperRectPixels(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPaperRectPixels((wxRect const &)*arg2);
+    try 
+    {
+      (arg1)->SetPaperRectPixels((wxRect const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33342,7 +37647,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetPaperRectPixels(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyPrintout const *)arg1)->GetPaperRectPixels();
+    try 
+    {
+      result = ((wxPyPrintout const *)arg1)->GetPaperRectPixels();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33370,7 +37682,14 @@ SWIGINTERN PyObject *_wrap_Printout_IsPreview(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsPreview();
+    try 
+    {
+      result = (bool)(arg1)->IsPreview();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33410,7 +37729,14 @@ SWIGINTERN PyObject *_wrap_Printout_SetIsPreview(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetIsPreview(arg2);
+    try 
+    {
+      (arg1)->SetIsPreview(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33458,7 +37784,14 @@ SWIGINTERN PyObject *_wrap_Printout_OnBeginDocument(PyObject *SWIGUNUSEDPARM(sel
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->OnBeginDocument(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->OnBeginDocument(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33487,7 +37820,14 @@ SWIGINTERN PyObject *_wrap_Printout_OnEndDocument(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnEndDocument();
+    try 
+    {
+      (arg1)->OnEndDocument();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33514,7 +37854,14 @@ SWIGINTERN PyObject *_wrap_Printout_OnBeginPrinting(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnBeginPrinting();
+    try 
+    {
+      (arg1)->OnBeginPrinting();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33541,7 +37888,14 @@ SWIGINTERN PyObject *_wrap_Printout_OnEndPrinting(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnEndPrinting();
+    try 
+    {
+      (arg1)->OnEndPrinting();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33568,7 +37922,14 @@ SWIGINTERN PyObject *_wrap_Printout_OnPreparePrinting(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnPreparePrinting();
+    try 
+    {
+      (arg1)->OnPreparePrinting();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33607,7 +37968,14 @@ SWIGINTERN PyObject *_wrap_Printout_HasPage(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->HasPage(arg2);
+    try 
+    {
+      result = (bool)(arg1)->HasPage(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33652,7 +38020,14 @@ SWIGINTERN PyObject *_wrap_Printout_GetPageInfo(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetPageInfo(arg2,arg3,arg4,arg5);
+    try 
+    {
+      (arg1)->GetPageInfo(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33919,7 +38294,14 @@ SWIGINTERN PyObject *_wrap_PreviewFrame_Initialize(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxPreviewFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Initialize();
+    try 
+    {
+      (arg1)->Initialize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33946,7 +38328,14 @@ SWIGINTERN PyObject *_wrap_PreviewFrame_CreateControlBar(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxPreviewFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->CreateControlBar();
+    try 
+    {
+      (arg1)->CreateControlBar();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33973,7 +38362,14 @@ SWIGINTERN PyObject *_wrap_PreviewFrame_CreateCanvas(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPreviewFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->CreateCanvas();
+    try 
+    {
+      (arg1)->CreateCanvas();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34001,7 +38397,14 @@ SWIGINTERN PyObject *_wrap_PreviewFrame_GetControlBar(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxPreviewFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPreviewControlBar *)((wxPreviewFrame const *)arg1)->GetControlBar();
+    try 
+    {
+      result = (wxPreviewControlBar *)((wxPreviewFrame const *)arg1)->GetControlBar();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34139,7 +38542,14 @@ SWIGINTERN PyObject *_wrap_PreviewControlBar_GetZoomControl(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxPreviewControlBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetZoomControl();
+    try 
+    {
+      result = (int)(arg1)->GetZoomControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34177,7 +38587,14 @@ SWIGINTERN PyObject *_wrap_PreviewControlBar_SetZoomControl(PyObject *SWIGUNUSED
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetZoomControl(arg2);
+    try 
+    {
+      (arg1)->SetZoomControl(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34205,7 +38622,14 @@ SWIGINTERN PyObject *_wrap_PreviewControlBar_GetPrintPreview(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxPreviewControlBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPrintPreview *)(arg1)->GetPrintPreview();
+    try 
+    {
+      result = (wxPrintPreview *)(arg1)->GetPrintPreview();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34232,7 +38656,14 @@ SWIGINTERN PyObject *_wrap_PreviewControlBar_OnNext(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPreviewControlBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnNext();
+    try 
+    {
+      (arg1)->OnNext();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34259,7 +38690,14 @@ SWIGINTERN PyObject *_wrap_PreviewControlBar_OnPrevious(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxPreviewControlBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnPrevious();
+    try 
+    {
+      (arg1)->OnPrevious();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34286,7 +38724,14 @@ SWIGINTERN PyObject *_wrap_PreviewControlBar_OnFirst(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPreviewControlBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnFirst();
+    try 
+    {
+      (arg1)->OnFirst();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34313,7 +38758,14 @@ SWIGINTERN PyObject *_wrap_PreviewControlBar_OnLast(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPreviewControlBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnLast();
+    try 
+    {
+      (arg1)->OnLast();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34340,7 +38792,14 @@ SWIGINTERN PyObject *_wrap_PreviewControlBar_OnGoto(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPreviewControlBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnGoto();
+    try 
+    {
+      (arg1)->OnGoto();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34488,8 +38947,15 @@ SWIGINTERN PyObject *_wrap_delete_PrintPreview(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34528,7 +38994,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_SetCurrentPage(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetCurrentPage(arg2);
+    try 
+    {
+      result = (bool)(arg1)->SetCurrentPage(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34558,7 +39031,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_GetCurrentPage(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetCurrentPage();
+    try 
+    {
+      result = (int)(arg1)->GetCurrentPage();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34594,7 +39074,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_SetPrintout(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPrintout(arg2);
+    try 
+    {
+      (arg1)->SetPrintout(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34622,7 +39109,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_GetPrintout(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPyPrintout *)(arg1)->GetPrintout();
+    try 
+    {
+      result = (wxPyPrintout *)(arg1)->GetPrintout();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34652,7 +39146,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_GetPrintoutForPrinting(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPyPrintout *)(arg1)->GetPrintoutForPrinting();
+    try 
+    {
+      result = (wxPyPrintout *)(arg1)->GetPrintoutForPrinting();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34692,7 +39193,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_SetFrame(PyObject *SWIGUNUSEDPARM(self),
   arg2 = reinterpret_cast< wxFrame * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFrame(arg2);
+    try 
+    {
+      (arg1)->SetFrame(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34730,7 +39238,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_SetCanvas(PyObject *SWIGUNUSEDPARM(self)
   arg2 = reinterpret_cast< wxPreviewCanvas * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCanvas(arg2);
+    try 
+    {
+      (arg1)->SetCanvas(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34758,7 +39273,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_GetFrame(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxFrame *)(arg1)->GetFrame();
+    try 
+    {
+      result = (wxFrame *)(arg1)->GetFrame();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34788,7 +39310,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_GetCanvas(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPreviewCanvas *)(arg1)->GetCanvas();
+    try 
+    {
+      result = (wxPreviewCanvas *)(arg1)->GetCanvas();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34839,7 +39368,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_PaintPage(PyObject *SWIGUNUSEDPARM(self)
   arg3 = reinterpret_cast< wxDC * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->PaintPage(arg2,*arg3);
+    try 
+    {
+      result = (bool)(arg1)->PaintPage(arg2,*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34892,7 +39428,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_DrawBlankPage(PyObject *SWIGUNUSEDPARM(s
   arg3 = reinterpret_cast< wxDC * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DrawBlankPage(arg2,*arg3);
+    try 
+    {
+      result = (bool)(arg1)->DrawBlankPage(arg2,*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34933,7 +39476,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_RenderPage(PyObject *SWIGUNUSEDPARM(self
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->RenderPage(arg2);
+    try 
+    {
+      result = (bool)(arg1)->RenderPage(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34973,7 +39523,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_AdjustScrollbars(PyObject *SWIGUNUSEDPAR
   arg2 = reinterpret_cast< wxPreviewCanvas * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AdjustScrollbars(arg2);
+    try 
+    {
+      (arg1)->AdjustScrollbars(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35001,9 +39558,16 @@ SWIGINTERN PyObject *_wrap_PrintPreview_GetPrintDialogData(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxPrintDialogData &_result_ref = (arg1)->GetPrintDialogData();
-      result = (wxPrintDialogData *) &_result_ref;
+      {
+        wxPrintDialogData &_result_ref = (arg1)->GetPrintDialogData();
+        result = (wxPrintDialogData *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -35042,7 +39606,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_SetZoom(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetZoom(arg2);
+    try 
+    {
+      (arg1)->SetZoom(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35070,7 +39641,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_GetZoom(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetZoom();
+    try 
+    {
+      result = (int)(arg1)->GetZoom();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35098,7 +39676,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_GetMaxPage(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetMaxPage();
+    try 
+    {
+      result = (int)(arg1)->GetMaxPage();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35126,7 +39711,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_GetMinPage(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetMinPage();
+    try 
+    {
+      result = (int)(arg1)->GetMinPage();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35154,7 +39746,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_IsOk(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsOk();
+    try 
+    {
+      result = (bool)(arg1)->IsOk();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35194,7 +39793,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_SetOk(PyObject *SWIGUNUSEDPARM(self), Py
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetOk(arg2);
+    try 
+    {
+      (arg1)->SetOk(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35233,7 +39839,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_Print(PyObject *SWIGUNUSEDPARM(self), Py
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Print(arg2);
+    try 
+    {
+      result = (bool)(arg1)->Print(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35262,7 +39875,14 @@ SWIGINTERN PyObject *_wrap_PrintPreview_DetermineScaling(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxPrintPreview * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DetermineScaling();
+    try 
+    {
+      (arg1)->DetermineScaling();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35418,7 +40038,14 @@ SWIGINTERN PyObject *_wrap_PyPrintPreview__setCallbackInfo(PyObject *SWIGUNUSEDP
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35568,7 +40195,14 @@ SWIGINTERN PyObject *_wrap_PyPreviewFrame__setCallbackInfo(PyObject *SWIGUNUSEDP
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35606,7 +40240,14 @@ SWIGINTERN PyObject *_wrap_PyPreviewFrame_SetPreviewCanvas(PyObject *SWIGUNUSEDP
   arg2 = reinterpret_cast< wxPreviewCanvas * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPreviewCanvas(arg2);
+    try 
+    {
+      (arg1)->SetPreviewCanvas(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35644,7 +40285,14 @@ SWIGINTERN PyObject *_wrap_PyPreviewFrame_SetControlBar(PyObject *SWIGUNUSEDPARM
   arg2 = reinterpret_cast< wxPreviewControlBar * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetControlBar(arg2);
+    try 
+    {
+      (arg1)->SetControlBar(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35671,7 +40319,14 @@ SWIGINTERN PyObject *_wrap_PyPreviewFrame_Initialize(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxPyPreviewFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Initialize();
+    try 
+    {
+      (arg1)->Initialize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35698,7 +40353,14 @@ SWIGINTERN PyObject *_wrap_PyPreviewFrame_CreateCanvas(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxPyPreviewFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->CreateCanvas();
+    try 
+    {
+      (arg1)->CreateCanvas();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35725,7 +40387,14 @@ SWIGINTERN PyObject *_wrap_PyPreviewFrame_CreateControlBar(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxPyPreviewFrame * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->CreateControlBar();
+    try 
+    {
+      (arg1)->CreateControlBar();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35868,7 +40537,14 @@ SWIGINTERN PyObject *_wrap_PyPreviewControlBar__setCallbackInfo(PyObject *SWIGUN
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35904,7 +40580,14 @@ SWIGINTERN PyObject *_wrap_PyPreviewControlBar_SetPrintPreview(PyObject *SWIGUNU
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPrintPreview(arg2);
+    try 
+    {
+      (arg1)->SetPrintPreview(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35931,7 +40614,14 @@ SWIGINTERN PyObject *_wrap_PyPreviewControlBar_CreateButtons(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxPyPreviewControlBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->CreateButtons();
+    try 
+    {
+      (arg1)->CreateButtons();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35969,7 +40659,14 @@ SWIGINTERN PyObject *_wrap_PyPreviewControlBar_SetZoomControl(PyObject *SWIGUNUS
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetZoomControl(arg2);
+    try 
+    {
+      (arg1)->SetZoomControl(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }

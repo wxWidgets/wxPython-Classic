@@ -3847,7 +3847,14 @@ SWIGINTERN PyObject *_wrap_GridCellWorker__setOORInfo(PyObject *SWIGUNUSEDPARM(s
   arg2 = obj1;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxGridCellWorker__setOORInfo(arg1,arg2);
+    try 
+    {
+      wxGridCellWorker__setOORInfo(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3874,8 +3881,15 @@ SWIGINTERN PyObject *_wrap_delete_GridCellWorker(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridCellWorker * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete_wxGridCellWorker(arg1);
-    
+    try 
+    {
+      delete_wxGridCellWorker(arg1);
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3912,7 +3926,14 @@ SWIGINTERN PyObject *_wrap_GridCellWorker_SetParameters(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetParameters((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetParameters((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3947,7 +3968,14 @@ SWIGINTERN PyObject *_wrap_GridCellWorker_IncRef(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridCellWorker * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->IncRef();
+    try 
+    {
+      (arg1)->IncRef();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3974,7 +4002,14 @@ SWIGINTERN PyObject *_wrap_GridCellWorker_DecRef(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridCellWorker * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DecRef();
+    try 
+    {
+      (arg1)->DecRef();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4080,7 +4115,14 @@ SWIGINTERN PyObject *_wrap_GridCellRenderer_Draw(PyObject *SWIGUNUSEDPARM(self),
   arg8 = static_cast< bool >(val8);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Draw(*arg2,*arg3,*arg4,(wxRect const &)*arg5,arg6,arg7,arg8);
+    try 
+    {
+      (arg1)->Draw(*arg2,*arg3,*arg4,(wxRect const &)*arg5,arg6,arg7,arg8);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4164,7 +4206,14 @@ SWIGINTERN PyObject *_wrap_GridCellRenderer_GetBestSize(PyObject *SWIGUNUSEDPARM
   arg6 = static_cast< int >(val6);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetBestSize(*arg2,*arg3,*arg4,arg5,arg6);
+    try 
+    {
+      result = (arg1)->GetBestSize(*arg2,*arg3,*arg4,arg5,arg6);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4192,7 +4241,14 @@ SWIGINTERN PyObject *_wrap_GridCellRenderer_Clone(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxGridCellRenderer * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellRenderer *)((wxGridCellRenderer const *)arg1)->Clone();
+    try 
+    {
+      result = (wxGridCellRenderer *)((wxGridCellRenderer const *)arg1)->Clone();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4219,7 +4275,14 @@ SWIGINTERN PyObject *_wrap_new_PyGridCellRenderer(PyObject *SWIGUNUSEDPARM(self)
   if (!SWIG_Python_UnpackTuple(args,"new_PyGridCellRenderer",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPyGridCellRenderer *)new wxPyGridCellRenderer();
+    try 
+    {
+      result = (wxPyGridCellRenderer *)new wxPyGridCellRenderer();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4254,7 +4317,14 @@ SWIGINTERN PyObject *_wrap_PyGridCellRenderer__setCallbackInfo(PyObject *SWIGUNU
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4291,7 +4361,14 @@ SWIGINTERN PyObject *_wrap_PyGridCellRenderer_SetParameters(PyObject *SWIGUNUSED
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetParameters((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetParameters((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4328,7 +4405,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellStringRenderer(PyObject *SWIGUNUSEDPARM(s
   if (!SWIG_Python_UnpackTuple(args,"new_GridCellStringRenderer",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellStringRenderer *)new wxGridCellStringRenderer();
+    try 
+    {
+      result = (wxGridCellStringRenderer *)new wxGridCellStringRenderer();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4357,7 +4441,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellNumberRenderer(PyObject *SWIGUNUSEDPARM(s
   if (!SWIG_Python_UnpackTuple(args,"new_GridCellNumberRenderer",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellNumberRenderer *)new wxGridCellNumberRenderer();
+    try 
+    {
+      result = (wxGridCellNumberRenderer *)new wxGridCellNumberRenderer();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4411,7 +4502,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellFloatRenderer(PyObject *SWIGUNUSEDPARM(se
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellFloatRenderer *)new wxGridCellFloatRenderer(arg1,arg2);
+    try 
+    {
+      result = (wxGridCellFloatRenderer *)new wxGridCellFloatRenderer(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4439,7 +4537,14 @@ SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_GetWidth(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxGridCellFloatRenderer * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGridCellFloatRenderer const *)arg1)->GetWidth();
+    try 
+    {
+      result = (int)((wxGridCellFloatRenderer const *)arg1)->GetWidth();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4477,7 +4582,14 @@ SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_SetWidth(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetWidth(arg2);
+    try 
+    {
+      (arg1)->SetWidth(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4505,7 +4617,14 @@ SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_GetPrecision(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxGridCellFloatRenderer * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGridCellFloatRenderer const *)arg1)->GetPrecision();
+    try 
+    {
+      result = (int)((wxGridCellFloatRenderer const *)arg1)->GetPrecision();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4543,7 +4662,14 @@ SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_SetPrecision(PyObject *SWIGUNUS
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPrecision(arg2);
+    try 
+    {
+      (arg1)->SetPrecision(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4572,7 +4698,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellBoolRenderer(PyObject *SWIGUNUSEDPARM(sel
   if (!SWIG_Python_UnpackTuple(args,"new_GridCellBoolRenderer",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellBoolRenderer *)new wxGridCellBoolRenderer();
+    try 
+    {
+      result = (wxGridCellBoolRenderer *)new wxGridCellBoolRenderer();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4624,7 +4757,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellDateTimeRenderer(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellDateTimeRenderer *)new wxGridCellDateTimeRenderer(arg1,arg2);
+    try 
+    {
+      result = (wxGridCellDateTimeRenderer *)new wxGridCellDateTimeRenderer(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4667,7 +4807,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellEnumRenderer(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellEnumRenderer *)new wxGridCellEnumRenderer((wxString const &)*arg1);
+    try 
+    {
+      result = (wxGridCellEnumRenderer *)new wxGridCellEnumRenderer((wxString const &)*arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4704,7 +4851,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellAutoWrapStringRenderer(PyObject *SWIGUNUS
   if (!SWIG_Python_UnpackTuple(args,"new_GridCellAutoWrapStringRenderer",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAutoWrapStringRenderer *)new wxGridCellAutoWrapStringRenderer();
+    try 
+    {
+      result = (wxGridCellAutoWrapStringRenderer *)new wxGridCellAutoWrapStringRenderer();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4743,7 +4897,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_IsCreated(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxGridCellEditor * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsCreated();
+    try 
+    {
+      result = (bool)(arg1)->IsCreated();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4773,7 +4934,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_GetControl(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxGridCellEditor * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxControl *)(arg1)->GetControl();
+    try 
+    {
+      result = (wxControl *)(arg1)->GetControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4813,7 +4981,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_SetControl(PyObject *SWIGUNUSEDPARM(se
   arg2 = reinterpret_cast< wxControl * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetControl(arg2);
+    try 
+    {
+      (arg1)->SetControl(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4841,7 +5016,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_GetCellAttr(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxGridCellEditor * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAttr *)(arg1)->GetCellAttr();
+    try 
+    {
+      result = (wxGridCellAttr *)(arg1)->GetCellAttr();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4881,7 +5063,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_SetCellAttr(PyObject *SWIGUNUSEDPARM(s
   arg2 = reinterpret_cast< wxGridCellAttr * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellAttr(arg2);
+    try 
+    {
+      (arg1)->SetCellAttr(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4937,7 +5126,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_Create(PyObject *SWIGUNUSEDPARM(self),
   arg4 = reinterpret_cast< wxEvtHandler * >(argp4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Create(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->Create(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4993,7 +5189,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_BeginEdit(PyObject *SWIGUNUSEDPARM(sel
   arg4 = reinterpret_cast< wxGrid * >(argp4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->BeginEdit(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->BeginEdit(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5050,7 +5253,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_EndEdit(PyObject *SWIGUNUSEDPARM(self)
   arg4 = reinterpret_cast< wxGrid * >(argp4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->EndEdit(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->EndEdit(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5079,7 +5289,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_Reset(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGridCellEditor * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Reset();
+    try 
+    {
+      (arg1)->Reset();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5107,7 +5324,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_Clone(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGridCellEditor * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellEditor *)((wxGridCellEditor const *)arg1)->Clone();
+    try 
+    {
+      result = (wxGridCellEditor *)((wxGridCellEditor const *)arg1)->Clone();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5145,7 +5369,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_SetSize(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSize((wxRect const &)*arg2);
+    try 
+    {
+      (arg1)->SetSize((wxRect const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5194,7 +5425,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_Show(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Show(arg2,arg3);
+    try 
+    {
+      (arg1)->Show(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5239,7 +5477,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_PaintBackground(PyObject *SWIGUNUSEDPA
   arg3 = reinterpret_cast< wxGridCellAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PaintBackground((wxRect const &)*arg2,arg3);
+    try 
+    {
+      (arg1)->PaintBackground((wxRect const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5281,7 +5526,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_IsAcceptedKey(PyObject *SWIGUNUSEDPARM
   arg2 = reinterpret_cast< wxKeyEvent * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsAcceptedKey(*arg2);
+    try 
+    {
+      result = (bool)(arg1)->IsAcceptedKey(*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5324,7 +5576,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_StartingKey(PyObject *SWIGUNUSEDPARM(s
   arg2 = reinterpret_cast< wxKeyEvent * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->StartingKey(*arg2);
+    try 
+    {
+      (arg1)->StartingKey(*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5351,7 +5610,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_StartingClick(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxGridCellEditor * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->StartingClick();
+    try 
+    {
+      (arg1)->StartingClick();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5392,7 +5658,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_HandleReturn(PyObject *SWIGUNUSEDPARM(
   arg2 = reinterpret_cast< wxKeyEvent * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->HandleReturn(*arg2);
+    try 
+    {
+      (arg1)->HandleReturn(*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5419,7 +5692,14 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_Destroy(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxGridCellEditor * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Destroy();
+    try 
+    {
+      (arg1)->Destroy();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5444,7 +5724,14 @@ SWIGINTERN PyObject *_wrap_new_PyGridCellEditor(PyObject *SWIGUNUSEDPARM(self), 
   if (!SWIG_Python_UnpackTuple(args,"new_PyGridCellEditor",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPyGridCellEditor *)new wxPyGridCellEditor();
+    try 
+    {
+      result = (wxPyGridCellEditor *)new wxPyGridCellEditor();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5479,7 +5766,14 @@ SWIGINTERN PyObject *_wrap_PyGridCellEditor__setCallbackInfo(PyObject *SWIGUNUSE
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5516,7 +5810,14 @@ SWIGINTERN PyObject *_wrap_PyGridCellEditor_SetParameters(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetParameters((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetParameters((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5553,7 +5854,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellTextEditor(PyObject *SWIGUNUSEDPARM(self)
   if (!SWIG_Python_UnpackTuple(args,"new_GridCellTextEditor",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellTextEditor *)new wxGridCellTextEditor();
+    try 
+    {
+      result = (wxGridCellTextEditor *)new wxGridCellTextEditor();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5581,7 +5889,14 @@ SWIGINTERN PyObject *_wrap_GridCellTextEditor_GetValue(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGridCellTextEditor * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetValue();
+    try 
+    {
+      result = (arg1)->GetValue();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5641,7 +5956,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellNumberEditor(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellNumberEditor *)new wxGridCellNumberEditor(arg1,arg2);
+    try 
+    {
+      result = (wxGridCellNumberEditor *)new wxGridCellNumberEditor(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5695,7 +6017,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellFloatEditor(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellFloatEditor *)new wxGridCellFloatEditor(arg1,arg2);
+    try 
+    {
+      result = (wxGridCellFloatEditor *)new wxGridCellFloatEditor(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5744,7 +6073,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellBoolEditor(PyObject *SWIGUNUSEDPARM(self)
   if (!SWIG_Python_UnpackTuple(args,"new_GridCellBoolEditor",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellBoolEditor *)new wxGridCellBoolEditor();
+    try 
+    {
+      result = (wxGridCellBoolEditor *)new wxGridCellBoolEditor();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5786,7 +6122,14 @@ SWIGINTERN PyObject *_wrap_GridCellBoolEditor_UseStringValues(PyObject *SWIGUNUS
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxGridCellBoolEditor::UseStringValues((wxString const &)*arg1,(wxString const &)*arg2);
+    try 
+    {
+      wxGridCellBoolEditor::UseStringValues((wxString const &)*arg1,(wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5831,7 +6174,14 @@ SWIGINTERN PyObject *_wrap_GridCellBoolEditor_IsTrueValue(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxGridCellBoolEditor::IsTrueValue((wxString const &)*arg1);
+    try 
+    {
+      result = (bool)wxGridCellBoolEditor::IsTrueValue((wxString const &)*arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5894,7 +6244,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellChoiceEditor(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellChoiceEditor *)new wxGridCellChoiceEditor(arg1,(wxString const *)arg2,arg3);
+    try 
+    {
+      result = (wxGridCellChoiceEditor *)new wxGridCellChoiceEditor(arg1,(wxString const *)arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5943,7 +6300,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellEnumEditor(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellEnumEditor *)new wxGridCellEnumEditor((wxString const &)*arg1);
+    try 
+    {
+      result = (wxGridCellEnumEditor *)new wxGridCellEnumEditor((wxString const &)*arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5980,7 +6344,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellAutoWrapStringEditor(PyObject *SWIGUNUSED
   if (!SWIG_Python_UnpackTuple(args,"new_GridCellAutoWrapStringEditor",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAutoWrapStringEditor *)new wxGridCellAutoWrapStringEditor();
+    try 
+    {
+      result = (wxGridCellAutoWrapStringEditor *)new wxGridCellAutoWrapStringEditor();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6023,7 +6394,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr__setOORInfo(PyObject *SWIGUNUSEDPARM(sel
   arg2 = obj1;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxGridCellAttr__setOORInfo(arg1,arg2);
+    try 
+    {
+      wxGridCellAttr__setOORInfo(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6055,7 +6433,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellAttr(PyObject *SWIGUNUSEDPARM(self), PyOb
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAttr *)new wxGridCellAttr(arg1);
+    try 
+    {
+      result = (wxGridCellAttr *)new wxGridCellAttr(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6084,8 +6469,15 @@ SWIGINTERN PyObject *_wrap_delete_GridCellAttr(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete_wxGridCellAttr(arg1);
-    
+    try 
+    {
+      delete_wxGridCellAttr(arg1);
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6113,7 +6505,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_Clone(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAttr *)((wxGridCellAttr const *)arg1)->Clone();
+    try 
+    {
+      result = (wxGridCellAttr *)((wxGridCellAttr const *)arg1)->Clone();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6153,7 +6552,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_MergeWith(PyObject *SWIGUNUSEDPARM(self)
   arg2 = reinterpret_cast< wxGridCellAttr * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->MergeWith(arg2);
+    try 
+    {
+      (arg1)->MergeWith(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6180,7 +6586,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_IncRef(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->IncRef();
+    try 
+    {
+      (arg1)->IncRef();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6207,7 +6620,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_DecRef(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DecRef();
+    try 
+    {
+      (arg1)->DecRef();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6243,7 +6663,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetTextColour(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTextColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetTextColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6279,7 +6706,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetBackgroundColour(PyObject *SWIGUNUSED
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBackgroundColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetBackgroundColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6320,7 +6754,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetFont(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = reinterpret_cast< wxFont * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFont((wxFont const &)*arg2);
+    try 
+    {
+      (arg1)->SetFont((wxFont const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6367,7 +6808,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetAlignment(PyObject *SWIGUNUSEDPARM(se
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAlignment(arg2,arg3);
+    try 
+    {
+      (arg1)->SetAlignment(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6414,7 +6862,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetSize(PyObject *SWIGUNUSEDPARM(self), 
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSize(arg2,arg3);
+    try 
+    {
+      (arg1)->SetSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6454,7 +6909,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetOverflow(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetOverflow(arg2);
+    try 
+    {
+      (arg1)->SetOverflow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6494,7 +6956,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetReadOnly(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetReadOnly(arg2);
+    try 
+    {
+      (arg1)->SetReadOnly(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6532,7 +7001,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetRenderer(PyObject *SWIGUNUSEDPARM(sel
   arg2 = reinterpret_cast< wxGridCellRenderer * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRenderer(arg2);
+    try 
+    {
+      (arg1)->SetRenderer(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6570,7 +7046,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetEditor(PyObject *SWIGUNUSEDPARM(self)
   arg2 = reinterpret_cast< wxGridCellEditor * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetEditor(arg2);
+    try 
+    {
+      (arg1)->SetEditor(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6608,7 +7091,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetKind(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< wxGridCellAttr::wxAttrKind >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetKind(arg2);
+    try 
+    {
+      (arg1)->SetKind(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6636,7 +7126,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasTextColour(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGridCellAttr const *)arg1)->HasTextColour();
+    try 
+    {
+      result = (bool)((wxGridCellAttr const *)arg1)->HasTextColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6666,7 +7163,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasBackgroundColour(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGridCellAttr const *)arg1)->HasBackgroundColour();
+    try 
+    {
+      result = (bool)((wxGridCellAttr const *)arg1)->HasBackgroundColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6696,7 +7200,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasFont(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGridCellAttr const *)arg1)->HasFont();
+    try 
+    {
+      result = (bool)((wxGridCellAttr const *)arg1)->HasFont();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6726,7 +7237,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasAlignment(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGridCellAttr const *)arg1)->HasAlignment();
+    try 
+    {
+      result = (bool)((wxGridCellAttr const *)arg1)->HasAlignment();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6756,7 +7274,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasRenderer(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGridCellAttr const *)arg1)->HasRenderer();
+    try 
+    {
+      result = (bool)((wxGridCellAttr const *)arg1)->HasRenderer();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6786,7 +7311,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasEditor(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGridCellAttr const *)arg1)->HasEditor();
+    try 
+    {
+      result = (bool)((wxGridCellAttr const *)arg1)->HasEditor();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6816,7 +7348,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasReadWriteMode(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGridCellAttr const *)arg1)->HasReadWriteMode();
+    try 
+    {
+      result = (bool)((wxGridCellAttr const *)arg1)->HasReadWriteMode();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6846,7 +7385,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasOverflowMode(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGridCellAttr const *)arg1)->HasOverflowMode();
+    try 
+    {
+      result = (bool)((wxGridCellAttr const *)arg1)->HasOverflowMode();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6876,7 +7422,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetTextColour(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGridCellAttr const *)arg1)->GetTextColour();
+    try 
+    {
+      result = ((wxGridCellAttr const *)arg1)->GetTextColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6904,7 +7457,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetBackgroundColour(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGridCellAttr const *)arg1)->GetBackgroundColour();
+    try 
+    {
+      result = ((wxGridCellAttr const *)arg1)->GetBackgroundColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6932,7 +7492,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetFont(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGridCellAttr const *)arg1)->GetFont();
+    try 
+    {
+      result = ((wxGridCellAttr const *)arg1)->GetFont();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6967,7 +7534,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetAlignment(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxGridCellAttr const *)arg1)->GetAlignment(arg2,arg3);
+    try 
+    {
+      ((wxGridCellAttr const *)arg1)->GetAlignment(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7014,7 +7588,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetSize(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    ((wxGridCellAttr const *)arg1)->GetSize(arg2,arg3);
+    try 
+    {
+      ((wxGridCellAttr const *)arg1)->GetSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7054,7 +7635,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetOverflow(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGridCellAttr const *)arg1)->GetOverflow();
+    try 
+    {
+      result = (bool)((wxGridCellAttr const *)arg1)->GetOverflow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7113,7 +7701,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetRenderer(PyObject *SWIGUNUSEDPARM(sel
   arg4 = static_cast< int >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellRenderer *)((wxGridCellAttr const *)arg1)->GetRenderer(arg2,arg3,arg4);
+    try 
+    {
+      result = (wxGridCellRenderer *)((wxGridCellAttr const *)arg1)->GetRenderer(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7172,7 +7767,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetEditor(PyObject *SWIGUNUSEDPARM(self)
   arg4 = static_cast< int >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellEditor *)((wxGridCellAttr const *)arg1)->GetEditor(arg2,arg3,arg4);
+    try 
+    {
+      result = (wxGridCellEditor *)((wxGridCellAttr const *)arg1)->GetEditor(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7202,7 +7804,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_IsReadOnly(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGridCellAttr const *)arg1)->IsReadOnly();
+    try 
+    {
+      result = (bool)((wxGridCellAttr const *)arg1)->IsReadOnly();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7232,7 +7841,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetKind(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGridCellAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAttr::wxAttrKind)(arg1)->GetKind();
+    try 
+    {
+      result = (wxGridCellAttr::wxAttrKind)(arg1)->GetKind();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7270,7 +7886,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetDefAttr(PyObject *SWIGUNUSEDPARM(self
   arg2 = reinterpret_cast< wxGridCellAttr * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefAttr(arg2);
+    try 
+    {
+      (arg1)->SetDefAttr(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7299,7 +7922,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellAttrProvider(PyObject *SWIGUNUSEDPARM(sel
   if (!SWIG_Python_UnpackTuple(args,"new_GridCellAttrProvider",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAttrProvider *)new wxGridCellAttrProvider();
+    try 
+    {
+      result = (wxGridCellAttrProvider *)new wxGridCellAttrProvider();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7333,7 +7963,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider__setOORInfo(PyObject *SWIGUNUSED
   arg2 = obj1;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxGridCellAttrProvider__setOORInfo(arg1,arg2);
+    try 
+    {
+      wxGridCellAttrProvider__setOORInfo(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7390,7 +8027,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_GetAttr(PyObject *SWIGUNUSEDPARM
   arg4 = static_cast< wxGridCellAttr::wxAttrKind >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAttr *)((wxGridCellAttrProvider const *)arg1)->GetAttr(arg2,arg3,arg4);
+    try 
+    {
+      result = (wxGridCellAttr *)((wxGridCellAttrProvider const *)arg1)->GetAttr(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7448,7 +8092,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_SetAttr(PyObject *SWIGUNUSEDPARM
   arg4 = static_cast< int >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAttr(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetAttr(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7495,7 +8146,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_SetRowAttr(PyObject *SWIGUNUSEDP
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowAttr(arg2,arg3);
+    try 
+    {
+      (arg1)->SetRowAttr(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7542,7 +8200,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_SetColAttr(PyObject *SWIGUNUSEDP
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColAttr(arg2,arg3);
+    try 
+    {
+      (arg1)->SetColAttr(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7589,7 +8254,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_UpdateAttrRows(PyObject *SWIGUNU
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->UpdateAttrRows(arg2,arg3);
+    try 
+    {
+      (arg1)->UpdateAttrRows(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7636,7 +8308,14 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_UpdateAttrCols(PyObject *SWIGUNU
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->UpdateAttrCols(arg2,arg3);
+    try 
+    {
+      (arg1)->UpdateAttrCols(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7665,7 +8344,14 @@ SWIGINTERN PyObject *_wrap_new_PyGridCellAttrProvider(PyObject *SWIGUNUSEDPARM(s
   if (!SWIG_Python_UnpackTuple(args,"new_PyGridCellAttrProvider",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPyGridCellAttrProvider *)new wxPyGridCellAttrProvider();
+    try 
+    {
+      result = (wxPyGridCellAttrProvider *)new wxPyGridCellAttrProvider();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7700,7 +8386,14 @@ SWIGINTERN PyObject *_wrap_PyGridCellAttrProvider__setCallbackInfo(PyObject *SWI
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7757,7 +8450,14 @@ SWIGINTERN PyObject *_wrap_PyGridCellAttrProvider_GetAttr(PyObject *SWIGUNUSEDPA
   arg4 = static_cast< wxGridCellAttr::wxAttrKind >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAttr *)(arg1)->GetAttr(arg2,arg3,arg4);
+    try 
+    {
+      result = (wxGridCellAttr *)(arg1)->GetAttr(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7815,7 +8515,14 @@ SWIGINTERN PyObject *_wrap_PyGridCellAttrProvider_SetAttr(PyObject *SWIGUNUSEDPA
   arg4 = static_cast< int >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAttr(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetAttr(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7862,7 +8569,14 @@ SWIGINTERN PyObject *_wrap_PyGridCellAttrProvider_SetRowAttr(PyObject *SWIGUNUSE
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowAttr(arg2,arg3);
+    try 
+    {
+      (arg1)->SetRowAttr(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7909,7 +8623,14 @@ SWIGINTERN PyObject *_wrap_PyGridCellAttrProvider_SetColAttr(PyObject *SWIGUNUSE
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColAttr(arg2,arg3);
+    try 
+    {
+      (arg1)->SetColAttr(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7947,8 +8668,15 @@ SWIGINTERN PyObject *_wrap_delete_GridTableBase(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGridTableBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7980,7 +8708,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase__setOORInfo(PyObject *SWIGUNUSEDPARM(se
   arg2 = obj1;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxGridTableBase__setOORInfo(arg1,arg2);
+    try 
+    {
+      wxGridTableBase__setOORInfo(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8018,7 +8753,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetAttrProvider(PyObject *SWIGUNUSEDPAR
   arg2 = reinterpret_cast< wxGridCellAttrProvider * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAttrProvider(arg2);
+    try 
+    {
+      (arg1)->SetAttrProvider(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8046,7 +8788,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetAttrProvider(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGridTableBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAttrProvider *)((wxGridTableBase const *)arg1)->GetAttrProvider();
+    try 
+    {
+      result = (wxGridCellAttrProvider *)((wxGridTableBase const *)arg1)->GetAttrProvider();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8086,7 +8835,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetView(PyObject *SWIGUNUSEDPARM(self),
   arg2 = reinterpret_cast< wxGrid * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetView(arg2);
+    try 
+    {
+      (arg1)->SetView(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8114,7 +8870,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetView(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridTableBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGrid *)((wxGridTableBase const *)arg1)->GetView();
+    try 
+    {
+      result = (wxGrid *)((wxGridTableBase const *)arg1)->GetView();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8144,7 +8907,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetNumberRows(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGridTableBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetNumberRows();
+    try 
+    {
+      result = (int)(arg1)->GetNumberRows();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8172,7 +8942,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetNumberCols(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGridTableBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetNumberCols();
+    try 
+    {
+      result = (int)(arg1)->GetNumberCols();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8220,7 +8997,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_IsEmptyCell(PyObject *SWIGUNUSEDPARM(se
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsEmptyCell(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->IsEmptyCell(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8270,7 +9054,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetValue(PyObject *SWIGUNUSEDPARM(self)
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetValue(arg2,arg3);
+    try 
+    {
+      result = (arg1)->GetValue(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8331,7 +9122,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetValue(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetValue(arg2,arg3,(wxString const &)*arg4);
+    try 
+    {
+      (arg1)->SetValue(arg2,arg3,(wxString const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8387,7 +9185,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetTypeName(PyObject *SWIGUNUSEDPARM(se
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetTypeName(arg2,arg3);
+    try 
+    {
+      result = (arg1)->GetTypeName(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8449,7 +9254,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_CanGetValueAs(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanGetValueAs(arg2,arg3,(wxString const &)*arg4);
+    try 
+    {
+      result = (bool)(arg1)->CanGetValueAs(arg2,arg3,(wxString const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8515,7 +9327,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_CanSetValueAs(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanSetValueAs(arg2,arg3,(wxString const &)*arg4);
+    try 
+    {
+      result = (bool)(arg1)->CanSetValueAs(arg2,arg3,(wxString const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8573,7 +9392,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetValueAsLong(PyObject *SWIGUNUSEDPARM
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (long)(arg1)->GetValueAsLong(arg2,arg3);
+    try 
+    {
+      result = (long)(arg1)->GetValueAsLong(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8621,7 +9447,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetValueAsDouble(PyObject *SWIGUNUSEDPA
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (double)(arg1)->GetValueAsDouble(arg2,arg3);
+    try 
+    {
+      result = (double)(arg1)->GetValueAsDouble(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8669,7 +9502,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetValueAsBool(PyObject *SWIGUNUSEDPARM
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetValueAsBool(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->GetValueAsBool(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8727,7 +9567,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetValueAsLong(PyObject *SWIGUNUSEDPARM
   arg4 = static_cast< long >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetValueAsLong(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetValueAsLong(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8783,7 +9630,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetValueAsDouble(PyObject *SWIGUNUSEDPA
   arg4 = static_cast< double >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetValueAsDouble(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetValueAsDouble(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8839,7 +9693,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetValueAsBool(PyObject *SWIGUNUSEDPARM
   arg4 = static_cast< bool >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetValueAsBool(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetValueAsBool(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8866,7 +9727,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_Clear(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGridTableBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Clear();
+    try 
+    {
+      (arg1)->Clear();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8918,7 +9786,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_InsertRows(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->InsertRows(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->InsertRows(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8961,7 +9836,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_AppendRows(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->AppendRows(arg2);
+    try 
+    {
+      result = (bool)(arg1)->AppendRows(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9015,7 +9897,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_DeleteRows(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DeleteRows(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->DeleteRows(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9069,7 +9958,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_InsertCols(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->InsertCols(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->InsertCols(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9112,7 +10008,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_AppendCols(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->AppendCols(arg2);
+    try 
+    {
+      result = (bool)(arg1)->AppendCols(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9166,7 +10069,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_DeleteCols(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DeleteCols(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->DeleteCols(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9207,7 +10117,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetRowLabelValue(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetRowLabelValue(arg2);
+    try 
+    {
+      result = (arg1)->GetRowLabelValue(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9252,7 +10169,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetColLabelValue(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetColLabelValue(arg2);
+    try 
+    {
+      result = (arg1)->GetColLabelValue(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9304,7 +10228,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetRowLabelValue(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowLabelValue(arg2,(wxString const &)*arg3);
+    try 
+    {
+      (arg1)->SetRowLabelValue(arg2,(wxString const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9358,7 +10289,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetColLabelValue(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColLabelValue(arg2,(wxString const &)*arg3);
+    try 
+    {
+      (arg1)->SetColLabelValue(arg2,(wxString const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9394,7 +10332,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_CanHaveAttributes(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxGridTableBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanHaveAttributes();
+    try 
+    {
+      result = (bool)(arg1)->CanHaveAttributes();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9453,7 +10398,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetAttr(PyObject *SWIGUNUSEDPARM(self),
   arg4 = static_cast< wxGridCellAttr::wxAttrKind >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAttr *)(arg1)->GetAttr(arg2,arg3,arg4);
+    try 
+    {
+      result = (wxGridCellAttr *)(arg1)->GetAttr(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9511,7 +10463,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetAttr(PyObject *SWIGUNUSEDPARM(self),
   arg4 = static_cast< int >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAttr(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetAttr(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9558,7 +10517,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetRowAttr(PyObject *SWIGUNUSEDPARM(sel
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowAttr(arg2,arg3);
+    try 
+    {
+      (arg1)->SetRowAttr(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9605,7 +10571,14 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetColAttr(PyObject *SWIGUNUSEDPARM(sel
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColAttr(arg2,arg3);
+    try 
+    {
+      (arg1)->SetColAttr(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9630,7 +10603,14 @@ SWIGINTERN PyObject *_wrap_new_PyGridTableBase(PyObject *SWIGUNUSEDPARM(self), P
   if (!SWIG_Python_UnpackTuple(args,"new_PyGridTableBase",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPyGridTableBase *)new wxPyGridTableBase();
+    try 
+    {
+      result = (wxPyGridTableBase *)new wxPyGridTableBase();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9665,7 +10645,14 @@ SWIGINTERN PyObject *_wrap_PyGridTableBase__setCallbackInfo(PyObject *SWIGUNUSED
   arg3 = obj2;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_setCallbackInfo(arg2,arg3);
+    try 
+    {
+      (arg1)->_setCallbackInfo(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9692,7 +10679,14 @@ SWIGINTERN PyObject *_wrap_PyGridTableBase_Destroy(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxPyGridTableBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxPyGridTableBase_Destroy(arg1);
+    try 
+    {
+      wxPyGridTableBase_Destroy(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9746,7 +10740,14 @@ SWIGINTERN PyObject *_wrap_new_GridStringTable(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridStringTable *)new wxGridStringTable(arg1,arg2);
+    try 
+    {
+      result = (wxGridStringTable *)new wxGridStringTable(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9818,7 +10819,14 @@ SWIGINTERN PyObject *_wrap_new_GridTableMessage(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridTableMessage *)new wxGridTableMessage(arg1,arg2,arg3,arg4);
+    try 
+    {
+      result = (wxGridTableMessage *)new wxGridTableMessage(arg1,arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9845,8 +10853,15 @@ SWIGINTERN PyObject *_wrap_delete_GridTableMessage(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxGridTableMessage * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9884,7 +10899,14 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_SetTableObject(PyObject *SWIGUNUSEDP
   arg2 = reinterpret_cast< wxGridTableBase * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTableObject(arg2);
+    try 
+    {
+      (arg1)->SetTableObject(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9912,7 +10934,14 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_GetTableObject(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxGridTableMessage * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridTableBase *)((wxGridTableMessage const *)arg1)->GetTableObject();
+    try 
+    {
+      result = (wxGridTableBase *)((wxGridTableMessage const *)arg1)->GetTableObject();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9952,7 +10981,14 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_SetId(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetId(arg2);
+    try 
+    {
+      (arg1)->SetId(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9980,7 +11016,14 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_GetId(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxGridTableMessage * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetId();
+    try 
+    {
+      result = (int)(arg1)->GetId();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10018,7 +11061,14 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_SetCommandInt(PyObject *SWIGUNUSEDPA
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCommandInt(arg2);
+    try 
+    {
+      (arg1)->SetCommandInt(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10046,7 +11096,14 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_GetCommandInt(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxGridTableMessage * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetCommandInt();
+    try 
+    {
+      result = (int)(arg1)->GetCommandInt();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10084,7 +11141,14 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_SetCommandInt2(PyObject *SWIGUNUSEDP
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCommandInt2(arg2);
+    try 
+    {
+      (arg1)->SetCommandInt2(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10112,7 +11176,14 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_GetCommandInt2(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxGridTableMessage * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetCommandInt2();
+    try 
+    {
+      result = (int)(arg1)->GetCommandInt2();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10166,7 +11237,14 @@ SWIGINTERN PyObject *_wrap_new_GridCellCoords(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellCoords *)new wxGridCellCoords(arg1,arg2);
+    try 
+    {
+      result = (wxGridCellCoords *)new wxGridCellCoords(arg1,arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10193,8 +11271,15 @@ SWIGINTERN PyObject *_wrap_delete_GridCellCoords(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridCellCoords * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10222,7 +11307,14 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_GetRow(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridCellCoords * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGridCellCoords const *)arg1)->GetRow();
+    try 
+    {
+      result = (int)((wxGridCellCoords const *)arg1)->GetRow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10260,7 +11352,14 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_SetRow(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRow(arg2);
+    try 
+    {
+      (arg1)->SetRow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10288,7 +11387,14 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_GetCol(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridCellCoords * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGridCellCoords const *)arg1)->GetCol();
+    try 
+    {
+      result = (int)((wxGridCellCoords const *)arg1)->GetCol();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10326,7 +11432,14 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_SetCol(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCol(arg2);
+    try 
+    {
+      (arg1)->SetCol(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10373,7 +11486,14 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_Set(PyObject *SWIGUNUSEDPARM(self), Py
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Set(arg2,arg3);
+    try 
+    {
+      (arg1)->Set(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10467,7 +11587,14 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_Get(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxGridCellCoords * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyObject *)wxGridCellCoords_Get(arg1);
+    try 
+    {
+      result = (PyObject *)wxGridCellCoords_Get(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10681,7 +11808,14 @@ SWIGINTERN PyObject *_wrap_Grid_Create(PyObject *SWIGUNUSEDPARM(self), PyObject 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10750,7 +11884,14 @@ SWIGINTERN PyObject *_wrap_Grid_CreateGrid(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CreateGrid(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->CreateGrid(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10790,7 +11931,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetSelectionMode(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< WXGRIDSELECTIONMODES >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelectionMode(arg2);
+    try 
+    {
+      (arg1)->SetSelectionMode(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10818,7 +11966,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectionMode(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (WXGRIDSELECTIONMODES)(arg1)->GetSelectionMode();
+    try 
+    {
+      result = (WXGRIDSELECTIONMODES)(arg1)->GetSelectionMode();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10846,7 +12001,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetNumberRows(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetNumberRows();
+    try 
+    {
+      result = (int)(arg1)->GetNumberRows();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10874,7 +12036,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetNumberCols(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetNumberCols();
+    try 
+    {
+      result = (int)(arg1)->GetNumberCols();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10916,7 +12085,14 @@ SWIGINTERN PyObject *_wrap_Grid_ProcessTableMessage(PyObject *SWIGUNUSEDPARM(sel
   arg2 = reinterpret_cast< wxGridTableMessage * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ProcessTableMessage(*arg2);
+    try 
+    {
+      result = (bool)(arg1)->ProcessTableMessage(*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10946,7 +12122,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetTable(PyObject *SWIGUNUSEDPARM(self), PyObjec
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridTableBase *)((wxGrid const *)arg1)->GetTable();
+    try 
+    {
+      result = (wxGridTableBase *)((wxGrid const *)arg1)->GetTable();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11007,7 +12190,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetTable(PyObject *SWIGUNUSEDPARM(self), PyObjec
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetTable(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->SetTable(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11036,7 +12226,14 @@ SWIGINTERN PyObject *_wrap_Grid_ClearGrid(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ClearGrid();
+    try 
+    {
+      (arg1)->ClearGrid();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11099,7 +12296,14 @@ SWIGINTERN PyObject *_wrap_Grid_InsertRows(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->InsertRows(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->InsertRows(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11153,7 +12357,14 @@ SWIGINTERN PyObject *_wrap_Grid_AppendRows(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->AppendRows(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->AppendRows(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11218,7 +12429,14 @@ SWIGINTERN PyObject *_wrap_Grid_DeleteRows(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DeleteRows(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->DeleteRows(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11283,7 +12501,14 @@ SWIGINTERN PyObject *_wrap_Grid_InsertCols(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->InsertCols(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->InsertCols(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11337,7 +12562,14 @@ SWIGINTERN PyObject *_wrap_Grid_AppendCols(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->AppendCols(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->AppendCols(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11402,7 +12634,14 @@ SWIGINTERN PyObject *_wrap_Grid_DeleteCols(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->DeleteCols(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->DeleteCols(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11454,7 +12693,14 @@ SWIGINTERN PyObject *_wrap_Grid_DrawCellHighlight(PyObject *SWIGUNUSEDPARM(self)
   arg3 = reinterpret_cast< wxGridCellAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DrawCellHighlight(*arg2,(wxGridCellAttr const *)arg3);
+    try 
+    {
+      (arg1)->DrawCellHighlight(*arg2,(wxGridCellAttr const *)arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11543,7 +12789,14 @@ SWIGINTERN PyObject *_wrap_Grid_DrawTextRectangle(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DrawTextRectangle(*arg2,(wxString const &)*arg3,(wxRect const &)*arg4,arg5,arg6,arg7);
+    try 
+    {
+      (arg1)->DrawTextRectangle(*arg2,(wxString const &)*arg3,(wxRect const &)*arg4,arg5,arg6,arg7);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11620,7 +12873,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetTextBoxSize(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetTextBoxSize(*arg2,*arg3,arg4,arg5);
+    try 
+    {
+      (arg1)->GetTextBoxSize(*arg2,*arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11665,7 +12925,14 @@ SWIGINTERN PyObject *_wrap_Grid_BeginBatch(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->BeginBatch();
+    try 
+    {
+      (arg1)->BeginBatch();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11692,7 +12959,14 @@ SWIGINTERN PyObject *_wrap_Grid_EndBatch(PyObject *SWIGUNUSEDPARM(self), PyObjec
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EndBatch();
+    try 
+    {
+      (arg1)->EndBatch();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11720,7 +12994,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetBatchCount(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetBatchCount();
+    try 
+    {
+      result = (int)(arg1)->GetBatchCount();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11747,7 +13028,14 @@ SWIGINTERN PyObject *_wrap_Grid_ForceRefresh(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ForceRefresh();
+    try 
+    {
+      (arg1)->ForceRefresh();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11775,7 +13063,14 @@ SWIGINTERN PyObject *_wrap_Grid_IsEditable(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsEditable();
+    try 
+    {
+      result = (bool)(arg1)->IsEditable();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11815,7 +13110,14 @@ SWIGINTERN PyObject *_wrap_Grid_EnableEditing(PyObject *SWIGUNUSEDPARM(self), Py
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableEditing(arg2);
+    try 
+    {
+      (arg1)->EnableEditing(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11855,7 +13157,14 @@ SWIGINTERN PyObject *_wrap_Grid_EnableCellEditControl(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableCellEditControl(arg2);
+    try 
+    {
+      (arg1)->EnableCellEditControl(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11882,7 +13191,14 @@ SWIGINTERN PyObject *_wrap_Grid_DisableCellEditControl(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DisableCellEditControl();
+    try 
+    {
+      (arg1)->DisableCellEditControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11910,7 +13226,14 @@ SWIGINTERN PyObject *_wrap_Grid_CanEnableCellControl(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGrid const *)arg1)->CanEnableCellControl();
+    try 
+    {
+      result = (bool)((wxGrid const *)arg1)->CanEnableCellControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11940,7 +13263,14 @@ SWIGINTERN PyObject *_wrap_Grid_IsCellEditControlEnabled(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGrid const *)arg1)->IsCellEditControlEnabled();
+    try 
+    {
+      result = (bool)((wxGrid const *)arg1)->IsCellEditControlEnabled();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11970,7 +13300,14 @@ SWIGINTERN PyObject *_wrap_Grid_IsCellEditControlShown(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGrid const *)arg1)->IsCellEditControlShown();
+    try 
+    {
+      result = (bool)((wxGrid const *)arg1)->IsCellEditControlShown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12000,7 +13337,14 @@ SWIGINTERN PyObject *_wrap_Grid_IsCurrentCellReadOnly(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGrid const *)arg1)->IsCurrentCellReadOnly();
+    try 
+    {
+      result = (bool)((wxGrid const *)arg1)->IsCurrentCellReadOnly();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12029,7 +13373,14 @@ SWIGINTERN PyObject *_wrap_Grid_ShowCellEditControl(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ShowCellEditControl();
+    try 
+    {
+      (arg1)->ShowCellEditControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12056,7 +13407,14 @@ SWIGINTERN PyObject *_wrap_Grid_HideCellEditControl(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->HideCellEditControl();
+    try 
+    {
+      (arg1)->HideCellEditControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12083,7 +13441,14 @@ SWIGINTERN PyObject *_wrap_Grid_SaveEditControlValue(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SaveEditControlValue();
+    try 
+    {
+      (arg1)->SaveEditControlValue();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12131,7 +13496,14 @@ SWIGINTERN PyObject *_wrap_Grid_XYToCell(PyObject *SWIGUNUSEDPARM(self), PyObjec
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = wxGrid_XYToCell(arg1,arg2,arg3);
+    try 
+    {
+      result = wxGrid_XYToCell(arg1,arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12170,7 +13542,14 @@ SWIGINTERN PyObject *_wrap_Grid_YToRow(PyObject *SWIGUNUSEDPARM(self), PyObject 
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->YToRow(arg2);
+    try 
+    {
+      result = (int)(arg1)->YToRow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12220,7 +13599,14 @@ SWIGINTERN PyObject *_wrap_Grid_XToCol(PyObject *SWIGUNUSEDPARM(self), PyObject 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->XToCol(arg2,arg3);
+    try 
+    {
+      result = (int)(arg1)->XToCol(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12259,7 +13645,14 @@ SWIGINTERN PyObject *_wrap_Grid_YToEdgeOfRow(PyObject *SWIGUNUSEDPARM(self), PyO
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->YToEdgeOfRow(arg2);
+    try 
+    {
+      result = (int)(arg1)->YToEdgeOfRow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12298,7 +13691,14 @@ SWIGINTERN PyObject *_wrap_Grid_XToEdgeOfCol(PyObject *SWIGUNUSEDPARM(self), PyO
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->XToEdgeOfCol(arg2);
+    try 
+    {
+      result = (int)(arg1)->XToEdgeOfCol(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12346,7 +13746,14 @@ SWIGINTERN PyObject *_wrap_Grid_CellToRect(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->CellToRect(arg2,arg3);
+    try 
+    {
+      result = (arg1)->CellToRect(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12374,7 +13781,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridCursorRow(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetGridCursorRow();
+    try 
+    {
+      result = (int)(arg1)->GetGridCursorRow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12402,7 +13816,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridCursorCol(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetGridCursorCol();
+    try 
+    {
+      result = (int)(arg1)->GetGridCursorCol();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12461,7 +13882,14 @@ SWIGINTERN PyObject *_wrap_Grid_IsVisible(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsVisible(arg2,arg3,arg4);
+    try 
+    {
+      result = (bool)(arg1)->IsVisible(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12510,7 +13938,14 @@ SWIGINTERN PyObject *_wrap_Grid_MakeCellVisible(PyObject *SWIGUNUSEDPARM(self), 
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->MakeCellVisible(arg2,arg3);
+    try 
+    {
+      (arg1)->MakeCellVisible(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12557,7 +13992,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetGridCursor(PyObject *SWIGUNUSEDPARM(self), Py
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetGridCursor(arg2,arg3);
+    try 
+    {
+      (arg1)->SetGridCursor(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12596,7 +14038,14 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorUp(PyObject *SWIGUNUSEDPARM(self), PyO
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MoveCursorUp(arg2);
+    try 
+    {
+      result = (bool)(arg1)->MoveCursorUp(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12637,7 +14086,14 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorDown(PyObject *SWIGUNUSEDPARM(self), P
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MoveCursorDown(arg2);
+    try 
+    {
+      result = (bool)(arg1)->MoveCursorDown(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12678,7 +14134,14 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorLeft(PyObject *SWIGUNUSEDPARM(self), P
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MoveCursorLeft(arg2);
+    try 
+    {
+      result = (bool)(arg1)->MoveCursorLeft(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12719,7 +14182,14 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorRight(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MoveCursorRight(arg2);
+    try 
+    {
+      result = (bool)(arg1)->MoveCursorRight(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12749,7 +14219,14 @@ SWIGINTERN PyObject *_wrap_Grid_MovePageDown(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MovePageDown();
+    try 
+    {
+      result = (bool)(arg1)->MovePageDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12779,7 +14256,14 @@ SWIGINTERN PyObject *_wrap_Grid_MovePageUp(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MovePageUp();
+    try 
+    {
+      result = (bool)(arg1)->MovePageUp();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12820,7 +14304,14 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorUpBlock(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MoveCursorUpBlock(arg2);
+    try 
+    {
+      result = (bool)(arg1)->MoveCursorUpBlock(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12861,7 +14352,14 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorDownBlock(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MoveCursorDownBlock(arg2);
+    try 
+    {
+      result = (bool)(arg1)->MoveCursorDownBlock(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12902,7 +14400,14 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorLeftBlock(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MoveCursorLeftBlock(arg2);
+    try 
+    {
+      result = (bool)(arg1)->MoveCursorLeftBlock(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12943,7 +14448,14 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorRightBlock(PyObject *SWIGUNUSEDPARM(se
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MoveCursorRightBlock(arg2);
+    try 
+    {
+      result = (bool)(arg1)->MoveCursorRightBlock(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12973,7 +14485,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultRowLabelSize(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetDefaultRowLabelSize();
+    try 
+    {
+      result = (int)(arg1)->GetDefaultRowLabelSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13001,7 +14520,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowLabelSize(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetRowLabelSize();
+    try 
+    {
+      result = (int)(arg1)->GetRowLabelSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13029,7 +14555,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultColLabelSize(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetDefaultColLabelSize();
+    try 
+    {
+      result = (int)(arg1)->GetDefaultColLabelSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13057,7 +14590,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetColLabelSize(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetColLabelSize();
+    try 
+    {
+      result = (int)(arg1)->GetColLabelSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13085,7 +14625,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetLabelBackgroundColour(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetLabelBackgroundColour();
+    try 
+    {
+      result = (arg1)->GetLabelBackgroundColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13113,7 +14660,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetLabelTextColour(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetLabelTextColour();
+    try 
+    {
+      result = (arg1)->GetLabelTextColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13141,7 +14695,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetLabelFont(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetLabelFont();
+    try 
+    {
+      result = (arg1)->GetLabelFont();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13176,7 +14737,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowLabelAlignment(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetRowLabelAlignment(arg2,arg3);
+    try 
+    {
+      (arg1)->GetRowLabelAlignment(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13223,7 +14791,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetColLabelAlignment(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetColLabelAlignment(arg2,arg3);
+    try 
+    {
+      (arg1)->GetColLabelAlignment(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13263,7 +14838,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetColLabelTextOrientation(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetColLabelTextOrientation();
+    try 
+    {
+      result = (int)(arg1)->GetColLabelTextOrientation();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13302,7 +14884,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowLabelValue(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetRowLabelValue(arg2);
+    try 
+    {
+      result = (arg1)->GetRowLabelValue(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13347,7 +14936,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetColLabelValue(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetColLabelValue(arg2);
+    try 
+    {
+      result = (arg1)->GetColLabelValue(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13381,7 +14977,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridLineColour(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetGridLineColour();
+    try 
+    {
+      result = (arg1)->GetGridLineColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13409,7 +15012,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultGridLinePen(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetDefaultGridLinePen();
+    try 
+    {
+      result = (arg1)->GetDefaultGridLinePen();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13448,7 +15058,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowGridLinePen(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetRowGridLinePen(arg2);
+    try 
+    {
+      result = (arg1)->GetRowGridLinePen(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13487,7 +15104,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetColGridLinePen(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetColGridLinePen(arg2);
+    try 
+    {
+      result = (arg1)->GetColGridLinePen(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13515,7 +15139,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellHighlightColour(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetCellHighlightColour();
+    try 
+    {
+      result = (arg1)->GetCellHighlightColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13543,7 +15174,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellHighlightPenWidth(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetCellHighlightPenWidth();
+    try 
+    {
+      result = (int)(arg1)->GetCellHighlightPenWidth();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13571,7 +15209,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellHighlightROPenWidth(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetCellHighlightROPenWidth();
+    try 
+    {
+      result = (int)(arg1)->GetCellHighlightROPenWidth();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13611,7 +15256,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetUseNativeColLabels(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetUseNativeColLabels(arg2);
+    try 
+    {
+      (arg1)->SetUseNativeColLabels(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13649,7 +15301,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowLabelSize(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowLabelSize(arg2);
+    try 
+    {
+      (arg1)->SetRowLabelSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13687,7 +15346,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColLabelSize(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColLabelSize(arg2);
+    try 
+    {
+      (arg1)->SetColLabelSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13714,7 +15380,14 @@ SWIGINTERN PyObject *_wrap_Grid_HideRowLabels(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->HideRowLabels();
+    try 
+    {
+      (arg1)->HideRowLabels();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13741,7 +15414,14 @@ SWIGINTERN PyObject *_wrap_Grid_HideColLabels(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->HideColLabels();
+    try 
+    {
+      (arg1)->HideColLabels();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13777,7 +15457,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetLabelBackgroundColour(PyObject *SWIGUNUSEDPAR
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetLabelBackgroundColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetLabelBackgroundColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13813,7 +15500,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetLabelTextColour(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetLabelTextColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetLabelTextColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13854,7 +15548,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetLabelFont(PyObject *SWIGUNUSEDPARM(self), PyO
   arg2 = reinterpret_cast< wxFont * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetLabelFont((wxFont const &)*arg2);
+    try 
+    {
+      (arg1)->SetLabelFont((wxFont const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13901,7 +15602,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowLabelAlignment(PyObject *SWIGUNUSEDPARM(se
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowLabelAlignment(arg2,arg3);
+    try 
+    {
+      (arg1)->SetRowLabelAlignment(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13948,7 +15656,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColLabelAlignment(PyObject *SWIGUNUSEDPARM(se
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColLabelAlignment(arg2,arg3);
+    try 
+    {
+      (arg1)->SetColLabelAlignment(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13986,7 +15701,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColLabelTextOrientation(PyObject *SWIGUNUSEDP
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColLabelTextOrientation(arg2);
+    try 
+    {
+      (arg1)->SetColLabelTextOrientation(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14032,7 +15754,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowLabelValue(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowLabelValue(arg2,(wxString const &)*arg3);
+    try 
+    {
+      (arg1)->SetRowLabelValue(arg2,(wxString const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14086,7 +15815,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColLabelValue(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColLabelValue(arg2,(wxString const &)*arg3);
+    try 
+    {
+      (arg1)->SetColLabelValue(arg2,(wxString const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14130,7 +15866,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetGridLineColour(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetGridLineColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetGridLineColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14166,7 +15909,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellHighlightColour(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellHighlightColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetCellHighlightColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14204,7 +15954,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellHighlightPenWidth(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellHighlightPenWidth(arg2);
+    try 
+    {
+      (arg1)->SetCellHighlightPenWidth(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14242,7 +15999,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellHighlightROPenWidth(PyObject *SWIGUNUSEDP
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellHighlightROPenWidth(arg2);
+    try 
+    {
+      (arg1)->SetCellHighlightROPenWidth(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14282,7 +16046,14 @@ SWIGINTERN PyObject *_wrap_Grid_EnableDragRowSize(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableDragRowSize(arg2);
+    try 
+    {
+      (arg1)->EnableDragRowSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14309,7 +16080,14 @@ SWIGINTERN PyObject *_wrap_Grid_DisableDragRowSize(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DisableDragRowSize();
+    try 
+    {
+      (arg1)->DisableDragRowSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14337,7 +16115,14 @@ SWIGINTERN PyObject *_wrap_Grid_CanDragRowSize(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanDragRowSize();
+    try 
+    {
+      result = (bool)(arg1)->CanDragRowSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14379,7 +16164,14 @@ SWIGINTERN PyObject *_wrap_Grid_EnableDragColSize(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableDragColSize(arg2);
+    try 
+    {
+      (arg1)->EnableDragColSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14406,7 +16198,14 @@ SWIGINTERN PyObject *_wrap_Grid_DisableDragColSize(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DisableDragColSize();
+    try 
+    {
+      (arg1)->DisableDragColSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14434,7 +16233,14 @@ SWIGINTERN PyObject *_wrap_Grid_CanDragColSize(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanDragColSize();
+    try 
+    {
+      result = (bool)(arg1)->CanDragColSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14476,7 +16282,14 @@ SWIGINTERN PyObject *_wrap_Grid_EnableDragColMove(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableDragColMove(arg2);
+    try 
+    {
+      (arg1)->EnableDragColMove(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14503,7 +16316,14 @@ SWIGINTERN PyObject *_wrap_Grid_DisableDragColMove(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DisableDragColMove();
+    try 
+    {
+      (arg1)->DisableDragColMove();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14531,7 +16351,14 @@ SWIGINTERN PyObject *_wrap_Grid_CanDragColMove(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanDragColMove();
+    try 
+    {
+      result = (bool)(arg1)->CanDragColMove();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14573,7 +16400,14 @@ SWIGINTERN PyObject *_wrap_Grid_EnableDragGridSize(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableDragGridSize(arg2);
+    try 
+    {
+      (arg1)->EnableDragGridSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14600,7 +16434,14 @@ SWIGINTERN PyObject *_wrap_Grid_DisableDragGridSize(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DisableDragGridSize();
+    try 
+    {
+      (arg1)->DisableDragGridSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14628,7 +16469,14 @@ SWIGINTERN PyObject *_wrap_Grid_CanDragGridSize(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanDragGridSize();
+    try 
+    {
+      result = (bool)(arg1)->CanDragGridSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14670,7 +16518,14 @@ SWIGINTERN PyObject *_wrap_Grid_EnableDragCell(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableDragCell(arg2);
+    try 
+    {
+      (arg1)->EnableDragCell(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14697,7 +16552,14 @@ SWIGINTERN PyObject *_wrap_Grid_DisableDragCell(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DisableDragCell();
+    try 
+    {
+      (arg1)->DisableDragCell();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14725,7 +16587,14 @@ SWIGINTERN PyObject *_wrap_Grid_CanDragCell(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CanDragCell();
+    try 
+    {
+      result = (bool)(arg1)->CanDragCell();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14783,7 +16652,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetAttr(PyObject *SWIGUNUSEDPARM(self), PyObject
   arg4 = reinterpret_cast< wxGridCellAttr * >(argp4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAttr(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetAttr(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14830,7 +16706,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowAttr(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg3 = reinterpret_cast< wxGridCellAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowAttr(arg2,arg3);
+    try 
+    {
+      (arg1)->SetRowAttr(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14877,7 +16760,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColAttr(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg3 = reinterpret_cast< wxGridCellAttr * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColAttr(arg2,arg3);
+    try 
+    {
+      (arg1)->SetColAttr(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14925,7 +16815,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetOrCreateCellAttr(PyObject *SWIGUNUSEDPARM(sel
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellAttr *)((wxGrid const *)arg1)->GetOrCreateCellAttr(arg2,arg3);
+    try 
+    {
+      result = (wxGridCellAttr *)((wxGrid const *)arg1)->GetOrCreateCellAttr(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14965,7 +16862,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColFormatBool(PyObject *SWIGUNUSEDPARM(self),
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColFormatBool(arg2);
+    try 
+    {
+      (arg1)->SetColFormatBool(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15003,7 +16907,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColFormatNumber(PyObject *SWIGUNUSEDPARM(self
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColFormatNumber(arg2);
+    try 
+    {
+      (arg1)->SetColFormatNumber(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15063,7 +16974,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColFormatFloat(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColFormatFloat(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetColFormatFloat(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15109,7 +17027,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColFormatCustom(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColFormatCustom(arg2,(wxString const &)*arg3);
+    try 
+    {
+      (arg1)->SetColFormatCustom(arg2,(wxString const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15157,7 +17082,14 @@ SWIGINTERN PyObject *_wrap_Grid_EnableGridLines(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableGridLines(arg2);
+    try 
+    {
+      (arg1)->EnableGridLines(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15185,7 +17117,14 @@ SWIGINTERN PyObject *_wrap_Grid_GridLinesEnabled(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GridLinesEnabled();
+    try 
+    {
+      result = (bool)(arg1)->GridLinesEnabled();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15215,7 +17154,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultRowSize(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetDefaultRowSize();
+    try 
+    {
+      result = (int)(arg1)->GetDefaultRowSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15254,7 +17200,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowSize(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetRowSize(arg2);
+    try 
+    {
+      result = (int)(arg1)->GetRowSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15282,7 +17235,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultColSize(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetDefaultColSize();
+    try 
+    {
+      result = (int)(arg1)->GetDefaultColSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15321,7 +17281,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetColSize(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetColSize(arg2);
+    try 
+    {
+      result = (int)(arg1)->GetColSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15349,7 +17316,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultCellBackgroundColour(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetDefaultCellBackgroundColour();
+    try 
+    {
+      result = (arg1)->GetDefaultCellBackgroundColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15397,7 +17371,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellBackgroundColour(PyObject *SWIGUNUSEDPARM
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetCellBackgroundColour(arg2,arg3);
+    try 
+    {
+      result = (arg1)->GetCellBackgroundColour(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15425,7 +17406,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultCellTextColour(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetDefaultCellTextColour();
+    try 
+    {
+      result = (arg1)->GetDefaultCellTextColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15473,7 +17461,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellTextColour(PyObject *SWIGUNUSEDPARM(self)
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetCellTextColour(arg2,arg3);
+    try 
+    {
+      result = (arg1)->GetCellTextColour(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15501,7 +17496,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultCellFont(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetDefaultCellFont();
+    try 
+    {
+      result = (arg1)->GetDefaultCellFont();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15549,7 +17551,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellFont(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetCellFont(arg2,arg3);
+    try 
+    {
+      result = (arg1)->GetCellFont(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15584,7 +17593,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultCellAlignment(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetDefaultCellAlignment(arg2,arg3);
+    try 
+    {
+      (arg1)->GetDefaultCellAlignment(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15651,7 +17667,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellAlignment(PyObject *SWIGUNUSEDPARM(self),
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetCellAlignment(arg2,arg3,arg4,arg5);
+    try 
+    {
+      (arg1)->GetCellAlignment(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15691,7 +17714,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultCellOverflow(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetDefaultCellOverflow();
+    try 
+    {
+      result = (bool)(arg1)->GetDefaultCellOverflow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15741,7 +17771,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellOverflow(PyObject *SWIGUNUSEDPARM(self), 
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetCellOverflow(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->GetCellOverflow(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15798,7 +17835,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellSize(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetCellSize(arg2,arg3,arg4,arg5);
+    try 
+    {
+      (arg1)->GetCellSize(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15859,7 +17903,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultRowSize(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultRowSize(arg2,arg3);
+    try 
+    {
+      (arg1)->SetDefaultRowSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15906,7 +17957,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowSize(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowSize(arg2,arg3);
+    try 
+    {
+      (arg1)->SetRowSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15955,7 +18013,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultColSize(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultColSize(arg2,arg3);
+    try 
+    {
+      (arg1)->SetDefaultColSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16002,7 +18067,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColSize(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColSize(arg2,arg3);
+    try 
+    {
+      (arg1)->SetColSize(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16041,7 +18113,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetColAt(PyObject *SWIGUNUSEDPARM(self), PyObjec
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGrid const *)arg1)->GetColAt(arg2);
+    try 
+    {
+      result = (int)((wxGrid const *)arg1)->GetColAt(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16088,7 +18167,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColPos(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColPos(arg2,arg3);
+    try 
+    {
+      (arg1)->SetColPos(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16127,7 +18213,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetColPos(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGrid const *)arg1)->GetColPos(arg2);
+    try 
+    {
+      result = (int)((wxGrid const *)arg1)->GetColPos(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16176,7 +18269,14 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeColumn(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AutoSizeColumn(arg2,arg3);
+    try 
+    {
+      (arg1)->AutoSizeColumn(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16225,7 +18325,14 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeRow(PyObject *SWIGUNUSEDPARM(self), PyOb
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AutoSizeRow(arg2,arg3);
+    try 
+    {
+      (arg1)->AutoSizeRow(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16265,7 +18372,14 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeColumns(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AutoSizeColumns(arg2);
+    try 
+    {
+      (arg1)->AutoSizeColumns(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16305,7 +18419,14 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeRows(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AutoSizeRows(arg2);
+    try 
+    {
+      (arg1)->AutoSizeRows(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16332,7 +18453,14 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSize(PyObject *SWIGUNUSEDPARM(self), PyObjec
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AutoSize();
+    try 
+    {
+      (arg1)->AutoSize();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16370,7 +18498,14 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeRowLabelSize(PyObject *SWIGUNUSEDPARM(se
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AutoSizeRowLabelSize(arg2);
+    try 
+    {
+      (arg1)->AutoSizeRowLabelSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16408,7 +18543,14 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeColLabelSize(PyObject *SWIGUNUSEDPARM(se
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AutoSizeColLabelSize(arg2);
+    try 
+    {
+      (arg1)->AutoSizeColLabelSize(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16455,7 +18597,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColMinimalWidth(PyObject *SWIGUNUSEDPARM(self
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColMinimalWidth(arg2,arg3);
+    try 
+    {
+      (arg1)->SetColMinimalWidth(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16502,7 +18651,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowMinimalHeight(PyObject *SWIGUNUSEDPARM(sel
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowMinimalHeight(arg2,arg3);
+    try 
+    {
+      (arg1)->SetRowMinimalHeight(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16540,7 +18696,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetColMinimalAcceptableWidth(PyObject *SWIGUNUSE
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColMinimalAcceptableWidth(arg2);
+    try 
+    {
+      (arg1)->SetColMinimalAcceptableWidth(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16578,7 +18741,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowMinimalAcceptableHeight(PyObject *SWIGUNUS
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRowMinimalAcceptableHeight(arg2);
+    try 
+    {
+      (arg1)->SetRowMinimalAcceptableHeight(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16606,7 +18776,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetColMinimalAcceptableWidth(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGrid const *)arg1)->GetColMinimalAcceptableWidth();
+    try 
+    {
+      result = (int)((wxGrid const *)arg1)->GetColMinimalAcceptableWidth();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16634,7 +18811,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowMinimalAcceptableHeight(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGrid const *)arg1)->GetRowMinimalAcceptableHeight();
+    try 
+    {
+      result = (int)((wxGrid const *)arg1)->GetRowMinimalAcceptableHeight();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16670,7 +18854,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultCellBackgroundColour(PyObject *SWIGUNU
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultCellBackgroundColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetDefaultCellBackgroundColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16724,7 +18915,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellBackgroundColour(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellBackgroundColour(arg2,arg3,(wxColour const &)*arg4);
+    try 
+    {
+      (arg1)->SetCellBackgroundColour(arg2,arg3,(wxColour const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16760,7 +18958,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultCellTextColour(PyObject *SWIGUNUSEDPAR
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultCellTextColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetDefaultCellTextColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16814,7 +19019,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellTextColour(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellTextColour(arg2,arg3,(wxColour const &)*arg4);
+    try 
+    {
+      (arg1)->SetCellTextColour(arg2,arg3,(wxColour const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16855,7 +19067,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultCellFont(PyObject *SWIGUNUSEDPARM(self
   arg2 = reinterpret_cast< wxFont * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultCellFont((wxFont const &)*arg2);
+    try 
+    {
+      (arg1)->SetDefaultCellFont((wxFont const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16914,7 +19133,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellFont(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg4 = reinterpret_cast< wxFont * >(argp4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellFont(arg2,arg3,(wxFont const &)*arg4);
+    try 
+    {
+      (arg1)->SetCellFont(arg2,arg3,(wxFont const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -16961,7 +19187,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultCellAlignment(PyObject *SWIGUNUSEDPARM
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultCellAlignment(arg2,arg3);
+    try 
+    {
+      (arg1)->SetDefaultCellAlignment(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17026,7 +19259,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellAlignment(PyObject *SWIGUNUSEDPARM(self),
   arg5 = static_cast< int >(val5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellAlignment(arg2,arg3,arg4,arg5);
+    try 
+    {
+      (arg1)->SetCellAlignment(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17064,7 +19304,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultCellOverflow(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultCellOverflow(arg2);
+    try 
+    {
+      (arg1)->SetDefaultCellOverflow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17120,7 +19367,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellOverflow(PyObject *SWIGUNUSEDPARM(self), 
   arg4 = static_cast< bool >(val4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellOverflow(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetCellOverflow(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17185,7 +19439,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellSize(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg5 = static_cast< int >(val5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellSize(arg2,arg3,arg4,arg5);
+    try 
+    {
+      (arg1)->SetCellSize(arg2,arg3,arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17223,7 +19484,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultRenderer(PyObject *SWIGUNUSEDPARM(self
   arg2 = reinterpret_cast< wxGridCellRenderer * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultRenderer(arg2);
+    try 
+    {
+      (arg1)->SetDefaultRenderer(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17279,7 +19547,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellRenderer(PyObject *SWIGUNUSEDPARM(self), 
   arg4 = reinterpret_cast< wxGridCellRenderer * >(argp4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellRenderer(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetCellRenderer(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17307,7 +19582,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultRenderer(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellRenderer *)((wxGrid const *)arg1)->GetDefaultRenderer();
+    try 
+    {
+      result = (wxGridCellRenderer *)((wxGrid const *)arg1)->GetDefaultRenderer();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17357,7 +19639,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellRenderer(PyObject *SWIGUNUSEDPARM(self), 
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellRenderer *)(arg1)->GetCellRenderer(arg2,arg3);
+    try 
+    {
+      result = (wxGridCellRenderer *)(arg1)->GetCellRenderer(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17397,7 +19686,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultEditor(PyObject *SWIGUNUSEDPARM(self),
   arg2 = reinterpret_cast< wxGridCellEditor * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDefaultEditor(arg2);
+    try 
+    {
+      (arg1)->SetDefaultEditor(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17453,7 +19749,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellEditor(PyObject *SWIGUNUSEDPARM(self), Py
   arg4 = reinterpret_cast< wxGridCellEditor * >(argp4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellEditor(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetCellEditor(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17481,7 +19784,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultEditor(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellEditor *)((wxGrid const *)arg1)->GetDefaultEditor();
+    try 
+    {
+      result = (wxGridCellEditor *)((wxGrid const *)arg1)->GetDefaultEditor();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17531,7 +19841,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellEditor(PyObject *SWIGUNUSEDPARM(self), Py
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellEditor *)(arg1)->GetCellEditor(arg2,arg3);
+    try 
+    {
+      result = (wxGridCellEditor *)(arg1)->GetCellEditor(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17581,7 +19898,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellValue(PyObject *SWIGUNUSEDPARM(self), PyO
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetCellValue(arg2,arg3);
+    try 
+    {
+      result = (arg1)->GetCellValue(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17642,7 +19966,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellValue(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCellValue(arg2,arg3,(wxString const &)*arg4);
+    try 
+    {
+      (arg1)->SetCellValue(arg2,arg3,(wxString const &)*arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17698,7 +20029,14 @@ SWIGINTERN PyObject *_wrap_Grid_IsReadOnly(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxGrid const *)arg1)->IsReadOnly(arg2,arg3);
+    try 
+    {
+      result = (bool)((wxGrid const *)arg1)->IsReadOnly(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17758,7 +20096,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetReadOnly(PyObject *SWIGUNUSEDPARM(self), PyOb
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetReadOnly(arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->SetReadOnly(arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17807,7 +20152,14 @@ SWIGINTERN PyObject *_wrap_Grid_SelectRow(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SelectRow(arg2,arg3);
+    try 
+    {
+      (arg1)->SelectRow(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17856,7 +20208,14 @@ SWIGINTERN PyObject *_wrap_Grid_SelectCol(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SelectCol(arg2,arg3);
+    try 
+    {
+      (arg1)->SelectCol(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17932,7 +20291,14 @@ SWIGINTERN PyObject *_wrap_Grid_SelectBlock(PyObject *SWIGUNUSEDPARM(self), PyOb
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SelectBlock(arg2,arg3,arg4,arg5,arg6);
+    try 
+    {
+      (arg1)->SelectBlock(arg2,arg3,arg4,arg5,arg6);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17959,7 +20325,14 @@ SWIGINTERN PyObject *_wrap_Grid_SelectAll(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SelectAll();
+    try 
+    {
+      (arg1)->SelectAll();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17987,7 +20360,14 @@ SWIGINTERN PyObject *_wrap_Grid_IsSelection(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsSelection();
+    try 
+    {
+      result = (bool)(arg1)->IsSelection();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18016,7 +20396,14 @@ SWIGINTERN PyObject *_wrap_Grid_ClearSelection(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ClearSelection();
+    try 
+    {
+      (arg1)->ClearSelection();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18064,7 +20451,14 @@ SWIGINTERN PyObject *_wrap_Grid_IsInSelection(PyObject *SWIGUNUSEDPARM(self), Py
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->IsInSelection(arg2,arg3);
+    try 
+    {
+      result = (bool)(arg1)->IsInSelection(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18094,7 +20488,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectedCells(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGrid const *)arg1)->GetSelectedCells();
+    try 
+    {
+      result = ((wxGrid const *)arg1)->GetSelectedCells();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18124,7 +20525,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectionBlockTopLeft(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGrid const *)arg1)->GetSelectionBlockTopLeft();
+    try 
+    {
+      result = ((wxGrid const *)arg1)->GetSelectionBlockTopLeft();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18154,7 +20562,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectionBlockBottomRight(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGrid const *)arg1)->GetSelectionBlockBottomRight();
+    try 
+    {
+      result = ((wxGrid const *)arg1)->GetSelectionBlockBottomRight();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18184,7 +20599,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectedRows(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGrid const *)arg1)->GetSelectedRows();
+    try 
+    {
+      result = ((wxGrid const *)arg1)->GetSelectedRows();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18214,7 +20636,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectedCols(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGrid const *)arg1)->GetSelectedCols();
+    try 
+    {
+      result = ((wxGrid const *)arg1)->GetSelectedCols();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18254,7 +20683,14 @@ SWIGINTERN PyObject *_wrap_Grid_DeselectRow(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DeselectRow(arg2);
+    try 
+    {
+      (arg1)->DeselectRow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18292,7 +20728,14 @@ SWIGINTERN PyObject *_wrap_Grid_DeselectCol(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DeselectCol(arg2);
+    try 
+    {
+      (arg1)->DeselectCol(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18339,7 +20782,14 @@ SWIGINTERN PyObject *_wrap_Grid_DeselectCell(PyObject *SWIGUNUSEDPARM(self), PyO
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DeselectCell(arg2,arg3);
+    try 
+    {
+      (arg1)->DeselectCell(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18383,7 +20833,14 @@ SWIGINTERN PyObject *_wrap_Grid_BlockToDeviceRect(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->BlockToDeviceRect((wxGridCellCoords const &)*arg2,(wxGridCellCoords const &)*arg3);
+    try 
+    {
+      result = (arg1)->BlockToDeviceRect((wxGridCellCoords const &)*arg2,(wxGridCellCoords const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18411,7 +20868,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectionBackground(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGrid const *)arg1)->GetSelectionBackground();
+    try 
+    {
+      result = ((wxGrid const *)arg1)->GetSelectionBackground();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18439,7 +20903,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectionForeground(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGrid const *)arg1)->GetSelectionForeground();
+    try 
+    {
+      result = ((wxGrid const *)arg1)->GetSelectionForeground();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18475,7 +20946,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetSelectionBackground(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelectionBackground((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetSelectionBackground((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18511,7 +20989,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetSelectionForeground(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetSelectionForeground((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetSelectionForeground((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18566,7 +21051,14 @@ SWIGINTERN PyObject *_wrap_Grid_RegisterDataType(PyObject *SWIGUNUSEDPARM(self),
   arg4 = reinterpret_cast< wxGridCellEditor * >(argp4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RegisterDataType((wxString const &)*arg2,arg3,arg4);
+    try 
+    {
+      (arg1)->RegisterDataType((wxString const &)*arg2,arg3,arg4);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18622,7 +21114,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultEditorForCell(PyObject *SWIGUNUSEDPARM
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellEditor *)((wxGrid const *)arg1)->GetDefaultEditorForCell(arg2,arg3);
+    try 
+    {
+      result = (wxGridCellEditor *)((wxGrid const *)arg1)->GetDefaultEditorForCell(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18672,7 +21171,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultRendererForCell(PyObject *SWIGUNUSEDPA
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellRenderer *)((wxGrid const *)arg1)->GetDefaultRendererForCell(arg2,arg3);
+    try 
+    {
+      result = (wxGridCellRenderer *)((wxGrid const *)arg1)->GetDefaultRendererForCell(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18712,7 +21218,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultEditorForType(PyObject *SWIGUNUSEDPARM
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellEditor *)((wxGrid const *)arg1)->GetDefaultEditorForType((wxString const &)*arg2);
+    try 
+    {
+      result = (wxGridCellEditor *)((wxGrid const *)arg1)->GetDefaultEditorForType((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18760,7 +21273,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultRendererForType(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellRenderer *)((wxGrid const *)arg1)->GetDefaultRendererForType((wxString const &)*arg2);
+    try 
+    {
+      result = (wxGridCellRenderer *)((wxGrid const *)arg1)->GetDefaultRendererForType((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18817,7 +21337,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetMargins(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg3 = static_cast< int >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMargins(arg2,arg3);
+    try 
+    {
+      (arg1)->SetMargins(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18845,7 +21372,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridWindow(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)(arg1)->GetGridWindow();
+    try 
+    {
+      result = (wxWindow *)(arg1)->GetGridWindow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18875,7 +21409,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridRowLabelWindow(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)(arg1)->GetGridRowLabelWindow();
+    try 
+    {
+      result = (wxWindow *)(arg1)->GetGridRowLabelWindow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18905,7 +21446,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridColLabelWindow(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)(arg1)->GetGridColLabelWindow();
+    try 
+    {
+      result = (wxWindow *)(arg1)->GetGridColLabelWindow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18935,7 +21483,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridCornerLabelWindow(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)(arg1)->GetGridCornerLabelWindow();
+    try 
+    {
+      result = (wxWindow *)(arg1)->GetGridCornerLabelWindow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18975,7 +21530,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetScrollLineX(PyObject *SWIGUNUSEDPARM(self), P
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetScrollLineX(arg2);
+    try 
+    {
+      (arg1)->SetScrollLineX(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19013,7 +21575,14 @@ SWIGINTERN PyObject *_wrap_Grid_SetScrollLineY(PyObject *SWIGUNUSEDPARM(self), P
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetScrollLineY(arg2);
+    try 
+    {
+      (arg1)->SetScrollLineY(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19041,7 +21610,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetScrollLineX(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGrid const *)arg1)->GetScrollLineX();
+    try 
+    {
+      result = (int)((wxGrid const *)arg1)->GetScrollLineX();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19069,7 +21645,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetScrollLineY(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGrid * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGrid const *)arg1)->GetScrollLineY();
+    try 
+    {
+      result = (int)((wxGrid const *)arg1)->GetScrollLineY();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19108,7 +21691,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetScrollX(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGrid const *)arg1)->GetScrollX(arg2);
+    try 
+    {
+      result = (int)((wxGrid const *)arg1)->GetScrollX(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19147,7 +21737,14 @@ SWIGINTERN PyObject *_wrap_Grid_GetScrollY(PyObject *SWIGUNUSEDPARM(self), PyObj
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGrid const *)arg1)->GetScrollY(arg2);
+    try 
+    {
+      result = (int)((wxGrid const *)arg1)->GetScrollY(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19223,7 +21820,14 @@ SWIGINTERN PyObject *_wrap_new_GridUpdateLocker(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridUpdateLocker *)new wxGridUpdateLocker(arg1);
+    try 
+    {
+      result = (wxGridUpdateLocker *)new wxGridUpdateLocker(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19250,8 +21854,15 @@ SWIGINTERN PyObject *_wrap_delete_GridUpdateLocker(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxGridUpdateLocker * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19289,7 +21900,14 @@ SWIGINTERN PyObject *_wrap_GridUpdateLocker_Create(PyObject *SWIGUNUSEDPARM(self
   arg2 = reinterpret_cast< wxGrid * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Create(arg2);
+    try 
+    {
+      (arg1)->Create(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19447,7 +22065,14 @@ SWIGINTERN PyObject *_wrap_new_GridEvent(PyObject *SWIGUNUSEDPARM(self), PyObjec
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridEvent *)new wxGridEvent(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12);
+    try 
+    {
+      result = (wxGridEvent *)new wxGridEvent(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19475,7 +22100,14 @@ SWIGINTERN PyObject *_wrap_GridEvent_GetRow(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxGridEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetRow();
+    try 
+    {
+      result = (int)(arg1)->GetRow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19503,7 +22135,14 @@ SWIGINTERN PyObject *_wrap_GridEvent_GetCol(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxGridEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetCol();
+    try 
+    {
+      result = (int)(arg1)->GetCol();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19531,7 +22170,14 @@ SWIGINTERN PyObject *_wrap_GridEvent_GetPosition(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetPosition();
+    try 
+    {
+      result = (arg1)->GetPosition();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19559,7 +22205,14 @@ SWIGINTERN PyObject *_wrap_GridEvent_Selecting(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGridEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Selecting();
+    try 
+    {
+      result = (bool)(arg1)->Selecting();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19589,7 +22242,14 @@ SWIGINTERN PyObject *_wrap_GridEvent_ControlDown(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ControlDown();
+    try 
+    {
+      result = (bool)(arg1)->ControlDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19619,7 +22279,14 @@ SWIGINTERN PyObject *_wrap_GridEvent_MetaDown(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxGridEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MetaDown();
+    try 
+    {
+      result = (bool)(arg1)->MetaDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19649,7 +22316,14 @@ SWIGINTERN PyObject *_wrap_GridEvent_ShiftDown(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGridEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ShiftDown();
+    try 
+    {
+      result = (bool)(arg1)->ShiftDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19679,7 +22353,14 @@ SWIGINTERN PyObject *_wrap_GridEvent_AltDown(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxGridEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->AltDown();
+    try 
+    {
+      result = (bool)(arg1)->AltDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19709,7 +22390,14 @@ SWIGINTERN PyObject *_wrap_GridEvent_CmdDown(PyObject *SWIGUNUSEDPARM(self), PyO
   arg1 = reinterpret_cast< wxGridEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CmdDown();
+    try 
+    {
+      result = (bool)(arg1)->CmdDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19847,7 +22535,14 @@ SWIGINTERN PyObject *_wrap_new_GridSizeEvent(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridSizeEvent *)new wxGridSizeEvent(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
+    try 
+    {
+      result = (wxGridSizeEvent *)new wxGridSizeEvent(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19875,7 +22570,14 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_GetRowOrCol(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxGridSizeEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetRowOrCol();
+    try 
+    {
+      result = (int)(arg1)->GetRowOrCol();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19903,7 +22605,14 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_GetPosition(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxGridSizeEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetPosition();
+    try 
+    {
+      result = (arg1)->GetPosition();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19931,7 +22640,14 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_ControlDown(PyObject *SWIGUNUSEDPARM(se
   arg1 = reinterpret_cast< wxGridSizeEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ControlDown();
+    try 
+    {
+      result = (bool)(arg1)->ControlDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19961,7 +22677,14 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_MetaDown(PyObject *SWIGUNUSEDPARM(self)
   arg1 = reinterpret_cast< wxGridSizeEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MetaDown();
+    try 
+    {
+      result = (bool)(arg1)->MetaDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19991,7 +22714,14 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_ShiftDown(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxGridSizeEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ShiftDown();
+    try 
+    {
+      result = (bool)(arg1)->ShiftDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20021,7 +22751,14 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_AltDown(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridSizeEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->AltDown();
+    try 
+    {
+      result = (bool)(arg1)->AltDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20051,7 +22788,14 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_CmdDown(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxGridSizeEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CmdDown();
+    try 
+    {
+      result = (bool)(arg1)->CmdDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20181,7 +22925,14 @@ SWIGINTERN PyObject *_wrap_new_GridRangeSelectEvent(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridRangeSelectEvent *)new wxGridRangeSelectEvent(arg1,arg2,arg3,(wxGridCellCoords const &)*arg4,(wxGridCellCoords const &)*arg5,arg6,arg7,arg8,arg9,arg10);
+    try 
+    {
+      result = (wxGridRangeSelectEvent *)new wxGridRangeSelectEvent(arg1,arg2,arg3,(wxGridCellCoords const &)*arg4,(wxGridCellCoords const &)*arg5,arg6,arg7,arg8,arg9,arg10);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20209,7 +22960,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetTopLeftCoords(PyObject *SWIGU
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetTopLeftCoords();
+    try 
+    {
+      result = (arg1)->GetTopLeftCoords();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20237,7 +22995,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetBottomRightCoords(PyObject *S
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetBottomRightCoords();
+    try 
+    {
+      result = (arg1)->GetBottomRightCoords();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20265,7 +23030,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetTopRow(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetTopRow();
+    try 
+    {
+      result = (int)(arg1)->GetTopRow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20293,7 +23065,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetBottomRow(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetBottomRow();
+    try 
+    {
+      result = (int)(arg1)->GetBottomRow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20321,7 +23100,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetLeftCol(PyObject *SWIGUNUSEDP
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetLeftCol();
+    try 
+    {
+      result = (int)(arg1)->GetLeftCol();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20349,7 +23135,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetRightCol(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetRightCol();
+    try 
+    {
+      result = (int)(arg1)->GetRightCol();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20377,7 +23170,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_Selecting(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Selecting();
+    try 
+    {
+      result = (bool)(arg1)->Selecting();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20407,7 +23207,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_ControlDown(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ControlDown();
+    try 
+    {
+      result = (bool)(arg1)->ControlDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20437,7 +23244,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_MetaDown(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MetaDown();
+    try 
+    {
+      result = (bool)(arg1)->MetaDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20467,7 +23281,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_ShiftDown(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ShiftDown();
+    try 
+    {
+      result = (bool)(arg1)->ShiftDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20497,7 +23318,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_AltDown(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->AltDown();
+    try 
+    {
+      result = (bool)(arg1)->AltDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20527,7 +23355,14 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_CmdDown(PyObject *SWIGUNUSEDPARM
   arg1 = reinterpret_cast< wxGridRangeSelectEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CmdDown();
+    try 
+    {
+      result = (bool)(arg1)->CmdDown();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20615,7 +23450,14 @@ SWIGINTERN PyObject *_wrap_new_GridEditorCreatedEvent(PyObject *SWIGUNUSEDPARM(s
   arg6 = reinterpret_cast< wxControl * >(argp6);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridEditorCreatedEvent *)new wxGridEditorCreatedEvent(arg1,arg2,arg3,arg4,arg5,arg6);
+    try 
+    {
+      result = (wxGridEditorCreatedEvent *)new wxGridEditorCreatedEvent(arg1,arg2,arg3,arg4,arg5,arg6);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20643,7 +23485,14 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_GetRow(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGridEditorCreatedEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetRow();
+    try 
+    {
+      result = (int)(arg1)->GetRow();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20671,7 +23520,14 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_GetCol(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxGridEditorCreatedEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetCol();
+    try 
+    {
+      result = (int)(arg1)->GetCol();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20699,7 +23555,14 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_GetControl(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxGridEditorCreatedEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxControl *)(arg1)->GetControl();
+    try 
+    {
+      result = (wxControl *)(arg1)->GetControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20739,7 +23602,14 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_SetRow(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRow(arg2);
+    try 
+    {
+      (arg1)->SetRow(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20777,7 +23647,14 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_SetCol(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCol(arg2);
+    try 
+    {
+      (arg1)->SetCol(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20815,7 +23692,14 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_SetControl(PyObject *SWIGUNUSE
   arg2 = reinterpret_cast< wxControl * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetControl(arg2);
+    try 
+    {
+      (arg1)->SetControl(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }

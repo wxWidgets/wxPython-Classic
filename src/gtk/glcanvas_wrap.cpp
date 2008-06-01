@@ -2795,8 +2795,15 @@ SWIGINTERN PyObject *_wrap_delete_GLContext(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg1 = reinterpret_cast< wxGLContext * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -2838,7 +2845,14 @@ SWIGINTERN PyObject *_wrap_GLContext_SetCurrent(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = reinterpret_cast< wxGLCanvas * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetCurrent((wxGLCanvas const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->SetCurrent((wxGLCanvas const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3105,7 +3119,14 @@ SWIGINTERN PyObject *_wrap_GLCanvas_Create(PyObject *SWIGUNUSEDPARM(self), PyObj
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7,(int const *)arg8,(wxPalette const &)*arg9);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7,(int const *)arg8,(wxPalette const &)*arg9);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3299,7 +3320,14 @@ SWIGINTERN PyObject *_wrap_GLCanvas_SetCurrent__SWIG_0(PyObject *SWIGUNUSEDPARM(
   arg2 = reinterpret_cast< wxGLContext * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetCurrent((wxGLContext const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->SetCurrent((wxGLContext const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3338,7 +3366,14 @@ SWIGINTERN PyObject *_wrap_GLCanvas_SetColour(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetColour((wxString const &)*arg2);
+    try 
+    {
+      (arg1)->SetColour((wxString const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3374,7 +3409,14 @@ SWIGINTERN PyObject *_wrap_GLCanvas_SwapBuffers(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxGLCanvas * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SwapBuffers();
+    try 
+    {
+      result = (bool)(arg1)->SwapBuffers();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3404,7 +3446,14 @@ SWIGINTERN PyObject *_wrap_GLCanvas_GetContext(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGLCanvas * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGLContext *)(arg1)->GetContext();
+    try 
+    {
+      result = (wxGLContext *)(arg1)->GetContext();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3429,7 +3478,14 @@ SWIGINTERN PyObject *_wrap_GLCanvas_SetCurrent__SWIG_1(PyObject *SWIGUNUSEDPARM(
   arg1 = reinterpret_cast< wxGLCanvas * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetCurrent();
+    try 
+    {
+      (arg1)->SetCurrent();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3493,7 +3549,14 @@ SWIGINTERN PyObject *_wrap_GLCanvas_InitVisual(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->InitVisual((int const *)arg2);
+    try 
+    {
+      result = (bool)(arg1)->InitVisual((int const *)arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3529,7 +3592,14 @@ SWIGINTERN PyObject *_wrap_GLCanvas_GetPalette(PyObject *SWIGUNUSEDPARM(self), P
   arg1 = reinterpret_cast< wxGLCanvas * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxPalette *)(arg1)->GetPalette();
+    try 
+    {
+      result = (wxPalette *)(arg1)->GetPalette();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3565,7 +3635,14 @@ SWIGINTERN PyObject *_wrap_GLCanvas_IsDisplaySupported(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxGLCanvas::IsDisplaySupported((int const *)arg1);
+    try 
+    {
+      result = (bool)wxGLCanvas::IsDisplaySupported((int const *)arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }

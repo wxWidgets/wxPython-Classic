@@ -2868,7 +2868,14 @@ SWIGINTERN PyObject *_wrap_new_CalendarDateAttr(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxCalendarDateAttr *)new wxCalendarDateAttr((wxColour const &)*arg1,(wxColour const &)*arg2,(wxColour const &)*arg3,(wxFont const &)*arg4,arg5);
+    try 
+    {
+      result = (wxCalendarDateAttr *)new wxCalendarDateAttr((wxColour const &)*arg1,(wxColour const &)*arg2,(wxColour const &)*arg3,(wxFont const &)*arg4,arg5);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -2895,8 +2902,15 @@ SWIGINTERN PyObject *_wrap_delete_CalendarDateAttr(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
+    try 
+    {
+      delete arg1;
+      
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -2932,7 +2946,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetTextColour(PyObject *SWIGUNUSEDPA
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetTextColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetTextColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -2968,7 +2989,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetBackgroundColour(PyObject *SWIGUN
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBackgroundColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetBackgroundColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3004,7 +3032,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetBorderColour(PyObject *SWIGUNUSED
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBorderColour((wxColour const &)*arg2);
+    try 
+    {
+      (arg1)->SetBorderColour((wxColour const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3045,7 +3080,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetFont(PyObject *SWIGUNUSEDPARM(sel
   arg2 = reinterpret_cast< wxFont * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetFont((wxFont const &)*arg2);
+    try 
+    {
+      (arg1)->SetFont((wxFont const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3083,7 +3125,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetBorder(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< wxCalendarDateBorder >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBorder(arg2);
+    try 
+    {
+      (arg1)->SetBorder(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3121,7 +3170,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetHoliday(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetHoliday(arg2);
+    try 
+    {
+      (arg1)->SetHoliday(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3149,7 +3205,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_HasTextColour(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxCalendarDateAttr const *)arg1)->HasTextColour();
+    try 
+    {
+      result = (bool)((wxCalendarDateAttr const *)arg1)->HasTextColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3179,7 +3242,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_HasBackgroundColour(PyObject *SWIGUN
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxCalendarDateAttr const *)arg1)->HasBackgroundColour();
+    try 
+    {
+      result = (bool)((wxCalendarDateAttr const *)arg1)->HasBackgroundColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3209,7 +3279,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_HasBorderColour(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxCalendarDateAttr const *)arg1)->HasBorderColour();
+    try 
+    {
+      result = (bool)((wxCalendarDateAttr const *)arg1)->HasBorderColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3239,7 +3316,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_HasFont(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxCalendarDateAttr const *)arg1)->HasFont();
+    try 
+    {
+      result = (bool)((wxCalendarDateAttr const *)arg1)->HasFont();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3269,7 +3353,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_HasBorder(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxCalendarDateAttr const *)arg1)->HasBorder();
+    try 
+    {
+      result = (bool)((wxCalendarDateAttr const *)arg1)->HasBorder();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3299,7 +3390,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_IsHoliday(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxCalendarDateAttr const *)arg1)->IsHoliday();
+    try 
+    {
+      result = (bool)((wxCalendarDateAttr const *)arg1)->IsHoliday();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3329,7 +3427,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetTextColour(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarDateAttr const *)arg1)->GetTextColour();
+    try 
+    {
+      result = ((wxCalendarDateAttr const *)arg1)->GetTextColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3357,7 +3462,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetBackgroundColour(PyObject *SWIGUN
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarDateAttr const *)arg1)->GetBackgroundColour();
+    try 
+    {
+      result = ((wxCalendarDateAttr const *)arg1)->GetBackgroundColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3385,7 +3497,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetBorderColour(PyObject *SWIGUNUSED
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarDateAttr const *)arg1)->GetBorderColour();
+    try 
+    {
+      result = ((wxCalendarDateAttr const *)arg1)->GetBorderColour();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3413,7 +3532,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetFont(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarDateAttr const *)arg1)->GetFont();
+    try 
+    {
+      result = ((wxCalendarDateAttr const *)arg1)->GetFont();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3441,7 +3567,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetBorder(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxCalendarDateBorder)((wxCalendarDateAttr const *)arg1)->GetBorder();
+    try 
+    {
+      result = (wxCalendarDateBorder)((wxCalendarDateAttr const *)arg1)->GetBorder();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3459,9 +3592,16 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetMark(PyObject *SWIGUNUSEDPARM(sel
   if (!SWIG_Python_UnpackTuple(args,"CalendarDateAttr_GetMark",0,0,0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
+    try 
     {
-      wxCalendarDateAttr const &_result_ref = wxCalendarDateAttr::GetMark();
-      result = (wxCalendarDateAttr *) &_result_ref;
+      {
+        wxCalendarDateAttr const &_result_ref = wxCalendarDateAttr::GetMark();
+        result = (wxCalendarDateAttr *) &_result_ref;
+      }
+    }
+    catch (wxPyException)
+    {
+      
     }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
@@ -3494,7 +3634,14 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetMark(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxCalendarDateAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxCalendarDateAttr::SetMark((wxCalendarDateAttr const &)*arg1);
+    try 
+    {
+      wxCalendarDateAttr::SetMark((wxCalendarDateAttr const &)*arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3556,7 +3703,14 @@ SWIGINTERN PyObject *_wrap_new_CalendarEvent(PyObject *SWIGUNUSEDPARM(self), PyO
   arg3 = static_cast< wxEventType >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxCalendarEvent *)new wxCalendarEvent(arg1,(wxDateTime const &)*arg2,arg3);
+    try 
+    {
+      result = (wxCalendarEvent *)new wxCalendarEvent(arg1,(wxDateTime const &)*arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3594,7 +3748,14 @@ SWIGINTERN PyObject *_wrap_CalendarEvent_SetWeekDay(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< wxDateTime::WeekDay >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetWeekDay(arg2);
+    try 
+    {
+      (arg1)->SetWeekDay(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3622,7 +3783,14 @@ SWIGINTERN PyObject *_wrap_CalendarEvent_GetWeekDay(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxCalendarEvent * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxDateTime::WeekDay)((wxCalendarEvent const *)arg1)->GetWeekDay();
+    try 
+    {
+      result = (wxDateTime::WeekDay)((wxCalendarEvent const *)arg1)->GetWeekDay();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3681,7 +3849,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_AllowMonthChange(PyObject *SWIGUNUSE
   arg1 = reinterpret_cast< wxCalendarCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxCalendarCtrlBase const *)arg1)->AllowMonthChange();
+    try 
+    {
+      result = (bool)((wxCalendarCtrlBase const *)arg1)->AllowMonthChange();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3725,7 +3900,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetDate(PyObject *SWIGUNUSEDPARM(sel
   arg2 = reinterpret_cast< wxDateTime * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetDate((wxDateTime const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->SetDate((wxDateTime const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3755,7 +3937,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetDate(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxCalendarCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarCtrlBase const *)arg1)->GetDate();
+    try 
+    {
+      result = ((wxCalendarCtrlBase const *)arg1)->GetDate();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3815,7 +4004,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetDateRange(PyObject *SWIGUNUSEDPAR
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetDateRange((wxDateTime const &)*arg2,(wxDateTime const &)*arg3);
+    try 
+    {
+      result = (bool)(arg1)->SetDateRange((wxDateTime const &)*arg2,(wxDateTime const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3845,7 +4041,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetDateRange(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxCalendarCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyObject *)wxCalendarCtrlBase_GetDateRange(arg1);
+    try 
+    {
+      result = (PyObject *)wxCalendarCtrlBase_GetDateRange(arg1);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3882,7 +4085,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_HitTest(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyObject *)wxCalendarCtrlBase_HitTest(arg1,(wxPoint const &)*arg2);
+    try 
+    {
+      result = (PyObject *)wxCalendarCtrlBase_HitTest(arg1,(wxPoint const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3922,7 +4132,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_EnableMonthChange(PyObject *SWIGUNUS
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableMonthChange(arg2);
+    try 
+    {
+      (arg1)->EnableMonthChange(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -3969,7 +4186,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_Mark(PyObject *SWIGUNUSEDPARM(self),
   arg3 = static_cast< bool >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Mark(arg2,arg3);
+    try 
+    {
+      (arg1)->Mark(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4008,7 +4232,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetAttr(PyObject *SWIGUNUSEDPARM(sel
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxCalendarDateAttr *)((wxCalendarCtrlBase const *)arg1)->GetAttr(arg2);
+    try 
+    {
+      result = (wxCalendarDateAttr *)((wxCalendarCtrlBase const *)arg1)->GetAttr(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4053,7 +4284,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetAttr(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAttr(arg2,arg3);
+    try 
+    {
+      (arg1)->SetAttr(arg2,arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4091,7 +4329,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_ResetAttr(PyObject *SWIGUNUSEDPARM(s
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ResetAttr(arg2);
+    try 
+    {
+      (arg1)->ResetAttr(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4131,7 +4376,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_EnableHolidayDisplay(PyObject *SWIGU
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableHolidayDisplay(arg2);
+    try 
+    {
+      (arg1)->EnableHolidayDisplay(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4174,7 +4426,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetHolidayColours(PyObject *SWIGUNUS
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetHolidayColours((wxColour const &)*arg2,(wxColour const &)*arg3);
+    try 
+    {
+      (arg1)->SetHolidayColours((wxColour const &)*arg2,(wxColour const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4202,7 +4461,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHolidayColourFg(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxCalendarCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarCtrlBase const *)arg1)->GetHolidayColourFg();
+    try 
+    {
+      result = ((wxCalendarCtrlBase const *)arg1)->GetHolidayColourFg();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4230,7 +4496,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHolidayColourBg(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxCalendarCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarCtrlBase const *)arg1)->GetHolidayColourBg();
+    try 
+    {
+      result = ((wxCalendarCtrlBase const *)arg1)->GetHolidayColourBg();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4268,7 +4541,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetHoliday(PyObject *SWIGUNUSEDPARM(
   arg2 = static_cast< size_t >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetHoliday(arg2);
+    try 
+    {
+      (arg1)->SetHoliday(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4311,7 +4591,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetHeaderColours(PyObject *SWIGUNUSE
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetHeaderColours((wxColour const &)*arg2,(wxColour const &)*arg3);
+    try 
+    {
+      (arg1)->SetHeaderColours((wxColour const &)*arg2,(wxColour const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4339,7 +4626,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHeaderColourFg(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxCalendarCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarCtrlBase const *)arg1)->GetHeaderColourFg();
+    try 
+    {
+      result = ((wxCalendarCtrlBase const *)arg1)->GetHeaderColourFg();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4367,7 +4661,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHeaderColourBg(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxCalendarCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarCtrlBase const *)arg1)->GetHeaderColourBg();
+    try 
+    {
+      result = ((wxCalendarCtrlBase const *)arg1)->GetHeaderColourBg();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4410,7 +4711,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetHighlightColours(PyObject *SWIGUN
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetHighlightColours((wxColour const &)*arg2,(wxColour const &)*arg3);
+    try 
+    {
+      (arg1)->SetHighlightColours((wxColour const &)*arg2,(wxColour const &)*arg3);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4438,7 +4746,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHighlightColourFg(PyObject *SWIGU
   arg1 = reinterpret_cast< wxCalendarCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarCtrlBase const *)arg1)->GetHighlightColourFg();
+    try 
+    {
+      result = ((wxCalendarCtrlBase const *)arg1)->GetHighlightColourFg();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4466,7 +4781,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHighlightColourBg(PyObject *SWIGU
   arg1 = reinterpret_cast< wxCalendarCtrlBase * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxCalendarCtrlBase const *)arg1)->GetHighlightColourBg();
+    try 
+    {
+      result = ((wxCalendarCtrlBase const *)arg1)->GetHighlightColourBg();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4704,7 +5026,14 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_Create(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxDateTime const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxDateTime const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4759,7 +5088,14 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_SetLowerDateLimit(PyObject *SWIGU
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetLowerDateLimit((wxDateTime const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->SetLowerDateLimit((wxDateTime const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4806,7 +5142,14 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_SetUpperDateLimit(PyObject *SWIGU
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetUpperDateLimit((wxDateTime const &)*arg2);
+    try 
+    {
+      result = (bool)(arg1)->SetUpperDateLimit((wxDateTime const &)*arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4836,7 +5179,14 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_GetLowerDateLimit(PyObject *SWIGU
   arg1 = reinterpret_cast< wxGenericCalendarCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGenericCalendarCtrl const *)arg1)->GetLowerDateLimit();
+    try 
+    {
+      result = ((wxGenericCalendarCtrl const *)arg1)->GetLowerDateLimit();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4864,7 +5214,14 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_GetUpperDateLimit(PyObject *SWIGU
   arg1 = reinterpret_cast< wxGenericCalendarCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxGenericCalendarCtrl const *)arg1)->GetUpperDateLimit();
+    try 
+    {
+      result = ((wxGenericCalendarCtrl const *)arg1)->GetUpperDateLimit();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4904,7 +5261,14 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_EnableYearChange(PyObject *SWIGUN
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableYearChange(arg2);
+    try 
+    {
+      (arg1)->EnableYearChange(arg2);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4932,7 +5296,14 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_GetMonthControl(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxGenericCalendarCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxControl *)((wxGenericCalendarCtrl const *)arg1)->GetMonthControl();
+    try 
+    {
+      result = (wxControl *)((wxGenericCalendarCtrl const *)arg1)->GetMonthControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4962,7 +5333,14 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_GetYearControl(PyObject *SWIGUNUS
   arg1 = reinterpret_cast< wxGenericCalendarCtrl * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxControl *)((wxGenericCalendarCtrl const *)arg1)->GetYearControl();
+    try 
+    {
+      result = (wxControl *)((wxGenericCalendarCtrl const *)arg1)->GetYearControl();
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5239,7 +5617,14 @@ SWIGINTERN PyObject *_wrap_CalendarCtrl_Create(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Create(arg2,arg3,(wxDateTime const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    try 
+    {
+      result = (bool)(arg1)->Create(arg2,arg3,(wxDateTime const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
+    }
+    catch (wxPyException)
+    {
+      
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }

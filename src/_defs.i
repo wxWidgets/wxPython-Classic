@@ -46,7 +46,13 @@
 %define %threadWrapperOn
 %exception {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    $action
+    try 
+    {
+        $action
+    }
+    catch (wxPyException)
+    {
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
 }
@@ -55,7 +61,13 @@
 // This one will turn off the generation of the thread wrapper code
 %define %threadWrapperOff
 %exception {
-    $action
+    try 
+    {
+        $action
+    }
+    catch (wxPyException)
+    {
+    }
     if (PyErr_Occurred()) SWIG_fail;
 }
 %enddef
