@@ -80,6 +80,7 @@
 #include <wx/fontpicker.h>    
 #include <wx/collpane.h>
 #include <wx/srchctrl.h>
+#include <wx/generic/datectrl.h>
 
 
 #ifdef _MSC_VER
