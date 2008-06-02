@@ -49,7 +49,7 @@ private:
     wxPyBlock_t m_state;
 };
 
-// 
+//XXX: could use operator==, etc 
 class wxPyObject
 {
 public:
@@ -62,6 +62,36 @@ public:
     ~wxPyObject()
     {
         Decref();
+    }
+
+    wxPyObject(PyObject *obj)
+    {
+        m_obj = obj;
+    }
+
+    wxPyObject(const wxPyObject &cpy)
+    {
+        m_obj = cpy.m_obj;
+        Incref();
+    }
+
+    const wxPyObject &operator=(PyObject *obj)
+    {
+        if (obj != m_obj) 
+            Take(obj);
+        return *this;
+    }
+
+    const wxPyObject &operator=(const wxPyObject &cpy)
+    {
+        if (cpy.m_obj != m_obj) 
+            Ref(cpy.m_obj);
+        return *this;
+    }
+
+    bool Ok() const
+    {
+        return m_obj != NULL;
     }
 
     void Borrow(PyObject *obj)
@@ -87,9 +117,17 @@ public:
         m_borrowed = false;
     }
 
-    PyObject *Get()
+    PyObject *Get() const
     {
         return m_obj;
+    }
+
+    PyObject *Remove()
+    {
+        PyObject *ret = m_obj;
+        m_obj = NULL;
+        m_borrowed = true;
+        return ret;
     }
 
     void Clear()

@@ -176,7 +176,7 @@ int wxPyApp::OnExit() {
     int rval=0;
     wxPyThreadBlocker blocker;
 
-    //XXX: testing
+    //Propogate Python exception if main loop terminated with wxThrowPyException()
     if (!PyErr_Occurred()) {
         if (wxPyCBH_findCallback(m_myInst, "OnExit"))
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
@@ -193,7 +193,7 @@ void wxPyApp::ExitMainLoop() {
     bool found;
     wxPyThreadBlocker blocker;
 
-    //XXX: testing
+    //Propogate Python exception if main loop terminated with wxThrowPyException()
     if (!PyErr_Occurred()) {
         if ((found = wxPyCBH_findCallback(m_myInst, "ExitMainLoop")))
             wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
@@ -235,18 +235,16 @@ void wxPyApp::OnAssertFailure(const wxChar *file,
     bool found;
     blocker.Block();
     if ((found = wxPyCBH_findCallback(m_myInst, "OnAssert"))) {
-        PyObject* fso = wx2PyString(file);
-        PyObject* cso = wx2PyString(file);
-        PyObject* mso;
+        wxPyObject fso = wx2PyString(file);
+        wxPyObject cso = wx2PyString(file);
+        wxPyObject mso;
         if (msg != NULL)
             mso = wx2PyString(file);
         else {
-            mso = Py_None; Py_INCREF(Py_None);
+            mso.Ref(Py_None);
         }
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OiOO)", fso, line, cso, mso));
-        Py_DECREF(fso);
-        Py_DECREF(cso);
-        Py_DECREF(mso);
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OiOO)", 
+                    fso.Get(), line, cso.Get(), mso.Get()));
     }
     blocker.Unblock();
 
@@ -268,11 +266,11 @@ void wxPyApp::OnAssertFailure(const wxChar *file,
             
 
             // set the exception
-	    blocker.Block();
+            blocker.Block();
             PyObject* s = wx2PyString(buf);
             PyErr_SetObject(wxPyAssertionError, s);
             Py_DECREF(s);
-	    blocker.Unblock();
+            blocker.Unblock();
 
             // Now when control returns to whatever API wrapper was called from
             // Python it should detect that an exception is set and will return
@@ -1628,7 +1626,7 @@ wxPyCallback::~wxPyCallback() {
 void wxPyCallback::EventThunker(wxEvent& event) {
     wxPyCallback*   cb = (wxPyCallback*)event.m_callbackUserData;
     PyObject*       func = cb->m_func;
-    PyObject*       result;
+    wxPyObject      result;
     PyObject*       arg;
     PyObject*       tuple;
     bool            checkSkip = false;
@@ -1651,7 +1649,6 @@ void wxPyCallback::EventThunker(wxEvent& event) {
     }
 
     if (!arg) {
-        Py_DECREF(arg);
         wxThrowPyException();
         //PyErr_Print();
     } else {
@@ -1666,8 +1663,7 @@ void wxPyCallback::EventThunker(wxEvent& event) {
         // Check if the event object needs some preinitialization
         if (PyObject_HasAttr(arg, s_preName)) {
             result = PyObject_CallMethodObjArgs(arg, s_preName, arg, NULL);
-            if ( result ) {
-                Py_DECREF(result);   // result is ignored, but we still need to decref it
+            if ( result.Ok() ) {
                 PyErr_Clear();       // Just in case...
             } else {
                 Py_DECREF(arg);
@@ -1680,8 +1676,7 @@ void wxPyCallback::EventThunker(wxEvent& event) {
         tuple = PyTuple_New(1);
         PyTuple_SET_ITEM(tuple, 0, arg);  // steals ref to arg
         result = PyEval_CallObject(func, tuple);
-        if ( result ) {
-            Py_DECREF(result);   // result is ignored, but we still need to decref it
+        if ( result.Ok() ) {
             PyErr_Clear();       // Just in case...
         } else {
             Py_DECREF(tuple);
@@ -1692,8 +1687,7 @@ void wxPyCallback::EventThunker(wxEvent& event) {
         // Check if the event object needs some post cleanup
         if (PyObject_HasAttr(arg, s_postName)) {
             result = PyObject_CallMethodObjArgs(arg, s_postName, arg, NULL);
-            if ( result ) {
-                Py_DECREF(result);   // result is ignored, but we still need to decref it
+            if ( result.Ok() ) {
                 PyErr_Clear();       // Just in case...
             } else {
                 Py_DECREF(tuple);
@@ -1707,9 +1701,8 @@ void wxPyCallback::EventThunker(wxEvent& event) {
             // it had been cloned, then we need to extract the Skipped
             // value from the original and set it in the clone.
             result = PyObject_CallMethod(arg, "GetSkipped", "");
-            if ( result ) {
-                event.Skip(PyInt_AsLong(result));
-                Py_DECREF(result);
+            if ( result.Ok() ) {
+                event.Skip(PyInt_AsLong(result.Get()));
             } else {
                 Py_DECREF(tuple);
                 wxThrowPyException();
@@ -1886,11 +1879,11 @@ bool wxPyCallbackHelper::findCallback(const char* name, bool setGuard) const {
 }
 
 
-int wxPyCallbackHelper::callCallback(PyObject* argTuple) const {
-    PyObject*   result;
+int wxPyCallbackHelper::callCallback(PyObject* argTuple, wxPCBH_Err_Action act) const {
+    PyObject    *result;
     int         retval = false;
 
-    result = callCallbackObj(argTuple);
+    result = callCallbackObj(argTuple, act);
     if (result) {                       // Assumes an integer return type...
         retval = PyInt_AsLong(result);
         Py_DECREF(result);
@@ -1901,7 +1894,8 @@ int wxPyCallbackHelper::callCallback(PyObject* argTuple) const {
 
 // Invoke the Python callable object, returning the raw PyObject return
 // value.  Caller should DECREF the return value and also manage the GIL.
-PyObject* wxPyCallbackHelper::callCallbackObj(PyObject* argTuple) const {
+// If act == wxPCBH_ERR_THROW, caller(s) must be exception safe.
+PyObject* wxPyCallbackHelper::callCallbackObj(PyObject* argTuple, wxPCBH_Err_Action act) const {
     PyObject* result;
 
     // Save a copy of the pointer in case the callback generates another
@@ -1915,7 +1909,17 @@ PyObject* wxPyCallbackHelper::callCallbackObj(PyObject* argTuple) const {
     Py_DECREF(argTuple);
     Py_DECREF(method);
     if (!result) {
-        PyErr_Print();
+        switch (act) {
+        case wxPCBH_ERR_THROW:
+            // DECREFs occur before this spot, so throwing is OK.
+            wxThrowPyException();
+            break;
+        case wxPCBH_ERR_PRINT:
+            PyErr_Print();
+            break;
+        case wxPCBH_ERR_IGNORE:
+            break;
+        }
     }
     return result;
 }
@@ -1929,12 +1933,12 @@ bool wxPyCBH_findCallback(const wxPyCallbackHelper& cbh, const char* name, bool 
     return cbh.findCallback(name, setGuard);
 }
 
-int  wxPyCBH_callCallback(const wxPyCallbackHelper& cbh, PyObject* argTuple) {
-    return cbh.callCallback(argTuple);
+int  wxPyCBH_callCallback(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action act) {
+    return cbh.callCallback(argTuple, act);
 }
 
-PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject* argTuple) {
-    return cbh.callCallbackObj(argTuple);
+PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action act) {
+    return cbh.callCallbackObj(argTuple, act);
 }
 
 

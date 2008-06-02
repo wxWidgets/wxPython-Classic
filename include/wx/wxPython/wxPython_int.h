@@ -122,6 +122,13 @@ typedef wxRect2DDouble  wxRect2D;
 #define wxDEFAULT_STATUSBAR_STYLE wxST_SIZEGRIP
 #endif
 
+// What to do if a python callable leaves an exception unhandled. 
+enum wxPCBH_Err_Action
+{
+    wxPCBH_ERR_THROW,
+    wxPCBH_ERR_PRINT,
+    wxPCBH_ERR_IGNORE,
+};
 
 #ifndef wxPyUSE_EXPORTED_API
 
@@ -415,8 +422,8 @@ struct wxPyCoreAPI {
 
     void                (*p_wxPyCBH_setCallbackInfo)(wxPyCallbackHelper& cbh, PyObject* self, PyObject* klass, int incref);
     bool                (*p_wxPyCBH_findCallback)(const wxPyCallbackHelper& cbh, const char* name, bool setGuard);
-    int                 (*p_wxPyCBH_callCallback)(const wxPyCallbackHelper& cbh, PyObject* argTuple);
-    PyObject*           (*p_wxPyCBH_callCallbackObj)(const wxPyCallbackHelper& cbh, PyObject* argTuple);
+    int                 (*p_wxPyCBH_callCallback)(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action);
+    PyObject*           (*p_wxPyCBH_callCallbackObj)(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action);
     void                (*p_wxPyCBH_delete)(wxPyCallbackHelper* cbh);
 
     PyObject*           (*p_wxPyMake_wxObject)(wxObject* source, bool setThisOwn, bool checkEvtHandler);
@@ -563,6 +570,11 @@ public:
 // wxPyCallbackHelper.
 //
 
+// Thrown to propogate errors to the exception handler
+class wxPyException
+{
+};
+
 class wxPyCallbackHelper {
 public:
     wxPyCallbackHelper(const wxPyCallbackHelper& other);
@@ -584,8 +596,8 @@ public:
 
     void        setSelf(PyObject* self, PyObject* klass, int incref=true);
     bool        findCallback(const char* name, bool setGuard=true) const;
-    int         callCallback(PyObject* argTuple) const;
-    PyObject*   callCallbackObj(PyObject* argTuple) const;
+    int         callCallback(PyObject* argTuple, wxPCBH_Err_Action act=wxPCBH_ERR_PRINT) const;
+    PyObject*   callCallbackObj(PyObject* argTuple, wxPCBH_Err_Action act=wxPCBH_ERR_PRINT) const;
     PyObject*   GetLastFound() const { return m_lastFound; }
 
     void        setRecursionGuard(PyObject* method) const;
@@ -603,14 +615,9 @@ private:
 
 void wxPyCBH_setCallbackInfo(wxPyCallbackHelper& cbh, PyObject* self, PyObject* klass, int incref);
 bool wxPyCBH_findCallback(const wxPyCallbackHelper& cbh, const char* name, bool setGuard=true);
-int  wxPyCBH_callCallback(const wxPyCallbackHelper& cbh, PyObject* argTuple);
-PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject* argTuple);
+int  wxPyCBH_callCallback(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action act=wxPCBH_ERR_PRINT);
+PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action act=wxPCBH_ERR_PRINT);
 void wxPyCBH_delete(wxPyCallbackHelper* cbh);
-
-// Thrown to propogate errors to the exception handler
-class wxPyException
-{
-};
 
 
 //---------------------------------------------------------------------------
@@ -660,6 +667,8 @@ public:
     virtual void ExitMainLoop();
     // virtual int FilterEvent(wxEvent& event); // This one too????
 
+    // Terminate the mainloop if a C++ exception was thrown somewhere
+    //XXX: should this check for a Python member function of the same name?
     virtual bool OnExceptionInMainLoop() { return false; }
 
     // For catching Apple Events
