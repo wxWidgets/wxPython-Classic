@@ -175,6 +175,15 @@ public:
     }
 #endif
 
+    %extend {
+        long MacGetTopLevelWindowRef() {
+        #ifdef __WXMAC__
+            return (long)(self->MacGetTopLevelWindowRef());
+        #else
+            return 0;
+        #endif
+        }
+    }
 
     DocDeclStr(
         void , CenterOnScreen(int dir = wxBOTH),
