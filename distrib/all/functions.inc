@@ -5,7 +5,6 @@ update_setup_h()
     # replace some settings in setup0.h and write to setup.h
     cat > .my.sedexpr  <<EOF
 s/wxDIALOG_UNIT_COMPATIBILITY *1/wxDIALOG_UNIT_COMPATIBILITY 0/g
-s/wxUSE_EXCEPTIONS *1/wxUSE_EXCEPTIONS 0/g
 s/wxUSE_DEBUG_CONTEXT *0/wxUSE_DEBUG_CONTEXT 1/g
 s/wxUSE_MEMORY_TRACING *0/wxUSE_MEMORY_TRACING 1/g
 s/wxUSE_DIALUP_MANAGER *1/wxUSE_DIALUP_MANAGER 0/g
