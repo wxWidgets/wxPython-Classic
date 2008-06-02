@@ -4231,6 +4231,7 @@ class PageContainer(wx.Panel):
             event.SetSelection(self._iActivePage)
             event.SetOldSelection(self._iPreviousActivePage)
             event.SetEventObject(self.GetParent())
+            self.GetParent().GetEventHandler().ProcessEvent(event)            
 
             book.SetSelection(self._iActivePage)
             book._bForceSelection = False
@@ -4240,10 +4241,10 @@ class PageContainer(wx.Panel):
             event.SetOldSelection(self._iPreviousActivePage)
             self.GetParent().GetEventHandler().ProcessEvent(event)            
         
-        if not self._pagesInfoVec:        
-            # Erase the page container drawings
-            dc = wx.ClientDC(self)
-            dc.Clear()
+        #if not self._pagesInfoVec:        
+        #    # Erase the page container drawings
+        #    dc = wx.ClientDC(self)
+        #    dc.Clear()
         
 
     def DeleteAllPages(self):
