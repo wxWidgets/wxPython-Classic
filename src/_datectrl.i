@@ -183,10 +183,6 @@ creation.", "");
 
 
 
-%{
-#include <wx/generic/datectrl.h>
-%}
-
 MustHaveApp(wxDatePickerCtrlGeneric);
 
 %rename(GenericDatePickerCtrl) wxDatePickerCtrlGeneric;
