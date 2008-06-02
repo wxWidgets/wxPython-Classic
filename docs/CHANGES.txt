@@ -124,9 +124,7 @@ class instead.
 
 
 
-
-
-2.8.7.2
+2.8.8.0
 -------
 *
 
@@ -183,6 +181,24 @@ highlighting the currently selected widget or sizer in the live
 application.  The tool will flash top-level windows and for all other
 items it will draw an outline around the item for a few seconds.
 
+Copied the sized_controls module to the wx.lib package as the first
+step of phasing out the wxaddons package.
+
+Added an implementation of wx.Window.SetDoubleBuffered on Windows.
+(GTK already has one, and Mac doesn't need one becase everything is
+always double buffered by the system there.)
+
+Added a wrapper to wx.TopLevelWindow for MacGetTopLevelWindowRef to
+faciliate calling the Carbon APIs directly for things that are not
+supported in wx, similar to how we can use PyWin32 and
+window.GetHandle() to do custom stuff on Windows.  (On wxMac GetHandle
+returns the ControlRef, which is different than the WindowRef, hence
+the need for a 2nd method.)  Here is an example to set the modified
+flag in the caption::
+
+    >>> import ctypes
+    >>> carbon = ctypes.CDLL('/System/Library/Carbon.framework/Carbon')
+    >>> carbon.SetWindowModified(frame.MacGetTopLevelWindowRef(), True)
 
 
 
