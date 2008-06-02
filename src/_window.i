@@ -1032,17 +1032,6 @@ deletion functions so should not be required by the application
 programmer.", "");
 
 
-    DocStr(SetDoubleBuffered,
-           "Currently wxGTK2 only.", "");
-#ifdef __WXGTK__
-    void SetDoubleBuffered(bool on);
-#else
-    %extend {
-        void SetDoubleBuffered(bool on) {}
-    }
-#endif
-
-
     // looking for windows
     // -------------------
 
@@ -1366,6 +1355,17 @@ scroll position.", "");
 system, i.e. if any drawing done on the window is really done on a
 temporary backing surface and transferred to the screen all at once
 later.", "");
+
+    DocStr(SetDoubleBuffered,
+           "Put the native window into double buffered or composited mode.", "");
+    %extend {
+        void SetDoubleBuffered(bool on)
+        {
+        %#if defined(__WXGTK20__) || defined(__WXMSW__)
+            self->SetDoubleBuffered(on);
+        %#endif
+        }
+    }
     
 
     DocDeclStr(
