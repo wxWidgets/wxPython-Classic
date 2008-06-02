@@ -10,9 +10,6 @@
 # Licence:     wxWindows license
 #----------------------------------------------------------------------
 
-warnings.warn("This module is moving to the wx.lib package.",
-              DeprecationWarning, stacklevel=2)
-
 import wx
 
 # For HIG info: links to all the HIGs can be found here: 
