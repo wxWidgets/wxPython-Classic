@@ -201,6 +201,7 @@ WEBKIT_NAV_FORM_RESUBMITTED = _webkit.WEBKIT_NAV_FORM_RESUBMITTED
 WEBKIT_NAV_OTHER = _webkit.WEBKIT_NAV_OTHER
 wxEVT_WEBKIT_STATE_CHANGED = _webkit.wxEVT_WEBKIT_STATE_CHANGED
 wxEVT_WEBKIT_BEFORE_LOAD = _webkit.wxEVT_WEBKIT_BEFORE_LOAD
+wxEVT_WEBKIT_NEW_WINDOW = _webkit.wxEVT_WEBKIT_NEW_WINDOW
 class WebKitBeforeLoadEvent(_core.CommandEvent):
     """Proxy of C++ WebKitBeforeLoadEvent class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -263,8 +264,36 @@ class WebKitStateChangedEvent(_core.CommandEvent):
     URL = property(GetURL,SetURL,doc="See `GetURL` and `SetURL`") 
 _webkit.WebKitStateChangedEvent_swigregister(WebKitStateChangedEvent)
 
+class WebKitNewWindowEvent(_core.CommandEvent):
+    """Proxy of C++ WebKitNewWindowEvent class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def GetURL(*args, **kwargs):
+        """GetURL(self) -> String"""
+        return _webkit.WebKitNewWindowEvent_GetURL(*args, **kwargs)
+
+    def SetURL(*args, **kwargs):
+        """SetURL(self, String url)"""
+        return _webkit.WebKitNewWindowEvent_SetURL(*args, **kwargs)
+
+    def GetTargetName(*args, **kwargs):
+        """GetTargetName(self) -> String"""
+        return _webkit.WebKitNewWindowEvent_GetTargetName(*args, **kwargs)
+
+    def SetTargetName(*args, **kwargs):
+        """SetTargetName(self, String name)"""
+        return _webkit.WebKitNewWindowEvent_SetTargetName(*args, **kwargs)
+
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, Window win=None) -> WebKitNewWindowEvent"""
+        _webkit.WebKitNewWindowEvent_swiginit(self,_webkit.new_WebKitNewWindowEvent(*args, **kwargs))
+    URL = property(GetURL,SetURL,doc="See `GetURL` and `SetURL`") 
+    TargetName = property(GetTargetName,SetTargetName) 
+_webkit.WebKitNewWindowEvent_swigregister(WebKitNewWindowEvent)
+
 EVT_WEBKIT_STATE_CHANGED = wx.PyEventBinder(wxEVT_WEBKIT_STATE_CHANGED)
 EVT_WEBKIT_BEFORE_LOAD = wx.PyEventBinder(wxEVT_WEBKIT_BEFORE_LOAD)
+EVT_WEBKIT_NEW_WINDOW = wx.PyEventBinder(wxEVT_WEBKIT_NEW_WINDOW)
 
 
 

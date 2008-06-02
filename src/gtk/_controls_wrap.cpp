@@ -3380,9 +3380,6 @@ SWIGINTERN wxDateTime wxDatePickerCtrlBase_GetUpperLimit(wxDatePickerCtrlBase *s
             self->GetRange(NULL, &rv);
             return rv;
         }
-
-#include <wx/generic/datectrl.h>
-
  static const wxString wxPyHyperlinkCtrlNameStr(wxHyperlinkCtrlNameStr); 
  static const wxString wxPyColourPickerCtrlNameStr(wxColourPickerCtrlNameStr); 
  static const wxString wxPyFilePickerCtrlNameStr(wxFilePickerCtrlNameStr); 

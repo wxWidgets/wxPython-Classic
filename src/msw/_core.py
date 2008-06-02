@@ -9380,14 +9380,6 @@ class Window(EvtHandler):
         """
         return _core_.Window_RemoveChild(*args, **kwargs)
 
-    def SetDoubleBuffered(*args, **kwargs):
-        """
-        SetDoubleBuffered(self, bool on)
-
-        Currently wxGTK2 only.
-        """
-        return _core_.Window_SetDoubleBuffered(*args, **kwargs)
-
     def FindWindowById(*args, **kwargs):
         """
         FindWindowById(self, long winid) -> Window
@@ -9791,6 +9783,14 @@ class Window(EvtHandler):
         later.
         """
         return _core_.Window_IsDoubleBuffered(*args, **kwargs)
+
+    def SetDoubleBuffered(*args, **kwargs):
+        """
+        SetDoubleBuffered(self, bool on)
+
+        Put the native window into double buffered or composited mode.
+        """
+        return _core_.Window_SetDoubleBuffered(*args, **kwargs)
 
     def GetUpdateRegion(*args, **kwargs):
         """
