@@ -49,7 +49,7 @@ private:
     wxPyBlock_t m_state;
 };
 
-//XXX: could use operator==, etc 
+//TODO: could use operator==, etc 
 class wxPyObject
 {
 public:
@@ -61,17 +61,23 @@ public:
 
     ~wxPyObject()
     {
+        // We don't know if the GIL is held during destruction, so lock explicitly.
+        // GILState API locks support recursion (if needed).
+        wxPyBlock_t st = wxPyBeginBlockThreads();
         Decref();
+        wxPyEndBlockThreads(st);
     }
 
     wxPyObject(PyObject *obj)
     {
         m_obj = obj;
+        m_borrowed = false;
     }
 
     wxPyObject(const wxPyObject &cpy)
     {
         m_obj = cpy.m_obj;
+        m_borrowed = false;
         Incref();
     }
 
@@ -122,6 +128,13 @@ public:
         return m_obj;
     }
 
+    // Convert to borrowed, to transfer reference to list, tuple, etc.
+    PyObject *Transfer()
+    {
+        m_borrowed = true;
+        return m_obj;
+    }
+
     PyObject *Remove()
     {
         PyObject *ret = m_obj;
@@ -138,6 +151,8 @@ public:
 private:
     void Decref()
     {
+        //if (m_obj)
+            //printf("borrowed %d, ob_refcnt %d\n", m_borrowed, m_obj->ob_refcnt);
         if (!m_borrowed)
             Py_XDECREF(m_obj);
         m_obj = NULL;

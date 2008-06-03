@@ -244,7 +244,8 @@ void wxPyApp::OnAssertFailure(const wxChar *file,
             mso.Ref(Py_None);
         }
         wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OiOO)", 
-                    fso.Get(), line, cso.Get(), mso.Get()));
+                    fso.Get(), line, cso.Get(), mso.Get()), 
+                    wxPCBH_ERR_THROW);
     }
     blocker.Unblock();
 
@@ -267,9 +268,8 @@ void wxPyApp::OnAssertFailure(const wxChar *file,
 
             // set the exception
             blocker.Block();
-            PyObject* s = wx2PyString(buf);
-            PyErr_SetObject(wxPyAssertionError, s);
-            Py_DECREF(s);
+            wxPyObject s = wx2PyString(buf);
+            PyErr_SetObject(wxPyAssertionError, s.Get());
             blocker.Unblock();
 
             // Now when control returns to whatever API wrapper was called from
@@ -303,9 +303,8 @@ void wxPyApp::MacOpenFile(const wxString &fileName)
 {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "MacOpenFile")) {
-        PyObject* s = wx2PyString(fileName);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s));
-        Py_DECREF(s);
+        wxPyObject s = wx2PyString(fileName);
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s.Get()), wxPCBH_ERR_THROW);
     }
 }
 
@@ -313,9 +312,8 @@ void wxPyApp::MacOpenURL(const wxString &url)
 {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "MacOpenURL")) {
-        PyObject* s = wx2PyString(url);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s));
-        Py_DECREF(s);
+        wxPyObject s = wx2PyString(url);
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s.Get()), wxPCBH_ERR_THROW);
     }
 }
 
@@ -323,9 +321,8 @@ void wxPyApp::MacPrintFile(const wxString &fileName)
 {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "MacPrintFile")) {
-        PyObject* s = wx2PyString(fileName);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s));
-        Py_DECREF(s);
+        wxPyObject s = wx2PyString(fileName);
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s.Get()), wxPCBH_ERR_THROW);
     }
 }
 
@@ -333,14 +330,14 @@ void wxPyApp::MacNewFile()
 {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "MacNewFile"))
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
 }
 
 void wxPyApp::MacReopenApp()
 {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "MacReopenApp"))
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
 }
 
 
@@ -422,11 +419,11 @@ void wxPyApp::SetMacHelpMenuTitleName(const wxString& val) {
 // that should be present in the derived (Python) class.
 void wxPyApp::_BootstrapApp()
 {
-    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
     static      bool haveInitialized = false;
     bool        result;
-    PyObject*   retval = NULL;
-    PyObject*   pyint  = NULL;
+    wxPyObject  retval;
+    wxPyObject  pyint;
+    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
 
 
     // Only initialize wxWidgets once
@@ -465,7 +462,7 @@ void wxPyApp::_BootstrapApp()
                             "  (Is DISPLAY set properly?)"
 #endif
                 );
-            goto error;
+            return;
         }
 
         // On wxGTK the locale will be changed to match the system settings,
@@ -490,33 +487,29 @@ void wxPyApp::_BootstrapApp()
     // Call the Python wxApp's OnPreInit and OnInit functions
     blocker.Block(); 
     if (wxPyCBH_findCallback(m_myInst, "OnPreInit")) {
-        PyObject* method = m_myInst.GetLastFound();
-        PyObject* argTuple = PyTuple_New(0);
-        retval = PyEval_CallObject(method, argTuple);
-        m_myInst.clearRecursionGuard(method);
-        Py_DECREF(argTuple);
-        Py_DECREF(method);
-        if (retval == NULL)
-            goto error;
+        wxPyObject method = m_myInst.GetLastFound();
+        wxPyObject argTuple = PyTuple_New(0);
+        retval = PyEval_CallObject(method.Get(), argTuple.Get());
+        m_myInst.clearRecursionGuard(method.Get());
+        if (!retval.Ok())
+            return;
     }
     if (wxPyCBH_findCallback(m_myInst, "OnInit")) {
-        PyObject* method = m_myInst.GetLastFound();
-        PyObject* argTuple = PyTuple_New(0);
-        retval = PyEval_CallObject(method, argTuple);
-        m_myInst.clearRecursionGuard(method);
-        Py_DECREF(argTuple);
-        Py_DECREF(method);
-        if (retval == NULL)
+        wxPyObject method = m_myInst.GetLastFound();
+        wxPyObject argTuple = PyTuple_New(0);
+        retval = PyEval_CallObject(method.Get(), argTuple.Get());
+        m_myInst.clearRecursionGuard(method.Get());
+        if (!retval.Ok())
             // Don't PyErr_Print here, let the exception in this case go back
             // up to the wx.PyApp.__init__ scope.
-            goto error;
+            return;
 
-        pyint = PyNumber_Int(retval);
-        if (! pyint) {
+        pyint = PyNumber_Int(retval.Get());
+        if (! pyint.Ok()) {
             PyErr_SetString(PyExc_TypeError, "OnInit should return a boolean value");
-            goto error;
+            return;
         }
-        result = PyInt_AS_LONG(pyint);
+        result = PyInt_AS_LONG(pyint.Get());
     }
     else {
         // Is it okay if there is no OnInit?  Probably so...
@@ -526,12 +519,6 @@ void wxPyApp::_BootstrapApp()
     if (! result) {
         PyErr_SetString(PyExc_SystemExit, "OnInit returned false, exiting...");
     }
-
- error:
-    Py_XDECREF(retval);
-    Py_XDECREF(pyint);
-
-    blocker.Unblock();
 };
 
 //---------------------------------------------------------------------
@@ -1627,11 +1614,11 @@ void wxPyCallback::EventThunker(wxEvent& event) {
     wxPyCallback*   cb = (wxPyCallback*)event.m_callbackUserData;
     PyObject*       func = cb->m_func;
     wxPyObject      result;
-    PyObject*       arg;
-    PyObject*       tuple;
+    wxPyObject      arg;
+    wxPyObject      tuple;
     bool            checkSkip = false;
-
     wxPyThreadBlocker blocker;
+
     wxString className = event.GetClassInfo()->GetClassName();
 
     // If the event is one of these types then pass the original
@@ -1648,9 +1635,8 @@ void wxPyCallback::EventThunker(wxEvent& event) {
         arg = wxPyConstructObject((void*)&event, className);
     }
 
-    if (!arg) {
+    if (!arg.Ok()) {
         wxThrowPyException();
-        //PyErr_Print();
     } else {
         // "intern" the pre/post method names to speed up the HasAttr
         static PyObject* s_preName  = NULL;
@@ -1661,55 +1647,42 @@ void wxPyCallback::EventThunker(wxEvent& event) {
         }
 
         // Check if the event object needs some preinitialization
-        if (PyObject_HasAttr(arg, s_preName)) {
-            result = PyObject_CallMethodObjArgs(arg, s_preName, arg, NULL);
-            if ( result.Ok() ) {
+        if (PyObject_HasAttr(arg.Get(), s_preName)) {
+            result = PyObject_CallMethodObjArgs(arg.Get(), s_preName, arg.Get(), NULL);
+            if ( result.Ok() )
                 PyErr_Clear();       // Just in case...
-            } else {
-                Py_DECREF(arg);
+            else
                 wxThrowPyException();
-                //PyErr_Print();
-            }
         }
 
         // Call the event handler, passing the event object
         tuple = PyTuple_New(1);
-        PyTuple_SET_ITEM(tuple, 0, arg);  // steals ref to arg
-        result = PyEval_CallObject(func, tuple);
-        if ( result.Ok() ) {
+        PyTuple_SET_ITEM(tuple.Get(), 0, arg.Transfer()); // Steals ref to arg
+        result = PyEval_CallObject(func, tuple.Get());
+        if ( result.Ok() )
             PyErr_Clear();       // Just in case...
-        } else {
-            Py_DECREF(tuple);
+        else
             wxThrowPyException();
-            //PyErr_Print();
-        }
 
         // Check if the event object needs some post cleanup
-        if (PyObject_HasAttr(arg, s_postName)) {
-            result = PyObject_CallMethodObjArgs(arg, s_postName, arg, NULL);
-            if ( result.Ok() ) {
+        if (PyObject_HasAttr(arg.Get(), s_postName)) {
+            result = PyObject_CallMethodObjArgs(arg.Get(), s_postName, arg.Get(), NULL);
+            if ( result.Ok() )
                 PyErr_Clear();       // Just in case...
-            } else {
-                Py_DECREF(tuple);
+            else
                 wxThrowPyException();
-                //PyErr_Print();
-            }
         }
 
         if ( checkSkip ) {
             // if the event object was one of our special types and
             // it had been cloned, then we need to extract the Skipped
             // value from the original and set it in the clone.
-            result = PyObject_CallMethod(arg, "GetSkipped", "");
-            if ( result.Ok() ) {
+            result = PyObject_CallMethod(arg.Get(), "GetSkipped", "");
+            if ( result.Ok() )
                 event.Skip(PyInt_AsLong(result.Get()));
-            } else {
-                Py_DECREF(tuple);
+            else
                 wxThrowPyException();
-                //PyErr_Print();
-            }
         }
-        Py_DECREF(tuple);
     }
 }
 
