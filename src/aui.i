@@ -117,6 +117,7 @@ The following example shows a simple implementation that utilizes
 %{
 #include "wx/wxPython/wxPython.h"
 #include "wx/wxPython/pyclasses.h"
+#include "wx/wxPython/raiihelpers.h"
 #include <wx/aui/aui.h>
 %}
 

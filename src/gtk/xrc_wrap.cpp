@@ -2677,6 +2677,7 @@ namespace swig {
 #include "wx/wxPython/wxPython.h"
 #include "wx/wxPython/pyclasses.h"
 #include "wx/wxPython/pyistream.h"
+#include "wx/wxPython/raiihelpers.h"
 
 #include <wx/xml/xml.h>
 #include <wx/xrc/xmlres.h>

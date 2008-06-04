@@ -17,6 +17,7 @@
 %{
 #include "wx/wxPython/wxPython.h"
 #include "wx/wxPython/pyclasses.h"
+#include "wx/wxPython/raiihelpers.h"
     
 %}
 

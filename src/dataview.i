@@ -23,6 +23,7 @@ OS X and GTK) and generic elsewhere."
 #include "wx/wxPython/wxPython.h"
 #include "wx/wxPython/pyclasses.h"
 #include "wx/wxPython/printfw.h"
+#include "wx/wxPython/raiihelpers.h"
 
 #include <wx/dataview.h>
 %}

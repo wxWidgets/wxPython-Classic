@@ -83,15 +83,13 @@ public:
 
     const wxPyObject &operator=(PyObject *obj)
     {
-        if (obj != m_obj) 
-            Take(obj);
+        Take(obj);
         return *this;
     }
 
     const wxPyObject &operator=(const wxPyObject &cpy)
     {
-        if (cpy.m_obj != m_obj) 
-            Ref(cpy.m_obj);
+        Ref(cpy.m_obj);
         return *this;
     }
 
@@ -102,25 +100,31 @@ public:
 
     void Borrow(PyObject *obj)
     {
-        Decref();
-        m_obj = obj; 
-        m_borrowed = true;
+        if (obj != m_obj) {
+            Decref();
+            m_obj = obj; 
+            m_borrowed = true;
+        }
     }
 
     void Ref(PyObject *obj)
     {
-        Decref();
-        m_obj = obj; 
-        m_borrowed = false;
-        Incref();
+        if (obj != m_obj) {
+            Decref();
+            m_obj = obj; 
+            m_borrowed = false;
+            Incref();
+        }
     }
 
     // Obj already increfed
     void Take(PyObject *obj)
     {
-        Decref();
-        m_obj = obj; 
-        m_borrowed = false;
+        if (obj != m_obj) {
+            Decref();
+            m_obj = obj; 
+            m_borrowed = false;
+        }
     }
 
     PyObject *Get() const

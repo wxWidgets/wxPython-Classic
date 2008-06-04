@@ -2748,6 +2748,7 @@ namespace swig {
 
 #include "wx/wxPython/wxPython.h"
 #include "wx/wxPython/pyclasses.h"
+#include "wx/wxPython/raiihelpers.h"
     
 
  static const wxString wxPyEmptyString(wxEmptyString); 
@@ -3691,26 +3692,26 @@ IMPLEMENT_ABSTRACT_CLASS(wxPyPrintout, wxPrintout);
 void wxPyPrintout::GetPageInfo(int *minPage, int *maxPage, int *pageFrom, int *pageTo) {
     bool hadErr = false;
     bool found;
+    wxPyThreadBlocker blocker;
 
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
     if ((found = wxPyCBH_findCallback(m_myInst, "GetPageInfo"))) {
-        PyObject* result = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
-        if (result && PyTuple_Check(result) && PyTuple_Size(result) == 4) {
+        wxPyObject result = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+        if (result.Ok() && PyTuple_Check(result.Get()) && PyTuple_Size(result.Get()) == 4) {
             PyObject* val;
 
-            val = PyTuple_GetItem(result, 0);
+            val = PyTuple_GetItem(result.Get(), 0);
             if (PyInt_Check(val))    *minPage = PyInt_AsLong(val);
             else hadErr = true;
 
-            val = PyTuple_GetItem(result, 1);
+            val = PyTuple_GetItem(result.Get(), 1);
             if (PyInt_Check(val))    *maxPage = PyInt_AsLong(val);
             else hadErr = true;
 
-            val = PyTuple_GetItem(result, 2);
+            val = PyTuple_GetItem(result.Get(), 2);
             if (PyInt_Check(val))    *pageFrom = PyInt_AsLong(val);
             else hadErr = true;
 
-            val = PyTuple_GetItem(result, 3);
+            val = PyTuple_GetItem(result.Get(), 3);
             if (PyInt_Check(val))    *pageTo = PyInt_AsLong(val);
             else hadErr = true;
         }
@@ -3719,11 +3720,11 @@ void wxPyPrintout::GetPageInfo(int *minPage, int *maxPage, int *pageFrom, int *p
 
         if (hadErr) {
             PyErr_SetString(PyExc_TypeError, "GetPageInfo should return a tuple of 4 integers.");
-            PyErr_Print();
+            wxThrowPyException();
         }
-        Py_DECREF(result);
     }
-    wxPyEndBlockThreads(blocked);
+    blocker.Unblock();
+ 
     if (! found)
         wxPrintout::GetPageInfo(minPage, maxPage, pageFrom, pageTo);
 }
@@ -3750,15 +3751,15 @@ IMP_PYCALLBACK_BOOL_INT(wxPyPrintout, wxPrintout, HasPage);
     bool CLASS::CBNAME(wxPreviewCanvas* a, wxDC& b) {                                   \
         bool rval=false;                                                                \
         bool found;                                                                     \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                                  \
+        wxPyThreadBlocker blocker;                                                      \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                        \
-            PyObject* win = wxPyMake_wxObject(a,false);                                 \
-            PyObject* dc  = wxPyMake_wxObject(&b,false);                                \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", win, dc));      \
-            Py_DECREF(win);                                                             \
-            Py_DECREF(dc);                                                              \
+            wxPyObject win = wxPyMake_wxObject(a,false);                                \
+            wxPyObject dc  = wxPyMake_wxObject(&b,false);                               \
+            rval = wxPyCBH_callCallback(m_myInst,                                       \ 
+                        Py_BuildValue("(OO)", win.Get(), dc.Get()),                     \
+                        wxPCBH_ERR_THROW);                                              \
         }                                                                               \
-        wxPyEndBlockThreads(blocked);                                                   \
+        blocker.Unblock();                                                              \
         if (! found)                                                                    \
             rval = PCLASS::CBNAME(a, b);                                                \
         return rval;                                                                    \
