@@ -1801,7 +1801,7 @@ extern wxPyApp *wxPythonApp;
             wxPyObject obj = wxPyMake_wxObject(&a,false);                       \
             wxPyObject s = wx2PyString(b);                                      \
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OO)",        \
-                                         obj.Get(), s.Get()), wxPCBH_ERR_THROW);      \
+                                         obj.Get(), s.Get()), wxPCBH_ERR_THROW);\
             if (ro.Ok()) {                                                      \
                 wxPyConvertSwigPtr(ro.Get(), (void **)&rval, wxT("wxFSFile"));  \
                 /* release ownership of the C++ wx.FSFile object. */            \
@@ -1809,7 +1809,7 @@ extern wxPyApp *wxPythonApp;
             }                                                                   \
         }                                                                       \
         return rval;                                                            \
-    };
+    }
 
 //---------------------------------------------------------------------------
 
@@ -1842,7 +1842,6 @@ extern wxPyApp *wxPythonApp;
         int rval=0;                                                             \
         if (wxPyCBH_findCallback(m_myInst, #CBNAME))                            \
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iii)", a,b,c), wxPCBH_ERR_THROW);\
-        blocker.Unblock();                                           \
         return (wxDragResult)rval;                                              \
     }                                                                           \
 
@@ -1859,7 +1858,6 @@ extern wxPyApp *wxPythonApp;
             wxPyObject s = wx2PyString(c);                              \
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iiO)",a,b,s.Get()), wxPCBH_ERR_THROW);\
         }                                                               \
-        blocker.Unblock();                                              \
         return rval;                                                    \
     }                                                                   \
 
@@ -2521,7 +2519,6 @@ extern wxPyApp *wxPythonApp;
             if (ro.Ok())                                                        \
                 rval = Py2wxString(ro.Get());                                   \
         }                                                                       \
-        blocker.Unblock();                                                      \
         return rval;                                                            \
     }                                                                           \
 

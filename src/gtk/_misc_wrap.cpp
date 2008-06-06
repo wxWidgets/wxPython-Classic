@@ -3193,26 +3193,28 @@ public:
 
     virtual void DoLog(wxLogLevel level, const wxChar *szString, time_t t) {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DoLog"))) {
-            PyObject* s = wx2PyString(szString);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iOi)", level, s, t));
-            Py_DECREF(s);
+            wxPyObject s = wx2PyString(szString);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(iOi)", level, s.Get(), t), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxLog::DoLog(level, szString, t);
     }
 
     virtual void DoLogString(const wxChar *szString, time_t t) {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DoLogString"))) {
-            PyObject* s = wx2PyString(szString);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oi)", s, t));
-            Py_DECREF(s);
+            wxPyObject s = wx2PyString(szString);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(Oi)", s.Get(), t), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxLog::DoLogString(szString, t);
     }
@@ -3541,25 +3543,20 @@ public:
                                   const wxArtClient& client,
                                   const wxSize& size) {
         wxBitmap rval = wxNullBitmap;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((wxPyCBH_findCallback(m_myInst, "CreateBitmap"))) {
-            PyObject* so = wxPyConstructObject((void*)&size, wxT("wxSize"), 0);
-            PyObject* ro;
+            wxPyObject so = wxPyConstructObject((void*)&size, wxT("wxSize"), 0);
+            wxPyObject ro;
             wxBitmap* ptr;
-            PyObject* s1, *s2;
+            wxPyObject s1, s2;
             s1 = wx2PyString(id);
             s2 = wx2PyString(client);
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OOO)", s1, s2, so));
-            Py_DECREF(so);
-            Py_DECREF(s1);
-            Py_DECREF(s2);
-            if (ro) {
-                if (wxPyConvertSwigPtr(ro, (void**)&ptr, wxT("wxBitmap")))
-                    rval = *ptr;
-                Py_DECREF(ro);
-            }
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                    Py_BuildValue("(OOO)", s1.Get(), s2.Get(), so.Get()),
+                    wxPCBH_ERR_THROW);
+            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void**)&ptr, wxT("wxBitmap")))
+                rval = *ptr;
         }
-        wxPyEndBlockThreads(blocked);
         return rval;
     }
 
@@ -3567,23 +3564,19 @@ public:
                                           const wxArtClient& client)
     {
         wxIconBundle rval = wxNullIconBundle;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((wxPyCBH_findCallback(m_myInst, "CreateIconBundle"))) {
-            PyObject* ro;
+            wxPyObject ro;
             wxIconBundle* ptr;
-            PyObject* s1, *s2;
+            wxPyObject s1, s2;
             s1 = wx2PyString(id);
             s2 = wx2PyString(client);
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OO)", s1, s2));
-            Py_DECREF(s1);
-            Py_DECREF(s2);
-            if (ro) {
-                if (wxPyConvertSwigPtr(ro, (void**)&ptr, wxT("wxIconBundle")))
-                    rval = *ptr;
-                Py_DECREF(ro);
-            }
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                Py_BuildValue("(OO)", s1.Get(), s2.Get()),
+                wxPCBH_ERR_THROW);
+            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void**)&ptr, wxT("wxIconBundle")))
+                rval = *ptr;
         }
-        wxPyEndBlockThreads(blocked);
         return rval;
     }
 
@@ -3839,21 +3832,21 @@ SWIGINTERN PyObject *wxDataObject_GetAllFormats(wxDataObject *self,wxDataObject:
             wxDataFormat* formats = new wxDataFormat[count];
             self->GetAllFormats(formats, dir);
 
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             PyObject* list = PyList_New(count);
             for (size_t i=0; i<count; i++) {
                 wxDataFormat* format = new wxDataFormat(formats[i]);
                 PyObject* obj = wxPyConstructObject((void*)format, wxT("wxDataFormat"), true);
                 PyList_SET_ITEM(list, i, obj); // PyList_SET_ITEM steals a reference
             }            
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             delete [] formats;
             return list;
         }
 SWIGINTERN PyObject *wxDataObject_GetDataHere(wxDataObject *self,wxDataFormat const &format){
             PyObject* rval = NULL;
             size_t size = self->GetDataSize(format);            
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             if (size) {
                 char* buf = new char[size];
                 if (self->GetDataHere(format, buf)) 
@@ -3864,12 +3857,12 @@ SWIGINTERN PyObject *wxDataObject_GetDataHere(wxDataObject *self,wxDataFormat co
                 rval = Py_None;
                 Py_INCREF(rval);
             }
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             return rval;
         }
 SWIGINTERN bool wxDataObject_SetData(wxDataObject *self,wxDataFormat const &format,PyObject *data){
             bool rval;
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             if (PyString_Check(data)) {
                 rval = self->SetData(format, PyString_Size(data), PyString_AsString(data));
             }
@@ -3878,13 +3871,13 @@ SWIGINTERN bool wxDataObject_SetData(wxDataObject *self,wxDataFormat const &form
                 PyErr_SetString(PyExc_TypeError, "String expected.");
                 rval = false;
             }
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             return rval;
         }
 SWIGINTERN PyObject *wxDataObjectSimple_GetDataHere(wxDataObjectSimple *self){
             PyObject* rval = NULL;
             size_t size = self->GetDataSize();            
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             if (size) {
                 char* buf = new char[size];
                 if (self->GetDataHere(buf)) 
@@ -3895,12 +3888,12 @@ SWIGINTERN PyObject *wxDataObjectSimple_GetDataHere(wxDataObjectSimple *self){
                 rval = Py_None;
                 Py_INCREF(rval);
             }
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             return rval;
         }
 SWIGINTERN bool wxDataObjectSimple_SetData(wxDataObjectSimple *self,PyObject *data){
             bool rval;
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             if (PyString_Check(data)) {
                 rval = self->SetData(PyString_Size(data), PyString_AsString(data));
             }
@@ -3909,7 +3902,7 @@ SWIGINTERN bool wxDataObjectSimple_SetData(wxDataObjectSimple *self,PyObject *da
                 PyErr_SetString(PyExc_TypeError, "String expected.");
                 rval = false;
             }
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             return rval;
         }
   // Create a new class for wxPython to use
@@ -3933,18 +3926,16 @@ bool wxPyDataObjectSimple::GetDataHere(void *buf) const {
     // C++ version.
 
     bool rval = false;
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "GetDataHere")) {
-        PyObject* ro;
-        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
-        if (ro) {
-            rval = (ro != Py_None && PyString_Check(ro));
+        wxPyObject ro;
+        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+        if (ro.Ok()) {
+            rval = (ro.Get() != Py_None && PyString_Check(ro.Get()));
             if (rval)
-                memcpy(buf, PyString_AsString(ro), PyString_Size(ro));
-            Py_DECREF(ro);
+                memcpy(buf, PyString_AsString(ro.Get()), PyString_Size(ro.Get()));
         }
     }
-    wxPyEndBlockThreads(blocked);
     return rval;
 }
 
@@ -3952,13 +3943,11 @@ bool wxPyDataObjectSimple::SetData(size_t len, const void *buf) {
     // For this one we simply need to make a string from buf and len
     // and send it to the Python method.
     bool rval = false;
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "SetData")) {
-        PyObject* data = PyString_FromStringAndSize((char*)buf, len);
-        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", data));
-        Py_DECREF(data);
+        wxPyObject data = PyString_FromStringAndSize((char*)buf, len);
+        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", data.Get()), wxPCBH_ERR_THROW);
     }
-    wxPyEndBlockThreads(blocked);
     return rval;
 }
 
@@ -3992,29 +3981,23 @@ public:
 
 wxBitmap wxPyBitmapDataObject::GetBitmap() const {
     wxBitmap* rval = &wxNullBitmap;
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "GetBitmap")) {
-        PyObject* ro;
+        wxPyObject ro;
         wxBitmap* ptr;
-        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
-        if (ro) {
-            if (wxPyConvertSwigPtr(ro, (void **)&ptr, wxT("wxBitmap")))
-                rval = ptr;
-            Py_DECREF(ro);
-        }
+        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+        if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxBitmap")))
+            rval = ptr;
     }
-    wxPyEndBlockThreads(blocked);
     return *rval;
 }
  
 void wxPyBitmapDataObject::SetBitmap(const wxBitmap& bitmap) {
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "SetBitmap")) {
-        PyObject* bo = wxPyConstructObject((void*)&bitmap, wxT("wxBitmap"), false);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", bo));
-        Py_DECREF(bo);
+        wxPyObject bo = wxPyConstructObject((void*)&bitmap, wxT("wxBitmap"), false);
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", bo.Get()), wxPCBH_ERR_THROW);
     }
-    wxPyEndBlockThreads(blocked);
 }
 
 SWIGINTERN wxCustomDataObject *new_wxCustomDataObject__SWIG_1(wxString const &formatName){
@@ -4022,7 +4005,7 @@ SWIGINTERN wxCustomDataObject *new_wxCustomDataObject__SWIG_1(wxString const &fo
         }
 SWIGINTERN bool wxCustomDataObject_SetData(wxCustomDataObject *self,PyObject *data){
             bool rval;
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             if (PyString_Check(data)) {
                 rval = self->SetData(PyString_Size(data), PyString_AsString(data));
             }
@@ -4031,14 +4014,13 @@ SWIGINTERN bool wxCustomDataObject_SetData(wxCustomDataObject *self,PyObject *da
                 PyErr_SetString(PyExc_TypeError, "String expected.");
                 rval = false;
             }
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             return rval;
         }
 SWIGINTERN PyObject *wxCustomDataObject_GetData(wxCustomDataObject *self){
             PyObject* obj;
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             obj = PyString_FromStringAndSize((char*)self->GetData(), self->GetSize());
-            wxPyEndBlockThreads(blocked);
             return obj;
         }
 
@@ -4101,13 +4083,13 @@ public:
 bool wxPyFileDropTarget::OnDropFiles(wxCoord x, wxCoord y,
                                      const wxArrayString& filenames) {
     bool rval = false;
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "OnDropFiles")) {
-        PyObject* list = wxArrayString2PyList_helper(filenames);
-        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iiO)",x,y,list));
-        Py_DECREF(list);
+        wxPyObject list = wxArrayString2PyList_helper(filenames);
+        rval = wxPyCBH_callCallback(m_myInst, 
+                Py_BuildValue("(iiO)",x,y,list.Get()), 
+                wxPCBH_ERR_THROW);
     }
-    wxPyEndBlockThreads(blocked);
     return rval;
 }
 

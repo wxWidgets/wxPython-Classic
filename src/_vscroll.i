@@ -937,13 +937,12 @@ IMP_PYCALLBACK__DCRECTSIZET_const    (wxPyHtmlListBox, wxHtmlListBox, OnDrawBack
 void wxPyHtmlListBox::OnLinkClicked(size_t n,
                                     const wxHtmlLinkInfo& link) {
     bool found;
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if ((found = wxPyCBH_findCallback(m_myInst, "OnLinkClicked"))) {
-        PyObject* obj = wxPyConstructObject((void*)&link, wxT("wxHtmlLinkInfo"), 0);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iO)", n, obj));
-        Py_DECREF(obj);
+        wxPyObject obj = wxPyConstructObject((void*)&link, wxT("wxHtmlLinkInfo"), 0);
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iO)", n, obj.Get()), wxPCBH_ERR_THROW);
     }
-    wxPyEndBlockThreads(blocked);
+    blocker.Unblock();
     if (! found)
         wxHtmlListBox::OnLinkClicked(n, link);
 }

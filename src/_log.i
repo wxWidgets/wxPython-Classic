@@ -382,26 +382,28 @@ public:
 
     virtual void DoLog(wxLogLevel level, const wxChar *szString, time_t t) {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DoLog"))) {
-            PyObject* s = wx2PyString(szString);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iOi)", level, s, t));
-            Py_DECREF(s);
+            wxPyObject s = wx2PyString(szString);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(iOi)", level, s.Get(), t), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxLog::DoLog(level, szString, t);
     }
 
     virtual void DoLogString(const wxChar *szString, time_t t) {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DoLogString"))) {
-            PyObject* s = wx2PyString(szString);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oi)", s, t));
-            Py_DECREF(s);
+            wxPyObject s = wx2PyString(szString);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(Oi)", s.Get(), t), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxLog::DoLogString(szString, t);
     }

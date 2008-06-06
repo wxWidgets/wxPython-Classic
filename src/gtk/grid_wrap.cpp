@@ -2817,18 +2817,15 @@ wxPyMake_TEMPLATE(wxGridTableBase)
     wxGridCellAttr* CBNAME(int a, int b, wxGridCellAttr::wxAttrKind c) {        \
         wxGridCellAttr* rval = NULL;                                            \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            PyObject* ro;                                                       \
+            wxPyObject ro;                                                      \
             wxGridCellAttr* ptr;                                                \
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(iii)", a, b, c)); \
-            if (ro) {                                                           \
-                if (wxPyConvertSwigPtr(ro, (void **)&ptr, wxT("wxGridCellAttr"))) \
-                    rval = ptr;                                                 \
-                Py_DECREF(ro);                                                  \
-            }                                                                   \
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(iii)", a, b, c), wxPCBH_ERR_THROW); \
+            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxGridCellAttr"))) \
+                rval = ptr;                                                     \
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                           \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             rval = PCLASS::CBNAME(a, b, c);                                     \
         return rval;                                                            \
@@ -2837,14 +2834,13 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 
 #define PYCALLBACK__GCAINTINT(PCLASS, CBNAME)                                   \
     void CBNAME(wxGridCellAttr *attr, int a, int b) {                           \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         bool found;                                                             \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            PyObject* obj = wxPyMake_wxGridCellAttr(attr,false);                \
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oii)", obj, a, b));  \
-            Py_DECREF(obj);                                                     \
+            wxPyObject obj = wxPyMake_wxGridCellAttr(attr,false);               \
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oii)", obj.Get(), a, b), wxPCBH_ERR_THROW);  \
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                           \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             PCLASS::CBNAME(attr, a, b);                                         \
     }             
@@ -2853,14 +2849,13 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 
 #define PYCALLBACK__GCAINT(PCLASS, CBNAME)                                      \
     void CBNAME(wxGridCellAttr *attr, int val) {                                \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         bool found;                                                             \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            PyObject* obj = wxPyMake_wxGridCellAttr(attr,false);                \
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oi)", obj, val));    \
-            Py_DECREF(obj);                                                     \
+            wxPyObject obj = wxPyMake_wxGridCellAttr(attr,false);               \
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oi)", obj.Get(), val), wxPCBH_ERR_THROW);    \
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                           \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             PCLASS::CBNAME(attr, val);                                          \
     }      
@@ -2869,11 +2864,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 
 #define PYCALLBACK_INT__pure(CBNAME)                                            \
     int  CBNAME() {                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         int rval = 0;                                                           \
         if (wxPyCBH_findCallback(m_myInst, #CBNAME))                            \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));         \
-        wxPyEndBlockThreads(blocked);                                           \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);         \
         return rval;                                                            \
     }
 
@@ -2881,58 +2875,50 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 
 #define PYCALLBACK_BOOL_INTINT_pure(CBNAME)                                     \
     bool CBNAME(int a, int b) {                                                 \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         bool rval = 0;                                                          \
         if (wxPyCBH_findCallback(m_myInst, #CBNAME))                            \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(ii)",a,b));   \
-        wxPyEndBlockThreads(blocked);                                           \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(ii)",a,b), wxPCBH_ERR_THROW);   \
         return rval;                                                            \
     }
 
 
 #define PYCALLBACK_STRING_INTINT_pure(CBNAME)                                   \
     wxString CBNAME(int a, int b) {                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         wxString rval;                                                          \
         if (wxPyCBH_findCallback(m_myInst, #CBNAME)) {                          \
-            PyObject* ro;                                                       \
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)",a,b));  \
-            if (ro) {                                                           \
-                rval = Py2wxString(ro);                                         \
-                Py_DECREF(ro);                                                  \
-            }                                                                   \
+            wxPyObject ro;                                                      \
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)",a,b), wxPCBH_ERR_THROW);  \
+            if (ro.Ok())                                                        \
+                rval = Py2wxString(ro.Get());                                   \
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                           \
         return rval;                                                            \
     }
 
 
 #define PYCALLBACK__INTINTSTRING_pure(CBNAME)                                   \
     void CBNAME(int a, int b, const wxString& c) {                              \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if (wxPyCBH_findCallback(m_myInst, #CBNAME)) {                          \
-            PyObject* s = wx2PyString(c);                                       \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iiO)",a,b,s));\
-            Py_DECREF(s);                                                       \
+            wxPyObject s = wx2PyString(c);                                      \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iiO)",a,b,s.Get()), wxPCBH_ERR_THROW);\
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                           \
     }
 
 
 #define PYCALLBACK_STRING_INTINT(PCLASS, CBNAME)                                \
     wxString CBNAME(int a, int b) {                                             \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         wxString rval;                                                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            PyObject* ro;                                                       \
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)",a,b));  \
-            if (ro) {                                                           \
-                rval = Py2wxString(ro);                                         \
-                Py_DECREF(ro);                                                  \
-            }                                                                   \
+            wxPyObject ro;                                                      \
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)",a,b), wxPCBH_ERR_THROW);  \
+            if (ro.Ok())                                                        \
+                rval = Py2wxString(ro.Get());                                   \
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                           \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             rval = PCLASS::CBNAME(a, b);                                        \
         return rval;                                                            \
@@ -2943,13 +2929,12 @@ wxPyMake_TEMPLATE(wxGridTableBase)
     bool CBNAME(int a, int b, const wxString& c)  {                             \
         bool rval = 0;                                                          \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            PyObject* s = wx2PyString(c);                                       \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iiO)",a,b,s));\
-            Py_DECREF(s);                                                       \
+            wxPyObject s = wx2PyString(c);                                      \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iiO)",a,b,s.Get()), wxPCBH_ERR_THROW);\
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                           \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             rval = PCLASS::CBNAME(a,b,c);                                       \
         return rval;                                                            \
@@ -2962,10 +2947,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
     long CBNAME(int a, int b)  {                                                \
         long rval;                                                              \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(ii)", a,b));  \
-        wxPyEndBlockThreads(blocked);                                           \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(ii)", a,b), wxPCBH_ERR_THROW);  \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             rval = PCLASS::CBNAME(a,b);                                         \
         return rval;                                                            \
@@ -2976,10 +2961,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
     bool CBNAME(int a, int b)  {                                                \
         bool rval = 0;                                                          \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(ii)", a,b));  \
-        wxPyEndBlockThreads(blocked);                                           \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(ii)", a,b), wxPCBH_ERR_THROW);  \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             rval = PCLASS::CBNAME(a,b);                                         \
         return rval;                                                            \
@@ -2990,18 +2975,17 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 #define PYCALLBACK_DOUBLE_INTINT(PCLASS, CBNAME)                                \
     double CBNAME(int a, int b) {                                               \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         double rval;                                                            \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            PyObject* ro;                                                       \
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)",a,b));  \
-            if (ro) {                                                           \
-                PyObject* str = PyObject_Str(ro);                               \
-                rval = PyFloat_AsDouble(str);                                   \
-                Py_DECREF(ro);   Py_DECREF(str);                                \
+            wxPyObject ro;                                                      \
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)",a,b), wxPCBH_ERR_THROW);  \
+            if (ro.Ok()) {                                                      \
+                wxPyObject str = PyObject_Str(ro.Get());                        \
+                rval = PyFloat_AsDouble(str.Get());                             \
             }                                                                   \
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                           \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             rval = PCLASS::CBNAME(a, b);                                        \
         return rval;                                                            \
@@ -3012,10 +2996,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 #define PYCALLBACK__(PCLASS, CBNAME)                                            \
     void CBNAME()  {                                                            \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));                \
-        wxPyEndBlockThreads(blocked);                                           \
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);                \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             PCLASS::CBNAME();                                                   \
     }               
@@ -3026,10 +3010,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
     bool CBNAME(size_t a, size_t b)  {                                          \
         bool rval = 0;                                                          \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(ii)", a,b));  \
-        wxPyEndBlockThreads(blocked);                                           \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(ii)", a,b), wxPCBH_ERR_THROW);  \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             rval = PCLASS::CBNAME(a,b);                                         \
         return rval;                                                            \
@@ -3041,10 +3025,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
     bool CBNAME(size_t a)  {                                                    \
         bool rval = 0;                                                          \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(i)", a));     \
-        wxPyEndBlockThreads(blocked);                                           \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(i)", a), wxPCBH_ERR_THROW);     \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             rval = PCLASS::CBNAME(a);                                           \
         return rval;                                                            \
@@ -3054,17 +3038,15 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 #define PYCALLBACK_STRING_INT(PCLASS, CBNAME)                                   \
     wxString CBNAME(int a) {                                                    \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         wxString rval;                                                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            PyObject* ro;                                                       \
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(i)",a));     \
-            if (ro) {                                                           \
-                rval = Py2wxString(ro);                                         \
-                Py_DECREF(ro);                                                  \
-            }                                                                   \
+            wxPyObject ro;                                                      \
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(i)",a), wxPCBH_ERR_THROW);     \
+            if (ro.Ok())                                                        \
+                rval = Py2wxString(ro.Get());                                   \
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                           \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             rval = PCLASS::CBNAME(a);                                           \
         return rval;                                                            \
@@ -3074,13 +3056,12 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 #define PYCALLBACK__INTSTRING(PCLASS, CBNAME)                                   \
     void CBNAME(int a, const wxString& c)  {                                    \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            PyObject* s = wx2PyString(c);                                       \
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iO)",a,s));          \
-            Py_DECREF(s);                                                       \
+            wxPyObject s = wx2PyString(c);                                      \
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iO)",a,s.Get()), wxPCBH_ERR_THROW);          \
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                           \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             PCLASS::CBNAME(a,c);                                                \
     }           
@@ -3092,10 +3073,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
     bool CBNAME()  {                                                            \
         bool rval = 0;                                                          \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));         \
-        wxPyEndBlockThreads(blocked);                                           \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);         \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             rval = PCLASS::CBNAME();                                            \
         return rval;                                                            \
@@ -3106,10 +3087,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 #define PYCALLBACK__SIZETINT(PCLASS, CBNAME)                                    \
     void CBNAME(size_t a, int b)  {                                             \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(ii)", a,b));         \
-        wxPyEndBlockThreads(blocked);                                           \
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(ii)", a,b), wxPCBH_ERR_THROW);         \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             PCLASS::CBNAME(a,b);                                                \
     }        
@@ -3120,10 +3101,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 #define PYCALLBACK__INTINTLONG(PCLASS, CBNAME)                                  \
     void CBNAME(int a, int b, long c)  {                                        \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iii)", a,b,c));      \
-        wxPyEndBlockThreads(blocked);                                           \
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iii)", a,b,c), wxPCBH_ERR_THROW);      \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             PCLASS::CBNAME(a,b,c);                                              \
     }          
@@ -3134,10 +3115,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 #define PYCALLBACK__INTINTDOUBLE(PCLASS, CBNAME)                                \
     void CBNAME(int a, int b, double c)  {                                      \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iif)", a,b,c));      \
-        wxPyEndBlockThreads(blocked);                                           \
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iif)", a,b,c), wxPCBH_ERR_THROW);      \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             PCLASS::CBNAME(a,b,c);                                              \
     }       
@@ -3147,10 +3128,10 @@ wxPyMake_TEMPLATE(wxGridTableBase)
 #define PYCALLBACK__INTINTBOOL(PCLASS, CBNAME)                                  \
     void CBNAME(int a, int b, bool c)  {                                        \
         bool found;                                                             \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iii)", a,b,c));      \
-        wxPyEndBlockThreads(blocked);                                           \
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iii)", a,b,c), wxPCBH_ERR_THROW);      \
+        blocker.Unblock();                                                      \
         if (! found)                                                            \
             PCLASS::CBNAME(a,b,c);                                              \
     }         
@@ -3290,82 +3271,72 @@ public:
     void Draw(wxGrid& grid, wxGridCellAttr& attr,
               wxDC& dc, const wxRect& rect,
               int row, int col, bool isSelected) {
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "Draw")) {
-            PyObject* go = wxPyMake_wxObject(&grid,false);
-            PyObject* dco = wxPyMake_wxObject(&dc,false);
-            PyObject* ao = wxPyMake_wxGridCellAttr(&attr,false);
-            PyObject* ro = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
+            wxPyObject go = wxPyMake_wxObject(&grid,false);
+            wxPyObject dco = wxPyMake_wxObject(&dc,false);
+            wxPyObject ao = wxPyMake_wxGridCellAttr(&attr,false);
+            wxPyObject ro = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
 
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOOOiii)", go, ao, dco, ro,
-                                                         row, col, isSelected));
-            Py_DECREF(go);
-            Py_DECREF(ao);
-            Py_DECREF(dco);
-            Py_DECREF(ro);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OOOOiii)", 
+                            go.Get(), ao.Get(), dco.Get(), ro.Get(), 
+                            row, col, isSelected), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
     }
 
     wxSize GetBestSize(wxGrid& grid, wxGridCellAttr& attr, wxDC& dc,
                        int row, int col) {
         wxSize rval;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "GetBestSize")) {
-            PyObject* ro;
+            wxPyObject ro;
             wxSize*   ptr;
-            PyObject* go = wxPyMake_wxObject(&grid,false);
-            PyObject* dco = wxPyMake_wxObject(&dc,false);
-            PyObject* ao = wxPyMake_wxGridCellAttr(&attr,false);
+            wxPyObject go = wxPyMake_wxObject(&grid,false);
+            wxPyObject dco = wxPyMake_wxObject(&dc,false);
+            wxPyObject ao = wxPyMake_wxGridCellAttr(&attr,false);
 
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OOOii)",
-                                                                 go, ao, dco,
-                                                                 row, col));
-            Py_DECREF(go);
-            Py_DECREF(ao);
-            Py_DECREF(dco);
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                        Py_BuildValue("(OOOii)", go.Get(), ao.Get(), dco.Get(), row, col), 
+                        wxPCBH_ERR_THROW);
 
-            if (ro) {
+            if (ro.Ok()) {
                 const char* errmsg = "GetBestSize should return a 2-tuple of integers or a wxSize object.";
-                if (wxPyConvertSwigPtr(ro, (void **)&ptr, wxT("wxSize"))) {
+                if (wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxSize"))) {
                     rval = *ptr;
                 }
-                else if (PySequence_Check(ro) && PyObject_Length(ro) == 2) {
+                else if (PySequence_Check(ro.Get()) && PyObject_Length(ro.Get()) == 2) {
                     PyErr_Clear();  // Clear the exception left over from wxPyConvertSwigPtr
-                    PyObject* o1 = PySequence_GetItem(ro, 0);
-                    PyObject* o2 = PySequence_GetItem(ro, 1);
-                    if (PyNumber_Check(o1) && PyNumber_Check(o2))
-                        rval = wxSize(PyInt_AsLong(o1), PyInt_AsLong(o2));
-                    else
+                    wxPyObject o1 = PySequence_GetItem(ro.Get(), 0);
+                    wxPyObject o2 = PySequence_GetItem(ro.Get(), 1);
+                    if (PyNumber_Check(o1.Get()) && PyNumber_Check(o2.Get()))
+                        rval = wxSize(PyInt_AsLong(o1.Get()), PyInt_AsLong(o2.Get()));
+                    else {
                         PyErr_SetString(PyExc_TypeError, errmsg);
-                    Py_DECREF(o1);
-                    Py_DECREF(o2);
+                        wxThrowPyException();
+                    }
                 }
                 else {
                     PyErr_SetString(PyExc_TypeError, errmsg);
+                    wxThrowPyException();
                 }
-                Py_DECREF(ro);
             }
         }
-        wxPyEndBlockThreads(blocked);
         return rval;
     }
 
 
     wxGridCellRenderer *Clone() const {
         wxGridCellRenderer* rval = NULL;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "Clone")) {
-            PyObject* ro;
+            wxPyObject ro;
             wxGridCellRenderer* ptr;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
-            if (ro) {
-                if (wxPyConvertSwigPtr(ro, (void **)&ptr, wxT("wxGridCellRenderer")))
-                    rval = ptr;
-                Py_DECREF(ro);
-            }
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxGridCellRenderer")))
+                rval = ptr;
         }
-        wxPyEndBlockThreads(blocked);
         return rval;
     }
 
@@ -3384,70 +3355,66 @@ public:
     wxPyGridCellEditor() : wxGridCellEditor() {}
 
     void Create(wxWindow* parent, wxWindowID id, wxEvtHandler* evtHandler) {
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "Create")) {
-            PyObject* po = wxPyMake_wxObject(parent,false);
-            PyObject* eo = wxPyMake_wxObject(evtHandler,false);
+            wxPyObject po = wxPyMake_wxObject(parent,false);
+            wxPyObject eo = wxPyMake_wxObject(evtHandler,false);
 
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OiO)", po, id, eo));
-            Py_DECREF(po);
-            Py_DECREF(eo);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OiO)", po.Get(), id, eo.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
     }
 
 
     void BeginEdit(int row, int col, wxGrid* grid) {
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "BeginEdit")) {
-            PyObject* go = wxPyMake_wxObject(grid,false);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iiO)", row, col, go));
-            Py_DECREF(go);
+            wxPyObject go = wxPyMake_wxObject(grid,false);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(iiO)", row, col, go.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
     }
 
 
     bool EndEdit(int row, int col, wxGrid* grid) {
         bool rv = false;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "EndEdit")) {
-            PyObject* go = wxPyMake_wxObject(grid,false);
-            rv = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iiO)", row, col, go));
-            Py_DECREF(go);
+            wxPyObject go = wxPyMake_wxObject(grid,false);
+            rv = wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(iiO)", row, col, go.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
         return rv;
     }
 
 
     wxGridCellEditor* Clone() const {
         wxGridCellEditor* rval = NULL;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "Clone")) {
-            PyObject* ro;
+            wxPyObject ro;
             wxGridCellEditor* ptr;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
-            if (ro) {
-                if (wxPyConvertSwigPtr(ro, (void **)&ptr, wxT("wxGridCellEditor")))
-                    rval = ptr;
-                Py_DECREF(ro);
-            }
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxGridCellEditor")))
+                rval = ptr;
         }
-        wxPyEndBlockThreads(blocked);
         return rval;
     }
 
 
     void Show(bool show, wxGridCellAttr *attr) {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "Show"))) {
-            PyObject* ao = wxPyMake_wxGridCellAttr(attr,false);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iO)", show, ao));
-            Py_DECREF(ao);
+            wxPyObject ao = wxPyMake_wxGridCellAttr(attr,false);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(iO)", show, ao.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxGridCellEditor::Show(show, attr);
     }
@@ -3455,17 +3422,16 @@ public:
 
     void PaintBackground(const wxRect& rectCell, wxGridCellAttr *attr) {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "PaintBackground"))) {
-            PyObject* ao = wxPyMake_wxGridCellAttr(attr,false);
-            PyObject* ro = wxPyConstructObject((void*)&rectCell, wxT("wxRect"), 0);
+            wxPyObject ao = wxPyMake_wxGridCellAttr(attr,false);
+            wxPyObject ro = wxPyConstructObject((void*)&rectCell, wxT("wxRect"), 0);
 
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", ro, ao));
-
-            Py_DECREF(ro);
-            Py_DECREF(ao);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OO)", ro.Get(), ao.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxGridCellEditor::PaintBackground(rectCell, attr);
     }
@@ -3596,33 +3562,30 @@ public:
 
 
     wxString GetValue(int row, int col) {
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         wxString rval;
         if (wxPyCBH_findCallback(m_myInst, "GetValue")) {
-            PyObject* ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)",row,col));
-            if (ro) {
-                if (!PyString_Check(ro) && !PyUnicode_Check(ro)) {
-                    PyObject* old = ro;
-                    ro = PyObject_Str(ro);
-                    Py_DECREF(old);
-                }
-                rval = Py2wxString(ro);
-                Py_DECREF(ro);
+            wxPyObject ro;
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                    Py_BuildValue("(ii)",row,col), 
+                    wxPCBH_ERR_THROW);
+            if (ro.Ok()) {
+                if (!PyString_Check(ro.Get()) && !PyUnicode_Check(ro.Get()))
+                    ro = PyObject_Str(ro.Get());
+                rval = Py2wxString(ro.Get());
             }
         }
-        wxPyEndBlockThreads(blocked);
         return rval;
     }
 
     void SetValue(int row, int col, const wxString& val) {
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "SetValue")) {
-            PyObject* s = wx2PyString(val);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iiO)",row,col,s));
-            Py_DECREF(s);
-	}
-        wxPyEndBlockThreads(blocked);
+            wxPyObject s = wx2PyString(val);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(iiO)",row,col,s.Get()), 
+                    wxPCBH_ERR_THROW);
+        }
     }
 
 
@@ -3630,41 +3593,37 @@ public:
     // the GetValue and SetValue python methods.
     long GetValueAsLong( int row, int col ) {
         long rval = 0;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "GetValue")) {
-            PyObject* ro;
-            PyObject* num;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)", row, col));
-            if (ro && PyNumber_Check(ro)) {
-                num = PyNumber_Int(ro);
-                if (num) {
-                    rval = PyInt_AsLong(num);
-                    Py_DECREF(num);
-                }
-                Py_DECREF(ro);
+            wxPyObject ro;
+            wxPyObject num;
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                    Py_BuildValue("(ii)", row, col), 
+                    wxPCBH_ERR_THROW);
+            if (ro.Ok() && PyNumber_Check(ro.Get())) {
+                num = PyNumber_Int(ro.Get());
+                if (num.Ok())
+                    rval = PyInt_AsLong(num.Get());
             }
         }
-        wxPyEndBlockThreads(blocked);
         return rval;
     }
 
     double GetValueAsDouble( int row, int col ) {
         double rval = 0.0;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "GetValue")) {
-            PyObject* ro;
-            PyObject* num;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)", row, col));
-            if (ro && PyNumber_Check(ro)) {
-                num = PyNumber_Float(ro);
-                if (num) {
-                    rval = PyFloat_AsDouble(num);
-                    Py_DECREF(num);
-                }
-                Py_DECREF(ro);
+            wxPyObject ro;
+            wxPyObject num;
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                    Py_BuildValue("(ii)", row, col), 
+                    wxPCBH_ERR_THROW);
+            if (ro.Ok() && PyNumber_Check(ro.Get())) {
+                num = PyNumber_Float(ro.Get());
+                if (num.Ok())
+                    rval = PyFloat_AsDouble(num.Get());
             }
         }
-        wxPyEndBlockThreads(blocked);
         return rval;
     }
 
@@ -3673,19 +3632,17 @@ public:
     }
 
     void SetValueAsLong( int row, int col, long value ) {
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "SetValue")) {
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iii)", row, col, value));
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iii)", row, col, value), wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
     }
 
     void SetValueAsDouble( int row, int col, double value ) {
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "SetValue")) {
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iid)", row, col, value));
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iid)", row, col, value), wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
     }
 
     void SetValueAsBool( int row, int col, bool value ) {

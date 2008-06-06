@@ -2967,18 +2967,16 @@ public:
                           const wxRect& rect)
     {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawSash"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc, false);
-            PyObject* owin = wxPyMake_wxObject(window, false);
-            PyObject* orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOiO)",
-                                                         odc, owin, orientation, orect));
-            Py_DECREF(odc);
-            Py_DECREF(owin);
-            Py_DECREF(orect);
+            wxPyObject odc = wxPyMake_wxObject(&dc, false);
+            wxPyObject owin = wxPyMake_wxObject(window, false);
+            wxPyObject orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OOiO)", odc.Get(), owin.Get(), orientation, orect.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxAuiDefaultDockArt::DrawSash(dc, window, orientation, rect);
     }
@@ -2989,18 +2987,16 @@ public:
                           const wxRect& rect)
     {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawBackground"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc, false);
-            PyObject* owin = wxPyMake_wxObject(window, false);
-            PyObject* orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOiO)",
-                                                         odc, owin, orientation, orect));
-            Py_DECREF(odc);
-            Py_DECREF(owin);
-            Py_DECREF(orect);
+            wxPyObject odc = wxPyMake_wxObject(&dc, false);
+            wxPyObject owin = wxPyMake_wxObject(window, false);
+            wxPyObject orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OOiO)", odc.Get(), owin.Get(), orientation, orect.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxAuiDefaultDockArt::DrawBackground(dc, window, orientation, rect);
     }
@@ -3012,22 +3008,18 @@ public:
                           wxAuiPaneInfo& pane)
     {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawCaption"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc, false);
-            PyObject* owin = wxPyMake_wxObject(window, false);
-            PyObject* otext = wx2PyString(text);
-            PyObject* orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
-            PyObject* opane = wxPyConstructObject((void*)&pane, wxT("wxAuiPaneInfo"), 0);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOOOO)",
-                                                         odc, owin, otext, orect, opane));
-            Py_DECREF(odc);
-            Py_DECREF(owin);
-            Py_DECREF(otext);
-            Py_DECREF(orect);
-            Py_DECREF(opane);
+            wxPyObject odc = wxPyMake_wxObject(&dc, false);
+            wxPyObject owin = wxPyMake_wxObject(window, false);
+            wxPyObject otext = wx2PyString(text);
+            wxPyObject orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
+            wxPyObject opane = wxPyConstructObject((void*)&pane, wxT("wxAuiPaneInfo"), 0);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OOOOO)", odc.Get(), owin.Get(), otext.Get(), orect.Get(), opane.Get()), 
+                    wxPCBH_ERR_THROW);
        }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxAuiDefaultDockArt::DrawCaption(dc, window, text, rect, pane);
     }
@@ -3038,18 +3030,17 @@ public:
                           wxAuiPaneInfo& pane)
     {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawGripper"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc, false);
-            PyObject* owin = wxPyMake_wxObject(window, false);
-            PyObject* orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
-            PyObject* opane = wxPyConstructObject((void*)&pane, wxT("wxAuiPaneInfo"), 0);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOOO)", odc, owin, orect, opane));
-            Py_DECREF(odc);
-            Py_DECREF(orect);
-            Py_DECREF(opane);
+            wxPyObject odc = wxPyMake_wxObject(&dc, false);
+            wxPyObject owin = wxPyMake_wxObject(window, false);
+            wxPyObject orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
+            wxPyObject opane = wxPyConstructObject((void*)&pane, wxT("wxAuiPaneInfo"), 0);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OOOO)", odc.Get(), owin.Get(), orect.Get(), opane.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxAuiDefaultDockArt::DrawGripper(dc, window, rect, pane);
     }
@@ -3060,19 +3051,17 @@ public:
                           wxAuiPaneInfo& pane)
     {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawBorder"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc, false);
-            PyObject* owin = wxPyMake_wxObject(window, false);
-            PyObject* orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
-            PyObject* opane = wxPyConstructObject((void*)&pane, wxT("wxAuiPaneInfo"), 0);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOO)", odc, orect, opane));
-            Py_DECREF(odc);
-            Py_DECREF(owin);
-            Py_DECREF(orect);
-            Py_DECREF(opane);
+            wxPyObject odc = wxPyMake_wxObject(&dc, false);
+            wxPyObject owin = wxPyMake_wxObject(window, false);
+            wxPyObject orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
+            wxPyObject opane = wxPyConstructObject((void*)&pane, wxT("wxAuiPaneInfo"), 0);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OOOO)", odc.Get(), owin.Get(), orect.Get(), opane.Get()), 
+                    wxPCBH_ERR_THROW);
        }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxAuiDefaultDockArt::DrawBorder(dc, window, rect, pane);
     }
@@ -3085,21 +3074,17 @@ public:
                           wxAuiPaneInfo& pane)
     {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawPaneButton"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc, false);
-            PyObject* owin = wxPyMake_wxObject(window, false);
-            PyObject* orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
-            PyObject* opane = wxPyConstructObject((void*)&pane, wxT("wxAuiPaneInfo"), 0);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOiIOO)",
-                                                         odc, owin, button, button_state,
-                                                         orect, opane));
-            Py_DECREF(odc);
-            Py_DECREF(owin);
-            Py_DECREF(orect);
-            Py_DECREF(opane);
+            wxPyObject odc = wxPyMake_wxObject(&dc, false);
+            wxPyObject owin = wxPyMake_wxObject(window, false);
+            wxPyObject orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
+            wxPyObject opane = wxPyConstructObject((void*)&pane, wxT("wxAuiPaneInfo"), 0);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OOiIOO)", odc.Get(), owin.Get(), button, button_state, orect.Get(), opane.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxAuiDefaultDockArt::DrawPaneButton(dc, window, button, button_state, rect, pane);
     }
@@ -3129,17 +3114,16 @@ public:
                                  const wxRect& rect )
     {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawBackground"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc, false);
-            PyObject* ownd = wxPyMake_wxObject(wnd, false);
-            PyObject* orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOO)", odc, ownd, orect));
-            Py_DECREF(odc);
-            Py_DECREF(ownd);
-            Py_DECREF(orect);
+            wxPyObject odc = wxPyMake_wxObject(&dc, false);
+            wxPyObject ownd = wxPyMake_wxObject(wnd, false);
+            wxPyObject orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OOO)", odc.Get(), ownd.Get(), orect.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (!found)
             wxAuiDefaultTabArt::DrawBackground(dc, wnd, rect);
     }
@@ -3155,47 +3139,40 @@ public:
     {
         bool found;
         const char* errmsg = "DrawTab should return a sequence containing (tab_rect, button_rect, x_extent)";
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawTab"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc, false);
-            PyObject* ownd = wxPyMake_wxObject(wnd, false);
-            PyObject* opane = wxPyConstructObject((void*)&pane, wxT("wxAuiNotebookPage"), 0);
-            PyObject* orect = wxPyConstructObject((void*)&in_rect, wxT("wxRect"), 0);
-            PyObject* ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue(
-                                             "(OOOOOii)",
-                                             odc, ownd, orect, opane,
-                                             close_button_state));
-            if (ro) {
-                if (PySequence_Check(ro) && PyObject_Length(ro) == 3) {
-                    PyObject* o1 = PySequence_GetItem(ro, 0);
-                    PyObject* o2 = PySequence_GetItem(ro, 1);
-                    PyObject* o3 = PySequence_GetItem(ro, 2);
-                    if (!wxRect_helper(o1, &out_tab_rect)) 
+            wxPyObject odc = wxPyMake_wxObject(&dc, false);
+            wxPyObject ownd = wxPyMake_wxObject(wnd, false);
+            wxPyObject opane = wxPyConstructObject((void*)&pane, wxT("wxAuiNotebookPage"), 0);
+            wxPyObject orect = wxPyConstructObject((void*)&in_rect, wxT("wxRect"), 0);
+            wxPyObject ro;
+            //XXX: what are the arguments for this callback? Original format str: (OOOOOii)
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                    Py_BuildValue("(OOOOi)", odc.Get(), ownd.Get(), opane.Get(), orect.Get(), close_button_state), 
+                    wxPCBH_ERR_THROW);
+            if (ro.Ok()) {
+                if (PySequence_Check(ro.Get()) && PyObject_Length(ro.Get()) == 3) {
+                    wxPyObject o1 = PySequence_GetItem(ro.Get(), 0);
+                    wxPyObject o2 = PySequence_GetItem(ro.Get(), 1);
+                    wxPyObject o3 = PySequence_GetItem(ro.Get(), 2);
+                    if (!wxRect_helper(o1.Get(), &out_tab_rect)) 
                         PyErr_SetString(PyExc_TypeError, errmsg);
-                    else if (!wxRect_helper(o2, &out_button_rect)) 
+                    else if (!wxRect_helper(o2.Get(), &out_button_rect)) 
                         PyErr_SetString(PyExc_TypeError, errmsg);
-                    else if (!PyInt_Check(o3)) 
+                    else if (!PyInt_Check(o3.Get())) 
                         PyErr_SetString(PyExc_TypeError, errmsg);
                     else
-                        *x_extent = PyInt_AsLong(o3);
-                    
-                    Py_DECREF(o1);
-                    Py_DECREF(o2);
-                    Py_DECREF(o3);
+                        *x_extent = PyInt_AsLong(o3.Get());
                 }
                 else {
                     PyErr_SetString(PyExc_TypeError, errmsg);
                 }
-                Py_DECREF(ro);
-            }
 
-            Py_DECREF(odc);
-            Py_DECREF(ownd);
-            Py_DECREF(orect);
-            Py_DECREF(opane);
+                if (PyErr_Occurred())
+                    wxThrowPyException();
+            }
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (!found)
             wxAuiDefaultTabArt::DrawTab(dc, wnd, pane, in_rect, close_button_state, out_tab_rect, out_button_rect, x_extent);
     }
@@ -3211,25 +3188,22 @@ public:
     {
         bool found;
         const char* errmsg = "DrawButton should return a wxRect";
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawButton"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc, false);
-            PyObject* ownd = wxPyMake_wxObject(wnd, false);
-            PyObject* orect = wxPyConstructObject((void*)&in_rect, wxT("wxRect"), 0);
-            PyObject* ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OOOiiiO)", odc, ownd, orect,
-                                                                 bitmap_id, button_state, orientation));
-            if (ro) {
-                if (!wxRect_helper(ro, &out_rect)) 
-                    PyErr_SetString(PyExc_TypeError, errmsg);
-                Py_DECREF(ro);
+            wxPyObject odc = wxPyMake_wxObject(&dc, false);
+            wxPyObject ownd = wxPyMake_wxObject(wnd, false);
+            wxPyObject orect = wxPyConstructObject((void*)&in_rect, wxT("wxRect"), 0);
+            wxPyObject ro;
+            //XXX: what are the arguments for this callback? Original format str: (OOOiiiO)
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                    Py_BuildValue("(OOOiii)", odc.Get(), ownd.Get(), orect.Get(), bitmap_id, button_state, orientation), 
+                    wxPCBH_ERR_THROW);
+            if (ro.Ok() && !wxRect_helper(ro.Get(), &out_rect)) {
+                PyErr_SetString(PyExc_TypeError, errmsg);
+                wxThrowPyException();
             }
-
-            Py_DECREF(odc);
-            Py_DECREF(ownd);
-            Py_DECREF(orect);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (!found)
             wxAuiDefaultTabArt::DrawButton(dc, wnd, in_rect, bitmap_id, button_state, orientation, out_rect);
     }
@@ -3246,41 +3220,36 @@ public:
         bool found;
         wxSize rv, *prv = &rv;
         const char* errmsg = "GetTabSize should return a sequence containing (size, x_extent)";
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "GetTabSize"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc, false);
-            PyObject* ownd = wxPyMake_wxObject(wnd, false);
-            PyObject* otext = wx2PyString(caption);
-            PyObject* obmp = wxPyMake_wxObject((wxObject*)&bitmap, false);
-            PyObject* ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue(
-                                             "(OOOOii)", odc, ownd, otext, obmp, (int)active, close_button_state));
-            if (ro) {
-                if (PySequence_Check(ro) && PyObject_Length(ro) == 2) {
-                    PyObject* o1 = PySequence_GetItem(ro, 0);
-                    PyObject* o2 = PySequence_GetItem(ro, 1);
-                    if (!wxSize_helper(o1, &prv)) 
+            wxPyObject odc = wxPyMake_wxObject(&dc, false);
+            wxPyObject ownd = wxPyMake_wxObject(wnd, false);
+            wxPyObject otext = wx2PyString(caption);
+            wxPyObject obmp = wxPyMake_wxObject((wxObject*)&bitmap, false);
+            wxPyObject ro;
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                    Py_BuildValue("(OOOOii)", odc.Get(), ownd.Get(), otext.Get(), obmp.Get(), (int)active, close_button_state), 
+                    wxPCBH_ERR_THROW);
+            if (ro.Ok()) {
+                if (PySequence_Check(ro.Get()) && PyObject_Length(ro.Get()) == 2) {
+                    wxPyObject o1 = PySequence_GetItem(ro.Get(), 0);
+                    wxPyObject o2 = PySequence_GetItem(ro.Get(), 1);
+                    if (!wxSize_helper(o1.Get(), &prv)) 
                         PyErr_SetString(PyExc_TypeError, errmsg);
-                    else if (!PyInt_Check(o2)) 
+                    else if (!PyInt_Check(o2.Get())) 
                         PyErr_SetString(PyExc_TypeError, errmsg);
                     else
-                        *x_extent = PyInt_AsLong(o2);
-                    
-                    Py_DECREF(o1);
-                    Py_DECREF(o2);
+                        *x_extent = PyInt_AsLong(o2.Get());
                 }
                 else {
                     PyErr_SetString(PyExc_TypeError, errmsg);
                 }
-                Py_DECREF(ro);
-            }
 
-            Py_DECREF(odc);
-            Py_DECREF(ownd);
-            Py_DECREF(otext);
-            Py_DECREF(obmp);
+                if (PyErr_Occurred())
+                    wxThrowPyException();
+            }
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (!found)
             rv = wxAuiDefaultTabArt::GetTabSize(dc, wnd, caption, bitmap, active, close_button_state, x_extent);
         return rv;

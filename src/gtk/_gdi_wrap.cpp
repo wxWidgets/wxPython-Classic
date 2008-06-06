@@ -3521,19 +3521,16 @@ const wxString& wxPyLocale::GetSingularString(const wxString& origString,
 {
     bool found;
     wxString str( _T("error in translation")); 
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if ((found=wxPyCBH_findCallback(m_myInst, "GetSingularString"))) {
-        PyObject* param1 = wx2PyString(origString);
-        PyObject* param2 = wx2PyString(domain);
-        PyObject* ret = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OO)", param1, param2));
-        Py_DECREF(param1);
-        Py_DECREF(param2);
-        if (ret) {
-            str = Py2wxString(ret);
-            Py_DECREF(ret);
-        }
+        wxPyObject param1 = wx2PyString(origString);
+        wxPyObject param2 = wx2PyString(domain);
+        wxPyObject ret = wxPyCBH_callCallbackObj(m_myInst, 
+                Py_BuildValue("(OO)", param1.Get(), param2.Get()), 
+                wxPCBH_ERR_THROW);
+        if (ret.Ok())
+            str = Py2wxString(ret.Get());
     }
-    wxPyEndBlockThreads(blocked);
     return (found ? str : wxLocale::GetString(origString, domain));
 }
 
@@ -3543,24 +3540,17 @@ const wxString& wxPyLocale::GetPluralString(const wxString& origString,
 {
     bool found;
     wxString str( _T("error in translation"));
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if ((found=wxPyCBH_findCallback(m_myInst, "GetPluralString"))) {
-        PyObject* param1 = wx2PyString(origString);
-        PyObject* param2 = wx2PyString(origString2);
-        PyObject* param4 = wx2PyString(domain);
-        PyObject* ret = wxPyCBH_callCallbackObj(m_myInst,
-                                                Py_BuildValue("(OOiO)",
-                                                              param1, param2,
-                                                              (int)n, param4));
-        Py_DECREF(param1);
-        Py_DECREF(param2);
-        Py_DECREF(param4);
-        if( ret) {
-            str = Py2wxString(ret);
-            Py_DECREF(ret);
-        }
+        wxPyObject param1 = wx2PyString(origString);
+        wxPyObject param2 = wx2PyString(origString2);
+        wxPyObject param4 = wx2PyString(domain);
+        wxPyObject ret = wxPyCBH_callCallbackObj(m_myInst,
+                Py_BuildValue("(OOiO)", param1.Get(), param2.Get(), (int)n, param4.Get()), 
+                wxPCBH_ERR_THROW);
+        if(ret.Ok())
+            str = Py2wxString(ret.Get());
     }
-    wxPyEndBlockThreads(blocked);
     return (found ? str : wxLocale::GetString(origString, origString2, n, domain) );
 }
 

@@ -69,18 +69,15 @@ public:
     wxMenu* CreatePopupMenu() {
         wxMenu *rval = NULL;
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "CreatePopupMenu"))) {
-            PyObject* ro;
+            wxPyObject ro;
             wxMenu* ptr;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
-            if (ro) {
-                if (wxPyConvertSwigPtr(ro, (void **)&ptr, wxT("wxMenu")))
-                    rval = ptr;
-                Py_DECREF(ro);
-            }
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxMenu")))
+                rval = ptr;
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             rval = wxTaskBarIcon::CreatePopupMenu();
         return rval;

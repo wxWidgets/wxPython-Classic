@@ -94,25 +94,20 @@ public:
                                   const wxArtClient& client,
                                   const wxSize& size) {
         wxBitmap rval = wxNullBitmap;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((wxPyCBH_findCallback(m_myInst, "CreateBitmap"))) {
-            PyObject* so = wxPyConstructObject((void*)&size, wxT("wxSize"), 0);
-            PyObject* ro;
+            wxPyObject so = wxPyConstructObject((void*)&size, wxT("wxSize"), 0);
+            wxPyObject ro;
             wxBitmap* ptr;
-            PyObject* s1, *s2;
+            wxPyObject s1, s2;
             s1 = wx2PyString(id);
             s2 = wx2PyString(client);
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OOO)", s1, s2, so));
-            Py_DECREF(so);
-            Py_DECREF(s1);
-            Py_DECREF(s2);
-            if (ro) {
-                if (wxPyConvertSwigPtr(ro, (void**)&ptr, wxT("wxBitmap")))
-                    rval = *ptr;
-                Py_DECREF(ro);
-            }
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                    Py_BuildValue("(OOO)", s1.Get(), s2.Get(), so.Get()),
+                    wxPCBH_ERR_THROW);
+            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void**)&ptr, wxT("wxBitmap")))
+                rval = *ptr;
         }
-        wxPyEndBlockThreads(blocked);
         return rval;
     }
 
@@ -120,23 +115,19 @@ public:
                                           const wxArtClient& client)
     {
         wxIconBundle rval = wxNullIconBundle;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((wxPyCBH_findCallback(m_myInst, "CreateIconBundle"))) {
-            PyObject* ro;
+            wxPyObject ro;
             wxIconBundle* ptr;
-            PyObject* s1, *s2;
+            wxPyObject s1, s2;
             s1 = wx2PyString(id);
             s2 = wx2PyString(client);
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OO)", s1, s2));
-            Py_DECREF(s1);
-            Py_DECREF(s2);
-            if (ro) {
-                if (wxPyConvertSwigPtr(ro, (void**)&ptr, wxT("wxIconBundle")))
-                    rval = *ptr;
-                Py_DECREF(ro);
-            }
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                Py_BuildValue("(OO)", s1.Get(), s2.Get()),
+                wxPCBH_ERR_THROW);
+            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void**)&ptr, wxT("wxIconBundle")))
+                rval = *ptr;
         }
-        wxPyEndBlockThreads(blocked);
         return rval;
     }
 

@@ -121,13 +121,14 @@ public:
     void DoSetPopupControl(wxComboPopup* popup)
     {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "DoSetPopupControl"))) {
-            PyObject* obj = wxPyConstructObject(popup, wxT("wxComboPopup"), false);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)",obj));
-            Py_DECREF(obj);
+            wxPyObject obj = wxPyConstructObject(popup, wxT("wxComboPopup"), false);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(O)",obj.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxComboCtrl::DoSetPopupControl(popup);
     }
@@ -136,13 +137,14 @@ public:
     {
         bool found;
         bool rval = false;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "OnComboKeyEvent"))) {
-            PyObject* oevt = wxPyConstructObject((void*)&event, wxT("wxKeyEvent"), 0);
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", oevt));
-            Py_DECREF(oevt);
+            wxPyObject oevt = wxPyConstructObject((void*)&event, wxT("wxKeyEvent"), 0);
+            rval = wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(O)", oevt.Get()), 
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             rval = wxComboCtrl::IsKeyPopupToggle(event);
         return rval;
@@ -605,19 +607,19 @@ public:
     {
         wxWindow* rval = NULL;
         const char* errmsg = "GetControl should return an object derived from wx.Window.";
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if (wxPyCBH_findCallback(m_myInst, "GetControl")) {
-            PyObject* ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
-            if (ro) {
-                if (!wxPyConvertSwigPtr(ro, (void**)&rval, wxT("wxWindow")))
-                    PyErr_SetString(PyExc_TypeError, errmsg);
-                Py_DECREF(ro);
+            wxPyObject ro;
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+            if (ro.Ok() && !wxPyConvertSwigPtr(ro.Get(), (void**)&rval, wxT("wxWindow"))) {
+                PyErr_SetString(PyExc_TypeError, errmsg);
+                wxThrowPyException();
             }
         }
-        else
+        else {
             PyErr_SetString(PyExc_TypeError, errmsg);
-        wxPyEndBlockThreads(blocked);
+            wxThrowPyException();
+        }
         return rval;
     }
 
@@ -625,15 +627,15 @@ public:
     virtual void PaintComboControl( wxDC& dc, const wxRect& rect )
     {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "PaintComboControl"))) {
-            PyObject* odc = wxPyMake_wxObject(&dc,false);
-            PyObject* orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", odc, orect));
-            Py_DECREF(odc);
-            Py_DECREF(orect);
+            wxPyObject odc = wxPyMake_wxObject(&dc,false);
+            wxPyObject orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(OO)", odc.Get(), orect.Get()),
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxComboPopup::PaintComboControl(dc, rect);
     }
@@ -642,13 +644,14 @@ public:
     virtual void OnComboKeyEvent( wxKeyEvent& event )
     {
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "OnComboKeyEvent"))) {
-            PyObject* oevt = wxPyConstructObject((void*)&event, wxT("wxKeyEvent"), 0);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", oevt));
-            Py_DECREF(oevt);
+            wxPyObject oevt = wxPyConstructObject((void*)&event, wxT("wxKeyEvent"), 0);
+            wxPyCBH_callCallback(m_myInst, 
+                    Py_BuildValue("(O)", oevt.Get()),
+                    wxPCBH_ERR_THROW);
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             wxComboPopup::OnComboKeyEvent(event);
     }
@@ -660,20 +663,20 @@ public:
         bool found;
         wxSize rval(0,0);
         wxSize* rptr = &rval;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "GetAdjustedSize"))) {
-            PyObject* ro;
-            ro = wxPyCBH_callCallbackObj(
-                m_myInst, Py_BuildValue("(iii)", minWidth, prefHeight, maxHeight));
-            if (ro) {
-                if (! wxSize_helper(ro, &rptr))
+            wxPyObject ro;
+            ro = wxPyCBH_callCallbackObj(m_myInst, 
+                    Py_BuildValue("(iii)", minWidth, prefHeight, maxHeight),
+                    wxPCBH_ERR_THROW);
+            if (ro.Ok()) {
+                if (! wxSize_helper(ro.Get(), &rptr))
                     PyErr_SetString(PyExc_TypeError, errmsg);
                 else
                     rval = *rptr;
-                Py_DECREF(ro);
             }
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             rval = wxComboPopup::GetAdjustedSize(minWidth, prefHeight, maxHeight);
         return rval;

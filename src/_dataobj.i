@@ -247,14 +247,14 @@ in the given direction.", "");
             wxDataFormat* formats = new wxDataFormat[count];
             self->GetAllFormats(formats, dir);
 
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             PyObject* list = PyList_New(count);
             for (size_t i=0; i<count; i++) {
                 wxDataFormat* format = new wxDataFormat(formats[i]);
                 PyObject* obj = wxPyConstructObject((void*)format, wxT("wxDataFormat"), true);
                 PyList_SET_ITEM(list, i, obj); // PyList_SET_ITEM steals a reference
             }            
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             delete [] formats;
             return list;
         }
@@ -274,7 +274,7 @@ in the given direction.", "");
         PyObject* GetDataHere(const wxDataFormat& format) {
             PyObject* rval = NULL;
             size_t size = self->GetDataSize(format);            
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             if (size) {
                 char* buf = new char[size];
                 if (self->GetDataHere(format, buf)) 
@@ -285,7 +285,7 @@ in the given direction.", "");
                 rval = Py_None;
                 Py_INCREF(rval);
             }
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             return rval;
         }
     }
@@ -303,7 +303,7 @@ in the given direction.", "");
     %extend {
         bool SetData(const wxDataFormat& format, PyObject* data) {
             bool rval;
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             if (PyString_Check(data)) {
                 rval = self->SetData(format, PyString_Size(data), PyString_AsString(data));
             }
@@ -312,7 +312,7 @@ in the given direction.", "");
                 PyErr_SetString(PyExc_TypeError, "String expected.");
                 rval = false;
             }
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             return rval;
         }
     }
@@ -370,7 +370,7 @@ supports rendering its data.", "");
         PyObject* GetDataHere() {
             PyObject* rval = NULL;
             size_t size = self->GetDataSize();            
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             if (size) {
                 char* buf = new char[size];
                 if (self->GetDataHere(buf)) 
@@ -381,7 +381,7 @@ supports rendering its data.", "");
                 rval = Py_None;
                 Py_INCREF(rval);
             }
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             return rval;
         }
     }
@@ -395,7 +395,7 @@ derived class if the object supports setting its data.
 ", "");
         bool SetData(PyObject* data) {
             bool rval;
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             if (PyString_Check(data)) {
                 rval = self->SetData(PyString_Size(data), PyString_AsString(data));
             }
@@ -404,7 +404,7 @@ derived class if the object supports setting its data.
                 PyErr_SetString(PyExc_TypeError, "String expected.");
                 rval = false;
             }
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             return rval;
         }
     }
@@ -436,18 +436,16 @@ bool wxPyDataObjectSimple::GetDataHere(void *buf) const {
     // C++ version.
 
     bool rval = false;
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "GetDataHere")) {
-        PyObject* ro;
-        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
-        if (ro) {
-            rval = (ro != Py_None && PyString_Check(ro));
+        wxPyObject ro;
+        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+        if (ro.Ok()) {
+            rval = (ro.Get() != Py_None && PyString_Check(ro.Get()));
             if (rval)
-                memcpy(buf, PyString_AsString(ro), PyString_Size(ro));
-            Py_DECREF(ro);
+                memcpy(buf, PyString_AsString(ro.Get()), PyString_Size(ro.Get()));
         }
     }
-    wxPyEndBlockThreads(blocked);
     return rval;
 }
 
@@ -455,13 +453,11 @@ bool wxPyDataObjectSimple::SetData(size_t len, const void *buf) {
     // For this one we simply need to make a string from buf and len
     // and send it to the Python method.
     bool rval = false;
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "SetData")) {
-        PyObject* data = PyString_FromStringAndSize((char*)buf, len);
-        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", data));
-        Py_DECREF(data);
+        wxPyObject data = PyString_FromStringAndSize((char*)buf, len);
+        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", data.Get()), wxPCBH_ERR_THROW);
     }
-    wxPyEndBlockThreads(blocked);
     return rval;
 }
 %}
@@ -685,29 +681,23 @@ public:
 
 wxBitmap wxPyBitmapDataObject::GetBitmap() const {
     wxBitmap* rval = &wxNullBitmap;
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "GetBitmap")) {
-        PyObject* ro;
+        wxPyObject ro;
         wxBitmap* ptr;
-        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
-        if (ro) {
-            if (wxPyConvertSwigPtr(ro, (void **)&ptr, wxT("wxBitmap")))
-                rval = ptr;
-            Py_DECREF(ro);
-        }
+        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+        if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxBitmap")))
+            rval = ptr;
     }
-    wxPyEndBlockThreads(blocked);
     return *rval;
 }
  
 void wxPyBitmapDataObject::SetBitmap(const wxBitmap& bitmap) {
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "SetBitmap")) {
-        PyObject* bo = wxPyConstructObject((void*)&bitmap, wxT("wxBitmap"), false);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", bo));
-        Py_DECREF(bo);
+        wxPyObject bo = wxPyConstructObject((void*)&bitmap, wxT("wxBitmap"), false);
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", bo.Get()), wxPCBH_ERR_THROW);
     }
-    wxPyEndBlockThreads(blocked);
 }
 %}
 
@@ -785,7 +775,7 @@ public:
                 "Copy the data value to the data object.", "");
         bool SetData(PyObject* data) {
             bool rval;
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             if (PyString_Check(data)) {
                 rval = self->SetData(PyString_Size(data), PyString_AsString(data));
             }
@@ -794,7 +784,7 @@ public:
                 PyErr_SetString(PyExc_TypeError, "String expected.");
                 rval = false;
             }
-            wxPyEndBlockThreads(blocked);
+            blocker.Unblock();
             return rval;
         }
     }
@@ -811,9 +801,8 @@ public:
                 "Returns the data bytes from the data object as a string.", "");
         PyObject* GetData() {
             PyObject* obj;
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyThreadBlocker blocker;
             obj = PyString_FromStringAndSize((char*)self->GetData(), self->GetSize());
-            wxPyEndBlockThreads(blocked);
             return obj;
         }
     }

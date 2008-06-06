@@ -316,15 +316,13 @@ public:
                        const wxTreeItemId& item2) {
         int rval = 0;
         bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "OnCompareItems"))) {
-            PyObject *o1 = wxPyConstructObject((void*)&item1, wxT("wxTreeItemId"), false);
-            PyObject *o2 = wxPyConstructObject((void*)&item2, wxT("wxTreeItemId"), false);
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)",o1,o2));
-            Py_DECREF(o1);
-            Py_DECREF(o2);
+            wxPyObject o1 = wxPyConstructObject((void*)&item1, wxT("wxTreeItemId"), false);
+            wxPyObject o2 = wxPyConstructObject((void*)&item2, wxT("wxTreeItemId"), false);
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)",o1.Get(),o2.Get()));
         }
-        wxPyEndBlockThreads(blocked);
+        blocker.Unblock();
         if (! found)
             rval = wxTreeCtrl::OnCompareItems(item1, item2);
         return rval;
