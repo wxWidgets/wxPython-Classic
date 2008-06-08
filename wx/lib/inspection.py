@@ -725,9 +725,9 @@ class _InspectionHighlighter(object):
     # should non TLWs be flashed too?  Otherwise use a highlight rectangle
     flashAll = False
 
-    color1 = 'red'  # for widgets and sizers
-    color2 = 'red'  # for items in sizers
-
+    color1 = 'red'      # for widgets and sizers
+    color2 = 'red'      # for item boundaries in sizers
+    color3 = '#00008B'  # for items in sizers
 
     def HighlightCurrentItem(self, tree):
         """
@@ -784,9 +784,30 @@ class _InspectionHighlighter(object):
         pos, useWinDC = self.FindHighlightPos(tlw, win.ClientToScreen(pos))
         rect = wx.RectPS(pos, sizer.GetSize())
         dc = self.DoHighlight(tlw, rect, self.color1, useWinDC)
+
+        # Now highlight the actual items within the sizer.  This may
+        # get overdrawn by the code below for item boundaries, but if
+        # there is border padding then this will help make it more
+        # obvious.
+        dc.SetPen(wx.Pen(self.color3, 1))
+        for item in sizer.GetChildren():
+            if item.IsShown():
+                if item.IsWindow():
+                    r = item.GetWindow().GetRect()
+                elif item.IsSizer():
+                    p = item.GetSizer().GetPosition()
+                    s = item.GetSizer().GetSize()
+                    r = wx.RectPS(p,s)
+                else:
+                    continue
+                r = self.AdjustRect(tlw, win, r)
+                dc.DrawRectangleRect(r)
+                    
+        # Next highlight the area allocated to each item in the sizer.
+        # Each kind of sizer will need to be done a little
+        # differently.
         dc.SetPen(wx.Pen(self.color2, 1))
 
-        # Next highlight the area allocated to each item in the sizer
         # wx.BoxSizer, wx.StaticBoxSizer
         if isinstance(sizer, wx.BoxSizer):
             # NOTE: we have to do some reverse-engineering here for
@@ -892,15 +913,6 @@ class _InspectionHighlighter(object):
         dc.SetBrush(wx.TRANSPARENT_BRUSH)
 
         drawRect = wx.Rect(*rect)
-
-        if False: ## 'wxMSW' in wx.PlatformInfo:
-            cr = tlw.GetClientRect()
-            if tlw.ClientToScreen(cr.GetPosition()) == rect.GetPosition() and \
-                   cr.GetSize() == rect.GetSize():
-                # this helps on windows to avoid areas that might not
-                # be refreshed properly...
-                drawRect.Deflate(1,1)
-
         dc.DrawRectangleRect(drawRect)
 
         drawRect.Inflate(2,2)
