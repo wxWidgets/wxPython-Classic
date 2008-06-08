@@ -214,7 +214,7 @@ void wxPyApp::OnAssertFailure(const wxChar *file,
                               const wxChar *cond,
                               const wxChar *msg)
 {
-    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
+    wxPyThreadBlocker blocker(wxPTB_INIT_UNBLOCK);
 
     // if we're not fully initialized then just log the error
     if (! m_startupComplete) {
@@ -423,7 +423,7 @@ void wxPyApp::_BootstrapApp()
     bool        result;
     wxPyObject  retval;
     wxPyObject  pyint;
-    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
+    wxPyThreadBlocker blocker(wxPTB_INIT_UNBLOCK);
 
 
     // Only initialize wxWidgets once
@@ -1120,7 +1120,7 @@ PyObject* wxPyInputStream::read(int size) {
     PyObject* obj = NULL;
     wxMemoryBuffer buf;
     const int BUFSIZE = 1024;
-    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
+    wxPyThreadBlocker blocker(wxPTB_INIT_UNBLOCK);
 
     // check if we have a real wxInputStream to work with
     if (!m_wxis) {
@@ -1162,7 +1162,7 @@ PyObject* wxPyInputStream::readline(int size) {
     wxMemoryBuffer buf;
     int i;
     char ch;
-    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
+    wxPyThreadBlocker blocker(wxPTB_INIT_UNBLOCK);
 
     // check if we have a real wxInputStream to work with
     if (!m_wxis) {
@@ -1195,7 +1195,7 @@ PyObject* wxPyInputStream::readline(int size) {
 
 PyObject* wxPyInputStream::readlines(int sizehint) {
     PyObject* pylist;
-    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
+    wxPyThreadBlocker blocker(wxPTB_INIT_UNBLOCK);
 
     // check if we have a real wxInputStream to work with
     if (!m_wxis) {
@@ -1274,7 +1274,7 @@ wxPyCBInputStream::wxPyCBInputStream(const wxPyCBInputStream& other)
 
 
 wxPyCBInputStream::~wxPyCBInputStream() {
-    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
+    wxPyThreadBlocker blocker(wxPTB_INIT_UNBLOCK);
 
     if (m_block) 
         blocker.Block();
@@ -1285,7 +1285,7 @@ wxPyCBInputStream::~wxPyCBInputStream() {
 
 
 wxPyCBInputStream* wxPyCBInputStream::create(PyObject *py, bool block) {
-    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
+    wxPyThreadBlocker blocker(wxPTB_INIT_UNBLOCK);
     
     if (block) 
         blocker.Block();
@@ -1470,7 +1470,7 @@ wxPyCBOutputStream::wxPyCBOutputStream(const wxPyCBOutputStream& other)
 
 
 wxPyCBOutputStream::~wxPyCBOutputStream() {
-    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
+    wxPyThreadBlocker blocker(wxPTB_INIT_UNBLOCK);
 
     if (m_block) blocker.Block();
     Py_XDECREF(m_write);
@@ -1480,7 +1480,7 @@ wxPyCBOutputStream::~wxPyCBOutputStream() {
 
 
 wxPyCBOutputStream* wxPyCBOutputStream::create(PyObject *py, bool block) {
-    wxPyThreadBlocker blocker(PTB_INIT_UNBLOCK);
+    wxPyThreadBlocker blocker(wxPTB_INIT_UNBLOCK);
     
     if (block) blocker.Block();
     PyObject* write = wxPyGetMethod(py, "write");
@@ -1647,7 +1647,7 @@ void wxPyCallback::EventThunker(wxEvent& event) {
         }
 
         // Check if the event object needs some preinitialization
-        if (PyObject_HasAttr(arg.Get(), s_preName)) {
+        if (PyObject_HasAttr(arg, s_preName)) {
             result = PyObject_CallMethodObjArgs(arg.Get(), s_preName, arg.Get(), NULL);
             if ( result.Ok() )
                 PyErr_Clear();       // Just in case...
