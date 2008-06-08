@@ -922,15 +922,9 @@ if os.name == 'nt' and  COMPILER == 'msvc':
     lflags = None
 
     # Other MSVC flags...
-    # Too bad I don't remember why I was playing with these, can they be removed?
-    if FINAL:
-        pass #cflags = cflags + ['/O1']
-    elif HYBRID :
-        pass #cflags = cflags + ['/Ox']
-    else:
-        pass # cflags = cflags + ['/Od', '/Z7']
-             # lflags = ['/DEBUG', ]
-
+    # Uncomment these to have debug info for all kinds of builds
+    #cflags += ['/Od', '/Z7']
+    #lflags = ['/DEBUG', ]
 
 
 #----------------------------------------------------------------------

@@ -6,7 +6,7 @@
 import  wx
 
 if wx.Platform == '__WXMSW__':
-    import  wx.lib.iewin    as  iewin
+    import wx.lib.iewin as iewin
 
 #----------------------------------------------------------------------
 
@@ -27,7 +27,7 @@ class TestPanel(wx.Panel):
         sizer = wx.BoxSizer(wx.VERTICAL)
         btnSizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        self.ie = iewin.IEHtmlWindow(self, -1, style = wx.NO_FULL_REPAINT_ON_RESIZE)
+        self.ie = iewin.IEHtmlWindow(self)
 
 
         btn = wx.Button(self, -1, "Open", style=wx.BU_EXACTFIT)
@@ -41,10 +41,12 @@ class TestPanel(wx.Panel):
         btn = wx.Button(self, -1, "<--", style=wx.BU_EXACTFIT)
         self.Bind(wx.EVT_BUTTON, self.OnPrevPageButton, btn)
         btnSizer.Add(btn, 0, wx.EXPAND|wx.ALL, 2)
+        self.Bind(wx.EVT_UPDATE_UI, self.OnCheckCanGoBack, btn)
 
         btn = wx.Button(self, -1, "-->", style=wx.BU_EXACTFIT)
         self.Bind(wx.EVT_BUTTON, self.OnNextPageButton, btn)
         btnSizer.Add(btn, 0, wx.EXPAND|wx.ALL, 2)
+        self.Bind(wx.EVT_UPDATE_UI, self.OnCheckCanGoForward, btn)
 
         btn = wx.Button(self, -1, "Stop", style=wx.BU_EXACTFIT)
         self.Bind(wx.EVT_BUTTON, self.OnStopButton, btn)
@@ -77,16 +79,18 @@ class TestPanel(wx.Panel):
         self.location.Append(self.current)
 
         self.SetSizer(sizer)
-        # Since this is a wxWindow we have to call Layout ourselves
+        # Since this is a wx.Window we have to call Layout ourselves
         self.Bind(wx.EVT_SIZE, self.OnSize)
 
-        # Hook up the event handlers for the IE window
-        self.Bind(iewin.EVT_BeforeNavigate2, self.OnBeforeNavigate2, self.ie)
-        self.Bind(iewin.EVT_NewWindow2, self.OnNewWindow2, self.ie)
-        self.Bind(iewin.EVT_DocumentComplete, self.OnDocumentComplete, self.ie)
-        ##self.Bind(iewin.EVT_ProgressChange,  self.OnProgressChange, self.ie)
-        self.Bind(iewin.EVT_StatusTextChange, self.OnStatusTextChange, self.ie)
-        self.Bind(iewin.EVT_TitleChange, self.OnTitleChange, self.ie)
+
+        ## Hook up the event handlers for the IE window.  Using
+        ## AddEventSink is how we tell the COM system to look in this
+        ## object for method names matching the COM Event names.  They
+        ## are automatically looked for in the ActiveXCtrl class, (so
+        ## deriving a new class from IEHtmlWindow would also have been
+        ## a good appraoch) and now they will be looked for here too.
+        self.ie.AddEventSink(self)
+
 
 
     def ShutdownDemo(self):
@@ -97,7 +101,6 @@ class TestPanel(wx.Panel):
 
     def OnSize(self, evt):
         self.Layout()
-
 
     def OnLocationSelect(self, evt):
         url = self.location.GetStringSelection()
@@ -138,6 +141,12 @@ class TestPanel(wx.Panel):
     def OnNextPageButton(self, event):
         self.ie.GoForward()
 
+    def OnCheckCanGoBack(self, event):
+        event.Enable(self.ie.CanGoBack())
+        
+    def OnCheckCanGoForward(self, event):
+        event.Enable(self.ie.CanGoForward())
+
     def OnStopButton(self, evt):
         self.ie.Stop()
 
@@ -148,40 +157,43 @@ class TestPanel(wx.Panel):
         self.ie.Refresh(iewin.REFRESH_COMPLETELY)
 
 
-    def logEvt(self, evt):
-        pst = ""
-        for name in evt.paramList:
-            pst += " %s:%s " % (name, repr(getattr(evt, name)))
-        self.log.write('%s: %s\n' % (evt.eventName, pst))
+    # Here are some of the event methods for the IE COM events.  See
+    # the MSDN docs for DWenBrowserEvents2 for details on what events
+    # are available, and what the parameters are.
+    
+    def BeforeNavigate2(self, this, pDisp, URL, Flags, TargetFrameName,
+                        PostData, Headers, Cancel):
+        self.log.write('BeforeNavigate2: %s\n' % URL[0])
+        if URL[0] == 'http://www.microsoft.com/':
+            if wx.MessageBox("Are you sure you want to visit Microsoft?",
+                             style=wx.YES_NO|wx.ICON_QUESTION) == wx.NO:
+                # This is how you can cancel loading a page.  The
+                # Cancel parameter is defined as an [in,out] type and
+                # so setting the value means it will be returned and
+                # checked in the COM control.
+                Cancel[0] = True
+                
 
+    def OnNewWindow3(self, this, pDisp, Cancel, Flags, urlContext, URL):
+        self.log.write('OnNewWindow2: %s\n' % URL)
+        Cancel[0] = True   # Veto the creation of a  new window.
 
-    def OnBeforeNavigate2(self, evt):
-        self.logEvt(evt)
-
-    def OnNewWindow2(self, evt):
-        self.logEvt(evt)
-        # Veto the new window.  Cancel is defined as an "out" param
-        # for this event.  See iewin.py
-        evt.Cancel = True   
-
-    def OnProgressChange(self, evt):
-        self.logEvt(evt)
+    #def ProgressChange(self, this, progress, progressMax):
+    #    self.log.write('ProgressChange: %d of %d\n' % (progress, progressMax))
         
-    def OnDocumentComplete(self, evt):
-        self.logEvt(evt)
-        self.current = evt.URL
+    def DocumentComplete(self, this, pDisp, URL):
+        self.current = URL[0]
         self.location.SetValue(self.current)
 
-    def OnTitleChange(self, evt):
-        self.logEvt(evt)
+    def TitleChange(self, this, Text):
         if self.frame:
-            self.frame.SetTitle(self.titleBase + ' -- ' + evt.Text)
+            self.frame.SetTitle(self.titleBase + ' -- ' + Text)
 
-    def OnStatusTextChange(self, evt):
-        self.logEvt(evt)
+    def StatusTextChange(self, this, Text):
         if self.frame:
-            self.frame.SetStatusText(evt.Text)
+            self.frame.SetStatusText(Text)
 
+        
 
 #----------------------------------------------------------------------
 # for the demo framework...
@@ -221,6 +233,7 @@ if __name__ == '__main__':
     import sys,os
     import run
     run.main(['', os.path.basename(sys.argv[0])] + sys.argv[1:])
+
 
 
 #----------------------------------------------------------------------
