@@ -50,7 +50,6 @@ class TestListCtrl(wx.ListCtrl,
         items = listctrldata.items()
         for key, data in items:
             index = self.InsertStringItem(sys.maxint, data[0])
-            self.SetStringItem(index, 0, data[0])
             self.SetStringItem(index, 1, data[1])
             self.SetStringItem(index, 2, data[2])
             self.SetItemData(index, key)
