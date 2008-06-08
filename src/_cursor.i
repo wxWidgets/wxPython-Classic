@@ -70,7 +70,7 @@ public:
     %extend {
         DocStr(wxCursor,
                "Construct a Cursor from a file.  Specify the type of file using
-wx.BITAMP_TYPE* constants, and specify the hotspot if not using a .cur
+wx.BITMAP_TYPE* constants, and specify the hotspot if not using a .cur
 file.","
 :see: Alternate constructors `wx.StockCursor`,`wx.CursorFromImage`");
         wxCursor(const wxString& cursorName, long type, int hotSpotX=0, int hotSpotY=0) {
