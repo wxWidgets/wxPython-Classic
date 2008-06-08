@@ -130,7 +130,10 @@ class TestWindow(wx.ScrolledWindow):
             dc.DrawText(str(tuple(colours[line][1:])),
                         18 * self.cellWidth, y)
 
+            hexstr = "#%02X%02X%02X" % tuple(colours[line][1:])
+            dc.DrawText(hexstr, 25 * self.cellWidth, y)
 
+            
 # On wxGTK there needs to be a panel under wx.ScrolledWindows if they are
 # going to be in a wxNotebook. And, in this demo, we are.
 class TestPanel(wx.Panel):
