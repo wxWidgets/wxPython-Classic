@@ -4166,13 +4166,13 @@ wxWindow* wxFindWindowByLabel( const wxString& label,
     wxWindow* wxWindow_FromHWND(wxWindow* parent, unsigned long _hWnd) {
 #ifdef __WXMSW__
         WXHWND hWnd = (WXHWND)_hWnd;
-        long id = wxGetWindowId(hWnd);
+        //long id = wxGetWindowId(hWnd);
         wxWindow* win = new wxWindow;
         if (parent)
             parent->AddChild(win);
         win->SetEventHandler(win);
         win->SetHWND(hWnd);
-        win->SetId(id);
+        //win->SetId(id);
         win->SubclassWin(hWnd);
         win->AdoptAttributesFromHWND();
         win->SetupColours();

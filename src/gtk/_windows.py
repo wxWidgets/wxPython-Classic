@@ -425,6 +425,10 @@ class TopLevelWindow(_core.Window):
         """MacGetUnifiedAppearance(self) -> bool"""
         return _windows_.TopLevelWindow_MacGetUnifiedAppearance(*args, **kwargs)
 
+    def MacGetTopLevelWindowRef(*args, **kwargs):
+        """MacGetTopLevelWindowRef(self) -> long"""
+        return _windows_.TopLevelWindow_MacGetTopLevelWindowRef(*args, **kwargs)
+
     def CenterOnScreen(*args, **kwargs):
         """
         CenterOnScreen(self, int dir=BOTH)

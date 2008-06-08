@@ -1281,7 +1281,7 @@ class Cursor(GDIObject):
         __init__(self, String cursorName, long type, int hotSpotX=0, int hotSpotY=0) -> Cursor
 
         Construct a Cursor from a file.  Specify the type of file using
-        wx.BITAMP_TYPE* constants, and specify the hotspot if not using a .cur
+        wx.BITMAP_TYPE* constants, and specify the hotspot if not using a .cur
         file.
         """
         _gdi_.Cursor_swiginit(self,_gdi_.new_Cursor(*args, **kwargs))

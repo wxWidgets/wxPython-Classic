@@ -78,6 +78,27 @@ flag in the caption::
     >>> carbon.SetWindowModified(frame.MacGetTopLevelWindowRef(), True)
 
 
+Added a new light-weight solution for embedding ActiveX controls in
+wxPython applications that uses ctypes and the comtypes package
+available from http://starship.python.net/crew/theller/comtypes/.
+Comtypes allows us to use and provide an interface with full dynamic
+dispatch abilities, much like PyWin32's COM interfaces but with much
+reduced external dependencies.  See wx/lib/activex.py for more
+details.
+
+The wx.lib.iewin, wx.lib.pdfwin, and wx.lib.flashwin modules were
+switched to use the new and improved activex module.  The APIs
+provided by these modules should be mostly compatible with what was
+there before, except for how the COM events are handled.  Instead of
+sending wx events it relies on you overriding methods with the same
+names as the COM events.  You can either do it in a or derived class,
+or you can set an instance of some other class to be the event sink.
+See the ActivX_IEHtmlWindow sample in the demo for an example.  If you
+would rather continue to use the old version of these modules they
+are available in the wx.lib with "_old" added to the names.
+
+
+
 
 
 

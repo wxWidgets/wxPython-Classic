@@ -4109,7 +4109,6 @@ SWIGINTERN wxColour wxVisualAttributes__get_colBg(wxVisualAttributes *self){ ret
 SWIGINTERN wxWindow *wxWindow_GetTopLevelParent(wxWindow *self){
             return wxGetTopLevelParent(self);
         }
-SWIGINTERN void wxWindow_SetDoubleBuffered(wxWindow *self,bool on){}
 SWIGINTERN bool wxWindow_RegisterHotKey(wxWindow *self,int hotkeyId,int modifiers,int keycode){
         #if wxUSE_HOTKEY
             return self->RegisterHotKey(hotkeyId, modifiers, keycode);
@@ -4123,6 +4122,11 @@ SWIGINTERN bool wxWindow_UnregisterHotKey(wxWindow *self,int hotkeyId){
 
             return false;
         
+        }
+SWIGINTERN void wxWindow_SetDoubleBuffered(wxWindow *self,bool on){
+        #if defined(__WXGTK20__) || defined(__WXMSW__)
+            self->SetDoubleBuffered(on);
+        #endif
         }
 SWIGINTERN long wxWindow_GetHandle(wxWindow *self){
             return wxPyGetWinHandle(self);
@@ -4162,13 +4166,13 @@ wxWindow* wxFindWindowByLabel( const wxString& label,
     wxWindow* wxWindow_FromHWND(wxWindow* parent, unsigned long _hWnd) {
 #ifdef __WXMSW__
         WXHWND hWnd = (WXHWND)_hWnd;
-        long id = wxGetWindowId(hWnd);
+        //long id = wxGetWindowId(hWnd);
         wxWindow* win = new wxWindow;
         if (parent)
             parent->AddChild(win);
         win->SetEventHandler(win);
         win->SetHWND(hWnd);
-        win->SetId(id);
+        //win->SetId(id);
         win->SubclassWin(hWnd);
         win->AdoptAttributesFromHWND();
         win->SetupColours();
@@ -37921,44 +37925,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Window_SetDoubleBuffered(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxWindow *arg1 = (wxWindow *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "on", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Window_SetDoubleBuffered",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Window_SetDoubleBuffered" "', expected argument " "1"" of type '" "wxWindow *""'"); 
-  }
-  arg1 = reinterpret_cast< wxWindow * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Window_SetDoubleBuffered" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxWindow_SetDoubleBuffered(arg1,arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_Window_FindWindowById(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
@@ -39268,6 +39234,44 @@ SWIGINTERN PyObject *_wrap_Window_IsDoubleBuffered(PyObject *SWIGUNUSEDPARM(self
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Window_SetDoubleBuffered(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxWindow *arg1 = (wxWindow *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "on", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Window_SetDoubleBuffered",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Window_SetDoubleBuffered" "', expected argument " "1"" of type '" "wxWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxWindow * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Window_SetDoubleBuffered" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxWindow_SetDoubleBuffered(arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -61128,7 +61132,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Window_Reparent", (PyCFunction) _wrap_Window_Reparent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_AddChild", (PyCFunction) _wrap_Window_AddChild, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_RemoveChild", (PyCFunction) _wrap_Window_RemoveChild, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Window_SetDoubleBuffered", (PyCFunction) _wrap_Window_SetDoubleBuffered, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_FindWindowById", (PyCFunction) _wrap_Window_FindWindowById, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_FindWindowByName", (PyCFunction) _wrap_Window_FindWindowByName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_GetEventHandler", (PyCFunction)_wrap_Window_GetEventHandler, METH_O, NULL},
@@ -61166,6 +61169,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Window_Thaw", (PyCFunction)_wrap_Window_Thaw, METH_O, NULL},
 	 { (char *)"Window_PrepareDC", (PyCFunction) _wrap_Window_PrepareDC, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_IsDoubleBuffered", (PyCFunction)_wrap_Window_IsDoubleBuffered, METH_O, NULL},
+	 { (char *)"Window_SetDoubleBuffered", (PyCFunction) _wrap_Window_SetDoubleBuffered, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_GetUpdateRegion", (PyCFunction)_wrap_Window_GetUpdateRegion, METH_O, NULL},
 	 { (char *)"Window_GetUpdateClientRect", (PyCFunction)_wrap_Window_GetUpdateClientRect, METH_O, NULL},
 	 { (char *)"Window_IsExposed", (PyCFunction) _wrap_Window_IsExposed, METH_VARARGS | METH_KEYWORDS, NULL},

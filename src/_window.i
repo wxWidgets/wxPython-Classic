@@ -2271,6 +2271,7 @@ wxWindow* wxFindWindowByLabel( const wxString& label,
 
 
 
+
 %{
 #ifdef __WXMSW__
 #include <wx/msw/private.h>  // to get wxGetWindowId
@@ -2279,17 +2280,19 @@ wxWindow* wxFindWindowByLabel( const wxString& label,
 
 MustHaveApp(wxWindow_FromHWND);
 
+// Note this is similar to another function in _axbase.i, keep them in sync.
+
 %inline %{
     wxWindow* wxWindow_FromHWND(wxWindow* parent, unsigned long _hWnd) {
 #ifdef __WXMSW__
         WXHWND hWnd = (WXHWND)_hWnd;
-        long id = wxGetWindowId(hWnd);
+        //long id = wxGetWindowId(hWnd);
         wxWindow* win = new wxWindow;
         if (parent)
             parent->AddChild(win);
         win->SetEventHandler(win);
         win->SetHWND(hWnd);
-        win->SetId(id);
+        //win->SetId(id);
         win->SubclassWin(hWnd);
         win->AdoptAttributesFromHWND();
         win->SetupColours();
@@ -2312,6 +2315,5 @@ dialogs, etc.)", "");
     }
 %}
 
-//---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 

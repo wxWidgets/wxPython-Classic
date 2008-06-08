@@ -1489,7 +1489,7 @@ extern wxPyApp *wxPythonApp;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
             PyObject* obj = wxPyMake_wxObject(cell, 0);                         \
-            wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(Oii)",obj,x,y));  \
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oii)",obj,x,y));     \
             Py_DECREF(obj);                                                     \
         }                                                                       \
         wxPyEndBlockThreads(blocked);                                           \
