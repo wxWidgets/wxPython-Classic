@@ -110,6 +110,8 @@ Source: "wx\_richtext.pyd";                    DestDir: "{app}\%(PKGDIR)s\wx"; C
 Source: "wx\*.py";                              DestDir: "{app}\%(PKGDIR)s\wx"; Components: core
 Source: "wx\build\*.py";                        DestDir: "{app}\%(PKGDIR)s\wx\build"; Components: core
 Source: "wx\lib\*.py";                          DestDir: "{app}\%(PKGDIR)s\wx\lib"; Components: core
+Source: "wx\lib\*.idl";                         DestDir: "{app}\%(PKGDIR)s\wx\lib"; Components: core
+Source: "wx\lib\*.tlb";                         DestDir: "{app}\%(PKGDIR)s\wx\lib"; Components: core
 Source: "wx\lib\analogclock\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock"; Components: core
 Source: "wx\lib\analogclock\lib_setup\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock\lib_setup"; Components: core
 Source: "wx\lib\art\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\art"; Components: core
