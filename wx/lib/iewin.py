@@ -63,6 +63,8 @@ class IEHtmlWindow(wx.lib.activex.ActiveXCtrl):
 
     def LoadString(self, html):
         """Load the html document from a string"""
+        if self.ctrl.Document is None:
+            self.LoadUrl('about:blank')
         doc = self.ctrl.Document
         doc.write(html)
         doc.close()
@@ -72,6 +74,8 @@ class IEHtmlWindow(wx.lib.activex.ActiveXCtrl):
         """
         Load the html document from a Python file-like object.
         """
+        if self.ctrl.Document is None:
+            self.LoadUrl('about:blank')
         doc = self.ctrl.Document
         for line in stream:
             doc.write(line)
@@ -88,6 +92,8 @@ class IEHtmlWindow(wx.lib.activex.ActiveXCtrl):
         Returns the contents of the selected portion of the document as
         either html or plain text.
         """
+        if self.ctrl.Document is None:
+            return ""
         from comtypes.gen import MSHTML
         doc = self.ctrl.Document.QueryInterface(MSHTML.IHTMLDocument2)
         sel = doc.selection
@@ -102,6 +108,8 @@ class IEHtmlWindow(wx.lib.activex.ActiveXCtrl):
         """
         Returns the contents of the the html document as either html or plain text.
         """
+        if self.ctrl.Document is None:
+            return ""
         from comtypes.gen import MSHTML
         doc = self.ctrl.Document.QueryInterface(MSHTML.IHTMLDocument2)
         if not asHTML:
