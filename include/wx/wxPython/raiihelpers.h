@@ -75,7 +75,7 @@ public:
 
     // We don't know if the GIL is held during destruction, so lock explicitly.
     // GILState API locks support recursion (if needed).
-    ~wxPyObject()
+    virtual ~wxPyObject()
     {
         wxPyBlock_t st = wxPyBeginBlockThreads();
         Decref();
@@ -114,8 +114,9 @@ public:
     }
 
     //XXX: Don't rely on this to pass a wxPyObject as a vararg! Use Get() instead.
-    operator PyObject*()
+    operator PyObject*() const
     {
+        Py_INCREF(m_obj);
         return m_obj;
     }
 
@@ -183,6 +184,20 @@ public:
         Decref();
     }
 
+    // Interface for automatic type conversion
+    //
+    // This is overridden in sequence classes to add an item to a list or tuple.
+    virtual void Push(PyObject *obj)
+    {
+        Take(obj);
+    }
+
+    // Return the next item in a sequence.
+    virtual PyObject *Pop()
+    {
+        return m_obj;
+    }
+
 private:
     void Decref()
     {
@@ -200,6 +215,51 @@ private:
     bool m_borrowed;
     PyObject *m_obj;
 };
+
+class wxPySequence: public wxPyObject
+{
+public:
+    wxPySequence()
+    {
+        m_pos = 0;
+    }
+
+    virtual ~wxPySequence() {}
+
+    int GetPos() const
+    {
+        return m_pos;
+    }
+
+    void ResetPos()
+    {
+        m_pos = 0;
+    }
+
+    //TODO: Pop()
+
+protected:
+    int m_pos;
+};
+
+class wxPyTuple: public wxPySequence
+{
+public:
+    wxPyTuple(int len)
+    {
+        Take(PyTuple_New(len));
+    }
+
+    virtual ~wxPyTuple() { }
+
+    virtual void Push(PyObject *obj)
+    {
+        //XXX: no error handling/bounds checking
+        PyTuple_SetItem(Get(), m_pos++, obj);
+    }
+};
+
+//TODO: wxPyList
 
 inline bool operator==(const wxPyObject &lhs, const wxPyObject &rhs)
 {
@@ -230,4 +290,109 @@ inline bool operator!=(PyObject *lhs, const wxPyObject &rhs)
 {
     return lhs != rhs.Get();
 }
+
+
+// Insertion operators perform conversion from C++ to Python
+//
+inline wxPyObject &operator<<(wxPyObject &po, int i)
+{
+    po.Push(PyInt_FromLong(i));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, unsigned int i)
+{
+    po.Push(PyInt_FromLong(i));
+    return po;
+}
+
+
+inline wxPyObject &operator<<(wxPyObject &po, long i)
+{
+    po.Push(PyInt_FromLong(i));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, unsigned long i)
+{
+    po.Push(PyInt_FromLong(i));
+    return po;
+}
+
+/*
+inline wxPyObject &operator<<(wxPyObject &po, size_t i)
+{
+    po.Push(PyInt_FromLong(i));
+    return po;
+}
+*/
+
+inline wxPyObject &operator<<(wxPyObject &po, bool i)
+{
+    po.Push(PyBool_FromLong(i));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, double f)
+{
+    po.Push(PyFloat_FromDouble(f));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, float f)
+{
+    po.Push(PyFloat_FromDouble(f));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const char *s)
+{
+    po.Push(PyString_FromString(s));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxString &s)
+{
+    po.Push(wx2PyString(s));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, wxPyObject obj)
+{
+    po.Push(obj.Transfer());
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, PyObject *obj)
+{
+    po.Push(obj);
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, wxObject &obj)
+{
+    po.Push(wxPyMake_wxObject(&obj, false));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, wxObject *obj)
+{
+    po.Push(wxPyMake_wxObject(obj, false));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxRect *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxRect"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxRect &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxRect"), 0));
+    return po;
+}
+
+//TODO: extraction operators
+//
 #endif
