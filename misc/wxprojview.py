@@ -87,7 +87,7 @@ class MyFrame(wx.Frame):
         self.delta = wx.Point(dx, dy)
 
     def OnLeftUp(self, evt):
-        if self.capture.HasCapture():
+        if getattr(self, 'capture', None) and self.capture.HasCapture():
             self.capture.ReleaseMouse()
 
     def OnMouseMove(self, evt):

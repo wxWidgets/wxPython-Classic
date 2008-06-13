@@ -1159,6 +1159,14 @@ programmer.", "");
         FindWindowByName);
     
 
+    %extend {
+        DocDeclStr(
+            wxWindow*, FindWindowByLabel( const wxString& label ),
+            "Find a child of this window by label", "")
+            {
+                return wxWindow::FindWindowByLabel(label, self);
+            }
+    }
 
     // event handler stuff
     // -------------------

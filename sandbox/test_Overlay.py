@@ -80,7 +80,7 @@ class TestPanel(wx.Panel):
 
 app = wx.App(redirect=False)
 frm = wx.Frame(None, title="wx.Overlay Test", size=(450,450))
-#frm.SetTransparent(254)
+#frm.SetDoubleBuffered(True)
 pnl = TestPanel(frm)
 frm.Show()
 app.MainLoop()

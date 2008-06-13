@@ -202,6 +202,7 @@ _treeList = [
         'PyCrust',
         'PyPlot',
         'PyShell',
+        'ResizeWidget',
         'RichTextCtrl',
         'ScrolledPanel',
         'SplitTree',

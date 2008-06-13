@@ -832,7 +832,7 @@ extern wxPyApp *wxPythonApp;
                 Py_DECREF(ro);                                                  \
             }                                                                   \
         }                                                                       \
-        wxPyEndBlockThreads(blocked);                                                  \
+        wxPyEndBlockThreads(blocked);                                           \
         if (! found)                                                            \
             PCLASS::CBNAME(a,b);                                                \
     }                                
@@ -845,18 +845,63 @@ extern wxPyApp *wxPythonApp;
 
 #define IMP_PYCALLBACK_SIZE_const(CLASS, PCLASS, CBNAME)                        \
     wxSize CLASS::CBNAME() const {                                              \
-        const char* errmsg = #CBNAME " should return a 2-tuple of integers.";   \
+        const char* errmsg = #CBNAME " should return a 2-tuple of integers or a Size object.";   \
         bool found; wxSize rval(0,0);                                           \
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();                                 \
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
             PyObject* ro;                                                       \
+            wxSize*   ptr;                                                      \
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));        \
             if (ro) {                                                           \
-                if (PySequence_Check(ro) && PyObject_Length(ro) == 2) {         \
+                if (wxPyConvertSwigPtr(ro, (void **)&ptr, wxT("wxSize")))       \
+                    rval = *ptr;                                                \
+                else if (PySequence_Check(ro) && PyObject_Length(ro) == 2) {    \
                     PyObject* o1 = PySequence_GetItem(ro, 0);                   \
                     PyObject* o2 = PySequence_GetItem(ro, 1);                   \
                     if (PyNumber_Check(o1) && PyNumber_Check(o2)) {             \
                         rval = wxSize(PyInt_AsLong(o1), PyInt_AsLong(o2));      \
+                    }                                                           \
+                    else                                                        \
+                        PyErr_SetString(PyExc_TypeError, errmsg);               \
+                    Py_DECREF(o1);                                              \
+                    Py_DECREF(o2);                                              \
+                }                                                               \
+                else {                                                          \
+                    PyErr_SetString(PyExc_TypeError, errmsg);                   \
+                }                                                               \
+                Py_DECREF(ro);                                                  \
+            }                                                                   \
+        }                                                                       \
+        wxPyEndBlockThreads(blocked);                                           \
+        if (! found)                                                            \
+            return PCLASS::CBNAME();                                            \
+        else                                                                    \
+            return rval;                                                        \
+    }                    
+
+//---------------------------------------------------------------------------
+
+#define DEC_PYCALLBACK_POINT_const(CBNAME)                                      \
+    wxPoint CBNAME() const
+
+
+#define IMP_PYCALLBACK_POINT_const(CLASS, PCLASS, CBNAME)                       \
+    wxPoint CLASS::CBNAME() const {                                             \
+        const char* errmsg = #CBNAME " should return a 2-tuple of integers or a Point object.";   \
+        bool found; wxPoint rval(0,0);                                          \
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
+            PyObject* ro;                                                       \
+            wxPoint*  ptr;                                                      \
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));        \
+            if (ro) {                                                           \
+                if (wxPyConvertSwigPtr(ro, (void **)&ptr, wxT("wxPoint")))      \
+                    rval = *ptr;                                                \
+                else if (PySequence_Check(ro) && PyObject_Length(ro) == 2) {    \
+                    PyObject* o1 = PySequence_GetItem(ro, 0);                   \
+                    PyObject* o2 = PySequence_GetItem(ro, 1);                   \
+                    if (PyNumber_Check(o1) && PyNumber_Check(o2)) {             \
+                        rval = wxPoint(PyInt_AsLong(o1), PyInt_AsLong(o2));     \
                     }                                                           \
                     else                                                        \
                         PyErr_SetString(PyExc_TypeError, errmsg);               \
@@ -1626,7 +1671,7 @@ extern wxPyApp *wxPythonApp;
 
 #define IMP_PYCALLBACK_wxSize__pure(CLASS, PCLASS, CBNAME)                      \
     wxSize CLASS::CBNAME() {                                                    \
-        const char* errmsg = #CBNAME " should return a 2-tuple of integers or a wxSize object."; \
+        const char* errmsg = #CBNAME " should return a 2-tuple of integers or a Size object."; \
         wxSize rval(0,0);                                                       \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                                 \
         if (wxPyCBH_findCallback(m_myInst, #CBNAME)) {                          \

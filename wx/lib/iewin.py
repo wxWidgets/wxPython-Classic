@@ -18,7 +18,6 @@ import comtypes.client as cc
 import sys
 if not hasattr(sys, 'frozen'):
     cc.GetModule('shdocvw.dll')  # IWebBrowser2 and etc.
-    cc.GetModule('mshtml.tlb')   # IHTMLDocument2
 from comtypes.gen import SHDocVw
 
 
@@ -94,6 +93,7 @@ class IEHtmlWindow(wx.lib.activex.ActiveXCtrl):
         """
         if self.ctrl.Document is None:
             return ""
+        if not hasattr(sys, 'frozen'): cc.GetModule('mshtml.tlb')
         from comtypes.gen import MSHTML
         doc = self.ctrl.Document.QueryInterface(MSHTML.IHTMLDocument2)
         sel = doc.selection
@@ -110,6 +110,7 @@ class IEHtmlWindow(wx.lib.activex.ActiveXCtrl):
         """
         if self.ctrl.Document is None:
             return ""
+        if not hasattr(sys, 'frozen'): cc.GetModule('mshtml.tlb')
         from comtypes.gen import MSHTML
         doc = self.ctrl.Document.QueryInterface(MSHTML.IHTMLDocument2)
         if not asHTML:
