@@ -86,6 +86,7 @@ _treeList = [
         'AdjustChannels',
         'RendererNative',
         'PlateButton',
+        'ResizeWidget',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -223,6 +224,7 @@ _treeList = [
         'PyCrust',
         'PyPlot',
         'PyShell',
+        'ResizeWidget',
         'RichTextCtrl',
         'ScrolledPanel',
         'SplitTree',
