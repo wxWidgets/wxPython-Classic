@@ -3324,7 +3324,8 @@ public:
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetClientSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetPosition);
-
+    DEC_PYCALLBACK_POINT_const(GetClientAreaOrigin);
+    
     DEC_PYCALLBACK_SIZE_const(DoGetVirtualSize);
     DEC_PYCALLBACK_SIZE_const(DoGetBestSize);
 
@@ -3346,7 +3347,7 @@ public:
     DEC_PYCALLBACK_BOOL_(HasTransparentBackground);
 
     DEC_PYCALLBACK_VOID_(OnInternalIdle);
-    
+
     PYPRIVATE;
 };
 
@@ -3360,6 +3361,7 @@ IMP_PYCALLBACK_VOID_INTINT(wxPyWindow, wxWindow, DoSetVirtualSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyWindow, wxWindow, DoGetSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyWindow, wxWindow, DoGetClientSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyWindow, wxWindow, DoGetPosition);
+IMP_PYCALLBACK_POINT_const(wxPyWindow, wxWindow, GetClientAreaOrigin);
 
 IMP_PYCALLBACK_SIZE_const(wxPyWindow, wxWindow, DoGetVirtualSize);
 IMP_PYCALLBACK_SIZE_const(wxPyWindow, wxWindow, DoGetBestSize);
@@ -3382,6 +3384,7 @@ IMP_PYCALLBACK_VIZATTR_(wxPyWindow, wxWindow, GetDefaultAttributes);
 IMP_PYCALLBACK_BOOL_(wxPyWindow, wxWindow, HasTransparentBackground);
 
 IMP_PYCALLBACK_VOID_(wxPyWindow, wxWindow, OnInternalIdle);
+
 
  // C++ version of Python aware wxPanel
 class wxPyPanel : public wxPanel
@@ -3415,6 +3418,7 @@ public:
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetClientSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetPosition);
+    DEC_PYCALLBACK_POINT_const(GetClientAreaOrigin);
 
     DEC_PYCALLBACK_SIZE_const(DoGetVirtualSize);
     DEC_PYCALLBACK_SIZE_const(DoGetBestSize);
@@ -3438,6 +3442,7 @@ public:
 
     DEC_PYCALLBACK_VOID_(OnInternalIdle);
 
+
     PYPRIVATE;
 };
 
@@ -3451,6 +3456,7 @@ IMP_PYCALLBACK_VOID_INTINT(wxPyPanel, wxPanel, DoSetVirtualSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyPanel, wxPanel, DoGetSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyPanel, wxPanel, DoGetClientSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyPanel, wxPanel, DoGetPosition);
+IMP_PYCALLBACK_POINT_const(wxPyPanel, wxPanel, GetClientAreaOrigin);
 
 IMP_PYCALLBACK_SIZE_const(wxPyPanel, wxPanel, DoGetVirtualSize);
 IMP_PYCALLBACK_SIZE_const(wxPyPanel, wxPanel, DoGetBestSize);
@@ -3473,6 +3479,7 @@ IMP_PYCALLBACK_VIZATTR_(wxPyPanel, wxPanel, GetDefaultAttributes);
 IMP_PYCALLBACK_BOOL_(wxPyPanel, wxPanel, HasTransparentBackground);
 
 IMP_PYCALLBACK_VOID_(wxPyPanel, wxPanel, OnInternalIdle);
+
 
  // C++ version of Python aware wxScrolledWindow
 class wxPyScrolledWindow : public wxScrolledWindow
@@ -3505,6 +3512,7 @@ public:
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetClientSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetPosition);
+    DEC_PYCALLBACK_POINT_const(GetClientAreaOrigin);
 
     DEC_PYCALLBACK_SIZE_const(DoGetVirtualSize);
     DEC_PYCALLBACK_SIZE_const(DoGetBestSize);
@@ -3541,6 +3549,7 @@ IMP_PYCALLBACK_VOID_INTINT(wxPyScrolledWindow, wxScrolledWindow, DoSetVirtualSiz
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyScrolledWindow, wxScrolledWindow, DoGetSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyScrolledWindow, wxScrolledWindow, DoGetClientSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyScrolledWindow, wxScrolledWindow, DoGetPosition);
+IMP_PYCALLBACK_POINT_const(wxPyScrolledWindow, wxScrolledWindow, GetClientAreaOrigin);
 
 IMP_PYCALLBACK_SIZE_const(wxPyScrolledWindow, wxScrolledWindow, DoGetVirtualSize);
 IMP_PYCALLBACK_SIZE_const(wxPyScrolledWindow, wxScrolledWindow, DoGetBestSize);
@@ -3563,6 +3572,7 @@ IMP_PYCALLBACK_VIZATTR_(wxPyScrolledWindow, wxScrolledWindow, GetDefaultAttribut
 IMP_PYCALLBACK_BOOL_(wxPyScrolledWindow, wxScrolledWindow, HasTransparentBackground);
 
 IMP_PYCALLBACK_VOID_(wxPyScrolledWindow, wxScrolledWindow, OnInternalIdle);
+
 
 
 #include "wx/wxPython/printfw.h"

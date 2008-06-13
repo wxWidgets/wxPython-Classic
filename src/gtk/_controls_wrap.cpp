@@ -3304,6 +3304,7 @@ public:
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetClientSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetPosition);
+    DEC_PYCALLBACK_POINT_const(GetClientAreaOrigin);
 
     DEC_PYCALLBACK_SIZE_const(DoGetVirtualSize);
     DEC_PYCALLBACK_SIZE_const(DoGetBestSize);
@@ -3340,6 +3341,7 @@ IMP_PYCALLBACK_VOID_INTINT(wxPyControl, wxControl, DoSetVirtualSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyControl, wxControl, DoGetSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyControl, wxControl, DoGetClientSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyControl, wxControl, DoGetPosition);
+IMP_PYCALLBACK_POINT_const(wxPyControl, wxControl, GetClientAreaOrigin);
 
 IMP_PYCALLBACK_SIZE_const(wxPyControl, wxControl, DoGetVirtualSize);
 IMP_PYCALLBACK_SIZE_const(wxPyControl, wxControl, DoGetBestSize);
@@ -3362,6 +3364,7 @@ IMP_PYCALLBACK_VIZATTR_(wxPyControl, wxControl, GetDefaultAttributes);
 IMP_PYCALLBACK_BOOL_(wxPyControl, wxControl, HasTransparentBackground);
 
 IMP_PYCALLBACK_VOID_(wxPyControl, wxControl, OnInternalIdle);
+
 
 
 

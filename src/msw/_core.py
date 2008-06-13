@@ -9396,6 +9396,14 @@ class Window(EvtHandler):
         """
         return _core_.Window_FindWindowByName(*args, **kwargs)
 
+    def FindWindowByLabel(*args, **kwargs):
+        """
+        FindWindowByLabel(self, String label) -> Window
+
+        Find a child of this window by label
+        """
+        return _core_.Window_FindWindowByLabel(*args, **kwargs)
+
     def GetEventHandler(*args, **kwargs):
         """
         GetEventHandler(self) -> EvtHandler
