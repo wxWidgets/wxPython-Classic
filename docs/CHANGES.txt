@@ -98,7 +98,7 @@ would rather continue to use the old version of these modules they
 are available in the wx.lib with "_old" added to the names.
 
 Added the wx.lib.resizewidget module.  This module provides the
-ResizeWidget class, which Reparents a given widget into a specialized
+ResizeWidget class, which reparents a given widget into a specialized
 panel that provides a resize handle for the widget. When the user
 drags the resize handle the widget is resized accordingly, and an
 event is sent to notify parents that they should recalculate their
