@@ -736,7 +736,13 @@ class ShellFrameMixin:
             try:
                 name = os.path.join(self.dataDir, 'history')
                 f = file(name, 'w')
-                hist = '\x00\n'.join(self.shell.history)
+                hist = []
+                enc = wx.GetDefaultPyEncoding()
+                for h in self.shell.history:
+                    if isinstance(h, unicode):
+                        h = h.encode(enc)
+                    hist.append(h)
+                hist = '\x00\n'.join(hist)
                 f.write(hist)
                 f.close()
             except:
