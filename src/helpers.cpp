@@ -97,6 +97,9 @@ static PyObject* wxPython_dict = NULL;
 static PyObject* wxPyAssertionError = NULL;
 static PyObject* wxPyNoAppError = NULL;
 
+// Empty argument tuple
+static PyObject* wxPyEmptyTuple = NULL;
+
 PyObject* wxPyPtrTypeMap = NULL;
 
 
@@ -601,6 +604,8 @@ void __wxPyPreStart(PyObject* moduleDict)
     wxApp::CheckBuildOptions(WX_BUILD_OPTIONS_SIGNATURE, "wxPython");
 
     wxInitAllImageHandlers();
+
+    wxPyEmptyTuple = PyTuple_New(0);
 }
 
 
@@ -620,6 +625,9 @@ void __wxPyCleanup() {
     wxPyTStates = NULL;
 #endif
 #endif
+
+    Py_XDECREF(wxPyEmptyTuple);
+    wxPyEmptyTuple = NULL;
 }
 
 
@@ -1876,6 +1884,11 @@ PyObject* wxPyCallbackHelper::callCallbackObj(PyObject* argTuple, wxPCBH_Err_Act
     // it gets back here...
     PyObject* method = m_lastFound;
 
+    if (argTuple == NULL) {
+        argTuple = wxPyEmptyTuple;
+        Py_INCREF(argTuple);
+    }
+
     result = PyEval_CallObject(method, argTuple);
     clearRecursionGuard(method);
     
@@ -1921,11 +1934,6 @@ void wxPyCBH_delete(wxPyCallbackHelper* cbh) {
         Py_XDECREF(cbh->m_self);
         Py_XDECREF(cbh->m_class);
     }
-}
-
-void wxThrowPyException()
-{
-    throw wxPyException();
 }
 
 //---------------------------------------------------------------------------

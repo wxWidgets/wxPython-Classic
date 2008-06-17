@@ -248,8 +248,6 @@ static wxPyCoreAPI API = {
 
     wxVariant_in_helper,
     wxVariant_out_helper,
-
-    wxThrowPyException,
 };
 
 #endif

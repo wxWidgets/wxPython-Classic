@@ -142,7 +142,5 @@ inline PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject
 #define wxVariant_in_helper(a)                  (wxPyGetCoreAPIPtr()->p_wxVariant_in_helper(a))
 #define wxVariant_out_helper(a)                 (wxPyGetCoreAPIPtr()->p_wxVariant_out_helper(a))
 
-#define wxThrowPyException()			(wxPyGetCoreAPIPtr()->p_wxThrowPyException())
-
 //----------------------------------------------------------------------
 #endif

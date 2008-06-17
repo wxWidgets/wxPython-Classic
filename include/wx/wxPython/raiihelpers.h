@@ -193,8 +193,10 @@ public:
     }
 
     // Return the next item in a sequence.
+    // XXX: Use Ok() before Pop()
     virtual PyObject *Pop()
     {
+        Py_INCREF(m_obj);
         return m_obj;
     }
 
@@ -226,6 +228,11 @@ public:
 
     virtual ~wxPySequence() {}
 
+    bool IsSequence() const
+    {
+        return PySequence_Check(Get()) == 1;
+    }
+
     int GetPos() const
     {
         return m_pos;
@@ -236,7 +243,10 @@ public:
         m_pos = 0;
     }
 
-    //TODO: Pop()
+    virtual PyObject *Pop()
+    {
+        return PySequence_GetItem(Get(), m_pos++);
+    }
 
 protected:
     int m_pos;
@@ -259,7 +269,45 @@ public:
     }
 };
 
-//TODO: wxPyList
+class wxPyList: public wxPySequence
+{
+private:
+    enum AddMode {
+        ADD_APPEND,
+        ADD_SETITEM,
+    };
+
+public:
+    wxPyList(int len = 0)
+    {
+        Take(PyList_New(len));
+
+        // If the list is initialized with len > 0 elements, we must use
+        // PyList_SetItem() instead of PyList_Append()
+        if (len == 0)
+            m_mode = ADD_APPEND;
+        else
+            m_mode = ADD_SETITEM;
+    }
+
+    virtual ~wxPyList() { }
+
+    virtual void Push(PyObject *obj)
+    {
+        //XXX: no error handling/bounds checking
+        switch (m_mode) {
+        case ADD_APPEND:
+            PyList_Append(Get(), obj);
+        case ADD_SETITEM:
+            PyList_SetItem(Get(), m_pos, obj);
+        }
+
+        m_pos++;
+    }
+
+private:
+    AddMode m_mode;
+};
 
 inline bool operator==(const wxPyObject &lhs, const wxPyObject &rhs)
 {
@@ -393,6 +441,127 @@ inline wxPyObject &operator<<(wxPyObject &po, const wxRect &obj)
     return po;
 }
 
-//TODO: extraction operators
-//
+// Extractors. Make sure to check Ok() and sequence length (if needed) before extracting.  
+
+#define EXTRACT_INT(i, o)                                           \
+    if (i.Ok() && !PyErr_Occurred()) {                              \
+        wxPyObject ro = i.Pop();                                    \
+        if (PyNumber_Check(ro.Get())) {                             \
+            ro = PyNumber_Int(ro.Get());                            \
+            o = PyInt_AsLong(ro.Get());                             \
+        } else {                                                    \
+            PyErr_SetString(PyExc_TypeError, "Expected integer.");  \
+            wxThrowPyException();                                   \
+        }                                                           \
+    }
+
+#define EXTRACT_UINT(i, o)                                          \
+    if (i.Ok() && !PyErr_Occurred()) {                              \
+        wxPyObject ro = i.Pop();                                    \
+        if (PyNumber_Check(ro.Get())) {                             \
+            ro = PyNumber_Int(ro.Get());                            \
+            long tmp = PyInt_AsLong(ro.Get());                      \
+            if (tmp < 0) {                                          \
+                PyErr_SetString(PyExc_TypeError, "Expected unsigned integer."); \
+                wxThrowPyException();                               \
+            } else {                                                \
+                o = tmp;                                            \
+            }                                                       \
+        } else {                                                    \
+            PyErr_SetString(PyExc_TypeError, "Expected unsigned integer."); \
+            wxThrowPyException();                                   \
+        }                                                           \
+    }               
+
+#define EXTRACT_FLOAT(i, o)                                         \
+    if (i.Ok() && !PyErr_Occurred()) {                              \
+        wxPyObject ro = i.Pop();                                    \
+        if (PyNumber_Check(ro.Get())) {                             \
+            ro = PyNumber_Float(ro.Get());                          \
+            o = PyFloat_AsDouble(ro.Get());                         \
+        } else {                                                    \
+            PyErr_SetString(PyExc_TypeError, "Expected float.");    \
+            wxThrowPyException();                                   \
+        }                                                           \
+    }
+
+#define EXTRACT_OBJECT(T, i, o)                                         \
+    if (i.Ok() && !PyErr_Occurred()) {                                  \
+        T* ptr;                                                         \
+        wxPyObject ro = i.Pop();                                        \
+        if (wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT(#T)))       \
+            o = ptr;                                                    \
+        else {                                                          \
+            PyErr_SetString(PyExc_TypeError, "Expected " #T " object."); \
+            wxThrowPyException();                                       \
+        }                                                               \
+    }
+
+
+inline wxPyObject &operator>>(wxPyObject &po, int &out)
+{
+    EXTRACT_INT(po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, unsigned int &out)
+{
+    EXTRACT_UINT(po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, long &out)
+{
+    EXTRACT_INT(po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, unsigned long &out)
+{
+    EXTRACT_UINT(po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, bool &out)
+{
+    EXTRACT_INT(po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, double &out)
+{
+    EXTRACT_FLOAT(po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, float &out)
+{
+    EXTRACT_FLOAT(po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, wxString &out)
+{
+    if (po.Ok() && !PyErr_Occurred()) {
+        wxPyObject ro = po.Pop();
+
+        if (!PyString_Check(ro.Get()) && !PyUnicode_Check(ro.Get()))
+            ro = PyObject_Str(ro.Get());
+        out = Py2wxString(ro.Get());
+    }
+
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, wxSize &out)
+{
+    if (po.Ok() && !PyErr_Occurred()) {
+        wxSize *pout = &out;
+        wxPyObject ro = po.Pop();
+        if (!wxSize_helper(ro.Get(), &pout))
+            wxThrowPyException();
+    }
+    return po;
+}
+
 #endif
