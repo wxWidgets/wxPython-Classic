@@ -22,15 +22,13 @@ class wxPyPrintout : public wxPrintout {
 public:
     wxPyPrintout(const wxString& title) : wxPrintout(title) {}
 
-    DEC_PYCALLBACK_BOOL_INTINT(OnBeginDocument);
-    DEC_PYCALLBACK__(OnEndDocument);
-    DEC_PYCALLBACK__(OnBeginPrinting);
-    DEC_PYCALLBACK__(OnEndPrinting);
-    DEC_PYCALLBACK__(OnPreparePrinting);
-    DEC_PYCALLBACK_BOOL_INT_pure(OnPrintPage);
-    DEC_PYCALLBACK_BOOL_INT(HasPage);
-
-    // Since this one would be tough and ugly to do with the Macros...
+    bool OnBeginDocument(int a, int b);
+    void OnEndDocument(); 
+    void OnBeginPrinting();
+    void OnEndPrinting();
+    void OnPreparePrinting();
+    bool OnPrintPage(int a);
+    bool HasPage(int a);
     void GetPageInfo(int *minPage, int *maxPage, int *pageFrom, int *pageTo);
 
     PYPRIVATE;

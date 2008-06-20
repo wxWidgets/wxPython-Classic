@@ -2755,6 +2755,13 @@ SWIG_From_int  (int value)
 }
 
 
+inline wxPyObject &operator<<(wxPyObject &po, wxComboPopup *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxComboPopup"), false));
+    return po;
+}
+
+
 class wxPyComboCtrl : public wxComboCtrl
 {
     DECLARE_ABSTRACT_CLASS(wxPyComboCtrl)
@@ -2771,37 +2778,13 @@ public:
         : wxComboCtrl(parent, id, value, pos, size, style, validator, name)
     {}
 
-    void DoSetPopupControl(wxComboPopup* popup)
-    {
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "DoSetPopupControl"))) {
-            wxPyObject obj = wxPyConstructObject(popup, wxT("wxComboPopup"), false);
-            wxPyCBH_callCallback(m_myInst, 
-                    Py_BuildValue("(O)",obj.Get()), 
-                    wxPCBH_ERR_THROW);
-        }
-        blocker.Unblock();
-        if (! found)
-            wxComboCtrl::DoSetPopupControl(popup);
-    }
-
-    virtual bool IsKeyPopupToggle( const wxKeyEvent& event ) const
-    {
-        bool found;
-        bool rval = false;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "OnComboKeyEvent"))) {
-            wxPyObject oevt = wxPyConstructObject((void*)&event, wxT("wxKeyEvent"), 0);
-            rval = wxPyCBH_callCallback(m_myInst, 
-                    Py_BuildValue("(O)", oevt.Get()), 
-                    wxPCBH_ERR_THROW);
-        }
-        blocker.Unblock();
-        if (! found)
-            rval = wxComboCtrl::IsKeyPopupToggle(event);
-        return rval;
-    }
+    PYCALLBACK_1_VOID(wxComboCtrl, DoSetPopupControl, (wxComboPopup *a), )
+    PYCALLBACK_1_EXTRACT(wxComboCtrl, bool, false, IsKeyPopupToggle, (const wxKeyEvent &a), const)
+    PYCALLBACK_0_VOID(wxComboCtrl, ShowPopup, )
+    PYCALLBACK_0_VOID(wxComboCtrl, HidePopup, )
+    PYCALLBACK_0_VOID(wxComboCtrl, OnButtonClick, )
+    PYCALLBACK_2_VOID(wxComboCtrl, DoShowPopup, (const wxRect &a, int b), )
+    PYCALLBACK_2_EXTRACT(wxComboCtrl, bool, false, AnimateShow, (const wxRect &a, int b), )
 
 
     virtual wxWindow *GetMainWindowOfCompositeControl()
@@ -2817,23 +2800,10 @@ public:
         CanDeferShow    = 0x0002  // Can only return true from AnimateShow if this is set
     };
 
-
-    DEC_PYCALLBACK_VOID_(ShowPopup);
-    DEC_PYCALLBACK_VOID_(HidePopup);
-    DEC_PYCALLBACK_VOID_(OnButtonClick);
-    DEC_PYCALLBACK__RECTINT(DoShowPopup);
-    DEC_PYCALLBACK_BOOL_RECTINT(AnimateShow);
-
     PYPRIVATE;
 };
 
 IMPLEMENT_ABSTRACT_CLASS(wxPyComboCtrl, wxComboCtrl);
-
-IMP_PYCALLBACK_VOID_(wxPyComboCtrl, wxComboCtrl, ShowPopup);
-IMP_PYCALLBACK_VOID_(wxPyComboCtrl, wxComboCtrl, HidePopup);
-IMP_PYCALLBACK_VOID_(wxPyComboCtrl, wxComboCtrl, OnButtonClick);
-IMP_PYCALLBACK__RECTINT(wxPyComboCtrl, wxComboCtrl, DoShowPopup);
-IMP_PYCALLBACK_BOOL_RECTINT(wxPyComboCtrl, wxComboCtrl, AnimateShow);
 
 
 
@@ -2915,109 +2885,23 @@ public:
     wxPyComboPopup() : wxComboPopup() {}
     ~wxPyComboPopup() {}
 
-
-    DEC_PYCALLBACK_VOID_(Init);
-    DEC_PYCALLBACK_BOOL_WXWIN_pure(Create);
-    DEC_PYCALLBACK_VOID_(OnPopup);
-    DEC_PYCALLBACK_VOID_(OnDismiss);
-    DEC_PYCALLBACK__STRING(SetStringValue);
-    DEC_PYCALLBACK_STRING__constpure(GetStringValue);
-    DEC_PYCALLBACK_VOID_(OnComboDoubleClick);
-    DEC_PYCALLBACK_BOOL_(LazyCreate);
-
-    virtual wxWindow *GetControl()
-    {
-        wxWindow* rval = NULL;
-        const char* errmsg = "GetControl should return an object derived from wx.Window.";
-        wxPyThreadBlocker blocker;
-        if (wxPyCBH_findCallback(m_myInst, "GetControl")) {
-            wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
-            if (ro.Ok() && !wxPyConvertSwigPtr(ro.Get(), (void**)&rval, wxT("wxWindow"))) {
-                PyErr_SetString(PyExc_TypeError, errmsg);
-                wxThrowPyException();
-            }
-        }
-        else {
-            PyErr_SetString(PyExc_TypeError, errmsg);
-            wxThrowPyException();
-        }
-        return rval;
-    }
-
-
-    virtual void PaintComboControl( wxDC& dc, const wxRect& rect )
-    {
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "PaintComboControl"))) {
-            wxPyObject odc = wxPyMake_wxObject(&dc,false);
-            wxPyObject orect = wxPyConstructObject((void*)&rect, wxT("wxRect"), 0);
-            wxPyCBH_callCallback(m_myInst, 
-                    Py_BuildValue("(OO)", odc.Get(), orect.Get()),
-                    wxPCBH_ERR_THROW);
-        }
-        blocker.Unblock();
-        if (! found)
-            wxComboPopup::PaintComboControl(dc, rect);
-    }
-
-
-    virtual void OnComboKeyEvent( wxKeyEvent& event )
-    {
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "OnComboKeyEvent"))) {
-            wxPyObject oevt = wxPyConstructObject((void*)&event, wxT("wxKeyEvent"), 0);
-            wxPyCBH_callCallback(m_myInst, 
-                    Py_BuildValue("(O)", oevt.Get()),
-                    wxPCBH_ERR_THROW);
-        }
-        blocker.Unblock();
-        if (! found)
-            wxComboPopup::OnComboKeyEvent(event);
-    }
-
-
-    virtual wxSize GetAdjustedSize( int minWidth, int prefHeight, int maxHeight )
-    {
-        const char* errmsg = "GetAdjustedSize should return a wx.Size or a 2-tuple of integers.";
-        bool found;
-        wxSize rval(0,0);
-        wxSize* rptr = &rval;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "GetAdjustedSize"))) {
-            wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, 
-                    Py_BuildValue("(iii)", minWidth, prefHeight, maxHeight),
-                    wxPCBH_ERR_THROW);
-            if (ro.Ok()) {
-                if (! wxSize_helper(ro.Get(), &rptr))
-                    PyErr_SetString(PyExc_TypeError, errmsg);
-                else
-                    rval = *rptr;
-            }
-        }
-        blocker.Unblock();
-        if (! found)
-            rval = wxComboPopup::GetAdjustedSize(minWidth, prefHeight, maxHeight);
-        return rval;
-    }
+    PYCALLBACK_0_VOID(wxComboPopup, Init, )
+    PYCALLBACK_1_EXTRACT_PURE(bool, false, Create, (wxWindow *a), )
+    PYCALLBACK_0_VOID(wxComboPopup, OnPopup, )
+    PYCALLBACK_0_VOID(wxComboPopup, OnDismiss, )
+    PYCALLBACK_1_VOID(wxComboPopup, SetStringValue, (const wxString &a), )
+    PYCALLBACK_0_EXTRACT_NOINIT_PURE(wxString, GetStringValue, const)
+    PYCALLBACK_0_VOID(wxComboPopup, OnComboDoubleClick, )
+    PYCALLBACK_0_EXTRACT(wxComboPopup, bool, false, LazyCreate, )
+    PYCALLBACK_0_EXTRACT_PURE(wxWindow*, NULL, GetControl, )
+    PYCALLBACK_2_VOID(wxComboPopup, PaintComboControl, (wxDC &a, const wxRect &b), )
+    PYCALLBACK_1_VOID(wxComboPopup, OnComboKeyEvent, (wxKeyEvent &a), )
+    PYCALLBACK_3_EXTRACT_NOINIT(wxComboPopup, wxSize, GetAdjustedSize, (int a, int b, int c), )
 
     wxComboCtrl* GetCombo() { return (wxComboCtrl*)m_combo; }
 
     PYPRIVATE;
 };
-
-
-IMP_PYCALLBACK_VOID_(wxPyComboPopup, wxComboPopup, Init);
-IMP_PYCALLBACK_BOOL_WXWIN_pure(wxPyComboPopup, wxComboPopup, Create);
-IMP_PYCALLBACK_VOID_(wxPyComboPopup, wxComboPopup, OnPopup);
-IMP_PYCALLBACK_VOID_(wxPyComboPopup, wxComboPopup, OnDismiss);
-IMP_PYCALLBACK__STRING(wxPyComboPopup, wxComboPopup, SetStringValue);
-IMP_PYCALLBACK_STRING__constpure(wxPyComboPopup, wxComboPopup, GetStringValue);
-IMP_PYCALLBACK_VOID_(wxPyComboPopup, wxComboPopup, OnComboDoubleClick);
-IMP_PYCALLBACK_BOOL_(wxPyComboPopup, wxComboPopup, LazyCreate);
 
 
 

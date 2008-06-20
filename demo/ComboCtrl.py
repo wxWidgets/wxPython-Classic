@@ -164,7 +164,7 @@ class TreeCtrlComboPopup(wx.combo.ComboPopup):
                                 |wx.SIMPLE_BORDER)
         self.tree.Bind(wx.EVT_MOTION, self.OnMotion)
         self.tree.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)
-        
+        return True 
 
     def GetControl(self):
         return self.tree

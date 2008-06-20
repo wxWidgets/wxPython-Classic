@@ -3686,80 +3686,34 @@ IMPLEMENT_ABSTRACT_CLASS(wxPyPrintout, wxPrintout);
 
 // Since this one would be tough and ugly to do with the Macros...
 void wxPyPrintout::GetPageInfo(int *minPage, int *maxPage, int *pageFrom, int *pageTo) {
-    bool hadErr = false;
     bool found;
     wxPyThreadBlocker blocker;
 
     if ((found = wxPyCBH_findCallback(m_myInst, "GetPageInfo"))) {
-        wxPyObject result = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
-        if (result.Ok() && PyTuple_Check(result.Get()) && PyTuple_Size(result.Get()) == 4) {
-            PyObject* val;
-
-            val = PyTuple_GetItem(result.Get(), 0);
-            if (PyInt_Check(val))    *minPage = PyInt_AsLong(val);
-            else hadErr = true;
-
-            val = PyTuple_GetItem(result.Get(), 1);
-            if (PyInt_Check(val))    *maxPage = PyInt_AsLong(val);
-            else hadErr = true;
-
-            val = PyTuple_GetItem(result.Get(), 2);
-            if (PyInt_Check(val))    *pageFrom = PyInt_AsLong(val);
-            else hadErr = true;
-
-            val = PyTuple_GetItem(result.Get(), 3);
-            if (PyInt_Check(val))    *pageTo = PyInt_AsLong(val);
-            else hadErr = true;
+        wxPySequence result;
+        result = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW);
+        if (result.Ok()) {
+            if (result.IsSequence() && result.Size() == 4)
+                result >> *minPage >> *maxPage >> *pageFrom >> *pageTo;
+            else {
+                PyErr_SetString(PyExc_TypeError, "GetPageInfo should return a tuple of 4 integers.");
+                wxThrowPyException();
+            }
         }
-        else
-            hadErr = true;
-
-        if (hadErr) {
-            PyErr_SetString(PyExc_TypeError, "GetPageInfo should return a tuple of 4 integers.");
-            wxThrowPyException();
-        }
-    }
-    blocker.Unblock();
- 
-    if (! found)
+    } else {
+        blocker.Unblock();
         wxPrintout::GetPageInfo(minPage, maxPage, pageFrom, pageTo);
+    }
 }
 
 
-
-IMP_PYCALLBACK_BOOL_INTINT(wxPyPrintout, wxPrintout, OnBeginDocument);
-IMP_PYCALLBACK__(wxPyPrintout, wxPrintout, OnEndDocument);
-IMP_PYCALLBACK__(wxPyPrintout, wxPrintout, OnBeginPrinting);
-IMP_PYCALLBACK__(wxPyPrintout, wxPrintout, OnEndPrinting);
-IMP_PYCALLBACK__(wxPyPrintout, wxPrintout, OnPreparePrinting);
-IMP_PYCALLBACK_BOOL_INT_pure(wxPyPrintout, wxPrintout, OnPrintPage);
-IMP_PYCALLBACK_BOOL_INT(wxPyPrintout, wxPrintout, HasPage);
-
-
-
-
-
-#define DEC_PYCALLBACK_BOOL_PREWINDC(CBNAME)                                            \
-    bool CBNAME(wxPreviewCanvas* a, wxDC& b)
-
-
-#define IMP_PYCALLBACK_BOOL_PREWINDC(CLASS, PCLASS, CBNAME)                             \
-    bool CLASS::CBNAME(wxPreviewCanvas* a, wxDC& b) {                                   \
-        bool rval=false;                                                                \
-        bool found;                                                                     \
-        wxPyThreadBlocker blocker;                                                      \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                        \
-            wxPyObject win = wxPyMake_wxObject(a,false);                                \
-            wxPyObject dc  = wxPyMake_wxObject(&b,false);                               \
-            rval = wxPyCBH_callCallback(m_myInst,                                       \ 
-                        Py_BuildValue("(OO)", win.Get(), dc.Get()),                     \
-                        wxPCBH_ERR_THROW);                                              \
-        }                                                                               \
-        blocker.Unblock();                                                              \
-        if (! found)                                                                    \
-            rval = PCLASS::CBNAME(a, b);                                                \
-        return rval;                                                                    \
-    }                                       
+IMP_PYCALLBACK_2_EXTRACT(wxPyPrintout, wxPrintout, bool, false, OnBeginDocument, (int a, int b), )
+IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnEndDocument, )
+IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnBeginPrinting, )
+IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnEndPrinting, )
+IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnPreparePrinting, )
+IMP_PYCALLBACK_1_EXTRACT_PURE(wxPyPrintout, bool, false, OnPrintPage, (int a), )
+IMP_PYCALLBACK_1_EXTRACT(wxPyPrintout, wxPrintout, bool, false, HasPage, (int a), )
 
 
 
@@ -3779,13 +3733,13 @@ public:
         : wxPrintPreview(printout, printoutForPrinting, data)
     {}
 
-    DEC_PYCALLBACK_BOOL_INT(SetCurrentPage);
-    DEC_PYCALLBACK_BOOL_PREWINDC(PaintPage);
-    DEC_PYCALLBACK_BOOL_PREWINDC(DrawBlankPage);
-    DEC_PYCALLBACK_BOOL_INT(RenderPage);
-    DEC_PYCALLBACK_VOID_INT(SetZoom);
-    DEC_PYCALLBACK_BOOL_BOOL(Print);
-    DEC_PYCALLBACK_VOID_(DetermineScaling);
+    PYCALLBACK_1_EXTRACT(wxPrintPreview, bool, false, SetCurrentPage, (int a), )
+    PYCALLBACK_2_EXTRACT(wxPrintPreview, bool, false, PaintPage, (wxPreviewCanvas* a, wxDC& b), ) 
+    PYCALLBACK_2_EXTRACT(wxPrintPreview, bool, false, DrawBlankPage, (wxPreviewCanvas* a, wxDC& b), ) 
+    PYCALLBACK_1_EXTRACT(wxPrintPreview, bool, false, RenderPage, (int a), )
+    PYCALLBACK_1_VOID(wxPrintPreview, SetZoom, (int a), )
+    PYCALLBACK_1_EXTRACT(wxPrintPreview, bool, false, Print, (bool a), )
+    PYCALLBACK_0_VOID(wxPrintPreview, DetermineScaling, )
 
     PYPRIVATE;
 };
@@ -3799,13 +3753,6 @@ IMPLEMENT_CLASS( wxPyPrintPreview, wxMacPrintPreview );
 IMPLEMENT_CLASS( wxPyPrintPreview, wxPostScriptPrintPreview );
 #endif
 
-IMP_PYCALLBACK_BOOL_INT     (wxPyPrintPreview, wxPrintPreview, SetCurrentPage);
-IMP_PYCALLBACK_BOOL_PREWINDC(wxPyPrintPreview, wxPrintPreview, PaintPage);
-IMP_PYCALLBACK_BOOL_PREWINDC(wxPyPrintPreview, wxPrintPreview, DrawBlankPage);
-IMP_PYCALLBACK_BOOL_INT     (wxPyPrintPreview, wxPrintPreview, RenderPage);
-IMP_PYCALLBACK_VOID_INT     (wxPyPrintPreview, wxPrintPreview, SetZoom);
-IMP_PYCALLBACK_BOOL_BOOL    (wxPyPrintPreview, wxPrintPreview, Print);
-IMP_PYCALLBACK_VOID_        (wxPyPrintPreview, wxPrintPreview, DetermineScaling);
 
 
 class wxPyPreviewFrame : public wxPreviewFrame
@@ -3824,18 +3771,15 @@ public:
     void SetPreviewCanvas(wxPreviewCanvas* canvas) { m_previewCanvas = canvas; }
     void SetControlBar(wxPreviewControlBar* bar) { m_controlBar = bar; }
 
-    DEC_PYCALLBACK_VOID_(Initialize);
-    DEC_PYCALLBACK_VOID_(CreateCanvas);
-    DEC_PYCALLBACK_VOID_(CreateControlBar);
+    PYCALLBACK_0_VOID(wxPreviewFrame, Initialize, )
+    PYCALLBACK_0_VOID(wxPreviewFrame, CreateCanvas, )
+    PYCALLBACK_0_VOID(wxPreviewFrame, CreateControlBar, )
 
     PYPRIVATE;
 };
 
 IMPLEMENT_CLASS(wxPyPreviewFrame, wxPreviewFrame);
 
-IMP_PYCALLBACK_VOID_(wxPyPreviewFrame, wxPreviewFrame, Initialize);
-IMP_PYCALLBACK_VOID_(wxPyPreviewFrame, wxPreviewFrame, CreateCanvas);
-IMP_PYCALLBACK_VOID_(wxPyPreviewFrame, wxPreviewFrame, CreateControlBar);
 
 
 class wxPyPreviewControlBar : public wxPreviewControlBar
@@ -3854,15 +3798,13 @@ public:
 
     void SetPrintPreview(wxPrintPreview* preview) { m_printPreview = preview; }
 
-    DEC_PYCALLBACK_VOID_(CreateButtons);
-    DEC_PYCALLBACK_VOID_INT(SetZoomControl);
+    PYCALLBACK_0_VOID(wxPreviewControlBar, CreateButtons, )
+    PYCALLBACK_1_VOID(wxPreviewControlBar, SetZoomControl, (int a), )
 
     PYPRIVATE;
 };
 
 IMPLEMENT_CLASS(wxPyPreviewControlBar, wxPreviewControlBar);
-IMP_PYCALLBACK_VOID_(wxPyPreviewControlBar, wxPreviewControlBar, CreateButtons);
-IMP_PYCALLBACK_VOID_INT(wxPyPreviewControlBar, wxPreviewControlBar, SetZoomControl);
 
 #ifdef __cplusplus
 extern "C" {

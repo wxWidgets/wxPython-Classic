@@ -226,11 +226,29 @@ public:
         m_pos = 0;
     }
 
+    wxPySequence(PyObject *obj): wxPyObject(obj) {}
+    wxPySequence(const wxPyObject &cpy): wxPyObject(cpy) {}
+    const wxPySequence &operator=(PyObject *obj) 
+    { 
+        Take(obj); 
+        return *this;
+    }
+    const wxPySequence &operator=(const wxPyObject &cpy) 
+    { 
+        Ref(cpy.Get()); 
+        return *this;
+    }
+
     virtual ~wxPySequence() {}
 
     bool IsSequence() const
     {
         return PySequence_Check(Get()) == 1;
+    }
+
+    int Size() const
+    {
+        return PySequence_Size(Get());
     }
 
     int GetPos() const
@@ -258,6 +276,19 @@ public:
     wxPyTuple(int len)
     {
         Take(PyTuple_New(len));
+    }
+
+    wxPyTuple(PyObject *obj): wxPySequence(obj) {}
+    wxPyTuple(const wxPyObject &cpy): wxPySequence(cpy) {}
+    const wxPyTuple &operator=(PyObject *obj) 
+    { 
+        Take(obj); 
+        return *this;
+    }
+    const wxPyTuple &operator=(const wxPyObject &cpy) 
+    { 
+        Ref(cpy.Get()); 
+        return *this;
     }
 
     virtual ~wxPyTuple() { }
@@ -288,6 +319,18 @@ public:
             m_mode = ADD_APPEND;
         else
             m_mode = ADD_SETITEM;
+    }
+    wxPyList(PyObject *obj): wxPySequence(obj) {}
+    wxPyList(const wxPyObject &cpy): wxPySequence(cpy) {}
+    const wxPyList &operator=(PyObject *obj) 
+    { 
+        Take(obj); 
+        return *this;
+    }
+    const wxPyList &operator=(const wxPyObject &cpy) 
+    { 
+        Ref(cpy.Get()); 
+        return *this;
     }
 
     virtual ~wxPyList() { }
@@ -441,6 +484,18 @@ inline wxPyObject &operator<<(wxPyObject &po, const wxRect &obj)
     return po;
 }
 
+inline wxPyObject &operator<<(wxPyObject &po, const wxKeyEvent &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxKeyEvent"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxKeyEvent *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxKeyEvent"), 0));
+    return po;
+}
+
 // Extractors. Make sure to check Ok() and sequence length (if needed) before extracting.  
 
 #define EXTRACT_INT(i, o)                                           \
@@ -497,6 +552,18 @@ inline wxPyObject &operator<<(wxPyObject &po, const wxRect &obj)
         }                                                               \
     }
 
+#define EXTRACT_OBJECT_COPY(T, i, o)                                    \
+    if (i.Ok() && !PyErr_Occurred()) {                                  \
+        T* ptr;                                                         \
+        wxPyObject ro = i.Pop();                                        \
+        if (wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT(#T)))       \
+            o = *ptr;                                                   \
+        else {                                                          \
+            PyErr_SetString(PyExc_TypeError, "Expected " #T " object."); \
+            wxThrowPyException();                                       \
+        }                                                               \
+    }
+
 
 inline wxPyObject &operator>>(wxPyObject &po, int &out)
 {
@@ -524,7 +591,16 @@ inline wxPyObject &operator>>(wxPyObject &po, unsigned long &out)
 
 inline wxPyObject &operator>>(wxPyObject &po, bool &out)
 {
-    EXTRACT_INT(po, out)
+    if (po.Ok() && !PyErr_Occurred()) {
+        wxPyObject ro = po.Pop();
+
+        if (PyBool_Check(ro.Get())) {
+            out = PyInt_AsLong(ro.Get());
+        } else {
+            PyErr_SetString(PyExc_TypeError, "Expected boolean");
+            wxThrowPyException();
+        }
+    }
     return po;
 }
 
@@ -556,11 +632,19 @@ inline wxPyObject &operator>>(wxPyObject &po, wxString &out)
 inline wxPyObject &operator>>(wxPyObject &po, wxSize &out)
 {
     if (po.Ok() && !PyErr_Occurred()) {
-        wxSize *pout = &out;
+        wxSize *pout;
         wxPyObject ro = po.Pop();
         if (!wxSize_helper(ro.Get(), &pout))
             wxThrowPyException();
+        else
+            out = *pout;
     }
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, wxWindow *&out)
+{
+    EXTRACT_OBJECT(wxWindow, po, out)
     return po;
 }
 

@@ -86,50 +86,26 @@ MAKE_CONST_WXSTRING(ART_FIND_AND_REPLACE);
 
 //---------------------------------------------------------------------------
 
+%{
+inline wxPyObject &operator>>(wxPyObject &po, wxBitmap &bm)
+{
+    EXTRACT_OBJECT_COPY(wxBitmap, po, bm)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, wxIconBundle &ib)
+{
+    EXTRACT_OBJECT_COPY(wxIconBundle, po, ib)
+    return po;
+}
+%}
+
 %{  // Python aware wxArtProvider
 class wxPyArtProvider : public wxArtProvider  {
 public:
 
-    virtual wxBitmap CreateBitmap(const wxArtID& id,
-                                  const wxArtClient& client,
-                                  const wxSize& size) {
-        wxBitmap rval = wxNullBitmap;
-        wxPyThreadBlocker blocker;
-        if ((wxPyCBH_findCallback(m_myInst, "CreateBitmap"))) {
-            wxPyObject so = wxPyConstructObject((void*)&size, wxT("wxSize"), 0);
-            wxPyObject ro;
-            wxBitmap* ptr;
-            wxPyObject s1, s2;
-            s1 = wx2PyString(id);
-            s2 = wx2PyString(client);
-            ro = wxPyCBH_callCallbackObj(m_myInst, 
-                    Py_BuildValue("(OOO)", s1.Get(), s2.Get(), so.Get()),
-                    wxPCBH_ERR_THROW);
-            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void**)&ptr, wxT("wxBitmap")))
-                rval = *ptr;
-        }
-        return rval;
-    }
-
-    virtual wxIconBundle CreateIconBundle(const wxArtID& id,
-                                          const wxArtClient& client)
-    {
-        wxIconBundle rval = wxNullIconBundle;
-        wxPyThreadBlocker blocker;
-        if ((wxPyCBH_findCallback(m_myInst, "CreateIconBundle"))) {
-            wxPyObject ro;
-            wxIconBundle* ptr;
-            wxPyObject s1, s2;
-            s1 = wx2PyString(id);
-            s2 = wx2PyString(client);
-            ro = wxPyCBH_callCallbackObj(m_myInst, 
-                Py_BuildValue("(OO)", s1.Get(), s2.Get()),
-                wxPCBH_ERR_THROW);
-            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void**)&ptr, wxT("wxIconBundle")))
-                rval = *ptr;
-        }
-        return rval;
-    }
+    PYCALLBACK_3_EXTRACT_PURE(wxBitmap, wxNullBitmap, CreateBitmap, (const wxArtID& a, const wxArtClient& b, const wxSize& c), )
+    PYCALLBACK_2_EXTRACT_PURE(wxIconBundle, wxNullIconBundle, CreateIconBundle, (const wxArtID& a, const wxArtClient& b), )
 
     PYPRIVATE;
 };
