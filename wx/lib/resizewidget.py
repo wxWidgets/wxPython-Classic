@@ -28,8 +28,9 @@ RW_THICKNESS = 4
 RW_LENGTH = 12
 
 # colors for the handle
-RW_PEN = 'black'
-RW_FILL = '#ABABAB'
+RW_PEN   = 'black'
+RW_FILL  = '#A0A0A0'
+RW_FILL2 = '#E0E0E0'
 
 # An event and event binder that will notify the containers that they should
 # redo the layout in whatever way makes sense for their particular content.
@@ -62,7 +63,8 @@ class ResizeWidget(wx.PyPanel):
         self._bestSize = wx.Size(100,25)
         self._resizeCursor = False
         self._dragPos = None
-
+        self._resizeEnabled = True
+        
         
     def SetManagedChild(self, child):
         child.Reparent(self)  # This calls AddChild, so do the rest of the init there
@@ -73,11 +75,20 @@ class ResizeWidget(wx.PyPanel):
         self._bestSize = \
             self._managedChild.GetEffectiveMinSize() + (RW_THICKNESS, RW_THICKNESS)
         self.SetSize(self._bestSize)
-         
+
+
+    def EnableResize(self, enable=True):
+        self._resizeEnabled = enable
+        self.Refresh(False)
+
+
+    def IsResizeEnabled(self):
+        return self._resizeEnabled
+    
 
     #=== Event handler methods ===
     def OnLeftDown(self, evt): 
-        if self._hitTest(evt.GetPosition()):
+        if self._hitTest(evt.GetPosition()) and self._resizeEnabled:
             self.CaptureMouse()
             self._dragPos = evt.GetPosition()
     
@@ -91,7 +102,7 @@ class ResizeWidget(wx.PyPanel):
     def OnMouseMove(self, evt):
         # set or reset the drag cursor
         pos = evt.GetPosition()
-        if self._hitTest(pos):
+        if self._hitTest(pos) and self._resizeEnabled:
             if not self._resizeCursor:
                 self.SetCursor(wx.StockCursor(wx.CURSOR_SIZENWSE))
                 self._resizeCursor = True
@@ -169,7 +180,11 @@ class ResizeWidget(wx.PyPanel):
                    (w - 1,            h - RW_LENGTH),
                    ]
         dc.SetPen(wx.Pen(RW_PEN, 1))
-        dc.SetBrush(wx.Brush(RW_FILL))
+        if self._resizeEnabled:
+            fill = RW_FILL
+        else:
+            fill = RW_FILL2
+        dc.SetBrush(wx.Brush(fill))
         dc.DrawPolygon(points)
         
         
