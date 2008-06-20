@@ -146,10 +146,15 @@ Source: "wx\tools\Editra\locale\de_DE\LC_MESSAGES\*.mo";     DestDir: "{app}\%(P
 Source: "wx\tools\Editra\locale\en_US\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\en_US\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\es_ES\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\es_ES\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\fr_FR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\fr_FR\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\it_IT\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\it_IT\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\ja_JP\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ja_JP\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\nl_NL\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\nl_NL\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\nn_NO\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\nn_NO\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\pt_BR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\pt_BR\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\ru_RU\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ru_RU\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\sr_YU\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sr_YU\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\tr_TR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\tr_TR\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\uk_UA\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\uk_UA\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\zh_CN\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\zh_CN\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\pixmaps\*.png";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps"; Components: core
 Source: "wx\tools\Editra\pixmaps\*.ico";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps"; Components: core
