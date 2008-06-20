@@ -42,7 +42,8 @@ class ScrolledPanel( wx.PyScrolledWindow ):
         self.Bind(wx.EVT_CHILD_FOCUS, self.OnChildFocus)
 
 
-    def SetupScrolling(self, scroll_x=True, scroll_y=True, rate_x=20, rate_y=20):
+    def SetupScrolling(self, scroll_x=True, scroll_y=True, rate_x=20, rate_y=20, 
+                       scrollToTop=True):
         """
         This function sets up the event handling necessary to handle
         scrolling properly. It should be called within the __init__
@@ -66,12 +67,13 @@ class ScrolledPanel( wx.PyScrolledWindow ):
                 h += rate_y - (h % rate_y)
             self.SetVirtualSize( (w, h) )
         self.SetScrollRate(rate_x, rate_y)        
-        wx.CallAfter(self._SetupAfter) # scroll back to top after initial events
+        wx.CallAfter(self._SetupAfter, scrollToTop) # scroll back to top after initial events
 
 
-    def _SetupAfter(self):
+    def _SetupAfter(self, scrollToTop):
         self.SetVirtualSize(self.GetBestVirtualSize())
-        self.Scroll(0,0)
+        if scrollToTop:
+            self.Scroll(0,0)
 
 
     def OnChildFocus(self, evt):
