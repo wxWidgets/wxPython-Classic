@@ -226,8 +226,8 @@ public:
         m_pos = 0;
     }
 
-    wxPySequence(PyObject *obj): wxPyObject(obj) {}
-    wxPySequence(const wxPyObject &cpy): wxPyObject(cpy) {}
+    wxPySequence(PyObject *obj): wxPyObject(obj), m_pos(0) {}
+    wxPySequence(const wxPyObject &cpy): wxPyObject(cpy), m_pos(0) {}
     const wxPySequence &operator=(PyObject *obj) 
     { 
         Take(obj); 
@@ -320,8 +320,8 @@ public:
         else
             m_mode = ADD_SETITEM;
     }
-    wxPyList(PyObject *obj): wxPySequence(obj) {}
-    wxPyList(const wxPyObject &cpy): wxPySequence(cpy) {}
+    wxPyList(PyObject *obj): wxPySequence(obj), m_mode(ADD_APPEND) {}
+    wxPyList(const wxPyObject &cpy): wxPySequence(cpy), m_mode(ADD_APPEND) {}
     const wxPyList &operator=(PyObject *obj) 
     { 
         Take(obj); 
@@ -496,6 +496,42 @@ inline wxPyObject &operator<<(wxPyObject &po, const wxKeyEvent *obj)
     return po;
 }
 
+inline wxPyObject &operator<<(wxPyObject &po, const wxColour &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxColour"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxFont &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxFont"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxColour *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxColour"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxFont *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxFont"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxBitmap &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxBitmap"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxBitmap *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxBitmap"), 0));
+    return po;
+}
+
 // Extractors. Make sure to check Ok() and sequence length (if needed) before extracting.  
 
 #define EXTRACT_INT(i, o)                                           \
@@ -593,12 +629,10 @@ inline wxPyObject &operator>>(wxPyObject &po, bool &out)
 {
     if (po.Ok() && !PyErr_Occurred()) {
         wxPyObject ro = po.Pop();
-
-        if (PyBool_Check(ro.Get())) {
-            out = PyInt_AsLong(ro.Get());
-        } else {
-            PyErr_SetString(PyExc_TypeError, "Expected boolean");
-            wxThrowPyException();
+        out = PyInt_AsLong(ro.Get());
+        if (PyErr_Occurred()) {
+            out = false;
+            PyErr_Clear();
         }
     }
     return po;
@@ -645,6 +679,24 @@ inline wxPyObject &operator>>(wxPyObject &po, wxSize &out)
 inline wxPyObject &operator>>(wxPyObject &po, wxWindow *&out)
 {
     EXTRACT_OBJECT(wxWindow, po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, wxColour &out)
+{
+    EXTRACT_OBJECT_COPY(wxColour, po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, wxFont &out)
+{
+    EXTRACT_OBJECT_COPY(wxFont, po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, wxRect &out)
+{
+    EXTRACT_OBJECT_COPY(wxRect, po, out)
     return po;
 }
 

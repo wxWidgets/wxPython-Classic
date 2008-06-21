@@ -2954,8 +2954,8 @@ public:
 
     // this function must be overridden in the derived class and it should
     // return the height of the given line in pixels
-    DEC_PYCALLBACK_COORD_SIZET_constpure(OnGetRowHeight);
-    DEC_PYCALLBACK_COORD_SIZET_constpure(OnGetLineHeight);  // old name
+    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnGetRowHeight, (size_t a), const)
+    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnGetLineHeight, (size_t a), const)
 
     // this function doesn't have to be overridden but it may be useful to do
     // it if calculating the lines heights is a relatively expensive operation
@@ -2970,8 +2970,8 @@ public:
     //
     // finally note that lineMin is inclusive, while lineMax is exclusive, as
     // usual
-    DEC_PYCALLBACK_VOID_SIZETSIZET_const(OnGetRowsHeightHint);
-    DEC_PYCALLBACK_VOID_SIZETSIZET_const(OnGetLinesHint);      // old name
+    PYCALLBACK_2_VOID(wxVScrolledWindow, OnGetRowsHeightHint, (size_t a, size_t b), const)
+    PYCALLBACK_2_VOID(wxVScrolledWindow, OnGetLinesHint, (size_t a, size_t b), const)
 
     // when the number of lines changes, we try to estimate the total height
     // of all lines which is a rather expensive operation in terms of lines
@@ -2981,8 +2981,7 @@ public:
     //
     // this function should return the best guess for the total height it may
     // make
-    DEC_PYCALLBACK_COORD_const(EstimateTotalHeight);
-
+    PYCALLBACK_0_EXTRACT(wxVScrolledWindow, wxCoord, 0, EstimateTotalHeight, const)
 
     // Also expose some other interesting protected methods
 
@@ -2998,12 +2997,6 @@ public:
 
 IMPLEMENT_ABSTRACT_CLASS(wxPyVScrolledWindow, wxVScrolledWindow);
 
-IMP_PYCALLBACK_COORD_SIZET_constpure(wxPyVScrolledWindow, wxVScrolledWindow, OnGetRowHeight);
-IMP_PYCALLBACK_COORD_SIZET_constpure(wxPyVScrolledWindow, wxVScrolledWindow, OnGetLineHeight);
-IMP_PYCALLBACK_VOID_SIZETSIZET_const(wxPyVScrolledWindow, wxVScrolledWindow, OnGetRowsHeightHint);
-IMP_PYCALLBACK_VOID_SIZETSIZET_const(wxPyVScrolledWindow, wxVScrolledWindow, OnGetLinesHint);
-
-IMP_PYCALLBACK_COORD_const          (wxPyVScrolledWindow, wxVScrolledWindow, EstimateTotalHeight);
 
 
 class wxPyHScrolledWindow  : public wxHScrolledWindow
@@ -3022,9 +3015,9 @@ public:
     {}
 
     // Overridable virtuals
-    DEC_PYCALLBACK_COORD_SIZET_constpure(OnGetColumnWidth);
-    DEC_PYCALLBACK_VOID_SIZETSIZET_const(OnGetColumnsWidthHint);
-    DEC_PYCALLBACK_COORD_const(EstimateTotalWidth);
+    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnGetColumnWidth, (size_t a), const)
+    PYCALLBACK_2_VOID(wxHScrolledWindow, OnGetColumnsWidthHint, (size_t a, size_t b), const)
+    PYCALLBACK_0_EXTRACT(wxHScrolledWindow, wxCoord, 0, EstimateTotalWidth, const)
 
     wxCoord GetColumnsWidth(size_t columnMin, size_t columnMax) const
     { return wxHScrolledWindow::GetColumnsWidth(columnMin, columnMax); }
@@ -3033,10 +3026,6 @@ public:
 };
 
 IMPLEMENT_ABSTRACT_CLASS(wxPyHScrolledWindow, wxHScrolledWindow);
-
-IMP_PYCALLBACK_COORD_SIZET_constpure(wxPyHScrolledWindow, wxHScrolledWindow, OnGetColumnWidth);
-IMP_PYCALLBACK_VOID_SIZETSIZET_const(wxPyHScrolledWindow, wxHScrolledWindow, OnGetColumnsWidthHint);
-IMP_PYCALLBACK_COORD_const          (wxPyHScrolledWindow, wxHScrolledWindow, EstimateTotalWidth);
 
 
 
@@ -3056,13 +3045,12 @@ public:
     {}
 
     // Overridable virtuals
-    DEC_PYCALLBACK_COORD_SIZET_constpure(OnGetRowHeight);
-    DEC_PYCALLBACK_VOID_SIZETSIZET_const(OnGetRowsHeightHint);
-    DEC_PYCALLBACK_COORD_const(EstimateTotalHeight);
-
-    DEC_PYCALLBACK_COORD_SIZET_constpure(OnGetColumnWidth);
-    DEC_PYCALLBACK_VOID_SIZETSIZET_const(OnGetColumnsWidthHint);
-    DEC_PYCALLBACK_COORD_const(EstimateTotalWidth);
+    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnGetRowHeight, (size_t a), const)
+    PYCALLBACK_2_VOID(wxHVScrolledWindow, OnGetRowsHeightHint, (size_t a, size_t b), const)
+    PYCALLBACK_0_EXTRACT(wxHVScrolledWindow, wxCoord, 0, EstimateTotalHeight, const)
+    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnGetColumnWidth, (size_t a), const)
+    PYCALLBACK_2_VOID(wxHVScrolledWindow, OnGetColumnsWidthHint, (size_t a, size_t b), const)
+    PYCALLBACK_0_EXTRACT(wxHVScrolledWindow, wxCoord, 0, EstimateTotalWidth, const)
 
     wxCoord GetRowsHeight(size_t lineMin, size_t lineMax) const
     { return wxHVScrolledWindow::GetRowsHeight(lineMin, lineMax); }
@@ -3074,14 +3062,6 @@ public:
 };
 
 IMPLEMENT_ABSTRACT_CLASS(wxPyHVScrolledWindow, wxHVScrolledWindow);
-
-IMP_PYCALLBACK_COORD_SIZET_constpure(wxPyHVScrolledWindow, wxHVScrolledWindow, OnGetRowHeight);
-IMP_PYCALLBACK_VOID_SIZETSIZET_const(wxPyHVScrolledWindow, wxHVScrolledWindow, OnGetRowsHeightHint);
-IMP_PYCALLBACK_COORD_const          (wxPyHVScrolledWindow, wxHVScrolledWindow, EstimateTotalHeight);
-
-IMP_PYCALLBACK_COORD_SIZET_constpure(wxPyHVScrolledWindow, wxHVScrolledWindow, OnGetColumnWidth);
-IMP_PYCALLBACK_VOID_SIZETSIZET_const(wxPyHVScrolledWindow, wxHVScrolledWindow, OnGetColumnsWidthHint);
-IMP_PYCALLBACK_COORD_const          (wxPyHVScrolledWindow, wxHVScrolledWindow, EstimateTotalWidth);
 
 
 
@@ -3109,13 +3089,12 @@ public:
     // the derived class must implement this function to actually draw the item
     // with the given index on the provided DC
     // virtual void OnDrawItem(wxDC& dc, const wxRect& rect, size_t n) const = 0;
-    DEC_PYCALLBACK__DCRECTSIZET_constpure(OnDrawItem);
-
+    PYCALLBACK_3_VOID_PURE(OnDrawItem, (wxDC &a, const wxRect &b, size_t c), const)
 
     // the derived class must implement this method to return the height of the
     // specified item
     // virtual wxCoord OnMeasureItem(size_t n) const = 0;
-    DEC_PYCALLBACK_COORD_SIZET_constpure(OnMeasureItem);
+    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnMeasureItem, (size_t a), const)
 
 
     // this method may be used to draw separators between the lines; note that
@@ -3124,8 +3103,7 @@ public:
     //
     // the base class version doesn't do anything
     //    virtual void OnDrawSeparator(wxDC& dc, wxRect& rect, size_t n) const;
-    DEC_PYCALLBACK__DCRECTSIZET2_const(OnDrawSeparator);
-
+    PYCALLBACK_3_VOID(wxVListBox, OnDrawSeparator, (wxDC &a, wxRect &b, size_t c), const)
 
     // this method is used to draw the items background and, maybe, a border
     // around it
@@ -3135,18 +3113,13 @@ public:
     // colour and drawing a border around the item if it is either selected or
     // current
     //     virtual void OnDrawBackground(wxDC& dc, const wxRect& rect, size_t n) const;
-    DEC_PYCALLBACK__DCRECTSIZET_const(OnDrawBackground);
+    PYCALLBACK_3_VOID(wxVListBox, OnDrawBackground, (wxDC &a, const wxRect &b, size_t c), const)
 
 
     PYPRIVATE;
 };
 
 IMPLEMENT_ABSTRACT_CLASS(wxPyVListBox, wxVListBox);
-
-IMP_PYCALLBACK__DCRECTSIZET_constpure(wxPyVListBox, wxVListBox, OnDrawItem);
-IMP_PYCALLBACK_COORD_SIZET_constpure (wxPyVListBox, wxVListBox, OnMeasureItem);
-IMP_PYCALLBACK__DCRECTSIZET2_const   (wxPyVListBox, wxVListBox, OnDrawSeparator);
-IMP_PYCALLBACK__DCRECTSIZET_const    (wxPyVListBox, wxVListBox, OnDrawBackground);
 
 
 SWIGINTERN PyObject *wxPyVListBox_GetFirstSelected(wxPyVListBox *self){
@@ -3171,6 +3144,13 @@ SWIGINTERN PyObject *wxPyVListBox_GetNextSelected(wxPyVListBox *self,unsigned lo
 
 #include <wx/htmllbox.h>
 
+inline wxPyObject &operator<<(wxPyObject &po, const wxHtmlLinkInfo &li)
+{
+    po.Push(wxPyConstructObject((void*)&li, wxT("wxHtmlLinkInfo"), 0));
+    return po;
+}
+
+
 
 class wxPyHtmlListBox  : public wxHtmlListBox
 {
@@ -3191,16 +3171,16 @@ public:
 
     // this method must be implemented in the derived class and should return
     // the body (i.e. without <html>) of the HTML for the given item
-    DEC_PYCALLBACK_STRING_SIZET_pure(OnGetItem);
+    PYCALLBACK_1_EXTRACT_NOINIT_PURE(wxString, OnGetItem, (size_t a), const)    
 
     // this function may be overridden to decorate HTML returned by OnGetItem()
-    DEC_PYCALLBACK_STRING_SIZET(OnGetItemMarkup);
+    PYCALLBACK_1_EXTRACT_NOINIT(wxHtmlListBox, wxString, OnGetItemMarkup, (size_t a), )    
 
     // These are from wxVListBox
-    DEC_PYCALLBACK__DCRECTSIZET2_const(OnDrawSeparator);
-    DEC_PYCALLBACK__DCRECTSIZET_const(OnDrawBackground);
+    PYCALLBACK_3_VOID(wxHtmlListBox, OnDrawSeparator, (wxDC &a, wxRect &b, size_t c), const)
+    PYCALLBACK_3_VOID(wxHtmlListBox, OnDrawBackground, (wxDC &a, const wxRect &b, size_t c), const)
 
-// TODO:
+
 //     // this method allows to customize the selection appearance: it may be used
 //     // to specify the colour of the text which normally has the given colour
 //     // colFg when it is inside the selection
@@ -3214,11 +3194,14 @@ public:
 //     // globally using SetSelectionBackground()
 //     virtual wxColour GetSelectedTextBgColour(const wxColour& colBg) const;
 
-    
+
+    PYCALLBACK_1_EXTRACT_NOINIT(wxHtmlListBox, wxColour, GetSelectedTextColour, (const wxColour &a), const)   
+    PYCALLBACK_1_EXTRACT_NOINIT(wxHtmlListBox, wxColour, GetSelectedTextBgColour, (const wxColour &a), const)   
+ 
     // This method may be overriden to handle clicking on a link in
     // the listbox. By default, clicking links is ignored.
-    virtual void OnLinkClicked(size_t n,
-                               const wxHtmlLinkInfo& link);        
+    //virtual void OnLinkClicked(size_t n, const wxHtmlLinkInfo& link);        
+    PYCALLBACK_2_VOID(wxHtmlListBox, OnLinkClicked, (size_t a, const wxHtmlLinkInfo &b), )
 
     PYPRIVATE;
 };
@@ -3226,25 +3209,6 @@ public:
 
 IMPLEMENT_ABSTRACT_CLASS(wxPyHtmlListBox, wxHtmlListBox)
 
-IMP_PYCALLBACK_STRING_SIZET_pure(wxPyHtmlListBox, wxHtmlListBox, OnGetItem);
-IMP_PYCALLBACK_STRING_SIZET     (wxPyHtmlListBox, wxHtmlListBox, OnGetItemMarkup);
-IMP_PYCALLBACK__DCRECTSIZET2_const   (wxPyHtmlListBox, wxHtmlListBox, OnDrawSeparator);
-IMP_PYCALLBACK__DCRECTSIZET_const    (wxPyHtmlListBox, wxHtmlListBox, OnDrawBackground);
-
-
-void wxPyHtmlListBox::OnLinkClicked(size_t n,
-                                    const wxHtmlLinkInfo& link) {
-    bool found;
-    wxPyThreadBlocker blocker;
-    if ((found = wxPyCBH_findCallback(m_myInst, "OnLinkClicked"))) {
-        wxPyObject obj = wxPyConstructObject((void*)&link, wxT("wxHtmlLinkInfo"), 0);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iO)", n, obj.Get()), wxPCBH_ERR_THROW);
-    }
-    blocker.Unblock();
-    if (! found)
-        wxHtmlListBox::OnLinkClicked(n, link);
-}
- 
 
 
     const wxArrayString wxPyEmptyStringArray;
