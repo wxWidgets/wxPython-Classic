@@ -212,6 +212,8 @@ class ResizeWidget(wx.PyPanel):
         # the window may be different than the child object we have now, so we
         # need to reset which proxy object we're using.  Look for it by ID.
         def _doAfterAddChild(self, id):
+            if not self:
+                return
             child = self.FindWindowById(id)
             self._managedChild = child
             self.AdjustToChild()
