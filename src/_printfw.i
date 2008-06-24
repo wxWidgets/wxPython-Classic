@@ -445,13 +445,13 @@ void wxPyPrintout::GetPageInfo(int *minPage, int *maxPage, int *pageFrom, int *p
 }
 
 
-IMP_PYCALLBACK_2_EXTRACT(wxPyPrintout, wxPrintout, bool, false, OnBeginDocument, (int a, int b), )
-IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnEndDocument, )
-IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnBeginPrinting, )
-IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnEndPrinting, )
-IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnPreparePrinting, )
-IMP_PYCALLBACK_1_EXTRACT_PURE(wxPyPrintout, bool, false, OnPrintPage, (int a), )
-IMP_PYCALLBACK_1_EXTRACT(wxPyPrintout, wxPrintout, bool, false, HasPage, (int a), )
+IMP_PYCALLBACK_2_EXTRACT(wxPyPrintout, wxPrintout, bool, rval = false, OnBeginDocument, (int a, int b))
+IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnEndDocument)
+IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnBeginPrinting)
+IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnEndPrinting)
+IMP_PYCALLBACK_0_VOID(wxPyPrintout, wxPrintout, OnPreparePrinting)
+IMP_PYCALLBACK_1_EXTRACT_PURE(wxPyPrintout, bool, rval = false, OnPrintPage, (int a))
+IMP_PYCALLBACK_1_EXTRACT(wxPyPrintout, wxPrintout, bool, rval = false, HasPage, (int a))
 
 %}
 
@@ -741,13 +741,13 @@ public:
         : wxPrintPreview(printout, printoutForPrinting, data)
     {}
 
-    PYCALLBACK_1_EXTRACT(wxPrintPreview, bool, false, SetCurrentPage, (int a), )
-    PYCALLBACK_2_EXTRACT(wxPrintPreview, bool, false, PaintPage, (wxPreviewCanvas* a, wxDC& b), ) 
-    PYCALLBACK_2_EXTRACT(wxPrintPreview, bool, false, DrawBlankPage, (wxPreviewCanvas* a, wxDC& b), ) 
-    PYCALLBACK_1_EXTRACT(wxPrintPreview, bool, false, RenderPage, (int a), )
-    PYCALLBACK_1_VOID(wxPrintPreview, SetZoom, (int a), )
-    PYCALLBACK_1_EXTRACT(wxPrintPreview, bool, false, Print, (bool a), )
-    PYCALLBACK_0_VOID(wxPrintPreview, DetermineScaling, )
+    PYCALLBACK_1_EXTRACT(wxPrintPreview, bool, rval = false, SetCurrentPage, (int a))
+    PYCALLBACK_2_EXTRACT(wxPrintPreview, bool, rval = false, PaintPage, (wxPreviewCanvas* a, wxDC& b)) 
+    PYCALLBACK_2_EXTRACT(wxPrintPreview, bool, rval = false, DrawBlankPage, (wxPreviewCanvas* a, wxDC& b)) 
+    PYCALLBACK_1_EXTRACT(wxPrintPreview, bool, rval = false, RenderPage, (int a))
+    PYCALLBACK_1_VOID(wxPrintPreview, SetZoom, (int a))
+    PYCALLBACK_1_EXTRACT(wxPrintPreview, bool, rval = false, Print, (bool a))
+    PYCALLBACK_0_VOID(wxPrintPreview, DetermineScaling)
 
     PYPRIVATE;
 };
@@ -821,9 +821,9 @@ public:
     void SetPreviewCanvas(wxPreviewCanvas* canvas) { m_previewCanvas = canvas; }
     void SetControlBar(wxPreviewControlBar* bar) { m_controlBar = bar; }
 
-    PYCALLBACK_0_VOID(wxPreviewFrame, Initialize, )
-    PYCALLBACK_0_VOID(wxPreviewFrame, CreateCanvas, )
-    PYCALLBACK_0_VOID(wxPreviewFrame, CreateControlBar, )
+    PYCALLBACK_0_VOID(wxPreviewFrame, Initialize)
+    PYCALLBACK_0_VOID(wxPreviewFrame, CreateCanvas)
+    PYCALLBACK_0_VOID(wxPreviewFrame, CreateControlBar)
 
     PYPRIVATE;
 };
@@ -882,8 +882,8 @@ public:
 
     void SetPrintPreview(wxPrintPreview* preview) { m_printPreview = preview; }
 
-    PYCALLBACK_0_VOID(wxPreviewControlBar, CreateButtons, )
-    PYCALLBACK_1_VOID(wxPreviewControlBar, SetZoomControl, (int a), )
+    PYCALLBACK_0_VOID(wxPreviewControlBar, CreateButtons)
+    PYCALLBACK_1_VOID(wxPreviewControlBar, SetZoomControl, (int a))
 
     PYPRIVATE;
 };

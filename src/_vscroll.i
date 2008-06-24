@@ -258,8 +258,8 @@ public:
 
     // this function must be overridden in the derived class and it should
     // return the height of the given line in pixels
-    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnGetRowHeight, (size_t a), const)
-    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnGetLineHeight, (size_t a), const)
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxCoord, rval = 0, OnGetRowHeight, (size_t a))
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxCoord, rval = 0, OnGetLineHeight, (size_t a))
 
     // this function doesn't have to be overridden but it may be useful to do
     // it if calculating the lines heights is a relatively expensive operation
@@ -274,8 +274,8 @@ public:
     //
     // finally note that lineMin is inclusive, while lineMax is exclusive, as
     // usual
-    PYCALLBACK_2_VOID(wxVScrolledWindow, OnGetRowsHeightHint, (size_t a, size_t b), const)
-    PYCALLBACK_2_VOID(wxVScrolledWindow, OnGetLinesHint, (size_t a, size_t b), const)
+    PYCALLBACK_2_VOID_CONST(wxVScrolledWindow, OnGetRowsHeightHint, (size_t a, size_t b))
+    PYCALLBACK_2_VOID_CONST(wxVScrolledWindow, OnGetLinesHint, (size_t a, size_t b))
 
     // when the number of lines changes, we try to estimate the total height
     // of all lines which is a rather expensive operation in terms of lines
@@ -285,7 +285,7 @@ public:
     //
     // this function should return the best guess for the total height it may
     // make
-    PYCALLBACK_0_EXTRACT(wxVScrolledWindow, wxCoord, 0, EstimateTotalHeight, const)
+    PYCALLBACK_0_EXTRACT_CONST(wxVScrolledWindow, wxCoord, rval = 0, EstimateTotalHeight)
 
     // Also expose some other interesting protected methods
 
@@ -433,9 +433,9 @@ public:
     {}
 
     // Overridable virtuals
-    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnGetColumnWidth, (size_t a), const)
-    PYCALLBACK_2_VOID(wxHScrolledWindow, OnGetColumnsWidthHint, (size_t a, size_t b), const)
-    PYCALLBACK_0_EXTRACT(wxHScrolledWindow, wxCoord, 0, EstimateTotalWidth, const)
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxCoord, rval = 0, OnGetColumnWidth, (size_t a))
+    PYCALLBACK_2_VOID_CONST(wxHScrolledWindow, OnGetColumnsWidthHint, (size_t a, size_t b))
+    PYCALLBACK_0_EXTRACT_CONST(wxHScrolledWindow, wxCoord, rval = 0, EstimateTotalWidth)
 
     wxCoord GetColumnsWidth(size_t columnMin, size_t columnMax) const
     { return wxHScrolledWindow::GetColumnsWidth(columnMin, columnMax); }
@@ -521,12 +521,12 @@ public:
     {}
 
     // Overridable virtuals
-    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnGetRowHeight, (size_t a), const)
-    PYCALLBACK_2_VOID(wxHVScrolledWindow, OnGetRowsHeightHint, (size_t a, size_t b), const)
-    PYCALLBACK_0_EXTRACT(wxHVScrolledWindow, wxCoord, 0, EstimateTotalHeight, const)
-    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnGetColumnWidth, (size_t a), const)
-    PYCALLBACK_2_VOID(wxHVScrolledWindow, OnGetColumnsWidthHint, (size_t a, size_t b), const)
-    PYCALLBACK_0_EXTRACT(wxHVScrolledWindow, wxCoord, 0, EstimateTotalWidth, const)
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxCoord, rval = 0, OnGetRowHeight, (size_t a))
+    PYCALLBACK_2_VOID_CONST(wxHVScrolledWindow, OnGetRowsHeightHint, (size_t a, size_t b))
+    PYCALLBACK_0_EXTRACT_CONST(wxHVScrolledWindow, wxCoord, rval = 0, EstimateTotalHeight)
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxCoord, rval = 0, OnGetColumnWidth, (size_t a))
+    PYCALLBACK_2_VOID_CONST(wxHVScrolledWindow, OnGetColumnsWidthHint, (size_t a, size_t b))
+    PYCALLBACK_0_EXTRACT_CONST(wxHVScrolledWindow, wxCoord, rval = 0, EstimateTotalWidth)
 
     wxCoord GetRowsHeight(size_t lineMin, size_t lineMax) const
     { return wxHVScrolledWindow::GetRowsHeight(lineMin, lineMax); }
@@ -623,12 +623,12 @@ public:
     // the derived class must implement this function to actually draw the item
     // with the given index on the provided DC
     // virtual void OnDrawItem(wxDC& dc, const wxRect& rect, size_t n) const = 0;
-    PYCALLBACK_3_VOID_PURE(OnDrawItem, (wxDC &a, const wxRect &b, size_t c), const)
+    PYCALLBACK_3_VOID_PURE_CONST(OnDrawItem, (wxDC &a, const wxRect &b, size_t c))
 
     // the derived class must implement this method to return the height of the
     // specified item
     // virtual wxCoord OnMeasureItem(size_t n) const = 0;
-    PYCALLBACK_1_EXTRACT_PURE(wxCoord, 0, OnMeasureItem, (size_t a), const)
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxCoord, rval = 0, OnMeasureItem, (size_t a))
 
 
     // this method may be used to draw separators between the lines; note that
@@ -637,7 +637,7 @@ public:
     //
     // the base class version doesn't do anything
     //    virtual void OnDrawSeparator(wxDC& dc, wxRect& rect, size_t n) const;
-    PYCALLBACK_3_VOID(wxVListBox, OnDrawSeparator, (wxDC &a, wxRect &b, size_t c), const)
+    PYCALLBACK_3_VOID_CONST(wxVListBox, OnDrawSeparator, (wxDC &a, wxRect &b, size_t c))
 
     // this method is used to draw the items background and, maybe, a border
     // around it
@@ -647,7 +647,7 @@ public:
     // colour and drawing a border around the item if it is either selected or
     // current
     //     virtual void OnDrawBackground(wxDC& dc, const wxRect& rect, size_t n) const;
-    PYCALLBACK_3_VOID(wxVListBox, OnDrawBackground, (wxDC &a, const wxRect &b, size_t c), const)
+    PYCALLBACK_3_VOID_CONST(wxVListBox, OnDrawBackground, (wxDC &a, const wxRect &b, size_t c))
 
 
     PYPRIVATE;
@@ -873,14 +873,14 @@ public:
 
     // this method must be implemented in the derived class and should return
     // the body (i.e. without <html>) of the HTML for the given item
-    PYCALLBACK_1_EXTRACT_NOINIT_PURE(wxString, OnGetItem, (size_t a), const)    
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxString, rval, OnGetItem, (size_t a))    
 
     // this function may be overridden to decorate HTML returned by OnGetItem()
-    PYCALLBACK_1_EXTRACT_NOINIT(wxHtmlListBox, wxString, OnGetItemMarkup, (size_t a), )    
+    PYCALLBACK_1_EXTRACT(wxHtmlListBox, wxString, rval, OnGetItemMarkup, (size_t a))    
 
     // These are from wxVListBox
-    PYCALLBACK_3_VOID(wxHtmlListBox, OnDrawSeparator, (wxDC &a, wxRect &b, size_t c), const)
-    PYCALLBACK_3_VOID(wxHtmlListBox, OnDrawBackground, (wxDC &a, const wxRect &b, size_t c), const)
+    PYCALLBACK_3_VOID_CONST(wxHtmlListBox, OnDrawSeparator, (wxDC &a, wxRect &b, size_t c))
+    PYCALLBACK_3_VOID_CONST(wxHtmlListBox, OnDrawBackground, (wxDC &a, const wxRect &b, size_t c))
 
 
 //     // this method allows to customize the selection appearance: it may be used
@@ -897,13 +897,13 @@ public:
 //     virtual wxColour GetSelectedTextBgColour(const wxColour& colBg) const;
 
 
-    PYCALLBACK_1_EXTRACT_NOINIT(wxHtmlListBox, wxColour, GetSelectedTextColour, (const wxColour &a), const)   
-    PYCALLBACK_1_EXTRACT_NOINIT(wxHtmlListBox, wxColour, GetSelectedTextBgColour, (const wxColour &a), const)   
+    PYCALLBACK_1_EXTRACT_CONST(wxHtmlListBox, wxColour, rval, GetSelectedTextColour, (const wxColour &a))   
+    PYCALLBACK_1_EXTRACT_CONST(wxHtmlListBox, wxColour, rval, GetSelectedTextBgColour, (const wxColour &a))   
  
     // This method may be overriden to handle clicking on a link in
     // the listbox. By default, clicking links is ignored.
     //virtual void OnLinkClicked(size_t n, const wxHtmlLinkInfo& link);        
-    PYCALLBACK_2_VOID(wxHtmlListBox, OnLinkClicked, (size_t a, const wxHtmlLinkInfo &b), )
+    PYCALLBACK_2_VOID(wxHtmlListBox, OnLinkClicked, (size_t a, const wxHtmlLinkInfo &b))
 
     PYPRIVATE;
 };

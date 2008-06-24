@@ -701,400 +701,1316 @@ public:
 extern wxPyApp *wxPythonApp;
 
 
+//TODO: Document macros
+//
+// Base callback macros.
+#define B_PYCALLBACK_N(RETTYPE, CBNAME, LOOKUP, NARGS, ARGS, INSERT, DECOUT, EXTRACT, CALLPARENT, RETURN) \
+    RETTYPE CBNAME ARGS {                                                                       \
+        bool found;                                                                             \
+        wxPyThreadBlocker blocker;                                                              \
+        DECOUT;                                                                                  \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
+            wxPyTuple args(NARGS);                                                              \
+            wxPyObject ro;                                                                      \
+            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
+            EXTRACT;                                                                             \
+        } else {                                                                                \
+            blocker.Unblock();                                                                  \
+            CALLPARENT;                                                                          \
+        }                                                                                       \
+        return RETURN;                                                                          \
+    }
+
+#define B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, LOOKUP, NARGS, ARGS, INSERT, DECOUT, EXTRACT, CALLPARENT, RETURN) \
+    RETTYPE CBNAME ARGS const {                                                                       \
+        bool found;                                                                             \
+        wxPyThreadBlocker blocker;                                                              \
+        DECOUT;                                                                                  \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
+            wxPyTuple args(NARGS);                                                              \
+            wxPyObject ro;                                                                      \
+            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
+            EXTRACT;                                                                             \
+        } else {                                                                                \
+            blocker.Unblock();                                                                  \
+            CALLPARENT;                                                                          \
+        }                                                                                       \
+        return RETURN;                                                                                  \
+    }
+
+#define B_PYCALLBACK_N_VOID(CBNAME, LOOKUP, NARGS, ARGS, INSERT, CALLPARENT) \
+    void CBNAME ARGS {                                                                       \
+        bool found;                                                                             \
+        wxPyThreadBlocker blocker;                                                              \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
+            wxPyTuple args(NARGS);                                                              \
+            wxPyCBH_callCallback(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
+        } else {                                                                                \
+            blocker.Unblock();                                                                  \
+            CALLPARENT;                                                                          \
+        }                                                                                       \
+    }
+
+#define B_PYCALLBACK_N_VOID_CONST(CBNAME, LOOKUP, NARGS, ARGS, INSERT, CALLPARENT) \
+    void CBNAME ARGS const {                                                                       \
+        bool found;                                                                             \
+        wxPyThreadBlocker blocker;                                                              \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
+            wxPyTuple args(NARGS);                                                              \
+            wxPyCBH_callCallback(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
+        } else {                                                                                \
+            blocker.Unblock();                                                                  \
+            CALLPARENT;                                                                          \
+        }                                                                                       \
+    }
+
+
+#define B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, LOOKUP, NARGS, ARGS, INSERT, DECOUT, EXTRACT, RETURN)    \
+    RETTYPE CBNAME ARGS {                                                                   \
+        bool found;                                                                         \
+        wxPyThreadBlocker blocker;                                                          \
+        DECOUT;                                                                              \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
+            wxPyTuple args(NARGS);                                                          \
+            wxPyObject ro;                                                                  \
+            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);               \
+            EXTRACT;                                                                         \
+        }                                                                                   \
+        return RETURN;                                                                              \
+    }
+
+#define B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, LOOKUP, NARGS, ARGS, INSERT, DECOUT, EXTRACT, RETURN)    \
+    RETTYPE CBNAME ARGS const {                                                                   \
+        bool found;                                                                         \
+        wxPyThreadBlocker blocker;                                                          \
+        DECOUT;                                                                             \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
+            wxPyTuple args(NARGS);                                                          \
+            wxPyObject ro;                                                                  \
+            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);               \
+            EXTRACT;                                                                        \
+        }                                                                                   \
+        return RETURN;                                                                             \
+    }
+
+#define B_PYCALLBACK_N_VOID_PURE(CBNAME, LOOKUP, NARGS, ARGS, INSERT)                \
+    void CBNAME ARGS {                                                                      \
+        bool found;                                                                         \
+        wxPyThreadBlocker blocker;                                                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
+            wxPyTuple args(NARGS);                                                          \
+            wxPyCBH_callCallback(m_myInst, INSERT, wxPCBH_ERR_THROW);                       \
+        }                                                                                   \
+    }
+
+#define B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, LOOKUP, NARGS, ARGS, INSERT)                 \
+    void CBNAME ARGS const {                                                                \
+        bool found;                                                                         \
+        wxPyThreadBlocker blocker;                                                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
+            wxPyTuple args(NARGS);                                                          \
+            wxPyCBH_callCallback(m_myInst, INSERT, wxPCBH_ERR_THROW);                       \
+        }                                                                                   \
+    }
+
+#define B_PYCALLBACK_0(RETTYPE, CBNAME, LOOKUP, DECOUT, EXTRACT, CALLPARENT, RETURN)  \
+    RETTYPE CBNAME () {                                                     \
+        bool found;                                                         \
+        wxPyThreadBlocker blocker;                                          \
+        DECOUT;                                                             \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
+            wxPyObject ro;                                                  \
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
+            EXTRACT;                                                        \
+        } else {                                                            \
+            blocker.Unblock();                                              \
+            CALLPARENT;                                                     \
+        }                                                                   \
+        return RETURN;                                                             \
+    }
+
+#define B_PYCALLBACK_0_CONST(RETTYPE, CBNAME, LOOKUP, DECOUT, EXTRACT, CALLPARENT, RETURN)  \
+    RETTYPE CBNAME () const {                                               \
+        bool found;                                                         \
+        wxPyThreadBlocker blocker;                                          \
+        DECOUT;                                                             \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
+            wxPyObject ro;                                                  \
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
+            EXTRACT;                                                        \
+        } else {                                                            \
+            blocker.Unblock();                                              \
+            CALLPARENT;                                                     \
+        }                                                                   \
+        return RETURN;                                                             \
+    }
+
+#define B_PYCALLBACK_0_VOID(CBNAME, LOOKUP, CALLPARENT)                     \
+    void CBNAME () {                                                        \
+        bool found;                                                         \
+        wxPyThreadBlocker blocker;                                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
+            wxPyCBH_callCallback(m_myInst, NULL, wxPCBH_ERR_THROW);         \
+        } else {                                                            \
+            blocker.Unblock();                                              \
+            CALLPARENT;                                                     \
+        }                                                                   \
+    }
+
+#define B_PYCALLBACK_0_VOID_CONST(CBNAME, LOOKUP, CALLPARENT)                       \
+    void CBNAME () const {                                                  \
+        bool found;                                                         \
+        wxPyThreadBlocker blocker;                                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
+            wxPyCBH_callCallback(m_myInst, NULL, wxPCBH_ERR_THROW);         \
+        } else {                                                            \
+            blocker.Unblock();                                              \
+            CALLPARENT;                                                     \
+        }                                                                   \
+    }
+
+#define B_PYCALLBACK_0_PURE(RETTYPE, CBNAME, LOOKUP, DECOUT, EXTRACT, RETURN)         \
+    RETTYPE CBNAME () {                                                   \
+        bool found;                                                         \
+        wxPyThreadBlocker blocker;                                          \
+        DECOUT;                                                             \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
+            wxPyObject ro;                                                  \
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
+            EXTRACT;                                                        \
+        }                                                                   \
+        return RETURN;                                                             \
+    }
+
+#define B_PYCALLBACK_0_PURE_CONST(RETTYPE, CBNAME, LOOKUP, DECOUT, EXTRACT, RETURN)         \
+    RETTYPE CBNAME () const {                                                   \
+        bool found;                                                         \
+        wxPyThreadBlocker blocker;                                          \
+        DECOUT;                                                             \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
+            wxPyObject ro;                                                  \
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
+            EXTRACT;                                                        \
+        }                                                                   \
+        return RETURN;                                                             \
+    }
+
+#define B_PYCALLBACK_0_VOID_PURE(CBNAME, LOOKUP)                            \
+    void CBNAME () {                                                        \
+        bool found;                                                         \
+        wxPyThreadBlocker blocker;                                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
+            wxPyCBH_callCallback(m_myInst, NULL, wxPCBH_ERR_THROW);         \
+        }                                                                   \
+    }
+
+#define B_PYCALLBACK_0_VOID_PURE_CONST(CBNAME, LOOKUP)         \
+    void CBNAME () const {                                                  \
+        bool found;                                                         \
+        wxPyThreadBlocker blocker;                                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
+            ro = wxPyCBH_callCallback(m_myInst, NULL, wxPCBH_ERR_THROW);    \
+        }                                                                   \
+    }
+
+
+//
+// --
+//
+
+#define PYCALLBACK_0_VOID(PCLASS, CBNAME)     \
+    B_PYCALLBACK_0_VOID(CBNAME, CBNAME, PCLASS::CBNAME())
+
+#define PYCALLBACK_0_VOID_CONST(PCLASS, CBNAME) \
+    B_PYCALLBACK_0_VOID_CONST(CBNAME, CBNAME, PCLASS::CBNAME())
+
+#define PYCALLBACK_0_VOID_PURE(CBNAME)            \
+    B_PYCALLBACK_0_VOID_PURE(CBNAME, CBNAME)
+
+#define PYCALLBACK_0_VOID_PURE_CONST(CBNAME)          \
+    B_PYCALLBACK_0_VOID_PURE_CONST(CBNAME, CBNAME)
+
+#define PYCALLBACK_0_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME)              \
+    B_PYCALLBACK_0(RETTYPE, CBNAME, CBNAME,                                 \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval = PCLASS::CBNAME(),                                    \
+                rval)                                                   
+
+#define PYCALLBACK_0_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME)        \
+    B_PYCALLBACK_0_CONST(RETTYPE, CBNAME, CBNAME,                           \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval = PCLASS::CBNAME(),                                    \
+                rval)                                                   
+
+#define PYCALLBACK_0_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME)                 \
+    B_PYCALLBACK_0_PURE(RETTYPE, CBNAME, CBNAME,                            \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_0_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME)           \
+    B_PYCALLBACK_0_PURE_CONST(RETTYPE, CBNAME, CBNAME,                      \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_0_VOID(CLASS, PCLASS, CBNAME)     \
+    B_PYCALLBACK_0_VOID(CLASS::CBNAME, CBNAME, PCLASS::CBNAME())
+
+#define IMP_PYCALLBACK_0_VOID_CONST(CLASS, PCLASS, CBNAME) \
+    B_PYCALLBACK_0_VOID_CONST(CLASS::CBNAME, CBNAME, PCLASS::CBNAME())
+
+#define IMP_PYCALLBACK_0_VOID_PURE(CLASS, CBNAME)            \
+    B_PYCALLBACK_0_VOID_PURE(CLASS::CBNAME, CBNAME)
+
+#define IMP_PYCALLBACK_0_VOID_PURE_CONST(CLASS, CBNAME)          \
+    B_PYCALLBACK_0_VOID_PURE_CONST(CLASS::CBNAME, CBNAME)
+
+#define IMP_PYCALLBACK_0_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME)       \
+    B_PYCALLBACK_0(RETTYPE, CLASS::CBNAME, CBNAME,                              \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(),                                        \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_0_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME)\
+    B_PYCALLBACK_0_CONST(RETTYPE, CLASS::CBNAME, CBNAME,                       \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(),                                       \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_0_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME)      \
+    B_PYCALLBACK_0_PURE(RETTYPE, CLASS::CBNAME, CBNAME,                     \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define IMP_PYCALLBACK_0_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME)\
+    B_PYCALLBACK_0_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME,               \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+//
+// --
+//
+
+#define PYCALLBACK_1_VOID(PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CBNAME, CBNAME, 1, ARGS,    \
+                args << a, \
+                PCLASS::CBNAME(a))
+
+#define PYCALLBACK_1_VOID_CONST(PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CBNAME, CBNAME, 1, ARGS, \
+                args << a, \
+                PCLASS::CBNAME(a))
+
+#define PYCALLBACK_1_VOID_PURE(CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CBNAME, CBNAME, 1, ARGS,   \
+                args << a)
+
+#define PYCALLBACK_1_VOID_PURE_CONST(CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, CBNAME, 1, ARGS, \
+                args << a)
+
+#define PYCALLBACK_1_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 1, ARGS,                    \
+                args << a,  \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(a),                               \
+                rval)                                                   
+
+#define PYCALLBACK_1_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, CBNAME, 1, ARGS,                    \
+                args << a,  \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(a),                              \
+                rval)                                                   
+
+#define PYCALLBACK_1_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 1, ARGS,           \
+                args << a,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_1_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, CBNAME, 1, ARGS,           \
+                args << a,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_1_VOID(CLASS, PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CLASS::CBNAME, CBNAME, 1, ARGS,    \
+                args << a, \
+                PCLASS::CBNAME(a))
+
+#define IMP_PYCALLBACK_1_VOID_CONST(CLASS, PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CLASS::CBNAME, CBNAME, 1, ARGS, \
+                args << a, \
+                PCLASS::CBNAME(a))
+
+#define IMP_PYCALLBACK_1_VOID_PURE(CLASS, CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CLASS::CBNAME, CBNAME, 1, ARGS,   \
+                args << a)
+
+#define IMP_PYCALLBACK_1_VOID_PURE_CONST(CLASS, CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CLASS::CBNAME, CBNAME, 1, ARGS, \
+                args << a)
+
+#define IMP_PYCALLBACK_1_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS) \
+    B_PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 1, ARGS,                     \
+                args << a,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval = PCLASS::CBNAME(a), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_1_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 1, ARGS,                        \
+                args << a,  \
+                RETTYPE RETINIT,                                                                 \
+                ro >> rval,                                                                      \
+                rval = PCLASS::CBNAME(a), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_1_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 1, ARGS,                \
+                args << a,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval)
+
+#define IMP_PYCALLBACK_1_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)  \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 1, ARGS,              \
+                args << a,  \
+                RETTYPE RETINIT,                                                            \
+                ro >> rval,                                                                 \
+                rval)
+
+//
+// --
+//
+
+#define PYCALLBACK_2_VOID(PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CBNAME, CBNAME, 2, ARGS,    \
+                args << a << b, \
+                PCLASS::CBNAME(a, b))
+
+#define PYCALLBACK_2_VOID_CONST(PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CBNAME, CBNAME, 2, ARGS, \
+                args << a << b, \
+                PCLASS::CBNAME(a, b))
+
+#define PYCALLBACK_2_VOID_PURE(CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CBNAME, CBNAME, 2, ARGS,   \
+                args << a << b)
+
+#define PYCALLBACK_2_VOID_PURE_CONST(CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, CBNAME, 2, ARGS, \
+                args << a << b)
+
+#define PYCALLBACK_2_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 2, ARGS,                    \
+                args << a << b,  \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(a, b),                               \
+                rval)                                                   
+
+#define PYCALLBACK_2_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, CBNAME, 2, ARGS,                    \
+                args << a << b,  \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(a, b),                              \
+                rval)                                                   
+
+#define PYCALLBACK_2_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 2, ARGS,           \
+                args << a << b,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_2_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, CBNAME, 2, ARGS,           \
+                args << a << b,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_2_VOID(CLASS, PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CLASS::CBNAME, CBNAME, 2, ARGS,    \
+                args << a << b, \
+                PCLASS::CBNAME(a, b))
+
+#define IMP_PYCALLBACK_2_VOID_CONST(CLASS, PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CLASS::CBNAME, CBNAME, 2, ARGS, \
+                args << a << b, \
+                PCLASS::CBNAME(a, b))
+
+#define IMP_PYCALLBACK_2_VOID_PURE(CLASS, CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CLASS::CBNAME, CBNAME, 2, ARGS,   \
+                args << a << b)
+
+#define IMP_PYCALLBACK_2_VOID_PURE_CONST(CLASS, CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CLASS::CBNAME, CBNAME, 2, ARGS, \
+                args << a << b)
+
+#define IMP_PYCALLBACK_2_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS) \
+    B_PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 2, ARGS,                     \
+                args << a << b,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval = PCLASS::CBNAME(a, b), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_2_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 2, ARGS,                        \
+                args << a << b,  \
+                RETTYPE RETINIT,                                                                 \
+                ro >> rval,                                                                      \
+                rval = PCLASS::CBNAME(a, b), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_2_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 2, ARGS,                \
+                args << a << b,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval)
+
+#define IMP_PYCALLBACK_2_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)  \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 2, ARGS,              \
+                args << a << b,  \
+                RETTYPE RETINIT,                                                            \
+                ro >> rval,                                                                 \
+                rval)
+
+//
+// --
+//
+
+#define PYCALLBACK_3_VOID(PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CBNAME, CBNAME, 3, ARGS,    \
+                args << a << b << c, \
+                PCLASS::CBNAME(a, b, c))
+
+#define PYCALLBACK_3_VOID_CONST(PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CBNAME, CBNAME, 3, ARGS, \
+                args << a << b << c, \
+                PCLASS::CBNAME(a, b, c))
+
+#define PYCALLBACK_3_VOID_PURE(CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CBNAME, CBNAME, 3, ARGS,   \
+                args << a << b << c)
+
+#define PYCALLBACK_3_VOID_PURE_CONST(CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, CBNAME, 3, ARGS, \
+                args << a << b << c)
+
+#define PYCALLBACK_3_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 3, ARGS,                    \
+                args << a << b << c,  \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(a, b, c),                               \
+                rval)                                                   
+
+#define PYCALLBACK_3_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, CBNAME, 3, ARGS,                    \
+                args << a << b << c,  \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(a, b, c),                              \
+                rval)                                                   
+
+#define PYCALLBACK_3_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 3, ARGS,           \
+                args << a << b << c,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_3_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, CBNAME, 3, ARGS,           \
+                args << a << b << c,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_3_VOID(CLASS, PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CLASS::CBNAME, CBNAME, 3, ARGS,    \
+                args << a << b << c, \
+                PCLASS::CBNAME(a, b, c))
+
+#define IMP_PYCALLBACK_3_VOID_CONST(CLASS, PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CLASS::CBNAME, CBNAME, 3, ARGS, \
+                args << a << b << c, \
+                PCLASS::CBNAME(a, b, c))
+
+#define IMP_PYCALLBACK_3_VOID_PURE(CLASS, CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CLASS::CBNAME, CBNAME, 3, ARGS,   \
+                args << a << b << c)
+
+#define IMP_PYCALLBACK_3_VOID_PURE_CONST(CLASS, CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CLASS::CBNAME, CBNAME, 3, ARGS, \
+                args << a << b << c)
+
+#define IMP_PYCALLBACK_3_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS) \
+    B_PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 3, ARGS,                     \
+                args << a << b << c,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval = PCLASS::CBNAME(a, b, c), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_3_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 3, ARGS,                        \
+                args << a << b << c,  \
+                RETTYPE RETINIT,                                                                 \
+                ro >> rval,                                                                      \
+                rval = PCLASS::CBNAME(a, b, c), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_3_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 3, ARGS,                \
+                args << a << b << c,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval)
+
+#define IMP_PYCALLBACK_3_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)  \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 3, ARGS,              \
+                args << a << b << c,  \
+                RETTYPE RETINIT,                                                            \
+                ro >> rval,                                                                 \
+                rval)
+
+//
+// --
+//
+
+#define PYCALLBACK_4_VOID(PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CBNAME, CBNAME, 4, ARGS,    \
+                args << a << b << c << d, \
+                PCLASS::CBNAME(a, b, c, d))
+
+#define PYCALLBACK_4_VOID_CONST(PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CBNAME, CBNAME, 4, ARGS, \
+                args << a << b << c << d, \
+                PCLASS::CBNAME(a, b, c, d))
+
+#define PYCALLBACK_4_VOID_PURE(CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CBNAME, CBNAME, 4, ARGS,   \
+                args << a << b << c << d)
+
+#define PYCALLBACK_4_VOID_PURE_CONST(CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, CBNAME, 4, ARGS, \
+                args << a << b << c << d)
+
+#define PYCALLBACK_4_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 4, ARGS,                    \
+                args << a << b << c << d,  \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(a, b, c, d),                               \
+                rval)                                                   
+
+#define PYCALLBACK_4_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, CBNAME, 4, ARGS,                    \
+                args << a << b << c << d,  \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(a, b, c, d),                              \
+                rval)                                                   
+
+#define PYCALLBACK_4_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 4, ARGS,           \
+                args << a << b << c << d,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_4_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, CBNAME, 4, ARGS,           \
+                args << a << b << c << d,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_4_VOID(CLASS, PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CLASS::CBNAME, CBNAME, 4, ARGS,    \
+                args << a << b << c << d, \
+                PCLASS::CBNAME(a, b, c, d))
+
+#define IMP_PYCALLBACK_4_VOID_CONST(CLASS, PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CLASS::CBNAME, CBNAME, 4, ARGS, \
+                args << a << b << c << d, \
+                PCLASS::CBNAME(a, b, c, d))
+
+#define IMP_PYCALLBACK_4_VOID_PURE(CLASS, CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CLASS::CBNAME, CBNAME, 4, ARGS,   \
+                args << a << b << c << d)
+
+#define IMP_PYCALLBACK_4_VOID_PURE_CONST(CLASS, CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CLASS::CBNAME, CBNAME, 4, ARGS, \
+                args << a << b << c << d)
+
+#define IMP_PYCALLBACK_4_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS) \
+    B_PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 4, ARGS,                     \
+                args << a << b << c << d,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval = PCLASS::CBNAME(a, b, c, d), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_4_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 4, ARGS,                        \
+                args << a << b << c << d,  \
+                RETTYPE RETINIT,                                                                 \
+                ro >> rval,                                                                      \
+                rval = PCLASS::CBNAME(a, b, c, d), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_4_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 4, ARGS,                \
+                args << a << b << c << d,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval)
+
+#define IMP_PYCALLBACK_4_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)  \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 4, ARGS,              \
+                args << a << b << c << d,  \
+                RETTYPE RETINIT,                                                            \
+                ro >> rval,                                                                 \
+                rval)
+
+//
+// --
+//
+
+#define PYCALLBACK_5_VOID(PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CBNAME, CBNAME, 5, ARGS,    \
+                args << a << b << c << d << e, \
+                PCLASS::CBNAME(a, b, c, d, e))
+
+#define PYCALLBACK_5_VOID_CONST(PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CBNAME, CBNAME, 5, ARGS, \
+                args << a << b << c << d << e, \
+                PCLASS::CBNAME(a, b, c, d, e))
+
+#define PYCALLBACK_5_VOID_PURE(CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CBNAME, CBNAME, 5, ARGS,   \
+                args << a << b << c << d << e)
+
+#define PYCALLBACK_5_VOID_PURE_CONST(CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, CBNAME, 5, ARGS, \
+                args << a << b << c << d << e)
+
+#define PYCALLBACK_5_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 5, ARGS,                    \
+                args << a << b << c << d << e,  \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(a, b, c, d, e),                               \
+                rval)                                                   
+
+#define PYCALLBACK_5_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, CBNAME, 5, ARGS,                    \
+                args << a << b << c << d << e,  \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(a, b, c, d, e),                              \
+                rval)                                                   
+
+#define PYCALLBACK_5_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 5, ARGS,           \
+                args << a << b << c << d << e,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_5_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, CBNAME, 5, ARGS,           \
+                args << a << b << c << d << e,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_5_VOID(CLASS, PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CLASS::CBNAME, CBNAME, 5, ARGS,    \
+                args << a << b << c << d << e, \
+                PCLASS::CBNAME(a, b, c, d, e))
+
+#define IMP_PYCALLBACK_5_VOID_CONST(CLASS, PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CLASS::CBNAME, CBNAME, 5, ARGS, \
+                args << a << b << c << d << e, \
+                PCLASS::CBNAME(a, b, c, d, e))
+
+#define IMP_PYCALLBACK_5_VOID_PURE(CLASS, CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CLASS::CBNAME, CBNAME, 5, ARGS,   \
+                args << a << b << c << d << e)
+
+#define IMP_PYCALLBACK_5_VOID_PURE_CONST(CLASS, CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CLASS::CBNAME, CBNAME, 5, ARGS, \
+                args << a << b << c << d << e)
+
+#define IMP_PYCALLBACK_5_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS) \
+    B_PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 5, ARGS,                     \
+                args << a << b << c << d << e,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval = PCLASS::CBNAME(a, b, c, d, e), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_5_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 5, ARGS,                        \
+                args << a << b << c << d << e,  \
+                RETTYPE RETINIT,                                                                 \
+                ro >> rval,                                                                      \
+                rval = PCLASS::CBNAME(a, b, c, d, e), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_5_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 5, ARGS,                \
+                args << a << b << c << d << e,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval)
+
+#define IMP_PYCALLBACK_5_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)  \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 5, ARGS,              \
+                args << a << b << c << d << e,  \
+                RETTYPE RETINIT,                                                            \
+                ro >> rval,                                                                 \
+                rval)
+
+//
+// --
+//
+
+#define PYCALLBACK_6_VOID(PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CBNAME, CBNAME, 6, ARGS,    \
+                args << a << b << c << d << e << f, \
+                PCLASS::CBNAME(a, b, c, d, e, f))
+
+#define PYCALLBACK_6_VOID_CONST(PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CBNAME, CBNAME, 6, ARGS, \
+                args << a << b << c << d << e << f, \
+                PCLASS::CBNAME(a, b, c, d, e, f))
+
+#define PYCALLBACK_6_VOID_PURE(CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CBNAME, CBNAME, 6, ARGS,   \
+                args << a << b << c << d << e << f)
+
+#define PYCALLBACK_6_VOID_PURE_CONST(CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, CBNAME, 6, ARGS, \
+                args << a << b << c << d << e << f)
+
+#define PYCALLBACK_6_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 6, ARGS,                    \
+                args << a << b << c << d << e << f,  \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f),                               \
+                rval)                                                   
+
+#define PYCALLBACK_6_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, CBNAME, 6, ARGS,                    \
+                args << a << b << c << d << e << f,  \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f),                              \
+                rval)                                                   
+
+#define PYCALLBACK_6_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 6, ARGS,           \
+                args << a << b << c << d << e << f,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_6_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, CBNAME, 6, ARGS,           \
+                args << a << b << c << d << e << f,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_6_VOID(CLASS, PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CLASS::CBNAME, CBNAME, 6, ARGS,    \
+                args << a << b << c << d << e << f, \
+                PCLASS::CBNAME(a, b, c, d, e, f))
+
+#define IMP_PYCALLBACK_6_VOID_CONST(CLASS, PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CLASS::CBNAME, CBNAME, 6, ARGS, \
+                args << a << b << c << d << e << f, \
+                PCLASS::CBNAME(a, b, c, d, e, f))
+
+#define IMP_PYCALLBACK_6_VOID_PURE(CLASS, CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CLASS::CBNAME, CBNAME, 6, ARGS,   \
+                args << a << b << c << d << e << f)
+
+#define IMP_PYCALLBACK_6_VOID_PURE_CONST(CLASS, CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CLASS::CBNAME, CBNAME, 6, ARGS, \
+                args << a << b << c << d << e << f)
+
+#define IMP_PYCALLBACK_6_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS) \
+    B_PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 6, ARGS,                     \
+                args << a << b << c << d << e << f,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_6_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 6, ARGS,                        \
+                args << a << b << c << d << e << f,  \
+                RETTYPE RETINIT,                                                                 \
+                ro >> rval,                                                                      \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_6_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 6, ARGS,                \
+                args << a << b << c << d << e << f,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval)
+
+#define IMP_PYCALLBACK_6_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)  \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 6, ARGS,              \
+                args << a << b << c << d << e << f,  \
+                RETTYPE RETINIT,                                                            \
+                ro >> rval,                                                                 \
+                rval)
+
+//
+// --
+//
+
+#define PYCALLBACK_7_VOID(PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CBNAME, CBNAME, 7, ARGS,    \
+                args << a << b << c << d << e << f << g, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g))
+
+#define PYCALLBACK_7_VOID_CONST(PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CBNAME, CBNAME, 7, ARGS, \
+                args << a << b << c << d << e << f << g, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g))
+
+#define PYCALLBACK_7_VOID_PURE(CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CBNAME, CBNAME, 7, ARGS,   \
+                args << a << b << c << d << e << f << g)
+
+#define PYCALLBACK_7_VOID_PURE_CONST(CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, CBNAME, 7, ARGS, \
+                args << a << b << c << d << e << f << g)
+
+#define PYCALLBACK_7_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 7, ARGS,                    \
+                args << a << b << c << d << e << f << g,  \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g),                               \
+                rval)                                                   
+
+#define PYCALLBACK_7_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, CBNAME, 7, ARGS,                    \
+                args << a << b << c << d << e << f << g,  \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g),                              \
+                rval)                                                   
+
+#define PYCALLBACK_7_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 7, ARGS,           \
+                args << a << b << c << d << e << f << g,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_7_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, CBNAME, 7, ARGS,           \
+                args << a << b << c << d << e << f << g,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_7_VOID(CLASS, PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CLASS::CBNAME, CBNAME, 7, ARGS,    \
+                args << a << b << c << d << e << f << g, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g))
+
+#define IMP_PYCALLBACK_7_VOID_CONST(CLASS, PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CLASS::CBNAME, CBNAME, 7, ARGS, \
+                args << a << b << c << d << e << f << g, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g))
+
+#define IMP_PYCALLBACK_7_VOID_PURE(CLASS, CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CLASS::CBNAME, CBNAME, 7, ARGS,   \
+                args << a << b << c << d << e << f << g)
+
+#define IMP_PYCALLBACK_7_VOID_PURE_CONST(CLASS, CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CLASS::CBNAME, CBNAME, 7, ARGS, \
+                args << a << b << c << d << e << f << g)
+
+#define IMP_PYCALLBACK_7_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS) \
+    B_PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 7, ARGS,                     \
+                args << a << b << c << d << e << f << g,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_7_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 7, ARGS,                        \
+                args << a << b << c << d << e << f << g,  \
+                RETTYPE RETINIT,                                                                 \
+                ro >> rval,                                                                      \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_7_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 7, ARGS,                \
+                args << a << b << c << d << e << f << g,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval)
+
+#define IMP_PYCALLBACK_7_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)  \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 7, ARGS,              \
+                args << a << b << c << d << e << f << g,  \
+                RETTYPE RETINIT,                                                            \
+                ro >> rval,                                                                 \
+                rval)
+
+//
+// --
+//
+
+#define PYCALLBACK_8_VOID(PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CBNAME, CBNAME, 8, ARGS,    \
+                args << a << b << c << d << e << f << g << h, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h))
+
+#define PYCALLBACK_8_VOID_CONST(PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CBNAME, CBNAME, 8, ARGS, \
+                args << a << b << c << d << e << f << g << h, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h))
+
+#define PYCALLBACK_8_VOID_PURE(CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CBNAME, CBNAME, 8, ARGS,   \
+                args << a << b << c << d << e << f << g << h)
+
+#define PYCALLBACK_8_VOID_PURE_CONST(CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, CBNAME, 8, ARGS, \
+                args << a << b << c << d << e << f << g << h)
+
+#define PYCALLBACK_8_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 8, ARGS,                    \
+                args << a << b << c << d << e << f << g << h,  \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h),                               \
+                rval)                                                   
+
+#define PYCALLBACK_8_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, CBNAME, 8, ARGS,                    \
+                args << a << b << c << d << e << f << g << h,  \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h),                              \
+                rval)                                                   
+
+#define PYCALLBACK_8_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 8, ARGS,           \
+                args << a << b << c << d << e << f << g << h,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_8_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, CBNAME, 8, ARGS,           \
+                args << a << b << c << d << e << f << g << h,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_8_VOID(CLASS, PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CLASS::CBNAME, CBNAME, 8, ARGS,    \
+                args << a << b << c << d << e << f << g << h, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h))
+
+#define IMP_PYCALLBACK_8_VOID_CONST(CLASS, PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CLASS::CBNAME, CBNAME, 8, ARGS, \
+                args << a << b << c << d << e << f << g << h, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h))
+
+#define IMP_PYCALLBACK_8_VOID_PURE(CLASS, CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CLASS::CBNAME, CBNAME, 8, ARGS,   \
+                args << a << b << c << d << e << f << g << h)
+
+#define IMP_PYCALLBACK_8_VOID_PURE_CONST(CLASS, CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CLASS::CBNAME, CBNAME, 8, ARGS, \
+                args << a << b << c << d << e << f << g << h)
+
+#define IMP_PYCALLBACK_8_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS) \
+    B_PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 8, ARGS,                     \
+                args << a << b << c << d << e << f << g << h,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_8_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 8, ARGS,                        \
+                args << a << b << c << d << e << f << g << h,  \
+                RETTYPE RETINIT,                                                                 \
+                ro >> rval,                                                                      \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_8_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 8, ARGS,                \
+                args << a << b << c << d << e << f << g << h,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval)
+
+#define IMP_PYCALLBACK_8_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)  \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 8, ARGS,              \
+                args << a << b << c << d << e << f << g << h,  \
+                RETTYPE RETINIT,                                                            \
+                ro >> rval,                                                                 \
+                rval)
+
+//
+// --
+//
+
+#define PYCALLBACK_9_VOID(PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CBNAME, CBNAME, 9, ARGS,    \
+                args << a << b << c << d << e << f << g << h << i, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h, i))
+
+#define PYCALLBACK_9_VOID_CONST(PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CBNAME, CBNAME, 9, ARGS, \
+                args << a << b << c << d << e << f << g << h << i, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h, i))
+
+#define PYCALLBACK_9_VOID_PURE(CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CBNAME, CBNAME, 9, ARGS,   \
+                args << a << b << c << d << e << f << g << h << i)
+
+#define PYCALLBACK_9_VOID_PURE_CONST(CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, CBNAME, 9, ARGS, \
+                args << a << b << c << d << e << f << g << h << i)
+
+#define PYCALLBACK_9_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 9, ARGS,                    \
+                args << a << b << c << d << e << f << g << h << i,  \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h, i),                               \
+                rval)                                                   
+
+#define PYCALLBACK_9_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, CBNAME, 9, ARGS,                    \
+                args << a << b << c << d << e << f << g << h << i,  \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h, i),                              \
+                rval)                                                   
+
+#define PYCALLBACK_9_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 9, ARGS,           \
+                args << a << b << c << d << e << f << g << h << i,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_9_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, CBNAME, 9, ARGS,           \
+                args << a << b << c << d << e << f << g << h << i,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_9_VOID(CLASS, PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CLASS::CBNAME, CBNAME, 9, ARGS,    \
+                args << a << b << c << d << e << f << g << h << i, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h, i))
+
+#define IMP_PYCALLBACK_9_VOID_CONST(CLASS, PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CLASS::CBNAME, CBNAME, 9, ARGS, \
+                args << a << b << c << d << e << f << g << h << i, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h, i))
+
+#define IMP_PYCALLBACK_9_VOID_PURE(CLASS, CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CLASS::CBNAME, CBNAME, 9, ARGS,   \
+                args << a << b << c << d << e << f << g << h << i)
+
+#define IMP_PYCALLBACK_9_VOID_PURE_CONST(CLASS, CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CLASS::CBNAME, CBNAME, 9, ARGS, \
+                args << a << b << c << d << e << f << g << h << i)
+
+#define IMP_PYCALLBACK_9_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS) \
+    B_PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 9, ARGS,                     \
+                args << a << b << c << d << e << f << g << h << i,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h, i), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_9_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 9, ARGS,                        \
+                args << a << b << c << d << e << f << g << h << i,  \
+                RETTYPE RETINIT,                                                                 \
+                ro >> rval,                                                                      \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h, i), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_9_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 9, ARGS,                \
+                args << a << b << c << d << e << f << g << h << i,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval)
+
+#define IMP_PYCALLBACK_9_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)  \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 9, ARGS,              \
+                args << a << b << c << d << e << f << g << h << i,  \
+                RETTYPE RETINIT,                                                            \
+                ro >> rval,                                                                 \
+                rval)
+
+//
+// --
+//
+
+#define PYCALLBACK_10_VOID(PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CBNAME, CBNAME, 10, ARGS,    \
+                args << a << b << c << d << e << f << g << h << i << j, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h, i, j))
+
+#define PYCALLBACK_10_VOID_CONST(PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CBNAME, CBNAME, 10, ARGS, \
+                args << a << b << c << d << e << f << g << h << i << j, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h, i, j))
+
+#define PYCALLBACK_10_VOID_PURE(CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CBNAME, CBNAME, 10, ARGS,   \
+                args << a << b << c << d << e << f << g << h << i << j)
+
+#define PYCALLBACK_10_VOID_PURE_CONST(CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CBNAME, CBNAME, 10, ARGS, \
+                args << a << b << c << d << e << f << g << h << i << j)
+
+#define PYCALLBACK_10_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 10, ARGS,                    \
+                args << a << b << c << d << e << f << g << h << i << j,  \
+                RETTYPE RETINIT,                                                \
+                ro >> rval,                                                     \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h, i, j),                               \
+                rval)                                                   
+
+#define PYCALLBACK_10_EXTRACT_CONST(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, CBNAME, 10, ARGS,                    \
+                args << a << b << c << d << e << f << g << h << i << j,  \
+                RETTYPE RETINIT,                                               \
+                ro >> rval,                                                    \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h, i, j),                              \
+                rval)                                                   
+
+#define PYCALLBACK_10_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 10, ARGS,           \
+                args << a << b << c << d << e << f << g << h << i << j,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+#define PYCALLBACK_10_EXTRACT_PURE_CONST(RETTYPE, RETINIT, CBNAME, ARGS)   \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CBNAME, CBNAME, 10, ARGS,           \
+                args << a << b << c << d << e << f << g << h << i << j,  \
+                RETTYPE RETINIT,                                            \
+                ro >> rval,                                                 \
+                rval)
+
+// -
+#define IMP_PYCALLBACK_10_VOID(CLASS, PCLASS, CBNAME, ARGS)     \
+    B_PYCALLBACK_N_VOID(CLASS::CBNAME, CBNAME, 10, ARGS,    \
+                args << a << b << c << d << e << f << g << h << i << j, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h, i, j))
+
+#define IMP_PYCALLBACK_10_VOID_CONST(CLASS, PCLASS, CBNAME, ARGS) \
+    B_PYCALLBACK_N_VOID_CONST(CLASS::CBNAME, CBNAME, 10, ARGS, \
+                args << a << b << c << d << e << f << g << h << i << j, \
+                PCLASS::CBNAME(a, b, c, d, e, f, g, h, i, j))
+
+#define IMP_PYCALLBACK_10_VOID_PURE(CLASS, CBNAME, ARGS)            \
+    B_PYCALLBACK_N_VOID_PURE(CLASS::CBNAME, CBNAME, 10, ARGS,   \
+                args << a << b << c << d << e << f << g << h << i << j)
+
+#define IMP_PYCALLBACK_10_VOID_PURE_CONST(CLASS, CBNAME, ARGS)          \
+    B_PYCALLBACK_N_VOID_PURE_CONST(CLASS::CBNAME, CBNAME, 10, ARGS, \
+                args << a << b << c << d << e << f << g << h << i << j)
+
+#define IMP_PYCALLBACK_10_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS) \
+    B_PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 10, ARGS,                     \
+                args << a << b << c << d << e << f << g << h << i << j,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h, i, j), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_10_EXTRACT_CONST(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 10, ARGS,                        \
+                args << a << b << c << d << e << f << g << h << i << j,  \
+                RETTYPE RETINIT,                                                                 \
+                ro >> rval,                                                                      \
+                rval = PCLASS::CBNAME(a, b, c, d, e, f, g, h, i, j), \
+                rval)                                                   
+
+#define IMP_PYCALLBACK_10_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)    \
+    B_PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 10, ARGS,                \
+                args << a << b << c << d << e << f << g << h << i << j,  \
+                RETTYPE RETINIT,                                                        \
+                ro >> rval,                                                             \
+                rval)
+
+#define IMP_PYCALLBACK_10_EXTRACT_PURE_CONST(CLASS, RETTYPE, RETINIT, CBNAME, ARGS)  \
+    B_PYCALLBACK_N_PURE_CONST(RETTYPE, CLASS::CBNAME, CBNAME, 10, ARGS,              \
+                args << a << b << c << d << e << f << g << h << i << j,  \
+                RETTYPE RETINIT,                                                            \
+                ro >> rval,                                                                 \
+                rval)
+
+
 //----------------------------------------------------------------------
 // These macros are used to implement the virtual methods that should
 // redirect to a Python method if one exists.  The names designate the
 // return type, if any, as well as any parameter types.
 //---------------------------------------------------------------------------
-
-
-#define PYCALLBACK_N_PURE(RETTYPE, CBNAME, LOOKUP, NARGS, ARGS, CONST, INSERT, DECOUT, EXTRACT, RETURN)    \
-    RETTYPE CBNAME ARGS CONST {                                                                   \
-        bool found;                                                                         \
-        wxPyThreadBlocker blocker;                                                          \
-        DECOUT                                                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
-            wxPyTuple args(NARGS);                                                          \
-            wxPyObject ro;                                                                  \
-            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);               \
-            EXTRACT                                                                         \
-        }                                                                                   \
-        RETURN                                                                              \
-    }
-
-#define PYCALLBACK_N(RETTYPE, CBNAME, LOOKUP, NARGS, ARGS, CONST, INSERT, DECOUT, EXTRACT, CALLPARENT, RETURN) \
-    RETTYPE CBNAME ARGS CONST {                                                                       \
-        bool found;                                                                             \
-        wxPyThreadBlocker blocker;                                                              \
-        DECOUT                                                                                  \
-        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
-            wxPyTuple args(NARGS);                                                              \
-            wxPyObject ro;                                                                      \
-            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
-            EXTRACT                                                                             \
-        } else {                                                                                \
-            blocker.Unblock();                                                                  \
-            CALLPARENT                                                                          \
-        }                                                                                       \
-        RETURN                                                                                  \
-    }
-
-#define PYCALLBACK_0_PURE(RETTYPE, CBNAME, LOOKUP, CONST, DECOUT, EXTRACT, RETURN)         \
-    RETTYPE CBNAME () CONST {                                                   \
-        bool found;                                                         \
-        wxPyThreadBlocker blocker;                                          \
-        DECOUT                                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
-            wxPyObject ro;                                                  \
-            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
-            EXTRACT                                                         \
-        }                                                                   \
-        RETURN                                                              \
-    }
-
-#define PYCALLBACK_0(RETTYPE, CBNAME, LOOKUP, CONST, DECOUT, EXTRACT, CALLPARENT, RETURN)  \
-    RETTYPE CBNAME () CONST {                                                   \
-        bool found;                                                         \
-        wxPyThreadBlocker blocker;                                          \
-        DECOUT                                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
-            wxPyObject ro;                                                  \
-            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
-            EXTRACT                                                         \
-        } else {                                                            \
-            blocker.Unblock();                                              \
-            CALLPARENT                                                      \
-        }                                                                   \
-        RETURN                                                              \
-    }
-
-//XXX: This may abuse preprocessor
-
-//
-// -
-//
-#define PYCALLBACK_0_VOID_PURE(CBNAME, CONST) \
-    PYCALLBACK_0_PURE(void, CBNAME, CBNAME, CONST, , , )
-
-#define PYCALLBACK_0_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, CONST) \
-    PYCALLBACK_0_PURE(RETTYPE, CBNAME, CBNAME, CONST, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_0_EXTRACT_NOINIT_PURE(RETTYPE, CBNAME, CONST) \
-    PYCALLBACK_0_PURE(RETTYPE, CBNAME, CBNAME, CONST, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_0_VOID(PCLASS, CBNAME, CONST) \
-    PYCALLBACK_0(void, CBNAME, CBNAME, CONST, , , PCLASS::CBNAME();, )
-
-#define PYCALLBACK_0_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, CONST) \
-    PYCALLBACK_0(RETTYPE, CBNAME, CBNAME, CONST, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME();, return rval;)
-
-#define PYCALLBACK_0_EXTRACT_NOINIT(PCLASS, RETTYPE, CBNAME, CONST) \
-    PYCALLBACK_0(RETTYPE, CBNAME, CBNAME, CONST, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME();, return rval;)
-
-//
-#define IMP_PYCALLBACK_0_VOID_PURE(CLASS, CBNAME, CONST) \
-    PYCALLBACK_0_PURE(void, CLASS::CBNAME, CBNAME, CONST, , , )
-
-#define IMP_PYCALLBACK_0_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, CONST) \
-    PYCALLBACK_0_PURE(RETTYPE, CLASS::CBNAME, CBNAME, CONST, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_0_EXTRACT_NOINIT_PURE(CLASS, RETTYPE, CBNAME, CONST) \
-    PYCALLBACK_0_PURE(RETTYPE, CLASS::CBNAME, CBNAME, CONST, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_0_VOID(CLASS, PCLASS, CBNAME, CONST) \
-    PYCALLBACK_0(void, CLASS::CBNAME, CBNAME, CONST, , , PCLASS::CBNAME();, )
-
-#define IMP_PYCALLBACK_0_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, CONST) \
-    PYCALLBACK_0(RETTYPE, CLASS::CBNAME, CBNAME, CONST, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME();, return rval;)
-
-#define IMP_PYCALLBACK_0_EXTRACT_NOINIT(CLASS, PCLASS, RETTYPE, CBNAME, CONST) \
-    PYCALLBACK_0(RETTYPE, CLASS::CBNAME, CBNAME, CONST, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME();, return rval;)
-
-
-//
-// -
-//
-#define PYCALLBACK_1_VOID_PURE(CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CBNAME, CBNAME, 1, ARGS, CONST, args << a, , , )
-
-#define PYCALLBACK_1_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 1, ARGS, CONST, args << a, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_1_EXTRACT_NOINIT_PURE(RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 1, ARGS, CONST, args << a, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_1_VOID(PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CBNAME, CBNAME, 1, ARGS, CONST, args << a, , , PCLASS::CBNAME(a);, )
-
-#define PYCALLBACK_1_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 1, ARGS, CONST, args << a, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a);, return rval;)
-
-#define PYCALLBACK_1_EXTRACT_NOINIT(PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 1, ARGS, CONST, args << a, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a);, return rval;)
-
-//
-#define IMP_PYCALLBACK_1_VOID_PURE(CLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CLASS::CBNAME, CBNAME, 1, ARGS, CONST, args << a, , , )
-
-#define IMP_PYCALLBACK_1_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 1, ARGS, CONST, args << a, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_1_EXTRACT_NOINIT_PURE(CLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 1, ARGS, CONST, args << a, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_1_VOID(CLASS, PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CLASS::CBNAME, CBNAME, 1, ARGS, CONST, args << a, , , PCLASS::CBNAME(a);, )
-
-#define IMP_PYCALLBACK_1_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 1, ARGS, CONST, args << a, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a);, return rval;)
-
-#define IMP_PYCALLBACK_1_EXTRACT_NOINIT(CLASS, PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 1, ARGS, CONST, args << a, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a);, return rval;)
-
-//
-// -
-//
-#define PYCALLBACK_2_VOID_PURE(CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, , , )
-
-#define PYCALLBACK_2_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_2_EXTRACT_NOINIT_PURE(RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_2_VOID(PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, , , PCLASS::CBNAME(a,b);, )
-
-#define PYCALLBACK_2_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b);, return rval;)
-
-#define PYCALLBACK_2_EXTRACT_NOINIT(PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b);, return rval;)
-
-// 
-#define IMP_PYCALLBACK_2_VOID_PURE(CLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CLASS::CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, , , )
-
-#define IMP_PYCALLBACK_2_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_2_EXTRACT_NOINIT_PURE(CLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_2_VOID(CLASS, PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CLASS::CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, , , PCLASS::CBNAME(a,b);, )
-
-#define IMP_PYCALLBACK_2_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b);, return rval;)
-
-#define IMP_PYCALLBACK_2_EXTRACT_NOINIT(CLASS, PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 2, ARGS, CONST, args << a << b, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b);, return rval;)
-
-
-//
-// -
-//
-#define PYCALLBACK_3_VOID_PURE(CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, , , )
-
-#define PYCALLBACK_3_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_3_EXTRACT_NOINIT_PURE(RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_3_VOID(PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, , , PCLASS::CBNAME(a,b,c);, )
-
-#define PYCALLBACK_3_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c);, return rval;)
-
-#define PYCALLBACK_3_EXTRACT_NOINIT(PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c);, return rval;)
-
-//
-#define IMP_PYCALLBACK_3_VOID_PURE(CLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CLASS::CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, , , )
-
-#define IMP_PYCALLBACK_3_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_3_EXTRACT_NOINIT_PURE(CLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_3_VOID(CLASS, PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CLASS::CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, , , PCLASS::CBNAME(a,b,c);, )
-
-#define IMP_PYCALLBACK_3_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c);, return rval;)
-
-#define IMP_PYCALLBACK_3_EXTRACT_NOINIT(CLASS, PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 3, ARGS, CONST, args << a << b << c, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c);, return rval;)
-
-
-//
-// -
-//
-#define PYCALLBACK_4_VOID_PURE(CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, , , )
-
-#define PYCALLBACK_4_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_4_EXTRACT_NOINIT_PURE(RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_4_VOID(PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, , , PCLASS::CBNAME(a,b,c,d);, )
-
-#define PYCALLBACK_4_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d);, return rval;)
-
-#define PYCALLBACK_4_EXTRACT_NOINIT(PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d);, return rval;)
-
-//
-#define IMP_PYCALLBACK_4_VOID_PURE(CLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CLASS::CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, , , )
-
-#define IMP_PYCALLBACK_4_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_4_EXTRACT_NOINIT_PURE(CLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_4_VOID(CLASS, PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CLASS::CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, , , PCLASS::CBNAME(a,b,c,d);, )
-
-#define IMP_PYCALLBACK_4_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d);, return rval;)
-
-#define IMP_PYCALLBACK_4_EXTRACT_NOINIT(CLASS, PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 4, ARGS, CONST, args << a << b << c << d, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d);, return rval;)
-
-
-//
-// -
-//
-#define PYCALLBACK_5_VOID_PURE(CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, , , )
-
-#define PYCALLBACK_5_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_5_EXTRACT_NOINIT_PURE(RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_5_VOID(PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, , , PCLASS::CBNAME(a,b,c,d,e);, )
-
-#define PYCALLBACK_5_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e);, return rval;)
-
-#define PYCALLBACK_5_EXTRACT_NOINIT(PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e);, return rval;)
-
-//
-#define IMP_PYCALLBACK_5_VOID_PURE(CLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CLASS::CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, , , )
-
-#define IMP_PYCALLBACK_5_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_5_EXTRACT_NOINIT_PURE(CLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_5_VOID(CLASS, PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CLASS::CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, , , PCLASS::CBNAME(a,b,c,d,e);, )
-
-#define IMP_PYCALLBACK_5_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e);, return rval;)
-
-#define IMP_PYCALLBACK_5_EXTRACT_NOINIT(CLASS, PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 5, ARGS, CONST, args << a << b << c << d << e, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e);, return rval;)
-
-
-//
-// -
-//
-#define PYCALLBACK_6_VOID_PURE(CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, , , )
-
-#define PYCALLBACK_6_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_6_EXTRACT_NOINIT_PURE(RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_6_VOID(PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, , , PCLASS::CBNAME(a,b,c,d,e,f);, )
-
-#define PYCALLBACK_6_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e,f);, return rval;)
-
-#define PYCALLBACK_6_EXTRACT_NOINIT(PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e,f);, return rval;)
-
-//
-#define IMP_PYCALLBACK_6_VOID_PURE(CLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CLASS::CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, , , )
-
-#define IMP_PYCALLBACK_6_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_6_EXTRACT_NOINIT_PURE(CLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_6_VOID(CLASS, PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CLASS::CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, , , PCLASS::CBNAME(a,b,c,d,e,f);, )
-
-#define IMP_PYCALLBACK_6_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e,f);, return rval;)
-
-#define IMP_PYCALLBACK_6_EXTRACT_NOINIT(CLASS, PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 6, ARGS, CONST, args << a << b << c << d << e << f, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e,f);, return rval;)
-
-//
-// -
-//
-#define PYCALLBACK_7_VOID_PURE(CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, , , )
-
-#define PYCALLBACK_7_EXTRACT_PURE(RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_7_EXTRACT_NOINIT_PURE(RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define PYCALLBACK_7_VOID(PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, , , PCLASS::CBNAME(a,b,c,d,e,f,g);, )
-
-#define PYCALLBACK_7_EXTRACT(PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e,f,g);, return rval;)
-
-#define PYCALLBACK_7_EXTRACT_NOINIT(PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e,f,g);, return rval;)
-
-//
-#define IMP_PYCALLBACK_7_VOID_PURE(CLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(void, CLASS::CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, , , )
-
-#define IMP_PYCALLBACK_7_EXTRACT_PURE(CLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, RETTYPE rval = RETINIT;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_7_EXTRACT_NOINIT_PURE(CLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N_PURE(RETTYPE, CLASS::CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, RETTYPE rval;, ro >> rval;, return rval;)
-
-#define IMP_PYCALLBACK_7_VOID(CLASS, PCLASS, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(void, CLASS::CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, , , PCLASS::CBNAME(a,b,c,d,e,f,g);, )
-
-#define IMP_PYCALLBACK_7_EXTRACT(CLASS, PCLASS, RETTYPE, RETINIT, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, RETTYPE rval = RETINIT;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e,f,g);, return rval;)
-
-#define IMP_PYCALLBACK_7_EXTRACT_NOINIT(CLASS, PCLASS, RETTYPE, CBNAME, ARGS, CONST) \
-    PYCALLBACK_N(RETTYPE, CLASS::CBNAME, CBNAME, 7, ARGS, CONST, args << a << b << c << d << e << f << g, RETTYPE rval;, ro >> rval;, rval = PCLASS::CBNAME(a,b,c,d,e,f,g);, return rval;)
-
 
 
 #define DEC_PYCALLBACK__(CBNAME)                        \

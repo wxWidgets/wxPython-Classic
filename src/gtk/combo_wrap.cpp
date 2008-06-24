@@ -2778,13 +2778,13 @@ public:
         : wxComboCtrl(parent, id, value, pos, size, style, validator, name)
     {}
 
-    PYCALLBACK_1_VOID(wxComboCtrl, DoSetPopupControl, (wxComboPopup *a), )
-    PYCALLBACK_1_EXTRACT(wxComboCtrl, bool, false, IsKeyPopupToggle, (const wxKeyEvent &a), const)
-    PYCALLBACK_0_VOID(wxComboCtrl, ShowPopup, )
-    PYCALLBACK_0_VOID(wxComboCtrl, HidePopup, )
-    PYCALLBACK_0_VOID(wxComboCtrl, OnButtonClick, )
-    PYCALLBACK_2_VOID(wxComboCtrl, DoShowPopup, (const wxRect &a, int b), )
-    PYCALLBACK_2_EXTRACT(wxComboCtrl, bool, false, AnimateShow, (const wxRect &a, int b), )
+    PYCALLBACK_1_VOID(wxComboCtrl, DoSetPopupControl, (wxComboPopup *a))
+    PYCALLBACK_1_EXTRACT_CONST(wxComboCtrl, bool, rval = false, IsKeyPopupToggle, (const wxKeyEvent &a))
+    PYCALLBACK_0_VOID(wxComboCtrl, ShowPopup)
+    PYCALLBACK_0_VOID(wxComboCtrl, HidePopup)
+    PYCALLBACK_0_VOID(wxComboCtrl, OnButtonClick)
+    PYCALLBACK_2_VOID(wxComboCtrl, DoShowPopup, (const wxRect &a, int b))
+    PYCALLBACK_2_EXTRACT(wxComboCtrl, bool, rval = false, AnimateShow, (const wxRect &a, int b))
 
 
     virtual wxWindow *GetMainWindowOfCompositeControl()
@@ -2885,18 +2885,18 @@ public:
     wxPyComboPopup() : wxComboPopup() {}
     ~wxPyComboPopup() {}
 
-    PYCALLBACK_0_VOID(wxComboPopup, Init, )
-    PYCALLBACK_1_EXTRACT_PURE(bool, false, Create, (wxWindow *a), )
-    PYCALLBACK_0_VOID(wxComboPopup, OnPopup, )
-    PYCALLBACK_0_VOID(wxComboPopup, OnDismiss, )
-    PYCALLBACK_1_VOID(wxComboPopup, SetStringValue, (const wxString &a), )
-    PYCALLBACK_0_EXTRACT_NOINIT_PURE(wxString, GetStringValue, const)
-    PYCALLBACK_0_VOID(wxComboPopup, OnComboDoubleClick, )
-    PYCALLBACK_0_EXTRACT(wxComboPopup, bool, false, LazyCreate, )
-    PYCALLBACK_0_EXTRACT_PURE(wxWindow*, NULL, GetControl, )
-    PYCALLBACK_2_VOID(wxComboPopup, PaintComboControl, (wxDC &a, const wxRect &b), )
-    PYCALLBACK_1_VOID(wxComboPopup, OnComboKeyEvent, (wxKeyEvent &a), )
-    PYCALLBACK_3_EXTRACT_NOINIT(wxComboPopup, wxSize, GetAdjustedSize, (int a, int b, int c), )
+    PYCALLBACK_0_VOID(wxComboPopup, Init)
+    PYCALLBACK_1_EXTRACT_PURE(bool, rval = false, Create, (wxWindow *a))
+    PYCALLBACK_0_VOID(wxComboPopup, OnPopup)
+    PYCALLBACK_0_VOID(wxComboPopup, OnDismiss)
+    PYCALLBACK_1_VOID(wxComboPopup, SetStringValue, (const wxString &a))
+    PYCALLBACK_0_EXTRACT_PURE_CONST(wxString, rval, GetStringValue)
+    PYCALLBACK_0_VOID(wxComboPopup, OnComboDoubleClick)
+    PYCALLBACK_0_EXTRACT(wxComboPopup, bool, rval = false, LazyCreate)
+    PYCALLBACK_0_EXTRACT_PURE(wxWindow*, rval = NULL, GetControl)
+    PYCALLBACK_2_VOID(wxComboPopup, PaintComboControl, (wxDC &a, const wxRect &b))
+    PYCALLBACK_1_VOID(wxComboPopup, OnComboKeyEvent, (wxKeyEvent &a))
+    PYCALLBACK_3_EXTRACT(wxComboPopup, wxSize, rval(0,0), GetAdjustedSize, (int a, int b, int c))
 
     wxComboCtrl* GetCombo() { return (wxComboCtrl*)m_combo; }
 
@@ -2922,19 +2922,13 @@ public:
                                validator, name)
     {}
 
-    DEC_PYCALLBACK__DCRECTINTINT_const(OnDrawItem);
-    DEC_PYCALLBACK_COORD_SIZET_const(OnMeasureItem);
-    DEC_PYCALLBACK_COORD_SIZET_const(OnMeasureItemWidth);
-    DEC_PYCALLBACK__DCRECTINTINT_const(OnDrawBackground);
-
+    PYCALLBACK_4_VOID_CONST(wxOwnerDrawnComboBox, OnDrawItem, (wxDC& a, const wxRect& b, int c, int d))
+    PYCALLBACK_1_EXTRACT_CONST(wxOwnerDrawnComboBox, wxCoord, rval = 0, OnMeasureItem, (size_t a))
+    PYCALLBACK_1_EXTRACT_CONST(wxOwnerDrawnComboBox, wxCoord, rval = 0, OnMeasureItemWidth, (size_t a))
+    PYCALLBACK_4_VOID_CONST(wxOwnerDrawnComboBox, OnDrawBackground, (wxDC& a, const wxRect& b, int c, int d))
 
     PYPRIVATE;
 };
-
-IMP_PYCALLBACK__DCRECTINTINT_const(wxPyOwnerDrawnComboBox, wxOwnerDrawnComboBox, OnDrawItem);
-IMP_PYCALLBACK_COORD_SIZET_const(wxPyOwnerDrawnComboBox, wxOwnerDrawnComboBox, OnMeasureItem);
-IMP_PYCALLBACK_COORD_SIZET_const(wxPyOwnerDrawnComboBox, wxOwnerDrawnComboBox, OnMeasureItemWidth);
-IMP_PYCALLBACK__DCRECTINTINT_const(wxPyOwnerDrawnComboBox, wxOwnerDrawnComboBox, OnDrawBackground);
 
 
 

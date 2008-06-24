@@ -2968,20 +2968,20 @@ class wxPyAuiDockArt :  public wxAuiDefaultDockArt
 public:
     wxPyAuiDockArt() : wxAuiDefaultDockArt() {}
 
-    PYCALLBACK_1_EXTRACT(wxAuiDefaultDockArt, int, -1, GetMetric, (int a), )
-    PYCALLBACK_2_VOID(wxAuiDefaultDockArt, SetMetric, (int a, int b), )
-    PYCALLBACK_2_VOID(wxAuiDefaultDockArt, SetFont, (int a, const wxFont &b), )
-    PYCALLBACK_1_EXTRACT_NOINIT(wxAuiDefaultDockArt, wxFont, GetFont, (int a), )
-    PYCALLBACK_2_VOID(wxAuiDefaultDockArt, SetColour, (int a, const wxColour &b), )
-    PYCALLBACK_1_EXTRACT_NOINIT(wxAuiDefaultDockArt, wxColour, GetColor, (int a), )
-    PYCALLBACK_4_VOID(wxAuiDefaultDockArt, DrawSash, (wxDC &a, wxWindow *b, int c, const wxRect &d), )
-    PYCALLBACK_4_VOID(wxAuiDefaultDockArt, DrawBackground, (wxDC &a, wxWindow *b, int c, const wxRect &d), )
+    PYCALLBACK_1_EXTRACT(wxAuiDefaultDockArt, int, rval = -1, GetMetric, (int a))
+    PYCALLBACK_2_VOID(wxAuiDefaultDockArt, SetMetric, (int a, int b))
+    PYCALLBACK_2_VOID(wxAuiDefaultDockArt, SetFont, (int a, const wxFont &b))
+    PYCALLBACK_1_EXTRACT(wxAuiDefaultDockArt, wxFont, rval, GetFont, (int a))
+    PYCALLBACK_2_VOID(wxAuiDefaultDockArt, SetColour, (int a, const wxColour &b))
+    PYCALLBACK_1_EXTRACT(wxAuiDefaultDockArt, wxColour, rval, GetColor, (int a))
+    PYCALLBACK_4_VOID(wxAuiDefaultDockArt, DrawSash, (wxDC &a, wxWindow *b, int c, const wxRect &d))
+    PYCALLBACK_4_VOID(wxAuiDefaultDockArt, DrawBackground, (wxDC &a, wxWindow *b, int c, const wxRect &d))
     PYCALLBACK_5_VOID(wxAuiDefaultDockArt, DrawCaption, (wxDC &a, wxWindow *b, const wxString &c,
-                                                        const wxRect &d, wxAuiPaneInfo &e), )
-    PYCALLBACK_4_VOID(wxAuiDefaultDockArt, DrawGripper, (wxDC &a, wxWindow *b, const wxRect &c, wxAuiPaneInfo &d), )
-    PYCALLBACK_4_VOID(wxAuiDefaultDockArt, DrawBorder, (wxDC &a, wxWindow *b, const wxRect &c, wxAuiPaneInfo &d), )
+                                                        const wxRect &d, wxAuiPaneInfo &e))
+    PYCALLBACK_4_VOID(wxAuiDefaultDockArt, DrawGripper, (wxDC &a, wxWindow *b, const wxRect &c, wxAuiPaneInfo &d))
+    PYCALLBACK_4_VOID(wxAuiDefaultDockArt, DrawBorder, (wxDC &a, wxWindow *b, const wxRect &c, wxAuiPaneInfo &d))
     PYCALLBACK_6_VOID(wxAuiDefaultDockArt, DrawPaneButton, (wxDC &a, wxWindow *b, int c, int d, 
-                                                            const wxRect &e, wxAuiPaneInfo &f), )
+                                                            const wxRect &e, wxAuiPaneInfo &f))
 
     PYPRIVATE;
 
@@ -2996,7 +2996,7 @@ public:
     wxPyAuiTabArt() : wxAuiDefaultTabArt() {}
 
 
-    PYCALLBACK_3_VOID(wxAuiDefaultTabArt, DrawBackground, (wxDC &a, wxWindow *b, const wxRect &c), )   
+    PYCALLBACK_3_VOID(wxAuiDefaultTabArt, DrawBackground, (wxDC &a, wxWindow *b, const wxRect &c))   
 
     virtual void DrawTab( wxDC& dc,
                           wxWindow* wnd,
@@ -3108,9 +3108,9 @@ public:
     
 
 
-    PYCALLBACK_1_VOID(wxAuiDefaultTabArt, SetNormalFont, (const wxFont &a), )
-    PYCALLBACK_1_VOID(wxAuiDefaultTabArt, SetSelectedFont, (const wxFont &a), )
-    PYCALLBACK_1_VOID(wxAuiDefaultTabArt, SetMeasuringFont, (const wxFont &a), )
+    PYCALLBACK_1_VOID(wxAuiDefaultTabArt, SetNormalFont, (const wxFont &a))
+    PYCALLBACK_1_VOID(wxAuiDefaultTabArt, SetSelectedFont, (const wxFont &a))
+    PYCALLBACK_1_VOID(wxAuiDefaultTabArt, SetMeasuringFont, (const wxFont &a))
 
     PYPRIVATE;
 };

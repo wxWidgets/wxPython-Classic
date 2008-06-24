@@ -278,10 +278,10 @@ class wxPyGridCellRenderer : public wxGridCellRenderer
 public:
     wxPyGridCellRenderer() : wxGridCellRenderer() {};
 
-    PYCALLBACK_7_VOID_PURE(Draw, (wxGrid &a, wxGridCellAttr &b, wxDC &c, const wxRect &d, int e, int f, bool g), )
-    PYCALLBACK_5_EXTRACT_NOINIT_PURE(wxSize, GetBestSize, (wxGrid &a, wxGridCellAttr &b, wxDC &c, int d, int e), )
-    PYCALLBACK_0_EXTRACT_PURE(wxGridCellRenderer*, NULL, Clone, const)
-    PYCALLBACK_1_VOID(wxGridCellRenderer, SetParameters, (const wxString &a), )
+    PYCALLBACK_7_VOID_PURE(Draw, (wxGrid &a, wxGridCellAttr &b, wxDC &c, const wxRect &d, int e, int f, bool g))
+    PYCALLBACK_5_EXTRACT_PURE(wxSize, rval, GetBestSize, (wxGrid &a, wxGridCellAttr &b, wxDC &c, int d, int e))
+    PYCALLBACK_0_EXTRACT_PURE_CONST(wxGridCellRenderer*, rval = NULL, Clone)
+    PYCALLBACK_1_VOID(wxGridCellRenderer, SetParameters, (const wxString &a))
 
     PYPRIVATE;
 };
@@ -414,21 +414,21 @@ class wxPyGridCellEditor : public wxGridCellEditor
 public:
     wxPyGridCellEditor() : wxGridCellEditor() {}
 
-    PYCALLBACK_3_VOID_PURE(Create, (wxWindow* a, wxWindowID b, wxEvtHandler* c), )
-    PYCALLBACK_3_VOID_PURE(BeginEdit, (int a, int b, wxGrid* c), )
-    PYCALLBACK_3_EXTRACT_PURE(bool, false, EndEdit, (int a, int b, wxGrid* c), )
-    PYCALLBACK_0_EXTRACT_PURE(wxGridCellEditor*, NULL, Clone, const)
-    PYCALLBACK_2_VOID(wxGridCellEditor, Show, (bool a, wxGridCellAttr *b), )
-    PYCALLBACK_2_VOID(wxGridCellEditor, PaintBackground, (const wxRect& a, wxGridCellAttr *b), )
-    PYCALLBACK_0_VOID_PURE(Reset, )
-    PYCALLBACK_1_VOID(wxGridCellEditor, SetSize, (const wxRect &a), )
-    PYCALLBACK_1_VOID(wxGridCellEditor, SetParameters, (const wxString &a), )
-    PYCALLBACK_1_EXTRACT(wxGridCellEditor, bool, false, IsAcceptedKey, (wxKeyEvent &a), )
-    PYCALLBACK_1_VOID(wxGridCellEditor, StartingKey, (wxKeyEvent &a), )
-    PYCALLBACK_1_VOID(wxGridCellEditor, HandleReturn, (wxKeyEvent &a), )
-    PYCALLBACK_0_VOID(wxGridCellEditor, StartingClick, )
-    PYCALLBACK_0_VOID(wxGridCellEditor, Destroy, )
-    PYCALLBACK_0_EXTRACT_PURE(wxString, "", GetValue, const)
+    PYCALLBACK_3_VOID_PURE(Create, (wxWindow* a, wxWindowID b, wxEvtHandler* c))
+    PYCALLBACK_3_VOID_PURE(BeginEdit, (int a, int b, wxGrid* c))
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, EndEdit, (int a, int b, wxGrid* c))
+    PYCALLBACK_0_EXTRACT_PURE_CONST(wxGridCellEditor*, rval = NULL, Clone)
+    PYCALLBACK_2_VOID(wxGridCellEditor, Show, (bool a, wxGridCellAttr *b))
+    PYCALLBACK_2_VOID(wxGridCellEditor, PaintBackground, (const wxRect& a, wxGridCellAttr *b))
+    PYCALLBACK_0_VOID_PURE(Reset)
+    PYCALLBACK_1_VOID(wxGridCellEditor, SetSize, (const wxRect &a))
+    PYCALLBACK_1_VOID(wxGridCellEditor, SetParameters, (const wxString &a))
+    PYCALLBACK_1_EXTRACT(wxGridCellEditor, bool, rval = false, IsAcceptedKey, (wxKeyEvent &a))
+    PYCALLBACK_1_VOID(wxGridCellEditor, StartingKey, (wxKeyEvent &a))
+    PYCALLBACK_1_VOID(wxGridCellEditor, HandleReturn, (wxKeyEvent &a))
+    PYCALLBACK_0_VOID(wxGridCellEditor, StartingClick)
+    PYCALLBACK_0_VOID(wxGridCellEditor, Destroy)
+    PYCALLBACK_0_EXTRACT_PURE_CONST(wxString, rval, GetValue)
 
     PYPRIVATE;
 };
@@ -665,10 +665,11 @@ class wxPyGridCellAttrProvider : public wxGridCellAttrProvider
 public:
     wxPyGridCellAttrProvider() : wxGridCellAttrProvider() {};
 
-    PYCALLBACK_3_EXTRACT(wxGridCellAttrProvider, wxGridCellAttr*, NULL, GetAttr, (int a, int b, wxGridCellAttr::wxAttrKind c), )
-    PYCALLBACK_3_VOID(wxGridCellAttrProvider, SetAttr, (wxGridCellAttr *a, int b, int c), )
-    PYCALLBACK_2_VOID(wxGridCellAttrProvider, SetRowAttr, (wxGridCellAttr *a, int b), )
-    PYCALLBACK_2_VOID(wxGridCellAttrProvider, SetColAttr, (wxGridCellAttr *a, int b), )
+    PYCALLBACK_3_EXTRACT(wxGridCellAttrProvider, wxGridCellAttr*, rval = NULL, GetAttr, 
+                (int a, int b, wxGridCellAttr::wxAttrKind c))
+    PYCALLBACK_3_VOID(wxGridCellAttrProvider, SetAttr, (wxGridCellAttr *a, int b, int c))
+    PYCALLBACK_2_VOID(wxGridCellAttrProvider, SetRowAttr, (wxGridCellAttr *a, int b))
+    PYCALLBACK_2_VOID(wxGridCellAttrProvider, SetColAttr, (wxGridCellAttr *a, int b))
 
     PYPRIVATE;
 };
@@ -777,36 +778,36 @@ class wxPyGridTableBase : public wxGridTableBase
 public:
     wxPyGridTableBase() : wxGridTableBase() {}
 
-    PYCALLBACK_0_EXTRACT_PURE(int, 0, GetNumberRows, )
-    PYCALLBACK_0_EXTRACT_PURE(int, 0, GetNumberCols, )
-    PYCALLBACK_2_EXTRACT_PURE(bool, false, IsEmptyCell, (int a, int b), )
-    PYCALLBACK_2_EXTRACT_NOINIT(wxGridTableBase, wxString, GetTypeName, (int a, int b), )
-    PYCALLBACK_3_EXTRACT(wxGridTableBase, bool, false, CanGetValueAs, (int a, int b, const wxString& c), )
-    PYCALLBACK_3_EXTRACT(wxGridTableBase, bool, false, CanSetValueAs, (int a, int b, const wxString& c), )
-    PYCALLBACK_0_VOID(wxGridTableBase, Clear, )
-    PYCALLBACK_2_EXTRACT(wxGridTableBase, bool, false, InsertRows, (size_t a, size_t b), )
-    PYCALLBACK_2_EXTRACT(wxGridTableBase, bool, false, DeleteRows, (size_t a, size_t b), )
-    PYCALLBACK_2_EXTRACT(wxGridTableBase, bool, false, InsertCols, (size_t a, size_t b), )
-    PYCALLBACK_2_EXTRACT(wxGridTableBase, bool, false, DeleteCols, (size_t a, size_t b), )
-    PYCALLBACK_1_EXTRACT(wxGridTableBase, bool, false, AppendRows, (size_t a), )
-    PYCALLBACK_1_EXTRACT(wxGridTableBase, bool, false, AppendCols, (size_t a), )
-    PYCALLBACK_1_EXTRACT_NOINIT(wxGridTableBase, wxString, GetRowLabelValue, (int a), )
-    PYCALLBACK_1_EXTRACT_NOINIT(wxGridTableBase, wxString, GetColLabelValue, (int a), )
-    PYCALLBACK_2_VOID(wxGridTableBase, SetRowLabelValue, (int a, const wxString &b), )
-    PYCALLBACK_2_VOID(wxGridTableBase, SetColLabelValue, (int a, const wxString &b), )
-    PYCALLBACK_0_EXTRACT(wxGridTableBase, bool, false, CanHaveAttributes, )
-    PYCALLBACK_3_EXTRACT(wxGridTableBase, wxGridCellAttr*, NULL, GetAttr, (int a, int b, wxGridCellAttr::wxAttrKind c), )
-    PYCALLBACK_3_VOID(wxGridTableBase, SetAttr, (wxGridCellAttr *a, int b, int c), )
-    PYCALLBACK_2_VOID(wxGridTableBase, SetRowAttr, (wxGridCellAttr *a, int b), )
-    PYCALLBACK_2_VOID(wxGridTableBase, SetColAttr, (wxGridCellAttr *a, int b), )
-    PYCALLBACK_2_EXTRACT_NOINIT_PURE(wxString, GetValue, (int a, int b), )
-    PYCALLBACK_3_VOID_PURE(SetValue, (int a, int b, const wxString &c), )
-    PYCALLBACK_2_EXTRACT_PURE(long, 0, GetValueAsLong, (int a, int b), )
-    PYCALLBACK_2_EXTRACT_PURE(double, 0.0, GetValueAsDouble, (int a, int b), )
-    PYCALLBACK_2_EXTRACT_PURE(bool, false, GetValueAsBool, (int a, int b), )
-    PYCALLBACK_3_VOID_PURE(SetValueAsLong, (int a, int b, long c), )
-    PYCALLBACK_3_VOID_PURE(SetValueAsDouble, (int a, int b, double c), )
-    PYCALLBACK_3_VOID_PURE(SetValueAsBool, (int a, int b, bool c), )
+    PYCALLBACK_0_EXTRACT_PURE(int, rval = 0, GetNumberRows)
+    PYCALLBACK_0_EXTRACT_PURE(int, rval = 0, GetNumberCols)
+    PYCALLBACK_2_EXTRACT_PURE(bool, rval = false, IsEmptyCell, (int a, int b))
+    PYCALLBACK_2_EXTRACT(wxGridTableBase, wxString, rval, GetTypeName, (int a, int b))
+    PYCALLBACK_3_EXTRACT(wxGridTableBase, bool, rval = false, CanGetValueAs, (int a, int b, const wxString& c))
+    PYCALLBACK_3_EXTRACT(wxGridTableBase, bool, rval = false, CanSetValueAs, (int a, int b, const wxString& c))
+    PYCALLBACK_0_VOID(wxGridTableBase, Clear)
+    PYCALLBACK_2_EXTRACT(wxGridTableBase, bool, rval = false, InsertRows, (size_t a, size_t b))
+    PYCALLBACK_2_EXTRACT(wxGridTableBase, bool, rval = false, DeleteRows, (size_t a, size_t b))
+    PYCALLBACK_2_EXTRACT(wxGridTableBase, bool, rval = false, InsertCols, (size_t a, size_t b))
+    PYCALLBACK_2_EXTRACT(wxGridTableBase, bool, rval = false, DeleteCols, (size_t a, size_t b))
+    PYCALLBACK_1_EXTRACT(wxGridTableBase, bool, rval = false, AppendRows, (size_t a))
+    PYCALLBACK_1_EXTRACT(wxGridTableBase, bool, rval = false, AppendCols, (size_t a))
+    PYCALLBACK_1_EXTRACT(wxGridTableBase, wxString, rval, GetRowLabelValue, (int a))
+    PYCALLBACK_1_EXTRACT(wxGridTableBase, wxString, rval, GetColLabelValue, (int a))
+    PYCALLBACK_2_VOID(wxGridTableBase, SetRowLabelValue, (int a, const wxString &b))
+    PYCALLBACK_2_VOID(wxGridTableBase, SetColLabelValue, (int a, const wxString &b))
+    PYCALLBACK_0_EXTRACT(wxGridTableBase, bool, rval = false, CanHaveAttributes)
+    PYCALLBACK_3_EXTRACT(wxGridTableBase, wxGridCellAttr*, rval = NULL, GetAttr, (int a, int b, wxGridCellAttr::wxAttrKind c))
+    PYCALLBACK_3_VOID(wxGridTableBase, SetAttr, (wxGridCellAttr *a, int b, int c))
+    PYCALLBACK_2_VOID(wxGridTableBase, SetRowAttr, (wxGridCellAttr *a, int b))
+    PYCALLBACK_2_VOID(wxGridTableBase, SetColAttr, (wxGridCellAttr *a, int b))
+    PYCALLBACK_2_EXTRACT_PURE(wxString, rval, GetValue, (int a, int b))
+    PYCALLBACK_3_VOID_PURE(SetValue, (int a, int b, const wxString &c))
+    PYCALLBACK_2_EXTRACT_PURE(long, rval = 0, GetValueAsLong, (int a, int b))
+    PYCALLBACK_2_EXTRACT_PURE(double, rval = 0.0, GetValueAsDouble, (int a, int b))
+    PYCALLBACK_2_EXTRACT_PURE(bool, rval = false, GetValueAsBool, (int a, int b))
+    PYCALLBACK_3_VOID_PURE(SetValueAsLong, (int a, int b, long c))
+    PYCALLBACK_3_VOID_PURE(SetValueAsDouble, (int a, int b, double c))
+    PYCALLBACK_3_VOID_PURE(SetValueAsBool, (int a, int b, bool c))
 
     PYPRIVATE;
 };
