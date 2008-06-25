@@ -3,7 +3,7 @@ Recent Changes for wxPython
 
 2.8.8.0
 -------
-*
+* 23-June-2008
 
 Added the PlateButton class from Cody Precord.
 
@@ -62,11 +62,11 @@ Copied the sized_controls module to the wx.lib package as the first
 step of phasing out the wxaddons package.
 
 Added an implementation of wx.Window.SetDoubleBuffered on Windows.
-(GTK already has one, and Mac doesn't need one becase everything is
+(GTK already has one, and Mac doesn't need one because everything is
 always double buffered by the system there.)
 
 Added a wrapper to wx.TopLevelWindow for MacGetTopLevelWindowRef to
-faciliate calling the Carbon APIs directly for things that are not
+facilitate calling the Carbon APIs directly for things that are not
 supported in wx, similar to how we can use ctypes or PyWin32 with
 window.GetHandle() to do custom stuff on Windows.  (On wxMac GetHandle
 returns the ControlRef, which is different than the WindowRef, hence
@@ -84,7 +84,8 @@ available from http://starship.python.net/crew/theller/comtypes/.
 Comtypes allows us to use and provide an interface with full dynamic
 dispatch abilities, much like PyWin32's COM interfaces but with much
 reduced external dependencies.  See wx/lib/activex.py for more
-details.
+details.  IMPORTANT: Be sure to get at least version 0.5 of comtypes,
+see the docstring in the wx.lib.activex module for details.
 
 The wx.lib.iewin, wx.lib.pdfwin, and wx.lib.flashwin modules were
 switched to use the new and improved activex module.  The APIs
@@ -93,7 +94,7 @@ there before, except for how the COM events are handled.  Instead of
 sending wx events it relies on you overriding methods with the same
 names as the COM events.  You can either do it in a or derived class,
 or you can set an instance of some other class to be the event sink.
-See the ActivX_IEHtmlWindow sample in the demo for an example.  If you
+See the ActiveX_IEHtmlWindow sample in the demo for an example.  If you
 would rather continue to use the old version of these modules they
 are available in the wx.lib with "_old" added to the names.
 
