@@ -44,17 +44,14 @@ public:
     wxObject* Clone() const {
         wxPyValidator* ptr = NULL;
         wxPyValidator* self = (wxPyValidator*)this;
+        wxPyThreadBlocker blocker;
 
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if (wxPyCBH_findCallback(self->m_myInst, "Clone")) {
-            PyObject* ro;
-            ro = wxPyCBH_callCallbackObj(self->m_myInst, Py_BuildValue("()"));
-            if (ro) {
-                wxPyConvertSwigPtr(ro, (void **)&ptr, wxT("wxPyValidator"));
-                Py_DECREF(ro);
-            }
+            wxPyObject ro;
+            ro = wxPyCBH_callCallbackObj(self->m_myInst, NULL, wxPCBH_ERR_THROW);
+            if (ro.Ok())
+                wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxPyValidator"));
         }
-        wxPyEndBlockThreads(blocked);
 
         // This is very dangerous!!! But is the only way I could find
         // to squash a memory leak.  Currently it is okay, but if the
@@ -123,7 +120,8 @@ public:
 #endif
     ~wxPyDropSource() { }
 
-    DEC_PYCALLBACK_BOOL_DR(GiveFeedback);
+    bool GiveFeedback(wxDragResult effect);
+    
     PYPRIVATE;
 };
 
@@ -135,26 +133,26 @@ public:
 
     // called when mouse leaves the window: might be used to remove the
     // feedback which was given in OnEnter()
-    DEC_PYCALLBACK__(OnLeave);
+    void OnLeave();
 
     // called when the mouse enters the window (only once until OnLeave())
-    DEC_PYCALLBACK_DR_2WXCDR(OnEnter);
+    wxDragResult OnEnter(wxCoord x, wxCoord y, wxDragResult def);
 
     // called when the mouse moves in the window - shouldn't take long to
     // execute or otherwise mouse movement would be too slow
-    DEC_PYCALLBACK_DR_2WXCDR(OnDragOver);
+    wxDragResult OnDragOver(wxCoord x, wxCoord y, wxDragResult def);
     
     // called after OnDrop() returns True: you will usually just call
     // GetData() from here and, probably, also refresh something to update the
     // new data and, finally, return the code indicating how did the operation
     // complete (returning default value in case of success and wxDragError on
     // failure is usually ok)
-    DEC_PYCALLBACK_DR_2WXCDR_pure(OnData);
+    wxDragResult OnData(wxCoord x, wxCoord y, wxDragResult def);
     
     // this function is called when data is dropped at position (x, y) - if it
     // returns True, OnData() will be called immediately afterwards which will
     // allow to retrieve the data dropped.
-    DEC_PYCALLBACK_BOOL_INTINT(OnDrop);
+    bool OnDrop(int a, int b);
 
     PYPRIVATE;
 };

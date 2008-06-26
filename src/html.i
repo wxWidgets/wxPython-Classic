@@ -18,10 +18,10 @@
 
 %{
 #include "wx/wxPython/wxPython.h"
+#include "wx/wxPython/raiihelpers.h"
 #include "wx/wxPython/pyclasses.h"
 #include "wx/wxPython/pyistream.h"
 #include "wx/wxPython/printfw.h"
-#include "wx/wxPython/raiihelpers.h"
 
 #include <wx/html/htmlwin.h>
 #include <wx/html/htmprint.h>
@@ -125,6 +125,14 @@ public:
     %property(Target, GetTarget, doc="See `GetTarget`");
 };
 
+%{
+// Insertion operator for wxHtmlLinkInfo.
+inline wxPyObject &operator<<(wxPyObject &po, const wxHtmlLinkInfo &tag)
+{
+    po.Push(wxPyConstructObject((void*)&tag, wxT("wxHtmlLinkInfo"), 0));
+    return po;
+}
+%}
 //---------------------------------------------------------------------------
 
 class wxHtmlTag : public wxObject {
@@ -151,6 +159,15 @@ public:
     %property(EndPos2, GetEndPos2, doc="See `GetEndPos2`");
     %property(Name, GetName, doc="See `GetName`");
 };
+
+%{
+// Insertion operator for wxHtmlTag.
+inline wxPyObject &operator<<(wxPyObject &po, const wxHtmlTag &tag)
+{
+    po.Push(wxPyConstructObject((void*)&tag, wxT("wxHtmlTag"), 0));
+    return po;
+}
+%}
 
 //---------------------------------------------------------------------------
 
@@ -276,16 +293,13 @@ public:
     wxHtmlParser* GetParser() { return m_Parser; }
     void ParseInner(const wxHtmlTag& tag) { wxHtmlTagHandler::ParseInner(tag); }
 
-    DEC_PYCALLBACK_STRING__pure(GetSupportedTags);
-    DEC_PYCALLBACK_BOOL_TAG_pure(HandleTag);
+    PYCALLBACK_0_EXTRACT_PURE(wxString, rval, GetSupportedTags)
+    PYCALLBACK_1_EXTRACT_PURE(bool, rval = false, HandleTag, (const wxHtmlTag &a))
 
     PYPRIVATE;
 };
 
 IMPLEMENT_DYNAMIC_CLASS(wxPyHtmlTagHandler, wxHtmlTagHandler);
-
-IMP_PYCALLBACK_STRING__pure(wxPyHtmlTagHandler, wxHtmlTagHandler, GetSupportedTags);
-IMP_PYCALLBACK_BOOL_TAG_pure(wxPyHtmlTagHandler, wxHtmlTagHandler, HandleTag);
 %}
 
 
@@ -317,16 +331,13 @@ public:
     void ParseInner(const wxHtmlTag& tag)
         { wxHtmlWinTagHandler::ParseInner(tag); }
 
-    DEC_PYCALLBACK_STRING__pure(GetSupportedTags);
-    DEC_PYCALLBACK_BOOL_TAG_pure(HandleTag);
+    PYCALLBACK_0_EXTRACT_PURE(wxString, rval, GetSupportedTags)
+    PYCALLBACK_1_EXTRACT_PURE(bool, rval = false, HandleTag, (const wxHtmlTag &a))
 
     PYPRIVATE;
 };
 
 IMPLEMENT_DYNAMIC_CLASS( wxPyHtmlWinTagHandler, wxHtmlWinTagHandler);
-
-IMP_PYCALLBACK_STRING__pure(wxPyHtmlWinTagHandler, wxHtmlWinTagHandler, GetSupportedTags);
-IMP_PYCALLBACK_BOOL_TAG_pure(wxPyHtmlWinTagHandler, wxHtmlWinTagHandler, HandleTag);
 %}
 
 
@@ -757,37 +768,11 @@ public:
     wxPyHtmlFilter() : wxHtmlFilter() {}
 
     // returns True if this filter is able to open&read given file
-    virtual bool CanRead(const wxFSFile& file) const {
-        bool rval = false;
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "CanRead"))) {
-            wxPyObject obj = wxPyMake_wxObject((wxFSFile*)&file,false);  // cast away const
-            rval = wxPyCBH_callCallback(m_myInst, 
-                        Py_BuildValue("(O)", obj.Get()), 
-                        wxPCBH_ERR_THROW);
-        }
-        return rval;
-    }
-
+    PYCALLBACK_1_EXTRACT_PURE_CONST(bool, rval = false, CanRead, (const wxFSFile &a))
 
     // Reads given file and returns HTML document.
     // Returns empty string if opening failed
-    virtual wxString ReadFile(const wxFSFile& file) const {
-        wxString rval;
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "ReadFile"))) {
-            wxPyObject obj = wxPyMake_wxObject((wxFSFile*)&file,false);  // cast away const
-            wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, 
-                    Py_BuildValue("(O)", obj.Get()), 
-                    wxPCBH_ERR_THROW);
-            if (ro.Ok())
-                rval = Py2wxString(ro.Get());
-        }
-        return rval;
-    }
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxString, rval, ReadFile, (const wxFSFile &a))
 
     PYPRIVATE;
 };
@@ -921,39 +906,21 @@ public:
         return c!=NULL;
     }
 
-    void OnLinkClicked(const wxHtmlLinkInfo& link);
 
     wxHtmlOpeningStatus OnOpeningURL(wxHtmlURLType type,
                                       const wxString& url,
                                       wxString *redirect) const;
 
-    DEC_PYCALLBACK__STRING(OnSetTitle);
-    DEC_PYCALLBACK__CELLINTINT(OnCellMouseHover);
-    DEC_PYCALLBACK_BOOL_CELLINTINTME(OnCellClicked);
+    PYCALLBACK_1_VOID(wxHtmlWindow, OnLinkClicked, (const wxHtmlLinkInfo& a))
+    PYCALLBACK_1_VOID(wxHtmlWindow, OnSetTitle, (const wxString &a))
+    PYCALLBACK_3_VOID(wxHtmlWindow, OnCellMouseHover, (wxHtmlCell *a, wxCoord b, wxCoord c))
+    PYCALLBACK_4_EXTRACT(wxHtmlWindow, bool, rval = false, OnCellClicked, 
+                            (wxHtmlCell *a, wxCoord b, wxCoord c, const wxMouseEvent& d))
 
     PYPRIVATE;
 };
 
 IMPLEMENT_ABSTRACT_CLASS( wxPyHtmlWindow, wxHtmlWindow );
-IMP_PYCALLBACK__STRING(wxPyHtmlWindow, wxHtmlWindow, OnSetTitle);
-IMP_PYCALLBACK__CELLINTINT(wxPyHtmlWindow, wxHtmlWindow, OnCellMouseHover);
-IMP_PYCALLBACK_BOOL_CELLINTINTME(wxPyHtmlWindow, wxHtmlWindow, OnCellClicked);
-
-
-void wxPyHtmlWindow::OnLinkClicked(const wxHtmlLinkInfo& link) {
-    bool found;
-    wxPyThreadBlocker blocker;
-    if ((found = wxPyCBH_findCallback(m_myInst, "OnLinkClicked"))) {
-        wxPyObject obj = wxPyConstructObject((void*)&link, wxT("wxHtmlLinkInfo"), 0);
-        wxPyCBH_callCallback(m_myInst, 
-                Py_BuildValue("(O)", obj.Get()), 
-                wxPCBH_ERR_THROW);
-    }
-    blocker.Unblock();
-    if (! found)
-        wxHtmlWindow::OnLinkClicked(link);
-}
-
 
 wxHtmlOpeningStatus wxPyHtmlWindow::OnOpeningURL(wxHtmlURLType type,
                                                  const wxString& url,
@@ -962,22 +929,22 @@ wxHtmlOpeningStatus wxPyHtmlWindow::OnOpeningURL(wxHtmlURLType type,
     wxHtmlOpeningStatus rval;
     wxPyThreadBlocker blocker;
     if ((found = wxPyCBH_findCallback(m_myInst, "OnOpeningURL"))) {
+        wxPyTuple args(2);
         wxPyObject ro;
-        wxPyObject s = wx2PyString(url);
-        ro = wxPyCBH_callCallbackObj(m_myInst, 
-                Py_BuildValue("(iO)", type, s.Get()), 
-                wxPCBH_ERR_THROW);
-        if (PyString_Check(ro.Get())
+        ro = wxPyCBH_callCallbackObj(m_myInst, args << type << url, wxPCBH_ERR_THROW);
+        if (ro.Ok()) {
+            if (PyString_Check(ro.Get())
 #if PYTHON_API_VERSION >= 1009
-            || PyUnicode_Check(ro.Get())
+                || PyUnicode_Check(ro.Get())
 #endif
-            ) {
-            *redirect = Py2wxString(ro.Get());
-            rval = wxHTML_REDIRECT;
-        }
-        else {
-            wxPyObject num = PyNumber_Int(ro.Get());
-            rval = (wxHtmlOpeningStatus)PyInt_AsLong(num.Get());
+                ) {
+                *redirect = Py2wxString(ro.Get());
+                rval = wxHTML_REDIRECT;
+            }
+            else {
+                wxPyObject num = PyNumber_Int(ro.Get());
+                rval = (wxHtmlOpeningStatus)PyInt_AsLong(num.Get());
+            }
         }
     }
     blocker.Unblock();

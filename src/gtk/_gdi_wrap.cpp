@@ -2738,8 +2738,8 @@ namespace swig {
 
 
 #include "wx/wxPython/wxPython.h"
-#include "wx/wxPython/pyclasses.h"
 #include "wx/wxPython/raiihelpers.h"
+#include "wx/wxPython/pyclasses.h"
     
 
  static const wxString wxPyEmptyString(wxEmptyString); 
@@ -3516,43 +3516,22 @@ const wxString& wxPyLocale::GetString(const wxString& origString,
     return GetPluralString(origString, origString2, n, domain);
 }
 
-const wxString& wxPyLocale::GetSingularString(const wxString& origString,
-                                              const wxString& domain) const
-{
-    bool found;
-    wxString str( _T("error in translation")); 
-    wxPyThreadBlocker blocker;
-    if ((found=wxPyCBH_findCallback(m_myInst, "GetSingularString"))) {
-        wxPyObject param1 = wx2PyString(origString);
-        wxPyObject param2 = wx2PyString(domain);
-        wxPyObject ret = wxPyCBH_callCallbackObj(m_myInst, 
-                Py_BuildValue("(OO)", param1.Get(), param2.Get()), 
-                wxPCBH_ERR_THROW);
-        if (ret.Ok())
-            str = Py2wxString(ret.Get());
-    }
-    return (found ? str : wxLocale::GetString(origString, domain));
-}
+B_PYCALLBACK_N_CONST(const wxString&, wxPyLocale::GetSingularString, GetSingularString, 2, 
+                        (const wxString &a, const wxString &b),
+                        args << a << b,
+                        wxString rval,
+                        ro >> rval, 
+                        rval = wxLocale::GetString(a, b),
+                        rval)
 
-const wxString& wxPyLocale::GetPluralString(const wxString& origString,
-                                            const wxString& origString2, size_t n,
-                                            const wxString& domain) const
-{
-    bool found;
-    wxString str( _T("error in translation"));
-    wxPyThreadBlocker blocker;
-    if ((found=wxPyCBH_findCallback(m_myInst, "GetPluralString"))) {
-        wxPyObject param1 = wx2PyString(origString);
-        wxPyObject param2 = wx2PyString(origString2);
-        wxPyObject param4 = wx2PyString(domain);
-        wxPyObject ret = wxPyCBH_callCallbackObj(m_myInst,
-                Py_BuildValue("(OOiO)", param1.Get(), param2.Get(), (int)n, param4.Get()), 
-                wxPCBH_ERR_THROW);
-        if(ret.Ok())
-            str = Py2wxString(ret.Get());
-    }
-    return (found ? str : wxLocale::GetString(origString, origString2, n, domain) );
-}
+B_PYCALLBACK_N_CONST(const wxString&, wxPyLocale::GetPluralString, GetPluralString, 4, 
+                        (const wxString &a, const wxString &b, size_t c, const wxString &d),
+                        args << a << b << c << d,
+                        wxString rval,
+                        ro >> rval, 
+                        rval = wxLocale::GetString(a, b, c, d),
+                        rval)
+
 
 SWIGINTERN wxPyLocale *new_wxPyLocale(int language=-1,int flags=wxLOCALE_LOAD_DEFAULT|wxLOCALE_CONV_ENCODING){
             wxPyLocale* loc;

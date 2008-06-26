@@ -158,16 +158,18 @@ public:
     {
         bool found;
         bool rval;
-        wxString className = event.GetClassInfo()->GetClassName();
 
         wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "ProcessEvent"))) {
-            wxPyObject arg = wxPyConstructObject((void*)&event, className);
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)",arg.Get()), wxPCBH_ERR_THROW);
-        }
-        blocker.Unblock();        
-        if (! found)
+            wxString className = event.GetClassInfo()->GetClassName();
+            wxPyTuple args(1);
+
+            rval = wxPyCBH_callCallback(m_myInst, args << wxPyConstructObject((void*)&event, className), 
+                                         wxPCBH_ERR_THROW);
+        } else {
+            blocker.Unblock();        
             rval = wxEvtHandler::ProcessEvent(event);
+        }
         return rval;
     }
     

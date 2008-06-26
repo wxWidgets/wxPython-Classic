@@ -143,6 +143,9 @@ public:
                      const wxString& name) :
         wxTreeListCtrl(parent, id, pos, size, style, validator, name) {}
 
+    PYCALLBACK_2_EXTRACT(wxTreeListCtrl, int, rval = 0, OnCompareItems, 
+                            (const wxTreeItemId &a, const wxTreeItemId &b))
+#if 0
     virtual int OnCompareItems(const wxTreeItemId& item1,
                                const wxTreeItemId& item2) {
         int rval = 0;
@@ -160,7 +163,11 @@ public:
             rval = wxTreeListCtrl::OnCompareItems(item1, item2);
         return rval;
     }
+#endif
 
+#if 0 
+    PYCALLBACK_2_EXTRACT(wxTreeListCtrl, wxString, rval, OnGetItemText, (wxTreeItemData *a, long b))
+#endif
     virtual wxString  OnGetItemText( wxTreeItemData* item, long column ) const {
         wxString rval;
         bool found;

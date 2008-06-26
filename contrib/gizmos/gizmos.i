@@ -20,6 +20,7 @@
 
 %{
 #include "wx/wxPython/wxPython.h"
+#include "wx/wxPython/raiihelpers.h"
 #include "wx/wxPython/pyclasses.h"
 
 #include <wx/gizmos/dynamicsash.h>
@@ -300,23 +301,7 @@ public:
                             long style = 0)
         : wxTreeCompanionWindow(parent, id, pos, size, style) {}
 
-
-    virtual void DrawItem(wxDC& dc, wxTreeItemId id, const wxRect& rect) {
-        bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        if ((found = wxPyCBH_findCallback(m_myInst, "DrawItem"))) {
-            PyObject* dcobj = wxPyMake_wxObject(&dc,false);
-            PyObject* idobj = wxPyConstructObject((void*)&id, wxT("wxTreeItemId"), false);
-            PyObject* recobj= wxPyConstructObject((void*)&rect, wxT("wxRect"), false);
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOO)", dcobj, idobj, recobj));
-            Py_DECREF(dcobj);
-            Py_DECREF(idobj);
-            Py_DECREF(recobj);
-        }
-        wxPyEndBlockThreads(blocked);
-        if (! found)
-            wxTreeCompanionWindow::DrawItem(dc, id, rect);
-    }
+    PYCALLBACK_3_VOID(wxTreeCompanionWindow, DrawItem, (wxDC &a, wxTreeItemId b, const wxRect &c))
 
     PYPRIVATE;
 };

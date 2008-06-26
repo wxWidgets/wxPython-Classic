@@ -436,9 +436,9 @@ inline wxPyObject &operator<<(wxPyObject &po, float f)
     return po;
 }
 
-inline wxPyObject &operator<<(wxPyObject &po, const char *s)
+inline wxPyObject &operator<<(wxPyObject &po, const wxChar *s)
 {
-    po.Push(PyString_FromString(s));
+    po.Push(wx2PyString(s));
     return po;
 }
 
@@ -448,18 +448,32 @@ inline wxPyObject &operator<<(wxPyObject &po, const wxString &s)
     return po;
 }
 
+inline wxPyObject &operator<<(wxPyObject &po, const wxArrayString &obj)
+{
+    po.Push(wxArrayString2PyList_helper(obj));
+    return po;
+}
+
 inline wxPyObject &operator<<(wxPyObject &po, wxPyObject obj)
 {
     po.Push(obj.Transfer());
     return po;
 }
 
+//NOTE: Here, po steals reference to obj.
 inline wxPyObject &operator<<(wxPyObject &po, PyObject *obj)
 {
     po.Push(obj);
     return po;
 }
 
+inline wxPyObject &operator<<(wxPyObject &po, const wxVariant &obj)
+{
+    po.Push(wxVariant_out_helper(obj));
+    return po;
+}
+
+/*
 inline wxPyObject &operator<<(wxPyObject &po, wxObject &obj)
 {
     po.Push(wxPyMake_wxObject(&obj, false));
@@ -469,6 +483,21 @@ inline wxPyObject &operator<<(wxPyObject &po, wxObject &obj)
 inline wxPyObject &operator<<(wxPyObject &po, wxObject *obj)
 {
     po.Push(wxPyMake_wxObject(obj, false));
+    return po;
+}
+*/
+
+//XXX: cast away const
+inline wxPyObject &operator<<(wxPyObject &po, const wxObject &obj)
+{
+    po.Push(wxPyMake_wxObject((wxObject*)&obj, false));
+    return po;
+}
+
+//XXX: cast away const
+inline wxPyObject &operator<<(wxPyObject &po, const wxObject *obj)
+{
+    po.Push(wxPyMake_wxObject((wxObject*)obj, false));
     return po;
 }
 
@@ -529,6 +558,54 @@ inline wxPyObject &operator<<(wxPyObject &po, const wxBitmap &obj)
 inline wxPyObject &operator<<(wxPyObject &po, const wxBitmap *obj)
 {
     po.Push(wxPyConstructObject((void*)obj, wxT("wxBitmap"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxMouseEvent &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxMouseEvent"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxMouseEvent *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxMouseEvent"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxPoint &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxPoint"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxPoint *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxPoint"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxControl &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxControl"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxControl *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxControl"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxTreeItemId &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxTreeItemId"), 0));
+    return po;
+}
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxTreeItemId *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxTreeItemId"), 0));
     return po;
 }
 

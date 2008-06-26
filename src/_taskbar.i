@@ -59,6 +59,13 @@ enum {
 
 #else
 // Otherwise make a class that can virtualize CreatePopupMenu
+
+inline wxPyObject &operator>>(wxPyObject &po, wxMenu *&obj)
+{
+    EXTRACT_OBJECT(wxMenu, po, obj)
+    return po;
+}
+
 class wxPyTaskBarIcon : public wxTaskBarIcon
 {
     DECLARE_ABSTRACT_CLASS(wxPyTaskBarIcon)
@@ -66,22 +73,7 @@ public:
     wxPyTaskBarIcon() : wxTaskBarIcon()
     {}
 
-    wxMenu* CreatePopupMenu() {
-        wxMenu *rval = NULL;
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "CreatePopupMenu"))) {
-            wxPyObject ro;
-            wxMenu* ptr;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
-            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxMenu")))
-                rval = ptr;
-        }
-        blocker.Unblock();
-        if (! found)
-            rval = wxTaskBarIcon::CreatePopupMenu();
-        return rval;
-    }
+    PYCALLBACK_0_EXTRACT(wxTaskBarIcon, wxMenu*, rval = NULL, CreatePopupMenu)
 
     PYPRIVATE;
 };

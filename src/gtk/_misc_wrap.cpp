@@ -2741,9 +2741,9 @@ namespace swig {
 
 
 #include "wx/wxPython/wxPython.h"
+#include "wx/wxPython/raiihelpers.h"    
 #include "wx/wxPython/pyclasses.h"
 #include "wx/wxPython/pyistream.h"    
-#include "wx/wxPython/raiihelpers.h"    
 
  static const wxString wxPyEmptyString(wxEmptyString); 
 
@@ -3191,38 +3191,13 @@ class wxPyLog : public wxLog {
 public:
     wxPyLog() : wxLog() {}
 
-    virtual void DoLog(wxLogLevel level, const wxChar *szString, time_t t) {
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "DoLog"))) {
-            wxPyObject s = wx2PyString(szString);
-            wxPyCBH_callCallback(m_myInst, 
-                    Py_BuildValue("(iOi)", level, s.Get(), t), 
-                    wxPCBH_ERR_THROW);
-        }
-        blocker.Unblock();
-        if (! found)
-            wxLog::DoLog(level, szString, t);
-    }
+    PYCALLBACK_3_VOID(wxLog, DoLog, (wxLogLevel a, const wxChar *b, time_t c))
+    PYCALLBACK_2_VOID(wxLog, DoLogString, (const wxChar *a, time_t b))
+    PYCALLBACK_0_VOID(wxLog, Flush)
 
-    virtual void DoLogString(const wxChar *szString, time_t t) {
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "DoLogString"))) {
-            wxPyObject s = wx2PyString(szString);
-            wxPyCBH_callCallback(m_myInst, 
-                    Py_BuildValue("(Oi)", s.Get(), t), 
-                    wxPCBH_ERR_THROW);
-        }
-        blocker.Unblock();
-        if (! found)
-            wxLog::DoLogString(szString, t);
-    }
-
-    DEC_PYCALLBACK_VOID_(Flush);
     PYPRIVATE;
 };
-IMP_PYCALLBACK_VOID_(wxPyLog, wxLog, Flush);
+
 
 
 
@@ -3552,8 +3527,8 @@ inline wxPyObject &operator>>(wxPyObject &po, wxIconBundle &ib)
 class wxPyArtProvider : public wxArtProvider  {
 public:
 
-    PYCALLBACK_3_EXTRACT_PURE(wxBitmap, wxNullBitmap, CreateBitmap, (const wxArtID& a, const wxArtClient& b, const wxSize& c), )
-    PYCALLBACK_2_EXTRACT_PURE(wxIconBundle, wxNullIconBundle, CreateIconBundle, (const wxArtID& a, const wxArtClient& b), )
+    PYCALLBACK_3_EXTRACT_PURE(wxBitmap, rval = wxNullBitmap, CreateBitmap, (const wxArtID& a, const wxArtClient& b, const wxSize& c))
+    PYCALLBACK_2_EXTRACT_PURE(wxIconBundle, rval = wxNullIconBundle, CreateIconBundle, (const wxArtID& a, const wxArtClient& b))
 
     PYPRIVATE;
 };
@@ -3886,13 +3861,13 @@ public:
     wxPyDataObjectSimple(const wxDataFormat& format = wxFormatInvalid)
         : wxDataObjectSimple(format) {}
 
-    DEC_PYCALLBACK_SIZET__const(GetDataSize);
+    PYCALLBACK_0_EXTRACT_CONST(wxDataObjectSimple, size_t, rval = 0, GetDataSize) 
+    //DEC_PYCALLBACK_SIZET__const(GetDataSize);
     bool GetDataHere(void *buf) const;
     bool SetData(size_t len, const void *buf);
     PYPRIVATE;
 };
 
-IMP_PYCALLBACK_SIZET__const(wxPyDataObjectSimple, wxDataObjectSimple, GetDataSize);
 
 bool wxPyDataObjectSimple::GetDataHere(void *buf) const {
     // We need to get the data for this object and write it to buf.  I think
@@ -3904,7 +3879,7 @@ bool wxPyDataObjectSimple::GetDataHere(void *buf) const {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "GetDataHere")) {
         wxPyObject ro;
-        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+        ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW);
         if (ro.Ok()) {
             rval = (ro.Get() != Py_None && PyString_Check(ro.Get()));
             if (rval)
@@ -3920,8 +3895,7 @@ bool wxPyDataObjectSimple::SetData(size_t len, const void *buf) {
     bool rval = false;
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "SetData")) {
-        wxPyObject data = PyString_FromStringAndSize((char*)buf, len);
-        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", data.Get()), wxPCBH_ERR_THROW);
+        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(s#)", buf, len), wxPCBH_ERR_THROW);
     }
     return rval;
 }
@@ -3932,15 +3906,12 @@ public:
     wxPyTextDataObject(const wxString& text = wxPyEmptyString)
         : wxTextDataObject(text) {}
 
-    DEC_PYCALLBACK_SIZET__const(GetTextLength);
-    DEC_PYCALLBACK_STRING__const(GetText);
-    DEC_PYCALLBACK__STRING(SetText);
+    PYCALLBACK_0_EXTRACT_CONST(wxTextDataObject, size_t, rval = 0, GetTextLength)
+    PYCALLBACK_0_EXTRACT_CONST(wxTextDataObject, wxString, rval, GetText)
+    PYCALLBACK_1_VOID(wxTextDataObject, SetText, (const wxString &a))
+
     PYPRIVATE;
 };
-
-IMP_PYCALLBACK_SIZET__const(wxPyTextDataObject, wxTextDataObject, GetTextLength);
-IMP_PYCALLBACK_STRING__const(wxPyTextDataObject, wxTextDataObject, GetText);
-IMP_PYCALLBACK__STRING(wxPyTextDataObject, wxTextDataObject, SetText);
 
 
   // Create a new class for wxPython to use
@@ -3949,31 +3920,12 @@ public:
     wxPyBitmapDataObject(const wxBitmap& bitmap = wxNullBitmap)
         : wxBitmapDataObject(bitmap) {}
 
-    wxBitmap GetBitmap() const;
-    void SetBitmap(const wxBitmap& bitmap);
+    PYCALLBACK_0_EXTRACT_PURE_CONST(wxBitmap, rval, GetBitmap)
+    PYCALLBACK_1_VOID_PURE(SetBitmap, (const wxBitmap &a))
+
     PYPRIVATE;
 };
 
-wxBitmap wxPyBitmapDataObject::GetBitmap() const {
-    wxBitmap* rval = &wxNullBitmap;
-    wxPyThreadBlocker blocker;
-    if (wxPyCBH_findCallback(m_myInst, "GetBitmap")) {
-        wxPyObject ro;
-        wxBitmap* ptr;
-        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
-        if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxBitmap")))
-            rval = ptr;
-    }
-    return *rval;
-}
- 
-void wxPyBitmapDataObject::SetBitmap(const wxBitmap& bitmap) {
-    wxPyThreadBlocker blocker;
-    if (wxPyCBH_findCallback(m_myInst, "SetBitmap")) {
-        wxPyObject bo = wxPyConstructObject((void*)&bitmap, wxT("wxBitmap"), false);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", bo.Get()), wxPCBH_ERR_THROW);
-    }
-}
 
 SWIGINTERN wxCustomDataObject *new_wxCustomDataObject__SWIG_1(wxString const &formatName){
             return new wxCustomDataObject(wxDataFormat(formatName));
@@ -4006,37 +3958,46 @@ public:
 };    
 
 
-IMP_PYCALLBACK_BOOL_DR(wxPyDropSource, wxDropSource, GiveFeedback);
+// Extractor to cast int to wxDragResult
+inline wxPyObject &operator>>(wxPyObject &po, wxDragResult &out)
+{
+    int iout = 0;
+    po >> iout;
+    out = (wxDragResult)iout;
+    return po; 
+}
 
 
-IMP_PYCALLBACK__(wxPyDropTarget, wxDropTarget, OnLeave);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyDropTarget, wxDropTarget, OnEnter);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyDropTarget, wxDropTarget, OnDragOver);
-IMP_PYCALLBACK_DR_2WXCDR_pure(wxPyDropTarget, wxDropTarget, OnData);
-IMP_PYCALLBACK_BOOL_INTINT(wxPyDropTarget, wxDropTarget, OnDrop);
+IMP_PYCALLBACK_1_EXTRACT(wxPyDropSource, wxDropSource, bool, rval = false, GiveFeedback, 
+                            (wxDragResult a))
+
+
+IMP_PYCALLBACK_0_VOID(wxPyDropTarget, wxDropTarget, OnLeave)
+IMP_PYCALLBACK_3_EXTRACT(wxPyDropTarget, wxDropTarget, wxDragResult, rval = (wxDragResult)0, OnEnter, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+IMP_PYCALLBACK_3_EXTRACT(wxPyDropTarget, wxDropTarget, wxDragResult, rval = (wxDragResult)0, OnDragOver,
+                            (wxCoord a, wxCoord b, wxDragResult c))
+IMP_PYCALLBACK_3_EXTRACT(wxPyDropTarget, wxDropTarget, wxDragResult, rval = (wxDragResult)0, OnData,
+                            (wxCoord a, wxCoord b, wxDragResult c))
+IMP_PYCALLBACK_2_EXTRACT(wxPyDropTarget, wxDropTarget, bool, rval = false, OnDrop, (int a, int b))
 
 
 class wxPyTextDropTarget : public wxTextDropTarget {
 public:
     wxPyTextDropTarget() {}
 
-    DEC_PYCALLBACK_BOOL_INTINTSTR_pure(OnDropText);
-
-    DEC_PYCALLBACK__(OnLeave);
-    DEC_PYCALLBACK_DR_2WXCDR(OnEnter);
-    DEC_PYCALLBACK_DR_2WXCDR(OnDragOver);
-    DEC_PYCALLBACK_DR_2WXCDR(OnData);
-    DEC_PYCALLBACK_BOOL_INTINT(OnDrop);
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, OnDropText, (int a, int b, const wxString &c))
+    PYCALLBACK_0_VOID(wxTextDropTarget, OnLeave)
+    PYCALLBACK_3_EXTRACT(wxTextDropTarget, wxDragResult, rval = (wxDragResult)0, OnEnter, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_3_EXTRACT(wxTextDropTarget, wxDragResult, rval = (wxDragResult)0, OnDragOver, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_3_EXTRACT(wxTextDropTarget, wxDragResult, rval = (wxDragResult)0, OnData, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_2_EXTRACT(wxTextDropTarget, bool, rval = false, OnDrop, (int a, int b)) 
 
     PYPRIVATE;
 };
-
-IMP_PYCALLBACK_BOOL_INTINTSTR_pure(wxPyTextDropTarget, wxTextDropTarget, OnDropText);
-IMP_PYCALLBACK__(wxPyTextDropTarget, wxTextDropTarget, OnLeave);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyTextDropTarget, wxTextDropTarget, OnEnter);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyTextDropTarget, wxTextDropTarget, OnDragOver);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyTextDropTarget, wxTextDropTarget, OnData);
-IMP_PYCALLBACK_BOOL_INTINT(wxPyTextDropTarget, wxTextDropTarget, OnDrop);
 
 
 
@@ -4044,37 +4005,21 @@ class wxPyFileDropTarget : public wxFileDropTarget {
 public:
     wxPyFileDropTarget() {}
 
-    virtual bool OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& filenames);
-
-    DEC_PYCALLBACK__(OnLeave);
-    DEC_PYCALLBACK_DR_2WXCDR(OnEnter);
-    DEC_PYCALLBACK_DR_2WXCDR(OnDragOver);
-    DEC_PYCALLBACK_DR_2WXCDR(OnData);
-    DEC_PYCALLBACK_BOOL_INTINT(OnDrop);
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, OnDropFiles, 
+                            (wxCoord a, wxCoord b, const wxArrayString& c))
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, OnDropText, 
+                            (int a, int b, const wxString &c))
+    PYCALLBACK_0_VOID(wxFileDropTarget, OnLeave)
+    PYCALLBACK_3_EXTRACT(wxFileDropTarget, wxDragResult, rval = (wxDragResult)0, OnEnter, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_3_EXTRACT(wxFileDropTarget, wxDragResult, rval = (wxDragResult)0, OnDragOver, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_3_EXTRACT(wxFileDropTarget, wxDragResult, rval = (wxDragResult)0, OnData, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_2_EXTRACT(wxFileDropTarget, bool, rval = false, OnDrop, (int a, int b)) 
 
     PYPRIVATE;
 };
-
-bool wxPyFileDropTarget::OnDropFiles(wxCoord x, wxCoord y,
-                                     const wxArrayString& filenames) {
-    bool rval = false;
-    wxPyThreadBlocker blocker;
-    if (wxPyCBH_findCallback(m_myInst, "OnDropFiles")) {
-        wxPyObject list = wxArrayString2PyList_helper(filenames);
-        rval = wxPyCBH_callCallback(m_myInst, 
-                Py_BuildValue("(iiO)",x,y,list.Get()), 
-                wxPCBH_ERR_THROW);
-    }
-    return rval;
-}
-
-
-
-IMP_PYCALLBACK__(wxPyFileDropTarget, wxFileDropTarget, OnLeave);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyFileDropTarget, wxFileDropTarget, OnEnter);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyFileDropTarget, wxFileDropTarget, OnDragOver);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyFileDropTarget, wxFileDropTarget, OnData);
-IMP_PYCALLBACK_BOOL_INTINT(wxPyFileDropTarget, wxFileDropTarget, OnDrop);
 
 
 

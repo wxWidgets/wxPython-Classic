@@ -2757,8 +2757,8 @@ namespace swig {
 
 
 #include "wx/wxPython/wxPython.h"
-#include "wx/wxPython/pyclasses.h"
 #include "wx/wxPython/raiihelpers.h"
+#include "wx/wxPython/pyclasses.h"
 
  static const wxString wxPyPanelNameStr(wxPanelNameStr); 
  static const wxString wxPyEmptyString(wxEmptyString); 
@@ -3166,6 +3166,7 @@ SWIGINTERN void wxPyTreeItemData_Destroy(wxPyTreeItemData *self){ delete self; }
     static wxTreeItemId wxNullTreeItemId;
 
  // C++ version of Python aware wxTreeCtrl
+
 class wxPyTreeCtrl : public wxTreeCtrl {
     DECLARE_ABSTRACT_CLASS(wxPyTreeCtrl)
 public:
@@ -3188,21 +3189,9 @@ public:
     }
 
 
-    int OnCompareItems(const wxTreeItemId& item1,
-                       const wxTreeItemId& item2) {
-        int rval = 0;
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "OnCompareItems"))) {
-            wxPyObject o1 = wxPyConstructObject((void*)&item1, wxT("wxTreeItemId"), false);
-            wxPyObject o2 = wxPyConstructObject((void*)&item2, wxT("wxTreeItemId"), false);
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)",o1.Get(),o2.Get()));
-        }
-        blocker.Unblock();
-        if (! found)
-            rval = wxTreeCtrl::OnCompareItems(item1, item2);
-        return rval;
-    }
+    PYCALLBACK_2_EXTRACT(wxTreeCtrl, int, rval = 0, OnCompareItems, 
+                                        (const wxTreeItemId &a, const wxTreeItemId &b))
+
     PYPRIVATE;
 };
 

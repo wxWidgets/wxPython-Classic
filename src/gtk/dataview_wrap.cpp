@@ -2694,9 +2694,9 @@ namespace swig {
 
 
 #include "wx/wxPython/wxPython.h"
+#include "wx/wxPython/raiihelpers.h"
 #include "wx/wxPython/pyclasses.h"
 #include "wx/wxPython/printfw.h"
-#include "wx/wxPython/raiihelpers.h"
 
 #include <wx/dataview.h>
 
@@ -2713,429 +2713,61 @@ SWIG_From_int  (int value)
 }
 
 
-#define PYCALLBACK_BOOL_DVIDVI_pure(PCLASS, CBNAME)                             \
-    bool CBNAME(const wxDataViewItem &a, const wxDataViewItem &b) {             \
-        bool rval = false;                                                      \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            wxPyObject bo = wxPyConstructObject((void*)&b, wxT("wxDataViewItem"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", ao.Get(), bo.Get()), wxPCBH_ERR_THROW); \
-        }                                                                       \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }
+// insertion operators
+inline wxPyObject &operator<<(wxPyObject &po, const wxDataViewItem &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxDataViewItem"), 0));
+    return po;
+}
 
+inline wxPyObject &operator<<(wxPyObject &po, const wxDataViewItem *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxDataViewItem"), 0));
+    return po;
+}
 
-#define PYCALLBACK_BOOL_DVI(PCLASS, CBNAME)                                     \
-    bool CBNAME(const wxDataViewItem &a) {                                      \
-        bool rval = false;                                                      \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", ao.Get()), wxPCBH_ERR_THROW);    \
-        }                                                                       \
-        blocker.Unblock();                                                      \
-        if (! found)                                                            \
-            rval = PCLASS::CBNAME(a);                                           \
-        return rval;                                                            \
-    }
+inline wxPyObject &operator<<(wxPyObject &po, const wxDataViewItemAttr &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxDataViewItemAttr"), 0));
+    return po;
+}
 
+inline wxPyObject &operator<<(wxPyObject &po, const wxDataViewItemAttr *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxDataViewItemAttr"), 0));
+    return po;
+}
 
-#define PYCALLBACK_BOOL_DVI_pure(PCLASS, CBNAME)                                \
-    bool CBNAME(const wxDataViewItem &a) {                                      \
-        bool rval = false;                                                      \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", ao.Get()), wxPCBH_ERR_THROW);    \
-        }                                                                       \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }
+inline wxPyObject &operator<<(wxPyObject &po, const wxDataViewItemArray &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxDataViewItemArray"), 0));
+    return po;
+}
 
+inline wxPyObject &operator<<(wxPyObject &po, const wxDataViewItemArray *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxDataViewItemArray"), 0));
+    return po;
+}
 
-#define PYCALLBACK_BOOL_DVI_pure_const(PCLASS, CBNAME)                          \
-    bool CBNAME(const wxDataViewItem &a) const {                                \
-        bool rval = false;                                                      \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                          \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", ao.Get()), wxPCBH_ERR_THROW);    \
-        }                                                                       \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }
+inline wxPyObject &operator<<(wxPyObject &po, const wxDataViewModel &obj)
+{
+    po.Push(wxPyConstructObject((void*)&obj, wxT("wxDataViewModel"), 0));
+    return po;
+}
 
+inline wxPyObject &operator<<(wxPyObject &po, const wxDataViewModel *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxDataViewModel"), 0));
+    return po;
+}
 
-#define PYCALLBACK_BOOL_DVI_const(PCLASS, CBNAME)                               \
-    bool CBNAME(const wxDataViewItem &a) const {                                \
-        bool rval = false;                                                      \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", ao.Get()), wxPCBH_ERR_THROW);    \
-        }                                                                       \
-        blocker.Unblock();                                                      \
-        if (! found)                                                            \
-            rval = PCLASS::CBNAME(a);                                           \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_BOOL_DVIDVIA(PCLASS, CBNAME)                                 \
-    bool CBNAME(const wxDataViewItem &a, const wxDataViewItemArray &b) {        \
-        bool rval = false;                                                      \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            wxPyObject bo = wxPyConstructObject((void*)&b, wxT("wxDataViewItemArray"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", ao.Get(), bo.Get()), wxPCBH_ERR_THROW); \
-        }                                                                       \
-        blocker.Unblock();                                                      \
-        if (! found)                                                            \
-            rval = PCLASS::CBNAME(a, b);                                        \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_UINT_DVIDVIA_pure_const(PCLASS, CBNAME)                      \
-    unsigned int CBNAME(const wxDataViewItem &a, wxDataViewItemArray &b) const { \
-        unsigned int rval;                                                      \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            wxPyObject bo = wxPyConstructObject((void*)&b, wxT("wxDataViewItemArray"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", ao.Get(), bo.Get()), wxPCBH_ERR_THROW); \
-        }                                                                       \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_UINT_DVIDVIA_const(PCLASS, CBNAME)                           \
-    unsigned int CBNAME(const wxDataViewItem &a, wxDataViewItemArray &b) const { \
-        unsigned int rval;                                                      \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            wxPyObject bo = wxPyConstructObject((void*)&b, wxT("wxDataViewItemArray"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", ao.Get(), bo.Get()), wxPCBH_ERR_THROW); \
-        }                                                                       \
-        blocker.Unblock();                                                      \
-        if (! found)                                                            \
-            rval = PCLASS::CBNAME(a, b);                                        \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_BOOL_DVIA(PCLASS, CBNAME)                                    \
-    bool CBNAME(const wxDataViewItemArray &a) {                                 \
-        bool rval = false;                                                      \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItemArray"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", ao.Get()), wxPCBH_ERR_THROW);    \
-        }                                                                       \
-        blocker.Unblock();                                                      \
-        if (! found)                                                            \
-            rval = PCLASS::CBNAME(a);                                           \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_BOOL_DVIUINT_pure(PCLASS, CBNAME)                            \
-    bool CBNAME(const wxDataViewItem &a, unsigned int b) {                      \
-        bool rval = false;                                                      \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oi)", ao.Get(), b), wxPCBH_ERR_THROW);\
-        }                                                                       \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_VOID__pure(PCLASS, CBNAME)                                   \
-    void CBNAME() {                                                             \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);                \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-    }
-
-
-#define PYCALLBACK_BOOL__pure(PCLASS, CBNAME)                                   \
-    bool CBNAME() {                                                             \
-        bool found;                                                             \
-        bool rval = false;                                                      \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);         \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_BOOL__pure(PCLASS, CBNAME)                                   \
-    bool CBNAME() {                                                             \
-        bool found;                                                             \
-        bool rval = false;                                                      \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);         \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_BOOL__const(PCLASS, CBNAME)                                  \
-    bool CBNAME() const {                                                       \
-        bool found;                                                             \
-        bool rval = false;                                                      \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);         \
-        blocker.Unblock();                                                      \
-        if (! found)                                                            \
-            rval = PCLASS::CBNAME();                                            \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_UINT__pure_const(PCLASS, CBNAME)                             \
-    unsigned int CBNAME() const {                                               \
-        bool found;                                                             \
-        unsigned int rval;                                                      \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);         \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_STRING_UINT_pure_const(PCLASS, CBNAME)                       \
-    wxString CBNAME(unsigned int a) const {                                     \
-        wxString rval;                                                          \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ro;                                                      \
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(i)", a), wxPCBH_ERR_THROW);    \
-            if (ro.Ok())                                                        \
-                rval = Py2wxString(ro.Get());                                   \
-        }                                                                       \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }                                                                           \
-
-
-#define PYCALLBACK_DVI_DVI_pure_const(PCLASS, CBNAME)                           \
-    wxDataViewItem CBNAME(const wxDataViewItem &a) const {                      \
-        wxDataViewItem rval;                                                    \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ro;                                                      \
-            wxDataViewItem* ptr;                                                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(O)", ao.Get()), wxPCBH_ERR_THROW);   \
-            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void**)&ptr, wxT("wxDataViewItem")))  \
-                rval = *ptr;                                                    \
-        }                                                                       \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_DVI_DVI_const(PCLASS, CBNAME)                                \
-    wxDataViewItem CBNAME(const wxDataViewItem &a) const {                      \
-        wxDataViewItem rval;                                                    \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ro;                                                      \
-            wxDataViewItem* ptr;                                                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(O)", ao.Get()), wxPCBH_ERR_THROW);   \
-            if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void**)&ptr, wxT("wxDataViewItem")))  \
-                rval = *ptr;                                                    \
-        }                                                                       \
-        blocker.Unblock();                                                      \
-        if (! found)                                                            \
-            rval = PCLASS::CBNAME(a);                                           \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_INT_DVIDVIINTBOOL(PCLASS, CBNAME)                            \
-    int CBNAME(const wxDataViewItem &a, const wxDataViewItem &b,                \
-               unsigned int c, bool d ) {                                       \
-        int rval;                                                               \
-        bool found;                                                             \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
-            wxPyObject bo = wxPyConstructObject((void*)&b, wxT("wxDataViewItem"), 0); \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOii)", ao.Get(), bo.Get(), c, d), wxPCBH_ERR_THROW); \
-        }                                                                       \
-        blocker.Unblock();                                                      \
-        if (! found)                                                            \
-            rval = PCLASS::CBNAME(a, b, c, d);                                  \
-        return rval;                                                            \
-    }
-
-
-    // TODO:  Why doesn't this just use wxSize_helper?  (See also similar macro in wxPython_int.h)
-#define PYCALLBACK_SIZE__constpure(PCLASS, CBNAME)                              \
-    wxSize CBNAME() const {                                                     \
-        const char* errmsg = #CBNAME " should return a 2-tuple of integers.";   \
-        bool found; wxSize rval(0,0);                                           \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ro;                                                      \
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);        \
-            if (ro.Ok()) {                                                      \
-                if (PySequence_Check(ro.Get()) && PyObject_Length(ro.Get()) == 2) {         \
-                    wxPyObject o1 = PySequence_GetItem(ro.Get(), 0);            \
-                    wxPyObject o2 = PySequence_GetItem(ro.Get(), 1);            \
-                    if (PyNumber_Check(o1.Get()) && PyNumber_Check(o2.Get())) { \
-                        rval = wxSize(PyInt_AsLong(o1.Get()), PyInt_AsLong(o2.Get()));      \
-                    }                                                           \
-                    else                                                        \
-                        PyErr_SetString(PyExc_TypeError, errmsg);               \
-                }                                                               \
-                else {                                                          \
-                    PyErr_SetString(PyExc_TypeError, errmsg);                   \
-                }                                                               \
-            }                                                                   \
-        }                                                                       \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-        }                                                                       \
-        if (PyErr_Occurred())                                                   \
-            wxThrowPyException();                                               \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_BOOL_RECTDCINT_pure(PCLASS, CBNAME)                          \
-    bool CBNAME(wxRect a, wxDC* b, int c) {                                     \
-        bool found;                                                             \
-        bool rval = false;                                                      \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxRect"), 0);   \
-            wxPyObject bo = wxPyMake_wxObject(b,false);                         \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOi)", ao.Get(),bo.Get(),c), wxPCBH_ERR_THROW); \
-        }                                                                       \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-            wxThrowPyException();                                               \
-        }                                                                       \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_BOOL_RECTDVMDVIUINT(PCLASS, CBNAME)                         \
-    bool CBNAME(wxRect a, wxDataViewModel* b, const wxDataViewItem& c, unsigned int d) { \
-        bool found;                                                             \
-        bool rval = false;                                                      \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&a, wxT("wxRect"), 0);   \
-            wxPyObject bo = wxPyConstructObject((void*)b, wxT("wxDataViewModel"), 0);   \
-            wxPyObject co = wxPyConstructObject((void*)&c, wxT("wxDataViewItem"), 0);   \
-            rval = wxPyCBH_callCallback(m_myInst,                               \
-                        Py_BuildValue("(OOOi)", ao.Get(),bo.Get(),co.Get(),d),  \
-                        wxPCBH_ERR_THROW);                                      \
-        }                                                                       \
-        blocker.Unblock();                                                      \
-        if (! found)                                                            \
-            rval = PCLASS::CBNAME(a, b, c, d);                                  \
-        return rval;                                                            \
-    }
-
-
-#define PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(PCLASS, CBNAME)                     \
-    bool CBNAME(wxPoint a, wxRect b, wxDataViewModel* c, const wxDataViewItem& d, unsigned int e) { \
-        bool found;                                                             \
-        bool rval = false;                                                      \
-        wxPyThreadBlocker blocker;                                              \
-        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
-            wxPyObject ao = wxPyConstructObject((void*)&b, wxT("wxPoint"), 0);  \
-            wxPyObject bo = wxPyConstructObject((void*)&b, wxT("wxRect"), 0);   \
-            wxPyObject co = wxPyConstructObject((void*)c, wxT("wxDataViewModel"), 0);   \
-            wxPyObject dp = wxPyConstructObject((void*)&d, wxT("wxDataViewItem"), 0);   \
-            rval = wxPyCBH_callCallback(m_myInst,                               \
-                        Py_BuildValue("(OOOOi)", ao.Get(),bo.Get(),co.Get(),dp.Get(),e), \
-                        wxPCBH_ERR_THROW);                                      \
-        }                                                                       \
-        blocker.Unblock();                                                      \
-        if (! found)                                                            \
-            rval = PCLASS::CBNAME(a, b, c, d, e);                               \
-        return rval;                                                            \
-    }
-
+// extraction
+inline wxPyObject &operator>>(wxPyObject &po, wxDataViewItem &out)
+{
+    EXTRACT_OBJECT_COPY(wxDataViewItem, po, out)
+    return po;
+}
 
 
 SWIGINTERN long wxDataViewItem___hash__(wxDataViewItem *self){
@@ -3265,17 +2897,20 @@ class wxPyDataViewModelNotifier : public wxDataViewModelNotifier {
 public:
     wxPyDataViewModelNotifier() {}
 
-    PYCALLBACK_BOOL_DVIDVI_pure(wxDataViewModelNotifier, ItemAdded)
-    PYCALLBACK_BOOL_DVIDVI_pure(wxDataViewModelNotifier, ItemDeleted)
-    PYCALLBACK_BOOL_DVI_pure(wxDataViewModelNotifier, ItemChanged)
+    PYCALLBACK_2_EXTRACT_PURE(bool, rval = false, ItemAdded, (const wxDataViewItem &a, const wxDataViewItem &b))
+    PYCALLBACK_2_EXTRACT_PURE(bool, rval = false, ItemDeleted, (const wxDataViewItem &a, const wxDataViewItem &b))
+    PYCALLBACK_1_EXTRACT_PURE(bool, rval = false, ItemChanged, (const wxDataViewItem &a))
 
-    PYCALLBACK_BOOL_DVIDVIA(wxDataViewModelNotifier, ItemsAdded)
-    PYCALLBACK_BOOL_DVIDVIA(wxDataViewModelNotifier, ItemsDeleted)
-    PYCALLBACK_BOOL_DVIA(wxDataViewModelNotifier, ItemsChanged)
+    PYCALLBACK_2_EXTRACT(wxDataViewModelNotifier, bool, rval = false, ItemsAdded, 
+                            (const wxDataViewItem &a, const wxDataViewItemArray &b))
+    PYCALLBACK_2_EXTRACT(wxDataViewModelNotifier, bool, rval = false, ItemsDeleted, 
+                            (const wxDataViewItem &a, const wxDataViewItemArray &b))
+    PYCALLBACK_1_EXTRACT(wxDataViewModelNotifier, bool, rval = false, ItemsChanged, 
+                            (const wxDataViewItemArray &a))
 
-    PYCALLBACK_BOOL_DVIUINT_pure(wxDataViewModelNotifier, ValueChanged)
-    PYCALLBACK_BOOL__pure(wxDataViewModelNotifier, Cleared)
-    PYCALLBACK_VOID__pure(wxDataViewModelNotifier, Resort)
+    PYCALLBACK_2_EXTRACT_PURE(bool, rval = false, ValueChanged, (const wxDataViewItem &a, unsigned int b))
+    PYCALLBACK_0_EXTRACT_PURE(bool, rval = false, Cleared)
+    PYCALLBACK_0_VOID_PURE(Resort)
 
     PYPRIVATE;
 };
@@ -3318,21 +2953,19 @@ class wxPyDataViewModel: public wxDataViewModel
 public:
     wxPyDataViewModel() {}
 
-    PYCALLBACK_UINT__pure_const(wxDataViewModel, GetColumnCount);
-    PYCALLBACK_STRING_UINT_pure_const(wxDataViewModel, GetColumnType);
+    PYCALLBACK_0_EXTRACT_PURE_CONST(unsigned int, rval = 0, GetColumnCount)
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxString, rval, GetColumnType, (unsigned int a))
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxDataViewItem, rval, GetParent, (const wxDataViewItem &a))
+    PYCALLBACK_1_EXTRACT_PURE_CONST(bool, rval = false, IsContainer, (const wxDataViewItem &a))
+    PYCALLBACK_2_EXTRACT_PURE_CONST(unsigned int, rval = 0, GetChildren, 
+                                    (const wxDataViewItem &a, wxDataViewItemArray &b))
 
-    PYCALLBACK_DVI_DVI_pure_const(wxDataViewModel, GetParent);
-    PYCALLBACK_BOOL_DVI_pure_const(wxDataViewModel, IsContainer);
-    PYCALLBACK_BOOL_DVI_const(wxDataViewModel, HasContainerColumns);
-    PYCALLBACK_UINT_DVIDVIA_pure_const(wxDataViewModel, GetChildren);
-
-    PYCALLBACK_BOOL_DVI(wxDataViewModel, IsDraggable);
-    // GetDragDataSize
-    // GetDragData
-
-    PYCALLBACK_INT_DVIDVIINTBOOL(wxDataViewModel, Compare);
-    PYCALLBACK_BOOL__const(wxDataViewModel, HasDefaultCompare);
-
+    PYCALLBACK_1_EXTRACT(wxDataViewModel, bool, rval = false, IsDraggable, (const wxDataViewItem &a))
+    PYCALLBACK_1_EXTRACT_CONST(wxDataViewModel, bool, rval = false, HasContainerColumns, 
+                                (const wxDataViewItem &a))
+    PYCALLBACK_4_EXTRACT(wxDataViewModel, int, rval = 0, Compare, 
+                            (const wxDataViewItem &a, const wxDataViewItem &b, unsigned int c, bool d))
+    PYCALLBACK_0_EXTRACT_CONST(wxDataViewModel, bool, rval = false, HasDefaultCompare) 
 
     void GetValue( wxVariant &variant,
                    const wxDataViewItem &item, unsigned int col ) const
@@ -3342,9 +2975,9 @@ public:
         bool found;
         wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
+            wxPyTuple args(2);
             wxPyObject ro;
-            wxPyObject io = wxPyConstructObject((void*)&item, wxT("wxDataViewItem"), 0);
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(Oi)", io.Get(), col), wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, args << item << col, wxPCBH_ERR_THROW);
             if (ro.Ok())
                 variant = wxVariant_in_helper(ro.Get());
         }
@@ -3355,47 +2988,11 @@ public:
         }
     }
 
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, SetValue, 
+                                (const wxVariant &a, const wxDataViewItem &b, unsigned int c))
 
-    bool SetValue( const wxVariant &variant,
-                   const wxDataViewItem &item, unsigned int col )
-    {
-        bool rval = false;
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
-            wxPyObject vo = wxVariant_out_helper(variant);
-            wxPyObject io = wxPyConstructObject((void*)&item, wxT("wxDataViewItem"), 0);
-            rval = wxPyCBH_callCallback(m_myInst, 
-                        Py_BuildValue("(OOi)", vo.Get(), io.Get(), col), 
-                        wxPCBH_ERR_THROW);
-        }
-        else {
-            PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
-            wxThrowPyException();
-        }
-        return rval;
-    }
-
-    bool GetAttr( const wxDataViewItem &item, unsigned int col, wxDataViewItemAttr &attr )
-    {
-        bool rval = false;
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "GetAttr"))) {
-            wxPyObject io = wxPyConstructObject((void*)&item, wxT("wxDataViewItem"), 0);
-            wxPyObject ao = wxPyConstructObject((void*)&attr, wxT("wxDataViewItemAttr"), 0);
-            rval = wxPyCBH_callCallback(m_myInst, 
-                    Py_BuildValue("(OiO)", io.Get(), col, ao.Get()), 
-                    wxPCBH_ERR_THROW);
-        }
-        else {
-            PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
-            wxThrowPyException();
-        }
-        return rval;
-    }
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, GetAttr, 
+                                (const wxDataViewItem &a, unsigned int b, wxDataViewItemAttr &c))
 
     PYPRIVATE;
 };
@@ -3415,21 +3012,19 @@ public:
     wxPyDataViewIndexListModel( unsigned int initial_size = 0)
         : wxDataViewIndexListModel(initial_size) {}
 
-    PYCALLBACK_UINT__pure_const(wxDataViewIndexListModel, GetColumnCount);
-    PYCALLBACK_STRING_UINT_pure_const(wxDataViewIndexListModel, GetColumnType);
+    PYCALLBACK_0_EXTRACT_PURE_CONST(unsigned int, rval = 0, GetColumnCount)
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxString, rval, GetColumnType, (unsigned int a))
 
-    PYCALLBACK_DVI_DVI_const(wxDataViewIndexListModel, GetParent);
-    PYCALLBACK_BOOL_DVI_const(wxDataViewIndexListModel, IsContainer);
-    PYCALLBACK_BOOL_DVI_const(wxDataViewIndexListModel, HasContainerColumns);
-    PYCALLBACK_UINT_DVIDVIA_const(wxDataViewIndexListModel, GetChildren);
+    PYCALLBACK_1_EXTRACT_CONST(wxDataViewIndexListModel, wxDataViewItem, rval, GetParent, (const wxDataViewItem &a))
+    PYCALLBACK_1_EXTRACT_CONST(wxDataViewIndexListModel, bool, rval = false, IsContainer, (const wxDataViewItem &a))
+    PYCALLBACK_1_EXTRACT_CONST(wxDataViewIndexListModel, bool, rval = false, HasContainerColumns, (const wxDataViewItem &a))
+    PYCALLBACK_2_EXTRACT_CONST(wxDataViewIndexListModel, unsigned int, rval = 0, GetChildren, 
+                                    (const wxDataViewItem &a, wxDataViewItemArray &b))
 
-    PYCALLBACK_BOOL_DVI(wxDataViewIndexListModel, IsDraggable);
-    // GetDragDataSize
-    // GetDragData
-
-    PYCALLBACK_INT_DVIDVIINTBOOL(wxDataViewIndexListModel, Compare);
-    PYCALLBACK_BOOL__const(wxDataViewIndexListModel, HasDefaultCompare);
-
+    PYCALLBACK_1_EXTRACT(wxDataViewIndexListModel, bool, rval = false, IsDraggable, (const wxDataViewItem &a))
+    PYCALLBACK_4_EXTRACT(wxDataViewIndexListModel, int, rval = 0, Compare, 
+                            (const wxDataViewItem &a, const wxDataViewItem &b, unsigned int c, bool d))
+    PYCALLBACK_0_EXTRACT_CONST(wxDataViewIndexListModel, bool, rval = false, HasDefaultCompare) 
 
     virtual void GetValue( wxVariant &variant,
                            unsigned int row, unsigned int col ) const
@@ -3439,8 +3034,9 @@ public:
         bool found;
         wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
+            wxPyTuple args(2);
             wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)", row, col), wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, args << row << col, wxPCBH_ERR_THROW);
             if (ro.Ok())
                 variant = wxVariant_in_helper(ro.Get());
         }
@@ -3452,46 +3048,11 @@ public:
     }
 
 
-    virtual bool SetValue( const wxVariant &variant,
-                           unsigned int row, unsigned int col )
-    {
-        bool rval = false;
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
-            wxPyObject vo = wxVariant_out_helper(variant);
-            rval = wxPyCBH_callCallback(m_myInst, 
-                        Py_BuildValue("(Oii)", vo.Get(), row, col), 
-                        wxPCBH_ERR_THROW);
-        }
-        else {
-            PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
-            wxThrowPyException();
-        }
-        return rval;
-    }
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, SetValue, 
+                                (const wxVariant &a, unsigned int b, unsigned int c))
 
-
-    virtual bool GetAttr( unsigned int row, unsigned int col,
-                          wxDataViewItemAttr &attr )
-    {
-        bool rval = false;
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "GetAttr"))) {
-            wxPyObject ao = wxPyConstructObject((void*)&attr, wxT("wxDataViewItemAttr"), 0);
-            rval = wxPyCBH_callCallback(m_myInst, 
-                        Py_BuildValue("(iiO)", row, col, ao.Get()), 
-                        wxPCBH_ERR_THROW);
-        }
-        else {
-            PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
-            wxThrowPyException();
-        }
-        return rval;
-    }
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, GetAttr, 
+                                (unsigned int a, unsigned int b, wxDataViewItemAttr &c))
 
     PYPRIVATE;
 };
@@ -3510,21 +3071,19 @@ public:
     wxPyDataViewVirtualListModel( unsigned int initial_size = 0)
         : wxDataViewVirtualListModel(initial_size) {}
 
-    PYCALLBACK_UINT__pure_const(wxDataViewVirtualListModel, GetColumnCount);
-    PYCALLBACK_STRING_UINT_pure_const(wxDataViewVirtualListModel, GetColumnType);
+    PYCALLBACK_0_EXTRACT_PURE_CONST(unsigned int, rval = 0, GetColumnCount)
+    PYCALLBACK_1_EXTRACT_PURE_CONST(wxString, rval, GetColumnType, (unsigned int a))
 
-    PYCALLBACK_DVI_DVI_const(wxDataViewVirtualListModel, GetParent);
-    PYCALLBACK_BOOL_DVI_const(wxDataViewVirtualListModel, IsContainer);
-    PYCALLBACK_BOOL_DVI_const(wxDataViewVirtualListModel, HasContainerColumns);
-    PYCALLBACK_UINT_DVIDVIA_const(wxDataViewVirtualListModel, GetChildren);
+    PYCALLBACK_1_EXTRACT_CONST(wxDataViewVirtualListModel, wxDataViewItem, rval, GetParent, (const wxDataViewItem &a))
+    PYCALLBACK_1_EXTRACT_CONST(wxDataViewVirtualListModel, bool, rval = false, IsContainer, (const wxDataViewItem &a))
+    PYCALLBACK_1_EXTRACT_CONST(wxDataViewVirtualListModel, bool, rval = false, HasContainerColumns, (const wxDataViewItem &a))
+    PYCALLBACK_2_EXTRACT_CONST(wxDataViewVirtualListModel, unsigned int, rval = 0, GetChildren, 
+                                    (const wxDataViewItem &a, wxDataViewItemArray &b))
 
-    PYCALLBACK_BOOL_DVI(wxDataViewVirtualListModel, IsDraggable);
-    // GetDragDataSize
-    // GetDragData
-
-    PYCALLBACK_INT_DVIDVIINTBOOL(wxDataViewVirtualListModel, Compare);
-    PYCALLBACK_BOOL__const(wxDataViewVirtualListModel, HasDefaultCompare);
-
+    PYCALLBACK_1_EXTRACT(wxDataViewVirtualListModel, bool, rval = false, IsDraggable, (const wxDataViewItem &a))
+    PYCALLBACK_4_EXTRACT(wxDataViewVirtualListModel, int, rval = 0, Compare, 
+                            (const wxDataViewItem &a, const wxDataViewItem &b, unsigned int c, bool d))
+    PYCALLBACK_0_EXTRACT_CONST(wxDataViewVirtualListModel, bool, rval = false, HasDefaultCompare) 
 
     virtual void GetValue( wxVariant &variant,
                            unsigned int row, unsigned int col ) const
@@ -3534,8 +3093,9 @@ public:
         bool found;
         wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
+            wxPyTuple args(2);
             wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)", row, col), wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, args << row << col, wxPCBH_ERR_THROW);
             if (ro.Ok())
                 variant = wxVariant_in_helper(ro.Get());
         }
@@ -3547,46 +3107,11 @@ public:
     }
 
 
-    virtual bool SetValue( const wxVariant &variant,
-                           unsigned int row, unsigned int col )
-    {
-        bool rval = false;
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
-            wxPyObject vo = wxVariant_out_helper(variant);
-            rval = wxPyCBH_callCallback(m_myInst, 
-                        Py_BuildValue("(Oii)", vo.Get(), row, col), 
-                        wxPCBH_ERR_THROW);
-        }
-        else {
-            PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
-            wxThrowPyException();
-        }
-        return rval;
-    }
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, SetValue, 
+                                (const wxVariant &a, unsigned int b, unsigned int c))
 
-
-    virtual bool GetAttr( unsigned int row, unsigned int col,
-                          wxDataViewItemAttr &attr )
-    {
-        bool rval = false;
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "GetAttr"))) {
-            wxPyObject ao = wxPyConstructObject((void*)&attr, wxT("wxDataViewItemAttr"), 0);
-            rval = wxPyCBH_callCallback(m_myInst, 
-                        Py_BuildValue("(iiO)", row, col, ao.Get()), 
-                        wxPCBH_ERR_THROW);
-        }
-        else {
-            PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
-            wxThrowPyException();
-        }
-        return rval;
-    }
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, GetAttr, 
+                                (unsigned int a, unsigned int b, wxDataViewItemAttr &c))
 
     PYPRIVATE;
 };
@@ -3630,31 +3155,16 @@ public:
         : wxDataViewCustomRenderer(varianttype, mode, align)
     {}
 
-    PYCALLBACK_SIZE__constpure(wxDataViewCustomRenderer, GetSize);
-    PYCALLBACK_BOOL_RECTDCINT_pure(wxDataViewCustomRenderer, Render);
-    PYCALLBACK_BOOL_RECTDVMDVIUINT(wxDataViewCustomRenderer, Activate);
-    PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, LeftClick);
-//    PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, RightClick);
-    PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, StartDrag);
+    PYCALLBACK_0_EXTRACT_PURE_CONST(wxSize, rval(0,0), GetSize)
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, Render, (wxRect a, wxDC* b, int c))
+    PYCALLBACK_4_EXTRACT(wxDataViewCustomRenderer, bool, rval = false, Activate, 
+                            (wxRect a, wxDataViewModel* b, const wxDataViewItem& c, unsigned int d))
+    PYCALLBACK_5_EXTRACT(wxDataViewCustomRenderer, bool, rval = false, LeftClick, 
+                            (wxPoint a, wxRect b, wxDataViewModel* c, const wxDataViewItem& d, unsigned int e))
+    PYCALLBACK_5_EXTRACT(wxDataViewCustomRenderer, bool, rval = false, StartDrag, 
+                            (wxPoint a, wxRect b, wxDataViewModel* c, const wxDataViewItem& d, unsigned int e))
 
-
-    virtual bool SetValue( const wxVariant& value )
-    {
-        bool found;
-        bool rval = false;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
-            wxPyObject v = wxVariant_out_helper(value);
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", v.Get()), wxPCBH_ERR_THROW);
-        }
-        else {
-            PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
-            wxThrowPyException();
-        }
-        return rval;
-    }
-
+    PYCALLBACK_1_EXTRACT_PURE(bool, rval = false, SetValue, (const wxVariant &a))
 
     virtual bool GetValue( wxVariant& value ) const
     {
@@ -3664,7 +3174,7 @@ public:
         wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
             wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW);
             if (ro.Ok())
                 value = wxVariant_in_helper(ro.Get());
         }
@@ -3685,9 +3195,9 @@ public:
         bool found;
         wxPyThreadBlocker blocker;
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValueFromEditorCtrl"))) {
+            wxPyTuple args(1);
             wxPyObject ro;
-            wxPyObject io = wxPyConstructObject((void*)&editor, wxT("wxControl"), 0);
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(O)", io.Get()), wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, args << editor, wxPCBH_ERR_THROW);
             if (ro.Ok())
                 value = wxVariant_in_helper(ro.Get());
         }

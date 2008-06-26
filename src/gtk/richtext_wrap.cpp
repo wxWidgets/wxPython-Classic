@@ -2781,10 +2781,10 @@ namespace swig {
 
 
 #include "wx/wxPython/wxPython.h"
+#include "wx/wxPython/raiihelpers.h"
 #include "wx/wxPython/pyclasses.h"
 #include "wx/wxPython/printfw.h"
 #include "wx/wxPython/twoitem.h"
-#include "wx/wxPython/raiihelpers.h"
 
 #include <wx/richtext/richtextctrl.h>
 

@@ -2658,8 +2658,8 @@ namespace swig {
 
 
 #include "wx/wxPython/wxPython.h"
-#include "wx/wxPython/pyclasses.h"
 #include "wx/wxPython/raiihelpers.h"
+#include "wx/wxPython/pyclasses.h"
 
 #include <wx/mediactrl.h>
 #include <wx/uri.h>

@@ -45,13 +45,25 @@ bool wxIsDragResultOk(wxDragResult res);
 //---------------------------------------------------------------------------
 
 
+%{
+// Extractor to cast int to wxDragResult
+inline wxPyObject &operator>>(wxPyObject &po, wxDragResult &out)
+{
+    int iout = 0;
+    po >> iout;
+    out = (wxDragResult)iout;
+    return po; 
+}
+%}
+
 // wxDropSource is the object you need to create (and call DoDragDrop on it)
 // to initiate a drag-and-drop operation
 
 
 
 %{
-IMP_PYCALLBACK_BOOL_DR(wxPyDropSource, wxDropSource, GiveFeedback);
+IMP_PYCALLBACK_1_EXTRACT(wxPyDropSource, wxDropSource, bool, rval = false, GiveFeedback, 
+                            (wxDragResult a))
 %}
 
 
@@ -126,11 +138,14 @@ def DROP_ICON(filename):
 
 
 %{
-IMP_PYCALLBACK__(wxPyDropTarget, wxDropTarget, OnLeave);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyDropTarget, wxDropTarget, OnEnter);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyDropTarget, wxDropTarget, OnDragOver);
-IMP_PYCALLBACK_DR_2WXCDR_pure(wxPyDropTarget, wxDropTarget, OnData);
-IMP_PYCALLBACK_BOOL_INTINT(wxPyDropTarget, wxDropTarget, OnDrop);
+IMP_PYCALLBACK_0_VOID(wxPyDropTarget, wxDropTarget, OnLeave)
+IMP_PYCALLBACK_3_EXTRACT(wxPyDropTarget, wxDropTarget, wxDragResult, rval = (wxDragResult)0, OnEnter, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+IMP_PYCALLBACK_3_EXTRACT(wxPyDropTarget, wxDropTarget, wxDragResult, rval = (wxDragResult)0, OnDragOver,
+                            (wxCoord a, wxCoord b, wxDragResult c))
+IMP_PYCALLBACK_3_EXTRACT(wxPyDropTarget, wxDropTarget, wxDragResult, rval = (wxDragResult)0, OnData,
+                            (wxCoord a, wxCoord b, wxDragResult c))
+IMP_PYCALLBACK_2_EXTRACT(wxPyDropTarget, wxDropTarget, bool, rval = false, OnDrop, (int a, int b))
 %}
 
 
@@ -196,23 +211,18 @@ class wxPyTextDropTarget : public wxTextDropTarget {
 public:
     wxPyTextDropTarget() {}
 
-    DEC_PYCALLBACK_BOOL_INTINTSTR_pure(OnDropText);
-
-    DEC_PYCALLBACK__(OnLeave);
-    DEC_PYCALLBACK_DR_2WXCDR(OnEnter);
-    DEC_PYCALLBACK_DR_2WXCDR(OnDragOver);
-    DEC_PYCALLBACK_DR_2WXCDR(OnData);
-    DEC_PYCALLBACK_BOOL_INTINT(OnDrop);
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, OnDropText, (int a, int b, const wxString &c))
+    PYCALLBACK_0_VOID(wxTextDropTarget, OnLeave)
+    PYCALLBACK_3_EXTRACT(wxTextDropTarget, wxDragResult, rval = (wxDragResult)0, OnEnter, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_3_EXTRACT(wxTextDropTarget, wxDragResult, rval = (wxDragResult)0, OnDragOver, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_3_EXTRACT(wxTextDropTarget, wxDragResult, rval = (wxDragResult)0, OnData, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_2_EXTRACT(wxTextDropTarget, bool, rval = false, OnDrop, (int a, int b)) 
 
     PYPRIVATE;
 };
-
-IMP_PYCALLBACK_BOOL_INTINTSTR_pure(wxPyTextDropTarget, wxTextDropTarget, OnDropText);
-IMP_PYCALLBACK__(wxPyTextDropTarget, wxTextDropTarget, OnLeave);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyTextDropTarget, wxTextDropTarget, OnEnter);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyTextDropTarget, wxTextDropTarget, OnDragOver);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyTextDropTarget, wxTextDropTarget, OnData);
-IMP_PYCALLBACK_BOOL_INTINT(wxPyTextDropTarget, wxTextDropTarget, OnDrop);
 
 %}
 
@@ -249,37 +259,21 @@ class wxPyFileDropTarget : public wxFileDropTarget {
 public:
     wxPyFileDropTarget() {}
 
-    virtual bool OnDropFiles(wxCoord x, wxCoord y, const wxArrayString& filenames);
-
-    DEC_PYCALLBACK__(OnLeave);
-    DEC_PYCALLBACK_DR_2WXCDR(OnEnter);
-    DEC_PYCALLBACK_DR_2WXCDR(OnDragOver);
-    DEC_PYCALLBACK_DR_2WXCDR(OnData);
-    DEC_PYCALLBACK_BOOL_INTINT(OnDrop);
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, OnDropFiles, 
+                            (wxCoord a, wxCoord b, const wxArrayString& c))
+    PYCALLBACK_3_EXTRACT_PURE(bool, rval = false, OnDropText, 
+                            (int a, int b, const wxString &c))
+    PYCALLBACK_0_VOID(wxFileDropTarget, OnLeave)
+    PYCALLBACK_3_EXTRACT(wxFileDropTarget, wxDragResult, rval = (wxDragResult)0, OnEnter, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_3_EXTRACT(wxFileDropTarget, wxDragResult, rval = (wxDragResult)0, OnDragOver, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_3_EXTRACT(wxFileDropTarget, wxDragResult, rval = (wxDragResult)0, OnData, 
+                            (wxCoord a, wxCoord b, wxDragResult c))
+    PYCALLBACK_2_EXTRACT(wxFileDropTarget, bool, rval = false, OnDrop, (int a, int b)) 
 
     PYPRIVATE;
 };
-
-bool wxPyFileDropTarget::OnDropFiles(wxCoord x, wxCoord y,
-                                     const wxArrayString& filenames) {
-    bool rval = false;
-    wxPyThreadBlocker blocker;
-    if (wxPyCBH_findCallback(m_myInst, "OnDropFiles")) {
-        wxPyObject list = wxArrayString2PyList_helper(filenames);
-        rval = wxPyCBH_callCallback(m_myInst, 
-                Py_BuildValue("(iiO)",x,y,list.Get()), 
-                wxPCBH_ERR_THROW);
-    }
-    return rval;
-}
-
-
-
-IMP_PYCALLBACK__(wxPyFileDropTarget, wxFileDropTarget, OnLeave);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyFileDropTarget, wxFileDropTarget, OnEnter);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyFileDropTarget, wxFileDropTarget, OnDragOver);
-IMP_PYCALLBACK_DR_2WXCDR(wxPyFileDropTarget, wxFileDropTarget, OnData);
-IMP_PYCALLBACK_BOOL_INTINT(wxPyFileDropTarget, wxFileDropTarget, OnDrop);
 
 %}
 

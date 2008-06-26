@@ -421,13 +421,13 @@ public:
     wxPyDataObjectSimple(const wxDataFormat& format = wxFormatInvalid)
         : wxDataObjectSimple(format) {}
 
-    DEC_PYCALLBACK_SIZET__const(GetDataSize);
+    PYCALLBACK_0_EXTRACT_CONST(wxDataObjectSimple, size_t, rval = 0, GetDataSize) 
+    //DEC_PYCALLBACK_SIZET__const(GetDataSize);
     bool GetDataHere(void *buf) const;
     bool SetData(size_t len, const void *buf);
     PYPRIVATE;
 };
 
-IMP_PYCALLBACK_SIZET__const(wxPyDataObjectSimple, wxDataObjectSimple, GetDataSize);
 
 bool wxPyDataObjectSimple::GetDataHere(void *buf) const {
     // We need to get the data for this object and write it to buf.  I think
@@ -439,7 +439,7 @@ bool wxPyDataObjectSimple::GetDataHere(void *buf) const {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "GetDataHere")) {
         wxPyObject ro;
-        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+        ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW);
         if (ro.Ok()) {
             rval = (ro.Get() != Py_None && PyString_Check(ro.Get()));
             if (rval)
@@ -455,8 +455,7 @@ bool wxPyDataObjectSimple::SetData(size_t len, const void *buf) {
     bool rval = false;
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "SetData")) {
-        wxPyObject data = PyString_FromStringAndSize((char*)buf, len);
-        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", data.Get()), wxPCBH_ERR_THROW);
+        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(s#)", buf, len), wxPCBH_ERR_THROW);
     }
     return rval;
 }
@@ -600,15 +599,12 @@ public:
     wxPyTextDataObject(const wxString& text = wxPyEmptyString)
         : wxTextDataObject(text) {}
 
-    DEC_PYCALLBACK_SIZET__const(GetTextLength);
-    DEC_PYCALLBACK_STRING__const(GetText);
-    DEC_PYCALLBACK__STRING(SetText);
+    PYCALLBACK_0_EXTRACT_CONST(wxTextDataObject, size_t, rval = 0, GetTextLength)
+    PYCALLBACK_0_EXTRACT_CONST(wxTextDataObject, wxString, rval, GetText)
+    PYCALLBACK_1_VOID(wxTextDataObject, SetText, (const wxString &a))
+
     PYPRIVATE;
 };
-
-IMP_PYCALLBACK_SIZET__const(wxPyTextDataObject, wxTextDataObject, GetTextLength);
-IMP_PYCALLBACK_STRING__const(wxPyTextDataObject, wxTextDataObject, GetText);
-IMP_PYCALLBACK__STRING(wxPyTextDataObject, wxTextDataObject, SetText);
 
 %}
 
@@ -674,31 +670,12 @@ public:
     wxPyBitmapDataObject(const wxBitmap& bitmap = wxNullBitmap)
         : wxBitmapDataObject(bitmap) {}
 
-    wxBitmap GetBitmap() const;
-    void SetBitmap(const wxBitmap& bitmap);
+    PYCALLBACK_0_EXTRACT_PURE_CONST(wxBitmap, rval, GetBitmap)
+    PYCALLBACK_1_VOID_PURE(SetBitmap, (const wxBitmap &a))
+
     PYPRIVATE;
 };
 
-wxBitmap wxPyBitmapDataObject::GetBitmap() const {
-    wxBitmap* rval = &wxNullBitmap;
-    wxPyThreadBlocker blocker;
-    if (wxPyCBH_findCallback(m_myInst, "GetBitmap")) {
-        wxPyObject ro;
-        wxBitmap* ptr;
-        ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
-        if (ro.Ok() && wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxBitmap")))
-            rval = ptr;
-    }
-    return *rval;
-}
- 
-void wxPyBitmapDataObject::SetBitmap(const wxBitmap& bitmap) {
-    wxPyThreadBlocker blocker;
-    if (wxPyCBH_findCallback(m_myInst, "SetBitmap")) {
-        wxPyObject bo = wxPyConstructObject((void*)&bitmap, wxT("wxBitmap"), false);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", bo.Get()), wxPCBH_ERR_THROW);
-    }
-}
 %}
 
 

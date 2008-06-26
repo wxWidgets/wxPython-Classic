@@ -104,8 +104,8 @@ inline wxPyObject &operator>>(wxPyObject &po, wxIconBundle &ib)
 class wxPyArtProvider : public wxArtProvider  {
 public:
 
-    PYCALLBACK_3_EXTRACT_PURE(wxBitmap, wxNullBitmap, CreateBitmap, (const wxArtID& a, const wxArtClient& b, const wxSize& c), )
-    PYCALLBACK_2_EXTRACT_PURE(wxIconBundle, wxNullIconBundle, CreateIconBundle, (const wxArtID& a, const wxArtClient& b), )
+    PYCALLBACK_3_EXTRACT_PURE(wxBitmap, rval = wxNullBitmap, CreateBitmap, (const wxArtID& a, const wxArtClient& b, const wxSize& c))
+    PYCALLBACK_2_EXTRACT_PURE(wxIconBundle, rval = wxNullIconBundle, CreateIconBundle, (const wxArtID& a, const wxArtClient& b))
 
     PYPRIVATE;
 };

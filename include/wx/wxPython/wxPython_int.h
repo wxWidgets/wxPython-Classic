@@ -701,6 +701,7 @@ public:
 extern wxPyApp *wxPythonApp;
 
 
+//TODO: Have PURE callbacks raise NotImplementedError if python method not found. 
 //TODO: Document macros
 //
 // Base callback macros.

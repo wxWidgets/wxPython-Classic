@@ -380,38 +380,13 @@ class wxPyLog : public wxLog {
 public:
     wxPyLog() : wxLog() {}
 
-    virtual void DoLog(wxLogLevel level, const wxChar *szString, time_t t) {
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "DoLog"))) {
-            wxPyObject s = wx2PyString(szString);
-            wxPyCBH_callCallback(m_myInst, 
-                    Py_BuildValue("(iOi)", level, s.Get(), t), 
-                    wxPCBH_ERR_THROW);
-        }
-        blocker.Unblock();
-        if (! found)
-            wxLog::DoLog(level, szString, t);
-    }
+    PYCALLBACK_3_VOID(wxLog, DoLog, (wxLogLevel a, const wxChar *b, time_t c))
+    PYCALLBACK_2_VOID(wxLog, DoLogString, (const wxChar *a, time_t b))
+    PYCALLBACK_0_VOID(wxLog, Flush)
 
-    virtual void DoLogString(const wxChar *szString, time_t t) {
-        bool found;
-        wxPyThreadBlocker blocker;
-        if ((found = wxPyCBH_findCallback(m_myInst, "DoLogString"))) {
-            wxPyObject s = wx2PyString(szString);
-            wxPyCBH_callCallback(m_myInst, 
-                    Py_BuildValue("(Oi)", s.Get(), t), 
-                    wxPCBH_ERR_THROW);
-        }
-        blocker.Unblock();
-        if (! found)
-            wxLog::DoLogString(szString, t);
-    }
-
-    DEC_PYCALLBACK_VOID_(Flush);
     PYPRIVATE;
 };
-IMP_PYCALLBACK_VOID_(wxPyLog, wxLog, Flush);
+
 %}
 
 // Now tell SWIG about it
