@@ -623,6 +623,7 @@ inline wxPyObject &operator<<(wxPyObject &po, const wxTreeItemId *obj)
         }                                                           \
     }
 
+//XXX: fix this... 
 #define EXTRACT_UINT(i, o)                                          \
     if (i.Ok() && !PyErr_Occurred()) {                              \
         wxPyObject ro = i.Pop();                                    \
@@ -743,12 +744,10 @@ inline wxPyObject &operator>>(wxPyObject &po, wxString &out)
 inline wxPyObject &operator>>(wxPyObject &po, wxSize &out)
 {
     if (po.Ok() && !PyErr_Occurred()) {
-        wxSize *pout;
+        wxSize *pout = &out;
         wxPyObject ro = po.Pop();
         if (!wxSize_helper(ro.Get(), &pout))
             wxThrowPyException();
-        else
-            out = *pout;
     }
     return po;
 }
@@ -756,6 +755,12 @@ inline wxPyObject &operator>>(wxPyObject &po, wxSize &out)
 inline wxPyObject &operator>>(wxPyObject &po, wxWindow *&out)
 {
     EXTRACT_OBJECT(wxWindow, po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, wxObject *&out)
+{
+    EXTRACT_OBJECT(wxObject, po, out)
     return po;
 }
 
@@ -774,6 +779,18 @@ inline wxPyObject &operator>>(wxPyObject &po, wxFont &out)
 inline wxPyObject &operator>>(wxPyObject &po, wxRect &out)
 {
     EXTRACT_OBJECT_COPY(wxRect, po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, wxBitmap &out)
+{
+    EXTRACT_OBJECT_COPY(wxBitmap, po, out)
+    return po;
+}
+
+inline wxPyObject &operator>>(wxPyObject &po, wxVisualAttributes &out)
+{
+    EXTRACT_OBJECT_COPY(wxVisualAttributes, po, out)
     return po;
 }
 

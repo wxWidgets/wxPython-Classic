@@ -57,15 +57,24 @@ public:
 //---------------------------------------------------------------------------
 
 %{
+
+inline wxPyObject &operator>>(wxPyObject &po, wxFSFile *&fsf)
+{
+    EXTRACT_OBJECT(wxFSFile, po, fsf)
+    /* release ownership of the C++ wx.FSFile object. */  
+    PyObject_SetAttrString(po.Get(), "thisown", Py_False);
+    return po;
+}
+
 class wxPyFileSystemHandler : public wxFileSystemHandler
 {
 public:
     wxPyFileSystemHandler() : wxFileSystemHandler() {}
 
-    DEC_PYCALLBACK_BOOL_STRING_pure(CanOpen);
-    DEC_PYCALLBACK_FSF_FSSTRING_pure(OpenFile);
-    DEC_PYCALLBACK_STRING_STRINGINT_pure(FindFirst);
-    DEC_PYCALLBACK_STRING__pure(FindNext);
+    PYCALLBACK_1_EXTRACT_PURE(bool, rval = false, CanOpen, (const wxString &a))
+    PYCALLBACK_2_EXTRACT_PURE(wxFSFile*, rval = NULL, OpenFile, (wxFileSystem &a, const wxString &b))
+    PYCALLBACK_2_EXTRACT_PURE(wxString, rval, FindFirst, (const wxString &a, int b))
+    PYCALLBACK_0_EXTRACT_PURE(wxString, rval, FindNext)
 
     static wxString GetProtocol(const wxString& location) {
         return wxFileSystemHandler::GetProtocol(location);
@@ -90,11 +99,6 @@ public:
     PYPRIVATE;
 };
 
-
-IMP_PYCALLBACK_BOOL_STRING_pure(wxPyFileSystemHandler, wxFileSystemHandler, CanOpen);
-IMP_PYCALLBACK_FSF_FSSTRING_pure(wxPyFileSystemHandler, wxFileSystemHandler, OpenFile);
-IMP_PYCALLBACK_STRING_STRINGINT_pure(wxPyFileSystemHandler, wxFileSystemHandler, FindFirst);
-IMP_PYCALLBACK_STRING__pure(wxPyFileSystemHandler, wxFileSystemHandler, FindNext);
 %}
 
 

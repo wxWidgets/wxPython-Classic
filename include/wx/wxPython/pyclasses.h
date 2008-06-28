@@ -23,9 +23,10 @@ class wxPySizer : public wxSizer {
     DECLARE_DYNAMIC_CLASS(wxPySizer)
 public:
     wxPySizer() : wxSizer() {};
+    
+    void RecalcSizes();
+    wxSize CalcMin();
 
-    DEC_PYCALLBACK___pure(RecalcSizes);
-    DEC_PYCALLBACK_wxSize__pure(CalcMin);
     PYPRIVATE;
 };
 
@@ -61,10 +62,9 @@ public:
         return ptr;
     }
 
-
-    DEC_PYCALLBACK_BOOL_WXWIN(Validate);
-    DEC_PYCALLBACK_BOOL_(TransferToWindow);
-    DEC_PYCALLBACK_BOOL_(TransferFromWindow);
+    bool Validate(wxWindow* a);
+    bool TransferToWindow();
+    bool TransferFromWindow();
 
     PYPRIVATE;
 };
@@ -78,8 +78,8 @@ class wxPyTimer : public wxTimer
 public:
     wxPyTimer(wxEvtHandler *owner=NULL, int id = -1);
     ~wxPyTimer();
-    
-    DEC_PYCALLBACK__(Notify);
+    void Notify();
+
     PYPRIVATE;
     DECLARE_ABSTRACT_CLASS(wxPyTimer)
 };
@@ -94,7 +94,7 @@ public:
         : wxProcess(parent, id)
         {}
 
-    DEC_PYCALLBACK_VOID_INTINT(OnTerminate);
+    void OnTerminate(int a, int b);
 
     PYPRIVATE;
 };

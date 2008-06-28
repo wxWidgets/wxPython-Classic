@@ -422,7 +422,6 @@ public:
         : wxDataObjectSimple(format) {}
 
     PYCALLBACK_0_EXTRACT_CONST(wxDataObjectSimple, size_t, rval = 0, GetDataSize) 
-    //DEC_PYCALLBACK_SIZET__const(GetDataSize);
     bool GetDataHere(void *buf) const;
     bool SetData(size_t len, const void *buf);
     PYPRIVATE;

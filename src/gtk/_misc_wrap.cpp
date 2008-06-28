@@ -2997,13 +2997,12 @@ public:
     wxPyTipProvider(size_t currentTip)
         : wxTipProvider(currentTip) {}
 
-    DEC_PYCALLBACK_STRING__pure(GetTip);
-    DEC_PYCALLBACK_STRING_STRING(PreprocessTip);
+    PYCALLBACK_0_EXTRACT_PURE(wxString, rval, GetTip)
+    PYCALLBACK_1_EXTRACT(wxTipProvider, wxString, rval, PreprocessTip, (const wxString &a))
+
     PYPRIVATE;
 };
 
-IMP_PYCALLBACK_STRING__pure( wxPyTipProvider, wxTipProvider, GetTip);
-IMP_PYCALLBACK_STRING_STRING(wxPyTipProvider, wxTipProvider, PreprocessTip);
 
 
 SWIGINTERNINLINE int
@@ -3016,7 +3015,7 @@ SWIG_AsVal_size_t (PyObject * obj, size_t *val)
 }
 
 
-IMP_PYCALLBACK__(wxPyTimer, wxTimer, Notify);
+IMP_PYCALLBACK_0_VOID(wxPyTimer, wxTimer, Notify)
 
 IMPLEMENT_ABSTRACT_CLASS(wxPyTimer, wxTimer);
 
@@ -3202,7 +3201,7 @@ public:
 
 
  
-IMP_PYCALLBACK_VOID_INTINT( wxPyProcess, wxProcess, OnTerminate);
+IMP_PYCALLBACK_2_VOID( wxPyProcess, wxProcess, OnTerminate, (int a, int b))
 
 
 #include <wx/joystick.h>
@@ -3510,12 +3509,6 @@ SWIGINTERN PyObject *wxMimeTypesManager_EnumAllFileTypes(wxMimeTypesManager *sel
  static const wxString wxPyART_QUIT(wxART_QUIT); 
  static const wxString wxPyART_FIND(wxART_FIND); 
  static const wxString wxPyART_FIND_AND_REPLACE(wxART_FIND_AND_REPLACE); 
-
-inline wxPyObject &operator>>(wxPyObject &po, wxBitmap &bm)
-{
-    EXTRACT_OBJECT_COPY(wxBitmap, po, bm)
-    return po;
-}
 
 inline wxPyObject &operator>>(wxPyObject &po, wxIconBundle &ib)
 {
@@ -3862,7 +3855,6 @@ public:
         : wxDataObjectSimple(format) {}
 
     PYCALLBACK_0_EXTRACT_CONST(wxDataObjectSimple, size_t, rval = 0, GetDataSize) 
-    //DEC_PYCALLBACK_SIZET__const(GetDataSize);
     bool GetDataHere(void *buf) const;
     bool SetData(size_t len, const void *buf);
     PYPRIVATE;

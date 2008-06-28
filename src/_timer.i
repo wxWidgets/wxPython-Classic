@@ -32,7 +32,7 @@ enum {
 
 
 %{
-IMP_PYCALLBACK__(wxPyTimer, wxTimer, Notify);
+IMP_PYCALLBACK_0_VOID(wxPyTimer, wxTimer, Notify)
 
 IMPLEMENT_ABSTRACT_CLASS(wxPyTimer, wxTimer);
 

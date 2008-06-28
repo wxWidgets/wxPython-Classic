@@ -1377,8 +1377,8 @@ the item.", "");
 // Use this one for deriving Python classes from
 %{
 // See pyclasses.h
-IMP_PYCALLBACK___pure(wxPySizer, wxSizer, RecalcSizes);
-IMP_PYCALLBACK_wxSize__pure(wxPySizer, wxSizer, CalcMin);
+IMP_PYCALLBACK_0_VOID_PURE(wxPySizer, RecalcSizes);
+IMP_PYCALLBACK_0_EXTRACT_PURE(wxPySizer, wxSize, rval(0,0), CalcMin);
 IMPLEMENT_DYNAMIC_CLASS(wxPySizer, wxSizer);
 %}
 

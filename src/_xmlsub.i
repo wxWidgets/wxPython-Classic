@@ -23,11 +23,10 @@ class wxPyXmlSubclassFactory : public wxXmlSubclassFactory
 {
 public:
     wxPyXmlSubclassFactory() {}
-    DEC_PYCALLBACK_OBJECT_STRING_pure(Create);
+    PYCALLBACK_1_EXTRACT_PURE(wxObject*, rval = NULL, Create, (const wxString &a))
     PYPRIVATE;
 };
 
-IMP_PYCALLBACK_OBJECT_STRING_pure(wxPyXmlSubclassFactory, wxXmlSubclassFactory, Create);
 %}
 
 

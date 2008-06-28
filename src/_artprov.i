@@ -87,12 +87,6 @@ MAKE_CONST_WXSTRING(ART_FIND_AND_REPLACE);
 //---------------------------------------------------------------------------
 
 %{
-inline wxPyObject &operator>>(wxPyObject &po, wxBitmap &bm)
-{
-    EXTRACT_OBJECT_COPY(wxBitmap, po, bm)
-    return po;
-}
-
 inline wxPyObject &operator>>(wxPyObject &po, wxIconBundle &ib)
 {
     EXTRACT_OBJECT_COPY(wxIconBundle, po, ib)

@@ -2807,6 +2807,14 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
 }
 
   // C++ Version of a Python aware class
+
+inline wxPyObject &operator>>(wxPyObject &po, wxWizardPage *&out)
+{
+    EXTRACT_OBJECT(wxWizardPage, po, out)
+    return po;
+}
+
+
 class wxPyWizardPage : public wxWizardPage {
     DECLARE_ABSTRACT_CLASS(wxPyWizardPage)
 public:
@@ -2815,33 +2823,33 @@ public:
                    const wxBitmap& bitmap = wxNullBitmap)
         : wxWizardPage(parent, bitmap) {}
 
-    DEC_PYCALLBACK_WIZPG__pure(GetPrev);
-    DEC_PYCALLBACK_WIZPG__pure(GetNext);
-    DEC_PYCALLBACK_BITMAP__pure(GetBitmap);
-
-    DEC_PYCALLBACK_VOID_INT4(DoMoveWindow);
-    DEC_PYCALLBACK_VOID_INT5(DoSetSize);
-    DEC_PYCALLBACK_VOID_INTINT(DoSetClientSize);
-    DEC_PYCALLBACK_VOID_INTINT(DoSetVirtualSize);
-
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetClientSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetPosition);
 
-    DEC_PYCALLBACK_SIZE_const(DoGetVirtualSize);
-    DEC_PYCALLBACK_SIZE_const(DoGetBestSize);
+    PYCALLBACK_0_EXTRACT_PURE_CONST(wxWizardPage*, rval = NULL, GetPrev)
+    PYCALLBACK_0_EXTRACT_PURE_CONST(wxWizardPage*, rval = NULL, GetNext)
+    PYCALLBACK_0_EXTRACT_PURE_CONST(wxBitmap, rval, GetBitmap)
 
-    DEC_PYCALLBACK__(InitDialog);
-    DEC_PYCALLBACK_BOOL_(TransferDataFromWindow);
-    DEC_PYCALLBACK_BOOL_(TransferDataToWindow);
-    DEC_PYCALLBACK_BOOL_(Validate);
+    PYCALLBACK_4_VOID(wxWizardPage, DoMoveWindow, (int a, int b, int c, int d))    
+    PYCALLBACK_5_VOID(wxWizardPage, DoSetSize, (int a, int b, int c, int d, int e))    
+    PYCALLBACK_2_VOID(wxWizardPage, DoSetClientSize, (int a, int b))
+    PYCALLBACK_2_VOID(wxWizardPage, DoSetVirtualSize, (int a, int b))
 
-    DEC_PYCALLBACK_BOOL_const(AcceptsFocus);
-    DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
-    DEC_PYCALLBACK_SIZE_const(GetMaxSize);
+    PYCALLBACK_0_EXTRACT_CONST(wxWizardPage, wxSize, rval, DoGetVirtualSize)
+    PYCALLBACK_0_EXTRACT_CONST(wxWizardPage, wxSize, rval, DoGetBestSize)
 
-    DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
-    DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
+    PYCALLBACK_0_VOID(wxWizardPage, InitDialog)
+    PYCALLBACK_0_EXTRACT(wxWizardPage, bool, rval = false, TransferDataFromWindow)
+    PYCALLBACK_0_EXTRACT(wxWizardPage, bool, rval = false, TransferDataToWindow)
+    PYCALLBACK_0_EXTRACT(wxWizardPage, bool, rval = false, Validate)
+
+    PYCALLBACK_0_EXTRACT_CONST(wxWizardPage, bool, rval = false, AcceptsFocus)
+    PYCALLBACK_0_EXTRACT_CONST(wxWizardPage, bool, rval = false, AcceptsFocusFromKeyboard)
+    PYCALLBACK_0_EXTRACT_CONST(wxWizardPage, wxSize, rval, GetMaxSize)
+
+    PYCALLBACK_1_VOID(wxWizardPage, AddChild, (wxWindowBase *a))
+    PYCALLBACK_1_VOID(wxWizardPage, RemoveChild, (wxWindowBase *a))
 
     PYPRIVATE;
 };
@@ -2849,33 +2857,9 @@ public:
 
 IMPLEMENT_ABSTRACT_CLASS(wxPyWizardPage, wxWizardPage);
 
-IMP_PYCALLBACK_WIZPG__pure(wxPyWizardPage, wxWizardPage, GetPrev);
-IMP_PYCALLBACK_WIZPG__pure(wxPyWizardPage, wxWizardPage, GetNext);
-IMP_PYCALLBACK_BITMAP__pure(wxPyWizardPage, wxWizardPage, GetBitmap);
-
-IMP_PYCALLBACK_VOID_INT4(wxPyWizardPage, wxWizardPage, DoMoveWindow);
-IMP_PYCALLBACK_VOID_INT5(wxPyWizardPage, wxWizardPage, DoSetSize);
-IMP_PYCALLBACK_VOID_INTINT(wxPyWizardPage, wxWizardPage, DoSetClientSize);
-IMP_PYCALLBACK_VOID_INTINT(wxPyWizardPage, wxWizardPage, DoSetVirtualSize);
-
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyWizardPage, wxWizardPage, DoGetSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyWizardPage, wxWizardPage, DoGetClientSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyWizardPage, wxWizardPage, DoGetPosition);
-
-IMP_PYCALLBACK_SIZE_const(wxPyWizardPage, wxWizardPage, DoGetVirtualSize);
-IMP_PYCALLBACK_SIZE_const(wxPyWizardPage, wxWizardPage, DoGetBestSize);
-
-IMP_PYCALLBACK__(wxPyWizardPage, wxWizardPage, InitDialog);
-IMP_PYCALLBACK_BOOL_(wxPyWizardPage, wxWizardPage, TransferDataFromWindow);
-IMP_PYCALLBACK_BOOL_(wxPyWizardPage, wxWizardPage, TransferDataToWindow);
-IMP_PYCALLBACK_BOOL_(wxPyWizardPage, wxWizardPage, Validate);
-
-IMP_PYCALLBACK_BOOL_const(wxPyWizardPage, wxWizardPage, AcceptsFocus);
-IMP_PYCALLBACK_BOOL_const(wxPyWizardPage, wxWizardPage, AcceptsFocusFromKeyboard);
-IMP_PYCALLBACK_SIZE_const(wxPyWizardPage, wxWizardPage, GetMaxSize);
-
-IMP_PYCALLBACK_VOID_WXWINBASE(wxPyWizardPage, wxWizardPage, AddChild);
-IMP_PYCALLBACK_VOID_WXWINBASE(wxPyWizardPage, wxWizardPage, RemoveChild);
 
 
 #ifdef __cplusplus

@@ -847,14 +847,11 @@ public:
     wxPyFontEnumerator() {}
     ~wxPyFontEnumerator() {}
 
-    DEC_PYCALLBACK_BOOL_STRING(OnFacename);
-    DEC_PYCALLBACK_BOOL_STRINGSTRING(OnFontEncoding);
+    PYCALLBACK_1_EXTRACT(wxFontEnumerator, bool, rval = false, OnFacename, (const wxString &a))
+    PYCALLBACK_2_EXTRACT(wxFontEnumerator, bool, rval = false, OnFontEncoding, (const wxString &a, const wxString &b))
 
     PYPRIVATE;
 };
-
-IMP_PYCALLBACK_BOOL_STRING(wxPyFontEnumerator, wxFontEnumerator, OnFacename);
-IMP_PYCALLBACK_BOOL_STRINGSTRING(wxPyFontEnumerator, wxFontEnumerator, OnFontEncoding);
 
 %}
 

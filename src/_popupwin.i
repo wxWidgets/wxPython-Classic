@@ -62,16 +62,13 @@ public:
     wxPyPopupTransientWindow(wxWindow* parent, int style = wxBORDER_NONE)
         : wxPopupTransientWindow(parent, style) {}
 
-    DEC_PYCALLBACK_BOOL_ME(ProcessLeftDown);
-    DEC_PYCALLBACK__(OnDismiss);
-    DEC_PYCALLBACK_BOOL_(CanDismiss);
+    PYCALLBACK_1_EXTRACT(wxPopupTransientWindow, bool, rval = false, ProcessLeftDown, (wxMouseEvent &a))
+    PYCALLBACK_0_VOID(wxPopupTransientWindow, OnDismiss)
+    PYCALLBACK_0_EXTRACT(wxPopupTransientWindow, bool, rval = false, CanDismiss)
+
     PYPRIVATE;
 };
 
-
-IMP_PYCALLBACK_BOOL_ME(wxPyPopupTransientWindow, wxPopupTransientWindow, ProcessLeftDown);
-IMP_PYCALLBACK__(wxPyPopupTransientWindow, wxPopupTransientWindow, OnDismiss);
-IMP_PYCALLBACK_BOOL_(wxPyPopupTransientWindow, wxPopupTransientWindow, CanDismiss);
 %}
 
 

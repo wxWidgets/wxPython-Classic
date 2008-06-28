@@ -3465,15 +3465,24 @@ SWIG_AsVal_unsigned_SS_long (PyObject* obj, unsigned long* val)
 #include "wx/wxPython/pyistream.h"
 
 
+
+inline wxPyObject &operator>>(wxPyObject &po, wxFSFile *&fsf)
+{
+    EXTRACT_OBJECT(wxFSFile, po, fsf)
+    /* release ownership of the C++ wx.FSFile object. */  
+    PyObject_SetAttrString(po.Get(), "thisown", Py_False);
+    return po;
+}
+
 class wxPyFileSystemHandler : public wxFileSystemHandler
 {
 public:
     wxPyFileSystemHandler() : wxFileSystemHandler() {}
 
-    DEC_PYCALLBACK_BOOL_STRING_pure(CanOpen);
-    DEC_PYCALLBACK_FSF_FSSTRING_pure(OpenFile);
-    DEC_PYCALLBACK_STRING_STRINGINT_pure(FindFirst);
-    DEC_PYCALLBACK_STRING__pure(FindNext);
+    PYCALLBACK_1_EXTRACT_PURE(bool, rval = false, CanOpen, (const wxString &a))
+    PYCALLBACK_2_EXTRACT_PURE(wxFSFile*, rval = NULL, OpenFile, (wxFileSystem &a, const wxString &b))
+    PYCALLBACK_2_EXTRACT_PURE(wxString, rval, FindFirst, (const wxString &a, int b))
+    PYCALLBACK_0_EXTRACT_PURE(wxString, rval, FindNext)
 
     static wxString GetProtocol(const wxString& location) {
         return wxFileSystemHandler::GetProtocol(location);
@@ -3498,11 +3507,6 @@ public:
     PYPRIVATE;
 };
 
-
-IMP_PYCALLBACK_BOOL_STRING_pure(wxPyFileSystemHandler, wxFileSystemHandler, CanOpen);
-IMP_PYCALLBACK_FSF_FSSTRING_pure(wxPyFileSystemHandler, wxFileSystemHandler, OpenFile);
-IMP_PYCALLBACK_STRING_STRINGINT_pure(wxPyFileSystemHandler, wxFileSystemHandler, FindFirst);
-IMP_PYCALLBACK_STRING__pure(wxPyFileSystemHandler, wxFileSystemHandler, FindNext);
 
 
 SWIGINTERN int
@@ -4152,9 +4156,9 @@ wxWindow* wxFindWindowByLabel( const wxString& label,
     }
 
 
-IMP_PYCALLBACK_BOOL_WXWIN(wxPyValidator, wxValidator, Validate);
-IMP_PYCALLBACK_BOOL_(wxPyValidator, wxValidator, TransferToWindow);
-IMP_PYCALLBACK_BOOL_(wxPyValidator, wxValidator, TransferFromWindow);
+IMP_PYCALLBACK_1_EXTRACT(wxPyValidator, wxValidator, bool, rval = false, Validate, (wxWindow *a))
+IMP_PYCALLBACK_0_EXTRACT(wxPyValidator, wxValidator, bool, rval = false, TransferToWindow)
+IMP_PYCALLBACK_0_EXTRACT(wxPyValidator, wxValidator, bool, rval = false, TransferFromWindow)
 
 IMPLEMENT_DYNAMIC_CLASS(wxPyValidator, wxValidator);
 
@@ -4634,8 +4638,8 @@ SWIGINTERN bool wxSizer_IsShown(wxSizer *self,PyObject *item){
         }
 
 // See pyclasses.h
-IMP_PYCALLBACK___pure(wxPySizer, wxSizer, RecalcSizes);
-IMP_PYCALLBACK_wxSize__pure(wxPySizer, wxSizer, CalcMin);
+IMP_PYCALLBACK_0_VOID_PURE(wxPySizer, RecalcSizes);
+IMP_PYCALLBACK_0_EXTRACT_PURE(wxPySizer, wxSize, rval(0,0), CalcMin);
 IMPLEMENT_DYNAMIC_CLASS(wxPySizer, wxSizer);
 
 

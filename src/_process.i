@@ -74,7 +74,7 @@ enum wxSignal
 
 
 %{ 
-IMP_PYCALLBACK_VOID_INTINT( wxPyProcess, wxProcess, OnTerminate);
+IMP_PYCALLBACK_2_VOID( wxPyProcess, wxProcess, OnTerminate, (int a, int b))
 %}
 
 

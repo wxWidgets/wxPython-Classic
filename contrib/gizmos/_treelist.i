@@ -145,25 +145,6 @@ public:
 
     PYCALLBACK_2_EXTRACT(wxTreeListCtrl, int, rval = 0, OnCompareItems, 
                             (const wxTreeItemId &a, const wxTreeItemId &b))
-#if 0
-    virtual int OnCompareItems(const wxTreeItemId& item1,
-                               const wxTreeItemId& item2) {
-        int rval = 0;
-        bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        if ((found = wxPyCBH_findCallback(m_myInst, "OnCompareItems"))) {
-            PyObject *o1 = wxPyConstructObject((void*)&item1, wxT("wxTreeItemId"), 0);
-            PyObject *o2 = wxPyConstructObject((void*)&item2, wxT("wxTreeItemId"), 0);
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)",o1,o2));
-            Py_DECREF(o1);
-            Py_DECREF(o2);
-        }
-        wxPyEndBlockThreads(blocked);
-        if (! found)
-            rval = wxTreeListCtrl::OnCompareItems(item1, item2);
-        return rval;
-    }
-#endif
 
 #if 0 
     PYCALLBACK_2_EXTRACT(wxTreeListCtrl, wxString, rval, OnGetItemText, (wxTreeItemData *a, long b))
@@ -174,6 +155,7 @@ public:
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "OnGetItemText"))) {
             PyObject* ro;
+            // XXX: Why wxTreeItemData -> wxTreeItemId ?
             PyObject* itemo = wxPyConstructObject((void*)&item, wxT("wxTreeItemId"), 0);
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(Oi)", itemo, column));
             Py_DECREF(itemo);

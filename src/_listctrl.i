@@ -410,6 +410,13 @@ EVT_LIST_ITEM_FOCUSED      = wx.PyEventBinder(wxEVT_COMMAND_LIST_ITEM_FOCUSED   
 
 
 %{  // C++ Version of a Python aware class
+
+inline wxPyObject &operator>>(wxPyObject &po, wxListItemAttr *&out)
+{
+    EXTRACT_OBJECT(wxListItemAttr, po, out)
+    return po;
+}
+
 class wxPyListCtrl : public wxListCtrl {
     DECLARE_ABSTRACT_CLASS(wxPyListCtrl)
 public:
@@ -431,22 +438,17 @@ public:
         return wxListCtrl::Create(parent, id, pos, size, style, validator, name);
     }
 
-    DEC_PYCALLBACK_STRING_LONGLONG(OnGetItemText);
-    DEC_PYCALLBACK_LISTATTR_LONG(OnGetItemAttr);
+    PYCALLBACK_2_EXTRACT_CONST(wxListCtrl, wxString, rval, OnGetItemText, (long a, long b))
+    PYCALLBACK_1_EXTRACT_CONST(wxListCtrl, wxListItemAttr*, rval = NULL, OnGetItemAttr, (long a))
 
-    // use the virtual version to avoid a confusing assert in the base class
-    DEC_PYCALLBACK_INT_LONG_virtual(OnGetItemImage);
-    DEC_PYCALLBACK_INT_LONGLONG(OnGetItemColumnImage);
+    // this rval is important for OnGetItemImage 
+    PYCALLBACK_1_EXTRACT_PURE_CONST(int, rval = -1, OnGetItemImage, (long a))
+    PYCALLBACK_2_EXTRACT_CONST(wxListCtrl, int, rval = -1, OnGetItemColumnImage, (long a, long b))
 
     PYPRIVATE;
 };
 
 IMPLEMENT_ABSTRACT_CLASS(wxPyListCtrl, wxListCtrl);
-
-IMP_PYCALLBACK_STRING_LONGLONG(wxPyListCtrl, wxListCtrl, OnGetItemText);
-IMP_PYCALLBACK_LISTATTR_LONG(wxPyListCtrl, wxListCtrl, OnGetItemAttr);
-IMP_PYCALLBACK_INT_LONG_virtual(wxPyListCtrl, wxListCtrl, OnGetItemImage);
-IMP_PYCALLBACK_INT_LONGLONG(wxPyListCtrl, wxListCtrl, OnGetItemColumnImage);
 
 %}
 

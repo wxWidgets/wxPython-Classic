@@ -2872,16 +2872,13 @@ public:
     wxPyPopupTransientWindow(wxWindow* parent, int style = wxBORDER_NONE)
         : wxPopupTransientWindow(parent, style) {}
 
-    DEC_PYCALLBACK_BOOL_ME(ProcessLeftDown);
-    DEC_PYCALLBACK__(OnDismiss);
-    DEC_PYCALLBACK_BOOL_(CanDismiss);
+    PYCALLBACK_1_EXTRACT(wxPopupTransientWindow, bool, rval = false, ProcessLeftDown, (wxMouseEvent &a))
+    PYCALLBACK_0_VOID(wxPopupTransientWindow, OnDismiss)
+    PYCALLBACK_0_EXTRACT(wxPopupTransientWindow, bool, rval = false, CanDismiss)
+
     PYPRIVATE;
 };
 
-
-IMP_PYCALLBACK_BOOL_ME(wxPyPopupTransientWindow, wxPopupTransientWindow, ProcessLeftDown);
-IMP_PYCALLBACK__(wxPyPopupTransientWindow, wxPopupTransientWindow, OnDismiss);
-IMP_PYCALLBACK_BOOL_(wxPyPopupTransientWindow, wxPopupTransientWindow, CanDismiss);
 
 
 #include <wx/tipwin.h>
@@ -3362,73 +3359,46 @@ public:
         return true;
 #endif
     }
-    
-    DEC_PYCALLBACK_VOID_INT4(DoMoveWindow);
-    DEC_PYCALLBACK_VOID_INT5(DoSetSize);
-    DEC_PYCALLBACK_VOID_INTINT(DoSetClientSize);
-    DEC_PYCALLBACK_VOID_INTINT(DoSetVirtualSize);
 
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetClientSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetPosition);
 
-    DEC_PYCALLBACK_SIZE_const(DoGetVirtualSize);
-    DEC_PYCALLBACK_SIZE_const(DoGetBestSize);
+    PYCALLBACK_4_VOID(wxWindow, DoMoveWindow, (int a, int b, int c, int d))    
+    PYCALLBACK_5_VOID(wxWindow, DoSetSize, (int a, int b, int c, int d, int e))    
+    PYCALLBACK_2_VOID(wxWindow, DoSetClientSize, (int a, int b))
+    PYCALLBACK_2_VOID(wxWindow, DoSetVirtualSize, (int a, int b))
 
-    DEC_PYCALLBACK__(InitDialog);
-    DEC_PYCALLBACK_BOOL_(TransferDataFromWindow);
-    DEC_PYCALLBACK_BOOL_(TransferDataToWindow);
-    DEC_PYCALLBACK_BOOL_(Validate);
+    PYCALLBACK_0_EXTRACT_CONST(wxWindow, wxSize, rval, DoGetVirtualSize)
+    PYCALLBACK_0_EXTRACT_CONST(wxWindow, wxSize, rval, DoGetBestSize)
 
-    DEC_PYCALLBACK_BOOL_const(AcceptsFocus);
-    DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
-    DEC_PYCALLBACK_SIZE_const(GetMaxSize);
+    PYCALLBACK_0_VOID(wxWindow, InitDialog)
+    PYCALLBACK_0_EXTRACT(wxWindow, bool, rval = false, TransferDataFromWindow)
+    PYCALLBACK_0_EXTRACT(wxWindow, bool, rval = false, TransferDataToWindow)
+    PYCALLBACK_0_EXTRACT(wxWindow, bool, rval = false, Validate)
 
-    DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
-    DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
+    PYCALLBACK_0_EXTRACT_CONST(wxWindow, bool, rval = false, AcceptsFocus)
+    PYCALLBACK_0_EXTRACT_CONST(wxWindow, bool, rval = false, AcceptsFocusFromKeyboard)
+    PYCALLBACK_0_EXTRACT_CONST(wxWindow, wxSize, rval, GetMaxSize)
 
-    DEC_PYCALLBACK_BOOL_const(ShouldInheritColours);
-    DEC_PYCALLBACK_VIZATTR_(GetDefaultAttributes);
-    
-    DEC_PYCALLBACK_BOOL_(HasTransparentBackground);
+    PYCALLBACK_1_VOID(wxWindow, AddChild, (wxWindowBase *a))
+    PYCALLBACK_1_VOID(wxWindow, RemoveChild, (wxWindowBase *a))
 
-    DEC_PYCALLBACK_VOID_(OnInternalIdle);
-    
+    PYCALLBACK_0_EXTRACT_CONST(wxWindow, bool, rval = false, ShouldInheritColours)
+    PYCALLBACK_0_EXTRACT(wxWindow, wxVisualAttributes, rval, GetDefaultAttributes)
+
+    PYCALLBACK_0_EXTRACT(wxWindow, bool, rval = false, HasTransparentBackground)
+    PYCALLBACK_0_VOID(wxWindow, OnInternalIdle)
+ 
     PYPRIVATE;
 };
 
 IMPLEMENT_DYNAMIC_CLASS(wxPyWindow, wxWindow);
 
-IMP_PYCALLBACK_VOID_INT4(wxPyWindow, wxWindow, DoMoveWindow);
-IMP_PYCALLBACK_VOID_INT5(wxPyWindow, wxWindow, DoSetSize);
-IMP_PYCALLBACK_VOID_INTINT(wxPyWindow, wxWindow, DoSetClientSize);
-IMP_PYCALLBACK_VOID_INTINT(wxPyWindow, wxWindow, DoSetVirtualSize);
-
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyWindow, wxWindow, DoGetSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyWindow, wxWindow, DoGetClientSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyWindow, wxWindow, DoGetPosition);
 
-IMP_PYCALLBACK_SIZE_const(wxPyWindow, wxWindow, DoGetVirtualSize);
-IMP_PYCALLBACK_SIZE_const(wxPyWindow, wxWindow, DoGetBestSize);
-
-IMP_PYCALLBACK__(wxPyWindow, wxWindow, InitDialog);
-IMP_PYCALLBACK_BOOL_(wxPyWindow, wxWindow, TransferDataFromWindow);
-IMP_PYCALLBACK_BOOL_(wxPyWindow, wxWindow, TransferDataToWindow);
-IMP_PYCALLBACK_BOOL_(wxPyWindow, wxWindow, Validate);
-
-IMP_PYCALLBACK_BOOL_const(wxPyWindow, wxWindow, AcceptsFocus);
-IMP_PYCALLBACK_BOOL_const(wxPyWindow, wxWindow, AcceptsFocusFromKeyboard);
-IMP_PYCALLBACK_SIZE_const(wxPyWindow, wxWindow, GetMaxSize);
-
-IMP_PYCALLBACK_VOID_WXWINBASE(wxPyWindow, wxWindow, AddChild);
-IMP_PYCALLBACK_VOID_WXWINBASE(wxPyWindow, wxWindow, RemoveChild);
-
-IMP_PYCALLBACK_BOOL_const(wxPyWindow, wxWindow, ShouldInheritColours);
-IMP_PYCALLBACK_VIZATTR_(wxPyWindow, wxWindow, GetDefaultAttributes);
-
-IMP_PYCALLBACK_BOOL_(wxPyWindow, wxWindow, HasTransparentBackground);
-
-IMP_PYCALLBACK_VOID_(wxPyWindow, wxWindow, OnInternalIdle);
 
  // C++ version of Python aware wxPanel
 class wxPyPanel : public wxPanel
@@ -3453,73 +3423,45 @@ public:
 #endif
     }
     
-
-    DEC_PYCALLBACK_VOID_INT4(DoMoveWindow);
-    DEC_PYCALLBACK_VOID_INT5(DoSetSize);
-    DEC_PYCALLBACK_VOID_INTINT(DoSetClientSize);
-    DEC_PYCALLBACK_VOID_INTINT(DoSetVirtualSize);
-
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetClientSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetPosition);
 
-    DEC_PYCALLBACK_SIZE_const(DoGetVirtualSize);
-    DEC_PYCALLBACK_SIZE_const(DoGetBestSize);
+    PYCALLBACK_4_VOID(wxPanel, DoMoveWindow, (int a, int b, int c, int d))    
+    PYCALLBACK_5_VOID(wxPanel, DoSetSize, (int a, int b, int c, int d, int e))    
+    PYCALLBACK_2_VOID(wxPanel, DoSetClientSize, (int a, int b))
+    PYCALLBACK_2_VOID(wxPanel, DoSetVirtualSize, (int a, int b))
 
-    DEC_PYCALLBACK__(InitDialog);
-    DEC_PYCALLBACK_BOOL_(TransferDataFromWindow);
-    DEC_PYCALLBACK_BOOL_(TransferDataToWindow);
-    DEC_PYCALLBACK_BOOL_(Validate);
+    PYCALLBACK_0_EXTRACT_CONST(wxPanel, wxSize, rval, DoGetVirtualSize)
+    PYCALLBACK_0_EXTRACT_CONST(wxPanel, wxSize, rval, DoGetBestSize)
 
-    DEC_PYCALLBACK_BOOL_const(AcceptsFocus);
-    DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
-    DEC_PYCALLBACK_SIZE_const(GetMaxSize);
+    PYCALLBACK_0_VOID(wxPanel, InitDialog)
+    PYCALLBACK_0_EXTRACT(wxPanel, bool, rval = false, TransferDataFromWindow)
+    PYCALLBACK_0_EXTRACT(wxPanel, bool, rval = false, TransferDataToWindow)
+    PYCALLBACK_0_EXTRACT(wxPanel, bool, rval = false, Validate)
 
-    DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
-    DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
+    PYCALLBACK_0_EXTRACT_CONST(wxPanel, bool, rval = false, AcceptsFocus)
+    PYCALLBACK_0_EXTRACT_CONST(wxPanel, bool, rval = false, AcceptsFocusFromKeyboard)
+    PYCALLBACK_0_EXTRACT_CONST(wxPanel, wxSize, rval, GetMaxSize)
 
-    DEC_PYCALLBACK_BOOL_const(ShouldInheritColours);
-    DEC_PYCALLBACK_VIZATTR_(GetDefaultAttributes);
-    
-    DEC_PYCALLBACK_BOOL_(HasTransparentBackground);
+    PYCALLBACK_1_VOID(wxPanel, AddChild, (wxWindowBase *a))
+    PYCALLBACK_1_VOID(wxPanel, RemoveChild, (wxWindowBase *a))
 
-    DEC_PYCALLBACK_VOID_(OnInternalIdle);
+    PYCALLBACK_0_EXTRACT_CONST(wxPanel, bool, rval = false, ShouldInheritColours)
+    PYCALLBACK_0_EXTRACT(wxPanel, wxVisualAttributes, rval, GetDefaultAttributes)
+
+    PYCALLBACK_0_EXTRACT(wxPanel, bool, rval = false, HasTransparentBackground)
+    PYCALLBACK_0_VOID(wxPanel, OnInternalIdle)
 
     PYPRIVATE;
 };
 
 IMPLEMENT_DYNAMIC_CLASS(wxPyPanel, wxPanel);
 
-IMP_PYCALLBACK_VOID_INT4(wxPyPanel, wxPanel, DoMoveWindow);
-IMP_PYCALLBACK_VOID_INT5(wxPyPanel, wxPanel, DoSetSize);
-IMP_PYCALLBACK_VOID_INTINT(wxPyPanel, wxPanel, DoSetClientSize);
-IMP_PYCALLBACK_VOID_INTINT(wxPyPanel, wxPanel, DoSetVirtualSize);
-
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyPanel, wxPanel, DoGetSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyPanel, wxPanel, DoGetClientSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyPanel, wxPanel, DoGetPosition);
 
-IMP_PYCALLBACK_SIZE_const(wxPyPanel, wxPanel, DoGetVirtualSize);
-IMP_PYCALLBACK_SIZE_const(wxPyPanel, wxPanel, DoGetBestSize);
-
-IMP_PYCALLBACK__(wxPyPanel, wxPanel, InitDialog);
-IMP_PYCALLBACK_BOOL_(wxPyPanel, wxPanel, TransferDataFromWindow);
-IMP_PYCALLBACK_BOOL_(wxPyPanel, wxPanel, TransferDataToWindow);
-IMP_PYCALLBACK_BOOL_(wxPyPanel, wxPanel, Validate);
-
-IMP_PYCALLBACK_BOOL_const(wxPyPanel, wxPanel, AcceptsFocus);
-IMP_PYCALLBACK_BOOL_const(wxPyPanel, wxPanel, AcceptsFocusFromKeyboard);
-IMP_PYCALLBACK_SIZE_const(wxPyPanel, wxPanel, GetMaxSize);
-
-IMP_PYCALLBACK_VOID_WXWINBASE(wxPyPanel, wxPanel, AddChild);
-IMP_PYCALLBACK_VOID_WXWINBASE(wxPyPanel, wxPanel, RemoveChild);
-
-IMP_PYCALLBACK_BOOL_const(wxPyPanel, wxPanel, ShouldInheritColours);
-IMP_PYCALLBACK_VIZATTR_(wxPyPanel, wxPanel, GetDefaultAttributes);
-
-IMP_PYCALLBACK_BOOL_(wxPyPanel, wxPanel, HasTransparentBackground);
-
-IMP_PYCALLBACK_VOID_(wxPyPanel, wxPanel, OnInternalIdle);
 
  // C++ version of Python aware wxScrolledWindow
 class wxPyScrolledWindow : public wxScrolledWindow
@@ -3544,72 +3486,45 @@ public:
 #endif
     }
 
-    DEC_PYCALLBACK_VOID_INT4(DoMoveWindow);
-    DEC_PYCALLBACK_VOID_INT5(DoSetSize);
-    DEC_PYCALLBACK_VOID_INTINT(DoSetClientSize);
-    DEC_PYCALLBACK_VOID_INTINT(DoSetVirtualSize);
-
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetClientSize);
     DEC_PYCALLBACK_VOID_INTPINTP_const(DoGetPosition);
 
-    DEC_PYCALLBACK_SIZE_const(DoGetVirtualSize);
-    DEC_PYCALLBACK_SIZE_const(DoGetBestSize);
+    PYCALLBACK_4_VOID(wxScrolledWindow, DoMoveWindow, (int a, int b, int c, int d))    
+    PYCALLBACK_5_VOID(wxScrolledWindow, DoSetSize, (int a, int b, int c, int d, int e))    
+    PYCALLBACK_2_VOID(wxScrolledWindow, DoSetClientSize, (int a, int b))
+    PYCALLBACK_2_VOID(wxScrolledWindow, DoSetVirtualSize, (int a, int b))
 
-    DEC_PYCALLBACK__(InitDialog);
-    DEC_PYCALLBACK_BOOL_(TransferDataFromWindow);
-    DEC_PYCALLBACK_BOOL_(TransferDataToWindow);
-    DEC_PYCALLBACK_BOOL_(Validate);
+    PYCALLBACK_0_EXTRACT_CONST(wxScrolledWindow, wxSize, rval, DoGetVirtualSize)
+    PYCALLBACK_0_EXTRACT_CONST(wxScrolledWindow, wxSize, rval, DoGetBestSize)
 
-    DEC_PYCALLBACK_BOOL_const(AcceptsFocus);
-    DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
-    DEC_PYCALLBACK_SIZE_const(GetMaxSize);
+    PYCALLBACK_0_VOID(wxScrolledWindow, InitDialog)
+    PYCALLBACK_0_EXTRACT(wxScrolledWindow, bool, rval = false, TransferDataFromWindow)
+    PYCALLBACK_0_EXTRACT(wxScrolledWindow, bool, rval = false, TransferDataToWindow)
+    PYCALLBACK_0_EXTRACT(wxScrolledWindow, bool, rval = false, Validate)
 
-    DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
-    DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
+    PYCALLBACK_0_EXTRACT_CONST(wxScrolledWindow, bool, rval = false, AcceptsFocus)
+    PYCALLBACK_0_EXTRACT_CONST(wxScrolledWindow, bool, rval = false, AcceptsFocusFromKeyboard)
+    PYCALLBACK_0_EXTRACT_CONST(wxScrolledWindow, wxSize, rval, GetMaxSize)
 
-    DEC_PYCALLBACK_BOOL_const(ShouldInheritColours);
-    DEC_PYCALLBACK_VIZATTR_(GetDefaultAttributes);
-    
-    DEC_PYCALLBACK_BOOL_(HasTransparentBackground);
+    PYCALLBACK_1_VOID(wxScrolledWindow, AddChild, (wxWindowBase *a))
+    PYCALLBACK_1_VOID(wxScrolledWindow, RemoveChild, (wxWindowBase *a))
 
-    DEC_PYCALLBACK_VOID_(OnInternalIdle);
+    PYCALLBACK_0_EXTRACT_CONST(wxScrolledWindow, bool, rval = false, ShouldInheritColours)
+    PYCALLBACK_0_EXTRACT(wxScrolledWindow, wxVisualAttributes, rval, GetDefaultAttributes)
+
+    PYCALLBACK_0_EXTRACT(wxScrolledWindow, bool, rval = false, HasTransparentBackground)
+    PYCALLBACK_0_VOID(wxScrolledWindow, OnInternalIdle)
 
     PYPRIVATE;
 };
 
 IMPLEMENT_DYNAMIC_CLASS(wxPyScrolledWindow, wxScrolledWindow);
 
-IMP_PYCALLBACK_VOID_INT4(wxPyScrolledWindow, wxScrolledWindow, DoMoveWindow);
-IMP_PYCALLBACK_VOID_INT5(wxPyScrolledWindow, wxScrolledWindow, DoSetSize);
-IMP_PYCALLBACK_VOID_INTINT(wxPyScrolledWindow, wxScrolledWindow, DoSetClientSize);
-IMP_PYCALLBACK_VOID_INTINT(wxPyScrolledWindow, wxScrolledWindow, DoSetVirtualSize);
-
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyScrolledWindow, wxScrolledWindow, DoGetSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyScrolledWindow, wxScrolledWindow, DoGetClientSize);
 IMP_PYCALLBACK_VOID_INTPINTP_const(wxPyScrolledWindow, wxScrolledWindow, DoGetPosition);
 
-IMP_PYCALLBACK_SIZE_const(wxPyScrolledWindow, wxScrolledWindow, DoGetVirtualSize);
-IMP_PYCALLBACK_SIZE_const(wxPyScrolledWindow, wxScrolledWindow, DoGetBestSize);
-
-IMP_PYCALLBACK__(wxPyScrolledWindow, wxScrolledWindow, InitDialog);
-IMP_PYCALLBACK_BOOL_(wxPyScrolledWindow, wxScrolledWindow, TransferDataFromWindow);
-IMP_PYCALLBACK_BOOL_(wxPyScrolledWindow, wxScrolledWindow, TransferDataToWindow);
-IMP_PYCALLBACK_BOOL_(wxPyScrolledWindow, wxScrolledWindow, Validate);
-
-IMP_PYCALLBACK_BOOL_const(wxPyScrolledWindow, wxScrolledWindow, AcceptsFocus);
-IMP_PYCALLBACK_BOOL_const(wxPyScrolledWindow, wxScrolledWindow, AcceptsFocusFromKeyboard);
-IMP_PYCALLBACK_SIZE_const(wxPyScrolledWindow, wxScrolledWindow, GetMaxSize);
-
-IMP_PYCALLBACK_VOID_WXWINBASE(wxPyScrolledWindow, wxScrolledWindow, AddChild);
-IMP_PYCALLBACK_VOID_WXWINBASE(wxPyScrolledWindow, wxScrolledWindow, RemoveChild);
-
-IMP_PYCALLBACK_BOOL_const(wxPyScrolledWindow, wxScrolledWindow, ShouldInheritColours);
-IMP_PYCALLBACK_VIZATTR_(wxPyScrolledWindow, wxScrolledWindow, GetDefaultAttributes);
-
-IMP_PYCALLBACK_BOOL_(wxPyScrolledWindow, wxScrolledWindow, HasTransparentBackground);
-
-IMP_PYCALLBACK_VOID_(wxPyScrolledWindow, wxScrolledWindow, OnInternalIdle);
 
 
 #include "wx/wxPython/printfw.h"

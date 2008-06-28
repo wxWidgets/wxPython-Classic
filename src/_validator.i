@@ -69,9 +69,9 @@ public:
 
 //---------------------------------------------------------------------------
 %{
-IMP_PYCALLBACK_BOOL_WXWIN(wxPyValidator, wxValidator, Validate);
-IMP_PYCALLBACK_BOOL_(wxPyValidator, wxValidator, TransferToWindow);
-IMP_PYCALLBACK_BOOL_(wxPyValidator, wxValidator, TransferFromWindow);
+IMP_PYCALLBACK_1_EXTRACT(wxPyValidator, wxValidator, bool, rval = false, Validate, (wxWindow *a))
+IMP_PYCALLBACK_0_EXTRACT(wxPyValidator, wxValidator, bool, rval = false, TransferToWindow)
+IMP_PYCALLBACK_0_EXTRACT(wxPyValidator, wxValidator, bool, rval = false, TransferFromWindow)
 
 IMPLEMENT_DYNAMIC_CLASS(wxPyValidator, wxValidator);
 %}

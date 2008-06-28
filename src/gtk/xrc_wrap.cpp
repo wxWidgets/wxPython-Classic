@@ -2770,15 +2770,21 @@ class wxPyXmlSubclassFactory : public wxXmlSubclassFactory
 {
 public:
     wxPyXmlSubclassFactory() {}
-    DEC_PYCALLBACK_OBJECT_STRING_pure(Create);
+    PYCALLBACK_1_EXTRACT_PURE(wxObject*, rval = NULL, Create, (const wxString &a))
     PYPRIVATE;
 };
 
-IMP_PYCALLBACK_OBJECT_STRING_pure(wxPyXmlSubclassFactory, wxXmlSubclassFactory, Create);
 
  // C++ version of Python aware wxXmlResourceHandler, for the pure virtual
    // callbacks, as well as to make some protected things public so they can
    // be wrapped.
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxXmlNode *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxXmlNode"), 0));
+    return po;
+}
+
 class wxPyXmlResourceHandler : public wxXmlResourceHandler {
 public:
     wxPyXmlResourceHandler() : wxXmlResourceHandler() {}
@@ -2786,9 +2792,8 @@ public:
 
     // Base class virtuals
 
-    DEC_PYCALLBACK_OBJECT__pure(DoCreateResource);
-    DEC_PYCALLBACK_BOOL_NODE_pure(CanHandle);
-
+    PYCALLBACK_0_EXTRACT_PURE(wxObject*, rval = NULL, DoCreateResource)
+    PYCALLBACK_1_EXTRACT_PURE(bool, rval = false, CanHandle, (wxXmlNode *a))
 
     // accessors for protected members
 
@@ -2888,9 +2893,6 @@ public:
 
     PYPRIVATE;
 };
-
-IMP_PYCALLBACK_OBJECT__pure(wxPyXmlResourceHandler, wxXmlResourceHandler, DoCreateResource);
-IMP_PYCALLBACK_BOOL_NODE_pure(wxPyXmlResourceHandler, wxXmlResourceHandler, CanHandle);
 
 
 

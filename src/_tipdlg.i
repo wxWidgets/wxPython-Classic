@@ -56,13 +56,12 @@ public:
     wxPyTipProvider(size_t currentTip)
         : wxTipProvider(currentTip) {}
 
-    DEC_PYCALLBACK_STRING__pure(GetTip);
-    DEC_PYCALLBACK_STRING_STRING(PreprocessTip);
+    PYCALLBACK_0_EXTRACT_PURE(wxString, rval, GetTip)
+    PYCALLBACK_1_EXTRACT(wxTipProvider, wxString, rval, PreprocessTip, (const wxString &a))
+
     PYPRIVATE;
 };
 
-IMP_PYCALLBACK_STRING__pure( wxPyTipProvider, wxTipProvider, GetTip);
-IMP_PYCALLBACK_STRING_STRING(wxPyTipProvider, wxTipProvider, PreprocessTip);
 %}
 
 
