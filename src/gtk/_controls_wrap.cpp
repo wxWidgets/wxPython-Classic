@@ -3339,8 +3339,8 @@ public:
     PYCALLBACK_0_EXTRACT_CONST(wxControl, bool, rval = false, AcceptsFocusFromKeyboard)
     PYCALLBACK_0_EXTRACT_CONST(wxControl, wxSize, rval, GetMaxSize)
 
-    PYCALLBACK_1_VOID(wxControl, AddChild, (wxControlBase *a))
-    PYCALLBACK_1_VOID(wxControl, RemoveChild, (wxControlBase *a))
+    PYCALLBACK_1_VOID(wxControl, AddChild, (wxWindowBase *a))
+    PYCALLBACK_1_VOID(wxControl, RemoveChild, (wxWindowBase *a))
 
     PYCALLBACK_0_EXTRACT_CONST(wxControl, bool, rval = false, ShouldInheritColours)
     PYCALLBACK_0_EXTRACT(wxControl, wxVisualAttributes, rval, GetDefaultAttributes)
