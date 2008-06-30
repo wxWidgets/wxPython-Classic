@@ -2969,6 +2969,13 @@ SWIG_AsVal_size_t (PyObject * obj, size_t *val)
 }
 
  // C++ version of Python aware control
+
+inline wxPyObject &operator<<(wxPyObject &po, const wxTreeItemData *obj)
+{
+    po.Push(wxPyConstructObject((void*)obj, wxT("wxTreeItemData"), 0));
+    return po;
+}
+
 class wxPyTreeListCtrl : public wxTreeListCtrl {
     DECLARE_ABSTRACT_CLASS(wxPyTreeListCtrl);
 public:
@@ -2984,29 +2991,7 @@ public:
     PYCALLBACK_2_EXTRACT(wxTreeListCtrl, int, rval = 0, OnCompareItems, 
                             (const wxTreeItemId &a, const wxTreeItemId &b))
 
-#if 0 
-    PYCALLBACK_2_EXTRACT(wxTreeListCtrl, wxString, rval, OnGetItemText, (wxTreeItemData *a, long b))
-#endif
-    virtual wxString  OnGetItemText( wxTreeItemData* item, long column ) const {
-        wxString rval;
-        bool found;
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        if ((found = wxPyCBH_findCallback(m_myInst, "OnGetItemText"))) {
-            PyObject* ro;
-            // XXX: Why wxTreeItemData -> wxTreeItemId ?
-            PyObject* itemo = wxPyConstructObject((void*)&item, wxT("wxTreeItemId"), 0);
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(Oi)", itemo, column));
-            Py_DECREF(itemo);
-            if (ro) {
-                rval = Py2wxString(ro);
-                Py_DECREF(ro);
-            }
-        }
-        wxPyEndBlockThreads(blocked);
-        if (! found)
-            rval = wxTreeListCtrl::OnGetItemText(item, column);
-        return rval;
-    }
+    PYCALLBACK_2_EXTRACT_CONST(wxTreeListCtrl, wxString, rval, OnGetItemText, (wxTreeItemData *a, long b))
 
     PYPRIVATE;
 };
