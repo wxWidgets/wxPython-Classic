@@ -2865,18 +2865,18 @@ inline wxPyObject &operator<<(wxPyObject &po, wxGridTableBase &v)
 
 inline wxPyObject &operator>>(wxPyObject &po, wxGridCellAttr *&out)
 {
-    EXTRACT_OBJECT(wxGridCellAttr, po, out)
+    wxPyExtractObject(wxT("wxGridCellAttr"), po, out);
     return po;
 }
 inline wxPyObject &operator>>(wxPyObject &po, wxGridCellRenderer *&out)
 {
-    EXTRACT_OBJECT(wxGridCellRenderer, po, out)
+    wxPyExtractObject(wxT("wxGridCellRenderer"), po, out);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, wxGridCellEditor *&out)
 {
-    EXTRACT_OBJECT(wxGridCellEditor, po, out)
+    wxPyExtractObject(wxT("wxGridCellEditor"), po, out);
     return po;
 }
 

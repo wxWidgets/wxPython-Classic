@@ -2810,7 +2810,7 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
 
 inline wxPyObject &operator>>(wxPyObject &po, wxWizardPage *&out)
 {
-    EXTRACT_OBJECT(wxWizardPage, po, out)
+    wxPyExtractObject(wxT("wxWizardPage"), po, out);
     return po;
 }
 

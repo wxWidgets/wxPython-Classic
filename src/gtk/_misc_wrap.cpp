@@ -3512,7 +3512,7 @@ SWIGINTERN PyObject *wxMimeTypesManager_EnumAllFileTypes(wxMimeTypesManager *sel
 
 inline wxPyObject &operator>>(wxPyObject &po, wxIconBundle &ib)
 {
-    EXTRACT_OBJECT_COPY(wxIconBundle, po, ib)
+    wxPyExtractObjectCopy(wxT("wxIconBundle"), po, ib);
     return po;
 }
 

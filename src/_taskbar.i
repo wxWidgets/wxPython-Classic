@@ -62,7 +62,7 @@ enum {
 
 inline wxPyObject &operator>>(wxPyObject &po, wxMenu *&obj)
 {
-    EXTRACT_OBJECT(wxMenu, po, obj)
+    wxPyExtractObject(wxT("wxMenu"), po, obj);
     return po;
 }
 

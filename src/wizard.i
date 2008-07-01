@@ -133,7 +133,7 @@ public:
 
 inline wxPyObject &operator>>(wxPyObject &po, wxWizardPage *&out)
 {
-    EXTRACT_OBJECT(wxWizardPage, po, out)
+    wxPyExtractObject(wxT("wxWizardPage"), po, out);
     return po;
 }
 

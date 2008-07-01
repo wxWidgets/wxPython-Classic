@@ -2765,7 +2765,7 @@ inline wxPyObject &operator<<(wxPyObject &po, const wxDataViewModel *obj)
 // extraction
 inline wxPyObject &operator>>(wxPyObject &po, wxDataViewItem &out)
 {
-    EXTRACT_OBJECT_COPY(wxDataViewItem, po, out)
+    wxPyExtractObjectCopy(wxT("wxDataViewItem"), po, out);
     return po;
 }
 

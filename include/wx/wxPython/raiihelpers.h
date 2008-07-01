@@ -393,7 +393,8 @@ inline wxPyObject &operator<<(wxPyObject &po, int i)
 
 inline wxPyObject &operator<<(wxPyObject &po, unsigned int i)
 {
-    po.Push(PyInt_FromLong(i));
+    // Make a PyLong object to handle numbers > LONG_MAX
+    po.Push(PyLong_FromUnsignedLong(i));
     return po;
 }
 
@@ -406,7 +407,8 @@ inline wxPyObject &operator<<(wxPyObject &po, long i)
 
 inline wxPyObject &operator<<(wxPyObject &po, unsigned long i)
 {
-    po.Push(PyInt_FromLong(i));
+    // Make a PyLong object to handle numbers > LONG_MAX
+    po.Push(PyLong_FromUnsignedLong(i));
     return po;
 }
 
@@ -611,95 +613,116 @@ inline wxPyObject &operator<<(wxPyObject &po, const wxTreeItemId *obj)
 
 // Extractors. Make sure to check Ok() and sequence length (if needed) before extracting.  
 
-#define EXTRACT_INT(i, o)                                           \
-    if (i.Ok() && !PyErr_Occurred()) {                              \
-        wxPyObject ro = i.Pop();                                    \
-        if (PyNumber_Check(ro.Get())) {                             \
-            ro = PyNumber_Int(ro.Get());                            \
-            o = PyInt_AsLong(ro.Get());                             \
-        } else {                                                    \
-            PyErr_SetString(PyExc_TypeError, "Expected integer.");  \
-            wxThrowPyException();                                   \
-        }                                                           \
+// Some helpful functions for the extractors.
+//
+// Use template functions to avoid ugly casting.
+template <class T>
+inline void wxPyExtractUint(wxPyObject &pyn, T &out, T tmax) 
+{
+    if (pyn.Ok() && !PyErr_Occurred()) {
+        wxPyObject ro = pyn.Pop();
+        unsigned long n = PyLong_AsUnsignedLong(pyn);
+
+        /* PyLong_AsUnsignedLong() checks for overflow for unsigned long */
+        if (PyErr_Occurred())
+            wxThrowPyException();
+        else if (n > tmax) {
+            PyErr_SetString(PyExc_OverflowError, "Value too large.");
+            wxThrowPyException();
+        } else 
+            out = n;
     }
+}
 
-//XXX: fix this... 
-#define EXTRACT_UINT(i, o)                                          \
-    if (i.Ok() && !PyErr_Occurred()) {                              \
-        wxPyObject ro = i.Pop();                                    \
-        if (PyNumber_Check(ro.Get())) {                             \
-            ro = PyNumber_Int(ro.Get());                            \
-            long tmp = PyInt_AsLong(ro.Get());                      \
-            if (tmp < 0) {                                          \
-                PyErr_SetString(PyExc_TypeError, "Expected unsigned integer."); \
-                wxThrowPyException();                               \
-            } else {                                                \
-                o = tmp;                                            \
-            }                                                       \
-        } else {                                                    \
-            PyErr_SetString(PyExc_TypeError, "Expected unsigned integer."); \
-            wxThrowPyException();                                   \
-        }                                                           \
-    }               
+template <class T>
+inline void wxPyExtractInt(wxPyObject &pyn, T &out, T tmin, T tmax) 
+{
+    if (pyn.Ok() && !PyErr_Occurred()) {
+        wxPyObject ro = pyn.Pop();
+        long n = PyInt_AsLong(pyn);
 
-#define EXTRACT_FLOAT(i, o)                                         \
-    if (i.Ok() && !PyErr_Occurred()) {                              \
-        wxPyObject ro = i.Pop();                                    \
-        if (PyNumber_Check(ro.Get())) {                             \
-            ro = PyNumber_Float(ro.Get());                          \
-            o = PyFloat_AsDouble(ro.Get());                         \
-        } else {                                                    \
-            PyErr_SetString(PyExc_TypeError, "Expected float.");    \
-            wxThrowPyException();                                   \
-        }                                                           \
+        /* PyInt_AsLong() checks for overflow for long */
+        if (PyErr_Occurred())
+            wxThrowPyException();
+        else if (n > tmax) {
+            PyErr_SetString(PyExc_OverflowError, "Value too large.");
+            wxThrowPyException();
+        } else if (n < tmin) {
+            PyErr_SetString(PyExc_OverflowError, "Value too small.");
+            wxThrowPyException();
+        } else 
+            out = n;
     }
+}
 
-#define EXTRACT_OBJECT(T, i, o)                                         \
-    if (i.Ok() && !PyErr_Occurred()) {                                  \
-        T* ptr;                                                         \
-        wxPyObject ro = i.Pop();                                        \
-        if (wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT(#T)))       \
-            o = ptr;                                                    \
-        else {                                                          \
-            PyErr_SetString(PyExc_TypeError, "Expected " #T " object."); \
-            wxThrowPyException();                                       \
-        }                                                               \
+template <class T>
+inline void wxPyExtractFloat(wxPyObject &pyn, T &out) 
+{
+    if (pyn.Ok() && !PyErr_Occurred()) {
+        wxPyObject ro = pyn.Pop();
+        double n = PyFloat_AsDouble(ro.Get());
+        if (PyErr_Occurred())
+            wxThrowPyException();
+        else
+            out = n;
     }
+}
 
-#define EXTRACT_OBJECT_COPY(T, i, o)                                    \
-    if (i.Ok() && !PyErr_Occurred()) {                                  \
-        T* ptr;                                                         \
-        wxPyObject ro = i.Pop();                                        \
-        if (wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT(#T)))       \
-            o = *ptr;                                                   \
-        else {                                                          \
-            PyErr_SetString(PyExc_TypeError, "Expected " #T " object."); \
-            wxThrowPyException();                                       \
-        }                                                               \
+template <class T>
+inline void wxPyExtractObject(const wxChar *typestr, wxPyObject &pyin, T *&out)
+{
+    if (pyin.Ok() && !PyErr_Occurred()) {
+        T* ptr;
+        wxPyObject ro = pyin.Pop();
+        if (wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, typestr))
+            out = ptr;
+        else {
+            wxString msg;
+            msg.Printf(wxT("Expected %s object."), typestr);
+            PyErr_SetString(PyExc_TypeError, msg.mb_str());
+            wxThrowPyException();
+        }
     }
+}
 
+template <class T>
+inline void wxPyExtractObjectCopy(const wxChar *typestr, wxPyObject &pyin, T &out)
+{
+    if (pyin.Ok() && !PyErr_Occurred()) {
+        T* ptr;
+        wxPyObject ro = pyin.Pop();
+        if (wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, typestr))
+            out = *ptr;
+        else {
+            wxString msg;
+            msg.Printf(wxT("Expected %s object."), typestr);
+            PyErr_SetString(PyExc_TypeError, msg.mb_str());
+            wxThrowPyException();
+        }
+    }
+}
 
 inline wxPyObject &operator>>(wxPyObject &po, int &out)
 {
-    EXTRACT_INT(po, out)
+    wxPyExtractInt(po, out, INT_MIN, INT_MAX);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, unsigned int &out)
 {
-    EXTRACT_UINT(po, out)
+    wxPyExtractUint(po, out, UINT_MAX);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, long &out)
 {
-    EXTRACT_INT(po, out)
+    wxPyExtractInt(po, out, LONG_MIN, LONG_MAX);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, unsigned long &out)
 {
-    EXTRACT_UINT(po, out)
+    wxPyExtractUint(po, out, ULONG_MAX);
     return po;
 }
 
@@ -718,13 +741,13 @@ inline wxPyObject &operator>>(wxPyObject &po, bool &out)
 
 inline wxPyObject &operator>>(wxPyObject &po, double &out)
 {
-    EXTRACT_FLOAT(po, out)
+    wxPyExtractFloat(po, out);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, float &out)
 {
-    EXTRACT_FLOAT(po, out)
+    wxPyExtractFloat(po, out);
     return po;
 }
 
@@ -754,43 +777,43 @@ inline wxPyObject &operator>>(wxPyObject &po, wxSize &out)
 
 inline wxPyObject &operator>>(wxPyObject &po, wxWindow *&out)
 {
-    EXTRACT_OBJECT(wxWindow, po, out)
+    wxPyExtractObject(wxT("wxWindow"), po, out);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, wxObject *&out)
 {
-    EXTRACT_OBJECT(wxObject, po, out)
+    wxPyExtractObject(wxT("wxObject"), po, out);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, wxColour &out)
 {
-    EXTRACT_OBJECT_COPY(wxColour, po, out)
+    wxPyExtractObjectCopy(wxT("wxColour"), po, out);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, wxFont &out)
 {
-    EXTRACT_OBJECT_COPY(wxFont, po, out)
+    wxPyExtractObjectCopy(wxT("wxFont"), po, out);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, wxRect &out)
 {
-    EXTRACT_OBJECT_COPY(wxRect, po, out)
+    wxPyExtractObjectCopy(wxT("wxRect"), po, out);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, wxBitmap &out)
 {
-    EXTRACT_OBJECT_COPY(wxBitmap, po, out)
+    wxPyExtractObjectCopy(wxT("wxBitmap"), po, out);
     return po;
 }
 
 inline wxPyObject &operator>>(wxPyObject &po, wxVisualAttributes &out)
 {
-    EXTRACT_OBJECT_COPY(wxVisualAttributes, po, out)
+    wxPyExtractObjectCopy(wxT("wxVisualAttributes"), po, out);
     return po;
 }
 

@@ -413,7 +413,7 @@ EVT_LIST_ITEM_FOCUSED      = wx.PyEventBinder(wxEVT_COMMAND_LIST_ITEM_FOCUSED   
 
 inline wxPyObject &operator>>(wxPyObject &po, wxListItemAttr *&out)
 {
-    EXTRACT_OBJECT(wxListItemAttr, po, out)
+    wxPyExtractObject(wxT("wxListItemAttr"), po, out);
     return po;
 }
 

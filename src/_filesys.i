@@ -60,7 +60,7 @@ public:
 
 inline wxPyObject &operator>>(wxPyObject &po, wxFSFile *&fsf)
 {
-    EXTRACT_OBJECT(wxFSFile, po, fsf)
+    wxPyExtractObject(wxT("wxFSFile"), po, fsf);
     /* release ownership of the C++ wx.FSFile object. */  
     PyObject_SetAttrString(po.Get(), "thisown", Py_False);
     return po;

@@ -3073,7 +3073,7 @@ SWIGINTERN void wxListItemAttr_Destroy(wxListItemAttr *self){ delete self; }
 
 inline wxPyObject &operator>>(wxPyObject &po, wxListItemAttr *&out)
 {
-    EXTRACT_OBJECT(wxListItemAttr, po, out)
+    wxPyExtractObject(wxT("wxListItemAttr"), po, out);
     return po;
 }
 

@@ -89,7 +89,7 @@ MAKE_CONST_WXSTRING(ART_FIND_AND_REPLACE);
 %{
 inline wxPyObject &operator>>(wxPyObject &po, wxIconBundle &ib)
 {
-    EXTRACT_OBJECT_COPY(wxIconBundle, po, ib)
+    wxPyExtractObjectCopy(wxT("wxIconBundle"), po, ib);
     return po;
 }
 %}
