@@ -3265,7 +3265,7 @@ SWIGINTERN PyObject *_wrap_new_DynamicSashSplitEvent(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxDynamicSashSplitEvent *)new wxDynamicSashSplitEvent(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3313,7 +3313,7 @@ SWIGINTERN PyObject *_wrap_new_DynamicSashUnifyEvent(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxDynamicSashUnifyEvent *)new wxDynamicSashUnifyEvent(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3534,7 +3534,7 @@ SWIGINTERN PyObject *_wrap_DynamicSashWindow_Create(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3590,7 +3590,7 @@ SWIGINTERN PyObject *_wrap_DynamicSashWindow_GetHScrollBar(PyObject *SWIGUNUSEDP
     {
       result = (wxScrollBar *)((wxDynamicSashWindow const *)arg1)->GetHScrollBar((wxWindow const *)arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3636,7 +3636,7 @@ SWIGINTERN PyObject *_wrap_DynamicSashWindow_GetVScrollBar(PyObject *SWIGUNUSEDP
     {
       result = (wxScrollBar *)((wxDynamicSashWindow const *)arg1)->GetVScrollBar((wxWindow const *)arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3882,7 +3882,7 @@ SWIGINTERN PyObject *_wrap_EditableListBox_Create(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3956,7 +3956,7 @@ SWIGINTERN PyObject *_wrap_EditableListBox_SetStrings(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetStrings((wxArrayString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3997,7 +3997,7 @@ SWIGINTERN PyObject *_wrap_EditableListBox_GetStrings(PyObject *SWIGUNUSEDPARM(s
     {
       result = (PyObject *)wxEditableListBox_GetStrings(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4032,7 +4032,7 @@ SWIGINTERN PyObject *_wrap_EditableListBox_GetListCtrl(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxPyListCtrl *)(arg1)->GetListCtrl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4069,7 +4069,7 @@ SWIGINTERN PyObject *_wrap_EditableListBox_GetDelButton(PyObject *SWIGUNUSEDPARM
     {
       result = (wxBitmapButton *)(arg1)->GetDelButton();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4106,7 +4106,7 @@ SWIGINTERN PyObject *_wrap_EditableListBox_GetNewButton(PyObject *SWIGUNUSEDPARM
     {
       result = (wxBitmapButton *)(arg1)->GetNewButton();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4143,7 +4143,7 @@ SWIGINTERN PyObject *_wrap_EditableListBox_GetUpButton(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxBitmapButton *)(arg1)->GetUpButton();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4180,7 +4180,7 @@ SWIGINTERN PyObject *_wrap_EditableListBox_GetDownButton(PyObject *SWIGUNUSEDPAR
     {
       result = (wxBitmapButton *)(arg1)->GetDownButton();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4217,7 +4217,7 @@ SWIGINTERN PyObject *_wrap_EditableListBox_GetEditButton(PyObject *SWIGUNUSEDPAR
     {
       result = (wxBitmapButton *)(arg1)->GetEditButton();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4335,7 +4335,7 @@ SWIGINTERN PyObject *_wrap_RemotelyScrolledTreeCtrl_HideVScrollbar(PyObject *SWI
     {
       (arg1)->HideVScrollbar();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4369,7 +4369,7 @@ SWIGINTERN PyObject *_wrap_RemotelyScrolledTreeCtrl_AdjustRemoteScrollbars(PyObj
     {
       (arg1)->AdjustRemoteScrollbars();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4404,7 +4404,7 @@ SWIGINTERN PyObject *_wrap_RemotelyScrolledTreeCtrl_GetScrolledWindow(PyObject *
     {
       result = (wxScrolledWindow *)((wxRemotelyScrolledTreeCtrl const *)arg1)->GetScrolledWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4460,7 +4460,7 @@ SWIGINTERN PyObject *_wrap_RemotelyScrolledTreeCtrl_ScrollToLine(PyObject *SWIGU
     {
       (arg1)->ScrollToLine(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4505,7 +4505,7 @@ SWIGINTERN PyObject *_wrap_RemotelyScrolledTreeCtrl_SetCompanionWindow(PyObject 
     {
       (arg1)->SetCompanionWindow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4540,7 +4540,7 @@ SWIGINTERN PyObject *_wrap_RemotelyScrolledTreeCtrl_GetCompanionWindow(PyObject 
     {
       result = (wxWindow *)((wxRemotelyScrolledTreeCtrl const *)arg1)->GetCompanionWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4668,7 +4668,7 @@ SWIGINTERN PyObject *_wrap_TreeCompanionWindow__setCallbackInfo(PyObject *SWIGUN
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4703,7 +4703,7 @@ SWIGINTERN PyObject *_wrap_TreeCompanionWindow_GetTreeCtrl(PyObject *SWIGUNUSEDP
     {
       result = (wxRemotelyScrolledTreeCtrl *)((wxPyTreeCompanionWindow const *)arg1)->GetTreeCtrl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4748,7 +4748,7 @@ SWIGINTERN PyObject *_wrap_TreeCompanionWindow_SetTreeCtrl(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetTreeCtrl(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5107,7 +5107,7 @@ SWIGINTERN PyObject *_wrap_LEDNumberCtrl_Create(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5144,7 +5144,7 @@ SWIGINTERN PyObject *_wrap_LEDNumberCtrl_GetAlignment(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxLEDValueAlign)((wxLEDNumberCtrl const *)arg1)->GetAlignment();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5179,7 +5179,7 @@ SWIGINTERN PyObject *_wrap_LEDNumberCtrl_GetDrawFaded(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxLEDNumberCtrl const *)arg1)->GetDrawFaded();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5219,7 +5219,7 @@ SWIGINTERN PyObject *_wrap_LEDNumberCtrl_GetValue(PyObject *SWIGUNUSEDPARM(self)
         result = (wxString *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5281,7 +5281,7 @@ SWIGINTERN PyObject *_wrap_LEDNumberCtrl_SetAlignment(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetAlignment(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5337,7 +5337,7 @@ SWIGINTERN PyObject *_wrap_LEDNumberCtrl_SetDrawFaded(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetDrawFaded(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5392,7 +5392,7 @@ SWIGINTERN PyObject *_wrap_LEDNumberCtrl_SetValue(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetValue((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5525,7 +5525,7 @@ SWIGINTERN PyObject *_wrap_new_TreeListColumnInfo(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxTreeListColumnInfo *)new wxTreeListColumnInfo((wxString const &)*arg1,arg2,arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5568,7 +5568,7 @@ SWIGINTERN PyObject *_wrap_delete_TreeListColumnInfo(PyObject *SWIGUNUSEDPARM(se
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5603,7 +5603,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_GetAlignment(PyObject *SWIGUNUSEDP
     {
       result = (int)((wxTreeListColumnInfo const *)arg1)->GetAlignment();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5638,7 +5638,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_GetText(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxTreeListColumnInfo const *)arg1)->GetText();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5679,7 +5679,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_GetImage(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)((wxTreeListColumnInfo const *)arg1)->GetImage();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5714,7 +5714,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_GetSelectedImage(PyObject *SWIGUNU
     {
       result = (int)((wxTreeListColumnInfo const *)arg1)->GetSelectedImage();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5749,7 +5749,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_GetWidth(PyObject *SWIGUNUSEDPARM(
     {
       result = (size_t)((wxTreeListColumnInfo const *)arg1)->GetWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5784,7 +5784,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_IsEditable(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)((wxTreeListColumnInfo const *)arg1)->IsEditable();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5821,7 +5821,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_IsShown(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxTreeListColumnInfo const *)arg1)->IsShown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5868,7 +5868,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_SetAlignment(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetAlignment(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5912,7 +5912,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_SetText(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetText((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5965,7 +5965,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_SetImage(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetImage(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6010,7 +6010,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_SetSelectedImage(PyObject *SWIGUNU
     {
       (arg1)->SetSelectedImage(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6055,7 +6055,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_SetWidth(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6100,7 +6100,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_SetEditable(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetEditable(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6145,7 +6145,7 @@ SWIGINTERN PyObject *_wrap_TreeListColumnInfo_SetShown(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetShown(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6396,7 +6396,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_Create(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxValidator const &)*arg7,(wxString const &)*arg8);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6448,7 +6448,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl__setCallbackInfo(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6483,7 +6483,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetCount(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (size_t)((wxPyTreeListCtrl const *)arg1)->GetCount();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6518,7 +6518,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetIndent(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (unsigned int)((wxPyTreeListCtrl const *)arg1)->GetIndent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6563,7 +6563,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetIndent(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetIndent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6598,7 +6598,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetLineSpacing(PyObject *SWIGUNUSEDPARM(
     {
       result = (unsigned int)((wxPyTreeListCtrl const *)arg1)->GetLineSpacing();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6643,7 +6643,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetLineSpacing(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetLineSpacing(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6678,7 +6678,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetImageList(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxImageList *)((wxPyTreeListCtrl const *)arg1)->GetImageList();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6715,7 +6715,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetStateImageList(PyObject *SWIGUNUSEDPA
     {
       result = (wxImageList *)((wxPyTreeListCtrl const *)arg1)->GetStateImageList();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6752,7 +6752,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetButtonsImageList(PyObject *SWIGUNUSED
     {
       result = (wxImageList *)((wxPyTreeListCtrl const *)arg1)->GetButtonsImageList();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6799,7 +6799,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetImageList(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetImageList(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6844,7 +6844,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetStateImageList(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetStateImageList(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6889,7 +6889,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetButtonsImageList(PyObject *SWIGUNUSED
     {
       (arg1)->SetButtonsImageList(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6932,7 +6932,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_AssignImageList(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->AssignImageList(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6975,7 +6975,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_AssignStateImageList(PyObject *SWIGUNUSE
     {
       (arg1)->AssignStateImageList(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7018,7 +7018,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_AssignButtonsImageList(PyObject *SWIGUNU
     {
       (arg1)->AssignButtonsImageList(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7117,7 +7117,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_AddColumn(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->AddColumn((wxString const &)*arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7173,7 +7173,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_AddColumnInfo(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->AddColumn((wxTreeListColumnInfo const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7281,7 +7281,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_InsertColumn(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->InsertColumn(arg2,(wxString const &)*arg3,arg4,arg5,arg6,arg7,arg8);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7346,7 +7346,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_InsertColumnInfo(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->InsertColumn(arg2,(wxTreeListColumnInfo const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7391,7 +7391,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_RemoveColumn(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->RemoveColumn(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7426,7 +7426,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetColumnCount(PyObject *SWIGUNUSEDPARM(
     {
       result = (size_t)((wxPyTreeListCtrl const *)arg1)->GetColumnCount();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7471,7 +7471,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetMainColumn(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetMainColumn(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7506,7 +7506,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetMainColumn(PyObject *SWIGUNUSEDPARM(s
     {
       result = (size_t)((wxPyTreeListCtrl const *)arg1)->GetMainColumn();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7563,7 +7563,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetColumn(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetColumn(arg2,(wxTreeListColumnInfo const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7612,7 +7612,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetColumn(PyObject *SWIGUNUSEDPARM(self)
         result = (wxTreeListColumnInfo *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7665,7 +7665,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetColumnText(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetColumnText(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7719,7 +7719,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetColumnText(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetColumnText(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7779,7 +7779,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetColumnWidth(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetColumnWidth(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7825,7 +7825,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetColumnWidth(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)((wxPyTreeListCtrl const *)arg1)->GetColumnWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7879,7 +7879,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetColumnAlignment(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetColumnAlignment(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7925,7 +7925,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetColumnAlignment(PyObject *SWIGUNUSEDP
     {
       result = (int)((wxPyTreeListCtrl const *)arg1)->GetColumnAlignment(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7979,7 +7979,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetColumnImage(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetColumnImage(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8025,7 +8025,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetColumnImage(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)((wxPyTreeListCtrl const *)arg1)->GetColumnImage(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8081,7 +8081,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetColumnShown(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetColumnShown(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8127,7 +8127,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_IsColumnShown(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxPyTreeListCtrl const *)arg1)->IsColumnShown(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8185,7 +8185,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetColumnEditable(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetColumnEditable(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8231,7 +8231,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_IsColumnEditable(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)((wxPyTreeListCtrl const *)arg1)->IsColumnEditable(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8293,7 +8293,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetItemText(PyObject *SWIGUNUSEDPARM(sel
     {
       result = wxPyTreeListCtrl_GetItemText(arg1,(wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8370,7 +8370,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetItemImage(PyObject *SWIGUNUSEDPARM(se
     {
       result = (int)wxPyTreeListCtrl_GetItemImage(arg1,(wxTreeItemId const &)*arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8437,7 +8437,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetItemText(PyObject *SWIGUNUSEDPARM(sel
     {
       wxPyTreeListCtrl_SetItemText(arg1,(wxTreeItemId const &)*arg2,(wxString const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8524,7 +8524,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetItemImage(PyObject *SWIGUNUSEDPARM(se
     {
       wxPyTreeListCtrl_SetItemImage(arg1,(wxTreeItemId const &)*arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8573,7 +8573,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetItemData(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxPyTreeItemData *)wxPyTreeListCtrl_GetItemData(arg1,(wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8628,7 +8628,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetItemData(PyObject *SWIGUNUSEDPARM(sel
     {
       wxPyTreeListCtrl_SetItemData(arg1,(wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8677,7 +8677,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetItemPyData(PyObject *SWIGUNUSEDPARM(s
     {
       result = (PyObject *)wxPyTreeListCtrl_GetItemPyData(arg1,(wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8728,7 +8728,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetItemPyData(PyObject *SWIGUNUSEDPARM(s
     {
       wxPyTreeListCtrl_SetItemPyData(arg1,(wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8777,7 +8777,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetItemBold(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)((wxPyTreeListCtrl const *)arg1)->GetItemBold((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8828,7 +8828,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetItemTextColour(PyObject *SWIGUNUSEDPA
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetItemTextColour((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8877,7 +8877,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetItemBackgroundColour(PyObject *SWIGUN
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetItemBackgroundColour((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8926,7 +8926,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetItemFont(PyObject *SWIGUNUSEDPARM(sel
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetItemFont((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8985,7 +8985,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetItemHasChildren(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetItemHasChildren((wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9044,7 +9044,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetItemBold(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetItemBold((wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9099,7 +9099,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetItemTextColour(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetItemTextColour((wxTreeItemId const &)*arg2,(wxColour const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9154,7 +9154,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetItemBackgroundColour(PyObject *SWIGUN
     {
       (arg1)->SetItemBackgroundColour((wxTreeItemId const &)*arg2,(wxColour const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9214,7 +9214,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetItemFont(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetItemFont((wxTreeItemId const &)*arg2,(wxFont const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9263,7 +9263,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_IsVisible(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)((wxPyTreeListCtrl const *)arg1)->IsVisible((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9314,7 +9314,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_HasChildren(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)((wxPyTreeListCtrl const *)arg1)->HasChildren((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9365,7 +9365,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_IsExpanded(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)((wxPyTreeListCtrl const *)arg1)->IsExpanded((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9416,7 +9416,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_IsSelected(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)((wxPyTreeListCtrl const *)arg1)->IsSelected((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9467,7 +9467,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_IsBold(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)((wxPyTreeListCtrl const *)arg1)->IsBold((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9529,7 +9529,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetChildrenCount(PyObject *SWIGUNUSEDPAR
     {
       result = (size_t)(arg1)->GetChildrenCount((wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9564,7 +9564,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetRootItem(PyObject *SWIGUNUSEDPARM(sel
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetRootItem();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9599,7 +9599,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetSelection(PyObject *SWIGUNUSEDPARM(se
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9634,7 +9634,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetSelections(PyObject *SWIGUNUSEDPARM(s
     {
       result = (PyObject *)wxPyTreeListCtrl_GetSelections(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9683,7 +9683,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetItemParent(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetItemParent((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9718,7 +9718,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetCurrentItem(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetCurrentItem();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9766,7 +9766,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetCurrentItem(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetCurrentItem((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9815,7 +9815,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetFirstChild(PyObject *SWIGUNUSEDPARM(s
     {
       result = (PyObject *)wxPyTreeListCtrl_GetFirstChild(arg1,(wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9871,7 +9871,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetNextChild(PyObject *SWIGUNUSEDPARM(se
     {
       result = (PyObject *)wxPyTreeListCtrl_GetNextChild(arg1,(wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9920,7 +9920,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetLastChild(PyObject *SWIGUNUSEDPARM(se
     {
       result = (PyObject *)wxPyTreeListCtrl_GetLastChild(arg1,(wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9976,7 +9976,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetPrevChild(PyObject *SWIGUNUSEDPARM(se
     {
       result = (PyObject *)wxPyTreeListCtrl_GetPrevChild(arg1,(wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10025,7 +10025,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetNextSibling(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetNextSibling((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10074,7 +10074,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetPrevSibling(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetPrevSibling((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10123,7 +10123,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetNext(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetNext((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10172,7 +10172,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetPrev(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetPrev((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10207,7 +10207,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetFirstExpandedItem(PyObject *SWIGUNUSE
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetFirstExpandedItem();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10256,7 +10256,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetNextExpanded(PyObject *SWIGUNUSEDPARM
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetNextExpanded((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10305,7 +10305,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetPrevExpanded(PyObject *SWIGUNUSEDPARM
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetPrevExpanded((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10353,7 +10353,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetFirstVisibleItem(PyObject *SWIGUNUSED
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetFirstVisibleItem(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10413,7 +10413,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetNextVisible(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetNextVisible((wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10473,7 +10473,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetPrevVisible(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxPyTreeListCtrl const *)arg1)->GetPrevVisible((wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10549,7 +10549,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_AddRoot(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (arg1)->AddRoot((wxString const &)*arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10645,7 +10645,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_PrependItem(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (arg1)->PrependItem((wxTreeItemId const &)*arg2,(wxString const &)*arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10753,7 +10753,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_InsertItem(PyObject *SWIGUNUSEDPARM(self
     {
       result = (arg1)->InsertItem((wxTreeItemId const &)*arg2,(wxTreeItemId const &)*arg3,(wxString const &)*arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10858,7 +10858,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_InsertItemBefore(PyObject *SWIGUNUSEDPAR
     {
       result = (arg1)->InsertItem((wxTreeItemId const &)*arg2,arg3,(wxString const &)*arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10954,7 +10954,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_AppendItem(PyObject *SWIGUNUSEDPARM(self
     {
       result = (arg1)->AppendItem((wxTreeItemId const &)*arg2,(wxString const &)*arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11010,7 +11010,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_Delete(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->Delete((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11058,7 +11058,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_DeleteChildren(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->DeleteChildren((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11092,7 +11092,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_DeleteRoot(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->DeleteRoot();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11140,7 +11140,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_Expand(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->Expand((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11188,7 +11188,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_ExpandAll(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->ExpandAll((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11236,7 +11236,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_Collapse(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->Collapse((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11284,7 +11284,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_CollapseAndReset(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->CollapseAndReset((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11332,7 +11332,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_Toggle(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->Toggle((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11366,7 +11366,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_Unselect(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->Unselect();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11400,7 +11400,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_UnselectAll(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->UnselectAll();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11474,7 +11474,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SelectItem(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SelectItem((wxTreeItemId const &)*arg2,(wxTreeItemId const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11508,7 +11508,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SelectAll(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SelectAll();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11556,7 +11556,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_EnsureVisible(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->EnsureVisible((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11604,7 +11604,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_ScrollTo(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->ScrollTo((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11656,7 +11656,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_HitTest(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (arg1)->HitTest((wxPoint const &)*arg2,*arg3,*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11728,7 +11728,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetBoundingRect(PyObject *SWIGUNUSEDPARM
     {
       result = (PyObject *)wxPyTreeListCtrl_GetBoundingRect(arg1,(wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11787,7 +11787,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_EditLabel(PyObject *SWIGUNUSEDPARM(self)
     {
       wxPyTreeListCtrl_EditLabel(arg1,(wxTreeItemId const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11835,7 +11835,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SortChildren(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SortChildren((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11903,7 +11903,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_FindItem(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (arg1)->FindItem((wxTreeItemId const &)*arg2,(wxString const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11962,7 +11962,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SetDragItem(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetDragItem((wxTreeItemId const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11997,7 +11997,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetHeaderWindow(PyObject *SWIGUNUSEDPARM
     {
       result = (wxWindow *)((wxPyTreeListCtrl const *)arg1)->GetHeaderWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12034,7 +12034,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_GetMainWindow(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxScrolledWindow *)((wxPyTreeListCtrl const *)arg1)->GetMainWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12287,7 +12287,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_Create(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxBitmap const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12345,7 +12345,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_SetBitmap(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetBitmap((wxBitmap const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12380,7 +12380,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_GetBitmap(PyObject *SWIGUNUSEDPARM(self
     {
       result = ((wxStaticPicture const *)arg1)->GetBitmap();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12428,7 +12428,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_SetIcon(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetIcon((wxIcon const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12463,7 +12463,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_GetIcon(PyObject *SWIGUNUSEDPARM(self),
     {
       result = ((wxStaticPicture const *)arg1)->GetIcon();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12508,7 +12508,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_SetAlignment(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetAlignment(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12543,7 +12543,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_GetAlignment(PyObject *SWIGUNUSEDPARM(s
     {
       result = (int)((wxStaticPicture const *)arg1)->GetAlignment();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12588,7 +12588,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_SetScale(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetScale(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12623,7 +12623,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_GetScale(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (int)((wxStaticPicture const *)arg1)->GetScale();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12677,7 +12677,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_SetCustomScale(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetCustomScale(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12719,7 +12719,7 @@ SWIGINTERN PyObject *_wrap_StaticPicture_GetCustomScale(PyObject *SWIGUNUSEDPARM
     {
       ((wxStaticPicture const *)arg1)->GetCustomScale(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

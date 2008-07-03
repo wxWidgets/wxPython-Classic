@@ -2801,7 +2801,7 @@ SWIGINTERN PyObject *_wrap_delete_GLContext(PyObject *SWIGUNUSEDPARM(self), PyOb
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -2850,7 +2850,7 @@ SWIGINTERN PyObject *_wrap_GLContext_SetCurrent(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->SetCurrent((wxGLCanvas const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3124,7 +3124,7 @@ SWIGINTERN PyObject *_wrap_GLCanvas_Create(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7,(int const *)arg8,(wxPalette const &)*arg9);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3325,7 +3325,7 @@ SWIGINTERN PyObject *_wrap_GLCanvas_SetCurrent__SWIG_0(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->SetCurrent((wxGLContext const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3371,7 +3371,7 @@ SWIGINTERN PyObject *_wrap_GLCanvas_SetColour(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->SetColour((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3414,7 +3414,7 @@ SWIGINTERN PyObject *_wrap_GLCanvas_SwapBuffers(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->SwapBuffers();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3451,7 +3451,7 @@ SWIGINTERN PyObject *_wrap_GLCanvas_GetContext(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxGLContext *)(arg1)->GetContext();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3483,7 +3483,7 @@ SWIGINTERN PyObject *_wrap_GLCanvas_SetCurrent__SWIG_1(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetCurrent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3554,7 +3554,7 @@ SWIGINTERN PyObject *_wrap_GLCanvas_InitVisual(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->InitVisual((int const *)arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3597,7 +3597,7 @@ SWIGINTERN PyObject *_wrap_GLCanvas_GetPalette(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxPalette *)(arg1)->GetPalette();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3640,7 +3640,7 @@ SWIGINTERN PyObject *_wrap_GLCanvas_IsDisplaySupported(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)wxGLCanvas::IsDisplaySupported((int const *)arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

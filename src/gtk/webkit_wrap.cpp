@@ -3128,7 +3128,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_Create(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxValidator const &)*arg8,(wxString const &)*arg9);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3190,7 +3190,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_LoadURL(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->LoadURL((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3233,7 +3233,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_CanGoBack(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->CanGoBack();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3270,7 +3270,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_CanGoForward(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->CanGoForward();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3307,7 +3307,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_GoBack(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->GoBack();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3344,7 +3344,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_GoForward(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->GoForward();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3380,7 +3380,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_Reload(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->Reload();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3414,7 +3414,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_Stop(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->Stop();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3449,7 +3449,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_CanGetPageSource(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->CanGetPageSource();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3486,7 +3486,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_GetPageSource(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (arg1)->GetPageSource();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3547,7 +3547,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_SetPageSource(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetPageSource(*arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3598,7 +3598,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_GetPageURL(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (arg1)->GetPageURL();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3639,7 +3639,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_GetPageTitle(PyObject *SWIGUNUSEDPARM(self
     {
       result = (arg1)->GetPageTitle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3680,7 +3680,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_GetSelection(PyObject *SWIGUNUSEDPARM(self
     {
       result = (arg1)->GetSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3721,7 +3721,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_CanIncreaseTextSize(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->CanIncreaseTextSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3757,7 +3757,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_IncreaseTextSize(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->IncreaseTextSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3792,7 +3792,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_CanDecreaseTextSize(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->CanDecreaseTextSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3828,7 +3828,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_DecreaseTextSize(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->DecreaseTextSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3875,7 +3875,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_Print(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->Print(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3922,7 +3922,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_MakeEditable(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->MakeEditable(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3957,7 +3957,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_IsEditable(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->IsEditable();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4004,7 +4004,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_RunScript(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (arg1)->RunScript((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4063,7 +4063,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_SetScrollPos(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetScrollPos(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4098,7 +4098,7 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_GetScrollPos(PyObject *SWIGUNUSEDPARM(self
     {
       result = (int)(arg1)->GetScrollPos();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4144,7 +4144,7 @@ SWIGINTERN PyObject *_wrap_WebKitBeforeLoadEvent_IsCancelled(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->IsCancelled();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4193,7 +4193,7 @@ SWIGINTERN PyObject *_wrap_WebKitBeforeLoadEvent_Cancel(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->Cancel(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4228,7 +4228,7 @@ SWIGINTERN PyObject *_wrap_WebKitBeforeLoadEvent_GetURL(PyObject *SWIGUNUSEDPARM
     {
       result = (arg1)->GetURL();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4278,7 +4278,7 @@ SWIGINTERN PyObject *_wrap_WebKitBeforeLoadEvent_SetURL(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetURL((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4331,7 +4331,7 @@ SWIGINTERN PyObject *_wrap_WebKitBeforeLoadEvent_SetNavigationType(PyObject *SWI
     {
       (arg1)->SetNavigationType(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4366,7 +4366,7 @@ SWIGINTERN PyObject *_wrap_WebKitBeforeLoadEvent_GetNavigationType(PyObject *SWI
     {
       result = (int)(arg1)->GetNavigationType();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4405,7 +4405,7 @@ SWIGINTERN PyObject *_wrap_new_WebKitBeforeLoadEvent(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxWebKitBeforeLoadEvent *)new wxWebKitBeforeLoadEvent(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4455,7 +4455,7 @@ SWIGINTERN PyObject *_wrap_new_WebKitStateChangedEvent(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxWebKitStateChangedEvent *)new wxWebKitStateChangedEvent(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4490,7 +4490,7 @@ SWIGINTERN PyObject *_wrap_WebKitStateChangedEvent_GetState(PyObject *SWIGUNUSED
     {
       result = (int)(arg1)->GetState();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4535,7 +4535,7 @@ SWIGINTERN PyObject *_wrap_WebKitStateChangedEvent_SetState(PyObject *SWIGUNUSED
     {
       (arg1)->SetState(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4570,7 +4570,7 @@ SWIGINTERN PyObject *_wrap_WebKitStateChangedEvent_GetURL(PyObject *SWIGUNUSEDPA
     {
       result = (arg1)->GetURL();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4620,7 +4620,7 @@ SWIGINTERN PyObject *_wrap_WebKitStateChangedEvent_SetURL(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetURL((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

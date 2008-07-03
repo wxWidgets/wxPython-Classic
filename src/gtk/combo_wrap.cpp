@@ -3157,7 +3157,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl__setCallbackInfo(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3191,7 +3191,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_ShowPopup(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->ShowPopup();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3225,7 +3225,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_HidePopup(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->HidePopup();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3259,7 +3259,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_OnButtonClick(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->OnButtonClick();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3294,7 +3294,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_IsPopupShown(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)((wxPyComboCtrl const *)arg1)->IsPopupShown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3339,7 +3339,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetPopupControl(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetPopupControl(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3374,7 +3374,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetPopupControl(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxPyComboPopup *)(arg1)->GetPopupControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3409,7 +3409,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetPopupWindow(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxWindow *)((wxPyComboCtrl const *)arg1)->GetPopupWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3446,7 +3446,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetTextCtrl(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxTextCtrl *)((wxPyComboCtrl const *)arg1)->GetTextCtrl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3483,7 +3483,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetButton(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxWindow *)((wxPyComboCtrl const *)arg1)->GetButton();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3520,7 +3520,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetValue(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = ((wxPyComboCtrl const *)arg1)->GetValue();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3570,7 +3570,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetValue(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->SetValue((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3612,7 +3612,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Copy(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       (arg1)->Copy();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3646,7 +3646,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Cut(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       (arg1)->Cut();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3680,7 +3680,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Paste(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->Paste();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3725,7 +3725,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetInsertionPoint(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetInsertionPoint(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3759,7 +3759,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetInsertionPointEnd(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetInsertionPointEnd();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3794,7 +3794,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetInsertionPoint(PyObject *SWIGUNUSEDPARM(
     {
       result = (long)((wxPyComboCtrl const *)arg1)->GetInsertionPoint();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3829,7 +3829,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetLastPosition(PyObject *SWIGUNUSEDPARM(se
     {
       result = (long)((wxPyComboCtrl const *)arg1)->GetLastPosition();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3891,7 +3891,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Replace(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->Replace(arg2,arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3953,7 +3953,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Remove(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->Remove(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3987,7 +3987,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_Undo(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       (arg1)->Undo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4041,7 +4041,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetMark(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->SetSelection(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4085,7 +4085,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetText(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->SetText((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4148,7 +4148,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetValueWithEvent(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetValueWithEvent((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4201,7 +4201,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetPopupMinWidth(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetPopupMinWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4246,7 +4246,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetPopupMaxHeight(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetPopupMaxHeight(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4300,7 +4300,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetPopupExtents(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetPopupExtents(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4345,7 +4345,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetCustomPaintWidth(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetCustomPaintWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4380,7 +4380,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetCustomPaintWidth(PyObject *SWIGUNUSEDPAR
     {
       result = (int)((wxPyComboCtrl const *)arg1)->GetCustomPaintWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4425,7 +4425,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetPopupAnchor(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetPopupAnchor(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4505,7 +4505,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetButtonPosition(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetButtonPosition(arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4540,7 +4540,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetButtonSize(PyObject *SWIGUNUSEDPARM(self
     {
       result = (arg1)->GetButtonSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4644,7 +4644,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetButtonBitmaps(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetButtonBitmaps((wxBitmap const &)*arg2,arg3,(wxBitmap const &)*arg4,(wxBitmap const &)*arg5,(wxBitmap const &)*arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4689,7 +4689,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetTextIndent(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetTextIndent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4724,7 +4724,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetTextIndent(PyObject *SWIGUNUSEDPARM(self
     {
       result = (int)((wxPyComboCtrl const *)arg1)->GetTextIndent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4762,7 +4762,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetTextRect(PyObject *SWIGUNUSEDPARM(self),
         result = (wxRect *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4809,7 +4809,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_UseAltPopupWindow(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->UseAltPopupWindow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4856,7 +4856,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_EnablePopupAnimation(PyObject *SWIGUNUSEDPA
     {
       (arg1)->EnablePopupAnimation(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4905,7 +4905,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_IsKeyPopupToggle(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxPyComboCtrl const *)arg1)->IsKeyPopupToggle((wxKeyEvent const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4971,7 +4971,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_PrepareBackground(PyObject *SWIGUNUSEDPARM(
     {
       ((wxPyComboCtrl const *)arg1)->PrepareBackground(*arg2,(wxRect const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5006,7 +5006,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_ShouldDrawFocus(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)((wxPyComboCtrl const *)arg1)->ShouldDrawFocus();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5046,7 +5046,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetBitmapNormal(PyObject *SWIGUNUSEDPARM(se
         result = (wxBitmap *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5087,7 +5087,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetBitmapPressed(PyObject *SWIGUNUSEDPARM(s
         result = (wxBitmap *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5128,7 +5128,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetBitmapHover(PyObject *SWIGUNUSEDPARM(sel
         result = (wxBitmap *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5169,7 +5169,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetBitmapDisabled(PyObject *SWIGUNUSEDPARM(
         result = (wxBitmap *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5207,7 +5207,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetInternalFlags(PyObject *SWIGUNUSEDPARM(s
     {
       result = (unsigned int)((wxPyComboCtrl const *)arg1)->GetInternalFlags();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5242,7 +5242,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_IsCreated(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)((wxPyComboCtrl const *)arg1)->IsCreated();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5278,7 +5278,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_OnPopupDismiss(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->OnPopupDismiss();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5324,7 +5324,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_IsPopupWindowState(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)((wxPyComboCtrl const *)arg1)->IsPopupWindowState(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5361,7 +5361,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetPopupWindowState(PyObject *SWIGUNUSEDPAR
     {
       result = (int)((wxPyComboCtrl const *)arg1)->GetPopupWindowState();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5406,7 +5406,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_SetCtrlMainWnd(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetCtrlMainWnd(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5441,7 +5441,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetMainWindowOfCompositeControl(PyObject *S
     {
       result = (wxWindow *)(arg1)->GetMainWindowOfCompositeControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5468,7 +5468,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_GetFeatures(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (int)wxPyComboCtrl::GetFeatures();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5520,7 +5520,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_DoShowPopup(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->DoShowPopup((wxRect const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5573,7 +5573,7 @@ SWIGINTERN PyObject *_wrap_ComboCtrl_AnimateShow(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->AnimateShow((wxRect const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5640,7 +5640,7 @@ SWIGINTERN PyObject *_wrap_delete_ComboPopup(PyObject *SWIGUNUSEDPARM(self), PyO
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5682,7 +5682,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup__setCallbackInfo(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5716,7 +5716,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_Init(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->Init();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5762,7 +5762,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_Create(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->Create(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5799,7 +5799,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_GetControl(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxWindow *)(arg1)->GetControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5835,7 +5835,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_OnPopup(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->OnPopup();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5869,7 +5869,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_OnDismiss(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->OnDismiss();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5913,7 +5913,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_SetStringValue(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetStringValue((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5956,7 +5956,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_GetStringValue(PyObject *SWIGUNUSEDPARM(se
     {
       result = ((wxPyComboPopup const *)arg1)->GetStringValue();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6017,7 +6017,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_PaintComboControl(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->PaintComboControl(*arg2,(wxRect const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6065,7 +6065,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_OnComboKeyEvent(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->OnComboKeyEvent(*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6099,7 +6099,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_OnComboDoubleClick(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->OnComboDoubleClick();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6163,7 +6163,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_GetAdjustedSize(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetAdjustedSize(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6198,7 +6198,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_LazyCreate(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->LazyCreate();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6234,7 +6234,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_Dismiss(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->Dismiss();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6269,7 +6269,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_IsCreated(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)((wxPyComboPopup const *)arg1)->IsCreated();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6326,7 +6326,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_DefaultPaintComboControl(PyObject *SWIGUNU
     {
       wxPyComboPopup::DefaultPaintComboControl(arg1,*arg2,(wxRect const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6361,7 +6361,7 @@ SWIGINTERN PyObject *_wrap_ComboPopup_GetCombo(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxPyComboCtrl *)(arg1)->GetCombo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6590,7 +6590,7 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox__setCallbackInfo(PyObject *SWIGUNU
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6738,7 +6738,7 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_Create(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,(wxArrayString const &)*arg7,arg8,(wxValidator const &)*arg9,(wxString const &)*arg10);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6797,7 +6797,7 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_GetWidestItemWidth(PyObject *SWIGU
     {
       result = (int)(arg1)->GetWidestItemWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6832,7 +6832,7 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_GetWidestItem(PyObject *SWIGUNUSED
     {
       result = (int)(arg1)->GetWidestItem();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6886,7 +6886,7 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_SetMark(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetSelection(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6959,7 +6959,7 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_OnDrawItem(PyObject *SWIGUNUSEDPAR
     {
       ((wxPyOwnerDrawnComboBox const *)arg1)->OnDrawItem(*arg2,(wxRect const &)*arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7005,7 +7005,7 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_OnMeasureItem(PyObject *SWIGUNUSED
     {
       result = (int)((wxPyOwnerDrawnComboBox const *)arg1)->OnMeasureItem(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7051,7 +7051,7 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_OnMeasureItemWidth(PyObject *SWIGU
     {
       result = (int)((wxPyOwnerDrawnComboBox const *)arg1)->OnMeasureItemWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7124,7 +7124,7 @@ SWIGINTERN PyObject *_wrap_OwnerDrawnComboBox_OnDrawBackground(PyObject *SWIGUNU
     {
       ((wxPyOwnerDrawnComboBox const *)arg1)->OnDrawBackground(*arg2,(wxRect const &)*arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7457,7 +7457,7 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_Create(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,(wxArrayString const &)*arg7,arg8,(wxValidator const &)*arg9,(wxString const &)*arg10);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7546,7 +7546,7 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_Append(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (int)wxBitmapComboBox_Append(arg1,(wxString const &)*arg2,(wxBitmap const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7600,7 +7600,7 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_GetItemBitmap(PyObject *SWIGUNUSEDPARM
     {
       result = ((wxBitmapComboBox const *)arg1)->GetItemBitmap(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7671,7 +7671,7 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_Insert(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (int)wxBitmapComboBox_Insert(arg1,(wxString const &)*arg2,(wxBitmap const &)*arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7736,7 +7736,7 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_SetItemBitmap(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetItemBitmap(arg2,(wxBitmap const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7771,7 +7771,7 @@ SWIGINTERN PyObject *_wrap_BitmapComboBox_GetBitmapSize(PyObject *SWIGUNUSEDPARM
     {
       result = ((wxBitmapComboBox const *)arg1)->GetBitmapSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

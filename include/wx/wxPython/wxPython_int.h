@@ -701,8 +701,58 @@ public:
 extern wxPyApp *wxPythonApp;
 
 
+
+//Callback Macros
+//
+//NOTE: This system doesn't handle output through C++ arguments.
+//
+//Syntax:
+//  Use the PYCALLBACK_* form for inline methods. Use the IMP_PYCALLBACK_* form when implementing a 
+//  forward declared method outside of the class.
+//
+//  PYCALLBACK_/argcount/_/flags/([PCLASS], [RETTYPE, RETINIT], CBNAME, [ARGS])
+//  IMP_PYCALLBACK_/argcount/_/flags/(CLASS, [PCLASS], [RETTYPE, RETINIT], CBNAME, [ARGS])
+//
+//Argcount:
+//  This is a number 0 through 10, indicating the number of arguments of the callback.
+//  If argcount is 0, omit the ARGS macro option. Otherwise, include an argument list 
+//  with types. Argument names must be a, b, c, ... z, depending on the number of 
+//  arguments, eg, (int a, const wxString& b, int c). 
+//
+//  An insertion operator function must be present for all argument types (see raiihelpers.h).
+//
+//Flags:
+//  Separate flags with underscores. Order is VOID or EXTRACT, optionally PURE, and optionally CONST.
+//
+//  VOID - Implement a void method, ignoring any return value from the Python function. 
+//         Omit RETTYPE and RETINIT macro arguments with VOID.  
+//
+//  EXTRACT - Implement a method that returns a value.
+//            Must include RETTYPE and RETINIT arguments. RETTYPE is the return type, 
+//            and RETINIT should initialize the return value, rval. An appropriate 
+//            extraction operator function must be present (see raiihelpers.h).
+//
+//  PURE - Implement a pure virtual method, where no default exists in the parent class.
+//         Omit the PCLASS argument.
+//
+//  CONST - Implement a const method.
+//
+//Examples:
+//
+// Pure virtual method, no arguments, string return value:
+//  PYCALLBACK_0_EXTRACT_PURE(wxString, rval, OnSomeAction)
+// Same as before, but indicate a default return value other than an empty string:
+//  PYCALLBACK_0_EXTRACT_PURE(wxString, rval = "blah", OnSomeAction)
+//
+// Pure virtual method, one int argument, int return value:
+//  PYCALLBACK_1_EXTRACT_PURE(int, rval = -1, OnSomeAction, (int a))
+// Same as above, but the parent class includes a default for OnSomeAction:
+//  PYCALLBACK_1_EXTRACT(MyParentClass, int, rval = -1, OnSomeAction, (int a))
+//
+// A pure void method, with no arguments:
+//  PYCALLBACK_0_VOID_PURE(OnSomeAction)
+
 //TODO: Have PURE callbacks raise NotImplementedError if python method not found. 
-//TODO: Document macros
 //
 // Base callback macros.
 #define B_PYCALLBACK_N(RETTYPE, CBNAME, LOOKUP, NARGS, ARGS, INSERT, DECOUT, EXTRACT, CALLPARENT, RETURN) \

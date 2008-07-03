@@ -2873,7 +2873,7 @@ SWIGINTERN PyObject *_wrap_new_CalendarDateAttr(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxCalendarDateAttr *)new wxCalendarDateAttr((wxColour const &)*arg1,(wxColour const &)*arg2,(wxColour const &)*arg3,(wxFont const &)*arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -2908,7 +2908,7 @@ SWIGINTERN PyObject *_wrap_delete_CalendarDateAttr(PyObject *SWIGUNUSEDPARM(self
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -2951,7 +2951,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetTextColour(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetTextColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -2994,7 +2994,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetBackgroundColour(PyObject *SWIGUN
     {
       (arg1)->SetBackgroundColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3037,7 +3037,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetBorderColour(PyObject *SWIGUNUSED
     {
       (arg1)->SetBorderColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3085,7 +3085,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetFont(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetFont((wxFont const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3130,7 +3130,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetBorder(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetBorder(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3175,7 +3175,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetHoliday(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetHoliday(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3210,7 +3210,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_HasTextColour(PyObject *SWIGUNUSEDPA
     {
       result = (bool)((wxCalendarDateAttr const *)arg1)->HasTextColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3247,7 +3247,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_HasBackgroundColour(PyObject *SWIGUN
     {
       result = (bool)((wxCalendarDateAttr const *)arg1)->HasBackgroundColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3284,7 +3284,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_HasBorderColour(PyObject *SWIGUNUSED
     {
       result = (bool)((wxCalendarDateAttr const *)arg1)->HasBorderColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3321,7 +3321,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_HasFont(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)((wxCalendarDateAttr const *)arg1)->HasFont();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3358,7 +3358,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_HasBorder(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxCalendarDateAttr const *)arg1)->HasBorder();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3395,7 +3395,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_IsHoliday(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxCalendarDateAttr const *)arg1)->IsHoliday();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3432,7 +3432,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetTextColour(PyObject *SWIGUNUSEDPA
     {
       result = ((wxCalendarDateAttr const *)arg1)->GetTextColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3467,7 +3467,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetBackgroundColour(PyObject *SWIGUN
     {
       result = ((wxCalendarDateAttr const *)arg1)->GetBackgroundColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3502,7 +3502,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetBorderColour(PyObject *SWIGUNUSED
     {
       result = ((wxCalendarDateAttr const *)arg1)->GetBorderColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3537,7 +3537,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetFont(PyObject *SWIGUNUSEDPARM(sel
     {
       result = ((wxCalendarDateAttr const *)arg1)->GetFont();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3572,7 +3572,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetBorder(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxCalendarDateBorder)((wxCalendarDateAttr const *)arg1)->GetBorder();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3600,7 +3600,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_GetMark(PyObject *SWIGUNUSEDPARM(sel
         result = (wxCalendarDateAttr *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3639,7 +3639,7 @@ SWIGINTERN PyObject *_wrap_CalendarDateAttr_SetMark(PyObject *SWIGUNUSEDPARM(sel
     {
       wxCalendarDateAttr::SetMark((wxCalendarDateAttr const &)*arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3708,7 +3708,7 @@ SWIGINTERN PyObject *_wrap_new_CalendarEvent(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxCalendarEvent *)new wxCalendarEvent(arg1,(wxDateTime const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3753,7 +3753,7 @@ SWIGINTERN PyObject *_wrap_CalendarEvent_SetWeekDay(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetWeekDay(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3788,7 +3788,7 @@ SWIGINTERN PyObject *_wrap_CalendarEvent_GetWeekDay(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxDateTime::WeekDay)((wxCalendarEvent const *)arg1)->GetWeekDay();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3854,7 +3854,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_AllowMonthChange(PyObject *SWIGUNUSE
     {
       result = (bool)((wxCalendarCtrlBase const *)arg1)->AllowMonthChange();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3905,7 +3905,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetDate(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->SetDate((wxDateTime const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3942,7 +3942,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetDate(PyObject *SWIGUNUSEDPARM(sel
     {
       result = ((wxCalendarCtrlBase const *)arg1)->GetDate();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4009,7 +4009,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetDateRange(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->SetDateRange((wxDateTime const &)*arg2,(wxDateTime const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4046,7 +4046,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetDateRange(PyObject *SWIGUNUSEDPAR
     {
       result = (PyObject *)wxCalendarCtrlBase_GetDateRange(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4090,7 +4090,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_HitTest(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (PyObject *)wxCalendarCtrlBase_HitTest(arg1,(wxPoint const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4137,7 +4137,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_EnableMonthChange(PyObject *SWIGUNUS
     {
       (arg1)->EnableMonthChange(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4191,7 +4191,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_Mark(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->Mark(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4237,7 +4237,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetAttr(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxCalendarDateAttr *)((wxCalendarCtrlBase const *)arg1)->GetAttr(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4289,7 +4289,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetAttr(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetAttr(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4334,7 +4334,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_ResetAttr(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->ResetAttr(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4381,7 +4381,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_EnableHolidayDisplay(PyObject *SWIGU
     {
       (arg1)->EnableHolidayDisplay(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4431,7 +4431,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetHolidayColours(PyObject *SWIGUNUS
     {
       (arg1)->SetHolidayColours((wxColour const &)*arg2,(wxColour const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4466,7 +4466,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHolidayColourFg(PyObject *SWIGUNU
     {
       result = ((wxCalendarCtrlBase const *)arg1)->GetHolidayColourFg();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4501,7 +4501,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHolidayColourBg(PyObject *SWIGUNU
     {
       result = ((wxCalendarCtrlBase const *)arg1)->GetHolidayColourBg();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4546,7 +4546,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetHoliday(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetHoliday(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4596,7 +4596,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetHeaderColours(PyObject *SWIGUNUSE
     {
       (arg1)->SetHeaderColours((wxColour const &)*arg2,(wxColour const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4631,7 +4631,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHeaderColourFg(PyObject *SWIGUNUS
     {
       result = ((wxCalendarCtrlBase const *)arg1)->GetHeaderColourFg();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4666,7 +4666,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHeaderColourBg(PyObject *SWIGUNUS
     {
       result = ((wxCalendarCtrlBase const *)arg1)->GetHeaderColourBg();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4716,7 +4716,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_SetHighlightColours(PyObject *SWIGUN
     {
       (arg1)->SetHighlightColours((wxColour const &)*arg2,(wxColour const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4751,7 +4751,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHighlightColourFg(PyObject *SWIGU
     {
       result = ((wxCalendarCtrlBase const *)arg1)->GetHighlightColourFg();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4786,7 +4786,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrlBase_GetHighlightColourBg(PyObject *SWIGU
     {
       result = ((wxCalendarCtrlBase const *)arg1)->GetHighlightColourBg();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5031,7 +5031,7 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_Create(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxDateTime const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5093,7 +5093,7 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_SetLowerDateLimit(PyObject *SWIGU
     {
       result = (bool)(arg1)->SetLowerDateLimit((wxDateTime const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5147,7 +5147,7 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_SetUpperDateLimit(PyObject *SWIGU
     {
       result = (bool)(arg1)->SetUpperDateLimit((wxDateTime const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5184,7 +5184,7 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_GetLowerDateLimit(PyObject *SWIGU
     {
       result = ((wxGenericCalendarCtrl const *)arg1)->GetLowerDateLimit();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5219,7 +5219,7 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_GetUpperDateLimit(PyObject *SWIGU
     {
       result = ((wxGenericCalendarCtrl const *)arg1)->GetUpperDateLimit();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5266,7 +5266,7 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_EnableYearChange(PyObject *SWIGUN
     {
       (arg1)->EnableYearChange(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5301,7 +5301,7 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_GetMonthControl(PyObject *SWIGUNU
     {
       result = (wxControl *)((wxGenericCalendarCtrl const *)arg1)->GetMonthControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5338,7 +5338,7 @@ SWIGINTERN PyObject *_wrap_GenericCalendarCtrl_GetYearControl(PyObject *SWIGUNUS
     {
       result = (wxControl *)((wxGenericCalendarCtrl const *)arg1)->GetYearControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5622,7 +5622,7 @@ SWIGINTERN PyObject *_wrap_CalendarCtrl_Create(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxDateTime const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

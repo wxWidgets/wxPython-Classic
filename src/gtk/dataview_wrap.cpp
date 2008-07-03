@@ -3396,7 +3396,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewItem(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxDataViewItem *)new wxDataViewItem(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3431,7 +3431,7 @@ SWIGINTERN PyObject *_wrap_delete_DataViewItem(PyObject *SWIGUNUSEDPARM(self), P
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3466,7 +3466,7 @@ SWIGINTERN PyObject *_wrap_DataViewItem_IsOk(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)((wxDataViewItem const *)arg1)->IsOk();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3503,7 +3503,7 @@ SWIGINTERN PyObject *_wrap_DataViewItem_GetID(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (void *)((wxDataViewItem const *)arg1)->GetID();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3538,7 +3538,7 @@ SWIGINTERN PyObject *_wrap_DataViewItem___hash__(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (long)wxDataViewItem___hash__(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3584,7 +3584,7 @@ SWIGINTERN PyObject *_wrap_DataViewItem___cmp__(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (int)wxDataViewItem___cmp__(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3630,7 +3630,7 @@ SWIGINTERN PyObject *_wrap_delete_DataViewItemArray_iterator(PyObject *SWIGUNUSE
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3698,7 +3698,7 @@ SWIGINTERN PyObject *_wrap_delete_DataViewItemArray(PyObject *SWIGUNUSEDPARM(sel
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3829,7 +3829,7 @@ SWIGINTERN PyObject *_wrap_delete_DataViewModelNotifier(PyObject *SWIGUNUSEDPARM
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3890,7 +3890,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_ItemAdded(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->ItemAdded((wxDataViewItem const &)*arg2,(wxDataViewItem const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3953,7 +3953,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_ItemDeleted(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->ItemDeleted((wxDataViewItem const &)*arg2,(wxDataViewItem const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4004,7 +4004,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_ItemChanged(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->ItemChanged((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4067,7 +4067,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_ItemsAdded(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->ItemsAdded((wxDataViewItem const &)*arg2,(wxDataViewItemArray const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4130,7 +4130,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_ItemsDeleted(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->ItemsDeleted((wxDataViewItem const &)*arg2,(wxDataViewItemArray const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4181,7 +4181,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_ItemsChanged(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->ItemsChanged((wxDataViewItemArray const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4241,7 +4241,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_ValueChanged(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->ValueChanged((wxDataViewItem const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4278,7 +4278,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_Cleared(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->Cleared();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4314,7 +4314,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_Resort(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->Resort();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4359,7 +4359,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_SetOwner(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetOwner(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4394,7 +4394,7 @@ SWIGINTERN PyObject *_wrap_DataViewModelNotifier_GetOwner(PyObject *SWIGUNUSEDPA
     {
       result = (wxDataViewModel *)(arg1)->GetOwner();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4426,7 +4426,7 @@ SWIGINTERN PyObject *_wrap_new_PyDataViewModelNotifier(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxPyDataViewModelNotifier *)new wxPyDataViewModelNotifier();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4468,7 +4468,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewModelNotifier__setCallbackInfo(PyObject *SW
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4504,7 +4504,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewItemAttr(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxDataViewItemAttr *)new wxDataViewItemAttr();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4539,7 +4539,7 @@ SWIGINTERN PyObject *_wrap_delete_DataViewItemAttr(PyObject *SWIGUNUSEDPARM(self
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4582,7 +4582,7 @@ SWIGINTERN PyObject *_wrap_DataViewItemAttr_SetColour(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4627,7 +4627,7 @@ SWIGINTERN PyObject *_wrap_DataViewItemAttr_SetBold(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetBold(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4672,7 +4672,7 @@ SWIGINTERN PyObject *_wrap_DataViewItemAttr_SetItalic(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetItalic(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4707,7 +4707,7 @@ SWIGINTERN PyObject *_wrap_DataViewItemAttr_HasColour(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxDataViewItemAttr const *)arg1)->HasColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4747,7 +4747,7 @@ SWIGINTERN PyObject *_wrap_DataViewItemAttr_GetColour(PyObject *SWIGUNUSEDPARM(s
         result = (wxColour *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4782,7 +4782,7 @@ SWIGINTERN PyObject *_wrap_DataViewItemAttr_GetBold(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)((wxDataViewItemAttr const *)arg1)->GetBold();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4819,7 +4819,7 @@ SWIGINTERN PyObject *_wrap_DataViewItemAttr_GetItalic(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxDataViewItemAttr const *)arg1)->GetItalic();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4867,7 +4867,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_GetColumnCount(PyObject *SWIGUNUSEDPARM
     {
       result = (unsigned int)((wxDataViewModel const *)arg1)->GetColumnCount();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4913,7 +4913,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_GetColumnType(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxDataViewModel const *)arg1)->GetColumnType(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4977,7 +4977,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_GetValue(PyObject *SWIGUNUSEDPARM(self)
     {
       result = wxDataViewModel_GetValue((wxDataViewModel const *)arg1,(wxDataViewItem const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5044,7 +5044,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_SetValue(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->SetValue((wxVariant const &)*arg2,(wxDataViewItem const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5116,7 +5116,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_GetAttr(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->GetAttr((wxDataViewItem const &)*arg2,arg3,*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5167,7 +5167,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_GetParent(PyObject *SWIGUNUSEDPARM(self
     {
       result = ((wxDataViewModel const *)arg1)->GetParent((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5216,7 +5216,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_IsContainer(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)((wxDataViewModel const *)arg1)->IsContainer((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5267,7 +5267,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_HasContainerColumns(PyObject *SWIGUNUSE
     {
       result = (bool)((wxDataViewModel const *)arg1)->HasContainerColumns((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5330,7 +5330,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_GetChildren(PyObject *SWIGUNUSEDPARM(se
     {
       result = (unsigned int)((wxDataViewModel const *)arg1)->GetChildren((wxDataViewItem const &)*arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5391,7 +5391,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_ItemAdded(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->ItemAdded((wxDataViewItem const &)*arg2,(wxDataViewItem const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5454,7 +5454,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_ItemsAdded(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->ItemsAdded((wxDataViewItem const &)*arg2,(wxDataViewItemArray const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5517,7 +5517,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_ItemDeleted(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->ItemDeleted((wxDataViewItem const &)*arg2,(wxDataViewItem const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5580,7 +5580,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_ItemsDeleted(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->ItemsDeleted((wxDataViewItem const &)*arg2,(wxDataViewItemArray const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5631,7 +5631,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_ItemChanged(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->ItemChanged((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5682,7 +5682,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_ItemsChanged(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->ItemsChanged((wxDataViewItemArray const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5742,7 +5742,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_ValueChanged(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->ValueChanged((wxDataViewItem const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5779,7 +5779,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_Cleared(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->Cleared();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5815,7 +5815,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_Resort(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->Resort();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5858,7 +5858,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_AddNotifier(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->AddNotifier(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5903,7 +5903,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_RemoveNotifier(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->RemoveNotifier(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5982,7 +5982,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_Compare(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (int)(arg1)->Compare((wxDataViewItem const &)*arg2,(wxDataViewItem const &)*arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6017,7 +6017,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_HasDefaultCompare(PyObject *SWIGUNUSEDP
     {
       result = (bool)((wxDataViewModel const *)arg1)->HasDefaultCompare();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6054,7 +6054,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_IsVirtualListModel(PyObject *SWIGUNUSED
     {
       result = (bool)((wxDataViewModel const *)arg1)->IsVirtualListModel();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6088,7 +6088,7 @@ SWIGINTERN PyObject *_wrap_new_PyDataViewModel(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxPyDataViewModel *)new wxPyDataViewModel();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6130,7 +6130,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewModel__setCallbackInfo(PyObject *SWIGUNUSED
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6176,7 +6176,7 @@ SWIGINTERN PyObject *_wrap_delete_DataViewIndexListModel(PyObject *SWIGUNUSEDPAR
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6231,7 +6231,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_GetValue(PyObject *SWIGUNUSEDP
     {
       result = wxDataViewIndexListModel_GetValue((wxDataViewIndexListModel const *)arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6295,7 +6295,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_SetValue(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->SetValue((wxVariant const &)*arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6364,7 +6364,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_GetAttr(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->GetAttr(arg2,arg3,*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6400,7 +6400,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_RowPrepended(PyObject *SWIGUNU
     {
       (arg1)->RowPrepended();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6445,7 +6445,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_RowInserted(PyObject *SWIGUNUS
     {
       (arg1)->RowInserted(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6479,7 +6479,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_RowAppended(PyObject *SWIGUNUS
     {
       (arg1)->RowAppended();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6524,7 +6524,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_RowDeleted(PyObject *SWIGUNUSE
     {
       (arg1)->RowDeleted(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6583,7 +6583,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_RowsDeleted(PyObject *SWIGUNUS
     {
       (arg1)->RowsDeleted((wxArrayInt const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6634,7 +6634,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_RowChanged(PyObject *SWIGUNUSE
     {
       (arg1)->RowChanged(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6688,7 +6688,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_RowValueChanged(PyObject *SWIG
     {
       (arg1)->RowValueChanged(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6733,7 +6733,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_Reset(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->Reset(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6782,7 +6782,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_GetRow(PyObject *SWIGUNUSEDPAR
     {
       result = (unsigned int)((wxDataViewIndexListModel const *)arg1)->GetRow((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6828,7 +6828,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_GetItem(PyObject *SWIGUNUSEDPA
     {
       result = ((wxDataViewIndexListModel const *)arg1)->GetItem(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6863,7 +6863,7 @@ SWIGINTERN PyObject *_wrap_DataViewIndexListModel_GetLastIndex(PyObject *SWIGUNU
     {
       result = (unsigned int)((wxDataViewIndexListModel const *)arg1)->GetLastIndex();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6909,7 +6909,7 @@ SWIGINTERN PyObject *_wrap_new_PyDataViewIndexListModel(PyObject *SWIGUNUSEDPARM
     {
       result = (wxPyDataViewIndexListModel *)new wxPyDataViewIndexListModel(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6951,7 +6951,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewIndexListModel__setCallbackInfo(PyObject *S
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6997,7 +6997,7 @@ SWIGINTERN PyObject *_wrap_delete_DataViewVirtualListModel(PyObject *SWIGUNUSEDP
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7052,7 +7052,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_GetValue(PyObject *SWIGUNUSE
     {
       result = wxDataViewVirtualListModel_GetValue((wxDataViewVirtualListModel const *)arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7116,7 +7116,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_SetValue(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->SetValue((wxVariant const &)*arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7185,7 +7185,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_GetAttr(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->GetAttr(arg2,arg3,*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7221,7 +7221,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_RowPrepended(PyObject *SWIGU
     {
       (arg1)->RowPrepended();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7266,7 +7266,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_RowInserted(PyObject *SWIGUN
     {
       (arg1)->RowInserted(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7300,7 +7300,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_RowAppended(PyObject *SWIGUN
     {
       (arg1)->RowAppended();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7345,7 +7345,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_RowDeleted(PyObject *SWIGUNU
     {
       (arg1)->RowDeleted(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7404,7 +7404,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_RowsDeleted(PyObject *SWIGUN
     {
       (arg1)->RowsDeleted((wxArrayInt const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7455,7 +7455,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_RowChanged(PyObject *SWIGUNU
     {
       (arg1)->RowChanged(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7509,7 +7509,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_RowValueChanged(PyObject *SW
     {
       (arg1)->RowValueChanged(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7554,7 +7554,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_Reset(PyObject *SWIGUNUSEDPA
     {
       (arg1)->Reset(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7603,7 +7603,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_GetRow(PyObject *SWIGUNUSEDP
     {
       result = (unsigned int)((wxDataViewVirtualListModel const *)arg1)->GetRow((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7649,7 +7649,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_GetItem(PyObject *SWIGUNUSED
     {
       result = ((wxDataViewVirtualListModel const *)arg1)->GetItem(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7684,7 +7684,7 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_GetLastIndex(PyObject *SWIGU
     {
       result = (unsigned int)((wxDataViewVirtualListModel const *)arg1)->GetLastIndex();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7730,7 +7730,7 @@ SWIGINTERN PyObject *_wrap_new_PyDataViewVirtualListModel(PyObject *SWIGUNUSEDPA
     {
       result = (wxPyDataViewVirtualListModel *)new wxPyDataViewVirtualListModel(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7772,7 +7772,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewVirtualListModel__setCallbackInfo(PyObject 
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7818,7 +7818,7 @@ SWIGINTERN PyObject *_wrap_delete_DataViewRenderer(PyObject *SWIGUNUSEDPARM(self
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7862,7 +7862,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_Validate(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->Validate(*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7909,7 +7909,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_SetOwner(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetOwner(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7944,7 +7944,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_GetOwner(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxDataViewColumn *)(arg1)->GetOwner();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7988,7 +7988,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_SetValue(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->SetValue((wxVariant const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8025,7 +8025,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_GetValue(PyObject *SWIGUNUSEDPARM(se
     {
       result = wxDataViewRenderer_GetValue((wxDataViewRenderer const *)arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8062,7 +8062,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_GetVariantType(PyObject *SWIGUNUSEDP
     {
       result = ((wxDataViewRenderer const *)arg1)->GetVariantType();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8113,7 +8113,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_SetMode(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetMode(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8148,7 +8148,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_GetMode(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxDataViewCellMode)((wxDataViewRenderer const *)arg1)->GetMode();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8193,7 +8193,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_SetAlignment(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetAlignment(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8228,7 +8228,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_GetAlignment(PyObject *SWIGUNUSEDPAR
     {
       result = (int)((wxDataViewRenderer const *)arg1)->GetAlignment();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8263,7 +8263,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_HasEditorCtrl(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->HasEditorCtrl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8335,7 +8335,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_CreateEditorCtrl(PyObject *SWIGUNUSE
     {
       result = (wxControl *)(arg1)->CreateEditorCtrl(arg2,arg3,(wxVariant const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8383,7 +8383,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_GetValueFromEditorCtrl(PyObject *SWI
     {
       result = wxDataViewRenderer_GetValueFromEditorCtrl(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8451,7 +8451,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_StartEditing(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->StartEditing((wxDataViewItem const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8487,7 +8487,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_CancelEditing(PyObject *SWIGUNUSEDPA
     {
       (arg1)->CancelEditing();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8522,7 +8522,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_FinishEditing(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->FinishEditing();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8559,7 +8559,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_GetEditorCtrl(PyObject *SWIGUNUSEDPA
     {
       result = (wxControl *)(arg1)->GetEditorCtrl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8629,7 +8629,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewTextRenderer(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxDataViewTextRenderer *)new wxDataViewTextRenderer((wxString const &)*arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8709,7 +8709,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewTextRendererAttr(PyObject *SWIGUNUSEDPARM
     {
       result = (wxDataViewTextRendererAttr *)new wxDataViewTextRendererAttr((wxString const &)*arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8789,7 +8789,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewBitmapRenderer(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxDataViewBitmapRenderer *)new wxDataViewBitmapRenderer((wxString const &)*arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8869,7 +8869,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewIconTextRenderer(PyObject *SWIGUNUSEDPARM
     {
       result = (wxDataViewIconTextRenderer *)new wxDataViewIconTextRenderer((wxString const &)*arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8942,7 +8942,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewIconText(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxDataViewIconText *)new wxDataViewIconText((wxString const &)*arg1,(wxIcon const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8994,7 +8994,7 @@ SWIGINTERN PyObject *_wrap_DataViewIconText_SetText(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetText((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9037,7 +9037,7 @@ SWIGINTERN PyObject *_wrap_DataViewIconText_GetText(PyObject *SWIGUNUSEDPARM(sel
     {
       result = ((wxDataViewIconText const *)arg1)->GetText();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9091,7 +9091,7 @@ SWIGINTERN PyObject *_wrap_DataViewIconText_SetIcon(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetIcon((wxIcon const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9129,7 +9129,7 @@ SWIGINTERN PyObject *_wrap_DataViewIconText_GetIcon(PyObject *SWIGUNUSEDPARM(sel
         result = (wxIcon *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9204,7 +9204,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewToggleRenderer(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxDataViewToggleRenderer *)new wxDataViewToggleRenderer((wxString const &)*arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9295,7 +9295,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewProgressRenderer(PyObject *SWIGUNUSEDPARM
     {
       result = (wxDataViewProgressRenderer *)new wxDataViewProgressRenderer((wxString const &)*arg1,(wxString const &)*arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9390,7 +9390,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewSpinRenderer(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxDataViewSpinRenderer *)new wxDataViewSpinRenderer(arg1,arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9462,7 +9462,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewDateRenderer(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxDataViewDateRenderer *)new wxDataViewDateRenderer((wxString const &)*arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9549,7 +9549,7 @@ SWIGINTERN PyObject *_wrap_new_PyDataViewCustomRenderer(PyObject *SWIGUNUSEDPARM
     {
       result = (wxPyDataViewCustomRenderer *)new wxPyDataViewCustomRenderer((wxString const &)*arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9645,7 +9645,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewCustomRenderer_RenderText(PyObject *SWIGUNU
     {
       (arg1)->RenderText((wxString const &)*arg2,arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9688,7 +9688,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewCustomRenderer_GetSize(PyObject *SWIGUNUSED
     {
       result = ((wxPyDataViewCustomRenderer const *)arg1)->GetSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9760,7 +9760,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewCustomRenderer_Render(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->Render(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9846,7 +9846,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewCustomRenderer_Activate(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->Activate(arg2,arg3,(wxDataViewItem const &)*arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9949,7 +9949,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewCustomRenderer_LeftClick(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->LeftClick(arg2,arg3,arg4,(wxDataViewItem const &)*arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10052,7 +10052,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewCustomRenderer_StartDrag(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->StartDrag(arg2,arg3,arg4,(wxDataViewItem const &)*arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10089,7 +10089,7 @@ SWIGINTERN PyObject *_wrap_PyDataViewCustomRenderer_GetDC(PyObject *SWIGUNUSEDPA
     {
       result = (wxDC *)(arg1)->GetDC();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10184,7 +10184,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewColumn(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxDataViewColumn *)new_wxDataViewColumn(arg1,arg2,arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10219,7 +10219,7 @@ SWIGINTERN PyObject *_wrap_delete_DataViewColumn(PyObject *SWIGUNUSEDPARM(self),
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10263,7 +10263,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetTitle(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetTitle((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10316,7 +10316,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetAlignment(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetAlignment(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10361,7 +10361,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetSortable(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetSortable(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10406,7 +10406,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetReorderable(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetReorderable(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10451,7 +10451,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetResizeable(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetResizeable(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10496,7 +10496,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetHidden(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetHidden(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10541,7 +10541,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetSortOrder(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetSortOrder(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10586,7 +10586,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetFlags(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetFlags(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10631,7 +10631,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetOwner(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetOwner(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10679,7 +10679,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetBitmap(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetBitmap((wxBitmap const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10724,7 +10724,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetMinWidth(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetMinWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10769,7 +10769,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_SetWidth(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10804,7 +10804,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_GetTitle(PyObject *SWIGUNUSEDPARM(self
     {
       result = ((wxDataViewColumn const *)arg1)->GetTitle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10845,7 +10845,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_GetAlignment(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxAlignment)((wxDataViewColumn const *)arg1)->GetAlignment();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10880,7 +10880,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_GetWidth(PyObject *SWIGUNUSEDPARM(self
     {
       result = (int)((wxDataViewColumn const *)arg1)->GetWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10915,7 +10915,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_GetMinWidth(PyObject *SWIGUNUSEDPARM(s
     {
       result = (int)((wxDataViewColumn const *)arg1)->GetMinWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10950,7 +10950,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_GetFlags(PyObject *SWIGUNUSEDPARM(self
     {
       result = (int)((wxDataViewColumn const *)arg1)->GetFlags();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10985,7 +10985,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_IsHidden(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)((wxDataViewColumn const *)arg1)->IsHidden();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11022,7 +11022,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_IsReorderable(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)((wxDataViewColumn const *)arg1)->IsReorderable();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11059,7 +11059,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_IsResizeable(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)((wxDataViewColumn const *)arg1)->IsResizeable();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11096,7 +11096,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_IsSortable(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)((wxDataViewColumn const *)arg1)->IsSortable();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11133,7 +11133,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_IsSortOrderAscending(PyObject *SWIGUNU
     {
       result = (bool)((wxDataViewColumn const *)arg1)->IsSortOrderAscending();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11173,7 +11173,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_GetBitmap(PyObject *SWIGUNUSEDPARM(sel
         result = (wxBitmap *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11211,7 +11211,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_GetModelColumn(PyObject *SWIGUNUSEDPAR
     {
       result = (unsigned int)((wxDataViewColumn const *)arg1)->GetModelColumn();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11246,7 +11246,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_GetOwner(PyObject *SWIGUNUSEDPARM(self
     {
       result = (wxDataViewCtrl *)((wxDataViewColumn const *)arg1)->GetOwner();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11281,7 +11281,7 @@ SWIGINTERN PyObject *_wrap_DataViewColumn_GetRenderer(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxDataViewRenderer *)((wxDataViewColumn const *)arg1)->GetRenderer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11386,7 +11386,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewCtrl(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxDataViewCtrl *)new wxDataViewCtrl(arg1,arg2,(wxPoint const &)*arg3,(wxSize const &)*arg4,arg5,(wxValidator const &)*arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11411,7 +11411,7 @@ SWIGINTERN PyObject *_wrap_new_PreDataViewCtrl(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxDataViewCtrl *)new wxDataViewCtrl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11457,7 +11457,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_AssociateModel(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->AssociateModel(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11494,7 +11494,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_GetModel(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxDataViewModel *)(arg1)->GetModel();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11587,7 +11587,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_PrependTextColumn(PyObject *SWIGUNUSEDPA
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_PrependTextColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11680,7 +11680,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_PrependIconTextColumn(PyObject *SWIGUNUS
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_PrependIconTextColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11773,7 +11773,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_PrependToggleColumn(PyObject *SWIGUNUSED
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_PrependToggleColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11866,7 +11866,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_PrependProgressColumn(PyObject *SWIGUNUS
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_PrependProgressColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11959,7 +11959,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_PrependDateColumn(PyObject *SWIGUNUSEDPA
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_PrependDateColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12052,7 +12052,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_PrependBitmapColumn(PyObject *SWIGUNUSED
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_PrependBitmapColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12145,7 +12145,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_AppendTextColumn(PyObject *SWIGUNUSEDPAR
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_AppendTextColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12238,7 +12238,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_AppendIconTextColumn(PyObject *SWIGUNUSE
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_AppendIconTextColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12331,7 +12331,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_AppendToggleColumn(PyObject *SWIGUNUSEDP
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_AppendToggleColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12424,7 +12424,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_AppendProgressColumn(PyObject *SWIGUNUSE
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_AppendProgressColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12517,7 +12517,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_AppendDateColumn(PyObject *SWIGUNUSEDPAR
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_AppendDateColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12610,7 +12610,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_AppendBitmapColumn(PyObject *SWIGUNUSEDP
     {
       result = (wxDataViewColumn *)wxDataViewCtrl_AppendBitmapColumn(arg1,arg2,arg3,arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12656,7 +12656,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_PrependColumn(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->PrependColumn(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12713,7 +12713,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_InsertColumn(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->InsertColumn(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12761,7 +12761,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_AppendColumn(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->AppendColumn(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12798,7 +12798,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_GetColumnCount(PyObject *SWIGUNUSEDPARM(
     {
       result = (unsigned int)((wxDataViewCtrl const *)arg1)->GetColumnCount();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12844,7 +12844,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_GetColumn(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxDataViewColumn *)((wxDataViewCtrl const *)arg1)->GetColumn(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12890,7 +12890,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_GetColumnPosition(PyObject *SWIGUNUSEDPA
     {
       result = (int)((wxDataViewCtrl const *)arg1)->GetColumnPosition((wxDataViewColumn const *)arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12936,7 +12936,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_DeleteColumn(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->DeleteColumn(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12973,7 +12973,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_ClearColumns(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->ClearColumns();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13020,7 +13020,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_SetExpanderColumn(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetExpanderColumn(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13055,7 +13055,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_GetExpanderColumn(PyObject *SWIGUNUSEDPA
     {
       result = (wxDataViewColumn *)((wxDataViewCtrl const *)arg1)->GetExpanderColumn();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13090,7 +13090,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_GetSortingColumn(PyObject *SWIGUNUSEDPAR
     {
       result = (wxDataViewColumn *)((wxDataViewCtrl const *)arg1)->GetSortingColumn();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13135,7 +13135,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_SetIndent(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetIndent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13170,7 +13170,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_GetIndent(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (int)((wxDataViewCtrl const *)arg1)->GetIndent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13205,7 +13205,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_GetSelection(PyObject *SWIGUNUSEDPARM(se
     {
       result = ((wxDataViewCtrl const *)arg1)->GetSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13254,7 +13254,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_GetSelections(PyObject *SWIGUNUSEDPARM(s
     {
       result = (int)((wxDataViewCtrl const *)arg1)->GetSelections(*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13302,7 +13302,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_SetSelections(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetSelections((wxDataViewItemArray const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13350,7 +13350,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_Select(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->Select((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13398,7 +13398,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_Unselect(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->Unselect((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13447,7 +13447,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_IsSelected(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)((wxDataViewCtrl const *)arg1)->IsSelected((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13483,7 +13483,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_SelectAll(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SelectAll();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13517,7 +13517,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_UnselectAll(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->UnselectAll();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13565,7 +13565,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_Expand(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->Expand((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13613,7 +13613,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_Collapse(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->Collapse((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13672,7 +13672,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_EnsureVisible(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->EnsureVisible((wxDataViewItem const &)*arg2,(wxDataViewColumn const *)arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13739,7 +13739,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_HitTest(PyObject *SWIGUNUSEDPARM(self), 
     {
       ((wxDataViewCtrl const *)arg1)->HitTest((wxPoint const &)*arg2,*arg3,*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13799,7 +13799,7 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_GetItemRect(PyObject *SWIGUNUSEDPARM(sel
     {
       result = ((wxDataViewCtrl const *)arg1)->GetItemRect((wxDataViewItem const &)*arg2,(wxDataViewColumn const *)arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13860,7 +13860,7 @@ SWIGINTERN PyObject *_wrap_new_DataViewEvent(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxDataViewEvent *)new wxDataViewEvent(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13895,7 +13895,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_GetItem(PyObject *SWIGUNUSEDPARM(self),
     {
       result = ((wxDataViewEvent const *)arg1)->GetItem();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13943,7 +13943,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_SetItem(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetItem((wxDataViewItem const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13978,7 +13978,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_GetColumn(PyObject *SWIGUNUSEDPARM(self
     {
       result = (int)((wxDataViewEvent const *)arg1)->GetColumn();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14023,7 +14023,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_SetColumn(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetColumn(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14058,7 +14058,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_GetModel(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxDataViewModel *)((wxDataViewEvent const *)arg1)->GetModel();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14103,7 +14103,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_SetModel(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetModel(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14141,7 +14141,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_GetValue(PyObject *SWIGUNUSEDPARM(self)
         result = (wxVariant *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14184,7 +14184,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_SetValue(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetValue((wxVariant const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14229,7 +14229,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_SetDataViewColumn(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetDataViewColumn(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14264,7 +14264,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_GetDataViewColumn(PyObject *SWIGUNUSEDP
     {
       result = (wxDataViewColumn *)((wxDataViewEvent const *)arg1)->GetDataViewColumn();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14299,7 +14299,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_GetPosition(PyObject *SWIGUNUSEDPARM(se
     {
       result = ((wxDataViewEvent const *)arg1)->GetPosition();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14353,7 +14353,7 @@ SWIGINTERN PyObject *_wrap_DataViewEvent_SetPosition(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetPosition(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

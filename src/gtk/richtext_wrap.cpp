@@ -3132,7 +3132,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextFontTable(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxRichTextFontTable *)new wxRichTextFontTable();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3167,7 +3167,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextFontTable(PyObject *SWIGUNUSEDPARM(sel
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3202,7 +3202,7 @@ SWIGINTERN PyObject *_wrap_RichTextFontTable_IsOk(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)((wxRichTextFontTable const *)arg1)->IsOk();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3253,7 +3253,7 @@ SWIGINTERN PyObject *_wrap_RichTextFontTable_FindFont(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->FindFont((wxTextAttr const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3287,7 +3287,7 @@ SWIGINTERN PyObject *_wrap_RichTextFontTable_Clear(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->Clear();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3347,7 +3347,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextRange(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxRichTextRange *)new wxRichTextRange(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3380,7 +3380,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextRange(PyObject *SWIGUNUSEDPARM(self), 
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3418,7 +3418,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange___eq__(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)wxRichTextRange___eq__(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3462,7 +3462,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange___sub__(PyObject *SWIGUNUSEDPARM(self),
     {
       result = ((wxRichTextRange const *)arg1)->operator -((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3504,7 +3504,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange___add__(PyObject *SWIGUNUSEDPARM(self),
     {
       result = ((wxRichTextRange const *)arg1)->operator +((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3556,7 +3556,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_SetRange(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetRange(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3599,7 +3599,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_SetStart(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetStart(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3632,7 +3632,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_GetStart(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (long)((wxRichTextRange const *)arg1)->GetStart();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3675,7 +3675,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_SetEnd(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetEnd(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3708,7 +3708,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_GetEnd(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (long)((wxRichTextRange const *)arg1)->GetEnd();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3750,7 +3750,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_IsOutside(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)((wxRichTextRange const *)arg1)->IsOutside((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3794,7 +3794,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_IsWithin(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)((wxRichTextRange const *)arg1)->IsWithin((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3840,7 +3840,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_Contains(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)((wxRichTextRange const *)arg1)->Contains(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3884,7 +3884,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_LimitTo(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->LimitTo((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3919,7 +3919,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_GetLength(PyObject *SWIGUNUSEDPARM(self
     {
       result = (long)((wxRichTextRange const *)arg1)->GetLength();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3951,7 +3951,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_Swap(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->Swap();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3984,7 +3984,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_ToInternal(PyObject *SWIGUNUSEDPARM(sel
     {
       result = ((wxRichTextRange const *)arg1)->ToInternal();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4017,7 +4017,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_FromInternal(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxRichTextRange const *)arg1)->FromInternal();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4050,7 +4050,7 @@ SWIGINTERN PyObject *_wrap_RichTextRange_Get(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (PyObject *)wxRichTextRange_Get(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4123,7 +4123,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextObject(PyObject *SWIGUNUSEDPARM(self),
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4211,7 +4211,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Draw(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->Draw(*arg2,(wxRichTextRange const &)*arg3,(wxRichTextRange const &)*arg4,(wxRect const &)*arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4278,7 +4278,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Layout(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->Layout(*arg2,(wxRect const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4340,7 +4340,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_HitTest(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (int)(arg1)->HitTest(*arg2,(wxPoint const &)*arg3,*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4420,7 +4420,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_FindPosition(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->FindPosition(*arg2,arg3,*arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4464,7 +4464,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetBestSize(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxRichTextObject const *)arg1)->GetBestSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4555,7 +4555,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetRangeSize(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)((wxRichTextObject const *)arg1)->GetRangeSize((wxRichTextRange const &)*arg2,*arg3,*arg4,*arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4610,7 +4610,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_DoSplit(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxRichTextObject *)(arg1)->DoSplit(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4661,7 +4661,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_CalculateRange(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->CalculateRange(arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4711,7 +4711,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_DeleteRange(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->DeleteRange((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4748,7 +4748,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_IsEmpty(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)((wxRichTextObject const *)arg1)->IsEmpty();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4794,7 +4794,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetTextForRange(PyObject *SWIGUNUSEDPA
     {
       result = ((wxRichTextObject const *)arg1)->GetTextForRange((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4846,7 +4846,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_CanMerge(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)((wxRichTextObject const *)arg1)->CanMerge(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4894,7 +4894,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Merge(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->Merge(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4931,7 +4931,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Dump(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = wxRichTextObject_Dump(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4972,7 +4972,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetCachedSize(PyObject *SWIGUNUSEDPARM
     {
       result = ((wxRichTextObject const *)arg1)->GetCachedSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5015,7 +5015,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_SetCachedSize(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetCachedSize((wxSize const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5050,7 +5050,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetPosition(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxRichTextObject const *)arg1)->GetPosition();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5093,7 +5093,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_SetPosition(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetPosition((wxPoint const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5128,7 +5128,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetRect(PyObject *SWIGUNUSEDPARM(self)
     {
       result = ((wxRichTextObject const *)arg1)->GetRect();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5171,7 +5171,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_SetRange(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetRange((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5206,7 +5206,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetRange(PyObject *SWIGUNUSEDPARM(self
     {
       result = (arg1)->GetRange();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5241,7 +5241,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetDirty(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)((wxRichTextObject const *)arg1)->GetDirty();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5288,7 +5288,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_SetDirty(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetDirty(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5323,7 +5323,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_IsComposite(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxRichTextObject const *)arg1)->IsComposite();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5360,7 +5360,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetParent(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxRichTextObject *)((wxRichTextObject const *)arg1)->GetParent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5407,7 +5407,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_SetParent(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetParent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5452,7 +5452,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_SetSameMargins(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetMargins(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5524,7 +5524,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_SetMargins(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetMargins(arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5559,7 +5559,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetLeftMargin(PyObject *SWIGUNUSEDPARM
     {
       result = (int)((wxRichTextObject const *)arg1)->GetLeftMargin();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5594,7 +5594,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetRightMargin(PyObject *SWIGUNUSEDPAR
     {
       result = (int)((wxRichTextObject const *)arg1)->GetRightMargin();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5629,7 +5629,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetTopMargin(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)((wxRichTextObject const *)arg1)->GetTopMargin();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5664,7 +5664,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetBottomMargin(PyObject *SWIGUNUSEDPA
     {
       result = (int)((wxRichTextObject const *)arg1)->GetBottomMargin();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5712,7 +5712,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_SetAttributes(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetAttributes((wxTextAttr const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5747,7 +5747,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetAttributes(PyObject *SWIGUNUSEDPARM
     {
       result = (arg1)->GetAttributes();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5792,7 +5792,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_SetDescent(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetDescent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5827,7 +5827,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetDescent(PyObject *SWIGUNUSEDPARM(se
     {
       result = (int)((wxRichTextObject const *)arg1)->GetDescent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5862,7 +5862,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetBuffer(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxRichTextBuffer *)((wxRichTextObject const *)arg1)->GetBuffer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5897,7 +5897,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Clone(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxRichTextObject *)((wxRichTextObject const *)arg1)->Clone();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5947,7 +5947,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Copy(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->Copy((wxRichTextObject const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5981,7 +5981,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Reference(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->Reference();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6015,7 +6015,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Dereference(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->Dereference();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6073,7 +6073,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_ConvertTenthsMMToPixelsDC(PyObject *SW
     {
       result = (int)(arg1)->ConvertTenthsMMToPixels(*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6119,7 +6119,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_ConvertTenthsMMToPixels(PyObject *SWIG
     {
       result = (int)wxRichTextObject::ConvertTenthsMMToPixels(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6161,7 +6161,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextObjectList_iterator(PyObject *SWIGUNUS
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6231,7 +6231,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextObjectList(PyObject *SWIGUNUSEDPARM(se
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6440,7 +6440,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextCompositeObject(PyObject *SWIGUNUSEDPA
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6478,7 +6478,7 @@ SWIGINTERN PyObject *_wrap_RichTextCompositeObject_GetChildren(PyObject *SWIGUNU
         result = (wxRichTextObjectList *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6513,7 +6513,7 @@ SWIGINTERN PyObject *_wrap_RichTextCompositeObject_GetChildCount(PyObject *SWIGU
     {
       result = (size_t)((wxRichTextCompositeObject const *)arg1)->GetChildCount();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6559,7 +6559,7 @@ SWIGINTERN PyObject *_wrap_RichTextCompositeObject_GetChild(PyObject *SWIGUNUSED
     {
       result = (wxRichTextObject *)((wxRichTextCompositeObject const *)arg1)->GetChild(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6609,7 +6609,7 @@ SWIGINTERN PyObject *_wrap_RichTextCompositeObject_Copy(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->Copy((wxRichTextCompositeObject const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6653,7 +6653,7 @@ SWIGINTERN PyObject *_wrap_RichTextCompositeObject_AppendChild(PyObject *SWIGUNU
     {
       result = (size_t)(arg1)->AppendChild(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6706,7 +6706,7 @@ SWIGINTERN PyObject *_wrap_RichTextCompositeObject_InsertChild(PyObject *SWIGUNU
     {
       result = (bool)(arg1)->InsertChild(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6765,7 +6765,7 @@ SWIGINTERN PyObject *_wrap_RichTextCompositeObject_RemoveChild(PyObject *SWIGUNU
     {
       result = (bool)(arg1)->RemoveChild(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6802,7 +6802,7 @@ SWIGINTERN PyObject *_wrap_RichTextCompositeObject_DeleteChildren(PyObject *SWIG
     {
       result = (bool)(arg1)->DeleteChildren();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6851,7 +6851,7 @@ SWIGINTERN PyObject *_wrap_RichTextCompositeObject_Defragment(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->Defragment((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6899,7 +6899,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextBox(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (wxRichTextBox *)new wxRichTextBox(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6947,7 +6947,7 @@ SWIGINTERN PyObject *_wrap_RichTextBox_Copy(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->Copy((wxRichTextBox const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6997,7 +6997,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextParagraphLayoutBox(PyObject *SWIGUNUSEDPA
     {
       result = (wxRichTextParagraphLayoutBox *)new wxRichTextParagraphLayoutBox(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7042,7 +7042,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetRichTextCtrl(PyObject *
     {
       (arg1)->SetRichTextCtrl(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7077,7 +7077,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetRichTextCtrl(PyObject *
     {
       result = (wxRichTextCtrl *)((wxRichTextParagraphLayoutBox const *)arg1)->GetRichTextCtrl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7122,7 +7122,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetPartialParagraph(PyObje
     {
       (arg1)->SetPartialParagraph(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7157,7 +7157,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetPartialParagraph(PyObje
     {
       result = (bool)((wxRichTextParagraphLayoutBox const *)arg1)->GetPartialParagraph();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7194,7 +7194,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetStyleSheet(PyObject *SW
     {
       result = (wxRichTextStyleSheet *)((wxRichTextParagraphLayoutBox const *)arg1)->GetStyleSheet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7228,7 +7228,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_Init(PyObject *SWIGUNUSEDP
     {
       (arg1)->Init();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7262,7 +7262,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_Clear(PyObject *SWIGUNUSED
     {
       (arg1)->Clear();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7296,7 +7296,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_Reset(PyObject *SWIGUNUSED
     {
       (arg1)->Reset();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7352,7 +7352,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_AddParagraph(PyObject *SWI
     {
       result = (arg1)->AddParagraph((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7420,7 +7420,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_AddImage(PyObject *SWIGUNU
     {
       result = (arg1)->AddImage((wxImage const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7476,7 +7476,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_AddParagraphs(PyObject *SW
     {
       result = (arg1)->AddParagraphs((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7541,7 +7541,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetLineAtPosition(PyObject
     {
       result = (wxRichTextLine *)((wxRichTextParagraphLayoutBox const *)arg1)->GetLineAtPosition(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7587,7 +7587,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetLineAtYPosition(PyObjec
     {
       result = (wxRichTextLine *)((wxRichTextParagraphLayoutBox const *)arg1)->GetLineAtYPosition(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7644,7 +7644,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetParagraphAtPosition(PyO
     {
       result = (wxRichTextParagraph *)((wxRichTextParagraphLayoutBox const *)arg1)->GetParagraphAtPosition(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7701,7 +7701,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetLineSizeAtPosition(PyOb
     {
       result = ((wxRichTextParagraphLayoutBox const *)arg1)->GetLineSizeAtPosition(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7769,7 +7769,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetVisibleLineNumber(PyObj
     {
       result = (long)((wxRichTextParagraphLayoutBox const *)arg1)->GetVisibleLineNumber(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7815,7 +7815,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetLineForVisibleLineNumbe
     {
       result = (wxRichTextLine *)((wxRichTextParagraphLayoutBox const *)arg1)->GetLineForVisibleLineNumber(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7861,7 +7861,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetLeafObjectAtPosition(Py
     {
       result = (wxRichTextObject *)((wxRichTextParagraphLayoutBox const *)arg1)->GetLeafObjectAtPosition(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7909,7 +7909,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetParagraphAtLine(PyObjec
     {
       result = (wxRichTextParagraph *)((wxRichTextParagraphLayoutBox const *)arg1)->GetParagraphAtLine(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7955,7 +7955,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetParagraphForLine(PyObje
     {
       result = (wxRichTextParagraph *)((wxRichTextParagraphLayoutBox const *)arg1)->GetParagraphForLine(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8001,7 +8001,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetParagraphLength(PyObjec
     {
       result = (int)((wxRichTextParagraphLayoutBox const *)arg1)->GetParagraphLength(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8036,7 +8036,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetParagraphCount(PyObject
     {
       result = (int)((wxRichTextParagraphLayoutBox const *)arg1)->GetParagraphCount();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8071,7 +8071,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetLineCount(PyObject *SWI
     {
       result = (int)((wxRichTextParagraphLayoutBox const *)arg1)->GetLineCount();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8117,7 +8117,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetParagraphText(PyObject 
     {
       result = ((wxRichTextParagraphLayoutBox const *)arg1)->GetParagraphText(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8178,7 +8178,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_XYToPosition(PyObject *SWI
     {
       result = (long)((wxRichTextParagraphLayoutBox const *)arg1)->XYToPosition(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8242,7 +8242,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_PositionToXY(PyObject *SWI
     {
       result = (bool)((wxRichTextParagraphLayoutBox const *)arg1)->PositionToXY(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8311,7 +8311,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetStyle(PyObject *SWIGUNU
     {
       result = (bool)(arg1)->SetStyle((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8371,7 +8371,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetStyle(PyObject *SWIGUNU
     {
       result = (bool)(arg1)->GetStyle(arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8431,7 +8431,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetUncombinedStyle(PyObjec
     {
       result = (bool)(arg1)->GetUncombinedStyle(arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8489,7 +8489,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetStyleForRange(PyObject 
     {
       result = (bool)(arg1)->GetStyleForRange((wxRichTextRange const &)*arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8600,7 +8600,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_CollectStyle(PyObject *SWI
     {
       result = (bool)(arg1)->CollectStyle(*arg2,(wxTextAttr const &)*arg3,*arg4,*arg5,*arg6,*arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8687,7 +8687,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetListStyle(PyObject *SWI
     {
       result = (bool)(arg1)->SetListStyle((wxRichTextRange const &)*arg2,(wxString const &)*arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8752,7 +8752,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_ClearListStyle(PyObject *S
     {
       result = (bool)(arg1)->ClearListStyle((wxRichTextRange const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8839,7 +8839,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_NumberList(PyObject *SWIGU
     {
       result = (bool)(arg1)->NumberList((wxRichTextRange const &)*arg2,(wxString const &)*arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8932,7 +8932,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_PromoteList(PyObject *SWIG
     {
       result = (bool)(arg1)->PromoteList(arg2,(wxRichTextRange const &)*arg3,(wxString const &)*arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9044,7 +9044,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_DoNumberList(PyObject *SWI
     {
       result = (bool)(arg1)->DoNumberList((wxRichTextRange const &)*arg2,(wxRichTextRange const &)*arg3,arg4,arg5,arg6,arg7,arg8);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9104,7 +9104,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_FindNextParagraphNumber(Py
     {
       result = (bool)wxRichTextParagraphLayoutBox_FindNextParagraphNumber((wxRichTextParagraphLayoutBox const *)arg1,arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9162,7 +9162,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_HasCharacterAttributes(PyO
     {
       result = (bool)((wxRichTextParagraphLayoutBox const *)arg1)->HasCharacterAttributes((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9220,7 +9220,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_HasParagraphAttributes(PyO
     {
       result = (bool)((wxRichTextParagraphLayoutBox const *)arg1)->HasParagraphAttributes((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9280,7 +9280,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_InsertFragment(PyObject *S
     {
       result = (bool)(arg1)->InsertFragment(arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9338,7 +9338,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_CopyFragment(PyObject *SWI
     {
       result = (bool)(arg1)->CopyFragment((wxRichTextRange const &)*arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9386,7 +9386,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_ApplyStyleSheet(PyObject *
     {
       result = (bool)(arg1)->ApplyStyleSheet(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9436,7 +9436,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_Copy(PyObject *SWIGUNUSEDP
     {
       (arg1)->Copy((wxRichTextParagraphLayoutBox const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9470,7 +9470,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_UpdateRanges(PyObject *SWI
     {
       (arg1)->UpdateRanges();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9505,7 +9505,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetText(PyObject *SWIGUNUS
     {
       result = ((wxRichTextParagraphLayoutBox const *)arg1)->GetText();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9560,7 +9560,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetDefaultStyle(PyObject *
     {
       result = (bool)(arg1)->SetDefaultStyle((wxTextAttr const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9600,7 +9600,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetDefaultStyle(PyObject *
         result = (wxTextAttr *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9648,7 +9648,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetBasicStyle(PyObject *SW
     {
       (arg1)->SetBasicStyle((wxTextAttr const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9686,7 +9686,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetBasicStyle(PyObject *SW
         result = (wxTextAttr *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9732,7 +9732,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_Invalidate(PyObject *SWIGU
     {
       (arg1)->Invalidate((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9780,7 +9780,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_GetInvalidRange(PyObject *
     {
       result = ((wxRichTextParagraphLayoutBox const *)arg1)->GetInvalidRange(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9828,7 +9828,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextLine(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxRichTextLine *)new wxRichTextLine(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9863,7 +9863,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextLine(PyObject *SWIGUNUSEDPARM(self), P
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9906,7 +9906,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_SetRange(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetRange((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9941,7 +9941,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_GetParent(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxRichTextParagraph *)(arg1)->GetParent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9976,7 +9976,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_GetRange(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (arg1)->GetRange();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10011,7 +10011,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_GetAbsoluteRange(PyObject *SWIGUNUSEDPAR
     {
       result = ((wxRichTextLine const *)arg1)->GetAbsoluteRange();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10046,7 +10046,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_GetSize(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = ((wxRichTextLine const *)arg1)->GetSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10089,7 +10089,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_SetSize(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetSize((wxSize const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10124,7 +10124,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_GetPosition(PyObject *SWIGUNUSEDPARM(sel
     {
       result = ((wxRichTextLine const *)arg1)->GetPosition();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10167,7 +10167,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_SetPosition(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetPosition((wxPoint const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10202,7 +10202,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_GetAbsolutePosition(PyObject *SWIGUNUSED
     {
       result = ((wxRichTextLine const *)arg1)->GetAbsolutePosition();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10237,7 +10237,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_GetRect(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = ((wxRichTextLine const *)arg1)->GetRect();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10282,7 +10282,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_SetDescent(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetDescent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10317,7 +10317,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_GetDescent(PyObject *SWIGUNUSEDPARM(self
     {
       result = (int)((wxRichTextLine const *)arg1)->GetDescent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10355,7 +10355,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_GetObjectSizes(PyObject *SWIGUNUSEDPARM(
         result = (wxArrayInt *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10402,7 +10402,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_Init(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->Init(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10450,7 +10450,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_Copy(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->Copy((wxRichTextLine const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10485,7 +10485,7 @@ SWIGINTERN PyObject *_wrap_RichTextLine_Clone(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxRichTextLine *)((wxRichTextLine const *)arg1)->Clone();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10565,7 +10565,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextParagraph(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxRichTextParagraph *)new wxRichTextParagraph((wxString const &)*arg1,arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10608,7 +10608,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextParagraph(PyObject *SWIGUNUSEDPARM(sel
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10646,7 +10646,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_GetLines(PyObject *SWIGUNUSEDPARM(s
         result = (wxRichTextLineList *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10694,7 +10694,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_Copy(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->Copy((wxRichTextParagraph const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10728,7 +10728,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_ClearLines(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->ClearLines();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10783,7 +10783,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_ApplyParagraphStyle(PyObject *SWIGU
     {
       (arg1)->ApplyParagraphStyle((wxTextAttr const &)*arg2,(wxRect const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10837,7 +10837,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_InsertText(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->InsertText(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10904,7 +10904,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_SplitAt(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxRichTextObject *)(arg1)->SplitAt(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10963,7 +10963,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_MoveToList(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->MoveToList(arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11011,7 +11011,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_MoveFromList(PyObject *SWIGUNUSEDPA
     {
       (arg1)->MoveFromList(*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11074,7 +11074,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_GetContiguousPlainText(PyObject *SW
     {
       result = (bool)(arg1)->GetContiguousPlainText(*arg2,(wxRichTextRange const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11170,7 +11170,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_FindWrapPosition(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->FindWrapPosition((wxRichTextRange const &)*arg2,*arg3,arg4,*arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11218,7 +11218,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_FindObjectAtPosition(PyObject *SWIG
     {
       result = (wxRichTextObject *)(arg1)->FindObjectAtPosition(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11255,7 +11255,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_GetBulletText(PyObject *SWIGUNUSEDP
     {
       result = (arg1)->GetBulletText();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11307,7 +11307,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_AllocateLine(PyObject *SWIGUNUSEDPA
     {
       result = (wxRichTextLine *)(arg1)->AllocateLine(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11353,7 +11353,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_ClearUnusedLines(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->ClearUnusedLines(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11403,7 +11403,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_GetCombinedAttributes(PyObject *SWI
     {
       result = wxRichTextParagraph_GetCombinedAttributes(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11449,7 +11449,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_GetFirstLineBreakPosition(PyObject 
     {
       result = (long)(arg1)->GetFirstLineBreakPosition(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11473,7 +11473,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_InitDefaultTabs(PyObject *SWIGUNUSE
     {
       wxRichTextParagraph::InitDefaultTabs();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11497,7 +11497,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_ClearDefaultTabs(PyObject *SWIGUNUS
     {
       wxRichTextParagraph::ClearDefaultTabs();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11525,7 +11525,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraph_GetDefaultTabs(PyObject *SWIGUNUSED
         result = (wxArrayInt *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11599,7 +11599,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextPlainText(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxRichTextPlainText *)new wxRichTextPlainText((wxString const &)*arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11653,7 +11653,7 @@ SWIGINTERN PyObject *_wrap_RichTextPlainText_GetFirstLineBreakPosition(PyObject 
     {
       result = (long)(arg1)->GetFirstLineBreakPosition(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11691,7 +11691,7 @@ SWIGINTERN PyObject *_wrap_RichTextPlainText_GetText(PyObject *SWIGUNUSEDPARM(se
         result = (wxString *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11741,7 +11741,7 @@ SWIGINTERN PyObject *_wrap_RichTextPlainText_SetText(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetText((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11797,7 +11797,7 @@ SWIGINTERN PyObject *_wrap_RichTextPlainText_Copy(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->Copy((wxRichTextPlainText const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11847,7 +11847,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextImage(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxRichTextImage *)new wxRichTextImage(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11885,7 +11885,7 @@ SWIGINTERN PyObject *_wrap_RichTextImage_GetImage(PyObject *SWIGUNUSEDPARM(self)
         result = (wxImage *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11933,7 +11933,7 @@ SWIGINTERN PyObject *_wrap_RichTextImage_SetImage(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetImage((wxImage const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11971,7 +11971,7 @@ SWIGINTERN PyObject *_wrap_RichTextImage_GetImageBlock(PyObject *SWIGUNUSEDPARM(
         result = (wxRichTextImageBlock *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12019,7 +12019,7 @@ SWIGINTERN PyObject *_wrap_RichTextImage_Copy(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->Copy((wxRichTextImage const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12054,7 +12054,7 @@ SWIGINTERN PyObject *_wrap_RichTextImage_LoadFromBlock(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->LoadFromBlock();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12091,7 +12091,7 @@ SWIGINTERN PyObject *_wrap_RichTextImage_MakeBlock(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->MakeBlock();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12139,7 +12139,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextFileHandlerList_iterator(PyObject *SWI
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12209,7 +12209,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextFileHandlerList(PyObject *SWIGUNUSEDPA
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12371,7 +12371,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextBuffer(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxRichTextBuffer *)new wxRichTextBuffer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12406,7 +12406,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextBuffer(PyObject *SWIGUNUSEDPARM(self),
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12441,7 +12441,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetCommandProcessor(PyObject *SWIGUNUS
     {
       result = (wxCommandProcessor *)((wxRichTextBuffer const *)arg1)->GetCommandProcessor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12486,7 +12486,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SetStyleSheet(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetStyleSheet(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12532,7 +12532,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SetStyleSheetAndNotify(PyObject *SWIGU
     {
       result = (bool)(arg1)->SetStyleSheetAndNotify(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12580,7 +12580,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_PushStyleSheet(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->PushStyleSheet(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12617,7 +12617,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_PopStyleSheet(PyObject *SWIGUNUSEDPARM
     {
       result = (wxRichTextStyleSheet *)(arg1)->PopStyleSheet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12655,7 +12655,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetFontTable(PyObject *SWIGUNUSEDPARM(
         result = (wxRichTextFontTable *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12703,7 +12703,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SetFontTable(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetFontTable((wxRichTextFontTable const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12737,7 +12737,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_Init(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->Init();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12771,7 +12771,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_ResetAndClearCommands(PyObject *SWIGUN
     {
       (arg1)->ResetAndClearCommands();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12827,7 +12827,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_LoadFile(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->LoadFile((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12893,7 +12893,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SaveFile(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->SaveFile((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12969,7 +12969,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_LoadStream(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->LoadFile(*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13043,7 +13043,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SaveStream(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->SaveFile(*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13096,7 +13096,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SetHandlerFlags(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetHandlerFlags(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13131,7 +13131,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetHandlerFlags(PyObject *SWIGUNUSEDPA
     {
       result = (int)((wxRichTextBuffer const *)arg1)->GetHandlerFlags();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13176,7 +13176,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginBatchUndo(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->BeginBatchUndo((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13221,7 +13221,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndBatchUndo(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->EndBatchUndo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13258,7 +13258,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BatchingUndo(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)((wxRichTextBuffer const *)arg1)->BatchingUndo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13306,7 +13306,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SubmitAction(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->SubmitAction(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13343,7 +13343,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetBatchedCommand(PyObject *SWIGUNUSED
     {
       result = (wxRichTextCommand *)((wxRichTextBuffer const *)arg1)->GetBatchedCommand();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13378,7 +13378,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginSuppressUndo(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->BeginSuppressUndo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13415,7 +13415,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndSuppressUndo(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->EndSuppressUndo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13452,7 +13452,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SuppressingUndo(PyObject *SWIGUNUSEDPA
     {
       result = (bool)((wxRichTextBuffer const *)arg1)->SuppressingUndo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13498,7 +13498,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_CopyToClipboard(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->CopyToClipboard((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13546,7 +13546,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_PasteFromClipboard(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->PasteFromClipboard(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13583,7 +13583,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_CanPasteFromClipboard(PyObject *SWIGUN
     {
       result = (bool)((wxRichTextBuffer const *)arg1)->CanPasteFromClipboard();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13634,7 +13634,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginStyle(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->BeginStyle((wxTextAttr const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13671,7 +13671,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndStyle(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->EndStyle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13708,7 +13708,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndAllStyles(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->EndAllStyles();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13744,7 +13744,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_ClearStyleStack(PyObject *SWIGUNUSEDPA
     {
       (arg1)->ClearStyleStack();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13779,7 +13779,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetStyleStackSize(PyObject *SWIGUNUSED
     {
       result = (size_t)((wxRichTextBuffer const *)arg1)->GetStyleStackSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13814,7 +13814,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginBold(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->BeginBold();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13851,7 +13851,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndBold(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->EndBold();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13888,7 +13888,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginItalic(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->BeginItalic();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13925,7 +13925,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndItalic(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->EndItalic();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13962,7 +13962,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginUnderline(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->BeginUnderline();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13999,7 +13999,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndUnderline(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->EndUnderline();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14047,7 +14047,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginFontSize(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->BeginFontSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14084,7 +14084,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndFontSize(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->EndFontSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14135,7 +14135,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginFont(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->BeginFont((wxFont const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14172,7 +14172,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndFont(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->EndFont();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14218,7 +14218,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginTextColour(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->BeginTextColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14255,7 +14255,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndTextColour(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->EndTextColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14303,7 +14303,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginAlignment(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->BeginAlignment(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14340,7 +14340,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndAlignment(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->EndAlignment();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14399,7 +14399,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginLeftIndent(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->BeginLeftIndent(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14436,7 +14436,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndLeftIndent(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->EndLeftIndent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14484,7 +14484,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginRightIndent(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->BeginRightIndent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14521,7 +14521,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndRightIndent(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->EndRightIndent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14578,7 +14578,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginParagraphSpacing(PyObject *SWIGUN
     {
       result = (bool)(arg1)->BeginParagraphSpacing(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14615,7 +14615,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndParagraphSpacing(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->EndParagraphSpacing();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14663,7 +14663,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginLineSpacing(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->BeginLineSpacing(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14700,7 +14700,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndLineSpacing(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->EndLineSpacing();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14777,7 +14777,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginNumberedBullet(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->BeginNumberedBullet(arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14814,7 +14814,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndNumberedBullet(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->EndNumberedBullet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14890,7 +14890,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginSymbolBullet(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->BeginSymbolBullet((wxString const &)*arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14935,7 +14935,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndSymbolBullet(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->EndSymbolBullet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15011,7 +15011,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginStandardBullet(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->BeginStandardBullet((wxString const &)*arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15056,7 +15056,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndStandardBullet(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->EndStandardBullet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15103,7 +15103,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginCharacterStyle(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->BeginCharacterStyle((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15148,7 +15148,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndCharacterStyle(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->EndCharacterStyle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15195,7 +15195,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginParagraphStyle(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->BeginParagraphStyle((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15240,7 +15240,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndParagraphStyle(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->EndParagraphStyle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15309,7 +15309,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginListStyle(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->BeginListStyle((wxString const &)*arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15354,7 +15354,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndListStyle(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->EndListStyle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15412,7 +15412,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_BeginURL(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->BeginURL((wxString const &)*arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15465,7 +15465,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_EndURL(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->EndURL();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15513,7 +15513,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_AddEventHandler(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->AddEventHandler(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15572,7 +15572,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_RemoveEventHandler(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->RemoveEventHandler(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15608,7 +15608,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_ClearEventHandlers(PyObject *SWIGUNUSE
     {
       (arg1)->ClearEventHandlers();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15668,7 +15668,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SendEvent(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->SendEvent(*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15718,7 +15718,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_Copy(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->Copy((wxRichTextBuffer const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15796,7 +15796,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_InsertParagraphsWithUndo(PyObject *SWI
     {
       result = (bool)(arg1)->InsertParagraphsWithUndo(arg2,(wxRichTextParagraphLayoutBox const &)*arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15872,7 +15872,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_InsertTextWithUndo(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->InsertTextWithUndo(arg2,(wxString const &)*arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15948,7 +15948,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_InsertNewlineWithUndo(PyObject *SWIGUN
     {
       result = (bool)(arg1)->InsertNewlineWithUndo(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16028,7 +16028,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_InsertImageWithUndo(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->InsertImageWithUndo(arg2,(wxRichTextImageBlock const &)*arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16083,7 +16083,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_DeleteRangeWithUndo(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->DeleteRangeWithUndo((wxRichTextRange const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16132,7 +16132,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_Modify(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->Modify(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16167,7 +16167,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_IsModified(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)((wxRichTextBuffer const *)arg1)->IsModified();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16237,7 +16237,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetStyleForNewParagraph(PyObject *SWIG
     {
       result = ((wxRichTextBuffer const *)arg1)->GetStyleForNewParagraph(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16265,7 +16265,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetHandlers(PyObject *SWIGUNUSEDPARM(s
         result = (wxRichTextFileHandlerList_t *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16302,7 +16302,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_AddHandler(PyObject *SWIGUNUSEDPARM(se
     {
       wxRichTextBuffer::AddHandler(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16336,7 +16336,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_InsertHandler(PyObject *SWIGUNUSEDPARM
     {
       wxRichTextBuffer::InsertHandler(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16372,7 +16372,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_RemoveHandler(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)wxRichTextBuffer::RemoveHandler((wxString const &)*arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16418,7 +16418,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_FindHandlerByName(PyObject *SWIGUNUSED
     {
       result = (wxRichTextFileHandler *)wxRichTextBuffer::FindHandler((wxString const &)*arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16473,7 +16473,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_FindHandlerByExtension(PyObject *SWIGU
     {
       result = (wxRichTextFileHandler *)wxRichTextBuffer::FindHandler((wxString const &)*arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16528,7 +16528,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_FindHandlerByFilename(PyObject *SWIGUN
     {
       result = (wxRichTextFileHandler *)wxRichTextBuffer::FindHandlerFilenameOrType((wxString const &)*arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16575,7 +16575,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_FindHandlerByType(PyObject *SWIGUNUSED
     {
       result = (wxRichTextFileHandler *)wxRichTextBuffer::FindHandler(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16642,7 +16642,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_CleanUpHandlers(PyObject *SWIGUNUSEDPA
     {
       wxRichTextBuffer::CleanUpHandlers();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16666,7 +16666,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_InitStandardHandlers(PyObject *SWIGUNU
     {
       wxRichTextBuffer::InitStandardHandlers();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16691,7 +16691,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetRenderer(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxRichTextRenderer *)wxRichTextBuffer::GetRenderer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16727,7 +16727,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SetRenderer(PyObject *SWIGUNUSEDPARM(s
     {
       wxRichTextBuffer::SetRenderer(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16752,7 +16752,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetBulletRightMargin(PyObject *SWIGUNU
     {
       result = (int)wxRichTextBuffer::GetBulletRightMargin();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16788,7 +16788,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SetBulletRightMargin(PyObject *SWIGUNU
     {
       wxRichTextBuffer::SetBulletRightMargin(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16813,7 +16813,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetBulletProportion(PyObject *SWIGUNUS
     {
       result = (float)wxRichTextBuffer::GetBulletProportion();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16849,7 +16849,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SetBulletProportion(PyObject *SWIGUNUS
     {
       wxRichTextBuffer::SetBulletProportion(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16884,7 +16884,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetScale(PyObject *SWIGUNUSEDPARM(self
     {
       result = (double)((wxRichTextBuffer const *)arg1)->GetScale();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16929,7 +16929,7 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_SetScale(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetScale(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16975,7 +16975,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextFileHandler(PyObject *SWIGUNUSEDPARM(s
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17039,7 +17039,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_LoadStream(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->LoadFile(arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17111,7 +17111,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_SaveStream(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->SaveFile(arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17173,7 +17173,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_LoadFile(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->LoadFile(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17237,7 +17237,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_SaveFile(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->SaveFile(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17292,7 +17292,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_CanHandle(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)((wxRichTextFileHandler const *)arg1)->CanHandle((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17337,7 +17337,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_CanSave(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)((wxRichTextFileHandler const *)arg1)->CanSave();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17374,7 +17374,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_CanLoad(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)((wxRichTextFileHandler const *)arg1)->CanLoad();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17411,7 +17411,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_IsVisible(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)((wxRichTextFileHandler const *)arg1)->IsVisible();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17458,7 +17458,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_SetVisible(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetVisible(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17502,7 +17502,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_SetName(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetName((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17545,7 +17545,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_GetName(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxRichTextFileHandler const *)arg1)->GetName();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17595,7 +17595,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_SetExtension(PyObject *SWIGUNUSED
     {
       (arg1)->SetExtension((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17638,7 +17638,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_GetExtension(PyObject *SWIGUNUSED
     {
       result = ((wxRichTextFileHandler const *)arg1)->GetExtension();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17689,7 +17689,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_SetType(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetType(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17724,7 +17724,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_GetType(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)((wxRichTextFileHandler const *)arg1)->GetType();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17769,7 +17769,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_SetFlags(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetFlags(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17804,7 +17804,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_GetFlags(PyObject *SWIGUNUSEDPARM
     {
       result = (int)((wxRichTextFileHandler const *)arg1)->GetFlags();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17848,7 +17848,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_SetEncoding(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetEncoding((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17894,7 +17894,7 @@ SWIGINTERN PyObject *_wrap_RichTextFileHandler_GetEncoding(PyObject *SWIGUNUSEDP
         result = (wxString *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18008,7 +18008,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextPlainTextHandler(PyObject *SWIGUNUSEDPARM
     {
       result = (wxRichTextPlainTextHandler *)new wxRichTextPlainTextHandler((wxString const &)*arg1,(wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18070,7 +18070,7 @@ SWIGINTERN PyObject *_wrap_delete_RichTextRenderer(PyObject *SWIGUNUSEDPARM(self
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18147,7 +18147,7 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_DrawStandardBullet(PyObject *SWIGUNU
     {
       result = (bool)(arg1)->DrawStandardBullet(arg2,*arg3,(wxTextAttr const &)*arg4,(wxRect const &)*arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18234,7 +18234,7 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_DrawTextBullet(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->DrawTextBullet(arg2,*arg3,(wxTextAttr const &)*arg4,(wxRect const &)*arg5,(wxString const &)*arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18321,7 +18321,7 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_DrawBitmapBullet(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->DrawBitmapBullet(arg2,*arg3,(wxTextAttr const &)*arg4,(wxRect const &)*arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18380,7 +18380,7 @@ SWIGINTERN PyObject *_wrap_RichTextRenderer_EnumerateStandardBulletNames(PyObjec
     {
       result = (bool)(arg1)->EnumerateStandardBulletNames(*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18420,7 +18420,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextStdRenderer(PyObject *SWIGUNUSEDPARM(self
     {
       result = (wxRichTextStdRenderer *)new wxRichTextStdRenderer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18721,7 +18721,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_Create(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxValidator const &)*arg8,(wxString const &)*arg9);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18774,7 +18774,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetValue(PyObject *SWIGUNUSEDPARM(self),
     {
       result = ((wxRichTextCtrl const *)arg1)->GetValue();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18815,7 +18815,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_IsSingleLine(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)((wxRichTextCtrl const *)arg1)->IsSingleLine();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18852,7 +18852,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_IsMultiLine(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)((wxRichTextCtrl const *)arg1)->IsMultiLine();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18889,7 +18889,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetFilename(PyObject *SWIGUNUSEDPARM(sel
     {
       result = ((wxRichTextCtrl const *)arg1)->GetFilename();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18939,7 +18939,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetFilename(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetFilename((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18992,7 +18992,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetDelayedLayoutThreshold(PyObject *SWIG
     {
       (arg1)->SetDelayedLayoutThreshold(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19027,7 +19027,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetDelayedLayoutThreshold(PyObject *SWIG
     {
       result = (long)((wxRichTextCtrl const *)arg1)->GetDelayedLayoutThreshold();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19075,7 +19075,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetTextCursor(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetTextCursor((wxCursor const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19110,7 +19110,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetTextCursor(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxRichTextCtrl const *)arg1)->GetTextCursor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19158,7 +19158,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetURLCursor(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetURLCursor((wxCursor const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19193,7 +19193,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetURLCursor(PyObject *SWIGUNUSEDPARM(se
     {
       result = ((wxRichTextCtrl const *)arg1)->GetURLCursor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19249,7 +19249,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_LoadFile(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->LoadFile((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19318,7 +19318,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SaveFile(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->SaveFile((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19373,7 +19373,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetHandlerFlags(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetHandlerFlags(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19408,7 +19408,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetHandlerFlags(PyObject *SWIGUNUSEDPARM
     {
       result = (int)((wxRichTextCtrl const *)arg1)->GetHandlerFlags();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19453,7 +19453,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetMaxLength(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetMaxLength(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19509,7 +19509,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetStyle(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->SetStyle((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19567,7 +19567,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetStyleForRange(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->GetStyleForRange((wxRichTextRange const &)*arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19636,7 +19636,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetStyleEx(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->SetStyleEx((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19696,7 +19696,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetUncombinedStyle(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->GetUncombinedStyle(arg2,*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19733,7 +19733,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetDefaultStyle(PyObject *SWIGUNUSEDPARM
     {
       result = ((wxRichTextCtrl const *)arg1)->GetDefaultStyleEx();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19818,7 +19818,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetListStyle(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->SetListStyle((wxRichTextRange const &)*arg2,(wxString const &)*arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19883,7 +19883,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_ClearListStyle(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->ClearListStyle((wxRichTextRange const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19970,7 +19970,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_NumberList(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->NumberList((wxRichTextRange const &)*arg2,(wxString const &)*arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20063,7 +20063,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_PromoteList(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->PromoteList(arg2,(wxRichTextRange const &)*arg3,(wxString const &)*arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20117,7 +20117,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_Delete(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->Delete((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20181,7 +20181,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_HitTestXY(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxTextCtrlHitTestResult)((wxRichTextCtrl const *)arg1)->HitTest((wxPoint const &)*arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20215,7 +20215,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_DeleteSelection(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->DeleteSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20250,7 +20250,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_CanDeleteSelection(PyObject *SWIGUNUSEDP
     {
       result = (bool)((wxRichTextCtrl const *)arg1)->CanDeleteSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20287,7 +20287,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_HasSelection(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)((wxRichTextCtrl const *)arg1)->HasSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20349,7 +20349,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_WriteImage(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->WriteImage((wxImage const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20411,7 +20411,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_WriteBitmap(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->WriteImage((wxBitmap const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20467,7 +20467,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_WriteImageFile(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->WriteImage((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20526,7 +20526,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_WriteImageBlock(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->WriteImage((wxRichTextImageBlock const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20563,7 +20563,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_Newline(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->Newline();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20600,7 +20600,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_LineBreak(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->LineBreak();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20650,7 +20650,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetBasicStyle(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetBasicStyle((wxTextAttr const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20685,7 +20685,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetBasicStyle(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxRichTextCtrl const *)arg1)->GetBasicStyle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20734,7 +20734,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginStyle(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->BeginStyle((wxTextAttr const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20771,7 +20771,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndStyle(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->EndStyle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20808,7 +20808,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndAllStyles(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->EndAllStyles();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20845,7 +20845,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginBold(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->BeginBold();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20882,7 +20882,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndBold(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->EndBold();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20919,7 +20919,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginItalic(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->BeginItalic();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20956,7 +20956,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndItalic(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->EndItalic();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20993,7 +20993,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginUnderline(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->BeginUnderline();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21030,7 +21030,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndUnderline(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->EndUnderline();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21078,7 +21078,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginFontSize(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->BeginFontSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21115,7 +21115,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndFontSize(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->EndFontSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21166,7 +21166,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginFont(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->BeginFont((wxFont const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21203,7 +21203,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndFont(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->EndFont();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21249,7 +21249,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginTextColour(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->BeginTextColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21286,7 +21286,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndTextColour(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->EndTextColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21334,7 +21334,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginAlignment(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->BeginAlignment(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21371,7 +21371,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndAlignment(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->EndAlignment();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21430,7 +21430,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginLeftIndent(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->BeginLeftIndent(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21467,7 +21467,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndLeftIndent(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->EndLeftIndent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21515,7 +21515,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginRightIndent(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->BeginRightIndent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21552,7 +21552,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndRightIndent(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->EndRightIndent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21609,7 +21609,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginParagraphSpacing(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->BeginParagraphSpacing(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21646,7 +21646,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndParagraphSpacing(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->EndParagraphSpacing();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21694,7 +21694,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginLineSpacing(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->BeginLineSpacing(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21731,7 +21731,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndLineSpacing(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->EndLineSpacing();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21808,7 +21808,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginNumberedBullet(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->BeginNumberedBullet(arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21845,7 +21845,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndNumberedBullet(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->EndNumberedBullet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21921,7 +21921,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginSymbolBullet(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->BeginSymbolBullet((wxString const &)*arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21966,7 +21966,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndSymbolBullet(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->EndSymbolBullet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22042,7 +22042,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginStandardBullet(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->BeginStandardBullet((wxString const &)*arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22087,7 +22087,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndStandardBullet(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->EndStandardBullet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22134,7 +22134,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginCharacterStyle(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->BeginCharacterStyle((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22179,7 +22179,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndCharacterStyle(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->EndCharacterStyle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22226,7 +22226,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginParagraphStyle(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->BeginParagraphStyle((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22271,7 +22271,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndParagraphStyle(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->EndParagraphStyle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22340,7 +22340,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginListStyle(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->BeginListStyle((wxString const &)*arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22385,7 +22385,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndListStyle(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->EndListStyle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22443,7 +22443,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginURL(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->BeginURL((wxString const &)*arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22496,7 +22496,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndURL(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->EndURL();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22533,7 +22533,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetDefaultStyleToCursorStyle(PyObject *S
     {
       result = (bool)(arg1)->SetDefaultStyleToCursorStyle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22569,7 +22569,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SelectNone(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SelectNone();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22615,7 +22615,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SelectWord(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->SelectWord(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22652,7 +22652,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetSelectionRange(PyObject *SWIGUNUSEDPA
     {
       result = ((wxRichTextCtrl const *)arg1)->GetSelectionRange();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22695,7 +22695,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetSelectionRange(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetSelectionRange((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22733,7 +22733,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetInternalSelectionRange(PyObject *SWIG
         result = (wxRichTextRange *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22776,7 +22776,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetInternalSelectionRange(PyObject *SWIG
     {
       (arg1)->SetInternalSelectionRange((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22821,7 +22821,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_AddParagraph(PyObject *SWIGUNUSEDPARM(se
     {
       result = (arg1)->AddParagraph((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22878,7 +22878,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_AddImage(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (arg1)->AddImage((wxImage const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22926,7 +22926,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_LayoutContent(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->LayoutContent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22985,7 +22985,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveCaret(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->MoveCaret(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23046,7 +23046,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveRight(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->MoveRight(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23107,7 +23107,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveLeft(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->MoveLeft(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23168,7 +23168,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveUp(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->MoveUp(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23229,7 +23229,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveDown(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->MoveDown(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23279,7 +23279,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveToLineEnd(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->MoveToLineEnd(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23329,7 +23329,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveToLineStart(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->MoveToLineStart(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23379,7 +23379,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveToParagraphEnd(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->MoveToParagraphEnd(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23429,7 +23429,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveToParagraphStart(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->MoveToParagraphStart(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23479,7 +23479,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveHome(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->MoveHome(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23529,7 +23529,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_MoveEnd(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->MoveEnd(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23590,7 +23590,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_PageUp(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->PageUp(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23651,7 +23651,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_PageDown(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->PageDown(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23712,7 +23712,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_WordLeft(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->WordLeft(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23773,7 +23773,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_WordRight(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->WordRight(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23813,7 +23813,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetBuffer(PyObject *SWIGUNUSEDPARM(self)
         result = (wxRichTextBuffer *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23858,7 +23858,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginBatchUndo(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->BeginBatchUndo((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23903,7 +23903,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndBatchUndo(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->EndBatchUndo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23940,7 +23940,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BatchingUndo(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)((wxRichTextCtrl const *)arg1)->BatchingUndo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23977,7 +23977,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_BeginSuppressUndo(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->BeginSuppressUndo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24014,7 +24014,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_EndSuppressUndo(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->EndSuppressUndo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24051,7 +24051,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SuppressingUndo(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)((wxRichTextCtrl const *)arg1)->SuppressingUndo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24109,7 +24109,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_HasCharacterAttributes(PyObject *SWIGUNU
     {
       result = (bool)((wxRichTextCtrl const *)arg1)->HasCharacterAttributes((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24167,7 +24167,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_HasParagraphAttributes(PyObject *SWIGUNU
     {
       result = (bool)((wxRichTextCtrl const *)arg1)->HasParagraphAttributes((wxRichTextRange const &)*arg2,(wxTextAttr const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24204,7 +24204,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_IsSelectionBold(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->IsSelectionBold();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24241,7 +24241,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_IsSelectionItalics(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->IsSelectionItalics();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24278,7 +24278,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_IsSelectionUnderlined(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->IsSelectionUnderlined();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24326,7 +24326,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_IsSelectionAligned(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->IsSelectionAligned(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24363,7 +24363,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_ApplyBoldToSelection(PyObject *SWIGUNUSE
     {
       result = (bool)(arg1)->ApplyBoldToSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24400,7 +24400,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_ApplyItalicToSelection(PyObject *SWIGUNU
     {
       result = (bool)(arg1)->ApplyItalicToSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24437,7 +24437,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_ApplyUnderlineToSelection(PyObject *SWIG
     {
       result = (bool)(arg1)->ApplyUnderlineToSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24485,7 +24485,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_ApplyAlignmentToSelection(PyObject *SWIG
     {
       result = (bool)(arg1)->ApplyAlignmentToSelection(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24533,7 +24533,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_ApplyStyle(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->ApplyStyle(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24580,7 +24580,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_SetStyleSheet(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetStyleSheet(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24615,7 +24615,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_GetStyleSheet(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxRichTextStyleSheet *)((wxRichTextCtrl const *)arg1)->GetStyleSheet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24661,7 +24661,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_PushStyleSheet(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->PushStyleSheet(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24698,7 +24698,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_PopStyleSheet(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxRichTextStyleSheet *)(arg1)->PopStyleSheet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24746,7 +24746,7 @@ SWIGINTERN PyObject *_wrap_RichTextCtrl_ApplyStyleSheet(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->ApplyStyleSheet(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24809,7 +24809,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextEvent(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxRichTextEvent *)new wxRichTextEvent(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24844,7 +24844,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_GetPosition(PyObject *SWIGUNUSEDPARM(se
     {
       result = (int)((wxRichTextEvent const *)arg1)->GetPosition();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24889,7 +24889,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_SetPosition(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetPosition(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24924,7 +24924,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_GetFlags(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (int)((wxRichTextEvent const *)arg1)->GetFlags();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -24969,7 +24969,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_SetFlags(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetFlags(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25004,7 +25004,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_GetOldStyleSheet(PyObject *SWIGUNUSEDPA
     {
       result = (wxRichTextStyleSheet *)((wxRichTextEvent const *)arg1)->GetOldStyleSheet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25049,7 +25049,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_SetOldStyleSheet(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetOldStyleSheet(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25084,7 +25084,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_GetNewStyleSheet(PyObject *SWIGUNUSEDPA
     {
       result = (wxRichTextStyleSheet *)((wxRichTextEvent const *)arg1)->GetNewStyleSheet();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25129,7 +25129,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_SetNewStyleSheet(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetNewStyleSheet(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25167,7 +25167,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_GetRange(PyObject *SWIGUNUSEDPARM(self)
         result = (wxRichTextRange *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25210,7 +25210,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_SetRange(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetRange((wxRichTextRange const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25245,7 +25245,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_GetCharacter(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxRichTextEvent const *)arg1)->GetCharacter();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25298,7 +25298,7 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_SetCharacter(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetCharacter(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25410,7 +25410,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextHTMLHandler(PyObject *SWIGUNUSEDPARM(self
     {
       result = (wxRichTextHTMLHandler *)new wxRichTextHTMLHandler((wxString const &)*arg1,(wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25482,7 +25482,7 @@ SWIGINTERN PyObject *_wrap_RichTextHTMLHandler_SetTemporaryImageLocations(PyObje
     {
       (arg1)->SetTemporaryImageLocations((wxArrayString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25526,7 +25526,7 @@ SWIGINTERN PyObject *_wrap_RichTextHTMLHandler_GetTemporaryImageLocations(PyObje
         result = (wxArrayString *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25562,7 +25562,7 @@ SWIGINTERN PyObject *_wrap_RichTextHTMLHandler_ClearTemporaryImageLocations(PyOb
     {
       (arg1)->ClearTemporaryImageLocations();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25597,7 +25597,7 @@ SWIGINTERN PyObject *_wrap_RichTextHTMLHandler_DeleteTemporaryImages(PyObject *S
     {
       result = (bool)(arg1)->DeleteTemporaryImages();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25635,7 +25635,7 @@ SWIGINTERN PyObject *_wrap_RichTextHTMLHandler_SetFileCounter(PyObject *SWIGUNUS
     {
       wxRichTextHTMLHandler::SetFileCounter(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25679,7 +25679,7 @@ SWIGINTERN PyObject *_wrap_RichTextHTMLHandler_SetTempDir(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetTempDir((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25725,7 +25725,7 @@ SWIGINTERN PyObject *_wrap_RichTextHTMLHandler_GetTempDir(PyObject *SWIGUNUSEDPA
         result = (wxString *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25790,7 +25790,7 @@ SWIGINTERN PyObject *_wrap_RichTextHTMLHandler_SetFontSizeMapping(PyObject *SWIG
     {
       (arg1)->SetFontSizeMapping((wxArrayInt const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25831,7 +25831,7 @@ SWIGINTERN PyObject *_wrap_RichTextHTMLHandler_GetFontSizeMapping(PyObject *SWIG
     {
       result = ((wxRichTextHTMLHandler const *)arg1)->GetFontSizeMapping();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -25945,7 +25945,7 @@ SWIGINTERN PyObject *_wrap_new_RichTextXMLHandler(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxRichTextXMLHandler *)new wxRichTextXMLHandler((wxString const &)*arg1,(wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

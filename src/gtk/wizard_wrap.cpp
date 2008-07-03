@@ -2923,7 +2923,7 @@ SWIGINTERN PyObject *_wrap_new_WizardEvent(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (wxWizardEvent *)new wxWizardEvent(arg1,arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -2958,7 +2958,7 @@ SWIGINTERN PyObject *_wrap_WizardEvent_GetDirection(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)((wxWizardEvent const *)arg1)->GetDirection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -2995,7 +2995,7 @@ SWIGINTERN PyObject *_wrap_WizardEvent_GetPage(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxWizardPage *)((wxWizardEvent const *)arg1)->GetPage();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3069,7 +3069,7 @@ SWIGINTERN PyObject *_wrap_WizardPage_Create(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->Create(arg2,(wxBitmap const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3106,7 +3106,7 @@ SWIGINTERN PyObject *_wrap_WizardPage_GetPrev(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxWizardPage *)((wxWizardPage const *)arg1)->GetPrev();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3143,7 +3143,7 @@ SWIGINTERN PyObject *_wrap_WizardPage_GetNext(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxWizardPage *)((wxWizardPage const *)arg1)->GetNext();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3180,7 +3180,7 @@ SWIGINTERN PyObject *_wrap_WizardPage_GetBitmap(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = ((wxWizardPage const *)arg1)->GetBitmap();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3313,7 +3313,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_Create(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->Create(arg2,(wxBitmap const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3357,7 +3357,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage__setCallbackInfo(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3429,7 +3429,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_DoMoveWindow(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->DoMoveWindow(arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3512,7 +3512,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_DoSetSize(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->DoSetSize(arg2,arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3566,7 +3566,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_DoSetClientSize(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->DoSetClientSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3620,7 +3620,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_DoSetVirtualSize(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->DoSetVirtualSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3662,7 +3662,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_DoGetSize(PyObject *SWIGUNUSEDPARM(self)
     {
       ((wxPyWizardPage const *)arg1)->DoGetSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3716,7 +3716,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_DoGetClientSize(PyObject *SWIGUNUSEDPARM
     {
       ((wxPyWizardPage const *)arg1)->DoGetClientSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3770,7 +3770,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_DoGetPosition(PyObject *SWIGUNUSEDPARM(s
     {
       ((wxPyWizardPage const *)arg1)->DoGetPosition(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3817,7 +3817,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_DoGetVirtualSize(PyObject *SWIGUNUSEDPAR
     {
       result = ((wxPyWizardPage const *)arg1)->DoGetVirtualSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3852,7 +3852,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_DoGetBestSize(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxPyWizardPage const *)arg1)->DoGetBestSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3887,7 +3887,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_GetDefaultAttributes(PyObject *SWIGUNUSE
     {
       result = (arg1)->GetDefaultAttributes();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3921,7 +3921,7 @@ SWIGINTERN PyObject *_wrap_PyWizardPage_OnInternalIdle(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->OnInternalIdle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4104,7 +4104,7 @@ SWIGINTERN PyObject *_wrap_WizardPageSimple_Create(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->Create(arg2,arg3,arg4,(wxBitmap const &)*arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4151,7 +4151,7 @@ SWIGINTERN PyObject *_wrap_WizardPageSimple_SetPrev(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetPrev(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4196,7 +4196,7 @@ SWIGINTERN PyObject *_wrap_WizardPageSimple_SetNext(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetNext(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4241,7 +4241,7 @@ SWIGINTERN PyObject *_wrap_WizardPageSimple_Chain(PyObject *SWIGUNUSEDPARM(self)
     {
       wxWizardPageSimple::Chain(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4461,7 +4461,7 @@ SWIGINTERN PyObject *_wrap_Wizard_Create(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxBitmap const &)*arg5,(wxPoint const &)*arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4505,7 +4505,7 @@ SWIGINTERN PyObject *_wrap_Wizard_Init(PyObject *SWIGUNUSEDPARM(self), PyObject 
     {
       (arg1)->Init();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4551,7 +4551,7 @@ SWIGINTERN PyObject *_wrap_Wizard_RunWizard(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (bool)(arg1)->RunWizard(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4588,7 +4588,7 @@ SWIGINTERN PyObject *_wrap_Wizard_GetCurrentPage(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxWizardPage *)((wxWizard const *)arg1)->GetCurrentPage();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4633,7 +4633,7 @@ SWIGINTERN PyObject *_wrap_Wizard_SetPageSize(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->SetPageSize((wxSize const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4668,7 +4668,7 @@ SWIGINTERN PyObject *_wrap_Wizard_GetPageSize(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = ((wxWizard const *)arg1)->GetPageSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4713,7 +4713,7 @@ SWIGINTERN PyObject *_wrap_Wizard_FitToPage(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->FitToPage((wxWizardPage const *)arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4748,7 +4748,7 @@ SWIGINTERN PyObject *_wrap_Wizard_GetPageAreaSizer(PyObject *SWIGUNUSEDPARM(self
     {
       result = (wxSizer *)((wxWizard const *)arg1)->GetPageAreaSizer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4795,7 +4795,7 @@ SWIGINTERN PyObject *_wrap_Wizard_SetBorder(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->SetBorder(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4833,7 +4833,7 @@ SWIGINTERN PyObject *_wrap_Wizard_GetBitmap(PyObject *SWIGUNUSEDPARM(self), PyOb
         result = (wxBitmap *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4884,7 +4884,7 @@ SWIGINTERN PyObject *_wrap_Wizard_SetBitmap(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->SetBitmap((wxBitmap const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4919,7 +4919,7 @@ SWIGINTERN PyObject *_wrap_Wizard_IsRunning(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (bool)((wxWizard const *)arg1)->IsRunning();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4964,7 +4964,7 @@ SWIGINTERN PyObject *_wrap_Wizard_SetBitmapBackgroundColour(PyObject *SWIGUNUSED
     {
       (arg1)->SetBitmapBackgroundColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5002,7 +5002,7 @@ SWIGINTERN PyObject *_wrap_Wizard_GetBitmapBackgroundColour(PyObject *SWIGUNUSED
         result = (wxColour *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5047,7 +5047,7 @@ SWIGINTERN PyObject *_wrap_Wizard_SetBitmapPlacement(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetBitmapPlacement(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5082,7 +5082,7 @@ SWIGINTERN PyObject *_wrap_Wizard_GetBitmapPlacement(PyObject *SWIGUNUSEDPARM(se
     {
       result = (int)((wxWizard const *)arg1)->GetBitmapPlacement();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5127,7 +5127,7 @@ SWIGINTERN PyObject *_wrap_Wizard_SetMinimumBitmapWidth(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetMinimumBitmapWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5162,7 +5162,7 @@ SWIGINTERN PyObject *_wrap_Wizard_GetMinimumBitmapWidth(PyObject *SWIGUNUSEDPARM
     {
       result = (int)((wxWizard const *)arg1)->GetMinimumBitmapWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5221,7 +5221,7 @@ SWIGINTERN PyObject *_wrap_Wizard_TileBitmap(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)wxWizard::TileBitmap((wxRect const &)*arg1,*arg2,(wxBitmap const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5280,7 +5280,7 @@ SWIGINTERN PyObject *_wrap_Wizard_ShowPage(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->ShowPage(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5328,7 +5328,7 @@ SWIGINTERN PyObject *_wrap_Wizard_HasNextPage(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (bool)(arg1)->HasNextPage(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5376,7 +5376,7 @@ SWIGINTERN PyObject *_wrap_Wizard_HasPrevPage(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (bool)(arg1)->HasPrevPage(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

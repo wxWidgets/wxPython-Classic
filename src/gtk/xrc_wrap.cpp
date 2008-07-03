@@ -3120,7 +3120,7 @@ SWIGINTERN PyObject *_wrap_new_XmlResource(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (wxXmlResource *)new wxXmlResource((wxString const &)*arg1,arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3186,7 +3186,7 @@ SWIGINTERN PyObject *_wrap_new_EmptyXmlResource(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxXmlResource *)new wxXmlResource(arg1,(wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3229,7 +3229,7 @@ SWIGINTERN PyObject *_wrap_delete_XmlResource(PyObject *SWIGUNUSEDPARM(self), Py
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3274,7 +3274,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_Load(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (bool)(arg1)->Load((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3329,7 +3329,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadFromString(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)wxXmlResource_LoadFromString(arg1,(wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3384,7 +3384,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_Unload(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (bool)(arg1)->Unload((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3428,7 +3428,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_InitAllHandlers(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->InitAllHandlers();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3471,7 +3471,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_AddHandler(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->AddHandler(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3514,7 +3514,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_InsertHandler(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->InsertHandler(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3548,7 +3548,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_ClearHandlers(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->ClearHandlers();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3584,7 +3584,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_AddSubclassFactory(PyObject *SWIGUNUSEDPA
     {
       wxXmlResource::AddSubclassFactory(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3629,7 +3629,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadMenu(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxMenu *)(arg1)->LoadMenu((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3684,7 +3684,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadMenuBar(PyObject *SWIGUNUSEDPARM(self
     {
       result = (wxMenuBar *)(arg1)->LoadMenuBar((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3748,7 +3748,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadMenuBarOnFrame(PyObject *SWIGUNUSEDPA
     {
       result = (wxMenuBar *)(arg1)->LoadMenuBar(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3812,7 +3812,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadToolBar(PyObject *SWIGUNUSEDPARM(self
     {
       result = (wxToolBar *)(arg1)->LoadToolBar(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3876,7 +3876,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadDialog(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxDialog *)(arg1)->LoadDialog(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3949,7 +3949,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadOnDialog(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->LoadDialog(arg2,arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4013,7 +4013,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadPanel(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxPanel *)(arg1)->LoadPanel(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4086,7 +4086,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadOnPanel(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->LoadPanel(arg2,arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4150,7 +4150,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadFrame(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxFrame *)(arg1)->LoadFrame(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4223,7 +4223,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadOnFrame(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->LoadFrame(arg2,arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4295,7 +4295,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadObject(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxObject *)(arg1)->LoadObject(arg2,(wxString const &)*arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4384,7 +4384,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadOnObject(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->LoadObject(arg2,arg3,(wxString const &)*arg4,(wxString const &)*arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4447,7 +4447,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadBitmap(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (arg1)->LoadBitmap((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4500,7 +4500,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_LoadIcon(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (arg1)->LoadIcon((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4573,7 +4573,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_AttachUnknownControl(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->AttachUnknownControl((wxString const &)*arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4630,7 +4630,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_GetXRCID(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (int)wxXmlResource::GetXRCID((wxString const &)*arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4673,7 +4673,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_GetVersion(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (long)((wxXmlResource const *)arg1)->GetVersion();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4746,7 +4746,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_CompareVersion(PyObject *SWIGUNUSEDPARM(s
     {
       result = (int)((wxXmlResource const *)arg1)->CompareVersion(arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4771,7 +4771,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_Get(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (wxXmlResource *)wxXmlResource::Get();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4808,7 +4808,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_Set(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (wxXmlResource *)wxXmlResource::Set(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4843,7 +4843,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_GetFlags(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (int)(arg1)->GetFlags();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4888,7 +4888,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_SetFlags(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetFlags(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4923,7 +4923,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_GetDomain(PyObject *SWIGUNUSEDPARM(self),
     {
       result = ((wxXmlResource const *)arg1)->GetDomain();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4973,7 +4973,7 @@ SWIGINTERN PyObject *_wrap_XmlResource_SetDomain(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetDomain((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5017,7 +5017,7 @@ SWIGINTERN PyObject *_wrap_new_XmlSubclassFactory(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxPyXmlSubclassFactory *)new wxPyXmlSubclassFactory();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5059,7 +5059,7 @@ SWIGINTERN PyObject *_wrap_XmlSubclassFactory__setCallbackInfo(PyObject *SWIGUNU
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5131,7 +5131,7 @@ SWIGINTERN PyObject *_wrap_new_XmlProperty(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (wxXmlProperty *)new wxXmlProperty((wxString const &)*arg1,(wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5182,7 +5182,7 @@ SWIGINTERN PyObject *_wrap_XmlProperty_GetName(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = ((wxXmlProperty const *)arg1)->GetName();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5223,7 +5223,7 @@ SWIGINTERN PyObject *_wrap_XmlProperty_GetValue(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = ((wxXmlProperty const *)arg1)->GetValue();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5264,7 +5264,7 @@ SWIGINTERN PyObject *_wrap_XmlProperty_GetNext(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxXmlProperty *)((wxXmlProperty const *)arg1)->GetNext();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5308,7 +5308,7 @@ SWIGINTERN PyObject *_wrap_XmlProperty_SetName(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->SetName((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5360,7 +5360,7 @@ SWIGINTERN PyObject *_wrap_XmlProperty_SetValue(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetValue((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5413,7 +5413,7 @@ SWIGINTERN PyObject *_wrap_XmlProperty_SetNext(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->SetNext(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5529,7 +5529,7 @@ SWIGINTERN PyObject *_wrap_new_XmlNode(PyObject *SWIGUNUSEDPARM(self), PyObject 
     {
       result = (wxXmlNode *)new wxXmlNode(arg1,arg2,(wxString const &)*arg3,(wxString const &)*arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5580,7 +5580,7 @@ SWIGINTERN PyObject *_wrap_delete_XmlNode(PyObject *SWIGUNUSEDPARM(self), PyObje
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5636,7 +5636,7 @@ SWIGINTERN PyObject *_wrap_new_XmlNodeEasy(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (wxXmlNode *)new wxXmlNode(arg1,(wxString const &)*arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5697,7 +5697,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_AddChild(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->AddChild(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5752,7 +5752,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_InsertChild(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->InsertChild(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5809,7 +5809,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_InsertChildAfter(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->InsertChildAfter(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5857,7 +5857,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_RemoveChild(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->RemoveChild(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5904,7 +5904,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_AddProperty(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->AddProperty(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5956,7 +5956,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_AddPropertyName(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->AddProperty((wxString const &)*arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6017,7 +6017,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_DeleteProperty(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->DeleteProperty((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6062,7 +6062,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetType(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (wxXmlNodeType)((wxXmlNode const *)arg1)->GetType();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6097,7 +6097,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetName(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = ((wxXmlNode const *)arg1)->GetName();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6138,7 +6138,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetContent(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = ((wxXmlNode const *)arg1)->GetContent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6179,7 +6179,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_IsWhitespaceOnly(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)((wxXmlNode const *)arg1)->IsWhitespaceOnly();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6229,7 +6229,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetDepth(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (int)((wxXmlNode const *)arg1)->GetDepth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6264,7 +6264,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetNodeContent(PyObject *SWIGUNUSEDPARM(self)
     {
       result = ((wxXmlNode const *)arg1)->GetNodeContent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6305,7 +6305,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetParent(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxXmlNode *)((wxXmlNode const *)arg1)->GetParent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6340,7 +6340,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetNext(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (wxXmlNode *)((wxXmlNode const *)arg1)->GetNext();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6375,7 +6375,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetChildren(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxXmlNode *)((wxXmlNode const *)arg1)->GetChildren();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6428,7 +6428,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetAttribute(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = ((wxXmlNode const *)arg1)->GetAttribute((wxString const &)*arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6495,7 +6495,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_HasAttribute(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)((wxXmlNode const *)arg1)->HasAttribute((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6540,7 +6540,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetLineNumber(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (int)((wxXmlNode const *)arg1)->GetLineNumber();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6575,7 +6575,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetProperties(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxXmlProperty *)((wxXmlNode const *)arg1)->GetProperties();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6628,7 +6628,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_GetPropVal(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = ((wxXmlNode const *)arg1)->GetPropVal((wxString const &)*arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6695,7 +6695,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_HasProp(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)((wxXmlNode const *)arg1)->HasProp((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6750,7 +6750,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_SetType(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->SetType(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6794,7 +6794,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_SetName(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->SetName((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6846,7 +6846,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_SetContent(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->SetContent((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6899,7 +6899,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_SetParent(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->SetParent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6944,7 +6944,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_SetNext(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->SetNext(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6989,7 +6989,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_SetChildren(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->SetChildren(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7034,7 +7034,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_SetProperties(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetProperties(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7079,7 +7079,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_SetAttributes(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetAttributes(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7124,7 +7124,7 @@ SWIGINTERN PyObject *_wrap_XmlNode_AddAttribute(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->AddAttribute(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7182,7 +7182,7 @@ SWIGINTERN PyObject *_wrap_new_XmlDocument(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (wxXmlDocument *)new wxXmlDocument((wxString const &)*arg1,(wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7255,7 +7255,7 @@ SWIGINTERN PyObject *_wrap_new_XmlDocumentFromStream(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxXmlDocument *)new wxXmlDocument(*arg1,(wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7294,7 +7294,7 @@ SWIGINTERN PyObject *_wrap_new_EmptyXmlDocument(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxXmlDocument *)new wxXmlDocument();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7329,7 +7329,7 @@ SWIGINTERN PyObject *_wrap_delete_XmlDocument(PyObject *SWIGUNUSEDPARM(self), Py
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7396,7 +7396,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_Load(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (bool)(arg1)->Load((wxString const &)*arg2,(wxString const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7491,7 +7491,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_LoadFromStream(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->Load(*arg2,(wxString const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7563,7 +7563,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_Save(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (bool)((wxXmlDocument const *)arg1)->Save((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7639,7 +7639,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_SaveToStream(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)((wxXmlDocument const *)arg1)->Save(*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7682,7 +7682,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_IsOk(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (bool)((wxXmlDocument const *)arg1)->IsOk();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7719,7 +7719,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_GetRoot(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxXmlNode *)((wxXmlDocument const *)arg1)->GetRoot();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7754,7 +7754,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_GetVersion(PyObject *SWIGUNUSEDPARM(self)
     {
       result = ((wxXmlDocument const *)arg1)->GetVersion();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7795,7 +7795,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_GetFileEncoding(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxXmlDocument const *)arg1)->GetFileEncoding();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7836,7 +7836,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_DetachRoot(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxXmlNode *)(arg1)->DetachRoot();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7881,7 +7881,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_SetRoot(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->SetRoot(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7925,7 +7925,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_SetVersion(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetVersion((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7977,7 +7977,7 @@ SWIGINTERN PyObject *_wrap_XmlDocument_SetFileEncoding(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetFileEncoding((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8021,7 +8021,7 @@ SWIGINTERN PyObject *_wrap_new_XmlResourceHandler(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxPyXmlResourceHandler *)new wxPyXmlResourceHandler();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8056,7 +8056,7 @@ SWIGINTERN PyObject *_wrap_delete_XmlResourceHandler(PyObject *SWIGUNUSEDPARM(se
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8098,7 +8098,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler__setCallbackInfo(PyObject *SWIGUNU
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8162,7 +8162,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_CreateResource(PyObject *SWIGUNUSE
     {
       result = (wxObject *)(arg1)->CreateResource(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8209,7 +8209,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_SetParentResource(PyObject *SWIGUN
     {
       (arg1)->SetParentResource(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8244,7 +8244,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetResource(PyObject *SWIGUNUSEDPA
     {
       result = (wxXmlResource *)(arg1)->GetResource();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8279,7 +8279,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetNode(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxXmlNode *)(arg1)->GetNode();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8314,7 +8314,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetClass(PyObject *SWIGUNUSEDPARM(
     {
       result = (arg1)->GetClass();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8355,7 +8355,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetParent(PyObject *SWIGUNUSEDPARM
     {
       result = (wxObject *)(arg1)->GetParent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8392,7 +8392,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetInstance(PyObject *SWIGUNUSEDPA
     {
       result = (wxObject *)(arg1)->GetInstance();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8429,7 +8429,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetParentAsWindow(PyObject *SWIGUN
     {
       result = (wxWindow *)(arg1)->GetParentAsWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8485,7 +8485,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_IsOfClass(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->IsOfClass(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8541,7 +8541,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetNodeContent(PyObject *SWIGUNUSE
     {
       result = (arg1)->GetNodeContent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8592,7 +8592,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_HasParam(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->HasParam((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8647,7 +8647,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetParamNode(PyObject *SWIGUNUSEDP
     {
       result = (wxXmlNode *)(arg1)->GetParamNode((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8700,7 +8700,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetParamValue(PyObject *SWIGUNUSED
     {
       result = (arg1)->GetParamValue((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8767,7 +8767,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_AddStyle(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->AddStyle((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8809,7 +8809,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_AddWindowStyles(PyObject *SWIGUNUS
     {
       (arg1)->AddWindowStyles();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8868,7 +8868,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetStyle(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)(arg1)->GetStyle((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8932,7 +8932,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetText(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetText((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8981,7 +8981,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetID(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (int)(arg1)->GetID();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9016,7 +9016,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetName(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetName();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9078,7 +9078,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetBool(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->GetBool((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9144,7 +9144,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetLong(PyObject *SWIGUNUSEDPARM(s
     {
       result = (long)(arg1)->GetLong((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9197,7 +9197,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetColour(PyObject *SWIGUNUSEDPARM
     {
       result = (arg1)->GetColour((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9253,7 +9253,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetSize(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetSize((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9309,7 +9309,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetPosition(PyObject *SWIGUNUSEDPA
     {
       result = (arg1)->GetPosition((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9373,7 +9373,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetDimension(PyObject *SWIGUNUSEDP
     {
       result = (int)(arg1)->GetDimension((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9463,7 +9463,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetBitmap(PyObject *SWIGUNUSEDPARM
     {
       result = (arg1)->GetBitmap((wxString const &)*arg2,(wxArtClient const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9553,7 +9553,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetIcon(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetIcon((wxString const &)*arg2,(wxArtClient const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9609,7 +9609,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetFont(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetFont((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9665,7 +9665,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetAnimation(PyObject *SWIGUNUSEDP
     {
       result = (arg1)->GetAnimation((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9718,7 +9718,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_SetupWindow(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetupWindow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9774,7 +9774,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_CreateChildren(PyObject *SWIGUNUSE
     {
       (arg1)->CreateChildren(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9830,7 +9830,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_CreateChildrenPrivately(PyObject *
     {
       (arg1)->CreateChildrenPrivately(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9896,7 +9896,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_CreateResFromNode(PyObject *SWIGUN
     {
       result = (wxObject *)(arg1)->CreateResFromNode(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9936,7 +9936,7 @@ SWIGINTERN PyObject *_wrap_XmlResourceHandler_GetCurFileSystem(PyObject *SWIGUNU
         result = (wxFileSystem *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

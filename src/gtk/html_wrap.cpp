@@ -3282,7 +3282,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlLinkInfo(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxHtmlLinkInfo *)new wxHtmlLinkInfo((wxString const &)*arg1,(wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3333,7 +3333,7 @@ SWIGINTERN PyObject *_wrap_HtmlLinkInfo_GetHref(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (arg1)->GetHref();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3374,7 +3374,7 @@ SWIGINTERN PyObject *_wrap_HtmlLinkInfo_GetTarget(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (arg1)->GetTarget();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3415,7 +3415,7 @@ SWIGINTERN PyObject *_wrap_HtmlLinkInfo_GetEvent(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxMouseEvent *)(arg1)->GetEvent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3452,7 +3452,7 @@ SWIGINTERN PyObject *_wrap_HtmlLinkInfo_GetHtmlCell(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxHtmlCell *)(arg1)->GetHtmlCell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3497,7 +3497,7 @@ SWIGINTERN PyObject *_wrap_HtmlLinkInfo_SetEvent(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetEvent((wxMouseEvent const *)arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3542,7 +3542,7 @@ SWIGINTERN PyObject *_wrap_HtmlLinkInfo_SetHtmlCell(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetHtmlCell((wxHtmlCell const *)arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3588,7 +3588,7 @@ SWIGINTERN PyObject *_wrap_HtmlTag_GetName(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (arg1)->GetName();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3639,7 +3639,7 @@ SWIGINTERN PyObject *_wrap_HtmlTag_HasParam(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (bool)(arg1)->HasParam((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3705,7 +3705,7 @@ SWIGINTERN PyObject *_wrap_HtmlTag_GetParam(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (arg1)->GetParam((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3754,7 +3754,7 @@ SWIGINTERN PyObject *_wrap_HtmlTag_GetAllParams(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (arg1)->GetAllParams();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3795,7 +3795,7 @@ SWIGINTERN PyObject *_wrap_HtmlTag_HasEnding(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->HasEnding();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3832,7 +3832,7 @@ SWIGINTERN PyObject *_wrap_HtmlTag_GetBeginPos(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (int)(arg1)->GetBeginPos();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3867,7 +3867,7 @@ SWIGINTERN PyObject *_wrap_HtmlTag_GetEndPos1(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (int)(arg1)->GetEndPos1();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3902,7 +3902,7 @@ SWIGINTERN PyObject *_wrap_HtmlTag_GetEndPos2(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (int)(arg1)->GetEndPos2();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3954,7 +3954,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_SetFS(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->SetFS(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3989,7 +3989,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_GetFS(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxFileSystem *)(arg1)->GetFS();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4036,7 +4036,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_Parse(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxObject *)(arg1)->Parse((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4090,7 +4090,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_InitParser(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->InitParser((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4132,7 +4132,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_DoneParser(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->DoneParser();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4166,7 +4166,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_DoParsing(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->DoParsing();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4200,7 +4200,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_StopParsing(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->StopParsing();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4245,7 +4245,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_AddTagHandler(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->AddTagHandler(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4280,7 +4280,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_GetSource(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxString *)(arg1)->GetSource();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4339,7 +4339,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_PushTagHandler(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->PushTagHandler(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4373,7 +4373,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_PopTagHandler(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->PopTagHandler();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4422,7 +4422,7 @@ SWIGINTERN PyObject *_wrap_HtmlParser_GetInnerSource(PyObject *SWIGUNUSEDPARM(se
     {
       result = (arg1)->GetInnerSource((wxHtmlTag const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4474,7 +4474,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlWinParser(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxHtmlWinParser *)new wxHtmlWinParser(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4519,7 +4519,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetDC(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->SetDC(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4554,7 +4554,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetDC(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxDC *)(arg1)->GetDC();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4591,7 +4591,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetCharHeight(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)(arg1)->GetCharHeight();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4626,7 +4626,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetCharWidth(PyObject *SWIGUNUSEDPARM(s
     {
       result = (int)(arg1)->GetCharWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4661,7 +4661,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetWindowInterface(PyObject *SWIGUNUSED
     {
       result = (wxHtmlWindowInterface *)(arg1)->GetWindowInterface();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4718,7 +4718,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetFonts(PyObject *SWIGUNUSEDPARM(self)
     {
       wxHtmlWinParser_SetFonts(arg1,arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4787,7 +4787,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetStandardFonts(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetStandardFonts(arg2,(wxString const &)*arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4838,7 +4838,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetContainer(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxHtmlContainerCell *)(arg1)->GetContainer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4873,7 +4873,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_OpenContainer(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxHtmlContainerCell *)(arg1)->OpenContainer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4919,7 +4919,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetContainer(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxHtmlContainerCell *)(arg1)->SetContainer(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4954,7 +4954,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_CloseContainer(PyObject *SWIGUNUSEDPARM
     {
       result = (wxHtmlContainerCell *)(arg1)->CloseContainer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4989,7 +4989,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetFontSize(PyObject *SWIGUNUSEDPARM(se
     {
       result = (int)(arg1)->GetFontSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5034,7 +5034,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetFontSize(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetFontSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5069,7 +5069,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetFontBold(PyObject *SWIGUNUSEDPARM(se
     {
       result = (int)(arg1)->GetFontBold();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5114,7 +5114,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetFontBold(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetFontBold(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5149,7 +5149,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetFontItalic(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)(arg1)->GetFontItalic();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5194,7 +5194,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetFontItalic(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetFontItalic(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5229,7 +5229,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetFontUnderlined(PyObject *SWIGUNUSEDP
     {
       result = (int)(arg1)->GetFontUnderlined();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5274,7 +5274,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetFontUnderlined(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetFontUnderlined(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5309,7 +5309,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetFontFixed(PyObject *SWIGUNUSEDPARM(s
     {
       result = (int)(arg1)->GetFontFixed();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5354,7 +5354,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetFontFixed(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetFontFixed(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5389,7 +5389,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetAlign(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (int)(arg1)->GetAlign();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5434,7 +5434,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetAlign(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetAlign(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5469,7 +5469,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetLinkColor(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetLinkColor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5512,7 +5512,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetLinkColor(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetLinkColor((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5547,7 +5547,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetActualColor(PyObject *SWIGUNUSEDPARM
     {
       result = (arg1)->GetActualColor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5590,7 +5590,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetActualColor(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetActualColor((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5634,7 +5634,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_SetLink(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetLink((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5677,7 +5677,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_CreateCurrentFont(PyObject *SWIGUNUSEDP
     {
       result = (wxFont *)(arg1)->CreateCurrentFont();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5712,7 +5712,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_GetLink(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (arg1)->GetLink();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5748,7 +5748,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlTagHandler(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxPyHtmlTagHandler *)new wxPyHtmlTagHandler();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5790,7 +5790,7 @@ SWIGINTERN PyObject *_wrap_HtmlTagHandler__setCallbackInfo(PyObject *SWIGUNUSEDP
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5835,7 +5835,7 @@ SWIGINTERN PyObject *_wrap_HtmlTagHandler_SetParser(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetParser(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5870,7 +5870,7 @@ SWIGINTERN PyObject *_wrap_HtmlTagHandler_GetParser(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxHtmlParser *)(arg1)->GetParser();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5918,7 +5918,7 @@ SWIGINTERN PyObject *_wrap_HtmlTagHandler_ParseInner(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->ParseInner((wxHtmlTag const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5954,7 +5954,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlWinTagHandler(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxPyHtmlWinTagHandler *)new wxPyHtmlWinTagHandler();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5996,7 +5996,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinTagHandler__setCallbackInfo(PyObject *SWIGUNUS
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6041,7 +6041,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinTagHandler_SetParser(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetParser(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6076,7 +6076,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinTagHandler_GetParser(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxHtmlWinParser *)(arg1)->GetParser();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6124,7 +6124,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinTagHandler_ParseInner(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->ParseInner((wxHtmlTag const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6165,7 +6165,7 @@ SWIGINTERN PyObject *_wrap_HtmlWinParser_AddTagHandler(PyObject *SWIGUNUSEDPARM(
     {
       wxHtmlWinParser_AddTagHandler(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6190,7 +6190,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlSelection(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxHtmlSelection *)new wxHtmlSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6225,7 +6225,7 @@ SWIGINTERN PyObject *_wrap_delete_HtmlSelection(PyObject *SWIGUNUSEDPARM(self), 
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6293,7 +6293,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_Set(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->Set((wxPoint const &)*arg2,(wxHtmlCell const *)arg3,(wxPoint const &)*arg4,(wxHtmlCell const *)arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6347,7 +6347,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_SetCells(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->Set((wxHtmlCell const *)arg2,(wxHtmlCell const *)arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6382,7 +6382,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_GetFromCell(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxHtmlCell *)((wxHtmlSelection const *)arg1)->GetFromCell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6419,7 +6419,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_GetToCell(PyObject *SWIGUNUSEDPARM(self
     {
       result = (wxHtmlCell *)((wxHtmlSelection const *)arg1)->GetToCell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6459,7 +6459,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_GetFromPos(PyObject *SWIGUNUSEDPARM(sel
         result = (wxPoint *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6497,7 +6497,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_GetToPos(PyObject *SWIGUNUSEDPARM(self)
         result = (wxPoint *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6535,7 +6535,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_GetFromPrivPos(PyObject *SWIGUNUSEDPARM
         result = (wxPoint *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6573,7 +6573,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_GetToPrivPos(PyObject *SWIGUNUSEDPARM(s
         result = (wxPoint *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6616,7 +6616,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_SetFromPrivPos(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetFromPrivPos((wxPoint const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6659,7 +6659,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_SetToPrivPos(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetToPrivPos((wxPoint const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6693,7 +6693,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_ClearPrivPos(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->ClearPrivPos();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6728,7 +6728,7 @@ SWIGINTERN PyObject *_wrap_HtmlSelection_IsEmpty(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)((wxHtmlSelection const *)arg1)->IsEmpty();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6764,7 +6764,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlRenderingState(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxHtmlRenderingState *)new wxHtmlRenderingState();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6799,7 +6799,7 @@ SWIGINTERN PyObject *_wrap_delete_HtmlRenderingState(PyObject *SWIGUNUSEDPARM(se
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6844,7 +6844,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingState_SetSelectionState(PyObject *SWIGUN
     {
       (arg1)->SetSelectionState(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6879,7 +6879,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingState_GetSelectionState(PyObject *SWIGUN
     {
       result = (wxHtmlSelectionState)((wxHtmlRenderingState const *)arg1)->GetSelectionState();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6922,7 +6922,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingState_SetFgColour(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetFgColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6960,7 +6960,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingState_GetFgColour(PyObject *SWIGUNUSEDPA
         result = (wxColour *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7003,7 +7003,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingState_SetBgColour(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetBgColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7041,7 +7041,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingState_GetBgColour(PyObject *SWIGUNUSEDPA
         result = (wxColour *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7096,7 +7096,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingStyle_GetSelectedTextColour(PyObject *SW
     {
       result = (arg1)->GetSelectedTextColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7140,7 +7140,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingStyle_GetSelectedTextBgColour(PyObject *
     {
       result = (arg1)->GetSelectedTextBgColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7179,7 +7179,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlRenderingInfo(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxHtmlRenderingInfo *)new wxHtmlRenderingInfo();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7214,7 +7214,7 @@ SWIGINTERN PyObject *_wrap_delete_HtmlRenderingInfo(PyObject *SWIGUNUSEDPARM(sel
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7259,7 +7259,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingInfo_SetSelection(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetSelection(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7294,7 +7294,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingInfo_GetSelection(PyObject *SWIGUNUSEDPA
     {
       result = (wxHtmlSelection *)((wxHtmlRenderingInfo const *)arg1)->GetSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7339,7 +7339,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingInfo_SetStyle(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetStyle(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7377,7 +7377,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingInfo_GetStyle(PyObject *SWIGUNUSEDPARM(s
         result = (wxHtmlRenderingStyle *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7415,7 +7415,7 @@ SWIGINTERN PyObject *_wrap_HtmlRenderingInfo_GetState(PyObject *SWIGUNUSEDPARM(s
         result = (wxHtmlRenderingState *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7451,7 +7451,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlCell(PyObject *SWIGUNUSEDPARM(self), PyObject
     {
       result = (wxHtmlCell *)new wxHtmlCell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7486,7 +7486,7 @@ SWIGINTERN PyObject *_wrap_delete_HtmlCell(PyObject *SWIGUNUSEDPARM(self), PyObj
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7521,7 +7521,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetPosX(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (int)(arg1)->GetPosX();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7556,7 +7556,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetPosY(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (int)(arg1)->GetPosY();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7591,7 +7591,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetWidth(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (int)(arg1)->GetWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7626,7 +7626,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetHeight(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (int)(arg1)->GetHeight();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7661,7 +7661,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetDescent(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (int)(arg1)->GetDescent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7696,7 +7696,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetMaxTotalWidth(PyObject *SWIGUNUSEDPARM(se
     {
       result = (int)((wxHtmlCell const *)arg1)->GetMaxTotalWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7734,7 +7734,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetId(PyObject *SWIGUNUSEDPARM(self), PyObje
         result = (wxString *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7784,7 +7784,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_SetId(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       (arg1)->SetId((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7851,7 +7851,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetLink(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxHtmlLinkInfo *)(arg1)->GetLink(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7886,7 +7886,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetNext(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxHtmlCell *)(arg1)->GetNext();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7923,7 +7923,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetParent(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxHtmlContainerCell *)(arg1)->GetParent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7958,7 +7958,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetFirstChild(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxHtmlCell *)((wxHtmlCell const *)arg1)->GetFirstChild();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8006,7 +8006,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetMouseCursor(PyObject *SWIGUNUSEDPARM(self
     {
       result = ((wxHtmlCell const *)arg1)->GetMouseCursor(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8041,7 +8041,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_IsFormattingCell(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)((wxHtmlCell const *)arg1)->IsFormattingCell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8091,7 +8091,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_SetLink(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->SetLink((wxHtmlLinkInfo const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8132,7 +8132,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_SetNext(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->SetNext(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8177,7 +8177,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_SetParent(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->SetParent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8231,7 +8231,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_SetPos(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->SetPos(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8276,7 +8276,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_Layout(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->Layout(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8372,7 +8372,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_Draw(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       (arg1)->Draw(*arg2,arg3,arg4,arg5,arg6,*arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8450,7 +8450,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_DrawInvisible(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->DrawInvisible(*arg2,arg3,arg4,*arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8503,7 +8503,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_Find(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       result = (wxHtmlCell *)(arg1)->Find(arg2,(void const *)arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8570,7 +8570,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_ProcessMouseClick(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->ProcessMouseClick(arg2,(wxPoint const &)*arg3,(wxMouseEvent const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8617,7 +8617,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_SetCanLiveOnPagebreak(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetCanLiveOnPagebreak(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8652,7 +8652,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_IsLinebreakAllowed(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)((wxHtmlCell const *)arg1)->IsLinebreakAllowed();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8689,7 +8689,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_IsTerminalCell(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)((wxHtmlCell const *)arg1)->IsTerminalCell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8757,7 +8757,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_FindCellByPos(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxHtmlCell *)((wxHtmlCell const *)arg1)->FindCellByPos(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8807,7 +8807,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetAbsPos(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = ((wxHtmlCell const *)arg1)->GetAbsPos(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8842,7 +8842,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetRootCell(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxHtmlCell *)((wxHtmlCell const *)arg1)->GetRootCell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8879,7 +8879,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetFirstTerminal(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxHtmlCell *)((wxHtmlCell const *)arg1)->GetFirstTerminal();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8916,7 +8916,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetLastTerminal(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxHtmlCell *)((wxHtmlCell const *)arg1)->GetLastTerminal();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8953,7 +8953,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_GetDepth(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (unsigned int)((wxHtmlCell const *)arg1)->GetDepth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8999,7 +8999,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_IsBefore(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)((wxHtmlCell const *)arg1)->IsBefore(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9047,7 +9047,7 @@ SWIGINTERN PyObject *_wrap_HtmlCell_ConvertToText(PyObject *SWIGUNUSEDPARM(self)
     {
       result = ((wxHtmlCell const *)arg1)->ConvertToText(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9112,7 +9112,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlWordCell(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxHtmlWordCell *)new wxHtmlWordCell((wxString const &)*arg1,*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9166,7 +9166,7 @@ SWIGINTERN PyObject *_wrap_HtmlWordCell_ConvertToText(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxHtmlWordCell const *)arg1)->ConvertToText(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9207,7 +9207,7 @@ SWIGINTERN PyObject *_wrap_HtmlWordCell_IsLinebreakAllowed(PyObject *SWIGUNUSEDP
     {
       result = (bool)((wxHtmlWordCell const *)arg1)->IsLinebreakAllowed();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9254,7 +9254,7 @@ SWIGINTERN PyObject *_wrap_HtmlWordCell_SetPreviousWord(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetPreviousWord(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9330,7 +9330,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlWordWithTabsCell(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxHtmlWordWithTabsCell *)new wxHtmlWordWithTabsCell((wxString const &)*arg1,(wxString const &)*arg2,arg3,(wxDC const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9394,7 +9394,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlContainerCell(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxHtmlContainerCell *)new wxHtmlContainerCell(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9437,7 +9437,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_InsertCell(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->InsertCell(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9482,7 +9482,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_SetAlignHor(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetAlignHor(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9517,7 +9517,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_GetAlignHor(PyObject *SWIGUNUSEDPAR
     {
       result = (int)(arg1)->GetAlignHor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9562,7 +9562,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_SetAlignVer(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetAlignVer(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9597,7 +9597,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_GetAlignVer(PyObject *SWIGUNUSEDPAR
     {
       result = (int)(arg1)->GetAlignVer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9662,7 +9662,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_SetIndent(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetIndent(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9708,7 +9708,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_GetIndent(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)(arg1)->GetIndent(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9754,7 +9754,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_GetIndentUnits(PyObject *SWIGUNUSED
     {
       result = (int)(arg1)->GetIndentUnits(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9802,7 +9802,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_SetAlign(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetAlign((wxHtmlTag const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9856,7 +9856,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_SetWidthFloat(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetWidthFloat(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9904,7 +9904,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_SetWidthFloatFromTag(PyObject *SWIG
     {
       (arg1)->SetWidthFloat((wxHtmlTag const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9960,7 +9960,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_SetMinHeight(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetMinHeight(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10003,7 +10003,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_SetBackgroundColour(PyObject *SWIGU
     {
       (arg1)->SetBackgroundColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10038,7 +10038,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_GetBackgroundColour(PyObject *SWIGU
     {
       result = (arg1)->GetBackgroundColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10088,7 +10088,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_SetBorder(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetBorder((wxColour const &)*arg2,(wxColour const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10123,7 +10123,7 @@ SWIGINTERN PyObject *_wrap_HtmlContainerCell_GetFirstChild(PyObject *SWIGUNUSEDP
     {
       result = (wxHtmlCell *)(arg1)->GetFirstChild();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10182,7 +10182,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlColourCell(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxHtmlColourCell *)new wxHtmlColourCell((wxColour const &)*arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10230,7 +10230,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlFontCell(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxHtmlFontCell *)new wxHtmlFontCell(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10289,7 +10289,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlWidgetCell(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxHtmlWidgetCell *)new wxHtmlWidgetCell(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10325,7 +10325,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlFilter(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       result = (wxPyHtmlFilter *)new wxPyHtmlFilter();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10367,7 +10367,7 @@ SWIGINTERN PyObject *_wrap_HtmlFilter__setCallbackInfo(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10413,7 +10413,7 @@ SWIGINTERN PyObject *_wrap_delete_HtmlWindowInterface(PyObject *SWIGUNUSEDPARM(s
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10457,7 +10457,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindowInterface_SetHTMLWindowTitle(PyObject *SWIG
     {
       (arg1)->SetHTMLWindowTitle((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10518,7 +10518,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindowInterface_HTMLCoordsToWindow(PyObject *SWIG
     {
       result = ((wxHtmlWindowInterface const *)arg1)->HTMLCoordsToWindow(arg2,(wxPoint const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10553,7 +10553,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindowInterface_GetHTMLWindow(PyObject *SWIGUNUSE
     {
       result = (wxWindow *)(arg1)->GetHTMLWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10590,7 +10590,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindowInterface_GetHTMLBackgroundColour(PyObject 
     {
       result = ((wxHtmlWindowInterface const *)arg1)->GetHTMLBackgroundColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10633,7 +10633,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindowInterface_SetHTMLBackgroundColour(PyObject 
     {
       (arg1)->SetHTMLBackgroundColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10681,7 +10681,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindowInterface_SetHTMLBackgroundImage(PyObject *
     {
       (arg1)->SetHTMLBackgroundImage((wxBitmap const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10725,7 +10725,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindowInterface_SetHTMLStatusText(PyObject *SWIGU
     {
       (arg1)->SetHTMLStatusText((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10950,7 +10950,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_Create(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11002,7 +11002,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow__setCallbackInfo(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11047,7 +11047,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SetPage(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (bool)(arg1)->SetPage((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11102,7 +11102,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_LoadPage(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->LoadPage((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11157,7 +11157,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_LoadFile(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->LoadFile((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11212,7 +11212,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_AppendToPage(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->AppendToPage((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11257,7 +11257,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_GetOpenedPage(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (arg1)->GetOpenedPage();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11298,7 +11298,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_GetOpenedAnchor(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetOpenedAnchor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11339,7 +11339,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_GetOpenedPageTitle(PyObject *SWIGUNUSEDPAR
     {
       result = (arg1)->GetOpenedPageTitle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11398,7 +11398,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SetRelatedFrame(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetRelatedFrame(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11441,7 +11441,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_GetRelatedFrame(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxFrame *)(arg1)->GetRelatedFrame();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11488,7 +11488,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SetRelatedStatusBar(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetRelatedStatusBar(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11545,7 +11545,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SetFonts(PyObject *SWIGUNUSEDPARM(self), P
     {
       wxPyHtmlWindow_SetFonts(arg1,arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11614,7 +11614,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SetStandardFonts(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetStandardFonts(arg2,(wxString const &)*arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11675,7 +11675,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SetBorders(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetBorders(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11723,7 +11723,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SetBackgroundImage(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetBackgroundImage((wxBitmap const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11778,7 +11778,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_ReadCustomization(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->ReadCustomization(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11833,7 +11833,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_WriteCustomization(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->WriteCustomization(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11868,7 +11868,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_HistoryBack(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->HistoryBack();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11905,7 +11905,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_HistoryForward(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->HistoryForward();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11942,7 +11942,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_HistoryCanBack(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->HistoryCanBack();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11979,7 +11979,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_HistoryCanForward(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->HistoryCanForward();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12015,7 +12015,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_HistoryClear(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->HistoryClear();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12050,7 +12050,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_GetInternalRepresentation(PyObject *SWIGUN
     {
       result = (wxHtmlContainerCell *)(arg1)->GetInternalRepresentation();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12085,7 +12085,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_GetParser(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxHtmlWinParser *)(arg1)->GetParser();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12130,7 +12130,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_ScrollToAnchor(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->ScrollToAnchor((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12185,7 +12185,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_HasAnchor(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->HasAnchor((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12231,7 +12231,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_AddFilter(PyObject *SWIGUNUSEDPARM(self), 
     {
       wxPyHtmlWindow::AddFilter(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12274,7 +12274,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SelectWord(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SelectWord((wxPoint const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12317,7 +12317,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SelectLine(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SelectLine((wxPoint const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12351,7 +12351,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SelectAll(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SelectAll();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12386,7 +12386,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SelectionToText(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->SelectionToText();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12427,7 +12427,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_ToText(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (arg1)->ToText();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12481,7 +12481,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_OnLinkClicked(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->OnLinkClicked((wxHtmlLinkInfo const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12525,7 +12525,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_OnSetTitle(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->OnSetTitle((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12596,7 +12596,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_OnCellMouseHover(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->OnCellMouseHover(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12672,7 +12672,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_OnCellClicked(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->OnCellClicked(arg2,arg3,arg4,(wxMouseEvent const &)*arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12736,7 +12736,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_OnOpeningURL(PyObject *SWIGUNUSEDPARM(self
     {
       result = (wxHtmlOpeningStatus)((wxPyHtmlWindow const *)arg1)->OnOpeningURL(arg2,(wxString const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12822,7 +12822,7 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_GetDefaultHTMLCursor(PyObject *SWIGUNUSEDP
     {
       result = wxPyHtmlWindow::GetDefaultHTMLCursor(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12887,7 +12887,7 @@ SWIGINTERN PyObject *_wrap_delete_HtmlDCRenderer(PyObject *SWIGUNUSEDPARM(self),
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12941,7 +12941,7 @@ SWIGINTERN PyObject *_wrap_HtmlDCRenderer_SetDC(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetDC(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12995,7 +12995,7 @@ SWIGINTERN PyObject *_wrap_HtmlDCRenderer_SetSize(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13061,7 +13061,7 @@ SWIGINTERN PyObject *_wrap_HtmlDCRenderer_SetHtmlText(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetHtmlText((wxString const &)*arg2,(wxString const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13134,7 +13134,7 @@ SWIGINTERN PyObject *_wrap_HtmlDCRenderer_SetFonts(PyObject *SWIGUNUSEDPARM(self
     {
       wxHtmlDCRenderer_SetFonts(arg1,arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13203,7 +13203,7 @@ SWIGINTERN PyObject *_wrap_HtmlDCRenderer_SetStandardFonts(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetStandardFonts(arg2,(wxString const &)*arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13330,7 +13330,7 @@ SWIGINTERN PyObject *_wrap_HtmlDCRenderer_Render(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (int)(arg1)->Render(arg2,arg3,*arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13371,7 +13371,7 @@ SWIGINTERN PyObject *_wrap_HtmlDCRenderer_GetTotalHeight(PyObject *SWIGUNUSEDPAR
     {
       result = (int)(arg1)->GetTotalHeight();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13489,7 +13489,7 @@ SWIGINTERN PyObject *_wrap_HtmlPrintout_SetHtmlText(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetHtmlText((wxString const &)*arg2,(wxString const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13549,7 +13549,7 @@ SWIGINTERN PyObject *_wrap_HtmlPrintout_SetHtmlFile(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetHtmlFile((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13612,7 +13612,7 @@ SWIGINTERN PyObject *_wrap_HtmlPrintout_SetHeader(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetHeader((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13675,7 +13675,7 @@ SWIGINTERN PyObject *_wrap_HtmlPrintout_SetFooter(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetFooter((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13740,7 +13740,7 @@ SWIGINTERN PyObject *_wrap_HtmlPrintout_SetFonts(PyObject *SWIGUNUSEDPARM(self),
     {
       wxHtmlPrintout_SetFonts(arg1,arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13809,7 +13809,7 @@ SWIGINTERN PyObject *_wrap_HtmlPrintout_SetStandardFonts(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetStandardFonts(arg2,(wxString const &)*arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13916,7 +13916,7 @@ SWIGINTERN PyObject *_wrap_HtmlPrintout_SetMargins(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetMargins(arg2,arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13952,7 +13952,7 @@ SWIGINTERN PyObject *_wrap_HtmlPrintout_AddFilter(PyObject *SWIGUNUSEDPARM(self)
     {
       wxHtmlPrintout::AddFilter(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13976,7 +13976,7 @@ SWIGINTERN PyObject *_wrap_HtmlPrintout_CleanUpStatics(PyObject *SWIGUNUSEDPARM(
     {
       wxHtmlPrintout::CleanUpStatics();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14074,7 +14074,7 @@ SWIGINTERN PyObject *_wrap_delete_HtmlEasyPrinting(PyObject *SWIGUNUSEDPARM(self
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14118,7 +14118,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PreviewFile(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->PreviewFile((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14181,7 +14181,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PreviewText(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->PreviewText((wxString const &)*arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14241,7 +14241,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PrintFile(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->PrintFile((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14304,7 +14304,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PrintText(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->PrintText((wxString const &)*arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14354,7 +14354,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_PageSetup(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->PageSetup();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14409,7 +14409,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_SetHeader(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetHeader((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14472,7 +14472,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_SetFooter(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetFooter((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14537,7 +14537,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_SetFonts(PyObject *SWIGUNUSEDPARM(se
     {
       wxHtmlEasyPrinting_SetFonts(arg1,arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14606,7 +14606,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_SetStandardFonts(PyObject *SWIGUNUSE
     {
       (arg1)->SetStandardFonts(arg2,(wxString const &)*arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14657,7 +14657,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_GetPrintData(PyObject *SWIGUNUSEDPAR
     {
       result = (wxPrintData *)(arg1)->GetPrintData();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14692,7 +14692,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_GetPageSetupData(PyObject *SWIGUNUSE
     {
       result = (wxPageSetupDialogData *)(arg1)->GetPageSetupData();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14727,7 +14727,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_GetParentWindow(PyObject *SWIGUNUSED
     {
       result = (wxWindow *)((wxHtmlEasyPrinting const *)arg1)->GetParentWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14774,7 +14774,7 @@ SWIGINTERN PyObject *_wrap_HtmlEasyPrinting_SetParentWindow(PyObject *SWIGUNUSED
     {
       (arg1)->SetParentWindow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14845,7 +14845,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlBookRecord(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxHtmlBookRecord *)new wxHtmlBookRecord((wxString const &)*arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14912,7 +14912,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_GetBookFile(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetBookFile();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14953,7 +14953,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_GetTitle(PyObject *SWIGUNUSEDPARM(self
     {
       result = (arg1)->GetTitle();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14994,7 +14994,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_GetStart(PyObject *SWIGUNUSEDPARM(self
     {
       result = (arg1)->GetStart();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15035,7 +15035,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_GetBasePath(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetBasePath();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15095,7 +15095,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_SetContentsRange(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetContentsRange(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15130,7 +15130,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_GetContentsStart(PyObject *SWIGUNUSEDP
     {
       result = (int)(arg1)->GetContentsStart();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15165,7 +15165,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_GetContentsEnd(PyObject *SWIGUNUSEDPAR
     {
       result = (int)(arg1)->GetContentsEnd();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15209,7 +15209,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_SetTitle(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetTitle((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15261,7 +15261,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_SetBasePath(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetBasePath((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15313,7 +15313,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_SetStart(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetStart((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15366,7 +15366,7 @@ SWIGINTERN PyObject *_wrap_HtmlBookRecord_GetFullPath(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxHtmlBookRecord const *)arg1)->GetFullPath((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15426,7 +15426,7 @@ SWIGINTERN PyObject *_wrap_HtmlSearchStatus_Search(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->Search();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15463,7 +15463,7 @@ SWIGINTERN PyObject *_wrap_HtmlSearchStatus_IsActive(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->IsActive();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15500,7 +15500,7 @@ SWIGINTERN PyObject *_wrap_HtmlSearchStatus_GetCurIndex(PyObject *SWIGUNUSEDPARM
     {
       result = (int)(arg1)->GetCurIndex();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15535,7 +15535,7 @@ SWIGINTERN PyObject *_wrap_HtmlSearchStatus_GetMaxIndex(PyObject *SWIGUNUSEDPARM
     {
       result = (int)(arg1)->GetMaxIndex();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15573,7 +15573,7 @@ SWIGINTERN PyObject *_wrap_HtmlSearchStatus_GetName(PyObject *SWIGUNUSEDPARM(sel
         result = (wxString *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15611,7 +15611,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlHelpData(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxHtmlHelpData *)new wxHtmlHelpData();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15646,7 +15646,7 @@ SWIGINTERN PyObject *_wrap_delete_HtmlHelpData(PyObject *SWIGUNUSEDPARM(self), P
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15690,7 +15690,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpData_SetTempDir(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetTempDir((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15743,7 +15743,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpData_AddBook(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->AddBook((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15798,7 +15798,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpData_FindPageByName(PyObject *SWIGUNUSEDPARM(
     {
       result = (arg1)->FindPageByName((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15858,7 +15858,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpData_FindPageById(PyObject *SWIGUNUSEDPARM(se
     {
       result = (arg1)->FindPageById(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15902,7 +15902,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpData_GetBookRecArray(PyObject *SWIGUNUSEDPARM
         result = (wxHtmlBookRecArray *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16136,7 +16136,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_Create(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16173,7 +16173,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_GetData(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxHtmlHelpData *)(arg1)->GetData();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16208,7 +16208,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_GetController(PyObject *SWIGUNUSEDPARM
     {
       result = (wxHtmlHelpController *)((wxHtmlHelpWindow const *)arg1)->GetController();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16251,7 +16251,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_SetController(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetController(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16296,7 +16296,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_Display(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->Display((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16352,7 +16352,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_DisplayID(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->Display(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16389,7 +16389,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_DisplayContents(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->DisplayContents();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16426,7 +16426,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_DisplayIndex(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->DisplayIndex();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16492,7 +16492,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_KeywordSearch(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->KeywordSearch((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16558,7 +16558,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_UseConfig(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->UseConfig(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16622,7 +16622,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_ReadCustomization(PyObject *SWIGUNUSED
     {
       (arg1)->ReadCustomization(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16686,7 +16686,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_WriteCustomization(PyObject *SWIGUNUSE
     {
       (arg1)->WriteCustomization(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16728,7 +16728,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_NotifyPageChanged(PyObject *SWIGUNUSED
     {
       (arg1)->NotifyPageChanged();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16762,7 +16762,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_RefreshLists(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->RefreshLists();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16797,7 +16797,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_GetHtmlWindow(PyObject *SWIGUNUSEDPARM
     {
       result = (wxPyHtmlWindow *)((wxHtmlHelpWindow const *)arg1)->GetHtmlWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16834,7 +16834,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_GetSplitterWindow(PyObject *SWIGUNUSED
     {
       result = (wxSplitterWindow *)(arg1)->GetSplitterWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16869,7 +16869,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_GetToolBar(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxToolBar *)((wxHtmlHelpWindow const *)arg1)->GetToolBar();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16909,7 +16909,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_GetCfgData(PyObject *SWIGUNUSEDPARM(se
         result = (wxHtmlHelpFrameCfg *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16944,7 +16944,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpWindow_GetTreeCtrl(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxPyTreeCtrl *)((wxHtmlHelpWindow const *)arg1)->GetTreeCtrl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17031,7 +17031,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlCellEvent(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxHtmlCellEvent *)new wxHtmlCellEvent(arg1,arg2,arg3,(wxPoint const &)*arg4,(wxMouseEvent const &)*arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17066,7 +17066,7 @@ SWIGINTERN PyObject *_wrap_HtmlCellEvent_GetCell(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxHtmlCell *)((wxHtmlCellEvent const *)arg1)->GetCell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17103,7 +17103,7 @@ SWIGINTERN PyObject *_wrap_HtmlCellEvent_GetPoint(PyObject *SWIGUNUSEDPARM(self)
     {
       result = ((wxHtmlCellEvent const *)arg1)->GetPoint();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17138,7 +17138,7 @@ SWIGINTERN PyObject *_wrap_HtmlCellEvent_GetMouseEvent(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxHtmlCellEvent const *)arg1)->GetMouseEvent();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17183,7 +17183,7 @@ SWIGINTERN PyObject *_wrap_HtmlCellEvent_SetLinkClicked(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetLinkClicked(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17218,7 +17218,7 @@ SWIGINTERN PyObject *_wrap_HtmlCellEvent_GetLinkClicked(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)((wxHtmlCellEvent const *)arg1)->GetLinkClicked();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17280,7 +17280,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlLinkEvent(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxHtmlLinkEvent *)new wxHtmlLinkEvent(arg1,(wxHtmlLinkInfo const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17318,7 +17318,7 @@ SWIGINTERN PyObject *_wrap_HtmlLinkEvent_GetLinkInfo(PyObject *SWIGUNUSEDPARM(se
         result = (wxHtmlLinkInfo *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17572,7 +17572,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpFrame_Create(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,arg5,arg6,(wxString const &)*arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17625,7 +17625,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpFrame_GetData(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxHtmlHelpData *)(arg1)->GetData();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17669,7 +17669,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpFrame_SetTitleFormat(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetTitleFormat((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17711,7 +17711,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpFrame_AddGrabIfNeeded(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->AddGrabIfNeeded();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17746,7 +17746,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpFrame_GetController(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxHtmlHelpController *)((wxHtmlHelpFrame const *)arg1)->GetController();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17789,7 +17789,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpFrame_SetController(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetController(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17824,7 +17824,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpFrame_GetHelpWindow(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxHtmlHelpWindow *)((wxHtmlHelpFrame const *)arg1)->GetHelpWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18028,7 +18028,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpDialog_Create(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18073,7 +18073,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpDialog_GetData(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxHtmlHelpData *)(arg1)->GetData();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18108,7 +18108,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpDialog_GetController(PyObject *SWIGUNUSEDPARM
     {
       result = (wxHtmlHelpController *)((wxHtmlHelpDialog const *)arg1)->GetController();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18151,7 +18151,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpDialog_SetController(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetController(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18186,7 +18186,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpDialog_GetHelpWindow(PyObject *SWIGUNUSEDPARM
     {
       result = (wxHtmlHelpWindow *)((wxHtmlHelpDialog const *)arg1)->GetHelpWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18232,7 +18232,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpDialog_SetTitleFormat(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetTitleFormat((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18299,7 +18299,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_Initialize__SWIG_0(PyObject *SWIGU
     {
       result = (bool)(arg1)->Initialize((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18349,7 +18349,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_Initialize__SWIG_1(PyObject *SWIGU
     {
       result = (bool)(arg1)->Initialize((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18433,7 +18433,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_SetViewer(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetViewer((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18489,7 +18489,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_LoadFile(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->LoadFile((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18534,7 +18534,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_DisplayContents(PyObject *SWIGUNUS
     {
       result = (bool)(arg1)->DisplayContents();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18577,7 +18577,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_DisplaySection__SWIG_0(PyObject *S
     {
       result = (bool)(arg1)->DisplaySection(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18625,7 +18625,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_DisplayContextPopup(PyObject *SWIG
     {
       result = (bool)(arg1)->DisplayContextPopup(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18679,7 +18679,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_DisplayTextPopup(PyObject *SWIGUNU
     {
       result = (bool)(arg1)->DisplayTextPopup((wxString const &)*arg2,(wxPoint const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18729,7 +18729,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_DisplaySection__SWIG_1(PyObject *S
     {
       result = (bool)(arg1)->DisplaySection((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18813,7 +18813,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_DisplayBlock(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->DisplayBlock(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18879,7 +18879,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_KeywordSearch(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->KeywordSearch((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18961,7 +18961,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_SetFrameParameters(PyObject *SWIGU
     {
       (arg1)->SetFrameParameters((wxString const &)*arg2,(wxSize const &)*arg3,(wxPoint const &)*arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19004,7 +19004,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_Quit(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->Quit();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19040,7 +19040,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_OnQuit(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->OnQuit();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19085,7 +19085,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_SetParentWindow(PyObject *SWIGUNUS
     {
       (arg1)->SetParentWindow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19120,7 +19120,7 @@ SWIGINTERN PyObject *_wrap_HelpControllerBase_GetParentWindow(PyObject *SWIGUNUS
     {
       result = (wxWindow *)((wxHelpControllerBase const *)arg1)->GetParentWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19208,7 +19208,7 @@ SWIGINTERN PyObject *_wrap_delete_HtmlHelpController(PyObject *SWIGUNUSEDPARM(se
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19243,7 +19243,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_GetHelpWindow(PyObject *SWIGUNUSED
     {
       result = (wxHtmlHelpWindow *)(arg1)->GetHelpWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19290,7 +19290,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_SetHelpWindow(PyObject *SWIGUNUSED
     {
       (arg1)->SetHelpWindow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19325,7 +19325,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_GetFrame(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxHtmlHelpFrame *)(arg1)->GetFrame();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19362,7 +19362,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_GetDialog(PyObject *SWIGUNUSEDPARM
     {
       result = (wxHtmlHelpDialog *)(arg1)->GetDialog();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19408,7 +19408,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_SetTitleFormat(PyObject *SWIGUNUSE
     {
       (arg1)->SetTitleFormat((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19460,7 +19460,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_SetTempDir(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetTempDir((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19524,7 +19524,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_AddBook(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->AddBook((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19578,7 +19578,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_Display(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->Display((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19631,7 +19631,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_DisplayID(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->Display(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19665,7 +19665,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_DisplayContents(PyObject *SWIGUNUS
     {
       (arg1)->DisplayContents();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19699,7 +19699,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_DisplayIndex(PyObject *SWIGUNUSEDP
     {
       (arg1)->DisplayIndex();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19744,7 +19744,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_KeywordSearch(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->KeywordSearch((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19810,7 +19810,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_UseConfig(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->UseConfig(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19873,7 +19873,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_ReadCustomization(PyObject *SWIGUN
     {
       (arg1)->ReadCustomization(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19928,7 +19928,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_WriteCustomization(PyObject *SWIGU
     {
       (arg1)->WriteCustomization(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19962,7 +19962,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_MakeModalIfNeeded(PyObject *SWIGUN
     {
       (arg1)->MakeModalIfNeeded();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19997,7 +19997,7 @@ SWIGINTERN PyObject *_wrap_HtmlHelpController_FindTopLevelWindow(PyObject *SWIGU
     {
       result = (wxWindow *)(arg1)->FindTopLevelWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20077,7 +20077,7 @@ SWIGINTERN PyObject *_wrap_new_HtmlModalHelp(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxHtmlModalHelp *)new wxHtmlModalHelp(arg1,(wxString const &)*arg2,(wxString const &)*arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

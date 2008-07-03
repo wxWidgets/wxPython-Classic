@@ -3308,7 +3308,7 @@ SWIGINTERN PyObject *_wrap_GridCellWorker__setOORInfo(PyObject *SWIGUNUSEDPARM(s
     {
       wxGridCellWorker__setOORInfo(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3343,7 +3343,7 @@ SWIGINTERN PyObject *_wrap_delete_GridCellWorker(PyObject *SWIGUNUSEDPARM(self),
       delete_wxGridCellWorker(arg1);
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3387,7 +3387,7 @@ SWIGINTERN PyObject *_wrap_GridCellWorker_SetParameters(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetParameters((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3429,7 +3429,7 @@ SWIGINTERN PyObject *_wrap_GridCellWorker_IncRef(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->IncRef();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3463,7 +3463,7 @@ SWIGINTERN PyObject *_wrap_GridCellWorker_DecRef(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->DecRef();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3576,7 +3576,7 @@ SWIGINTERN PyObject *_wrap_GridCellRenderer_Draw(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->Draw(*arg2,*arg3,*arg4,(wxRect const &)*arg5,arg6,arg7,arg8);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3667,7 +3667,7 @@ SWIGINTERN PyObject *_wrap_GridCellRenderer_GetBestSize(PyObject *SWIGUNUSEDPARM
     {
       result = (arg1)->GetBestSize(*arg2,*arg3,*arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3702,7 +3702,7 @@ SWIGINTERN PyObject *_wrap_GridCellRenderer_Clone(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxGridCellRenderer *)((wxGridCellRenderer const *)arg1)->Clone();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3736,7 +3736,7 @@ SWIGINTERN PyObject *_wrap_new_PyGridCellRenderer(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxPyGridCellRenderer *)new wxPyGridCellRenderer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3778,7 +3778,7 @@ SWIGINTERN PyObject *_wrap_PyGridCellRenderer__setCallbackInfo(PyObject *SWIGUNU
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3822,7 +3822,7 @@ SWIGINTERN PyObject *_wrap_PyGridCellRenderer_SetParameters(PyObject *SWIGUNUSED
     {
       (arg1)->SetParameters((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3866,7 +3866,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellStringRenderer(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxGridCellStringRenderer *)new wxGridCellStringRenderer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3902,7 +3902,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellNumberRenderer(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxGridCellNumberRenderer *)new wxGridCellNumberRenderer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3963,7 +3963,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellFloatRenderer(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxGridCellFloatRenderer *)new wxGridCellFloatRenderer(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3998,7 +3998,7 @@ SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_GetWidth(PyObject *SWIGUNUSEDPA
     {
       result = (int)((wxGridCellFloatRenderer const *)arg1)->GetWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4043,7 +4043,7 @@ SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_SetWidth(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4078,7 +4078,7 @@ SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_GetPrecision(PyObject *SWIGUNUS
     {
       result = (int)((wxGridCellFloatRenderer const *)arg1)->GetPrecision();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4123,7 +4123,7 @@ SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_SetPrecision(PyObject *SWIGUNUS
     {
       (arg1)->SetPrecision(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4159,7 +4159,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellBoolRenderer(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxGridCellBoolRenderer *)new wxGridCellBoolRenderer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4218,7 +4218,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellDateTimeRenderer(PyObject *SWIGUNUSEDPARM
     {
       result = (wxGridCellDateTimeRenderer *)new wxGridCellDateTimeRenderer(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4268,7 +4268,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellEnumRenderer(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxGridCellEnumRenderer *)new wxGridCellEnumRenderer((wxString const &)*arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4312,7 +4312,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellAutoWrapStringRenderer(PyObject *SWIGUNUS
     {
       result = (wxGridCellAutoWrapStringRenderer *)new wxGridCellAutoWrapStringRenderer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4358,7 +4358,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_IsCreated(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->IsCreated();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4395,7 +4395,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_GetControl(PyObject *SWIGUNUSEDPARM(se
     {
       result = (wxControl *)(arg1)->GetControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4442,7 +4442,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_SetControl(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetControl(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4477,7 +4477,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_GetCellAttr(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxGridCellAttr *)(arg1)->GetCellAttr();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4524,7 +4524,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_SetCellAttr(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetCellAttr(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4587,7 +4587,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_Create(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->Create(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4650,7 +4650,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_BeginEdit(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->BeginEdit(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4714,7 +4714,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_EndEdit(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->EndEdit(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4750,7 +4750,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_Reset(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->Reset();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4785,7 +4785,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_Clone(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxGridCellEditor *)((wxGridCellEditor const *)arg1)->Clone();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4830,7 +4830,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_SetSize(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetSize((wxRect const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4886,7 +4886,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_Show(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->Show(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4938,7 +4938,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_PaintBackground(PyObject *SWIGUNUSEDPA
     {
       (arg1)->PaintBackground((wxRect const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4987,7 +4987,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_IsAcceptedKey(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->IsAcceptedKey(*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5037,7 +5037,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_StartingKey(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->StartingKey(*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5071,7 +5071,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_StartingClick(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->StartingClick();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5119,7 +5119,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_HandleReturn(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->HandleReturn(*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5153,7 +5153,7 @@ SWIGINTERN PyObject *_wrap_GridCellEditor_Destroy(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->Destroy();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5185,7 +5185,7 @@ SWIGINTERN PyObject *_wrap_new_PyGridCellEditor(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxPyGridCellEditor *)new wxPyGridCellEditor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5227,7 +5227,7 @@ SWIGINTERN PyObject *_wrap_PyGridCellEditor__setCallbackInfo(PyObject *SWIGUNUSE
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5271,7 +5271,7 @@ SWIGINTERN PyObject *_wrap_PyGridCellEditor_SetParameters(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetParameters((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5315,7 +5315,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellTextEditor(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxGridCellTextEditor *)new wxGridCellTextEditor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5350,7 +5350,7 @@ SWIGINTERN PyObject *_wrap_GridCellTextEditor_GetValue(PyObject *SWIGUNUSEDPARM(
     {
       result = (arg1)->GetValue();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5417,7 +5417,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellNumberEditor(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxGridCellNumberEditor *)new wxGridCellNumberEditor(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5478,7 +5478,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellFloatEditor(PyObject *SWIGUNUSEDPARM(self
     {
       result = (wxGridCellFloatEditor *)new wxGridCellFloatEditor(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5534,7 +5534,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellBoolEditor(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxGridCellBoolEditor *)new wxGridCellBoolEditor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5583,7 +5583,7 @@ SWIGINTERN PyObject *_wrap_GridCellBoolEditor_UseStringValues(PyObject *SWIGUNUS
     {
       wxGridCellBoolEditor::UseStringValues((wxString const &)*arg1,(wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5635,7 +5635,7 @@ SWIGINTERN PyObject *_wrap_GridCellBoolEditor_IsTrueValue(PyObject *SWIGUNUSEDPA
     {
       result = (bool)wxGridCellBoolEditor::IsTrueValue((wxString const &)*arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5705,7 +5705,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellChoiceEditor(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxGridCellChoiceEditor *)new wxGridCellChoiceEditor(arg1,(wxString const *)arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5761,7 +5761,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellEnumEditor(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxGridCellEnumEditor *)new wxGridCellEnumEditor((wxString const &)*arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5805,7 +5805,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellAutoWrapStringEditor(PyObject *SWIGUNUSED
     {
       result = (wxGridCellAutoWrapStringEditor *)new wxGridCellAutoWrapStringEditor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5855,7 +5855,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr__setOORInfo(PyObject *SWIGUNUSEDPARM(sel
     {
       wxGridCellAttr__setOORInfo(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5894,7 +5894,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellAttr(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (wxGridCellAttr *)new wxGridCellAttr(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5931,7 +5931,7 @@ SWIGINTERN PyObject *_wrap_delete_GridCellAttr(PyObject *SWIGUNUSEDPARM(self), P
       delete_wxGridCellAttr(arg1);
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -5966,7 +5966,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_Clone(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxGridCellAttr *)((wxGridCellAttr const *)arg1)->Clone();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6013,7 +6013,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_MergeWith(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->MergeWith(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6047,7 +6047,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_IncRef(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->IncRef();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6081,7 +6081,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_DecRef(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->DecRef();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6124,7 +6124,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetTextColour(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetTextColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6167,7 +6167,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetBackgroundColour(PyObject *SWIGUNUSED
     {
       (arg1)->SetBackgroundColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6215,7 +6215,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetFont(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetFont((wxFont const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6269,7 +6269,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetAlignment(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetAlignment(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6323,7 +6323,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetSize(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6370,7 +6370,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetOverflow(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetOverflow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6417,7 +6417,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetReadOnly(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetReadOnly(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6462,7 +6462,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetRenderer(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetRenderer(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6507,7 +6507,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetEditor(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetEditor(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6552,7 +6552,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetKind(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetKind(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6587,7 +6587,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasTextColour(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxGridCellAttr const *)arg1)->HasTextColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6624,7 +6624,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasBackgroundColour(PyObject *SWIGUNUSED
     {
       result = (bool)((wxGridCellAttr const *)arg1)->HasBackgroundColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6661,7 +6661,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasFont(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)((wxGridCellAttr const *)arg1)->HasFont();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6698,7 +6698,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasAlignment(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)((wxGridCellAttr const *)arg1)->HasAlignment();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6735,7 +6735,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasRenderer(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)((wxGridCellAttr const *)arg1)->HasRenderer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6772,7 +6772,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasEditor(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)((wxGridCellAttr const *)arg1)->HasEditor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6809,7 +6809,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasReadWriteMode(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)((wxGridCellAttr const *)arg1)->HasReadWriteMode();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6846,7 +6846,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_HasOverflowMode(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)((wxGridCellAttr const *)arg1)->HasOverflowMode();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6883,7 +6883,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetTextColour(PyObject *SWIGUNUSEDPARM(s
     {
       result = ((wxGridCellAttr const *)arg1)->GetTextColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6918,7 +6918,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetBackgroundColour(PyObject *SWIGUNUSED
     {
       result = ((wxGridCellAttr const *)arg1)->GetBackgroundColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6953,7 +6953,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetFont(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = ((wxGridCellAttr const *)arg1)->GetFont();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -6995,7 +6995,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetAlignment(PyObject *SWIGUNUSEDPARM(se
     {
       ((wxGridCellAttr const *)arg1)->GetAlignment(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7049,7 +7049,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetSize(PyObject *SWIGUNUSEDPARM(self), 
     {
       ((wxGridCellAttr const *)arg1)->GetSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7096,7 +7096,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetOverflow(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)((wxGridCellAttr const *)arg1)->GetOverflow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7162,7 +7162,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetRenderer(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxGridCellRenderer *)((wxGridCellAttr const *)arg1)->GetRenderer(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7228,7 +7228,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetEditor(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (wxGridCellEditor *)((wxGridCellAttr const *)arg1)->GetEditor(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7265,7 +7265,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_IsReadOnly(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)((wxGridCellAttr const *)arg1)->IsReadOnly();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7302,7 +7302,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_GetKind(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxGridCellAttr::wxAttrKind)(arg1)->GetKind();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7347,7 +7347,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttr_SetDefAttr(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetDefAttr(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7383,7 +7383,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellAttrProvider(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxGridCellAttrProvider *)new wxGridCellAttrProvider();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7424,7 +7424,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider__setOORInfo(PyObject *SWIGUNUSED
     {
       wxGridCellAttrProvider__setOORInfo(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7488,7 +7488,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_GetAttr(PyObject *SWIGUNUSEDPARM
     {
       result = (wxGridCellAttr *)((wxGridCellAttrProvider const *)arg1)->GetAttr(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7553,7 +7553,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_SetAttr(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetAttr(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7607,7 +7607,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_SetRowAttr(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetRowAttr(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7661,7 +7661,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_SetColAttr(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetColAttr(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7715,7 +7715,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_UpdateAttrRows(PyObject *SWIGUNU
     {
       (arg1)->UpdateAttrRows(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7769,7 +7769,7 @@ SWIGINTERN PyObject *_wrap_GridCellAttrProvider_UpdateAttrCols(PyObject *SWIGUNU
     {
       (arg1)->UpdateAttrCols(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7805,7 +7805,7 @@ SWIGINTERN PyObject *_wrap_new_PyGridCellAttrProvider(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxPyGridCellAttrProvider *)new wxPyGridCellAttrProvider();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7847,7 +7847,7 @@ SWIGINTERN PyObject *_wrap_PyGridCellAttrProvider__setCallbackInfo(PyObject *SWI
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7911,7 +7911,7 @@ SWIGINTERN PyObject *_wrap_PyGridCellAttrProvider_GetAttr(PyObject *SWIGUNUSEDPA
     {
       result = (wxGridCellAttr *)(arg1)->GetAttr(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -7976,7 +7976,7 @@ SWIGINTERN PyObject *_wrap_PyGridCellAttrProvider_SetAttr(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetAttr(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8030,7 +8030,7 @@ SWIGINTERN PyObject *_wrap_PyGridCellAttrProvider_SetRowAttr(PyObject *SWIGUNUSE
     {
       (arg1)->SetRowAttr(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8084,7 +8084,7 @@ SWIGINTERN PyObject *_wrap_PyGridCellAttrProvider_SetColAttr(PyObject *SWIGUNUSE
     {
       (arg1)->SetColAttr(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8130,7 +8130,7 @@ SWIGINTERN PyObject *_wrap_delete_GridTableBase(PyObject *SWIGUNUSEDPARM(self), 
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8169,7 +8169,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase__setOORInfo(PyObject *SWIGUNUSEDPARM(se
     {
       wxGridTableBase__setOORInfo(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8214,7 +8214,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetAttrProvider(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetAttrProvider(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8249,7 +8249,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetAttrProvider(PyObject *SWIGUNUSEDPAR
     {
       result = (wxGridCellAttrProvider *)((wxGridTableBase const *)arg1)->GetAttrProvider();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8296,7 +8296,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetView(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetView(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8331,7 +8331,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetView(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxGrid *)((wxGridTableBase const *)arg1)->GetView();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8368,7 +8368,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetNumberRows(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)(arg1)->GetNumberRows();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8403,7 +8403,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetNumberCols(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)(arg1)->GetNumberCols();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8458,7 +8458,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_IsEmptyCell(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->IsEmptyCell(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8515,7 +8515,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetValue(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (arg1)->GetValue(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8583,7 +8583,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetValue(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetValue(arg2,arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8646,7 +8646,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetTypeName(PyObject *SWIGUNUSEDPARM(se
     {
       result = (arg1)->GetTypeName(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8715,7 +8715,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_CanGetValueAs(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->CanGetValueAs(arg2,arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8788,7 +8788,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_CanSetValueAs(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->CanSetValueAs(arg2,arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8853,7 +8853,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetValueAsLong(PyObject *SWIGUNUSEDPARM
     {
       result = (long)(arg1)->GetValueAsLong(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8908,7 +8908,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetValueAsDouble(PyObject *SWIGUNUSEDPA
     {
       result = (double)(arg1)->GetValueAsDouble(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -8963,7 +8963,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetValueAsBool(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->GetValueAsBool(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9028,7 +9028,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetValueAsLong(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetValueAsLong(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9091,7 +9091,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetValueAsDouble(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetValueAsDouble(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9154,7 +9154,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetValueAsBool(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetValueAsBool(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9188,7 +9188,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_Clear(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->Clear();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9247,7 +9247,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_InsertRows(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->InsertRows(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9297,7 +9297,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_AppendRows(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->AppendRows(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9358,7 +9358,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_DeleteRows(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->DeleteRows(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9419,7 +9419,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_InsertCols(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->InsertCols(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9469,7 +9469,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_AppendCols(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->AppendCols(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9530,7 +9530,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_DeleteCols(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->DeleteCols(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9578,7 +9578,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetRowLabelValue(PyObject *SWIGUNUSEDPA
     {
       result = (arg1)->GetRowLabelValue(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9630,7 +9630,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetColLabelValue(PyObject *SWIGUNUSEDPA
     {
       result = (arg1)->GetColLabelValue(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9689,7 +9689,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetRowLabelValue(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetRowLabelValue(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9750,7 +9750,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetColLabelValue(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetColLabelValue(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9793,7 +9793,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_CanHaveAttributes(PyObject *SWIGUNUSEDP
     {
       result = (bool)(arg1)->CanHaveAttributes();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9859,7 +9859,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_GetAttr(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxGridCellAttr *)(arg1)->GetAttr(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9924,7 +9924,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetAttr(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetAttr(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -9978,7 +9978,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetRowAttr(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetRowAttr(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10032,7 +10032,7 @@ SWIGINTERN PyObject *_wrap_GridTableBase_SetColAttr(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetColAttr(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10064,7 +10064,7 @@ SWIGINTERN PyObject *_wrap_new_PyGridTableBase(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxPyGridTableBase *)new wxPyGridTableBase();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10106,7 +10106,7 @@ SWIGINTERN PyObject *_wrap_PyGridTableBase__setCallbackInfo(PyObject *SWIGUNUSED
     {
       (arg1)->_setCallbackInfo(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10140,7 +10140,7 @@ SWIGINTERN PyObject *_wrap_PyGridTableBase_Destroy(PyObject *SWIGUNUSEDPARM(self
     {
       wxPyGridTableBase_Destroy(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10201,7 +10201,7 @@ SWIGINTERN PyObject *_wrap_new_GridStringTable(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (wxGridStringTable *)new wxGridStringTable(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10280,7 +10280,7 @@ SWIGINTERN PyObject *_wrap_new_GridTableMessage(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxGridTableMessage *)new wxGridTableMessage(arg1,arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10315,7 +10315,7 @@ SWIGINTERN PyObject *_wrap_delete_GridTableMessage(PyObject *SWIGUNUSEDPARM(self
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10360,7 +10360,7 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_SetTableObject(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetTableObject(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10395,7 +10395,7 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_GetTableObject(PyObject *SWIGUNUSEDP
     {
       result = (wxGridTableBase *)((wxGridTableMessage const *)arg1)->GetTableObject();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10442,7 +10442,7 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_SetId(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetId(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10477,7 +10477,7 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_GetId(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (int)(arg1)->GetId();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10522,7 +10522,7 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_SetCommandInt(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetCommandInt(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10557,7 +10557,7 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_GetCommandInt(PyObject *SWIGUNUSEDPA
     {
       result = (int)(arg1)->GetCommandInt();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10602,7 +10602,7 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_SetCommandInt2(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetCommandInt2(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10637,7 +10637,7 @@ SWIGINTERN PyObject *_wrap_GridTableMessage_GetCommandInt2(PyObject *SWIGUNUSEDP
     {
       result = (int)(arg1)->GetCommandInt2();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10698,7 +10698,7 @@ SWIGINTERN PyObject *_wrap_new_GridCellCoords(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxGridCellCoords *)new wxGridCellCoords(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10733,7 +10733,7 @@ SWIGINTERN PyObject *_wrap_delete_GridCellCoords(PyObject *SWIGUNUSEDPARM(self),
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10768,7 +10768,7 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_GetRow(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (int)((wxGridCellCoords const *)arg1)->GetRow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10813,7 +10813,7 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_SetRow(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetRow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10848,7 +10848,7 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_GetCol(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (int)((wxGridCellCoords const *)arg1)->GetCol();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10893,7 +10893,7 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_SetCol(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetCol(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -10947,7 +10947,7 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_Set(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->Set(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11048,7 +11048,7 @@ SWIGINTERN PyObject *_wrap_GridCellCoords_Get(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (PyObject *)wxGridCellCoords_Get(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11269,7 +11269,7 @@ SWIGINTERN PyObject *_wrap_Grid_Create(PyObject *SWIGUNUSEDPARM(self), PyObject 
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxPoint const &)*arg4,(wxSize const &)*arg5,arg6,(wxString const &)*arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11345,7 +11345,7 @@ SWIGINTERN PyObject *_wrap_Grid_CreateGrid(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->CreateGrid(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11392,7 +11392,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetSelectionMode(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetSelectionMode(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11427,7 +11427,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectionMode(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (WXGRIDSELECTIONMODES)(arg1)->GetSelectionMode();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11462,7 +11462,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetNumberRows(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (int)(arg1)->GetNumberRows();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11497,7 +11497,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetNumberCols(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (int)(arg1)->GetNumberCols();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11546,7 +11546,7 @@ SWIGINTERN PyObject *_wrap_Grid_ProcessTableMessage(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->ProcessTableMessage(*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11583,7 +11583,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetTable(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       result = (wxGridTableBase *)((wxGrid const *)arg1)->GetTable();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11651,7 +11651,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetTable(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       result = (bool)(arg1)->SetTable(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11687,7 +11687,7 @@ SWIGINTERN PyObject *_wrap_Grid_ClearGrid(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       (arg1)->ClearGrid();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11757,7 +11757,7 @@ SWIGINTERN PyObject *_wrap_Grid_InsertRows(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->InsertRows(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11818,7 +11818,7 @@ SWIGINTERN PyObject *_wrap_Grid_AppendRows(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->AppendRows(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11890,7 +11890,7 @@ SWIGINTERN PyObject *_wrap_Grid_DeleteRows(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->DeleteRows(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -11962,7 +11962,7 @@ SWIGINTERN PyObject *_wrap_Grid_InsertCols(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->InsertCols(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12023,7 +12023,7 @@ SWIGINTERN PyObject *_wrap_Grid_AppendCols(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->AppendCols(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12095,7 +12095,7 @@ SWIGINTERN PyObject *_wrap_Grid_DeleteCols(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->DeleteCols(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12154,7 +12154,7 @@ SWIGINTERN PyObject *_wrap_Grid_DrawCellHighlight(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->DrawCellHighlight(*arg2,(wxGridCellAttr const *)arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12250,7 +12250,7 @@ SWIGINTERN PyObject *_wrap_Grid_DrawTextRectangle(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->DrawTextRectangle(*arg2,(wxString const &)*arg3,(wxRect const &)*arg4,arg5,arg6,arg7);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12334,7 +12334,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetTextBoxSize(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->GetTextBoxSize(*arg2,*arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12386,7 +12386,7 @@ SWIGINTERN PyObject *_wrap_Grid_BeginBatch(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->BeginBatch();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12420,7 +12420,7 @@ SWIGINTERN PyObject *_wrap_Grid_EndBatch(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       (arg1)->EndBatch();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12455,7 +12455,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetBatchCount(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (int)(arg1)->GetBatchCount();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12489,7 +12489,7 @@ SWIGINTERN PyObject *_wrap_Grid_ForceRefresh(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->ForceRefresh();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12524,7 +12524,7 @@ SWIGINTERN PyObject *_wrap_Grid_IsEditable(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->IsEditable();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12571,7 +12571,7 @@ SWIGINTERN PyObject *_wrap_Grid_EnableEditing(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->EnableEditing(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12618,7 +12618,7 @@ SWIGINTERN PyObject *_wrap_Grid_EnableCellEditControl(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->EnableCellEditControl(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12652,7 +12652,7 @@ SWIGINTERN PyObject *_wrap_Grid_DisableCellEditControl(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->DisableCellEditControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12687,7 +12687,7 @@ SWIGINTERN PyObject *_wrap_Grid_CanEnableCellControl(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)((wxGrid const *)arg1)->CanEnableCellControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12724,7 +12724,7 @@ SWIGINTERN PyObject *_wrap_Grid_IsCellEditControlEnabled(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)((wxGrid const *)arg1)->IsCellEditControlEnabled();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12761,7 +12761,7 @@ SWIGINTERN PyObject *_wrap_Grid_IsCellEditControlShown(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)((wxGrid const *)arg1)->IsCellEditControlShown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12798,7 +12798,7 @@ SWIGINTERN PyObject *_wrap_Grid_IsCurrentCellReadOnly(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)((wxGrid const *)arg1)->IsCurrentCellReadOnly();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12834,7 +12834,7 @@ SWIGINTERN PyObject *_wrap_Grid_ShowCellEditControl(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->ShowCellEditControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12868,7 +12868,7 @@ SWIGINTERN PyObject *_wrap_Grid_HideCellEditControl(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->HideCellEditControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12902,7 +12902,7 @@ SWIGINTERN PyObject *_wrap_Grid_SaveEditControlValue(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SaveEditControlValue();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -12957,7 +12957,7 @@ SWIGINTERN PyObject *_wrap_Grid_XYToCell(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       result = wxGrid_XYToCell(arg1,arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13003,7 +13003,7 @@ SWIGINTERN PyObject *_wrap_Grid_YToRow(PyObject *SWIGUNUSEDPARM(self), PyObject 
     {
       result = (int)(arg1)->YToRow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13060,7 +13060,7 @@ SWIGINTERN PyObject *_wrap_Grid_XToCol(PyObject *SWIGUNUSEDPARM(self), PyObject 
     {
       result = (int)(arg1)->XToCol(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13106,7 +13106,7 @@ SWIGINTERN PyObject *_wrap_Grid_YToEdgeOfRow(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (int)(arg1)->YToEdgeOfRow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13152,7 +13152,7 @@ SWIGINTERN PyObject *_wrap_Grid_XToEdgeOfCol(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (int)(arg1)->XToEdgeOfCol(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13207,7 +13207,7 @@ SWIGINTERN PyObject *_wrap_Grid_CellToRect(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (arg1)->CellToRect(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13242,7 +13242,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridCursorRow(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (int)(arg1)->GetGridCursorRow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13277,7 +13277,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridCursorCol(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (int)(arg1)->GetGridCursorCol();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13343,7 +13343,7 @@ SWIGINTERN PyObject *_wrap_Grid_IsVisible(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       result = (bool)(arg1)->IsVisible(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13399,7 +13399,7 @@ SWIGINTERN PyObject *_wrap_Grid_MakeCellVisible(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->MakeCellVisible(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13453,7 +13453,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetGridCursor(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->SetGridCursor(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13499,7 +13499,7 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorUp(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->MoveCursorUp(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13547,7 +13547,7 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorDown(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->MoveCursorDown(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13595,7 +13595,7 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorLeft(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->MoveCursorLeft(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13643,7 +13643,7 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorRight(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->MoveCursorRight(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13680,7 +13680,7 @@ SWIGINTERN PyObject *_wrap_Grid_MovePageDown(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->MovePageDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13717,7 +13717,7 @@ SWIGINTERN PyObject *_wrap_Grid_MovePageUp(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->MovePageUp();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13765,7 +13765,7 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorUpBlock(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->MoveCursorUpBlock(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13813,7 +13813,7 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorDownBlock(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->MoveCursorDownBlock(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13861,7 +13861,7 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorLeftBlock(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (bool)(arg1)->MoveCursorLeftBlock(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13909,7 +13909,7 @@ SWIGINTERN PyObject *_wrap_Grid_MoveCursorRightBlock(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->MoveCursorRightBlock(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13946,7 +13946,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultRowLabelSize(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)(arg1)->GetDefaultRowLabelSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -13981,7 +13981,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowLabelSize(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (int)(arg1)->GetRowLabelSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14016,7 +14016,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultColLabelSize(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)(arg1)->GetDefaultColLabelSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14051,7 +14051,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetColLabelSize(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (int)(arg1)->GetColLabelSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14086,7 +14086,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetLabelBackgroundColour(PyObject *SWIGUNUSEDPAR
     {
       result = (arg1)->GetLabelBackgroundColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14121,7 +14121,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetLabelTextColour(PyObject *SWIGUNUSEDPARM(self
     {
       result = (arg1)->GetLabelTextColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14156,7 +14156,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetLabelFont(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (arg1)->GetLabelFont();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14198,7 +14198,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowLabelAlignment(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->GetRowLabelAlignment(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14252,7 +14252,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetColLabelAlignment(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->GetColLabelAlignment(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14299,7 +14299,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetColLabelTextOrientation(PyObject *SWIGUNUSEDP
     {
       result = (int)(arg1)->GetColLabelTextOrientation();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14345,7 +14345,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowLabelValue(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (arg1)->GetRowLabelValue(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14397,7 +14397,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetColLabelValue(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (arg1)->GetColLabelValue(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14438,7 +14438,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridLineColour(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (arg1)->GetGridLineColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14473,7 +14473,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultGridLinePen(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetDefaultGridLinePen();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14519,7 +14519,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowGridLinePen(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (arg1)->GetRowGridLinePen(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14565,7 +14565,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetColGridLinePen(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (arg1)->GetColGridLinePen(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14600,7 +14600,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellHighlightColour(PyObject *SWIGUNUSEDPARM(
     {
       result = (arg1)->GetCellHighlightColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14635,7 +14635,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellHighlightPenWidth(PyObject *SWIGUNUSEDPAR
     {
       result = (int)(arg1)->GetCellHighlightPenWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14670,7 +14670,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellHighlightROPenWidth(PyObject *SWIGUNUSEDP
     {
       result = (int)(arg1)->GetCellHighlightROPenWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14717,7 +14717,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetUseNativeColLabels(PyObject *SWIGUNUSEDPARM(s
     {
       (arg1)->SetUseNativeColLabels(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14762,7 +14762,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowLabelSize(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetRowLabelSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14807,7 +14807,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColLabelSize(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetColLabelSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14841,7 +14841,7 @@ SWIGINTERN PyObject *_wrap_Grid_HideRowLabels(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->HideRowLabels();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14875,7 +14875,7 @@ SWIGINTERN PyObject *_wrap_Grid_HideColLabels(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->HideColLabels();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14918,7 +14918,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetLabelBackgroundColour(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetLabelBackgroundColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -14961,7 +14961,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetLabelTextColour(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetLabelTextColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15009,7 +15009,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetLabelFont(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->SetLabelFont((wxFont const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15063,7 +15063,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowLabelAlignment(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetRowLabelAlignment(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15117,7 +15117,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColLabelAlignment(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->SetColLabelAlignment(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15162,7 +15162,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColLabelTextOrientation(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetColLabelTextOrientation(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15215,7 +15215,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowLabelValue(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetRowLabelValue(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15276,7 +15276,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColLabelValue(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetColLabelValue(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15327,7 +15327,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetGridLineColour(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetGridLineColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15370,7 +15370,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellHighlightColour(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetCellHighlightColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15415,7 +15415,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellHighlightPenWidth(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetCellHighlightPenWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15460,7 +15460,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellHighlightROPenWidth(PyObject *SWIGUNUSEDP
     {
       (arg1)->SetCellHighlightROPenWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15507,7 +15507,7 @@ SWIGINTERN PyObject *_wrap_Grid_EnableDragRowSize(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->EnableDragRowSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15541,7 +15541,7 @@ SWIGINTERN PyObject *_wrap_Grid_DisableDragRowSize(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->DisableDragRowSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15576,7 +15576,7 @@ SWIGINTERN PyObject *_wrap_Grid_CanDragRowSize(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->CanDragRowSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15625,7 +15625,7 @@ SWIGINTERN PyObject *_wrap_Grid_EnableDragColSize(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->EnableDragColSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15659,7 +15659,7 @@ SWIGINTERN PyObject *_wrap_Grid_DisableDragColSize(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->DisableDragColSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15694,7 +15694,7 @@ SWIGINTERN PyObject *_wrap_Grid_CanDragColSize(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->CanDragColSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15743,7 +15743,7 @@ SWIGINTERN PyObject *_wrap_Grid_EnableDragColMove(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->EnableDragColMove(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15777,7 +15777,7 @@ SWIGINTERN PyObject *_wrap_Grid_DisableDragColMove(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->DisableDragColMove();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15812,7 +15812,7 @@ SWIGINTERN PyObject *_wrap_Grid_CanDragColMove(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->CanDragColMove();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15861,7 +15861,7 @@ SWIGINTERN PyObject *_wrap_Grid_EnableDragGridSize(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->EnableDragGridSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15895,7 +15895,7 @@ SWIGINTERN PyObject *_wrap_Grid_DisableDragGridSize(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->DisableDragGridSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15930,7 +15930,7 @@ SWIGINTERN PyObject *_wrap_Grid_CanDragGridSize(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->CanDragGridSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -15979,7 +15979,7 @@ SWIGINTERN PyObject *_wrap_Grid_EnableDragCell(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->EnableDragCell(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16013,7 +16013,7 @@ SWIGINTERN PyObject *_wrap_Grid_DisableDragCell(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->DisableDragCell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16048,7 +16048,7 @@ SWIGINTERN PyObject *_wrap_Grid_CanDragCell(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (bool)(arg1)->CanDragCell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16113,7 +16113,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetAttr(PyObject *SWIGUNUSEDPARM(self), PyObject
     {
       (arg1)->SetAttr(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16167,7 +16167,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowAttr(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->SetRowAttr(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16221,7 +16221,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColAttr(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->SetColAttr(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16276,7 +16276,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetOrCreateCellAttr(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxGridCellAttr *)((wxGrid const *)arg1)->GetOrCreateCellAttr(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16323,7 +16323,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColFormatBool(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetColFormatBool(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16368,7 +16368,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColFormatNumber(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetColFormatNumber(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16435,7 +16435,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColFormatFloat(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetColFormatFloat(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16488,7 +16488,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColFormatCustom(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetColFormatCustom(arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16543,7 +16543,7 @@ SWIGINTERN PyObject *_wrap_Grid_EnableGridLines(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->EnableGridLines(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16578,7 +16578,7 @@ SWIGINTERN PyObject *_wrap_Grid_GridLinesEnabled(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->GridLinesEnabled();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16615,7 +16615,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultRowSize(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (int)(arg1)->GetDefaultRowSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16661,7 +16661,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowSize(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (int)(arg1)->GetRowSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16696,7 +16696,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultColSize(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (int)(arg1)->GetDefaultColSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16742,7 +16742,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetColSize(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (int)(arg1)->GetColSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16777,7 +16777,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultCellBackgroundColour(PyObject *SWIGUNU
     {
       result = (arg1)->GetDefaultCellBackgroundColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16832,7 +16832,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellBackgroundColour(PyObject *SWIGUNUSEDPARM
     {
       result = (arg1)->GetCellBackgroundColour(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16867,7 +16867,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultCellTextColour(PyObject *SWIGUNUSEDPAR
     {
       result = (arg1)->GetDefaultCellTextColour();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16922,7 +16922,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellTextColour(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (arg1)->GetCellTextColour(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -16957,7 +16957,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultCellFont(PyObject *SWIGUNUSEDPARM(self
     {
       result = (arg1)->GetDefaultCellFont();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17012,7 +17012,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellFont(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (arg1)->GetCellFont(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17054,7 +17054,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultCellAlignment(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->GetDefaultCellAlignment(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17128,7 +17128,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellAlignment(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->GetCellAlignment(arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17175,7 +17175,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultCellOverflow(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)(arg1)->GetDefaultCellOverflow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17232,7 +17232,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellOverflow(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->GetCellOverflow(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17296,7 +17296,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellSize(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->GetCellSize(arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17364,7 +17364,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultRowSize(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetDefaultRowSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17418,7 +17418,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowSize(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->SetRowSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17474,7 +17474,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultColSize(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetDefaultColSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17528,7 +17528,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColSize(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->SetColSize(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17574,7 +17574,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetColAt(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       result = (int)((wxGrid const *)arg1)->GetColAt(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17628,7 +17628,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColPos(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       (arg1)->SetColPos(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17674,7 +17674,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetColPos(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       result = (int)((wxGrid const *)arg1)->GetColPos(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17730,7 +17730,7 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeColumn(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->AutoSizeColumn(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17786,7 +17786,7 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeRow(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->AutoSizeRow(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17833,7 +17833,7 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeColumns(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->AutoSizeColumns(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17880,7 +17880,7 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeRows(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->AutoSizeRows(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17914,7 +17914,7 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSize(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       (arg1)->AutoSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -17959,7 +17959,7 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeRowLabelSize(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->AutoSizeRowLabelSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18004,7 +18004,7 @@ SWIGINTERN PyObject *_wrap_Grid_AutoSizeColLabelSize(PyObject *SWIGUNUSEDPARM(se
     {
       (arg1)->AutoSizeColLabelSize(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18058,7 +18058,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColMinimalWidth(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetColMinimalWidth(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18112,7 +18112,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowMinimalHeight(PyObject *SWIGUNUSEDPARM(sel
     {
       (arg1)->SetRowMinimalHeight(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18157,7 +18157,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetColMinimalAcceptableWidth(PyObject *SWIGUNUSE
     {
       (arg1)->SetColMinimalAcceptableWidth(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18202,7 +18202,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetRowMinimalAcceptableHeight(PyObject *SWIGUNUS
     {
       (arg1)->SetRowMinimalAcceptableHeight(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18237,7 +18237,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetColMinimalAcceptableWidth(PyObject *SWIGUNUSE
     {
       result = (int)((wxGrid const *)arg1)->GetColMinimalAcceptableWidth();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18272,7 +18272,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetRowMinimalAcceptableHeight(PyObject *SWIGUNUS
     {
       result = (int)((wxGrid const *)arg1)->GetRowMinimalAcceptableHeight();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18315,7 +18315,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultCellBackgroundColour(PyObject *SWIGUNU
     {
       (arg1)->SetDefaultCellBackgroundColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18376,7 +18376,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellBackgroundColour(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetCellBackgroundColour(arg2,arg3,(wxColour const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18419,7 +18419,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultCellTextColour(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetDefaultCellTextColour((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18480,7 +18480,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellTextColour(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->SetCellTextColour(arg2,arg3,(wxColour const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18528,7 +18528,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultCellFont(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetDefaultCellFont((wxFont const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18594,7 +18594,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellFont(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->SetCellFont(arg2,arg3,(wxFont const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18648,7 +18648,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultCellAlignment(PyObject *SWIGUNUSEDPARM
     {
       (arg1)->SetDefaultCellAlignment(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18720,7 +18720,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellAlignment(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetCellAlignment(arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18765,7 +18765,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultCellOverflow(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetDefaultCellOverflow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18828,7 +18828,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellOverflow(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetCellOverflow(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18900,7 +18900,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellSize(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->SetCellSize(arg2,arg3,arg4,arg5);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -18945,7 +18945,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultRenderer(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->SetDefaultRenderer(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19008,7 +19008,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellRenderer(PyObject *SWIGUNUSEDPARM(self), 
     {
       (arg1)->SetCellRenderer(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19043,7 +19043,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultRenderer(PyObject *SWIGUNUSEDPARM(self
     {
       result = (wxGridCellRenderer *)((wxGrid const *)arg1)->GetDefaultRenderer();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19100,7 +19100,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellRenderer(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxGridCellRenderer *)(arg1)->GetCellRenderer(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19147,7 +19147,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetDefaultEditor(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->SetDefaultEditor(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19210,7 +19210,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellEditor(PyObject *SWIGUNUSEDPARM(self), Py
     {
       (arg1)->SetCellEditor(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19245,7 +19245,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultEditor(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxGridCellEditor *)((wxGrid const *)arg1)->GetDefaultEditor();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19302,7 +19302,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellEditor(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxGridCellEditor *)(arg1)->GetCellEditor(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19359,7 +19359,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetCellValue(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (arg1)->GetCellValue(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19427,7 +19427,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetCellValue(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->SetCellValue(arg2,arg3,(wxString const &)*arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19490,7 +19490,7 @@ SWIGINTERN PyObject *_wrap_Grid_IsReadOnly(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)((wxGrid const *)arg1)->IsReadOnly(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19557,7 +19557,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetReadOnly(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->SetReadOnly(arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19613,7 +19613,7 @@ SWIGINTERN PyObject *_wrap_Grid_SelectRow(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       (arg1)->SelectRow(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19669,7 +19669,7 @@ SWIGINTERN PyObject *_wrap_Grid_SelectCol(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       (arg1)->SelectCol(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19752,7 +19752,7 @@ SWIGINTERN PyObject *_wrap_Grid_SelectBlock(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->SelectBlock(arg2,arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19786,7 +19786,7 @@ SWIGINTERN PyObject *_wrap_Grid_SelectAll(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       (arg1)->SelectAll();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19821,7 +19821,7 @@ SWIGINTERN PyObject *_wrap_Grid_IsSelection(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (bool)(arg1)->IsSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19857,7 +19857,7 @@ SWIGINTERN PyObject *_wrap_Grid_ClearSelection(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->ClearSelection();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19912,7 +19912,7 @@ SWIGINTERN PyObject *_wrap_Grid_IsInSelection(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (bool)(arg1)->IsInSelection(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19949,7 +19949,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectedCells(PyObject *SWIGUNUSEDPARM(self),
     {
       result = ((wxGrid const *)arg1)->GetSelectedCells();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -19986,7 +19986,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectionBlockTopLeft(PyObject *SWIGUNUSEDPAR
     {
       result = ((wxGrid const *)arg1)->GetSelectionBlockTopLeft();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20023,7 +20023,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectionBlockBottomRight(PyObject *SWIGUNUSE
     {
       result = ((wxGrid const *)arg1)->GetSelectionBlockBottomRight();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20060,7 +20060,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectedRows(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = ((wxGrid const *)arg1)->GetSelectedRows();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20097,7 +20097,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectedCols(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = ((wxGrid const *)arg1)->GetSelectedCols();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20144,7 +20144,7 @@ SWIGINTERN PyObject *_wrap_Grid_DeselectRow(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->DeselectRow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20189,7 +20189,7 @@ SWIGINTERN PyObject *_wrap_Grid_DeselectCol(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       (arg1)->DeselectCol(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20243,7 +20243,7 @@ SWIGINTERN PyObject *_wrap_Grid_DeselectCell(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       (arg1)->DeselectCell(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20294,7 +20294,7 @@ SWIGINTERN PyObject *_wrap_Grid_BlockToDeviceRect(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (arg1)->BlockToDeviceRect((wxGridCellCoords const &)*arg2,(wxGridCellCoords const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20329,7 +20329,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectionBackground(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxGrid const *)arg1)->GetSelectionBackground();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20364,7 +20364,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetSelectionForeground(PyObject *SWIGUNUSEDPARM(
     {
       result = ((wxGrid const *)arg1)->GetSelectionForeground();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20407,7 +20407,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetSelectionBackground(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetSelectionBackground((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20450,7 +20450,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetSelectionForeground(PyObject *SWIGUNUSEDPARM(
     {
       (arg1)->SetSelectionForeground((wxColour const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20512,7 +20512,7 @@ SWIGINTERN PyObject *_wrap_Grid_RegisterDataType(PyObject *SWIGUNUSEDPARM(self),
     {
       (arg1)->RegisterDataType((wxString const &)*arg2,arg3,arg4);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20575,7 +20575,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultEditorForCell(PyObject *SWIGUNUSEDPARM
     {
       result = (wxGridCellEditor *)((wxGrid const *)arg1)->GetDefaultEditorForCell(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20632,7 +20632,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultRendererForCell(PyObject *SWIGUNUSEDPA
     {
       result = (wxGridCellRenderer *)((wxGrid const *)arg1)->GetDefaultRendererForCell(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20679,7 +20679,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultEditorForType(PyObject *SWIGUNUSEDPARM
     {
       result = (wxGridCellEditor *)((wxGrid const *)arg1)->GetDefaultEditorForType((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20734,7 +20734,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetDefaultRendererForType(PyObject *SWIGUNUSEDPA
     {
       result = (wxGridCellRenderer *)((wxGrid const *)arg1)->GetDefaultRendererForType((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20798,7 +20798,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetMargins(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       (arg1)->SetMargins(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20833,7 +20833,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridWindow(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxWindow *)(arg1)->GetGridWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20870,7 +20870,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridRowLabelWindow(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxWindow *)(arg1)->GetGridRowLabelWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20907,7 +20907,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridColLabelWindow(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxWindow *)(arg1)->GetGridColLabelWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20944,7 +20944,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetGridCornerLabelWindow(PyObject *SWIGUNUSEDPAR
     {
       result = (wxWindow *)(arg1)->GetGridCornerLabelWindow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -20991,7 +20991,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetScrollLineX(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->SetScrollLineX(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21036,7 +21036,7 @@ SWIGINTERN PyObject *_wrap_Grid_SetScrollLineY(PyObject *SWIGUNUSEDPARM(self), P
     {
       (arg1)->SetScrollLineY(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21071,7 +21071,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetScrollLineX(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (int)((wxGrid const *)arg1)->GetScrollLineX();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21106,7 +21106,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetScrollLineY(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (int)((wxGrid const *)arg1)->GetScrollLineY();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21152,7 +21152,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetScrollX(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (int)((wxGrid const *)arg1)->GetScrollX(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21198,7 +21198,7 @@ SWIGINTERN PyObject *_wrap_Grid_GetScrollY(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (int)((wxGrid const *)arg1)->GetScrollY(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21281,7 +21281,7 @@ SWIGINTERN PyObject *_wrap_new_GridUpdateLocker(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (wxGridUpdateLocker *)new wxGridUpdateLocker(arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21316,7 +21316,7 @@ SWIGINTERN PyObject *_wrap_delete_GridUpdateLocker(PyObject *SWIGUNUSEDPARM(self
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21361,7 +21361,7 @@ SWIGINTERN PyObject *_wrap_GridUpdateLocker_Create(PyObject *SWIGUNUSEDPARM(self
     {
       (arg1)->Create(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21526,7 +21526,7 @@ SWIGINTERN PyObject *_wrap_new_GridEvent(PyObject *SWIGUNUSEDPARM(self), PyObjec
     {
       result = (wxGridEvent *)new wxGridEvent(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21561,7 +21561,7 @@ SWIGINTERN PyObject *_wrap_GridEvent_GetRow(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (int)(arg1)->GetRow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21596,7 +21596,7 @@ SWIGINTERN PyObject *_wrap_GridEvent_GetCol(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (int)(arg1)->GetCol();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21631,7 +21631,7 @@ SWIGINTERN PyObject *_wrap_GridEvent_GetPosition(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (arg1)->GetPosition();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21666,7 +21666,7 @@ SWIGINTERN PyObject *_wrap_GridEvent_Selecting(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->Selecting();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21703,7 +21703,7 @@ SWIGINTERN PyObject *_wrap_GridEvent_ControlDown(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->ControlDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21740,7 +21740,7 @@ SWIGINTERN PyObject *_wrap_GridEvent_MetaDown(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (bool)(arg1)->MetaDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21777,7 +21777,7 @@ SWIGINTERN PyObject *_wrap_GridEvent_ShiftDown(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->ShiftDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21814,7 +21814,7 @@ SWIGINTERN PyObject *_wrap_GridEvent_AltDown(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->AltDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21851,7 +21851,7 @@ SWIGINTERN PyObject *_wrap_GridEvent_CmdDown(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->CmdDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -21996,7 +21996,7 @@ SWIGINTERN PyObject *_wrap_new_GridSizeEvent(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (wxGridSizeEvent *)new wxGridSizeEvent(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22031,7 +22031,7 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_GetRowOrCol(PyObject *SWIGUNUSEDPARM(se
     {
       result = (int)(arg1)->GetRowOrCol();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22066,7 +22066,7 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_GetPosition(PyObject *SWIGUNUSEDPARM(se
     {
       result = (arg1)->GetPosition();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22101,7 +22101,7 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_ControlDown(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->ControlDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22138,7 +22138,7 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_MetaDown(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->MetaDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22175,7 +22175,7 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_ShiftDown(PyObject *SWIGUNUSEDPARM(self
     {
       result = (bool)(arg1)->ShiftDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22212,7 +22212,7 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_AltDown(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->AltDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22249,7 +22249,7 @@ SWIGINTERN PyObject *_wrap_GridSizeEvent_CmdDown(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (bool)(arg1)->CmdDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22386,7 +22386,7 @@ SWIGINTERN PyObject *_wrap_new_GridRangeSelectEvent(PyObject *SWIGUNUSEDPARM(sel
     {
       result = (wxGridRangeSelectEvent *)new wxGridRangeSelectEvent(arg1,arg2,arg3,(wxGridCellCoords const &)*arg4,(wxGridCellCoords const &)*arg5,arg6,arg7,arg8,arg9,arg10);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22421,7 +22421,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetTopLeftCoords(PyObject *SWIGU
     {
       result = (arg1)->GetTopLeftCoords();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22456,7 +22456,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetBottomRightCoords(PyObject *S
     {
       result = (arg1)->GetBottomRightCoords();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22491,7 +22491,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetTopRow(PyObject *SWIGUNUSEDPA
     {
       result = (int)(arg1)->GetTopRow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22526,7 +22526,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetBottomRow(PyObject *SWIGUNUSE
     {
       result = (int)(arg1)->GetBottomRow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22561,7 +22561,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetLeftCol(PyObject *SWIGUNUSEDP
     {
       result = (int)(arg1)->GetLeftCol();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22596,7 +22596,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_GetRightCol(PyObject *SWIGUNUSED
     {
       result = (int)(arg1)->GetRightCol();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22631,7 +22631,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_Selecting(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->Selecting();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22668,7 +22668,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_ControlDown(PyObject *SWIGUNUSED
     {
       result = (bool)(arg1)->ControlDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22705,7 +22705,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_MetaDown(PyObject *SWIGUNUSEDPAR
     {
       result = (bool)(arg1)->MetaDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22742,7 +22742,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_ShiftDown(PyObject *SWIGUNUSEDPA
     {
       result = (bool)(arg1)->ShiftDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22779,7 +22779,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_AltDown(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->AltDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22816,7 +22816,7 @@ SWIGINTERN PyObject *_wrap_GridRangeSelectEvent_CmdDown(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->CmdDown();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22911,7 +22911,7 @@ SWIGINTERN PyObject *_wrap_new_GridEditorCreatedEvent(PyObject *SWIGUNUSEDPARM(s
     {
       result = (wxGridEditorCreatedEvent *)new wxGridEditorCreatedEvent(arg1,arg2,arg3,arg4,arg5,arg6);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22946,7 +22946,7 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_GetRow(PyObject *SWIGUNUSEDPAR
     {
       result = (int)(arg1)->GetRow();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -22981,7 +22981,7 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_GetCol(PyObject *SWIGUNUSEDPAR
     {
       result = (int)(arg1)->GetCol();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23016,7 +23016,7 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_GetControl(PyObject *SWIGUNUSE
     {
       result = (wxControl *)(arg1)->GetControl();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23063,7 +23063,7 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_SetRow(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetRow(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23108,7 +23108,7 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_SetCol(PyObject *SWIGUNUSEDPAR
     {
       (arg1)->SetCol(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -23153,7 +23153,7 @@ SWIGINTERN PyObject *_wrap_GridEditorCreatedEvent_SetControl(PyObject *SWIGUNUSE
     {
       (arg1)->SetControl(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

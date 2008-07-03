@@ -2802,7 +2802,7 @@ SWIGINTERN PyObject *_wrap_delete_AnimationBase(PyObject *SWIGUNUSEDPARM(self), 
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -2837,7 +2837,7 @@ SWIGINTERN PyObject *_wrap_AnimationBase_IsOk(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (bool)((wxAnimationBase const *)arg1)->IsOk();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -2885,7 +2885,7 @@ SWIGINTERN PyObject *_wrap_AnimationBase_GetDelay(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (int)((wxAnimationBase const *)arg1)->GetDelay(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -2920,7 +2920,7 @@ SWIGINTERN PyObject *_wrap_AnimationBase_GetFrameCount(PyObject *SWIGUNUSEDPARM(
     {
       result = (int)((wxAnimationBase const *)arg1)->GetFrameCount();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -2966,7 +2966,7 @@ SWIGINTERN PyObject *_wrap_AnimationBase_GetFrame(PyObject *SWIGUNUSEDPARM(self)
     {
       result = ((wxAnimationBase const *)arg1)->GetFrame(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3001,7 +3001,7 @@ SWIGINTERN PyObject *_wrap_AnimationBase_GetSize(PyObject *SWIGUNUSEDPARM(self),
     {
       result = ((wxAnimationBase const *)arg1)->GetSize();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3057,7 +3057,7 @@ SWIGINTERN PyObject *_wrap_AnimationBase_LoadFile(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->LoadFile((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3133,7 +3133,7 @@ SWIGINTERN PyObject *_wrap_AnimationBase_Load(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (bool)(arg1)->Load(*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3173,7 +3173,7 @@ SWIGINTERN PyObject *_wrap_new_Animation__SWIG_0(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxAnimation *)new wxAnimation();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3215,7 +3215,7 @@ SWIGINTERN PyObject *_wrap_new_Animation__SWIG_1(PyObject *SWIGUNUSEDPARM(self),
     {
       result = (wxAnimation *)new_wxAnimation__SWIG_1((wxString const &)*arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3277,7 +3277,7 @@ SWIGINTERN PyObject *_wrap_delete_Animation(PyObject *SWIGUNUSEDPARM(self), PyOb
       delete arg1;
       
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3323,7 +3323,7 @@ SWIGINTERN PyObject *_wrap_Animation_GetFramePosition(PyObject *SWIGUNUSEDPARM(s
     {
       result = wxAnimation_GetFramePosition((wxAnimation const *)arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3369,7 +3369,7 @@ SWIGINTERN PyObject *_wrap_Animation_GetFrameSize(PyObject *SWIGUNUSEDPARM(self)
     {
       result = wxAnimation_GetFrameSize((wxAnimation const *)arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3415,7 +3415,7 @@ SWIGINTERN PyObject *_wrap_Animation_GetDisposalMethod(PyObject *SWIGUNUSEDPARM(
     {
       result = (wxAnimationDisposal)wxAnimation_GetDisposalMethod((wxAnimation const *)arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3461,7 +3461,7 @@ SWIGINTERN PyObject *_wrap_Animation_GetTransparentColour(PyObject *SWIGUNUSEDPA
     {
       result = wxAnimation_GetTransparentColour((wxAnimation const *)arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3496,7 +3496,7 @@ SWIGINTERN PyObject *_wrap_Animation_GetBackgroundColour(PyObject *SWIGUNUSEDPAR
     {
       result = wxAnimation_GetBackgroundColour((wxAnimation const *)arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3577,7 +3577,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_LoadFile(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->LoadFile((wxString const &)*arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3635,7 +3635,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_SetAnimation(PyObject *SWIGUNUSEDPA
     {
       (arg1)->SetAnimation((wxAnimation const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3670,7 +3670,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_GetAnimation(PyObject *SWIGUNUSEDPA
     {
       result = ((wxAnimationCtrlBase const *)arg1)->GetAnimation();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3705,7 +3705,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_Play(PyObject *SWIGUNUSEDPARM(self)
     {
       result = (bool)(arg1)->Play();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3741,7 +3741,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_Stop(PyObject *SWIGUNUSEDPARM(self)
     {
       (arg1)->Stop();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3776,7 +3776,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_IsPlaying(PyObject *SWIGUNUSEDPARM(
     {
       result = (bool)((wxAnimationCtrlBase const *)arg1)->IsPlaying();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3826,7 +3826,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_SetInactiveBitmap(PyObject *SWIGUNU
     {
       (arg1)->SetInactiveBitmap((wxBitmap const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3861,7 +3861,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrlBase_GetInactiveBitmap(PyObject *SWIGUNU
     {
       result = ((wxAnimationCtrlBase const *)arg1)->GetInactiveBitmap();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4106,7 +4106,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrl_Create(PyObject *SWIGUNUSEDPARM(self), 
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxAnimation const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4163,7 +4163,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrl_SetUseWindowBackgroundColour(PyObject *
     {
       wxAnimationCtrl_SetUseWindowBackgroundColour(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4198,7 +4198,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrl_IsUsingWindowBackgroundColour(PyObject 
     {
       result = (bool)wxAnimationCtrl_IsUsingWindowBackgroundColour((wxAnimationCtrl const *)arg1);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4248,7 +4248,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrl_DrawCurrentFrame(PyObject *SWIGUNUSEDPA
     {
       wxAnimationCtrl_DrawCurrentFrame(arg1,*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4286,7 +4286,7 @@ SWIGINTERN PyObject *_wrap_AnimationCtrl_GetBackingStore(PyObject *SWIGUNUSEDPAR
         result = (wxBitmap *) &_result_ref;
       }
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

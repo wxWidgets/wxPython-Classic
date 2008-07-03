@@ -2988,7 +2988,7 @@ SWIGINTERN PyObject *_wrap_new_MediaEvent(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       result = (wxMediaEvent *)new wxMediaEvent(arg1,arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3319,7 +3319,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Create(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (bool)(arg1)->Create(arg2,arg3,(wxString const &)*arg4,(wxPoint const &)*arg5,(wxSize const &)*arg6,arg7,(wxString const &)*arg8,(wxValidator const &)*arg9,(wxString const &)*arg10);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3380,7 +3380,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Play(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       result = (bool)(arg1)->Play();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3417,7 +3417,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Pause(PyObject *SWIGUNUSEDPARM(self), PyObj
     {
       result = (bool)(arg1)->Pause();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3454,7 +3454,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Stop(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       result = (bool)(arg1)->Stop();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3491,7 +3491,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_GetState(PyObject *SWIGUNUSEDPARM(self), Py
     {
       result = (wxMediaState)(arg1)->GetState();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3526,7 +3526,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_GetPlaybackRate(PyObject *SWIGUNUSEDPARM(se
     {
       result = (double)(arg1)->GetPlaybackRate();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3572,7 +3572,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_SetPlaybackRate(PyObject *SWIGUNUSEDPARM(se
     {
       result = (bool)(arg1)->SetPlaybackRate(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3630,7 +3630,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Seek(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       result = (arg1)->Seek(arg2,arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3670,7 +3670,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Tell(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       result = (arg1)->Tell();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3710,7 +3710,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Length(PyObject *SWIGUNUSEDPARM(self), PyOb
     {
       result = (arg1)->Length();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3750,7 +3750,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_GetVolume(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (double)(arg1)->GetVolume();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3796,7 +3796,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_SetVolume(PyObject *SWIGUNUSEDPARM(self), P
     {
       result = (bool)(arg1)->SetVolume(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3846,7 +3846,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_ShowPlayerControls(PyObject *SWIGUNUSEDPARM
     {
       result = (bool)(arg1)->ShowPlayerControls(arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3893,7 +3893,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_Load(PyObject *SWIGUNUSEDPARM(self), PyObje
     {
       result = (bool)(arg1)->Load((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -3948,7 +3948,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_LoadURI(PyObject *SWIGUNUSEDPARM(self), PyO
     {
       result = (bool)(arg1)->LoadURI((wxString const &)*arg2);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4011,7 +4011,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_LoadURIWithProxy(PyObject *SWIGUNUSEDPARM(s
     {
       result = (bool)(arg1)->LoadURIWithProxy((wxString const &)*arg2,(wxString const &)*arg3);
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4064,7 +4064,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_GetDownloadProgress(PyObject *SWIGUNUSEDPAR
     {
       result = (arg1)->GetDownloadProgress();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }
@@ -4104,7 +4104,7 @@ SWIGINTERN PyObject *_wrap_MediaCtrl_GetDownloadTotal(PyObject *SWIGUNUSEDPARM(s
     {
       result = (arg1)->GetDownloadTotal();
     }
-    catch (wxPyException)
+    catch (...)
     {
       
     }

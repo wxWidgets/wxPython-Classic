@@ -50,7 +50,7 @@
     {
         $action
     }
-    catch (wxPyException)
+    catch (...)
     {
     }
     wxPyEndAllowThreads(__tstate);
@@ -65,7 +65,7 @@
     {
         $action
     }
-    catch (wxPyException)
+    catch (...)
     {
     }
     if (PyErr_Occurred()) SWIG_fail;
