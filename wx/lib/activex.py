@@ -58,7 +58,7 @@ WM_DESTROY      = 2
 
 #------------------------------------------------------------------------------
 
-class ActiveXCtrl(wx._controls._AxBaseWindow):
+class ActiveXCtrl(wx.PyAxBaseWindow):
     """
     A wx.Window for hosting ActiveX controls.  The COM interface of
     the ActiveX control is accessible through the ctrl property of
@@ -112,7 +112,7 @@ class ActiveXCtrl(wx._controls._AxBaseWindow):
         self.AddEventSink(self)
         
         # Turn the window handle into a wx.Window and set this object to be that window
-        win = wx._controls._AxBaseWindow_FromHWND(parent, hwnd)
+        win = wx.PyAxBaseWindow_FromHWND(parent, hwnd)
         self.PostCreate(win)
         
         # Set some wx.Window properties
@@ -151,7 +151,7 @@ class ActiveXCtrl(wx._controls._AxBaseWindow):
             # was hacked to just use a long...
             res = self.ipao.TranslateAccelerator(msg)   
             return res == hr.S_OK
-        return wx._controls._AxBaseWindow.MSWTranslateMessage(self, msg)
+        return wx.PyAxBaseWindow.MSWTranslateMessage(self, msg)
 
     
     # TBD: Are the focus handlers needed?
