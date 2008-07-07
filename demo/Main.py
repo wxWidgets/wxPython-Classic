@@ -1171,12 +1171,12 @@ class DemoTaskBarIcon(wx.TaskBarIcon):
         names = [ "WXPdemo", "Mondrian", "Pencil", "Carrot" ]                  
         name = names[self.imgidx]
         
-        getFunc = getattr(images, "get%sImage" % name)
+        eImg = getattr(images, name)
         self.imgidx += 1
         if self.imgidx >= len(names):
             self.imgidx = 0
             
-        icon = self.MakeIcon(getFunc())
+        icon = self.MakeIcon(eImg.Image)
         self.SetIcon(icon, "This is a new icon: " + name)
 
 

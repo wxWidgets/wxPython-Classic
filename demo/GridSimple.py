@@ -253,9 +253,8 @@ if __name__ == '__main__':
     app = InspectableApp(False)
     frame = TestFrame(None, sys.stdout)
     frame.Show(True)
-    #import wx.py
-    #shell = wx.py.shell.ShellFrame(frame, locals={'wx':wx, 'frame':frame})
-    #shell.Show()
+    #import wx.lib.inspection
+    #wx.lib.inspection.InspectionTool().Show()
     app.MainLoop()
 
 
