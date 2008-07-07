@@ -4714,9 +4714,11 @@ class PageContainer(wx.Panel):
         where, tabIdx = self.HitTest(event.GetPosition())
         
         if where == FNB_RIGHT_ARROW:
+            self._nRightButtonStatus = FNB_BTN_PRESSED
             self.RotateRight()
 
         elif where == FNB_LEFT_ARROW:
+            self._nLeftButtonStatus = FNB_BTN_PRESSED
             self.RotateLeft()
 
         elif self.HasFlag(FNB_DCLICK_CLOSES_TABS):
