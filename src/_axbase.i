@@ -22,19 +22,19 @@
 // base class for a new ActiveX wrapper, so we'll use a private name.
 
 %{
-class _AxBaseWindow : public wxWindow
+class wxPyAxBaseWindow : public wxWindow
 {
-    DECLARE_DYNAMIC_CLASS(_AxBaseWindow)
+    DECLARE_DYNAMIC_CLASS(wxPyAxBaseWindow)
 
 public:
-    _AxBaseWindow(wxWindow* parent, const wxWindowID id=-1,
+    wxPyAxBaseWindow(wxWindow* parent, const wxWindowID id=-1,
                     const wxPoint& pos = wxDefaultPosition,
                     const wxSize& size = wxDefaultSize,
                     long style = 0,
                     const wxString& name = wxPyPanelNameStr)
     : wxWindow(parent, id, pos, size, style, name) {}
     
-    _AxBaseWindow() : wxWindow() {}
+    wxPyAxBaseWindow() : wxWindow() {}
 
 
     virtual bool MSWTranslateMessage(WXMSG* msg)
@@ -57,25 +57,25 @@ public:
     PYPRIVATE;
 };
 
-IMPLEMENT_DYNAMIC_CLASS(_AxBaseWindow, wxWindow);
+IMPLEMENT_DYNAMIC_CLASS(wxPyAxBaseWindow, wxWindow);
 %}
 
 
-MustHaveApp(_AxBaseWindow);
+MustHaveApp(wxPyAxBaseWindow);
 
-class _AxBaseWindow : public wxWindow
+class wxPyAxBaseWindow : public wxWindow
 {
 public:
-    %pythonAppend _AxBaseWindow   "self._setOORInfo(self);" setCallbackInfo(_AxBaseWindow)
-    %pythonAppend _AxBaseWindow() ""
+    %pythonAppend wxPyAxBaseWindow   "self._setOORInfo(self);" setCallbackInfo(PyAxBaseWindow)
+    %pythonAppend wxPyAxBaseWindow() ""
 
-    _AxBaseWindow(wxWindow* parent, const wxWindowID id=-1,
+    wxPyAxBaseWindow(wxWindow* parent, const wxWindowID id=-1,
                     const wxPoint& pos = wxDefaultPosition,
                     const wxSize& size = wxDefaultSize,
                     long style = 0,
                     const wxString& name = wxPyPanelNameStr);
 
-    %RenameCtor(_PreAxBaseWindow, _AxBaseWindow());
+    %RenameCtor(PrePyAxBaseWindow, wxPyAxBaseWindow());
 
     void _setCallbackInfo(PyObject* self, PyObject* _class);
 
@@ -93,10 +93,10 @@ MustHaveApp(wxWindow_FromHWND);
 
 // Note this is similar to another function in _window.i, keep them in sync.
 %inline %{
-    _AxBaseWindow* _AxBaseWindow_FromHWND(wxWindow* parent, unsigned long _hWnd)
+    wxPyAxBaseWindow* wxPyAxBaseWindow_FromHWND(wxWindow* parent, unsigned long _hWnd)
     {
         WXHWND hWnd = (WXHWND)_hWnd;
-        _AxBaseWindow* win = new _AxBaseWindow;
+        wxPyAxBaseWindow* win = new wxPyAxBaseWindow;
         if (parent)
             parent->AddChild(win);
         win->SetEventHandler(win);
