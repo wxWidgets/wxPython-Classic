@@ -18,6 +18,13 @@ class TestPanel(wx.Panel):
     def __init__(self, *args, **kw):
         wx.Panel.__init__(self, *args, **kw)
 
+        self.MakeContent()
+
+        self.Bind(wx.EVT_PAINT, self.OnPaint)
+        self.Bind(wx.EVT_ERASE_BACKGROUND, lambda e: None)
+
+
+    def MakeContent(self):
         p1 = CPanel(self, 'pink',       size=(120,250), name="one")
         p2 = CPanel(self, 'light blue', size=(120,150), name="two")
         p3 = CPanel(self, 'sea green',  size=(120,75),  name="three")
@@ -37,10 +44,7 @@ class TestPanel(wx.Panel):
         box = wx.BoxSizer()
         box.Add(gbs, 1, wx.EXPAND|wx.ALL, 10)
         self.SetSizer(box)
-
-        self.Bind(wx.EVT_PAINT, self.OnPaint)
-        self.Bind(wx.EVT_ERASE_BACKGROUND, lambda e: None)
-
+        
 
     def OnPaint(self, evt):
         dc = wx.BufferedPaintDC(self)
@@ -62,12 +66,13 @@ class TestPanel(wx.Panel):
             dc.DrawLine(x, 0, x, h)
             x += self.gbs.HGap/2
 
-        
-app = wx.App(False)
-frm = wx.Frame(None, title="GBS spanning test", size=(400, 500))
-pbl = TestPanel(frm, name="main")
-frm.Show()
-## import wx.lib.inspection
-## wx.lib.inspection.InspectionTool().Show()
-app.MainLoop()
+
+if __name__ == '__main__':
+    app = wx.App(False)
+    frm = wx.Frame(None, title="GBS spanning test", size=(400, 500))
+    pbl = TestPanel(frm, name="main")
+    frm.Show()
+    # import wx.lib.inspection
+    # wx.lib.inspection.InspectionTool().Show()
+    app.MainLoop()
 
