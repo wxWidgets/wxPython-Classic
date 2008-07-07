@@ -194,6 +194,10 @@ wx/tools/Editra/src
 wx/tools/Editra/src/autocomp
 wx/tools/Editra/src/eclib
 wx/tools/Editra/src/extern
+wx/tools/Editra/src/extern/pygments
+wx/tools/Editra/src/extern/pygments/filters
+wx/tools/Editra/src/extern/pygments/formatters
+wx/tools/Editra/src/extern/pygments/lexers
 wx/tools/Editra/src/syntax
 wx/tools/Editra/styles
 wx/tools/Editra/templates

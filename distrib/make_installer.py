@@ -171,6 +171,10 @@ Source: "wx\tools\Editra\src\autocomp\*.py";                 DestDir: "{app}\%(P
 Source: "wx\tools\Editra\src\eclib\*.py";                    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\eclib"; Components: core
 Source: "wx\tools\Editra\src\extern\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
 Source: "wx\tools\Editra\src\extern\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
+Source: "wx\tools\Editra\src\extern\pygments\*.py";          DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments"; Components: core
+Source: "wx\tools\Editra\src\extern\pygments\filters\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\filters"; Components: core
+Source: "wx\tools\Editra\src\extern\pygments\formatters\*.py"; DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\formatters"; Components: core
+Source: "wx\tools\Editra\src\extern\pygments\lexers\*.py";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\lexers"; Components: core
 Source: "wx\tools\Editra\src\syntax\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
 Source: "wx\tools\Editra\src\syntax\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
 Source: "wx\tools\Editra\styles\*.ess";                      DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\styles"; Components: core
