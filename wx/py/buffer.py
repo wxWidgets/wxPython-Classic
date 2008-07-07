@@ -76,7 +76,7 @@ class Buffer:
             text = self.doc.read()
             self.editor._setBuffer(buffer=self, text=text)
 
-    def overwriteConfirm(filepath):
+    def overwriteConfirm(self, filepath):
         """Confirm overwriting an existing file."""
         return False
 
