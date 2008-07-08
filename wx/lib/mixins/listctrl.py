@@ -690,14 +690,20 @@ class CheckListCtrlMixin:
 
     You should not set a imagelist for the ListCtrl once this mixin is used.
     """
-    def __init__(self, check_image=None, uncheck_image=None):
-        self.__imagelist_ = wx.ImageList(16, 16)
+    def __init__(self, check_image=None, uncheck_image=None, imgsz=(16,16)):
+        if check_image is not None:
+            imgsz = check_image.GetSize()
+        elif uncheck_image is not None:
+            imgsz = check_image.GetSize()
 
-        if not check_image:
-            check_image = self.__CreateBitmap(wx.CONTROL_CHECKED)
+        self.__imagelist_ = wx.ImageList(*imgsz)
 
-        if not uncheck_image:
-            uncheck_image = self.__CreateBitmap()
+        # Create default checkbox images if none were specified
+        if check_image is None:
+            check_image = self.__CreateBitmap(wx.CONTROL_CHECKED, imgsz)
+
+        if uncheck_image is None:
+            uncheck_image = self.__CreateBitmap(0, imgsz)
 
         self.uncheck_image = self.__imagelist_.Add(uncheck_image)
         self.check_image = self.__imagelist_.Add(check_image)
@@ -709,15 +715,16 @@ class CheckListCtrlMixin:
         # override the default methods of ListCtrl/ListView
         self.InsertStringItem = self.__InsertStringItem_
 
-    def __CreateBitmap(self, flag=0):
+    def __CreateBitmap(self, flag=0, size=(16, 16)):
         """Create a bitmap of the platforms native checkbox. The flag
         is used to determine the checkboxes state (see wx.CONTROL_*)
 
         """
-        bmp = wx.EmptyBitmap(16, 16)
+        bmp = wx.EmptyBitmap(*size)
         dc = wx.MemoryDC(bmp)
         dc.Clear()
-        wx.RendererNative.Get().DrawCheckBox(self, dc, (0, 0, 16, 16), flag)
+        wx.RendererNative.Get().DrawCheckBox(self, dc,
+                                             (0, 0, size[0], size[1]), flag)
         dc.SelectObject(wx.NullBitmap)
         return bmp
 
