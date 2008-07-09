@@ -3559,6 +3559,7 @@ IMPLEMENT_ABSTRACT_CLASS(wxPyPrintout, wxPrintout);
 void wxPyPrintout::GetPageInfo(int *minPage, int *maxPage, int *pageFrom, int *pageTo) {
     bool found;
     wxPyThreadBlocker blocker;
+    PYSETFUNC("GetPageInfo");
 
     if ((found = wxPyCBH_findCallback(m_myInst, "GetPageInfo"))) {
         wxPySequence result;
@@ -3568,7 +3569,7 @@ void wxPyPrintout::GetPageInfo(int *minPage, int *maxPage, int *pageFrom, int *p
                 result >> *minPage >> *maxPage >> *pageFrom >> *pageTo;
             else {
                 PyErr_SetString(PyExc_TypeError, "GetPageInfo should return a tuple of 4 integers.");
-                wxThrowPyException();
+                wxThrowCppException();
             }
         }
     } else {

@@ -200,6 +200,11 @@ public:
         return m_obj;
     }
 
+    virtual int GetPos() const
+    {
+        return 0;
+    }
+
 private:
     void Decref()
     {
@@ -621,14 +626,15 @@ inline void wxPyExtractUint(wxPyObject &pyn, T &out, T tmax)
 {
     if (pyn.Ok() && !PyErr_Occurred()) {
         wxPyObject ro = pyn.Pop();
-        unsigned long n = PyLong_AsUnsignedLong(pyn);
+        unsigned long n = PyLong_AsUnsignedLong(ro.Get());
 
-        /* PyLong_AsUnsignedLong() checks for overflow for unsigned long */
-        if (PyErr_Occurred())
-            wxThrowPyException();
-        else if (n > tmax) {
-            PyErr_SetString(PyExc_OverflowError, "Value too large.");
-            wxThrowPyException();
+        /* PyLong_AsUnsignedLong() checks for overflow for unsigned long or invalid cast */
+        if (PyErr_Occurred()) {
+            PyErr_Format(PyErr_Occurred(), "Item %d: Unable to convert value to unsigned int.", pyn.GetPos());
+            wxThrowCppException();
+        } else if (n > tmax) {
+            PyErr_Format(PyExc_OverflowError, "Item %d: Value too large.", pyn.GetPos());
+            wxThrowCppException();
         } else 
             out = n;
     }
@@ -639,17 +645,18 @@ inline void wxPyExtractInt(wxPyObject &pyn, T &out, T tmin, T tmax)
 {
     if (pyn.Ok() && !PyErr_Occurred()) {
         wxPyObject ro = pyn.Pop();
-        long n = PyInt_AsLong(pyn);
+        long n = PyInt_AsLong(ro.Get());
 
-        /* PyInt_AsLong() checks for overflow for long */
-        if (PyErr_Occurred())
-            wxThrowPyException();
-        else if (n > tmax) {
-            PyErr_SetString(PyExc_OverflowError, "Value too large.");
-            wxThrowPyException();
+        /* PyInt_AsLong() checks for overflow for long or invalid cast */
+        if (PyErr_Occurred()) {
+            PyErr_Format(PyErr_Occurred(), "Item %d: Unable to convert value to int.", pyn.GetPos());
+            wxThrowCppException();
+        } else if (n > tmax) {
+            PyErr_Format(PyExc_OverflowError, "Item %d: Value too large.", pyn.GetPos());
+            wxThrowCppException();
         } else if (n < tmin) {
-            PyErr_SetString(PyExc_OverflowError, "Value too small.");
-            wxThrowPyException();
+            PyErr_Format(PyExc_OverflowError, "Item %d: Value too small.", pyn.GetPos());
+            wxThrowCppException();
         } else 
             out = n;
     }
@@ -661,9 +668,10 @@ inline void wxPyExtractFloat(wxPyObject &pyn, T &out)
     if (pyn.Ok() && !PyErr_Occurred()) {
         wxPyObject ro = pyn.Pop();
         double n = PyFloat_AsDouble(ro.Get());
-        if (PyErr_Occurred())
-            wxThrowPyException();
-        else
+        if (PyErr_Occurred()) {
+            PyErr_Format(PyErr_Occurred(), "Item %d: Unable to convert to float.", pyn.GetPos());
+            wxThrowCppException();
+        } else
             out = n;
     }
 }
@@ -678,9 +686,9 @@ inline void wxPyExtractObject(const wxChar *typestr, wxPyObject &pyin, T *&out)
             out = ptr;
         else {
             wxString msg;
-            msg.Printf(wxT("Expected %s object."), typestr);
+            msg.Printf(wxT("Item %d: Expected %s object."), pyin.GetPos(), typestr);
             PyErr_SetString(PyExc_TypeError, msg.mb_str());
-            wxThrowPyException();
+            wxThrowCppException();
         }
     }
 }
@@ -695,9 +703,9 @@ inline void wxPyExtractObjectCopy(const wxChar *typestr, wxPyObject &pyin, T &ou
             out = *ptr;
         else {
             wxString msg;
-            msg.Printf(wxT("Expected %s object."), typestr);
+            msg.Printf(wxT("Item %d: Expected %s object."), pyin.GetPos(), typestr);
             PyErr_SetString(PyExc_TypeError, msg.mb_str());
-            wxThrowPyException();
+            wxThrowCppException();
         }
     }
 }
@@ -770,7 +778,7 @@ inline wxPyObject &operator>>(wxPyObject &po, wxSize &out)
         wxSize *pout = &out;
         wxPyObject ro = po.Pop();
         if (!wxSize_helper(ro.Get(), &pout))
-            wxThrowPyException();
+            wxThrowCppException();
     }
     return po;
 }

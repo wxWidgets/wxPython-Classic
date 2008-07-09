@@ -100,8 +100,20 @@ static PyObject* wxPyNoAppError = NULL;
 // Empty argument tuple
 static PyObject* wxPyEmptyTuple = NULL;
 
+// Describe the active C++ file and function
+static const wxChar *wxPyCFileName = wxT("");
+static const wxChar *wxPyCFuncName = wxT("");
+static int wxPyCFuncLine = -1;
+
 PyObject* wxPyPtrTypeMap = NULL;
 
+// Used to throw a C++ exception to propagate a Python exception.
+// XXX: Catching a specific exception by name thrown across dynamically loaded shared 
+// library boundaries doesn't work as expected without extra work.  Just name the
+// exception here, and catch (...) where necessary.
+class wxPyException
+{
+};
 
 #ifdef __WXMSW__             // If building for win32...
 //----------------------------------------------------------------------
@@ -1587,11 +1599,85 @@ wxFileOffset wxPyCBOutputStream::OnSysTell() const {
         else
             o = PyInt_AsLong(result);
         Py_DECREF(result);
-    };
+    }
     
     return o;
 }
 
+
+//----------------------------------------------------------------------
+// Deal with Python exceptions.
+//
+// GIL should be held before calling these functions.
+
+// Raise a Python exception in a "dummy frame" to make stack traces more readable for the Python user.
+static void wxPyCRaise(const wxString &filename, int line, const wxString &func, PyObject *exc, PyObject *what)
+{
+    wxString src;
+    wxString fn = wxT("???");
+    wxString cbn = wxT("UnknownCallback");
+    wxPyObject dict;
+    wxPyObject co;
+    wxPyObject ro;
+
+    if (!filename.empty())
+        fn.Printf(wxT("%s:%d"), filename.c_str(), line);
+
+    if (!func.empty())
+        cbn.Printf(wxT("%s_ProcessPyCallback"), func.c_str());
+
+    src.Printf(wxT("def %s(ex, what):\n\traise ex, what\n\n"), cbn.c_str());
+
+    co = Py_CompileString(src.mb_str(), fn.mb_str(), Py_file_input);
+    if (!co.Ok())
+        return;
+
+    dict = PyDict_New();
+    ro = PyEval_EvalCode((PyCodeObject *)co.Get(), dict.Get(), dict.Get());
+    if (ro.Ok()) {
+        PyObject *item;
+
+        item = PyDict_GetItemString(dict, cbn.mb_str());
+        if (item)
+            ro = PyObject_CallFunction(item, "(OO)", exc, what); 
+    }
+}
+
+// Propagate an error raised in a Python function.
+// This function is a noop if there is no current exception.
+void wxThrowPyException()
+{
+    if (PyErr_Occurred())
+        throw wxPyException();
+}
+
+// Propagate an error raised in C++.
+// Grab current exception, and throw it in the "dummy frame".
+// This function is a noop if there is no current exception.
+void wxThrowCppException()
+{
+    PyObject *type, *val, *tb;
+
+    type = val = tb = NULL;
+    PyErr_Fetch(&type, &val, &tb);
+    if (!type || !val) {
+        PyErr_Restore(type, val, tb);
+        return;
+    }
+
+    Py_XDECREF(tb);
+    wxPyCRaise(wxPyCFileName, wxPyCFuncLine, wxPyCFuncName, type, val);
+    throw wxPyException();
+}
+
+// Set name of current C++ function.
+// Strings should be declared static within the function!
+void wxPyCSetFunc(const wxChar *filename, const wxChar *func, int line)
+{
+    wxPyCFileName = filename;
+    wxPyCFuncName = func;
+    wxPyCFuncLine = line;
+}
 
 
 //----------------------------------------------------------------------

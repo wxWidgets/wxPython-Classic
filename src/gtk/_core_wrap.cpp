@@ -2930,6 +2930,11 @@ static wxPyCoreAPI API = {
 
     wxVariant_in_helper,
     wxVariant_out_helper,
+
+    wxPyCSetFunc,
+
+    wxThrowPyException,
+    wxThrowCppException,
 };
 
 #endif

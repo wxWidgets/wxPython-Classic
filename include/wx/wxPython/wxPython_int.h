@@ -453,6 +453,10 @@ struct wxPyCoreAPI {
     wxVariant            (*p_wxVariant_in_helper)(PyObject* source);
     PyObject*            (*p_wxVariant_out_helper)(const wxVariant& value);
 
+    void                 (*p_wxPyCSetFunc)(const wxChar *filename, const wxChar *func, int line);
+    void                 (*p_wxThrowPyException)();
+    void                 (*p_wxThrowCppException)();
+
     // Add all new items at the end...
 };
 
@@ -558,19 +562,26 @@ public:
 
 
 //---------------------------------------------------------------------------
+// Exceptions
+//
+// Propogate Python errors to the exception handler
+void wxThrowPyException();
+void wxThrowCppException();
+
+// Identify a C++ function in a Python traceback
+void wxPyCSetFunc(const wxChar *filename, const wxChar *func, int line);
+#define PYSETFUNC(CBNAME)                           \
+    static const wxChar *func_name = wxT(CBNAME);  \
+    static const wxChar *file_name = wxT(__FILE__); \
+    wxPyCSetFunc(file_name, func_name, __LINE__)
+
+//---------------------------------------------------------------------------
 // This class holds an instance of a Python Shadow Class object and assists
 // with looking up and invoking Python callback methods from C++ virtual
 // method redirections.  For all classes which have virtuals which should be
 // overridable in wxPython, a new subclass is created that contains a
 // wxPyCallbackHelper.
 //
-
-// Thrown to propogate errors to the exception handler
-class wxPyException
-{
-};
-
-#define wxThrowPyException() throw wxPyException()
 
 class wxPyCallbackHelper {
 public:
@@ -759,6 +770,7 @@ extern wxPyApp *wxPythonApp;
     RETTYPE CBNAME ARGS {                                                                       \
         bool found;                                                                             \
         wxPyThreadBlocker blocker;                                                              \
+        PYSETFUNC(#CBNAME);                                                                     \
         DECOUT;                                                                                  \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
             wxPyTuple args(NARGS);                                                              \
@@ -776,6 +788,7 @@ extern wxPyApp *wxPythonApp;
     RETTYPE CBNAME ARGS const {                                                                       \
         bool found;                                                                             \
         wxPyThreadBlocker blocker;                                                              \
+        PYSETFUNC(#CBNAME);                                                                     \
         DECOUT;                                                                                  \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
             wxPyTuple args(NARGS);                                                              \
@@ -820,6 +833,7 @@ extern wxPyApp *wxPythonApp;
     RETTYPE CBNAME ARGS {                                                                   \
         bool found;                                                                         \
         wxPyThreadBlocker blocker;                                                          \
+        PYSETFUNC(#CBNAME);                                                                     \
         DECOUT;                                                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
             wxPyTuple args(NARGS);                                                          \
@@ -834,6 +848,7 @@ extern wxPyApp *wxPythonApp;
     RETTYPE CBNAME ARGS const {                                                                   \
         bool found;                                                                         \
         wxPyThreadBlocker blocker;                                                          \
+        PYSETFUNC(#CBNAME);                                                                     \
         DECOUT;                                                                             \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
             wxPyTuple args(NARGS);                                                          \
@@ -869,6 +884,7 @@ extern wxPyApp *wxPythonApp;
         bool found;                                                         \
         wxPyThreadBlocker blocker;                                          \
         DECOUT;                                                             \
+        PYSETFUNC(#CBNAME);                                                                     \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
             wxPyObject ro;                                                  \
             ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
@@ -884,6 +900,7 @@ extern wxPyApp *wxPythonApp;
     RETTYPE CBNAME () const {                                               \
         bool found;                                                         \
         wxPyThreadBlocker blocker;                                          \
+        PYSETFUNC(#CBNAME);                                                                     \
         DECOUT;                                                             \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
             wxPyObject ro;                                                  \
@@ -924,6 +941,7 @@ extern wxPyApp *wxPythonApp;
     RETTYPE CBNAME () {                                                   \
         bool found;                                                         \
         wxPyThreadBlocker blocker;                                          \
+        PYSETFUNC(#CBNAME);                                                                     \
         DECOUT;                                                             \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
             wxPyObject ro;                                                  \
@@ -937,6 +955,7 @@ extern wxPyApp *wxPythonApp;
     RETTYPE CBNAME () const {                                                   \
         bool found;                                                         \
         wxPyThreadBlocker blocker;                                          \
+        PYSETFUNC(#CBNAME);                                                                     \
         DECOUT;                                                             \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
             wxPyObject ro;                                                  \

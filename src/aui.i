@@ -466,8 +466,10 @@ public:
                           int* x_extent)
     {
         bool found;
-        const char* errmsg = "DrawTab should return a sequence containing (tab_rect, button_rect, x_extent)";
         wxPyThreadBlocker blocker;
+        static const char* errmsg = "DrawTab should return a sequence containing (tab_rect, button_rect, x_extent)";
+        PYSETFUNC("DrawTab");
+
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawTab"))) {
             wxPyTuple args(5);
             wxPySequence ro;
@@ -478,7 +480,7 @@ public:
                     ro >> *out_tab_rect >> *out_button_rect >> *x_extent;
                 else {
                     PyErr_SetString(PyExc_TypeError, errmsg);
-                    wxThrowPyException();
+                    wxThrowCppException();
                 }
             }
         }
@@ -497,8 +499,10 @@ public:
                              wxRect* out_rect)
     {
         bool found;
-        const char* errmsg = "DrawButton should return a wxRect";
+        static const char* errmsg = "DrawButton should return a wxRect";
         wxPyThreadBlocker blocker;
+        PYSETFUNC("DrawButton");
+
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawButton"))) {
             wxPyTuple args(6);
             wxPyObject ro;
@@ -506,7 +510,7 @@ public:
                     wxPCBH_ERR_THROW);
             if (ro.Ok() && !wxRect_helper(ro.Get(), &out_rect)) {
                 PyErr_SetString(PyExc_TypeError, errmsg);
-                wxThrowPyException();
+                wxThrowCppException();
             }
         }
         blocker.Unblock();
@@ -525,8 +529,10 @@ public:
     {
         bool found;
         wxSize rv;
-        const char* errmsg = "GetTabSize should return a sequence containing (size, x_extent)";
         wxPyThreadBlocker blocker;
+        static const char* errmsg = "GetTabSize should return a sequence containing (size, x_extent)";
+        PYSETFUNC("GetTabSize");
+
         if ((found = wxPyCBH_findCallback(m_myInst, "GetTabSize"))) {
             wxPyTuple args(6);
             wxPySequence ro;
@@ -537,7 +543,7 @@ public:
                     ro >> rv >> *x_extent;
                 else {
                     PyErr_SetString(PyExc_TypeError, errmsg);
-                    wxThrowPyException();
+                    wxThrowCppException();
                 }
             }
         }

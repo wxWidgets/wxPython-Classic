@@ -550,6 +550,8 @@ public:
         // a return value instead of modifying the parameter.
         bool found;
         wxPyThreadBlocker blocker;
+        PYSETFUNC("GetValue");
+
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
             wxPyTuple args(2);
             wxPyObject ro;
@@ -560,7 +562,7 @@ public:
         else {
             PyErr_SetString(PyExc_NotImplementedError,
               "The GetValue method should be implemented in derived class");
-            wxThrowPyException();
+            wxThrowCppException();
         }
     }
 
@@ -718,6 +720,8 @@ public:
         // a return value instead of modifying the parameter.
         bool found;
         wxPyThreadBlocker blocker;
+        PYSETFUNC("GetValue");
+
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
             wxPyTuple args(2);
             wxPyObject ro;
@@ -728,7 +732,7 @@ public:
         else {
             PyErr_SetString(PyExc_NotImplementedError,
               "The GetValue method should be implemented in derived class");
-            wxThrowPyException();
+            wxThrowCppException();
         }
     }
 
@@ -1104,6 +1108,8 @@ public:
         // a return value instead of modifying the parameter.
         bool found;
         wxPyThreadBlocker blocker;
+        PYSETFUNC("GetValue");
+
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
             wxPyObject ro;
             ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW);
@@ -1113,7 +1119,7 @@ public:
         else {
             PyErr_SetString(PyExc_NotImplementedError,
               "The GetValue method should be implemented in derived class");
-            wxThrowPyException();
+            wxThrowCppException();
         }
         return true;
     }
