@@ -66,6 +66,7 @@ enum wxTextCtrlHitTestResult;
 %include _richtextctrl.i
 %include _richtexthtml.i
 %include _richtextxml.i
+%include _richtextprint.i
 
 //----------------------------------------------------------------------
 

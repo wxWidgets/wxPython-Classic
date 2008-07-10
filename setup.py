@@ -486,6 +486,7 @@ swig_sources = run_swig(['richtext.i'], 'src', GENDIR, PKGDIR,
                                       'src/_richtextctrl.i',
                                       'src/_richtexthtml.i',
                                       'src/_richtextxml.i',
+                                      'src/_richtextprint.i',
                                       ])
 if not MONOLITHIC and findLib('richtext', libdirs):
     richLib = makeLibName('richtext')
