@@ -28,8 +28,6 @@ if not EGGing:
 else:
     # EXPERIMENTAL Egg support...
     try:
-        import ez_setup
-        ez_setup.use_setuptools()
         from setuptools import setup, Extension
     except ImportError:
         print "Setuptools must be installed to build an egg"
@@ -52,7 +50,7 @@ import distutils.command.clean
 VER_MAJOR        = 2      # The first three must match wxWidgets
 VER_MINOR        = 8
 VER_RELEASE      = 8
-VER_SUBREL       = 0      # wxPython release num for x.y.z release of wxWidgets
+VER_SUBREL       = 1      # wxPython release num for x.y.z release of wxWidgets
 VER_FLAGS        = ""     # release flags, such as prerelease or RC num, etc.
 
 DESCRIPTION      = "Cross platform GUI toolkit for Python"
