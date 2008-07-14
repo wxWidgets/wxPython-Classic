@@ -95,6 +95,9 @@ const wxVideoMode     wxDefaultVideoMode;
 
 
 MustHaveApp(wxDisplay);
+MustHaveApp(wxDisplay::GetCount);
+MustHaveApp(wxDisplay::GetFromPoint);
+MustHaveApp(wxDisplay::GetFromWindow);
 
 DocStr(wxDisplay,
        "Represents a display/monitor attached to the system", "");

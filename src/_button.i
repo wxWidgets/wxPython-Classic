@@ -62,6 +62,7 @@ Events
 
 
 MustHaveApp(wxButton);
+MustHaveApp(wxButton::GetDefaultSize);
 
 class wxButton : public wxControl
 {
