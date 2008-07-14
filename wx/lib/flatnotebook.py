@@ -3741,6 +3741,8 @@ class PageContainer(wx.Panel):
         self._nLeftButtonStatus = FNB_BTN_NONE
         self._nTabXButtonStatus = FNB_BTN_NONE
 
+        self._setCursor = False        
+
         self._pagesInfoVec = []        
 
         self._colorTo = wx.SystemSettings_GetColour(wx.SYS_COLOUR_ACTIVECAPTION)
@@ -4331,6 +4333,11 @@ class PageContainer(wx.Panel):
                 if not self.GetEnabled(tabIdx):                
                     # Set the cursor to be 'No-entry'
                     wx.SetCursor(wx.StockCursor(wx.CURSOR_NO_ENTRY))
+                    self._setCursor = True
+                else:
+                    if self._setCursor:
+                        wx.SetCursor(wx.StockCursor(wx.CURSOR_ARROW))
+                        self._setCursor = False
                 
                 # Support for drag and drop
                 if event.Dragging() and not (style & FNB_NODRAG):
