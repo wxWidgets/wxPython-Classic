@@ -48,7 +48,14 @@ public:
 
     // the array elements correspond to the parameters of the ctor above in
     // the same order
-    %Rename(FileTypeInfoSequence,, wxFileTypeInfo(const wxArrayString& sArray));
+    %extend {
+        %Rename(FileTypeInfoSequence,, wxFileTypeInfo(const wxArrayString& sArray))
+         {
+             wxCHECK_MSG( sArray.GetCount() >= 4, NULL,
+                          wxT("Sequence must have at least 4 items."));
+             return new wxFileTypeInfo(sArray);
+         }
+    }
 
     // invalid item - use this to terminate the array passed to
     // wxMimeTypesManager::AddFallbacks
