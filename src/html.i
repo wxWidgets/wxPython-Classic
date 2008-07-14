@@ -110,6 +110,7 @@ enum wxHtmlURLType
 class wxHtmlLinkInfo : public wxObject {
 public:
     wxHtmlLinkInfo(const wxString& href, const wxString& target = wxPyEmptyString);
+    ~wxHtmlLinkInfo();
     wxString GetHref();
     wxString GetTarget();
     wxMouseEvent* GetEvent();
