@@ -11,7 +11,7 @@
 # Python Code By:
 #
 # Andrea Gavana, @ 02 Oct 2006
-# Latest Revision: 30 May 2008, 23.00 GMT
+# Latest Revision: 14 Jul 2008, 22.00 GMT
 #
 #
 # For All Kind Of Problems, Requests Of Enhancements And Bug Reports, Please
@@ -58,7 +58,7 @@ License And Version:
 
 FlatNotebook Is Freeware And Distributed Under The wxPython License. 
 
-Latest Revision: Andrea Gavana @ 30 May 2008, 23.00 GMT
+Latest Revision: Andrea Gavana @ 14 Jul 2008, 22.00 GMT
 
 Version 2.5.
 
@@ -1273,12 +1273,11 @@ class FNBRenderer:
         self._tabHeight = None
 
         if wx.Platform == "__WXMAC__":
-            # Hack to get proper highlight color for focus rectangle from
-            # current theme by creating a theme brush and getting its color.
-            # kThemeBrushFocusHighlight is available on Mac OS 8.5 and higher
-            brush = wx.BLACK_BRUSH
-            brush.MacSetTheme(Carbon.Appearance.kThemeBrushFocusHighlight)
-            self._focusPen = wx.Pen(brush.GetColour(), 2, wx.SOLID)
+            # Get proper highlight color for focus rectangle from the
+            # current Mac theme.  kThemeBrushFocusHighlight is
+            # available on Mac OS 8.5 and higher
+            c = wx.MacThemeColour(Carbon.Appearance.kThemeBrushFocusHighlight)
+            self._focusPen = wx.Pen(c, 2, wx.SOLID)
         else:
             self._focusPen = wx.Pen(wx.BLACK, 1, wx.USER_DASH)
             self._focusPen.SetDashes([1, 1])
@@ -3421,7 +3420,6 @@ class FlatNotebook(wx.PyPanel):
         else:
             raise TypeError, "SetNavigatorIcon requires a valid bitmap"
 
-
     def OnNavigationKey(self, event):
         """ Handles the wx.EVT_NAVIGATION_KEY event for L{FlatNotebook}. """
 
@@ -3742,6 +3740,8 @@ class PageContainer(wx.Panel):
         self._nRightButtonStatus = FNB_BTN_NONE
         self._nLeftButtonStatus = FNB_BTN_NONE
         self._nTabXButtonStatus = FNB_BTN_NONE
+
+        self._setCursor = False        
 
         self._pagesInfoVec = []        
 
@@ -4333,6 +4333,11 @@ class PageContainer(wx.Panel):
                 if not self.GetEnabled(tabIdx):                
                     # Set the cursor to be 'No-entry'
                     wx.SetCursor(wx.StockCursor(wx.CURSOR_NO_ENTRY))
+                    self._setCursor = True
+                else:
+                    if self._setCursor:
+                        wx.SetCursor(wx.StockCursor(wx.CURSOR_ARROW))
+                        self._setCursor = False
                 
                 # Support for drag and drop
                 if event.Dragging() and not (style & FNB_NODRAG):
