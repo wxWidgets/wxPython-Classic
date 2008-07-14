@@ -11,7 +11,7 @@
 # Python Code By:
 #
 # Andrea Gavana, @ 02 Oct 2006
-# Latest Revision: 22 Nov 2007, 14.00 GMT
+# Latest Revision: 14 Jul 2008, 22.00 GMT
 #
 #
 # For All Kind Of Problems, Requests Of Enhancements And Bug Reports, Please
@@ -58,9 +58,9 @@ License And Version:
 
 FlatNotebook Is Freeware And Distributed Under The wxPython License. 
 
-Latest Revision: Andrea Gavana @ 22 Nov 2007, 14.00 GMT
+Latest Revision: Andrea Gavana @ 14 Jul 2008, 22.00 GMT
 
-Version 2.4.
+Version 2.5.
 
 @undocumented: FNB_HEIGHT_SPACER, VERTICAL_BORDER_PADDING, VC8_SHAPE_LEN,
     wxEVT*, left_arrow_*, right_arrow*, x_button*, down_arrow*,
