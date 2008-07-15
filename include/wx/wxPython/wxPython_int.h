@@ -675,9 +675,9 @@ public:
     virtual void ExitMainLoop();
     // virtual int FilterEvent(wxEvent& event); // This one too????
 
-    // Terminate the mainloop if a C++ exception was thrown somewhere
-    //XXX: should this check for a Python member function of the same name?
-    virtual bool OnExceptionInMainLoop() { return false; }
+    virtual bool OnExceptionInMainLoop();
+    virtual void HandleEvent(wxEvtHandler *handler, wxEventFunction func, wxEvent& event) const;
+
 
     // For catching Apple Events
     virtual void MacOpenFile(const wxString& fileName);
@@ -771,35 +771,35 @@ extern wxPyApp *wxPythonApp;
         bool found;                                                                             \
         wxPyThreadBlocker blocker;                                                              \
         PYSETFUNC(#CBNAME);                                                                     \
-        DECOUT;                                                                                  \
+        DECOUT;                                                                                 \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
             wxPyTuple args(NARGS);                                                              \
             wxPyObject ro;                                                                      \
             ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
-            EXTRACT;                                                                             \
+            EXTRACT;                                                                            \
         } else {                                                                                \
             blocker.Unblock();                                                                  \
-            CALLPARENT;                                                                          \
+            CALLPARENT;                                                                         \
         }                                                                                       \
         return RETURN;                                                                          \
     }
 
 #define B_PYCALLBACK_N_CONST(RETTYPE, CBNAME, LOOKUP, NARGS, ARGS, INSERT, DECOUT, EXTRACT, CALLPARENT, RETURN) \
-    RETTYPE CBNAME ARGS const {                                                                       \
+    RETTYPE CBNAME ARGS const {                                                                 \
         bool found;                                                                             \
         wxPyThreadBlocker blocker;                                                              \
         PYSETFUNC(#CBNAME);                                                                     \
-        DECOUT;                                                                                  \
+        DECOUT;                                                                                 \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
             wxPyTuple args(NARGS);                                                              \
             wxPyObject ro;                                                                      \
             ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
-            EXTRACT;                                                                             \
+            EXTRACT;                                                                            \
         } else {                                                                                \
             blocker.Unblock();                                                                  \
-            CALLPARENT;                                                                          \
+            CALLPARENT;                                                                         \
         }                                                                                       \
-        return RETURN;                                                                                  \
+        return RETURN;                                                                          \
     }
 
 #define B_PYCALLBACK_N_VOID(CBNAME, LOOKUP, NARGS, ARGS, INSERT, CALLPARENT) \

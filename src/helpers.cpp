@@ -115,6 +115,19 @@ class wxPyException
 {
 };
 
+class wxRecursionCounter
+{
+public:
+    wxRecursionCounter() { m_counter++; }
+    ~wxRecursionCounter() { m_counter--; }
+    static int Get() { return m_counter; }
+
+private:
+    static int m_counter;
+};
+
+int wxRecursionCounter::m_counter = 0;
+
 #ifdef __WXMSW__             // If building for win32...
 //----------------------------------------------------------------------
 // This gets run when the DLL is loaded.  We just need to save a handle.
@@ -312,6 +325,29 @@ void wxPyApp::OnAssertFailure(const wxChar *file,
     }
 }
 #endif
+
+void wxPyApp::HandleEvent(wxEvtHandler *handler,
+                              wxEventFunction func,
+                              wxEvent& event) const
+{
+    wxRecursionCounter counter;
+    (handler->*func)(event);
+}
+
+bool wxPyApp::OnExceptionInMainLoop()
+{
+    //printf("RecursionCounter: %d\n", wxRecursionCounter::Get());
+
+    // Terminate mainloop only if there are no events remaining on the stack
+    //
+    // Example: eventA -> ... -> gtk_main_iteration()/wxApp::Yield() -> eventB -> ...
+    // OnExceptionInMainLoop() will be called for an unhandled exception passing through eventB,
+    // even though eventB was called after manually pumping the event system. 
+    if (wxRecursionCounter::Get() == 0)
+        return false;
+    return true;
+}
+
 
     // For catching Apple Events
 void wxPyApp::MacOpenFile(const wxString &fileName)
@@ -1713,6 +1749,10 @@ void wxPyCallback::EventThunker(wxEvent& event) {
     bool            checkSkip = false;
     wxPyThreadBlocker blocker;
 
+    // Prevent calling into Python after an exception has been raised.
+    if (PyErr_Occurred())
+        return;
+
     wxString className = event.GetClassInfo()->GetClassName();
 
     // If the event is one of these types then pass the original
@@ -1915,7 +1955,13 @@ void wxPyCallbackHelper::clearRecursionGuard(PyObject* method) const
 bool wxPyCallbackHelper::findCallback(const char* name, bool setGuard) const {
     wxPyCallbackHelper* self = (wxPyCallbackHelper*)this; // cast away const
     PyObject *method, *klass;
-    PyObject* nameo = PyString_FromString(name);
+    PyObject* nameo; 
+
+    // Prevent calling into Python when an exception has been raised.
+    if (PyErr_Occurred())
+        return false;
+
+    nameo = PyString_FromString(name);
     self->m_lastFound = NULL;
 
     // If the object (m_self) has an attibute of the given name...
