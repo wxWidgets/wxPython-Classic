@@ -1,6 +1,27 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.8.8.1
+-------
+*
+
+wx.richtext: Added wrappers for the RichTextPrinting and
+RichTextPrintout classes.
+
+Make it easier to replace the check box images used in the
+CheckListCtrlMixin class.
+
+Fixed bug in wx.ScrolledWindow when child focus events caused
+unneccessary or incorrect scrolling.
+
+Fixed a bug in wx.GridBagSizer where hidden items were not ignored in
+part of the layout algorithm.
+
+Several other bugs also fixed.
+
+
+
+
 2.8.8.0
 -------
 * 23-June-2008
