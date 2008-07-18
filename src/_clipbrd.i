@@ -19,6 +19,9 @@
 %{
 %}
 
+MustHaveApp(wxClipboard);
+MustHaveApp(wxClipboard::Get);
+
 DocStr(wxClipboard,
 "wx.Clipboard represents the system clipboard and provides methods to
 copy data to it or paste data from it.  Normally, you should only use

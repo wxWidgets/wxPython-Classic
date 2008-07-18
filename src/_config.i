@@ -47,6 +47,10 @@ enum
 
 
 
+MustHaveApp(wxConfigBase::Get);
+MustHaveApp(wxConfigBase::Create);
+
+
 DocStr(wxConfigBase,
 "wx.ConfigBase class defines the basic interface of all config
 classes. It can not be used by itself (it is an abstract base class)
@@ -389,6 +393,8 @@ time)", "");
 
 //---------------------------------------------------------------------------
 
+MustHaveApp(wxConfig);
+
 DocStr(wxConfig,
 "This ConfigBase-derived class will use the registry on Windows,
 and will be a wx.FileConfig on other platforms.", "");
@@ -408,6 +414,8 @@ public:
 
 
 
+
+MustHaveApp(wxFileConfig);
 
 DocStr(wxFileConfig,
        "This config class will use a file for storage on all platforms.", "");
