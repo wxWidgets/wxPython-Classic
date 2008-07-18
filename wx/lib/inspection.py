@@ -463,7 +463,9 @@ class InspectionTree(TreeBaseClass):
                 self._AddWidget(item, w, True)
                 widgets.append(w)
             elif si.IsSizer():
-                widgets += self._AddSizer(item, si.GetSizer())
+                ss = si.GetSizer()
+                widgets += self._AddSizer(item, ss)
+                ss._parentSizer = sizer
             else:
                 i = self.AppendItem(item, "Spacer")
                 self.SetItemPyData(i, si)
@@ -656,11 +658,10 @@ class InspectionInfoPanel(wx.stc.StyledTextCtrl):
         if isinstance(obj, wx.GridBagSizer):
             st.append(self.Fmt('emptycell', obj.GetEmptyCellSize()))
 
-        if obj.GetContainingWindow():
-            si = obj.GetContainingWindow().GetSizer().GetItem(obj)
-            if si:
-                st.append('')
-                st += self.FmtSizerItem(si)
+        if hasattr(obj, '_parentSizer'):
+            st.append('')
+            st += self.FmtSizerItem(obj._parentSizer.GetItem(obj))
+            
         return st
 
 
