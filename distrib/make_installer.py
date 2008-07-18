@@ -179,8 +179,18 @@ Source: "wx\tools\Editra\src\syntax\*.py";                   DestDir: "{app}\%(P
 Source: "wx\tools\Editra\src\syntax\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
 Source: "wx\tools\Editra\styles\*.ess";                      DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\styles"; Components: core
 Source: "wx\tools\Editra\tests\syntax\*.*";                  DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\tests\syntax"; Components: core
-Source: "wx\tools\Editra\*";                                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
-Source: "wx\tools\Editra\*.py";                              DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\AUTHORS";                           DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\CHANGELOG";                         DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\COPYING";                           DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\NEWS";                              DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\README";                            DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\THANKS";                            DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\FAQ";                               DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\TODO";                              DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\__init__.py";                       DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+Source: "wx\tools\Editra\launcher.py";                       DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
+
+
 
 Source: "wxPython\*.py";                          DestDir: "{app}\%(PKGDIR)s\wxPython"; Components: core
 Source: "wxPython\lib\*.py";                      DestDir: "{app}\%(PKGDIR)s\wxPython\lib"; Components: core
