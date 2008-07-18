@@ -3778,6 +3778,7 @@ SWIGINTERN PyObject *_wrap_Button_GetDefaultSize(PyObject *SWIGUNUSEDPARM(self),
   
   if (!SWIG_Python_UnpackTuple(args,"Button_GetDefaultSize",0,0,0)) SWIG_fail;
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = wxButton::GetDefaultSize();
     wxPyEndAllowThreads(__tstate);

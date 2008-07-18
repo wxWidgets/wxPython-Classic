@@ -7435,36 +7435,36 @@ EVT_SEARCHCTRL_SEARCH_BTN = wx.PyEventBinder( wxEVT_COMMAND_SEARCHCTRL_SEARCH_BT
 
 #---------------------------------------------------------------------------
 
-class _AxBaseWindow(_core.Window):
-    """Proxy of C++ _AxBaseWindow class"""
+class PyAxBaseWindow(_core.Window):
+    """Proxy of C++ PyAxBaseWindow class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
         __init__(self, Window parent, int id=-1, Point pos=DefaultPosition, 
-            Size size=DefaultSize, long style=0, String name=PanelNameStr) -> _AxBaseWindow
+            Size size=DefaultSize, long style=0, String name=PanelNameStr) -> PyAxBaseWindow
         """
-        _controls_._AxBaseWindow_swiginit(self,_controls_.new__AxBaseWindow(*args, **kwargs))
-        self._setOORInfo(self);_AxBaseWindow._setCallbackInfo(self, self, _AxBaseWindow)
+        _controls_.PyAxBaseWindow_swiginit(self,_controls_.new_PyAxBaseWindow(*args, **kwargs))
+        self._setOORInfo(self);PyAxBaseWindow._setCallbackInfo(self, self, PyAxBaseWindow)
 
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
-        return _controls_._AxBaseWindow__setCallbackInfo(*args, **kwargs)
+        return _controls_.PyAxBaseWindow__setCallbackInfo(*args, **kwargs)
 
     def MSWTranslateMessage(*args, **kwargs):
         """MSWTranslateMessage(self, long msg) -> bool"""
-        return _controls_._AxBaseWindow_MSWTranslateMessage(*args, **kwargs)
+        return _controls_.PyAxBaseWindow_MSWTranslateMessage(*args, **kwargs)
 
-_controls_._AxBaseWindow_swigregister(_AxBaseWindow)
+_controls_.PyAxBaseWindow_swigregister(PyAxBaseWindow)
 
-def _PreAxBaseWindow(*args, **kwargs):
-    """_PreAxBaseWindow() -> _AxBaseWindow"""
-    val = _controls_.new__PreAxBaseWindow(*args, **kwargs)
+def PrePyAxBaseWindow(*args, **kwargs):
+    """PrePyAxBaseWindow() -> PyAxBaseWindow"""
+    val = _controls_.new_PrePyAxBaseWindow(*args, **kwargs)
     return val
 
 
-def _AxBaseWindow_FromHWND(*args, **kwargs):
-  """_AxBaseWindow_FromHWND(Window parent, unsigned long _hWnd) -> _AxBaseWindow"""
-  return _controls_._AxBaseWindow_FromHWND(*args, **kwargs)
+def PyAxBaseWindow_FromHWND(*args, **kwargs):
+  """PyAxBaseWindow_FromHWND(Window parent, unsigned long _hWnd) -> PyAxBaseWindow"""
+  return _controls_.PyAxBaseWindow_FromHWND(*args, **kwargs)
 
 

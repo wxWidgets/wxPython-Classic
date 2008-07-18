@@ -3373,6 +3373,11 @@ SWIGINTERN bool wxSound_CreateFromData(wxSound *self,PyObject *data){
 
 #include <wx/mimetype.h>
 
+SWIGINTERN wxFileTypeInfo *new_wxFileTypeInfo(wxArrayString const &sArray){
+             wxCHECK_MSG( sArray.GetCount() >= 4, NULL,
+                          wxT("Sequence must have at least 4 items."));
+             return new wxFileTypeInfo(sArray);
+         }
 SWIGINTERN PyObject *wxFileType_GetMimeType(wxFileType *self){
             wxString str;
             if (self->GetMimeType(&str)) 
@@ -17621,6 +17626,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_delete_FileTypeInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFileTypeInfo *arg1 = (wxFileTypeInfo *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFileTypeInfo, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_FileTypeInfo" "', expected argument " "1"" of type '" "wxFileTypeInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFileTypeInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_new_FileTypeInfoSequence(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxArrayString *arg1 = 0 ;
@@ -17651,7 +17684,7 @@ SWIGINTERN PyObject *_wrap_new_FileTypeInfoSequence(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxFileTypeInfo *)new wxFileTypeInfo((wxArrayString const &)*arg1);
+    result = (wxFileTypeInfo *)new_wxFileTypeInfo((wxArrayString const &)*arg1);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -20986,6 +21019,7 @@ SWIGINTERN PyObject *_wrap_ConfigBase_Get(PyObject *SWIGUNUSEDPARM(self), PyObje
     arg1 = static_cast< bool >(val1);
   }
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxConfigBase *)wxConfigBase::Get(arg1);
     wxPyEndAllowThreads(__tstate);
@@ -21004,6 +21038,7 @@ SWIGINTERN PyObject *_wrap_ConfigBase_Create(PyObject *SWIGUNUSEDPARM(self), PyO
   
   if (!SWIG_Python_UnpackTuple(args,"ConfigBase_Create",0,0,0)) SWIG_fail;
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxConfigBase *)wxConfigBase::Create();
     wxPyEndAllowThreads(__tstate);
@@ -22795,6 +22830,7 @@ SWIGINTERN PyObject *_wrap_new_Config(PyObject *SWIGUNUSEDPARM(self), PyObject *
     arg5 = static_cast< long >(val5);
   }
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxConfig *)new wxConfig((wxString const &)*arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4,arg5);
     wxPyEndAllowThreads(__tstate);
@@ -22942,6 +22978,7 @@ SWIGINTERN PyObject *_wrap_new_FileConfig(PyObject *SWIGUNUSEDPARM(self), PyObje
     arg5 = static_cast< long >(val5);
   }
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxFileConfig *)new wxFileConfig((wxString const &)*arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4,arg5);
     wxPyEndAllowThreads(__tstate);
@@ -35377,6 +35414,7 @@ SWIGINTERN PyObject *_wrap_new_Clipboard(PyObject *SWIGUNUSEDPARM(self), PyObjec
   
   if (!SWIG_Python_UnpackTuple(args,"new_Clipboard",0,0,0)) SWIG_fail;
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxClipboard *)new wxClipboard();
     wxPyEndAllowThreads(__tstate);
@@ -35773,6 +35811,7 @@ SWIGINTERN PyObject *_wrap_Clipboard_Get(PyObject *SWIGUNUSEDPARM(self), PyObjec
   
   if (!SWIG_Python_UnpackTuple(args,"Clipboard_Get",0,0,0)) SWIG_fail;
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxClipboard *)wxClipboard::Get();
     wxPyEndAllowThreads(__tstate);
@@ -36534,6 +36573,7 @@ SWIGINTERN PyObject *_wrap_Display_GetCount(PyObject *SWIGUNUSEDPARM(self), PyOb
   
   if (!SWIG_Python_UnpackTuple(args,"Display_GetCount",0,0,0)) SWIG_fail;
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (unsigned int)wxDisplay::GetCount();
     wxPyEndAllowThreads(__tstate);
@@ -36562,6 +36602,7 @@ SWIGINTERN PyObject *_wrap_Display_GetFromPoint(PyObject *SWIGUNUSEDPARM(self), 
     if ( ! wxPoint_helper(obj0, &arg1)) SWIG_fail;
   }
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (int)wxDisplay::GetFromPoint((wxPoint const &)*arg1);
     wxPyEndAllowThreads(__tstate);
@@ -36592,6 +36633,7 @@ SWIGINTERN PyObject *_wrap_Display_GetFromWindow(PyObject *SWIGUNUSEDPARM(self),
   }
   arg1 = reinterpret_cast< wxWindow * >(argp1);
   {
+    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (int)wxDisplay::GetFromWindow(arg1);
     wxPyEndAllowThreads(__tstate);
@@ -39652,6 +39694,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Sound_swigregister", Sound_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Sound_swiginit", Sound_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_FileTypeInfo", (PyCFunction) _wrap_new_FileTypeInfo, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_FileTypeInfo", (PyCFunction)_wrap_delete_FileTypeInfo, METH_O, NULL},
 	 { (char *)"new_FileTypeInfoSequence", (PyCFunction) _wrap_new_FileTypeInfoSequence, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_NullFileTypeInfo", (PyCFunction)_wrap_new_NullFileTypeInfo, METH_NOARGS, NULL},
 	 { (char *)"FileTypeInfo_IsValid", (PyCFunction)_wrap_FileTypeInfo_IsValid, METH_O, NULL},

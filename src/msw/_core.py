@@ -7758,6 +7758,7 @@ class PyOnDemandOutputWindow:
             self.frame.Destroy()
         self.frame = None
         self.text  = None
+        self.parent = None
 
 
     # These methods provide the file-like output behaviour.

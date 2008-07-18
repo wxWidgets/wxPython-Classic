@@ -3664,7 +3664,18 @@ public:
 };
 
 
-#include <wx/gtk/gnome/gprint.h>
+#if wxUSE_LIBGNOMEPRINT
+    #include <wx/gtk/gnome/gprint.h>
+#else
+    class wxGnomePrintDC: public wxClientDC
+    {
+    public:
+        wxGnomePrintDC( const wxPrintData& ) { wxPyRaiseNotImplemented(); } 
+
+        static void SetResolution(int) {  wxPyRaiseNotImplemented(); } 
+        static int GetResolution() {  wxPyRaiseNotImplemented();  return -1; }
+    };
+#endif
 
 
 #include <wx/graphics.h>

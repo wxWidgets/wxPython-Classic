@@ -3322,6 +3322,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_delete_HtmlLinkInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxHtmlLinkInfo *arg1 = (wxHtmlLinkInfo *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxHtmlLinkInfo, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_HtmlLinkInfo" "', expected argument " "1"" of type '" "wxHtmlLinkInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxHtmlLinkInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_HtmlLinkInfo_GetHref(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxHtmlLinkInfo *arg1 = (wxHtmlLinkInfo *) 0 ;
@@ -17750,6 +17778,7 @@ SWIGINTERN PyObject *HtmlModalHelp_swiginit(PyObject *SWIGUNUSEDPARM(self), PyOb
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_HtmlLinkInfo", (PyCFunction) _wrap_new_HtmlLinkInfo, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_HtmlLinkInfo", (PyCFunction)_wrap_delete_HtmlLinkInfo, METH_O, NULL},
 	 { (char *)"HtmlLinkInfo_GetHref", (PyCFunction)_wrap_HtmlLinkInfo_GetHref, METH_O, NULL},
 	 { (char *)"HtmlLinkInfo_GetTarget", (PyCFunction)_wrap_HtmlLinkInfo_GetTarget, METH_O, NULL},
 	 { (char *)"HtmlLinkInfo_GetEvent", (PyCFunction)_wrap_HtmlLinkInfo_GetEvent, METH_O, NULL},

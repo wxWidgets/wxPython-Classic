@@ -2400,6 +2400,8 @@ class FileTypeInfo(object):
     def __init__(self, *args, **kwargs): 
         """__init__(self, String mimeType, String openCmd, String printCmd, String desc) -> FileTypeInfo"""
         _misc_.FileTypeInfo_swiginit(self,_misc_.new_FileTypeInfo(*args, **kwargs))
+    __swig_destroy__ = _misc_.delete_FileTypeInfo
+    __del__ = lambda self : None;
     def IsValid(*args, **kwargs):
         """IsValid(self) -> bool"""
         return _misc_.FileTypeInfo_IsValid(*args, **kwargs)
