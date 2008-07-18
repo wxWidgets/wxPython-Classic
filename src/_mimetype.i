@@ -45,6 +45,7 @@ public:
                    const wxString& printCmd,
                    const wxString& desc);
 
+    ~wxFileTypeInfo();
 
     // the array elements correspond to the parameters of the ctor above in
     // the same order

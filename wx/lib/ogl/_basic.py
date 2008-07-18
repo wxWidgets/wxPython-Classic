@@ -518,7 +518,7 @@ class Shape(ShapeEvtHandler):
         if not self._regions:
             return
 
-        if i > len(self._regions):
+        if i >= len(self._regions):
             return
 
         region = self._regions[i]
