@@ -1271,7 +1271,7 @@ parameter can be either a window, a sizer, or the zero-based index of
 the item.", "");
         bool IsShown(PyObject* item) {
             wxPyBlock_t blocked = wxPyBeginBlockThreads();
-            wxPySizerItemInfo info = wxPySizerItemTypeHelper(item, false, false);
+            wxPySizerItemInfo info = wxPySizerItemTypeHelper(item, false, true);
             wxPyEndBlockThreads(blocked);
             if ( info.window )
                 return self->IsShown(info.window);
