@@ -432,10 +432,7 @@ class PlateButton(wx.PyControl):
         p_attr = self.GetParent().GetDefaultAttributes()
         my_def = bkgrd == my_attr.colBg
         p_def = self.GetParent().GetBackgroundColour() == p_attr.colBg
-        if my_def and p_def and wx.Platform == '__WXMSW__':
-            if self.DoEraseBackground(dc):
-                brush = wx.TRANSPARENT_BRUSH
-        elif my_def and not p_def:
+        if my_def and not p_def:
             bkgrd = self.GetParent().GetBackgroundColour()
             brush = wx.Brush(bkgrd, wx.SOLID)
         return brush
