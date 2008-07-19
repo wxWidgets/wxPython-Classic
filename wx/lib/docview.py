@@ -2549,10 +2549,10 @@ class DocChildFrame(wx.Frame):
         """
         Activates the current view.
         """
-        # wx.Frame.OnActivate(event)  This is in the wxWindows docview demo but there is no such method in wxPython, so do a Raise() instead
+        event.Skip()
         if self._childView:
             self._childView.Activate(event.GetActive())
-
+        
 
     def OnCloseWindow(self, event):
         """
@@ -2803,6 +2803,7 @@ class DocMDIChildFrame(wx.MDIChildFrame):
         override (but still call) this function in order to set the keyboard
         focus for your subwindow.
         """
+        event.Skip()
         if self._activated != 0:
             return True
         self._activated += 1
