@@ -11,17 +11,19 @@
 import os
 import webbrowser
 import wx
+import wx.lib.scrolledpanel as scrolled
 import wx.lib.platebtn as platebtn
 
 #-----------------------------------------------------------------------------#
 
-class TestPanel(wx.Panel):
+class TestPanel(scrolled.ScrolledPanel):
     def __init__(self, parent, log):
         self.log = log
-        wx.Panel.__init__(self, parent)
+        scrolled.ScrolledPanel.__init__(self, parent, size=(400, 400))
 
         # Layout
         self.__DoLayout()
+        self.SetupScrolling()
 
         # Event Handlers
         self.Bind(wx.EVT_BUTTON, self.OnButton)
@@ -168,6 +170,17 @@ class TestPanel(wx.Panel):
     def OnButton(self, evt):
         self.log.write("BUTTON CLICKED: Id: %d, Label: %s" % \
                        (evt.GetId(), evt.GetEventObject().LabelText))
+
+    def OnChildFocus(self, evt):
+        """Override ScrolledPanel.OnChildFocus to prevent erratic
+        scrolling on wxMac.
+
+        """
+        if wx.Platform != '__WXMAC__':
+            evt.Skip()
+
+        child = evt.GetWindow()
+        self.ScrollChildIntoView(child)
 
     def OnMenu(self, evt):
         """Events from button menus"""
