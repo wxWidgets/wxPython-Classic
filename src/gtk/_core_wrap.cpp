@@ -4663,7 +4663,7 @@ SWIGINTERN bool wxSizer_Show(wxSizer *self,PyObject *item,bool show=true,bool re
         }
 SWIGINTERN bool wxSizer_IsShown(wxSizer *self,PyObject *item){
             wxPyBlock_t blocked = wxPyBeginBlockThreads();
-            wxPySizerItemInfo info = wxPySizerItemTypeHelper(item, false, false);
+            wxPySizerItemInfo info = wxPySizerItemTypeHelper(item, false, true);
             wxPyEndBlockThreads(blocked);
             if ( info.window )
                 return self->IsShown(info.window);
