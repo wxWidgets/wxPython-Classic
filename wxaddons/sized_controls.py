@@ -10,6 +10,7 @@
 # Licence:     wxWindows license
 #----------------------------------------------------------------------
 
+import warnings
 warnings.warn("This module is moving to the wx.lib package.",
               DeprecationWarning, stacklevel=2)
 
