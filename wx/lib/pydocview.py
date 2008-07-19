@@ -1211,6 +1211,7 @@ class DocMDIChildFrame(wx.MDIChildFrame):
         override (but still call) this function in order to set the keyboard
         focus for your subwindow.
         """
+        event.Skip()
         if self._activated != 0:
             return True
         self._activated += 1
