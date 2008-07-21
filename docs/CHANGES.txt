@@ -3,7 +3,7 @@ Recent Changes for wxPython
 
 2.8.8.1
 -------
-*
+* 18-July-2008
 
 wx.richtext: Added wrappers for the RichTextPrinting and
 RichTextPrintout classes.
