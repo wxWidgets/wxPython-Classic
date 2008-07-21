@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo Starting build job in the background...
+(distrib/all/build-all release $* > tmp/release.log 2>&1 & )
+
