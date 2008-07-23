@@ -393,7 +393,6 @@ time)", "");
 
 //---------------------------------------------------------------------------
 
-MustHaveApp(wxConfig);
 
 DocStr(wxConfig,
 "This ConfigBase-derived class will use the registry on Windows,
@@ -415,7 +414,6 @@ public:
 
 
 
-MustHaveApp(wxFileConfig);
 
 DocStr(wxFileConfig,
        "This config class will use a file for storage on all platforms.", "");
