@@ -3131,16 +3131,6 @@ class CommandProcessor(wx.Object):
         self._redoAccelerator = accel
 
 
-    def SetEditMenu(self, menu):
-        """
-        Tells the command processor to update the Undo and Redo items on this
-        menu as appropriate. Set this to NULL if the menu is about to be
-        destroyed and command operations may still be performed, or the
-        command processor may try to access an invalid pointer.
-        """
-        self._editMenu = menu
-
-
     def SetMenuStrings(self):
         """
         Sets the menu labels according to the currently set menu and the
