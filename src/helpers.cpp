@@ -54,6 +54,8 @@
 #include <wx/mimetype.h>
 #include <wx/image.h>
 
+#include <wx/evtloop.h>
+
 //----------------------------------------------------------------------
 
 #if PYTHON_API_VERSION < 1009 && wxUSE_UNICODE
@@ -336,14 +338,21 @@ void wxPyApp::HandleEvent(wxEvtHandler *handler,
 
 bool wxPyApp::OnExceptionInMainLoop()
 {
-    //printf("RecursionCounter: %d\n", wxRecursionCounter::Get());
-
-    // Terminate mainloop only if there are no events remaining on the stack
+    // Terminate the active event loop only if there are no events remaining on the stack or the 
+    // current event loop is a nested loop.
     //
     // Example: eventA -> ... -> gtk_main_iteration()/wxApp::Yield() -> eventB -> ...
     // OnExceptionInMainLoop() will be called for an unhandled exception passing through eventB,
-    // even though eventB was called after manually pumping the event system. 
-    if (wxRecursionCounter::Get() == 0)
+    // even though eventB was called after manually pumping the event system. The mainloop should
+    // remain running to allow eventA to decide what to do with the Python exception. 
+    //
+    // Also, if the active event loop isn't the primary mainloop for the application, shut it 
+    // down regardless of the event recursion counter. This for properly handling an exception 
+    // caught while a modal dialog is open.
+    //
+    // m_mainLoop is a protected member of wxApp.
+    //
+    if (wxRecursionCounter::Get() == 0 || m_mainLoop != wxEventLoopBase::GetActive())
         return false;
     return true;
 }
