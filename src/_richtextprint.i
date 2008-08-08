@@ -46,7 +46,7 @@ enum wxRichTextPageLocation {
  * wxRichTextPrintout
  */
 
-class wxRichTextPrintout : public wxPrintout
+class wxRichTextPrintout : public wxPyPrintout
 {
 public:
     wxRichTextPrintout(const wxString& title = wxT("Printout"));
