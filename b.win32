@@ -5,19 +5,25 @@ if [ "$SWIGDIR" = "" ]; then
   SWIGDIR=$PROJECTS\\SWIG-1.3.29
 fi
 
+if [ "$PYTHON" = "" ]; then
 
-#  Use non-default python?
-case $1 in
-    21 | 2.1) VER=21; shift ;;
-    22 | 2.2) VER=22; shift ;;
-    23 | 2.3) VER=23; shift ;;
-    24 | 2.4) VER=24; shift ;;
-    25 | 2.5) VER=25; shift ;;
+    #  Use non-default python?
+    case $1 in
+	21 | 2.1) VER=21; shift ;;
+	22 | 2.2) VER=22; shift ;;
+	23 | 2.3) VER=23; shift ;;
+	24 | 2.4) VER=24; shift ;;
+	25 | 2.5) VER=25; shift ;;
+	26 | 2.6) VER=26; shift ;;
+	27 | 2.7) VER=27; shift ;;
+	30 | 3.0) VER=30; shift ;;
+	
+	*) VER=25
+    esac
 
-    *) 	VER=24
-esac
+    PYTHON=$TOOLS/python$VER/python.exe
+fi
 
-PYTHON=$TOOLS/python$VER/python.exe
 
 SETUP="$PYTHON -u setup.py"
 $PYTHON -c "import sys;print '\n', sys.version, '\n'"

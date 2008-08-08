@@ -78,11 +78,16 @@ else
     exit 1
 fi
 
+if [ "$CPU" = "AMD64" ]; then
+    DLLDIR=vc_amd64_dll
+else
+    DLLDIR=vc_dll
+fi
 
 echo ------------------
 echo cd $WXWIN/build/msw
 cd $WXWIN/build/msw
-nmake -f .makesetup.mk $WXWIN/lib/vc_dll/$WXLIBDIR/wx/setup.h
+nmake -f .makesetup.mk $WXWIN/lib/$DLLDIR/$WXLIBDIR/wx/setup.h
 if [ ! $? = 0 ]; then error 2; fi
 
 echo ------------------
@@ -128,7 +133,8 @@ cd -
 echo -----------------
 echo --   SUCCESS!  --
 echo -----------------
-date
+date 
+
 # copy DLLs to a dir on the PATH
 # copy /U $WXWIN/lib/vc_dll/*.dll $WXWIN/BIN
 # copy /U $WXWIN/lib/vc_dll/*.pdb $WXWIN/BIN

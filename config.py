@@ -97,7 +97,7 @@ BUILD_DLLWIDGET = 0# Build a module that enables unknown wx widgets
                    # to be loaded from a DLL and to be used from Python.
 
                    # Internet Explorer wrapper (experimental)
-BUILD_ACTIVEX = (os.name == 'nt')  # new version of IEWIN and more
+BUILD_ACTIVEX = (os.name == 'nt' and os.environ.get('CPU',None) != 'AMD64') 
 
 
 CORE_ONLY = 0      # if true, don't build any of the above
@@ -870,8 +870,13 @@ if os.name == 'nt' and  COMPILER == 'msvc':
     WXPLAT = '__WXMSW__'
     GENDIR = 'msw'
 
+    if os.environ['CPU'] == 'AMD64':
+        VCDLL = 'vc_amd64_dll'
+    else:
+        VCDLL = 'vc_dll'
+        
     includes = ['include', 'src',
-                opj(WXDIR, 'lib', 'vc_dll', 'msw'  + libFlag()),
+                opj(WXDIR, 'lib', VCDLL, 'msw'  + libFlag()),
                 opj(WXDIR, 'include'),
                 opj(WXDIR, 'contrib', 'include'),
                 ]
@@ -899,7 +904,7 @@ if os.name == 'nt' and  COMPILER == 'msvc':
     if UNICODE:
         defines.append( ('wxUSE_UNICODE', 1) )
 
-    libdirs = [ opj(WXDIR, 'lib', 'vc_dll') ]
+    libdirs = [ opj(WXDIR, 'lib', VCDLL) ]
     if MONOLITHIC:
         libs = makeLibName('')
     else:
@@ -919,6 +924,7 @@ if os.name == 'nt' and  COMPILER == 'msvc':
 
     cflags = [ '/Gy',
              # '/GX-'  # workaround for internal compiler error in MSVC on some machines
+               '/EHsc',
              ]
     lflags = None
 
@@ -926,6 +932,10 @@ if os.name == 'nt' and  COMPILER == 'msvc':
     # Uncomment these to have debug info for all kinds of builds
     #cflags += ['/Od', '/Z7']
     #lflags = ['/DEBUG', ]
+
+
+# export MSSdk=1
+# export DISTUTILS_USE_SDK=1
 
 
 #----------------------------------------------------------------------
