@@ -189,7 +189,7 @@ Source: "wx\tools\Editra\FAQ";                               DestDir: "{app}\%(P
 Source: "wx\tools\Editra\TODO";                              DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 Source: "wx\tools\Editra\__init__.py";                       DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 Source: "wx\tools\Editra\launcher.py";                       DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
-
+Source: "wx\tools\Editra\Editra";                            DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 
 
 Source: "wxPython\*.py";                          DestDir: "{app}\%(PKGDIR)s\wxPython"; Components: core
