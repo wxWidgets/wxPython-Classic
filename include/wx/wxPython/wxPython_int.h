@@ -121,14 +121,6 @@ typedef wxRect2DDouble  wxRect2D;
 #define wxDEFAULT_STATUSBAR_STYLE wxST_SIZEGRIP
 #endif
 
-// What to do if a python callable leaves an exception unhandled. 
-enum wxPCBH_Err_Action
-{
-    wxPCBH_ERR_THROW,
-    wxPCBH_ERR_PRINT,
-    wxPCBH_ERR_IGNORE,
-};
-
 #ifndef wxPyUSE_EXPORTED_API
 
 void      __wxPyPreStart(PyObject*);
@@ -418,8 +410,8 @@ struct wxPyCoreAPI {
 
     void                (*p_wxPyCBH_setCallbackInfo)(wxPyCallbackHelper& cbh, PyObject* self, PyObject* klass, int incref);
     bool                (*p_wxPyCBH_findCallback)(const wxPyCallbackHelper& cbh, const char* name, bool setGuard);
-    int                 (*p_wxPyCBH_callCallback)(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action);
-    PyObject*           (*p_wxPyCBH_callCallbackObj)(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action);
+    int                 (*p_wxPyCBH_callCallback)(const wxPyCallbackHelper& cbh, PyObject* argTuple);
+    PyObject*           (*p_wxPyCBH_callCallbackObj)(const wxPyCallbackHelper& cbh, PyObject* argTuple);
     void                (*p_wxPyCBH_delete)(wxPyCallbackHelper* cbh);
 
     PyObject*           (*p_wxPyMake_wxObject)(wxObject* source, bool setThisOwn, bool checkEvtHandler);
@@ -604,8 +596,8 @@ public:
 
     void        setSelf(PyObject* self, PyObject* klass, int incref=true);
     bool        findCallback(const char* name, bool setGuard=true) const;
-    int         callCallback(PyObject* argTuple, wxPCBH_Err_Action act=wxPCBH_ERR_PRINT) const;
-    PyObject*   callCallbackObj(PyObject* argTuple, wxPCBH_Err_Action act=wxPCBH_ERR_PRINT) const;
+    int         callCallback(PyObject* argTuple) const;
+    PyObject*   callCallbackObj(PyObject* argTuple) const;
     PyObject*   GetLastFound() const { return m_lastFound; }
 
     void        setRecursionGuard(PyObject* method) const;
@@ -623,8 +615,8 @@ private:
 
 void wxPyCBH_setCallbackInfo(wxPyCallbackHelper& cbh, PyObject* self, PyObject* klass, int incref);
 bool wxPyCBH_findCallback(const wxPyCallbackHelper& cbh, const char* name, bool setGuard=true);
-int  wxPyCBH_callCallback(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action act=wxPCBH_ERR_PRINT);
-PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action act=wxPCBH_ERR_PRINT);
+int  wxPyCBH_callCallback(const wxPyCallbackHelper& cbh, PyObject* argTuple);
+PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject* argTuple);
 void wxPyCBH_delete(wxPyCallbackHelper* cbh);
 
 
@@ -675,9 +667,10 @@ public:
     virtual void ExitMainLoop();
     // virtual int FilterEvent(wxEvent& event); // This one too????
 
+#ifdef wxPyEXCEPTION_THROW
     virtual bool OnExceptionInMainLoop();
     virtual void HandleEvent(wxEvtHandler *handler, wxEventFunction func, wxEvent& event) const;
-
+#endif
 
     // For catching Apple Events
     virtual void MacOpenFile(const wxString& fileName);
@@ -775,7 +768,7 @@ extern wxPyApp *wxPythonApp;
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
             wxPyTuple args(NARGS);                                                              \
             wxPyObject ro;                                                                      \
-            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
+            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT);                   \
             EXTRACT;                                                                            \
         } else {                                                                                \
             blocker.Unblock();                                                                  \
@@ -793,7 +786,7 @@ extern wxPyApp *wxPythonApp;
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
             wxPyTuple args(NARGS);                                                              \
             wxPyObject ro;                                                                      \
-            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
+            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT);                   \
             EXTRACT;                                                                            \
         } else {                                                                                \
             blocker.Unblock();                                                                  \
@@ -808,7 +801,7 @@ extern wxPyApp *wxPythonApp;
         wxPyThreadBlocker blocker;                                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
             wxPyTuple args(NARGS);                                                              \
-            wxPyCBH_callCallback(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
+            wxPyCBH_callCallback(m_myInst, INSERT);                   \
         } else {                                                                                \
             blocker.Unblock();                                                                  \
             CALLPARENT;                                                                          \
@@ -821,7 +814,7 @@ extern wxPyApp *wxPythonApp;
         wxPyThreadBlocker blocker;                                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                                \
             wxPyTuple args(NARGS);                                                              \
-            wxPyCBH_callCallback(m_myInst, INSERT, wxPCBH_ERR_THROW);                   \
+            wxPyCBH_callCallback(m_myInst, INSERT);                   \
         } else {                                                                                \
             blocker.Unblock();                                                                  \
             CALLPARENT;                                                                          \
@@ -838,7 +831,7 @@ extern wxPyApp *wxPythonApp;
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
             wxPyTuple args(NARGS);                                                          \
             wxPyObject ro;                                                                  \
-            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);               \
+            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT);               \
             EXTRACT;                                                                         \
         }                                                                                   \
         return RETURN;                                                                              \
@@ -853,7 +846,7 @@ extern wxPyApp *wxPythonApp;
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
             wxPyTuple args(NARGS);                                                          \
             wxPyObject ro;                                                                  \
-            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT, wxPCBH_ERR_THROW);               \
+            ro = wxPyCBH_callCallbackObj(m_myInst, INSERT);               \
             EXTRACT;                                                                        \
         }                                                                                   \
         return RETURN;                                                                             \
@@ -865,7 +858,7 @@ extern wxPyApp *wxPythonApp;
         wxPyThreadBlocker blocker;                                                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
             wxPyTuple args(NARGS);                                                          \
-            wxPyCBH_callCallback(m_myInst, INSERT, wxPCBH_ERR_THROW);                       \
+            wxPyCBH_callCallback(m_myInst, INSERT);                       \
         }                                                                                   \
     }
 
@@ -875,7 +868,7 @@ extern wxPyApp *wxPythonApp;
         wxPyThreadBlocker blocker;                                                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {                            \
             wxPyTuple args(NARGS);                                                          \
-            wxPyCBH_callCallback(m_myInst, INSERT, wxPCBH_ERR_THROW);                       \
+            wxPyCBH_callCallback(m_myInst, INSERT);                       \
         }                                                                                   \
     }
 
@@ -887,7 +880,7 @@ extern wxPyApp *wxPythonApp;
         PYSETFUNC(#CBNAME);                                                                     \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
             wxPyObject ro;                                                  \
-            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL); \
             EXTRACT;                                                        \
         } else {                                                            \
             blocker.Unblock();                                              \
@@ -904,7 +897,7 @@ extern wxPyApp *wxPythonApp;
         DECOUT;                                                             \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
             wxPyObject ro;                                                  \
-            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL); \
             EXTRACT;                                                        \
         } else {                                                            \
             blocker.Unblock();                                              \
@@ -918,7 +911,7 @@ extern wxPyApp *wxPythonApp;
         bool found;                                                         \
         wxPyThreadBlocker blocker;                                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
-            wxPyCBH_callCallback(m_myInst, NULL, wxPCBH_ERR_THROW);         \
+            wxPyCBH_callCallback(m_myInst, NULL);         \
         } else {                                                            \
             blocker.Unblock();                                              \
             CALLPARENT;                                                     \
@@ -930,7 +923,7 @@ extern wxPyApp *wxPythonApp;
         bool found;                                                         \
         wxPyThreadBlocker blocker;                                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
-            wxPyCBH_callCallback(m_myInst, NULL, wxPCBH_ERR_THROW);         \
+            wxPyCBH_callCallback(m_myInst, NULL);         \
         } else {                                                            \
             blocker.Unblock();                                              \
             CALLPARENT;                                                     \
@@ -945,7 +938,7 @@ extern wxPyApp *wxPythonApp;
         DECOUT;                                                             \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
             wxPyObject ro;                                                  \
-            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL); \
             EXTRACT;                                                        \
         }                                                                   \
         return RETURN;                                                             \
@@ -959,7 +952,7 @@ extern wxPyApp *wxPythonApp;
         DECOUT;                                                             \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
             wxPyObject ro;                                                  \
-            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW); \
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL); \
             EXTRACT;                                                        \
         }                                                                   \
         return RETURN;                                                             \
@@ -970,7 +963,7 @@ extern wxPyApp *wxPythonApp;
         bool found;                                                         \
         wxPyThreadBlocker blocker;                                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
-            wxPyCBH_callCallback(m_myInst, NULL, wxPCBH_ERR_THROW);         \
+            wxPyCBH_callCallback(m_myInst, NULL);         \
         }                                                                   \
     }
 
@@ -979,7 +972,7 @@ extern wxPyApp *wxPythonApp;
         bool found;                                                         \
         wxPyThreadBlocker blocker;                                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #LOOKUP))) {            \
-            ro = wxPyCBH_callCallback(m_myInst, NULL, wxPCBH_ERR_THROW);    \
+            ro = wxPyCBH_callCallback(m_myInst, NULL);    \
         }                                                                   \
     }
 
@@ -2093,7 +2086,7 @@ extern wxPyApp *wxPythonApp;
         wxPyThreadBlocker blocker;                                              \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
             wxPySequence ro;                                                    \
-            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW);     \
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL);     \
             if (ro.Ok()) {                                                      \
                 if (ro.IsSequence() && ro.Size() == 2)                          \
                     ro >> *a >> *b;                                             \

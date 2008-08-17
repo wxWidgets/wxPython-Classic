@@ -49,7 +49,7 @@ public:
 
         if (wxPyCBH_findCallback(self->m_myInst, "Clone")) {
             wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(self->m_myInst, NULL, wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(self->m_myInst, NULL);
             if (ro.Ok())
                 wxPyConvertSwigPtr(ro.Get(), (void **)&ptr, wxT("wxPyValidator"));
         }

@@ -473,8 +473,7 @@ public:
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawTab"))) {
             wxPyTuple args(5);
             wxPySequence ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, args << dc << wnd << pane << in_rect << close_button_state,
-                    wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, args << dc << wnd << pane << in_rect << close_button_state);
             if (ro.Ok()) {
                 if (ro.IsSequence() && ro.Size() == 3)
                     ro >> *out_tab_rect >> *out_button_rect >> *x_extent;
@@ -506,8 +505,7 @@ public:
         if ((found = wxPyCBH_findCallback(m_myInst, "DrawButton"))) {
             wxPyTuple args(6);
             wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, args << dc << wnd << in_rect << bitmap_id << button_state << orientation,
-                    wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, args << dc << wnd << in_rect << bitmap_id << button_state << orientation);
             if (ro.Ok() && !wxRect_helper(ro.Get(), &out_rect)) {
                 PyErr_SetString(PyExc_TypeError, errmsg);
                 wxThrowCppException();
@@ -536,8 +534,7 @@ public:
         if ((found = wxPyCBH_findCallback(m_myInst, "GetTabSize"))) {
             wxPyTuple args(6);
             wxPySequence ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, args << dc << wnd << caption << bitmap << active << close_button_state,
-                    wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, args << dc << wnd << caption << bitmap << active << close_button_state);
             if (ro.Ok()) {
                 if (ro.IsSequence() && ro.Size() == 2)
                     ro >> rv >> *x_extent;

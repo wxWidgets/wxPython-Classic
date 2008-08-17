@@ -93,22 +93,9 @@ inline wxPyCoreAPI* wxPyGetCoreAPIPtr()
 #define wxPyCBH_setCallbackInfo(a, b, c, d)     (wxPyGetCoreAPIPtr()->p_wxPyCBH_setCallbackInfo(a,b,c,d))
 #define wxPyCBH_findCallback(a, b)              (wxPyGetCoreAPIPtr()->p_wxPyCBH_findCallback(a, b, true))
 #define wxPyCBH_findCallback2(a, b, c)          (wxPyGetCoreAPIPtr()->p_wxPyCBH_findCallback(a, b, c))
-//#define wxPyCBH_callCallbackThrow(a, b)         (wxPyGetCoreAPIPtr()->p_wxPyCBH_callCallback(a, b, wxPCBH_ERR_THROW))
-//#define wxPyCBH_callCallbackObjThrow(a, b)      (wxPyGetCoreAPIPtr()->p_wxPyCBH_callCallbackObj(a, b, wxPCBH_ERR_THROW))
-//#define wxPyCBH_callCallback(a, b)              (wxPyGetCoreAPIPtr()->p_wxPyCBH_callCallback(a, b, wxPCBH_ERR_PRINT))
-//#define wxPyCBH_callCallbackObj(a, b)           (wxPyGetCoreAPIPtr()->p_wxPyCBH_callCallbackObj(a, b, wxPCBH_ERR_PRINT))
+#define wxPyCBH_callCallback(a, b)              (wxPyGetCoreAPIPtr()->p_wxPyCBH_callCallback(a, b))
+#define wxPyCBH_callCallbackObj(a, b)           (wxPyGetCoreAPIPtr()->p_wxPyCBH_callCallbackObj(a, b))
 #define wxPyCBH_delete(a)                       (wxPyGetCoreAPIPtr()->p_wxPyCBH_delete(a))
-//#if 0
-//XXX: Add the default action argument
-inline int wxPyCBH_callCallback(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action act)
-{
-    return wxPyGetCoreAPIPtr()->p_wxPyCBH_callCallback(cbh, argTuple, act); 
-}
-inline PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action act)
-{
-    return wxPyGetCoreAPIPtr()->p_wxPyCBH_callCallbackObj(cbh, argTuple, act);
-}
-//#endif
 
 #define wxPyMake_wxObject(a,b)                  (wxPyGetCoreAPIPtr()->p_wxPyMake_wxObject(a,b,true))
 #define wxPyMake_wxObject2(a,b,c)               (wxPyGetCoreAPIPtr()->p_wxPyMake_wxObject(a,b,c))

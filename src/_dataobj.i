@@ -438,7 +438,7 @@ bool wxPyDataObjectSimple::GetDataHere(void *buf) const {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "GetDataHere")) {
         wxPyObject ro;
-        ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW);
+        ro = wxPyCBH_callCallbackObj(m_myInst, NULL);
         if (ro.Ok()) {
             rval = (ro.Get() != Py_None && PyString_Check(ro.Get()));
             if (rval)
@@ -454,7 +454,7 @@ bool wxPyDataObjectSimple::SetData(size_t len, const void *buf) {
     bool rval = false;
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "SetData")) {
-        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(s#)", buf, len), wxPCBH_ERR_THROW);
+        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(s#)", buf, len));
     }
     return rval;
 }

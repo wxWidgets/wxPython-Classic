@@ -3563,7 +3563,7 @@ void wxPyPrintout::GetPageInfo(int *minPage, int *maxPage, int *pageFrom, int *p
 
     if ((found = wxPyCBH_findCallback(m_myInst, "GetPageInfo"))) {
         wxPySequence result;
-        result = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW);
+        result = wxPyCBH_callCallbackObj(m_myInst, NULL);
         if (result.Ok()) {
             if (result.IsSequence() && result.Size() == 4)
                 result >> *minPage >> *maxPage >> *pageFrom >> *pageTo;

@@ -164,8 +164,7 @@ public:
             wxString className = event.GetClassInfo()->GetClassName();
             wxPyTuple args(1);
 
-            rval = wxPyCBH_callCallback(m_myInst, args << wxPyConstructObject((void*)&event, className), 
-                                         wxPCBH_ERR_THROW);
+            rval = wxPyCBH_callCallback(m_myInst, args << wxPyConstructObject((void*)&event, className)); 
         } else {
             blocker.Unblock();        
             rval = wxEvtHandler::ProcessEvent(event);

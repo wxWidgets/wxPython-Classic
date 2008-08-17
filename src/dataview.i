@@ -555,7 +555,7 @@ public:
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
             wxPyTuple args(2);
             wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, args << item << col, wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, args << item << col);
             if (ro.Ok())
                 variant = wxVariant_in_helper(ro.Get());
         }
@@ -725,7 +725,7 @@ public:
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
             wxPyTuple args(2);
             wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, args << row << col, wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, args << row << col);
             if (ro.Ok())
                 variant = wxVariant_in_helper(ro.Get());
         }
@@ -1112,7 +1112,7 @@ public:
 
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
             wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, NULL, wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, NULL);
             if (ro.Ok())
                 value = wxVariant_in_helper(ro.Get());
         }
@@ -1135,7 +1135,7 @@ public:
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValueFromEditorCtrl"))) {
             wxPyTuple args(1);
             wxPyObject ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, args << editor, wxPCBH_ERR_THROW);
+            ro = wxPyCBH_callCallbackObj(m_myInst, args << editor);
             if (ro.Ok())
                 value = wxVariant_in_helper(ro.Get());
         }

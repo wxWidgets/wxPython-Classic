@@ -197,7 +197,7 @@ bool wxPyApp::OnInitGui() {
     wxApp::OnInitGui();  // in this case always call the base class version
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "OnInitGui"))
-        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+        rval = wxPyCBH_callCallback(m_myInst, NULL);
     return rval;
 }
 
@@ -209,7 +209,7 @@ int wxPyApp::OnExit() {
     //Propogate Python exception if main loop terminated with wxThrowPyException()
     if (!PyErr_Occurred()) {
         if (wxPyCBH_findCallback(m_myInst, "OnExit"))
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+            rval = wxPyCBH_callCallback(m_myInst, NULL);
         blocker.Unblock();
         wxApp::OnExit();  // in this case always call the base class version
     }
@@ -226,7 +226,7 @@ void wxPyApp::ExitMainLoop() {
     //Propogate Python exception if main loop terminated with wxThrowPyException()
     if (!PyErr_Occurred()) {
         if ((found = wxPyCBH_findCallback(m_myInst, "ExitMainLoop")))
-            wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+            wxPyCBH_callCallback(m_myInst, NULL);
         blocker.Unblock();
         if (! found)
             wxApp::ExitMainLoop();
@@ -265,17 +265,14 @@ void wxPyApp::OnAssertFailure(const wxChar *file,
     bool found;
     blocker.Block();
     if ((found = wxPyCBH_findCallback(m_myInst, "OnAssert"))) {
-        wxPyObject fso = wx2PyString(file);
-        wxPyObject cso = wx2PyString(file);
+        wxPyTuple args(4);
         wxPyObject mso;
         if (msg != NULL)
-            mso = wx2PyString(file);
+            mso = wx2PyString(msg);
         else {
             mso.Ref(Py_None);
         }
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OiOO)", 
-                    fso.Get(), line, cso.Get(), mso.Get()), 
-                    wxPCBH_ERR_THROW);
+        wxPyCBH_callCallback(m_myInst, args << file << line << file << mso);
     }
     blocker.Unblock();
 
@@ -328,12 +325,21 @@ void wxPyApp::OnAssertFailure(const wxChar *file,
 }
 #endif
 
+#ifdef wxPyEXCEPTION_THROW
 void wxPyApp::HandleEvent(wxEvtHandler *handler,
                               wxEventFunction func,
                               wxEvent& event) const
 {
     wxRecursionCounter counter;
     (handler->*func)(event);
+
+    //XXX: Testing
+    bool found;
+    wxPyThreadBlocker blocker;
+    if ((found = wxPyCBH_findCallback(m_myInst, "EventTestException"))) {
+        wxPyTuple args(2);
+        wxPyCBH_callCallback(m_myInst, args << event.GetEventType() << event.GetId());
+    }
 }
 
 bool wxPyApp::OnExceptionInMainLoop()
@@ -356,15 +362,15 @@ bool wxPyApp::OnExceptionInMainLoop()
         return false;
     return true;
 }
-
+#endif
 
     // For catching Apple Events
 void wxPyApp::MacOpenFile(const wxString &fileName)
 {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "MacOpenFile")) {
-        wxPyObject s = wx2PyString(fileName);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s.Get()), wxPCBH_ERR_THROW);
+        wxPyTuple args(1);
+        wxPyCBH_callCallback(m_myInst, args << fileName);
     }
 }
 
@@ -372,8 +378,8 @@ void wxPyApp::MacOpenURL(const wxString &url)
 {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "MacOpenURL")) {
-        wxPyObject s = wx2PyString(url);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s.Get()), wxPCBH_ERR_THROW);
+        wxPyTuple args(1);
+        wxPyCBH_callCallback(m_myInst, args << url);
     }
 }
 
@@ -381,8 +387,8 @@ void wxPyApp::MacPrintFile(const wxString &fileName)
 {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "MacPrintFile")) {
-        wxPyObject s = wx2PyString(fileName);
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s.Get()), wxPCBH_ERR_THROW);
+        wxPyTuple args(1);
+        wxPyCBH_callCallback(m_myInst, args << fileName);
     }
 }
 
@@ -390,14 +396,14 @@ void wxPyApp::MacNewFile()
 {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "MacNewFile"))
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+        wxPyCBH_callCallback(m_myInst, NULL);
 }
 
 void wxPyApp::MacReopenApp()
 {
     wxPyThreadBlocker blocker;
     if (wxPyCBH_findCallback(m_myInst, "MacReopenApp"))
-        wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"), wxPCBH_ERR_THROW);
+        wxPyCBH_callCallback(m_myInst, NULL);
 }
 
 
@@ -1692,8 +1698,16 @@ static void wxPyCRaise(const wxString &filename, int line, const wxString &func,
 // This function is a noop if there is no current exception.
 void wxThrowPyException()
 {
-    if (PyErr_Occurred())
-        throw wxPyException();
+    if (!PyErr_Occurred())
+        return;
+
+#ifdef wxPyEXCEPTION_THROW
+    throw wxPyException();
+#elif wxPyEXCEPTION_PRINT
+    PyErr_Print();
+#elif
+#error Must define wxPyEXCEPTION_THROW or wxPyEXCEPTION_PRINT.
+#endif
 }
 
 // Propagate an error raised in C++.
@@ -1712,7 +1726,8 @@ void wxThrowCppException()
 
     Py_XDECREF(tb);
     wxPyCRaise(wxPyCFileName, wxPyCFuncLine, wxPyCFuncName, type, val);
-    throw wxPyException();
+
+    wxThrowPyException();
 }
 
 // Set name of current C++ function.
@@ -2001,11 +2016,11 @@ bool wxPyCallbackHelper::findCallback(const char* name, bool setGuard) const {
 }
 
 
-int wxPyCallbackHelper::callCallback(PyObject* argTuple, wxPCBH_Err_Action act) const {
+int wxPyCallbackHelper::callCallback(PyObject* argTuple) const {
     PyObject    *result;
     int         retval = false;
 
-    result = callCallbackObj(argTuple, act);
+    result = callCallbackObj(argTuple);
     if (result) {                       // Assumes an integer return type...
         retval = PyInt_AsLong(result);
         Py_DECREF(result);
@@ -2016,8 +2031,8 @@ int wxPyCallbackHelper::callCallback(PyObject* argTuple, wxPCBH_Err_Action act) 
 
 // Invoke the Python callable object, returning the raw PyObject return
 // value.  Caller should DECREF the return value and also manage the GIL.
-// If act == wxPCBH_ERR_THROW, caller(s) must be exception safe.
-PyObject* wxPyCallbackHelper::callCallbackObj(PyObject* argTuple, wxPCBH_Err_Action act) const {
+// If wxPyEXCEPTION_THROW is defined, caller(s) must be exception safe.
+PyObject* wxPyCallbackHelper::callCallbackObj(PyObject* argTuple) const {
     PyObject* result;
 
     // Save a copy of the pointer in case the callback generates another
@@ -2035,19 +2050,9 @@ PyObject* wxPyCallbackHelper::callCallbackObj(PyObject* argTuple, wxPCBH_Err_Act
     
     Py_DECREF(argTuple);
     Py_DECREF(method);
-    if (!result) {
-        switch (act) {
-        case wxPCBH_ERR_THROW:
-            // DECREFs occur before this spot, so throwing is OK.
-            wxThrowPyException();
-            break;
-        case wxPCBH_ERR_PRINT:
-            PyErr_Print();
-            break;
-        case wxPCBH_ERR_IGNORE:
-            break;
-        }
-    }
+    if (!result)
+        wxThrowPyException();
+
     return result;
 }
 
@@ -2060,12 +2065,12 @@ bool wxPyCBH_findCallback(const wxPyCallbackHelper& cbh, const char* name, bool 
     return cbh.findCallback(name, setGuard);
 }
 
-int  wxPyCBH_callCallback(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action act) {
-    return cbh.callCallback(argTuple, act);
+int  wxPyCBH_callCallback(const wxPyCallbackHelper& cbh, PyObject* argTuple) {
+    return cbh.callCallback(argTuple);
 }
 
-PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject* argTuple, wxPCBH_Err_Action act) {
-    return cbh.callCallbackObj(argTuple, act);
+PyObject* wxPyCBH_callCallbackObj(const wxPyCallbackHelper& cbh, PyObject* argTuple) {
+    return cbh.callCallbackObj(argTuple);
 }
 
 

@@ -222,6 +222,8 @@ ARCH = ''       # If this is set, add an -arch XXX flag to cflags
                 # Only tested (and presumably, needed) for OS X universal
                 # binary builds created using lipo.
 
+PROPAGATE_EXCEPTIONS = 1  # Propagate exceptions in event handlers. wxWidgets must 
+                          # be built to support exceptions.
 
 #----------------------------------------------------------------------
 
@@ -281,7 +283,7 @@ for flag in [ 'BUILD_ACTIVEX', 'BUILD_DLLWIDGET',
              'CORE_ONLY', 'PREP_ONLY', 'USE_SWIG', 'UNICODE',
              'UNDEF_NDEBUG', 'NO_SCRIPTS', 'NO_HEADERS', 'BUILD_RENAMERS',
              'FULL_DOCS', 'INSTALL_MULTIVERSION', 'EP_ADD_OPTS', 'EP_FULL_VER',
-             'MONOLITHIC', 'FINAL', 'HYBRID', ]:
+             'MONOLITHIC', 'FINAL', 'HYBRID', 'PROPAGATE_EXCEPTIONS', ]:
     for x in range(len(sys.argv)):
         if sys.argv[x].find(flag) == 0:
             pos = sys.argv[x].find('=') + 1
@@ -1074,8 +1076,10 @@ WXPORT="%s"
 MONOLITHIC=%d
 FINAL=%d
 HYBRID=%d
+PROPAGATE_EXCEPTIONS=%d
 """ % (UNICODE, UNDEF_NDEBUG, INSTALL_MULTIVERSION, FLAVOUR, EP_ADD_OPTS,
-       EP_FULL_VER, SYS_WX_CONFIG, WXPORT, MONOLITHIC, FINAL, HYBRID)
+       EP_FULL_VER, SYS_WX_CONFIG, WXPORT, MONOLITHIC, FINAL, HYBRID,
+       PROPAGATE_EXCEPTIONS, )
 
 try: 
     from build_options import *
@@ -1157,6 +1161,16 @@ depends = [ #'include/wx/wxPython/wxPython.h',
             #'include/wx/wxPython/wxPython_int.h',
             #'src/pyclasses.h',
             ]
+
+#----------------------------------------------------------------------
+# Exception handling options
+#----------------------------------------------------------------------
+
+if PROPAGATE_EXCEPTIONS:
+    defines.append(("wxPyEXCEPTION_THROW", None))
+else:
+    defines.append(("wxPyEXCEPTION_PRINT", None))
+
 
 #----------------------------------------------------------------------
 

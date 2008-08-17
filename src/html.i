@@ -931,7 +931,7 @@ wxHtmlOpeningStatus wxPyHtmlWindow::OnOpeningURL(wxHtmlURLType type,
     if ((found = wxPyCBH_findCallback(m_myInst, "OnOpeningURL"))) {
         wxPyTuple args(2);
         wxPyObject ro;
-        ro = wxPyCBH_callCallbackObj(m_myInst, args << type << url, wxPCBH_ERR_THROW);
+        ro = wxPyCBH_callCallbackObj(m_myInst, args << type << url);
         if (ro.Ok()) {
             if (PyString_Check(ro.Get())
 #if PYTHON_API_VERSION >= 1009
