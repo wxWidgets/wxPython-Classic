@@ -5,7 +5,7 @@ import  wx.calendar     as  cal
 
 class TestDateControl(pop.PopupControl):
     def __init__(self,*_args,**_kwargs):
-        apply(pop.PopupControl.__init__,(self,) + _args,_kwargs)
+        pop.PopupControl.__init__(self, *_args, **_kwargs)
 
         self.win = wx.Window(self,-1,pos = (0,0),style = 0)
         self.cal = cal.CalendarCtrl(self.win,-1,pos = (0,0))
@@ -20,6 +20,7 @@ class TestDateControl(pop.PopupControl):
         # Event registration for date selection
         self.cal.Bind(cal.EVT_CALENDAR_DAY, self.OnCalSelected)
 
+
     # Method called when a day is selected in the calendar
     def OnCalSelected(self,evt):
         self.PopDown()
@@ -30,6 +31,7 @@ class TestDateControl(pop.PopupControl):
                                           date.GetMonth()+1,
                                           date.GetYear()))
         evt.Skip()
+
 
     # Method overridden from PopupControl
     # This method is called just before the popup is displayed
@@ -63,7 +65,7 @@ class TestPanel(wx.Panel):
     def __init__(self, parent, log):
         self.log = log
         wx.Panel.__init__(self, parent, -1)
-        date = TestDateControl(self, -1, pos = (30,30), size = (120,22))
+        date = TestDateControl(self, -1, pos = (30,30))
 
 #----------------------------------------------------------------------
 
