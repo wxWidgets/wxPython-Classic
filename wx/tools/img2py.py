@@ -110,13 +110,20 @@ def img2py(image_file, python_file,
            imgName=DEFAULT_IMGNAME,
            icon=DEFAULT_ICON,
            catalog=DEFAULT_CATALOG,
-           functionCompatibile=DEFAULT_COMPATIBLE):
+           functionCompatible=DEFAULT_COMPATIBLE,
+           functionCompatibile=-1,   # typo version for backward compatibility
+           ):
     """
     Converts an image file to a data structure written in a Python file
     --image_file: string; the path of the source image file
     --python_file: string; the path of the destination python file
     --other arguments: they are equivalent to the command-line arguments
     """
+    
+    # was the typo version used?
+    if functionCompatibile != -1:
+        functionCompatible = functionCompatibile
+        
     global app
     if not wx.GetApp():
         app = wx.PySimpleApp()
@@ -213,7 +220,7 @@ def img2py(image_file, python_file,
             out.write("index.append('%s')\n" % imgName)
             out.write("catalog['%s'] = %s\n" % (imgName, varName))
 
-        if functionCompatibile:
+        if functionCompatible:
             out.write("get%sData = %s.GetData\n" % (varName, varName))
             out.write("get%sImage = %s.GetImage\n" % (varName, varName))
             out.write("get%sBitmap = %s.GetBitmap\n" % (varName, varName))

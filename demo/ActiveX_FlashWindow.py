@@ -10,7 +10,7 @@ from Main import opj
 
 class TestPanel(wx.Panel):
     def __init__(self, parent, log):
-        wx.Panel.__init__(self, parent, -1)
+        wx.Panel.__init__(self, parent, style=0)
         self.pdf = None
 
         sizer = wx.BoxSizer(wx.VERTICAL)

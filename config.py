@@ -869,7 +869,7 @@ if os.name == 'nt' and  COMPILER == 'msvc':
     WXPLAT = '__WXMSW__'
     GENDIR = 'msw'
 
-    if os.environ['CPU'] == 'AMD64':
+    if os.environ.get('CPU', None) == 'AMD64':
         VCDLL = 'vc_amd64_dll'
     else:
         VCDLL = 'vc_dll'
