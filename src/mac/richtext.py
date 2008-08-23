@@ -3944,7 +3944,7 @@ RICHTEXT_PAGE_ALL = _richtext.RICHTEXT_PAGE_ALL
 RICHTEXT_PAGE_LEFT = _richtext.RICHTEXT_PAGE_LEFT
 RICHTEXT_PAGE_CENTRE = _richtext.RICHTEXT_PAGE_CENTRE
 RICHTEXT_PAGE_RIGHT = _richtext.RICHTEXT_PAGE_RIGHT
-class RichTextPrintout(object):
+class RichTextPrintout(_windows.Printout):
     """Proxy of C++ RichTextPrintout class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -3970,7 +3970,7 @@ class RichTextPrintout(object):
         return _richtext.RichTextPrintout_GetHeaderFooterData(*args, **kwargs)
 
     def SetMargins(*args, **kwargs):
-        """SetMargins(self, int top=252, int bottom=252, int left=252, int right=252)"""
+        """SetMargins(self, int top=254, int bottom=254, int left=254, int right=254)"""
         return _richtext.RichTextPrintout_SetMargins(*args, **kwargs)
 
     def CalculateScaling(*args, **kwargs):

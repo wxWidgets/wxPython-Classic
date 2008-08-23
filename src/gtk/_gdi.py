@@ -239,7 +239,15 @@ class Colour(_core.Object):
 
     asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                  return str(self.Get(True))
-    def __repr__(self):                 return 'wx.Colour' + str(self.Get(True))
+
+    # help() can access the stock colors before they are created,  
+    # so make sure there is a this attribute before calling any wrapper method.
+    def __repr__(self): 
+        if hasattr(self, 'this'):
+            return 'wx.Colour' + str(self.Get(True))
+        else:
+            return 'wx.Colour()'
+
     def __len__(self):                  return len(self.Get())
     def __getitem__(self, index):       return self.Get()[index]
     def __nonzero__(self):              return self.IsOk()
