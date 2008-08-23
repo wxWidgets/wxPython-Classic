@@ -200,6 +200,10 @@ except NameError:
 
 
 def main():
+    # Need to handle case of starting this file using python
+    # rather than starting this as an executable with ./
+    if not sys.argv[0].startswith(r"./"):
+        sys.argv[0] = "python %s" % sys.argv[0]
     if len(sys.argv) > 1 and sys.argv[1] == "-doit":
         inst = cPickle.loads(urllib.unquote(sys.argv[2]))
         inst.doUninstall()
