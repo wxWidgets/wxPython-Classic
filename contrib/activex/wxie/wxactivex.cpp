@@ -1031,7 +1031,8 @@ wxVariant& wxActiveXEvent::operator[] (int idx)
 
 wxVariant& wxActiveXEvent::operator[] (wxString name)
 {
-    for (int i = 0; i < m_params.GetCount(); i++)
+    int i;
+    for (i = 0; i < m_params.GetCount(); i++)
     {
         if (name.CmpNoCase(m_params[i].GetName()) == 0)
             return m_params[i];
@@ -1562,8 +1563,9 @@ wxVariant wxActiveX::CallMethod(const wxString& name, wxVariant args[], int narg
 
     if (vargs)
     {
+        int i; 
         // init type of vargs
-        for (int i = 0; i < nargs; i++)
+        for (i = 0; i < nargs; i++)
             vargs[nargs - i - 1].vt = func.params[i].vt;
 
         // put data
