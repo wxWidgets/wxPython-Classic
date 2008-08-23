@@ -143,6 +143,8 @@ wx/tools/Editra/include/python2.5
 wx/tools/Editra/include/python2.5/darwin
 wx/tools/Editra/include/python2.5/win32
 wx/tools/Editra/locale
+wx/tools/Editra/locale/cs_CZ
+wx/tools/Editra/locale/cs_CZ/LC_MESSAGES
 wx/tools/Editra/locale/de_DE
 wx/tools/Editra/locale/de_DE/LC_MESSAGES
 wx/tools/Editra/locale/en_US
