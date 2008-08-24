@@ -31,11 +31,15 @@
 
 import sys, os, time, traceback, types
 
-import wx                  # This module uses the new wx namespace
+import wx              
 import wx.aui
 import wx.html
 
-import images
+import version
+
+# We won't import the images module yet, but we'll assign it to this
+# global when we do.
+images = None
 
 # For debugging
 ##wx.Trap();
@@ -2179,7 +2183,7 @@ class wxPythonDemoTree(ExpansionState, TreeBaseClass):
         imgList.Add(images.catalog["custom"].GetBitmap())
 
         self.AssignImageList(imgList)
-        
+
 
     def GetItemIdentity(self, item):
         return self.GetPyData(item)
@@ -2189,11 +2193,22 @@ class wxPythonDemoTree(ExpansionState, TreeBaseClass):
 
 class MyApp(wx.App):
     def OnInit(self):
-        """
-        Create and show the splash screen.  It will then create and show
-        the main frame when it is time to do so.
-        """
 
+        # Check runtime version
+        if version.VERSION_STRING != wx.VERSION_STRING:
+            wx.MessageBox(caption="Warning",
+                          message="You're using version %s of wxPython, but this copy of the demo was written for version %s.\n"
+                          "There may be some version incompatibilities..."
+                          % (wx.VERSION_STRING, version.VERSION_STRING))
+
+        # Now that we've warned the user about possibile problems,
+        # lets import images
+        import images as i
+        global images
+        images = i
+        
+        # Create and show the splash screen.  It will then create and show
+        # the main frame when it is time to do so.
         wx.SystemOptions.SetOptionInt("mac.window-plain-transition", 1)
         self.SetAppName("wxPyDemo")
         
