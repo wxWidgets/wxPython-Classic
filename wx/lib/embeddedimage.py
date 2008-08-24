@@ -16,6 +16,12 @@ import base64
 import cStringIO
 import wx
 
+try:
+    b64decode = base64.b64decode
+except AttributeError:
+    b64decode = base64.decodestring
+    
+
 class PyEmbeddedImage(object):
     """
     PyEmbeddedImage is primarily intended to be used by code generated
@@ -52,7 +58,7 @@ class PyEmbeddedImage(object):
     def GetImage(self):
         data = self.data
         if self.isBase64:
-            data = base64.b64decode(self.data)
+            data = b64decode(self.data)
         stream = cStringIO.StringIO(data)
         return wx.ImageFromStream(stream)
 

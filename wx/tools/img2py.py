@@ -90,6 +90,11 @@ import tempfile
 import wx
 import img2img
 
+try:
+    b64encode = base64.b64encode
+except AttributeError:
+    b64encode = base64.encodestring
+
 app = None
 DEFAULT_APPEND = False
 DEFAULT_COMPRESSED = True
@@ -137,7 +142,7 @@ def img2py(image_file, python_file,
             return
 
         lines = []
-        data = base64.b64encode(open(tfname, "rb").read())
+        data = b64encode(open(tfname, "rb").read())
         while data:
             part = data[:72]
             data = data[72:]
