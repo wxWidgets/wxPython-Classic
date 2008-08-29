@@ -58,7 +58,7 @@ public:
     
     void SetName(const wxString& name);
     void SetExtension(const wxString& extension);
-    void SetType(long type);
+    void SetType(wxBitmapType type);
     void SetMimeType(const wxString& mimetype);
 
     %property(Extension, GetExtension, SetExtension, doc="See `GetExtension` and `SetExtension`");
@@ -239,7 +239,7 @@ public:
     %typemap(out) wxImage*;    // turn off this typemap
 
     DocCtorStr(
-        wxImage( const wxString& name, long type = wxBITMAP_TYPE_ANY, int index = -1 ),
+        wxImage( const wxString& name, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1 ),
         "Loads an image from a file.",
         "
     :param name:  Name of the file from which to load the image.
@@ -285,7 +285,7 @@ public:
         ImageFromMime);
     
     DocCtorStrName(
-        wxImage(wxInputStream& stream, long type = wxBITMAP_TYPE_ANY, int index = -1),
+        wxImage(wxInputStream& stream, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1),
         "Loads an image from an input stream, or any readable Python file-like
 object.", "
 
@@ -624,14 +624,14 @@ computationally intensive operation.", "");
         "Returns True if the image handlers can read this file.", "");
     
     DocDeclStr(
-        static int , GetImageCount( const wxString& filename, long type = wxBITMAP_TYPE_ANY ),
+        static int , GetImageCount( const wxString& filename, wxBitmapType type = wxBITMAP_TYPE_ANY ),
         "If the image file contains more than one image and the image handler
 is capable of retrieving these individually, this function will return
 the number of available images.", "");
     
 
     DocDeclStr(
-        bool , LoadFile( const wxString& name, long type = wxBITMAP_TYPE_ANY, int index = -1 ),
+        bool , LoadFile( const wxString& name, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1 ),
         "Loads an image from a file. If no handler type is provided, the
 library will try to autodetect the format.", "");
     
@@ -673,7 +673,7 @@ object.", "",
 
 
     DocDeclStrName(
-        bool , LoadFile( wxInputStream& stream, long type = wxBITMAP_TYPE_ANY, int index = -1 ),
+        bool , LoadFile( wxInputStream& stream, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1 ),
         "Loads an image from an input stream or a readable Python file-like
 object. If no handler type is provided, the library will try to
 autodetect the format.", "",

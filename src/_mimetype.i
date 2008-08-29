@@ -372,18 +372,6 @@ public:
     // were some unrecognized entries (the good entries are always read anyhow)
     //
 
-    // read in additional file (the standard ones are read automatically)
-    // in mailcap format (see mimetype.cpp for description)
-    //
-    // 'fallback' parameter may be set to True to avoid overriding the
-    // settings from other, previously parsed, files by this one: normally,
-    // the files read most recently would override the older files, but with
-    // fallback == True this won't happen
-    bool ReadMailcap(const wxString& filename, bool fallback = false);
-
-    // read in additional file in mime.types format
-    bool ReadMimeTypes(const wxString& filename);
-
     // enumerate all known MIME types
     %extend {
         PyObject* EnumAllFileTypes() {
