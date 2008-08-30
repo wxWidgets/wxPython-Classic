@@ -10,7 +10,6 @@ import testGraphicsObject
 
 class GraphicsFontTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()
         self.font = wx.Font(8, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
         self.testControl = self.renderer.CreateFont(self.font)

@@ -18,7 +18,6 @@ class ControlTest(testWindow.WindowTest):
         self.label_without_mnemonic = "Hello World"
     
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Control(parent=self.frame, id=wx.ID_ANY)
     

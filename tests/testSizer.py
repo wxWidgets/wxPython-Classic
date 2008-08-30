@@ -17,12 +17,6 @@ import unittest
 import wx
 
 class SizerTest(unittest.TestCase):
-    def setUp(self):
-        self.app = wx.PySimpleApp()
-    
-    def tearDown(self):
-        self.app.Destroy()
-    
     def testConstructorFails(self):
         """__init__"""
         self.assertRaises(AttributeError, wx.Sizer)
@@ -32,12 +26,10 @@ class SizerTest(unittest.TestCase):
 class SizerBase(unittest.TestCase):
     # to be overridden in derived classes
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = None
     
     def tearDown(self):
-        self.app.Destroy()
         self.frame.Destroy()
 
 

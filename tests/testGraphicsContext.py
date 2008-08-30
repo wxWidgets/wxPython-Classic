@@ -29,7 +29,6 @@ import testGraphicsObject
 
 class GraphicsContextTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(None)
         if wxtest.PlatformIsGtk():
             self.frame.Show() # otherwise segfault
@@ -39,7 +38,6 @@ class GraphicsContextTest(testGraphicsObject.GraphicsObjectTest):
     def tearDown(self):
         self.testControl.Destroy()
         self.frame.Destroy()
-        self.app.Destroy()
         
     def testConstructorFails_wxGraphicsContextOnly(self):
         """__init__"""
@@ -56,5 +54,3 @@ class GraphicsContextTest(testGraphicsObject.GraphicsObjectTest):
         self.assertEquals(repr(self.renderer), repr(self.testControl.GetRenderer()))
             
             
-if __name__ == '__main__':
-    unittest.main()

@@ -10,7 +10,6 @@ import testControl
 
 class StaticTextTest(testControl.ControlTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.name = "Static Text Control"
         self.testControl = wx.StaticText(parent=self.frame, name=self.name)

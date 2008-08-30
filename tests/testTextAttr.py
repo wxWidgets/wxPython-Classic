@@ -12,14 +12,10 @@ import testColour
 
 class TextAttrTest(unittest.TestCase):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.testControl = wx.TextAttr()
         self.colour = wx.Colour(128,128,128)
         self.font = wx.Font(8, wx.FONTFAMILY_ROMAN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD)
     
-    def tearDown(self):
-        self.app.Destroy()
-        
     def testBackgroundColour(self):
         """SetBackgroundColour, GetBackgroundColour, HasBackgroundColour"""
         self.assert_(not self.testControl.HasBackgroundColour())
@@ -69,7 +65,3 @@ class TextAttrTest(unittest.TestCase):
             self.testControl.SetTextColour(test)
             self.assert_(self.testControl.HasTextColour())
             self.assertEquals(colour, self.testControl.GetTextColour())
-    
-
-if __name__ == '__main__':
-    unittest.main()

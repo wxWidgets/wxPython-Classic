@@ -8,12 +8,10 @@ import wx
 
 class GraphicsObjectTest(unittest.TestCase):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.testControl = wx.GraphicsObject()
     
     def tearDown(self):
         self.testControl.Destroy()
-        self.app.Destroy()
     
     def testConstructor_wxGraphicsObjectTest(self):
         """__init__"""
@@ -38,7 +36,3 @@ class GraphicsObjectTest(unittest.TestCase):
     def testIsNullTrue(self):
         """IsNull"""
         self.assert_(not self.testControl.IsNull())
-        
-        
-if __name__ == '__main__':
-    unittest.main()

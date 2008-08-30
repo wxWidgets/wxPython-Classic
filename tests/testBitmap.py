@@ -12,12 +12,10 @@ import testSize
 
 class BitmapTest(unittest.TestCase):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.testControl = wx.EmptyBitmap(10,10)
     
     def tearDown(self):
         self.testControl.Destroy()
-        self.app.Destroy()
     
     def testDepth(self):
         """SetDepth, GetDepth"""
@@ -113,5 +111,3 @@ class BitmapTest(unittest.TestCase):
             self.assertEquals(w, self.testControl.GetWidth())
         
 
-if __name__ == '__main__':
-    unittest.main()

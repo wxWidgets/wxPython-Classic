@@ -13,7 +13,6 @@ import testGraphicsObject
 
 class GraphicsPathTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()
         self.testControl = self.renderer.CreatePath()
         

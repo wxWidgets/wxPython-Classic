@@ -10,7 +10,6 @@ import testGraphicsObject
 
 class GraphicsPenTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()
         self.pen = wx.Pen(wx.Colour(0,0,0))
         self.testControl = self.renderer.CreatePen(self.pen)

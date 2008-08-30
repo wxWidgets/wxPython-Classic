@@ -11,7 +11,6 @@ import testControl
 
 class CheckBoxTest(testControl.ControlTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.label = "This is the Label Text!"
         self.testControl = wx.CheckBox(parent=self.frame, label=self.label)
@@ -78,6 +77,3 @@ class CheckBoxTest(testControl.ControlTest):
         self.assert_(not self.testControl.GetValue())
         self.assert_(not self.testControl.IsChecked())
         
-        
-if __name__ == '__main__':
-    unittest.main()

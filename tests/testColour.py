@@ -55,12 +55,7 @@ def getColourNames():
 # -----------------------------------------------------------
 
 class ColourTest(unittest.TestCase):
-    def setUp(self):
-        self.app = wx.PySimpleApp()
-    
-    def tearDown(self):
-        self.app.Destroy()
-    
+
     def testColorColourAlias_wxColourOnly(self):
         """ """
         self.assertEquals(wx.Color, wx.Colour)
@@ -119,17 +114,4 @@ class ColourTest(unittest.TestCase):
             self.assertEquals(i, colour.Green())
             self.assertEquals(i, colour.Blue())
             self.assertEquals(i, colour.Alpha())
-            
 
-if __name__ == '__main__':
-    # test getColourEquivalents
-    print "Testing getColourEquivalents... ",
-    app = wx.PySimpleApp()
-    f = wx.Frame(None)
-    for test, colour in getColourEquivalents():
-        f.SetBackgroundColour(test)
-        #print 'Test: ', test
-        #print 'Colour: ', colour
-        assert colour == f.GetBackgroundColour()
-    print "Done"
-    unittest.main()

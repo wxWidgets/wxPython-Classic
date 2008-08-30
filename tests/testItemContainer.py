@@ -13,12 +13,6 @@ import wx
 import wxtest
 
 class ItemContainerTest(unittest.TestCase):
-    def setUp(self):
-        self.app = wx.PySimpleApp()
-    
-    def tearDown(self):
-        self.app.Destroy()
-    
     def testConstructorFails(self):
         self.assertRaises(AttributeError, wx.ItemContainer)
         
@@ -26,12 +20,10 @@ class ItemContainerTest(unittest.TestCase):
     
 class ItemContainerBase(unittest.TestCase):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = None
     
     def tearDown(self):
-        self.app.Destroy()
         self.frame.Destroy()
     
     def testAppend(self):

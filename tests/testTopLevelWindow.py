@@ -14,12 +14,6 @@ import testSize
 import wxtest
 
 class TopLevelWindowTest(unittest.TestCase):
-    def setUp(self):
-        self.app = wx.PySimpleApp()
-    
-    def tearDown(self):
-        self.app.Destroy()
-    
     def testConstructorFails(self):
         """__init__"""
         self.assertRaises(AttributeError, wx.TopLevelWindow)
@@ -33,7 +27,6 @@ class TopLevelWindowBase(testWindow.WindowTest):
         self.title = "Lorem Ipsum"
         
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = None
     
@@ -42,7 +35,6 @@ class TopLevelWindowBase(testWindow.WindowTest):
         self.frame.Destroy()
         self.testControl.Hide()
         self.testControl.Destroy()
-        self.app.Destroy()
     
     def testFullScreen(self):
         """ShowFullScreen, IsFullScreen"""
@@ -106,8 +98,3 @@ class TopLevelWindowBase(testWindow.WindowTest):
         # max can't be less than min (except on Ubuntu?)
         if wxtest.PlatformIsNotGtk():
             self.assertRaises(wx.PyAssertionError, self.testControl.SetSizeHints, 100,100,10,10)
-            
-        
-    
-if __name__ == '__main__':
-    unittest.main(defaultTest='TopLevelWindowTest')

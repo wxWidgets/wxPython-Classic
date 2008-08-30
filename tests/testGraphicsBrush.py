@@ -15,7 +15,6 @@ import testGraphicsObject
 
 class GraphicsBrushTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.color = wx.Colour(0,0,0)
         self.brush = wx.Brush(self.color)
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()

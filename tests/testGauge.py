@@ -11,7 +11,6 @@ import testControl
 
 class GaugeTest(testControl.ControlTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None)
         self.testControl = wx.Gauge(parent=self.frame)
     

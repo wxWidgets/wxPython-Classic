@@ -62,12 +62,6 @@ TWO     = wx.Point(2,2)
 # -----------------------------------------------------------
 
 class PointTest(unittest.TestCase):
-    def setUp(self):
-        self.app = wx.PySimpleApp()
-    
-    def tearDown(self):
-        self.app.Destroy()
-    
     def testConstructor(self):
         """__init__"""
         for x,y in getXYData():
@@ -120,7 +114,3 @@ class PointTest(unittest.TestCase):
         self.assertEquals( ZERO-NEG_ONE, ONE )
         self.assertEquals( NEG_ONE-ZERO, NEG_ONE )
         self.assertEquals( ONE-ZERO, ONE )
-
-
-if __name__ == '__main__':
-    unittest.main()

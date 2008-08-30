@@ -298,64 +298,77 @@ if options.outfilename != "":
         print "Error opening output file, defaulting to original stdout"
         sys.stdout = origstdout
 
-unit_test_suite = UnitTestSuite(include=options.module_list,
-                                exclude=options.module_ex_list,
-                                tests=options.test_list)
-
-result_data = unit_test_suite.run()
-
-# see refactored method above
-opt_string = _make_clean_opt_string()
-
-# -----------------------------------------------------------
-# ------------------- Output Reporting ----------------------
-output(1, "") # make things easier to read
-wiki(wiki_title(3, "%s - %s" % (time.asctime(),wx.GetOsDescription())), level=2)
-output(2, wiki_title(4, "Platform Information"))
-output(2, wiki_summary_item("Platform [sys.platform]",sys.platform))
-output(2, wiki_summary_item("Python Version [sys.version]",sys.version))
-output(2, wiki_summary_item("wx Version [wx.version()]",wx.version()))
-output(2, wiki_summary_item("OS [wx.GetOsDescription()]",wx.GetOsDescription()))
-output(2, wiki_summary_item("wx Info [wx.PlatformInfo]",str(wx.PlatformInfo)))
-output(2, wiki_summary_item("runUnitTests.py options",opt_string))
-wiki("\n----------------------\n", level=3, reverse=True)
-
-output(1, wiki_title(4, "Summary"))
-output(2, wiki_bullet() + "Run completed in %.2f seconds" % (result_data.elapsedTime))
-output(2, wiki_bullet() + "%d classes tested" % (result_data.countSuites))
-output(1, wiki_bullet() + "%d tests passed in total!" % (result_data.countSuccesses))
-if result_data.countFailures > 0:
-    output(1, wiki_bullet() + "%d tests failed in total!" % (result_data.countFailures))
-if result_data.countErrors > 0:
-    output(1, wiki_bullet() + "%d tests erred in total!" % (result_data.countErrors))
-wiki("\n----------------------\n", level=3, reverse=True)
-
-data_items = result_data.rawData.items()
-data_items.sort()
-
-output(3, wiki_title(4, "Module Data"))
-for mod_name, results in data_items:
-    messages = ["%d passed" % (results["successes"])]
-    if results["failures"] > 0:
-        messages.append("%d failed" % (results["failures"]))
-    if results["errors"] > 0:
-        messages.append("%d erred"  % (results["errors"]))
-    output(3, wiki_bullet() + "%s:  %s" % (mod_name, ", ".join(messages)))
-wiki("\n----------------------\n", level=4, reverse=True)
-
-if result_data.countFailures + result_data.countErrors > 0:
-    output(4, wiki_title(4,"Failure Data"))
-for mod_name, results in data_items:
-    # report on it
-    for failure in results["failure_data"] + results["error_data"]:
-        type = None
-        if failure in results["failure_data"]:
-            type = "Fail: "
-        elif failure in results["error_data"]:
-            type = "Error: "
-        if options.wiki:
-            output(4, wiki_bullet() + type + str(failure[0]).replace('.','.!'))
-            output(5," {{{" + str(failure[1]) + "}}}")
-        else:
-            output(4, "   " + type + str(failure[0]))
-            output(5, "      " + str(failure[1]).replace("\n","\n      "))
+def runUnitTestsAndOutputResults():   
+    unit_test_suite = UnitTestSuite(include=options.module_list,
+                                    exclude=options.module_ex_list,
+                                    tests=options.test_list)
+    
+    result_data = unit_test_suite.run()
+    
+    # see refactored method above
+    opt_string = _make_clean_opt_string()
+    
+    # -----------------------------------------------------------
+    # ------------------- Output Reporting ----------------------
+    output(1, "") # make things easier to read
+    wiki(wiki_title(3, "%s - %s" % (time.asctime(),wx.GetOsDescription())), level=2)
+    output(2, wiki_title(4, "Platform Information"))
+    output(2, wiki_summary_item("Platform [sys.platform]",sys.platform))
+    output(2, wiki_summary_item("Python Version [sys.version]",sys.version))
+    output(2, wiki_summary_item("wx Version [wx.version()]",wx.version()))
+    output(2, wiki_summary_item("OS [wx.GetOsDescription()]",wx.GetOsDescription()))
+    output(2, wiki_summary_item("wx Info [wx.PlatformInfo]",str(wx.PlatformInfo)))
+    output(2, wiki_summary_item("runUnitTests.py options",opt_string))
+    wiki("\n----------------------\n", level=3, reverse=True)
+    
+    output(1, wiki_title(4, "Summary"))
+    output(2, wiki_bullet() + "Run completed in %.2f seconds" % (result_data.elapsedTime))
+    output(2, wiki_bullet() + "%d classes tested" % (result_data.countSuites))
+    output(1, wiki_bullet() + "%d tests passed in total!" % (result_data.countSuccesses))
+    if result_data.countFailures > 0:
+        output(1, wiki_bullet() + "%d tests failed in total!" % (result_data.countFailures))
+    if result_data.countErrors > 0:
+        output(1, wiki_bullet() + "%d tests erred in total!" % (result_data.countErrors))
+    wiki("\n----------------------\n", level=3, reverse=True)
+    
+    data_items = result_data.rawData.items()
+    data_items.sort()
+    
+    output(3, wiki_title(4, "Module Data"))
+    for mod_name, results in data_items:
+        messages = ["%d passed" % (results["successes"])]
+        if results["failures"] > 0:
+            messages.append("%d failed" % (results["failures"]))
+        if results["errors"] > 0:
+            messages.append("%d erred"  % (results["errors"]))
+        output(3, wiki_bullet() + "%s:  %s" % (mod_name, ", ".join(messages)))
+    wiki("\n----------------------\n", level=4, reverse=True)
+    
+    if result_data.countFailures + result_data.countErrors > 0:
+        output(4, wiki_title(4,"Failure Data"))
+    for mod_name, results in data_items:
+        # report on it
+        for failure in results["failure_data"] + results["error_data"]:
+            type = None
+            if failure in results["failure_data"]:
+                type = "Fail: "
+            elif failure in results["error_data"]:
+                type = "Error: "
+            if options.wiki:
+                output(4, wiki_bullet() + type + str(failure[0]).replace('.','.!'))
+                output(5," {{{" + str(failure[1]) + "}}}")
+            else:
+                output(4, "   " + type + str(failure[0]))
+                output(5, "      " + str(failure[1]).replace("\n","\n      "))
+                
+class MyApp(wx.App):
+    def __init__(self):
+        wx.App.__init__(self, redirect=False)
+        
+    def OnInit(self):
+        runUnitTestsAndOutputResults()
+        wx.CallAfter(self.ExitMainLoop)
+        return True
+        
+app = MyApp()
+app.MainLoop()

@@ -24,13 +24,11 @@ import wxtest
 
 class ImageTest(unittest.TestCase):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.size = wx.Size(10,10)
         self.testControl = wx.EmptyImage(*self.size)
     
     def tearDown(self):
         self.testControl.Destroy()
-        self.app.Destroy()
     
     def testAlpha(self):
         """SetAlpha, GetAlpha"""
@@ -120,7 +118,3 @@ class ImageTest(unittest.TestCase):
     def testWidth(self):
         """GetWidth"""
         self.assertEquals(self.size.GetWidth(), self.testControl.GetWidth())
-        
-
-if __name__ == '__main__':
-    unittest.main()

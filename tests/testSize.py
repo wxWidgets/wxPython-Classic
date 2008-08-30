@@ -64,12 +64,8 @@ TWO     = wx.Size(2,2)
 
 class SizeTest(unittest.TestCase):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.testControl = wx.Size()
     
-    def tearDown(self):
-        self.app.Destroy()
-            
     # NOTE:
     #   testEquals, testNotEquals, testAddition, testSubtraction
     #   were copied from testPoint class.  In the future, possibly
@@ -138,5 +134,3 @@ class SizeTest(unittest.TestCase):
             self.assertEquals(w, self.testControl.GetWidth())
             
             
-if __name__ == '__main__':
-    unittest.main()

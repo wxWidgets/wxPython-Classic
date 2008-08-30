@@ -41,12 +41,6 @@ def getRectData(ctrl):
 # -----------------------------------------------------------
 
 class RectTest(unittest.TestCase):
-    def setUp(self):
-        self.app = wx.PySimpleApp()
-        
-    def tearDown(self):
-        self.app.Destroy()
-    
     def testGet(self):
         """__init__, Get"""
         tup = range(0,100,10)
@@ -55,7 +49,3 @@ class RectTest(unittest.TestCase):
             self.assertEquals((x,y,w,h), rect.Get())
         rect = wx.Rect()
         self.assertEquals((0,0,0,0), rect.Get())
-    
-
-if __name__ == '__main__':
-    unittest.main()
