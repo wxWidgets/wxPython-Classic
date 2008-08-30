@@ -12,7 +12,6 @@ import testPanel
 
 class ScrolledWindowTest(testPanel.PanelTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.ScrolledWindow(parent=self.frame)
         self.windows = [ wx.Window(self.frame) for i in range(3) ]

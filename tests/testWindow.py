@@ -75,7 +75,6 @@ class WindowTest(unittest.TestCase):
         self.children_names = []
 
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Window(parent=self.frame, id=wx.ID_ANY)
         self.children_ids = (42, 43, 44)
@@ -85,7 +84,6 @@ class WindowTest(unittest.TestCase):
 
     def tearDown(self):
         self.frame.Destroy()
-        self.app.Destroy()
 
     def testAcceleratorTable(self):
         """SetAcceleratorTable, GetAcceleratorTable"""
@@ -515,5 +513,3 @@ class WindowTest(unittest.TestCase):
             self.assertEquals(self.testControl, child.GetParent())
             
     
-if __name__ == '__main__':
-    unittest.main()

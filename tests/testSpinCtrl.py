@@ -14,7 +14,6 @@ import testControl
 
 class SpinCtrlTest(testControl.ControlTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.SpinCtrl(parent=self.frame)
         self.min = -1000

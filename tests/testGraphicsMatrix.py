@@ -11,7 +11,6 @@ import testGraphicsObject
 
 class GraphicsMatrixTest(testGraphicsObject.GraphicsObjectTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.renderer = wx.GraphicsRenderer.GetDefaultRenderer()
         self.testControl = self.renderer.CreateMatrix()
         

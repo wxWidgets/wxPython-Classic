@@ -10,7 +10,6 @@ import testControl
 
 class RadioButtonTest(testControl.ControlTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.label = "Label of the RadioButton!"
         self.testControl = wx.RadioButton(parent=self.frame, label=self.label,

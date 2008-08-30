@@ -12,7 +12,6 @@ import testTopLevelWindow
 
 class DialogTest(testTopLevelWindow.TopLevelWindowBase):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Dialog(parent=self.frame)
     

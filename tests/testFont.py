@@ -67,12 +67,6 @@ def getFontData():
 # -----------------------------------------------------------
 
 class FontTest(unittest.TestCase):
-    def setUp(self):
-        self.app = wx.PySimpleApp()
-    
-    def tearDown(self):
-        self.app.Destroy()
-    
     def testFontstyle(self):
         """__init__"""
         # wx.FONTSTYLE_MAX dies (on Windows)
@@ -104,7 +98,3 @@ class FontTest(unittest.TestCase):
         attr = wx.VisualAttributes()
         self.assert_(not attr.font.Ok())
         self.assert_(not attr.font.IsOk())
-        
-
-if __name__ == '__main__':
-    unittest.main()

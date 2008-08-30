@@ -11,7 +11,6 @@ import wxtest
 
 class GraphicsRendererTest(unittest.TestCase):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(None)
         if wxtest.PlatformIsGtk():
             self.frame.Show()
@@ -20,7 +19,6 @@ class GraphicsRendererTest(unittest.TestCase):
     def tearDown(self):
         # crashes if you try to destroy the wx.GraphicsRenderer
         self.frame.Destroy()
-        self.app.Destroy()
 
     def testConstructorFails_wxGraphicsRendererOnly(self):
         """__init__"""
@@ -72,7 +70,3 @@ class GraphicsRendererTest(unittest.TestCase):
         """GetDefaultRenderer"""
         # TODO: are there other tests that can be run for this function?
         self.assert_(isinstance(self.testControl.GetDefaultRenderer(), wx.GraphicsRenderer))
-            
-            
-if __name__ == '__main__':
-    unittest.main()

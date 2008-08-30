@@ -19,7 +19,6 @@ class RadioBoxTest(testControl.ControlTest):
         self.choices = ["one","two","three","four","five"]
         
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.RadioBox(parent=self.frame,
                                 choices=self.choices,

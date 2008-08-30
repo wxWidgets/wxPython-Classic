@@ -10,7 +10,6 @@ import testControlWithItems
 
 class ChoiceTest(testControlWithItems.ControlWithItemsBase):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Choice(parent=self.frame)
         

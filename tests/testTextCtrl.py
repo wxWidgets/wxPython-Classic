@@ -16,7 +16,6 @@ import testControl
 
 class TextCtrlTest(testControl.ControlTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.empty_value = ""
         self.default_value = self.empty_value

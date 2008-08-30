@@ -22,7 +22,6 @@ class ListBoxTest(testControlWithItems.ControlWithItemsBase):
         self.more_choices = ["w","x","y","z"]
         
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.ListBox(parent=self.frame)
     

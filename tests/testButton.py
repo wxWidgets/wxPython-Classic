@@ -79,7 +79,6 @@ def getIdLabelPairs(without_mnemonic=True):
 
 class ButtonTest(testControl.ControlTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Button(parent=self.frame)
     

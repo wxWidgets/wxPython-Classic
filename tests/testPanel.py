@@ -10,7 +10,6 @@ import testWindow
 
 class PanelTest(testWindow.WindowTest):
     def setUp(self):
-        self.app = wx.PySimpleApp()
         self.frame = wx.Frame(parent=None, id=wx.ID_ANY)
         self.testControl = wx.Panel(parent=self.frame)
     
