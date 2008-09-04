@@ -40,7 +40,7 @@
 #endif
 
 #ifdef __WXMAC__
-#include "wx/mac/private.h"
+#include "wx/osx/private.h"
 #endif
 
 #include "wx/treelistctrl.h"
