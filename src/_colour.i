@@ -15,7 +15,7 @@
 
 %{
 #ifdef __WXMAC__
-#include <wx/mac/carbon/private.h>
+#include <wx/osx/carbon/private.h>
 #endif
 %}
 

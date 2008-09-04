@@ -434,7 +434,7 @@ the up/down status of the mouse buttons and the modifier keys.", "");
 
 MustHaveApp(wxWakeUpMainThread);
 
-#if defined(__WXMSW__) || defined(__WXMAC__)
+#if defined(__WXMSW__)
 void wxWakeUpMainThread();
 #else
 %inline %{

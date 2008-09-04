@@ -149,7 +149,6 @@ public:
     // Is this the active frame (highlighted in the taskbar)?
     virtual bool IsActive();
 
-#ifdef __WXMAC__
     %extend {
         void MacSetMetalAppearance( bool on ) {
             int style = self->GetExtraStyle();
@@ -159,25 +158,11 @@ public:
                 style &= ~wxFRAME_EX_METAL;
             self->SetExtraStyle(style);
         }
-    }
-    bool MacGetMetalAppearance() const;
-#else
-    %extend
-    {
-        // TODO: Should they raise not implemented or just NOP???
-        void MacSetMetalAppearance( bool on ) { /*wxPyRaiseNotImplemented();*/ }
-        bool MacGetMetalAppearance() const    { /*wxPyRaiseNotImplemented();*/ return false; }
-    }
-#endif
+        
+        bool MacGetMetalAppearance() const { return self->GetExtraStyle() & wxFRAME_EX_METAL; }
 
-#ifdef __WXMAC__
-    bool MacGetUnifiedAppearance() const;
-#else
-    %extend
-    {
-        bool MacGetUnifiedAppearance() const    { return false; }
+        bool MacGetUnifiedAppearance() const    { return true; }
     }
-#endif
 
     %extend {
         long MacGetTopLevelWindowRef() {
