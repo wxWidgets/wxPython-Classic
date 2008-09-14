@@ -63,6 +63,283 @@
 %}
 
 //---------------------------------------------------------------------------
+// Helper functions for copying bitmap data to/from buffers
+
+
+enum wxBitmapBufferFormat {
+    wxBitmapBufferFormat_RGB,
+    wxBitmapBufferFormat_RGBA,
+    wxBitmapBufferFormat_RGB32,
+    wxBitmapBufferFormat_ARGB32
+};
+
+
+%{
+enum wxBitmapBufferFormat {
+    wxBitmapBufferFormat_RGB,
+    wxBitmapBufferFormat_RGBA,
+    wxBitmapBufferFormat_RGB32,
+    wxBitmapBufferFormat_ARGB32,
+};
+
+
+    void wxPyCopyBitmapFromBuffer(wxBitmap* bmp,
+                                  buffer data, int DATASIZE,
+                                  wxBitmapBufferFormat format, int stride=-1)
+    {
+        int height = bmp->GetHeight();
+        int width = bmp->GetWidth();
+    
+        switch (format) {
+            // A simple sequence of RGB bytes
+            case wxBitmapBufferFormat_RGB:
+            {
+                if (DATASIZE < width * height * 3) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+                wxNativePixelData pixData(*bmp, wxPoint(0,0), wxSize(width, height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;
+                }
+
+                wxNativePixelData::Iterator p(pixData);
+                for (int y=0; y<height; y++) {
+                    wxNativePixelData::Iterator rowStart = p;
+                    for (int x=0; x<width; x++) {
+                        p.Red()   = *(data++);
+                        p.Green() = *(data++);
+                        p.Blue()  = *(data++);
+                        ++p;
+                    }
+                    p = rowStart;
+                    p.OffsetY(pixData, 1);
+                }
+                break;
+            }
+                
+            // A simple sequence of RGBA bytes
+            case wxBitmapBufferFormat_RGBA:
+            {
+                if (DATASIZE < width * height * 4) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+                wxAlphaPixelData pixData(*bmp, wxPoint(0,0), wxSize(width, height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;
+                }
+                pixData.UseAlpha();
+                wxAlphaPixelData::Iterator p(pixData);
+                for (int y=0; y<height; y++) {
+                    wxAlphaPixelData::Iterator rowStart = p;
+                    for (int x=0; x<width; x++) {
+                        byte a = data[3];
+                        p.Red()   = wxPy_premultiply(*(data++), a);
+                        p.Green() = wxPy_premultiply(*(data++), a);
+                        p.Blue()  = wxPy_premultiply(*(data++), a);
+                        p.Alpha() = a; data++;
+                        ++p;
+                    }
+                    p = rowStart;
+                    p.OffsetY(pixData, 1);
+                }
+                break;
+            }
+                
+            // A sequence of 32-bit values in native endian order,
+            // where the alpha is in the upper 8 bits, then red, then
+            // green, then blue.  The stride is the distance in bytes
+            // from the beginning of one row of the image data to the
+            // beginning of the next row.  This may not be the same as
+            // width*4 if alignment or platform specific optimizations
+            // have been utilized.
+
+            // NOTE: This is normally used with Cairo, which seems to
+            // already have the values premultiplied.  Should we have
+            // a way to optionally do it anyway?
+                
+            case wxBitmapBufferFormat_RGB32:
+            case wxBitmapBufferFormat_ARGB32:
+            {
+                bool useAlpha = (format == wxBitmapBufferFormat_ARGB32);
+                byte* rowStart = data;
+                wxUint32* bufptr;
+                wxUint32  value;
+        
+                if (stride == -1)
+                    stride = width * 4;
+                
+                if (DATASIZE < stride * height) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+
+                wxAlphaPixelData pixData(*bmp, wxPoint(0,0), wxSize(width,height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;    
+                }
+                if (useAlpha) pixData.UseAlpha();
+
+                wxAlphaPixelData::Iterator pix(pixData);
+                for (int y=0; y<height; y++) {
+                    pix.MoveTo(pixData, 0, y);
+                    bufptr = (wxUint32*)rowStart;
+                    for (int x=0; x<width; x++) {
+                        value = *bufptr;
+                        pix.Alpha() = useAlpha ? (value >> 24) & 0xFF : 255;
+                        pix.Red()   = (value >> 16) & 0xFF;
+                        pix.Green() = (value >>  8) & 0xFF;
+                        pix.Blue()  = (value >>  0) & 0xFF;
+                        ++pix;
+                        ++bufptr;
+                    }
+                    rowStart += stride;
+                }
+                break;
+            }
+        }
+    }
+
+
+
+    void wxPyCopyBitmapToBuffer(wxBitmap* bmp,
+                                buffer data, int DATASIZE,
+                                wxBitmapBufferFormat format, int stride=-1)
+    {
+        int height = bmp->GetHeight();
+        int width = bmp->GetWidth();
+    
+        switch (format) {
+            // A simple sequence of RGB bytes
+            case wxBitmapBufferFormat_RGB:
+            {
+                if (DATASIZE < width * height * 3) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+                wxNativePixelData pixData(*bmp, wxPoint(0,0), wxSize(width, height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;
+                }
+
+                wxNativePixelData::Iterator p(pixData);
+                for (int y=0; y<height; y++) {
+                    wxNativePixelData::Iterator rowStart = p;
+                    for (int x=0; x<width; x++) {
+                        *(data++) = p.Red();
+                        *(data++) = p.Green();
+                        *(data++) = p.Blue();
+                        ++p;
+                    }
+                    p = rowStart;
+                    p.OffsetY(pixData, 1);
+                }
+                break;
+            }
+                
+            // A simple sequence of RGBA bytes
+            case wxBitmapBufferFormat_RGBA:
+            {
+                if (DATASIZE < width * height * 4) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+                wxAlphaPixelData pixData(*bmp, wxPoint(0,0), wxSize(width, height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;
+                }
+                pixData.UseAlpha();
+                wxAlphaPixelData::Iterator p(pixData);
+                for (int y=0; y<height; y++) {
+                    wxAlphaPixelData::Iterator rowStart = p;
+                    for (int x=0; x<width; x++) {
+                        byte a = p.Alpha();
+                        *(data++) = wxPy_unpremultiply(p.Red(), a);
+                        *(data++) = wxPy_unpremultiply(p.Green(), a);
+                        *(data++) = wxPy_unpremultiply(p.Blue(), a);
+                        *(data++) = a;
+                    }
+                    p = rowStart;
+                    p.OffsetY(pixData, 1);
+                }
+                break;
+            }
+                
+            // A sequence of 32-bit values in native endian order,
+            // where the alpha is in the upper 8 bits, then red, then
+            // green, then blue.  The stride is the distance in bytes
+            // from the beginning of one row of the image data to the
+            // beginning of the next row.  This may not be the same as
+            // width*4 if alignment or platform specific optimizations
+            // have been utilized.
+
+            // NOTE: This is normally used with Cairo, which seems to
+            // already have the values premultiplied.  Should we have
+            // a way to optionally do it anyway?
+                
+            case wxBitmapBufferFormat_RGB32:
+            case wxBitmapBufferFormat_ARGB32:
+            {
+                bool useAlpha = (format == wxBitmapBufferFormat_ARGB32);
+                byte* rowStart = data;
+                wxUint32* bufptr;
+                wxUint32  value;
+        
+                if (stride == -1)
+                    stride = width * 4;
+                
+                if (DATASIZE < stride * height) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+
+                wxAlphaPixelData pixData(*bmp, wxPoint(0,0), wxSize(width,height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;    
+                }
+                if (useAlpha) pixData.UseAlpha();
+
+                wxAlphaPixelData::Iterator pix(pixData);
+                for (int y=0; y<height; y++) {
+                    pix.MoveTo(pixData, 0, y);
+                    bufptr = (wxUint32*)rowStart;
+                    for (int x=0; x<width; x++) {
+                        value = (pix.Alpha() << 24) | (pix.Red() << 16) | (pix.Green() << 8) | pix.Blue();
+                        *bufptr = value;
+                        ++pix;
+                        ++bufptr;
+                    }
+                    rowStart += stride;
+                }
+                break;
+            }
+        }
+    }
+    
+%}
+
+
+
+//---------------------------------------------------------------------------
 
 enum {
     wxBITMAP_SCREEN_DEPTH
@@ -91,7 +368,7 @@ converted to a wx.Bitmap, so any image file format supported by
 
 :see: `wx.EmptyBitmap`, `wx.BitmapFromIcon`, `wx.BitmapFromImage`,
       `wx.BitmapFromXPMData`, `wx.BitmapFromBits`, `wx.BitmapFromBuffer`,
-      `wx.BitmapFromBufferRGBA`, `wx.Image`
+      `wx.BitmapFromBufferRGBA`, `wx.BitmapFromBuffer32bit`, `wx.Image`
 ");
 
 
@@ -128,7 +405,7 @@ public:
 
 :see: Alternate constructors `wx.EmptyBitmap`, `wx.BitmapFromIcon`,
       `wx.BitmapFromImage`, `wx.BitmapFromXPMData`, `wx.BitmapFromBits`,
-      `wx.BitmapFromBuffer`, `wx.BitmapFromBufferRGBA`,
+      `wx.BitmapFromBuffer`, `wx.BitmapFromBufferRGBA`,`wx.BitmapFromBuffer32bit`,
 ");
         
     ~wxBitmap();
@@ -318,77 +595,60 @@ the ``type`` parameter.", "");
     bool CopyFromCursor(const wxCursor& cursor);
 #endif
 
+    
     %extend {
         DocStr(CopyFromBuffer,
-               "Copy data from a RGB buffer object to replace the bitmap pixel data.
-See `wx.BitmapFromBuffer` for more details.", "");
-        void CopyFromBuffer(buffer data, int DATASIZE)
+               "Copy data from a buffer object to replace the bitmap pixel data.
+Default format is plain RGB, but other formats are now supported as
+well.  The following symbols are used to specify the format of the
+bytes in the buffer:
+
+    =============================  ================================
+    wx.BitmapBufferFormat_RGB      A simple sequence of RGB bytes
+    wx.BitmapBufferFormat_RGBA     A simple sequence of RGBA bytes
+    wx.BitmapBufferFormat_ARGB32   A sequence of 32-bit values in native
+                                   endian order, with alpha in the upper
+                                   8 bits, followed by red, green, and
+                                   blue.
+    wx.BitmapBufferFormat_RGB32    Same as above but the alpha byte
+                                   is ignored.
+    =============================  ================================
+", "");
+        void CopyFromBuffer(buffer data, int DATASIZE,
+                            wxBitmapBufferFormat format=wxBitmapBufferFormat_RGB,
+                            int stride=-1)
         {
-            int height=self->GetHeight();
-            int width=self->GetWidth();
-
-            if (DATASIZE != width * height * 3) {
-                wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
-            }
-            wxNativePixelData pixData(*self, wxPoint(0,0), wxSize(width, height));
-            if (! pixData) {
-                // raise an exception...
-                wxPyErr_SetString(PyExc_RuntimeError,
-                                  "Failed to gain raw access to bitmap data.");
-                return;
-            }
-
-            wxNativePixelData::Iterator p(pixData);
-            for (int y=0; y<height; y++) {
-                wxNativePixelData::Iterator rowStart = p;
-                for (int x=0; x<width; x++) {
-                    p.Red()   = *(data++);
-                    p.Green() = *(data++);
-                    p.Blue()  = *(data++);
-                    ++p;
-                }
-                p = rowStart;
-                p.OffsetY(pixData, 1);
-            }
+            wxPyCopyBitmapFromBuffer(self, data, DATASIZE, format, stride);
         }
-
-        DocStr(CopyFromBufferRGBA,
-               "Copy data from a RGBA buffer object to replace the bitmap pixel data.
-See `wx.BitmapFromBufferRGBA` for more details.", "");
-        void CopyFromBufferRGBA(buffer data, int DATASIZE)
-        {
-            int height=self->GetHeight();
-            int width=self->GetWidth();
-            
-            if (DATASIZE != width * height * 4) {
-                wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
-            }
-            wxAlphaPixelData pixData(*self, wxPoint(0,0), wxSize(width, height));
-            if (! pixData) {
-                // raise an exception...
-                wxPyErr_SetString(PyExc_RuntimeError,
-                                  "Failed to gain raw access to bitmap data.");
-                return;
-            }
-
-            pixData.UseAlpha();
-            wxAlphaPixelData::Iterator p(pixData);
-            for (int y=0; y<height; y++) {
-                wxAlphaPixelData::Iterator rowStart = p;
-                for (int x=0; x<width; x++) {
-                    byte a = data[3];
-                    p.Red()   = wxPy_premultiply(*(data++), a);
-                    p.Green() = wxPy_premultiply(*(data++), a);
-                    p.Blue()  = wxPy_premultiply(*(data++), a);
-                    p.Alpha() = a; data++;
-                    ++p;
-                }
-                p = rowStart;
-                p.OffsetY(pixData, 1);
-            }
-        }        
+    }
+    
+    %pythoncode {
+        def CopyFromBufferRGBA(self, buffer):
+            """
+            Copy data from a RGBA buffer object to replace the bitmap pixel
+            data.  This method is now just a compatibility wrapper around
+            CopyFrombuffer.
+            """
+            self.CopyFromBuffer(buffer, wx.BitmapBufferFormat_RGBA)           
     }
 
+    %extend {
+        DocStr(CopyToBuffer,
+               "Copy pixel data to a buffer object.  See `CopyFromBuffer` for buffer
+format details.", "");
+        void CopyToBuffer(buffer data, int DATASIZE, 
+                          wxBitmapBufferFormat format=wxBitmapBufferFormat_RGB,
+                          int stride=-1)
+        {
+            wxPyCopyBitmapToBuffer(self, data, DATASIZE, format, stride);
+        }
+    }
+
+    
+    // (these functions are internal and shouldn't be used, they risk to
+    // disappear in the future)
+    bool HasAlpha() const;
+//    void UseAlpha();   
     
     %pythoncode { def __nonzero__(self): return self.IsOk() }
 
@@ -423,12 +683,12 @@ See `wx.BitmapFromBufferRGBA` for more details.", "");
                                     buffer data, int DATASIZE,
                                     buffer alpha, int ALPHASIZE)
     {
-        if (DATASIZE != width*height*3) {
+        if (DATASIZE < width*height*3) {
             wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
             return NULL;
         }
 
-        if (ALPHASIZE != width*height) {
+        if (ALPHASIZE < width*height) {
             wxPyErr_SetString(PyExc_ValueError, "Invalid alpha buffer size.");
             return NULL;
         }
@@ -462,31 +722,11 @@ See `wx.BitmapFromBufferRGBA` for more details.", "");
         
     wxBitmap* _BitmapFromBuffer(int width, int height, buffer data, int DATASIZE)
     {
-        if (DATASIZE != width*height*3) {
-            wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
-            return NULL;
-        }
-
         wxBitmap* bmp = new wxBitmap(width, height, 24);
-        wxNativePixelData pixData(*bmp, wxPoint(0,0), wxSize(width,height));
-        if (! pixData) {
-            // raise an exception...
-            wxPyErr_SetString(PyExc_RuntimeError,
-                              "Failed to gain raw access to bitmap data.");
-            return NULL;
-        }
-                
-        wxNativePixelData::Iterator p(pixData);
-        for (int y=0; y<height; y++) {
-            wxNativePixelData::Iterator rowStart = p;
-            for (int x=0; x<width; x++) {
-                p.Red()   = *(data++);
-                p.Green() = *(data++);
-                p.Blue()  = *(data++);
-                ++p; 
-            }
-            p = rowStart;
-            p.OffsetY(pixData, 1);
+        wxPyCopyBitmapFromBuffer(bmp, data, DATASIZE, wxBitmapBufferFormat_RGB);
+        if (PyErr_Occurred()) {
+            delete bmp;
+            bmp = NULL;
         }
         return bmp;
     }
@@ -529,38 +769,16 @@ def BitmapFromBuffer(width, height, dataBuffer, alphaBuffer=None):
 %inline %{
     wxBitmap* _BitmapFromBufferRGBA(int width, int height, buffer data, int DATASIZE)
     {
-        if (DATASIZE != width*height*4) {
-            wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
-            return NULL;
-        }
-
         wxBitmap* bmp = new wxBitmap(width, height, 32);
-        wxAlphaPixelData pixData(*bmp, wxPoint(0,0), wxSize(width,height));
-        if (! pixData) {
-            // raise an exception...
-            wxPyErr_SetString(PyExc_RuntimeError,
-                              "Failed to gain raw access to bitmap data.");
-            return NULL;
-        }
-               
-        pixData.UseAlpha();
-        wxAlphaPixelData::Iterator p(pixData);
-        for (int y=0; y<height; y++) {
-            wxAlphaPixelData::Iterator rowStart = p;
-            for (int x=0; x<width; x++) {
-                byte a = data[3];
-                p.Red()   = wxPy_premultiply(*(data++), a);
-                p.Green() = wxPy_premultiply(*(data++), a);
-                p.Blue()  = wxPy_premultiply(*(data++), a);
-                p.Alpha() = a; data++;
-                ++p; 
-            }
-            p = rowStart;
-            p.OffsetY(pixData, 1);
+        wxPyCopyBitmapFromBuffer(bmp, data, DATASIZE, wxBitmapBufferFormat_RGBA);
+        if (PyErr_Occurred()) {
+            delete bmp;
+            bmp = NULL;
         }
         return bmp;
     }        
 %}
+
 
 %pythoncode {
 def BitmapFromBufferRGBA(width, height, dataBuffer):
@@ -586,6 +804,56 @@ def BitmapFromBufferRGBA(width, height, dataBuffer):
     """
     return _gdi_._BitmapFromBufferRGBA(width, height, dataBuffer)
 }
+
+
+
+%newobject _EmptyBitmapRGBA;
+%inline %{
+    wxBitmap* _EmptyBitmapRGBA(int width, int height,
+                               byte red, byte green, byte blue, byte alpha)
+    {
+        if ( !(width > 0 && height > 0) ) {
+            wxPyErr_SetString(PyExc_ValueError, "Width and height must be greater than zero");
+            return NULL;
+        }
+
+        wxBitmap* bmp = new wxBitmap(width, height, 32);
+        wxAlphaPixelData pixData(*bmp, wxPoint(0,0), wxSize(width,height));
+        if (! pixData) {
+            // raise an exception...
+            wxPyErr_SetString(PyExc_RuntimeError,
+                              "Failed to gain raw access to bitmap data.");
+            return NULL;
+        }
+                
+        pixData.UseAlpha();
+        wxAlphaPixelData::Iterator p(pixData);
+        for (int y=0; y<height; y++) {
+            wxAlphaPixelData::Iterator rowStart = p;
+            for (int x=0; x<width; x++) {
+                p.Red()   = wxPy_premultiply(red, alpha);
+                p.Green() = wxPy_premultiply(green, alpha);
+                p.Blue()  = wxPy_premultiply(blue, alpha);
+                p.Alpha() = alpha;
+                ++p; 
+            }
+            p = rowStart;
+            p.OffsetY(pixData, 1);
+        }
+        return bmp;
+    }
+%}
+
+
+%pythoncode {
+    def EmptyBitmapRGBA(width, height, red=0, green=0, blue=0, alpha=0):
+        """
+        Returns a new empty 32-bit bitmap where every pixel has been
+        initialized with the given RGBA values.
+        """
+        return _gdi_._EmptyBitmapRGBA(width, height, red, green, blue, alpha)
+}
+
 
 
 //---------------------------------------------------------------------------
@@ -667,13 +935,13 @@ public:
             
         pf = PixelFacade()        
         for y in xrange(height):
+            pixels.MoveTo(self, 0, y)
             for x in xrange(width):
                 # We always generate the same pf instance, but it
                 # accesses the pixels object which we use to iterate
                 # over the pixel buffer.
                 yield pf    
                 pixels.nextPixel()
-            pixels.MoveTo(self, 0, y)
     }
 
     %property(Pixels, GetPixels, doc="See `GetPixels`");

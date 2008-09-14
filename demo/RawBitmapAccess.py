@@ -106,10 +106,11 @@ class TestPanel(wx.Panel):
         # 'clean' looking ;-)
         #pixels = pixelData.GetPixels()
         #for y in xrange(DIM):
+        #    pixels.MoveTo(pixelData, 0, y)
         #    for x in xrange(DIM):
         #        pixels.Set(red, green, blue, alpha)
         #        pixels.nextPixel()
-        #    pixels.MoveTo(pixelData, 0, y)
+
 
 
         # Next we'll use the pixel accessor to set the border pixels

@@ -806,6 +806,23 @@ then for a font belonging to the same family.", "");
     virtual void SetNoAntiAliasing( bool no = true );
     virtual bool GetNoAntiAliasing() const;
 
+
+    // Give access to the internal native font handle, ID, pointer, etc.
+#ifdef __WXMSW__
+    void* GetHFONT();
+#endif
+#ifdef __WXMAC__
+    long MacGetATSUFontID();
+#endif
+#ifdef __WXGTK__
+    %extend {
+        void* GetPangoFontDescription() {
+            return self->GetNativeFontInfo()->description;
+        }
+    }
+#endif
+    
+    
     // the default encoding is used for creating all fonts with default
     // encoding parameter
     DocDeclStr(
