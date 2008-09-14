@@ -91,6 +91,8 @@ _treeList = [
         'RendererNative',
         'PlateButton',
         'ResizeWidget',
+        'Cairo',
+        'Cairo_Snippets',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -297,6 +299,8 @@ _treeList = [
     # Other stuff
     ('Miscellaneous', [
         'AlphaDrawing',
+        'Cairo',
+        'Cairo_Snippets',
         'ColourDB',
         ##'DialogUnits',   # needs more explanations
         'DragScroller',
@@ -416,17 +420,23 @@ try:
     from StyledTextCtrl_2 import PythonSTC
 
     class DemoCodeEditor(PythonSTC):
-        def __init__(self, parent):
-            PythonSTC.__init__(self, parent, -1, style=wx.BORDER_NONE)
+        def __init__(self, parent, style=wx.BORDER_NONE):
+            PythonSTC.__init__(self, parent, -1, style=style)
             self.SetUpEditor()
 
         # Some methods to make it compatible with how the wxTextCtrl is used
         def SetValue(self, value):
             if wx.USE_UNICODE:
                 value = value.decode('iso8859_1')
+            val = self.GetReadOnly()
+            self.SetReadOnly(False)
             self.SetText(value)
             self.EmptyUndoBuffer()
             self.SetSavePoint()
+            self.SetReadOnly(val)
+
+        def SetEditable(self, val):
+            self.SetReadOnly(not val)
 
         def IsModified(self):
             return self.GetModify()
@@ -1352,6 +1362,7 @@ class wxPythonDemo(wx.Frame):
         leftBox.Add(self.tree, 1, wx.EXPAND)
         leftBox.Add(wx.StaticText(leftPanel, label = "Filter Demos:"), 0, wx.TOP|wx.LEFT, 5)
         leftBox.Add(self.filter, 0, wx.EXPAND|wx.ALL, 5)
+        leftBox.Add((1,5))
         leftPanel.SetSizer(leftBox)
 
         # select initial items

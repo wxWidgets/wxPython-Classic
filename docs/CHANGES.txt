@@ -1,6 +1,40 @@
 Recent Changes for wxPython
 =====================================================================
 
+
+2.8.9.0
+-------
+* 
+
+Many minor bug fixes throughout wxWidgets and wxPython.
+
+Fixed wx.lib.embeddedimage to work with Python 2.3.
+
+Fixed PseudoDC hit testing when pure white or pure black are used.
+
+Added support for a 64-bit Windows build for the AMD64 architecture,
+(a.k.a. x64.)  This is for Python 2.5 only and is available only as a
+Unicode buld.
+
+Added the wx.EmptyBitmapRGBA factory function.
+
+Added the wx.lib.wxcairo module which allows the pycairo package to be
+used for drawing on wx window or memory DCs.  In addition it is able
+to convert from a native wx.Font to a cairo.FontFace, and it also
+provides functions for converting to/from wx.Bitmap and
+cairo.ImageSurface objects.  In order to use this module you will need
+to have the Cairo library and its dependencies installed, as well as
+the pycairo Python package.  For Linux and other unix-like systems you
+most likely have what you need installed already, or can easily do so
+from your package manager application.  See the wx.lib.wxcairo module's
+docstring for notes on where to get what you need for Windows or Mac.
+This module uses ctypes, and depending on platform it may need to find
+and load additional dynamic libraries at runtime in addition to cairo.
+
+
+
+
+
 2.8.8.1
 -------
 * 18-July-2008

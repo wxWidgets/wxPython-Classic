@@ -57,6 +57,7 @@ demo/data/locale/es/LC_MESSAGES
 demo/data/locale/fr/LC_MESSAGES
 demo/data/locale/it/LC_MESSAGES
 demo/dllwidget
+deno/snippets
 distrib
 distrib/all
 distrib/mac
@@ -166,14 +167,16 @@ wx/tools/Editra/locale/pt_BR
 wx/tools/Editra/locale/pt_BR/LC_MESSAGES
 wx/tools/Editra/locale/ru_RU
 wx/tools/Editra/locale/ru_RU/LC_MESSAGES
-wx/tools/Editra/locale/sr_YU
-wx/tools/Editra/locale/sr_YU/LC_MESSAGES
+wx/tools/Editra/locale/sr_SR
+wx/tools/Editra/locale/sr_SR/LC_MESSAGES
 wx/tools/Editra/locale/tr_TR
 wx/tools/Editra/locale/tr_TR/LC_MESSAGES
 wx/tools/Editra/locale/uk_UA
 wx/tools/Editra/locale/uk_UA/LC_MESSAGES
 wx/tools/Editra/locale/zh_CN
 wx/tools/Editra/locale/zh_CN/LC_MESSAGES
+wx/tools/Editra/locale/zh_TW
+wx/tools/Editra/locale/zh_TW/LC_MESSAGES
 wx/tools/Editra/pixmaps
 wx/tools/Editra/pixmaps/theme
 wx/tools/Editra/pixmaps/theme/Default

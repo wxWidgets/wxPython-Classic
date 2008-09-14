@@ -1003,8 +1003,46 @@ supported.", "");
     long GetHDC();
 #endif
 
+#ifdef __WXMAC__
+    %extend {
+        void* GetCGContext() {
+            void* cgctx = NULL;
+#if 1
+            wxGraphicsContext* gc = self->GetGraphicsContext();
+            if (gc) {
+                cgctx = gc->GetNativeContext();
+            }
+#else
+            wxMemoryDC* mdc = wxDynamicCast(self, wxMemoryDC);
+            wxWindowDC* wdc = wxDynamicCast(self, wxWindowDC);
+            if (mdc) {
+                wxGraphicsContext* gc = self->GetGraphicsContext();
+                if (gc)
+                    cgctx = gc->GetNativeContext();
+            }
+            else if (wdc) {
+                wxWindow* win = wdc->GetWindow();
+                if (win)
+                    cgctx = win->MacGetCGContextRef();
+            }
+#endif
+            return cgctx;
+        }
+    }
+#endif
 
-    %extend { // See drawlist.cpp for impplementaion of these...
+#ifdef __WXGTK__
+    %extend {
+        void* GetGdkDrawable() {
+            // TODO: Is this always non-null?  if not then we can check
+            // GetSelectedBitmap and get the GdkPixmap from it, as that is a
+            // drawable too.
+            return self->GetGDKWindow();
+        }
+    }    
+#endif
+
+    %extend { // See drawlist.cpp for implementaion of these...
         PyObject* _DrawPointList(PyObject* pyCoords, PyObject* pyPens, PyObject* pyBrushes)
         {
             return wxPyDrawXXXList(*self, wxPyDrawXXXPoint, pyCoords, pyPens, pyBrushes);
