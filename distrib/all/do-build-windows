@@ -14,7 +14,7 @@
 # ---------------------------------------------------------------------------
 
 set -o errexit
-#set -o xtrace
+set -o xtrace
 
 echo "-=-=-=-  Hello from $HOSTNAME  -=-=-=-"
 
@@ -29,23 +29,29 @@ SKIPCLEAN=$3
 VERSION=$4
 PYVER=$5
 CHARTYPE=$6
+CPU=$7
 
 # WXDIR is the cygwin path, WXWIN is the DOS path
 WXWIN=`cygpath -w $WXDIR`
 export WXWIN
 export WXDIR
 export TOOLS=/cygdrive/c/TOOLS
+export CPU
 
 # setup the compiler
 if [ $PYVER = 2.3 ]; then
     echo "Using MSVC ver 6"
     . msvcset local 6
-    echo `which cl.exe`
 else
-    echo "Using MSVC ver 7"
-    . msvcset local 7
-    echo `which cl.exe`
+    if [ "$CPU" = "AMD64" ]; then
+	echo "Using MSVC ver 7x64"
+	. msvcset local 7x64
+    else
+	echo "Using MSVC ver 7"
+	. msvcset local 7
+    fi
 fi
+echo `which cl.exe`
 
 
 # untar the source 
@@ -125,8 +131,9 @@ case $PYVER in
     23 | 2.3) VER=23; shift ;;
     24 | 2.4) VER=24; shift ;;
     25 | 2.5) VER=25; shift ;;
+    26 | 2.5) VER=26; shift ;;
 
-    *) 	VER=24
+    *) 	VER=25
 esac
 
 PYTHON=$TOOLS/python$VER/python.exe
