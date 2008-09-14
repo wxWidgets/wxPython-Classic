@@ -11900,8 +11900,7 @@ class ItemContainer(object):
     def SetItems(self, items):
         """Clear and set the strings in the control from a list"""
         self.Clear()
-        for i in items:
-            self.Append(i)        
+        self.AppendItems(items)
 
     Count = property(GetCount,doc="See `GetCount`") 
     Items = property(GetItems,SetItems,doc="See `GetItems` and `SetItems`") 

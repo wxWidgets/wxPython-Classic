@@ -518,6 +518,10 @@ def BrushFromBitmap(*args, **kwargs):
     val = _gdi_.new_BrushFromBitmap(*args, **kwargs)
     return val
 
+BitmapBufferFormat_RGB = _gdi_.BitmapBufferFormat_RGB
+BitmapBufferFormat_RGBA = _gdi_.BitmapBufferFormat_RGBA
+BitmapBufferFormat_RGB32 = _gdi_.BitmapBufferFormat_RGB32
+BitmapBufferFormat_ARGB32 = _gdi_.BitmapBufferFormat_ARGB32
 class Bitmap(GDIObject):
     """
     The wx.Bitmap class encapsulates the concept of a platform-dependent
@@ -703,21 +707,43 @@ class Bitmap(GDIObject):
 
     def CopyFromBuffer(*args, **kwargs):
         """
-        CopyFromBuffer(self, buffer data)
+        CopyFromBuffer(self, buffer data, int format=BitmapBufferFormat_RGB, int stride=-1)
 
-        Copy data from a RGB buffer object to replace the bitmap pixel data.
-        See `wx.BitmapFromBuffer` for more .
+        Copy data from a buffer object to replace the bitmap pixel data.
+        Default format is plain RGB, but other formats are now supported as
+        well.  The following symbols are used to specify the format of the
+        bytes in the buffer:
+
+            =============================  ================================
+            wx.BitmapBufferFormat_RGB      A simple sequence of RGB bytes
+            wx.BitmapBufferFormat_RGBA     A simple sequence of RGBA bytes
+            wx.BitmapBufferFormat_ARGB32   A sequence of 32-bit values in native
+                                           endian order, with alpha in the upper
+                                           8 bits, followed by red, green, and
+                                           blue.
+            wx.BitmapBufferFormat_RGB32    Same as above but the alpha byte
+                                           is ignored.
+            =============================  ================================
+
         """
         return _gdi_.Bitmap_CopyFromBuffer(*args, **kwargs)
 
-    def CopyFromBufferRGBA(*args, **kwargs):
+    def CopyFromBufferRGBA(self, buffer):
         """
-        CopyFromBufferRGBA(self, buffer data)
+        Copy data from a RGBA buffer object to replace the bitmap pixel
+        data.  This method is now just a compatibility wrapper around
+        CopyFrombuffer.
+        """
+        self.CopyFromBuffer(buffer, wx.BitmapBufferFormat_RGBA)           
 
-        Copy data from a RGBA buffer object to replace the bitmap pixel data.
-        See `wx.BitmapFromBufferRGBA` for more .
+    def CopyToBuffer(*args, **kwargs):
         """
-        return _gdi_.Bitmap_CopyFromBufferRGBA(*args, **kwargs)
+        CopyToBuffer(self, buffer data, int format=BitmapBufferFormat_RGB, int stride=-1)
+
+        Copy pixel data to a buffer object.  See `CopyFromBuffer` for buffer
+        format .
+        """
+        return _gdi_.Bitmap_CopyToBuffer(*args, **kwargs)
 
     def HasAlpha(*args, **kwargs):
         """HasAlpha(self) -> bool"""
@@ -861,6 +887,20 @@ def BitmapFromBufferRGBA(width, height, dataBuffer):
           `wx.AlphaPixelData`, `wx.ImageFromBuffer`
     """
     return _gdi_._BitmapFromBufferRGBA(width, height, dataBuffer)
+
+
+def _EmptyBitmapRGBA(*args, **kwargs):
+  """
+    _EmptyBitmapRGBA(int width, int height, byte red, byte green, byte blue, 
+        byte alpha) -> Bitmap
+    """
+  return _gdi_._EmptyBitmapRGBA(*args, **kwargs)
+def EmptyBitmapRGBA(width, height, red=0, green=0, blue=0, alpha=0):
+    """
+    Returns a new empty 32-bit bitmap where every pixel has been
+    initialized with the given RGBA values.
+    """
+    return _gdi_._EmptyBitmapRGBA(width, height, red, green, blue, alpha)
 
 class PixelDataBase(object):
     """Proxy of C++ PixelDataBase class"""
@@ -2279,6 +2319,10 @@ class Font(GDIObject):
     def GetNoAntiAliasing(*args, **kwargs):
         """GetNoAntiAliasing(self) -> bool"""
         return _gdi_.Font_GetNoAntiAliasing(*args, **kwargs)
+
+    def GetHFONT(*args, **kwargs):
+        """GetHFONT(self) -> void"""
+        return _gdi_.Font_GetHFONT(*args, **kwargs)
 
     def GetDefaultEncoding(*args, **kwargs):
         """
