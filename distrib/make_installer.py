@@ -38,11 +38,11 @@ ISS_Template = r'''
 [Setup]
 AppName = wxPython%(SHORTVER)s-%(CHARTYPE)s-%(PYVER)s
 AppVerName = wxPython %(VERSION)s (%(CHARTYPE)s) for Python %(PYTHONVER)s
-OutputBaseFilename = wxPython%(SHORTVER)s-win32-%(CHARTYPE)s-%(VERSION)s-%(PYVER)s
-AppCopyright = Copyright © 2007 Total Control Software
+OutputBaseFilename = wxPython%(SHORTVER)s-win%(BITS)s-%(CHARTYPE)s-%(VERSION)s-%(PYVER)s
+AppCopyright = Copyright © 2008 Total Control Software
 DefaultDirName = {code:GetInstallDir|c:\DoNotInstallHere}
 DefaultGroupName = wxPython %(VERSION)s (%(CHARTYPE)s) for Python %(PYTHONVER)s
-PrivilegesRequired = none
+PrivilegesRequired = %(PRIV)s
 OutputDir = dist
 DisableStartupPrompt = true
 Compression = bzip
@@ -54,6 +54,8 @@ DisableReadyPage = true
 DisableProgramGroupPage = true
 UsePreviousAppDir = no
 UsePreviousGroup = no
+
+%(ARCH)s
 
 AppPublisher = Total Control Software
 AppPublisherURL = http://wxPython.org/
@@ -76,13 +78,10 @@ Name: pthfile;  Description: "Make this install be the default wxPython"; Types:
 
 [Files]
 %(RTDLL)s
-Source: "%(WXDIR)s\lib\vc_dll\wx*%(WXDLLVER)s_*.dll";  DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: replacesameversion
-Source: "distrib\msw\gdiplus.dll";                     DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: replacesameversion
+Source: "%(WXDIR)s\lib\%(VCDLLDIR)s\wx*%(WXDLLVER)s_*.dll";  DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: replacesameversion
+%(GDIPLUS)s
 %(CPPDLL)s
 %(MSLU)s
-
-;; The old way, only installs on pre-XP systems...
-;;Source: "distrib\msw\gdiplus.dll"; DestDir: "{app}\%(PKGDIR)s\wx"; Check: OnlyBeforeXP; Flags: sharedfile; Components: core
 
 
 Source: "wx\_activex.pyd";                     DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
@@ -153,10 +152,11 @@ Source: "wx\tools\Editra\locale\nl_NL\LC_MESSAGES\*.mo";     DestDir: "{app}\%(P
 Source: "wx\tools\Editra\locale\nn_NO\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\nn_NO\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\pt_BR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\pt_BR\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\ru_RU\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ru_RU\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\sr_YU\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sr_YU\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\sr_SR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sr_SR\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\tr_TR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\tr_TR\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\uk_UA\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\uk_UA\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\zh_CN\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\zh_CN\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\zh_TW\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\zh_TW\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\pixmaps\*.png";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps"; Components: core
 Source: "wx\tools\Editra\pixmaps\*.ico";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps"; Components: core
 Source: "wx\tools\Editra\pixmaps\*.icns";                    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps"; Components: core
@@ -429,7 +429,7 @@ ISS_DocDemo_Template = r'''
 AppName = wxPython%(SHORTVER)s-docs-demos
 AppVerName = wxPython Docs and Demos %(VERSION)s
 OutputBaseFilename = wxPython%(SHORTVER)s-win32-docs-demos-%(VERSION)s
-AppCopyright = Copyright © 2007 Total Control Software
+AppCopyright = Copyright © 2008 Total Control Software
 DefaultDirName = {pf}\wxPython%(SHORTVER)s Docs and Demos
 DefaultGroupName = wxPython%(SHORTVER)s Docs Demos and Tools
 PrivilegesRequired = none
@@ -500,6 +500,8 @@ Source: "demo\data\locale\de\LC_MESSAGES\*.mo"; DestDir: "{app}\demo\data\locale
 Source: "demo\data\locale\es\LC_MESSAGES\*.mo"; DestDir: "{app}\demo\data\locale\es\LC_MESSAGES";
 Source: "demo\data\locale\fr\LC_MESSAGES\*.mo"; DestDir: "{app}\demo\data\locale\fr\LC_MESSAGES";
 Source: "demo\data\locale\it\LC_MESSAGES\*.mo"; DestDir: "{app}\demo\data\locale\it\LC_MESSAGES";
+
+Source: "demo\snippets\*.py";                   DestDir: "{app}\snippets\data";
 
 ;;Source: "demo\dllwidget\*.cpp";             DestDir: "{app}\demo\dllwidget";
 ;;Source: "demo\dllwidget\*.py";              DestDir: "{app}\demo\dllwidget";
@@ -700,6 +702,11 @@ Type: files; Name: "{app}\samples\wxPIA_book\Chapter-18\*";
 
 def find_DLLs():
 
+    if os.environ.get('CPU', '') == 'AMD64':
+        # Just hard-code it for now until a good solution for finding
+        # the right dumpbin can be found...
+        return '28uh', '2.5'
+
     WXDLLVER = PYTHONVER = None
 
     proc = os.popen(r"dumpbin /imports wx\_core_.pyd", "r")
@@ -754,6 +761,15 @@ runtime_template1 = 'Source: "%(name)s"; DestDir: "{code:GetPythonDir}"; Flags: 
 runtime_template2 = 'Source: "%(name)s"; DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: replacesameversion'
 
 def get_runtime_dlls(PYVER, PKGDIR):
+    if os.environ.get('CPU', '') == 'AMD64':
+        # For now just pull the DLLs from the system dir, and install
+        # them there.  We may eventually want to get more customized
+        # like on win32.
+        return (
+            r'Source: "{sys}\MSVCRT.DLL"; DestDir: "{sys}"; Flags: 64bit uninsneveruninstall external; Components: core',
+            r'Source: "{sys}\MSVCP60.DLL"; DestDir: "{sys}"; Flags: 64bit uninsneveruninstall external; Components: core',
+            )
+    
     if PYVER >= "py24":
         return ( runtime_template1 % dict(name=r"distrib\msw\msvcr71.dll", PKGDIR=PKGDIR),
                  runtime_template2 % dict(name=r"distrib\msw\msvcp71.dll", PKGDIR=PKGDIR) )
@@ -786,6 +802,22 @@ def main():
     LOCALE          = build_locale_string(PKGDIR)
     RTDLL,CPPDLL    = get_runtime_dlls(PYVER, PKGDIR)
 
+    if os.environ.get('CPU', '') == 'AMD64':
+        BITS        = '64'
+        VCDLLDIR    = 'vc_amd64_dll'
+        GDIPLUS     = ''
+        ARCH        = 'ArchitecturesInstallIn64BitMode = x64\nArchitecturesAllowed = x64'
+        #ARCH        = ''
+        PRIV        = 'admin'
+
+    else:
+        BITS        = '32'
+        VCDLLDIR    = 'vc_dll'
+        GDIPLUS     = 'Source: "distrib\msw\gdiplus.dll"; DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: replacesameversion'
+        ARCH        = ''
+        PRIV        = 'none'
+
+        
     print """
 Building Win32 installer for wxPython:
     VERSION    = %(VERSION)s
@@ -807,7 +839,8 @@ Building Win32 installer for wxPython:
     MSLU=''
     CHARTYPE='ansi'
     if "UNICODE=1" in sys.argv:
-        MSLU=r'Source: "distrib\msw\unicows.dll"; DestDir: "{code:GetPythonDir}"; Components: core; Flags: replacesameversion sharedfile' % vars()
+        if os.environ.get('CPU', '') != 'AMD64':
+            MSLU=r'Source: "distrib\msw\unicows.dll"; DestDir: "{code:GetPythonDir}"; Components: core; Flags: replacesameversion sharedfile' % vars()
         CHARTYPE='unicode'
 
     f = open(ISSFILE, "w")

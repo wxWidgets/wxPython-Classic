@@ -611,7 +611,7 @@ protected:
     NameMap         m_methodNames;
 
     virtual bool MSWTranslateMessage(WXMSG* pMsg);
-    long MSWWindowProc(WXUINT nMsg, WXWPARAM wParam, WXLPARAM lParam);
+    WXLRESULT MSWWindowProc(WXUINT nMsg, WXWPARAM wParam, WXLPARAM lParam);
 
     DECLARE_CLASS(wxActiveX)
 };
