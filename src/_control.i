@@ -271,8 +271,7 @@ slightly more natural for controls which support multiple selection.", "");
         def SetItems(self, items):
             """Clear and set the strings in the control from a list"""
             self.Clear()
-            for i in items:
-                self.Append(i)        
+            self.AppendItems(items)
     }
     
     %property(Count, GetCount, doc="See `GetCount`");
