@@ -49,8 +49,8 @@ import distutils.command.clean
 
 VER_MAJOR        = 2      # The first three must match wxWidgets
 VER_MINOR        = 8
-VER_RELEASE      = 8
-VER_SUBREL       = 2      # wxPython release num for x.y.z release of wxWidgets
+VER_RELEASE      = 9
+VER_SUBREL       = 0      # wxPython release num for x.y.z release of wxWidgets
 VER_FLAGS        = ""     # release flags, such as prerelease or RC num, etc.
 
 DESCRIPTION      = "Cross platform GUI toolkit for Python"
@@ -97,7 +97,7 @@ BUILD_DLLWIDGET = 0# Build a module that enables unknown wx widgets
                    # to be loaded from a DLL and to be used from Python.
 
                    # Internet Explorer wrapper (experimental)
-BUILD_ACTIVEX = (os.name == 'nt' and os.environ.get('CPU',None) != 'AMD64') 
+BUILD_ACTIVEX = (os.name == 'nt') # and os.environ.get('CPU',None) != 'AMD64') 
 
 
 CORE_ONLY = 0      # if true, don't build any of the above
