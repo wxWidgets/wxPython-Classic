@@ -341,8 +341,6 @@ enum wxBitmapBufferFormat {
 
 //---------------------------------------------------------------------------
 
-// TODO:  When the API stabalizes and is available on other platforms, add
-// wrappers for the new wxBitmap, wxRawBitmap, wxDIB stuff...
 
 DocStr(wxBitmap,
 "The wx.Bitmap class encapsulates the concept of a platform-dependent

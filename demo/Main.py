@@ -1362,7 +1362,8 @@ class wxPythonDemo(wx.Frame):
         leftBox.Add(self.tree, 1, wx.EXPAND)
         leftBox.Add(wx.StaticText(leftPanel, label = "Filter Demos:"), 0, wx.TOP|wx.LEFT, 5)
         leftBox.Add(self.filter, 0, wx.EXPAND|wx.ALL, 5)
-        leftBox.Add((1,5))
+        if 'wxMac' in wx.PlatformInfo:
+            leftBox.Add((5,5))  # Make sure there is room for the focus ring
         leftPanel.SetSizer(leftBox)
 
         # select initial items
