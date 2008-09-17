@@ -103,6 +103,7 @@ class TestPanel(wx.Panel):
         ctx.set_source(ptn)
         ctx.arc(328, 96, 75, 0, math.pi*2)
         ctx.fill()
+
         # Draw some text
         face = wx.lib.wxcairo.FontFaceFromFont(
             wx.FFont(10, wx.SWISS, wx.FONTFLAG_BOLD))
