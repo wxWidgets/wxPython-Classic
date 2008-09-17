@@ -1,6 +1,6 @@
 #----------------------------------------------------------------------
 # Name:        wx.lib.graphics
-# Purpose:     A wx.GraphicsContext-like API implemented using wx.lib.cairo
+# Purpose:     A wx.GraphicsContext-like API implemented using wx.lib.wxcairo
 #
 # Author:      Robin Dunn
 #
