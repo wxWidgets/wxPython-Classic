@@ -986,13 +986,13 @@ class NativePixelData(PixelDataBase):
             
         pf = PixelFacade()        
         for y in xrange(height):
+            pixels.MoveTo(self, 0, y)
             for x in xrange(width):
 
 
 
                 yield pf    
                 pixels.nextPixel()
-            pixels.MoveTo(self, 0, y)
 
     Pixels = property(GetPixels,doc="See `GetPixels`") 
 _gdi_.NativePixelData_swigregister(NativePixelData)
@@ -1102,13 +1102,13 @@ class AlphaPixelData(PixelDataBase):
             
         pf = PixelFacade()        
         for y in xrange(height):
+            pixels.MoveTo(self, 0, y)
             for x in xrange(width):
 
 
 
                 yield pf    
                 pixels.nextPixel()
-            pixels.MoveTo(self, 0, y)
 
     Pixels = property(GetPixels,doc="See `GetPixels`") 
 _gdi_.AlphaPixelData_swigregister(AlphaPixelData)

@@ -2563,55 +2563,56 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxPaperSize swig_types[97]
 #define SWIGTYPE_p_wxPoint swig_types[98]
 #define SWIGTYPE_p_wxPoint2D swig_types[99]
-#define SWIGTYPE_p_wxPropagateOnce swig_types[100]
-#define SWIGTYPE_p_wxPropagationDisabler swig_types[101]
-#define SWIGTYPE_p_wxPyApp swig_types[102]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[103]
-#define SWIGTYPE_p_wxPyDropTarget swig_types[104]
-#define SWIGTYPE_p_wxPyEvent swig_types[105]
-#define SWIGTYPE_p_wxPyEvtHandler swig_types[106]
-#define SWIGTYPE_p_wxPyFileSystemHandler swig_types[107]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[108]
-#define SWIGTYPE_p_wxPyInputStream swig_types[109]
-#define SWIGTYPE_p_wxPyOutputStream swig_types[110]
-#define SWIGTYPE_p_wxPySizer swig_types[111]
-#define SWIGTYPE_p_wxPyValidator swig_types[112]
-#define SWIGTYPE_p_wxQuantize swig_types[113]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[114]
-#define SWIGTYPE_p_wxRealPoint swig_types[115]
-#define SWIGTYPE_p_wxRect swig_types[116]
-#define SWIGTYPE_p_wxRect2D swig_types[117]
-#define SWIGTYPE_p_wxRegion swig_types[118]
-#define SWIGTYPE_p_wxScrollEvent swig_types[119]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[120]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[121]
-#define SWIGTYPE_p_wxShowEvent swig_types[122]
-#define SWIGTYPE_p_wxSize swig_types[123]
-#define SWIGTYPE_p_wxSizeEvent swig_types[124]
-#define SWIGTYPE_p_wxSizer swig_types[125]
-#define SWIGTYPE_p_wxSizerFlags swig_types[126]
-#define SWIGTYPE_p_wxSizerItem swig_types[127]
-#define SWIGTYPE_p_wxSizerItemList swig_types[128]
-#define SWIGTYPE_p_wxSizerItemList_iterator swig_types[129]
-#define SWIGTYPE_p_wxStaticBox swig_types[130]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[131]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[132]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[133]
-#define SWIGTYPE_p_wxTGAHandler swig_types[134]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[135]
-#define SWIGTYPE_p_wxToolTip swig_types[136]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[137]
-#define SWIGTYPE_p_wxValidator swig_types[138]
-#define SWIGTYPE_p_wxVisualAttributes swig_types[139]
-#define SWIGTYPE_p_wxWindow swig_types[140]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[141]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[142]
-#define SWIGTYPE_p_wxWindowList swig_types[143]
-#define SWIGTYPE_p_wxWindowList_iterator swig_types[144]
-#define SWIGTYPE_p_wxXPMHandler swig_types[145]
-#define SWIGTYPE_p_wxZipFSHandler swig_types[146]
-static swig_type_info *swig_types[148];
-static swig_module_info swig_module = {swig_types, 147, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxPoint2DDouble swig_types[100]
+#define SWIGTYPE_p_wxPropagateOnce swig_types[101]
+#define SWIGTYPE_p_wxPropagationDisabler swig_types[102]
+#define SWIGTYPE_p_wxPyApp swig_types[103]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[104]
+#define SWIGTYPE_p_wxPyDropTarget swig_types[105]
+#define SWIGTYPE_p_wxPyEvent swig_types[106]
+#define SWIGTYPE_p_wxPyEvtHandler swig_types[107]
+#define SWIGTYPE_p_wxPyFileSystemHandler swig_types[108]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[109]
+#define SWIGTYPE_p_wxPyInputStream swig_types[110]
+#define SWIGTYPE_p_wxPyOutputStream swig_types[111]
+#define SWIGTYPE_p_wxPySizer swig_types[112]
+#define SWIGTYPE_p_wxPyValidator swig_types[113]
+#define SWIGTYPE_p_wxQuantize swig_types[114]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[115]
+#define SWIGTYPE_p_wxRealPoint swig_types[116]
+#define SWIGTYPE_p_wxRect swig_types[117]
+#define SWIGTYPE_p_wxRect2D swig_types[118]
+#define SWIGTYPE_p_wxRegion swig_types[119]
+#define SWIGTYPE_p_wxScrollEvent swig_types[120]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[121]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[122]
+#define SWIGTYPE_p_wxShowEvent swig_types[123]
+#define SWIGTYPE_p_wxSize swig_types[124]
+#define SWIGTYPE_p_wxSizeEvent swig_types[125]
+#define SWIGTYPE_p_wxSizer swig_types[126]
+#define SWIGTYPE_p_wxSizerFlags swig_types[127]
+#define SWIGTYPE_p_wxSizerItem swig_types[128]
+#define SWIGTYPE_p_wxSizerItemList swig_types[129]
+#define SWIGTYPE_p_wxSizerItemList_iterator swig_types[130]
+#define SWIGTYPE_p_wxStaticBox swig_types[131]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[132]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[133]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[134]
+#define SWIGTYPE_p_wxTGAHandler swig_types[135]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[136]
+#define SWIGTYPE_p_wxToolTip swig_types[137]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[138]
+#define SWIGTYPE_p_wxValidator swig_types[139]
+#define SWIGTYPE_p_wxVisualAttributes swig_types[140]
+#define SWIGTYPE_p_wxWindow swig_types[141]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[142]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[143]
+#define SWIGTYPE_p_wxWindowList swig_types[144]
+#define SWIGTYPE_p_wxWindowList_iterator swig_types[145]
+#define SWIGTYPE_p_wxXPMHandler swig_types[146]
+#define SWIGTYPE_p_wxZipFSHandler swig_types[147]
+static swig_type_info *swig_types[149];
+static swig_module_info swig_module = {swig_types, 148, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3156,6 +3157,24 @@ SWIGINTERN PyObject *wxRect_Get(wxRect *self){
         return Py_None;
     }
 
+SWIGINTERN wxPoint2D wxPoint2D___add__(wxPoint2D *self,wxPoint2D const &pt){
+            return (*self) + pt;
+        }
+SWIGINTERN wxPoint2D wxPoint2D___sub__(wxPoint2D *self,wxPoint2D const &pt){
+            return (*self) - pt;
+        }
+SWIGINTERN wxPoint2D wxPoint2D___mul____SWIG_0(wxPoint2D *self,wxPoint2D const &pt){
+            return (*self) * pt;
+        }
+SWIGINTERN wxPoint2D wxPoint2D___mul____SWIG_1(wxPoint2D *self,double n){
+            return (*self) * n;
+        }
+SWIGINTERN wxPoint2D wxPoint2D___div____SWIG_0(wxPoint2D *self,wxPoint2D const &pt){
+            return (*self) / pt;
+        }
+SWIGINTERN wxPoint2D wxPoint2D___div____SWIG_1(wxPoint2D *self,double n){
+            return (*self) / n;
+        }
 SWIGINTERN bool wxPoint2D___eq__(wxPoint2D *self,PyObject *other){
             wxPoint2D  temp, *obj = &temp;
             if ( other == Py_None ) return false;
@@ -9170,7 +9189,9 @@ SWIGINTERN PyObject *_wrap_Point2D___iadd__(PyObject *SWIGUNUSEDPARM(self), PyOb
     }
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPoint2D, SWIG_POINTER_OWN |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
@@ -9208,14 +9229,16 @@ SWIGINTERN PyObject *_wrap_Point2D___isub__(PyObject *SWIGUNUSEDPARM(self), PyOb
     }
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPoint2D, SWIG_POINTER_OWN |  0 );
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Point2D___imul__(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_Point2D___imul__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPoint2D *arg1 = (wxPoint2D *) 0 ;
   wxPoint2D *arg2 = 0 ;
@@ -9223,21 +9246,17 @@ SWIGINTERN PyObject *_wrap_Point2D___imul__(PyObject *SWIGUNUSEDPARM(self), PyOb
   void *argp1 = 0 ;
   int res1 = 0 ;
   wxPoint2D temp2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "pt", NULL 
-  };
+  PyObject *swig_obj[2] ;
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Point2D___imul__",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPoint2D, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_Python_UnpackTuple(args,"Point2D___imul__",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPoint2D, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Point2D___imul__" "', expected argument " "1"" of type '" "wxPoint2D *""'"); 
   }
   arg1 = reinterpret_cast< wxPoint2D * >(argp1);
   {
     arg2 = &temp2;
-    if ( ! wxPoint2D_helper(obj1, &arg2)) SWIG_fail;
+    if ( ! wxPoint2D_helper(swig_obj[1], &arg2)) SWIG_fail;
   }
   {
     {
@@ -9246,48 +9265,295 @@ SWIGINTERN PyObject *_wrap_Point2D___imul__(PyObject *SWIGUNUSEDPARM(self), PyOb
     }
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPoint2D, SWIG_POINTER_OWN |  0 );
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
 }
 
 
-SWIGINTERN PyObject *_wrap_Point2D___idiv__(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_Point2D___idiv__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPoint2D *arg1 = (wxPoint2D *) 0 ;
-  wxPoint2D *arg2 = 0 ;
+  wxPoint2DDouble *arg2 = 0 ;
   wxPoint2D *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  wxPoint2D temp2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "pt", NULL 
-  };
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Point2D___idiv__",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPoint2D, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_Python_UnpackTuple(args,"Point2D___idiv__",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPoint2D, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Point2D___idiv__" "', expected argument " "1"" of type '" "wxPoint2D *""'"); 
   }
   arg1 = reinterpret_cast< wxPoint2D * >(argp1);
-  {
-    arg2 = &temp2;
-    if ( ! wxPoint2D_helper(obj1, &arg2)) SWIG_fail;
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_wxPoint2DDouble,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Point2D___idiv__" "', expected argument " "2"" of type '" "wxPoint2DDouble const &""'"); 
   }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Point2D___idiv__" "', expected argument " "2"" of type '" "wxPoint2DDouble const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxPoint2DDouble * >(argp2);
   {
     {
-      wxPoint2D &_result_ref = (arg1)->operator /=((wxPoint2D const &)*arg2);
+      wxPoint2D &_result_ref = (arg1)->operator /=((wxPoint2DDouble const &)*arg2);
       result = (wxPoint2D *) &_result_ref;
     }
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPoint2D, SWIG_POINTER_OWN |  0 );
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
   return resultobj;
 fail:
   return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Point2D___add__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPoint2D *arg1 = (wxPoint2D *) 0 ;
+  wxPoint2D *arg2 = 0 ;
+  wxPoint2D result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxPoint2D temp2 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"Point2D___add__",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPoint2D, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Point2D___add__" "', expected argument " "1"" of type '" "wxPoint2D *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPoint2D * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxPoint2D_helper(swig_obj[1], &arg2)) SWIG_fail;
+  }
+  {
+    result = wxPoint2D___add__(arg1,(wxPoint2D const &)*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxPoint2D(static_cast< const wxPoint2D& >(result))), SWIGTYPE_p_wxPoint2D, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Point2D___sub__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPoint2D *arg1 = (wxPoint2D *) 0 ;
+  wxPoint2D *arg2 = 0 ;
+  wxPoint2D result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxPoint2D temp2 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"Point2D___sub__",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPoint2D, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Point2D___sub__" "', expected argument " "1"" of type '" "wxPoint2D *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPoint2D * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxPoint2D_helper(swig_obj[1], &arg2)) SWIG_fail;
+  }
+  {
+    result = wxPoint2D___sub__(arg1,(wxPoint2D const &)*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxPoint2D(static_cast< const wxPoint2D& >(result))), SWIGTYPE_p_wxPoint2D, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Point2D___mul____SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxPoint2D *arg1 = (wxPoint2D *) 0 ;
+  wxPoint2D *arg2 = 0 ;
+  wxPoint2D result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxPoint2D temp2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPoint2D, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Point2D___mul__" "', expected argument " "1"" of type '" "wxPoint2D *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPoint2D * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxPoint2D_helper(swig_obj[1], &arg2)) SWIG_fail;
+  }
+  {
+    result = wxPoint2D___mul____SWIG_0(arg1,(wxPoint2D const &)*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxPoint2D(static_cast< const wxPoint2D& >(result))), SWIGTYPE_p_wxPoint2D, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Point2D___mul____SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxPoint2D *arg1 = (wxPoint2D *) 0 ;
+  double arg2 ;
+  wxPoint2D result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPoint2D, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Point2D___mul__" "', expected argument " "1"" of type '" "wxPoint2D *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPoint2D * >(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Point2D___mul__" "', expected argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  {
+    result = wxPoint2D___mul____SWIG_1(arg1,arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxPoint2D(static_cast< const wxPoint2D& >(result))), SWIGTYPE_p_wxPoint2D, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Point2D___mul__(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[3];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"Point2D___mul__",0,2,argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    int _v = 0;
+    {
+      {
+        _v = wxPySimple_typecheck(argv[1], wxT("wxPoint2D"), 2);
+      }
+    }
+    if (!_v) goto check_1;
+    return _wrap_Point2D___mul____SWIG_0(self, argc, argv);
+  }
+check_1:
+  
+  if (argc == 2) {
+    return _wrap_Point2D___mul____SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  Py_INCREF(Py_NotImplemented);
+  return Py_NotImplemented;
+}
+
+
+SWIGINTERN PyObject *_wrap_Point2D___div____SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxPoint2D *arg1 = (wxPoint2D *) 0 ;
+  wxPoint2D *arg2 = 0 ;
+  wxPoint2D result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxPoint2D temp2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPoint2D, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Point2D___div__" "', expected argument " "1"" of type '" "wxPoint2D *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPoint2D * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxPoint2D_helper(swig_obj[1], &arg2)) SWIG_fail;
+  }
+  {
+    result = wxPoint2D___div____SWIG_0(arg1,(wxPoint2D const &)*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxPoint2D(static_cast< const wxPoint2D& >(result))), SWIGTYPE_p_wxPoint2D, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Point2D___div____SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxPoint2D *arg1 = (wxPoint2D *) 0 ;
+  double arg2 ;
+  wxPoint2D result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPoint2D, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Point2D___div__" "', expected argument " "1"" of type '" "wxPoint2D *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPoint2D * >(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Point2D___div__" "', expected argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  {
+    result = wxPoint2D___div____SWIG_1(arg1,arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxPoint2D(static_cast< const wxPoint2D& >(result))), SWIGTYPE_p_wxPoint2D, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Point2D___div__(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[3];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"Point2D___div__",0,2,argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    int _v = 0;
+    {
+      {
+        _v = wxPySimple_typecheck(argv[1], wxT("wxPoint2D"), 2);
+      }
+    }
+    if (!_v) goto check_1;
+    return _wrap_Point2D___div____SWIG_0(self, argc, argv);
+  }
+check_1:
+  
+  if (argc == 2) {
+    return _wrap_Point2D___div____SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  Py_INCREF(Py_NotImplemented);
+  return Py_NotImplemented;
 }
 
 
@@ -60253,8 +60519,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Point2D___neg__", (PyCFunction)_wrap_Point2D___neg__, METH_O, NULL},
 	 { (char *)"Point2D___iadd__", (PyCFunction) _wrap_Point2D___iadd__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Point2D___isub__", (PyCFunction) _wrap_Point2D___isub__, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Point2D___imul__", (PyCFunction) _wrap_Point2D___imul__, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Point2D___idiv__", (PyCFunction) _wrap_Point2D___idiv__, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Point2D___imul__", _wrap_Point2D___imul__, METH_VARARGS, NULL},
+	 { (char *)"Point2D___idiv__", _wrap_Point2D___idiv__, METH_VARARGS, NULL},
+	 { (char *)"Point2D___add__", _wrap_Point2D___add__, METH_VARARGS, NULL},
+	 { (char *)"Point2D___sub__", _wrap_Point2D___sub__, METH_VARARGS, NULL},
+	 { (char *)"Point2D___mul__", _wrap_Point2D___mul__, METH_VARARGS, NULL},
+	 { (char *)"Point2D___div__", _wrap_Point2D___div__, METH_VARARGS, NULL},
 	 { (char *)"Point2D___eq__", (PyCFunction) _wrap_Point2D___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Point2D___ne__", (PyCFunction) _wrap_Point2D___ne__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Point2D_x_set", _wrap_Point2D_x_set, METH_VARARGS, NULL},
@@ -62425,6 +62695,7 @@ static swig_type_info _swigt__p_wxPaletteChangedEvent = {"_p_wxPaletteChangedEve
 static swig_type_info _swigt__p_wxPaperSize = {"_p_wxPaperSize", "enum wxPaperSize *|wxPaperSize *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPoint = {"_p_wxPoint", "wxPoint *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPoint2D = {"_p_wxPoint2D", "wxPoint2D *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxPoint2DDouble = {"_p_wxPoint2DDouble", "wxPoint2DDouble *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPropagateOnce = {"_p_wxPropagateOnce", "wxPropagateOnce *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPropagationDisabler = {"_p_wxPropagationDisabler", "wxPropagationDisabler *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPyApp = {"_p_wxPyApp", "wxPyApp *", 0, 0, (void*)0, 0};
@@ -62574,6 +62845,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxPaperSize,
   &_swigt__p_wxPoint,
   &_swigt__p_wxPoint2D,
+  &_swigt__p_wxPoint2DDouble,
   &_swigt__p_wxPropagateOnce,
   &_swigt__p_wxPropagationDisabler,
   &_swigt__p_wxPyApp,
@@ -62723,6 +62995,7 @@ static swig_cast_info _swigc__p_wxPaletteChangedEvent[] = {  {&_swigt__p_wxPalet
 static swig_cast_info _swigc__p_wxPaperSize[] = {  {&_swigt__p_wxPaperSize, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPoint[] = {  {&_swigt__p_wxPoint, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPoint2D[] = {  {&_swigt__p_wxPoint2D, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPoint2DDouble[] = {  {&_swigt__p_wxPoint2DDouble, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPropagateOnce[] = {  {&_swigt__p_wxPropagateOnce, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPropagationDisabler[] = {  {&_swigt__p_wxPropagationDisabler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyApp[] = {  {&_swigt__p_wxPyApp, 0, 0, 0},{0, 0, 0, 0}};
@@ -62872,6 +63145,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxPaperSize,
   _swigc__p_wxPoint,
   _swigc__p_wxPoint2D,
+  _swigc__p_wxPoint2DDouble,
   _swigc__p_wxPropagateOnce,
   _swigc__p_wxPropagationDisabler,
   _swigc__p_wxPyApp,

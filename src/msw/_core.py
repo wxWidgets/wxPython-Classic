@@ -1588,13 +1588,35 @@ class Point2D(object):
         """__isub__(self, Point2D pt) -> Point2D"""
         return _core_.Point2D___isub__(*args, **kwargs)
 
-    def __imul__(*args, **kwargs):
+    def __imul__(*args):
         """__imul__(self, Point2D pt) -> Point2D"""
-        return _core_.Point2D___imul__(*args, **kwargs)
+        return _core_.Point2D___imul__(*args)
 
-    def __idiv__(*args, **kwargs):
-        """__idiv__(self, Point2D pt) -> Point2D"""
-        return _core_.Point2D___idiv__(*args, **kwargs)
+    def __idiv__(*args):
+        """__idiv__(self, wxPoint2DDouble pt) -> Point2D"""
+        return _core_.Point2D___idiv__(*args)
+
+    def __add__(*args):
+        """__add__(self, Point2D pt) -> Point2D"""
+        return _core_.Point2D___add__(*args)
+
+    def __sub__(*args):
+        """__sub__(self, Point2D pt) -> Point2D"""
+        return _core_.Point2D___sub__(*args)
+
+    def __mul__(*args):
+        """
+        __mul__(self, Point2D pt) -> Point2D
+        __mul__(self, double n) -> Point2D
+        """
+        return _core_.Point2D___mul__(*args)
+
+    def __div__(*args):
+        """
+        __div__(self, Point2D pt) -> Point2D
+        __div__(self, double n) -> Point2D
+        """
+        return _core_.Point2D___div__(*args)
 
     def __eq__(*args, **kwargs):
         """
