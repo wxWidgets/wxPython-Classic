@@ -5,7 +5,7 @@
 # Author:      Robin Dunn
 #
 # Created:     15-Sept-2008
-# RCS-ID:      $Id: $
+# RCS-ID:      $Id$
 # Copyright:   (c) 2008 by Total Control Software
 # Licence:     wxWindows license
 #----------------------------------------------------------------------
@@ -13,7 +13,7 @@
 """
 This module implements an API similar to wx.GraphicsContext and the
 related classes.  The implementation for all platforms is done using
-Cairo, via the wx.lib.cairo glue module.
+Cairo, via the wx.lib.wxcairo glue module.
 
 Why do this?  Why not just use wx.GraphicsContext everywhere?  Using
 Cairo on every platform enables us to more easily be totally
@@ -21,7 +21,7 @@ consistent on all platforms.  Implementing it in Python means that it
 is easy to fill in the gaps in functionality with features of Cairo
 that GraphicsContext may not provide, like converting text to a path,
 using compositing operators, or being able to provide an
-implementation for things like coontext.Clear().
+implementation for things like context.Clear().
 
 Why not just use Cairo directly?  There may be times when you do want
 to use wx.GrpahicsContext, so being able to share code between that
