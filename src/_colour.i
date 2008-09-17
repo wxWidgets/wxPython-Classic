@@ -220,6 +220,7 @@ is returned if the pixel is invalid (on X, unallocated).", "");
     
 };
 
+// TODO: I should really get rid of these one of these days...
 %pythoncode {
     Color = Colour
     NamedColor = NamedColour
