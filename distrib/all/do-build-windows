@@ -79,8 +79,10 @@ chmod +x .m*
 update_setup_h $WXDIR/include/wx/msw
 
 echo "Building the wx DLLs..."
-if [ $CHARTYPE = both -o $CHARTYPE = ansi ]; then
-    .make hybrid USE_GDIPLUS=1
+if [ "$CPU" != "AMD64" ]; then
+    if [ $CHARTYPE = both -o $CHARTYPE = ansi ]; then
+	.make hybrid USE_GDIPLUS=1
+    fi
 fi
 if [ $CHARTYPE = both -o $CHARTYPE = unicode ]; then
     .make hybrid-uni USE_GDIPLUS=1
