@@ -29,9 +29,9 @@ class TestPanel(wx.Panel):
     def Render(self, dc):
         gc = wx.lib.graphics.GraphicsContext.Create(dc)
 
-##         font = wx.SystemSettings.GetFont(wx.SYS_DEFAULT_GUI_FONT)
-##         font.SetWeight(wx.BOLD)
-##         gc.SetFont(font)
+        font = wx.SystemSettings.GetFont(wx.SYS_DEFAULT_GUI_FONT)
+        font.SetWeight(wx.BOLD)
+        gc.SetFont(font)
 
         # make a path that contains a circle and some lines, centered at 0,0
         path = gc.CreatePath()
@@ -55,9 +55,9 @@ class TestPanel(wx.Panel):
         for label, PathFunc in [("StrokePath", gc.StrokePath),
                                 ("FillPath",   gc.FillPath),
                                 ("DrawPath",   gc.DrawPath)]:
-##            w, h = gc.GetTextExtent(label)
+            w, h = gc.GetTextExtent(label)
             
-##            gc.DrawText(label, -w/2, -BASE2-h-4)
+            gc.DrawText(label, -w/2, -BASE2-h-4)
             PathFunc(path)
             gc.Translate(2*BASE, 0)
 

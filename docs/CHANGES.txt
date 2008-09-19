@@ -26,10 +26,30 @@ cairo.ImageSurface objects.  In order to use this module you will need
 to have the Cairo library and its dependencies installed, as well as
 the pycairo Python package.  For Linux and other unix-like systems you
 most likely have what you need installed already, or can easily do so
-from your package manager application.  See the wx.lib.wxcairo module's
-docstring for notes on where to get what you need for Windows or Mac.
-This module uses ctypes, and depending on platform it may need to find
-and load additional dynamic libraries at runtime in addition to cairo.
+from your package manager application.  See the wx.lib.wxcairo
+module's docstring for notes on where to get what you need for Windows
+or Mac.  This module uses ctypes, and depending on platform it may
+need to find and load additional dynamic libraries at runtime in
+addition to cairo.  The pycairo package used needs to be new enough to
+export the CAPI structure in the package namespace.  I believe that
+started sometime in the 1.4.x release series.
+
+Added the wx.lib.graphics module, which is an implementation of the
+wx.GraphicsContext API using Cairo (via wx.lib.wxcairo).  This allows
+us to be totally consistent across platforms, and also use Cairo to
+implement some things that are missing from the GraphicsContext API.
+It's not 100% compatible with the GraphicsContext API, but probably
+close enough to be able to share code between them if desired, plus it
+can do a few things more. 
+
+Updated wx.Bitmap.CopyFromBuffer to be a bit more flexible. You can
+now specify the format of the buffer, and the CopyFromBufferRGBA is
+now just a wrapper around CopyFromBuffer that specifies a different
+format than the default.  Also added the complement method,
+CopyToBuffer.  See the docstring for CopyFromBuffer for details on the
+currently allowed buffer formats.  The existing wx.BitmapFromBuffer
+factory functions are also now implemented using the same underlying
+code as CopyFromBuffer.
 
 
 
