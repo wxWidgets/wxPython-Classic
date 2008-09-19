@@ -239,6 +239,7 @@ The following example shows a simple implementation that utilizes
 %include floatpane.h
 %include auibook.h
 %include tabmdi.h
+%include auibar.h
 
 #undef wxColor
 
