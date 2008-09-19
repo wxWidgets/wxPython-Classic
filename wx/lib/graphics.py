@@ -40,11 +40,11 @@ import wx.lib.wxcairo
 
 # Other ideas:
 # 1. TextToPath (or maybe make this part of the Path class
-# 2. Be able to add color stops to gradients.  Or maybe a GradientClass
+# 2. Be able to add color stops to gradients.  Or maybe a GraphicsGradient or GraphicsPattern class
 # 3. Relative moves, lines, curves, etc.
 # 4. device_to_user and user_to_device
-# 5.
-
+# 5. Add GraphicsContext.SetMask(pattern or bitmap)
+# 6. optionally draw text with a pattern instead of a colour
 
 #---------------------------------------------------------------------------
 # A decorator that makes creating properties a little cleaner and simpler
@@ -194,6 +194,7 @@ class GraphicsPen(GraphicsObject):
                 # make a pattern from the stipple bitmap
                 img = wx.lib.wxcairo.ImageSurfaceFromBitmap(self._stipple)
                 self._pattern = cairo.SurfacePattern(img)
+                self._pattern.set_extend(cairo.EXTEND_REPEAT)
             ctx.set_source(self._pattern)
         
         elif self._style == wx.USER_DASH:
@@ -275,6 +276,15 @@ class GraphicsBrush(GraphicsObject):
         return locals()
 
 
+    @Property
+    def Pattern():
+        def fget(self):
+            return self._pattern
+        def fset(self, value):
+            self._pattern = value
+        return locals()
+
+
     def Apply(self, ctx):
         ctx = ctx.GetNativeContext()
         
@@ -286,13 +296,74 @@ class GraphicsBrush(GraphicsObject):
                 # make a pattern from the stipple bitmap
                 img = wx.lib.wxcairo.ImageSurfaceFromBitmap(self._stipple)
                 self._pattern = cairo.SurfacePattern(img)
+                self._pattern.set_extend(cairo.EXTEND_REPEAT)
             ctx.set_source(self._pattern)
             
 #---------------------------------------------------------------------------
 
 class GraphicsFont(GraphicsObject):
-    pass
+    """
+    """
+    def __init__(self):
+        # TODO: Should we be able to create a GrpahicsFont from other
+        # properties, or will it always be via a wx.Font?  What about
+        # creating from a cairo.FontFace or cairo.ScaledFont?
+        self._font = None
+        self._colour = None
+        self._pointSize = None
+        self._fontface = None
+        # To remain consistent with the GC API a color is associated
+        # with the font, and nothing else.  Since this is Cairo and
+        # it's easy to do, we'll also allow a brush to be used...
+        self._brush = None
+        
 
+    @staticmethod
+    def CreateFromFont(font, colour=None):
+        f = GraphicsFont()
+        f._font = font
+        f._colour = _makeColour(colour)
+        f._pointSize = font.GetPointSize()
+        f._fontface = wx.lib.wxcairo.FontFaceFromFont(font)
+        return f
+
+
+    @Property
+    def Colour():
+        def fget(self):
+            return self._colour
+        def fset(self, value):
+            self._colour = value
+        return locals()
+
+    @Property
+    def PointSize():
+        def fget(self):
+            return self._pointSize
+        def fset(self, value):
+            self._pointSize = value
+        return locals()
+
+    @Property
+    def Brush():
+        def fget(self):
+            return self._brush
+        def fset(self, value):
+            self._brush = value
+        return locals()
+
+
+    def Apply(self, ctx, colour):
+        nctx = ctx.GetNativeContext()
+        if self._brush is not None:
+            self._brush.Apply(ctx)
+        else:
+            if colour is None: colour = wx.BLACK
+            nctx.set_source_rgba( *_colourToValues(colour) )
+        nctx.set_font_face(self._fontface)
+        nctx.set_font_size(self._pointSize)
+
+        
 #---------------------------------------------------------------------------
 
 class GraphicsBitmap(GraphicsObject):
@@ -350,6 +421,10 @@ class GraphicsBitmap(GraphicsObject):
                 stride = width * 4
         b._surface = cairo.ImageSurface.create_for_data(
             buffer, format, width, height, stride)
+
+        # save a reference to the buffer to ensure that it lives as
+        # long as this object does
+        b._buffer = buffer
         return b
         
 
@@ -421,11 +496,13 @@ class GraphicsMatrix(GraphicsObject):
     def Concat(self, matrix):
         """Concatenates the matrix passed with the current matrix."""
         self._matrix = self._matrix * matrix._matrix
+        return self
 
 
     def Invert(self):
         """Inverts the matrix."""
         self._matrix.invert()
+        return self
     
 
     def IsEqual(self, matrix):
@@ -441,16 +518,19 @@ class GraphicsMatrix(GraphicsObject):
     def Rotate(self, angle):
         """Rotates the matrix in radians"""
         self._matrix.rotate(angle)
+        return self
 
 
     def Scale(self, xScale, yScale):
         """Scale the matrix"""
         self._matrix.scale(xScale, yScale)
+        return self
 
 
     def Translate(self, dx, dy):
         """Translate the metrix.  This shifts the origin."""
         self._matrix.translate(dx, dy)
+        return self
 
 
     def TransformPoint(self, x, y):
@@ -499,6 +579,7 @@ class GraphicsPath(GraphicsObject):
             self._pathContext.arc(x, y, radius, startAngle, endAngle)
         else:
             self._pathContext.arc_negative(x, y, radius, startAngle, endAngle)
+        return self
 
 
     def AddArcToPoint(self, x1, y1 , x2, y2, radius ):
@@ -537,6 +618,7 @@ class GraphicsPath(GraphicsObject):
         self.AddLineToPoint(t1.x, t1.y)
         self.AddArc(c.x, c.y, radius, math.radians(a1), math.radians(a2), True)
         self.AddLineToPoint(p2.x, p2.y)
+        return self
         
 
     def AddCircle(self, x, y, radius):
@@ -546,6 +628,7 @@ class GraphicsPath(GraphicsObject):
         self.MoveToPoint(x + radius, y)
         self.AddArc( x, y, radius, 0, 2*math.pi, False)
         self.CloseSubpath()
+        return self
 
 
     def AddCurveToPoint(self, cx1, cy1, cx2, cy2, x, y):
@@ -554,6 +637,7 @@ class GraphicsPath(GraphicsObject):
         control points and an end point.
         """
         self._pathContext.curve_to(cx1, cy1, cx2, cy2, x, y)
+        return self
 
 
     def AddEllipse(self, x, y, w, h):
@@ -571,6 +655,7 @@ class GraphicsPath(GraphicsObject):
         p.AddCircle(0,0, rh)
         p.Transform(m)
         self.AddPath(p)
+        return self
         
 
     def AddLineToPoint(self, x, y):
@@ -578,6 +663,7 @@ class GraphicsPath(GraphicsObject):
         Adds a straight line from the current point to (x,y)
         """
         self._pathContext.line_to(x, y)
+        return self
 
 
     def AddPath(self, path):
@@ -585,6 +671,7 @@ class GraphicsPath(GraphicsObject):
         Appends the given path to this path.
         """
         self._pathContext.append_path(path.GetNativePath())
+        return self
 
 
     def AddQuadCurveToPoint(self):
@@ -600,6 +687,7 @@ class GraphicsPath(GraphicsObject):
         c1 = start * (1/3.0) + c * (2/3.0)
         c2 = c * (2/3.0) + end * (1/3.0)
         self.AddCurveToPoint(c1.x, c1.y, c2.x, c2.y, x, y);
+        return self
         
 
     def AddRectangle(self, x, y, w, h):
@@ -607,6 +695,7 @@ class GraphicsPath(GraphicsObject):
         Adds a new rectanlge as a closed sub-path.
         """
         self._pathContext.rectangle(x, y, w, h)
+        return self
 
 
     def AddRoundedRectangle(self, x, y, w, h, radius):
@@ -622,6 +711,7 @@ class GraphicsPath(GraphicsObject):
             self.AddArcToPoint(x, y , x + w / 2.0, y, radius)
             self.AddArcToPoint(x + w, y, x + w, y + h / 2.0, radius)
             self.CloseSubpath()
+        return self
             
 
     def CloseSubpath(self):
@@ -630,6 +720,7 @@ class GraphicsPath(GraphicsObject):
         beginning of the current sub-path, and closes this sub-path.
         """
         self._pathContext.close_path()
+        return self
 
 
     def Contains(self, x, y, fillStyle=wx.ODDEVEN_RULE):
@@ -663,6 +754,7 @@ class GraphicsPath(GraphicsObject):
         Begins a new sub-path at (x,y) by moving the "current point" there.
         """
         self._pathContext.move_to(x, y)
+        return self
 
 
     def Transform(self, matrix):
@@ -675,6 +767,7 @@ class GraphicsPath(GraphicsObject):
         m = matrix.GetNativeMatrix()
         m.invert()
         self._pathContext.transform(m)
+        return self
 
 
     def Clone(self):
@@ -718,11 +811,12 @@ class GraphicsContext(GraphicsObject):
         self._pen = None
         self._brush = None
         self._font = None
+        self._fontColour = None
         
 
     @staticmethod
     def Create(dc):
-        # TODO:  Support creating from a wx.Window too.
+        # TODO:  Support creating directly from a wx.Window too.
         assert isinstance(dc, wx.DC)
         ctx = wx.lib.wxcairo.ContextFromDC(dc)
         return GraphicsContext(ctx)
@@ -758,17 +852,21 @@ class GraphicsContext(GraphicsObject):
     def CreateBrush(self, brush):
         return GraphicsBrush.CreateFromBrush(brush)
 
-    def CreateFont(self, font):
-        return GraphicsFont.CreateFromFont(font)
+    def CreateFont(self, font, colour=None):
+        return GraphicsFont.CreateFromFont(font, colour)
 
 
     def CreateLinearGradientBrush(self, x1, y1, x2, y2, c1, c2):
+        c1 = _makeColour(c1)
+        c2 = _makeColour(c2)
         pattern = cairo.LinearGradient(x1, y1, x2, y2)
         pattern.add_color_stop_rgba(0.0, *_colourToValues(c1))
         pattern.add_color_stop_rgba(1.0, *_colourToValues(c2))
         return GraphicsBrush.CreateFromPattern(pattern)
 
     def CreateRadialGradientBrush(self, xo, yo, xc, yc, radius, oColour, cColour):
+        oColour = _makeColour(oColour)
+        cColour = _makeColour(cColour)
         pattern = cairo.RadialGradient(xo, yo, 0.0, xc, yc, radius)
         pattern.add_color_stop_rgba(0.0, *_colourToValues(oColour))
         pattern.add_color_stop_rgba(1.0, *_colourToValues(cColour))
@@ -820,7 +918,8 @@ class GraphicsContext(GraphicsObject):
         return self._context
 
 
-    # TODO:  These should probably be named differently and used to set the compositing mode...
+    # TODO: These should probably be named differently and used to set
+    # the compositing mode...
     def GetLogicalFunction(self):
         pass   # TODO
     def SetLogicalFunction(self, function):
@@ -870,11 +969,15 @@ class GraphicsContext(GraphicsObject):
         self._brush = brush
 
 
-    def SetFont(self, font):
+    def SetFont(self, font, colour=None):
         if isinstance(font, wx.Font):
-            font = GraphicsFont.CreateFromFont(font)
+            font = GraphicsFont.CreateFromFont(font, colour)
         self._font = font
-
+        if colour is not None:
+            self._fontColour = _makeColour(colour)
+        else:
+            self._fontColour = font._colour
+        
 
     def StrokePath(self, path):
         if self._pen:
@@ -904,16 +1007,88 @@ class GraphicsContext(GraphicsObject):
         
 
     def DrawText(self, text, x, y, backgroundBrush=None):
-        pass  # TODO
-    
+        if backgroundBrush:
+            formerBrush = self._brush
+            formerPen = self._pen
+            self.SetBrush(backgroundBrush)
+            self.SetPen(None)
+            width, height = self.GetTextExtent(text)
+            path = GraphicsPath()
+            path.AddRectangle(x, y, width, height)
+            self.FillPath(path)
+            self._DrawText(text, x, y)
+            self.SetBrush(formerBrush)
+            self.SetPen(formerPen)
+
+        else:
+            self._DrawText(text, x, y)
+            
+            
+    def _DrawText(self, text, x, y, angle=None):
+        # helper used by DrawText and DrawRotatedText
+        if angle is not None:
+            self.PushState()
+            self.Translate(x, y)
+            self.Rotate(-angle)
+            x = y = 0
+            
+        self._font.Apply(self, self._fontColour)
+        # Cairo's x,y for drawing text is at the baseline, so we need to adjust
+        # the position we move to by the ascent.
+        fe = self._context.font_extents()
+        ascent = fe[0]
+        self._context.move_to( x, y + ascent )
+        self._context.show_text(text)
+
+        if angle is not None:
+            self.PopState()
+            
+
     def DrawRotatedText(self, text, x, y, angle, backgroundBrush=None):
-        pass  # TODO
+        if backgroundBrush:
+            formerBrush = self._brush
+            formerPen = self._pen
+            self.SetBrush(backgroundBrush)
+            self.SetPen(None)
+            width, height = self.GetTextExtent(text)
+            path = GraphicsPath()
+            path.AddRectangle(0, 0, width, height)
+            self.PushState()
+            self.Translate(x, y)
+            self.Rotate(-angle)
+            self.FillPath(path)
+            self.PopState()
+            self._DrawText(text, x, y, angle)
+            self.SetBrush(formerBrush)
+            self.SetPen(formerPen)
+
+        else:
+            self._DrawText(text, x, y, angle)
+            
 
     def GetFulltextExtent(self, text):
-        pass  # TODO
+        if not text:
+            return (0,0,0,0)
+
+        self._font.Apply(self, self._fontColour)
+
+        te = self._context.text_extents(text)
+        width = te[2]
+
+        fe = self._context.font_extents()
+        height = fe[2]
+        descent = fe[1]
+        ascent = fe[0]
+        externalLeading = max(0, height - (ascent + descent))
+
+        return (width, height, descent, externalLeading)
+        
 
     def GetTextExtent(self, text):
-        pass  # TODO
+        (width, height, descent, externalLeading) = self.GetFulltextExtent(text)
+        return (width, height)
+
+    
 
     def GetPartialTextExtents(self, text):
         pass  # TODO
@@ -1007,6 +1182,12 @@ class GraphicsContext(GraphicsObject):
 
 
     # Things not in wx.GraphicsContext
+
+    def DrawCircle(self, x, y, radius):
+        path = GraphicsPath()
+        path.AddCircle(x, y, radius)
+        self.DrawPath(path)
+        
 
     def ClearRGBA(self, r=0, g=0, b=0, a=0):
         pass  # TODO

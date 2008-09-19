@@ -97,6 +97,28 @@ class TestPanel(wx.Panel):
         ctx.Translate(120, 0)
         ctx.DrawPath(sqpath)
 
+        ctx.SetTransform(ctx.CreateMatrix())
+        ctx.Translate(10, 250)
+        ctx.SetFont(wx.FFont(28, wx.SWISS, wx.FONTFLAG_BOLD), 'blue')
+        ctx.DrawText("Hello", 0,0)
+        ctx.DrawText("World", 0,35, g.GraphicsBrush('orchid'))
+
+        ctx.Translate(125, 0)
+        ctx.DrawRotatedText("wxPython", 0, 0, math.radians(-30))
+        ctx.SetFont(wx.FFont(28, wx.ROMAN, wx.FONTFLAG_BOLD))
+        ctx.DrawRotatedText("& Cairo", 0, 45, math.radians(-30), g.GraphicsBrush('orchid'))
+
+        ctx.SetBrush(g.GraphicsBrush((0,128,0,128)))
+        ctx.FillPath(g.GraphicsPath().AddCircle(0,0,4))
+        ctx.FillPath(g.GraphicsPath().AddCircle(0,45,4))
+
+        ctx.Translate(125, 0)
+        font = ctx.CreateFont(wx.FFont(40, wx.SWISS, wx.FONTFLAG_BOLD))
+        gbrush = ctx.CreateLinearGradientBrush(0,0, 100,0, "orchid", "navy")
+        font.Brush = gbrush
+        ctx.SetFont(font)
+        ctx.DrawText("brush", 0,0)
+        
         
                 
 app = wx.App(redirect=False)
