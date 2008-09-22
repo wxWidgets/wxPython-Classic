@@ -40,11 +40,35 @@ import wx.lib.wxcairo
 
 # Other ideas:
 # 1. TextToPath (or maybe make this part of the Path class
-# 2. Be able to add color stops to gradients.  Or maybe a GraphicsGradient or GraphicsPattern class
+# 2. Be able to add additional color stops to gradients.  Or maybe a GraphicsGradient or GraphicsPattern class
 # 3. Relative moves, lines, curves, etc.
-# 4. device_to_user and user_to_device
-# 5. Add GraphicsContext.SetMask(pattern or bitmap)
-# 6. optionally draw text with a pattern instead of a colour
+# 5. maybe expose cairo_paint, cairo_paint_with_alpha, cairo_mask?
+
+#---------------------------------------------------------------------------
+
+# image surface formats
+FORMAT_ARGB32 = cairo.FORMAT_ARGB32
+FORMAT_RGB24  = cairo.FORMAT_RGB24
+FORMAT_A8     = cairo.FORMAT_A8
+FORMAT_A1     = cairo.FORMAT_A1
+
+
+# compositing operators.  See http://cairographics.org/operators
+OPERATOR_CLEAR = cairo.OPERATOR_CLEAR         # clear destination layer (bounded)
+OPERATOR_SOURCE = cairo.OPERATOR_SOURCE       # replace destination layer (bounded)
+OPERATOR_OVER = cairo.OPERATOR_OVER           # draw source layer on top of destination layer (bounded)
+OPERATOR_IN = cairo.OPERATOR_IN               # draw source where there was destination content (unbounded)
+OPERATOR_OUT = cairo.OPERATOR_OUT             # draw source where there was no destination content (unbounded)
+OPERATOR_ATOP = cairo.OPERATOR_ATOP           # draw source on top of destination content and only there
+OPERATOR_DEST = cairo.OPERATOR_DEST           # ignore the source
+OPERATOR_DEST_OVER = cairo.OPERATOR_DEST_OVER # draw destination on top of source
+OPERATOR_DEST_IN = cairo.OPERATOR_DEST_IN     # leave destination only where there was source content (unbounded)
+OPERATOR_DEST_OUT = cairo.OPERATOR_DEST_OUT   # leave destination only where there was no source content
+OPERATOR_DEST_ATOP = cairo.OPERATOR_DEST_ATOP # leave destination on top of source content and only there (unbounded)
+OPERATOR_XOR = cairo.OPERATOR_XOR             # source and destination are shown where there is only one of them
+OPERATOR_ADD = cairo.OPERATOR_ADD             # source and destination layers are accumulated
+OPERATOR_SATURATE = cairo.OPERATOR_SATURATE   # like over, but assuming source and dest are disjoint geometries
+
 
 #---------------------------------------------------------------------------
 # A decorator that makes creating properties a little cleaner and simpler
@@ -54,12 +78,20 @@ def Property( function ):
 
 #---------------------------------------------------------------------------
 
-class GraphicsObject(object):
+NullGraphicsPen = None
+NullGraphicsBrush = None
+NullGraphicsFont = None
+NullGraphicsMatrix = None
+NullGraphicsPath = None
 
-    def IsNull(self):  # This probably isn't needed at all anymore, just use None instead of Null objects...
-        if not hasattr(self, '_initialized'):
-            self._initialized = False
-        return not self._initialized
+
+class GraphicsObject(object):
+    # This probably isn't needed at all anymore since we'll just use
+    # None insead of the Null objects, but we'll keep it anyway in
+    # case it's needed to help write compatible code.
+    def IsNull(self):
+        return False
+
 
 #---------------------------------------------------------------------------
 
@@ -316,7 +348,11 @@ class GraphicsFont(GraphicsObject):
         # with the font, and nothing else.  Since this is Cairo and
         # it's easy to do, we'll also allow a brush to be used...
         self._brush = None
-        
+
+
+    def IsNull(self):
+        return self._font is None
+    
 
     @staticmethod
     def CreateFromFont(font, colour=None):
@@ -372,13 +408,17 @@ class GraphicsBitmap(GraphicsObject):
     be used as a source for drawing images, or as a target of drawing
     operations.
     """
-    def __init__(self, width=-1, height=-1, format=cairo.FORMAT_ARGB32):
+    def __init__(self, width=-1, height=-1, format=FORMAT_ARGB32):
         """Create either a NULL GraphicsBitmap or an empty one if a size is given"""
         self._surface = None
         if width > 0 and height > 0:
             self._surface = cairo.ImageSurface(format, width, height)
 
 
+    def IsNull(self):
+        return self._surface is None
+
+    
     @staticmethod
     def CreateFromBitmap(bitmap):
         """Create a GraphicsBitmap from a wx.Bitmap"""
@@ -405,7 +445,7 @@ class GraphicsBitmap(GraphicsObject):
 
     @staticmethod
     def CreateFromBuffer(buffer, width, height,
-                         format=cairo.FORMAT_ARGB32, stride=-1):
+                         format=FORMAT_ARGB32, stride=-1):
         """
         Creates a GraphicsBitmap that uses the given buffer object as
         the pixel storage.  This means that the current contents of
@@ -565,7 +605,7 @@ class GraphicsPath(GraphicsObject):
         # them to the real context.  So we'll use a 1x1 image surface
         # for the backend, since we won't ever actually use it for
         # rendering in this context.
-        surface = cairo.ImageSurface(cairo.FORMAT_ARGB32, 1, 1)
+        surface = cairo.ImageSurface(FORMAT_ARGB32, 1, 1)
         self._pathContext = cairo.Context(surface)
 
 
@@ -814,6 +854,10 @@ class GraphicsContext(GraphicsObject):
         self._fontColour = None
         
 
+    def IsNull(self):
+        return self._context is None
+
+    
     @staticmethod
     def Create(dc):
         # TODO:  Support creating directly from a wx.Window too.
@@ -827,7 +871,7 @@ class GraphicsContext(GraphicsObject):
 
     @staticmethod
     def CreateMeasuringContext():
-        pass  # TODO
+        raise NotImplementedError("TODO")
 
     @staticmethod
     def CreateFromSurface(surface):
@@ -850,13 +894,23 @@ class GraphicsContext(GraphicsObject):
     # we'll keep them here too for compatibility with wx.GraphicsContext.
     
     def CreateBrush(self, brush):
+        """
+        Create a brush from a wx.Brush.
+        """
         return GraphicsBrush.CreateFromBrush(brush)
 
     def CreateFont(self, font, colour=None):
+        """
+        Create a font from a wx.Font
+        """
         return GraphicsFont.CreateFromFont(font, colour)
 
 
     def CreateLinearGradientBrush(self, x1, y1, x2, y2, c1, c2):
+        """
+        Create a gradient brush that morphs from colour c1 at (x1,y1)
+        to colour c2 at (x2,y2).
+        """
         c1 = _makeColour(c1)
         c2 = _makeColour(c2)
         pattern = cairo.LinearGradient(x1, y1, x2, y2)
@@ -865,6 +919,11 @@ class GraphicsContext(GraphicsObject):
         return GraphicsBrush.CreateFromPattern(pattern)
 
     def CreateRadialGradientBrush(self, xo, yo, xc, yc, radius, oColour, cColour):
+        """
+        Creates a brush with a radial gradient originating at (xo,yo)
+        with colour oColour and ends on a circle around (xc,yc) with
+        radius r and colour cColour.
+        """
         oColour = _makeColour(oColour)
         cColour = _makeColour(cColour)
         pattern = cairo.RadialGradient(xo, yo, 0.0, xc, yc, radius)
@@ -874,25 +933,50 @@ class GraphicsContext(GraphicsObject):
 
       
     def CreateMatrix(self, a=1.0, b=0, c=0, d=1.0, tx=0, ty=0):
+        """
+        Create a new matrix object.
+        """
         m = GraphicsMatrix()
         m.Set(a, b, c, d, tx, ty)
         return m
     
     def CreatePath(self):
+        """
+        Create a new path obejct.
+        """
         return GraphicsPath()
 
     def CreatePen(self, pen):
+        """
+        Create a new pen from a wx.Pen.
+        """
         return GraphicsPen.CreateFromPen(pen)
 
 
+
+
     def PushState(self):
+        """
+        Makes a copy of the current state of the context and saves it
+        on an internal stack of saved states.  The saved state will be
+        restored when PopState is called.
+        """
         self._context.save()
 
     def PopState(self):
+        """
+        Restore the most recently saved state which was saved with
+        PushState.
+        """
         self._context.restore()
             
 
     def Clip(self, x, y, w, h):
+        """
+        Adds the rectangle to the current clipping region.  The
+        clipping region causes drawing operations to be limited to the
+        clipped areas of the context.
+        """
         p = GraphicsPath()
         p.AddRectangle(x, y, w, h)
         self._context.append_path(p.GetNativePath())
@@ -900,6 +984,9 @@ class GraphicsContext(GraphicsObject):
         
 
     def ClipRegion(self, region):
+        """
+        Adds the wx.Region to the current clipping region.
+        """
         p = GraphicsPath()
         ri = wx.RegionIterator(region)
         while ri:
@@ -911,6 +998,9 @@ class GraphicsContext(GraphicsObject):
         
 
     def ResetClip(self):
+        """
+        Resets the clipping region to the original shape of the context.
+        """
         self._context.reset_clip()
         
 
@@ -918,40 +1008,83 @@ class GraphicsContext(GraphicsObject):
         return self._context
 
 
-    # TODO: These should probably be named differently and used to set
-    # the compositing mode...
+    # Since DC logical functions are conceptually different than
+    # compositing operators don't pretend they are the same thing, or
+    # try ot implement them using the compositing operators.
     def GetLogicalFunction(self):
-        pass   # TODO
+        raise NotImplementedError("See GetCompositingOperator")
     def SetLogicalFunction(self, function):
-        pass  # TODO
+        raise NotImplementedError("See SetCompositingOperator")
+
+
+    def GetCompositingOperator(self):
+        """
+        Returns the current compositing operator for the context.
+        """
+        return self._context.get_operator()
+
+    def SetCompositingOperator(self, op):
+        """
+        Sets the compositin operator to be used for all drawing
+        operations.  The default operator is OPERATOR_OVER.
+        """
+        return self._context.set_operator(op)
 
 
     def Translate(self, dx, dy):
+        """
+        Modifies the current transformation matrix by translating the
+        user-space origin by (dx, dy).
+        """
         self._context.translate(dx, dy)
         
 
     def Scale(self, xScale, yScale):
+        """
+        Modifies the current transformation matrix by translating the
+        user-space axes by xScale and yScale.
+        """
         self._context.scale(xScale, yScale)
         
 
     def Rotate(self, angle):
+        """
+        Modifies the current transformation matrix by rotating the
+        user-space axes by angle radians.
+        """
         self._context.rotate(angle)
 
+
     def ConcatTransform(self, matrix):
+        """
+        Modifies the current transformation matrix by applying matrix
+        as an additional transformation.
+        """
         self._context.transform(matrix.GetNativeMatrix())
         
 
     def SetTransform(self, matrix):
+        """
+        Set the context's current transformation matrix to matrix.
+        """
         self._context.set_matrix(matrix.GetNativeMatrix())
         
 
     def GetTransform(self):
+        """
+        Returns the context's current transformation matrix.
+        """
         gm = GraphicsMatrix()
         gm.Set( *tuple(self._context.get_matrix()) )
         return gm
 
 
     def SetPen(self, pen):
+        """
+        Set the pen to be used for stroking lines in future drawing
+        operations.  Either a wx.Pen or a GraphicsPen object may be
+        used.
+        """
         if isinstance(pen, wx.Pen):
             if not pen.Ok() or pen.Style == wx.TRANSPARENT:
                 pen = None
@@ -961,6 +1094,11 @@ class GraphicsContext(GraphicsObject):
         
 
     def SetBrush(self, brush):
+        """
+        Set the brush to be used for filling shapes in future drawing
+        operations.  Either a wx.Brush or a GraphicsBrush object may
+        be used.
+        """
         if isinstance(brush, wx.Brush):
             if not brush.Ok() or brush.Style == wx.TRANSPARENT:
                 brush = None
@@ -970,6 +1108,10 @@ class GraphicsContext(GraphicsObject):
 
 
     def SetFont(self, font, colour=None):
+        """
+        Sets the font to be used for drawing text.  Either a wx.Font
+        or a GrpahicsFont may be used.
+        """
         if isinstance(font, wx.Font):
             font = GraphicsFont.CreateFromFont(font, colour)
         self._font = font
@@ -980,6 +1122,9 @@ class GraphicsContext(GraphicsObject):
         
 
     def StrokePath(self, path):
+        """
+        Strokes the path (draws the lines) using the current pen.
+        """
         if self._pen:
             offset = _OffsetHelper(self)
             self._context.append_path(path.GetNativePath())
@@ -988,6 +1133,9 @@ class GraphicsContext(GraphicsObject):
             
                                       
     def FillPath(self, path, fillStyle=wx.ODDEVEN_RULE):
+        """
+        Fills the path using the current brush.
+        """
         if self._brush:
             offset = _OffsetHelper(self)
             self._context.append_path(path.GetNativePath())
@@ -1000,6 +1148,9 @@ class GraphicsContext(GraphicsObject):
             
 
     def DrawPath(self, path, fillStyle=wx.ODDEVEN_RULE):
+        """
+        Draws the path by first filling it and then stroking it.
+        """
         # TODO: this could be optimized by moving the stroke and fill
         # code here and only loading the path once.
         self.FillPath(path, fillStyle)
@@ -1007,6 +1158,11 @@ class GraphicsContext(GraphicsObject):
         
 
     def DrawText(self, text, x, y, backgroundBrush=None):
+        """
+        Draw the text at (x,y) using the current font.  If
+        backgroundBrush is set then it is used to fill the rectangle
+        behind the text.
+        """
         if backgroundBrush:
             formerBrush = self._brush
             formerPen = self._pen
@@ -1045,6 +1201,11 @@ class GraphicsContext(GraphicsObject):
             
 
     def DrawRotatedText(self, text, x, y, angle, backgroundBrush=None):
+        """
+        Draw the text at (x,y) using the current font and rotated
+        angle radians.  If backgroundBrush is set then it is used to
+        fill the rectangle behind the text.
+        """
         if backgroundBrush:
             formerBrush = self._brush
             formerPen = self._pen
@@ -1067,6 +1228,10 @@ class GraphicsContext(GraphicsObject):
             
 
     def GetFulltextExtent(self, text):
+        """
+        Returns the (width, height, descent, externalLeading) of the
+        text using the current font.
+        """
         if not text:
             return (0,0,0,0)
 
@@ -1085,16 +1250,24 @@ class GraphicsContext(GraphicsObject):
         
 
     def GetTextExtent(self, text):
+        """
+        Returns the (width, height) of the text using the current
+        font.
+        """
         (width, height, descent, externalLeading) = self.GetFulltextExtent(text)
         return (width, height)
 
     
-
     def GetPartialTextExtents(self, text):
-        pass  # TODO
+        raise NotImplementedError("TODO")
     
 
     def DrawBitmap(self, bmp, x, y, w=-1, h=-1):
+        """
+        Draw the bitmap at (x,y).  If the width and height parameters
+        are passed then the bitmap is scaled to fit that size.  Either
+        a wx.Bitmap or a GraphicsBitmap may be used.
+        """
         if isinstance(bmp, wx.Bitmap):
             bmp = GraphicsBitmap.CreateFromBitmap(bmp)
 
@@ -1124,10 +1297,13 @@ class GraphicsContext(GraphicsObject):
 
         
     def DrawIcon(self, icon, x, y, w=-1, h=-1):
-        pass  # TODO
+        raise NotImplementedError("TODO")
 
 
     def StrokeLine(self, x1, y1, x2, y2):
+        """
+        Strokes a single line using the current pen.
+        """
         path = GraphicsPath()
         path.MoveToPoint(x1, y1)
         path.AddLineToPoint(x2, y2)
@@ -1135,6 +1311,11 @@ class GraphicsContext(GraphicsObject):
         
 
     def StrokeLines(self, points):
+        """
+        Stroke a series of conencted lines using the current pen.
+        Points is a sequence of points or 2-tuples, and lines are
+        drawn from point to point through the end of the sequence.
+        """
         path = GraphicsPath()
         x, y = points[0]
         path.MoveToPoint(x, y)
@@ -1145,6 +1326,11 @@ class GraphicsContext(GraphicsObject):
         
 
     def StrokeLineSegments(self, beginPoints, endPoints):
+        """
+        Stroke a series of lines using the current pen.  For each line
+        the begin point is taken from the beginPoints sequence and the
+        ending point is taken from the endPoints sequence.
+        """
         path = GraphicsPath()
         for begin, end in zip(beginPoints, endPoints):
             path.MoveToPoint(begin[0], begin[1])
@@ -1153,6 +1339,10 @@ class GraphicsContext(GraphicsObject):
         
 
     def DrawLines(self, points, fillStyle=wx.ODDEVEN_RULE):
+        """
+        Stroke and fill a series of connected lines using the current
+        pen and current brush.
+        """
         path = GraphicsPath()
         x, y = points[0]
         path.MoveToPoint(x, y)
@@ -1163,18 +1353,30 @@ class GraphicsContext(GraphicsObject):
 
 
     def DrawRectangle(self, x, y, w, h):
+        """
+        Stroke and fill a rectangle using the current pen and current
+        brush.
+        """
         path = GraphicsPath()
         path.AddRectangle(x, y, w, h)
         self.DrawPath(path)
 
 
     def DrawEllipse(self, x, y, w, h):
+        """
+        Stroke and fill an elipse that fits in the given rectangle,
+        using the current pen and current brush.
+        """
         path = GraphicsPath()
         path.AddEllipse(x, y, w, h)
         self.DrawPath(path)
 
     
     def DrawRoundedRectangle(self, x, y, w, h, radius):
+        """
+        Stroke and fill a rounded rectangle using the current pen and
+        current brush.
+        """
         path = GraphicsPath()
         path.AddRoundedRectangle(x, y, w, h, radius)
         self.DrawPath(path)
@@ -1184,19 +1386,44 @@ class GraphicsContext(GraphicsObject):
     # Things not in wx.GraphicsContext
 
     def DrawCircle(self, x, y, radius):
+        """
+        Stroke and fill a circle centered at (x,y) with the given
+        radius, using the current pen and brush.
+        """
         path = GraphicsPath()
         path.AddCircle(x, y, radius)
         self.DrawPath(path)
         
 
-    def ClearRGBA(self, r=0, g=0, b=0, a=0):
-        pass  # TODO
-
-
     def ClipPath(self, path):
+        """
+        Set the clip region to the path.
+        """
         self._context.append_path(path.GetNativePath())
         self._context.clip()
+
+    
+    def Clear(self, colour=None):
+        """
+        Clear the context using the given color or the currently set brush.
+        """
+        if colour is not None:
+            brush = GraphicsBrush(colour)
+        elif self._brush is None:
+            brush = GraphicsBrush(wx.WHITE)
+        else:
+            brush = self._brush
+
+        self.PushState()
+        op = self._context.get_operator()
+        self._context.set_operator(cairo.OPERATOR_SOURCE)
+        self._context.reset_clip()
+
+        brush.Apply(self)
+        self._context.paint()
         
+        self._context.set_operator(op)
+        self.PopState()
 
 
         
