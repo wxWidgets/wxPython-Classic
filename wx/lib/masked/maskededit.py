@@ -2772,7 +2772,7 @@ class MaskedEditMixin:
 ##                    dbg('old value: "%s"' % value)
 ##                    dbg('new value: "%s"' % newvalue)
                     try:
-                        self._SetValue(newvalue)
+                        self._ChangeValue(newvalue)
                     except Exception, e:
 ##                        dbg('exception raised:', e, 'resetting to initial value')
                         self._SetInitialValue()
@@ -2789,7 +2789,7 @@ class MaskedEditMixin:
 ##                    dbg('old value: "%s"' % value)
 ##                    dbg('new value: "%s"' % newvalue)
                     try:
-                        self._SetValue(newvalue)
+                        self._ChangeValue(newvalue)
                     except Exception, e:
 ##                        dbg('exception raised:', e, 'resetting to initial value')
                         self._SetInitialValue()
@@ -2798,7 +2798,7 @@ class MaskedEditMixin:
 ##                    dbg('old value: "%s"' % value)
 ##                    dbg('new value: "%s"' % newvalue)
                     try:
-                        self._SetValue(newvalue)
+                        self._ChangeValue(newvalue)
                     except e:
 ##                        dbg('exception raised:', e, 'resetting to initial value')
                         self._SetInitialValue()
@@ -2843,7 +2843,10 @@ class MaskedEditMixin:
             # don't apply external validation rules in this case, as template may
             # not coincide with "legal" value...
             try:
-                self._SetValue(self._curValue)  # note the use of "raw" ._SetValue()...
+                if isinstance(self, wx.TextCtrl):
+                    self._ChangeValue(self._curValue)  # note the use of "raw" ._ChangeValue()...
+                else:
+                    self._SetValue(self._curValue)  # note the use of "raw" ._SetValue()...
             except Exception, e:
 ##                dbg('exception thrown:', e, indent=0)
                 raise
@@ -2852,7 +2855,10 @@ class MaskedEditMixin:
 ####            dbg('value = "%s", length:' % value, len(value))
             self._prevValue = self._curValue = value
             try:
-                self.SetValue(value)            # use public (validating) .SetValue()
+                if isinstance(self, wx.TextCtrl):
+                    self.ChangeValue(value)            # use public (validating) .SetValue()
+                else:
+                    self.SetValue(value)
             except Exception, e:
 ##                dbg('exception thrown:', e, indent=0)
                 raise
@@ -3207,6 +3213,13 @@ class MaskedEditMixin:
         self._SetInsertionPoint(0)
         self.Refresh()
 
+    def ClearValueAlt(self):
+        """ Blanks the current control value by replacing it with the default value.
+        Using ChangeValue, so not to fire a change event"""
+##        dbg("MaskedEditMixin::ClearValueAlt - value reset to default value (template)")
+        self._ChangeValue( self._template )
+        self._SetInsertionPoint(0)
+        self.Refresh()
 
     def _baseCtrlEventHandler(self, event):
         """
