@@ -1017,20 +1017,6 @@ class GraphicsContext(GraphicsObject):
         raise NotImplementedError("See SetCompositingOperator")
 
 
-    def GetCompositingOperator(self):
-        """
-        Returns the current compositing operator for the context.
-        """
-        return self._context.get_operator()
-
-    def SetCompositingOperator(self, op):
-        """
-        Sets the compositin operator to be used for all drawing
-        operations.  The default operator is OPERATOR_OVER.
-        """
-        return self._context.set_operator(op)
-
-
     def Translate(self, dx, dy):
         """
         Modifies the current transformation matrix by translating the
@@ -1424,6 +1410,21 @@ class GraphicsContext(GraphicsObject):
         
         self._context.set_operator(op)
         self.PopState()
+
+
+    def GetCompositingOperator(self):
+        """
+        Returns the current compositing operator for the context.
+        """
+        return self._context.get_operator()
+
+    def SetCompositingOperator(self, op):
+        """
+        Sets the compositin operator to be used for all drawing
+        operations.  The default operator is OPERATOR_OVER.
+        """
+        return self._context.set_operator(op)
+
 
 
         
