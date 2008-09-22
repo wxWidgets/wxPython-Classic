@@ -501,7 +501,7 @@ Source: "demo\data\locale\es\LC_MESSAGES\*.mo"; DestDir: "{app}\demo\data\locale
 Source: "demo\data\locale\fr\LC_MESSAGES\*.mo"; DestDir: "{app}\demo\data\locale\fr\LC_MESSAGES";
 Source: "demo\data\locale\it\LC_MESSAGES\*.mo"; DestDir: "{app}\demo\data\locale\it\LC_MESSAGES";
 
-Source: "demo\snippets\*.py";                   DestDir: "{app}\snippets\data";
+Source: "demo\snippets\*.py";                   DestDir: "{app}\demo\snippets";
 
 ;;Source: "demo\dllwidget\*.cpp";             DestDir: "{app}\demo\dllwidget";
 ;;Source: "demo\dllwidget\*.py";              DestDir: "{app}\demo\dllwidget";
