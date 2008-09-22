@@ -24,6 +24,8 @@ class TestPanel(wx.Panel):
 
     def Render(self, dc):
         ctx = g.GraphicsContext.Create(dc)
+        ctx.Clear("wheat")
+        
         path = ctx.CreatePath()
         path.AddRectangle(0, 0, 100, 100)
         ctx.SetPen(g.GraphicsPen('black'))
@@ -91,7 +93,7 @@ class TestPanel(wx.Panel):
 
         ctx.Translate(120, 0)
         ctx.SetPen(g.GraphicsPen('black', 4))
-        ctx.SetBrush(g.GraphicsBrush('pink'))
+        ctx.SetBrush(g.GraphicsBrush('orange'))
         ctx.FillPath(sqpath)
         
         ctx.Translate(120, 0)
