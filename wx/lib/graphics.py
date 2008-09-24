@@ -45,29 +45,79 @@ import wx.lib.wxcairo
 # 5. maybe expose cairo_paint, cairo_paint_with_alpha, cairo_mask?
 
 #---------------------------------------------------------------------------
+# Image surface formats
 
-# image surface formats
 FORMAT_ARGB32 = cairo.FORMAT_ARGB32
 FORMAT_RGB24  = cairo.FORMAT_RGB24
 FORMAT_A8     = cairo.FORMAT_A8
 FORMAT_A1     = cairo.FORMAT_A1
 
 
-# compositing operators.  See http://cairographics.org/operators
-OPERATOR_CLEAR = cairo.OPERATOR_CLEAR         # clear destination layer (bounded)
-OPERATOR_SOURCE = cairo.OPERATOR_SOURCE       # replace destination layer (bounded)
-OPERATOR_OVER = cairo.OPERATOR_OVER           # draw source layer on top of destination layer (bounded)
-OPERATOR_IN = cairo.OPERATOR_IN               # draw source where there was destination content (unbounded)
-OPERATOR_OUT = cairo.OPERATOR_OUT             # draw source where there was no destination content (unbounded)
-OPERATOR_ATOP = cairo.OPERATOR_ATOP           # draw source on top of destination content and only there
-OPERATOR_DEST = cairo.OPERATOR_DEST           # ignore the source
-OPERATOR_DEST_OVER = cairo.OPERATOR_DEST_OVER # draw destination on top of source
-OPERATOR_DEST_IN = cairo.OPERATOR_DEST_IN     # leave destination only where there was source content (unbounded)
-OPERATOR_DEST_OUT = cairo.OPERATOR_DEST_OUT   # leave destination only where there was no source content
-OPERATOR_DEST_ATOP = cairo.OPERATOR_DEST_ATOP # leave destination on top of source content and only there (unbounded)
-OPERATOR_XOR = cairo.OPERATOR_XOR             # source and destination are shown where there is only one of them
-OPERATOR_ADD = cairo.OPERATOR_ADD             # source and destination layers are accumulated
-OPERATOR_SATURATE = cairo.OPERATOR_SATURATE   # like over, but assuming source and dest are disjoint geometries
+#---------------------------------------------------------------------------
+# Compositing operators.  See http://cairographics.org/operators
+
+# clear destination layer (bounded)
+OPERATOR_CLEAR = cairo.OPERATOR_CLEAR         
+
+# replace destination layer (bounded)
+OPERATOR_SOURCE = cairo.OPERATOR_SOURCE       
+
+# draw source layer on top of destination layer (bounded)
+OPERATOR_OVER = cairo.OPERATOR_OVER           
+
+# draw source where there was destination content (unbounded)
+OPERATOR_IN = cairo.OPERATOR_IN               
+
+# draw source where there was no destination content (unbounded)
+OPERATOR_OUT = cairo.OPERATOR_OUT             
+
+# draw source on top of destination content and only there
+OPERATOR_ATOP = cairo.OPERATOR_ATOP           
+
+# ignore the source
+OPERATOR_DEST = cairo.OPERATOR_DEST           
+
+# draw destination on top of source
+OPERATOR_DEST_OVER = cairo.OPERATOR_DEST_OVER 
+
+# leave destination only where there was source content (unbounded)
+OPERATOR_DEST_IN = cairo.OPERATOR_DEST_IN     
+
+# leave destination only where there was no source content
+OPERATOR_DEST_OUT = cairo.OPERATOR_DEST_OUT   
+
+# leave destination on top of source content and only there (unbounded)
+OPERATOR_DEST_ATOP = cairo.OPERATOR_DEST_ATOP 
+
+# source and destination are shown where there is only one of them
+OPERATOR_XOR = cairo.OPERATOR_XOR             
+
+# source and destination layers are accumulated
+OPERATOR_ADD = cairo.OPERATOR_ADD             
+
+# like over, but assuming source and dest are disjoint geometries
+OPERATOR_SATURATE = cairo.OPERATOR_SATURATE   
+
+
+
+#---------------------------------------------------------------------------
+# Anti-alias modes.  Note that according to the Cairo docs none of the
+# current backends support the the SUBPIXEL mode.
+
+# Use the default antialiasing for the subsystem and target device
+ANTIALIAS_DEFAULT = cairo.ANTIALIAS_DEFAULT  
+
+# Use a bilevel alpha mask
+ANTIALIAS_NONE = cairo.ANTIALIAS_NONE  
+
+# Perform single-color antialiasing (using shades of gray for black
+# text on a white background, for example).
+ANTIALIAS_GRAY = cairo.ANTIALIAS_GRAY  
+
+# Perform antialiasing by taking advantage of the order of subpixel
+# elements on devices such as LCD panels
+ANTIALIAS_SUBPIXEL = cairo.ANTIALIAS_SUBPIXEL  
+
 
 
 #---------------------------------------------------------------------------
@@ -1426,6 +1476,19 @@ class GraphicsContext(GraphicsObject):
         return self._context.set_operator(op)
 
 
+    def GetAntialiasMode(self):
+        """
+        Returns the current antialias mode.
+        """
+        return self._context.get_antialias()
+
+    def SetAntialiasMode(self, mode=ANTIALIAS_DEFAULT):
+        """
+        Set the antialiasing mode of the rasterizer used for drawing
+        shapes. This value is a hint, and a particular backend may or
+        may not support a particular value.
+        """
+        self._context.set_antialias(mode)
 
         
 #---------------------------------------------------------------------------
