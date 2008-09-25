@@ -51,7 +51,8 @@ currently allowed buffer formats.  The existing wx.BitmapFromBuffer
 factory functions are also now implemented using the same underlying
 code as CopyFromBuffer.
 
-
+Add wx.lib.mixins.listctrl.ListRowHighlighter for automatic highlighting
+of rows in a wx.ListCtrl.
 
 
 
