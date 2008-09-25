@@ -3340,6 +3340,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_delete_HtmlLinkInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxHtmlLinkInfo *arg1 = (wxHtmlLinkInfo *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxHtmlLinkInfo, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_HtmlLinkInfo" "', expected argument " "1"" of type '" "wxHtmlLinkInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxHtmlLinkInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_HtmlLinkInfo_GetHref(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxHtmlLinkInfo *arg1 = (wxHtmlLinkInfo *) 0 ;
@@ -10218,7 +10246,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_HtmlWindow_SetRelatedStatusBar(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_HtmlWindow_SetRelatedStatusBar__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxPyHtmlWindow *arg1 = (wxPyHtmlWindow *) 0 ;
   int arg2 ;
@@ -10226,19 +10254,14 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SetRelatedStatusBar(PyObject *SWIGUNUSEDPA
   int res1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "bar", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:HtmlWindow_SetRelatedStatusBar",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyHtmlWindow, 0 |  0 );
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyHtmlWindow, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HtmlWindow_SetRelatedStatusBar" "', expected argument " "1"" of type '" "wxPyHtmlWindow *""'"); 
   }
   arg1 = reinterpret_cast< wxPyHtmlWindow * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HtmlWindow_SetRelatedStatusBar" "', expected argument " "2"" of type '" "int""'");
   } 
@@ -10252,6 +10275,77 @@ SWIGINTERN PyObject *_wrap_HtmlWindow_SetRelatedStatusBar(PyObject *SWIGUNUSEDPA
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_HtmlWindow_SetRelatedStatusBar__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxPyHtmlWindow *arg1 = (wxPyHtmlWindow *) 0 ;
+  wxStatusBar *arg2 = (wxStatusBar *) 0 ;
+  int arg3 = (int) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  
+  if ((nobjs < 2) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyHtmlWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HtmlWindow_SetRelatedStatusBar" "', expected argument " "1"" of type '" "wxPyHtmlWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyHtmlWindow * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_wxStatusBar, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HtmlWindow_SetRelatedStatusBar" "', expected argument " "2"" of type '" "wxStatusBar *""'"); 
+  }
+  arg2 = reinterpret_cast< wxStatusBar * >(argp2);
+  if (swig_obj[2]) {
+    ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "HtmlWindow_SetRelatedStatusBar" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetRelatedStatusBar(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_HtmlWindow_SetRelatedStatusBar(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"HtmlWindow_SetRelatedStatusBar",0,3,argv))) SWIG_fail;
+  --argc;
+  if ((argc >= 2) && (argc <= 3)) {
+    int _v = 0;
+    {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_wxStatusBar, 0);
+      _v = SWIG_CheckState(res);
+    }
+    if (!_v) goto check_1;
+    return _wrap_HtmlWindow_SetRelatedStatusBar__SWIG_1(self, argc, argv);
+  }
+check_1:
+  
+  if (argc == 2) {
+    return _wrap_HtmlWindow_SetRelatedStatusBar__SWIG_0(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'HtmlWindow_SetRelatedStatusBar'");
   return NULL;
 }
 
@@ -17775,6 +17869,7 @@ SWIGINTERN PyObject *HtmlModalHelp_swiginit(PyObject *SWIGUNUSEDPARM(self), PyOb
 
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_HtmlLinkInfo", (PyCFunction) _wrap_new_HtmlLinkInfo, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_HtmlLinkInfo", (PyCFunction)_wrap_delete_HtmlLinkInfo, METH_O, NULL},
 	 { (char *)"HtmlLinkInfo_GetHref", (PyCFunction)_wrap_HtmlLinkInfo_GetHref, METH_O, NULL},
 	 { (char *)"HtmlLinkInfo_GetTarget", (PyCFunction)_wrap_HtmlLinkInfo_GetTarget, METH_O, NULL},
 	 { (char *)"HtmlLinkInfo_GetEvent", (PyCFunction)_wrap_HtmlLinkInfo_GetEvent, METH_O, NULL},
@@ -17993,7 +18088,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"HtmlWindow_GetOpenedPageTitle", (PyCFunction)_wrap_HtmlWindow_GetOpenedPageTitle, METH_O, NULL},
 	 { (char *)"HtmlWindow_SetRelatedFrame", (PyCFunction) _wrap_HtmlWindow_SetRelatedFrame, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlWindow_GetRelatedFrame", (PyCFunction)_wrap_HtmlWindow_GetRelatedFrame, METH_O, NULL},
-	 { (char *)"HtmlWindow_SetRelatedStatusBar", (PyCFunction) _wrap_HtmlWindow_SetRelatedStatusBar, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"HtmlWindow_SetRelatedStatusBar", _wrap_HtmlWindow_SetRelatedStatusBar, METH_VARARGS, NULL},
 	 { (char *)"HtmlWindow_SetFonts", (PyCFunction) _wrap_HtmlWindow_SetFonts, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlWindow_SetStandardFonts", (PyCFunction) _wrap_HtmlWindow_SetStandardFonts, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlWindow_SetBorders", (PyCFunction) _wrap_HtmlWindow_SetBorders, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -19528,7 +19623,6 @@ static swig_type_info _swigt__p_wxEventBlocker = {"_p_wxEventBlocker", 0, 0, 0, 
 static swig_type_info _swigt__p_wxMenuBar = {"_p_wxMenuBar", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxValidator = {"_p_wxValidator", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyValidator = {"_p_wxPyValidator", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxStatusBar = {"_p_wxStatusBar", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxMDIClientWindow = {"_p_wxMDIClientWindow", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyVScrolledWindow = {"_p_wxPyVScrolledWindow", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyHScrolledWindow = {"_p_wxPyHScrolledWindow", 0, 0, 0, 0, 0};
@@ -19653,6 +19747,7 @@ static swig_type_info _swigt__p_wxPyPrintout = {"_p_wxPyPrintout", "wxPyPrintout
 static swig_type_info _swigt__p_wxScrollHelper = {"_p_wxScrollHelper", "wxScrollHelper *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxScrolledWindow = {"_p_wxScrolledWindow", "wxScrolledWindow *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxSplitterWindow = {"_p_wxSplitterWindow", "wxSplitterWindow *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxStatusBar = {"_p_wxStatusBar", "wxStatusBar *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxString = {"_p_wxString", "wxString *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTopLevelWindow = {"_p_wxTopLevelWindow", "wxTopLevelWindow *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxVisualAttributes = {"_p_wxVisualAttributes", "wxVisualAttributes *", 0, 0, (void*)0, 0};
@@ -19949,7 +20044,6 @@ static swig_cast_info _swigc__p_wxEventBlocker[] = {{&_swigt__p_wxEventBlocker, 
 static swig_cast_info _swigc__p_wxMenuBar[] = {{&_swigt__p_wxMenuBar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxValidator[] = {{&_swigt__p_wxValidator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyValidator[] = {{&_swigt__p_wxPyValidator, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxStatusBar[] = {{&_swigt__p_wxStatusBar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMDIClientWindow[] = {{&_swigt__p_wxMDIClientWindow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyVScrolledWindow[] = {{&_swigt__p_wxPyVScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyHScrolledWindow[] = {{&_swigt__p_wxPyHScrolledWindow, 0, 0, 0},{0, 0, 0, 0}};
@@ -20075,6 +20169,7 @@ static swig_cast_info _swigc__p_wxPyPrintout[] = {  {&_swigt__p_wxPyPrintout, 0,
 static swig_cast_info _swigc__p_wxScrollHelper[] = {  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxScrollHelper, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxScrollHelper, 0, 0},  {&_swigt__p_wxPyHtmlWindow, _p_wxPyHtmlWindowTo_p_wxScrollHelper, 0, 0},  {&_swigt__p_wxScrollHelper, 0, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxScrollHelper, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxScrolledWindow[] = {  {&_swigt__p_wxScrolledWindow, 0, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxScrolledWindow, 0, 0},  {&_swigt__p_wxPyHtmlWindow, _p_wxPyHtmlWindowTo_p_wxScrolledWindow, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxScrolledWindow, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSplitterWindow[] = {  {&_swigt__p_wxSplitterWindow, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxStatusBar[] = {  {&_swigt__p_wxStatusBar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxString[] = {  {&_swigt__p_wxString, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTopLevelWindow[] = {  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxHtmlHelpDialog, _p_wxHtmlHelpDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxTopLevelWindow, 0, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxHtmlHelpFrame, _p_wxHtmlHelpFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxTopLevelWindow, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxTopLevelWindow, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxVisualAttributes[] = {  {&_swigt__p_wxVisualAttributes, 0, 0, 0},{0, 0, 0, 0}};

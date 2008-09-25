@@ -454,6 +454,10 @@ class TopLevelWindow(_core.Window):
         """MacGetUnifiedAppearance(self) -> bool"""
         return _windows_.TopLevelWindow_MacGetUnifiedAppearance(*args, **kwargs)
 
+    def MacGetTopLevelWindowRef(*args, **kwargs):
+        """MacGetTopLevelWindowRef(self) -> long"""
+        return _windows_.TopLevelWindow_MacGetTopLevelWindowRef(*args, **kwargs)
+
     def CenterOnScreen(*args, **kwargs):
         """
         CenterOnScreen(self, int dir=BOTH)
@@ -530,10 +534,6 @@ class Frame(TopLevelWindow):
         """
         return _windows_.Frame_Create(*args, **kwargs)
 
-    def SendSizeEvent(*args, **kwargs):
-        """SendSizeEvent(self)"""
-        return _windows_.Frame_SendSizeEvent(*args, **kwargs)
-
     def SetMenuBar(*args, **kwargs):
         """SetMenuBar(self, MenuBar menubar)"""
         return _windows_.Frame_SetMenuBar(*args, **kwargs)
@@ -546,11 +546,13 @@ class Frame(TopLevelWindow):
         """FindItemInMenuBar(self, int menuId) -> MenuItem"""
         return _windows_.Frame_FindItemInMenuBar(*args, **kwargs)
 
-    def ProcessCommand(*args, **kwargs):
-        """ProcessCommand(self, int winid) -> bool"""
-        return _windows_.Frame_ProcessCommand(*args, **kwargs)
+    def ProcessCommand(*args):
+        """
+        ProcessCommand(self, int winid) -> bool
+        ProcessCommand(self, MenuItem item) -> bool
+        """
+        return _windows_.Frame_ProcessCommand(*args)
 
-    Command = ProcessCommand 
     def CreateStatusBar(*args, **kwargs):
         """
         CreateStatusBar(self, int number=1, long style=DEFAULT_STATUSBAR_STYLE, int winid=0, 
@@ -1188,6 +1190,7 @@ def StatusBar_GetClassDefaultAttributes(*args, **kwargs):
 #---------------------------------------------------------------------------
 
 SP_NOBORDER = _windows_.SP_NOBORDER
+SP_THIN_SASH = _windows_.SP_THIN_SASH
 SP_NOSASH = _windows_.SP_NOSASH
 SP_PERMIT_UNSPLIT = _windows_.SP_PERMIT_UNSPLIT
 SP_LIVE_UPDATE = _windows_.SP_LIVE_UPDATE
@@ -2467,6 +2470,10 @@ class VListBox(VScrolledWindow):
     def GetSelectionBackground(*args, **kwargs):
         """GetSelectionBackground(self) -> Colour"""
         return _windows_.VListBox_GetSelectionBackground(*args, **kwargs)
+
+    def GetItemRect(*args, **kwargs):
+        """GetItemRect(self, size_t n) -> Rect"""
+        return _windows_.VListBox_GetItemRect(*args, **kwargs)
 
     def SetItemCount(*args, **kwargs):
         """SetItemCount(self, size_t count)"""
@@ -5209,6 +5216,10 @@ class PreviewCanvas(ScrolledWindow):
         _windows_.PreviewCanvas_swiginit(self,_windows_.new_PreviewCanvas(*args, **kwargs))
         self._setOORInfo(self)
 
+    def SetPreview(*args, **kwargs):
+        """SetPreview(self, wxPrintPreviewBase preview)"""
+        return _windows_.PreviewCanvas_SetPreview(*args, **kwargs)
+
 _windows_.PreviewCanvas_swigregister(PreviewCanvas)
 
 class PreviewFrame(Frame):
@@ -5359,6 +5370,10 @@ class PrintPreview(_core.Object):
     def PaintPage(*args, **kwargs):
         """PaintPage(self, PreviewCanvas canvas, DC dc) -> bool"""
         return _windows_.PrintPreview_PaintPage(*args, **kwargs)
+
+    def UpdatePageRendering(*args, **kwargs):
+        """UpdatePageRendering(self) -> bool"""
+        return _windows_.PrintPreview_UpdatePageRendering(*args, **kwargs)
 
     def DrawBlankPage(*args, **kwargs):
         """DrawBlankPage(self, PreviewCanvas canvas, DC dc) -> bool"""

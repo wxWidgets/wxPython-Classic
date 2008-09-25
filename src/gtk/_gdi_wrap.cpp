@@ -2744,7 +2744,7 @@ namespace swig {
  static const wxString wxPyEmptyString(wxEmptyString); 
 
 #ifdef __WXMAC__
-#include <wx/mac/carbon/private.h>
+#include <wx/osx/carbon/private.h>
 #endif
 
 
@@ -3012,6 +3012,268 @@ SWIGINTERN bool wxPen___ne__(wxPen *self,wxPen const *other){ return other ? (*s
     }
 
 
+
+enum wxBitmapBufferFormat {
+    wxBitmapBufferFormat_RGB,
+    wxBitmapBufferFormat_RGBA,
+    wxBitmapBufferFormat_RGB32,
+    wxBitmapBufferFormat_ARGB32,
+};
+
+
+    void wxPyCopyBitmapFromBuffer(wxBitmap* bmp,
+                                  buffer data, int DATASIZE,
+                                  wxBitmapBufferFormat format, int stride=-1)
+    {
+        int height = bmp->GetHeight();
+        int width = bmp->GetWidth();
+    
+        switch (format) {
+            // A simple sequence of RGB bytes
+            case wxBitmapBufferFormat_RGB:
+            {
+                if (DATASIZE < width * height * 3) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+                wxNativePixelData pixData(*bmp, wxPoint(0,0), wxSize(width, height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;
+                }
+
+                wxNativePixelData::Iterator p(pixData);
+                for (int y=0; y<height; y++) {
+                    wxNativePixelData::Iterator rowStart = p;
+                    for (int x=0; x<width; x++) {
+                        p.Red()   = *(data++);
+                        p.Green() = *(data++);
+                        p.Blue()  = *(data++);
+                        ++p;
+                    }
+                    p = rowStart;
+                    p.OffsetY(pixData, 1);
+                }
+                break;
+            }
+                
+            // A simple sequence of RGBA bytes
+            case wxBitmapBufferFormat_RGBA:
+            {
+                if (DATASIZE < width * height * 4) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+                wxAlphaPixelData pixData(*bmp, wxPoint(0,0), wxSize(width, height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;
+                }
+                pixData.UseAlpha();
+                wxAlphaPixelData::Iterator p(pixData);
+                for (int y=0; y<height; y++) {
+                    wxAlphaPixelData::Iterator rowStart = p;
+                    for (int x=0; x<width; x++) {
+                        byte a = data[3];
+                        p.Red()   = wxPy_premultiply(*(data++), a);
+                        p.Green() = wxPy_premultiply(*(data++), a);
+                        p.Blue()  = wxPy_premultiply(*(data++), a);
+                        p.Alpha() = a; data++;
+                        ++p;
+                    }
+                    p = rowStart;
+                    p.OffsetY(pixData, 1);
+                }
+                break;
+            }
+                
+            // A sequence of 32-bit values in native endian order,
+            // where the alpha is in the upper 8 bits, then red, then
+            // green, then blue.  The stride is the distance in bytes
+            // from the beginning of one row of the image data to the
+            // beginning of the next row.  This may not be the same as
+            // width*4 if alignment or platform specific optimizations
+            // have been utilized.
+
+            // NOTE: This is normally used with Cairo, which seems to
+            // already have the values premultiplied.  Should we have
+            // a way to optionally do it anyway?
+                
+            case wxBitmapBufferFormat_RGB32:
+            case wxBitmapBufferFormat_ARGB32:
+            {
+                bool useAlpha = (format == wxBitmapBufferFormat_ARGB32);
+                byte* rowStart = data;
+                wxUint32* bufptr;
+                wxUint32  value;
+        
+                if (stride == -1)
+                    stride = width * 4;
+                
+                if (DATASIZE < stride * height) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+
+                wxAlphaPixelData pixData(*bmp, wxPoint(0,0), wxSize(width,height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;    
+                }
+                if (useAlpha) pixData.UseAlpha();
+
+                wxAlphaPixelData::Iterator pix(pixData);
+                for (int y=0; y<height; y++) {
+                    pix.MoveTo(pixData, 0, y);
+                    bufptr = (wxUint32*)rowStart;
+                    for (int x=0; x<width; x++) {
+                        value = *bufptr;
+                        pix.Alpha() = useAlpha ? (value >> 24) & 0xFF : 255;
+                        pix.Red()   = (value >> 16) & 0xFF;
+                        pix.Green() = (value >>  8) & 0xFF;
+                        pix.Blue()  = (value >>  0) & 0xFF;
+                        ++pix;
+                        ++bufptr;
+                    }
+                    rowStart += stride;
+                }
+                break;
+            }
+        }
+    }
+
+
+
+    void wxPyCopyBitmapToBuffer(wxBitmap* bmp,
+                                buffer data, int DATASIZE,
+                                wxBitmapBufferFormat format, int stride=-1)
+    {
+        int height = bmp->GetHeight();
+        int width = bmp->GetWidth();
+    
+        switch (format) {
+            // A simple sequence of RGB bytes
+            case wxBitmapBufferFormat_RGB:
+            {
+                if (DATASIZE < width * height * 3) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+                wxNativePixelData pixData(*bmp, wxPoint(0,0), wxSize(width, height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;
+                }
+
+                wxNativePixelData::Iterator p(pixData);
+                for (int y=0; y<height; y++) {
+                    wxNativePixelData::Iterator rowStart = p;
+                    for (int x=0; x<width; x++) {
+                        *(data++) = p.Red();
+                        *(data++) = p.Green();
+                        *(data++) = p.Blue();
+                        ++p;
+                    }
+                    p = rowStart;
+                    p.OffsetY(pixData, 1);
+                }
+                break;
+            }
+                
+            // A simple sequence of RGBA bytes
+            case wxBitmapBufferFormat_RGBA:
+            {
+                if (DATASIZE < width * height * 4) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+                wxAlphaPixelData pixData(*bmp, wxPoint(0,0), wxSize(width, height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;
+                }
+                pixData.UseAlpha();
+                wxAlphaPixelData::Iterator p(pixData);
+                for (int y=0; y<height; y++) {
+                    wxAlphaPixelData::Iterator rowStart = p;
+                    for (int x=0; x<width; x++) {
+                        byte a = p.Alpha();
+                        *(data++) = wxPy_unpremultiply(p.Red(), a);
+                        *(data++) = wxPy_unpremultiply(p.Green(), a);
+                        *(data++) = wxPy_unpremultiply(p.Blue(), a);
+                        *(data++) = a;
+                    }
+                    p = rowStart;
+                    p.OffsetY(pixData, 1);
+                }
+                break;
+            }
+                
+            // A sequence of 32-bit values in native endian order,
+            // where the alpha is in the upper 8 bits, then red, then
+            // green, then blue.  The stride is the distance in bytes
+            // from the beginning of one row of the image data to the
+            // beginning of the next row.  This may not be the same as
+            // width*4 if alignment or platform specific optimizations
+            // have been utilized.
+
+            // NOTE: This is normally used with Cairo, which seems to
+            // already have the values premultiplied.  Should we have
+            // a way to optionally do it anyway?
+                
+            case wxBitmapBufferFormat_RGB32:
+            case wxBitmapBufferFormat_ARGB32:
+            {
+                bool useAlpha = (format == wxBitmapBufferFormat_ARGB32);
+                byte* rowStart = data;
+                wxUint32* bufptr;
+                wxUint32  value;
+        
+                if (stride == -1)
+                    stride = width * 4;
+                
+                if (DATASIZE < stride * height) {
+                    wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+                    return;
+                }
+
+                wxAlphaPixelData pixData(*bmp, wxPoint(0,0), wxSize(width,height));
+                if (! pixData) {
+                    // raise an exception...
+                    wxPyErr_SetString(PyExc_RuntimeError,
+                                      "Failed to gain raw access to bitmap data.");
+                    return;    
+                }
+                if (useAlpha) pixData.UseAlpha();
+
+                wxAlphaPixelData::Iterator pix(pixData);
+                for (int y=0; y<height; y++) {
+                    pix.MoveTo(pixData, 0, y);
+                    bufptr = (wxUint32*)rowStart;
+                    for (int x=0; x<width; x++) {
+                        value = (pix.Alpha() << 24) | (pix.Red() << 16) | (pix.Green() << 8) | pix.Blue();
+                        *bufptr = value;
+                        ++pix;
+                        ++bufptr;
+                    }
+                    rowStart += stride;
+                }
+                break;
+            }
+        }
+    }
+    
+
 SWIGINTERN wxBitmap *new_wxBitmap(PyObject *listOfStrings){
                 char**    cArray = NULL;
                 wxBitmap* bmp;
@@ -3041,64 +3303,11 @@ SWIGINTERN void wxBitmap_SetSize(wxBitmap *self,wxSize const &size){
             self->SetWidth(size.x);
             self->SetHeight(size.y);
         }
-SWIGINTERN void wxBitmap_CopyFromBuffer(wxBitmap *self,buffer data,int DATASIZE){
-            int height=self->GetHeight();
-            int width=self->GetWidth();
-
-            if (DATASIZE != width * height * 3) {
-                wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
-            }
-            wxNativePixelData pixData(*self, wxPoint(0,0), wxSize(width, height));
-            if (! pixData) {
-                // raise an exception...
-                wxPyErr_SetString(PyExc_RuntimeError,
-                                  "Failed to gain raw access to bitmap data.");
-                return;
-            }
-
-            wxNativePixelData::Iterator p(pixData);
-            for (int y=0; y<height; y++) {
-                wxNativePixelData::Iterator rowStart = p;
-                for (int x=0; x<width; x++) {
-                    p.Red()   = *(data++);
-                    p.Green() = *(data++);
-                    p.Blue()  = *(data++);
-                    ++p;
-                }
-                p = rowStart;
-                p.OffsetY(pixData, 1);
-            }
+SWIGINTERN void wxBitmap_CopyFromBuffer(wxBitmap *self,buffer data,int DATASIZE,wxBitmapBufferFormat format=wxBitmapBufferFormat_RGB,int stride=-1){
+            wxPyCopyBitmapFromBuffer(self, data, DATASIZE, format, stride);
         }
-SWIGINTERN void wxBitmap_CopyFromBufferRGBA(wxBitmap *self,buffer data,int DATASIZE){
-            int height=self->GetHeight();
-            int width=self->GetWidth();
-            
-            if (DATASIZE != width * height * 4) {
-                wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
-            }
-            wxAlphaPixelData pixData(*self, wxPoint(0,0), wxSize(width, height));
-            if (! pixData) {
-                // raise an exception...
-                wxPyErr_SetString(PyExc_RuntimeError,
-                                  "Failed to gain raw access to bitmap data.");
-                return;
-            }
-
-            pixData.UseAlpha();
-            wxAlphaPixelData::Iterator p(pixData);
-            for (int y=0; y<height; y++) {
-                wxAlphaPixelData::Iterator rowStart = p;
-                for (int x=0; x<width; x++) {
-                    byte a = data[3];
-                    p.Red()   = wxPy_premultiply(*(data++), a);
-                    p.Green() = wxPy_premultiply(*(data++), a);
-                    p.Blue()  = wxPy_premultiply(*(data++), a);
-                    p.Alpha() = a; data++;
-                    ++p;
-                }
-                p = rowStart;
-                p.OffsetY(pixData, 1);
-            }
+SWIGINTERN void wxBitmap_CopyToBuffer(wxBitmap *self,buffer data,int DATASIZE,wxBitmapBufferFormat format=wxBitmapBufferFormat_RGB,int stride=-1){
+            wxPyCopyBitmapToBuffer(self, data, DATASIZE, format, stride);
         }
 SWIGINTERN bool wxBitmap___eq__(wxBitmap *self,wxBitmap const *other){ return other ? self->IsSameAs(*other) : false; }
 SWIGINTERN bool wxBitmap___ne__(wxBitmap *self,wxBitmap const *other){ return other ? !self->IsSameAs(*other) : true;  }
@@ -3107,12 +3316,12 @@ SWIGINTERN bool wxBitmap___ne__(wxBitmap *self,wxBitmap const *other){ return ot
                                     buffer data, int DATASIZE,
                                     buffer alpha, int ALPHASIZE)
     {
-        if (DATASIZE != width*height*3) {
+        if (DATASIZE < width*height*3) {
             wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
             return NULL;
         }
 
-        if (ALPHASIZE != width*height) {
+        if (ALPHASIZE < width*height) {
             wxPyErr_SetString(PyExc_ValueError, "Invalid alpha buffer size.");
             return NULL;
         }
@@ -3146,31 +3355,11 @@ SWIGINTERN bool wxBitmap___ne__(wxBitmap *self,wxBitmap const *other){ return ot
         
     wxBitmap* _BitmapFromBuffer(int width, int height, buffer data, int DATASIZE)
     {
-        if (DATASIZE != width*height*3) {
-            wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
-            return NULL;
-        }
-
         wxBitmap* bmp = new wxBitmap(width, height, 24);
-        wxNativePixelData pixData(*bmp, wxPoint(0,0), wxSize(width,height));
-        if (! pixData) {
-            // raise an exception...
-            wxPyErr_SetString(PyExc_RuntimeError,
-                              "Failed to gain raw access to bitmap data.");
-            return NULL;
-        }
-                
-        wxNativePixelData::Iterator p(pixData);
-        for (int y=0; y<height; y++) {
-            wxNativePixelData::Iterator rowStart = p;
-            for (int x=0; x<width; x++) {
-                p.Red()   = *(data++);
-                p.Green() = *(data++);
-                p.Blue()  = *(data++);
-                ++p; 
-            }
-            p = rowStart;
-            p.OffsetY(pixData, 1);
+        wxPyCopyBitmapFromBuffer(bmp, data, DATASIZE, wxBitmapBufferFormat_RGB);
+        if (PyErr_Occurred()) {
+            delete bmp;
+            bmp = NULL;
         }
         return bmp;
     }
@@ -3178,8 +3367,21 @@ SWIGINTERN bool wxBitmap___ne__(wxBitmap *self,wxBitmap const *other){ return ot
 
     wxBitmap* _BitmapFromBufferRGBA(int width, int height, buffer data, int DATASIZE)
     {
-        if (DATASIZE != width*height*4) {
-            wxPyErr_SetString(PyExc_ValueError, "Invalid data buffer size.");
+        wxBitmap* bmp = new wxBitmap(width, height, 32);
+        wxPyCopyBitmapFromBuffer(bmp, data, DATASIZE, wxBitmapBufferFormat_RGBA);
+        if (PyErr_Occurred()) {
+            delete bmp;
+            bmp = NULL;
+        }
+        return bmp;
+    }        
+
+
+    wxBitmap* _EmptyBitmapRGBA(int width, int height,
+                               byte red, byte green, byte blue, byte alpha)
+    {
+        if ( !(width > 0 && height > 0) ) {
+            wxPyErr_SetString(PyExc_ValueError, "Width and height must be greater than zero");
             return NULL;
         }
 
@@ -3191,24 +3393,23 @@ SWIGINTERN bool wxBitmap___ne__(wxBitmap *self,wxBitmap const *other){ return ot
                               "Failed to gain raw access to bitmap data.");
             return NULL;
         }
-               
+                
         pixData.UseAlpha();
         wxAlphaPixelData::Iterator p(pixData);
         for (int y=0; y<height; y++) {
             wxAlphaPixelData::Iterator rowStart = p;
             for (int x=0; x<width; x++) {
-                byte a = data[3];
-                p.Red()   = wxPy_premultiply(*(data++), a);
-                p.Green() = wxPy_premultiply(*(data++), a);
-                p.Blue()  = wxPy_premultiply(*(data++), a);
-                p.Alpha() = a; data++;
+                p.Red()   = wxPy_premultiply(red, alpha);
+                p.Green() = wxPy_premultiply(green, alpha);
+                p.Blue()  = wxPy_premultiply(blue, alpha);
+                p.Alpha() = alpha;
                 ++p; 
             }
             p = rowStart;
             p.OffsetY(pixData, 1);
         }
         return bmp;
-    }        
+    }
 
 
     typedef wxNativePixelData::Iterator wxNativePixelData_Accessor;
@@ -3314,7 +3515,7 @@ SWIG_AsVal_size_t (PyObject * obj, size_t *val)
   return res;
 }
 
-SWIGINTERN wxCursor *new_wxCursor(wxString const &cursorName,long type,int hotSpotX=0,int hotSpotY=0){
+SWIGINTERN wxCursor *new_wxCursor(wxString const &cursorName,wxBitmapType type,int hotSpotX=0,int hotSpotY=0){
 #ifdef __WXGTK__
             wxImage img(cursorName, type);
             img.SetOption(wxIMAGE_OPTION_CUR_HOTSPOT_X, hotSpotX);
@@ -3376,6 +3577,9 @@ SWIGINTERN wxFont *new_wxFont(wxSize const &pixelSize,wxFontFamily family,int fl
             }
 SWIGINTERN bool wxFont___eq__(wxFont *self,wxFont const *other){ return other ? (*self == *other) : false; }
 SWIGINTERN bool wxFont___ne__(wxFont *self,wxFont const *other){ return other ? (*self != *other) : true;  }
+SWIGINTERN void *wxFont_GetPangoFontDescription(wxFont *self){
+            return self->GetNativeFontInfo()->description;
+        }
 
 class wxPyFontEnumerator : public wxFontEnumerator {
 public:
@@ -3581,6 +3785,9 @@ SWIGINTERN wxPyLocale *new_wxPyLocale(int language=-1,int flags=wxLOCALE_LOAD_DE
 #ifdef __WXMSW__
 #include <wx/msw/dc.h>
 #endif
+#ifdef __WXGTK__
+#include <wx/gtk/dc.h>
+#endif
 
 SWIGINTERN wxColour wxDC_GetPixel(wxDC *self,int x,int y){
             wxColour col;
@@ -3637,6 +3844,12 @@ SWIGINTERN long wxDC_GetHDC(wxDC *self){
             wxPyRaiseNotImplemented();
             return 0;
 
+        }
+SWIGINTERN void *wxDC_GetGdkDrawable(wxDC *self){
+            // TODO: Is this always non-null?  if not then we can check
+            // GetSelectedBitmap and get the GdkPixmap from it, as that is a
+            // drawable too.
+            return ((wxGTKDCImpl*)self->GetImpl())->GetGDKWindow();
         }
 SWIGINTERN PyObject *wxDC__DrawPointList(wxDC *self,PyObject *pyCoords,PyObject *pyPens,PyObject *pyBrushes){
             return wxPyDrawXXXList(*self, wxPyDrawXXXPoint, pyCoords, pyPens, pyBrushes);
@@ -4015,6 +4228,15 @@ public:
         wxPyEndBlockThreads(blocked);
      }
 
+    wxGCDC(const wxPrinterDC& dc)
+        : wxDC(NULL)
+    {
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wxGCDC is not available on this platform.");
+        wxPyEndBlockThreads(blocked);
+     }
+    
     wxGCDC()
         : wxDC(NULL)
     {
@@ -7206,16 +7428,24 @@ SWIGINTERN PyObject *_wrap_Bitmap_CopyFromBuffer(PyObject *SWIGUNUSEDPARM(self),
   wxBitmap *arg1 = (wxBitmap *) 0 ;
   buffer arg2 ;
   int arg3 ;
+  wxBitmapBufferFormat arg4 = (wxBitmapBufferFormat) wxBitmapBufferFormat_RGB ;
+  int arg5 = (int) -1 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   Py_ssize_t temp2 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "data", NULL 
+    (char *) "self",(char *) "data",(char *) "format",(char *) "stride", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Bitmap_CopyFromBuffer",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OO:Bitmap_CopyFromBuffer",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBitmap, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Bitmap_CopyFromBuffer" "', expected argument " "1"" of type '" "wxBitmap *""'"); 
@@ -7225,8 +7455,22 @@ SWIGINTERN PyObject *_wrap_Bitmap_CopyFromBuffer(PyObject *SWIGUNUSEDPARM(self),
     if (PyObject_AsReadBuffer(obj1, (const void**)(&arg2), &temp2) == -1) SWIG_fail;
     arg3 = (int)temp2;
   }
+  if (obj2) {
+    ecode4 = SWIG_AsVal_int(obj2, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "Bitmap_CopyFromBuffer" "', expected argument " "4"" of type '" "wxBitmapBufferFormat""'");
+    } 
+    arg4 = static_cast< wxBitmapBufferFormat >(val4);
+  }
+  if (obj3) {
+    ecode5 = SWIG_AsVal_int(obj3, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Bitmap_CopyFromBuffer" "', expected argument " "5"" of type '" "int""'");
+    } 
+    arg5 = static_cast< int >(val5);
+  }
   {
-    wxBitmap_CopyFromBuffer(arg1,arg2,arg3);
+    wxBitmap_CopyFromBuffer(arg1,arg2,arg3,arg4,arg5);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
@@ -7236,35 +7480,85 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Bitmap_CopyFromBufferRGBA(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_Bitmap_CopyToBuffer(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxBitmap *arg1 = (wxBitmap *) 0 ;
   buffer arg2 ;
   int arg3 ;
+  wxBitmapBufferFormat arg4 = (wxBitmapBufferFormat) wxBitmapBufferFormat_RGB ;
+  int arg5 = (int) -1 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   Py_ssize_t temp2 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  int val5 ;
+  int ecode5 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "data", NULL 
+    (char *) "self",(char *) "data",(char *) "format",(char *) "stride", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Bitmap_CopyFromBufferRGBA",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OO:Bitmap_CopyToBuffer",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBitmap, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Bitmap_CopyFromBufferRGBA" "', expected argument " "1"" of type '" "wxBitmap *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Bitmap_CopyToBuffer" "', expected argument " "1"" of type '" "wxBitmap *""'"); 
   }
   arg1 = reinterpret_cast< wxBitmap * >(argp1);
   {
     if (PyObject_AsReadBuffer(obj1, (const void**)(&arg2), &temp2) == -1) SWIG_fail;
     arg3 = (int)temp2;
   }
+  if (obj2) {
+    ecode4 = SWIG_AsVal_int(obj2, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "Bitmap_CopyToBuffer" "', expected argument " "4"" of type '" "wxBitmapBufferFormat""'");
+    } 
+    arg4 = static_cast< wxBitmapBufferFormat >(val4);
+  }
+  if (obj3) {
+    ecode5 = SWIG_AsVal_int(obj3, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "Bitmap_CopyToBuffer" "', expected argument " "5"" of type '" "int""'");
+    } 
+    arg5 = static_cast< int >(val5);
+  }
   {
-    wxBitmap_CopyFromBufferRGBA(arg1,arg2,arg3);
+    wxBitmap_CopyToBuffer(arg1,arg2,arg3,arg4,arg5);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Bitmap_HasAlpha(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxBitmap *arg1 = (wxBitmap *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBitmap, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Bitmap_HasAlpha" "', expected argument " "1"" of type '" "wxBitmap const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxBitmap * >(argp1);
+  {
+    result = (bool)((wxBitmap const *)arg1)->HasAlpha();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -7496,6 +7790,79 @@ SWIGINTERN PyObject *_wrap__BitmapFromBufferRGBA(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     result = (wxBitmap *)_BitmapFromBufferRGBA(arg1,arg2,arg3,arg4);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap__EmptyBitmapRGBA(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int arg2 ;
+  byte arg3 ;
+  byte arg4 ;
+  byte arg5 ;
+  byte arg6 ;
+  wxBitmap *result = 0 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  unsigned char val3 ;
+  int ecode3 = 0 ;
+  unsigned char val4 ;
+  int ecode4 = 0 ;
+  unsigned char val5 ;
+  int ecode5 = 0 ;
+  unsigned char val6 ;
+  int ecode6 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  char *  kwnames[] = {
+    (char *) "width",(char *) "height",(char *) "red",(char *) "green",(char *) "blue",(char *) "alpha", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOO:_EmptyBitmapRGBA",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "_EmptyBitmapRGBA" "', expected argument " "1"" of type '" "int""'");
+  } 
+  arg1 = static_cast< int >(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "_EmptyBitmapRGBA" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_unsigned_SS_char(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "_EmptyBitmapRGBA" "', expected argument " "3"" of type '" "byte""'");
+  } 
+  arg3 = static_cast< byte >(val3);
+  ecode4 = SWIG_AsVal_unsigned_SS_char(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "_EmptyBitmapRGBA" "', expected argument " "4"" of type '" "byte""'");
+  } 
+  arg4 = static_cast< byte >(val4);
+  ecode5 = SWIG_AsVal_unsigned_SS_char(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "_EmptyBitmapRGBA" "', expected argument " "5"" of type '" "byte""'");
+  } 
+  arg5 = static_cast< byte >(val5);
+  ecode6 = SWIG_AsVal_unsigned_SS_char(obj5, &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "_EmptyBitmapRGBA" "', expected argument " "6"" of type '" "byte""'");
+  } 
+  arg6 = static_cast< byte >(val6);
+  {
+    result = (wxBitmap *)_EmptyBitmapRGBA(arg1,arg2,arg3,arg4,arg5,arg6);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
@@ -10084,10 +10451,10 @@ fail:
 SWIGINTERN PyObject *_wrap_new_IconBundleFromFile(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxString *arg1 = 0 ;
-  long arg2 ;
+  wxBitmapType arg2 ;
   wxIconBundle *result = 0 ;
   bool temp1 = false ;
-  long val2 ;
+  int val2 ;
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -10101,11 +10468,11 @@ SWIGINTERN PyObject *_wrap_new_IconBundleFromFile(PyObject *SWIGUNUSEDPARM(self)
     if (arg1 == NULL) SWIG_fail;
     temp1 = true;
   }
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_IconBundleFromFile" "', expected argument " "2"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_IconBundleFromFile" "', expected argument " "2"" of type '" "wxBitmapType""'");
   } 
-  arg2 = static_cast< long >(val2);
+  arg2 = static_cast< wxBitmapType >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxIconBundle *)new wxIconBundle((wxString const &)*arg1,arg2);
@@ -10263,11 +10630,11 @@ SWIGINTERN PyObject *_wrap_IconBundle_AddIconFromFile(PyObject *SWIGUNUSEDPARM(s
   PyObject *resultobj = 0;
   wxIconBundle *arg1 = (wxIconBundle *) 0 ;
   wxString *arg2 = 0 ;
-  long arg3 ;
+  wxBitmapType arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
-  long val3 ;
+  int val3 ;
   int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -10287,11 +10654,11 @@ SWIGINTERN PyObject *_wrap_IconBundle_AddIconFromFile(PyObject *SWIGUNUSEDPARM(s
     if (arg2 == NULL) SWIG_fail;
     temp2 = true;
   }
-  ecode3 = SWIG_AsVal_long(obj2, &val3);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "IconBundle_AddIconFromFile" "', expected argument " "3"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "IconBundle_AddIconFromFile" "', expected argument " "3"" of type '" "wxBitmapType""'");
   } 
-  arg3 = static_cast< long >(val3);
+  arg3 = static_cast< wxBitmapType >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->AddIcon((wxString const &)*arg2,arg3);
@@ -10504,12 +10871,12 @@ SWIGINTERN PyObject *IconBundle_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObjec
 SWIGINTERN PyObject *_wrap_new_Cursor(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxString *arg1 = 0 ;
-  long arg2 ;
+  wxBitmapType arg2 ;
   int arg3 = (int) 0 ;
   int arg4 = (int) 0 ;
   wxCursor *result = 0 ;
   bool temp1 = false ;
-  long val2 ;
+  int val2 ;
   int ecode2 = 0 ;
   int val3 ;
   int ecode3 = 0 ;
@@ -10529,11 +10896,11 @@ SWIGINTERN PyObject *_wrap_new_Cursor(PyObject *SWIGUNUSEDPARM(self), PyObject *
     if (arg1 == NULL) SWIG_fail;
     temp1 = true;
   }
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Cursor" "', expected argument " "2"" of type '" "long""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Cursor" "', expected argument " "2"" of type '" "wxBitmapType""'");
   } 
-  arg2 = static_cast< long >(val2);
+  arg2 = static_cast< wxBitmapType >(val2);
   if (obj2) {
     ecode3 = SWIG_AsVal_int(obj2, &val3);
     if (!SWIG_IsOK(ecode3)) {
@@ -10600,7 +10967,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_new_StockCursor(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  int arg1 ;
+  wxStockCursor arg1 ;
   wxCursor *result = 0 ;
   int val1 ;
   int ecode1 = 0 ;
@@ -10612,9 +10979,9 @@ SWIGINTERN PyObject *_wrap_new_StockCursor(PyObject *SWIGUNUSEDPARM(self), PyObj
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:new_StockCursor",kwnames,&obj0)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(obj0, &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_StockCursor" "', expected argument " "1"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_StockCursor" "', expected argument " "1"" of type '" "wxStockCursor""'");
   } 
-  arg1 = static_cast< int >(val1);
+  arg1 = static_cast< wxStockCursor >(val1);
   {
     if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -15718,6 +16085,34 @@ SWIGINTERN PyObject *_wrap_Font_GetNoAntiAliasing(PyObject *SWIGUNUSEDPARM(self)
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Font_GetPangoFontDescription(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFont *arg1 = (wxFont *) 0 ;
+  void *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFont, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Font_GetPangoFontDescription" "', expected argument " "1"" of type '" "wxFont *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFont * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (void *)wxFont_GetPangoFontDescription(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -20904,6 +21299,47 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DC_SetDeviceClippingRegion(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = (wxDC *) 0 ;
+  wxRegion *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "region", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:DC_SetDeviceClippingRegion",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DC_SetDeviceClippingRegion" "', expected argument " "1"" of type '" "wxDC *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxRegion,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DC_SetDeviceClippingRegion" "', expected argument " "2"" of type '" "wxRegion const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DC_SetDeviceClippingRegion" "', expected argument " "2"" of type '" "wxRegion const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxRegion * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetDeviceClippingRegion((wxRegion const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DC_DrawLines(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDC *arg1 = (wxDC *) 0 ;
@@ -24112,6 +24548,34 @@ SWIGINTERN PyObject *_wrap_DC_GetHDC(PyObject *SWIGUNUSEDPARM(self), PyObject *a
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_From_long(static_cast< long >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DC_GetGdkDrawable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = (wxDC *) 0 ;
+  void *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DC_GetGdkDrawable" "', expected argument " "1"" of type '" "wxDC *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (void *)wxDC_GetGdkDrawable(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -31819,6 +32283,36 @@ fail:
 
 SWIGINTERN PyObject *_wrap_new_GCDC__SWIG_2(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
+  wxPrinterDC *arg1 = 0 ;
+  wxGCDC *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_wxPrinterDC,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GCDC" "', expected argument " "1"" of type '" "wxPrinterDC const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_GCDC" "', expected argument " "1"" of type '" "wxPrinterDC const &""'"); 
+  }
+  arg1 = reinterpret_cast< wxPrinterDC * >(argp1);
+  {
+    if (!wxPyCheckForApp()) SWIG_fail;
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxGCDC *)new wxGCDC((wxPrinterDC const &)*arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGCDC, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_GCDC__SWIG_3(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
   wxGCDC *result = 0 ;
   void *argp1 = 0 ;
@@ -31873,7 +32367,18 @@ check_1:
 check_2:
   
   if (argc == 1) {
+    int _v = 0;
+    {
+      int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_wxPrinterDC, 0);
+      _v = SWIG_CheckState(res);
+    }
+    if (!_v) goto check_3;
     return _wrap_new_GCDC__SWIG_2(self, argc, argv);
+  }
+check_3:
+  
+  if (argc == 1) {
+    return _wrap_new_GCDC__SWIG_3(self, argc, argv);
   }
   
 fail:
@@ -35838,6 +36343,45 @@ SWIGINTERN PyObject *_wrap_RendererNative_DrawCheckBox(PyObject *SWIGUNUSEDPARM(
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RendererNative_GetCheckBoxSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxRendererNative *arg1 = (wxRendererNative *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  wxSize result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "win", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RendererNative_GetCheckBoxSize",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRendererNative, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RendererNative_GetCheckBoxSize" "', expected argument " "1"" of type '" "wxRendererNative *""'"); 
+  }
+  arg1 = reinterpret_cast< wxRendererNative * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RendererNative_GetCheckBoxSize" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+  }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (arg1)->GetCheckBoxSize(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxSize(static_cast< const wxSize& >(result))), SWIGTYPE_p_wxSize, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -39924,7 +40468,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Bitmap_SetDepth", (PyCFunction) _wrap_Bitmap_SetDepth, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_SetSize", (PyCFunction) _wrap_Bitmap_SetSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_CopyFromBuffer", (PyCFunction) _wrap_Bitmap_CopyFromBuffer, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Bitmap_CopyFromBufferRGBA", (PyCFunction) _wrap_Bitmap_CopyFromBufferRGBA, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Bitmap_CopyToBuffer", (PyCFunction) _wrap_Bitmap_CopyToBuffer, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Bitmap_HasAlpha", (PyCFunction)_wrap_Bitmap_HasAlpha, METH_O, NULL},
 	 { (char *)"Bitmap___eq__", (PyCFunction) _wrap_Bitmap___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap___ne__", (PyCFunction) _wrap_Bitmap___ne__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_swigregister", Bitmap_swigregister, METH_VARARGS, NULL},
@@ -39932,6 +40477,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"_BitmapFromBufferAlpha", (PyCFunction) _wrap__BitmapFromBufferAlpha, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"_BitmapFromBuffer", (PyCFunction) _wrap__BitmapFromBuffer, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"_BitmapFromBufferRGBA", (PyCFunction) _wrap__BitmapFromBufferRGBA, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"_EmptyBitmapRGBA", (PyCFunction) _wrap__EmptyBitmapRGBA, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PixelDataBase_GetOrigin", (PyCFunction)_wrap_PixelDataBase_GetOrigin, METH_O, NULL},
 	 { (char *)"PixelDataBase_GetWidth", (PyCFunction)_wrap_PixelDataBase_GetWidth, METH_O, NULL},
 	 { (char *)"PixelDataBase_GetHeight", (PyCFunction)_wrap_PixelDataBase_GetHeight, METH_O, NULL},
@@ -40169,6 +40715,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Font_GetWeightString", (PyCFunction)_wrap_Font_GetWeightString, METH_O, NULL},
 	 { (char *)"Font_SetNoAntiAliasing", (PyCFunction) _wrap_Font_SetNoAntiAliasing, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_GetNoAntiAliasing", (PyCFunction)_wrap_Font_GetNoAntiAliasing, METH_O, NULL},
+	 { (char *)"Font_GetPangoFontDescription", (PyCFunction)_wrap_Font_GetPangoFontDescription, METH_O, NULL},
 	 { (char *)"Font_GetDefaultEncoding", (PyCFunction)_wrap_Font_GetDefaultEncoding, METH_NOARGS, NULL},
 	 { (char *)"Font_SetDefaultEncoding", (PyCFunction) _wrap_Font_SetDefaultEncoding, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_swigregister", Font_swigregister, METH_VARARGS, NULL},
@@ -40284,6 +40831,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DC_SetClippingRegionPointSize", (PyCFunction) _wrap_DC_SetClippingRegionPointSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_SetClippingRegionAsRegion", (PyCFunction) _wrap_DC_SetClippingRegionAsRegion, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_SetClippingRect", (PyCFunction) _wrap_DC_SetClippingRect, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DC_SetDeviceClippingRegion", (PyCFunction) _wrap_DC_SetDeviceClippingRegion, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_DrawLines", (PyCFunction) _wrap_DC_DrawLines, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_DrawPolygon", (PyCFunction) _wrap_DC_DrawPolygon, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_DrawLabel", (PyCFunction) _wrap_DC_DrawLabel, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -40364,6 +40912,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DC_GetLayoutDirection", (PyCFunction)_wrap_DC_GetLayoutDirection, METH_O, NULL},
 	 { (char *)"DC_SetLayoutDirection", (PyCFunction) _wrap_DC_SetLayoutDirection, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_GetHDC", (PyCFunction)_wrap_DC_GetHDC, METH_O, NULL},
+	 { (char *)"DC_GetGdkDrawable", (PyCFunction)_wrap_DC_GetGdkDrawable, METH_O, NULL},
 	 { (char *)"DC__DrawPointList", (PyCFunction) _wrap_DC__DrawPointList, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC__DrawLineList", (PyCFunction) _wrap_DC__DrawLineList, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC__DrawRectangleList", (PyCFunction) _wrap_DC__DrawRectangleList, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -40686,6 +41235,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RendererNative_DrawComboBoxDropButton", (PyCFunction) _wrap_RendererNative_DrawComboBoxDropButton, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawDropArrow", (PyCFunction) _wrap_RendererNative_DrawDropArrow, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawCheckBox", (PyCFunction) _wrap_RendererNative_DrawCheckBox, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"RendererNative_GetCheckBoxSize", (PyCFunction) _wrap_RendererNative_GetCheckBoxSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawPushButton", (PyCFunction) _wrap_RendererNative_DrawPushButton, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawItemSelectionRect", (PyCFunction) _wrap_RendererNative_DrawItemSelectionRect, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawFocusRect", (PyCFunction) _wrap_RendererNative_DrawFocusRect, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -42541,6 +43091,10 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "BRUSHSTYLE_VERTICAL_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_VERTICAL_HATCH)));
   SWIG_Python_SetConstant(d, "BRUSHSTYLE_FIRST_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_FIRST_HATCH)));
   SWIG_Python_SetConstant(d, "BRUSHSTYLE_LAST_HATCH",SWIG_From_int(static_cast< int >(wxBRUSHSTYLE_LAST_HATCH)));
+  SWIG_Python_SetConstant(d, "BitmapBufferFormat_RGB",SWIG_From_int(static_cast< int >(wxBitmapBufferFormat_RGB)));
+  SWIG_Python_SetConstant(d, "BitmapBufferFormat_RGBA",SWIG_From_int(static_cast< int >(wxBitmapBufferFormat_RGBA)));
+  SWIG_Python_SetConstant(d, "BitmapBufferFormat_RGB32",SWIG_From_int(static_cast< int >(wxBitmapBufferFormat_RGB32)));
+  SWIG_Python_SetConstant(d, "BitmapBufferFormat_ARGB32",SWIG_From_int(static_cast< int >(wxBitmapBufferFormat_ARGB32)));
   SWIG_Python_SetConstant(d, "BITMAP_SCREEN_DEPTH",SWIG_From_int(static_cast< int >(wxBITMAP_SCREEN_DEPTH)));
   SWIG_Python_SetConstant(d, "OutRegion",SWIG_From_int(static_cast< int >(wxOutRegion)));
   SWIG_Python_SetConstant(d, "PartRegion",SWIG_From_int(static_cast< int >(wxPartRegion)));

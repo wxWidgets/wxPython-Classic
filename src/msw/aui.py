@@ -1770,6 +1770,581 @@ def PreAuiMDIClientWindow(*args, **kwargs):
     val._setOORInfo(val)
     return val
 
+AUI_TB_TEXT = _aui.AUI_TB_TEXT
+AUI_TB_NO_TOOLTIPS = _aui.AUI_TB_NO_TOOLTIPS
+AUI_TB_NO_AUTORESIZE = _aui.AUI_TB_NO_AUTORESIZE
+AUI_TB_GRIPPER = _aui.AUI_TB_GRIPPER
+AUI_TB_OVERFLOW = _aui.AUI_TB_OVERFLOW
+AUI_TB_VERTICAL = _aui.AUI_TB_VERTICAL
+AUI_TB_HORZ_LAYOUT = _aui.AUI_TB_HORZ_LAYOUT
+AUI_TB_HORZ_TEXT = _aui.AUI_TB_HORZ_TEXT
+AUI_TB_DEFAULT_STYLE = _aui.AUI_TB_DEFAULT_STYLE
+AUI_TBART_SEPARATOR_SIZE = _aui.AUI_TBART_SEPARATOR_SIZE
+AUI_TBART_GRIPPER_SIZE = _aui.AUI_TBART_GRIPPER_SIZE
+AUI_TBART_OVERFLOW_SIZE = _aui.AUI_TBART_OVERFLOW_SIZE
+AUI_TBTOOL_TEXT_LEFT = _aui.AUI_TBTOOL_TEXT_LEFT
+AUI_TBTOOL_TEXT_RIGHT = _aui.AUI_TBTOOL_TEXT_RIGHT
+AUI_TBTOOL_TEXT_TOP = _aui.AUI_TBTOOL_TEXT_TOP
+AUI_TBTOOL_TEXT_BOTTOM = _aui.AUI_TBTOOL_TEXT_BOTTOM
+class AuiToolBarEvent(_core.NotifyEvent):
+    """Proxy of C++ AuiToolBarEvent class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, EventType command_type=wxEVT_NULL, int win_id=0) -> AuiToolBarEvent"""
+        _aui.AuiToolBarEvent_swiginit(self,_aui.new_AuiToolBarEvent(*args, **kwargs))
+    def IsDropDownClicked(*args, **kwargs):
+        """IsDropDownClicked(self) -> bool"""
+        return _aui.AuiToolBarEvent_IsDropDownClicked(*args, **kwargs)
+
+    def SetDropDownClicked(*args, **kwargs):
+        """SetDropDownClicked(self, bool c)"""
+        return _aui.AuiToolBarEvent_SetDropDownClicked(*args, **kwargs)
+
+    def GetClickPoint(*args, **kwargs):
+        """GetClickPoint(self) -> Point"""
+        return _aui.AuiToolBarEvent_GetClickPoint(*args, **kwargs)
+
+    def SetClickPoint(*args, **kwargs):
+        """SetClickPoint(self, Point p)"""
+        return _aui.AuiToolBarEvent_SetClickPoint(*args, **kwargs)
+
+    def GetItemRect(*args, **kwargs):
+        """GetItemRect(self) -> Rect"""
+        return _aui.AuiToolBarEvent_GetItemRect(*args, **kwargs)
+
+    def SetItemRect(*args, **kwargs):
+        """SetItemRect(self, Rect r)"""
+        return _aui.AuiToolBarEvent_SetItemRect(*args, **kwargs)
+
+    def GetToolId(*args, **kwargs):
+        """GetToolId(self) -> int"""
+        return _aui.AuiToolBarEvent_GetToolId(*args, **kwargs)
+
+    def SetToolId(*args, **kwargs):
+        """SetToolId(self, int id)"""
+        return _aui.AuiToolBarEvent_SetToolId(*args, **kwargs)
+
+_aui.AuiToolBarEvent_swigregister(AuiToolBarEvent)
+
+class AuiToolBarItem(object):
+    """Proxy of C++ AuiToolBarItem class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        """
+        __init__(self) -> AuiToolBarItem
+        __init__(self, AuiToolBarItem c) -> AuiToolBarItem
+        """
+        _aui.AuiToolBarItem_swiginit(self,_aui.new_AuiToolBarItem(*args))
+    def Assign(*args, **kwargs):
+        """Assign(self, AuiToolBarItem c)"""
+        return _aui.AuiToolBarItem_Assign(*args, **kwargs)
+
+    def SetWindow(*args, **kwargs):
+        """SetWindow(self, Window w)"""
+        return _aui.AuiToolBarItem_SetWindow(*args, **kwargs)
+
+    def GetWindow(*args, **kwargs):
+        """GetWindow(self) -> Window"""
+        return _aui.AuiToolBarItem_GetWindow(*args, **kwargs)
+
+    def SetId(*args, **kwargs):
+        """SetId(self, int new_id)"""
+        return _aui.AuiToolBarItem_SetId(*args, **kwargs)
+
+    def GetId(*args, **kwargs):
+        """GetId(self) -> int"""
+        return _aui.AuiToolBarItem_GetId(*args, **kwargs)
+
+    def SetKind(*args, **kwargs):
+        """SetKind(self, int new_kind)"""
+        return _aui.AuiToolBarItem_SetKind(*args, **kwargs)
+
+    def GetKind(*args, **kwargs):
+        """GetKind(self) -> int"""
+        return _aui.AuiToolBarItem_GetKind(*args, **kwargs)
+
+    def SetState(*args, **kwargs):
+        """SetState(self, int new_state)"""
+        return _aui.AuiToolBarItem_SetState(*args, **kwargs)
+
+    def GetState(*args, **kwargs):
+        """GetState(self) -> int"""
+        return _aui.AuiToolBarItem_GetState(*args, **kwargs)
+
+    def SetSizerItem(*args, **kwargs):
+        """SetSizerItem(self, SizerItem s)"""
+        return _aui.AuiToolBarItem_SetSizerItem(*args, **kwargs)
+
+    def GetSizerItem(*args, **kwargs):
+        """GetSizerItem(self) -> SizerItem"""
+        return _aui.AuiToolBarItem_GetSizerItem(*args, **kwargs)
+
+    def SetLabel(*args, **kwargs):
+        """SetLabel(self, String s)"""
+        return _aui.AuiToolBarItem_SetLabel(*args, **kwargs)
+
+    def GetLabel(*args, **kwargs):
+        """GetLabel(self) -> String"""
+        return _aui.AuiToolBarItem_GetLabel(*args, **kwargs)
+
+    def SetBitmap(*args, **kwargs):
+        """SetBitmap(self, Bitmap bmp)"""
+        return _aui.AuiToolBarItem_SetBitmap(*args, **kwargs)
+
+    def GetBitmap(*args, **kwargs):
+        """GetBitmap(self) -> Bitmap"""
+        return _aui.AuiToolBarItem_GetBitmap(*args, **kwargs)
+
+    def SetDisabledBitmap(*args, **kwargs):
+        """SetDisabledBitmap(self, Bitmap bmp)"""
+        return _aui.AuiToolBarItem_SetDisabledBitmap(*args, **kwargs)
+
+    def GetDisabledBitmap(*args, **kwargs):
+        """GetDisabledBitmap(self) -> Bitmap"""
+        return _aui.AuiToolBarItem_GetDisabledBitmap(*args, **kwargs)
+
+    def SetHoverBitmap(*args, **kwargs):
+        """SetHoverBitmap(self, Bitmap bmp)"""
+        return _aui.AuiToolBarItem_SetHoverBitmap(*args, **kwargs)
+
+    def GetHoverBitmap(*args, **kwargs):
+        """GetHoverBitmap(self) -> Bitmap"""
+        return _aui.AuiToolBarItem_GetHoverBitmap(*args, **kwargs)
+
+    def SetShortHelp(*args, **kwargs):
+        """SetShortHelp(self, String s)"""
+        return _aui.AuiToolBarItem_SetShortHelp(*args, **kwargs)
+
+    def GetShortHelp(*args, **kwargs):
+        """GetShortHelp(self) -> String"""
+        return _aui.AuiToolBarItem_GetShortHelp(*args, **kwargs)
+
+    def SetLongHelp(*args, **kwargs):
+        """SetLongHelp(self, String s)"""
+        return _aui.AuiToolBarItem_SetLongHelp(*args, **kwargs)
+
+    def GetLongHelp(*args, **kwargs):
+        """GetLongHelp(self) -> String"""
+        return _aui.AuiToolBarItem_GetLongHelp(*args, **kwargs)
+
+    def SetMinSize(*args, **kwargs):
+        """SetMinSize(self, Size s)"""
+        return _aui.AuiToolBarItem_SetMinSize(*args, **kwargs)
+
+    def GetMinSize(*args, **kwargs):
+        """GetMinSize(self) -> Size"""
+        return _aui.AuiToolBarItem_GetMinSize(*args, **kwargs)
+
+    def SetSpacerPixels(*args, **kwargs):
+        """SetSpacerPixels(self, int s)"""
+        return _aui.AuiToolBarItem_SetSpacerPixels(*args, **kwargs)
+
+    def GetSpacerPixels(*args, **kwargs):
+        """GetSpacerPixels(self) -> int"""
+        return _aui.AuiToolBarItem_GetSpacerPixels(*args, **kwargs)
+
+    def SetProportion(*args, **kwargs):
+        """SetProportion(self, int p)"""
+        return _aui.AuiToolBarItem_SetProportion(*args, **kwargs)
+
+    def GetProportion(*args, **kwargs):
+        """GetProportion(self) -> int"""
+        return _aui.AuiToolBarItem_GetProportion(*args, **kwargs)
+
+    def SetActive(*args, **kwargs):
+        """SetActive(self, bool b)"""
+        return _aui.AuiToolBarItem_SetActive(*args, **kwargs)
+
+    def IsActive(*args, **kwargs):
+        """IsActive(self) -> bool"""
+        return _aui.AuiToolBarItem_IsActive(*args, **kwargs)
+
+    def SetHasDropDown(*args, **kwargs):
+        """SetHasDropDown(self, bool b)"""
+        return _aui.AuiToolBarItem_SetHasDropDown(*args, **kwargs)
+
+    def HasDropDown(*args, **kwargs):
+        """HasDropDown(self) -> bool"""
+        return _aui.AuiToolBarItem_HasDropDown(*args, **kwargs)
+
+    def SetSticky(*args, **kwargs):
+        """SetSticky(self, bool b)"""
+        return _aui.AuiToolBarItem_SetSticky(*args, **kwargs)
+
+    def IsSticky(*args, **kwargs):
+        """IsSticky(self) -> bool"""
+        return _aui.AuiToolBarItem_IsSticky(*args, **kwargs)
+
+    def SetUserData(*args, **kwargs):
+        """SetUserData(self, long l)"""
+        return _aui.AuiToolBarItem_SetUserData(*args, **kwargs)
+
+    def GetUserData(*args, **kwargs):
+        """GetUserData(self) -> long"""
+        return _aui.AuiToolBarItem_GetUserData(*args, **kwargs)
+
+_aui.AuiToolBarItem_swigregister(AuiToolBarItem)
+
+class AuiToolBarArt(object):
+    """Proxy of C++ AuiToolBarArt class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _aui.delete_AuiToolBarArt
+    __del__ = lambda self : None;
+    def Clone(*args, **kwargs):
+        """Clone(self) -> AuiToolBarArt"""
+        return _aui.AuiToolBarArt_Clone(*args, **kwargs)
+
+    def SetFlags(*args, **kwargs):
+        """SetFlags(self, int flags)"""
+        return _aui.AuiToolBarArt_SetFlags(*args, **kwargs)
+
+    def SetFont(*args, **kwargs):
+        """SetFont(self, Font font)"""
+        return _aui.AuiToolBarArt_SetFont(*args, **kwargs)
+
+    def SetTextOrientation(*args, **kwargs):
+        """SetTextOrientation(self, int orientation)"""
+        return _aui.AuiToolBarArt_SetTextOrientation(*args, **kwargs)
+
+    def DrawBackground(*args, **kwargs):
+        """DrawBackground(self, DC dc, Window wnd, Rect rect)"""
+        return _aui.AuiToolBarArt_DrawBackground(*args, **kwargs)
+
+    def DrawLabel(*args, **kwargs):
+        """DrawLabel(self, DC dc, Window wnd, AuiToolBarItem item, Rect rect)"""
+        return _aui.AuiToolBarArt_DrawLabel(*args, **kwargs)
+
+    def DrawButton(*args, **kwargs):
+        """DrawButton(self, DC dc, Window wnd, AuiToolBarItem item, Rect rect)"""
+        return _aui.AuiToolBarArt_DrawButton(*args, **kwargs)
+
+    def DrawDropDownButton(*args, **kwargs):
+        """DrawDropDownButton(self, DC dc, Window wnd, AuiToolBarItem item, Rect rect)"""
+        return _aui.AuiToolBarArt_DrawDropDownButton(*args, **kwargs)
+
+    def DrawControlLabel(*args, **kwargs):
+        """DrawControlLabel(self, DC dc, Window wnd, AuiToolBarItem item, Rect rect)"""
+        return _aui.AuiToolBarArt_DrawControlLabel(*args, **kwargs)
+
+    def DrawSeparator(*args, **kwargs):
+        """DrawSeparator(self, DC dc, Window wnd, Rect rect)"""
+        return _aui.AuiToolBarArt_DrawSeparator(*args, **kwargs)
+
+    def DrawGripper(*args, **kwargs):
+        """DrawGripper(self, DC dc, Window wnd, Rect rect)"""
+        return _aui.AuiToolBarArt_DrawGripper(*args, **kwargs)
+
+    def DrawOverflowButton(*args, **kwargs):
+        """DrawOverflowButton(self, DC dc, Window wnd, Rect rect, int state)"""
+        return _aui.AuiToolBarArt_DrawOverflowButton(*args, **kwargs)
+
+    def GetLabelSize(*args, **kwargs):
+        """GetLabelSize(self, DC dc, Window wnd, AuiToolBarItem item) -> Size"""
+        return _aui.AuiToolBarArt_GetLabelSize(*args, **kwargs)
+
+    def GetToolSize(*args, **kwargs):
+        """GetToolSize(self, DC dc, Window wnd, AuiToolBarItem item) -> Size"""
+        return _aui.AuiToolBarArt_GetToolSize(*args, **kwargs)
+
+    def GetElementSize(*args, **kwargs):
+        """GetElementSize(self, int element_id) -> int"""
+        return _aui.AuiToolBarArt_GetElementSize(*args, **kwargs)
+
+    def SetElementSize(*args, **kwargs):
+        """SetElementSize(self, int element_id, int size)"""
+        return _aui.AuiToolBarArt_SetElementSize(*args, **kwargs)
+
+    def ShowDropDown(*args, **kwargs):
+        """ShowDropDown(self, Window wnd, wxAuiToolBarItemArray items) -> int"""
+        return _aui.AuiToolBarArt_ShowDropDown(*args, **kwargs)
+
+_aui.AuiToolBarArt_swigregister(AuiToolBarArt)
+
+class AuiDefaultToolBarArt(AuiToolBarArt):
+    """Proxy of C++ AuiDefaultToolBarArt class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> AuiDefaultToolBarArt"""
+        _aui.AuiDefaultToolBarArt_swiginit(self,_aui.new_AuiDefaultToolBarArt(*args, **kwargs))
+    __swig_destroy__ = _aui.delete_AuiDefaultToolBarArt
+    __del__ = lambda self : None;
+_aui.AuiDefaultToolBarArt_swigregister(AuiDefaultToolBarArt)
+
+class AuiToolBar(_core.Control):
+    """Proxy of C++ AuiToolBar class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int id=-1, Point position=DefaultPosition, 
+            Size size=DefaultSize, long style=AUI_TB_DEFAULT_STYLE) -> AuiToolBar
+        """
+        _aui.AuiToolBar_swiginit(self,_aui.new_AuiToolBar(*args, **kwargs))
+    __swig_destroy__ = _aui.delete_AuiToolBar
+    __del__ = lambda self : None;
+    def SetArtProvider(*args, **kwargs):
+        """SetArtProvider(self, AuiToolBarArt art)"""
+        return _aui.AuiToolBar_SetArtProvider(*args, **kwargs)
+
+    def GetArtProvider(*args, **kwargs):
+        """GetArtProvider(self) -> AuiToolBarArt"""
+        return _aui.AuiToolBar_GetArtProvider(*args, **kwargs)
+
+    def AddTool(*args):
+        """
+        AddTool(self, int tool_id, String label, Bitmap bitmap, String short_help_string=wxEmptyString, 
+            int kind=ITEM_NORMAL)
+        AddTool(self, int tool_id, String label, Bitmap bitmap, Bitmap disabled_bitmap, 
+            int kind, String short_help_string, 
+            String long_help_string, Object client_data)
+        AddTool(self, int tool_id, Bitmap bitmap, Bitmap disabled_bitmap, 
+            bool toggle=False, Object client_data=None, 
+            String short_help_string=wxEmptyString, String long_help_string=wxEmptyString)
+        """
+        return _aui.AuiToolBar_AddTool(*args)
+
+    def AddLabel(*args, **kwargs):
+        """AddLabel(self, int tool_id, String label=wxEmptyString, int width=-1)"""
+        return _aui.AuiToolBar_AddLabel(*args, **kwargs)
+
+    def AddControl(*args, **kwargs):
+        """AddControl(self, Control control, String label=wxEmptyString)"""
+        return _aui.AuiToolBar_AddControl(*args, **kwargs)
+
+    def AddSeparator(*args, **kwargs):
+        """AddSeparator(self)"""
+        return _aui.AuiToolBar_AddSeparator(*args, **kwargs)
+
+    def AddSpacer(*args, **kwargs):
+        """AddSpacer(self, int pixels)"""
+        return _aui.AuiToolBar_AddSpacer(*args, **kwargs)
+
+    def AddStretchSpacer(*args, **kwargs):
+        """AddStretchSpacer(self, int proportion=1)"""
+        return _aui.AuiToolBar_AddStretchSpacer(*args, **kwargs)
+
+    def Realize(*args, **kwargs):
+        """Realize(self) -> bool"""
+        return _aui.AuiToolBar_Realize(*args, **kwargs)
+
+    def FindControl(*args, **kwargs):
+        """FindControl(self, int window_id) -> Control"""
+        return _aui.AuiToolBar_FindControl(*args, **kwargs)
+
+    def FindToolByPosition(*args, **kwargs):
+        """FindToolByPosition(self, int x, int y) -> AuiToolBarItem"""
+        return _aui.AuiToolBar_FindToolByPosition(*args, **kwargs)
+
+    def FindToolByIndex(*args, **kwargs):
+        """FindToolByIndex(self, int idx) -> AuiToolBarItem"""
+        return _aui.AuiToolBar_FindToolByIndex(*args, **kwargs)
+
+    def FindTool(*args, **kwargs):
+        """FindTool(self, int tool_id) -> AuiToolBarItem"""
+        return _aui.AuiToolBar_FindTool(*args, **kwargs)
+
+    def ClearTools(*args, **kwargs):
+        """ClearTools(self)"""
+        return _aui.AuiToolBar_ClearTools(*args, **kwargs)
+
+    def Clear(*args, **kwargs):
+        """Clear(self)"""
+        return _aui.AuiToolBar_Clear(*args, **kwargs)
+
+    def DeleteTool(*args, **kwargs):
+        """DeleteTool(self, int tool_id) -> bool"""
+        return _aui.AuiToolBar_DeleteTool(*args, **kwargs)
+
+    def DeleteByIndex(*args, **kwargs):
+        """DeleteByIndex(self, int tool_id) -> bool"""
+        return _aui.AuiToolBar_DeleteByIndex(*args, **kwargs)
+
+    def GetToolCount(*args, **kwargs):
+        """GetToolCount(self) -> size_t"""
+        return _aui.AuiToolBar_GetToolCount(*args, **kwargs)
+
+    def GetToolPos(*args, **kwargs):
+        """GetToolPos(self, int tool_id) -> int"""
+        return _aui.AuiToolBar_GetToolPos(*args, **kwargs)
+
+    def GetToolIndex(*args, **kwargs):
+        """GetToolIndex(self, int tool_id) -> int"""
+        return _aui.AuiToolBar_GetToolIndex(*args, **kwargs)
+
+    def GetToolFits(*args, **kwargs):
+        """GetToolFits(self, int tool_id) -> bool"""
+        return _aui.AuiToolBar_GetToolFits(*args, **kwargs)
+
+    def GetToolRect(*args, **kwargs):
+        """GetToolRect(self, int tool_id) -> Rect"""
+        return _aui.AuiToolBar_GetToolRect(*args, **kwargs)
+
+    def GetToolFitsByIndex(*args, **kwargs):
+        """GetToolFitsByIndex(self, int tool_id) -> bool"""
+        return _aui.AuiToolBar_GetToolFitsByIndex(*args, **kwargs)
+
+    def GetToolBarFits(*args, **kwargs):
+        """GetToolBarFits(self) -> bool"""
+        return _aui.AuiToolBar_GetToolBarFits(*args, **kwargs)
+
+    def SetMargins(*args):
+        """
+        SetMargins(self, Size size)
+        SetMargins(self, int x, int y)
+        SetMargins(self, int left, int right, int top, int bottom)
+        """
+        return _aui.AuiToolBar_SetMargins(*args)
+
+    def SetToolBitmapSize(*args, **kwargs):
+        """SetToolBitmapSize(self, Size size)"""
+        return _aui.AuiToolBar_SetToolBitmapSize(*args, **kwargs)
+
+    def GetToolBitmapSize(*args, **kwargs):
+        """GetToolBitmapSize(self) -> Size"""
+        return _aui.AuiToolBar_GetToolBitmapSize(*args, **kwargs)
+
+    def GetOverflowVisible(*args, **kwargs):
+        """GetOverflowVisible(self) -> bool"""
+        return _aui.AuiToolBar_GetOverflowVisible(*args, **kwargs)
+
+    def SetOverflowVisible(*args, **kwargs):
+        """SetOverflowVisible(self, bool visible)"""
+        return _aui.AuiToolBar_SetOverflowVisible(*args, **kwargs)
+
+    def GetGripperVisible(*args, **kwargs):
+        """GetGripperVisible(self) -> bool"""
+        return _aui.AuiToolBar_GetGripperVisible(*args, **kwargs)
+
+    def SetGripperVisible(*args, **kwargs):
+        """SetGripperVisible(self, bool visible)"""
+        return _aui.AuiToolBar_SetGripperVisible(*args, **kwargs)
+
+    def ToggleTool(*args, **kwargs):
+        """ToggleTool(self, int tool_id, bool state)"""
+        return _aui.AuiToolBar_ToggleTool(*args, **kwargs)
+
+    def GetToolToggled(*args, **kwargs):
+        """GetToolToggled(self, int tool_id) -> bool"""
+        return _aui.AuiToolBar_GetToolToggled(*args, **kwargs)
+
+    def EnableTool(*args, **kwargs):
+        """EnableTool(self, int tool_id, bool state)"""
+        return _aui.AuiToolBar_EnableTool(*args, **kwargs)
+
+    def GetToolEnabled(*args, **kwargs):
+        """GetToolEnabled(self, int tool_id) -> bool"""
+        return _aui.AuiToolBar_GetToolEnabled(*args, **kwargs)
+
+    def SetToolDropDown(*args, **kwargs):
+        """SetToolDropDown(self, int tool_id, bool dropdown)"""
+        return _aui.AuiToolBar_SetToolDropDown(*args, **kwargs)
+
+    def GetToolDropDown(*args, **kwargs):
+        """GetToolDropDown(self, int tool_id) -> bool"""
+        return _aui.AuiToolBar_GetToolDropDown(*args, **kwargs)
+
+    def SetToolBorderPadding(*args, **kwargs):
+        """SetToolBorderPadding(self, int padding)"""
+        return _aui.AuiToolBar_SetToolBorderPadding(*args, **kwargs)
+
+    def GetToolBorderPadding(*args, **kwargs):
+        """GetToolBorderPadding(self) -> int"""
+        return _aui.AuiToolBar_GetToolBorderPadding(*args, **kwargs)
+
+    def SetToolTextOrientation(*args, **kwargs):
+        """SetToolTextOrientation(self, int orientation)"""
+        return _aui.AuiToolBar_SetToolTextOrientation(*args, **kwargs)
+
+    def GetToolTextOrientation(*args, **kwargs):
+        """GetToolTextOrientation(self) -> int"""
+        return _aui.AuiToolBar_GetToolTextOrientation(*args, **kwargs)
+
+    def SetToolPacking(*args, **kwargs):
+        """SetToolPacking(self, int packing)"""
+        return _aui.AuiToolBar_SetToolPacking(*args, **kwargs)
+
+    def GetToolPacking(*args, **kwargs):
+        """GetToolPacking(self) -> int"""
+        return _aui.AuiToolBar_GetToolPacking(*args, **kwargs)
+
+    def SetToolProportion(*args, **kwargs):
+        """SetToolProportion(self, int tool_id, int proportion)"""
+        return _aui.AuiToolBar_SetToolProportion(*args, **kwargs)
+
+    def GetToolProportion(*args, **kwargs):
+        """GetToolProportion(self, int tool_id) -> int"""
+        return _aui.AuiToolBar_GetToolProportion(*args, **kwargs)
+
+    def SetToolSeparation(*args, **kwargs):
+        """SetToolSeparation(self, int separation)"""
+        return _aui.AuiToolBar_SetToolSeparation(*args, **kwargs)
+
+    def GetToolSeparation(*args, **kwargs):
+        """GetToolSeparation(self) -> int"""
+        return _aui.AuiToolBar_GetToolSeparation(*args, **kwargs)
+
+    def SetToolSticky(*args, **kwargs):
+        """SetToolSticky(self, int tool_id, bool sticky)"""
+        return _aui.AuiToolBar_SetToolSticky(*args, **kwargs)
+
+    def GetToolSticky(*args, **kwargs):
+        """GetToolSticky(self, int tool_id) -> bool"""
+        return _aui.AuiToolBar_GetToolSticky(*args, **kwargs)
+
+    def GetToolLabel(*args, **kwargs):
+        """GetToolLabel(self, int tool_id) -> String"""
+        return _aui.AuiToolBar_GetToolLabel(*args, **kwargs)
+
+    def SetToolLabel(*args, **kwargs):
+        """SetToolLabel(self, int tool_id, String label)"""
+        return _aui.AuiToolBar_SetToolLabel(*args, **kwargs)
+
+    def GetToolBitmap(*args, **kwargs):
+        """GetToolBitmap(self, int tool_id) -> Bitmap"""
+        return _aui.AuiToolBar_GetToolBitmap(*args, **kwargs)
+
+    def SetToolBitmap(*args, **kwargs):
+        """SetToolBitmap(self, int tool_id, Bitmap bitmap)"""
+        return _aui.AuiToolBar_SetToolBitmap(*args, **kwargs)
+
+    def GetToolShortHelp(*args, **kwargs):
+        """GetToolShortHelp(self, int tool_id) -> String"""
+        return _aui.AuiToolBar_GetToolShortHelp(*args, **kwargs)
+
+    def SetToolShortHelp(*args, **kwargs):
+        """SetToolShortHelp(self, int tool_id, String help_string)"""
+        return _aui.AuiToolBar_SetToolShortHelp(*args, **kwargs)
+
+    def GetToolLongHelp(*args, **kwargs):
+        """GetToolLongHelp(self, int tool_id) -> String"""
+        return _aui.AuiToolBar_GetToolLongHelp(*args, **kwargs)
+
+    def SetToolLongHelp(*args, **kwargs):
+        """SetToolLongHelp(self, int tool_id, String help_string)"""
+        return _aui.AuiToolBar_SetToolLongHelp(*args, **kwargs)
+
+    def SetCustomOverflowItems(*args, **kwargs):
+        """SetCustomOverflowItems(self, wxAuiToolBarItemArray prepend, wxAuiToolBarItemArray append)"""
+        return _aui.AuiToolBar_SetCustomOverflowItems(*args, **kwargs)
+
+_aui.AuiToolBar_swigregister(AuiToolBar)
+
+wxEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN = _aui.wxEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN
+wxEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK = _aui.wxEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK
+wxEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK = _aui.wxEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK
+wxEVT_COMMAND_AUITOOLBAR_MIDDLE_CLICK = _aui.wxEVT_COMMAND_AUITOOLBAR_MIDDLE_CLICK
+wxEVT_COMMAND_AUITOOLBAR_BEGIN_DRAG = _aui.wxEVT_COMMAND_AUITOOLBAR_BEGIN_DRAG
+EVT_AUITOOLBAR_TOOL_DROPDOWN = wx.PyEventBinder( wxEVT_COMMAND_AUITOOLBAR_TOOL_DROPDOWN, 1 )
+EVT_AUITOOLBAR_OVERFLOW_CLICK = wx.PyEventBinder( wxEVT_COMMAND_AUITOOLBAR_OVERFLOW_CLICK, 1 )
+EVT_AUITOOLBAR_RIGHT_CLICK = wx.PyEventBinder( wxEVT_COMMAND_AUITOOLBAR_RIGHT_CLICK, 1 )
+EVT_AUITOOLBAR_MIDDLE_CLICK = wx.PyEventBinder( wxEVT_COMMAND_AUITOOLBAR_MIDDLE_CLICK, 1 )
+EVT_AUITOOLBAR_BEGIN_DRAG = wx.PyEventBinder( wxEVT_COMMAND_AUITOOLBAR_BEGIN_DRAG, 1 )
+
 class PyAuiDockArt(AuiDefaultDockArt):
     """
     This version of the `AuiDockArt` class has been instrumented to be

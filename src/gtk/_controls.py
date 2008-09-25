@@ -1364,7 +1364,52 @@ class CheckListBox(ListBox):
         """GetItemHeight(self) -> int"""
         return _controls_.CheckListBox_GetItemHeight(*args, **kwargs)
 
-    ItemHeight = property(GetItemHeight,doc="See `GetItemHeight`") 
+    def GetChecked(self):
+        """
+        GetChecked(self)
+
+        Return a tuple of integers corresponding to the checked items in
+        the control, based on `IsChecked`.
+        """
+        return tuple([i for i in range(self.Count) if self.IsChecked(i)])
+
+    def GetCheckedStrings(self):
+        """
+        GetCheckedStrings(self)
+
+        Return a tuple of strings corresponding to the checked
+        items of the control, based on `GetChecked`.
+        """
+        return tuple([self.GetString(i) for i in self.GetChecked()])
+
+    def SetChecked(self, indexes):
+        """
+        SetChecked(self, indexes)
+
+        Sets the checked state of items if the index of the item is 
+        found in the indexes sequence.
+        """
+        for i in indexes:
+            assert 0 <= i < self.Count, "Index (%s) out of range" % i
+        for i in range(self.Count):
+            self.Check(i, i in indexes)
+
+    def SetCheckedStrings(self, strings):
+        """
+        SetCheckedStrings(self, indexes)
+
+        Sets the checked state of items if the item's string is found
+        in the strings sequence.
+        """
+        for s in strings:
+            assert s in self.GetStrings(), "String ('%s') not found" % s
+        for i in range(self.Count):
+            self.Check(i, self.GetString(i) in strings)
+
+    Checked = property(GetChecked,SetChecked)
+    CheckedStrings = property(GetCheckedStrings,SetCheckedStrings)
+
+    ItemHeight = property(GetItemHeight) 
 _controls_.CheckListBox_swigregister(CheckListBox)
 
 def PreCheckListBox(*args, **kwargs):
@@ -3205,16 +3250,16 @@ def BookCtrlBase_GetClassDefaultAttributes(*args, **kwargs):
     """
   return _controls_.BookCtrlBase_GetClassDefaultAttributes(*args, **kwargs)
 
-class BookCtrlBaseEvent(_core.NotifyEvent):
-    """Proxy of C++ BookCtrlBaseEvent class"""
+class BookCtrlEvent(_core.NotifyEvent):
+    """Proxy of C++ BookCtrlEvent class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
         __init__(self, EventType commandType=wxEVT_NULL, int id=0, int nSel=-1, 
-            int nOldSel=-1) -> BookCtrlBaseEvent
+            int nOldSel=-1) -> BookCtrlEvent
         """
-        _controls_.BookCtrlBaseEvent_swiginit(self,_controls_.new_BookCtrlBaseEvent(*args, **kwargs))
+        _controls_.BookCtrlEvent_swiginit(self,_controls_.new_BookCtrlEvent(*args, **kwargs))
     def GetSelection(*args, **kwargs):
         """
         GetSelection(self) -> int
@@ -3222,23 +3267,23 @@ class BookCtrlBaseEvent(_core.NotifyEvent):
         Returns item index for a listbox or choice selection event (not valid
         for a deselection).
         """
-        return _controls_.BookCtrlBaseEvent_GetSelection(*args, **kwargs)
+        return _controls_.BookCtrlEvent_GetSelection(*args, **kwargs)
 
     def SetSelection(*args, **kwargs):
         """SetSelection(self, int nSel)"""
-        return _controls_.BookCtrlBaseEvent_SetSelection(*args, **kwargs)
+        return _controls_.BookCtrlEvent_SetSelection(*args, **kwargs)
 
     def GetOldSelection(*args, **kwargs):
         """GetOldSelection(self) -> int"""
-        return _controls_.BookCtrlBaseEvent_GetOldSelection(*args, **kwargs)
+        return _controls_.BookCtrlEvent_GetOldSelection(*args, **kwargs)
 
     def SetOldSelection(*args, **kwargs):
         """SetOldSelection(self, int nOldSel)"""
-        return _controls_.BookCtrlBaseEvent_SetOldSelection(*args, **kwargs)
+        return _controls_.BookCtrlEvent_SetOldSelection(*args, **kwargs)
 
     OldSelection = property(GetOldSelection,SetOldSelection,doc="See `GetOldSelection` and `SetOldSelection`") 
     Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
-_controls_.BookCtrlBaseEvent_swigregister(BookCtrlBaseEvent)
+_controls_.BookCtrlEvent_swigregister(BookCtrlEvent)
 
 #---------------------------------------------------------------------------
 
@@ -3341,17 +3386,7 @@ def Notebook_GetClassDefaultAttributes(*args, **kwargs):
     """
   return _controls_.Notebook_GetClassDefaultAttributes(*args, **kwargs)
 
-class NotebookEvent(BookCtrlBaseEvent):
-    """Proxy of C++ NotebookEvent class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, EventType commandType=wxEVT_NULL, int id=0, int nSel=-1, 
-            int nOldSel=-1) -> NotebookEvent
-        """
-        _controls_.NotebookEvent_swiginit(self,_controls_.new_NotebookEvent(*args, **kwargs))
-_controls_.NotebookEvent_swigregister(NotebookEvent)
+NotebookEvent = BookCtrlEvent
 
 wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED = _controls_.wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED
 wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGING = _controls_.wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGING
@@ -3428,17 +3463,7 @@ def PreListbook(*args, **kwargs):
     val = _controls_.new_PreListbook(*args, **kwargs)
     return val
 
-class ListbookEvent(BookCtrlBaseEvent):
-    """Proxy of C++ ListbookEvent class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, EventType commandType=wxEVT_NULL, int id=0, int nSel=-1, 
-            int nOldSel=-1) -> ListbookEvent
-        """
-        _controls_.ListbookEvent_swiginit(self,_controls_.new_ListbookEvent(*args, **kwargs))
-_controls_.ListbookEvent_swigregister(ListbookEvent)
+ListbookEvent = BookCtrlEvent
 
 wxEVT_COMMAND_LISTBOOK_PAGE_CHANGED = _controls_.wxEVT_COMMAND_LISTBOOK_PAGE_CHANGED
 wxEVT_COMMAND_LISTBOOK_PAGE_CHANGING = _controls_.wxEVT_COMMAND_LISTBOOK_PAGE_CHANGING
@@ -3482,17 +3507,7 @@ def PreChoicebook(*args, **kwargs):
     val = _controls_.new_PreChoicebook(*args, **kwargs)
     return val
 
-class ChoicebookEvent(BookCtrlBaseEvent):
-    """Proxy of C++ ChoicebookEvent class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, EventType commandType=wxEVT_NULL, int id=0, int nSel=-1, 
-            int nOldSel=-1) -> ChoicebookEvent
-        """
-        _controls_.ChoicebookEvent_swiginit(self,_controls_.new_ChoicebookEvent(*args, **kwargs))
-_controls_.ChoicebookEvent_swigregister(ChoicebookEvent)
+ChoicebookEvent = BookCtrlEvent
 
 wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGED = _controls_.wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGED
 wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGING = _controls_.wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGING
@@ -3561,26 +3576,16 @@ def PreTreebook(*args, **kwargs):
     val = _controls_.new_PreTreebook(*args, **kwargs)
     return val
 
-class TreebookEvent(BookCtrlBaseEvent):
-    """Proxy of C++ TreebookEvent class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, EventType commandType=wxEVT_NULL, int id=0, int nSel=NOT_FOUND, 
-            int nOldSel=NOT_FOUND) -> TreebookEvent
-        """
-        _controls_.TreebookEvent_swiginit(self,_controls_.new_TreebookEvent(*args, **kwargs))
-_controls_.TreebookEvent_swigregister(TreebookEvent)
+TreebookEvent = BookCtrlEvent
 
 wxEVT_COMMAND_TREEBOOK_PAGE_CHANGED = _controls_.wxEVT_COMMAND_TREEBOOK_PAGE_CHANGED
 wxEVT_COMMAND_TREEBOOK_PAGE_CHANGING = _controls_.wxEVT_COMMAND_TREEBOOK_PAGE_CHANGING
 wxEVT_COMMAND_TREEBOOK_NODE_COLLAPSED = _controls_.wxEVT_COMMAND_TREEBOOK_NODE_COLLAPSED
 wxEVT_COMMAND_TREEBOOK_NODE_EXPANDED = _controls_.wxEVT_COMMAND_TREEBOOK_NODE_EXPANDED
-EVT_TREEBOOK_PAGE_CHANGED= wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_PAGE_CHANGED, 1 )
-EVT_TREEBOOK_PAGE_CHANGING= wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_PAGE_CHANGING, 1)
-EVT_TREEBOOK_NODE_COLLAPSED= wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_NODE_COLLAPSED, 1 )
-EVT_TREEBOOK_NODE_EXPANDED= wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_NODE_EXPANDED, 1 )
+EVT_TREEBOOK_PAGE_CHANGED = wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_PAGE_CHANGED, 1 )
+EVT_TREEBOOK_PAGE_CHANGING = wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_PAGE_CHANGING, 1)
+EVT_TREEBOOK_NODE_COLLAPSED = wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_NODE_COLLAPSED, 1 )
+EVT_TREEBOOK_NODE_EXPANDED = wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_NODE_EXPANDED, 1 )
 
 #---------------------------------------------------------------------------
 
@@ -3620,17 +3625,7 @@ def PreToolbook(*args, **kwargs):
     val = _controls_.new_PreToolbook(*args, **kwargs)
     return val
 
-class ToolbookEvent(BookCtrlBaseEvent):
-    """Proxy of C++ ToolbookEvent class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, EventType commandType=wxEVT_NULL, int id=0, int nSel=NOT_FOUND, 
-            int nOldSel=NOT_FOUND) -> ToolbookEvent
-        """
-        _controls_.ToolbookEvent_swiginit(self,_controls_.new_ToolbookEvent(*args, **kwargs))
-_controls_.ToolbookEvent_swigregister(ToolbookEvent)
+ToolbookEvent = BookCtrlEvent
 
 wxEVT_COMMAND_TOOLBOOK_PAGE_CHANGED = _controls_.wxEVT_COMMAND_TOOLBOOK_PAGE_CHANGED
 wxEVT_COMMAND_TOOLBOOK_PAGE_CHANGING = _controls_.wxEVT_COMMAND_TOOLBOOK_PAGE_CHANGING
@@ -5154,6 +5149,9 @@ TreeItemIcon_Selected = _controls_.TreeItemIcon_Selected
 TreeItemIcon_Expanded = _controls_.TreeItemIcon_Expanded
 TreeItemIcon_SelectedExpanded = _controls_.TreeItemIcon_SelectedExpanded
 TreeItemIcon_Max = _controls_.TreeItemIcon_Max
+TREE_ITEMSTATE_NONE = _controls_.TREE_ITEMSTATE_NONE
+TREE_ITEMSTATE_NEXT = _controls_.TREE_ITEMSTATE_NEXT
+TREE_ITEMSTATE_PREV = _controls_.TREE_ITEMSTATE_PREV
 TREE_HITTEST_ABOVE = _controls_.TREE_HITTEST_ABOVE
 TREE_HITTEST_BELOW = _controls_.TREE_HITTEST_BELOW
 TREE_HITTEST_NOWHERE = _controls_.TREE_HITTEST_NOWHERE
@@ -5460,6 +5458,10 @@ class TreeCtrl(_core.Control):
         """GetItemFont(self, TreeItemId item) -> Font"""
         return _controls_.TreeCtrl_GetItemFont(*args, **kwargs)
 
+    def GetItemState(*args, **kwargs):
+        """GetItemState(self, TreeItemId item) -> int"""
+        return _controls_.TreeCtrl_GetItemState(*args, **kwargs)
+
     def SetItemText(*args, **kwargs):
         """SetItemText(self, TreeItemId item, String text)"""
         return _controls_.TreeCtrl_SetItemText(*args, **kwargs)
@@ -5500,6 +5502,10 @@ class TreeCtrl(_core.Control):
     def SetItemFont(*args, **kwargs):
         """SetItemFont(self, TreeItemId item, Font font)"""
         return _controls_.TreeCtrl_SetItemFont(*args, **kwargs)
+
+    def SetItemState(*args, **kwargs):
+        """SetItemState(self, TreeItemId item, int state)"""
+        return _controls_.TreeCtrl_SetItemState(*args, **kwargs)
 
     def IsVisible(*args, **kwargs):
         """IsVisible(self, TreeItemId item) -> bool"""

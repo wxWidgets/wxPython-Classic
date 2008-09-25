@@ -936,10 +936,6 @@ class RichTextLine(object):
         """GetDescent(self) -> int"""
         return _richtext.RichTextLine_GetDescent(*args, **kwargs)
 
-    def GetObjectSizes(*args, **kwargs):
-        """GetObjectSizes(self) -> wxArrayInt"""
-        return _richtext.RichTextLine_GetObjectSizes(*args, **kwargs)
-
     def Init(*args, **kwargs):
         """Init(self, RichTextParagraph parent)"""
         return _richtext.RichTextLine_Init(*args, **kwargs)

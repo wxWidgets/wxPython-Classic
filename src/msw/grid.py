@@ -2012,14 +2012,6 @@ class Grid(_windows.ScrolledWindow):
         """GetScrollLineY(self) -> int"""
         return _grid.Grid_GetScrollLineY(*args, **kwargs)
 
-    def GetScrollX(*args, **kwargs):
-        """GetScrollX(self, int x) -> int"""
-        return _grid.Grid_GetScrollX(*args, **kwargs)
-
-    def GetScrollY(*args, **kwargs):
-        """GetScrollY(self, int y) -> int"""
-        return _grid.Grid_GetScrollY(*args, **kwargs)
-
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes

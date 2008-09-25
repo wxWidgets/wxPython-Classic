@@ -1548,7 +1548,7 @@ STC_CMD_WORDLEFTEND = _stc.STC_CMD_WORDLEFTEND
 STC_CMD_WORDLEFTENDEXTEND = _stc.STC_CMD_WORDLEFTENDEXTEND
 STC_CMD_WORDRIGHTEND = _stc.STC_CMD_WORDRIGHTEND
 STC_CMD_WORDRIGHTENDEXTEND = _stc.STC_CMD_WORDRIGHTENDEXTEND
-class StyledTextCtrl(_core.Control):
+class StyledTextCtrl(_core.Control,_core.TextEntryBase):
     """Proxy of C++ StyledTextCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -1647,14 +1647,6 @@ class StyledTextCtrl(_core.Control):
         """
         return _stc.StyledTextCtrl_GetStyleAt(*args, **kwargs)
 
-    def Redo(*args, **kwargs):
-        """
-        Redo(self)
-
-        Redoes the next action on the undo history.
-        """
-        return _stc.StyledTextCtrl_Redo(*args, **kwargs)
-
     def SetUndoCollection(*args, **kwargs):
         """
         SetUndoCollection(self, bool collectUndo)
@@ -1663,14 +1655,6 @@ class StyledTextCtrl(_core.Control):
         history and discarding them.
         """
         return _stc.StyledTextCtrl_SetUndoCollection(*args, **kwargs)
-
-    def SelectAll(*args, **kwargs):
-        """
-        SelectAll(self)
-
-        Select all the text in the document.
-        """
-        return _stc.StyledTextCtrl_SelectAll(*args, **kwargs)
 
     def SetSavePoint(*args, **kwargs):
         """
@@ -1688,14 +1672,6 @@ class StyledTextCtrl(_core.Control):
         Retrieve a buffer of cells.
         """
         return _stc.StyledTextCtrl_GetStyledText(*args, **kwargs)
-
-    def CanRedo(*args, **kwargs):
-        """
-        CanRedo(self) -> bool
-
-        Are there any redoable actions in the undo history?
-        """
-        return _stc.StyledTextCtrl_CanRedo(*args, **kwargs)
 
     def MarkerLineFromHandle(*args, **kwargs):
         """
@@ -3069,14 +3045,6 @@ class StyledTextCtrl(_core.Control):
         """
         return _stc.StyledTextCtrl_GetModify(*args, **kwargs)
 
-    def SetSelection(*args, **kwargs):
-        """
-        SetSelection(self, int start, int end)
-
-        Select a range of text.
-        """
-        return _stc.StyledTextCtrl_SetSelection(*args, **kwargs)
-
     def GetSelectedText(*args, **kwargs):
         """
         GetSelectedText(self) -> String
@@ -3157,14 +3125,6 @@ class StyledTextCtrl(_core.Control):
         """
         return _stc.StyledTextCtrl_CanPaste(*args, **kwargs)
 
-    def CanUndo(*args, **kwargs):
-        """
-        CanUndo(self) -> bool
-
-        Are there any undoable actions in the undo history?
-        """
-        return _stc.StyledTextCtrl_CanUndo(*args, **kwargs)
-
     def EmptyUndoBuffer(*args, **kwargs):
         """
         EmptyUndoBuffer(self)
@@ -3172,46 +3132,6 @@ class StyledTextCtrl(_core.Control):
         Delete the undo history.
         """
         return _stc.StyledTextCtrl_EmptyUndoBuffer(*args, **kwargs)
-
-    def Undo(*args, **kwargs):
-        """
-        Undo(self)
-
-        Undo one action in the undo history.
-        """
-        return _stc.StyledTextCtrl_Undo(*args, **kwargs)
-
-    def Cut(*args, **kwargs):
-        """
-        Cut(self)
-
-        Cut the selection to the clipboard.
-        """
-        return _stc.StyledTextCtrl_Cut(*args, **kwargs)
-
-    def Copy(*args, **kwargs):
-        """
-        Copy(self)
-
-        Copy the selection to the clipboard.
-        """
-        return _stc.StyledTextCtrl_Copy(*args, **kwargs)
-
-    def Paste(*args, **kwargs):
-        """
-        Paste(self)
-
-        Paste the contents of the clipboard into the document replacing the selection.
-        """
-        return _stc.StyledTextCtrl_Paste(*args, **kwargs)
-
-    def Clear(*args, **kwargs):
-        """
-        Clear(self)
-
-        Clear the selection.
-        """
-        return _stc.StyledTextCtrl_Clear(*args, **kwargs)
 
     def SetText(*args, **kwargs):
         """
@@ -3783,14 +3703,6 @@ class StyledTextCtrl(_core.Control):
         Is the vertical scroll bar visible?
         """
         return _stc.StyledTextCtrl_GetUseVerticalScrollBar(*args, **kwargs)
-
-    def AppendText(*args, **kwargs):
-        """
-        AppendText(self, String text)
-
-        Append a string to the end of the document without changing the selection.
-        """
-        return _stc.StyledTextCtrl_AppendText(*args, **kwargs)
 
     def GetTwoPhaseDraw(*args, **kwargs):
         """
@@ -5415,14 +5327,6 @@ class StyledTextCtrl(_core.Control):
         """
         return _stc.StyledTextCtrl_SetMargins(*args, **kwargs)
 
-    def GetSelection(*args, **kwargs):
-        """
-        GetSelection(self) -> (startPos, endPos)
-
-        Retrieve the start and end positions of the current selection.
-        """
-        return _stc.StyledTextCtrl_GetSelection(*args, **kwargs)
-
     def PointFromPosition(*args, **kwargs):
         """
         PointFromPosition(self, int pos) -> Point
@@ -5449,7 +5353,7 @@ class StyledTextCtrl(_core.Control):
 
     def SendMsg(*args, **kwargs):
         """
-        SendMsg(self, int msg, long wp=0, long lp=0) -> long
+        SendMsg(self, int msg, UIntPtr wp=0, wxIntPtr lp=0) -> wxIntPtr
 
         Send a message to Scintilla.
         """
@@ -5732,6 +5636,73 @@ class StyledTextCtrl(_core.Control):
             text = u.encode(wx.GetDefaultPyEncoding())
         self.AppendTextRaw(text)
 
+
+    def GetValue(*args, **kwargs):
+        """GetValue(self) -> String"""
+        return _stc.StyledTextCtrl_GetValue(*args, **kwargs)
+
+    def GetSelection(*args, **kwargs):
+        """
+        GetSelection(self) -> (startPos, endPos)
+
+        Retrieve the start and end positions of the current selection.
+        """
+        return _stc.StyledTextCtrl_GetSelection(*args, **kwargs)
+
+    def GetLineLength(*args, **kwargs):
+        """GetLineLength(self, long n) -> int"""
+        return _stc.StyledTextCtrl_GetLineLength(*args, **kwargs)
+
+    def GetLineText(*args, **kwargs):
+        """GetLineText(self, long n) -> String"""
+        return _stc.StyledTextCtrl_GetLineText(*args, **kwargs)
+
+    def GetNumberOfLines(*args, **kwargs):
+        """GetNumberOfLines(self) -> int"""
+        return _stc.StyledTextCtrl_GetNumberOfLines(*args, **kwargs)
+
+    def IsModified(*args, **kwargs):
+        """IsModified(self) -> bool"""
+        return _stc.StyledTextCtrl_IsModified(*args, **kwargs)
+
+    def MarkDirty(*args, **kwargs):
+        """MarkDirty(self)"""
+        return _stc.StyledTextCtrl_MarkDirty(*args, **kwargs)
+
+    def DiscardEdits(*args, **kwargs):
+        """DiscardEdits(self)"""
+        return _stc.StyledTextCtrl_DiscardEdits(*args, **kwargs)
+
+    def SetStyle(*args, **kwargs):
+        """SetStyle(self, long start, long end, wxTextAttr style) -> bool"""
+        return _stc.StyledTextCtrl_SetStyle(*args, **kwargs)
+
+    def GetStyle(*args, **kwargs):
+        """GetStyle(self, long position, wxTextAttr style) -> bool"""
+        return _stc.StyledTextCtrl_GetStyle(*args, **kwargs)
+
+    def SetDefaultStyle(*args, **kwargs):
+        """SetDefaultStyle(self, wxTextAttr style) -> bool"""
+        return _stc.StyledTextCtrl_SetDefaultStyle(*args, **kwargs)
+
+    def XYToPosition(*args, **kwargs):
+        """XYToPosition(self, long x, long y) -> long"""
+        return _stc.StyledTextCtrl_XYToPosition(*args, **kwargs)
+
+    def PositionToXY(*args, **kwargs):
+        """PositionToXY(self, long pos, long x, long y) -> bool"""
+        return _stc.StyledTextCtrl_PositionToXY(*args, **kwargs)
+
+    def ShowPosition(*args, **kwargs):
+        """ShowPosition(self, long pos)"""
+        return _stc.StyledTextCtrl_ShowPosition(*args, **kwargs)
+
+    def HitTest(*args):
+        """
+        HitTest(self, Point pt) -> int
+        HitTest(self, Point pt, long pos) -> wxTextCtrlHitTestResult
+        """
+        return _stc.StyledTextCtrl_HitTest(*args)
 
     GetCaretLineBack = GetCaretLineBackground
     SetCaretLineBack = SetCaretLineBackground

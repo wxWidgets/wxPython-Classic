@@ -2795,7 +2795,6 @@ class wxMetaFile;
 class wxMetaFileDC;
 class wxPrinterDC;
 
-
  static const wxString wxPyEmptyString(wxEmptyString); 
 
 #include <wx/sstream.h>
@@ -3045,7 +3044,7 @@ SWIGINTERN wxRichTextFileHandler *wxRichTextFileHandlerList___getitem__(wxRichTe
             return NULL;
         }
 SWIGINTERN bool wxRichTextFileHandlerList___contains__(wxRichTextFileHandlerList *self,wxRichTextFileHandler const *obj){
-            return self->m_list->Find(obj) != NULL;
+            return self->m_list->Find(obj);
         }
 SWIGINTERN wxRichTextFileHandlerList_iterator *wxRichTextFileHandlerList___iter__(wxRichTextFileHandlerList *self){
             return new wxRichTextFileHandlerList_iterator(self->m_list->GetFirst());
@@ -9288,39 +9287,6 @@ SWIGINTERN PyObject *_wrap_RichTextLine_GetDescent(PyObject *SWIGUNUSEDPARM(self
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextLine_GetObjectSizes(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextLine *arg1 = (wxRichTextLine *) 0 ;
-  wxArrayInt *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextLine, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextLine_GetObjectSizes" "', expected argument " "1"" of type '" "wxRichTextLine *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextLine * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxArrayInt &_result_ref = (arg1)->GetObjectSizes();
-      result = (wxArrayInt *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = wxArrayInt2PyList_helper(*result);
-  }
   return resultobj;
 fail:
   return NULL;
@@ -22904,7 +22870,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RichTextLine_GetRect", (PyCFunction)_wrap_RichTextLine_GetRect, METH_O, NULL},
 	 { (char *)"RichTextLine_SetDescent", (PyCFunction) _wrap_RichTextLine_SetDescent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextLine_GetDescent", (PyCFunction)_wrap_RichTextLine_GetDescent, METH_O, NULL},
-	 { (char *)"RichTextLine_GetObjectSizes", (PyCFunction)_wrap_RichTextLine_GetObjectSizes, METH_O, NULL},
 	 { (char *)"RichTextLine_Init", (PyCFunction) _wrap_RichTextLine_Init, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextLine_Copy", (PyCFunction) _wrap_RichTextLine_Copy, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextLine_Clone", (PyCFunction)_wrap_RichTextLine_Clone, METH_O, NULL},

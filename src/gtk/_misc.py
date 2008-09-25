@@ -348,8 +348,10 @@ def IsPlatform64Bit(*args):
 def GetFreeMemory(*args):
   """GetFreeMemory() -> wxMemorySize"""
   return _misc_.GetFreeMemory(*args)
+SHUTDOWN_FORCE = _misc_.SHUTDOWN_FORCE
 SHUTDOWN_POWEROFF = _misc_.SHUTDOWN_POWEROFF
 SHUTDOWN_REBOOT = _misc_.SHUTDOWN_REBOOT
+SHUTDOWN_LOGOFF = _misc_.SHUTDOWN_LOGOFF
 
 def Shutdown(*args, **kwargs):
   """Shutdown(int wFlags) -> bool"""
@@ -520,6 +522,10 @@ def GetDisplaySizeMM(*args):
   """GetDisplaySizeMM() -> Size"""
   return _misc_.GetDisplaySizeMM(*args)
 
+def GetDisplayPPI(*args):
+  """GetDisplayPPI() -> Size"""
+  return _misc_.GetDisplayPPI(*args)
+
 def ClientDisplayRect(*args):
   """ClientDisplayRect() -> (x, y, width, height)"""
   return _misc_.ClientDisplayRect(*args)
@@ -582,6 +588,7 @@ def GetTopLevelParent(*args, **kwargs):
   """GetTopLevelParent(Window win) -> Window"""
   return _misc_.GetTopLevelParent(*args, **kwargs)
 BROWSER_NEW_WINDOW = _misc_.BROWSER_NEW_WINDOW
+BROWSER_NOBUSYCURSOR = _misc_.BROWSER_NOBUSYCURSOR
 
 def LaunchDefaultBrowser(*args, **kwargs):
   """
@@ -592,6 +599,14 @@ def LaunchDefaultBrowser(*args, **kwargs):
     launched.
     """
   return _misc_.LaunchDefaultBrowser(*args, **kwargs)
+
+def LaunchDefaultApplication(*args, **kwargs):
+  """
+    LaunchDefaultApplication(String path, int flags=0) -> bool
+
+    Launch document in the user's default application.
+    """
+  return _misc_.LaunchDefaultApplication(*args, **kwargs)
 
 def GetKeyState(*args, **kwargs):
   """
@@ -604,144 +619,6 @@ def GetKeyState(*args, **kwargs):
 
     """
   return _misc_.GetKeyState(*args, **kwargs)
-class MouseState(object):
-    """
-    `wx.MouseState` is used to hold information about mouse button and
-    modifier key states and is what is returned from `wx.GetMouseState`.
-    """
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self) -> MouseState
-
-        `wx.MouseState` is used to hold information about mouse button and
-        modifier key states and is what is returned from `wx.GetMouseState`.
-        """
-        _misc_.MouseState_swiginit(self,_misc_.new_MouseState(*args, **kwargs))
-    __swig_destroy__ = _misc_.delete_MouseState
-    __del__ = lambda self : None;
-    def GetX(*args, **kwargs):
-        """GetX(self) -> int"""
-        return _misc_.MouseState_GetX(*args, **kwargs)
-
-    def GetY(*args, **kwargs):
-        """GetY(self) -> int"""
-        return _misc_.MouseState_GetY(*args, **kwargs)
-
-    def LeftDown(*args, **kwargs):
-        """LeftDown(self) -> bool"""
-        return _misc_.MouseState_LeftDown(*args, **kwargs)
-
-    def MiddleDown(*args, **kwargs):
-        """MiddleDown(self) -> bool"""
-        return _misc_.MouseState_MiddleDown(*args, **kwargs)
-
-    def RightDown(*args, **kwargs):
-        """RightDown(self) -> bool"""
-        return _misc_.MouseState_RightDown(*args, **kwargs)
-
-    def Aux1Down(*args, **kwargs):
-        """Aux1Down(self) -> bool"""
-        return _misc_.MouseState_Aux1Down(*args, **kwargs)
-
-    def Aux2Down(*args, **kwargs):
-        """Aux2Down(self) -> bool"""
-        return _misc_.MouseState_Aux2Down(*args, **kwargs)
-
-    def ControlDown(*args, **kwargs):
-        """ControlDown(self) -> bool"""
-        return _misc_.MouseState_ControlDown(*args, **kwargs)
-
-    def ShiftDown(*args, **kwargs):
-        """ShiftDown(self) -> bool"""
-        return _misc_.MouseState_ShiftDown(*args, **kwargs)
-
-    def AltDown(*args, **kwargs):
-        """AltDown(self) -> bool"""
-        return _misc_.MouseState_AltDown(*args, **kwargs)
-
-    def MetaDown(*args, **kwargs):
-        """MetaDown(self) -> bool"""
-        return _misc_.MouseState_MetaDown(*args, **kwargs)
-
-    def CmdDown(*args, **kwargs):
-        """CmdDown(self) -> bool"""
-        return _misc_.MouseState_CmdDown(*args, **kwargs)
-
-    def SetX(*args, **kwargs):
-        """SetX(self, int x)"""
-        return _misc_.MouseState_SetX(*args, **kwargs)
-
-    def SetY(*args, **kwargs):
-        """SetY(self, int y)"""
-        return _misc_.MouseState_SetY(*args, **kwargs)
-
-    def SetLeftDown(*args, **kwargs):
-        """SetLeftDown(self, bool down)"""
-        return _misc_.MouseState_SetLeftDown(*args, **kwargs)
-
-    def SetMiddleDown(*args, **kwargs):
-        """SetMiddleDown(self, bool down)"""
-        return _misc_.MouseState_SetMiddleDown(*args, **kwargs)
-
-    def SetRightDown(*args, **kwargs):
-        """SetRightDown(self, bool down)"""
-        return _misc_.MouseState_SetRightDown(*args, **kwargs)
-
-    def SetAux1Down(*args, **kwargs):
-        """SetAux1Down(self, bool down)"""
-        return _misc_.MouseState_SetAux1Down(*args, **kwargs)
-
-    def SetAux2Down(*args, **kwargs):
-        """SetAux2Down(self, bool down)"""
-        return _misc_.MouseState_SetAux2Down(*args, **kwargs)
-
-    def SetControlDown(*args, **kwargs):
-        """SetControlDown(self, bool down)"""
-        return _misc_.MouseState_SetControlDown(*args, **kwargs)
-
-    def SetShiftDown(*args, **kwargs):
-        """SetShiftDown(self, bool down)"""
-        return _misc_.MouseState_SetShiftDown(*args, **kwargs)
-
-    def SetAltDown(*args, **kwargs):
-        """SetAltDown(self, bool down)"""
-        return _misc_.MouseState_SetAltDown(*args, **kwargs)
-
-    def SetMetaDown(*args, **kwargs):
-        """SetMetaDown(self, bool down)"""
-        return _misc_.MouseState_SetMetaDown(*args, **kwargs)
-
-    x = property(GetX, SetX)
-    y = property(GetY, SetY)
-    leftDown = property(LeftDown, SetLeftDown)
-    middleDown = property(MiddleDown, SetMiddleDown)
-    rightDown = property(RightDown, SetRightDown)
-    aux1Down = property(Aux1Down, SetAux1Down)
-    aux2Down = property(Aux2Down, SetAux2Down)            
-    controlDown = property(ControlDown, SetControlDown)
-    shiftDown = property(ShiftDown, SetShiftDown)
-    altDown = property(AltDown, SetAltDown)
-    metaDown = property(MetaDown, SetMetaDown)
-    cmdDown = property(CmdDown)
-
-_misc_.MouseState_swigregister(MouseState)
-FileSelectorPromptStr = cvar.FileSelectorPromptStr
-FileSelectorDefaultWildcardStr = cvar.FileSelectorDefaultWildcardStr
-DirSelectorPromptStr = cvar.DirSelectorPromptStr
-
-
-def GetMouseState(*args):
-  """
-    GetMouseState() -> MouseState
-
-    Returns the current state of the mouse.  Returns an instance of a
-    `wx.MouseState` object that contains the current position of the mouse
-    pointer in screen coordinants, as well as boolean values indicating
-    the up/down status of the mouse buttons and the modifier keys.
-    """
-  return _misc_.GetMouseState(*args)
 
 def WakeUpMainThread(*args):
   """WakeUpMainThread()"""
@@ -764,6 +641,9 @@ class MutexGuiLocker(object):
     __swig_destroy__ = _misc_.delete_MutexGuiLocker
     __del__ = lambda self : None;
 _misc_.MutexGuiLocker_swigregister(MutexGuiLocker)
+FileSelectorPromptStr = cvar.FileSelectorPromptStr
+FileSelectorDefaultWildcardStr = cvar.FileSelectorDefaultWildcardStr
+DirSelectorPromptStr = cvar.DirSelectorPromptStr
 
 
 def Thread_IsMain(*args):
@@ -2444,6 +2324,8 @@ class FileTypeInfo(object):
     def __init__(self, *args, **kwargs): 
         """__init__(self, String mimeType, String openCmd, String printCmd, String desc) -> FileTypeInfo"""
         _misc_.FileTypeInfo_swiginit(self,_misc_.new_FileTypeInfo(*args, **kwargs))
+    __swig_destroy__ = _misc_.delete_FileTypeInfo
+    __del__ = lambda self : None;
     def IsValid(*args, **kwargs):
         """IsValid(self) -> bool"""
         return _misc_.FileTypeInfo_IsValid(*args, **kwargs)
@@ -2618,14 +2500,6 @@ class MimeTypesManager(object):
         """GetFileTypeFromMimeType(self, String mimeType) -> FileType"""
         return _misc_.MimeTypesManager_GetFileTypeFromMimeType(*args, **kwargs)
 
-    def ReadMailcap(*args, **kwargs):
-        """ReadMailcap(self, String filename, bool fallback=False) -> bool"""
-        return _misc_.MimeTypesManager_ReadMailcap(*args, **kwargs)
-
-    def ReadMimeTypes(*args, **kwargs):
-        """ReadMimeTypes(self, String filename) -> bool"""
-        return _misc_.MimeTypesManager_ReadMimeTypes(*args, **kwargs)
-
     def EnumAllFileTypes(*args, **kwargs):
         """EnumAllFileTypes(self) -> PyObject"""
         return _misc_.MimeTypesManager_EnumAllFileTypes(*args, **kwargs)
@@ -2706,6 +2580,15 @@ class ArtProvider(object):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
         return _misc_.ArtProvider__setCallbackInfo(*args, **kwargs)
 
+    def HasNativeProvider(*args, **kwargs):
+        """
+        HasNativeProvider() -> bool
+
+        Does this platform implement native icons theme?
+        """
+        return _misc_.ArtProvider_HasNativeProvider(*args, **kwargs)
+
+    HasNativeProvider = staticmethod(HasNativeProvider)
     def Push(*args, **kwargs):
         """
         Push(ArtProvider provider)
@@ -2716,6 +2599,16 @@ class ArtProvider(object):
 
     Push = staticmethod(Push)
     PushProvider = Push 
+    def PushBack(*args, **kwargs):
+        """
+        PushBack(wxArtProvider provider)
+
+        Add new provider to the bottom of providers stack (i.e. the provider
+        will be queried as the last one).
+        """
+        return _misc_.ArtProvider_PushBack(*args, **kwargs)
+
+    PushBack = staticmethod(PushBack)
     def Insert(*args, **kwargs):
         """
         Insert(ArtProvider provider)
@@ -2864,6 +2757,14 @@ ART_QUIT = cvar.ART_QUIT
 ART_FIND = cvar.ART_FIND
 ART_FIND_AND_REPLACE = cvar.ART_FIND_AND_REPLACE
 
+def ArtProvider_HasNativeProvider(*args):
+  """
+    ArtProvider_HasNativeProvider() -> bool
+
+    Does this platform implement native icons theme?
+    """
+  return _misc_.ArtProvider_HasNativeProvider(*args)
+
 def ArtProvider_Push(*args, **kwargs):
   """
     ArtProvider_Push(ArtProvider provider)
@@ -2871,6 +2772,15 @@ def ArtProvider_Push(*args, **kwargs):
     Add new provider to the top of providers stack.
     """
   return _misc_.ArtProvider_Push(*args, **kwargs)
+
+def ArtProvider_PushBack(*args, **kwargs):
+  """
+    ArtProvider_PushBack(wxArtProvider provider)
+
+    Add new provider to the bottom of providers stack (i.e. the provider
+    will be queried as the last one).
+    """
+  return _misc_.ArtProvider_PushBack(*args, **kwargs)
 
 def ArtProvider_Insert(*args, **kwargs):
   """

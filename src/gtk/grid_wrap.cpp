@@ -19080,84 +19080,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Grid_GetScrollX(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxGrid *arg1 = (wxGrid *) 0 ;
-  int arg2 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "x", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_GetScrollX",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GetScrollX" "', expected argument " "1"" of type '" "wxGrid const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxGrid * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_GetScrollX" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGrid const *)arg1)->GetScrollX(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Grid_GetScrollY(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxGrid *arg1 = (wxGrid *) 0 ;
-  int arg2 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "y", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_GetScrollY",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GetScrollY" "', expected argument " "1"" of type '" "wxGrid const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxGrid * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_GetScrollY" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxGrid const *)arg1)->GetScrollY(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_Grid_GetClassDefaultAttributes(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxWindowVariant arg1 = (wxWindowVariant) wxWINDOW_VARIANT_NORMAL ;
@@ -21261,8 +21183,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Grid_SetScrollLineY", (PyCFunction) _wrap_Grid_SetScrollLineY, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_GetScrollLineX", (PyCFunction)_wrap_Grid_GetScrollLineX, METH_O, NULL},
 	 { (char *)"Grid_GetScrollLineY", (PyCFunction)_wrap_Grid_GetScrollLineY, METH_O, NULL},
-	 { (char *)"Grid_GetScrollX", (PyCFunction) _wrap_Grid_GetScrollX, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Grid_GetScrollY", (PyCFunction) _wrap_Grid_GetScrollY, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_GetClassDefaultAttributes", (PyCFunction) _wrap_Grid_GetClassDefaultAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_swigregister", Grid_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Grid_swiginit", Grid_swiginit, METH_VARARGS, NULL},

@@ -2714,6 +2714,74 @@ SWIG_AsVal_int (PyObject * obj, int *val)
   return res;
 }
 
+
+SWIGINTERN swig_type_info*
+SWIG_pchar_descriptor()
+{
+  static int init = 0;
+  static swig_type_info* info = 0;
+  if (!init) {
+    info = SWIG_TypeQuery("_p_char");
+    init = 1;
+  }
+  return info;
+}
+
+
+SWIGINTERN int
+SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
+{
+  if (PyString_Check(obj)) {
+    char *cstr; Py_ssize_t len;
+    PyString_AsStringAndSize(obj, &cstr, &len);
+    if (cptr)  {
+      if (alloc) {
+	/* 
+	   In python the user should not be able to modify the inner
+	   string representation. To warranty that, if you define
+	   SWIG_PYTHON_SAFE_CSTRINGS, a new/copy of the python string
+	   buffer is always returned.
+
+	   The default behavior is just to return the pointer value,
+	   so, be careful.
+	*/ 
+#if defined(SWIG_PYTHON_SAFE_CSTRINGS)
+	if (*alloc != SWIG_OLDOBJ) 
+#else
+	if (*alloc == SWIG_NEWOBJ) 
+#endif
+	  {
+	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
+	    *alloc = SWIG_NEWOBJ;
+	  }
+	else {
+	  *cptr = cstr;
+	  *alloc = SWIG_OLDOBJ;
+	}
+      } else {
+	*cptr = PyString_AsString(obj);
+      }
+    }
+    if (psize) *psize = len + 1;
+    return SWIG_OK;
+  } else {
+    swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
+    if (pchar_descriptor) {
+      void* vptr = 0;
+      if (SWIG_ConvertPtr(obj, &vptr, pchar_descriptor, 0) == SWIG_OK) {
+	if (cptr) *cptr = (char *) vptr;
+	if (psize) *psize = vptr ? (strlen((char *)vptr) + 1) : 0;
+	if (alloc) *alloc = SWIG_OLDOBJ;
+	return SWIG_OK;
+      }
+    }
+  }
+  return SWIG_TypeError;
+}
+
+
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -3387,6 +3455,41 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GLCanvas_IsExtensionSupported(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  char *arg1 = (char *) 0 ;
+  bool result;
+  int res1 ;
+  char *buf1 = 0 ;
+  int alloc1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "extension", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:GLCanvas_IsExtensionSupported",kwnames,&obj0)) SWIG_fail;
+  res1 = SWIG_AsCharPtrAndSize(obj0, &buf1, NULL, &alloc1);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GLCanvas_IsExtensionSupported" "', expected argument " "1"" of type '" "char const *""'");
+  }
+  arg1 = buf1;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxGLCanvas::IsExtensionSupported((char const *)arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
+  return resultobj;
+fail:
+  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_GLCanvas_GetContext(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxGLCanvas *arg1 = (wxGLCanvas *) 0 ;
@@ -3622,6 +3725,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_GLCanvasWithContext", (PyCFunction) _wrap_new_GLCanvasWithContext, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GLCanvas_SetColour", (PyCFunction) _wrap_GLCanvas_SetColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GLCanvas_SwapBuffers", (PyCFunction)_wrap_GLCanvas_SwapBuffers, METH_O, NULL},
+	 { (char *)"GLCanvas_IsExtensionSupported", (PyCFunction) _wrap_GLCanvas_IsExtensionSupported, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GLCanvas_GetContext", (PyCFunction)_wrap_GLCanvas_GetContext, METH_O, NULL},
 	 { (char *)"GLCanvas_SetCurrent", _wrap_GLCanvas_SetCurrent, METH_VARARGS, NULL},
 	 { (char *)"GLCanvas_SetupPalette", (PyCFunction) _wrap_GLCanvas_SetupPalette, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -4840,6 +4944,8 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "WX_GL_MIN_ACCUM_GREEN",SWIG_From_int(static_cast< int >(WX_GL_MIN_ACCUM_GREEN)));
   SWIG_Python_SetConstant(d, "WX_GL_MIN_ACCUM_BLUE",SWIG_From_int(static_cast< int >(WX_GL_MIN_ACCUM_BLUE)));
   SWIG_Python_SetConstant(d, "WX_GL_MIN_ACCUM_ALPHA",SWIG_From_int(static_cast< int >(WX_GL_MIN_ACCUM_ALPHA)));
+  SWIG_Python_SetConstant(d, "WX_GL_SAMPLE_BUFFERS",SWIG_From_int(static_cast< int >(WX_GL_SAMPLE_BUFFERS)));
+  SWIG_Python_SetConstant(d, "WX_GL_SAMPLES",SWIG_From_int(static_cast< int >(WX_GL_SAMPLES)));
   
   
   

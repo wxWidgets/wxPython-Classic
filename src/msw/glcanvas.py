@@ -91,6 +91,8 @@ WX_GL_MIN_ACCUM_RED = _glcanvas.WX_GL_MIN_ACCUM_RED
 WX_GL_MIN_ACCUM_GREEN = _glcanvas.WX_GL_MIN_ACCUM_GREEN
 WX_GL_MIN_ACCUM_BLUE = _glcanvas.WX_GL_MIN_ACCUM_BLUE
 WX_GL_MIN_ACCUM_ALPHA = _glcanvas.WX_GL_MIN_ACCUM_ALPHA
+WX_GL_SAMPLE_BUFFERS = _glcanvas.WX_GL_SAMPLE_BUFFERS
+WX_GL_SAMPLES = _glcanvas.WX_GL_SAMPLES
 class GLCanvas(_core.Window):
     """Proxy of C++ GLCanvas class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -121,6 +123,11 @@ class GLCanvas(_core.Window):
         """SwapBuffers(self) -> bool"""
         return _glcanvas.GLCanvas_SwapBuffers(*args, **kwargs)
 
+    def IsExtensionSupported(*args, **kwargs):
+        """IsExtensionSupported(char extension) -> bool"""
+        return _glcanvas.GLCanvas_IsExtensionSupported(*args, **kwargs)
+
+    IsExtensionSupported = staticmethod(IsExtensionSupported)
     def GetContext(*args, **kwargs):
         """GetContext(self) -> GLContext"""
         return _glcanvas.GLCanvas_GetContext(*args, **kwargs)
@@ -163,6 +170,10 @@ def GLCanvasWithContext(*args, **kwargs):
     val = _glcanvas.new_GLCanvasWithContext(*args, **kwargs)
     val._setOORInfo(val)
     return val
+
+def GLCanvas_IsExtensionSupported(*args, **kwargs):
+  """GLCanvas_IsExtensionSupported(char extension) -> bool"""
+  return _glcanvas.GLCanvas_IsExtensionSupported(*args, **kwargs)
 
 def GLCanvas_IsDisplaySupported(*args, **kwargs):
   """GLCanvas_IsDisplaySupported(int attribList) -> bool"""

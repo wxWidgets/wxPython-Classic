@@ -146,6 +146,8 @@ YES = _core_.YES
 NO = _core_.NO
 NO_DEFAULT = _core_.NO_DEFAULT
 YES_DEFAULT = _core_.YES_DEFAULT
+OK_DEFAULT = _core_.OK_DEFAULT
+CANCEL_DEFAULT = _core_.CANCEL_DEFAULT
 APPLY = _core_.APPLY
 CLOSE = _core_.CLOSE
 ICON_EXCLAMATION = _core_.ICON_EXCLAMATION
@@ -275,6 +277,24 @@ ID_ZOOM_IN = _core_.ID_ZOOM_IN
 ID_ZOOM_OUT = _core_.ID_ZOOM_OUT
 ID_UNDELETE = _core_.ID_UNDELETE
 ID_REVERT_TO_SAVED = _core_.ID_REVERT_TO_SAVED
+ID_CDROM = _core_.ID_CDROM
+ID_CONVERT = _core_.ID_CONVERT
+ID_EXECUTE = _core_.ID_EXECUTE
+ID_FLOPPY = _core_.ID_FLOPPY
+ID_HARDDISK = _core_.ID_HARDDISK
+ID_BOTTOM = _core_.ID_BOTTOM
+ID_FIRST = _core_.ID_FIRST
+ID_LAST = _core_.ID_LAST
+ID_TOP = _core_.ID_TOP
+ID_INFO = _core_.ID_INFO
+ID_JUMP_TO = _core_.ID_JUMP_TO
+ID_NETWORK = _core_.ID_NETWORK
+ID_SELECT_COLOR = _core_.ID_SELECT_COLOR
+ID_SELECT_FONT = _core_.ID_SELECT_FONT
+ID_SORT_ASCENDING = _core_.ID_SORT_ASCENDING
+ID_SORT_DESCENDING = _core_.ID_SORT_DESCENDING
+ID_SPELL_CHECK = _core_.ID_SPELL_CHECK
+ID_STRIKETHROUGH = _core_.ID_STRIKETHROUGH
 ID_FILEDLGG = _core_.ID_FILEDLGG
 ID_FILECTRL = _core_.ID_FILECTRL
 ID_HIGHEST = _core_.ID_HIGHEST
@@ -775,6 +795,7 @@ BITMAP_TYPE_TGA = _core_.BITMAP_TYPE_TGA
 BITMAP_TYPE_MACCURSOR = _core_.BITMAP_TYPE_MACCURSOR
 BITMAP_TYPE_MAX = _core_.BITMAP_TYPE_MAX
 BITMAP_TYPE_ANY = _core_.BITMAP_TYPE_ANY
+BITMAP_DEFAULT_TYPE = _core_.BITMAP_DEFAULT_TYPE
 CURSOR_NONE = _core_.CURSOR_NONE
 CURSOR_ARROW = _core_.CURSOR_ARROW
 CURSOR_RIGHT_ARROW = _core_.CURSOR_RIGHT_ARROW
@@ -1603,13 +1624,35 @@ class Point2D(object):
         """__isub__(self, Point2D pt) -> Point2D"""
         return _core_.Point2D___isub__(*args, **kwargs)
 
-    def __imul__(*args, **kwargs):
+    def __imul__(*args):
         """__imul__(self, Point2D pt) -> Point2D"""
-        return _core_.Point2D___imul__(*args, **kwargs)
+        return _core_.Point2D___imul__(*args)
 
-    def __idiv__(*args, **kwargs):
-        """__idiv__(self, Point2D pt) -> Point2D"""
-        return _core_.Point2D___idiv__(*args, **kwargs)
+    def __idiv__(*args):
+        """__idiv__(self, wxPoint2DDouble pt) -> Point2D"""
+        return _core_.Point2D___idiv__(*args)
+
+    def __add__(*args):
+        """__add__(self, Point2D pt) -> Point2D"""
+        return _core_.Point2D___add__(*args)
+
+    def __sub__(*args):
+        """__sub__(self, Point2D pt) -> Point2D"""
+        return _core_.Point2D___sub__(*args)
+
+    def __mul__(*args):
+        """
+        __mul__(self, Point2D pt) -> Point2D
+        __mul__(self, double n) -> Point2D
+        """
+        return _core_.Point2D___mul__(*args)
+
+    def __div__(*args):
+        """
+        __div__(self, Point2D pt) -> Point2D
+        __div__(self, double n) -> Point2D
+        """
+        return _core_.Point2D___div__(*args)
 
     def __eq__(*args, **kwargs):
         """
@@ -2479,7 +2522,7 @@ class ImageHandler(Object):
         return _core_.ImageHandler_GetExtension(*args, **kwargs)
 
     def GetType(*args, **kwargs):
-        """GetType(self) -> long"""
+        """GetType(self) -> int"""
         return _core_.ImageHandler_GetType(*args, **kwargs)
 
     def GetMimeType(*args, **kwargs):
@@ -2503,7 +2546,7 @@ class ImageHandler(Object):
         return _core_.ImageHandler_SetExtension(*args, **kwargs)
 
     def SetType(*args, **kwargs):
-        """SetType(self, long type)"""
+        """SetType(self, int type)"""
         return _core_.ImageHandler_SetType(*args, **kwargs)
 
     def SetMimeType(*args, **kwargs):
@@ -2719,7 +2762,7 @@ class Image(Object):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, String name, long type=BITMAP_TYPE_ANY, int index=-1) -> Image
+        __init__(self, String name, int type=BITMAP_TYPE_ANY, int index=-1) -> Image
 
         Loads an image from a file.
         """
@@ -2997,7 +3040,7 @@ class Image(Object):
     CanRead = staticmethod(CanRead)
     def GetImageCount(*args, **kwargs):
         """
-        GetImageCount(String filename, long type=BITMAP_TYPE_ANY) -> int
+        GetImageCount(String filename, int type=BITMAP_TYPE_ANY) -> int
 
         If the image file contains more than one image and the image handler
         is capable of retrieving these individually, this function will return
@@ -3008,7 +3051,7 @@ class Image(Object):
     GetImageCount = staticmethod(GetImageCount)
     def LoadFile(*args, **kwargs):
         """
-        LoadFile(self, String name, long type=BITMAP_TYPE_ANY, int index=-1) -> bool
+        LoadFile(self, String name, int type=BITMAP_TYPE_ANY, int index=-1) -> bool
 
         Loads an image from a file. If no handler type is provided, the
         library will try to autodetect the format.
@@ -3069,7 +3112,7 @@ class Image(Object):
     CanReadStream = staticmethod(CanReadStream)
     def LoadStream(*args, **kwargs):
         """
-        LoadStream(self, InputStream stream, long type=BITMAP_TYPE_ANY, int index=-1) -> bool
+        LoadStream(self, InputStream stream, int type=BITMAP_TYPE_ANY, int index=-1) -> bool
 
         Loads an image from an input stream or a readable Python file-like
         object. If no handler type is provided, the library will try to
@@ -3110,6 +3153,25 @@ class Image(Object):
         Gets the height of the image in pixels.
         """
         return _core_.Image_GetHeight(*args, **kwargs)
+
+    def GetType(*args, **kwargs):
+        """
+        GetType(self) -> int
+
+        Gets the type of image found by LoadFile or specified with SaveFile
+        """
+        return _core_.Image_GetType(*args, **kwargs)
+
+    def SetType(*args, **kwargs):
+        """
+        SetType(self, int type)
+
+        Set the image type, this is normally only called if the image is being
+        created from data in the given format but not using LoadFile() (e.g.
+        wxGIFDecoder uses this)
+
+        """
+        return _core_.Image_SetType(*args, **kwargs)
 
     def GetSize(*args, **kwargs):
         """
@@ -3496,7 +3558,7 @@ def ImageFromMime(*args, **kwargs):
 
 def ImageFromStream(*args, **kwargs):
     """
-    ImageFromStream(InputStream stream, long type=BITMAP_TYPE_ANY, int index=-1) -> Image
+    ImageFromStream(InputStream stream, int type=BITMAP_TYPE_ANY, int index=-1) -> Image
 
     Loads an image from an input stream, or any readable Python file-like
     object.
@@ -3566,7 +3628,7 @@ def Image_CanRead(*args, **kwargs):
 
 def Image_GetImageCount(*args, **kwargs):
   """
-    Image_GetImageCount(String filename, long type=BITMAP_TYPE_ANY) -> int
+    Image_GetImageCount(String filename, int type=BITMAP_TYPE_ANY) -> int
 
     If the image file contains more than one image and the image handler
     is capable of retrieving these individually, this function will return
@@ -4913,6 +4975,141 @@ _core_.ScrollWinEvent_swigregister(ScrollWinEvent)
 
 #---------------------------------------------------------------------------
 
+class MouseState(object):
+    """
+    `wx.MouseState` is used to hold information about mouse button and
+    modifier key states and is what is returned from `wx.GetMouseState`.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self) -> MouseState
+
+        `wx.MouseState` is used to hold information about mouse button and
+        modifier key states and is what is returned from `wx.GetMouseState`.
+        """
+        _core_.MouseState_swiginit(self,_core_.new_MouseState(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_MouseState
+    __del__ = lambda self : None;
+    def GetX(*args, **kwargs):
+        """GetX(self) -> int"""
+        return _core_.MouseState_GetX(*args, **kwargs)
+
+    def GetY(*args, **kwargs):
+        """GetY(self) -> int"""
+        return _core_.MouseState_GetY(*args, **kwargs)
+
+    def LeftDown(*args, **kwargs):
+        """LeftDown(self) -> bool"""
+        return _core_.MouseState_LeftDown(*args, **kwargs)
+
+    def MiddleDown(*args, **kwargs):
+        """MiddleDown(self) -> bool"""
+        return _core_.MouseState_MiddleDown(*args, **kwargs)
+
+    def RightDown(*args, **kwargs):
+        """RightDown(self) -> bool"""
+        return _core_.MouseState_RightDown(*args, **kwargs)
+
+    def Aux1Down(*args, **kwargs):
+        """Aux1Down(self) -> bool"""
+        return _core_.MouseState_Aux1Down(*args, **kwargs)
+
+    def Aux2Down(*args, **kwargs):
+        """Aux2Down(self) -> bool"""
+        return _core_.MouseState_Aux2Down(*args, **kwargs)
+
+    def ControlDown(*args, **kwargs):
+        """ControlDown(self) -> bool"""
+        return _core_.MouseState_ControlDown(*args, **kwargs)
+
+    def ShiftDown(*args, **kwargs):
+        """ShiftDown(self) -> bool"""
+        return _core_.MouseState_ShiftDown(*args, **kwargs)
+
+    def AltDown(*args, **kwargs):
+        """AltDown(self) -> bool"""
+        return _core_.MouseState_AltDown(*args, **kwargs)
+
+    def MetaDown(*args, **kwargs):
+        """MetaDown(self) -> bool"""
+        return _core_.MouseState_MetaDown(*args, **kwargs)
+
+    def CmdDown(*args, **kwargs):
+        """CmdDown(self) -> bool"""
+        return _core_.MouseState_CmdDown(*args, **kwargs)
+
+    def SetX(*args, **kwargs):
+        """SetX(self, int x)"""
+        return _core_.MouseState_SetX(*args, **kwargs)
+
+    def SetY(*args, **kwargs):
+        """SetY(self, int y)"""
+        return _core_.MouseState_SetY(*args, **kwargs)
+
+    def SetLeftDown(*args, **kwargs):
+        """SetLeftDown(self, bool down)"""
+        return _core_.MouseState_SetLeftDown(*args, **kwargs)
+
+    def SetMiddleDown(*args, **kwargs):
+        """SetMiddleDown(self, bool down)"""
+        return _core_.MouseState_SetMiddleDown(*args, **kwargs)
+
+    def SetRightDown(*args, **kwargs):
+        """SetRightDown(self, bool down)"""
+        return _core_.MouseState_SetRightDown(*args, **kwargs)
+
+    def SetAux1Down(*args, **kwargs):
+        """SetAux1Down(self, bool down)"""
+        return _core_.MouseState_SetAux1Down(*args, **kwargs)
+
+    def SetAux2Down(*args, **kwargs):
+        """SetAux2Down(self, bool down)"""
+        return _core_.MouseState_SetAux2Down(*args, **kwargs)
+
+    def SetControlDown(*args, **kwargs):
+        """SetControlDown(self, bool down)"""
+        return _core_.MouseState_SetControlDown(*args, **kwargs)
+
+    def SetShiftDown(*args, **kwargs):
+        """SetShiftDown(self, bool down)"""
+        return _core_.MouseState_SetShiftDown(*args, **kwargs)
+
+    def SetAltDown(*args, **kwargs):
+        """SetAltDown(self, bool down)"""
+        return _core_.MouseState_SetAltDown(*args, **kwargs)
+
+    def SetMetaDown(*args, **kwargs):
+        """SetMetaDown(self, bool down)"""
+        return _core_.MouseState_SetMetaDown(*args, **kwargs)
+
+    x = property(GetX, SetX)
+    y = property(GetY, SetY)
+    leftDown = property(LeftDown, SetLeftDown)
+    middleDown = property(MiddleDown, SetMiddleDown)
+    rightDown = property(RightDown, SetRightDown)
+    aux1Down = property(Aux1Down, SetAux1Down)
+    aux2Down = property(Aux2Down, SetAux2Down)            
+    controlDown = property(ControlDown, SetControlDown)
+    shiftDown = property(ShiftDown, SetShiftDown)
+    altDown = property(AltDown, SetAltDown)
+    metaDown = property(MetaDown, SetMetaDown)
+    cmdDown = property(CmdDown)
+
+_core_.MouseState_swigregister(MouseState)
+
+
+def GetMouseState(*args):
+  """
+    GetMouseState() -> MouseState
+
+    Returns the current state of the mouse.  Returns an instance of a
+    `wx.MouseState` object that contains the current position of the mouse
+    pointer in screen coordinants, as well as boolean values indicating
+    the up/down status of the mouse buttons and the modifier keys.
+    """
+  return _core_.GetMouseState(*args)
 MOUSE_BTN_ANY = _core_.MOUSE_BTN_ANY
 MOUSE_BTN_NONE = _core_.MOUSE_BTN_NONE
 MOUSE_BTN_LEFT = _core_.MOUSE_BTN_LEFT
@@ -4921,7 +5118,7 @@ MOUSE_BTN_RIGHT = _core_.MOUSE_BTN_RIGHT
 MOUSE_BTN_AUX1 = _core_.MOUSE_BTN_AUX1
 MOUSE_BTN_AUX2 = _core_.MOUSE_BTN_AUX2
 MOUSE_BTN_MAX = _core_.MOUSE_BTN_MAX
-class MouseEvent(Event):
+class MouseEvent(Event,MouseState):
     """
     This event class contains information about the events generated by
     the mouse: they include mouse buttons press and release events and
@@ -5040,52 +5237,6 @@ class MouseEvent(Event):
         right buttons respectively.
         """
         return _core_.MouseEvent_GetButton(*args, **kwargs)
-
-    def ControlDown(*args, **kwargs):
-        """
-        ControlDown(self) -> bool
-
-        Returns true if the control key was down at the time of the event.
-        """
-        return _core_.MouseEvent_ControlDown(*args, **kwargs)
-
-    def MetaDown(*args, **kwargs):
-        """
-        MetaDown(self) -> bool
-
-        Returns true if the Meta key was down at the time of the event.
-        """
-        return _core_.MouseEvent_MetaDown(*args, **kwargs)
-
-    def AltDown(*args, **kwargs):
-        """
-        AltDown(self) -> bool
-
-        Returns true if the Alt key was down at the time of the event.
-        """
-        return _core_.MouseEvent_AltDown(*args, **kwargs)
-
-    def ShiftDown(*args, **kwargs):
-        """
-        ShiftDown(self) -> bool
-
-        Returns true if the Shift key was down at the time of the event.
-        """
-        return _core_.MouseEvent_ShiftDown(*args, **kwargs)
-
-    def CmdDown(*args, **kwargs):
-        """
-        CmdDown(self) -> bool
-
-        "Cmd" is a pseudo key which is the same as Control for PC and Unix
-        platforms but the special "Apple" (a.k.a as "Command") key on
-        Macs. It often makes sense to use it instead of, say, `ControlDown`
-        because Cmd key is used for the same thing under Mac as Ctrl
-        elsewhere. The Ctrl key still exists, it's just not used for this
-        purpose. So for non-Mac platforms this is the same as `ControlDown`
-        and Macs this is the same as `MetaDown`.
-        """
-        return _core_.MouseEvent_CmdDown(*args, **kwargs)
 
     def LeftDown(*args, **kwargs):
         """
@@ -5406,10 +5557,6 @@ class MouseEvent(Event):
     m_rightDown = property(_core_.MouseEvent_m_rightDown_get, _core_.MouseEvent_m_rightDown_set)
     m_aux1Down = property(_core_.MouseEvent_m_aux1Down_get, _core_.MouseEvent_m_aux1Down_set)
     m_aux2Down = property(_core_.MouseEvent_m_aux2Down_get, _core_.MouseEvent_m_aux2Down_set)
-    m_controlDown = property(_core_.MouseEvent_m_controlDown_get, _core_.MouseEvent_m_controlDown_set)
-    m_shiftDown = property(_core_.MouseEvent_m_shiftDown_get, _core_.MouseEvent_m_shiftDown_set)
-    m_altDown = property(_core_.MouseEvent_m_altDown_get, _core_.MouseEvent_m_altDown_set)
-    m_metaDown = property(_core_.MouseEvent_m_metaDown_get, _core_.MouseEvent_m_metaDown_set)
     m_clickCount = property(_core_.MouseEvent_m_clickCount_get, _core_.MouseEvent_m_clickCount_set)
     m_wheelRotation = property(_core_.MouseEvent_m_wheelRotation_get, _core_.MouseEvent_m_wheelRotation_set)
     m_wheelDelta = property(_core_.MouseEvent_m_wheelDelta_get, _core_.MouseEvent_m_wheelDelta_set)
@@ -5490,7 +5637,114 @@ _core_.SetCursorEvent_swigregister(SetCursorEvent)
 
 #---------------------------------------------------------------------------
 
-class KeyEvent(Event):
+class KeyboardState(object):
+    """Proxy of C++ KeyboardState class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, bool controlDown=False, bool shiftDown=False, bool altDown=False, 
+            bool metaDown=False) -> KeyboardState
+        """
+        _core_.KeyboardState_swiginit(self,_core_.new_KeyboardState(*args, **kwargs))
+    def GetModifiers(*args, **kwargs):
+        """
+        GetModifiers(self) -> int
+
+        Returns a bitmask of the current modifier settings.  Can be used to
+        check if the key event has exactly the given modifiers without having
+        to explicitly check that the other modifiers are not down.  For
+        example::
+
+            if event.GetModifers() == wx.MOD_CONTROL:
+                DoSomething()
+
+        """
+        return _core_.KeyboardState_GetModifiers(*args, **kwargs)
+
+    Modifiers = property(GetModifiers,doc="See `GetModifiers`") 
+    def ControlDown(*args, **kwargs):
+        """
+        ControlDown(self) -> bool
+
+        Returns ``True`` if the Control key was down at the time of the event.
+        """
+        return _core_.KeyboardState_ControlDown(*args, **kwargs)
+
+    def MetaDown(*args, **kwargs):
+        """
+        MetaDown(self) -> bool
+
+        Returns ``True`` if the Meta key was down at the time of the event.
+        """
+        return _core_.KeyboardState_MetaDown(*args, **kwargs)
+
+    def AltDown(*args, **kwargs):
+        """
+        AltDown(self) -> bool
+
+        Returns ``True`` if the Alt key was down at the time of the event.
+        """
+        return _core_.KeyboardState_AltDown(*args, **kwargs)
+
+    def ShiftDown(*args, **kwargs):
+        """
+        ShiftDown(self) -> bool
+
+        Returns ``True`` if the Shift key was down at the time of the event.
+        """
+        return _core_.KeyboardState_ShiftDown(*args, **kwargs)
+
+    def CmdDown(*args, **kwargs):
+        """
+        CmdDown(self) -> bool
+
+        "Cmd" is a pseudo key which is the same as Control for PC and Unix
+        platforms but the special "Apple" (a.k.a as "Command") key on
+        Macs. It makes often sense to use it instead of, say, `ControlDown`
+        because Cmd key is used for the same thing under Mac as Ctrl
+        elsewhere. The Ctrl still exists, it's just not used for this
+        purpose. So for non-Mac platforms this is the same as `ControlDown`
+        and Macs this is the same as `MetaDown`.
+        """
+        return _core_.KeyboardState_CmdDown(*args, **kwargs)
+
+    def HasModifiers(*args, **kwargs):
+        """
+        HasModifiers(self) -> bool
+
+        Returns true if either CTRL or ALT keys was down at the time of the
+        key event. Note that this function does not take into account neither
+        SHIFT nor META key states (the reason for ignoring the latter is that
+        it is common for NUMLOCK key to be configured as META under X but the
+        key presses even while NUMLOCK is on should be still processed
+        normally).
+        """
+        return _core_.KeyboardState_HasModifiers(*args, **kwargs)
+
+    def SetControlDown(*args, **kwargs):
+        """SetControlDown(self, bool down)"""
+        return _core_.KeyboardState_SetControlDown(*args, **kwargs)
+
+    def SetShiftDown(*args, **kwargs):
+        """SetShiftDown(self, bool down)"""
+        return _core_.KeyboardState_SetShiftDown(*args, **kwargs)
+
+    def SetAltDown(*args, **kwargs):
+        """SetAltDown(self, bool down)"""
+        return _core_.KeyboardState_SetAltDown(*args, **kwargs)
+
+    def SetMetaDown(*args, **kwargs):
+        """SetMetaDown(self, bool down)"""
+        return _core_.KeyboardState_SetMetaDown(*args, **kwargs)
+
+    m_controlDown = property(_core_.KeyboardState_m_controlDown_get, _core_.KeyboardState_m_controlDown_set)
+    m_shiftDown = property(_core_.KeyboardState_m_shiftDown_get, _core_.KeyboardState_m_shiftDown_set)
+    m_altDown = property(_core_.KeyboardState_m_altDown_get, _core_.KeyboardState_m_altDown_set)
+    m_metaDown = property(_core_.KeyboardState_m_metaDown_get, _core_.KeyboardState_m_metaDown_set)
+_core_.KeyboardState_swigregister(KeyboardState)
+
+class KeyEvent(Event,KeyboardState):
     """
     This event class contains information about keypress and character
     events.  These events are only sent to the widget that currently has
@@ -5563,80 +5817,6 @@ class KeyEvent(Event):
             * 
         """
         _core_.KeyEvent_swiginit(self,_core_.new_KeyEvent(*args, **kwargs))
-    def GetModifiers(*args, **kwargs):
-        """
-        GetModifiers(self) -> int
-
-        Returns a bitmask of the current modifier settings.  Can be used to
-        check if the key event has exactly the given modifiers without having
-        to explicitly check that the other modifiers are not down.  For
-        example::
-
-            if event.GetModifers() == wx.MOD_CONTROL:
-                DoSomething()
-
-        """
-        return _core_.KeyEvent_GetModifiers(*args, **kwargs)
-
-    def ControlDown(*args, **kwargs):
-        """
-        ControlDown(self) -> bool
-
-        Returns ``True`` if the Control key was down at the time of the event.
-        """
-        return _core_.KeyEvent_ControlDown(*args, **kwargs)
-
-    def MetaDown(*args, **kwargs):
-        """
-        MetaDown(self) -> bool
-
-        Returns ``True`` if the Meta key was down at the time of the event.
-        """
-        return _core_.KeyEvent_MetaDown(*args, **kwargs)
-
-    def AltDown(*args, **kwargs):
-        """
-        AltDown(self) -> bool
-
-        Returns ``True`` if the Alt key was down at the time of the event.
-        """
-        return _core_.KeyEvent_AltDown(*args, **kwargs)
-
-    def ShiftDown(*args, **kwargs):
-        """
-        ShiftDown(self) -> bool
-
-        Returns ``True`` if the Shift key was down at the time of the event.
-        """
-        return _core_.KeyEvent_ShiftDown(*args, **kwargs)
-
-    def CmdDown(*args, **kwargs):
-        """
-        CmdDown(self) -> bool
-
-        "Cmd" is a pseudo key which is the same as Control for PC and Unix
-        platforms but the special "Apple" (a.k.a as "Command") key on
-        Macs. It makes often sense to use it instead of, say, `ControlDown`
-        because Cmd key is used for the same thing under Mac as Ctrl
-        elsewhere. The Ctrl still exists, it's just not used for this
-        purpose. So for non-Mac platforms this is the same as `ControlDown`
-        and Macs this is the same as `MetaDown`.
-        """
-        return _core_.KeyEvent_CmdDown(*args, **kwargs)
-
-    def HasModifiers(*args, **kwargs):
-        """
-        HasModifiers(self) -> bool
-
-        Returns true if either CTRL or ALT keys was down at the time of the
-        key event. Note that this function does not take into account neither
-        SHIFT nor META key states (the reason for ignoring the latter is that
-        it is common for NUMLOCK key to be configured as META under X but the
-        key presses even while NUMLOCK is on should be still processed
-        normally).
-        """
-        return _core_.KeyEvent_HasModifiers(*args, **kwargs)
-
     def GetKeyCode(*args, **kwargs):
         """
         GetKeyCode(self) -> int
@@ -5730,15 +5910,10 @@ class KeyEvent(Event):
     m_x = property(_core_.KeyEvent_m_x_get, _core_.KeyEvent_m_x_set)
     m_y = property(_core_.KeyEvent_m_y_get, _core_.KeyEvent_m_y_set)
     m_keyCode = property(_core_.KeyEvent_m_keyCode_get, _core_.KeyEvent_m_keyCode_set)
-    m_controlDown = property(_core_.KeyEvent_m_controlDown_get, _core_.KeyEvent_m_controlDown_set)
-    m_shiftDown = property(_core_.KeyEvent_m_shiftDown_get, _core_.KeyEvent_m_shiftDown_set)
-    m_altDown = property(_core_.KeyEvent_m_altDown_get, _core_.KeyEvent_m_altDown_set)
-    m_metaDown = property(_core_.KeyEvent_m_metaDown_get, _core_.KeyEvent_m_metaDown_set)
     m_scanCode = property(_core_.KeyEvent_m_scanCode_get, _core_.KeyEvent_m_scanCode_set)
     m_rawCode = property(_core_.KeyEvent_m_rawCode_get, _core_.KeyEvent_m_rawCode_set)
     m_rawFlags = property(_core_.KeyEvent_m_rawFlags_get, _core_.KeyEvent_m_rawFlags_set)
     KeyCode = property(GetKeyCode,doc="See `GetKeyCode`") 
-    Modifiers = property(GetModifiers,doc="See `GetModifiers`") 
     Position = property(GetPosition,doc="See `GetPosition`") 
     RawKeyCode = property(GetRawKeyCode,doc="See `GetRawKeyCode`") 
     RawKeyFlags = property(GetRawKeyFlags,doc="See `GetRawKeyFlags`") 
@@ -6211,11 +6386,12 @@ class ShowEvent(Event):
         """SetShow(self, bool show)"""
         return _core_.ShowEvent_SetShow(*args, **kwargs)
 
-    def GetShow(*args, **kwargs):
-        """GetShow(self) -> bool"""
-        return _core_.ShowEvent_GetShow(*args, **kwargs)
+    def IsShown(*args, **kwargs):
+        """IsShown(self) -> bool"""
+        return _core_.ShowEvent_IsShown(*args, **kwargs)
 
-    Show = property(GetShow,SetShow,doc="See `GetShow` and `SetShow`") 
+    GetShow = IsShown 
+    Show = property(IsShown,SetShow,doc="See `GetShow` and `SetShow`") 
 _core_.ShowEvent_swigregister(ShowEvent)
 
 #---------------------------------------------------------------------------
@@ -6235,15 +6411,16 @@ class IconizeEvent(Event):
         restored.
         """
         _core_.IconizeEvent_swiginit(self,_core_.new_IconizeEvent(*args, **kwargs))
-    def Iconized(*args, **kwargs):
+    def IsIconized(*args, **kwargs):
         """
-        Iconized(self) -> bool
+        IsIconized(self) -> bool
 
         Returns ``True`` if the frame has been iconized, ``False`` if it has
         been restored.
         """
-        return _core_.IconizeEvent_Iconized(*args, **kwargs)
+        return _core_.IconizeEvent_IsIconized(*args, **kwargs)
 
+    Iconized = IsIconized 
 _core_.IconizeEvent_swigregister(IconizeEvent)
 
 #---------------------------------------------------------------------------
@@ -7447,6 +7624,17 @@ class PyApp(EvtHandler):
         """
         return _core_.PyApp_GetTraits(*args, **kwargs)
 
+    def GetTraitsIfExists(*args, **kwargs):
+        """
+        GetTraitsIfExists() -> wxAppTraits
+
+        This function provides safer access to traits object than
+        wx.GetApp().GetTraits() during startup or termination when the global
+        application object itself may be unavailable.
+        """
+        return _core_.PyApp_GetTraitsIfExists(*args, **kwargs)
+
+    GetTraitsIfExists = staticmethod(GetTraitsIfExists)
     def ProcessPendingEvents(*args, **kwargs):
         """
         ProcessPendingEvents(self)
@@ -7792,6 +7980,16 @@ class PyApp(EvtHandler):
     VendorDisplayName = property(GetVendorDisplayName,SetVendorDisplayName) 
 _core_.PyApp_swigregister(PyApp)
 
+def PyApp_GetTraitsIfExists(*args):
+  """
+    PyApp_GetTraitsIfExists() -> wxAppTraits
+
+    This function provides safer access to traits object than
+    wx.GetApp().GetTraits() during startup or termination when the global
+    application object itself may be unavailable.
+    """
+  return _core_.PyApp_GetTraitsIfExists(*args)
+
 def PyApp_IsMainLoopRunning(*args):
   """
     PyApp_IsMainLoopRunning() -> bool
@@ -8015,6 +8213,7 @@ class PyOnDemandOutputWindow:
             self.frame.Destroy()
         self.frame = None
         self.text  = None
+        self.parent = None
 
 
     # These methods provide the file-like output behaviour.
@@ -8630,6 +8829,7 @@ SHOW_EFFECT_SLIDE_TO_BOTTOM = _core_.SHOW_EFFECT_SLIDE_TO_BOTTOM
 SHOW_EFFECT_BLEND = _core_.SHOW_EFFECT_BLEND
 SHOW_EFFECT_EXPAND = _core_.SHOW_EFFECT_EXPAND
 SHOW_EFFECT_MAX = _core_.SHOW_EFFECT_MAX
+SEND_EVENT_POST = _core_.SEND_EVENT_POST
 class Window(EvtHandler):
     """
     wx.Window is the base class for all windows and represents any visible
@@ -9376,6 +9576,44 @@ class Window(EvtHandler):
         """
         return _core_.Window_InformFirstDirection(*args, **kwargs)
 
+    def SendSizeEvent(*args, **kwargs):
+        """
+        SendSizeEvent(self, int flags=0)
+
+        Sends a size event to the window using its current size -- this has an
+        effect of refreshing the window layout.
+
+        By default the event is sent, i.e. processed immediately, but if flags
+        value includes wxSEND_EVENT_POST then it's posted, i.e. only schedule
+        for later processing.
+        """
+        return _core_.Window_SendSizeEvent(*args, **kwargs)
+
+    def SendSizeEventToParent(*args, **kwargs):
+        """
+        SendSizeEventToParent(self, int flags=0)
+
+        This is a safe wrapper for GetParent().SendSizeEvent(): it checks that
+        we have a parent window and it's not in process of being deleted.
+        """
+        return _core_.Window_SendSizeEventToParent(*args, **kwargs)
+
+    def PostSizeEvent(*args, **kwargs):
+        """
+        PostSizeEvent(self)
+
+        This is a more readable synonym for SendSizeEvent(wx.SEND_EVENT_POST)
+        """
+        return _core_.Window_PostSizeEvent(*args, **kwargs)
+
+    def PostSizeEventToParent(*args, **kwargs):
+        """
+        PostSizeEventToParent(self)
+
+        This is the same as SendSizeEventToParent() but using PostSizeEvent()
+        """
+        return _core_.Window_PostSizeEventToParent(*args, **kwargs)
+
     def Show(*args, **kwargs):
         """
         Show(self, bool show=True) -> bool
@@ -9795,14 +10033,6 @@ class Window(EvtHandler):
         """
         return _core_.Window_RemoveChild(*args, **kwargs)
 
-    def SetDoubleBuffered(*args, **kwargs):
-        """
-        SetDoubleBuffered(self, bool on)
-
-        Currently wxGTK2 only.
-        """
-        return _core_.Window_SetDoubleBuffered(*args, **kwargs)
-
     def FindWindowById(*args, **kwargs):
         """
         FindWindowById(self, long winid) -> Window
@@ -9818,6 +10048,14 @@ class Window(EvtHandler):
         Find a child of this window by name
         """
         return _core_.Window_FindWindowByName(*args, **kwargs)
+
+    def FindWindowByLabel(*args, **kwargs):
+        """
+        FindWindowByLabel(self, String label) -> Window
+
+        Find a child of this window by label
+        """
+        return _core_.Window_FindWindowByLabel(*args, **kwargs)
 
     def GetEventHandler(*args, **kwargs):
         """
@@ -10218,6 +10456,14 @@ class Window(EvtHandler):
         later.
         """
         return _core_.Window_IsDoubleBuffered(*args, **kwargs)
+
+    def SetDoubleBuffered(*args, **kwargs):
+        """
+        SetDoubleBuffered(self, bool on)
+
+        Put the native window into double buffered or composited mode.
+        """
+        return _core_.Window_SetDoubleBuffered(*args, **kwargs)
 
     def GetUpdateRegion(*args, **kwargs):
         """
@@ -10834,6 +11080,10 @@ class Window(EvtHandler):
         """
         return _core_.Window_SetToolTip(*args, **kwargs)
 
+    def UnsetToolTip(*args, **kwargs):
+        """UnsetToolTip(self)"""
+        return _core_.Window_UnsetToolTip(*args, **kwargs)
+
     def GetToolTip(*args, **kwargs):
         """
         GetToolTip(self) -> ToolTip
@@ -11073,9 +11323,6 @@ class Window(EvtHandler):
                 self._setCallbackInfo(self, pre.__class__)
             except TypeError:
                 pass
-
-    def SendSizeEvent(self):
-        self.GetEventHandler().ProcessEvent(wx.SizeEvent((-1,-1)))
 
     AcceleratorTable = property(GetAcceleratorTable,SetAcceleratorTable,doc="See `GetAcceleratorTable` and `SetAcceleratorTable`") 
     AutoLayout = property(GetAutoLayout,SetAutoLayout,doc="See `GetAutoLayout` and `SetAutoLayout`") 
@@ -12366,8 +12613,7 @@ class ItemContainer(object):
     def SetItems(self, items):
         """Clear and set the strings in the control from a list"""
         self.Clear()
-        for i in items:
-            self.Append(i)        
+        self.AppendItems(items)
 
     Count = property(GetCount,doc="See `GetCount`") 
     Items = property(GetItems,SetItems,doc="See `GetItems` and `SetItems`") 
@@ -14384,6 +14630,14 @@ class FlexGridSizer(GridSizer):
         Specifies that column *idx* is no longer growable.
         """
         return _core_.FlexGridSizer_RemoveGrowableCol(*args, **kwargs)
+
+    def IsRowGrowable(*args, **kwargs):
+        """IsRowGrowable(self, size_t idx) -> bool"""
+        return _core_.FlexGridSizer_IsRowGrowable(*args, **kwargs)
+
+    def IsColGrowable(*args, **kwargs):
+        """IsColGrowable(self, size_t idx) -> bool"""
+        return _core_.FlexGridSizer_IsColGrowable(*args, **kwargs)
 
     def SetFlexibleDirection(*args, **kwargs):
         """
