@@ -12890,6 +12890,7 @@ class TextEntryBase(object):
         """
         return _core_.TextEntryBase_GetSelection(*args, **kwargs)
 
+    Selection = property(GetSelection) 
     def AutoComplete(*args, **kwargs):
         """AutoComplete(self, wxArrayString choices) -> bool"""
         return _core_.TextEntryBase_AutoComplete(*args, **kwargs)

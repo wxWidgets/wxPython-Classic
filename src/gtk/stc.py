@@ -62,6 +62,7 @@ import _misc
 wx = _core 
 __docfilter__ = wx.__DocFilter(globals()) 
 USE_STC = _stc.USE_STC
+USE_TEXTCTRL = _stc.USE_TEXTCTRL
 STC_USE_DND = _stc.STC_USE_DND
 STC_INVALID_POSITION = _stc.STC_INVALID_POSITION
 STC_START = _stc.STC_START
@@ -1548,7 +1549,7 @@ STC_CMD_WORDLEFTEND = _stc.STC_CMD_WORDLEFTEND
 STC_CMD_WORDLEFTENDEXTEND = _stc.STC_CMD_WORDLEFTENDEXTEND
 STC_CMD_WORDRIGHTEND = _stc.STC_CMD_WORDRIGHTEND
 STC_CMD_WORDRIGHTENDEXTEND = _stc.STC_CMD_WORDRIGHTENDEXTEND
-class StyledTextCtrl(_core.Control,_core.TextEntryBase):
+class StyledTextCtrl(_core.Control,_core.TextEntryBase,_core.TextAreaBase):
     """Proxy of C++ StyledTextCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -5383,22 +5384,6 @@ class StyledTextCtrl(_core.Control,_core.TextEntryBase):
         """SetLastKeydownProcessed(self, bool val)"""
         return _stc.StyledTextCtrl_SetLastKeydownProcessed(*args, **kwargs)
 
-    def SaveFile(*args, **kwargs):
-        """
-        SaveFile(self, String filename) -> bool
-
-        Write the contents of the editor to filename
-        """
-        return _stc.StyledTextCtrl_SaveFile(*args, **kwargs)
-
-    def LoadFile(*args, **kwargs):
-        """
-        LoadFile(self, String filename) -> bool
-
-        Load the contents of filename into the editor
-        """
-        return _stc.StyledTextCtrl_LoadFile(*args, **kwargs)
-
     def DoDragOver(*args, **kwargs):
         """
         DoDragOver(self, int x, int y, int def) -> int
@@ -5641,68 +5626,9 @@ class StyledTextCtrl(_core.Control,_core.TextEntryBase):
         """GetValue(self) -> String"""
         return _stc.StyledTextCtrl_GetValue(*args, **kwargs)
 
-    def GetSelection(*args, **kwargs):
-        """
-        GetSelection(self) -> (startPos, endPos)
-
-        Retrieve the start and end positions of the current selection.
-        """
-        return _stc.StyledTextCtrl_GetSelection(*args, **kwargs)
-
-    def GetLineLength(*args, **kwargs):
-        """GetLineLength(self, long n) -> int"""
-        return _stc.StyledTextCtrl_GetLineLength(*args, **kwargs)
-
-    def GetLineText(*args, **kwargs):
-        """GetLineText(self, long n) -> String"""
-        return _stc.StyledTextCtrl_GetLineText(*args, **kwargs)
-
-    def GetNumberOfLines(*args, **kwargs):
-        """GetNumberOfLines(self) -> int"""
-        return _stc.StyledTextCtrl_GetNumberOfLines(*args, **kwargs)
-
-    def IsModified(*args, **kwargs):
-        """IsModified(self) -> bool"""
-        return _stc.StyledTextCtrl_IsModified(*args, **kwargs)
-
-    def MarkDirty(*args, **kwargs):
-        """MarkDirty(self)"""
-        return _stc.StyledTextCtrl_MarkDirty(*args, **kwargs)
-
-    def DiscardEdits(*args, **kwargs):
-        """DiscardEdits(self)"""
-        return _stc.StyledTextCtrl_DiscardEdits(*args, **kwargs)
-
-    def SetStyle(*args, **kwargs):
-        """SetStyle(self, long start, long end, wxTextAttr style) -> bool"""
-        return _stc.StyledTextCtrl_SetStyle(*args, **kwargs)
-
-    def GetStyle(*args, **kwargs):
-        """GetStyle(self, long position, wxTextAttr style) -> bool"""
-        return _stc.StyledTextCtrl_GetStyle(*args, **kwargs)
-
-    def SetDefaultStyle(*args, **kwargs):
-        """SetDefaultStyle(self, wxTextAttr style) -> bool"""
-        return _stc.StyledTextCtrl_SetDefaultStyle(*args, **kwargs)
-
-    def XYToPosition(*args, **kwargs):
-        """XYToPosition(self, long x, long y) -> long"""
-        return _stc.StyledTextCtrl_XYToPosition(*args, **kwargs)
-
     def PositionToXY(*args, **kwargs):
-        """PositionToXY(self, long pos, long x, long y) -> bool"""
+        """PositionToXY(long pos) -> (x, y)"""
         return _stc.StyledTextCtrl_PositionToXY(*args, **kwargs)
-
-    def ShowPosition(*args, **kwargs):
-        """ShowPosition(self, long pos)"""
-        return _stc.StyledTextCtrl_ShowPosition(*args, **kwargs)
-
-    def HitTest(*args):
-        """
-        HitTest(self, Point pt) -> int
-        HitTest(self, Point pt, long pos) -> wxTextCtrlHitTestResult
-        """
-        return _stc.StyledTextCtrl_HitTest(*args)
 
     GetCaretLineBack = GetCaretLineBackground
     SetCaretLineBack = SetCaretLineBackground
@@ -5762,7 +5688,6 @@ class StyledTextCtrl(_core.Control,_core.TextEntryBase):
     SelectedText = property(GetSelectedText) 
     SelectedTextRaw = property(GetSelectedTextRaw) 
     SelectedTextUTF8 = property(GetSelectedTextUTF8) 
-    Selection = property(GetSelection) 
     SelectionEnd = property(GetSelectionEnd,SetSelectionEnd) 
     SelectionMode = property(GetSelectionMode,SetSelectionMode) 
     SelectionStart = property(GetSelectionStart,SetSelectionStart) 
