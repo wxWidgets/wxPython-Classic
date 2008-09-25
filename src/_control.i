@@ -496,6 +496,8 @@ including) the character at the last position.  If both parameters are
         virtual void, GetSelection(long* OUTPUT, long* OUTPUT) const,
         "GetSelection() -> (from, to)",
         "If the return values from and to are the same, there is no selection.", "");
+
+    %property(Selection, GetSelection)
     
 
     // auto-completion

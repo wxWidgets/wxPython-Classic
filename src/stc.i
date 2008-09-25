@@ -43,10 +43,13 @@ enum wxFontEncoding;  // forward declare
 
 MustHaveApp(wxStyledTextCtrl);
 
+%ignore wxStyledTextCtrl::HitTest;
+
 //---------------------------------------------------------------------------
 // Get all our defs from the REAL header file.
 
 #define wxUSE_STC 1
+#define wxUSE_TEXTCTRL 1
 #define WXDLLIMPEXP_STC
 #define WXDLLIMPEXP_FWD_STC
 #define WXDLLIMPEXP_CORE
@@ -118,7 +121,7 @@ MustHaveApp(wxStyledTextCtrl);
     %property(SelectedTextUTF8, GetSelectedTextUTF8);
 
     //%property(Selection, GetSelection, SetSelection);
-    %property(Selection, GetSelection);
+    //%property(Selection, GetSelection);
     
     %property(SelectionEnd, GetSelectionEnd, SetSelectionEnd);
     %property(SelectionMode, GetSelectionMode, SetSelectionMode);
