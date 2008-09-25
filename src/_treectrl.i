@@ -63,6 +63,11 @@ enum wxTreeItemIcon
     wxTreeItemIcon_Max
 };
 
+enum {
+    wxTREE_ITEMSTATE_NONE,    // not state (no display state image)
+    wxTREE_ITEMSTATE_NEXT,    // cycle to the next state
+    wxTREE_ITEMSTATE_PREV     // cycle to the previous state
+};
 
 // constants for HitTest
 enum {
@@ -447,8 +452,8 @@ public:
     // get the item's font
     wxFont GetItemFont(const wxTreeItemId& item) const;
 
-    
-
+    int GetItemState(const wxTreeItemId& item) const;
+ 
     // set items label
     void SetItemText(const wxTreeItemId& item, const wxString& text);
 
@@ -500,6 +505,7 @@ public:
     // set the items font (should be of the same height for all items)
     void SetItemFont(const wxTreeItemId& item, const wxFont& font);
 
+    void SetItemState(const wxTreeItemId& item, int state);
 
     // is the item visible (it might be outside the view or not expanded)?
     bool IsVisible(const wxTreeItemId& item) const;
@@ -763,12 +769,6 @@ value is set to a bitmask of wxTREE_HITTEST_xxx constants.
                 RETURN_NONE();
         }
     }
-
-#ifdef __WXMSW__
-    // set/get the item state.image (state == -1 means cycle to the next one)
-    void SetState(const wxTreeItemId& node, int state);
-    int GetState(const wxTreeItemId& node);
-#endif
 
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);

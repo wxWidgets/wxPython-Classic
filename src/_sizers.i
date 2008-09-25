@@ -64,7 +64,7 @@ public:
     DocDeclStr(
         wxSizerFlags& , Proportion(int proportion),
         "Sets the item's proportion value.", "");
-    
+
     DocDeclStr(
         wxSizerFlags& , Align(int alignment),
         "Sets the item's alignment", "");
@@ -1700,6 +1700,8 @@ columns are resized equally (instead of not being resized at all).", "");
         void , RemoveGrowableCol( size_t idx ),
         "Specifies that column *idx* is no longer growable.", "");
 
+    bool IsRowGrowable( size_t idx );
+    bool IsColGrowable( size_t idx );    
 
     DocDeclStr(
         void , SetFlexibleDirection(int direction),

@@ -118,8 +118,10 @@ wxMemorySize wxGetFreeMemory();
 
 enum wxShutdownFlags
 {
-    wxSHUTDOWN_POWEROFF,    // power off the computer
-    wxSHUTDOWN_REBOOT       // shutdown and reboot
+    wxSHUTDOWN_FORCE    = 1,// can be combined with other flags (MSW-only)
+    wxSHUTDOWN_POWEROFF = 2,// power off the computer
+    wxSHUTDOWN_REBOOT   = 4,// shutdown and reboot
+    wxSHUTDOWN_LOGOFF   = 8 // close session (currently MSW-only)
 };
 
 // Shutdown or reboot the PC
@@ -270,6 +272,9 @@ DocDeclA(
 MustHaveApp(wxGetDisplaySizeMM);
 wxSize wxGetDisplaySizeMM();
 
+MustHaveApp(wxGetDisplayPPI);
+wxSize wxGetDisplayPPI();
+
 MustHaveApp(wxClientDisplayRect);
 DocDeclA(
     void, wxClientDisplayRect(int *OUTPUT, int *OUTPUT, int *OUTPUT, int *OUTPUT),
@@ -341,7 +346,8 @@ wxWindow* wxGetTopLevelParent(wxWindow *win);
 // flags for wxLaunchDefaultBrowser
 enum
 {
-    wxBROWSER_NEW_WINDOW = 1
+    wxBROWSER_NEW_WINDOW,
+    wxBROWSER_NOBUSYCURSOR
 };
 
 DocDeclStr(
@@ -349,6 +355,11 @@ DocDeclStr(
     "Launches the user's default browser and tells it to open the location
 at ``url``.  Returns ``True`` if the application was successfully
 launched.", "");
+
+
+DocDeclStr(
+    bool , wxLaunchDefaultApplication(const wxString& path, int flags = 0),
+    "Launch document in the user's default application.", "");
 
 
 
@@ -360,74 +371,6 @@ This is generally most useful getting the state of the modifier or
 toggle keys.  On some platforms those may be the only keys that this
 function is able to detect.
 ", "");
-
-
-
-//---------------------------------------------------------------------------
-
-DocStr(wxMouseState,
-"`wx.MouseState` is used to hold information about mouse button and
-modifier key states and is what is returned from `wx.GetMouseState`.",
-"");
-
-class wxMouseState
-{
-public:
-    wxMouseState();
-    ~wxMouseState();
-
-    wxCoord     GetX();
-    wxCoord     GetY();
-
-    bool        LeftDown();
-    bool        MiddleDown();
-    bool        RightDown();
-    bool        Aux1Down();
-    bool        Aux2Down();
-
-    bool        ControlDown();
-    bool        ShiftDown();
-    bool        AltDown();
-    bool        MetaDown();
-    bool        CmdDown();
-
-    void        SetX(wxCoord x);
-    void        SetY(wxCoord y);
-
-    void        SetLeftDown(bool down);
-    void        SetMiddleDown(bool down);
-    void        SetRightDown(bool down);
-    void        SetAux1Down(bool down);
-    void        SetAux2Down(bool down);
-    
-    void        SetControlDown(bool down);
-    void        SetShiftDown(bool down);
-    void        SetAltDown(bool down);
-    void        SetMetaDown(bool down);
-
-    %pythoncode {
-        x = property(GetX, SetX)
-        y = property(GetY, SetY)
-        leftDown = property(LeftDown, SetLeftDown)
-        middleDown = property(MiddleDown, SetMiddleDown)
-        rightDown = property(RightDown, SetRightDown)
-        aux1Down = property(Aux1Down, SetAux1Down)
-        aux2Down = property(Aux2Down, SetAux2Down)            
-        controlDown = property(ControlDown, SetControlDown)
-        shiftDown = property(ShiftDown, SetShiftDown)
-        altDown = property(AltDown, SetAltDown)
-        metaDown = property(MetaDown, SetMetaDown)
-        cmdDown = property(CmdDown)
-    }
-};
-
-
-DocDeclStr(
-    wxMouseState , wxGetMouseState(),
-    "Returns the current state of the mouse.  Returns an instance of a
-`wx.MouseState` object that contains the current position of the mouse
-pointer in screen coordinants, as well as boolean values indicating
-the up/down status of the mouse buttons and the modifier keys.", "");
 
 
 //---------------------------------------------------------------------------

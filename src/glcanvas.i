@@ -69,7 +69,9 @@ enum {
     WX_GL_MIN_ACCUM_RED,     // use red accum buffer with most bits (> MIN_ACCUM_RED bits)
     WX_GL_MIN_ACCUM_GREEN,   // use green buffer with most bits (> MIN_ACCUM_GREEN bits)
     WX_GL_MIN_ACCUM_BLUE,    // use blue buffer with most bits (> MIN_ACCUM_BLUE bits)
-    WX_GL_MIN_ACCUM_ALPHA    // use blue buffer with most bits (> MIN_ACCUM_ALPHA bits)
+    WX_GL_MIN_ACCUM_ALPHA,   // use blue buffer with most bits (> MIN_ACCUM_ALPHA bits)
+    WX_GL_SAMPLE_BUFFERS,    // 1 for multisampling support (antialiasing)
+    WX_GL_SAMPLES            // 4 for 2x2 antialising supersampling on most graphics cards
 };
 
 
@@ -132,6 +134,8 @@ public:
     bool SetCurrent(const wxGLContext& context);
     void SetColour(const wxString& colour);
     bool SwapBuffers();
+
+    static bool IsExtensionSupported(const char *extension);
 
     // deprecated...
     wxGLContext* GetContext();

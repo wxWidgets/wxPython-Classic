@@ -128,6 +128,13 @@ differences behind the common facade.
 
 :todo: Add support for overriding CreateAppTraits in wxPython.", "");
 
+    DocDeclStr(
+        static wxAppTraits*, GetTraitsIfExists(),
+        "This function provides safer access to traits object than
+wx.GetApp().GetTraits() during startup or termination when the global
+application object itself may be unavailable.", "");
+
+    
 
     DocDeclStr(
         virtual void, ProcessPendingEvents(),

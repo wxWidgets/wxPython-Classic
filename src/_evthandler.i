@@ -59,12 +59,13 @@ public:
         void Connect( int id, int lastId, int eventType, PyObject* func) {
             if (PyCallable_Check(func)) {
                 self->Connect(id, lastId, eventType,
-                          (wxObjectEventFunction) &wxPyCallback::EventThunker,
-                          new wxPyCallback(func));
+                              (wxObjectEventFunction)(wxEventFunction)
+                              &wxPyCallback::EventThunker,
+                              new wxPyCallback(func));
             }
             else if (func == Py_None) {
                 self->Disconnect(id, lastId, eventType,
-                                 (wxObjectEventFunction)
+                                 (wxObjectEventFunction)(wxEventFunction)
                                  &wxPyCallback::EventThunker);
             }
             else {
@@ -76,7 +77,7 @@ public:
         bool Disconnect(int id, int lastId = -1,
                         wxEventType eventType = wxEVT_NULL) {
             return self->Disconnect(id, lastId, eventType,
-                                   (wxObjectEventFunction)
+                                    (wxObjectEventFunction)(wxEventFunction)
                                     &wxPyCallback::EventThunker);
         }
     }

@@ -73,7 +73,7 @@ public:
 wx.BITMAP_TYPE* constants, and specify the hotspot if not using a .cur
 file.","
 :see: Alternate constructors `wx.StockCursor`,`wx.CursorFromImage`");
-        wxCursor(const wxString& cursorName, long type, int hotSpotX=0, int hotSpotY=0) {
+        wxCursor(const wxString& cursorName, wxBitmapType type, int hotSpotX=0, int hotSpotY=0) {
 %#ifdef __WXGTK__
             wxImage img(cursorName, type);
             img.SetOption(wxIMAGE_OPTION_CUR_HOTSPOT_X, hotSpotX);
@@ -88,7 +88,7 @@ file.","
     ~wxCursor();
 
     DocCtorStrName(
-        wxCursor(int id),
+        wxCursor(wxStockCursor id),
         "Create a cursor using one of the stock cursors.  Note that not all
 stock cursors are available on all platforms.", "",
         StockCursor);

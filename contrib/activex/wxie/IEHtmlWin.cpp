@@ -146,8 +146,6 @@ wxOwnedMemInputStream::~wxOwnedMemInputStream()
 
 
 //////////////////////////////////////////////////////////////////////
-BEGIN_EVENT_TABLE(wxIEHtmlWin, wxActiveX)
-END_EVENT_TABLE()
 
 
 static const CLSID CLSID_MozillaBrowser =

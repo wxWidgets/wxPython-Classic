@@ -46,7 +46,7 @@
 #endif
 
 #ifdef __WXMAC__
-#include <wx/mac/private.h>
+#include <wx/osx/private.h>
 #endif
 
 #include <wx/clipbrd.h>
@@ -1599,7 +1599,7 @@ wxFileOffset wxPyCBOutputStream::OnSysTell() const {
 
 //----------------------------------------------------------------------
 
-IMPLEMENT_ABSTRACT_CLASS(wxPyCallback, wxObject);
+IMPLEMENT_ABSTRACT_CLASS(wxPyCallback, wxEvtHandler);
 
 wxPyCallback::wxPyCallback(PyObject* func) {
     m_func = func;

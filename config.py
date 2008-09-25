@@ -263,7 +263,7 @@ cleaning = 'clean' in sys.argv
 
 # change the PORT default for wxMac
 if sys.platform[:6] == "darwin":
-    WXPORT = 'mac'
+    WXPORT = 'osx_carbon'
 
 # and do the same for wxMSW, just for consistency
 if os.name == 'nt':
@@ -836,7 +836,7 @@ if debug:
 if FINAL:
     HYBRID = 0
 
-if UNICODE and WXPORT not in ['msw', 'gtk2', 'mac']:
+if UNICODE and WXPORT not in ['msw', 'gtk2', 'osx_carbon']:
     raise SystemExit, "UNICODE mode not currently supported on this WXPORT: "+WXPORT
 
 
@@ -986,10 +986,10 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
     WXPREFIX   = os.popen(WX_CONFIG + ' --prefix').read()[:-1]
 
 
-    if sys.platform[:6] == "darwin" and WXPORT == 'mac':
+    if sys.platform[:6] == "darwin" and WXPORT == 'osx_carbon':
         # Flags and such for a Darwin (Max OS X) build of Python
         WXPLAT = '__WXMAC__'
-        GENDIR = 'mac'
+        GENDIR = 'osx_carbon'
         libs = ['stdc++']
         NO_SCRIPTS = 1
         if not ARCH == "":

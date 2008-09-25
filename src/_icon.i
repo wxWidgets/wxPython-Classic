@@ -148,7 +148,8 @@ public:
     wxIconBundle();
 
     // initializes the bundle with the icon(s) found in the file
-    %RenameCtor(IconBundleFromFile, wxIconBundle( const wxString& file, long type ));
+    %RenameCtor(IconBundleFromFile, wxIconBundle( const wxString& file,
+                                                  wxBitmapType type ));
 
     // initializes the bundle with a single icon
     %RenameCtor(IconBundleFromIcon, wxIconBundle( const wxIcon& icon ));
@@ -166,7 +167,7 @@ icon with the same width and height, it is replaced", "");
     
 
     DocDeclStrName(
-        void , AddIcon( const wxString& file, long type ),
+        void , AddIcon( const wxString& file, wxBitmapType type ),
         "Adds all the icons contained in the file to the collection, if the
 collection already contains icons with the same width and height, they
 are replaced", "",

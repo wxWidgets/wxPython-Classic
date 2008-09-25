@@ -586,6 +586,8 @@ public:
                     const wxSize& size = wxDefaultSize,
                     long style = 0,
                     const wxString& name = wxPyPreviewCanvasNameStr);
+
+    void SetPreview(wxPrintPreviewBase *preview);
 };
 
 
@@ -702,6 +704,10 @@ public:
     // The preview canvas should call this from OnPaint
     virtual bool PaintPage(wxPreviewCanvas *canvas, wxDC& dc);
 
+    // Updates rendered page by calling RenderPage() if needed, returns true
+    // if there was some change. Preview canvas should call it at idle time
+    virtual bool UpdatePageRendering();
+    
     // This draws a blank page onto the preview canvas
     virtual bool DrawBlankPage(wxPreviewCanvas *canvas, wxDC& dc);
 

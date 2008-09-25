@@ -351,6 +351,15 @@ public:
         wxPyEndBlockThreads(blocked);
      }
 
+    wxGCDC(const wxPrinterDC& dc)
+        : wxDC(NULL)
+    {
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wxGCDC is not available on this platform.");
+        wxPyEndBlockThreads(blocked);
+     }
+    
     wxGCDC()
         : wxDC(NULL)
     {
@@ -1156,6 +1165,7 @@ public:
         "self.__dc = args[0] # save a ref so the other dc will not be deleted before self";
     wxGCDC(const wxWindowDC& dc);
     wxGCDC(const wxMemoryDC& dc);
+    wxGCDC(const wxPrinterDC& dc);
     wxGCDC(wxWindow* window);
     //wxGCDC();
     virtual ~wxGCDC();

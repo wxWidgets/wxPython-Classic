@@ -46,7 +46,7 @@ public:
     // wxImageHandler();    Abstract Base Class
     wxString GetName();
     wxString GetExtension();
-    long GetType();
+    wxBitmapType GetType();
     wxString GetMimeType();
 
     //bool LoadFile(wxImage* image, wxInputStream& stream);
@@ -239,7 +239,8 @@ public:
     %typemap(out) wxImage*;    // turn off this typemap
 
     DocCtorStr(
-        wxImage( const wxString& name, wxBitmapType type = wxBITMAP_TYPE_ANY, int index = -1 ),
+        wxImage( const wxString& name, wxBitmapType type = wxBITMAP_TYPE_ANY,
+                 int index = -1 ),
         "Loads an image from a file.",
         "
     :param name:  Name of the file from which to load the image.
@@ -699,6 +700,19 @@ object, using a MIME type string to specify the image file format.", "",
     DocDeclStr(
         int , GetHeight(),
         "Gets the height of the image in pixels.", "");
+    
+
+    DocDeclStr(
+        wxBitmapType , GetType() const,
+        "Gets the type of image found by LoadFile or specified with SaveFile", "");
+    
+
+    DocDeclStr(
+        void , SetType(wxBitmapType type),
+        "Set the image type, this is normally only called if the image is being
+created from data in the given format but not using LoadFile() (e.g.
+wxGIFDecoder uses this)
+", "");
     
 
     %extend {

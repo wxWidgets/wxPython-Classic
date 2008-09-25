@@ -31,7 +31,6 @@ class wxBufferedPaintDC;
 class wxMetaFile;
 class wxMetaFileDC;
 class wxPrinterDC;
-
 %}
 
 //----------------------------------------------------------------------

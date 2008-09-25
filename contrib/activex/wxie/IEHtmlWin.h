@@ -108,7 +108,6 @@ public:
     bool Refresh(wxIEHtmlRefreshLevel level);
     bool Stop();
 
-    DECLARE_EVENT_TABLE();
 
 protected:
     void SetupBrowser();

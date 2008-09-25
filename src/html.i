@@ -1064,7 +1064,9 @@ public:
 
     // After(!) calling SetRelatedFrame, this sets statusbar slot where messages
     // will be displayed. Default is -1 = no messages.
+    %nokwargs SetRelatedStatusBar;
     void SetRelatedStatusBar(int bar);
+    void SetRelatedStatusBar(wxStatusBar*, int index = 0);
 
     // Sets fonts to be used when displaying HTML page.
     %extend {

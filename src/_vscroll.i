@@ -791,6 +791,8 @@ public:
     // get the background colour of selected cells
     const wxColour& GetSelectionBackground() const;
 
+    // get the item rect, returns empty rect if the item is not visible
+    wxRect GetItemRect(size_t n) const;
 
     // set the number of items to be shown in the control
     //

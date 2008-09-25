@@ -275,12 +275,24 @@ public:
     
     void _setCallbackInfo(PyObject* self, PyObject* _class);
 
+    DocDeclStr(
+        static bool , HasNativeProvider(),
+        "Does this platform implement native icons theme?", "");
+    
+    
     %disownarg( wxPyArtProvider *provider );
 
     DocDeclStr(
         static void , Push(wxPyArtProvider *provider),
         "Add new provider to the top of providers stack.", "");
     %pythoncode { PushProvider = Push }
+
+     
+    DocDeclStr(
+        static void , PushBack(wxArtProvider *provider),
+        "Add new provider to the bottom of providers stack (i.e. the provider
+will be queried as the last one).", "");
+    
     
     DocDeclStr(
         static void , Insert(wxPyArtProvider *provider),

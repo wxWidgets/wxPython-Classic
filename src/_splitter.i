@@ -22,6 +22,7 @@ MAKE_CONST_WXSTRING2(SplitterNameStr, wxT("splitter"));
 
 enum {
     wxSP_NOBORDER,
+    wxSP_THIN_SASH,
     wxSP_NOSASH,
     wxSP_PERMIT_UNSPLIT,
     wxSP_LIVE_UPDATE,

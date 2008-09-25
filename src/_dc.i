@@ -21,6 +21,9 @@
 #ifdef __WXMSW__
 #include <wx/msw/dc.h>
 #endif
+#ifdef __WXGTK__
+#include <wx/gtk/dc.h>
+#endif
 %}
 
 // TODO: 1. wrappers for wxDrawObject and wxDC::DrawObject
@@ -437,6 +440,12 @@ screen is damaged.", "
     %Rename(SetClippingRect, void, SetClippingRegion(const wxRect& rect));
 
 
+    DocDeclStr(
+        void , SetDeviceClippingRegion(const wxRegion& region),
+        "The coordinates of the region used in this method one are in device
+coordinates, not the logical ones", "");
+    
+
     
     DocDeclAStr(
         void , DrawLines(int points, wxPoint* points_array,
@@ -586,9 +595,9 @@ window or bitmap associated with the DC. If the argument is
 context, and the original palette restored.", "
 
 :see: `wx.Palette`");
+
+   
     
-
-
     DocDeclStr(
         virtual void , DestroyClippingRegion(),
         "Destroys the current clipping region so that none of the DC is
@@ -1074,25 +1083,10 @@ supported.", "");
     %extend {
         void* GetCGContext() {
             void* cgctx = NULL;
-#if 1
-            wxGraphicsContext* gc = self->GetGraphicsContext();
+            wxGraphicsContext* gc = ((wxGCDCImpl*)self->GetImpl())->GetGraphicsContext();
             if (gc) {
                 cgctx = gc->GetNativeContext();
             }
-#else
-            wxMemoryDC* mdc = wxDynamicCast(self, wxMemoryDC);
-            wxWindowDC* wdc = wxDynamicCast(self, wxWindowDC);
-            if (mdc) {
-                wxGraphicsContext* gc = self->GetGraphicsContext();
-                if (gc)
-                    cgctx = gc->GetNativeContext();
-            }
-            else if (wdc) {
-                wxWindow* win = wdc->GetWindow();
-                if (win)
-                    cgctx = win->MacGetCGContextRef();
-            }
-#endif
             return cgctx;
         }
     }
@@ -1104,7 +1098,7 @@ supported.", "");
             // TODO: Is this always non-null?  if not then we can check
             // GetSelectedBitmap and get the GdkPixmap from it, as that is a
             // drawable too.
-            return self->GetGDKWindow();
+            return ((wxGTKDCImpl*)self->GetImpl())->GetGDKWindow();
         }
     }    
 #endif

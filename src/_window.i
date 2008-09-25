@@ -88,6 +88,13 @@ enum wxShowEffect
     wxSHOW_EFFECT_MAX
 };
 
+// flags for SendSizeEvent()
+enum
+{
+    wxSEND_EVENT_POST = 1
+};
+
+
 
 DocStr(wxWindow,
 "wx.Window is the base class for all windows and represents any visible
@@ -815,7 +822,33 @@ this function when that is useful (such as for wxStaticText which can
 stretch over several lines). Parameter availableOtherDir
 tells the item how much more space there is available in the opposite 
 direction (-1 if unknown).", "");
+
+    DocDeclStr(
+        virtual void , SendSizeEvent(int flags = 0),
+        "Sends a size event to the window using its current size -- this has an
+effect of refreshing the window layout.
+
+By default the event is sent, i.e. processed immediately, but if flags
+value includes wxSEND_EVENT_POST then it's posted, i.e. only schedule
+for later processing.", "");
     
+
+    DocDeclStr(
+        void , SendSizeEventToParent(int flags = 0),
+        "This is a safe wrapper for GetParent().SendSizeEvent(): it checks that
+we have a parent window and it's not in process of being deleted.", "");
+    
+
+    DocDeclStr(
+        void , PostSizeEvent(),
+        "This is a more readable synonym for SendSizeEvent(wx.SEND_EVENT_POST)", "");
+    
+    DocDeclStr(
+        void , PostSizeEventToParent(),
+        "This is the same as SendSizeEventToParent() but using PostSizeEvent()", "");
+    
+
+
     
 
 //     void SetScrollHelper( wxScrollHelper *sh );
@@ -2037,6 +2070,8 @@ window.  Note that the text is actually stored by the current
     void SetToolTip( wxToolTip *tip );
     %cleardisown( wxToolTip *tip );
 
+    void UnsetToolTip();
+    
     DocDeclStr(
         wxToolTip* , GetToolTip() const,
         "get the associated tooltip or None if none", "");
@@ -2276,10 +2311,6 @@ opaque.", "");
                 pass
     }
 
-    %pythoncode {
-    def SendSizeEvent(self):
-        self.GetEventHandler().ProcessEvent(wx.SizeEvent((-1,-1)))
-    }
 
     
     %property(AcceleratorTable, GetAcceleratorTable, SetAcceleratorTable, doc="See `GetAcceleratorTable` and `SetAcceleratorTable`");

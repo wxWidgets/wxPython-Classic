@@ -60,7 +60,8 @@ enum wxBitmapType
 //    wxBITMAP_TYPE_MACCURSOR_RESOURCE,
 
     wxBITMAP_TYPE_MAX,
-    wxBITMAP_TYPE_ANY = 50
+    wxBITMAP_TYPE_ANY,
+    wxBITMAP_DEFAULT_TYPE
 };
 
 // Standard cursors

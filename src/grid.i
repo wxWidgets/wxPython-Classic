@@ -2104,8 +2104,8 @@ public:
     int GetScrollLineX() const;
     int GetScrollLineY() const;
 
-    int GetScrollX(int x) const;
-    int GetScrollY(int y) const;
+//    int GetScrollX(int x) const;
+//    int GetScrollY(int y) const;
 
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);

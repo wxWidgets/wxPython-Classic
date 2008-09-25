@@ -250,9 +250,6 @@ public:
     // if the frame has a toolbar) in client coordinates
     virtual wxPoint GetClientAreaOrigin() const;
 
-    // sends a size event to the window using its current size:
-    //  this has a side effect of refreshing the window layout
-    virtual void SendSizeEvent();
 
     // menu bar functions
     // ------------------
@@ -266,8 +263,9 @@ public:
     virtual const wxMenuItem *FindItemInMenuBar(int menuId) const;
 
     // process menu command: returns True if processed
+    %nokwargs ProcessCommand;
     bool ProcessCommand(int winid);
-    %pythoncode { Command = ProcessCommand }
+    bool ProcessCommand(wxMenuItem *item);
 
     // status bar functions
     // --------------------

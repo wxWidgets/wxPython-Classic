@@ -229,6 +229,10 @@ The following example shows a simple implementation that utilizes
 
 %typemap(out) wxEvtHandler*             { $result = wxPyMake_wxObject($1, $owner); }
 
+
+%nokwargs wxAuiToolBarItem;
+%nokwargs wxAuiToolBar::SetMargins;
+
 //---------------------------------------------------------------------------
 // Get all our defs from the REAL header files.
 

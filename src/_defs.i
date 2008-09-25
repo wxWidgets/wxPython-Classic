@@ -677,7 +677,7 @@ public:
 
         KeepGIL(__contains__);
         bool __contains__(const ItemClass* obj) {
-            return self->m_list->Find(obj) != NULL;
+            return self->m_list->Find(obj);
         }
 
         KeepGIL(__iter__);
@@ -894,6 +894,8 @@ enum {
     wxNO,
     wxNO_DEFAULT,
     wxYES_DEFAULT,
+    wxOK_DEFAULT,
+    wxCANCEL_DEFAULT,
     wxAPPLY,
     wxCLOSE,
      
@@ -1038,7 +1040,26 @@ enum {
     wxID_ZOOM_OUT,
     wxID_UNDELETE,
     wxID_REVERT_TO_SAVED,
-   
+
+    wxID_CDROM,
+    wxID_CONVERT,
+    wxID_EXECUTE,
+    wxID_FLOPPY,
+    wxID_HARDDISK,
+    wxID_BOTTOM,
+    wxID_FIRST,
+    wxID_LAST,
+    wxID_TOP,
+    wxID_INFO,
+    wxID_JUMP_TO,
+    wxID_NETWORK,
+    wxID_SELECT_COLOR,
+    wxID_SELECT_FONT,
+    wxID_SORT_ASCENDING,
+    wxID_SORT_DESCENDING,
+    wxID_SPELL_CHECK,
+    wxID_STRIKETHROUGH,
+    
     wxID_FILEDLGG,
     wxID_FILECTRL,
     wxID_HIGHEST,

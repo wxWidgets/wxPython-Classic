@@ -189,10 +189,10 @@ wx.NB_HITTEST flags.", "");
 
 
 
-class wxBookCtrlBaseEvent : public wxNotifyEvent
+class wxBookCtrlEvent : public wxNotifyEvent
 {
 public:
-    wxBookCtrlBaseEvent(wxEventType commandType = wxEVT_NULL, int id = 0,
+    wxBookCtrlEvent(wxEventType commandType = wxEVT_NULL, int id = 0,
                     int nSel = -1, int nOldSel = -1);
 
         // the currently selected page (-1 if none)
@@ -292,18 +292,13 @@ public:
 
 
 
-class wxNotebookEvent : public wxBookCtrlBaseEvent
-{
-public:
-    wxNotebookEvent(wxEventType commandType = wxEVT_NULL, int id = 0,
-                    int nSel = -1, int nOldSel = -1);
-
-};
+%pythoncode {
+NotebookEvent = BookCtrlEvent
+}
 
 // notebook control event types
 %constant wxEventType wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGING;
-
 
 %pythoncode {
     %# wxNotebook events
@@ -394,14 +389,9 @@ public:
 };
 
 
-
-class wxListbookEvent : public wxBookCtrlBaseEvent
-{
-public:
-    wxListbookEvent(wxEventType commandType = wxEVT_NULL, int id = 0,
-                    int nSel = -1, int nOldSel = -1);
-};
-
+%pythoncode {
+ListbookEvent = BookCtrlEvent
+}
 
 %constant wxEventType wxEVT_COMMAND_LISTBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_COMMAND_LISTBOOK_PAGE_CHANGING;
@@ -410,7 +400,6 @@ public:
     EVT_LISTBOOK_PAGE_CHANGED  = wx.PyEventBinder( wxEVT_COMMAND_LISTBOOK_PAGE_CHANGED, 1 )
     EVT_LISTBOOK_PAGE_CHANGING = wx.PyEventBinder( wxEVT_COMMAND_LISTBOOK_PAGE_CHANGING, 1 )
 }
-
 
 //---------------------------------------------------------------------------
 
@@ -463,12 +452,9 @@ public:
 };
 
 
-class wxChoicebookEvent : public wxBookCtrlBaseEvent
-{
-public:
-    wxChoicebookEvent(wxEventType commandType = wxEVT_NULL, int id = 0,
-                      int nSel = -1, int nOldSel = -1);
-};
+%pythoncode {
+ChoicebookEvent = BookCtrlEvent
+}
 
 %constant wxEventType wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGING;
@@ -572,24 +558,21 @@ public:
 };
 
 
-class wxTreebookEvent : public wxBookCtrlBaseEvent
-{
-public:
-    wxTreebookEvent(wxEventType commandType = wxEVT_NULL, int id = 0,
-                    int nSel = wxNOT_FOUND, int nOldSel = wxNOT_FOUND);
-};
+
+%pythoncode {
+TreebookEvent = BookCtrlEvent
+}
 
 %constant wxEventType wxEVT_COMMAND_TREEBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_COMMAND_TREEBOOK_PAGE_CHANGING;
 %constant wxEventType wxEVT_COMMAND_TREEBOOK_NODE_COLLAPSED;
 %constant wxEventType wxEVT_COMMAND_TREEBOOK_NODE_EXPANDED;
 
-
 %pythoncode {
-    EVT_TREEBOOK_PAGE_CHANGED= wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_PAGE_CHANGED, 1 )
-    EVT_TREEBOOK_PAGE_CHANGING= wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_PAGE_CHANGING, 1)
-    EVT_TREEBOOK_NODE_COLLAPSED= wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_NODE_COLLAPSED, 1 )
-    EVT_TREEBOOK_NODE_EXPANDED= wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_NODE_EXPANDED, 1 )
+    EVT_TREEBOOK_PAGE_CHANGED = wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_PAGE_CHANGED, 1 )
+    EVT_TREEBOOK_PAGE_CHANGING = wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_PAGE_CHANGING, 1)
+    EVT_TREEBOOK_NODE_COLLAPSED = wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_NODE_COLLAPSED, 1 )
+    EVT_TREEBOOK_NODE_EXPANDED = wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_NODE_EXPANDED, 1 )
 }
 
 //---------------------------------------------------------------------------
@@ -633,13 +616,9 @@ public:
 };
 
 
-class wxToolbookEvent : public wxBookCtrlBaseEvent
-{
-public:
-    wxToolbookEvent(wxEventType commandType = wxEVT_NULL, int id = 0,
-                    int nSel = wxNOT_FOUND, int nOldSel = wxNOT_FOUND);
-};
-
+%pythoncode {
+ToolbookEvent = BookCtrlEvent
+}
 
 %constant wxEventType wxEVT_COMMAND_TOOLBOOK_PAGE_CHANGED;
 %constant wxEventType wxEVT_COMMAND_TOOLBOOK_PAGE_CHANGING;

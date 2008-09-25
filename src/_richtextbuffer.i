@@ -917,7 +917,6 @@ public:
     void SetDescent(int descent);
     int GetDescent() const;
 
-    wxArrayInt& GetObjectSizes() { return m_objectSizes; }
 
 // Operations
 
