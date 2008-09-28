@@ -140,10 +140,12 @@ esac
 
 PYTHON=$TOOLS/python$VER/python.exe
 mkdir -p dist
-if [ $CHARTYPE = both -o $CHARTYPE = ansi ]; then
-    rm -f wx/*.pyd
-    $PYTHON setup.py HYBRID=1 build_ext --inplace UNICODE=0 EP_ADD_OPTS=1
-    $PYTHON -u distrib/make_installer.py UNICODE=0
+if [ "$CPU" != "AMD64" ]; then
+    if [ $CHARTYPE = both -o $CHARTYPE = ansi ]; then
+	rm -f wx/*.pyd
+	$PYTHON setup.py HYBRID=1 build_ext --inplace UNICODE=0 EP_ADD_OPTS=1
+	$PYTHON -u distrib/make_installer.py UNICODE=0
+    fi
 fi
 if [ $CHARTYPE = both -o $CHARTYPE = unicode ]; then
     rm -f wx/*.pyd

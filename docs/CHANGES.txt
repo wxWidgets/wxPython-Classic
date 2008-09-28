@@ -4,7 +4,7 @@ Recent Changes for wxPython
 
 2.8.9.0
 -------
-* 
+* 28-Sep-2008
 
 Many minor bug fixes throughout wxWidgets and wxPython.
 

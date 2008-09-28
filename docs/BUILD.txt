@@ -327,7 +327,7 @@ accordingly if you are using the bash shell.
 	 wxUSE_GLCANVAS       		1
 	 wxUSE_POSTSCRIPT  		1
 	 wxUSE_DIB_FOR_BITMAP 		1
-
+	 wxUSE_DATEPICKCTRL_GENERIC     1
 
    If you are using my build scripts then a few more settings will be
    changed automatically and then a copy of setup.h is placed in a

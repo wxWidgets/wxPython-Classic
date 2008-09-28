@@ -147,7 +147,9 @@ The following example shows a simple implementation that utilizes
 #define unsigned
 #define wxDEPRECATED(decl)
 #define DECLARE_EVENT_TABLE()
+#define DECLARE_CLASS(foo)
 #define DECLARE_DYNAMIC_CLASS(foo)
+#define DECLARE_DYNAMIC_CLASS_NO_ASSIGN(foo)
 
 
 
