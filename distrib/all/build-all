@@ -76,7 +76,6 @@ def getTasks(config_env):
         Job("cyclops.feisty64", "distrib/all/build-deb", ["cyclops", "/work/chroot/feisty64", "feisty64"], env=config_env),
         Job("cyclops.fc6", "distrib/all/build-chrpm",  ["cyclops", "/work/chroot/fc6", "fc6", "fc6", "2.4"], env=config_env),
         Job("cyclops.fc7", "distrib/all/build-chrpm",  ["cyclops", "/work/chroot/fc7", "fc7", "fc7", "2.5"], env=config_env),
-        Job("cyclops.etch64", "distrib/all/build-deb", ["cyclops", "/work/chroot/etch64",   "etch64"], env=config_env),
         ])
 
     cyclopsTask2 = Task([
@@ -84,6 +83,7 @@ def getTasks(config_env):
         Job("cyclops.gutsy",   "distrib/all/build-deb", ["cyclops", "/work/chroot/gutsy",   "gutsy"], env=config_env),
         Job("cyclops.gutsy64", "distrib/all/build-deb", ["cyclops", "/work/chroot/gutsy64", "gutsy64"], env=config_env),
         Job("cyclops.etch",   "distrib/all/build-deb", ["cyclops", "/work/chroot/etch",     "etch"], env=config_env),
+        Job("cyclops.etch64", "distrib/all/build-deb", ["cyclops", "/work/chroot/etch64",   "etch64"], env=config_env),
         ])
 
     buildTasks = [

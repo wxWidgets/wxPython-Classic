@@ -1,6 +1,14 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.8.9.1
+-------
+* 28-Sep-2008
+
+Fixed a Python 2.4 compatibility issue in the Editra code.
+
+
+
 
 2.8.9.0
 -------
@@ -14,7 +22,7 @@ Fixed PseudoDC hit testing when pure white or pure black are used.
 
 Added support for a 64-bit Windows build for the AMD64 architecture,
 (a.k.a. x64.)  This is for Python 2.5 only and is available only as a
-Unicode buld.
+Unicode build.
 
 Added the wx.EmptyBitmapRGBA factory function.
 
