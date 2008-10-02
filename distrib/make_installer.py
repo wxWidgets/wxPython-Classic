@@ -165,6 +165,7 @@ Source: "wx\tools\Editra\pixmaps\theme\Tango\AUTHORS";       DestDir: "{app}\%(P
 Source: "wx\tools\Editra\pixmaps\theme\Tango\COPYING";       DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Tango"; Components: core
 Source: "wx\tools\Editra\pixmaps\theme\Tango\menu\*.png";    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Tango\menu"; Components: core
 Source: "wx\tools\Editra\pixmaps\theme\Tango\mime\*.png";    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Tango\mime"; Components: core
+Source: "wx\tools\Editra\pixmaps\theme\Tango\other\*.png";   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Tango\other"; Components: core
 Source: "wx\tools\Editra\pixmaps\theme\Tango\toolbar\*.png"; DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps\theme\Tango\toolbar"; Components: core
 Source: "wx\tools\Editra\plugins\*.egg";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\plugins"; Components: core
 Source: "wx\tools\Editra\src\*.py";                          DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src"; Components: core
