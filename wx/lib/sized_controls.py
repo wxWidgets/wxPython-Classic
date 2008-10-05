@@ -274,7 +274,7 @@ def GetDefaultBorder(self):
     elif wx.Platform == "__WXMSW__":
         # MSW HIGs use dialog units, not pixels
         pnt = self.ConvertDialogPointToPixels(wx.Point(4, 4))
-        border = pnt[0] 
+        border = pnt[0] // 2
     elif wx.Platform == "__WXGTK__":
         border = 3 
 
