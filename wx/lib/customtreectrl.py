@@ -307,45 +307,6 @@ EVT_TREE_ITEM_CHECKING = wx.PyEventBinder(wxEVT_TREE_ITEM_CHECKING, 1)
 EVT_TREE_ITEM_CHECKED = wx.PyEventBinder(wxEVT_TREE_ITEM_CHECKED, 1)
 EVT_TREE_ITEM_HYPERLINK = wx.PyEventBinder(wxEVT_TREE_ITEM_HYPERLINK, 1)
 
-from wx.lib.embeddedimage import PyEmbeddedImage
-
-Flagged = PyEmbeddedImage(
-    "iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABHNCSVQICAgIfAhkiAAAAelJ"
-    "REFUKJF1ktFL02EUhp/vfEoySsMlhY4cYpNIbNksBkZdNBAJRDODiMi/wLSuQlAx6aIo7Kpu"
-    "w4JwRKGEsIhAM4zJomJUol6MgVYztrWfzjm+LmqyMN/r9+E5B16lRJOfnmG/CQS/Eotb2Ets"
-    "+Dwu7nS1q/yOyocqWnpN87FqfEer8NSUE5pfJjC7yNj0Z6LPb6gtUMf1B6btRA2NtfsREbTW"
-    "iGi01kx9ivDk1UceDXQqAMkZtgNENKfcVVw47aaipdcA6Kv3nprKsp1c8tUhImRUhsnkFINz"
-    "g0hG49zlpKiwiKryPUR/JGlsPt+vU2X1/Z1Nh6nctxutNZPJKfzpURLpBBMLE5SqUtx7jyAi"
-    "7Cgs4P6zt0gsYeGpKd88ZSQyQmxlhZRlsZbOcPvdLUQEpRTeWiexhIXYi22E5pc3fzhrb2cp"
-    "usS35e8k4j/pqb+GUgoRYSYcwV5sQ3wNLgKzi5umJkcTV6q7kV8FDB2/Scehjr8mYXw6jK/B"
-    "BUo0jtY+MzYZMslk3KRSSbO6apl0es2sr6fNxkbGZLNZ8zL4xTha+4wS/QdSork48NC8ePNh"
-    "W+Dy0GOT625ZRNvJOs54D+KtdTITjjA+Hcb/+v3/F5FL9/CoCQTnWIlblJbY8HkOcLfr3D/b"
-    "+w180NFdmL1t3AAAAABJRU5ErkJggg==")
-
-NotFlagged = PyEmbeddedImage(
-    "iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABHNCSVQICAgIfAhkiAAAAWRJ"
-    "REFUKJGV0jFLgmEUhuHnPe83OTi4iQ4ifENklIiDBjWIEDiIUYst0R+ImgoEEWqOaAjaWoQo"
-    "gsIgMMEgJLRQoRARRLA2MdTUzOQ0hCCoSGd+Ls5yC0ESg7d1eM7RVAHVegs6rQZuu4qDzVUx"
-    "uBGDyOAN8JLdDJfVBJuqR7ZYQSxdQuQxj/erPTGEVnaO2TevwjltBJGElAqklFAUBYnXN5zF"
-    "XxAObQgAoP6HcUBKicU5M/yuWRi8AQYAsX10yfVGAwG/cyQgkiAiEEnsntxCUQgUTRXgspom"
-    "AiKCxzGFaKoAqtZbsKn6iYCI4LCYUK23QDqtBtliZSIgIiRzZei0GpDbriKWLk0ERIRIIge3"
-    "XQUESRh9Qb6+f+Za7YMbjRo3m5/cbre40/nibvebe70fvnvKs9EXZEHyDwmSWAud8s1DZixY"
-    "3w9zfztUxPLCDDyOKTgsJiRzZUQSOVzEM6OL+E97v/G1pZkwDG/WAAAAAElFTkSuQmCC")
-
-Checked = PyEmbeddedImage(
-    "iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABHNCSVQICAgIfAhkiAAAAKlJ"
-    "REFUKJFjlAls+M9AImBhYGBgODYxFi7AyMjEwMQEwczMzAxMTMxwmomJiUEzrp+BCdkEQhqY"
-    "mCDKmYjRYLDBCCrHjNBESAMDAwPcNrgmmAarXXZYNcDUMDIyompiZoZYbbrVAkPDjYjrDIyM"
-    "jKg2wUyGAVwaGBlRnAdx0oWAcyjxga4BxXnIwXol5BJODWh+QsQDExMzXg0YoQfTjE8DAwMD"
-    "AyM5aQ8AoE8ebApv5jgAAAAASUVORK5CYII=")
-
-NotChecked = PyEmbeddedImage(
-    "iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABHNCSVQICAgIfAhkiAAAAG1J"
-    "REFUKJGd0sENgDAIBdDPhzHcwGk8eXUU757cyM30UKOlF38lIU0ID5IGG6b1RGcEABzb/BRI"
-    "3ulwD7g7IspLOsZlB+sJX4As7ewBpL9IBWmTChqkgYRU0CANmFVIBWaWN6kgfYQKAMD+3N4F"
-    "sAcJ4jYyX4sAAAAASUVORK5CYII=")
-
-
 def GrayOut(anImage):
     """
     Convert the given image (in place) to a grayed-out version,
@@ -1874,9 +1835,6 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
             if major < 10:
                 style |= TR_ROW_LINES
 
-        # Create the default check image list        
-        self.SetImageListCheck(13, 13)
-
         # A constant to use my translation of RendererNative.DrawTreeItemButton
         # if the wxPython version is less than 2.6.2.1.
         if wx.VERSION_STRING < "2.6.2.1":
@@ -1886,6 +1844,9 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
 
         # Create our container... at last!    
         wx.PyScrolledWindow.__init__(self, parent, id, pos, size, style|wx.HSCROLL|wx.VSCROLL, name)
+
+        # Create the default check image list        
+        self.SetImageListCheck(16, 16)
 
         # If the tree display has no buttons, but does have
         # connecting lines, we can use a narrower layout.
@@ -1943,7 +1904,34 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
 
         event.Skip()
 
-        
+    def GetControlBmp(self, checkbox=True, checked=False,
+                      enabled=True, x=16, y=16):
+        """Get a native looking checkbox or radio button bitmap
+        @keyword checkbox: Get a checkbox=True, radiobutton=False
+        @keyword checked: contorl is marked or not
+
+        """
+        bmp = wx.EmptyBitmap(x, y)
+        mdc = wx.MemoryDC(bmp)
+        dc = wx.GCDC(mdc)
+        render = wx.RendererNative.Get()
+
+        if checked:
+            flag = wx.CONTROL_CHECKED
+        else:
+            flag = 0
+
+        if not enabled:
+            flag |= wx.CONTROL_DISABLED
+
+        if checkbox:
+            render.DrawCheckBox(self, mdc, (0, 0, x, y), flag)
+        else:
+            render.DrawRadioButton(self, mdc, (0, 0, x, y), flag)
+
+        mdc.SelectObject(wx.NullBitmap)
+        return bmp
+
     def GetCount(self):
         """Returns the global number of items in the tree."""
 
@@ -4072,29 +4060,64 @@ class CustomTreeCtrl(wx.PyScrolledWindow):
     def SetImageListCheck(self, sizex, sizey, imglist=None):
         """Sets the check image list."""
 
+        # Image list to hold disabled versions of each control
+        self._grayedCheckList = wx.ImageList(sizex, sizey, True, 0)
+
         if imglist is None:
             
             self._imageListCheck = wx.ImageList(sizex, sizey)
-            self._imageListCheck.Add(Checked.GetBitmap())
-            self._imageListCheck.Add(NotChecked.GetBitmap())
-            self._imageListCheck.Add(Flagged.GetBitmap())
-            self._imageListCheck.Add(NotFlagged.GetBitmap())
+
+            # Get the Checkboxes
+            self._imageListCheck.Add(self.GetControlBmp(checkbox=True,
+                                                        checked=True,
+                                                        enabled=True,
+                                                        x=sizex, y=sizey))
+            self._grayedCheckList.Add(self.GetControlBmp(checkbox=True,
+                                                         checked=True,
+                                                         enabled=False,
+                                                         x=sizex, y=sizey))
+
+            self._imageListCheck.Add(self.GetControlBmp(checkbox=True,
+                                                        checked=False,
+                                                        enabled=True,
+                                                        x=sizex, y=sizey))
+            self._grayedCheckList.Add(self.GetControlBmp(checkbox=True,
+                                                         checked=False,
+                                                         enabled=False,
+                                                         x=sizex, y=sizey))
+
+
+            # Get the Radio Buttons
+            self._imageListCheck.Add(self.GetControlBmp(checkbox=False,
+                                                        checked=True,
+                                                        enabled=True,
+                                                        x=sizex, y=sizey))
+            self._grayedCheckList.Add(self.GetControlBmp(checkbox=False,
+                                                         checked=True,
+                                                         enabled=False,
+                                                         x=sizex, y=sizey))
+
+            self._imageListCheck.Add(self.GetControlBmp(checkbox=False,
+                                                        checked=False,
+                                                        enabled=True,
+                                                        x=sizex, y=sizey))
+            self._grayedCheckList.Add(self.GetControlBmp(checkbox=False,
+                                                        checked=False,
+                                                        enabled=False,
+                                                        x=sizex, y=sizey))
 
         else:
 
             sizex, sizey = imglist.GetSize(0)
             self._imageListCheck = imglist
 
-        # We gray out the image list to use the grayed icons with disabled items
-        self._grayedCheckList = wx.ImageList(sizex, sizey, True, 0)
-        
-        for ii in xrange(self._imageListCheck.GetImageCount()):
-            
-            bmp = self._imageListCheck.GetBitmap(ii)
-            image = wx.ImageFromBitmap(bmp)
-            image = GrayOut(image)
-            newbmp = wx.BitmapFromImage(image)
-            self._grayedCheckList.Add(newbmp)
+            for ii in xrange(self._imageListCheck.GetImageCount()):
+                
+                bmp = self._imageListCheck.GetBitmap(ii)
+                image = wx.ImageFromBitmap(bmp)
+                image = GrayOut(image)
+                newbmp = wx.BitmapFromImage(image)
+                self._grayedCheckList.Add(newbmp)
 
         self._dirty = True
 
