@@ -1,6 +1,11 @@
 import wx
 print wx.version()
 
+USE_CAIRO = False
+if USE_CAIRO:
+    import wx.lib.wxcairo
+    import cairo
+
 DIM = 100
 POS = 20
 
@@ -17,16 +22,42 @@ class TestPanel(wx.Panel):
 
 
     def MakeBitmap(self, red=0, green=0, blue=0, alpha=0):
-        bmp = wx.EmptyBitmapRGBA(DIM, DIM, red, green, blue, alpha)
-        
-        dc = wx.MemoryDC(bmp)
-        gc = wx.GraphicsContext.Create(dc)
-
-        path = gc.CreatePath()
-        path.MoveToPoint(POS,POS)
-        path.AddLineToPoint(DIM-POS, DIM-POS)
-        gc.SetPen(wx.Pen("red", 8))
-        gc.StrokePath(path)
+        if not USE_CAIRO:
+            # This one works fine on Mac and Windows, but not wxGTK...
+            bmp = wx.EmptyBitmapRGBA(DIM, DIM, red, green, blue, alpha)
+            dc = wx.MemoryDC(bmp)
+            gc = wx.GraphicsContext.Create(dc)            
+            path = gc.CreatePath()
+            path.MoveToPoint(POS,POS)
+            path.AddLineToPoint(DIM-POS, DIM-POS)
+            gc.SetPen(wx.Pen("red", 8))
+            gc.StrokePath(path)
+            
+        else:
+            # try out a couple possible workarounds
+            sfc = cairo.ImageSurface(cairo.FORMAT_ARGB32, DIM, DIM)
+            ctx = cairo.Context(sfc)
+            if False:
+                # use straight cairo
+                ctx.set_source_rgba(red/255.0, green/255.0, blue/255.0, alpha/255.0)
+                ctx.paint()
+                ctx.set_line_width(8)
+                ctx.set_line_cap(cairo.LINE_CAP_ROUND)
+                ctx.set_source_rgb(1, 0, 0)
+                ctx.move_to(POS, POS)
+                ctx.line_to(DIM-POS, DIM-POS)
+                ctx.stroke()
+            else:
+                # use our GC-like wrapper
+                import wx.lib.graphics as g
+                gc = g.GraphicsContext.CreateFromNative(ctx)
+                gc.Clear(wx.Colour(red, green, blue, alpha))
+                path = gc.CreatePath()
+                path.MoveToPoint(POS,POS)
+                path.AddLineToPoint(DIM-POS, DIM-POS)
+                gc.SetPen(wx.Pen("red", 8))
+                gc.StrokePath(path)
+            bmp = wx.lib.wxcairo.BitmapFromImageSurface(sfc)
 
         return bmp
     
