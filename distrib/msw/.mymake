@@ -9,8 +9,10 @@ MAKE_FLAGS=$COMMON_FLAGS
 
 if [ "$CPU" == "AMD64" ]; then
     MSLU_VAL=0
-    EX_U="EXTRALIBS_FOR_BASE=bufferoverflowU.lib"
-    EX_A="EXTRALIBS_FOR_BASE=bufferoverflowA.lib"
+    if [ "$MSVCVER" = "7x64" ]; then
+	EX_U="EXTRALIBS_FOR_BASE=bufferoverflowU.lib"
+	EX_A="EXTRALIBS_FOR_BASE=bufferoverflowA.lib"
+    fi
 else
     MSLU_VAL=1
 fi

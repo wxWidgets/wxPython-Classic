@@ -2,7 +2,7 @@
 #----------------------------------------------------------------------
 
 set -o errexit
-set -o xtrace
+#set -o xtrace
 
 vmHost=$1
 vmName=$2
@@ -57,6 +57,7 @@ if [ $skipwin != yes ]; then
 		if TestOnline $host; then
 		    echo "VMware start of $host on $vmHost successful."
 		    hostAvailable=yes
+		    sleep 60
 		fi
 	    else
 		echo "The $vmHost machine is offline, unable to start VMware for $host"
@@ -70,8 +71,6 @@ if [ $skipwin != yes ]; then
 	echo "The $host machine is **OFFLINE**, skipping the build."
 	exit 0
     fi
-
-    sleep 60
 
     echo "Copying source, docs and build script..."
     scp $STAGING_DIR/wxPython-src-$VERSION.tar.bz2 \

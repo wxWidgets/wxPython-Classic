@@ -201,9 +201,8 @@ Source: "wxPython\lib\editor\*.py";               DestDir: "{app}\%(PKGDIR)s\wxP
 Source: "wxPython\lib\mixins\*.py";               DestDir: "{app}\%(PKGDIR)s\wxPython\lib\mixins"; Components: core
 Source: "wxPython\tools\*.py";                    DestDir: "{app}\%(PKGDIR)s\wxPython\tools"; Components: core
 
+%(MANIFEST)s
 
-Source: "src\winxp.manifest";               DestDir: "{code:GetPythonDir}"; DestName: "python.exe.manifest";   Flags: sharedfile; Components:  manifest
-Source: "src\winxp.manifest";               DestDir: "{code:GetPythonDir}"; DestName: "pythonw.exe.manifest";  Flags: sharedfile; Components: manifest
 Source: "wxversion\wxversion.py";           DestDir: "{app}";  Flags: sharedfile;  Components: core
 Source: "wxaddons\*.py";                    DestDir: "{app}\wxaddons";  Flags: sharedfile;  Components: core
 Source: "src\wx.pth";                       DestDir: "{app}";  Flags: sharedfile;  Components: pthfile
@@ -706,8 +705,8 @@ def find_DLLs():
     if os.environ.get('CPU', '') == 'AMD64':
         # Just hard-code it for now until a good solution for finding
         # the right dumpbin can be found...
-        return '28uh', '2.5'
-
+        return '28uh', sys.version[:3]
+        
     WXDLLVER = PYTHONVER = None
 
     proc = os.popen(r"dumpbin /imports wx\_core_.pyd", "r")
@@ -763,21 +762,28 @@ runtime_template2 = 'Source: "%(name)s"; DestDir: "{app}\%(PKGDIR)s\wx"; Compone
 
 def get_runtime_dlls(PYVER, PKGDIR):
     if os.environ.get('CPU', '') == 'AMD64':
-        # For now just pull the DLLs from the system dir, and install
-        # them there.  We may eventually want to get more customized
-        # like on win32.
-        return (
-            r'Source: "{sys}\MSVCRT.DLL"; DestDir: "{sys}"; Flags: 64bit uninsneveruninstall external; Components: core',
-            r'Source: "{sys}\MSVCP60.DLL"; DestDir: "{sys}"; Flags: 64bit uninsneveruninstall external; Components: core',
-            )
-    
-    if PYVER >= "py24":
-        return ( runtime_template1 % dict(name=r"distrib\msw\msvcr71.dll", PKGDIR=PKGDIR),
-                 runtime_template2 % dict(name=r"distrib\msw\msvcp71.dll", PKGDIR=PKGDIR) )
+        if PYVER == 'py25':
+            # For now just pull the DLLs from the system dir, and install
+            # them there.  We may eventually want to get more customized
+            # like on win32.
+            return (
+                r'Source: "{sys}\MSVCRT.DLL"; DestDir: "{sys}"; Flags: 64bit uninsneveruninstall external; Components: core',
+                r'Source: "{sys}\MSVCP60.DLL"; DestDir: "{sys}"; Flags: 64bit uninsneveruninstall external; Components: core',
+                )
+        else:
+            # Since Python 2.6+ uses MSVC 9 then the SxS assemblies
+            # for the CRT will already be installed, so we can not
+            # bother with installing it ourselves.
+            return ('', '')
+        
     else:
-        return (  runtime_template1 % dict(name=r"distrib\msw\MSVCRT.dll", PKGDIR=PKGDIR),
-                  runtime_template2 % dict(name=r"distrib\msw\MSVCIRT.dll", PKGDIR=PKGDIR) + "\n" +
-                  runtime_template2 % dict(name=r"distrib\msw\MSVCP60.dll", PKGDIR=PKGDIR) )
+        if PYVER >= "py24":
+            return ( runtime_template1 % dict(name=r"distrib\msw\msvcr71.dll", PKGDIR=PKGDIR),
+                     runtime_template2 % dict(name=r"distrib\msw\msvcp71.dll", PKGDIR=PKGDIR) )
+        else:
+            return (  runtime_template1 % dict(name=r"distrib\msw\MSVCRT.dll", PKGDIR=PKGDIR),
+                      runtime_template2 % dict(name=r"distrib\msw\MSVCIRT.dll", PKGDIR=PKGDIR) + "\n" +
+                      runtime_template2 % dict(name=r"distrib\msw\MSVCP60.dll", PKGDIR=PKGDIR) )
 
 
 #----------------------------------------------------------------------
@@ -814,9 +820,16 @@ def main():
     else:
         BITS        = '32'
         VCDLLDIR    = 'vc_dll'
-        GDIPLUS     = 'Source: "distrib\msw\gdiplus.dll"; DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: replacesameversion'
+        GDIPLUS     = 'Source: "distrib\msw\gdiplus.dll"; DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: replacesameversion' % vars()
         ARCH        = ''
         PRIV        = 'none'
+
+    if PYVER <= 'py25':
+        MANIFEST = 'Source: "src\winxp.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "python.exe.manifest";  Flags: sharedfile; Components: manifest\n' + \
+                   'Source: "src\winxp.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "pythonw.exe.manifest"; Flags: sharedfile; Components: manifest\n'
+    else:
+        MANIFEST = 'Source: "src\winxp.vc9.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "python.exe.manifest";  Flags: sharedfile; Components: manifest\n' + \
+                   'Source: "src\winxp.vc9.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "pythonw.exe.manifest"; Flags: sharedfile; Components: manifest\n'
 
         
     print """

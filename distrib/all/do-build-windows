@@ -14,7 +14,7 @@
 # ---------------------------------------------------------------------------
 
 set -o errexit
-set -o xtrace
+#set -o xtrace
 
 echo "-=-=-=-  Hello from $HOSTNAME  -=-=-=-"
 
@@ -38,11 +38,13 @@ export WXDIR
 export TOOLS=/cygdrive/c/TOOLS
 export CPU
 
-# setup the compiler
+
+# setup the environment for the right compiler
 if [ $PYVER = 2.3 ]; then
     echo "Using MSVC ver 6"
     . msvcset local 6
-else
+
+elif [ $PYVER = 2.4 -o $PYVER = 2.5 ]; then    
     if [ "$CPU" = "AMD64" ]; then
 	echo "Using MSVC ver 7x64"
 	. msvcset local 7x64
@@ -50,8 +52,17 @@ else
 	echo "Using MSVC ver 7"
 	. msvcset local 7
     fi
-fi
-echo `which cl.exe`
+
+else # Python 2.6 or later
+    if [ "$CPU" = "AMD64" ]; then
+	echo "Using MSVC ver 9x64"
+	. msvcset local 9x64
+    else
+	echo "Using MSVC ver 9"
+	. msvcset local 9
+    fi
+fi 
+echo "Using compiler located at:" `which cl.exe`
 
 
 # untar the source 
@@ -133,10 +144,12 @@ case $PYVER in
     23 | 2.3) VER=23; shift ;;
     24 | 2.4) VER=24; shift ;;
     25 | 2.5) VER=25; shift ;;
-    26 | 2.5) VER=26; shift ;;
+    26 | 2.6) VER=26; shift ;;
 
     *) 	VER=25
 esac
+
+# export DISTUTILS_DEBUG=1
 
 PYTHON=$TOOLS/python$VER/python.exe
 mkdir -p dist
