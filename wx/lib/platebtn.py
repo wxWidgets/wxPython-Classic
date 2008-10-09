@@ -102,7 +102,7 @@ def AdjustColour(color, percent, alpha=wx.ALPHA_OPAQUE):
     """ Brighten/Darken input colour by percent and adjust alpha
     channel if needed. Returns the modified color.
     @param color: color object to adjust
-    @type color: wx.Color
+    @type color: wx.Colour
     @param percent: percent to adjust +(brighten) or -(darken)
     @type percent: int
     @keyword alpha: amount to adjust alpha channel
@@ -140,7 +140,7 @@ def BestLabelColour(color):
 
 def GetHighlightColour():
     """Get the default highlight color
-    @return: wx.Color
+    @return: wx.Colour
 
     """
     if wx.Platform == '__WXMAC__':
@@ -593,7 +593,7 @@ class PlateButton(wx.PyControl):
         wx.PyControl.SetLabel(self, label)
         self.InvalidateBestSize()
 
-    def SetLabelColor(self, normal, hlight=wx.NullColor, press=wx.NullColor):
+    def SetLabelColor(self, normal, hlight=wx.NullColour, press=wx.NullColour):
         """Set the color of the label. The optimal label color is usually
         automatically selected depending on the button color. In some
         cases the colors that are choosen may not be optimal.
@@ -641,7 +641,7 @@ class PlateButton(wx.PyControl):
 
     def SetPressColor(self, color):
         """Set the color used for highlighting the pressed state
-        @param color: wx.Color
+        @param color: wx.Colour
         @note: also resets all text colours as necessary
 
         """
