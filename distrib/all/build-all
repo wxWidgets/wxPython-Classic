@@ -50,23 +50,20 @@ def getTasks(config_env):
     # task.
     
 
-    tigerTask =  Task([ #Job("smallfry.23",
-                        #    "distrib/all/build-osx",
-                        #    [config.OSX_HOST_tiger, "2.3", "both"], env=config_env),
-                        Job("smallfry.24",
-                            "distrib/all/build-osx",
-                            [config.OSX_HOST_tiger, "2.4", "both"], env=config_env),
-                        Job("smallfry.25",
-                            "distrib/all/build-osx",
-                            [config.OSX_HOST_tiger, "2.5", "both"], env=config_env)
-                    ])
+    tigerTask =  Task([
+        #Job("smallfry.23", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.3", "both"], env=config_env),
+        Job("smallfry.24", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.4", "both"], env=config_env),
+        Job("smallfry.25", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.5", "both"], env=config_env),
+        Job("smallfry.26", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.6", "both"], env=config_env),
+        ])
 
     
-    beastTask1 = Task(
-        [ Job("beast.23",     "distrib/all/build-windows", ["2.3"], env=config_env),
-          Job("beast.24",     "distrib/all/build-windows", ["2.4"], env=config_env),
-          Job("beast.25",     "distrib/all/build-windows", ["2.5"], env=config_env),
-          ])
+    beastTask1 = Task([
+        Job("beast.23",     "distrib/all/build-windows", ["2.3"], env=config_env),
+        Job("beast.24",     "distrib/all/build-windows", ["2.4"], env=config_env),
+        Job("beast.25",     "distrib/all/build-windows", ["2.5"], env=config_env),
+        Job("beast.26",     "distrib/all/build-windows", ["2.6"], env=config_env),
+        ])
     
 
     cyclopsTask1 = Task([
@@ -76,18 +73,18 @@ def getTasks(config_env):
         Job("cyclops.feisty64", "distrib/all/build-deb", ["cyclops", "/work/chroot/feisty64", "feisty64"], env=config_env),
         Job("cyclops.fc6", "distrib/all/build-chrpm",  ["cyclops", "/work/chroot/fc6", "fc6", "fc6", "2.4"], env=config_env),
         Job("cyclops.fc7", "distrib/all/build-chrpm",  ["cyclops", "/work/chroot/fc7", "fc7", "fc7", "2.5"], env=config_env),
-        Job("cyclops.etch64", "distrib/all/build-deb", ["cyclops", "/work/chroot/etch64",   "etch64"], env=config_env),
         ])
 
     cyclopsTask2 = Task([
-        Job("cyclops.win64", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.5", "AMD64"], env=config_env),
+        Job("cyclops.win64-25", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.5", "AMD64"], env=config_env),
+        Job("cyclops.win64-26", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.6", "AMD64"], env=config_env),
         Job("cyclops.gutsy",   "distrib/all/build-deb", ["cyclops", "/work/chroot/gutsy",   "gutsy"], env=config_env),
         Job("cyclops.gutsy64", "distrib/all/build-deb", ["cyclops", "/work/chroot/gutsy64", "gutsy64"], env=config_env),
         Job("cyclops.etch",   "distrib/all/build-deb", ["cyclops", "/work/chroot/etch",     "etch"], env=config_env),
+        Job("cyclops.etch64", "distrib/all/build-deb", ["cyclops", "/work/chroot/etch64",   "etch64"], env=config_env),
         ])
 
-    buildTasks = [
-                   tigerTask,
+    buildTasks = [ tigerTask,
                    beastTask1,
                    cyclopsTask1,
                    cyclopsTask2,
