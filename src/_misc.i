@@ -434,6 +434,65 @@ public:
 
 
 //---------------------------------------------------------------------------
+
+%{
+#include <wx/notifmsg.h>
+%}
+
+
+class wxNotificationMessage : public wxEvthandler
+{
+public:
+    %nokwargs wxNotificationMessage;
+    wxNotificationMessage();
+    wxNotificationMessage(const wxString& title,
+                          const wxString& message = wxEmptyString,
+                          wxWindow *parent = NULL);
+    virtual ~wxNotificationMessage();
+
+
+   // set the title: short string, markup not allowed
+    void SetTitle(const wxString& title);
+
+    // set the text of the message: this is a longer string than the title and
+    // some platforms allow simple HTML-like markup in it
+    void SetMessage(const wxString& message);
+
+    // set the parent for this notification: we'll be associated with the top
+    // level parent of this window or, if this method is not called, with the
+    // main application window by default
+    void SetParent(wxWindow *parent);
+
+    // this method can currently be used to choose a standard icon to use: the
+    // parameter may be one of wxICON_INFORMATION, wxICON_WARNING or
+    // wxICON_ERROR only (but not wxICON_QUESTION)
+    void SetFlags(int flags);
+
+
+    // showing and hiding
+    // ------------------
+
+    // possible values for Show() timeout
+    enum
+    {
+        Timeout_Auto = -1,  // notification will be hidden automatically
+        Timeout_Never = 0   // notification will never time out
+    };
+
+    // show the notification to the user and hides it after timeout seconds
+    // pass (special values Timeout_Auto and Timeout_Never can be used)
+    //
+    // returns false if an error occurred
+    virtual bool Show(int timeout = Timeout_Auto);
+
+    // hide the notification, returns true if it was hidden or false if it
+    // couldn't be done (e.g. on some systems automatically hidden
+    // notifications can't be hidden manually)
+    virtual bool Close();
+};
+
+
+//---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 // Experimental...
 

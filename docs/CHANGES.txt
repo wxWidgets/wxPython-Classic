@@ -1,7 +1,6 @@
 Recent Changes for wxPython
 =====================================================================
 
-
 2.9.0.0
 -------
 * 
@@ -122,13 +121,24 @@ things like set holidays or change the attributes of specific days in
 the calendar then please change your code to use the GenericCalendarCtrl 
 class instead.
 
+Added wx.NotificationMessage.
+
+
+
+
+
+2.8.9.1
+-------
+* 28-Sep-2008
+
+Fixed a Python 2.4 compatibility issue in the Editra code.
 
 
 
 
 2.8.9.0
 -------
-* 
+* 28-Sep-2008
 
 Many minor bug fixes throughout wxWidgets and wxPython.
 
@@ -138,7 +148,7 @@ Fixed PseudoDC hit testing when pure white or pure black are used.
 
 Added support for a 64-bit Windows build for the AMD64 architecture,
 (a.k.a. x64.)  This is for Python 2.5 only and is available only as a
-Unicode buld.
+Unicode build.
 
 Added the wx.EmptyBitmapRGBA factory function.
 
@@ -175,7 +185,8 @@ currently allowed buffer formats.  The existing wx.BitmapFromBuffer
 factory functions are also now implemented using the same underlying
 code as CopyFromBuffer.
 
-
+Add wx.lib.mixins.listctrl.ListRowHighlighter for automatic highlighting
+of rows in a wx.ListCtrl.
 
 
 
@@ -261,11 +272,11 @@ Copied the sized_controls module to the wx.lib package as the first
 step of phasing out the wxaddons package.
 
 Added an implementation of wx.Window.SetDoubleBuffered on Windows.
-(GTK already has one, and Mac doesn't need one becase everything is
+(GTK already has one, and Mac doesn't need one because everything is
 always double buffered by the system there.)
 
 Added a wrapper to wx.TopLevelWindow for MacGetTopLevelWindowRef to
-faciliate calling the Carbon APIs directly for things that are not
+facilitate calling the Carbon APIs directly for things that are not
 supported in wx, similar to how we can use ctypes or PyWin32 with
 window.GetHandle() to do custom stuff on Windows.  (On wxMac GetHandle
 returns the ControlRef, which is different than the WindowRef, hence
@@ -283,7 +294,8 @@ available from http://starship.python.net/crew/theller/comtypes/.
 Comtypes allows us to use and provide an interface with full dynamic
 dispatch abilities, much like PyWin32's COM interfaces but with much
 reduced external dependencies.  See wx/lib/activex.py for more
-details.
+details.  IMPORTANT: Be sure to get at least version 0.5 of comtypes,
+see the docstring in the wx.lib.activex module for details.
 
 The wx.lib.iewin, wx.lib.pdfwin, and wx.lib.flashwin modules were
 switched to use the new and improved activex module.  The APIs
@@ -292,7 +304,7 @@ there before, except for how the COM events are handled.  Instead of
 sending wx events it relies on you overriding methods with the same
 names as the COM events.  You can either do it in a or derived class,
 or you can set an instance of some other class to be the event sink.
-See the ActivX_IEHtmlWindow sample in the demo for an example.  If you
+See the ActiveX_IEHtmlWindow sample in the demo for an example.  If you
 would rather continue to use the old version of these modules they
 are available in the wx.lib with "_old" added to the names.
 
@@ -302,6 +314,7 @@ panel that provides a resize handle for the widget. When the user
 drags the resize handle the widget is resized accordingly, and an
 event is sent to notify parents that they should recalculate their
 layout.
+
 
 
 
@@ -478,7 +491,7 @@ for each OS version, all builds are now Universal and work on both
 Panther and Tiger, and on PPC and i386.
 
 On the Linux side the debian and ubuntu packages will support multiple
-versions of Python if the Debian/Ubuntu release is setup to support
+versions of Python if the Debian/Ubuntu release is set up to support
 more than one version.  To check which versions you can expect to get
 you can run "pyversions -s".  Also there is a new package available
 that contains a debug version of the wxPython extension modules, that
@@ -668,6 +681,7 @@ Lots of changes to XRCed from Roman Rolinsky:
   *  Fix for dealing with empty 'growable' property, using MiniFrame
      for properties panel, the panel is restored together with the
      main window.
+
 
 
 
