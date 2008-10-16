@@ -57,7 +57,7 @@ demo/data/locale/es/LC_MESSAGES
 demo/data/locale/fr/LC_MESSAGES
 demo/data/locale/it/LC_MESSAGES
 demo/dllwidget
-deno/snippets
+demo/snippets
 distrib
 distrib/all
 distrib/mac
