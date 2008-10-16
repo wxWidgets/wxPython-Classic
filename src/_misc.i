@@ -440,7 +440,7 @@ public:
 %}
 
 
-class wxNotificationMessage : public wxEvthandler
+class wxNotificationMessage : public wxEvtHandler
 {
 public:
     %nokwargs wxNotificationMessage;
