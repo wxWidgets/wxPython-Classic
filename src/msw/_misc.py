@@ -1125,6 +1125,46 @@ class PlatformInformation(object):
     ToolkitMinorVersion = property(GetToolkitMinorVersion,doc="See `GetToolkitMinorVersion`") 
 _misc_.PlatformInformation_swigregister(PlatformInformation)
 
+class NotificationMessage(_core.EvtHandler):
+    """Proxy of C++ NotificationMessage class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        """
+        __init__(self) -> NotificationMessage
+        __init__(self, String title, String message=wxEmptyString, Window parent=None) -> NotificationMessage
+        """
+        _misc_.NotificationMessage_swiginit(self,_misc_.new_NotificationMessage(*args))
+    __swig_destroy__ = _misc_.delete_NotificationMessage
+    __del__ = lambda self : None;
+    def SetTitle(*args, **kwargs):
+        """SetTitle(self, String title)"""
+        return _misc_.NotificationMessage_SetTitle(*args, **kwargs)
+
+    def SetMessage(*args, **kwargs):
+        """SetMessage(self, String message)"""
+        return _misc_.NotificationMessage_SetMessage(*args, **kwargs)
+
+    def SetParent(*args, **kwargs):
+        """SetParent(self, Window parent)"""
+        return _misc_.NotificationMessage_SetParent(*args, **kwargs)
+
+    def SetFlags(*args, **kwargs):
+        """SetFlags(self, int flags)"""
+        return _misc_.NotificationMessage_SetFlags(*args, **kwargs)
+
+    Timeout_Auto = _misc_.NotificationMessage_Timeout_Auto
+    Timeout_Never = _misc_.NotificationMessage_Timeout_Never
+    def Show(*args, **kwargs):
+        """Show(self, int timeout=Timeout_Auto) -> bool"""
+        return _misc_.NotificationMessage_Show(*args, **kwargs)
+
+    def Close(*args, **kwargs):
+        """Close(self) -> bool"""
+        return _misc_.NotificationMessage_Close(*args, **kwargs)
+
+_misc_.NotificationMessage_swigregister(NotificationMessage)
+
 #---------------------------------------------------------------------------
 
 class TipProvider(object):
@@ -2683,6 +2723,16 @@ class ArtProvider(object):
         return _misc_.ArtProvider_GetIconBundle(*args, **kwargs)
 
     GetIconBundle = staticmethod(GetIconBundle)
+    def GetNativeSizeHint(*args, **kwargs):
+        """
+        GetNativeSizeHint(wxArtClient client) -> Size
+
+        Gets native size for given 'client' or wxDefaultSize if it doesn't
+        have native equivalent.
+        """
+        return _misc_.ArtProvider_GetNativeSizeHint(*args, **kwargs)
+
+    GetNativeSizeHint = staticmethod(GetNativeSizeHint)
     def GetSizeHint(*args, **kwargs):
         """
         GetSizeHint(String client, bool platform_dependent=False) -> Size
@@ -2845,6 +2895,15 @@ def ArtProvider_GetIconBundle(*args, **kwargs):
     wx.NullIconBundle if no provider provides it.
     """
   return _misc_.ArtProvider_GetIconBundle(*args, **kwargs)
+
+def ArtProvider_GetNativeSizeHint(*args, **kwargs):
+  """
+    ArtProvider_GetNativeSizeHint(wxArtClient client) -> Size
+
+    Gets native size for given 'client' or wxDefaultSize if it doesn't
+    have native equivalent.
+    """
+  return _misc_.ArtProvider_GetNativeSizeHint(*args, **kwargs)
 
 def ArtProvider_GetSizeHint(*args, **kwargs):
   """

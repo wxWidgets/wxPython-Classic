@@ -1445,22 +1445,6 @@ class Grid(_windows.ScrolledWindow):
         """GetColLabelValue(self, int col) -> String"""
         return _grid.Grid_GetColLabelValue(*args, **kwargs)
 
-    def GetGridLineColour(*args, **kwargs):
-        """GetGridLineColour(self) -> Colour"""
-        return _grid.Grid_GetGridLineColour(*args, **kwargs)
-
-    def GetDefaultGridLinePen(*args, **kwargs):
-        """GetDefaultGridLinePen(self) -> wxPen"""
-        return _grid.Grid_GetDefaultGridLinePen(*args, **kwargs)
-
-    def GetRowGridLinePen(*args, **kwargs):
-        """GetRowGridLinePen(self, int row) -> wxPen"""
-        return _grid.Grid_GetRowGridLinePen(*args, **kwargs)
-
-    def GetColGridLinePen(*args, **kwargs):
-        """GetColGridLinePen(self, int col) -> wxPen"""
-        return _grid.Grid_GetColGridLinePen(*args, **kwargs)
-
     def GetCellHighlightColour(*args, **kwargs):
         """GetCellHighlightColour(self) -> Colour"""
         return _grid.Grid_GetCellHighlightColour(*args, **kwargs)
@@ -1524,10 +1508,6 @@ class Grid(_windows.ScrolledWindow):
     def SetColLabelValue(*args, **kwargs):
         """SetColLabelValue(self, int col, String ?)"""
         return _grid.Grid_SetColLabelValue(*args, **kwargs)
-
-    def SetGridLineColour(*args, **kwargs):
-        """SetGridLineColour(self, Colour ?)"""
-        return _grid.Grid_SetGridLineColour(*args, **kwargs)
 
     def SetCellHighlightColour(*args, **kwargs):
         """SetCellHighlightColour(self, Colour ?)"""
@@ -1601,6 +1581,50 @@ class Grid(_windows.ScrolledWindow):
         """CanDragCell(self) -> bool"""
         return _grid.Grid_CanDragCell(*args, **kwargs)
 
+    def EnableGridLines(*args, **kwargs):
+        """EnableGridLines(self, bool enable=True)"""
+        return _grid.Grid_EnableGridLines(*args, **kwargs)
+
+    def GridLinesEnabled(*args, **kwargs):
+        """GridLinesEnabled(self) -> bool"""
+        return _grid.Grid_GridLinesEnabled(*args, **kwargs)
+
+    def ClipHorzGridLines(*args, **kwargs):
+        """ClipHorzGridLines(self, bool clip)"""
+        return _grid.Grid_ClipHorzGridLines(*args, **kwargs)
+
+    def ClipVertGridLines(*args, **kwargs):
+        """ClipVertGridLines(self, bool clip)"""
+        return _grid.Grid_ClipVertGridLines(*args, **kwargs)
+
+    def AreHorzGridLinesClipped(*args, **kwargs):
+        """AreHorzGridLinesClipped(self) -> bool"""
+        return _grid.Grid_AreHorzGridLinesClipped(*args, **kwargs)
+
+    def AreVertGridLinesClipped(*args, **kwargs):
+        """AreVertGridLinesClipped(self) -> bool"""
+        return _grid.Grid_AreVertGridLinesClipped(*args, **kwargs)
+
+    def SetGridLineColour(*args, **kwargs):
+        """SetGridLineColour(self, Colour col)"""
+        return _grid.Grid_SetGridLineColour(*args, **kwargs)
+
+    def GetGridLineColour(*args, **kwargs):
+        """GetGridLineColour(self) -> Colour"""
+        return _grid.Grid_GetGridLineColour(*args, **kwargs)
+
+    def GetDefaultGridLinePen(*args, **kwargs):
+        """GetDefaultGridLinePen(self) -> wxPen"""
+        return _grid.Grid_GetDefaultGridLinePen(*args, **kwargs)
+
+    def GetRowGridLinePen(*args, **kwargs):
+        """GetRowGridLinePen(self, int row) -> wxPen"""
+        return _grid.Grid_GetRowGridLinePen(*args, **kwargs)
+
+    def GetColGridLinePen(*args, **kwargs):
+        """GetColGridLinePen(self, int col) -> wxPen"""
+        return _grid.Grid_GetColGridLinePen(*args, **kwargs)
+
     def SetAttr(*args, **kwargs):
         """SetAttr(self, int row, int col, GridCellAttr attr)"""
         return _grid.Grid_SetAttr(*args, **kwargs)
@@ -1632,14 +1656,6 @@ class Grid(_windows.ScrolledWindow):
     def SetColFormatCustom(*args, **kwargs):
         """SetColFormatCustom(self, int col, String typeName)"""
         return _grid.Grid_SetColFormatCustom(*args, **kwargs)
-
-    def EnableGridLines(*args, **kwargs):
-        """EnableGridLines(self, bool enable=True)"""
-        return _grid.Grid_EnableGridLines(*args, **kwargs)
-
-    def GridLinesEnabled(*args, **kwargs):
-        """GridLinesEnabled(self) -> bool"""
-        return _grid.Grid_GridLinesEnabled(*args, **kwargs)
 
     def GetDefaultRowSize(*args, **kwargs):
         """GetDefaultRowSize(self) -> int"""

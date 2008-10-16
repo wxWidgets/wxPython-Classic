@@ -25725,11 +25725,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "RICHTEXT_VARIABLE_HEIGHT",SWIG_From_int(static_cast< int >(wxRICHTEXT_VARIABLE_HEIGHT)));
   SWIG_Python_SetConstant(d, "RICHTEXT_LAYOUT_SPECIFIED_RECT",SWIG_From_int(static_cast< int >(wxRICHTEXT_LAYOUT_SPECIFIED_RECT)));
   SWIG_Python_SetConstant(d, "RICHTEXT_DRAW_IGNORE_CACHE",SWIG_From_int(static_cast< int >(wxRICHTEXT_DRAW_IGNORE_CACHE)));
-  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_NONE",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_NONE)));
-  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_BEFORE",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_BEFORE)));
-  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_AFTER",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_AFTER)));
-  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_ON",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_ON)));
-  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_OUTSIDE",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_OUTSIDE)));
   SWIG_Python_SetConstant(d, "RICHTEXT_FORMATTED",SWIG_From_int(static_cast< int >(wxRICHTEXT_FORMATTED)));
   SWIG_Python_SetConstant(d, "RICHTEXT_UNFORMATTED",SWIG_From_int(static_cast< int >(wxRICHTEXT_UNFORMATTED)));
   SWIG_Python_SetConstant(d, "RICHTEXT_CACHE_SIZE",SWIG_From_int(static_cast< int >(wxRICHTEXT_CACHE_SIZE)));
@@ -25747,6 +25742,11 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "RICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE",SWIG_From_int(static_cast< int >(wxRICHTEXT_INSERT_WITH_PREVIOUS_PARAGRAPH_STYLE)));
   SWIG_Python_SetConstant(d, "RICHTEXT_INSERT_INTERACTIVE",SWIG_From_int(static_cast< int >(wxRICHTEXT_INSERT_INTERACTIVE)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_KEEP_FIRST_PARA_STYLE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_KEEP_FIRST_PARA_STYLE)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_NONE",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_NONE)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_BEFORE",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_BEFORE)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_AFTER",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_AFTER)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_ON",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_ON)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_OUTSIDE",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_OUTSIDE)));
   PyDict_SetItemString(d,(char*)"cvar", SWIG_globals());
   SWIG_addvarlink(SWIG_globals(),(char*)"RICHTEXT_ALL",RICHTEXT_ALL_get, RICHTEXT_ALL_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"RICHTEXT_NONE",RICHTEXT_NONE_get, RICHTEXT_NONE_set);

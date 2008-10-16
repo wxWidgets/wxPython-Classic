@@ -13364,140 +13364,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Grid_GetGridLineColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxGrid *arg1 = (wxGrid *) 0 ;
-  wxColour result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GetGridLineColour" "', expected argument " "1"" of type '" "wxGrid *""'"); 
-  }
-  arg1 = reinterpret_cast< wxGrid * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetGridLineColour();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxColour(static_cast< const wxColour& >(result))), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Grid_GetDefaultGridLinePen(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxGrid *arg1 = (wxGrid *) 0 ;
-  wxPen result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GetDefaultGridLinePen" "', expected argument " "1"" of type '" "wxGrid *""'"); 
-  }
-  arg1 = reinterpret_cast< wxGrid * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetDefaultGridLinePen();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxPen(static_cast< const wxPen& >(result))), SWIGTYPE_p_wxPen, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Grid_GetRowGridLinePen(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxGrid *arg1 = (wxGrid *) 0 ;
-  int arg2 ;
-  wxPen result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "row", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_GetRowGridLinePen",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GetRowGridLinePen" "', expected argument " "1"" of type '" "wxGrid *""'"); 
-  }
-  arg1 = reinterpret_cast< wxGrid * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_GetRowGridLinePen" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetRowGridLinePen(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxPen(static_cast< const wxPen& >(result))), SWIGTYPE_p_wxPen, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Grid_GetColGridLinePen(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxGrid *arg1 = (wxGrid *) 0 ;
-  int arg2 ;
-  wxPen result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "col", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_GetColGridLinePen",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GetColGridLinePen" "', expected argument " "1"" of type '" "wxGrid *""'"); 
-  }
-  arg1 = reinterpret_cast< wxGrid * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_GetColGridLinePen" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetColGridLinePen(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxPen(static_cast< const wxPen& >(result))), SWIGTYPE_p_wxPen, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_Grid_GetCellHighlightColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxGrid *arg1 = (wxGrid *) 0 ;
@@ -14105,42 +13971,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Grid_SetGridLineColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxGrid *arg1 = (wxGrid *) 0 ;
-  wxColour *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  wxColour temp2 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *)"arg2", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_SetGridLineColour",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_SetGridLineColour" "', expected argument " "1"" of type '" "wxGrid *""'"); 
-  }
-  arg1 = reinterpret_cast< wxGrid * >(argp1);
-  {
-    arg2 = &temp2;
-    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetGridLineColour((wxColour const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_Grid_SetCellHighlightColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxGrid *arg1 = (wxGrid *) 0 ;
@@ -14738,6 +14568,382 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Grid_EnableGridLines(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  bool arg2 = (bool) true ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "enable", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:Grid_EnableGridLines",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_EnableGridLines" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_bool(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_EnableGridLines" "', expected argument " "2"" of type '" "bool""'");
+    } 
+    arg2 = static_cast< bool >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->EnableGridLines(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_GridLinesEnabled(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GridLinesEnabled" "', expected argument " "1"" of type '" "wxGrid const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxGrid const *)arg1)->GridLinesEnabled();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_ClipHorzGridLines(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "clip", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_ClipHorzGridLines",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_ClipHorzGridLines" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_ClipHorzGridLines" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->ClipHorzGridLines(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_ClipVertGridLines(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "clip", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_ClipVertGridLines",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_ClipVertGridLines" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_ClipVertGridLines" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->ClipVertGridLines(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_AreHorzGridLinesClipped(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_AreHorzGridLinesClipped" "', expected argument " "1"" of type '" "wxGrid const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxGrid const *)arg1)->AreHorzGridLinesClipped();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_AreVertGridLinesClipped(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_AreVertGridLinesClipped" "', expected argument " "1"" of type '" "wxGrid const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxGrid const *)arg1)->AreVertGridLinesClipped();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_SetGridLineColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  wxColour *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxColour temp2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "col", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_SetGridLineColour",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_SetGridLineColour" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetGridLineColour((wxColour const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_GetGridLineColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  wxColour result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GetGridLineColour" "', expected argument " "1"" of type '" "wxGrid const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxGrid const *)arg1)->GetGridLineColour();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxColour(static_cast< const wxColour& >(result))), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_GetDefaultGridLinePen(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  wxPen result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GetDefaultGridLinePen" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (arg1)->GetDefaultGridLinePen();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxPen(static_cast< const wxPen& >(result))), SWIGTYPE_p_wxPen, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_GetRowGridLinePen(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  int arg2 ;
+  wxPen result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "row", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_GetRowGridLinePen",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GetRowGridLinePen" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_GetRowGridLinePen" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (arg1)->GetRowGridLinePen(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxPen(static_cast< const wxPen& >(result))), SWIGTYPE_p_wxPen, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_GetColGridLinePen(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  int arg2 ;
+  wxPen result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "col", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_GetColGridLinePen",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GetColGridLinePen" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_GetColGridLinePen" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (arg1)->GetColGridLinePen(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxPen(static_cast< const wxPen& >(result))), SWIGTYPE_p_wxPen, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Grid_SetAttr(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxGrid *arg1 = (wxGrid *) 0 ;
@@ -15124,76 +15330,6 @@ fail:
     if (temp3)
     delete arg3;
   }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Grid_EnableGridLines(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxGrid *arg1 = (wxGrid *) 0 ;
-  bool arg2 = (bool) true ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "enable", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:Grid_EnableGridLines",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_EnableGridLines" "', expected argument " "1"" of type '" "wxGrid *""'"); 
-  }
-  arg1 = reinterpret_cast< wxGrid * >(argp1);
-  if (obj1) {
-    ecode2 = SWIG_AsVal_bool(obj1, &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Grid_EnableGridLines" "', expected argument " "2"" of type '" "bool""'");
-    } 
-    arg2 = static_cast< bool >(val2);
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->EnableGridLines(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Grid_GridLinesEnabled(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxGrid *arg1 = (wxGrid *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_GridLinesEnabled" "', expected argument " "1"" of type '" "wxGrid *""'"); 
-  }
-  arg1 = reinterpret_cast< wxGrid * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GridLinesEnabled();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
   return NULL;
 }
 
@@ -21042,10 +21178,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Grid_GetColLabelTextOrientation", (PyCFunction)_wrap_Grid_GetColLabelTextOrientation, METH_O, NULL},
 	 { (char *)"Grid_GetRowLabelValue", (PyCFunction) _wrap_Grid_GetRowLabelValue, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_GetColLabelValue", (PyCFunction) _wrap_Grid_GetColLabelValue, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Grid_GetGridLineColour", (PyCFunction)_wrap_Grid_GetGridLineColour, METH_O, NULL},
-	 { (char *)"Grid_GetDefaultGridLinePen", (PyCFunction)_wrap_Grid_GetDefaultGridLinePen, METH_O, NULL},
-	 { (char *)"Grid_GetRowGridLinePen", (PyCFunction) _wrap_Grid_GetRowGridLinePen, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Grid_GetColGridLinePen", (PyCFunction) _wrap_Grid_GetColGridLinePen, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_GetCellHighlightColour", (PyCFunction)_wrap_Grid_GetCellHighlightColour, METH_O, NULL},
 	 { (char *)"Grid_GetCellHighlightPenWidth", (PyCFunction)_wrap_Grid_GetCellHighlightPenWidth, METH_O, NULL},
 	 { (char *)"Grid_GetCellHighlightROPenWidth", (PyCFunction)_wrap_Grid_GetCellHighlightROPenWidth, METH_O, NULL},
@@ -21062,7 +21194,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Grid_SetColLabelTextOrientation", (PyCFunction) _wrap_Grid_SetColLabelTextOrientation, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetRowLabelValue", (PyCFunction) _wrap_Grid_SetRowLabelValue, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetColLabelValue", (PyCFunction) _wrap_Grid_SetColLabelValue, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Grid_SetGridLineColour", (PyCFunction) _wrap_Grid_SetGridLineColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetCellHighlightColour", (PyCFunction) _wrap_Grid_SetCellHighlightColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetCellHighlightPenWidth", (PyCFunction) _wrap_Grid_SetCellHighlightPenWidth, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetCellHighlightROPenWidth", (PyCFunction) _wrap_Grid_SetCellHighlightROPenWidth, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -21081,6 +21212,17 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Grid_EnableDragCell", (PyCFunction) _wrap_Grid_EnableDragCell, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_DisableDragCell", (PyCFunction)_wrap_Grid_DisableDragCell, METH_O, NULL},
 	 { (char *)"Grid_CanDragCell", (PyCFunction)_wrap_Grid_CanDragCell, METH_O, NULL},
+	 { (char *)"Grid_EnableGridLines", (PyCFunction) _wrap_Grid_EnableGridLines, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_GridLinesEnabled", (PyCFunction)_wrap_Grid_GridLinesEnabled, METH_O, NULL},
+	 { (char *)"Grid_ClipHorzGridLines", (PyCFunction) _wrap_Grid_ClipHorzGridLines, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_ClipVertGridLines", (PyCFunction) _wrap_Grid_ClipVertGridLines, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_AreHorzGridLinesClipped", (PyCFunction)_wrap_Grid_AreHorzGridLinesClipped, METH_O, NULL},
+	 { (char *)"Grid_AreVertGridLinesClipped", (PyCFunction)_wrap_Grid_AreVertGridLinesClipped, METH_O, NULL},
+	 { (char *)"Grid_SetGridLineColour", (PyCFunction) _wrap_Grid_SetGridLineColour, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_GetGridLineColour", (PyCFunction)_wrap_Grid_GetGridLineColour, METH_O, NULL},
+	 { (char *)"Grid_GetDefaultGridLinePen", (PyCFunction)_wrap_Grid_GetDefaultGridLinePen, METH_O, NULL},
+	 { (char *)"Grid_GetRowGridLinePen", (PyCFunction) _wrap_Grid_GetRowGridLinePen, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_GetColGridLinePen", (PyCFunction) _wrap_Grid_GetColGridLinePen, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetAttr", (PyCFunction) _wrap_Grid_SetAttr, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetRowAttr", (PyCFunction) _wrap_Grid_SetRowAttr, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetColAttr", (PyCFunction) _wrap_Grid_SetColAttr, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -21089,8 +21231,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Grid_SetColFormatNumber", (PyCFunction) _wrap_Grid_SetColFormatNumber, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetColFormatFloat", (PyCFunction) _wrap_Grid_SetColFormatFloat, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_SetColFormatCustom", (PyCFunction) _wrap_Grid_SetColFormatCustom, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Grid_EnableGridLines", (PyCFunction) _wrap_Grid_EnableGridLines, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Grid_GridLinesEnabled", (PyCFunction)_wrap_Grid_GridLinesEnabled, METH_O, NULL},
 	 { (char *)"Grid_GetDefaultRowSize", (PyCFunction)_wrap_Grid_GetDefaultRowSize, METH_O, NULL},
 	 { (char *)"Grid_GetRowSize", (PyCFunction) _wrap_Grid_GetRowSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_GetDefaultColSize", (PyCFunction)_wrap_Grid_GetDefaultColSize, METH_O, NULL},

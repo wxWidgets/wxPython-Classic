@@ -52936,6 +52936,43 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Control_FindAccelIndex(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxString *arg1 = 0 ;
+  int result;
+  bool temp1 = false ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "label", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:Control_FindAccelIndex",kwnames,&obj0)) SWIG_fail;
+  {
+    arg1 = wxString_in_helper(obj0);
+    if (arg1 == NULL) SWIG_fail;
+    temp1 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)wxControl::FindAccelIndex((wxString const &)*arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  {
+    if (temp1)
+    delete arg1;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp1)
+    delete arg1;
+  }
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Control_GetClassDefaultAttributes(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxWindowVariant arg1 = (wxWindowVariant) wxWINDOW_VARIANT_NORMAL ;
@@ -67683,6 +67720,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Control_GetLabelText", (PyCFunction)_wrap_Control_GetLabelText, METH_O, NULL},
 	 { (char *)"Control_Command", (PyCFunction) _wrap_Control_Command, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Control_RemoveMnemonics", (PyCFunction) _wrap_Control_RemoveMnemonics, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Control_FindAccelIndex", (PyCFunction) _wrap_Control_FindAccelIndex, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Control_GetClassDefaultAttributes", (PyCFunction) _wrap_Control_GetClassDefaultAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Control_swigregister", Control_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Control_swiginit", Control_swiginit, METH_VARARGS, NULL},

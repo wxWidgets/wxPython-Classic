@@ -2098,34 +2098,34 @@ class AuiToolBar(_core.Control):
     def AddTool(*args):
         """
         AddTool(self, int tool_id, String label, Bitmap bitmap, String short_help_string=wxEmptyString, 
-            int kind=ITEM_NORMAL)
+            int kind=ITEM_NORMAL) -> AuiToolBarItem
         AddTool(self, int tool_id, String label, Bitmap bitmap, Bitmap disabled_bitmap, 
             int kind, String short_help_string, 
-            String long_help_string, Object client_data)
+            String long_help_string, Object client_data) -> AuiToolBarItem
         AddTool(self, int tool_id, Bitmap bitmap, Bitmap disabled_bitmap, 
             bool toggle=False, Object client_data=None, 
-            String short_help_string=wxEmptyString, String long_help_string=wxEmptyString)
+            String short_help_string=wxEmptyString, String long_help_string=wxEmptyString) -> AuiToolBarItem
         """
         return _aui.AuiToolBar_AddTool(*args)
 
     def AddLabel(*args, **kwargs):
-        """AddLabel(self, int tool_id, String label=wxEmptyString, int width=-1)"""
+        """AddLabel(self, int tool_id, String label=wxEmptyString, int width=-1) -> AuiToolBarItem"""
         return _aui.AuiToolBar_AddLabel(*args, **kwargs)
 
     def AddControl(*args, **kwargs):
-        """AddControl(self, Control control, String label=wxEmptyString)"""
+        """AddControl(self, Control control, String label=wxEmptyString) -> AuiToolBarItem"""
         return _aui.AuiToolBar_AddControl(*args, **kwargs)
 
     def AddSeparator(*args, **kwargs):
-        """AddSeparator(self)"""
+        """AddSeparator(self) -> AuiToolBarItem"""
         return _aui.AuiToolBar_AddSeparator(*args, **kwargs)
 
     def AddSpacer(*args, **kwargs):
-        """AddSpacer(self, int pixels)"""
+        """AddSpacer(self, int pixels) -> AuiToolBarItem"""
         return _aui.AuiToolBar_AddSpacer(*args, **kwargs)
 
     def AddStretchSpacer(*args, **kwargs):
-        """AddStretchSpacer(self, int proportion=1)"""
+        """AddStretchSpacer(self, int proportion=1) -> AuiToolBarItem"""
         return _aui.AuiToolBar_AddStretchSpacer(*args, **kwargs)
 
     def Realize(*args, **kwargs):

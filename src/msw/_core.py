@@ -12353,6 +12353,15 @@ class Control(Window):
         return _core_.Control_RemoveMnemonics(*args, **kwargs)
 
     RemoveMnemonics = staticmethod(RemoveMnemonics)
+    def FindAccelIndex(*args, **kwargs):
+        """
+        FindAccelIndex(String label) -> int
+
+        Return the accel index in the string or -1 if none.
+        """
+        return _core_.Control_FindAccelIndex(*args, **kwargs)
+
+    FindAccelIndex = staticmethod(FindAccelIndex)
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -12392,6 +12401,14 @@ def Control_RemoveMnemonics(*args, **kwargs):
     removes the mnemonics characters
     """
   return _core_.Control_RemoveMnemonics(*args, **kwargs)
+
+def Control_FindAccelIndex(*args, **kwargs):
+  """
+    Control_FindAccelIndex(String label) -> int
+
+    Return the accel index in the string or -1 if none.
+    """
+  return _core_.Control_FindAccelIndex(*args, **kwargs)
 
 def Control_GetClassDefaultAttributes(*args, **kwargs):
   """

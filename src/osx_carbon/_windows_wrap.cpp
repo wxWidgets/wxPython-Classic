@@ -3292,6 +3292,8 @@ public:
     bool SetIcon(const wxIcon& icon, const wxString& tooltip = wxPyEmptyString) { return false; }
     bool RemoveIcon() { return false; }
     bool PopupMenu(wxMenu *menu) { return false; }
+
+    static bool IsAvailable() { return false; };
 };
 
 enum {
@@ -20458,6 +20460,26 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TaskBarIcon_IsAvailable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  bool result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"TaskBarIcon_IsAvailable",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxPyTaskBarIcon::IsAvailable();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *TaskBarIcon_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -36621,6 +36643,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TaskBarIcon_RemoveIcon", (PyCFunction)_wrap_TaskBarIcon_RemoveIcon, METH_O, NULL},
 	 { (char *)"TaskBarIcon_PopupMenu", (PyCFunction) _wrap_TaskBarIcon_PopupMenu, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TaskBarIcon_ShowBalloon", (PyCFunction) _wrap_TaskBarIcon_ShowBalloon, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TaskBarIcon_IsAvailable", (PyCFunction)_wrap_TaskBarIcon_IsAvailable, METH_NOARGS, NULL},
 	 { (char *)"TaskBarIcon_swigregister", TaskBarIcon_swigregister, METH_VARARGS, NULL},
 	 { (char *)"TaskBarIcon_swiginit", TaskBarIcon_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_TaskBarIconEvent", (PyCFunction) _wrap_new_TaskBarIconEvent, METH_VARARGS | METH_KEYWORDS, NULL},

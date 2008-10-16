@@ -21455,6 +21455,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddTool__SWIG_0(PyObject *SWIGUNUSEDPARM(s
   wxString const &arg5_defvalue = wxEmptyString ;
   wxString *arg5 = (wxString *) &arg5_defvalue ;
   wxItemKind arg6 = (wxItemKind) wxITEM_NORMAL ;
+  wxAuiToolBarItem *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -21506,11 +21507,11 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddTool__SWIG_0(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AddTool(arg2,(wxString const &)*arg3,(wxBitmap const &)*arg4,(wxString const &)*arg5,arg6);
+    result = (wxAuiToolBarItem *)(arg1)->AddTool(arg2,(wxString const &)*arg3,(wxBitmap const &)*arg4,(wxString const &)*arg5,arg6);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiToolBarItem, 0 |  0 );
   {
     if (temp3)
     delete arg3;
@@ -21544,6 +21545,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddTool__SWIG_1(PyObject *SWIGUNUSEDPARM(s
   wxString *arg7 = 0 ;
   wxString *arg8 = 0 ;
   wxObject *arg9 = (wxObject *) 0 ;
+  wxAuiToolBarItem *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -21614,11 +21616,11 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddTool__SWIG_1(PyObject *SWIGUNUSEDPARM(s
   arg9 = reinterpret_cast< wxObject * >(argp9);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AddTool(arg2,(wxString const &)*arg3,(wxBitmap const &)*arg4,(wxBitmap const &)*arg5,arg6,(wxString const &)*arg7,(wxString const &)*arg8,arg9);
+    result = (wxAuiToolBarItem *)(arg1)->AddTool(arg2,(wxString const &)*arg3,(wxBitmap const &)*arg4,(wxBitmap const &)*arg5,arg6,(wxString const &)*arg7,(wxString const &)*arg8,arg9);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiToolBarItem, 0 |  0 );
   {
     if (temp3)
     delete arg3;
@@ -21661,6 +21663,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddTool__SWIG_2(PyObject *SWIGUNUSEDPARM(s
   wxString *arg7 = (wxString *) &arg7_defvalue ;
   wxString const &arg8_defvalue = wxEmptyString ;
   wxString *arg8 = (wxString *) &arg8_defvalue ;
+  wxAuiToolBarItem *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -21733,11 +21736,11 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddTool__SWIG_2(PyObject *SWIGUNUSEDPARM(s
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AddTool(arg2,(wxBitmap const &)*arg3,(wxBitmap const &)*arg4,arg5,arg6,(wxString const &)*arg7,(wxString const &)*arg8);
+    result = (wxAuiToolBarItem *)(arg1)->AddTool(arg2,(wxBitmap const &)*arg3,(wxBitmap const &)*arg4,arg5,arg6,(wxString const &)*arg7,(wxString const &)*arg8);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiToolBarItem, 0 |  0 );
   {
     if (temp7)
     delete arg7;
@@ -21815,6 +21818,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddLabel(PyObject *SWIGUNUSEDPARM(self), P
   wxString const &arg3_defvalue = wxEmptyString ;
   wxString *arg3 = (wxString *) &arg3_defvalue ;
   int arg4 = (int) (int)-1 ;
+  wxAuiToolBarItem *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -21857,11 +21861,11 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddLabel(PyObject *SWIGUNUSEDPARM(self), P
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AddLabel(arg2,(wxString const &)*arg3,arg4);
+    result = (wxAuiToolBarItem *)(arg1)->AddLabel(arg2,(wxString const &)*arg3,arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiToolBarItem, 0 |  0 );
   {
     if (temp3)
     delete arg3;
@@ -21882,6 +21886,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddControl(PyObject *SWIGUNUSEDPARM(self),
   wxControl *arg2 = (wxControl *) 0 ;
   wxString const &arg3_defvalue = wxEmptyString ;
   wxString *arg3 = (wxString *) &arg3_defvalue ;
+  wxAuiToolBarItem *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -21914,11 +21919,11 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddControl(PyObject *SWIGUNUSEDPARM(self),
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AddControl(arg2,(wxString const &)*arg3);
+    result = (wxAuiToolBarItem *)(arg1)->AddControl(arg2,(wxString const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiToolBarItem, 0 |  0 );
   {
     if (temp3)
     delete arg3;
@@ -21936,6 +21941,7 @@ fail:
 SWIGINTERN PyObject *_wrap_AuiToolBar_AddSeparator(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxAuiToolBar *arg1 = (wxAuiToolBar *) 0 ;
+  wxAuiToolBarItem *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -21949,11 +21955,11 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddSeparator(PyObject *SWIGUNUSEDPARM(self
   arg1 = reinterpret_cast< wxAuiToolBar * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AddSeparator();
+    result = (wxAuiToolBarItem *)(arg1)->AddSeparator();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiToolBarItem, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -21964,6 +21970,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddSpacer(PyObject *SWIGUNUSEDPARM(self), 
   PyObject *resultobj = 0;
   wxAuiToolBar *arg1 = (wxAuiToolBar *) 0 ;
   int arg2 ;
+  wxAuiToolBarItem *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -21987,11 +21994,11 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddSpacer(PyObject *SWIGUNUSEDPARM(self), 
   arg2 = static_cast< int >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AddSpacer(arg2);
+    result = (wxAuiToolBarItem *)(arg1)->AddSpacer(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiToolBarItem, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -22002,6 +22009,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddStretchSpacer(PyObject *SWIGUNUSEDPARM(
   PyObject *resultobj = 0;
   wxAuiToolBar *arg1 = (wxAuiToolBar *) 0 ;
   int arg2 = (int) 1 ;
+  wxAuiToolBarItem *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -22027,11 +22035,11 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddStretchSpacer(PyObject *SWIGUNUSEDPARM(
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AddStretchSpacer(arg2);
+    result = (wxAuiToolBarItem *)(arg1)->AddStretchSpacer(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiToolBarItem, 0 |  0 );
   return resultobj;
 fail:
   return NULL;

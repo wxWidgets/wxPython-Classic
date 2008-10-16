@@ -2694,7 +2694,16 @@ class TaskBarIcon(_core.EvtHandler):
         """
         return _windows_.TaskBarIcon_ShowBalloon(*args, **kwargs)
 
+    def IsAvailable(*args, **kwargs):
+        """IsAvailable() -> bool"""
+        return _windows_.TaskBarIcon_IsAvailable(*args, **kwargs)
+
+    IsAvailable = staticmethod(IsAvailable)
 _windows_.TaskBarIcon_swigregister(TaskBarIcon)
+
+def TaskBarIcon_IsAvailable(*args):
+  """TaskBarIcon_IsAvailable() -> bool"""
+  return _windows_.TaskBarIcon_IsAvailable(*args)
 
 class TaskBarIconEvent(_core.Event):
     """Proxy of C++ TaskBarIconEvent class"""
