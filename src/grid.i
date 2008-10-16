@@ -1852,12 +1852,6 @@ public:
     int      GetColLabelTextOrientation();
     wxString GetRowLabelValue( int row );
     wxString GetColLabelValue( int col );
-    wxColour GetGridLineColour();
-
-    virtual wxPen GetDefaultGridLinePen();
-    virtual wxPen GetRowGridLinePen(int row);
-    virtual wxPen GetColGridLinePen(int col);
-    
     
     wxColour GetCellHighlightColour();
     int      GetCellHighlightPenWidth();
@@ -1877,7 +1871,6 @@ public:
     void     SetColLabelTextOrientation( int textOrientation );
     void     SetRowLabelValue( int row, const wxString& );
     void     SetColLabelValue( int col, const wxString& );
-    void     SetGridLineColour( const wxColour& );
     void     SetCellHighlightColour( const wxColour& );
     void     SetCellHighlightPenWidth(int width);
     void     SetCellHighlightROPenWidth(int width);
@@ -1899,6 +1892,33 @@ public:
     void     DisableDragCell();
     bool     CanDragCell();
 
+
+
+    // grid lines
+    // ----------
+
+    // enable or disable drawing of the lines
+    void EnableGridLines(bool enable = true);
+    bool GridLinesEnabled() const;
+
+    // by default grid lines stop at last column/row, but this may be changed
+    void ClipHorzGridLines(bool clip);
+    void ClipVertGridLines(bool clip);
+    bool AreHorzGridLinesClipped() const;
+    bool AreVertGridLinesClipped() const;
+
+    // this can be used to change the global grid lines colour
+    void SetGridLineColour(const wxColour& col);
+    wxColour GetGridLineColour() const;
+
+    // these methods may be overridden to customize individual grid lines
+    // appearance
+    virtual wxPen GetDefaultGridLinePen();
+    virtual wxPen GetRowGridLinePen(int row);
+    virtual wxPen GetColGridLinePen(int col);
+
+    
+    
     // this sets the specified attribute for all cells in this row/col
     void     SetAttr(int row, int col, wxGridCellAttr *attr);
     void     SetRowAttr(int row, wxGridCellAttr *attr);
@@ -1919,9 +1939,7 @@ public:
     void     SetColFormatFloat(int col, int width = -1, int precision = -1);
     void     SetColFormatCustom(int col, const wxString& typeName);
 
-    void     EnableGridLines( bool enable = true );
-    bool     GridLinesEnabled();
-
+    
     // ------ row and col formatting
     //
     int      GetDefaultRowSize();

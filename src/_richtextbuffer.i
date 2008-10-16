@@ -46,16 +46,6 @@ enum wxRichTextFileType {
     wxRICHTEXT_LAYOUT_SPECIFIED_RECT,
     wxRICHTEXT_DRAW_IGNORE_CACHE,
 
-
-/*!
- * Flags returned from hit-testing
- */
-    wxRICHTEXT_HITTEST_NONE,
-    wxRICHTEXT_HITTEST_BEFORE,
-    wxRICHTEXT_HITTEST_AFTER,
-    wxRICHTEXT_HITTEST_ON,
-    wxRICHTEXT_HITTEST_OUTSIDE,
-
 /*!
  * Flags for GetRangeSize
  */
@@ -89,6 +79,19 @@ enum wxRichTextFileType {
 // as-is, when deleting a paragraph marker. In future we might pass a
 // flag to InsertFragment and DeleteRange to indicate the appropriate mode.
     wxTEXT_ATTR_KEEP_FIRST_PARA_STYLE,
+};
+
+
+
+/*!
+ * Flags returned from hit-testing
+ */
+enum wxRichTextHitTestFlags {
+    wxRICHTEXT_HITTEST_NONE,
+    wxRICHTEXT_HITTEST_BEFORE,
+    wxRICHTEXT_HITTEST_AFTER,
+    wxRICHTEXT_HITTEST_ON,
+    wxRICHTEXT_HITTEST_OUTSIDE
 };
 
 

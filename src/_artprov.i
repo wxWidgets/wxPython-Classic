@@ -342,6 +342,12 @@ one can be set)", "");
                                             const wxArtClient& client = wxART_OTHER),
         "Query the providers for iconbundle with given ID and return it. Return
 wx.NullIconBundle if no provider provides it.", "");
+
+    
+    DocDeclStr(
+        static wxSize , GetNativeSizeHint(const wxArtClient& client),
+        "Gets native size for given 'client' or wxDefaultSize if it doesn't
+have native equivalent.", "");
     
     
     DocDeclStr(

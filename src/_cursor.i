@@ -15,6 +15,10 @@
 
 //---------------------------------------------------------------------------
 
+// enum {
+//     wxCURSOR_DEFAULT_TYPE
+// };
+
 
 DocStr(wxCursor,
 "A cursor is a small bitmap usually used for denoting where the mouse
@@ -73,7 +77,11 @@ public:
 wx.BITMAP_TYPE* constants, and specify the hotspot if not using a .cur
 file.","
 :see: Alternate constructors `wx.StockCursor`,`wx.CursorFromImage`");
-        wxCursor(const wxString& cursorName, wxBitmapType type, int hotSpotX=0, int hotSpotY=0) {
+        wxCursor(const wxString& cursorName,
+                 // defaulting to a resource type on some platforms makes no
+                 // sense from wxPython perspective
+                 wxBitmapType type, /*=wxCURSOR_DEFAULT_TYPE,*/  
+                 int hotSpotX=0, int hotSpotY=0) {
 %#ifdef __WXGTK__
             wxImage img(cursorName, type);
             img.SetOption(wxIMAGE_OPTION_CUR_HOTSPOT_X, hotSpotX);

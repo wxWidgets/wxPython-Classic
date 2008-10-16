@@ -88,7 +88,7 @@ enum wxTextAttrAlignment
     wxTEXT_ALIGNMENT_JUSTIFIED
 };
 
-enum {
+enum wxTextAttrFlags {
     // Flags to indicate which attributes are being applied
     wxTEXT_ATTR_TEXT_COLOUR,
     wxTEXT_ATTR_BACKGROUND_COLOUR,
@@ -120,7 +120,13 @@ enum {
     wxTEXT_ATTR_CHARACTER,
     wxTEXT_ATTR_PARAGRAPH,
     wxTEXT_ATTR_ALL,
+};
 
+
+/*!
+ * Styles for wxTextAttr::SetBulletStyle
+ */
+enum wxTextAttrBulletStyle {
     wxTEXT_ATTR_BULLET_STYLE_NONE,
     wxTEXT_ATTR_BULLET_STYLE_ARABIC,
     wxTEXT_ATTR_BULLET_STYLE_LETTERS_UPPER,
@@ -138,7 +144,14 @@ enum {
     wxTEXT_ATTR_BULLET_STYLE_ALIGN_LEFT,
     wxTEXT_ATTR_BULLET_STYLE_ALIGN_RIGHT,
     wxTEXT_ATTR_BULLET_STYLE_ALIGN_CENTRE,
+};
 
+
+
+/*!
+ * Styles for wxTextAttr::SetTextEffects
+ */
+enum wxTextAttrEffects {
     wxTEXT_ATTR_EFFECT_NONE,
     wxTEXT_ATTR_EFFECT_CAPITALS,
     wxTEXT_ATTR_EFFECT_SMALL_CAPITALS,
@@ -150,12 +163,19 @@ enum {
     wxTEXT_ATTR_EFFECT_ENGRAVE,
     wxTEXT_ATTR_EFFECT_SUPERSCRIPT,
     wxTEXT_ATTR_EFFECT_SUBSCRIPT,
+};
 
+
+
+/*!
+ * Line spacing values
+ */
+enum wxTextAttrLineSpacing {
     wxTEXT_ATTR_LINE_SPACING_NORMAL,
     wxTEXT_ATTR_LINE_SPACING_HALF,
     wxTEXT_ATTR_LINE_SPACING_TWICE,
-
 };
+
 
 enum wxTextCtrlHitTestResult
 {

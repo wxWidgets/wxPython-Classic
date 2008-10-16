@@ -105,6 +105,10 @@ __init__ as a plain old wx.Control is not very useful.", "");
         static wxString , RemoveMnemonics(const wxString& str),
         "removes the mnemonics characters", "");
 
+    DocDeclStr(
+        static int , FindAccelIndex(const wxString& label), 
+        "Return the accel index in the string or -1 if none.", "");
+    
     
 // Link error...
 //     DocDeclStr(

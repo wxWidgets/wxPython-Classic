@@ -44,6 +44,8 @@ public:
     bool SetIcon(const wxIcon& icon, const wxString& tooltip = wxPyEmptyString) { return false; }
     bool RemoveIcon() { return false; }
     bool PopupMenu(wxMenu *menu) { return false; }
+
+    static bool IsAvailable() { return false; };
 };
 
 enum {
@@ -145,7 +147,9 @@ or function unsupported by OS)
                          unsigned msec = 0,
                          int flags = 0)  { return false; }
     }
-#endif    
+#endif
+
+    static bool IsAvailable();
 };
 
 
