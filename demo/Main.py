@@ -47,6 +47,23 @@ images = None
 ##print "pid:", os.getpid()
 ##raw_input("Press Enter...")
 
+# ========================================
+# For AGW (Advanced Generic Widgets :-D )
+# ========================================
+import wx.lib.agw
+
+try:
+    dirName = os.path.dirname(os.path.abspath(__file__))
+except:
+    dirName = os.path.dirname(os.path.abspath(sys.argv[0]))
+
+sys.path.append(os.path.normpath(os.path.split(dirName)[0] + "/agw/"))
+
+_agwDocs = wx.lib.agw.__doc__
+
+# ========================================
+# End AGW things
+# ========================================
 
 #---------------------------------------------------------------------------
 
@@ -57,8 +74,8 @@ DEFAULT_PERSPECTIVE = "Default Perspective"
 #---------------------------------------------------------------------------
 
 _demoPngs = ["overview", "recent", "frame", "dialog", "moredialog", "core",
-             "book", "customcontrol", "morecontrols", "layout", "process", "clipboard",
-             "images", "miscellaneous"]
+             "book", "customcontrol", "agw", "morecontrols", "layout", "process",
+             "clipboard", "images", "miscellaneous"]
 
 _treeList = [
     # new stuff
@@ -69,6 +86,34 @@ _treeList = [
         'DVC_IndexListModel',
         'Cairo',
         'Cairo_Snippets',
+        'AdvancedSplash',
+        'AquaButton',
+        'BalloonTip',
+        'ButtonPanel',
+        'CubeColourDialog',
+        'CustomTreeCtrl',
+        'FlatMenu',
+        'FlatNotebook',
+        'FloatSpin',
+        'FoldPanelBar',
+        'FourWaySplitter',
+        'GenericMessageDialog',
+        'GradientButton',
+        'HyperLinkCtrl',
+        'HyperTreeList',
+        'KnobCtrl',
+        'LabelBook',
+        'MultiDirDialog',
+        'PeakMeter',
+        'PieCtrl',
+        'PyCollapsiblePane',
+        'PyProgress',
+        'RulerCtrl',
+        'ShapedButton',
+        'SpeedMeter',
+        'SuperToolTip',
+        'ThumbnailCtrl',
+        'ToasterBox',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -158,12 +203,9 @@ _treeList = [
 
     ('Custom Controls', [
         'AnalogClock',
-        'ButtonPanel',
         'ColourSelect',
         'ComboTreeBox',
-        'CustomTreeCtrl',
         'Editor',
-        'FlatNotebook',
         'GenericButtons',
         'GenericDirCtrl',
         'LEDNumberCtrl',
@@ -173,6 +215,38 @@ _treeList = [
         'PyColourChooser',
         'TreeListCtrl',
     ]),
+
+    # AGW, Advanced Generic Widgets :-D
+    ('Advanced Generic Widgets', [
+        'AdvancedSplash',
+        'AquaButton',
+        'BalloonTip',
+        'ButtonPanel',
+        'CubeColourDialog',
+        'CustomTreeCtrl',
+        'FlatMenu',
+        'FlatNotebook',
+        'FloatSpin',
+        'FoldPanelBar',
+        'FourWaySplitter',
+        'GenericMessageDialog',
+        'GradientButton',
+        'HyperLinkCtrl',
+        'HyperTreeList',
+        'KnobCtrl',
+        'LabelBook',
+        'MultiDirDialog',
+        'PeakMeter',
+        'PieCtrl',
+        'PyCollapsiblePane',
+        'PyProgress',
+        'RulerCtrl',
+        'ShapedButton',
+        'SpeedMeter',
+        'SuperToolTip',
+        'ThumbnailCtrl',
+        'ToasterBox',
+        ]),
     
     # controls coming from other libraries
     ('More Windows/Controls', [
@@ -194,9 +268,7 @@ _treeList = [
         'FileBrowseButton',
         'FloatBar',  
         'FloatCanvas',
-        'FoldPanelBar',
         'HtmlWindow',
-        'HyperLinkCtrl',
         'IntCtrl',
         'MVCTree',   
         'MaskedEditControls',
@@ -221,7 +293,7 @@ _treeList = [
         'TreeMixin',
         'VListBox',
         ]),
-
+    
     # How to lay out the controls in a frame/dialog
     ('Window Layout', [
         'GridBagSizer',
@@ -851,6 +923,78 @@ def SearchDemo(name, keyword):
 
     return False    
 
+
+def CreateAGWOverview():
+    """
+    Creates the HTML code to display the Advanced Generic Widgets documentations
+    starting from wx.lib.agw.__doc__.
+    """
+
+    wxPythonWidgets = ["wx.SplashScreen", "wx.ColourDialog", "wx.TreeCtrl", "wx.MenuBar",
+                       "wx.Menu", "wx.ToolBar", "wx.Notebook", "wx.MessageDialog",
+                       "wx.gizmos.TreeListCtrl", "wx.DirDialog", "wx.CollapsiblePane",
+                       "wx.ProgressDialog", "wx.TipWindow", "wx.lib"]
+                       
+    splitted = _agwDocs.split("\n")
+    strs = "<html><body>\n<h2><center>Advanced Generic Widgets (AGW)</center></h2>\n\n"
+
+    for category, items in _treeList:
+        # Get the number of widgets in AGW
+        if category.find("Advanced") >= 0:
+            numWidgets = len(items)
+            break
+
+    widgetsFound, endRemarks = 0, 0
+    for line in splitted:
+        # Loop over the lines in the AGW documentation
+        newLine = line
+        if line.startswith("- "):
+            # That's a new widget
+            indxStart = line.index("-") + 1
+            indxEnd = line.index(":")
+            sw = line[indxStart:indxEnd]
+            # Put a bullet
+            newLine = "<li><b> %s</b>:"%sw + line[indxEnd+1:]
+            if widgetsFound == 0:
+                newLine = "<p><ul>\n" + newLine
+            widgetsFound += 1
+        elif line.strip().endswith(";"):
+            newLine = "%s</li>"%line
+        elif line.startswith("Description:"):
+            # It's a title
+            newLine = "<p><h5>%s</h5>"%line
+        if endRemarks:
+            if ":" in newLine:
+                indxEnd = newLine.index(":")
+                newLine = "<br><i>%s</i>"%newLine[0:indxEnd] + newLine[indxEnd:]
+            else:
+                newLine = "<br>%s"%newLine
+        if line.startswith("http:"):
+            # It's a web address
+            newLine = "  <a href='%s'>%s</a>"%(newLine, newLine)
+        elif line.find("@") > 0:
+            # It's an email address
+            newLine = "  <a href='mailto:%s'>%s</a>"%(newLine, newLine)
+
+        strs += newLine
+        if widgetsFound == numWidgets and line.find(".") >= 0:
+            # Break the loop, all widgets included
+            strs += "\n</ul><p>"
+            widgetsFound = 0
+            endRemarks = 1
+        
+    strs += "</body></html>"
+    # Make AGW bold and wxPython underlined...
+    strs = strs.replace("AGW", "<b>AGW</b>")
+    strs = strs.replace("wxPython", "<u>wxPython</u>")
+    for widget in wxPythonWidgets:
+        # Show wx things with the <code> tag
+        strs = strs.replace(widget, "<code>%s</code>"%widget)
+    
+    return strs
+    
+        
+
 #---------------------------------------------------------------------------
 
 class ModuleDictWrapper:
@@ -1297,12 +1441,12 @@ class wxPythonDemo(wx.Frame):
         
         if 0:  # the old way
             self.ovr = wx.html.HtmlWindow(self.nb, -1, size=(400, 400))
-            self.nb.AddPage(self.ovr, self.overviewText, imageId=0)
+            self.nb.AddPage(self.ovr, self.overviewText.replace("agw/", ""), imageId=0)
 
         else:  # hopefully I can remove this hacky code soon, see SF bug #216861
             panel = wx.Panel(self.nb, -1, style=wx.CLIP_CHILDREN)
             self.ovr = wx.html.HtmlWindow(panel, -1, size=(400, 400))
-            self.nb.AddPage(panel, self.overviewText, imageId=0)
+            self.nb.AddPage(panel, self.overviewText.replace("agw/", ""), imageId=0)
 
             def OnOvrSize(evt, ovr=self.ovr):
                 ovr.SetSize(evt.GetSize())
@@ -1707,6 +1851,14 @@ class wxPythonDemo(wx.Frame):
                     wx.LogMessage("Loading demo %s.py..." % demoName)
                     self.demoModules = DemoModules(demoName)
                     self.LoadDemoSource()
+                elif os.path.exists(GetOriginalFilename("agw/%s"%demoName)):
+                    wx.LogMessage("Loading demo %s.py..." % ("agw/%s"%demoName))
+                    self.demoModules = DemoModules("agw/%s"%demoName)
+                    self.LoadDemoSource()
+                elif demoName.find("Advanced") >= 0:
+                    self.SetOverview(demoName, CreateAGWOverview())
+                    self.codePage = None
+                    self.UpdateNotebook(0)
                 else:
                     self.SetOverview("wxPython", mainOverview)
                     self.codePage = None
@@ -1792,13 +1944,13 @@ class wxPythonDemo(wx.Frame):
             if page:
                 if not pageExists:
                     # Add a new page
-                    nb.AddPage(page, pageText, imageId=nb.GetPageCount())
+                    nb.AddPage(page, pageText.replace("agw/", ""), imageId=nb.GetPageCount())
                     if debug: wx.LogMessage("DBG: ADDED %s" % pageText)
                 else:
                     if nb.GetPage(pagePos) != page:
                         # Reload an existing page
                         nb.DeletePage(pagePos)
-                        nb.InsertPage(pagePos, page, pageText, imageId=pagePos)
+                        nb.InsertPage(pagePos, page, pageText.replace("agw/", ""), imageId=pagePos)
                         if debug: wx.LogMessage("DBG: RELOADED %s" % pageText)
                     else:
                         # Excellent! No redraw/flicker
@@ -1830,7 +1982,7 @@ class wxPythonDemo(wx.Frame):
         if wx.USE_UNICODE:
             text = text.decode('iso8859_1')  
         self.ovr.SetPage(text)
-        self.nb.SetPageText(0, name)
+        self.nb.SetPageText(0, name.replace("agw/", ""))
 
     #---------------------------------------------
     # Menu methods
