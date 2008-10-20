@@ -29,6 +29,28 @@
 
 # * Why don't we move _treeList into a separate module
 
+# =====================
+# = EXTERNAL Packages =
+# =====================
+# In order to let a package (like AGW) be included in the wxPython demo,
+# the package owner should create a sub-directory of the wxPython demo folder
+# in which all the package's demos should live. In addition, the sub-folder
+# should contain a Python file called __demo__.py which, when imported, should
+# contain the following methods:
+#
+# * GetDemoBitmap: returns the bitmap to be used in the wxPython demo tree control
+#   in a PyEmbeddedImage format;
+# * GetRecentAdditions: returns a list of demos which will be displayed under the
+#   "Recent Additions/Updates" tree item. This list should be a subset (or the full
+#   set) of the package's demos;
+# * GetDemos: returns a tuple. The first item of the tuple is the package's name
+#   as will be displayed in the wxPython demo tree, right after the "Custom Controls"
+#   item. The second element of the tuple is the list of demos for the external package.
+# * GetOverview: returns a wx.html-ready representation of the package's documentation.
+#
+# Please see the __demo__.py file in the demo/agw/ folder for an example.
+# Last updated: Andrea Gavana, 20 Oct 2008, 18.00 GMT
+
 import sys, os, time, traceback, types
 
 import wx              
@@ -47,24 +69,6 @@ images = None
 ##print "pid:", os.getpid()
 ##raw_input("Press Enter...")
 
-# ========================================
-# For AGW (Advanced Generic Widgets :-D )
-# ========================================
-import wx.lib.agw
-
-try:
-    dirName = os.path.dirname(os.path.abspath(__file__))
-except:
-    dirName = os.path.dirname(os.path.abspath(sys.argv[0]))
-
-sys.path.append(os.path.normpath(os.path.split(dirName)[0] + "/agw/"))
-
-_agwDocs = wx.lib.agw.__doc__
-
-# ========================================
-# End AGW things
-# ========================================
-
 #---------------------------------------------------------------------------
 
 USE_CUSTOMTREECTRL = False
@@ -74,7 +78,7 @@ DEFAULT_PERSPECTIVE = "Default Perspective"
 #---------------------------------------------------------------------------
 
 _demoPngs = ["overview", "recent", "frame", "dialog", "moredialog", "core",
-             "book", "customcontrol", "agw", "morecontrols", "layout", "process",
+             "book", "customcontrol", "morecontrols", "layout", "process",
              "clipboard", "images", "miscellaneous"]
 
 _treeList = [
@@ -86,34 +90,6 @@ _treeList = [
         'DVC_IndexListModel',
         'Cairo',
         'Cairo_Snippets',
-        'AdvancedSplash',
-        'AquaButton',
-        'BalloonTip',
-        'ButtonPanel',
-        'CubeColourDialog',
-        'CustomTreeCtrl',
-        'FlatMenu',
-        'FlatNotebook',
-        'FloatSpin',
-        'FoldPanelBar',
-        'FourWaySplitter',
-        'GenericMessageDialog',
-        'GradientButton',
-        'HyperLinkCtrl',
-        'HyperTreeList',
-        'KnobCtrl',
-        'LabelBook',
-        'MultiDirDialog',
-        'PeakMeter',
-        'PieCtrl',
-        'PyCollapsiblePane',
-        'PyProgress',
-        'RulerCtrl',
-        'ShapedButton',
-        'SpeedMeter',
-        'SuperToolTip',
-        'ThumbnailCtrl',
-        'ToasterBox',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -216,38 +192,6 @@ _treeList = [
         'TreeListCtrl',
     ]),
 
-    # AGW, Advanced Generic Widgets :-D
-    ('Advanced Generic Widgets', [
-        'AdvancedSplash',
-        'AquaButton',
-        'BalloonTip',
-        'ButtonPanel',
-        'CubeColourDialog',
-        'CustomTreeCtrl',
-        'FlatMenu',
-        'FlatNotebook',
-        'FloatSpin',
-        'FoldPanelBar',
-        'FourWaySplitter',
-        'GenericMessageDialog',
-        'GradientButton',
-        'HyperLinkCtrl',
-        'HyperTreeList',
-        'KnobCtrl',
-        'LabelBook',
-        'MultiDirDialog',
-        'PeakMeter',
-        'PieCtrl',
-        'PyCollapsiblePane',
-        'PyProgress',
-        'RulerCtrl',
-        'ShapedButton',
-        'SpeedMeter',
-        'SuperToolTip',
-        'ThumbnailCtrl',
-        'ToasterBox',
-        ]),
-    
     # controls coming from other libraries
     ('More Windows/Controls', [
         'ActiveX_FlashWindow',
@@ -922,82 +866,91 @@ def SearchDemo(name, keyword):
         return True
 
     return False    
+        
 
-
-def CreateAGWOverview():
+def HuntExternalDemos():
     """
-    Creates the HTML code to display the Advanced Generic Widgets documentations
-    starting from wx.lib.agw.__doc__.
+    Searches for external demos (i.e. packages like AGW) in the wxPython
+    demo sub-directories. In order to be found, these external packages
+    must have a __demo__.py file in their directory.
     """
 
-    wxPythonWidgets = ["wx.SplashScreen", "wx.ColourDialog", "wx.TreeCtrl", "wx.MenuBar",
-                       "wx.Menu", "wx.ToolBar", "wx.Notebook", "wx.MessageDialog",
-                       "wx.gizmos.TreeListCtrl", "wx.DirDialog", "wx.CollapsiblePane",
-                       "wx.ProgressDialog", "wx.TipWindow", "wx.lib"]
-                       
-    splitted = _agwDocs.split("\n")
-    strs = "<html><body>\n<h2><center>Advanced Generic Widgets (AGW)</center></h2>\n\n"
+    externalDemos = {}
+    originalDir = os.getcwd()
+    listDir = os.listdir(originalDir)
+    # Loop over the content of the demo directory
+    for item in listDir:
+        if not os.path.isdir(item):
+            # Not a directory, continue
+            continue
+        dirFile = os.listdir(item)
+        # See if a __demo__.py file is there
+        if "__demo__.py" in dirFile:
+            # Extend sys.path and import the external demos
+            sys.path.append(item)
+            externalDemos[item] = __import__("__demo__")
 
-    for category, items in _treeList:
-        # Get the number of widgets in AGW
-        if category.find("Advanced") >= 0:
-            numWidgets = len(items)
+    if not externalDemos:
+        # Nothing to import...
+        return {}
+
+    # Modify the tree items and icons
+    index = 0
+    for category, demos in _treeList:
+        # We put the external packages right before the
+        # More Windows/Controls item
+        if category == "More Windows/Controls":
             break
+        index += 1
 
-    widgetsFound, endRemarks = 0, 0
-    for line in splitted:
-        # Loop over the lines in the AGW documentation
-        newLine = line
-        if line.startswith("- "):
-            # That's a new widget
-            indxStart = line.index("-") + 1
-            indxEnd = line.index(":")
-            sw = line[indxStart:indxEnd]
-            # Put a bullet
-            newLine = "<li><b> %s</b>:"%sw + line[indxEnd+1:]
-            if widgetsFound == 0:
-                newLine = "<p><ul>\n" + newLine
-            widgetsFound += 1
-        elif line.strip().endswith(";"):
-            newLine = "%s</li>"%line
-        elif line.startswith("Description:"):
-            # It's a title
-            newLine = "<p><h5>%s</h5>"%line
-        if endRemarks:
-            if ":" in newLine:
-                indxEnd = newLine.index(":")
-                newLine = "<br><i>%s</i>"%newLine[0:indxEnd] + newLine[indxEnd:]
-            else:
-                newLine = "<br>%s"%newLine
-        if line.startswith("http:"):
-            # It's a web address
-            newLine = "  <a href='%s'>%s</a>"%(newLine, newLine)
-        elif line.find("@") > 0:
-            # It's an email address
-            newLine = "  <a href='mailto:%s'>%s</a>"%(newLine, newLine)
+    # Sort and reverse the external demos keys so that they
+    # come back in alphabetical order
+    keys = externalDemos.keys()
+    keys.sort()
+    keys.reverse()
 
-        strs += newLine
-        if widgetsFound == numWidgets and line.find(".") >= 0:
-            # Break the loop, all widgets included
-            strs += "\n</ul><p>"
-            widgetsFound = 0
-            endRemarks = 1
-        
-    strs += "</body></html>"
-    # Make AGW bold and wxPython underlined...
-    strs = strs.replace("AGW", "<b>AGW</b>")
-    strs = strs.replace("wxPython", "<u>wxPython</u>")
-    for widget in wxPythonWidgets:
-        # Show wx things with the <code> tag
-        strs = strs.replace(widget, "<code>%s</code>"%widget)
+    # Loop over all external packages
+    for extern in keys:
+        package = externalDemos[extern]
+        # Insert a new package in the _treeList of demos
+        _treeList.insert(index, package.GetDemos())
+        # Get the recent additions for this package
+        _treeList[0][1].extend(package.GetRecentAdditions())
+        # Extend the demo bitmaps and the catalog
+        _demoPngs.insert(index+1, extern)
+        images.catalog[extern] = package.GetDemoBitmap()
+
+    # That's all folks...
+    return externalDemos
+
+
+def LookForExternals(externalDemos, demoName):
+    """
+    Checks if a demo name is in any of the external packages (like AGW) or
+    if the user clicked on one of the external packages parent items in the
+    tree, in which case it returns the html overview for the package.
+    """
+
+    pkg = overview = None
+    # Loop over all the external demos
+    for key, package in externalDemos.items():
+        # Get the tree item name for the package and its demos
+        treeName, treeDemos = package.GetDemos()
+        # Get the overview for the package
+        treeOverview = package.GetOverview()
+        if treeName == demoName:
+            # The user clicked on the parent tree item, return the overview
+            return pkg, treeOverview
+        elif demoName in treeDemos:
+            # The user clicked on a real demo, return the package
+            return key, overview
+
+    # No match found, return None for both
+    return pkg, overview
     
-    return strs
-    
-        
-
 #---------------------------------------------------------------------------
 
-class ModuleDictWrapper:
+class ModuleDictWrapper(object):
     """Emulates a module with a dynamically compiled __dict__"""
     def __init__(self, dict):
         self.dict = dict
@@ -1008,7 +961,7 @@ class ModuleDictWrapper:
         else:
             raise AttributeError
 
-class DemoModules:
+class DemoModules(object):
     """
     Dynamically manages the original/modified versions of a demo
     module
@@ -1128,7 +1081,7 @@ class DemoModules:
 
 #---------------------------------------------------------------------------
 
-class DemoError:
+class DemoError(object):
     """Wraps and stores information about the current exception"""
     def __init__(self, exc_info):
         import copy
@@ -1392,6 +1345,7 @@ class wxPythonDemo(wx.Frame):
         def EmptyHandler(evt): pass
 
         self.ReadConfigurationFile()
+        self.externalDemos = HuntExternalDemos()        
         
         # Create a Notebook
         self.nb = wx.Notebook(pnl, -1, style=wx.CLIP_CHILDREN)
@@ -1441,12 +1395,12 @@ class wxPythonDemo(wx.Frame):
         
         if 0:  # the old way
             self.ovr = wx.html.HtmlWindow(self.nb, -1, size=(400, 400))
-            self.nb.AddPage(self.ovr, self.overviewText.replace("agw/", ""), imageId=0)
+            self.nb.AddPage(self.ovr, self.overviewText, imageId=0)
 
         else:  # hopefully I can remove this hacky code soon, see SF bug #216861
             panel = wx.Panel(self.nb, -1, style=wx.CLIP_CHILDREN)
             self.ovr = wx.html.HtmlWindow(panel, -1, size=(400, 400))
-            self.nb.AddPage(panel, self.overviewText.replace("agw/", ""), imageId=0)
+            self.nb.AddPage(panel, self.overviewText, imageId=0)
 
             def OnOvrSize(evt, ovr=self.ovr):
                 ovr.SetSize(evt.GetSize())
@@ -1851,18 +1805,24 @@ class wxPythonDemo(wx.Frame):
                     wx.LogMessage("Loading demo %s.py..." % demoName)
                     self.demoModules = DemoModules(demoName)
                     self.LoadDemoSource()
-                elif os.path.exists(GetOriginalFilename("agw/%s"%demoName)):
-                    wx.LogMessage("Loading demo %s.py..." % ("agw/%s"%demoName))
-                    self.demoModules = DemoModules("agw/%s"%demoName)
-                    self.LoadDemoSource()
-                elif demoName.find("Advanced") >= 0:
-                    self.SetOverview(demoName, CreateAGWOverview())
-                    self.codePage = None
-                    self.UpdateNotebook(0)
+
                 else:
-                    self.SetOverview("wxPython", mainOverview)
-                    self.codePage = None
-                    self.UpdateNotebook(0)
+
+                    package, overview = LookForExternals(self.externalDemos, demoName)
+
+                    if package:
+                        wx.LogMessage("Loading demo %s.py..." % ("%s/%s"%(package, demoName)))
+                        self.demoModules = DemoModules("%s/%s"%(package, demoName))
+                        self.LoadDemoSource()
+                    elif overview:
+                        self.SetOverview(demoName, overview)
+                        self.codePage = None
+                        self.UpdateNotebook(0)
+                    else:
+                        self.SetOverview("wxPython", mainOverview)
+                        self.codePage = None
+                        self.UpdateNotebook(0)
+
         finally:
             wx.EndBusyCursor()
             self.pnl.Thaw()
@@ -1944,13 +1904,13 @@ class wxPythonDemo(wx.Frame):
             if page:
                 if not pageExists:
                     # Add a new page
-                    nb.AddPage(page, pageText.replace("agw/", ""), imageId=nb.GetPageCount())
+                    nb.AddPage(page, pageText, imageId=nb.GetPageCount())
                     if debug: wx.LogMessage("DBG: ADDED %s" % pageText)
                 else:
                     if nb.GetPage(pagePos) != page:
                         # Reload an existing page
                         nb.DeletePage(pagePos)
-                        nb.InsertPage(pagePos, page, pageText.replace("agw/", ""), imageId=pagePos)
+                        nb.InsertPage(pagePos, page, pageText, imageId=pagePos)
                         if debug: wx.LogMessage("DBG: RELOADED %s" % pageText)
                     else:
                         # Excellent! No redraw/flicker
@@ -1982,7 +1942,7 @@ class wxPythonDemo(wx.Frame):
         if wx.USE_UNICODE:
             text = text.decode('iso8859_1')  
         self.ovr.SetPage(text)
-        self.nb.SetPageText(0, name.replace("agw/", ""))
+        self.nb.SetPageText(0, os.path.split(name)[1])
 
     #---------------------------------------------
     # Menu methods
@@ -2417,10 +2377,3 @@ if __name__ == '__main__':
     main()
 
 #----------------------------------------------------------------------------
-
-
-
-
-
-
-
