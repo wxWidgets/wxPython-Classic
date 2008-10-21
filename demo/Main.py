@@ -29,6 +29,28 @@
 
 # * Why don't we move _treeList into a separate module
 
+# =====================
+# = EXTERNAL Packages =
+# =====================
+# In order to let a package (like AGW) be included in the wxPython demo,
+# the package owner should create a sub-directory of the wxPython demo folder
+# in which all the package's demos should live. In addition, the sub-folder
+# should contain a Python file called __demo__.py which, when imported, should
+# contain the following methods:
+#
+# * GetDemoBitmap: returns the bitmap to be used in the wxPython demo tree control
+#   in a PyEmbeddedImage format;
+# * GetRecentAdditions: returns a list of demos which will be displayed under the
+#   "Recent Additions/Updates" tree item. This list should be a subset (or the full
+#   set) of the package's demos;
+# * GetDemos: returns a tuple. The first item of the tuple is the package's name
+#   as will be displayed in the wxPython demo tree, right after the "Custom Controls"
+#   item. The second element of the tuple is the list of demos for the external package.
+# * GetOverview: returns a wx.html-ready representation of the package's documentation.
+#
+# Please see the __demo__.py file in the demo/agw/ folder for an example.
+# Last updated: Andrea Gavana, 20 Oct 2008, 18.00 GMT
+
 import sys, os, time, traceback, types
 
 import wx              
@@ -71,9 +93,6 @@ _treeList = [
         'DragScroller',
         'DelayedResult',
         'ExpandoTextCtrl',
-        'ButtonPanel',
-        'FlatNotebook',
-        'CustomTreeCtrl',
         'AboutBox',
         'AlphaDrawing',
         'GraphicsContext',
@@ -180,12 +199,9 @@ _treeList = [
 
     ('Custom Controls', [
         'AnalogClock',
-        'ButtonPanel',
         'ColourSelect',
         'ComboTreeBox',
-        'CustomTreeCtrl',
         'Editor',
-        'FlatNotebook',
         'GenericButtons',
         'GenericDirCtrl',
         'LEDNumberCtrl',
@@ -216,9 +232,7 @@ _treeList = [
         'FileBrowseButton',
         'FloatBar',  
         'FloatCanvas',
-        'FoldPanelBar',
         'HtmlWindow',
-        'HyperLinkCtrl',
         'IntCtrl',
         'MVCTree',   
         'MaskedEditControls',
@@ -876,6 +890,87 @@ def SearchDemo(name, keyword):
 
     return False    
 
+
+def HuntExternalDemos():
+    """
+    Searches for external demos (i.e. packages like AGW) in the wxPython
+    demo sub-directories. In order to be found, these external packages
+    must have a __demo__.py file in their directory.
+    """
+
+    externalDemos = {}
+    originalDir = os.getcwd()
+    listDir = os.listdir(originalDir)
+    # Loop over the content of the demo directory
+    for item in listDir:
+        if not os.path.isdir(item):
+            # Not a directory, continue
+            continue
+        dirFile = os.listdir(item)
+        # See if a __demo__.py file is there
+        if "__demo__.py" in dirFile:
+            # Extend sys.path and import the external demos
+            sys.path.append(item)
+            externalDemos[item] = __import__("__demo__")
+
+    if not externalDemos:
+        # Nothing to import...
+        return {}
+
+    # Modify the tree items and icons
+    index = 0
+    for category, demos in _treeList:
+        # We put the external packages right before the
+        # More Windows/Controls item
+        if category == "More Windows/Controls":
+            break
+        index += 1
+
+    # Sort and reverse the external demos keys so that they
+    # come back in alphabetical order
+    keys = externalDemos.keys()
+    keys.sort()
+    keys.reverse()
+
+    # Loop over all external packages
+    for extern in keys:
+        package = externalDemos[extern]
+        # Insert a new package in the _treeList of demos
+        _treeList.insert(index, package.GetDemos())
+        # Get the recent additions for this package
+        _treeList[0][1].extend(package.GetRecentAdditions())
+        # Extend the demo bitmaps and the catalog
+        _demoPngs.insert(index+1, extern)
+        images.catalog[extern] = package.GetDemoBitmap()
+
+    # That's all folks...
+    return externalDemos
+
+
+def LookForExternals(externalDemos, demoName):
+    """
+    Checks if a demo name is in any of the external packages (like AGW) or
+    if the user clicked on one of the external packages parent items in the
+    tree, in which case it returns the html overview for the package.
+    """
+
+    pkg = overview = None
+    # Loop over all the external demos
+    for key, package in externalDemos.items():
+        # Get the tree item name for the package and its demos
+        treeName, treeDemos = package.GetDemos()
+        # Get the overview for the package
+        treeOverview = package.GetOverview()
+        if treeName == demoName:
+            # The user clicked on the parent tree item, return the overview
+            return pkg, treeOverview
+        elif demoName in treeDemos:
+            # The user clicked on a real demo, return the package
+            return key, overview
+
+    # No match found, return None for both
+    return pkg, overview
+    
 #---------------------------------------------------------------------------
 
 class ModuleDictWrapper:
@@ -1273,6 +1368,7 @@ class wxPythonDemo(wx.Frame):
         def EmptyHandler(evt): pass
 
         self.ReadConfigurationFile()
+        self.externalDemos = HuntExternalDemos()        
         
         # Create a Notebook
         self.nb = wx.Notebook(pnl, -1, style=wx.CLIP_CHILDREN)
@@ -1736,10 +1832,24 @@ class wxPythonDemo(wx.Frame):
                     wx.LogMessage("Loading demo %s.py..." % demoName)
                     self.demoModules = DemoModules(demoName)
                     self.LoadDemoSource()
+
                 else:
+
+                    package, overview = LookForExternals(self.externalDemos, demoName)
+
+                    if package:
+                        wx.LogMessage("Loading demo %s.py..." % ("%s/%s"%(package, demoName)))
+                        self.demoModules = DemoModules("%s/%s"%(package, demoName))
+                        self.LoadDemoSource()
+                    elif overview:
+                        self.SetOverview(demoName, overview)
+                        self.codePage = None
+                        self.UpdateNotebook(0)
+                    else:
                     self.SetOverview("wxPython", mainOverview)
                     self.codePage = None
                     self.UpdateNotebook(0)
+
         finally:
             wx.EndBusyCursor()
             self.pnl.Thaw()
@@ -1859,7 +1969,7 @@ class wxPythonDemo(wx.Frame):
         if wx.USE_UNICODE:
             text = text.decode('iso8859_1')  
         self.ovr.SetPage(text)
-        self.nb.SetPageText(0, name)
+        self.nb.SetPageText(0, os.path.split(name)[1])
 
     #---------------------------------------------
     # Menu methods
