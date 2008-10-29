@@ -64,16 +64,28 @@ class ResizeWidget(wx.PyPanel):
         self._resizeCursor = False
         self._dragPos = None
         self._resizeEnabled = True
+        self._reparenting = False
         
         
     def SetManagedChild(self, child):
-        child.Reparent(self)  # This calls AddChild, so do the rest of the init there
-        self.AdjustToChild()
-        
+         self._reparenting = True
+         child.Reparent(self)  # This calls AddChild, so do the rest of the init there
+         self._reparenting = False
+         self.AdjustToChild()
+     
+    def GetManagedChild(self):
+        return self._managedChild
+     
+    ManagedChild = property(GetManagedChild, SetManagedChild)
+     
         
     def AdjustToChild(self):
-        self._bestSize = \
-            self._managedChild.GetEffectiveMinSize() + (RW_THICKNESS, RW_THICKNESS)
+        self.AdjustToSize(self._managedChild.GetEffectiveMinSize())
+
+        
+    def AdjustToSize(self, size):
+        size = wx.Size(*size)
+        self._bestSize = size + (RW_THICKNESS, RW_THICKNESS)
         self.SetSize(self._bestSize)
 
 
@@ -218,8 +230,10 @@ class ResizeWidget(wx.PyPanel):
             self._managedChild = child
             self.AdjustToChild()
             self._sendEvent()
-        wx.CallAfter(_doAfterAddChild, self, child.GetId())
-           
+        if self._reparenting:
+            _doAfterAddChild(self, child.GetId())
+        else:
+            wx.CallAfter(_doAfterAddChild, self, child.GetId())
         
     def RemoveChild(self, child):
         self._init()
