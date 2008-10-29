@@ -761,6 +761,12 @@ runtime_template1 = 'Source: "%(name)s"; DestDir: "{code:GetPythonDir}"; Flags: 
 runtime_template2 = 'Source: "%(name)s"; DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: replacesameversion'
 
 def get_runtime_dlls(PYVER, PKGDIR):
+    if PYVER >= 'py26':
+        # Since Python 2.6+ uses MSVC 9 then the SxS assemblies
+        # for the CRT will already be installed, so we can not
+        # bother with installing it ourselves.
+        return ('', '')
+        
     if os.environ.get('CPU', '') == 'AMD64':
         if PYVER == 'py25':
             # For now just pull the DLLs from the system dir, and install
@@ -770,12 +776,6 @@ def get_runtime_dlls(PYVER, PKGDIR):
                 r'Source: "{sys}\MSVCRT.DLL"; DestDir: "{sys}"; Flags: 64bit uninsneveruninstall external; Components: core',
                 r'Source: "{sys}\MSVCP60.DLL"; DestDir: "{sys}"; Flags: 64bit uninsneveruninstall external; Components: core',
                 )
-        else:
-            # Since Python 2.6+ uses MSVC 9 then the SxS assemblies
-            # for the CRT will already be installed, so we can not
-            # bother with installing it ourselves.
-            return ('', '')
-        
     else:
         if PYVER >= "py24":
             return ( runtime_template1 % dict(name=r"distrib\msw\msvcr71.dll", PKGDIR=PKGDIR),

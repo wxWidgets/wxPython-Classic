@@ -755,8 +755,8 @@ usually, but not necessarily, the larger one.", "");
 %apply wxRect& { wxRect* };
 
 
-
-MustHaveApp(wxIntersectRect);
+// this uses the thread wrappers so we have to undo it in the code below
+MustHaveApp(wxIntersectRect);  
 
 DocAStr(wxIntersectRect,
        "IntersectRect(Rect r1, Rect r2) -> Rect",
@@ -772,10 +772,10 @@ DocAStr(wxIntersectRect,
         dest = reg1.GetBox();
 
         if (dest != wxRect(0,0,0,0)) {
-            //wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyBlock_t blocked = wxPyBeginBlockThreads();
             wxRect* newRect = new wxRect(dest);
             obj = wxPyConstructObject((void*)newRect, wxT("wxRect"), true);
-            //wxPyEndBlockThreads(blocked);
+            wxPyEndBlockThreads(blocked);
             return obj;
         }
         Py_INCREF(Py_None);

@@ -158,7 +158,7 @@ class TestPanel(wx.Panel):
 
 
     # Here are some of the event methods for the IE COM events.  See
-    # the MSDN docs for DWenBrowserEvents2 for details on what events
+    # the MSDN docs for DWebBrowserEvents2 for details on what events
     # are available, and what the parameters are.
     
     def BeforeNavigate2(self, this, pDisp, URL, Flags, TargetFrameName,
