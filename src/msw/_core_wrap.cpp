@@ -3147,10 +3147,10 @@ SWIGINTERN PyObject *wxRect_Get(wxRect *self){
         dest = reg1.GetBox();
 
         if (dest != wxRect(0,0,0,0)) {
-            //wxPyBlock_t blocked = wxPyBeginBlockThreads();
+            wxPyBlock_t blocked = wxPyBeginBlockThreads();
             wxRect* newRect = new wxRect(dest);
             obj = wxPyConstructObject((void*)newRect, wxT("wxRect"), true);
-            //wxPyEndBlockThreads(blocked);
+            wxPyEndBlockThreads(blocked);
             return obj;
         }
         Py_INCREF(Py_None);

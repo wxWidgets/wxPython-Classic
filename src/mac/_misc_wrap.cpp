@@ -22822,7 +22822,6 @@ SWIGINTERN PyObject *_wrap_new_Config(PyObject *SWIGUNUSEDPARM(self), PyObject *
     arg5 = static_cast< long >(val5);
   }
   {
-    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxConfig *)new wxConfig((wxString const &)*arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4,arg5);
     wxPyEndAllowThreads(__tstate);
@@ -22970,7 +22969,6 @@ SWIGINTERN PyObject *_wrap_new_FileConfig(PyObject *SWIGUNUSEDPARM(self), PyObje
     arg5 = static_cast< long >(val5);
   }
   {
-    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxFileConfig *)new wxFileConfig((wxString const &)*arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4,arg5);
     wxPyEndAllowThreads(__tstate);
