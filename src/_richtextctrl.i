@@ -741,21 +741,22 @@ use for internal and file storage of the raw data.", "",
 
     DocDeclStr(
         void , SetSelectionRange(const wxRichTextRange& range),
-        "Set the selection range in character positions. -1, -1 means no selection.", "");
+        "Set the selection range in character positions. The end point of range
+is specified as the last character position of the span of text, plus
+one. So, for example, to set the selection for a character at position
+5, use the range (5,6).", "");
 
 
     DocDeclStr(
         const wxRichTextRange& , GetInternalSelectionRange() const,
-        "Get the selection range in character positions. -1, -1 means no
-selection.  The range is in internal format, i.e. a single character
-selection is denoted by (n, n).
+        "Get the selection range in character positions. The range is in
+internal format, i.e. a single character selection is denoted by (n,n).
 ", "");
 
     DocDeclStr(
         void , SetInternalSelectionRange(const wxRichTextRange& range),
-        "Set the selection range in character positions. -1, -1 means no
-selection.  The range is in internal format, i.e. a single character
-selection is denoted by (n, n).", "");
+        "Set the selection range in character positions. The range is in
+internal format, i.e. a single character selection is denoted by (n,n).", "");
 
 
 
