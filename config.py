@@ -175,7 +175,7 @@ SYS_WX_CONFIG = None # When installing an in tree build, setup.py uses wx-config
 WXPORT = 'gtk2'    # On Linux/Unix there are several ports of wxWidgets available.
                    # Setting this value lets you select which will be used for
                    # the wxPython build.  Possibilites are 'gtk', 'gtk2' and
-                   # 'x11'.  Curently only gtk and gtk2 works.
+                   # 'x11'.  Currently only gtk and gtk2 works.
 
 BUILD_BASE = "build" # Directory to use for temporary build files.
                      # This name will be appended to if the WXPORT or
