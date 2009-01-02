@@ -1315,7 +1315,8 @@ individual cells. One instance of a renderer class is owned by each
 provided: `DataViewTextRenderer`, `DataViewTextRendererAttr`,
 `DataViewIconTextRenderer`, `DataViewToggleRenderer`,
 `DataViewProgressRenderer`, `DataViewBitmapRenderer`,
-`DataViewDateRenderer`, `DataViewSpinRenderer`.
+`DataViewDateRenderer`, `DataViewSpinRenderer`,
+`DataViewChoiceRenderer`.
 
 To create your own custom renderer derive a new class from
 `PyDataViewCustomRenderer`.
@@ -1531,6 +1532,21 @@ public:
                             wxDataViewCellMode mode = wxDATAVIEW_CELL_EDITABLE,
                             int alignment = wxDVR_DEFAULT_ALIGNMENT );
 };
+
+//---------------------------------------------------------------------------
+// wxDataViewChoiceRenderer
+
+DocStr(wxDataViewChoiceRenderer,
+"","");
+
+class wxDataViewChoiceRenderer: public wxDataViewCustomRenderer
+{
+public:
+    wxDataViewChoiceRenderer( const wxArrayString &choices,
+                              wxDataViewCellMode mode = wxDATAVIEW_CELL_EDITABLE,
+                              int alignment = wxDVR_DEFAULT_ALIGNMENT );
+};
+
 
 //---------------------------------------------------------------------------
 // wxDataViewDateRenderer
