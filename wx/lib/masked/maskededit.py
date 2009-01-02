@@ -4290,7 +4290,7 @@ class MaskedEditMixin:
         if field._forceupper and key in range(97,123):
             key = ord( chr(key).upper())
 
-        if field._forcelower and key in range(97,123):
+        if field._forcelower and key in range(65,90):
             key = ord( chr(key).lower())
 
         return key
