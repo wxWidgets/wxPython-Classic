@@ -47,15 +47,20 @@
         int       count;
 
         if (!PyList_Check(listOfStrings)) {
-            PyErr_SetString(PyExc_TypeError, "Expected a list of strings.");
+            wxPyErr_SetString(PyExc_TypeError, "Expected a list of strings.");
             return NULL;
         }
         count = PyList_Size(listOfStrings);
         cArray = new char*[count];
 
         for(int x=0; x<count; x++) {
-            // TODO: Need some validation and error checking here
-            cArray[x] = PyString_AsString(PyList_GET_ITEM(listOfStrings, x));
+            PyObject* item = PyList_GET_ITEM(listOfStrings, x);
+            if (!PyString_Check(item)) {
+                wxPyErr_SetString(PyExc_TypeError, "Expected a list of strings.");
+                delete [] cArray;
+                return NULL;
+            }
+            cArray[x] = PyString_AsString(item);
         }
         return cArray;
     }
