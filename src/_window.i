@@ -1933,15 +1933,8 @@ a drop target, it is deleted.", "");
     
 
     DocStr(DragAcceptFiles,
-        "Enables or disables eligibility for drop file events, EVT_DROP_FILES.
-Only functional on Windows.", "");
-#ifdef __WXMSW__  
+        "Enables or disables eligibility for drop file events, EVT_DROP_FILES.", "");
     void DragAcceptFiles(bool accept);
-#else
-    %extend {
-        void DragAcceptFiles(bool accept) {}
-    }
-#endif
 #endif
     
 
