@@ -285,7 +285,7 @@ class GraphicsPen(GraphicsObject):
             
         elif self._style in [wx.DOT, wx.DOT_DASH, wx.LONG_DASH, wx.SHORT_DASH]:
             ctx.set_source_rgba( *_colourToValues(self._colour) )
-            ctx.set_dashes( _stdDashes(self._style) )
+            ctx.set_dashes( _stdDashes(self._style, self._width) )
         
         elif self._style in [wx.BDIAGONAL_HATCH, wx.CROSSDIAG_HATCH, wx.FDIAGONAL_HATCH,
                              wx.CROSS_HATCH, wx.HORIZONTAL_HATCH, wx.VERTICAL_HATCH]:
@@ -1541,6 +1541,8 @@ def _stdDashes(style, width):
         dashes = [ 19.0, 9.0 ]
     elif style == wx.SHORT_DASH:
         dashes = [ 9.0, 6.0 ]
+
+    return dashes
 
         
 #---------------------------------------------------------------------------
