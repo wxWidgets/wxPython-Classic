@@ -98,8 +98,8 @@ which will be copied to the colour dialog's internal ColourData
 instance.", "");
 
     DocDeclStr(
-        wxColourData& , GetColourData(),
-        "Returns a reference to the `wx.ColourData` used by the dialog.", "");
+        wxColourData , GetColourData(),
+        "Returns a copy of the `wx.ColourData` used by the dialog.", "");
 
     %property(ColourData, GetColourData, doc="See `GetColourData`");
 };
