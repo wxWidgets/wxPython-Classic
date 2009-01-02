@@ -454,12 +454,16 @@ that a colour reduction may have to take place.", "",
             BitmapFromBits,
             "Creates a bitmap from an array of bits.  You should only use this
 function for monochrome bitmaps (depth 1) in portable programs: in
-this case the bits parameter should contain an XBM image.  For other
-bit depths, the behaviour is platform dependent.", "",
+this case the bits parameter should contain an XBM image as a data
+string.  For other bit depths, the behaviour is platform dependent.", "",
             wxBitmap(PyObject* bits, int width, int height, int depth=1 ))
             {
                 char*      buf;
                 Py_ssize_t length;
+                if (! PyString_Check(bits)) {
+                    wxPyErr_SetString(PyExc_TypeError, "String required for bits data");
+                    return NULL;
+                }
                 PyString_AsStringAndSize(bits, &buf, &length);
                 return new wxBitmap(buf, width, height, depth);
             }
