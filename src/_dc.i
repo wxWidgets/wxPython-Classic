@@ -1761,16 +1761,26 @@ public:
 };
 
 
-%newobject wxAutoBufferedPaintDCFactory;
-DocDeclStr(
-    wxDC* , wxAutoBufferedPaintDCFactory(wxWindow* window),
+%newobject _wxPyAutoBufferedPaintDCFactory;
+%rename(AutoBufferedPaintDCFactory) _wxPyAutoBufferedPaintDCFactory;
+DocStr(_wxPyAutoBufferedPaintDCFactory,
     "Checks if the window is natively double buffered and will return a
 `wx.PaintDC` if it is, a `wx.BufferedPaintDC` otherwise.  The advantage of
 this function over `wx.AutoBufferedPaintDC` is that this function will check
 if the the specified window has double-buffering enabled rather than just
 going by platform defaults.", "");
-
-
+%inline %{
+    wxDC* _wxPyAutoBufferedPaintDCFactory(wxWindow* window)
+    {
+        if (window)
+            return wxAutoBufferedPaintDCFactory(window);
+        else {
+            wxPyErr_SetString(PyExc_ValueError, "Valid window required.");
+            return NULL;
+        }
+    }
+%}
+                
 
 //---------------------------------------------------------------------------
 %newgroup
