@@ -12,6 +12,13 @@ if %2 == "debug" set TYPE=d
 set DELTYPE=d
 if %2 == "debug" set DELTYPE=h 
 
+set DLLDIR=vc_dll
+if %CPU% == "AMD64" set DLLDIR=vc_amd64_dll
+
+set PLATFORM=win32
+if %CPU% == "AMD64" set PLATFORM=win64
+
+
 rem **** Make a directory to build up a distribution tree
 mkdir _distrib_zip
 mkdir %BASE%
@@ -35,13 +42,13 @@ copy  %WXWIN%\wxPython\src\*.i               %BASE%\include\wx\wxPython\i_files
 copy  %WXWIN%\wxPython\src\*.py              %BASE%\include\wx\wxPython\i_files
 
 mkdir %BASE%\lib
-mkdir %BASE%\lib\vc_dll
-mkdir %BASE%\lib\vc_dll\msw%TYPE%
-mkdir %BASE%\lib\vc_dll\mswu%TYPE%
+mkdir %BASE%\lib\%DLLDIR%
+mkdir %BASE%\lib\%DLLDIR%\msw%TYPE%
+mkdir %BASE%\lib\%DLLDIR%\mswu%TYPE%
 
-copy /s %WXWIN%\lib\vc_dll\msw%TYPE%\*            %BASE%\lib\vc_dll\mswh
-copy /s %WXWIN%\lib\vc_dll\mswu%TYPE%\*           %BASE%\lib\vc_dll\mswuh
-copy %WXWIN%\lib\vc_dll\*                    %BASE%\lib\vc_dll
+copy /s %WXWIN%\lib\%DLLDIR%\msw%TYPE%\*       %BASE%\lib\%DLLDIR%\mswh
+copy /s %WXWIN%\lib\%DLLDIR%\mswu%TYPE%\*      %BASE%\lib\%DLLDIR%\mswuh
+copy %WXWIN%\lib\%DLLDIR%\*                    %BASE%\lib\%DLLDIR%
 
 
 rem *** remove unneeded files
@@ -76,8 +83,8 @@ rm del-dirs
 rem *** bundle it all up  TODO: don't hard-code the 2.8
 set EXT=
 if %2 == "debug" set EXT="-debug"
-tar cvf ../dist/wxPython2.8-win32-devel-%1%EXT%.tar wxPython-%1
-bzip2 -9 ../dist/wxPython2.8-win32-devel-%1%EXT%.tar
+tar cvf ../dist/wxPython2.8-%PLATFORM%-devel-%1%EXT%.tar wxPython-%1
+bzip2 -9 ../dist/wxPython2.8-%PLATFORM%-devel-%1%EXT%.tar
 
 rem *** cleanup
 cd ..
