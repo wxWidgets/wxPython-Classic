@@ -27,6 +27,9 @@
 # 15-Oct-2004 - Robin Dunn
 # o wxTextEditMixin: Added Shift-TAB support
 #
+# 2008-11-19 - raf <raf@raf.org>
+# o ColumnSorterMixin: Added GetSortState()
+#
 
 import  locale
 import  wx
@@ -129,6 +132,18 @@ class ColumnSorterMixin:
         clicked column header).
         """
         pass
+
+
+    def GetSortState(self):
+        """
+        Return a tuple containing the index of the column that was last sorted
+        and the sort direction of that column.
+        Usage:
+        col, ascending = self.GetSortState()
+        # Make changes to list items... then resort
+        self.SortListItems(col, ascending)
+        """
+        return (self._col, self._colSortFlag[self._col])
 
 
     def __ColumnSorter(self, key1, key2):
