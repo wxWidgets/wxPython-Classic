@@ -863,6 +863,7 @@ if EGGing:
 WX_PKGLIST =      [ 'wx',
                     'wx.build',
                     'wx.lib',
+                    'wx.lib.agw',
                     'wx.lib.analogclock',
                     'wx.lib.analogclock.lib_setup',
                     'wx.lib.art',
