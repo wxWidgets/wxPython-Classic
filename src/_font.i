@@ -530,8 +530,12 @@ public:
     %pythonPrepend wxFont   "if kwargs.has_key('faceName'): kwargs['face'] = kwargs['faceName'];del kwargs['faceName']"
 
     DocCtorStr(
-        wxFont( int pointSize, int family, int style, int weight,
-                bool underline=false, const wxString& face = wxPyEmptyString,
+        wxFont( int pointSize,
+                wxFontFamily family,
+                wxFontStyle style,
+                wxFontWeight weight,
+                bool underline=false,
+                const wxString& face = wxPyEmptyString,
                 wxFontEncoding encoding = wxFONTENCODING_DEFAULT),
         "Creates a font object with the specified attributes.
 
@@ -606,7 +610,7 @@ combination of the following:
 
             wxFont(int pointSize,
                    wxFontFamily family,
-                   int flags = wxFONTFLAG_DEFAULT,
+                   wxFontFlag flags = wxFONTFLAG_DEFAULT,
                    const wxString& face = wxPyEmptyString,
                    wxFontEncoding encoding = wxFONTENCODING_DEFAULT))
             {
@@ -686,15 +690,15 @@ size.", "");
     
     
     DocDeclStr(
-        virtual int , GetFamily() const,
+        virtual wxFontFamily , GetFamily() const,
         "Gets the font family. ", "");
     
     DocDeclStr(
-        virtual int , GetStyle() const,
+        virtual wxFontStyle , GetStyle() const,
         "Gets the font style.", "");
     
     DocDeclStr(
-        virtual int , GetWeight() const,
+        virtual wxFontWeight , GetWeight() const,
         "Gets the font weight. ", "");
     
     DocDeclStr(
@@ -743,15 +747,15 @@ support for this then it is used, otherwise a font with the closest
 size is found using a binary search.", "");
     
     DocDeclStr(
-        virtual void , SetFamily( int family ),
+        virtual void , SetFamily( wxFontFamily family ),
         "Sets the font family.", "");
     
     DocDeclStr(
-        virtual void , SetStyle( int style ),
+        virtual void , SetStyle( wxFontStyle style ),
         "Sets the font style.", "");
     
     DocDeclStr(
-        virtual void , SetWeight( int weight ),
+        virtual void , SetWeight( wxFontWeight weight ),
         "Sets the font weight.", "");
     
     DocDeclStr(
