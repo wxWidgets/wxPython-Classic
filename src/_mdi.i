@@ -131,13 +131,14 @@ public:
     %pythonAppend wxMDIClientWindow()       ""
     %typemap(out) wxMDIClientWindow*;    // turn off this typemap
 
-    wxMDIClientWindow(wxMDIParentFrame* parent, long style = 0);
+    wxMDIClientWindow();
     %RenameCtor(PreMDIClientWindow, wxMDIClientWindow());
 
     // Turn it back on again
     %typemap(out) wxMDIClientWindow* { $result = wxPyMake_wxObject($1, $owner); }
 
-    bool Create(wxMDIParentFrame* parent, long style = 0);
+    bool CreateClient(wxMDIParentFrame *parent,
+                      long style = wxVSCROLL | wxHSCROLL);
 };
 
 
