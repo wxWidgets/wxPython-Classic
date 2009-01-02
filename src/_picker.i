@@ -132,6 +132,78 @@ etc).", "");
 };
 
 //---------------------------------------------------------------------------
+// PyPickerBase
+
+%{
+// C++ implementation with Python plumbing    
+class wxPyPickerBase : public wxPickerBase {
+public: 
+    wxPyPickerBase() {}
+    wxPyPickerBase(wxWindow *parent,
+                   wxWindowID id = -1,
+                   const wxString& text = wxEmptyString,
+                   const wxPoint& pos = wxDefaultPosition,
+                   const wxSize& size = wxDefaultSize,
+                   long style = 0,
+                   const wxValidator& validator = wxDefaultValidator,
+                   const wxString& name = wxButtonNameStr)
+    {
+        CreateBase(parent, id, text, pos, size, style, validator, name);
+    }
+
+    void SetTextCtrl(wxTextCtrl* text) { m_text = text; }
+    void SetPickerCtrl(wxControl* picker) { m_picker = picker; }
+
+    void PostCreation() { wxPickerBase::PostCreation(); }
+
+    DEC_PYCALLBACK_VOID_pure(UpdatePickerFromTextCtrl);
+    DEC_PYCALLBACK_VOID_pure(UpdateTextCtrlFromPicker);
+
+    DEC_PYCALLBACK_LONG_LONG_const(GetTextCtrlStyle);
+    DEC_PYCALLBACK_LONG_LONG_const(GetPickerStyle);
+    
+    PYPRIVATE;
+};
+
+IMP_PYCALLBACK_VOID_pure(wxPyPickerBase, wxPickerBase, UpdatePickerFromTextCtrl);
+IMP_PYCALLBACK_VOID_pure(wxPyPickerBase, wxPickerBase, UpdateTextCtrlFromPicker);
+IMP_PYCALLBACK_LONG_LONG_const(wxPyPickerBase, wxPickerBase, GetTextCtrlStyle);
+IMP_PYCALLBACK_LONG_LONG_const(wxPyPickerBase, wxPickerBase, GetPickerStyle);
+%}
+
+
+class wxPyPickerBase : public wxPickerBase {
+public:
+    %pythonAppend wxPyPickerBase      "self._setOORInfo(self);" setCallbackInfo(PyPickerBase)
+    %pythonAppend wxPyPickerBase()    ""
+    %typemap(out) wxPyPickerBase*;    // turn off this typemap
+   
+    wxPyPickerBase(wxWindow *parent,
+                   wxWindowID id = -1,
+                   const wxString& text = wxEmptyString,
+                   const wxPoint& pos = wxDefaultPosition,
+                   const wxSize& size = wxDefaultSize,
+                   long style = 0,
+                   const wxValidator& validator = wxDefaultValidator,
+                   const wxString& name = wxButtonNameStr);
+    %RenameCtor(PrePyPickerBase, wxPyPickerBase());
+
+    void _setCallbackInfo(PyObject* self, PyObject* _class);
+        
+    // Turn it back on again
+    %typemap(out) wxPyPickerBase* { $result = wxPyMake_wxObject($1, $owner); }
+
+    virtual void UpdatePickerFromTextCtrl();
+    virtual void UpdateTextCtrlFromPicker();
+    virtual long GetTextCtrlStyle(long style) const;
+    virtual long GetPickerStyle(long style) const;
+
+    void SetTextCtrl(wxTextCtrl* text);
+    void SetPickerCtrl(wxControl* picker);
+    void PostCreation();
+};
+
+//---------------------------------------------------------------------------
 %newgroup
 
 MAKE_CONST_WXSTRING(ColourPickerCtrlNameStr);
@@ -143,12 +215,173 @@ enum {
 };
 
 
+
+// The C++ wxColourPickerCtrl uses a wx.Button for the implementation,
+// but that looks and works very badly on Mac because the native
+// button can't change color.  So for the Mac we'll implement our own
+// picker using a wx.BitmapButton instead.
+#ifdef __WXMAC__
+
+%pythoncode %{
+# ColourData object to be shared by all colour pickers
+_colourData = None
+
+class ColourPickerCtrl(PyPickerBase):
+    """
+    This control allows the user to select a colour. The
+    implementation varies by platform but is usually a button which
+    brings up a `wx.ColourDialog` when clicked.
+
+
+    Window Styles
+    -------------
+
+        ======================  ============================================
+        wx.CLRP_DEFAULT         Default style.
+        wx.CLRP_USE_TEXTCTRL    Creates a text control to the left of the
+                                picker button which is completely managed
+                                by the `wx.ColourPickerCtrl` and which can
+                                be used by the user to specify a colour.
+                                The text control is automatically synchronized
+                                with the button's value. Use functions defined in
+                                `wx.PickerBase` to modify the text control.
+        wx.CLRP_SHOW_LABEL      Shows the colour in HTML form (AABBCC) as the
+                                colour button label (instead of no label at all).
+        ======================  ============================================
+
+    Events
+    ------
+
+        ========================  ==========================================
+        EVT_COLOURPICKER_CHANGED  The user changed the colour selected in the
+                                  control either using the button or using the
+                                  text control (see wx.CLRP_USE_TEXTCTRL; note
+                                  that in this case the event is fired only if
+                                  the user's input is valid, i.e. recognizable).
+        ========================  ==========================================
+    """
+    #--------------------------------------------------
+    class ColourPickerButton(BitmapButton):
+        def __init__(self, parent, id=-1, col=wx.BLACK,
+                     pos=wx.DefaultPosition, size=wx.DefaultSize,
+                     style = CLRP_DEFAULT_STYLE,
+                     validator = wx.DefaultValidator,
+                     name = "colourpickerwidget"):
+            
+            wx.BitmapButton.__init__(self, parent, id, wx.EmptyBitmap(1,1), 
+                                     pos, size, style, validator, name)
+            self.SetColour(col)
+            self.InvalidateBestSize()
+            self.SetInitialSize(size)
+            self.Bind(wx.EVT_BUTTON, self.OnButtonClick)
+            
+            
+            global _colourData
+            if _colourData is None:
+                _colourData = wx.ColourData()
+                _colourData.SetChooseFull(True)
+                grey = 0
+                for i in range(16):
+                    c = wx.Colour(grey, grey, grey)
+                    _colourData.SetCustomColour(i, c)
+                    grey += 16                                            
+                        
+        def SetColour(self, col):
+            self.colour = col
+            bmp = self._makeBitmap()
+            self.SetBitmapLabel(bmp)
+        
+        def GetColour(self):
+            return self.colour
+        
+        def OnButtonClick(self, evt):
+            global _colourData
+            _colourData.SetColour(self.colour)
+            dlg = wx.ColourDialog(self, _colourData)
+            if dlg.ShowModal() == wx.ID_OK:
+                _colourData = dlg.GetColourData()
+                self.SetColour(_colourData.GetColour())
+                evt = wx.ColourPickerEvent(self, self.GetId(), self.GetColour())
+                self.GetEventHandler().ProcessEvent(evt)
+                            
+        def _makeBitmap(self):
+            width = height = 22
+            bg = self.GetColour()
+            if self.HasFlag(CLRP_SHOW_LABEL):
+                w, h = self.GetTextExtent(bg.GetAsString(wx.C2S_HTML_SYNTAX))
+                width += w
+            bmp = wx.EmptyBitmap(width, height)
+            dc = wx.MemoryDC(bmp)
+            dc.SetBackground(wx.Brush(self.colour))
+            dc.Clear()
+            if self.HasFlag(CLRP_SHOW_LABEL):
+                from wx.lib.colourutils import BestLabelColour
+                fg = BestLabelColour(bg)
+                dc.SetTextForeground(fg)
+                dc.DrawText(bg.GetAsString(wx.C2S_HTML_SYNTAX),
+                            (width - w)/2, (height - h)/2)
+            return bmp
+    
+    
+    #--------------------------------------------------
+
+    def __init__(self, parent, id=-1, col=wx.BLACK,
+                 pos=wx.DefaultPosition, size=wx.DefaultSize,
+                 style = CLRP_DEFAULT_STYLE,
+                 validator = wx.DefaultValidator,
+                 name = "colourpicker"):
+        wx.PyPickerBase.__init__(self, parent, id, col.GetAsString(),
+                                 pos, size, style, validator, name)
+        widget = ColourPickerCtrl.ColourPickerButton(
+            self, -1, col, style=self.GetPickerStyle(style))
+        self.SetPickerCtrl(widget)
+        widget.Bind(wx.EVT_COLOURPICKER_CHANGED, self.OnColourChange)
+        self.PostCreation()
+        
+        
+    def GetColour(self):
+        """Set the displayed colour."""
+        return self.GetPickerCtrl().GetColour()
+
+
+    def SetColour(self, col):
+        """Returns the currently selected colour."""
+        self.GetPickerCtrl().SetColour(col)
+        self.UpdateTextCtrlFromPicker()
+
+        
+    def UpdatePickerFromTextCtrl(self):
+        col = wx.NamedColour(self.GetTextCtrl().GetValue())
+        if not col.Ok():
+            return
+        if self.GetColour() != col:
+            self.GetPickerCtrl().SetColour(col)
+            evt = wx.ColourPickerEvent(self, self.GetId(), self.GetColour())
+            self.GetEventHandler().ProcessEvent(evt)
+    
+    def UpdateTextCtrlFromPicker(self):
+        if not self.GetTextCtrl():
+            return
+        self.GetTextCtrl().SetValue(self.GetColour().GetAsString())
+        
+    def GetPickerStyle(self, style):
+        return style & CLRP_SHOW_LABEL
+
+    def OnColourChange(self, evt):
+        self.UpdateTextCtrlFromPicker()
+        evt = wx.ColourPickerEvent(self, self.GetId(), self.GetColour())
+        self.GetEventHandler().ProcessEvent(evt)
+        
+%}
+
+#else
+// If not Mac then tell SWIG about the C++ implementation
+
 MustHaveApp(wxColourPickerCtrl);
 DocStr(wxColourPickerCtrl,
-"This control allows the user to select a colour. The generic
-implementation is a button which brings up a `wx.ColourDialog` when
-clicked. Native implementations may differ but this is usually a
-(small) widget which give access to the colour-chooser dialog.",
+"This control allows the user to select a colour. The implementation
+varies by platform but is usually a button which brings up a
+`wx.ColourDialog` when clicked.",
 
 "
 Window Styles
@@ -214,6 +447,7 @@ public:
 
     %property(Colour, GetColour, SetColour, doc="See `GetColour` and `SetColour`");
 };
+#endif
 
 
 
