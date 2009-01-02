@@ -4165,7 +4165,6 @@ SWIGINTERN long wxWindow_GetGtkWidget(wxWindow *self){
 
 
         }
-SWIGINTERN void wxWindow_DragAcceptFiles(wxWindow *self,bool accept){}
 
 wxWindow* wxFindWindowById( long id, const wxWindow *parent = NULL ) {
     return wxWindow::FindWindowById(id, parent);
@@ -42318,7 +42317,7 @@ SWIGINTERN PyObject *_wrap_Window_DragAcceptFiles(PyObject *SWIGUNUSEDPARM(self)
   arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxWindow_DragAcceptFiles(arg1,arg2);
+    (arg1)->DragAcceptFiles(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }

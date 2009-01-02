@@ -10445,7 +10445,6 @@ class Window(EvtHandler):
         DragAcceptFiles(self, bool accept)
 
         Enables or disables eligibility for drop file events, EVT_DROP_FILES.
-        Only functional on Windows.
         """
         return _core_.Window_DragAcceptFiles(*args, **kwargs)
 

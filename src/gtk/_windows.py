@@ -2309,7 +2309,7 @@ class ColourDialog(Dialog):
         """
         GetColourData(self) -> ColourData
 
-        Returns a reference to the `wx.ColourData` used by the dialog.
+        Returns a copy of the `wx.ColourData` used by the dialog.
         """
         return _windows_.ColourDialog_GetColourData(*args, **kwargs)
 

@@ -5155,6 +5155,17 @@ class GraphicsFont(GraphicsObject):
     __del__ = lambda self : None;
 _gdi_.GraphicsFont_swigregister(GraphicsFont)
 
+class GraphicsBitmap(GraphicsObject):
+    """Proxy of C++ GraphicsBitmap class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> GraphicsBitmap"""
+        _gdi_.GraphicsBitmap_swiginit(self,_gdi_.new_GraphicsBitmap(*args, **kwargs))
+    __swig_destroy__ = _gdi_.delete_GraphicsBitmap
+    __del__ = lambda self : None;
+_gdi_.GraphicsBitmap_swigregister(GraphicsBitmap)
+
 class GraphicsMatrix(GraphicsObject):
     """
     A wx.GraphicsMatrix is a native representation of an affine
@@ -5551,6 +5562,10 @@ class GraphicsContext(GraphicsObject):
         """
         return _gdi_.GraphicsContext_CreateFont(*args, **kwargs)
 
+    def CreateBitmap(*args, **kwargs):
+        """CreateBitmap(self, Bitmap bitmap) -> GraphicsBitmap"""
+        return _gdi_.GraphicsContext_CreateBitmap(*args, **kwargs)
+
     def CreateMatrix(*args, **kwargs):
         """
         CreateMatrix(self, Double a=1.0, Double b=0.0, Double c=0.0, Double d=1.0, 
@@ -5777,6 +5792,10 @@ class GraphicsContext(GraphicsObject):
         """
         return _gdi_.GraphicsContext_GetPartialTextExtents(*args, **kwargs)
 
+    def DrawGraphicsBitmap(*args, **kwargs):
+        """DrawGraphicsBitmap(self, GraphicsBitmap bmp, Double x, Double y, Double w, Double h)"""
+        return _gdi_.GraphicsContext_DrawGraphicsBitmap(*args, **kwargs)
+
     def DrawBitmap(*args, **kwargs):
         """
         DrawBitmap(self, Bitmap bmp, Double x, Double y, Double w, Double h)
@@ -5810,13 +5829,13 @@ class GraphicsContext(GraphicsObject):
         """
         return _gdi_.GraphicsContext_StrokeLines(*args, **kwargs)
 
-    def StrokeLineSegements(*args, **kwargs):
+    def StrokeLineSegments(*args, **kwargs):
         """
         StrokeLineSegments(self, List beginPoints, List endPoints)
 
         Stroke disconnected lines from begin to end points
         """
-        return _gdi_.GraphicsContext_StrokeLineSegements(*args, **kwargs)
+        return _gdi_.GraphicsContext_StrokeLineSegments(*args, **kwargs)
 
     def DrawLines(*args, **kwargs):
         """
@@ -5863,6 +5882,7 @@ cvar = _gdi_.cvar
 NullGraphicsPen = cvar.NullGraphicsPen
 NullGraphicsBrush = cvar.NullGraphicsBrush
 NullGraphicsFont = cvar.NullGraphicsFont
+NullGraphicsBitmap = cvar.NullGraphicsBitmap
 NullGraphicsMatrix = cvar.NullGraphicsMatrix
 NullGraphicsPath = cvar.NullGraphicsPath
 

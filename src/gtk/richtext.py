@@ -3224,7 +3224,10 @@ class RichTextCtrl(_core.Control):
         """
         SetSelectionRange(self, RichTextRange range)
 
-        Set the selection range in character positions. -1, -1 means no selection.
+        Set the selection range in character positions. The end point of range
+        is specified as the last character position of the span of text, plus
+        one. So, for example, to set the selection for a character at position
+        5, use the range (5,6).
         """
         return _richtext.RichTextCtrl_SetSelectionRange(*args, **kwargs)
 
@@ -3232,9 +3235,8 @@ class RichTextCtrl(_core.Control):
         """
         GetInternalSelectionRange(self) -> RichTextRange
 
-        Get the selection range in character positions. -1, -1 means no
-        selection.  The range is in internal format, i.e. a single character
-        selection is denoted by (n, n).
+        Get the selection range in character positions. The range is in
+        internal format, i.e. a single character selection is denoted by (n,n).
 
         """
         return _richtext.RichTextCtrl_GetInternalSelectionRange(*args, **kwargs)
@@ -3243,9 +3245,8 @@ class RichTextCtrl(_core.Control):
         """
         SetInternalSelectionRange(self, RichTextRange range)
 
-        Set the selection range in character positions. -1, -1 means no
-        selection.  The range is in internal format, i.e. a single character
-        selection is denoted by (n, n).
+        Set the selection range in character positions. The range is in
+        internal format, i.e. a single character selection is denoted by (n,n).
         """
         return _richtext.RichTextCtrl_SetInternalSelectionRange(*args, **kwargs)
 

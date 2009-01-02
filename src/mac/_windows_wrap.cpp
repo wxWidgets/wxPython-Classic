@@ -17055,7 +17055,7 @@ fail:
 SWIGINTERN PyObject *_wrap_ColourDialog_GetColourData(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxColourDialog *arg1 = (wxColourDialog *) 0 ;
-  wxColourData *result = 0 ;
+  wxColourData result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -17069,14 +17069,11 @@ SWIGINTERN PyObject *_wrap_ColourDialog_GetColourData(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxColourDialog * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxColourData &_result_ref = (arg1)->GetColourData();
-      result = (wxColourData *) &_result_ref;
-    }
+    result = (arg1)->GetColourData();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColourData, 0 |  0 );
+  resultobj = SWIG_NewPointerObj((new wxColourData(static_cast< const wxColourData& >(result))), SWIGTYPE_p_wxColourData, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;

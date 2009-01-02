@@ -6831,6 +6831,59 @@ class PickerBase(_core.Control):
     PickerCtrlGrowable = property(IsPickerCtrlGrowable,SetPickerCtrlGrowable,doc="See `IsPickerCtrlGrowable` and `SetPickerCtrlGrowable`") 
 _controls_.PickerBase_swigregister(PickerBase)
 
+class PyPickerBase(PickerBase):
+    """Proxy of C++ PyPickerBase class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int id=-1, String text=wxEmptyString, 
+            Point pos=DefaultPosition, Size size=DefaultSize, 
+            long style=0, Validator validator=DefaultValidator, 
+            String name=wxButtonNameStr) -> PyPickerBase
+        """
+        _controls_.PyPickerBase_swiginit(self,_controls_.new_PyPickerBase(*args, **kwargs))
+        self._setOORInfo(self);PyPickerBase._setCallbackInfo(self, self, PyPickerBase)
+
+    def _setCallbackInfo(*args, **kwargs):
+        """_setCallbackInfo(self, PyObject self, PyObject _class)"""
+        return _controls_.PyPickerBase__setCallbackInfo(*args, **kwargs)
+
+    def UpdatePickerFromTextCtrl(*args, **kwargs):
+        """UpdatePickerFromTextCtrl(self)"""
+        return _controls_.PyPickerBase_UpdatePickerFromTextCtrl(*args, **kwargs)
+
+    def UpdateTextCtrlFromPicker(*args, **kwargs):
+        """UpdateTextCtrlFromPicker(self)"""
+        return _controls_.PyPickerBase_UpdateTextCtrlFromPicker(*args, **kwargs)
+
+    def GetTextCtrlStyle(*args, **kwargs):
+        """GetTextCtrlStyle(self, long style) -> long"""
+        return _controls_.PyPickerBase_GetTextCtrlStyle(*args, **kwargs)
+
+    def GetPickerStyle(*args, **kwargs):
+        """GetPickerStyle(self, long style) -> long"""
+        return _controls_.PyPickerBase_GetPickerStyle(*args, **kwargs)
+
+    def SetTextCtrl(*args, **kwargs):
+        """SetTextCtrl(self, TextCtrl text)"""
+        return _controls_.PyPickerBase_SetTextCtrl(*args, **kwargs)
+
+    def SetPickerCtrl(*args, **kwargs):
+        """SetPickerCtrl(self, Control picker)"""
+        return _controls_.PyPickerBase_SetPickerCtrl(*args, **kwargs)
+
+    def PostCreation(*args, **kwargs):
+        """PostCreation(self)"""
+        return _controls_.PyPickerBase_PostCreation(*args, **kwargs)
+
+_controls_.PyPickerBase_swigregister(PyPickerBase)
+
+def PrePyPickerBase(*args, **kwargs):
+    """PrePyPickerBase() -> PyPickerBase"""
+    val = _controls_.new_PrePyPickerBase(*args, **kwargs)
+    return val
+
 #---------------------------------------------------------------------------
 
 CLRP_SHOW_LABEL = _controls_.CLRP_SHOW_LABEL
@@ -6838,10 +6891,9 @@ CLRP_USE_TEXTCTRL = _controls_.CLRP_USE_TEXTCTRL
 CLRP_DEFAULT_STYLE = _controls_.CLRP_DEFAULT_STYLE
 class ColourPickerCtrl(PickerBase):
     """
-    This control allows the user to select a colour. The generic
-    implementation is a button which brings up a `wx.ColourDialog` when
-    clicked. Native implementations may differ but this is usually a
-    (small) widget which give access to the colour-chooser dialog.
+    This control allows the user to select a colour. The implementation
+    varies by platform but is usually a button which brings up a
+    `wx.ColourDialog` when clicked.
     """
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -6852,10 +6904,9 @@ class ColourPickerCtrl(PickerBase):
             long style=CLRP_DEFAULT_STYLE, Validator validator=DefaultValidator, 
             String name=ColourPickerCtrlNameStr) -> ColourPickerCtrl
 
-        This control allows the user to select a colour. The generic
-        implementation is a button which brings up a `wx.ColourDialog` when
-        clicked. Native implementations may differ but this is usually a
-        (small) widget which give access to the colour-chooser dialog.
+        This control allows the user to select a colour. The implementation
+        varies by platform but is usually a button which brings up a
+        `wx.ColourDialog` when clicked.
         """
         _controls_.ColourPickerCtrl_swiginit(self,_controls_.new_ColourPickerCtrl(*args, **kwargs))
         self._setOORInfo(self)
@@ -6893,10 +6944,9 @@ def PreColourPickerCtrl(*args, **kwargs):
     """
     PreColourPickerCtrl() -> ColourPickerCtrl
 
-    This control allows the user to select a colour. The generic
-    implementation is a button which brings up a `wx.ColourDialog` when
-    clicked. Native implementations may differ but this is usually a
-    (small) widget which give access to the colour-chooser dialog.
+    This control allows the user to select a colour. The implementation
+    varies by platform but is usually a button which brings up a
+    `wx.ColourDialog` when clicked.
     """
     val = _controls_.new_PreColourPickerCtrl(*args, **kwargs)
     return val
