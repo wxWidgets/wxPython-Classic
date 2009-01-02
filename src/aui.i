@@ -203,6 +203,22 @@ The following example shows a simple implementation that utilizes
 // Link error...
 %ignore wxAuiDefaultTabArt::SetWindow;        
 
+// We need an %extend version of this one to deal with the output parameter
+%ignore wxAuiTabArt::GetTabSize(wxDC& dc,
+                                wxWindow* wnd,
+                                const wxString& caption,
+                                const wxBitmap& bitmap,
+                                bool active,
+                                int close_button_state,
+                                int* x_extent);
+%ignore wxAuiDefaultTabArt::GetTabSize(wxDC& dc,
+                                       wxWindow* wnd,
+                                       const wxString& caption,
+                                       const wxBitmap& bitmap,
+                                       bool active,
+                                       int close_button_state,
+                                       int* x_extent);
+
 // ignore this overload
 %ignore wxAuiTabContainer::GetPage(size_t idx) const;
 
@@ -579,6 +595,33 @@ public:
 
 //---------------------------------------------------------------------------
 
+
+%extend wxAuiTabArt {
+// Provide an alternate implementation for the GetTabSize method that switches
+// the x_extent output parameter to a return value.
+
+    PyObject* GetTabSize(
+                 wxDC& dc,
+                 wxWindow* wnd,
+                 const wxString& caption,
+                 const wxBitmap& bitmap,
+                 bool active,
+                 int close_button_state)
+    {
+        wxSize sz;
+        int x_extent;
+        sz = self->GetTabSize(dc, wnd, caption, bitmap, active,
+                              close_button_state, &x_extent);
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        PyObject* tup = PyTuple_New(2);
+        PyTuple_SET_ITEM(tup, 0, wxPyConstructObject((void*)&sz, wxT("wxSize"), true));
+        PyTuple_SET_ITEM(tup, 0, PyInt_FromLong(x_extent));
+        wxPyEndBlockThreads(blocked);
+        return tup;
+    }        
+}
+
+
 %{
 // A wxTabArt class that knows how to forward virtuals to Python methods
 class wxPyAuiTabArt :  public wxAuiDefaultTabArt
@@ -716,8 +759,10 @@ public:
             PyObject* otext = wx2PyString(caption);
             PyObject* obmp = wxPyMake_wxObject((wxObject*)&bitmap, false);
             PyObject* ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue(
-                                             "(OOOOii)", odc, ownd, otext, obmp, (int)active, close_button_state));
+            ro = wxPyCBH_callCallbackObj(m_myInst,
+                                         Py_BuildValue("(OOOOii)",
+                                                       odc, ownd, otext, obmp,
+                                                       (int)active, close_button_state));
             if (ro) {
                 if (PySequence_Check(ro) && PyObject_Length(ro) == 2) {
                     PyObject* o1 = PySequence_GetItem(ro, 0);
@@ -745,7 +790,8 @@ public:
         }
         wxPyEndBlockThreads(blocked);
         if (!found)
-            rv = wxAuiDefaultTabArt::GetTabSize(dc, wnd, caption, bitmap, active, close_button_state, x_extent);
+            rv = wxAuiDefaultTabArt::GetTabSize(dc, wnd, caption, bitmap, active,
+                                                close_button_state, x_extent);
         return rv;
     }
 
