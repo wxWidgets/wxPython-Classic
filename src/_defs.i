@@ -475,7 +475,7 @@ FORWARD_DECLARE(wxStaticBox,      StaticBox);
 
 
 //---------------------------------------------------------------------------
-// These macros makes a class to wrap a type specific class derived from wxList,
+// These macros make a class to wrap a type specific class derived from wxList,
 // and make it look like a Python sequence, including iterator support.
 
 
