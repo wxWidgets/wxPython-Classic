@@ -82,7 +82,8 @@
 #include <wx/collpane.h>
 #include <wx/srchctrl.h>
 #include <wx/generic/datectrl.h>
-
+#include <wx/filectrl.h>
+#include <wx/notifmsg.h>
 
 #ifdef _MSC_VER
 # pragma warning(disable:4800)
