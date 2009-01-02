@@ -995,16 +995,20 @@ class DemoModules:
         
         #              (dict , source ,  filename , description   , error information )        
         #              (  0  ,   1    ,     2     ,      3        ,          4        )        
-        self.modules = [[None,  ""    ,    ""     , "<original>"  ,        None],
-                        [None,  ""    ,    ""     , "<modified>"  ,        None]]
+        self.modules = [[dict(),  ""    ,    ""     , "<original>"  ,        None],
+                        [dict(),  ""    ,    ""     , "<modified>"  ,        None]]
         
+        for i in [modOriginal, modModified]:
+            self.modules[i][0]['__file__'] = \
+                os.path.join(os.getcwd(), GetOriginalFilename(name))
+            
         # load original module
         self.LoadFromFile(modOriginal, GetOriginalFilename(name))
         self.SetActive(modOriginal)
 
         # load modified module (if one exists)
         if DoesModifiedExist(name):
-           self.LoadFromFile(modModified, GetModifiedFilename(name))
+            self.LoadFromFile(modModified, GetModifiedFilename(name))
 
 
     def LoadFromFile(self, modID, filename):
@@ -1026,7 +1030,6 @@ class DemoModules:
             description = description.encode(sys.getfilesystemencoding())
             
             try:
-                self.modules[modID][0] = {}
                 code = compile(source, description, "exec")        
                 exec code in self.modules[modID][0]
             except:
@@ -1635,7 +1638,7 @@ class wxPythonDemo(wx.Frame):
             aTable = wx.AcceleratorTable([(wx.ACCEL_ALT,  ord('X'), exitItem.GetId()),
                                           (wx.ACCEL_CTRL, ord('H'), helpItem.GetId()),
                                           (wx.ACCEL_CTRL, ord('F'), findItem.GetId()),
-                                          (wx.ACCEL_NORMAL, wx.WXK_F3, findnextItem.GetId()),
+                                          (wx.ACCEL_NORMAL, wx.WXK_F3, findNextItem.GetId()),
                                           (wx.ACCEL_NORMAL, wx.WXK_F9, shellItem.GetId()),
                                           ])
             self.SetAcceleratorTable(aTable)
@@ -1846,9 +1849,9 @@ class wxPythonDemo(wx.Frame):
                         self.codePage = None
                         self.UpdateNotebook(0)
                     else:
-                    self.SetOverview("wxPython", mainOverview)
-                    self.codePage = None
-                    self.UpdateNotebook(0)
+                        self.SetOverview("wxPython", mainOverview)
+                        self.codePage = None
+                        self.UpdateNotebook(0)
 
         finally:
             wx.EndBusyCursor()
