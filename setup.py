@@ -1034,24 +1034,6 @@ if __name__ == "__main__":
               )
 
         if not EGGing:
-            setup(name = 'wxaddons',
-                  version          = VERSION,
-                  description      = DESCRIPTION,
-                  long_description = LONG_DESCRIPTION,
-                  author           = AUTHOR,
-                  author_email     = AUTHOR_EMAIL,
-                  url              = URL,
-                  download_url     = DOWNLOAD_URL,
-                  license          = LICENSE,
-                  platforms        = PLATFORMS,
-                  classifiers      = filter(None, CLASSIFIERS.split("\n")),
-                  keywords         = KEYWORDS,
-                  
-                  packages = ['wxaddons'],
-                  options = { 'build' : BUILD_OPTIONS,
-                              },
-                 )
-
             if INSTALL_MULTIVERSION:
                 setup(name             = 'wxPython-common',
                       version          = VERSION,
