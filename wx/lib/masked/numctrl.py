@@ -1277,6 +1277,21 @@ class NumCtrl(BaseMaskedTextCtrl, NumCtrlAccessorsMixin):
         BaseMaskedTextCtrl.SetValue( self, self._toGUI(value) )
 ##        dbg(indent=0)
 
+   def ChangeValue(self, value):
+       """
+       Sets the value of the control to the value specified.
+       The resulting actual value of the control may be altered to
+       conform with the bounds set on the control if limited,
+       or colored if not limited but the value is out-of-bounds.
+       A ValueError exception will be raised if an invalid value
+       is specified.
+       """
+##        dbg('NumCtrl::ChangeValue(%s)' % value, indent=1)
+       BaseMaskedTextCtrl.ChangeValue( self, self._toGUI(value) )
+##        dbg(indent=0)
+
+
+
 
     def SetIntegerWidth(self, value):
         self.SetParameters(integerWidth=value)
