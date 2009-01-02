@@ -32,11 +32,17 @@ class TestPanel(wx.Panel):
         cp1 = wx.ColourPickerCtrl(self)
         fgs.Add(cp1, 0, wx.ALIGN_CENTER)
         fgs.Add((10,10))  # spacer
-        cp2 = wx.ColourPickerCtrl(self, style=wx.CLRP_USE_TEXTCTRL)
+        cp2 = wx.ColourPickerCtrl(self, style=wx.CLRP_USE_TEXTCTRL) 
         cp2.SetTextCtrlProportion(5)
         fgs.Add(cp2, 0, wx.EXPAND)
+        fgs.Add(wx.StaticText(self, -1, "        with label:"), 0, wx.ALIGN_CENTER_VERTICAL)
+        cp3 = wx.ColourPickerCtrl(self, style=wx.CLRP_SHOW_LABEL)
+        fgs.Add(cp3, 0, wx.ALIGN_CENTER)
+        fgs.Add((10,10))  # spacer
+        fgs.Add((10,10))  # spacer
         self.Bind(wx.EVT_COLOURPICKER_CHANGED, self.OnPickColor, cp1)
         self.Bind(wx.EVT_COLOURPICKER_CHANGED, self.OnPickColor, cp2)
+        self.Bind(wx.EVT_COLOURPICKER_CHANGED, self.OnPickColor, cp3)
 
         fgs.Add(wx.StaticText(self, -1, "wx.DirPickerCtrl:"), 0, wx.ALIGN_CENTER_VERTICAL)
         dp1 = wx.DirPickerCtrl(self)
