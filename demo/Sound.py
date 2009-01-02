@@ -78,8 +78,7 @@ def runTest(frame, nb, log):
 overview = """<html><body>
 <h2>Sound</h2>
 This class represents a short wave file, in Windows WAV format, that can
-be stored in memory and played. Currently this class is implemented on Windows
-and GTK (Linux) only.
+be stored in memory and played. 
 <p>
 This demo offers two examples, both driven by buttons, but obviously the event
 that drives the playing of the sound can come from anywhere.
