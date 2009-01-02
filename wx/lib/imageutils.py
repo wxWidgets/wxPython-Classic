@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------
-# Name:        wxPython.lib.imageutils
+# Name:        wx.lib.imageutils
 # Purpose:     A collection of functions for simple image manipulations
 #
 # Author:      Robb Shecter
