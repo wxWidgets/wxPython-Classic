@@ -127,6 +127,19 @@ Added wx.NotificationMessage.
 
 
 
+2.8.9.2
+-------
+*
+
+Added the wx.PyPickerBase class which can be used to derive new picker
+classes in Python.  Used it to implement a color picker for Mac that
+uses a wx.BitmapButton instead of a normal wx.Button.  This makes the
+color picker look and behave lots better on Mac than before.
+
+
+
+
+
 2.8.9.1
 -------
 * 28-Sep-2008
@@ -4101,7 +4114,7 @@ features:
 
     2. There is now an an equivalence between Python's None and C++'s
        NULL.  This means that any methods that might return NULL will
-       now return None and you can use none where wxWindows might be
+       now return None and you can use None where wxWindows might be
        expecting NULL.  This makes things much more snake-ish.
 
 
