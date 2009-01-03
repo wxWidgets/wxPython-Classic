@@ -35,7 +35,6 @@
 //      DoReleaseMouse
 //      DoScreenToClient
 //      DoSetToolTip
-//      Enable
 //      Fit
 //      GetCharHeight
 //      GetCharWidth
@@ -103,6 +102,8 @@ public:
     DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
     DEC_PYCALLBACK_SIZE_const(GetMaxSize);
 
+    DEC_PYCALLBACK_BOOL_(Enable);
+
     DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
     DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
 
@@ -139,6 +140,8 @@ IMP_PYCALLBACK_BOOL_(wxPyWindow, wxWindow, Validate);
 IMP_PYCALLBACK_BOOL_const(wxPyWindow, wxWindow, AcceptsFocus);
 IMP_PYCALLBACK_BOOL_const(wxPyWindow, wxWindow, AcceptsFocusFromKeyboard);
 IMP_PYCALLBACK_SIZE_const(wxPyWindow, wxWindow, GetMaxSize);
+
+IMP_PYCALLBACK_BOOL_(wxPyWindow, wxWindow, Enable);
 
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyWindow, wxWindow, AddChild);
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyWindow, wxWindow, RemoveChild);
@@ -201,6 +204,8 @@ public:
     bool AcceptsFocusFromKeyboard() const;
     wxSize GetMaxSize() const;
 
+    bool Enable(bool enable = true);
+
     void AddChild(wxWindow* child);
     void RemoveChild(wxWindow* child);
 
@@ -225,6 +230,7 @@ public:
     %MAKE_BASE_FUNC(PyWindow, AcceptsFocus);
     %MAKE_BASE_FUNC(PyWindow, AcceptsFocusFromKeyboard);
     %MAKE_BASE_FUNC(PyWindow, GetMaxSize);
+    %MAKE_BASE_FUNC(PyWindow, Enable);
     %MAKE_BASE_FUNC(PyWindow, AddChild);
     %MAKE_BASE_FUNC(PyWindow, RemoveChild);
     %MAKE_BASE_FUNC(PyWindow, ShouldInheritColours);
@@ -288,6 +294,8 @@ public:
     DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
     DEC_PYCALLBACK_SIZE_const(GetMaxSize);
 
+    DEC_PYCALLBACK_BOOL_(Enable);
+
     DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
     DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
 
@@ -325,6 +333,8 @@ IMP_PYCALLBACK_BOOL_(wxPyPanel, wxPanel, Validate);
 IMP_PYCALLBACK_BOOL_const(wxPyPanel, wxPanel, AcceptsFocus);
 IMP_PYCALLBACK_BOOL_const(wxPyPanel, wxPanel, AcceptsFocusFromKeyboard);
 IMP_PYCALLBACK_SIZE_const(wxPyPanel, wxPanel, GetMaxSize);
+
+IMP_PYCALLBACK_BOOL_(wxPyPanel, wxPanel, Enable);
 
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyPanel, wxPanel, AddChild);
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyPanel, wxPanel, RemoveChild);
@@ -387,6 +397,8 @@ public:
     bool AcceptsFocusFromKeyboard() const;
     wxSize GetMaxSize() const;
 
+    bool Enable(bool enable = true);
+
     void AddChild(wxWindow* child);
     void RemoveChild(wxWindow* child);
 
@@ -411,6 +423,7 @@ public:
     %MAKE_BASE_FUNC(PyPanel, AcceptsFocus);
     %MAKE_BASE_FUNC(PyPanel, AcceptsFocusFromKeyboard);
     %MAKE_BASE_FUNC(PyPanel, GetMaxSize);
+    %MAKE_BASE_FUNC(PyPanel, Enable);
     %MAKE_BASE_FUNC(PyPanel, AddChild);
     %MAKE_BASE_FUNC(PyPanel, RemoveChild);
     %MAKE_BASE_FUNC(PyPanel, ShouldInheritColours);
@@ -466,6 +479,8 @@ public:
     DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
     DEC_PYCALLBACK_SIZE_const(GetMaxSize);
 
+    DEC_PYCALLBACK_BOOL_(Enable);
+
     DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
     DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
 
@@ -502,6 +517,8 @@ IMP_PYCALLBACK_BOOL_(wxPyScrolledWindow, wxScrolledWindow, Validate);
 IMP_PYCALLBACK_BOOL_const(wxPyScrolledWindow, wxScrolledWindow, AcceptsFocus);
 IMP_PYCALLBACK_BOOL_const(wxPyScrolledWindow, wxScrolledWindow, AcceptsFocusFromKeyboard);
 IMP_PYCALLBACK_SIZE_const(wxPyScrolledWindow, wxScrolledWindow, GetMaxSize);
+
+IMP_PYCALLBACK_BOOL_(wxPyScrolledWindow, wxScrolledWindow, Enable);
 
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyScrolledWindow, wxScrolledWindow, AddChild);
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyScrolledWindow, wxScrolledWindow, RemoveChild);
@@ -564,6 +581,8 @@ public:
     bool AcceptsFocusFromKeyboard() const;
     wxSize GetMaxSize() const;
 
+    bool Enable(bool enable = true);
+
     void AddChild(wxWindow* child);
     void RemoveChild(wxWindow* child);
 
@@ -588,6 +607,7 @@ public:
     %MAKE_BASE_FUNC(PyScrolledWindow, AcceptsFocus);
     %MAKE_BASE_FUNC(PyScrolledWindow, AcceptsFocusFromKeyboard);
     %MAKE_BASE_FUNC(PyScrolledWindow, GetMaxSize);
+    %MAKE_BASE_FUNC(PyScrolledWindow, Enable);
     %MAKE_BASE_FUNC(PyScrolledWindow, AddChild);
     %MAKE_BASE_FUNC(PyScrolledWindow, RemoveChild);
     %MAKE_BASE_FUNC(PyScrolledWindow, ShouldInheritColours);
