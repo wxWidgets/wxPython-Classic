@@ -67,6 +67,8 @@ public:
     DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
     DEC_PYCALLBACK_SIZE_const(GetMaxSize);
 
+    DEC_PYCALLBACK_BOOL_(Enable);
+
     DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
     DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
 
@@ -103,6 +105,8 @@ IMP_PYCALLBACK_BOOL_(wxPyControl, wxControl, Validate);
 IMP_PYCALLBACK_BOOL_const(wxPyControl, wxControl, AcceptsFocus);
 IMP_PYCALLBACK_BOOL_const(wxPyControl, wxControl, AcceptsFocusFromKeyboard);
 IMP_PYCALLBACK_SIZE_const(wxPyControl, wxControl, GetMaxSize);
+
+IMP_PYCALLBACK_BOOL_(wxPyControl, wxControl, Enable);
 
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyControl, wxControl, AddChild);
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyControl, wxControl, RemoveChild);
@@ -166,6 +170,8 @@ public:
     bool AcceptsFocusFromKeyboard() const;
     wxSize GetMaxSize() const;
 
+    bool Enable(bool enable = true);
+
     void AddChild(wxWindow* child);
     void RemoveChild(wxWindow* child);
 
@@ -190,6 +196,7 @@ public:
     %MAKE_BASE_FUNC(PyControl, AcceptsFocus);
     %MAKE_BASE_FUNC(PyControl, AcceptsFocusFromKeyboard);
     %MAKE_BASE_FUNC(PyControl, GetMaxSize);
+    %MAKE_BASE_FUNC(PyControl, Enable);
     %MAKE_BASE_FUNC(PyControl, AddChild);
     %MAKE_BASE_FUNC(PyControl, RemoveChild);
     %MAKE_BASE_FUNC(PyControl, ShouldInheritColours);
