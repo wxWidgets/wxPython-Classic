@@ -604,48 +604,45 @@ class PlotCanvas(wx.Panel):
         .png  Save a Portable Network Graphics file.
         .jpg  Save a Joint Photographic Experts Group file.
         """
-        if _string.lower(fileName[-3:]) not in ['bmp','xbm','xpm','png','jpg']:
-            dlg1 = wx.FileDialog(
+        extensions = {
+            "bmp": wx.BITMAP_TYPE_BMP,       # Save a Windows bitmap file.
+            "xbm": wx.BITMAP_TYPE_XBM,       # Save an X bitmap file.
+            "xpm": wx.BITMAP_TYPE_XPM,       # Save an XPM bitmap file.
+            "jpg": wx.BITMAP_TYPE_JPEG,      # Save a JPG file.
+            "png": wx.BITMAP_TYPE_PNG,       # Save a PNG file.
+            }
+
+        fType = _string.lower(fileName[-3:])
+        dlg1 = None
+        while fType not in extensions:
+
+            if dlg1:                   # FileDialog exists: Check for extension
+                dlg2 = wx.MessageDialog(self, 'File name extension\n'
+                'must be one of\nbmp, xbm, xpm, png, or jpg',
+                'File Name Error', wx.OK | wx.ICON_ERROR)
+                try:
+                    dlg2.ShowModal()
+                finally:
+                    dlg2.Destroy()
+            else:                      # FileDialog doesn't exist: just check one
+                dlg1 = wx.FileDialog(
                     self, 
                     "Choose a file with extension bmp, gif, xbm, xpm, png, or jpg", ".", "",
                     "BMP files (*.bmp)|*.bmp|XBM files (*.xbm)|*.xbm|XPM file (*.xpm)|*.xpm|PNG files (*.png)|*.png|JPG files (*.jpg)|*.jpg",
                     wx.SAVE|wx.OVERWRITE_PROMPT
                     )
-            try:
-                while 1:
-                    if dlg1.ShowModal() == wx.ID_OK:
-                        fileName = dlg1.GetPath()
-                        # Check for proper exension
-                        if _string.lower(fileName[-3:]) not in ['bmp','xbm','xpm','png','jpg']:
-                            dlg2 = wx.MessageDialog(self, 'File name extension\n'
-                            'must be one of\n'
-                            'bmp, xbm, xpm, png, or jpg',
-                              'File Name Error', wx.OK | wx.ICON_ERROR)
-                            try:
-                                dlg2.ShowModal()
-                            finally:
-                                dlg2.Destroy()
-                        else:
-                            break # now save file
-                    else: # exit without saving
-                        return False
-            finally:
-                dlg1.Destroy()
 
-        # File name has required extension
-        fType = _string.lower(fileName[-3:])
-        if fType == "bmp":
-            tp= wx.BITMAP_TYPE_BMP       # Save a Windows bitmap file.
-        elif fType == "xbm":
-            tp= wx.BITMAP_TYPE_XBM       # Save an X bitmap file.
-        elif fType == "xpm":
-            tp= wx.BITMAP_TYPE_XPM       # Save an XPM bitmap file.
-        elif fType == "jpg":
-            tp= wx.BITMAP_TYPE_JPEG      # Save a JPG file.
-        else:
-            tp= wx.BITMAP_TYPE_PNG       # Save a PNG file.
+            if dlg1.ShowModal() == wx.ID_OK:
+                fileName = dlg1.GetPath()
+                fType = _string.lower(fileName[-3:])
+            else:                      # exit without saving
+                dlg1.Destroy()
+                return False
+
+        dlg1.Destroy()
+
         # Save Bitmap
-        res= self._Buffer.SaveFile(fileName, tp)
+        res= self._Buffer.SaveFile(fileName, extensions[fType])
         return res
 
     def PageSetup(self):
