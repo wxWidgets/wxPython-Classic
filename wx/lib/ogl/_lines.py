@@ -488,6 +488,11 @@ class LineShape(Shape):
                 self._labelObjects[i].RemoveFromCanvas(self._canvas)
         self.ClearArrowsAtPosition(-1)
 
+    # Override Delete to unlink before deleting 
+    def Delete(self): 
+        self.Unlink() 
+        Shape.Delete(self)
+        
     def SetEnds(self, x1, y1, x2, y2):
         """Set the end positions of the line."""
         self._lineControlPoints[0] = wx.RealPoint(x1, y1)
