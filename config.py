@@ -413,16 +413,18 @@ def run_swig(files, dir, gendir, package, USE_SWIG, force, swig_args,
 
     return sources
 
+import subprocess as sp
 
 def swig_version():
     # It may come on either stdout or stderr, depending on the
     # version, so read both.
-    i, o, e = os.popen3(SWIG + ' -version', 't')
-    stext = o.read() + e.read()
+    p = sp.Popen(SWIG + ' -version', shell=True, universal_newlines=True,
+                 stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE)
+    stext = p.stdout.read() + p.stderr.read()
     import re
     match = re.search(r'[0-9]+\.[0-9]+\.[0-9]+$', stext, re.MULTILINE)
     if not match:
-        raise 'NotFound'
+        raise RuntimeError('SWIG version not found')
     SVER = match.group(0)
     return SVER
 
