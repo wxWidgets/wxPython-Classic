@@ -46,19 +46,19 @@ class DragCanvas(wx.ScrolledWindow):
         self.hiliteShape = None
 
         self.SetCursor(wx.StockCursor(wx.CURSOR_ARROW))
-        self.bg_bmp = images.getBackgroundBitmap()
+        self.bg_bmp = images.Background.GetBitmap()
         self.SetBackgroundStyle(wx.BG_STYLE_CUSTOM)
 
         # Make a shape from an image and mask.  This one will demo
         # dragging outside the window
-        bmp = images.getTestStarBitmap()
+        bmp = images.TestStar.GetBitmap()
         #bmp = wx.Bitmap('bitmaps/toucan.png')
         shape = DragShape(bmp)
         shape.pos = (5, 5)
         shape.fullscreen = True
         self.shapes.append(shape)
 
-        bmp = images.getTheKidBitmap()
+        bmp = images.TheKid.GetBitmap()
         shape = DragShape(bmp)
         shape.pos = (200, 5)
         self.shapes.append(shape)
