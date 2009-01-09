@@ -170,6 +170,7 @@ AUI_MGR_VENETIAN_BLINDS_HINT = _aui.AUI_MGR_VENETIAN_BLINDS_HINT
 AUI_MGR_RECTANGLE_HINT = _aui.AUI_MGR_RECTANGLE_HINT
 AUI_MGR_HINT_FADE = _aui.AUI_MGR_HINT_FADE
 AUI_MGR_NO_VENETIAN_BLINDS_FADE = _aui.AUI_MGR_NO_VENETIAN_BLINDS_FADE
+AUI_MGR_LIVE_RESIZE = _aui.AUI_MGR_LIVE_RESIZE
 AUI_MGR_DEFAULT = _aui.AUI_MGR_DEFAULT
 AUI_DOCKART_SASH_SIZE = _aui.AUI_DOCKART_SASH_SIZE
 AUI_DOCKART_CAPTION_SIZE = _aui.AUI_DOCKART_CAPTION_SIZE
@@ -1157,13 +1158,6 @@ class AuiTabArt(object):
         """
         return _aui.AuiTabArt_DrawButton(*args, **kwargs)
 
-    def GetTabSize(*args, **kwargs):
-        """
-        GetTabSize(self, DC dc, Window wnd, String caption, Bitmap bitmap, bool active, 
-            int close_button_state, int x_extent) -> Size
-        """
-        return _aui.AuiTabArt_GetTabSize(*args, **kwargs)
-
     def ShowDropDown(*args, **kwargs):
         """ShowDropDown(self, Window wnd, wxAuiNotebookPageArray items, int active_idx) -> int"""
         return _aui.AuiTabArt_ShowDropDown(*args, **kwargs)
@@ -1175,6 +1169,13 @@ class AuiTabArt(object):
     def GetBestTabCtrlSize(*args, **kwargs):
         """GetBestTabCtrlSize(self, Window wnd, wxAuiNotebookPageArray pages, Size required_bmp_size) -> int"""
         return _aui.AuiTabArt_GetBestTabCtrlSize(*args, **kwargs)
+
+    def GetTabSize(*args, **kwargs):
+        """
+        GetTabSize(self, DC dc, Window wnd, String caption, Bitmap bitmap, bool active, 
+            int close_button_state) -> PyObject
+        """
+        return _aui.AuiTabArt_GetTabSize(*args, **kwargs)
 
 _aui.AuiTabArt_swigregister(AuiTabArt)
 

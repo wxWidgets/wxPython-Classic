@@ -797,8 +797,8 @@ def BitmapFromBits(*args, **kwargs):
 
     Creates a bitmap from an array of bits.  You should only use this
     function for monochrome bitmaps (depth 1) in portable programs: in
-    this case the bits parameter should contain an XBM image.  For other
-    bit depths, the behaviour is platform dependent.
+    this case the bits parameter should contain an XBM image as a data
+    string.  For other bit depths, the behaviour is platform dependent.
     """
     val = _gdi_.new_BitmapFromBits(*args, **kwargs)
     return val
