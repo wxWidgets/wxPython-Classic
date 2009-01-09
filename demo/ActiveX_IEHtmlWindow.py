@@ -174,8 +174,8 @@ class TestPanel(wx.Panel):
                 Cancel[0] = True
                 
 
-    def OnNewWindow3(self, this, pDisp, Cancel, Flags, urlContext, URL):
-        self.log.write('OnNewWindow2: %s\n' % URL)
+    def NewWindow3(self, this, pDisp, Cancel, Flags, urlContext, URL):
+        self.log.write('NewWindow3: %s\n' % URL)
         Cancel[0] = True   # Veto the creation of a  new window.
 
     #def ProgressChange(self, this, progress, progressMax):
