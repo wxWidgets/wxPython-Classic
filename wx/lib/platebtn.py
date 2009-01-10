@@ -80,6 +80,7 @@ __all__ = ["PlateButton", "AdjustAlpha", "AdjustColor", "GetHighlightColor",
 #-----------------------------------------------------------------------------#
 # Imports
 import wx
+import  wx.lib.newevent
 
 # Used on OSX to get access to carbon api constants
 if wx.Platform == '__WXMAC__':
@@ -97,6 +98,9 @@ PB_STYLE_GRADIENT = 2   # Gradient Filled Background
 PB_STYLE_SQUARE   = 4   # Use square corners instead of rounded
 PB_STYLE_NOBG     = 8   # Usefull on Windows to get a transparent appearance
                         # when the control is shown on a non solid background
+PB_STYLE_DROPARROW = 16 # Draw drop arrow and fire EVT_PLATEBTN_DROPRROW_PRESSED event
+
+PlateBtnDropArrowPressed, EVT_PLATEBTN_DROPARROW_PRESSED = wx.lib.newevent.NewEvent()
 
 #-----------------------------------------------------------------------------#
 # Utility Functions, moved to their own module
@@ -186,7 +190,7 @@ class PlateButton(wx.PyControl):
         @param ypos: y cord to start at
 
         """
-        if self._menu is not None:
+        if self._menu is not None or self._style & PB_STYLE_DROPARROW:
             # Positioning needs a little help on Windows
             if wx.Platform == '__WXMSW__':
                 xpos -= 2
@@ -357,7 +361,7 @@ class PlateButton(wx.PyControl):
         else:
             width += 10
 
-        if self._menu is not None:
+        if self._menu is not None or self._style & PB_STYLE_DROPARROW:
             width += 12
 
         best = wx.Size(width, height)
@@ -473,8 +477,14 @@ class PlateButton(wx.PyControl):
         pos = evt.GetPositionTuple()
         self.SetState(PLATE_PRESSED)
         size = self.GetSizeTuple()
-        if self._menu is not None and pos[0] >= size[0] - 16:
-            self.ShowMenu()
+        if pos[0] >= size[0] - 16:
+            if self._menu is not None:
+                self.ShowMenu()
+            elif self._style & PB_STYLE_DROPARROW:
+                event = PlateBtnDropArrowPressed()
+                event.SetEventObject(self)
+                wx.PostEvent(self, event)
+        
         self.SetFocus()
             
     def OnLeftUp(self, evt):
@@ -484,7 +494,10 @@ class PlateButton(wx.PyControl):
 
         """
         if self._state['cur'] == PLATE_PRESSED:
-            self.__PostEvent()
+            pos = evt.GetPositionTuple()
+            size = self.GetSizeTuple()
+            if not (self._style & PB_STYLE_DROPARROW and pos[0] >= size[0] - 16):
+                self.__PostEvent()
         self.SetState(PLATE_HIGHLIGHT)
 
     def OnMenuClose(self, evt):
