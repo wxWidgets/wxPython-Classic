@@ -78,6 +78,7 @@ class TestPanel(scrolled.ScrolledPanel):
         square  = platebtn.PB_STYLE_SQUARE
         sqgrad  = platebtn.PB_STYLE_SQUARE | platebtn.PB_STYLE_GRADIENT
         gradient = platebtn.PB_STYLE_GRADIENT
+        droparrow = platebtn.PB_STYLE_DROPARROW
 
         # Create a number of different PlateButtons
         # Each button is created in the below loop by using the data set in this
@@ -98,6 +99,7 @@ class TestPanel(scrolled.ScrolledPanel):
                  (devil, "Custom Color",       default, None,    None, wx.RED, True),
                  (monkey, "Gradient Highlight", gradient, None,  None, None,   True),
                  (monkey, "Custom Gradient",   gradient, None,   None, wx.Color(245, 55, 245), True),
+                 (None,  "Drop Arrow",                  droparrow, None,    None, None,   True),
                  (devil,  "",                  default, None,    None, None,   True),
                  (bookmark,  "",               default, None,    True, None,   True),
                  (monkey,  "",                 square,  None,    None, None,   True),
@@ -152,6 +154,10 @@ class TestPanel(scrolled.ScrolledPanel):
             # Set a custom colour?
             if btn[5] is not None:
                 tbtn.SetPressColor(btn[5])
+                
+            if btn[2] == droparrow:
+                
+                tbtn.Bind(platebtn.EVT_PLATEBTN_DROPARROW_PRESSED, self.OnDropArrowPressed)
 
             # Enable/Disable button state
             tbtn.Enable(btn[6])
@@ -166,6 +172,9 @@ class TestPanel(scrolled.ScrolledPanel):
                         (hsizer2, 0, wx.EXPAND), ((10, 10)), 
                         (hsizer3, 0, wx.EXPAND), ((10, 10))])
         panel.SetSizer(vsizer)
+        
+    def OnDropArrowPressed(self, evt):
+        self.log.write("DROPARROW PRESSED")
 
     def OnButton(self, evt):
         self.log.write("BUTTON CLICKED: Id: %d, Label: %s" % \
