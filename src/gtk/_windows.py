@@ -3474,6 +3474,11 @@ class PyWindow(_core.Window):
     base_GetMaxSize = wx._deprecated(base_GetMaxSize,
                                    "Please use PyWindow.GetMaxSize instead.")
 
+    def base_Enable(*args, **kw):
+        return PyWindow.Enable(*args, **kw)
+    base_Enable = wx._deprecated(base_Enable,
+                                   "Please use PyWindow.Enable instead.")
+
     def base_AddChild(*args, **kw):
         return PyWindow.AddChild(*args, **kw)
     base_AddChild = wx._deprecated(base_AddChild,
@@ -3652,6 +3657,11 @@ class PyPanel(Panel):
     base_GetMaxSize = wx._deprecated(base_GetMaxSize,
                                    "Please use PyPanel.GetMaxSize instead.")
 
+    def base_Enable(*args, **kw):
+        return PyPanel.Enable(*args, **kw)
+    base_Enable = wx._deprecated(base_Enable,
+                                   "Please use PyPanel.Enable instead.")
+
     def base_AddChild(*args, **kw):
         return PyPanel.AddChild(*args, **kw)
     base_AddChild = wx._deprecated(base_AddChild,
@@ -3829,6 +3839,11 @@ class PyScrolledWindow(ScrolledWindow):
         return PyScrolledWindow.GetMaxSize(*args, **kw)
     base_GetMaxSize = wx._deprecated(base_GetMaxSize,
                                    "Please use PyScrolledWindow.GetMaxSize instead.")
+
+    def base_Enable(*args, **kw):
+        return PyScrolledWindow.Enable(*args, **kw)
+    base_Enable = wx._deprecated(base_Enable,
+                                   "Please use PyScrolledWindow.Enable instead.")
 
     def base_AddChild(*args, **kw):
         return PyScrolledWindow.AddChild(*args, **kw)

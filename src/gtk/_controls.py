@@ -5958,6 +5958,11 @@ class PyControl(_core.Control):
     base_GetMaxSize = wx._deprecated(base_GetMaxSize,
                                    "Please use PyControl.GetMaxSize instead.")
 
+    def base_Enable(*args, **kw):
+        return PyControl.Enable(*args, **kw)
+    base_Enable = wx._deprecated(base_Enable,
+                                   "Please use PyControl.Enable instead.")
+
     def base_AddChild(*args, **kw):
         return PyControl.AddChild(*args, **kw)
     base_AddChild = wx._deprecated(base_AddChild,

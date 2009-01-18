@@ -2984,15 +2984,20 @@ SWIGINTERN bool wxPen___ne__(wxPen *self,wxPen const *other){ return other ? (*s
         int       count;
 
         if (!PyList_Check(listOfStrings)) {
-            PyErr_SetString(PyExc_TypeError, "Expected a list of strings.");
+            wxPyErr_SetString(PyExc_TypeError, "Expected a list of strings.");
             return NULL;
         }
         count = PyList_Size(listOfStrings);
         cArray = new char*[count];
 
         for(int x=0; x<count; x++) {
-            // TODO: Need some validation and error checking here
-            cArray[x] = PyString_AsString(PyList_GET_ITEM(listOfStrings, x));
+            PyObject* item = PyList_GET_ITEM(listOfStrings, x);
+            if (!PyString_Check(item)) {
+                wxPyErr_SetString(PyExc_TypeError, "Expected a list of strings.");
+                delete [] cArray;
+                return NULL;
+            }
+            cArray[x] = PyString_AsString(item);
         }
         return cArray;
     }
@@ -3274,6 +3279,10 @@ SWIGINTERN wxBitmap *new_wxBitmap(PyObject *listOfStrings){
 SWIGINTERN wxBitmap *new_wxBitmap(PyObject *bits,int width,int height,int depth=1){
                 char*      buf;
                 Py_ssize_t length;
+                if (! PyString_Check(bits)) {
+                    wxPyErr_SetString(PyExc_TypeError, "String required for bits data");
+                    return NULL;
+                }
                 PyString_AsStringAndSize(bits, &buf, &length);
                 return new wxBitmap(buf, width, height, depth);
             }
@@ -3848,6 +3857,17 @@ static void wxDC_GetBoundingBox(wxDC* dc, int* x1, int* y1, int* x2, int* y2) {
 
 
 #include <wx/dcbuffer.h>
+
+
+    wxDC* _wxPyAutoBufferedPaintDCFactory(wxWindow* window)
+    {
+        if (window)
+            return wxAutoBufferedPaintDCFactory(window);
+        else {
+            wxPyErr_SetString(PyExc_ValueError, "Valid window required.");
+            return NULL;
+        }
+    }
 
 
 #include <wx/dcps.h>
@@ -25331,7 +25351,7 @@ SWIGINTERN PyObject *_wrap_AutoBufferedPaintDCFactory(PyObject *SWIGUNUSEDPARM(s
   arg1 = reinterpret_cast< wxWindow * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxDC *)wxAutoBufferedPaintDCFactory(arg1);
+    result = (wxDC *)_wxPyAutoBufferedPaintDCFactory(arg1);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
