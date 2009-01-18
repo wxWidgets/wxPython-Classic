@@ -20,6 +20,7 @@ import wx
 import wx.py
 import wx.stc
 import wx.aui
+import wx.lib.utils as utils
 import sys
 import inspect
 
@@ -353,7 +354,9 @@ class InspectionFrame(wx.Frame):
                        config.ReadInt('Window/Height', -1))
         self.SetSize(size)
         self.Move(pos)
-
+        rect = utils.AdjustRectToScreen(self.GetRect())
+        self.SetRect(rect)
+        
         perspective = config.Read('perspective', '')
         if perspective:
             self.mgr.LoadPerspective(perspective)
