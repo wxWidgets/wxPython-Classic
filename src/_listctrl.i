@@ -541,6 +541,7 @@ public:
             info->m_itemId = itemId;
             info->m_col = col;
             info->m_mask = 0xFFFF;
+            info->m_stateMask = 0xFFFF;
             self->GetItem(*info);
             return info;
         }
