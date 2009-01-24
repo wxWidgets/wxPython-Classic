@@ -41,6 +41,8 @@ contrib/stc/gtk
 contrib/stc/mac
 contrib/stc/msw
 demo
+demo/agw
+demo/agw/bitmaps
 demo/bitmaps
 demo/bmp_source
 demo/data
@@ -116,6 +118,7 @@ src/msw
 wx
 wx/build
 wx/lib
+wx/lib/agw
 wx/lib/analogclock
 wx/lib/analogclock/lib_setup
 wx/lib/art
@@ -184,6 +187,7 @@ wx/tools/Editra/pixmaps/theme/Tango/menu
 wx/tools/Editra/pixmaps/theme/Tango/mime
 wx/tools/Editra/pixmaps/theme/Tango/other
 wx/tools/Editra/pixmaps/theme/Tango/toolbar
+wx/tools/Editra/pixmaps/theme/Tango/other
 wx/tools/Editra/plugins
 wx/tools/Editra/plugins/codebrowser
 wx/tools/Editra/plugins/codebrowser/codebrowser

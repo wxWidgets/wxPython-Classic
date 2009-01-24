@@ -111,6 +111,8 @@ Source: "wx\build\*.py";                        DestDir: "{app}\%(PKGDIR)s\wx\bu
 Source: "wx\lib\*.py";                          DestDir: "{app}\%(PKGDIR)s\wx\lib"; Components: core
 Source: "wx\lib\*.idl";                         DestDir: "{app}\%(PKGDIR)s\wx\lib"; Components: core
 Source: "wx\lib\*.tlb";                         DestDir: "{app}\%(PKGDIR)s\wx\lib"; Components: core
+Source: "wx\lib\agw\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\agw"; Components: core
+Source: "wx\lib\agw\*.png";                     DestDir: "{app}\%(PKGDIR)s\wx\lib\agw"; Components: core
 Source: "wx\lib\analogclock\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock"; Components: core
 Source: "wx\lib\analogclock\lib_setup\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock\lib_setup"; Components: core
 Source: "wx\lib\art\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\art"; Components: core
@@ -253,6 +255,8 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\build\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\build\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\analogclock\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\analogclock\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\analogclock\lib_setup\*.pyc";
@@ -464,6 +468,11 @@ Source: "demo\*.py";                        DestDir: "{app}\demo";
 Source: "demo\*.xml";                       DestDir: "{app}\demo";
 Source: "demo\*.txt";                       DestDir: "{app}\demo";
 Source: "demo\*.ico";                       DestDir: "{app}\demo";
+
+Source: "demo\agw\*.py";                    DestDir: "{app}\demo\agw";
+Source: "demo\agw\bitmaps\*.png";           DestDir: "{app}\demo\agw\bitmaps";
+Source: "demo\agw\bitmaps\*.ico";           DestDir: "{app}\demo\agw\bitmaps";
+Source: "demo\agw\bitmaps\*.gif";           DestDir: "{app}\demo\agw\bitmaps";
 
 Source: "demo\bitmaps\*.bmp";               DestDir: "{app}\demo\bitmaps";
 Source: "demo\bitmaps\*.gif";               DestDir: "{app}\demo\bitmaps";
