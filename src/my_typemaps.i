@@ -98,6 +98,19 @@ MAKE_INT_ARRAY_TYPEMAPS(styles, styles_field)
     $1 = PyString_Check($input) || PyUnicode_Check($input);
 }
 
+
+
+%typemap(in) wxChar {
+    wxString s = Py2wxString($input);
+    $1 = s[0];
+}
+
+%typemap(out) wxChar {
+    wxString s($1);
+    $result = wx2PyString(s);
+}
+
+
 //---------------------------------------------------------------------------
 // wxMemoryBuffer  (needed for wxSTC)
 
