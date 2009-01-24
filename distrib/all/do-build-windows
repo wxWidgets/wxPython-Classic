@@ -170,7 +170,8 @@ fi
 echo "Building the developer package..."
 WXWIN=`cygpath -w $WXDIR`
 export WXWIN
-$TOOLS/4dos/4nt /c distrib/makedev.bat $VERSION
+export CPU
+$TOOLS/4dos/4nt.exe /c distrib/makedev.bat $VERSION
 
 
 echo "Copying installers to $DESTDIR..."

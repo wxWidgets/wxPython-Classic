@@ -295,6 +295,15 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\*.pyc";      
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\*.pyo";      
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\filters\*.pyc"; 
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\filters\*.pyo"; 
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\formatters\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\formatters\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\lexers\*.pyc";    
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\lexers\*.pyo";    
+
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\eclib\*.pyc";
