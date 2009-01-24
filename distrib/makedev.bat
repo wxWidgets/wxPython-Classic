@@ -7,16 +7,16 @@ setlocal
 set BASE=_distrib_zip\wxPython-%1
 
 set TYPE=h
-if %2 == "debug" set TYPE=d
+if "%2" == "debug" set TYPE=d
 
 set DELTYPE=d
-if %2 == "debug" set DELTYPE=h 
+if "%2" == "debug" set DELTYPE=h 
 
 set DLLDIR=vc_dll
-if %CPU% == "AMD64" set DLLDIR=vc_amd64_dll
+if "%CPU%" == "AMD64" set DLLDIR=vc_amd64_dll
 
 set PLATFORM=win32
-if %CPU% == "AMD64" set PLATFORM=win64
+if "%CPU%" == "AMD64" set PLATFORM=win64
 
 
 rem **** Make a directory to build up a distribution tree
@@ -82,7 +82,7 @@ rm del-dirs
 
 rem *** bundle it all up  TODO: don't hard-code the 2.8
 set EXT=
-if %2 == "debug" set EXT="-debug"
+if "%2" == "debug" set EXT="-debug"
 tar cvf ../dist/wxPython2.8-%PLATFORM%-devel-%1%EXT%.tar wxPython-%1
 bzip2 -9 ../dist/wxPython2.8-%PLATFORM%-devel-%1%EXT%.tar
 
