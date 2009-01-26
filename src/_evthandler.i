@@ -75,10 +75,44 @@ public:
         }
 
         bool Disconnect(int id, int lastId = -1,
-                        wxEventType eventType = wxEVT_NULL) {
-            return self->Disconnect(id, lastId, eventType,
-                                    (wxObjectEventFunction)(wxEventFunction)
-                                    &wxPyCallback::EventThunker);
+                        wxEventType eventType = wxEVT_NULL,
+                        PyObject* func = NULL ) {
+            if (func && func != Py_None) {
+                // Find the current matching binder that has this function
+                // pointer and dissconnect that one.  Unfortuneatly since we
+                // wrapped the PyObject function pointer in another object we
+                // have to do the searching ourselves...
+                wxList::compatibility_iterator node = self->GetDynamicEventTable()->GetFirst();
+                while (node)
+                {
+                    wxDynamicEventTableEntry *entry = (wxDynamicEventTableEntry*)node->GetData();
+                    if ((entry->m_id == id) &&
+                        ((entry->m_lastId == lastId) || (lastId == wxID_ANY)) &&
+                        ((entry->m_eventType == eventType) || (eventType == wxEVT_NULL)) &&
+                        ((entry->m_fn == (wxObjectEventFunction)&wxPyCallback::EventThunker)) &&
+                        (entry->m_callbackUserData != NULL))
+                    {
+                        wxPyCallback *cb = (wxPyCallback*)entry->m_callbackUserData;
+                        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+                        int result = PyObject_Compare(cb->m_func, func);
+                        wxPyEndBlockThreads(blocked); 
+                        if (result == 0) {
+                            delete cb;
+                            self->GetDynamicEventTable()->Erase(node);
+                            delete entry;
+                            return true;
+                        }                        
+                    }
+                    node = node->GetNext();
+                }
+                return false;
+
+            }
+            else {
+                return self->Disconnect(id, lastId, eventType,
+                                        (wxObjectEventFunction)
+                                        &wxPyCallback::EventThunker);
+            }
         }
     }
 
@@ -128,14 +162,14 @@ public:
                 id  = source.GetId()
             event.Bind(self, id, id2, handler)              
 
-        def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY):
+        def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY, handler=None):
             """
             Disconnects the event handler binding for event from self.
             Returns True if successful.
             """
             if source is not None:
                 id  = source.GetId()
-            return event.Unbind(self, id, id2)              
+            return event.Unbind(self, id, id2, handler)              
     }
 
     %property(EvtHandlerEnabled, GetEvtHandlerEnabled, SetEvtHandlerEnabled, doc="See `GetEvtHandlerEnabled` and `SetEvtHandlerEnabled`");

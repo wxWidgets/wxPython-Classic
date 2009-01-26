@@ -136,7 +136,15 @@ classes in Python.  Used it to implement a color picker for Mac that
 uses a wx.BitmapButton instead of a normal wx.Button.  This makes the
 color picker look and behave lots better on Mac than before.
 
+You can now pass the handler function to the Unbind method.  If it is
+then Unbind will only disconenct the event handler that uses the same
+handler function, so if there are multiple bindings for the same event
+type you'll now be able to selectively unbind specific instances.
 
+Added a new tool to the Widget Inspection Tool that allows you to watch
+the events passign through a widget.  It can also be used
+independently, see wx.lib.eventwatcher.
+ 
 
 
 

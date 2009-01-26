@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------
-# Name:        wxblox/events.py
+# Name:        wx.lib.eventStack
 # Purpose:     These mixins implement a push and pop menu/UI update event 
 #              handler system at the wx.App level. This is useful for resolving
 #              cases where multiple views may want to respond to an event 

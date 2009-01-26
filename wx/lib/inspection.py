@@ -118,6 +118,7 @@ class InspectionFrame(wx.Frame):
         kw['title'] = title
         wx.Frame.__init__(self, *args, **kw)
 
+        self.SetExtraStyle(wx.WS_EX_BLOCK_EVENTS)
         self.includeSizers = False
         self.started = False
 
@@ -194,7 +195,8 @@ class InspectionFrame(wx.Frame):
         expandTreeBmp = ExpandTree.GetBitmap()
         collapseTreeBmp = CollapseTree.GetBitmap()
         highlightItemBmp = HighlightItem.GetBitmap()
-
+        evtWatcherBmp = EvtWatcher.GetBitmap()
+        
         toggleFillingBmp = ShowFilling.GetBitmap()
 
         refreshTool = tbar.AddLabelTool(-1, 'Refresh', refreshBmp,
@@ -210,9 +212,11 @@ class InspectionFrame(wx.Frame):
                                             shortHelp='Collapse all tree items (F5)')
         highlightItemTool = tbar.AddLabelTool(-1, 'Highlight', highlightItemBmp,
                                            shortHelp='Attempt to highlight live item (F6)')
-
+        evtWatcherTool = tbar.AddLabelTool(-1, 'Events', evtWatcherBmp,
+                                           shortHelp='Watch the events of the selected item (F7)')
+        
         toggleFillingTool = tbar.AddLabelTool(-1, 'Filling', toggleFillingBmp,
-                                              shortHelp='Show PyCrust \'filling\' (F7)',
+                                              shortHelp='Show PyCrust \'filling\' (F8)',
                                               kind=wx.ITEM_CHECK)
         tbar.Realize()
 
@@ -222,8 +226,10 @@ class InspectionFrame(wx.Frame):
         self.Bind(wx.EVT_TOOL,      self.OnExpandTree,      expandTreeTool)
         self.Bind(wx.EVT_TOOL,      self.OnCollapseTree,    collapseTreeTool)
         self.Bind(wx.EVT_TOOL,      self.OnHighlightItem,   highlightItemTool)
+        self.Bind(wx.EVT_TOOL,      self.OnWatchEvents,     evtWatcherTool)
         self.Bind(wx.EVT_TOOL,      self.OnToggleFilling,   toggleFillingTool)
         self.Bind(wx.EVT_UPDATE_UI, self.OnShowSizersUI,    showSizersTool)
+        self.Bind(wx.EVT_UPDATE_UI, self.OnWatchEventsUI,   evtWatcherTool)
         self.Bind(wx.EVT_UPDATE_UI, self.OnToggleFillingUI, toggleFillingTool)
 
         tbl = wx.AcceleratorTable(
@@ -233,7 +239,8 @@ class InspectionFrame(wx.Frame):
              (wx.ACCEL_NORMAL, wx.WXK_F4, expandTreeTool.GetId()),
              (wx.ACCEL_NORMAL, wx.WXK_F5, collapseTreeTool.GetId()),
              (wx.ACCEL_NORMAL, wx.WXK_F6, highlightItemTool.GetId()),
-             (wx.ACCEL_NORMAL, wx.WXK_F7, toggleFillingTool.GetId()),
+             (wx.ACCEL_NORMAL, wx.WXK_F7, evtWatcherTool.GetId()),
+             (wx.ACCEL_NORMAL, wx.WXK_F8, toggleFillingTool.GetId()),
              ])
         self.SetAcceleratorTable(tbl)
 
@@ -328,6 +335,21 @@ class InspectionFrame(wx.Frame):
 
     def OnHighlightItem(self, evt):
         self.HighlightCurrentItem()
+
+        
+    def OnWatchEvents(self, evt):
+        item = self.tree.GetSelection()
+        obj = self.tree.GetItemPyData(item)
+        if isinstance(obj, wx.Window):
+            import wx.lib.eventwatcher as ew
+            watcher = ew.EventWatcher(self)
+            watcher.watch(obj)
+            watcher.Show()
+            
+    def OnWatchEventsUI(self, evt):
+        item = self.tree.GetSelection()
+        obj = self.tree.GetItemPyData(item)
+        evt.Enable(isinstance(obj, wx.Window))
 
 
     def OnToggleFilling(self, evt):
@@ -1093,3 +1115,40 @@ HighlightItem = PyEmbeddedImage(
     "UOIqFdY2lKMHYGrw06DL3Tbrxzmi/Iq0JNLyO/Pxm/Uze/BXVRIUKajvKM6AXuh/kfjeHTC7"
     "TAdw1RfahmlJFOewgtjvQY/0QgeNe3MUOVQsw2/OwQBRkQy5Op2lYixN7sEXVhRd4PXVHvwA"
     "AAAASUVORK5CYII=")
+
+EvtWatcher = PyEmbeddedImage(
+    "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")
