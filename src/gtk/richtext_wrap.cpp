@@ -27365,7 +27365,10 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_GetCharacter(PyObject *SWIGUNUSEDPARM(s
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxChar(static_cast< const wxChar& >(result))), SWIGTYPE_p_wxChar, SWIG_POINTER_OWN |  0 );
+  {
+    wxString s(result);
+    resultobj = wx2PyString(s);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -27378,8 +27381,6 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_SetCharacter(PyObject *SWIGUNUSEDPARM(s
   wxChar arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 ;
-  int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
@@ -27393,17 +27394,8 @@ SWIGINTERN PyObject *_wrap_RichTextEvent_SetCharacter(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = reinterpret_cast< wxRichTextEvent * >(argp1);
   {
-    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxChar,  0  | 0);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextEvent_SetCharacter" "', expected argument " "2"" of type '" "wxChar""'"); 
-    }  
-    if (!argp2) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextEvent_SetCharacter" "', expected argument " "2"" of type '" "wxChar""'");
-    } else {
-      wxChar * temp = reinterpret_cast< wxChar * >(argp2);
-      arg2 = *temp;
-      if (SWIG_IsNewObj(res2)) delete temp;
-    }
+    wxString s = Py2wxString(obj1);
+    arg2 = s[0];
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();

@@ -3868,7 +3868,10 @@ class EvtHandler(Object):
         return _core_.EvtHandler_Connect(*args, **kwargs)
 
     def Disconnect(*args, **kwargs):
-        """Disconnect(self, int id, int lastId=-1, EventType eventType=wxEVT_NULL) -> bool"""
+        """
+        Disconnect(self, int id, int lastId=-1, EventType eventType=wxEVT_NULL, 
+            PyObject func=None) -> bool
+        """
         return _core_.EvtHandler_Disconnect(*args, **kwargs)
 
     def _setOORInfo(*args, **kwargs):
@@ -3907,14 +3910,14 @@ class EvtHandler(Object):
             id  = source.GetId()
         event.Bind(self, id, id2, handler)              
 
-    def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY):
+    def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY, handler=None):
         """
         Disconnects the event handler binding for event from self.
         Returns True if successful.
         """
         if source is not None:
             id  = source.GetId()
-        return event.Unbind(self, id, id2)              
+        return event.Unbind(self, id, id2, handler)              
 
     EvtHandlerEnabled = property(GetEvtHandlerEnabled,SetEvtHandlerEnabled,doc="See `GetEvtHandlerEnabled` and `SetEvtHandlerEnabled`") 
     NextHandler = property(GetNextHandler,SetNextHandler,doc="See `GetNextHandler` and `SetNextHandler`") 
@@ -3982,11 +3985,11 @@ class PyEventBinder(object):
             target.Connect(id1, id2, et, function)
 
 
-    def Unbind(self, target, id1, id2):
+    def Unbind(self, target, id1, id2, handler=None):
         """Remove an event binding."""
         success = 0
         for et in self.evtType:
-            success += target.Disconnect(id1, id2, et)
+            success += target.Disconnect(id1, id2, et, handler)
         return success != 0
 
     def _getEvtType(self):

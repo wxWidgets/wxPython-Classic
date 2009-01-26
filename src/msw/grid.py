@@ -78,6 +78,7 @@ GRID_LABEL_EDGE_ZONE = _grid.GRID_LABEL_EDGE_ZONE
 GRID_MIN_ROW_HEIGHT = _grid.GRID_MIN_ROW_HEIGHT
 GRID_MIN_COL_WIDTH = _grid.GRID_MIN_COL_WIDTH
 GRID_DEFAULT_SCROLLBAR_WIDTH = _grid.GRID_DEFAULT_SCROLLBAR_WIDTH
+GRID_AUTOSIZE = _grid.GRID_AUTOSIZE
 class GridCellWorker(object):
     """Proxy of C++ GridCellWorker class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')

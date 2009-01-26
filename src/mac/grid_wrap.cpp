@@ -23552,6 +23552,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "GRID_MIN_ROW_HEIGHT",SWIG_From_int(static_cast< int >(wxGRID_MIN_ROW_HEIGHT)));
   SWIG_Python_SetConstant(d, "GRID_MIN_COL_WIDTH",SWIG_From_int(static_cast< int >(wxGRID_MIN_COL_WIDTH)));
   SWIG_Python_SetConstant(d, "GRID_DEFAULT_SCROLLBAR_WIDTH",SWIG_From_int(static_cast< int >(wxGRID_DEFAULT_SCROLLBAR_WIDTH)));
+  SWIG_Python_SetConstant(d, "GRID_AUTOSIZE",SWIG_From_int(static_cast< int >(wxGRID_AUTOSIZE)));
   SWIG_addvarlink(SWIG_globals(),(char*)"OneString",OneString_get, OneString_set);
   SWIG_Python_SetConstant(d, "GridCellAttr_Any",SWIG_From_int(static_cast< int >(wxGridCellAttr::Any)));
   SWIG_Python_SetConstant(d, "GridCellAttr_Default",SWIG_From_int(static_cast< int >(wxGridCellAttr::Default)));

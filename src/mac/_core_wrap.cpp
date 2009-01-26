@@ -3889,10 +3889,43 @@ SWIGINTERN void wxEvtHandler_Connect(wxEvtHandler *self,int id,int lastId,int ev
                     PyErr_SetString(PyExc_TypeError, "Expected callable object or None."));
             }
         }
-SWIGINTERN bool wxEvtHandler_Disconnect(wxEvtHandler *self,int id,int lastId=-1,wxEventType eventType=wxEVT_NULL){
-            return self->Disconnect(id, lastId, eventType,
-                                   (wxObjectEventFunction)
-                                    &wxPyCallback::EventThunker);
+SWIGINTERN bool wxEvtHandler_Disconnect(wxEvtHandler *self,int id,int lastId=-1,wxEventType eventType=wxEVT_NULL,PyObject *func=NULL){
+            if (func && func != Py_None) {
+                // Find the current matching binder that has this function
+                // pointer and dissconnect that one.  Unfortuneatly since we
+                // wrapped the PyObject function pointer in another object we
+                // have to do the searching ourselves...
+                wxList::compatibility_iterator node = self->GetDynamicEventTable()->GetFirst();
+                while (node)
+                {
+                    wxDynamicEventTableEntry *entry = (wxDynamicEventTableEntry*)node->GetData();
+                    if ((entry->m_id == id) &&
+                        ((entry->m_lastId == lastId) || (lastId == wxID_ANY)) &&
+                        ((entry->m_eventType == eventType) || (eventType == wxEVT_NULL)) &&
+                        ((entry->m_fn == (wxObjectEventFunction)&wxPyCallback::EventThunker)) &&
+                        (entry->m_callbackUserData != NULL))
+                    {
+                        wxPyCallback *cb = (wxPyCallback*)entry->m_callbackUserData;
+                        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+                        int result = PyObject_Compare(cb->m_func, func);
+                        wxPyEndBlockThreads(blocked); 
+                        if (result == 0) {
+                            delete cb;
+                            self->GetDynamicEventTable()->Erase(node);
+                            delete entry;
+                            return true;
+                        }                        
+                    }
+                    node = node->GetNext();
+                }
+                return false;
+
+            }
+            else {
+                return self->Disconnect(id, lastId, eventType,
+                                        (wxObjectEventFunction)
+                                        &wxPyCallback::EventThunker);
+            }
         }
 SWIGINTERN void wxEvtHandler__setOORInfo(wxEvtHandler *self,PyObject *_self,bool incref=true){
             if (_self && _self != Py_None) {
@@ -22069,6 +22102,7 @@ SWIGINTERN PyObject *_wrap_EvtHandler_Disconnect(PyObject *SWIGUNUSEDPARM(self),
   int arg2 ;
   int arg3 = (int) -1 ;
   wxEventType arg4 = (wxEventType) wxEVT_NULL ;
+  PyObject *arg5 = (PyObject *) NULL ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -22082,11 +22116,12 @@ SWIGINTERN PyObject *_wrap_EvtHandler_Disconnect(PyObject *SWIGUNUSEDPARM(self),
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "id",(char *) "lastId",(char *) "eventType", NULL 
+    (char *) "self",(char *) "id",(char *) "lastId",(char *) "eventType",(char *) "func", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OO:EvtHandler_Disconnect",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOO:EvtHandler_Disconnect",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxEvtHandler, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EvtHandler_Disconnect" "', expected argument " "1"" of type '" "wxEvtHandler *""'"); 
@@ -22111,9 +22146,12 @@ SWIGINTERN PyObject *_wrap_EvtHandler_Disconnect(PyObject *SWIGUNUSEDPARM(self),
     } 
     arg4 = static_cast< wxEventType >(val4);
   }
+  if (obj4) {
+    arg5 = obj4;
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxEvtHandler_Disconnect(arg1,arg2,arg3,arg4);
+    result = (bool)wxEvtHandler_Disconnect(arg1,arg2,arg3,arg4,arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
