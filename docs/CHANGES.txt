@@ -5,6 +5,14 @@ Recent Changes for wxPython
 -------
 *
 
+Added the wx.lib.agw package, which contians most of the widgets from
+http://xoomer.alice.it/infinity77/main/freeware.html written by Andrea
+Gavana.  Andrea's widgets that were already in wx.lib were also moved
+to the wx.lib.agw package, with a small stub module left in wx.lib.
+As part of this addition the demo framework was given the ability to
+load demo modules from a sub folder of the demo directory, to make it
+easier to maintain collections of demo samples as a group.
+
 Added the wx.PyPickerBase class which can be used to derive new picker
 classes in Python.  Used it to implement a color picker for Mac that
 uses a wx.BitmapButton instead of a normal wx.Button.  This makes the
