@@ -84,13 +84,15 @@ def _makeAttribString(evt):
     "Find all the getters"
     attribs = ""
     for name in dir(evt):
-        if name.startswith('Get') and name not in [ 'GetClassName',
-                                                    'GetEventObject',
-                                                    'GetEventType',
-                                                    'GetId',
-                                                    'GetSkipped',
-                                                    'GetTimestamp',
-                                                    ]:
+        if (name.startswith('Get') or name.startswith('Is')) and \
+               name not in [ 'GetEventObject',
+                             'GetEventType',
+                             'GetId',
+                             'GetSkipped',
+                             'GetTimestamp',
+                             'GetClientData',
+                             'GetClientObject',
+                             ]:
             try:
                 value = getattr(evt, name)()
                 attribs += "%s : %s\n" % (name, value)
@@ -110,7 +112,8 @@ class EventLog(wx.ListCtrl):
         wx.ListCtrl.__init__(self, *args, **kw)
         self.clear()
         
-        self.SetWindowVariant(wx.WINDOW_VARIANT_SMALL)
+        if 'wxMac' in wx.PlatformInfo:
+            self.SetWindowVariant(wx.WINDOW_VARIANT_SMALL)
         
         self.InsertColumn(0, "#", format=wx.LIST_FORMAT_RIGHT, width=50)
         self.InsertColumn(1, "Event", width=200)
@@ -119,7 +122,7 @@ class EventLog(wx.ListCtrl):
         self.SetMinSize((450+wx.SystemSettings.GetMetric(wx.SYS_VSCROLL_X), 450))
         self.Bind(wx.EVT_LIST_ITEM_SELECTED, self.onItemSelected)
         self.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.onItemActivated)
-    
+        self.Bind(wx.EVT_LIST_ITEM_RIGHT_CLICK, self.onItemActivated)
         
     def append(self, evt):
         evtName = _eventIdMap.get(evt.GetEventType(), None)
@@ -142,6 +145,7 @@ class EventLog(wx.ListCtrl):
         self.data = []
         self.SetItemCount(0)
         self.currItem = -1
+        self.Refresh()
                 
     def OnGetItemText(self, item, col):
         if col == 0:
@@ -159,7 +163,7 @@ class EventLog(wx.ListCtrl):
     def onItemActivated(self, evt):
         idx = evt.GetIndex()
         text = self.data[idx][2]
-        tip = wx.TipWindow(self, text, OTHER_WIDTH)
+        wx.CallAfter(wx.TipWindow, self, text, OTHER_WIDTH)
 
 #----------------------------------------------------------------------------
 
@@ -174,7 +178,8 @@ class EventChooser(wx.Panel):
             wx.ListCtrl.__init__(self, parent, 
                                  style=wx.LC_REPORT|wx.LC_SINGLE_SEL|wx.LC_HRULES|wx.LC_VRULES)
             CheckListCtrlMixin.__init__(self)
-            self.SetWindowVariant(wx.WINDOW_VARIANT_SMALL)
+            if 'wxMac' in wx.PlatformInfo:
+                self.SetWindowVariant(wx.WINDOW_VARIANT_SMALL)
             
         # this is called by the base class when an item is checked/unchecked
         def OnCheckItem(self, index, flag):

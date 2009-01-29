@@ -165,8 +165,12 @@ class InstalledReceipt(object):
                 hasFiles = os.listdir(name)
                 if hasFiles:  # perhaps some stale symlinks, or .pyc files
                     for file in hasFiles:
-                        os.unlink(os.path.join(name, file))
-                os.rmdir(name)
+                        fname = os.path.join(name, file)
+                        if not os.path.isdir(fname):
+                            os.unlink(fname)
+                hasFiles = os.listdir(name)
+                if not hasFiles:  # perhaps some stale symlinks, or .pyc files
+                    os.rmdir(name)
 
         try:
             self.testUninstallAccess()
