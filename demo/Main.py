@@ -837,7 +837,21 @@ def GetOriginalFilename(name):
     """
     if not name.endswith(".py"):
         name = name + ".py"
-    return name
+
+    if os.path.isfile(name):
+        return name
+    
+    originalDir = os.getcwd()
+    listDir = os.listdir(originalDir)
+    # Loop over the content of the demo directory
+    for item in listDir:
+        if not os.path.isdir(item):
+            # Not a directory, continue
+            continue
+        dirFile = os.listdir(item)
+        # See if a file called "name" is there
+        if name in dirFile:        
+            return os.path.join(item, name)
 
 
 def DoesModifiedExist(name):
