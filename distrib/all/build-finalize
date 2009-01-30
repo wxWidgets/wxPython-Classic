@@ -40,7 +40,7 @@ if [ $KIND = daily ]; then
 	DATE=`date`
 	TO=wxPython-dev@lists.wxwidgets.org
 
-	cat <<EOF  | /usr/sbin/sendmail  $TO
+	cat <<EOF  | /usr/sbin/sendmail -f rbot@wxpython.org  $TO
 From: R'bot <rbot@wxpython.org>
 To: $TO
 Subject: $DAILY test build uploaded
@@ -90,7 +90,7 @@ if [ $KIND = release ]; then
 	DATE=`date`
 	TO=wxPython-dev@lists.wxwidgets.org
 
-	cat <<EOF  | /usr/sbin/sendmail  $TO
+	cat <<EOF  | /usr/sbin/sendmail  -f rbot@wxpython.org  $TO
 From: R'bot <rbot@wxpython.org>
 To: $TO
 Subject: $VERSION release candidate build uploaded

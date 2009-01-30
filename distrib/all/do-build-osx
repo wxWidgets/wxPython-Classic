@@ -107,6 +107,7 @@ function do_universal_build {
     fi
 
     PREFIX=/usr/local/lib/wxPython-$CTYPE-$VERSION
+    PREFIX_LINK=/usr/local/lib/wxPython-$CTYPE
 #    SITEPACKAGES=$PYLIB/site-packages
     SITEPACKAGES=$PREFIX/lib/python$PYVER/site-packages
     BINPREFIX=/usr/local/bin
@@ -312,6 +313,10 @@ EOF
     cat > $RESOURCEDIR/postflight <<EOF
 #!/bin/sh -e
 
+# Make a link to the newest install of wxMac/wxPython
+rm -f $PREFIX_LINK
+ln -s `basename $PREFIX` $PREFIX_LINK
+ 
 # find a Python $PYVER binary
 for dir in /usr/bin \
            /usr/local/bin \
