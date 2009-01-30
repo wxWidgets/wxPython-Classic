@@ -104,6 +104,9 @@ function do_universal_build {
 
     SITEPACKAGES=$PYLIB/site-packages
     PREFIX=/usr/local/lib/wxPython-$CTYPE-$VERSION
+    PREFIX_LINK=/usr/local/lib/wxPython-$CTYPE
+#    SITEPACKAGES=$PYLIB/site-packages
+    SITEPACKAGES=$PREFIX/lib/python$PYVER/site-packages
     BINPREFIX=/usr/local/bin
     WXROOT=$WXDIR
     TMPDIR=$DESTDIR/_build_
@@ -292,10 +295,31 @@ EOF
     cat > $RESOURCEDIR/postflight <<EOF
 #!/bin/sh -e
 
+<<<<<<< .working
 # Compile the .py files in the wxPython pacakge
 COMPILE=\$2$PYLIB/compileall.py
 if [ ! -e \$COMPILE ]; then
     COMPILE=\$2$PYLIB/compileall.pyc
+=======
+# Make a link to the newest install of wxMac/wxPython
+rm -f $PREFIX_LINK
+ln -s `basename $PREFIX` $PREFIX_LINK
+ 
+# find a Python $PYVER binary
+for dir in /usr/bin \
+           /usr/local/bin \
+           /Library/Frameworks/Python.framework/Versions/$PYVER/bin \
+           /System/Library/Frameworks/Python.framework/Versions/$PYVER/bin; do 
+    if [ -e \$dir/python$PYVER ]; then
+	PYTHON=\$dir/python$PYVER
+	break
+    fi
+done
+
+if [ -z \$PYTHON ]; then
+    echo ERROR: Unable to find a Python $PYVER binary
+    exit 1
+>>>>>>> .merge-right.r58536
 fi
 if [ -e \$COMPILE ]; then 
     $PYTHON    \$COMPILE \$2$SITEPACKAGES/$PKGDIR
