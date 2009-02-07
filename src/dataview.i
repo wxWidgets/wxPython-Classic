@@ -941,7 +941,6 @@ public:
     PYCALLBACK_BOOL_DVI_const(wxDataViewModel, HasContainerColumns);
     PYCALLBACK_UINT_DVIDVIA_pure_const(wxDataViewModel, GetChildren);
 
-    PYCALLBACK_BOOL_DVI(wxDataViewModel, IsDraggable);
     // GetDragDataSize
     // GetDragData
 
@@ -1054,27 +1053,27 @@ public:
 
     %extend {
     //  ****  Changed semantics such that the data value is the return value
-    //virtual void GetValue( wxVariant &variant,
+    //virtual void GetValueByRow( wxVariant &variant,
     //                       unsigned int row, unsigned int col ) const;
         DocDeclStr(
-            virtual wxVariant , GetValue( unsigned int row, unsigned int col ) const,
+            virtual wxVariant , GetValueByRow( unsigned int row, unsigned int col ) const,
             "Override this method to return the data value to be used for the item
 at the given row and column.", "")
         {
             wxVariant var;
-            self->GetValue(var, row, col);
+            self->GetValueByRow(var, row, col);
             return var;
         }
     }
 
     DocDeclStr(
-        virtual bool , SetValue( const wxVariant &variant,
+        virtual bool , SetValueByRow( const wxVariant &variant,
                                  unsigned int row, unsigned int col ),
         "This is called in order to set a value in the data model.", "");
 
 
     DocDeclStr(
-        virtual bool , GetAttr( unsigned int row, unsigned int col,
+        virtual bool , GetAttrByRow( unsigned int row, unsigned int col,
                                 wxDataViewItemAttr &attr ),
         "Override this to indicate that the item has special font
 attributes. This only affects the `DataViewTextRendererText` renderer.
@@ -1150,7 +1149,6 @@ public:
     PYCALLBACK_BOOL_DVI_const(ClassName, HasContainerColumns);
     PYCALLBACK_UINT_DVIDVIA_const(ClassName, GetChildren);
 
-    PYCALLBACK_BOOL_DVI(ClassName, IsDraggable);
     // GetDragDataSize
     // GetDragData
 
@@ -1158,14 +1156,14 @@ public:
     PYCALLBACK_BOOL__const(ClassName, HasDefaultCompare);
 
 
-    virtual void GetValue( wxVariant &variant,
+    virtual void GetValueByRow( wxVariant &variant,
                            unsigned int row, unsigned int col ) const
     {
         // The wxPython version of this method returns the variant as
         // a return value instead of modifying the parameter.
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
+        if ((found = wxPyCBH_findCallback(m_myInst, "GetValueByRow"))) {
             PyObject* ro;
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)", row, col));
             if (ro) {
@@ -1175,13 +1173,13 @@ public:
         }
         else {
             PyErr_SetString(PyExc_NotImplementedError,
-              "The GetValue method should be implemented in derived class");
+              "The GetValueByRow method should be implemented in derived class");
         }
         wxPyEndBlockThreads(blocked);
     }
 
 
-    virtual bool SetValue( const wxVariant &variant,
+    virtual bool SetValueByRow( const wxVariant &variant,
                            unsigned int row, unsigned int col )
     {
         bool rval = false;
@@ -1201,20 +1199,20 @@ public:
     }
 
 
-    virtual bool GetAttr( unsigned int row, unsigned int col,
+    virtual bool GetAttrByRow( unsigned int row, unsigned int col,
                           wxDataViewItemAttr &attr )
     {
         bool rval = false;
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        if ((found = wxPyCBH_findCallback(m_myInst, "GetAttr"))) {
+        if ((found = wxPyCBH_findCallback(m_myInst, "GetAttrByRow"))) {
             PyObject* ao = wxPyConstructObject((void*)&attr, wxT("wxDataViewItemAttr"), 0);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iiO)", row, col, ao));
             Py_DECREF(ao);
         }
         else {
             PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
+              "The GetAttrByRow method should be implemented in derived class");
         }
         wxPyEndBlockThreads(blocked);
         return rval;
