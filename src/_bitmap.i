@@ -140,7 +140,6 @@ enum wxBitmapBufferFormat {
                                       "Failed to gain raw access to bitmap data.");
                     return;
                 }
-                pixData.UseAlpha();
                 wxAlphaPixelData::Iterator p(pixData);
                 for (int y=0; y<height; y++) {
                     wxAlphaPixelData::Iterator rowStart = p;
@@ -193,7 +192,6 @@ enum wxBitmapBufferFormat {
                                       "Failed to gain raw access to bitmap data.");
                     return;    
                 }
-                if (useAlpha) pixData.UseAlpha();
 
                 wxAlphaPixelData::Iterator pix(pixData);
                 for (int y=0; y<height; y++) {
@@ -269,7 +267,6 @@ enum wxBitmapBufferFormat {
                                       "Failed to gain raw access to bitmap data.");
                     return;
                 }
-                pixData.UseAlpha();
                 wxAlphaPixelData::Iterator p(pixData);
                 for (int y=0; y<height; y++) {
                     wxAlphaPixelData::Iterator rowStart = p;
@@ -321,7 +318,6 @@ enum wxBitmapBufferFormat {
                                       "Failed to gain raw access to bitmap data.");
                     return;    
                 }
-                if (useAlpha) pixData.UseAlpha();
 
                 wxAlphaPixelData::Iterator pix(pixData);
                 for (int y=0; y<height; y++) {
@@ -657,7 +653,6 @@ format details.", "");
     // (these functions are internal and shouldn't be used, they risk to
     // disappear in the future)
     bool HasAlpha() const;
-//    void UseAlpha();   
     
     %pythoncode { def __nonzero__(self): return self.IsOk() }
 
@@ -711,7 +706,6 @@ format details.", "");
             return NULL;
         }
                 
-        pixData.UseAlpha();
         wxAlphaPixelData::Iterator p(pixData);
         for (int y=0; y<height; y++) {
             wxAlphaPixelData::Iterator rowStart = p;
@@ -835,7 +829,6 @@ def BitmapFromBufferRGBA(width, height, dataBuffer):
             return NULL;
         }
                 
-        pixData.UseAlpha();
         wxAlphaPixelData::Iterator p(pixData);
         for (int y=0; y<height; y++) {
             wxAlphaPixelData::Iterator rowStart = p;
