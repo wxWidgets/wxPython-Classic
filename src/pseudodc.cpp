@@ -113,7 +113,7 @@ wxBitmap &GetGreyBitmap(wxBitmap &bmp)
 // pdcDrawPolyPolygonOp constructor
 // ----------------------------------------------------------------------------
 pdcDrawPolyPolygonOp::pdcDrawPolyPolygonOp(int n, int count[], wxPoint points[],
-                 wxCoord xoffset, wxCoord yoffset, int fillStyle) 
+                 wxCoord xoffset, wxCoord yoffset, wxPolygonFillMode fillStyle) 
 {
     m_n=n; m_xoffset=xoffset; m_yoffset=yoffset; m_fillStyle=fillStyle;
     int total_n=0;
@@ -181,7 +181,7 @@ pdcDrawLinesOp::~pdcDrawLinesOp()
 // pdcDrawPolygonOp constructor
 // ----------------------------------------------------------------------------
 pdcDrawPolygonOp::pdcDrawPolygonOp(int n, wxPoint points[],
-             wxCoord xoffset, wxCoord yoffset, int fillStyle)
+             wxCoord xoffset, wxCoord yoffset, wxPolygonFillMode fillStyle)
 {
     m_n=n; m_xoffset=xoffset; m_yoffset=yoffset; m_fillStyle=fillStyle;
     if (n)
