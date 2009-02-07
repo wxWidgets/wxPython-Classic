@@ -87,20 +87,6 @@ wxEventType wxNewEventType();
 %constant wxEventType wxEVT_AUX2_UP;
 %constant wxEventType wxEVT_AUX2_DCLICK;
 
-// Non-client mouse events
-%constant wxEventType wxEVT_NC_LEFT_DOWN;
-%constant wxEventType wxEVT_NC_LEFT_UP;
-%constant wxEventType wxEVT_NC_MIDDLE_DOWN;
-%constant wxEventType wxEVT_NC_MIDDLE_UP;
-%constant wxEventType wxEVT_NC_RIGHT_DOWN;
-%constant wxEventType wxEVT_NC_RIGHT_UP;
-%constant wxEventType wxEVT_NC_MOTION;
-%constant wxEventType wxEVT_NC_ENTER_WINDOW;
-%constant wxEventType wxEVT_NC_LEAVE_WINDOW;
-%constant wxEventType wxEVT_NC_LEFT_DCLICK;
-%constant wxEventType wxEVT_NC_MIDDLE_DCLICK;
-%constant wxEventType wxEVT_NC_RIGHT_DCLICK;
-
 // Character input event type
 %constant wxEventType wxEVT_CHAR;
 %constant wxEventType wxEVT_CHAR_HOOK;
@@ -161,7 +147,6 @@ wxEventType wxNewEventType();
 %constant wxEventType wxEVT_PAINT;
 %constant wxEventType wxEVT_ERASE_BACKGROUND;
 %constant wxEventType wxEVT_NC_PAINT;
-%constant wxEventType wxEVT_PAINT_ICON;
 %constant wxEventType wxEVT_MENU_OPEN;
 %constant wxEventType wxEVT_MENU_CLOSE;
 %constant wxEventType wxEVT_MENU_HIGHLIGHT;
@@ -169,13 +154,9 @@ wxEventType wxNewEventType();
 %constant wxEventType wxEVT_CONTEXT_MENU;
 %constant wxEventType wxEVT_SYS_COLOUR_CHANGED;
 %constant wxEventType wxEVT_DISPLAY_CHANGED;
-%constant wxEventType wxEVT_SETTING_CHANGED;
 %constant wxEventType wxEVT_QUERY_NEW_PALETTE;
 %constant wxEventType wxEVT_PALETTE_CHANGED;
 %constant wxEventType wxEVT_DROP_FILES;
-%constant wxEventType wxEVT_DRAW_ITEM;
-%constant wxEventType wxEVT_MEASURE_ITEM;
-%constant wxEventType wxEVT_COMPARE_ITEM;
 %constant wxEventType wxEVT_INIT_DIALOG;
 %constant wxEventType wxEVT_IDLE;
 %constant wxEventType wxEVT_UPDATE_UI;
