@@ -217,8 +217,8 @@ Returns False if the operation failed.
 Note: The present implementation for non-Windows platforms may fail to
 find colour borders if the pixels do not match the colour
 exactly. However the function will still return true.", "");
-    void FloodFill(wxCoord x, wxCoord y, const wxColour& col, int style = wxFLOOD_SURFACE);
-    %Rename(FloodFillPoint, void, FloodFill(const wxPoint& pt, const wxColour& col, int style = wxFLOOD_SURFACE));
+    void FloodFill(wxCoord x, wxCoord y, const wxColour& col, wxFloodFillStyle style = wxFLOOD_SURFACE);
+    %Rename(FloodFillPoint, void, FloodFill(const wxPoint& pt, const wxColour& col, wxFloodFillStyle style = wxFLOOD_SURFACE));
 
     
     DocStr(
@@ -452,9 +452,9 @@ lines.", "");
     DocDeclAStr(
         void , DrawPolygon(int points, wxPoint* points_array,
                      wxCoord xoffset = 0, wxCoord yoffset = 0,
-                           int fillStyle = wxODDEVEN_RULE),
+                           wxPolygonFillMode fillStyle = wxODDEVEN_RULE),
         "DrawPolygon(self, List points, int xoffset=0, int yoffset=0,
-    int fillStyle=ODDEVEN_RULE)",
+    wxPolygonFillMode fillStyle=ODDEVEN_RULE)",
         "Draws a filled polygon using a sequence of `wx.Point` objects, adding
 the optional offset coordinate.  The last argument specifies the fill
 rule: ``wx.ODDEVEN_RULE`` (the default) or ``wx.WINDING_RULE``.
@@ -565,7 +565,7 @@ context, and the original palette restored.", "
         "Sets the current text background colour for the DC.", "");
     
     DocDeclStr(
-        virtual void , SetLogicalFunction(int function),
+        virtual void , SetLogicalFunction(wxRasterOperationMode function),
         "Sets the current logical function for the device context. This
 determines how a source pixel (from a pen or brush colour, combines
 with a destination pixel in the current device context.

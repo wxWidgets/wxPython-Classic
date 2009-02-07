@@ -96,8 +96,8 @@ Returns False if the operation failed.
 Note: The present implementation for non-Windows platforms may fail to
 find colour borders if the pixels do not match the colour
 exactly. However the function will still return true.", "");
-    bool FloodFill(wxCoord x, wxCoord y, const wxColour& col, int style = wxFLOOD_SURFACE);
-    %Rename(FloodFillPoint, bool, FloodFill(const wxPoint& pt, const wxColour& col, int style = wxFLOOD_SURFACE));
+    bool FloodFill(wxCoord x, wxCoord y, const wxColour& col, wxFloodFillStyle style = wxFLOOD_SURFACE);
+    %Rename(FloodFillPoint, bool, FloodFill(const wxPoint& pt, const wxColour& col, wxFloodFillStyle style = wxFLOOD_SURFACE));
 
     // fill the area specified by rect with a radial gradient, starting from
     // initialColour in the centre of the cercle and fading to destColour.
@@ -316,7 +316,7 @@ font. ``wx.SWISS_FONT`` is an example of a font which is.","
     DocDeclStr(
         bool , Blit(wxCoord xdest, wxCoord ydest, wxCoord width, wxCoord height,
                     wxDC *source, wxCoord xsrc, wxCoord ysrc,
-                    int rop = wxCOPY, bool useMask = false,
+                    wxRasterOperationMode rop = wxCOPY, bool useMask = false,
                     wxCoord xsrcMask = -1, wxCoord ysrcMask = -1),
         "Copy from a source DC to this DC.  Parameters specify the destination
 coordinates, size of area to copy, source DC, source coordinates,
@@ -343,7 +343,7 @@ position.", "
     DocDeclStrName(
         bool , Blit(const wxPoint& destPt, const wxSize& sz,
                     wxDC *source, const wxPoint& srcPt,
-                    int rop = wxCOPY, bool useMask = false,
+                    wxRasterOperationMode rop = wxCOPY, bool useMask = false,
                     const wxPoint& srcPtMask = wxDefaultPosition),
         "Copy from a source DC to this DC.  Parameters specify the destination
 coordinates, size of area to copy, source DC, source coordinates,
@@ -369,7 +369,7 @@ position.", "
                            wxDC *source, 
                            wxCoord srcX, wxCoord srcY,
                            wxCoord srcWidth, wxCoord srcHeight,
-                           int rop = wxCOPY, bool useMask = false, 
+                           wxRasterOperationMode rop = wxCOPY, bool useMask = false, 
                            wxCoord srcMaskX = wxDefaultCoord,
                            wxCoord srcMaskY = wxDefaultCoord),
         "Copy from a source DC to this DC, specifying the destination
@@ -402,7 +402,7 @@ and mask source position.", "
     DocDeclStrName(
         bool , StretchBlit(const wxPoint& dstPt, const wxSize& dstSize,
                            wxDC *source, const wxPoint& srcPt, const wxSize& srcSize,
-                           int rop = wxCOPY, bool useMask = false,
+                           wxRasterOperationMode rop = wxCOPY, bool useMask = false,
                            const wxPoint& srcMaskPt = wxDefaultPosition),
         "Copy from a source DC to this DC, specifying the destination
 coordinates, destination size, source DC, source coordinates, size of
@@ -459,9 +459,9 @@ lines.", "");
     DocDeclAStr(
         void , DrawPolygon(int points, wxPoint* points_array,
                      wxCoord xoffset = 0, wxCoord yoffset = 0,
-                           int fillStyle = wxODDEVEN_RULE),
+                           wxPolygonFillMode fillStyle = wxODDEVEN_RULE),
         "DrawPolygon(self, List points, int xoffset=0, int yoffset=0,
-    int fillStyle=ODDEVEN_RULE)",
+    wxPolygonFillMode fillStyle=ODDEVEN_RULE)",
         "Draws a filled polygon using a sequence of `wx.Point` objects, adding
 the optional offset coordinate.  The last argument specifies the fill
 rule: ``wx.ODDEVEN_RULE`` (the default) or ``wx.WINDING_RULE``.
@@ -836,7 +836,7 @@ converting a height, for example.", "");
         "Gets the current *mapping mode* for the device context ", "");
     
     DocDeclStr(
-        virtual void , SetMapMode(int mode),
+        virtual void , SetMapMode(wxMappingMode mode),
         "The *mapping mode* of the device context defines the unit of
 measurement used to convert logical units to device units.  The
 mapping mode can be one of the following:
@@ -919,11 +919,11 @@ orientation, e.g. x axis from left to right and y axis from bottom up.", "");
 
 
     DocDeclStr(
-        int , GetLogicalFunction() const,
+        wxRasterOperationMode , GetLogicalFunction() const,
         "Gets the current logical function (set by `SetLogicalFunction`).", "");
     
     DocDeclStr(
-        virtual void , SetLogicalFunction(int function),
+        virtual void , SetLogicalFunction(wxRasterOperationMode function),
         "Sets the current logical function for the device context. This
 determines how a source pixel (from a pen or brush colour, or source
 device context if using `Blit`) combines with a destination pixel in

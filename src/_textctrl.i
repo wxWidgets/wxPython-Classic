@@ -227,8 +227,8 @@ public:
     void SetRightIndent(int indent);
 
     void SetFontSize(int pointSize);
-    void SetFontStyle(int fontStyle);
-    void SetFontWeight(int fontWeight);
+    void SetFontStyle(wxFontStyle fontStyle);
+    void SetFontWeight(wxFontWeight fontWeight);
     void SetFontFaceName(const wxString& faceName);
     void SetFontUnderlined(bool underlined);
     void SetFontEncoding(wxFontEncoding encoding);

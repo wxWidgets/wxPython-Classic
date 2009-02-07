@@ -128,8 +128,8 @@ public :
     void GetBox(wxDouble *, wxDouble *, wxDouble *, wxDouble *) const {}
     wxRect2D GetBox() const { return wxRect2D(0,0,0,0); }
 
-    bool Contains( wxDouble , wxDouble , int ) const { return false; }
-    bool Contains( const wxPoint2DDouble& , int ) const { return false; }
+    bool Contains( wxDouble , wxDouble , wxPolygonFillMode ) const { return false; }
+    bool Contains( const wxPoint2DDouble& , wxPolygonFillMode ) const { return false; }
 };
 wxGraphicsPath wxNullGraphicsPath;
 
@@ -242,7 +242,7 @@ public:
     virtual void ResetClip() {}
     virtual void * GetNativeContext() { return NULL; }
     virtual int GetLogicalFunction() const { return 0; }
-    virtual bool SetLogicalFunction(int ) {}    
+    virtual bool SetLogicalFunction(wxRasterOperationMode ) {}    
     virtual void GetSize( wxDouble*, wxDouble* );
     virtual void GetDPI( wxDouble*, wxDouble* );
     
@@ -263,8 +263,8 @@ public:
     void SetFont( const wxFont&, const wxColour& ) {}
 
     virtual void StrokePath( const wxGraphicsPath & ) {}
-    virtual void FillPath( const wxGraphicsPath &, int ) {}
-    virtual void DrawPath( const wxGraphicsPath &, int ) {}
+    virtual void FillPath( const wxGraphicsPath &, wxPolygonFillMode ) {}
+    virtual void DrawPath( const wxGraphicsPath &, wxPolygonFillMode ) {}
 
     virtual void DrawText( const wxString &, wxDouble , wxDouble  )  {}
     virtual void DrawText( const wxString &, wxDouble , wxDouble , wxDouble ) {}
@@ -281,7 +281,7 @@ public:
     virtual void StrokeLine( wxDouble , wxDouble , wxDouble , wxDouble ) {}
     virtual void StrokeLines( size_t , const wxPoint2DDouble *) {}
     virtual void StrokeLines( size_t , const wxPoint2DDouble *, const wxPoint2DDouble *) {}
-    virtual void DrawLines( size_t , const wxPoint2DDouble *, int ) {}
+    virtual void DrawLines( size_t , const wxPoint2DDouble *, wxPolygonFillMode ) {}
     virtual void DrawRectangle( wxDouble , wxDouble , wxDouble , wxDouble ) {}
     virtual void DrawEllipse( wxDouble , wxDouble , wxDouble , wxDouble ) {}
     virtual void DrawRoundedRectangle( wxDouble , wxDouble , wxDouble , wxDouble , wxDouble ) {}
@@ -674,8 +674,8 @@ points)", "");
     %nokwargs Contains;
     DocStr(Contains,
         "Returns ``True`` if the point is within the path.", "");
-    virtual bool Contains( wxDouble x, wxDouble y, int fillStyle = wxODDEVEN_RULE) const;
-    bool Contains( const wxPoint2D& c, int fillStyle = wxODDEVEN_RULE) const;
+    virtual bool Contains( wxDouble x, wxDouble y, wxPolygonFillMode fillStyle = wxODDEVEN_RULE) const;
+    bool Contains( const wxPoint2D& c, wxPolygonFillMode fillStyle = wxODDEVEN_RULE) const;
 
 };
 
@@ -862,7 +862,7 @@ pointer for GDIPlus and cairo_t pointer for cairo).", "");
     
     
     DocDeclStr(
-        virtual bool , SetLogicalFunction(int function) ,
+        virtual bool , SetLogicalFunction(wxRasterOperationMode function) ,
         "Sets the current logical function, returns ``True`` if it supported", "");
        
     
@@ -937,12 +937,12 @@ this context.", "");
 
     
     DocDeclStr(
-        virtual void , FillPath( const wxGraphicsPath& path, int fillStyle = wxODDEVEN_RULE ),
+        virtual void , FillPath( const wxGraphicsPath& path, wxPolygonFillMode fillStyle = wxODDEVEN_RULE ),
         "Fills a path with the current brush.", "");
 
    
     DocDeclStr(
-        virtual void , DrawPath( const wxGraphicsPath& path, int fillStyle = wxODDEVEN_RULE ),
+        virtual void , DrawPath( const wxGraphicsPath& path, wxPolygonFillMode fillStyle = wxODDEVEN_RULE ),
         "Draws the path by first filling and then stroking.", "");
 
 
@@ -1072,7 +1072,7 @@ and the current brush is used for filling.", "");
 
     DocDeclStr(
         virtual void , DrawLines( size_t points, const wxPoint2D *points_array,
-                                  int fillStyle = wxODDEVEN_RULE ),
+                                  wxPolygonFillMode fillStyle = wxODDEVEN_RULE ),
         "Draws a polygon.", "");
 
 

@@ -71,8 +71,8 @@ public:
     %RenameCtor(RegionFromBitmapColour, wxRegion(const wxBitmap& bmp,
                                                  const wxColour& transColour,
                                                  int   tolerance = 0));
-    %RenameCtor(RegionFromPoints, wxRegion(int points, wxPoint* points_array,
-                                           int fillStyle = wxWINDING_RULE));
+    %RenameCtor(RegionFromPoints, wxRegion(size_t points, wxPoint* points_array,
+                                           wxPolygonFillMode fillStyle = wxWINDING_RULE));
 
     ~wxRegion();
 
