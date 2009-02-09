@@ -5,10 +5,11 @@ import glob
 import optparse
 import os
 import shutil
+import string
 import sys
 import types
 
-version = "2.8"
+version = "2.9"
 
 version_nodot = version.replace(".", "")
 
@@ -18,6 +19,8 @@ option_dict = {
             "reswig"    : (False, "Re-generate the SWIG wrappers"),
             "unicode"   : (False, "Build wxPython with unicode support"),
             "py_version": ("2.5", "Version of Python to build against"),
+            "osx_cocoa" : (False, "Build the OS X Cocoa port on Mac"),
+            "no_config" : (False, "Don't run configure when building."),
           }
 
 parser = optparse.OptionParser(usage="usage: %prog [options]", version="%prog 1.0")
@@ -163,26 +166,30 @@ else:
         deleteIfExists(myenv["WXPY_INSTALLDIR"])
         sys.exit(0)
 
-    UNICODE_OPT = ""
-    UNICODE_WXPY_OPT = 0
+    build_options = []
+    wxpy_build_options = []
     if options.unicode:
-        UNICODE_OPT = "unicode"
-        UNICODE_WXPY_OPT = 1
-  
-    DEBUG_OPT = ""
+        build_options.append("--unicode")
+        wxpy_build_options.append("UNICODE=1")
+        
     if options.debug:
-        DEBUG_OPT = "debug"
+        build_options.append("--debug")
+        
+    if options.no_config:
+        build_options.append("--no_config")
+        
+    if options.osx_cocoa and sys.platform.startswith("darwin"):
+        build_options.append("--osx_cocoa")
+        wxpy_build_options.append("WXPORT=osx_cocoa")
 
     if not os.path.exists(WXPY_BUILD_DIR):
         os.mkdir(WXPY_BUILD_DIR)
         
     os.chdir(WXPY_BUILD_DIR)
-    myenv["INSTALLDIR"] = WXPY_INSTALL_DIR
+    build_options.append('--installdir="%s"' % WXPY_INSTALL_DIR)
+    build_options.append("--install")
   
-    if sys.platform.startswith("darwin"):
-        retval = os.system(WXWIN + "/distrib/scripts/mac/macbuild wxpython " + UNICODE_OPT + " " + DEBUG_OPT)
-    else:
-        retval = os.system(WXWIN + "/distrib/scripts/unix/unixbuild wxpython " + UNICODE_OPT + " " + DEBUG_OPT)
+    retval = os.system(WXWIN + "/build/tools/build-wxwidgets.py --wxpython %s" % string.join(build_options, " "))
   
     if retval != 0:
         print "ERROR: failed building wxWidgets"
@@ -191,17 +198,22 @@ else:
     USE_SWIG = 0
     SWIG_BIN = commands.getoutput("which swig")
     if options.reswig:
-        if not os.path.exists(SWIG_BIN):
-            SWIG_BIN=os.path.join(SWIGDIR, "swig")
-    
         if os.path.exists(SWIG_BIN):
-            USE_SWIG = 1
+            wxpy_build_options.append('SWIG_BIN="%s"' % SWIG_BIN)
         else:
+            wxpy_build_options.append('SWIG_BIN="%s"' % os.path.join(SWIGDIR, "swig"))
+            
+        if os.path.exists(SWIG_BIN):
+            wxpy_build_options.append("USE_SWIG=%d" % 1)
+        else:
+            wxpy_build_options.append("USE_SWIG=%d" % 0)
             print "WARNING: Unable to find SWIG binary. Not re-SWIGing files."
 
     os.chdir(scriptDir)
-    retval = os.system("python ./setup.py build_ext --inplace WX_CONFIG=%s/bin/wx-config USE_SWIG=%d SWIG=%s UNICODE=%d" % \
-                (WXPY_INSTALL_DIR, USE_SWIG, SWIG_BIN, UNICODE_WXPY_OPT))
+    command = "python ./setup.py build_ext --inplace WX_CONFIG=%s/bin/wx-config %s" % \
+                (WXPY_INSTALL_DIR, string.join(wxpy_build_options, " "))
+    print command
+    retval = os.system(command)
     
     if retval != 0:
         print "ERROR: failed building wxPython."
