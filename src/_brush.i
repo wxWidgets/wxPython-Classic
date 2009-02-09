@@ -127,10 +127,11 @@ uninitialised bitmap (`wx.Bitmap.Ok` returns False).", "");
     %pythoncode { Ok = IsOk }
 
 
-// #ifdef __WXMAC__
+#ifdef __WXMAC__
 //     short MacGetTheme();
-//     void MacSetTheme(short macThemeBrush);
-// #endif
+
+     %pythoncode { def MacSetTheme(self, macThemeBrush): self.SetColour(wx.Colour(macThemeBrush)) }
+#endif
 
     %pythoncode { def __nonzero__(self): return self.IsOk() }
 
