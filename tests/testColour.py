@@ -55,10 +55,6 @@ def getColourNames():
 # -----------------------------------------------------------
 
 class ColourTest(unittest.TestCase):
-
-    def testColorColourAlias_wxColourOnly(self):
-        """ """
-        self.assertEquals(wx.Color, wx.Colour)
     
     def testSetFromName(self):
         """SetFromName"""
@@ -84,7 +80,7 @@ class ColourTest(unittest.TestCase):
     def testMultipleAccessors(self):
         """Get, Set"""
         for i in range(256):
-            color = wx.Color()
+            color = wx.Colour()
             color.Set(i,i,i,i)
             self.assertEquals((i,i,i), color.Get())
             self.assertEquals(i, color.Alpha())
