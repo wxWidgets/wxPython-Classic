@@ -27,13 +27,12 @@ class MyCanvas(wx.ScrolledWindow):
         self.SetVirtualSize((self.maxWidth, self.maxHeight))
         self.SetScrollRate(20,20)
 
-        if BUFFERED:
-            # Initialize the buffer bitmap.  No real DC is needed at this point.
-            self.buffer = wx.EmptyBitmap(self.maxWidth, self.maxHeight)
-            dc = wx.BufferedDC(None, self.buffer)
-            dc.SetBackground(wx.Brush(self.GetBackgroundColour()))
-            dc.Clear()
-            self.DoDrawing(dc)
+        # Initialize the buffer bitmap.  No real DC is needed at this point.
+        self.buffer = wx.EmptyBitmap(self.maxWidth, self.maxHeight)
+        dc = wx.BufferedDC(None, self.buffer)
+        dc.SetBackground(wx.Brush(self.GetBackgroundColour()))
+        dc.Clear()
+        self.DoDrawing(dc)
 
         self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftButtonEvent)
         self.Bind(wx.EVT_LEFT_UP,   self.OnLeftButtonEvent)
@@ -49,19 +48,11 @@ class MyCanvas(wx.ScrolledWindow):
 
 
     def OnPaint(self, event):
-        if BUFFERED:
-            # Create a buffered paint DC.  It will create the real
-            # wx.PaintDC and then blit the bitmap to it when dc is
-            # deleted.  Since we don't need to draw anything else
-            # here that's all there is to it.
-            dc = wx.BufferedPaintDC(self, self.buffer, wx.BUFFER_VIRTUAL_AREA)
-        else:
-            dc = wx.PaintDC(self)
-            self.PrepareDC(dc)
-            # since we're not buffering in this case, we have to
-            # paint the whole window, potentially very time consuming.
-            self.DoDrawing(dc)
-
+        # Create a buffered paint DC.  It will create the real
+        # wx.PaintDC and then blit the bitmap to it when dc is
+        # deleted.  Since we don't need to draw anything else
+        # here that's all there is to it.
+        dc = wx.BufferedPaintDC(self, self.buffer, wx.BUFFER_VIRTUAL_AREA)
 
     def DoDrawing(self, dc, printing=False):
         dc.BeginDrawing()
@@ -169,16 +160,11 @@ class MyCanvas(wx.ScrolledWindow):
             self.drawing = True
 
         elif event.Dragging() and self.drawing:
-            if BUFFERED:
-                # If doing buffered drawing we'll just update the
-                # buffer here and then refresh that portion of the
-                # window, then that portion of the buffer will be
-                # redrawn in the EVT_PAINT handler.
-                dc = wx.BufferedDC(None, self.buffer)
-            else:
-                # otherwise we'll draw directly to a wx.ClientDC
-                dc = wx.ClientDC(self)
-                self.PrepareDC(dc)
+            # If doing buffered drawing we'll just update the
+            # buffer here and then refresh that portion of the
+            # window, then that portion of the buffer will be
+            # redrawn in the EVT_PAINT handler.
+            dc = wx.BufferedDC(None, self.buffer)
 
             dc.SetPen(wx.Pen('MEDIUM FOREST GREEN', 4))
             coords = (self.x, self.y) + self.ConvertEventCoords(event)
