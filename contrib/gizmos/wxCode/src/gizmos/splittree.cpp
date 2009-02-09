@@ -731,9 +731,9 @@ void wxSplitterScrolledWindow::OnScroll(wxScrollWinEvent& event)
         {
             wxSplitterWindow* splitter = (wxSplitterWindow*) child;
             if (splitter->GetWindow1())
-                splitter->GetWindow1()->ProcessEvent(event);
+                splitter->GetWindow1()->GetEventHandler()->ProcessEvent(event);
             if (splitter->GetWindow2())
-                splitter->GetWindow2()->ProcessEvent(event);
+                splitter->GetWindow2()->GetEventHandler()->ProcessEvent(event);
             break;
         }
         node = node->GetNext();

@@ -2437,7 +2437,7 @@ void wxTreeListMainWindow::SendDeleteEvent (wxTreeListItem *item) {
     event.SetItem (item);
 #endif
     event.SetEventObject (m_owner);
-    m_owner->ProcessEvent (event);
+    m_owner->GetEventHandler()->ProcessEvent (event);
 }
 
 void wxTreeListMainWindow::Delete (const wxTreeItemId& itemId) {
@@ -2526,14 +2526,14 @@ void wxTreeListMainWindow::Expand (const wxTreeItemId& itemId) {
     event.SetItem (item);
 #endif
     event.SetEventObject (m_owner);
-    if (m_owner->ProcessEvent (event) && !event.IsAllowed()) return; // expand canceled
+    if (m_owner->GetEventHandler()->ProcessEvent (event) && !event.IsAllowed()) return; // expand canceled
 
     item->Expand();
     m_dirty = true;
 
     // send event to user code
     event.SetEventType (wxEVT_COMMAND_TREE_ITEM_EXPANDED);
-    m_owner->ProcessEvent (event);
+    m_owner->GetEventHandler()->ProcessEvent (event);
 }
 
 void wxTreeListMainWindow::ExpandAll (const wxTreeItemId& itemId) {
@@ -2565,14 +2565,14 @@ void wxTreeListMainWindow::Collapse (const wxTreeItemId& itemId) {
     event.SetItem (item);
 #endif
     event.SetEventObject (m_owner);
-    if (m_owner->ProcessEvent (event) && !event.IsAllowed()) return; // collapse canceled
+    if (m_owner->GetEventHandler()->ProcessEvent (event) && !event.IsAllowed()) return; // collapse canceled
 
     item->Collapse();
     m_dirty = true;
 
     // send event to user code
     event.SetEventType (wxEVT_COMMAND_TREE_ITEM_COLLAPSED);
-    ProcessEvent (event);
+    GetEventHandler()->ProcessEvent (event);
 }
 
 void wxTreeListMainWindow::CollapseAndReset (const wxTreeItemId& item) {

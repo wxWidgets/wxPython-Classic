@@ -586,7 +586,7 @@ void wxDynamicSashWindowImpl::Unify(int panel)
         m_split = DSR_NONE;
 
         wxDynamicSashUnifyEvent unify(m_leaf->m_child);
-        m_leaf->m_child->ProcessEvent(unify);
+        m_leaf->m_child->GetEventHandler()->ProcessEvent(unify);
     }
     else
     {
@@ -645,7 +645,7 @@ void wxDynamicSashWindowImpl::Split(int px, int py)
 
     m_top->m_add_child_target = m_child[1];
     wxDynamicSashSplitEvent split(m_child[0]->m_leaf->m_child);
-    m_child[0]->m_leaf->m_child->ProcessEvent(split);
+    m_child[0]->m_leaf->m_child->GetEventHandler()->ProcessEvent(split);
 
     m_child[0]->m_leaf->m_vscroll->SetScrollbar(m_leaf->m_vscroll->GetThumbPosition(),
                                                 m_leaf->m_vscroll->GetThumbSize(),
@@ -1050,7 +1050,8 @@ bool wxDynamicSashWindowLeaf::Create()
                         NULL, this);
 
     Connect(wxEVT_DYNAMIC_SASH_REPARENT,
-            wxEventHandler(wxDynamicSashWindowLeaf::OnReparent));
+            wxEventHandler(wxDynamicSashWindowLeaf::OnReparent),
+                    NULL, this);
 
     if (m_impl->m_window->GetWindowStyle() & wxDS_MANAGE_SCROLLBARS)
     {
