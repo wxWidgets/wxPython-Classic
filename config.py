@@ -838,7 +838,7 @@ if debug:
 if FINAL:
     HYBRID = 0
 
-if UNICODE and WXPORT not in ['msw', 'gtk2', 'osx_carbon']:
+if UNICODE and WXPORT not in ['msw', 'gtk2', 'osx_carbon', 'osx_cocoa']:
     raise SystemExit, "UNICODE mode not currently supported on this WXPORT: "+WXPORT
 
 
@@ -988,10 +988,15 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
     WXPREFIX   = os.popen(WX_CONFIG + ' --prefix').read()[:-1]
 
 
-    if sys.platform[:6] == "darwin" and WXPORT == 'osx_carbon':
-        # Flags and such for a Darwin (Max OS X) build of Python
+    if sys.platform[:6] == "darwin":
         WXPLAT = '__WXMAC__'
-        GENDIR = 'osx_carbon'
+    
+        if WXPORT == 'osx_carbon':
+        # Flags and such for a Darwin (Max OS X) build of Python
+            GENDIR = 'osx_carbon'
+        else:
+            GENDIR = 'osx_cocoa'
+
         libs = ['stdc++']
         NO_SCRIPTS = 1
         if not ARCH == "":
