@@ -156,9 +156,9 @@ public:
 %constant wxEventType wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED;
 
 %pythoncode {
-EVT_SPIN_UP   = wx.PyEventBinder( wx.wxEVT_SPIN_UP, 1)
-EVT_SPIN_DOWN = wx.PyEventBinder( wx.wxEVT_SPIN_DOWN, 1)
-EVT_SPIN      = wx.PyEventBinder( wx.wxEVT_SPIN, 1)
+EVT_SPIN_UP   = wx.PyEventBinder( wxEVT_SPIN_UP, 1)
+EVT_SPIN_DOWN = wx.PyEventBinder( wxEVT_SPIN_DOWN, 1)
+EVT_SPIN      = wx.PyEventBinder( wxEVT_SPIN, 1)
 EVT_SPINCTRL  = wx.PyEventBinder( wxEVT_COMMAND_SPINCTRL_UPDATED, 1)
 EVT_SPINCTRLDOUBLE  = wx.PyEventBinder( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, 1)    
 }
