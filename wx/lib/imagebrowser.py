@@ -201,11 +201,8 @@ class ImageView(wx.Window):
             evt.Skip()
             return
         dc = evt.GetDC()
-        if not dc:
-            dc = wx.ClientDC(self)
-            rect = self.GetUpdateRegion().GetBox()
-            dc.SetClippingRect(rect)
-        self.PaintBackground(dc, self.dark_bg)
+        if dc:
+            self.PaintBackground(dc, self.dark_bg)
 
     def PaintBackground(self, dc, painter, rect=None):
         if painter is None:
