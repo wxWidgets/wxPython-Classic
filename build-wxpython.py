@@ -155,6 +155,8 @@ if sys.platform.startswith("win"):
         shutil.copyfile(dll, os.path.join(WXWIN, "wxPython", "wx"))
   
 else:
+    WXPY_BUILD_DIR = ""
+    WXPY_INSTALL_DIR = ""
     if not myenv.has_key("WXPY_BUILD_DIR"):
         WXPY_BUILD_DIR = myenv["WXPY_BUILD_DIR"] = os.path.join(os.getcwd(), "wxpy-bld")
   
@@ -162,8 +164,8 @@ else:
         WXPY_INSTALL_DIR = myenv["WXPY_INSTALL_DIR"] = os.path.join(os.environ["HOME"], "wxpython-" + version)
   
     if options.clean:
-        deleteIfExists(myenv["WXPY_BUILD_DIR"])
-        deleteIfExists(myenv["WXPY_INSTALLDIR"])
+        deleteIfExists(WXPY_BUILD_DIR)
+        deleteIfExists(WXPY_INSTALL_DIR)
         sys.exit(0)
 
     build_options = []
