@@ -342,7 +342,7 @@ class PyColourChooser(wx.Panel):
         the selected colour values."""
         self.mouse_down = True
         self.palette.ReDraw()
-        self.doPaletteClick(event.m_x, event.m_y)
+        self.doPaletteClick(event.X, event.Y)
 
     def onPaletteUp(self, event):
         """Stores state that the mouse is no longer depressed."""
@@ -352,7 +352,7 @@ class PyColourChooser(wx.Panel):
         """Updates the colour values during mouse motion while the
         mouse button is depressed."""
         if self.mouse_down:
-            self.doPaletteClick(event.m_x, event.m_y)
+            self.doPaletteClick(event.X, event.Y)
 
     def doPaletteClick(self, m_x, m_y):
         """Updates the colour values based on the mouse location
