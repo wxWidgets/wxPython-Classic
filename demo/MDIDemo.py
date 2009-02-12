@@ -53,9 +53,6 @@ class MyParentFrame(wx.MDIParentFrame):
     def OnEraseBackground(self, evt):
         dc = evt.GetDC()
 
-        if not dc:
-            dc = wx.ClientDC(self.GetClientWindow())
-
         # tile the background bitmap
         sz = self.GetClientSize()
         w = self.bg_bmp.GetWidth()
