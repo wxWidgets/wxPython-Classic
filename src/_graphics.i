@@ -184,6 +184,12 @@ public:
         return NULL;
     }
 
+    static wxGraphicsContext * Create( const wxMemoryDC& dc) {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.GraphicsContext is not available on this platform.");
+        return NULL;
+    }
+
     static wxGraphicsContext * Create( const wxPrinterDC& dc) {
         PyErr_SetString(PyExc_NotImplementedError,
                         "wx.GraphicsContext is not available on this platform.");
@@ -306,6 +312,7 @@ public :
     }
 
     virtual wxGraphicsContext * CreateContext( const wxWindowDC& ) { return NULL; }
+    virtual wxGraphicsContext * CreateContext( const wxMemoryDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContext( const wxPrinterDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContextFromNativeContext( void *  ) { return NULL; }
     virtual wxGraphicsContext * CreateContextFromNativeWindow( void *  )  { return NULL; }
@@ -713,6 +720,7 @@ public:
     DocStr(Create,
            "Creates a wx.GraphicsContext either from a window or a DC.", "");
     static wxGraphicsContext* Create( const wxWindowDC& dc);
+    static wxGraphicsContext* Create( const wxMemoryDC& dc);
     static wxGraphicsContext* Create( wxWindow* window ) ;
     static wxGraphicsContext* Create( const wxPrinterDC& dc) ;
 
@@ -1114,6 +1122,7 @@ public :
     %nokwargs CreateContext;
     %newobject CreateContext;
     virtual wxGraphicsContext * CreateContext( const wxWindowDC& dc) ;
+    virtual wxGraphicsContext * CreateContext( const wxMemoryDC& dc) ;
     virtual wxGraphicsContext * CreateContext( const wxPrinterDC& dc) ;
     virtual wxGraphicsContext * CreateContext( wxWindow* window );
     
@@ -1143,10 +1152,10 @@ public :
                                                         const wxColour &oColor, const wxColour &cColor);
 
     virtual wxGraphicsFont CreateFont( const wxFont &font , const wxColour &col = *wxBLACK );
-#ifndef __WXGTK__
+
     virtual wxGraphicsBitmap CreateBitmap( const wxBitmap &bitmap );
     virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &bitmap, wxDouble x, wxDouble y, wxDouble w, wxDouble h  );
-#endif
+
 };
 
 
