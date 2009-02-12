@@ -134,6 +134,9 @@ ResumeProcessingOfPendingEvents.
 Added wx.App.YieldFor and related methods which can control what
 categories of events can be processed during the yield.
 
+Spin buttons and spin controls now have their own event types instead
+of reusing the scroll events.
+
 
 
 
