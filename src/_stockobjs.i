@@ -136,6 +136,7 @@ SWISS_FONT   = Font.__new__(Font)
                                    
 BLACK_DASHED_PEN  = Pen.__new__(Pen)
 BLACK_PEN         = Pen.__new__(Pen)
+BLUE_PEN         = Pen.__new__(Pen)                                               
 CYAN_PEN          = Pen.__new__(Pen)
 GREEN_PEN         = Pen.__new__(Pen)
 GREY_PEN          = Pen.__new__(Pen)
