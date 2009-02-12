@@ -76,6 +76,13 @@ rarely needed.", "");
 //---------------------------------------------------------------------------
 %newgroup
 
+enum wxScrollbarVisibility
+{
+    wxSHOW_SB_NEVER,        // never show the scrollbar at all
+    wxSHOW_SB_DEFAULT,      // show scrollbar only if it is needed
+    wxSHOW_SB_ALWAYS        // always show scrollbar, even if not needed
+};
+
 
 class wxScrollHelper
 {
@@ -90,9 +97,12 @@ public:
                                int xPos = 0, int yPos = 0,
                                bool noRefresh = false );
 
+    
     // scroll to the given (in logical coords) position
+    %nokwargs Scroll;
     virtual void Scroll(int x, int y);
-
+    virtual void Scroll(const wxPoint& pt);
+        
     // get/set the page size for this orientation (wxVERTICAL/wxHORIZONTAL)
     int GetScrollPageSize(int orient) const;
     void SetScrollPageSize(int orient, int pageSize);
@@ -109,6 +119,7 @@ public:
         "GetScrollPixelsPerUnit() -> (xUnit, yUnit)",
         "Get the size of one logical unit in physical units.", "");
 
+    void ShowScrollbars(wxScrollbarVisibility horz, wxScrollbarVisibility vert);
 
     // Enable/disable Windows scrolling in either direction. If true, wxWidgets
     // scrolls the canvas and only a bit of the canvas is invalidated; no
@@ -117,9 +128,8 @@ public:
     // actually scroll a non-constant distance
     virtual void EnableScrolling(bool x_scrolling, bool y_scrolling);
 
-    DocDeclAStr( 
-        virtual void, GetViewStart(int *OUTPUT, int *OUTPUT) const,
-        "GetViewStart() -> (x,y)",
+    DocDeclStr( 
+        wxPoint, GetViewStart() const,
         "Get the view start", "");
     
 

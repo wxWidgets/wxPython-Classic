@@ -95,6 +95,9 @@ do not delete the data explicitly.
         "Returns True if the given format is available in the data object(s) on
 the clipboard.", "");
 
+    
+    virtual bool IsSupportedAsync( wxEvtHandler *sink );
+    
     DocDeclStr(
         virtual bool , GetData( wxDataObject& data ),
         "Call this function to fill data with data on the clipboard, if
@@ -186,5 +189,24 @@ successfully opened.", "");
     }
 };
 
+
+//---------------------------------------------------------------------------
+
+
+class wxClipboardEvent : public wxEvent
+{
+public:
+    wxClipboardEvent(wxEventType evtType = wxEVT_NULL);
+    //wxClipboardEvent(const wxClipboardEvent& event);
+
+    bool SupportsFormat(const wxDataFormat& format) const;
+    void AddFormat(const wxDataFormat& format);
+};
+
+%constant wxEventType wxEVT_CLIPBOARD_CHANGED;
+
+%pythoncode {
+    EVT_CLIPBOARD_CHANGED = wx.PyEventBinder( wxEVT_CLIPBOARD_CHANGED )
+}
 
 //---------------------------------------------------------------------------

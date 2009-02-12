@@ -28,8 +28,26 @@ enum {
     wxSB_RAISED
 };
 
+//---------------------------------------------------------------------------
 
 
+class wxStatusBarPane
+{
+public:
+    wxStatusBarPane(int style = wxSB_NORMAL, size_t width = 0);
+
+    int nStyle;
+    int nWidth;     // the width maybe negative, indicating a variable-width field
+
+    // this is the array of the stacked strings of this pane; note that this
+    // stack does include also the string currently displayed in this pane
+    // as the version stored in the native status bar control is possibly
+    // ellipsized; note that arrStack.Last() is the top of the stack
+    // (i.e. the string shown in the status bar)
+    wxArrayString arrStack;
+};
+
+//---------------------------------------------------------------------------
       
 // wxStatusBar: a window near the bottom of the frame used for status info
 MustHaveApp(wxStatusBar);

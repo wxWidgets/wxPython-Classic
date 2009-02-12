@@ -47,6 +47,7 @@ public:
         FONT_SWISS,
         PEN_BLACK,
         PEN_BLACKDASHED,
+        PEN_BLUE,
         PEN_CYAN,
         PEN_GREEN,
         PEN_GREY,
@@ -81,6 +82,7 @@ public:
                                               
         wx.BLACK_DASHED_PEN.this  = StockGDI.GetPen(StockGDI.PEN_BLACKDASHED).this
         wx.BLACK_PEN.this         = StockGDI.GetPen(StockGDI.PEN_BLACK).this
+        wx.BLUE_PEN.this          = StockGDI.GetPen(StockGDI.PEN_BLUE).this
         wx.CYAN_PEN.this          = StockGDI.GetPen(StockGDI.PEN_CYAN).this
         wx.GREEN_PEN.this         = StockGDI.GetPen(StockGDI.PEN_GREEN).this
         wx.GREY_PEN.this          = StockGDI.GetPen(StockGDI.PEN_GREY).this

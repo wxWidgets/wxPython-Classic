@@ -285,6 +285,10 @@ this function for maximally native look and feel.", "");
     // artists and translators) as a one long multiline string
     wxString GetDescriptionAndCredits() const;
 
+    // returns the copyright with the (C) string substituted by the Unicode
+    // character U+00A9
+    wxString GetCopyrightToDisplay() const;
+
 };
 
 

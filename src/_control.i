@@ -21,6 +21,23 @@ MAKE_CONST_WXSTRING(ControlNameStr);
 %newgroup;
 
 
+enum wxEllipsizeFlags
+{
+    wxELLIPSIZE_PROCESS_MNEMONICS = 1,
+    wxELLIPSIZE_EXPAND_TAB = 2,
+
+    wxELLIPSIZE_DEFAULT_FLAGS = wxELLIPSIZE_PROCESS_MNEMONICS|wxELLIPSIZE_EXPAND_TAB
+};
+
+enum wxEllipsizeMode
+{
+    wxELLIPSIZE_START,
+    wxELLIPSIZE_MIDDLE,
+    wxELLIPSIZE_END
+};
+
+
+
 DocStr(wxControl,
 "This is the base class for a control or 'widget'.
 
@@ -76,6 +93,10 @@ __init__ as a plain old wx.Control is not very useful.", "");
         wxString , GetLabelText() const,
         "Get just the text of the label, without mnemonic characters ('&')", "");
     
+    DocDeclStr(
+        void , SetLabelText(const wxString& text),
+        "", "");
+    
 
     
     DocDeclStr(
@@ -108,6 +129,21 @@ __init__ as a plain old wx.Control is not very useful.", "");
     DocDeclStr(
         static int , FindAccelIndex(const wxString& label), 
         "Return the accel index in the string or -1 if none.", "");
+
+
+    
+    // replaces parts of the (multiline) string with ellipsis if needed
+    static wxString Ellipsize(const wxString& label, const wxDC& dc,
+                              wxEllipsizeMode mode, int maxWidth,
+                              int flags = wxELLIPSIZE_DEFAULT_FLAGS);
+
+//     // get the string without mnemonic characters ('&')
+//     static wxString GetLabelText(const wxString& label);
+
+    // escapes (by doubling them) the mnemonics
+    static wxString EscapeMnemonics(const wxString& str);
+
+
     
     
 // Link error...
@@ -120,7 +156,7 @@ __init__ as a plain old wx.Control is not very useful.", "");
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
 
     %property(Alignment, GetAlignment, doc="See `GetAlignment`");
-    %property(LabelText, GetLabelText, doc="See `GetLabelText`");
+    %property(LabelText, GetLabelText, SetLabelText, doc="See `GetLabelText`");
 
 };
 

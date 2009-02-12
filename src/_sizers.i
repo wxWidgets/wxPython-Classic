@@ -1162,8 +1162,10 @@ the rules defined by the parameter in the `Add`, `Insert` or `Prepend`
 methods.", "");
 
     void SetDimension(const wxPoint& pos, const wxSize& size);
-
     
+    size_t GetItemCount() const;
+    bool IsEmpty() const;
+
     DocDeclStr(
         void , SetMinSize( const wxSize &size ),
         "Call this to give the sizer a minimal size. Normally, the sizer will

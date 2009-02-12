@@ -583,7 +583,11 @@ chosen automatically using `FindFirstUnusedColour`.
 
 If the image image doesn't have alpha channel, ConvertAlphaToMask does
 nothing.", "");
-    
+
+    // TODO
+    //void ConvertAlphaToMask(unsigned char mr, unsigned char mg, unsigned char mb,
+    //                        unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD);
+
 
     DocDeclStr(
         bool , ConvertColourToAlpha( byte r, byte g, byte b ),
@@ -715,14 +719,10 @@ wxGIFDecoder uses this)
 ", "");
     
 
-    %extend {
-        DocStr(GetSize,
-               "Returns the size of the image in pixels.", "");
-        wxSize GetSize() {
-            wxSize size(self->GetWidth(), self->GetHeight());
-            return size;
-        }
-    }
+    DocDeclStr(
+        wxSize , GetSize(),
+        "Returns the size of the image in pixels.", "");
+    
 
     
     DocDeclStr(
@@ -744,7 +744,12 @@ newly exposed areas.", "
 
 :see: `Resize`");
     
+
+    DocDeclStr(
+        void , Clear(unsigned char value = 0),
+        "initialize the image data with zeroes", "");
     
+
     DocDeclStr(
         wxImage , Copy(),
         "Returns an identical copy of the image.", "");
@@ -1185,6 +1190,10 @@ MAKE_CONST_WXSTRING(IMAGE_OPTION_RESOLUTIONX);
 MAKE_CONST_WXSTRING(IMAGE_OPTION_RESOLUTIONY);
 MAKE_CONST_WXSTRING(IMAGE_OPTION_RESOLUTIONUNIT);
 MAKE_CONST_WXSTRING(IMAGE_OPTION_QUALITY);
+
+MAKE_CONST_WXSTRING(IMAGE_OPTION_MAX_WIDTH);
+MAKE_CONST_WXSTRING(IMAGE_OPTION_MAX_HEIGHT);
+
 
 // constants used with wxIMAGE_OPTION_RESOLUTIONUNIT
 enum wxImageResolution

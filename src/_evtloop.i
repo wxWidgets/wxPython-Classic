@@ -20,29 +20,7 @@
 %newgroup
 
 %{
-#if 0   // #ifdef __WXMAC__
-
-// A dummy class that raises an exception if used...    
-class wxEventLoopBase
-{
-public:
-    wxEventLoopBase() { wxPyRaiseNotImplemented(); }
-    bool IsOk() const { return false; }
-    int Run() { return 0; }
-    void Exit(int rc = 0) {}
-    bool Pending() const { return false; }
-    bool Dispatch() { return false; }
-    bool IsRunning() const { return false; }
-    void WakeUp() {}
-    static wxEventLoop *GetActive() { wxPyRaiseNotImplemented(); return NULL; }
-    static void SetActive(wxEventLoop* loop) { wxPyRaiseNotImplemented(); }
-};
-
-#else
- 
 #include <wx/evtloop.h>
-
-#endif
 %}
 
 class wxEventLoopBase
@@ -66,6 +44,11 @@ public:
 
     // dispatch a single event, return false if we should exit from the loop
     virtual bool Dispatch();
+
+    // same as Dispatch() but doesn't wait for longer than the specified (in
+    // ms) timeout, return true if an event was processed, false if we should
+    // exit the loop or -1 if timeout expired
+    virtual int DispatchTimeout(unsigned long timeout) ;
 
     // is the event loop running now?
     virtual bool IsRunning() const;

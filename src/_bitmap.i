@@ -499,13 +499,10 @@ monochrome bitmap.", "");
     
 
 
-    %extend {
-        DocStr(GetSize, "Get the size of the bitmap.", "");
-        wxSize GetSize() {
-            wxSize size(self->GetWidth(), self->GetHeight());
-            return size;
-        }
-    }
+    DocDeclStr(
+        wxSize , GetSize() const,
+        "Get the size of the bitmap.", "");
+    
 
     
     DocDeclStr(

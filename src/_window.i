@@ -1258,6 +1258,14 @@ delete) it from the event handler chain, returns True if it was found
 and False otherwise (this also results in an assert failure so this
 function should only be called when the handler is supposed to be
 there.)", "");
+
+
+    DocDeclStr(
+        bool , ProcessWindowEvent(wxEvent& event),
+        "Process an event by calling GetEventHandler().ProcessEvent(): this
+is a straightforward replacement for ProcessEvent() itself which
+shouldn't be used directly with windows as it doesn't take into
+account any event handlers associated with the window", "");
     
 
     DocDeclStr(

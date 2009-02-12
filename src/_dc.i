@@ -43,6 +43,89 @@
 //---------------------------------------------------------------------------
 %newgroup;
 
+//  Logical ops
+enum wxRasterOperationMode
+{
+    wxCLEAR,       // 0
+    wxXOR,         // src XOR dst
+    wxINVERT,      // NOT dst
+    wxOR_REVERSE,  // src OR (NOT dst)
+    wxAND_REVERSE, // src AND (NOT dst)
+    wxCOPY,        // src
+    wxAND,         // src AND dst
+    wxAND_INVERT,  // (NOT src) AND dst
+    wxNO_OP,       // dst
+    wxNOR,         // (NOT src) AND (NOT dst)
+    wxEQUIV,       // (NOT src) XOR dst
+    wxSRC_INVERT,  // (NOT src)
+    wxOR_INVERT,   // (NOT src) OR dst
+    wxNAND,        // (NOT src) OR (NOT dst)
+    wxOR,          // src OR dst
+    wxSET          // 1
+
+
+    // We never had these in wxPython, and it looks like they are going away
+    // so don't bother with them...
+    
+// #if WXWIN_COMPATIBILITY_2_8
+//     ,wxROP_BLACK = wxCLEAR,
+//     wxBLIT_BLACKNESS = wxCLEAR,
+//     wxROP_XORPEN = wxXOR,
+//     wxBLIT_SRCINVERT = wxXOR,
+//     wxROP_NOT = wxINVERT,
+//     wxBLIT_DSTINVERT = wxINVERT,
+//     wxROP_MERGEPENNOT = wxOR_REVERSE,
+//     wxBLIT_00DD0228 = wxOR_REVERSE,
+//     wxROP_MASKPENNOT = wxAND_REVERSE,
+//     wxBLIT_SRCERASE = wxAND_REVERSE,
+//     wxROP_COPYPEN = wxCOPY,
+//     wxBLIT_SRCCOPY = wxCOPY,
+//     wxROP_MASKPEN = wxAND,
+//     wxBLIT_SRCAND = wxAND,
+//     wxROP_MASKNOTPEN = wxAND_INVERT,
+//     wxBLIT_00220326 = wxAND_INVERT,
+//     wxROP_NOP = wxNO_OP,
+//     wxBLIT_00AA0029 = wxNO_OP,
+//     wxROP_NOTMERGEPEN = wxNOR,
+//     wxBLIT_NOTSRCERASE = wxNOR,
+//     wxROP_NOTXORPEN = wxEQUIV,
+//     wxBLIT_00990066 = wxEQUIV,
+//     wxROP_NOTCOPYPEN = wxSRC_INVERT,
+//     wxBLIT_NOTSCRCOPY = wxSRC_INVERT,
+//     wxROP_MERGENOTPEN = wxOR_INVERT,
+//     wxBLIT_MERGEPAINT = wxOR_INVERT,
+//     wxROP_NOTMASKPEN = wxNAND,
+//     wxBLIT_007700E6 = wxNAND,
+//     wxROP_MERGEPEN = wxOR,
+//     wxBLIT_SRCPAINT = wxOR,
+//     wxROP_WHITE = wxSET,
+//     wxBLIT_WHITENESS = wxSET
+// #endif //WXWIN_COMPATIBILITY_2_8
+};
+
+//  Flood styles
+enum wxFloodFillStyle
+{
+    wxFLOOD_SURFACE = 1,
+    wxFLOOD_BORDER
+};
+
+//  Mapping modes (same values as used by Windows, don't change)
+enum wxMappingMode
+{
+    wxMM_TEXT = 1,
+    wxMM_LOMETRIC,
+    wxMM_HIMETRIC,
+    wxMM_LOENGLISH,
+    wxMM_HIENGLISH,
+    wxMM_TWIPS,
+    wxMM_ISOTROPIC,
+    wxMM_ANISOTROPIC,
+    wxMM_POINTS,
+    wxMM_METRIC
+};
+
+//---------------------------------------------------------------------------
 
 DocStr(wxDC,
 "A wx.DC is a device context onto which graphics and text can be
@@ -1395,6 +1478,18 @@ public:
     ~wxDCClipper();
 };
 
+
+
+DocStr(wxDCFontChanger,
+"wx.wxDCFontChanger sets the DC's font when it is constructed,
+and then restores the old font whrn it goes out of scope.", "");
+
+class wxDCFontChanger
+{
+public:
+    wxDCFontChanger(wxDC& dc, const wxFont& font);
+    ~wxDCFontChanger();
+};
 
 
 

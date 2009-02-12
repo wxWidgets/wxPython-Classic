@@ -36,6 +36,8 @@ public:
     bool GetEvtHandlerEnabled();
     void SetEvtHandlerEnabled(bool enabled);
 
+    void Unlink();
+    bool IsUnlinked() const;
 
     // process an event right now
     bool ProcessEvent(wxEvent& event);

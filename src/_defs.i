@@ -879,10 +879,6 @@ enum {
     wxRB_USE_CHECKBOX,
     wxST_SIZEGRIP,
     
-    wxFLOOD_SURFACE,
-    wxFLOOD_BORDER,
-    wxODDEVEN_RULE,
-    wxWINDING_RULE,
     wxTOOL_TOP,
     wxTOOL_BOTTOM,
     wxTOOL_LEFT,
@@ -916,13 +912,14 @@ enum {
     wxMORE,
     wxSETUP,
 
-
     wxSIZE_AUTO_WIDTH,
     wxSIZE_AUTO_HEIGHT,
     wxSIZE_AUTO,
     wxSIZE_USE_EXISTING,
     wxSIZE_ALLOW_MINUS_ONE,
     wxSIZE_FORCE,
+    wxSIZE_FORCE_EVENT,
+    
     wxPORTRAIT,
     wxLANDSCAPE,
     wxPRINT_QUALITY_HIGH,
@@ -1059,7 +1056,26 @@ enum {
     wxID_SORT_DESCENDING,
     wxID_SPELL_CHECK,
     wxID_STRIKETHROUGH,
-    
+
+    /*  System menu IDs (used by wxUniv): */
+    wxID_SYSTEM_MENU,
+    wxID_CLOSE_FRAME,
+    wxID_MOVE_FRAME,
+    wxID_RESIZE_FRAME,
+    wxID_MAXIMIZE_FRAME,
+    wxID_ICONIZE_FRAME,
+    wxID_RESTORE_FRAME,
+
+    /* MDI window menu ids */
+    wxID_MDI_WINDOW_FIRST,
+    wxID_MDI_WINDOW_CASCADE,
+    wxID_MDI_WINDOW_TILE_HORZ,
+    wxID_MDI_WINDOW_TILE_VERT,
+    wxID_MDI_WINDOW_ARRANGE_ICONS,
+    wxID_MDI_WINDOW_PREV,
+    wxID_MDI_WINDOW_NEXT,
+    wxID_MDI_WINDOW_LAST,
+
     wxID_FILEDLGG,
     wxID_FILECTRL,
     wxID_HIGHEST,
@@ -1079,31 +1095,6 @@ enum {
     wxWS_EX_THEMED_BACKGROUND,
     wxWS_EX_PROCESS_IDLE,
     wxWS_EX_PROCESS_UI_UPDATES,
-
-
-    // Mapping modes (as per Windows)
-    wxMM_TEXT,
-    wxMM_LOMETRIC,
-    wxMM_HIMETRIC,
-    wxMM_LOENGLISH,
-    wxMM_HIENGLISH,
-    wxMM_TWIPS,
-    wxMM_ISOTROPIC,
-    wxMM_ANISOTROPIC,
-    wxMM_POINTS,
-    wxMM_METRIC,
-
-
-    // It looks like wxTabCtrl may rise from the dead.  Uncomment these if
-    // it gets an implementation for all platforms...
-//     wxTC_RIGHTJUSTIFY,
-//     wxTC_FIXEDWIDTH,
-//     wxTC_TOP,
-//     wxTC_LEFT,
-//     wxTC_RIGHT,
-//     wxTC_BOTTOM,
-//     wxTC_MULTILINE,
-//     wxTC_OWNERDRAW,
 
 };
 
@@ -1236,26 +1227,6 @@ enum {
   wxVERTICAL_HATCH,
 };
 
-typedef enum {
-  wxCLEAR,      // 0
-  wxXOR,        // src XOR dst
-  wxINVERT,     // NOT dst
-  wxOR_REVERSE, // src OR (NOT dst)
-  wxAND_REVERSE,// src AND (NOT dst)
-  wxCOPY,       // src
-  wxAND,        // src AND dst
-  wxAND_INVERT, // (NOT src) AND dst
-  wxNO_OP,      // dst
-  wxNOR,        // (NOT src) AND (NOT dst)
-  wxEQUIV,      // (NOT src) XOR dst
-  wxSRC_INVERT, // (NOT src)
-  wxOR_INVERT,  // (NOT src) OR dst
-  wxNAND,       // (NOT src) OR (NOT dst)
-  wxOR,         // src OR dst
-  wxSET,        // 1
-//  wxSRC_OR,     // source _bitmap_ OR destination
-//  wxSRC_AND     // source _bitmap_ AND destination
-} form_ops_t;
 
 enum wxKeyCode {
     WXK_BACK    =    8,

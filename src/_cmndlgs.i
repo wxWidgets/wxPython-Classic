@@ -289,7 +289,8 @@ public:
                      const wxString& defaultFile = wxPyEmptyString,
                      const wxString& wildcard = wxPyFileSelectorDefaultWildcardStr,
                      long style = wxFD_DEFAULT_STYLE,
-                     const wxPoint& pos = wxDefaultPosition),
+                     const wxPoint& pos = wxDefaultPosition,
+                     const wxSize& size = wxDefaultSize),
         "Constructor.  Use ShowModal method to show the dialog.", "");
 
 
@@ -885,6 +886,22 @@ progress.", "");
         "Can be used to continue with the dialog, after the user had chosen to
 abort.", "");
 
+    
+    DocDeclStr(
+        int , GetValue() const,
+        "", "");
+    
+    DocDeclStr(
+        int , GetRange() const,
+        "", "");
+    
+    DocDeclStr(
+        wxString , GetMessage() const,
+        "", "");
+
+    %property(Value, GetValue);
+    %property(Range, GetRange);
+    %property(Message, GetMessage);
 };
 
 //---------------------------------------------------------------------------

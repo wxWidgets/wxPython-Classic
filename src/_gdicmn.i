@@ -64,6 +64,12 @@ enum wxBitmapType
     wxBITMAP_DEFAULT_TYPE
 };
 
+
+enum wxPolygonFillMode {
+    wxODDEVEN_RULE,
+    wxWINDING_RULE
+};
+
 // Standard cursors
 enum wxStockCursor
 {
@@ -106,6 +112,9 @@ enum wxStockCursor
 // #endif // X11
 
     wxCURSOR_ARROWWAIT,
+
+    wxCURSOR_OPEN_HAND,
+    wxCURSOR_CLOSED_HAND,
 
     wxCURSOR_MAX
 };

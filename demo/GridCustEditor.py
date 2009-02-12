@@ -78,25 +78,37 @@ class MyCellEditor(gridlib.PyGridCellEditor):
         self._tc.SetSelection(0, self._tc.GetLastPosition())
 
 
-    def EndEdit(self, row, col, grid):
+    def EndEdit(self, oldVal):
         """
-        Complete the editing of the current cell. Returns True if the value
-        has changed.  If necessary, the control may be destroyed.
+        End editing the cell.  This function must check if the current
+        value of the editing control is valid and different from the
+        original value (available as oldval in its string form.)  If
+        it has not changed then simply return None, otherwise return
+        the value in its string form.
         *Must Override*
         """
-        self.log.write("MyCellEditor: EndEdit (%d,%d)\n" % (row, col))
-        changed = False
-
+        self.log.write("MyCellEditor: EndEdit (%s)\n" % oldVal)
         val = self._tc.GetValue()
+        if val != oldVal:   #self.startValue:
+            return val
+        else:
+            return None
         
-        if val != self.startValue:
-            changed = True
-            grid.GetTable().SetValue(row, col, val) # update the table
+
+    def ApplyEdit(self, row, col, grid):
+        """
+        This function should save the value of the control into the
+        grid or grid table. It is called only after EndEdit() returns
+        a non-None value.
+        *Must Override*
+        """
+        self.log.write("MyCellEditor: ApplyEdit (%d,%d)\n" % (row, col))
+        val = self._tc.GetValue()
+        grid.GetTable().SetValue(row, col, val) # update the table
 
         self.startValue = ''
         self._tc.SetValue('')
-        return changed
-
+        
 
     def Reset(self):
         """

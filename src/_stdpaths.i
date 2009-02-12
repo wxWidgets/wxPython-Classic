@@ -180,7 +180,15 @@ standard prefix/share/locale/lang/LC_MESSAGES.)", "");
 
 C:/Documents and Settings/username/Documents under Windows,
 $HOME under Unix and ~/Documents under Mac", "");
+
+    DocDeclStr(
+        virtual wxString , GetAppDocumentsDir() const,
+        "Return the directory for the documents files used by this application:
+it's a subdirectory of GetDocumentsDir() constructed using the
+application name/vendor if it exists or just GetDocumentsDir()
+otherwise.", "");
     
+
     DocDeclStr(
         virtual wxString , GetTempDir() const,
         "Return the user's directory for temporary files.", "");

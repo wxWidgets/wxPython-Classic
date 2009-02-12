@@ -134,7 +134,17 @@ differences behind the common facade.
 wx.GetApp().GetTraits() during startup or termination when the global
 application object itself may be unavailable.", "");
 
+
+    DocDeclStr(
+        virtual void , SuspendProcessingOfPendingEvents(),
+        "Temporarily suspends the processing of pending events.", "");
     
+
+    DocDeclStr(
+        virtual void , ResumeProcessingOfPendingEvents(),
+        "Resume (after having been suspended) the processing of pending events.", "");
+    
+        
 
     DocDeclStr(
         virtual void, ProcessPendingEvents(),
@@ -162,6 +172,15 @@ recursively unless the value of ``onlyIfNeeded`` is True.
 :see: `wx.Yield`, `wx.YieldIfNeeded`, `wx.SafeYield`
 ", "");
 
+    
+    bool YieldFor(long eventsToProcess);
+    virtual bool IsYielding() const;
+    virtual bool IsEventAllowedInsideYield(wxEventCategory cat) const;
+
+    virtual bool SafeYield(wxWindow *win, bool onlyIfNeeded);
+    virtual bool SafeYieldFor(wxWindow *win, long eventsToProcess);
+
+    
     
     DocDeclStr(
         virtual void, WakeUpIdle(),
@@ -316,6 +335,28 @@ Hide command.  Mac only.", "");
     }
 #endif
 
+//     // execute the functor to handle the given event
+//     //
+//     // this is a generalization of HandleEvent() below and the base class
+//     // implementation of CallEventHandler() still calls HandleEvent() for
+//     // compatibility for functors which are just wxEventFunctions (i.e. methods
+//     // of wxEvtHandler)
+//     virtual void CallEventHandler(wxEvtHandler *handler,
+//                                   wxEventFunctor& functor,
+//                                   wxEvent& event) const;
+
+//     // call the specified handler on the given object with the given event
+//     //
+//     // this method only exists to allow catching the exceptions thrown by any
+//     // event handler, it would lead to an extra (useless) virtual function call
+//     // if the exceptions were not used, so it doesn't even exist in that case
+//     virtual void HandleEvent(wxEvtHandler *handler,
+//                              wxEventFunction func,
+//                              wxEvent& event) const;
+
+
+
+    
 // #ifdef __WXMAC__
 //     void MacRequestUserAttention(wxNotificationOptions);
 // #else

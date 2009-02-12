@@ -52,7 +52,8 @@ enum wxCalendarHitTestResult
     wxCAL_HITTEST_DAY,          // on a day in the calendar
     wxCAL_HITTEST_INCMONTH,
     wxCAL_HITTEST_DECMONTH,
-    wxCAL_HITTEST_SURROUNDING_WEEK
+    wxCAL_HITTEST_SURROUNDING_WEEK,
+    wxCAL_HITTEST_WEEK
 };
 
 // border types for a date

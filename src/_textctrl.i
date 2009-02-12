@@ -97,6 +97,9 @@ enum wxTextAttrFlags {
     wxTEXT_ATTR_FONT_WEIGHT,
     wxTEXT_ATTR_FONT_ITALIC,
     wxTEXT_ATTR_FONT_UNDERLINE,
+    wxTEXT_ATTR_FONT_ENCODING,
+    wxTEXT_ATTR_FONT_FAMILY,
+
     wxTEXT_ATTR_FONT,
     wxTEXT_ATTR_ALIGNMENT,
     wxTEXT_ATTR_LEFT_INDENT,
@@ -112,6 +115,8 @@ enum wxTextAttrFlags {
     wxTEXT_ATTR_BULLET_NUMBER,
     wxTEXT_ATTR_BULLET_TEXT,
     wxTEXT_ATTR_BULLET_NAME,
+    wxTEXT_ATTR_BULLET,
+    
     wxTEXT_ATTR_URL,
     wxTEXT_ATTR_PAGE_BREAK,
     wxTEXT_ATTR_EFFECTS,
@@ -232,7 +237,7 @@ public:
     void SetFontFaceName(const wxString& faceName);
     void SetFontUnderlined(bool underlined);
     void SetFontEncoding(wxFontEncoding encoding);
-
+    void SetFontFamily(wxFontFamily family);
     void SetFont(const wxFont& font, int flags = wxTEXT_ATTR_FONT);
     
     void SetFlags(long flags);
@@ -282,7 +287,8 @@ public:
     bool GetFontUnderlined() const;
     const wxString& GetFontFaceName() const;
     wxFontEncoding GetFontEncoding() const;
-
+    wxFontFamily GetFontFamily() const;
+    
     wxFont GetFont() const;
     %pythoncode { CreateFont = GetFont }
     
@@ -315,6 +321,7 @@ public:
     bool HasFontUnderlined() const;
     bool HasFontFaceName() const;
     bool HasFontEncoding() const;
+    bool HasFontFamily() const;
     bool HasFont() const;
 
     bool HasParagraphSpacingAfter() const;
@@ -395,6 +402,7 @@ public:
     %property(FontUnderlined, GetFontUnderlined, SetFontUnderlined);
     %property(FontFaceName, GetFontFaceName, SetFontFaceName);
     %property(FontEncoding, GetFontEncoding, SetFontEncoding);
+    %property(FontFamily, GetFontFamily, SetFontFamily);
     %property(CharacterStyleName, GetCharacterStyleName, SetCharacterStyleName);
     %property(ParagraphStyleName, GetParagraphStyleName, SetParagraphStyleName);
     %property(ListStyleName, GetListStyleName, SetListStyleName);

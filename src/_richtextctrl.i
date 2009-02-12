@@ -24,6 +24,8 @@
 enum {
     wxRE_READONLY,
     wxRE_MULTILINE,
+    wxRE_CENTER_CARET,
+    wxRE_CENTRE_CARET,
 
     wxRICHTEXT_SHIFT_DOWN,
     wxRICHTEXT_CTRL_DOWN,
