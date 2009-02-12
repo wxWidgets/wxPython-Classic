@@ -289,35 +289,24 @@ Only wxCONTROL_SELECTED makes sense in flags here", "");
         virtual wxSplitterRenderParams , GetSplitterParams(const wxWindow *win),
         "Get the splitter parameters, see `wx.SplitterRenderParams`.", "");
     
+    DocDeclStr(
+        void, DrawChoice(wxWindow* win, wxDC& dc,
+                             const wxRect& rect, int flags=0),
+            "Draw a native wxChoice", "");
+    DocDeclStr(
+        void, DrawComboBox(wxWindow* win, wxDC& dc,
+                             const wxRect& rect, int flags=0),
+            "Draw a native wxComboBox", "");
 
+    DocDeclStr(
+        void, DrawTextCtrl(wxWindow* win, wxDC& dc,
+                              const wxRect& rect, int flags=0),
+            "Draw a native wxTextCtrl", "");
 
-    %extend {
-        void DrawChoice(wxWindow *win, wxDC& dc, const wxRect& rect, int flags=0)
-        {
-//         #if defined(__WXMSW__) || defined(__WXMAC__)
-//             wxRenderer_DrawChoice(win, dc, rect, flags);
-//         #endif
-        }
-        void DrawComboBox(wxWindow *win, wxDC& dc, const wxRect& rect, int flags=0)
-        {
-//         #if defined(__WXMSW__) || defined(__WXMAC__)
-//             wxRenderer_DrawComboBox(win, dc, rect, flags);
-//         #endif
-        }
-        void DrawTextCtrl(wxWindow *win, wxDC& dc, const wxRect& rect, int flags=0)
-        {
-//         #if defined(__WXMSW__) || defined(__WXMAC__)
-//             wxRenderer_DrawTextCtrl(win, dc, rect, flags);
-//         #endif
-        }
-        void DrawRadioButton(wxWindow *win, wxDC& dc, const wxRect& rect, int flags=0)
-        {
-//         #if defined(__WXMSW__) || defined(__WXMAC__)
-//             wxRenderer_DrawRadioButton(win, dc, rect, flags);
-//         #endif
-        }
-    }
-    
+    DocDeclStr(
+        void, DrawRadioButton(wxWindow* win, wxDC& dc,
+                                const wxRect& rect, int flags=0),
+            "Draw a native wxRadioButton (just the button image, not the text)", "");
 
     MustHaveApp(Get);
     DocDeclStr(
@@ -372,20 +361,6 @@ compatibility of dynamically loaded renderers.", "");
 
 //---------------------------------------------------------------------------
 
-// #if defined(__WXMSW__) || defined(__WXMAC__)
-
-// void wxRenderer_DrawChoice(wxWindow* win, wxDC& dc,
-//                              const wxRect& rect, int flags=0);
-
-// void wxRenderer_DrawComboBox(wxWindow* win, wxDC& dc,
-//                              const wxRect& rect, int flags=0);
-
-// void wxRenderer_DrawTextCtrl(wxWindow* win, wxDC& dc,
-//                              const wxRect& rect, int flags=0);
-
-// void wxRenderer_DrawRadioButton(wxWindow* win, wxDC& dc,
-//                                 const wxRect& rect, int flags=0);
-// #endif
 
 //---------------------------------------------------------------------------
 
