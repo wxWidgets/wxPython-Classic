@@ -1943,12 +1943,13 @@ void wxPyCBH_delete(wxPyCallbackHelper* cbh) {
 
 
 wxPyEvtSelfRef::wxPyEvtSelfRef() {
-    //m_self = Py_None;         // **** We don't do normal ref counting to prevent
-    //Py_INCREF(m_self);        //      circular loops...
+    m_self = NULL;
     m_cloned = false;
 }
 
 wxPyEvtSelfRef::~wxPyEvtSelfRef() {
+    if (!m_self)
+        return;
     wxPyBlock_t blocked = wxPyBeginBlockThreads();
     if (m_cloned)
         Py_DECREF(m_self);
@@ -1957,10 +1958,11 @@ wxPyEvtSelfRef::~wxPyEvtSelfRef() {
 
 void wxPyEvtSelfRef::SetSelf(PyObject* self, bool clone) {
     wxPyBlock_t blocked = wxPyBeginBlockThreads();
-    if (m_cloned)
+    if (m_self && m_cloned)
         Py_DECREF(m_self);
     m_self = self;
-    if (clone) {
+    m_cloned = false;
+    if (clone && m_self) {
         Py_INCREF(m_self);
         m_cloned = true;
     }
@@ -1968,13 +1970,14 @@ void wxPyEvtSelfRef::SetSelf(PyObject* self, bool clone) {
 }
 
 PyObject* wxPyEvtSelfRef::GetSelf() const {
-    Py_INCREF(m_self);
+    if (m_self)
+        Py_INCREF(m_self);
     return m_self;
 }
 
 
-IMPLEMENT_ABSTRACT_CLASS(wxPyEvent, wxEvent);
-IMPLEMENT_ABSTRACT_CLASS(wxPyCommandEvent, wxCommandEvent);
+IMPLEMENT_DYNAMIC_CLASS(wxPyEvent, wxEvent);
+IMPLEMENT_DYNAMIC_CLASS(wxPyCommandEvent, wxCommandEvent);
 
 
 wxPyEvent::wxPyEvent(int winid, wxEventType commandType)

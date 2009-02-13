@@ -329,7 +329,7 @@ protected:
 
 
 class wxPyEvent : public wxEvent, public wxPyEvtSelfRef {
-    DECLARE_ABSTRACT_CLASS(wxPyEvent)
+    DECLARE_DYNAMIC_CLASS(wxPyEvent)
 public:
     wxPyEvent(int winid=0, wxEventType commandType = wxEVT_NULL);
     wxPyEvent(const wxPyEvent& evt);
@@ -340,7 +340,7 @@ public:
 
 
 class wxPyCommandEvent : public wxCommandEvent, public wxPyEvtSelfRef {
-    DECLARE_ABSTRACT_CLASS(wxPyCommandEvent)
+    DECLARE_DYNAMIC_CLASS(wxPyCommandEvent)
 public:
     wxPyCommandEvent(wxEventType commandType = wxEVT_NULL, int id=0);
     wxPyCommandEvent(const wxPyCommandEvent& evt);
