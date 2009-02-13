@@ -1088,6 +1088,119 @@ range -1.0..1.0 where -1.0 is -360 degrees and 1.0 is 360 degrees", "");
     
 
     %pythoncode { def __nonzero__(self): return self.IsOk() }
+
+
+    DocStr(AdjustChannels,
+           "This function muliplies all 4 channels (red, green, blue, alpha) with
+a factor (around 1.0). Useful for gamma correction, colour correction
+and to add a certain amount of transparency to a image (fade in fade
+out effects). If factor_alpha is given but the original image has no
+alpha channel then a alpha channel will be added.", "");
+    %extend {
+        wxImage AdjustChannels(double factor_red,
+                               double factor_green,
+                               double factor_blue,
+                               double factor_alpha=1.0)
+        {
+            wxCHECK_MSG( self->Ok(), wxNullImage, wxT("invalid image") );
+
+            wxImage dst_image( self->GetWidth(), self->GetHeight(), false );
+
+            unsigned rgblen =   3 * self->GetWidth() * self->GetHeight();
+            unsigned alphalen = self->GetWidth() * self->GetHeight();
+            unsigned char* src_data =  self->GetData();
+            unsigned char* src_alpha = self->GetAlpha();
+            unsigned char* dst_data =  dst_image.GetData();
+            unsigned char* dst_alpha = NULL;
+
+            wxCHECK_MSG( dst_data, wxNullImage, wxT("unable to create image") );
+
+            // adjust rgb
+            if ( factor_red == 1.0 && factor_green == 1.0 && factor_blue == 1.0)
+            {
+                // nothing to do for RGB
+                memcpy(dst_data, src_data, rgblen);
+            }
+            else
+            {
+                // rgb pixel for pixel
+                for ( unsigned i = 0; i < rgblen; i= i + 3 )
+                {
+                    dst_data[i] =     (unsigned char) wxMin( 255, (int) (factor_red * src_data[i]) );
+                    dst_data[i + 1] = (unsigned char) wxMin( 255, (int) (factor_green * src_data[i + 1]) );
+                    dst_data[i + 2] = (unsigned char) wxMin( 255, (int) (factor_blue * src_data[i + 2]) );
+                }
+            }
+    
+            // adjust the mask colour
+            if ( self->HasMask() )
+            {
+                dst_image.SetMaskColour((unsigned char) wxMin( 255, (int) (factor_red * self->GetMaskRed() ) ),
+                                        (unsigned char) wxMin( 255, (int) (factor_green * self->GetMaskGreen() ) ),
+                                        (unsigned char) wxMin( 255, (int) (factor_blue * self->GetMaskBlue() ) ) );
+            }
+    
+            // adjust the alpha channel
+            if ( src_alpha )
+            {
+                // source image already has alpha information
+                dst_image.SetAlpha(); // create an empty alpha channel (not initialized)
+                dst_alpha = dst_image.GetAlpha();
+
+                wxCHECK_MSG( dst_alpha, wxNullImage, wxT("unable to create alpha data") );
+
+                if ( factor_alpha == 1.0)
+                {
+                    // no need to adjust
+                    memcpy(dst_alpha, src_alpha, alphalen);
+                }
+                else
+                {
+                    // alpha value for alpha value
+                    for ( unsigned i = 0; i < alphalen; ++i )
+                    {
+                        dst_alpha[i] = (unsigned char) wxMin( 255, (int) (factor_alpha * src_alpha[i]) );
+                    }
+                }
+            }
+            else if ( factor_alpha != 1.0 )
+            {
+                // no alpha yet but we want to adjust -> create
+                dst_image.SetAlpha(); // create an empty alpha channel (not initialized)
+                dst_alpha = dst_image.GetAlpha();
+        
+                wxCHECK_MSG( dst_alpha, wxNullImage, wxT("unable to create alpha data") );
+        
+                for ( unsigned i = 0; i < alphalen; ++i )
+                {
+                    dst_alpha[i] = (unsigned char) wxMin( 255, (int) (factor_alpha * 255) );
+                }
+            }
+
+            // do we have an alpha channel and a mask in the new image?
+            if ( dst_alpha && dst_image.HasMask() )
+            {
+                // make the mask transparent honoring the alpha channel
+                const unsigned char mr = dst_image.GetMaskRed();
+                const unsigned char mg = dst_image.GetMaskGreen();
+                const unsigned char mb = dst_image.GetMaskBlue();
+
+                for ( unsigned i = 0; i < alphalen; ++i )
+                {
+                    int n = i * 3;
+                    dst_alpha[i] = ( dst_data[n] == mr && dst_data[n + 1] == mg && dst_data[n + 2] == mb )
+                        ? wxIMAGE_ALPHA_TRANSPARENT
+                        : dst_alpha[i];
+                }
+
+                // remove the now mask
+                dst_image.SetMask(false);
+            }
+
+            return dst_image;
+        }
+    }
+
     
     %property(AlphaBuffer, GetAlphaBuffer, SetAlphaBuffer, doc="See `GetAlphaBuffer` and `SetAlphaBuffer`");
     %property(AlphaData, GetAlphaData, SetAlphaData, doc="See `GetAlphaData` and `SetAlphaData`");
