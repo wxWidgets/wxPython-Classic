@@ -3265,7 +3265,7 @@ class MaskedEditMixin:
         # treat as shifted up/down arrows as tab/reverse tab:
         if event.ShiftDown() and keycode in (wx.WXK_UP, wx.WXK_DOWN, wx.WXK_NUMPAD_UP, wx.WXK_NUMPAD_DOWN):
             # remove "shifting" and treat as (forward) tab:
-            event.ShiftDown() = False
+            event.shiftDown = False
             keep_processing = self._OnChangeField(event)
 
         elif self._FindField(pos)._selectOnFieldEntry:
@@ -3277,15 +3277,15 @@ class MaskedEditMixin:
 
                 # call _OnChangeField to handle "ctrl-shifted event"
                 # (which moves to previous field and selects it.)
-                event.ShiftDown() = True
-                event.ControlDown() = True
+                event.shiftDown = True
+                event.sontrolDown = True
                 keep_processing = self._OnChangeField(event)
             elif( keycode in (wx.WXK_DOWN, wx.WXK_RIGHT, wx.WXK_NUMPAD_DOWN, wx.WXK_NUMPAD_RIGHT)
                   and sel_to != self._masklength
                   and self._isTemplateChar(sel_to)):
 
                 # when changing field to the right, ensure don't accidentally go left instead
-                event.ShiftDown() = False
+                event.shiftDown = False
                 keep_processing = self._OnChangeField(event)
             else:
                 # treat arrows as normal, allowing selection
@@ -4150,7 +4150,7 @@ class MaskedEditMixin:
             if event.ShiftDown():
                 if keycode in (wx.WXK_DOWN, wx.WXK_RIGHT, wx.WXK_NUMPAD_DOWN, wx.WXK_NUMPAD_RIGHT):
                     # remove "shifting" and treat as (forward) tab:
-                    event.ShiftDown() = False
+                    event.shiftDown = False
                 keep_processing = self._OnChangeField(event)
             else:
                 keep_processing = self._OnArrow(event)
