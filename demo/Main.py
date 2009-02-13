@@ -853,6 +853,9 @@ def GetOriginalFilename(name):
         if name in dirFile:        
             return os.path.join(item, name)
 
+    # We must return a string...
+    return ""
+
 
 def DoesModifiedExist(name):
     """Returns whether the specified demo has a modified copy"""
@@ -876,6 +879,9 @@ def SearchDemo(name, keyword):
     fid = open(GetOriginalFilename(name), "rt")
     fullText = fid.read()
     fid.close()
+    
+    fullText = fullText.decode("iso-8859-1")
+
     if fullText.find(keyword) >= 0:
         return True
 
