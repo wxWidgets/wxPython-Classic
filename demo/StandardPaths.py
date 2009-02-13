@@ -8,7 +8,7 @@ class TestPanel(wx.Panel):
         self.log = log
         wx.Panel.__init__(self, parent, -1)
 
-        sizer = wx.FlexGridSizer(0, 3, 5, 5)
+        sizer = wx.FlexGridSizer(cols=3, hgap=5, vgap=5)
         sizer.AddGrowableCol(1)
         box = wx.BoxSizer(wx.VERTICAL)
         fs = self.GetFont().GetPointSize()
@@ -52,6 +52,7 @@ class TestPanel(wx.Panel):
                   'GetUserDataDir',
                   'GetUserLocalDataDir',
                   'GetDocumentsDir',
+                  'GetAppDocumentsDir',
                   'GetPluginsDir',
                   'GetInstallPrefix',
                   'GetResourcesDir',

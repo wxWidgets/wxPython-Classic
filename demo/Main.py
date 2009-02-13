@@ -1159,7 +1159,7 @@ class DemoErrorPanel(wx.Panel):
         # Exception Information
         boxInfo      = wx.StaticBox(self, -1, "Exception Info" )
         boxInfoSizer = wx.StaticBoxSizer(boxInfo, wx.VERTICAL ) # Used to center the grid within the box
-        boxInfoGrid  = wx.FlexGridSizer(0, 2, 0, 0)
+        boxInfoGrid  = wx.FlexGridSizer( cols=2 )
         textFlags    = wx.ALIGN_RIGHT | wx.LEFT | wx.RIGHT | wx.TOP
         boxInfoGrid.Add(wx.StaticText(self, -1, "Type: "), 0, textFlags, 5 )
         boxInfoGrid.Add(wx.StaticText(self, -1, str(demoError.exception_type)) , 0, textFlags, 5 )

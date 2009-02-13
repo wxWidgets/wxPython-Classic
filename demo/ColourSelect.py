@@ -38,7 +38,7 @@ class TestColourSelect(wx.Panel):
         self.Bind(wx.EVT_BUTTON, self.OnShowAll, id=b.GetId())
         mainSizer.Add(b, 0, wx.ALL, 3)
 
-        buttonSizer = wx.FlexGridSizer(1, 2) # sizer to contain all the example buttons
+        buttonSizer = wx.FlexGridSizer(cols=2) # sizer to contain all the example buttons
 
         # show a button with all default values
         self.colourDefaults = csel.ColourSelect(self, -1)

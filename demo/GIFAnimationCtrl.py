@@ -20,7 +20,7 @@ class TestPanel(wx.Panel):
         self.log = log
         wx.Panel.__init__(self, parent, -1)
 
-        sizer = wx.FlexGridSizer(2,3,5,5)
+        sizer = wx.FlexGridSizer(cols=3, hgap=5, vgap=5)
         for name in GIFNames:
             ani = GIFAnimationCtrl(self, -1, opj(name))
             ani.GetPlayer().UseBackgroundColour(True)

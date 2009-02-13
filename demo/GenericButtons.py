@@ -12,7 +12,7 @@ class TestPanel(wx.Panel):
         self.log = log
         ##self.SetBackgroundColour("sky blue")
 
-        sizer = wx.FlexGridSizer(1, 3, 20, 20)
+        sizer = wx.FlexGridSizer(cols=3, hgap=20, vgap=20)
 
         # A regular button, selected as the default button
         b = wx.Button(self, -1, "A real button")

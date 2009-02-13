@@ -46,7 +46,7 @@ class TestPanel(wx.Panel):
 
         self.SetFont(wx.Font(10, wx.SWISS, wx.NORMAL, wx.BOLD, False))
 
-        inSizer = wx.FlexGridSizer(2, 2, 5, 5)
+        inSizer = wx.FlexGridSizer(cols=2, hgap=5, vgap=5)
         inSizer.AddGrowableCol(0)
 
         inSizer.Add((20,20))

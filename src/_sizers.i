@@ -1559,10 +1559,13 @@ then use the `wx.GridBagSizer`.
 class wxGridSizer: public wxSizer
 {
 public:
-    %pythonAppend wxGridSizer "self._setOORInfo(self)"
+    %pythonAppend wxGridSizer
+        "self._setOORInfo(self)
+        if self.Rows == 0 and self.Cols == 0:
+            self.Rows = 1"
 
     DocCtorStr(
-        wxGridSizer( int rows=1, int cols=0, int vgap=0, int hgap=0 ),
+        wxGridSizer( int rows=0, int cols=0, int vgap=0, int hgap=0 ),
         "Constructor for a wx.GridSizer. *rows* and *cols* determine the number
 of columns and rows in the sizer - if either of the parameters is
 zero, it will be calculated to from the total number of children in
@@ -1665,10 +1668,13 @@ flexible\") direction in order to fill the available space. The
 class wxFlexGridSizer: public wxGridSizer
 {
 public:
-    %pythonAppend wxFlexGridSizer "self._setOORInfo(self)"
+    %pythonAppend wxFlexGridSizer    
+        "self._setOORInfo(self)
+        if self.Rows == 0 and self.Cols == 0:
+            self.Rows = 1"
 
     DocCtorStr(
-        wxFlexGridSizer( int rows=1, int cols=0, int vgap=0, int hgap=0 ),
+        wxFlexGridSizer( int rows=0, int cols=0, int vgap=0, int hgap=0 ),
         "Constructor for a wx.FlexGridSizer. *rows* and *cols* determine the
 number of columns and rows in the sizer - if either of the parameters
 is zero, it will be calculated to from the total number of children in

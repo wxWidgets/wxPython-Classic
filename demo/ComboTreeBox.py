@@ -9,7 +9,7 @@ class TestComboTreeBox(wx.Panel):
     def __init__(self, parent, log):
         super(TestComboTreeBox, self).__init__(parent)
         self.log = log
-        panelSizer = wx.FlexGridSizer(2, 2)
+        panelSizer = wx.FlexGridSizer(cols=2)
         panelSizer.AddGrowableCol(1)
         for style, labelText in [(0, 'Default style:'), 
                                  (wx.CB_READONLY, 'Read-only style:')]:

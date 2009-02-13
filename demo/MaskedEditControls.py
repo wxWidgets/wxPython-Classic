@@ -105,7 +105,7 @@ Smith, Jones, Williams).  Signs on numbers can be toggled with the minus key.
         self.Bind(wx.EVT_CHECKBOX, self.onDisallowEmpty, id=disallow.GetId())
         self.Bind(wx.EVT_CHECKBOX, self.onShowFill, id=showFill.GetId())
 
-        grid = wx.FlexGridSizer( 0, 5, vgap=10, hgap=10 )
+        grid = wx.FlexGridSizer( cols=5, vgap=10, hgap=10 )
         self.labelGeneralTable(grid)
 
         # The following list is of the controls for the demo. Feel free to play around with
@@ -168,7 +168,7 @@ Many of these already do complicated validation; To see some examples, try
         autofmt.SetFont( wx.Font( 9, wx.SWISS, wx.NORMAL, wx.BOLD ) )
         ctrl.SetFont( wx.Font( 9, wx.SWISS, wx.NORMAL, wx.BOLD ) )
 
-        grid = wx.FlexGridSizer( 0, 3, vgap=10, hgap=5 )
+        grid = wx.FlexGridSizer( cols=3, vgap=10, hgap=5 )
         grid.Add( description, 0, wx.ALIGN_LEFT )
         grid.Add( autofmt,     0, wx.ALIGN_LEFT )
         grid.Add( ctrl,        0, wx.ALIGN_LEFT )
@@ -209,7 +209,7 @@ has a legal range specified.
         header.Add((75, 0))
         header.Add( requireValid, 0, flag=wx.ALIGN_LEFT|wx.ALL, border=10 )
 
-        grid = wx.FlexGridSizer( 0, 5, vgap=10, hgap=10 )
+        grid = wx.FlexGridSizer( cols=5, vgap=10, hgap=10 )
         self.labelGeneralTable( grid )
 
         controls = [
@@ -262,7 +262,7 @@ Page Up and Shift-Up arrow will similarly cycle backwards through the list.
         fields.SetFont( wx.Font( 9, wx.SWISS, wx.NORMAL, wx.BOLD ) )
         ctrl.SetFont( wx.Font( 9, wx.SWISS, wx.NORMAL, wx.BOLD ) )
 
-        grid = wx.FlexGridSizer( 0, 4, vgap=10, hgap=10 )
+        grid = wx.FlexGridSizer( cols=4, vgap=10, hgap=10 )
         grid.Add( description, 0, wx.ALIGN_LEFT )
         grid.Add( autofmt,     0, wx.ALIGN_LEFT )
         grid.Add( fields,      0, wx.ALIGN_LEFT )
@@ -470,7 +470,7 @@ with right-insert for ordinal:""")
 
 
 
-        gridCombos = wx.FlexGridSizer( 0, 4, vgap=10, hgap = 10 )
+        gridCombos = wx.FlexGridSizer( cols=4, vgap=10, hgap = 10 )
         gridCombos.Add( label_statecode, 0, wx.ALIGN_LEFT )
         gridCombos.Add( statecode, 0, wx.ALIGN_LEFT )
         gridCombos.Add( label_fraction, 0, wx.ALIGN_LEFT )
@@ -486,7 +486,7 @@ with right-insert for ordinal:""")
         hbox.Add( self.dynamicbox, 0, wx.ALIGN_LEFT )
         gridCombos.Add( hbox, 0, wx.ALIGN_LEFT )
 
-        gridIpAddrs = wx.FlexGridSizer( 0, 4, vgap=10, hgap = 15 )
+        gridIpAddrs = wx.FlexGridSizer( cols=4, vgap=10, hgap = 15 )
         gridIpAddrs.Add( label_ipaddr1, 0, wx.ALIGN_LEFT )
         gridIpAddrs.Add( ipaddr1, 0, wx.ALIGN_LEFT )
         gridIpAddrs.Add( label_ipaddr2, 0, wx.ALIGN_LEFT )
@@ -494,7 +494,7 @@ with right-insert for ordinal:""")
         gridIpAddrs.Add( label_ipaddr3, 0, wx.ALIGN_LEFT )
         gridIpAddrs.Add( ipaddr3, 0, wx.ALIGN_LEFT )
 
-        gridNumerics = wx.FlexGridSizer( 0, 4, vgap=10, hgap = 10 )
+        gridNumerics = wx.FlexGridSizer( cols=4, vgap=10, hgap = 10 )
         gridNumerics.Add( label_intctrl1, 0, wx.ALIGN_LEFT )
         gridNumerics.Add( self.intctrl1, 0, wx.ALIGN_LEFT )
         gridNumerics.Add( label_intctrl2, 0, wx.ALIGN_RIGHT )

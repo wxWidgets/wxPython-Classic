@@ -15,7 +15,7 @@ class TestPanel( wx.Panel ):
 
         box1_title = wx.StaticBox( panel, -1, "Group 1" )
         box1 = wx.StaticBoxSizer( box1_title, wx.VERTICAL )
-        grid1 = wx.FlexGridSizer( 0, 2, 0, 0 )
+        grid1 = wx.FlexGridSizer( cols=2 )
 
         # 1st group of controls:
         self.group1_ctrls = []
@@ -38,7 +38,7 @@ class TestPanel( wx.Panel ):
 
         box2_title = wx.StaticBox( panel, -1, "Group 2" )
         box2 = wx.StaticBoxSizer( box2_title, wx.VERTICAL )
-        grid2 = wx.FlexGridSizer( 0, 2, 0, 0 )
+        grid2 = wx.FlexGridSizer( cols=2 )
 
         # 2nd group of controls:
         self.group2_ctrls = []

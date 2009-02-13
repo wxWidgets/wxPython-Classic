@@ -26,7 +26,7 @@ class TestPanel( wx.Panel ):
         label = wx.StaticText( panel, -1, "Resulting integer control:" )
         self.target_ctl = wx.lib.intctrl.IntCtrl( panel )
 
-        grid = wx.FlexGridSizer( 0, 2, 0, 0 )
+        grid = wx.FlexGridSizer( cols=2 )
         grid.Add( self.set_min, 0, wx.ALIGN_LEFT|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
         grid.Add( self.min, 0, wx.ALIGN_LEFT|wx.ALL, 5 )
 

@@ -63,7 +63,7 @@ class TestValidatorPanel(wx.Panel):
         self.SetAutoLayout(True)
         VSPACE = 10
 
-        fgs = wx.FlexGridSizer(0, 2)
+        fgs = wx.FlexGridSizer(cols=2)
 
         fgs.Add((1,1))
         fgs.Add(wx.StaticText(self, -1, "These controls have validators that limit\n"
@@ -166,7 +166,7 @@ class TestValidateDialog(wx.Dialog):
         self.SetAutoLayout(True)
         VSPACE = 10
 
-        fgs = wx.FlexGridSizer(0, 2)
+        fgs = wx.FlexGridSizer(cols=2)
 
         fgs.Add((1,1));
         fgs.Add(wx.StaticText(self, -1,

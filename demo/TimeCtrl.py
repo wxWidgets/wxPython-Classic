@@ -38,7 +38,7 @@ class TestPanel( scrolled.ScrolledPanel ):
                                 display_seconds = False
                                 )
 
-        grid = wx.FlexGridSizer( 0, 2, 10, 5 )
+        grid = wx.FlexGridSizer( cols=2, vgap=10, vgap=5 )
         grid.Add( text1, 0, wx.ALIGN_RIGHT )
         hbox1 = wx.BoxSizer( wx.HORIZONTAL )
         hbox1.Add( self.time12, 0, wx.ALIGN_CENTRE )
@@ -99,12 +99,12 @@ class TestPanel( scrolled.ScrolledPanel ):
         label = wx.StaticText( self, -1, "Resulting time control:" )
         self.target_ctrl = masked.TimeCtrl( self, -1, name="new" )
 
-        grid2 = wx.FlexGridSizer( 0, 2, 0, 0 )
+        grid2 = wx.FlexGridSizer( cols=2 )
         grid2.Add( (20, 0), 0, wx.ALIGN_LEFT|wx.ALL, 5 )
         grid2.Add( (20, 0), 0, wx.ALIGN_LEFT|wx.ALL, 5 )
 
         grid2.Add( self.set_bounds, 0, wx.ALIGN_LEFT|wx.ALL, 5 )
-        grid3 = wx.FlexGridSizer( 0, 2, 5, 5 )
+        grid3 = wx.FlexGridSizer( cols=2, hgap=5, vgap=5 )
         grid3.Add(minlabel, 0, wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL )
         grid3.Add( self.min, 0, wx.ALIGN_LEFT )
         grid3.Add(maxlabel, 0, wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL )

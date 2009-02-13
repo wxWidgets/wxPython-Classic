@@ -78,7 +78,7 @@ value entry ctrl:""")
                                                      '1234567', '-1234567', '123456789', '-123456789.1',
                                                      '1234567890.', '-9876543210.9' ])
 
-        grid1 = wx.FlexGridSizer( 0, 4, 0, 0 )
+        grid1 = wx.FlexGridSizer( cols=4 )
         grid1.Add( intlabel, 0, wx.ALIGN_LEFT|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5)
         grid1.Add( self.integerwidth, 0, wx.ALIGN_LEFT|wx.ALL, 5 )
 
@@ -124,7 +124,7 @@ value entry ctrl:""")
         grid1.Add( (5,5), 0, wx.ALIGN_LEFT|wx.ALL, 5)
         grid1.Add( (5,5), 0, wx.ALIGN_LEFT|wx.ALL, 5)
 
-        grid2 = wx.FlexGridSizer( 0, 2, 0, 0 )
+        grid2 = wx.FlexGridSizer( cols=2 )
         grid2.Add( label, 0, wx.ALIGN_LEFT|wx.ALIGN_CENTER_VERTICAL|wx.ALL, 5 )
         grid2.Add( self.target_ctl, 0, wx.ALIGN_LEFT|wx.ALL, 5 )
         grid2.Add( (5,5), 0, wx.ALIGN_LEFT|wx.ALL, 5)
