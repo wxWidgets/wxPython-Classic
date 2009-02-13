@@ -874,6 +874,9 @@ def GetOriginalFilename(name):
         if name in dirFile:        
             return os.path.join(item, name)
 
+    # We must return a string...
+    return ""
+
 
 def DoesModifiedExist(name):
     """Returns whether the specified demo has a modified copy"""
