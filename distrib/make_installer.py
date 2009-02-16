@@ -844,7 +844,8 @@ def main():
                    'Source: "src\winxp.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "pythonw.exe.manifest"; Flags: sharedfile; Components: manifest\n'
     else:
         MANIFEST = 'Source: "src\winxp.vc9.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "python.exe.manifest";  Flags: sharedfile; Components: manifest\n' + \
-                   'Source: "src\winxp.vc9.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "pythonw.exe.manifest"; Flags: sharedfile; Components: manifest\n'
+                   'Source: "src\winxp.vc9.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "pythonw.exe.manifest"; Flags: sharedfile; Components: manifest\n' + \
+                   'Source: "distrib\update_manifest.py"; DestDir: "{code:GetPythonDir}"; DestName: "update_manifest.py"; Components: manifest\n' 
 
         
     print """
