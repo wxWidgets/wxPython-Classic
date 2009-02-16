@@ -25635,6 +25635,47 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_MetaFile_Play(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMetaFile *arg1 = (wxMetaFile *) 0 ;
+  wxDC *arg2 = (wxDC *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "dc", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MetaFile_Play",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMetaFile, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MetaFile_Play" "', expected argument " "1"" of type '" "wxMetaFile *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMetaFile * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MetaFile_Play" "', expected argument " "2"" of type '" "wxDC *""'"); 
+  }
+  arg2 = reinterpret_cast< wxDC * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->Play(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_MetaFile_IsOk(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxMetaFile *arg1 = (wxMetaFile *) 0 ;
@@ -25917,7 +25958,7 @@ SWIGINTERN PyObject *_wrap_MetaFileDC_Close(PyObject *SWIGUNUSEDPARM(self), PyOb
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxMetaFile, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxMetaFile, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -40498,6 +40539,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PostScriptDC_swiginit", PostScriptDC_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_MetaFile", (PyCFunction) _wrap_new_MetaFile, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"delete_MetaFile", (PyCFunction)_wrap_delete_MetaFile, METH_O, NULL},
+	 { (char *)"MetaFile_Play", (PyCFunction) _wrap_MetaFile_Play, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MetaFile_IsOk", (PyCFunction)_wrap_MetaFile_IsOk, METH_O, NULL},
 	 { (char *)"MetaFile_SetClipboard", (PyCFunction) _wrap_MetaFile_SetClipboard, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MetaFile_GetSize", (PyCFunction)_wrap_MetaFile_GetSize, METH_O, NULL},

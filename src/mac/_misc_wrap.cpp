@@ -2558,7 +2558,7 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxMenuBar swig_types[92]
 #define SWIGTYPE_p_wxMenuEvent swig_types[93]
 #define SWIGTYPE_p_wxMenuItem swig_types[94]
-#define SWIGTYPE_p_wxMetafile swig_types[95]
+#define SWIGTYPE_p_wxMetaFile swig_types[95]
 #define SWIGTYPE_p_wxMetafileDataObject swig_types[96]
 #define SWIGTYPE_p_wxMimeTypesManager swig_types[97]
 #define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[98]
@@ -33776,7 +33776,7 @@ fail:
 SWIGINTERN PyObject *_wrap_MetafileDataObject_SetMetafile(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxMetafileDataObject *arg1 = (wxMetafileDataObject *) 0 ;
-  wxMetafile *arg2 = 0 ;
+  wxMetaFile *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -33793,17 +33793,17 @@ SWIGINTERN PyObject *_wrap_MetafileDataObject_SetMetafile(PyObject *SWIGUNUSEDPA
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MetafileDataObject_SetMetafile" "', expected argument " "1"" of type '" "wxMetafileDataObject *""'"); 
   }
   arg1 = reinterpret_cast< wxMetafileDataObject * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxMetafile,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxMetaFile,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MetafileDataObject_SetMetafile" "', expected argument " "2"" of type '" "wxMetafile const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MetafileDataObject_SetMetafile" "', expected argument " "2"" of type '" "wxMetaFile const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "MetafileDataObject_SetMetafile" "', expected argument " "2"" of type '" "wxMetafile const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "MetafileDataObject_SetMetafile" "', expected argument " "2"" of type '" "wxMetaFile const &""'"); 
   }
-  arg2 = reinterpret_cast< wxMetafile * >(argp2);
+  arg2 = reinterpret_cast< wxMetaFile * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMetafile((wxMetafile const &)*arg2);
+    (arg1)->SetMetafile((wxMetaFile const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33817,7 +33817,7 @@ fail:
 SWIGINTERN PyObject *_wrap_MetafileDataObject_GetMetafile(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxMetafileDataObject *arg1 = (wxMetafileDataObject *) 0 ;
-  wxMetafile result;
+  wxMetaFile result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -33835,7 +33835,7 @@ SWIGINTERN PyObject *_wrap_MetafileDataObject_GetMetafile(PyObject *SWIGUNUSEDPA
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxMetafile(static_cast< const wxMetafile& >(result))), SWIGTYPE_p_wxMetafile, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_NewPointerObj((new wxMetaFile(static_cast< const wxMetaFile& >(result))), SWIGTYPE_p_wxMetaFile, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -40972,7 +40972,7 @@ static swig_type_info _swigt__p_wxLogStderr = {"_p_wxLogStderr", "wxLogStderr *"
 static swig_type_info _swigt__p_wxLogTextCtrl = {"_p_wxLogTextCtrl", "wxLogTextCtrl *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLogWindow = {"_p_wxLogWindow", "wxLogWindow *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxMenu = {"_p_wxMenu", "wxMenu *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxMetafile = {"_p_wxMetafile", "wxMetafile *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxMetaFile = {"_p_wxMetaFile", "wxMetaFile *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxMetafileDataObject = {"_p_wxMetafileDataObject", "wxMetafileDataObject *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxMimeTypesManager = {"_p_wxMimeTypesManager", "wxMimeTypesManager *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxMouseState = {"_p_wxMouseState", "wxMouseState *", 0, 0, (void*)0, 0};
@@ -41144,7 +41144,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxMenuBar,
   &_swigt__p_wxMenuEvent,
   &_swigt__p_wxMenuItem,
-  &_swigt__p_wxMetafile,
+  &_swigt__p_wxMetaFile,
   &_swigt__p_wxMetafileDataObject,
   &_swigt__p_wxMimeTypesManager,
   &_swigt__p_wxMouseCaptureChangedEvent,
@@ -41328,7 +41328,7 @@ static swig_cast_info _swigc__p_wxLogStderr[] = {  {&_swigt__p_wxLogStderr, 0, 0
 static swig_cast_info _swigc__p_wxLogTextCtrl[] = {  {&_swigt__p_wxLogTextCtrl, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLogWindow[] = {  {&_swigt__p_wxLogWindow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMenu[] = {  {&_swigt__p_wxMenu, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxMetafile[] = {  {&_swigt__p_wxMetafile, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxMetaFile[] = {  {&_swigt__p_wxMetaFile, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMetafileDataObject[] = {  {&_swigt__p_wxMetafileDataObject, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMimeTypesManager[] = {  {&_swigt__p_wxMimeTypesManager, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMouseState[] = {  {&_swigt__p_wxMouseState, 0, 0, 0},{0, 0, 0, 0}};
@@ -41500,7 +41500,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxMenuBar,
   _swigc__p_wxMenuEvent,
   _swigc__p_wxMenuItem,
-  _swigc__p_wxMetafile,
+  _swigc__p_wxMetaFile,
   _swigc__p_wxMetafileDataObject,
   _swigc__p_wxMimeTypesManager,
   _swigc__p_wxMouseCaptureChangedEvent,

@@ -4993,6 +4993,10 @@ class MetaFile(_core.Object):
         _gdi_.MetaFile_swiginit(self,_gdi_.new_MetaFile(*args, **kwargs))
     __swig_destroy__ = _gdi_.delete_MetaFile
     __del__ = lambda self : None;
+    def Play(*args, **kwargs):
+        """Play(self, DC dc) -> bool"""
+        return _gdi_.MetaFile_Play(*args, **kwargs)
+
     def IsOk(*args, **kwargs):
         """IsOk(self) -> bool"""
         return _gdi_.MetaFile_IsOk(*args, **kwargs)

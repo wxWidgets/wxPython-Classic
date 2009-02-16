@@ -25623,6 +25623,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_delete_MetaFile(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMetaFile *arg1 = (wxMetaFile *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMetaFile, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_MetaFile" "', expected argument " "1"" of type '" "wxMetaFile *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMetaFile * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *MetaFile_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -40144,6 +40172,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PostScriptDC_swigregister", PostScriptDC_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PostScriptDC_swiginit", PostScriptDC_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_MetaFile", (PyCFunction) _wrap_new_MetaFile, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_MetaFile", (PyCFunction)_wrap_delete_MetaFile, METH_O, NULL},
 	 { (char *)"MetaFile_swigregister", MetaFile_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MetaFile_swiginit", MetaFile_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_MetaFileDC", (PyCFunction) _wrap_new_MetaFileDC, METH_VARARGS | METH_KEYWORDS, NULL},

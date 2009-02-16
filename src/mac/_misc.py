@@ -5265,11 +5265,11 @@ class MetafileDataObject(DataObjectSimple):
         """__init__(self) -> MetafileDataObject"""
         _misc_.MetafileDataObject_swiginit(self,_misc_.new_MetafileDataObject(*args, **kwargs))
     def SetMetafile(*args, **kwargs):
-        """SetMetafile(self, wxMetafile metafile)"""
+        """SetMetafile(self, MetaFile metafile)"""
         return _misc_.MetafileDataObject_SetMetafile(*args, **kwargs)
 
     def GetMetafile(*args, **kwargs):
-        """GetMetafile(self) -> wxMetafile"""
+        """GetMetafile(self) -> MetaFile"""
         return _misc_.MetafileDataObject_GetMetafile(*args, **kwargs)
 
 _misc_.MetafileDataObject_swigregister(MetafileDataObject)

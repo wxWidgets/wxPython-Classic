@@ -4992,6 +4992,8 @@ class MetaFile(_core.Object):
     def __init__(self, *args, **kwargs): 
         """__init__(self, String filename=EmptyString) -> MetaFile"""
         _gdi_.MetaFile_swiginit(self,_gdi_.new_MetaFile(*args, **kwargs))
+    __swig_destroy__ = _gdi_.delete_MetaFile
+    __del__ = lambda self : None;
 _gdi_.MetaFile_swigregister(MetaFile)
 
 class MetaFileDC(DC):

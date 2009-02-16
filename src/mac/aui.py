@@ -1143,21 +1143,6 @@ class AuiTabArt(object):
         """DrawBackground(self, DC dc, Window wnd, Rect rect)"""
         return _aui.AuiTabArt_DrawBackground(*args, **kwargs)
 
-    def DrawTab(*args, **kwargs):
-        """
-        DrawTab(self, DC dc, Window wnd, AuiNotebookPage pane, Rect in_rect, 
-            int close_button_state, Rect out_tab_rect, 
-            Rect out_button_rect, int x_extent)
-        """
-        return _aui.AuiTabArt_DrawTab(*args, **kwargs)
-
-    def DrawButton(*args, **kwargs):
-        """
-        DrawButton(self, DC dc, Window wnd, Rect in_rect, int bitmap_id, int button_state, 
-            int orientation, Rect out_rect)
-        """
-        return _aui.AuiTabArt_DrawButton(*args, **kwargs)
-
     def ShowDropDown(*args, **kwargs):
         """ShowDropDown(self, Window wnd, wxAuiNotebookPageArray items, int active_idx) -> int"""
         return _aui.AuiTabArt_ShowDropDown(*args, **kwargs)
@@ -1169,6 +1154,20 @@ class AuiTabArt(object):
     def GetBestTabCtrlSize(*args, **kwargs):
         """GetBestTabCtrlSize(self, Window wnd, wxAuiNotebookPageArray pages, Size required_bmp_size) -> int"""
         return _aui.AuiTabArt_GetBestTabCtrlSize(*args, **kwargs)
+
+    def DrawTab(*args, **kwargs):
+        """
+        DrawTab(self, DC dc, Window wnd, AuiNotebookPage pane, Rect in_rect, 
+            int close_button_state) -> PyObject
+        """
+        return _aui.AuiTabArt_DrawTab(*args, **kwargs)
+
+    def DrawButton(*args, **kwargs):
+        """
+        DrawButton(self, DC dc, Window wnd, Rect in_rect, int bitmap_id, int button_state, 
+            int orientation) -> PyObject
+        """
+        return _aui.AuiTabArt_DrawButton(*args, **kwargs)
 
     def GetTabSize(*args, **kwargs):
         """
@@ -2396,6 +2395,22 @@ class PyAuiTabArt(AuiDefaultTabArt):
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
         return _aui.PyAuiTabArt__setCallbackInfo(*args, **kwargs)
+
+    def GetNormalFont(*args, **kwargs):
+        """GetNormalFont(self) -> Font"""
+        return _aui.PyAuiTabArt_GetNormalFont(*args, **kwargs)
+
+    def GetSelectedFont(*args, **kwargs):
+        """GetSelectedFont(self) -> Font"""
+        return _aui.PyAuiTabArt_GetSelectedFont(*args, **kwargs)
+
+    def GetMeasuringFont(*args, **kwargs):
+        """GetMeasuringFont(self) -> Font"""
+        return _aui.PyAuiTabArt_GetMeasuringFont(*args, **kwargs)
+
+    def GetFlags(*args, **kwargs):
+        """GetFlags(self) -> int"""
+        return _aui.PyAuiTabArt_GetFlags(*args, **kwargs)
 
 _aui.PyAuiTabArt_swigregister(PyAuiTabArt)
 
