@@ -3,7 +3,7 @@ Recent Changes for wxPython
 
 2.8.9.2
 -------
-*
+* 16-Feb-2009
 
 Added the wx.lib.agw package, which contiains most of the widgets from
 http://xoomer.alice.it/infinity77/main/freeware.html written by Andrea

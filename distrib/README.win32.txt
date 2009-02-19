@@ -27,15 +27,18 @@ installer will also create Start Menu shortcuts for the tool scripts
 mentioned above.
 
 
-PYTHON 2.6 NOTE: If you are using Python 2.6 you may notice that your
-wxPython applications on XP or Vista are not using the newer themed
-controls.  This happens because Windows is loading the old version of
-the common controls DLL instead of the new version.  In order to
-change this we need to change the menifest resource embedded in the
-executable file.  To help you do this we've installed a script next to
-your python.exe called update_manifest.py which you can run to replace
-the manifest resource in both python.exe and pythonw.exe, however it
-may not be able to update a python executable that is un use running
-some script (including update_manifest) so you may need to create a
-copy of python.exe and use the copy to run the script in order for it
-to be successful.
+PYTHON 2.6 NOTE 
+----------------
+
+If you are using Python 2.6 you may notice that your wxPython
+applications on XP or Vista are not using the newer themed controls.
+This happens because Windows is loading the old version of the common
+controls DLL instead of the new version.  In order to change this we
+need to change the menifest resource embedded in the executable file.
+To help you do this we've installed a script next to your python.exe
+called update_manifest.py which you can run to replace the manifest
+resource in both python.exe and pythonw.exe, however it may not be
+able to update a python executable that is un use running some script
+(including update_manifest) so you may need to create a copy of
+python.exe and use the copy to run the script in order for it to be
+successful.

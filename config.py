@@ -906,6 +906,9 @@ if os.name == 'nt' and  COMPILER == 'msvc':
     if UNICODE:
         defines.append( ('wxUSE_UNICODE', 1) )
 
+    #if True:  # Should it be only for 2.6+??
+    #    defines.append( ('ISOLATION_AWARE_ENABLED', None) )
+
     libdirs = [ opj(WXDIR, 'lib', VCDLL) ]
     if MONOLITHIC:
         libs = makeLibName('')
