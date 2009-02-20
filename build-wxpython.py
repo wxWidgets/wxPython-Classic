@@ -20,6 +20,9 @@ option_dict = {
             "unicode"   : (False, "Build wxPython with unicode support"),
             "py_version": ("2.5", "Version of Python to build against"),
             "no_config" : (False, "Don't run configure when building."),
+            "install"   : (False, "Install the built wxPython into installdir"),
+            "install_dir": ("", "Directory to install wxPython to."),
+            "build_dir" : ("", "Directory to store wx build files."),
           }
 
 parser = optparse.OptionParser(usage="usage: %prog [options]", version="%prog 1.0")
@@ -154,15 +157,18 @@ if sys.platform.startswith("win"):
         shutil.copyfile(dll, os.path.join(WXWIN, "wxPython", "wx"))
   
 else:
-    if not myenv.has_key("WXPY_BUILD_DIR"):
-        WXPY_BUILD_DIR = myenv["WXPY_BUILD_DIR"] = os.path.join(os.getcwd(), "wxpy-bld")
-  
-    if not myenv.has_key("WXPY_INSTALL_DIR"):
-        WXPY_INSTALL_DIR = myenv["WXPY_INSTALL_DIR"] = os.path.join(os.environ["HOME"], "wxpython-" + version)
-  
+    WXPY_BUILD_DIR = os.path.join(os.getcwd(), "wxpy-bld")
+    WXPY_INSTALL_DIR = os.path.join(os.environ["HOME"], "wxpython-" + version)
+    
+    if options.build_dir != "":
+        WXPY_BUILD_DIR = options.build_dir
+    
+    if options.install_dir != "":
+        WXPY_INSTALL_DIR = options.install_dir
+        
     if options.clean:
-        deleteIfExists(myenv["WXPY_BUILD_DIR"])
-        deleteIfExists(myenv["WXPY_INSTALLDIR"])
+        deleteIfExists(WXPY_BUILD_DIR)
+        deleteIfExists(WXPY_INSTALL_DIR)
         sys.exit(0)
 
     build_options = []
@@ -185,10 +191,9 @@ else:
     build_options.append("--install")
   
     retval = os.system(WXWIN + "/build/tools/build-wxwidgets.py --wxpython %s" % string.join(build_options, " "))
-  
     if retval != 0:
         print "ERROR: failed building wxWidgets"
-        sys.exit(retval)
+        sys.exit(1)
   
     USE_SWIG = 0
     SWIG_BIN = commands.getoutput("which swig")
@@ -204,9 +209,14 @@ else:
             wxpy_build_options.append("USE_SWIG=%d" % 0)
             print "WARNING: Unable to find SWIG binary. Not re-SWIGing files."
 
+    build_mode = "build_ext --inplace"
+    
+    if options.install:
+        build_mode = "install --install-headers=%s/include --root=%s --install-platlib=wxPython --install-scripts=wxPython --install-purelib=wxPython" % (WXPY_INSTALL_DIR, WXPY_INSTALL_DIR)
+
     os.chdir(scriptDir)
-    command = "python ./setup.py build_ext --inplace WX_CONFIG=%s/bin/wx-config %s" % \
-                (WXPY_INSTALL_DIR, string.join(wxpy_build_options, " "))
+    command = "python ./setup.py %s WX_CONFIG=%s/bin/wx-config %s" % \
+                (build_mode, WXPY_INSTALL_DIR, string.join(wxpy_build_options, " "))
     print command
     retval = os.system(command)
     
