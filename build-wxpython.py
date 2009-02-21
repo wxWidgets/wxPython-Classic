@@ -10,7 +10,6 @@ import sys
 import types
 
 version = "2.8"
-
 version_nodot = version.replace(".", "")
 
 option_dict = { 
@@ -18,7 +17,6 @@ option_dict = {
             "debug"     : (False, "Build wxPython with debug symbols"),
             "reswig"    : (False, "Re-generate the SWIG wrappers"),
             "unicode"   : (False, "Build wxPython with unicode support"),
-            "py_version": ("2.5", "Version of Python to build against"),
             "no_config" : (False, "Don't run configure when building."),
             "install"   : (False, "Install the built wxPython into installdir"),
             "install_dir": ("", "Directory to install wxPython to."),
@@ -37,11 +35,9 @@ for opt in option_dict:
 
 options, arguments = parser.parse_args()
 
-pyversion_nodot = options.py_version.replace(".", "")
-
 # for cleaning up
 def deleteIfExists(deldir):
-    if os.path.exists(deldir):
+    if os.path.exists(deldir) and os.path.isdir(deldir):
         shutil.rmtree(deldir)
         
 def delFiles(fileList):
@@ -51,12 +47,26 @@ def delFiles(fileList):
 scriptDir = os.path.abspath(sys.path[0])
 scriptName = os.path.basename(sys.argv[0])
 
+SWIGDIR = ""
 WXWIN = os.path.abspath(os.path.join(scriptDir, ".."))
 myenv = os.environ
 
 if myenv.has_key("WXWIN"):
     WXWIN = myenv["WXWIN"]
 
+if myenv.has_key("SWIGDIR"):
+    SWIG_DIR = myenv["SWIGDIR"]
+
+# Windows extension build stuff
+build_type_ext = "h"
+
+if options.debug:
+    build_type_ext = "d"
+    
+dll_type = build_type_ext
+if options.unicode:
+    dll_type = "u" + dll_type
+    
 # clean the wxPython build files, this part is platform-agnostic
 # we do the platform-specific clean below.
 if options.clean:
@@ -70,92 +80,20 @@ if options.clean:
 
 print "wxWidgets directory is: %s" % WXWIN
 
-# TODO: Move the Windows build process to using build-wxwidgets.py
 if sys.platform.startswith("win"):
-    if not myenv.has_key("OSTYPE") or myenv["OSTYPE"] != "cygwin":
-        print "ERROR: Must run this script from Cygwin."
-        sys.exit(1)
-        
-    WXWIN_CYGPATH = commands.getoutput("cygpath %s" % WXWIN)
+    dllDir = os.path.join(WXWIN, "lib", "vc_dll")
 
-    if options.clean:
-        for adir in glob.glob(os.path.join(WXWIN, "build", "msw", "vc_msw*")):
-            deleteIfExists(adir)
+    if options.clean:    
+        deleteIfExists(os.path.join(dllDir, "msw" + dll_type + ""))
+        delFiles(glob.glob(os.path.join(dllDir, "wx*" + version_nodot + dll_type + "*.*")))
+        delFiles(glob.glob(os.path.join(dllDir, "*%s.*" % dll_type)))
+        delFiles(glob.glob(os.path.join(dllDir, "*%s.*" % build_type_ext)))
+        sys.exit(0)
     
-        # TODO: test using .make with a clean argument
-        dllDir = os.path.join(WXWIN, "lib", "vc_dll")
-        if options.unicode:
-            for adir in glob.glob(os.path.join(dllDir, "wxmsw" + version_nodot + "uh*")):
-                deleteIfExists(adir)
-                
-            deleteIfExists(os.path.join(dllDir, "vc_mswuhdll"))            
-        else:
-            for adir in glob.glob(os.path.join(dllDir, "wxmsw" + version_nodot + "h*")):
-                deleteIfExists(adir)
-                
-            deleteIfExists(os.path.join(dllDir, "vc_mswhdll"))
-
-        delFiles(glob.glob(os.path.join(WXWIN, "lib", "*h.lib")))
-
-      # do setup of build environment vars
-    if not myenv.has_key("TOOLS"):
-        myenv["TOOLS"] = os.system("cygpath C:\\\\")
-    
-    if not myenv.has_key("SWIGDIR"):
-        myenv["SWIGDIR"] = os.path.join(myenv["TOOLS"], "SWIG-1.3.29")
-    
-    DEBUG_FLAG = ""
-    UNICODE_FLAG = ""
-    if options["debug"]:
-        DEBUG_FLAG = "--debug"
-    
-    if options["unicode"]:
-        UNICODE_FLAG = "UNICODE=1"
-
-    # copy wxPython build scripts
-    for script in glob.glob(os.path.join(WXWIN, "wxPython", "distrib", "msw", ".m*")):
-        shutil.copyfile(script, os.path.join(WXWIN, "build", "msw"))
-  
-    os.chdir(os.path.join(WXWIN, "build", "msw"))
-
-    UNI = ""
-    if options.unicode:
-        UNI = "-uni"
-  
-    retval = os.system("./.make hybrid" + UNI)
-  
-    if retval != 0:
-        print "ERROR: failed building wxWidgets"
-        sys.exit(retval)
-  
-    os.chdir(os.path.join(WXWIN, "wxPython"))
-
-    # update the language files
-    retval = os.system("python " + os.path.join(WXWIN, "wxPython", "distrib", "makemo.py"))
-    
-    if retval != 0:
-        print "ERROR: failed generating language files"
-        sys.exit(retval)
-  
-    # re-generate SWIG files
-    if options.reswig:
-        os.system("./b " + py_version + "t")
-  
-    # build the hybrid extension
-    # NOTE: Win Python needs Windows-style pathnames, so we 
-    # need to convert
-    myenv["SWIGDIR"] = commands.getoutput("cygpath -w " + myenv["SWIGDIR"])
-  
-    # TODO: Currently the b script used here doesn't exit with
-    # non-zero even if there's an error. Once it's been updated to do
-    # so, make sure build-wxpython.sh exits with that same error code.
-  
-    os.system("./b " + pyversion_nodot + " h " + DEBUG_FLAG + " " + UNICODE_FLAG)
-
-    dlls = glob.glob(os.path.join(dllDir, "*.dll"))
-    for dll in dlls:
-        shutil.copyfile(dll, os.path.join(WXWIN, "wxPython", "wx"))
-  
+    # FIXME: add code to handle Cygwin case
+    if myenv.has_key("SWIGDIR"):
+        myenv["PATH"] = myenv["SWIGDIR"] + ";%PATH%"
+          
 else:
     WXPY_BUILD_DIR = os.path.join(os.getcwd(), "wxpy-bld")
     WXPY_INSTALL_DIR = os.path.join(os.environ["HOME"], "wxpython-" + version)
@@ -171,65 +109,93 @@ else:
         deleteIfExists(WXPY_INSTALL_DIR)
         sys.exit(0)
 
-    build_options = []
-    wxpy_build_options = []
-    if options.unicode:
-        build_options.append("--unicode")
-        wxpy_build_options.append("UNICODE=1")
-        
-    if options.debug:
-        build_options.append("--debug")
-        
-    if options.no_config:
-        build_options.append("--no_config")
-
     if not os.path.exists(WXPY_BUILD_DIR):
         os.mkdir(WXPY_BUILD_DIR)
         
     os.chdir(WXPY_BUILD_DIR)
+    
+# now that we've done platform setup, start the common build process
+build_options = []
+wxpy_build_options = []
+if options.unicode:
+    build_options.append("--unicode")
+    wxpy_build_options.append("UNICODE=1")
+    
+if options.debug:
+    build_options.append("--debug")
+    
+if options.no_config:
+    build_options.append("--no_config")
+
+if not sys.platform.startswith("win") and options.install:    
     build_options.append('--installdir="%s"' % WXPY_INSTALL_DIR)
     build_options.append("--install")
-  
-    retval = os.system(WXWIN + "/build/tools/build-wxwidgets.py --wxpython %s" % string.join(build_options, " "))
-    if retval != 0:
-        print "ERROR: failed building wxWidgets"
-        sys.exit(1)
-  
-    USE_SWIG = 0
+
+retval = os.system(WXWIN + "/build/tools/build-wxwidgets.py --wxpython %s" % string.join(build_options, " "))
+if retval != 0:
+    print "ERROR: failed building wxWidgets"
+    sys.exit(1)
+
+if sys.platform.startswith("win"):
+    dlls = glob.glob(os.path.join(dllDir, "wx*" + version_nodot + dll_type + "*.dll"))
+    for dll in dlls:
+        shutil.copyfile(dll, os.path.join(WXWIN, "wxPython", "wx", os.path.basename(dll)))
+
+os.chdir(os.path.join(WXWIN, "wxPython"))
+
+USE_SWIG = 0
+if sys.platform.startswith("win"):
+    SWIG_BIN = 'C:\\SWIG-1.3.29\swig.exe'
+else:
     SWIG_BIN = commands.getoutput("which swig")
-    if options.reswig:
-        if os.path.exists(SWIG_BIN):
-            wxpy_build_options.append('SWIG_BIN="%s"' % SWIG_BIN)
-        else:
-            wxpy_build_options.append('SWIG_BIN="%s"' % os.path.join(SWIGDIR, "swig"))
-            
-        if os.path.exists(SWIG_BIN):
-            wxpy_build_options.append("USE_SWIG=%d" % 1)
-        else:
-            wxpy_build_options.append("USE_SWIG=%d" % 0)
-            print "WARNING: Unable to find SWIG binary. Not re-SWIGing files."
 
-    build_mode = "build_ext --inplace"
+if options.reswig:
+    if os.path.exists(SWIGDIR):
+        SWIG_BIN = os.path.join(SWIGDIR, "swig")
     
+    if not os.path.exists(SWIG_BIN) and not sys.platform.startswith("win"):
+        wxpy_build_options.append('SWIG_BIN="%s"' % "/opt/swig/bin/swig")
+        
+    if os.path.exists(SWIG_BIN):
+        wxpy_build_options.append('SWIG_BIN="%s"' % SWIG_BIN)
+        wxpy_build_options.append("USE_SWIG=%d" % 1)
+    else:
+        wxpy_build_options.append("USE_SWIG=%d" % 0)
+        print "WARNING: Unable to find SWIG binary. Not re-SWIGing files."
+
+build_mode = "build_ext --inplace"
+
+if not sys.platform.startswith("win"):
     if options.install:
-        build_mode = "install --install-headers=%s/include --root=%s --install-platlib=wxPython --install-scripts=wxPython --install-purelib=wxPython" % (WXPY_INSTALL_DIR, WXPY_INSTALL_DIR)
+        wxpy_build_options.append("WX_CONFIG=%s/bin/wx-config" % WXPY_INSTALL_DIR)
+    else:
+        wxpy_build_options.append("WX_CONFIG=%s/wx-config" % WXPY_BUILD_DIR)
 
-    os.chdir(scriptDir)
-    command = "python ./setup.py %s WX_CONFIG=%s/bin/wx-config %s" % \
-                (build_mode, WXPY_INSTALL_DIR, string.join(wxpy_build_options, " "))
-    print command
-    retval = os.system(command)
+os.chdir(scriptDir)
+command = sys.executable + " ./setup.py %s %s" % \
+            (build_mode, string.join(wxpy_build_options, " "))
+print command
+retval = os.system(command)
+
+if retval != 0:
+    print "ERROR: failed building wxPython."
+    sys.exit(retval)
+
+# update the language files
+retval = os.system(sys.executable + " " + os.path.join(WXWIN, "wxPython", "distrib", "makemo.py"))
     
-    if retval != 0:
-        print "ERROR: failed building wxPython."
-        sys.exit(retval)
+if retval != 0:
+    print "ERROR: failed generating language files"
+    sys.exit(1)  
 
 
 print "------------ BUILD FINISHED ------------"
 print ""
 print "To run the wxPython demo:"
 print ""
-print "1) set your PYTHONPATH variable to $WXWIN."
-print "2) run python demo/demo.py"
+print " - Set your PYTHONPATH variable to %s." % WXWIN
+if not sys.platform.startswith("win") and not options.install:
+    print " - Set your (DY)LD_LIBRARY_PATH to %s" % WXPY_BUILD_DIR + "/lib"
+print " - Run python demo/demo.py"
 print ""
 
