@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import commands
+import cPickle
 import glob
 import optparse
 import os
@@ -18,11 +19,18 @@ option_dict = {
             "reswig"    : (False, "Re-generate the SWIG wrappers"),
             "unicode"   : (False, "Build wxPython with unicode support"),
             "osx_cocoa" : (False, "Build the OS X Cocoa port on Mac"),
-            "no_config" : (False, "Don't run configure when building."),
+            "force_config" : (False, "Run configure when building even if the script determines it's not necessary."),
             "install"   : (False, "Install the built wxPython into installdir"),
             "install_dir": ("", "Directory to install wxPython to."),
             "build_dir" : ("", "Directory to store wx build files."),
           }
+
+options_changed = True
+old_options = None
+if os.path.exists("build-options.cache"):
+    cache_file = open("build-options.cache")
+    old_options = cPickle.load(cache_file)
+    cache_file.close()
 
 parser = optparse.OptionParser(usage="usage: %prog [options]", version="%prog 1.0")
 
@@ -35,6 +43,13 @@ for opt in option_dict:
     parser.add_option("--" + opt, default=default, action=action, dest=opt, help=option_dict[opt][1])
 
 options, arguments = parser.parse_args()
+
+if sys.argv[1:] == old_options:
+    options_changed = False
+
+cache_file = open("build-options.cache", "wb")
+cPickle.dump(sys.argv[1:], cache_file)
+cache_file.close()
 
 # for cleaning up
 def deleteIfExists(deldir):
@@ -125,7 +140,8 @@ if options.unicode:
 if options.debug:
     build_options.append("--debug")
     
-if options.no_config:
+# only disable config if we don't need it
+if not options.force_config and not options_changed and os.path.exists(os.path.join(WXPY_BUILD_DIR, "Makefile")):
     build_options.append("--no_config")
     
 if sys.platform.startswith("darwin") and options.osx_cocoa:
