@@ -2158,6 +2158,7 @@ class wxPythonDemo(wx.Frame):
         
     #---------------------------------------------
     def OnCloseWindow(self, event):
+        self.mgr.UnInit()
         self.dying = True
         self.demoPage = None
         self.codePage = None
