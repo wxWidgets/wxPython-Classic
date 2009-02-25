@@ -660,7 +660,7 @@ def adjustLFLAGS(lflags, libdirs, libs):
 
 
 
-def getExtraPath(shortVer=True, addOpts=False):
+def getExtraPath(shortVer=True, addOpts=False, addRelease=True):
     """Get the dirname that wxPython will be installed under."""
 
     if shortVer:
@@ -668,7 +668,7 @@ def getExtraPath(shortVer=True, addOpts=False):
         ep = "wx-%d.%d" % (VER_MAJOR, VER_MINOR)
          
         # plus release if minor is odd
-        if VER_MINOR % 2 == 1:
+        if addRelease and VER_MINOR % 2 == 1:
             ep += ".%d" % VER_RELEASE
             
         ##ep = "wx-%d.%d.%d" % (VER_MAJOR, VER_MINOR, VER_RELEASE)
@@ -1124,7 +1124,7 @@ VERSION = "%s.%s.%s.%s%s" % (VER_MAJOR, VER_MINOR, VER_RELEASE,
 # dirs as includes so we don't have to guess which is correct.
  
 wxfilesdir = ""
-i_subdir = opj("include", getExtraPath(), "wx", "wxPython", "i_files")
+i_subdir = opj("include", getExtraPath(addRelease=False), "wx", "wxPython", "i_files")
 if os.name != "nt":
     wxfilesdir = opj(WXPREFIX, i_subdir)
 else:
