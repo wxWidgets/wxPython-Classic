@@ -19,6 +19,7 @@ option_dict = {
             "reswig"    : (False, "Re-generate the SWIG wrappers"),
             "unicode"   : (False, "Build wxPython with unicode support"),
             "osx_cocoa" : (False, "Build the OS X Cocoa port on Mac"),
+            "mac_framework" : (False, "Build wxWidgets as a Mac framework."),
             "force_config" : (False, "Run configure when building even if the script determines it's not necessary."),
             "install"   : (False, "Install the built wxPython into installdir"),
             "install_dir": ("", "Directory to install wxPython to."),
@@ -120,6 +121,9 @@ else:
     if options.install_dir != "":
         WXPY_INSTALL_DIR = options.install_dir
         
+    if options.mac_framework and sys.platform.startswith("darwin"):
+        WXPY_INSTALL_DIR = "/Library/Frameworks/wx.framework/Versions/%s" %  version
+    
     if options.clean:
         deleteIfExists(WXPY_BUILD_DIR)
         deleteIfExists(WXPY_INSTALL_DIR)
@@ -151,6 +155,9 @@ if sys.platform.startswith("darwin") and options.osx_cocoa:
 if not sys.platform.startswith("win") and options.install:
     build_options.append('--installdir="%s"' % WXPY_INSTALL_DIR)
     build_options.append("--install")
+
+if options.mac_framework and sys.platform.startswith("darwin"):
+    build_options.append("--mac_framework")
 
 retval = os.system(WXWIN + "/build/tools/build-wxwidgets.py --wxpython %s" % string.join(build_options, " "))
 if retval != 0:
