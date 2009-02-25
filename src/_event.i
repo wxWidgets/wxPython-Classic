@@ -1608,7 +1608,6 @@ applicable.", "");
 public:
     wxCoord       m_x, m_y;
     long          m_keyCode;
-    bool          m_scanCode;
 
     wxUint32      m_rawCode;
     wxUint32      m_rawFlags;

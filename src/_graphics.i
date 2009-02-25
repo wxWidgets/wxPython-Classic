@@ -20,6 +20,38 @@
 #include <wx/graphics.h>
 %}
 
+enum wxAntialiasMode
+{
+    wxANTIALIAS_NONE, // should be 0
+    wxANTIALIAS_DEFAULT,
+};
+
+enum wxCompositionMode
+{
+    // R = Result, S = Source, D = Destination, premultiplied with alpha
+    // Ra, Sa, Da their alpha components
+    
+    // classic Porter-Duff compositions
+    // http://keithp.com/~keithp/porterduff/p253-porter.pdf
+    
+    wxCOMPOSITION_CLEAR, /* R = 0 */
+    wxCOMPOSITION_SOURCE, /* R = S */
+    wxCOMPOSITION_OVER, /* R = S + D*(1 - Sa) */
+    wxCOMPOSITION_IN, /* R = S*Da */
+    wxCOMPOSITION_OUT, /* R = S*(1 - Da) */
+    wxCOMPOSITION_ATOP, /* R = S*Da + D*(1 - Sa) */
+
+    wxCOMPOSITION_DEST, /* R = D, essentially a noop */
+    wxCOMPOSITION_DEST_OVER, /* R = S*(1 - Da) + D */
+    wxCOMPOSITION_DEST_IN, /* R = D*Sa */
+    wxCOMPOSITION_DEST_OUT, /* R = D*(1 - Sa) */
+    wxCOMPOSITION_DEST_ATOP, /* R = S*(1 - Da) + D*Sa */
+    wxCOMPOSITION_XOR, /* R = S*(1 - Da) + D*(1 - Sa) */
+    
+    // mathematical compositions
+    wxCOMPOSITION_ADD, /* R = S + D */
+};
+
 // Turn off the aquisition of the Global Interpreter Lock for the classes and
 // functions in this file
 %threadWrapperOff
@@ -247,8 +279,8 @@ public:
     virtual void Clip( wxDouble , wxDouble , wxDouble , wxDouble  ) {}
     virtual void ResetClip() {}
     virtual void * GetNativeContext() { return NULL; }
-    virtual int GetLogicalFunction() const { return 0; }
-    virtual bool SetLogicalFunction(wxRasterOperationMode ) {}    
+    virtual wxCompositionMode GetCompositionMode()  { return (wxCompositionMode)0; }
+    virtual bool SetCompositionMode(wxCompositionMode op) {}    
     virtual void GetSize( wxDouble*, wxDouble* );
     virtual void GetDPI( wxDouble*, wxDouble* );
     
@@ -865,13 +897,13 @@ pointer for GDIPlus and cairo_t pointer for cairo).", "");
 
     
     DocDeclStr(
-        virtual int , GetLogicalFunction() const,
-        "Returns the current logical function.", "");
+        virtual wxCompositionMode, GetCompositionMode(),
+        "Returns the current composition mode.", "");
     
     
     DocDeclStr(
-        virtual bool , SetLogicalFunction(wxRasterOperationMode function) ,
-        "Sets the current logical function, returns ``True`` if it supported", "");
+        virtual bool, SetCompositionMode(wxCompositionMode op),
+        "Sets the current composition mode, returns ``True`` if it supported", "");
        
     
     DocDeclAStr(

@@ -815,7 +815,7 @@ then for a font belonging to the same family.", "");
 #ifdef __WXMSW__
     void* GetHFONT();
 #endif
-#ifdef __WXMAC__
+#ifdef __WXMAC__ && wxOSX_USE_ATSU_TEXT
     long MacGetATSUFontID();
 #endif
 #ifdef __WXGTK__

@@ -172,11 +172,6 @@ recursively unless the value of ``onlyIfNeeded`` is True.
 :see: `wx.Yield`, `wx.YieldIfNeeded`, `wx.SafeYield`
 ", "");
 
-    
-    bool YieldFor(long eventsToProcess);
-    virtual bool IsYielding() const;
-    virtual bool IsEventAllowedInsideYield(wxEventCategory cat) const;
-
     virtual bool SafeYield(wxWindow *win, bool onlyIfNeeded);
     virtual bool SafeYieldFor(wxWindow *win, long eventsToProcess);
 
