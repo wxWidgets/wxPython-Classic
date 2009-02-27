@@ -24,6 +24,7 @@ option_dict = {
             "install"   : (False, "Install the built wxPython into installdir"),
             "install_dir": ("", "Directory to install wxPython to."),
             "build_dir" : ("", "Directory to store wx build files."),
+            "wxpy_install_dir" : ("", "Directory to install the wxPython binaries."),
           }
 
 options_changed = True
@@ -198,6 +199,12 @@ if not sys.platform.startswith("win"):
         wxpy_build_options.append("WX_CONFIG=%s/bin/wx-config" % WXPY_INSTALL_DIR)
     else:
         wxpy_build_options.append("WX_CONFIG=%s/wx-config" % WXPY_BUILD_DIR)
+
+    if options.install:
+        install_dir = WXPY_INSTALL_DIR
+        if options.wxpy_install_dir != "":
+            install_dir = options.wxpy_install_dir
+        build_mode = "install --install-headers=%s/include --root=%s --install-platlib=wxPython --install-scripts=wxPython --install-purelib=wxPython" % (install_dir, install_dir)
 
 os.chdir(scriptDir)
 command = sys.executable + " ./setup.py %s %s" % \
