@@ -279,8 +279,10 @@ public:
     virtual void Clip( wxDouble , wxDouble , wxDouble , wxDouble  ) {}
     virtual void ResetClip() {}
     virtual void * GetNativeContext() { return NULL; }
-    virtual wxCompositionMode GetCompositionMode()  { return (wxCompositionMode)0; }
-    virtual bool SetCompositionMode(wxCompositionMode op) {}    
+    virtual int GetAntialiasMode() const { return 0; }
+    virtual bool SetAntialiasMode(wxAntialiasMode antialias) { return false; }
+    virtual int GetCompositionMode() const { return 0; }
+    virtual bool SetCompositionMode(wxCompositionMode op) { return false; }
     virtual void GetSize( wxDouble*, wxDouble* );
     virtual void GetDPI( wxDouble*, wxDouble* );
     
@@ -897,14 +899,24 @@ pointer for GDIPlus and cairo_t pointer for cairo).", "");
 
     
     DocDeclStr(
-        virtual wxCompositionMode, GetCompositionMode(),
-        "Returns the current composition mode.", "");
+        virtual wxAntialiasMode , GetAntialiasMode() const,
+        "Returns the current shape antialiasing mode", "");
     
     
     DocDeclStr(
-        virtual bool, SetCompositionMode(wxCompositionMode op),
-        "Sets the current composition mode, returns ``True`` if it supported", "");
-       
+        virtual bool , SetAntialiasMode(wxAntialiasMode antialias),
+        "Sets the antialiasing mode, returns true if it supported", "");
+    
+
+    DocDeclStr(
+        virtual wxCompositionMode , GetCompositionMode() const,
+        "Returns the current compositing operator", "");
+    
+    
+    DocDeclStr(
+        virtual bool , SetCompositionMode(wxCompositionMode op),
+        "Sets the compositing operator, returns True if it supported", "");
+
     
     DocDeclAStr(
         virtual void , GetSize( wxDouble* OUTPUT, wxDouble* OUTPUT),
@@ -916,6 +928,17 @@ pointer for GDIPlus and cairo_t pointer for cairo).", "");
         virtual void , GetDPI( wxDouble* OUTPUT, wxDouble* OUTPUT),
         "GetDPI(self) --> (dpiX, dpiY)",
         "Returns the resolution of the graphics context in device points per inch", "");
+    
+
+    DocDeclStr(
+        virtual void , BeginLayer(wxDouble opacity),
+        "all rendering is done into a fully transparent temporary context", "");
+    
+
+    DocDeclStr(
+        virtual void , EndLayer(),
+        "composites back the drawings into the context with the opacity given
+at the BeginLayer call", "");
     
     
 
