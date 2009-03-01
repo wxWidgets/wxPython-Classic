@@ -1207,10 +1207,10 @@ public :
                                                         const wxColour &oColor, const wxColour &cColor);
 
     virtual wxGraphicsFont CreateFont( const wxFont &font , const wxColour &col = *wxBLACK );
-
+#ifndef __WXGTK__
     virtual wxGraphicsBitmap CreateBitmap( const wxBitmap &bitmap );
     virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &bitmap, wxDouble x, wxDouble y, wxDouble w, wxDouble h  );
-
+#endif
 };
 
 
