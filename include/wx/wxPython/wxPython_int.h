@@ -646,6 +646,8 @@ public:
 
     virtual bool OnInitGui();
     virtual int OnExit();
+    virtual void OnEventLoopEnter(wxEventLoopBase* loop);
+    virtual void OnEventLoopExit(wxEventLoopBase* loop);
 #ifdef __WXDEBUG__
     virtual void OnAssertFailure(const wxChar *file,
                                  int line,

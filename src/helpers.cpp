@@ -172,6 +172,36 @@ bool wxPyApp::OnInitGui() {
 }
 
 
+void wxPyApp::OnEventLoopEnter(wxEventLoopBase* loop)
+{
+    bool found;
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    if ((found = wxPyCBH_findCallback(m_myInst, "OnEventLoopEnter"))) {
+        PyObject* obj = wxPyConstructObject((void*)loop, wxT("wxEventLoopBase"));
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+        Py_DECREF(obj);
+    }
+    wxPyEndBlockThreads(blocked);
+    if (! found)
+        wxApp::OnEventLoopEnter(loop);
+}
+
+
+void wxPyApp::OnEventLoopExit(wxEventLoopBase* loop)
+{
+    bool found;
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    if ((found = wxPyCBH_findCallback(m_myInst, "OnEventLoopExit"))) {
+        PyObject* obj = wxPyConstructObject((void*)loop, wxT("wxEventLoopBase"));
+        wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+        Py_DECREF(obj);
+    }
+    wxPyEndBlockThreads(blocked);
+    if (! found)
+        wxApp::OnEventLoopExit(loop);
+}
+
+
 int wxPyApp::OnExit() {
     int rval=0;
     wxPyBlock_t blocked = wxPyBeginBlockThreads();
@@ -706,6 +736,15 @@ PyObject* __wxPySetDictionary(PyObject* /* self */, PyObject* args)
     _AddInfoString("unicode");
 #else
     _AddInfoString("ansi");
+#endif
+#ifdef __WXOSX__
+    _AddInfoString("wxOSX");
+#endif
+#ifdef __WXOSX_CARBON__
+    _AddInfoString("wxOSX-carbon");
+#endif
+#ifdef __WXOSX_COCOA__
+    _AddInfoString("wxOSX-cocoa");
 #endif
 #ifdef __WXGTK__
 #ifdef __WXGTK20__

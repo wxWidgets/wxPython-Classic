@@ -134,6 +134,15 @@ differences behind the common facade.
 wx.GetApp().GetTraits() during startup or termination when the global
 application object itself may be unavailable.", "");
 
+    
+    DocDeclStr(
+        wxEventLoopBase* , GetMainLoop() const,
+        "Returns the main event loop instance, i.e. the event loop which is started
+by OnRun() and which dispatches all events sent from the native toolkit
+to the application (except when new event loops are temporarily set-up).
+The returned value maybe None. Put initialization code which needs a
+non-None main event loop into OnEventLoopEnter().", "");
+        
 
     DocDeclStr(
         virtual void , SuspendProcessingOfPendingEvents(),
