@@ -439,8 +439,6 @@ public:
     // the title for the dialogs (note that default is quite reasonable)
     void SetDialogTitle(const wxString& title);
 
-
-     %property(AltForEncoding, GetAltForEncoding, doc="See `GetAltForEncoding`");
 };
 
 
