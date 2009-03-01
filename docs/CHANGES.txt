@@ -137,6 +137,18 @@ categories of events can be processed during the yield.
 Spin buttons and spin controls now have their own event types instead
 of reusing the scroll events.
 
+The public data members of wx.MouseEvent (m_shiftDown, etc.) have been
+removed, but since wx.MouseEvent now derives from wx.MouseState you
+can use its properties (shiftDown, etc.) instead for assignments to
+those member values.
+
+Removed the Set/GetLogicalFunction methods from wx.GraphicsContext.
+
+Added Set/GetCompositionMode methods to wx.GraohicsContext, and also
+Set/GetAntialiasMode methods.  The composition mode settings allow you
+to use the classic Porter-Duff compositions when drawing.  See 
+http://keithp.com/~keithp/porterduff/p253-porter.pdf
+
 
 
 
@@ -144,7 +156,7 @@ of reusing the scroll events.
 
 2.8.9.2
 -------
-*
+* 16-Feb-2009
 
 Added the wx.lib.agw package, which contiains most of the widgets from
 http://xoomer.alice.it/infinity77/main/freeware.html written by Andrea
@@ -168,6 +180,7 @@ instances.
 Added a new tool to the Widget Inspection Tool that allows you to watch
 the events passing through a widget.  It can also be used
 independently, see wx.lib.eventwatcher.
+
  
 
 
