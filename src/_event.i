@@ -2566,7 +2566,7 @@ This is required for proper navogation over radio buttons.", "");
         "Set the window that has the focus.", "");
 
 
-    enum {
+    enum wxNavigationKeyEventFlags {
         IsBackward,
         IsForward,
         WinChange,
