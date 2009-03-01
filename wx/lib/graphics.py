@@ -902,6 +902,7 @@ class GraphicsContext(GraphicsObject):
         self._brush = None
         self._font = None
         self._fontColour = None
+        self._layerOpacities = []
         
 
     def IsNull(self):
@@ -1419,7 +1420,56 @@ class GraphicsContext(GraphicsObject):
         
 
 
-    # Things not in wx.GraphicsContext
+    def GetCompositingOperator(self):
+        """
+        Returns the current compositing operator for the context.
+        """
+        return self._context.get_operator()
+
+    def SetCompositingOperator(self, op):
+        """
+        Sets the compositin operator to be used for all drawing
+        operations.  The default operator is OPERATOR_OVER.
+        """
+        return self._context.set_operator(op)
+
+
+    def GetAntialiasMode(self):
+        """
+        Returns the current antialias mode.
+        """
+        return self._context.get_antialias()
+
+    def SetAntialiasMode(self, mode=ANTIALIAS_DEFAULT):
+        """
+        Set the antialiasing mode of the rasterizer used for drawing
+        shapes. This value is a hint, and a particular backend may or
+        may not support a particular value.
+        """
+        self._context.set_antialias(mode)
+
+
+    def BeginLayer(self, opacity):
+        """
+        Redirects future rendering to a temorary context.  See `EndLayer`.
+        """
+        self._layerOpacities.append(opacity)
+        self._context.push_group()
+        
+
+    def EndLayer(self):
+        """
+        Composites the drawing done on the temporary context created
+        in `BeginLayer` back into the main context, using the opacity
+        specified for the layer.
+        """
+        opacity = self._layerOpacities.pop()
+        self._context.pop_group_to_source()
+        self._context.paint_with_alpha(opacity)
+
+    
+        
+    # Some things not in wx.GraphicsContext (yet)
 
     def DrawCircle(self, x, y, radius):
         """
@@ -1462,40 +1512,11 @@ class GraphicsContext(GraphicsObject):
         self.PopState()
 
 
-    def GetCompositingOperator(self):
-        """
-        Returns the current compositing operator for the context.
-        """
-        return self._context.get_operator()
-
-    def SetCompositingOperator(self, op):
-        """
-        Sets the compositin operator to be used for all drawing
-        operations.  The default operator is OPERATOR_OVER.
-        """
-        return self._context.set_operator(op)
-
-
-    def GetAntialiasMode(self):
-        """
-        Returns the current antialias mode.
-        """
-        return self._context.get_antialias()
-
-    def SetAntialiasMode(self, mode=ANTIALIAS_DEFAULT):
-        """
-        Set the antialiasing mode of the rasterizer used for drawing
-        shapes. This value is a hint, and a particular backend may or
-        may not support a particular value.
-        """
-        self._context.set_antialias(mode)
-
-        
 #---------------------------------------------------------------------------
 # Utility functions
 
 def _makeColour(colour):
-    # make a wx.Color from any of the allowed typemaps (string, tuple,
+    # make a wx.Colour from any of the allowed typemaps (string, tuple,
     # etc.)
     if type(colour) == tuple:
         return wx.Colour(*colour)
