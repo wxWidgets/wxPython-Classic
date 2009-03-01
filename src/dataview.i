@@ -1532,6 +1532,16 @@ public:
 };
 
 //---------------------------------------------------------------------------
+// wxDataViewCustomRenderer
+
+DocStr(wxDataViewCustomRenderer,
+"See `PyDataViewCustomRenderer`.", "");
+
+class wxDataViewCustomRenderer: public wxDataViewRenderer
+{
+};
+
+//---------------------------------------------------------------------------
 // wxDataViewChoiceRenderer
 
 DocStr(wxDataViewChoiceRenderer,
@@ -1560,16 +1570,9 @@ public:
                          int align=wxDVR_DEFAULT_ALIGNMENT);
 };
 
+
 //---------------------------------------------------------------------------
-// wxDataViewCustomRenderer
-
-DocStr(wxDataViewCustomRenderer,
-"See `PyDataViewCustomRenderer`.", "");
-
-class wxDataViewCustomRenderer: public wxDataViewRenderer
-{
-};
-
+// a wxDataViewCustomRenderer vitualized for Python
 
 %{ // Derive from the class in C++ for virtualization
 
@@ -1768,12 +1771,16 @@ bool wxPyTextOrBitmap_helper(PyObject* obj, bool& wasString,
 
 
 
+// TODO: wxDataViewColumn(Base) is now derived from wxSettableHeaderColumn,
+// and most of the methods below are now in the base class
+
+
 enum wxDataViewColumnFlags
 {
-    wxDATAVIEW_COL_RESIZABLE     = 1,
-    wxDATAVIEW_COL_SORTABLE      = 2,
-    wxDATAVIEW_COL_REORDERABLE   = 4,
-    wxDATAVIEW_COL_HIDDEN        = 8
+    wxDATAVIEW_COL_RESIZABLE,
+    wxDATAVIEW_COL_SORTABLE,
+    wxDATAVIEW_COL_REORDERABLE,
+    wxDATAVIEW_COL_HIDDEN 
 };
 
 class wxDataViewColumn: public wxObject
@@ -1899,7 +1906,7 @@ public:
         PrependTextColumn(PyObject* label_or_bitmap, unsigned int model_column,
                           wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
                           int width = -1,
-                          wxAlignment align = (wxAlignment)(wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL),
+                          wxAlignment align = wxALIGN_NOT,
                           int flags = wxDATAVIEW_COL_RESIZABLE )
     {
         bool wasString; wxString label; wxBitmap bitmap;
@@ -1915,7 +1922,7 @@ public:
         PrependIconTextColumn( PyObject* label_or_bitmap, unsigned int model_column,
                                wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
                                int width = -1,
-                               wxAlignment align = (wxAlignment)(wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL),
+                               wxAlignment align = wxALIGN_NOT,
                                int flags = wxDATAVIEW_COL_RESIZABLE )
     {
         bool wasString; wxString label; wxBitmap bitmap;
@@ -1961,7 +1968,7 @@ public:
         PrependDateColumn( PyObject* label_or_bitmap, unsigned int model_column,
                            wxDataViewCellMode mode = wxDATAVIEW_CELL_ACTIVATABLE,
                            int width = -1,
-                           wxAlignment align = (wxAlignment)(wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL),
+                           wxAlignment align = wxALIGN_NOT,
                            int flags = wxDATAVIEW_COL_RESIZABLE )
     {
         bool wasString; wxString label; wxBitmap bitmap;
@@ -1993,7 +2000,7 @@ public:
         AppendTextColumn( PyObject* label_or_bitmap, unsigned int model_column,
                           wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
                           int width = -1,
-                          wxAlignment align = (wxAlignment)(wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL),
+                          wxAlignment align = wxALIGN_NOT,
                           int flags = wxDATAVIEW_COL_RESIZABLE )
     {
         bool wasString; wxString label; wxBitmap bitmap;
@@ -2008,7 +2015,7 @@ public:
         AppendIconTextColumn( PyObject* label_or_bitmap, unsigned int model_column,
                               wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
                               int width = -1,
-                              wxAlignment align = (wxAlignment)(wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL),
+                              wxAlignment align =  wxALIGN_NOT,
                               int flags = wxDATAVIEW_COL_RESIZABLE )
     {
         bool wasString; wxString label; wxBitmap bitmap;
@@ -2053,7 +2060,7 @@ public:
         AppendDateColumn( PyObject* label_or_bitmap, unsigned int model_column,
                           wxDataViewCellMode mode = wxDATAVIEW_CELL_ACTIVATABLE,
                           int width = -1,
-                          wxAlignment align = (wxAlignment)(wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL),
+                          wxAlignment align =  wxALIGN_NOT,
                           int flags = wxDATAVIEW_COL_RESIZABLE )
     {
         bool wasString; wxString label; wxBitmap bitmap;
@@ -2118,14 +2125,18 @@ public:
     virtual void UnselectAll();
 
     virtual void Expand( const wxDataViewItem & item );
+    virtual void ExpandAncestors( const wxDataViewItem & item );
     virtual void Collapse( const wxDataViewItem & item );
+    virtual bool IsExpanded( const wxDataViewItem & item ) const;
 
     virtual void EnsureVisible( const wxDataViewItem & item,
                                 const wxDataViewColumn *column = NULL );
     virtual void HitTest( const wxPoint & point, wxDataViewItem &item, wxDataViewColumn* &column ) const;
     virtual wxRect GetItemRect( const wxDataViewItem & item, const wxDataViewColumn *column = NULL ) const;
 
-    
+    virtual bool EnableDragSource(const wxDataFormat& format);
+    virtual bool EnableDropTarget(const wxDataFormat& format);
+
     %property(Model, GetModel, AssociateModel);
     %property(ColumnCount, GetColumnCount);
     %property(Columns, GetColumns);
@@ -2161,7 +2172,22 @@ public:
     wxPoint GetPosition() const;
     void SetPosition( int x, int y );
 
-    virtual wxEvent *Clone() const;
+    // For drag operations
+    void SetDataObject( wxDataObject *obj );
+    wxDataObject *GetDataObject() const;
+
+    // For drop operations
+    void SetDataFormat( const wxDataFormat &format );
+    wxDataFormat GetDataFormat() const;
+
+    // TODO: Use a Python buffer object here instead of void pointers and
+    // sizes...
+    void SetDataSize( size_t size );
+    size_t GetDataSize() const;
+    void SetDataBuffer( void* buf );
+    void *GetDataBuffer() const;
+
+    
 };
 
 %constant wxEventType wxEVT_COMMAND_DATAVIEW_SELECTION_CHANGED;
@@ -2178,6 +2204,10 @@ public:
 %constant wxEventType wxEVT_COMMAND_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK;
 %constant wxEventType wxEVT_COMMAND_DATAVIEW_COLUMN_SORTED;
 %constant wxEventType wxEVT_COMMAND_DATAVIEW_COLUMN_REORDERED;
+%constant wxEventType wxEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG;
+%constant wxEventType wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE;
+%constant wxEventType wxEVT_COMMAND_DATAVIEW_ITEM_DROP;           
+
 
 %pythoncode {
 
@@ -2195,12 +2225,24 @@ EVT_DATAVIEW_COLUMN_HEADER_CLICK       = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 EVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK, 1)
 EVT_DATAVIEW_COLUMN_SORTED             = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_COLUMN_SORTED, 1)
 EVT_DATAVIEW_COLUMN_REORDERED          = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_COLUMN_REORDERED, 1)
+EVT_DATAVIEW_ITEM_BEGIN_DRAG           = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG, 1)
+EVT_DATAVIEW_ITEM_DROP_POSSIBLE        = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE, 1)      
+EVT_DATAVIEW_ITEM_DROP                 = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_DROP, 1)
 
 }
 
 //---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
 
+// wxDataViewListStoreLine
+// wxDataViewListStore
+// wxDataViewListCtrl
+
+// wxDataViewTreeStoreNode
+// wxDataViewTreeStoreContainerNode
+// wxDataViewTreeStore
+// wxDataViewTreeCtrl
+
+//---------------------------------------------------------------------------
 
 %init %{
 %}
