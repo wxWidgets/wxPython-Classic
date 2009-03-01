@@ -941,7 +941,7 @@ class SettingsPanel(wx.Panel):
         s13.Add((1, 1), 1, wx.EXPAND)
         s13.SetItemMinSize(1, (180, 20))
         
-        grid_sizer = wx.GridSizer(0, 2)
+        grid_sizer = wx.GridSizer(cols=2)
         grid_sizer.SetHGap(5)
         grid_sizer.Add(s1)
         grid_sizer.Add(s4)
