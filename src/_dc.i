@@ -1946,6 +1946,8 @@ public:
     wxMetaFile(const wxString& filename = wxPyEmptyString);
     ~wxMetaFile();
 
+    bool Play(wxDC *dc);
+
     bool IsOk();
     %pythoncode { Ok = IsOk }
     bool SetClipboard(int width = 0, int height = 0);
@@ -1970,6 +1972,8 @@ public:
     wxMetaFileDC(const wxString& filename = wxPyEmptyString,
                  int width = 0, int height = 0,
                  const wxString& description = wxPyEmptyString);
+
+    %newobject Close;
     wxMetaFile* Close();
 //    wxMetafile *GetMetafile() const 
 };
@@ -1998,6 +2002,7 @@ public:
 class wxMetaFile : public wxObject {
 public:
     wxMetaFile(const wxString& filename = wxPyEmptyString);
+    ~wxMetaFile();
 };
 
 class wxMetaFileDC : public wxDC {
