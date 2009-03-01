@@ -838,6 +838,11 @@ implementation returns ``False``.", "");
 
 
     DocDeclStr(
+        wxComboCtrl* , GetComboCtrl() const,
+        "Returns the associated parent ComboCtrl.", "");
+    
+
+    DocDeclStr(
         static void , DefaultPaintComboControl( wxComboCtrlBase* combo,
                                                 wxDC& dc,
                                                 const wxRect& rect ),
