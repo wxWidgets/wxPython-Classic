@@ -1660,6 +1660,35 @@ public:
 };
 
 
+// ----------------------------------------------------------------------------
+// wxGridSizesInfo stores information about sizes of the rows or columns.
+//
+// It assumes that most of the columns or rows have default size and so stores
+// the default size separately and uses a hash to map column or row numbers to
+// their non default size for those which don't have the default size.
+// ----------------------------------------------------------------------------
+
+struct wxGridSizesInfo
+{
+    // default ctor, initialize m_sizeDefault and m_customSizes later
+    //wxGridSizesInfo();
+
+    // ctor used by wxGrid::Get{Col,Row}Sizes()
+    wxGridSizesInfo(int defSize, const wxArrayInt& allSizes);
+
+    // Get the size of the element with the given index
+    int GetSize(unsigned pos) const;
+
+
+    // default size
+    int m_sizeDefault;
+
+    // TODO:  Make a dict-like wrapper for this hashmap
+    
+    // position -> size map containing all elements with non-default size
+    wxUnsignedToIntHashMap m_customSizes;
+};
+
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 // The grid itself
@@ -2011,7 +2040,13 @@ public:
     void     HideCol(int col) { SetColSize(col, 0); }
     void     ShowCol(int col) { SetColSize(col, -1); }
 
+    wxGridSizesInfo GetColSizes() const;
+    wxGridSizesInfo GetRowSizes() const;
 
+    void SetColSizes(const wxGridSizesInfo& sizeInfo);
+    void SetRowSizes(const wxGridSizesInfo& sizeInfo);
+
+    
     // set the positions of all columns at once (this method uses the same
     // conventions as wxHeaderCtrl::SetColumnsOrder() for the order array)
     void SetColumnsOrder(const wxArrayInt& order);
@@ -2279,7 +2314,7 @@ public:
 class wxGridEvent : public wxNotifyEvent
 {
 public:
-    wxGridEvent(int id, wxEventType type, wxGrid* obj,
+    wxGridEvent(int id, wxEventType type, wxObject* obj,
                 int row=-1, int col=-1, int x=-1, int y=-1, bool sel = true,
                 bool control=false, bool shift=false, bool alt=false, bool meta=false);
 
