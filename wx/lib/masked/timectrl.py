@@ -639,6 +639,24 @@ class TimeCtrl(BaseMaskedTextCtrl):
         self._SetValue(strtime)
 ##        dbg(indent=0)
 
+    def ChangeValue(self, value):
+        """
+        Validating ChangeValue function for time values:
+        This function will do dynamic type checking on the value argument,
+        and convert wxDateTime, mxDateTime, or 12/24 format time string
+        into the appropriate format string for the control.
+        """
+##        dbg('TimeCtrl::ChangeValue(%s)' % repr(value), indent=1)
+        try:
+            strtime = self._toGUI(self.__validateValue(value))
+        except:
+##            dbg('validation failed', indent=0)
+            raise
+
+##        dbg('strtime:', strtime)
+        self._ChangeValue(strtime)
+##        dbg(indent=0)
+
     def GetValue(self,
                  as_wxDateTime = False,
                  as_mxDateTime = False,
