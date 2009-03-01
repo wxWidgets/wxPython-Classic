@@ -97,6 +97,9 @@ public:
         }
     }
 
+    // Loads resources from single XRC file.
+    bool LoadFile(const wxString& file);
+
     // Unload resource from the given XML file (wildcards not allowed)
     bool Unload(const wxString& filename);
     
@@ -210,6 +213,14 @@ public:
     // Get/Set the domain to be passed to the translation functions, defaults to NULL.
     wxString GetDomain() const;
     void SetDomain(const wxString& domain);
+
+    // This function returns the wxXmlNode containing the definition of the
+    // object with the given name or NULL.
+    //
+    // It can be used to access additional information defined in the XRC file
+    // and not used by wxXmlResource itself.
+    const wxXmlNode *GetResourceNode(const wxString& name) const;
+
     
     %property(Domain, GetDomain, SetDomain, doc="See `GetDomain` and `SetDomain`");
     %property(Flags, GetFlags, SetFlags, doc="See `GetFlags` and `SetFlags`");
