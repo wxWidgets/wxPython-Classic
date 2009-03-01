@@ -284,8 +284,12 @@ class GridCellEditor(GridCellWorker):
         return _grid.GridCellEditor_BeginEdit(*args, **kwargs)
 
     def EndEdit(*args, **kwargs):
-        """EndEdit(self, int row, int col, Grid grid) -> bool"""
+        """EndEdit(self, String oldval, String newval) -> bool"""
         return _grid.GridCellEditor_EndEdit(*args, **kwargs)
+
+    def ApplyEdit(*args, **kwargs):
+        """ApplyEdit(self, int row, int col, Grid grid)"""
+        return _grid.GridCellEditor_ApplyEdit(*args, **kwargs)
 
     def Reset(*args, **kwargs):
         """Reset(self)"""
@@ -327,6 +331,10 @@ class GridCellEditor(GridCellWorker):
         """Destroy(self)"""
         args[0].this.own(False)
         return _grid.GridCellEditor_Destroy(*args, **kwargs)
+
+    def GetValue(*args, **kwargs):
+        """GetValue(self) -> String"""
+        return _grid.GridCellEditor_GetValue(*args, **kwargs)
 
     CellAttr = property(GetCellAttr,SetCellAttr,doc="See `GetCellAttr` and `SetCellAttr`") 
     Control = property(GetControl,SetControl,doc="See `GetControl` and `SetControl`") 
@@ -776,6 +784,18 @@ class GridTableBase(_core.Object):
         """GetView(self) -> Grid"""
         return _grid.GridTableBase_GetView(*args, **kwargs)
 
+    def GetRowsCount(*args, **kwargs):
+        """GetRowsCount(self) -> int"""
+        return _grid.GridTableBase_GetRowsCount(*args, **kwargs)
+
+    def GetColsCount(*args, **kwargs):
+        """GetColsCount(self) -> int"""
+        return _grid.GridTableBase_GetColsCount(*args, **kwargs)
+
+    def IsEmpty(*args, **kwargs):
+        """IsEmpty(self, GridCellCoords coord) -> bool"""
+        return _grid.GridTableBase_IsEmpty(*args, **kwargs)
+
     def GetNumberRows(*args, **kwargs):
         """GetNumberRows(self) -> int"""
         return _grid.GridTableBase_GetNumberRows(*args, **kwargs)
@@ -1150,6 +1170,21 @@ class GridCellCoords(object):
     Row = property(GetRow,SetRow,doc="See `GetRow` and `SetRow`") 
 _grid.GridCellCoords_swigregister(GridCellCoords)
 
+class GridSizesInfo(object):
+    """Proxy of C++ GridSizesInfo class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, int defSize, wxArrayInt allSizes) -> GridSizesInfo"""
+        _grid.GridSizesInfo_swiginit(self,_grid.new_GridSizesInfo(*args, **kwargs))
+    def GetSize(*args, **kwargs):
+        """GetSize(self, unsigned int pos) -> int"""
+        return _grid.GridSizesInfo_GetSize(*args, **kwargs)
+
+    m_sizeDefault = property(_grid.GridSizesInfo_m_sizeDefault_get, _grid.GridSizesInfo_m_sizeDefault_set)
+    m_customSizes = property(_grid.GridSizesInfo_m_customSizes_get, _grid.GridSizesInfo_m_customSizes_set)
+_grid.GridSizesInfo_swigregister(GridSizesInfo)
+
 class Grid(_windows.ScrolledWindow):
     """Proxy of C++ Grid class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -1357,6 +1392,10 @@ class Grid(_windows.ScrolledWindow):
         """SetGridCursor(self, int row, int col)"""
         return _grid.Grid_SetGridCursor(*args, **kwargs)
 
+    def GoToCell(*args, **kwargs):
+        """GoToCell(self, int row, int col)"""
+        return _grid.Grid_GoToCell(*args, **kwargs)
+
     def MoveCursorUp(*args, **kwargs):
         """MoveCursorUp(self, bool expandSelection) -> bool"""
         return _grid.Grid_MoveCursorUp(*args, **kwargs)
@@ -1456,6 +1495,10 @@ class Grid(_windows.ScrolledWindow):
     def GetCellHighlightROPenWidth(*args, **kwargs):
         """GetCellHighlightROPenWidth(self) -> int"""
         return _grid.Grid_GetCellHighlightROPenWidth(*args, **kwargs)
+
+    def UseNativeColHeader(*args, **kwargs):
+        """UseNativeColHeader(self, bool native=True)"""
+        return _grid.Grid_UseNativeColHeader(*args, **kwargs)
 
     def SetUseNativeColLabels(*args, **kwargs):
         """SetUseNativeColLabels(self, bool native=True)"""
@@ -1665,6 +1708,10 @@ class Grid(_windows.ScrolledWindow):
         """GetRowSize(self, int row) -> int"""
         return _grid.Grid_GetRowSize(*args, **kwargs)
 
+    def IsRowShown(*args, **kwargs):
+        """IsRowShown(self, int row) -> bool"""
+        return _grid.Grid_IsRowShown(*args, **kwargs)
+
     def GetDefaultColSize(*args, **kwargs):
         """GetDefaultColSize(self) -> int"""
         return _grid.Grid_GetDefaultColSize(*args, **kwargs)
@@ -1672,6 +1719,10 @@ class Grid(_windows.ScrolledWindow):
     def GetColSize(*args, **kwargs):
         """GetColSize(self, int col) -> int"""
         return _grid.Grid_GetColSize(*args, **kwargs)
+
+    def IsColShown(*args, **kwargs):
+        """IsColShown(self, int col) -> bool"""
+        return _grid.Grid_IsColShown(*args, **kwargs)
 
     def GetDefaultCellBackgroundColour(*args, **kwargs):
         """GetDefaultCellBackgroundColour(self) -> Colour"""
@@ -1725,6 +1776,14 @@ class Grid(_windows.ScrolledWindow):
         """SetRowSize(self, int row, int height)"""
         return _grid.Grid_SetRowSize(*args, **kwargs)
 
+    def HideRow(*args, **kwargs):
+        """HideRow(self, int row)"""
+        return _grid.Grid_HideRow(*args, **kwargs)
+
+    def ShowRow(*args, **kwargs):
+        """ShowRow(self, int row)"""
+        return _grid.Grid_ShowRow(*args, **kwargs)
+
     def SetDefaultColSize(*args, **kwargs):
         """SetDefaultColSize(self, int width, bool resizeExistingCols=False)"""
         return _grid.Grid_SetDefaultColSize(*args, **kwargs)
@@ -1732,6 +1791,34 @@ class Grid(_windows.ScrolledWindow):
     def SetColSize(*args, **kwargs):
         """SetColSize(self, int col, int width)"""
         return _grid.Grid_SetColSize(*args, **kwargs)
+
+    def HideCol(*args, **kwargs):
+        """HideCol(self, int col)"""
+        return _grid.Grid_HideCol(*args, **kwargs)
+
+    def ShowCol(*args, **kwargs):
+        """ShowCol(self, int col)"""
+        return _grid.Grid_ShowCol(*args, **kwargs)
+
+    def GetColSizes(*args, **kwargs):
+        """GetColSizes(self) -> GridSizesInfo"""
+        return _grid.Grid_GetColSizes(*args, **kwargs)
+
+    def GetRowSizes(*args, **kwargs):
+        """GetRowSizes(self) -> GridSizesInfo"""
+        return _grid.Grid_GetRowSizes(*args, **kwargs)
+
+    def SetColSizes(*args, **kwargs):
+        """SetColSizes(self, GridSizesInfo sizeInfo)"""
+        return _grid.Grid_SetColSizes(*args, **kwargs)
+
+    def SetRowSizes(*args, **kwargs):
+        """SetRowSizes(self, GridSizesInfo sizeInfo)"""
+        return _grid.Grid_SetRowSizes(*args, **kwargs)
+
+    def SetColumnsOrder(*args, **kwargs):
+        """SetColumnsOrder(self, wxArrayInt order)"""
+        return _grid.Grid_SetColumnsOrder(*args, **kwargs)
 
     def GetColAt(*args, **kwargs):
         """GetColAt(self, int colPos) -> int"""
@@ -1744,6 +1831,10 @@ class Grid(_windows.ScrolledWindow):
     def GetColPos(*args, **kwargs):
         """GetColPos(self, int colID) -> int"""
         return _grid.Grid_GetColPos(*args, **kwargs)
+
+    def ResetColPos(*args, **kwargs):
+        """ResetColPos(self)"""
+        return _grid.Grid_ResetColPos(*args, **kwargs)
 
     def AutoSizeColumn(*args, **kwargs):
         """AutoSizeColumn(self, int col, bool setAsMin=True)"""
@@ -2012,6 +2103,10 @@ class Grid(_windows.ScrolledWindow):
         """GetGridCornerLabelWindow(self) -> Window"""
         return _grid.Grid_GetGridCornerLabelWindow(*args, **kwargs)
 
+    def GetGridColHeader(*args, **kwargs):
+        """GetGridColHeader(self) -> wxHeaderCtrl"""
+        return _grid.Grid_GetGridColHeader(*args, **kwargs)
+
     def SetScrollLineX(*args, **kwargs):
         """SetScrollLineX(self, int x)"""
         return _grid.Grid_SetScrollLineX(*args, **kwargs)
@@ -2027,6 +2122,26 @@ class Grid(_windows.ScrolledWindow):
     def GetScrollLineY(*args, **kwargs):
         """GetScrollLineY(self) -> int"""
         return _grid.Grid_GetScrollLineY(*args, **kwargs)
+
+    def GetSortingColumn(*args, **kwargs):
+        """GetSortingColumn(self) -> int"""
+        return _grid.Grid_GetSortingColumn(*args, **kwargs)
+
+    def IsSortingBy(*args, **kwargs):
+        """IsSortingBy(self, int col) -> bool"""
+        return _grid.Grid_IsSortingBy(*args, **kwargs)
+
+    def IsSortOrderAscending(*args, **kwargs):
+        """IsSortOrderAscending(self) -> bool"""
+        return _grid.Grid_IsSortOrderAscending(*args, **kwargs)
+
+    def SetSortingColumn(*args, **kwargs):
+        """SetSortingColumn(self, int col, bool ascending=True)"""
+        return _grid.Grid_SetSortingColumn(*args, **kwargs)
+
+    def UnsetSortingColumn(*args, **kwargs):
+        """UnsetSortingColumn(self)"""
+        return _grid.Grid_UnsetSortingColumn(*args, **kwargs)
 
     def GetClassDefaultAttributes(*args, **kwargs):
         """
@@ -2138,7 +2253,7 @@ class GridEvent(_core.NotifyEvent):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, int id, EventType type, Grid obj, int row=-1, int col=-1, 
+        __init__(self, int id, EventType type, Object obj, int row=-1, int col=-1, 
             int x=-1, int y=-1, bool sel=True, bool control=False, 
             bool shift=False, bool alt=False, 
             bool meta=False) -> GridEvent
@@ -2346,13 +2461,15 @@ wxEVT_GRID_LABEL_RIGHT_DCLICK = _grid.wxEVT_GRID_LABEL_RIGHT_DCLICK
 wxEVT_GRID_ROW_SIZE = _grid.wxEVT_GRID_ROW_SIZE
 wxEVT_GRID_COL_SIZE = _grid.wxEVT_GRID_COL_SIZE
 wxEVT_GRID_RANGE_SELECT = _grid.wxEVT_GRID_RANGE_SELECT
-wxEVT_GRID_CELL_CHANGE = _grid.wxEVT_GRID_CELL_CHANGE
+wxEVT_GRID_CELL_CHANGING = _grid.wxEVT_GRID_CELL_CHANGING
+wxEVT_GRID_CELL_CHANGED = _grid.wxEVT_GRID_CELL_CHANGED
 wxEVT_GRID_SELECT_CELL = _grid.wxEVT_GRID_SELECT_CELL
 wxEVT_GRID_EDITOR_SHOWN = _grid.wxEVT_GRID_EDITOR_SHOWN
 wxEVT_GRID_EDITOR_HIDDEN = _grid.wxEVT_GRID_EDITOR_HIDDEN
 wxEVT_GRID_EDITOR_CREATED = _grid.wxEVT_GRID_EDITOR_CREATED
 wxEVT_GRID_CELL_BEGIN_DRAG = _grid.wxEVT_GRID_CELL_BEGIN_DRAG
 wxEVT_GRID_COL_MOVE = _grid.wxEVT_GRID_COL_MOVE
+wxEVT_GRID_COL_SORT = _grid.wxEVT_GRID_COL_SORT
 EVT_GRID_CELL_LEFT_CLICK = wx.PyEventBinder( wxEVT_GRID_CELL_LEFT_CLICK )
 EVT_GRID_CELL_RIGHT_CLICK = wx.PyEventBinder( wxEVT_GRID_CELL_RIGHT_CLICK )
 EVT_GRID_CELL_LEFT_DCLICK = wx.PyEventBinder( wxEVT_GRID_CELL_LEFT_DCLICK )
@@ -2364,13 +2481,15 @@ EVT_GRID_LABEL_RIGHT_DCLICK = wx.PyEventBinder( wxEVT_GRID_LABEL_RIGHT_DCLICK )
 EVT_GRID_ROW_SIZE = wx.PyEventBinder( wxEVT_GRID_ROW_SIZE )
 EVT_GRID_COL_SIZE = wx.PyEventBinder( wxEVT_GRID_COL_SIZE )
 EVT_GRID_RANGE_SELECT = wx.PyEventBinder( wxEVT_GRID_RANGE_SELECT )
-EVT_GRID_CELL_CHANGE = wx.PyEventBinder( wxEVT_GRID_CELL_CHANGE )
+EVT_GRID_CELL_CHANGING = wx.PyEventBinder( wxEVT_GRID_CELL_CHANGING )
+EVT_GRID_CELL_CHANGED = wx.PyEventBinder( wxEVT_GRID_CELL_CHANGED )
 EVT_GRID_SELECT_CELL = wx.PyEventBinder( wxEVT_GRID_SELECT_CELL )
 EVT_GRID_EDITOR_SHOWN = wx.PyEventBinder( wxEVT_GRID_EDITOR_SHOWN )
 EVT_GRID_EDITOR_HIDDEN = wx.PyEventBinder( wxEVT_GRID_EDITOR_HIDDEN )
 EVT_GRID_EDITOR_CREATED = wx.PyEventBinder( wxEVT_GRID_EDITOR_CREATED )
 EVT_GRID_CELL_BEGIN_DRAG = wx.PyEventBinder( wxEVT_GRID_CELL_BEGIN_DRAG )
 EVT_GRID_COL_MOVE = wx.PyEventBinder( wxEVT_GRID_COL_MOVE )
+EVT_GRID_COL_SORT = wx.PyEventBinder( wxEVT_GRID_COL_SORT )
 
 # The same as above but with the ability to specify an identifier
 EVT_GRID_CMD_CELL_LEFT_CLICK =     wx.PyEventBinder( wxEVT_GRID_CELL_LEFT_CLICK,    1 )
@@ -2384,13 +2503,18 @@ EVT_GRID_CMD_LABEL_RIGHT_DCLICK =  wx.PyEventBinder( wxEVT_GRID_LABEL_RIGHT_DCLI
 EVT_GRID_CMD_ROW_SIZE =            wx.PyEventBinder( wxEVT_GRID_ROW_SIZE,           1 )
 EVT_GRID_CMD_COL_SIZE =            wx.PyEventBinder( wxEVT_GRID_COL_SIZE,           1 )
 EVT_GRID_CMD_RANGE_SELECT =        wx.PyEventBinder( wxEVT_GRID_RANGE_SELECT,       1 )
-EVT_GRID_CMD_CELL_CHANGE =         wx.PyEventBinder( wxEVT_GRID_CELL_CHANGE,        1 )
+EVT_GRID_CMD_CELL_CHANGING =       wx.PyEventBinder( wxEVT_GRID_CELL_CHANGING,      1 )
+EVT_GRID_CMD_CELL_CHANGED =        wx.PyEventBinder( wxEVT_GRID_CELL_CHANGED,       1 )
 EVT_GRID_CMD_SELECT_CELL =         wx.PyEventBinder( wxEVT_GRID_SELECT_CELL,        1 )
 EVT_GRID_CMD_EDITOR_SHOWN =        wx.PyEventBinder( wxEVT_GRID_EDITOR_SHOWN,       1 )
 EVT_GRID_CMD_EDITOR_HIDDEN =       wx.PyEventBinder( wxEVT_GRID_EDITOR_HIDDEN,      1 )
 EVT_GRID_CMD_EDITOR_CREATED =      wx.PyEventBinder( wxEVT_GRID_EDITOR_CREATED,     1 )
 EVT_GRID_CMD_CELL_BEGIN_DRAG =     wx.PyEventBinder( wxEVT_GRID_CELL_BEGIN_DRAG,    1 )
 EVT_GRID_CMD_COL_MOVE =            wx.PyEventBinder( wxEVT_GRID_COL_MOVE,           1 )
+EVT_GRID_CMD_COL_SORT =            wx.PyEventBinder( wxEVT_GRID_COL_SORT,           1 )
+
+EVT_GRID_CELL_CHANGE = EVT_GRID_CELL_CHANGED
+EVT_GRID_CMD_CELL_CHANGE = EVT_GRID_CMD_CELL_CHANGED
     
 
 

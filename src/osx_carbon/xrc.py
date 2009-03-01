@@ -87,6 +87,10 @@ class XmlResource(_core.Object):
         """LoadFromString(self, String data) -> bool"""
         return _xrc.XmlResource_LoadFromString(*args, **kwargs)
 
+    def LoadFile(*args, **kwargs):
+        """LoadFile(self, String file) -> bool"""
+        return _xrc.XmlResource_LoadFile(*args, **kwargs)
+
     def Unload(*args, **kwargs):
         """Unload(self, String filename) -> bool"""
         return _xrc.XmlResource_Unload(*args, **kwargs)
@@ -210,6 +214,10 @@ class XmlResource(_core.Object):
     def SetDomain(*args, **kwargs):
         """SetDomain(self, String domain)"""
         return _xrc.XmlResource_SetDomain(*args, **kwargs)
+
+    def GetResourceNode(*args, **kwargs):
+        """GetResourceNode(self, String name) -> XmlNode"""
+        return _xrc.XmlResource_GetResourceNode(*args, **kwargs)
 
     Domain = property(GetDomain,SetDomain,doc="See `GetDomain` and `SetDomain`") 
     Flags = property(GetFlags,SetFlags,doc="See `GetFlags` and `SetFlags`") 

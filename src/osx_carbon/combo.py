@@ -751,6 +751,14 @@ class ComboPopup(object):
         """
         return _combo.ComboPopup_IsCreated(*args, **kwargs)
 
+    def GetComboCtrl(*args, **kwargs):
+        """
+        GetComboCtrl(self) -> wxComboCtrl
+
+        Returns the associated parent ComboCtrl.
+        """
+        return _combo.ComboPopup_GetComboCtrl(*args, **kwargs)
+
     def DefaultPaintComboControl(*args, **kwargs):
         """
         DefaultPaintComboControl(wxComboCtrlBase combo, DC dc, Rect rect)

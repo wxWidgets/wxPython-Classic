@@ -666,32 +666,32 @@ class DataViewIndexListModel(DataViewModel):
     __repr__ = _swig_repr
     __swig_destroy__ = _dataview.delete_DataViewIndexListModel
     __del__ = lambda self : None;
-    def GetValue(*args, **kwargs):
+    def GetValueByRow(*args, **kwargs):
         """
-        GetValue(self, unsigned int row, unsigned int col) -> wxVariant
+        GetValueByRow(self, unsigned int row, unsigned int col) -> wxVariant
 
         Override this method to return the data value to be used for the item
         at the given row and column.
         """
-        return _dataview.DataViewIndexListModel_GetValue(*args, **kwargs)
+        return _dataview.DataViewIndexListModel_GetValueByRow(*args, **kwargs)
 
-    def SetValue(*args, **kwargs):
+    def SetValueByRow(*args, **kwargs):
         """
-        SetValue(self, wxVariant variant, unsigned int row, unsigned int col) -> bool
+        SetValueByRow(self, wxVariant variant, unsigned int row, unsigned int col) -> bool
 
         This is called in order to set a value in the data model.
         """
-        return _dataview.DataViewIndexListModel_SetValue(*args, **kwargs)
+        return _dataview.DataViewIndexListModel_SetValueByRow(*args, **kwargs)
 
-    def GetAttr(*args, **kwargs):
+    def GetAttrByRow(*args, **kwargs):
         """
-        GetAttr(self, unsigned int row, unsigned int col, DataViewItemAttr attr) -> bool
+        GetAttrByRow(self, unsigned int row, unsigned int col, DataViewItemAttr attr) -> bool
 
         Override this to indicate that the item has special font
         attributes. This only affects the `DataViewTextRendererText` renderer.
         Return ``False`` if the default attributes should be used.
         """
-        return _dataview.DataViewIndexListModel_GetAttr(*args, **kwargs)
+        return _dataview.DataViewIndexListModel_GetAttrByRow(*args, **kwargs)
 
     def RowPrepended(*args, **kwargs):
         """
@@ -829,32 +829,32 @@ class DataViewVirtualListModel(DataViewModel):
     __repr__ = _swig_repr
     __swig_destroy__ = _dataview.delete_DataViewVirtualListModel
     __del__ = lambda self : None;
-    def GetValue(*args, **kwargs):
+    def GetValueByRow(*args, **kwargs):
         """
-        GetValue(self, unsigned int row, unsigned int col) -> wxVariant
+        GetValueByRow(self, unsigned int row, unsigned int col) -> wxVariant
 
         Override this method to return the data value to be used for the item
         at the given row and column.
         """
-        return _dataview.DataViewVirtualListModel_GetValue(*args, **kwargs)
+        return _dataview.DataViewVirtualListModel_GetValueByRow(*args, **kwargs)
 
-    def SetValue(*args, **kwargs):
+    def SetValueByRow(*args, **kwargs):
         """
-        SetValue(self, wxVariant variant, unsigned int row, unsigned int col) -> bool
+        SetValueByRow(self, wxVariant variant, unsigned int row, unsigned int col) -> bool
 
         This is called in order to set a value in the data model.
         """
-        return _dataview.DataViewVirtualListModel_SetValue(*args, **kwargs)
+        return _dataview.DataViewVirtualListModel_SetValueByRow(*args, **kwargs)
 
-    def GetAttr(*args, **kwargs):
+    def GetAttrByRow(*args, **kwargs):
         """
-        GetAttr(self, unsigned int row, unsigned int col, DataViewItemAttr attr) -> bool
+        GetAttrByRow(self, unsigned int row, unsigned int col, DataViewItemAttr attr) -> bool
 
         Override this to indicate that the item has special font
         attributes. This only affects the `DataViewTextRendererText` renderer.
         Return ``False`` if the default attributes should be used.
         """
-        return _dataview.DataViewVirtualListModel_GetAttr(*args, **kwargs)
+        return _dataview.DataViewVirtualListModel_GetAttrByRow(*args, **kwargs)
 
     def RowPrepended(*args, **kwargs):
         """
@@ -976,7 +976,8 @@ class DataViewRenderer(_core.Object):
     provided: `DataViewTextRenderer`, `DataViewTextRendererAttr`,
     `DataViewIconTextRenderer`, `DataViewToggleRenderer`,
     `DataViewProgressRenderer`, `DataViewBitmapRenderer`,
-    `DataViewDateRenderer`, `DataViewSpinRenderer`.
+    `DataViewDateRenderer`, `DataViewSpinRenderer`,
+    `DataViewChoiceRenderer`.
 
     To create your own custom renderer derive a new class from
     `PyDataViewCustomRenderer`.
@@ -1226,6 +1227,25 @@ class DataViewSpinRenderer(DataViewRenderer):
         _dataview.DataViewSpinRenderer_swiginit(self,_dataview.new_DataViewSpinRenderer(*args, **kwargs))
 _dataview.DataViewSpinRenderer_swigregister(DataViewSpinRenderer)
 
+class DataViewCustomRenderer(DataViewRenderer):
+    """See `PyDataViewCustomRenderer`."""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+_dataview.DataViewCustomRenderer_swigregister(DataViewCustomRenderer)
+
+class DataViewChoiceRenderer(DataViewCustomRenderer):
+    """Proxy of C++ DataViewChoiceRenderer class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, wxArrayString choices, int mode=DATAVIEW_CELL_EDITABLE, 
+            int alignment=DVR_DEFAULT_ALIGNMENT) -> DataViewChoiceRenderer
+        """
+        _dataview.DataViewChoiceRenderer_swiginit(self,_dataview.new_DataViewChoiceRenderer(*args, **kwargs))
+_dataview.DataViewChoiceRenderer_swigregister(DataViewChoiceRenderer)
+
 class DataViewDateRenderer(DataViewRenderer):
     """Proxy of C++ DataViewDateRenderer class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -1237,13 +1257,6 @@ class DataViewDateRenderer(DataViewRenderer):
         """
         _dataview.DataViewDateRenderer_swiginit(self,_dataview.new_DataViewDateRenderer(*args, **kwargs))
 _dataview.DataViewDateRenderer_swigregister(DataViewDateRenderer)
-
-class DataViewCustomRenderer(DataViewRenderer):
-    """See `PyDataViewCustomRenderer`."""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    def __init__(self): raise AttributeError, "No constructor defined"
-    __repr__ = _swig_repr
-_dataview.DataViewCustomRenderer_swigregister(DataViewCustomRenderer)
 
 class PyDataViewCustomRenderer(DataViewCustomRenderer):
     """Proxy of C++ PyDataViewCustomRenderer class"""
@@ -1486,8 +1499,7 @@ class DataViewCtrl(_core.Control):
         """
         PrependTextColumn(self, PyObject label_or_bitmap, unsigned int model_column, 
             int mode=DATAVIEW_CELL_INERT, int width=-1, 
-            int align=(wxAlignment) (wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL), 
-            int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
+            int align=ALIGN_NOT, int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
         """
         return _dataview.DataViewCtrl_PrependTextColumn(*args, **kwargs)
 
@@ -1495,8 +1507,7 @@ class DataViewCtrl(_core.Control):
         """
         PrependIconTextColumn(self, PyObject label_or_bitmap, unsigned int model_column, 
             int mode=DATAVIEW_CELL_INERT, int width=-1, 
-            int align=(wxAlignment) (wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL), 
-            int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
+            int align=ALIGN_NOT, int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
         """
         return _dataview.DataViewCtrl_PrependIconTextColumn(*args, **kwargs)
 
@@ -1521,8 +1532,7 @@ class DataViewCtrl(_core.Control):
         """
         PrependDateColumn(self, PyObject label_or_bitmap, unsigned int model_column, 
             int mode=DATAVIEW_CELL_ACTIVATABLE, int width=-1, 
-            int align=(wxAlignment) (wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL), 
-            int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
+            int align=ALIGN_NOT, int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
         """
         return _dataview.DataViewCtrl_PrependDateColumn(*args, **kwargs)
 
@@ -1538,8 +1548,7 @@ class DataViewCtrl(_core.Control):
         """
         AppendTextColumn(self, PyObject label_or_bitmap, unsigned int model_column, 
             int mode=DATAVIEW_CELL_INERT, int width=-1, 
-            int align=(wxAlignment) (wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL), 
-            int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
+            int align=ALIGN_NOT, int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
         """
         return _dataview.DataViewCtrl_AppendTextColumn(*args, **kwargs)
 
@@ -1547,8 +1556,7 @@ class DataViewCtrl(_core.Control):
         """
         AppendIconTextColumn(self, PyObject label_or_bitmap, unsigned int model_column, 
             int mode=DATAVIEW_CELL_INERT, int width=-1, 
-            int align=(wxAlignment) (wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL), 
-            int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
+            int align=ALIGN_NOT, int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
         """
         return _dataview.DataViewCtrl_AppendIconTextColumn(*args, **kwargs)
 
@@ -1573,8 +1581,7 @@ class DataViewCtrl(_core.Control):
         """
         AppendDateColumn(self, PyObject label_or_bitmap, unsigned int model_column, 
             int mode=DATAVIEW_CELL_ACTIVATABLE, int width=-1, 
-            int align=(wxAlignment) (wxALIGN_LEFT|wxALIGN_CENTRE_VERTICAL), 
-            int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
+            int align=ALIGN_NOT, int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
         """
         return _dataview.DataViewCtrl_AppendDateColumn(*args, **kwargs)
 
@@ -1678,9 +1685,17 @@ class DataViewCtrl(_core.Control):
         """Expand(self, DataViewItem item)"""
         return _dataview.DataViewCtrl_Expand(*args, **kwargs)
 
+    def ExpandAncestors(*args, **kwargs):
+        """ExpandAncestors(self, DataViewItem item)"""
+        return _dataview.DataViewCtrl_ExpandAncestors(*args, **kwargs)
+
     def Collapse(*args, **kwargs):
         """Collapse(self, DataViewItem item)"""
         return _dataview.DataViewCtrl_Collapse(*args, **kwargs)
+
+    def IsExpanded(*args, **kwargs):
+        """IsExpanded(self, DataViewItem item) -> bool"""
+        return _dataview.DataViewCtrl_IsExpanded(*args, **kwargs)
 
     def EnsureVisible(*args, **kwargs):
         """EnsureVisible(self, DataViewItem item, DataViewColumn column=None)"""
@@ -1693,6 +1708,14 @@ class DataViewCtrl(_core.Control):
     def GetItemRect(*args, **kwargs):
         """GetItemRect(self, DataViewItem item, DataViewColumn column=None) -> Rect"""
         return _dataview.DataViewCtrl_GetItemRect(*args, **kwargs)
+
+    def EnableDragSource(*args, **kwargs):
+        """EnableDragSource(self, wxDataFormat format) -> bool"""
+        return _dataview.DataViewCtrl_EnableDragSource(*args, **kwargs)
+
+    def EnableDropTarget(*args, **kwargs):
+        """EnableDropTarget(self, wxDataFormat format) -> bool"""
+        return _dataview.DataViewCtrl_EnableDropTarget(*args, **kwargs)
 
     Model = property(GetModel,AssociateModel) 
     ColumnCount = property(GetColumnCount) 
@@ -1763,6 +1786,38 @@ class DataViewEvent(_core.NotifyEvent):
         """SetPosition(self, int x, int y)"""
         return _dataview.DataViewEvent_SetPosition(*args, **kwargs)
 
+    def SetDataObject(*args, **kwargs):
+        """SetDataObject(self, wxDataObject obj)"""
+        return _dataview.DataViewEvent_SetDataObject(*args, **kwargs)
+
+    def GetDataObject(*args, **kwargs):
+        """GetDataObject(self) -> wxDataObject"""
+        return _dataview.DataViewEvent_GetDataObject(*args, **kwargs)
+
+    def SetDataFormat(*args, **kwargs):
+        """SetDataFormat(self, wxDataFormat format)"""
+        return _dataview.DataViewEvent_SetDataFormat(*args, **kwargs)
+
+    def GetDataFormat(*args, **kwargs):
+        """GetDataFormat(self) -> wxDataFormat"""
+        return _dataview.DataViewEvent_GetDataFormat(*args, **kwargs)
+
+    def SetDataSize(*args, **kwargs):
+        """SetDataSize(self, size_t size)"""
+        return _dataview.DataViewEvent_SetDataSize(*args, **kwargs)
+
+    def GetDataSize(*args, **kwargs):
+        """GetDataSize(self) -> size_t"""
+        return _dataview.DataViewEvent_GetDataSize(*args, **kwargs)
+
+    def SetDataBuffer(*args, **kwargs):
+        """SetDataBuffer(self, void buf)"""
+        return _dataview.DataViewEvent_SetDataBuffer(*args, **kwargs)
+
+    def GetDataBuffer(*args, **kwargs):
+        """GetDataBuffer(self) -> void"""
+        return _dataview.DataViewEvent_GetDataBuffer(*args, **kwargs)
+
 _dataview.DataViewEvent_swigregister(DataViewEvent)
 
 wxEVT_COMMAND_DATAVIEW_SELECTION_CHANGED = _dataview.wxEVT_COMMAND_DATAVIEW_SELECTION_CHANGED
@@ -1779,6 +1834,9 @@ wxEVT_COMMAND_DATAVIEW_COLUMN_HEADER_CLICK = _dataview.wxEVT_COMMAND_DATAVIEW_CO
 wxEVT_COMMAND_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK = _dataview.wxEVT_COMMAND_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK
 wxEVT_COMMAND_DATAVIEW_COLUMN_SORTED = _dataview.wxEVT_COMMAND_DATAVIEW_COLUMN_SORTED
 wxEVT_COMMAND_DATAVIEW_COLUMN_REORDERED = _dataview.wxEVT_COMMAND_DATAVIEW_COLUMN_REORDERED
+wxEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG
+wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE
+wxEVT_COMMAND_DATAVIEW_ITEM_DROP = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_DROP
 EVT_DATAVIEW_SELECTION_CHANGED         = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_SELECTION_CHANGED, 1)
 EVT_DATAVIEW_ITEM_ACTIVATED            = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_ACTIVATED, 1)
 EVT_DATAVIEW_ITEM_COLLAPSED            = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_COLLAPSED, 1)
@@ -1793,6 +1851,9 @@ EVT_DATAVIEW_COLUMN_HEADER_CLICK       = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 EVT_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_COLUMN_HEADER_RIGHT_CLICK, 1)
 EVT_DATAVIEW_COLUMN_SORTED             = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_COLUMN_SORTED, 1)
 EVT_DATAVIEW_COLUMN_REORDERED          = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_COLUMN_REORDERED, 1)
+EVT_DATAVIEW_ITEM_BEGIN_DRAG           = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG, 1)
+EVT_DATAVIEW_ITEM_DROP_POSSIBLE        = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE, 1)      
+EVT_DATAVIEW_ITEM_DROP                 = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_DROP, 1)
 
 
 

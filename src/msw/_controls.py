@@ -1456,6 +1456,8 @@ TEXT_ATTR_FONT_SIZE = _controls_.TEXT_ATTR_FONT_SIZE
 TEXT_ATTR_FONT_WEIGHT = _controls_.TEXT_ATTR_FONT_WEIGHT
 TEXT_ATTR_FONT_ITALIC = _controls_.TEXT_ATTR_FONT_ITALIC
 TEXT_ATTR_FONT_UNDERLINE = _controls_.TEXT_ATTR_FONT_UNDERLINE
+TEXT_ATTR_FONT_ENCODING = _controls_.TEXT_ATTR_FONT_ENCODING
+TEXT_ATTR_FONT_FAMILY = _controls_.TEXT_ATTR_FONT_FAMILY
 TEXT_ATTR_FONT = _controls_.TEXT_ATTR_FONT
 TEXT_ATTR_ALIGNMENT = _controls_.TEXT_ATTR_ALIGNMENT
 TEXT_ATTR_LEFT_INDENT = _controls_.TEXT_ATTR_LEFT_INDENT
@@ -1470,6 +1472,7 @@ TEXT_ATTR_BULLET_STYLE = _controls_.TEXT_ATTR_BULLET_STYLE
 TEXT_ATTR_BULLET_NUMBER = _controls_.TEXT_ATTR_BULLET_NUMBER
 TEXT_ATTR_BULLET_TEXT = _controls_.TEXT_ATTR_BULLET_TEXT
 TEXT_ATTR_BULLET_NAME = _controls_.TEXT_ATTR_BULLET_NAME
+TEXT_ATTR_BULLET = _controls_.TEXT_ATTR_BULLET
 TEXT_ATTR_URL = _controls_.TEXT_ATTR_URL
 TEXT_ATTR_PAGE_BREAK = _controls_.TEXT_ATTR_PAGE_BREAK
 TEXT_ATTR_EFFECTS = _controls_.TEXT_ATTR_EFFECTS
@@ -1572,11 +1575,11 @@ class TextAttr(object):
         return _controls_.TextAttr_SetFontSize(*args, **kwargs)
 
     def SetFontStyle(*args, **kwargs):
-        """SetFontStyle(self, int fontStyle)"""
+        """SetFontStyle(self, wxFontStyle fontStyle)"""
         return _controls_.TextAttr_SetFontStyle(*args, **kwargs)
 
     def SetFontWeight(*args, **kwargs):
-        """SetFontWeight(self, int fontWeight)"""
+        """SetFontWeight(self, wxFontWeight fontWeight)"""
         return _controls_.TextAttr_SetFontWeight(*args, **kwargs)
 
     def SetFontFaceName(*args, **kwargs):
@@ -1590,6 +1593,10 @@ class TextAttr(object):
     def SetFontEncoding(*args, **kwargs):
         """SetFontEncoding(self, wxFontEncoding encoding)"""
         return _controls_.TextAttr_SetFontEncoding(*args, **kwargs)
+
+    def SetFontFamily(*args, **kwargs):
+        """SetFontFamily(self, wxFontFamily family)"""
+        return _controls_.TextAttr_SetFontFamily(*args, **kwargs)
 
     def SetFont(*args, **kwargs):
         """SetFont(self, Font font, int flags=TEXT_ATTR_FONT)"""
@@ -1719,6 +1726,10 @@ class TextAttr(object):
         """GetFontEncoding(self) -> wxFontEncoding"""
         return _controls_.TextAttr_GetFontEncoding(*args, **kwargs)
 
+    def GetFontFamily(*args, **kwargs):
+        """GetFontFamily(self) -> wxFontFamily"""
+        return _controls_.TextAttr_GetFontFamily(*args, **kwargs)
+
     def GetFont(*args, **kwargs):
         """GetFont(self) -> Font"""
         return _controls_.TextAttr_GetFont(*args, **kwargs)
@@ -1831,6 +1842,10 @@ class TextAttr(object):
     def HasFontEncoding(*args, **kwargs):
         """HasFontEncoding(self) -> bool"""
         return _controls_.TextAttr_HasFontEncoding(*args, **kwargs)
+
+    def HasFontFamily(*args, **kwargs):
+        """HasFontFamily(self) -> bool"""
+        return _controls_.TextAttr_HasFontFamily(*args, **kwargs)
 
     def HasFont(*args, **kwargs):
         """HasFont(self) -> bool"""
@@ -1965,6 +1980,7 @@ class TextAttr(object):
     FontUnderlined = property(GetFontUnderlined,SetFontUnderlined) 
     FontFaceName = property(GetFontFaceName,SetFontFaceName) 
     FontEncoding = property(GetFontEncoding,SetFontEncoding) 
+    FontFamily = property(GetFontFamily,SetFontFamily) 
     CharacterStyleName = property(GetCharacterStyleName,SetCharacterStyleName) 
     ParagraphStyleName = property(GetParagraphStyleName,SetParagraphStyleName) 
     ListStyleName = property(GetListStyleName,SetListStyleName) 
@@ -2463,11 +2479,16 @@ class SpinEvent(_core.NotifyEvent):
     Value = property(GetValue,SetValue) 
 _controls_.SpinEvent_swigregister(SpinEvent)
 
+wxEVT_SPIN_UP = _controls_.wxEVT_SPIN_UP
+wxEVT_SPIN_DOWN = _controls_.wxEVT_SPIN_DOWN
+wxEVT_SPIN = _controls_.wxEVT_SPIN
 wxEVT_COMMAND_SPINCTRL_UPDATED = _controls_.wxEVT_COMMAND_SPINCTRL_UPDATED
-EVT_SPIN_UP   = wx.PyEventBinder( wx.wxEVT_SCROLL_LINEUP, 1)
-EVT_SPIN_DOWN = wx.PyEventBinder( wx.wxEVT_SCROLL_LINEDOWN, 1)
-EVT_SPIN      = wx.PyEventBinder( wx.wxEVT_SCROLL_THUMBTRACK, 1)
+wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED = _controls_.wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED
+EVT_SPIN_UP   = wx.PyEventBinder( wxEVT_SPIN_UP, 1)
+EVT_SPIN_DOWN = wx.PyEventBinder( wxEVT_SPIN_DOWN, 1)
+EVT_SPIN      = wx.PyEventBinder( wxEVT_SPIN, 1)
 EVT_SPINCTRL  = wx.PyEventBinder( wxEVT_COMMAND_SPINCTRL_UPDATED, 1)
+EVT_SPINCTRLDOUBLE  = wx.PyEventBinder( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, 1)    
 
 class SpinCtrlDouble(_core.Control):
     """Proxy of C++ SpinCtrlDouble class"""
@@ -2565,7 +2586,6 @@ class SpinDoubleEvent(_core.NotifyEvent):
     Value = property(GetValue,SetValue) 
 _controls_.SpinDoubleEvent_swigregister(SpinDoubleEvent)
 
-wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED = _controls_.wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED
 EVT_SPINCTRLDOUBLE = wx.PyEventBinder( wxEVT_COMMAND_SPINCTRLDOUBLE_UPDATED, 1 )
 
 #---------------------------------------------------------------------------
@@ -6116,6 +6136,11 @@ class PyControl(_core.Control):
     base_GetMaxSize = wx._deprecated(base_GetMaxSize,
                                    "Please use PyControl.GetMaxSize instead.")
 
+    def base_Enable(*args, **kw):
+        return PyControl.Enable(*args, **kw)
+    base_Enable = wx._deprecated(base_Enable,
+                                   "Please use PyControl.Enable instead.")
+
     def base_AddChild(*args, **kw):
         return PyControl.AddChild(*args, **kw)
     base_AddChild = wx._deprecated(base_AddChild,
@@ -6989,6 +7014,59 @@ class PickerBase(_core.Control):
     PickerCtrlGrowable = property(IsPickerCtrlGrowable,SetPickerCtrlGrowable,doc="See `IsPickerCtrlGrowable` and `SetPickerCtrlGrowable`") 
 _controls_.PickerBase_swigregister(PickerBase)
 
+class PyPickerBase(PickerBase):
+    """Proxy of C++ PyPickerBase class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int id=-1, String text=wxEmptyString, 
+            Point pos=DefaultPosition, Size size=DefaultSize, 
+            long style=0, Validator validator=DefaultValidator, 
+            String name=wxButtonNameStr) -> PyPickerBase
+        """
+        _controls_.PyPickerBase_swiginit(self,_controls_.new_PyPickerBase(*args, **kwargs))
+        self._setOORInfo(self);PyPickerBase._setCallbackInfo(self, self, PyPickerBase)
+
+    def _setCallbackInfo(*args, **kwargs):
+        """_setCallbackInfo(self, PyObject self, PyObject _class)"""
+        return _controls_.PyPickerBase__setCallbackInfo(*args, **kwargs)
+
+    def UpdatePickerFromTextCtrl(*args, **kwargs):
+        """UpdatePickerFromTextCtrl(self)"""
+        return _controls_.PyPickerBase_UpdatePickerFromTextCtrl(*args, **kwargs)
+
+    def UpdateTextCtrlFromPicker(*args, **kwargs):
+        """UpdateTextCtrlFromPicker(self)"""
+        return _controls_.PyPickerBase_UpdateTextCtrlFromPicker(*args, **kwargs)
+
+    def GetTextCtrlStyle(*args, **kwargs):
+        """GetTextCtrlStyle(self, long style) -> long"""
+        return _controls_.PyPickerBase_GetTextCtrlStyle(*args, **kwargs)
+
+    def GetPickerStyle(*args, **kwargs):
+        """GetPickerStyle(self, long style) -> long"""
+        return _controls_.PyPickerBase_GetPickerStyle(*args, **kwargs)
+
+    def SetTextCtrl(*args, **kwargs):
+        """SetTextCtrl(self, TextCtrl text)"""
+        return _controls_.PyPickerBase_SetTextCtrl(*args, **kwargs)
+
+    def SetPickerCtrl(*args, **kwargs):
+        """SetPickerCtrl(self, Control picker)"""
+        return _controls_.PyPickerBase_SetPickerCtrl(*args, **kwargs)
+
+    def PostCreation(*args, **kwargs):
+        """PostCreation(self)"""
+        return _controls_.PyPickerBase_PostCreation(*args, **kwargs)
+
+_controls_.PyPickerBase_swigregister(PyPickerBase)
+
+def PrePyPickerBase(*args, **kwargs):
+    """PrePyPickerBase() -> PyPickerBase"""
+    val = _controls_.new_PrePyPickerBase(*args, **kwargs)
+    return val
+
 #---------------------------------------------------------------------------
 
 CLRP_SHOW_LABEL = _controls_.CLRP_SHOW_LABEL
@@ -6996,10 +7074,9 @@ CLRP_USE_TEXTCTRL = _controls_.CLRP_USE_TEXTCTRL
 CLRP_DEFAULT_STYLE = _controls_.CLRP_DEFAULT_STYLE
 class ColourPickerCtrl(PickerBase):
     """
-    This control allows the user to select a colour. The generic
-    implementation is a button which brings up a `wx.ColourDialog` when
-    clicked. Native implementations may differ but this is usually a
-    (small) widget which give access to the colour-chooser dialog.
+    This control allows the user to select a colour. The implementation
+    varies by platform but is usually a button which brings up a
+    `wx.ColourDialog` when clicked.
     """
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -7010,10 +7087,9 @@ class ColourPickerCtrl(PickerBase):
             long style=CLRP_DEFAULT_STYLE, Validator validator=DefaultValidator, 
             String name=ColourPickerCtrlNameStr) -> ColourPickerCtrl
 
-        This control allows the user to select a colour. The generic
-        implementation is a button which brings up a `wx.ColourDialog` when
-        clicked. Native implementations may differ but this is usually a
-        (small) widget which give access to the colour-chooser dialog.
+        This control allows the user to select a colour. The implementation
+        varies by platform but is usually a button which brings up a
+        `wx.ColourDialog` when clicked.
         """
         _controls_.ColourPickerCtrl_swiginit(self,_controls_.new_ColourPickerCtrl(*args, **kwargs))
         self._setOORInfo(self)
@@ -7051,10 +7127,9 @@ def PreColourPickerCtrl(*args, **kwargs):
     """
     PreColourPickerCtrl() -> ColourPickerCtrl
 
-    This control allows the user to select a colour. The generic
-    implementation is a button which brings up a `wx.ColourDialog` when
-    clicked. Native implementations may differ but this is usually a
-    (small) widget which give access to the colour-chooser dialog.
+    This control allows the user to select a colour. The implementation
+    varies by platform but is usually a button which brings up a
+    `wx.ColourDialog` when clicked.
     """
     val = _controls_.new_PreColourPickerCtrl(*args, **kwargs)
     return val
@@ -7656,5 +7731,152 @@ def PrePyAxBaseWindow(*args, **kwargs):
 def PyAxBaseWindow_FromHWND(*args, **kwargs):
   """PyAxBaseWindow_FromHWND(Window parent, unsigned long _hWnd) -> PyAxBaseWindow"""
   return _controls_.PyAxBaseWindow_FromHWND(*args, **kwargs)
+#---------------------------------------------------------------------------
+
+FC_OPEN = _controls_.FC_OPEN
+FC_SAVE = _controls_.FC_SAVE
+FC_MULTIPLE = _controls_.FC_MULTIPLE
+FC_NOSHOWHIDDEN = _controls_.FC_NOSHOWHIDDEN
+FC_DEFAULT_STYLE = _controls_.FC_DEFAULT_STYLE
+class FileCtrl(_core.Window):
+    """
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int id=-1, String defaultDirectory=wxEmptyString, 
+            String defaultFilename=wxEmptyString, 
+            String wildCard=wxFileSelectorDefaultWildcardStr, 
+            long style=FC_DEFAULT_STYLE, Point pos=DefaultPosition, 
+            Size size=DefaultSize, 
+            String name=FileCtrlNameStr) -> FileCtrl
+
+        """
+        _controls_.FileCtrl_swiginit(self,_controls_.new_FileCtrl(*args, **kwargs))
+        self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int id=-1, String defaultDirectory=wxEmptyString, 
+            String defaultFilename=wxEmptyString, 
+            String wildCard=wxFileSelectorDefaultWildcardStr, 
+            long style=FC_DEFAULT_STYLE, Point pos=DefaultPosition, 
+            Size size=DefaultSize, 
+            String name=FileCtrlNameStr) -> bool
+        """
+        return _controls_.FileCtrl_Create(*args, **kwargs)
+
+    def SetWildcard(*args, **kwargs):
+        """SetWildcard(self, String wildCard)"""
+        return _controls_.FileCtrl_SetWildcard(*args, **kwargs)
+
+    def SetFilterIndex(*args, **kwargs):
+        """SetFilterIndex(self, int filterindex)"""
+        return _controls_.FileCtrl_SetFilterIndex(*args, **kwargs)
+
+    def SetDirectory(*args, **kwargs):
+        """SetDirectory(self, String dir) -> bool"""
+        return _controls_.FileCtrl_SetDirectory(*args, **kwargs)
+
+    def SetFilename(*args, **kwargs):
+        """SetFilename(self, String name) -> bool"""
+        return _controls_.FileCtrl_SetFilename(*args, **kwargs)
+
+    def SetPath(*args, **kwargs):
+        """SetPath(self, String path) -> bool"""
+        return _controls_.FileCtrl_SetPath(*args, **kwargs)
+
+    def GetFilename(*args, **kwargs):
+        """GetFilename(self) -> String"""
+        return _controls_.FileCtrl_GetFilename(*args, **kwargs)
+
+    def GetDirectory(*args, **kwargs):
+        """GetDirectory(self) -> String"""
+        return _controls_.FileCtrl_GetDirectory(*args, **kwargs)
+
+    def GetWildcard(*args, **kwargs):
+        """GetWildcard(self) -> String"""
+        return _controls_.FileCtrl_GetWildcard(*args, **kwargs)
+
+    def GetPath(*args, **kwargs):
+        """GetPath(self) -> String"""
+        return _controls_.FileCtrl_GetPath(*args, **kwargs)
+
+    def GetFilterIndex(*args, **kwargs):
+        """GetFilterIndex(self) -> int"""
+        return _controls_.FileCtrl_GetFilterIndex(*args, **kwargs)
+
+    def GetPaths(*args, **kwargs):
+        """GetPaths(self) -> wxArrayString"""
+        return _controls_.FileCtrl_GetPaths(*args, **kwargs)
+
+    def GetFilenames(*args, **kwargs):
+        """GetFilenames(self) -> wxArrayString"""
+        return _controls_.FileCtrl_GetFilenames(*args, **kwargs)
+
+    def HasMultipleFileSelection(*args, **kwargs):
+        """HasMultipleFileSelection(self) -> bool"""
+        return _controls_.FileCtrl_HasMultipleFileSelection(*args, **kwargs)
+
+    def ShowHidden(*args, **kwargs):
+        """ShowHidden(self, bool show)"""
+        return _controls_.FileCtrl_ShowHidden(*args, **kwargs)
+
+    Filename = property(GetFilename,SetFilename) 
+    Directory = property(GetDirectory,SetDirectory) 
+    Wildcard = property(GetWildcard,SetWildcard) 
+    Path = property(GetPath,SetPath) 
+    FilterIndex = property(GetFilterIndex,SetFilterIndex) 
+    Paths = property(GetPaths) 
+    Filenames = property(GetFilenames) 
+_controls_.FileCtrl_swigregister(FileCtrl)
+FileCtrlNameStr = cvar.FileCtrlNameStr
+
+def PreFileCtrl(*args, **kwargs):
+    """
+    PreFileCtrl() -> FileCtrl
+
+    Precreate a wx.FileCtrl for 2-phase creation.
+    """
+    val = _controls_.new_PreFileCtrl(*args, **kwargs)
+    return val
+
+class FileCtrlEvent(_core.CommandEvent):
+    """Proxy of C++ FileCtrlEvent class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, EventType type, Object evtObject, int id) -> FileCtrlEvent"""
+        _controls_.FileCtrlEvent_swiginit(self,_controls_.new_FileCtrlEvent(*args, **kwargs))
+    def SetFiles(*args, **kwargs):
+        """SetFiles(self, wxArrayString files)"""
+        return _controls_.FileCtrlEvent_SetFiles(*args, **kwargs)
+
+    def SetDirectory(*args, **kwargs):
+        """SetDirectory(self, String directory)"""
+        return _controls_.FileCtrlEvent_SetDirectory(*args, **kwargs)
+
+    def GetFiles(*args, **kwargs):
+        """GetFiles(self) -> wxArrayString"""
+        return _controls_.FileCtrlEvent_GetFiles(*args, **kwargs)
+
+    def GetDirectory(*args, **kwargs):
+        """GetDirectory(self) -> String"""
+        return _controls_.FileCtrlEvent_GetDirectory(*args, **kwargs)
+
+    def GetFile(*args, **kwargs):
+        """GetFile(self) -> String"""
+        return _controls_.FileCtrlEvent_GetFile(*args, **kwargs)
+
+_controls_.FileCtrlEvent_swigregister(FileCtrlEvent)
+
+wxEVT_FILECTRL_SELECTIONCHANGED = _controls_.wxEVT_FILECTRL_SELECTIONCHANGED
+wxEVT_FILECTRL_FILEACTIVATED = _controls_.wxEVT_FILECTRL_FILEACTIVATED
+wxEVT_FILECTRL_FOLDERCHANGED = _controls_.wxEVT_FILECTRL_FOLDERCHANGED
+EVT_FILECTRL_SELECTIONCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_SELECTIONCHANGED, 1)
+EVT_FILECTRL_FILEACTIVATED = wx.PyEventBinder( wxEVT_FILECTRL_FILEACTIVATED, 1)
+EVT_FILECTRL_FOLDERCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_FOLDERCHANGED, 1)        
+
 
 

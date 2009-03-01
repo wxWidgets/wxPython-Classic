@@ -981,7 +981,7 @@ class RichTextParagraph(RichTextBox):
         return _richtext.RichTextParagraph_ClearLines(*args, **kwargs)
 
     def ApplyParagraphStyle(*args, **kwargs):
-        """ApplyParagraphStyle(self, TextAttr attr, Rect rect)"""
+        """ApplyParagraphStyle(self, TextAttr attr, Rect rect, DC ?)"""
         return _richtext.RichTextParagraph_ApplyParagraphStyle(*args, **kwargs)
 
     def InsertText(*args, **kwargs):
@@ -1854,6 +1854,8 @@ _richtext.RichTextStdRenderer_swigregister(RichTextStdRenderer)
 
 RE_READONLY = _richtext.RE_READONLY
 RE_MULTILINE = _richtext.RE_MULTILINE
+RE_CENTER_CARET = _richtext.RE_CENTER_CARET
+RE_CENTRE_CARET = _richtext.RE_CENTRE_CARET
 RICHTEXT_SHIFT_DOWN = _richtext.RICHTEXT_SHIFT_DOWN
 RICHTEXT_CTRL_DOWN = _richtext.RICHTEXT_CTRL_DOWN
 RICHTEXT_ALT_DOWN = _richtext.RICHTEXT_ALT_DOWN
@@ -2513,7 +2515,10 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
         """
         SetSelectionRange(self, RichTextRange range)
 
-        Set the selection range in character positions. -1, -1 means no selection.
+        Set the selection range in character positions. The end point of range
+        is specified as the last character position of the span of text, plus
+        one. So, for example, to set the selection for a character at position
+        5, use the range (5,6).
         """
         return _richtext.RichTextCtrl_SetSelectionRange(*args, **kwargs)
 
@@ -2521,9 +2526,8 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
         """
         GetInternalSelectionRange(self) -> RichTextRange
 
-        Get the selection range in character positions. -1, -1 means no
-        selection.  The range is in internal format, i.e. a single character
-        selection is denoted by (n, n).
+        Get the selection range in character positions. The range is in
+        internal format, i.e. a single character selection is denoted by (n,n).
 
         """
         return _richtext.RichTextCtrl_GetInternalSelectionRange(*args, **kwargs)
@@ -2532,9 +2536,8 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
         """
         SetInternalSelectionRange(self, RichTextRange range)
 
-        Set the selection range in character positions. -1, -1 means no
-        selection.  The range is in internal format, i.e. a single character
-        selection is denoted by (n, n).
+        Set the selection range in character positions. The range is in
+        internal format, i.e. a single character selection is denoted by (n,n).
         """
         return _richtext.RichTextCtrl_SetInternalSelectionRange(*args, **kwargs)
 

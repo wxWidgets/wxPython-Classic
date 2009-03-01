@@ -131,10 +131,6 @@ SB_HORIZONTAL = _core_.SB_HORIZONTAL
 SB_VERTICAL = _core_.SB_VERTICAL
 RB_USE_CHECKBOX = _core_.RB_USE_CHECKBOX
 ST_SIZEGRIP = _core_.ST_SIZEGRIP
-FLOOD_SURFACE = _core_.FLOOD_SURFACE
-FLOOD_BORDER = _core_.FLOOD_BORDER
-ODDEVEN_RULE = _core_.ODDEVEN_RULE
-WINDING_RULE = _core_.WINDING_RULE
 TOOL_TOP = _core_.TOOL_TOP
 TOOL_BOTTOM = _core_.TOOL_BOTTOM
 TOOL_LEFT = _core_.TOOL_LEFT
@@ -171,6 +167,7 @@ SIZE_AUTO = _core_.SIZE_AUTO
 SIZE_USE_EXISTING = _core_.SIZE_USE_EXISTING
 SIZE_ALLOW_MINUS_ONE = _core_.SIZE_ALLOW_MINUS_ONE
 SIZE_FORCE = _core_.SIZE_FORCE
+SIZE_FORCE_EVENT = _core_.SIZE_FORCE_EVENT
 PORTRAIT = _core_.PORTRAIT
 LANDSCAPE = _core_.LANDSCAPE
 PRINT_QUALITY_HIGH = _core_.PRINT_QUALITY_HIGH
@@ -295,6 +292,21 @@ ID_SORT_ASCENDING = _core_.ID_SORT_ASCENDING
 ID_SORT_DESCENDING = _core_.ID_SORT_DESCENDING
 ID_SPELL_CHECK = _core_.ID_SPELL_CHECK
 ID_STRIKETHROUGH = _core_.ID_STRIKETHROUGH
+ID_SYSTEM_MENU = _core_.ID_SYSTEM_MENU
+ID_CLOSE_FRAME = _core_.ID_CLOSE_FRAME
+ID_MOVE_FRAME = _core_.ID_MOVE_FRAME
+ID_RESIZE_FRAME = _core_.ID_RESIZE_FRAME
+ID_MAXIMIZE_FRAME = _core_.ID_MAXIMIZE_FRAME
+ID_ICONIZE_FRAME = _core_.ID_ICONIZE_FRAME
+ID_RESTORE_FRAME = _core_.ID_RESTORE_FRAME
+ID_MDI_WINDOW_FIRST = _core_.ID_MDI_WINDOW_FIRST
+ID_MDI_WINDOW_CASCADE = _core_.ID_MDI_WINDOW_CASCADE
+ID_MDI_WINDOW_TILE_HORZ = _core_.ID_MDI_WINDOW_TILE_HORZ
+ID_MDI_WINDOW_TILE_VERT = _core_.ID_MDI_WINDOW_TILE_VERT
+ID_MDI_WINDOW_ARRANGE_ICONS = _core_.ID_MDI_WINDOW_ARRANGE_ICONS
+ID_MDI_WINDOW_PREV = _core_.ID_MDI_WINDOW_PREV
+ID_MDI_WINDOW_NEXT = _core_.ID_MDI_WINDOW_NEXT
+ID_MDI_WINDOW_LAST = _core_.ID_MDI_WINDOW_LAST
 ID_FILEDLGG = _core_.ID_FILEDLGG
 ID_FILECTRL = _core_.ID_FILECTRL
 ID_HIGHEST = _core_.ID_HIGHEST
@@ -310,16 +322,6 @@ WS_EX_TRANSIENT = _core_.WS_EX_TRANSIENT
 WS_EX_THEMED_BACKGROUND = _core_.WS_EX_THEMED_BACKGROUND
 WS_EX_PROCESS_IDLE = _core_.WS_EX_PROCESS_IDLE
 WS_EX_PROCESS_UI_UPDATES = _core_.WS_EX_PROCESS_UI_UPDATES
-MM_TEXT = _core_.MM_TEXT
-MM_LOMETRIC = _core_.MM_LOMETRIC
-MM_HIMETRIC = _core_.MM_HIMETRIC
-MM_LOENGLISH = _core_.MM_LOENGLISH
-MM_HIENGLISH = _core_.MM_HIENGLISH
-MM_TWIPS = _core_.MM_TWIPS
-MM_ISOTROPIC = _core_.MM_ISOTROPIC
-MM_ANISOTROPIC = _core_.MM_ANISOTROPIC
-MM_POINTS = _core_.MM_POINTS
-MM_METRIC = _core_.MM_METRIC
 CENTRE = _core_.CENTRE
 CENTER = _core_.CENTER
 HORIZONTAL = _core_.HORIZONTAL
@@ -404,22 +406,6 @@ FDIAGONAL_HATCH = _core_.FDIAGONAL_HATCH
 CROSS_HATCH = _core_.CROSS_HATCH
 HORIZONTAL_HATCH = _core_.HORIZONTAL_HATCH
 VERTICAL_HATCH = _core_.VERTICAL_HATCH
-CLEAR = _core_.CLEAR
-XOR = _core_.XOR
-INVERT = _core_.INVERT
-OR_REVERSE = _core_.OR_REVERSE
-AND_REVERSE = _core_.AND_REVERSE
-COPY = _core_.COPY
-AND = _core_.AND
-AND_INVERT = _core_.AND_INVERT
-NO_OP = _core_.NO_OP
-NOR = _core_.NOR
-EQUIV = _core_.EQUIV
-SRC_INVERT = _core_.SRC_INVERT
-OR_INVERT = _core_.OR_INVERT
-NAND = _core_.NAND
-OR = _core_.OR
-SET = _core_.SET
 WXK_BACK = _core_.WXK_BACK
 WXK_TAB = _core_.WXK_TAB
 WXK_RETURN = _core_.WXK_RETURN
@@ -796,6 +782,8 @@ BITMAP_TYPE_MACCURSOR = _core_.BITMAP_TYPE_MACCURSOR
 BITMAP_TYPE_MAX = _core_.BITMAP_TYPE_MAX
 BITMAP_TYPE_ANY = _core_.BITMAP_TYPE_ANY
 BITMAP_DEFAULT_TYPE = _core_.BITMAP_DEFAULT_TYPE
+ODDEVEN_RULE = _core_.ODDEVEN_RULE
+WINDING_RULE = _core_.WINDING_RULE
 CURSOR_NONE = _core_.CURSOR_NONE
 CURSOR_ARROW = _core_.CURSOR_ARROW
 CURSOR_RIGHT_ARROW = _core_.CURSOR_RIGHT_ARROW
@@ -826,6 +814,8 @@ CURSOR_BLANK = _core_.CURSOR_BLANK
 CURSOR_DEFAULT = _core_.CURSOR_DEFAULT
 CURSOR_COPY_ARROW = _core_.CURSOR_COPY_ARROW
 CURSOR_ARROWWAIT = _core_.CURSOR_ARROWWAIT
+CURSOR_OPEN_HAND = _core_.CURSOR_OPEN_HAND
+CURSOR_CLOSED_HAND = _core_.CURSOR_CLOSED_HAND
 CURSOR_MAX = _core_.CURSOR_MAX
 #---------------------------------------------------------------------------
 
@@ -3204,6 +3194,14 @@ class Image(Object):
         """
         return _core_.Image_Size(*args, **kwargs)
 
+    def Clear(*args, **kwargs):
+        """
+        Clear(self, unsigned char value=0)
+
+        initialize the image data with zeroes
+        """
+        return _core_.Image_Clear(*args, **kwargs)
+
     def Copy(*args, **kwargs):
         """
         Copy(self) -> Image
@@ -3535,6 +3533,19 @@ class Image(Object):
 
     HSVtoRGB = staticmethod(HSVtoRGB)
     def __nonzero__(self): return self.IsOk() 
+    def AdjustChannels(*args, **kwargs):
+        """
+        AdjustChannels(self, double factor_red, double factor_green, double factor_blue, 
+            double factor_alpha=1.0) -> Image
+
+        This function muliplies all 4 channels (red, green, blue, alpha) with
+        a factor (around 1.0). Useful for gamma correction, colour correction
+        and to add a certain amount of transparency to a image (fade in fade
+        out effects). If factor_alpha is given but the original image has no
+        alpha channel then a alpha channel will be added.
+        """
+        return _core_.Image_AdjustChannels(*args, **kwargs)
+
     AlphaBuffer = property(GetAlphaBuffer,SetAlphaBuffer,doc="See `GetAlphaBuffer` and `SetAlphaBuffer`") 
     AlphaData = property(GetAlphaData,SetAlphaData,doc="See `GetAlphaData` and `SetAlphaData`") 
     Data = property(GetData,SetData,doc="See `GetData` and `SetData`") 
@@ -3766,6 +3777,8 @@ IMAGE_OPTION_RESOLUTIONX = cvar.IMAGE_OPTION_RESOLUTIONX
 IMAGE_OPTION_RESOLUTIONY = cvar.IMAGE_OPTION_RESOLUTIONY
 IMAGE_OPTION_RESOLUTIONUNIT = cvar.IMAGE_OPTION_RESOLUTIONUNIT
 IMAGE_OPTION_QUALITY = cvar.IMAGE_OPTION_QUALITY
+IMAGE_OPTION_MAX_WIDTH = cvar.IMAGE_OPTION_MAX_WIDTH
+IMAGE_OPTION_MAX_HEIGHT = cvar.IMAGE_OPTION_MAX_HEIGHT
 IMAGE_OPTION_BITSPERSAMPLE = cvar.IMAGE_OPTION_BITSPERSAMPLE
 IMAGE_OPTION_SAMPLESPERPIXEL = cvar.IMAGE_OPTION_SAMPLESPERPIXEL
 IMAGE_OPTION_COMPRESSION = cvar.IMAGE_OPTION_COMPRESSION
@@ -3981,6 +3994,14 @@ class EvtHandler(Object):
         """SetEvtHandlerEnabled(self, bool enabled)"""
         return _core_.EvtHandler_SetEvtHandlerEnabled(*args, **kwargs)
 
+    def Unlink(*args, **kwargs):
+        """Unlink(self)"""
+        return _core_.EvtHandler_Unlink(*args, **kwargs)
+
+    def IsUnlinked(*args, **kwargs):
+        """IsUnlinked(self) -> bool"""
+        return _core_.EvtHandler_IsUnlinked(*args, **kwargs)
+
     def ProcessEvent(*args, **kwargs):
         """ProcessEvent(self, Event event) -> bool"""
         return _core_.EvtHandler_ProcessEvent(*args, **kwargs)
@@ -4002,11 +4023,14 @@ class EvtHandler(Object):
         return _core_.EvtHandler_ProcessPendingEvents(*args, **kwargs)
 
     def Connect(*args, **kwargs):
-        """Connect(self, int id, int lastId, int eventType, PyObject func)"""
+        """Connect(self, int id, int lastId, EventType eventType, PyObject func)"""
         return _core_.EvtHandler_Connect(*args, **kwargs)
 
     def Disconnect(*args, **kwargs):
-        """Disconnect(self, int id, int lastId=-1, EventType eventType=wxEVT_NULL) -> bool"""
+        """
+        Disconnect(self, int id, int lastId=-1, EventType eventType=wxEVT_NULL, 
+            PyObject func=None) -> bool
+        """
         return _core_.EvtHandler_Disconnect(*args, **kwargs)
 
     def _setOORInfo(*args, **kwargs):
@@ -4045,14 +4069,14 @@ class EvtHandler(Object):
             id  = source.GetId()
         event.Bind(self, id, id2, handler)              
 
-    def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY):
+    def Unbind(self, event, source=None, id=wx.ID_ANY, id2=wx.ID_ANY, handler=None):
         """
         Disconnects the event handler binding for event from self.
         Returns True if successful.
         """
         if source is not None:
             id  = source.GetId()
-        return event.Unbind(self, id, id2)              
+        return event.Unbind(self, id, id2, handler)              
 
     EvtHandlerEnabled = property(GetEvtHandlerEnabled,SetEvtHandlerEnabled,doc="See `GetEvtHandlerEnabled` and `SetEvtHandlerEnabled`") 
     NextHandler = property(GetNextHandler,SetNextHandler,doc="See `GetNextHandler` and `SetNextHandler`") 
@@ -4120,11 +4144,11 @@ class PyEventBinder(object):
             target.Connect(id1, id2, et, function)
 
 
-    def Unbind(self, target, id1, id2):
+    def Unbind(self, target, id1, id2, handler=None):
         """Remove an event binding."""
         success = 0
         for et in self.evtType:
-            success += target.Disconnect(id1, id2, et)
+            success += target.Disconnect(id1, id2, et, handler)
         return success != 0
 
     def _getEvtType(self):
@@ -4176,6 +4200,15 @@ def EVT_COMMAND_RANGE(win, id1, id2, cmd, func):
 
 EVENT_PROPAGATE_NONE = _core_.EVENT_PROPAGATE_NONE
 EVENT_PROPAGATE_MAX = _core_.EVENT_PROPAGATE_MAX
+wxEVT_CATEGORY_UI = _core_.wxEVT_CATEGORY_UI
+wxEVT_CATEGORY_USER_INPUT = _core_.wxEVT_CATEGORY_USER_INPUT
+wxEVT_CATEGORY_SOCKET = _core_.wxEVT_CATEGORY_SOCKET
+wxEVT_CATEGORY_TIMER = _core_.wxEVT_CATEGORY_TIMER
+wxEVT_CATEGORY_THREAD = _core_.wxEVT_CATEGORY_THREAD
+wxEVT_CATEGORY_UNKNOWN = _core_.wxEVT_CATEGORY_UNKNOWN
+wxEVT_CATEGORY_CLIPBOARD = _core_.wxEVT_CATEGORY_CLIPBOARD
+wxEVT_CATEGORY_NATIVE_EVENTS = _core_.wxEVT_CATEGORY_NATIVE_EVENTS
+wxEVT_CATEGORY_ALL = _core_.wxEVT_CATEGORY_ALL
 
 def NewEventType(*args):
   """NewEventType() -> EventType"""
@@ -4201,6 +4234,7 @@ wxEVT_COMMAND_COMBOBOX_SELECTED = _core_.wxEVT_COMMAND_COMBOBOX_SELECTED
 wxEVT_COMMAND_TOOL_RCLICKED = _core_.wxEVT_COMMAND_TOOL_RCLICKED
 wxEVT_COMMAND_TOOL_ENTER = _core_.wxEVT_COMMAND_TOOL_ENTER
 wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED = _core_.wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED
+wxEVT_COMMAND_THREAD = _core_.wxEVT_COMMAND_THREAD
 wxEVT_LEFT_DOWN = _core_.wxEVT_LEFT_DOWN
 wxEVT_LEFT_UP = _core_.wxEVT_LEFT_UP
 wxEVT_MIDDLE_DOWN = _core_.wxEVT_MIDDLE_DOWN
@@ -4223,18 +4257,6 @@ wxEVT_AUX1_DCLICK = _core_.wxEVT_AUX1_DCLICK
 wxEVT_AUX2_DOWN = _core_.wxEVT_AUX2_DOWN
 wxEVT_AUX2_UP = _core_.wxEVT_AUX2_UP
 wxEVT_AUX2_DCLICK = _core_.wxEVT_AUX2_DCLICK
-wxEVT_NC_LEFT_DOWN = _core_.wxEVT_NC_LEFT_DOWN
-wxEVT_NC_LEFT_UP = _core_.wxEVT_NC_LEFT_UP
-wxEVT_NC_MIDDLE_DOWN = _core_.wxEVT_NC_MIDDLE_DOWN
-wxEVT_NC_MIDDLE_UP = _core_.wxEVT_NC_MIDDLE_UP
-wxEVT_NC_RIGHT_DOWN = _core_.wxEVT_NC_RIGHT_DOWN
-wxEVT_NC_RIGHT_UP = _core_.wxEVT_NC_RIGHT_UP
-wxEVT_NC_MOTION = _core_.wxEVT_NC_MOTION
-wxEVT_NC_ENTER_WINDOW = _core_.wxEVT_NC_ENTER_WINDOW
-wxEVT_NC_LEAVE_WINDOW = _core_.wxEVT_NC_LEAVE_WINDOW
-wxEVT_NC_LEFT_DCLICK = _core_.wxEVT_NC_LEFT_DCLICK
-wxEVT_NC_MIDDLE_DCLICK = _core_.wxEVT_NC_MIDDLE_DCLICK
-wxEVT_NC_RIGHT_DCLICK = _core_.wxEVT_NC_RIGHT_DCLICK
 wxEVT_CHAR = _core_.wxEVT_CHAR
 wxEVT_CHAR_HOOK = _core_.wxEVT_CHAR_HOOK
 wxEVT_NAVIGATION_KEY = _core_.wxEVT_NAVIGATION_KEY
@@ -4277,20 +4299,15 @@ wxEVT_MOUSE_CAPTURE_LOST = _core_.wxEVT_MOUSE_CAPTURE_LOST
 wxEVT_PAINT = _core_.wxEVT_PAINT
 wxEVT_ERASE_BACKGROUND = _core_.wxEVT_ERASE_BACKGROUND
 wxEVT_NC_PAINT = _core_.wxEVT_NC_PAINT
-wxEVT_PAINT_ICON = _core_.wxEVT_PAINT_ICON
 wxEVT_MENU_OPEN = _core_.wxEVT_MENU_OPEN
 wxEVT_MENU_CLOSE = _core_.wxEVT_MENU_CLOSE
 wxEVT_MENU_HIGHLIGHT = _core_.wxEVT_MENU_HIGHLIGHT
 wxEVT_CONTEXT_MENU = _core_.wxEVT_CONTEXT_MENU
 wxEVT_SYS_COLOUR_CHANGED = _core_.wxEVT_SYS_COLOUR_CHANGED
 wxEVT_DISPLAY_CHANGED = _core_.wxEVT_DISPLAY_CHANGED
-wxEVT_SETTING_CHANGED = _core_.wxEVT_SETTING_CHANGED
 wxEVT_QUERY_NEW_PALETTE = _core_.wxEVT_QUERY_NEW_PALETTE
 wxEVT_PALETTE_CHANGED = _core_.wxEVT_PALETTE_CHANGED
 wxEVT_DROP_FILES = _core_.wxEVT_DROP_FILES
-wxEVT_DRAW_ITEM = _core_.wxEVT_DRAW_ITEM
-wxEVT_MEASURE_ITEM = _core_.wxEVT_MEASURE_ITEM
-wxEVT_COMPARE_ITEM = _core_.wxEVT_COMPARE_ITEM
 wxEVT_INIT_DIALOG = _core_.wxEVT_INIT_DIALOG
 wxEVT_IDLE = _core_.wxEVT_IDLE
 wxEVT_UPDATE_UI = _core_.wxEVT_UPDATE_UI
@@ -4506,6 +4523,7 @@ EVT_TEXT_CUT   =  wx.PyEventBinder( wxEVT_COMMAND_TEXT_CUT )
 EVT_TEXT_COPY  =  wx.PyEventBinder( wxEVT_COMMAND_TEXT_COPY )
 EVT_TEXT_PASTE =  wx.PyEventBinder( wxEVT_COMMAND_TEXT_PASTE )
 
+EVT_THREAD = wx.PyEventBinder( wxEVT_COMMAND_THREAD )
 
 #---------------------------------------------------------------------------
 
@@ -4582,6 +4600,10 @@ class Event(Object):
         """
         return _core_.Event_SetId(*args, **kwargs)
 
+    def GetEventCategory(*args, **kwargs):
+        """GetEventCategory(self) -> int"""
+        return _core_.Event_GetEventCategory(*args, **kwargs)
+
     def IsCommandEvent(*args, **kwargs):
         """
         IsCommandEvent(self) -> bool
@@ -4643,6 +4665,10 @@ class Event(Object):
 
         """
         return _core_.Event_ResumePropagation(*args, **kwargs)
+
+    def WasProcessed(*args, **kwargs):
+        """WasProcessed(self) -> bool"""
+        return _core_.Event_WasProcessed(*args, **kwargs)
 
     def Clone(*args, **kwargs):
         """Clone(self) -> Event"""
@@ -4878,6 +4904,17 @@ class NotifyEvent(CommandEvent):
         return _core_.NotifyEvent_IsAllowed(*args, **kwargs)
 
 _core_.NotifyEvent_swigregister(NotifyEvent)
+
+#---------------------------------------------------------------------------
+
+class ThreadEvent(CommandEvent):
+    """Proxy of C++ ThreadEvent class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, EventType eventType=wxEVT_COMMAND_THREAD, int id=ID_ANY) -> ThreadEvent"""
+        _core_.ThreadEvent_swiginit(self,_core_.new_ThreadEvent(*args, **kwargs))
+_core_.ThreadEvent_swigregister(ThreadEvent)
 
 #---------------------------------------------------------------------------
 
@@ -5910,7 +5947,6 @@ class KeyEvent(Event,KeyboardState):
     m_x = property(_core_.KeyEvent_m_x_get, _core_.KeyEvent_m_x_set)
     m_y = property(_core_.KeyEvent_m_y_get, _core_.KeyEvent_m_y_set)
     m_keyCode = property(_core_.KeyEvent_m_keyCode_get, _core_.KeyEvent_m_keyCode_set)
-    m_scanCode = property(_core_.KeyEvent_m_scanCode_get, _core_.KeyEvent_m_scanCode_set)
     m_rawCode = property(_core_.KeyEvent_m_rawCode_get, _core_.KeyEvent_m_rawCode_set)
     m_rawFlags = property(_core_.KeyEvent_m_rawFlags_get, _core_.KeyEvent_m_rawFlags_set)
     KeyCode = property(GetKeyCode,doc="See `GetKeyCode`") 
@@ -7635,6 +7671,34 @@ class PyApp(EvtHandler):
         return _core_.PyApp_GetTraitsIfExists(*args, **kwargs)
 
     GetTraitsIfExists = staticmethod(GetTraitsIfExists)
+    def GetMainLoop(*args, **kwargs):
+        """
+        GetMainLoop(self) -> EventLoopBase
+
+        Returns the main event loop instance, i.e. the event loop which is started
+        by OnRun() and which dispatches all events sent from the native toolkit
+        to the application (except when new event loops are temporarily set-up).
+        The returned value maybe None. Put initialization code which needs a
+        non-None main event loop into OnEventLoopEnter().
+        """
+        return _core_.PyApp_GetMainLoop(*args, **kwargs)
+
+    def SuspendProcessingOfPendingEvents(*args, **kwargs):
+        """
+        SuspendProcessingOfPendingEvents(self)
+
+        Temporarily suspends the processing of pending events.
+        """
+        return _core_.PyApp_SuspendProcessingOfPendingEvents(*args, **kwargs)
+
+    def ResumeProcessingOfPendingEvents(*args, **kwargs):
+        """
+        ResumeProcessingOfPendingEvents(self)
+
+        Resume (after having been suspended) the processing of pending events.
+        """
+        return _core_.PyApp_ResumeProcessingOfPendingEvents(*args, **kwargs)
+
     def ProcessPendingEvents(*args, **kwargs):
         """
         ProcessPendingEvents(self)
@@ -7670,6 +7734,14 @@ class PyApp(EvtHandler):
 
         """
         return _core_.PyApp_Yield(*args, **kwargs)
+
+    def SafeYield(*args, **kwargs):
+        """SafeYield(self, Window win, bool onlyIfNeeded) -> bool"""
+        return _core_.PyApp_SafeYield(*args, **kwargs)
+
+    def SafeYieldFor(*args, **kwargs):
+        """SafeYieldFor(self, Window win, long eventsToProcess) -> bool"""
+        return _core_.PyApp_SafeYieldFor(*args, **kwargs)
 
     def WakeUpIdle(*args, **kwargs):
         """
@@ -8513,9 +8585,17 @@ class EventLoopBase(object):
         """IsOk(self) -> bool"""
         return _core_.EventLoopBase_IsOk(*args, **kwargs)
 
+    def IsMain(*args, **kwargs):
+        """IsMain(self) -> bool"""
+        return _core_.EventLoopBase_IsMain(*args, **kwargs)
+
     def Run(*args, **kwargs):
         """Run(self) -> int"""
         return _core_.EventLoopBase_Run(*args, **kwargs)
+
+    def IsRunning(*args, **kwargs):
+        """IsRunning(self) -> bool"""
+        return _core_.EventLoopBase_IsRunning(*args, **kwargs)
 
     def Exit(*args, **kwargs):
         """Exit(self, int rc=0)"""
@@ -8529,13 +8609,65 @@ class EventLoopBase(object):
         """Dispatch(self) -> bool"""
         return _core_.EventLoopBase_Dispatch(*args, **kwargs)
 
-    def IsRunning(*args, **kwargs):
-        """IsRunning(self) -> bool"""
-        return _core_.EventLoopBase_IsRunning(*args, **kwargs)
+    def DispatchTimeout(*args, **kwargs):
+        """DispatchTimeout(self, unsigned long timeout) -> int"""
+        return _core_.EventLoopBase_DispatchTimeout(*args, **kwargs)
 
     def WakeUp(*args, **kwargs):
         """WakeUp(self)"""
         return _core_.EventLoopBase_WakeUp(*args, **kwargs)
+
+    def ProcessPendingEvents(*args, **kwargs):
+        """ProcessPendingEvents(self)"""
+        return _core_.EventLoopBase_ProcessPendingEvents(*args, **kwargs)
+
+    def HasPendingEvents(*args, **kwargs):
+        """HasPendingEvents(self) -> bool"""
+        return _core_.EventLoopBase_HasPendingEvents(*args, **kwargs)
+
+    def SuspendProcessingOfPendingEvents(*args, **kwargs):
+        """SuspendProcessingOfPendingEvents(self)"""
+        return _core_.EventLoopBase_SuspendProcessingOfPendingEvents(*args, **kwargs)
+
+    def ResumeProcessingOfPendingEvents(*args, **kwargs):
+        """ResumeProcessingOfPendingEvents(self)"""
+        return _core_.EventLoopBase_ResumeProcessingOfPendingEvents(*args, **kwargs)
+
+    def RemovePendingEventHandler(*args, **kwargs):
+        """RemovePendingEventHandler(self, EvtHandler toRemove)"""
+        return _core_.EventLoopBase_RemovePendingEventHandler(*args, **kwargs)
+
+    def AppendPendingEventHandler(*args, **kwargs):
+        """AppendPendingEventHandler(self, EvtHandler toAppend)"""
+        return _core_.EventLoopBase_AppendPendingEventHandler(*args, **kwargs)
+
+    def DelayPendingEventHandler(*args, **kwargs):
+        """DelayPendingEventHandler(self, EvtHandler toDelay)"""
+        return _core_.EventLoopBase_DelayPendingEventHandler(*args, **kwargs)
+
+    def WakeUpIdle(*args, **kwargs):
+        """WakeUpIdle(self)"""
+        return _core_.EventLoopBase_WakeUpIdle(*args, **kwargs)
+
+    def ProcessIdle(*args, **kwargs):
+        """ProcessIdle(self) -> bool"""
+        return _core_.EventLoopBase_ProcessIdle(*args, **kwargs)
+
+    def Yield(*args, **kwargs):
+        """Yield(self, bool onlyIfNeeded=False) -> bool"""
+        return _core_.EventLoopBase_Yield(*args, **kwargs)
+
+    def YieldFor(*args, **kwargs):
+        """YieldFor(self, long eventsToProcess) -> bool"""
+        return _core_.EventLoopBase_YieldFor(*args, **kwargs)
+
+    def IsYielding(*args, **kwargs):
+        """IsYielding(self) -> bool"""
+        return _core_.EventLoopBase_IsYielding(*args, **kwargs)
+
+    def IsEventAllowedInsideYield(*args, **kwargs):
+        """IsEventAllowedInsideYield(self, int cat) -> bool"""
+        return _core_.EventLoopBase_IsEventAllowedInsideYield(*args, **kwargs)
 
     def GetActive(*args, **kwargs):
         """GetActive() -> EventLoopBase"""
@@ -10128,6 +10260,17 @@ class Window(EvtHandler):
         """
         return _core_.Window_RemoveEventHandler(*args, **kwargs)
 
+    def ProcessWindowEvent(*args, **kwargs):
+        """
+        ProcessWindowEvent(self, Event event) -> bool
+
+        Process an event by calling GetEventHandler().ProcessEvent(): this
+        is a straightforward replacement for ProcessEvent() itself which
+        shouldn't be used directly with windows as it doesn't take into
+        account any event handlers associated with the window
+        """
+        return _core_.Window_ProcessWindowEvent(*args, **kwargs)
+
     def HandleWindowEvent(*args, **kwargs):
         """
         HandleWindowEvent(self, Event event) -> bool
@@ -11114,7 +11257,6 @@ class Window(EvtHandler):
         DragAcceptFiles(self, bool accept)
 
         Enables or disables eligibility for drop file events, EVT_DROP_FILES.
-        Only functional on Windows.
         """
         return _core_.Window_DragAcceptFiles(*args, **kwargs)
 
@@ -12286,6 +12428,12 @@ def MenuItem_GetDefaultMarginWidth(*args):
 
 #---------------------------------------------------------------------------
 
+ELLIPSIZE_PROCESS_MNEMONICS = _core_.ELLIPSIZE_PROCESS_MNEMONICS
+ELLIPSIZE_EXPAND_TAB = _core_.ELLIPSIZE_EXPAND_TAB
+ELLIPSIZE_DEFAULT_FLAGS = _core_.ELLIPSIZE_DEFAULT_FLAGS
+ELLIPSIZE_START = _core_.ELLIPSIZE_START
+ELLIPSIZE_MIDDLE = _core_.ELLIPSIZE_MIDDLE
+ELLIPSIZE_END = _core_.ELLIPSIZE_END
 class Control(Window):
     """
     This is the base class for a control or 'widget'.
@@ -12333,6 +12481,10 @@ class Control(Window):
         """
         return _core_.Control_GetLabelText(*args, **kwargs)
 
+    def SetLabelText(*args, **kwargs):
+        """SetLabelText(self, String text)"""
+        return _core_.Control_SetLabelText(*args, **kwargs)
+
     def Command(*args, **kwargs):
         """
         Command(self, CommandEvent event)
@@ -12362,6 +12514,16 @@ class Control(Window):
         return _core_.Control_FindAccelIndex(*args, **kwargs)
 
     FindAccelIndex = staticmethod(FindAccelIndex)
+    def Ellipsize(*args, **kwargs):
+        """Ellipsize(String label, DC dc, int mode, int maxWidth, int flags=ELLIPSIZE_DEFAULT_FLAGS) -> String"""
+        return _core_.Control_Ellipsize(*args, **kwargs)
+
+    Ellipsize = staticmethod(Ellipsize)
+    def EscapeMnemonics(*args, **kwargs):
+        """EscapeMnemonics(String str) -> String"""
+        return _core_.Control_EscapeMnemonics(*args, **kwargs)
+
+    EscapeMnemonics = staticmethod(EscapeMnemonics)
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -12381,7 +12543,7 @@ class Control(Window):
 
     GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
     Alignment = property(GetAlignment,doc="See `GetAlignment`") 
-    LabelText = property(GetLabelText,doc="See `GetLabelText`") 
+    LabelText = property(GetLabelText,SetLabelText,doc="See `GetLabelText`") 
 _core_.Control_swigregister(Control)
 ControlNameStr = cvar.ControlNameStr
 
@@ -12409,6 +12571,14 @@ def Control_FindAccelIndex(*args, **kwargs):
     Return the accel index in the string or -1 if none.
     """
   return _core_.Control_FindAccelIndex(*args, **kwargs)
+
+def Control_Ellipsize(*args, **kwargs):
+  """Control_Ellipsize(String label, DC dc, int mode, int maxWidth, int flags=ELLIPSIZE_DEFAULT_FLAGS) -> String"""
+  return _core_.Control_Ellipsize(*args, **kwargs)
+
+def Control_EscapeMnemonics(*args, **kwargs):
+  """Control_EscapeMnemonics(String str) -> String"""
+  return _core_.Control_EscapeMnemonics(*args, **kwargs)
 
 def Control_GetClassDefaultAttributes(*args, **kwargs):
   """
@@ -14043,6 +14213,14 @@ class Sizer(Object):
         """
         return _core_.Sizer_SetDimension(*args)
 
+    def GetItemCount(*args, **kwargs):
+        """GetItemCount(self) -> size_t"""
+        return _core_.Sizer_GetItemCount(*args, **kwargs)
+
+    def IsEmpty(*args, **kwargs):
+        """IsEmpty(self) -> bool"""
+        return _core_.Sizer_IsEmpty(*args, **kwargs)
+
     def SetMinSize(*args, **kwargs):
         """
         SetMinSize(self, Size size)
@@ -14471,7 +14649,7 @@ class GridSizer(Sizer):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, int rows=1, int cols=0, int vgap=0, int hgap=0) -> GridSizer
+        __init__(self, int rows=0, int cols=0, int vgap=0, int hgap=0) -> GridSizer
 
         Constructor for a wx.GridSizer. *rows* and *cols* determine the number
         of columns and rows in the sizer - if either of the parameters is
@@ -14481,6 +14659,8 @@ class GridSizer(Sizer):
         """
         _core_.GridSizer_swiginit(self,_core_.new_GridSizer(*args, **kwargs))
         self._setOORInfo(self)
+        if self.Rows == 0 and self.Cols == 0:
+            self.Rows = 1
 
     def SetCols(*args, **kwargs):
         """
@@ -14596,7 +14776,7 @@ class FlexGridSizer(GridSizer):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, int rows=1, int cols=0, int vgap=0, int hgap=0) -> FlexGridSizer
+        __init__(self, int rows=0, int cols=0, int vgap=0, int hgap=0) -> FlexGridSizer
 
         Constructor for a wx.FlexGridSizer. *rows* and *cols* determine the
         number of columns and rows in the sizer - if either of the parameters
@@ -14606,6 +14786,8 @@ class FlexGridSizer(GridSizer):
         """
         _core_.FlexGridSizer_swiginit(self,_core_.new_FlexGridSizer(*args, **kwargs))
         self._setOORInfo(self)
+        if self.Rows == 0 and self.Cols == 0:
+            self.Rows = 1
 
     def AddGrowableRow(*args, **kwargs):
         """

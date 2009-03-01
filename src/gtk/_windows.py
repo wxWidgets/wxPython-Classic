@@ -132,6 +132,9 @@ def Panel_GetClassDefaultAttributes(*args, **kwargs):
 
 #---------------------------------------------------------------------------
 
+SHOW_SB_NEVER = _windows_.SHOW_SB_NEVER
+SHOW_SB_DEFAULT = _windows_.SHOW_SB_DEFAULT
+SHOW_SB_ALWAYS = _windows_.SHOW_SB_ALWAYS
 class ScrollHelper(object):
     """Proxy of C++ ScrollHelper class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -146,9 +149,12 @@ class ScrollHelper(object):
         """
         return _windows_.ScrollHelper_SetScrollbars(*args, **kwargs)
 
-    def Scroll(*args, **kwargs):
-        """Scroll(self, int x, int y)"""
-        return _windows_.ScrollHelper_Scroll(*args, **kwargs)
+    def Scroll(*args):
+        """
+        Scroll(self, int x, int y)
+        Scroll(self, Point pt)
+        """
+        return _windows_.ScrollHelper_Scroll(*args)
 
     def GetScrollPageSize(*args, **kwargs):
         """GetScrollPageSize(self, int orient) -> int"""
@@ -174,13 +180,17 @@ class ScrollHelper(object):
         """
         return _windows_.ScrollHelper_GetScrollPixelsPerUnit(*args, **kwargs)
 
+    def ShowScrollbars(*args, **kwargs):
+        """ShowScrollbars(self, int horz, int vert)"""
+        return _windows_.ScrollHelper_ShowScrollbars(*args, **kwargs)
+
     def EnableScrolling(*args, **kwargs):
         """EnableScrolling(self, bool x_scrolling, bool y_scrolling)"""
         return _windows_.ScrollHelper_EnableScrolling(*args, **kwargs)
 
     def GetViewStart(*args, **kwargs):
         """
-        GetViewStart() -> (x,y)
+        GetViewStart(self) -> Point
 
         Get the view start
         """
@@ -1065,6 +1075,18 @@ _windows_.SplashScreen_swigregister(SplashScreen)
 SB_NORMAL = _windows_.SB_NORMAL
 SB_FLAT = _windows_.SB_FLAT
 SB_RAISED = _windows_.SB_RAISED
+class StatusBarPane(object):
+    """Proxy of C++ StatusBarPane class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, int style=SB_NORMAL, size_t width=0) -> StatusBarPane"""
+        _windows_.StatusBarPane_swiginit(self,_windows_.new_StatusBarPane(*args, **kwargs))
+    nStyle = property(_windows_.StatusBarPane_nStyle_get, _windows_.StatusBarPane_nStyle_set)
+    nWidth = property(_windows_.StatusBarPane_nWidth_get, _windows_.StatusBarPane_nWidth_set)
+    arrStack = property(_windows_.StatusBarPane_arrStack_get, _windows_.StatusBarPane_arrStack_set)
+_windows_.StatusBarPane_swigregister(StatusBarPane)
+
 class StatusBar(_core.Window):
     """Proxy of C++ StatusBar class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -2857,7 +2879,7 @@ class ColourDialog(Dialog):
         """
         GetColourData(self) -> ColourData
 
-        Returns a reference to the `wx.ColourData` used by the dialog.
+        Returns a copy of the `wx.ColourData` used by the dialog.
         """
         return _windows_.ColourDialog_GetColourData(*args, **kwargs)
 
@@ -2959,7 +2981,7 @@ class FileDialog(Dialog):
             String defaultDir=EmptyString, String defaultFile=EmptyString, 
             String wildcard=FileSelectorDefaultWildcardStr, 
             long style=FD_DEFAULT_STYLE, 
-            Point pos=DefaultPosition) -> FileDialog
+            Point pos=DefaultPosition, Size size=DefaultSize) -> FileDialog
 
         Constructor.  Use ShowModal method to show the dialog.
         """
@@ -3550,6 +3572,21 @@ class ProgressDialog(Dialog):
         """
         return _windows_.ProgressDialog_Resume(*args, **kwargs)
 
+    def GetValue(*args, **kwargs):
+        """GetValue(self) -> int"""
+        return _windows_.ProgressDialog_GetValue(*args, **kwargs)
+
+    def GetRange(*args, **kwargs):
+        """GetRange(self) -> int"""
+        return _windows_.ProgressDialog_GetRange(*args, **kwargs)
+
+    def GetMessage(*args, **kwargs):
+        """GetMessage(self) -> String"""
+        return _windows_.ProgressDialog_GetMessage(*args, **kwargs)
+
+    Value = property(GetValue) 
+    Range = property(GetRange) 
+    Message = property(GetMessage) 
 _windows_.ProgressDialog_swigregister(ProgressDialog)
 
 FR_DOWN = _windows_.FR_DOWN
@@ -3885,13 +3922,11 @@ class MDIClientWindow(_core.Window):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, MDIParentFrame parent, long style=0) -> MDIClientWindow"""
+        """__init__(self) -> MDIClientWindow"""
         _windows_.MDIClientWindow_swiginit(self,_windows_.new_MDIClientWindow(*args, **kwargs))
-        self._setOORInfo(self)
-
-    def Create(*args, **kwargs):
-        """Create(self, MDIParentFrame parent, long style=0) -> bool"""
-        return _windows_.MDIClientWindow_Create(*args, **kwargs)
+    def CreateClient(*args, **kwargs):
+        """CreateClient(self, MDIParentFrame parent, long style=wxVSCROLL|wxHSCROLL) -> bool"""
+        return _windows_.MDIClientWindow_CreateClient(*args, **kwargs)
 
 _windows_.MDIClientWindow_swigregister(MDIClientWindow)
 
@@ -4046,6 +4081,11 @@ class PyWindow(_core.Window):
         return PyWindow.GetMaxSize(*args, **kw)
     base_GetMaxSize = wx._deprecated(base_GetMaxSize,
                                    "Please use PyWindow.GetMaxSize instead.")
+
+    def base_Enable(*args, **kw):
+        return PyWindow.Enable(*args, **kw)
+    base_Enable = wx._deprecated(base_Enable,
+                                   "Please use PyWindow.Enable instead.")
 
     def base_AddChild(*args, **kw):
         return PyWindow.AddChild(*args, **kw)
@@ -4225,6 +4265,11 @@ class PyPanel(Panel):
     base_GetMaxSize = wx._deprecated(base_GetMaxSize,
                                    "Please use PyPanel.GetMaxSize instead.")
 
+    def base_Enable(*args, **kw):
+        return PyPanel.Enable(*args, **kw)
+    base_Enable = wx._deprecated(base_Enable,
+                                   "Please use PyPanel.Enable instead.")
+
     def base_AddChild(*args, **kw):
         return PyPanel.AddChild(*args, **kw)
     base_AddChild = wx._deprecated(base_AddChild,
@@ -4402,6 +4447,11 @@ class PyScrolledWindow(ScrolledWindow):
         return PyScrolledWindow.GetMaxSize(*args, **kw)
     base_GetMaxSize = wx._deprecated(base_GetMaxSize,
                                    "Please use PyScrolledWindow.GetMaxSize instead.")
+
+    def base_Enable(*args, **kw):
+        return PyScrolledWindow.Enable(*args, **kw)
+    base_Enable = wx._deprecated(base_Enable,
+                                   "Please use PyScrolledWindow.Enable instead.")
 
     def base_AddChild(*args, **kw):
         return PyScrolledWindow.AddChild(*args, **kw)

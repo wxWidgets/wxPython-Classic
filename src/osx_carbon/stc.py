@@ -3118,14 +3118,6 @@ class StyledTextCtrl(_core.Control,_core.TextEntryBase,_core.TextAreaBase):
         """
         return _stc.StyledTextCtrl_SetReadOnly(*args, **kwargs)
 
-    def CanPaste(*args, **kwargs):
-        """
-        CanPaste(self) -> bool
-
-        Will a paste succeed?
-        """
-        return _stc.StyledTextCtrl_CanPaste(*args, **kwargs)
-
     def EmptyUndoBuffer(*args, **kwargs):
         """
         EmptyUndoBuffer(self)

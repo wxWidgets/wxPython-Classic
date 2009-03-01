@@ -101,6 +101,7 @@ SYS_COLOUR_GRADIENTACTIVECAPTION = _misc_.SYS_COLOUR_GRADIENTACTIVECAPTION
 SYS_COLOUR_GRADIENTINACTIVECAPTION = _misc_.SYS_COLOUR_GRADIENTINACTIVECAPTION
 SYS_COLOUR_MENUHILIGHT = _misc_.SYS_COLOUR_MENUHILIGHT
 SYS_COLOUR_MENUBAR = _misc_.SYS_COLOUR_MENUBAR
+SYS_COLOUR_LISTBOXTEXT = _misc_.SYS_COLOUR_LISTBOXTEXT
 SYS_COLOUR_MAX = _misc_.SYS_COLOUR_MAX
 SYS_MOUSE_BUTTONS = _misc_.SYS_MOUSE_BUTTONS
 SYS_BORDER_X = _misc_.SYS_BORDER_X
@@ -5711,6 +5712,10 @@ class Clipboard(_core.Object):
         """
         return _misc_.Clipboard_IsSupported(*args, **kwargs)
 
+    def IsSupportedAsync(*args, **kwargs):
+        """IsSupportedAsync(self, EvtHandler sink) -> bool"""
+        return _misc_.Clipboard_IsSupportedAsync(*args, **kwargs)
+
     def GetData(*args, **kwargs):
         """
         GetData(self, DataObject data) -> bool
@@ -5825,6 +5830,26 @@ class ClipboardLocker(object):
         return _misc_.ClipboardLocker___nonzero__(*args, **kwargs)
 
 _misc_.ClipboardLocker_swigregister(ClipboardLocker)
+
+class ClipboardEvent(_core.Event):
+    """Proxy of C++ ClipboardEvent class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, EventType evtType=wxEVT_NULL) -> ClipboardEvent"""
+        _misc_.ClipboardEvent_swiginit(self,_misc_.new_ClipboardEvent(*args, **kwargs))
+    def SupportsFormat(*args, **kwargs):
+        """SupportsFormat(self, DataFormat format) -> bool"""
+        return _misc_.ClipboardEvent_SupportsFormat(*args, **kwargs)
+
+    def AddFormat(*args, **kwargs):
+        """AddFormat(self, DataFormat format)"""
+        return _misc_.ClipboardEvent_AddFormat(*args, **kwargs)
+
+_misc_.ClipboardEvent_swigregister(ClipboardEvent)
+
+wxEVT_CLIPBOARD_CHANGED = _misc_.wxEVT_CLIPBOARD_CHANGED
+EVT_CLIPBOARD_CHANGED = wx.PyEventBinder( wxEVT_CLIPBOARD_CHANGED )
 
 #---------------------------------------------------------------------------
 
@@ -6252,6 +6277,17 @@ class StandardPaths(object):
         $HOME under Unix and ~/Documents under Mac
         """
         return _misc_.StandardPaths_GetDocumentsDir(*args, **kwargs)
+
+    def GetAppDocumentsDir(*args, **kwargs):
+        """
+        GetAppDocumentsDir(self) -> String
+
+        Return the directory for the documents files used by this application:
+        it's a subdirectory of GetDocumentsDir() constructed using the
+        application name/vendor if it exists or just GetDocumentsDir()
+        otherwise.
+        """
+        return _misc_.StandardPaths_GetAppDocumentsDir(*args, **kwargs)
 
     def GetTempDir(*args, **kwargs):
         """
@@ -6752,6 +6788,10 @@ class AboutDialogInfo(object):
     def GetDescriptionAndCredits(*args, **kwargs):
         """GetDescriptionAndCredits(self) -> String"""
         return _misc_.AboutDialogInfo_GetDescriptionAndCredits(*args, **kwargs)
+
+    def GetCopyrightToDisplay(*args, **kwargs):
+        """GetCopyrightToDisplay(self) -> String"""
+        return _misc_.AboutDialogInfo_GetCopyrightToDisplay(*args, **kwargs)
 
 _misc_.AboutDialogInfo_swigregister(AboutDialogInfo)
 
