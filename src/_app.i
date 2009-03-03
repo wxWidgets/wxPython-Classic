@@ -165,7 +165,18 @@ during each event loop iteration.", "");
     DocDeclStr(
         bool , HasPendingEvents() const,
         "Check if there are pending events on global pending event list", "");
-    
+
+        // called by ~wxEvtHandler to (eventually) remove the handler from the list of
+        // the handlers with pending events
+        void RemovePendingEventHandler(wxEvtHandler* toRemove);
+
+        // adds an event handler to the list of the handlers with pending events
+        void AppendPendingEventHandler(wxEvtHandler* toAppend);
+
+        // moves the event handler from the list of the handlers with pending events
+        //to the list of the handlers with _delayed_ pending events
+        void DelayPendingEventHandler(wxEvtHandler* toDelay);
+
 
     DocDeclStr(
         virtual bool, Yield(bool onlyIfNeeded = false),

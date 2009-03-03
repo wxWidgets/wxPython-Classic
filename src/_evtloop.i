@@ -60,35 +60,6 @@ public:
     // to it (can be called from non main thread)
     virtual void WakeUp();
 
-
-    // process all events in the wxHandlersWithPendingEvents list -- it is necessary
-    // to call this function to process posted events. This happens during each
-    // event loop iteration in GUI mode but if there is no main loop, it may be
-    // also called directly.
-    virtual void ProcessPendingEvents();
-
-    // check if there are pending events on global pending event list
-    bool HasPendingEvents() const;
-
-    // temporary suspends processing of the pending events
-    void SuspendProcessingOfPendingEvents();
-
-    // resume processing of the pending events previously stopped because of a
-    // call to SuspendProcessingOfPendingEvents()
-    void ResumeProcessingOfPendingEvents();
-
-    // called by ~wxEvtHandler to (eventually) remove the handler from the list of
-    // the handlers with pending events
-    void RemovePendingEventHandler(wxEvtHandler* toRemove);
-
-    // adds an event handler to the list of the handlers with pending events
-    void AppendPendingEventHandler(wxEvtHandler* toAppend);
-
-    // moves the event handler from the list of the handlers with pending events
-    //to the list of the handlers with _delayed_ pending events
-    void DelayPendingEventHandler(wxEvtHandler* toDelay);
-
-
     // idle handling
     // -------------
 
