@@ -48,6 +48,8 @@ options, arguments = parser.parse_args()
 
 if sys.argv[1:] == old_options:
     options_changed = False
+else:
+    print "old_options %r\nsys.argv = %r" % (old_options, sys.argv[1:]) 
 
 cache_file = open("build-options.cache", "wb")
 cPickle.dump(sys.argv[1:], cache_file)
@@ -204,7 +206,7 @@ if not sys.platform.startswith("win"):
         install_dir = WXPY_INSTALL_DIR
         if options.wxpy_install_dir != "":
             install_dir = options.wxpy_install_dir
-        build_mode = "install --install-headers=%s/include --root=%s --install-platlib=wxPython --install-scripts=wxPython --install-purelib=wxPython" % (install_dir, install_dir)
+        build_mode = "install --prefix=%s" % (os.path.join(install_dir, "wxPython"))
 
 os.chdir(scriptDir)
 command = sys.executable + " ./setup.py %s %s" % \
