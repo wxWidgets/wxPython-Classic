@@ -90,6 +90,7 @@ _treeList = [
         'DVC_IndexListModel',
         'Cairo',
         'Cairo_Snippets',
+        'SystemSettings'
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -313,6 +314,7 @@ _treeList = [
         'ShapedWindow',
         'Sound',
         'StandardPaths',
+        'SystemSettings',
         'Unicode',
         ]),
 
