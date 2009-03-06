@@ -469,7 +469,9 @@ class InspectionTree(TreeBaseClass):
         # Add any children not in the sizer, or all children if we're
         # not showing the sizers
         for child in widget.GetChildren():
-            if not child in widgetsInSizer and not child.IsTopLevel():
+            if (not child in widgetsInSizer and
+                (not child.IsTopLevel() or
+                 isinstance(child, wx.PopupWindow))):
                 self._AddWidget(item, child, includeSizers)
 
         return item
