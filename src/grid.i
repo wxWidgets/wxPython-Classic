@@ -753,7 +753,8 @@ public:
                         wxWindowID id,
                         wxEvtHandler* evtHandler);
     virtual void BeginEdit(int row, int col, wxGrid* grid);
-    virtual bool EndEdit(const wxString& oldval, wxString *newval);
+    virtual bool EndEdit(int row, int col, const wxGrid *grid,
+                         const wxString& oldval, wxString *newval);
     virtual void ApplyEdit(int row, int col, wxGrid* grid);
     virtual void Reset();
     virtual wxGridCellEditor *Clone() const;
@@ -808,13 +809,15 @@ public:
     }
 
     
-    bool EndEdit(const wxString& oldval, wxString *newval)  {
+    bool EndEdit(int row, int col, const wxGrid *grid,
+                 const wxString& oldval, wxString *newval)  {
         bool rv = false;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if (wxPyCBH_findCallback(m_myInst, "EndEdit")) {
+            PyObject* go = wxPyMake_wxObject((wxObject*)grid,false);
             PyObject* oval = wx2PyString(oldval);
             PyObject* ro;
-            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(O)", oval));
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(iiOO)", row, col, go, oval));
             if (ro) {
                 if (ro == Py_None) {
                     rv = false;
@@ -826,6 +829,7 @@ public:
                 Py_DECREF(ro);
             }
             Py_DECREF(oval);
+            Py_DECREF(go);
         }
         wxPyEndBlockThreads(blocked);
         return rv;

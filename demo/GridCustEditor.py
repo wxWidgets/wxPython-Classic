@@ -78,7 +78,7 @@ class MyCellEditor(gridlib.PyGridCellEditor):
         self._tc.SetSelection(0, self._tc.GetLastPosition())
 
 
-    def EndEdit(self, oldVal):
+    def EndEdit(self, row, col, grid, oldVal):
         """
         End editing the cell.  This function must check if the current
         value of the editing control is valid and different from the
