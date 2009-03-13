@@ -451,10 +451,8 @@ void wxPyApp::_BootstrapApp()
     PyObject*   retval = NULL;
     PyObject*   pyint  = NULL;
 
-
     // Only initialize wxWidgets once
     if (! haveInitialized) {
-
         // Get any command-line args passed to this program from the sys module
         int    argc = 0;
         char** argv = NULL;
@@ -477,6 +475,9 @@ void wxPyApp::_BootstrapApp()
         wxPyEndBlockThreads(blocked);
 
         // Initialize wxWidgets
+#ifdef __WXOSX__
+        wxMacAutoreleasePool autoreleasePool;
+#endif
         result = wxEntryStart(argc, argv);
         // wxApp takes ownership of the argv array, don't delete it here
 
@@ -513,6 +514,9 @@ void wxPyApp::_BootstrapApp()
     // Call the Python wxApp's OnPreInit and OnInit functions
     blocked = wxPyBeginBlockThreads();
     if (wxPyCBH_findCallback(m_myInst, "OnPreInit")) {
+#ifdef __WXOSX__
+        wxMacAutoreleasePool autoreleasePool;
+#endif
         PyObject* method = m_myInst.GetLastFound();
         PyObject* argTuple = PyTuple_New(0);
         retval = PyEval_CallObject(method, argTuple);
@@ -523,6 +527,9 @@ void wxPyApp::_BootstrapApp()
             goto error;
     }
     if (wxPyCBH_findCallback(m_myInst, "OnInit")) {
+#ifdef __WXOSX__
+        wxMacAutoreleasePool autoreleasePool;
+#endif
         PyObject* method = m_myInst.GetLastFound();
         PyObject* argTuple = PyTuple_New(0);
         retval = PyEval_CallObject(method, argTuple);
