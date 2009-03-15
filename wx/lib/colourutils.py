@@ -1,14 +1,24 @@
 """
-Some useful colour-realted utility functions
+Some useful colour-realted utility functions.
+
 """
+
+__author__ = "Cody Precord <cprecord@editra.org>"
+__svnid__ = "$Id:  $"
+__revision__ = "$Revision:  $"
 
 import wx
 
 # Used on OSX to get access to carbon api constants
 if wx.Platform == '__WXMAC__':
-    import Carbon.Appearance
+    try:
+        import Carbon.Appearance
+    except ImportError:
+        CARBON = False
+    else:
+        CARBON = True
 
-
+#-----------------------------------------------------------------------------#
 
 def AdjustAlpha(colour, alpha):
     """Adjust the alpha of a given colour"""
@@ -56,17 +66,21 @@ def BestLabelColour(color):
         txt_color = AdjustColour(color, 95)
     return txt_color
 
-
 def GetHighlightColour():
     """Get the default highlight color
-    @return: wx.Color
+    @return: wx.Colour
 
     """
     if wx.Platform == '__WXMAC__':
-        brush = wx.Brush(wx.BLACK)
-        # kThemeBrushButtonPressedLightHighlight
-        brush.MacSetTheme(Carbon.Appearance.kThemeBrushFocusHighlight)
-        return brush.GetColour()
-    else:
-        return wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHT)
+        if CARBON:
+            if wx.VERSION < (2, 9, 0, 0, ''):
+                # kThemeBrushButtonPressedLightHighlight
+                brush = wx.Brush(wx.BLACK)
+                brush.MacSetTheme(Carbon.Appearance.kThemeBrushFocusHighlight)
+                return brush.GetColour()
+            else:
+                color = wx.MacThemeColour(Carbon.Appearance.kThemeBrushFocusHighlight)
+                return color
 
+    # Fallback to text highlight color
+    return wx.SystemSettings.GetColour(wx.SYS_COLOUR_HIGHLIGHT)

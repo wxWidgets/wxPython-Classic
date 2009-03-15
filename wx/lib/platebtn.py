@@ -40,6 +40,10 @@ window that has a non solid color for a background. i.e a gradient or image is
 painted on the background of the parent window. If used on a background with
 a solid color it may cause the control to loose its transparent appearance.
 
+PB_STYLE_DROPARROW:
+Add a drop button arrow to the button that will send a separate event when
+clicked on.
+
 Other attributes can be configured after the control has been created. The
 settings that are currently available are as follows:
 
@@ -75,7 +79,8 @@ __revision__ = "$Revision: 57713 $"
 __all__ = ["PlateButton", "AdjustAlpha", "AdjustColor", "GetHighlightColor",
            "PLATE_NORMAL", "PLATE_PRESSED", "PLATE_HIGHLIGHT", 
            "PB_STYLE_DEFAULT", "PB_STYLE_GRADIENT", "PB_STYLE_SQUARE",
-           "PB_STYLE_NOBG" ]
+           "PB_STYLE_NOBG", "PB_STYLE_DROPARROW",
+           "EVT_PLATEBTN_DROPARROW_PRESSED"]
 
 #-----------------------------------------------------------------------------#
 # Imports
