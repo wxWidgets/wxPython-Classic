@@ -147,7 +147,12 @@ bool wxPyApp::OnInit() {
 int  wxPyApp::MainLoop() {
     int retval = 0;
 
-    DeletePendingObjects();
+    {
+#ifdef __WXOSX__
+        wxMacAutoreleasePool autoreleasePool;
+#endif
+        DeletePendingObjects();
+    }
     bool initialized = wxTopLevelWindows.GetCount() != 0;
     if (initialized) {
         if ( m_exitOnFrameDelete == Later ) {
