@@ -237,6 +237,10 @@ public:
     void SetAlign(int a);
     wxColour GetLinkColor();
     void SetLinkColor(const wxColour& clr);
+    %pythoncode {
+        GetLinkColour = GetLinkColor
+        SetLinkColour = SetLinkColor
+    }
     wxColour GetActualColor();
     void SetActualColor(const wxColour& clr);
     %pythoncode {
@@ -261,6 +265,7 @@ public:
     %property(FontUnderlined, GetFontUnderlined, SetFontUnderlined, doc="See `GetFontUnderlined` and `SetFontUnderlined`");
     %property(Link, GetLink, SetLink, doc="See `GetLink` and `SetLink`");
     %property(LinkColor, GetLinkColor, SetLinkColor, doc="See `GetLinkColor` and `SetLinkColor`");
+    %property(LinkColour, GetLinkColour, SetLinkColour, doc="See `GetLinkColour` and `SetLinkColour`");
     %property(WindowInterface, GetWindowInterface, doc="See `GetWindowInterface`");
 };
 
