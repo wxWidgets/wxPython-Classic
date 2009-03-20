@@ -159,6 +159,7 @@ class FileBrowseButton(wx.Panel):
             directory = directory [0]
         else:
             directory = self.startDirectory
+            current = ''
         dlg = wx.FileDialog(self, self.dialogTitle, directory, current,
                             self.fileMask, self.fileMode)
 
