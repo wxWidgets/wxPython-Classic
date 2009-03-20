@@ -112,7 +112,8 @@ _treeList = [
         'ResizeWidget',
         'Cairo',
         'Cairo_Snippets',
-        'SystemSettings'
+        'SystemSettings',
+        'GridLabelRenderer',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -160,6 +161,7 @@ _treeList = [
         'Gauge',
         'Grid',
         'Grid_MegaExample',
+        'GridLabelRenderer',
         'ListBox',
         'ListCtrl',
         'ListCtrl_virtual',

@@ -1,6 +1,22 @@
 Recent Changes for wxPython
 =====================================================================
 
+
+2.8.10.0
+--------
+*
+
+wx.grid.Grid:  Added methods CalcRowLabelsExposed,
+CalcColLabelsExposed, CalcCellsExposed, DrawRowLabels, DrawRowLabel,
+DrawColLabels, and DrawColLabel.
+
+Added the wx.lib.mixins.gridlabelrenderer module.  It enables the use
+of label renderers for Grids that work like the cell renderers do.  See
+the demo for a simple sample.
+
+
+
+
 2.8.9.2
 -------
 * 16-Feb-2009

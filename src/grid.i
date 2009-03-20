@@ -1693,6 +1693,11 @@ public:
     int      GetNumberRows();
     int      GetNumberCols();
 
+    // ------ display update functions
+    //
+    wxArrayInt CalcRowLabelsExposed( const wxRegion& reg );
+    wxArrayInt CalcColLabelsExposed( const wxRegion& reg );
+    wxGridCellCoordsArray CalcCellsExposed( const wxRegion& reg );
 
     bool ProcessTableMessage( wxGridTableMessage& );
 
@@ -1726,6 +1731,13 @@ public:
                             int verticalAlignment = wxTOP,
                             int textOrientation = wxHORIZONTAL );
 
+    virtual void DrawRowLabels( wxDC& dc, const wxArrayInt& rows );
+    virtual void DrawRowLabel( wxDC& dc, int row );
+
+    virtual void DrawColLabels( wxDC& dc, const wxArrayInt& cols );
+    virtual void DrawColLabel( wxDC& dc, int col );
+
+    
 //      // Split a string containing newline chararcters into an array of
 //      // strings and return the number of lines
 //      //
@@ -1872,8 +1884,8 @@ public:
     void     DisableDragColSize();
     bool     CanDragColSize();
     void     EnableDragColMove( bool enable = true );
-    void     DisableDragColMove() { EnableDragColMove( false ); }
-    bool     CanDragColMove() { return m_canDragColMove; }
+    void     DisableDragColMove();
+    bool     CanDragColMove();
     void     EnableDragGridSize(bool enable = true);
     void     DisableDragGridSize();
     bool     CanDragGridSize();
