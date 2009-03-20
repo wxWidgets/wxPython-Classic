@@ -268,7 +268,6 @@ TheColourDatabase = ColourDatabase.__new__(ColourDatabase)
 
 //---------------------------------------------------------------------------
  
-%pythoncode { NullColor = NullColour }
 
 
 
