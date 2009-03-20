@@ -36,15 +36,9 @@ class wxStatusBarPane
 public:
     wxStatusBarPane(int style = wxSB_NORMAL, size_t width = 0);
 
-    int nStyle;
-    int nWidth;     // the width maybe negative, indicating a variable-width field
-
-    // this is the array of the stacked strings of this pane; note that this
-    // stack does include also the string currently displayed in this pane
-    // as the version stored in the native status bar control is possibly
-    // ellipsized; note that arrStack.Last() is the top of the stack
-    // (i.e. the string shown in the status bar)
-    wxArrayString arrStack;
+    int GetWidth() const;
+    int GetStyle() const;
+    const wxArrayString& GetStack() const;
 };
 
 //---------------------------------------------------------------------------
@@ -77,6 +71,7 @@ public:
 
     virtual void SetStatusText(const wxString& text, int number = 0);
     virtual wxString GetStatusText(int number = 0) const;
+    const wxArrayString& GetStatusStack(int n) const;
 
     void PushStatusText(const wxString& text, int number = 0);
     void PopStatusText(int number = 0);
@@ -89,14 +84,15 @@ public:
     // negative width according to the abs value of the width (field with width
     // -2 grows twice as much as one with width -1 &c)
     virtual void SetStatusWidths(int widths, const int* widths_field); 
-
+    int GetStatusWidth(int n) const;
+    
 
     // Set the field style. Use either wxSB_NORMAL (default) for a standard 3D 
     // border around a field, wxSB_FLAT for no border around a field, so that it 
     // appears flat or wxSB_POPOUT to make the field appear raised.
     // Setting field styles only works on wxMSW
     virtual void SetStatusStyles(int styles, const int* styles_field);
-    
+    int GetStatusStyle(int n) const;    
     
     // Get the position and size of the field's internal bounding rectangle
     %extend {
@@ -114,6 +110,7 @@ public:
     virtual int GetBorderX() const;
     virtual int GetBorderY() const;
 
+    const wxStatusBarPane& GetField(int n) const;
 
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
