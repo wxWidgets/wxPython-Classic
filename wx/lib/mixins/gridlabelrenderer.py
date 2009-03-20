@@ -97,7 +97,7 @@ class GridWithLabelRenderersMixin(object):
         window = evt.GetEventObject()
         dc = wx.PaintDC(window)
                 
-        rows = self._calcRowLabelsExposed(window.GetUpdateRegion())
+        rows = self.CalcRowLabelsExposed(window.GetUpdateRegion())
 
         x, y = self.CalcUnscrolledPosition((0,0))
         pt = dc.GetDeviceOrigin()
@@ -119,7 +119,7 @@ class GridWithLabelRenderersMixin(object):
         window = evt.GetEventObject()
         dc = wx.PaintDC(window)
 
-        cols = self._calcColLabelsExposed(window.GetUpdateRegion())
+        cols = self.CalcColLabelsExposed(window.GetUpdateRegion())
 
         x, y = self.CalcUnscrolledPosition((0,0))
         pt = dc.GetDeviceOrigin()
@@ -148,49 +148,9 @@ class GridWithLabelRenderersMixin(object):
 
         
         
-    # NOTE: These helpers will be exposed in wxPython starting in 2.8.10, but
-    # for now we'll reimplement them in Python code as best we can with what
-    # is currenlty exposed in the API...
-    def _calcRowLabelsExposed(self, region):
-        x, y = self.CalcUnscrolledPosition((0,0))
-        ri = wx.RegionIterator(region)
-        rows = []
-        while ri:
-            rect = ri.GetRect()
-            rect.Offset((0,y))
-            row = self.YToRow(rect.top)
-            while row < self.GetNumberRows() and row >= 0:
-                rt, rb = self._getRowTopBottom(row)
-                if rb < rect.top:
-                    continue
-                if rt > rect.bottom:
-                    break
-                rows.append(row)
-                row += 1
-            ri.Next()
-        return rows
-        
-    def _calcColLabelsExposed(self, region):
-        x, y = self.CalcUnscrolledPosition((0,0))
-        ri = wx.RegionIterator(region)
-        cols = []
-        while ri:
-            rect = ri.GetRect()
-            rect.Offset((x,0))
-            colPos = self.GetColPos(self.XToCol(rect.left))
-            while colPos < self.GetNumberCols():
-                col = self.GetColAt(colPos)
-                cl, cr = self._getColLeftRight(col)
-                if cr < rect.left:
-                    continue
-                if cl > rect.right:
-                    break
-                cols.append(col)
-                colPos += 1
-            ri.Next()
-        return cols
-
-
+    # NOTE: These helpers or something like them should probably be publicly
+    # available in the C++ wxGrid class, but they are currently protected so
+    # for now we will have to calculate them ourselves.
     def _getColLeftRight(self, col):
         c = 0
         left = 0
