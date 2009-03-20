@@ -149,6 +149,10 @@ Set/GetAntialiasMode methods.  The composition mode settings allow you
 to use the classic Porter-Duff compositions when drawing.  See 
 http://keithp.com/~keithp/porterduff/p253-porter.pdf
 
+wx.grid.Grid:  Added methods CalcRowLabelsExposed,
+CalcColLabelsExposed, CalcCellsExposed, DrawRowLabels, DrawRowLabel,
+DrawColLabels, and DrawColLabel.
+
 
 
 
