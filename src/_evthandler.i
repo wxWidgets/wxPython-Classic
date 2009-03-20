@@ -56,6 +56,8 @@ public:
     // process all pending events
     void ProcessPendingEvents();
 
+    void DeletePendingEvents();
+    
     %extend {
         // Dynamic association of a member function handler with the event handler
         void Connect( int id, int lastId, wxEventType eventType, PyObject* func) {
