@@ -46,6 +46,7 @@ public:
     // wxImageHandler();    Abstract Base Class
     wxString GetName();
     wxString GetExtension();
+    const wxArrayString& GetAltExtensions() const;
     wxBitmapType GetType();
     wxString GetMimeType();
 
@@ -58,10 +59,12 @@ public:
     
     void SetName(const wxString& name);
     void SetExtension(const wxString& extension);
+    void SetAltExtensions(const wxArrayString& exts);
     void SetType(wxBitmapType type);
     void SetMimeType(const wxString& mimetype);
 
     %property(Extension, GetExtension, SetExtension, doc="See `GetExtension` and `SetExtension`");
+    %property(AltExtensions, GetAltExtensions, SetAltExtensions);
     %property(MimeType, GetMimeType, SetMimeType, doc="See `GetMimeType` and `SetMimeType`");
     %property(Name, GetName, SetName, doc="See `GetName` and `SetName`");
     %property(Type, GetType, SetType, doc="See `GetType` and `SetType`");
