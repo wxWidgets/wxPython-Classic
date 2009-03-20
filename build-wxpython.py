@@ -120,12 +120,20 @@ else:
     
     if options.build_dir != "":
         WXPY_BUILD_DIR = options.build_dir
+
+    if sys.platform.startswith("darwin"):
+        port = "osx_carbon"
+        if options.osx_cocoa:
+            port = "osx_cocoa"
+            WXPY_BUILD_DIR = WXPY_BUILD_DIR + "/" + port
     
     if options.install_dir != "":
         WXPY_INSTALL_DIR = options.install_dir
         
     if options.mac_framework and sys.platform.startswith("darwin"):
-        WXPY_INSTALL_DIR = "/Library/Frameworks/wx.framework/Versions/%s" %  version
+        if not options.install_dir == "":
+            WXPY__INSTALL_DIR = ""
+        WXPY_INSTALL_DIR = WXPY_INSTALL_DIR + "/Library/Frameworks/wx.framework/Versions/%s" %  version
     
     if options.clean:
         deleteIfExists(WXPY_BUILD_DIR)
