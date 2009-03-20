@@ -48,7 +48,9 @@ class PyEmbeddedImage(object):
         return wx.BitmapFromImage(self.GetImage())
 
     def GetData(self):
-        return self.data
+        if self.isBase64:
+            data = b64decode(self.data)
+        return data
 
     def GetIcon(self):
         icon = wx.EmptyIcon()
@@ -56,10 +58,7 @@ class PyEmbeddedImage(object):
         return icon
 
     def GetImage(self):
-        data = self.data
-        if self.isBase64:
-            data = b64decode(self.data)
-        stream = cStringIO.StringIO(data)
+        stream = cStringIO.StringIO(self.GetData())
         return wx.ImageFromStream(stream)
 
     # added for backwards compatibility
