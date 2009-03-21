@@ -135,12 +135,9 @@ def FontFaceFromFont(font):
     """
     
     if 'wxMac' in wx.PlatformInfo:
-        # NOTE: This currently uses the ATSUFontID, but wxMac may
-        # someday transition to the CGFont.  If so, this API call will
-        # need to be changed.
         fontfaceptr = voidp(
-            cairoLib.cairo_quartz_font_face_create_for_atsu_font_id(
-                font.MacGetATSUFontID()) )
+            cairoLib.cairo_quartz_font_face_create_for_cgfont(
+                voidp(font.GetCGFont())) )
         fontface = pycairoAPI.FontFace_FromFontFace(fontfaceptr)
 
 
