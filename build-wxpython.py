@@ -224,7 +224,7 @@ retval = os.system(command)
 
 if retval != 0:
     print "ERROR: failed building wxPython."
-    sys.exit(retval)
+    sys.exit(1)
 
 # update the language files
 retval = os.system(sys.executable + " " + os.path.join(WXWIN, "wxPython", "distrib", "makemo.py"))
