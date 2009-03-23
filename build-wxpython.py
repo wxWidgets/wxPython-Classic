@@ -141,7 +141,7 @@ else:
         sys.exit(0)
 
     if not os.path.exists(WXPY_BUILD_DIR):
-        os.mkdir(WXPY_BUILD_DIR)
+        os.makedirs(WXPY_BUILD_DIR)
         
     os.chdir(WXPY_BUILD_DIR)
 
