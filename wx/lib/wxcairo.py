@@ -137,7 +137,7 @@ def FontFaceFromFont(font):
     if 'wxMac' in wx.PlatformInfo:
         fontfaceptr = voidp(
             cairoLib.cairo_quartz_font_face_create_for_cgfont(
-                voidp(font.GetCGFont())) )
+                voidp(font.OSXGetCGFont())) )
         fontface = pycairoAPI.FontFace_FromFontFace(fontfaceptr)
 
 
