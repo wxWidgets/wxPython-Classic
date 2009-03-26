@@ -469,11 +469,12 @@ public:
     // SetText()
     virtual void SetAccel(wxAcceleratorEntry *accel);
 
-    void SetBitmap(const wxBitmap& bitmap);
-    const wxBitmap& GetBitmap();
 
     // wxOwnerDrawn methods
 #ifdef __WXMSW__
+    void SetBitmap(const wxBitmap& bmp, bool bChecked = true);
+    const wxBitmap& GetBitmap(bool bChecked = true) const;
+
     void SetFont(const wxFont& font);
     wxFont GetFont();
     void SetTextColour(const wxColour& colText);
@@ -494,7 +495,12 @@ public:
     // switch on/off owner-drawing the item
     void SetOwnerDrawn(bool ownerDrawn = true);
     void ResetOwnerDrawn();
+
 #else
+
+    void SetBitmap(const wxBitmap& bitmap);
+    const wxBitmap& GetBitmap();
+
     %extend {
         void SetFont(const wxFont& font) {}
         wxFont GetFont() { return wxNullFont; }
