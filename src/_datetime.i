@@ -367,6 +367,19 @@ public:
     static wxString GetWeekDayName(WeekDay weekday,
                                    NameFlags flags = Name_Full);
 
+        // get the standard English full (default) or abbreviated month name
+    static wxString GetEnglishMonthName(Month month,
+                                        NameFlags flags = Name_Full);
+
+        // get the full (default) or abbreviated weekday name in the current
+        // locale, returns empty string on error
+    static wxString GetWeekDayName(WeekDay weekday,
+                                   NameFlags flags = Name_Full);
+
+        // get the standard English full (default) or abbreviated weekday name
+    static wxString GetEnglishWeekDayName(WeekDay weekday,
+                                          NameFlags flags = Name_Full);
+
     %extend {
         DocAStr(
             GetAmPmStrings,
@@ -776,22 +789,28 @@ public:
         }            
     }
 
-
-
    
-        
-    
-    // parse a string in RFC 822 format (found e.g. in mail headers and
-    // having the form "Wed, 10 Feb 1999 19:07:07 +0100")
-    char* ParseRfc822Date(const wxString& date);
+    %extend {
+        // parse a string in RFC 822 format (found e.g. in mail headers and
+        // having the form "Wed, 10 Feb 1999 19:07:07 +0100")
+        bool ParseRfc822Date(const wxString& date)
+        {
+            wxString::const_iterator end;
+            return self->ParseRfc822Date(date, &end);
+        }
 
-    // parse a date/time in the given format (see strptime(3)), fill in
-    // the missing (in the string) fields with the values of dateDef (by
-    // default, they will not change if they had valid values or will
-    // default to Today() otherwise)
-    char* ParseFormat(const wxString& date,
-                      const wxString& format = wxPyDefaultDateTimeFormat,
-                      const wxDateTime& dateDef = wxDefaultDateTime);
+        // parse a date/time in the given format (see strptime(3)), fill in
+        // the missing (in the string) fields with the values of dateDef (by
+        // default, they will not change if they had valid values or will
+        // default to Today() otherwise)
+        bool ParseFormat(const wxString& date,
+                         const wxString& format = wxPyDefaultDateTimeFormat,
+                         const wxDateTime& dateDef = wxDefaultDateTime)
+        {
+            wxString::const_iterator end;
+            return self->ParseFormat(date, format, dateDef, &end);
+        }
+    }
 
     
     // parse a string containing date, time or both in ISO 8601 format
@@ -802,18 +821,32 @@ public:
     bool ParseISOTime(const wxString& time);
     bool ParseISOCombined(const wxString& datetime, char sep = 'T');
 
-    
-    // parse a string containing the date/time in "free" format, this
-    // function will try to make an educated guess at the string contents
-    char* ParseDateTime(const wxString& datetime);
 
-    // parse a string containing the date only in "free" format (less
-    // flexible than ParseDateTime)
-    char* ParseDate(const wxString& date);
+    %extend {
+        // parse a string containing the date/time in "free" format, this
+        // function will try to make an educated guess at the string contents
+        bool ParseDateTime(const wxString& datetime)
+        {
+            wxString::const_iterator end;
+            return self->ParseDateTime(datetime, &end);
+        }
 
-    // parse a string containing the time only in "free" format
-    char* ParseTime(const wxString& time);
-    
+        // parse a string containing the date only in "free" format (less
+        // flexible than ParseDateTime)
+        bool ParseDate(const wxString& date)
+        {
+            wxString::const_iterator end;
+            return self->ParseDate(date, &end);
+        }
+            
+        // parse a string containing the time only in "free" format
+        bool ParseTime(const wxString& time)
+        {
+            wxString::const_iterator end;
+            return self->ParseTime(time, &end);
+        }
+
+    }
 
         // this function accepts strftime()-like format string (default
         // argument corresponds to the preferred date and time representation
