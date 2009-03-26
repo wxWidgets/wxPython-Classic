@@ -212,7 +212,10 @@ public:
 class wxLogChain : public wxLog
 {
 public:
+    %disownarg( wxLog* pLogger );
     wxLogChain(wxLog *logger);
+    %cleardisown( wxLog* pLogger );
+
     void SetLog(wxLog *logger);
     void PassMessages(bool bDoPass);
     bool IsPassingMessages();
