@@ -1016,11 +1016,11 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
         if WXPORT == 'gtk':
             WXPLAT = '__WXGTK__'
             portcfg = os.popen('gtk-config --cflags', 'r').read()[:-1]
+            BUILD_BASE = BUILD_BASE + '-' + WXPORT
         elif WXPORT == 'gtk2':
             WXPLAT = '__WXGTK__'
             GENDIR = 'gtk' # no code differences so use the same generated sources
             portcfg = os.popen('pkg-config gtk+-2.0 --cflags', 'r').read()[:-1]
-            BUILD_BASE = BUILD_BASE + '-' + WXPORT
         elif WXPORT == 'x11':
             WXPLAT = '__WXX11__'
             portcfg = ''
