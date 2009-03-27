@@ -15827,6 +15827,39 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ImageHandler_GetAltExtensions(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxImageHandler *arg1 = (wxImageHandler *) 0 ;
+  wxArrayString *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxImageHandler, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageHandler_GetAltExtensions" "', expected argument " "1"" of type '" "wxImageHandler const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxImageHandler * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxArrayString const &_result_ref = ((wxImageHandler const *)arg1)->GetAltExtensions();
+      result = (wxArrayString *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxArrayString2PyList_helper(*result);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ImageHandler_GetType(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxImageHandler *arg1 = (wxImageHandler *) 0 ;
@@ -16078,6 +16111,61 @@ fail:
   {
     if (temp2)
     delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ImageHandler_SetAltExtensions(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxImageHandler *arg1 = (wxImageHandler *) 0 ;
+  wxArrayString *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "exts", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:ImageHandler_SetAltExtensions",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxImageHandler, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ImageHandler_SetAltExtensions" "', expected argument " "1"" of type '" "wxImageHandler *""'"); 
+  }
+  arg1 = reinterpret_cast< wxImageHandler * >(argp1);
+  {
+    if (! PySequence_Check(obj1)) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of strings expected.");
+      SWIG_fail;
+    }
+    arg2 = new wxArrayString;
+    temp2 = true;
+    int i, len=PySequence_Length(obj1);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(obj1, i);
+      wxString* s = wxString_in_helper(item);
+      if (PyErr_Occurred())  SWIG_fail;
+      arg2->Add(*s);
+      delete s;
+      Py_DECREF(item);
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetAltExtensions((wxArrayString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2) delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2) delete arg2;
   }
   return NULL;
 }
@@ -22928,6 +23016,33 @@ SWIGINTERN PyObject *_wrap_EvtHandler_ProcessPendingEvents(PyObject *SWIGUNUSEDP
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->ProcessPendingEvents();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_EvtHandler_DeletePendingEvents(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxEvtHandler *arg1 = (wxEvtHandler *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxEvtHandler, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EvtHandler_DeletePendingEvents" "', expected argument " "1"" of type '" "wxEvtHandler *""'"); 
+  }
+  arg1 = reinterpret_cast< wxEvtHandler * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DeletePendingEvents();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -34057,6 +34172,147 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PyApp_RemovePendingEventHandler(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  wxEvtHandler *arg2 = (wxEvtHandler *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "toRemove", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyApp_RemovePendingEventHandler",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_RemovePendingEventHandler" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxEvtHandler, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PyApp_RemovePendingEventHandler" "', expected argument " "2"" of type '" "wxEvtHandler *""'"); 
+  }
+  arg2 = reinterpret_cast< wxEvtHandler * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->RemovePendingEventHandler(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PyApp_AppendPendingEventHandler(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  wxEvtHandler *arg2 = (wxEvtHandler *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "toAppend", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyApp_AppendPendingEventHandler",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_AppendPendingEventHandler" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxEvtHandler, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PyApp_AppendPendingEventHandler" "', expected argument " "2"" of type '" "wxEvtHandler *""'"); 
+  }
+  arg2 = reinterpret_cast< wxEvtHandler * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->AppendPendingEventHandler(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PyApp_DelayPendingEventHandler(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  wxEvtHandler *arg2 = (wxEvtHandler *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "toDelay", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyApp_DelayPendingEventHandler",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_DelayPendingEventHandler" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxEvtHandler, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PyApp_DelayPendingEventHandler" "', expected argument " "2"" of type '" "wxEvtHandler *""'"); 
+  }
+  arg2 = reinterpret_cast< wxEvtHandler * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DelayPendingEventHandler(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PyApp_DeletePendingEvents(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_DeletePendingEvents" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DeletePendingEvents();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PyApp_Yield(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPyApp *arg1 = (wxPyApp *) 0 ;
@@ -35845,231 +36101,6 @@ SWIGINTERN PyObject *_wrap_EventLoopBase_WakeUp(PyObject *SWIGUNUSEDPARM(self), 
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->WakeUp();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_EventLoopBase_ProcessPendingEvents(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxEventLoopBase *arg1 = (wxEventLoopBase *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxEventLoopBase, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EventLoopBase_ProcessPendingEvents" "', expected argument " "1"" of type '" "wxEventLoopBase *""'"); 
-  }
-  arg1 = reinterpret_cast< wxEventLoopBase * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ProcessPendingEvents();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_EventLoopBase_HasPendingEvents(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxEventLoopBase *arg1 = (wxEventLoopBase *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxEventLoopBase, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EventLoopBase_HasPendingEvents" "', expected argument " "1"" of type '" "wxEventLoopBase const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxEventLoopBase * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxEventLoopBase const *)arg1)->HasPendingEvents();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_EventLoopBase_SuspendProcessingOfPendingEvents(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxEventLoopBase *arg1 = (wxEventLoopBase *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxEventLoopBase, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EventLoopBase_SuspendProcessingOfPendingEvents" "', expected argument " "1"" of type '" "wxEventLoopBase *""'"); 
-  }
-  arg1 = reinterpret_cast< wxEventLoopBase * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SuspendProcessingOfPendingEvents();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_EventLoopBase_ResumeProcessingOfPendingEvents(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxEventLoopBase *arg1 = (wxEventLoopBase *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxEventLoopBase, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EventLoopBase_ResumeProcessingOfPendingEvents" "', expected argument " "1"" of type '" "wxEventLoopBase *""'"); 
-  }
-  arg1 = reinterpret_cast< wxEventLoopBase * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ResumeProcessingOfPendingEvents();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_EventLoopBase_RemovePendingEventHandler(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxEventLoopBase *arg1 = (wxEventLoopBase *) 0 ;
-  wxEvtHandler *arg2 = (wxEvtHandler *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "toRemove", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:EventLoopBase_RemovePendingEventHandler",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxEventLoopBase, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EventLoopBase_RemovePendingEventHandler" "', expected argument " "1"" of type '" "wxEventLoopBase *""'"); 
-  }
-  arg1 = reinterpret_cast< wxEventLoopBase * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxEvtHandler, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EventLoopBase_RemovePendingEventHandler" "', expected argument " "2"" of type '" "wxEvtHandler *""'"); 
-  }
-  arg2 = reinterpret_cast< wxEvtHandler * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->RemovePendingEventHandler(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_EventLoopBase_AppendPendingEventHandler(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxEventLoopBase *arg1 = (wxEventLoopBase *) 0 ;
-  wxEvtHandler *arg2 = (wxEvtHandler *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "toAppend", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:EventLoopBase_AppendPendingEventHandler",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxEventLoopBase, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EventLoopBase_AppendPendingEventHandler" "', expected argument " "1"" of type '" "wxEventLoopBase *""'"); 
-  }
-  arg1 = reinterpret_cast< wxEventLoopBase * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxEvtHandler, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EventLoopBase_AppendPendingEventHandler" "', expected argument " "2"" of type '" "wxEvtHandler *""'"); 
-  }
-  arg2 = reinterpret_cast< wxEvtHandler * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AppendPendingEventHandler(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_EventLoopBase_DelayPendingEventHandler(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxEventLoopBase *arg1 = (wxEventLoopBase *) 0 ;
-  wxEvtHandler *arg2 = (wxEvtHandler *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "toDelay", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:EventLoopBase_DelayPendingEventHandler",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxEventLoopBase, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "EventLoopBase_DelayPendingEventHandler" "', expected argument " "1"" of type '" "wxEventLoopBase *""'"); 
-  }
-  arg1 = reinterpret_cast< wxEventLoopBase * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxEvtHandler, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "EventLoopBase_DelayPendingEventHandler" "', expected argument " "2"" of type '" "wxEvtHandler *""'"); 
-  }
-  arg2 = reinterpret_cast< wxEvtHandler * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DelayPendingEventHandler(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -67896,12 +67927,14 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MemoryFSHandler_swiginit", MemoryFSHandler_swiginit, METH_VARARGS, NULL},
 	 { (char *)"ImageHandler_GetName", (PyCFunction)_wrap_ImageHandler_GetName, METH_O, NULL},
 	 { (char *)"ImageHandler_GetExtension", (PyCFunction)_wrap_ImageHandler_GetExtension, METH_O, NULL},
+	 { (char *)"ImageHandler_GetAltExtensions", (PyCFunction)_wrap_ImageHandler_GetAltExtensions, METH_O, NULL},
 	 { (char *)"ImageHandler_GetType", (PyCFunction)_wrap_ImageHandler_GetType, METH_O, NULL},
 	 { (char *)"ImageHandler_GetMimeType", (PyCFunction)_wrap_ImageHandler_GetMimeType, METH_O, NULL},
 	 { (char *)"ImageHandler_CanRead", (PyCFunction) _wrap_ImageHandler_CanRead, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ImageHandler_CanReadStream", (PyCFunction) _wrap_ImageHandler_CanReadStream, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ImageHandler_SetName", (PyCFunction) _wrap_ImageHandler_SetName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ImageHandler_SetExtension", (PyCFunction) _wrap_ImageHandler_SetExtension, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"ImageHandler_SetAltExtensions", (PyCFunction) _wrap_ImageHandler_SetAltExtensions, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ImageHandler_SetType", (PyCFunction) _wrap_ImageHandler_SetType, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ImageHandler_SetMimeType", (PyCFunction) _wrap_ImageHandler_SetMimeType, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ImageHandler_swigregister", ImageHandler_swigregister, METH_VARARGS, NULL},
@@ -68087,6 +68120,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"EvtHandler_QueueEvent", (PyCFunction) _wrap_EvtHandler_QueueEvent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"EvtHandler_AddPendingEvent", (PyCFunction) _wrap_EvtHandler_AddPendingEvent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"EvtHandler_ProcessPendingEvents", (PyCFunction)_wrap_EvtHandler_ProcessPendingEvents, METH_O, NULL},
+	 { (char *)"EvtHandler_DeletePendingEvents", (PyCFunction)_wrap_EvtHandler_DeletePendingEvents, METH_O, NULL},
 	 { (char *)"EvtHandler_Connect", (PyCFunction) _wrap_EvtHandler_Connect, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"EvtHandler_Disconnect", (PyCFunction) _wrap_EvtHandler_Disconnect, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"EvtHandler__setOORInfo", (PyCFunction) _wrap_EvtHandler__setOORInfo, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -68506,6 +68540,10 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyApp_ResumeProcessingOfPendingEvents", (PyCFunction)_wrap_PyApp_ResumeProcessingOfPendingEvents, METH_O, NULL},
 	 { (char *)"PyApp_ProcessPendingEvents", (PyCFunction)_wrap_PyApp_ProcessPendingEvents, METH_O, NULL},
 	 { (char *)"PyApp_HasPendingEvents", (PyCFunction)_wrap_PyApp_HasPendingEvents, METH_O, NULL},
+	 { (char *)"PyApp_RemovePendingEventHandler", (PyCFunction) _wrap_PyApp_RemovePendingEventHandler, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PyApp_AppendPendingEventHandler", (PyCFunction) _wrap_PyApp_AppendPendingEventHandler, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PyApp_DelayPendingEventHandler", (PyCFunction) _wrap_PyApp_DelayPendingEventHandler, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PyApp_DeletePendingEvents", (PyCFunction)_wrap_PyApp_DeletePendingEvents, METH_O, NULL},
 	 { (char *)"PyApp_Yield", (PyCFunction) _wrap_PyApp_Yield, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_SafeYield", (PyCFunction) _wrap_PyApp_SafeYield, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_SafeYieldFor", (PyCFunction) _wrap_PyApp_SafeYieldFor, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -68568,13 +68606,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"EventLoopBase_Dispatch", (PyCFunction)_wrap_EventLoopBase_Dispatch, METH_O, NULL},
 	 { (char *)"EventLoopBase_DispatchTimeout", (PyCFunction) _wrap_EventLoopBase_DispatchTimeout, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"EventLoopBase_WakeUp", (PyCFunction)_wrap_EventLoopBase_WakeUp, METH_O, NULL},
-	 { (char *)"EventLoopBase_ProcessPendingEvents", (PyCFunction)_wrap_EventLoopBase_ProcessPendingEvents, METH_O, NULL},
-	 { (char *)"EventLoopBase_HasPendingEvents", (PyCFunction)_wrap_EventLoopBase_HasPendingEvents, METH_O, NULL},
-	 { (char *)"EventLoopBase_SuspendProcessingOfPendingEvents", (PyCFunction)_wrap_EventLoopBase_SuspendProcessingOfPendingEvents, METH_O, NULL},
-	 { (char *)"EventLoopBase_ResumeProcessingOfPendingEvents", (PyCFunction)_wrap_EventLoopBase_ResumeProcessingOfPendingEvents, METH_O, NULL},
-	 { (char *)"EventLoopBase_RemovePendingEventHandler", (PyCFunction) _wrap_EventLoopBase_RemovePendingEventHandler, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"EventLoopBase_AppendPendingEventHandler", (PyCFunction) _wrap_EventLoopBase_AppendPendingEventHandler, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"EventLoopBase_DelayPendingEventHandler", (PyCFunction) _wrap_EventLoopBase_DelayPendingEventHandler, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"EventLoopBase_WakeUpIdle", (PyCFunction)_wrap_EventLoopBase_WakeUpIdle, METH_O, NULL},
 	 { (char *)"EventLoopBase_ProcessIdle", (PyCFunction)_wrap_EventLoopBase_ProcessIdle, METH_O, NULL},
 	 { (char *)"EventLoopBase_Yield", (PyCFunction) _wrap_EventLoopBase_Yield, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -71951,6 +71982,8 @@ SWIGEXPORT void SWIG_init(void) {
   PyDict_SetItemString(d, "wxEVT_COMMAND_TOOL_RCLICKED", PyInt_FromLong(wxEVT_COMMAND_TOOL_RCLICKED));
   PyDict_SetItemString(d, "wxEVT_COMMAND_TOOL_ENTER", PyInt_FromLong(wxEVT_COMMAND_TOOL_ENTER));
   PyDict_SetItemString(d, "wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED", PyInt_FromLong(wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_COMBOBOX_DROPDOWN", PyInt_FromLong(wxEVT_COMMAND_COMBOBOX_DROPDOWN));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_COMBOBOX_CLOSEUP", PyInt_FromLong(wxEVT_COMMAND_COMBOBOX_CLOSEUP));
   PyDict_SetItemString(d, "wxEVT_COMMAND_THREAD", PyInt_FromLong(wxEVT_COMMAND_THREAD));
   PyDict_SetItemString(d, "wxEVT_LEFT_DOWN", PyInt_FromLong(wxEVT_LEFT_DOWN));
   PyDict_SetItemString(d, "wxEVT_LEFT_UP", PyInt_FromLong(wxEVT_LEFT_UP));

@@ -60,13 +60,11 @@ SYS_ANSI_FIXED_FONT = _misc_.SYS_ANSI_FIXED_FONT
 SYS_ANSI_VAR_FONT = _misc_.SYS_ANSI_VAR_FONT
 SYS_SYSTEM_FONT = _misc_.SYS_SYSTEM_FONT
 SYS_DEVICE_DEFAULT_FONT = _misc_.SYS_DEVICE_DEFAULT_FONT
-SYS_DEFAULT_PALETTE = _misc_.SYS_DEFAULT_PALETTE
 SYS_SYSTEM_FIXED_FONT = _misc_.SYS_SYSTEM_FIXED_FONT
 SYS_DEFAULT_GUI_FONT = _misc_.SYS_DEFAULT_GUI_FONT
 SYS_ICONTITLE_FONT = _misc_.SYS_ICONTITLE_FONT
 SYS_COLOUR_SCROLLBAR = _misc_.SYS_COLOUR_SCROLLBAR
 SYS_COLOUR_BACKGROUND = _misc_.SYS_COLOUR_BACKGROUND
-SYS_COLOUR_DESKTOP = _misc_.SYS_COLOUR_DESKTOP
 SYS_COLOUR_ACTIVECAPTION = _misc_.SYS_COLOUR_ACTIVECAPTION
 SYS_COLOUR_INACTIVECAPTION = _misc_.SYS_COLOUR_INACTIVECAPTION
 SYS_COLOUR_MENU = _misc_.SYS_COLOUR_MENU
@@ -81,16 +79,11 @@ SYS_COLOUR_APPWORKSPACE = _misc_.SYS_COLOUR_APPWORKSPACE
 SYS_COLOUR_HIGHLIGHT = _misc_.SYS_COLOUR_HIGHLIGHT
 SYS_COLOUR_HIGHLIGHTTEXT = _misc_.SYS_COLOUR_HIGHLIGHTTEXT
 SYS_COLOUR_BTNFACE = _misc_.SYS_COLOUR_BTNFACE
-SYS_COLOUR_3DFACE = _misc_.SYS_COLOUR_3DFACE
 SYS_COLOUR_BTNSHADOW = _misc_.SYS_COLOUR_BTNSHADOW
-SYS_COLOUR_3DSHADOW = _misc_.SYS_COLOUR_3DSHADOW
 SYS_COLOUR_GRAYTEXT = _misc_.SYS_COLOUR_GRAYTEXT
 SYS_COLOUR_BTNTEXT = _misc_.SYS_COLOUR_BTNTEXT
 SYS_COLOUR_INACTIVECAPTIONTEXT = _misc_.SYS_COLOUR_INACTIVECAPTIONTEXT
 SYS_COLOUR_BTNHIGHLIGHT = _misc_.SYS_COLOUR_BTNHIGHLIGHT
-SYS_COLOUR_BTNHILIGHT = _misc_.SYS_COLOUR_BTNHILIGHT
-SYS_COLOUR_3DHIGHLIGHT = _misc_.SYS_COLOUR_3DHIGHLIGHT
-SYS_COLOUR_3DHILIGHT = _misc_.SYS_COLOUR_3DHILIGHT
 SYS_COLOUR_3DDKSHADOW = _misc_.SYS_COLOUR_3DDKSHADOW
 SYS_COLOUR_3DLIGHT = _misc_.SYS_COLOUR_3DLIGHT
 SYS_COLOUR_INFOTEXT = _misc_.SYS_COLOUR_INFOTEXT
@@ -103,6 +96,13 @@ SYS_COLOUR_MENUHILIGHT = _misc_.SYS_COLOUR_MENUHILIGHT
 SYS_COLOUR_MENUBAR = _misc_.SYS_COLOUR_MENUBAR
 SYS_COLOUR_LISTBOXTEXT = _misc_.SYS_COLOUR_LISTBOXTEXT
 SYS_COLOUR_MAX = _misc_.SYS_COLOUR_MAX
+SYS_COLOUR_DESKTOP = _misc_.SYS_COLOUR_DESKTOP
+SYS_COLOUR_3DFACE = _misc_.SYS_COLOUR_3DFACE
+SYS_COLOUR_3DSHADOW = _misc_.SYS_COLOUR_3DSHADOW
+SYS_COLOUR_BTNHILIGHT = _misc_.SYS_COLOUR_BTNHILIGHT
+SYS_COLOUR_3DHIGHLIGHT = _misc_.SYS_COLOUR_3DHIGHLIGHT
+SYS_COLOUR_3DHILIGHT = _misc_.SYS_COLOUR_3DHILIGHT
+SYS_COLOUR_FRAMEBK = _misc_.SYS_COLOUR_FRAMEBK
 SYS_MOUSE_BUTTONS = _misc_.SYS_MOUSE_BUTTONS
 SYS_BORDER_X = _misc_.SYS_BORDER_X
 SYS_BORDER_Y = _misc_.SYS_BORDER_Y
@@ -3645,6 +3645,16 @@ class DateTime(object):
         return _misc_.DateTime_GetWeekDayName(*args, **kwargs)
 
     GetWeekDayName = staticmethod(GetWeekDayName)
+    def GetEnglishMonthName(*args, **kwargs):
+        """GetEnglishMonthName(int month, int flags=Name_Full) -> String"""
+        return _misc_.DateTime_GetEnglishMonthName(*args, **kwargs)
+
+    GetEnglishMonthName = staticmethod(GetEnglishMonthName)
+    def GetEnglishWeekDayName(*args, **kwargs):
+        """GetEnglishWeekDayName(int weekday, int flags=Name_Full) -> String"""
+        return _misc_.DateTime_GetEnglishWeekDayName(*args, **kwargs)
+
+    GetEnglishWeekDayName = staticmethod(GetEnglishWeekDayName)
     def GetAmPmStrings(*args, **kwargs):
         """
         GetAmPmStrings() -> (am, pm)
@@ -4034,11 +4044,11 @@ class DateTime(object):
         return _misc_.DateTime___ne__(*args, **kwargs)
 
     def ParseRfc822Date(*args, **kwargs):
-        """ParseRfc822Date(self, String date) -> char"""
+        """ParseRfc822Date(self, String date) -> bool"""
         return _misc_.DateTime_ParseRfc822Date(*args, **kwargs)
 
     def ParseFormat(*args, **kwargs):
-        """ParseFormat(self, String date, String format=DefaultDateTimeFormat, DateTime dateDef=DefaultDateTime) -> char"""
+        """ParseFormat(self, String date, String format=DefaultDateTimeFormat, DateTime dateDef=DefaultDateTime) -> bool"""
         return _misc_.DateTime_ParseFormat(*args, **kwargs)
 
     def ParseISODate(*args, **kwargs):
@@ -4054,15 +4064,15 @@ class DateTime(object):
         return _misc_.DateTime_ParseISOCombined(*args, **kwargs)
 
     def ParseDateTime(*args, **kwargs):
-        """ParseDateTime(self, String datetime) -> char"""
+        """ParseDateTime(self, String datetime) -> bool"""
         return _misc_.DateTime_ParseDateTime(*args, **kwargs)
 
     def ParseDate(*args, **kwargs):
-        """ParseDate(self, String date) -> char"""
+        """ParseDate(self, String date) -> bool"""
         return _misc_.DateTime_ParseDate(*args, **kwargs)
 
     def ParseTime(*args, **kwargs):
-        """ParseTime(self, String time) -> char"""
+        """ParseTime(self, String time) -> bool"""
         return _misc_.DateTime_ParseTime(*args, **kwargs)
 
     def Format(*args, **kwargs):
@@ -4175,6 +4185,14 @@ def DateTime_GetMonthName(*args, **kwargs):
 def DateTime_GetWeekDayName(*args, **kwargs):
   """DateTime_GetWeekDayName(int weekday, int flags=Name_Full) -> String"""
   return _misc_.DateTime_GetWeekDayName(*args, **kwargs)
+
+def DateTime_GetEnglishMonthName(*args, **kwargs):
+  """DateTime_GetEnglishMonthName(int month, int flags=Name_Full) -> String"""
+  return _misc_.DateTime_GetEnglishMonthName(*args, **kwargs)
+
+def DateTime_GetEnglishWeekDayName(*args, **kwargs):
+  """DateTime_GetEnglishWeekDayName(int weekday, int flags=Name_Full) -> String"""
+  return _misc_.DateTime_GetEnglishWeekDayName(*args, **kwargs)
 
 def DateTime_GetAmPmStrings(*args):
   """

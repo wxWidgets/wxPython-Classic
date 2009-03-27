@@ -20674,40 +20674,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_StyledTextCtrl_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxStyledTextCtrl *arg1 = (wxStyledTextCtrl *) 0 ;
-  wxString result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxStyledTextCtrl, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StyledTextCtrl_GetValue" "', expected argument " "1"" of type '" "wxStyledTextCtrl const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxStyledTextCtrl * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxStyledTextCtrl const *)arg1)->GetValue();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
-#else
-    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
-#endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_StyledTextCtrl_PositionToXY(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxStyledTextCtrl *arg1 = (wxStyledTextCtrl *) 0 ;
@@ -22785,7 +22751,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"StyledTextCtrl_SetTextRaw", (PyCFunction) _wrap_StyledTextCtrl_SetTextRaw, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StyledTextCtrl_GetTextRaw", (PyCFunction)_wrap_StyledTextCtrl_GetTextRaw, METH_O, NULL},
 	 { (char *)"StyledTextCtrl_AppendTextRaw", (PyCFunction) _wrap_StyledTextCtrl_AppendTextRaw, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"StyledTextCtrl_GetValue", (PyCFunction)_wrap_StyledTextCtrl_GetValue, METH_O, NULL},
 	 { (char *)"StyledTextCtrl_PositionToXY", (PyCFunction) _wrap_StyledTextCtrl_PositionToXY, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StyledTextCtrl_swigregister", StyledTextCtrl_swigregister, METH_VARARGS, NULL},
 	 { (char *)"StyledTextCtrl_swiginit", StyledTextCtrl_swiginit, METH_VARARGS, NULL},

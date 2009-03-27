@@ -1082,9 +1082,18 @@ class StatusBarPane(object):
     def __init__(self, *args, **kwargs): 
         """__init__(self, int style=SB_NORMAL, size_t width=0) -> StatusBarPane"""
         _windows_.StatusBarPane_swiginit(self,_windows_.new_StatusBarPane(*args, **kwargs))
-    nStyle = property(_windows_.StatusBarPane_nStyle_get, _windows_.StatusBarPane_nStyle_set)
-    nWidth = property(_windows_.StatusBarPane_nWidth_get, _windows_.StatusBarPane_nWidth_set)
-    arrStack = property(_windows_.StatusBarPane_arrStack_get, _windows_.StatusBarPane_arrStack_set)
+    def GetWidth(*args, **kwargs):
+        """GetWidth(self) -> int"""
+        return _windows_.StatusBarPane_GetWidth(*args, **kwargs)
+
+    def GetStyle(*args, **kwargs):
+        """GetStyle(self) -> int"""
+        return _windows_.StatusBarPane_GetStyle(*args, **kwargs)
+
+    def GetStack(*args, **kwargs):
+        """GetStack(self) -> wxArrayString"""
+        return _windows_.StatusBarPane_GetStack(*args, **kwargs)
+
 _windows_.StatusBarPane_swigregister(StatusBarPane)
 
 class StatusBar(_core.Window):
@@ -1119,6 +1128,10 @@ class StatusBar(_core.Window):
         """GetStatusText(self, int number=0) -> String"""
         return _windows_.StatusBar_GetStatusText(*args, **kwargs)
 
+    def GetStatusStack(*args, **kwargs):
+        """GetStatusStack(self, int n) -> wxArrayString"""
+        return _windows_.StatusBar_GetStatusStack(*args, **kwargs)
+
     def PushStatusText(*args, **kwargs):
         """PushStatusText(self, String text, int number=0)"""
         return _windows_.StatusBar_PushStatusText(*args, **kwargs)
@@ -1131,9 +1144,17 @@ class StatusBar(_core.Window):
         """SetStatusWidths(self, int widths)"""
         return _windows_.StatusBar_SetStatusWidths(*args, **kwargs)
 
+    def GetStatusWidth(*args, **kwargs):
+        """GetStatusWidth(self, int n) -> int"""
+        return _windows_.StatusBar_GetStatusWidth(*args, **kwargs)
+
     def SetStatusStyles(*args, **kwargs):
         """SetStatusStyles(self, int styles)"""
         return _windows_.StatusBar_SetStatusStyles(*args, **kwargs)
+
+    def GetStatusStyle(*args, **kwargs):
+        """GetStatusStyle(self, int n) -> int"""
+        return _windows_.StatusBar_GetStatusStyle(*args, **kwargs)
 
     def GetFieldRect(*args, **kwargs):
         """GetFieldRect(self, int i) -> Rect"""
@@ -1150,6 +1171,10 @@ class StatusBar(_core.Window):
     def GetBorderY(*args, **kwargs):
         """GetBorderY(self) -> int"""
         return _windows_.StatusBar_GetBorderY(*args, **kwargs)
+
+    def GetField(*args, **kwargs):
+        """GetField(self, int n) -> StatusBarPane"""
+        return _windows_.StatusBar_GetField(*args, **kwargs)
 
     def GetClassDefaultAttributes(*args, **kwargs):
         """

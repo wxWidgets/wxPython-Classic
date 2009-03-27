@@ -1985,6 +1985,14 @@ class AuiToolBarItem(object):
         """GetUserData(self) -> long"""
         return _aui.AuiToolBarItem_GetUserData(*args, **kwargs)
 
+    def SetAlignment(*args, **kwargs):
+        """SetAlignment(self, int l)"""
+        return _aui.AuiToolBarItem_SetAlignment(*args, **kwargs)
+
+    def GetAlignment(*args, **kwargs):
+        """GetAlignment(self) -> int"""
+        return _aui.AuiToolBarItem_GetAlignment(*args, **kwargs)
+
 _aui.AuiToolBarItem_swigregister(AuiToolBarItem)
 
 class AuiToolBarArt(object):
@@ -2002,13 +2010,25 @@ class AuiToolBarArt(object):
         """SetFlags(self, int flags)"""
         return _aui.AuiToolBarArt_SetFlags(*args, **kwargs)
 
+    def GetFlags(*args, **kwargs):
+        """GetFlags(self) -> int"""
+        return _aui.AuiToolBarArt_GetFlags(*args, **kwargs)
+
     def SetFont(*args, **kwargs):
         """SetFont(self, Font font)"""
         return _aui.AuiToolBarArt_SetFont(*args, **kwargs)
 
+    def GetFont(*args, **kwargs):
+        """GetFont(self) -> Font"""
+        return _aui.AuiToolBarArt_GetFont(*args, **kwargs)
+
     def SetTextOrientation(*args, **kwargs):
         """SetTextOrientation(self, int orientation)"""
         return _aui.AuiToolBarArt_SetTextOrientation(*args, **kwargs)
+
+    def GetTextOrientation(*args, **kwargs):
+        """GetTextOrientation(self) -> int"""
+        return _aui.AuiToolBarArt_GetTextOrientation(*args, **kwargs)
 
     def DrawBackground(*args, **kwargs):
         """DrawBackground(self, DC dc, Window wnd, Rect rect)"""

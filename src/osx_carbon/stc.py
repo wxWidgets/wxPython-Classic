@@ -5614,10 +5614,6 @@ class StyledTextCtrl(_core.Control,_core.TextEntryBase,_core.TextAreaBase):
         self.AppendTextRaw(text)
 
 
-    def GetValue(*args, **kwargs):
-        """GetValue(self) -> String"""
-        return _stc.StyledTextCtrl_GetValue(*args, **kwargs)
-
     def PositionToXY(*args, **kwargs):
         """PositionToXY(long pos) -> (x, y)"""
         return _stc.StyledTextCtrl_PositionToXY(*args, **kwargs)

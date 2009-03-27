@@ -20321,6 +20321,72 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiToolBarItem_SetAlignment(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiToolBarItem *arg1 = (wxAuiToolBarItem *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "l", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBarItem_SetAlignment",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiToolBarItem, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiToolBarItem_SetAlignment" "', expected argument " "1"" of type '" "wxAuiToolBarItem *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiToolBarItem * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "AuiToolBarItem_SetAlignment" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetAlignment(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiToolBarItem_GetAlignment(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiToolBarItem *arg1 = (wxAuiToolBarItem *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiToolBarItem, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiToolBarItem_GetAlignment" "', expected argument " "1"" of type '" "wxAuiToolBarItem const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiToolBarItem * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)((wxAuiToolBarItem const *)arg1)->GetAlignment();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *AuiToolBarItem_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -20426,6 +20492,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiToolBarArt_GetFlags(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiToolBarArt *arg1 = (wxAuiToolBarArt *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiToolBarArt, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiToolBarArt_GetFlags" "', expected argument " "1"" of type '" "wxAuiToolBarArt *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiToolBarArt * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)(arg1)->GetFlags();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_AuiToolBarArt_SetFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxAuiToolBarArt *arg1 = (wxAuiToolBarArt *) 0 ;
@@ -20467,6 +20561,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiToolBarArt_GetFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiToolBarArt *arg1 = (wxAuiToolBarArt *) 0 ;
+  wxFont result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiToolBarArt, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiToolBarArt_GetFont" "', expected argument " "1"" of type '" "wxAuiToolBarArt *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiToolBarArt * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (arg1)->GetFont();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxFont(static_cast< const wxFont& >(result))), SWIGTYPE_p_wxFont, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_AuiToolBarArt_SetTextOrientation(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxAuiToolBarArt *arg1 = (wxAuiToolBarArt *) 0 ;
@@ -20499,6 +20621,34 @@ SWIGINTERN PyObject *_wrap_AuiToolBarArt_SetTextOrientation(PyObject *SWIGUNUSED
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiToolBarArt_GetTextOrientation(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiToolBarArt *arg1 = (wxAuiToolBarArt *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiToolBarArt, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiToolBarArt_GetTextOrientation" "', expected argument " "1"" of type '" "wxAuiToolBarArt *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiToolBarArt * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)(arg1)->GetTextOrientation();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -24936,13 +25086,18 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiToolBarItem_IsSticky", (PyCFunction)_wrap_AuiToolBarItem_IsSticky, METH_O, NULL},
 	 { (char *)"AuiToolBarItem_SetUserData", (PyCFunction) _wrap_AuiToolBarItem_SetUserData, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiToolBarItem_GetUserData", (PyCFunction)_wrap_AuiToolBarItem_GetUserData, METH_O, NULL},
+	 { (char *)"AuiToolBarItem_SetAlignment", (PyCFunction) _wrap_AuiToolBarItem_SetAlignment, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiToolBarItem_GetAlignment", (PyCFunction)_wrap_AuiToolBarItem_GetAlignment, METH_O, NULL},
 	 { (char *)"AuiToolBarItem_swigregister", AuiToolBarItem_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiToolBarItem_swiginit", AuiToolBarItem_swiginit, METH_VARARGS, NULL},
 	 { (char *)"delete_AuiToolBarArt", (PyCFunction)_wrap_delete_AuiToolBarArt, METH_O, NULL},
 	 { (char *)"AuiToolBarArt_Clone", (PyCFunction)_wrap_AuiToolBarArt_Clone, METH_O, NULL},
 	 { (char *)"AuiToolBarArt_SetFlags", (PyCFunction) _wrap_AuiToolBarArt_SetFlags, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiToolBarArt_GetFlags", (PyCFunction)_wrap_AuiToolBarArt_GetFlags, METH_O, NULL},
 	 { (char *)"AuiToolBarArt_SetFont", (PyCFunction) _wrap_AuiToolBarArt_SetFont, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiToolBarArt_GetFont", (PyCFunction)_wrap_AuiToolBarArt_GetFont, METH_O, NULL},
 	 { (char *)"AuiToolBarArt_SetTextOrientation", (PyCFunction) _wrap_AuiToolBarArt_SetTextOrientation, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiToolBarArt_GetTextOrientation", (PyCFunction)_wrap_AuiToolBarArt_GetTextOrientation, METH_O, NULL},
 	 { (char *)"AuiToolBarArt_DrawBackground", (PyCFunction) _wrap_AuiToolBarArt_DrawBackground, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiToolBarArt_DrawLabel", (PyCFunction) _wrap_AuiToolBarArt_DrawLabel, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiToolBarArt_DrawButton", (PyCFunction) _wrap_AuiToolBarArt_DrawButton, METH_VARARGS | METH_KEYWORDS, NULL},

@@ -61,6 +61,7 @@ def _swig_setattr_nondynamic_method(set):
 import _core
 wx = _core 
 __docfilter__ = wx.__DocFilter(globals()) 
+DVC_DEFAULT_RENDERER_SIZE = _dataview.DVC_DEFAULT_RENDERER_SIZE
 DVC_DEFAULT_WIDTH = _dataview.DVC_DEFAULT_WIDTH
 DVC_TOGGLE_DEFAULT_WIDTH = _dataview.DVC_TOGGLE_DEFAULT_WIDTH
 DVC_DEFAULT_MINWIDTH = _dataview.DVC_DEFAULT_MINWIDTH
@@ -342,6 +343,9 @@ class DataViewItemAttr(object):
         """GetItalic(self) -> bool"""
         return _dataview.DataViewItemAttr_GetItalic(*args, **kwargs)
 
+    Colour = property(GetColour,SetColour) 
+    Bold = property(GetBold,SetBold) 
+    Italic = property(GetItalic,SetItalic) 
 _dataview.DataViewItemAttr_swigregister(DataViewItemAttr)
 
 #---------------------------------------------------------------------------
@@ -567,7 +571,7 @@ class DataViewModel(_core.ObjectRefData):
         Cleared(self) -> bool
 
         Call this to inform the registered notifiers that all data has been
-        cleared.  The contorl will then reread the data from the model again.
+        cleared.  The control will then reread the data from the model again.
         """
         return _dataview.DataViewModel_Cleared(*args, **kwargs)
 
@@ -651,10 +655,10 @@ class DataViewIndexListModel(DataViewModel):
     """
     DataViewIndexListModel is a specialized data model which lets you
     address an item by its position (row) rather than its `DataViewItem`
-    (which you can obtain from this class). This model also provides its
-    own `Compare` method which sorts the model's data by the index.  To
-    implement a custom list-based data model derive a new class from
-    `PyDataViewIndexListModel` and implement the required methods.
+    (which you can obtain from this class if needed). This model also
+    provides its own `Compare` method which sorts the model's data by the
+    index.  To implement a custom list-based data model derive a new class
+    from `PyDataViewIndexListModel` and implement the required methods.
 
     This model is not a virtual model since the control stores each
     `DataViewItem` in memory. Use a `DataViewVirtualListModel` if you need
@@ -1818,6 +1822,13 @@ class DataViewEvent(_core.NotifyEvent):
         """GetDataBuffer(self) -> void"""
         return _dataview.DataViewEvent_GetDataBuffer(*args, **kwargs)
 
+    Column = property(GetColumn,SetColumn) 
+    Model = property(GetModel,SetModel) 
+    Value = property(GetValue,SetValue) 
+    DataViewColumn = property(GetDataViewColumn,SetDataViewColumn) 
+    Position = property(GetPosition,SetPosition) 
+    DataObject = property(GetDataObject,SetDataObject) 
+    DataFormat = property(GetDataFormat,SetDataFormat) 
 _dataview.DataViewEvent_swigregister(DataViewEvent)
 
 wxEVT_COMMAND_DATAVIEW_SELECTION_CHANGED = _dataview.wxEVT_COMMAND_DATAVIEW_SELECTION_CHANGED
@@ -1826,6 +1837,7 @@ wxEVT_COMMAND_DATAVIEW_ITEM_COLLAPSED = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_CO
 wxEVT_COMMAND_DATAVIEW_ITEM_EXPANDED = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_EXPANDED
 wxEVT_COMMAND_DATAVIEW_ITEM_COLLAPSING = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_COLLAPSING
 wxEVT_COMMAND_DATAVIEW_ITEM_EXPANDING = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_EXPANDING
+wxEVT_COMMAND_DATAVIEW_ITEM_START_EDITING = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_START_EDITING
 wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_STARTED = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_STARTED
 wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_DONE = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_DONE
 wxEVT_COMMAND_DATAVIEW_ITEM_VALUE_CHANGED = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_VALUE_CHANGED
@@ -1843,6 +1855,7 @@ EVT_DATAVIEW_ITEM_COLLAPSED            = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 EVT_DATAVIEW_ITEM_EXPANDED             = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_EXPANDED, 1)
 EVT_DATAVIEW_ITEM_COLLAPSING           = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_COLLAPSING, 1)
 EVT_DATAVIEW_ITEM_EXPANDING            = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_EXPANDING, 1)
+EVT_DATAVIEW_ITEM_START_EDITING        = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_START_EDITING, 1)    
 EVT_DATAVIEW_ITEM_EDITING_STARTED      = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_STARTED, 1)
 EVT_DATAVIEW_ITEM_EDITING_DONE         = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_DONE, 1)
 EVT_DATAVIEW_ITEM_VALUE_CHANGED        = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_VALUE_CHANGED, 1)

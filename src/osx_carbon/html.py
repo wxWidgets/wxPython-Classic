@@ -341,6 +341,9 @@ class HtmlWinParser(HtmlParser):
         """SetLinkColor(self, Colour clr)"""
         return _html.HtmlWinParser_SetLinkColor(*args, **kwargs)
 
+    GetLinkColour = GetLinkColor
+    SetLinkColour = SetLinkColor
+
     def GetActualColor(*args, **kwargs):
         """GetActualColor(self) -> Colour"""
         return _html.HtmlWinParser_GetActualColor(*args, **kwargs)
@@ -378,6 +381,7 @@ class HtmlWinParser(HtmlParser):
     FontUnderlined = property(GetFontUnderlined,SetFontUnderlined,doc="See `GetFontUnderlined` and `SetFontUnderlined`") 
     Link = property(GetLink,SetLink,doc="See `GetLink` and `SetLink`") 
     LinkColor = property(GetLinkColor,SetLinkColor,doc="See `GetLinkColor` and `SetLinkColor`") 
+    LinkColour = property(GetLinkColour,SetLinkColour,doc="See `GetLinkColour` and `SetLinkColour`") 
     WindowInterface = property(GetWindowInterface,doc="See `GetWindowInterface`") 
 _html.HtmlWinParser_swigregister(HtmlWinParser)
 

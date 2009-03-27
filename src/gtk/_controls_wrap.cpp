@@ -15831,7 +15831,7 @@ SWIGINTERN PyObject *_wrap_new_SpinCtrl(PyObject *SWIGUNUSEDPARM(self), PyObject
   wxPoint *arg4 = (wxPoint *) &arg4_defvalue ;
   wxSize const &arg5_defvalue = wxDefaultSize ;
   wxSize *arg5 = (wxSize *) &arg5_defvalue ;
-  long arg6 = (long) wxSP_ARROW_KEYS ;
+  long arg6 = (long) wxSP_ARROW_KEYS|wxALIGN_RIGHT ;
   int arg7 = (int) 0 ;
   int arg8 = (int) 100 ;
   int arg9 = (int) 0 ;
@@ -16639,7 +16639,7 @@ SWIGINTERN PyObject *_wrap_new_SpinCtrlDouble(PyObject *SWIGUNUSEDPARM(self), Py
   wxPoint *arg4 = (wxPoint *) &arg4_defvalue ;
   wxSize const &arg5_defvalue = wxDefaultSize ;
   wxSize *arg5 = (wxSize *) &arg5_defvalue ;
-  long arg6 = (long) wxSP_ARROW_KEYS ;
+  long arg6 = (long) wxSP_ARROW_KEYS|wxALIGN_RIGHT ;
   double arg7 = (double) 0 ;
   double arg8 = (double) 100 ;
   double arg9 = (double) 0 ;

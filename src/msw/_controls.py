@@ -2364,8 +2364,8 @@ class SpinCtrl(_core.Control):
         """
         __init__(self, Window parent, int id=-1, String value=EmptyString, 
             Point pos=DefaultPosition, Size size=DefaultSize, 
-            long style=SP_ARROW_KEYS, int min=0, int max=100, 
-            int initial=0, String name=SpinCtrlNameStr) -> SpinCtrl
+            long style=wxSP_ARROW_KEYS|wxALIGN_RIGHT, 
+            int min=0, int max=100, int initial=0, String name=SpinCtrlNameStr) -> SpinCtrl
         """
         _controls_.SpinCtrl_swiginit(self,_controls_.new_SpinCtrl(*args, **kwargs))
         self._setOORInfo(self)
@@ -2498,9 +2498,9 @@ class SpinCtrlDouble(_core.Control):
         """
         __init__(self, Window parent, int id=ID_ANY, String value=wxEmptyString, 
             Point pos=DefaultPosition, Size size=DefaultSize, 
-            long style=SP_ARROW_KEYS, double min=0, 
-            double max=100, double initial=0, double inc=1, 
-            String name="wxSpinCtrlDouble") -> SpinCtrlDouble
+            long style=wxSP_ARROW_KEYS|wxALIGN_RIGHT, 
+            double min=0, double max=100, double initial=0, 
+            double inc=1, String name="wxSpinCtrlDouble") -> SpinCtrlDouble
         """
         _controls_.SpinCtrlDouble_swiginit(self,_controls_.new_SpinCtrlDouble(*args, **kwargs))
         self._setOORInfo(self)

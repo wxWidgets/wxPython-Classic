@@ -2754,6 +2754,25 @@ SWIG_From_int  (int value)
     }
 
 
+#define PYCALLBACK_BOOL_DVIRECT(PCLASS, CBNAME)                                 \
+    bool CBNAME(const wxDataViewItem &a, wxRect b) {                            \
+        bool rval = false;                                                      \
+        bool found;                                                             \
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME))) {                \
+            PyObject* ao = wxPyConstructObject((void*)&a, wxT("wxDataViewItem"), 0); \
+            PyObject* bo = wxPyConstructObject((void*)&b, wxT("wxRect"), 0);    \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OO)", ao, bo));\
+            Py_DECREF(ao);                                                      \
+            Py_DECREF(bo);                                                      \
+        }                                                                       \
+        wxPyEndBlockThreads(blocked);                                           \
+        if (! found)                                                            \
+            rval = PCLASS::CBNAME(a, b);                                        \
+        return rval;                                                            \
+    }
+
+
 #define PYCALLBACK_BOOL_DVI_pure(PCLASS, CBNAME)                                \
     bool CBNAME(const wxDataViewItem &a) {                                      \
         bool rval = false;                                                      \
@@ -2918,19 +2937,15 @@ SWIG_From_int  (int value)
     }
 
 
-#define PYCALLBACK_BOOL__pure(PCLASS, CBNAME)                                   \
-    bool CBNAME() {                                                             \
+#define PYCALLBACK_VOID_(PCLASS, CBNAME)                                        \
+    void CBNAME() {                                                             \
         bool found;                                                             \
-        bool rval = false;                                                      \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
         if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
-            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));         \
-        else {                                                                  \
-            PyErr_SetString(PyExc_NotImplementedError,                          \
-              "The " #CBNAME " method should be implemented in derived class"); \
-        }                                                                       \
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));                \
         wxPyEndBlockThreads(blocked);                                           \
-        return rval;                                                            \
+        if (!found)                                                             \
+            PCLASS::CBNAME();                                                   \
     }
 
 
@@ -2952,6 +2967,20 @@ SWIG_From_int  (int value)
 
 #define PYCALLBACK_BOOL__const(PCLASS, CBNAME)                                  \
     bool CBNAME() const {                                                       \
+        bool found;                                                             \
+        bool rval = false;                                                      \
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
+        if ((found = wxPyCBH_findCallback(m_myInst, #CBNAME)))                  \
+            rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));         \
+        wxPyEndBlockThreads(blocked);                                           \
+        if (! found)                                                            \
+            rval = PCLASS::CBNAME();                                            \
+        return rval;                                                            \
+    }
+
+
+#define PYCALLBACK_BOOL_(PCLASS, CBNAME)                                        \
+    bool CBNAME() {                                                             \
         bool found;                                                             \
         bool rval = false;                                                      \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
@@ -3052,9 +3081,9 @@ SWIG_From_int  (int value)
     }
 
 
-#define PYCALLBACK_INT_DVIDVIINTBOOL(PCLASS, CBNAME)                            \
+#define PYCALLBACK_INT_DVIDVIUINTBOOL_const(PCLASS, CBNAME)                     \
     int CBNAME(const wxDataViewItem &a, const wxDataViewItem &b,                \
-               unsigned int c, bool d ) {                                       \
+               unsigned int c, bool d ) const {                                 \
         int rval;                                                               \
         bool found;                                                             \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
@@ -3362,10 +3391,7 @@ public:
     PYCALLBACK_BOOL_DVI_const(wxDataViewModel, HasContainerColumns);
     PYCALLBACK_UINT_DVIDVIA_pure_const(wxDataViewModel, GetChildren);
 
-    // GetDragDataSize
-    // GetDragData
-
-    PYCALLBACK_INT_DVIDVIINTBOOL(wxDataViewModel, Compare);
+    PYCALLBACK_INT_DVIDVIUINTBOOL_const(wxDataViewModel, Compare);
     PYCALLBACK_BOOL__const(wxDataViewModel, HasDefaultCompare);
 
 
@@ -3461,15 +3487,12 @@ public:
     PYCALLBACK_BOOL_DVI_const(wxDataViewIndexListModel, HasContainerColumns);
     PYCALLBACK_UINT_DVIDVIA_const(wxDataViewIndexListModel, GetChildren);
 
-    // GetDragDataSize
-    // GetDragData
-
-    PYCALLBACK_INT_DVIDVIINTBOOL(wxDataViewIndexListModel, Compare);
+    PYCALLBACK_INT_DVIDVIUINTBOOL_const(wxDataViewIndexListModel, Compare);
     PYCALLBACK_BOOL__const(wxDataViewIndexListModel, HasDefaultCompare);
 
 
     virtual void GetValueByRow( wxVariant &variant,
-                           unsigned int row, unsigned int col ) const
+                                unsigned int row, unsigned int col ) const
     {
         // The wxPython version of this method returns the variant as
         // a return value instead of modifying the parameter.
@@ -3492,19 +3515,19 @@ public:
 
 
     virtual bool SetValueByRow( const wxVariant &variant,
-                           unsigned int row, unsigned int col )
+                                unsigned int row, unsigned int col )
     {
         bool rval = false;
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
+        if ((found = wxPyCBH_findCallback(m_myInst, "SetValueByRow"))) {
             PyObject* vo = wxVariant_out_helper(variant);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oii)", vo, row, col));
             Py_DECREF(vo);
         }
         else {
             PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
+              "The SetValueByRow method should be implemented in derived class");
         }
         wxPyEndBlockThreads(blocked);
         return rval;
@@ -3512,7 +3535,7 @@ public:
 
 
     virtual bool GetAttrByRow( unsigned int row, unsigned int col,
-                          wxDataViewItemAttr &attr )
+                               wxDataViewItemAttr &attr )
     {
         bool rval = false;
         bool found;
@@ -3530,6 +3553,10 @@ public:
         return rval;
     }
 
+
+    // TODO: Should we also allow to override the other (non-list) virtuals
+    // from wxDataViewModel too?  GetValue, SetValue, GetAttr...
+    
     PYPRIVATE;
 };
 
@@ -3555,15 +3582,12 @@ public:
     PYCALLBACK_BOOL_DVI_const(wxDataViewVirtualListModel, HasContainerColumns);
     PYCALLBACK_UINT_DVIDVIA_const(wxDataViewVirtualListModel, GetChildren);
 
-    // GetDragDataSize
-    // GetDragData
-
-    PYCALLBACK_INT_DVIDVIINTBOOL(wxDataViewVirtualListModel, Compare);
+    PYCALLBACK_INT_DVIDVIUINTBOOL_const(wxDataViewVirtualListModel, Compare);
     PYCALLBACK_BOOL__const(wxDataViewVirtualListModel, HasDefaultCompare);
 
 
     virtual void GetValueByRow( wxVariant &variant,
-                           unsigned int row, unsigned int col ) const
+                                unsigned int row, unsigned int col ) const
     {
         // The wxPython version of this method returns the variant as
         // a return value instead of modifying the parameter.
@@ -3586,19 +3610,19 @@ public:
 
 
     virtual bool SetValueByRow( const wxVariant &variant,
-                           unsigned int row, unsigned int col )
+                                unsigned int row, unsigned int col )
     {
         bool rval = false;
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
+        if ((found = wxPyCBH_findCallback(m_myInst, "SetValueByRow"))) {
             PyObject* vo = wxVariant_out_helper(variant);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oii)", vo, row, col));
             Py_DECREF(vo);
         }
         else {
             PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
+              "The SetValueByRow method should be implemented in derived class");
         }
         wxPyEndBlockThreads(blocked);
         return rval;
@@ -3606,7 +3630,7 @@ public:
 
 
     virtual bool GetAttrByRow( unsigned int row, unsigned int col,
-                          wxDataViewItemAttr &attr )
+                               wxDataViewItemAttr &attr )
     {
         bool rval = false;
         bool found;
@@ -3624,6 +3648,10 @@ public:
         return rval;
     }
 
+
+    // TODO: Should we also allow to override the other (non-list) virtuals
+    // from wxDataViewModel too?  GetValue, SetValue, GetAttr...
+    
     PYPRIVATE;
 };
 
@@ -3673,7 +3701,6 @@ public:
 //    PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, RightClick);
     PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(wxDataViewCustomRenderer, StartDrag);
 
-
     virtual bool SetValue( const wxVariant& value )
     {
         bool found;
@@ -3715,6 +3742,35 @@ public:
         return true;
     }
 
+    PYCALLBACK_BOOL__const(wxDataViewCustomRenderer, HasEditorCtrl);
+
+    virtual wxControl* CreateEditorCtrl(wxWindow * parent,
+                                        wxRect labelRect,
+                                        const wxVariant& value)
+    {
+        bool found;
+        wxControl* ret = NULL;
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if ((found = wxPyCBH_findCallback(m_myInst, "CreateEditorCtrl"))) {
+            PyObject* ro;
+            PyObject* po = wxPyConstructObject((void*)parent, wxT("wxWindow"), 0);
+            PyObject* rto = wxPyConstructObject((void*)&labelRect, wxT("wxRect"), 0);
+            PyObject* vo = wxVariant_out_helper(value);
+            ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OOO)", po, rto, vo));
+            Py_DECREF(po);
+            Py_DECREF(rto);
+            Py_DECREF(vo);
+            if (ro) {
+                wxPyConvertSwigPtr(ro, (void**)&ret, wxT("wxControl"));
+                Py_DECREF(ro);
+            }
+        }
+        wxPyEndBlockThreads(blocked);
+        if (!found)
+            return wxDataViewCustomRenderer::CreateEditorCtrl(parent, labelRect, value);
+        else
+            return ret;
+    }
 
     virtual bool GetValueFromEditorCtrl(wxControl * editor,
                                         wxVariant& value)
@@ -3725,7 +3781,7 @@ public:
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "GetValueFromEditorCtrl"))) {
             PyObject* ro;
-            PyObject* io = wxPyConstructObject((void*)&editor, wxT("wxControl"), 0);
+            PyObject* io = wxPyConstructObject((void*)editor, wxT("wxControl"), 0);
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(O)", io));
             Py_DECREF(io);
             if (ro) {
@@ -3740,6 +3796,9 @@ public:
             return true;
     }
 
+    PYCALLBACK_BOOL_DVIRECT(wxDataViewCustomRenderer, StartEditing);
+    PYCALLBACK_VOID_(wxDataViewCustomRenderer, CancelEditing);
+    PYCALLBACK_BOOL_(wxDataViewCustomRenderer, FinishEditing);
 
 
     PYPRIVATE;
@@ -15873,6 +15932,7 @@ SWIGEXPORT void SWIG_init(void) {
   
   PyDict_SetItemString(d,(char*)"cvar", SWIG_globals());
   SWIG_addvarlink(SWIG_globals(),(char*)"DataViewCtrlNameStr",DataViewCtrlNameStr_get, DataViewCtrlNameStr_set);
+  SWIG_Python_SetConstant(d, "DVC_DEFAULT_RENDERER_SIZE",SWIG_From_int(static_cast< int >(wxDVC_DEFAULT_RENDERER_SIZE)));
   SWIG_Python_SetConstant(d, "DVC_DEFAULT_WIDTH",SWIG_From_int(static_cast< int >(wxDVC_DEFAULT_WIDTH)));
   SWIG_Python_SetConstant(d, "DVC_TOGGLE_DEFAULT_WIDTH",SWIG_From_int(static_cast< int >(wxDVC_TOGGLE_DEFAULT_WIDTH)));
   SWIG_Python_SetConstant(d, "DVC_DEFAULT_MINWIDTH",SWIG_From_int(static_cast< int >(wxDVC_DEFAULT_MINWIDTH)));
@@ -15901,6 +15961,7 @@ SWIGEXPORT void SWIG_init(void) {
   PyDict_SetItemString(d, "wxEVT_COMMAND_DATAVIEW_ITEM_EXPANDED", PyInt_FromLong(wxEVT_COMMAND_DATAVIEW_ITEM_EXPANDED));
   PyDict_SetItemString(d, "wxEVT_COMMAND_DATAVIEW_ITEM_COLLAPSING", PyInt_FromLong(wxEVT_COMMAND_DATAVIEW_ITEM_COLLAPSING));
   PyDict_SetItemString(d, "wxEVT_COMMAND_DATAVIEW_ITEM_EXPANDING", PyInt_FromLong(wxEVT_COMMAND_DATAVIEW_ITEM_EXPANDING));
+  PyDict_SetItemString(d, "wxEVT_COMMAND_DATAVIEW_ITEM_START_EDITING", PyInt_FromLong(wxEVT_COMMAND_DATAVIEW_ITEM_START_EDITING));
   PyDict_SetItemString(d, "wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_STARTED", PyInt_FromLong(wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_STARTED));
   PyDict_SetItemString(d, "wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_DONE", PyInt_FromLong(wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_DONE));
   PyDict_SetItemString(d, "wxEVT_COMMAND_DATAVIEW_ITEM_VALUE_CHANGED", PyInt_FromLong(wxEVT_COMMAND_DATAVIEW_ITEM_VALUE_CHANGED));

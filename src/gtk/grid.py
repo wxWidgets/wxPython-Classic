@@ -284,7 +284,7 @@ class GridCellEditor(GridCellWorker):
         return _grid.GridCellEditor_BeginEdit(*args, **kwargs)
 
     def EndEdit(*args, **kwargs):
-        """EndEdit(self, String oldval, String newval) -> bool"""
+        """EndEdit(self, int row, int col, Grid grid, String oldval, String newval) -> bool"""
         return _grid.GridCellEditor_EndEdit(*args, **kwargs)
 
     def ApplyEdit(*args, **kwargs):
@@ -1233,6 +1233,18 @@ class Grid(_windows.ScrolledWindow):
         """GetNumberCols(self) -> int"""
         return _grid.Grid_GetNumberCols(*args, **kwargs)
 
+    def CalcRowLabelsExposed(*args, **kwargs):
+        """CalcRowLabelsExposed(self, Region reg) -> wxArrayInt"""
+        return _grid.Grid_CalcRowLabelsExposed(*args, **kwargs)
+
+    def CalcColLabelsExposed(*args, **kwargs):
+        """CalcColLabelsExposed(self, Region reg) -> wxArrayInt"""
+        return _grid.Grid_CalcColLabelsExposed(*args, **kwargs)
+
+    def CalcCellsExposed(*args, **kwargs):
+        """CalcCellsExposed(self, Region reg) -> wxGridCellCoordsArray"""
+        return _grid.Grid_CalcCellsExposed(*args, **kwargs)
+
     def ProcessTableMessage(*args, **kwargs):
         """ProcessTableMessage(self, GridTableMessage ?) -> bool"""
         return _grid.Grid_ProcessTableMessage(*args, **kwargs)
@@ -1283,6 +1295,22 @@ class Grid(_windows.ScrolledWindow):
             int verticalAlignment=TOP, int textOrientation=HORIZONTAL)
         """
         return _grid.Grid_DrawTextRectangle(*args, **kwargs)
+
+    def DrawRowLabels(*args, **kwargs):
+        """DrawRowLabels(self, DC dc, wxArrayInt rows)"""
+        return _grid.Grid_DrawRowLabels(*args, **kwargs)
+
+    def DrawRowLabel(*args, **kwargs):
+        """DrawRowLabel(self, DC dc, int row)"""
+        return _grid.Grid_DrawRowLabel(*args, **kwargs)
+
+    def DrawColLabels(*args, **kwargs):
+        """DrawColLabels(self, DC dc, wxArrayInt cols)"""
+        return _grid.Grid_DrawColLabels(*args, **kwargs)
+
+    def DrawColLabel(*args, **kwargs):
+        """DrawColLabel(self, DC dc, int col)"""
+        return _grid.Grid_DrawColLabel(*args, **kwargs)
 
     def GetTextBoxSize(*args, **kwargs):
         """GetTextBoxSize(DC dc, list lines) -> (width, height)"""

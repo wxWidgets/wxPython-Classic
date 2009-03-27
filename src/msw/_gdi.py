@@ -6815,7 +6815,6 @@ ThePenList        = PenList.__new__(PenList)
 TheBrushList      = BrushList.__new__(BrushList)
 TheColourDatabase = ColourDatabase.__new__(ColourDatabase)
 
-NullColor = NullColour 
 #---------------------------------------------------------------------------
 
 class Effects(_core.Object):
