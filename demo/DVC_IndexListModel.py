@@ -3,15 +3,6 @@ import wx
 import wx.dataview as dv
 
 #----------------------------------------------------------------------
-# Get the data from the ListCtrl sample to play with, converting it
-# from a dictionary to a list of lists, including the dictionary key
-# as the first element of each sublist.
-import ListCtrl
-musicdata = ListCtrl.musicdata.items()
-musicdata.sort()
-musicdata = [[str(k)] + list(v) for k,v in musicdata]
-
-#----------------------------------------------------------------------
 
 # This model class provides the data to the view when it is asked for.
 # Since it is a list-only model (no hierachical data) then it is able
@@ -28,7 +19,7 @@ musicdata = [[str(k)] + list(v) for k,v in musicdata]
 
 class TestModel(dv.PyDataViewIndexListModel):
     def __init__(self, data, log):
-        dv.PyDataViewIndexListModel.__init__(self, len(musicdata))
+        dv.PyDataViewIndexListModel.__init__(self, len(data))
         self.data = data
         self.log = log
 
@@ -39,11 +30,11 @@ class TestModel(dv.PyDataViewIndexListModel):
 
     # This method is called to provide the data object for a
     # particular row,col
-    def GetValue(self, row, col):
+    def GetValueByRow(self, row, col):
         return self.data[row][col]
 
     # This method is called when the user edits a data item in the view.
-    def SetValue(self, value, row, col):
+    def SetValueByRow(self, value, row, col):
         self.log.write("SetValue: (%d,%d) %s\n" % (row, col, value))
         self.data[row][col] = value
 
@@ -54,12 +45,12 @@ class TestModel(dv.PyDataViewIndexListModel):
     # This is called to assist with sorting the data in the view.  The
     # first two args are instances of the DataViewItem class, so we
     # need to convert them to row numbers with the GetRow method.
-    # Then it's just a matter of fetching the right values from the
-    # list of lists and comparing them.  The return value is -1, 0, or
-    # 1, just like Python's cmp() function.
+    # Then it's just a matter of fetching the right values from our
+    # data set and comparing them.  The return value is -1, 0, or 1,
+    # just like Python's cmp() function.
     def Compare(self, item1, item2, col, ascending):
         if not ascending: # swap sort order?
-            row2, row1 = row1, row2
+            item2, item1 = item1, item2
         row1 = self.GetRow(item1)
         row2 = self.GetRow(item2)
         if col == 0:
@@ -68,10 +59,9 @@ class TestModel(dv.PyDataViewIndexListModel):
             return cmp(self.data[row1][col], self.data[row2][col])
 
 
-    
 
 class TestPanel(wx.Panel):
-    def __init__(self, parent, log, model=None):
+    def __init__(self, parent, log, model=None, data=None):
         self.log = log
         wx.Panel.__init__(self, parent, -1)
 
@@ -86,7 +76,7 @@ class TestPanel(wx.Panel):
         
         # Create an instance of our simple model...
         if model is None:
-            self.model = TestModel(musicdata, log)
+            self.model = TestModel(data, log)
         else:
             self.model = model            
 
@@ -120,7 +110,6 @@ class TestPanel(wx.Panel):
         c0.Alignment = wx.ALIGN_RIGHT
         c0.Renderer.Alignment = wx.ALIGN_RIGHT
         c0.MinWidth = 40
-        # ? c0.Renderer.Alignment = wx.ALIGN_RIGHT
 
         # Through the magic of Python we can also access the columns
         # as a list via the Columns property.  Here we'll mark them
@@ -179,7 +168,15 @@ class TestPanel(wx.Panel):
 #----------------------------------------------------------------------
 
 def runTest(frame, nb, log):
-    win = TestPanel(nb, log)
+    # Get the data from the ListCtrl sample to play with, converting it
+    # from a dictionary to a list of lists, including the dictionary key
+    # as the first element of each sublist.
+    import ListCtrl
+    musicdata = ListCtrl.musicdata.items()
+    musicdata.sort()
+    musicdata = [[str(k)] + list(v) for k,v in musicdata]
+
+    win = TestPanel(nb, log, data=musicdata)
     return win
 
 #----------------------------------------------------------------------
