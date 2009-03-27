@@ -1,169 +1,71 @@
 #!/bin/bash
+# ---------------------------------------------------------------------------
+# New and improved build script for wrapping build-wxpython.py and
+# only needing to use super-simple one or two letter command line args.
+# ---------------------------------------------------------------------------
 
-# Are we using bash on win32?  If so source that file and then exit.
-if [ "$OSTYPE" = "cygwin" ]; then
-    source b.win32
-    exit
-fi
+set -o errexit
+#set -o xtrace
 
-# make it easy to switch versions of SWIG
-if [ "$SWIG" = "" ]; then
-  SWIG=/opt/swig/bin/swig-1.3.29
-fi
-
-
-function getpyver {
-    if [ "$1" = "15" ]; then
-	PYVER=1.5
-    elif [ "$1" = "20" ]; then
-	PYVER=2.0
-    elif [ "$1" = "21" ]; then
-	PYVER=2.1
-    elif [ "$1" = "22" ]; then
-	PYVER=2.2
-    elif [ "$1" = "23" ]; then
-	PYVER=2.3
-    elif [ "$1" = "24" ]; then
-	PYVER=2.4
-    elif [ "$1" = "25" ]; then
-	PYVER=2.5
-    elif [ "$1" = "26" ]; then
-	PYVER=2.6
-    elif [ "$1" = "27" ]; then
-	PYVER=2.7
-    elif [ "$1" = "30" ]; then
-	PYVER=3.0
+if [ "$PYTHON" = "" ]; then
+    case $1 in 
+	23 | 2.3) VER=23; PYVER=2.3; shift ;;
+	24 | 2.4) VER=24; PYVER=2.4; shift ;;
+	25 | 2.5) VER=25; PYVER=2.5; shift ;;
+	26 | 2.6) VER=26; PYVER=2.6; shift ;;
+	30 | 3.0) VER=30; PYVER=3.0; shift ;;
+	
+	*) VER=25; PYVER=2.5
+    esac
+	
+    if [ "$OSTYPE" = "cygwin" ]; then
+	PYTHON=$TOOLS/python$VER/python.exe
     else
-	echo You must specify Python version as first parameter.
-        exit
+	PYTHON=python$PYVER
     fi
-}
-
-getpyver $1
-shift
-
-python$PYVER -c "import sys;print '\n', sys.version, '\n'"
-
-
-SETUP="python$PYVER -u setup.py"
-FLAGS="USE_SWIG=1 SWIG=$SWIG" 
-OTHERFLAGS=""
-PORTFLAGS=""
-UNIFLAG="UNICODE=1"
-
-
-
-if [ "$1" = "gtk1" -o "$1" = "gtk" ]; then 
-    PORTFLAGS="WXPORT=gtk"
-    UNIFLAG="UNICODE=0"
-    shift
-elif [ "$1" = "gtk2" ]; then 
-    PORTFLAGS="WXPORT=gtk2"
-    UNIFLAG="UNICODE=1"
-    shift
 fi
+echo "Using Python:"
+$PYTHON -c "import sys;print sys.version, '\n'"
 
-for p in $*; do
-    if [ "$p" = "UNICODE=0" -o "$p" = "UNICODE=1" ]; then
-	UNIFLAG=""
-	break
+
+if [ "$SWIG" = "" ]; then
+    if [ "$OSTYPE" = "cygwin" ]; then
+	SWIG=$PROJECTS\\SWIG-1.3.29\\swig.exe
+    else
+	SWIG=/opt/swig/bin/swig-1.3.29
     fi
-done
-
-FLAGS="$FLAGS $PORTFLAGS $UNIFLAG"
-
+fi
+export SWIG
 
 
-# "c" --> clean
-if [ "$1" =  "c" ]; then
-    shift
-    CMD="$SETUP $FLAGS $OTHERFLAGS clean $*"
-    OTHERCMD="rm -f wx/*.so"
+ARGS="--reswig --unicode --build_dir=../bld"
+DEBUG=""
+BOTH="no"
 
-# "d" --> clean extension modules only
-elif [ "$1" = "d" ]; then
-    shift
-    CMD="rm -f wx/*.so"
+case $1 in 
+      c) ARGS="$ARGS --clean";             shift ;;
+     cw) ARGS="$ARGS --clean=wx";          shift ;;
+     cp) ARGS="$ARGS --clean=py";          shift ;;
+     ce) ARGS="$ARGS --clean=pyext";       shift ;;
 
-# "t" --> touch *.i files
-elif [ "$1" = "t" ]; then
-    shift
-    CMD='find . -name "*.i" | xargs touch'
+     cb) BOTH="yes"; ARGS="$ARGS --clean";        shift ;;
+    cbw) BOTH="yes"; ARGS="$ARGS --clean=wx";     shift ;;
+    cbp) BOTH="yes"; ARGS="$ARGS --clean=py";     shift ;;
+    cbe) BOTH="yes"; ARGS="$ARGS --clean=pyext";  shift ;;
 
-# "i" --> install
-elif [ "$1" = "i" ]; then
-    shift
-    CMD="$SETUP $FLAGS $OTHERFLAGS build_ext install $*"
+      d) DEBUG="--debug";            shift ;;
+      h) DEBUG="";                   shift ;;
+      b) BOTH="yes";                 shift ;;
 
-# "s" --> source dist
-elif [ "$1" = "s" ]; then
-    shift
-    CMD="$SETUP $OTHERFLAGS sdist $*"
-
-# "r" --> rpm dist
-elif [ "$1" = "r" ]; then
-    WXPYVER=`python$PYVER -c "import setup;print setup.VERSION"`
-    for VER in 21 22; do
-	getpyver $VER
-
-	echo "*****************************************************************"
-	echo "*******      Building wxPython for Python $PYVER"
-	echo "*****************************************************************"
-
-	SETUP="python$PYVER -u setup.py"
-
-	# save the original
-	cp setup.py setup.py.save
-
-	# fix up setup.py the way we want...
-	sed "s/BUILD_GLCANVAS = /BUILD_GLCANVAS = 0 #/" < setup.py.save > setup.py.temp
-	sed "s/GL_ONLY = /GL_ONLY = 1 #/" < setup.py.temp > setup.py
-
-	# build wxPython-gl RPM
-	$SETUP $OTHERFLAGS bdist_rpm --binary-only --doc-files README.txt --python=python$PYVER
-			### --requires=python$PYVER
-	rm dist/wxPython-gl*.tar.gz
-
-	# Build wxPython RPM
-	cp setup.py setup.py.temp
-	sed "s/GL_ONLY = /GL_ONLY = 0 #/" < setup.py.temp > setup.py
-	$SETUP $OTHERFLAGS bdist_rpm --binary-only --python=python$PYVER
-			### --requires=python$PYVER
-
-	# put the oringal setup.py back
-	cp setup.py.save setup.py
-	rm setup.py.*
-
-	# rename the binary RPM's
-	mv dist/wxPython-$WXPYVER-1.i386.rpm dist/wxPython-$WXPYVER-1-Py$VER.i386.rpm
-	mv dist/wxPython-gl-$WXPYVER-1.i386.rpm dist/wxPython-gl-$WXPYVER-1-Py$VER.i386.rpm
-
-    done
-
-    # rebuild the source dists without the munched up setup.py
-    $SETUP $OTHERFLAGS bdist_rpm --source-only
-    exit 0
+      t) find . -name "*.i" | xargs -t touch; echo "*.i files touched"; exit 0 ;;
+esac
 
 
-# "f" --> FINAL (no debug)
-elif [ "$1" = "f" ]; then
-    shift
-    CMD="$SETUP $FLAGS $OTHERFLAGS build_ext --inplace $*"
-
-# (no command arg) --> normal build for development
+if [ "$OSTYPE" = "cygwin" -a "$BOTH" = "yes" ]; then
+    set -o xtrace
+    $PYTHON -u ./build-wxpython.py $ARGS --debug $@
+    $PYTHON -u ./build-wxpython.py $ARGS $@
 else
-    CMD="$SETUP $FLAGS $OTHERFLAGS build_ext --inplace --debug $*"
+    set -o xtrace
+    $PYTHON -u ./build-wxpython.py $ARGS $DEBUG $@
 fi
-
-
-echo $CMD
-eval $CMD
-RC=$?
-
-if [ "$RC" = "0" -a  "$OTHERCMD" != "" ]; then
-    echo $OTHERCMD
-    $OTHERCMD
-    RC=$?
-fi
-
-exit $RC
