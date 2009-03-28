@@ -15997,6 +15997,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Font_OSXGetCGFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFont *arg1 = (wxFont *) 0 ;
+  void *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFont, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Font_OSXGetCGFont" "', expected argument " "1"" of type '" "wxFont const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFont * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (void *)((wxFont const *)arg1)->OSXGetCGFont();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_void, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Font_GetDefaultEncoding(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxFontEncoding result;
@@ -41358,6 +41386,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Font_GetWeightString", (PyCFunction)_wrap_Font_GetWeightString, METH_O, NULL},
 	 { (char *)"Font_SetNoAntiAliasing", (PyCFunction) _wrap_Font_SetNoAntiAliasing, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_GetNoAntiAliasing", (PyCFunction)_wrap_Font_GetNoAntiAliasing, METH_O, NULL},
+	 { (char *)"Font_OSXGetCGFont", (PyCFunction)_wrap_Font_OSXGetCGFont, METH_O, NULL},
 	 { (char *)"Font_GetDefaultEncoding", (PyCFunction)_wrap_Font_GetDefaultEncoding, METH_NOARGS, NULL},
 	 { (char *)"Font_SetDefaultEncoding", (PyCFunction) _wrap_Font_SetDefaultEncoding, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_swigregister", Font_swigregister, METH_VARARGS, NULL},

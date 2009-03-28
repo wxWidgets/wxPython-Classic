@@ -3726,6 +3726,14 @@ SWIGINTERN bool wxDateTime___ne__(wxDateTime *self,wxDateTime const *other){
             if (!other || !self->IsValid() || !other->IsValid()) return self != other; 
             return (*self != *other);
         }
+SWIGINTERN bool wxDateTime_ParseRfc822Date(wxDateTime *self,wxString const &date){
+            wxString::const_iterator end;
+            return self->ParseRfc822Date(date, &end);
+        }
+SWIGINTERN bool wxDateTime_ParseFormat(wxDateTime *self,wxString const &date,wxString const &format=wxPyDefaultDateTimeFormat,wxDateTime const &dateDef=wxDefaultDateTime){
+            wxString::const_iterator end;
+            return self->ParseFormat(date, format, dateDef, &end);
+        }
 
 SWIGINTERN int
 SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
@@ -3821,6 +3829,18 @@ SWIG_AsVal_char (PyObject * obj, char *val)
   return res;
 }
 
+SWIGINTERN bool wxDateTime_ParseDateTime(wxDateTime *self,wxString const &datetime){
+            wxString::const_iterator end;
+            return self->ParseDateTime(datetime, &end);
+        }
+SWIGINTERN bool wxDateTime_ParseDate(wxDateTime *self,wxString const &date){
+            wxString::const_iterator end;
+            return self->ParseDate(date, &end);
+        }
+SWIGINTERN bool wxDateTime_ParseTime(wxDateTime *self,wxString const &time){
+            wxString::const_iterator end;
+            return self->ParseTime(time, &end);
+        }
 SWIGINTERN wxTimeSpan wxTimeSpan___add__(wxTimeSpan *self,wxTimeSpan const &other){ return *self + other; }
 SWIGINTERN wxTimeSpan wxTimeSpan___sub__(wxTimeSpan *self,wxTimeSpan const &other){ return *self - other; }
 SWIGINTERN wxTimeSpan wxTimeSpan___mul__(wxTimeSpan *self,int n){ return *self * n; }
@@ -23791,6 +23811,100 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DateTime_GetEnglishMonthName(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDateTime::Month arg1 ;
+  wxDateTime::NameFlags arg2 = (wxDateTime::NameFlags) wxDateTime::Name_Full ;
+  wxString result;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "month",(char *) "flags", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:DateTime_GetEnglishMonthName",kwnames,&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "DateTime_GetEnglishMonthName" "', expected argument " "1"" of type '" "wxDateTime::Month""'");
+  } 
+  arg1 = static_cast< wxDateTime::Month >(val1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DateTime_GetEnglishMonthName" "', expected argument " "2"" of type '" "wxDateTime::NameFlags""'");
+    } 
+    arg2 = static_cast< wxDateTime::NameFlags >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxDateTime::GetEnglishMonthName(arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DateTime_GetEnglishWeekDayName(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDateTime::WeekDay arg1 ;
+  wxDateTime::NameFlags arg2 = (wxDateTime::NameFlags) wxDateTime::Name_Full ;
+  wxString result;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "weekday",(char *) "flags", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:DateTime_GetEnglishWeekDayName",kwnames,&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "DateTime_GetEnglishWeekDayName" "', expected argument " "1"" of type '" "wxDateTime::WeekDay""'");
+  } 
+  arg1 = static_cast< wxDateTime::WeekDay >(val1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DateTime_GetEnglishWeekDayName" "', expected argument " "2"" of type '" "wxDateTime::NameFlags""'");
+    } 
+    arg2 = static_cast< wxDateTime::NameFlags >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxDateTime::GetEnglishWeekDayName(arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DateTime_GetAmPmStrings(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   PyObject *result = 0 ;
@@ -28255,7 +28369,7 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseRfc822Date(PyObject *SWIGUNUSEDPARM(sel
   PyObject *resultobj = 0;
   wxDateTime *arg1 = (wxDateTime *) 0 ;
   wxString *arg2 = 0 ;
-  char *result = 0 ;
+  bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -28278,11 +28392,13 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseRfc822Date(PyObject *SWIGUNUSEDPARM(sel
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (char *)(arg1)->ParseRfc822Date((wxString const &)*arg2);
+    result = (bool)wxDateTime_ParseRfc822Date(arg1,(wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_FromCharPtr(result);
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   {
     if (temp2)
     delete arg2;
@@ -28305,7 +28421,7 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseFormat(PyObject *SWIGUNUSEDPARM(self), 
   wxString *arg3 = (wxString *) &arg3_defvalue ;
   wxDateTime const &arg4_defvalue = wxDefaultDateTime ;
   wxDateTime *arg4 = (wxDateTime *) &arg4_defvalue ;
-  char *result = 0 ;
+  bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -28350,11 +28466,13 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseFormat(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (char *)(arg1)->ParseFormat((wxString const &)*arg2,(wxString const &)*arg3,(wxDateTime const &)*arg4);
+    result = (bool)wxDateTime_ParseFormat(arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxDateTime const &)*arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_FromCharPtr(result);
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   {
     if (temp2)
     delete arg2;
@@ -28536,7 +28654,7 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseDateTime(PyObject *SWIGUNUSEDPARM(self)
   PyObject *resultobj = 0;
   wxDateTime *arg1 = (wxDateTime *) 0 ;
   wxString *arg2 = 0 ;
-  char *result = 0 ;
+  bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -28559,11 +28677,13 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseDateTime(PyObject *SWIGUNUSEDPARM(self)
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (char *)(arg1)->ParseDateTime((wxString const &)*arg2);
+    result = (bool)wxDateTime_ParseDateTime(arg1,(wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_FromCharPtr(result);
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   {
     if (temp2)
     delete arg2;
@@ -28582,7 +28702,7 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseDate(PyObject *SWIGUNUSEDPARM(self), Py
   PyObject *resultobj = 0;
   wxDateTime *arg1 = (wxDateTime *) 0 ;
   wxString *arg2 = 0 ;
-  char *result = 0 ;
+  bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -28605,11 +28725,13 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseDate(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (char *)(arg1)->ParseDate((wxString const &)*arg2);
+    result = (bool)wxDateTime_ParseDate(arg1,(wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_FromCharPtr(result);
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   {
     if (temp2)
     delete arg2;
@@ -28628,7 +28750,7 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseTime(PyObject *SWIGUNUSEDPARM(self), Py
   PyObject *resultobj = 0;
   wxDateTime *arg1 = (wxDateTime *) 0 ;
   wxString *arg2 = 0 ;
-  char *result = 0 ;
+  bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -28651,11 +28773,13 @@ SWIGINTERN PyObject *_wrap_DateTime_ParseTime(PyObject *SWIGUNUSEDPARM(self), Py
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (char *)(arg1)->ParseTime((wxString const &)*arg2);
+    result = (bool)wxDateTime_ParseTime(arg1,(wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_FromCharPtr(result);
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   {
     if (temp2)
     delete arg2;
@@ -40425,6 +40549,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DateTime_GetNumberOfDaysInMonth", (PyCFunction) _wrap_DateTime_GetNumberOfDaysInMonth, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_GetMonthName", (PyCFunction) _wrap_DateTime_GetMonthName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_GetWeekDayName", (PyCFunction) _wrap_DateTime_GetWeekDayName, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DateTime_GetEnglishMonthName", (PyCFunction) _wrap_DateTime_GetEnglishMonthName, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DateTime_GetEnglishWeekDayName", (PyCFunction) _wrap_DateTime_GetEnglishWeekDayName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_GetAmPmStrings", (PyCFunction)_wrap_DateTime_GetAmPmStrings, METH_NOARGS, NULL},
 	 { (char *)"DateTime_IsDSTApplicable", (PyCFunction) _wrap_DateTime_IsDSTApplicable, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DateTime_GetBeginDST", (PyCFunction) _wrap_DateTime_GetBeginDST, METH_VARARGS | METH_KEYWORDS, NULL},

@@ -3645,6 +3645,16 @@ class DateTime(object):
         return _misc_.DateTime_GetWeekDayName(*args, **kwargs)
 
     GetWeekDayName = staticmethod(GetWeekDayName)
+    def GetEnglishMonthName(*args, **kwargs):
+        """GetEnglishMonthName(int month, int flags=Name_Full) -> String"""
+        return _misc_.DateTime_GetEnglishMonthName(*args, **kwargs)
+
+    GetEnglishMonthName = staticmethod(GetEnglishMonthName)
+    def GetEnglishWeekDayName(*args, **kwargs):
+        """GetEnglishWeekDayName(int weekday, int flags=Name_Full) -> String"""
+        return _misc_.DateTime_GetEnglishWeekDayName(*args, **kwargs)
+
+    GetEnglishWeekDayName = staticmethod(GetEnglishWeekDayName)
     def GetAmPmStrings(*args, **kwargs):
         """
         GetAmPmStrings() -> (am, pm)
@@ -4034,11 +4044,11 @@ class DateTime(object):
         return _misc_.DateTime___ne__(*args, **kwargs)
 
     def ParseRfc822Date(*args, **kwargs):
-        """ParseRfc822Date(self, String date) -> char"""
+        """ParseRfc822Date(self, String date) -> bool"""
         return _misc_.DateTime_ParseRfc822Date(*args, **kwargs)
 
     def ParseFormat(*args, **kwargs):
-        """ParseFormat(self, String date, String format=DefaultDateTimeFormat, DateTime dateDef=DefaultDateTime) -> char"""
+        """ParseFormat(self, String date, String format=DefaultDateTimeFormat, DateTime dateDef=DefaultDateTime) -> bool"""
         return _misc_.DateTime_ParseFormat(*args, **kwargs)
 
     def ParseISODate(*args, **kwargs):
@@ -4054,15 +4064,15 @@ class DateTime(object):
         return _misc_.DateTime_ParseISOCombined(*args, **kwargs)
 
     def ParseDateTime(*args, **kwargs):
-        """ParseDateTime(self, String datetime) -> char"""
+        """ParseDateTime(self, String datetime) -> bool"""
         return _misc_.DateTime_ParseDateTime(*args, **kwargs)
 
     def ParseDate(*args, **kwargs):
-        """ParseDate(self, String date) -> char"""
+        """ParseDate(self, String date) -> bool"""
         return _misc_.DateTime_ParseDate(*args, **kwargs)
 
     def ParseTime(*args, **kwargs):
-        """ParseTime(self, String time) -> char"""
+        """ParseTime(self, String time) -> bool"""
         return _misc_.DateTime_ParseTime(*args, **kwargs)
 
     def Format(*args, **kwargs):
@@ -4175,6 +4185,14 @@ def DateTime_GetMonthName(*args, **kwargs):
 def DateTime_GetWeekDayName(*args, **kwargs):
   """DateTime_GetWeekDayName(int weekday, int flags=Name_Full) -> String"""
   return _misc_.DateTime_GetWeekDayName(*args, **kwargs)
+
+def DateTime_GetEnglishMonthName(*args, **kwargs):
+  """DateTime_GetEnglishMonthName(int month, int flags=Name_Full) -> String"""
+  return _misc_.DateTime_GetEnglishMonthName(*args, **kwargs)
+
+def DateTime_GetEnglishWeekDayName(*args, **kwargs):
+  """DateTime_GetEnglishWeekDayName(int weekday, int flags=Name_Full) -> String"""
+  return _misc_.DateTime_GetEnglishWeekDayName(*args, **kwargs)
 
 def DateTime_GetAmPmStrings(*args):
   """

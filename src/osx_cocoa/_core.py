@@ -2511,6 +2511,10 @@ class ImageHandler(Object):
         """GetExtension(self) -> String"""
         return _core_.ImageHandler_GetExtension(*args, **kwargs)
 
+    def GetAltExtensions(*args, **kwargs):
+        """GetAltExtensions(self) -> wxArrayString"""
+        return _core_.ImageHandler_GetAltExtensions(*args, **kwargs)
+
     def GetType(*args, **kwargs):
         """GetType(self) -> int"""
         return _core_.ImageHandler_GetType(*args, **kwargs)
@@ -2535,6 +2539,10 @@ class ImageHandler(Object):
         """SetExtension(self, String extension)"""
         return _core_.ImageHandler_SetExtension(*args, **kwargs)
 
+    def SetAltExtensions(*args, **kwargs):
+        """SetAltExtensions(self, wxArrayString exts)"""
+        return _core_.ImageHandler_SetAltExtensions(*args, **kwargs)
+
     def SetType(*args, **kwargs):
         """SetType(self, int type)"""
         return _core_.ImageHandler_SetType(*args, **kwargs)
@@ -2544,6 +2552,7 @@ class ImageHandler(Object):
         return _core_.ImageHandler_SetMimeType(*args, **kwargs)
 
     Extension = property(GetExtension,SetExtension,doc="See `GetExtension` and `SetExtension`") 
+    AltExtensions = property(GetAltExtensions,SetAltExtensions) 
     MimeType = property(GetMimeType,SetMimeType,doc="See `GetMimeType` and `SetMimeType`") 
     Name = property(GetName,SetName,doc="See `GetName` and `SetName`") 
     Type = property(GetType,SetType,doc="See `GetType` and `SetType`") 
@@ -4022,6 +4031,10 @@ class EvtHandler(Object):
         """ProcessPendingEvents(self)"""
         return _core_.EvtHandler_ProcessPendingEvents(*args, **kwargs)
 
+    def DeletePendingEvents(*args, **kwargs):
+        """DeletePendingEvents(self)"""
+        return _core_.EvtHandler_DeletePendingEvents(*args, **kwargs)
+
     def Connect(*args, **kwargs):
         """Connect(self, int id, int lastId, EventType eventType, PyObject func)"""
         return _core_.EvtHandler_Connect(*args, **kwargs)
@@ -4234,6 +4247,8 @@ wxEVT_COMMAND_COMBOBOX_SELECTED = _core_.wxEVT_COMMAND_COMBOBOX_SELECTED
 wxEVT_COMMAND_TOOL_RCLICKED = _core_.wxEVT_COMMAND_TOOL_RCLICKED
 wxEVT_COMMAND_TOOL_ENTER = _core_.wxEVT_COMMAND_TOOL_ENTER
 wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED = _core_.wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED
+wxEVT_COMMAND_COMBOBOX_DROPDOWN = _core_.wxEVT_COMMAND_COMBOBOX_DROPDOWN
+wxEVT_COMMAND_COMBOBOX_CLOSEUP = _core_.wxEVT_COMMAND_COMBOBOX_CLOSEUP
 wxEVT_COMMAND_THREAD = _core_.wxEVT_COMMAND_THREAD
 wxEVT_LEFT_DOWN = _core_.wxEVT_LEFT_DOWN
 wxEVT_LEFT_UP = _core_.wxEVT_LEFT_UP
@@ -4502,7 +4517,8 @@ EVT_TOOL_RCLICKED_RANGE = wx.PyEventBinder( wxEVT_COMMAND_TOOL_RCLICKED, 2)
 EVT_TOOL_ENTER = wx.PyEventBinder( wxEVT_COMMAND_TOOL_ENTER, 1)
 EVT_TOOL_DROPDOWN = wx.PyEventBinder( wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED, 1)
 EVT_CHECKLISTBOX = wx.PyEventBinder( wxEVT_COMMAND_CHECKLISTBOX_TOGGLED, 1)
-
+EVT_COMBOBOX_DROPDOWN = wx.PyEventBinder( wxEVT_COMMAND_COMBOBOX_DROPDOWN , 1)
+EVT_COMBOBOX_CLOSEUP  = wx.PyEventBinder( wxEVT_COMMAND_COMBOBOX_CLOSEUP , 1) 
 
 EVT_COMMAND_LEFT_CLICK = wx.PyEventBinder( wxEVT_COMMAND_LEFT_CLICK, 1)
 EVT_COMMAND_LEFT_DCLICK = wx.PyEventBinder( wxEVT_COMMAND_LEFT_DCLICK, 1)
@@ -7728,6 +7744,10 @@ class PyApp(EvtHandler):
     def DelayPendingEventHandler(*args, **kwargs):
         """DelayPendingEventHandler(self, EvtHandler toDelay)"""
         return _core_.PyApp_DelayPendingEventHandler(*args, **kwargs)
+
+    def DeletePendingEvents(*args, **kwargs):
+        """DeletePendingEvents(self)"""
+        return _core_.PyApp_DeletePendingEvents(*args, **kwargs)
 
     def Yield(*args, **kwargs):
         """

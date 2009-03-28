@@ -2324,6 +2324,10 @@ class Font(GDIObject):
         """GetNoAntiAliasing(self) -> bool"""
         return _gdi_.Font_GetNoAntiAliasing(*args, **kwargs)
 
+    def OSXGetCGFont(*args, **kwargs):
+        """OSXGetCGFont(self) -> void"""
+        return _gdi_.Font_OSXGetCGFont(*args, **kwargs)
+
     def GetDefaultEncoding(*args, **kwargs):
         """
         GetDefaultEncoding() -> int
@@ -6714,7 +6718,6 @@ ThePenList        = PenList.__new__(PenList)
 TheBrushList      = BrushList.__new__(BrushList)
 TheColourDatabase = ColourDatabase.__new__(ColourDatabase)
 
-NullColor = NullColour 
 #---------------------------------------------------------------------------
 
 class Effects(_core.Object):
