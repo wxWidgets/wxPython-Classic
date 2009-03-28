@@ -26,7 +26,7 @@ def optionCleanCallback(option, opt_str, value, parser):
     
 
 option_dict = { 
-    "clean"         : (None,    
+    "clean"         : ("",    
                        "Clean files from build directories.  Default is all build files. "
                        "Specify 'wx' to clean just the wx build, 'py' for just the "
                        "wxPython build, and 'pyext' for just the built extension modules.", 
@@ -62,14 +62,14 @@ for opt in keys:
     action = "store"
     if type(default) == types.BooleanType:
         action = "store_true"
-    callback = None
     if len(option_dict[opt]) > 2:
-        action = 'callback'
-        callback = option_dict[opt][2]
-    parser.add_option("--" + opt, default=default, action=action, 
-                      dest=opt, help=option_dict[opt][1],
-                      callback=callback)
-
+        parser.add_option("--" + opt, action='callback', type='string',
+                          default=default, dest=opt, help=option_dict[opt][1],
+                          callback=option_dict[opt][2], nargs=1)
+    else:
+        parser.add_option("--" + opt, default=default, action=action, 
+                          dest=opt, help=option_dict[opt][1])
+        
 options, arguments = parser.parse_args()
 
 # TODO: Instead of a simple compare we should allow for same args in different
