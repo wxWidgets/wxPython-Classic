@@ -779,6 +779,9 @@ public:
 //         KeepGIL(__contains__);
 //         bool __contains__(const ItemClass* obj) {
 //         }
+//         KeepGIL(index);
+//         int index(ItemClass* obj) {
+//         }
 
         KeepGIL(__iter__);
         %newobject __iter__;
@@ -786,11 +789,16 @@ public:
             return new ArrayClass##_iterator(*self);
         }
 
-// TODO        
-//         KeepGIL(index);
-//         int index(ItemClass* obj) {
-//         }
-        
+        %disownarg( ItemClass *object );
+        KeepGIL(append);
+        void append(ItemClass* object){
+            self->Add(*object);
+        }
+        KeepGIL(insert);
+        void insert(size_t index, ItemClass* object) {
+            self->Insert(*object, index);
+        }
+        %cleardisown( ItemClass *object );
     }
     
     %pythoncode {
@@ -819,6 +827,7 @@ enum {
 //     wxRELEASE_NUMBER,
 
     wxNOT_FOUND,
+    wxNO_LEN,
 
     wxVSCROLL,
     wxHSCROLL,
