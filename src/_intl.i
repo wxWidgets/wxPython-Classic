@@ -289,6 +289,7 @@ enum wxLocaleCategory
     wxLOCALE_CAT_NUMBER,
     wxLOCALE_CAT_DATE,
     wxLOCALE_CAT_MONEY,
+    wxLOCALE_CAT_DEFAULT,
     wxLOCALE_CAT_MAX
 };
 
@@ -296,8 +297,11 @@ enum wxLocaleCategory
 enum wxLocaleInfo
 {
     wxLOCALE_THOUSANDS_SEP,
-    wxLOCALE_DECIMAL_POINT
-
+    wxLOCALE_DECIMAL_POINT,
+    wxLOCALE_SHORT_DATE_FMT,
+    wxLOCALE_LONG_DATE_FMT,
+    wxLOCALE_DATE_TIME_FMT,
+    wxLOCALE_TIME_FMT
 };
 
 // wxLocale: encapsulates all language dependent settings, including current
@@ -387,10 +391,9 @@ public:
     static wxString GetSystemEncodingName();
 
 
-    // THIS ONE IS COMMENTED OUT IN src/common/intl.cpp
     // get the values of the given locale-dependent datum: the current locale
     // is used, the US default value is returned if everything else fails
-    // static wxString GetInfo(wxLocaleInfo index, wxLocaleCategory cat);
+    static wxString GetInfo(wxLocaleInfo index, wxLocaleCategory cat = wxLOCALE_CAT_DEFAULT);
 
     // return True if the locale was set successfully
     bool IsOk() const;
