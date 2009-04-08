@@ -16,6 +16,7 @@
 //---------------------------------------------------------------------------
 %{
 #include <wx/iconbndl.h>
+#include "wx/wxPython/pyistream.h"
 %}
 //---------------------------------------------------------------------------
 
@@ -154,6 +155,10 @@ public:
     // initializes the bundle with a single icon
     %RenameCtor(IconBundleFromIcon, wxIconBundle( const wxIcon& icon ));
 
+    %RenameCtor(IconBundleFromStream, wxIconBundle(
+                    wxInputStream& stream, wxBitmapType type = wxBITMAP_TYPE_ANY
+                    ));
+
     ~wxIconBundle();
 
     virtual bool IsOk() const;
@@ -167,11 +172,17 @@ icon with the same width and height, it is replaced", "");
     
 
     DocDeclStrName(
-        void , AddIcon( const wxString& file, wxBitmapType type ),
+        void , AddIcon( const wxString& file, wxBitmapType type = wxBITMAP_TYPE_ANY ),
         "Adds all the icons contained in the file to the collection, if the
 collection already contains icons with the same width and height, they
 are replaced", "",
         AddIconFromFile);
+    
+
+    DocDeclStrName(
+        void , AddIcon(wxInputStream& stream, wxBitmapType type = wxBITMAP_TYPE_ANY),
+        "Just like `AddIconFromFile` but pulls icons from a file-liek object.", "",
+        AddIconFromStream);
     
 
     DocDeclStr(
@@ -180,7 +191,6 @@ are replaced", "",
 the icon with size wxSYS_ICON_[XY]; if no such icon exists, returns
 the first icon in the bundle", "");
     
-
 
     DocDeclStr(
         wxIcon , GetIconOfExactSize(const wxSize& size) const,
