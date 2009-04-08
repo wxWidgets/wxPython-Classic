@@ -157,6 +157,8 @@ Added the wx.lib.mixins.gridlabelrenderer module.  It enables the use
 of label renderers for Grids that work like the cell renderers do.  See
 the demo for a simple sample.
 
+wx.App:  OnExceptionInMainLoop and FilterEvent can now be overridden.
+
 
 
 

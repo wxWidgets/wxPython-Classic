@@ -129,6 +129,7 @@ IMPLEMENT_ABSTRACT_CLASS(wxPyApp, wxApp);
 wxPyApp::wxPyApp() {
     m_assertMode = wxPYAPP_ASSERT_EXCEPTION;
     m_startupComplete = false;
+    m_callFilterEvent = false;
 }
 
 
@@ -217,6 +218,19 @@ int wxPyApp::OnExit() {
     return rval;
 }
 
+#if wxUSE_EXCEPTIONS
+bool wxPyApp::OnExceptionInMainLoop() {
+    bool rval=false;
+    bool found;
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    if ((found = wxPyCBH_findCallback(m_myInst, "OnExceptionInMainLoop")))
+        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+    wxPyEndBlockThreads(blocked);
+    if (! found)
+        rval = wxApp::OnExceptionInMainLoop(); 
+    return rval;
+}
+#endif
 
 
 void wxPyApp::ExitMainLoop() {
@@ -230,7 +244,23 @@ void wxPyApp::ExitMainLoop() {
 }  
 
 
-#ifdef __WXDEBUG__
+int wxPyApp::FilterEvent(wxEvent& event) {
+    int result = -1;
+
+    if (m_callFilterEvent) {
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if (wxPyCBH_findCallback(m_myInst, "FilterEvent")) {
+            wxString className = event.GetClassInfo()->GetClassName();
+            PyObject* eventObject = wxPyConstructObject((void*)&event, className, 0);
+            result = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", eventObject));
+            Py_DECREF(eventObject);
+        }
+        wxPyEndBlockThreads(blocked);
+    }
+    return result;
+}
+
+
 void wxPyApp::OnAssertFailure(const wxChar *file,
                               int line,
                               const wxChar *func,
@@ -319,7 +349,6 @@ void wxPyApp::OnAssertFailure(const wxChar *file,
             wxApp::OnAssertFailure(file, line, func, cond, msg);
     }
 }
-#endif
 
     // For catching Apple Events
 void wxPyApp::MacOpenFile(const wxString &fileName)

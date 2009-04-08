@@ -16,8 +16,7 @@
 //---------------------------------------------------------------------------
 // TODOs:
 //
-// 1. Provide another app object that allows FilterEvent to be overloaded.
-// 2. Wrap wxAppTraits and allow wxApp::CreateTraits to be overloaded.
+// * Wrap wxAppTraits and allow wxApp::CreateTraits to be overloaded.
 //
 //---------------------------------------------------------------------------
 %newgroup;
@@ -240,6 +239,24 @@ all top level windows have been closed and destroyed.", "");
 loop, (i.e. it does not stop the program immediately!)", "");
 
     
+    DocDeclStr(
+        virtual int, FilterEvent(wxEvent& event),
+        "Filters all events. `SetCallFilterEvent` controls whether or not your
+override is called.", "");
+
+    DocDeclStr(
+        bool,  GetCallFilterEvent(),
+        "Returns the state of the Call FilterEvent flag.", "");
+
+    
+    DocDeclStr(
+        void, SetCallFilterEvent(bool callFilterEvent = true),
+        "Set the Call FilterEvent flag. When set your override of FilterEvent
+will be called.  SetCallFilterEvent's purpose is to avoid any
+performance penalty when you have overriden FilterEvent, but don't
+want it to be called, and also to reduce the runtime overhead when it
+is not overridden.", "");
+
     DocDeclStr(
         virtual bool, Pending(),
         "Returns True if there are unprocessed events in the event queue.", "");

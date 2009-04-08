@@ -644,19 +644,23 @@ public:
     int  GetAssertMode() { return m_assertMode; }
     void SetAssertMode(int mode) { m_assertMode = mode; }
 
+    bool GetCallFilterEvent() { return m_callFilterEvent; }
+    void SetCallFilterEvent(bool callFilterEvent=true) { m_callFilterEvent = callFilterEvent; }
+
     virtual bool OnInitGui();
     virtual int OnExit();
     virtual void OnEventLoopEnter(wxEventLoopBase* loop);
     virtual void OnEventLoopExit(wxEventLoopBase* loop);
-#ifdef __WXDEBUG__
     virtual void OnAssertFailure(const wxChar *file,
                                  int line,
                                  const wxChar *func,
                                  const wxChar *cond,
                                  const wxChar *msg);
+#if wxUSE_EXCEPTIONS
+    virtual bool OnExceptionInMainLoop();
 #endif
     virtual void ExitMainLoop();
-    // virtual int FilterEvent(wxEvent& event); // This one too????
+    virtual int FilterEvent(wxEvent& event);
 
     // For catching Apple Events
     virtual void MacOpenFile(const wxString& fileName);
@@ -686,6 +690,7 @@ public:
     PYPRIVATE;
     int m_assertMode;
     bool m_startupComplete;
+    bool m_callFilterEvent;
 };
 
 extern wxPyApp *wxPythonApp;
