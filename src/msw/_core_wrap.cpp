@@ -34644,6 +34644,118 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PyApp_FilterEvent(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  wxEvent *arg2 = 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "event", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyApp_FilterEvent",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_FilterEvent" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxEvent,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PyApp_FilterEvent" "', expected argument " "2"" of type '" "wxEvent &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PyApp_FilterEvent" "', expected argument " "2"" of type '" "wxEvent &""'"); 
+  }
+  arg2 = reinterpret_cast< wxEvent * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)(arg1)->FilterEvent(*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PyApp_GetCallFilterEvent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_GetCallFilterEvent" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->GetCallFilterEvent();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PyApp_SetCallFilterEvent(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  bool arg2 = (bool) true ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "callFilterEvent", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:PyApp_SetCallFilterEvent",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_SetCallFilterEvent" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_bool(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PyApp_SetCallFilterEvent" "', expected argument " "2"" of type '" "bool""'");
+    } 
+    arg2 = static_cast< bool >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetCallFilterEvent(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PyApp_Pending(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPyApp *arg1 = (wxPyApp *) 0 ;
@@ -68602,6 +68714,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyApp_GetLayoutDirection", (PyCFunction)_wrap_PyApp_GetLayoutDirection, METH_O, NULL},
 	 { (char *)"PyApp_SetNativeTheme", (PyCFunction) _wrap_PyApp_SetNativeTheme, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_ExitMainLoop", (PyCFunction)_wrap_PyApp_ExitMainLoop, METH_O, NULL},
+	 { (char *)"PyApp_FilterEvent", (PyCFunction) _wrap_PyApp_FilterEvent, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PyApp_GetCallFilterEvent", (PyCFunction)_wrap_PyApp_GetCallFilterEvent, METH_O, NULL},
+	 { (char *)"PyApp_SetCallFilterEvent", (PyCFunction) _wrap_PyApp_SetCallFilterEvent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_Pending", (PyCFunction)_wrap_PyApp_Pending, METH_O, NULL},
 	 { (char *)"PyApp_Dispatch", (PyCFunction)_wrap_PyApp_Dispatch, METH_O, NULL},
 	 { (char *)"PyApp_ProcessIdle", (PyCFunction)_wrap_PyApp_ProcessIdle, METH_O, NULL},
@@ -71278,6 +71393,7 @@ SWIGEXPORT void SWIG_init(void) {
 #endif
   
   SWIG_Python_SetConstant(d, "NOT_FOUND",SWIG_From_int(static_cast< int >(wxNOT_FOUND)));
+  SWIG_Python_SetConstant(d, "NO_LEN",SWIG_From_int(static_cast< int >(wxNO_LEN)));
   SWIG_Python_SetConstant(d, "VSCROLL",SWIG_From_int(static_cast< int >(wxVSCROLL)));
   SWIG_Python_SetConstant(d, "HSCROLL",SWIG_From_int(static_cast< int >(wxHSCROLL)));
   SWIG_Python_SetConstant(d, "CAPTION",SWIG_From_int(static_cast< int >(wxCAPTION)));

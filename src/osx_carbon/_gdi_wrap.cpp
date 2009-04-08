@@ -2551,96 +2551,97 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxImageList swig_types[85]
 #define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[86]
 #define SWIGTYPE_p_wxInitDialogEvent swig_types[87]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[88]
-#define SWIGTYPE_p_wxKeyEvent swig_types[89]
-#define SWIGTYPE_p_wxLanguageInfo swig_types[90]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[91]
-#define SWIGTYPE_p_wxLocale swig_types[92]
-#define SWIGTYPE_p_wxMask swig_types[93]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[94]
-#define SWIGTYPE_p_wxMemoryDC swig_types[95]
-#define SWIGTYPE_p_wxMenu swig_types[96]
-#define SWIGTYPE_p_wxMenuBar swig_types[97]
-#define SWIGTYPE_p_wxMenuEvent swig_types[98]
-#define SWIGTYPE_p_wxMenuItem swig_types[99]
-#define SWIGTYPE_p_wxMetaFile swig_types[100]
-#define SWIGTYPE_p_wxMetaFileDC swig_types[101]
-#define SWIGTYPE_p_wxMirrorDC swig_types[102]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[103]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[104]
-#define SWIGTYPE_p_wxMouseEvent swig_types[105]
-#define SWIGTYPE_p_wxMoveEvent swig_types[106]
-#define SWIGTYPE_p_wxNativeEncodingInfo swig_types[107]
-#define SWIGTYPE_p_wxNativeFontInfo swig_types[108]
-#define SWIGTYPE_p_wxNativePixelData swig_types[109]
-#define SWIGTYPE_p_wxNativePixelData_Accessor swig_types[110]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[111]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[112]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[113]
-#define SWIGTYPE_p_wxObject swig_types[114]
-#define SWIGTYPE_p_wxOverlay swig_types[115]
-#define SWIGTYPE_p_wxPCXHandler swig_types[116]
-#define SWIGTYPE_p_wxPNGHandler swig_types[117]
-#define SWIGTYPE_p_wxPNMHandler swig_types[118]
-#define SWIGTYPE_p_wxPaintDC swig_types[119]
-#define SWIGTYPE_p_wxPaintEvent swig_types[120]
-#define SWIGTYPE_p_wxPalette swig_types[121]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[122]
-#define SWIGTYPE_p_wxPaperSize swig_types[123]
-#define SWIGTYPE_p_wxPen swig_types[124]
-#define SWIGTYPE_p_wxPenList swig_types[125]
-#define SWIGTYPE_p_wxPixelDataBase swig_types[126]
-#define SWIGTYPE_p_wxPoint swig_types[127]
-#define SWIGTYPE_p_wxPoint2D swig_types[128]
-#define SWIGTYPE_p_wxPostScriptDC swig_types[129]
-#define SWIGTYPE_p_wxPrintData swig_types[130]
-#define SWIGTYPE_p_wxPrinterDC swig_types[131]
-#define SWIGTYPE_p_wxPseudoDC swig_types[132]
-#define SWIGTYPE_p_wxPyApp swig_types[133]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[134]
-#define SWIGTYPE_p_wxPyEvent swig_types[135]
-#define SWIGTYPE_p_wxPyEvtHandler swig_types[136]
-#define SWIGTYPE_p_wxPyFontEnumerator swig_types[137]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[138]
-#define SWIGTYPE_p_wxPyLocale swig_types[139]
-#define SWIGTYPE_p_wxPySizer swig_types[140]
-#define SWIGTYPE_p_wxPyValidator swig_types[141]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[142]
-#define SWIGTYPE_p_wxRect swig_types[143]
-#define SWIGTYPE_p_wxRect2D swig_types[144]
-#define SWIGTYPE_p_wxRegion swig_types[145]
-#define SWIGTYPE_p_wxRegionIterator swig_types[146]
-#define SWIGTYPE_p_wxRendererNative swig_types[147]
-#define SWIGTYPE_p_wxRendererVersion swig_types[148]
-#define SWIGTYPE_p_wxSVGFileDC swig_types[149]
-#define SWIGTYPE_p_wxScreenDC swig_types[150]
-#define SWIGTYPE_p_wxScrollEvent swig_types[151]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[152]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[153]
-#define SWIGTYPE_p_wxShowEvent swig_types[154]
-#define SWIGTYPE_p_wxSize swig_types[155]
-#define SWIGTYPE_p_wxSizeEvent swig_types[156]
-#define SWIGTYPE_p_wxSizer swig_types[157]
-#define SWIGTYPE_p_wxSizerItem swig_types[158]
-#define SWIGTYPE_p_wxSplitterRenderParams swig_types[159]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[160]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[161]
-#define SWIGTYPE_p_wxStockGDI swig_types[162]
-#define SWIGTYPE_p_wxString swig_types[163]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[164]
-#define SWIGTYPE_p_wxTGAHandler swig_types[165]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[166]
-#define SWIGTYPE_p_wxThreadEvent swig_types[167]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[168]
-#define SWIGTYPE_p_wxValidator swig_types[169]
-#define SWIGTYPE_p_wxWindow swig_types[170]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[171]
-#define SWIGTYPE_p_wxWindowDC swig_types[172]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[173]
-#define SWIGTYPE_p_wxWrapSizer swig_types[174]
-#define SWIGTYPE_p_wxXPMHandler swig_types[175]
-static swig_type_info *swig_types[177];
-static swig_module_info swig_module = {swig_types, 176, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxInputStream swig_types[88]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[89]
+#define SWIGTYPE_p_wxKeyEvent swig_types[90]
+#define SWIGTYPE_p_wxLanguageInfo swig_types[91]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[92]
+#define SWIGTYPE_p_wxLocale swig_types[93]
+#define SWIGTYPE_p_wxMask swig_types[94]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[95]
+#define SWIGTYPE_p_wxMemoryDC swig_types[96]
+#define SWIGTYPE_p_wxMenu swig_types[97]
+#define SWIGTYPE_p_wxMenuBar swig_types[98]
+#define SWIGTYPE_p_wxMenuEvent swig_types[99]
+#define SWIGTYPE_p_wxMenuItem swig_types[100]
+#define SWIGTYPE_p_wxMetaFile swig_types[101]
+#define SWIGTYPE_p_wxMetaFileDC swig_types[102]
+#define SWIGTYPE_p_wxMirrorDC swig_types[103]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[104]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[105]
+#define SWIGTYPE_p_wxMouseEvent swig_types[106]
+#define SWIGTYPE_p_wxMoveEvent swig_types[107]
+#define SWIGTYPE_p_wxNativeEncodingInfo swig_types[108]
+#define SWIGTYPE_p_wxNativeFontInfo swig_types[109]
+#define SWIGTYPE_p_wxNativePixelData swig_types[110]
+#define SWIGTYPE_p_wxNativePixelData_Accessor swig_types[111]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[112]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[113]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[114]
+#define SWIGTYPE_p_wxObject swig_types[115]
+#define SWIGTYPE_p_wxOverlay swig_types[116]
+#define SWIGTYPE_p_wxPCXHandler swig_types[117]
+#define SWIGTYPE_p_wxPNGHandler swig_types[118]
+#define SWIGTYPE_p_wxPNMHandler swig_types[119]
+#define SWIGTYPE_p_wxPaintDC swig_types[120]
+#define SWIGTYPE_p_wxPaintEvent swig_types[121]
+#define SWIGTYPE_p_wxPalette swig_types[122]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[123]
+#define SWIGTYPE_p_wxPaperSize swig_types[124]
+#define SWIGTYPE_p_wxPen swig_types[125]
+#define SWIGTYPE_p_wxPenList swig_types[126]
+#define SWIGTYPE_p_wxPixelDataBase swig_types[127]
+#define SWIGTYPE_p_wxPoint swig_types[128]
+#define SWIGTYPE_p_wxPoint2D swig_types[129]
+#define SWIGTYPE_p_wxPostScriptDC swig_types[130]
+#define SWIGTYPE_p_wxPrintData swig_types[131]
+#define SWIGTYPE_p_wxPrinterDC swig_types[132]
+#define SWIGTYPE_p_wxPseudoDC swig_types[133]
+#define SWIGTYPE_p_wxPyApp swig_types[134]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[135]
+#define SWIGTYPE_p_wxPyEvent swig_types[136]
+#define SWIGTYPE_p_wxPyEvtHandler swig_types[137]
+#define SWIGTYPE_p_wxPyFontEnumerator swig_types[138]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[139]
+#define SWIGTYPE_p_wxPyLocale swig_types[140]
+#define SWIGTYPE_p_wxPySizer swig_types[141]
+#define SWIGTYPE_p_wxPyValidator swig_types[142]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[143]
+#define SWIGTYPE_p_wxRect swig_types[144]
+#define SWIGTYPE_p_wxRect2D swig_types[145]
+#define SWIGTYPE_p_wxRegion swig_types[146]
+#define SWIGTYPE_p_wxRegionIterator swig_types[147]
+#define SWIGTYPE_p_wxRendererNative swig_types[148]
+#define SWIGTYPE_p_wxRendererVersion swig_types[149]
+#define SWIGTYPE_p_wxSVGFileDC swig_types[150]
+#define SWIGTYPE_p_wxScreenDC swig_types[151]
+#define SWIGTYPE_p_wxScrollEvent swig_types[152]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[153]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[154]
+#define SWIGTYPE_p_wxShowEvent swig_types[155]
+#define SWIGTYPE_p_wxSize swig_types[156]
+#define SWIGTYPE_p_wxSizeEvent swig_types[157]
+#define SWIGTYPE_p_wxSizer swig_types[158]
+#define SWIGTYPE_p_wxSizerItem swig_types[159]
+#define SWIGTYPE_p_wxSplitterRenderParams swig_types[160]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[161]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[162]
+#define SWIGTYPE_p_wxStockGDI swig_types[163]
+#define SWIGTYPE_p_wxString swig_types[164]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[165]
+#define SWIGTYPE_p_wxTGAHandler swig_types[166]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[167]
+#define SWIGTYPE_p_wxThreadEvent swig_types[168]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[169]
+#define SWIGTYPE_p_wxValidator swig_types[170]
+#define SWIGTYPE_p_wxWindow swig_types[171]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[172]
+#define SWIGTYPE_p_wxWindowDC swig_types[173]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[174]
+#define SWIGTYPE_p_wxWrapSizer swig_types[175]
+#define SWIGTYPE_p_wxXPMHandler swig_types[176]
+static swig_type_info *swig_types[178];
+static swig_module_info swig_module = {swig_types, 177, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3460,6 +3461,7 @@ SWIGINTERN wxMask *new_wxMask(wxBitmap const &bitmap,wxColour const &colour=wxNu
         }
 
 #include <wx/iconbndl.h>
+#include "wx/wxPython/pyistream.h"
 
 SWIGINTERN wxIcon *new_wxIcon(wxBitmap const &bmp){
             wxIcon* icon = new wxIcon();
@@ -10428,6 +10430,62 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_new_IconBundleFromStream(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxInputStream *arg1 = 0 ;
+  wxBitmapType arg2 = (wxBitmapType) wxBITMAP_TYPE_ANY ;
+  wxIconBundle *result = 0 ;
+  wxPyInputStream *temp1 ;
+  bool created1 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "stream",(char *) "type", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:new_IconBundleFromStream",kwnames,&obj0,&obj1)) SWIG_fail;
+  {
+    if (wxPyConvertSwigPtr(obj0, (void **)&temp1, wxT("wxPyInputStream"))) {
+      arg1 = temp1->m_wxis;
+      created1 = false;
+    } else {
+      PyErr_Clear();  // clear the failure of the wxPyConvert above
+      arg1 = wxPyCBInputStream_create(obj0, false);
+      if (arg1 == NULL) {
+        PyErr_SetString(PyExc_TypeError, "Expected wx.InputStream or Python file-like object.");
+        SWIG_fail;
+      }
+      created1 = true;
+    }
+  }
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_IconBundleFromStream" "', expected argument " "2"" of type '" "wxBitmapType""'");
+    } 
+    arg2 = static_cast< wxBitmapType >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxIconBundle *)new wxIconBundle(*arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxIconBundle, SWIG_POINTER_OWN |  0 );
+  {
+    if (created1) delete arg1; 
+  }
+  return resultobj;
+fail:
+  {
+    if (created1) delete arg1; 
+  }
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_delete_IconBundle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxIconBundle *arg1 = (wxIconBundle *) 0 ;
@@ -10531,7 +10589,7 @@ SWIGINTERN PyObject *_wrap_IconBundle_AddIconFromFile(PyObject *SWIGUNUSEDPARM(s
   PyObject *resultobj = 0;
   wxIconBundle *arg1 = (wxIconBundle *) 0 ;
   wxString *arg2 = 0 ;
-  wxBitmapType arg3 ;
+  wxBitmapType arg3 = (wxBitmapType) wxBITMAP_TYPE_ANY ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
@@ -10544,7 +10602,7 @@ SWIGINTERN PyObject *_wrap_IconBundle_AddIconFromFile(PyObject *SWIGUNUSEDPARM(s
     (char *) "self",(char *) "file",(char *) "type", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:IconBundle_AddIconFromFile",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:IconBundle_AddIconFromFile",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxIconBundle, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IconBundle_AddIconFromFile" "', expected argument " "1"" of type '" "wxIconBundle *""'"); 
@@ -10555,11 +10613,13 @@ SWIGINTERN PyObject *_wrap_IconBundle_AddIconFromFile(PyObject *SWIGUNUSEDPARM(s
     if (arg2 == NULL) SWIG_fail;
     temp2 = true;
   }
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "IconBundle_AddIconFromFile" "', expected argument " "3"" of type '" "wxBitmapType""'");
-  } 
-  arg3 = static_cast< wxBitmapType >(val3);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "IconBundle_AddIconFromFile" "', expected argument " "3"" of type '" "wxBitmapType""'");
+    } 
+    arg3 = static_cast< wxBitmapType >(val3);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->AddIcon((wxString const &)*arg2,arg3);
@@ -10576,6 +10636,70 @@ fail:
   {
     if (temp2)
     delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_IconBundle_AddIconFromStream(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxIconBundle *arg1 = (wxIconBundle *) 0 ;
+  wxInputStream *arg2 = 0 ;
+  wxBitmapType arg3 = (wxBitmapType) wxBITMAP_TYPE_ANY ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxPyInputStream *temp2 ;
+  bool created2 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "stream",(char *) "type", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:IconBundle_AddIconFromStream",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxIconBundle, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "IconBundle_AddIconFromStream" "', expected argument " "1"" of type '" "wxIconBundle *""'"); 
+  }
+  arg1 = reinterpret_cast< wxIconBundle * >(argp1);
+  {
+    if (wxPyConvertSwigPtr(obj1, (void **)&temp2, wxT("wxPyInputStream"))) {
+      arg2 = temp2->m_wxis;
+      created2 = false;
+    } else {
+      PyErr_Clear();  // clear the failure of the wxPyConvert above
+      arg2 = wxPyCBInputStream_create(obj1, false);
+      if (arg2 == NULL) {
+        PyErr_SetString(PyExc_TypeError, "Expected wx.InputStream or Python file-like object.");
+        SWIG_fail;
+      }
+      created2 = true;
+    }
+  }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "IconBundle_AddIconFromStream" "', expected argument " "3"" of type '" "wxBitmapType""'");
+    } 
+    arg3 = static_cast< wxBitmapType >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->AddIcon(*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (created2) delete arg2; 
+  }
+  return resultobj;
+fail:
+  {
+    if (created2) delete arg2; 
   }
   return NULL;
 }
@@ -16925,6 +17049,53 @@ SWIGINTERN PyObject *_wrap_Locale_GetSystemEncodingName(PyObject *SWIGUNUSEDPARM
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = wxLocale::GetSystemEncodingName();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Locale_GetInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxLocaleInfo arg1 ;
+  wxLocaleCategory arg2 = (wxLocaleCategory) wxLOCALE_CAT_DEFAULT ;
+  wxString result;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "index",(char *) "cat", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:Locale_GetInfo",kwnames,&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "Locale_GetInfo" "', expected argument " "1"" of type '" "wxLocaleInfo""'");
+  } 
+  arg1 = static_cast< wxLocaleInfo >(val1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Locale_GetInfo" "', expected argument " "2"" of type '" "wxLocaleCategory""'");
+    } 
+    arg2 = static_cast< wxLocaleCategory >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxLocale::GetInfo(arg1,arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -41228,10 +41399,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_IconBundle", (PyCFunction)_wrap_new_IconBundle, METH_NOARGS, NULL},
 	 { (char *)"new_IconBundleFromFile", (PyCFunction) _wrap_new_IconBundleFromFile, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_IconBundleFromIcon", (PyCFunction) _wrap_new_IconBundleFromIcon, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"new_IconBundleFromStream", (PyCFunction) _wrap_new_IconBundleFromStream, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"delete_IconBundle", (PyCFunction)_wrap_delete_IconBundle, METH_O, NULL},
 	 { (char *)"IconBundle_IsOk", (PyCFunction)_wrap_IconBundle_IsOk, METH_O, NULL},
 	 { (char *)"IconBundle_AddIcon", (PyCFunction) _wrap_IconBundle_AddIcon, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"IconBundle_AddIconFromFile", (PyCFunction) _wrap_IconBundle_AddIconFromFile, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"IconBundle_AddIconFromStream", (PyCFunction) _wrap_IconBundle_AddIconFromStream, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"IconBundle_GetIcon", (PyCFunction) _wrap_IconBundle_GetIcon, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"IconBundle_GetIconOfExactSize", (PyCFunction) _wrap_IconBundle_GetIconOfExactSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"IconBundle_GetIconCount", (PyCFunction)_wrap_IconBundle_GetIconCount, METH_O, NULL},
@@ -41418,6 +41591,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Locale_GetSystemLanguage", (PyCFunction)_wrap_Locale_GetSystemLanguage, METH_NOARGS, NULL},
 	 { (char *)"Locale_GetSystemEncoding", (PyCFunction)_wrap_Locale_GetSystemEncoding, METH_NOARGS, NULL},
 	 { (char *)"Locale_GetSystemEncodingName", (PyCFunction)_wrap_Locale_GetSystemEncodingName, METH_NOARGS, NULL},
+	 { (char *)"Locale_GetInfo", (PyCFunction) _wrap_Locale_GetInfo, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Locale_IsOk", (PyCFunction)_wrap_Locale_IsOk, METH_O, NULL},
 	 { (char *)"Locale_GetLocale", (PyCFunction)_wrap_Locale_GetLocale, METH_O, NULL},
 	 { (char *)"Locale_GetLanguage", (PyCFunction)_wrap_Locale_GetLanguage, METH_O, NULL},
@@ -42582,6 +42756,7 @@ static swig_type_info _swigt__p_wxIconBundle = {"_p_wxIconBundle", "wxIconBundle
 static swig_type_info _swigt__p_wxIconLocation = {"_p_wxIconLocation", "wxIconLocation *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxImage = {"_p_wxImage", "wxImage *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxImageList = {"_p_wxImageList", "wxImageList *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxInputStream = {"_p_wxInputStream", "wxInputStream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLanguageInfo = {"_p_wxLanguageInfo", "wxLanguageInfo *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLocale = {"_p_wxLocale", "wxLocale *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxMask = {"_p_wxMask", "wxMask *", 0, 0, (void*)0, 0};
@@ -42794,6 +42969,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxImageList,
   &_swigt__p_wxIndividualLayoutConstraint,
   &_swigt__p_wxInitDialogEvent,
+  &_swigt__p_wxInputStream,
   &_swigt__p_wxJPEGHandler,
   &_swigt__p_wxKeyEvent,
   &_swigt__p_wxLanguageInfo,
@@ -42938,6 +43114,7 @@ static swig_cast_info _swigc__p_wxIconBundle[] = {  {&_swigt__p_wxIconBundle, 0,
 static swig_cast_info _swigc__p_wxIconLocation[] = {  {&_swigt__p_wxIconLocation, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxImage[] = {  {&_swigt__p_wxImage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxImageList[] = {  {&_swigt__p_wxImageList, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxInputStream[] = {  {&_swigt__p_wxInputStream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLanguageInfo[] = {  {&_swigt__p_wxLanguageInfo, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLocale[] = {  {&_swigt__p_wxPyLocale, _p_wxPyLocaleTo_p_wxLocale, 0, 0},  {&_swigt__p_wxLocale, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMask[] = {  {&_swigt__p_wxMask, 0, 0, 0},{0, 0, 0, 0}};
@@ -43150,6 +43327,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxImageList,
   _swigc__p_wxIndividualLayoutConstraint,
   _swigc__p_wxInitDialogEvent,
+  _swigc__p_wxInputStream,
   _swigc__p_wxJPEGHandler,
   _swigc__p_wxKeyEvent,
   _swigc__p_wxLanguageInfo,
@@ -44159,9 +44337,14 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "LOCALE_CAT_NUMBER",SWIG_From_int(static_cast< int >(wxLOCALE_CAT_NUMBER)));
   SWIG_Python_SetConstant(d, "LOCALE_CAT_DATE",SWIG_From_int(static_cast< int >(wxLOCALE_CAT_DATE)));
   SWIG_Python_SetConstant(d, "LOCALE_CAT_MONEY",SWIG_From_int(static_cast< int >(wxLOCALE_CAT_MONEY)));
+  SWIG_Python_SetConstant(d, "LOCALE_CAT_DEFAULT",SWIG_From_int(static_cast< int >(wxLOCALE_CAT_DEFAULT)));
   SWIG_Python_SetConstant(d, "LOCALE_CAT_MAX",SWIG_From_int(static_cast< int >(wxLOCALE_CAT_MAX)));
   SWIG_Python_SetConstant(d, "LOCALE_THOUSANDS_SEP",SWIG_From_int(static_cast< int >(wxLOCALE_THOUSANDS_SEP)));
   SWIG_Python_SetConstant(d, "LOCALE_DECIMAL_POINT",SWIG_From_int(static_cast< int >(wxLOCALE_DECIMAL_POINT)));
+  SWIG_Python_SetConstant(d, "LOCALE_SHORT_DATE_FMT",SWIG_From_int(static_cast< int >(wxLOCALE_SHORT_DATE_FMT)));
+  SWIG_Python_SetConstant(d, "LOCALE_LONG_DATE_FMT",SWIG_From_int(static_cast< int >(wxLOCALE_LONG_DATE_FMT)));
+  SWIG_Python_SetConstant(d, "LOCALE_DATE_TIME_FMT",SWIG_From_int(static_cast< int >(wxLOCALE_DATE_TIME_FMT)));
+  SWIG_Python_SetConstant(d, "LOCALE_TIME_FMT",SWIG_From_int(static_cast< int >(wxLOCALE_TIME_FMT)));
   SWIG_Python_SetConstant(d, "LOCALE_LOAD_DEFAULT",SWIG_From_int(static_cast< int >(wxLOCALE_LOAD_DEFAULT)));
   SWIG_Python_SetConstant(d, "LOCALE_CONV_ENCODING",SWIG_From_int(static_cast< int >(wxLOCALE_CONV_ENCODING)));
   SWIG_Python_SetConstant(d, "CONVERT_STRICT",SWIG_From_int(static_cast< int >(wxCONVERT_STRICT)));

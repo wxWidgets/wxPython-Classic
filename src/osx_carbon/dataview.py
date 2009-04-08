@@ -82,7 +82,7 @@ class DataViewItem(object):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, void id=None) -> DataViewItem
+        __init__(self, long ID=0) -> DataViewItem
 
         wxDataViewItem is a small opaque class that represents an item in a
         `DataViewCtrl` in a persistent way, i.e. indepent of the position of
@@ -104,14 +104,16 @@ class DataViewItem(object):
         """
         return _dataview.DataViewItem_IsOk(*args, **kwargs)
 
+    def __nonzero__(self): return self.IsOk() 
     def GetID(*args, **kwargs):
         """
-        GetID(self) -> void
+        GetID(self) -> long
 
-        Get the opaque value of the ID object.
+        Get the opaque unique ID value of the item object.
         """
         return _dataview.DataViewItem_GetID(*args, **kwargs)
 
+    ID = property(GetID) 
     def __hash__(*args, **kwargs):
         """__hash__(self) -> long"""
         return _dataview.DataViewItem___hash__(*args, **kwargs)
@@ -160,11 +162,20 @@ class DataViewItemArray(object):
         """__iter__(self) -> DataViewItemArray_iterator"""
         return _dataview.DataViewItemArray___iter__(*args, **kwargs)
 
+    def append(*args, **kwargs):
+        """append(self, DataViewItem object)"""
+        return _dataview.DataViewItemArray_append(*args, **kwargs)
+
+    def insert(*args, **kwargs):
+        """insert(self, size_t index, DataViewItem object)"""
+        return _dataview.DataViewItemArray_insert(*args, **kwargs)
+
     def __repr__(self):
         return "wxDataViewItemArray: " + repr(list(self))
 
 _dataview.DataViewItemArray_swigregister(DataViewItemArray)
 
+NullDataViewItem = DataViewItem() 
 #---------------------------------------------------------------------------
 
 class DataViewModelNotifier(object):
@@ -424,8 +435,8 @@ class DataViewModel(_core.ObjectRefData):
         GetColumnType(self, unsigned int col) -> String
 
         Override this to indicate what type of data is stored in the column
-        specified by col. This should return a string indicating the type name of
-        data type, as used by wxVariant.
+        specified by col. This should return a string indicating the type name of the
+        data type of the column, as used by wxVariant.
         """
         return _dataview.DataViewModel_GetColumnType(*args, **kwargs)
 
@@ -622,6 +633,60 @@ class DataViewModel(_core.ObjectRefData):
 
 _dataview.DataViewModel_swigregister(DataViewModel)
 
+class DataViewItemObjectMapper(object):
+    """
+    This class provides a mechanism for mapping between Python objects and the
+    DataViewItem objects used by the DataViewModel for tacking the items in
+    the view. The ID used for the item is the id() of the Python object. Use
+    `ObjectToItem` to create a DataViewItem using a Python object as its ID,
+    and use `ItemToObject` to fetch that Python object again later for a give
+    DataViewItem.
+    
+    By default a regular dictionary is used to implement the ID to object
+    mapping. Optionally a WeakValueDictionary can be useful when there will be
+    a high turnover of objects and mantaining an extra reference to the
+    objects would be unwise.  If weak references are used then the objects
+    associated with data items must be weak-referenceable.  (Things like
+    stock lists and dictionaries are not.)  See `UseWeakRefs`.
+    
+    Each `PyDataViewModel` has an instance of this class named objmapper.
+    """
+    def __init__(self):
+        self.mapper = dict()
+        self.usingWeakRefs = False
+        
+    def ObjectToItem(self, obj):
+        """
+        Create a DataViewItem for the object, and remember the ID-->obj mapping.
+        """
+        oid = id(obj)
+        self.mapper[oid] = obj
+        return DataViewItem(oid)
+
+    def ItemToObject(self, item):
+        """
+        Retrieve the object that was used to create an item.
+        """
+        oid = item.GetID()
+        return self.mapper[oid]
+
+    def UseWeakRefs(self, flag):
+        """
+        Switch to or from using a weak value dictionary for keeping the ID to
+        object map.
+        """
+        if flag == self.usingWeakRefs:
+            return
+        if flag:
+            import weakref
+            newmap = weakref.WeakValueDictionary()
+        else:
+            newmap = dict()
+        newmap.update(self.mapper)
+        self.mapper = newmap
+        self.usingWeakRefs = flag
+        
+
 class PyDataViewModel(DataViewModel):
     """
     This class is a version of `DataViewModel` that has been
@@ -641,11 +706,20 @@ class PyDataViewModel(DataViewModel):
         class instead of `DataViewModel`.
         """
         _dataview.PyDataViewModel_swiginit(self,_dataview.new_PyDataViewModel(*args, **kwargs))
-        PyDataViewModel._setCallbackInfo(self, self, PyDataViewModel)
+        PyDataViewModel._setCallbackInfo(self, self, PyDataViewModel); self.objmapper = DataViewItemObjectMapper()
+
 
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
         return _dataview.PyDataViewModel__setCallbackInfo(*args, **kwargs)
+
+    def ObjectToItem(self, obj):
+        "Convenience access to DataViewItemObjectMapper.ObjectToItem."
+        return self.objmapper.ObjectToItem(obj)
+
+    def ItemToObject(self, item):
+        "Convenience access to DataViewItemObjectMapper.ItemToObject."
+        return self.objmapper.ItemToObject(item)
 
 _dataview.PyDataViewModel_swigregister(PyDataViewModel)
 
@@ -1658,7 +1732,7 @@ class DataViewCtrl(_core.Control):
         return _dataview.DataViewCtrl_GetSelection(*args, **kwargs)
 
     def GetSelections(*args, **kwargs):
-        """GetSelections(self, DataViewItemArray sel) -> int"""
+        """GetSelections(self) -> DataViewItemArray"""
         return _dataview.DataViewCtrl_GetSelections(*args, **kwargs)
 
     def SetSelections(*args, **kwargs):

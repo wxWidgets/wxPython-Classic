@@ -1386,13 +1386,21 @@ class IconBundle(object):
 
     def AddIconFromFile(*args, **kwargs):
         """
-        AddIconFromFile(self, String file, int type)
+        AddIconFromFile(self, String file, int type=BITMAP_TYPE_ANY)
 
         Adds all the icons contained in the file to the collection, if the
         collection already contains icons with the same width and height, they
         are replaced
         """
         return _gdi_.IconBundle_AddIconFromFile(*args, **kwargs)
+
+    def AddIconFromStream(*args, **kwargs):
+        """
+        AddIconFromStream(self, InputStream stream, int type=BITMAP_TYPE_ANY)
+
+        Just like `AddIconFromFile` but pulls icons from a file-liek object.
+        """
+        return _gdi_.IconBundle_AddIconFromStream(*args, **kwargs)
 
     def GetIcon(*args, **kwargs):
         """
@@ -1447,6 +1455,11 @@ def IconBundleFromFile(*args, **kwargs):
 def IconBundleFromIcon(*args, **kwargs):
     """IconBundleFromIcon(Icon icon) -> IconBundle"""
     val = _gdi_.new_IconBundleFromIcon(*args, **kwargs)
+    return val
+
+def IconBundleFromStream(*args, **kwargs):
+    """IconBundleFromStream(InputStream stream, int type=BITMAP_TYPE_ANY) -> IconBundle"""
+    val = _gdi_.new_IconBundleFromStream(*args, **kwargs)
     return val
 
 class Cursor(GDIObject):
@@ -2875,9 +2888,14 @@ _gdi_.LanguageInfo_swigregister(LanguageInfo)
 LOCALE_CAT_NUMBER = _gdi_.LOCALE_CAT_NUMBER
 LOCALE_CAT_DATE = _gdi_.LOCALE_CAT_DATE
 LOCALE_CAT_MONEY = _gdi_.LOCALE_CAT_MONEY
+LOCALE_CAT_DEFAULT = _gdi_.LOCALE_CAT_DEFAULT
 LOCALE_CAT_MAX = _gdi_.LOCALE_CAT_MAX
 LOCALE_THOUSANDS_SEP = _gdi_.LOCALE_THOUSANDS_SEP
 LOCALE_DECIMAL_POINT = _gdi_.LOCALE_DECIMAL_POINT
+LOCALE_SHORT_DATE_FMT = _gdi_.LOCALE_SHORT_DATE_FMT
+LOCALE_LONG_DATE_FMT = _gdi_.LOCALE_LONG_DATE_FMT
+LOCALE_DATE_TIME_FMT = _gdi_.LOCALE_DATE_TIME_FMT
+LOCALE_TIME_FMT = _gdi_.LOCALE_TIME_FMT
 LOCALE_LOAD_DEFAULT = _gdi_.LOCALE_LOAD_DEFAULT
 LOCALE_CONV_ENCODING = _gdi_.LOCALE_CONV_ENCODING
 class Locale(object):
@@ -2922,6 +2940,11 @@ class Locale(object):
         return _gdi_.Locale_GetSystemEncodingName(*args, **kwargs)
 
     GetSystemEncodingName = staticmethod(GetSystemEncodingName)
+    def GetInfo(*args, **kwargs):
+        """GetInfo(int index, int cat=LOCALE_CAT_DEFAULT) -> String"""
+        return _gdi_.Locale_GetInfo(*args, **kwargs)
+
+    GetInfo = staticmethod(GetInfo)
     def IsOk(*args, **kwargs):
         """IsOk(self) -> bool"""
         return _gdi_.Locale_IsOk(*args, **kwargs)
@@ -3008,6 +3031,10 @@ def Locale_GetSystemEncoding(*args):
 def Locale_GetSystemEncodingName(*args):
   """Locale_GetSystemEncodingName() -> String"""
   return _gdi_.Locale_GetSystemEncodingName(*args)
+
+def Locale_GetInfo(*args, **kwargs):
+  """Locale_GetInfo(int index, int cat=LOCALE_CAT_DEFAULT) -> String"""
+  return _gdi_.Locale_GetInfo(*args, **kwargs)
 
 def Locale_AddCatalogLookupPathPrefix(*args, **kwargs):
   """Locale_AddCatalogLookupPathPrefix(String prefix)"""
