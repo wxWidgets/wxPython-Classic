@@ -11,6 +11,9 @@ import sys
 import types
 import config
 
+from distutils.dep_util  import newer
+
+
 version2 = "%d.%d" % (config.VER_MAJOR, config.VER_MINOR) 
 version3 = "%d.%d.%d" % (config.VER_MAJOR, config.VER_MINOR, config.VER_RELEASE)
 version2_nodot = version2.replace(".", "")
@@ -63,7 +66,15 @@ for opt in keys:
     if type(default) == types.BooleanType:
         action = "store_true"
     if len(option_dict[opt]) > 2:
-        parser.add_option("--" + opt, action='callback', type='string',
+        # Even with the callback action we still have to workaround optparse's
+        # checking for presense of a value or not. Check for a '=' and set
+        # type accordingly.
+        vtype = None
+        for a in sys.argv:
+            if a.startswith('--'+opt+'='):
+                vtype = 'string'
+                break
+        parser.add_option("--" + opt, action='callback', type=vtype,
                           default=default, dest=opt, help=option_dict[opt][1],
                           callback=option_dict[opt][2], nargs=1)
     else:
@@ -230,14 +241,24 @@ if options.extra_make:
     build_options.append('--extra_make="%s"' % options.extra_make)
     
     
-# Only disable config if we don't need it
-# TODO:  Also check if Makefile is older than things like Makefile.in, configure, setup.h.in, etc.
+# Only disable configure if we don't need it
 if ( not sys.platform.startswith("win") and 
      not options.force_config and 
-     not options_changed and 
-     os.path.exists(os.path.join(WXPY_BUILD_DIR, "Makefile")) ):
+     not options_changed ):
+
+    dependencies = [ os.path.join(WXWIN, 'Makefile.in'),
+                     os.path.join(WXWIN, 'configure'),
+                     os.path.join(WXWIN, 'setup.h.in'),
+                     os.path.join(WXWIN, 'version-script.in'),
+                     os.path.join(WXWIN, 'wx-config.in'),
+                     ]
+    for dep in dependencies:
+        if newer(dep, os.path.join(WXPY_BUILD_DIR, "Makefile")):
+            break
+    else:
         build_options.append("--no_config")
-    
+
+           
 if sys.platform.startswith("darwin") and options.osx_cocoa:
     build_options.append("--osx_cocoa")
     wxpy_build_options.append("WXPORT=osx_cocoa")
