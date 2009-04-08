@@ -547,6 +547,7 @@ enum {
 // wxDataViewItem
 %newgroup
 
+
 DocStr(wxDataViewItem,
 "wxDataViewItem is a small opaque class that represents an item in a
 `DataViewCtrl` in a persistent way, i.e. indepent of the position of
@@ -559,18 +560,31 @@ API to indicate that no item was found.", "");
 class wxDataViewItem
 {
 public:
-    wxDataViewItem( void* id = NULL );
+    %extend {
+        // wxDataViewItem( void* id = NULL );
+        wxDataViewItem(long ID = 0) {
+            return new wxDataViewItem((void*)ID);
+        }
+    }
     ~wxDataViewItem();
 
     DocDeclStr(
         bool , IsOk() const,
         "Returns ``True`` if the object refers to an actual item in the data
 view control.", "");
+    %pythoncode { def __nonzero__(self): return self.IsOk() }
 
-    DocDeclStr(
-        void* , GetID() const,
-        "Get the opaque value of the ID object.", "");
+    %extend {
+        // void* GetID() const;
+        DocStr(GetID, "Get the opaque unique ID value of the item object.", "");
+        long GetID() const
+        {
+            return (long)self->GetID();
+        }
+    }
 
+    %property(ID, GetID);
+    
     %extend {
         // methods to allow items to be dictionary keys
         long __hash__()
@@ -588,6 +602,8 @@ view control.", "");
 };
 
 wxARRAY_WRAPPER(wxDataViewItemArray, wxDataViewItem);
+
+%pythoncode { NullDataViewItem = DataViewItem() }
 
 //---------------------------------------------------------------------------
 // wxDataViewModelNotifier
@@ -801,8 +817,8 @@ public:
     DocDeclStr(
         virtual wxString , GetColumnType( unsigned int col ) const,
         "Override this to indicate what type of data is stored in the column
-specified by col. This should return a string indicating the type name of
-data type, as used by wxVariant.", "");
+specified by col. This should return a string indicating the type name of the
+data type of the column, as used by wxVariant.", "");
 
 
     %extend {
@@ -998,7 +1014,7 @@ public:
         bool rval = false;
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        if ((found = wxPyCBH_findCallback(m_myInst, "GetValue"))) {
+        if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
             PyObject* vo = wxVariant_out_helper(variant);
             PyObject* io = wxPyConstructObject((void*)&item, wxT("wxDataViewItem"), 0);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOi)", vo, io, col));
@@ -1039,6 +1055,63 @@ public:
 %}
 
 
+%pythoncode {
+
+class DataViewItemObjectMapper(object):
+    """
+    This class provides a mechanism for mapping between Python objects and the
+    DataViewItem objects used by the DataViewModel for tacking the items in
+    the view. The ID used for the item is the id() of the Python object. Use
+    `ObjectToItem` to create a DataViewItem using a Python object as its ID,
+    and use `ItemToObject` to fetch that Python object again later for a give
+    DataViewItem.
+    
+    By default a regular dictionary is used to implement the ID to object
+    mapping. Optionally a WeakValueDictionary can be useful when there will be
+    a high turnover of objects and mantaining an extra reference to the
+    objects would be unwise.  If weak references are used then the objects
+    associated with data items must be weak-referenceable.  (Things like
+    stock lists and dictionaries are not.)  See `UseWeakRefs`.
+    
+    Each `PyDataViewModel` has an instance of this class named objmapper.
+    """
+    def __init__(self):
+        self.mapper = dict()
+        self.usingWeakRefs = False
+        
+    def ObjectToItem(self, obj):
+        """
+        Create a DataViewItem for the object, and remember the ID-->obj mapping.
+        """
+        oid = id(obj)
+        self.mapper[oid] = obj
+        return DataViewItem(oid)
+
+    def ItemToObject(self, item):
+        """
+        Retrieve the object that was used to create an item.
+        """
+        oid = item.GetID()
+        return self.mapper[oid]
+
+    def UseWeakRefs(self, flag):
+        """
+        Switch to or from using a weak value dictionary for keeping the ID to
+        object map.
+        """
+        if flag == self.usingWeakRefs:
+            return
+        if flag:
+            import weakref
+            newmap = weakref.WeakValueDictionary()
+        else:
+            newmap = dict()
+        newmap.update(self.mapper)
+        self.mapper = newmap
+        self.usingWeakRefs = flag
+        
+}    
+
 // tell SWIG about the Py class
 DocStr(wxPyDataViewModel,
 "This class is a version of `DataViewModel` that has been
@@ -1049,9 +1122,20 @@ class instead of `DataViewModel`.", "");
 class wxPyDataViewModel: public wxDataViewModel
 {
 public:
-    %pythonAppend wxPyDataViewModel   setCallbackInfo(PyDataViewModel);
+    %pythonAppend wxPyDataViewModel setCallbackInfo(PyDataViewModel) "; self.objmapper = DataViewItemObjectMapper()
+";
     wxPyDataViewModel();
     void _setCallbackInfo(PyObject* self, PyObject* _class);
+
+    %pythoncode {
+    def ObjectToItem(self, obj):
+        "Convenience access to DataViewItemObjectMapper.ObjectToItem."
+        return self.objmapper.ObjectToItem(obj)
+    
+    def ItemToObject(self, item):
+        "Convenience access to DataViewItemObjectMapper.ItemToObject."
+        return self.objmapper.ItemToObject(item)
+   }
 };
 
 
@@ -2167,7 +2251,15 @@ public:
     int GetIndent() const;
 
     virtual wxDataViewItem GetSelection() const;
-    virtual int GetSelections( wxDataViewItemArray & sel ) const;
+
+    //virtual int GetSelections( wxDataViewItemArray & sel ) const;
+    %extend {
+        wxDataViewItemArray GetSelections() const {
+            wxDataViewItemArray selections;
+            self->GetSelections(selections);
+            return selections;
+        }
+    }
     virtual void SetSelections( const wxDataViewItemArray & sel );
     virtual void Select( const wxDataViewItem & item );
     virtual void Unselect( const wxDataViewItem & item );

@@ -9,13 +9,13 @@ import wx.dataview as dv
 # to be referenced by row rather than by item object, so in this way
 # it is easier to comprehend and use than other model types.  In this
 # example we also provide a Compare function to assist with sorting of
-# items in our model.  Notice that the data items in the model don't
-# ever change position due to a sort or column reordering.  The view
-# manages all of that and maps view rows and columns to the model's
-# rows and columns as needed.
+# items in our model.  Notice that the data items in the data model
+# object don't ever change position due to a sort or column
+# reordering.  The view manages all of that and maps view rows and
+# columns to the model's rows and columns as needed.
 #
 # For this example our data is stored in a simple list of lists.  In
-# real life you can use whatever you want to hold your data.
+# real life you can use whatever you want or need to hold your data.
 
 class TestModel(dv.PyDataViewIndexListModel):
     def __init__(self, data, log):
@@ -58,8 +58,28 @@ class TestModel(dv.PyDataViewIndexListModel):
         else:
             return cmp(self.data[row1][col], self.data[row2][col])
 
+        
+    def DeleteRows(self, rows):
+        # make a copy since we'll be sorting(mutating) the list
+        rows = list(rows)
+        # use reverse order so the indexes don't change as we remove items
+        rows.sort(reverse=True)
+        
+        for row in rows:
+            # remove it from our data structure
+            del self.data[row]
+            # notify the view(s) using this model that it has been removed
+            self.RowDeleted(row)
+            
+            
+    def AddRow(self, value):
+        # update data structure
+        self.data.append(value)
+        # notify views
+        self.RowAppended()
 
-
+        
+            
 class TestPanel(wx.Panel):
     def __init__(self, parent, log, model=None, data=None):
         self.log = log
@@ -151,12 +171,25 @@ class TestPanel(wx.Panel):
         b.Disable()
         f.Show()
 
-    def OnAddRow(self, evt):
-        pass
 
     def OnDeleteRows(self, evt):
-        pass
+        # Remove the selected row(s) from the model. The model will take care
+        # of notifying the view (and any other observers) that the change has
+        # happened.
+        items = self.dvc.GetSelections()
+        rows = [self.model.GetRow(item) for item in items]
+        self.model.DeleteRows(rows)
 
+        
+    def OnAddRow(self, evt):
+        # Add some bogus data to a new row in the model
+        curcount = len(self.model.data)
+        value = [str(curcount),
+                 'new artist %d' % curcount,
+                 'new title %d' % curcount,
+                 'genre %d' % curcount]
+        self.model.AddRow(value)
+                 
 
     def OnEditingDone(self, evt):
         self.log.write("OnEditingDone\n")
@@ -184,7 +217,7 @@ def runTest(frame, nb, log):
 
 
 overview = """<html><body>
-<h2><center>DataViewCtrl</center></h2>
+<h2><center>DataViewCtrl with DataViewIndexListModel</center></h2>
 
 </body></html>
 """
