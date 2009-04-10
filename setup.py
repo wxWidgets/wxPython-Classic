@@ -836,15 +836,6 @@ WX_PKGLIST =      [ 'wx',
                     'wx.tools.Editra.src.syntax',
                     ]
 
-if not EGGing:
-    WX_PKGLIST += [ 'wxPython',
-                    'wxPython.lib',
-                    'wxPython.lib.colourchooser',
-                    'wxPython.lib.editor',
-                    'wxPython.lib.mixins',
-                    'wxPython.tools',
-                    ]
-                     
 
 if NO_SCRIPTS or EGGing:
     SCRIPTS = None

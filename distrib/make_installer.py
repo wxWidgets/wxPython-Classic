@@ -195,14 +195,6 @@ Source: "wx\tools\Editra\__init__.py";                       DestDir: "{app}\%(P
 Source: "wx\tools\Editra\launcher.py";                       DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 Source: "wx\tools\Editra\Editra";                            DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 
-
-Source: "wxPython\*.py";                          DestDir: "{app}\%(PKGDIR)s\wxPython"; Components: core
-Source: "wxPython\lib\*.py";                      DestDir: "{app}\%(PKGDIR)s\wxPython\lib"; Components: core
-Source: "wxPython\lib\colourchooser\*.py";        DestDir: "{app}\%(PKGDIR)s\wxPython\lib\colourchooser"; Components: core
-Source: "wxPython\lib\editor\*.py";               DestDir: "{app}\%(PKGDIR)s\wxPython\lib\editor"; Components: core
-Source: "wxPython\lib\mixins\*.py";               DestDir: "{app}\%(PKGDIR)s\wxPython\lib\mixins"; Components: core
-Source: "wxPython\tools\*.py";                    DestDir: "{app}\%(PKGDIR)s\wxPython\tools"; Components: core
-
 %(MANIFEST)s
 
 Source: "wxversion\wxversion.py";           DestDir: "{app}";  Flags: sharedfile;  Components: core
@@ -310,19 +302,6 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\eclib\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\eclib\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\*.pyo";
-
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\*.pyc";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\*.pyo";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\lib\*.pyc";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\lib\*.pyo";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\lib\colourchooser\*.pyc";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\lib\colourchooser\*.pyo";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\lib\editor\*.pyc";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\lib\editor\*.pyo";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\lib\mixins\*.pyc";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\lib\mixins\*.pyo";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\tools\*.pyc";
-Type: files; Name: "{app}\%(PKGDIR)s\wxPython\tools\*.pyo";
 
 Type: files; Name: "{app}\wxversion.pyc";
 Type: files; Name: "{app}\wxversion.pyo";

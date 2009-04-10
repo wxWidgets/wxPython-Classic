@@ -215,10 +215,4 @@ wx/tools/Editra/styles
 wx/tools/Editra/templates
 wx/tools/Editra/tests/syntax
 
-wxPython
-wxPython/lib
-wxPython/lib/colourchooser
-wxPython/lib/editor
-wxPython/lib/mixins
-wxPython/tools
 wxversion
