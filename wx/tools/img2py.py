@@ -108,6 +108,22 @@ DEFAULT_COMPATIBLE = False
 # "index.append('Image name')"
 indexPattern = re.compile(r"\s*index.append\('(.+)'\)\s*")
 
+
+def convert(fileName, maskClr, outputDir, outputName, outType, outExt):
+    # if the file is already the right type then just use it directly
+    if maskClr == DEFAULT_MASKCLR and fileName.upper().endswith(outExt.upper()):
+        if outputName:
+            newname = outputName
+        else:
+            newname = os.path.join(outputDir,
+                                   os.path.basename(os.path.splitext(fileName)[0]) + outExt)
+        file(newname, "wb").write(file(fileName).read())
+        return 1, "ok"
+  
+    else:
+        return img2img.convert(fileName, maskClr, outputDir, outputName, outType, outExt)
+    
+    
 def img2py(image_file, python_file,
            append=DEFAULT_APPEND,
            compressed=DEFAULT_COMPRESSED,
@@ -136,7 +152,7 @@ def img2py(image_file, python_file,
     # convert the image file to a temporary file
     tfname = tempfile.mktemp()
     try:
-        ok, msg = img2img.convert(image_file, maskClr, None, tfname, wx.BITMAP_TYPE_PNG, ".png")
+        ok, msg = convert(image_file, maskClr, None, tfname, wx.BITMAP_TYPE_PNG, ".png")
         if not ok:
             print msg
             return
