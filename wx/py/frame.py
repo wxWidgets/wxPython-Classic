@@ -41,7 +41,6 @@ ID_NAMESPACE = wx.NewId()
 ID_PASTE_PLUS = wx.NewId()
 ID_WRAP = wx.NewId()
 ID_TOGGLE_MAXIMIZE = wx.NewId()
-ID_USEAA = wx.NewId()
 ID_SHOW_LINENUMBERS = wx.NewId()
 ID_AUTO_SAVESETTINGS = wx.NewId()
 ID_SAVEHISTORY = wx.NewId()
@@ -183,10 +182,6 @@ class Frame(wx.Frame):
         m.AppendMenu(ID_CALLTIPS, '&Call Tips', self.calltipsMenu,
                      'Call Tip Options')
                 
-        if wx.Platform == "__WXMAC__":
-            m.Append(ID_USEAA, '&Use AntiAliasing',
-                     'Use anti-aliased fonts', wx.ITEM_CHECK)
-            
         m.AppendSeparator()
 
         self.historyMenu = wx.Menu()
@@ -260,7 +255,6 @@ class Frame(wx.Frame):
         self.Bind(wx.EVT_MENU, self.OnCallTipsShow, id=ID_CALLTIPS_SHOW)
         self.Bind(wx.EVT_MENU, self.OnCallTipsInsert, id=ID_CALLTIPS_INSERT)
         self.Bind(wx.EVT_MENU, self.OnWrap, id=ID_WRAP)
-        self.Bind(wx.EVT_MENU, self.OnUseAA, id=ID_USEAA)
         self.Bind(wx.EVT_MENU, self.OnToggleMaximize, id=ID_TOGGLE_MAXIMIZE)
         self.Bind(wx.EVT_MENU, self.OnShowLineNumbers, id=ID_SHOW_LINENUMBERS)
         self.Bind(wx.EVT_MENU, self.OnAutoSaveSettings, id=ID_AUTO_SAVESETTINGS)
@@ -300,7 +294,6 @@ class Frame(wx.Frame):
         self.Bind(wx.EVT_UPDATE_UI, self.OnUpdateMenu, id=ID_CALLTIPS_SHOW)
         self.Bind(wx.EVT_UPDATE_UI, self.OnUpdateMenu, id=ID_CALLTIPS_INSERT)
         self.Bind(wx.EVT_UPDATE_UI, self.OnUpdateMenu, id=ID_WRAP)
-        self.Bind(wx.EVT_UPDATE_UI, self.OnUpdateMenu, id=ID_USEAA)
         self.Bind(wx.EVT_UPDATE_UI, self.OnUpdateMenu, id=ID_SHOW_LINENUMBERS)
         self.Bind(wx.EVT_UPDATE_UI, self.OnUpdateMenu, id=ID_AUTO_SAVESETTINGS)
         self.Bind(wx.EVT_UPDATE_UI, self.OnUpdateMenu, id=ID_SAVESETTINGS)
@@ -453,10 +446,6 @@ class Frame(wx.Frame):
         win.SetWrapMode(event.IsChecked())
         wx.FutureCall(1, self.shell.EnsureCaretVisible)
 
-    def OnUseAA(self, event):
-        win = wx.Window.FindFocus()
-        win.SetUseAntiAliasing(event.IsChecked())
-
     def OnSaveHistory(self, event):
         self.autoSaveHistory = event.IsChecked()
 
@@ -583,8 +572,6 @@ class Frame(wx.Frame):
                 event.Check(win.callTipInsert)
             elif id == ID_WRAP:
                 event.Check(win.GetWrapMode())
-            elif id == ID_USEAA:
-                event.Check(win.GetUseAntiAliasing())
 
             elif id == ID_SHOW_LINENUMBERS:
                 event.Check(win.lineNumbers)

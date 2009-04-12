@@ -1094,20 +1094,20 @@ Platform: %s""" % \
             dispatcher.send(signal='Shell.calltip', sender=self, calltip=tip)
         if not self.autoCallTip and not forceCallTip:
             return
+        startpos = self.GetCurrentPos()
         if argspec and insertcalltip and self.callTipInsert:
-            startpos = self.GetCurrentPos()
             self.write(argspec + ')')
             endpos = self.GetCurrentPos()
-            self.SetSelection(endpos, startpos)
+            self.SetSelection(startpos, endpos)
         if tip:
-            curpos = self.GetCurrentPos()
-            tippos = curpos - (len(name) + 1)
-            fallback = curpos - self.GetColumn(curpos)
+            tippos = startpos - (len(name) + 1)
+            fallback = startpos - self.GetColumn(startpos)
             # In case there isn't enough room, only go back to the
             # fallback.
             tippos = max(tippos, fallback)
             self.CallTipShow(tippos, tip)
-    
+
+            
     def OnCallTipAutoCompleteManually (self, shiftDown):
         """AutoComplete and Calltips manually."""
         if self.AutoCompActive():
@@ -1361,14 +1361,11 @@ Platform: %s""" % \
         self.callTipInsert = config.ReadBool('Options/CallTipInsert', True)
         self.SetWrapMode(config.ReadBool('View/WrapMode', True))
 
-        useAA = config.ReadBool('Options/UseAntiAliasing', self.GetUseAntiAliasing())
-        self.SetUseAntiAliasing(useAA)
         self.lineNumbers = config.ReadBool('View/ShowLineNumbers', True)
         self.setDisplayLineNumbers (self.lineNumbers)
         zoom = config.ReadInt('View/Zoom/Shell', -99)
         if zoom != -99:
             self.SetZoom(zoom)
-
 
     
     def SaveSettings(self, config):
@@ -1378,10 +1375,10 @@ Platform: %s""" % \
         config.WriteBool('Options/AutoCompleteIncludeDouble', self.autoCompleteIncludeDouble)
         config.WriteBool('Options/AutoCallTip', self.autoCallTip)
         config.WriteBool('Options/CallTipInsert', self.callTipInsert)
-        config.WriteBool('Options/UseAntiAliasing', self.GetUseAntiAliasing())
         config.WriteBool('View/WrapMode', self.GetWrapMode())
         config.WriteBool('View/ShowLineNumbers', self.lineNumbers)
         config.WriteInt('View/Zoom/Shell', self.GetZoom())
+
 
     def GetContextMenu(self):
         """
