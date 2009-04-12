@@ -14,9 +14,11 @@ class TestPopup(wx.PopupWindow):
     """Adds a bit of text and mouse movement to the wx.PopupWindow"""
     def __init__(self, parent, style):
         wx.PopupWindow.__init__(self, parent, style)
-        self.SetBackgroundColour("CADET BLUE")
+        pnl = self.pnl = wx.Panel(self)
+        pnl.SetBackgroundColour("CADET BLUE")
 
-        st = wx.StaticText(self, -1,
+
+        st = wx.StaticText(pnl, -1,
                           "This is a special kind of top level\n"
                           "window that can be used for\n"
                           "popup menus, combobox popups\n"
@@ -32,11 +34,12 @@ class TestPopup(wx.PopupWindow):
 
         sz = st.GetBestSize()
         self.SetSize( (sz.width+20, sz.height+20) )
+        pnl.SetSize( (sz.width+20, sz.height+20) )
 
-        self.Bind(wx.EVT_LEFT_DOWN, self.OnMouseLeftDown)
-        self.Bind(wx.EVT_MOTION, self.OnMouseMotion)
-        self.Bind(wx.EVT_LEFT_UP, self.OnMouseLeftUp)
-        self.Bind(wx.EVT_RIGHT_UP, self.OnRightUp)
+        pnl.Bind(wx.EVT_LEFT_DOWN, self.OnMouseLeftDown)
+        pnl.Bind(wx.EVT_MOTION, self.OnMouseMotion)
+        pnl.Bind(wx.EVT_LEFT_UP, self.OnMouseLeftUp)
+        pnl.Bind(wx.EVT_RIGHT_UP, self.OnRightUp)
 
         st.Bind(wx.EVT_LEFT_DOWN, self.OnMouseLeftDown)
         st.Bind(wx.EVT_MOTION, self.OnMouseMotion)
@@ -50,7 +53,7 @@ class TestPopup(wx.PopupWindow):
         self.Refresh()
         self.ldPos = evt.GetEventObject().ClientToScreen(evt.GetPosition())
         self.wPos = self.ClientToScreen((0,0))
-        self.CaptureMouse()
+        self.pnl.CaptureMouse()
 
     def OnMouseMotion(self, evt):
         if evt.Dragging() and evt.LeftIsDown():
@@ -60,8 +63,8 @@ class TestPopup(wx.PopupWindow):
             self.Move(nPos)
 
     def OnMouseLeftUp(self, evt):
-        if self.HasCapture():
-            self.ReleaseMouse()
+        if self.pnl.HasCapture():
+            self.pnl.ReleaseMouse()
 
     def OnRightUp(self, evt):
         self.Show(False)
