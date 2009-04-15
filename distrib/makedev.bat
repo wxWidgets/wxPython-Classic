@@ -27,6 +27,11 @@ mkdir %BASE%
 rem *** copy files
 copy distrib\README.devel.txt %BASE%\README.txt
 
+mkdir %BASE%\build
+mkdir %BASE%\build\bakefiles
+mkdir %BASE%\build\bakefiles\wxpresets
+
+copy /s %WXWIN%\build\bakefiles\wxpresets   %BASE%\build\bakefiles\wxpresets\*
 
 mkdir %BASE%\include
 mkdir %BASE%\include\wx
