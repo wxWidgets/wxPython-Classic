@@ -260,6 +260,9 @@ bool wxPosition_helper(PyObject* source, wxPosition** obj);
 wxVariant wxVariant_in_helper(PyObject* source);
 PyObject* wxVariant_out_helper(const wxVariant& value);
 
+bool wxPyTextOrBitmap_helper(PyObject* obj, bool& wasString,
+                             wxString& outstr, wxBitmap& outbmp);
+
 bool wxPySimple_typecheck(PyObject* source, const wxChar* classname, int seqLen);
 bool wxColour_typecheck(PyObject* source);
 
@@ -449,6 +452,8 @@ struct wxPyCoreAPI {
 
     wxVariant            (*p_wxVariant_in_helper)(PyObject* source);
     PyObject*            (*p_wxVariant_out_helper)(const wxVariant& value);
+
+    bool                 (*p_wxPyTextOrBitmap_helper)(PyObject* obj, bool& wasString, wxString& outstr, wxBitmap& outbmp);
 
     // Add all new items at the end...
 };

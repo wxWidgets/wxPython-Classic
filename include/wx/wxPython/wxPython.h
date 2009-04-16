@@ -129,5 +129,7 @@ inline wxPyCoreAPI* wxPyGetCoreAPIPtr()
 #define wxVariant_in_helper(a)                  (wxPyGetCoreAPIPtr()->p_wxVariant_in_helper(a))
 #define wxVariant_out_helper(a)                 (wxPyGetCoreAPIPtr()->p_wxVariant_out_helper(a))
 
+#define wxPyTextOrBitmap_helper(a, b, c, d)     (wxPyGetCoreAPIPtr()->p_wxPyTextOrBitmap_helper(a, b, c, d))
+
 //----------------------------------------------------------------------
 #endif

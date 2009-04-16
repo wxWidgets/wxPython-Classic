@@ -3190,6 +3190,36 @@ PyObject* wxArrayDouble2PyList_helper(const wxArrayDouble& arr)
 }
 
 
+bool wxPyTextOrBitmap_helper(PyObject* obj, bool& wasString,
+                             wxString& outstr, wxBitmap& outbmp)
+{
+    bool rv = false;
+    wxString* text = NULL;
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    text = wxString_in_helper(obj);
+    if (text != NULL) {
+        wasString = true;
+        outstr = *text;
+        delete text;
+        rv = true;
+    }
+    if (PyErr_Occurred()) PyErr_Clear();
+    if (!rv) {
+        if (wxPyConvertSwigPtr(obj, (void**)&outbmp, wxT("wxBitmap") )) {
+            wasString = false;
+            rv = true;
+        }
+    }
+    if (!rv)
+        // set an exception
+        PyErr_SetString(PyExc_TypeError, "Expected String or Bitmap object");
+
+    wxPyEndBlockThreads(blocked);
+    return rv;
+}
+
+
 //----------------------------------------------------------------------
 
 // A wxVariantData class that can hold a PyObject
