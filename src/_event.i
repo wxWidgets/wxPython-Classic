@@ -1276,7 +1276,6 @@ public:
     int           m_wheelDelta;
     int           m_linesPerAction;
 
-    %property(Button, GetButton, doc="See `GetButton`");
     %property(LinesPerAction, GetLinesPerAction, doc="See `GetLinesPerAction`");
     %property(LogicalPosition, GetLogicalPosition, doc="See `GetLogicalPosition`");
     %property(Position, GetPosition, doc="See `GetPosition`");
