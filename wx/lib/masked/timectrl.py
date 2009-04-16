@@ -725,9 +725,7 @@ class TimeCtrl(BaseMaskedTextCtrl):
             wxdt = wx.DateTimeFromDMY(1, 0, 1970)
 ##            dbg('attempting conversion')
             value = value.strip()    # (parser doesn't like leading spaces)
-            checkTime    = wxdt.ParseTime(value)
-            valid = checkTime == len(value)     # entire string parsed?
-##            dbg('checkTime == len(value)?', valid)
+            valid = wxdt.ParseTime(value)
 
             if not valid:
                 # deal with bug/deficiency in wx.DateTime:
