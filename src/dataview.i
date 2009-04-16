@@ -547,6 +547,20 @@ enum {
 // wxDataViewItem
 %newgroup
 
+// Typmaps to allow a Python long integer object to be used for the
+// void pointer in wxDataViewItem.
+%{
+typedef void* PyLong;
+%}
+
+%typemap(in) PyLong {
+    $1 = PyLong_AsVoidPtr($input);
+}
+
+%typemap(out) PyLong {
+    $result = PyLong_FromVoidPtr($1);
+}
+
 
 DocStr(wxDataViewItem,
 "wxDataViewItem is a small opaque class that represents an item in a
@@ -560,12 +574,7 @@ API to indicate that no item was found.", "");
 class wxDataViewItem
 {
 public:
-    %extend {
-        // wxDataViewItem( void* id = NULL );
-        wxDataViewItem(long ID = 0) {
-            return new wxDataViewItem((void*)ID);
-        }
-    }
+    wxDataViewItem( PyLong ID = 0 );
     ~wxDataViewItem();
 
     DocDeclStr(
@@ -574,15 +583,7 @@ public:
 view control.", "");
     %pythoncode { def __nonzero__(self): return self.IsOk() }
 
-    %extend {
-        // void* GetID() const;
-        DocStr(GetID, "Get the opaque unique ID value of the item object.", "");
-        long GetID() const
-        {
-            return (long)self->GetID();
-        }
-    }
-
+    PyLong GetID() const;    
     %property(ID, GetID);
     
     %extend {
@@ -1874,42 +1875,6 @@ overridden in derived classes.", "");
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
 
-%{
-bool wxPyTextOrBitmap_helper(PyObject* obj, bool& wasString,
-                             wxString& outstr, wxBitmap& outbmp)
-{
-    bool rv = false;
-    wxString* text = NULL;
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    text = wxString_in_helper(obj);
-    if (text != NULL) {
-        wasString = true;
-        outstr = *text;
-        delete text;
-        rv = true;
-    }
-    if (PyErr_Occurred()) PyErr_Clear();
-    if (!rv) {
-        if (wxPyConvertSwigPtr(obj, (void**)&outbmp, wxT("wxBitmap") )) {
-            wasString = false;
-            rv = true;
-        }
-    }
-    if (!rv)
-        // set an exception
-        PyErr_SetString(PyExc_TypeError, "Expected String or Bitmap object");
-
-    wxPyEndBlockThreads(blocked);
-    return rv;
-}
-%}
-
-
-
-// TODO: wxDataViewColumn(Base) is now derived from wxSettableHeaderColumn,
-// and most of the methods below are now in the base class
-
 
 enum wxDataViewColumnFlags
 {
@@ -1919,7 +1884,7 @@ enum wxDataViewColumnFlags
     wxDATAVIEW_COL_HIDDEN 
 };
 
-class wxDataViewColumn: public wxObject
+class wxDataViewColumn: public wxSettableHeaderColumn
 {
 public:
     // make a custom overloading of the ctor to be able to keep the kw args
@@ -1942,48 +1907,14 @@ public:
         }
     }
 
-    virtual ~wxDataViewColumnBase();
 
 
-    virtual void SetTitle( const wxString &title );
-    virtual void SetAlignment( wxAlignment align );
-    virtual void SetSortable( bool sortable );
-    virtual void SetReorderable(bool reorderable);
-    virtual void SetResizeable( bool resizeable );
-    virtual void SetHidden( bool hidden );
-    virtual void SetSortOrder( bool ascending );
-    virtual void SetFlags( int flags );
     virtual void SetOwner( wxDataViewCtrl *owner );
-    virtual void SetBitmap( const wxBitmap &bitmap );
-    virtual void SetMinWidth( int minWidth );
-    virtual void SetWidth( int width );
 
-    virtual wxString GetTitle() const;
-    virtual wxAlignment GetAlignment() const;
-    virtual int GetWidth() const;
-    virtual int GetMinWidth() const;
-    virtual int GetFlags() const;
-    virtual bool IsHidden() const;
-    virtual bool IsReorderable() const;
-    virtual bool IsResizeable() const;
-    virtual bool IsSortable() const;
-    virtual bool IsSortOrderAscending() const;
-    const wxBitmap &GetBitmap() const;
     unsigned int GetModelColumn() const;
     wxDataViewCtrl *GetOwner() const;
     wxDataViewRenderer* GetRenderer() const;
 
-    %property(Title, GetTitle, SetTitle);
-    %property(Alignment, GetAlignment, SetAlignment);
-    %property(Width, GetWidth, SetWidth);
-    %property(MinWidth, GetMinWidth, SetMinWidth);
-    %property(Flags, GetFlags, SetFlags);
-    %property(Hidden, IsHidden, SetHidden);
-    %property(Reorderable, IsReorderable, SetReorderable);
-    %property(Resizeable, IsResizeable, SetResizeable);
-    %property(Sortable, IsSortable, SetSortable);
-    %property(SortOrderAscending, IsSortOrderAscending, SetSortOrder);
-    %property(Bitmap, GetBitmap, SetBitmap);
     %property(ModelColumn, GetModelColumn);
     %property(Owner, GetOwner, SetOwner);
     %property(Renderer, GetRenderer);
@@ -2390,11 +2321,164 @@ EVT_DATAVIEW_ITEM_DROP                 = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 
 }
 
-//---------------------------------------------------------------------------
 
+//---------------------------------------------------------------------------
 // wxDataViewListStoreLine
 // wxDataViewListStore
 // wxDataViewListCtrl
+
+// help SWIG understand the template
+%{
+    typedef wxVector<wxVariant> wxVariantVector;
+%}
+
+// and how to convert a squence object to it
+%typemap(in) wxVariantVector& (wxVariantVector temp) {
+    if (! PySequence_Check($input)) {
+        PyErr_SetString(PyExc_TypeError, "Sequence of data values expected");
+        SWIG_fail;
+    }
+    Py_ssize_t size = PySequence_Length($input);
+    Py_ssize_t idx;
+    for (idx=0; idx<size; idx+=1) {
+        PyObject* item = PySequence_GetItem($input, idx);
+        temp.push_back( wxVariant_in_helper(item) );
+        Py_DECREF(item);
+    }
+    $1 = &temp;
+}
+
+
+// A typemap to wrap a wxPyClientData around any PyObject value.
+%typemap(in) wxClientData* {
+        $1 = new wxPyClientData($input);
+}
+
+
+
+
+
+class wxDataViewListStore: public wxDataViewIndexListModel
+{
+public:
+    wxDataViewListStore();
+
+// public:
+//     wxVector<wxDataViewListStoreLine*> m_data;
+//     wxArrayString                      m_cols;
+};
+
+
+class wxDataViewListCtrl: public wxDataViewCtrl
+{
+public:
+    %pythonAppend wxDataViewListCtrl         "self._setOORInfo(self)"
+    %pythonAppend wxDataViewListCtrl()       ""
+    
+    wxDataViewListCtrl( wxWindow *parent, wxWindowID id = -1,
+                        const wxPoint& pos = wxDefaultPosition,
+                        const wxSize& size = wxDefaultSize,
+                        long style = wxDV_ROW_LINES,
+                        const wxValidator& validator = wxDefaultValidator );
+    %RenameCtor(PreDataViewListCtrl, wxDataViewListCtrl());
+
+    
+    bool Create( wxWindow *parent, wxWindowID id = -1,
+           const wxPoint& pos = wxDefaultPosition,
+           const wxSize& size = wxDefaultSize, long style = wxDV_ROW_LINES,
+           const wxValidator& validator = wxDefaultValidator );
+
+    wxDataViewListStore *GetStore();
+
+    bool AppendColumn( wxDataViewColumn *column, const wxString &varianttype="string" );
+    bool PrependColumn( wxDataViewColumn *column, const wxString &varianttype="string" );
+    bool InsertColumn( unsigned int pos, wxDataViewColumn *column,
+                       const wxString &varianttype="string" );
+
+    // // overridden from base class
+    // virtual bool PrependColumn( wxDataViewColumn *col );
+    // virtual bool InsertColumn( unsigned int pos, wxDataViewColumn *col );
+    // virtual bool AppendColumn( wxDataViewColumn *col );
+
+    wxDataViewColumn *AppendTextColumn(
+        const wxString &label,
+        wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
+        int width = -1, wxAlignment align = wxALIGN_LEFT,
+        int flags = wxDATAVIEW_COL_RESIZABLE );
+
+    wxDataViewColumn *AppendToggleColumn(
+        const wxString &label,
+        wxDataViewCellMode mode = wxDATAVIEW_CELL_ACTIVATABLE,
+        int width = -1, wxAlignment align = wxALIGN_LEFT,
+        int flags = wxDATAVIEW_COL_RESIZABLE );
+
+    wxDataViewColumn *AppendProgressColumn(
+        const wxString &label,
+        wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
+        int width = -1, wxAlignment align = wxALIGN_LEFT,
+        int flags = wxDATAVIEW_COL_RESIZABLE );
+
+    wxDataViewColumn *AppendIconTextColumn(
+        const wxString &label,
+        wxDataViewCellMode mode = wxDATAVIEW_CELL_INERT,
+        int width = -1, wxAlignment align = wxALIGN_LEFT,
+        int flags = wxDATAVIEW_COL_RESIZABLE );
+
+    void AppendItem( const wxVariantVector &values, wxClientData *data = NULL );
+    void PrependItem( const wxVariantVector &values, wxClientData *data = NULL );
+    void InsertItem(  unsigned int row, const wxVariantVector &values,
+                      wxClientData *data = NULL );
+
+    void DeleteItem( unsigned row );
+    void DeleteAllItems();
+
+    void SetValue( const wxVariant &value, unsigned int row, unsigned int col );
+    //void GetValue( wxVariant &value, unsigned int row, unsigned int col );
+    %extend {
+        wxVariant GetValue(unsigned int row, unsigned int col )
+        {
+            wxVariant value;
+            self->GetValue( value, row, col);
+            return value;
+        }
+    }
+
+    void SetTextValue( const wxString &value, unsigned int row, unsigned int col );
+    wxString GetTextValue( unsigned int row, unsigned int col ) const;
+
+    void SetToggleValue( bool value, unsigned int row, unsigned int col );
+    bool GetToggleValue( unsigned int row, unsigned int col ) const;
+
+    
+    %extend {
+        PyObject* GetItemData(unsigned int row)
+        {
+            wxCHECK_MSG(row < self->GetStore()->m_data.size(), NULL, "Invalid row");
+            wxDataViewListStoreLine* line = self->GetStore()->m_data[row];
+            wxPyClientData* data = (wxPyClientData*)line->GetData();
+            if (data) {
+                Py_INCREF(data->m_obj);
+                return data->m_obj;
+            } else {
+                Py_INCREF(Py_None);
+                return Py_None;
+            }
+        }
+
+        void SetItemData(unsigned int row, PyObject* data)
+        {
+            wxCHECK_RET(row < self->GetStore()->m_data.size(), "Invalid row");
+            wxDataViewListStoreLine* line = self->GetStore()->m_data[row];
+            delete line->GetData();
+            line->SetData(new wxPyClientData(data));
+        }
+    }
+    
+};
+
+
+
+//---------------------------------------------------------------------------
 
 // wxDataViewTreeStoreNode
 // wxDataViewTreeStoreContainerNode

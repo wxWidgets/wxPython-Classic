@@ -100,6 +100,9 @@ MAKE_CONST_WXSTRING(EmptyString);
 %include _gbsizer.i
 %include _constraints.i
 
+// other
+%include _headercol.i
+
 
 %pythoncode "_core_ex.py"
 
