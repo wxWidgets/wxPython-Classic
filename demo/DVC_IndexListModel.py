@@ -141,7 +141,7 @@ class TestPanel(wx.Panel):
         # Let's change our minds and not let the first col be moved.
         c0.Reorderable = False
 
-        # use the Sizer property (same as SetSizer)
+        # set the Sizer property (same as SetSizer)
         self.Sizer = wx.BoxSizer(wx.VERTICAL) 
         self.Sizer.Add(self.dvc, 1, wx.EXPAND)
         
@@ -218,6 +218,12 @@ def runTest(frame, nb, log):
 
 overview = """<html><body>
 <h2><center>DataViewCtrl with DataViewIndexListModel</center></h2>
+
+This sample shows how to derive a class from PyDataViewIndexListModel and use
+it to interface with a list of data items. (This model does not have any
+hierarchical relationships in the data.)
+
+<p> See the comments in the source for lots of details.
 
 </body></html>
 """

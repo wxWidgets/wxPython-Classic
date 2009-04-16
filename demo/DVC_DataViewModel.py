@@ -22,9 +22,10 @@ class Genre(object):
 #----------------------------------------------------------------------
 
 # This model acts as a bridge between the DataViewCtrl and the music data, and
-# organizes it hierarchically, as a collection of Genres, each of which is a
+# organizes it hierarchically as a collection of Genres, each of which is a
 # collection of songs. We derive the class from PyDataViewCtrl, which knows
-# how to reflect the C++ virtuals to the Python methods in the derived class.
+# how to reflect the C++ virtual methods to the Python methods in the derived
+# class.
 
         
 class MyTreeListModel(dv.PyDataViewModel):
@@ -37,7 +38,10 @@ class MyTreeListModel(dv.PyDataViewModel):
         # to help associate Python objects with DataViewItem objects. Normally
         # a dictionary is used so any Python object can be used as data nodes.
         # If the data nodes are weak-referencable then the objmapper can use a
-        # WeakValueDictionary instead.
+        # WeakValueDictionary instead. Each PyDataViewModel automagically has
+        # an instance of DataViewItemObjectMapper preassigned. This
+        # self.objmapper is used by the self.ObjectToItem and
+        # self.ItemToObject methods used below.
         self.objmapper.UseWeakRefs(True)
         
         
@@ -45,8 +49,9 @@ class MyTreeListModel(dv.PyDataViewModel):
     def GetColumnCount(self):
         return 4
 
-    # All of our columns are strings.  If the model or the renderers
-    # in the view are other types then that should be reflected here.    
+    # All of our columns are strings. If the model or the renderers in the
+    # view for some columns are actually other types then that should be
+    # reflected here.
     def GetColumnType(self, col):
         return 'string'
     
@@ -54,10 +59,10 @@ class MyTreeListModel(dv.PyDataViewModel):
     
     def GetChildren(self, parent, children):  
         # The view calls this method to find the children of any node in the
-        # control. There is an implicit hidden root node, and any top level
-        # items should be reported as children of this node. A List view
+        # control. There is an implicit hidden root node, and the top level
+        # item(s) should be reported as children of this node. A List view
         # simply provides all items as children of this hidden root. A Tree
-        # view adds additional items as children of the other items, as needed
+        # view adds additional items as children of the other items as needed
         # to provide the tree hierachy.
         self.log.write("GetChildren\n")
         
@@ -70,13 +75,14 @@ class MyTreeListModel(dv.PyDataViewModel):
             return len(self.data)
         
         # Otherwise we'll fetch the python object associated with the parent
-        # item and make DV children for each of it's child objects.
+        # item and make DV items for each of it's child objects.
         node = self.ItemToObject(parent)
         if isinstance(node, Genre):
             for song in node.songs:
                 children.append(self.ObjectToItem(song))
             return len(node.songs)
-
+        return 0
+    
 
     def IsContainer(self, item):
         # Return True if the item has children, False otherwise.
@@ -110,14 +116,14 @@ class MyTreeListModel(dv.PyDataViewModel):
             
         
     def GetValue(self, item, col):
-        # Return the string to be displayed for this item and column. We'll
-        # just pul the values from the data objects we associated with the
-        # items in GetChildren.
-        #self.log.write("GetValue\n")
+        # Return the string to be displayed for this item and column. For this
+        # example we'll just pull the values from the data objects we
+        # associated with the items in GetChildren.
         
         # Fetch the data object for this item.
         node = self.ItemToObject(item)
         if isinstance(node, Genre):
+            # we'll only use the first column for the Genre objects
             if col == 0:
                 return node.name
             return ""
@@ -216,7 +222,6 @@ def runTest(frame, nb, log):
     import ListCtrl
     musicdata = ListCtrl.musicdata.items()
     musicdata.sort()
-
     # our data structure will be a collection of Genres, each of which is a
     # collection of Songs
     data = dict()
@@ -228,7 +233,8 @@ def runTest(frame, nb, log):
             data[song.genre] = genre
         genre.songs.append(song)
     data = data.values()
-                
+
+    # Finally create the test window
     win = TestPanel(nb, log, data=data)
     return win
 
@@ -239,6 +245,11 @@ def runTest(frame, nb, log):
 overview = """<html><body>
 <h2><center>DataViewCtrl with custom DataViewModel</center></h2>
 
+This sample shows how to derive a class from PyDataViewModel, implement a set
+of hierarchical data objects and use the DataViewControl to view and
+manipulate them.
+
+<p> See the comments in the source for lots of details.
 </body></html>
 """
 
