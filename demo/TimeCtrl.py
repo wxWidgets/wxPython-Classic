@@ -38,7 +38,7 @@ class TestPanel( scrolled.ScrolledPanel ):
                                 display_seconds = False
                                 )
 
-        grid = wx.FlexGridSizer( cols=2, vgap=10, vgap=5 )
+        grid = wx.FlexGridSizer( cols=2, hgap=10, vgap=5 )
         grid.Add( text1, 0, wx.ALIGN_RIGHT )
         hbox1 = wx.BoxSizer( wx.HORIZONTAL )
         hbox1.Add( self.time12, 0, wx.ALIGN_CENTRE )
