@@ -434,11 +434,15 @@ class WindowTest(unittest.TestCase):
     def testShownOnScreen(self):
         """IsShownOnScreen"""
         self.testControl.Show()
-        self.assert_(not self.testControl.IsShownOnScreen())
+        self.assert_(not self.frame.IsShown())
+        if not self.testControl.IsTopLevel():
+            self.assert_(not self.testControl.IsShownOnScreen())
+        
         self.frame.Show()
         self.assert_(self.testControl.IsShownOnScreen())
         self.frame.Hide()
-        self.assert_(not self.testControl.IsShownOnScreen())
+        if not self.testControl.IsTopLevel():
+            self.assert_(not self.testControl.IsShownOnScreen())
 
     def testSize(self):
         """SetSize, GetSize"""
