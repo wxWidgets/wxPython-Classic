@@ -15,7 +15,7 @@ def getIdLabelPairs(without_mnemonic=True):
     For more information, see issue #1756947
     """
     pairs = (
-                (wx.ID_ABOUT,       '&About'),
+                (wx.ID_ABOUT,       '&About...'),
                 (wx.ID_ADD,         'Add'),
                 (wx.ID_APPLY,       '&Apply'),
                 (wx.ID_BOLD,        '&Bold'),
@@ -44,10 +44,10 @@ def getIdLabelPairs(without_mnemonic=True):
                 (wx.ID_NEW,         '&New'),
                 (wx.ID_NO,          '&No'),
                 (wx.ID_OK,          '&OK'),
-                (wx.ID_OPEN,        '&Open'),
+                (wx.ID_OPEN,        '&Open...'),
                 (wx.ID_PASTE,       '&Paste'),
                 (wx.ID_PREFERENCES, '&Preferences'),
-                (wx.ID_PRINT,       '&Print'),
+                (wx.ID_PRINT,       '&Print...'),
                 (wx.ID_PREVIEW,     'Print previe&w'),
                 (wx.ID_PROPERTIES,  '&Properties'),
                 (wx.ID_EXIT,        '&Quit'),
@@ -57,7 +57,7 @@ def getIdLabelPairs(without_mnemonic=True):
                 (wx.ID_REVERT_TO_SAVED, 'Revert to Saved'),
                 (wx.ID_SAVE,        '&Save'),
                 (wx.ID_SAVEAS,      'Save &As...'),
-                (wx.ID_SELECTALL,   'Select all'),
+                (wx.ID_SELECTALL,   'Select All'),
                 (wx.ID_STOP,        '&Stop'),
                 (wx.ID_UNDELETE,    'Undelete'),
                 (wx.ID_UNDERLINE,   '&Underline'),
@@ -94,6 +94,10 @@ class ButtonTest(testControl.ControlTest):
         # Test the ID/Label pairs"""
         for id,label in getIdLabelPairs():
             b = wx.Button(self.frame, id)
+            # On Mac, there is a special help button so there won't be
+            # a label on the button
+            if "__WXMAC__" in wx.PlatformInfo and id == wx.ID_HELP:
+                label = ""
             self.assertEquals(label, b.GetLabelText())
     
     def testSetDefault(self):
