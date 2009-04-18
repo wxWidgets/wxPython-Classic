@@ -65,7 +65,7 @@ class ColourTest(unittest.TestCase):
     
     def testConstructor(self):
         """__init__"""
-        self.assertRaises(OverflowError, wx.Colour, -1)
+        self.assertRaises(ValueError, wx.Colour, -1)
         self.assertRaises(OverflowError, wx.Colour, 256)
         
     def testGetSetRGB(self):
