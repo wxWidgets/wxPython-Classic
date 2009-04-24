@@ -98,7 +98,63 @@ static PyObject* wxPyNoAppError = NULL;
 PyObject* wxPyPtrTypeMap = NULL;
 
 
-#ifdef __WXMSW__             // If building for win32...
+#ifdef __WXMSW__             // If building for Windows...
+
+//----------------------------------------------------------------------
+// Use an ActivationContext to ensure that the new (themed) version of
+// the comctl32 DLL is loaded.
+//----------------------------------------------------------------------
+
+// Note that the use of the ISOLATION_AWARE_ENABLED define replaces the
+// activation context APIs with wrappers that dynamically load the API
+// pointers from the kernel32 DLL so we don't have to do that ourselves.
+// Using ISOLATION_AWARE_ENABLED also causes the manifest resource to be put
+// in slot #2 as expected for DLLs. (See wx/msw/wx.rc)
+#ifdef ISOLATION_AWARE_ENABLED
+
+static ULONG_PTR wxPySetActivationContext()
+{
+
+    OSVERSIONINFO info;
+    wxZeroMemory(info);
+    info.dwOSVersionInfoSize = sizeof(OSVERSIONINFO); 
+    GetVersionEx(&info);
+    if (info.dwMajorVersion < 5)
+        return 0;
+    
+    ULONG_PTR cookie = 0;
+    HANDLE h;
+    ACTCTX actctx;
+    TCHAR modulename[MAX_PATH];
+
+    GetModuleFileName(wxGetInstance(), modulename, MAX_PATH);
+    wxZeroMemory(actctx);
+    actctx.cbSize = sizeof(actctx);
+    actctx.lpSource = modulename;
+    actctx.lpResourceName = MAKEINTRESOURCE(2);
+    actctx.hModule = wxGetInstance();
+    actctx.dwFlags = ACTCTX_FLAG_HMODULE_VALID | ACTCTX_FLAG_RESOURCE_NAME_VALID;
+    
+    h = CreateActCtx(&actctx);
+    if (h == INVALID_HANDLE_VALUE) {
+        wxLogLastError(wxT("CreateActCtx"));
+        return 0;
+    }
+
+    if (! ActivateActCtx(h, &cookie))
+        wxLogLastError(wxT("ActivateActCtx"));
+    
+    return cookie;
+}
+
+static void wxPyClearActivationContext(ULONG_PTR cookie)
+{
+    if (! DeactivateActCtx(0, cookie))
+        wxLogLastError(wxT("DeactivateActCtx"));
+}
+
+#endif
+
 //----------------------------------------------------------------------
 // This gets run when the DLL is loaded.  We just need to save a handle.
 //----------------------------------------------------------------------
@@ -114,7 +170,8 @@ BOOL WINAPI DllMain(
     // the instance has already been set.
     if (! wxGetInstance())
         wxSetInstance(hinstDLL);
-    return true;
+
+    return TRUE;
 }
 #endif
 
@@ -128,6 +185,7 @@ IMPLEMENT_ABSTRACT_CLASS(wxPyApp, wxApp);
 wxPyApp::wxPyApp() {
     m_assertMode = wxPYAPP_ASSERT_EXCEPTION;
     m_startupComplete = false;
+    m_callFilterEvent = false;
 }
 
 
@@ -182,6 +240,20 @@ int wxPyApp::OnExit() {
 }
 
 
+#if wxUSE_EXCEPTIONS
+bool wxPyApp::OnExceptionInMainLoop() {
+    bool rval=false;
+    bool found;
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+    if ((found = wxPyCBH_findCallback(m_myInst, "OnExceptionInMainLoop")))
+        rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("()"));
+    wxPyEndBlockThreads(blocked);
+    if (! found)
+        rval = wxApp::OnExceptionInMainLoop(); 
+    return rval;
+}
+#endif
+
 
 void wxPyApp::ExitMainLoop() {
     bool found;
@@ -192,6 +264,23 @@ void wxPyApp::ExitMainLoop() {
     if (! found)
         wxApp::ExitMainLoop();
 }  
+
+
+int wxPyApp::FilterEvent(wxEvent& event) {
+    int result = -1;
+
+    if (m_callFilterEvent) {
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if (wxPyCBH_findCallback(m_myInst, "FilterEvent")) {
+            wxString className = event.GetClassInfo()->GetClassName();
+            PyObject* eventObject = wxPyConstructObject((void*)&event, className, 0);
+            result = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", eventObject));
+            Py_DECREF(eventObject);
+        }
+        wxPyEndBlockThreads(blocked);
+    }
+    return result;
+}
 
 
 #ifdef __WXDEBUG__
@@ -409,7 +498,7 @@ void wxPyApp::_BootstrapApp()
     PyObject*   retval = NULL;
     PyObject*   pyint  = NULL;
 
-
+    
     // Only initialize wxWidgets once
     if (! haveInitialized) {
 
@@ -459,6 +548,7 @@ void wxPyApp::_BootstrapApp()
 //        wxSystemOptions::SetOption(wxT("mac.textcontrol-use-mlte"), 1);
         
         wxPyEndBlockThreads(blocked);
+
         haveInitialized = true;
     }
     else {
@@ -572,7 +662,9 @@ inline const char* dropwx(const char* name) {
 // wxPyApp::_BootstrapApp
 void __wxPyPreStart(PyObject* moduleDict)
 {
-
+#ifdef ISOLATION_AWARE_ENABLED
+    wxPySetActivationContext();
+#endif
 #ifdef __WXMSW__
 //     wxCrtSetDbgFlag(_CRTDBG_LEAK_CHECK_DF
 //                     | _CRTDBG_CHECK_ALWAYS_DF
@@ -1944,7 +2036,7 @@ wxPyEvtSelfRef::wxPyEvtSelfRef() {
 
 wxPyEvtSelfRef::~wxPyEvtSelfRef() {
     wxPyBlock_t blocked = wxPyBeginBlockThreads();
-    if (m_cloned)
+    if ( !wxPyDoingCleanup && m_cloned)
         Py_DECREF(m_self);
     wxPyEndBlockThreads(blocked);
 }
