@@ -31,6 +31,12 @@
 
 
 %pythoncode {
+%#//----------------------------------------------------------------------------
+%#// These will be reset when the _wxPySetDictionary is called.  Dummy
+%#// values are set here for tools that do static source analysis.
+Platform = ""
+PlatformInfo = ()
+
 %#// Give a reference to the dictionary of this module to the C++ extension
 %#// code.
 _core_._wxPySetDictionary(vars())
