@@ -89,6 +89,7 @@ class GenButton(wx.PyControl):
         self.Bind(wx.EVT_KEY_DOWN,         self.OnKeyDown)
         self.Bind(wx.EVT_KEY_UP,           self.OnKeyUp)
         self.Bind(wx.EVT_PAINT,            self.OnPaint)
+        self.Bind(wx.EVT_ERASE_BACKGROUND, lambda evt: None)
         self.Bind(wx.EVT_SIZE,             self.OnSize)
         self.InitOtherEvents()
 
