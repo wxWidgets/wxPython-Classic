@@ -39,7 +39,7 @@ export SWIG
 
 
 ARGS="--reswig --unicode --build_dir=../bld"
-DEBUG=""
+DEBUG="--debug"
 BOTH="no"
 
 case $1 in 
