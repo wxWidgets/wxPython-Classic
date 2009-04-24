@@ -2894,10 +2894,14 @@ class MaskedEditMixin:
             self._font = wx.SystemSettings_GetFont(wx.SYS_DEFAULT_GUI_FONT)
         else:
             font = self.GetFont()   # get size, weight, etc from current font
+            points = font.GetPointSize()
+            if 'wxMac' in wx.PlatformInfo \
+               and self.GetWindowVariant() == wx.WINDOW_VARIANT_MINI:
+                points -= 1
 
             # Set to teletype font (guaranteed to be mappable to all wxWindows
             # platforms:
-            self._font = wx.Font( font.GetPointSize(), wx.TELETYPE, font.GetStyle(),
+            self._font = wx.Font( points, wx.TELETYPE, font.GetStyle(),
                                  font.GetWeight(), font.GetUnderlined())
 ####            dbg('font string: "%s"' % font.GetNativeFontInfo().ToString())
 
