@@ -870,7 +870,7 @@ index of an item to remove.  Returns True if the child item was found
 and removed.", "
 
 :note: For historical reasons calling this method with a `wx.Window`
-    parameter is depreacted, as it will not be able to destroy the
+    parameter is deprecated, as it will not be able to destroy the
     window since it is owned by its parent.  You should use `Detach`
     instead.
 ");
