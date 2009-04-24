@@ -71,7 +71,6 @@ LicenseFile = licence\licence.txt
 
 [Components]
 Name: core;     Description: "wxPython modules and library";              Types: full custom;  Flags: fixed
-Name: manifest; Description: "Manifest files for XP Themed LnF";          Types: full
 Name: pthfile;  Description: "Make this install be the default wxPython"; Types: full
 
 ;;------------------------------------------------------------
@@ -194,8 +193,6 @@ Source: "wx\tools\Editra\TODO";                              DestDir: "{app}\%(P
 Source: "wx\tools\Editra\__init__.py";                       DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 Source: "wx\tools\Editra\launcher.py";                       DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
 Source: "wx\tools\Editra\Editra";                            DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra"; Components: core
-
-%(MANIFEST)s
 
 Source: "wxversion\wxversion.py";           DestDir: "{app}";  Flags: sharedfile;  Components: core
 Source: "src\wx.pth";                       DestDir: "{app}";  Flags: sharedfile;  Components: pthfile
@@ -817,14 +814,6 @@ def main():
         GDIPLUS     = 'Source: "distrib\msw\gdiplus.dll"; DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: replacesameversion' % vars()
         ARCH        = ''
         PRIV        = 'none'
-
-    if PYVER <= 'py25':
-        MANIFEST = 'Source: "src\winxp.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "python.exe.manifest";  Flags: sharedfile; Components: manifest\n' + \
-                   'Source: "src\winxp.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "pythonw.exe.manifest"; Flags: sharedfile; Components: manifest\n'
-    else:
-        MANIFEST = 'Source: "src\winxp.vc9.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "python.exe.manifest";  Flags: sharedfile; Components: manifest\n' + \
-                   'Source: "src\winxp.vc9.manifest"; DestDir: "{code:GetPythonDir}"; DestName: "pythonw.exe.manifest"; Flags: sharedfile; Components: manifest\n' + \
-                   'Source: "distrib\update_manifest.py"; DestDir: "{code:GetPythonDir}"; DestName: "update_manifest.py"; Components: manifest\n' 
 
         
     print """
