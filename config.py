@@ -80,7 +80,7 @@ Environment :: X11 Applications :: GTK
 Intended Audience :: Developers
 License :: OSI Approved
 Operating System :: MacOS :: MacOS X
-Operating System :: Microsoft :: Windows :: Windows 95/98/2000
+Operating System :: Microsoft :: Windows :: Windows 98/2000/XP/Vista
 Operating System :: POSIX
 Programming Language :: Python
 Topic :: Software Development :: User Interfaces
@@ -891,6 +891,7 @@ if os.name == 'nt' and  COMPILER == 'msvc':
                 ('SWIG_TYPE_TABLE', WXPYTHON_TYPE_TABLE),
                 ('SWIG_PYTHON_OUTPUT_TUPLE', None),
                 ('WXP_USE_THREAD', '1'),
+                ('ISOLATION_AWARE_ENABLED', None),
                 ]
 
     if UNDEF_NDEBUG:
@@ -905,11 +906,12 @@ if os.name == 'nt' and  COMPILER == 'msvc':
     if UNICODE:
         defines.append( ('wxUSE_UNICODE', 1) )
 
+    libs = []
     libdirs = [ opj(WXDIR, 'lib', VCDLL) ]
     if MONOLITHIC:
-        libs = makeLibName('')
+        libs += makeLibName('')
     else:
-        libs = [ 'wxbase' + WXDLLVER + libFlag(), 
+        libs += [ 'wxbase' + WXDLLVER + libFlag(), 
                  'wxbase' + WXDLLVER + libFlag() + '_net',
                  'wxbase' + WXDLLVER + libFlag() + '_xml',
                  makeLibName('core')[0],
@@ -917,26 +919,21 @@ if os.name == 'nt' and  COMPILER == 'msvc':
                  makeLibName('html')[0],
                  ]
 
-    libs = libs + ['kernel32', 'user32', 'gdi32', 'comdlg32',
-            'winspool', 'winmm', 'shell32', 'oldnames', 'comctl32',
-            'odbc32', 'ole32', 'oleaut32', 'uuid', 'rpcrt4',
-            'advapi32', 'wsock32']
-
+    libs += ['kernel32', 'user32', 'gdi32', 'comdlg32',
+             'winspool', 'winmm', 'shell32', 'oldnames', 'comctl32',
+             'odbc32', 'ole32', 'oleaut32', 'uuid', 'rpcrt4',
+             'advapi32', 'wsock32']
 
     cflags = [ '/Gy',
-             # '/GX-'  # workaround for internal compiler error in MSVC on some machines
                '/EHsc',
-             ]
+               # '/GX-'  # workaround for internal compiler error in MSVC on some machines
+               ]
     lflags = None
 
     # Other MSVC flags...
     # Uncomment these to have debug info for all kinds of builds
     #cflags += ['/Od', '/Z7']
     #lflags = ['/DEBUG', ]
-
-
-# export MSSdk=1
-# export DISTUTILS_USE_SDK=1
 
 
 #----------------------------------------------------------------------
