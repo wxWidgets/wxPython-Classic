@@ -1056,7 +1056,8 @@ public :
                                                         const wxColour &oColor, const wxColour &cColor);
 
     virtual wxGraphicsFont CreateFont( const wxFont &font , const wxColour &col = *wxBLACK );
-    
+
+    wxGraphicsBitmap CreateBitmap( const wxBitmap &bmp );
 };
 
 
