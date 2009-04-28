@@ -51,6 +51,12 @@ def _swig_setattr_nondynamic_method(set):
     return set_attr
 
 
+#//----------------------------------------------------------------------------
+#// These will be reset when the _wxPySetDictionary is called.  Dummy
+#// values are set here for tools that do static source analysis.
+Platform = ""
+PlatformInfo = ()
+
 #// Give a reference to the dictionary of this module to the C++ extension
 #// code.
 _core_._wxPySetDictionary(vars())
@@ -7316,6 +7322,35 @@ class PyApp(EvtHandler):
         loop, (i.e. it does not stop the program immediately!)
         """
         return _core_.PyApp_ExitMainLoop(*args, **kwargs)
+
+    def FilterEvent(*args, **kwargs):
+        """
+        FilterEvent(self, Event event) -> int
+
+        Filters all events. `SetCallFilterEvent` controls whether or not your
+        override is called.
+        """
+        return _core_.PyApp_FilterEvent(*args, **kwargs)
+
+    def GetCallFilterEvent(*args, **kwargs):
+        """
+        GetCallFilterEvent(self) -> bool
+
+        Returns the state of the Call FilterEvent flag.
+        """
+        return _core_.PyApp_GetCallFilterEvent(*args, **kwargs)
+
+    def SetCallFilterEvent(*args, **kwargs):
+        """
+        SetCallFilterEvent(self, bool callFilterEvent=True)
+
+        Set the Call FilterEvent flag. When set your override of FilterEvent
+        will be called.  SetCallFilterEvent's purpose is to avoid any
+        performance penalty when you have overriden FilterEvent, but don't
+        want it to be called, and also to reduce the runtime overhead when it
+        is not overridden.
+        """
+        return _core_.PyApp_SetCallFilterEvent(*args, **kwargs)
 
     def Pending(*args, **kwargs):
         """

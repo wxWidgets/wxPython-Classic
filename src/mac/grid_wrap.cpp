@@ -2474,192 +2474,194 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxANIHandler swig_types[8]
 #define SWIGTYPE_p_wxAcceleratorTable swig_types[9]
 #define SWIGTYPE_p_wxActivateEvent swig_types[10]
-#define SWIGTYPE_p_wxArrayString swig_types[11]
-#define SWIGTYPE_p_wxBMPHandler swig_types[12]
-#define SWIGTYPE_p_wxBoxSizer swig_types[13]
-#define SWIGTYPE_p_wxCURHandler swig_types[14]
-#define SWIGTYPE_p_wxCalculateLayoutEvent swig_types[15]
-#define SWIGTYPE_p_wxChildFocusEvent swig_types[16]
-#define SWIGTYPE_p_wxClipboardTextEvent swig_types[17]
-#define SWIGTYPE_p_wxCloseEvent swig_types[18]
-#define SWIGTYPE_p_wxColour swig_types[19]
-#define SWIGTYPE_p_wxColourData swig_types[20]
-#define SWIGTYPE_p_wxColourDialog swig_types[21]
-#define SWIGTYPE_p_wxCommandEvent swig_types[22]
-#define SWIGTYPE_p_wxContextMenuEvent swig_types[23]
-#define SWIGTYPE_p_wxControl swig_types[24]
-#define SWIGTYPE_p_wxControlWithItems swig_types[25]
-#define SWIGTYPE_p_wxDC swig_types[26]
-#define SWIGTYPE_p_wxDateEvent swig_types[27]
-#define SWIGTYPE_p_wxDialog swig_types[28]
-#define SWIGTYPE_p_wxDirDialog swig_types[29]
-#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[30]
-#define SWIGTYPE_p_wxDropFilesEvent swig_types[31]
-#define SWIGTYPE_p_wxDuplexMode swig_types[32]
-#define SWIGTYPE_p_wxEraseEvent swig_types[33]
-#define SWIGTYPE_p_wxEvent swig_types[34]
-#define SWIGTYPE_p_wxEvtHandler swig_types[35]
-#define SWIGTYPE_p_wxFSFile swig_types[36]
-#define SWIGTYPE_p_wxFileDialog swig_types[37]
-#define SWIGTYPE_p_wxFileSystem swig_types[38]
-#define SWIGTYPE_p_wxFindDialogEvent swig_types[39]
-#define SWIGTYPE_p_wxFindReplaceData swig_types[40]
-#define SWIGTYPE_p_wxFindReplaceDialog swig_types[41]
-#define SWIGTYPE_p_wxFlexGridSizer swig_types[42]
-#define SWIGTYPE_p_wxFocusEvent swig_types[43]
-#define SWIGTYPE_p_wxFont swig_types[44]
-#define SWIGTYPE_p_wxFontData swig_types[45]
-#define SWIGTYPE_p_wxFontDialog swig_types[46]
-#define SWIGTYPE_p_wxFrame swig_types[47]
-#define SWIGTYPE_p_wxGBSizerItem swig_types[48]
-#define SWIGTYPE_p_wxGIFHandler swig_types[49]
-#define SWIGTYPE_p_wxGrid swig_types[50]
-#define SWIGTYPE_p_wxGridBagSizer swig_types[51]
-#define SWIGTYPE_p_wxGridCellAttr swig_types[52]
-#define SWIGTYPE_p_wxGridCellAttrProvider swig_types[53]
-#define SWIGTYPE_p_wxGridCellAutoWrapStringEditor swig_types[54]
-#define SWIGTYPE_p_wxGridCellAutoWrapStringRenderer swig_types[55]
-#define SWIGTYPE_p_wxGridCellBoolEditor swig_types[56]
-#define SWIGTYPE_p_wxGridCellBoolRenderer swig_types[57]
-#define SWIGTYPE_p_wxGridCellChoiceEditor swig_types[58]
-#define SWIGTYPE_p_wxGridCellCoords swig_types[59]
-#define SWIGTYPE_p_wxGridCellDateTimeRenderer swig_types[60]
-#define SWIGTYPE_p_wxGridCellEditor swig_types[61]
-#define SWIGTYPE_p_wxGridCellEnumEditor swig_types[62]
-#define SWIGTYPE_p_wxGridCellEnumRenderer swig_types[63]
-#define SWIGTYPE_p_wxGridCellFloatEditor swig_types[64]
-#define SWIGTYPE_p_wxGridCellFloatRenderer swig_types[65]
-#define SWIGTYPE_p_wxGridCellNumberEditor swig_types[66]
-#define SWIGTYPE_p_wxGridCellNumberRenderer swig_types[67]
-#define SWIGTYPE_p_wxGridCellRenderer swig_types[68]
-#define SWIGTYPE_p_wxGridCellStringRenderer swig_types[69]
-#define SWIGTYPE_p_wxGridCellTextEditor swig_types[70]
-#define SWIGTYPE_p_wxGridCellWorker swig_types[71]
-#define SWIGTYPE_p_wxGridEditorCreatedEvent swig_types[72]
-#define SWIGTYPE_p_wxGridEvent swig_types[73]
-#define SWIGTYPE_p_wxGridRangeSelectEvent swig_types[74]
-#define SWIGTYPE_p_wxGridSizeEvent swig_types[75]
-#define SWIGTYPE_p_wxGridSizer swig_types[76]
-#define SWIGTYPE_p_wxGridStringTable swig_types[77]
-#define SWIGTYPE_p_wxGridTableBase swig_types[78]
-#define SWIGTYPE_p_wxGridTableMessage swig_types[79]
-#define SWIGTYPE_p_wxICOHandler swig_types[80]
-#define SWIGTYPE_p_wxIconizeEvent swig_types[81]
-#define SWIGTYPE_p_wxIdleEvent swig_types[82]
-#define SWIGTYPE_p_wxImage swig_types[83]
-#define SWIGTYPE_p_wxImageHandler swig_types[84]
-#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[85]
-#define SWIGTYPE_p_wxInitDialogEvent swig_types[86]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[87]
-#define SWIGTYPE_p_wxKeyEvent swig_types[88]
-#define SWIGTYPE_p_wxLayoutAlgorithm swig_types[89]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[90]
-#define SWIGTYPE_p_wxMDIChildFrame swig_types[91]
-#define SWIGTYPE_p_wxMDIClientWindow swig_types[92]
-#define SWIGTYPE_p_wxMDIParentFrame swig_types[93]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[94]
-#define SWIGTYPE_p_wxMenu swig_types[95]
-#define SWIGTYPE_p_wxMenuBar swig_types[96]
-#define SWIGTYPE_p_wxMenuEvent swig_types[97]
-#define SWIGTYPE_p_wxMenuItem swig_types[98]
-#define SWIGTYPE_p_wxMessageDialog swig_types[99]
-#define SWIGTYPE_p_wxMiniFrame swig_types[100]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[101]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[102]
-#define SWIGTYPE_p_wxMouseEvent swig_types[103]
-#define SWIGTYPE_p_wxMoveEvent swig_types[104]
-#define SWIGTYPE_p_wxMultiChoiceDialog swig_types[105]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[106]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[107]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[108]
-#define SWIGTYPE_p_wxNumberEntryDialog swig_types[109]
-#define SWIGTYPE_p_wxObject swig_types[110]
-#define SWIGTYPE_p_wxPCXHandler swig_types[111]
-#define SWIGTYPE_p_wxPNGHandler swig_types[112]
-#define SWIGTYPE_p_wxPNMHandler swig_types[113]
-#define SWIGTYPE_p_wxPageSetupDialog swig_types[114]
-#define SWIGTYPE_p_wxPageSetupDialogData swig_types[115]
-#define SWIGTYPE_p_wxPaintEvent swig_types[116]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[117]
-#define SWIGTYPE_p_wxPanel swig_types[118]
-#define SWIGTYPE_p_wxPaperSize swig_types[119]
-#define SWIGTYPE_p_wxPasswordEntryDialog swig_types[120]
-#define SWIGTYPE_p_wxPen swig_types[121]
-#define SWIGTYPE_p_wxPoint swig_types[122]
-#define SWIGTYPE_p_wxPopupWindow swig_types[123]
-#define SWIGTYPE_p_wxPreviewCanvas swig_types[124]
-#define SWIGTYPE_p_wxPreviewControlBar swig_types[125]
-#define SWIGTYPE_p_wxPreviewFrame swig_types[126]
-#define SWIGTYPE_p_wxPrintData swig_types[127]
-#define SWIGTYPE_p_wxPrintDialog swig_types[128]
-#define SWIGTYPE_p_wxPrintDialogData swig_types[129]
-#define SWIGTYPE_p_wxPrintPreview swig_types[130]
-#define SWIGTYPE_p_wxPrinter swig_types[131]
-#define SWIGTYPE_p_wxProgressDialog swig_types[132]
-#define SWIGTYPE_p_wxPyApp swig_types[133]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[134]
-#define SWIGTYPE_p_wxPyEvent swig_types[135]
-#define SWIGTYPE_p_wxPyEvtHandler swig_types[136]
-#define SWIGTYPE_p_wxPyGridCellAttrProvider swig_types[137]
-#define SWIGTYPE_p_wxPyGridCellEditor swig_types[138]
-#define SWIGTYPE_p_wxPyGridCellRenderer swig_types[139]
-#define SWIGTYPE_p_wxPyGridTableBase swig_types[140]
-#define SWIGTYPE_p_wxPyHtmlListBox swig_types[141]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[142]
-#define SWIGTYPE_p_wxPyPanel swig_types[143]
-#define SWIGTYPE_p_wxPyPopupTransientWindow swig_types[144]
-#define SWIGTYPE_p_wxPyPreviewControlBar swig_types[145]
-#define SWIGTYPE_p_wxPyPreviewFrame swig_types[146]
-#define SWIGTYPE_p_wxPyPrintPreview swig_types[147]
-#define SWIGTYPE_p_wxPyPrintout swig_types[148]
-#define SWIGTYPE_p_wxPyScrolledWindow swig_types[149]
-#define SWIGTYPE_p_wxPySizer swig_types[150]
-#define SWIGTYPE_p_wxPyTaskBarIcon swig_types[151]
-#define SWIGTYPE_p_wxPyVListBox swig_types[152]
-#define SWIGTYPE_p_wxPyVScrolledWindow swig_types[153]
-#define SWIGTYPE_p_wxPyValidator swig_types[154]
-#define SWIGTYPE_p_wxPyWindow swig_types[155]
-#define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[156]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[157]
-#define SWIGTYPE_p_wxRect swig_types[158]
-#define SWIGTYPE_p_wxSashEvent swig_types[159]
-#define SWIGTYPE_p_wxSashLayoutWindow swig_types[160]
-#define SWIGTYPE_p_wxSashWindow swig_types[161]
-#define SWIGTYPE_p_wxScrollEvent swig_types[162]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[163]
-#define SWIGTYPE_p_wxScrolledWindow swig_types[164]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[165]
-#define SWIGTYPE_p_wxShowEvent swig_types[166]
-#define SWIGTYPE_p_wxSimpleHtmlListBox swig_types[167]
-#define SWIGTYPE_p_wxSingleChoiceDialog swig_types[168]
-#define SWIGTYPE_p_wxSize swig_types[169]
-#define SWIGTYPE_p_wxSizeEvent swig_types[170]
-#define SWIGTYPE_p_wxSizer swig_types[171]
-#define SWIGTYPE_p_wxSizerItem swig_types[172]
-#define SWIGTYPE_p_wxSplashScreen swig_types[173]
-#define SWIGTYPE_p_wxSplashScreenWindow swig_types[174]
-#define SWIGTYPE_p_wxSplitterEvent swig_types[175]
-#define SWIGTYPE_p_wxSplitterWindow swig_types[176]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[177]
-#define SWIGTYPE_p_wxStatusBar swig_types[178]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[179]
-#define SWIGTYPE_p_wxString swig_types[180]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[181]
-#define SWIGTYPE_p_wxTGAHandler swig_types[182]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[183]
-#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[184]
-#define SWIGTYPE_p_wxTextEntryDialog swig_types[185]
-#define SWIGTYPE_p_wxTipWindow swig_types[186]
-#define SWIGTYPE_p_wxTopLevelWindow swig_types[187]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[188]
-#define SWIGTYPE_p_wxValidator swig_types[189]
-#define SWIGTYPE_p_wxVisualAttributes swig_types[190]
-#define SWIGTYPE_p_wxWindow swig_types[191]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[192]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[193]
-#define SWIGTYPE_p_wxXPMHandler swig_types[194]
-static swig_type_info *swig_types[196];
-static swig_module_info swig_module = {swig_types, 195, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxArrayInt swig_types[11]
+#define SWIGTYPE_p_wxArrayString swig_types[12]
+#define SWIGTYPE_p_wxBMPHandler swig_types[13]
+#define SWIGTYPE_p_wxBoxSizer swig_types[14]
+#define SWIGTYPE_p_wxCURHandler swig_types[15]
+#define SWIGTYPE_p_wxCalculateLayoutEvent swig_types[16]
+#define SWIGTYPE_p_wxChildFocusEvent swig_types[17]
+#define SWIGTYPE_p_wxClipboardTextEvent swig_types[18]
+#define SWIGTYPE_p_wxCloseEvent swig_types[19]
+#define SWIGTYPE_p_wxColour swig_types[20]
+#define SWIGTYPE_p_wxColourData swig_types[21]
+#define SWIGTYPE_p_wxColourDialog swig_types[22]
+#define SWIGTYPE_p_wxCommandEvent swig_types[23]
+#define SWIGTYPE_p_wxContextMenuEvent swig_types[24]
+#define SWIGTYPE_p_wxControl swig_types[25]
+#define SWIGTYPE_p_wxControlWithItems swig_types[26]
+#define SWIGTYPE_p_wxDC swig_types[27]
+#define SWIGTYPE_p_wxDateEvent swig_types[28]
+#define SWIGTYPE_p_wxDialog swig_types[29]
+#define SWIGTYPE_p_wxDirDialog swig_types[30]
+#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[31]
+#define SWIGTYPE_p_wxDropFilesEvent swig_types[32]
+#define SWIGTYPE_p_wxDuplexMode swig_types[33]
+#define SWIGTYPE_p_wxEraseEvent swig_types[34]
+#define SWIGTYPE_p_wxEvent swig_types[35]
+#define SWIGTYPE_p_wxEvtHandler swig_types[36]
+#define SWIGTYPE_p_wxFSFile swig_types[37]
+#define SWIGTYPE_p_wxFileDialog swig_types[38]
+#define SWIGTYPE_p_wxFileSystem swig_types[39]
+#define SWIGTYPE_p_wxFindDialogEvent swig_types[40]
+#define SWIGTYPE_p_wxFindReplaceData swig_types[41]
+#define SWIGTYPE_p_wxFindReplaceDialog swig_types[42]
+#define SWIGTYPE_p_wxFlexGridSizer swig_types[43]
+#define SWIGTYPE_p_wxFocusEvent swig_types[44]
+#define SWIGTYPE_p_wxFont swig_types[45]
+#define SWIGTYPE_p_wxFontData swig_types[46]
+#define SWIGTYPE_p_wxFontDialog swig_types[47]
+#define SWIGTYPE_p_wxFrame swig_types[48]
+#define SWIGTYPE_p_wxGBSizerItem swig_types[49]
+#define SWIGTYPE_p_wxGIFHandler swig_types[50]
+#define SWIGTYPE_p_wxGrid swig_types[51]
+#define SWIGTYPE_p_wxGridBagSizer swig_types[52]
+#define SWIGTYPE_p_wxGridCellAttr swig_types[53]
+#define SWIGTYPE_p_wxGridCellAttrProvider swig_types[54]
+#define SWIGTYPE_p_wxGridCellAutoWrapStringEditor swig_types[55]
+#define SWIGTYPE_p_wxGridCellAutoWrapStringRenderer swig_types[56]
+#define SWIGTYPE_p_wxGridCellBoolEditor swig_types[57]
+#define SWIGTYPE_p_wxGridCellBoolRenderer swig_types[58]
+#define SWIGTYPE_p_wxGridCellChoiceEditor swig_types[59]
+#define SWIGTYPE_p_wxGridCellCoords swig_types[60]
+#define SWIGTYPE_p_wxGridCellDateTimeRenderer swig_types[61]
+#define SWIGTYPE_p_wxGridCellEditor swig_types[62]
+#define SWIGTYPE_p_wxGridCellEnumEditor swig_types[63]
+#define SWIGTYPE_p_wxGridCellEnumRenderer swig_types[64]
+#define SWIGTYPE_p_wxGridCellFloatEditor swig_types[65]
+#define SWIGTYPE_p_wxGridCellFloatRenderer swig_types[66]
+#define SWIGTYPE_p_wxGridCellNumberEditor swig_types[67]
+#define SWIGTYPE_p_wxGridCellNumberRenderer swig_types[68]
+#define SWIGTYPE_p_wxGridCellRenderer swig_types[69]
+#define SWIGTYPE_p_wxGridCellStringRenderer swig_types[70]
+#define SWIGTYPE_p_wxGridCellTextEditor swig_types[71]
+#define SWIGTYPE_p_wxGridCellWorker swig_types[72]
+#define SWIGTYPE_p_wxGridEditorCreatedEvent swig_types[73]
+#define SWIGTYPE_p_wxGridEvent swig_types[74]
+#define SWIGTYPE_p_wxGridRangeSelectEvent swig_types[75]
+#define SWIGTYPE_p_wxGridSizeEvent swig_types[76]
+#define SWIGTYPE_p_wxGridSizer swig_types[77]
+#define SWIGTYPE_p_wxGridStringTable swig_types[78]
+#define SWIGTYPE_p_wxGridTableBase swig_types[79]
+#define SWIGTYPE_p_wxGridTableMessage swig_types[80]
+#define SWIGTYPE_p_wxICOHandler swig_types[81]
+#define SWIGTYPE_p_wxIconizeEvent swig_types[82]
+#define SWIGTYPE_p_wxIdleEvent swig_types[83]
+#define SWIGTYPE_p_wxImage swig_types[84]
+#define SWIGTYPE_p_wxImageHandler swig_types[85]
+#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[86]
+#define SWIGTYPE_p_wxInitDialogEvent swig_types[87]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[88]
+#define SWIGTYPE_p_wxKeyEvent swig_types[89]
+#define SWIGTYPE_p_wxLayoutAlgorithm swig_types[90]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[91]
+#define SWIGTYPE_p_wxMDIChildFrame swig_types[92]
+#define SWIGTYPE_p_wxMDIClientWindow swig_types[93]
+#define SWIGTYPE_p_wxMDIParentFrame swig_types[94]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[95]
+#define SWIGTYPE_p_wxMenu swig_types[96]
+#define SWIGTYPE_p_wxMenuBar swig_types[97]
+#define SWIGTYPE_p_wxMenuEvent swig_types[98]
+#define SWIGTYPE_p_wxMenuItem swig_types[99]
+#define SWIGTYPE_p_wxMessageDialog swig_types[100]
+#define SWIGTYPE_p_wxMiniFrame swig_types[101]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[102]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[103]
+#define SWIGTYPE_p_wxMouseEvent swig_types[104]
+#define SWIGTYPE_p_wxMoveEvent swig_types[105]
+#define SWIGTYPE_p_wxMultiChoiceDialog swig_types[106]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[107]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[108]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[109]
+#define SWIGTYPE_p_wxNumberEntryDialog swig_types[110]
+#define SWIGTYPE_p_wxObject swig_types[111]
+#define SWIGTYPE_p_wxPCXHandler swig_types[112]
+#define SWIGTYPE_p_wxPNGHandler swig_types[113]
+#define SWIGTYPE_p_wxPNMHandler swig_types[114]
+#define SWIGTYPE_p_wxPageSetupDialog swig_types[115]
+#define SWIGTYPE_p_wxPageSetupDialogData swig_types[116]
+#define SWIGTYPE_p_wxPaintEvent swig_types[117]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[118]
+#define SWIGTYPE_p_wxPanel swig_types[119]
+#define SWIGTYPE_p_wxPaperSize swig_types[120]
+#define SWIGTYPE_p_wxPasswordEntryDialog swig_types[121]
+#define SWIGTYPE_p_wxPen swig_types[122]
+#define SWIGTYPE_p_wxPoint swig_types[123]
+#define SWIGTYPE_p_wxPopupWindow swig_types[124]
+#define SWIGTYPE_p_wxPreviewCanvas swig_types[125]
+#define SWIGTYPE_p_wxPreviewControlBar swig_types[126]
+#define SWIGTYPE_p_wxPreviewFrame swig_types[127]
+#define SWIGTYPE_p_wxPrintData swig_types[128]
+#define SWIGTYPE_p_wxPrintDialog swig_types[129]
+#define SWIGTYPE_p_wxPrintDialogData swig_types[130]
+#define SWIGTYPE_p_wxPrintPreview swig_types[131]
+#define SWIGTYPE_p_wxPrinter swig_types[132]
+#define SWIGTYPE_p_wxProgressDialog swig_types[133]
+#define SWIGTYPE_p_wxPyApp swig_types[134]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[135]
+#define SWIGTYPE_p_wxPyEvent swig_types[136]
+#define SWIGTYPE_p_wxPyEvtHandler swig_types[137]
+#define SWIGTYPE_p_wxPyGridCellAttrProvider swig_types[138]
+#define SWIGTYPE_p_wxPyGridCellEditor swig_types[139]
+#define SWIGTYPE_p_wxPyGridCellRenderer swig_types[140]
+#define SWIGTYPE_p_wxPyGridTableBase swig_types[141]
+#define SWIGTYPE_p_wxPyHtmlListBox swig_types[142]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[143]
+#define SWIGTYPE_p_wxPyPanel swig_types[144]
+#define SWIGTYPE_p_wxPyPopupTransientWindow swig_types[145]
+#define SWIGTYPE_p_wxPyPreviewControlBar swig_types[146]
+#define SWIGTYPE_p_wxPyPreviewFrame swig_types[147]
+#define SWIGTYPE_p_wxPyPrintPreview swig_types[148]
+#define SWIGTYPE_p_wxPyPrintout swig_types[149]
+#define SWIGTYPE_p_wxPyScrolledWindow swig_types[150]
+#define SWIGTYPE_p_wxPySizer swig_types[151]
+#define SWIGTYPE_p_wxPyTaskBarIcon swig_types[152]
+#define SWIGTYPE_p_wxPyVListBox swig_types[153]
+#define SWIGTYPE_p_wxPyVScrolledWindow swig_types[154]
+#define SWIGTYPE_p_wxPyValidator swig_types[155]
+#define SWIGTYPE_p_wxPyWindow swig_types[156]
+#define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[157]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[158]
+#define SWIGTYPE_p_wxRect swig_types[159]
+#define SWIGTYPE_p_wxRegion swig_types[160]
+#define SWIGTYPE_p_wxSashEvent swig_types[161]
+#define SWIGTYPE_p_wxSashLayoutWindow swig_types[162]
+#define SWIGTYPE_p_wxSashWindow swig_types[163]
+#define SWIGTYPE_p_wxScrollEvent swig_types[164]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[165]
+#define SWIGTYPE_p_wxScrolledWindow swig_types[166]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[167]
+#define SWIGTYPE_p_wxShowEvent swig_types[168]
+#define SWIGTYPE_p_wxSimpleHtmlListBox swig_types[169]
+#define SWIGTYPE_p_wxSingleChoiceDialog swig_types[170]
+#define SWIGTYPE_p_wxSize swig_types[171]
+#define SWIGTYPE_p_wxSizeEvent swig_types[172]
+#define SWIGTYPE_p_wxSizer swig_types[173]
+#define SWIGTYPE_p_wxSizerItem swig_types[174]
+#define SWIGTYPE_p_wxSplashScreen swig_types[175]
+#define SWIGTYPE_p_wxSplashScreenWindow swig_types[176]
+#define SWIGTYPE_p_wxSplitterEvent swig_types[177]
+#define SWIGTYPE_p_wxSplitterWindow swig_types[178]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[179]
+#define SWIGTYPE_p_wxStatusBar swig_types[180]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[181]
+#define SWIGTYPE_p_wxString swig_types[182]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[183]
+#define SWIGTYPE_p_wxTGAHandler swig_types[184]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[185]
+#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[186]
+#define SWIGTYPE_p_wxTextEntryDialog swig_types[187]
+#define SWIGTYPE_p_wxTipWindow swig_types[188]
+#define SWIGTYPE_p_wxTopLevelWindow swig_types[189]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[190]
+#define SWIGTYPE_p_wxValidator swig_types[191]
+#define SWIGTYPE_p_wxVisualAttributes swig_types[192]
+#define SWIGTYPE_p_wxWindow swig_types[193]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[194]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[195]
+#define SWIGTYPE_p_wxXPMHandler swig_types[196]
+static swig_type_info *swig_types[198];
+static swig_module_info swig_module = {swig_types, 197, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -10877,6 +10879,138 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Grid_CalcRowLabelsExposed(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  wxRegion *arg2 = 0 ;
+  wxArrayInt result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "reg", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_CalcRowLabelsExposed",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_CalcRowLabelsExposed" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxRegion,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Grid_CalcRowLabelsExposed" "', expected argument " "2"" of type '" "wxRegion const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Grid_CalcRowLabelsExposed" "', expected argument " "2"" of type '" "wxRegion const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxRegion * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (arg1)->CalcRowLabelsExposed((wxRegion const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxArrayInt2PyList_helper(result);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_CalcColLabelsExposed(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  wxRegion *arg2 = 0 ;
+  wxArrayInt result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "reg", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_CalcColLabelsExposed",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_CalcColLabelsExposed" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxRegion,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Grid_CalcColLabelsExposed" "', expected argument " "2"" of type '" "wxRegion const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Grid_CalcColLabelsExposed" "', expected argument " "2"" of type '" "wxRegion const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxRegion * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (arg1)->CalcColLabelsExposed((wxRegion const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxArrayInt2PyList_helper(result);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_CalcCellsExposed(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  wxRegion *arg2 = 0 ;
+  wxGridCellCoordsArray result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "reg", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Grid_CalcCellsExposed",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_CalcCellsExposed" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxRegion,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Grid_CalcCellsExposed" "', expected argument " "2"" of type '" "wxRegion const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Grid_CalcCellsExposed" "', expected argument " "2"" of type '" "wxRegion const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxRegion * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (arg1)->CalcCellsExposed((wxRegion const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxGridCellCoordsArray_helper(result);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Grid_ProcessTableMessage(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxGrid *arg1 = (wxGrid *) 0 ;
@@ -11550,6 +11684,246 @@ fail:
     if (temp3)
     delete arg3;
   }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_DrawRowLabels(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  wxDC *arg2 = 0 ;
+  wxArrayInt *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool temp3 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "dc",(char *) "rows", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:Grid_DrawRowLabels",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_DrawRowLabels" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Grid_DrawRowLabels" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Grid_DrawRowLabels" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  arg2 = reinterpret_cast< wxDC * >(argp2);
+  {
+    if (! PySequence_Check(obj2)) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+      SWIG_fail;
+    }
+    arg3 = new wxArrayInt;
+    temp3 = true;
+    int i, len=PySequence_Length(obj2);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(obj2, i);
+      PyObject* number  = PyNumber_Int(item);
+      if (!number) {
+        PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+        SWIG_fail;
+      }       
+      arg3->Add(PyInt_AS_LONG(number));
+      Py_DECREF(item);
+      Py_DECREF(number);
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DrawRowLabels(*arg2,(wxArrayInt const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp3) delete arg3;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp3) delete arg3;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_DrawRowLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  wxDC *arg2 = 0 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "dc",(char *) "row", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:Grid_DrawRowLabel",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_DrawRowLabel" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Grid_DrawRowLabel" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Grid_DrawRowLabel" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  arg2 = reinterpret_cast< wxDC * >(argp2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Grid_DrawRowLabel" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DrawRowLabel(*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_DrawColLabels(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  wxDC *arg2 = 0 ;
+  wxArrayInt *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool temp3 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "dc",(char *) "cols", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:Grid_DrawColLabels",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_DrawColLabels" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Grid_DrawColLabels" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Grid_DrawColLabels" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  arg2 = reinterpret_cast< wxDC * >(argp2);
+  {
+    if (! PySequence_Check(obj2)) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+      SWIG_fail;
+    }
+    arg3 = new wxArrayInt;
+    temp3 = true;
+    int i, len=PySequence_Length(obj2);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(obj2, i);
+      PyObject* number  = PyNumber_Int(item);
+      if (!number) {
+        PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+        SWIG_fail;
+      }       
+      arg3->Add(PyInt_AS_LONG(number));
+      Py_DECREF(item);
+      Py_DECREF(number);
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DrawColLabels(*arg2,(wxArrayInt const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp3) delete arg3;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp3) delete arg3;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Grid_DrawColLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGrid *arg1 = (wxGrid *) 0 ;
+  wxDC *arg2 = 0 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "dc",(char *) "col", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:Grid_DrawColLabel",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Grid_DrawColLabel" "', expected argument " "1"" of type '" "wxGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGrid * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Grid_DrawColLabel" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Grid_DrawColLabel" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  arg2 = reinterpret_cast< wxDC * >(argp2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Grid_DrawColLabel" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DrawColLabel(*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
   return NULL;
 }
 
@@ -20848,6 +21222,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Grid_GetSelectionMode", (PyCFunction)_wrap_Grid_GetSelectionMode, METH_O, NULL},
 	 { (char *)"Grid_GetNumberRows", (PyCFunction)_wrap_Grid_GetNumberRows, METH_O, NULL},
 	 { (char *)"Grid_GetNumberCols", (PyCFunction)_wrap_Grid_GetNumberCols, METH_O, NULL},
+	 { (char *)"Grid_CalcRowLabelsExposed", (PyCFunction) _wrap_Grid_CalcRowLabelsExposed, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_CalcColLabelsExposed", (PyCFunction) _wrap_Grid_CalcColLabelsExposed, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_CalcCellsExposed", (PyCFunction) _wrap_Grid_CalcCellsExposed, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_ProcessTableMessage", (PyCFunction) _wrap_Grid_ProcessTableMessage, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_GetTable", (PyCFunction)_wrap_Grid_GetTable, METH_O, NULL},
 	 { (char *)"Grid_SetTable", (PyCFunction) _wrap_Grid_SetTable, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -20860,6 +21237,10 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Grid_DeleteCols", (PyCFunction) _wrap_Grid_DeleteCols, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_DrawCellHighlight", (PyCFunction) _wrap_Grid_DrawCellHighlight, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_DrawTextRectangle", (PyCFunction) _wrap_Grid_DrawTextRectangle, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_DrawRowLabels", (PyCFunction) _wrap_Grid_DrawRowLabels, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_DrawRowLabel", (PyCFunction) _wrap_Grid_DrawRowLabel, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_DrawColLabels", (PyCFunction) _wrap_Grid_DrawColLabels, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Grid_DrawColLabel", (PyCFunction) _wrap_Grid_DrawColLabel, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_GetTextBoxSize", (PyCFunction) _wrap_Grid_GetTextBoxSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Grid_BeginBatch", (PyCFunction)_wrap_Grid_BeginBatch, METH_O, NULL},
 	 { (char *)"Grid_EndBatch", (PyCFunction)_wrap_Grid_EndBatch, METH_O, NULL},
@@ -22249,6 +22630,7 @@ static swig_type_info _swigt__p_long = {"_p_long", "long *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *|byte *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_int = {"_p_unsigned_int", "unsigned int *|time_t *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_unsigned_long = {"_p_unsigned_long", "unsigned long *|wxUIntPtr *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxArrayInt = {"_p_wxArrayInt", "wxArrayInt *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxArrayString = {"_p_wxArrayString", "wxArrayString *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxColour = {"_p_wxColour", "wxColour *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxCommandEvent = {"_p_wxCommandEvent", "wxCommandEvent *", 0, 0, (void*)0, 0};
@@ -22431,6 +22813,7 @@ static swig_type_info _swigt__p_wxPyGridCellEditor = {"_p_wxPyGridCellEditor", "
 static swig_type_info _swigt__p_wxPyGridCellRenderer = {"_p_wxPyGridCellRenderer", "wxPyGridCellRenderer *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPyGridTableBase = {"_p_wxPyGridTableBase", "wxPyGridTableBase *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRect = {"_p_wxRect", "wxRect *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxRegion = {"_p_wxRegion", "wxRegion *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxScrolledWindow = {"_p_wxScrolledWindow", "wxScrolledWindow *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxSize = {"_p_wxSize", "wxSize *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxString = {"_p_wxString", "wxString *", 0, 0, (void*)0, 0};
@@ -22449,6 +22832,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxANIHandler,
   &_swigt__p_wxAcceleratorTable,
   &_swigt__p_wxActivateEvent,
+  &_swigt__p_wxArrayInt,
   &_swigt__p_wxArrayString,
   &_swigt__p_wxBMPHandler,
   &_swigt__p_wxBoxSizer,
@@ -22597,6 +22981,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxQueryLayoutInfoEvent,
   &_swigt__p_wxQueryNewPaletteEvent,
   &_swigt__p_wxRect,
+  &_swigt__p_wxRegion,
   &_swigt__p_wxSashEvent,
   &_swigt__p_wxSashLayoutWindow,
   &_swigt__p_wxSashWindow,
@@ -22643,6 +23028,7 @@ static swig_cast_info _swigc__p_long[] = {  {&_swigt__p_long, 0, 0, 0},{0, 0, 0,
 static swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_int[] = {  {&_swigt__p_unsigned_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_unsigned_long[] = {  {&_swigt__p_unsigned_long, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxArrayInt[] = {  {&_swigt__p_wxArrayInt, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxArrayString[] = {  {&_swigt__p_wxArrayString, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxColour[] = {  {&_swigt__p_wxColour, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSashEvent[] = {{&_swigt__p_wxSashEvent, 0, 0, 0},{0, 0, 0, 0}};
@@ -22825,6 +23211,7 @@ static swig_cast_info _swigc__p_wxPyGridCellEditor[] = {  {&_swigt__p_wxPyGridCe
 static swig_cast_info _swigc__p_wxPyGridCellRenderer[] = {  {&_swigt__p_wxPyGridCellRenderer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyGridTableBase[] = {  {&_swigt__p_wxPyGridTableBase, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRect[] = {  {&_swigt__p_wxRect, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxRegion[] = {  {&_swigt__p_wxRegion, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxScrolledWindow[] = {  {&_swigt__p_wxGrid, _p_wxGridTo_p_wxScrolledWindow, 0, 0},  {&_swigt__p_wxScrolledWindow, 0, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxScrolledWindow, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxScrolledWindow, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSize[] = {  {&_swigt__p_wxSize, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxString[] = {  {&_swigt__p_wxString, 0, 0, 0},{0, 0, 0, 0}};
@@ -22843,6 +23230,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxANIHandler,
   _swigc__p_wxAcceleratorTable,
   _swigc__p_wxActivateEvent,
+  _swigc__p_wxArrayInt,
   _swigc__p_wxArrayString,
   _swigc__p_wxBMPHandler,
   _swigc__p_wxBoxSizer,
@@ -22991,6 +23379,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxQueryLayoutInfoEvent,
   _swigc__p_wxQueryNewPaletteEvent,
   _swigc__p_wxRect,
+  _swigc__p_wxRegion,
   _swigc__p_wxSashEvent,
   _swigc__p_wxSashLayoutWindow,
   _swigc__p_wxSashWindow,
