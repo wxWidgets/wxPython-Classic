@@ -70,7 +70,7 @@ public:
     bool Load(const wxString& filemask);
 
     %extend {
-        bool LoadFromString(const wxString& data) {
+        bool LoadFromString(buffer data, int DATASIZE) {
             static int s_memFileIdx = 0;
 
             // Check for memory FS. If not present, load the handler:
@@ -88,7 +88,7 @@ public:
             wxString filename(wxT("XRC_resource/data_string_"));
             filename << s_memFileIdx;
             s_memFileIdx += 1;
-            wxMemoryFSHandler::AddFile(filename, data);
+            wxMemoryFSHandler::AddFile(filename, (void*)data, DATASIZE);
 
             // Load the "file" into the resource object
             bool retval = self->Load(wxT("memory:") + filename );
