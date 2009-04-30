@@ -2317,7 +2317,7 @@ def __wxMemoryFSHandler_AddFile_wxBitmap(*args, **kwargs):
   return _core_.__wxMemoryFSHandler_AddFile_wxBitmap(*args, **kwargs)
 
 def __wxMemoryFSHandler_AddFile_Data(*args, **kwargs):
-  """__wxMemoryFSHandler_AddFile_Data(String filename, PyObject data)"""
+  """__wxMemoryFSHandler_AddFile_Data(String filename, buffer data)"""
   return _core_.__wxMemoryFSHandler_AddFile_Data(*args, **kwargs)
 def MemoryFSHandler_AddFile(filename, dataItem, imgType=-1):
     """
@@ -2331,10 +2331,11 @@ def MemoryFSHandler_AddFile(filename, dataItem, imgType=-1):
         __wxMemoryFSHandler_AddFile_wxImage(filename, dataItem, imgType)
     elif isinstance(dataItem, wx.Bitmap):
         __wxMemoryFSHandler_AddFile_wxBitmap(filename, dataItem, imgType)
-    elif type(dataItem) == str:
-        __wxMemoryFSHandler_AddFile_Data(filename, dataItem)
     else:
-        raise TypeError, 'wx.Image, wx.Bitmap or string expected'
+        try:
+            __wxMemoryFSHandler_AddFile_Data(filename, dataItem)
+        except TypeError:
+            raise TypeError, 'wx.Image, wx.Bitmap or buffer object expected'
 
 class MemoryFSHandler(CPPFileSystemHandler):
     """Proxy of C++ MemoryFSHandler class"""
@@ -2350,7 +2351,7 @@ class MemoryFSHandler(CPPFileSystemHandler):
     RemoveFile = staticmethod(RemoveFile)
     AddFile = staticmethod(MemoryFSHandler_AddFile) 
     def AddFileWithMimeType(*args, **kwargs):
-        """AddFileWithMimeType(String filename, PyObject data, String mimetype)"""
+        """AddFileWithMimeType(String filename, buffer data, String mimetype)"""
         return _core_.MemoryFSHandler_AddFileWithMimeType(*args, **kwargs)
 
     AddFileWithMimeType = staticmethod(AddFileWithMimeType)
@@ -2377,7 +2378,7 @@ def MemoryFSHandler_RemoveFile(*args, **kwargs):
   return _core_.MemoryFSHandler_RemoveFile(*args, **kwargs)
 
 def MemoryFSHandler_AddFileWithMimeType(*args, **kwargs):
-  """MemoryFSHandler_AddFileWithMimeType(String filename, PyObject data, String mimetype)"""
+  """MemoryFSHandler_AddFileWithMimeType(String filename, buffer data, String mimetype)"""
   return _core_.MemoryFSHandler_AddFileWithMimeType(*args, **kwargs)
 
 IMAGE_ALPHA_TRANSPARENT = _core_.IMAGE_ALPHA_TRANSPARENT

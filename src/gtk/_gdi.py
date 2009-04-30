@@ -5995,6 +5995,10 @@ class GraphicsRenderer(_core.Object):
         """CreateFont(self, Font font, Colour col=*wxBLACK) -> GraphicsFont"""
         return _gdi_.GraphicsRenderer_CreateFont(*args, **kwargs)
 
+    def CreateBitmap(*args, **kwargs):
+        """CreateBitmap(self, Bitmap bmp) -> GraphicsBitmap"""
+        return _gdi_.GraphicsRenderer_CreateBitmap(*args, **kwargs)
+
 _gdi_.GraphicsRenderer_swigregister(GraphicsRenderer)
 
 def GraphicsRenderer_GetDefaultRenderer(*args):

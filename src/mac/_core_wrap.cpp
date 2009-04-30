@@ -3498,34 +3498,14 @@ SWIGINTERN wxString wxFileSystem_URLToFileName(wxString const &url){
     }
 
     void __wxMemoryFSHandler_AddFile_Data(const wxString& filename,
-                                          PyObject* data) {
-        if (! PyString_Check(data)) {
-            wxPyBLOCK_THREADS(PyErr_SetString(PyExc_TypeError,
-                                              "Expected string object"));
-            return;
-        }
-
-        wxPyBlock_t blocked = wxPyBeginBlockThreads();
-        void*  ptr = (void*)PyString_AsString(data);
-        size_t size = PyString_Size(data);
-        wxPyEndBlockThreads(blocked);
-
-        wxMemoryFSHandler::AddFile(filename, ptr, size);
+                                          buffer data, int DATASIZE) {
+        wxMemoryFSHandler::AddFile(filename, (void*)data, DATASIZE);
     }    
 
-SWIGINTERN void wxMemoryFSHandler_AddFileWithMimeType(wxString const &filename,PyObject *data,wxString const &mimetype){
-            if (! PyString_Check(data)) {
-                wxPyBLOCK_THREADS(PyErr_SetString(PyExc_TypeError,
-                                                  "Expected string object"));
-                return;
-            }
-
-            wxPyBlock_t blocked = wxPyBeginBlockThreads();
-            void*  ptr = (void*)PyString_AsString(data);
-            size_t size = PyString_Size(data);
-            wxPyEndBlockThreads(blocked);
-
-            wxMemoryFSHandler::AddFileWithMimeType(filename, ptr, size, mimetype);
+SWIGINTERN void wxMemoryFSHandler_AddFileWithMimeType(wxString const &filename,buffer data,int DATASIZE,wxString const &mimetype){
+            wxMemoryFSHandler::AddFileWithMimeType(filename,
+                                                   (void*)data, DATASIZE,
+                                                   mimetype);
         }
 
 #include "wx/wxPython/pyistream.h"
@@ -14782,8 +14762,10 @@ fail:
 SWIGINTERN PyObject *_wrap___wxMemoryFSHandler_AddFile_Data(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxString *arg1 = 0 ;
-  PyObject *arg2 = (PyObject *) 0 ;
+  buffer arg2 ;
+  int arg3 ;
   bool temp1 = false ;
+  Py_ssize_t temp2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
@@ -14796,10 +14778,13 @@ SWIGINTERN PyObject *_wrap___wxMemoryFSHandler_AddFile_Data(PyObject *SWIGUNUSED
     if (arg1 == NULL) SWIG_fail;
     temp1 = true;
   }
-  arg2 = obj1;
+  {
+    if (PyObject_AsReadBuffer(obj1, (const void**)(&arg2), &temp2) == -1) SWIG_fail;
+    arg3 = (int)temp2;
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    __wxMemoryFSHandler_AddFile_Data((wxString const &)*arg1,arg2);
+    __wxMemoryFSHandler_AddFile_Data((wxString const &)*arg1,arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14875,10 +14860,12 @@ fail:
 SWIGINTERN PyObject *_wrap_MemoryFSHandler_AddFileWithMimeType(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxString *arg1 = 0 ;
-  PyObject *arg2 = (PyObject *) 0 ;
-  wxString *arg3 = 0 ;
+  buffer arg2 ;
+  int arg3 ;
+  wxString *arg4 = 0 ;
   bool temp1 = false ;
-  bool temp3 = false ;
+  Py_ssize_t temp2 ;
+  bool temp4 = false ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -14892,15 +14879,18 @@ SWIGINTERN PyObject *_wrap_MemoryFSHandler_AddFileWithMimeType(PyObject *SWIGUNU
     if (arg1 == NULL) SWIG_fail;
     temp1 = true;
   }
-  arg2 = obj1;
   {
-    arg3 = wxString_in_helper(obj2);
-    if (arg3 == NULL) SWIG_fail;
-    temp3 = true;
+    if (PyObject_AsReadBuffer(obj1, (const void**)(&arg2), &temp2) == -1) SWIG_fail;
+    arg3 = (int)temp2;
+  }
+  {
+    arg4 = wxString_in_helper(obj2);
+    if (arg4 == NULL) SWIG_fail;
+    temp4 = true;
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxMemoryFSHandler_AddFileWithMimeType((wxString const &)*arg1,arg2,(wxString const &)*arg3);
+    wxMemoryFSHandler_AddFileWithMimeType((wxString const &)*arg1,arg2,arg3,(wxString const &)*arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -14910,8 +14900,8 @@ SWIGINTERN PyObject *_wrap_MemoryFSHandler_AddFileWithMimeType(PyObject *SWIGUNU
     delete arg1;
   }
   {
-    if (temp3)
-    delete arg3;
+    if (temp4)
+    delete arg4;
   }
   return resultobj;
 fail:
@@ -14920,8 +14910,8 @@ fail:
     delete arg1;
   }
   {
-    if (temp3)
-    delete arg3;
+    if (temp4)
+    delete arg4;
   }
   return NULL;
 }
