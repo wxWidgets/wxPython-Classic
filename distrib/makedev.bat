@@ -88,8 +88,8 @@ rm del-dirs
 rem *** bundle it all up  TODO: don't hard-code the 2.8
 set EXT=
 if "%2" == "debug" set EXT="-debug"
-tar cvf ../dist/wxPython2.8-%PLATFORM%-devel-%1%EXT%.tar wxPython-%1
-bzip2 -9 ../dist/wxPython2.8-%PLATFORM%-devel-%1%EXT%.tar
+tar cvf ../dist/wxPython2.8-%PLATFORM%-devel-%1%EXT%-msvc%MSVCVER%.tar wxPython-%1
+bzip2 -9 ../dist/wxPython2.8-%PLATFORM%-devel-%1%EXT%-msvc%MSVCVER%.tar
 
 rem *** cleanup
 cd ..
