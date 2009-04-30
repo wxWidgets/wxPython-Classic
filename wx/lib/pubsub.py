@@ -1,31 +1,43 @@
-
 #---------------------------------------------------------------------------
 """
-This module provides a publish-subscribe component that allows
-listeners to subcribe to messages of a given topic. Contrary to the
-original wxPython.lib.pubsub module (which it is based on), it uses 
-weak referencing to the subscribers so the lifetime of subscribers 
-is not affected by Publisher. Also, callable objects can be used in 
-addition to functions and bound methods. See Publisher class docs for 
-more details. 
+This module provides a publish-subscribe mechanism that allows one part 
+of your application to send a "message" and many other parts to receive 
+it, without any knowledge of each other. This helps decouple 
+modules of your application. 
 
-Thanks to Robb Shecter and Robin Dunn for having provided 
-the basis for this module (which now shares most of the concepts but
-very little design or implementation with the original 
-wxPython.lib.pubsub).
+Receivers are referred to as "listeners", having subscribed to messages 
+of a specific "topic". Sending a message is as simple as calling a 
+function with a topic name and (optionally) some data that will be sent 
+to the listeners.  
 
-The publisher is a singleton instance of the PublisherClass class. You 
-access the instance via the Publisher object available from the module::
+Any callable object can be a listener, if it can be called with one 
+parameter. Topic names form a hierarchy. Example use::
+ 
+    from wx.lib.pubsub import Publisher as pub
+    def aCallable(msg):
+        print 'data received', msg.data
+    pub.subscribe(aCallable, 'some.topic')
+    pub.sendMessage('some.topic', data=123)
+    // should see 'data received 123'
+    
+An important feature of pubsub is that it does not affect callables' 
+lifetime: as soon as a listener is no longer in use in your application 
+except for being subscribed to pubsub topics, the Python interpreter 
+will be able to garbage collect it and pubsub will automatically 
+unsubscribe it. See Publisher class docs for more details. 
 
-    from wx.lib.pubsub import Publisher
-    Publisher().subscribe(...)
-    Publisher().sendMessage(...)
-    ...
+The version of pubsub in wx.lib is referred to as "pubsub 1". Thanks 
+to Robb Shecter and Robin Dunn for having provided its basis pre-2004
+and for offering that I take over its maintenance. Pubsub has since 
+evolved into a separate package called PyPubSub hosted on SourceForge
+(http://pubsub.sourceforge.net), aka "pubsub 3". It has better support 
+for message data via keyword arguments, notifications for calls into
+pubsub, exception trapping for listeners, and topic tree documentation.
 
 :Author:      Oliver Schoenborn
 :Since:       Apr 2004
 :Version:     $Id$
-:Copyright:   \(c) 2004 Oliver Schoenborn
+:Copyright:   \(c) 2004-2009 Oliver Schoenborn
 :License:     wxWidgets
 """
 
