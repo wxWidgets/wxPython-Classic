@@ -44,7 +44,7 @@ if [ $skipwin != yes ]; then
 
 		# Give it time to boot and be ready for conenctions,
 		# and then test with ssh, limiting retries.
-		for x in `seq 36`; do
+		for x in `seq 60`; do
 		    sleep 5
 		    echo "checking..."
 		    if ssh $host "true" >/dev/null 2>&1; then
@@ -89,7 +89,8 @@ if [ $skipwin != yes ]; then
      ssh $host "rm -rf $WIN_BUILD/*"
 
      ssh $vmHost "vmrun stop /work/VMs/$vmName/$vmName.vmx"
-     
+     sleep 180
+
      echo "Done!"
 fi
 
