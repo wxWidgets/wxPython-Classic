@@ -3055,18 +3055,34 @@ bool wxColour_helper(PyObject* source, wxColour** obj) {
     // otherwise check for a string
     else if (PyString_Check(source) || PyUnicode_Check(source)) {
         wxString spec = Py2wxString(source);
-        if (spec.GetChar(0) == '#' && spec.Length() == 7) {  // It's  #RRGGBB
+        if (spec.GetChar(0) == '#' 
+            && (spec.length() == 7 || spec.length() == 9)) {  // It's  #RRGGBB[AA]
             long red, green, blue;
             red = green = blue = 0;
             spec.Mid(1,2).ToLong(&red,   16);
             spec.Mid(3,2).ToLong(&green, 16);
             spec.Mid(5,2).ToLong(&blue,  16);
 
-            **obj = wxColour(red, green, blue);
+            if (spec.length() == 7)         // no alpha
+                **obj = wxColour(red, green, blue);
+            else {                          // yes alpha
+                long alpha;
+                spec.Mid(7,2).ToLong(&alpha, 16);
+                **obj = wxColour(red, green, blue, alpha);
+            }
             return true;
         }
         else {                                       // it's a colour name
-            **obj = wxColour(spec);
+            // check if alpha is there too
+            int pos;
+            if (((pos = spec.Find(':', true)) != wxNOT_FOUND) && (pos == spec.length()-3)) {
+                long alpha;
+                spec.Right(2).ToLong(&alpha, 16);
+                wxColour c = wxColour(spec.Left(spec.length()-3));
+                **obj = wxColour(c.Red(), c.Green(), c.Blue(), alpha);
+            }
+            else
+                **obj = wxColour(spec);
             return true;
         }
     }

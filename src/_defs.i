@@ -402,8 +402,20 @@ typedef double          wxDouble;
         %rename(newname) decl;
         decl
     %enddef
+    %define %RenameADocCtor(newname, astr, docstr, details, decl)
+        %feature("autodoc") decl astr;
+        %feature("docstring") decl docstr details;
+        %rename(newname) decl;
+        decl
+    %enddef
 #else
     %define %RenameDocCtor(newname, docstr, details, decl)
+        %feature("docstring") decl docstr;
+        %rename(newname) decl;
+        decl
+    %enddef
+    %define %RenameADocCtor(newname, astr, docstr, details, decl)
+        %feature("autodoc") decl astr;
         %feature("docstring") decl docstr;
         %rename(newname) decl;
         decl
@@ -424,6 +436,8 @@ typedef double          wxDouble;
     %enddef        
 #endif
 
+
+        
 //---------------------------------------------------------------------------
 // Generates a base_On* method that just wraps a call to the On*, and mark it
 // deprecated.  We need this because there is no longer any need for a
