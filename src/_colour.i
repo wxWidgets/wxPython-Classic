@@ -45,9 +45,22 @@ equivallent::
     win.SetBackgroundColour('#0000FF')
     win.SetBackgroundColour((0,0,255))
 
+In addition to the RGB values, the alpha transparency can optionally
+be set.  This is supported by the typemaps as well as the wx.Colour
+constructors and setters.  (The alpha value is ignored in many places
+that take a wx.Colour object, but it is honored in things like wx.GCDC
+or wx.GraphicsContext.)  Adding an alpha value of 0xC0 (192) to the
+above samples looks like this:
+
+    win.SetBackgroundColour(wxColour(0,0,255,192))
+    win.SetBackgroundColour('BLUE:C0')
+    win.SetBackgroundColour('#0000FFC0')
+    win.SetBackgroundColour((0,0,255,192))
+
 Additional colour names and their coresponding values can be added
-using `wx.ColourDatabase`.  Various system colours (as set in the
-user's system preferences) can be retrieved with
+using `wx.ColourDatabase`. Also see `wx.lib.colourdb` for a large set
+of colour names and values.  Various system colours (as set in the
+user's system preferences or control panel) can be retrieved with
 `wx.SystemSettings.GetColour`.
 ", "");
 
@@ -64,11 +77,16 @@ public:
 :see: Alternate constructors `wx.NamedColour` and `wx.ColourRGB`.
 ", "");
     
-    DocCtorStrName(
-        wxColour( const wxString& colorName),
+    %RenameADocCtor(
+        NamedColour,
+        "NamedColour(String colourName) -> Colour",
         "Constructs a colour object using a colour name listed in
-``wx.TheColourDatabase``.", "",
-        NamedColour);
+``wx.TheColourDatabase``, or any string format supported by the
+wxColour typemaps.", "",
+        // NOTE: We say String in the docstring but use wxColour for
+        // real so the typemap will be applied.
+        wxColour( const wxColour& colourName ));
+
     
     DocCtorStrName(
         wxColour( unsigned long colRGB ),
@@ -109,13 +127,20 @@ initialised with RGB values).", "");
         "Sets the RGB intensity values from a packed RGB value.", "",
         SetRGB);
 
-    DocDeclStrName(
-        void , Set(const wxString& colourName),
-        "Sets the RGB intensity values using a colour name listed in
-``wx.TheColourDatabase``.", "",
-        SetFromName);
-    
-    
+    %pythoncode {
+        def SetFromString(self, colourName):
+            """
+            Sets the RGB intensity values using a colour name listed in
+            ``wx.TheColourDatabase``, or any string format supported by
+            the wxColour typemaps.
+            """
+            c = wx.NamedColour(colourName)
+            self.Set(c.red, c.green, c.blue, c.alpha)
+        SetFromName = SetFromString
+    }
+
+    // TODO: This needs to be updated to include alpha in the html
+    // syntax to match our typemaps
     DocDeclStr(
         wxString , GetAsString(long flags = wxC2S_NAME | wxC2S_CSS_SYNTAX) const,
         "Return the colour as a string.  Acceptable flags are:
@@ -217,7 +242,10 @@ is returned if the pixel is invalid (on X, unallocated).", "");
 
     %property(Pixel, GetPixel, doc="See `GetPixel`");
     %property(RGB, GetRGB, SetRGB, doc="See `GetRGB` and `SetRGB`");
-    
+    %property(red,   Red);
+    %property(green, Green);
+    %property(blue,  Blue);
+    %property(alpha, Alpha);                           
 };
 
 // TODO: I should really get rid of these one of these days...

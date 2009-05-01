@@ -19,6 +19,11 @@ programatically creates its own activation context and loads a
 manifest in that context that specifies the use of the themable common
 controls on Windows XP and beyond.
 
+wx.Colour: Updated the wx.Colour typemaps and also the wx.NamedColour
+constructor to optionally allow an alpha value to be passed in the
+color string, using these syntaxes:  "#RRGGBBAA" or "ColourName:AA"
+
+
 
 
 
