@@ -288,6 +288,11 @@ public :
                         "wx.GraphicsRenderer is not available on this platform.");
         return NULL;
     }
+    static wxGraphicsRenderer* GetCairoRenderer() {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.GraphicsRenderer is not available on this platform.");
+        return NULL;
+    }   
 
     virtual wxGraphicsContext * CreateContext( const wxWindowDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContextFromNativeContext( void *  ) { return NULL; }
@@ -1024,6 +1029,7 @@ public :
 
     // %newobject GetDefaultRenderer;  ???
     static wxGraphicsRenderer* GetDefaultRenderer();
+    static wxGraphicsRenderer* GetCairoRenderer();
 
     %nokwargs CreateContext;
     %newobject CreateContext;

@@ -1873,7 +1873,8 @@ public:
 
     void SetShow(bool show);
     bool GetShow() const;
-
+    bool IsShown() const;
+    
     %property(Show, GetShow, SetShow, doc="See `GetShow` and `SetShow`");
 };
 

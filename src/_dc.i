@@ -379,7 +379,7 @@ screen is damaged.", "
     %Rename(SetClippingRegionAsRegion, void, SetClippingRegion(const wxRegion& region));
     %Rename(SetClippingRect, void, SetClippingRegion(const wxRect& rect));
 
-
+    void SetDeviceClippingRegion(const wxRegion& region);
     
     DocDeclAStr(
         void , DrawLines(int points, wxPoint* points_array,

@@ -134,6 +134,13 @@ public:
 
     void SetProperties(wxXmlProperty *prop);
 
+    wxString GetAttribute(const wxString& attrName,
+                          const wxString& defaultVal) const;
+    //bool GetAttribute(const wxString& attrName, wxString *value) const;
+    void AddAttribute(const wxString& attrName, const wxString& value);
+    wxXmlProperty* GetAttributes() const;
+
+    
     %property(Children, GetChildren, SetChildren, doc="See `GetChildren` and `SetChildren`");
     %property(Content, GetContent, SetContent, doc="See `GetContent` and `SetContent`");
     %property(Name, GetName, SetName, doc="See `GetName` and `SetName`");
