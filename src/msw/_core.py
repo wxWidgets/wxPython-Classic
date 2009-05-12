@@ -6034,6 +6034,10 @@ class ShowEvent(Event):
         """GetShow(self) -> bool"""
         return _core_.ShowEvent_GetShow(*args, **kwargs)
 
+    def IsShown(*args, **kwargs):
+        """IsShown(self) -> bool"""
+        return _core_.ShowEvent_IsShown(*args, **kwargs)
+
     Show = property(GetShow,SetShow,doc="See `GetShow` and `SetShow`") 
 _core_.ShowEvent_swigregister(ShowEvent)
 

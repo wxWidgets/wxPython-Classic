@@ -4171,6 +4171,11 @@ public :
                         "wx.GraphicsRenderer is not available on this platform.");
         return NULL;
     }
+    static wxGraphicsRenderer* GetCairoRenderer() {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.GraphicsRenderer is not available on this platform.");
+        return NULL;
+    }   
 
     virtual wxGraphicsContext * CreateContext( const wxWindowDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContextFromNativeContext( void *  ) { return NULL; }
@@ -20574,6 +20579,47 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DC_SetDeviceClippingRegion(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = (wxDC *) 0 ;
+  wxRegion *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "region", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:DC_SetDeviceClippingRegion",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DC_SetDeviceClippingRegion" "', expected argument " "1"" of type '" "wxDC *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxRegion,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DC_SetDeviceClippingRegion" "', expected argument " "2"" of type '" "wxRegion const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DC_SetDeviceClippingRegion" "', expected argument " "2"" of type '" "wxRegion const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxRegion * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetDeviceClippingRegion((wxRegion const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DC_DrawLines(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDC *arg1 = (wxDC *) 0 ;
@@ -30707,6 +30753,22 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GraphicsRenderer_GetCairoRenderer(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsRenderer *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"GraphicsRenderer_GetCairoRenderer",0,0,0)) SWIG_fail;
+  {
+    result = (wxGraphicsRenderer *)wxGraphicsRenderer::GetCairoRenderer();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGraphicsRenderer, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateContext__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxGraphicsRenderer *arg1 = (wxGraphicsRenderer *) 0 ;
@@ -40007,6 +40069,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DC_SetClippingRegionPointSize", (PyCFunction) _wrap_DC_SetClippingRegionPointSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_SetClippingRegionAsRegion", (PyCFunction) _wrap_DC_SetClippingRegionAsRegion, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_SetClippingRect", (PyCFunction) _wrap_DC_SetClippingRect, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DC_SetDeviceClippingRegion", (PyCFunction) _wrap_DC_SetDeviceClippingRegion, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_DrawLines", (PyCFunction) _wrap_DC_DrawLines, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_DrawPolygon", (PyCFunction) _wrap_DC_DrawPolygon, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_DrawLabel", (PyCFunction) _wrap_DC_DrawLabel, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -40278,6 +40341,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GraphicsContext_swigregister", GraphicsContext_swigregister, METH_VARARGS, NULL},
 	 { (char *)"delete_GraphicsRenderer", (PyCFunction)_wrap_delete_GraphicsRenderer, METH_O, NULL},
 	 { (char *)"GraphicsRenderer_GetDefaultRenderer", (PyCFunction)_wrap_GraphicsRenderer_GetDefaultRenderer, METH_NOARGS, NULL},
+	 { (char *)"GraphicsRenderer_GetCairoRenderer", (PyCFunction)_wrap_GraphicsRenderer_GetCairoRenderer, METH_NOARGS, NULL},
 	 { (char *)"GraphicsRenderer_CreateContext", _wrap_GraphicsRenderer_CreateContext, METH_VARARGS, NULL},
 	 { (char *)"GraphicsRenderer_CreateMeasuringContext", (PyCFunction)_wrap_GraphicsRenderer_CreateMeasuringContext, METH_O, NULL},
 	 { (char *)"GraphicsRenderer_CreateContextFromNativeContext", (PyCFunction) _wrap_GraphicsRenderer_CreateContextFromNativeContext, METH_VARARGS | METH_KEYWORDS, NULL},

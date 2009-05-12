@@ -6733,7 +6733,7 @@ class PickerBase(_core.Control):
     """
     Base abstract class for all pickers which support an auxiliary text
     control. This class handles all positioning and sizing of the text
-    control like a an horizontal `wx.BoxSizer` would do, with the text
+    control like a horizontal `wx.BoxSizer` would do, with the text
     control on the left of the picker button and the proportion of the
     picker fixed to value 1.
     """

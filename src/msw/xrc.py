@@ -441,6 +441,21 @@ class XmlNode(object):
         """SetProperties(self, XmlProperty prop)"""
         return _xrc.XmlNode_SetProperties(*args, **kwargs)
 
+    def GetAttribute(*args):
+        """
+        GetAttribute(self, String attrName, String defaultVal) -> String
+        GetAttribute(self, String attrName, String value) -> bool
+        """
+        return _xrc.XmlNode_GetAttribute(*args)
+
+    def AddAttribute(*args, **kwargs):
+        """AddAttribute(self, String attrName, String value)"""
+        return _xrc.XmlNode_AddAttribute(*args, **kwargs)
+
+    def GetAttributes(*args, **kwargs):
+        """GetAttributes(self) -> XmlProperty"""
+        return _xrc.XmlNode_GetAttributes(*args, **kwargs)
+
     Children = property(GetChildren,SetChildren,doc="See `GetChildren` and `SetChildren`") 
     Content = property(GetContent,SetContent,doc="See `GetContent` and `SetContent`") 
     Name = property(GetName,SetName,doc="See `GetName` and `SetName`") 

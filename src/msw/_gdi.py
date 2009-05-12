@@ -3627,6 +3627,10 @@ class DC(_core.Object):
         """
         return _gdi_.DC_SetClippingRect(*args, **kwargs)
 
+    def SetDeviceClippingRegion(*args, **kwargs):
+        """SetDeviceClippingRegion(self, Region region)"""
+        return _gdi_.DC_SetDeviceClippingRegion(*args, **kwargs)
+
     def DrawLines(*args, **kwargs):
         """
         DrawLines(self, List points, int xoffset=0, int yoffset=0)
@@ -6054,6 +6058,11 @@ class GraphicsRenderer(_core.Object):
         return _gdi_.GraphicsRenderer_GetDefaultRenderer(*args, **kwargs)
 
     GetDefaultRenderer = staticmethod(GetDefaultRenderer)
+    def GetCairoRenderer(*args, **kwargs):
+        """GetCairoRenderer() -> GraphicsRenderer"""
+        return _gdi_.GraphicsRenderer_GetCairoRenderer(*args, **kwargs)
+
+    GetCairoRenderer = staticmethod(GetCairoRenderer)
     def CreateContext(*args):
         """
         CreateContext(self, WindowDC dc) -> GraphicsContext
@@ -6119,6 +6128,10 @@ _gdi_.GraphicsRenderer_swigregister(GraphicsRenderer)
 def GraphicsRenderer_GetDefaultRenderer(*args):
   """GraphicsRenderer_GetDefaultRenderer() -> GraphicsRenderer"""
   return _gdi_.GraphicsRenderer_GetDefaultRenderer(*args)
+
+def GraphicsRenderer_GetCairoRenderer(*args):
+  """GraphicsRenderer_GetCairoRenderer() -> GraphicsRenderer"""
+  return _gdi_.GraphicsRenderer_GetCairoRenderer(*args)
 
 class GCDC(DC):
     """Proxy of C++ GCDC class"""
