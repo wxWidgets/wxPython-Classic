@@ -348,8 +348,9 @@ class InspectionFrame(wx.Frame):
             
     def OnWatchEventsUI(self, evt):
         item = self.tree.GetSelection()
-        obj = self.tree.GetItemPyData(item)
-        evt.Enable(isinstance(obj, wx.Window))
+        if item:
+            obj = self.tree.GetItemPyData(item)
+            evt.Enable(isinstance(obj, wx.Window))
 
 
     def OnToggleFilling(self, evt):
@@ -431,7 +432,7 @@ class InspectionTree(TreeBaseClass):
             self.SetWindowVariant(wx.WINDOW_VARIANT_SMALL)
 
 
-    def BuildTree(self, startWidget, includeSizers=False):
+    def BuildTree(self, startWidget, includeSizers=False, expandFrame=False):
         if self.GetCount():
             self.DeleteAllItems()
             self.roots = []
@@ -448,10 +449,11 @@ class InspectionTree(TreeBaseClass):
         # Expand the subtree containing the startWidget, and select it.
         if not startWidget or not isinstance(startWidget, wx.Window):
             startWidget = wx.GetApp().GetTopWindow()
-        top = wx.GetTopLevelParent(startWidget)
-        topItem = self.FindWidgetItem(top)
-        if topItem:
-            self.ExpandAllChildren(topItem)
+        if expandFrame:
+            top = wx.GetTopLevelParent(startWidget)
+            topItem = self.FindWidgetItem(top)
+            if topItem:
+                self.ExpandAllChildren(topItem)
         self.SelectObj(startWidget)
         self.built = True
 
@@ -528,6 +530,7 @@ class InspectionTree(TreeBaseClass):
         """
         return "%s (\"%s\")" % (widget.__class__.__name__, widget.GetName())
 
+    
     def GetTextForSizer(self, sizer):
         """
         Returns the string to be used in the tree for a sizer
@@ -628,7 +631,10 @@ class InspectionInfoPanel(wx.stc.StyledTextCtrl):
         if hasattr(obj, 'GetTitle'):
             st.append(self.Fmt('title',   obj.GetTitle()))
         if hasattr(obj, 'GetValue'):
-            st.append(self.Fmt('value',   obj.GetValue()))
+            try:
+                st.append(self.Fmt('value',   obj.GetValue()))
+            except:
+                pass
         if obj.GetContainingSizer() is not None:
             st.append('')
             sizer = obj.GetContainingSizer()
