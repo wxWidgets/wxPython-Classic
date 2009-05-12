@@ -24,7 +24,7 @@ enum {
 DocStr(wxPickerBase,
 "Base abstract class for all pickers which support an auxiliary text
 control. This class handles all positioning and sizing of the text
-control like a an horizontal `wx.BoxSizer` would do, with the text
+control like a horizontal `wx.BoxSizer` would do, with the text
 control on the left of the picker button and the proportion of the
 picker fixed to value 1.", "");
 
@@ -330,6 +330,8 @@ class ColourPickerCtrl(PyPickerBase):
                  style = CLRP_DEFAULT_STYLE,
                  validator = wx.DefaultValidator,
                  name = "colourpicker"):
+        if type(col) != wx.Colour:
+            col = wx.NamedColour(col)
         wx.PyPickerBase.__init__(self, parent, id, col.GetAsString(),
                                  pos, size, style, validator, name)
         widget = ColourPickerCtrl.ColourPickerButton(
