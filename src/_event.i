@@ -2056,7 +2056,8 @@ public:
     void SetShow(bool show);
     bool IsShown() const;
     %pythoncode { GetShow = IsShown }
-
+    bool IsShown() const;
+    
     %property(Show, IsShown, SetShow, doc="See `GetShow` and `SetShow`");
 };
 
