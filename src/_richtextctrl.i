@@ -994,6 +994,198 @@ changed.", "");
     %property(StyleSheet, GetStyleSheet, SetStyleSheet);
     %property(TextCursor, GetTextCursor, SetTextCursor);
     %property(URLCursor, GetURLCursor, SetURLCursor);
+
+
+    /// Set up scrollbars, e.g. after a resize
+    virtual void SetupScrollbars(bool atTop = false);
+
+    /// Keyboard navigation
+    virtual bool KeyboardNavigate(int keyCode, int flags);
+
+    /// Position the caret
+    virtual void PositionCaret();
+
+    /// Extend the selection, returning true if the selection was
+    /// changed. Selections are in caret positions.
+    virtual bool ExtendSelection(long oldPosition, long newPosition, int flags);
+
+    /// Scroll into view. This takes a _caret_ position.
+    virtual bool ScrollIntoView(long position, int keyCode);
+
+    /// The caret position is the character position just before the caret.
+    /// A value of -1 means the caret is at the start of the buffer.
+    void SetCaretPosition(long position, bool showAtLineStart = false) ;
+    long GetCaretPosition() const;
+
+    /// The adjusted caret position is the character position adjusted to take
+    /// into account whether we're at the start of a paragraph, in which case
+    /// style information should be taken from the next position, not current one.
+    long GetAdjustedCaretPosition(long caretPos) const;
+
+    /// Move caret one visual step forward: this may mean setting a flag
+    /// and keeping the same position if we're going from the end of one line
+    /// to the start of the next, which may be the exact same caret position.
+    void MoveCaretForward(long oldPosition) ;
+
+    /// Move caret one visual step forward: this may mean setting a flag
+    /// and keeping the same position if we're going from the end of one line
+    /// to the start of the next, which may be the exact same caret position.
+    void MoveCaretBack(long oldPosition) ;
+
+    /// Get the caret height and position for the given character position
+    bool GetCaretPositionForIndex(long position, wxRect& rect);
+
+    /// Gets the line for the visible caret position. If the caret is
+    /// shown at the very end of the line, it means the next character is actually
+    /// on the following line. So let's get the line we're expecting to find
+    /// if this is the case.
+    wxRichTextLine* GetVisibleLineForCaretPosition(long caretPosition) const;
+
+    /// Gets the command processor
+    wxCommandProcessor* GetCommandProcessor() const;
+
+    /// Delete content if there is a selection, e.g. when pressing a key.
+    /// Returns the new caret position in newPos, or leaves it if there
+    /// was no action.
+    bool DeleteSelectedContent(long* OUTPUT);
+
+    /// Transform logical to physical
+    wxPoint GetPhysicalPoint(const wxPoint& ptLogical) const;
+
+    /// Transform physical to logical
+    wxPoint GetLogicalPoint(const wxPoint& ptPhysical) const;
+
+    /// Finds the caret position for the next word. Direction
+    /// is 1 (forward) or -1 (backwards).
+    virtual long FindNextWordPosition(int direction = 1) const;
+
+    /// Is the given position visible on the screen?
+    bool IsPositionVisible(long pos) const;
+
+    /// Returns the first visible position in the current view
+    long GetFirstVisiblePosition() const;
+
+    /// Returns the caret position since the default formatting was changed. As
+    /// soon as this position changes, we no longer reflect the default style
+    /// in the UI. A value of -2 means that we should only reflect the style of the
+    /// content under the caret.
+    long GetCaretPositionForDefaultStyle() const;
+
+    /// Set the caret position for the default style that the user is selecting.
+    void SetCaretPositionForDefaultStyle(long pos);
+
+    /// Should the UI reflect the default style chosen by the user, rather than the style under
+    /// the caret?
+    bool IsDefaultStyleShowing() const;
+
+    /// Convenience function that tells the control to start reflecting the default
+    /// style, since the user is changing it.
+    void SetAndShowDefaultStyle(const wxRichTextAttr& attr);
+
+    /// Get the first visible point in the window
+    wxPoint GetFirstVisiblePoint() const;
+
+    
+    //-------------------------------------------------------------
+    // Methods from wxScrollHelper
+
+    // configure the scrolling
+    virtual void SetScrollbars(int pixelsPerUnitX, int pixelsPerUnitY,
+                               int noUnitsX, int noUnitsY,
+                               int xPos = 0, int yPos = 0,
+                               bool noRefresh = false );
+
+    // scroll to the given (in logical coords) position
+    virtual void Scroll(int x, int y);
+
+    // get/set the page size for this orientation (wxVERTICAL/wxHORIZONTAL)
+    int GetScrollPageSize(int orient) const;
+    void SetScrollPageSize(int orient, int pageSize);
+
+//     // get the number of lines the window can scroll, 
+//     // returns 0 if no scrollbars are there.
+//     int GetScrollLines( int orient ) const;
+    
+    // Set the x, y scrolling increments.
+    void SetScrollRate( int xstep, int ystep );
+
+    DocDeclAStr(
+        virtual void, GetScrollPixelsPerUnit(int *OUTPUT, int *OUTPUT) const,
+        "GetScrollPixelsPerUnit() -> (xUnit, yUnit)",
+        "Get the size of one logical unit in physical units.", "");
+
+    // Enable/disable Windows scrolling in either direction. If True, wxWindows
+    // scrolls the canvas and only a bit of the canvas is invalidated; no
+    // Clear() is necessary. If False, the whole canvas is invalidated and a
+    // Clear() is necessary. Disable for when the scroll increment is used to
+    // actually scroll a non-constant distance
+    virtual void EnableScrolling(bool x_scrolling, bool y_scrolling);
+
+
+    DocDeclAStr( 
+        virtual void, GetViewStart(int *OUTPUT, int *OUTPUT) const,
+        "GetViewStart() -> (x,y)",
+        "Get the view start", "");
+    
+    // Set the scale factor, used in PrepareDC
+    void SetScale(double xs, double ys);
+    double GetScaleX() const;
+    double GetScaleY() const;
+
+
+    %nokwargs CalcScrolledPosition;
+    %nokwargs CalcUnscrolledPosition;
+    
+    DocStr(CalcScrolledPosition, "Translate between scrolled and unscrolled coordinates.", "");
+    wxPoint CalcScrolledPosition(const wxPoint& pt) const;
+    DocDeclA(
+        void, CalcScrolledPosition(int x, int y, int *OUTPUT, int *OUTPUT) const,
+        "CalcScrolledPosition(int x, int y) -> (sx, sy)");
+
+    
+    DocStr(CalcUnscrolledPosition, "Translate between scrolled and unscrolled coordinates.", "");
+    wxPoint CalcUnscrolledPosition(const wxPoint& pt) const;
+    DocDeclA(
+        void, CalcUnscrolledPosition(int x, int y, int *OUTPUT, int *OUTPUT) const,
+        "CalcUnscrolledPosition(int x, int y) -> (ux, uy)");
+
+
+    
+// TODO: use directors?
+//     virtual void DoCalcScrolledPosition(int x, int y, int *xx, int *yy) const;
+//     virtual void DoCalcUnscrolledPosition(int x, int y, int *xx, int *yy) const;
+
+    // Adjust the scrollbars
+    virtual void AdjustScrollbars();
+
+    // Calculate scroll increment
+    virtual int CalcScrollInc(wxScrollWinEvent& event);
+
+    // Normally the wxScrolledWindow will scroll itself, but in some rare
+    // occasions you might want it to scroll [part of] another window (e.g. a
+    // child of it in order to scroll only a portion the area between the
+    // scrollbars (spreadsheet: only cell area will move).
+    virtual void SetTargetWindow(wxWindow *target);
+    virtual wxWindow *GetTargetWindow() const;
+
+#ifndef __WXGTK__
+    void SetTargetRect(const wxRect& rect);
+    wxRect GetTargetRect() const;
+#endif
+
+
+    
+    //------------------------------------------------------------
+    // Methods from wxtextCtrlBase
+    
+    virtual bool IsEmpty() const;
+    virtual void ChangeValue(const wxString &value);
+    void SetModified(bool modified);
+    
+    // insert the character which would have resulted from this key event,
+    // return True if anything has been inserted
+    virtual bool EmulateKeyPress(const wxKeyEvent& event);
+
 };
 
 
