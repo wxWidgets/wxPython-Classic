@@ -3,20 +3,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="generator" content="Docutils 0.4.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
 <title>Installing wxPython 2.8 from Source</title>
 <link rel="stylesheet" href="default.css" type="text/css" />
 </head>
 <body>
 <div class="document" id="installing-wxpython-2-8-from-source">
 <h1 class="title">Installing wxPython 2.8 from Source</h1>
+
 <p>This document will describe the few differences and additions to the
-content in the <a class="reference" href="BUILD.html">BUILD</a> document for installing wxPython built from
+content in the <a class="reference external" href="BUILD.html">BUILD</a> document for installing wxPython built from
 source.  Please follow the intstructions both in this file and in
-<a class="reference" href="BUILD.html">BUILD</a> to perform this task.  Where there is overlap the items
+<a class="reference external" href="BUILD.html">BUILD</a> to perform this task.  Where there is overlap the items
 described here will take precedence for doing installations.</p>
-<div class="section">
-<h1><a id="installing-on-unix-like-systems-not-os-x" name="installing-on-unix-like-systems-not-os-x">Installing on Unix-like Systems (not OS X)</a></h1>
+<div class="section" id="installing-on-unix-like-systems-not-os-x">
+<h1>Installing on Unix-like Systems (not OS X)</h1>
 <ol class="arabic">
 <li><p class="first">When building wxWidgets you need to decide if you want it to be a
 private copy only accessed by wxPython, or if you would like it to
@@ -81,8 +82,8 @@ contained in the PYTHONPATH environment variable.</p>
 </li>
 </ol>
 </div>
-<div class="section">
-<h1><a id="installing-on-os-x" name="installing-on-os-x">Installing on OS X</a></h1>
+<div class="section" id="installing-on-os-x">
+<h1>Installing on OS X</h1>
 <p>Installing wxPython on OS X is nearly the same as the Unix
 instructions above, except for a few small, but important details:</p>
 <ol class="arabic simple">
@@ -95,7 +96,7 @@ you will need to set DYLD_LIBRARY_PATH to this location so the
 dylibs can be found at runtime.</li>
 <li>Depending on the version of OS X Python may be installed in
 different locations.  On 10.2 (Jaguar) you need to download and
-install MacPython-OSX-2.3 from <a class="reference" href="http://www.python.org/">http://www.python.org/</a> and the
+install MacPython-OSX-2.3 from <a class="reference external" href="http://www.python.org/">http://www.python.org/</a> and the
 Python Framework will then be installed in /Library/Frameworks.  On
 10.3 (Panther) Apple supplies the Python Framework as part of the
 OS install, but it will be located in /System/Library/Frameworks
@@ -112,8 +113,8 @@ app to run wxPython apps, otherwise the app will not be able to
 fully use the GUI display.</li>
 </ol>
 </div>
-<div class="section">
-<h1><a id="installing-on-windows" name="installing-on-windows">Installing on Windows</a></h1>
+<div class="section" id="installing-on-windows">
+<h1>Installing on Windows</h1>
 <ol class="arabic">
 <li><p class="first">Build wxWidgets and wxPython as described in BUILD.txt.  If you
 would rather have a version without the code that turns runtime

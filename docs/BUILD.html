@@ -3,25 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="generator" content="Docutils 0.4.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
 <title>Building wxPython 2.8 for Development and Testing</title>
 <link rel="stylesheet" href="default.css" type="text/css" />
 </head>
 <body>
 <div class="document" id="building-wxpython-2-8-for-development-and-testing">
 <h1 class="title">Building wxPython 2.8 for Development and Testing</h1>
+
 <p>This file describes how I build wxWidgets and wxPython while doing
 development and testing, and is meant to help other people that want
 to do the same thing.  I'll assume that you are using either a CVS
-snapshot from <a class="reference" href="http://wxWidgets.org/snapshots/">http://wxWidgets.org/snapshots/</a>, a checkout from CVS, or
+snapshot from <a class="reference external" href="http://wxWidgets.org/snapshots/">http://wxWidgets.org/snapshots/</a>, a checkout from CVS, or
 one of the released wxPython-src-2.8.* tarballs.  I'll also assume that
 you know your way around your system, the compiler, etc. and most
 importantly, that you know what you are doing!  ;-)</p>
 <p>If you want to also install the version of wxPython you build into
 your site-packages dir and be your default version of wxPython, then a
 few additional steps are needed, and you may want to use slightly
-different options.  See the <a class="reference" href="INSTALL.html">INSTALL</a> document for more details.  If
-you only use the instructions in this <a class="reference" href="BUILD.html">BUILD</a> document file then you
+different options.  See the <a class="reference external" href="INSTALL.html">INSTALL</a> document for more details.  If
+you only use the instructions in this <a class="reference external" href="BUILD.html">BUILD</a> document file then you
 will end up with a separate installation of wxPython and you can
 switch back and forth between this and the release version that you
 may already have installed.</p>
@@ -53,8 +54,8 @@ installed from one of the standard wxWidgets installers.  With the
 the APIs are allowed to change) there are often significant
 differences between the W.X.Y release of wxWidgets and the W.X.Y.Z
 release of wxPython.</p>
-<div class="section">
-<h1><a id="building-on-unix-like-systems-e-g-linux-and-os-x" name="building-on-unix-like-systems-e-g-linux-and-os-x">Building on Unix-like Systems (e.g. Linux and OS X)</a></h1>
+<div class="section" id="building-on-unix-like-systems-e-g-linux-and-os-x">
+<h1>Building on Unix-like Systems (e.g. Linux and OS X)</h1>
 <p>These platforms are built almost the same way while in development
 so I'll combine the descriptions about their build process here.
 First we will build wxWidgets and install it to an out of the way
@@ -235,8 +236,8 @@ does not automatically add libgcc to the link step.</p>
 </li>
 </ol>
 </div>
-<div class="section">
-<h1><a id="building-on-windows-with-ms-visual-c" name="building-on-windows-with-ms-visual-c">Building on Windows with MS Visual C++</a></h1>
+<div class="section" id="building-on-windows-with-ms-visual-c">
+<h1>Building on Windows with MS Visual C++</h1>
 <p>The Windows builds currently require the use of Microsoft Visual C++.
 Theoretically, other compilers (such as mingw32 or the Borland
 compilers) can also be used but I've never done the work to make that
@@ -426,8 +427,8 @@ python demo.py
 </li>
 </ol>
 </div>
-<div class="section">
-<h1><a id="building-on-windows-with-cygwin-mingw32" name="building-on-windows-with-cygwin-mingw32">Building on Windows with Cygwin/MingW32</a></h1>
+<div class="section" id="building-on-windows-with-cygwin-mingw32">
+<h1>Building on Windows with Cygwin/MingW32</h1>
 <p>Starting with release 2.8.6.1 wxPython is also able to be built for
 the stock Python on Windows using the cywin environnment and the
 mingw32 compiler.  It can probably also be done with a few
