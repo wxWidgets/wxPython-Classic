@@ -31,7 +31,7 @@ mkdir %BASE%\build
 mkdir %BASE%\build\bakefiles
 mkdir %BASE%\build\bakefiles\wxpresets
 
-copy /s %WXWIN%\build\bakefiles\wxpresets   %BASE%\build\bakefiles\wxpresets\*
+copy /s %WXWIN%\build\bakefiles\wxpresets\*  %BASE%\build\bakefiles\wxpresets  
 
 mkdir %BASE%\include
 mkdir %BASE%\include\wx
@@ -61,8 +61,8 @@ cd _distrib_zip
 
 ffind /SB wx*%DELTYPE%_*.*		>  del-files
 ffind /SB wx*%DELTYPE%.*		>> del-files
-ffind /SB .#*			>> del-files
-ffind /SB .cvsignore		>> del-files
+ffind /SB .#*				>> del-files
+ffind /SB .cvsignore			>> del-files
 
 for %f in (@del-files) do 	rm -fv %f
 rem del /y @del-files
