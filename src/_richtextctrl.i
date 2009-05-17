@@ -24,6 +24,8 @@
 enum {
     wxRE_READONLY,
     wxRE_MULTILINE,
+    wxRE_CENTER_CARET,
+    wxRE_CENTRE_CARET,
 
     wxRICHTEXT_SHIFT_DOWN,
     wxRICHTEXT_CTRL_DOWN,
@@ -998,6 +1000,96 @@ changed.", "");
     %property(Value, GetValue, SetValue, doc="See `GetValue` and `SetValue`");
 
 
+    /// Set up scrollbars, e.g. after a resize
+    virtual void SetupScrollbars(bool atTop = false);
+
+    /// Keyboard navigation
+    virtual bool KeyboardNavigate(int keyCode, int flags);
+
+    /// Position the caret
+    virtual void PositionCaret();
+
+    /// Extend the selection, returning true if the selection was
+    /// changed. Selections are in caret positions.
+    virtual bool ExtendSelection(long oldPosition, long newPosition, int flags);
+
+    /// Scroll into view. This takes a _caret_ position.
+    virtual bool ScrollIntoView(long position, int keyCode);
+
+    /// The caret position is the character position just before the caret.
+    /// A value of -1 means the caret is at the start of the buffer.
+    void SetCaretPosition(long position, bool showAtLineStart = false) ;
+    long GetCaretPosition() const;
+
+    /// The adjusted caret position is the character position adjusted to take
+    /// into account whether we're at the start of a paragraph, in which case
+    /// style information should be taken from the next position, not current one.
+    long GetAdjustedCaretPosition(long caretPos) const;
+
+    /// Move caret one visual step forward: this may mean setting a flag
+    /// and keeping the same position if we're going from the end of one line
+    /// to the start of the next, which may be the exact same caret position.
+    void MoveCaretForward(long oldPosition) ;
+
+    /// Move caret one visual step forward: this may mean setting a flag
+    /// and keeping the same position if we're going from the end of one line
+    /// to the start of the next, which may be the exact same caret position.
+    void MoveCaretBack(long oldPosition) ;
+
+    /// Get the caret height and position for the given character position
+    bool GetCaretPositionForIndex(long position, wxRect& rect);
+
+    /// Gets the line for the visible caret position. If the caret is
+    /// shown at the very end of the line, it means the next character is actually
+    /// on the following line. So let's get the line we're expecting to find
+    /// if this is the case.
+    wxRichTextLine* GetVisibleLineForCaretPosition(long caretPosition) const;
+
+    /// Gets the command processor
+    wxCommandProcessor* GetCommandProcessor() const;
+
+    /// Delete content if there is a selection, e.g. when pressing a key.
+    /// Returns the new caret position in newPos, or leaves it if there
+    /// was no action.
+    bool DeleteSelectedContent(long* OUTPUT);
+
+    /// Transform logical to physical
+    wxPoint GetPhysicalPoint(const wxPoint& ptLogical) const;
+
+    /// Transform physical to logical
+    wxPoint GetLogicalPoint(const wxPoint& ptPhysical) const;
+
+    /// Finds the caret position for the next word. Direction
+    /// is 1 (forward) or -1 (backwards).
+    virtual long FindNextWordPosition(int direction = 1) const;
+
+    /// Is the given position visible on the screen?
+    bool IsPositionVisible(long pos) const;
+
+    /// Returns the first visible position in the current view
+    long GetFirstVisiblePosition() const;
+
+    /// Returns the caret position since the default formatting was changed. As
+    /// soon as this position changes, we no longer reflect the default style
+    /// in the UI. A value of -2 means that we should only reflect the style of the
+    /// content under the caret.
+    long GetCaretPositionForDefaultStyle() const;
+
+    /// Set the caret position for the default style that the user is selecting.
+    void SetCaretPositionForDefaultStyle(long pos);
+
+    /// Should the UI reflect the default style chosen by the user, rather than the style under
+    /// the caret?
+    bool IsDefaultStyleShowing() const;
+
+    /// Convenience function that tells the control to start reflecting the default
+    /// style, since the user is changing it.
+    void SetAndShowDefaultStyle(const wxRichTextAttr& attr);
+
+    /// Get the first visible point in the window
+    wxPoint GetFirstVisiblePoint() const;
+
+    
     //-------------------------------------------------------------
     // Methods from wxScrollHelper
 
