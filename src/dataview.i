@@ -2323,11 +2323,8 @@ EVT_DATAVIEW_ITEM_DROP                 = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 
 
 //---------------------------------------------------------------------------
-// wxDataViewListStoreLine
-// wxDataViewListStore
-// wxDataViewListCtrl
 
-// help SWIG understand the template
+// help SWIG understand this template
 %{
     typedef wxVector<wxVariant> wxVariantVector;
 %}
@@ -2349,13 +2346,24 @@ EVT_DATAVIEW_ITEM_DROP                 = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 }
 
 
-// A typemap to wrap a wxPyClientData around any PyObject value.
+// A typemap to wrap a wxPyClientData around any PyObject input value.
 %typemap(in) wxClientData* {
         $1 = new wxPyClientData($input);
 }
 
+// This one extracts the PyObject from the wxPyClientData for the return value.
+%typemap(out) wxClientData* {
+    if (! $1)
+        $result = Py_None;
+    else 
+        $result = ((wxPyClientData*)$1)->m_obj;
+    Py_INCREF($result);
+}
 
-
+//---------------------------------------------------------------------------
+// wxDataViewListStoreLine
+// wxDataViewListStore
+// wxDataViewListCtrl
 
 
 class wxDataViewListStore: public wxDataViewIndexListModel
@@ -2479,11 +2487,205 @@ public:
 
 
 //---------------------------------------------------------------------------
-
 // wxDataViewTreeStoreNode
 // wxDataViewTreeStoreContainerNode
 // wxDataViewTreeStore
 // wxDataViewTreeCtrl
+
+
+
+class wxDataViewTreeStoreNode
+{
+public:
+    wxDataViewTreeStoreNode( wxDataViewTreeStoreNode *parent,
+                             const wxString &text,
+                             const wxIcon &icon = wxNullIcon,
+                             wxClientData *data = NULL );
+    virtual ~wxDataViewTreeStoreNode();
+
+    void SetText( const wxString &text );
+    wxString GetText() const;
+    void SetIcon( const wxIcon &icon );
+    const wxIcon &GetIcon() const;
+    void SetData( wxClientData *data );
+    wxClientData *GetData() const;
+
+    wxDataViewItem GetItem() const;
+
+    virtual bool IsContainer();
+
+    wxDataViewTreeStoreNode *GetParent();
+};
+
+
+wxLIST_WRAPPER(wxDataViewTreeStoreNodeList,
+               wxDataViewTreeStoreNode);
+
+
+
+class wxDataViewTreeStoreContainerNode: public wxDataViewTreeStoreNode
+{
+public:
+    wxDataViewTreeStoreContainerNode( wxDataViewTreeStoreNode *parent,
+                                      const wxString &text,
+                                      const wxIcon &icon = wxNullIcon,
+                                      const wxIcon &expanded = wxNullIcon,
+                                      wxClientData *data = NULL );
+    virtual ~wxDataViewTreeStoreContainerNode();
+
+    const wxDataViewTreeStoreNodeList &GetChildren() const;
+    wxDataViewTreeStoreNodeList &GetChildren();
+
+    void SetExpandedIcon( const wxIcon &icon );
+    const wxIcon &GetExpandedIcon() const;
+
+    void SetExpanded( bool expanded = true );
+    bool IsExpanded() const;
+
+    virtual bool IsContainer();
+};
+
+
+
+class wxDataViewTreeStore: public wxDataViewModel
+{
+public:
+    wxDataViewTreeStore();
+    ~wxDataViewTreeStore();
+
+    wxDataViewItem AppendItem( const wxDataViewItem& parent,
+                               const wxString &text,
+                               const wxIcon &icon = wxNullIcon,
+                               wxClientData *data = NULL );
+    wxDataViewItem PrependItem( const wxDataViewItem& parent,
+                                const wxString &text,
+                                const wxIcon &icon = wxNullIcon,
+                                wxClientData *data = NULL );
+    wxDataViewItem InsertItem( const wxDataViewItem& parent,
+                               const wxDataViewItem& previous,
+                               const wxString &text,
+                               const wxIcon &icon = wxNullIcon,
+                               wxClientData *data = NULL );
+
+    wxDataViewItem PrependContainer( const wxDataViewItem& parent,
+                                     const wxString &text,
+                                     const wxIcon &icon = wxNullIcon,
+                                     const wxIcon &expanded = wxNullIcon,
+                                     wxClientData *data = NULL );
+    wxDataViewItem AppendContainer( const wxDataViewItem& parent,
+                                    const wxString &text,
+                                    const wxIcon &icon = wxNullIcon,
+                                    const wxIcon &expanded = wxNullIcon,
+                                    wxClientData *data = NULL );
+    wxDataViewItem InsertContainer( const wxDataViewItem& parent,
+                                    const wxDataViewItem& previous,
+                                    const wxString &text,
+                                    const wxIcon &icon = wxNullIcon,
+                                    const wxIcon &expanded = wxNullIcon,
+                                    wxClientData *data = NULL );
+
+    wxDataViewItem GetNthChild( const wxDataViewItem& parent, unsigned int pos ) const;
+    int GetChildCount( const wxDataViewItem& parent ) const;
+
+    void SetItemText( const wxDataViewItem& item, const wxString &text );
+    wxString GetItemText( const wxDataViewItem& item ) const;
+    
+    void SetItemIcon( const wxDataViewItem& item, const wxIcon &icon );
+    const wxIcon &GetItemIcon( const wxDataViewItem& item ) const;
+    
+    void SetItemExpandedIcon( const wxDataViewItem& item, const wxIcon &icon );
+    const wxIcon &GetItemExpandedIcon( const wxDataViewItem& item ) const;
+
+    void SetItemData( const wxDataViewItem& item, wxClientData *data );
+    wxClientData *GetItemData( const wxDataViewItem& item ) const;
+
+    void DeleteItem( const wxDataViewItem& item );
+    void DeleteChildren( const wxDataViewItem& item );
+    void DeleteAllItems();
+
+};
+
+
+
+
+class wxDataViewTreeCtrl: public wxDataViewCtrl
+{
+public:
+    %pythonAppend wxDataViewTreeCtrl         "self._setOORInfo(self)"
+    %pythonAppend wxDataViewTreeCtrl()       ""
+
+    wxDataViewTreeCtrl( wxWindow *parent, wxWindowID id = -1,
+                        const wxPoint& pos = wxDefaultPosition,
+                        const wxSize& size = wxDefaultSize,
+                        long style = wxDV_NO_HEADER | wxDV_ROW_LINES,
+                        const wxValidator& validator = wxDefaultValidator );
+    %RenameCtor(PreDataViewTreeCtrl, wxDataViewTreeCtrl());
+
+
+    bool Create( wxWindow *parent, wxWindowID id = -1,
+                 const wxPoint& pos = wxDefaultPosition,
+                 const wxSize& size = wxDefaultSize,
+                 long style = wxDV_NO_HEADER | wxDV_ROW_LINES,
+                 const wxValidator& validator = wxDefaultValidator );
+
+    wxDataViewTreeStore *GetStore();
+
+    void SetImageList( wxImageList *imagelist );
+    wxImageList* GetImageList();
+
+    wxDataViewItem AppendItem( const wxDataViewItem& parent,
+                               const wxString &text,
+                               int icon = -1,
+                               wxClientData *data = NULL );
+    wxDataViewItem PrependItem( const wxDataViewItem& parent,
+                                const wxString &text,
+                                int icon = -1,
+                                wxClientData *data = NULL );
+    wxDataViewItem InsertItem( const wxDataViewItem& parent,
+                               const wxDataViewItem& previous,
+                               const wxString &text,
+                               int icon = -1,
+                               wxClientData *data = NULL );
+
+    wxDataViewItem PrependContainer( const wxDataViewItem& parent,
+                                     const wxString &text,
+                                     int icon = -1,
+                                     int expanded = -1,
+                                     wxClientData *data = NULL );
+    wxDataViewItem AppendContainer( const wxDataViewItem& parent,
+                                    const wxString &text,
+                                    int icon = -1,
+                                    int expanded = -1,
+                                    wxClientData *data = NULL );
+    wxDataViewItem InsertContainer( const wxDataViewItem& parent,
+                                    const wxDataViewItem& previous,
+                                    const wxString &text,
+                                    int icon = -1,
+                                    int expanded = -1,
+                                    wxClientData *data = NULL );
+
+    wxDataViewItem GetNthChild( const wxDataViewItem& parent, unsigned int pos ) const;
+    int GetChildCount( const wxDataViewItem& parent ) const;
+
+    void SetItemText( const wxDataViewItem& item, const wxString &text );
+    wxString GetItemText( const wxDataViewItem& item ) const;
+    
+    void SetItemIcon( const wxDataViewItem& item, const wxIcon &icon );
+    const wxIcon &GetItemIcon( const wxDataViewItem& item ) const;
+    
+    void SetItemExpandedIcon( const wxDataViewItem& item, const wxIcon &icon );
+    const wxIcon &GetItemExpandedIcon( const wxDataViewItem& item ) const;
+    
+    void SetItemData( const wxDataViewItem& item, wxClientData *data );
+    wxClientData *GetItemData( const wxDataViewItem& item ) const;
+
+    void DeleteItem( const wxDataViewItem& item );
+    void DeleteChildren( const wxDataViewItem& item );
+    void DeleteAllItems();
+
+};
+
+
 
 //---------------------------------------------------------------------------
 
