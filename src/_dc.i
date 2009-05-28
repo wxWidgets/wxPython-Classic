@@ -516,7 +516,6 @@ screen is damaged.", "
     %Rename(SetClippingRegionAsRegion, void, SetClippingRegion(const wxRegion& region));
     %Rename(SetClippingRect, void, SetClippingRegion(const wxRect& rect));
 
-    void SetDeviceClippingRegion(const wxRegion& region);
     DocDeclStr(
         void , SetDeviceClippingRegion(const wxRegion& region),
         "The coordinates of the region used in this method one are in device

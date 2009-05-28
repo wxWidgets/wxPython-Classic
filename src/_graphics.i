@@ -1178,7 +1178,9 @@ public :
 
     // %newobject GetDefaultRenderer;  ???
     static wxGraphicsRenderer* GetDefaultRenderer();
-    static wxGraphicsRenderer* GetCairoRenderer();
+
+    // Not forward ported yet...
+    //static wxGraphicsRenderer* GetCairoRenderer();
 
     %nokwargs CreateContext;
     %newobject CreateContext;
