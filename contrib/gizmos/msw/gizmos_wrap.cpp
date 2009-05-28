@@ -10464,7 +10464,7 @@ SWIGINTERN PyObject *_wrap_TreeListCtrl_SelectItem(PyObject *SWIGUNUSEDPARM(self
   PyObject *resultobj = 0;
   wxPyTreeListCtrl *arg1 = (wxPyTreeListCtrl *) 0 ;
   wxTreeItemId *arg2 = 0 ;
-  wxTreeItemId const &arg3_defvalue = NULL ;
+  wxTreeItemId const &arg3_defvalue = wxTreeItemId() ;
   wxTreeItemId *arg3 = (wxTreeItemId *) &arg3_defvalue ;
   bool arg4 = (bool) true ;
   void *argp1 = 0 ;

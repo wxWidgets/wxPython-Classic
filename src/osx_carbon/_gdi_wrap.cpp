@@ -4188,6 +4188,11 @@ public :
                         "wx.GraphicsRenderer is not available on this platform.");
         return NULL;
     }
+    static wxGraphicsRenderer* GetCairoRenderer() {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.GraphicsRenderer is not available on this platform.");
+        return NULL;
+    }   
 
     virtual wxGraphicsContext * CreateContext( const wxWindowDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContext( const wxMemoryDC& ) { return NULL; }
@@ -4506,38 +4511,28 @@ fail:
 
 SWIGINTERN PyObject *_wrap_new_NamedColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxString *arg1 = 0 ;
+  wxColour *arg1 = 0 ;
   wxColour *result = 0 ;
-  bool temp1 = false ;
+  wxColour temp1 ;
   PyObject * obj0 = 0 ;
   char *  kwnames[] = {
-    (char *) "colorName", NULL 
+    (char *) "colourName", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:new_NamedColour",kwnames,&obj0)) SWIG_fail;
   {
-    arg1 = wxString_in_helper(obj0);
-    if (arg1 == NULL) SWIG_fail;
-    temp1 = true;
+    arg1 = &temp1;
+    if ( ! wxColour_helper(obj0, &arg1)) SWIG_fail;
   }
   {
-    if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxColour *)new wxColour((wxString const &)*arg1);
+    result = (wxColour *)new wxColour((wxColour const &)*arg1);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
-  {
-    if (temp1)
-    delete arg1;
-  }
   return resultobj;
 fail:
-  {
-    if (temp1)
-    delete arg1;
-  }
   return NULL;
 }
 
@@ -4873,51 +4868,6 @@ SWIGINTERN PyObject *_wrap_Colour_SetRGB(PyObject *SWIGUNUSEDPARM(self), PyObjec
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Colour_SetFromName(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxColour *arg1 = (wxColour *) 0 ;
-  wxString *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "colourName", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Colour_SetFromName",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxColour, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Colour_SetFromName" "', expected argument " "1"" of type '" "wxColour *""'"); 
-  }
-  arg1 = reinterpret_cast< wxColour * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Set((wxString const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if (temp2)
-    delete arg2;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
   return NULL;
 }
 
@@ -41235,7 +41185,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Colour_IsOk", (PyCFunction)_wrap_Colour_IsOk, METH_O, NULL},
 	 { (char *)"Colour_Set", (PyCFunction) _wrap_Colour_Set, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Colour_SetRGB", (PyCFunction) _wrap_Colour_SetRGB, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Colour_SetFromName", (PyCFunction) _wrap_Colour_SetFromName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Colour_GetAsString", (PyCFunction) _wrap_Colour_GetAsString, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Colour_GetPixel", (PyCFunction)_wrap_Colour_GetPixel, METH_O, NULL},
 	 { (char *)"Colour___eq__", (PyCFunction) _wrap_Colour___eq__, METH_VARARGS | METH_KEYWORDS, NULL},

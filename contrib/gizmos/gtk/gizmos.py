@@ -897,7 +897,7 @@ class TreeListCtrl(_core.Control):
         return _gizmos.TreeListCtrl_UnselectAll(*args, **kwargs)
 
     def SelectItem(*args, **kwargs):
-        """SelectItem(self, TreeItemId item, TreeItemId last=None, bool unselect_others=True)"""
+        """SelectItem(self, TreeItemId item, TreeItemId last=wxTreeItemId(), bool unselect_others=True)"""
         return _gizmos.TreeListCtrl_SelectItem(*args, **kwargs)
 
     def SelectAll(*args, **kwargs):

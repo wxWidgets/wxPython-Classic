@@ -84,7 +84,7 @@ class XmlResource(_core.Object):
         return _xrc.XmlResource_Load(*args, **kwargs)
 
     def LoadFromString(*args, **kwargs):
-        """LoadFromString(self, String data) -> bool"""
+        """LoadFromString(self, buffer data) -> bool"""
         return _xrc.XmlResource_LoadFromString(*args, **kwargs)
 
     def LoadFile(*args, **kwargs):
@@ -465,9 +465,16 @@ class XmlNode(object):
         """SetAttributes(self, wxXmlAttribute attr)"""
         return _xrc.XmlNode_SetAttributes(*args, **kwargs)
 
-    def AddAttribute(*args, **kwargs):
-        """AddAttribute(self, wxXmlAttribute attr)"""
-        return _xrc.XmlNode_AddAttribute(*args, **kwargs)
+    def AddAttribute(*args):
+        """
+        AddAttribute(self, wxXmlAttribute attr)
+        AddAttribute(self, String attrName, String value)
+        """
+        return _xrc.XmlNode_AddAttribute(*args)
+
+    def GetAttributes(*args, **kwargs):
+        """GetAttributes(self) -> XmlProperty"""
+        return _xrc.XmlNode_GetAttributes(*args, **kwargs)
 
     Children = property(GetChildren,SetChildren,doc="See `GetChildren` and `SetChildren`") 
     Content = property(GetContent,SetContent,doc="See `GetContent` and `SetContent`") 

@@ -2886,6 +2886,168 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
     StyleSheet = property(GetStyleSheet,SetStyleSheet) 
     TextCursor = property(GetTextCursor,SetTextCursor) 
     URLCursor = property(GetURLCursor,SetURLCursor) 
+    def SetupScrollbars(*args, **kwargs):
+        """SetupScrollbars(self, bool atTop=False)"""
+        return _richtext.RichTextCtrl_SetupScrollbars(*args, **kwargs)
+
+    def KeyboardNavigate(*args, **kwargs):
+        """KeyboardNavigate(self, int keyCode, int flags) -> bool"""
+        return _richtext.RichTextCtrl_KeyboardNavigate(*args, **kwargs)
+
+    def PositionCaret(*args, **kwargs):
+        """PositionCaret(self)"""
+        return _richtext.RichTextCtrl_PositionCaret(*args, **kwargs)
+
+    def ExtendSelection(*args, **kwargs):
+        """ExtendSelection(self, long oldPosition, long newPosition, int flags) -> bool"""
+        return _richtext.RichTextCtrl_ExtendSelection(*args, **kwargs)
+
+    def ScrollIntoView(*args, **kwargs):
+        """ScrollIntoView(self, long position, int keyCode) -> bool"""
+        return _richtext.RichTextCtrl_ScrollIntoView(*args, **kwargs)
+
+    def SetCaretPosition(*args, **kwargs):
+        """SetCaretPosition(self, long position, bool showAtLineStart=False)"""
+        return _richtext.RichTextCtrl_SetCaretPosition(*args, **kwargs)
+
+    def GetCaretPosition(*args, **kwargs):
+        """GetCaretPosition(self) -> long"""
+        return _richtext.RichTextCtrl_GetCaretPosition(*args, **kwargs)
+
+    def GetAdjustedCaretPosition(*args, **kwargs):
+        """GetAdjustedCaretPosition(self, long caretPos) -> long"""
+        return _richtext.RichTextCtrl_GetAdjustedCaretPosition(*args, **kwargs)
+
+    def MoveCaretForward(*args, **kwargs):
+        """MoveCaretForward(self, long oldPosition)"""
+        return _richtext.RichTextCtrl_MoveCaretForward(*args, **kwargs)
+
+    def MoveCaretBack(*args, **kwargs):
+        """MoveCaretBack(self, long oldPosition)"""
+        return _richtext.RichTextCtrl_MoveCaretBack(*args, **kwargs)
+
+    def GetCaretPositionForIndex(*args, **kwargs):
+        """GetCaretPositionForIndex(self, long position, Rect rect) -> bool"""
+        return _richtext.RichTextCtrl_GetCaretPositionForIndex(*args, **kwargs)
+
+    def GetVisibleLineForCaretPosition(*args, **kwargs):
+        """GetVisibleLineForCaretPosition(self, long caretPosition) -> RichTextLine"""
+        return _richtext.RichTextCtrl_GetVisibleLineForCaretPosition(*args, **kwargs)
+
+    def GetCommandProcessor(*args, **kwargs):
+        """GetCommandProcessor(self) -> wxCommandProcessor"""
+        return _richtext.RichTextCtrl_GetCommandProcessor(*args, **kwargs)
+
+    def DeleteSelectedContent(*args, **kwargs):
+        """DeleteSelectedContent(self, long OUTPUT) -> bool"""
+        return _richtext.RichTextCtrl_DeleteSelectedContent(*args, **kwargs)
+
+    def GetPhysicalPoint(*args, **kwargs):
+        """GetPhysicalPoint(self, Point ptLogical) -> Point"""
+        return _richtext.RichTextCtrl_GetPhysicalPoint(*args, **kwargs)
+
+    def GetLogicalPoint(*args, **kwargs):
+        """GetLogicalPoint(self, Point ptPhysical) -> Point"""
+        return _richtext.RichTextCtrl_GetLogicalPoint(*args, **kwargs)
+
+    def FindNextWordPosition(*args, **kwargs):
+        """FindNextWordPosition(self, int direction=1) -> long"""
+        return _richtext.RichTextCtrl_FindNextWordPosition(*args, **kwargs)
+
+    def IsPositionVisible(*args, **kwargs):
+        """IsPositionVisible(self, long pos) -> bool"""
+        return _richtext.RichTextCtrl_IsPositionVisible(*args, **kwargs)
+
+    def GetFirstVisiblePosition(*args, **kwargs):
+        """GetFirstVisiblePosition(self) -> long"""
+        return _richtext.RichTextCtrl_GetFirstVisiblePosition(*args, **kwargs)
+
+    def GetCaretPositionForDefaultStyle(*args, **kwargs):
+        """GetCaretPositionForDefaultStyle(self) -> long"""
+        return _richtext.RichTextCtrl_GetCaretPositionForDefaultStyle(*args, **kwargs)
+
+    def SetCaretPositionForDefaultStyle(*args, **kwargs):
+        """SetCaretPositionForDefaultStyle(self, long pos)"""
+        return _richtext.RichTextCtrl_SetCaretPositionForDefaultStyle(*args, **kwargs)
+
+    def IsDefaultStyleShowing(*args, **kwargs):
+        """IsDefaultStyleShowing(self) -> bool"""
+        return _richtext.RichTextCtrl_IsDefaultStyleShowing(*args, **kwargs)
+
+    def SetAndShowDefaultStyle(*args, **kwargs):
+        """SetAndShowDefaultStyle(self, wxRichTextAttr attr)"""
+        return _richtext.RichTextCtrl_SetAndShowDefaultStyle(*args, **kwargs)
+
+    def GetFirstVisiblePoint(*args, **kwargs):
+        """GetFirstVisiblePoint(self) -> Point"""
+        return _richtext.RichTextCtrl_GetFirstVisiblePoint(*args, **kwargs)
+
+    def GetScrollPageSize(*args, **kwargs):
+        """GetScrollPageSize(self, int orient) -> int"""
+        return _richtext.RichTextCtrl_GetScrollPageSize(*args, **kwargs)
+
+    def SetScrollPageSize(*args, **kwargs):
+        """SetScrollPageSize(self, int orient, int pageSize)"""
+        return _richtext.RichTextCtrl_SetScrollPageSize(*args, **kwargs)
+
+    def SetScrollRate(*args, **kwargs):
+        """SetScrollRate(self, int xstep, int ystep)"""
+        return _richtext.RichTextCtrl_SetScrollRate(*args, **kwargs)
+
+    def GetViewStart(*args, **kwargs):
+        """
+        GetViewStart() -> (x,y)
+
+        Get the view start
+        """
+        return _richtext.RichTextCtrl_GetViewStart(*args, **kwargs)
+
+    def SetScale(*args, **kwargs):
+        """SetScale(self, double xs, double ys)"""
+        return _richtext.RichTextCtrl_SetScale(*args, **kwargs)
+
+    def GetScaleX(*args, **kwargs):
+        """GetScaleX(self) -> double"""
+        return _richtext.RichTextCtrl_GetScaleX(*args, **kwargs)
+
+    def GetScaleY(*args, **kwargs):
+        """GetScaleY(self) -> double"""
+        return _richtext.RichTextCtrl_GetScaleY(*args, **kwargs)
+
+    def CalcScrolledPosition(*args):
+        """
+        CalcScrolledPosition(self, Point pt) -> Point
+        CalcScrolledPosition(int x, int y) -> (sx, sy)
+
+        Translate between scrolled and unscrolled coordinates.
+        """
+        return _richtext.RichTextCtrl_CalcScrolledPosition(*args)
+
+    def CalcUnscrolledPosition(*args):
+        """
+        CalcUnscrolledPosition(self, Point pt) -> Point
+        CalcUnscrolledPosition(int x, int y) -> (ux, uy)
+
+        Translate between scrolled and unscrolled coordinates.
+        """
+        return _richtext.RichTextCtrl_CalcUnscrolledPosition(*args)
+
+    def IsEmpty(*args, **kwargs):
+        """
+        IsEmpty(self) -> bool
+
+        Returns True if the value in the text field is empty.
+        """
+        return _richtext.RichTextCtrl_IsEmpty(*args, **kwargs)
+
+    def SetModified(*args, **kwargs):
+        """SetModified(self, bool modified)"""
+        return _richtext.RichTextCtrl_SetModified(*args, **kwargs)
+
+    def EmulateKeyPress(*args, **kwargs):
+        """EmulateKeyPress(self, KeyEvent event) -> bool"""
+        return _richtext.RichTextCtrl_EmulateKeyPress(*args, **kwargs)
+
 _richtext.RichTextCtrl_swigregister(RichTextCtrl)
 RichTextCtrlNameStr = cvar.RichTextCtrlNameStr
 

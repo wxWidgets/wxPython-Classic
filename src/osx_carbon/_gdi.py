@@ -97,9 +97,22 @@ class Colour(_core.Object):
         win.SetBackgroundColour('#0000FF')
         win.SetBackgroundColour((0,0,255))
 
+    In addition to the RGB values, the alpha transparency can optionally
+    be set.  This is supported by the typemaps as well as the wx.Colour
+    constructors and setters.  (The alpha value is ignored in many places
+    that take a wx.Colour object, but it is honored in things like wx.GCDC
+    or wx.GraphicsContext.)  Adding an alpha value of 0xC0 (192) to the
+    above samples looks like this:
+
+        win.SetBackgroundColour(wxColour(0,0,255,192))
+        win.SetBackgroundColour('BLUE:C0')
+        win.SetBackgroundColour('#0000FFC0')
+        win.SetBackgroundColour((0,0,255,192))
+
     Additional colour names and their coresponding values can be added
-    using `wx.ColourDatabase`.  Various system colours (as set in the
-    user's system preferences) can be retrieved with
+    using `wx.ColourDatabase`. Also see `wx.lib.colourdb` for a large set
+    of colour names and values.  Various system colours (as set in the
+    user's system preferences or control panel) can be retrieved with
     `wx.SystemSettings.GetColour`.
 
     """
@@ -175,14 +188,15 @@ class Colour(_core.Object):
         """
         return _gdi_.Colour_SetRGB(*args, **kwargs)
 
-    def SetFromName(*args, **kwargs):
+    def SetFromString(self, colourName):
         """
-        SetFromName(self, String colourName)
-
         Sets the RGB intensity values using a colour name listed in
-        ``wx.TheColourDatabase``.
+        ``wx.TheColourDatabase``, or any string format supported by
+        the wxColour typemaps.
         """
-        return _gdi_.Colour_SetFromName(*args, **kwargs)
+        c = wx.NamedColour(colourName)
+        self.Set(c.red, c.green, c.blue, c.alpha)
+    SetFromName = SetFromString
 
     def GetAsString(*args, **kwargs):
         """
@@ -259,14 +273,19 @@ class Colour(_core.Object):
 
     Pixel = property(GetPixel,doc="See `GetPixel`") 
     RGB = property(GetRGB,SetRGB,doc="See `GetRGB` and `SetRGB`") 
+    red = property(Red) 
+    green = property(Green) 
+    blue = property(Blue) 
+    alpha = property(Alpha) 
 _gdi_.Colour_swigregister(Colour)
 
 def NamedColour(*args, **kwargs):
     """
-    NamedColour(String colorName) -> Colour
+    NamedColour(String colourName) -> Colour
 
     Constructs a colour object using a colour name listed in
-    ``wx.TheColourDatabase``.
+    ``wx.TheColourDatabase``, or any string format supported by the
+    wxColour typemaps.
     """
     val = _gdi_.new_NamedColour(*args, **kwargs)
     return val
