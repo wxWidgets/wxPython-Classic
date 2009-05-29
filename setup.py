@@ -571,6 +571,34 @@ ext = Extension('_animate',
 wxpExtensions.append(ext)
 
 
+swig_sources = run_swig(['propgrid.i'], 'src', GENDIR, PKGDIR,
+                        USE_SWIG, swig_force,
+                        swig_args + ['-I'+opj(WXDIR, 'include/wx/propgrid')],
+                        swig_deps + [#'src/_propgrid_docstrings.i',
+                                     opj(WXDIR, 'include/wx/propgrid/advprops.h'),
+                                     opj(WXDIR, 'include/wx/propgrid/editors.h'),
+                                     opj(WXDIR, 'include/wx/propgrid/manager.h'),
+                                     opj(WXDIR, 'include/wx/propgrid/property.h'),
+                                     opj(WXDIR, 'include/wx/propgrid/propgrid.h'),
+                                     opj(WXDIR, 'include/wx/propgrid/propgriddefs.h'),
+                                     opj(WXDIR, 'include/wx/propgrid/propgridiface.h'),
+                                     opj(WXDIR, 'include/wx/propgrid/propgridpagestate.h'),
+                                     opj(WXDIR, 'include/wx/propgrid/props.h'),
+                                     ])
+if not MONOLITHIC and findLib('propgrid', libdirs):
+    propgridLib = makeLibName('propgrid')
+else:
+    propgridLib = []
+ext = Extension('_propgrid', swig_sources,
+                include_dirs =  includes,
+                define_macros = defines,
+                library_dirs = libdirs,
+                libraries = libs + propgridLib,
+                extra_compile_args = cflags,
+                extra_link_args = lflags,
+                **depends
+                )
+wxpExtensions.append(ext)
 
 
 if BUILD_STC:
