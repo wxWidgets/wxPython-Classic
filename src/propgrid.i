@@ -1442,6 +1442,7 @@ PG_DATE_PICKER_STYLE = "PickerStyle"
 //---------------------------------------------------------------------------
 
 %init %{
+    wxPGInitResourceModule();
 %}
 
 
