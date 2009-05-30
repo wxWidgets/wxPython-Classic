@@ -47,8 +47,10 @@ from config import *
 #----------------------------------------------------------------------
 
 copy_file('config.py', 'wx/build', update=1, verbose=1)
+copy_file('cfg_version.py', 'wx/build', update=1, verbose=1)
 copy_file('build_options.py', 'wx/build', update=1, verbose=1)
 CLEANUP.append('wx/build/config.py')
+CLEANUP.append('wx/build/cfg_version.py')
 CLEANUP.append('wx/build/build_options.py')
 
 #----------------------------------------------------------------------
