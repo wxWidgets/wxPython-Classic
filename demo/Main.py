@@ -90,6 +90,7 @@ _treeList = [
         'DVC_DataViewModel',
         'DVC_IndexListModel',
         'DVC_ListCtrl',
+        'DVC_TreeCtrl',
         'Cairo',
         'Cairo_Snippets',
         'PropertyGrid',
@@ -143,6 +144,7 @@ _treeList = [
         'DVC_DataViewModel.py',
         'DVC_IndexListModel',
         'DVC_ListCtrl',
+        'DVC_TreeCtrl',
         'Gauge',
         'Grid',
         'Grid_MegaExample',
@@ -2297,6 +2299,9 @@ class wxPythonDemoTree(ExpansionState, TreeBaseClass):
             self.SetSpacing(10)
             self.SetWindowStyle(self.GetWindowStyle() & ~wx.TR_LINES_AT_ROOT)
 
+        self.SetInitialSize((100,80))
+        
+            
     def AppendItem(self, parent, text, image=-1, wnd=None):
         if USE_CUSTOMTREECTRL:
             item = TreeBaseClass.AppendItem(self, parent, text, image=image, wnd=wnd)
