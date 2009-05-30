@@ -509,14 +509,14 @@ class TestPanel( wx.Panel ):
     def OnPropGridSelect(self, event):
         p = event.GetProperty()
         if p:
-            print('%s selected'%(event.GetPropertyName()))
+            print('%s selected'%(event.GetProperty().GetName()))
         else:
             print('Nothing selected')
 
     def OnDeleteProperty(self, event):
         p = self.pg.GetSelectedProperty()
         if p:
-            self.pg.Delete(p)
+            self.pg.DeleteProperty(p)
         else:
             wx.MessageBox("First select a property to delete")
 
@@ -532,19 +532,23 @@ class TestPanel( wx.Panel ):
                 v = repr(v)
                 if not v or v[0] != '<':
                     if k.startswith('@'):
-                        ss.append('setattr(object, "%s", %s)'%(k,v))
+                        ss.append('setattr(obj, "%s", %s)'%(k,v))
                     else:
-                        ss.append('object.%s = %s'%(k,v))
+                        ss.append('obj.%s = %s'%(k,v))
 
-            dlg = MemoDialog(self,"Enter Content for Object Used in SetPropertyValues",
-                '\n'.join(ss))  # default_object_content1
+            dlg = MemoDialog(self,
+                    "Enter Content for Object Used in SetPropertyValues",
+                    '\n'.join(ss))  # default_object_content1
 
             if dlg.ShowModal() == wx.ID_OK:
-                sandbox = {'object':ValueObject(),'wx':wx}
+                import datetime
+                sandbox = {'obj':ValueObject(),
+                           'wx':wx,
+                           'datetime':datetime}
                 exec dlg.tc.GetValue() in sandbox
                 t_start = time.time()
-                #print(sandbox['object'].__dict__)
-                self.pg.SetPropertyValues(sandbox['object'])
+                #print(sandbox['obj'].__dict__)
+                self.pg.SetPropertyValues(sandbox['obj'])
                 t_end = time.time()
                 print('SetPropertyValues finished in %.0fms' % \
                       ((t_end-t_start)*1000.0))
@@ -600,7 +604,7 @@ class TestPanel( wx.Panel ):
     def OnPropGridRightClick(self, event):
         p = event.GetProperty()
         if p:
-            print('%s right clicked'%(event.GetPropertyName()))
+            print('%s right clicked'%(event.GetProperty().GetName()))
         else:
             print('Nothing right clicked')
 
