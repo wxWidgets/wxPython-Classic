@@ -17276,7 +17276,6 @@ SWIGINTERN PyObject *_wrap_DataViewTreeCtrl_SetImageList(PyObject *SWIGUNUSEDPAR
   wxImageList *arg2 = (wxImageList *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -17290,11 +17289,10 @@ SWIGINTERN PyObject *_wrap_DataViewTreeCtrl_SetImageList(PyObject *SWIGUNUSEDPAR
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewTreeCtrl_SetImageList" "', expected argument " "1"" of type '" "wxDataViewTreeCtrl *""'"); 
   }
   arg1 = reinterpret_cast< wxDataViewTreeCtrl * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxImageList, 0 |  0 );
+  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxImageList, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewTreeCtrl_SetImageList" "', expected argument " "2"" of type '" "wxImageList *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewTreeCtrl_SetImageList" "', expected argument " "2"" of type '" "wxImageList *""'");
   }
-  arg2 = reinterpret_cast< wxImageList * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetImageList(arg2);

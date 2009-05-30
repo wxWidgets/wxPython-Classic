@@ -2984,7 +2984,7 @@ SWIGINTERN bool wxPen___ne__(wxPen *self,wxPen const *other){ return other ? (*s
 // See http://tinyurl.com/e5adr for what premultiplying alpha means. wxMSW and
 // wxMac want to have the values premultiplied by the alpha value, but the
 // other platforms don't.  These macros help keep the code clean.
-#if defined(__WXMSW__) || (defined(__WXMAC__) && wxMAC_USE_CORE_GRAPHICS)
+#if defined(__WXMSW__) || defined(__WXMAC__)
 #define wxPy_premultiply(p, a)   ((p) * (a) / 0xff)
 #define wxPy_unpremultiply(p, a) ((a) ? ((p) * 0xff / (a)) : (p))    
 #else
