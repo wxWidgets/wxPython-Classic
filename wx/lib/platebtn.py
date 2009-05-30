@@ -563,7 +563,7 @@ class PlateButton(wx.PyControl):
         wx.PyControl.SetLabel(self, label)
         self.InvalidateBestSize()
 
-    def SetLabelColor(self, normal, hlight=wx.NullColor):
+    def SetLabelColor(self, normal, hlight=wx.NullColour):
         """Set the color of the label. The optimal label color is usually
         automatically selected depending on the button color. In some
         cases the colors that are choosen may not be optimal.
