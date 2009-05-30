@@ -2630,7 +2630,10 @@ public:
 
     wxDataViewTreeStore *GetStore();
 
+    %disownarg( wxImageList *imagelist );
     void SetImageList( wxImageList *imagelist );
+    %cleardisown( wxImageList *imageList );
+
     wxImageList* GetImageList();
 
     wxDataViewItem AppendItem( const wxDataViewItem& parent,
