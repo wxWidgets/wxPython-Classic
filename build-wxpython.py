@@ -9,13 +9,13 @@ import shutil
 import string
 import sys
 import types
-import config
+import cfg_version as cfg
 
 from distutils.dep_util  import newer
 
 
-version2 = "%d.%d" % (config.VER_MAJOR, config.VER_MINOR) 
-version3 = "%d.%d.%d" % (config.VER_MAJOR, config.VER_MINOR, config.VER_RELEASE)
+version2 = "%d.%d" % (cfg.VER_MAJOR, cfg.VER_MINOR) 
+version3 = "%d.%d.%d" % (cfg.VER_MAJOR, cfg.VER_MINOR, cfg.VER_RELEASE)
 version2_nodot = version2.replace(".", "")
 version3_nodot = version3.replace(".", "")
 
