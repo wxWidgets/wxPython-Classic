@@ -546,8 +546,10 @@ class InspectionTree(TreeBaseClass):
 
 
     def OnSelectionChanged(self, evt):
-        obj = self.GetItemPyData(evt.GetItem())
-        self.toolFrame.SetObj(obj)
+        item = evt.GetItem()
+        if item:
+            obj = self.GetItemPyData(item)
+            self.toolFrame.SetObj(obj)
 
 
 #---------------------------------------------------------------------------
