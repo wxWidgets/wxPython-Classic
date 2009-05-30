@@ -3253,7 +3253,7 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
         }
 
         // Then wxColourPropertyValue
-        wxColour* cpv_ptr;
+        wxColourPropertyValue* cpv_ptr;
         if ( wxPyConvertSwigPtr(input, (void **)&cpv_ptr,
                                 wxT("wxColourPropertyValue")))
         {
