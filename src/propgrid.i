@@ -844,6 +844,19 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 #define DECLARE_DYNAMIC_CLASS_NO_COPY(foo)
 #define DECLARE_ABSTRACT_CLASS(foo)
 
+// Some functions that we do not want SWIG to know about
+// TODO: Add more here and remove respective #ifndef SWIG from .h files
+%ignore wxPropertyGridIterator::operator++;
+%ignore wxPropertyGridIterator::operator--;
+%ignore wxPropertyGridIterator::operator=;
+%ignore wxPropertyGridIterator::operator *();
+%ignore wxPropertyGridConstIterator::operator++;
+%ignore wxPropertyGridConstIterator::operator--;
+%ignore wxPropertyGridConstIterator::operator=;
+%ignore wxPropertyGridConstIterator::operator *();
+%ignore wxPGVIterator::operator=;
+
+
 // Suppress warning 511 (kwargs not supported for overloaded functions)
 #pragma SWIG nowarn=511
 
