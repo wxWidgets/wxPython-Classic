@@ -1322,6 +1322,7 @@ static wxString& wxString_wxPG_LABEL = *((wxString*)NULL);
 %include propgrid.h
 %include editors.h
 %include props.h
+%include advprops.h
 %include manager.h
 
 // Property constructor functions
