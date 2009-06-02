@@ -72,8 +72,8 @@ class IntProperty2(wxpg.PyProperty):
     def GetEditor(self):
         return "TextCtrl"
 
-    def GetValueAsString(self, flags):
-        return str(self.GetValue())
+    def ValueToString(self, value, flags):
+        return str(value)    
 
     def PyStringToValue(self, s, flags):
         try:
@@ -99,8 +99,8 @@ class PyFilesProperty(wxpg.PyArrayStringProperty):
         self.value = v
         self.display = ', '.join(self.value)
 
-    def GetValueAsString(self, argFlags):
-        return self.display
+    def ValueToString(self, value, flags):
+        return value
 
     def PyStringToValue(self, s, flags):
         return [a.strip() for a in text.split(',')]
@@ -147,8 +147,8 @@ class PyObjectProperty(wxpg.PyProperty):
     def GetEditor(self):
         return "TextCtrl"
 
-    def GetValueAsString(self, flags):
-        return repr(self.GetValue())
+    def ValueToString(self, value, flags):
+        return repr(value)
 
     def PyStringToValue(self, s, flags):
         return PyObjectPropertyValue(s)
@@ -504,14 +504,14 @@ class TestPanel( wx.Panel ):
     def OnPropGridChange(self, event):
         p = event.GetProperty()
         if p:
-            print('%s changed to "%s"'%(p.GetName(),p.GetValueAsString()))
+            self.log.write('%s changed to "%s"\n' % (p.GetName(),p.GetValueAsString()))
 
     def OnPropGridSelect(self, event):
         p = event.GetProperty()
         if p:
-            print('%s selected'%(event.GetProperty().GetName()))
+            self.log.write('%s selected\n' % (event.GetProperty().GetName()))
         else:
-            print('Nothing selected')
+            self.log.write('Nothing selected\n')
 
     def OnDeleteProperty(self, event):
         p = self.pg.GetSelectedProperty()
@@ -550,8 +550,8 @@ class TestPanel( wx.Panel ):
                 #print(sandbox['obj'].__dict__)
                 self.pg.SetPropertyValues(sandbox['obj'])
                 t_end = time.time()
-                print('SetPropertyValues finished in %.0fms' % \
-                      ((t_end-t_start)*1000.0))
+                self.log.write('SetPropertyValues finished in %.0fms\n' % 
+                               ((t_end-t_start)*1000.0))
         except:
             import traceback
             traceback.print_exc()
@@ -561,8 +561,8 @@ class TestPanel( wx.Panel ):
             t_start = time.time()
             d = self.pg.GetPropertyValues(inc_attributes=True)
             t_end = time.time()
-            print('GetPropertyValues finished in %.0fms' % \
-                  ((t_end-t_start)*1000.0))
+            self.log.write('GetPropertyValues finished in %.0fms\n' % 
+                           ((t_end-t_start)*1000.0))
             ss = ['%s: %s'%(k,repr(v)) for k,v in d.iteritems()]
             dlg = MemoDialog(self,"GetPropertyValues Result",
                              'Contents of resulting dictionary:\n\n'+'\n'.join(ss))
@@ -576,8 +576,8 @@ class TestPanel( wx.Panel ):
             t_start = time.time()
             d = self.pg.GetPropertyValues(as_strings=True)
             t_end = time.time()
-            print('GetPropertyValues(as_strings=True) finished in %.0fms' % \
-                  ((t_end-t_start)*1000.0))
+            self.log.write('GetPropertyValues(as_strings=True) finished in %.0fms\n' % 
+                           ((t_end-t_start)*1000.0))
             ss = ['%s: %s'%(k,repr(v)) for k,v in d.iteritems()]
             dlg = MemoDialog(self,"GetPropertyValues Result",
                              'Contents of resulting dictionary:\n\n'+'\n'.join(ss))
@@ -595,8 +595,8 @@ class TestPanel( wx.Panel ):
                 t_start = time.time()
                 self.pg.AutoFill(sandbox['object'])
                 t_end = time.time()
-                print('AutoFill finished in %.0fms' % \
-                      ((t_end-t_start)*1000.0))
+                self.log.write('AutoFill finished in %.0fms\n' % 
+                               ((t_end-t_start)*1000.0))
         except:
             import traceback
             traceback.print_exc()
@@ -604,13 +604,13 @@ class TestPanel( wx.Panel ):
     def OnPropGridRightClick(self, event):
         p = event.GetProperty()
         if p:
-            print('%s right clicked'%(event.GetProperty().GetName()))
+            self.log.write('%s right clicked\n' % (event.GetProperty().GetName()))
         else:
-            print('Nothing right clicked')
+            self.log.write('Nothing right clicked\n')
 
     def OnPropGridPageChange(self, event):
         index = self.pg.GetSelectedPage()
-        print('Page Changed to \'%s\''%(self.pg.GetPageName(index)))
+        self.log.write('Page Changed to \'%s\'\n' % (self.pg.GetPageName(index)))
 
     def RunTests(self, event):
         pg = self.pg
@@ -619,14 +619,14 @@ class TestPanel( wx.Panel ):
 
         it = pg.GetPage(0).GetIterator(wxpg.PG_ITERATE_ALL)
         while not it.AtEnd():
-            print('Iterating \'%s\''%(it.GetProperty().GetName()))
+            self.log.write('Iterating \'%s\'\n' % (it.GetProperty().GetName()))
             it.Next()
 
         # VIterator
 
         it = pg.GetVIterator(wxpg.PG_ITERATE_ALL)
         while not it.AtEnd():
-            print('Iterating \'%s\''%(it.GetProperty().GetName()))
+            self.log.write('Iterating \'%s\'\n' % (it.GetProperty().GetName()))
             it.Next()
 
 
