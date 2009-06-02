@@ -2819,6 +2819,83 @@ class PGArrayStringEditorDialog(ArrayEditorDialog):
 
 _propgrid.PGArrayStringEditorDialog_swigregister(PGArrayStringEditorDialog)
 
+PG_COLOUR_WEB_BASE = _propgrid.PG_COLOUR_WEB_BASE
+PG_COLOUR_CUSTOM = _propgrid.PG_COLOUR_CUSTOM
+PG_COLOUR_UNSPECIFIED = _propgrid.PG_COLOUR_UNSPECIFIED
+class ColourPropertyValue(_core.Object):
+    """Proxy of C++ ColourPropertyValue class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    m_type = property(_propgrid.ColourPropertyValue_m_type_get, _propgrid.ColourPropertyValue_m_type_set)
+    m_colour = property(_propgrid.ColourPropertyValue_m_colour_get, _propgrid.ColourPropertyValue_m_colour_set)
+    __swig_destroy__ = _propgrid.delete_ColourPropertyValue
+    __del__ = lambda self : None;
+    def Init(*args, **kwargs):
+        """Init(self, int type, Colour colour)"""
+        return _propgrid.ColourPropertyValue_Init(*args, **kwargs)
+
+    def __init__(self, *args): 
+        """
+        __init__(self) -> ColourPropertyValue
+        __init__(self, ColourPropertyValue v) -> ColourPropertyValue
+        __init__(self, Colour colour) -> ColourPropertyValue
+        __init__(self, int type) -> ColourPropertyValue
+        __init__(self, int type, Colour colour) -> ColourPropertyValue
+        """
+        _propgrid.ColourPropertyValue_swiginit(self,_propgrid.new_ColourPropertyValue(*args))
+_propgrid.ColourPropertyValue_swigregister(ColourPropertyValue)
+
+class SystemColourProperty(EnumProperty):
+    """Proxy of C++ SystemColourProperty class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, ColourPropertyValue value=wxColourPropertyValue()) -> SystemColourProperty"""
+        _propgrid.SystemColourProperty_swiginit(self,_propgrid.new_SystemColourProperty(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_SystemColourProperty
+    __del__ = lambda self : None;
+    def ColourToString(*args, **kwargs):
+        """ColourToString(self, Colour col, int index) -> String"""
+        return _propgrid.SystemColourProperty_ColourToString(*args, **kwargs)
+
+    def GetCustomColourIndex(*args, **kwargs):
+        """GetCustomColourIndex(self) -> int"""
+        return _propgrid.SystemColourProperty_GetCustomColourIndex(*args, **kwargs)
+
+    def QueryColourFromUser(*args, **kwargs):
+        """QueryColourFromUser(self, wxVariant variant) -> bool"""
+        return _propgrid.SystemColourProperty_QueryColourFromUser(*args, **kwargs)
+
+    def GetColour(*args, **kwargs):
+        """GetColour(self, int index) -> Colour"""
+        return _propgrid.SystemColourProperty_GetColour(*args, **kwargs)
+
+    def GetVal(*args, **kwargs):
+        """GetVal(self, wxVariant pVariant=None) -> ColourPropertyValue"""
+        return _propgrid.SystemColourProperty_GetVal(*args, **kwargs)
+
+_propgrid.SystemColourProperty_swigregister(SystemColourProperty)
+
+class ColourProperty(SystemColourProperty):
+    """Proxy of C++ ColourProperty class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, Colour value=*wxWHITE) -> ColourProperty"""
+        _propgrid.ColourProperty_swiginit(self,_propgrid.new_ColourProperty(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_ColourProperty
+    __del__ = lambda self : None;
+_propgrid.ColourProperty_swigregister(ColourProperty)
+
+class PGSpinCtrlEditor(PGTextCtrlEditor):
+    """Proxy of C++ PGSpinCtrlEditor class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _propgrid.delete_PGSpinCtrlEditor
+    __del__ = lambda self : None;
+_propgrid.PGSpinCtrlEditor_swigregister(PGSpinCtrlEditor)
+
 class PropertyGridPage(_core.EvtHandler,PropertyGridInterface):
     """Proxy of C++ PropertyGridPage class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -3179,7 +3256,7 @@ def NewFontProperty(*args, **kwargs):
   return _propgrid.NewFontProperty(*args, **kwargs)
 
 def NewSystemColourProperty(*args, **kwargs):
-  """NewSystemColourProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, wxColourPropertyValue value=wxColourPropertyValue()) -> PGProperty"""
+  """NewSystemColourProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, ColourPropertyValue value=wxColourPropertyValue()) -> PGProperty"""
   return _propgrid.NewSystemColourProperty(*args, **kwargs)
 
 def NewColourProperty(*args, **kwargs):
@@ -3547,15 +3624,15 @@ class PyTextCtrlEditor(PGTextCtrlEditor):
 
 _propgrid.PyTextCtrlEditor_swigregister(PyTextCtrlEditor)
 
-class PySystemColourProperty(object):
+class PySystemColourProperty(SystemColourProperty):
     """Proxy of C++ PySystemColourProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args): 
         """
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, wxColourPropertyValue value=wxColourPropertyValue()) -> PySystemColourProperty
+        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, ColourPropertyValue value=wxColourPropertyValue()) -> PySystemColourProperty
         __init__(self, String label, String name, wxChar labels, long values, 
-            PGChoices choicesCache, wxColourPropertyValue value) -> PySystemColourProperty
+            PGChoices choicesCache, ColourPropertyValue value) -> PySystemColourProperty
         __init__(self, String label, String name, wxChar labels, long values, 
             PGChoices choicesCache, Colour value) -> PySystemColourProperty
         """
@@ -3827,7 +3904,7 @@ class PyLongStringDialogAdapter(PGLongStringDialogAdapter):
 
 _propgrid.PyLongStringDialogAdapter_swigregister(PyLongStringDialogAdapter)
 
-class PyColourProperty(object):
+class PyColourProperty(ColourProperty):
     """Proxy of C++ PyColourProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
