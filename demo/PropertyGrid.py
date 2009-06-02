@@ -460,9 +460,10 @@ class TestPanel( wx.Panel ):
         #
         # Test some code that *should* fail (but not crash)
         try:
-            a_ = pg.GetPropertyValue( "NotARealProperty" )
-            pg.EnableProperty( "NotAtAllRealProperty", False )
-            pg.SetPropertyHelpString( "AgaintNotARealProperty", "Dummy Help String" )
+            if wx.GetApp().GetAssertionMode() == wx.PYAPP_ASSERT_EXCEPTION:
+                a_ = pg.GetPropertyValue( "NotARealProperty" )
+                pg.EnableProperty( "NotAtAllRealProperty", False )
+                pg.SetPropertyHelpString( "AgaintNotARealProperty", "Dummy Help String" )
         except:
             pass
             #raise
