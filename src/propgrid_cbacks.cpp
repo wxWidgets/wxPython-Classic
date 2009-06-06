@@ -250,7 +250,8 @@ void _CommonCallback11(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, w
     PyObject* py_thisValue;
     py_thisValue = wxVariant_to_PyObject((&thisValue));
         if ( !py_thisValue ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -260,7 +261,8 @@ void _CommonCallback11(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, w
     PyObject* py_childValue;
     py_childValue = wxVariant_to_PyObject((&childValue));
         if ( !py_childValue ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -317,7 +319,8 @@ wxPGVariantAndBool _CommonCallback25(wxPyBlock_t blocked, PyObject* self, PyObje
     {
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
-            PyErr_SetString(PyExc_TypeError, "this Python type cannot be converted to wxVariant");
+            PyErr_SetString(PyExc_TypeError,
+                "this Python type cannot be converted to wxVariant");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -362,8 +365,11 @@ wxVariant _CommonCallback14(wxPyBlock_t blocked, PyObject* self, PyObject* funco
     if (PyErr_Occurred()) SWIG_fail;
     {
     wxVariant retval;
-    wxVariant temp;    temp = wxVariant_in_helper(res);
-        wxVariant* _tptr_0 = &retval;
+    if ( !PyObject_to_wxVariant(res, &retval) ) {
+            PyErr_SetString(PyExc_TypeError,
+                            "this Python type cannot be converted to wxVariant");
+            SWIG_fail;
+        }
     Py_DECREF(res);
     wxPyEndBlockThreads(blocked);
     return retval;
@@ -397,7 +403,8 @@ wxPGWindowList _CommonCallback1(wxPyBlock_t blocked, PyObject* self, PyObject* f
     {
     wxPGWindowList retval;
     if ( !PyObject_to_wxPGWindowList(res, &retval) ) {
-            PyErr_SetString(PyExc_TypeError, "expected wxWindow or tuple of two wxWindows");
+            PyErr_SetString(PyExc_TypeError,
+                "expected wxWindow or tuple of two wxWindows");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -416,7 +423,8 @@ wxString _CommonCallback28(wxPyBlock_t blocked, PyObject* self, PyObject* funcob
     PyObject* py_value;
     py_value = wxVariant_to_PyObject((&value));
         if ( !py_value ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -527,7 +535,8 @@ wxPGVariantAndBool _CommonCallback8(wxPyBlock_t blocked, PyObject* self, PyObjec
     {
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
-            PyErr_SetString(PyExc_TypeError, "this Python type cannot be converted to wxVariant");
+            PyErr_SetString(PyExc_TypeError,
+                "this Python type cannot be converted to wxVariant");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -561,7 +570,8 @@ wxPGVariantAndBool _CommonCallback26(wxPyBlock_t blocked, PyObject* self, PyObje
     {
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
-            PyErr_SetString(PyExc_TypeError, "this Python type cannot be converted to wxVariant");
+            PyErr_SetString(PyExc_TypeError,
+                "this Python type cannot be converted to wxVariant");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -637,7 +647,8 @@ bool _CommonCallback15(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, c
     PyObject* py_value;
     py_value = wxVariant_to_PyObject((&value));
         if ( !py_value ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -733,8 +744,11 @@ wxVariant _CommonCallback12(wxPyBlock_t blocked, PyObject* self, PyObject* funco
     if (PyErr_Occurred()) SWIG_fail;
     {
     wxVariant retval;
-    wxVariant temp;    temp = wxVariant_in_helper(res);
-        wxVariant* _tptr_0 = &retval;
+    if ( !PyObject_to_wxVariant(res, &retval) ) {
+            PyErr_SetString(PyExc_TypeError,
+                            "this Python type cannot be converted to wxVariant");
+            SWIG_fail;
+        }
     Py_DECREF(res);
     wxPyEndBlockThreads(blocked);
     return retval;
@@ -834,8 +848,11 @@ wxVariant _CommonCallback34(wxPyBlock_t blocked, PyObject* self, PyObject* funco
     if (PyErr_Occurred()) SWIG_fail;
     {
     wxVariant retval;
-    wxVariant temp;    temp = wxVariant_in_helper(res);
-        wxVariant* _tptr_0 = &retval;
+    if ( !PyObject_to_wxVariant(res, &retval) ) {
+            PyErr_SetString(PyExc_TypeError,
+                            "this Python type cannot be converted to wxVariant");
+            SWIG_fail;
+        }
     Py_DECREF(res);
     wxPyEndBlockThreads(blocked);
     return retval;
@@ -901,7 +918,8 @@ void _CommonCallback24(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, w
     PyObject* py_pendingValue;
     py_pendingValue = wxVariant_to_PyObject((&pendingValue));
         if ( !py_pendingValue ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -965,7 +983,8 @@ wxPGVariantAndBool _CommonCallback27(wxPyBlock_t blocked, PyObject* self, PyObje
     PyObject* py_value;
     py_value = wxVariant_to_PyObject((&value));
         if ( !py_value ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -979,7 +998,8 @@ wxPGVariantAndBool _CommonCallback27(wxPyBlock_t blocked, PyObject* self, PyObje
     {
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
-            PyErr_SetString(PyExc_TypeError, "this Python type cannot be converted to wxVariant");
+            PyErr_SetString(PyExc_TypeError,
+                "this Python type cannot be converted to wxVariant");
             SWIG_fail;
         }
     Py_DECREF(res);

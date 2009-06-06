@@ -2937,7 +2937,7 @@ public:
     }
     // TODO
     virtual bool Eq(wxVariantData&) const { return false; }
-    virtual wxString GetType() const { return wxT("PyObject*"); }
+    virtual wxString GetType() const { return wxS("PyObject*"); }
     virtual wxVariantData* Clone() { return new wxPGVariantDataPyObject(); }
     virtual bool Read(wxString &) { return false; }
     virtual bool Write(wxString &) const { return true; }
@@ -3163,14 +3163,17 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
     if ( input == Py_None )
     {
         v->MakeNull();
+        return true;
     }
     else if ( PyBool_Check(input) )
     {
         *v = (bool) PyInt_AsLong(input);
+        return true;
     }
     else if ( PyInt_Check(input) )
     {
         *v = (long) PyInt_AsLong(input);
+        return true;
     }
     else if ( PyString_Check(input) || PyUnicode_Check(input) )
     {
@@ -3178,14 +3181,99 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
         if (sptr == NULL) return false;
         *v = *sptr;
         delete sptr;
+        return true;
     }
     else if ( PyFloat_Check(input) )
     {
         *v = PyFloat_AsDouble(input);
+        return true;
     }
-    else if ( PySequence_Check(input) )
+    else if ( PyDateTime_Check(input) )
     {
-        int len=PySequence_Length(input);
+        int year = PyDateTime_GET_YEAR(input);
+        int month = PyDateTime_GET_MONTH(input);
+        int day = PyDateTime_GET_DAY(input);
+        int hour = PyDateTime_DATE_GET_HOUR(input);
+        int minute = PyDateTime_DATE_GET_MINUTE(input);
+        int second = PyDateTime_DATE_GET_SECOND(input);
+        int microsecond = PyDateTime_DATE_GET_MICROSECOND(input);
+        wxDateTime wx_dateTime(day, (wxDateTime::Month)month, year,
+                               hour, minute, second,
+                               microsecond/1000);  // wx uses milliseconds
+        *v = wx_dateTime;
+        return true;
+    }
+    else if ( wxPySwigInstance_Check(input) )
+    {
+        // First try if it is a wxColour
+        wxColour* col_ptr;
+        if ( wxPyConvertSwigPtr(input, (void **)&col_ptr, wxS("wxColour")))
+        {
+            *v << *col_ptr;
+            return true;
+        }
+
+        // Then wxPoint
+        wxPoint* pt_ptr;
+        if ( wxPyConvertSwigPtr(input, (void **)&pt_ptr, wxS("wxPoint")))
+        {
+            *v << *pt_ptr;
+            return true;
+        }
+
+        // Then wxSize
+        wxSize* sz_ptr;
+        if ( wxPyConvertSwigPtr(input, (void **)&sz_ptr, wxS("wxSize")))
+        {
+            *v << *sz_ptr;
+            return true;
+        }
+
+        // Then wxFont
+        wxFont* font_ptr;
+        if ( wxPyConvertSwigPtr(input, (void **)&font_ptr, wxS("wxFont")))
+        {
+            *v << *font_ptr;
+            return true;
+        }
+
+        // Then wxColourPropertyValue
+        wxColourPropertyValue* cpv_ptr;
+        if ( wxPyConvertSwigPtr(input, (void **)&cpv_ptr,
+                                wxS("wxColourPropertyValue")))
+        {
+            *v << *cpv_ptr;
+            return true;
+        }
+    }
+
+    //
+    // Because some of the above types may implement sequence interface
+    // as well, we must check sequences here at the bottom.
+    if ( PySequence_Check(input) )
+    {
+        int len = PySequence_Length(input);
+
+        /*
+        //
+        // Tuples of two ints are returned as wxPoints
+        if ( PyTuple_Check(input) && len == 2 )
+        {
+            PyObject* item0 = PySequence_GetItem(input, 0);
+            PyObject* item1 = PySequence_GetItem(input, 1);
+            if ( PyInt_Check(item0) && PyInt_Check(item1) )
+            {
+                int x = PyInt_AS_LONG(item0);
+                int y = PyInt_AS_LONG(item1);
+                wxPoint pt(x, y);
+                *v << pt;
+                return true;
+            }
+            Py_DECREF(item1);
+            Py_DECREF(item0);
+        }
+        */
+
         if ( len )
         {
             int i;
@@ -3222,57 +3310,16 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
         {
             *v = wxArrayString();
         }
+        return true;
     }
-    else if ( PyDateTime_Check(input) )
-    {
-        int year = PyDateTime_GET_YEAR(input);
-        int month = PyDateTime_GET_MONTH(input);
-        int day = PyDateTime_GET_DAY(input);
-        int hour = PyDateTime_DATE_GET_HOUR(input);
-        int minute = PyDateTime_DATE_GET_MINUTE(input);
-        int second = PyDateTime_DATE_GET_SECOND(input);
-        int microsecond = PyDateTime_DATE_GET_MICROSECOND(input);
-        wxDateTime wx_dateTime(day, (wxDateTime::Month)month, year,
-                               hour, minute, second,
-                               microsecond/1000);  // wx uses milliseconds
-        *v = wx_dateTime;
-    }
-    else if ( wxPySwigInstance_Check(input) )
-    {
-        // First try if it is a wxColour
-        wxColour* col_ptr;
-        if ( wxPyConvertSwigPtr(input, (void **)&col_ptr, wxT("wxColour")))
-        {
-            *v << *col_ptr;
-            return true;
-        }
 
-        // Then wxFont
-        wxFont* font_ptr;
-        if ( wxPyConvertSwigPtr(input, (void **)&font_ptr, wxT("wxFont")))
-        {
-            *v << *font_ptr;
-            return true;
-        }
-
-        // Then wxColourPropertyValue
-        wxColourPropertyValue* cpv_ptr;
-        if ( wxPyConvertSwigPtr(input, (void **)&cpv_ptr,
-                                wxT("wxColourPropertyValue")))
-        {
-            *v << *cpv_ptr;
-            return true;
-        }
-    }
-    else
-    {
-        //Py_TrackObject(input);
-        // Let's convert it to a wxVariant containing an arbitrary PyObject
-        wxVariant tempVariant = PyObjectToVariant(input);
-        wxVariantData* vd = tempVariant.GetData();
-        vd->IncRef();
-        v->SetData(vd);
-    }
+    //Py_TrackObject(input);
+    // Last ditch - let's convert it to a wxVariant containing an arbitrary
+    // PyObject
+    wxVariant tempVariant = PyObjectToVariant(input);
+    wxVariantData* vd = tempVariant.GetData();
+    vd->IncRef();
+    v->SetData(vd);
 
     return true;
 }
@@ -3377,13 +3424,14 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
     if ( !v || v->IsNull() )
         Py_RETURN_NONE;
 
-    wxString _wxvar_type = v->GetType();
-    //OutputDebugString(_wxvar_type.c_str());
-    if ( _wxvar_type == wxT("long") )
+    wxString variantType = v->GetType();
+    //printf("%s\n", variantType.c_str());
+    //OutputDebugString(variantType.c_str());
+    if ( variantType == wxS("long") )
     {
         return PyInt_FromLong(v->GetLong());
     }
-    else if ( _wxvar_type == wxT("string") )
+    else if ( variantType == wxS("string") )
     {
         wxString _wxvar_str = v->GetString();
 #if wxUSE_UNICODE
@@ -3392,15 +3440,15 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
         return PyString_FromStringAndSize(_wxvar_str.c_str(), _wxvar_str.Len());
 #endif
     }
-    else if ( _wxvar_type == wxT("double") )
+    else if ( variantType == wxS("double") )
     {
         return PyFloat_FromDouble(v->GetDouble());
     }
-    else if ( _wxvar_type == wxT("bool") )
+    else if ( variantType == wxS("bool") )
     {
         return PyBool_FromLong((long)v->GetBool());
     }
-    else if ( _wxvar_type == wxT("arrstring") )
+    else if ( variantType == wxS("arrstring") )
     {
         wxArrayString arr = v->GetArrayString();
         PyObject* list = PyList_New(arr.GetCount());
@@ -3422,9 +3470,9 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
 
         return list;
     }
-    else if ( _wxvar_type == wxT("wxArrayInt") )
+    else if ( variantType == wxS("wxArrayInt") )
     {
-        const wxArrayInt& arr = wxArrayIntRefFromVariant(v);
+        const wxArrayInt& arr = wxArrayIntRefFromVariant(*v);
         PyObject* list = PyList_New(arr.GetCount());
         unsigned int i;
 
@@ -3437,7 +3485,7 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
 
         return list;
     }
-    else if ( _wxvar_type == wxT("datetime") )
+    else if ( variantType == wxS("datetime") )
     {
         wxDateTime dt = v->GetDateTime();
         int year = dt.GetYear();
@@ -3451,7 +3499,7 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
                                           hour, minute, second,
                                           millisecond*1000);
     }
-    else if ( _wxvar_type == wxT("wxColour") )
+    else if ( variantType == wxS("wxColour") )
     {
         wxColour col;
         col << *v;
@@ -3459,7 +3507,21 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
                                   SWIGTYPE_p_wxColour,
                                   SWIG_POINTER_OWN | 0 );
     }
-    else if ( _wxvar_type == wxT("PyObject*") )
+    else if ( variantType == wxS("wxPoint") )
+    {
+        const wxPoint& point = wxPointRefFromVariant(*v);
+        return SWIG_NewPointerObj(SWIG_as_voidptr(new wxPoint(point)),
+                                  SWIGTYPE_p_wxPoint,
+                                  SWIG_POINTER_OWN | 0 );
+    }
+    else if ( variantType == wxS("wxSize") )
+    {
+        const wxSize& size = wxSizeRefFromVariant(*v);
+        return SWIG_NewPointerObj(SWIG_as_voidptr(new wxSize(size)),
+                                  SWIGTYPE_p_wxSize,
+                                  SWIG_POINTER_OWN | 0 );
+    }
+    else if ( variantType == wxS("PyObject*") )
     {
         // PyObjectPtrFromVariant already increments the reference count
         PyObject* o = PyObjectPtrFromVariant(*v);
@@ -3468,7 +3530,7 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
             Py_RETURN_NONE;
         return o;
     }
-    else if ( _wxvar_type == wxT("wxFont") )
+    else if ( variantType == wxS("wxFont") )
     {
         wxFont font;
         font << *v;
@@ -3476,7 +3538,7 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
                                   SWIGTYPE_p_wxFont,
                                   SWIG_POINTER_OWN | 0 );
     }
-    else if ( _wxvar_type == wxT("wxColourPropertyValue") )
+    else if ( variantType == wxS("wxColourPropertyValue") )
     {
         wxColourPropertyValue cpv;
         cpv << *v;
@@ -3623,14 +3685,14 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
         bool res;
 
         PyObject* m1 = PySequence_GetItem(o, 0);
-        res = wxPyConvertSwigPtr(m1, (void **)&p->m_primary, wxT("wxWindow"));
+        res = wxPyConvertSwigPtr(m1, (void **)&p->m_primary, wxS("wxWindow"));
         Py_DECREF(m1);
         if ( !res )
             return false;
 
         PyObject* m2 = PySequence_GetItem(o, 1);
         res = wxPyConvertSwigPtr(m2, (void **)&p->m_secondary,
-                                 wxT("wxWindow"));
+                                 wxS("wxWindow"));
         Py_DECREF(m2);
         if ( !res )
             return false;
@@ -3640,7 +3702,7 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 
     p->m_secondary = NULL;
 
-    if ( !wxPyConvertSwigPtr(o, (void **)&p->m_primary, wxT("wxWindow")) )
+    if ( !wxPyConvertSwigPtr(o, (void **)&p->m_primary, wxS("wxWindow")) )
         return false;
 
     return true;
@@ -4043,7 +4105,8 @@ void _CommonCallback11(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, w
     PyObject* py_thisValue;
     py_thisValue = wxVariant_to_PyObject((&thisValue));
         if ( !py_thisValue ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -4053,7 +4116,8 @@ void _CommonCallback11(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, w
     PyObject* py_childValue;
     py_childValue = wxVariant_to_PyObject((&childValue));
         if ( !py_childValue ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -4110,7 +4174,8 @@ wxPGVariantAndBool _CommonCallback25(wxPyBlock_t blocked, PyObject* self, PyObje
     {
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
-            PyErr_SetString(PyExc_TypeError, "this Python type cannot be converted to wxVariant");
+            PyErr_SetString(PyExc_TypeError,
+                "this Python type cannot be converted to wxVariant");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -4155,8 +4220,11 @@ wxVariant _CommonCallback14(wxPyBlock_t blocked, PyObject* self, PyObject* funco
     if (PyErr_Occurred()) SWIG_fail;
     {
     wxVariant retval;
-    wxVariant temp;    temp = wxVariant_in_helper(res);
-        wxVariant* _tptr_0 = &retval;
+    if ( !PyObject_to_wxVariant(res, &retval) ) {
+            PyErr_SetString(PyExc_TypeError,
+                            "this Python type cannot be converted to wxVariant");
+            SWIG_fail;
+        }
     Py_DECREF(res);
     wxPyEndBlockThreads(blocked);
     return retval;
@@ -4190,7 +4258,8 @@ wxPGWindowList _CommonCallback1(wxPyBlock_t blocked, PyObject* self, PyObject* f
     {
     wxPGWindowList retval;
     if ( !PyObject_to_wxPGWindowList(res, &retval) ) {
-            PyErr_SetString(PyExc_TypeError, "expected wxWindow or tuple of two wxWindows");
+            PyErr_SetString(PyExc_TypeError,
+                "expected wxWindow or tuple of two wxWindows");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -4209,7 +4278,8 @@ wxString _CommonCallback28(wxPyBlock_t blocked, PyObject* self, PyObject* funcob
     PyObject* py_value;
     py_value = wxVariant_to_PyObject((&value));
         if ( !py_value ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -4320,7 +4390,8 @@ wxPGVariantAndBool _CommonCallback8(wxPyBlock_t blocked, PyObject* self, PyObjec
     {
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
-            PyErr_SetString(PyExc_TypeError, "this Python type cannot be converted to wxVariant");
+            PyErr_SetString(PyExc_TypeError,
+                "this Python type cannot be converted to wxVariant");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -4354,7 +4425,8 @@ wxPGVariantAndBool _CommonCallback26(wxPyBlock_t blocked, PyObject* self, PyObje
     {
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
-            PyErr_SetString(PyExc_TypeError, "this Python type cannot be converted to wxVariant");
+            PyErr_SetString(PyExc_TypeError,
+                "this Python type cannot be converted to wxVariant");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -4430,7 +4502,8 @@ bool _CommonCallback15(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, c
     PyObject* py_value;
     py_value = wxVariant_to_PyObject((&value));
         if ( !py_value ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -4526,8 +4599,11 @@ wxVariant _CommonCallback12(wxPyBlock_t blocked, PyObject* self, PyObject* funco
     if (PyErr_Occurred()) SWIG_fail;
     {
     wxVariant retval;
-    wxVariant temp;    temp = wxVariant_in_helper(res);
-        wxVariant* _tptr_0 = &retval;
+    if ( !PyObject_to_wxVariant(res, &retval) ) {
+            PyErr_SetString(PyExc_TypeError,
+                            "this Python type cannot be converted to wxVariant");
+            SWIG_fail;
+        }
     Py_DECREF(res);
     wxPyEndBlockThreads(blocked);
     return retval;
@@ -4627,8 +4703,11 @@ wxVariant _CommonCallback34(wxPyBlock_t blocked, PyObject* self, PyObject* funco
     if (PyErr_Occurred()) SWIG_fail;
     {
     wxVariant retval;
-    wxVariant temp;    temp = wxVariant_in_helper(res);
-        wxVariant* _tptr_0 = &retval;
+    if ( !PyObject_to_wxVariant(res, &retval) ) {
+            PyErr_SetString(PyExc_TypeError,
+                            "this Python type cannot be converted to wxVariant");
+            SWIG_fail;
+        }
     Py_DECREF(res);
     wxPyEndBlockThreads(blocked);
     return retval;
@@ -4694,7 +4773,8 @@ void _CommonCallback24(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, w
     PyObject* py_pendingValue;
     py_pendingValue = wxVariant_to_PyObject((&pendingValue));
         if ( !py_pendingValue ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -4758,7 +4838,8 @@ wxPGVariantAndBool _CommonCallback27(wxPyBlock_t blocked, PyObject* self, PyObje
     PyObject* py_value;
     py_value = wxVariant_to_PyObject((&value));
         if ( !py_value ) {
-            PyErr_SetString(PyExc_TypeError, "this wxVariant type cannot be converted to Python object");
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
             SWIG_fail;
         }
 
@@ -4772,7 +4853,8 @@ wxPGVariantAndBool _CommonCallback27(wxPyBlock_t blocked, PyObject* self, PyObje
     {
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
-            PyErr_SetString(PyExc_TypeError, "this Python type cannot be converted to wxVariant");
+            PyErr_SetString(PyExc_TypeError,
+                "this Python type cannot be converted to wxVariant");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -16529,6 +16611,41 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PGProperty_GetValuePlain(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  wxVariant result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_GetValuePlain" "', expected argument " "1"" of type '" "wxPGProperty const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxPGProperty const *)arg1)->GetValuePlain();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxVariant_to_PyObject(&result);
+    if ( !resultobj ) {
+      PyErr_SetString(PyExc_TypeError,
+        "this wxVariant type cannot be converted to Python object");
+      SWIG_fail;
+    }
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PGProperty_GetValueAsString(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPGProperty *arg1 = (wxPGProperty *) 0 ;
@@ -19055,6 +19172,44 @@ SWIGINTERN PyObject *_wrap_PGProperty_SetValueToUnspecified(PyObject *SWIGUNUSED
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetValueToUnspecified();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_SetValuePlain(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  wxVariant arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "value", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PGProperty_SetValuePlain",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_SetValuePlain" "', expected argument " "1"" of type '" "wxPGProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  {
+    if ( !PyObject_to_wxVariant(obj1, &arg2) ) {
+      PyErr_SetString(PyExc_TypeError,
+        "this Python type cannot be converted to wxVariant");
+      SWIG_fail;
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetValuePlain(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -45279,6 +45434,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PGProperty_GetChoices", (PyCFunction)_wrap_PGProperty_GetChoices, METH_O, NULL},
 	 { (char *)"PGProperty_GetY", (PyCFunction)_wrap_PGProperty_GetY, METH_O, NULL},
 	 { (char *)"PGProperty_GetValue", (PyCFunction)_wrap_PGProperty_GetValue, METH_O, NULL},
+	 { (char *)"PGProperty_GetValuePlain", (PyCFunction)_wrap_PGProperty_GetValuePlain, METH_O, NULL},
 	 { (char *)"PGProperty_GetValueAsString", (PyCFunction) _wrap_PGProperty_GetValueAsString, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetCell", _wrap_PGProperty_GetCell, METH_VARARGS, NULL},
 	 { (char *)"PGProperty_GetDisplayedCommonValueCount", (PyCFunction)_wrap_PGProperty_GetDisplayedCommonValueCount, METH_O, NULL},
@@ -45343,6 +45499,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PGProperty_SetName", (PyCFunction) _wrap_PGProperty_SetName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_SetParentalType", (PyCFunction) _wrap_PGProperty_SetParentalType, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_SetValueToUnspecified", (PyCFunction)_wrap_PGProperty_SetValueToUnspecified, METH_O, NULL},
+	 { (char *)"PGProperty_SetValuePlain", (PyCFunction) _wrap_PGProperty_SetValuePlain, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_SetValidator", (PyCFunction) _wrap_PGProperty_SetValidator, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetValidator", (PyCFunction)_wrap_PGProperty_GetValidator, METH_O, NULL},
 	 { (char *)"PGProperty_SetChoices", (PyCFunction) _wrap_PGProperty_SetChoices, METH_VARARGS | METH_KEYWORDS, NULL},

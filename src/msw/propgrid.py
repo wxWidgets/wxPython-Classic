@@ -372,6 +372,10 @@ class PGProperty(_core.Object):
         """GetValue(self) -> wxVariant"""
         return _propgrid.PGProperty_GetValue(*args, **kwargs)
 
+    def GetValuePlain(*args, **kwargs):
+        """GetValuePlain(self) -> wxVariant"""
+        return _propgrid.PGProperty_GetValuePlain(*args, **kwargs)
+
     def GetValueAsString(*args, **kwargs):
         """GetValueAsString(self, int argFlags=0) -> String"""
         return _propgrid.PGProperty_GetValueAsString(*args, **kwargs)
@@ -634,6 +638,10 @@ class PGProperty(_core.Object):
         """SetValueToUnspecified(self)"""
         return _propgrid.PGProperty_SetValueToUnspecified(*args, **kwargs)
 
+    def SetValuePlain(*args, **kwargs):
+        """SetValuePlain(self, wxVariant value)"""
+        return _propgrid.PGProperty_SetValuePlain(*args, **kwargs)
+
     def SetValidator(*args, **kwargs):
         """SetValidator(self, Validator validator)"""
         return _propgrid.PGProperty_SetValidator(*args, **kwargs)
@@ -714,6 +722,7 @@ class PGProperty(_core.Object):
         """GetPropertyByName(self, String name) -> PGProperty"""
         return _propgrid.PGProperty_GetPropertyByName(*args, **kwargs)
 
+    m_value = property(GetValuePlain,SetValuePlain) 
     def GetClientData(*args, **kwargs):
         """
         GetClientData(self) -> PyObject
