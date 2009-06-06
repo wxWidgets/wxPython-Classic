@@ -528,6 +528,8 @@ class creator_app:
 
 
     def process_include_files(self):
+        from cpp_header_parser import split_argument_list, indent
+        from cpp_header_parser import find_balanced_parenthesis
 
         re_typemap = re.compile('%typemap\s*\(\s*([^()]+)\s*\)([^{]+){',re.I)
 
@@ -537,7 +539,9 @@ class creator_app:
 
             if s:
                 s = cpp_header_parser.purge_comments(s)
-                s = cpp_header_parser.process_and_run_macros(s, settings.include_paths, is_swig=True)
+                s = cpp_header_parser.process_and_run_macros(s,
+                    settings.include_paths,
+                    is_swig=True)
 
                 # Load typemaps
                 pos = 0
@@ -559,31 +563,49 @@ class creator_app:
                         pre_p = tm_sdatatype[:parens_pos].strip()
                         if len(pre_p) > 0:
                             # Temp arg list
-                            tm_datatypes = cpp_header_parser.split_argument_list(pre_p)
-                            tm_tempdata,i_ = cpp_header_parser.split_argument_list(tm_sdatatype, parens_pos, def_vals = True)
+                            tm_datatypes = split_argument_list(pre_p)
+                            tm_tempdata,i_ = split_argument_list(tm_sdatatype,
+                                parens_pos, def_vals = True)
                         else:
                             # Multiple args
-                            tm_datatypes,i_ = cpp_header_parser.split_argument_list(tm_sdatatype, parens_pos)
+                            tm_datatypes,i_ = split_argument_list(tm_sdatatype,
+                                parens_pos)
                             tm_tempdata = []
                     else:
-                        tm_datatypes = cpp_header_parser.split_argument_list(tm_sdatatype)
+                        tm_datatypes = split_argument_list(tm_sdatatype)
                         tm_tempdata = []
 
                     tm_start = m.end()-1
 
-                    tm_end = cpp_header_parser.find_balanced_parenthesis(s, tm_start, '{', '}')
+                    tm_end = find_balanced_parenthesis(s, tm_start, '{', '}')
 
-                    tm_content = cpp_header_parser.indent(s[tm_start+1:tm_end-1],4).rstrip()
+                    tm_content = indent(s[tm_start+1:tm_end-1],4).rstrip()
 
                     #print tm_type, tm_datatypes
                     #print tm_options
                     #print tm_tempdata
                     #print tm_content
 
+                    #
+                    # FIXME: This is a temporary fix - override all wxVariant
+                    #        typemaps with those found in our own files.
+                    ignore_this = False
+                    if fn == 'my_typemaps.i':
+                        for ig_typemap in settings.ignore_typemaps_from_base:
+                            for tn, vn in tm_datatypes:
+                                if tn.startswith(ig_typemap):
+                                    print('IGNORED %s typemap from %s' % \
+                                          (tm_datatypes, fn))
+                                    ignore_this = True
+                                    break
+                            if ignore_this:
+                                break
+
                     # Do not store options, they are usually just
                     # useless precedence=SWIG_TYPECHECK_POINTER for typecheck.
-                    #tpl_ = (tm_datatypes,tm_options,tm_tempdata,tm_content)
-                    self.add_typemap(tm_type, tm_datatypes, tm_tempdata, tm_content)
+                    if not ignore_this:
+                        self.add_typemap(tm_type, tm_datatypes, tm_tempdata,
+                                         tm_content)
 
                     pos = m.end()
 
@@ -1311,4 +1333,4 @@ try:
 finally:
     cpp_header_parser.cleanup()
 
-    
+

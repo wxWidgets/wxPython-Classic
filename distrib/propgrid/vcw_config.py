@@ -39,6 +39,10 @@ class_config = {
 
 includes = ['my_typemaps.i', 'propgrid.i']
 
+# Ignore typemaps for these types from base wxPython typemap files
+# (ie. my_typemaps.i).
+ignore_typemaps_from_base = ['wxVariant']
+
 include_paths = [WX_BASE+'/include',
                  WX_BASE+'/include/wx/propgrid',
                  WX_BASE+'/lib/vc_dll/mswh',
