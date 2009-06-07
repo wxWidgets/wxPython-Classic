@@ -76,7 +76,7 @@ class IntProperty2(wxpg.PyProperty):
     def ValueToString(self, value, flags):
         return str(value)
 
-    def PyStringToValue(self, s, flags):
+    def StringToValue(self, s, flags):
         try:
             v = int(s)
             if self.GetValue() != v:
@@ -86,7 +86,7 @@ class IntProperty2(wxpg.PyProperty):
                 wx.MessageBox("Cannot convert '%s' into a number."%s, "Error")
         return False
 
-    def PyIntToValue(self, v, flags):
+    def IntToValue(self, v, flags):
         if (self.GetValue() != v):
             return v
 
