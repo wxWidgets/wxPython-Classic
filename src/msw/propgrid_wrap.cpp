@@ -3254,26 +3254,6 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
     {
         int len = PySequence_Length(input);
 
-        /*
-        //
-        // Tuples of two ints are returned as wxPoints
-        if ( PyTuple_Check(input) && len == 2 )
-        {
-            PyObject* item0 = PySequence_GetItem(input, 0);
-            PyObject* item1 = PySequence_GetItem(input, 1);
-            if ( PyInt_Check(item0) && PyInt_Check(item1) )
-            {
-                int x = PyInt_AS_LONG(item0);
-                int y = PyInt_AS_LONG(item1);
-                wxPoint pt(x, y);
-                *v << pt;
-                return true;
-            }
-            Py_DECREF(item1);
-            Py_DECREF(item0);
-        }
-        */
-
         if ( len )
         {
             int i;
@@ -15493,6 +15473,7 @@ SWIGINTERN PyObject *_wrap_PGProperty_ValueToString(PyObject *SWIGUNUSEDPARM(sel
   }
   arg1 = reinterpret_cast< wxPGProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -15519,8 +15500,14 @@ SWIGINTERN PyObject *_wrap_PGProperty_ValueToString(PyObject *SWIGUNUSEDPARM(sel
     resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
 #endif
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -15764,6 +15751,7 @@ SWIGINTERN PyObject *_wrap_PGProperty_ChildChanged(PyObject *SWIGUNUSEDPARM(self
   }
   arg1 = reinterpret_cast< wxPGProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -15776,6 +15764,7 @@ SWIGINTERN PyObject *_wrap_PGProperty_ChildChanged(PyObject *SWIGUNUSEDPARM(self
   } 
   arg3 = static_cast< int >(val3);
   {
+    arg4 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj3, arg4) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -15789,8 +15778,20 @@ SWIGINTERN PyObject *_wrap_PGProperty_ChildChanged(PyObject *SWIGUNUSEDPARM(self
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    delete arg2;
+  }
+  {
+    delete arg4;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
+  {
+    delete arg4;
+  }
   return NULL;
 }
 
@@ -16035,6 +16036,7 @@ SWIGINTERN PyObject *_wrap_PGProperty_DoSetAttribute(PyObject *SWIGUNUSEDPARM(se
     temp2 = true;
   }
   {
+    arg3 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj2, arg3) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -16054,11 +16056,17 @@ SWIGINTERN PyObject *_wrap_PGProperty_DoSetAttribute(PyObject *SWIGUNUSEDPARM(se
     if (temp2)
     delete arg2;
   }
+  {
+    delete arg3;
+  }
   return resultobj;
 fail:
   {
     if (temp2)
     delete arg2;
+  }
+  {
+    delete arg3;
   }
   return NULL;
 }
@@ -16164,6 +16172,7 @@ SWIGINTERN PyObject *_wrap_PGProperty_OnValidationFailure(PyObject *SWIGUNUSEDPA
   }
   arg1 = reinterpret_cast< wxPGProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -16177,8 +16186,14 @@ SWIGINTERN PyObject *_wrap_PGProperty_OnValidationFailure(PyObject *SWIGUNUSEDPA
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -19555,6 +19570,7 @@ SWIGINTERN PyObject *_wrap_PGProperty_AdaptListToValue(PyObject *SWIGUNUSEDPARM(
   }
   arg1 = reinterpret_cast< wxPGProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -19573,8 +19589,14 @@ SWIGINTERN PyObject *_wrap_PGProperty_AdaptListToValue(PyObject *SWIGUNUSEDPARM(
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -32195,6 +32217,7 @@ SWIGINTERN PyObject *_wrap_PGTextCtrlEditor_GetValueFromControl(PyObject *SWIGUN
   }
   arg1 = reinterpret_cast< wxPGTextCtrlEditor * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -32220,8 +32243,14 @@ SWIGINTERN PyObject *_wrap_PGTextCtrlEditor_GetValueFromControl(PyObject *SWIGUN
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -32307,6 +32336,7 @@ SWIGINTERN PyObject *_wrap_PGTextCtrlEditor_GetTextCtrlValueFromControl(PyObject
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:PGTextCtrlEditor_GetTextCtrlValueFromControl",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   {
+    arg1 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj0, arg1) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -32332,8 +32362,14 @@ SWIGINTERN PyObject *_wrap_PGTextCtrlEditor_GetTextCtrlValueFromControl(PyObject
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg1;
+  }
   return resultobj;
 fail:
+  {
+    delete arg1;
+  }
   return NULL;
 }
 
@@ -32423,6 +32459,7 @@ SWIGINTERN PyObject *_wrap_PGChoiceEditor_GetValueFromControl(PyObject *SWIGUNUS
   }
   arg1 = reinterpret_cast< wxPGChoiceEditor * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -32448,8 +32485,14 @@ SWIGINTERN PyObject *_wrap_PGChoiceEditor_GetValueFromControl(PyObject *SWIGUNUS
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -32669,6 +32712,7 @@ SWIGINTERN PyObject *_wrap_PGCheckBoxEditor_GetValueFromControl(PyObject *SWIGUN
   }
   arg1 = reinterpret_cast< wxPGCheckBoxEditor * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -32694,8 +32738,14 @@ SWIGINTERN PyObject *_wrap_PGCheckBoxEditor_GetValueFromControl(PyObject *SWIGUN
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -33441,6 +33491,7 @@ SWIGINTERN PyObject *_wrap_StringProperty_StringToValue(PyObject *SWIGUNUSEDPARM
   }
   arg1 = reinterpret_cast< wxStringProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -33469,11 +33520,17 @@ SWIGINTERN PyObject *_wrap_StringProperty_StringToValue(PyObject *SWIGUNUSEDPARM
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
   {
+    delete arg2;
+  }
+  {
     if (temp3)
     delete arg3;
   }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   {
     if (temp3)
     delete arg3;
@@ -33702,6 +33759,7 @@ SWIGINTERN PyObject *_wrap_IntProperty_StringToValue(PyObject *SWIGUNUSEDPARM(se
   }
   arg1 = reinterpret_cast< wxIntProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -33730,11 +33788,17 @@ SWIGINTERN PyObject *_wrap_IntProperty_StringToValue(PyObject *SWIGUNUSEDPARM(se
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
   {
+    delete arg2;
+  }
+  {
     if (temp3)
     delete arg3;
   }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   {
     if (temp3)
     delete arg3;
@@ -33767,6 +33831,7 @@ SWIGINTERN PyObject *_wrap_IntProperty_ValidateValue(PyObject *SWIGUNUSEDPARM(se
   }
   arg1 = reinterpret_cast< wxIntProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -33790,8 +33855,14 @@ SWIGINTERN PyObject *_wrap_IntProperty_ValidateValue(PyObject *SWIGUNUSEDPARM(se
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -33824,6 +33895,7 @@ SWIGINTERN PyObject *_wrap_IntProperty_IntToValue(PyObject *SWIGUNUSEDPARM(self)
   }
   arg1 = reinterpret_cast< wxIntProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -33851,8 +33923,14 @@ SWIGINTERN PyObject *_wrap_IntProperty_IntToValue(PyObject *SWIGUNUSEDPARM(self)
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -34161,6 +34239,7 @@ SWIGINTERN PyObject *_wrap_UIntProperty_StringToValue(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = reinterpret_cast< wxUIntProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -34189,11 +34268,17 @@ SWIGINTERN PyObject *_wrap_UIntProperty_StringToValue(PyObject *SWIGUNUSEDPARM(s
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
   {
+    delete arg2;
+  }
+  {
     if (temp3)
     delete arg3;
   }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   {
     if (temp3)
     delete arg3;
@@ -34226,6 +34311,7 @@ SWIGINTERN PyObject *_wrap_UIntProperty_ValidateValue(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = reinterpret_cast< wxUIntProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -34249,8 +34335,14 @@ SWIGINTERN PyObject *_wrap_UIntProperty_ValidateValue(PyObject *SWIGUNUSEDPARM(s
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -34283,6 +34375,7 @@ SWIGINTERN PyObject *_wrap_UIntProperty_IntToValue(PyObject *SWIGUNUSEDPARM(self
   }
   arg1 = reinterpret_cast< wxUIntProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -34310,8 +34403,14 @@ SWIGINTERN PyObject *_wrap_UIntProperty_IntToValue(PyObject *SWIGUNUSEDPARM(self
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -34452,6 +34551,7 @@ SWIGINTERN PyObject *_wrap_FloatProperty_StringToValue(PyObject *SWIGUNUSEDPARM(
   }
   arg1 = reinterpret_cast< wxFloatProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -34480,11 +34580,17 @@ SWIGINTERN PyObject *_wrap_FloatProperty_StringToValue(PyObject *SWIGUNUSEDPARM(
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
   {
+    delete arg2;
+  }
+  {
     if (temp3)
     delete arg3;
   }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   {
     if (temp3)
     delete arg3;
@@ -34517,6 +34623,7 @@ SWIGINTERN PyObject *_wrap_FloatProperty_ValidateValue(PyObject *SWIGUNUSEDPARM(
   }
   arg1 = reinterpret_cast< wxFloatProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -34540,8 +34647,14 @@ SWIGINTERN PyObject *_wrap_FloatProperty_ValidateValue(PyObject *SWIGUNUSEDPARM(
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -34835,6 +34948,7 @@ SWIGINTERN PyObject *_wrap_EnumProperty_StringToValue(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = reinterpret_cast< wxEnumProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -34863,11 +34977,17 @@ SWIGINTERN PyObject *_wrap_EnumProperty_StringToValue(PyObject *SWIGUNUSEDPARM(s
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
   {
+    delete arg2;
+  }
+  {
     if (temp3)
     delete arg3;
   }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   {
     if (temp3)
     delete arg3;
@@ -34900,6 +35020,7 @@ SWIGINTERN PyObject *_wrap_EnumProperty_ValidateValue(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = reinterpret_cast< wxEnumProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -34923,8 +35044,14 @@ SWIGINTERN PyObject *_wrap_EnumProperty_ValidateValue(PyObject *SWIGUNUSEDPARM(s
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -34957,6 +35084,7 @@ SWIGINTERN PyObject *_wrap_EnumProperty_IntToValue(PyObject *SWIGUNUSEDPARM(self
   }
   arg1 = reinterpret_cast< wxEnumProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -34984,8 +35112,14 @@ SWIGINTERN PyObject *_wrap_EnumProperty_IntToValue(PyObject *SWIGUNUSEDPARM(self
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -35681,6 +35815,7 @@ SWIGINTERN PyObject *_wrap_FlagsProperty_StringToValue(PyObject *SWIGUNUSEDPARM(
   }
   arg1 = reinterpret_cast< wxFlagsProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -35707,11 +35842,17 @@ SWIGINTERN PyObject *_wrap_FlagsProperty_StringToValue(PyObject *SWIGUNUSEDPARM(
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
   {
+    delete arg2;
+  }
+  {
     if (temp3)
     delete arg3;
   }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   {
     if (temp3)
     delete arg3;
@@ -35947,6 +36088,7 @@ SWIGINTERN PyObject *_wrap_FileProperty_StringToValue(PyObject *SWIGUNUSEDPARM(s
   }
   arg1 = reinterpret_cast< wxFileProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -35975,11 +36117,17 @@ SWIGINTERN PyObject *_wrap_FileProperty_StringToValue(PyObject *SWIGUNUSEDPARM(s
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
   {
+    delete arg2;
+  }
+  {
     if (temp3)
     delete arg3;
   }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   {
     if (temp3)
     delete arg3;
@@ -36187,6 +36335,7 @@ SWIGINTERN PyObject *_wrap_LongStringProperty_StringToValue(PyObject *SWIGUNUSED
   }
   arg1 = reinterpret_cast< wxLongStringProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -36215,11 +36364,17 @@ SWIGINTERN PyObject *_wrap_LongStringProperty_StringToValue(PyObject *SWIGUNUSED
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
   {
+    delete arg2;
+  }
+  {
     if (temp3)
     delete arg3;
   }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   {
     if (temp3)
     delete arg3;
@@ -36496,6 +36651,7 @@ SWIGINTERN PyObject *_wrap_ArrayStringProperty_StringToValue(PyObject *SWIGUNUSE
   }
   arg1 = reinterpret_cast< wxArrayStringProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -36524,11 +36680,17 @@ SWIGINTERN PyObject *_wrap_ArrayStringProperty_StringToValue(PyObject *SWIGUNUSE
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
   {
+    delete arg2;
+  }
+  {
     if (temp3)
     delete arg3;
   }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   {
     if (temp3)
     delete arg3;
@@ -36869,6 +37031,7 @@ SWIGINTERN PyObject *_wrap_ArrayEditorDialog_SetDialogValue(PyObject *SWIGUNUSED
   }
   arg1 = reinterpret_cast< wxArrayEditorDialog * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -36882,8 +37045,14 @@ SWIGINTERN PyObject *_wrap_ArrayEditorDialog_SetDialogValue(PyObject *SWIGUNUSED
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -38015,6 +38184,7 @@ SWIGINTERN PyObject *_wrap_SystemColourProperty_QueryColourFromUser(PyObject *SW
   }
   arg1 = reinterpret_cast< wxSystemColourProperty * >(argp1);
   {
+    arg2 = new wxVariant();
     if ( !PyObject_to_wxVariant(obj1, arg2) ) {
       PyErr_SetString(PyExc_TypeError,
         "this Python type cannot be converted to wxVariant");
@@ -38030,8 +38200,14 @@ SWIGINTERN PyObject *_wrap_SystemColourProperty_QueryColourFromUser(PyObject *SW
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  {
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    delete arg2;
+  }
   return NULL;
 }
 

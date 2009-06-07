@@ -1253,6 +1253,7 @@ static wxString& wxString_wxPG_LABEL = *((wxString*)NULL);
 }
 
 %typemap(in) wxVariant& {
+    $1 = new wxVariant();
     if ( !PyObject_to_wxVariant($input, $1) ) {
         PyErr_SetString(PyExc_TypeError,
                         "this Python type cannot be converted to wxVariant");
@@ -1260,12 +1261,21 @@ static wxString& wxString_wxPG_LABEL = *((wxString*)NULL);
     }
 }
 
+%typemap(freearg) wxVariant& {
+    delete $1;
+}
+
 %typemap(in) const wxVariant& {
+    $1 = new wxVariant();
     if ( !PyObject_to_wxVariant($input, $1) ) {
         PyErr_SetString(PyExc_TypeError,
                         "this Python type cannot be converted to wxVariant");
         SWIG_fail;
     }
+}
+
+%typemap(freearg) const wxVariant& {
+    delete $1;
 }
 
 %typemap(out) wxVariant {
