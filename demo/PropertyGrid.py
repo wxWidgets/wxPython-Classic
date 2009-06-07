@@ -2,6 +2,7 @@
 import sys, time, math, os, os.path
 
 import wx
+_ = wx.GetTranslation
 import wx.propgrid as wxpg
 
 
@@ -154,6 +155,88 @@ class PyObjectPropertyValue:
         return ' - '.join(self.ls)
 
 
+class DirsProperty(wxpg.PyArrayStringProperty):
+    """ Sample of a custom custom ArrayStringProperty.
+
+        Because currently some of the C++ helpers from wxArrayStringProperty
+        and wxProperytGrid are not available, our implementation has to quite
+        a bit 'manually'. Which is not too bad since Python has excellent
+        string and list manipulation facilities.
+    """
+    def __init__(self, label, name = wxpg.LABEL_AS_NAME, value=[]):
+        wxpg.PyArrayStringProperty.__init__(self, label, name, value)
+
+        # Set default delimiter
+        self.SetAttribute("Delimiter", ',')
+
+    def GetEditor(self):
+        return "TextCtrlAndButton"
+
+    def ValueToString(self, value, flags):
+        return self.m_display
+
+    def OnSetValue(self):
+        self.GenerateValueAsString()
+
+    def DoSetAttribute(self, name, value):
+        # Proper way to call same method from super class
+        retval = self.CallSuperMethod("DoSetAttribute", name, value)
+
+        #
+        # Must re-generate cached string when delimiter changes
+        if name == "Delimiter":
+            self.GenerateValueAsString(delim=value)
+
+        return retval
+
+    def GenerateValueAsString(self, delim=None):
+        """ This function creates a cached version of displayed text
+            (self.m_display).
+        """
+        if not delim:
+            delim = self.GetAttribute("Delimiter")
+            if not delim:
+                delim = ','
+
+        ls = self.GetValue()
+        if delim == '"' or delim == "'":
+            text = ' '.join(['%s%s%s'%(delim,a,delim) for a in ls])
+        else:
+            text = ', '.join(ls)
+        self.m_display = text
+
+    def StringToValue(self, text, argFlags):
+        delim = self.GetAttribute("Delimiter")
+        if delim == '"' or delim == "'":
+            # Proper way to call same method from super class
+            return self.CallSuperMethod("StringToValue", text, 0)
+        return [a.strip() for a in text.split(delim)]
+
+    def OnEvent(self, propgrid, primaryEditor, event):
+        if event.GetEventType() == wx.wxEVT_COMMAND_BUTTON_CLICKED:
+            dlg = wx.DirDialog(propgrid,
+                               _("Select a directory to be added to "
+                                 "the list:"))
+
+            if dlg.ShowModal() == wx.ID_OK:
+                new_path = dlg.GetPath();
+                old_value = self.m_value
+                if old_value:
+                    new_value = list(old_value)
+                    new_value.append(new_path)
+                else:
+                    new_value = [new_path]
+                self.SetValueInEvent(new_value)
+                retval = True
+            else:
+                retval = False
+
+            dlg.Destroy()
+            return retval
+
+        return False
+
+
 class PyObjectProperty(wxpg.PyProperty):
     """\
     Another simple example. This time our value is a PyObject (NOTE: we can't
@@ -269,7 +352,12 @@ class TestPanel( wx.Panel ):
         #pg.Append( wxpg.FontDataProperty("FontData") )
         pg.Append( wxpg.IntProperty("IntWithSpin",value=256) )
         pg.SetPropertyEditor("IntWithSpin","SpinCtrl")
-        #pg.Append( wxpg.DirsProperty("Dirs",value=['C:/Lib','C:/Bin']) )
+        pg.Append( DirsProperty("Dirs1",value=['C:/Lib','C:/Bin']) )
+        pg.Append( DirsProperty("Dirs2",value=['/lib','/bin']) )
+
+        # Test another type of delimiter
+        pg.SetPropertyAttribute("Dirs2", "Delimiter", '"')
+
         #pg.SetPropertyHelpString( "String", "String Property help string!" )
         #pg.SetPropertyHelpString( "Dirs", "Dirs Property help string!" )
 
