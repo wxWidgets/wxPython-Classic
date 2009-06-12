@@ -294,9 +294,9 @@ wxPGProperty* NewArrayDoubleProperty( const wxString& label,
 }
 #endif
 
-void RegisterEditor( wxPGEditor* editor )
+void RegisterEditor( wxPGEditor* editor, const wxString& editorName )
 {
-    wxPropertyGrid::RegisterEditorClass(editor);
+    wxPropertyGrid::DoRegisterEditorClass(editor, editorName);
 }
 
 #include <datetime.h>
@@ -1168,7 +1168,7 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
                 self._editor_instances.append(editor)
             except:
                 self._editor_instances = [editor]
-            RegisterEditor(editor)
+            RegisterEditor(editor, editorName)
 
         def GetPropertyClientData(self, p):
             if isinstance(p, basestring):
@@ -1473,7 +1473,7 @@ wxPGProperty* NewArrayDoubleProperty( const wxString& label = wxPG_LABEL,
 
 %include "propgrid_cbacks.i"
 
-void RegisterEditor( wxPGEditor* editor );
+void RegisterEditor( wxPGEditor* editor, const wxString& editorName );
 
 //---------------------------------------------------------------------------
 // Python functions to act like the event macros

@@ -3149,9 +3149,9 @@ wxPGProperty* NewArrayDoubleProperty( const wxString& label,
 }
 #endif
 
-void RegisterEditor( wxPGEditor* editor )
+void RegisterEditor( wxPGEditor* editor, const wxString& editorName )
 {
-    wxPropertyGrid::RegisterEditorClass(editor);
+    wxPropertyGrid::DoRegisterEditorClass(editor, editorName);
 }
 
 #include <datetime.h>
@@ -45514,12 +45514,15 @@ SWIGINTERN PyObject *PyLongStringProperty_swiginit(PyObject *SWIGUNUSEDPARM(self
 SWIGINTERN PyObject *_wrap_RegisterEditor(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPGEditor *arg1 = (wxPGEditor *) 0 ;
+  wxString *arg2 = 0 ;
+  bool temp2 = false ;
   PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "editor", NULL 
+    (char *) "editor",(char *) "editorName", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:RegisterEditor",kwnames,&obj0)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RegisterEditor",kwnames,&obj0,&obj1)) SWIG_fail;
   {
     if ( !wxPyConvertSwigPtr(obj0, (void**)&arg1, wxT("wxPGEditor")) ) {
       PyErr_SetString(PyExc_TypeError,"expected wxPGEditor");
@@ -45528,14 +45531,27 @@ SWIGINTERN PyObject *_wrap_RegisterEditor(PyObject *SWIGUNUSEDPARM(self), PyObje
     
   }
   {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    RegisterEditor(arg1);
+    RegisterEditor(arg1,(wxString const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
   return resultobj;
 fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
   return NULL;
 }
 

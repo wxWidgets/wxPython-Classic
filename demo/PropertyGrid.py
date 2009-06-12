@@ -263,6 +263,84 @@ class PyObjectProperty(wxpg.PyProperty):
         return PyObjectPropertyValue(s)
 
 
+    def OnEvent(self, propgrid, ctrl, event):
+        if not ctrl:
+            return False
+
+        evtType = event.GetEventType()
+
+        if evtType == wx.wxEVT_COMMAND_TEXT_ENTER:
+            if propgrid.IsEditorsValueModified():
+                return True
+
+        elif evtType == wx.wxEVT_COMMAND_TEXT_UPDATED:
+            if not property.HasFlag(wxpg.PG_PROP_UNSPECIFIED) or not ctrl or \
+               ctrl.GetLastPosition() > 0:
+
+                # We must check this since an 'empty' text event
+                # may be triggered when creating the property.
+                PG_FL_IN_SELECT_PROPERTY = 0x00100000
+                if not (propgrid.GetInternalFlags() & PG_FL_IN_SELECT_PROPERTY):
+                    event.Skip();
+                    event.SetId(propGrid.GetId());
+
+                propgrid.EditorsValueWasModified();
+
+        return False
+
+
+class SampleMultiButtonEditor(wxpg.PyTextCtrlEditor):
+    def __init__(self):
+        wxpg.PyTextCtrlEditor.__init__(self)
+
+    def CreateControls(self, propGrid, property, pos, sz):
+        try:
+            # Create and populate buttons-subwindow
+            buttons = wxpg.PGMultiButton(propGrid, sz)
+
+            # Add two regular buttons
+            buttons.Add("...");
+            buttons.Add("A");
+            # Add a bitmap button
+            buttons.Add(wx.ArtProvider.GetBitmap(wx.ART_FOLDER));
+
+            # Create the 'primary' editor control (textctrl in this case)
+            wnds = self.CallSuperMethod("CreateControls",
+                                        propGrid,
+                                        property,
+                                        pos,
+                                        buttons.GetPrimarySize())
+
+            # Finally, move buttons-subwindow to correct position and make sure
+            # returned wxPGWindowList contains our custom button list.
+            buttons.Finalize(propGrid, pos);
+
+            return (wnds[0], buttons)
+        except:
+            import traceback
+            print traceback.print_exc()
+
+    def OnEvent(self, propgrid, ctrl, event):
+        if event.GetEventType() == wx.wxEVT_COMMAND_BUTTON_CLICKED:
+            buttons = propGrid.GetEditorControlSecondary()
+            evtId = event.GetId()
+
+            if evtId == buttons.GetButtonId(0):
+                # Do something when the first button is pressed
+                wx.LogDebug("First button pressed");
+                return False  # Return false since value did not change
+            if evtId == buttons.GetButtonId(1):
+                # Do something when the second button is pressed
+                wx.MessageBox("Second button pressed");
+                return False  # Return false since value did not change
+            if evtId == buttons.GetButtonId(2):
+                # Do something when the third button is pressed
+                wx.MessageBox("Third button pressed");
+                return False  # Return false since value did not change
+
+        return self.CallSuperMethod("OnEvent", propgrid, ctrl, event)
+
+
 ############################################################################
 #
 # MAIN PROPERTY GRID TEST PANEL
@@ -366,10 +444,17 @@ class TestPanel( wx.Panel ):
         pg.SetPropertyAttribute( "Date", wxpg.PG_DATE_PICKER_STYLE,
                                  wx.DP_DROPDOWN|wx.DP_SHOWCENTURY )
 
-        pg.Append( wxpg.PropertyCategory("5 - Custom Properties") )
+        pg.Append( wxpg.PropertyCategory("5 - Custom Properties and Editors") )
         pg.Append( IntProperty2("IntProperty2", value=1024) )
 
         pg.Append( PyObjectProperty("PyObjectProperty") )
+
+        # SampleMultiButtonEditor
+        # NOTE: Editor must be registered *before* adding a property that uses
+        #       it.
+        pg.RegisterEditor(SampleMultiButtonEditor)
+        pg.Append( wxpg.LongStringProperty("MultipleButtons") );
+        pg.SetPropertyEditor("MultipleButtons", "SampleMultiButtonEditor");
 
         # When page is added, it will become the target page for AutoFill
         # calls (and for other property insertion methods as well)

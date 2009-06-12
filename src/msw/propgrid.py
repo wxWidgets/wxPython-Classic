@@ -1564,7 +1564,7 @@ class PropertyGridInterface(object):
             self._editor_instances.append(editor)
         except:
             self._editor_instances = [editor]
-        RegisterEditor(editor)
+        RegisterEditor(editor, editorName)
 
     def GetPropertyClientData(self, p):
         if isinstance(p, basestring):
@@ -4017,7 +4017,7 @@ _propgrid.PyLongStringProperty_swigregister(PyLongStringProperty)
 
 
 def RegisterEditor(*args, **kwargs):
-  """RegisterEditor(PGEditor editor)"""
+  """RegisterEditor(PGEditor editor, String editorName)"""
   return _propgrid.RegisterEditor(*args, **kwargs)
 EVT_PG_CHANGED = wx.PyEventBinder( wxEVT_PG_CHANGED, 1 )
 EVT_PG_CHANGING = wx.PyEventBinder( wxEVT_PG_CHANGING, 1 )
