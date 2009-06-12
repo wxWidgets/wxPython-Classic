@@ -3818,6 +3818,9 @@ SWIGINTERN void wxPGProperty_SetClientData(wxPGProperty *self,PyObject *clientDa
             wxPyClientData* data = new wxPyClientData(clientData);
             self->SetClientObject(data);
         }
+SWIGINTERN void wxPGMultiButton_AddBitmapButton(wxPGMultiButton *self,wxBitmap const &bitmap,int id=-2){
+        return self->Add(bitmap, id);
+    }
 
 SWIGINTERNINLINE PyObject* 
 SWIG_From_unsigned_SS_long  (unsigned long value)
@@ -33060,6 +33063,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_delete_PGMultiButton(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPGMultiButton *arg1 = (wxPGMultiButton *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPGMultiButton, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_PGMultiButton" "', expected argument " "1"" of type '" "wxPGMultiButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGMultiButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PGMultiButton_GetButton__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxPGMultiButton *arg1 = (wxPGMultiButton *) 0 ;
@@ -33337,6 +33368,58 @@ SWIGINTERN PyObject *_wrap_PGMultiButton_Finalize(PyObject *SWIGUNUSEDPARM(self)
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->Finalize(arg2,(wxPoint const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGMultiButton_AddBitmapButton(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPGMultiButton *arg1 = (wxPGMultiButton *) 0 ;
+  wxBitmap *arg2 = 0 ;
+  int arg3 = (int) -2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "bitmap",(char *) "id", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:PGMultiButton_AddBitmapButton",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPGMultiButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGMultiButton_AddBitmapButton" "', expected argument " "1"" of type '" "wxPGMultiButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGMultiButton * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PGMultiButton_AddBitmapButton" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PGMultiButton_AddBitmapButton" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PGMultiButton_AddBitmapButton" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxPGMultiButton_AddBitmapButton(arg1,(wxBitmap const &)*arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -46030,12 +46113,14 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PGEditorDialogAdapter_m_clientData_get", (PyCFunction)_wrap_PGEditorDialogAdapter_m_clientData_get, METH_O, NULL},
 	 { (char *)"PGEditorDialogAdapter_swigregister", PGEditorDialogAdapter_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_PGMultiButton", (PyCFunction) _wrap_new_PGMultiButton, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_PGMultiButton", (PyCFunction)_wrap_delete_PGMultiButton, METH_O, NULL},
 	 { (char *)"PGMultiButton_GetButton", _wrap_PGMultiButton_GetButton, METH_VARARGS, NULL},
 	 { (char *)"PGMultiButton_GetButtonId", (PyCFunction) _wrap_PGMultiButton_GetButtonId, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGMultiButton_GetCount", (PyCFunction)_wrap_PGMultiButton_GetCount, METH_O, NULL},
 	 { (char *)"PGMultiButton_Add", (PyCFunction) _wrap_PGMultiButton_Add, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGMultiButton_GetPrimarySize", (PyCFunction)_wrap_PGMultiButton_GetPrimarySize, METH_O, NULL},
 	 { (char *)"PGMultiButton_Finalize", (PyCFunction) _wrap_PGMultiButton_Finalize, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PGMultiButton_AddBitmapButton", (PyCFunction) _wrap_PGMultiButton_AddBitmapButton, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGMultiButton_swigregister", PGMultiButton_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PGMultiButton_swiginit", PGMultiButton_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_StringProperty", (PyCFunction) _wrap_new_StringProperty, METH_VARARGS | METH_KEYWORDS, NULL},

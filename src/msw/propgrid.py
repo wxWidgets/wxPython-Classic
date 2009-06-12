@@ -2407,6 +2407,8 @@ class PGMultiButton(_core.Window):
     def __init__(self, *args, **kwargs): 
         """__init__(self, PropertyGrid pg, Size sz) -> PGMultiButton"""
         _propgrid.PGMultiButton_swiginit(self,_propgrid.new_PGMultiButton(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_PGMultiButton
+    __del__ = lambda self : None;
     def GetButton(*args):
         """
         GetButton(self, int i) -> Window
@@ -2433,6 +2435,13 @@ class PGMultiButton(_core.Window):
     def Finalize(*args, **kwargs):
         """Finalize(self, PropertyGrid propGrid, Point pos)"""
         return _propgrid.PGMultiButton_Finalize(*args, **kwargs)
+
+    def AddBitmapButton(*args, **kwargs):
+        """AddBitmapButton(self, Bitmap bitmap, int id=-2)"""
+        return _propgrid.PGMultiButton_AddBitmapButton(*args, **kwargs)
+
+    def AddButton(self, *args, **kwargs):
+        return self.Add(*args, **kwargs)
 
 _propgrid.PGMultiButton_swigregister(PGMultiButton)
 

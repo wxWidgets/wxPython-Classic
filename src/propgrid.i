@@ -1217,6 +1217,17 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
     }
 }
 
+%extend wxPGMultiButton {
+    void AddBitmapButton( const wxBitmap& bitmap, int id = -2 )
+    {
+        return self->Add(bitmap, id);
+    }
+    %pythoncode {
+        def AddButton(self, *args, **kwargs):
+            return self.Add(*args, **kwargs)
+    }
+}
+
 %{
 // We need these proxies or SWIG will fail (it has somewhat incomplete
 // C++ syntax support, it seems).
