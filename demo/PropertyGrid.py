@@ -140,21 +140,6 @@ class SizeProperty(wxpg.PyProperty):
         return size
 
 
-class PyObjectPropertyValue:
-    """\
-    Value type of our sample PyObjectProperty. We keep a simple dash-delimited
-    list of string given as argument to constructor.
-    """
-    def __init__(self, s=None):
-        try:
-            self.ls = [a.strip() for a in s.split('-')]
-        except:
-            self.ls = []
-
-    def __repr__(self):
-        return ' - '.join(self.ls)
-
-
 class DirsProperty(wxpg.PyArrayStringProperty):
     """ Sample of a custom custom ArrayStringProperty.
 
@@ -237,12 +222,29 @@ class DirsProperty(wxpg.PyArrayStringProperty):
         return False
 
 
+class PyObjectPropertyValue:
+    """\
+    Value type of our sample PyObjectProperty. We keep a simple dash-delimited
+    list of string given as argument to constructor.
+    """
+    def __init__(self, s=None):
+        try:
+            self.ls = [a.strip() for a in s.split('-')]
+        except:
+            self.ls = []
+
+    def __repr__(self):
+        return ' - '.join(self.ls)
+
+
 class PyObjectProperty(wxpg.PyProperty):
     """\
-    Another simple example. This time our value is a PyObject (NOTE: we can't
-    return an arbitrary python object in DoGetValue. It cannot be a simple
-    type such as int, bool, double, or string, nor an array or wxObject based.
-    Dictionary, None, or any user-specified Python object is allowed).
+    Another simple example. This time our value is a PyObject.
+
+    NOTE: We can't return an arbitrary python object in DoGetValue. It cannot
+          be a simple type such as int, bool, double, or string, nor an array
+          or wxObject based. Dictionary, None, or any user-specified Python
+          class is allowed.
     """
     def __init__(self, label, name = wxpg.LABEL_AS_NAME, value=None):
         wxpg.PyProperty.__init__(self, label, name)
@@ -257,7 +259,7 @@ class PyObjectProperty(wxpg.PyProperty):
     def ValueToString(self, value, flags):
         return repr(value)
 
-    def PyStringToValue(self, s, flags):
+    def StringToValue(self, s, flags):
         return PyObjectPropertyValue(s)
 
 
@@ -371,7 +373,7 @@ class TestPanel( wx.Panel ):
         pg.Append( IntProperty2("IntProperty2", value=1024) )
 
         #pg.Append( ShapeProperty("ShapeProperty", value=0) )
-        #pg.Append( PyObjectProperty("PyObjectProperty") )
+        pg.Append( PyObjectProperty("PyObjectProperty") )
 
         #pg.Append( wxpg.ImageFileProperty("ImageFileWithLargeEditor") )
         #pg.SetPropertyEditor("ImageFileWithLargeEditor", "LargeImageEditor")
