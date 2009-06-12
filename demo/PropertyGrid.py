@@ -360,9 +360,6 @@ class TestPanel( wx.Panel ):
         # Test another type of delimiter
         pg.SetPropertyAttribute("Dirs2", "Delimiter", '"')
 
-        #pg.SetPropertyHelpString( "String", "String Property help string!" )
-        #pg.SetPropertyHelpString( "Dirs", "Dirs Property help string!" )
-
         pg.SetPropertyAttribute( "File", wxpg.PG_FILE_SHOW_FULL_PATH, 0 )
         pg.SetPropertyAttribute( "File", wxpg.PG_FILE_INITIAL_PATH,
                                  "C:\\Program Files\\Internet Explorer" )
@@ -372,11 +369,7 @@ class TestPanel( wx.Panel ):
         pg.Append( wxpg.PropertyCategory("5 - Custom Properties") )
         pg.Append( IntProperty2("IntProperty2", value=1024) )
 
-        #pg.Append( ShapeProperty("ShapeProperty", value=0) )
         pg.Append( PyObjectProperty("PyObjectProperty") )
-
-        #pg.Append( wxpg.ImageFileProperty("ImageFileWithLargeEditor") )
-        #pg.SetPropertyEditor("ImageFileWithLargeEditor", "LargeImageEditor")
 
         # When page is added, it will become the target page for AutoFill
         # calls (and for other property insertion methods as well)
@@ -606,7 +599,8 @@ def runTest( frame, nb, log ):
 overview = """\
 <html><body>
 <P>
-This demo shows basic wxPropertyGrid properties and operation.
+This demo shows all basic wxPropertyGrid properties, in addition to
+some custom property classes.
 </body></html>
 """
 
