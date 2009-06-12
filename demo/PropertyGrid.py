@@ -299,30 +299,37 @@ class SampleMultiButtonEditor(wxpg.PyTextCtrlEditor):
             buttons = wxpg.PGMultiButton(propGrid, sz)
 
             # Add two regular buttons
-            buttons.Add("...");
-            buttons.Add("A");
+            buttons.AddButton("...");
+            buttons.AddButton("A");
             # Add a bitmap button
-            buttons.Add(wx.ArtProvider.GetBitmap(wx.ART_FOLDER));
+            buttons.AddBitmapButton(wx.ArtProvider.GetBitmap(wx.ART_FOLDER));
 
             # Create the 'primary' editor control (textctrl in this case)
-            wnds = self.CallSuperMethod("CreateControls",
-                                        propGrid,
-                                        property,
-                                        pos,
-                                        buttons.GetPrimarySize())
+            wnd = self.CallSuperMethod("CreateControls",
+                                       propGrid,
+                                       property,
+                                       pos,
+                                       buttons.GetPrimarySize())
 
             # Finally, move buttons-subwindow to correct position and make sure
             # returned wxPGWindowList contains our custom button list.
             buttons.Finalize(propGrid, pos);
 
-            return (wnds[0], buttons)
+            # We must maintain a reference to any editor objects we created
+            # ourselves. Otherwise they might be freed prematurely. Also,
+            # we need it in OnEvent() below, because in Python we cannot "cast"
+            # result of wxPropertyGrid.GetEditorControlSecondary() into
+            # PGMultiButton instance.
+            self.buttons = buttons
+
+            return (wnd, buttons)
         except:
             import traceback
             print traceback.print_exc()
 
-    def OnEvent(self, propgrid, ctrl, event):
+    def OnEvent(self, propGrid, prop, ctrl, event):
         if event.GetEventType() == wx.wxEVT_COMMAND_BUTTON_CLICKED:
-            buttons = propGrid.GetEditorControlSecondary()
+            buttons = self.buttons
             evtId = event.GetId()
 
             if evtId == buttons.GetButtonId(0):
@@ -338,7 +345,7 @@ class SampleMultiButtonEditor(wxpg.PyTextCtrlEditor):
                 wx.MessageBox("Third button pressed");
                 return False  # Return false since value did not change
 
-        return self.CallSuperMethod("OnEvent", propgrid, ctrl, event)
+        return self.CallSuperMethod("OnEvent", propGrid, prop, ctrl, event)
 
 
 ############################################################################
