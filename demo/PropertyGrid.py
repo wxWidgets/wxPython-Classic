@@ -375,23 +375,6 @@ class TestPanel( wx.Panel ):
         # calls (and for other property insertion methods as well)
         pg.AddPage( "Page 2 - Results of AutoFill will appear here" )
 
-        pg.SetPropertyClientData( "Bool", 1234 )
-        if pg.GetPropertyClientData( "Bool" ) != 1234:
-            raise ValueError("Set/GetPropertyClientData() failed")
-
-        # Test setting unicode string
-        pg.GetPropertyByName("String").SetValue(u"Some Unicode Text")
-
-        #
-        # Test some code that *should* fail (but not crash)
-        try:
-            if wx.GetApp().GetAssertionMode() == wx.PYAPP_ASSERT_EXCEPTION:
-                a_ = pg.GetPropertyValue( "NotARealProperty" )
-                pg.EnableProperty( "NotAtAllRealProperty", False )
-                pg.SetPropertyHelpString( "AgaintNotARealProperty", "Dummy Help String" )
-        except:
-            pass
-            #raise
         topsizer.Add(pg, 1, wx.EXPAND)
 
         rowsizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -540,19 +523,42 @@ class TestPanel( wx.Panel ):
 
     def RunTests(self, event):
         pg = self.pg
+        log = self.log
+
+        # Validate client data
+        log.write('Testing client data set/get')
+        pg.SetPropertyClientData( "Bool", 1234 )
+        if pg.GetPropertyClientData( "Bool" ) != 1234:
+            raise ValueError("Set/GetPropertyClientData() failed")
+
+        # Test setting unicode string
+        log.write('Testing setting an unicode string value')
+        pg.GetPropertyByName("String").SetValue(u"Some Unicode Text")
+
+        #
+        # Test some code that *should* fail (but not crash)
+        try:
+            if wx.GetApp().GetAssertionMode() == wx.PYAPP_ASSERT_EXCEPTION:
+                log.write('Testing exception handling compliancy')
+                a_ = pg.GetPropertyValue( "NotARealProperty" )
+                pg.EnableProperty( "NotAtAllRealProperty", False )
+                pg.SetPropertyHelpString("AgaintNotARealProperty",
+                                         "Dummy Help String" )
+        except:
+            pass
 
         # Iterator
 
         it = pg.GetPage(0).GetIterator(wxpg.PG_ITERATE_ALL)
         while not it.AtEnd():
-            self.log.write('Iterating \'%s\'\n' % (it.GetProperty().GetName()))
+            log.write('Iterating \'%s\'\n' % (it.GetProperty().GetName()))
             it.Next()
 
         # VIterator
 
         it = pg.GetVIterator(wxpg.PG_ITERATE_ALL)
         while not it.AtEnd():
-            self.log.write('Iterating \'%s\'\n' % (it.GetProperty().GetName()))
+            log.write('Iterating \'%s\'\n' % (it.GetProperty().GetName()))
             it.Next()
 
 
