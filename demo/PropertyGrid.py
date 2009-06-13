@@ -474,11 +474,6 @@ class TestPanel( wx.Panel ):
         #pg.Append( wxpg.FontDataProperty("FontData") )
         pg.Append( wxpg.IntProperty("IntWithSpin",value=256) )
         pg.SetPropertyEditor("IntWithSpin","SpinCtrl")
-        pg.Append( DirsProperty("Dirs1",value=['C:/Lib','C:/Bin']) )
-        pg.Append( DirsProperty("Dirs2",value=['/lib','/bin']) )
-
-        # Test another type of delimiter
-        pg.SetPropertyAttribute("Dirs2", "Delimiter", '"')
 
         pg.SetPropertyAttribute( "File", wxpg.PG_FILE_SHOW_FULL_PATH, 0 )
         pg.SetPropertyAttribute( "File", wxpg.PG_FILE_INITIAL_PATH,
@@ -490,6 +485,12 @@ class TestPanel( wx.Panel ):
         pg.Append( IntProperty2("IntProperty2", value=1024) )
 
         pg.Append( PyObjectProperty("PyObjectProperty") )
+
+        pg.Append( DirsProperty("Dirs1",value=['C:/Lib','C:/Bin']) )
+        pg.Append( DirsProperty("Dirs2",value=['/lib','/bin']) )
+
+        # Test another type of delimiter
+        pg.SetPropertyAttribute("Dirs2", "Delimiter", '"')
 
         # SampleMultiButtonEditor
         # NOTE: Editor must be registered *before* adding a property that uses
