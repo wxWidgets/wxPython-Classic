@@ -344,6 +344,45 @@ class SampleMultiButtonEditor(wxpg.PyTextCtrlEditor):
         return self.CallSuperMethod("OnEvent", propGrid, prop, ctrl, event)
 
 
+class SingleChoiceDialogAdapter(wxpg.PyEditorDialogAdapter):
+    """ This demonstrates use of wxpg.PyEditorDialogAdapter.
+    """
+    def __init__(self, choices):
+        wxpg.PyEditorDialogAdapter.__init__(self)
+        self.choices = choices
+
+    def DoShowDialog(self, propGrid, property):
+        s = wx.GetSingleChoice("Message", "Caption", self.choices)
+
+        if s:
+            self.SetValue(s)
+            return True
+
+        return False;
+
+
+class SingleChoiceProperty(wxpg.PyStringProperty):
+    def __init__(self, label, name=wxpg.LABEL_AS_NAME, value=''):
+        wxpg.PyStringProperty.__init__(self, label, name, value)
+
+        # Prepare choices
+        dialog_choices = []
+        dialog_choices.append("Cat");
+        dialog_choices.append("Dog");
+        dialog_choices.append("Gibbon");
+        dialog_choices.append("Otter");
+
+        self.dialog_choices = dialog_choices
+
+    def GetEditor(self):
+        # Set editor to have button
+        return "TextCtrlAndButton"
+
+    def GetEditorDialog(self):
+        # Set what happens on button click
+        return SingleChoiceDialogAdapter(self.dialog_choices)
+
+
 ############################################################################
 #
 # MAIN PROPERTY GRID TEST PANEL
@@ -458,6 +497,7 @@ class TestPanel( wx.Panel ):
         pg.RegisterEditor(SampleMultiButtonEditor)
         pg.Append( wxpg.LongStringProperty("MultipleButtons") );
         pg.SetPropertyEditor("MultipleButtons", "SampleMultiButtonEditor");
+        pg.Append( SingleChoiceProperty("SingleChoiceProperty") )
 
         # When page is added, it will become the target page for AutoFill
         # calls (and for other property insertion methods as well)
