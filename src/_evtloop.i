@@ -140,7 +140,7 @@ public:
 class wxEventLoopActivator
 {
 public:
-    wxEventLoopActivator(wxEventLoop *evtLoop);
+    wxEventLoopActivator(wxEventLoopBase *evtLoop);
     ~wxEventLoopActivator();
 };
  
