@@ -473,7 +473,10 @@ class pdcDrawSplineOp : public pdcOp
         {
             int i;
             for(i=0; i<m_n; i++)
-                m_points[i].x+=dx; m_points[i].y+=dy;
+            {
+                m_points[i].x += dx;
+                m_points[i].y += dy;
+            }
         }
     protected:
         wxPoint *m_points;
