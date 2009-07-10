@@ -112,6 +112,11 @@ class IntValidator( wx.PyValidator ):
         key = event.GetKeyCode()
         ctrl = event.GetEventObject()
 
+        if 'wxMac' in wx.PlatformInfo:
+            if event.CmdDown() and key == ord('c'):
+                key = WXK_CTRL_C
+            elif event.CmdDown() and key == ord('v'):
+                key = WXK_CTRL_V
 
         value = ctrl.GetValue()
         textval = wx.TextCtrl.GetValue(ctrl)
