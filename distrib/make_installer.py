@@ -150,6 +150,7 @@ Source: "wx\tools\Editra\locale\de_DE\LC_MESSAGES\*.mo";     DestDir: "{app}\%(P
 Source: "wx\tools\Editra\locale\en_US\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\en_US\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\es_ES\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\es_ES\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\fr_FR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\fr_FR\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\hr_HR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\hr_HR\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\it_IT\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\it_IT\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\ja_JP\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ja_JP\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\lv_LV\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\lv_LV\LC_MESSAGES"; Components: core

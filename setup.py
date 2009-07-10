@@ -883,6 +883,7 @@ WX_PKGLIST =      [ 'wx',
                     'wx.tools.Editra.src',
                     'wx.tools.Editra.src.autocomp',
                     'wx.tools.Editra.src.eclib',
+                    'wx.tools.Editra.src.ebmlib',
                     'wx.tools.Editra.src.extern',
                     'wx.tools.Editra.src.syntax',
                     ]
