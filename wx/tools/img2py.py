@@ -117,7 +117,7 @@ def convert(fileName, maskClr, outputDir, outputName, outType, outExt):
         else:
             newname = os.path.join(outputDir,
                                    os.path.basename(os.path.splitext(fileName)[0]) + outExt)
-        file(newname, "wb").write(file(fileName).read())
+        file(newname, "wb").write(file(fileName, "rb").read())
         return 1, "ok"
   
     else:
