@@ -14,6 +14,7 @@ from wx import stc
 import keyword
 import os
 import sys
+import re
 import time
 
 from buffer import Buffer
@@ -30,6 +31,7 @@ sys.ps3 = '<-- '  # Input prompt.
 NAVKEYS = (wx.WXK_END, wx.WXK_LEFT, wx.WXK_RIGHT,
            wx.WXK_UP, wx.WXK_DOWN, wx.WXK_PRIOR, wx.WXK_NEXT)
 
+RE_INDENT_LINE = re.compile(r"(\>\>\>)*\s*(if|else|elif|for|while|def|class)\s+.*\:$")
 
 class ShellFrame(frame.Frame, frame.ShellFrameMixin):
     """Frame containing the shell component."""
@@ -973,12 +975,14 @@ Platform: %s""" % \
             prompt = str(sys.ps2)
         else:
             prompt = str(sys.ps1)
+
         pos = self.GetCurLine()[1]
         if pos > 0:
             if isreading:
                 skip = True
             else:
                 self.write(os.linesep)
+
         if not self.more:
             self.promptPosStart = self.GetCurrentPos()
         if not skip:
@@ -987,9 +991,16 @@ Platform: %s""" % \
             self.promptPosEnd = self.GetCurrentPos()
             # Keep the undo feature from undoing previous responses.
             self.EmptyUndoBuffer()
-        # XXX Add some autoindent magic here if more.
+
+        # Autoindent the line
         if self.more:
-            self.write(' '*4)  # Temporary hack indentation.
+            text = self.GetLine(self.GetCurrentLine() - 1)
+            text = text.replace(prompt, "", 1)
+            indent = "    " * ((len(text) - len(text.lstrip())) / 4)
+            if RE_INDENT_LINE.match(text):
+                indent += "    "
+            self.write(indent)
+
         self.EnsureCaretVisible()
         self.ScrollToColumn(0)
 
