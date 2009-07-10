@@ -70,6 +70,7 @@ class ExpandoTextCtrl(wx.TextCtrl):
             wx.CallAfter(self._adjustCtrl)
                         
         self.Bind(wx.EVT_TEXT, self.OnTextChanged)
+        self.Bind(wx.EVT_SIZE, self.OnSize)
 
 
     def SetMaxHeight(self, h):
@@ -111,6 +112,12 @@ class ExpandoTextCtrl(wx.TextCtrl):
         self._adjustCtrl()
         evt.Skip()
         
+
+    def OnSize(self, evt):
+        # The number of lines needed can change when the ctrl is resized too.
+        self._adjustCtrl()
+        evt.Skip()
+
 
     def _adjustCtrl(self):
         # if the current number of lines is different than before
