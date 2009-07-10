@@ -312,6 +312,8 @@ public :
     virtual wxGraphicsBrush CreateRadialGradientBrush(wxDouble , wxDouble , wxDouble , wxDouble , wxDouble ,
                                                       const wxColour &, const wxColour &)  { return wxNullGraphicsBrush; }
     virtual wxGraphicsFont CreateFont( const wxFont & , const wxColour & ) { return wxNullGraphicsFont; }
+    wxGraphicsBitmap CreateBitmap( const wxBitmap &bitmap ) const { return wxNullGraphicsBitmap; }
+    
 };
 
 
