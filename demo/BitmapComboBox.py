@@ -11,17 +11,19 @@ class TestPanel(wx.Panel):
         self.log = log
         wx.Panel.__init__(self, parent, -1)
 
-        bcb = wx.combo.BitmapComboBox(self, pos=(25,25), size=(200,-1))
+        bcb1 = wx.combo.BitmapComboBox(self, pos=(25,25), size=(200,-1))
+        bcb2 = wx.combo.BitmapComboBox(self, pos=(250,25), size=(200,-1))
 
-        for x in range(12):
-            name = 'LB%02d' % (x+1)
-            obj = getattr(images, name)
-            img = obj.GetImage()
-            img.Rescale(20,20)
-            bmp = img.ConvertToBitmap()
-            bcb.Append('images.%s' % name, bmp, name)
+        for bcb in [bcb1, bcb2]:
+            for x in range(12):
+                name = 'LB%02d' % (x+1)
+                obj = getattr(images, name)
+                img = obj.GetImage()
+                img.Rescale(20,20)
+                bmp = img.ConvertToBitmap()
+                bcb.Append('images.%s' % name, bmp, name)
+            self.Bind(wx.EVT_COMBOBOX, self.OnCombo, bcb)
 
-        self.Bind(wx.EVT_COMBOBOX, self.OnCombo, bcb)
 
     def OnCombo(self, evt):
         bcb = evt.GetEventObject()
