@@ -82,7 +82,7 @@ class DataViewItem(object):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, void id=None) -> DataViewItem
+        __init__(self, PyLong ID=0) -> DataViewItem
 
         wxDataViewItem is a small opaque class that represents an item in a
         `DataViewCtrl` in a persistent way, i.e. indepent of the position of
@@ -104,14 +104,12 @@ class DataViewItem(object):
         """
         return _dataview.DataViewItem_IsOk(*args, **kwargs)
 
+    def __nonzero__(self): return self.IsOk() 
     def GetID(*args, **kwargs):
-        """
-        GetID(self) -> void
-
-        Get the opaque value of the ID object.
-        """
+        """GetID(self) -> PyLong"""
         return _dataview.DataViewItem_GetID(*args, **kwargs)
 
+    ID = property(GetID) 
     def __hash__(*args, **kwargs):
         """__hash__(self) -> long"""
         return _dataview.DataViewItem___hash__(*args, **kwargs)
@@ -160,11 +158,20 @@ class DataViewItemArray(object):
         """__iter__(self) -> DataViewItemArray_iterator"""
         return _dataview.DataViewItemArray___iter__(*args, **kwargs)
 
+    def append(*args, **kwargs):
+        """append(self, DataViewItem object)"""
+        return _dataview.DataViewItemArray_append(*args, **kwargs)
+
+    def insert(*args, **kwargs):
+        """insert(self, size_t index, DataViewItem object)"""
+        return _dataview.DataViewItemArray_insert(*args, **kwargs)
+
     def __repr__(self):
         return "wxDataViewItemArray: " + repr(list(self))
 
 _dataview.DataViewItemArray_swigregister(DataViewItemArray)
 
+NullDataViewItem = DataViewItem() 
 #---------------------------------------------------------------------------
 
 class DataViewModelNotifier(object):
@@ -424,8 +431,8 @@ class DataViewModel(_core.ObjectRefData):
         GetColumnType(self, unsigned int col) -> String
 
         Override this to indicate what type of data is stored in the column
-        specified by col. This should return a string indicating the type name of
-        data type, as used by wxVariant.
+        specified by col. This should return a string indicating the type name of the
+        data type of the column, as used by wxVariant.
         """
         return _dataview.DataViewModel_GetColumnType(*args, **kwargs)
 
@@ -622,6 +629,60 @@ class DataViewModel(_core.ObjectRefData):
 
 _dataview.DataViewModel_swigregister(DataViewModel)
 
+class DataViewItemObjectMapper(object):
+    """
+    This class provides a mechanism for mapping between Python objects and the
+    DataViewItem objects used by the DataViewModel for tacking the items in
+    the view. The ID used for the item is the id() of the Python object. Use
+    `ObjectToItem` to create a DataViewItem using a Python object as its ID,
+    and use `ItemToObject` to fetch that Python object again later for a give
+    DataViewItem.
+    
+    By default a regular dictionary is used to implement the ID to object
+    mapping. Optionally a WeakValueDictionary can be useful when there will be
+    a high turnover of objects and mantaining an extra reference to the
+    objects would be unwise.  If weak references are used then the objects
+    associated with data items must be weak-referenceable.  (Things like
+    stock lists and dictionaries are not.)  See `UseWeakRefs`.
+    
+    Each `PyDataViewModel` has an instance of this class named objmapper.
+    """
+    def __init__(self):
+        self.mapper = dict()
+        self.usingWeakRefs = False
+        
+    def ObjectToItem(self, obj):
+        """
+        Create a DataViewItem for the object, and remember the ID-->obj mapping.
+        """
+        oid = id(obj)
+        self.mapper[oid] = obj
+        return DataViewItem(oid)
+
+    def ItemToObject(self, item):
+        """
+        Retrieve the object that was used to create an item.
+        """
+        oid = item.GetID()
+        return self.mapper[oid]
+
+    def UseWeakRefs(self, flag):
+        """
+        Switch to or from using a weak value dictionary for keeping the ID to
+        object map.
+        """
+        if flag == self.usingWeakRefs:
+            return
+        if flag:
+            import weakref
+            newmap = weakref.WeakValueDictionary()
+        else:
+            newmap = dict()
+        newmap.update(self.mapper)
+        self.mapper = newmap
+        self.usingWeakRefs = flag
+        
+
 class PyDataViewModel(DataViewModel):
     """
     This class is a version of `DataViewModel` that has been
@@ -641,11 +702,20 @@ class PyDataViewModel(DataViewModel):
         class instead of `DataViewModel`.
         """
         _dataview.PyDataViewModel_swiginit(self,_dataview.new_PyDataViewModel(*args, **kwargs))
-        PyDataViewModel._setCallbackInfo(self, self, PyDataViewModel)
+        PyDataViewModel._setCallbackInfo(self, self, PyDataViewModel); self.objmapper = DataViewItemObjectMapper()
+
 
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
         return _dataview.PyDataViewModel__setCallbackInfo(*args, **kwargs)
+
+    def ObjectToItem(self, obj):
+        "Convenience access to DataViewItemObjectMapper.ObjectToItem."
+        return self.objmapper.ObjectToItem(obj)
+
+    def ItemToObject(self, item):
+        "Convenience access to DataViewItemObjectMapper.ItemToObject."
+        return self.objmapper.ItemToObject(item)
 
 _dataview.PyDataViewModel_swigregister(PyDataViewModel)
 
@@ -1339,7 +1409,7 @@ DATAVIEW_COL_RESIZABLE = _dataview.DATAVIEW_COL_RESIZABLE
 DATAVIEW_COL_SORTABLE = _dataview.DATAVIEW_COL_SORTABLE
 DATAVIEW_COL_REORDERABLE = _dataview.DATAVIEW_COL_REORDERABLE
 DATAVIEW_COL_HIDDEN = _dataview.DATAVIEW_COL_HIDDEN
-class DataViewColumn(_core.Object):
+class DataViewColumn(_core.SettableHeaderColumn):
     """Proxy of C++ DataViewColumn class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -1350,99 +1420,9 @@ class DataViewColumn(_core.Object):
             int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
         """
         _dataview.DataViewColumn_swiginit(self,_dataview.new_DataViewColumn(*args, **kwargs))
-    __swig_destroy__ = _dataview.delete_DataViewColumn
-    __del__ = lambda self : None;
-    def SetTitle(*args, **kwargs):
-        """SetTitle(self, String title)"""
-        return _dataview.DataViewColumn_SetTitle(*args, **kwargs)
-
-    def SetAlignment(*args, **kwargs):
-        """SetAlignment(self, int align)"""
-        return _dataview.DataViewColumn_SetAlignment(*args, **kwargs)
-
-    def SetSortable(*args, **kwargs):
-        """SetSortable(self, bool sortable)"""
-        return _dataview.DataViewColumn_SetSortable(*args, **kwargs)
-
-    def SetReorderable(*args, **kwargs):
-        """SetReorderable(self, bool reorderable)"""
-        return _dataview.DataViewColumn_SetReorderable(*args, **kwargs)
-
-    def SetResizeable(*args, **kwargs):
-        """SetResizeable(self, bool resizeable)"""
-        return _dataview.DataViewColumn_SetResizeable(*args, **kwargs)
-
-    def SetHidden(*args, **kwargs):
-        """SetHidden(self, bool hidden)"""
-        return _dataview.DataViewColumn_SetHidden(*args, **kwargs)
-
-    def SetSortOrder(*args, **kwargs):
-        """SetSortOrder(self, bool ascending)"""
-        return _dataview.DataViewColumn_SetSortOrder(*args, **kwargs)
-
-    def SetFlags(*args, **kwargs):
-        """SetFlags(self, int flags)"""
-        return _dataview.DataViewColumn_SetFlags(*args, **kwargs)
-
     def SetOwner(*args, **kwargs):
         """SetOwner(self, DataViewCtrl owner)"""
         return _dataview.DataViewColumn_SetOwner(*args, **kwargs)
-
-    def SetBitmap(*args, **kwargs):
-        """SetBitmap(self, Bitmap bitmap)"""
-        return _dataview.DataViewColumn_SetBitmap(*args, **kwargs)
-
-    def SetMinWidth(*args, **kwargs):
-        """SetMinWidth(self, int minWidth)"""
-        return _dataview.DataViewColumn_SetMinWidth(*args, **kwargs)
-
-    def SetWidth(*args, **kwargs):
-        """SetWidth(self, int width)"""
-        return _dataview.DataViewColumn_SetWidth(*args, **kwargs)
-
-    def GetTitle(*args, **kwargs):
-        """GetTitle(self) -> String"""
-        return _dataview.DataViewColumn_GetTitle(*args, **kwargs)
-
-    def GetAlignment(*args, **kwargs):
-        """GetAlignment(self) -> int"""
-        return _dataview.DataViewColumn_GetAlignment(*args, **kwargs)
-
-    def GetWidth(*args, **kwargs):
-        """GetWidth(self) -> int"""
-        return _dataview.DataViewColumn_GetWidth(*args, **kwargs)
-
-    def GetMinWidth(*args, **kwargs):
-        """GetMinWidth(self) -> int"""
-        return _dataview.DataViewColumn_GetMinWidth(*args, **kwargs)
-
-    def GetFlags(*args, **kwargs):
-        """GetFlags(self) -> int"""
-        return _dataview.DataViewColumn_GetFlags(*args, **kwargs)
-
-    def IsHidden(*args, **kwargs):
-        """IsHidden(self) -> bool"""
-        return _dataview.DataViewColumn_IsHidden(*args, **kwargs)
-
-    def IsReorderable(*args, **kwargs):
-        """IsReorderable(self) -> bool"""
-        return _dataview.DataViewColumn_IsReorderable(*args, **kwargs)
-
-    def IsResizeable(*args, **kwargs):
-        """IsResizeable(self) -> bool"""
-        return _dataview.DataViewColumn_IsResizeable(*args, **kwargs)
-
-    def IsSortable(*args, **kwargs):
-        """IsSortable(self) -> bool"""
-        return _dataview.DataViewColumn_IsSortable(*args, **kwargs)
-
-    def IsSortOrderAscending(*args, **kwargs):
-        """IsSortOrderAscending(self) -> bool"""
-        return _dataview.DataViewColumn_IsSortOrderAscending(*args, **kwargs)
-
-    def GetBitmap(*args, **kwargs):
-        """GetBitmap(self) -> Bitmap"""
-        return _dataview.DataViewColumn_GetBitmap(*args, **kwargs)
 
     def GetModelColumn(*args, **kwargs):
         """GetModelColumn(self) -> unsigned int"""
@@ -1456,17 +1436,6 @@ class DataViewColumn(_core.Object):
         """GetRenderer(self) -> DataViewRenderer"""
         return _dataview.DataViewColumn_GetRenderer(*args, **kwargs)
 
-    Title = property(GetTitle,SetTitle) 
-    Alignment = property(GetAlignment,SetAlignment) 
-    Width = property(GetWidth,SetWidth) 
-    MinWidth = property(GetMinWidth,SetMinWidth) 
-    Flags = property(GetFlags,SetFlags) 
-    Hidden = property(IsHidden,SetHidden) 
-    Reorderable = property(IsReorderable,SetReorderable) 
-    Resizeable = property(IsResizeable,SetResizeable) 
-    Sortable = property(IsSortable,SetSortable) 
-    SortOrderAscending = property(IsSortOrderAscending,SetSortOrder) 
-    Bitmap = property(GetBitmap,SetBitmap) 
     ModelColumn = property(GetModelColumn) 
     Owner = property(GetOwner,SetOwner) 
     Renderer = property(GetRenderer) 
@@ -1658,7 +1627,7 @@ class DataViewCtrl(_core.Control):
         return _dataview.DataViewCtrl_GetSelection(*args, **kwargs)
 
     def GetSelections(*args, **kwargs):
-        """GetSelections(self, DataViewItemArray sel) -> int"""
+        """GetSelections(self) -> DataViewItemArray"""
         return _dataview.DataViewCtrl_GetSelections(*args, **kwargs)
 
     def SetSelections(*args, **kwargs):
@@ -1868,6 +1837,513 @@ EVT_DATAVIEW_ITEM_BEGIN_DRAG           = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 EVT_DATAVIEW_ITEM_DROP_POSSIBLE        = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE, 1)      
 EVT_DATAVIEW_ITEM_DROP                 = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_DROP, 1)
 
+
+class DataViewListStore(DataViewIndexListModel):
+    """Proxy of C++ DataViewListStore class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> DataViewListStore"""
+        _dataview.DataViewListStore_swiginit(self,_dataview.new_DataViewListStore(*args, **kwargs))
+_dataview.DataViewListStore_swigregister(DataViewListStore)
+
+class DataViewListCtrl(DataViewCtrl):
+    """Proxy of C++ DataViewListCtrl class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=DV_ROW_LINES, 
+            Validator validator=DefaultValidator) -> DataViewListCtrl
+        """
+        _dataview.DataViewListCtrl_swiginit(self,_dataview.new_DataViewListCtrl(*args, **kwargs))
+        self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=DV_ROW_LINES, 
+            Validator validator=DefaultValidator) -> bool
+
+        Do the 2nd phase and create the GUI control.
+        """
+        return _dataview.DataViewListCtrl_Create(*args, **kwargs)
+
+    def GetStore(*args, **kwargs):
+        """GetStore(self) -> DataViewListStore"""
+        return _dataview.DataViewListCtrl_GetStore(*args, **kwargs)
+
+    def AppendColumn(*args, **kwargs):
+        """AppendColumn(self, DataViewColumn column, String varianttype="string") -> bool"""
+        return _dataview.DataViewListCtrl_AppendColumn(*args, **kwargs)
+
+    def PrependColumn(*args, **kwargs):
+        """PrependColumn(self, DataViewColumn column, String varianttype="string") -> bool"""
+        return _dataview.DataViewListCtrl_PrependColumn(*args, **kwargs)
+
+    def InsertColumn(*args, **kwargs):
+        """InsertColumn(self, unsigned int pos, DataViewColumn column, String varianttype="string") -> bool"""
+        return _dataview.DataViewListCtrl_InsertColumn(*args, **kwargs)
+
+    def AppendTextColumn(*args, **kwargs):
+        """
+        AppendTextColumn(self, String label, int mode=DATAVIEW_CELL_INERT, int width=-1, 
+            int align=ALIGN_LEFT, int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
+        """
+        return _dataview.DataViewListCtrl_AppendTextColumn(*args, **kwargs)
+
+    def AppendToggleColumn(*args, **kwargs):
+        """
+        AppendToggleColumn(self, String label, int mode=DATAVIEW_CELL_ACTIVATABLE, int width=-1, 
+            int align=ALIGN_LEFT, int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
+        """
+        return _dataview.DataViewListCtrl_AppendToggleColumn(*args, **kwargs)
+
+    def AppendProgressColumn(*args, **kwargs):
+        """
+        AppendProgressColumn(self, String label, int mode=DATAVIEW_CELL_INERT, int width=-1, 
+            int align=ALIGN_LEFT, int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
+        """
+        return _dataview.DataViewListCtrl_AppendProgressColumn(*args, **kwargs)
+
+    def AppendIconTextColumn(*args, **kwargs):
+        """
+        AppendIconTextColumn(self, String label, int mode=DATAVIEW_CELL_INERT, int width=-1, 
+            int align=ALIGN_LEFT, int flags=DATAVIEW_COL_RESIZABLE) -> DataViewColumn
+        """
+        return _dataview.DataViewListCtrl_AppendIconTextColumn(*args, **kwargs)
+
+    def AppendItem(*args, **kwargs):
+        """AppendItem(self, wxVariantVector values, wxClientData data=None)"""
+        return _dataview.DataViewListCtrl_AppendItem(*args, **kwargs)
+
+    def PrependItem(*args, **kwargs):
+        """PrependItem(self, wxVariantVector values, wxClientData data=None)"""
+        return _dataview.DataViewListCtrl_PrependItem(*args, **kwargs)
+
+    def InsertItem(*args, **kwargs):
+        """InsertItem(self, unsigned int row, wxVariantVector values, wxClientData data=None)"""
+        return _dataview.DataViewListCtrl_InsertItem(*args, **kwargs)
+
+    def DeleteItem(*args, **kwargs):
+        """DeleteItem(self, unsigned int row)"""
+        return _dataview.DataViewListCtrl_DeleteItem(*args, **kwargs)
+
+    def DeleteAllItems(*args, **kwargs):
+        """DeleteAllItems(self)"""
+        return _dataview.DataViewListCtrl_DeleteAllItems(*args, **kwargs)
+
+    def SetValue(*args, **kwargs):
+        """SetValue(self, wxVariant value, unsigned int row, unsigned int col)"""
+        return _dataview.DataViewListCtrl_SetValue(*args, **kwargs)
+
+    def GetValue(*args, **kwargs):
+        """GetValue(self, unsigned int row, unsigned int col) -> wxVariant"""
+        return _dataview.DataViewListCtrl_GetValue(*args, **kwargs)
+
+    def SetTextValue(*args, **kwargs):
+        """SetTextValue(self, String value, unsigned int row, unsigned int col)"""
+        return _dataview.DataViewListCtrl_SetTextValue(*args, **kwargs)
+
+    def GetTextValue(*args, **kwargs):
+        """GetTextValue(self, unsigned int row, unsigned int col) -> String"""
+        return _dataview.DataViewListCtrl_GetTextValue(*args, **kwargs)
+
+    def SetToggleValue(*args, **kwargs):
+        """SetToggleValue(self, bool value, unsigned int row, unsigned int col)"""
+        return _dataview.DataViewListCtrl_SetToggleValue(*args, **kwargs)
+
+    def GetToggleValue(*args, **kwargs):
+        """GetToggleValue(self, unsigned int row, unsigned int col) -> bool"""
+        return _dataview.DataViewListCtrl_GetToggleValue(*args, **kwargs)
+
+    def GetItemData(*args, **kwargs):
+        """GetItemData(self, unsigned int row) -> PyObject"""
+        return _dataview.DataViewListCtrl_GetItemData(*args, **kwargs)
+
+    def SetItemData(*args, **kwargs):
+        """SetItemData(self, unsigned int row, PyObject data)"""
+        return _dataview.DataViewListCtrl_SetItemData(*args, **kwargs)
+
+_dataview.DataViewListCtrl_swigregister(DataViewListCtrl)
+
+def PreDataViewListCtrl(*args, **kwargs):
+    """PreDataViewListCtrl() -> DataViewListCtrl"""
+    val = _dataview.new_PreDataViewListCtrl(*args, **kwargs)
+    return val
+
+class DataViewTreeStoreNode(object):
+    """Proxy of C++ DataViewTreeStoreNode class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, DataViewTreeStoreNode parent, String text, Icon icon=wxNullIcon, 
+            wxClientData data=None) -> DataViewTreeStoreNode
+        """
+        _dataview.DataViewTreeStoreNode_swiginit(self,_dataview.new_DataViewTreeStoreNode(*args, **kwargs))
+    __swig_destroy__ = _dataview.delete_DataViewTreeStoreNode
+    __del__ = lambda self : None;
+    def SetText(*args, **kwargs):
+        """SetText(self, String text)"""
+        return _dataview.DataViewTreeStoreNode_SetText(*args, **kwargs)
+
+    def GetText(*args, **kwargs):
+        """GetText(self) -> String"""
+        return _dataview.DataViewTreeStoreNode_GetText(*args, **kwargs)
+
+    def SetIcon(*args, **kwargs):
+        """SetIcon(self, Icon icon)"""
+        return _dataview.DataViewTreeStoreNode_SetIcon(*args, **kwargs)
+
+    def GetIcon(*args, **kwargs):
+        """GetIcon(self) -> Icon"""
+        return _dataview.DataViewTreeStoreNode_GetIcon(*args, **kwargs)
+
+    def SetData(*args, **kwargs):
+        """SetData(self, wxClientData data)"""
+        return _dataview.DataViewTreeStoreNode_SetData(*args, **kwargs)
+
+    def GetData(*args, **kwargs):
+        """GetData(self) -> wxClientData"""
+        return _dataview.DataViewTreeStoreNode_GetData(*args, **kwargs)
+
+    def GetItem(*args, **kwargs):
+        """GetItem(self) -> DataViewItem"""
+        return _dataview.DataViewTreeStoreNode_GetItem(*args, **kwargs)
+
+    def IsContainer(*args, **kwargs):
+        """IsContainer(self) -> bool"""
+        return _dataview.DataViewTreeStoreNode_IsContainer(*args, **kwargs)
+
+    def GetParent(*args, **kwargs):
+        """GetParent(self) -> DataViewTreeStoreNode"""
+        return _dataview.DataViewTreeStoreNode_GetParent(*args, **kwargs)
+
+_dataview.DataViewTreeStoreNode_swigregister(DataViewTreeStoreNode)
+
+class DataViewTreeStoreNodeList_iterator(object):
+    """This class serves as an iterator for a wxDataViewTreeStoreNodeList object."""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _dataview.delete_DataViewTreeStoreNodeList_iterator
+    __del__ = lambda self : None;
+    def next(*args, **kwargs):
+        """next(self) -> DataViewTreeStoreNode"""
+        return _dataview.DataViewTreeStoreNodeList_iterator_next(*args, **kwargs)
+
+_dataview.DataViewTreeStoreNodeList_iterator_swigregister(DataViewTreeStoreNodeList_iterator)
+
+class DataViewTreeStoreNodeList(object):
+    """
+    This class wraps a wxList-based class and gives it a Python
+    sequence-like interface.  Sequence operations supported are length,
+    index access and iteration.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _dataview.delete_DataViewTreeStoreNodeList
+    __del__ = lambda self : None;
+    def __len__(*args, **kwargs):
+        """__len__(self) -> size_t"""
+        return _dataview.DataViewTreeStoreNodeList___len__(*args, **kwargs)
+
+    def __getitem__(*args, **kwargs):
+        """__getitem__(self, size_t index) -> DataViewTreeStoreNode"""
+        return _dataview.DataViewTreeStoreNodeList___getitem__(*args, **kwargs)
+
+    def __contains__(*args, **kwargs):
+        """__contains__(self, DataViewTreeStoreNode obj) -> bool"""
+        return _dataview.DataViewTreeStoreNodeList___contains__(*args, **kwargs)
+
+    def __iter__(*args, **kwargs):
+        """__iter__(self) -> DataViewTreeStoreNodeList_iterator"""
+        return _dataview.DataViewTreeStoreNodeList___iter__(*args, **kwargs)
+
+    def index(*args, **kwargs):
+        """index(self, DataViewTreeStoreNode obj) -> int"""
+        return _dataview.DataViewTreeStoreNodeList_index(*args, **kwargs)
+
+    def __repr__(self):
+        return "wxDataViewTreeStoreNodeList: " + repr(list(self))
+
+_dataview.DataViewTreeStoreNodeList_swigregister(DataViewTreeStoreNodeList)
+
+class DataViewTreeStoreContainerNode(DataViewTreeStoreNode):
+    """Proxy of C++ DataViewTreeStoreContainerNode class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, DataViewTreeStoreNode parent, String text, Icon icon=wxNullIcon, 
+            Icon expanded=wxNullIcon, wxClientData data=None) -> DataViewTreeStoreContainerNode
+        """
+        _dataview.DataViewTreeStoreContainerNode_swiginit(self,_dataview.new_DataViewTreeStoreContainerNode(*args, **kwargs))
+    __swig_destroy__ = _dataview.delete_DataViewTreeStoreContainerNode
+    __del__ = lambda self : None;
+    def GetChildren(*args):
+        """
+        GetChildren(self) -> DataViewTreeStoreNodeList
+        GetChildren(self) -> DataViewTreeStoreNodeList
+        """
+        return _dataview.DataViewTreeStoreContainerNode_GetChildren(*args)
+
+    def SetExpandedIcon(*args, **kwargs):
+        """SetExpandedIcon(self, Icon icon)"""
+        return _dataview.DataViewTreeStoreContainerNode_SetExpandedIcon(*args, **kwargs)
+
+    def GetExpandedIcon(*args, **kwargs):
+        """GetExpandedIcon(self) -> Icon"""
+        return _dataview.DataViewTreeStoreContainerNode_GetExpandedIcon(*args, **kwargs)
+
+    def SetExpanded(*args, **kwargs):
+        """SetExpanded(self, bool expanded=True)"""
+        return _dataview.DataViewTreeStoreContainerNode_SetExpanded(*args, **kwargs)
+
+    def IsExpanded(*args, **kwargs):
+        """IsExpanded(self) -> bool"""
+        return _dataview.DataViewTreeStoreContainerNode_IsExpanded(*args, **kwargs)
+
+_dataview.DataViewTreeStoreContainerNode_swigregister(DataViewTreeStoreContainerNode)
+
+class DataViewTreeStore(DataViewModel):
+    """Proxy of C++ DataViewTreeStore class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> DataViewTreeStore"""
+        _dataview.DataViewTreeStore_swiginit(self,_dataview.new_DataViewTreeStore(*args, **kwargs))
+    __swig_destroy__ = _dataview.delete_DataViewTreeStore
+    __del__ = lambda self : None;
+    def AppendItem(*args, **kwargs):
+        """
+        AppendItem(self, DataViewItem parent, String text, Icon icon=wxNullIcon, 
+            wxClientData data=None) -> DataViewItem
+        """
+        return _dataview.DataViewTreeStore_AppendItem(*args, **kwargs)
+
+    def PrependItem(*args, **kwargs):
+        """
+        PrependItem(self, DataViewItem parent, String text, Icon icon=wxNullIcon, 
+            wxClientData data=None) -> DataViewItem
+        """
+        return _dataview.DataViewTreeStore_PrependItem(*args, **kwargs)
+
+    def InsertItem(*args, **kwargs):
+        """
+        InsertItem(self, DataViewItem parent, DataViewItem previous, String text, 
+            Icon icon=wxNullIcon, wxClientData data=None) -> DataViewItem
+        """
+        return _dataview.DataViewTreeStore_InsertItem(*args, **kwargs)
+
+    def PrependContainer(*args, **kwargs):
+        """
+        PrependContainer(self, DataViewItem parent, String text, Icon icon=wxNullIcon, 
+            Icon expanded=wxNullIcon, wxClientData data=None) -> DataViewItem
+        """
+        return _dataview.DataViewTreeStore_PrependContainer(*args, **kwargs)
+
+    def AppendContainer(*args, **kwargs):
+        """
+        AppendContainer(self, DataViewItem parent, String text, Icon icon=wxNullIcon, 
+            Icon expanded=wxNullIcon, wxClientData data=None) -> DataViewItem
+        """
+        return _dataview.DataViewTreeStore_AppendContainer(*args, **kwargs)
+
+    def InsertContainer(*args, **kwargs):
+        """
+        InsertContainer(self, DataViewItem parent, DataViewItem previous, String text, 
+            Icon icon=wxNullIcon, Icon expanded=wxNullIcon, 
+            wxClientData data=None) -> DataViewItem
+        """
+        return _dataview.DataViewTreeStore_InsertContainer(*args, **kwargs)
+
+    def GetNthChild(*args, **kwargs):
+        """GetNthChild(self, DataViewItem parent, unsigned int pos) -> DataViewItem"""
+        return _dataview.DataViewTreeStore_GetNthChild(*args, **kwargs)
+
+    def GetChildCount(*args, **kwargs):
+        """GetChildCount(self, DataViewItem parent) -> int"""
+        return _dataview.DataViewTreeStore_GetChildCount(*args, **kwargs)
+
+    def SetItemText(*args, **kwargs):
+        """SetItemText(self, DataViewItem item, String text)"""
+        return _dataview.DataViewTreeStore_SetItemText(*args, **kwargs)
+
+    def GetItemText(*args, **kwargs):
+        """GetItemText(self, DataViewItem item) -> String"""
+        return _dataview.DataViewTreeStore_GetItemText(*args, **kwargs)
+
+    def SetItemIcon(*args, **kwargs):
+        """SetItemIcon(self, DataViewItem item, Icon icon)"""
+        return _dataview.DataViewTreeStore_SetItemIcon(*args, **kwargs)
+
+    def GetItemIcon(*args, **kwargs):
+        """GetItemIcon(self, DataViewItem item) -> Icon"""
+        return _dataview.DataViewTreeStore_GetItemIcon(*args, **kwargs)
+
+    def SetItemExpandedIcon(*args, **kwargs):
+        """SetItemExpandedIcon(self, DataViewItem item, Icon icon)"""
+        return _dataview.DataViewTreeStore_SetItemExpandedIcon(*args, **kwargs)
+
+    def GetItemExpandedIcon(*args, **kwargs):
+        """GetItemExpandedIcon(self, DataViewItem item) -> Icon"""
+        return _dataview.DataViewTreeStore_GetItemExpandedIcon(*args, **kwargs)
+
+    def SetItemData(*args, **kwargs):
+        """SetItemData(self, DataViewItem item, wxClientData data)"""
+        return _dataview.DataViewTreeStore_SetItemData(*args, **kwargs)
+
+    def GetItemData(*args, **kwargs):
+        """GetItemData(self, DataViewItem item) -> wxClientData"""
+        return _dataview.DataViewTreeStore_GetItemData(*args, **kwargs)
+
+    def DeleteItem(*args, **kwargs):
+        """DeleteItem(self, DataViewItem item)"""
+        return _dataview.DataViewTreeStore_DeleteItem(*args, **kwargs)
+
+    def DeleteChildren(*args, **kwargs):
+        """DeleteChildren(self, DataViewItem item)"""
+        return _dataview.DataViewTreeStore_DeleteChildren(*args, **kwargs)
+
+    def DeleteAllItems(*args, **kwargs):
+        """DeleteAllItems(self)"""
+        return _dataview.DataViewTreeStore_DeleteAllItems(*args, **kwargs)
+
+_dataview.DataViewTreeStore_swigregister(DataViewTreeStore)
+
+class DataViewTreeCtrl(DataViewCtrl):
+    """Proxy of C++ DataViewTreeCtrl class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=wxDV_NO_HEADER|wxDV_ROW_LINES, 
+            Validator validator=DefaultValidator) -> DataViewTreeCtrl
+        """
+        _dataview.DataViewTreeCtrl_swiginit(self,_dataview.new_DataViewTreeCtrl(*args, **kwargs))
+        self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=wxDV_NO_HEADER|wxDV_ROW_LINES, 
+            Validator validator=DefaultValidator) -> bool
+
+        Do the 2nd phase and create the GUI control.
+        """
+        return _dataview.DataViewTreeCtrl_Create(*args, **kwargs)
+
+    def GetStore(*args, **kwargs):
+        """GetStore(self) -> DataViewTreeStore"""
+        return _dataview.DataViewTreeCtrl_GetStore(*args, **kwargs)
+
+    def SetImageList(*args, **kwargs):
+        """SetImageList(self, ImageList imagelist)"""
+        return _dataview.DataViewTreeCtrl_SetImageList(*args, **kwargs)
+
+    def GetImageList(*args, **kwargs):
+        """GetImageList(self) -> ImageList"""
+        return _dataview.DataViewTreeCtrl_GetImageList(*args, **kwargs)
+
+    def AppendItem(*args, **kwargs):
+        """AppendItem(self, DataViewItem parent, String text, int icon=-1, wxClientData data=None) -> DataViewItem"""
+        return _dataview.DataViewTreeCtrl_AppendItem(*args, **kwargs)
+
+    def PrependItem(*args, **kwargs):
+        """PrependItem(self, DataViewItem parent, String text, int icon=-1, wxClientData data=None) -> DataViewItem"""
+        return _dataview.DataViewTreeCtrl_PrependItem(*args, **kwargs)
+
+    def InsertItem(*args, **kwargs):
+        """
+        InsertItem(self, DataViewItem parent, DataViewItem previous, String text, 
+            int icon=-1, wxClientData data=None) -> DataViewItem
+        """
+        return _dataview.DataViewTreeCtrl_InsertItem(*args, **kwargs)
+
+    def PrependContainer(*args, **kwargs):
+        """
+        PrependContainer(self, DataViewItem parent, String text, int icon=-1, int expanded=-1, 
+            wxClientData data=None) -> DataViewItem
+        """
+        return _dataview.DataViewTreeCtrl_PrependContainer(*args, **kwargs)
+
+    def AppendContainer(*args, **kwargs):
+        """
+        AppendContainer(self, DataViewItem parent, String text, int icon=-1, int expanded=-1, 
+            wxClientData data=None) -> DataViewItem
+        """
+        return _dataview.DataViewTreeCtrl_AppendContainer(*args, **kwargs)
+
+    def InsertContainer(*args, **kwargs):
+        """
+        InsertContainer(self, DataViewItem parent, DataViewItem previous, String text, 
+            int icon=-1, int expanded=-1, wxClientData data=None) -> DataViewItem
+        """
+        return _dataview.DataViewTreeCtrl_InsertContainer(*args, **kwargs)
+
+    def GetNthChild(*args, **kwargs):
+        """GetNthChild(self, DataViewItem parent, unsigned int pos) -> DataViewItem"""
+        return _dataview.DataViewTreeCtrl_GetNthChild(*args, **kwargs)
+
+    def GetChildCount(*args, **kwargs):
+        """GetChildCount(self, DataViewItem parent) -> int"""
+        return _dataview.DataViewTreeCtrl_GetChildCount(*args, **kwargs)
+
+    def SetItemText(*args, **kwargs):
+        """SetItemText(self, DataViewItem item, String text)"""
+        return _dataview.DataViewTreeCtrl_SetItemText(*args, **kwargs)
+
+    def GetItemText(*args, **kwargs):
+        """GetItemText(self, DataViewItem item) -> String"""
+        return _dataview.DataViewTreeCtrl_GetItemText(*args, **kwargs)
+
+    def SetItemIcon(*args, **kwargs):
+        """SetItemIcon(self, DataViewItem item, Icon icon)"""
+        return _dataview.DataViewTreeCtrl_SetItemIcon(*args, **kwargs)
+
+    def GetItemIcon(*args, **kwargs):
+        """GetItemIcon(self, DataViewItem item) -> Icon"""
+        return _dataview.DataViewTreeCtrl_GetItemIcon(*args, **kwargs)
+
+    def SetItemExpandedIcon(*args, **kwargs):
+        """SetItemExpandedIcon(self, DataViewItem item, Icon icon)"""
+        return _dataview.DataViewTreeCtrl_SetItemExpandedIcon(*args, **kwargs)
+
+    def GetItemExpandedIcon(*args, **kwargs):
+        """GetItemExpandedIcon(self, DataViewItem item) -> Icon"""
+        return _dataview.DataViewTreeCtrl_GetItemExpandedIcon(*args, **kwargs)
+
+    def SetItemData(*args, **kwargs):
+        """SetItemData(self, DataViewItem item, wxClientData data)"""
+        return _dataview.DataViewTreeCtrl_SetItemData(*args, **kwargs)
+
+    def GetItemData(*args, **kwargs):
+        """GetItemData(self, DataViewItem item) -> wxClientData"""
+        return _dataview.DataViewTreeCtrl_GetItemData(*args, **kwargs)
+
+    def DeleteItem(*args, **kwargs):
+        """DeleteItem(self, DataViewItem item)"""
+        return _dataview.DataViewTreeCtrl_DeleteItem(*args, **kwargs)
+
+    def DeleteChildren(*args, **kwargs):
+        """DeleteChildren(self, DataViewItem item)"""
+        return _dataview.DataViewTreeCtrl_DeleteChildren(*args, **kwargs)
+
+    def DeleteAllItems(*args, **kwargs):
+        """DeleteAllItems(self)"""
+        return _dataview.DataViewTreeCtrl_DeleteAllItems(*args, **kwargs)
+
+_dataview.DataViewTreeCtrl_swigregister(DataViewTreeCtrl)
+
+def PreDataViewTreeCtrl(*args, **kwargs):
+    """PreDataViewTreeCtrl() -> DataViewTreeCtrl"""
+    val = _dataview.new_PreDataViewTreeCtrl(*args, **kwargs)
+    return val
 
 
 

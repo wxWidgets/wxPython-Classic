@@ -51,6 +51,12 @@ def _swig_setattr_nondynamic_method(set):
     return set_attr
 
 
+#//----------------------------------------------------------------------------
+#// These will be reset when the _wxPySetDictionary is called.  Dummy
+#// values are set here for tools that do static source analysis.
+Platform = ""
+PlatformInfo = ()
+
 #// Give a reference to the dictionary of this module to the C++ extension
 #// code.
 _core_._wxPySetDictionary(vars())
@@ -81,6 +87,7 @@ def _deprecated(callable, msg=None):
 #----------------------------------------------------------------------------
 
 NOT_FOUND = _core_.NOT_FOUND
+NO_LEN = _core_.NO_LEN
 VSCROLL = _core_.VSCROLL
 HSCROLL = _core_.HSCROLL
 CAPTION = _core_.CAPTION
@@ -2424,7 +2431,7 @@ def __wxMemoryFSHandler_AddFile_wxBitmap(*args, **kwargs):
   return _core_.__wxMemoryFSHandler_AddFile_wxBitmap(*args, **kwargs)
 
 def __wxMemoryFSHandler_AddFile_Data(*args, **kwargs):
-  """__wxMemoryFSHandler_AddFile_Data(String filename, PyObject data)"""
+  """__wxMemoryFSHandler_AddFile_Data(String filename, buffer data)"""
   return _core_.__wxMemoryFSHandler_AddFile_Data(*args, **kwargs)
 def MemoryFSHandler_AddFile(filename, dataItem, imgType=-1):
     """
@@ -2438,10 +2445,11 @@ def MemoryFSHandler_AddFile(filename, dataItem, imgType=-1):
         __wxMemoryFSHandler_AddFile_wxImage(filename, dataItem, imgType)
     elif isinstance(dataItem, wx.Bitmap):
         __wxMemoryFSHandler_AddFile_wxBitmap(filename, dataItem, imgType)
-    elif type(dataItem) == str:
-        __wxMemoryFSHandler_AddFile_Data(filename, dataItem)
     else:
-        raise TypeError, 'wx.Image, wx.Bitmap or string expected'
+        try:
+            __wxMemoryFSHandler_AddFile_Data(filename, dataItem)
+        except TypeError:
+            raise TypeError, 'wx.Image, wx.Bitmap or buffer object expected'
 
 class MemoryFSHandler(CPPFileSystemHandler):
     """Proxy of C++ MemoryFSHandler class"""
@@ -2457,7 +2465,7 @@ class MemoryFSHandler(CPPFileSystemHandler):
     RemoveFile = staticmethod(RemoveFile)
     AddFile = staticmethod(MemoryFSHandler_AddFile) 
     def AddFileWithMimeType(*args, **kwargs):
-        """AddFileWithMimeType(String filename, PyObject data, String mimetype)"""
+        """AddFileWithMimeType(String filename, buffer data, String mimetype)"""
         return _core_.MemoryFSHandler_AddFileWithMimeType(*args, **kwargs)
 
     AddFileWithMimeType = staticmethod(AddFileWithMimeType)
@@ -2484,7 +2492,7 @@ def MemoryFSHandler_RemoveFile(*args, **kwargs):
   return _core_.MemoryFSHandler_RemoveFile(*args, **kwargs)
 
 def MemoryFSHandler_AddFileWithMimeType(*args, **kwargs):
-  """MemoryFSHandler_AddFileWithMimeType(String filename, PyObject data, String mimetype)"""
+  """MemoryFSHandler_AddFileWithMimeType(String filename, buffer data, String mimetype)"""
   return _core_.MemoryFSHandler_AddFileWithMimeType(*args, **kwargs)
 
 IMAGE_ALPHA_TRANSPARENT = _core_.IMAGE_ALPHA_TRANSPARENT
@@ -5614,7 +5622,6 @@ class MouseEvent(Event,MouseState):
     m_wheelRotation = property(_core_.MouseEvent_m_wheelRotation_get, _core_.MouseEvent_m_wheelRotation_set)
     m_wheelDelta = property(_core_.MouseEvent_m_wheelDelta_get, _core_.MouseEvent_m_wheelDelta_set)
     m_linesPerAction = property(_core_.MouseEvent_m_linesPerAction_get, _core_.MouseEvent_m_linesPerAction_set)
-    Button = property(GetButton,doc="See `GetButton`") 
     LinesPerAction = property(GetLinesPerAction,doc="See `GetLinesPerAction`") 
     LogicalPosition = property(GetLogicalPosition,doc="See `GetLogicalPosition`") 
     Position = property(GetPosition,doc="See `GetPosition`") 
@@ -8749,7 +8756,7 @@ class EventLoopActivator(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, wxEventLoop evtLoop) -> EventLoopActivator"""
+        """__init__(self, EventLoopBase evtLoop) -> EventLoopActivator"""
         _core_.EventLoopActivator_swiginit(self,_core_.new_EventLoopActivator(*args, **kwargs))
     __swig_destroy__ = _core_.delete_EventLoopActivator
     __del__ = lambda self : None;
@@ -15845,6 +15852,194 @@ class LayoutConstraints(Object):
         return _core_.LayoutConstraints_AreSatisfied(*args, **kwargs)
 
 _core_.LayoutConstraints_swigregister(LayoutConstraints)
+
+#---------------------------------------------------------------------------
+
+COL_WIDTH_DEFAULT = _core_.COL_WIDTH_DEFAULT
+COL_RESIZABLE = _core_.COL_RESIZABLE
+COL_SORTABLE = _core_.COL_SORTABLE
+COL_REORDERABLE = _core_.COL_REORDERABLE
+COL_HIDDEN = _core_.COL_HIDDEN
+COL_DEFAULT_FLAGS = _core_.COL_DEFAULT_FLAGS
+class HeaderColumn(object):
+    """Proxy of C++ HeaderColumn class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    __swig_destroy__ = _core_.delete_HeaderColumn
+    __del__ = lambda self : None;
+    def GetTitle(*args, **kwargs):
+        """GetTitle(self) -> String"""
+        return _core_.HeaderColumn_GetTitle(*args, **kwargs)
+
+    def GetBitmap(*args, **kwargs):
+        """GetBitmap(self) -> Bitmap"""
+        return _core_.HeaderColumn_GetBitmap(*args, **kwargs)
+
+    def GetWidth(*args, **kwargs):
+        """GetWidth(self) -> int"""
+        return _core_.HeaderColumn_GetWidth(*args, **kwargs)
+
+    def GetMinWidth(*args, **kwargs):
+        """GetMinWidth(self) -> int"""
+        return _core_.HeaderColumn_GetMinWidth(*args, **kwargs)
+
+    def GetAlignment(*args, **kwargs):
+        """GetAlignment(self) -> int"""
+        return _core_.HeaderColumn_GetAlignment(*args, **kwargs)
+
+    def GetFlags(*args, **kwargs):
+        """GetFlags(self) -> int"""
+        return _core_.HeaderColumn_GetFlags(*args, **kwargs)
+
+    def HasFlag(*args, **kwargs):
+        """HasFlag(self, int flag) -> bool"""
+        return _core_.HeaderColumn_HasFlag(*args, **kwargs)
+
+    def IsResizeable(*args, **kwargs):
+        """IsResizeable(self) -> bool"""
+        return _core_.HeaderColumn_IsResizeable(*args, **kwargs)
+
+    def IsSortable(*args, **kwargs):
+        """IsSortable(self) -> bool"""
+        return _core_.HeaderColumn_IsSortable(*args, **kwargs)
+
+    def IsReorderable(*args, **kwargs):
+        """IsReorderable(self) -> bool"""
+        return _core_.HeaderColumn_IsReorderable(*args, **kwargs)
+
+    def IsHidden(*args, **kwargs):
+        """IsHidden(self) -> bool"""
+        return _core_.HeaderColumn_IsHidden(*args, **kwargs)
+
+    def IsShown(*args, **kwargs):
+        """IsShown(self) -> bool"""
+        return _core_.HeaderColumn_IsShown(*args, **kwargs)
+
+    def IsSortKey(*args, **kwargs):
+        """IsSortKey(self) -> bool"""
+        return _core_.HeaderColumn_IsSortKey(*args, **kwargs)
+
+    def IsSortOrderAscending(*args, **kwargs):
+        """IsSortOrderAscending(self) -> bool"""
+        return _core_.HeaderColumn_IsSortOrderAscending(*args, **kwargs)
+
+    Title = property(GetTitle) 
+    Bitmap = property(GetBitmap) 
+    Width = property(GetWidth) 
+    MinWidth = property(GetMinWidth) 
+    Alignment = property(GetAlignment) 
+    Flags = property(GetFlags) 
+    Resizeable = property(IsResizeable) 
+    Sortable = property(IsSortable) 
+    Reorderable = property(IsReorderable) 
+    Hidden = property(IsHidden) 
+    Shown = property(IsShown) 
+    SortOrderAscending = property(IsSortOrderAscending) 
+    SortKey = property(IsSortKey) 
+_core_.HeaderColumn_swigregister(HeaderColumn)
+
+class SettableHeaderColumn(HeaderColumn):
+    """Proxy of C++ SettableHeaderColumn class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    def SetTitle(*args, **kwargs):
+        """SetTitle(self, String title)"""
+        return _core_.SettableHeaderColumn_SetTitle(*args, **kwargs)
+
+    def SetBitmap(*args, **kwargs):
+        """SetBitmap(self, Bitmap bitmap)"""
+        return _core_.SettableHeaderColumn_SetBitmap(*args, **kwargs)
+
+    def SetWidth(*args, **kwargs):
+        """SetWidth(self, int width)"""
+        return _core_.SettableHeaderColumn_SetWidth(*args, **kwargs)
+
+    def SetMinWidth(*args, **kwargs):
+        """SetMinWidth(self, int minWidth)"""
+        return _core_.SettableHeaderColumn_SetMinWidth(*args, **kwargs)
+
+    def SetAlignment(*args, **kwargs):
+        """SetAlignment(self, int align)"""
+        return _core_.SettableHeaderColumn_SetAlignment(*args, **kwargs)
+
+    def SetFlags(*args, **kwargs):
+        """SetFlags(self, int flags)"""
+        return _core_.SettableHeaderColumn_SetFlags(*args, **kwargs)
+
+    def ChangeFlag(*args, **kwargs):
+        """ChangeFlag(self, int flag, bool set)"""
+        return _core_.SettableHeaderColumn_ChangeFlag(*args, **kwargs)
+
+    def SetFlag(*args, **kwargs):
+        """SetFlag(self, int flag)"""
+        return _core_.SettableHeaderColumn_SetFlag(*args, **kwargs)
+
+    def ClearFlag(*args, **kwargs):
+        """ClearFlag(self, int flag)"""
+        return _core_.SettableHeaderColumn_ClearFlag(*args, **kwargs)
+
+    def ToggleFlag(*args, **kwargs):
+        """ToggleFlag(self, int flag)"""
+        return _core_.SettableHeaderColumn_ToggleFlag(*args, **kwargs)
+
+    def SetResizeable(*args, **kwargs):
+        """SetResizeable(self, bool resizeable)"""
+        return _core_.SettableHeaderColumn_SetResizeable(*args, **kwargs)
+
+    def SetSortable(*args, **kwargs):
+        """SetSortable(self, bool sortable)"""
+        return _core_.SettableHeaderColumn_SetSortable(*args, **kwargs)
+
+    def SetReorderable(*args, **kwargs):
+        """SetReorderable(self, bool reorderable)"""
+        return _core_.SettableHeaderColumn_SetReorderable(*args, **kwargs)
+
+    def SetHidden(*args, **kwargs):
+        """SetHidden(self, bool hidden)"""
+        return _core_.SettableHeaderColumn_SetHidden(*args, **kwargs)
+
+    def SetAsSortKey(*args, **kwargs):
+        """SetAsSortKey(self, bool sort=True)"""
+        return _core_.SettableHeaderColumn_SetAsSortKey(*args, **kwargs)
+
+    def UnsetAsSortKey(*args, **kwargs):
+        """UnsetAsSortKey(self)"""
+        return _core_.SettableHeaderColumn_UnsetAsSortKey(*args, **kwargs)
+
+    def SetSortOrder(*args, **kwargs):
+        """SetSortOrder(self, bool ascending)"""
+        return _core_.SettableHeaderColumn_SetSortOrder(*args, **kwargs)
+
+    def ToggleSortOrder(*args, **kwargs):
+        """ToggleSortOrder(self)"""
+        return _core_.SettableHeaderColumn_ToggleSortOrder(*args, **kwargs)
+
+    Title = property(HeaderColumn.GetTitle,SetTitle) 
+    Bitmap = property(HeaderColumn.GetBitmap,SetBitmap) 
+    Width = property(HeaderColumn.GetWidth,SetWidth) 
+    MinWidth = property(HeaderColumn.GetMinWidth,SetMinWidth) 
+    Alignment = property(HeaderColumn.GetAlignment,SetAlignment) 
+    Flags = property(HeaderColumn.GetFlags,SetFlags) 
+    Resizeable = property(HeaderColumn.IsResizeable,SetResizeable) 
+    Sortable = property(HeaderColumn.IsSortable,SetSortable) 
+    Reorderable = property(HeaderColumn.IsReorderable,SetReorderable) 
+    Hidden = property(HeaderColumn.IsHidden,SetHidden) 
+    SortKey = property(HeaderColumn.IsSortKey,SetAsSortKey) 
+_core_.SettableHeaderColumn_swigregister(SettableHeaderColumn)
+
+class HeaderColumnSimple(SettableHeaderColumn):
+    """Proxy of C++ HeaderColumnSimple class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, PyObject title_or_bitmap, int width=COL_WIDTH_DEFAULT, 
+            int align=ALIGN_NOT, int flags=COL_DEFAULT_FLAGS) -> HeaderColumnSimple
+        """
+        _core_.HeaderColumnSimple_swiginit(self,_core_.new_HeaderColumnSimple(*args, **kwargs))
+_core_.HeaderColumnSimple_swigregister(HeaderColumnSimple)
 
 #----------------------------------------------------------------------------
 

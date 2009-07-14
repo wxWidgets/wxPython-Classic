@@ -8756,7 +8756,7 @@ class EventLoopActivator(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, wxEventLoop evtLoop) -> EventLoopActivator"""
+        """__init__(self, EventLoopBase evtLoop) -> EventLoopActivator"""
         _core_.EventLoopActivator_swiginit(self,_core_.new_EventLoopActivator(*args, **kwargs))
     __swig_destroy__ = _core_.delete_EventLoopActivator
     __del__ = lambda self : None;
