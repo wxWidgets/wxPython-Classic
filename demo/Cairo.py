@@ -101,6 +101,9 @@ class TestPanel(wx.Panel):
         # wx.Bitmap here instead.
         #img = cairo.ImageSurface.create_from_png(opj('bitmaps/toucan.png'))
         bmp = wx.Bitmap(opj('bitmaps/toucan.png'))
+        #bmp = wx.Bitmap(opj('bitmaps/splash.png'))
+        #print 'depth:', bmp.GetDepth()
+        #print 'alpha:', bmp.HasAlpha()
         img = wx.lib.wxcairo.ImageSurfaceFromBitmap(bmp)
         ctx.set_source_surface(img, 70, 230)
         ctx.paint()
