@@ -764,7 +764,7 @@ class GraphicsPath(GraphicsObject):
         return self
 
 
-    def AddQuadCurveToPoint(self):
+    def AddQuadCurveToPoint(self, cx, cy, x, y):
         """
         Adds a quadratic Bexier curve from the current point, using a
         control point and an end point.
@@ -1264,7 +1264,7 @@ class GraphicsContext(GraphicsObject):
             self._DrawText(text, x, y, angle)
             
 
-    def GetFulltextExtent(self, text):
+    def GetFullTextExtent(self, text):
         """
         Returns the (width, height, descent, externalLeading) of the
         text using the current font.
