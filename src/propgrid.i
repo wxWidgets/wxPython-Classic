@@ -1241,6 +1241,71 @@ static wxString& wxString_wxPG_LABEL = *((wxString*)NULL);
 
 %include "typemaps.i"
 
+//
+// This macro creates typemaps for arrays of arbitrary C++ objects. Array
+// class must support basic std::vector API.
+//
+%define PG_MAKE_ARRAY_TYPEMAPS(ITEM_CLASS, ARR_CLASS)
+    %{
+    PyObject* ARR_CLASS ## ToPyObject(const ARR_CLASS* arr)
+    {
+        PyObject* pyArr = PyList_New(arr->size());
+        for ( unsigned int i=0; i< (unsigned int) arr->size(); i++ )
+        {
+            PyObject* pyItem = SWIG_NewPointerObj((void*)(*arr)[i],
+                                                  SWIGTYPE_p_ ## ITEM_CLASS,
+                                                  0);
+            if ( !pyItem )
+                return NULL;
+            PyList_SetItem(pyArr, i, pyItem);
+        }
+        return pyArr;
+    }
+    bool PyObjectTo ## ARR_CLASS(PyObject* pyArr, ARR_CLASS* arr)
+    {
+        if (! PySequence_Check(pyArr)) {
+            PyErr_SetString(PyExc_TypeError, "Sequence expected.");
+            return false;
+        }
+        int i, len = PySequence_Length(pyArr);
+        for ( i=0; i<len; i++ )
+        {
+            PyObject* item = PySequence_GetItem(pyArr, i);
+            int res1;
+            void* voidPtr;
+            res1 = SWIG_ConvertPtr(item, &voidPtr,
+                                   SWIGTYPE_p_ ## ITEM_CLASS, 0 |  0 );
+            if ( !SWIG_IsOK(res1) ) return false;
+            ITEM_CLASS* itemPtr = reinterpret_cast<ITEM_CLASS*>(voidPtr);
+            if ( PyErr_Occurred() ) return false;
+            arr->push_back(itemPtr);
+            Py_DECREF(item);
+        }
+        return true;
+    }
+    %}
+
+    %typemap(in) ARR_CLASS& (bool temp=false) {
+        $1 = new ARR_CLASS();
+        temp = true;
+        if ( !PyObjectTo ## ARR_CLASS($input, $1) ) SWIG_fail;
+    }
+
+    %typemap(freearg) ARR_CLASS& {
+        if (temp$argnum) delete $1;
+    }
+
+    %typemap(out) ARR_CLASS& {
+        $result = ARR_CLASS ## ToPyObject($1);
+        if ( !$result ) SWIG_fail;
+    }
+
+%enddef
+
+
+PG_MAKE_ARRAY_TYPEMAPS(wxPGProperty, wxArrayPGProperty)
+
+
 // We'll need some new 'out' types for our custom directors
 %typemap(out) wxPoint& { $result = wxPoint_to_PyObject($1); }
 %typemap(out) wxSize& { $result = wxSize_to_PyObject($1); }
