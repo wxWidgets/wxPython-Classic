@@ -48,8 +48,8 @@ kernel32 = ct.windll.kernel32
 user32 = ct.windll.user32
 atl = ct.windll.atl
 
-WS_CHILD	= 0x40000000
-WS_VISIBLE	= 0x10000000
+WS_CHILD        = 0x40000000
+WS_VISIBLE      = 0x10000000
 WS_CLIPCHILDREN = 0x2000000
 WS_CLIPSIBLINGS = 0x4000000
 CW_USEDEFAULT   = 0x80000000
@@ -76,6 +76,8 @@ class ActiveXCtrl(wx.PyAxBaseWindow):
         the addition of axID which is a string that is either a ProgID
         or a CLSID used to identify the ActiveX control.
         """
+        pos = wx.Point(*pos)    # in case the arg is a tuple
+        size = wx.Size(*size)   # ditto
 
         x = pos.x
         y = pos.y
@@ -141,17 +143,16 @@ class ActiveXCtrl(wx.PyAxBaseWindow):
 
 
     def MSWTranslateMessage(self, msg):
-        #  Pass any WM_KEYDOWN messages to the IOleInPlaceActiveObject
-        #  interface so navigation keys will be able to be processed
-        #  by the AX control.  MSWTranslateMessage is called before
-        #  wxWidgets handles and eats the navigation keys itself.
-        m = wt.MSG.from_address(msg)
-        if m.message == WM_KEYDOWN:
-            # This should take the MSG object, but the COM interface I used
-            # was hacked to just use a long...
-            res = self.ipao.TranslateAccelerator(msg)   
-            return res == hr.S_OK
-        return wx.PyAxBaseWindow.MSWTranslateMessage(self, msg)
+        # Pass native messages to the IOleInPlaceActiveObject
+        # interface before wx processes them, so navigation keys and
+        # accelerators can be dealt with the way that the AXControl
+        # wants them to be done. MSWTranslateMessage is called before
+        # wxWidgets handles and eats the navigation keys itself.
+        res = self.ipao.TranslateAccelerator(msg)   
+        if res == hr.S_OK:
+            return True
+        else:
+            return wx.PyAxBaseWindow.MSWTranslateMessage(self, msg)
 
     
     # TBD: Are the focus handlers needed?
