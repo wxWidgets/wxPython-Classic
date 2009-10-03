@@ -153,7 +153,9 @@ class ColumnSorterMixin:
         item2 = self.itemDataMap[key2][col]
 
         #--- Internationalization of string sorting with locale module
-        if type(item1) == type('') or type(item2) == type(''):
+        if type(item1) == unicode and type(item2) == unicode:
+            cmpVal = locale.strcoll(item1, item2)
+        elif type(item1) == str or type(item2) == str:
             cmpVal = locale.strcoll(str(item1), str(item2))
         else:
             cmpVal = cmp(item1, item2)
@@ -450,7 +452,7 @@ class TextEditMixin:
         self.Bind(wx.EVT_TEXT_ENTER, self.CloseEditor)
         self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)
         self.Bind(wx.EVT_LEFT_DCLICK, self.OnLeftDown)
-        self.Bind(wx.EVT_LIST_ITEM_SELECTED, self.OnItemSelected)
+        self.Bind(wx.EVT_LIST_ITEM_SELECTED, self.OnItemSelected, self)
 
 
     def make_editor(self, col_style=wx.LIST_FORMAT_LEFT):
