@@ -686,7 +686,7 @@ bool PyObject_to_wxPGPropArgCls( PyObject* input, wxPGPropArgCls** v )
     }
     else if ( input == Py_None )
     {
-        *v = new wxPGPropArgCls(NULL);
+        *v = new wxPGPropArgCls(reinterpret_cast< wxPGProperty * >(NULL));
     }
     else
     {
