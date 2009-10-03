@@ -297,6 +297,11 @@ account.", "");
         "Get the minimum size needed for the item.", "");
 
     DocDeclStr(
+        void , SetMinSize(const wxSize& size),
+        "Set the min size needed for the item", "");
+
+    
+    DocDeclStr(
         wxSize , GetMinSizeWithBorder() const,
         "Get the minimum size needed for the item with space for the borders
 added, if needed.", "");
