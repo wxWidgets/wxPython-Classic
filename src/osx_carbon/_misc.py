@@ -693,6 +693,11 @@ class ToolTip(_core.Object):
         return _misc_.ToolTip_SetReshow(*args, **kwargs)
 
     SetReshow = staticmethod(SetReshow)
+    def SetMaxWidth(*args, **kwargs):
+        """SetMaxWidth(int width)"""
+        return _misc_.ToolTip_SetMaxWidth(*args, **kwargs)
+
+    SetMaxWidth = staticmethod(SetMaxWidth)
     Tip = property(GetTip,SetTip,doc="See `GetTip` and `SetTip`") 
     Window = property(GetWindow,doc="See `GetWindow`") 
 _misc_.ToolTip_swigregister(ToolTip)
@@ -712,6 +717,10 @@ def ToolTip_SetAutoPop(*args, **kwargs):
 def ToolTip_SetReshow(*args, **kwargs):
   """ToolTip_SetReshow(long milliseconds)"""
   return _misc_.ToolTip_SetReshow(*args, **kwargs)
+
+def ToolTip_SetMaxWidth(*args, **kwargs):
+  """ToolTip_SetMaxWidth(int width)"""
+  return _misc_.ToolTip_SetMaxWidth(*args, **kwargs)
 
 class Caret(object):
     """Proxy of C++ Caret class"""

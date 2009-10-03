@@ -372,6 +372,10 @@ class PGProperty(_core.Object):
         """GetValue(self) -> wxVariant"""
         return _propgrid.PGProperty_GetValue(*args, **kwargs)
 
+    def GetValuePlain(*args, **kwargs):
+        """GetValuePlain(self) -> wxVariant"""
+        return _propgrid.PGProperty_GetValuePlain(*args, **kwargs)
+
     def GetValueAsString(*args, **kwargs):
         """GetValueAsString(self, int argFlags=0) -> String"""
         return _propgrid.PGProperty_GetValueAsString(*args, **kwargs)
@@ -634,6 +638,10 @@ class PGProperty(_core.Object):
         """SetValueToUnspecified(self)"""
         return _propgrid.PGProperty_SetValueToUnspecified(*args, **kwargs)
 
+    def SetValuePlain(*args, **kwargs):
+        """SetValuePlain(self, wxVariant value)"""
+        return _propgrid.PGProperty_SetValuePlain(*args, **kwargs)
+
     def SetValidator(*args, **kwargs):
         """SetValidator(self, Validator validator)"""
         return _propgrid.PGProperty_SetValidator(*args, **kwargs)
@@ -714,6 +722,7 @@ class PGProperty(_core.Object):
         """GetPropertyByName(self, String name) -> PGProperty"""
         return _propgrid.PGProperty_GetPropertyByName(*args, **kwargs)
 
+    m_value = property(GetValuePlain,SetValuePlain) 
     def GetClientData(*args, **kwargs):
         """
         GetClientData(self) -> PyObject
@@ -1555,7 +1564,7 @@ class PropertyGridInterface(object):
             self._editor_instances.append(editor)
         except:
             self._editor_instances = [editor]
-        RegisterEditor(editor)
+        RegisterEditor(editor, editorName)
 
     def GetPropertyClientData(self, p):
         if isinstance(p, basestring):
@@ -2398,6 +2407,8 @@ class PGMultiButton(_core.Window):
     def __init__(self, *args, **kwargs): 
         """__init__(self, PropertyGrid pg, Size sz) -> PGMultiButton"""
         _propgrid.PGMultiButton_swiginit(self,_propgrid.new_PGMultiButton(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_PGMultiButton
+    __del__ = lambda self : None;
     def GetButton(*args):
         """
         GetButton(self, int i) -> Window
@@ -2424,6 +2435,13 @@ class PGMultiButton(_core.Window):
     def Finalize(*args, **kwargs):
         """Finalize(self, PropertyGrid propGrid, Point pos)"""
         return _propgrid.PGMultiButton_Finalize(*args, **kwargs)
+
+    def AddBitmapButton(*args, **kwargs):
+        """AddBitmapButton(self, Bitmap bitmap, int id=-2)"""
+        return _propgrid.PGMultiButton_AddBitmapButton(*args, **kwargs)
+
+    def AddButton(self, *args, **kwargs):
+        return self.Add(*args, **kwargs)
 
 _propgrid.PGMultiButton_swigregister(PGMultiButton)
 
@@ -4008,7 +4026,7 @@ _propgrid.PyLongStringProperty_swigregister(PyLongStringProperty)
 
 
 def RegisterEditor(*args, **kwargs):
-  """RegisterEditor(PGEditor editor)"""
+  """RegisterEditor(PGEditor editor, String editorName)"""
   return _propgrid.RegisterEditor(*args, **kwargs)
 EVT_PG_CHANGED = wx.PyEventBinder( wxEVT_PG_CHANGED, 1 )
 EVT_PG_CHANGING = wx.PyEventBinder( wxEVT_PG_CHANGING, 1 )

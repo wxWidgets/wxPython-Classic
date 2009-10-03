@@ -3541,7 +3541,7 @@ bool PyObject_to_wxPGPropArgCls( PyObject* input, wxPGPropArgCls** v )
     }
     else if ( input == Py_None )
     {
-        *v = new wxPGPropArgCls(NULL);
+        *v = new wxPGPropArgCls(reinterpret_cast< wxPGProperty * >(NULL));
     }
     else
     {
@@ -3697,6 +3697,44 @@ static wxString& wxString_wxPG_LABEL = *((wxString*)NULL);
 #define wxColour_BLACK          *wxBLACK
 #define wxBitmap_NULL           wxNullBitmap
 
+
+    PyObject* wxArrayPGPropertyToPyObject(const wxArrayPGProperty* arr)
+    {
+        PyObject* pyArr = PyList_New(arr->size());
+        for (  int i=0; i< ( int) arr->size(); i++ )
+        {
+            PyObject* pyItem = SWIG_NewPointerObj((void*)(*arr)[i],
+                                                  SWIGTYPE_p_wxPGProperty,
+                                                  0);
+            if ( !pyItem )
+                return NULL;
+            PyList_SetItem(pyArr, i, pyItem);
+        }
+        return pyArr;
+    }
+    bool PyObjectTowxArrayPGProperty(PyObject* pyArr, wxArrayPGProperty* arr)
+    {
+        if (! PySequence_Check(pyArr)) {
+            PyErr_SetString(PyExc_TypeError, "Sequence expected.");
+            return false;
+        }
+        int i, len = PySequence_Length(pyArr);
+        for ( i=0; i<len; i++ )
+        {
+            PyObject* item = PySequence_GetItem(pyArr, i);
+            int res1;
+            void* voidPtr;
+            res1 = SWIG_ConvertPtr(item, &voidPtr,
+                                   SWIGTYPE_p_wxPGProperty, 0 |  0 );
+            if ( !SWIG_IsOK(res1) ) return false;
+            wxPGProperty* itemPtr = reinterpret_cast<wxPGProperty*>(voidPtr);
+            if ( PyErr_Occurred() ) return false;
+            arr->push_back(itemPtr);
+            Py_DECREF(item);
+        }
+        return true;
+    }
+    
 
   #define SWIG_From_long   PyInt_FromLong 
 

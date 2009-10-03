@@ -8422,12 +8422,11 @@ class App(wx.PyApp):
         Construct a ``wx.App`` object.  
 
         :param redirect: Should ``sys.stdout`` and ``sys.stderr`` be
-            redirected?  Defaults to True on Windows and Mac, False
-            otherwise.  If ``filename`` is None then output will be
-            redirected to a window that pops up as needed.  (You can
-            control what kind of window is created for the output by
-            resetting the class variable ``outputWindowClass`` to a
-            class of your choosing.)
+            redirected?  Defaults to False. If ``filename`` is None
+            then output will be redirected to a window that pops up
+            as needed.  (You can control what kind of window is created
+            for the output by resetting the class variable
+            ``outputWindowClass`` to a class of your choosing.)
 
         :param filename: The name of a file to redirect output to, if
             redirect is True.
@@ -13614,6 +13613,14 @@ class SizerItem(Object):
         """
         return _core_.SizerItem_GetMinSize(*args, **kwargs)
 
+    def SetMinSize(*args, **kwargs):
+        """
+        SetMinSize(self, Size size)
+
+        Set the min size needed for the item
+        """
+        return _core_.SizerItem_SetMinSize(*args, **kwargs)
+
     def GetMinSizeWithBorder(*args, **kwargs):
         """
         GetMinSizeWithBorder(self) -> Size
@@ -16080,7 +16087,10 @@ def version():
     if wx.Platform == '__WXMSW__':
         port = 'msw'
     elif wx.Platform == '__WXMAC__':
-        port = 'mac'
+        if 'wxOSX-carbon' in wx.PlatformInfo:
+            port = 'osx-carbon'
+        else:
+            port = 'osx-cocoa'
     elif wx.Platform == '__WXGTK__':
         port = 'gtk'
         if 'gtk2' in wx.PlatformInfo:

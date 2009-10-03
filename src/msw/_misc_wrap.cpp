@@ -7916,6 +7916,35 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ToolTip_SetMaxWidth(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "width", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:ToolTip_SetMaxWidth",kwnames,&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "ToolTip_SetMaxWidth" "', expected argument " "1"" of type '" "int""'");
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxToolTip::SetMaxWidth(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *ToolTip_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -40080,6 +40109,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ToolTip_SetDelay", (PyCFunction) _wrap_ToolTip_SetDelay, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ToolTip_SetAutoPop", (PyCFunction) _wrap_ToolTip_SetAutoPop, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ToolTip_SetReshow", (PyCFunction) _wrap_ToolTip_SetReshow, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"ToolTip_SetMaxWidth", (PyCFunction) _wrap_ToolTip_SetMaxWidth, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ToolTip_swigregister", ToolTip_swigregister, METH_VARARGS, NULL},
 	 { (char *)"ToolTip_swiginit", ToolTip_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_Caret", (PyCFunction) _wrap_new_Caret, METH_VARARGS | METH_KEYWORDS, NULL},
