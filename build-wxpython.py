@@ -40,6 +40,7 @@ option_dict = {
     "osx_cocoa"     : (False, "Build the OS X Cocoa port on Mac"),
     "mac_framework" : (False, "Build wxWidgets as a Mac framework."),
     "force_config"  : (False, "Run configure when building even if the script determines it's not necessary."),
+    "no_config"     : (False, "Turn off configure step on autoconf builds"),
     "install"       : (False, "Install the built wxPython into install_dir"),
     "install_dir"   : ("", "Directory to install wxPython to."),
     "build_dir"     : ("", "Directory to store wx build files."),
@@ -242,7 +243,10 @@ if options.extra_make:
     
     
 # Only disable configure if we don't need it
-if ( not sys.platform.startswith("win") and 
+if not sys.platform.startswith("win") and options.no_config:
+    build_options.append("--no_config")
+    
+elif ( not sys.platform.startswith("win") and 
      not options.force_config and 
      not options_changed ):
 
