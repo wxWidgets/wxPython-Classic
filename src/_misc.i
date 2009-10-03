@@ -44,6 +44,15 @@ public:
     // set the delay between subsequent tooltips to appear
     static void SetReshow(long milliseconds);
     
+#ifdef __WXMSW__
+    // MSW only
+    static void SetMaxWidth(int width);
+#else
+    %extend {
+        static void SetMaxWidth(int width) { }
+    }
+#endif
+
     %property(Tip, GetTip, SetTip, doc="See `GetTip` and `SetTip`");
     %property(Window, GetWindow, doc="See `GetWindow`");
 };
