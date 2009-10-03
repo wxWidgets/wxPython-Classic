@@ -37,7 +37,10 @@ def version():
     if wx.Platform == '__WXMSW__':
         port = 'msw'
     elif wx.Platform == '__WXMAC__':
-        port = 'mac'
+        if 'wxOSX-carbon' in wx.PlatformInfo:
+            port = 'osx-carbon'
+        else:
+            port = 'osx-cocoa'
     elif wx.Platform == '__WXGTK__':
         port = 'gtk'
         if 'gtk2' in wx.PlatformInfo:
