@@ -503,17 +503,17 @@ class Editor(wx.ScrolledWindow):
     def HorizScroll(self, event, eventType):
         maxLineLen = self.CalcMaxLineLen()
 
-        if eventType == wx.EVT_SCROLLWIN_LINEUP:
+        if eventType == wx.wxEVT_SCROLLWIN_LINEUP:
             self.sx -= 1
-        elif eventType == wx.EVT_SCROLLWIN_LINEDOWN:
+        elif eventType == wx.wxEVT_SCROLLWIN_LINEDOWN:
             self.sx += 1
-        elif eventType == wx.EVT_SCROLLWIN_PAGEUP:
+        elif eventType == wx.wxEVT_SCROLLWIN_PAGEUP:
             self.sx -= self.sw
-        elif eventType == wx.EVT_SCROLLWIN_PAGEDOWN:
+        elif eventType == wx.wxEVT_SCROLLWIN_PAGEDOWN:
             self.sx += self.sw
-        elif eventType == wx.EVT_SCROLLWIN_TOP:
+        elif eventType == wx.wxEVT_SCROLLWIN_TOP:
             self.sx = self.cx = 0
-        elif eventType == wx.EVT_SCROLLWIN_BOTTOM:
+        elif eventType == wx.wxEVT_SCROLLWIN_BOTTOM:
             self.sx = maxLineLen - self.sw
             self.cx = maxLineLen
         else:
@@ -522,17 +522,17 @@ class Editor(wx.ScrolledWindow):
         self.HorizBoundaries()
 
     def VertScroll(self, event, eventType):
-        if   eventType == wx.EVT_SCROLLWIN_LINEUP:
+        if   eventType == wx.wxEVT_SCROLLWIN_LINEUP:
             self.sy -= 1
-        elif eventType == wx.EVT_SCROLLWIN_LINEDOWN:
+        elif eventType == wx.wxEVT_SCROLLWIN_LINEDOWN:
             self.sy += 1
-        elif eventType == wx.EVT_SCROLLWIN_PAGEUP:
+        elif eventType == wx.wxEVT_SCROLLWIN_PAGEUP:
             self.sy -= self.sh
-        elif eventType == wx.EVT_SCROLLWIN_PAGEDOWN:
+        elif eventType == wx.wxEVT_SCROLLWIN_PAGEDOWN:
             self.sy += self.sh
-        elif eventType == wx.EVT_SCROLLWIN_TOP:
+        elif eventType == wx.wxEVT_SCROLLWIN_TOP:
             self.sy = self.cy = 0
-        elif eventType == wx.EVT_SCROLLWIN_BOTTOM:
+        elif eventType == wx.wxEVT_SCROLLWIN_BOTTOM:
             self.sy = self.LinesInFile() - self.sh
             self.cy = self.LinesInFile()
         else:
