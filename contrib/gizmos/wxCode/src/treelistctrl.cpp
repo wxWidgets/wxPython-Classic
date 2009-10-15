@@ -2699,7 +2699,7 @@ void wxTreeListMainWindow::SelectItem (const wxTreeItemId& itemId,
     // select item or item range
     if (lastId.IsOk() && (itemId != lastId)) {
 
-        if (!unselected) UnselectAll();
+        if (!unselected && unselect_others) UnselectAll();
         wxTreeListItem *last = (wxTreeListItem*) lastId.m_pItem;
 
         // ensure that the position of the item it calculated in any case
