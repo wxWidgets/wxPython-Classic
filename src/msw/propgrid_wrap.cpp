@@ -3304,101 +3304,6 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
     return true;
 }
 
-//
-// wxPGVariantAndBool
-//
-// Helper class that wraps wxVariant and bool. Need to use this class
-// instead of "writeback" arguments in some virtual methods of custom
-// property classes (for some reason I couldn't get SWIG INOUT working.
-// Actually, even trivial int* OUTPUT failed).
-//
-class wxPGVariantAndBool
-{
-public:
-
-    wxPGVariantAndBool()
-    {
-        m_valueValid = false;
-        m_result = false;
-    }
-
-    wxPGVariantAndBool( bool result, const wxVariant& variant )
-    {
-        m_valueValid = true;
-        m_result = result;
-        m_value = variant;
-    }
-
-    wxPGVariantAndBool( const wxVariant& variant )
-    {
-        m_valueValid = true;
-        m_result = true;
-        m_value = variant;
-    }
-
-    wxPGVariantAndBool( bool result )
-    {
-        Init(result);
-    }
-
-    ~wxPGVariantAndBool() { }
-
-    void Init( bool result = false )
-    {
-        m_valueValid = false;
-        m_result = result;
-    }
-
-    const wxVariant& GetValue() const
-    {
-        wxASSERT(m_valueValid);
-        return m_value;
-    }
-
-public:
-    wxVariant m_value;
-    bool      m_valueValid;
-    bool      m_result;
-};
-
-bool PyObject_to_wxPGVariantAndBool( PyObject* input, wxPGVariantAndBool& vab )
-{
-    PyDateTime_IMPORT;
-
-    if ( PyBool_Check(input) )
-    {
-        vab.Init((bool) PyInt_AsLong(input));
-        return true;
-    }
-
-    PyObject* item = NULL;
-
-    if ( PyTuple_Check(input) && PySequence_Length(input) == 2 )
-    {
-        item = PySequence_GetItem(input, 0);
-        if (PyErr_Occurred()) return false;
-        vab.m_result = (bool) PyInt_AsLong(item);
-        Py_DECREF(item);
-        item = PySequence_GetItem(input, 1);
-        if (PyErr_Occurred()) return false;
-        input = item;
-    }
-    else
-    {
-        vab.m_result = true;
-    }
-
-    if ( PyObject_to_wxVariant( input, &vab.m_value ) )
-        vab.m_valueValid = true;
-    else
-        return false;
-
-    if ( item )
-        Py_DECREF( item );
-
-    return true;
-}
-
 PyObject* wxVariant_to_PyObject( const wxVariant* v )
 {
     if ( !v || v->IsNull() )
@@ -3529,6 +3434,133 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
     }
 
     return NULL;
+}
+
+//
+// wxPGVariantAndBool
+//
+// Helper class that wraps wxVariant and bool. Need to use this class
+// instead of "writeback" arguments in some virtual methods of custom
+// property classes (for some reason I couldn't get SWIG INOUT working.
+// Actually, even trivial int* OUTPUT failed).
+//
+class wxPGVariantAndBool
+{
+public:
+
+    wxPGVariantAndBool()
+    {
+        m_valueValid = false;
+        m_result = false;
+    }
+
+    wxPGVariantAndBool( bool result, const wxVariant& variant )
+    {
+        m_valueValid = true;
+        m_result = result;
+        m_value = variant;
+    }
+
+    wxPGVariantAndBool( const wxVariant& variant )
+    {
+        m_valueValid = true;
+        m_result = true;
+        m_value = variant;
+    }
+
+    wxPGVariantAndBool( bool result )
+    {
+        Init(result);
+    }
+
+    ~wxPGVariantAndBool() { }
+
+    void Init( bool result = false )
+    {
+        m_valueValid = false;
+        m_result = result;
+    }
+
+    const wxVariant& GetValue() const
+    {
+        wxASSERT(m_valueValid);
+        return m_value;
+    }
+
+public:
+    wxVariant m_value;
+    bool      m_valueValid;
+    bool      m_result;
+};
+
+PyObject* wxPGVariantAndBool_to_PyObject( const wxPGVariantAndBool& vab )
+{
+    PyObject* tuple = PyTuple_New(2);
+
+    PyObject* value;
+    if ( vab.m_valueValid )
+    {
+        value = wxVariant_to_PyObject(&vab.m_value);
+    }
+    else
+    {
+        Py_INCREF(Py_None);
+        value = Py_None;
+    }
+
+    PyTuple_SetItem(tuple, 0, value);
+    PyTuple_SetItem(tuple, 1, PyInt_FromLong((long)vab.m_result));
+
+    return tuple;
+}
+
+bool PyObject_to_wxPGVariantAndBool( PyObject* input,
+                                     wxPGVariantAndBool& vab )
+{
+    PyObject* resObj = NULL;
+    PyObject* valueObj = NULL;
+
+    if ( PySequence_Check(input) && PySequence_Length(input) == 2 )
+    {
+        valueObj = PySequence_GetItem(input, 0);
+        if (PyErr_Occurred()) return false;
+        resObj = PySequence_GetItem(input, 1);
+        if (PyErr_Occurred()) return false;
+    }
+    else
+    {
+        resObj = input;
+    }
+
+    // Also checks for bool, which is subclass of int
+    if ( PyInt_Check(resObj) )
+    {
+        vab.Init((bool) PyInt_AsLong(resObj));
+    }
+    else if ( PyLong_Check(resObj) )
+    {
+        vab.Init((bool) PyLong_AsLong(resObj));
+    }
+    else
+    {
+        return false;
+    }
+
+    if ( valueObj )
+    {
+        // If valueObj is valid, then we can assume resObj was acquired from
+        // sequence and must be decref'ed.
+        Py_DECREF(resObj);
+
+        if ( PyObject_to_wxVariant(valueObj, &vab.m_value) )
+            vab.m_valueValid = true;
+        else
+            return false;
+
+        Py_DECREF(valueObj);
+    }
+
+    return true;
 }
 
 bool PyObject_to_wxPGPropArgCls( PyObject* input, wxPGPropArgCls** v )
