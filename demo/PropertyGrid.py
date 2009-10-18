@@ -77,18 +77,25 @@ class IntProperty2(wxpg.PyProperty):
         return str(value)
 
     def StringToValue(self, s, flags):
+        """ If failed, return False. If success, return tuple
+            (newValue, True).
+        """
         try:
             v = int(s)
             if self.GetValue() != v:
-                return v
-        except TypeError:
+                return (v, True)
+        except (ValueError, TypeError):
             if flags & wxpg.PG_REPORT_ERROR:
                 wx.MessageBox("Cannot convert '%s' into a number."%s, "Error")
         return False
 
     def IntToValue(self, v, flags):
+        """ If failed, return False. If success, return tuple
+            (newValue, True).
+        """
         if (self.GetValue() != v):
-            return v
+            return (v, True)
+        return False
 
 
 class SizeProperty(wxpg.PyProperty):
@@ -191,11 +198,15 @@ class DirsProperty(wxpg.PyArrayStringProperty):
         self.m_display = text
 
     def StringToValue(self, text, argFlags):
+        """ If failed, return False. If success, return tuple
+            (newValue, True).
+        """
         delim = self.GetAttribute("Delimiter")
         if delim == '"' or delim == "'":
             # Proper way to call same method from super class
             return self.CallSuperMethod("StringToValue", text, 0)
-        return [a.strip() for a in text.split(delim)]
+        v = [a.strip() for a in text.split(delim)]
+        return (v, True)
 
     def OnEvent(self, propgrid, primaryEditor, event):
         if event.GetEventType() == wx.wxEVT_COMMAND_BUTTON_CLICKED:
@@ -204,7 +215,7 @@ class DirsProperty(wxpg.PyArrayStringProperty):
                                  "the list:"))
 
             if dlg.ShowModal() == wx.ID_OK:
-                new_path = dlg.GetPath();
+                new_path = dlg.GetPath()
                 old_value = self.m_value
                 if old_value:
                     new_value = list(old_value)
@@ -260,33 +271,11 @@ class PyObjectProperty(wxpg.PyProperty):
         return repr(value)
 
     def StringToValue(self, s, flags):
-        return PyObjectPropertyValue(s)
-
-
-    def OnEvent(self, propgrid, ctrl, event):
-        if not ctrl:
-            return False
-
-        evtType = event.GetEventType()
-
-        if evtType == wx.wxEVT_COMMAND_TEXT_ENTER:
-            if propgrid.IsEditorsValueModified():
-                return True
-
-        elif evtType == wx.wxEVT_COMMAND_TEXT_UPDATED:
-            if not property.HasFlag(wxpg.PG_PROP_UNSPECIFIED) or not ctrl or \
-               ctrl.GetLastPosition() > 0:
-
-                # We must check this since an 'empty' text event
-                # may be triggered when creating the property.
-                PG_FL_IN_SELECT_PROPERTY = 0x00100000
-                if not (propgrid.GetInternalFlags() & PG_FL_IN_SELECT_PROPERTY):
-                    event.Skip();
-                    event.SetId(propGrid.GetId());
-
-                propgrid.EditorsValueWasModified();
-
-        return False
+        """ If failed, return False. If success, return tuple
+            (newValue, True).
+        """
+        v = PyObjectPropertyValue(s)
+        return (v, True)
 
 
 class SampleMultiButtonEditor(wxpg.PyTextCtrlEditor):
@@ -298,10 +287,13 @@ class SampleMultiButtonEditor(wxpg.PyTextCtrlEditor):
         buttons = wxpg.PGMultiButton(propGrid, sz)
 
         # Add two regular buttons
-        buttons.AddButton("...");
-        buttons.AddButton("A");
+        buttons.AddButton("...")
+        buttons.AddButton("A")
         # Add a bitmap button
-        buttons.AddBitmapButton(wx.ArtProvider.GetBitmap(wx.ART_FOLDER));
+        buttons.AddBitmapButton(wx.ArtProvider.GetBitmap(wx.ART_FOLDER))
+        
+        #import pdb
+        #pdb.set_trace()
 
         # Create the 'primary' editor control (textctrl in this case)
         wnd = self.CallSuperMethod("CreateControls",
@@ -383,6 +375,282 @@ class SingleChoiceProperty(wxpg.PyStringProperty):
         return SingleChoiceDialogAdapter(self.dialog_choices)
 
 
+class TrivialPropertyEditor(wxpg.PyEditor):
+    """\
+    This is a simple re-creation of TextCtrlWithButton. Note that it does
+    not take advantage of wx.TextCtrl and wx.Button creation helper functions
+    in wx.PropertyGrid.
+    """
+    def __init__(self):
+        wxpg.PyEditor.__init__(self)
+
+    def CreateControls(self, propgrid, property, pos, sz):
+        """ Create the actual wxPython controls here for editing the
+            property value.
+
+            You must use propgrid.GetPanel() as parent for created controls.
+
+            Return value is either single editor control or tuple of two
+            editor controls, of which first is the primary one and second
+            is usually a button.
+        """
+        try:
+            x, y = pos
+            w, h = sz
+            h = 64 + 6
+
+            # Make room for button
+            bw = propgrid.GetRowHeight()
+            w -= bw
+
+            s = property.GetDisplayedString();
+
+            tc = wx.TextCtrl(propgrid.GetPanel(), wxpg.PG_SUBID1, s,
+                             (x,y), (w,h),
+                             wx.TE_PROCESS_ENTER)
+            btn = wx.Button(propgrid.GetPanel(), wxpg.PG_SUBID2, '...',
+                            (x+w, y),
+                            (bw, h), wx.WANTS_CHARS)
+            return (tc, btn)
+        except:
+            import traceback
+            print(traceback.print_exc())
+
+    def UpdateControl(self, property, ctrl):
+        ctrl.SetValue(property.GetDisplayedString())
+
+    def DrawValue(self, dc, rect, property, text):
+        if not property.IsValueUnspecified():
+            dc.DrawText(property.GetDisplayedString(), rect.x+5, rect.y)
+
+    def OnEvent(self, propgrid, property, ctrl, event):
+        """ Return True if modified editor value should be committed to
+            the property. To just mark the property value modified, call
+            propgrid.EditorsValueWasModified().
+        """
+        if not ctrl:
+            return False
+
+        evtType = event.GetEventType()
+
+        if evtType == wx.wxEVT_COMMAND_TEXT_ENTER:
+            if propgrid.IsEditorsValueModified():
+                return True
+        elif evtType == wx.wxEVT_COMMAND_TEXT_UPDATED:
+            #
+            # Pass this event outside wxPropertyGrid so that,
+            # if necessary, program can tell when user is editing
+            # a textctrl.
+            event.Skip()
+            event.SetId(propgrid.GetId())
+
+            propgrid.EditorsValueWasModified()
+            return False
+
+        return False
+
+    def GetValueFromControl(self, property, ctrl):
+        """ Return tuple (newValue, wasSuccess), where wasSuccess is True if
+            different value was acquired succesfully.
+        """
+        tc = ctrl
+        textVal = tc.GetValue()
+
+        if property.UsesAutoUnspecified() and not textVal:
+            return (None, True)
+
+        value, res = property.StringToValue(textVal,
+                                            wxpg.PG_EDITABLE_VALUE)
+
+        # Changing unspecified always causes event (returning
+        # true here should be enough to trigger it).
+        if not res and value is None:
+            res = true
+
+        return (value, res)
+
+    def SetValueToUnspecified(self, property, ctrl):
+        ctrl.Remove(0,len(ctrl.GetValue()))
+
+    def SetControlStringValue(self, property, ctrl, text):
+        ctrl.SetValue(text)
+
+    def OnFocus(self, property, ctrl):
+        ctrl.SetSelection(-1,-1)
+        ctrl.SetFocus()
+
+
+class LargeImagePickerCtrl(wx.Panel):
+    """\
+    Control created and used by LargeImageEditor.
+    """
+    def __init__(self):
+        pre = wx.PrePanel()
+        self.PostCreate(pre)
+
+    def Create(self, parent, id_, pos, size, style = 0):
+        wx.Panel.Create(self, parent, id_, pos, size,
+                        style | wx.BORDER_SIMPLE)
+        img_spc = size[1]
+        self.tc = wx.TextCtrl(self, -1, "", (img_spc,0), (2048,size[1]),
+                              wx.BORDER_NONE)
+        self.SetBackgroundColour(wx.WHITE)
+        self.SetBackgroundStyle(wx.BG_STYLE_CUSTOM)
+        self.property = None
+        self.bmp = None
+        self.Bind(wx.EVT_PAINT, self.OnPaint)
+
+    def OnPaint(self, event):
+        dc = wx.BufferedPaintDC(self)
+
+        whiteBrush = wx.Brush(wx.WHITE)
+        dc.SetBackground(whiteBrush)
+        dc.Clear()
+
+        bmp = self.bmp
+        if bmp:
+            dc.DrawBitmap(bmp, 2, 2)
+        else:
+            dc.SetPen(wx.Pen(wx.BLACK))
+            dc.SetBrush(whiteBrush)
+            dc.DrawRectangle(2, 2, 64, 64)
+
+    def RefreshThumbnail(self):
+        """\
+        We use here very simple image scaling code.
+        """
+        if not self.property:
+            self.bmp = None
+            return
+
+        path = self.property.DoGetValue()
+
+        if not os.path.isfile(path):
+            self.bmp = None
+            return
+
+        image = wx.Image(path)
+        image.Rescale(64, 64)
+        self.bmp = wx.BitmapFromImage(image)
+
+    def SetProperty(self, property):
+        self.property = property
+        self.tc.SetValue(property.GetDisplayedString())
+        self.RefreshThumbnail()
+
+    def SetValue(self, s):
+        self.RefreshThumbnail()
+        self.tc.SetValue(s)
+
+    def GetLastPosition(self):
+        return self.tc.GetLastPosition()
+
+
+class LargeImageEditor(wxpg.PyEditor):
+    """\
+    Double-height text-editor with image in front.
+    """
+    def __init__(self):
+        wxpg.PyEditor.__init__(self)
+
+    def CreateControls(self, propgrid, property, pos, sz):
+        try:
+            x, y = pos
+            w, h = sz
+            h = 64 + 6
+
+            # Make room for button
+            bw = propgrid.GetRowHeight()
+            w -= bw
+
+            lipc = LargeImagePickerCtrl()
+            if sys.platform.startswith('win'):
+                lipc.Hide()
+            lipc.Create(propgrid.GetPanel(), wxpg.PG_SUBID1, (x,y), (w,h))
+            lipc.SetProperty(property)
+            # Hmmm.. how to have two-stage creation without subclassing?
+            #btn = wx.PreButton()
+            #pre = wx.PreWindow()
+            #self.PostCreate(pre)
+            #if sys.platform == 'win32':
+            #    btn.Hide()
+            #btn.Create(propgrid, wxpg.PG_SUBID2, '...', (x2-bw,pos[1]),
+            #           (bw,h), wx.WANTS_CHARS)
+            btn = wx.Button(propgrid.GetPanel(), wxpg.PG_SUBID2, '...',
+                            (x+w, y),
+                            (bw, h), wx.WANTS_CHARS)
+            return (lipc, btn)
+        except:
+            import traceback
+            print(traceback.print_exc())
+
+    def UpdateControl(self, property, ctrl):
+        ctrl.SetValue(property.GetDisplayedString())
+
+    def DrawValue(self, dc, rect, property, text):
+        if not property.IsValueUnspecified():
+            dc.DrawText(property.GetDisplayedString(), rect.x+5, rect.y)
+
+    def OnEvent(self, propgrid, property, ctrl, event):
+        """ Return True if modified editor value should be committed to
+            the property. To just mark the property value modified, call
+            propgrid.EditorsValueWasModified().
+        """
+        if not ctrl:
+            return False
+
+        evtType = event.GetEventType()
+
+        if evtType == wx.wxEVT_COMMAND_TEXT_ENTER:
+            if propgrid.IsEditorsValueModified():
+                return True
+        elif evtType == wx.wxEVT_COMMAND_TEXT_UPDATED:
+            #
+            # Pass this event outside wxPropertyGrid so that,
+            # if necessary, program can tell when user is editing
+            # a textctrl.
+            event.Skip()
+            event.SetId(propgrid.GetId())
+
+            propgrid.EditorsValueWasModified()
+            return False
+
+        return False
+
+    def GetValueFromControl(self, property, ctrl):
+        """ Return tuple (newValue, wasSuccess), where wasSuccess is True if
+            different value was acquired succesfully.
+        """
+        tc = ctrl.tc
+        textVal = tc.GetValue()
+
+        if property.UsesAutoUnspecified() and not textVal:
+            return (None, True)
+
+        value, res = property.StringToValue(textVal,
+                                            wxpg.PG_EDITABLE_VALUE)
+
+        # Changing unspecified always causes event (returning
+        # true here should be enough to trigger it).
+        if not res and value is None:
+            res = true
+
+        return (value, res)
+
+    def SetValueToUnspecified(self, property, ctrl):
+        ctrl.tc.Remove(0,len(ctrl.tc.GetValue()))
+
+    def SetControlStringValue(self, property, ctrl, txt):
+        ctrl.SetValue(txt)
+
+    def OnFocus(self, property, ctrl):
+        ctrl.tc.SetSelection(-1,-1)
+        ctrl.tc.SetFocus()
+
+    def CanContainCustomImage(self):
+        return True
+
+
 ############################################################################
 #
 # MAIN PROPERTY GRID TEST PANEL
@@ -416,15 +684,13 @@ class TestPanel( wx.Panel ):
         wx.InitAllImageHandlers()
 
         #
-        # Let's create a simple custome editor
+        # Let's use some simple custom editor
         #
         # NOTE: Editor must be registered *before* adding a property that
-        #       uses it.
-        try:
-            pg.RegisterEditor(LargeImageEditor)
-        except:
-            # Editor may have already been registered (demo related issue)
-            pass
+        # uses it.
+        pg.RegisterEditor(TrivialPropertyEditor)
+        pg.RegisterEditor(SampleMultiButtonEditor)
+        pg.RegisterEditor(LargeImageEditor)
 
         #
         # Add properties
@@ -493,12 +759,17 @@ class TestPanel( wx.Panel ):
         pg.SetPropertyAttribute("Dirs2", "Delimiter", '"')
 
         # SampleMultiButtonEditor
-        # NOTE: Editor must be registered *before* adding a property that uses
-        #       it.
-        pg.RegisterEditor(SampleMultiButtonEditor)
         pg.Append( wxpg.LongStringProperty("MultipleButtons") );
         pg.SetPropertyEditor("MultipleButtons", "SampleMultiButtonEditor");
         pg.Append( SingleChoiceProperty("SingleChoiceProperty") )
+
+        # Custom editor samples
+        prop = pg.Append( wxpg.StringProperty("String w/ custom editor",
+                                              value="test value") )
+        pg.SetPropertyEditor(prop, "TrivialPropertyEditor")
+
+        pg.Append( wxpg.ImageFileProperty("ImageFileWithLargeEditor") )
+        pg.SetPropertyEditor("ImageFileWithLargeEditor", "LargeImageEditor")
 
         # When page is added, it will become the target page for AutoFill
         # calls (and for other property insertion methods as well)
