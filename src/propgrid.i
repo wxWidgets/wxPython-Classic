@@ -939,6 +939,28 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 
 %extend wxPGProperty {
     %extend {
+        //
+        // Some wxPGProperty member functions take a wxVariant write-back
+        // argument, and as such are normally ignored by SWIG, and we need
+        // to add versions of them that return wxPGVariantAndBool instead.
+        //
+
+        wxPGVariantAndBool StringToValue(const wxString& text,
+                                         int argFlags = 0)
+        {
+            wxVariant variant = self->GetValuePlain();
+            bool res = self->StringToValue(variant, text, argFlags);
+            return wxPGVariantAndBool(res, variant);
+        }
+
+        wxPGVariantAndBool IntToValue(wxVariant& value, int number,
+                                      int argFlags = 0 ) const
+        {
+            wxVariant variant = self->GetValuePlain();
+            bool res = self->IntToValue(variant, number, argFlags);
+            return wxPGVariantAndBool(res, variant);
+        }
+
         %property(m_value, GetValuePlain, SetValuePlain);
 
         DocStr(GetClientData,

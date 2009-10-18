@@ -722,6 +722,14 @@ class PGProperty(_core.Object):
         """GetPropertyByName(self, String name) -> PGProperty"""
         return _propgrid.PGProperty_GetPropertyByName(*args, **kwargs)
 
+    def StringToValue(*args, **kwargs):
+        """StringToValue(self, String text, int argFlags=0) -> wxPGVariantAndBool"""
+        return _propgrid.PGProperty_StringToValue(*args, **kwargs)
+
+    def IntToValue(*args, **kwargs):
+        """IntToValue(self, wxVariant value, int number, int argFlags=0) -> wxPGVariantAndBool"""
+        return _propgrid.PGProperty_IntToValue(*args, **kwargs)
+
     m_value = property(GetValuePlain,SetValuePlain) 
     def GetClientData(*args, **kwargs):
         """
