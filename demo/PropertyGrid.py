@@ -292,9 +292,6 @@ class SampleMultiButtonEditor(wxpg.PyTextCtrlEditor):
         # Add a bitmap button
         buttons.AddBitmapButton(wx.ArtProvider.GetBitmap(wx.ART_FOLDER))
         
-        #import pdb
-        #pdb.set_trace()
-
         # Create the 'primary' editor control (textctrl in this case)
         wnd = self.CallSuperMethod("CreateControls",
                                    propGrid,
