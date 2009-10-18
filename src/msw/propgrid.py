@@ -2415,6 +2415,10 @@ class PGMultiButton(_core.Window):
     def __init__(self, *args, **kwargs): 
         """__init__(self, PropertyGrid pg, Size sz) -> PGMultiButton"""
         _propgrid.PGMultiButton_swiginit(self,_propgrid.new_PGMultiButton(*args, **kwargs))
+        
+        self._setOORInfo(self)
+    
+
     __swig_destroy__ = _propgrid.delete_PGMultiButton
     __del__ = lambda self : None;
     def GetButton(*args):

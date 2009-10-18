@@ -1272,6 +1272,11 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 }
 
 %extend wxPGMultiButton {
+    %pythonAppend wxPGMultiButton
+    {
+        self._setOORInfo(self)
+    }
+
     void AddBitmapButton( const wxBitmap& bitmap, int id = -2 )
     {
         return self->Add(bitmap, id);
