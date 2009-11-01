@@ -77,24 +77,24 @@ class IntProperty2(wxpg.PyProperty):
         return str(value)
 
     def StringToValue(self, s, flags):
-        """ If failed, return False. If success, return tuple
-            (newValue, True).
+        """ If failed, return False or (False, None). If success, return tuple
+            (True, newValue).
         """
         try:
             v = int(s)
             if self.GetValue() != v:
-                return (v, True)
+                return (True, v)
         except (ValueError, TypeError):
             if flags & wxpg.PG_REPORT_ERROR:
                 wx.MessageBox("Cannot convert '%s' into a number."%s, "Error")
         return False
 
     def IntToValue(self, v, flags):
-        """ If failed, return False. If success, return tuple
-            (newValue, True).
+        """ If failed, return False or (False, None). If success, return tuple
+            (True, newValue).
         """
         if (self.GetValue() != v):
-            return (v, True)
+            return (True, v)
         return False
 
 
@@ -198,15 +198,15 @@ class DirsProperty(wxpg.PyArrayStringProperty):
         self.m_display = text
 
     def StringToValue(self, text, argFlags):
-        """ If failed, return False. If success, return tuple
-            (newValue, True).
+        """ If failed, return False or (False, None). If success, return tuple
+            (True, newValue).
         """
         delim = self.GetAttribute("Delimiter")
         if delim == '"' or delim == "'":
             # Proper way to call same method from super class
             return self.CallSuperMethod("StringToValue", text, 0)
         v = [a.strip() for a in text.split(delim)]
-        return (v, True)
+        return (True, v)
 
     def OnEvent(self, propgrid, primaryEditor, event):
         if event.GetEventType() == wx.wxEVT_COMMAND_BUTTON_CLICKED:
@@ -271,11 +271,11 @@ class PyObjectProperty(wxpg.PyProperty):
         return repr(value)
 
     def StringToValue(self, s, flags):
-        """ If failed, return False. If success, return tuple
-            (newValue, True).
+        """ If failed, return False or (False, None). If success, return tuple
+            (True, newValue).
         """
         v = PyObjectPropertyValue(s)
-        return (v, True)
+        return (True, v)
 
 
 class SampleMultiButtonEditor(wxpg.PyTextCtrlEditor):
@@ -447,16 +447,16 @@ class TrivialPropertyEditor(wxpg.PyEditor):
         return False
 
     def GetValueFromControl(self, property, ctrl):
-        """ Return tuple (newValue, wasSuccess), where wasSuccess is True if
+        """ Return tuple (wasSuccess, newValue), where wasSuccess is True if
             different value was acquired succesfully.
         """
         tc = ctrl
         textVal = tc.GetValue()
 
         if property.UsesAutoUnspecified() and not textVal:
-            return (None, True)
+            return (True, None)
 
-        value, res = property.StringToValue(textVal,
+        res, value = property.StringToValue(textVal,
                                             wxpg.PG_EDITABLE_VALUE)
 
         # Changing unspecified always causes event (returning
@@ -464,7 +464,7 @@ class TrivialPropertyEditor(wxpg.PyEditor):
         if not res and value is None:
             res = true
 
-        return (value, res)
+        return (res, value)
 
     def SetValueToUnspecified(self, property, ctrl):
         ctrl.Remove(0,len(ctrl.GetValue()))
@@ -615,7 +615,7 @@ class LargeImageEditor(wxpg.PyEditor):
         return False
 
     def GetValueFromControl(self, property, ctrl):
-        """ Return tuple (newValue, wasSuccess), where wasSuccess is True if
+        """ Return tuple (wasSuccess, newValue), where wasSuccess is True if
             different value was acquired succesfully.
         """
         tc = ctrl.tc
@@ -624,7 +624,7 @@ class LargeImageEditor(wxpg.PyEditor):
         if property.UsesAutoUnspecified() and not textVal:
             return (None, True)
 
-        value, res = property.StringToValue(textVal,
+        res, value = property.StringToValue(textVal,
                                             wxpg.PG_EDITABLE_VALUE)
 
         # Changing unspecified always causes event (returning
@@ -632,7 +632,7 @@ class LargeImageEditor(wxpg.PyEditor):
         if not res and value is None:
             res = true
 
-        return (value, res)
+        return (res, value)
 
     def SetValueToUnspecified(self, property, ctrl):
         ctrl.tc.Remove(0,len(ctrl.tc.GetValue()))

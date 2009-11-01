@@ -3508,8 +3508,8 @@ PyObject* wxPGVariantAndBool_to_PyObject( const wxPGVariantAndBool& vab )
         value = Py_None;
     }
 
-    PyTuple_SetItem(tuple, 0, value);
-    PyTuple_SetItem(tuple, 1, PyInt_FromLong((long)vab.m_result));
+    PyTuple_SetItem(tuple, 0, PyInt_FromLong((long)vab.m_result));
+    PyTuple_SetItem(tuple, 1, value);
 
     return tuple;
 }
@@ -3522,9 +3522,9 @@ bool PyObject_to_wxPGVariantAndBool( PyObject* input,
 
     if ( PySequence_Check(input) && PySequence_Length(input) == 2 )
     {
-        valueObj = PySequence_GetItem(input, 0);
+        resObj = PySequence_GetItem(input, 0);
         if (PyErr_Occurred()) return false;
-        resObj = PySequence_GetItem(input, 1);
+        valueObj = PySequence_GetItem(input, 1);
         if (PyErr_Occurred()) return false;
     }
     else
