@@ -2702,7 +2702,7 @@ wxCode project.
 OGL is dead! LONG LIVE OGL!  (Oops, sorry.  A bit of my dramatic side
 leaked out there...)  The wx.ogl module has been deprecated in favor
 of the new Python port of the OGL library located at wx.lib.ogl
-contributed by Pierre Hj‰lm.  This will hopefully greatly extend the
+contributed by Pierre Hjälm.  This will hopefully greatly extend the
 life of OGL within wxPython by making it more easily maintainable and
 less prone to getting rusty as there seems to be less and less
 interest in maintaining the C++ version.  At this point there are just
@@ -2822,7 +2822,7 @@ want to put them.
 The wxWave class has been renamed to wxSound, and now has a slightly
 different API.
 
-Updated the AnalogClockWindow with many enhancements from E. A. Tac„o.
+Updated the AnalogClockWindow with many enhancements from E. A. Tacão.
 
 wxMac now has wx.ToggleButton!
 
