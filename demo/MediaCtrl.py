@@ -145,7 +145,7 @@ def runTest(frame, nb, log):
         win = TestPanel(nb, log)
         return win
     except NotImplementedError:
-        from Main import MessagePanel
+        from wx.lib.msgpanel import MessagePanel
         win = MessagePanel(nb, 'wx.MediaCtrl is not available on this platform.',
                            'Sorry', wx.ICON_WARNING)
         return win

@@ -162,7 +162,7 @@ def runTest(frame, nb, log):
         win = TestPanel(nb, log)
         return win
     else:
-        from Main import MessagePanel
+        from wx.lib.msgpanel import MessagePanel
         win = MessagePanel(nb, 'This demo only works on Microsoft Windows.',
                            'Sorry', wx.ICON_WARNING)
         return win

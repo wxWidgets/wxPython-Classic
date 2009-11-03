@@ -34,7 +34,7 @@ def runTest(frame, nb, log):
         win = TestPanel(nb, log)
         return win
     else:
-        from Main import MessagePanel
+        from wx.lib.msgpanel import MessagePanel
         win = MessagePanel(nb, 'wx.ToggleButton is not available on this platform.',
                            'Sorry', wx.ICON_WARNING)
         return win

@@ -994,7 +994,7 @@ def runTest(frame, nb, log):
         win = JoystickDemoPanel(nb, log)
         return win
     else:
-        from Main import MessagePanel
+        from wx.lib.msgpanel import MessagePanel
         win = MessagePanel(nb, 'wx.Joystick is not available on this platform.',
                            'Sorry', wx.ICON_WARNING)
         return win

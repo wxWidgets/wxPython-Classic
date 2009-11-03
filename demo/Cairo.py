@@ -142,7 +142,7 @@ class TestPanel(wx.Panel):
 #----------------------------------------------------------------------
 
 if not haveCairo:
-    from Main import MessagePanel
+    from wx.lib.msgpanel import MessagePanel
     def runTest(frame, nb, log):
         win = MessagePanel(nb, 'This demo requires the Pycairo package,\n'
                            'or there is some other unmet dependency.',

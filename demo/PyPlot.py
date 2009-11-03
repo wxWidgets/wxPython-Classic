@@ -41,7 +41,7 @@ def runTest(frame, nb, log):
     if not hadImportError:
         win = TestPanel(nb, log)
     else:
-        from Main import MessagePanel
+        from wx.lib.msgpanel import MessagePanel
         win = MessagePanel(nb, """\
 This demo requires the Numeric or numarray module,
 which could not be imported.  It probably is not installed
