@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 Recent Changes for wxPython
 =====================================================================
 
@@ -158,6 +160,47 @@ of label renderers for Grids that work like the cell renderers do.  See
 the demo for a simple sample.
 
 wx.App:  OnExceptionInMainLoop and FilterEvent can now be overridden.
+
+Added wx.lib.msgpanel, which provides a class derived from wx.Panel
+that can look and feel much like a wx.MessageDialog.
+
+Added wx.lib.progressindicator which is a simple class with a label
+and a guage that can be used to show either specific or indeterminate
+(pulsed) progress of some sort.  It works well in status bars, and can
+be set to hide itself when not active.
+
+
+
+
+
+2.8.10.1
+--------
+* 14-May-2009
+
+wx.grid.Grid:  Added methods CalcRowLabelsExposed,
+CalcColLabelsExposed, CalcCellsExposed, DrawRowLabels, DrawRowLabel,
+DrawColLabels, and DrawColLabel to the Grid class.
+
+Added the wx.lib.mixins.gridlabelrenderer module.  It enables the use
+of label renderers for Grids that work like the cell renderers do.  See
+the demo for a simple sample.
+
+Solved the manifests problem with Python 2.6 on Windows.  wxPython now
+programatically creates its own activation context and loads a
+manifest in that context that specifies the use of the themable common
+controls on Windows XP and beyond.  This also means that the external
+manifest files are no longer needed for the other versions of Python. 
+
+wx.Colour: Updated the wx.Colour typemaps and also the wx.NamedColour
+constructor to optionally allow an alpha value to be passed in the
+color string, using these syntaxes:  "#RRGGBBAA" or "ColourName:AA"
+
+wx.lib.wxcairo:  Fixed a problem resulting from PyCairo changing the
+layout of their C API structure in a non-binary compatible way.  The
+new wx.lib.wxcairo is known to now work with PyCairo 1.6.4 and 1.8.4,
+and new binaries for Windows are available online at 
+http://wxpython.org/cairo/
+
 
 
 
@@ -2659,7 +2702,7 @@ wxCode project.
 OGL is dead! LONG LIVE OGL!  (Oops, sorry.  A bit of my dramatic side
 leaked out there...)  The wx.ogl module has been deprecated in favor
 of the new Python port of the OGL library located at wx.lib.ogl
-contributed by Pierre Hjälm.  This will hopefully greatly extend the
+contributed by Pierre Hjâ€°lm.  This will hopefully greatly extend the
 life of OGL within wxPython by making it more easily maintainable and
 less prone to getting rusty as there seems to be less and less
 interest in maintaining the C++ version.  At this point there are just
@@ -2779,7 +2822,7 @@ want to put them.
 The wxWave class has been renamed to wxSound, and now has a slightly
 different API.
 
-Updated the AnalogClockWindow with many enhancements from E. A. Tacão.
+Updated the AnalogClockWindow with many enhancements from E. A. Tacâ€žo.
 
 wxMac now has wx.ToggleButton!
 
