@@ -992,7 +992,8 @@ wxEditTextCtrl::wxEditTextCtrl (wxWindow *parent,
                                 int style,
                                 const wxValidator& validator,
                                 const wxString &name)
-    : wxTextCtrl (parent, id, value, pos, size, style|wxSIMPLE_BORDER, validator, name)
+    : wxTextCtrl (parent, id, value, pos, size,
+                  style|wxSIMPLE_BORDER|wxTE_PROCESS_ENTER, validator, name)
 {
     m_res = res;
     m_accept = accept;
