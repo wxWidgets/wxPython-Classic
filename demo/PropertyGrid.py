@@ -761,7 +761,7 @@ class TestPanel( wx.Panel ):
         pg.Append( SingleChoiceProperty("SingleChoiceProperty") )
 
         # Custom editor samples
-        prop = pg.Append( wxpg.StringProperty("String w/ custom editor",
+        prop = pg.Append( wxpg.StringProperty("StringWithCustomEditor",
                                               value="test value") )
         pg.SetPropertyEditor(prop, "TrivialPropertyEditor")
 
