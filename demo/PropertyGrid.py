@@ -460,9 +460,9 @@ class TrivialPropertyEditor(wxpg.PyEditor):
                                             wxpg.PG_EDITABLE_VALUE)
 
         # Changing unspecified always causes event (returning
-        # true here should be enough to trigger it).
+        # True here should be enough to trigger it).
         if not res and value is None:
-            res = true
+            res = True
 
         return (res, value)
 
@@ -628,9 +628,9 @@ class LargeImageEditor(wxpg.PyEditor):
                                             wxpg.PG_EDITABLE_VALUE)
 
         # Changing unspecified always causes event (returning
-        # true here should be enough to trigger it).
+        # True here should be enough to trigger it).
         if not res and value is None:
-            res = true
+            res = True
 
         return (res, value)
 
