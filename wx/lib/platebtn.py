@@ -243,7 +243,7 @@ class PlateButton(wx.PyControl):
         bevt = wx.CommandEvent(wx.wxEVT_COMMAND_BUTTON_CLICKED, self.GetId())
         bevt.SetEventObject(self)
         bevt.SetString(self.GetLabel())
-        wx.PostEvent(self.GetParent(), bevt)
+        self.GetEventHandler().ProcessEvent(bevt)
 
     def __DrawButton(self):
         """Draw the button"""
