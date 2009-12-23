@@ -169,10 +169,101 @@ class RichTextFrame(wx.Frame):
 
         self.rtc.WriteText("Note: this sample content was generated programmatically from within the MyFrame constructor in the demo. The images were loaded from inline XPMs. Enjoy wxRichTextCtrl!")
 
+        self.rtc.Newline()
+        self.rtc.Newline()
+        self.rtc.BeginFontSize(12)
+        self.rtc.BeginBold()
+        self.rtc.WriteText("Additional comments by David Woods:")
+        self.rtc.EndBold()
+        self.rtc.EndFontSize()
+        self.rtc.Newline()
+        self.rtc.WriteText("I find some of the RichTextCtrl method names, as used above, to be misleading.  Some character styles are stacked in the RichTextCtrl, and they are removed in the reverse order from how they are added, regardless of the method called.  Allow me to demonstrate what I mean.")
+        self.rtc.Newline()
+        
+        self.rtc.WriteText('Start with plain text. ')
+        self.rtc.BeginBold()
+        self.rtc.WriteText('BeginBold() makes it bold. ')
+        self.rtc.BeginItalic()
+        self.rtc.WriteText('BeginItalic() makes it bold-italic. ')
+        self.rtc.EndBold()
+        self.rtc.WriteText('EndBold() should make it italic but instead makes it bold. ')
+        self.rtc.EndItalic()
+        self.rtc.WriteText('EndItalic() takes us back to plain text. ')
+        self.rtc.Newline()
+
+        self.rtc.WriteText('Start with plain text. ')
+        self.rtc.BeginBold()
+        self.rtc.WriteText('BeginBold() makes it bold. ')
+        self.rtc.BeginUnderline()
+        self.rtc.WriteText('BeginUnderline() makes it bold-underline. ')
+        self.rtc.EndBold()
+        self.rtc.WriteText('EndBold() should make it underline but instead makes it bold. ')
+        self.rtc.EndUnderline()
+        self.rtc.WriteText('EndUnderline() takes us back to plain text. ')
+        self.rtc.Newline()
+
+        self.rtc.WriteText('According to Julian, this functions "as expected" because of the way the RichTextCtrl is written.  I wrote the SetFontStyle() method here to demonstrate a way to work with overlapping styles that solves this problem.')
+        self.rtc.Newline()
+
+        # Create and initialize text attributes
+        self.textAttr = rt.RichTextAttr()
+        self.SetFontStyle(fontColor=wx.Colour(0, 0, 0), fontBgColor=wx.Colour(255, 255, 255), fontFace='Times New Roman', fontSize=10, fontBold=False, fontItalic=False, fontUnderline=False)
+        self.rtc.WriteText('Start with plain text. ')
+        self.SetFontStyle(fontBold=True)
+        self.rtc.WriteText('Bold. ')
+        self.SetFontStyle(fontItalic=True)
+        self.rtc.WriteText('Bold-italic. ')
+        self.SetFontStyle(fontBold=False)
+        self.rtc.WriteText('Italic. ')
+        self.SetFontStyle(fontItalic=False)
+        self.rtc.WriteText('Back to plain text. ')
+        self.rtc.Newline()
+
+        self.rtc.WriteText('Start with plain text. ')
+        self.SetFontStyle(fontBold=True)
+        self.rtc.WriteText('Bold. ')
+        self.SetFontStyle(fontUnderline=True)
+        self.rtc.WriteText('Bold-Underline. ')
+        self.SetFontStyle(fontBold=False)
+        self.rtc.WriteText('Underline. ')
+        self.SetFontStyle(fontUnderline=False)
+        self.rtc.WriteText('Back to plain text. ')
+        self.rtc.Newline()
         self.rtc.EndParagraphSpacing()
 
         self.rtc.EndSuppressUndo()
         self.rtc.Thaw()
+        
+
+    def SetFontStyle(self, fontColor = None, fontBgColor = None, fontFace = None, fontSize = None,
+                     fontBold = None, fontItalic = None, fontUnderline = None):
+      if fontColor:
+         self.textAttr.SetTextColour(fontColor)
+      if fontBgColor:
+         self.textAttr.SetBackgroundColour(fontBgColor)
+      if fontFace:
+         self.textAttr.SetFontFaceName(fontFace)
+      if fontSize:
+         self.textAttr.SetFontSize(fontSize)
+      if fontBold != None:
+         if fontBold:
+            self.textAttr.SetFontWeight(wx.FONTWEIGHT_BOLD)
+         else:
+            self.textAttr.SetFontWeight(wx.FONTWEIGHT_NORMAL)
+      if fontItalic != None:
+         if fontItalic:
+            self.textAttr.SetFontStyle(wx.FONTSTYLE_ITALIC)
+         else:
+            self.textAttr.SetFontStyle(wx.FONTSTYLE_NORMAL)
+      if fontUnderline != None:
+         if fontUnderline:
+            self.textAttr.SetFontUnderlined(True)
+         else:
+            self.textAttr.SetFontUnderlined(False)
+      self.rtc.SetDefaultStyle(self.textAttr)
+
+    def OnURL(self, evt):
+        wx.MessageBox(evt.GetString(), "URL Clicked")
         
 
     def OnFileOpen(self, evt):
