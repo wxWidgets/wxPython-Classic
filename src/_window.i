@@ -1365,11 +1365,11 @@ hotkey was registered successfully.", "");
         DocStr(UnregisterHotKey,
                "Unregisters a system wide hotkey.", "");
         bool UnregisterHotKey(int hotkeyId) {
-        #if wxUSE_HOTKEY
+        %#if wxUSE_HOTKEY
             return self->UnregisterHotKey(hotkeyId);
-        #else
+        %#else
             return false;
-        #endif
+        %#endif
         }
     }
 
