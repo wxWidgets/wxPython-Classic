@@ -39,6 +39,11 @@ except (ImportError, IOError):
     sys.exit(1)
 
 
+ALLOWED_CLS_CONFIG_KEYS = frozenset(['excluded_methods',
+                                     '__init__append',
+                                     'script_object_member'])
+
+
 #
 # Define some typemap templates
 #
@@ -644,14 +649,12 @@ def main():
         return
 
     # Distribute and check class configs
-    allowed_cls_config_keys = set(['script_object_member', 'excluded_methods'])
-
     for cls in classes.itervalues():
         cls_config = settings.class_config.get(cls.name, {})
         cls.cls_config = cls_config
 
         for k in cls_config.keys():
-            if not k in allowed_cls_config_keys:
+            if not k in ALLOWED_CLS_CONFIG_KEYS:
                 raise AssertionError("'%s' is not supported class_config key"%k)
 
     # Update derived classes configs
@@ -1139,7 +1142,14 @@ def main():
         scl.append('class %s : public %s'%(py_class_name,class_name))
         scl.append('{')
         scl.append('public:')
-        scl.append('    %%pythonAppend %s "self._SetSelf(self); self._RegisterMethods()"'%(py_class_name))
+
+        if '__init__append' in cls_config:
+            init_append_s = '; %s' % cls_config['__init__append']
+        else:
+            init_append_s = ''
+
+        scl.append('    %%pythonAppend %s "self._SetSelf(self); self._RegisterMethods()%s"' %
+                    (py_class_name, init_append_s))
         scl.append(template_vars['ctor_decls'])
         scl.append('%pythoncode {')
         scl.append('    def CallSuperMethod(self, *args, **kwargs):')

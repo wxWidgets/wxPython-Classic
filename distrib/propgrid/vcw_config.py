@@ -29,6 +29,7 @@ default_script_object_member = 'm_clientData'
 class_config = {
     'wxPGProperty' :
     { 'script_object_member' : default_script_object_member,
+      #'__init__append'       : 'self._setOORInfo(self)',
       'excluded_methods'     : ['ValidateValue', 'StringToValue', 'IntToValue',
                                 'DoGetEditorClass'] },
 
