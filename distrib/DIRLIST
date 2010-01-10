@@ -18,13 +18,15 @@ contrib/activex/wxie/latex
 contrib/dllwidget
 contrib/gizmos
 contrib/gizmos/gtk
-contrib/gizmos/mac
+contrib/gizmos/msw
 contrib/gizmos/osx_carbon
 contrib/gizmos/osx_cocoa
 contrib/gizmos/wxCode
 contrib/gizmos/wxCode/include
 contrib/gizmos/wxCode/include/wx
+contrib/gizmos/wxCode/include/wx/gizmos
 contrib/gizmos/wxCode/src
+contrib/gizmos/wxCode/src/gizmos
 demo
 demo/agw
 demo/agw/bitmaps
@@ -97,6 +99,8 @@ samples/wxPIA_book/Chapter-17
 samples/wxPIA_book/Chapter-18
 scripts
 src
+src/eventsim
+src/eventsim/tests
 src/gtk
 src/osx_carbon
 src/osx_cocoa
@@ -106,6 +110,7 @@ wx/build
 wx/lib
 wx/lib/agw
 wx/lib/agw/aui
+wx/lib/agw/ribbon
 wx/lib/analogclock
 wx/lib/analogclock/lib_setup
 wx/lib/art
@@ -213,6 +218,7 @@ wx/tools/Editra/scripts
 wx/tools/Editra/scripts/i18n
 wx/tools/Editra/src
 wx/tools/Editra/src/autocomp
+wx/tools/Editra/src/ebmlib
 wx/tools/Editra/src/eclib
 wx/tools/Editra/src/extern
 wx/tools/Editra/src/extern/pygments
