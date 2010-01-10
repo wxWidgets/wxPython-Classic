@@ -1,7 +1,7 @@
 #!/bin/bash
 #----------------------------------------------------------------------
 
-if [ ! -d wxPython ]; then
+if [ ! -d wx/lib ]; then
     echo "Please run this script from the root wxPython directory."
     exit 1
 fi

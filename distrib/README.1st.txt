@@ -1,37 +1,28 @@
-README for wxPython-src-2.6.*.tar.bz2
+README for wxPython-src-2.9.*.tar.bz2
 =====================================
 
 
 This archive contains the source code and other files for both
-wxWidgets and wxPython.  Some things not needed for the build (such as
-the wxWidgets samples and docs) have been removed in order to minimize
-the size of the archive and are available elsewhere.  If you would
-like to have the complete set of sources and etc. then please either
-use a CVS snapshot from http://wxwindows.org/snapshots/ or do a
-checkout from CVS yourself (see http://www.wxwindows.org/cvs.htm.)  If
-you would like to use CVS to get the exact same sources as one of
-these tarballs then you can update using a release tag.  For example::
-
-      cvs update -r wxPy_2_6_1_0
-
+wxWidgets and wxPython.  Some things not needed for the build have
+been removed in order to minimize the size of the archive and are
+available elsewhere.  If you would like to have the complete set of
+sources and etc. then please either use a SVN snapshot from
+http://wxwindows.org/snapshots/ or do a checkout from the subversion
+repository yourself from http://svn.wxwidgets.org/svn/wx/.  If you
+would like to use SVN to get the exact same sources that one of these
+tarballs was built from then you can checkout using one of the release
+tags in http://svn.wxwidgets.org/svn/wx/wxPython/tags/.
 
 For more details about building and installing wxWidgets and wxPython
-please see these files::
+please see this file::
 
       wxPython/docs/BUILD.txt
-      wxPython/docs/INSTALL.txt
 
 
 For a log of recent changes check these files::
 
       docs/changes.txt             (for wxWidgets)
       wxPython/docs/CHANGES.txt    (for wxPython)
-
-
-And for information about major changes in wxPython 2.6 and how to
-migrate your existing code to 2.6 please read this file::
-
-      wxPython/docs/MigrationGuide.txt
 
 
 Further information can be found on the wxWidgets and wxPython web
@@ -57,5 +48,5 @@ Have fun!
 --
 Robin Dunn
 Software Craftsman
-http://wxPython.org  Java give you jitters?  Relax with wxPython!
+http://wxPython.org 
 

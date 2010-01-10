@@ -51,24 +51,18 @@ def getTasks(config_env):
     
 
     tigerTask =  Task([
-        #Job("smallfry.23", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.3", "both"], env=config_env),
-        Job("smallfry.24", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.4", "both"], env=config_env),
         Job("smallfry.25", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.5", "both"], env=config_env),
         Job("smallfry.26", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.6", "both"], env=config_env),
         ])
 
     
     beastTask1 = Task([
-        #Job("beast.23",     "distrib/all/build-windows", ["2.3"], env=config_env),
-        Job("beast.24",     "distrib/all/build-windows", ["2.4"], env=config_env),
         Job("beast.25",     "distrib/all/build-windows", ["2.5"], env=config_env),
         Job("beast.26",     "distrib/all/build-windows", ["2.6"], env=config_env),
         ])
     
 
     cyclopsTask1 = Task([
-        #Job("cyclops.fc6", "distrib/all/build-chrpm",  ["cyclops", "/work/chroot/fc6", "fc6", "fc6", "2.4"], env=config_env),
-        #Job("cyclops.fc7", "distrib/all/build-chrpm",  ["cyclops", "/work/chroot/fc7", "fc7", "fc7", "2.5"], env=config_env),
         Job("cyclops.hardy",   "distrib/all/build-deb", ["cyclops", "/work/chroot/hardy",   "hardy"], env=config_env),
         Job("cyclops.hardy64", "distrib/all/build-deb", ["cyclops", "/work/chroot/hardy64", "hardy64"], env=config_env),
         Job("cyclops.intrepid",   "distrib/all/build-deb", ["cyclops", "/work/chroot/intrepid",   "intrepid"], env=config_env),
@@ -76,7 +70,7 @@ def getTasks(config_env):
         ])
 
     cyclopsTask2 = Task([
-        Job("cyclops.win64-25", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.5", "AMD64"], env=config_env),
+        ##Job("cyclops.win64-25", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.5", "AMD64"], env=config_env),
         Job("cyclops.win64-26", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.6", "AMD64"], env=config_env),
         Job("cyclops.jaunty",   "distrib/all/build-deb", ["cyclops", "/work/chroot/jaunty",   "jaunty"], env=config_env),
         Job("cyclops.jaunty64", "distrib/all/build-deb", ["cyclops", "/work/chroot/jaunty64", "jaunty64"], env=config_env),
@@ -139,7 +133,7 @@ def main(args):
     # Make sure we are running in the right directory.  TODO: make
     # this test more robust.  Currenly we just test for the presence
     # of 'wxPython' and 'wx' subdirs.
-    if not os.path.isdir("wxPython") or not os.path.isdir("wx"):
+    if not os.path.isdir("distrib") or not os.path.isdir("wx"):
         print "Please run this script from the root wxPython directory."
         sys.exit(1)
         

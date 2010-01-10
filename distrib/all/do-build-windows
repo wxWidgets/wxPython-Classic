@@ -78,7 +78,6 @@ cd $WXDIR
 names=`find wxPython -name "*.py" -o -name "*.txt" -o -name "*.htm*" -o -name "*.css" -o -name "*.xml" `
 unix2dos -D $names
 
-
 . $WXDIR/wxPython/distrib/all/functions.inc
 
 # change to the right spot in the source tree and copy our build scripts
@@ -87,52 +86,25 @@ cd $WXDIR/build/msw
 cp $WXDIR/wxPython/distrib/msw/.m* .
 chmod +x .m*
 
-update_setup_h $WXDIR/include/wx/msw
+# update_setup_h $WXDIR/include/wx/msw
 
-echo "Building the wx DLLs..."
-if [ "$CPU" != "AMD64" ]; then
-    if [ $CHARTYPE = both -o $CHARTYPE = ansi ]; then
-	.make hybrid USE_GDIPLUS=1
-    fi
-fi
-if [ $CHARTYPE = both -o $CHARTYPE = unicode ]; then
-    .make hybrid-uni USE_GDIPLUS=1
-fi
-
-
-# echo "Building tex2rtf..."
-# cd $WXDIR/utils/tex2rtf/src
-# $WXDIR/build/msw/.mymake hybrid 
-# cp vc_mswhdll/tex2rtf.exe $WXDIR/lib/vc_dll/tex2rtf.exe
-
-# echo "Translating docs to html..."
-# DOCDIR=$WXDIR/docs
-# cd $DOCDIR/latex/wx
-# mkdir -p $DOCDIR/html/wx
-# cp *.gif $DOCDIR/html/wx
-# cp *.css $DOCDIR/html/wx
-# DOCSRC=`cygpath -w $DOCDIR/latex/wx/manual.tex`
-# DOCDEST=`cygpath -w $DOCDIR/html/wx/wx.htm` 
-# DOCINI=`cygpath -w $DOCDIR/latex/wx/tex2rtf_css.ini`
-
-# $WXDIR/lib/vc_dll/tex2rtf.exe $DOCSRC $DOCDEST -twice -html -macros $DOCINI
-
-
-# echo "Extracting html docs..."
-# mkdir -p $WXDIR/docs/html/wx
-# cd $WXDIR/docs/html/wx
-# rm -rf *
-# tar xjf $DESTDIR/wxPython-docs-$VERSION.tar.bz2
-# rm $DESTDIR/wxPython-docs-$VERSION.tar.bz2
-# unzip wxPython-$VERSION/docs/wx.zip
+# echo "Building the wx DLLs..."
+# if [ "$CPU" != "AMD64" ]; then
+#     if [ $CHARTYPE = both -o $CHARTYPE = ansi ]; then
+# 	.make hybrid USE_GDIPLUS=1
+#     fi
+# fi
+# if [ $CHARTYPE = both -o $CHARTYPE = unicode ]; then
+#     .make hybrid-uni USE_GDIPLUS=1
+# fi
 
 
 echo "Building the HTMLHelp file..."
-cd $WXDIR/docs/html/wx
+cd $WXDIR/docs/doxygen/out/html
 ##cp $DOCDIR/latex/wx/wx.css .
-$TOOLS/HTMLHelpWorkshop/hhc.exe wx.hhp || true
-mkdir -p ../../htmlhelp
-mv wx.chm ../../htmlhelp
+$TOOLS/HTMLHelpWorkshop/hhc.exe index.hhp || true
+mkdir -p $WXDIR/docs/htmlhelp
+mv ../wx.chm $WXDIR/docs/htmlhelp/wx.chm
 
 
 echo "Building wxPython and installers..."
@@ -153,18 +125,22 @@ esac
 
 PYTHON=$TOOLS/python$VER/python.exe
 mkdir -p dist
-if [ "$CPU" != "AMD64" ]; then
-    if [ $CHARTYPE = both -o $CHARTYPE = ansi ]; then
-	rm -f wx/*.pyd
-	$PYTHON setup.py HYBRID=1 build_ext --inplace UNICODE=0 EP_ADD_OPTS=1
-	$PYTHON -u distrib/make_installer.py UNICODE=0
-    fi
-fi
-if [ $CHARTYPE = both -o $CHARTYPE = unicode ]; then
-    rm -f wx/*.pyd
-    $PYTHON setup.py HYBRID=1 build_ext --inplace UNICODE=1 EP_ADD_OPTS=1
-    $PYTHON -u distrib/make_installer.py UNICODE=1
-fi
+# if [ "$CPU" != "AMD64" ]; then
+#     if [ $CHARTYPE = both -o $CHARTYPE = ansi ]; then
+# 	rm -f wx/*.pyd
+# 	$PYTHON setup.py HYBRID=1 build_ext --inplace UNICODE=0 EP_ADD_OPTS=1
+# 	$PYTHON -u distrib/make_installer.py UNICODE=0
+#     fi
+# fi
+# if [ $CHARTYPE = both -o $CHARTYPE = unicode ]; then
+#     rm -f wx/*.pyd
+#     $PYTHON setup.py HYBRID=1 build_ext --inplace UNICODE=1 EP_ADD_OPTS=1
+#     $PYTHON -u distrib/make_installer.py UNICODE=1
+# fi
+
+
+$PYTHON -u ./build-wxpython.py --unicode
+$PYTHON -u distrib/make_installer.py UNICODE=1
 
 
 echo "Building the developer package..."

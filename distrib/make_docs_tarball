@@ -1,24 +1,22 @@
 #!/bin/bash
 
 #----------------------------------------------------------------------
+#set -o xtrace
 
-# set -o xtrace
-
-if [ ! -d wxPython ]; then  # TODO: make this test more robust
+if [ ! -d wx/lib ]; then  # TODO: make this test more robust
     echo "Please run this script from the root wxPython directory."
     exit 1
 fi
 
 
 VERSION=`python -c "import setup;print setup.VERSION"`
-#CONTRIBS="gizmos"
-CONTRIBS=
 DEST=wxPython-$VERSION/docs
 
 
 # **** Make a directory to build up a distribution tree
-mkdir -p _build_docs/$DEST/wx
+mkdir -p _build_docs/$DEST
 cd _build_docs
+rm -rf $DEST/wx
 
 DEST=`abspath.py $DEST`
 
@@ -27,49 +25,37 @@ if [ "$WXWIN" != "" ]; then
 else
     WXDIR=`abspath.py ../../wxWidgets`
 fi
-INI=$WXDIR/docs/latex/wx/tex2rtf_css.ini
 
 
-# **** Build the main docs using tex2rtf
-echo "****" main "****"
-cp $WXDIR/docs/latex/wx/*.gif $DEST/wx
-cp $WXDIR/docs/latex/wx/*.css $DEST/wx
-echo tex2rtf $WXDIR/docs/latex/wx/manual.tex $DEST/wx/wx.html -twice -html -macros $INI
-tex2rtf $WXDIR/docs/latex/wx/manual.tex $DEST/wx/wx.html -twice -html -macros $INI
-cp $DEST/wx/wx_contents.html $DEST/wx/index.html
-mkdir -p $WXDIR/docs/html/wx
-cp $DEST/wx/* $WXDIR/docs/html/wx
-
-# **** and the contribs
-for c in $CONTRIBS; do
-    echo "****" $c "****"
-    mkdir $DEST/$c
-    cp $WXDIR/contrib/docs/latex/$c/*.gif $DEST/$c
-    cp $WXDIR/contrib/docs/latex/$c/*.bmp $DEST/$c
-    tex2rtf $WXDIR/contrib/docs/latex/$c/$c.tex $DEST/$c/$c.html -twice -html -macros $INI      
-    #tex2rtf $WXDIR/contrib/docs/latex/$c/manual.tex $DEST/$c/$c.html -twice -html -macros $INI 
-    cp $DEST/$c/$c.html $DEST/$c/index.html || cp $DEST/$c/${c}_contents.html $DEST/$c/index.html
-done
+# **** Run the docs build script, that runs doxygen for us.  Use the
+#      chm target so we get the HTMLHelp control files too.
+$WXDIR/docs/doxygen/regen.sh chm
 
 
-# **** zip the docs into "books"
-pushd $DEST
-pushd wx
-zip ../wx.zip *
-popd
-rm -r wx
+# **** Copy to our build dir and clean up
+cp -R $WXDIR/docs/doxygen/out/html $DEST/wx
+rm $DEST/wx/*.map
+rm $DEST/wx/*.md5
 
-for c in $CONTRIBS; do
-    pushd $c
-    zip ../$c.zip *
-    popd
-    rm -r $c
-done
 
-popd
-cp ../distrib/viewdocs.py $DEST
-cp ../distrib/README.viewdocs.txt $DEST/README.txt
-##cp ../docs/xml/wxPython-metadata.xml $DEST
+# # **** zip the docs into "books"
+# pushd $DEST
+# pushd wx
+# zip ../wx.zip *
+# popd
+# rm -r wx
+
+# for c in $CONTRIBS; do
+#     pushd $c
+#     zip ../$c.zip *
+#     popd
+#     rm -r $c
+# done
+
+# popd
+# cp ../distrib/viewdocs.py $DEST
+# cp ../distrib/README.viewdocs.txt $DEST/README.txt
+
 
 mkdir -p ../dist
 rm -f ../dist/wxPython-docs-$VERSION.tar.bz2

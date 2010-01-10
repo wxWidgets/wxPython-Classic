@@ -24,7 +24,7 @@ if [ "$PYTHON" = "" ]; then
 	PYTHON=python$PYVER
     fi
 fi
-echo "Using Python:"
+echo "Using:" $PYTHON
 $PYTHON -c "import sys;print sys.version, '\n'"
 
 
@@ -36,6 +36,22 @@ if [ "$SWIG" = "" ]; then
     fi
 fi
 export SWIG
+
+function show_help {
+    echo "build commands:"
+    echo "    c       clean"
+    echo "    cw      clean only wx"
+    echo "    cp      clean only wxPython"
+    echo "    ce      clean only extension modules"
+    echo ""
+    echo "    cb      clean both debug and hybrid"
+    echo ""
+    echo "    d       build debug (default)"
+    echo "    h       build hybrid"
+    echo "    b       build both debug and hybrid"
+    echo ""
+    echo "    t       touch all *.i files"
+}
 
 
 ARGS="--reswig --unicode --build_dir=../bld"
@@ -58,6 +74,7 @@ case $1 in
       b) BOTH="yes";                 shift ;;
 
       t) find . -name "*.i" | xargs -t touch; echo "*.i files touched"; exit 0 ;;
+   help) show_help; exit 0 ;;
 esac
 
 

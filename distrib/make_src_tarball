@@ -2,12 +2,12 @@
 #----------------------------------------------------------------------
 # Build a source tarball for wxWidgets and wxPython
 
-##set -o xtrace
+set -o xtrace
 ##set -o errexit
 
 spectemplate=distrib/wxPythonFull.spec.in
 
-if [ ! -d wxPython -o ! -e ${spectemplate} ]; then
+if [ ! -d wx/lib -o ! -e ${spectemplate} ]; then
     echo "Please run this script from the root wxPython directory."
     exit 1
 fi
@@ -30,7 +30,7 @@ builddir=${wxpdir}/_build_
 pythonbin=/usr/bin/python
 tarname=wxPython-src
 
-pyver=2.4
+pyver=2.5
 ver2=`echo ${version} | cut -c 1,2,3`
 tarver=${tarname}-${version}
 pythonbin=/usr/bin/python
@@ -77,7 +77,8 @@ mkdir -p ${tarver}
 cp -pf --link ${wxdir}/* ${tarver} > /dev/null 2>&1
 
 # copy some specific top level dirs
-for d in art build contrib debian docs include lib locale patches samples src utils; do
+for d in art build debian demos docs include interface lib \
+         locale patches samples src utils; do
     if [ -e ${wxdir}/$d ]; then
 	cp -Rpf --link ${wxdir}/$d ${tarver} #> /dev/null 2>&1
     fi
@@ -97,6 +98,7 @@ done
 # copy...
 cp -pf --link ${wxpdir}/distrib/msw/.[a-zA-Z]* ${tarver}/wxPython/distrib/msw  > /dev/null 2>&1
 
+# cleanup
 echo "*** Removing uneeded stuff from copy of workspace tree"
 pushd ${tarver} > /dev/null
 cleanup .cvsignore
@@ -114,13 +116,11 @@ cleanup "*~"
 cleanup "*.orig"
 cleanup "*.rej"
 cleanup "*.pyc"
-cleanup core
 cleanup "core.[0-9]*"
 rm -f wxPython/samples/embedded/embedded
 rm -f wxPython/samples/embedded/embedded.o
 
 # ports that are not supported yet
-#cleanup cocoa    # wxMac needs some cocoa headers
 cleanup mgl
 cleanup motif
 cleanup os2
@@ -138,8 +138,6 @@ popd > /dev/null
 #----------------------------------------------------------------------
 # Make the spec file and copy to ${builddir}/${tarver} so it will be
 # in the tar file when it's built
-
-# TODO?  Output all combinations of spec files to put in the tar file??
 
 makespec
 cp ${distdir}/wxPython.spec ${builddir}/${tarver}/wxPython.spec
@@ -204,7 +202,7 @@ pushd ${builddir} > /dev/null
 mv ${tarver} wxwidgets${ver2}-${version}
 
 # remove some of the platform specific dirs
-for dir in msw msdos msvc mac cocoa dfb palmos; do
+for dir in msw msdos msvc mac cocoa osx dfb palmos; do
     find . -name ${dir} -type d -print | xargs rm -rf
 done
 
