@@ -91,7 +91,7 @@ class MyTreeListModel(dv.PyDataViewModel):
         # The hidden root is a container
         if not item:
             return True
-        # and the genre objects are containers
+        # and in this model the genre objects are containers
         node = self.ItemToObject(item)
         if isinstance(node, Genre):
             return True
