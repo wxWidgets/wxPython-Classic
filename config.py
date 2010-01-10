@@ -336,7 +336,8 @@ def Verify_WX_CONFIG():
             # should we exit?
 
         # TODO:  execute WX_CONFIG --list and verify a matching config is found
-        
+    
+    
 
 def run_swig(files, dir, gendir, package, USE_SWIG, force, swig_args,
              swig_deps=[], add_under=False):
@@ -594,9 +595,9 @@ def findLib(name, libdirs):
         # output these libdirs because they are already searched by
         # default by the compiler and linker.
         if lflags[0][:2] != '-L':  
-           dirs = libdirs + ['/usr/lib', '/usr/local/lib']
+            dirs = libdirs + ['/usr/lib', '/usr/local/lib']
         else:
-           dirs = libdirs
+            dirs = libdirs
         name = 'lib'+name
     else:
         dirs = libdirs[:]
