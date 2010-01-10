@@ -30,6 +30,7 @@ scripts = [ ("img2png",    0),
             ("pyalacarte", 1),
             ("helpviewer", 1),
             ("pywxrc",     0),
+            ("editra",     1),
             ]
 
 template = """\
