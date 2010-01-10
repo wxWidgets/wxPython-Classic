@@ -199,6 +199,11 @@ enum {
     wxTEXT_TYPE_ANY
 };
 
+enum wxFontStyle;
+enum wxFontWeight;
+enum wxFontEncoding;
+enum wxFontFamily;
+
 //---------------------------------------------------------------------------
 
 // wxTextAttr: a structure containing the visual attributes of a text
@@ -425,9 +430,7 @@ public:
 // wxTextCtrl: a single or multiple line text zone where user can enter and
 // edit text
 MustHaveApp(wxTextCtrl);
-class wxTextCtrl : public wxControl,
-                   public wxTextAreaBase,
-                   public wxTextEntry
+class wxTextCtrl : public wxTextCtrlBase
 {
 public:
     %pythonAppend wxTextCtrl         "self._setOORInfo(self)"

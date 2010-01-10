@@ -659,6 +659,7 @@ the client area origin nor scrolling. ", "",
     %property(NumberOfLines, GetNumberOfLines);
 };
 
+
     
 DocStr(wxTextCtrlIface,
 "This class defines the wx.TextCtrl interface", "");
@@ -670,6 +671,18 @@ public:
 
 };
 
-    
+
+DocStr(wxTextCtrlBase,
+"An abstract base class for wx.TextCtrl.", "");
+class wxTextCtrlBase : public wxControl,
+                       public wxTextAreaBase,
+                       public wxTextEntry
+{
+public:
+    // wxTextCtrlBase();   ****  An ABC
+};
+
+                       
+
 //---------------------------------------------------------------------------
 
