@@ -722,6 +722,14 @@ class PGProperty(_core.Object):
         """GetPropertyByName(self, String name) -> PGProperty"""
         return _propgrid.PGProperty_GetPropertyByName(*args, **kwargs)
 
+    def StringToValue(*args, **kwargs):
+        """StringToValue(self, String text, int argFlags=0) -> wxPGVariantAndBool"""
+        return _propgrid.PGProperty_StringToValue(*args, **kwargs)
+
+    def IntToValue(*args, **kwargs):
+        """IntToValue(self, wxVariant value, int number, int argFlags=0) -> wxPGVariantAndBool"""
+        return _propgrid.PGProperty_IntToValue(*args, **kwargs)
+
     m_value = property(GetValuePlain,SetValuePlain) 
     def GetClientData(*args, **kwargs):
         """
@@ -2407,6 +2415,10 @@ class PGMultiButton(_core.Window):
     def __init__(self, *args, **kwargs): 
         """__init__(self, PropertyGrid pg, Size sz) -> PGMultiButton"""
         _propgrid.PGMultiButton_swiginit(self,_propgrid.new_PGMultiButton(*args, **kwargs))
+        
+        self._setOORInfo(self)
+    
+
     __swig_destroy__ = _propgrid.delete_PGMultiButton
     __del__ = lambda self : None;
     def GetButton(*args):
@@ -3313,8 +3325,10 @@ class PyCheckBoxEditor(PGCheckBoxEditor):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyCheckBoxEditor, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyCheckBoxEditor, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3346,8 +3360,10 @@ class PyFloatProperty(FloatProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyFloatProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyFloatProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3379,8 +3395,10 @@ class PyEditorDialogAdapter(PGEditorDialogAdapter):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyEditorDialogAdapter, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyEditorDialogAdapter, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3416,8 +3434,10 @@ class PyEnumProperty(EnumProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyEnumProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyEnumProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3449,8 +3469,10 @@ class PyArrayStringProperty(ArrayStringProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyArrayStringProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyArrayStringProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3482,8 +3504,10 @@ class PyComboBoxEditor(PGComboBoxEditor):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyComboBoxEditor, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyComboBoxEditor, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3515,8 +3539,10 @@ class PyFileDialogAdapter(PGFileDialogAdapter):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyFileDialogAdapter, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyFileDialogAdapter, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3548,8 +3574,10 @@ class PyStringProperty(StringProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyStringProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyStringProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3590,8 +3618,10 @@ class PyEditEnumProperty(EditEnumProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyEditEnumProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyEditEnumProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3623,8 +3653,10 @@ class PyTextCtrlEditor(PGTextCtrlEditor):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyTextCtrlEditor, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyTextCtrlEditor, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3662,8 +3694,10 @@ class PySystemColourProperty(SystemColourProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PySystemColourProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PySystemColourProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3699,8 +3733,10 @@ class PyFlagsProperty(FlagsProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyFlagsProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyFlagsProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3732,8 +3768,10 @@ class PyFileProperty(FileProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyFileProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyFileProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3768,8 +3806,10 @@ class PyIntProperty(IntProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyIntProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyIntProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3801,8 +3841,10 @@ class PyEditor(PGEditor):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyEditor, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyEditor, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3834,8 +3876,10 @@ class PyChoiceEditor(PGChoiceEditor):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyChoiceEditor, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyChoiceEditor, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3870,8 +3914,10 @@ class PyProperty(PGProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3903,8 +3949,10 @@ class PyLongStringDialogAdapter(PGLongStringDialogAdapter):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyLongStringDialogAdapter, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyLongStringDialogAdapter, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3936,8 +3984,10 @@ class PyColourProperty(ColourProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyColourProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyColourProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -3972,8 +4022,10 @@ class PyUIntProperty(UIntProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyUIntProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyUIntProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):
@@ -4005,8 +4057,10 @@ class PyLongStringProperty(LongStringProperty):
         args2 = list(args)
         args2[0] = self
         self._super_call = True
-        res = getattr(PyLongStringProperty, funcname)(*args2, **kwargs)
-        del self._super_call
+        try:
+            res = getattr(PyLongStringProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
         return res
 
     def _RegisterMethods(self):

@@ -3304,101 +3304,6 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
     return true;
 }
 
-//
-// wxPGVariantAndBool
-//
-// Helper class that wraps wxVariant and bool. Need to use this class
-// instead of "writeback" arguments in some virtual methods of custom
-// property classes (for some reason I couldn't get SWIG INOUT working.
-// Actually, even trivial int* OUTPUT failed).
-//
-class wxPGVariantAndBool
-{
-public:
-
-    wxPGVariantAndBool()
-    {
-        m_valueValid = false;
-        m_result = false;
-    }
-
-    wxPGVariantAndBool( bool result, const wxVariant& variant )
-    {
-        m_valueValid = true;
-        m_result = result;
-        m_value = variant;
-    }
-
-    wxPGVariantAndBool( const wxVariant& variant )
-    {
-        m_valueValid = true;
-        m_result = true;
-        m_value = variant;
-    }
-
-    wxPGVariantAndBool( bool result )
-    {
-        Init(result);
-    }
-
-    ~wxPGVariantAndBool() { }
-
-    void Init( bool result = false )
-    {
-        m_valueValid = false;
-        m_result = result;
-    }
-
-    const wxVariant& GetValue() const
-    {
-        wxASSERT(m_valueValid);
-        return m_value;
-    }
-
-public:
-    wxVariant m_value;
-    bool      m_valueValid;
-    bool      m_result;
-};
-
-bool PyObject_to_wxPGVariantAndBool( PyObject* input, wxPGVariantAndBool& vab )
-{
-    PyDateTime_IMPORT;
-
-    if ( PyBool_Check(input) )
-    {
-        vab.Init((bool) PyInt_AsLong(input));
-        return true;
-    }
-
-    PyObject* item = NULL;
-
-    if ( PyTuple_Check(input) && PySequence_Length(input) == 2 )
-    {
-        item = PySequence_GetItem(input, 0);
-        if (PyErr_Occurred()) return false;
-        vab.m_result = (bool) PyInt_AsLong(item);
-        Py_DECREF(item);
-        item = PySequence_GetItem(input, 1);
-        if (PyErr_Occurred()) return false;
-        input = item;
-    }
-    else
-    {
-        vab.m_result = true;
-    }
-
-    if ( PyObject_to_wxVariant( input, &vab.m_value ) )
-        vab.m_valueValid = true;
-    else
-        return false;
-
-    if ( item )
-        Py_DECREF( item );
-
-    return true;
-}
-
 PyObject* wxVariant_to_PyObject( const wxVariant* v )
 {
     if ( !v || v->IsNull() )
@@ -3529,6 +3434,133 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
     }
 
     return NULL;
+}
+
+//
+// wxPGVariantAndBool
+//
+// Helper class that wraps wxVariant and bool. Need to use this class
+// instead of "writeback" arguments in some virtual methods of custom
+// property classes (for some reason I couldn't get SWIG INOUT working.
+// Actually, even trivial int* OUTPUT failed).
+//
+class wxPGVariantAndBool
+{
+public:
+
+    wxPGVariantAndBool()
+    {
+        m_valueValid = false;
+        m_result = false;
+    }
+
+    wxPGVariantAndBool( bool result, const wxVariant& variant )
+    {
+        m_valueValid = true;
+        m_result = result;
+        m_value = variant;
+    }
+
+    wxPGVariantAndBool( const wxVariant& variant )
+    {
+        m_valueValid = true;
+        m_result = true;
+        m_value = variant;
+    }
+
+    wxPGVariantAndBool( bool result )
+    {
+        Init(result);
+    }
+
+    ~wxPGVariantAndBool() { }
+
+    void Init( bool result = false )
+    {
+        m_valueValid = false;
+        m_result = result;
+    }
+
+    const wxVariant& GetValue() const
+    {
+        wxASSERT(m_valueValid);
+        return m_value;
+    }
+
+public:
+    wxVariant m_value;
+    bool      m_valueValid;
+    bool      m_result;
+};
+
+PyObject* wxPGVariantAndBool_to_PyObject( const wxPGVariantAndBool& vab )
+{
+    PyObject* tuple = PyTuple_New(2);
+
+    PyObject* value;
+    if ( vab.m_valueValid )
+    {
+        value = wxVariant_to_PyObject(&vab.m_value);
+    }
+    else
+    {
+        Py_INCREF(Py_None);
+        value = Py_None;
+    }
+
+    PyTuple_SetItem(tuple, 0, PyInt_FromLong((long)vab.m_result));
+    PyTuple_SetItem(tuple, 1, value);
+
+    return tuple;
+}
+
+bool PyObject_to_wxPGVariantAndBool( PyObject* input,
+                                     wxPGVariantAndBool& vab )
+{
+    PyObject* resObj = NULL;
+    PyObject* valueObj = NULL;
+
+    if ( PySequence_Check(input) && PySequence_Length(input) == 2 )
+    {
+        resObj = PySequence_GetItem(input, 0);
+        if (PyErr_Occurred()) return false;
+        valueObj = PySequence_GetItem(input, 1);
+        if (PyErr_Occurred()) return false;
+    }
+    else
+    {
+        resObj = input;
+    }
+
+    // Also checks for bool, which is subclass of int
+    if ( PyInt_Check(resObj) )
+    {
+        vab.Init((bool) PyInt_AsLong(resObj));
+    }
+    else if ( PyLong_Check(resObj) )
+    {
+        vab.Init((bool) PyLong_AsLong(resObj));
+    }
+    else
+    {
+        return false;
+    }
+
+    if ( valueObj )
+    {
+        // If valueObj is valid, then we can assume resObj was acquired from
+        // sequence and must be decref'ed.
+        Py_DECREF(resObj);
+
+        if ( PyObject_to_wxVariant(valueObj, &vab.m_value) )
+            vab.m_valueValid = true;
+        else
+            return false;
+
+        Py_DECREF(valueObj);
+    }
+
+    return true;
 }
 
 bool PyObject_to_wxPGPropArgCls( PyObject* input, wxPGPropArgCls** v )
@@ -3842,6 +3874,16 @@ SWIG_AsVal_double (PyObject *obj, double* val)
 
   #define SWIG_From_double   PyFloat_FromDouble 
 
+SWIGINTERN wxPGVariantAndBool wxPGProperty_StringToValue(wxPGProperty *self,wxString const &text,int argFlags=0){
+            wxVariant variant = self->GetValuePlain();
+            bool res = self->StringToValue(variant, text, argFlags);
+            return wxPGVariantAndBool(res, variant);
+        }
+SWIGINTERN wxPGVariantAndBool wxPGProperty_IntToValue(wxPGProperty const *self,wxVariant &value,int number,int argFlags=0){
+            wxVariant variant = self->GetValuePlain();
+            bool res = self->IntToValue(variant, number, argFlags);
+            return wxPGVariantAndBool(res, variant);
+        }
 SWIGINTERN PyObject *wxPGProperty_GetClientData(wxPGProperty *self){
             wxPyClientData* data = (wxPyClientData*)self->GetClientObject();
             if (data) {
@@ -4196,7 +4238,7 @@ wxPGVariantAndBool _CommonCallback25(wxPyBlock_t blocked, PyObject* self, PyObje
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
             PyErr_SetString(PyExc_TypeError,
-                "this Python type cannot be converted to wxVariant");
+                "this Python type cannot be converted to wxPGVariantAndBool");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -4412,7 +4454,7 @@ wxPGVariantAndBool _CommonCallback8(wxPyBlock_t blocked, PyObject* self, PyObjec
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
             PyErr_SetString(PyExc_TypeError,
-                "this Python type cannot be converted to wxVariant");
+                "this Python type cannot be converted to wxPGVariantAndBool");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -4447,7 +4489,7 @@ wxPGVariantAndBool _CommonCallback26(wxPyBlock_t blocked, PyObject* self, PyObje
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
             PyErr_SetString(PyExc_TypeError,
-                "this Python type cannot be converted to wxVariant");
+                "this Python type cannot be converted to wxPGVariantAndBool");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -4875,7 +4917,7 @@ wxPGVariantAndBool _CommonCallback27(wxPyBlock_t blocked, PyObject* self, PyObje
     wxPGVariantAndBool retval;
     if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
             PyErr_SetString(PyExc_TypeError,
-                "this Python type cannot be converted to wxVariant");
+                "this Python type cannot be converted to wxPGVariantAndBool");
             SWIG_fail;
         }
     Py_DECREF(res);
@@ -20061,6 +20103,133 @@ SWIGINTERN PyObject *_wrap_PGProperty_GetPropertyByName(PyObject *SWIGUNUSEDPARM
 fail:
   {
     if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_StringToValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  wxString *arg2 = 0 ;
+  int arg3 = (int) 0 ;
+  wxPGVariantAndBool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "text",(char *) "argFlags", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:PGProperty_StringToValue",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_StringToValue" "', expected argument " "1"" of type '" "wxPGProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PGProperty_StringToValue" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxPGProperty_StringToValue(arg1,(wxString const &)*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxPGVariantAndBool_to_PyObject(result);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_IntToValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  wxVariant *arg2 = 0 ;
+  int arg3 ;
+  int arg4 = (int) 0 ;
+  wxPGVariantAndBool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "value",(char *) "number",(char *) "argFlags", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|O:PGProperty_IntToValue",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_IntToValue" "', expected argument " "1"" of type '" "wxPGProperty const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  {
+    arg2 = new wxVariant();
+    if ( !PyObject_to_wxVariant(obj1, arg2) ) {
+      PyErr_SetString(PyExc_TypeError,
+        "this Python type cannot be converted to wxVariant");
+      SWIG_fail;
+    }
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PGProperty_IntToValue" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  if (obj3) {
+    ecode4 = SWIG_AsVal_int(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PGProperty_IntToValue" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxPGProperty_IntToValue((wxPGProperty const *)arg1,*arg2,arg3,arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxPGVariantAndBool_to_PyObject(result);
+  }
+  {
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
     delete arg2;
   }
   return NULL;
@@ -45833,6 +46002,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PGProperty_GetImageOffset", (PyCFunction) _wrap_PGProperty_GetImageOffset, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetItemAtY", (PyCFunction) _wrap_PGProperty_GetItemAtY, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetPropertyByName", (PyCFunction) _wrap_PGProperty_GetPropertyByName, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PGProperty_StringToValue", (PyCFunction) _wrap_PGProperty_StringToValue, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PGProperty_IntToValue", (PyCFunction) _wrap_PGProperty_IntToValue, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetClientData", (PyCFunction)_wrap_PGProperty_GetClientData, METH_O, NULL},
 	 { (char *)"PGProperty_SetClientData", (PyCFunction) _wrap_PGProperty_SetClientData, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_swigregister", PGProperty_swigregister, METH_VARARGS, NULL},

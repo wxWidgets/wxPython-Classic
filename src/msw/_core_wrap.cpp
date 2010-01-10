@@ -4197,11 +4197,11 @@ SWIGINTERN bool wxWindow_RegisterHotKey(wxWindow *self,int hotkeyId,int modifier
         #endif
         }
 SWIGINTERN bool wxWindow_UnregisterHotKey(wxWindow *self,int hotkeyId){
-        
-
-
+        #if wxUSE_HOTKEY
+            return self->UnregisterHotKey(hotkeyId);
+        #else
             return false;
-        
+        #endif
         }
 SWIGINTERN void wxWindow_SetDoubleBuffered(wxWindow *self,bool on){
         #if defined(__WXGTK20__) || defined(__WXMSW__)
