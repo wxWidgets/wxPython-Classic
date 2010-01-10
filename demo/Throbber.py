@@ -79,7 +79,6 @@ class TestPanel(wx.Panel):
         box = wx.BoxSizer(wx.VERTICAL)
         sizer = wx.GridBagSizer()
         box.Add(sizer, 1, wx.EXPAND|wx.ALL, 5)
-        sizer.AddGrowableCol(1)
 
         row = 2
 
@@ -108,6 +107,8 @@ class TestPanel(wx.Panel):
             wx.StaticText(self, -1, 'with custom & manual sequences'), 
             (row, 1), flag = wx.ALIGN_CENTER_VERTICAL | wx.ALIGN_LEFT
             )
+
+        sizer.AddGrowableCol(1)
 
         # start and stop buttons
         startButton = wx.Button(self, -1, "Start")

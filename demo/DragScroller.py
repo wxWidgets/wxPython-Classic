@@ -20,7 +20,7 @@ class DragScrollerExample(wx.ScrolledWindow):
         
     def OnPaint(self, event):
         dc = wx.PaintDC(self)
-        self.DoPrepareDC(dc)
+        self.PrepareDC(dc)
         
         pen = wx.Pen(wx.BLACK, 5)
         dc.SetPen(pen)

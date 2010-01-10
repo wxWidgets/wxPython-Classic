@@ -83,7 +83,6 @@ class MimeTypesDemoPanel(wx.Panel):
 
         # Contains the wx.FileType info
         llsizer = wx.GridBagSizer(2, 2)
-        llsizer.AddGrowableCol(2)
 
         #------- Icon info
 
@@ -171,7 +170,8 @@ class MimeTypesDemoPanel(wx.Panel):
 
         # Tell the sizer to expand this row as needed
         llsizer.AddGrowableRow(7)
-        
+        llsizer.AddGrowableCol(2)
+
         #----------------------------------------------------------------------------
 
         lrsizer = wx.BoxSizer(wx.VERTICAL)

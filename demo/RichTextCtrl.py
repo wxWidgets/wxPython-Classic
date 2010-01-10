@@ -22,7 +22,7 @@ class RichTextFrame(wx.Frame):
 
         self.rtc.BeginParagraphSpacing(0, 20)
 
-        self.rtc.BeginAlignment(rt.TEXT_ALIGNMENT_CENTRE)
+        self.rtc.BeginAlignment(wx.TEXT_ALIGNMENT_CENTRE)
         self.rtc.BeginBold()
 
         self.rtc.BeginFontSize(14)
@@ -119,7 +119,7 @@ class RichTextFrame(wx.Frame):
 
         self.rtc.WriteText("The following paragraph is right-aligned with 1.5 line spacing:")
 
-        self.rtc.BeginAlignment(rt.TEXT_ALIGNMENT_RIGHT)
+        self.rtc.BeginAlignment(wx.TEXT_ALIGNMENT_RIGHT)
         self.rtc.BeginLineSpacing(wx.TEXT_ATTR_LINE_SPACING_HALF)
         self.rtc.Newline()
 
@@ -349,16 +349,16 @@ class RichTextFrame(wx.Frame):
         self.rtc.ApplyUnderlineToSelection()
         
     def OnAlignLeft(self, evt):
-        self.rtc.ApplyAlignmentToSelection(rt.TEXT_ALIGNMENT_LEFT)
+        self.rtc.ApplyAlignmentToSelection(wx.TEXT_ALIGNMENT_LEFT)
         
     def OnAlignRight(self, evt):
-        self.rtc.ApplyAlignmentToSelection(rt.TEXT_ALIGNMENT_RIGHT)
+        self.rtc.ApplyAlignmentToSelection(wx.TEXT_ALIGNMENT_RIGHT)
         
     def OnAlignCenter(self, evt):
-        self.rtc.ApplyAlignmentToSelection(rt.TEXT_ALIGNMENT_CENTRE)
+        self.rtc.ApplyAlignmentToSelection(wx.TEXT_ALIGNMENT_CENTRE)
         
     def OnIndentMore(self, evt):
-        attr = rt.TextAttrEx()
+        attr = wx.TextAttr()
         attr.SetFlags(wx.TEXT_ATTR_LEFT_INDENT)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -372,7 +372,7 @@ class RichTextFrame(wx.Frame):
        
         
     def OnIndentLess(self, evt):
-        attr = rt.TextAttrEx()
+        attr = wx.TextAttr()
         attr.SetFlags(wx.TEXT_ATTR_LEFT_INDENT)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -387,7 +387,7 @@ class RichTextFrame(wx.Frame):
 
         
     def OnParagraphSpacingMore(self, evt):
-        attr = rt.TextAttrEx()
+        attr = wx.TextAttr()
         attr.SetFlags(wx.TEXT_ATTR_PARA_SPACING_AFTER)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -401,7 +401,7 @@ class RichTextFrame(wx.Frame):
 
         
     def OnParagraphSpacingLess(self, evt):
-        attr = rt.TextAttrEx()
+        attr = wx.TextAttr()
         attr.SetFlags(wx.TEXT_ATTR_PARA_SPACING_AFTER)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -416,7 +416,7 @@ class RichTextFrame(wx.Frame):
 
         
     def OnLineSpacingSingle(self, evt): 
-        attr = rt.TextAttrEx()
+        attr = wx.TextAttr()
         attr.SetFlags(wx.TEXT_ATTR_LINE_SPACING)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -430,7 +430,7 @@ class RichTextFrame(wx.Frame):
  
                 
     def OnLineSpacingHalf(self, evt):
-        attr = rt.TextAttrEx()
+        attr = wx.TextAttr()
         attr.SetFlags(wx.TEXT_ATTR_LINE_SPACING)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -444,7 +444,7 @@ class RichTextFrame(wx.Frame):
 
         
     def OnLineSpacingDouble(self, evt):
-        attr = rt.TextAttrEx()
+        attr = wx.TextAttr()
         attr.SetFlags(wx.TEXT_ATTR_LINE_SPACING)
         ip = self.rtc.GetInsertionPoint()
         if self.rtc.GetStyle(ip, attr):
@@ -464,7 +464,7 @@ class RichTextFrame(wx.Frame):
         r = self.rtc.GetSelectionRange()
         fontData = wx.FontData()
         fontData.EnableEffects(False)
-        attr = rt.TextAttrEx()
+        attr = wx.TextAttr()
         attr.SetFlags(wx.TEXT_ATTR_FONT)
         if self.rtc.GetStyle(self.rtc.GetInsertionPoint(), attr):
             fontData.SetInitialFont(attr.GetFont())
@@ -482,7 +482,7 @@ class RichTextFrame(wx.Frame):
 
     def OnColour(self, evt):
         colourData = wx.ColourData()
-        attr = rt.TextAttrEx()
+        attr = wx.TextAttr()
         attr.SetFlags(wx.TEXT_ATTR_TEXT_COLOUR)
         if self.rtc.GetStyle(self.rtc.GetInsertionPoint(), attr):
             colourData.SetColour(attr.GetTextColour())
@@ -513,13 +513,13 @@ class RichTextFrame(wx.Frame):
         evt.Check(self.rtc.IsSelectionUnderlined())
     
     def OnUpdateAlignLeft(self, evt):
-        evt.Check(self.rtc.IsSelectionAligned(rt.TEXT_ALIGNMENT_LEFT))
+        evt.Check(self.rtc.IsSelectionAligned(wx.TEXT_ALIGNMENT_LEFT))
         
     def OnUpdateAlignCenter(self, evt):
-        evt.Check(self.rtc.IsSelectionAligned(rt.TEXT_ALIGNMENT_CENTRE))
+        evt.Check(self.rtc.IsSelectionAligned(wx.TEXT_ALIGNMENT_CENTRE))
         
     def OnUpdateAlignRight(self, evt):
-        evt.Check(self.rtc.IsSelectionAligned(rt.TEXT_ALIGNMENT_RIGHT))
+        evt.Check(self.rtc.IsSelectionAligned(wx.TEXT_ALIGNMENT_RIGHT))
 
     
     def ForwardEvent(self, evt):
