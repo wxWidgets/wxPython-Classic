@@ -1863,7 +1863,7 @@ RICHTEXT_SELECTED = _richtext.RICHTEXT_SELECTED
 RICHTEXT_TAGGED = _richtext.RICHTEXT_TAGGED
 RICHTEXT_FOCUSSED = _richtext.RICHTEXT_FOCUSSED
 RICHTEXT_IS_FOCUS = _richtext.RICHTEXT_IS_FOCUS
-class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
+class RichTextCtrl(_core.TextCtrlBase,_windows.ScrollHelper):
     """Proxy of C++ RichTextCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr

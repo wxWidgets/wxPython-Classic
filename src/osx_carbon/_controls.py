@@ -1574,11 +1574,11 @@ class TextAttr(object):
         return _controls_.TextAttr_SetFontSize(*args, **kwargs)
 
     def SetFontStyle(*args, **kwargs):
-        """SetFontStyle(self, wxFontStyle fontStyle)"""
+        """SetFontStyle(self, int fontStyle)"""
         return _controls_.TextAttr_SetFontStyle(*args, **kwargs)
 
     def SetFontWeight(*args, **kwargs):
-        """SetFontWeight(self, wxFontWeight fontWeight)"""
+        """SetFontWeight(self, int fontWeight)"""
         return _controls_.TextAttr_SetFontWeight(*args, **kwargs)
 
     def SetFontFaceName(*args, **kwargs):
@@ -1590,11 +1590,11 @@ class TextAttr(object):
         return _controls_.TextAttr_SetFontUnderlined(*args, **kwargs)
 
     def SetFontEncoding(*args, **kwargs):
-        """SetFontEncoding(self, wxFontEncoding encoding)"""
+        """SetFontEncoding(self, int encoding)"""
         return _controls_.TextAttr_SetFontEncoding(*args, **kwargs)
 
     def SetFontFamily(*args, **kwargs):
-        """SetFontFamily(self, wxFontFamily family)"""
+        """SetFontFamily(self, int family)"""
         return _controls_.TextAttr_SetFontFamily(*args, **kwargs)
 
     def SetFont(*args, **kwargs):
@@ -1722,11 +1722,11 @@ class TextAttr(object):
         return _controls_.TextAttr_GetFontFaceName(*args, **kwargs)
 
     def GetFontEncoding(*args, **kwargs):
-        """GetFontEncoding(self) -> wxFontEncoding"""
+        """GetFontEncoding(self) -> int"""
         return _controls_.TextAttr_GetFontEncoding(*args, **kwargs)
 
     def GetFontFamily(*args, **kwargs):
-        """GetFontFamily(self) -> wxFontFamily"""
+        """GetFontFamily(self) -> int"""
         return _controls_.TextAttr_GetFontFamily(*args, **kwargs)
 
     def GetFont(*args, **kwargs):
@@ -2022,7 +2022,7 @@ def TextAttr_SplitParaCharStyles(*args, **kwargs):
   """TextAttr_SplitParaCharStyles(TextAttr style, TextAttr parStyle, TextAttr charStyle) -> bool"""
   return _controls_.TextAttr_SplitParaCharStyles(*args, **kwargs)
 
-class TextCtrl(_core.Control,_core.TextAreaBase,_core.TextEntry):
+class TextCtrl(_core.TextCtrlBase):
     """Proxy of C++ TextCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr

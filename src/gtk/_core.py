@@ -13252,6 +13252,13 @@ class TextCtrlIface(TextAreaBase,TextEntryBase):
     __repr__ = _swig_repr
 _core_.TextCtrlIface_swigregister(TextCtrlIface)
 
+class TextCtrlBase(Control,TextAreaBase,TextEntry):
+    """An abstract base class for wx.TextCtrl."""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+_core_.TextCtrlBase_swigregister(TextCtrlBase)
+
 #---------------------------------------------------------------------------
 
 class SizerFlags(object):
