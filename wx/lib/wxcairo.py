@@ -115,6 +115,7 @@ def ContextFromDC(dc):
         drawable = voidp( dc.GetGdkDrawable() )
 
         # Call a GDK API to create a cairo context
+        gdkLib.gdk_cairo_create.restype = ctypes.c_void_p
         ctxptr = gdkLib.gdk_cairo_create(drawable)
 
         # Turn it into a pycairo context object
@@ -153,12 +154,24 @@ def FontFaceFromFont(font):
 
         # wow, this is a hell of a lot of steps...
         desc = voidp( font.GetPangoFontDescription() )
-        pcfm = voidp( pcLib.pango_cairo_font_map_get_default() )
-        pctx = voidp( gdkLib.gdk_pango_context_get() )
+
+        pcLib.pango_cairo_font_map_get_default.restype = ctypes.c_void_p
+        pcfm = voidp(pcLib.pango_cairo_font_map_get_default())
+
+        gdkLib.gdk_pango_context_get.restype = ctypes.c_void_p
+        pctx = voidp(gdkLib.gdk_pango_context_get())
+
+        pcLib.pango_font_map_load_font.restype = ctypes.c_void_p
         pfnt = voidp( pcLib.pango_font_map_load_font(pcfm, pctx, desc) )
+
+        pcLib.pango_cairo_font_get_scaled_font.restype = ctypes.c_void_p
         scaledfontptr = voidp( pcLib.pango_cairo_font_get_scaled_font(pfnt) )
-        fontfaceptr = cairoLib.cairo_scaled_font_get_font_face(scaledfontptr)
-        fontface = pycairoAPI.FontFace_FromFontFace(ctypes.c_void_p(fontfaceptr))
+
+        cairoLib.cairo_scaled_font_get_font_face.restype = ctypes.c_void_p
+        fontfaceptr = voidp(cairoLib.cairo_scaled_font_get_font_face(scaledfontptr))
+
+        fontface = pycairoAPI.FontFace_FromFontFace(fontfaceptr)
+
         gdkLib.g_object_unref(pctx)
 
     else:
