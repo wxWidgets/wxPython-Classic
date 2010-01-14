@@ -31,16 +31,6 @@
 
 //---------------------------------------------------------------------------
 
-%typemap(in) (int points, wxPoint* points_array ) {
-    $2 = wxPoint_LIST_helper($input, &$1);
-    if ($2 == NULL) SWIG_fail;
-}
-%typemap(freearg) (int points, wxPoint* points_array ) {
-    if ($2) delete [] $2;
-}
-
-
-//---------------------------------------------------------------------------
 %newgroup;
 
 //  Logical ops

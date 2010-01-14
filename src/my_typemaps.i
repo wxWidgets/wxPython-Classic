@@ -41,6 +41,17 @@ MAKE_INT_ARRAY_TYPEMAPS(styles, styles_field)
     if ($2) delete [] $2;
 }
 
+// wxPoint
+%typemap(in) (int points, wxPoint* points_array ) {
+    $2 = wxPoint_LIST_helper($input, &$1);
+    if ($2 == NULL) SWIG_fail;
+}
+%typemap(freearg) (int points, wxPoint* points_array ) {
+    if ($2) delete [] $2;
+}
+
+
+//---------------------------------------------------------------------------
 
 
 //---------------------------------------------------------------------------

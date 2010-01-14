@@ -19,16 +19,6 @@
 %}
 
 //---------------------------------------------------------------------------
-
-%typemap(in) (int points, wxPoint* points_array ) {
-    $2 = wxPoint_LIST_helper($input, &$1);
-    if ($2 == NULL) SWIG_fail;
-}
-%typemap(freearg) (int points, wxPoint* points_array ) {
-    if ($2) delete [] $2;
-}
-
-//---------------------------------------------------------------------------
 %newgroup
 
 
@@ -71,7 +61,7 @@ public:
     %RenameCtor(RegionFromBitmapColour, wxRegion(const wxBitmap& bmp,
                                                  const wxColour& transColour,
                                                  int   tolerance = 0));
-    %RenameCtor(RegionFromPoints, wxRegion(size_t points, wxPoint* points_array,
+    %RenameCtor(RegionFromPoints, wxRegion(int points, wxPoint* points_array,
                                            wxPolygonFillMode fillStyle = wxWINDING_RULE));
 
     ~wxRegion();
