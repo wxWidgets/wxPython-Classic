@@ -377,9 +377,9 @@ def SetSizerProp(self, prop, value):
         else:
             row, col = divmod( itemnum, cols )
         
-        if lprop == "expand":
+        if lprop == "expand" and not sizer.IsColGrowable(col):
             sizer.AddGrowableCol(col)
-        elif lprop == "proportion" and int(value) != 0:
+        elif lprop == "proportion" and int(value) != 0 and not sizer.IsRowGrowable(row):
             sizer.AddGrowableRow(row)
 
     item.SetFlag(flag)
