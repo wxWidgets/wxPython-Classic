@@ -29,6 +29,9 @@ fi
 
 # **** Run the docs build script, that runs doxygen for us.  Use the
 #      chm target so we get the HTMLHelp control files too.
+if [ "$1" = "clean" ]; then
+    rm -r $WXDIR/docs/doxygen/out
+fi
 $WXDIR/docs/doxygen/regen.sh chm
 
 
