@@ -200,8 +200,8 @@ void wxStatusBarBase::PushStatusText(const wxString& text, int number)
 
 void wxStatusBarBase::PopStatusText(int number)
 {
-    wxASSERT_MSG(m_panes[number].m_arrStack.GetCount() == 1,
-                 "can't pop any further string");
+//     wxASSERT_MSG(m_panes[number].m_arrStack.GetCount() == 1,
+//                  "can't pop any further string");
 
     wxString text = m_panes[number].m_arrStack.back();
     m_panes[number].m_arrStack.pop_back();  // also remove it from the stack
