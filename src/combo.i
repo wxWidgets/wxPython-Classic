@@ -21,6 +21,9 @@ owner-drawn combobox control."
 #include "wx/wxPython/wxPython.h"
 #include "wx/wxPython/pyclasses.h"
 
+#include "wx/wxPython/pytree.h"
+typedef wxTreeCtrl wxPyTreeCtrl;
+        
 #include <wx/combo.h>
 #include <wx/odcombo.h>
 %}
@@ -28,6 +31,7 @@ owner-drawn combobox control."
 //---------------------------------------------------------------------------
 
 %import windows.i
+%import controls.i
 %pythoncode { wx = _core }
 %pythoncode { __docfilter__ = wx.__DocFilter(globals()) }
 
@@ -1058,7 +1062,11 @@ Window Styles
 
 MustHaveApp(wxBitmapComboBox);
 
+#if defined(__WXMSW__) || defined(__WXGTK__)
+class wxBitmapComboBox : public wxComboBox
+#else
 class wxBitmapComboBox : public wxPyOwnerDrawnComboBox
+#endif
 {
 public:
     %pythonAppend wxBitmapComboBox      "self._setOORInfo(self);";
