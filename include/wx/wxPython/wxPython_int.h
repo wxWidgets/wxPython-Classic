@@ -48,6 +48,7 @@
 #include <wx/imaglist.h>
 #include <wx/intl.h>
 #include <wx/laywin.h>
+#include <wx/listbase.h>
 #include <wx/listbook.h>
 #include <wx/minifram.h>
 #include <wx/notebook.h>
