@@ -348,11 +348,6 @@ public:
         // if needed.
         wxPyTreeItemData* GetItemData(const wxTreeItemId& item) {
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
-            if (data == NULL) {
-                data = new wxPyTreeItemData();
-                data->SetId(item); // set the id
-                self->SetItemData(item, data);
-            }
             return data;
         }
 
@@ -368,9 +363,7 @@ public:
         PyObject* GetItemPyData(const wxTreeItemId& item) {
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
             if (data == NULL) {
-                data = new wxPyTreeItemData();
-                data->SetId(item); // set the id
-                self->SetItemData(item, data);
+                RETURN_NONE();
             }
             return data->GetData();
         }

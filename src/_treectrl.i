@@ -422,20 +422,13 @@ public:
         // get the wxPyTreeItemData associated with the tree item
         wxPyTreeItemData* GetItemData(const wxTreeItemId& item) {
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
-            if (data == NULL) {
-                data = new wxPyTreeItemData();
-                data->SetId(item); // set the id
-                self->SetItemData(item, data);
-            }
             return data;
         }
         // Get the Python object associated with the tree item
         PyObject* GetItemPyData(const wxTreeItemId& item) {
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
             if (data == NULL) {
-                data = new wxPyTreeItemData();
-                data->SetId(item); // set the id
-                self->SetItemData(item, data);
+                RETURN_NONE();
             }
             return data->GetData();
         }
@@ -465,7 +458,6 @@ public:
         // associate a wxPyTreeItemData with the tree item
         %disownarg( wxPyTreeItemData* data );
         void SetItemData(const wxTreeItemId& item, wxPyTreeItemData* data) {
-            data->SetId(item); // set the id
             self->SetItemData(item, data);
         }
         %cleardisown( wxPyTreeItemData* data );
@@ -475,10 +467,10 @@ public:
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
             if (data == NULL) {
                 data = new wxPyTreeItemData(obj);
-                data->SetId(item); // set the id
                 self->SetItemData(item, data);
-            } else
+            } else {
                 data->SetData(obj);
+            }
         }
     }
     %pythoncode { SetPyData = SetItemPyData }
