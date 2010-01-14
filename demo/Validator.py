@@ -197,7 +197,7 @@ class TestValidateDialog(wx.Dialog):
 
         border = wx.BoxSizer(wx.VERTICAL)
         border.Add(fgs, 1, wx.GROW|wx.ALL, 25)
-        border.Add(buttons)
+        border.Add(buttons, 0, wx.GROW|wx.BOTTOM, 5)
         self.SetSizer(border)
         border.Fit(self)
         self.Layout()
