@@ -103,7 +103,8 @@ Source: "wx\_wizard.pyd";                      DestDir: "{app}\%(PKGDIR)s\wx"; C
 Source: "wx\_xrc.pyd";                         DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
 Source: "wx\_aui.pyd";                         DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
 Source: "wx\_richtext.pyd";                    DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
-
+Source: "wx\_dataview.pyd";                    DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
+Source: "wx\_propgrid.pyd";                    DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
 
 Source: "wx\*.py";                              DestDir: "{app}\%(PKGDIR)s\wx"; Components: core
 Source: "wx\build\*.py";                        DestDir: "{app}\%(PKGDIR)s\wx\build"; Components: core
@@ -491,7 +492,7 @@ Source: "demo\agw\bitmaps\*.png";           DestDir: "{app}\demo\agw\bitmaps";
 Source: "demo\agw\bitmaps\*.ico";           DestDir: "{app}\demo\agw\bitmaps";
 Source: "demo\agw\bitmaps\*.gif";           DestDir: "{app}\demo\agw\bitmaps";
 
-;;Source: "demo\bitmaps\*.bmp";               DestDir: "{app}\demo\bitmaps";
+Source: "demo\bitmaps\*.bmp";               DestDir: "{app}\demo\bitmaps";
 Source: "demo\bitmaps\*.gif";               DestDir: "{app}\demo\bitmaps";
 Source: "demo\bitmaps\*.jpg";               DestDir: "{app}\demo\bitmaps";
 Source: "demo\bitmaps\*.png";               DestDir: "{app}\demo\bitmaps";
