@@ -197,7 +197,7 @@ class TestPanel(scrolled.ScrolledPanel):
         e_obj = evt.GetEventObject()
         mitem = e_obj.FindItemById(evt.GetId())
         if mitem != wx.NOT_FOUND:
-            label = mitem.GetLabel()
+            label = mitem.GetItemLabel()
             if label.startswith('http://'):
                 webbrowser.open(label, True)
 
