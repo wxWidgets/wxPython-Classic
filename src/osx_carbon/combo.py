@@ -58,6 +58,7 @@ def _swig_setattr_nondynamic_method(set):
 
 import _windows
 import _core
+import _controls
 wx = _core 
 __docfilter__ = wx.__DocFilter(globals()) 
 #---------------------------------------------------------------------------
@@ -109,7 +110,7 @@ class ComboCtrl(_core.Control):
         __init__(self, Window parent, int id=ID_ANY, String value=wxEmptyString, 
             Point pos=DefaultPosition, Size size=DefaultSize, 
             long style=0, Validator validator=DefaultValidator, 
-            String name=wxPyComboBoxNameStr) -> ComboCtrl
+            String name=ComboBoxNameStr) -> ComboCtrl
         """
         _combo.ComboCtrl_swiginit(self,_combo.new_ComboCtrl(*args, **kwargs))
         self._setOORInfo(self);ComboCtrl._setCallbackInfo(self, self, ComboCtrl)
@@ -180,7 +181,7 @@ class ComboCtrl(_core.Control):
 
     def GetTextCtrl(*args, **kwargs):
         """
-        GetTextCtrl(self) -> wxTextCtrl
+        GetTextCtrl(self) -> TextCtrl
 
         Get the text control which is part of the combo control.
         """
@@ -812,7 +813,7 @@ class OwnerDrawnComboBox(ComboCtrl,_core.ItemContainer):
             Point pos=DefaultPosition, Size size=DefaultSize, 
             wxArrayString choices=wxPyEmptyStringArray, 
             long style=0, Validator validator=DefaultValidator, 
-            String name=wxPyComboBoxNameStr) -> OwnerDrawnComboBox
+            String name=ComboBoxNameStr) -> OwnerDrawnComboBox
 
         Standard constructor.
         """
@@ -829,7 +830,7 @@ class OwnerDrawnComboBox(ComboCtrl,_core.ItemContainer):
             Point pos=DefaultPosition, Size size=DefaultSize, 
             wxArrayString choices=wxPyEmptyStringArray, 
             long style=0, Validator validator=DefaultValidator, 
-            String name=wxPyComboBoxNameStr) -> bool
+            String name=ComboBoxNameStr) -> bool
 
         Create the UI object, and other initialization.
         """

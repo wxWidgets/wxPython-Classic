@@ -3080,11 +3080,6 @@ SWIGINTERN void wxPyTreeListCtrl_SetItemImage(wxPyTreeListCtrl *self,wxTreeItemI
         }
 SWIGINTERN wxPyTreeItemData *wxPyTreeListCtrl_GetItemData(wxPyTreeListCtrl *self,wxTreeItemId const &item){
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
-            if (data == NULL) {
-                data = new wxPyTreeItemData();
-                data->SetId(item); // set the id
-                self->SetItemData(item, data);
-            }
             return data;
         }
 SWIGINTERN void wxPyTreeListCtrl_SetItemData(wxPyTreeListCtrl *self,wxTreeItemId const &item,wxPyTreeItemData *data){
@@ -3094,9 +3089,7 @@ SWIGINTERN void wxPyTreeListCtrl_SetItemData(wxPyTreeListCtrl *self,wxTreeItemId
 SWIGINTERN PyObject *wxPyTreeListCtrl_GetItemPyData(wxPyTreeListCtrl *self,wxTreeItemId const &item){
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
             if (data == NULL) {
-                data = new wxPyTreeItemData();
-                data->SetId(item); // set the id
-                self->SetItemData(item, data);
+                RETURN_NONE();
             }
             return data->GetData();
         }

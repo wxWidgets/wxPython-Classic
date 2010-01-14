@@ -11258,36 +11258,25 @@ fail:
 
 SWIGINTERN PyObject *_wrap_new_RegionFromPoints(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  size_t arg1 ;
+  int arg1 ;
   wxPoint *arg2 = (wxPoint *) 0 ;
   wxPolygonFillMode arg3 = (wxPolygonFillMode) wxWINDING_RULE ;
   wxRegion *result = 0 ;
-  size_t val1 ;
-  int ecode1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
   int val3 ;
   int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "points",(char *) "points_array",(char *) "fillStyle", NULL 
+    (char *) "points",(char *) "fillStyle", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:new_RegionFromPoints",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  ecode1 = SWIG_AsVal_size_t(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_RegionFromPoints" "', expected argument " "1"" of type '" "size_t""'");
-  } 
-  arg1 = static_cast< size_t >(val1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxPoint, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_RegionFromPoints" "', expected argument " "2"" of type '" "wxPoint *""'"); 
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:new_RegionFromPoints",kwnames,&obj0,&obj1)) SWIG_fail;
+  {
+    arg2 = wxPoint_LIST_helper(obj0, &arg1);
+    if (arg2 == NULL) SWIG_fail;
   }
-  arg2 = reinterpret_cast< wxPoint * >(argp2);
-  if (obj2) {
-    ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (obj1) {
+    ecode3 = SWIG_AsVal_int(obj1, &val3);
     if (!SWIG_IsOK(ecode3)) {
       SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_RegionFromPoints" "', expected argument " "3"" of type '" "wxPolygonFillMode""'");
     } 
@@ -11301,8 +11290,14 @@ SWIGINTERN PyObject *_wrap_new_RegionFromPoints(PyObject *SWIGUNUSEDPARM(self), 
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRegion, SWIG_POINTER_OWN |  0 );
+  {
+    if (arg2) delete [] arg2;
+  }
   return resultobj;
 fail:
+  {
+    if (arg2) delete [] arg2;
+  }
   return NULL;
 }
 

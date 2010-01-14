@@ -1702,7 +1702,7 @@ def RegionFromBitmapColour(*args, **kwargs):
     return val
 
 def RegionFromPoints(*args, **kwargs):
-    """RegionFromPoints(size_t points, Point points_array, int fillStyle=WINDING_RULE) -> Region"""
+    """RegionFromPoints(int points, int fillStyle=WINDING_RULE) -> Region"""
     val = _gdi_.new_RegionFromPoints(*args, **kwargs)
     return val
 

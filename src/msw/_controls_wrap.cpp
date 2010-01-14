@@ -3212,34 +3212,26 @@ IMPLEMENT_ABSTRACT_CLASS(wxPyTreeCtrl, wxTreeCtrl);
 
 SWIGINTERN wxPyTreeItemData *wxPyTreeCtrl_GetItemData(wxPyTreeCtrl *self,wxTreeItemId const &item){
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
-            if (data == NULL) {
-                data = new wxPyTreeItemData();
-                data->SetId(item); // set the id
-                self->SetItemData(item, data);
-            }
             return data;
         }
 SWIGINTERN PyObject *wxPyTreeCtrl_GetItemPyData(wxPyTreeCtrl *self,wxTreeItemId const &item){
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
             if (data == NULL) {
-                data = new wxPyTreeItemData();
-                data->SetId(item); // set the id
-                self->SetItemData(item, data);
+                RETURN_NONE();
             }
             return data->GetData();
         }
 SWIGINTERN void wxPyTreeCtrl_SetItemData(wxPyTreeCtrl *self,wxTreeItemId const &item,wxPyTreeItemData *data){
-            data->SetId(item); // set the id
             self->SetItemData(item, data);
         }
 SWIGINTERN void wxPyTreeCtrl_SetItemPyData(wxPyTreeCtrl *self,wxTreeItemId const &item,PyObject *obj){
             wxPyTreeItemData* data = (wxPyTreeItemData*)self->GetItemData(item);
             if (data == NULL) {
                 data = new wxPyTreeItemData(obj);
-                data->SetId(item); // set the id
                 self->SetItemData(item, data);
-            } else
+            } else {
                 data->SetData(obj);
+            }
         }
 SWIGINTERN PyObject *wxPyTreeCtrl_GetSelections(wxPyTreeCtrl *self){
             wxPyBlock_t blocked = wxPyBeginBlockThreads();
