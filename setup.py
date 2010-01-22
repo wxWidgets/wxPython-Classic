@@ -973,6 +973,33 @@ if EGGing:
 if __name__ == "__main__":
     if not PREP_ONLY:
 
+        if not EGGing:
+            if INSTALL_MULTIVERSION:
+                setup(name             = 'wxPython-common',
+                      version          = VERSION,
+                      description      = DESCRIPTION,
+                      long_description = LONG_DESCRIPTION,
+                      author           = AUTHOR,
+                      author_email     = AUTHOR_EMAIL,
+                      url              = URL,
+                      download_url     = DOWNLOAD_URL,
+                      license          = LICENSE,
+                      platforms        = PLATFORMS,
+                      classifiers      = filter(None, CLASSIFIERS.split("\n")),
+                      keywords         = KEYWORDS,
+
+                      package_dir = { '': 'wxversion' },
+                      py_modules = ['wxversion'],
+
+                      data_files = [('', ['src/wx.pth'])],
+
+                      options = { 'build' : BUILD_OPTIONS,
+                                  },
+
+                      cmdclass = { 'install_data':    wx_smart_install_data,
+                                   },
+                      )
+
         setup(name             = 'wxPython',
               version          = VERSION,
               description      = DESCRIPTION,
@@ -1008,32 +1035,6 @@ if __name__ == "__main__":
               **other_kw
               )
 
-        if not EGGing:
-            if INSTALL_MULTIVERSION:
-                setup(name             = 'wxPython-common',
-                      version          = VERSION,
-                      description      = DESCRIPTION,
-                      long_description = LONG_DESCRIPTION,
-                      author           = AUTHOR,
-                      author_email     = AUTHOR_EMAIL,
-                      url              = URL,
-                      download_url     = DOWNLOAD_URL,
-                      license          = LICENSE,
-                      platforms        = PLATFORMS,
-                      classifiers      = filter(None, CLASSIFIERS.split("\n")),
-                      keywords         = KEYWORDS,
-
-                      package_dir = { '': 'wxversion' },
-                      py_modules = ['wxversion'],
-
-                      data_files = [('', ['src/wx.pth'])],
-
-                      options = { 'build' : BUILD_OPTIONS,
-                                  },
-
-                      cmdclass = { 'install_data':    wx_smart_install_data,
-                                   },
-                      )
 
 
 #----------------------------------------------------------------------

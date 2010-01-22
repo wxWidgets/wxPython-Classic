@@ -125,15 +125,17 @@ function do_universal_build {
 
     pushd $BUILDROOT
 
-
+    # Call the new fangled handy dandy build script to build both
+    # wxWidgets and wxPython.
     pushd $WXROOT/wxPython
     $PYTHON -u ./build-wxpython.py \
 	$PYUNICODEOPT \
-	--mac_lipo \
+	--mac_universal_binary \
 	--build_dir=$BUILDROOT \
-	--prefix=$PREFIX \
 	--install \
-	--installdir=$INSTALLROOT$PREFIX
+	--prefix=$PREFIX \
+	--installdir=$INSTALLROOT \
+        --wxpy_installdir=$INSTALLROOT$PREFIX
 
     popd
 

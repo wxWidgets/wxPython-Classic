@@ -1103,7 +1103,7 @@ if UNICODE:
     BUILD_BASE = BUILD_BASE + '.unicode'
 
 if os.path.exists('DAILY_BUILD'):
-    VER_FLAGS += '.pre' + open('DAILY_BUILD').read().strip()
+    VER_FLAGS += '.b' + open('DAILY_BUILD').read().strip()
 
 VERSION = "%s.%s.%s.%s%s" % (VER_MAJOR, VER_MINOR, VER_RELEASE,
                              VER_SUBREL, VER_FLAGS)
