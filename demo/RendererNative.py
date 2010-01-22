@@ -39,7 +39,7 @@ class TestPanel(wx.Panel):
         render.DrawRadioButton(self, dc, (405, 35, 16, 16), wx.CONTROL_CHECKABLE)
         render.DrawRadioButton(self, dc, (425, 35, 16, 16))
         render.DrawRadioButton(self, dc, (445, 35, 16, 16), wx.CONTROL_CHECKED | wx.CONTROL_DISABLED)
-
+    
         # Draw ComboBoxDropButton
         xpos = self.GetTextExtent(cb_lbl)[0] + 40
         cb_lbl = "DrawComboBoxDropButton:"
@@ -95,6 +95,7 @@ class TestPanel(wx.Panel):
         render.DrawTreeItemButton(self, dc, (15, 350, 16, 16))
         render.DrawTreeItemButton(self, dc, (45, 350, 16, 16), wx.CONTROL_EXPANDED)
 
+        # DrawComboBox
         dc.DrawText("DrawComboBox:", 270, 185)
         render.DrawComboBox(self, dc, (270, 205, 100, 21))
         render.DrawComboBox(self, dc, (270, 230, 100, 21), wx.CONTROL_DISABLED)
@@ -102,6 +103,7 @@ class TestPanel(wx.Panel):
         render.DrawComboBox(self, dc, (270, 280, 100, 21), wx.CONTROL_PRESSED | wx.CONTROL_SELECTED)
         render.DrawComboBox(self, dc, (270, 305, 100, 21), wx.CONTROL_FOCUSED)
 
+        # DrawChoice
         dc.DrawText("DrawChoice:", 400, 185)
         render.DrawChoice(self, dc, (400, 205, 100, 21))
         render.DrawChoice(self, dc, (400, 230, 100, 21), wx.CONTROL_DISABLED)
@@ -109,6 +111,7 @@ class TestPanel(wx.Panel):
         render.DrawChoice(self, dc, (400, 280, 100, 21), wx.CONTROL_PRESSED | wx.CONTROL_SELECTED)
         render.DrawChoice(self, dc, (400, 305, 100, 21), wx.CONTROL_FOCUSED)
 
+        # DrawTextCtrl
         dc.DrawText("DrawTextCtrl:", 270, 350)
         render.DrawTextCtrl(self, dc, (270, 375, 100, 21))
         render.DrawTextCtrl(self, dc, (380, 375, 100, 21), wx.CONTROL_FOCUSED)
