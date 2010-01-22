@@ -870,8 +870,6 @@ Building Win32 installer for wxPython:
     MSLU=''
     CHARTYPE='ansi'
     if "UNICODE=1" in sys.argv:
-        if os.environ.get('CPU', '') != 'AMD64':
-            MSLU=r'Source: "distrib\msw\unicows.dll"; DestDir: "{code:GetPythonDir}"; Components: core; Flags: replacesameversion sharedfile' % vars()
         CHARTYPE='unicode'
 
     f = open(ISSFILE, "w")
