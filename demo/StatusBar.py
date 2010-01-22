@@ -54,6 +54,7 @@ class CustomStatusBar(wx.StatusBar):
 
 
     def OnSize(self, evt):
+        evt.Skip()
         self.Reposition()  # for normal size events
 
         # Set a flag so the idle time handler will also do the repositioning.
@@ -70,8 +71,9 @@ class CustomStatusBar(wx.StatusBar):
     # reposition the checkbox
     def Reposition(self):
         rect = self.GetFieldRect(1)
-        self.cb.SetPosition((rect.x+2, rect.y+2))
-        self.cb.SetSize((rect.width-4, rect.height-4))
+        rect.x += 1
+        rect.y += 1
+        self.cb.SetRect(rect)
         self.sizeChanged = False
 
 
