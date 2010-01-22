@@ -33906,7 +33906,7 @@ for i in \${libnames} ; do
 done
 EOF
             chmod +x change-install-names
-            DYLIB_RPATH_INSTALL="\$(wx_top_builddir)/change-install-names \${libdir} \$(wx_top_builddir)/lib"
+            DYLIB_RPATH_INSTALL="\$(wx_top_builddir)/change-install-names \$(DESTDIR)\${libdir} \$(wx_top_builddir)/lib"
         fi
 
                                         HEADER_PAD_OPTION="-headerpad_max_install_names"
