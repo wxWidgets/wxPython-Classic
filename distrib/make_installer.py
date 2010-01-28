@@ -1,4 +1,4 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 #----------------------------------------------------------------------
 # Name:        make_installer.py
 # Purpose:     A script to create the wxPython windows installer
@@ -39,7 +39,7 @@ ISS_Template = r'''
 AppName = wxPython%(SHORTVER)s-%(CHARTYPE)s-%(PYVER)s
 AppVerName = wxPython %(VERSION)s (%(CHARTYPE)s) for Python %(PYTHONVER)s
 OutputBaseFilename = wxPython%(SHORTVER)s-win%(BITS)s-%(CHARTYPE)s-%(VERSION)s-%(PYVER)s
-AppCopyright = Copyright © 2008 Total Control Software
+AppCopyright = Copyright 2008 Total Control Software
 DefaultDirName = {code:GetInstallDir|c:\DoNotInstallHere}
 DefaultGroupName = wxPython %(VERSION)s (%(CHARTYPE)s) for Python %(PYTHONVER)s
 PrivilegesRequired = %(PRIV)s
@@ -150,7 +150,9 @@ Source: "wx\tools\Editra\locale\de_DE\LC_MESSAGES\*.mo";     DestDir: "{app}\%(P
 Source: "wx\tools\Editra\locale\en_US\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\en_US\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\es_ES\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\es_ES\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\fr_FR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\fr_FR\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\gl_ES\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\gl_ES\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\hr_HR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\hr_HR\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\hu_HU\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\hu_HU\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\it_IT\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\it_IT\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\ja_JP\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ja_JP\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\lv_LV\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\lv_LV\LC_MESSAGES"; Components: core
@@ -158,7 +160,9 @@ Source: "wx\tools\Editra\locale\nl_NL\LC_MESSAGES\*.mo";     DestDir: "{app}\%(P
 Source: "wx\tools\Editra\locale\nn_NO\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\nn_NO\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\pl_PL\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\pl_PL\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\pt_BR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\pt_BR\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\ro_RO\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ro_RO\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\ru_RU\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ru_RU\LC_MESSAGES"; Components: core
+Source: "wx\tools\Editra\locale\sk_SK\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sk_SK\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\sl_SI\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sl_SI\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\sr_RS\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sr_RS\LC_MESSAGES"; Components: core
 Source: "wx\tools\Editra\locale\sv_SE\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sv_SE\LC_MESSAGES"; Components: core
@@ -182,6 +186,7 @@ Source: "wx\tools\Editra\plugins\*.egg";                     DestDir: "{app}\%(P
 Source: "wx\tools\Editra\src\*.py";                          DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src"; Components: core
 Source: "wx\tools\Editra\src\autocomp\*.py";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp"; Components: core
 Source: "wx\tools\Editra\src\eclib\*.py";                    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\eclib"; Components: core
+Source: "wx\tools\Editra\src\ebmlib\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\ebmlib"; Components: core
 Source: "wx\tools\Editra\src\extern\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
 Source: "wx\tools\Editra\src\extern\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
 Source: "wx\tools\Editra\src\extern\pygments\*.py";          DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments"; Components: core
@@ -448,7 +453,7 @@ ISS_DocDemo_Template = r'''
 AppName = wxPython%(SHORTVER)s-docs-demos
 AppVerName = wxPython Docs and Demos %(VERSION)s
 OutputBaseFilename = wxPython%(SHORTVER)s-win32-docs-demos-%(VERSION)s
-AppCopyright = Copyright © 2008 Total Control Software
+AppCopyright = Copyright 2008 Total Control Software
 DefaultDirName = {pf}\wxPython%(SHORTVER)s Docs and Demos
 DefaultGroupName = wxPython%(SHORTVER)s Docs Demos and Tools
 PrivilegesRequired = none
