@@ -101,7 +101,7 @@ PLATE_HIGHLIGHT = 2
 PB_STYLE_DEFAULT  = 1   # Normal Flat Background
 PB_STYLE_GRADIENT = 2   # Gradient Filled Background
 PB_STYLE_SQUARE   = 4   # Use square corners instead of rounded
-PB_STYLE_NOBG     = 8   # Usefull on Windows to get a transparent appearance
+PB_STYLE_NOBG     = 8   # Useful on Windows to get a transparent appearance
                         # when the control is shown on a non solid background
 PB_STYLE_DROPARROW = 16 # Draw drop arrow and fire EVT_PLATEBTN_DROPRROW_PRESSED event
 
@@ -119,7 +119,7 @@ class PlateButton(wx.PyControl):
     displaying bitmaps and having an attached dropdown menu.
 
     """
-    def __init__(self, parent, id_=wx.ID_ANY, label='', bmp=None, 
+    def __init__(self, parent, id=wx.ID_ANY, label=u'', bmp=None, 
                  pos=wx.DefaultPosition, size=wx.DefaultSize,
                  style=PB_STYLE_DEFAULT, name=wx.ButtonNameStr):
         """Create a PlateButton
@@ -128,7 +128,7 @@ class PlateButton(wx.PyControl):
         @keyword style: Button style
 
         """
-        wx.PyControl.__init__(self, parent, id_, pos, size,
+        wx.PyControl.__init__(self, parent, id, pos, size,
                               wx.BORDER_NONE|wx.TRANSPARENT_WINDOW, name=name)
 
         # Attributes
