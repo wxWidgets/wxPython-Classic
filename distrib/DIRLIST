@@ -163,10 +163,14 @@ wx/tools/Editra/locale/es_ES
 wx/tools/Editra/locale/es_ES/LC_MESSAGES
 wx/tools/Editra/locale/fr_FR
 wx/tools/Editra/locale/fr_FR/LC_MESSAGES
-wx/tools/Editra/locale/it_IT
-wx/tools/Editra/locale/it_IT/LC_MESSAGES
+wx/tools/Editra/locale/gl_ES
+wx/tools/Editra/locale/gl_ES/LC_MESSAGES
 wx/tools/Editra/locale/hr_HR
 wx/tools/Editra/locale/hr_HR/LC_MESSAGES
+wx/tools/Editra/locale/hu_HU
+wx/tools/Editra/locale/hu_HU/LC_MESSAGES
+wx/tools/Editra/locale/it_IT
+wx/tools/Editra/locale/it_IT/LC_MESSAGES
 wx/tools/Editra/locale/ja_JP
 wx/tools/Editra/locale/ja_JP/LC_MESSAGES
 wx/tools/Editra/locale/lv_LV
@@ -181,6 +185,8 @@ wx/tools/Editra/locale/pt_BR
 wx/tools/Editra/locale/pt_BR/LC_MESSAGES
 wx/tools/Editra/locale/ru_RU
 wx/tools/Editra/locale/ru_RU/LC_MESSAGES
+wx/tools/Editra/locale/sk_SK
+wx/tools/Editra/locale/sk_SK/LC_MESSAGES
 wx/tools/Editra/locale/sl_SI
 wx/tools/Editra/locale/sl_SI/LC_MESSAGES
 wx/tools/Editra/locale/sr_RS
@@ -219,6 +225,7 @@ wx/tools/Editra/scripts
 wx/tools/Editra/scripts/i18n
 wx/tools/Editra/src
 wx/tools/Editra/src/autocomp
+wx/tools/Editra/src/ebmlib
 wx/tools/Editra/src/eclib
 wx/tools/Editra/src/extern
 wx/tools/Editra/src/extern/pygments
