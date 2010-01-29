@@ -5,11 +5,22 @@ Recent Changes for wxPython
 
 2.9.0.1
 -------
-* 10-Jan-2010
+* 22-Jan-2010
 
 NOTE: This release was done mainly to get a 2.9.x preview build out to
 the wxPython contributors to use for testing their code with wxPython
 2.9.  There will not be a general official release of this version.
+
+NOTE: When using the stock Apple Python on OS X 10.6 it will default
+to running in 64-bit mode if your machine is a 64-bit architecture.
+wxPython is still using Carbon on OS X which is 32-bit only, so there
+is no 64-bit personality in the universal binaries and it will raise
+an exception when you import wx.  wxPython will be switching to Cocoa
+soon, but in in the meantime you can force the stock Python to run in
+32-bit mode by running this command in a Terminal session::
+
+    defaults write com.apple.versioner.python Prefer-32-Bit -bool yes 
+
 
 wxGTK: Implemented support for underlined fonts in wx.StaticText
 
