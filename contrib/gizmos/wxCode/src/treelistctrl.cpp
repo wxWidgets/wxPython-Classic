@@ -2698,7 +2698,7 @@ void wxTreeListMainWindow::SelectItem (const wxTreeItemId& itemId,
     }
 
     // select item or item range
-    if (lastId.IsOk() && (itemId != lastId)) {
+    if (!is_single && lastId.IsOk() && (itemId != lastId)) {
 
         if (!unselected && unselect_others) UnselectAll();
         wxTreeListItem *last = (wxTreeListItem*) lastId.m_pItem;
