@@ -21,6 +21,12 @@ version3_nodot = version3.replace(".", "")
 
 CPU = os.environ.get('CPU', '')
 
+if sys.platform.startswith("darwin"):
+    os.environ["CXX"] = "g++-4.0"
+    os.environ["CC"]  = "gcc-4.0"
+    os.environ["CPP"] = "cpp-4.0"
+
+
 def optionCleanCallback(option, opt_str, value, parser):
     if value is None:
         value = "all"
