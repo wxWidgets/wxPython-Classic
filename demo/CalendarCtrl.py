@@ -20,19 +20,19 @@ class TestPanel(wx.Panel):
         wx.Panel.__init__(self, parent, ID)
         self.log = log
 
-        native = wxcal.CalendarCtrl(self, -1, wx.DateTime.Now(),
+        native = wxcal.CalendarCtrl(self, -1, wx.DateTime.Today(),
                                     style=wxcal.CAL_SEQUENTIAL_MONTH_SELECTION)
 
         txt = wx.StaticText(self, -1, description)
         txt.Wrap(300)
 
-        cal = self.cal = wxcal.GenericCalendarCtrl(self, -1, wx.DateTime.Now(), 
+        cal = self.cal = wxcal.GenericCalendarCtrl(self, -1, wx.DateTime.Today(), 
                              style = wxcal.CAL_SHOW_HOLIDAYS
                              | wxcal.CAL_SUNDAY_FIRST
                              | wxcal.CAL_SEQUENTIAL_MONTH_SELECTION
                              )
 
-        cal2 = wxcal.GenericCalendarCtrl(self, -1, wx.DateTime.Now())
+        cal2 = wxcal.GenericCalendarCtrl(self, -1, wx.DateTime.Today())
 
 
         # Track a few holidays
