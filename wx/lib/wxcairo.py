@@ -147,7 +147,7 @@ def FontFaceFromFont(font):
 
     elif 'wxMSW' in wx.PlatformInfo:
         fontfaceptr = voidp( cairoLib.cairo_win32_font_face_create_for_hfont(
-            int(font.GetHFONT())) )
+            ctypes.c_ulong(font.GetHFONT())) )
         fontface = pycairoAPI.FontFace_FromFontFace(fontfaceptr)
 
 
@@ -242,11 +242,12 @@ def _findCairoLib():
     if cairoLib is not None:
         return
 
-    location = None
     for name in ['cairo', 'cairo-2', 'libcairo-2']:
-        location = ctypes.util.find_library(name)
-        if location:
+        try:
+            cairoLib = ctypes.CDLL(name)
             break
+        except:
+            pass
     else:
         # If the above didn't find it on OS X then we still have a
         # trick up our sleeve...
@@ -257,14 +258,17 @@ def _findCairoLib():
             for h in m.headers:
                 for idx, name, path in h.walkRelocatables():
                     if 'libcairo' in path:
-                        location = path
+                        try:
+                            cairoLib = ctypes.CDLL(path)
                         break
+                        except:
+                            pass
 
-    if not location:
+    if not cairoLib:
         raise RuntimeError, "Unable to find the Cairo shared library"
     
-    cairoLib = ctypes.CDLL(location)
             
+
 #----------------------------------------------------------------------------
 
 # For other DLLs we'll just use a dictionary to track them, as there
