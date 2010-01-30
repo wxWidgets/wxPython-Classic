@@ -301,7 +301,7 @@ void wxPyApp::OnAssertFailure(const wxChar *file,
         if (msg != NULL) 
             buf << wxT(": ") << msg;
         
-        wxLogDebug(buf);
+        wxLogDebug(wxT("%s"), buf.c_str());
         return;
     }
 
@@ -1908,7 +1908,7 @@ void wxPyCallbackHelper::clearRecursionGuard(PyObject* method) const
     if (PyObject_HasAttr(m_self, func->func_name)) {
         PyObject* attr = PyObject_GetAttr(m_self, func->func_name);
         if ( attr == Py_None )
-	    PyObject_DelAttr(m_self, func->func_name);
+            PyObject_DelAttr(m_self, func->func_name);
         Py_DECREF(attr);
     }
 }
@@ -3088,7 +3088,7 @@ PyObject* wxArrayString2PyList_helper(const wxArrayString& arr)
 #if wxUSE_UNICODE
         PyObject* str = PyUnicode_FromWideChar(arr[i].c_str(), arr[i].Len());
 #else
-	PyObject* str = PyString_FromStringAndSize(arr[i].c_str(), arr[i].Len());
+        PyObject* str = PyString_FromStringAndSize(arr[i].c_str(), arr[i].Len());
 #endif
         PyList_Append(list, str);
         Py_DECREF(str);
@@ -3283,7 +3283,7 @@ bool wxPyTestDisplayAvailable()
     // MacOS_WMAvailable function.
     bool rv;
     ProcessSerialNumber psn;
-		
+                
     /*
     ** This is a fairly innocuous call to make if we don't have a window
     ** manager, or if we have no permission to talk to it. It will print
