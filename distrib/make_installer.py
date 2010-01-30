@@ -112,6 +112,7 @@ Source: "wx\lib\*.idl";                         DestDir: "{app}\%(PKGDIR)s\wx\li
 Source: "wx\lib\*.tlb";                         DestDir: "{app}\%(PKGDIR)s\wx\lib"; Components: core
 Source: "wx\lib\agw\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\agw"; Components: core
 Source: "wx\lib\agw\aui\*.py";                  DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\aui"; Components: core
+Source: "wx\lib\agw\ribbon\*.py";               DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\ribbon"; Components: core
 Source: "wx\lib\agw\*.png";                     DestDir: "{app}\%(PKGDIR)s\wx\lib\agw"; Components: core
 Source: "wx\lib\analogclock\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock"; Components: core
 Source: "wx\lib\analogclock\lib_setup\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock\lib_setup"; Components: core
@@ -185,6 +186,7 @@ Source: "wx\tools\Editra\pixmaps\theme\Tango\toolbar\*.png"; DestDir: "{app}\%(P
 Source: "wx\tools\Editra\plugins\*.egg";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\plugins"; Components: core
 Source: "wx\tools\Editra\src\*.py";                          DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src"; Components: core
 Source: "wx\tools\Editra\src\autocomp\*.py";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp"; Components: core
+Source: "wx\tools\Editra\src\ebmlib\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\ebmlib"; Components: core
 Source: "wx\tools\Editra\src\eclib\*.py";                    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\eclib"; Components: core
 Source: "wx\tools\Editra\src\ebmlib\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\ebmlib"; Components: core
 Source: "wx\tools\Editra\src\extern\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
@@ -271,6 +273,8 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\aui\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\aui\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\ribbon\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\ribbon\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\analogclock\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\analogclock\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\analogclock\lib_setup\*.pyc";
@@ -320,6 +324,8 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\lexers\
 
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\ebmlib\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\ebmlib\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\eclib\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\eclib\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\*.pyc";
@@ -368,6 +374,14 @@ begin
         if not RegQueryStringValue(HKEY_CURRENT_USER,
                                    'Software\Python\PythonCore\%(PYTHONVER)s\InstallPath',
                                    '', PythonDir) then begin
+
+            if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
+                                        'Software\Wow6432Node\Python\PythonCore\%(PYTHONVER)s\InstallPath',
+                                       '', PythonDir) then begin
+
+                if not RegQueryStringValue(HKEY_CURRENT_USER,
+                                           'Software\Wow6432Node\Python\PythonCore\%(PYTHONVER)s\InstallPath',
+                                           '', PythonDir) then begin
 
             MsgBox('No installation of Python %(PYTHONVER)s found in registry.' + #13 +
                    'Be sure to enter a pathname that places wxPython on the PYTHONPATH',
