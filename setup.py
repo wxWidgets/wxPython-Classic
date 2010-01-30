@@ -865,6 +865,7 @@ WX_PKGLIST =      [ 'wx',
                     'wx.lib',
                     'wx.lib.agw',
                     'wx.lib.agw.aui',
+                    'wx.lib.agw.ribbon',
                     'wx.lib.analogclock',
                     'wx.lib.analogclock.lib_setup',
                     'wx.lib.art',
@@ -914,6 +915,8 @@ else:
                opj('scripts/xrced'),
                opj('scripts/editra'),
                ]
+    if os.name == 'nt':
+        SCRIPTS.append( opj('scripts/genaxmodule') ) 
 
 
 
