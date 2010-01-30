@@ -760,9 +760,11 @@ class _InspectionHighlighter(object):
     # should non TLWs be flashed too?  Otherwise use a highlight rectangle
     flashAll = False
 
-    color1 = 'red'      # for widgets and sizers
-    color2 = 'red'      # for item boundaries in sizers
-    color3 = '#00008B'  # for items in sizers
+    color1 = 'red'         # for widgets and sizers
+    color2 = 'red'         # for item boundaries in sizers
+    color3 = '#00008B'     # for items in sizers
+
+    highlightTime = 3000   # how long to display the highlights
 
     def HighlightCurrentItem(self, tree):
         """
@@ -954,7 +956,7 @@ class _InspectionHighlighter(object):
         if not useWinDC:
             pos = tlw.ScreenToClient(drawRect.GetPosition())
             drawRect.SetPosition(pos)
-        wx.CallLater(3000, tlw.RefreshRect, drawRect)
+        wx.CallLater(self.highlightTime, tlw.RefreshRect, drawRect)
 
         return dc
 
