@@ -887,6 +887,8 @@ else:
                opj('scripts/xrced'),
                opj('scripts/editra'),
                ]
+    if os.name == 'nt':
+        SCRIPTS.append( opj('scripts/genaxmodule') ) 
 
 
 
