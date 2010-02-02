@@ -33,12 +33,16 @@ PB_STYLE_SQUARE:
 Instead of the default rounded shape use a rectangular shaped button with
 square edges.
 
-PB_STYLE_NB:
+PB_STYLE_NOBG:
 This style only has an effect on Windows but does not cause harm to use on the
 platforms. It should only be used when the control is shown on a panel or other
 window that has a non solid color for a background. i.e a gradient or image is
 painted on the background of the parent window. If used on a background with
 a solid color it may cause the control to loose its transparent appearance.
+
+PB_STYLE_DROPARROW:
+Add a drop button arrow to the button that will send a separate event when
+clicked on.
 
 Other attributes can be configured after the control has been created. The
 settings that are currently available are as follows:
@@ -69,18 +73,21 @@ Requirements:
 """
 
 __author__ = "Cody Precord <cprecord@editra.org>"
-__svnid__ = "$Id: platebtn.py 57713 2009-01-01 23:36:15Z CJP $"
-__revision__ = "$Revision: 57713 $"
+__svnid__ = "$Id: platebtn.py 63348 2010-02-01 22:01:17Z CJP $"
+__revision__ = "$Revision: 63348 $"
 
-__all__ = ["PlateButton", "AdjustAlpha", "AdjustColor", "GetHighlightColor",
+__all__ = ["PlateButton",
            "PLATE_NORMAL", "PLATE_PRESSED", "PLATE_HIGHLIGHT", 
+
            "PB_STYLE_DEFAULT", "PB_STYLE_GRADIENT", "PB_STYLE_SQUARE",
-           "PB_STYLE_NOBG" ]
+           "PB_STYLE_NOBG", "PB_STYLE_DROPARROW", "PB_STYLE_TOGGLE",
+
+           "EVT_PLATEBTN_DROPARROW_PRESSED"]
 
 #-----------------------------------------------------------------------------#
 # Imports
 import wx
-import  wx.lib.newevent
+import wx.lib.newevent
 
 # Used on OSX to get access to carbon api constants
 if wx.Platform == '__WXMAC__':
@@ -99,7 +106,12 @@ PB_STYLE_SQUARE   = 4   # Use square corners instead of rounded
 PB_STYLE_NOBG     = 8   # Usefull on Windows to get a transparent appearance
                         # when the control is shown on a non solid background
 PB_STYLE_DROPARROW = 16 # Draw drop arrow and fire EVT_PLATEBTN_DROPRROW_PRESSED event
+PB_STYLE_TOGGLE   = 32  # Stay pressed untill clicked again
 
+#-----------------------------------------------------------------------------#
+
+# EVT_BUTTON used for normal event notification
+# EVT_TOGGLE_BUTTON used for toggle button mode notification
 PlateBtnDropArrowPressed, EVT_PLATEBTN_DROPARROW_PRESSED = wx.lib.newevent.NewEvent()
 
 #-----------------------------------------------------------------------------#
@@ -141,6 +153,7 @@ class PlateButton(wx.PyControl):
         self._style = style
         self._state = dict(pre=PLATE_NORMAL, cur=PLATE_NORMAL)
         self._color = self.__InitColors()
+        self._pressed = False
 
         # Setup Initial Size
         self.SetInitialSize()
@@ -158,7 +171,7 @@ class PlateButton(wx.PyControl):
         self.Bind(wx.EVT_ENTER_WINDOW,
                   lambda evt: self.SetState(PLATE_HIGHLIGHT))
         self.Bind(wx.EVT_LEAVE_WINDOW,
-                  lambda evt: wx.CallLater(80, self.SetState, PLATE_NORMAL))
+                  lambda evt: wx.CallLater(80, self.__LeaveWindow))
 
         # Other events
         self.Bind(wx.EVT_KEY_UP, self.OnKeyUp)
@@ -235,7 +248,11 @@ class PlateButton(wx.PyControl):
 
     def __PostEvent(self):
         """Post a button event to parent of this control"""
-        bevt = wx.CommandEvent(wx.wxEVT_COMMAND_BUTTON_CLICKED, self.GetId())
+        if self._style & PB_STYLE_TOGGLE:
+            etype = wx.wxEVT_COMMAND_TOGGLEBUTTON_CLICKED
+        else:
+            etype = wx.wxEVT_COMMAND_BUTTON_CLICKED
+        bevt = wx.CommandEvent(etype, self.GetId())
         bevt.SetEventObject(self)
         bevt.SetString(self.GetLabel())
         self.GetEventHandler().ProcessEvent(bevt)
@@ -277,9 +294,7 @@ class PlateButton(wx.PyControl):
         elif self._state['cur'] == PLATE_PRESSED:
             gc.SetTextForeground(self._color['htxt'])
             if wx.Platform == '__WXMAC__':
-                brush = wx.Brush(wx.BLACK)
-                brush.MacSetTheme(Carbon.Appearance.kThemeBrushFocusHighlight)
-                pen = wx.Pen(brush.GetColour(), 1, wx.SOLID)
+                pen = wx.Pen(GetHighlightColour(), 1, wx.SOLID)
             else:
                 pen = wx.Pen(AdjustColour(self._color['press'], -80, 220), 1)
             gc.SetPen(pen)
@@ -312,6 +327,13 @@ class PlateButton(wx.PyControl):
                       htxt=BestLabelColour(self.GetForegroundColour()))
         return colors
 
+    def __LeaveWindow(self):
+        """Handle updating the buttons state when the mouse cursor leaves"""
+        if (self._style & PB_STYLE_TOGGLE) and self._pressed:
+            self.SetState(PLATE_PRESSED) 
+        else:
+            self.SetState(PLATE_NORMAL)
+
     #---- End Private Member Function ----#
 
     #---- Public Member Functions ----#
@@ -336,7 +358,7 @@ class PlateButton(wx.PyControl):
 
     def Disable(self):
         """Disable the control"""
-        wx.PyControl.Disable(self)
+        super(PlateButton, self).Disable()
         self.Refresh()
 
     def DoGetBestSize(self):
@@ -370,7 +392,7 @@ class PlateButton(wx.PyControl):
 
     def Enable(self, enable=True):
         """Enable/Disable the control"""
-        wx.PyControl.Enable(self, enable)
+        super(PlateButton, self).Enable(enable)
         self.Refresh()
 
     def GetBackgroundBrush(self, dc):
@@ -421,9 +443,24 @@ class PlateButton(wx.PyControl):
         """
         return getattr(self, '_menu', None)
 
+    def GetState(self):
+        """Get the current state of the button
+        @return: int
+        @see: PLATE_NORMAL, PLATE_HIGHLIGHT, PLATE_PRESSED
+
+        """
+        return self._state['cur']
+
     def HasTransparentBackground(self):
         """Override setting of background fill"""
         return True
+
+    def IsPressed(self):
+        """Return if button is pressed (PB_STYLE_TOGGLE)
+        @return: bool
+
+        """
+        return self._pressed
 
     @property
     def LabelText(self):
@@ -474,6 +511,9 @@ class PlateButton(wx.PyControl):
         show the popup menu if one has been set.
 
         """
+        if (self._style & PB_STYLE_TOGGLE):
+            self._pressed = not self._pressed
+
         pos = evt.GetPositionTuple()
         self.SetState(PLATE_PRESSED)
         size = self.GetSizeTuple()
@@ -486,7 +526,7 @@ class PlateButton(wx.PyControl):
                 wx.PostEvent(self, event)
         
         self.SetFocus()
-            
+
     def OnLeftUp(self, evt):
         """Post a button event if the control was previously in a
         pressed state.
@@ -498,7 +538,11 @@ class PlateButton(wx.PyControl):
             size = self.GetSizeTuple()
             if not (self._style & PB_STYLE_DROPARROW and pos[0] >= size[0] - 16):
                 self.__PostEvent()
-        self.SetState(PLATE_HIGHLIGHT)
+
+        if self._pressed:
+            self.SetState(PLATE_PRESSED)
+        else:
+            self.SetState(PLATE_HIGHLIGHT)
 
     def OnMenuClose(self, evt):
         """Refresh the control to a proper state after the menu has been
@@ -543,11 +587,11 @@ class PlateButton(wx.PyControl):
         """Set this control to have the focus"""
         if self._state['cur'] != PLATE_PRESSED:
             self.SetState(PLATE_HIGHLIGHT)
-        wx.PyControl.SetFocus(self)
+        super(PlateButton, self).SetFocus()
 
     def SetFont(self, font):
         """Adjust size of control when font changes"""
-        wx.PyControl.SetFont(self, font)
+        super(PlateButton, self).SetFont(font)
         self.InvalidateBestSize()
 
     def SetLabel(self, label):
@@ -555,10 +599,10 @@ class PlateButton(wx.PyControl):
         @param label: lable string
 
         """
-        wx.PyControl.SetLabel(self, label)
+        super(PlateButton, self).SetLabel(label)
         self.InvalidateBestSize()
 
-    def SetLabelColor(self, normal, hlight=wx.NullColor):
+    def SetLabelColor(self, normal, hlight=wx.NullColour):
         """Set the color of the label. The optimal label color is usually
         automatically selected depending on the button color. In some
         cases the colors that are choosen may not be optimal.
@@ -639,7 +683,7 @@ class PlateButton(wx.PyControl):
 
     def SetWindowVariant(self, variant):
         """Set the variant/font size of this control"""
-        wx.PyControl.SetWindowVariant(self, variant)
+        super(PlateButton, self).SetWindowVariant(variant)
         self.InvalidateBestSize()
 
     def ShouldInheritColours(self):
