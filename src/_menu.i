@@ -494,7 +494,7 @@ public:
 
     // switch on/off owner-drawing the item
     void SetOwnerDrawn(bool ownerDrawn = true);
-    void ResetOwnerDrawn();
+//    void ResetOwnerDrawn();
 
 #else
 
@@ -521,7 +521,7 @@ public:
         static int GetDefaultMarginWidth() { return 0; }
         bool IsOwnerDrawn() { return false; }
         void SetOwnerDrawn(bool ownerDrawn = true) {}
-        void ResetOwnerDrawn() {}
+//        void ResetOwnerDrawn() {}
     }
 #endif
 

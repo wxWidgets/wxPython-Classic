@@ -308,7 +308,6 @@ enum wxBitmapBufferFormat {
                 }
                 if (depth = 32) {
                     MAKE_PIXDATA(wxAlphaPixelData);
-                    pixData.UseAlpha();
                     for (int y=0; y<height; y++) {
                         rowStart = p;
                         for (int x=0; x<width; x++) {
@@ -371,7 +370,6 @@ enum wxBitmapBufferFormat {
                 if (depth == 32) {
                     MAKE_PIXDATA(wxAlphaPixelData);
                     if (useAlpha)
-                        pixData.UseAlpha();
                     for (int y=0; y<height; y++) {
                         p.MoveTo(pixData, 0, y);
                         bufptr = (wxUint32*)dataRow;
@@ -957,7 +955,10 @@ public:
     ~PixelData();
 
     PixelData##_Accessor GetPixels() const;
-    void UseAlpha();
+    %pythoncode {
+        def UseAlpha(self): pass
+        UseAlpha = wx._deprecated(UseAlpha)
+    }
 
     %extend {
         bool __nonzero__() { return self->operator bool(); }
@@ -1054,8 +1055,6 @@ public:
 };
 %enddef
 
-
-%pythonAppend wxAlphaPixelData::wxAlphaPixelData "self.UseAlpha()"
 
 // Make the classes
 PIXELDATA(wxNativePixelData)

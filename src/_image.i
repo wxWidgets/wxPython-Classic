@@ -28,7 +28,7 @@ enum {
 };
 
 // Constants for wxImage::Scale() for determining the level of quality
-enum
+enum wxImageResizeQuality
 {
     wxIMAGE_QUALITY_NORMAL = 0,
     wxIMAGE_QUALITY_HIGH = 1
@@ -412,7 +412,8 @@ initialized to black. Otherwise, the image data will be uninitialized.", "");
     
 
     DocDeclStr(
-        wxImage , Scale( int width, int height, int quality = wxIMAGE_QUALITY_NORMAL ),
+        wxImage , Scale( int width, int height,
+                         wxImageResizeQuality quality = wxIMAGE_QUALITY_NORMAL ),
         "Returns a scaled version of the image. This is also useful for scaling
 bitmaps in general as the only other way to scale bitmaps is to blit a
 `wx.MemoryDC` into another `wx.MemoryDC`.  The ``quality`` parameter
@@ -470,7 +471,8 @@ used when using a single mask colour for transparency.", "");
     %typemap(out) wxImage& { $result = $self; Py_INCREF($result); }
     
     DocDeclStr(
-        wxImage& , Rescale(int width, int height, int quality = wxIMAGE_QUALITY_NORMAL),
+        wxImage& , Rescale(int width, int height,
+                           wxImageResizeQuality quality = wxIMAGE_QUALITY_NORMAL),
         "Changes the size of the image in-place by scaling it: after a call to
 this function, the image will have the given width and height.
 
@@ -651,7 +653,7 @@ string.", "",
     
 
     DocDeclStr(
-        bool , SaveFile( const wxString& name, int type ),
+        bool , SaveFile( const wxString& name, wxBitmapType type ),
         "Saves an image in the named file.", "");
 
     
@@ -661,7 +663,7 @@ string.", "",
         SaveMimeFile);
 
     DocDeclStrName(
-        bool , SaveFile( wxOutputStream& stream, int type ),
+        bool , SaveFile( wxOutputStream& stream, wxBitmapType type ),
         "Saves an image in the named file.", "",
         SaveStream);
 

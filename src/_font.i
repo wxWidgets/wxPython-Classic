@@ -807,7 +807,12 @@ then for a font belonging to the same family.", "");
 
     virtual void SetNoAntiAliasing( bool no = true );
     virtual bool GetNoAntiAliasing() const;
-
+    %pythoncode {
+        def SetNoAntiAliasing(self, no=True): pass
+        def GetNoAntiAliasing(self): pass
+        SetNoAntiAliasing = wx._deprecated(SetNoAntiAliasing)
+        GetNoAntiAliasing = wx._deprecated(GetNoAntiAliasing)
+    }
 
     // Give access to the internal native font handle, ID, pointer, etc.
 #ifdef __WXMSW__

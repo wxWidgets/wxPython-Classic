@@ -91,6 +91,8 @@ MAKE_CONST_WXSTRING(EmptyString);
 
 // Events, event handlers, base Windows and such
 %include _evthandler.i
+%include _keyboardstate.i
+%include _mousestate.i
 %include _event.i
 %include _app.i
 %include _evtloop.i

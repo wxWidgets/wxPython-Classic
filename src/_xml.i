@@ -120,9 +120,6 @@ public:
     wxXmlNode *GetNext() const;
     wxXmlNode *GetChildren() const;
 
-//    bool GetAttribute(const wxString& attrName, wxString *value) const;
-    wxString GetAttribute(const wxString& attrName,
-                         const wxString& defaultVal) const;
     bool HasAttribute(const wxString& attrName) const;
 
     int GetLineNumber() const;

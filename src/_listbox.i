@@ -202,14 +202,14 @@ public:
     bool  IsChecked(unsigned int index);
     void  Check(unsigned int index, int check = true);
 
-#if defined(__WXMSW__) || defined(__WXGTK__)
-    int GetItemHeight();
-#else
-    %pythoncode {
-        def GetItemHeight(self):
-            raise NotImplementedError
-    }
-#endif
+// #if defined(__WXMSW__) || defined(__WXGTK__)
+//     int GetItemHeight();
+// #else
+//     %pythoncode {
+//         def GetItemHeight(self):
+//             raise NotImplementedError
+//     }
+// #endif
 
     %pythoncode {
         def GetChecked(self):

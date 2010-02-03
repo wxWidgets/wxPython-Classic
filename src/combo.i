@@ -504,7 +504,7 @@ flags are the same as wx.RendererNative flags:
 
 
     DocDeclStr(
-        void , OnPopupDismiss(),
+        void , OnPopupDismiss(bool generateEvent),
         "Common code to be called on popup hide/dismiss", "");
 
 

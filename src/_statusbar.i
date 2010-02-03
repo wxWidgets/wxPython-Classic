@@ -21,6 +21,17 @@
 //---------------------------------------------------------------------------
 %newgroup;
 
+// wxStatusBar styles
+enum {
+    wxSTB_SIZEGRIP,
+    wxSTB_SHOW_TIPS,
+
+    wxSTB_ELLIPSIZE_START,
+    wxSTB_ELLIPSIZE_MIDDLE,
+    wxSTB_ELLIPSIZE_END,
+
+    wxSTB_DEFAULT_STYLE,
+};
 
 enum {
     wxSB_NORMAL,
@@ -38,7 +49,26 @@ public:
 
     int GetWidth() const;
     int GetStyle() const;
-    const wxArrayString& GetStack() const;
+    wxString GetText() const;
+
+    bool IsEllipsized() const;
+    void SetIsEllipsized(bool isEllipsized);
+
+    void SetWidth(int width);
+    void SetStyle(int style);
+
+    // set text, return true if it changed or false if it was already set to
+    // this value
+    bool SetText(const wxString& text);
+
+    // save the existing text on top of our stack and make the new text
+    // current; return true if the text really changed
+    bool PushText(const wxString& text);
+
+    // restore the message saved by the last call to Push() (unless it was
+    // changed by an intervening call to SetText()) and return true if we
+    // really restored anything
+    bool PopText();
 };
 
 //---------------------------------------------------------------------------
@@ -71,7 +101,6 @@ public:
 
     virtual void SetStatusText(const wxString& text, int number = 0);
     virtual wxString GetStatusText(int number = 0) const;
-    const wxArrayString& GetStatusStack(int n) const;
 
     void PushStatusText(const wxString& text, int number = 0);
     void PopStatusText(int number = 0);
@@ -109,6 +138,7 @@ public:
     // get the dimensions of the horizontal and vertical borders
     virtual int GetBorderX() const;
     virtual int GetBorderY() const;
+    wxSize GetBorders() const;
 
     const wxStatusBarPane& GetField(int n) const;
 

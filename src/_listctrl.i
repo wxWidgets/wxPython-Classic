@@ -389,7 +389,7 @@ EVT_LIST_ITEM_FOCUSED      = wx.PyEventBinder(wxEVT_COMMAND_LIST_ITEM_FOCUSED   
 
 
 %{ // Python aware sorting function for wxPyListCtrl
-    static int wxCALLBACK wxPyListCtrl_SortItems(long item1, long item2, long funcPtr) {
+    static int wxCALLBACK wxPyListCtrl_SortItems(long item1, long item2, wxIntPtr funcPtr) {
         int retval = 0;
         PyObject* func = (PyObject*)funcPtr;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();

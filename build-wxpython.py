@@ -251,8 +251,8 @@ else:
     
     if options.clean in ['all', 'wx']:
         deleteIfExists(WXPY_BUILD_DIR)
-    if options.clean in ['all', 'py']:
-        deleteIfExists(WXPY_INSTALL_DIR)
+    if options.clean in ['all', 'py'] and options.wxpy_installdir:
+        deleteIfExists(options.wxpy_installdir)
     if options.clean:
         sys.exit(0)
 

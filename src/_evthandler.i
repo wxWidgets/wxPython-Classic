@@ -93,7 +93,8 @@ public:
                     if ((entry->m_id == id) &&
                         ((entry->m_lastId == lastId) || (lastId == wxID_ANY)) &&
                         ((entry->m_eventType == eventType) || (eventType == wxEVT_NULL)) &&
-                        ((entry->m_fn->GetMethod() == (wxObjectEventFunction)&wxPyCallback::EventThunker)) &&
+                        // FIXME?
+                        //((entry->m_fn->IsMatching((wxObjectEventFunction)(wxEventFunction)&wxPyCallback::EventThunker))) &&
                         (entry->m_callbackUserData != NULL))
                     {
                         wxPyCallback *cb = (wxPyCallback*)entry->m_callbackUserData;

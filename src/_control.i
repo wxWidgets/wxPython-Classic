@@ -23,14 +23,15 @@ MAKE_CONST_WXSTRING(ControlNameStr);
 
 enum wxEllipsizeFlags
 {
-    wxELLIPSIZE_PROCESS_MNEMONICS = 1,
-    wxELLIPSIZE_EXPAND_TAB = 2,
-
-    wxELLIPSIZE_DEFAULT_FLAGS = wxELLIPSIZE_PROCESS_MNEMONICS|wxELLIPSIZE_EXPAND_TAB
+    wxELLIPSIZE_FLAGS_NONE,
+    wxELLIPSIZE_FLAGS_PROCESS_MNEMONICS,
+    wxELLIPSIZE_FLAGS_EXPAND_TABS,
+    wxELLIPSIZE_FLAGS_DEFAULT,
 };
 
 enum wxEllipsizeMode
 {
+    wxELLIPSIZE_NONE,
     wxELLIPSIZE_START,
     wxELLIPSIZE_MIDDLE,
     wxELLIPSIZE_END
@@ -135,7 +136,7 @@ __init__ as a plain old wx.Control is not very useful.", "");
     // replaces parts of the (multiline) string with ellipsis if needed
     static wxString Ellipsize(const wxString& label, const wxDC& dc,
                               wxEllipsizeMode mode, int maxWidth,
-                              int flags = wxELLIPSIZE_DEFAULT_FLAGS);
+                              int flags = wxELLIPSIZE_FLAGS_DEFAULT);
 
 //     // get the string without mnemonic characters ('&')
 //     static wxString GetLabelText(const wxString& label);

@@ -394,7 +394,7 @@ public:
     %pythonAppend PyEditEnumProperty "self._SetSelf(self); self._RegisterMethods()"
     PyEditEnumProperty( const wxString& label,
                         const wxString& name,
-                        const wxChar** labels,
+                        const wxChar* const* labels,
                         const long* values,
                         const wxString& value );
     PyEditEnumProperty( const wxString& label = wxPG_LABEL,
@@ -408,7 +408,7 @@ public:
                         const wxString& value = wxEmptyString );
     PyEditEnumProperty( const wxString& label,
                         const wxString& name,
-                        const wxChar** labels,
+                        const wxChar* const* labels,
                         const long* values,
                         wxPGChoices* choicesCache,
                         const wxString& value );
@@ -506,10 +506,10 @@ public:
                             const wxColourPropertyValue&
                                 value = wxColourPropertyValue() );
     PySystemColourProperty( const wxString& label, const wxString& name,
-        const wxChar** labels, const long* values, wxPGChoices* choicesCache,
+        const wxChar* const* labels, const long* values, wxPGChoices* choicesCache,
         const wxColourPropertyValue& value );
     PySystemColourProperty( const wxString& label, const wxString& name,
-        const wxChar** labels, const long* values, wxPGChoices* choicesCache,
+        const wxChar* const* labels, const long* values, wxPGChoices* choicesCache,
         const wxColour& value );
 %pythoncode {
     def CallSuperMethod(self, *args, **kwargs):
@@ -568,6 +568,53 @@ public:
         self._super_call = True
         try:
             res = getattr(PyFlagsProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
+        return res
+
+    def _RegisterMethods(self):
+        cls = self.__class__
+        if not hasattr(cls,'_pyswig_methods_registered'):
+            cls._pyswig_methods_registered = True
+            ls = [ab for ab in cls.__dict__.iteritems()]
+            for a, b in ls:
+                if not a.startswith('_'):
+                    setattr(cls, '%s_t_'%a, b)
+}
+    void _SetSelf(PyObject *self);
+};
+
+%typemap(out) wxColourProperty* {
+    $result = NULL;
+    if ( $1->m_clientData ) $result = (PyObject*)$1->m_clientData;
+    if ( $result ) Py_INCREF($result);
+    else $result = SWIG_NewPointerObj((void*)$1, SWIGTYPE_p_wxColourProperty, 0);
+
+}
+
+%typemap(in) wxColourProperty* {
+    if ( !wxPyConvertSwigPtr($input, (void**)&$1, wxT("wxColourProperty")) ) {
+        PyErr_SetString(PyExc_TypeError,"expected wxColourProperty");
+        SWIG_fail;
+    }
+
+}
+
+class PyColourProperty : public wxColourProperty
+{
+public:
+    %pythonAppend PyColourProperty "self._SetSelf(self); self._RegisterMethods()"
+    PyColourProperty( const wxString& label = wxPG_LABEL,
+                      const wxString& name = wxPG_LABEL,
+                      const wxColour& value = *wxWHITE );
+%pythoncode {
+    def CallSuperMethod(self, *args, **kwargs):
+        funcname = args[0]
+        args2 = list(args)
+        args2[0] = self
+        self._super_call = True
+        try:
+            res = getattr(PyColourProperty, funcname)(*args2, **kwargs)
         finally:
             del self._super_call
         return res
@@ -730,8 +777,6 @@ public:
                                           const wxSize& size) const;
     virtual bool OnEvent( wxPropertyGrid* propgrid, wxPGProperty* property,
         wxWindow* wnd_primary, wxEvent& event ) const;
-    virtual void SetValueToUnspecified( wxPGProperty* property,
-                                        wxWindow* ctrl ) const;
     virtual void UpdateControl( wxPGProperty* property,
                                 wxWindow* ctrl ) const;
 };
@@ -856,53 +901,6 @@ public:
         self._super_call = True
         try:
             res = getattr(PyLongStringDialogAdapter, funcname)(*args2, **kwargs)
-        finally:
-            del self._super_call
-        return res
-
-    def _RegisterMethods(self):
-        cls = self.__class__
-        if not hasattr(cls,'_pyswig_methods_registered'):
-            cls._pyswig_methods_registered = True
-            ls = [ab for ab in cls.__dict__.iteritems()]
-            for a, b in ls:
-                if not a.startswith('_'):
-                    setattr(cls, '%s_t_'%a, b)
-}
-    void _SetSelf(PyObject *self);
-};
-
-%typemap(out) wxColourProperty* {
-    $result = NULL;
-    if ( $1->m_clientData ) $result = (PyObject*)$1->m_clientData;
-    if ( $result ) Py_INCREF($result);
-    else $result = SWIG_NewPointerObj((void*)$1, SWIGTYPE_p_wxColourProperty, 0);
-
-}
-
-%typemap(in) wxColourProperty* {
-    if ( !wxPyConvertSwigPtr($input, (void**)&$1, wxT("wxColourProperty")) ) {
-        PyErr_SetString(PyExc_TypeError,"expected wxColourProperty");
-        SWIG_fail;
-    }
-
-}
-
-class PyColourProperty : public wxColourProperty
-{
-public:
-    %pythonAppend PyColourProperty "self._SetSelf(self); self._RegisterMethods()"
-    PyColourProperty( const wxString& label = wxPG_LABEL,
-                      const wxString& name = wxPG_LABEL,
-                      const wxColour& value = *wxWHITE );
-%pythoncode {
-    def CallSuperMethod(self, *args, **kwargs):
-        funcname = args[0]
-        args2 = list(args)
-        args2[0] = self
-        self._super_call = True
-        try:
-            res = getattr(PyColourProperty, funcname)(*args2, **kwargs)
         finally:
             del self._super_call
         return res

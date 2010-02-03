@@ -366,12 +366,6 @@ MustHaveApp(wxDialog);
 class wxDialog : public wxTopLevelWindow
 {
 public:
-    enum
-    {
-        // all flags allowed in wxDialogBase::CreateButtonSizer()
-        ButtonSizerFlags = wxOK | wxCANCEL | wxYES | wxNO | wxHELP | wxNO_DEFAULT
-    };
-
     %pythonAppend wxDialog   "self._setOORInfo(self)"
     %pythonAppend wxDialog() ""
     %typemap(out) wxDialog*;    // turn off this typemap

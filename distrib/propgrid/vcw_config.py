@@ -3,7 +3,7 @@
 #
 
 # NOTE! You may need to change this to get the script working.
-WX_BASE = '../../../wxWidgets_SVN_WX_2_9_0_BRANCH'
+WX_BASE = '../../../wx'
 
 
 projname = 'propgrid'
@@ -46,7 +46,7 @@ ignore_typemaps_from_base = ['wxVariant']
 
 include_paths = [WX_BASE+'/include',
                  WX_BASE+'/include/wx/propgrid',
-                 WX_BASE+'/lib/vc_dll/mswh',
+                 #WX_BASE+'/lib/vc_dll/mswh',
                  WX_BASE+'/lib/vc_dll/mswuh',
                  '../../src']
 

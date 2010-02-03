@@ -1229,10 +1229,6 @@ useful after major changes when calling methods like `RowChanged` or
     DocDeclStr(
         wxDataViewItem , GetItem( unsigned int row ) const,
         "Returns the DataViewItem for the item at row.", "");
-
-
-    // internal
-    unsigned int GetLastIndex() const;
 };
 
 
