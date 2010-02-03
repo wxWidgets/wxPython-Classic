@@ -35,7 +35,7 @@
 #include <wx/gtk1/win_gtk.h>
 #endif
 #define GetXWindow(wxwin) (wxwin)->m_wxwindow ? \
-                          GDK_WINDOW_XWINDOW(WX_PIZZA((wxwin)->m_wxwindow)->m_backing_window) : \
+                          GDK_WINDOW_XWINDOW((wxwin)->m_wxwindow->window) : \
                           GDK_WINDOW_XWINDOW((wxwin)->m_widget->window)
 #include <locale.h>
 #endif
@@ -3220,7 +3220,7 @@ PyObject* wxArrayString2PyList_helper(const wxArrayString& arr)
 #if wxUSE_UNICODE
         PyObject* str = PyUnicode_FromWideChar(arr[i].c_str(), arr[i].Len());
 #else
-	PyObject* str = PyString_FromStringAndSize(arr[i].c_str(), arr[i].Len());
+        PyObject* str = PyString_FromStringAndSize(arr[i].c_str(), arr[i].Len());
 #endif
         PyList_Append(list, str);
         Py_DECREF(str);
@@ -3559,7 +3559,7 @@ bool wxPyTestDisplayAvailable()
     // MacOS_WMAvailable function.
     bool rv;
     ProcessSerialNumber psn;
-		
+
     /*
     ** This is a fairly innocuous call to make if we don't have a window
     ** manager, or if we have no permission to talk to it. It will print
