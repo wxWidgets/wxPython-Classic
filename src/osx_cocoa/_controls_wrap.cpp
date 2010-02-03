@@ -3047,7 +3047,7 @@ SWIGINTERN void wxToolBarBase_SetToolClientData(wxToolBarBase *self,int id,PyObj
  static const wxString wxPyListCtrlNameStr(wxListCtrlNameStr); 
 SWIGINTERN void wxListItemAttr_Destroy(wxListItemAttr *self){ delete self; }
  // Python aware sorting function for wxPyListCtrl
-    static int wxCALLBACK wxPyListCtrl_SortItems(long item1, long item2, long funcPtr) {
+    static int wxCALLBACK wxPyListCtrl_SortItems(long item1, long item2, wxIntPtr funcPtr) {
         int retval = 0;
         PyObject* func = (PyObject*)funcPtr;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();

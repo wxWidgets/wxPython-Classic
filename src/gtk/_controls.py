@@ -1360,10 +1360,6 @@ class CheckListBox(ListBox):
         """Check(self, unsigned int index, int check=True)"""
         return _controls_.CheckListBox_Check(*args, **kwargs)
 
-    def GetItemHeight(*args, **kwargs):
-        """GetItemHeight(self) -> int"""
-        return _controls_.CheckListBox_GetItemHeight(*args, **kwargs)
-
     def GetChecked(self):
         """
         GetChecked(self)

@@ -481,7 +481,7 @@ class ComboCtrl(_core.Control):
 
     def OnPopupDismiss(*args, **kwargs):
         """
-        OnPopupDismiss(self)
+        OnPopupDismiss(self, bool generateEvent)
 
         Common code to be called on popup hide/dismiss
         """

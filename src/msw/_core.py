@@ -4143,6 +4143,249 @@ _core_.PyEvtHandler_swigregister(PyEvtHandler)
 
 #---------------------------------------------------------------------------
 
+class KeyboardState(object):
+    """wx.KeyboardState stores the state of the keyboard modifier keys"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, bool controlDown=False, bool shiftDown=False, bool altDown=False, 
+            bool metaDown=False) -> KeyboardState
+
+        wx.KeyboardState stores the state of the keyboard modifier keys
+        """
+        _core_.KeyboardState_swiginit(self,_core_.new_KeyboardState(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_KeyboardState
+    __del__ = lambda self : None;
+    def GetModifiers(*args, **kwargs):
+        """
+        GetModifiers(self) -> int
+
+        Returns a bitmask of the current modifier settings.  Can be used to
+        check if the key event has exactly the given modifiers without having
+        to explicitly check that the other modifiers are not down.  For
+        example::
+
+            if event.GetModifers() == wx.MOD_CONTROL:
+                DoSomething()
+
+        """
+        return _core_.KeyboardState_GetModifiers(*args, **kwargs)
+
+    Modifiers = property(GetModifiers,doc="See `GetModifiers`") 
+    def ControlDown(*args, **kwargs):
+        """
+        ControlDown(self) -> bool
+
+        Returns ``True`` if the Control key was down at the time of the event.
+        """
+        return _core_.KeyboardState_ControlDown(*args, **kwargs)
+
+    def MetaDown(*args, **kwargs):
+        """
+        MetaDown(self) -> bool
+
+        Returns ``True`` if the Meta key was down at the time of the event.
+        """
+        return _core_.KeyboardState_MetaDown(*args, **kwargs)
+
+    def AltDown(*args, **kwargs):
+        """
+        AltDown(self) -> bool
+
+        Returns ``True`` if the Alt key was down at the time of the event.
+        """
+        return _core_.KeyboardState_AltDown(*args, **kwargs)
+
+    def ShiftDown(*args, **kwargs):
+        """
+        ShiftDown(self) -> bool
+
+        Returns ``True`` if the Shift key was down at the time of the event.
+        """
+        return _core_.KeyboardState_ShiftDown(*args, **kwargs)
+
+    def CmdDown(*args, **kwargs):
+        """
+        CmdDown(self) -> bool
+
+        "Cmd" is a pseudo key which is the same as Control for PC and Unix
+        platforms but the special "Apple" (a.k.a as "Command") key on
+        Macs. It makes often sense to use it instead of, say, `ControlDown`
+        because Cmd key is used for the same thing under Mac as Ctrl
+        elsewhere. The Ctrl still exists, it's just not used for this
+        purpose. So for non-Mac platforms this is the same as `ControlDown`
+        and Macs this is the same as `MetaDown`.
+        """
+        return _core_.KeyboardState_CmdDown(*args, **kwargs)
+
+    def HasModifiers(*args, **kwargs):
+        """
+        HasModifiers(self) -> bool
+
+        Returns true if either CTRL or ALT keys was down at the time of the
+        key event. Note that this function does not take into account neither
+        SHIFT nor META key states (the reason for ignoring the latter is that
+        it is common for NUMLOCK key to be configured as META under X but the
+        key presses even while NUMLOCK is on should be still processed
+        normally).
+        """
+        return _core_.KeyboardState_HasModifiers(*args, **kwargs)
+
+    def SetControlDown(*args, **kwargs):
+        """SetControlDown(self, bool down)"""
+        return _core_.KeyboardState_SetControlDown(*args, **kwargs)
+
+    def SetShiftDown(*args, **kwargs):
+        """SetShiftDown(self, bool down)"""
+        return _core_.KeyboardState_SetShiftDown(*args, **kwargs)
+
+    def SetAltDown(*args, **kwargs):
+        """SetAltDown(self, bool down)"""
+        return _core_.KeyboardState_SetAltDown(*args, **kwargs)
+
+    def SetMetaDown(*args, **kwargs):
+        """SetMetaDown(self, bool down)"""
+        return _core_.KeyboardState_SetMetaDown(*args, **kwargs)
+
+    controlDown = property(ControlDown, SetControlDown)
+    shiftDown = property(ShiftDown, SetShiftDown)
+    altDown = property(AltDown, SetAltDown)
+    metaDown = property(MetaDown, SetMetaDown)
+    cmdDown = property(CmdDown)
+
+_core_.KeyboardState_swigregister(KeyboardState)
+
+#---------------------------------------------------------------------------
+
+MOUSE_BTN_ANY = _core_.MOUSE_BTN_ANY
+MOUSE_BTN_NONE = _core_.MOUSE_BTN_NONE
+MOUSE_BTN_LEFT = _core_.MOUSE_BTN_LEFT
+MOUSE_BTN_MIDDLE = _core_.MOUSE_BTN_MIDDLE
+MOUSE_BTN_RIGHT = _core_.MOUSE_BTN_RIGHT
+MOUSE_BTN_AUX1 = _core_.MOUSE_BTN_AUX1
+MOUSE_BTN_AUX2 = _core_.MOUSE_BTN_AUX2
+MOUSE_BTN_MAX = _core_.MOUSE_BTN_MAX
+class MouseState(KeyboardState):
+    """
+    `wx.MouseState` is used to hold information about mouse button and
+    modifier key states and is what is returned from `wx.GetMouseState`.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self) -> MouseState
+
+        `wx.MouseState` is used to hold information about mouse button and
+        modifier key states and is what is returned from `wx.GetMouseState`.
+        """
+        _core_.MouseState_swiginit(self,_core_.new_MouseState(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_MouseState
+    __del__ = lambda self : None;
+    def GetX(*args, **kwargs):
+        """GetX(self) -> int"""
+        return _core_.MouseState_GetX(*args, **kwargs)
+
+    def GetY(*args, **kwargs):
+        """GetY(self) -> int"""
+        return _core_.MouseState_GetY(*args, **kwargs)
+
+    def GetPosition(*args, **kwargs):
+        """GetPosition(self) -> Point"""
+        return _core_.MouseState_GetPosition(*args, **kwargs)
+
+    def GetPositionTuple(*args, **kwargs):
+        """GetPositionTuple() -> (x,y)"""
+        return _core_.MouseState_GetPositionTuple(*args, **kwargs)
+
+    def LeftIsDown(*args, **kwargs):
+        """LeftIsDown(self) -> bool"""
+        return _core_.MouseState_LeftIsDown(*args, **kwargs)
+
+    def MiddleIsDown(*args, **kwargs):
+        """MiddleIsDown(self) -> bool"""
+        return _core_.MouseState_MiddleIsDown(*args, **kwargs)
+
+    def RightIsDown(*args, **kwargs):
+        """RightIsDown(self) -> bool"""
+        return _core_.MouseState_RightIsDown(*args, **kwargs)
+
+    def Aux1IsDown(*args, **kwargs):
+        """Aux1IsDown(self) -> bool"""
+        return _core_.MouseState_Aux1IsDown(*args, **kwargs)
+
+    def Aux2IsDown(*args, **kwargs):
+        """Aux2IsDown(self) -> bool"""
+        return _core_.MouseState_Aux2IsDown(*args, **kwargs)
+
+    def ButtonIsDown(*args, **kwargs):
+        """ButtonIsDown(self, int but) -> bool"""
+        return _core_.MouseState_ButtonIsDown(*args, **kwargs)
+
+    LeftDown = wx._deprecated(LeftIsDown)
+    MiddleDown = wx._deprecated(MiddleIsDown)
+    RightDown = wx._deprecated(RightIsDown)            
+
+    def SetX(*args, **kwargs):
+        """SetX(self, int x)"""
+        return _core_.MouseState_SetX(*args, **kwargs)
+
+    def SetY(*args, **kwargs):
+        """SetY(self, int y)"""
+        return _core_.MouseState_SetY(*args, **kwargs)
+
+    def SetPosition(*args, **kwargs):
+        """SetPosition(self, Point pos)"""
+        return _core_.MouseState_SetPosition(*args, **kwargs)
+
+    def SetLeftDown(*args, **kwargs):
+        """SetLeftDown(self, bool down)"""
+        return _core_.MouseState_SetLeftDown(*args, **kwargs)
+
+    def SetMiddleDown(*args, **kwargs):
+        """SetMiddleDown(self, bool down)"""
+        return _core_.MouseState_SetMiddleDown(*args, **kwargs)
+
+    def SetRightDown(*args, **kwargs):
+        """SetRightDown(self, bool down)"""
+        return _core_.MouseState_SetRightDown(*args, **kwargs)
+
+    def SetAux1Down(*args, **kwargs):
+        """SetAux1Down(self, bool down)"""
+        return _core_.MouseState_SetAux1Down(*args, **kwargs)
+
+    def SetAux2Down(*args, **kwargs):
+        """SetAux2Down(self, bool down)"""
+        return _core_.MouseState_SetAux2Down(*args, **kwargs)
+
+    def SetState(*args, **kwargs):
+        """SetState(self, MouseState state)"""
+        return _core_.MouseState_SetState(*args, **kwargs)
+
+    x = property(GetX, SetX)
+    y = property(GetY, SetY)
+    leftIsDown = property(LeftIsDown, SetLeftDown)
+    middleIsDown = property(MiddleIsDown, SetMiddleDown)
+    rightIsDown = property(RightIsDown, SetRightDown)
+    aux1IsDown = property(Aux1IsDown, SetAux1Down)
+    aux2IsDown = property(Aux2IsDown, SetAux2Down)            
+
+_core_.MouseState_swigregister(MouseState)
+
+
+def GetMouseState(*args):
+  """
+    GetMouseState() -> MouseState
+
+    Returns the current state of the mouse.  Returns an instance of a
+    `wx.MouseState` object that contains the current position of the mouse
+    pointer in screen coordinants, as well as boolean values indicating
+    the up/down status of the mouse buttons and the modifier keys.
+    """
+  return _core_.GetMouseState(*args)
+#---------------------------------------------------------------------------
+
 class PyEventBinder(object):
     """
     Instances of this class are used to bind specific events to event
@@ -5036,149 +5279,6 @@ _core_.ScrollWinEvent_swigregister(ScrollWinEvent)
 
 #---------------------------------------------------------------------------
 
-class MouseState(object):
-    """
-    `wx.MouseState` is used to hold information about mouse button and
-    modifier key states and is what is returned from `wx.GetMouseState`.
-    """
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self) -> MouseState
-
-        `wx.MouseState` is used to hold information about mouse button and
-        modifier key states and is what is returned from `wx.GetMouseState`.
-        """
-        _core_.MouseState_swiginit(self,_core_.new_MouseState(*args, **kwargs))
-    __swig_destroy__ = _core_.delete_MouseState
-    __del__ = lambda self : None;
-    def GetX(*args, **kwargs):
-        """GetX(self) -> int"""
-        return _core_.MouseState_GetX(*args, **kwargs)
-
-    def GetY(*args, **kwargs):
-        """GetY(self) -> int"""
-        return _core_.MouseState_GetY(*args, **kwargs)
-
-    def LeftDown(*args, **kwargs):
-        """LeftDown(self) -> bool"""
-        return _core_.MouseState_LeftDown(*args, **kwargs)
-
-    def MiddleDown(*args, **kwargs):
-        """MiddleDown(self) -> bool"""
-        return _core_.MouseState_MiddleDown(*args, **kwargs)
-
-    def RightDown(*args, **kwargs):
-        """RightDown(self) -> bool"""
-        return _core_.MouseState_RightDown(*args, **kwargs)
-
-    def Aux1Down(*args, **kwargs):
-        """Aux1Down(self) -> bool"""
-        return _core_.MouseState_Aux1Down(*args, **kwargs)
-
-    def Aux2Down(*args, **kwargs):
-        """Aux2Down(self) -> bool"""
-        return _core_.MouseState_Aux2Down(*args, **kwargs)
-
-    def ControlDown(*args, **kwargs):
-        """ControlDown(self) -> bool"""
-        return _core_.MouseState_ControlDown(*args, **kwargs)
-
-    def ShiftDown(*args, **kwargs):
-        """ShiftDown(self) -> bool"""
-        return _core_.MouseState_ShiftDown(*args, **kwargs)
-
-    def AltDown(*args, **kwargs):
-        """AltDown(self) -> bool"""
-        return _core_.MouseState_AltDown(*args, **kwargs)
-
-    def MetaDown(*args, **kwargs):
-        """MetaDown(self) -> bool"""
-        return _core_.MouseState_MetaDown(*args, **kwargs)
-
-    def CmdDown(*args, **kwargs):
-        """CmdDown(self) -> bool"""
-        return _core_.MouseState_CmdDown(*args, **kwargs)
-
-    def SetX(*args, **kwargs):
-        """SetX(self, int x)"""
-        return _core_.MouseState_SetX(*args, **kwargs)
-
-    def SetY(*args, **kwargs):
-        """SetY(self, int y)"""
-        return _core_.MouseState_SetY(*args, **kwargs)
-
-    def SetLeftDown(*args, **kwargs):
-        """SetLeftDown(self, bool down)"""
-        return _core_.MouseState_SetLeftDown(*args, **kwargs)
-
-    def SetMiddleDown(*args, **kwargs):
-        """SetMiddleDown(self, bool down)"""
-        return _core_.MouseState_SetMiddleDown(*args, **kwargs)
-
-    def SetRightDown(*args, **kwargs):
-        """SetRightDown(self, bool down)"""
-        return _core_.MouseState_SetRightDown(*args, **kwargs)
-
-    def SetAux1Down(*args, **kwargs):
-        """SetAux1Down(self, bool down)"""
-        return _core_.MouseState_SetAux1Down(*args, **kwargs)
-
-    def SetAux2Down(*args, **kwargs):
-        """SetAux2Down(self, bool down)"""
-        return _core_.MouseState_SetAux2Down(*args, **kwargs)
-
-    def SetControlDown(*args, **kwargs):
-        """SetControlDown(self, bool down)"""
-        return _core_.MouseState_SetControlDown(*args, **kwargs)
-
-    def SetShiftDown(*args, **kwargs):
-        """SetShiftDown(self, bool down)"""
-        return _core_.MouseState_SetShiftDown(*args, **kwargs)
-
-    def SetAltDown(*args, **kwargs):
-        """SetAltDown(self, bool down)"""
-        return _core_.MouseState_SetAltDown(*args, **kwargs)
-
-    def SetMetaDown(*args, **kwargs):
-        """SetMetaDown(self, bool down)"""
-        return _core_.MouseState_SetMetaDown(*args, **kwargs)
-
-    x = property(GetX, SetX)
-    y = property(GetY, SetY)
-    leftDown = property(LeftDown, SetLeftDown)
-    middleDown = property(MiddleDown, SetMiddleDown)
-    rightDown = property(RightDown, SetRightDown)
-    aux1Down = property(Aux1Down, SetAux1Down)
-    aux2Down = property(Aux2Down, SetAux2Down)            
-    controlDown = property(ControlDown, SetControlDown)
-    shiftDown = property(ShiftDown, SetShiftDown)
-    altDown = property(AltDown, SetAltDown)
-    metaDown = property(MetaDown, SetMetaDown)
-    cmdDown = property(CmdDown)
-
-_core_.MouseState_swigregister(MouseState)
-
-
-def GetMouseState(*args):
-  """
-    GetMouseState() -> MouseState
-
-    Returns the current state of the mouse.  Returns an instance of a
-    `wx.MouseState` object that contains the current position of the mouse
-    pointer in screen coordinants, as well as boolean values indicating
-    the up/down status of the mouse buttons and the modifier keys.
-    """
-  return _core_.GetMouseState(*args)
-MOUSE_BTN_ANY = _core_.MOUSE_BTN_ANY
-MOUSE_BTN_NONE = _core_.MOUSE_BTN_NONE
-MOUSE_BTN_LEFT = _core_.MOUSE_BTN_LEFT
-MOUSE_BTN_MIDDLE = _core_.MOUSE_BTN_MIDDLE
-MOUSE_BTN_RIGHT = _core_.MOUSE_BTN_RIGHT
-MOUSE_BTN_AUX1 = _core_.MOUSE_BTN_AUX1
-MOUSE_BTN_AUX2 = _core_.MOUSE_BTN_AUX2
-MOUSE_BTN_MAX = _core_.MOUSE_BTN_MAX
 class MouseEvent(Event,MouseState):
     """
     This event class contains information about the events generated by
@@ -5281,10 +5381,6 @@ class MouseEvent(Event,MouseState):
 
         """
         return _core_.MouseEvent_Button(*args, **kwargs)
-
-    def ButtonIsDown(*args, **kwargs):
-        """ButtonIsDown(self, int but) -> bool"""
-        return _core_.MouseEvent_ButtonIsDown(*args, **kwargs)
 
     def GetButton(*args, **kwargs):
         """
@@ -5419,59 +5515,6 @@ class MouseEvent(Event,MouseState):
         """
         return _core_.MouseEvent_Aux2DClick(*args, **kwargs)
 
-    def LeftIsDown(*args, **kwargs):
-        """
-        LeftIsDown(self) -> bool
-
-        Returns true if the left mouse button is currently down, independent
-        of the current event type.
-
-        Please notice that it is not the same as LeftDown which returns true
-        if the left mouse button was just pressed. Rather, it describes the
-        state of the mouse button before the event happened.
-
-        This event is usually used in the mouse event handlers which process
-        "move mouse" messages to determine whether the user is (still)
-        dragging the mouse.
-        """
-        return _core_.MouseEvent_LeftIsDown(*args, **kwargs)
-
-    def MiddleIsDown(*args, **kwargs):
-        """
-        MiddleIsDown(self) -> bool
-
-        Returns true if the middle mouse button is currently down, independent
-        of the current event type.
-        """
-        return _core_.MouseEvent_MiddleIsDown(*args, **kwargs)
-
-    def RightIsDown(*args, **kwargs):
-        """
-        RightIsDown(self) -> bool
-
-        Returns true if the right mouse button is currently down, independent
-        of the current event type.
-        """
-        return _core_.MouseEvent_RightIsDown(*args, **kwargs)
-
-    def Aux1IsDown(*args, **kwargs):
-        """
-        Aux1IsDown(self) -> bool
-
-        Returns true if the AUX1 mouse button is currently down, independent
-        of the current event type.
-        """
-        return _core_.MouseEvent_Aux1IsDown(*args, **kwargs)
-
-    def Aux2IsDown(*args, **kwargs):
-        """
-        Aux2IsDown(self) -> bool
-
-        Returns true if the AUX2 mouse button is currently down, independent
-        of the current event type.
-        """
-        return _core_.MouseEvent_Aux2IsDown(*args, **kwargs)
-
     def Dragging(*args, **kwargs):
         """
         Dragging(self) -> bool
@@ -5515,24 +5558,6 @@ class MouseEvent(Event,MouseState):
         """
         return _core_.MouseEvent_GetClickCount(*args, **kwargs)
 
-    def GetPosition(*args, **kwargs):
-        """
-        GetPosition(self) -> Point
-
-        Returns the pixel position of the mouse in window coordinates when the
-        event happened.
-        """
-        return _core_.MouseEvent_GetPosition(*args, **kwargs)
-
-    def GetPositionTuple(*args, **kwargs):
-        """
-        GetPositionTuple() -> (x,y)
-
-        Returns the pixel position of the mouse in window coordinates when the
-        event happened.
-        """
-        return _core_.MouseEvent_GetPositionTuple(*args, **kwargs)
-
     def GetLogicalPosition(*args, **kwargs):
         """
         GetLogicalPosition(self, DC dc) -> Point
@@ -5542,22 +5567,6 @@ class MouseEvent(Event,MouseState):
         that the window has been scrolled).
         """
         return _core_.MouseEvent_GetLogicalPosition(*args, **kwargs)
-
-    def GetX(*args, **kwargs):
-        """
-        GetX(self) -> int
-
-        Returns X coordinate of the physical mouse event position.
-        """
-        return _core_.MouseEvent_GetX(*args, **kwargs)
-
-    def GetY(*args, **kwargs):
-        """
-        GetY(self) -> int
-
-        Returns Y coordinate of the physical mouse event position.
-        """
-        return _core_.MouseEvent_GetY(*args, **kwargs)
 
     def GetWheelRotation(*args, **kwargs):
         """
@@ -5611,24 +5620,11 @@ class MouseEvent(Event,MouseState):
         """
         return _core_.MouseEvent_IsPageScroll(*args, **kwargs)
 
-    m_x = property(_core_.MouseEvent_m_x_get, _core_.MouseEvent_m_x_set)
-    m_y = property(_core_.MouseEvent_m_y_get, _core_.MouseEvent_m_y_set)
-    m_leftDown = property(_core_.MouseEvent_m_leftDown_get, _core_.MouseEvent_m_leftDown_set)
-    m_middleDown = property(_core_.MouseEvent_m_middleDown_get, _core_.MouseEvent_m_middleDown_set)
-    m_rightDown = property(_core_.MouseEvent_m_rightDown_get, _core_.MouseEvent_m_rightDown_set)
-    m_aux1Down = property(_core_.MouseEvent_m_aux1Down_get, _core_.MouseEvent_m_aux1Down_set)
-    m_aux2Down = property(_core_.MouseEvent_m_aux2Down_get, _core_.MouseEvent_m_aux2Down_set)
-    m_clickCount = property(_core_.MouseEvent_m_clickCount_get, _core_.MouseEvent_m_clickCount_set)
-    m_wheelRotation = property(_core_.MouseEvent_m_wheelRotation_get, _core_.MouseEvent_m_wheelRotation_set)
-    m_wheelDelta = property(_core_.MouseEvent_m_wheelDelta_get, _core_.MouseEvent_m_wheelDelta_set)
-    m_linesPerAction = property(_core_.MouseEvent_m_linesPerAction_get, _core_.MouseEvent_m_linesPerAction_set)
     LinesPerAction = property(GetLinesPerAction,doc="See `GetLinesPerAction`") 
     LogicalPosition = property(GetLogicalPosition,doc="See `GetLogicalPosition`") 
     Position = property(GetPosition,doc="See `GetPosition`") 
     WheelDelta = property(GetWheelDelta,doc="See `GetWheelDelta`") 
     WheelRotation = property(GetWheelRotation,doc="See `GetWheelRotation`") 
-    X = property(GetX,doc="See `GetX`") 
-    Y = property(GetY,doc="See `GetY`") 
 _core_.MouseEvent_swigregister(MouseEvent)
 
 #---------------------------------------------------------------------------
@@ -5694,115 +5690,6 @@ class SetCursorEvent(Event):
     X = property(GetX,doc="See `GetX`") 
     Y = property(GetY,doc="See `GetY`") 
 _core_.SetCursorEvent_swigregister(SetCursorEvent)
-
-#---------------------------------------------------------------------------
-
-class KeyboardState(object):
-    """Proxy of C++ KeyboardState class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, bool controlDown=False, bool shiftDown=False, bool altDown=False, 
-            bool metaDown=False) -> KeyboardState
-        """
-        _core_.KeyboardState_swiginit(self,_core_.new_KeyboardState(*args, **kwargs))
-    def GetModifiers(*args, **kwargs):
-        """
-        GetModifiers(self) -> int
-
-        Returns a bitmask of the current modifier settings.  Can be used to
-        check if the key event has exactly the given modifiers without having
-        to explicitly check that the other modifiers are not down.  For
-        example::
-
-            if event.GetModifers() == wx.MOD_CONTROL:
-                DoSomething()
-
-        """
-        return _core_.KeyboardState_GetModifiers(*args, **kwargs)
-
-    Modifiers = property(GetModifiers,doc="See `GetModifiers`") 
-    def ControlDown(*args, **kwargs):
-        """
-        ControlDown(self) -> bool
-
-        Returns ``True`` if the Control key was down at the time of the event.
-        """
-        return _core_.KeyboardState_ControlDown(*args, **kwargs)
-
-    def MetaDown(*args, **kwargs):
-        """
-        MetaDown(self) -> bool
-
-        Returns ``True`` if the Meta key was down at the time of the event.
-        """
-        return _core_.KeyboardState_MetaDown(*args, **kwargs)
-
-    def AltDown(*args, **kwargs):
-        """
-        AltDown(self) -> bool
-
-        Returns ``True`` if the Alt key was down at the time of the event.
-        """
-        return _core_.KeyboardState_AltDown(*args, **kwargs)
-
-    def ShiftDown(*args, **kwargs):
-        """
-        ShiftDown(self) -> bool
-
-        Returns ``True`` if the Shift key was down at the time of the event.
-        """
-        return _core_.KeyboardState_ShiftDown(*args, **kwargs)
-
-    def CmdDown(*args, **kwargs):
-        """
-        CmdDown(self) -> bool
-
-        "Cmd" is a pseudo key which is the same as Control for PC and Unix
-        platforms but the special "Apple" (a.k.a as "Command") key on
-        Macs. It makes often sense to use it instead of, say, `ControlDown`
-        because Cmd key is used for the same thing under Mac as Ctrl
-        elsewhere. The Ctrl still exists, it's just not used for this
-        purpose. So for non-Mac platforms this is the same as `ControlDown`
-        and Macs this is the same as `MetaDown`.
-        """
-        return _core_.KeyboardState_CmdDown(*args, **kwargs)
-
-    def HasModifiers(*args, **kwargs):
-        """
-        HasModifiers(self) -> bool
-
-        Returns true if either CTRL or ALT keys was down at the time of the
-        key event. Note that this function does not take into account neither
-        SHIFT nor META key states (the reason for ignoring the latter is that
-        it is common for NUMLOCK key to be configured as META under X but the
-        key presses even while NUMLOCK is on should be still processed
-        normally).
-        """
-        return _core_.KeyboardState_HasModifiers(*args, **kwargs)
-
-    def SetControlDown(*args, **kwargs):
-        """SetControlDown(self, bool down)"""
-        return _core_.KeyboardState_SetControlDown(*args, **kwargs)
-
-    def SetShiftDown(*args, **kwargs):
-        """SetShiftDown(self, bool down)"""
-        return _core_.KeyboardState_SetShiftDown(*args, **kwargs)
-
-    def SetAltDown(*args, **kwargs):
-        """SetAltDown(self, bool down)"""
-        return _core_.KeyboardState_SetAltDown(*args, **kwargs)
-
-    def SetMetaDown(*args, **kwargs):
-        """SetMetaDown(self, bool down)"""
-        return _core_.KeyboardState_SetMetaDown(*args, **kwargs)
-
-    m_controlDown = property(_core_.KeyboardState_m_controlDown_get, _core_.KeyboardState_m_controlDown_set)
-    m_shiftDown = property(_core_.KeyboardState_m_shiftDown_get, _core_.KeyboardState_m_shiftDown_set)
-    m_altDown = property(_core_.KeyboardState_m_altDown_get, _core_.KeyboardState_m_altDown_set)
-    m_metaDown = property(_core_.KeyboardState_m_metaDown_get, _core_.KeyboardState_m_metaDown_set)
-_core_.KeyboardState_swigregister(KeyboardState)
 
 class KeyEvent(Event,KeyboardState):
     """
@@ -12435,10 +12322,6 @@ class MenuItem(Object):
         """SetOwnerDrawn(self, bool ownerDrawn=True)"""
         return _core_.MenuItem_SetOwnerDrawn(*args, **kwargs)
 
-    def ResetOwnerDrawn(*args, **kwargs):
-        """ResetOwnerDrawn(self)"""
-        return _core_.MenuItem_ResetOwnerDrawn(*args, **kwargs)
-
     Accel = property(GetAccel,SetAccel,doc="See `GetAccel` and `SetAccel`") 
     BackgroundColour = property(GetBackgroundColour,SetBackgroundColour,doc="See `GetBackgroundColour` and `SetBackgroundColour`") 
     Bitmap = property(GetBitmap,SetBitmap,doc="See `GetBitmap` and `SetBitmap`") 
@@ -12467,9 +12350,11 @@ def MenuItem_GetDefaultMarginWidth(*args):
 
 #---------------------------------------------------------------------------
 
-ELLIPSIZE_PROCESS_MNEMONICS = _core_.ELLIPSIZE_PROCESS_MNEMONICS
-ELLIPSIZE_EXPAND_TAB = _core_.ELLIPSIZE_EXPAND_TAB
-ELLIPSIZE_DEFAULT_FLAGS = _core_.ELLIPSIZE_DEFAULT_FLAGS
+ELLIPSIZE_FLAGS_NONE = _core_.ELLIPSIZE_FLAGS_NONE
+ELLIPSIZE_FLAGS_PROCESS_MNEMONICS = _core_.ELLIPSIZE_FLAGS_PROCESS_MNEMONICS
+ELLIPSIZE_FLAGS_EXPAND_TABS = _core_.ELLIPSIZE_FLAGS_EXPAND_TABS
+ELLIPSIZE_FLAGS_DEFAULT = _core_.ELLIPSIZE_FLAGS_DEFAULT
+ELLIPSIZE_NONE = _core_.ELLIPSIZE_NONE
 ELLIPSIZE_START = _core_.ELLIPSIZE_START
 ELLIPSIZE_MIDDLE = _core_.ELLIPSIZE_MIDDLE
 ELLIPSIZE_END = _core_.ELLIPSIZE_END
@@ -12554,7 +12439,7 @@ class Control(Window):
 
     FindAccelIndex = staticmethod(FindAccelIndex)
     def Ellipsize(*args, **kwargs):
-        """Ellipsize(String label, DC dc, int mode, int maxWidth, int flags=ELLIPSIZE_DEFAULT_FLAGS) -> String"""
+        """Ellipsize(String label, DC dc, int mode, int maxWidth, int flags=ELLIPSIZE_FLAGS_DEFAULT) -> String"""
         return _core_.Control_Ellipsize(*args, **kwargs)
 
     Ellipsize = staticmethod(Ellipsize)
@@ -12612,7 +12497,7 @@ def Control_FindAccelIndex(*args, **kwargs):
   return _core_.Control_FindAccelIndex(*args, **kwargs)
 
 def Control_Ellipsize(*args, **kwargs):
-  """Control_Ellipsize(String label, DC dc, int mode, int maxWidth, int flags=ELLIPSIZE_DEFAULT_FLAGS) -> String"""
+  """Control_Ellipsize(String label, DC dc, int mode, int maxWidth, int flags=ELLIPSIZE_FLAGS_DEFAULT) -> String"""
   return _core_.Control_Ellipsize(*args, **kwargs)
 
 def Control_EscapeMnemonics(*args, **kwargs):

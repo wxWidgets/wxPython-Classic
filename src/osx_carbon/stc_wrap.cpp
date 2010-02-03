@@ -22808,6 +22808,9 @@ static PyMethodDef SwigMethods[] = {
 
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
+static void *_p_wxStyledTextCtrlTo_p_wxTextCtrlIface(void *x) {
+    return (void *)((wxTextCtrlIface *)  ((wxStyledTextCtrl *) x));
+}
 static void *_p_wxLayoutConstraintsTo_p_wxObject(void *x) {
     return (void *)((wxObject *)  ((wxLayoutConstraints *) x));
 }
@@ -23205,7 +23208,7 @@ static void *_p_wxTextCtrlBaseTo_p_wxTextAreaBase(void *x) {
     return (void *)((wxTextAreaBase *)  ((wxTextCtrlBase *) x));
 }
 static void *_p_wxStyledTextCtrlTo_p_wxTextAreaBase(void *x) {
-    return (void *)((wxTextAreaBase *)  ((wxStyledTextCtrl *) x));
+    return (void *)((wxTextAreaBase *) (wxTextCtrlIface *) ((wxStyledTextCtrl *) x));
 }
 static void *_p_wxTextCtrlIfaceTo_p_wxTextAreaBase(void *x) {
     return (void *)((wxTextAreaBase *)  ((wxTextCtrlIface *) x));
@@ -23358,7 +23361,7 @@ static void *_p_wxTextCtrlBaseTo_p_wxTextEntryBase(void *x) {
     return (void *)((wxTextEntryBase *) (wxTextEntry *) ((wxTextCtrlBase *) x));
 }
 static void *_p_wxStyledTextCtrlTo_p_wxTextEntryBase(void *x) {
-    return (void *)((wxTextEntryBase *)  ((wxStyledTextCtrl *) x));
+    return (void *)((wxTextEntryBase *) (wxTextCtrlIface *) ((wxStyledTextCtrl *) x));
 }
 static void *_p_wxTextEntryTo_p_wxTextEntryBase(void *x) {
     return (void *)((wxTextEntryBase *)  ((wxTextEntry *) x));
@@ -23485,7 +23488,7 @@ static swig_type_info _swigt__p_wxScrollBar = {"_p_wxScrollBar", "wxScrollBar *"
 static swig_type_info _swigt__p_wxStyledTextCtrl = {"_p_wxStyledTextCtrl", "wxStyledTextCtrl *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxStyledTextEvent = {"_p_wxStyledTextEvent", "wxStyledTextEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextAreaBase = {"_p_wxTextAreaBase", "wxTextAreaBase *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxTextCtrlIface = {"_p_wxTextCtrlIface", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxTextCtrlIface = {"_p_wxTextCtrlIface", "wxTextCtrlIface *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextEntryBase = {"_p_wxTextEntryBase", "wxTextEntryBase *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextEntry = {"_p_wxTextEntry", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxWindow = {"_p_wxWindow", "wxWindow *", 0, 0, (void*)0, 0};
@@ -23734,8 +23737,8 @@ static swig_cast_info _swigc__p_wxRect[] = {  {&_swigt__p_wxRect, 0, 0, 0},{0, 0
 static swig_cast_info _swigc__p_wxScrollBar[] = {  {&_swigt__p_wxScrollBar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxStyledTextCtrl[] = {  {&_swigt__p_wxStyledTextCtrl, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxStyledTextEvent[] = {  {&_swigt__p_wxStyledTextEvent, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxTextCtrlIface[] = {{&_swigt__p_wxTextCtrlIface, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextAreaBase[] = {  {&_swigt__p_wxTextAreaBase, 0, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxTextAreaBase, 0, 0},  {&_swigt__p_wxStyledTextCtrl, _p_wxStyledTextCtrlTo_p_wxTextAreaBase, 0, 0},  {&_swigt__p_wxTextCtrlIface, _p_wxTextCtrlIfaceTo_p_wxTextAreaBase, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxTextCtrlIface[] = {  {&_swigt__p_wxStyledTextCtrl, _p_wxStyledTextCtrlTo_p_wxTextCtrlIface, 0, 0},  {&_swigt__p_wxTextCtrlIface, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextEntry[] = {{&_swigt__p_wxTextEntry, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextEntryBase[] = {  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxStyledTextCtrl, _p_wxStyledTextCtrlTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextEntry, _p_wxTextEntryTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextCtrlIface, _p_wxTextCtrlIfaceTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextEntryBase, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxControl, _p_wxControlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxWindow, 0, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxStyledTextCtrl, _p_wxStyledTextCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxWindow, 0, 0},{0, 0, 0, 0}};

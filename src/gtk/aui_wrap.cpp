@@ -16658,6 +16658,33 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiNotebook_Thaw(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiNotebook *arg1 = (wxAuiNotebook *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiNotebook, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiNotebook_Thaw" "', expected argument " "1"" of type '" "wxAuiNotebook *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiNotebook * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->Thaw();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *AuiNotebook_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -24983,6 +25010,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiNotebook_GetHeightForPageHeight", (PyCFunction) _wrap_AuiNotebook_GetHeightForPageHeight, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiNotebook_AdvanceSelection", (PyCFunction) _wrap_AuiNotebook_AdvanceSelection, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiNotebook_ShowWindowMenu", (PyCFunction)_wrap_AuiNotebook_ShowWindowMenu, METH_O, NULL},
+	 { (char *)"AuiNotebook_Thaw", (PyCFunction)_wrap_AuiNotebook_Thaw, METH_O, NULL},
 	 { (char *)"AuiNotebook_swigregister", AuiNotebook_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiNotebook_swiginit", AuiNotebook_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PreAuiMDIParentFrame", (PyCFunction)_wrap_new_PreAuiMDIParentFrame, METH_NOARGS, NULL},

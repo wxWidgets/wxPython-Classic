@@ -681,7 +681,6 @@ class Dialog(TopLevelWindow):
     """Proxy of C++ Dialog class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
-    ButtonSizerFlags = _windows_.Dialog_ButtonSizerFlags
     def __init__(self, *args, **kwargs): 
         """
         __init__(self, Window parent, int id=-1, String title=EmptyString, 
@@ -1072,6 +1071,12 @@ _windows_.SplashScreen_swigregister(SplashScreen)
 
 #---------------------------------------------------------------------------
 
+STB_SIZEGRIP = _windows_.STB_SIZEGRIP
+STB_SHOW_TIPS = _windows_.STB_SHOW_TIPS
+STB_ELLIPSIZE_START = _windows_.STB_ELLIPSIZE_START
+STB_ELLIPSIZE_MIDDLE = _windows_.STB_ELLIPSIZE_MIDDLE
+STB_ELLIPSIZE_END = _windows_.STB_ELLIPSIZE_END
+STB_DEFAULT_STYLE = _windows_.STB_DEFAULT_STYLE
 SB_NORMAL = _windows_.SB_NORMAL
 SB_FLAT = _windows_.SB_FLAT
 SB_RAISED = _windows_.SB_RAISED
@@ -1090,9 +1095,37 @@ class StatusBarPane(object):
         """GetStyle(self) -> int"""
         return _windows_.StatusBarPane_GetStyle(*args, **kwargs)
 
-    def GetStack(*args, **kwargs):
-        """GetStack(self) -> wxArrayString"""
-        return _windows_.StatusBarPane_GetStack(*args, **kwargs)
+    def GetText(*args, **kwargs):
+        """GetText(self) -> String"""
+        return _windows_.StatusBarPane_GetText(*args, **kwargs)
+
+    def IsEllipsized(*args, **kwargs):
+        """IsEllipsized(self) -> bool"""
+        return _windows_.StatusBarPane_IsEllipsized(*args, **kwargs)
+
+    def SetIsEllipsized(*args, **kwargs):
+        """SetIsEllipsized(self, bool isEllipsized)"""
+        return _windows_.StatusBarPane_SetIsEllipsized(*args, **kwargs)
+
+    def SetWidth(*args, **kwargs):
+        """SetWidth(self, int width)"""
+        return _windows_.StatusBarPane_SetWidth(*args, **kwargs)
+
+    def SetStyle(*args, **kwargs):
+        """SetStyle(self, int style)"""
+        return _windows_.StatusBarPane_SetStyle(*args, **kwargs)
+
+    def SetText(*args, **kwargs):
+        """SetText(self, String text) -> bool"""
+        return _windows_.StatusBarPane_SetText(*args, **kwargs)
+
+    def PushText(*args, **kwargs):
+        """PushText(self, String text) -> bool"""
+        return _windows_.StatusBarPane_PushText(*args, **kwargs)
+
+    def PopText(*args, **kwargs):
+        """PopText(self) -> bool"""
+        return _windows_.StatusBarPane_PopText(*args, **kwargs)
 
 _windows_.StatusBarPane_swigregister(StatusBarPane)
 
@@ -1127,10 +1160,6 @@ class StatusBar(_core.Window):
     def GetStatusText(*args, **kwargs):
         """GetStatusText(self, int number=0) -> String"""
         return _windows_.StatusBar_GetStatusText(*args, **kwargs)
-
-    def GetStatusStack(*args, **kwargs):
-        """GetStatusStack(self, int n) -> wxArrayString"""
-        return _windows_.StatusBar_GetStatusStack(*args, **kwargs)
 
     def PushStatusText(*args, **kwargs):
         """PushStatusText(self, String text, int number=0)"""
@@ -1171,6 +1200,10 @@ class StatusBar(_core.Window):
     def GetBorderY(*args, **kwargs):
         """GetBorderY(self) -> int"""
         return _windows_.StatusBar_GetBorderY(*args, **kwargs)
+
+    def GetBorders(*args, **kwargs):
+        """GetBorders(self) -> Size"""
+        return _windows_.StatusBar_GetBorders(*args, **kwargs)
 
     def GetField(*args, **kwargs):
         """GetField(self, int n) -> StatusBarPane"""

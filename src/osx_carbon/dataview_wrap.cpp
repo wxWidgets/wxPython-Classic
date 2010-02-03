@@ -7091,34 +7091,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_DataViewIndexListModel_GetLastIndex(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxDataViewIndexListModel *arg1 = (wxDataViewIndexListModel *) 0 ;
-  unsigned int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDataViewIndexListModel, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewIndexListModel_GetLastIndex" "', expected argument " "1"" of type '" "wxDataViewIndexListModel const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxDataViewIndexListModel * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (unsigned int)((wxDataViewIndexListModel const *)arg1)->GetLastIndex();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *DataViewIndexListModel_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -7787,34 +7759,6 @@ SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_GetItem(PyObject *SWIGUNUSED
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxDataViewItem(static_cast< const wxDataViewItem& >(result))), SWIGTYPE_p_wxDataViewItem, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_DataViewVirtualListModel_GetLastIndex(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxDataViewVirtualListModel *arg1 = (wxDataViewVirtualListModel *) 0 ;
-  unsigned int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDataViewVirtualListModel, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewVirtualListModel_GetLastIndex" "', expected argument " "1"" of type '" "wxDataViewVirtualListModel const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxDataViewVirtualListModel * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (unsigned int)((wxDataViewVirtualListModel const *)arg1)->GetLastIndex();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -18553,7 +18497,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewIndexListModel_Reset", (PyCFunction) _wrap_DataViewIndexListModel_Reset, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewIndexListModel_GetRow", (PyCFunction) _wrap_DataViewIndexListModel_GetRow, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewIndexListModel_GetItem", (PyCFunction) _wrap_DataViewIndexListModel_GetItem, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"DataViewIndexListModel_GetLastIndex", (PyCFunction)_wrap_DataViewIndexListModel_GetLastIndex, METH_O, NULL},
 	 { (char *)"DataViewIndexListModel_swigregister", DataViewIndexListModel_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_PyDataViewIndexListModel", (PyCFunction) _wrap_new_PyDataViewIndexListModel, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyDataViewIndexListModel__setCallbackInfo", (PyCFunction) _wrap_PyDataViewIndexListModel__setCallbackInfo, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -18573,7 +18516,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewVirtualListModel_Reset", (PyCFunction) _wrap_DataViewVirtualListModel_Reset, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewVirtualListModel_GetRow", (PyCFunction) _wrap_DataViewVirtualListModel_GetRow, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewVirtualListModel_GetItem", (PyCFunction) _wrap_DataViewVirtualListModel_GetItem, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"DataViewVirtualListModel_GetLastIndex", (PyCFunction)_wrap_DataViewVirtualListModel_GetLastIndex, METH_O, NULL},
 	 { (char *)"DataViewVirtualListModel_swigregister", DataViewVirtualListModel_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_PyDataViewVirtualListModel", (PyCFunction) _wrap_new_PyDataViewVirtualListModel, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyDataViewVirtualListModel__setCallbackInfo", (PyCFunction) _wrap_PyDataViewVirtualListModel__setCallbackInfo, METH_VARARGS | METH_KEYWORDS, NULL},

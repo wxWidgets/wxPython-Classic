@@ -3249,7 +3249,6 @@ enum wxBitmapBufferFormat {
                 }
                 if (depth = 32) {
                     MAKE_PIXDATA(wxAlphaPixelData);
-                    pixData.UseAlpha();
                     for (int y=0; y<height; y++) {
                         rowStart = p;
                         for (int x=0; x<width; x++) {
@@ -3312,7 +3311,6 @@ enum wxBitmapBufferFormat {
                 if (depth == 32) {
                     MAKE_PIXDATA(wxAlphaPixelData);
                     if (useAlpha)
-                        pixData.UseAlpha();
                     for (int y=0; y<height; y++) {
                         p.MoveTo(pixData, 0, y);
                         bufptr = (wxUint32*)dataRow;
@@ -8192,31 +8190,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_NativePixelData_UseAlpha(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxNativePixelData *arg1 = (wxNativePixelData *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxNativePixelData, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NativePixelData_UseAlpha" "', expected argument " "1"" of type '" "wxNativePixelData *""'"); 
-  }
-  arg1 = reinterpret_cast< wxNativePixelData * >(argp1);
-  {
-    (arg1)->UseAlpha();
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_NativePixelData___nonzero__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxNativePixelData *arg1 = (wxNativePixelData *) 0 ;
@@ -8945,31 +8918,6 @@ SWIGINTERN PyObject *_wrap_AlphaPixelData_GetPixels(PyObject *SWIGUNUSEDPARM(sel
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxAlphaPixelData_Accessor(static_cast< const wxAlphaPixelData_Accessor& >(result))), SWIGTYPE_p_wxAlphaPixelData_Accessor, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_AlphaPixelData_UseAlpha(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxAlphaPixelData *arg1 = (wxAlphaPixelData *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAlphaPixelData, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AlphaPixelData_UseAlpha" "', expected argument " "1"" of type '" "wxAlphaPixelData *""'"); 
-  }
-  arg1 = reinterpret_cast< wxAlphaPixelData * >(argp1);
-  {
-    (arg1)->UseAlpha();
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -37336,7 +37284,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_RendererNative_DrawRadioButton(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_RendererNative_DrawRadioBitmap(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRendererNative *arg1 = (wxRendererNative *) 0 ;
   wxWindow *arg2 = (wxWindow *) 0 ;
@@ -37361,23 +37309,23 @@ SWIGINTERN PyObject *_wrap_RendererNative_DrawRadioButton(PyObject *SWIGUNUSEDPA
     (char *) "self",(char *) "win",(char *) "dc",(char *) "rect",(char *) "flags", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|O:RendererNative_DrawRadioButton",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|O:RendererNative_DrawRadioBitmap",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRendererNative, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RendererNative_DrawRadioButton" "', expected argument " "1"" of type '" "wxRendererNative *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RendererNative_DrawRadioBitmap" "', expected argument " "1"" of type '" "wxRendererNative *""'"); 
   }
   arg1 = reinterpret_cast< wxRendererNative * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RendererNative_DrawRadioButton" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RendererNative_DrawRadioBitmap" "', expected argument " "2"" of type '" "wxWindow *""'"); 
   }
   arg2 = reinterpret_cast< wxWindow * >(argp2);
   res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxDC,  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RendererNative_DrawRadioButton" "', expected argument " "3"" of type '" "wxDC &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RendererNative_DrawRadioBitmap" "', expected argument " "3"" of type '" "wxDC &""'"); 
   }
   if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RendererNative_DrawRadioButton" "', expected argument " "3"" of type '" "wxDC &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RendererNative_DrawRadioBitmap" "', expected argument " "3"" of type '" "wxDC &""'"); 
   }
   arg3 = reinterpret_cast< wxDC * >(argp3);
   {
@@ -37387,13 +37335,13 @@ SWIGINTERN PyObject *_wrap_RendererNative_DrawRadioButton(PyObject *SWIGUNUSEDPA
   if (obj4) {
     ecode5 = SWIG_AsVal_int(obj4, &val5);
     if (!SWIG_IsOK(ecode5)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "RendererNative_DrawRadioButton" "', expected argument " "5"" of type '" "int""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "RendererNative_DrawRadioBitmap" "', expected argument " "5"" of type '" "int""'");
     } 
     arg5 = static_cast< int >(val5);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DrawRadioButton(arg2,*arg3,(wxRect const &)*arg4,arg5);
+    (arg1)->DrawRadioBitmap(arg2,*arg3,(wxRect const &)*arg4,arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -40987,7 +40935,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_NativePixelData", _wrap_new_NativePixelData, METH_VARARGS, NULL},
 	 { (char *)"delete_NativePixelData", (PyCFunction)_wrap_delete_NativePixelData, METH_O, NULL},
 	 { (char *)"NativePixelData_GetPixels", (PyCFunction)_wrap_NativePixelData_GetPixels, METH_O, NULL},
-	 { (char *)"NativePixelData_UseAlpha", (PyCFunction)_wrap_NativePixelData_UseAlpha, METH_O, NULL},
 	 { (char *)"NativePixelData___nonzero__", (PyCFunction)_wrap_NativePixelData___nonzero__, METH_O, NULL},
 	 { (char *)"NativePixelData_swigregister", NativePixelData_swigregister, METH_VARARGS, NULL},
 	 { (char *)"NativePixelData_swiginit", NativePixelData_swiginit, METH_VARARGS, NULL},
@@ -41007,7 +40954,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_AlphaPixelData", _wrap_new_AlphaPixelData, METH_VARARGS, NULL},
 	 { (char *)"delete_AlphaPixelData", (PyCFunction)_wrap_delete_AlphaPixelData, METH_O, NULL},
 	 { (char *)"AlphaPixelData_GetPixels", (PyCFunction)_wrap_AlphaPixelData_GetPixels, METH_O, NULL},
-	 { (char *)"AlphaPixelData_UseAlpha", (PyCFunction)_wrap_AlphaPixelData_UseAlpha, METH_O, NULL},
 	 { (char *)"AlphaPixelData___nonzero__", (PyCFunction)_wrap_AlphaPixelData___nonzero__, METH_O, NULL},
 	 { (char *)"AlphaPixelData_swigregister", AlphaPixelData_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AlphaPixelData_swiginit", AlphaPixelData_swiginit, METH_VARARGS, NULL},
@@ -41755,7 +41701,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RendererNative_DrawChoice", (PyCFunction) _wrap_RendererNative_DrawChoice, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawComboBox", (PyCFunction) _wrap_RendererNative_DrawComboBox, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawTextCtrl", (PyCFunction) _wrap_RendererNative_DrawTextCtrl, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RendererNative_DrawRadioButton", (PyCFunction) _wrap_RendererNative_DrawRadioButton, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"RendererNative_DrawRadioBitmap", (PyCFunction) _wrap_RendererNative_DrawRadioBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_Get", (PyCFunction)_wrap_RendererNative_Get, METH_NOARGS, NULL},
 	 { (char *)"RendererNative_GetGeneric", (PyCFunction)_wrap_RendererNative_GetGeneric, METH_NOARGS, NULL},
 	 { (char *)"RendererNative_GetDefault", (PyCFunction)_wrap_RendererNative_GetDefault, METH_NOARGS, NULL},

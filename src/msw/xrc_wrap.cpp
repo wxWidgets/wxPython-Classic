@@ -6033,74 +6033,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_XmlNode_GetAttribute(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxXmlNode *arg1 = (wxXmlNode *) 0 ;
-  wxString *arg2 = 0 ;
-  wxString *arg3 = 0 ;
-  wxString result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool temp2 = false ;
-  bool temp3 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "attrName",(char *) "defaultVal", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:XmlNode_GetAttribute",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxXmlNode, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "XmlNode_GetAttribute" "', expected argument " "1"" of type '" "wxXmlNode const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxXmlNode * >(argp1);
-  {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
-  }
-  {
-    arg3 = wxString_in_helper(obj2);
-    if (arg3 == NULL) SWIG_fail;
-    temp3 = true;
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxXmlNode const *)arg1)->GetAttribute((wxString const &)*arg2,(wxString const &)*arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-#if wxUSE_UNICODE
-    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
-#else
-    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
-#endif
-  }
-  {
-    if (temp2)
-    delete arg2;
-  }
-  {
-    if (temp3)
-    delete arg3;
-  }
-  return resultobj;
-fail:
-  {
-    if (temp2)
-    delete arg2;
-  }
-  {
-    if (temp3)
-    delete arg3;
-  }
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_XmlNode_HasAttribute(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxXmlNode *arg1 = (wxXmlNode *) 0 ;
@@ -6668,6 +6600,74 @@ SWIGINTERN PyObject *_wrap_XmlNode_AddAttribute__SWIG_0(PyObject *SWIGUNUSEDPARM
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_XmlNode_GetAttribute(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxXmlNode *arg1 = (wxXmlNode *) 0 ;
+  wxString *arg2 = 0 ;
+  wxString *arg3 = 0 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  bool temp3 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "attrName",(char *) "defaultVal", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:XmlNode_GetAttribute",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxXmlNode, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "XmlNode_GetAttribute" "', expected argument " "1"" of type '" "wxXmlNode const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxXmlNode * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    arg3 = wxString_in_helper(obj2);
+    if (arg3 == NULL) SWIG_fail;
+    temp3 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxXmlNode const *)arg1)->GetAttribute((wxString const &)*arg2,(wxString const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  {
+    if (temp3)
+    delete arg3;
+  }
   return NULL;
 }
 
@@ -9298,7 +9298,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"XmlNode_GetParent", (PyCFunction)_wrap_XmlNode_GetParent, METH_O, NULL},
 	 { (char *)"XmlNode_GetNext", (PyCFunction)_wrap_XmlNode_GetNext, METH_O, NULL},
 	 { (char *)"XmlNode_GetChildren", (PyCFunction)_wrap_XmlNode_GetChildren, METH_O, NULL},
-	 { (char *)"XmlNode_GetAttribute", (PyCFunction) _wrap_XmlNode_GetAttribute, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlNode_HasAttribute", (PyCFunction) _wrap_XmlNode_HasAttribute, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlNode_GetLineNumber", (PyCFunction)_wrap_XmlNode_GetLineNumber, METH_O, NULL},
 	 { (char *)"XmlNode_GetProperties", (PyCFunction)_wrap_XmlNode_GetProperties, METH_O, NULL},
@@ -9312,6 +9311,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"XmlNode_SetChildren", (PyCFunction) _wrap_XmlNode_SetChildren, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlNode_SetProperties", (PyCFunction) _wrap_XmlNode_SetProperties, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlNode_SetAttributes", (PyCFunction) _wrap_XmlNode_SetAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"XmlNode_GetAttribute", (PyCFunction) _wrap_XmlNode_GetAttribute, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"XmlNode_AddAttribute", _wrap_XmlNode_AddAttribute, METH_VARARGS, NULL},
 	 { (char *)"XmlNode_GetAttributes", (PyCFunction)_wrap_XmlNode_GetAttributes, METH_O, NULL},
 	 { (char *)"XmlNode_swigregister", XmlNode_swigregister, METH_VARARGS, NULL},

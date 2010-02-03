@@ -992,9 +992,8 @@ class NativePixelData(PixelDataBase):
         """GetPixels(self) -> NativePixelData_Accessor"""
         return _gdi_.NativePixelData_GetPixels(*args, **kwargs)
 
-    def UseAlpha(*args, **kwargs):
-        """UseAlpha(self)"""
-        return _gdi_.NativePixelData_UseAlpha(*args, **kwargs)
+    def UseAlpha(self): pass
+    UseAlpha = wx._deprecated(UseAlpha)
 
     def __nonzero__(*args, **kwargs):
         """__nonzero__(self) -> bool"""
@@ -1100,17 +1099,14 @@ class AlphaPixelData(PixelDataBase):
         __init__(self, Bitmap bmp, Point pt, Size sz) -> AlphaPixelData
         """
         _gdi_.AlphaPixelData_swiginit(self,_gdi_.new_AlphaPixelData(*args))
-        self.UseAlpha()
-
     __swig_destroy__ = _gdi_.delete_AlphaPixelData
     __del__ = lambda self : None;
     def GetPixels(*args, **kwargs):
         """GetPixels(self) -> AlphaPixelData_Accessor"""
         return _gdi_.AlphaPixelData_GetPixels(*args, **kwargs)
 
-    def UseAlpha(*args, **kwargs):
-        """UseAlpha(self)"""
-        return _gdi_.AlphaPixelData_UseAlpha(*args, **kwargs)
+    def UseAlpha(self): pass
+    UseAlpha = wx._deprecated(UseAlpha)
 
     def __nonzero__(*args, **kwargs):
         """__nonzero__(self) -> bool"""
@@ -2363,6 +2359,11 @@ class Font(GDIObject):
     def GetNoAntiAliasing(*args, **kwargs):
         """GetNoAntiAliasing(self) -> bool"""
         return _gdi_.Font_GetNoAntiAliasing(*args, **kwargs)
+
+    def SetNoAntiAliasing(self, no=True): pass
+    def GetNoAntiAliasing(self): pass
+    SetNoAntiAliasing = wx._deprecated(SetNoAntiAliasing)
+    GetNoAntiAliasing = wx._deprecated(GetNoAntiAliasing)
 
     def GetPangoFontDescription(*args, **kwargs):
         """GetPangoFontDescription(self) -> void"""
@@ -7104,13 +7105,16 @@ class RendererNative(object):
         """
         return _gdi_.RendererNative_DrawTextCtrl(*args, **kwargs)
 
-    def DrawRadioButton(*args, **kwargs):
+    def DrawRadioBitmap(*args, **kwargs):
         """
-        DrawRadioButton(self, Window win, DC dc, Rect rect, int flags=0)
+        DrawRadioBitmap(self, Window win, DC dc, Rect rect, int flags=0)
 
         Draw a native wxRadioButton (just the button image, not the text)
         """
-        return _gdi_.RendererNative_DrawRadioButton(*args, **kwargs)
+        return _gdi_.RendererNative_DrawRadioBitmap(*args, **kwargs)
+
+    DrawRadioButton = wx._deprecated(DrawRadioBitmap,
+        'DrawRadioButton is depracated, use `DrawRadioBitmap` instead.')
 
     def Get(*args, **kwargs):
         """

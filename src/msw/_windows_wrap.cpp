@@ -10553,10 +10553,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_StatusBarPane_GetStack(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_StatusBarPane_GetText(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxStatusBarPane *arg1 = (wxStatusBarPane *) 0 ;
-  wxArrayString *result = 0 ;
+  wxString result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -10565,20 +10565,291 @@ SWIGINTERN PyObject *_wrap_StatusBarPane_GetStack(PyObject *SWIGUNUSEDPARM(self)
   swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxStatusBarPane, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBarPane_GetStack" "', expected argument " "1"" of type '" "wxStatusBarPane const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBarPane_GetText" "', expected argument " "1"" of type '" "wxStatusBarPane const *""'"); 
   }
   arg1 = reinterpret_cast< wxStatusBarPane * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxArrayString const &_result_ref = ((wxStatusBarPane const *)arg1)->GetStack();
-      result = (wxArrayString *) &_result_ref;
-    }
+    result = ((wxStatusBarPane const *)arg1)->GetText();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
   {
-    resultobj = wxArrayString2PyList_helper(*result);
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StatusBarPane_IsEllipsized(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxStatusBarPane *arg1 = (wxStatusBarPane *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxStatusBarPane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBarPane_IsEllipsized" "', expected argument " "1"" of type '" "wxStatusBarPane const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxStatusBarPane * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxStatusBarPane const *)arg1)->IsEllipsized();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StatusBarPane_SetIsEllipsized(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxStatusBarPane *arg1 = (wxStatusBarPane *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "isEllipsized", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:StatusBarPane_SetIsEllipsized",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxStatusBarPane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBarPane_SetIsEllipsized" "', expected argument " "1"" of type '" "wxStatusBarPane *""'"); 
+  }
+  arg1 = reinterpret_cast< wxStatusBarPane * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "StatusBarPane_SetIsEllipsized" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetIsEllipsized(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StatusBarPane_SetWidth(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxStatusBarPane *arg1 = (wxStatusBarPane *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "width", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:StatusBarPane_SetWidth",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxStatusBarPane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBarPane_SetWidth" "', expected argument " "1"" of type '" "wxStatusBarPane *""'"); 
+  }
+  arg1 = reinterpret_cast< wxStatusBarPane * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "StatusBarPane_SetWidth" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetWidth(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StatusBarPane_SetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxStatusBarPane *arg1 = (wxStatusBarPane *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "style", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:StatusBarPane_SetStyle",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxStatusBarPane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBarPane_SetStyle" "', expected argument " "1"" of type '" "wxStatusBarPane *""'"); 
+  }
+  arg1 = reinterpret_cast< wxStatusBarPane * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "StatusBarPane_SetStyle" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetStyle(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StatusBarPane_SetText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxStatusBarPane *arg1 = (wxStatusBarPane *) 0 ;
+  wxString *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "text", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:StatusBarPane_SetText",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxStatusBarPane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBarPane_SetText" "', expected argument " "1"" of type '" "wxStatusBarPane *""'"); 
+  }
+  arg1 = reinterpret_cast< wxStatusBarPane * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->SetText((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StatusBarPane_PushText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxStatusBarPane *arg1 = (wxStatusBarPane *) 0 ;
+  wxString *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "text", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:StatusBarPane_PushText",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxStatusBarPane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBarPane_PushText" "', expected argument " "1"" of type '" "wxStatusBarPane *""'"); 
+  }
+  arg1 = reinterpret_cast< wxStatusBarPane * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->PushText((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StatusBarPane_PopText(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxStatusBarPane *arg1 = (wxStatusBarPane *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxStatusBarPane, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBarPane_PopText" "', expected argument " "1"" of type '" "wxStatusBarPane *""'"); 
+  }
+  arg1 = reinterpret_cast< wxStatusBarPane * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->PopText();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
   return resultobj;
 fail:
@@ -10934,50 +11205,6 @@ SWIGINTERN PyObject *_wrap_StatusBar_GetStatusText(PyObject *SWIGUNUSEDPARM(self
 #else
     resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
 #endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_StatusBar_GetStatusStack(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxStatusBar *arg1 = (wxStatusBar *) 0 ;
-  int arg2 ;
-  wxArrayString *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "n", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:StatusBar_GetStatusStack",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxStatusBar, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBar_GetStatusStack" "', expected argument " "1"" of type '" "wxStatusBar const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxStatusBar * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "StatusBar_GetStatusStack" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxArrayString const &_result_ref = ((wxStatusBar const *)arg1)->GetStatusStack(arg2);
-      result = (wxArrayString *) &_result_ref;
-    }
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = wxArrayString2PyList_helper(*result);
   }
   return resultobj;
 fail:
@@ -11372,6 +11599,34 @@ SWIGINTERN PyObject *_wrap_StatusBar_GetBorderY(PyObject *SWIGUNUSEDPARM(self), 
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_StatusBar_GetBorders(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxStatusBar *arg1 = (wxStatusBar *) 0 ;
+  wxSize result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxStatusBar, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StatusBar_GetBorders" "', expected argument " "1"" of type '" "wxStatusBar const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxStatusBar * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxStatusBar const *)arg1)->GetBorders();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxSize(static_cast< const wxSize& >(result))), SWIGTYPE_p_wxSize, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -36903,7 +37158,14 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_StatusBarPane", (PyCFunction) _wrap_new_StatusBarPane, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StatusBarPane_GetWidth", (PyCFunction)_wrap_StatusBarPane_GetWidth, METH_O, NULL},
 	 { (char *)"StatusBarPane_GetStyle", (PyCFunction)_wrap_StatusBarPane_GetStyle, METH_O, NULL},
-	 { (char *)"StatusBarPane_GetStack", (PyCFunction)_wrap_StatusBarPane_GetStack, METH_O, NULL},
+	 { (char *)"StatusBarPane_GetText", (PyCFunction)_wrap_StatusBarPane_GetText, METH_O, NULL},
+	 { (char *)"StatusBarPane_IsEllipsized", (PyCFunction)_wrap_StatusBarPane_IsEllipsized, METH_O, NULL},
+	 { (char *)"StatusBarPane_SetIsEllipsized", (PyCFunction) _wrap_StatusBarPane_SetIsEllipsized, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"StatusBarPane_SetWidth", (PyCFunction) _wrap_StatusBarPane_SetWidth, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"StatusBarPane_SetStyle", (PyCFunction) _wrap_StatusBarPane_SetStyle, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"StatusBarPane_SetText", (PyCFunction) _wrap_StatusBarPane_SetText, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"StatusBarPane_PushText", (PyCFunction) _wrap_StatusBarPane_PushText, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"StatusBarPane_PopText", (PyCFunction)_wrap_StatusBarPane_PopText, METH_O, NULL},
 	 { (char *)"StatusBarPane_swigregister", StatusBarPane_swigregister, METH_VARARGS, NULL},
 	 { (char *)"StatusBarPane_swiginit", StatusBarPane_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_StatusBar", (PyCFunction) _wrap_new_StatusBar, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -36913,7 +37175,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"StatusBar_GetFieldsCount", (PyCFunction)_wrap_StatusBar_GetFieldsCount, METH_O, NULL},
 	 { (char *)"StatusBar_SetStatusText", (PyCFunction) _wrap_StatusBar_SetStatusText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StatusBar_GetStatusText", (PyCFunction) _wrap_StatusBar_GetStatusText, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"StatusBar_GetStatusStack", (PyCFunction) _wrap_StatusBar_GetStatusStack, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StatusBar_PushStatusText", (PyCFunction) _wrap_StatusBar_PushStatusText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StatusBar_PopStatusText", (PyCFunction) _wrap_StatusBar_PopStatusText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StatusBar_SetStatusWidths", (PyCFunction) _wrap_StatusBar_SetStatusWidths, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -36924,6 +37185,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"StatusBar_SetMinHeight", (PyCFunction) _wrap_StatusBar_SetMinHeight, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StatusBar_GetBorderX", (PyCFunction)_wrap_StatusBar_GetBorderX, METH_O, NULL},
 	 { (char *)"StatusBar_GetBorderY", (PyCFunction)_wrap_StatusBar_GetBorderY, METH_O, NULL},
+	 { (char *)"StatusBar_GetBorders", (PyCFunction)_wrap_StatusBar_GetBorders, METH_O, NULL},
 	 { (char *)"StatusBar_GetField", (PyCFunction) _wrap_StatusBar_GetField, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StatusBar_GetClassDefaultAttributes", (PyCFunction) _wrap_StatusBar_GetClassDefaultAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StatusBar_swigregister", StatusBar_swigregister, METH_VARARGS, NULL},
@@ -40202,7 +40464,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "DIALOG_ADAPTATION_MODE_DEFAULT",SWIG_From_int(static_cast< int >(wxDIALOG_ADAPTATION_MODE_DEFAULT)));
   SWIG_Python_SetConstant(d, "DIALOG_ADAPTATION_MODE_ENABLED",SWIG_From_int(static_cast< int >(wxDIALOG_ADAPTATION_MODE_ENABLED)));
   SWIG_Python_SetConstant(d, "DIALOG_ADAPTATION_MODE_DISABLED",SWIG_From_int(static_cast< int >(wxDIALOG_ADAPTATION_MODE_DISABLED)));
-  SWIG_Python_SetConstant(d, "Dialog_ButtonSizerFlags",SWIG_From_int(static_cast< int >(wxDialog::ButtonSizerFlags)));
   SWIG_Python_SetConstant(d, "DEFAULT_MINIFRAME_STYLE",SWIG_From_int(static_cast< int >(wxDEFAULT_MINIFRAME_STYLE)));
   SWIG_Python_SetConstant(d, "SPLASH_CENTRE_ON_PARENT",SWIG_From_int(static_cast< int >(wxSPLASH_CENTRE_ON_PARENT)));
   SWIG_Python_SetConstant(d, "SPLASH_CENTRE_ON_SCREEN",SWIG_From_int(static_cast< int >(wxSPLASH_CENTRE_ON_SCREEN)));
@@ -40212,6 +40473,12 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "SPLASH_NO_CENTER",SWIG_From_int(static_cast< int >(wxSPLASH_NO_CENTER)));
   SWIG_Python_SetConstant(d, "SPLASH_TIMEOUT",SWIG_From_int(static_cast< int >(wxSPLASH_TIMEOUT)));
   SWIG_Python_SetConstant(d, "SPLASH_NO_TIMEOUT",SWIG_From_int(static_cast< int >(wxSPLASH_NO_TIMEOUT)));
+  SWIG_Python_SetConstant(d, "STB_SIZEGRIP",SWIG_From_int(static_cast< int >(wxSTB_SIZEGRIP)));
+  SWIG_Python_SetConstant(d, "STB_SHOW_TIPS",SWIG_From_int(static_cast< int >(wxSTB_SHOW_TIPS)));
+  SWIG_Python_SetConstant(d, "STB_ELLIPSIZE_START",SWIG_From_int(static_cast< int >(wxSTB_ELLIPSIZE_START)));
+  SWIG_Python_SetConstant(d, "STB_ELLIPSIZE_MIDDLE",SWIG_From_int(static_cast< int >(wxSTB_ELLIPSIZE_MIDDLE)));
+  SWIG_Python_SetConstant(d, "STB_ELLIPSIZE_END",SWIG_From_int(static_cast< int >(wxSTB_ELLIPSIZE_END)));
+  SWIG_Python_SetConstant(d, "STB_DEFAULT_STYLE",SWIG_From_int(static_cast< int >(wxSTB_DEFAULT_STYLE)));
   SWIG_Python_SetConstant(d, "SB_NORMAL",SWIG_From_int(static_cast< int >(wxSB_NORMAL)));
   SWIG_Python_SetConstant(d, "SB_FLAT",SWIG_From_int(static_cast< int >(wxSB_FLAT)));
   SWIG_Python_SetConstant(d, "SB_RAISED",SWIG_From_int(static_cast< int >(wxSB_RAISED)));

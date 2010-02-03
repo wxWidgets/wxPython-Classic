@@ -3049,7 +3049,7 @@ SWIGINTERN void wxToolBarBase_SetToolClientData(wxToolBarBase *self,int id,PyObj
  static const wxString wxPyListCtrlNameStr(wxListCtrlNameStr); 
 SWIGINTERN void wxListItemAttr_Destroy(wxListItemAttr *self){ delete self; }
  // Python aware sorting function for wxPyListCtrl
-    static int wxCALLBACK wxPyListCtrl_SortItems(long item1, long item2, long funcPtr) {
+    static int wxCALLBACK wxPyListCtrl_SortItems(long item1, long item2, wxIntPtr funcPtr) {
         int retval = 0;
         PyObject* func = (PyObject*)funcPtr;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
@@ -9981,34 +9981,6 @@ SWIGINTERN PyObject *_wrap_CheckListBox_Check(PyObject *SWIGUNUSEDPARM(self), Py
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_CheckListBox_GetItemHeight(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxCheckListBox *arg1 = (wxCheckListBox *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxCheckListBox, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "CheckListBox_GetItemHeight" "', expected argument " "1"" of type '" "wxCheckListBox *""'"); 
-  }
-  arg1 = reinterpret_cast< wxCheckListBox * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetItemHeight();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -50517,7 +50489,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"CheckListBox_Create", (PyCFunction) _wrap_CheckListBox_Create, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"CheckListBox_IsChecked", (PyCFunction) _wrap_CheckListBox_IsChecked, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"CheckListBox_Check", (PyCFunction) _wrap_CheckListBox_Check, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"CheckListBox_GetItemHeight", (PyCFunction)_wrap_CheckListBox_GetItemHeight, METH_O, NULL},
 	 { (char *)"CheckListBox_swigregister", CheckListBox_swigregister, METH_VARARGS, NULL},
 	 { (char *)"CheckListBox_swiginit", CheckListBox_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_TextAttr", (PyCFunction) _wrap_new_TextAttr, METH_VARARGS | METH_KEYWORDS, NULL},

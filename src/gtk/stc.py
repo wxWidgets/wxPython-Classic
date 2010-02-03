@@ -1549,7 +1549,7 @@ STC_CMD_WORDLEFTEND = _stc.STC_CMD_WORDLEFTEND
 STC_CMD_WORDLEFTENDEXTEND = _stc.STC_CMD_WORDLEFTENDEXTEND
 STC_CMD_WORDRIGHTEND = _stc.STC_CMD_WORDRIGHTEND
 STC_CMD_WORDRIGHTENDEXTEND = _stc.STC_CMD_WORDRIGHTENDEXTEND
-class StyledTextCtrl(_core.Control,_core.TextEntryBase,_core.TextAreaBase):
+class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
     """Proxy of C++ StyledTextCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr

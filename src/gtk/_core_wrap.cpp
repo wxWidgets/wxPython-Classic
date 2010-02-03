@@ -3948,7 +3948,7 @@ SWIGINTERN bool wxEvtHandler_Disconnect(wxEvtHandler *self,int id,int lastId=-1,
                     if ((entry->m_id == id) &&
                         ((entry->m_lastId == lastId) || (lastId == wxID_ANY)) &&
                         ((entry->m_eventType == eventType) || (eventType == wxEVT_NULL)) &&
-                        ((entry->m_fn->GetMethod() == (wxObjectEventFunction)&wxPyCallback::EventThunker)) &&
+                        //((entry->m_fn->IsMatching((wxObjectEventFunction)(wxEventFunction)&wxPyCallback::EventThunker))) &&
                         (entry->m_callbackUserData != NULL))
                     {
                         wxPyCallback *cb = (wxPyCallback*)entry->m_callbackUserData;
@@ -4341,7 +4341,6 @@ SWIGINTERN int wxMenuItem_GetMarginWidth(wxMenuItem *self){ return 0; }
 SWIGINTERN int wxMenuItem_GetDefaultMarginWidth(){ return 0; }
 SWIGINTERN bool wxMenuItem_IsOwnerDrawn(wxMenuItem *self){ return false; }
 SWIGINTERN void wxMenuItem_SetOwnerDrawn(wxMenuItem *self,bool ownerDrawn=true){}
-SWIGINTERN void wxMenuItem_ResetOwnerDrawn(wxMenuItem *self){}
  static const wxString wxPyControlNameStr(wxControlNameStr); 
 SWIGINTERN int wxItemContainer_Append(wxItemContainer *self,wxString const &item,PyObject *clientData=NULL){
             if (clientData) {
@@ -17711,7 +17710,7 @@ SWIGINTERN PyObject *_wrap_Image_Scale(PyObject *SWIGUNUSEDPARM(self), PyObject 
   wxImage *arg1 = (wxImage *) 0 ;
   int arg2 ;
   int arg3 ;
-  int arg4 = (int) wxIMAGE_QUALITY_NORMAL ;
+  wxImageResizeQuality arg4 = (wxImageResizeQuality) wxIMAGE_QUALITY_NORMAL ;
   SwigValueWrapper<wxImage > result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -17748,9 +17747,9 @@ SWIGINTERN PyObject *_wrap_Image_Scale(PyObject *SWIGUNUSEDPARM(self), PyObject 
   if (obj3) {
     ecode4 = SWIG_AsVal_int(obj3, &val4);
     if (!SWIG_IsOK(ecode4)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "Image_Scale" "', expected argument " "4"" of type '" "int""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "Image_Scale" "', expected argument " "4"" of type '" "wxImageResizeQuality""'");
     } 
-    arg4 = static_cast< int >(val4);
+    arg4 = static_cast< wxImageResizeQuality >(val4);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -18031,7 +18030,7 @@ SWIGINTERN PyObject *_wrap_Image_Rescale(PyObject *SWIGUNUSEDPARM(self), PyObjec
   wxImage *arg1 = (wxImage *) 0 ;
   int arg2 ;
   int arg3 ;
-  int arg4 = (int) wxIMAGE_QUALITY_NORMAL ;
+  wxImageResizeQuality arg4 = (wxImageResizeQuality) wxIMAGE_QUALITY_NORMAL ;
   wxImage *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -18068,9 +18067,9 @@ SWIGINTERN PyObject *_wrap_Image_Rescale(PyObject *SWIGUNUSEDPARM(self), PyObjec
   if (obj3) {
     ecode4 = SWIG_AsVal_int(obj3, &val4);
     if (!SWIG_IsOK(ecode4)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "Image_Rescale" "', expected argument " "4"" of type '" "int""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "Image_Rescale" "', expected argument " "4"" of type '" "wxImageResizeQuality""'");
     } 
-    arg4 = static_cast< int >(val4);
+    arg4 = static_cast< wxImageResizeQuality >(val4);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -19179,7 +19178,7 @@ SWIGINTERN PyObject *_wrap_Image_SaveFile(PyObject *SWIGUNUSEDPARM(self), PyObje
   PyObject *resultobj = 0;
   wxImage *arg1 = (wxImage *) 0 ;
   wxString *arg2 = 0 ;
-  int arg3 ;
+  wxBitmapType arg3 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -19206,9 +19205,9 @@ SWIGINTERN PyObject *_wrap_Image_SaveFile(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Image_SaveFile" "', expected argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Image_SaveFile" "', expected argument " "3"" of type '" "wxBitmapType""'");
   } 
-  arg3 = static_cast< int >(val3);
+  arg3 = static_cast< wxBitmapType >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->SaveFile((wxString const &)*arg2,arg3);
@@ -19300,7 +19299,7 @@ SWIGINTERN PyObject *_wrap_Image_SaveStream(PyObject *SWIGUNUSEDPARM(self), PyOb
   PyObject *resultobj = 0;
   wxImage *arg1 = (wxImage *) 0 ;
   wxOutputStream *arg2 = 0 ;
-  int arg3 ;
+  wxBitmapType arg3 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -19337,9 +19336,9 @@ SWIGINTERN PyObject *_wrap_Image_SaveStream(PyObject *SWIGUNUSEDPARM(self), PyOb
   }
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Image_SaveStream" "', expected argument " "3"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Image_SaveStream" "', expected argument " "3"" of type '" "wxBitmapType""'");
   } 
-  arg3 = static_cast< int >(val3);
+  arg3 = static_cast< wxBitmapType >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->SaveFile(*arg2,arg3);
@@ -23350,6 +23349,1220 @@ SWIGINTERN PyObject *PyEvtHandler_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObj
   return SWIG_Python_InitShadowInstance(args);
 }
 
+SWIGINTERN PyObject *_wrap_new_KeyboardState(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  bool arg1 = (bool) false ;
+  bool arg2 = (bool) false ;
+  bool arg3 = (bool) false ;
+  bool arg4 = (bool) false ;
+  wxKeyboardState *result = 0 ;
+  bool val1 ;
+  int ecode1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  bool val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  char *  kwnames[] = {
+    (char *) "controlDown",(char *) "shiftDown",(char *) "altDown",(char *) "metaDown", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OOOO:new_KeyboardState",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (obj0) {
+    ecode1 = SWIG_AsVal_bool(obj0, &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_KeyboardState" "', expected argument " "1"" of type '" "bool""'");
+    } 
+    arg1 = static_cast< bool >(val1);
+  }
+  if (obj1) {
+    ecode2 = SWIG_AsVal_bool(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_KeyboardState" "', expected argument " "2"" of type '" "bool""'");
+    } 
+    arg2 = static_cast< bool >(val2);
+  }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_bool(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_KeyboardState" "', expected argument " "3"" of type '" "bool""'");
+    } 
+    arg3 = static_cast< bool >(val3);
+  }
+  if (obj3) {
+    ecode4 = SWIG_AsVal_bool(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_KeyboardState" "', expected argument " "4"" of type '" "bool""'");
+    } 
+    arg4 = static_cast< bool >(val4);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxKeyboardState *)new wxKeyboardState(arg1,arg2,arg3,arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxKeyboardState, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_KeyboardState(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_KeyboardState" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_GetModifiers(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_GetModifiers" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)((wxKeyboardState const *)arg1)->GetModifiers();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_ControlDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_ControlDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxKeyboardState const *)arg1)->ControlDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_MetaDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_MetaDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxKeyboardState const *)arg1)->MetaDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_AltDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_AltDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxKeyboardState const *)arg1)->AltDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_ShiftDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_ShiftDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxKeyboardState const *)arg1)->ShiftDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_CmdDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_CmdDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxKeyboardState const *)arg1)->CmdDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_HasModifiers(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_HasModifiers" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxKeyboardState const *)arg1)->HasModifiers();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_SetControlDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "down", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:KeyboardState_SetControlDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_SetControlDown" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_SetControlDown" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetControlDown(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_SetShiftDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "down", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:KeyboardState_SetShiftDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_SetShiftDown" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_SetShiftDown" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetShiftDown(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_SetAltDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "down", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:KeyboardState_SetAltDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_SetAltDown" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_SetAltDown" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetAltDown(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyboardState_SetMetaDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "down", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:KeyboardState_SetMetaDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_SetMetaDown" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_SetMetaDown" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetMetaDown(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *KeyboardState_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxKeyboardState, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *KeyboardState_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_new_MouseState(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"new_MouseState",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxMouseState *)new wxMouseState();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxMouseState, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_MouseState(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_MouseState" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_GetX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_GetX" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)(arg1)->GetX();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_GetY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_GetY" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)(arg1)->GetY();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_GetPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  wxPoint result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_GetPosition" "', expected argument " "1"" of type '" "wxMouseState const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxMouseState const *)arg1)->GetPosition();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxPoint(static_cast< const wxPoint& >(result))), SWIGTYPE_p_wxPoint, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_GetPositionTuple(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  long *arg2 = (long *) 0 ;
+  long *arg3 = (long *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long temp2 ;
+  int res2 = SWIG_TMPOBJ ;
+  long temp3 ;
+  int res3 = SWIG_TMPOBJ ;
+  PyObject *swig_obj[1] ;
+  
+  arg2 = &temp2;
+  arg3 = &temp3;
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_GetPositionTuple" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->GetPosition(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsTmpObj(res2)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg2)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
+  }
+  if (SWIG_IsTmpObj(res3)) {
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg3)));
+  } else {
+    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_LeftIsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_LeftIsDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->LeftIsDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_MiddleIsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_MiddleIsDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->MiddleIsDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_RightIsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_RightIsDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->RightIsDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_Aux1IsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_Aux1IsDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->Aux1IsDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_Aux2IsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_Aux2IsDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->Aux2IsDown();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_ButtonIsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  wxMouseButton arg2 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "but", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_ButtonIsDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_ButtonIsDown" "', expected argument " "1"" of type '" "wxMouseState const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_ButtonIsDown" "', expected argument " "2"" of type '" "wxMouseButton""'");
+  } 
+  arg2 = static_cast< wxMouseButton >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxMouseState const *)arg1)->ButtonIsDown(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_SetX(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "x", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetX",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetX" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetX" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetX(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_SetY(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "y", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetY",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetY" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetY" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetY(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_SetPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  wxPoint arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pos", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetPosition",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetPosition" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxPoint,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MouseState_SetPosition" "', expected argument " "2"" of type '" "wxPoint""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "MouseState_SetPosition" "', expected argument " "2"" of type '" "wxPoint""'");
+    } else {
+      wxPoint * temp = reinterpret_cast< wxPoint * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetPosition(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_SetLeftDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "down", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetLeftDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetLeftDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetLeftDown" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetLeftDown(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_SetMiddleDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "down", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetMiddleDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetMiddleDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetMiddleDown" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetMiddleDown(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_SetRightDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "down", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetRightDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetRightDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetRightDown" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetRightDown(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_SetAux1Down(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "down", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetAux1Down",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetAux1Down" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetAux1Down" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetAux1Down(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_SetAux2Down(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "down", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetAux2Down",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetAux2Down" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetAux2Down" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetAux2Down(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_MouseState_SetState(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxMouseState *arg1 = (wxMouseState *) 0 ;
+  wxMouseState *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "state", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetState",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetState" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
+  }
+  arg1 = reinterpret_cast< wxMouseState * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxMouseState,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "MouseState_SetState" "', expected argument " "2"" of type '" "wxMouseState const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "MouseState_SetState" "', expected argument " "2"" of type '" "wxMouseState const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxMouseState * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetState((wxMouseState const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *MouseState_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxMouseState, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *MouseState_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_GetMouseState(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxMouseState result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"GetMouseState",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxGetMouseState();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxMouseState(static_cast< const wxMouseState& >(result))), SWIGTYPE_p_wxMouseState, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_NewEventType(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxEventType result;
@@ -25135,855 +26348,6 @@ SWIGINTERN PyObject *ScrollWinEvent_swiginit(PyObject *SWIGUNUSEDPARM(self), PyO
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_new_MouseState(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *result = 0 ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"new_MouseState",0,0,0)) SWIG_fail;
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxMouseState *)new wxMouseState();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxMouseState, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_MouseState(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_MouseState" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_GetX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_GetX" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetX();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_GetY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_GetY" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->GetY();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_LeftDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_LeftDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->LeftDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_MiddleDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_MiddleDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MiddleDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_RightDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_RightDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->RightDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_Aux1Down(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_Aux1Down" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Aux1Down();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_Aux2Down(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_Aux2Down" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Aux2Down();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_ControlDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_ControlDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ControlDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_ShiftDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_ShiftDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ShiftDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_AltDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_AltDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->AltDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_MetaDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_MetaDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MetaDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_CmdDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_CmdDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->CmdDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetX(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "x", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetX",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetX" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetX" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetX(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetY(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "y", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetY",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetY" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetY" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetY(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetLeftDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetLeftDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetLeftDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetLeftDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetLeftDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetMiddleDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetMiddleDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetMiddleDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetMiddleDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMiddleDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetRightDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetRightDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetRightDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetRightDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetRightDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetAux1Down(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetAux1Down",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetAux1Down" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetAux1Down" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAux1Down(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetAux2Down(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetAux2Down",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetAux2Down" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetAux2Down" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAux2Down(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetControlDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetControlDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetControlDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetControlDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetControlDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetShiftDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetShiftDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetShiftDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetShiftDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetShiftDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetAltDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetAltDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetAltDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetAltDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAltDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseState_SetMetaDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseState *arg1 = (wxMouseState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseState_SetMetaDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseState_SetMetaDown" "', expected argument " "1"" of type '" "wxMouseState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseState_SetMetaDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMetaDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *MouseState_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_wxMouseState, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *MouseState_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  return SWIG_Python_InitShadowInstance(args);
-}
-
-SWIGINTERN PyObject *_wrap_GetMouseState(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseState result;
-  
-  if (!SWIG_Python_UnpackTuple(args,"GetMouseState",0,0,0)) SWIG_fail;
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = wxGetMouseState();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxMouseState(static_cast< const wxMouseState& >(result))), SWIGTYPE_p_wxMouseState, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_new_MouseEvent(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxEventType arg1 = (wxEventType) wxEVT_NULL ;
@@ -26204,47 +26568,6 @@ SWIGINTERN PyObject *_wrap_MouseEvent_Button(PyObject *SWIGUNUSEDPARM(self), PyO
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)((wxMouseEvent const *)arg1)->Button(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_ButtonIsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int arg2 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "but", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:MouseEvent_ButtonIsDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_ButtonIsDown" "', expected argument " "1"" of type '" "wxMouseEvent const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_ButtonIsDown" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxMouseEvent const *)arg1)->ButtonIsDown(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -26735,156 +27058,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MouseEvent_LeftIsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_LeftIsDown" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->LeftIsDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_MiddleIsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_MiddleIsDown" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->MiddleIsDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_RightIsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_RightIsDown" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->RightIsDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_Aux1IsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_Aux1IsDown" "', expected argument " "1"" of type '" "wxMouseEvent const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxMouseEvent const *)arg1)->Aux1IsDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_Aux2IsDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_Aux2IsDown" "', expected argument " "1"" of type '" "wxMouseEvent const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxMouseEvent const *)arg1)->Aux2IsDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_MouseEvent_Dragging(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
@@ -27033,81 +27206,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MouseEvent_GetPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  wxPoint result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_GetPosition" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetPosition();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxPoint(static_cast< const wxPoint& >(result))), SWIGTYPE_p_wxPoint, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_GetPositionTuple(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  long *arg2 = (long *) 0 ;
-  long *arg3 = (long *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  long temp2 ;
-  int res2 = SWIG_TMPOBJ ;
-  long temp3 ;
-  int res3 = SWIG_TMPOBJ ;
-  PyObject *swig_obj[1] ;
-  
-  arg2 = &temp2;
-  arg3 = &temp3;
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_GetPositionTuple" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->GetPosition(arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  if (SWIG_IsTmpObj(res2)) {
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg2)));
-  } else {
-    int new_flags = SWIG_IsNewObj(res2) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg2), SWIGTYPE_p_long, new_flags));
-  }
-  if (SWIG_IsTmpObj(res3)) {
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg3)));
-  } else {
-    int new_flags = SWIG_IsNewObj(res3) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
-    resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_NewPointerObj((void*)(arg3), SWIGTYPE_p_long, new_flags));
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_MouseEvent_GetLogicalPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
@@ -27144,62 +27242,6 @@ SWIGINTERN PyObject *_wrap_MouseEvent_GetLogicalPosition(PyObject *SWIGUNUSEDPAR
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxPoint(static_cast< const wxPoint& >(result))), SWIGTYPE_p_wxPoint, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_GetX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_GetX" "', expected argument " "1"" of type '" "wxMouseEvent const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxMouseEvent const *)arg1)->GetX();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_GetY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_GetY" "', expected argument " "1"" of type '" "wxMouseEvent const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxMouseEvent const *)arg1)->GetY();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -27342,599 +27384,6 @@ SWIGINTERN PyObject *_wrap_MouseEvent_IsPageScroll(PyObject *SWIGUNUSEDPARM(self
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_x_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_x_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_x_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_x_set" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  if (arg1) (arg1)->m_x = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_x_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_x_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (int) ((arg1)->m_x);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_y_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_y_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_y_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_y_set" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  if (arg1) (arg1)->m_y = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_y_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_y_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (int) ((arg1)->m_y);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_leftDown_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_leftDown_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_leftDown_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_leftDown_set" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  if (arg1) (arg1)->m_leftDown = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_leftDown_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_leftDown_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (bool) ((arg1)->m_leftDown);
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_middleDown_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_middleDown_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_middleDown_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_middleDown_set" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  if (arg1) (arg1)->m_middleDown = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_middleDown_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_middleDown_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (bool) ((arg1)->m_middleDown);
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_rightDown_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_rightDown_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_rightDown_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_rightDown_set" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  if (arg1) (arg1)->m_rightDown = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_rightDown_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_rightDown_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (bool) ((arg1)->m_rightDown);
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_aux1Down_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_aux1Down_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_aux1Down_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_aux1Down_set" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  if (arg1) (arg1)->m_aux1Down = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_aux1Down_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_aux1Down_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (bool) ((arg1)->m_aux1Down);
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_aux2Down_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_aux2Down_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_aux2Down_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_aux2Down_set" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  if (arg1) (arg1)->m_aux2Down = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_aux2Down_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_aux2Down_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (bool) ((arg1)->m_aux2Down);
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_clickCount_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_clickCount_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_clickCount_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_clickCount_set" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  if (arg1) (arg1)->m_clickCount = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_clickCount_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_clickCount_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (int) ((arg1)->m_clickCount);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_wheelRotation_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_wheelRotation_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_wheelRotation_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_wheelRotation_set" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  if (arg1) (arg1)->m_wheelRotation = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_wheelRotation_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_wheelRotation_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (int) ((arg1)->m_wheelRotation);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_wheelDelta_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_wheelDelta_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_wheelDelta_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_wheelDelta_set" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  if (arg1) (arg1)->m_wheelDelta = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_wheelDelta_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_wheelDelta_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (int) ((arg1)->m_wheelDelta);
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_linesPerAction_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"MouseEvent_m_linesPerAction_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_linesPerAction_set" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "MouseEvent_m_linesPerAction_set" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  if (arg1) (arg1)->m_linesPerAction = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_MouseEvent_m_linesPerAction_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMouseEvent *arg1 = (wxMouseEvent *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMouseEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MouseEvent_m_linesPerAction_get" "', expected argument " "1"" of type '" "wxMouseEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMouseEvent * >(argp1);
-  result = (int) ((arg1)->m_linesPerAction);
-  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -28164,662 +27613,6 @@ SWIGINTERN PyObject *SetCursorEvent_swigregister(PyObject *SWIGUNUSEDPARM(self),
 }
 
 SWIGINTERN PyObject *SetCursorEvent_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  return SWIG_Python_InitShadowInstance(args);
-}
-
-SWIGINTERN PyObject *_wrap_new_KeyboardState(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  bool arg1 = (bool) false ;
-  bool arg2 = (bool) false ;
-  bool arg3 = (bool) false ;
-  bool arg4 = (bool) false ;
-  wxKeyboardState *result = 0 ;
-  bool val1 ;
-  int ecode1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  bool val3 ;
-  int ecode3 = 0 ;
-  bool val4 ;
-  int ecode4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  char *  kwnames[] = {
-    (char *) "controlDown",(char *) "shiftDown",(char *) "altDown",(char *) "metaDown", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OOOO:new_KeyboardState",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  if (obj0) {
-    ecode1 = SWIG_AsVal_bool(obj0, &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_KeyboardState" "', expected argument " "1"" of type '" "bool""'");
-    } 
-    arg1 = static_cast< bool >(val1);
-  }
-  if (obj1) {
-    ecode2 = SWIG_AsVal_bool(obj1, &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_KeyboardState" "', expected argument " "2"" of type '" "bool""'");
-    } 
-    arg2 = static_cast< bool >(val2);
-  }
-  if (obj2) {
-    ecode3 = SWIG_AsVal_bool(obj2, &val3);
-    if (!SWIG_IsOK(ecode3)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_KeyboardState" "', expected argument " "3"" of type '" "bool""'");
-    } 
-    arg3 = static_cast< bool >(val3);
-  }
-  if (obj3) {
-    ecode4 = SWIG_AsVal_bool(obj3, &val4);
-    if (!SWIG_IsOK(ecode4)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_KeyboardState" "', expected argument " "4"" of type '" "bool""'");
-    } 
-    arg4 = static_cast< bool >(val4);
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxKeyboardState *)new wxKeyboardState(arg1,arg2,arg3,arg4);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxKeyboardState, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_GetModifiers(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_GetModifiers" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxKeyboardState const *)arg1)->GetModifiers();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_ControlDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_ControlDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxKeyboardState const *)arg1)->ControlDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_MetaDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_MetaDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxKeyboardState const *)arg1)->MetaDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_AltDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_AltDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxKeyboardState const *)arg1)->AltDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_ShiftDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_ShiftDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxKeyboardState const *)arg1)->ShiftDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_CmdDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_CmdDown" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxKeyboardState const *)arg1)->CmdDown();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_HasModifiers(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_HasModifiers" "', expected argument " "1"" of type '" "wxKeyboardState const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxKeyboardState const *)arg1)->HasModifiers();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_SetControlDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:KeyboardState_SetControlDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_SetControlDown" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_SetControlDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetControlDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_SetShiftDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:KeyboardState_SetShiftDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_SetShiftDown" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_SetShiftDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetShiftDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_SetAltDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:KeyboardState_SetAltDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_SetAltDown" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_SetAltDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetAltDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_SetMetaDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "down", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:KeyboardState_SetMetaDown",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_SetMetaDown" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_SetMetaDown" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMetaDown(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_m_controlDown_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"KeyboardState_m_controlDown_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_m_controlDown_set" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_m_controlDown_set" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  if (arg1) (arg1)->m_controlDown = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_m_controlDown_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_m_controlDown_get" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  result = (bool) ((arg1)->m_controlDown);
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_m_shiftDown_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"KeyboardState_m_shiftDown_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_m_shiftDown_set" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_m_shiftDown_set" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  if (arg1) (arg1)->m_shiftDown = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_m_shiftDown_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_m_shiftDown_get" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  result = (bool) ((arg1)->m_shiftDown);
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_m_altDown_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"KeyboardState_m_altDown_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_m_altDown_set" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_m_altDown_set" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  if (arg1) (arg1)->m_altDown = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_m_altDown_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_m_altDown_get" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  result = (bool) ((arg1)->m_altDown);
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_m_metaDown_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"KeyboardState_m_metaDown_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_m_metaDown_set" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  ecode2 = SWIG_AsVal_bool(swig_obj[1], &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "KeyboardState_m_metaDown_set" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  if (arg1) (arg1)->m_metaDown = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_KeyboardState_m_metaDown_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxKeyboardState *arg1 = (wxKeyboardState *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyboardState, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyboardState_m_metaDown_get" "', expected argument " "1"" of type '" "wxKeyboardState *""'"); 
-  }
-  arg1 = reinterpret_cast< wxKeyboardState * >(argp1);
-  result = (bool) ((arg1)->m_metaDown);
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *KeyboardState_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_wxKeyboardState, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *KeyboardState_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
@@ -53722,33 +52515,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_MenuItem_ResetOwnerDrawn(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxMenuItem *arg1 = (wxMenuItem *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxMenuItem, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "MenuItem_ResetOwnerDrawn" "', expected argument " "1"" of type '" "wxMenuItem *""'"); 
-  }
-  arg1 = reinterpret_cast< wxMenuItem * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxMenuItem_ResetOwnerDrawn(arg1);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *MenuItem_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -54257,7 +53023,7 @@ SWIGINTERN PyObject *_wrap_Control_Ellipsize(PyObject *SWIGUNUSEDPARM(self), PyO
   wxDC *arg2 = 0 ;
   wxEllipsizeMode arg3 ;
   int arg4 ;
-  int arg5 = (int) wxELLIPSIZE_DEFAULT_FLAGS ;
+  int arg5 = (int) wxELLIPSIZE_FLAGS_DEFAULT ;
   wxString result;
   bool temp1 = false ;
   void *argp2 = 0 ;
@@ -69512,6 +68278,45 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyEvtHandler_ProcessEvent", (PyCFunction) _wrap_PyEvtHandler_ProcessEvent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyEvtHandler_swigregister", PyEvtHandler_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PyEvtHandler_swiginit", PyEvtHandler_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_KeyboardState", (PyCFunction) _wrap_new_KeyboardState, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_KeyboardState", (PyCFunction)_wrap_delete_KeyboardState, METH_O, NULL},
+	 { (char *)"KeyboardState_GetModifiers", (PyCFunction)_wrap_KeyboardState_GetModifiers, METH_O, NULL},
+	 { (char *)"KeyboardState_ControlDown", (PyCFunction)_wrap_KeyboardState_ControlDown, METH_O, NULL},
+	 { (char *)"KeyboardState_MetaDown", (PyCFunction)_wrap_KeyboardState_MetaDown, METH_O, NULL},
+	 { (char *)"KeyboardState_AltDown", (PyCFunction)_wrap_KeyboardState_AltDown, METH_O, NULL},
+	 { (char *)"KeyboardState_ShiftDown", (PyCFunction)_wrap_KeyboardState_ShiftDown, METH_O, NULL},
+	 { (char *)"KeyboardState_CmdDown", (PyCFunction)_wrap_KeyboardState_CmdDown, METH_O, NULL},
+	 { (char *)"KeyboardState_HasModifiers", (PyCFunction)_wrap_KeyboardState_HasModifiers, METH_O, NULL},
+	 { (char *)"KeyboardState_SetControlDown", (PyCFunction) _wrap_KeyboardState_SetControlDown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"KeyboardState_SetShiftDown", (PyCFunction) _wrap_KeyboardState_SetShiftDown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"KeyboardState_SetAltDown", (PyCFunction) _wrap_KeyboardState_SetAltDown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"KeyboardState_SetMetaDown", (PyCFunction) _wrap_KeyboardState_SetMetaDown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"KeyboardState_swigregister", KeyboardState_swigregister, METH_VARARGS, NULL},
+	 { (char *)"KeyboardState_swiginit", KeyboardState_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_MouseState", (PyCFunction)_wrap_new_MouseState, METH_NOARGS, NULL},
+	 { (char *)"delete_MouseState", (PyCFunction)_wrap_delete_MouseState, METH_O, NULL},
+	 { (char *)"MouseState_GetX", (PyCFunction)_wrap_MouseState_GetX, METH_O, NULL},
+	 { (char *)"MouseState_GetY", (PyCFunction)_wrap_MouseState_GetY, METH_O, NULL},
+	 { (char *)"MouseState_GetPosition", (PyCFunction)_wrap_MouseState_GetPosition, METH_O, NULL},
+	 { (char *)"MouseState_GetPositionTuple", (PyCFunction)_wrap_MouseState_GetPositionTuple, METH_O, NULL},
+	 { (char *)"MouseState_LeftIsDown", (PyCFunction)_wrap_MouseState_LeftIsDown, METH_O, NULL},
+	 { (char *)"MouseState_MiddleIsDown", (PyCFunction)_wrap_MouseState_MiddleIsDown, METH_O, NULL},
+	 { (char *)"MouseState_RightIsDown", (PyCFunction)_wrap_MouseState_RightIsDown, METH_O, NULL},
+	 { (char *)"MouseState_Aux1IsDown", (PyCFunction)_wrap_MouseState_Aux1IsDown, METH_O, NULL},
+	 { (char *)"MouseState_Aux2IsDown", (PyCFunction)_wrap_MouseState_Aux2IsDown, METH_O, NULL},
+	 { (char *)"MouseState_ButtonIsDown", (PyCFunction) _wrap_MouseState_ButtonIsDown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MouseState_SetX", (PyCFunction) _wrap_MouseState_SetX, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MouseState_SetY", (PyCFunction) _wrap_MouseState_SetY, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MouseState_SetPosition", (PyCFunction) _wrap_MouseState_SetPosition, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MouseState_SetLeftDown", (PyCFunction) _wrap_MouseState_SetLeftDown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MouseState_SetMiddleDown", (PyCFunction) _wrap_MouseState_SetMiddleDown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MouseState_SetRightDown", (PyCFunction) _wrap_MouseState_SetRightDown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MouseState_SetAux1Down", (PyCFunction) _wrap_MouseState_SetAux1Down, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MouseState_SetAux2Down", (PyCFunction) _wrap_MouseState_SetAux2Down, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MouseState_SetState", (PyCFunction) _wrap_MouseState_SetState, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"MouseState_swigregister", MouseState_swigregister, METH_VARARGS, NULL},
+	 { (char *)"MouseState_swiginit", MouseState_swiginit, METH_VARARGS, NULL},
+	 { (char *)"GetMouseState", (PyCFunction)_wrap_GetMouseState, METH_NOARGS, NULL},
 	 { (char *)"NewEventType", (PyCFunction)_wrap_NewEventType, METH_NOARGS, NULL},
 	 { (char *)"delete_Event", (PyCFunction)_wrap_delete_Event, METH_O, NULL},
 	 { (char *)"Event_SetEventType", (PyCFunction) _wrap_Event_SetEventType, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -69578,41 +68383,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ScrollWinEvent_SetPosition", (PyCFunction) _wrap_ScrollWinEvent_SetPosition, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ScrollWinEvent_swigregister", ScrollWinEvent_swigregister, METH_VARARGS, NULL},
 	 { (char *)"ScrollWinEvent_swiginit", ScrollWinEvent_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_MouseState", (PyCFunction)_wrap_new_MouseState, METH_NOARGS, NULL},
-	 { (char *)"delete_MouseState", (PyCFunction)_wrap_delete_MouseState, METH_O, NULL},
-	 { (char *)"MouseState_GetX", (PyCFunction)_wrap_MouseState_GetX, METH_O, NULL},
-	 { (char *)"MouseState_GetY", (PyCFunction)_wrap_MouseState_GetY, METH_O, NULL},
-	 { (char *)"MouseState_LeftDown", (PyCFunction)_wrap_MouseState_LeftDown, METH_O, NULL},
-	 { (char *)"MouseState_MiddleDown", (PyCFunction)_wrap_MouseState_MiddleDown, METH_O, NULL},
-	 { (char *)"MouseState_RightDown", (PyCFunction)_wrap_MouseState_RightDown, METH_O, NULL},
-	 { (char *)"MouseState_Aux1Down", (PyCFunction)_wrap_MouseState_Aux1Down, METH_O, NULL},
-	 { (char *)"MouseState_Aux2Down", (PyCFunction)_wrap_MouseState_Aux2Down, METH_O, NULL},
-	 { (char *)"MouseState_ControlDown", (PyCFunction)_wrap_MouseState_ControlDown, METH_O, NULL},
-	 { (char *)"MouseState_ShiftDown", (PyCFunction)_wrap_MouseState_ShiftDown, METH_O, NULL},
-	 { (char *)"MouseState_AltDown", (PyCFunction)_wrap_MouseState_AltDown, METH_O, NULL},
-	 { (char *)"MouseState_MetaDown", (PyCFunction)_wrap_MouseState_MetaDown, METH_O, NULL},
-	 { (char *)"MouseState_CmdDown", (PyCFunction)_wrap_MouseState_CmdDown, METH_O, NULL},
-	 { (char *)"MouseState_SetX", (PyCFunction) _wrap_MouseState_SetX, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_SetY", (PyCFunction) _wrap_MouseState_SetY, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_SetLeftDown", (PyCFunction) _wrap_MouseState_SetLeftDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_SetMiddleDown", (PyCFunction) _wrap_MouseState_SetMiddleDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_SetRightDown", (PyCFunction) _wrap_MouseState_SetRightDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_SetAux1Down", (PyCFunction) _wrap_MouseState_SetAux1Down, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_SetAux2Down", (PyCFunction) _wrap_MouseState_SetAux2Down, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_SetControlDown", (PyCFunction) _wrap_MouseState_SetControlDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_SetShiftDown", (PyCFunction) _wrap_MouseState_SetShiftDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_SetAltDown", (PyCFunction) _wrap_MouseState_SetAltDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_SetMetaDown", (PyCFunction) _wrap_MouseState_SetMetaDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseState_swigregister", MouseState_swigregister, METH_VARARGS, NULL},
-	 { (char *)"MouseState_swiginit", MouseState_swiginit, METH_VARARGS, NULL},
-	 { (char *)"GetMouseState", (PyCFunction)_wrap_GetMouseState, METH_NOARGS, NULL},
 	 { (char *)"new_MouseEvent", (PyCFunction) _wrap_new_MouseEvent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MouseEvent_IsButton", (PyCFunction)_wrap_MouseEvent_IsButton, METH_O, NULL},
 	 { (char *)"MouseEvent_ButtonDown", (PyCFunction) _wrap_MouseEvent_ButtonDown, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MouseEvent_ButtonDClick", (PyCFunction) _wrap_MouseEvent_ButtonDClick, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MouseEvent_ButtonUp", (PyCFunction) _wrap_MouseEvent_ButtonUp, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MouseEvent_Button", (PyCFunction) _wrap_MouseEvent_Button, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseEvent_ButtonIsDown", (PyCFunction) _wrap_MouseEvent_ButtonIsDown, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"MouseEvent_GetButton", (PyCFunction)_wrap_MouseEvent_GetButton, METH_O, NULL},
 	 { (char *)"MouseEvent_LeftDown", (PyCFunction)_wrap_MouseEvent_LeftDown, METH_O, NULL},
 	 { (char *)"MouseEvent_MiddleDown", (PyCFunction)_wrap_MouseEvent_MiddleDown, METH_O, NULL},
@@ -69629,48 +68405,17 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MouseEvent_RightDClick", (PyCFunction)_wrap_MouseEvent_RightDClick, METH_O, NULL},
 	 { (char *)"MouseEvent_Aux1DClick", (PyCFunction)_wrap_MouseEvent_Aux1DClick, METH_O, NULL},
 	 { (char *)"MouseEvent_Aux2DClick", (PyCFunction)_wrap_MouseEvent_Aux2DClick, METH_O, NULL},
-	 { (char *)"MouseEvent_LeftIsDown", (PyCFunction)_wrap_MouseEvent_LeftIsDown, METH_O, NULL},
-	 { (char *)"MouseEvent_MiddleIsDown", (PyCFunction)_wrap_MouseEvent_MiddleIsDown, METH_O, NULL},
-	 { (char *)"MouseEvent_RightIsDown", (PyCFunction)_wrap_MouseEvent_RightIsDown, METH_O, NULL},
-	 { (char *)"MouseEvent_Aux1IsDown", (PyCFunction)_wrap_MouseEvent_Aux1IsDown, METH_O, NULL},
-	 { (char *)"MouseEvent_Aux2IsDown", (PyCFunction)_wrap_MouseEvent_Aux2IsDown, METH_O, NULL},
 	 { (char *)"MouseEvent_Dragging", (PyCFunction)_wrap_MouseEvent_Dragging, METH_O, NULL},
 	 { (char *)"MouseEvent_Moving", (PyCFunction)_wrap_MouseEvent_Moving, METH_O, NULL},
 	 { (char *)"MouseEvent_Entering", (PyCFunction)_wrap_MouseEvent_Entering, METH_O, NULL},
 	 { (char *)"MouseEvent_Leaving", (PyCFunction)_wrap_MouseEvent_Leaving, METH_O, NULL},
 	 { (char *)"MouseEvent_GetClickCount", (PyCFunction)_wrap_MouseEvent_GetClickCount, METH_O, NULL},
-	 { (char *)"MouseEvent_GetPosition", (PyCFunction)_wrap_MouseEvent_GetPosition, METH_O, NULL},
-	 { (char *)"MouseEvent_GetPositionTuple", (PyCFunction)_wrap_MouseEvent_GetPositionTuple, METH_O, NULL},
 	 { (char *)"MouseEvent_GetLogicalPosition", (PyCFunction) _wrap_MouseEvent_GetLogicalPosition, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MouseEvent_GetX", (PyCFunction)_wrap_MouseEvent_GetX, METH_O, NULL},
-	 { (char *)"MouseEvent_GetY", (PyCFunction)_wrap_MouseEvent_GetY, METH_O, NULL},
 	 { (char *)"MouseEvent_GetWheelRotation", (PyCFunction)_wrap_MouseEvent_GetWheelRotation, METH_O, NULL},
 	 { (char *)"MouseEvent_GetWheelDelta", (PyCFunction)_wrap_MouseEvent_GetWheelDelta, METH_O, NULL},
 	 { (char *)"MouseEvent_GetWheelAxis", (PyCFunction)_wrap_MouseEvent_GetWheelAxis, METH_O, NULL},
 	 { (char *)"MouseEvent_GetLinesPerAction", (PyCFunction)_wrap_MouseEvent_GetLinesPerAction, METH_O, NULL},
 	 { (char *)"MouseEvent_IsPageScroll", (PyCFunction)_wrap_MouseEvent_IsPageScroll, METH_O, NULL},
-	 { (char *)"MouseEvent_m_x_set", _wrap_MouseEvent_m_x_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_x_get", (PyCFunction)_wrap_MouseEvent_m_x_get, METH_O, NULL},
-	 { (char *)"MouseEvent_m_y_set", _wrap_MouseEvent_m_y_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_y_get", (PyCFunction)_wrap_MouseEvent_m_y_get, METH_O, NULL},
-	 { (char *)"MouseEvent_m_leftDown_set", _wrap_MouseEvent_m_leftDown_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_leftDown_get", (PyCFunction)_wrap_MouseEvent_m_leftDown_get, METH_O, NULL},
-	 { (char *)"MouseEvent_m_middleDown_set", _wrap_MouseEvent_m_middleDown_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_middleDown_get", (PyCFunction)_wrap_MouseEvent_m_middleDown_get, METH_O, NULL},
-	 { (char *)"MouseEvent_m_rightDown_set", _wrap_MouseEvent_m_rightDown_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_rightDown_get", (PyCFunction)_wrap_MouseEvent_m_rightDown_get, METH_O, NULL},
-	 { (char *)"MouseEvent_m_aux1Down_set", _wrap_MouseEvent_m_aux1Down_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_aux1Down_get", (PyCFunction)_wrap_MouseEvent_m_aux1Down_get, METH_O, NULL},
-	 { (char *)"MouseEvent_m_aux2Down_set", _wrap_MouseEvent_m_aux2Down_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_aux2Down_get", (PyCFunction)_wrap_MouseEvent_m_aux2Down_get, METH_O, NULL},
-	 { (char *)"MouseEvent_m_clickCount_set", _wrap_MouseEvent_m_clickCount_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_clickCount_get", (PyCFunction)_wrap_MouseEvent_m_clickCount_get, METH_O, NULL},
-	 { (char *)"MouseEvent_m_wheelRotation_set", _wrap_MouseEvent_m_wheelRotation_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_wheelRotation_get", (PyCFunction)_wrap_MouseEvent_m_wheelRotation_get, METH_O, NULL},
-	 { (char *)"MouseEvent_m_wheelDelta_set", _wrap_MouseEvent_m_wheelDelta_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_wheelDelta_get", (PyCFunction)_wrap_MouseEvent_m_wheelDelta_get, METH_O, NULL},
-	 { (char *)"MouseEvent_m_linesPerAction_set", _wrap_MouseEvent_m_linesPerAction_set, METH_VARARGS, NULL},
-	 { (char *)"MouseEvent_m_linesPerAction_get", (PyCFunction)_wrap_MouseEvent_m_linesPerAction_get, METH_O, NULL},
 	 { (char *)"MouseEvent_swigregister", MouseEvent_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MouseEvent_swiginit", MouseEvent_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_SetCursorEvent", (PyCFunction) _wrap_new_SetCursorEvent, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -69681,28 +68426,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SetCursorEvent_HasCursor", (PyCFunction)_wrap_SetCursorEvent_HasCursor, METH_O, NULL},
 	 { (char *)"SetCursorEvent_swigregister", SetCursorEvent_swigregister, METH_VARARGS, NULL},
 	 { (char *)"SetCursorEvent_swiginit", SetCursorEvent_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_KeyboardState", (PyCFunction) _wrap_new_KeyboardState, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"KeyboardState_GetModifiers", (PyCFunction)_wrap_KeyboardState_GetModifiers, METH_O, NULL},
-	 { (char *)"KeyboardState_ControlDown", (PyCFunction)_wrap_KeyboardState_ControlDown, METH_O, NULL},
-	 { (char *)"KeyboardState_MetaDown", (PyCFunction)_wrap_KeyboardState_MetaDown, METH_O, NULL},
-	 { (char *)"KeyboardState_AltDown", (PyCFunction)_wrap_KeyboardState_AltDown, METH_O, NULL},
-	 { (char *)"KeyboardState_ShiftDown", (PyCFunction)_wrap_KeyboardState_ShiftDown, METH_O, NULL},
-	 { (char *)"KeyboardState_CmdDown", (PyCFunction)_wrap_KeyboardState_CmdDown, METH_O, NULL},
-	 { (char *)"KeyboardState_HasModifiers", (PyCFunction)_wrap_KeyboardState_HasModifiers, METH_O, NULL},
-	 { (char *)"KeyboardState_SetControlDown", (PyCFunction) _wrap_KeyboardState_SetControlDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"KeyboardState_SetShiftDown", (PyCFunction) _wrap_KeyboardState_SetShiftDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"KeyboardState_SetAltDown", (PyCFunction) _wrap_KeyboardState_SetAltDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"KeyboardState_SetMetaDown", (PyCFunction) _wrap_KeyboardState_SetMetaDown, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"KeyboardState_m_controlDown_set", _wrap_KeyboardState_m_controlDown_set, METH_VARARGS, NULL},
-	 { (char *)"KeyboardState_m_controlDown_get", (PyCFunction)_wrap_KeyboardState_m_controlDown_get, METH_O, NULL},
-	 { (char *)"KeyboardState_m_shiftDown_set", _wrap_KeyboardState_m_shiftDown_set, METH_VARARGS, NULL},
-	 { (char *)"KeyboardState_m_shiftDown_get", (PyCFunction)_wrap_KeyboardState_m_shiftDown_get, METH_O, NULL},
-	 { (char *)"KeyboardState_m_altDown_set", _wrap_KeyboardState_m_altDown_set, METH_VARARGS, NULL},
-	 { (char *)"KeyboardState_m_altDown_get", (PyCFunction)_wrap_KeyboardState_m_altDown_get, METH_O, NULL},
-	 { (char *)"KeyboardState_m_metaDown_set", _wrap_KeyboardState_m_metaDown_set, METH_VARARGS, NULL},
-	 { (char *)"KeyboardState_m_metaDown_get", (PyCFunction)_wrap_KeyboardState_m_metaDown_get, METH_O, NULL},
-	 { (char *)"KeyboardState_swigregister", KeyboardState_swigregister, METH_VARARGS, NULL},
-	 { (char *)"KeyboardState_swiginit", KeyboardState_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_KeyEvent", (PyCFunction) _wrap_new_KeyEvent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"KeyEvent_GetKeyCode", (PyCFunction)_wrap_KeyEvent_GetKeyCode, METH_O, NULL},
 	 { (char *)"KeyEvent_GetUnicodeKey", (PyCFunction)_wrap_KeyEvent_GetUnicodeKey, METH_O, NULL},
@@ -70464,7 +69187,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"MenuItem_GetDefaultMarginWidth", (PyCFunction)_wrap_MenuItem_GetDefaultMarginWidth, METH_NOARGS, NULL},
 	 { (char *)"MenuItem_IsOwnerDrawn", (PyCFunction)_wrap_MenuItem_IsOwnerDrawn, METH_O, NULL},
 	 { (char *)"MenuItem_SetOwnerDrawn", (PyCFunction) _wrap_MenuItem_SetOwnerDrawn, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"MenuItem_ResetOwnerDrawn", (PyCFunction)_wrap_MenuItem_ResetOwnerDrawn, METH_O, NULL},
 	 { (char *)"MenuItem_swigregister", MenuItem_swigregister, METH_VARARGS, NULL},
 	 { (char *)"MenuItem_swiginit", MenuItem_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_Control", (PyCFunction) _wrap_new_Control, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -71345,8 +70067,14 @@ static void *_p_wxSettableHeaderColumnTo_p_wxHeaderColumn(void *x) {
 static void *_p_wxHeaderColumnSimpleTo_p_wxHeaderColumn(void *x) {
     return (void *)((wxHeaderColumn *) (wxSettableHeaderColumn *) ((wxHeaderColumnSimple *) x));
 }
+static void *_p_wxMouseEventTo_p_wxKeyboardState(void *x) {
+    return (void *)((wxKeyboardState *) (wxMouseState *) ((wxMouseEvent *) x));
+}
 static void *_p_wxKeyEventTo_p_wxKeyboardState(void *x) {
     return (void *)((wxKeyboardState *)  ((wxKeyEvent *) x));
+}
+static void *_p_wxMouseStateTo_p_wxKeyboardState(void *x) {
+    return (void *)((wxKeyboardState *)  ((wxMouseState *) x));
 }
 static void *_p_wxPyFileSystemHandlerTo_p_wxFileSystemHandler(void *x) {
     return (void *)((wxFileSystemHandler *)  ((wxPyFileSystemHandler *) x));
@@ -71925,7 +70653,7 @@ static swig_cast_info _swigc__p_wxInternetFSHandler[] = {  {&_swigt__p_wxInterne
 static swig_cast_info _swigc__p_wxItemContainer[] = {  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxItemContainer, 0, 0},  {&_swigt__p_wxItemContainer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxJPEGHandler[] = {  {&_swigt__p_wxJPEGHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxKeyEvent[] = {  {&_swigt__p_wxKeyEvent, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxKeyboardState[] = {  {&_swigt__p_wxKeyboardState, 0, 0, 0},  {&_swigt__p_wxKeyEvent, _p_wxKeyEventTo_p_wxKeyboardState, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxKeyboardState[] = {  {&_swigt__p_wxMouseEvent, _p_wxMouseEventTo_p_wxKeyboardState, 0, 0},  {&_swigt__p_wxKeyboardState, 0, 0, 0},  {&_swigt__p_wxKeyEvent, _p_wxKeyEventTo_p_wxKeyboardState, 0, 0},  {&_swigt__p_wxMouseState, _p_wxMouseStateTo_p_wxKeyboardState, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLayoutConstraints[] = {  {&_swigt__p_wxLayoutConstraints, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMaximizeEvent[] = {  {&_swigt__p_wxMaximizeEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMemoryFSHandler[] = {  {&_swigt__p_wxMemoryFSHandler, 0, 0, 0},{0, 0, 0, 0}};
@@ -73417,6 +72145,14 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "BMP_1BPP_BW",SWIG_From_int(static_cast< int >(wxBMP_1BPP_BW)));
   SWIG_Python_SetConstant(d, "QUANTIZE_INCLUDE_WINDOWS_COLOURS",SWIG_From_int(static_cast< int >(wxQUANTIZE_INCLUDE_WINDOWS_COLOURS)));
   SWIG_Python_SetConstant(d, "QUANTIZE_FILL_DESTINATION_IMAGE",SWIG_From_int(static_cast< int >(wxQUANTIZE_FILL_DESTINATION_IMAGE)));
+  SWIG_Python_SetConstant(d, "MOUSE_BTN_ANY",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_ANY)));
+  SWIG_Python_SetConstant(d, "MOUSE_BTN_NONE",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_NONE)));
+  SWIG_Python_SetConstant(d, "MOUSE_BTN_LEFT",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_LEFT)));
+  SWIG_Python_SetConstant(d, "MOUSE_BTN_MIDDLE",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_MIDDLE)));
+  SWIG_Python_SetConstant(d, "MOUSE_BTN_RIGHT",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_RIGHT)));
+  SWIG_Python_SetConstant(d, "MOUSE_BTN_AUX1",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_AUX1)));
+  SWIG_Python_SetConstant(d, "MOUSE_BTN_AUX2",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_AUX2)));
+  SWIG_Python_SetConstant(d, "MOUSE_BTN_MAX",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_MAX)));
   SWIG_Python_SetConstant(d, "EVENT_PROPAGATE_NONE",SWIG_From_int(static_cast< int >(wxEVENT_PROPAGATE_NONE)));
   SWIG_Python_SetConstant(d, "EVENT_PROPAGATE_MAX",SWIG_From_int(static_cast< int >(wxEVENT_PROPAGATE_MAX)));
   SWIG_Python_SetConstant(d, "wxEVT_CATEGORY_UI",SWIG_From_int(static_cast< int >(wxEVT_CATEGORY_UI)));
@@ -73542,14 +72278,6 @@ SWIGEXPORT void SWIG_init(void) {
   PyDict_SetItemString(d, "wxEVT_COMMAND_SET_FOCUS", PyInt_FromLong(wxEVT_COMMAND_SET_FOCUS));
   PyDict_SetItemString(d, "wxEVT_COMMAND_KILL_FOCUS", PyInt_FromLong(wxEVT_COMMAND_KILL_FOCUS));
   PyDict_SetItemString(d, "wxEVT_COMMAND_ENTER", PyInt_FromLong(wxEVT_COMMAND_ENTER));
-  SWIG_Python_SetConstant(d, "MOUSE_BTN_ANY",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_ANY)));
-  SWIG_Python_SetConstant(d, "MOUSE_BTN_NONE",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_NONE)));
-  SWIG_Python_SetConstant(d, "MOUSE_BTN_LEFT",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_LEFT)));
-  SWIG_Python_SetConstant(d, "MOUSE_BTN_MIDDLE",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_MIDDLE)));
-  SWIG_Python_SetConstant(d, "MOUSE_BTN_RIGHT",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_RIGHT)));
-  SWIG_Python_SetConstant(d, "MOUSE_BTN_AUX1",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_AUX1)));
-  SWIG_Python_SetConstant(d, "MOUSE_BTN_AUX2",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_AUX2)));
-  SWIG_Python_SetConstant(d, "MOUSE_BTN_MAX",SWIG_From_int(static_cast< int >(wxMOUSE_BTN_MAX)));
   SWIG_Python_SetConstant(d, "UPDATE_UI_PROCESS_ALL",SWIG_From_int(static_cast< int >(wxUPDATE_UI_PROCESS_ALL)));
   SWIG_Python_SetConstant(d, "UPDATE_UI_PROCESS_SPECIFIED",SWIG_From_int(static_cast< int >(wxUPDATE_UI_PROCESS_SPECIFIED)));
   SWIG_Python_SetConstant(d, "NavigationKeyEvent_IsBackward",SWIG_From_int(static_cast< int >(wxNavigationKeyEvent::IsBackward)));
@@ -73591,9 +72319,11 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "SEND_EVENT_POST",SWIG_From_int(static_cast< int >(wxSEND_EVENT_POST)));
   SWIG_addvarlink(SWIG_globals(),(char*)"DefaultValidator",DefaultValidator_get, DefaultValidator_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ControlNameStr",ControlNameStr_get, ControlNameStr_set);
-  SWIG_Python_SetConstant(d, "ELLIPSIZE_PROCESS_MNEMONICS",SWIG_From_int(static_cast< int >(wxELLIPSIZE_PROCESS_MNEMONICS)));
-  SWIG_Python_SetConstant(d, "ELLIPSIZE_EXPAND_TAB",SWIG_From_int(static_cast< int >(wxELLIPSIZE_EXPAND_TAB)));
-  SWIG_Python_SetConstant(d, "ELLIPSIZE_DEFAULT_FLAGS",SWIG_From_int(static_cast< int >(wxELLIPSIZE_DEFAULT_FLAGS)));
+  SWIG_Python_SetConstant(d, "ELLIPSIZE_FLAGS_NONE",SWIG_From_int(static_cast< int >(wxELLIPSIZE_FLAGS_NONE)));
+  SWIG_Python_SetConstant(d, "ELLIPSIZE_FLAGS_PROCESS_MNEMONICS",SWIG_From_int(static_cast< int >(wxELLIPSIZE_FLAGS_PROCESS_MNEMONICS)));
+  SWIG_Python_SetConstant(d, "ELLIPSIZE_FLAGS_EXPAND_TABS",SWIG_From_int(static_cast< int >(wxELLIPSIZE_FLAGS_EXPAND_TABS)));
+  SWIG_Python_SetConstant(d, "ELLIPSIZE_FLAGS_DEFAULT",SWIG_From_int(static_cast< int >(wxELLIPSIZE_FLAGS_DEFAULT)));
+  SWIG_Python_SetConstant(d, "ELLIPSIZE_NONE",SWIG_From_int(static_cast< int >(wxELLIPSIZE_NONE)));
   SWIG_Python_SetConstant(d, "ELLIPSIZE_START",SWIG_From_int(static_cast< int >(wxELLIPSIZE_START)));
   SWIG_Python_SetConstant(d, "ELLIPSIZE_MIDDLE",SWIG_From_int(static_cast< int >(wxELLIPSIZE_MIDDLE)));
   SWIG_Python_SetConstant(d, "ELLIPSIZE_END",SWIG_From_int(static_cast< int >(wxELLIPSIZE_END)));

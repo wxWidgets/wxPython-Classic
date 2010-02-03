@@ -409,10 +409,6 @@ class XmlNode(object):
         """GetChildren(self) -> XmlNode"""
         return _xrc.XmlNode_GetChildren(*args, **kwargs)
 
-    def GetAttribute(*args, **kwargs):
-        """GetAttribute(self, String attrName, String defaultVal) -> String"""
-        return _xrc.XmlNode_GetAttribute(*args, **kwargs)
-
     def HasAttribute(*args, **kwargs):
         """HasAttribute(self, String attrName) -> bool"""
         return _xrc.XmlNode_HasAttribute(*args, **kwargs)
@@ -464,6 +460,10 @@ class XmlNode(object):
     def SetAttributes(*args, **kwargs):
         """SetAttributes(self, wxXmlAttribute attr)"""
         return _xrc.XmlNode_SetAttributes(*args, **kwargs)
+
+    def GetAttribute(*args, **kwargs):
+        """GetAttribute(self, String attrName, String defaultVal) -> String"""
+        return _xrc.XmlNode_GetAttribute(*args, **kwargs)
 
     def AddAttribute(*args):
         """

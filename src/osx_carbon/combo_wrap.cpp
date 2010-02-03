@@ -5112,23 +5112,34 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_ComboCtrl_OnPopupDismiss(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_ComboCtrl_OnPopupDismiss(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPyComboCtrl *arg1 = (wxPyComboCtrl *) 0 ;
+  bool arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "generateEvent", NULL 
+  };
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyComboCtrl, 0 |  0 );
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:ComboCtrl_OnPopupDismiss",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyComboCtrl, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ComboCtrl_OnPopupDismiss" "', expected argument " "1"" of type '" "wxPyComboCtrl *""'"); 
   }
   arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ComboCtrl_OnPopupDismiss" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->OnPopupDismiss();
+    (arg1)->OnPopupDismiss(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -7443,7 +7454,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ComboCtrl_GetBitmapDisabled", (PyCFunction)_wrap_ComboCtrl_GetBitmapDisabled, METH_O, NULL},
 	 { (char *)"ComboCtrl_GetInternalFlags", (PyCFunction)_wrap_ComboCtrl_GetInternalFlags, METH_O, NULL},
 	 { (char *)"ComboCtrl_IsCreated", (PyCFunction)_wrap_ComboCtrl_IsCreated, METH_O, NULL},
-	 { (char *)"ComboCtrl_OnPopupDismiss", (PyCFunction)_wrap_ComboCtrl_OnPopupDismiss, METH_O, NULL},
+	 { (char *)"ComboCtrl_OnPopupDismiss", (PyCFunction) _wrap_ComboCtrl_OnPopupDismiss, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ComboCtrl_IsPopupWindowState", (PyCFunction) _wrap_ComboCtrl_IsPopupWindowState, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ComboCtrl_GetPopupWindowState", (PyCFunction)_wrap_ComboCtrl_GetPopupWindowState, METH_O, NULL},
 	 { (char *)"ComboCtrl_SetCtrlMainWnd", (PyCFunction) _wrap_ComboCtrl_SetCtrlMainWnd, METH_VARARGS | METH_KEYWORDS, NULL},

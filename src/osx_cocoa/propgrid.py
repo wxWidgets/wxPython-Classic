@@ -93,6 +93,81 @@ class PGPaintData(object):
     m_drawnHeight = property(_propgrid.PGPaintData_m_drawnHeight_get, _propgrid.PGPaintData_m_drawnHeight_set)
 _propgrid.PGPaintData_swigregister(PGPaintData)
 
+class PGCell(_core.Object):
+    """Proxy of C++ PGCell class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        """
+        __init__(self) -> PGCell
+        __init__(self, PGCell other) -> PGCell
+        __init__(self, String text, Bitmap bitmap=wxNullBitmap, Colour fgCol=wxNullColour, 
+            Colour bgCol=wxNullColour) -> PGCell
+        """
+        _propgrid.PGCell_swiginit(self,_propgrid.new_PGCell(*args))
+    __swig_destroy__ = _propgrid.delete_PGCell
+    __del__ = lambda self : None;
+    def GetData(*args):
+        """
+        GetData(self) -> wxPGCellData
+        GetData(self) -> wxPGCellData
+        """
+        return _propgrid.PGCell_GetData(*args)
+
+    def HasText(*args, **kwargs):
+        """HasText(self) -> bool"""
+        return _propgrid.PGCell_HasText(*args, **kwargs)
+
+    def SetEmptyData(*args, **kwargs):
+        """SetEmptyData(self)"""
+        return _propgrid.PGCell_SetEmptyData(*args, **kwargs)
+
+    def MergeFrom(*args, **kwargs):
+        """MergeFrom(self, PGCell srcCell)"""
+        return _propgrid.PGCell_MergeFrom(*args, **kwargs)
+
+    def SetText(*args, **kwargs):
+        """SetText(self, String text)"""
+        return _propgrid.PGCell_SetText(*args, **kwargs)
+
+    def SetBitmap(*args, **kwargs):
+        """SetBitmap(self, Bitmap bitmap)"""
+        return _propgrid.PGCell_SetBitmap(*args, **kwargs)
+
+    def SetFgCol(*args, **kwargs):
+        """SetFgCol(self, Colour col)"""
+        return _propgrid.PGCell_SetFgCol(*args, **kwargs)
+
+    def SetFont(*args, **kwargs):
+        """SetFont(self, Font font)"""
+        return _propgrid.PGCell_SetFont(*args, **kwargs)
+
+    def SetBgCol(*args, **kwargs):
+        """SetBgCol(self, Colour col)"""
+        return _propgrid.PGCell_SetBgCol(*args, **kwargs)
+
+    def GetText(*args, **kwargs):
+        """GetText(self) -> String"""
+        return _propgrid.PGCell_GetText(*args, **kwargs)
+
+    def GetBitmap(*args, **kwargs):
+        """GetBitmap(self) -> Bitmap"""
+        return _propgrid.PGCell_GetBitmap(*args, **kwargs)
+
+    def GetFgCol(*args, **kwargs):
+        """GetFgCol(self) -> Colour"""
+        return _propgrid.PGCell_GetFgCol(*args, **kwargs)
+
+    def GetFont(*args, **kwargs):
+        """GetFont(self) -> Font"""
+        return _propgrid.PGCell_GetFont(*args, **kwargs)
+
+    def GetBgCol(*args, **kwargs):
+        """GetBgCol(self) -> Colour"""
+        return _propgrid.PGCell_GetBgCol(*args, **kwargs)
+
+_propgrid.PGCell_swigregister(PGCell)
+
 PG_PROP_MODIFIED = _propgrid.PG_PROP_MODIFIED
 PG_PROP_DISABLED = _propgrid.PG_PROP_DISABLED
 PG_PROP_HIDDEN = _propgrid.PG_PROP_HIDDEN
@@ -112,6 +187,7 @@ PG_PROP_USES_COMMON_VALUE = _propgrid.PG_PROP_USES_COMMON_VALUE
 PG_PROP_AUTO_UNSPECIFIED = _propgrid.PG_PROP_AUTO_UNSPECIFIED
 PG_PROP_CLASS_SPECIFIC_1 = _propgrid.PG_PROP_CLASS_SPECIFIC_1
 PG_PROP_CLASS_SPECIFIC_2 = _propgrid.PG_PROP_CLASS_SPECIFIC_2
+PG_PROP_BEING_DELETED = _propgrid.PG_PROP_BEING_DELETED
 class PGChoices(object):
     """Proxy of C++ PGChoices class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -281,7 +357,7 @@ class PGProperty(_core.Object):
         return _propgrid.PGProperty_OnEvent(*args, **kwargs)
 
     def ChildChanged(*args, **kwargs):
-        """ChildChanged(self, wxVariant thisValue, int childIndex, wxVariant childValue)"""
+        """ChildChanged(self, wxVariant thisValue, int childIndex, wxVariant childValue) -> wxVariant"""
         return _propgrid.PGProperty_ChildChanged(*args, **kwargs)
 
     def DoGetEditorClass(*args, **kwargs):
@@ -387,6 +463,10 @@ class PGProperty(_core.Object):
         """
         return _propgrid.PGProperty_GetCell(*args)
 
+    def GetOrCreateCell(*args, **kwargs):
+        """GetOrCreateCell(self, int column) -> PGCell"""
+        return _propgrid.PGProperty_GetOrCreateCell(*args, **kwargs)
+
     def GetDisplayedCommonValueCount(*args, **kwargs):
         """GetDisplayedCommonValueCount(self) -> int"""
         return _propgrid.PGProperty_GetDisplayedCommonValueCount(*args, **kwargs)
@@ -394,6 +474,10 @@ class PGProperty(_core.Object):
     def GetDisplayedString(*args, **kwargs):
         """GetDisplayedString(self) -> String"""
         return _propgrid.PGProperty_GetDisplayedString(*args, **kwargs)
+
+    def GetHintText(*args, **kwargs):
+        """GetHintText(self) -> String"""
+        return _propgrid.PGProperty_GetHintText(*args, **kwargs)
 
     def GetGrid(*args, **kwargs):
         """GetGrid(self) -> PropertyGrid"""
@@ -563,12 +647,16 @@ class PGProperty(_core.Object):
         return _propgrid.PGProperty_SetAttributes(*args, **kwargs)
 
     def SetBackgroundColour(*args, **kwargs):
-        """SetBackgroundColour(self, Colour colour, bool recursively=False)"""
+        """SetBackgroundColour(self, Colour colour, int flags=PG_RECURSE)"""
         return _propgrid.PGProperty_SetBackgroundColour(*args, **kwargs)
 
     def SetTextColour(*args, **kwargs):
-        """SetTextColour(self, Colour colour, bool recursively=False)"""
+        """SetTextColour(self, Colour colour, int flags=PG_RECURSE)"""
         return _propgrid.PGProperty_SetTextColour(*args, **kwargs)
+
+    def SetDefaultValue(*args, **kwargs):
+        """SetDefaultValue(self, wxVariant value)"""
+        return _propgrid.PGProperty_SetDefaultValue(*args, **kwargs)
 
     def SetEditor(*args, **kwargs):
         """SetEditor(self, String editorName)"""
@@ -613,6 +701,10 @@ class PGProperty(_core.Object):
     def SetFlag(*args, **kwargs):
         """SetFlag(self, FlagType flag)"""
         return _propgrid.PGProperty_SetFlag(*args, **kwargs)
+
+    def ChangeFlag(*args, **kwargs):
+        """ChangeFlag(self, FlagType flag, bool set)"""
+        return _propgrid.PGProperty_ChangeFlag(*args, **kwargs)
 
     def SetFlagRecursively(*args, **kwargs):
         """SetFlagRecursively(self, FlagType flag, bool set)"""
@@ -755,15 +847,28 @@ _propgrid.PGProperty_swigregister(PGProperty)
 class PropertyGridHitTestResult(object):
     """Proxy of C++ PropertyGridHitTestResult class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> PropertyGridHitTestResult"""
+        _propgrid.PropertyGridHitTestResult_swiginit(self,_propgrid.new_PropertyGridHitTestResult(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_PropertyGridHitTestResult
+    __del__ = lambda self : None;
+    def GetColumn(*args, **kwargs):
+        """GetColumn(self) -> int"""
+        return _propgrid.PropertyGridHitTestResult_GetColumn(*args, **kwargs)
+
     def GetProperty(*args, **kwargs):
         """GetProperty(self) -> PGProperty"""
         return _propgrid.PropertyGridHitTestResult_GetProperty(*args, **kwargs)
 
-    column = property(_propgrid.PropertyGridHitTestResult_column_get, _propgrid.PropertyGridHitTestResult_column_set)
-    splitter = property(_propgrid.PropertyGridHitTestResult_splitter_get, _propgrid.PropertyGridHitTestResult_splitter_set)
-    splitterHitOffset = property(_propgrid.PropertyGridHitTestResult_splitterHitOffset_get, _propgrid.PropertyGridHitTestResult_splitterHitOffset_set)
+    def GetSplitter(*args, **kwargs):
+        """GetSplitter(self) -> int"""
+        return _propgrid.PropertyGridHitTestResult_GetSplitter(*args, **kwargs)
+
+    def GetSplitterHitOffset(*args, **kwargs):
+        """GetSplitterHitOffset(self) -> int"""
+        return _propgrid.PropertyGridHitTestResult_GetSplitterHitOffset(*args, **kwargs)
+
 _propgrid.PropertyGridHitTestResult_swigregister(PropertyGridHitTestResult)
 
 PG_ITERATE_PROPERTIES = _propgrid.PG_ITERATE_PROPERTIES
@@ -896,7 +1001,7 @@ def PropertyGridConstIterator_OneStep(*args, **kwargs):
     """
   return _propgrid.PropertyGridConstIterator_OneStep(*args, **kwargs)
 
-class PGVIteratorBase(object):
+class PGVIteratorBase(_core.ObjectRefData):
     """Proxy of C++ PGVIteratorBase class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"
@@ -904,14 +1009,6 @@ class PGVIteratorBase(object):
     def Next(*args, **kwargs):
         """Next(self)"""
         return _propgrid.PGVIteratorBase_Next(*args, **kwargs)
-
-    def IncRef(*args, **kwargs):
-        """IncRef(self)"""
-        return _propgrid.PGVIteratorBase_IncRef(*args, **kwargs)
-
-    def DecRef(*args, **kwargs):
-        """DecRef(self)"""
-        return _propgrid.PGVIteratorBase_DecRef(*args, **kwargs)
 
 _propgrid.PGVIteratorBase_swigregister(PGVIteratorBase)
 
@@ -1139,14 +1236,6 @@ class PropertyGridInterface(object):
         """GetPropertyValueAsArrayString(self, PGPropArg id) -> wxArrayString"""
         return _propgrid.PropertyGridInterface_GetPropertyValueAsArrayString(*args, **kwargs)
 
-    def GetPropertyValueAsLongLong(*args, **kwargs):
-        """GetPropertyValueAsLongLong(self, PGPropArg id) -> wxLongLong_t"""
-        return _propgrid.PropertyGridInterface_GetPropertyValueAsLongLong(*args, **kwargs)
-
-    def GetPropertyValueAsULongLong(*args, **kwargs):
-        """GetPropertyValueAsULongLong(self, PGPropArg id) -> wxULongLong_t"""
-        return _propgrid.PropertyGridInterface_GetPropertyValueAsULongLong(*args, **kwargs)
-
     def GetPropertyValueAsArrayInt(*args, **kwargs):
         """GetPropertyValueAsArrayInt(self, PGPropArg id) -> wxArrayInt"""
         return _propgrid.PropertyGridInterface_GetPropertyValueAsArrayInt(*args, **kwargs)
@@ -1154,6 +1243,10 @@ class PropertyGridInterface(object):
     def GetSelection(*args, **kwargs):
         """GetSelection(self) -> PGProperty"""
         return _propgrid.PropertyGridInterface_GetSelection(*args, **kwargs)
+
+    def GetSelectedProperties(*args, **kwargs):
+        """GetSelectedProperties(self) -> wxArrayPGProperty"""
+        return _propgrid.PropertyGridInterface_GetSelectedProperties(*args, **kwargs)
 
     def GetVIterator(*args, **kwargs):
         """GetVIterator(self, int flags) -> PGVIterator"""
@@ -1190,6 +1283,10 @@ class PropertyGridInterface(object):
     def IsPropertyModified(*args, **kwargs):
         """IsPropertyModified(self, PGPropArg id) -> bool"""
         return _propgrid.PropertyGridInterface_IsPropertyModified(*args, **kwargs)
+
+    def IsPropertySelected(*args, **kwargs):
+        """IsPropertySelected(self, PGPropArg id) -> bool"""
+        return _propgrid.PropertyGridInterface_IsPropertySelected(*args, **kwargs)
 
     def IsPropertyShown(*args, **kwargs):
         """IsPropertyShown(self, PGPropArg id) -> bool"""
@@ -1245,7 +1342,7 @@ class PropertyGridInterface(object):
         return _propgrid.PropertyGridInterface_SetPropertyAttributeAll(*args, **kwargs)
 
     def SetPropertyBackgroundColour(*args, **kwargs):
-        """SetPropertyBackgroundColour(self, PGPropArg id, Colour colour, bool recursively=True)"""
+        """SetPropertyBackgroundColour(self, PGPropArg id, Colour colour, int flags=PG_RECURSE)"""
         return _propgrid.PropertyGridInterface_SetPropertyBackgroundColour(*args, **kwargs)
 
     def SetPropertyColoursToDefault(*args, **kwargs):
@@ -1253,7 +1350,7 @@ class PropertyGridInterface(object):
         return _propgrid.PropertyGridInterface_SetPropertyColoursToDefault(*args, **kwargs)
 
     def SetPropertyTextColour(*args, **kwargs):
-        """SetPropertyTextColour(self, PGPropArg id, Colour col, bool recursively=True)"""
+        """SetPropertyTextColour(self, PGPropArg id, Colour col, int flags=PG_RECURSE)"""
         return _propgrid.PropertyGridInterface_SetPropertyTextColour(*args, **kwargs)
 
     def GetPropertyBackgroundColour(*args, **kwargs):
@@ -1614,6 +1711,7 @@ PG_STATIC_LAYOUT = _propgrid.PG_STATIC_LAYOUT
 PG_LIMITED_EDITING = _propgrid.PG_LIMITED_EDITING
 PG_TOOLBAR = _propgrid.PG_TOOLBAR
 PG_DESCRIPTION = _propgrid.PG_DESCRIPTION
+PG_NO_INTERNAL_BORDER = _propgrid.PG_NO_INTERNAL_BORDER
 PG_EX_INIT_NOCAT = _propgrid.PG_EX_INIT_NOCAT
 PG_EX_NO_FLAT_TOOLBAR = _propgrid.PG_EX_NO_FLAT_TOOLBAR
 PG_EX_MODE_BUTTONS = _propgrid.PG_EX_MODE_BUTTONS
@@ -1622,6 +1720,10 @@ PG_EX_NATIVE_DOUBLE_BUFFERING = _propgrid.PG_EX_NATIVE_DOUBLE_BUFFERING
 PG_EX_AUTO_UNSPECIFIED_VALUES = _propgrid.PG_EX_AUTO_UNSPECIFIED_VALUES
 PG_EX_WRITEONLY_BUILTIN_ATTRIBUTES = _propgrid.PG_EX_WRITEONLY_BUILTIN_ATTRIBUTES
 PG_EX_HIDE_PAGE_BUTTONS = _propgrid.PG_EX_HIDE_PAGE_BUTTONS
+PG_EX_MULTIPLE_SELECTION = _propgrid.PG_EX_MULTIPLE_SELECTION
+PG_EX_ENABLE_TLP_TRACKING = _propgrid.PG_EX_ENABLE_TLP_TRACKING
+PG_EX_NO_TOOLBAR_DIVIDER = _propgrid.PG_EX_NO_TOOLBAR_DIVIDER
+PG_EX_TOOLBAR_SEPARATOR = _propgrid.PG_EX_TOOLBAR_SEPARATOR
 PG_DEFAULT_STYLE = _propgrid.PG_DEFAULT_STYLE
 PGMAN_DEFAULT_STYLE = _propgrid.PGMAN_DEFAULT_STYLE
 PG_SUBID1 = _propgrid.PG_SUBID1
@@ -1698,6 +1800,12 @@ PG_SEL_NOVALIDATE = _propgrid.PG_SEL_NOVALIDATE
 PG_SEL_DELETING = _propgrid.PG_SEL_DELETING
 PG_SEL_SETUNSPEC = _propgrid.PG_SEL_SETUNSPEC
 PG_SEL_DIALOGVAL = _propgrid.PG_SEL_DIALOGVAL
+PG_SEL_DONT_SEND_EVENT = _propgrid.PG_SEL_DONT_SEND_EVENT
+PG_SEL_NO_REFRESH = _propgrid.PG_SEL_NO_REFRESH
+PG_SPLITTER_REFRESH = _propgrid.PG_SPLITTER_REFRESH
+PG_SPLITTER_ALL_PAGES = _propgrid.PG_SPLITTER_ALL_PAGES
+PG_SPLITTER_FROM_EVENT = _propgrid.PG_SPLITTER_FROM_EVENT
+PG_SPLITTER_FROM_AUTO_CENTER = _propgrid.PG_SPLITTER_FROM_AUTO_CENTER
 class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
     """Proxy of C++ PropertyGrid class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -1774,7 +1882,7 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
         return _propgrid.PropertyGrid_FitColumns(*args, **kwargs)
 
     def GetPanel(*args, **kwargs):
-        """GetPanel(self) -> Panel"""
+        """GetPanel(self) -> Window"""
         return _propgrid.PropertyGrid_GetPanel(*args, **kwargs)
 
     def GetCaptionBackgroundColour(*args, **kwargs):
@@ -1843,6 +1951,10 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
         """GetMarginColour(self) -> Colour"""
         return _propgrid.PropertyGrid_GetMarginColour(*args, **kwargs)
 
+    def GetMarginWidth(*args, **kwargs):
+        """GetMarginWidth(self) -> int"""
+        return _propgrid.PropertyGrid_GetMarginWidth(*args, **kwargs)
+
     def GetUncommittedPropertyValue(*args, **kwargs):
         """GetUncommittedPropertyValue(self) -> wxVariant"""
         return _propgrid.PropertyGrid_GetUncommittedPropertyValue(*args, **kwargs)
@@ -1858,10 +1970,6 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
     def GetSelectedProperty(*args, **kwargs):
         """GetSelectedProperty(self) -> PGProperty"""
         return _propgrid.PropertyGrid_GetSelectedProperty(*args, **kwargs)
-
-    def GetSelection(*args, **kwargs):
-        """GetSelection(self) -> PGProperty"""
-        return _propgrid.PropertyGrid_GetSelection(*args, **kwargs)
 
     def GetSelectionBackgroundColour(*args, **kwargs):
         """GetSelectionBackgroundColour(self) -> Colour"""
@@ -1917,6 +2025,10 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
         """
         return _propgrid.PropertyGrid_IsFrozen(*args, **kwargs)
 
+    def OnTLPChanging(*args, **kwargs):
+        """OnTLPChanging(self, Window newTLP)"""
+        return _propgrid.PropertyGrid_OnTLPChanging(*args, **kwargs)
+
     def ResetColours(*args, **kwargs):
         """ResetColours(self)"""
         return _propgrid.PropertyGrid_ResetColours(*args, **kwargs)
@@ -1924,6 +2036,34 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
     def SelectProperty(*args, **kwargs):
         """SelectProperty(self, PGPropArg id, bool focus=False) -> bool"""
         return _propgrid.PropertyGrid_SelectProperty(*args, **kwargs)
+
+    def SetSelection(*args, **kwargs):
+        """SetSelection(self, wxArrayPGProperty newSelection)"""
+        return _propgrid.PropertyGrid_SetSelection(*args, **kwargs)
+
+    def AddToSelection(*args, **kwargs):
+        """AddToSelection(self, PGPropArg id) -> bool"""
+        return _propgrid.PropertyGrid_AddToSelection(*args, **kwargs)
+
+    def RemoveFromSelection(*args, **kwargs):
+        """RemoveFromSelection(self, PGPropArg id) -> bool"""
+        return _propgrid.PropertyGrid_RemoveFromSelection(*args, **kwargs)
+
+    def MakeColumnEditable(*args, **kwargs):
+        """MakeColumnEditable(self, int column, bool editable=True)"""
+        return _propgrid.PropertyGrid_MakeColumnEditable(*args, **kwargs)
+
+    def BeginLabelEdit(*args, **kwargs):
+        """BeginLabelEdit(self, int column=0)"""
+        return _propgrid.PropertyGrid_BeginLabelEdit(*args, **kwargs)
+
+    def EndLabelEdit(*args, **kwargs):
+        """EndLabelEdit(self, bool commit=True)"""
+        return _propgrid.PropertyGrid_EndLabelEdit(*args, **kwargs)
+
+    def GetLabelEditor(*args, **kwargs):
+        """GetLabelEditor(self) -> wxTextCtrl"""
+        return _propgrid.PropertyGrid_GetLabelEditor(*args, **kwargs)
 
     def SetCaptionBackgroundColour(*args, **kwargs):
         """SetCaptionBackgroundColour(self, Colour col)"""
@@ -1974,7 +2114,7 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
         return _propgrid.PropertyGrid_SetSelectionTextColour(*args, **kwargs)
 
     def SetSplitterPosition(*args, **kwargs):
-        """SetSplitterPosition(self, int newxpos, int col=0)"""
+        """SetSplitterPosition(self, int newXPos, int col=0)"""
         return _propgrid.PropertyGrid_SetSplitterPosition(*args, **kwargs)
 
     def SetSortFunction(*args, **kwargs):
@@ -1984,6 +2124,18 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
     def GetSortFunction(*args, **kwargs):
         """GetSortFunction(self) -> PGSortCallback"""
         return _propgrid.PropertyGrid_GetSortFunction(*args, **kwargs)
+
+    def SetUnspecifiedValueAppearance(*args, **kwargs):
+        """SetUnspecifiedValueAppearance(self, PGCell cell)"""
+        return _propgrid.PropertyGrid_SetUnspecifiedValueAppearance(*args, **kwargs)
+
+    def GetUnspecifiedValueAppearance(*args, **kwargs):
+        """GetUnspecifiedValueAppearance(self) -> PGCell"""
+        return _propgrid.PropertyGrid_GetUnspecifiedValueAppearance(*args, **kwargs)
+
+    def GetUnspecifiedValueText(*args, **kwargs):
+        """GetUnspecifiedValueText(self, int argFlags=0) -> String"""
+        return _propgrid.PropertyGrid_GetUnspecifiedValueText(*args, **kwargs)
 
     def SetVirtualWidth(*args, **kwargs):
         """SetVirtualWidth(self, int width)"""
@@ -2030,13 +2182,13 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
         return _propgrid.PropertyGrid_GenerateEditorButton(*args, **kwargs)
 
     def FixPosForTextCtrl(*args, **kwargs):
-        """FixPosForTextCtrl(self, Window ctrl, Point offset=wxPoint(0, 0))"""
+        """FixPosForTextCtrl(self, Window ctrl, int forColumn=1, Point offset=wxPoint(0, 0))"""
         return _propgrid.PropertyGrid_FixPosForTextCtrl(*args, **kwargs)
 
     def GenerateEditorTextCtrl(*args, **kwargs):
         """
         GenerateEditorTextCtrl(self, Point pos, Size sz, String value, Window secondary, 
-            int extraStyle=0, int maxLen=0) -> Window
+            int extraStyle=0, int maxLen=0, int forColumn=1) -> Window
         """
         return _propgrid.PropertyGrid_GenerateEditorTextCtrl(*args, **kwargs)
 
@@ -2109,6 +2261,11 @@ wxEVT_PG_PAGE_CHANGED = _propgrid.wxEVT_PG_PAGE_CHANGED
 wxEVT_PG_ITEM_COLLAPSED = _propgrid.wxEVT_PG_ITEM_COLLAPSED
 wxEVT_PG_ITEM_EXPANDED = _propgrid.wxEVT_PG_ITEM_EXPANDED
 wxEVT_PG_DOUBLE_CLICK = _propgrid.wxEVT_PG_DOUBLE_CLICK
+wxEVT_PG_LABEL_EDIT_BEGIN = _propgrid.wxEVT_PG_LABEL_EDIT_BEGIN
+wxEVT_PG_LABEL_EDIT_ENDING = _propgrid.wxEVT_PG_LABEL_EDIT_ENDING
+wxEVT_PG_COL_BEGIN_DRAG = _propgrid.wxEVT_PG_COL_BEGIN_DRAG
+wxEVT_PG_COL_DRAGGING = _propgrid.wxEVT_PG_COL_DRAGGING
+wxEVT_PG_COL_END_DRAG = _propgrid.wxEVT_PG_COL_END_DRAG
 class PropertyGridEvent(_core.CommandEvent):
     """Proxy of C++ PropertyGridEvent class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -2118,6 +2275,10 @@ class PropertyGridEvent(_core.CommandEvent):
         _propgrid.PropertyGridEvent_swiginit(self,_propgrid.new_PropertyGridEvent(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_PropertyGridEvent
     __del__ = lambda self : None;
+    def GetColumn(*args, **kwargs):
+        """GetColumn(self) -> int"""
+        return _propgrid.PropertyGridEvent_GetColumn(*args, **kwargs)
+
     def GetMainParent(*args, **kwargs):
         """GetMainParent(self) -> PGProperty"""
         return _propgrid.PropertyGridEvent_GetMainParent(*args, **kwargs)
@@ -2137,6 +2298,14 @@ class PropertyGridEvent(_core.CommandEvent):
     def Veto(*args, **kwargs):
         """Veto(self, bool veto=True)"""
         return _propgrid.PropertyGridEvent_Veto(*args, **kwargs)
+
+    def GetPropertyName(*args, **kwargs):
+        """GetPropertyName(self) -> String"""
+        return _propgrid.PropertyGridEvent_GetPropertyName(*args, **kwargs)
+
+    def GetPropertyValue(*args, **kwargs):
+        """GetPropertyValue(self) -> wxVariant"""
+        return _propgrid.PropertyGridEvent_GetPropertyValue(*args, **kwargs)
 
     def GetValue(*args, **kwargs):
         """GetValue(self) -> wxVariant"""
@@ -2263,6 +2432,13 @@ class PGEditor(_core.Object):
             Event event) -> bool
         """
         return _propgrid.PGEditor_OnEvent(*args, **kwargs)
+
+    def SetControlAppearance(*args, **kwargs):
+        """
+        SetControlAppearance(self, PropertyGrid pg, PGProperty property, Window ctrl, 
+            PGCell appearance, PGCell oldAppearance, bool unspecified)
+        """
+        return _propgrid.PGEditor_SetControlAppearance(*args, **kwargs)
 
     def SetValueToUnspecified(*args, **kwargs):
         """SetValueToUnspecified(self, PGProperty property, Window ctrl)"""
@@ -3126,6 +3302,10 @@ class PropertyGridManager(_windows.Panel,PropertyGridInterface):
         """IsPageModified(self, size_t index) -> bool"""
         return _propgrid.PropertyGridManager_IsPageModified(*args, **kwargs)
 
+    def IsPropertySelected(*args, **kwargs):
+        """IsPropertySelected(self, PGPropArg id) -> bool"""
+        return _propgrid.PropertyGridManager_IsPropertySelected(*args, **kwargs)
+
     def RemovePage(*args, **kwargs):
         """RemovePage(self, int page) -> bool"""
         return _propgrid.PropertyGridManager_RemovePage(*args, **kwargs)
@@ -3141,6 +3321,10 @@ class PropertyGridManager(_windows.Panel,PropertyGridInterface):
     def SelectProperty(*args, **kwargs):
         """SelectProperty(self, PGPropArg id, bool focus=False) -> bool"""
         return _propgrid.PropertyGridManager_SelectProperty(*args, **kwargs)
+
+    def SetColumnTitle(*args, **kwargs):
+        """SetColumnTitle(self, int idx, String title)"""
+        return _propgrid.PropertyGridManager_SetColumnTitle(*args, **kwargs)
 
     def SetColumnCount(*args, **kwargs):
         """SetColumnCount(self, int colCount, int page=-1)"""
@@ -3204,6 +3388,10 @@ class PropertyGridManager(_windows.Panel,PropertyGridInterface):
         times that Freeze was before the window will be updated.
         """
         return _propgrid.PropertyGridManager_Thaw(*args, **kwargs)
+
+    def Reparent(*args, **kwargs):
+        """Reparent(self, wxWindowBase newParent) -> bool"""
+        return _propgrid.PropertyGridManager_Reparent(*args, **kwargs)
 
     def GetValuesFromPage(self,
                           page,
@@ -3754,6 +3942,41 @@ class PyFlagsProperty(FlagsProperty):
 
 _propgrid.PyFlagsProperty_swigregister(PyFlagsProperty)
 
+class PyColourProperty(ColourProperty):
+    """Proxy of C++ PyColourProperty class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, Colour value=*wxWHITE) -> PyColourProperty"""
+        _propgrid.PyColourProperty_swiginit(self,_propgrid.new_PyColourProperty(*args, **kwargs))
+        self._SetSelf(self); self._RegisterMethods()
+
+    def CallSuperMethod(self, *args, **kwargs):
+        funcname = args[0]
+        args2 = list(args)
+        args2[0] = self
+        self._super_call = True
+        try:
+            res = getattr(PyColourProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
+        return res
+
+    def _RegisterMethods(self):
+        cls = self.__class__
+        if not hasattr(cls,'_pyswig_methods_registered'):
+            cls._pyswig_methods_registered = True
+            ls = [ab for ab in cls.__dict__.iteritems()]
+            for a, b in ls:
+                if not a.startswith('_'):
+                    setattr(cls, '%s_t_'%a, b)
+
+    def _SetSelf(*args, **kwargs):
+        """_SetSelf(self, PyObject self)"""
+        return _propgrid.PyColourProperty__SetSelf(*args, **kwargs)
+
+_propgrid.PyColourProperty_swigregister(PyColourProperty)
+
 class PyFileProperty(FileProperty):
     """Proxy of C++ PyFileProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -3969,41 +4192,6 @@ class PyLongStringDialogAdapter(PGLongStringDialogAdapter):
         return _propgrid.PyLongStringDialogAdapter__SetSelf(*args, **kwargs)
 
 _propgrid.PyLongStringDialogAdapter_swigregister(PyLongStringDialogAdapter)
-
-class PyColourProperty(ColourProperty):
-    """Proxy of C++ PyColourProperty class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, Colour value=*wxWHITE) -> PyColourProperty"""
-        _propgrid.PyColourProperty_swiginit(self,_propgrid.new_PyColourProperty(*args, **kwargs))
-        self._SetSelf(self); self._RegisterMethods()
-
-    def CallSuperMethod(self, *args, **kwargs):
-        funcname = args[0]
-        args2 = list(args)
-        args2[0] = self
-        self._super_call = True
-        try:
-            res = getattr(PyColourProperty, funcname)(*args2, **kwargs)
-        finally:
-            del self._super_call
-        return res
-
-    def _RegisterMethods(self):
-        cls = self.__class__
-        if not hasattr(cls,'_pyswig_methods_registered'):
-            cls._pyswig_methods_registered = True
-            ls = [ab for ab in cls.__dict__.iteritems()]
-            for a, b in ls:
-                if not a.startswith('_'):
-                    setattr(cls, '%s_t_'%a, b)
-
-    def _SetSelf(*args, **kwargs):
-        """_SetSelf(self, PyObject self)"""
-        return _propgrid.PyColourProperty__SetSelf(*args, **kwargs)
-
-_propgrid.PyColourProperty_swigregister(PyColourProperty)
 
 class PyUIntProperty(UIntProperty):
     """Proxy of C++ PyUIntProperty class"""

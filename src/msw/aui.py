@@ -1494,6 +1494,16 @@ class AuiNotebook(_core.Control):
         """ShowWindowMenu(self) -> bool"""
         return _aui.AuiNotebook_ShowWindowMenu(*args, **kwargs)
 
+    def Thaw(*args, **kwargs):
+        """
+        Thaw(self)
+
+        Reenables window updating after a previous call to Freeze.  Calls to
+        Freeze/Thaw may be nested, so Thaw must be called the same number of
+        times that Freeze was before the window will be updated.
+        """
+        return _aui.AuiNotebook_Thaw(*args, **kwargs)
+
     PageCount = property(GetPageCount,doc="See `GetPageCount`") 
     Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
 _aui.AuiNotebook_swigregister(AuiNotebook)

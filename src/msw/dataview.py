@@ -851,10 +851,6 @@ class DataViewIndexListModel(DataViewModel):
         """
         return _dataview.DataViewIndexListModel_GetItem(*args, **kwargs)
 
-    def GetLastIndex(*args, **kwargs):
-        """GetLastIndex(self) -> unsigned int"""
-        return _dataview.DataViewIndexListModel_GetLastIndex(*args, **kwargs)
-
 _dataview.DataViewIndexListModel_swigregister(DataViewIndexListModel)
 
 class PyDataViewIndexListModel(DataViewIndexListModel):
@@ -1013,10 +1009,6 @@ class DataViewVirtualListModel(DataViewModel):
         Returns the DataViewItem for the item at row.
         """
         return _dataview.DataViewVirtualListModel_GetItem(*args, **kwargs)
-
-    def GetLastIndex(*args, **kwargs):
-        """GetLastIndex(self) -> unsigned int"""
-        return _dataview.DataViewVirtualListModel_GetLastIndex(*args, **kwargs)
 
 _dataview.DataViewVirtualListModel_swigregister(DataViewVirtualListModel)
 
