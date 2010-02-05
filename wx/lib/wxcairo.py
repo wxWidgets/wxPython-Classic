@@ -260,7 +260,7 @@ def _findCairoLib():
                     if 'libcairo' in path:
                         try:
                             cairoLib = ctypes.CDLL(path)
-                        break
+                            break
                         except:
                             pass
 
