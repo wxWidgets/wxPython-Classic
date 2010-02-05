@@ -2426,6 +2426,14 @@ class RichTextCtrl(_core.Control):
         """
         return _richtext.RichTextCtrl_GetURLCursor(*args, **kwargs)
 
+    def GetContextMenu(*args, **kwargs):
+        """GetContextMenu(self) -> Menu"""
+        return _richtext.RichTextCtrl_GetContextMenu(*args, **kwargs)
+
+    def SetContextMenu(*args, **kwargs):
+        """SetContextMenu(self, Menu menu)"""
+        return _richtext.RichTextCtrl_SetContextMenu(*args, **kwargs)
+
     def Clear(*args, **kwargs):
         """Clear(self)"""
         return _richtext.RichTextCtrl_Clear(*args, **kwargs)

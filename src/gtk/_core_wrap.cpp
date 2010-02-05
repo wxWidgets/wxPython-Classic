@@ -4154,11 +4154,11 @@ SWIGINTERN bool wxWindow_RegisterHotKey(wxWindow *self,int hotkeyId,int modifier
         #endif
         }
 SWIGINTERN bool wxWindow_UnregisterHotKey(wxWindow *self,int hotkeyId){
-        
-
-
+        #if wxUSE_HOTKEY
+            return self->UnregisterHotKey(hotkeyId);
+        #else
             return false;
-        
+        #endif
         }
 SWIGINTERN void wxWindow_SetDoubleBuffered(wxWindow *self,bool on){
         #if defined(__WXGTK20__) || defined(__WXMSW__)
@@ -52418,6 +52418,42 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_SizerItem_SetMinSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxSizerItem *arg1 = (wxSizerItem *) 0 ;
+  wxSize *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxSize temp2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "size", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:SizerItem_SetMinSize",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSizerItem, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SizerItem_SetMinSize" "', expected argument " "1"" of type '" "wxSizerItem *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSizerItem * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxSize_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetMinSize((wxSize const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_SizerItem_GetMinSizeWithBorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxSizerItem *arg1 = (wxSizerItem *) 0 ;
@@ -62001,6 +62037,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SizerItem_CalcMin", (PyCFunction)_wrap_SizerItem_CalcMin, METH_O, NULL},
 	 { (char *)"SizerItem_SetDimension", (PyCFunction) _wrap_SizerItem_SetDimension, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SizerItem_GetMinSize", (PyCFunction)_wrap_SizerItem_GetMinSize, METH_O, NULL},
+	 { (char *)"SizerItem_SetMinSize", (PyCFunction) _wrap_SizerItem_SetMinSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SizerItem_GetMinSizeWithBorder", (PyCFunction)_wrap_SizerItem_GetMinSizeWithBorder, METH_O, NULL},
 	 { (char *)"SizerItem_SetInitSize", (PyCFunction) _wrap_SizerItem_SetInitSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SizerItem_SetRatioWH", (PyCFunction) _wrap_SizerItem_SetRatioWH, METH_VARARGS | METH_KEYWORDS, NULL},

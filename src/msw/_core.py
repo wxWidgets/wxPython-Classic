@@ -12351,6 +12351,14 @@ class SizerItem(Object):
         """
         return _core_.SizerItem_GetMinSize(*args, **kwargs)
 
+    def SetMinSize(*args, **kwargs):
+        """
+        SetMinSize(self, Size size)
+
+        Set the min size needed for the item
+        """
+        return _core_.SizerItem_SetMinSize(*args, **kwargs)
+
     def GetMinSizeWithBorder(*args, **kwargs):
         """
         GetMinSizeWithBorder(self) -> Size
