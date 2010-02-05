@@ -179,7 +179,10 @@ during sizing.", "");
     DocDeclStr(
         wxCursor , GetURLCursor() const,
         "Get URL cursor", "");
+
     
+    wxMenu* GetContextMenu() const;
+    void SetContextMenu(wxMenu* menu);
 
     
 
