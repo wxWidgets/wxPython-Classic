@@ -229,6 +229,7 @@ wx/tools/Editra/src/autocomp
 wx/tools/Editra/src/ebmlib
 wx/tools/Editra/src/eclib
 wx/tools/Editra/src/extern
+wx/tools/Editra/src/extern/aui
 wx/tools/Editra/src/extern/pygments
 wx/tools/Editra/src/extern/pygments/filters
 wx/tools/Editra/src/extern/pygments/formatters
