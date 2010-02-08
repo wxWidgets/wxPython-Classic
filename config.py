@@ -1002,6 +1002,10 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
             #    cflags.append("-isysroot")
             #    cflags.append("/Developer/SDKs/MacOSX10.3.9.sdk")
 
+        # should this be conditional?
+        os.environ["CXX"] = "g++-4.0"
+        os.environ["CC"]  = "gcc-4.0"
+        os.environ["CPP"] = "cpp-4.0"
 
     else:
         # Set flags for other Unix type platforms
