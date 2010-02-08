@@ -2318,3 +2318,22 @@ dialogs, etc.)", "");
 
 //---------------------------------------------------------------------------
 
+%pythoncode {
+    class FrozenWindow(object):
+        """
+        A context manager to be used with Python 'with' statements
+        that will freeze the given window for the duration of the
+        with block.
+        """
+        def __init__(self, window):
+            self._win = window
+        def __enter__(self):
+            self.Freeze()
+            return self
+        def __exit__(self):
+            self.Thaw()
+}
+
+
+//---------------------------------------------------------------------------
+

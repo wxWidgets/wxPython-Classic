@@ -3,8 +3,38 @@ Recent Changes for wxPython
 
 2.8.11.0
 --------
+*
 
 Lots of bug fixes in both wxWidgets and wxPython.
+
+Added the context manager protocol methods to some wx classes so they
+can be used with the new Python 'with' statement.  (The with statement
+is always available starting in Python 2.6, and can also be used in
+Python 2.5 with a __future__ import statement.)  There are several
+wx classes where this is a natural fit, such as wx.BusyInfo.  The
+__enter__ and __exit__ methods have also been added to wx.Dialog where
+it will do the dialog.Destroy() call for you.  This means that you can
+use code like this::
+
+    with MyDialog(self, foo, bar) as dlg:
+    	 if dlg.ShowModal() == wx.ID_OK:
+	    # do something with dlg values
+
+The list of wx classes that can now be used as context managers is:
+
+  * wx.Dialog
+  * wx.BusyInfo
+  * wx.BusyCursor
+  * wx.WindowDisabler
+  * wx.LogNull
+  * wx.DCTextColourChanger
+  * wx.DCPenChanger
+  * wx.DCBrushChanger
+  * wx.DCClipper
+
+A new class has been added that is also a context manager, called
+wx.FrozenWindow.  It will freeze the window passed to it upon entry to
+the context, and will thaw the window upon exit from the context.
 
 
 

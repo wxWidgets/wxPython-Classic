@@ -436,6 +436,14 @@ public:
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
 
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            self.Destroy()
+    }
+
     %property(AffirmativeId, GetAffirmativeId, SetAffirmativeId, doc="See `GetAffirmativeId` and `SetAffirmativeId`");
     %property(EscapeId, GetEscapeId, SetEscapeId, doc="See `GetEscapeId` and `SetEscapeId`");
     %property(ReturnCode, GetReturnCode, SetReturnCode, doc="See `GetReturnCode` and `SetReturnCode`");
