@@ -1360,7 +1360,8 @@ supported.", "");
            raise ValueError('backgrounds and coords must have same length')
         return  self._DrawTextList(textList, coords, foregrounds, backgrounds)
     }
-
+    
+    
     %property(Background, GetBackground, SetBackground, doc="See `GetBackground` and `SetBackground`");
     %property(BackgroundMode, GetBackgroundMode, SetBackgroundMode, doc="See `GetBackgroundMode` and `SetBackgroundMode`");
     %property(BoundingBox, GetBoundingBox, doc="See `GetBoundingBox`");
@@ -1418,6 +1419,14 @@ class wxDCTextColourChanger
 public:
     wxDCTextColourChanger(wxDC& dc, const wxColour& col);
     ~wxDCTextColourChanger();
+
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+    }  
 };
 
 
@@ -1430,6 +1439,14 @@ class  wxDCPenChanger
 public:
     wxDCPenChanger(wxDC& dc, const wxPen& pen);
     ~wxDCPenChanger();
+
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+    }  
 };
 
 
@@ -1443,6 +1460,14 @@ class wxDCBrushChanger
 public:
     wxDCBrushChanger(wxDC& dc, const wxBrush& brush);
     ~wxDCBrushChanger();
+
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+    }  
 };
 
 
@@ -1459,6 +1484,14 @@ public:
     wxDCClipper(wxDC& dc, const wxRect& r);
     wxDCClipper(wxDC& dc, wxCoord x, wxCoord y, wxCoord w, wxCoord h);
     ~wxDCClipper();
+
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+    }  
 };
 
 

@@ -120,6 +120,14 @@ class  wxBusyCursor {
 public:
     wxBusyCursor(wxCursor* cursor = wxHOURGLASS_CURSOR);
     ~wxBusyCursor();
+
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+    }  
 };
 
 //---------------------------------------------------------------------------
@@ -132,6 +140,14 @@ public:
     wxWindowDisabler(bool disable = true);
     wxWindowDisabler(wxWindow *winToSkip);
     ~wxWindowDisabler();
+
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+    }
 };
 
 //---------------------------------------------------------------------------
@@ -144,6 +160,14 @@ public:
     ~wxBusyInfo();
 
     %pythoncode { def Destroy(self): pass }
+
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+    }
 };
 
 
