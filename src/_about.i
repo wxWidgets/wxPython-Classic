@@ -73,7 +73,7 @@ i.e. not necessarily in the x.y.z form but it shouldn't contain the
     %property(Version, GetVersion, SetVersion);
 
     DocDeclStr(
-        wxString& , GetLongVersion() const,
+        wxString , GetLongVersion() const,
         "", "");
     
     %property(LongVersion, GetLongVersion);
