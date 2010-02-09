@@ -33,12 +33,12 @@ class TestPanel(wx.Panel):
         render.DrawCheckBox(self, dc, (65, 35, 16, 16))
         render.DrawCheckBox(self, dc, (85, 35, 16, 16), wx.CONTROL_CHECKED | wx.CONTROL_DISABLED)
 
-        lbl = "DrawRadioButton:"
+        lbl = "DrawRadioBitmap:"
         dc.DrawText(lbl, 375, 15)
-        render.DrawRadioButton(self, dc, (385, 35, 16, 16), wx.CONTROL_CHECKED)
-        render.DrawRadioButton(self, dc, (405, 35, 16, 16), wx.CONTROL_CHECKABLE)
-        render.DrawRadioButton(self, dc, (425, 35, 16, 16))
-        render.DrawRadioButton(self, dc, (445, 35, 16, 16), wx.CONTROL_CHECKED | wx.CONTROL_DISABLED)
+        render.DrawRadioBitmap(self, dc, (385, 35, 16, 16), wx.CONTROL_CHECKED)
+        render.DrawRadioBitmap(self, dc, (405, 35, 16, 16), wx.CONTROL_CHECKABLE)
+        render.DrawRadioBitmap(self, dc, (425, 35, 16, 16))
+        render.DrawRadioBitmap(self, dc, (445, 35, 16, 16), wx.CONTROL_CHECKED | wx.CONTROL_DISABLED)
     
         # Draw ComboBoxDropButton
         xpos = self.GetTextExtent(cb_lbl)[0] + 40
