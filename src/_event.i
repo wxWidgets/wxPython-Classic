@@ -1131,7 +1131,6 @@ the mouse wheel instead of line scrolling.", "");
 
     %property(LinesPerAction, GetLinesPerAction, doc="See `GetLinesPerAction`");
     %property(LogicalPosition, GetLogicalPosition, doc="See `GetLogicalPosition`");
-    %property(Position, GetPosition, doc="See `GetPosition`");
     %property(WheelDelta, GetWheelDelta, doc="See `GetWheelDelta`");
     %property(WheelRotation, GetWheelRotation, doc="See `GetWheelRotation`");
 };

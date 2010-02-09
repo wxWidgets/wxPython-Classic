@@ -85,8 +85,9 @@ public:
         middleIsDown = property(MiddleIsDown, SetMiddleDown)
         rightIsDown = property(RightIsDown, SetRightDown)
         aux1IsDown = property(Aux1IsDown, SetAux1Down)
-        aux2IsDown = property(Aux2IsDown, SetAux2Down)            
+        aux2IsDown = property(Aux2IsDown, SetAux2Down)
     }
+    %property(Position, GetPosition, doc="See `GetPosition`");
 };
 
 
