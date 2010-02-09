@@ -21,6 +21,7 @@ version3_nodot = version3.replace(".", "")
 
 CPU = os.environ.get('CPU', '')
 
+# Should we make this conditional?
 if sys.platform.startswith("darwin"):
     os.environ["CXX"] = "g++-4.0"
     os.environ["CC"]  = "gcc-4.0"
