@@ -601,6 +601,10 @@ file or explpicitly set for the bitmap.
         "Returns a sub-bitmap of the current one as long as the rect belongs
 entirely to the bitmap. This function preserves bit depth and mask
 information.", "");
+
+
+    // Convert to disabled (dimmed) bitmap.
+    wxBitmap ConvertToDisabled(unsigned char brightness = 255) const;
     
 
     DocDeclStr(
