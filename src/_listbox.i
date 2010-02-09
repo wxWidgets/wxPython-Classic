@@ -257,8 +257,6 @@ public:
         Checked = property(GetChecked,SetChecked)
         CheckedStrings = property(GetCheckedStrings,SetCheckedStrings)
     }
-    
-    %property(ItemHeight, GetItemHeight);
 };
 
 //---------------------------------------------------------------------------
