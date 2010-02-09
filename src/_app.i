@@ -179,6 +179,15 @@ during each event loop iteration.", "");
     // deletes the current pending events
     void DeletePendingEvents();
 
+    // schedule the object for destruction in the near future
+    void ScheduleForDestruction(wxObject *object);
+
+    // return true if the object is scheduled for destruction
+    bool IsScheduledForDestruction(wxObject *object) const;
+
+
+
+    
 
     DocDeclStr(
         virtual bool, Yield(bool onlyIfNeeded = false),
