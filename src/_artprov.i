@@ -80,6 +80,7 @@ MAKE_CONST_WXSTRING(ART_DELETE);
 MAKE_CONST_WXSTRING(ART_NEW);
 MAKE_CONST_WXSTRING(ART_UNDO);
 MAKE_CONST_WXSTRING(ART_REDO);
+MAKE_CONST_WXSTRING(ART_CLOSE);
 MAKE_CONST_WXSTRING(ART_QUIT);
 MAKE_CONST_WXSTRING(ART_FIND);
 MAKE_CONST_WXSTRING(ART_FIND_AND_REPLACE);
@@ -329,6 +330,9 @@ wx.NullBitmap if no provider provides it.", "");
                                 const wxSize& size = wxDefaultSize),
         "Query the providers for icon with given ID and return it.  Return
 wx.NullIcon if no provider provides it.", "");
+
+    
+    static wxArtID GetMessageBoxIconId(int flags);
 
     DocDeclStr(
         static wxIcon , GetMessageBoxIcon(int flags),
