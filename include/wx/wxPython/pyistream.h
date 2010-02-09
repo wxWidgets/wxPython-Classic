@@ -88,6 +88,7 @@ protected:
     virtual size_t OnSysWrite(const void *buffer, size_t bufsize);
     virtual wxFileOffset OnSysSeek(wxFileOffset off, wxSeekMode mode);
     virtual wxFileOffset OnSysTell() const;
+    virtual bool IsSeekable() const;
 
     PyObject* m_read;
     PyObject* m_seek;
@@ -159,6 +160,7 @@ protected:
     virtual size_t OnSysWrite(const void *buffer, size_t bufsize);
     virtual wxFileOffset OnSysSeek(wxFileOffset off, wxSeekMode mode);
     virtual wxFileOffset OnSysTell() const;
+    virtual bool IsSeekable() const;
 
     PyObject* m_write;
     PyObject* m_seek;

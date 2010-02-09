@@ -1534,6 +1534,12 @@ wxFileOffset wxPyCBInputStream::OnSysTell() const {
     return o;
 }
 
+
+bool wxPyCBInputStream::IsSeekable() const {
+    return (m_seek != NULL);
+}
+
+
 //----------------------------------------------------------------------
 // Output stream
 
@@ -1722,6 +1728,10 @@ wxFileOffset wxPyCBOutputStream::OnSysTell() const {
     return o;
 }
 
+
+bool wxPyCBOutputStream::IsSeekable() const {
+    return (m_seek != NULL);
+}
 
 
 //----------------------------------------------------------------------
