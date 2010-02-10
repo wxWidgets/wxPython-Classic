@@ -594,7 +594,7 @@ file or explpicitly set for the bitmap.
             self->SetMask(mask);
         }
     }
-
+    
 
     DocDeclStr(
         virtual wxBitmap , GetSubBitmap(const wxRect& rect) const,
@@ -602,11 +602,21 @@ file or explpicitly set for the bitmap.
 entirely to the bitmap. This function preserves bit depth and mask
 information.", "");
 
-
-    // Convert to disabled (dimmed) bitmap.
-    wxBitmap ConvertToDisabled(unsigned char brightness = 255) const;
     
+    // Convert to disabled (dimmed) bitmap.
+#ifdef __WXMSW__
+    %extend {
+        wxBitmap ConvertToDisabled(byte brightness = 255) const {
+            wxImage image = self->ConvertToImage();
+            wxBitmap bmp = wxBitmap(image.ConvertToDisabled(brightness));
+            return bmp;
+        }
+    }
+#else
+    wxBitmap ConvertToDisabled(byte brightness = 255) const;
+#endif
 
+    
     DocDeclStr(
         virtual bool , SaveFile(const wxString &name, wxBitmapType type,
                                 wxPalette *palette = NULL),
