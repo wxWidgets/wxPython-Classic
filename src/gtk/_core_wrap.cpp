@@ -3948,6 +3948,7 @@ SWIGINTERN bool wxEvtHandler_Disconnect(wxEvtHandler *self,int id,int lastId=-1,
                     if ((entry->m_id == id) &&
                         ((entry->m_lastId == lastId) || (lastId == wxID_ANY)) &&
                         ((entry->m_eventType == eventType) || (eventType == wxEVT_NULL)) &&
+                        // FIXME?
                         //((entry->m_fn->IsMatching((wxObjectEventFunction)(wxEventFunction)&wxPyCallback::EventThunker))) &&
                         (entry->m_callbackUserData != NULL))
                     {
@@ -33108,6 +33109,85 @@ SWIGINTERN PyObject *_wrap_PyApp_DeletePendingEvents(PyObject *SWIGUNUSEDPARM(se
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PyApp_ScheduleForDestruction(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  wxObject *arg2 = (wxObject *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "object", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyApp_ScheduleForDestruction",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_ScheduleForDestruction" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxObject, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PyApp_ScheduleForDestruction" "', expected argument " "2"" of type '" "wxObject *""'"); 
+  }
+  arg2 = reinterpret_cast< wxObject * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->ScheduleForDestruction(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PyApp_IsScheduledForDestruction(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyApp *arg1 = (wxPyApp *) 0 ;
+  wxObject *arg2 = (wxObject *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "object", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyApp_IsScheduledForDestruction",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_IsScheduledForDestruction" "', expected argument " "1"" of type '" "wxPyApp const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyApp * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxObject, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PyApp_IsScheduledForDestruction" "', expected argument " "2"" of type '" "wxObject *""'"); 
+  }
+  arg2 = reinterpret_cast< wxObject * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxPyApp const *)arg1)->IsScheduledForDestruction(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -68648,6 +68728,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyApp_AppendPendingEventHandler", (PyCFunction) _wrap_PyApp_AppendPendingEventHandler, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_DelayPendingEventHandler", (PyCFunction) _wrap_PyApp_DelayPendingEventHandler, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_DeletePendingEvents", (PyCFunction)_wrap_PyApp_DeletePendingEvents, METH_O, NULL},
+	 { (char *)"PyApp_ScheduleForDestruction", (PyCFunction) _wrap_PyApp_ScheduleForDestruction, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PyApp_IsScheduledForDestruction", (PyCFunction) _wrap_PyApp_IsScheduledForDestruction, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_Yield", (PyCFunction) _wrap_PyApp_Yield, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_SafeYield", (PyCFunction) _wrap_PyApp_SafeYield, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_SafeYieldFor", (PyCFunction) _wrap_PyApp_SafeYieldFor, METH_VARARGS | METH_KEYWORDS, NULL},

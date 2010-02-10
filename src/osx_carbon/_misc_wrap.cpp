@@ -3027,7 +3027,7 @@ wxPyTimer::wxPyTimer(wxEvtHandler *owner, int id)
     : wxTimer(owner, id)
 {
     if (owner == NULL)
-        SetOwner(this);
+        SetOwner(this, id);
 }
 
 wxPyTimer::~wxPyTimer()
@@ -3538,6 +3538,7 @@ SWIGINTERN PyObject *wxMimeTypesManager_EnumAllFileTypes(wxMimeTypesManager *sel
  static const wxString wxPyART_NEW(wxART_NEW); 
  static const wxString wxPyART_UNDO(wxART_UNDO); 
  static const wxString wxPyART_REDO(wxART_REDO); 
+ static const wxString wxPyART_CLOSE(wxART_CLOSE); 
  static const wxString wxPyART_QUIT(wxART_QUIT); 
  static const wxString wxPyART_FIND(wxART_FIND); 
  static const wxString wxPyART_FIND_AND_REPLACE(wxART_FIND_AND_REPLACE); 
@@ -20356,6 +20357,26 @@ SWIGINTERN PyObject *ART_REDO_get(void) {
 }
 
 
+SWIGINTERN int ART_CLOSE_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable ART_CLOSE is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *ART_CLOSE_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyART_CLOSE)->c_str(), (&wxPyART_CLOSE)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyART_CLOSE)->c_str(), (&wxPyART_CLOSE)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
 SWIGINTERN int ART_QUIT_set(PyObject *) {
   SWIG_Error(SWIG_AttributeError,"Variable ART_QUIT is read-only.");
   return 1;
@@ -20783,6 +20804,36 @@ fail:
     if (temp2)
     delete arg2;
   }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ArtProvider_GetMessageBoxIconId(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  wxArtID result;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "flags", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:ArtProvider_GetMessageBoxIconId",kwnames,&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "ArtProvider_GetMessageBoxIconId" "', expected argument " "1"" of type '" "int""'");
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxPyArtProvider::GetMessageBoxIconId(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxArtID(static_cast< const wxArtID& >(result))), SWIGTYPE_p_wxArtID, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
   return NULL;
 }
 
@@ -38485,16 +38536,20 @@ SWIGINTERN PyObject *_wrap_AboutDialogInfo_SetVersion(PyObject *SWIGUNUSEDPARM(s
   PyObject *resultobj = 0;
   wxAboutDialogInfo *arg1 = (wxAboutDialogInfo *) 0 ;
   wxString *arg2 = 0 ;
+  wxString const &arg3_defvalue = wxEmptyString ;
+  wxString *arg3 = (wxString *) &arg3_defvalue ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
+  bool temp3 = false ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "version", NULL 
+    (char *) "self",(char *) "version",(char *) "longVersion", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AboutDialogInfo_SetVersion",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:AboutDialogInfo_SetVersion",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAboutDialogInfo, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AboutDialogInfo_SetVersion" "', expected argument " "1"" of type '" "wxAboutDialogInfo *""'"); 
@@ -38505,9 +38560,16 @@ SWIGINTERN PyObject *_wrap_AboutDialogInfo_SetVersion(PyObject *SWIGUNUSEDPARM(s
     if (arg2 == NULL) SWIG_fail;
     temp2 = true;
   }
+  if (obj2) {
+    {
+      arg3 = wxString_in_helper(obj2);
+      if (arg3 == NULL) SWIG_fail;
+      temp3 = true;
+    }
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetVersion((wxString const &)*arg2);
+    (arg1)->SetVersion((wxString const &)*arg2,(wxString const &)*arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -38516,11 +38578,19 @@ SWIGINTERN PyObject *_wrap_AboutDialogInfo_SetVersion(PyObject *SWIGUNUSEDPARM(s
     if (temp2)
     delete arg2;
   }
+  {
+    if (temp3)
+    delete arg3;
+  }
   return resultobj;
 fail:
   {
     if (temp2)
     delete arg2;
+  }
+  {
+    if (temp3)
+    delete arg3;
   }
   return NULL;
 }
@@ -38574,6 +38644,40 @@ SWIGINTERN PyObject *_wrap_AboutDialogInfo_GetVersion(PyObject *SWIGUNUSEDPARM(s
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = ((wxAboutDialogInfo const *)arg1)->GetVersion();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AboutDialogInfo_GetLongVersion(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAboutDialogInfo *arg1 = (wxAboutDialogInfo *) 0 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAboutDialogInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AboutDialogInfo_GetLongVersion" "', expected argument " "1"" of type '" "wxAboutDialogInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAboutDialogInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxAboutDialogInfo const *)arg1)->GetLongVersion();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -39987,14 +40091,18 @@ SWIGINTERN PyObject *AboutDialogInfo_swiginit(PyObject *SWIGUNUSEDPARM(self), Py
 SWIGINTERN PyObject *_wrap_AboutBox(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxAboutDialogInfo *arg1 = 0 ;
+  wxWindow *arg2 = (wxWindow *) NULL ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
   PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "info", NULL 
+    (char *) "info",(char *) "parent", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:AboutBox",kwnames,&obj0)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:AboutBox",kwnames,&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_wxAboutDialogInfo,  0  | 0);
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AboutBox" "', expected argument " "1"" of type '" "wxAboutDialogInfo const &""'"); 
@@ -40003,9 +40111,16 @@ SWIGINTERN PyObject *_wrap_AboutBox(PyObject *SWIGUNUSEDPARM(self), PyObject *ar
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "AboutBox" "', expected argument " "1"" of type '" "wxAboutDialogInfo const &""'"); 
   }
   arg1 = reinterpret_cast< wxAboutDialogInfo * >(argp1);
+  if (obj1) {
+    res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AboutBox" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+    }
+    arg2 = reinterpret_cast< wxWindow * >(argp2);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxAboutBox((wxAboutDialogInfo const &)*arg1);
+    wxAboutBox((wxAboutDialogInfo const &)*arg1,arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -40503,6 +40618,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ArtProvider_Delete", (PyCFunction) _wrap_ArtProvider_Delete, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ArtProvider_GetBitmap", (PyCFunction) _wrap_ArtProvider_GetBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ArtProvider_GetIcon", (PyCFunction) _wrap_ArtProvider_GetIcon, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"ArtProvider_GetMessageBoxIconId", (PyCFunction) _wrap_ArtProvider_GetMessageBoxIconId, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ArtProvider_GetMessageBoxIcon", (PyCFunction) _wrap_ArtProvider_GetMessageBoxIcon, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ArtProvider_GetIconBundle", (PyCFunction) _wrap_ArtProvider_GetIconBundle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ArtProvider_GetNativeSizeHint", (PyCFunction) _wrap_ArtProvider_GetNativeSizeHint, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -40999,6 +41115,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AboutDialogInfo_SetVersion", (PyCFunction) _wrap_AboutDialogInfo_SetVersion, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AboutDialogInfo_HasVersion", (PyCFunction)_wrap_AboutDialogInfo_HasVersion, METH_O, NULL},
 	 { (char *)"AboutDialogInfo_GetVersion", (PyCFunction)_wrap_AboutDialogInfo_GetVersion, METH_O, NULL},
+	 { (char *)"AboutDialogInfo_GetLongVersion", (PyCFunction)_wrap_AboutDialogInfo_GetLongVersion, METH_O, NULL},
 	 { (char *)"AboutDialogInfo_SetDescription", (PyCFunction) _wrap_AboutDialogInfo_SetDescription, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AboutDialogInfo_HasDescription", (PyCFunction)_wrap_AboutDialogInfo_HasDescription, METH_O, NULL},
 	 { (char *)"AboutDialogInfo_GetDescription", (PyCFunction)_wrap_AboutDialogInfo_GetDescription, METH_O, NULL},
@@ -43148,6 +43265,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_NEW",ART_NEW_get, ART_NEW_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_UNDO",ART_UNDO_get, ART_UNDO_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_REDO",ART_REDO_get, ART_REDO_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"ART_CLOSE",ART_CLOSE_get, ART_CLOSE_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_QUIT",ART_QUIT_get, ART_QUIT_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_FIND",ART_FIND_get, ART_FIND_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_FIND_AND_REPLACE",ART_FIND_AND_REPLACE_get, ART_FIND_AND_REPLACE_set);

@@ -7100,6 +7100,45 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Bitmap_ConvertToDisabled(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxBitmap *arg1 = (wxBitmap *) 0 ;
+  byte arg2 = (byte) 255 ;
+  SwigValueWrapper<wxBitmap > result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned char val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "brightness", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:Bitmap_ConvertToDisabled",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBitmap, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Bitmap_ConvertToDisabled" "', expected argument " "1"" of type '" "wxBitmap const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxBitmap * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_unsigned_SS_char(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Bitmap_ConvertToDisabled" "', expected argument " "2"" of type '" "byte""'");
+    } 
+    arg2 = static_cast< byte >(val2);
+  }
+  {
+    result = ((wxBitmap const *)arg1)->ConvertToDisabled(arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Bitmap_SaveFile(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxBitmap *arg1 = (wxBitmap *) 0 ;
@@ -40907,6 +40946,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Bitmap_SetMask", (PyCFunction) _wrap_Bitmap_SetMask, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_SetMaskColour", (PyCFunction) _wrap_Bitmap_SetMaskColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_GetSubBitmap", (PyCFunction) _wrap_Bitmap_GetSubBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Bitmap_ConvertToDisabled", (PyCFunction) _wrap_Bitmap_ConvertToDisabled, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_SaveFile", (PyCFunction) _wrap_Bitmap_SaveFile, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_LoadFile", (PyCFunction) _wrap_Bitmap_LoadFile, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Bitmap_GetPalette", (PyCFunction)_wrap_Bitmap_GetPalette, METH_O, NULL},

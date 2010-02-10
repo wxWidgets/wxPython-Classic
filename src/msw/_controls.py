@@ -1405,7 +1405,6 @@ class CheckListBox(ListBox):
     Checked = property(GetChecked,SetChecked)
     CheckedStrings = property(GetCheckedStrings,SetCheckedStrings)
 
-    ItemHeight = property(GetItemHeight) 
 _controls_.CheckListBox_swigregister(CheckListBox)
 
 def PreCheckListBox(*args, **kwargs):

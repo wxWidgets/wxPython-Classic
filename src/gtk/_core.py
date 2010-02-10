@@ -4369,8 +4369,9 @@ class MouseState(KeyboardState):
     middleIsDown = property(MiddleIsDown, SetMiddleDown)
     rightIsDown = property(RightIsDown, SetRightDown)
     aux1IsDown = property(Aux1IsDown, SetAux1Down)
-    aux2IsDown = property(Aux2IsDown, SetAux2Down)            
+    aux2IsDown = property(Aux2IsDown, SetAux2Down)
 
+    Position = property(GetPosition,doc="See `GetPosition`") 
 _core_.MouseState_swigregister(MouseState)
 
 
@@ -5622,7 +5623,6 @@ class MouseEvent(Event,MouseState):
 
     LinesPerAction = property(GetLinesPerAction,doc="See `GetLinesPerAction`") 
     LogicalPosition = property(GetLogicalPosition,doc="See `GetLogicalPosition`") 
-    Position = property(GetPosition,doc="See `GetPosition`") 
     WheelDelta = property(GetWheelDelta,doc="See `GetWheelDelta`") 
     WheelRotation = property(GetWheelRotation,doc="See `GetWheelRotation`") 
 _core_.MouseEvent_swigregister(MouseEvent)
@@ -7642,6 +7642,14 @@ class PyApp(EvtHandler):
     def DeletePendingEvents(*args, **kwargs):
         """DeletePendingEvents(self)"""
         return _core_.PyApp_DeletePendingEvents(*args, **kwargs)
+
+    def ScheduleForDestruction(*args, **kwargs):
+        """ScheduleForDestruction(self, Object object)"""
+        return _core_.PyApp_ScheduleForDestruction(*args, **kwargs)
+
+    def IsScheduledForDestruction(*args, **kwargs):
+        """IsScheduledForDestruction(self, Object object) -> bool"""
+        return _core_.PyApp_IsScheduledForDestruction(*args, **kwargs)
 
     def Yield(*args, **kwargs):
         """
@@ -11583,6 +11591,20 @@ def GetTopLevelWindows(*args):
     dialogs, etc.)
     """
   return _core_.GetTopLevelWindows(*args)
+class FrozenWindow(object):
+    """
+    A context manager to be used with Python 'with' statements
+    that will freeze the given window for the duration of the
+    with block.
+    """
+    def __init__(self, window):
+        self._win = window
+    def __enter__(self):
+        self.Freeze()
+        return self
+    def __exit__(self):
+        self.Thaw()
+
 #---------------------------------------------------------------------------
 
 class Validator(EvtHandler):

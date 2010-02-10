@@ -825,6 +825,11 @@ class BusyCursor(object):
         _misc_.BusyCursor_swiginit(self,_misc_.new_BusyCursor(*args, **kwargs))
     __swig_destroy__ = _misc_.delete_BusyCursor
     __del__ = lambda self : None;
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
 _misc_.BusyCursor_swigregister(BusyCursor)
 
 class WindowDisabler(object):
@@ -839,6 +844,11 @@ class WindowDisabler(object):
         _misc_.WindowDisabler_swiginit(self,_misc_.new_WindowDisabler(*args))
     __swig_destroy__ = _misc_.delete_WindowDisabler
     __del__ = lambda self : None;
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
 _misc_.WindowDisabler_swigregister(WindowDisabler)
 
 class BusyInfo(_core.Object):
@@ -851,6 +861,11 @@ class BusyInfo(_core.Object):
     __swig_destroy__ = _misc_.delete_BusyInfo
     __del__ = lambda self : None;
     def Destroy(self): pass 
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
 _misc_.BusyInfo_swigregister(BusyInfo)
 
 class StopWatch(object):
@@ -1783,6 +1798,11 @@ class LogNull(object):
         _misc_.LogNull_swiginit(self,_misc_.new_LogNull(*args, **kwargs))
     __swig_destroy__ = _misc_.delete_LogNull
     __del__ = lambda self : None;
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
 _misc_.LogNull_swigregister(LogNull)
 
 def LogTrace(*args):
@@ -2712,6 +2732,11 @@ class ArtProvider(object):
         return _misc_.ArtProvider_GetIcon(*args, **kwargs)
 
     GetIcon = staticmethod(GetIcon)
+    def GetMessageBoxIconId(*args, **kwargs):
+        """GetMessageBoxIconId(int flags) -> wxArtID"""
+        return _misc_.ArtProvider_GetMessageBoxIconId(*args, **kwargs)
+
+    GetMessageBoxIconId = staticmethod(GetMessageBoxIconId)
     def GetMessageBoxIcon(*args, **kwargs):
         """
         GetMessageBoxIcon(int flags) -> Icon
@@ -2813,6 +2838,7 @@ ART_DELETE = cvar.ART_DELETE
 ART_NEW = cvar.ART_NEW
 ART_UNDO = cvar.ART_UNDO
 ART_REDO = cvar.ART_REDO
+ART_CLOSE = cvar.ART_CLOSE
 ART_QUIT = cvar.ART_QUIT
 ART_FIND = cvar.ART_FIND
 ART_FIND_AND_REPLACE = cvar.ART_FIND_AND_REPLACE
@@ -2886,6 +2912,10 @@ def ArtProvider_GetIcon(*args, **kwargs):
     wx.NullIcon if no provider provides it.
     """
   return _misc_.ArtProvider_GetIcon(*args, **kwargs)
+
+def ArtProvider_GetMessageBoxIconId(*args, **kwargs):
+  """ArtProvider_GetMessageBoxIconId(int flags) -> wxArtID"""
+  return _misc_.ArtProvider_GetMessageBoxIconId(*args, **kwargs)
 
 def ArtProvider_GetMessageBoxIcon(*args, **kwargs):
   """
@@ -6489,7 +6519,7 @@ class AboutDialogInfo(object):
     Name = property(GetName,SetName) 
     def SetVersion(*args, **kwargs):
         """
-        SetVersion(self, String version)
+        SetVersion(self, String version, String longVersion=wxEmptyString)
 
         Set the version of the program. The version is in free format,
         i.e. not necessarily in the x.y.z form but it shouldn't contain the
@@ -6514,6 +6544,11 @@ class AboutDialogInfo(object):
         return _misc_.AboutDialogInfo_GetVersion(*args, **kwargs)
 
     Version = property(GetVersion,SetVersion) 
+    def GetLongVersion(*args, **kwargs):
+        """GetLongVersion(self) -> String"""
+        return _misc_.AboutDialogInfo_GetLongVersion(*args, **kwargs)
+
+    LongVersion = property(GetLongVersion) 
     def SetDescription(*args, **kwargs):
         """
         SetDescription(self, String desc)
@@ -6825,7 +6860,7 @@ _misc_.AboutDialogInfo_swigregister(AboutDialogInfo)
 
 def AboutBox(*args, **kwargs):
   """
-    AboutBox(AboutDialogInfo info)
+    AboutBox(AboutDialogInfo info, Window parent=None)
 
     This function shows the standard about dialog containing the
     information specified in ``info``. If the current platform has a

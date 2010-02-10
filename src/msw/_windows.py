@@ -843,6 +843,11 @@ class Dialog(TopLevelWindow):
         return _windows_.Dialog_GetClassDefaultAttributes(*args, **kwargs)
 
     GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.Destroy()
+
     AffirmativeId = property(GetAffirmativeId,SetAffirmativeId,doc="See `GetAffirmativeId` and `SetAffirmativeId`") 
     EscapeId = property(GetEscapeId,SetEscapeId,doc="See `GetEscapeId` and `SetEscapeId`") 
     ReturnCode = property(GetReturnCode,SetReturnCode,doc="See `GetReturnCode` and `SetReturnCode`") 

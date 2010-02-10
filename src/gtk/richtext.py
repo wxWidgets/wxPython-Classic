@@ -1956,6 +1956,14 @@ class RichTextCtrl(_core.TextCtrlBase,_windows.ScrollHelper):
         """
         return _richtext.RichTextCtrl_GetURLCursor(*args, **kwargs)
 
+    def GetContextMenu(*args, **kwargs):
+        """GetContextMenu(self) -> Menu"""
+        return _richtext.RichTextCtrl_GetContextMenu(*args, **kwargs)
+
+    def SetContextMenu(*args, **kwargs):
+        """SetContextMenu(self, Menu menu)"""
+        return _richtext.RichTextCtrl_SetContextMenu(*args, **kwargs)
+
     def LoadFile(*args, **kwargs):
         """
         LoadFile(self, String file, int type=RICHTEXT_TYPE_ANY) -> bool
