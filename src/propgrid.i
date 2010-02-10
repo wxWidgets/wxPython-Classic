@@ -879,6 +879,7 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 // the .h files.
 #define WXDLLIMPEXP_PROPGRID
 #define WXDLLIMPEXP_FWD_PROPGRID
+#define WXDLLIMPEXP_DATA_PROPGRID(decl) decl
 
 %ignore wxUSE_PROPGRID;
 %ignore wxABI_VERSION;
@@ -890,6 +891,7 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 %ignore wxUSE_LONGLONG_NATIVE;
 %ignore wxUSE_SPINBTN;
 %ignore wxUSE_STL;
+%ignore wxUSE_THREADS;
 %ignore wxUSE_TOOLBAR;
 %ignore wxUSE_TOOLTIPS;
 %ignore wxUSE_VALIDATORS;
@@ -917,6 +919,15 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 #define DECLARE_DYNAMIC_CLASS_NO_ASSIGN(foo)
 #define DECLARE_DYNAMIC_CLASS_NO_COPY(foo)
 #define DECLARE_ABSTRACT_CLASS(foo)
+#define WX_DEFINE_TYPEARRAY_WITH_DECL_PTR(a, b, c, d)
+#define WX_DECLARE_STRING_HASH_MAP_WITH_DECL(a, b, c)
+#define WX_DECLARE_VOIDPTR_HASH_MAP_WITH_DECL(a, b, c)
+#define WX_DECLARE_HASH_MAP_WITH_DECL(a, b, c, d, e, f)
+
+// Some classes, functions and variables we want to ignore completely
+%ignore wxPGGlobalVarsClass;
+%ignore wxPGGlobalVars;
+%ignore wxPGInitResourceModule;
 
 // Some functions that we do not want SWIG to know about
 // TODO: Add more here and remove respective #ifndef SWIG from .h files
@@ -929,8 +940,140 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 %ignore wxPropertyGridConstIterator::operator=;
 %ignore wxPropertyGridConstIterator::operator *();
 %ignore wxPGVIterator::operator=;
-%ignore wxPGProperty::GetValueRef;
 
+// propgriddefs.h
+%ignore wxPG_LABEL;
+%ignore wxPG_LABEL_STRING;
+%ignore wxPG_NULL_BITMAP;
+%ignore wxPG_COLOUR_BLACK;
+%ignore DECLARE_VARIANT_OBJECT_EXPORTED;
+#define DECLARE_VARIANT_OBJECT_EXPORTED(a, b)
+%ignore WX_PG_DECLARE_EDITOR_WITH_DECL;
+#define WX_PG_DECLARE_EDITOR_WITH_DECL(a, b)
+%ignore wxPGStringTokenizer;
+
+// property.h
+%ignore wxPGCellRenderer;
+%ignore wxPGDefaultRenderer;
+%ignore wxPGCellData;
+%ignore wxPGCell::operator=;
+%ignore wxPGAttributeStorage;
+%ignore wxPGChoiceEntry;
+%ignore wxPGChoicesData;
+%ignore wxPGChoices::operator=;
+%ignore wxPGChoices::operator[];
+%ignore wxPGProperty::ValidateValue;
+%ignore wxPGProperty::StringToValue;
+%ignore wxPGProperty::IntToValue;
+%ignore wxPGProperty::GetValueRef;
+%ignore wxPGProperty::SetEditor(const wxPGEditor*);
+%ignore wxPGProperty::GetClientData;
+%ignore wxPGProperty::SetClientData;
+%ignore wxPGProperty::GetClientObject;
+%ignore wxPGProperty::SetClientObject;
+%ignore wxPGProperty::GetParentState;
+%ignore wxPGProperty::GetItemAtY(unsigned int, unsigned int, unsigned int*) const;
+%ignore wxPGProperty::GetDisplayInfo;
+%ignore wxPGProperty::sm_wxPG_LABEL;
+%ignore wxPGProperty::m_clientData;
+%ignore WX_PG_DECLARE_PROPERTY_CLASS;
+#define WX_PG_DECLARE_PROPERTY_CLASS(a)
+%ignore wxPGRootProperty;
+%ignore wxPropertyCategory;
+
+// editors.h
+%ignore wxPGWindowList::wxPGWindowList(wxWindow*);
+%ignore wxPGWindowList::wxPGWindowList(wxWindow*, wxWindow*);
+%ignore wxPGEditor::GetValueFromControl;
+%ignore wxPGChoiceAndButtonEditor;
+%ignore wxPGTextCtrlAndButtonEditor;
+%ignore wxPGCheckBoxEditor;
+
+// propgridpagestate.h
+%ignore wxPGVIterator::operator=;
+%ignore wxPropertyGridPageState;
+
+// propgridiface.h
+%ignore wxPGPropArgCls;
+%ignore wxPropertyGridInterface::GetPropertyClientData;
+%ignore wxPropertyGridInterface::GetPropertyValueAsInt;
+%ignore wxPropertyGridInterface::GetPropertyValues;
+%ignore wxPropertyGridInterface::GetState;
+%ignore wxPropertyGridInterface::SetPropertyClientData;
+%ignore wxPropertyGridInterface::SetPropertyEditor(wxPGPropArg, const wxPGEditor*);
+%ignore wxPropertyGridInterface::SetPropertyValues;
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, long);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, int);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, bool);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, double);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, const wchar_t*);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, const char*);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, const wxString&);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, const wxArrayString&);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, const wxDateTime&);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, wxObject*);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, wxObject&);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, wxLongLong_t);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, wxULongLong_t);
+%ignore wxPropertyGridInterface::SetPropertyValue(wxPGPropArg id, const wxArrayInt&);
+%ignore wxPropertyGridInterface::SetPropVal;
+
+// propgrid.h
+%ignore wxPropertyGrid::RegisterEditorClass;
+%ignore wxPropertyGrid::DoRegisterEditorClass;
+%ignore wxPropertyGrid::ArrayStringToString;
+%ignore wxPropertyGrid::SwitchState;
+%ignore wxPropertyGrid::IncFrozen;
+%ignore wxPropertyGrid::DecFrozen;
+%ignore wxPropertyGrid::OnComboItemPaint;
+%ignore wxPropertyGrid::DoPropertyChanged;
+%ignore wxPropertyGrid::OnValidationFailure;
+%ignore wxPropertyGrid::OnValidationFailureReset;
+%ignore wxPropertyGrid::DoShowPropertyError;
+%ignore wxPropertyGrid::DoOnValidationFailure;
+%ignore wxPropertyGrid::DoOnValidationFailureReset;
+%ignore wxPropertyGrid::SetWindowStyleFlag;
+%ignore wxPropertyGrid::DrawItems;
+%ignore wxPropertyGrid::DrawItem;
+%ignore wxPropertyGrid::DrawItemAndChildren;
+%ignore wxPropertyGrid::DrawItemAndValueRelated;
+%ignore wxPropertyGrid::SetCurControlBoldFont;
+%ignore wxPropertyGrid::DoSelectProperty;
+%ignore wxPropertyGrid::Destroy;
+%ignore wxPropertyGrid::Refresh;
+%ignore wxPropertyGrid::SetFont;
+%ignore wxPropertyGrid::SetToolTip;
+%ignore wxPropertyGrid::Freeze;
+%ignore wxPropertyGrid::Thaw;
+%ignore wxPropertyGrid::Reparent;
+%ignore wxPropertyGrid::SetExtraStyle;
+%ignore wxPropertyGridEvent::wxPropertyGridEvent(const wxPropertyGridEvent&);
+%ignore wxPropertyGridEvent::GetValidationFailureBehavior;
+%ignore wxPropertyGridEvent::SetPropertyGrid;
+%ignore wxPropertyGridEvent::SetPropertyValue;
+%ignore wxPropertyGridEvent::SetupValidationInfo;
+
+// props.h
+%ignore wxPGInDialogValidator;
+%ignore wxPGDoValidationConstants;
+%ignore wxBoolProperty;
+%ignore wxDirProperty;
+%ignore wxArrayStringProperty::CreateEditorDialog;
+
+// advprops.h
+%ignore wxColourPropertyValue::operator=;
+%ignore operator==(const wxArrayInt& array1, const wxArrayInt& array2);
+%ignore operator==(const wxColourPropertyValue&,const wxColourPropertyValue&);
+%ignore wxFontProperty;
+%ignore wxSystemColourProperty;
+%ignore wxColourProperty;
+%ignore wxCursorProperty;
+%ignore wxPGGetDefaultImageWildcard;
+%ignore wxImageFileProperty;
+%ignore wxMultiChoiceProperty;
+%ignore wxDateProperty;
+
+// manager.h
 
 // Suppress warning 511 (kwargs not supported for overloaded functions)
 #pragma SWIG nowarn=511
@@ -1291,7 +1434,6 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 // We need these proxies or SWIG will fail (it has somewhat incomplete
 // C++ syntax support, it seems).
 static wxString& wxString_wxPG_LABEL = *((wxString*)NULL);
-#define wxFONT_wxPG_NORMAL_FONT *wxNORMAL_FONT
 #define wxColour_BLACK          *wxBLACK
 #define wxBitmap_NULL           wxNullBitmap
 %}

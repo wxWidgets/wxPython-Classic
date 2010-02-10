@@ -60,6 +60,27 @@ import _core
 import _windows
 wx = _core 
 __docfilter__ = wx.__DocFilter(globals()) 
+PG_XBEFORETEXT = _propgrid.PG_XBEFORETEXT
+PG_XBEFOREWIDGET = _propgrid.PG_XBEFOREWIDGET
+PG_ICON_WIDTH = _propgrid.PG_ICON_WIDTH
+PG_USE_RENDERER_NATIVE = _propgrid.PG_USE_RENDERER_NATIVE
+PG_DOUBLE_BUFFER = _propgrid.PG_DOUBLE_BUFFER
+PG_SUPPORT_TOOLTIPS = _propgrid.PG_SUPPORT_TOOLTIPS
+PG_CUSTOM_IMAGE_WIDTH = _propgrid.PG_CUSTOM_IMAGE_WIDTH
+PG_NO_CHILD_EVT_MOTION = _propgrid.PG_NO_CHILD_EVT_MOTION
+PG_ALLOW_EMPTY_TOOLTIPS = _propgrid.PG_ALLOW_EMPTY_TOOLTIPS
+PG_NAT_BUTTON_BORDER_ANY = _propgrid.PG_NAT_BUTTON_BORDER_ANY
+PG_NAT_BUTTON_BORDER_X = _propgrid.PG_NAT_BUTTON_BORDER_X
+PG_NAT_BUTTON_BORDER_Y = _propgrid.PG_NAT_BUTTON_BORDER_Y
+PG_REFRESH_CONTROLS_AFTER_REPAINT = _propgrid.PG_REFRESH_CONTROLS_AFTER_REPAINT
+PG_CONTROL_MARGIN = _propgrid.PG_CONTROL_MARGIN
+CC_CUSTOM_IMAGE_MARGIN1 = _propgrid.CC_CUSTOM_IMAGE_MARGIN1
+CC_CUSTOM_IMAGE_MARGIN2 = _propgrid.CC_CUSTOM_IMAGE_MARGIN2
+DEFAULT_IMAGE_OFFSET_INCREMENT = _propgrid.DEFAULT_IMAGE_OFFSET_INCREMENT
+PG_DRAG_MARGIN = _propgrid.PG_DRAG_MARGIN
+PG_SPLITTERX_DETECTMARGIN1 = _propgrid.PG_SPLITTERX_DETECTMARGIN1
+PG_SPLITTERX_DETECTMARGIN2 = _propgrid.PG_SPLITTERX_DETECTMARGIN2
+PG_SMALL_SCREEN = _propgrid.PG_SMALL_SCREEN
 PG_COMPATIBILITY_1_4 = _propgrid.PG_COMPATIBILITY_1_4
 PG_INCLUDE_ADVPROPS = _propgrid.PG_INCLUDE_ADVPROPS
 PG_INCLUDE_CHECKBOX = _propgrid.PG_INCLUDE_CHECKBOX
@@ -93,6 +114,9 @@ class PGPaintData(object):
     m_drawnHeight = property(_propgrid.PGPaintData_m_drawnHeight_get, _propgrid.PGPaintData_m_drawnHeight_set)
 _propgrid.PGPaintData_swigregister(PGPaintData)
 
+PG_CUSTOM_IMAGE_SPACINGY = _propgrid.PG_CUSTOM_IMAGE_SPACINGY
+PG_CAPRECTXMARGIN = _propgrid.PG_CAPRECTXMARGIN
+PG_CAPRECTYMARGIN = _propgrid.PG_CAPRECTYMARGIN
 class PGCell(_core.Object):
     """Proxy of C++ PGCell class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -109,8 +133,8 @@ class PGCell(_core.Object):
     __del__ = lambda self : None;
     def GetData(*args):
         """
-        GetData(self) -> wxPGCellData
-        GetData(self) -> wxPGCellData
+        GetData(self)
+        GetData(self)
         """
         return _propgrid.PGCell_GetData(*args)
 
@@ -198,7 +222,7 @@ class PGChoices(object):
         __init__(self, PGChoices a) -> PGChoices
         __init__(self, wxChar labels, long values=None) -> PGChoices
         __init__(self, wxArrayString labels, wxArrayInt values=wxArrayInt()) -> PGChoices
-        __init__(self, wxPGChoicesData data) -> PGChoices
+        __init__(self,  data) -> PGChoices
         """
         _propgrid.PGChoices_swiginit(self,_propgrid.new_PGChoices(*args))
     __swig_destroy__ = _propgrid.delete_PGChoices
@@ -207,14 +231,14 @@ class PGChoices(object):
         """
         Add(self, wxChar labels, ValArrItem values=None)
         Add(self, wxArrayString arr, wxArrayInt arrint=wxArrayInt())
-        Add(self, String label, int value=INT_MAX) -> PGChoiceEntry
-        Add(self, String label, Bitmap bitmap, int value=INT_MAX) -> PGChoiceEntry
-        Add(self, PGChoiceEntry entry) -> PGChoiceEntry
+        Add(self, String label, int value=INT_MAX)
+        Add(self, String label, Bitmap bitmap, int value=INT_MAX)
+        Add(self,  entry)
         """
         return _propgrid.PGChoices_Add(*args)
 
     def AddAsSorted(*args, **kwargs):
-        """AddAsSorted(self, String label, int value=INT_MAX) -> PGChoiceEntry"""
+        """AddAsSorted(self, String label, int value=INT_MAX)"""
         return _propgrid.PGChoices_AddAsSorted(*args, **kwargs)
 
     def Assign(*args, **kwargs):
@@ -222,7 +246,7 @@ class PGChoices(object):
         return _propgrid.PGChoices_Assign(*args, **kwargs)
 
     def AssignData(*args, **kwargs):
-        """AssignData(self, wxPGChoicesData data)"""
+        """AssignData(self,  data)"""
         return _propgrid.PGChoices_AssignData(*args, **kwargs)
 
     def Clear(*args, **kwargs):
@@ -238,7 +262,7 @@ class PGChoices(object):
         return _propgrid.PGChoices_EnsureData(*args, **kwargs)
 
     def GetId(*args, **kwargs):
-        """GetId(self) -> wxPGChoicesId"""
+        """GetId(self) -> PGChoicesId"""
         return _propgrid.PGChoices_GetId(*args, **kwargs)
 
     def GetLabel(*args, **kwargs):
@@ -270,8 +294,8 @@ class PGChoices(object):
 
     def Insert(*args):
         """
-        Insert(self, String label, int index, int value=INT_MAX) -> PGChoiceEntry
-        Insert(self, PGChoiceEntry entry, int index) -> PGChoiceEntry
+        Insert(self, String label, int index, int value=INT_MAX)
+        Insert(self,  entry, int index)
         """
         return _propgrid.PGChoices_Insert(*args)
 
@@ -281,8 +305,8 @@ class PGChoices(object):
 
     def Item(*args):
         """
-        Item(self, int i) -> PGChoiceEntry
-        Item(self, int i) -> PGChoiceEntry
+        Item(self, int i)
+        Item(self, int i)
         """
         return _propgrid.PGChoices_Item(*args)
 
@@ -290,24 +314,27 @@ class PGChoices(object):
         """RemoveAt(self, size_t nIndex, size_t count=1)"""
         return _propgrid.PGChoices_RemoveAt(*args, **kwargs)
 
-    def Set(*args, **kwargs):
-        """Set(self, wxArrayString labels, wxArrayInt values=wxArrayInt())"""
-        return _propgrid.PGChoices_Set(*args, **kwargs)
+    def Set(*args):
+        """
+        Set(self, wxChar labels, long values=None)
+        Set(self, wxArrayString labels, wxArrayInt values=wxArrayInt())
+        """
+        return _propgrid.PGChoices_Set(*args)
 
     def AllocExclusive(*args, **kwargs):
         """AllocExclusive(self)"""
         return _propgrid.PGChoices_AllocExclusive(*args, **kwargs)
 
     def GetData(*args, **kwargs):
-        """GetData(self) -> wxPGChoicesData"""
+        """GetData(self)"""
         return _propgrid.PGChoices_GetData(*args, **kwargs)
 
     def GetDataPtr(*args, **kwargs):
-        """GetDataPtr(self) -> wxPGChoicesData"""
+        """GetDataPtr(self)"""
         return _propgrid.PGChoices_GetDataPtr(*args, **kwargs)
 
     def ExtractData(*args, **kwargs):
-        """ExtractData(self) -> wxPGChoicesData"""
+        """ExtractData(self)"""
         return _propgrid.PGChoices_ExtractData(*args, **kwargs)
 
     def GetLabels(*args, **kwargs):
@@ -373,7 +400,7 @@ class PGProperty(_core.Object):
         return _propgrid.PGProperty_OnCustomPaint(*args, **kwargs)
 
     def GetCellRenderer(*args, **kwargs):
-        """GetCellRenderer(self, int column) -> PGCellRenderer"""
+        """GetCellRenderer(self, int column)"""
         return _propgrid.PGProperty_GetCellRenderer(*args, **kwargs)
 
     def GetChoiceSelection(*args, **kwargs):
@@ -508,7 +535,7 @@ class PGProperty(_core.Object):
         return _propgrid.PGProperty_HasFlag(*args, **kwargs)
 
     def GetAttributes(*args, **kwargs):
-        """GetAttributes(self) -> wxPGAttributeStorage"""
+        """GetAttributes(self)"""
         return _propgrid.PGProperty_GetAttributes(*args, **kwargs)
 
     def GetAttributesAsList(*args, **kwargs):
@@ -643,7 +670,7 @@ class PGProperty(_core.Object):
         return _propgrid.PGProperty_SetAttribute(*args, **kwargs)
 
     def SetAttributes(*args, **kwargs):
-        """SetAttributes(self, wxPGAttributeStorage attributes)"""
+        """SetAttributes(self,  attributes)"""
         return _propgrid.PGProperty_SetAttributes(*args, **kwargs)
 
     def SetBackgroundColour(*args, **kwargs):
@@ -814,31 +841,7 @@ class PGProperty(_core.Object):
         """GetPropertyByName(self, String name) -> PGProperty"""
         return _propgrid.PGProperty_GetPropertyByName(*args, **kwargs)
 
-    def StringToValue(*args, **kwargs):
-        """StringToValue(self, String text, int argFlags=0) -> wxPGVariantAndBool"""
-        return _propgrid.PGProperty_StringToValue(*args, **kwargs)
-
-    def IntToValue(*args, **kwargs):
-        """IntToValue(self, wxVariant value, int number, int argFlags=0) -> wxPGVariantAndBool"""
-        return _propgrid.PGProperty_IntToValue(*args, **kwargs)
-
     m_value = property(GetValuePlain,SetValuePlain) 
-    def GetClientData(*args, **kwargs):
-        """
-        GetClientData(self) -> PyObject
-
-        Returns the client data object for a property
-        """
-        return _propgrid.PGProperty_GetClientData(*args, **kwargs)
-
-    def SetClientData(*args, **kwargs):
-        """
-        SetClientData(self, PyObject clientData)
-
-        Associate the given client data.
-        """
-        return _propgrid.PGProperty_SetClientData(*args, **kwargs)
-
     GetClientObject = GetClientData
     SetClientObject = SetClientData
 
@@ -905,10 +908,8 @@ class PropertyGridIteratorBase(object):
 
     def Init(*args):
         """
-        Init(self, PropertyGridPageState state, int flags, PGProperty property, 
-            int dir=1)
-        Init(self, PropertyGridPageState state, int flags, int startPos=TOP, 
-            int dir=0)
+        Init(self,  state, int flags, PGProperty property, int dir=1)
+        Init(self,  state, int flags, int startPos=TOP, int dir=0)
         """
         return _propgrid.PropertyGridIteratorBase_Init(*args)
 
@@ -932,10 +933,9 @@ class PropertyGridIterator(PropertyGridIteratorBase):
     __repr__ = _swig_repr
     def __init__(self, *args): 
         """
-        __init__(self, PropertyGridPageState state, int flags=PG_ITERATE_DEFAULT, 
-            PGProperty property=None, int dir=1) -> PropertyGridIterator
-        __init__(self, PropertyGridPageState state, int flags, int startPos, 
-            int dir=0) -> PropertyGridIterator
+        __init__(self,  state, int flags=PG_ITERATE_DEFAULT, PGProperty property=None, 
+            int dir=1) -> PropertyGridIterator
+        __init__(self,  state, int flags, int startPos, int dir=0) -> PropertyGridIterator
         __init__(self) -> PropertyGridIterator
         __init__(self, PropertyGridIterator it) -> PropertyGridIterator
         """
@@ -948,8 +948,8 @@ class PropertyGridIterator(PropertyGridIteratorBase):
 
     def OneStep(*args, **kwargs):
         """
-        OneStep(PropertyGridPageState state, int flags=PG_ITERATE_DEFAULT, 
-            PGProperty property=None, int dir=1) -> PGProperty
+        OneStep( state, int flags=PG_ITERATE_DEFAULT, PGProperty property=None, 
+            int dir=1) -> PGProperty
         """
         return _propgrid.PropertyGridIterator_OneStep(*args, **kwargs)
 
@@ -958,8 +958,8 @@ _propgrid.PropertyGridIterator_swigregister(PropertyGridIterator)
 
 def PropertyGridIterator_OneStep(*args, **kwargs):
   """
-    PropertyGridIterator_OneStep(PropertyGridPageState state, int flags=PG_ITERATE_DEFAULT, 
-        PGProperty property=None, int dir=1) -> PGProperty
+    PropertyGridIterator_OneStep( state, int flags=PG_ITERATE_DEFAULT, PGProperty property=None, 
+        int dir=1) -> PGProperty
     """
   return _propgrid.PropertyGridIterator_OneStep(*args, **kwargs)
 
@@ -975,18 +975,17 @@ class PropertyGridConstIterator(PropertyGridIteratorBase):
 
     def OneStep(*args, **kwargs):
         """
-        OneStep(PropertyGridPageState state, int flags=PG_ITERATE_DEFAULT, 
-            PGProperty property=None, int dir=1) -> PGProperty
+        OneStep( state, int flags=PG_ITERATE_DEFAULT, PGProperty property=None, 
+            int dir=1) -> PGProperty
         """
         return _propgrid.PropertyGridConstIterator_OneStep(*args, **kwargs)
 
     OneStep = staticmethod(OneStep)
     def __init__(self, *args): 
         """
-        __init__(self, PropertyGridPageState state, int flags=PG_ITERATE_DEFAULT, 
-            PGProperty property=None, int dir=1) -> PropertyGridConstIterator
-        __init__(self, PropertyGridPageState state, int flags, int startPos, 
-            int dir=0) -> PropertyGridConstIterator
+        __init__(self,  state, int flags=PG_ITERATE_DEFAULT, PGProperty property=None, 
+            int dir=1) -> PropertyGridConstIterator
+        __init__(self,  state, int flags, int startPos, int dir=0) -> PropertyGridConstIterator
         __init__(self) -> PropertyGridConstIterator
         __init__(self, PropertyGridConstIterator it) -> PropertyGridConstIterator
         __init__(self, PropertyGridIterator other) -> PropertyGridConstIterator
@@ -996,8 +995,8 @@ _propgrid.PropertyGridConstIterator_swigregister(PropertyGridConstIterator)
 
 def PropertyGridConstIterator_OneStep(*args, **kwargs):
   """
-    PropertyGridConstIterator_OneStep(PropertyGridPageState state, int flags=PG_ITERATE_DEFAULT, 
-        PGProperty property=None, int dir=1) -> PGProperty
+    PropertyGridConstIterator_OneStep( state, int flags=PG_ITERATE_DEFAULT, PGProperty property=None, 
+        int dir=1) -> PGProperty
     """
   return _propgrid.PropertyGridConstIterator_OneStep(*args, **kwargs)
 
@@ -1151,7 +1150,7 @@ class PropertyGridInterface(object):
         return _propgrid.PropertyGridInterface_GetProperty(*args, **kwargs)
 
     def GetPropertyAttributes(*args, **kwargs):
-        """GetPropertyAttributes(self, PGPropArg id) -> wxPGAttributeStorage"""
+        """GetPropertyAttributes(self, PGPropArg id)"""
         return _propgrid.PropertyGridInterface_GetPropertyAttributes(*args, **kwargs)
 
     def GetPropertiesWithFlag(*args, **kwargs):
@@ -1166,7 +1165,7 @@ class PropertyGridInterface(object):
         return _propgrid.PropertyGridInterface_GetPropertyAttribute(*args, **kwargs)
 
     def GetPropertyCategory(*args, **kwargs):
-        """GetPropertyCategory(self, PGPropArg id) -> PropertyCategory"""
+        """GetPropertyCategory(self, PGPropArg id)"""
         return _propgrid.PropertyGridInterface_GetPropertyCategory(*args, **kwargs)
 
     def GetPropertyByLabel(*args, **kwargs):
@@ -1301,7 +1300,7 @@ class PropertyGridInterface(object):
         return _propgrid.PropertyGridInterface_LimitPropertyEditing(*args, **kwargs)
 
     def RefreshGrid(*args, **kwargs):
-        """RefreshGrid(self, PropertyGridPageState state=None)"""
+        """RefreshGrid(self,  state=None)"""
         return _propgrid.PropertyGridInterface_RefreshGrid(*args, **kwargs)
 
     def RegisterAdditionalEditors(*args, **kwargs):
@@ -1734,7 +1733,7 @@ class PGCommonValue(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label, PGCellRenderer renderer) -> PGCommonValue"""
+        """__init__(self, String label,  renderer) -> PGCommonValue"""
         _propgrid.PGCommonValue_swiginit(self,_propgrid.new_PGCommonValue(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_PGCommonValue
     __del__ = lambda self : None;
@@ -1747,7 +1746,7 @@ class PGCommonValue(object):
         return _propgrid.PGCommonValue_GetLabel(*args, **kwargs)
 
     def GetRenderer(*args, **kwargs):
-        """GetRenderer(self) -> PGCellRenderer"""
+        """GetRenderer(self)"""
         return _propgrid.PGCommonValue_GetRenderer(*args, **kwargs)
 
 _propgrid.PGCommonValue_swigregister(PGCommonValue)
@@ -1806,6 +1805,35 @@ PG_SPLITTER_REFRESH = _propgrid.PG_SPLITTER_REFRESH
 PG_SPLITTER_ALL_PAGES = _propgrid.PG_SPLITTER_ALL_PAGES
 PG_SPLITTER_FROM_EVENT = _propgrid.PG_SPLITTER_FROM_EVENT
 PG_SPLITTER_FROM_AUTO_CENTER = _propgrid.PG_SPLITTER_FROM_AUTO_CENTER
+PG_FL_INITIALIZED = _propgrid.PG_FL_INITIALIZED
+PG_FL_ACTIVATION_BY_CLICK = _propgrid.PG_FL_ACTIVATION_BY_CLICK
+PG_FL_DONT_CENTER_SPLITTER = _propgrid.PG_FL_DONT_CENTER_SPLITTER
+PG_FL_FOCUSED = _propgrid.PG_FL_FOCUSED
+PG_FL_MOUSE_CAPTURED = _propgrid.PG_FL_MOUSE_CAPTURED
+PG_FL_MOUSE_INSIDE = _propgrid.PG_FL_MOUSE_INSIDE
+PG_FL_VALUE_MODIFIED = _propgrid.PG_FL_VALUE_MODIFIED
+PG_FL_PRIMARY_FILLS_ENTIRE = _propgrid.PG_FL_PRIMARY_FILLS_ENTIRE
+PG_FL_CUR_USES_CUSTOM_IMAGE = _propgrid.PG_FL_CUR_USES_CUSTOM_IMAGE
+PG_FL_CELL_OVERRIDES_SEL = _propgrid.PG_FL_CELL_OVERRIDES_SEL
+PG_FL_SCROLLED = _propgrid.PG_FL_SCROLLED
+PG_FL_ADDING_HIDEABLES = _propgrid.PG_FL_ADDING_HIDEABLES
+PG_FL_NOSTATUSBARHELP = _propgrid.PG_FL_NOSTATUSBARHELP
+PG_FL_CREATEDSTATE = _propgrid.PG_FL_CREATEDSTATE
+PG_FL_SCROLLBAR_DETECTED = _propgrid.PG_FL_SCROLLBAR_DETECTED
+PG_FL_DESC_REFRESH_REQUIRED = _propgrid.PG_FL_DESC_REFRESH_REQUIRED
+PG_FL_IN_MANAGER = _propgrid.PG_FL_IN_MANAGER
+PG_FL_GOOD_SIZE_SET = _propgrid.PG_FL_GOOD_SIZE_SET
+PG_FL_IN_SELECT_PROPERTY = _propgrid.PG_FL_IN_SELECT_PROPERTY
+PG_FL_STRING_IN_STATUSBAR = _propgrid.PG_FL_STRING_IN_STATUSBAR
+PG_FL_VALIDATION_FAILED = _propgrid.PG_FL_VALIDATION_FAILED
+PG_FL_CATMODE_AUTO_SORT = _propgrid.PG_FL_CATMODE_AUTO_SORT
+PG_MAN_FL_PAGE_INSERTED = _propgrid.PG_MAN_FL_PAGE_INSERTED
+PG_FL_ABNORMAL_EDITOR = _propgrid.PG_FL_ABNORMAL_EDITOR
+PG_FL_IN_HANDLECUSTOMEDITOREVENT = _propgrid.PG_FL_IN_HANDLECUSTOMEDITOREVENT
+PG_FL_VALUE_CHANGE_IN_EVENT = _propgrid.PG_FL_VALUE_CHANGE_IN_EVENT
+PG_FL_FIXED_WIDTH_EDITOR = _propgrid.PG_FL_FIXED_WIDTH_EDITOR
+PG_FL_HAS_VIRTUAL_WIDTH = _propgrid.PG_FL_HAS_VIRTUAL_WIDTH
+PG_FL_RECALCULATING_VIRTUAL_SIZE = _propgrid.PG_FL_RECALCULATING_VIRTUAL_SIZE
 class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
     """Proxy of C++ PropertyGrid class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -2237,6 +2265,74 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
         """HandleCustomEditorEvent(self, Event event)"""
         return _propgrid.PropertyGrid_HandleCustomEditorEvent(*args, **kwargs)
 
+    def GetInternalFlags(*args, **kwargs):
+        """GetInternalFlags(self) -> long"""
+        return _propgrid.PropertyGrid_GetInternalFlags(*args, **kwargs)
+
+    def HasInternalFlag(*args, **kwargs):
+        """HasInternalFlag(self, long flag) -> bool"""
+        return _propgrid.PropertyGrid_HasInternalFlag(*args, **kwargs)
+
+    def SetInternalFlag(*args, **kwargs):
+        """SetInternalFlag(self, long flag)"""
+        return _propgrid.PropertyGrid_SetInternalFlag(*args, **kwargs)
+
+    def ClearInternalFlag(*args, **kwargs):
+        """ClearInternalFlag(self, long flag)"""
+        return _propgrid.PropertyGrid_ClearInternalFlag(*args, **kwargs)
+
+    def DoubleToString(*args, **kwargs):
+        """
+        DoubleToString(String target, double value, int precision, bool removeZeroes, 
+            String precTemplate)
+        """
+        return _propgrid.PropertyGrid_DoubleToString(*args, **kwargs)
+
+    DoubleToString = staticmethod(DoubleToString)
+    def ValueChangeInEvent(*args, **kwargs):
+        """ValueChangeInEvent(self, wxVariant variant)"""
+        return _propgrid.PropertyGrid_ValueChangeInEvent(*args, **kwargs)
+
+    def WasValueChangedInEvent(*args, **kwargs):
+        """WasValueChangedInEvent(self) -> bool"""
+        return _propgrid.PropertyGrid_WasValueChangedInEvent(*args, **kwargs)
+
+    def IsMainButtonEvent(*args, **kwargs):
+        """IsMainButtonEvent(self, Event event) -> bool"""
+        return _propgrid.PropertyGrid_IsMainButtonEvent(*args, **kwargs)
+
+    def GetSpacingY(*args, **kwargs):
+        """GetSpacingY(self) -> int"""
+        return _propgrid.PropertyGrid_GetSpacingY(*args, **kwargs)
+
+    def SetupTextCtrlValue(*args, **kwargs):
+        """SetupTextCtrlValue(self, String text)"""
+        return _propgrid.PropertyGrid_SetupTextCtrlValue(*args, **kwargs)
+
+    def UnfocusEditor(*args, **kwargs):
+        """UnfocusEditor(self) -> bool"""
+        return _propgrid.PropertyGrid_UnfocusEditor(*args, **kwargs)
+
+    def GetPropertyDefaultCell(*args, **kwargs):
+        """GetPropertyDefaultCell(self) -> PGCell"""
+        return _propgrid.PropertyGrid_GetPropertyDefaultCell(*args, **kwargs)
+
+    def GetCategoryDefaultCell(*args, **kwargs):
+        """GetCategoryDefaultCell(self) -> PGCell"""
+        return _propgrid.PropertyGrid_GetCategoryDefaultCell(*args, **kwargs)
+
+    def GetItemAtY(*args, **kwargs):
+        """GetItemAtY(self, int y) -> PGProperty"""
+        return _propgrid.PropertyGrid_GetItemAtY(*args, **kwargs)
+
+    def SetToolTipString(*args, **kwargs):
+        """
+        SetToolTipString(self, String tipString)
+
+        Attach a tooltip to the window.
+        """
+        return _propgrid.PropertyGrid_SetToolTipString(*args, **kwargs)
+
 _propgrid.PropertyGrid_swigregister(PropertyGrid)
 
 def PropertyGrid_AutoGetTranslation(*args, **kwargs):
@@ -2250,6 +2346,13 @@ def PropertyGrid_ExpandEscapeSequences(*args, **kwargs):
 def PropertyGrid_CreateEscapeSequences(*args, **kwargs):
   """PropertyGrid_CreateEscapeSequences(String dst_str, String src_str) -> String"""
   return _propgrid.PropertyGrid_CreateEscapeSequences(*args, **kwargs)
+
+def PropertyGrid_DoubleToString(*args, **kwargs):
+  """
+    PropertyGrid_DoubleToString(String target, double value, int precision, bool removeZeroes, 
+        String precTemplate)
+    """
+  return _propgrid.PropertyGrid_DoubleToString(*args, **kwargs)
 
 PG_BASE_EVT_PRE_ID = _propgrid.PG_BASE_EVT_PRE_ID
 wxEVT_PG_SELECTED = _propgrid.wxEVT_PG_SELECTED
@@ -2319,6 +2422,22 @@ class PropertyGridEvent(_core.CommandEvent):
         """SetValidationFailureMessage(self, String message)"""
         return _propgrid.PropertyGridEvent_SetValidationFailureMessage(*args, **kwargs)
 
+    def SetColumn(*args, **kwargs):
+        """SetColumn(self, int column)"""
+        return _propgrid.PropertyGridEvent_SetColumn(*args, **kwargs)
+
+    def SetCanVeto(*args, **kwargs):
+        """SetCanVeto(self, bool canVeto)"""
+        return _propgrid.PropertyGridEvent_SetCanVeto(*args, **kwargs)
+
+    def WasVetoed(*args, **kwargs):
+        """WasVetoed(self) -> bool"""
+        return _propgrid.PropertyGridEvent_WasVetoed(*args, **kwargs)
+
+    def SetProperty(*args, **kwargs):
+        """SetProperty(self, PGProperty p)"""
+        return _propgrid.PropertyGridEvent_SetProperty(*args, **kwargs)
+
 _propgrid.PropertyGridEvent_swigregister(PropertyGridEvent)
 
 class PropertyGridPopulator(object):
@@ -2329,7 +2448,7 @@ class PropertyGridPopulator(object):
     __swig_destroy__ = _propgrid.delete_PropertyGridPopulator
     __del__ = lambda self : None;
     def SetState(*args, **kwargs):
-        """SetState(self, PropertyGridPageState state)"""
+        """SetState(self,  state)"""
         return _propgrid.PropertyGridPopulator_SetState(*args, **kwargs)
 
     def SetGrid(*args, **kwargs):
@@ -2361,8 +2480,8 @@ class PropertyGridPopulator(object):
 
     def GetState(*args):
         """
-        GetState(self) -> PropertyGridPageState
-        GetState(self) -> PropertyGridPageState
+        GetState(self)
+        GetState(self)
         """
         return _propgrid.PropertyGridPopulator_GetState(*args)
 
@@ -2480,10 +2599,6 @@ class PGTextCtrlEditor(PGEditor):
         _propgrid.PGTextCtrlEditor_swiginit(self,_propgrid.new_PGTextCtrlEditor(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_PGTextCtrlEditor
     __del__ = lambda self : None;
-    def GetValueFromControl(*args, **kwargs):
-        """GetValueFromControl(self, wxVariant variant, PGProperty property, Window ctrl) -> bool"""
-        return _propgrid.PGTextCtrlEditor_GetValueFromControl(*args, **kwargs)
-
     def OnTextCtrlEvent(*args, **kwargs):
         """
         OnTextCtrlEvent(PropertyGrid propgrid, PGProperty property, Window ctrl, 
@@ -2519,10 +2634,6 @@ class PGChoiceEditor(PGEditor):
         _propgrid.PGChoiceEditor_swiginit(self,_propgrid.new_PGChoiceEditor(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_PGChoiceEditor
     __del__ = lambda self : None;
-    def GetValueFromControl(*args, **kwargs):
-        """GetValueFromControl(self, wxVariant variant, PGProperty property, Window ctrl) -> bool"""
-        return _propgrid.PGChoiceEditor_GetValueFromControl(*args, **kwargs)
-
     def CreateControlsBase(*args, **kwargs):
         """
         CreateControlsBase(self, PropertyGrid propgrid, PGProperty property, Point pos, 
@@ -2542,21 +2653,6 @@ class PGComboBoxEditor(PGChoiceEditor):
     __swig_destroy__ = _propgrid.delete_PGComboBoxEditor
     __del__ = lambda self : None;
 _propgrid.PGComboBoxEditor_swigregister(PGComboBoxEditor)
-
-class PGCheckBoxEditor(PGEditor):
-    """Proxy of C++ PGCheckBoxEditor class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self) -> PGCheckBoxEditor"""
-        _propgrid.PGCheckBoxEditor_swiginit(self,_propgrid.new_PGCheckBoxEditor(*args, **kwargs))
-    __swig_destroy__ = _propgrid.delete_PGCheckBoxEditor
-    __del__ = lambda self : None;
-    def GetValueFromControl(*args, **kwargs):
-        """GetValueFromControl(self, wxVariant variant, PGProperty property, Window ctrl) -> bool"""
-        return _propgrid.PGCheckBoxEditor_GetValueFromControl(*args, **kwargs)
-
-_propgrid.PGCheckBoxEditor_swigregister(PGCheckBoxEditor)
 
 class PGEditorDialogAdapter(_core.Object):
     """Proxy of C++ PGEditorDialogAdapter class"""
@@ -2638,14 +2734,13 @@ class StringProperty(PGProperty):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> StringProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            String value=wxEmptyString) -> StringProperty
+        """
         _propgrid.StringProperty_swiginit(self,_propgrid.new_StringProperty(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_StringProperty
     __del__ = lambda self : None;
-    def StringToValue(*args, **kwargs):
-        """StringToValue(self, wxVariant variant, String text, int argFlags=0) -> bool"""
-        return _propgrid.StringProperty_StringToValue(*args, **kwargs)
-
 _propgrid.StringProperty_swigregister(StringProperty)
 
 class IntProperty(PGProperty):
@@ -2656,22 +2751,11 @@ class IntProperty(PGProperty):
     __del__ = lambda self : None;
     def __init__(self, *args): 
         """
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, long value=0) -> IntProperty
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            long value=0) -> IntProperty
         __init__(self, String label, String name, wxLongLong value) -> IntProperty
         """
         _propgrid.IntProperty_swiginit(self,_propgrid.new_IntProperty(*args))
-    def StringToValue(*args, **kwargs):
-        """StringToValue(self, wxVariant variant, String text, int argFlags=0) -> bool"""
-        return _propgrid.IntProperty_StringToValue(*args, **kwargs)
-
-    def ValidateValue(*args, **kwargs):
-        """ValidateValue(self, wxVariant value, PGValidationInfo validationInfo) -> bool"""
-        return _propgrid.IntProperty_ValidateValue(*args, **kwargs)
-
-    def IntToValue(*args, **kwargs):
-        """IntToValue(self, wxVariant variant, int number, int argFlags=0) -> bool"""
-        return _propgrid.IntProperty_IntToValue(*args, **kwargs)
-
     def GetClassValidator(*args, **kwargs):
         """GetClassValidator() -> Validator"""
         return _propgrid.IntProperty_GetClassValidator(*args, **kwargs)
@@ -2680,7 +2764,7 @@ class IntProperty(PGProperty):
     def DoValidation(*args, **kwargs):
         """
         DoValidation(PGProperty property, wxLongLong_t value, PGValidationInfo pValidationInfo, 
-            int mode=wxPG_PROPERTY_VALIDATION_ERROR_MESSAGE) -> bool
+            int mode=PG_PROPERTY_VALIDATION_ERROR_MESSAGE) -> bool
         """
         return _propgrid.IntProperty_DoValidation(*args, **kwargs)
 
@@ -2694,7 +2778,7 @@ def IntProperty_GetClassValidator(*args):
 def IntProperty_DoValidation(*args, **kwargs):
   """
     IntProperty_DoValidation(PGProperty property, wxLongLong_t value, PGValidationInfo pValidationInfo, 
-        int mode=wxPG_PROPERTY_VALIDATION_ERROR_MESSAGE) -> bool
+        int mode=PG_PROPERTY_VALIDATION_ERROR_MESSAGE) -> bool
     """
   return _propgrid.IntProperty_DoValidation(*args, **kwargs)
 
@@ -2706,22 +2790,11 @@ class UIntProperty(PGProperty):
     __del__ = lambda self : None;
     def __init__(self, *args): 
         """
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, long value=0) -> UIntProperty
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            long value=0) -> UIntProperty
         __init__(self, String label, String name, wxULongLong value) -> UIntProperty
         """
         _propgrid.UIntProperty_swiginit(self,_propgrid.new_UIntProperty(*args))
-    def StringToValue(*args, **kwargs):
-        """StringToValue(self, wxVariant variant, String text, int argFlags=0) -> bool"""
-        return _propgrid.UIntProperty_StringToValue(*args, **kwargs)
-
-    def ValidateValue(*args, **kwargs):
-        """ValidateValue(self, wxVariant value, PGValidationInfo validationInfo) -> bool"""
-        return _propgrid.UIntProperty_ValidateValue(*args, **kwargs)
-
-    def IntToValue(*args, **kwargs):
-        """IntToValue(self, wxVariant variant, int number, int argFlags=0) -> bool"""
-        return _propgrid.UIntProperty_IntToValue(*args, **kwargs)
-
 _propgrid.UIntProperty_swigregister(UIntProperty)
 
 class FloatProperty(PGProperty):
@@ -2729,22 +2802,17 @@ class FloatProperty(PGProperty):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, double value=0.0) -> FloatProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            double value=0.0) -> FloatProperty
+        """
         _propgrid.FloatProperty_swiginit(self,_propgrid.new_FloatProperty(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_FloatProperty
     __del__ = lambda self : None;
-    def StringToValue(*args, **kwargs):
-        """StringToValue(self, wxVariant variant, String text, int argFlags=0) -> bool"""
-        return _propgrid.FloatProperty_StringToValue(*args, **kwargs)
-
-    def ValidateValue(*args, **kwargs):
-        """ValidateValue(self, wxVariant value, PGValidationInfo validationInfo) -> bool"""
-        return _propgrid.FloatProperty_ValidateValue(*args, **kwargs)
-
     def DoValidation(*args, **kwargs):
         """
         DoValidation(PGProperty property, double value, PGValidationInfo pValidationInfo, 
-            int mode=wxPG_PROPERTY_VALIDATION_ERROR_MESSAGE) -> bool
+            int mode=PG_PROPERTY_VALIDATION_ERROR_MESSAGE) -> bool
         """
         return _propgrid.FloatProperty_DoValidation(*args, **kwargs)
 
@@ -2754,7 +2822,7 @@ _propgrid.FloatProperty_swigregister(FloatProperty)
 def FloatProperty_DoValidation(*args, **kwargs):
   """
     FloatProperty_DoValidation(PGProperty property, double value, PGValidationInfo pValidationInfo, 
-        int mode=wxPG_PROPERTY_VALIDATION_ERROR_MESSAGE) -> bool
+        int mode=PG_PROPERTY_VALIDATION_ERROR_MESSAGE) -> bool
     """
   return _propgrid.FloatProperty_DoValidation(*args, **kwargs)
 
@@ -2764,7 +2832,8 @@ class EnumProperty(PGProperty):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString labels=wxArrayString(), 
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            wxArrayString labels=wxArrayString(), 
             wxArrayInt values=wxArrayInt(), 
             int value=0) -> EnumProperty
         """
@@ -2774,18 +2843,6 @@ class EnumProperty(PGProperty):
     def GetItemCount(*args, **kwargs):
         """GetItemCount(self) -> size_t"""
         return _propgrid.EnumProperty_GetItemCount(*args, **kwargs)
-
-    def StringToValue(*args, **kwargs):
-        """StringToValue(self, wxVariant variant, String text, int argFlags=0) -> bool"""
-        return _propgrid.EnumProperty_StringToValue(*args, **kwargs)
-
-    def ValidateValue(*args, **kwargs):
-        """ValidateValue(self, wxVariant value, PGValidationInfo validationInfo) -> bool"""
-        return _propgrid.EnumProperty_ValidateValue(*args, **kwargs)
-
-    def IntToValue(*args, **kwargs):
-        """IntToValue(self, wxVariant variant, int number, int argFlags=0) -> bool"""
-        return _propgrid.EnumProperty_IntToValue(*args, **kwargs)
 
     def GetIndexForValue(*args, **kwargs):
         """GetIndexForValue(self, int value) -> int"""
@@ -2801,7 +2858,8 @@ class EditEnumProperty(EnumProperty):
         """
         __init__(self, String label, String name, wxChar labels, long values, 
             String value) -> EditEnumProperty
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString labels=wxArrayString(), 
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            wxArrayString labels=wxArrayString(), 
             wxArrayInt values=wxArrayInt(), 
             String value=wxEmptyString) -> EditEnumProperty
         __init__(self, String label, String name, PGChoices choices, String value=wxEmptyString) -> EditEnumProperty
@@ -2819,17 +2877,14 @@ class FlagsProperty(PGProperty):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString labels=wxArrayString(), 
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            wxArrayString labels=wxArrayString(), 
             wxArrayInt values=wxArrayInt(), 
             int value=0) -> FlagsProperty
         """
         _propgrid.FlagsProperty_swiginit(self,_propgrid.new_FlagsProperty(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_FlagsProperty
     __del__ = lambda self : None;
-    def StringToValue(*args, **kwargs):
-        """StringToValue(self, wxVariant variant, String text, int flags) -> bool"""
-        return _propgrid.FlagsProperty_StringToValue(*args, **kwargs)
-
     def GetItemCount(*args, **kwargs):
         """GetItemCount(self) -> size_t"""
         return _propgrid.FlagsProperty_GetItemCount(*args, **kwargs)
@@ -2852,14 +2907,13 @@ class FileProperty(PGProperty):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> FileProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            String value=wxEmptyString) -> FileProperty
+        """
         _propgrid.FileProperty_swiginit(self,_propgrid.new_FileProperty(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_FileProperty
     __del__ = lambda self : None;
-    def StringToValue(*args, **kwargs):
-        """StringToValue(self, wxVariant variant, String text, int argFlags=0) -> bool"""
-        return _propgrid.FileProperty_StringToValue(*args, **kwargs)
-
     def GetClassValidator(*args, **kwargs):
         """GetClassValidator() -> Validator"""
         return _propgrid.FileProperty_GetClassValidator(*args, **kwargs)
@@ -2887,14 +2941,13 @@ class LongStringProperty(PGProperty):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> LongStringProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            String value=wxEmptyString) -> LongStringProperty
+        """
         _propgrid.LongStringProperty_swiginit(self,_propgrid.new_LongStringProperty(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_LongStringProperty
     __del__ = lambda self : None;
-    def StringToValue(*args, **kwargs):
-        """StringToValue(self, wxVariant variant, String text, int argFlags=0) -> bool"""
-        return _propgrid.LongStringProperty_StringToValue(*args, **kwargs)
-
     def OnButtonClick(*args, **kwargs):
         """OnButtonClick(self, PropertyGrid propgrid, String value) -> bool"""
         return _propgrid.LongStringProperty_OnButtonClick(*args, **kwargs)
@@ -2915,14 +2968,13 @@ class ArrayStringProperty(PGProperty):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString value=wxArrayString()) -> ArrayStringProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            wxArrayString value=wxArrayString()) -> ArrayStringProperty
+        """
         _propgrid.ArrayStringProperty_swiginit(self,_propgrid.new_ArrayStringProperty(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_ArrayStringProperty
     __del__ = lambda self : None;
-    def StringToValue(*args, **kwargs):
-        """StringToValue(self, wxVariant variant, String text, int argFlags=0) -> bool"""
-        return _propgrid.ArrayStringProperty_StringToValue(*args, **kwargs)
-
     def GenerateValueAsString(*args, **kwargs):
         """GenerateValueAsString(self)"""
         return _propgrid.ArrayStringProperty_GenerateValueAsString(*args, **kwargs)
@@ -3051,48 +3103,6 @@ class ColourPropertyValue(_core.Object):
         _propgrid.ColourPropertyValue_swiginit(self,_propgrid.new_ColourPropertyValue(*args))
 _propgrid.ColourPropertyValue_swigregister(ColourPropertyValue)
 
-class SystemColourProperty(EnumProperty):
-    """Proxy of C++ SystemColourProperty class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, ColourPropertyValue value=wxColourPropertyValue()) -> SystemColourProperty"""
-        _propgrid.SystemColourProperty_swiginit(self,_propgrid.new_SystemColourProperty(*args, **kwargs))
-    __swig_destroy__ = _propgrid.delete_SystemColourProperty
-    __del__ = lambda self : None;
-    def ColourToString(*args, **kwargs):
-        """ColourToString(self, Colour col, int index) -> String"""
-        return _propgrid.SystemColourProperty_ColourToString(*args, **kwargs)
-
-    def GetCustomColourIndex(*args, **kwargs):
-        """GetCustomColourIndex(self) -> int"""
-        return _propgrid.SystemColourProperty_GetCustomColourIndex(*args, **kwargs)
-
-    def QueryColourFromUser(*args, **kwargs):
-        """QueryColourFromUser(self, wxVariant variant) -> bool"""
-        return _propgrid.SystemColourProperty_QueryColourFromUser(*args, **kwargs)
-
-    def GetColour(*args, **kwargs):
-        """GetColour(self, int index) -> Colour"""
-        return _propgrid.SystemColourProperty_GetColour(*args, **kwargs)
-
-    def GetVal(*args, **kwargs):
-        """GetVal(self, wxVariant pVariant=None) -> ColourPropertyValue"""
-        return _propgrid.SystemColourProperty_GetVal(*args, **kwargs)
-
-_propgrid.SystemColourProperty_swigregister(SystemColourProperty)
-
-class ColourProperty(SystemColourProperty):
-    """Proxy of C++ ColourProperty class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, Colour value=*wxWHITE) -> ColourProperty"""
-        _propgrid.ColourProperty_swiginit(self,_propgrid.new_ColourProperty(*args, **kwargs))
-    __swig_destroy__ = _propgrid.delete_ColourProperty
-    __del__ = lambda self : None;
-_propgrid.ColourProperty_swigregister(ColourProperty)
-
 class PGSpinCtrlEditor(PGTextCtrlEditor):
     """Proxy of C++ PGSpinCtrlEditor class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -3102,7 +3112,7 @@ class PGSpinCtrlEditor(PGTextCtrlEditor):
     __del__ = lambda self : None;
 _propgrid.PGSpinCtrlEditor_swigregister(PGSpinCtrlEditor)
 
-class PropertyGridPage(_core.EvtHandler,PropertyGridInterface):
+class PropertyGridPage(_core.EvtHandler,PropertyGridInterface,):
     """Proxy of C++ PropertyGridPage class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -3129,8 +3139,8 @@ class PropertyGridPage(_core.EvtHandler,PropertyGridInterface):
 
     def GetStatePtr(*args):
         """
-        GetStatePtr(self) -> PropertyGridPageState
-        GetStatePtr(self) -> PropertyGridPageState
+        GetStatePtr(self)
+        GetStatePtr(self)
         """
         return _propgrid.PropertyGridPage_GetStatePtr(*args)
 
@@ -3180,7 +3190,7 @@ class PropertyGridManager(_windows.Panel,PropertyGridInterface):
     __del__ = lambda self : None;
     def AddPage(*args, **kwargs):
         """
-        AddPage(self, String label=wxEmptyString, Bitmap bmp=wxBitmap_NULL, 
+        AddPage(self, String label=wxEmptyString, Bitmap bmp=wxNullBitmap, 
             PropertyGridPage pageObj=None) -> PropertyGridPage
         """
         return _propgrid.PropertyGridManager_AddPage(*args, **kwargs)
@@ -3249,7 +3259,7 @@ class PropertyGridManager(_windows.Panel,PropertyGridInterface):
         return _propgrid.PropertyGridManager_GetPageByName(*args, **kwargs)
 
     def GetPageByState(*args, **kwargs):
-        """GetPageByState(self, PropertyGridPageState pstate) -> int"""
+        """GetPageByState(self,  pstate) -> int"""
         return _propgrid.PropertyGridManager_GetPageByState(*args, **kwargs)
 
     def GetPageCount(*args, **kwargs):
@@ -3406,32 +3416,48 @@ _propgrid.PropertyGridManager_swigregister(PropertyGridManager)
 
 
 def NewPropertyCategory(*args, **kwargs):
-  """NewPropertyCategory(String label=wxPG_LABEL, String name=wxPG_LABEL) -> PGProperty"""
+  """NewPropertyCategory(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL)) -> PGProperty"""
   return _propgrid.NewPropertyCategory(*args, **kwargs)
 
 def NewStringProperty(*args, **kwargs):
-  """NewStringProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> PGProperty"""
+  """
+    NewStringProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        String value=wxEmptyString) -> PGProperty
+    """
   return _propgrid.NewStringProperty(*args, **kwargs)
 
 def NewUIntProperty(*args, **kwargs):
-  """NewUIntProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, long value=0) -> PGProperty"""
+  """
+    NewUIntProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        long value=0) -> PGProperty
+    """
   return _propgrid.NewUIntProperty(*args, **kwargs)
 
 def NewIntProperty(*args, **kwargs):
-  """NewIntProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, long value=0) -> PGProperty"""
+  """
+    NewIntProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        long value=0) -> PGProperty
+    """
   return _propgrid.NewIntProperty(*args, **kwargs)
 
 def NewFloatProperty(*args, **kwargs):
-  """NewFloatProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, double value=0.0) -> PGProperty"""
+  """
+    NewFloatProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        double value=0.0) -> PGProperty
+    """
   return _propgrid.NewFloatProperty(*args, **kwargs)
 
 def NewBoolProperty(*args, **kwargs):
-  """NewBoolProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, bool value=False) -> PGProperty"""
+  """
+    NewBoolProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        bool value=False) -> PGProperty
+    """
   return _propgrid.NewBoolProperty(*args, **kwargs)
 
 def NewEnumProperty(*args, **kwargs):
   """
-    NewEnumProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString labels=wxArrayString(), 
+    NewEnumProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        wxArrayString labels=wxArrayString(), 
         wxArrayInt values=wxArrayInt(), 
         int value=0) -> PGProperty
     """
@@ -3439,7 +3465,8 @@ def NewEnumProperty(*args, **kwargs):
 
 def NewEditEnumProperty(*args, **kwargs):
   """
-    NewEditEnumProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString labels=wxArrayString(), 
+    NewEditEnumProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        wxArrayString labels=wxArrayString(), 
         wxArrayInt values=wxArrayInt(), 
         String value=wxEmptyString) -> PGProperty
     """
@@ -3447,59 +3474,91 @@ def NewEditEnumProperty(*args, **kwargs):
 
 def NewFlagsProperty(*args, **kwargs):
   """
-    NewFlagsProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString labels=wxArrayString(), 
+    NewFlagsProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        wxArrayString labels=wxArrayString(), 
         wxArrayInt values=wxArrayInt(), 
         int value=0) -> PGProperty
     """
   return _propgrid.NewFlagsProperty(*args, **kwargs)
 
 def NewLongStringProperty(*args, **kwargs):
-  """NewLongStringProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> PGProperty"""
+  """
+    NewLongStringProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        String value=wxEmptyString) -> PGProperty
+    """
   return _propgrid.NewLongStringProperty(*args, **kwargs)
 
 def NewFileProperty(*args, **kwargs):
-  """NewFileProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> PGProperty"""
+  """
+    NewFileProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        String value=wxEmptyString) -> PGProperty
+    """
   return _propgrid.NewFileProperty(*args, **kwargs)
 
 def NewDirProperty(*args, **kwargs):
-  """NewDirProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> PGProperty"""
+  """
+    NewDirProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        String value=wxEmptyString) -> PGProperty
+    """
   return _propgrid.NewDirProperty(*args, **kwargs)
 
 def NewArrayStringProperty(*args, **kwargs):
-  """NewArrayStringProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString value=wxArrayString()) -> PGProperty"""
+  """
+    NewArrayStringProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        wxArrayString value=wxArrayString()) -> PGProperty
+    """
   return _propgrid.NewArrayStringProperty(*args, **kwargs)
 
 def NewFontProperty(*args, **kwargs):
-  """NewFontProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, Font value=wxFont()) -> PGProperty"""
+  """
+    NewFontProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        Font value=wxFont()) -> PGProperty
+    """
   return _propgrid.NewFontProperty(*args, **kwargs)
 
 def NewSystemColourProperty(*args, **kwargs):
-  """NewSystemColourProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, ColourPropertyValue value=wxColourPropertyValue()) -> PGProperty"""
+  """
+    NewSystemColourProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        ColourPropertyValue value=wxColourPropertyValue()) -> PGProperty
+    """
   return _propgrid.NewSystemColourProperty(*args, **kwargs)
 
 def NewColourProperty(*args, **kwargs):
-  """NewColourProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, Colour value=wxColour()) -> PGProperty"""
+  """
+    NewColourProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        Colour value=wxColour()) -> PGProperty
+    """
   return _propgrid.NewColourProperty(*args, **kwargs)
 
 def NewCursorProperty(*args, **kwargs):
-  """NewCursorProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, int value=0) -> PGProperty"""
+  """
+    NewCursorProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        int value=0) -> PGProperty
+    """
   return _propgrid.NewCursorProperty(*args, **kwargs)
 
 def NewImageFileProperty(*args, **kwargs):
-  """NewImageFileProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> PGProperty"""
+  """
+    NewImageFileProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        String value=wxEmptyString) -> PGProperty
+    """
   return _propgrid.NewImageFileProperty(*args, **kwargs)
 
 def NewMultiChoiceProperty(*args, **kwargs):
   """
-    NewMultiChoiceProperty(String label, String name=wxPG_LABEL, wxArrayString choices=wxArrayString(), 
+    NewMultiChoiceProperty(String label, String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        wxArrayString choices=wxArrayString(), 
         wxArrayString value=wxArrayString()) -> PGProperty
     """
   return _propgrid.NewMultiChoiceProperty(*args, **kwargs)
 
 def NewDateProperty(*args, **kwargs):
-  """NewDateProperty(String label=wxPG_LABEL, String name=wxPG_LABEL, DateTime value=wxDateTime()) -> PGProperty"""
+  """
+    NewDateProperty(String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+        DateTime value=wxDateTime()) -> PGProperty
+    """
   return _propgrid.NewDateProperty(*args, **kwargs)
-class PyCheckBoxEditor(PGCheckBoxEditor):
+class PyCheckBoxEditor(object):
     """Proxy of C++ PyCheckBoxEditor class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -3539,7 +3598,10 @@ class PyFloatProperty(FloatProperty):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, double value=0.0) -> PyFloatProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            double value=0.0) -> PyFloatProperty
+        """
         _propgrid.PyFloatProperty_swiginit(self,_propgrid.new_PyFloatProperty(*args, **kwargs))
         self._SetSelf(self); self._RegisterMethods()
 
@@ -3610,7 +3672,8 @@ class PyEnumProperty(EnumProperty):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString labels=wxArrayString(), 
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            wxArrayString labels=wxArrayString(), 
             wxArrayInt values=wxArrayInt(), 
             int value=0) -> PyEnumProperty
         """
@@ -3648,7 +3711,10 @@ class PyArrayStringProperty(ArrayStringProperty):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString value=wxArrayString()) -> PyArrayStringProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            wxArrayString value=wxArrayString()) -> PyArrayStringProperty
+        """
         _propgrid.PyArrayStringProperty_swiginit(self,_propgrid.new_PyArrayStringProperty(*args, **kwargs))
         self._SetSelf(self); self._RegisterMethods()
 
@@ -3753,7 +3819,10 @@ class PyStringProperty(StringProperty):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> PyStringProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            String value=wxEmptyString) -> PyStringProperty
+        """
         _propgrid.PyStringProperty_swiginit(self,_propgrid.new_PyStringProperty(*args, **kwargs))
         self._SetSelf(self); self._RegisterMethods()
 
@@ -3791,7 +3860,8 @@ class PyEditEnumProperty(EditEnumProperty):
         """
         __init__(self, String label, String name, wxChar labels, long values, 
             String value) -> PyEditEnumProperty
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString labels=wxArrayString(), 
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            wxArrayString labels=wxArrayString(), 
             wxArrayInt values=wxArrayInt(), 
             String value=wxEmptyString) -> PyEditEnumProperty
         __init__(self, String label, String name, PGChoices choices, String value=wxEmptyString) -> PyEditEnumProperty
@@ -3862,13 +3932,14 @@ class PyTextCtrlEditor(PGTextCtrlEditor):
 
 _propgrid.PyTextCtrlEditor_swigregister(PyTextCtrlEditor)
 
-class PySystemColourProperty(SystemColourProperty):
+class PySystemColourProperty(object):
     """Proxy of C++ PySystemColourProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args): 
         """
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, ColourPropertyValue value=wxColourPropertyValue()) -> PySystemColourProperty
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            ColourPropertyValue value=wxColourPropertyValue()) -> PySystemColourProperty
         __init__(self, String label, String name, wxChar labels, long values, 
             PGChoices choicesCache, ColourPropertyValue value) -> PySystemColourProperty
         __init__(self, String label, String name, wxChar labels, long values, 
@@ -3909,7 +3980,8 @@ class PyFlagsProperty(FlagsProperty):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, wxArrayString labels=wxArrayString(), 
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            wxArrayString labels=wxArrayString(), 
             wxArrayInt values=wxArrayInt(), 
             int value=0) -> PyFlagsProperty
         """
@@ -3942,12 +4014,15 @@ class PyFlagsProperty(FlagsProperty):
 
 _propgrid.PyFlagsProperty_swigregister(PyFlagsProperty)
 
-class PyColourProperty(ColourProperty):
+class PyColourProperty(object):
     """Proxy of C++ PyColourProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, Colour value=*wxWHITE) -> PyColourProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            Colour value=*wxWHITE) -> PyColourProperty
+        """
         _propgrid.PyColourProperty_swiginit(self,_propgrid.new_PyColourProperty(*args, **kwargs))
         self._SetSelf(self); self._RegisterMethods()
 
@@ -3982,7 +4057,10 @@ class PyFileProperty(FileProperty):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> PyFileProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            String value=wxEmptyString) -> PyFileProperty
+        """
         _propgrid.PyFileProperty_swiginit(self,_propgrid.new_PyFileProperty(*args, **kwargs))
         self._SetSelf(self); self._RegisterMethods()
 
@@ -4018,7 +4096,8 @@ class PyIntProperty(IntProperty):
     __repr__ = _swig_repr
     def __init__(self, *args): 
         """
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, long value=0) -> PyIntProperty
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            long value=0) -> PyIntProperty
         __init__(self, String label, String name, wxLongLong value) -> PyIntProperty
         """
         _propgrid.PyIntProperty_swiginit(self,_propgrid.new_PyIntProperty(*args))
@@ -4199,7 +4278,8 @@ class PyUIntProperty(UIntProperty):
     __repr__ = _swig_repr
     def __init__(self, *args): 
         """
-        __init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, long value=0) -> PyUIntProperty
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            long value=0) -> PyUIntProperty
         __init__(self, String label, String name, wxULongLong value) -> PyUIntProperty
         """
         _propgrid.PyUIntProperty_swiginit(self,_propgrid.new_PyUIntProperty(*args))
@@ -4236,7 +4316,10 @@ class PyLongStringProperty(LongStringProperty):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String label=wxPG_LABEL, String name=wxPG_LABEL, String value=wxEmptyString) -> PyLongStringProperty"""
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            String value=wxEmptyString) -> PyLongStringProperty
+        """
         _propgrid.PyLongStringProperty_swiginit(self,_propgrid.new_PyLongStringProperty(*args, **kwargs))
         self._SetSelf(self); self._RegisterMethods()
 
