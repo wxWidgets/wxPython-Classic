@@ -169,6 +169,7 @@ def FontFaceFromFont(font):
 
         cairoLib.cairo_scaled_font_get_font_face.restype = ctypes.c_void_p
         fontfaceptr = voidp(cairoLib.cairo_scaled_font_get_font_face(scaledfontptr))
+        cairoLib.cairo_font_face_reference(fontfaceptr)
 
         fontface = pycairoAPI.FontFace_FromFontFace(fontfaceptr)
 
@@ -239,27 +240,40 @@ def _findCairoLib():
     if cairoLib is not None:
         return
 
-    for name in ['cairo', 'cairo-2', 'libcairo-2']:
+    names = ['cairo', 'cairo-2', 'libcairo', 'libcairo-2']
+
+    # first look using just the base name
+    for name in names:
         try:
             cairoLib = ctypes.CDLL(name)
-            break
+            return
         except:
             pass
-    else:
-        # If the above didn't find it on OS X then we still have a
-        # trick up our sleeve...
-        if 'wxMac' in wx.PlatformInfo:
-            # look at the libs linked to by the pycairo extension module
-            import macholib.MachO
-            m = macholib.MachO.MachO(cairo._cairo.__file__)
-            for h in m.headers:
-                for idx, name, path in h.walkRelocatables():
-                    if 'libcairo' in path:
-                        try:
-                            cairoLib = ctypes.CDLL(path)
-                            break
-                        except:
-                            pass
+
+    # if that didn't work then use the ctypes util to search the paths
+    # appropriate for the system
+    for name in names:
+        location = ctypes.util.find_library(name) 
+        try:
+            cairoLib = ctypes.CDLL(location)
+            return
+        except:
+            pass
+        
+    # If the above didn't find it on OS X then we still have a
+    # trick up our sleeve...
+    if 'wxMac' in wx.PlatformInfo:
+        # look at the libs linked to by the pycairo extension module
+        import macholib.MachO
+        m = macholib.MachO.MachO(cairo._cairo.__file__)
+        for h in m.headers:
+            for idx, name, path in h.walkRelocatables():
+                if 'libcairo' in path:
+                    try:
+                        cairoLib = ctypes.CDLL(path)
+                        return
+                    except:
+                        pass
 
     if not cairoLib:
         raise RuntimeError, "Unable to find the Cairo shared library"
