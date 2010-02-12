@@ -1290,7 +1290,7 @@ class GraphicsContext(GraphicsObject):
         Returns the (width, height) of the text using the current
         font.
         """
-        (width, height, descent, externalLeading) = self.GetFulltextExtent(text)
+        (width, height, descent, externalLeading) = self.GetFullTextExtent(text)
         return (width, height)
 
     
