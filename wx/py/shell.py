@@ -1105,20 +1105,20 @@ Platform: %s""" % \
             dispatcher.send(signal='Shell.calltip', sender=self, calltip=tip)
         if not self.autoCallTip and not forceCallTip:
             return
+        startpos = self.GetCurrentPos()
         if argspec and insertcalltip and self.callTipInsert:
-            startpos = self.GetCurrentPos()
             self.write(argspec + ')')
             endpos = self.GetCurrentPos()
-            self.SetSelection(endpos, startpos)
+            self.SetSelection(startpos, endpos)
         if tip:
-            curpos = self.GetCurrentPos()
-            tippos = curpos - (len(name) + 1)
-            fallback = curpos - self.GetColumn(curpos)
+            tippos = startpos - (len(name) + 1)
+            fallback = startpos - self.GetColumn(startpos)
             # In case there isn't enough room, only go back to the
             # fallback.
             tippos = max(tippos, fallback)
             self.CallTipShow(tippos, tip)
-    
+
+            
     def OnCallTipAutoCompleteManually (self, shiftDown):
         """AutoComplete and Calltips manually."""
         if self.AutoCompActive():
@@ -1379,7 +1379,6 @@ Platform: %s""" % \
         zoom = config.ReadInt('View/Zoom/Shell', -99)
         if zoom != -99:
             self.SetZoom(zoom)
-
 
     
     def SaveSettings(self, config):
