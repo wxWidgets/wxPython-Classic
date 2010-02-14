@@ -1,5 +1,106 @@
-0.9.5 (12/23/2005)
+0.9.7.9 (9/8/09)
 -------------------
+Finalized the naming convention so that references to shell in the new "slices"
+shell are renamed to "sliceshell" (likewise, Shell becomes SlicesShell)
+
+Also, renamed the file "slices.py" to "sliceshell.py".
+Since my goal is to keep PySlices.py as the equivalent to PyCrust.py,
+   I think this new convention makes the most sense...
+
+Now (Finally):
+  shell.py contains the classes: Shell, ShellFacade, and ShellFrame
+  sliceshell.py contains the classes: SlicesShell, SlicesShellFacade,
+                                      and SlicesShellFrame
+  crust.py contains: Crust and CrustFrame
+  crustslices.py contains: CrustSlices and CrustSlicesFrame
+  PyShell.py and PySlicesShell.py are the respective standalone shell apps
+  PyCrust.py and PySlices.py are the respective apps that also include Filling
+  
+  frame.py etc. still continue to service both PyCrust and PySlices.
+
+0.9.7.8 (9/8/09)
+-------------------
+Added open/save abilities to PySlices (PyCrust remains the same).
+  This uses a special format with extension .pyslices.
+  A file, *.pyslices will contain a text header and
+    also a line denoting the beginning of each new slice,
+    naming the type of slice as well (grouping, input, output)
+  All output is commented with a single '#' which is removed upon loading.
+  This ensures that a well contstucted .pyslices file is also
+    a valid python script!
+
+Added the ability to load an entire python file into a new Input slice
+    with Ctrl-L
+Added the ability to load pyslices files from the command line.
+
+Split the functionality of crust.py (functioning for both PyCrust and PySlices)
+  into crust.py (only PyCrust) and crustslices.py (only for PySlices).
+
+After revising the naming conventions:
+  shell.py contains the classes: Shell, ShellFacade, and ShellFrame
+  slice.py contains the classes: Shell, ShellFacade, and ShellFrame
+  crust.py contains: Crust and CrustFrame
+  crustslices.py contains: CrustSlices and CrustSlicesFrame
+  PyShell.py and PySlicesShell.py are the respective standalone shell apps
+  PyCrust.py and PySlices.py are the respective apps that also include Filling
+  
+  frame.py etc. still continue to service both PyCrust and PySlices.
+
+0.9.7.7 (8/25/2009) (Current--Still Need to SVNAdd the new file PySlicesShell.py)
+-------------------
+Added code to introspect.py to check for Enthought's "Traits" attributes.
+Added PySlicesShell.py.  PySlices shell is PySlices without Filling
+  and other crust attributes.
+Fixed a bug with Output_BG
+
+0.9.7.6 (7/18/2009)
+-------------------
+Made output have a slight-blue background
+Added a tutorial that can be disabled in Options->Startup.
+Added "Shell Mode" which uses >>> and ... markers for input slices and uses two returns for command execution
+Changed manual completion keybindings.
+Cleaned up keybinding help.
+Made Items in Options->Startup menu automatically save to the config file (since they don't affect anything until startup)
+Major code cleanup, removal of much dead code, shortening of very long lines, etc...
+
+0.9.6.9 (7/9/2009)
+-------------------
+Fixed Undo marker issues and a bug in selection overwrite.
+
+0.9.6.8 (7/1/2009)
+-------------------
+Merged changes with SVN trunk.
+
+0.9.6.4 thru 0.9.6.6  (10/22/2008-4/27/2009)
+-------------------
+Added magic.py to handle some very simple "magic" commands:
+
+Now the command:
+"f 1"
+will be re-interpreted as:
+"f(1)"
+
+The command:
+"f 1,2,3,4"
+will be interpreted as:
+f(1,2,3,4)
+
+Special commands "ls","cd", and "pwd" are interpreted separately
+
+Works with slices.py and shell.py
+
+Also fixed auto-indent magic.
+
+0.9.6.1 thru 0.9.6.3 (10/21/2008)
+---------------------------------
+Added PySlices (slices.py and PySlices.py), a modified version of PyCrust.
+PySlices is a "notebook interface" multi-line shell, ala Sage or Mathematica.
+It uses Scintilla markers extensively, with red for input and blue for output.
+
+Modified crust.py to use a switch so it can load either a Shell or a Slices_Shell
+
+0.9.5 (12/23/2005)
+------------------
 
 Applied a series of enhancments by Franz Steinaeusler, Adi Sieker, and
 Sebastian Haase, up until their 7-31-2005 version.  (Their next

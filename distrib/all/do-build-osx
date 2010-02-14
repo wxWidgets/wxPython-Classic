@@ -350,6 +350,10 @@ installed wxPython runtime to be able to use any of them.
    PyCrust              An application that provides an interactive
                         Python shell and also namespace inspectors.
 
+   PySlices             An enhanced version of PyCrust that allows
+                        multi-line commands in an interface like 
+                        Sage or Mathematica.
+
    Editra               A simple yet powerful programmer's editor.
 
 
@@ -461,6 +465,17 @@ EOF
         --builddir=$DMGAPPS \
         --name=PyCrust \
         --mainprogram=$INSTALLROOT$BINPREFIX/pycrust.py \
+        --iconfile=$PROGDIR/PieShell.icns \
+	--python=/usr/bin/python \
+	--executable=$PYSYSEXE \
+        build
+
+
+    # Make an app bundle to launch PySlices
+    $PYTHONW $PROGDIR/buildapp.py \
+        --builddir=$DMGAPPS \
+        --name=PySlices \
+        --mainprogram=$INSTALLROOT$BINPREFIX/pyslices.py \
         --iconfile=$PROGDIR/PieShell.icns \
 	--python=/usr/bin/python \
 	--executable=$PYSYSEXE \

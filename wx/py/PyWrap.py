@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """PyWrap is a command line utility that runs a wxPython program with
 additional runtime-tools, such as PyCrust."""
 

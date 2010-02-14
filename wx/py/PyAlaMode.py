@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """PyAlaMode is a programmer's editor."""
 
 __author__ = "Patrick K. O'Brien <pobrien@orbtech.com>"

@@ -1,0 +1,9 @@
+
+[Desktop Entry]
+Name=PySlicesShell
+Comment=GUI Python Shell
+Exec=pysliceshell
+Icon=PySlices.png
+Terminal=false
+Type=Application
+Categories=Application;Development;

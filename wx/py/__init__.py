@@ -6,6 +6,7 @@ __revision__ = "$Revision$"[11:-2]
 
 import buffer
 import crust
+import crustslices
 import dispatcher
 import document
 import editor
@@ -17,4 +18,5 @@ import interpreter
 import introspect
 import pseudo
 import shell
+import sliceshell
 import version

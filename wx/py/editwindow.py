@@ -255,8 +255,9 @@ class EditWindow(stc.StyledTextCtrl):
         backward = not (findData.GetFlags() & wx.FR_DOWN)
         matchcase = (findData.GetFlags() & wx.FR_MATCHCASE) != 0
         end = self.GetLastPosition()
-        textstring = self.GetRange(0, end)
-        findstring = findData.GetFindString()
+        # Changed to reflect the fact that StyledTextControl is in UTF-8 encoding
+        textstring = self.GetRange(0, end).encode('utf-8')
+        findstring = findData.GetFindString().encode('utf-8')
         if not matchcase:
             textstring = textstring.lower()
             findstring = findstring.lower()
