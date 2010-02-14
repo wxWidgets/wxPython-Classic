@@ -309,6 +309,8 @@ for s in \
 	pyalacarte \
 	pyalamode \
 	pycrust \
+	pyslices \
+	pysliceshell \
 	pywrap \
 	pyshell \
 	pywxrc \
@@ -332,6 +334,9 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/pixmaps
 install -m 644 wx/py/PyCrust_16.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/PyCrust.png
 install -m 644 wx/py/PyCrust_32.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/32x32/apps/PyCrust.png
 install -m 644 wx/py/PyCrust_32.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/PyCrust.png
+install -m 644 wx/py/PySlices_16.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/PySlices.png
+install -m 644 wx/py/PySlices_32.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/32x32/apps/PySlices.png
+install -m 644 wx/py/PySlices_32.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/PySlices.png
 install -m 644 wx/tools/XRCed/XRCed_16.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/16x16/apps/XRCed.png
 install -m 644 wx/tools/XRCed/XRCed_32.png $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/32x32/apps/XRCed.png
 install -m 644 wx/tools/XRCed/XRCed_32.png $RPM_BUILD_ROOT%{_datadir}/pixmaps/XRCed.png
@@ -346,6 +351,13 @@ cat > $RPM_BUILD_ROOT%{_libdir}/menu/%{pkgname} <<EOF
 	icon="PyCrust.png" \\
 	section="Applications/Development/Tools" \\
 	title="PyShell" \\
+	longtitle="GUI Python Shell"
+?package(%{pkgname}): \\
+	command="%{_bindir}/pysliceshell" \\
+	needs="X11" \\
+	icon="PySlices.png" \\
+	section="Applications/Development/Tools" \\
+	title="PySlicesShell" \\
 	longtitle="GUI Python Shell"
 ?package(%{pkgname}): \\
 	command="%{_bindir}/pycrust" \\

@@ -47,6 +47,15 @@ def getAttributeNames(object, includeMagic=1, includeSingle=1,
     if includeMagic:
         try: attributes += object._getAttributeNames()
         except: pass
+        # Special code to allow traits to be caught by autocomplete
+        if hasattr(object,'trait_get'):
+            try:
+                for i in object.trait_get().keys():
+                    if i not in attributes:
+                        if hasattr(object, i):
+                            attributes += i
+            except:
+                pass
     # Get all attribute names.
     str_type = str(type(object))
     if str_type == "<type 'array'>":

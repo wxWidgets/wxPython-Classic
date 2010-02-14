@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """PyAlaCarte is a simple programmer's editor."""
 
 __author__ = "Patrick K. O'Brien <pobrien@orbtech.com>"

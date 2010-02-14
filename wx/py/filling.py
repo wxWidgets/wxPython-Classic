@@ -305,7 +305,8 @@ class Filling(wx.SplitterWindow):
         self.Bind(wx.EVT_SPLITTER_SASH_POS_CHANGED, self.OnChanged)
 
     def OnChanged(self, event):
-        #this is important: do not evaluate this event=> otherwise, splitterwindow behaves strange
+        #this is important: do not evaluate this event=> otherwise,
+        # splitterwindow behaves strangely
         #event.Skip()
         pass
 

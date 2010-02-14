@@ -234,7 +234,9 @@ Source: "scripts\img2xpm";                  DestDir: "{code:GetPythonDir}\Script
 Source: "scripts\pyalacarte";               DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
 Source: "scripts\pyalamode";                DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
 Source: "scripts\pyshell";                  DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
+Source: "scripts\pysliceshell";             DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
 Source: "scripts\pycrust";                  DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
+Source: "scripts\pyslices";                 DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
 Source: "scripts\pywrap";                   DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
 Source: "scripts\pywxrc";                   DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
 Source: "scripts\xrced";                    DestDir: "{code:GetPythonDir}\Scripts"; Flags: sharedfile;  Components: core
@@ -631,13 +633,16 @@ Source: "samples\wxPIA_book\Chapter-18\*";            DestDir: "{app}\wxPython\s
 
 
 Source: "scripts\pyshell";                      DestDir: "{app}\scripts"; DestName: "pyshell.pyw";
+Source: "scripts\pysliceshell";                 DestDir: "{app}\scripts"; DestName: "pysliceshell.pyw";
 Source: "scripts\pycrust";                      DestDir: "{app}\scripts"; DestName: "pycrust.pyw";
+Source: "scripts\pyslices";                     DestDir: "{app}\scripts"; DestName: "pyslices.pyw";
 Source: "scripts\xrced";                        DestDir: "{app}\scripts"; DestName: "xrced.pyw";
 Source: "scripts\editra";                       DestDir: "{app}\scripts"; DestName: "editra.pyw";
 Source: "scripts\pyalamode";                    DestDir: "{app}\scripts"; DestName: "pyalamode.pyw";
 Source: "scripts\pyalacarte";                   DestDir: "{app}\scripts"; DestName: "pyalacarte.pyw";
 
 Source: "wx\py\PyCrust.ico";                    DestDir: "{app}\scripts";
+Source: "wx\py\PySlices.ico";                    DestDir: "{app}\scripts";
 Source: "wx\tools\XRCed\xrced.ico";             DestDir: "{app}\scripts";
 Source: "wx\tools\Editra\pixmaps\editra.ico";   DestDir: "{app}\scripts";
 
@@ -648,7 +653,9 @@ Source: "wx\tools\Editra\pixmaps\editra.ico";   DestDir: "{app}\scripts";
 [Icons]
 Name: "{group}\Run the wxPython DEMO"; Filename: "{app}\demo\demo.pyw";           WorkingDir: "{app}\demo";   IconFilename: "{app}\demo\wxpdemo.ico";
 Name: "{group}\PyCrust";               Filename: "{app}\scripts\pycrust.pyw";     WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
+Name: "{group}\Pylices";               Filename: "{app}\scripts\pyslices.pyw";    WorkingDir: "c:\";          IconFilename: "{app}\scripts\PySlices.ico";
 Name: "{group}\PyShell";               Filename: "{app}\scripts\pyshell.pyw";     WorkingDir: "c:\";          IconFilename: "{app}\scripts\PyCrust.ico";
+Name: "{group}\PySlicesShell";         Filename: "{app}\scripts\pysliceshell.pyw";WorkingDir: "c:\";          IconFilename: "{app}\scripts\PySlices.ico";
 Name: "{group}\XRC Resource Editor";   Filename: "{app}\scripts\xrced.pyw";       WorkingDir: "c:\";          IconFilename: "{app}\scripts\xrced.ico";
 Name: "{group}\Editra";                Filename: "{app}\scripts\editra.pyw";      WorkingDir: "c:\";          IconFilename: "{app}\scripts\editra.ico";
 

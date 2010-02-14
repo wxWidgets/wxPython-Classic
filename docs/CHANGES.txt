@@ -36,6 +36,12 @@ A new class has been added that is also a context manager, called
 wx.FrozenWindow.  It will freeze the window passed to it upon entry to
 the context, and will thaw the window upon exit from the context.
 
+Applied the final version of patch #10959 to the PyCrust code.  It
+adds many enhancements to the Py suite, inlcuding the ability to edit
+blocks of code (called slices) as a whole before executing them, and
+also the ability to execute some simple shell commands. 
+
+
 
 
 
