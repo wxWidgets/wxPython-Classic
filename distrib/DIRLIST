@@ -121,6 +121,13 @@ wx/lib/floatcanvas/Utilities
 wx/lib/masked
 wx/lib/mixins
 wx/lib/ogl
+wx/lib/pubsub
+wx/lib/pubsub/core
+wx/lib/pubsub/core/arg1
+wx/lib/pubsub/core/kwargs
+wx/lib/pubsub/pubsub1
+wx/lib/pubsub/pubsub2
+wx/lib/pubsub/utils
 wx/py
 wx/py/tests
 wx/tools
