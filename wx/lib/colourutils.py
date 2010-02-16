@@ -29,7 +29,7 @@ def AdjustColour(color, percent, alpha=wx.ALPHA_OPAQUE):
     """ Brighten/Darken input colour by percent and adjust alpha
     channel if needed. Returns the modified color.
     @param color: color object to adjust
-    @type color: wx.Color
+    @type color: wx.Colour
     @param percent: percent to adjust +(brighten) or -(darken)
     @type percent: int
     @keyword alpha: amount to adjust alpha channel

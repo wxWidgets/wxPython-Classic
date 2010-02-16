@@ -93,11 +93,11 @@ class TextDocument(wx.lib.docview.Document):
         pass
 
 
-# Use this to override MultiClient.Select to prevent yellow background.	 
-def MultiClientSelectBGNotYellow(a):	 
-    a.GetParent().multiView.UnSelect()	 
-    a.selected = True	 
-    #a.SetBackgroundColour(wx.Colour(255,255,0)) # Yellow	 
+# Use this to override MultiClient.Select to prevent yellow background.  
+def MultiClientSelectBGNotYellow(a):     
+    a.GetParent().multiView.UnSelect()   
+    a.selected = True    
+    #a.SetBackgroundColour(wx.Colour(255,255,0)) # Yellow        
     a.Refresh()
 
 class TextView(wx.lib.docview.View):
@@ -123,10 +123,10 @@ class TextView(wx.lib.docview.View):
 
     def GetCtrl(self):
         if wx.Platform == "__WXMAC__":
-            # look for active one first	 
-            self._textEditor = self._GetActiveCtrl(self._dynSash)	 
-            if self._textEditor == None:  # it is possible none are active	 
-                # look for any existing one	 
+            # look for active one first  
+            self._textEditor = self._GetActiveCtrl(self._dynSash)        
+            if self._textEditor == None:  # it is possible none are active       
+                # look for any existing one      
                 self._textEditor = self._FindCtrl(self._dynSash)
         return self._textEditor
 
@@ -401,28 +401,28 @@ class TextView(wx.lib.docview.View):
     def _GetParentFrame(self):
         return wx.GetTopLevelParent(self.GetFrame())
 
-    def _GetActiveCtrl(self, parent):	 
-        """ Walk through the MultiSash windows and find the active Control """	 
-        if isinstance(parent, wx.lib.multisash.MultiClient) and parent.selected:	 
-            return parent.child	 
-        if hasattr(parent, "GetChildren"):	 
-            for child in parent.GetChildren():	 
-                found = self._GetActiveCtrl(child)	 
-                if found:	 
-                    return found	 
-        return None	 
+    def _GetActiveCtrl(self, parent):    
+        """ Walk through the MultiSash windows and find the active Control """   
+        if isinstance(parent, wx.lib.multisash.MultiClient) and parent.selected:         
+            return parent.child  
+        if hasattr(parent, "GetChildren"):       
+            for child in parent.GetChildren():   
+                found = self._GetActiveCtrl(child)       
+                if found:        
+                    return found         
+        return None      
 
- 	 
-    def _FindCtrl(self, parent):	 
-        """ Walk through the MultiSash windows and find the first TextCtrl """	 
-        if isinstance(parent, self.GetCtrlClass()):	 
-            return parent	 
-        if hasattr(parent, "GetChildren"):	 
-            for child in parent.GetChildren():	 
-                found = self._FindCtrl(child)	 
-                if found:	 
-                    return found	 
-        return None	 
+         
+    def _FindCtrl(self, parent):         
+        """ Walk through the MultiSash windows and find the first TextCtrl """   
+        if isinstance(parent, self.GetCtrlClass()):      
+            return parent        
+        if hasattr(parent, "GetChildren"):       
+            for child in parent.GetChildren():   
+                found = self._FindCtrl(child)    
+                if found:        
+                    return found         
+        return None      
  
 
     #----------------------------------------------------------------------------
@@ -859,7 +859,7 @@ class TextOptionsPanel(wx.Panel):
             red = int("0x" + colorData[0:2], 16)
             green = int("0x" + colorData[2:4], 16)
             blue = int("0x" + colorData[4:6], 16)
-            self._textColor = wx.Color(red, green, blue)
+            self._textColor = wx.Colour(red, green, blue)
         self._originalTextColor = self._textColor
         fontLabel = wx.StaticText(self, -1, _("Font:"))
         self._sampleTextCtrl = wx.TextCtrl(self, -1, "", size = (125, 21))
@@ -1054,17 +1054,17 @@ class TextCtrl(wx.stc.StyledTextCtrl):
         self.SetFontColor(color)
         self.MarkerDefineDefault()
 
-        # for multisash initialization	 
-        if isinstance(parent, wx.lib.multisash.MultiClient):	 
-            while parent.GetParent():	 
-                parent = parent.GetParent()	 
-                if hasattr(parent, "GetView"):	 
-                    break	 
-            if hasattr(parent, "GetView"):	 
-                textEditor = parent.GetView()._textEditor	 
-                if textEditor:	 
-                    doc = textEditor.GetDocPointer()	 
-                    if doc:	 
+        # for multisash initialization   
+        if isinstance(parent, wx.lib.multisash.MultiClient):     
+            while parent.GetParent():    
+                parent = parent.GetParent()      
+                if hasattr(parent, "GetView"):   
+                    break        
+            if hasattr(parent, "GetView"):       
+                textEditor = parent.GetView()._textEditor        
+                if textEditor:   
+                    doc = textEditor.GetDocPointer()     
+                    if doc:      
                         self.SetDocPointer(doc)
 
 
@@ -1140,7 +1140,7 @@ class TextCtrl(wx.stc.StyledTextCtrl):
             red = int("0x" + colorData[0:2], 16)
             green = int("0x" + colorData[2:4], 16)
             blue = int("0x" + colorData[4:6], 16)
-            color = wx.Color(red, green, blue)
+            color = wx.Colour(red, green, blue)
         return font, color
 
 

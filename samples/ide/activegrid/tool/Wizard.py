@@ -13,12 +13,12 @@ import wx
 import wx.xrc as xrc
 import wx.wizard
 
-WHITE_COLOR = wx.Color(0xFF, 0xFF, 0xFF)
+WHITE_COLOR = wx.Colour(0xFF, 0xFF, 0xFF)
 LABEL_FONT = wx.Font(8, wx.SWISS, wx.NORMAL, wx.NORMAL, faceName="Arial")  
 SELECTED_LABEL_FONT = wx.Font(8, wx.SWISS, wx.NORMAL, wx.BOLD, faceName="Arial")  
 TINY_FONT = wx.Font(6, wx.SWISS, wx.NORMAL, wx.BOLD, faceName="Arial")
 ELLIPSIS_FONT = wx.Font(12, wx.SWISS, wx.NORMAL, wx.NORMAL, faceName="Arial")
-ACTIVEGRID_ORANGE_COLOR = wx.Color(0xF9, 0x9E, 0x1B)
+ACTIVEGRID_ORANGE_COLOR = wx.Colour(0xF9, 0x9E, 0x1B)
 #----------------------------------------------------------------------------
 # Classes
 #----------------------------------------------------------------------------

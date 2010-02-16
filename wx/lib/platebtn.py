@@ -646,7 +646,7 @@ class PlateButton(wx.PyControl):
 
     def SetPressColor(self, color):
         """Set the color used for highlighting the pressed state
-        @param color: wx.Color
+        @param color: wx.Colour
         @note: also resets all text colours as necessary
 
         """

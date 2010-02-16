@@ -206,12 +206,12 @@ class wxpTagHandler(wx.html.HtmlWinTagHandler):
                 red   = int('0x'+value[1:3], 16)
                 green = int('0x'+value[3:5], 16)
                 blue  = int('0x'+value[5:], 16)
-                value = wx.Color(red, green, blue)
+                value = wx.Colour(red, green, blue)
             except:
                 pass
 
         if self.ctx:
-          self.ctx.kwargs[str(name)] = value
+            self.ctx.kwargs[str(name)] = value
         return False
 
 

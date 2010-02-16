@@ -1,4 +1,4 @@
-"""Unit tests for wx.Colour and wx.Color.
+"""Unit tests for wx.Colour.
         
 Methods yet to test:
 __del__, __eq__, __getitem__, __len__, __ne__, __nonzero__, __reduce__, 

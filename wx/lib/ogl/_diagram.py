@@ -1,13 +1,13 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 #----------------------------------------------------------------------------
 # Name:         diagram.py
 # Purpose:      Diagram class
 #
-# Author:       Pierre Hj‰lm (from C++ original by Julian Smart)
+# Author:       Pierre Hj√§lm (from C++ original by Julian Smart)
 #
 # Created:      2004-05-08
 # RCS-ID:       $Id$
-# Copyright:    (c) 2004 Pierre Hj‰lm - 1998 Julian Smart
+# Copyright:    (c) 2004 Pierre Hj√§lm - 1998 Julian Smart
 # Licence:      wxWindows license
 #----------------------------------------------------------------------------
 
@@ -87,7 +87,7 @@ class Diagram(object):
 
     def DrawOutline(self, dc, x1, y1, x2, y2):
         """Draw an outline rectangle on the current device context."""
-        dc.SetPen(wx.Pen(wx.Color(0, 0, 0), 1, wx.DOT))
+        dc.SetPen(wx.Pen(wx.Colour(0, 0, 0), 1, wx.DOT))
         dc.SetBrush(wx.TRANSPARENT_BRUSH)
 
         dc.DrawLines([[x1, y1], [x2, y1], [x2, y2], [x1, y2], [x1, y1]])
