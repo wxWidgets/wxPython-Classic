@@ -41,6 +41,12 @@ adds many enhancements to the Py suite, inlcuding the ability to edit
 blocks of code (called slices) as a whole before executing them, and
 also the ability to execute some simple shell commands. 
 
+Replaced the wx.lib.pubsub module with the new pubsub package from
+http://pubsub.sf.net.  by default it is backwards compatible with the
+old pubsub module, but it also has a more advanced api available that
+can be switched on at import time.  See the pubsub web site for more
+details. 
+
 
 
 
