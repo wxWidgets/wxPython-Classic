@@ -125,6 +125,13 @@ Source: "wx\lib\masked\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\li
 Source: "wx\lib\ogl\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\ogl"; Components: core
 Source: "wx\lib\floatcanvas\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\floatcanvas"; Components: core
 Source: "wx\lib\floatcanvas\Utilities\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\lib\floatcanvas\Utilities"; Components: core
+Source: "wx\lib\pubsub\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\lib\pubsub"; Components: core
+Source: "wx\lib\pubsub\core\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\pubsub\core"; Components: core
+Source: "wx\lib\pubsub\core\arg1\*.py";         DestDir: "{app}\%(PKGDIR)s\wx\lib\pubsub\core\arg1"; Components: core
+Source: "wx\lib\pubsub\core\kwargs\*.py";       DestDir: "{app}\%(PKGDIR)s\wx\lib\pubsub\core\kwargs"; Components: core
+Source: "wx\lib\pubsub\pubsub1\*.py";           DestDir: "{app}\%(PKGDIR)s\wx\lib\pubsub\pubsub1"; Components: core
+Source: "wx\lib\pubsub\pubsub2\*.py";           DestDir: "{app}\%(PKGDIR)s\wx\lib\pubsub\pubsub2"; Components: core
+Source: "wx\lib\pubsub\utils\*.py";             DestDir: "{app}\%(PKGDIR)s\wx\lib\pubsub\utils"; Components: core
 Source: "wx\py\*.py";                           DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
 Source: "wx\py\*.txt";                          DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
 Source: "wx\py\*.ico";                          DestDir: "{app}\%(PKGDIR)s\wx\py"; Components: core
@@ -294,6 +301,22 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\masked\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\masked\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\ogl\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\ogl\*.pyo";
+
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\core\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\core\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\core\arg1\*.pyc"
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\core\arg1\*.pyo"
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\core\kwargs\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\core\kwargs\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\pubsub1\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\pubsub1\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\pubsub2\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\pubsub2\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\utils\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\utils\*.pyo";
+
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\floatcanvas\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\floatcanvas\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\floatcanvas\Utilities\*.pyc";
