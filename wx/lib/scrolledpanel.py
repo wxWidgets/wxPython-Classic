@@ -108,17 +108,17 @@ class ScrolledPanel( wx.PyScrolledWindow ):
 
         # is it past the right edge ?
         if cr.right > clntsz.width and sppu_x > 0:
-            diff = (cr.right - clntsz.width) / sppu_x
+            diff = (cr.right - clntsz.width + 1) / sppu_x
             if cr.x - diff * sppu_x > 0:
-                new_vs_x = vs_x + diff + 1
+                new_vs_x = vs_x + diff
             else:
                 new_vs_x = vs_x + (cr.x / sppu_x)
                 
         # is it below the bottom ?
         if cr.bottom > clntsz.height and sppu_y > 0:
-            diff = (cr.bottom - clntsz.height) / sppu_y
+            diff = (cr.bottom - clntsz.height + 1) / sppu_y
             if cr.y - diff * sppu_y > 0:
-                new_vs_y = vs_y + diff + 1
+                new_vs_y = vs_y + diff
             else:
                 new_vs_y = vs_y + (cr.y / sppu_y)
 
