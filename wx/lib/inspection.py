@@ -610,6 +610,17 @@ class InspectionInfoPanel(wx.stc.StyledTextCtrl):
 
 
     def FmtWidget(self, obj):
+        def _countChildren(children):
+            count = 0
+            for child in children:
+                if not child.IsTopLevel():
+                    count += 1
+                    count += _countChildren(child.GetChildren())
+            return count
+
+        count = len([c for c in obj.GetChildren() if not c.IsTopLevel()])
+        rcount = _countChildren(obj.GetChildren())
+
         st = ["Widget:"]
         st.append(self.Fmt('name',        obj.GetName()))
         st.append(self.Fmt('class',       obj.__class__))
@@ -637,6 +648,8 @@ class InspectionInfoPanel(wx.stc.StyledTextCtrl):
                 st.append(self.Fmt('value',   obj.GetValue()))
             except:
                 pass
+        st.append('    child count = %d (direct)  %d (recursive)' %
+                  (count, rcount))
         if obj.GetContainingSizer() is not None:
             st.append('')
             sizer = obj.GetContainingSizer()
