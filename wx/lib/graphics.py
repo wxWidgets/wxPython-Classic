@@ -921,7 +921,14 @@ class GraphicsContext(GraphicsObject):
 
     @staticmethod
     def CreateMeasuringContext():
-        raise NotImplementedError("TODO")
+        """
+        If you need a temporary context just to quickly measure some
+        text extents, or etc. then using this function will be a
+        little less expensive than creating a real DC for it.
+        """
+        surface = cairo.ImageSurface(FORMAT_ARGB32, 1, 1)
+        ctx = cairo.Context(surface)
+        return GraphicsContext(ctx)
 
     @staticmethod
     def CreateFromSurface(surface):
