@@ -85,7 +85,9 @@ def ContextFromDC(dc):
         width, height = dc.GetSize()
 
         # use the CGContextRef of the DC to make the cairo surface
-        cgref = voidp( dc.GetCGContext() )
+        cgc = dc.GetCGContext()
+        assert cgc is not None, "Unable to get CGContext from DC."
+        cgref = voidp( cgc )
         surfaceptr = voidp(
             cairoLib.cairo_quartz_surface_create_for_cg_context(
                 cgref, width, height) )
