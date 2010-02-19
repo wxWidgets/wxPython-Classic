@@ -12,8 +12,8 @@
 
 """
 This module implements an API similar to wx.GraphicsContext and the
-related classes.  The implementation for all platforms is done using
-Cairo, via the wx.lib.wxcairo glue module.
+related classes.  In this case the implementation for all platforms is
+done using Cairo, via the wx.lib.wxcairo glue module.
 
 Why do this?  Why not just use wx.GraphicsContext everywhere?  Using
 Cairo on every platform enables us to more easily be totally
@@ -285,7 +285,7 @@ class GraphicsPen(GraphicsObject):
             
         elif self._style in [wx.DOT, wx.DOT_DASH, wx.LONG_DASH, wx.SHORT_DASH]:
             ctx.set_source_rgba( *_colourToValues(self._colour) )
-            ctx.set_dashes( _stdDashes(self._style, self._width) )
+            ctx.set_dash( _stdDashes(self._style, self._width) )
         
         elif self._style in [wx.BDIAGONAL_HATCH, wx.CROSSDIAG_HATCH, wx.FDIAGONAL_HATCH,
                              wx.CROSS_HATCH, wx.HORIZONTAL_HATCH, wx.VERTICAL_HATCH]:
@@ -1308,7 +1308,7 @@ class GraphicsContext(GraphicsObject):
             bmp = GraphicsBitmap.CreateFromBitmap(bmp)
 
         # In case we're scaling the image by using a width and height
-        # different than the bitmap's size create a pattern
+        # different than the bitmap's size, create a pattern
         # transformation on the surface and draw the transformed
         # pattern.
         self.PushState()
@@ -1317,8 +1317,8 @@ class GraphicsContext(GraphicsObject):
         bw, bh = bmp.Size
         if w == -1: w = bw
         if h == -1: h = bh
-        scaleX = w / bw
-        scaleY = h / bh
+        scaleX = w / float(bw)
+        scaleY = h / float(bh)
 
         self._context.scale(scaleX, scaleY)
         self._context.translate(x, y)
