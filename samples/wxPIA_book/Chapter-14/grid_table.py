@@ -27,7 +27,7 @@ class TestTable(wx.grid.PyGridTableBase):
         return 50
 
     def IsEmptyCell(self, row, col):
-        return self.data.get((row, col)) is not None
+        return self.data.get((row, col)) is None
 
     def GetValue(self, row, col):
         value = self.data.get((row, col))
