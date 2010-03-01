@@ -3893,7 +3893,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_WebKitCtrl_SetScrollPos(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_WebKitCtrl_SetScrollPos__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxWebKitCtrl *arg1 = (wxWebKitCtrl *) 0 ;
   int arg2 ;
@@ -3901,19 +3901,14 @@ SWIGINTERN PyObject *_wrap_WebKitCtrl_SetScrollPos(PyObject *SWIGUNUSEDPARM(self
   int res1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "pos", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:WebKitCtrl_SetScrollPos",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWebKitCtrl, 0 |  0 );
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWebKitCtrl, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WebKitCtrl_SetScrollPos" "', expected argument " "1"" of type '" "wxWebKitCtrl *""'"); 
   }
   arg1 = reinterpret_cast< wxWebKitCtrl * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "WebKitCtrl_SetScrollPos" "', expected argument " "2"" of type '" "int""'");
   } 
@@ -3931,16 +3926,14 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_WebKitCtrl_GetScrollPos(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_WebKitCtrl_GetScrollPos__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxWebKitCtrl *arg1 = (wxWebKitCtrl *) 0 ;
   int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWebKitCtrl, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WebKitCtrl_GetScrollPos" "', expected argument " "1"" of type '" "wxWebKitCtrl *""'"); 
@@ -4642,8 +4635,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"WebKitCtrl_MakeEditable", (PyCFunction) _wrap_WebKitCtrl_MakeEditable, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"WebKitCtrl_IsEditable", (PyCFunction)_wrap_WebKitCtrl_IsEditable, METH_O, NULL},
 	 { (char *)"WebKitCtrl_RunScript", (PyCFunction) _wrap_WebKitCtrl_RunScript, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"WebKitCtrl_SetScrollPos", (PyCFunction) _wrap_WebKitCtrl_SetScrollPos, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"WebKitCtrl_GetScrollPos", (PyCFunction)_wrap_WebKitCtrl_GetScrollPos, METH_O, NULL},
 	 { (char *)"WebKitCtrl_swigregister", WebKitCtrl_swigregister, METH_VARARGS, NULL},
 	 { (char *)"WebKitCtrl_swiginit", WebKitCtrl_swiginit, METH_VARARGS, NULL},
 	 { (char *)"WebKitBeforeLoadEvent_IsCancelled", (PyCFunction)_wrap_WebKitBeforeLoadEvent_IsCancelled, METH_O, NULL},

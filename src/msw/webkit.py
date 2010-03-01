@@ -165,14 +165,6 @@ class WebKitCtrl(_core.Control):
         """RunScript(self, String javascript) -> String"""
         return _webkit.WebKitCtrl_RunScript(*args, **kwargs)
 
-    def SetScrollPos(*args, **kwargs):
-        """SetScrollPos(self, int pos)"""
-        return _webkit.WebKitCtrl_SetScrollPos(*args, **kwargs)
-
-    def GetScrollPos(*args, **kwargs):
-        """GetScrollPos(self) -> int"""
-        return _webkit.WebKitCtrl_GetScrollPos(*args, **kwargs)
-
     PageSource = property(GetPageSource,SetPageSource,doc="See `GetPageSource` and `SetPageSource`") 
     PageTitle = property(GetPageTitle,doc="See `GetPageTitle`") 
     PageURL = property(GetPageURL,doc="See `GetPageURL`") 

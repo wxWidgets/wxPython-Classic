@@ -1000,7 +1000,7 @@ def PropertyGridConstIterator_OneStep(*args, **kwargs):
     """
   return _propgrid.PropertyGridConstIterator_OneStep(*args, **kwargs)
 
-class PGVIteratorBase(_core.ObjectRefData):
+class PGVIteratorBase(object):
     """Proxy of C++ PGVIteratorBase class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"
@@ -1332,6 +1332,14 @@ class PropertyGridInterface(object):
         return _propgrid.PropertyGridInterface_SetBoolChoices(*args, **kwargs)
 
     SetBoolChoices = staticmethod(SetBoolChoices)
+    def SetColumnProportion(*args, **kwargs):
+        """SetColumnProportion(self, int column, int proportion) -> bool"""
+        return _propgrid.PropertyGridInterface_SetColumnProportion(*args, **kwargs)
+
+    def GetColumnProportion(*args, **kwargs):
+        """GetColumnProportion(self, int column) -> int"""
+        return _propgrid.PropertyGridInterface_GetColumnProportion(*args, **kwargs)
+
     def SetPropertyAttribute(*args, **kwargs):
         """SetPropertyAttribute(self, PGPropArg id, String attrName, wxVariant value, long argFlags=0)"""
         return _propgrid.PropertyGridInterface_SetPropertyAttribute(*args, **kwargs)
@@ -1870,7 +1878,7 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
         return _propgrid.PropertyGrid_ChangePropertyValue(*args, **kwargs)
 
     def CenterSplitter(*args, **kwargs):
-        """CenterSplitter(self, bool enable_auto_centering=False)"""
+        """CenterSplitter(self, bool enableAutoResizing=False)"""
         return _propgrid.PropertyGrid_CenterSplitter(*args, **kwargs)
 
     def ClearActionTriggers(*args, **kwargs):
@@ -2008,7 +2016,7 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
         return _propgrid.PropertyGrid_GetSelectionForegroundColour(*args, **kwargs)
 
     def GetSplitterPosition(*args, **kwargs):
-        """GetSplitterPosition(self) -> int"""
+        """GetSplitterPosition(self, int splitterIndex=0) -> int"""
         return _propgrid.PropertyGrid_GetSplitterPosition(*args, **kwargs)
 
     def GetEditorTextCtrl(*args, **kwargs):
@@ -2060,6 +2068,10 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
     def ResetColours(*args, **kwargs):
         """ResetColours(self)"""
         return _propgrid.PropertyGrid_ResetColours(*args, **kwargs)
+
+    def ResetColumnSizes(*args, **kwargs):
+        """ResetColumnSizes(self, bool enableAutoResizing=False)"""
+        return _propgrid.PropertyGrid_ResetColumnSizes(*args, **kwargs)
 
     def SelectProperty(*args, **kwargs):
         """SelectProperty(self, PGPropArg id, bool focus=False) -> bool"""

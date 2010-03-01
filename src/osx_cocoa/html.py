@@ -873,7 +873,7 @@ class HtmlContainerCell(HtmlCell):
         return _html.HtmlContainerCell_GetBackgroundColour(*args, **kwargs)
 
     def SetBorder(*args, **kwargs):
-        """SetBorder(self, Colour clr1, Colour clr2)"""
+        """SetBorder(self, Colour clr1, Colour clr2, int border=1)"""
         return _html.HtmlContainerCell_SetBorder(*args, **kwargs)
 
     def GetFirstChild(*args, **kwargs):
@@ -1400,9 +1400,18 @@ class HtmlEasyPrinting(_core.Object):
         """SetParentWindow(self, Window window)"""
         return _html.HtmlEasyPrinting_SetParentWindow(*args, **kwargs)
 
+    def GetName(*args, **kwargs):
+        """GetName(self) -> String"""
+        return _html.HtmlEasyPrinting_GetName(*args, **kwargs)
+
+    def SetName(*args, **kwargs):
+        """SetName(self, String name)"""
+        return _html.HtmlEasyPrinting_SetName(*args, **kwargs)
+
     PageSetupData = property(GetPageSetupData,doc="See `GetPageSetupData`") 
     PrintData = property(GetPrintData,doc="See `GetPrintData`") 
     ParentWindow = property(GetParentWindow,SetParentWindow) 
+    Name = property(GetName,SetName) 
 _html.HtmlEasyPrinting_swigregister(HtmlEasyPrinting)
 
 #---------------------------------------------------------------------------

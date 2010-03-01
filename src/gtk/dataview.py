@@ -342,6 +342,10 @@ class DataViewItemAttr(object):
         """GetColour(self) -> Colour"""
         return _dataview.DataViewItemAttr_GetColour(*args, **kwargs)
 
+    def HasFont(*args, **kwargs):
+        """HasFont(self) -> bool"""
+        return _dataview.DataViewItemAttr_HasFont(*args, **kwargs)
+
     def GetBold(*args, **kwargs):
         """GetBold(self) -> bool"""
         return _dataview.DataViewItemAttr_GetBold(*args, **kwargs)
@@ -350,6 +354,10 @@ class DataViewItemAttr(object):
         """GetItalic(self) -> bool"""
         return _dataview.DataViewItemAttr_GetItalic(*args, **kwargs)
 
+    def IsDefault(*args, **kwargs):
+        """IsDefault(self) -> bool"""
+        return _dataview.DataViewItemAttr_IsDefault(*args, **kwargs)
+
     Colour = property(GetColour,SetColour) 
     Bold = property(GetBold,SetBold) 
     Italic = property(GetItalic,SetItalic) 
@@ -357,7 +365,7 @@ _dataview.DataViewItemAttr_swigregister(DataViewItemAttr)
 
 #---------------------------------------------------------------------------
 
-class DataViewModel(_core.ObjectRefData):
+class DataViewModel(_core.RefCounter):
     """
     `DataViewModel` is the base class for managing all data to be
     displayed by a `DataViewCtrl`. All other models derive from it and
@@ -446,6 +454,17 @@ class DataViewModel(_core.ObjectRefData):
         """
         return _dataview.DataViewModel_GetValue(*args, **kwargs)
 
+    def HasValue(*args, **kwargs):
+        """
+        HasValue(self, DataViewItem item, unsigned int col) -> bool
+
+        return true if the given item has a value to display in the given
+        column: this is always true except for container items which by
+        default only show their label in the first column (but see
+        HasContainerColumns())
+        """
+        return _dataview.DataViewModel_HasValue(*args, **kwargs)
+
     def SetValue(*args, **kwargs):
         """
         SetValue(self, wxVariant variant, DataViewItem item, unsigned int col) -> bool
@@ -457,6 +476,10 @@ class DataViewModel(_core.ObjectRefData):
         `ValueChanged` so proper notifications are performed.
         """
         return _dataview.DataViewModel_SetValue(*args, **kwargs)
+
+    def ChangeValue(*args, **kwargs):
+        """ChangeValue(self, wxVariant variant, DataViewItem item, unsigned int col) -> bool"""
+        return _dataview.DataViewModel_ChangeValue(*args, **kwargs)
 
     def GetAttr(*args, **kwargs):
         """
@@ -1039,7 +1062,7 @@ class DataViewRenderer(_core.Object):
     This class is used by `DataViewCtrl` to render (or draw) the
     individual cells. One instance of a renderer class is owned by each
     `DataViewColumn`. There is a number of ready-to-use renderers
-    provided: `DataViewTextRenderer`, `DataViewTextRendererAttr`,
+    provided: `DataViewTextRenderer`, 
     `DataViewIconTextRenderer`, `DataViewToggleRenderer`,
     `DataViewProgressRenderer`, `DataViewBitmapRenderer`,
     `DataViewDateRenderer`, `DataViewSpinRenderer`,
@@ -1102,6 +1125,18 @@ class DataViewRenderer(_core.Object):
         """GetAlignment(self) -> int"""
         return _dataview.DataViewRenderer_GetAlignment(*args, **kwargs)
 
+    def EnableEllipsize(*args, **kwargs):
+        """EnableEllipsize(self, int mode=ELLIPSIZE_MIDDLE)"""
+        return _dataview.DataViewRenderer_EnableEllipsize(*args, **kwargs)
+
+    def DisableEllipsize(*args, **kwargs):
+        """DisableEllipsize(self)"""
+        return _dataview.DataViewRenderer_DisableEllipsize(*args, **kwargs)
+
+    def GetEllipsizeMode(*args, **kwargs):
+        """GetEllipsizeMode(self) -> int"""
+        return _dataview.DataViewRenderer_GetEllipsizeMode(*args, **kwargs)
+
     def HasEditorCtrl(*args, **kwargs):
         """HasEditorCtrl(self) -> bool"""
         return _dataview.DataViewRenderer_HasEditorCtrl(*args, **kwargs)
@@ -1155,26 +1190,6 @@ class DataViewTextRenderer(DataViewRenderer):
         """
         _dataview.DataViewTextRenderer_swiginit(self,_dataview.new_DataViewTextRenderer(*args, **kwargs))
 _dataview.DataViewTextRenderer_swigregister(DataViewTextRenderer)
-
-class DataViewTextRendererAttr(DataViewTextRenderer):
-    """
-    The same as `DataViewTextRenderer` but with support for font
-    attributes. Font attributes are currently only supported under GTK+
-    and MSW.
-    """
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, String varianttype="string", int mode=DATAVIEW_CELL_INERT, 
-            int align=DVR_DEFAULT_ALIGNMENT) -> DataViewTextRendererAttr
-
-        The same as `DataViewTextRenderer` but with support for font
-        attributes. Font attributes are currently only supported under GTK+
-        and MSW.
-        """
-        _dataview.DataViewTextRendererAttr_swiginit(self,_dataview.new_DataViewTextRendererAttr(*args, **kwargs))
-_dataview.DataViewTextRendererAttr_swigregister(DataViewTextRendererAttr)
 
 class DataViewBitmapRenderer(DataViewRenderer):
     """DataViewBitmapRenderer"""
@@ -1689,12 +1704,47 @@ class DataViewCtrl(_core.Control):
     SortingColumn = property(GetSortingColumn) 
     Indent = property(GetIndent,SetIndent) 
     Selection = property(GetSelection) 
+    def GetClassDefaultAttributes(*args, **kwargs):
+        """
+        GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
+
+        Get the default attributes for this class.  This is useful if you want
+        to use the same font or colour in your own control as in a standard
+        control -- which is a much better idea than hard coding specific
+        colours or fonts which might look completely out of place on the
+        user's system, especially if it uses themes.
+
+        The variant parameter is only relevant under Mac currently and is
+        ignore under other platforms. Under Mac, it will change the size of
+        the returned font. See `wx.Window.SetWindowVariant` for more about
+        this.
+        """
+        return _dataview.DataViewCtrl_GetClassDefaultAttributes(*args, **kwargs)
+
+    GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
 _dataview.DataViewCtrl_swigregister(DataViewCtrl)
 
 def PreDataViewCtrl(*args, **kwargs):
     """PreDataViewCtrl() -> DataViewCtrl"""
     val = _dataview.new_PreDataViewCtrl(*args, **kwargs)
     return val
+
+def DataViewCtrl_GetClassDefaultAttributes(*args, **kwargs):
+  """
+    DataViewCtrl_GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
+
+    Get the default attributes for this class.  This is useful if you want
+    to use the same font or colour in your own control as in a standard
+    control -- which is a much better idea than hard coding specific
+    colours or fonts which might look completely out of place on the
+    user's system, especially if it uses themes.
+
+    The variant parameter is only relevant under Mac currently and is
+    ignore under other platforms. Under Mac, it will change the size of
+    the returned font. See `wx.Window.SetWindowVariant` for more about
+    this.
+    """
+  return _dataview.DataViewCtrl_GetClassDefaultAttributes(*args, **kwargs)
 
 class DataViewEvent(_core.NotifyEvent):
     """Proxy of C++ DataViewEvent class"""
@@ -1750,6 +1800,18 @@ class DataViewEvent(_core.NotifyEvent):
     def SetPosition(*args, **kwargs):
         """SetPosition(self, int x, int y)"""
         return _dataview.DataViewEvent_SetPosition(*args, **kwargs)
+
+    def GetCacheFrom(*args, **kwargs):
+        """GetCacheFrom(self) -> int"""
+        return _dataview.DataViewEvent_GetCacheFrom(*args, **kwargs)
+
+    def GetCacheTo(*args, **kwargs):
+        """GetCacheTo(self) -> int"""
+        return _dataview.DataViewEvent_GetCacheTo(*args, **kwargs)
+
+    def SetCache(*args, **kwargs):
+        """SetCache(self, int from, int to)"""
+        return _dataview.DataViewEvent_SetCache(*args, **kwargs)
 
     def SetDataObject(*args, **kwargs):
         """SetDataObject(self, wxDataObject obj)"""
@@ -1810,6 +1872,7 @@ wxEVT_COMMAND_DATAVIEW_COLUMN_REORDERED = _dataview.wxEVT_COMMAND_DATAVIEW_COLUM
 wxEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG
 wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE
 wxEVT_COMMAND_DATAVIEW_ITEM_DROP = _dataview.wxEVT_COMMAND_DATAVIEW_ITEM_DROP
+wxEVT_COMMAND_DATAVIEW_CACHE_HINT = _dataview.wxEVT_COMMAND_DATAVIEW_CACHE_HINT
 EVT_DATAVIEW_SELECTION_CHANGED         = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_SELECTION_CHANGED, 1)
 EVT_DATAVIEW_ITEM_ACTIVATED            = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_ACTIVATED, 1)
 EVT_DATAVIEW_ITEM_COLLAPSED            = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_COLLAPSED, 1)
@@ -1828,7 +1891,8 @@ EVT_DATAVIEW_COLUMN_REORDERED          = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 EVT_DATAVIEW_ITEM_BEGIN_DRAG           = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG, 1)
 EVT_DATAVIEW_ITEM_DROP_POSSIBLE        = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE, 1)      
 EVT_DATAVIEW_ITEM_DROP                 = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_DROP, 1)
-
+EVT_DATAVIEW_CACHE_HINT                = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_CACHE_HINT, 1 )
+    
 
 class DataViewListStore(DataViewIndexListModel):
     """Proxy of C++ DataViewListStore class"""
@@ -2233,6 +2297,10 @@ class DataViewTreeCtrl(DataViewCtrl):
     def GetStore(*args, **kwargs):
         """GetStore(self) -> DataViewTreeStore"""
         return _dataview.DataViewTreeCtrl_GetStore(*args, **kwargs)
+
+    def IsContainer(*args, **kwargs):
+        """IsContainer(self, DataViewItem item) -> bool"""
+        return _dataview.DataViewTreeCtrl_IsContainer(*args, **kwargs)
 
     def SetImageList(*args, **kwargs):
         """SetImageList(self, ImageList imagelist)"""

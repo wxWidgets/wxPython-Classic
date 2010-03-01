@@ -81,7 +81,7 @@ GRID_LABEL_EDGE_ZONE = _grid.GRID_LABEL_EDGE_ZONE
 GRID_MIN_ROW_HEIGHT = _grid.GRID_MIN_ROW_HEIGHT
 GRID_MIN_COL_WIDTH = _grid.GRID_MIN_COL_WIDTH
 GRID_DEFAULT_SCROLLBAR_WIDTH = _grid.GRID_DEFAULT_SCROLLBAR_WIDTH
-class GridCellWorker(object):
+class GridCellWorker(_core.RefCounter):
     """Proxy of C++ GridCellWorker class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"
@@ -95,14 +95,6 @@ class GridCellWorker(object):
     def SetParameters(*args, **kwargs):
         """SetParameters(self, String params)"""
         return _grid.GridCellWorker_SetParameters(*args, **kwargs)
-
-    def IncRef(*args, **kwargs):
-        """IncRef(self)"""
-        return _grid.GridCellWorker_IncRef(*args, **kwargs)
-
-    def DecRef(*args, **kwargs):
-        """DecRef(self)"""
-        return _grid.GridCellWorker_DecRef(*args, **kwargs)
 
 _grid.GridCellWorker_swigregister(GridCellWorker)
 cvar = _grid.cvar
@@ -505,7 +497,7 @@ class GridCellAutoWrapStringEditor(GridCellTextEditor):
 
 _grid.GridCellAutoWrapStringEditor_swigregister(GridCellAutoWrapStringEditor)
 
-class GridCellAttr(object):
+class GridCellAttr(_core.RefCounter):
     """Proxy of C++ GridCellAttr class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -533,14 +525,6 @@ class GridCellAttr(object):
     def MergeWith(*args, **kwargs):
         """MergeWith(self, GridCellAttr mergefrom)"""
         return _grid.GridCellAttr_MergeWith(*args, **kwargs)
-
-    def IncRef(*args, **kwargs):
-        """IncRef(self)"""
-        return _grid.GridCellAttr_IncRef(*args, **kwargs)
-
-    def DecRef(*args, **kwargs):
-        """DecRef(self)"""
-        return _grid.GridCellAttr_DecRef(*args, **kwargs)
 
     def SetTextColour(*args, **kwargs):
         """SetTextColour(self, Colour colText)"""
@@ -630,6 +614,10 @@ class GridCellAttr(object):
         """GetAlignment() -> (hAlign, vAlign)"""
         return _grid.GridCellAttr_GetAlignment(*args, **kwargs)
 
+    def GetNonDefaultAlignment(*args, **kwargs):
+        """GetNonDefaultAlignment() -> (hAlign, vAlign)"""
+        return _grid.GridCellAttr_GetNonDefaultAlignment(*args, **kwargs)
+
     def GetSize(*args, **kwargs):
         """GetSize() -> (num_rows, num_cols)"""
         return _grid.GridCellAttr_GetSize(*args, **kwargs)
@@ -659,6 +647,7 @@ class GridCellAttr(object):
         return _grid.GridCellAttr_SetDefAttr(*args, **kwargs)
 
     Alignment = property(GetAlignment,SetAlignment,doc="See `GetAlignment` and `SetAlignment`") 
+    NonDefaultAlignment = property(GetNonDefaultAlignment) 
     BackgroundColour = property(GetBackgroundColour,SetBackgroundColour,doc="See `GetBackgroundColour` and `SetBackgroundColour`") 
     Font = property(GetFont,SetFont,doc="See `GetFont` and `SetFont`") 
     Kind = property(GetKind,SetKind,doc="See `GetKind` and `SetKind`") 
@@ -1600,10 +1589,6 @@ class Grid(_windows.ScrolledWindow):
         """DisableDragRowSize(self)"""
         return _grid.Grid_DisableDragRowSize(*args, **kwargs)
 
-    def CanDragRowSize(*args, **kwargs):
-        """CanDragRowSize(self) -> bool"""
-        return _grid.Grid_CanDragRowSize(*args, **kwargs)
-
     def EnableDragColSize(*args, **kwargs):
         """EnableDragColSize(self, bool enable=True)"""
         return _grid.Grid_EnableDragColSize(*args, **kwargs)
@@ -1611,6 +1596,18 @@ class Grid(_windows.ScrolledWindow):
     def DisableDragColSize(*args, **kwargs):
         """DisableDragColSize(self)"""
         return _grid.Grid_DisableDragColSize(*args, **kwargs)
+
+    def DisableRowResize(*args, **kwargs):
+        """DisableRowResize(self, int row)"""
+        return _grid.Grid_DisableRowResize(*args, **kwargs)
+
+    def DisableColResize(*args, **kwargs):
+        """DisableColResize(self, int col)"""
+        return _grid.Grid_DisableColResize(*args, **kwargs)
+
+    def CanDragRowSize(*args, **kwargs):
+        """CanDragRowSize(self) -> bool"""
+        return _grid.Grid_CanDragRowSize(*args, **kwargs)
 
     def CanDragColSize(*args, **kwargs):
         """CanDragColSize(self) -> bool"""

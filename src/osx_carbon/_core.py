@@ -137,7 +137,6 @@ RB_SINGLE = _core_.RB_SINGLE
 SB_HORIZONTAL = _core_.SB_HORIZONTAL
 SB_VERTICAL = _core_.SB_VERTICAL
 RB_USE_CHECKBOX = _core_.RB_USE_CHECKBOX
-ST_SIZEGRIP = _core_.ST_SIZEGRIP
 TOOL_TOP = _core_.TOOL_TOP
 TOOL_BOTTOM = _core_.TOOL_BOTTOM
 TOOL_LEFT = _core_.TOOL_LEFT
@@ -162,6 +161,7 @@ ICON_ASTERISK = _core_.ICON_ASTERISK
 ICON_MASK = _core_.ICON_MASK
 ICON_WARNING = _core_.ICON_WARNING
 ICON_ERROR = _core_.ICON_ERROR
+ICON_NONE = _core_.ICON_NONE
 FORWARD = _core_.FORWARD
 BACKWARD = _core_.BACKWARD
 RESET = _core_.RESET
@@ -175,8 +175,6 @@ SIZE_USE_EXISTING = _core_.SIZE_USE_EXISTING
 SIZE_ALLOW_MINUS_ONE = _core_.SIZE_ALLOW_MINUS_ONE
 SIZE_FORCE = _core_.SIZE_FORCE
 SIZE_FORCE_EVENT = _core_.SIZE_FORCE_EVENT
-PORTRAIT = _core_.PORTRAIT
-LANDSCAPE = _core_.LANDSCAPE
 PRINT_QUALITY_HIGH = _core_.PRINT_QUALITY_HIGH
 PRINT_QUALITY_MEDIUM = _core_.PRINT_QUALITY_MEDIUM
 PRINT_QUALITY_LOW = _core_.PRINT_QUALITY_LOW
@@ -347,6 +345,7 @@ WEST = _core_.WEST
 EAST = _core_.EAST
 ALL = _core_.ALL
 DIRECTION_MASK = _core_.DIRECTION_MASK
+ALIGN_INVALID = _core_.ALIGN_INVALID
 ALIGN_NOT = _core_.ALIGN_NOT
 ALIGN_CENTER_HORIZONTAL = _core_.ALIGN_CENTER_HORIZONTAL
 ALIGN_CENTRE_HORIZONTAL = _core_.ALIGN_CENTRE_HORIZONTAL
@@ -379,10 +378,12 @@ BORDER_SUNKEN = _core_.BORDER_SUNKEN
 BORDER_DOUBLE = _core_.BORDER_DOUBLE
 BORDER_THEME = _core_.BORDER_THEME
 BORDER_MASK = _core_.BORDER_MASK
+BG_STYLE_ERASE = _core_.BG_STYLE_ERASE
 BG_STYLE_SYSTEM = _core_.BG_STYLE_SYSTEM
+BG_STYLE_PAINT = _core_.BG_STYLE_PAINT
+BG_STYLE_TRANSPARENT = _core_.BG_STYLE_TRANSPARENT
 BG_STYLE_COLOUR = _core_.BG_STYLE_COLOUR
 BG_STYLE_CUSTOM = _core_.BG_STYLE_CUSTOM
-BG_STYLE_TRANSPARENT = _core_.BG_STYLE_TRANSPARENT
 DEFAULT = _core_.DEFAULT
 DECORATIVE = _core_.DECORATIVE
 ROMAN = _core_.ROMAN
@@ -658,6 +659,10 @@ PAPER_PENV_7_ROTATED = _core_.PAPER_PENV_7_ROTATED
 PAPER_PENV_8_ROTATED = _core_.PAPER_PENV_8_ROTATED
 PAPER_PENV_9_ROTATED = _core_.PAPER_PENV_9_ROTATED
 PAPER_PENV_10_ROTATED = _core_.PAPER_PENV_10_ROTATED
+PAPER_A0 = _core_.PAPER_A0
+PAPER_A1 = _core_.PAPER_A1
+PORTRAIT = _core_.PORTRAIT
+LANDSCAPE = _core_.LANDSCAPE
 DUPLEX_SIMPLEX = _core_.DUPLEX_SIMPLEX
 DUPLEX_HORIZONTAL = _core_.DUPLEX_HORIZONTAL
 DUPLEX_VERTICAL = _core_.DUPLEX_VERTICAL
@@ -741,28 +746,28 @@ _wxPySetDictionary = _core_._wxPySetDictionary
 cvar = _core_.cvar
 EmptyString = cvar.EmptyString
 
-class ObjectRefData(object):
-    """Proxy of C++ ObjectRefData class"""
+class RefCounter(object):
+    """Proxy of C++ RefCounter class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self) -> ObjectRefData"""
-        _core_.ObjectRefData_swiginit(self,_core_.new_ObjectRefData(*args, **kwargs))
-    __swig_destroy__ = _core_.delete_ObjectRefData
+        """__init__(self) -> RefCounter"""
+        _core_.RefCounter_swiginit(self,_core_.new_RefCounter(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_RefCounter
     __del__ = lambda self : None;
     def GetRefCount(*args, **kwargs):
         """GetRefCount(self) -> int"""
-        return _core_.ObjectRefData_GetRefCount(*args, **kwargs)
+        return _core_.RefCounter_GetRefCount(*args, **kwargs)
 
     def IncRef(*args, **kwargs):
         """IncRef(self)"""
-        return _core_.ObjectRefData_IncRef(*args, **kwargs)
+        return _core_.RefCounter_IncRef(*args, **kwargs)
 
     def DecRef(*args, **kwargs):
         """DecRef(self)"""
-        return _core_.ObjectRefData_DecRef(*args, **kwargs)
+        return _core_.RefCounter_DecRef(*args, **kwargs)
 
-_core_.ObjectRefData_swigregister(ObjectRefData)
+_core_.RefCounter_swigregister(RefCounter)
 
 #---------------------------------------------------------------------------
 
@@ -2498,6 +2503,9 @@ def MemoryFSHandler_AddFileWithMimeType(*args, **kwargs):
 IMAGE_ALPHA_TRANSPARENT = _core_.IMAGE_ALPHA_TRANSPARENT
 IMAGE_ALPHA_THRESHOLD = _core_.IMAGE_ALPHA_THRESHOLD
 IMAGE_ALPHA_OPAQUE = _core_.IMAGE_ALPHA_OPAQUE
+IMAGE_QUALITY_NEAREST = _core_.IMAGE_QUALITY_NEAREST
+IMAGE_QUALITY_BILINEAR = _core_.IMAGE_QUALITY_BILINEAR
+IMAGE_QUALITY_BICUBIC = _core_.IMAGE_QUALITY_BICUBIC
 IMAGE_QUALITY_NORMAL = _core_.IMAGE_QUALITY_NORMAL
 IMAGE_QUALITY_HIGH = _core_.IMAGE_QUALITY_HIGH
 #---------------------------------------------------------------------------
@@ -2809,9 +2817,17 @@ class Image(Object):
         """
         return _core_.Image_Scale(*args, **kwargs)
 
+    def ResampleNearest(*args, **kwargs):
+        """ResampleNearest(self, int width, int height) -> Image"""
+        return _core_.Image_ResampleNearest(*args, **kwargs)
+
     def ResampleBox(*args, **kwargs):
         """ResampleBox(self, int width, int height) -> Image"""
         return _core_.Image_ResampleBox(*args, **kwargs)
+
+    def ResampleBilinear(*args, **kwargs):
+        """ResampleBilinear(self, int width, int height) -> Image"""
+        return _core_.Image_ResampleBilinear(*args, **kwargs)
 
     def ResampleBicubic(*args, **kwargs):
         """ResampleBicubic(self, int width, int height) -> Image"""
@@ -3412,15 +3428,16 @@ class Image(Object):
         """
         return _core_.Image_Replace(*args, **kwargs)
 
-    def ConvertToGreyscale(*args, **kwargs):
+    def ConvertToGreyscale(*args):
         """
-        ConvertToGreyscale(self, double lr=0.299, double lg=0.587, double lb=0.114) -> Image
+        ConvertToGreyscale(self) -> Image
+        ConvertToGreyscale(self, double lr, double lg, double lb) -> Image
 
         Convert to greyscale image. Uses the luminance component (Y) of the
         image.  The luma value (YUV) is calculated using (R * lr) + (G * lg) + (B * lb),
         defaults to ITU-T BT.601
         """
-        return _core_.Image_ConvertToGreyscale(*args, **kwargs)
+        return _core_.Image_ConvertToGreyscale(*args)
 
     def ConvertToMono(*args, **kwargs):
         """
@@ -3431,6 +3448,10 @@ class Image(Object):
         colour everywhere else.
         """
         return _core_.Image_ConvertToMono(*args, **kwargs)
+
+    def ConvertToDisabled(*args, **kwargs):
+        """ConvertToDisabled(self, unsigned char brightness=255) -> Image"""
+        return _core_.Image_ConvertToDisabled(*args, **kwargs)
 
     def SetOption(*args, **kwargs):
         """
@@ -5691,6 +5712,14 @@ class SetCursorEvent(Event):
     Y = property(GetY,doc="See `GetY`") 
 _core_.SetCursorEvent_swigregister(SetCursorEvent)
 
+#---------------------------------------------------------------------------
+
+WXK_CATEGORY_ARROW = _core_.WXK_CATEGORY_ARROW
+WXK_CATEGORY_PAGING = _core_.WXK_CATEGORY_PAGING
+WXK_CATEGORY_JUMP = _core_.WXK_CATEGORY_JUMP
+WXK_CATEGORY_TAB = _core_.WXK_CATEGORY_TAB
+WXK_CATEGORY_CUT = _core_.WXK_CATEGORY_CUT
+WXK_CATEGORY_NAVIGATION = _core_.WXK_CATEGORY_NAVIGATION
 class KeyEvent(Event,KeyboardState):
     """
     This event class contains information about keypress and character
@@ -5779,6 +5808,10 @@ class KeyEvent(Event,KeyboardState):
         character using `GetUnicodeKey`.
         """
         return _core_.KeyEvent_GetKeyCode(*args, **kwargs)
+
+    def IsKeyInCategory(*args, **kwargs):
+        """IsKeyInCategory(self, int category) -> bool"""
+        return _core_.KeyEvent_IsKeyInCategory(*args, **kwargs)
 
     def GetUnicodeKey(*args, **kwargs):
         """
@@ -8884,6 +8917,7 @@ WINDOW_VARIANT_SMALL = _core_.WINDOW_VARIANT_SMALL
 WINDOW_VARIANT_MINI = _core_.WINDOW_VARIANT_MINI
 WINDOW_VARIANT_LARGE = _core_.WINDOW_VARIANT_LARGE
 WINDOW_VARIANT_MAX = _core_.WINDOW_VARIANT_MAX
+SHOW_EFFECT_NONE = _core_.SHOW_EFFECT_NONE
 SHOW_EFFECT_ROLL_TO_LEFT = _core_.SHOW_EFFECT_ROLL_TO_LEFT
 SHOW_EFFECT_ROLL_TO_RIGHT = _core_.SHOW_EFFECT_ROLL_TO_RIGHT
 SHOW_EFFECT_ROLL_TO_TOP = _core_.SHOW_EFFECT_ROLL_TO_TOP
@@ -10972,6 +11006,14 @@ class Window(EvtHandler):
         """
         return _core_.Window_GetGtkWidget(*args, **kwargs)
 
+    def CanScroll(*args, **kwargs):
+        """
+        CanScroll(self, int orient) -> bool
+
+        Can the window have the scrollbar in this orientation?
+        """
+        return _core_.Window_CanScroll(*args, **kwargs)
+
     def HasScrollbar(*args, **kwargs):
         """
         HasScrollbar(self, int orient) -> bool
@@ -11351,6 +11393,10 @@ class Window(EvtHandler):
         """CanApplyThemeBorder(self) -> bool"""
         return _core_.Window_CanApplyThemeBorder(*args, **kwargs)
 
+    def GetMainWindowOfCompositeControl(*args, **kwargs):
+        """GetMainWindowOfCompositeControl(self) -> Window"""
+        return _core_.Window_GetMainWindowOfCompositeControl(*args, **kwargs)
+
     def CanSetTransparent(*args, **kwargs):
         """
         CanSetTransparent(self) -> bool
@@ -11645,6 +11691,11 @@ class Validator(EvtHandler):
         return _core_.Validator_IsSilent(*args, **kwargs)
 
     IsSilent = staticmethod(IsSilent)
+    def SuppressBellOnError(*args, **kwargs):
+        """SuppressBellOnError(bool suppress=True)"""
+        return _core_.Validator_SuppressBellOnError(*args, **kwargs)
+
+    SuppressBellOnError = staticmethod(SuppressBellOnError)
     def SetBellOnError(*args, **kwargs):
         """SetBellOnError(int doIt=True)"""
         return _core_.Validator_SetBellOnError(*args, **kwargs)
@@ -11656,6 +11707,10 @@ _core_.Validator_swigregister(Validator)
 def Validator_IsSilent(*args):
   """Validator_IsSilent() -> bool"""
   return _core_.Validator_IsSilent(*args)
+
+def Validator_SuppressBellOnError(*args, **kwargs):
+  """Validator_SuppressBellOnError(bool suppress=True)"""
+  return _core_.Validator_SuppressBellOnError(*args, **kwargs)
 
 def Validator_SetBellOnError(*args, **kwargs):
   """Validator_SetBellOnError(int doIt=True)"""
@@ -12447,6 +12502,15 @@ class Control(Window):
         return _core_.Control_RemoveMnemonics(*args, **kwargs)
 
     RemoveMnemonics = staticmethod(RemoveMnemonics)
+    def EscapeMnemonics(*args, **kwargs):
+        """
+        EscapeMnemonics(String str) -> String
+
+        escapes (by doubling them) the mnemonics
+        """
+        return _core_.Control_EscapeMnemonics(*args, **kwargs)
+
+    EscapeMnemonics = staticmethod(EscapeMnemonics)
     def FindAccelIndex(*args, **kwargs):
         """
         FindAccelIndex(String label) -> int
@@ -12461,11 +12525,11 @@ class Control(Window):
         return _core_.Control_Ellipsize(*args, **kwargs)
 
     Ellipsize = staticmethod(Ellipsize)
-    def EscapeMnemonics(*args, **kwargs):
-        """EscapeMnemonics(String str) -> String"""
-        return _core_.Control_EscapeMnemonics(*args, **kwargs)
+    def GetCompositeControlsDefaultAttributes(*args, **kwargs):
+        """GetCompositeControlsDefaultAttributes(int variant) -> VisualAttributes"""
+        return _core_.Control_GetCompositeControlsDefaultAttributes(*args, **kwargs)
 
-    EscapeMnemonics = staticmethod(EscapeMnemonics)
+    GetCompositeControlsDefaultAttributes = staticmethod(GetCompositeControlsDefaultAttributes)
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -12506,6 +12570,14 @@ def Control_RemoveMnemonics(*args, **kwargs):
     """
   return _core_.Control_RemoveMnemonics(*args, **kwargs)
 
+def Control_EscapeMnemonics(*args, **kwargs):
+  """
+    Control_EscapeMnemonics(String str) -> String
+
+    escapes (by doubling them) the mnemonics
+    """
+  return _core_.Control_EscapeMnemonics(*args, **kwargs)
+
 def Control_FindAccelIndex(*args, **kwargs):
   """
     Control_FindAccelIndex(String label) -> int
@@ -12518,9 +12590,9 @@ def Control_Ellipsize(*args, **kwargs):
   """Control_Ellipsize(String label, DC dc, int mode, int maxWidth, int flags=ELLIPSIZE_FLAGS_DEFAULT) -> String"""
   return _core_.Control_Ellipsize(*args, **kwargs)
 
-def Control_EscapeMnemonics(*args, **kwargs):
-  """Control_EscapeMnemonics(String str) -> String"""
-  return _core_.Control_EscapeMnemonics(*args, **kwargs)
+def Control_GetCompositeControlsDefaultAttributes(*args, **kwargs):
+  """Control_GetCompositeControlsDefaultAttributes(int variant) -> VisualAttributes"""
+  return _core_.Control_GetCompositeControlsDefaultAttributes(*args, **kwargs)
 
 def Control_GetClassDefaultAttributes(*args, **kwargs):
   """
@@ -13044,6 +13116,22 @@ class TextEntryBase(object):
         text control.
         """
         return _core_.TextEntryBase_SetMaxLength(*args, **kwargs)
+
+    def SetHint(*args, **kwargs):
+        """SetHint(self, String hint) -> bool"""
+        return _core_.TextEntryBase_SetHint(*args, **kwargs)
+
+    def GetHint(*args, **kwargs):
+        """GetHint(self) -> String"""
+        return _core_.TextEntryBase_GetHint(*args, **kwargs)
+
+    def SetMargins(*args, **kwargs):
+        """SetMargins(self, Point pt) -> bool"""
+        return _core_.TextEntryBase_SetMargins(*args, **kwargs)
+
+    def GetMargins(*args, **kwargs):
+        """GetMargins(self) -> Point"""
+        return _core_.TextEntryBase_GetMargins(*args, **kwargs)
 
     InsertionPoint = property(GetInsertionPoint,SetInsertionPoint) 
     LastPosition = property(GetLastPosition) 
@@ -14682,6 +14770,14 @@ class GridSizer(Sizer):
         Returns the horizontal gap (in pixels) between cells in the sizer.
         """
         return _core_.GridSizer_GetHGap(*args, **kwargs)
+
+    def GetEffectiveColsCount(*args, **kwargs):
+        """GetEffectiveColsCount(self) -> int"""
+        return _core_.GridSizer_GetEffectiveColsCount(*args, **kwargs)
+
+    def GetEffectiveRowsCount(*args, **kwargs):
+        """GetEffectiveRowsCount(self) -> int"""
+        return _core_.GridSizer_GetEffectiveRowsCount(*args, **kwargs)
 
     def CalcRowsCols(self):
         """

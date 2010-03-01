@@ -164,6 +164,14 @@ class XmlResource(_core.Object):
         """LoadOnObject(self, Object instance, Window parent, String name, String classname) -> bool"""
         return _xrc.XmlResource_LoadOnObject(*args, **kwargs)
 
+    def LoadObjectRecursively(*args, **kwargs):
+        """LoadObjectRecursively(self, Window parent, String name, String classname) -> Object"""
+        return _xrc.XmlResource_LoadObjectRecursively(*args, **kwargs)
+
+    def LoadOnObjectRecursively(*args, **kwargs):
+        """LoadOnObjectRecursively(self, Object instance, Window parent, String name, String classname) -> bool"""
+        return _xrc.XmlResource_LoadOnObjectRecursively(*args, **kwargs)
+
     def LoadBitmap(*args, **kwargs):
         """LoadBitmap(self, String name) -> Bitmap"""
         return _xrc.XmlResource_LoadBitmap(*args, **kwargs)
@@ -461,16 +469,16 @@ class XmlNode(object):
         """SetAttributes(self, wxXmlAttribute attr)"""
         return _xrc.XmlNode_SetAttributes(*args, **kwargs)
 
-    def GetAttribute(*args, **kwargs):
-        """GetAttribute(self, String attrName, String defaultVal) -> String"""
-        return _xrc.XmlNode_GetAttribute(*args, **kwargs)
-
     def AddAttribute(*args):
         """
         AddAttribute(self, wxXmlAttribute attr)
         AddAttribute(self, String attrName, String value)
         """
         return _xrc.XmlNode_AddAttribute(*args)
+
+    def GetAttribute(*args, **kwargs):
+        """GetAttribute(self, String attrName, String defaultVal) -> String"""
+        return _xrc.XmlNode_GetAttribute(*args, **kwargs)
 
     def GetAttributes(*args, **kwargs):
         """GetAttributes(self) -> XmlProperty"""

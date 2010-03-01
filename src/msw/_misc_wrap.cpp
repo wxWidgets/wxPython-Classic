@@ -2504,149 +2504,152 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxCustomDataObject swig_types[38]
 #define SWIGTYPE_p_wxDataFormat swig_types[39]
 #define SWIGTYPE_p_wxDataObject swig_types[40]
-#define SWIGTYPE_p_wxDataObjectComposite swig_types[41]
-#define SWIGTYPE_p_wxDataObjectSimple swig_types[42]
-#define SWIGTYPE_p_wxDateEvent swig_types[43]
-#define SWIGTYPE_p_wxDateSpan swig_types[44]
-#define SWIGTYPE_p_wxDateTime swig_types[45]
-#define SWIGTYPE_p_wxDateTime__TimeZone swig_types[46]
-#define SWIGTYPE_p_wxDisplay swig_types[47]
-#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[48]
-#define SWIGTYPE_p_wxDropFilesEvent swig_types[49]
-#define SWIGTYPE_p_wxDuplexMode swig_types[50]
-#define SWIGTYPE_p_wxEraseEvent swig_types[51]
-#define SWIGTYPE_p_wxEvent swig_types[52]
-#define SWIGTYPE_p_wxEventBlocker swig_types[53]
-#define SWIGTYPE_p_wxEvtHandler swig_types[54]
-#define SWIGTYPE_p_wxFSFile swig_types[55]
-#define SWIGTYPE_p_wxFileConfig swig_types[56]
-#define SWIGTYPE_p_wxFileDataObject swig_types[57]
-#define SWIGTYPE_p_wxFileHistory swig_types[58]
-#define SWIGTYPE_p_wxFileSystem swig_types[59]
-#define SWIGTYPE_p_wxFileType swig_types[60]
-#define SWIGTYPE_p_wxFileTypeInfo swig_types[61]
-#define SWIGTYPE_p_wxFlexGridSizer swig_types[62]
-#define SWIGTYPE_p_wxFocusEvent swig_types[63]
-#define SWIGTYPE_p_wxFont swig_types[64]
-#define SWIGTYPE_p_wxFrame swig_types[65]
-#define SWIGTYPE_p_wxGBSizerItem swig_types[66]
-#define SWIGTYPE_p_wxGIFHandler swig_types[67]
-#define SWIGTYPE_p_wxGridBagSizer swig_types[68]
-#define SWIGTYPE_p_wxGridSizer swig_types[69]
-#define SWIGTYPE_p_wxICOHandler swig_types[70]
-#define SWIGTYPE_p_wxIcon swig_types[71]
-#define SWIGTYPE_p_wxIconBundle swig_types[72]
-#define SWIGTYPE_p_wxIconizeEvent swig_types[73]
-#define SWIGTYPE_p_wxIdleEvent swig_types[74]
-#define SWIGTYPE_p_wxImage swig_types[75]
-#define SWIGTYPE_p_wxImageHandler swig_types[76]
-#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[77]
-#define SWIGTYPE_p_wxInitDialogEvent swig_types[78]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[79]
-#define SWIGTYPE_p_wxJoystick swig_types[80]
-#define SWIGTYPE_p_wxJoystickEvent swig_types[81]
-#define SWIGTYPE_p_wxKeyEvent swig_types[82]
-#define SWIGTYPE_p_wxKillError swig_types[83]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[84]
-#define SWIGTYPE_p_wxLog swig_types[85]
-#define SWIGTYPE_p_wxLogBuffer swig_types[86]
-#define SWIGTYPE_p_wxLogChain swig_types[87]
-#define SWIGTYPE_p_wxLogGui swig_types[88]
-#define SWIGTYPE_p_wxLogNull swig_types[89]
-#define SWIGTYPE_p_wxLogStderr swig_types[90]
-#define SWIGTYPE_p_wxLogTextCtrl swig_types[91]
-#define SWIGTYPE_p_wxLogWindow swig_types[92]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[93]
-#define SWIGTYPE_p_wxMenu swig_types[94]
-#define SWIGTYPE_p_wxMenuBar swig_types[95]
-#define SWIGTYPE_p_wxMenuEvent swig_types[96]
-#define SWIGTYPE_p_wxMenuItem swig_types[97]
-#define SWIGTYPE_p_wxMetaFile swig_types[98]
-#define SWIGTYPE_p_wxMetafileDataObject swig_types[99]
-#define SWIGTYPE_p_wxMimeTypesManager swig_types[100]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[101]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[102]
-#define SWIGTYPE_p_wxMouseEvent swig_types[103]
-#define SWIGTYPE_p_wxMoveEvent swig_types[104]
-#define SWIGTYPE_p_wxMutexGuiLocker swig_types[105]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[106]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[107]
-#define SWIGTYPE_p_wxNotificationMessage swig_types[108]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[109]
-#define SWIGTYPE_p_wxObject swig_types[110]
-#define SWIGTYPE_p_wxPCXHandler swig_types[111]
-#define SWIGTYPE_p_wxPNGHandler swig_types[112]
-#define SWIGTYPE_p_wxPNMHandler swig_types[113]
-#define SWIGTYPE_p_wxPaintEvent swig_types[114]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[115]
-#define SWIGTYPE_p_wxPaperSize swig_types[116]
-#define SWIGTYPE_p_wxPlatformInfo swig_types[117]
-#define SWIGTYPE_p_wxPoint swig_types[118]
-#define SWIGTYPE_p_wxPowerEvent swig_types[119]
-#define SWIGTYPE_p_wxProcessEvent swig_types[120]
-#define SWIGTYPE_p_wxPyApp swig_types[121]
-#define SWIGTYPE_p_wxPyArtProvider swig_types[122]
-#define SWIGTYPE_p_wxPyBitmapDataObject swig_types[123]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[124]
-#define SWIGTYPE_p_wxPyDataObjectSimple swig_types[125]
-#define SWIGTYPE_p_wxPyDropSource swig_types[126]
-#define SWIGTYPE_p_wxPyDropTarget swig_types[127]
-#define SWIGTYPE_p_wxPyEvent swig_types[128]
-#define SWIGTYPE_p_wxPyEvtHandler swig_types[129]
-#define SWIGTYPE_p_wxPyFileDropTarget swig_types[130]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[131]
-#define SWIGTYPE_p_wxPyLog swig_types[132]
-#define SWIGTYPE_p_wxPyProcess swig_types[133]
-#define SWIGTYPE_p_wxPySizer swig_types[134]
-#define SWIGTYPE_p_wxPyTextDataObject swig_types[135]
-#define SWIGTYPE_p_wxPyTextDropTarget swig_types[136]
-#define SWIGTYPE_p_wxPyTimer swig_types[137]
-#define SWIGTYPE_p_wxPyTipProvider swig_types[138]
-#define SWIGTYPE_p_wxPyValidator swig_types[139]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[140]
-#define SWIGTYPE_p_wxRect swig_types[141]
-#define SWIGTYPE_p_wxScrollEvent swig_types[142]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[143]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[144]
-#define SWIGTYPE_p_wxShowEvent swig_types[145]
-#define SWIGTYPE_p_wxSingleInstanceChecker swig_types[146]
-#define SWIGTYPE_p_wxSize swig_types[147]
-#define SWIGTYPE_p_wxSizeEvent swig_types[148]
-#define SWIGTYPE_p_wxSizer swig_types[149]
-#define SWIGTYPE_p_wxSizerItem swig_types[150]
-#define SWIGTYPE_p_wxSound swig_types[151]
-#define SWIGTYPE_p_wxStandardPaths swig_types[152]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[153]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[154]
-#define SWIGTYPE_p_wxStopWatch swig_types[155]
-#define SWIGTYPE_p_wxString swig_types[156]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[157]
-#define SWIGTYPE_p_wxSystemOptions swig_types[158]
-#define SWIGTYPE_p_wxSystemSettings swig_types[159]
-#define SWIGTYPE_p_wxTGAHandler swig_types[160]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[161]
-#define SWIGTYPE_p_wxTextCtrl swig_types[162]
-#define SWIGTYPE_p_wxTextCtrlBase swig_types[163]
-#define SWIGTYPE_p_wxTextDataObject swig_types[164]
-#define SWIGTYPE_p_wxThreadEvent swig_types[165]
-#define SWIGTYPE_p_wxTimeSpan swig_types[166]
-#define SWIGTYPE_p_wxTimer swig_types[167]
-#define SWIGTYPE_p_wxTimerEvent swig_types[168]
-#define SWIGTYPE_p_wxTimerRunner swig_types[169]
-#define SWIGTYPE_p_wxTipProvider swig_types[170]
-#define SWIGTYPE_p_wxToolTip swig_types[171]
-#define SWIGTYPE_p_wxURLDataObject swig_types[172]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[173]
-#define SWIGTYPE_p_wxValidator swig_types[174]
-#define SWIGTYPE_p_wxVideoMode swig_types[175]
-#define SWIGTYPE_p_wxWindow swig_types[176]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[177]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[178]
-#define SWIGTYPE_p_wxWindowDisabler swig_types[179]
-#define SWIGTYPE_p_wxWrapSizer swig_types[180]
-#define SWIGTYPE_p_wxXPMHandler swig_types[181]
-static swig_type_info *swig_types[183];
-static swig_module_info swig_module = {swig_types, 182, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxDataObjectBase__Direction swig_types[41]
+#define SWIGTYPE_p_wxDataObjectComposite swig_types[42]
+#define SWIGTYPE_p_wxDataObjectSimple swig_types[43]
+#define SWIGTYPE_p_wxDateEvent swig_types[44]
+#define SWIGTYPE_p_wxDateSpan swig_types[45]
+#define SWIGTYPE_p_wxDateTime swig_types[46]
+#define SWIGTYPE_p_wxDateTime__TimeZone swig_types[47]
+#define SWIGTYPE_p_wxDisplay swig_types[48]
+#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[49]
+#define SWIGTYPE_p_wxDropFilesEvent swig_types[50]
+#define SWIGTYPE_p_wxDuplexMode swig_types[51]
+#define SWIGTYPE_p_wxEraseEvent swig_types[52]
+#define SWIGTYPE_p_wxEvent swig_types[53]
+#define SWIGTYPE_p_wxEventBlocker swig_types[54]
+#define SWIGTYPE_p_wxEvtHandler swig_types[55]
+#define SWIGTYPE_p_wxFSFile swig_types[56]
+#define SWIGTYPE_p_wxFileConfig swig_types[57]
+#define SWIGTYPE_p_wxFileDataObject swig_types[58]
+#define SWIGTYPE_p_wxFileHistory swig_types[59]
+#define SWIGTYPE_p_wxFileSystem swig_types[60]
+#define SWIGTYPE_p_wxFileType swig_types[61]
+#define SWIGTYPE_p_wxFileTypeInfo swig_types[62]
+#define SWIGTYPE_p_wxFlexGridSizer swig_types[63]
+#define SWIGTYPE_p_wxFocusEvent swig_types[64]
+#define SWIGTYPE_p_wxFont swig_types[65]
+#define SWIGTYPE_p_wxFrame swig_types[66]
+#define SWIGTYPE_p_wxGBSizerItem swig_types[67]
+#define SWIGTYPE_p_wxGIFHandler swig_types[68]
+#define SWIGTYPE_p_wxGridBagSizer swig_types[69]
+#define SWIGTYPE_p_wxGridSizer swig_types[70]
+#define SWIGTYPE_p_wxICOHandler swig_types[71]
+#define SWIGTYPE_p_wxIcon swig_types[72]
+#define SWIGTYPE_p_wxIconBundle swig_types[73]
+#define SWIGTYPE_p_wxIconizeEvent swig_types[74]
+#define SWIGTYPE_p_wxIdleEvent swig_types[75]
+#define SWIGTYPE_p_wxImage swig_types[76]
+#define SWIGTYPE_p_wxImageHandler swig_types[77]
+#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[78]
+#define SWIGTYPE_p_wxInitDialogEvent swig_types[79]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[80]
+#define SWIGTYPE_p_wxJoystick swig_types[81]
+#define SWIGTYPE_p_wxJoystickEvent swig_types[82]
+#define SWIGTYPE_p_wxKeyEvent swig_types[83]
+#define SWIGTYPE_p_wxKillError swig_types[84]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[85]
+#define SWIGTYPE_p_wxLinuxDistributionInfo swig_types[86]
+#define SWIGTYPE_p_wxLog swig_types[87]
+#define SWIGTYPE_p_wxLogBuffer swig_types[88]
+#define SWIGTYPE_p_wxLogChain swig_types[89]
+#define SWIGTYPE_p_wxLogGui swig_types[90]
+#define SWIGTYPE_p_wxLogNull swig_types[91]
+#define SWIGTYPE_p_wxLogRecordInfo swig_types[92]
+#define SWIGTYPE_p_wxLogStderr swig_types[93]
+#define SWIGTYPE_p_wxLogTextCtrl swig_types[94]
+#define SWIGTYPE_p_wxLogWindow swig_types[95]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[96]
+#define SWIGTYPE_p_wxMenu swig_types[97]
+#define SWIGTYPE_p_wxMenuBar swig_types[98]
+#define SWIGTYPE_p_wxMenuEvent swig_types[99]
+#define SWIGTYPE_p_wxMenuItem swig_types[100]
+#define SWIGTYPE_p_wxMetaFile swig_types[101]
+#define SWIGTYPE_p_wxMetafileDataObject swig_types[102]
+#define SWIGTYPE_p_wxMimeTypesManager swig_types[103]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[104]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[105]
+#define SWIGTYPE_p_wxMouseEvent swig_types[106]
+#define SWIGTYPE_p_wxMoveEvent swig_types[107]
+#define SWIGTYPE_p_wxMutexGuiLocker swig_types[108]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[109]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[110]
+#define SWIGTYPE_p_wxNotificationMessage swig_types[111]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[112]
+#define SWIGTYPE_p_wxObject swig_types[113]
+#define SWIGTYPE_p_wxPCXHandler swig_types[114]
+#define SWIGTYPE_p_wxPNGHandler swig_types[115]
+#define SWIGTYPE_p_wxPNMHandler swig_types[116]
+#define SWIGTYPE_p_wxPaintEvent swig_types[117]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[118]
+#define SWIGTYPE_p_wxPaperSize swig_types[119]
+#define SWIGTYPE_p_wxPlatformInfo swig_types[120]
+#define SWIGTYPE_p_wxPoint swig_types[121]
+#define SWIGTYPE_p_wxPowerEvent swig_types[122]
+#define SWIGTYPE_p_wxProcessEvent swig_types[123]
+#define SWIGTYPE_p_wxPyApp swig_types[124]
+#define SWIGTYPE_p_wxPyArtProvider swig_types[125]
+#define SWIGTYPE_p_wxPyBitmapDataObject swig_types[126]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[127]
+#define SWIGTYPE_p_wxPyDataObjectSimple swig_types[128]
+#define SWIGTYPE_p_wxPyDropSource swig_types[129]
+#define SWIGTYPE_p_wxPyDropTarget swig_types[130]
+#define SWIGTYPE_p_wxPyEvent swig_types[131]
+#define SWIGTYPE_p_wxPyEvtHandler swig_types[132]
+#define SWIGTYPE_p_wxPyFileDropTarget swig_types[133]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[134]
+#define SWIGTYPE_p_wxPyLog swig_types[135]
+#define SWIGTYPE_p_wxPyProcess swig_types[136]
+#define SWIGTYPE_p_wxPySizer swig_types[137]
+#define SWIGTYPE_p_wxPyTextDataObject swig_types[138]
+#define SWIGTYPE_p_wxPyTextDropTarget swig_types[139]
+#define SWIGTYPE_p_wxPyTimer swig_types[140]
+#define SWIGTYPE_p_wxPyTipProvider swig_types[141]
+#define SWIGTYPE_p_wxPyValidator swig_types[142]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[143]
+#define SWIGTYPE_p_wxRect swig_types[144]
+#define SWIGTYPE_p_wxScrollEvent swig_types[145]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[146]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[147]
+#define SWIGTYPE_p_wxShowEvent swig_types[148]
+#define SWIGTYPE_p_wxSingleInstanceChecker swig_types[149]
+#define SWIGTYPE_p_wxSize swig_types[150]
+#define SWIGTYPE_p_wxSizeEvent swig_types[151]
+#define SWIGTYPE_p_wxSizer swig_types[152]
+#define SWIGTYPE_p_wxSizerItem swig_types[153]
+#define SWIGTYPE_p_wxSound swig_types[154]
+#define SWIGTYPE_p_wxStandardPaths swig_types[155]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[156]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[157]
+#define SWIGTYPE_p_wxStopWatch swig_types[158]
+#define SWIGTYPE_p_wxString swig_types[159]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[160]
+#define SWIGTYPE_p_wxSystemOptions swig_types[161]
+#define SWIGTYPE_p_wxSystemSettings swig_types[162]
+#define SWIGTYPE_p_wxTGAHandler swig_types[163]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[164]
+#define SWIGTYPE_p_wxTextCtrl swig_types[165]
+#define SWIGTYPE_p_wxTextCtrlBase swig_types[166]
+#define SWIGTYPE_p_wxTextDataObject swig_types[167]
+#define SWIGTYPE_p_wxThreadEvent swig_types[168]
+#define SWIGTYPE_p_wxTimeSpan swig_types[169]
+#define SWIGTYPE_p_wxTimer swig_types[170]
+#define SWIGTYPE_p_wxTimerEvent swig_types[171]
+#define SWIGTYPE_p_wxTimerRunner swig_types[172]
+#define SWIGTYPE_p_wxTipProvider swig_types[173]
+#define SWIGTYPE_p_wxToolTip swig_types[174]
+#define SWIGTYPE_p_wxURLDataObject swig_types[175]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[176]
+#define SWIGTYPE_p_wxValidator swig_types[177]
+#define SWIGTYPE_p_wxVideoMode swig_types[178]
+#define SWIGTYPE_p_wxWindow swig_types[179]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[180]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[181]
+#define SWIGTYPE_p_wxWindowDisabler swig_types[182]
+#define SWIGTYPE_p_wxWrapSizer swig_types[183]
+#define SWIGTYPE_p_wxXPMHandler swig_types[184]
+static swig_type_info *swig_types[186];
+static swig_module_info swig_module = {swig_types, 185, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3071,18 +3074,64 @@ SWIG_FromCharPtr(const char *cptr)
 
 
 SWIGINTERN int
-SWIG_AsVal_unsigned_SS_int (PyObject * obj, unsigned int *val)
+SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
 {
-  unsigned long v;
-  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
-  if (SWIG_IsOK(res)) {
-    if ((v > UINT_MAX)) {
-      return SWIG_OverflowError;
-    } else {
-      if (val) *val = static_cast< unsigned int >(v);
+  if (PyString_Check(obj)) {
+    char *cstr; Py_ssize_t len;
+    PyString_AsStringAndSize(obj, &cstr, &len);
+    if (cptr)  {
+      if (alloc) {
+	/* 
+	   In python the user should not be able to modify the inner
+	   string representation. To warranty that, if you define
+	   SWIG_PYTHON_SAFE_CSTRINGS, a new/copy of the python string
+	   buffer is always returned.
+
+	   The default behavior is just to return the pointer value,
+	   so, be careful.
+	*/ 
+#if defined(SWIG_PYTHON_SAFE_CSTRINGS)
+	if (*alloc != SWIG_OLDOBJ) 
+#else
+	if (*alloc == SWIG_NEWOBJ) 
+#endif
+	  {
+	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
+	    *alloc = SWIG_NEWOBJ;
+	  }
+	else {
+	  *cptr = cstr;
+	  *alloc = SWIG_OLDOBJ;
+	}
+      } else {
+	*cptr = PyString_AsString(obj);
+      }
     }
-  }  
-  return res;
+    if (psize) *psize = len + 1;
+    return SWIG_OK;
+  } else {
+    swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
+    if (pchar_descriptor) {
+      void* vptr = 0;
+      if (SWIG_ConvertPtr(obj, &vptr, pchar_descriptor, 0) == SWIG_OK) {
+	if (cptr) *cptr = (char *) vptr;
+	if (psize) *psize = vptr ? (strlen((char *)vptr) + 1) : 0;
+	if (alloc) *alloc = SWIG_OLDOBJ;
+	return SWIG_OK;
+      }
+    }
+  }
+  return SWIG_TypeError;
+}
+
+
+
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_From_unsigned_SS_int  (unsigned int value)
+{    
+  return SWIG_From_unsigned_SS_long  (value);
 }
 
 SWIGINTERN wxString wxLog_TimeStamp(){
@@ -3215,6 +3264,54 @@ public:
         if (! found)
             wxLog::DoLogString(szString, t);
     }
+
+    
+    virtual void DoLogRecord(wxLogLevel level,
+                             const wxString& msg,
+                             const wxLogRecordInfo& info)
+    {
+        bool found;
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if ((found = wxPyCBH_findCallback(m_myInst, "DoLogRecord"))) {
+            PyObject* s = wx2PyString(msg);
+            PyObject* r = wxPyConstructObject((void*)&info, wxT("wxLogRecordInfo"), 0);
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iOO)", level, s, r));
+            Py_DECREF(s);
+            Py_DECREF(r);
+        }
+        wxPyEndBlockThreads(blocked);
+        if (! found)
+            wxLog::DoLogRecord(level, msg, info);
+    }
+
+    virtual void DoLogTextAtLevel(wxLogLevel level, const wxString& msg)
+    {
+        bool found;
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if ((found = wxPyCBH_findCallback(m_myInst, "DoLogTextAtLevel"))) {
+            PyObject* s = wx2PyString(msg);
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iO)", level, s));
+            Py_DECREF(s);
+        }
+        wxPyEndBlockThreads(blocked);
+        if (! found)
+            wxLog::DoLogTextAtLevel(level, msg);
+    }
+
+    virtual void DoLogText(const wxString& msg)
+    {
+        bool found;
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if ((found = wxPyCBH_findCallback(m_myInst, "DoLogText"))) {
+            PyObject* s = wx2PyString(msg);
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s));
+            Py_DECREF(s);
+        }
+        wxPyEndBlockThreads(blocked);
+        if (! found)
+            wxLog::DoLogText(msg);
+    }
+
 
     DEC_PYCALLBACK_VOID_(Flush);
     PYPRIVATE;
@@ -3375,6 +3472,22 @@ SWIGINTERN bool wxSound_CreateFromData(wxSound *self,PyObject *data){
                  return false;
         #endif
         }
+
+SWIGINTERN int
+SWIG_AsVal_unsigned_SS_int (PyObject * obj, unsigned int *val)
+{
+  unsigned long v;
+  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v > UINT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = static_cast< unsigned int >(v);
+    }
+  }  
+  return res;
+}
+
 
 #include <wx/mimetype.h>
 
@@ -3689,13 +3802,6 @@ SWIGINTERN PyObject *wxDateTime_GetAmPmStrings(){
             wxPyEndBlockThreads(blocked);
             return tup;
         }
-
-SWIGINTERNINLINE PyObject *
-SWIG_From_unsigned_SS_int  (unsigned int value)
-{    
-  return SWIG_From_unsigned_SS_long  (value);
-}
-
 SWIGINTERN wxDateTime wxDateTime___add____SWIG_0(wxDateTime *self,wxTimeSpan const &other){ return *self + other; }
 SWIGINTERN wxDateTime wxDateTime___add____SWIG_1(wxDateTime *self,wxDateSpan const &other){ return *self + other; }
 SWIGINTERN wxTimeSpan wxDateTime___sub____SWIG_0(wxDateTime *self,wxDateTime const &other){ return *self - other; }
@@ -3733,58 +3839,6 @@ SWIGINTERN bool wxDateTime_ParseFormat(wxDateTime *self,wxString const &date,wxS
             wxString::const_iterator end;
             return self->ParseFormat(date, format, dateDef, &end);
         }
-
-SWIGINTERN int
-SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
-{
-  if (PyString_Check(obj)) {
-    char *cstr; Py_ssize_t len;
-    PyString_AsStringAndSize(obj, &cstr, &len);
-    if (cptr)  {
-      if (alloc) {
-	/* 
-	   In python the user should not be able to modify the inner
-	   string representation. To warranty that, if you define
-	   SWIG_PYTHON_SAFE_CSTRINGS, a new/copy of the python string
-	   buffer is always returned.
-
-	   The default behavior is just to return the pointer value,
-	   so, be careful.
-	*/ 
-#if defined(SWIG_PYTHON_SAFE_CSTRINGS)
-	if (*alloc != SWIG_OLDOBJ) 
-#else
-	if (*alloc == SWIG_NEWOBJ) 
-#endif
-	  {
-	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
-	    *alloc = SWIG_NEWOBJ;
-	  }
-	else {
-	  *cptr = cstr;
-	  *alloc = SWIG_OLDOBJ;
-	}
-      } else {
-	*cptr = PyString_AsString(obj);
-      }
-    }
-    if (psize) *psize = len + 1;
-    return SWIG_OK;
-  } else {
-    swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
-    if (pchar_descriptor) {
-      void* vptr = 0;
-      if (SWIG_ConvertPtr(obj, &vptr, pchar_descriptor, 0) == SWIG_OK) {
-	if (cptr) *cptr = (char *) vptr;
-	if (psize) *psize = vptr ? (strlen((char *)vptr) + 1) : 0;
-	if (alloc) *alloc = SWIG_OLDOBJ;
-	return SWIG_OK;
-      }
-    }
-  }
-  return SWIG_TypeError;
-}
-
 
 SWIGINTERN int
 SWIG_AsCharArray(PyObject * obj, char *val, size_t size)
@@ -9705,6 +9759,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_SingleInstanceChecker_CreateDefault(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxSingleInstanceChecker *arg1 = (wxSingleInstanceChecker *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxSingleInstanceChecker, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SingleInstanceChecker_CreateDefault" "', expected argument " "1"" of type '" "wxSingleInstanceChecker *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSingleInstanceChecker * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->CreateDefault();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_SingleInstanceChecker_IsAnotherRunning(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxSingleInstanceChecker *arg1 = (wxSingleInstanceChecker *) 0 ;
@@ -9744,6 +9828,277 @@ SWIGINTERN PyObject *SingleInstanceChecker_swigregister(PyObject *SWIGUNUSEDPARM
 
 SWIGINTERN PyObject *SingleInstanceChecker_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_LinuxDistributionInfo_Id_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLinuxDistributionInfo *arg1 = (wxLinuxDistributionInfo *) 0 ;
+  wxString *arg2 = (wxString *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"LinuxDistributionInfo_Id_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLinuxDistributionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinuxDistributionInfo_Id_set" "', expected argument " "1"" of type '" "wxLinuxDistributionInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLinuxDistributionInfo * >(argp1);
+  {
+    arg2 = wxString_in_helper(swig_obj[1]);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  if (arg1) (arg1)->Id = *arg2;
+  
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinuxDistributionInfo_Id_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLinuxDistributionInfo *arg1 = (wxLinuxDistributionInfo *) 0 ;
+  wxString *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLinuxDistributionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinuxDistributionInfo_Id_get" "', expected argument " "1"" of type '" "wxLinuxDistributionInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLinuxDistributionInfo * >(argp1);
+  result = (wxString *)& ((arg1)->Id);
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
+#else
+    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinuxDistributionInfo_Release_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLinuxDistributionInfo *arg1 = (wxLinuxDistributionInfo *) 0 ;
+  wxString *arg2 = (wxString *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"LinuxDistributionInfo_Release_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLinuxDistributionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinuxDistributionInfo_Release_set" "', expected argument " "1"" of type '" "wxLinuxDistributionInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLinuxDistributionInfo * >(argp1);
+  {
+    arg2 = wxString_in_helper(swig_obj[1]);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  if (arg1) (arg1)->Release = *arg2;
+  
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinuxDistributionInfo_Release_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLinuxDistributionInfo *arg1 = (wxLinuxDistributionInfo *) 0 ;
+  wxString *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLinuxDistributionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinuxDistributionInfo_Release_get" "', expected argument " "1"" of type '" "wxLinuxDistributionInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLinuxDistributionInfo * >(argp1);
+  result = (wxString *)& ((arg1)->Release);
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
+#else
+    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinuxDistributionInfo_CodeName_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLinuxDistributionInfo *arg1 = (wxLinuxDistributionInfo *) 0 ;
+  wxString *arg2 = (wxString *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"LinuxDistributionInfo_CodeName_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLinuxDistributionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinuxDistributionInfo_CodeName_set" "', expected argument " "1"" of type '" "wxLinuxDistributionInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLinuxDistributionInfo * >(argp1);
+  {
+    arg2 = wxString_in_helper(swig_obj[1]);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  if (arg1) (arg1)->CodeName = *arg2;
+  
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinuxDistributionInfo_CodeName_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLinuxDistributionInfo *arg1 = (wxLinuxDistributionInfo *) 0 ;
+  wxString *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLinuxDistributionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinuxDistributionInfo_CodeName_get" "', expected argument " "1"" of type '" "wxLinuxDistributionInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLinuxDistributionInfo * >(argp1);
+  result = (wxString *)& ((arg1)->CodeName);
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
+#else
+    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinuxDistributionInfo_Description_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLinuxDistributionInfo *arg1 = (wxLinuxDistributionInfo *) 0 ;
+  wxString *arg2 = (wxString *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"LinuxDistributionInfo_Description_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLinuxDistributionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinuxDistributionInfo_Description_set" "', expected argument " "1"" of type '" "wxLinuxDistributionInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLinuxDistributionInfo * >(argp1);
+  {
+    arg2 = wxString_in_helper(swig_obj[1]);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  if (arg1) (arg1)->Description = *arg2;
+  
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LinuxDistributionInfo_Description_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLinuxDistributionInfo *arg1 = (wxLinuxDistributionInfo *) 0 ;
+  wxString *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLinuxDistributionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LinuxDistributionInfo_Description_get" "', expected argument " "1"" of type '" "wxLinuxDistributionInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLinuxDistributionInfo * >(argp1);
+  result = (wxString *)& ((arg1)->Description);
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
+#else
+    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *LinuxDistributionInfo_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxLinuxDistributionInfo, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
 }
 
 SWIGINTERN PyObject *_wrap_new_PlatformInformation(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
@@ -10122,6 +10477,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PlatformInformation_GetLinuxDistributionInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPlatformInfo *arg1 = (wxPlatformInfo *) 0 ;
+  wxLinuxDistributionInfo result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPlatformInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PlatformInformation_GetLinuxDistributionInfo" "', expected argument " "1"" of type '" "wxPlatformInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPlatformInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxPlatformInfo const *)arg1)->GetLinuxDistributionInfo();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxLinuxDistributionInfo(static_cast< const wxLinuxDistributionInfo& >(result))), SWIGTYPE_p_wxLinuxDistributionInfo, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PlatformInformation_GetPortId(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPlatformInfo *arg1 = (wxPlatformInfo *) 0 ;
@@ -10410,6 +10793,98 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PlatformInformation_GetOperatingSystemDescription(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPlatformInfo *arg1 = (wxPlatformInfo *) 0 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPlatformInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PlatformInformation_GetOperatingSystemDescription" "', expected argument " "1"" of type '" "wxPlatformInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPlatformInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxPlatformInfo const *)arg1)->GetOperatingSystemDescription();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PlatformInformation_GetDesktopEnvironment(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPlatformInfo *arg1 = (wxPlatformInfo *) 0 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPlatformInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PlatformInformation_GetDesktopEnvironment" "', expected argument " "1"" of type '" "wxPlatformInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPlatformInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxPlatformInfo const *)arg1)->GetDesktopEnvironment();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PlatformInformation_GetOperatingSystemDirectory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxString result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"PlatformInformation_GetOperatingSystemDirectory",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxPlatformInfo::GetOperatingSystemDirectory();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PlatformInformation_SetOSVersion(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPlatformInfo *arg1 = (wxPlatformInfo *) 0 ;
@@ -10542,6 +11017,51 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PlatformInformation_SetOperatingSystemDescription(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPlatformInfo *arg1 = (wxPlatformInfo *) 0 ;
+  wxString *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "desc", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PlatformInformation_SetOperatingSystemDescription",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPlatformInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PlatformInformation_SetOperatingSystemDescription" "', expected argument " "1"" of type '" "wxPlatformInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPlatformInfo * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetOperatingSystemDescription((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PlatformInformation_SetPortId(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPlatformInfo *arg1 = (wxPlatformInfo *) 0 ;
@@ -10646,6 +11166,92 @@ SWIGINTERN PyObject *_wrap_PlatformInformation_SetEndianness(PyObject *SWIGUNUSE
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetEndianness(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PlatformInformation_SetDesktopEnvironment(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPlatformInfo *arg1 = (wxPlatformInfo *) 0 ;
+  wxString *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "de", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PlatformInformation_SetDesktopEnvironment",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPlatformInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PlatformInformation_SetDesktopEnvironment" "', expected argument " "1"" of type '" "wxPlatformInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPlatformInfo * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetDesktopEnvironment((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PlatformInformation_SetLinuxDistributionInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPlatformInfo *arg1 = (wxPlatformInfo *) 0 ;
+  wxLinuxDistributionInfo *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "di", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PlatformInformation_SetLinuxDistributionInfo",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPlatformInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PlatformInformation_SetLinuxDistributionInfo" "', expected argument " "1"" of type '" "wxPlatformInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPlatformInfo * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxLinuxDistributionInfo,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PlatformInformation_SetLinuxDistributionInfo" "', expected argument " "2"" of type '" "wxLinuxDistributionInfo const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PlatformInformation_SetLinuxDistributionInfo" "', expected argument " "2"" of type '" "wxLinuxDistributionInfo const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxLinuxDistributionInfo * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetLinuxDistributionInfo((wxLinuxDistributionInfo const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12118,6 +12724,256 @@ SWIGINTERN PyObject *TimerRunner_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObje
   return SWIG_Python_InitShadowInstance(args);
 }
 
+SWIGINTERN PyObject *_wrap_new_LogRecordInfo__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
+  PyObject *resultobj = 0;
+  wxLogRecordInfo *result = 0 ;
+  
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxLogRecordInfo *)new wxLogRecordInfo();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxLogRecordInfo, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_LogRecordInfo__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  char *arg1 = (char *) 0 ;
+  int arg2 ;
+  char *arg3 = (char *) 0 ;
+  char *arg4 = (char *) 0 ;
+  wxLogRecordInfo *result = 0 ;
+  int res1 ;
+  char *buf1 = 0 ;
+  int alloc1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 ;
+  char *buf3 = 0 ;
+  int alloc3 = 0 ;
+  int res4 ;
+  char *buf4 = 0 ;
+  int alloc4 = 0 ;
+  
+  if ((nobjs < 4) || (nobjs > 4)) SWIG_fail;
+  res1 = SWIG_AsCharPtrAndSize(swig_obj[0], &buf1, NULL, &alloc1);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_LogRecordInfo" "', expected argument " "1"" of type '" "char const *""'");
+  }
+  arg1 = buf1;
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_LogRecordInfo" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_AsCharPtrAndSize(swig_obj[2], &buf3, NULL, &alloc3);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_LogRecordInfo" "', expected argument " "3"" of type '" "char const *""'");
+  }
+  arg3 = buf3;
+  res4 = SWIG_AsCharPtrAndSize(swig_obj[3], &buf4, NULL, &alloc4);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "new_LogRecordInfo" "', expected argument " "4"" of type '" "char const *""'");
+  }
+  arg4 = buf4;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxLogRecordInfo *)new wxLogRecordInfo((char const *)arg1,arg2,(char const *)arg3,(char const *)arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxLogRecordInfo, SWIG_POINTER_NEW |  0 );
+  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  if (alloc4 == SWIG_NEWOBJ) delete[] buf4;
+  return resultobj;
+fail:
+  if (alloc1 == SWIG_NEWOBJ) delete[] buf1;
+  if (alloc3 == SWIG_NEWOBJ) delete[] buf3;
+  if (alloc4 == SWIG_NEWOBJ) delete[] buf4;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_LogRecordInfo(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[5];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"new_LogRecordInfo",0,4,argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_new_LogRecordInfo__SWIG_0(self, argc, argv);
+  }
+  if (argc == 4) {
+    return _wrap_new_LogRecordInfo__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'new_LogRecordInfo'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_LogRecordInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLogRecordInfo *arg1 = (wxLogRecordInfo *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLogRecordInfo, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_LogRecordInfo" "', expected argument " "1"" of type '" "wxLogRecordInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLogRecordInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LogRecordInfo_filename_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLogRecordInfo *arg1 = (wxLogRecordInfo *) 0 ;
+  char *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLogRecordInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LogRecordInfo_filename_get" "', expected argument " "1"" of type '" "wxLogRecordInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLogRecordInfo * >(argp1);
+  result = (char *) ((arg1)->filename);
+  resultobj = SWIG_FromCharPtr(result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LogRecordInfo_line_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLogRecordInfo *arg1 = (wxLogRecordInfo *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLogRecordInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LogRecordInfo_line_get" "', expected argument " "1"" of type '" "wxLogRecordInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLogRecordInfo * >(argp1);
+  result = (int) ((arg1)->line);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LogRecordInfo_func_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLogRecordInfo *arg1 = (wxLogRecordInfo *) 0 ;
+  char *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLogRecordInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LogRecordInfo_func_get" "', expected argument " "1"" of type '" "wxLogRecordInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLogRecordInfo * >(argp1);
+  result = (char *) ((arg1)->func);
+  resultobj = SWIG_FromCharPtr(result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LogRecordInfo_component_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLogRecordInfo *arg1 = (wxLogRecordInfo *) 0 ;
+  char *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLogRecordInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LogRecordInfo_component_get" "', expected argument " "1"" of type '" "wxLogRecordInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLogRecordInfo * >(argp1);
+  result = (char *) ((arg1)->component);
+  resultobj = SWIG_FromCharPtr(result);
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_LogRecordInfo_timestamp_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLogRecordInfo *arg1 = (wxLogRecordInfo *) 0 ;
+  time_t result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLogRecordInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "LogRecordInfo_timestamp_get" "', expected argument " "1"" of type '" "wxLogRecordInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLogRecordInfo * >(argp1);
+  result = (time_t) ((arg1)->timestamp);
+  resultobj = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *LogRecordInfo_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxLogRecordInfo, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *LogRecordInfo_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
 SWIGINTERN PyObject *_wrap_new_Log(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxLog *result = 0 ;
@@ -12192,7 +13048,7 @@ SWIGINTERN PyObject *_wrap_Log_EnableLogging(PyObject *SWIGUNUSEDPARM(self), PyO
   int ecode1 = 0 ;
   PyObject * obj0 = 0 ;
   char *  kwnames[] = {
-    (char *) "doIt", NULL 
+    (char *) "enable", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|O:Log_EnableLogging",kwnames,&obj0)) SWIG_fail;
@@ -12218,56 +13074,214 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Log_OnLog(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_Log_GetLogLevel(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxLogLevel result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"Log_GetLogLevel",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxLogLevel)wxLog::GetLogLevel();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Log_SetLogLevel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxLogLevel arg1 ;
-  wxString *arg2 = 0 ;
-  time_t arg3 ;
   unsigned long val1 ;
   int ecode1 = 0 ;
-  bool temp2 = false ;
-  unsigned int val3 ;
-  int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "level",(char *) "szString",(char *) "t", NULL 
+    (char *) "logLevel", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:Log_OnLog",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:Log_SetLogLevel",kwnames,&obj0)) SWIG_fail;
   ecode1 = SWIG_AsVal_unsigned_SS_long(obj0, &val1);
   if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "Log_OnLog" "', expected argument " "1"" of type '" "wxLogLevel""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "Log_SetLogLevel" "', expected argument " "1"" of type '" "wxLogLevel""'");
   } 
   arg1 = static_cast< wxLogLevel >(val1);
   {
-    arg2 = wxString_in_helper(obj1);
-    if (arg2 == NULL) SWIG_fail;
-    temp2 = true;
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxLog::SetLogLevel(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
   }
-  ecode3 = SWIG_AsVal_unsigned_SS_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Log_OnLog" "', expected argument " "3"" of type '" "time_t""'");
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Log_SetComponentLevel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxString *arg1 = 0 ;
+  wxLogLevel arg2 ;
+  bool temp1 = false ;
+  unsigned long val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "component",(char *) "level", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Log_SetComponentLevel",kwnames,&obj0,&obj1)) SWIG_fail;
+  {
+    arg1 = wxString_in_helper(obj0);
+    if (arg1 == NULL) SWIG_fail;
+    temp1 = true;
+  }
+  ecode2 = SWIG_AsVal_unsigned_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Log_SetComponentLevel" "', expected argument " "2"" of type '" "wxLogLevel""'");
   } 
-  arg3 = static_cast< time_t >(val3);
+  arg2 = static_cast< wxLogLevel >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxLog::OnLog(arg1,(wxString const &)*arg2,arg3);
+    wxLog::SetComponentLevel((wxString const &)*arg1,arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
   {
-    if (temp2)
-    delete arg2;
+    if (temp1)
+    delete arg1;
   }
   return resultobj;
 fail:
   {
-    if (temp2)
-    delete arg2;
+    if (temp1)
+    delete arg1;
   }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Log_GetComponentLevel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxString arg1 ;
+  wxLogLevel result;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "component", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:Log_GetComponentLevel",kwnames,&obj0)) SWIG_fail;
+  {
+    wxString* sptr = wxString_in_helper(obj0);
+    if (sptr == NULL) SWIG_fail;
+    arg1 = *sptr;
+    delete sptr;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxLogLevel)wxLog::GetComponentLevel(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Log_IsLevelEnabled(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxLogLevel arg1 ;
+  wxString arg2 ;
+  bool result;
+  unsigned long val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "level",(char *) "component", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Log_IsLevelEnabled",kwnames,&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_unsigned_SS_long(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "Log_IsLevelEnabled" "', expected argument " "1"" of type '" "wxLogLevel""'");
+  } 
+  arg1 = static_cast< wxLogLevel >(val1);
+  {
+    wxString* sptr = wxString_in_helper(obj1);
+    if (sptr == NULL) SWIG_fail;
+    arg2 = *sptr;
+    delete sptr;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxLog::IsLevelEnabled(arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Log_SetVerbose(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  bool arg1 = (bool) true ;
+  bool val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "bVerbose", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|O:Log_SetVerbose",kwnames,&obj0)) SWIG_fail;
+  if (obj0) {
+    ecode1 = SWIG_AsVal_bool(obj0, &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "Log_SetVerbose" "', expected argument " "1"" of type '" "bool""'");
+    } 
+    arg1 = static_cast< bool >(val1);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxLog::SetVerbose(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Log_GetVerbose(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  bool result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"Log_GetVerbose",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxLog::GetVerbose();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
   return NULL;
 }
 
@@ -12386,66 +13400,6 @@ SWIGINTERN PyObject *_wrap_Log_Resume(PyObject *SWIGUNUSEDPARM(self), PyObject *
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     wxLog::Resume();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Log_SetVerbose(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  bool arg1 = (bool) true ;
-  bool val1 ;
-  int ecode1 = 0 ;
-  PyObject * obj0 = 0 ;
-  char *  kwnames[] = {
-    (char *) "bVerbose", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|O:Log_SetVerbose",kwnames,&obj0)) SWIG_fail;
-  if (obj0) {
-    ecode1 = SWIG_AsVal_bool(obj0, &val1);
-    if (!SWIG_IsOK(ecode1)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "Log_SetVerbose" "', expected argument " "1"" of type '" "bool""'");
-    } 
-    arg1 = static_cast< bool >(val1);
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxLog::SetVerbose(arg1);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Log_SetLogLevel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxLogLevel arg1 ;
-  unsigned long val1 ;
-  int ecode1 = 0 ;
-  PyObject * obj0 = 0 ;
-  char *  kwnames[] = {
-    (char *) "logLevel", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:Log_SetLogLevel",kwnames,&obj0)) SWIG_fail;
-  ecode1 = SWIG_AsVal_unsigned_SS_long(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "Log_SetLogLevel" "', expected argument " "1"" of type '" "wxLogLevel""'");
-  } 
-  arg1 = static_cast< wxLogLevel >(val1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxLog::SetLogLevel(arg1);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12718,26 +13672,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Log_GetVerbose(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  bool result;
-  
-  if (!SWIG_Python_UnpackTuple(args,"Log_GetVerbose",0,0,0)) SWIG_fail;
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxLog::GetVerbose();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_Log_GetTraceMask(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTraceMask result;
@@ -12795,24 +13729,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Log_GetLogLevel(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxLogLevel result;
-  
-  if (!SWIG_Python_UnpackTuple(args,"Log_GetLogLevel",0,0,0)) SWIG_fail;
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxLogLevel)wxLog::GetLogLevel();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_unsigned_SS_long(static_cast< unsigned long >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_Log_GetTimestamp(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxString result;
@@ -12857,6 +13773,171 @@ SWIGINTERN PyObject *_wrap_Log_TimeStamp(PyObject *SWIGUNUSEDPARM(self), PyObjec
   }
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Log_LogRecord(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxLog *arg1 = (wxLog *) 0 ;
+  wxLogLevel arg2 ;
+  wxString *arg3 = 0 ;
+  wxLogRecordInfo *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long val2 ;
+  int ecode2 = 0 ;
+  bool temp3 = false ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "level",(char *) "msg",(char *) "info", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:Log_LogRecord",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Log_LogRecord" "', expected argument " "1"" of type '" "wxLog *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLog * >(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Log_LogRecord" "', expected argument " "2"" of type '" "wxLogLevel""'");
+  } 
+  arg2 = static_cast< wxLogLevel >(val2);
+  {
+    arg3 = wxString_in_helper(obj2);
+    if (arg3 == NULL) SWIG_fail;
+    temp3 = true;
+  }
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxLogRecordInfo,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Log_LogRecord" "', expected argument " "4"" of type '" "wxLogRecordInfo const &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Log_LogRecord" "', expected argument " "4"" of type '" "wxLogRecordInfo const &""'"); 
+  }
+  arg4 = reinterpret_cast< wxLogRecordInfo * >(argp4);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->LogRecord(arg2,(wxString const &)*arg3,(wxLogRecordInfo const &)*arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Log_LogTextAtLevel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxLog *arg1 = (wxLog *) 0 ;
+  wxLogLevel arg2 ;
+  wxString *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned long val2 ;
+  int ecode2 = 0 ;
+  bool temp3 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "level",(char *) "msg", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:Log_LogTextAtLevel",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Log_LogTextAtLevel" "', expected argument " "1"" of type '" "wxLog *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLog * >(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Log_LogTextAtLevel" "', expected argument " "2"" of type '" "wxLogLevel""'");
+  } 
+  arg2 = static_cast< wxLogLevel >(val2);
+  {
+    arg3 = wxString_in_helper(obj2);
+    if (arg3 == NULL) SWIG_fail;
+    temp3 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->LogTextAtLevel(arg2,(wxString const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Log_LogText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxLog *arg1 = (wxLog *) 0 ;
+  wxString *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "msg", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Log_LogText",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxLog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Log_LogText" "', expected argument " "1"" of type '" "wxLog *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLog * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->LogText((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
   return NULL;
 }
 
@@ -33227,6 +34308,67 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DataObjectComposite_GetObject(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDataObjectComposite *arg1 = (wxDataObjectComposite *) 0 ;
+  wxDataFormat *arg2 = 0 ;
+  wxDataObjectBase::Direction arg3 = (wxDataObjectBase::Direction) wxDataObject::Get ;
+  wxDataObjectSimple *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "format",(char *) "dir", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:DataObjectComposite_GetObject",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDataObjectComposite, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataObjectComposite_GetObject" "', expected argument " "1"" of type '" "wxDataObjectComposite const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataObjectComposite * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDataFormat,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataObjectComposite_GetObject" "', expected argument " "2"" of type '" "wxDataFormat const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataObjectComposite_GetObject" "', expected argument " "2"" of type '" "wxDataFormat const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxDataFormat * >(argp2);
+  if (obj2) {
+    {
+      res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxDataObjectBase__Direction,  0  | 0);
+      if (!SWIG_IsOK(res3)) {
+        SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataObjectComposite_GetObject" "', expected argument " "3"" of type '" "wxDataObjectBase::Direction""'"); 
+      }  
+      if (!argp3) {
+        SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataObjectComposite_GetObject" "', expected argument " "3"" of type '" "wxDataObjectBase::Direction""'");
+      } else {
+        wxDataObjectBase::Direction * temp = reinterpret_cast< wxDataObjectBase::Direction * >(argp3);
+        arg3 = *temp;
+        if (SWIG_IsNewObj(res3)) delete temp;
+      }
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxDataObjectSimple *)((wxDataObjectComposite const *)arg1)->GetObject((wxDataFormat const &)*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDataObjectSimple, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *DataObjectComposite_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -40287,9 +41429,19 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_PreSingleInstanceChecker", (PyCFunction)_wrap_new_PreSingleInstanceChecker, METH_NOARGS, NULL},
 	 { (char *)"delete_SingleInstanceChecker", (PyCFunction)_wrap_delete_SingleInstanceChecker, METH_O, NULL},
 	 { (char *)"SingleInstanceChecker_Create", (PyCFunction) _wrap_SingleInstanceChecker_Create, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"SingleInstanceChecker_CreateDefault", (PyCFunction)_wrap_SingleInstanceChecker_CreateDefault, METH_O, NULL},
 	 { (char *)"SingleInstanceChecker_IsAnotherRunning", (PyCFunction)_wrap_SingleInstanceChecker_IsAnotherRunning, METH_O, NULL},
 	 { (char *)"SingleInstanceChecker_swigregister", SingleInstanceChecker_swigregister, METH_VARARGS, NULL},
 	 { (char *)"SingleInstanceChecker_swiginit", SingleInstanceChecker_swiginit, METH_VARARGS, NULL},
+	 { (char *)"LinuxDistributionInfo_Id_set", _wrap_LinuxDistributionInfo_Id_set, METH_VARARGS, NULL},
+	 { (char *)"LinuxDistributionInfo_Id_get", (PyCFunction)_wrap_LinuxDistributionInfo_Id_get, METH_O, NULL},
+	 { (char *)"LinuxDistributionInfo_Release_set", _wrap_LinuxDistributionInfo_Release_set, METH_VARARGS, NULL},
+	 { (char *)"LinuxDistributionInfo_Release_get", (PyCFunction)_wrap_LinuxDistributionInfo_Release_get, METH_O, NULL},
+	 { (char *)"LinuxDistributionInfo_CodeName_set", _wrap_LinuxDistributionInfo_CodeName_set, METH_VARARGS, NULL},
+	 { (char *)"LinuxDistributionInfo_CodeName_get", (PyCFunction)_wrap_LinuxDistributionInfo_CodeName_get, METH_O, NULL},
+	 { (char *)"LinuxDistributionInfo_Description_set", _wrap_LinuxDistributionInfo_Description_set, METH_VARARGS, NULL},
+	 { (char *)"LinuxDistributionInfo_Description_get", (PyCFunction)_wrap_LinuxDistributionInfo_Description_get, METH_O, NULL},
+	 { (char *)"LinuxDistributionInfo_swigregister", LinuxDistributionInfo_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_PlatformInformation", (PyCFunction)_wrap_new_PlatformInformation, METH_NOARGS, NULL},
 	 { (char *)"PlatformInformation___eq__", (PyCFunction) _wrap_PlatformInformation___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PlatformInformation___ne__", (PyCFunction) _wrap_PlatformInformation___ne__, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -40301,6 +41453,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PlatformInformation_CheckToolkitVersion", (PyCFunction) _wrap_PlatformInformation_CheckToolkitVersion, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PlatformInformation_IsUsingUniversalWidgets", (PyCFunction)_wrap_PlatformInformation_IsUsingUniversalWidgets, METH_O, NULL},
 	 { (char *)"PlatformInformation_GetOperatingSystemId", (PyCFunction)_wrap_PlatformInformation_GetOperatingSystemId, METH_O, NULL},
+	 { (char *)"PlatformInformation_GetLinuxDistributionInfo", (PyCFunction)_wrap_PlatformInformation_GetLinuxDistributionInfo, METH_O, NULL},
 	 { (char *)"PlatformInformation_GetPortId", (PyCFunction)_wrap_PlatformInformation_GetPortId, METH_O, NULL},
 	 { (char *)"PlatformInformation_GetArchitecture", (PyCFunction)_wrap_PlatformInformation_GetArchitecture, METH_O, NULL},
 	 { (char *)"PlatformInformation_GetEndianness", (PyCFunction)_wrap_PlatformInformation_GetEndianness, METH_O, NULL},
@@ -40310,12 +41463,18 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PlatformInformation_GetPortIdShortName", (PyCFunction)_wrap_PlatformInformation_GetPortIdShortName, METH_O, NULL},
 	 { (char *)"PlatformInformation_GetArchName", (PyCFunction)_wrap_PlatformInformation_GetArchName, METH_O, NULL},
 	 { (char *)"PlatformInformation_GetEndiannessName", (PyCFunction)_wrap_PlatformInformation_GetEndiannessName, METH_O, NULL},
+	 { (char *)"PlatformInformation_GetOperatingSystemDescription", (PyCFunction)_wrap_PlatformInformation_GetOperatingSystemDescription, METH_O, NULL},
+	 { (char *)"PlatformInformation_GetDesktopEnvironment", (PyCFunction)_wrap_PlatformInformation_GetDesktopEnvironment, METH_O, NULL},
+	 { (char *)"PlatformInformation_GetOperatingSystemDirectory", (PyCFunction)_wrap_PlatformInformation_GetOperatingSystemDirectory, METH_NOARGS, NULL},
 	 { (char *)"PlatformInformation_SetOSVersion", (PyCFunction) _wrap_PlatformInformation_SetOSVersion, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PlatformInformation_SetToolkitVersion", (PyCFunction) _wrap_PlatformInformation_SetToolkitVersion, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PlatformInformation_SetOperatingSystemId", (PyCFunction) _wrap_PlatformInformation_SetOperatingSystemId, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PlatformInformation_SetOperatingSystemDescription", (PyCFunction) _wrap_PlatformInformation_SetOperatingSystemDescription, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PlatformInformation_SetPortId", (PyCFunction) _wrap_PlatformInformation_SetPortId, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PlatformInformation_SetArchitecture", (PyCFunction) _wrap_PlatformInformation_SetArchitecture, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PlatformInformation_SetEndianness", (PyCFunction) _wrap_PlatformInformation_SetEndianness, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PlatformInformation_SetDesktopEnvironment", (PyCFunction) _wrap_PlatformInformation_SetDesktopEnvironment, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PlatformInformation_SetLinuxDistributionInfo", (PyCFunction) _wrap_PlatformInformation_SetLinuxDistributionInfo, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PlatformInformation_IsOk", (PyCFunction)_wrap_PlatformInformation_IsOk, METH_O, NULL},
 	 { (char *)"PlatformInformation_swigregister", PlatformInformation_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PlatformInformation_swiginit", PlatformInformation_swiginit, METH_VARARGS, NULL},
@@ -40364,19 +41523,32 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TimerRunner_Start", (PyCFunction) _wrap_TimerRunner_Start, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TimerRunner_swigregister", TimerRunner_swigregister, METH_VARARGS, NULL},
 	 { (char *)"TimerRunner_swiginit", TimerRunner_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_LogRecordInfo", _wrap_new_LogRecordInfo, METH_VARARGS, NULL},
+	 { (char *)"delete_LogRecordInfo", (PyCFunction)_wrap_delete_LogRecordInfo, METH_O, NULL},
+	 { (char *)"LogRecordInfo_filename_get", (PyCFunction)_wrap_LogRecordInfo_filename_get, METH_O, NULL},
+	 { (char *)"LogRecordInfo_line_get", (PyCFunction)_wrap_LogRecordInfo_line_get, METH_O, NULL},
+	 { (char *)"LogRecordInfo_func_get", (PyCFunction)_wrap_LogRecordInfo_func_get, METH_O, NULL},
+	 { (char *)"LogRecordInfo_component_get", (PyCFunction)_wrap_LogRecordInfo_component_get, METH_O, NULL},
+	 { (char *)"LogRecordInfo_timestamp_get", (PyCFunction)_wrap_LogRecordInfo_timestamp_get, METH_O, NULL},
+	 { (char *)"LogRecordInfo_swigregister", LogRecordInfo_swigregister, METH_VARARGS, NULL},
+	 { (char *)"LogRecordInfo_swiginit", LogRecordInfo_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_Log", (PyCFunction)_wrap_new_Log, METH_NOARGS, NULL},
 	 { (char *)"delete_Log", (PyCFunction)_wrap_delete_Log, METH_O, NULL},
 	 { (char *)"Log_IsEnabled", (PyCFunction)_wrap_Log_IsEnabled, METH_NOARGS, NULL},
 	 { (char *)"Log_EnableLogging", (PyCFunction) _wrap_Log_EnableLogging, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Log_OnLog", (PyCFunction) _wrap_Log_OnLog, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Log_GetLogLevel", (PyCFunction)_wrap_Log_GetLogLevel, METH_NOARGS, NULL},
+	 { (char *)"Log_SetLogLevel", (PyCFunction) _wrap_Log_SetLogLevel, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Log_SetComponentLevel", (PyCFunction) _wrap_Log_SetComponentLevel, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Log_GetComponentLevel", (PyCFunction) _wrap_Log_GetComponentLevel, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Log_IsLevelEnabled", (PyCFunction) _wrap_Log_IsLevelEnabled, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Log_SetVerbose", (PyCFunction) _wrap_Log_SetVerbose, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Log_GetVerbose", (PyCFunction)_wrap_Log_GetVerbose, METH_NOARGS, NULL},
 	 { (char *)"Log_Flush", (PyCFunction)_wrap_Log_Flush, METH_O, NULL},
 	 { (char *)"Log_FlushActive", (PyCFunction)_wrap_Log_FlushActive, METH_NOARGS, NULL},
 	 { (char *)"Log_GetActiveTarget", (PyCFunction)_wrap_Log_GetActiveTarget, METH_NOARGS, NULL},
 	 { (char *)"Log_SetActiveTarget", (PyCFunction) _wrap_Log_SetActiveTarget, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Log_Suspend", (PyCFunction)_wrap_Log_Suspend, METH_NOARGS, NULL},
 	 { (char *)"Log_Resume", (PyCFunction)_wrap_Log_Resume, METH_NOARGS, NULL},
-	 { (char *)"Log_SetVerbose", (PyCFunction) _wrap_Log_SetVerbose, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Log_SetLogLevel", (PyCFunction) _wrap_Log_SetLogLevel, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Log_DontCreateOnDemand", (PyCFunction)_wrap_Log_DontCreateOnDemand, METH_NOARGS, NULL},
 	 { (char *)"Log_DoCreateOnDemand", (PyCFunction)_wrap_Log_DoCreateOnDemand, METH_NOARGS, NULL},
 	 { (char *)"Log_SetRepetitionCounting", (PyCFunction) _wrap_Log_SetRepetitionCounting, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -40387,12 +41559,13 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Log_ClearTraceMasks", (PyCFunction)_wrap_Log_ClearTraceMasks, METH_NOARGS, NULL},
 	 { (char *)"Log_GetTraceMasks", (PyCFunction)_wrap_Log_GetTraceMasks, METH_NOARGS, NULL},
 	 { (char *)"Log_SetTimestamp", (PyCFunction) _wrap_Log_SetTimestamp, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Log_GetVerbose", (PyCFunction)_wrap_Log_GetVerbose, METH_NOARGS, NULL},
 	 { (char *)"Log_GetTraceMask", (PyCFunction)_wrap_Log_GetTraceMask, METH_NOARGS, NULL},
 	 { (char *)"Log_IsAllowedTraceMask", (PyCFunction) _wrap_Log_IsAllowedTraceMask, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Log_GetLogLevel", (PyCFunction)_wrap_Log_GetLogLevel, METH_NOARGS, NULL},
 	 { (char *)"Log_GetTimestamp", (PyCFunction)_wrap_Log_GetTimestamp, METH_NOARGS, NULL},
 	 { (char *)"Log_TimeStamp", (PyCFunction)_wrap_Log_TimeStamp, METH_NOARGS, NULL},
+	 { (char *)"Log_LogRecord", (PyCFunction) _wrap_Log_LogRecord, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Log_LogTextAtLevel", (PyCFunction) _wrap_Log_LogTextAtLevel, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Log_LogText", (PyCFunction) _wrap_Log_LogText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Log_Destroy", (PyCFunction)_wrap_Log_Destroy, METH_O, NULL},
 	 { (char *)"Log_swigregister", Log_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Log_swiginit", Log_swiginit, METH_VARARGS, NULL},
@@ -40928,6 +42101,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_DataObjectComposite", (PyCFunction)_wrap_new_DataObjectComposite, METH_NOARGS, NULL},
 	 { (char *)"DataObjectComposite_Add", (PyCFunction) _wrap_DataObjectComposite_Add, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataObjectComposite_GetReceivedFormat", (PyCFunction)_wrap_DataObjectComposite_GetReceivedFormat, METH_O, NULL},
+	 { (char *)"DataObjectComposite_GetObject", (PyCFunction) _wrap_DataObjectComposite_GetObject, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataObjectComposite_swigregister", DataObjectComposite_swigregister, METH_VARARGS, NULL},
 	 { (char *)"DataObjectComposite_swiginit", DataObjectComposite_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_TextDataObject", (PyCFunction) _wrap_new_TextDataObject, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -41761,6 +42935,7 @@ static swig_type_info _swigt__p_wxCursor = {"_p_wxCursor", "wxCursor *", 0, 0, (
 static swig_type_info _swigt__p_wxCustomDataObject = {"_p_wxCustomDataObject", "wxCustomDataObject *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDataFormat = {"_p_wxDataFormat", "wxDataFormat *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDataObject = {"_p_wxDataObject", "wxDataObject *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxDataObjectBase__Direction = {"_p_wxDataObjectBase__Direction", "wxDataObjectBase::Direction *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDataObjectComposite = {"_p_wxDataObjectComposite", "wxDataObjectComposite *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDataObjectSimple = {"_p_wxDataObjectSimple", "wxDataObjectSimple *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxDateSpan = {"_p_wxDateSpan", "wxDateSpan *", 0, 0, (void*)0, 0};
@@ -41830,11 +43005,13 @@ static swig_type_info _swigt__p_wxIconBundle = {"_p_wxIconBundle", "wxIconBundle
 static swig_type_info _swigt__p_wxJoystick = {"_p_wxJoystick", "wxJoystick *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxJoystickEvent = {"_p_wxJoystickEvent", "wxJoystickEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxKillError = {"_p_wxKillError", "enum wxKillError *|wxKillError *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxLinuxDistributionInfo = {"_p_wxLinuxDistributionInfo", "wxLinuxDistributionInfo *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLog = {"_p_wxLog", "wxLog *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLogBuffer = {"_p_wxLogBuffer", "wxLogBuffer *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLogChain = {"_p_wxLogChain", "wxLogChain *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLogGui = {"_p_wxLogGui", "wxLogGui *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLogNull = {"_p_wxLogNull", "wxLogNull *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxLogRecordInfo = {"_p_wxLogRecordInfo", "wxLogRecordInfo *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLogStderr = {"_p_wxLogStderr", "wxLogStderr *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLogTextCtrl = {"_p_wxLogTextCtrl", "wxLogTextCtrl *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLogWindow = {"_p_wxLogWindow", "wxLogWindow *", 0, 0, (void*)0, 0};
@@ -41958,6 +43135,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxCustomDataObject,
   &_swigt__p_wxDataFormat,
   &_swigt__p_wxDataObject,
+  &_swigt__p_wxDataObjectBase__Direction,
   &_swigt__p_wxDataObjectComposite,
   &_swigt__p_wxDataObjectSimple,
   &_swigt__p_wxDateEvent,
@@ -42002,11 +43180,13 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxKeyEvent,
   &_swigt__p_wxKillError,
   &_swigt__p_wxLayoutConstraints,
+  &_swigt__p_wxLinuxDistributionInfo,
   &_swigt__p_wxLog,
   &_swigt__p_wxLogBuffer,
   &_swigt__p_wxLogChain,
   &_swigt__p_wxLogGui,
   &_swigt__p_wxLogNull,
+  &_swigt__p_wxLogRecordInfo,
   &_swigt__p_wxLogStderr,
   &_swigt__p_wxLogTextCtrl,
   &_swigt__p_wxLogWindow,
@@ -42129,6 +43309,7 @@ static swig_cast_info _swigc__p_wxCursor[] = {  {&_swigt__p_wxCursor, 0, 0, 0},{
 static swig_cast_info _swigc__p_wxCustomDataObject[] = {  {&_swigt__p_wxCustomDataObject, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDataFormat[] = {  {&_swigt__p_wxDataFormat, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDataObject[] = {  {&_swigt__p_wxDataObjectSimple, _p_wxDataObjectSimpleTo_p_wxDataObject, 0, 0},  {&_swigt__p_wxPyDataObjectSimple, _p_wxPyDataObjectSimpleTo_p_wxDataObject, 0, 0},  {&_swigt__p_wxDataObjectComposite, _p_wxDataObjectCompositeTo_p_wxDataObject, 0, 0},  {&_swigt__p_wxDataObject, 0, 0, 0},  {&_swigt__p_wxTextDataObject, _p_wxTextDataObjectTo_p_wxDataObject, 0, 0},  {&_swigt__p_wxPyTextDataObject, _p_wxPyTextDataObjectTo_p_wxDataObject, 0, 0},  {&_swigt__p_wxBitmapDataObject, _p_wxBitmapDataObjectTo_p_wxDataObject, 0, 0},  {&_swigt__p_wxPyBitmapDataObject, _p_wxPyBitmapDataObjectTo_p_wxDataObject, 0, 0},  {&_swigt__p_wxFileDataObject, _p_wxFileDataObjectTo_p_wxDataObject, 0, 0},  {&_swigt__p_wxCustomDataObject, _p_wxCustomDataObjectTo_p_wxDataObject, 0, 0},  {&_swigt__p_wxMetafileDataObject, _p_wxMetafileDataObjectTo_p_wxDataObject, 0, 0},  {&_swigt__p_wxURLDataObject, _p_wxURLDataObjectTo_p_wxDataObject, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxDataObjectBase__Direction[] = {  {&_swigt__p_wxDataObjectBase__Direction, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDataObjectComposite[] = {  {&_swigt__p_wxDataObjectComposite, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDataObjectSimple[] = {  {&_swigt__p_wxDataObjectSimple, 0, 0, 0},  {&_swigt__p_wxPyDataObjectSimple, _p_wxPyDataObjectSimpleTo_p_wxDataObjectSimple, 0, 0},  {&_swigt__p_wxTextDataObject, _p_wxTextDataObjectTo_p_wxDataObjectSimple, 0, 0},  {&_swigt__p_wxPyTextDataObject, _p_wxPyTextDataObjectTo_p_wxDataObjectSimple, 0, 0},  {&_swigt__p_wxBitmapDataObject, _p_wxBitmapDataObjectTo_p_wxDataObjectSimple, 0, 0},  {&_swigt__p_wxPyBitmapDataObject, _p_wxPyBitmapDataObjectTo_p_wxDataObjectSimple, 0, 0},  {&_swigt__p_wxFileDataObject, _p_wxFileDataObjectTo_p_wxDataObjectSimple, 0, 0},  {&_swigt__p_wxCustomDataObject, _p_wxCustomDataObjectTo_p_wxDataObjectSimple, 0, 0},  {&_swigt__p_wxMetafileDataObject, _p_wxMetafileDataObjectTo_p_wxDataObjectSimple, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDateSpan[] = {  {&_swigt__p_wxDateSpan, 0, 0, 0},{0, 0, 0, 0}};
@@ -42198,11 +43379,13 @@ static swig_cast_info _swigc__p_wxIconBundle[] = {  {&_swigt__p_wxIconBundle, 0,
 static swig_cast_info _swigc__p_wxJoystick[] = {  {&_swigt__p_wxJoystick, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxJoystickEvent[] = {  {&_swigt__p_wxJoystickEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxKillError[] = {  {&_swigt__p_wxKillError, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxLinuxDistributionInfo[] = {  {&_swigt__p_wxLinuxDistributionInfo, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLog[] = {  {&_swigt__p_wxLogBuffer, _p_wxLogBufferTo_p_wxLog, 0, 0},  {&_swigt__p_wxLogStderr, _p_wxLogStderrTo_p_wxLog, 0, 0},  {&_swigt__p_wxLogTextCtrl, _p_wxLogTextCtrlTo_p_wxLog, 0, 0},  {&_swigt__p_wxLogWindow, _p_wxLogWindowTo_p_wxLog, 0, 0},  {&_swigt__p_wxLogChain, _p_wxLogChainTo_p_wxLog, 0, 0},  {&_swigt__p_wxLogGui, _p_wxLogGuiTo_p_wxLog, 0, 0},  {&_swigt__p_wxPyLog, _p_wxPyLogTo_p_wxLog, 0, 0},  {&_swigt__p_wxLog, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLogBuffer[] = {  {&_swigt__p_wxLogBuffer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLogChain[] = {  {&_swigt__p_wxLogChain, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLogGui[] = {  {&_swigt__p_wxLogGui, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLogNull[] = {  {&_swigt__p_wxLogNull, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxLogRecordInfo[] = {  {&_swigt__p_wxLogRecordInfo, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLogStderr[] = {  {&_swigt__p_wxLogStderr, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLogTextCtrl[] = {  {&_swigt__p_wxLogTextCtrl, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLogWindow[] = {  {&_swigt__p_wxLogWindow, 0, 0, 0},{0, 0, 0, 0}};
@@ -42326,6 +43509,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxCustomDataObject,
   _swigc__p_wxDataFormat,
   _swigc__p_wxDataObject,
+  _swigc__p_wxDataObjectBase__Direction,
   _swigc__p_wxDataObjectComposite,
   _swigc__p_wxDataObjectSimple,
   _swigc__p_wxDateEvent,
@@ -42370,11 +43554,13 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxKeyEvent,
   _swigc__p_wxKillError,
   _swigc__p_wxLayoutConstraints,
+  _swigc__p_wxLinuxDistributionInfo,
   _swigc__p_wxLog,
   _swigc__p_wxLogBuffer,
   _swigc__p_wxLogChain,
   _swigc__p_wxLogGui,
   _swigc__p_wxLogNull,
+  _swigc__p_wxLogRecordInfo,
   _swigc__p_wxLogStderr,
   _swigc__p_wxLogTextCtrl,
   _swigc__p_wxLogWindow,
@@ -43072,6 +44258,8 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "STOCK_NOFLAGS",SWIG_From_int(static_cast< int >(wxSTOCK_NOFLAGS)));
   SWIG_Python_SetConstant(d, "STOCK_WITH_MNEMONIC",SWIG_From_int(static_cast< int >(wxSTOCK_WITH_MNEMONIC)));
   SWIG_Python_SetConstant(d, "STOCK_WITH_ACCELERATOR",SWIG_From_int(static_cast< int >(wxSTOCK_WITH_ACCELERATOR)));
+  SWIG_Python_SetConstant(d, "STOCK_WITHOUT_ELLIPSIS",SWIG_From_int(static_cast< int >(wxSTOCK_WITHOUT_ELLIPSIS)));
+  SWIG_Python_SetConstant(d, "STOCK_FOR_BUTTON",SWIG_From_int(static_cast< int >(wxSTOCK_FOR_BUTTON)));
   SWIG_Python_SetConstant(d, "STOCK_MENU",SWIG_From_int(static_cast< int >(wxSTOCK_MENU)));
   SWIG_Python_SetConstant(d, "SHUTDOWN_FORCE",SWIG_From_int(static_cast< int >(wxSHUTDOWN_FORCE)));
   SWIG_Python_SetConstant(d, "SHUTDOWN_POWEROFF",SWIG_From_int(static_cast< int >(wxSHUTDOWN_POWEROFF)));

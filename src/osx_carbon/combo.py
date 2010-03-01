@@ -196,6 +196,25 @@ class ComboCtrl(_core.Control):
         """
         return _combo.ComboCtrl_GetButton(*args, **kwargs)
 
+    def SetHint(*args, **kwargs):
+        """SetHint(self, String hint) -> bool"""
+        return _combo.ComboCtrl_SetHint(*args, **kwargs)
+
+    def GetHint(*args, **kwargs):
+        """GetHint(self) -> String"""
+        return _combo.ComboCtrl_GetHint(*args, **kwargs)
+
+    def SetMargins(*args):
+        """
+        SetMargins(self, Point pt) -> bool
+        SetMargins(self, int left, int top=-1) -> bool
+        """
+        return _combo.ComboCtrl_SetMargins(*args)
+
+    def GetMargins(*args, **kwargs):
+        """GetMargins(self) -> Point"""
+        return _combo.ComboCtrl_GetMargins(*args, **kwargs)
+
     def GetValue(*args, **kwargs):
         """
         GetValue(self) -> String

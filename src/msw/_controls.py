@@ -62,6 +62,7 @@ BU_BOTTOM = _controls_.BU_BOTTOM
 BU_ALIGN_MASK = _controls_.BU_ALIGN_MASK
 BU_EXACTFIT = _controls_.BU_EXACTFIT
 BU_AUTODRAW = _controls_.BU_AUTODRAW
+BU_NOTEXT = _controls_.BU_NOTEXT
 class Button(_core.Control):
     """
     A button is a control that contains a text string, and is one of the most
@@ -97,6 +98,102 @@ class Button(_core.Control):
         Acutally create the GUI Button for 2-phase creation.
         """
         return _controls_.Button_Create(*args, **kwargs)
+
+    def SetAuthNeeded(*args, **kwargs):
+        """SetAuthNeeded(self, bool show=True)"""
+        return _controls_.Button_SetAuthNeeded(*args, **kwargs)
+
+    def GetAuthNeeded(*args, **kwargs):
+        """GetAuthNeeded(self) -> bool"""
+        return _controls_.Button_GetAuthNeeded(*args, **kwargs)
+
+    def SetBitmap(*args, **kwargs):
+        """SetBitmap(self, Bitmap bitmap, int dir=LEFT)"""
+        return _controls_.Button_SetBitmap(*args, **kwargs)
+
+    def GetBitmap(*args, **kwargs):
+        """GetBitmap(self) -> Bitmap"""
+        return _controls_.Button_GetBitmap(*args, **kwargs)
+
+    Bitmap = property(GetBitmap,SetBitmap) 
+    def SetBitmapLabel(*args, **kwargs):
+        """SetBitmapLabel(self, Bitmap bitmap)"""
+        return _controls_.Button_SetBitmapLabel(*args, **kwargs)
+
+    def SetBitmapPressed(*args, **kwargs):
+        """SetBitmapPressed(self, Bitmap bitmap)"""
+        return _controls_.Button_SetBitmapPressed(*args, **kwargs)
+
+    def SetBitmapDisabled(*args, **kwargs):
+        """SetBitmapDisabled(self, Bitmap bitmap)"""
+        return _controls_.Button_SetBitmapDisabled(*args, **kwargs)
+
+    def SetBitmapCurrent(*args, **kwargs):
+        """SetBitmapCurrent(self, Bitmap bitmap)"""
+        return _controls_.Button_SetBitmapCurrent(*args, **kwargs)
+
+    def SetBitmapFocus(*args, **kwargs):
+        """SetBitmapFocus(self, Bitmap bitmap)"""
+        return _controls_.Button_SetBitmapFocus(*args, **kwargs)
+
+    def GetBitmapLabel(*args, **kwargs):
+        """GetBitmapLabel(self) -> Bitmap"""
+        return _controls_.Button_GetBitmapLabel(*args, **kwargs)
+
+    def GetBitmapPressed(*args, **kwargs):
+        """GetBitmapPressed(self) -> Bitmap"""
+        return _controls_.Button_GetBitmapPressed(*args, **kwargs)
+
+    def GetBitmapDisabled(*args, **kwargs):
+        """GetBitmapDisabled(self) -> Bitmap"""
+        return _controls_.Button_GetBitmapDisabled(*args, **kwargs)
+
+    def GetBitmapCurrent(*args, **kwargs):
+        """GetBitmapCurrent(self) -> Bitmap"""
+        return _controls_.Button_GetBitmapCurrent(*args, **kwargs)
+
+    def GetBitmapFocus(*args, **kwargs):
+        """GetBitmapFocus(self) -> Bitmap"""
+        return _controls_.Button_GetBitmapFocus(*args, **kwargs)
+
+    BitmapLabel = property(GetBitmapLabel,SetBitmapLabel) 
+    BitmapPressed = property(GetBitmapPressed,SetBitmapPressed) 
+    BitmapDisabled = property(GetBitmapDisabled,SetBitmapDisabled) 
+    BitmapCurrent = property(GetBitmapCurrent,SetBitmapCurrent) 
+    BitmapFocus = property(GetBitmapFocus,SetBitmapFocus) 
+    def GetBitmapSelected(*args, **kwargs):
+        """GetBitmapSelected(self) -> Bitmap"""
+        return _controls_.Button_GetBitmapSelected(*args, **kwargs)
+
+    def GetBitmapHover(*args, **kwargs):
+        """GetBitmapHover(self) -> Bitmap"""
+        return _controls_.Button_GetBitmapHover(*args, **kwargs)
+
+    def SetBitmapSelected(*args, **kwargs):
+        """SetBitmapSelected(self, Bitmap bitmap)"""
+        return _controls_.Button_SetBitmapSelected(*args, **kwargs)
+
+    def SetBitmapHover(*args, **kwargs):
+        """SetBitmapHover(self, Bitmap bitmap)"""
+        return _controls_.Button_SetBitmapHover(*args, **kwargs)
+
+    BitmapSelected = property(GetBitmapSelected,SetBitmapSelected) 
+    BitmapHover = property(GetBitmapHover,SetBitmapHover) 
+    def SetBitmapMargins(*args):
+        """
+        SetBitmapMargins(self, int x, int y)
+        SetBitmapMargins(self, Size sz)
+        """
+        return _controls_.Button_SetBitmapMargins(*args)
+
+    def GetBitmapMargins(*args, **kwargs):
+        """GetBitmapMargins(self) -> Size"""
+        return _controls_.Button_GetBitmapMargins(*args, **kwargs)
+
+    BitmapMargins = property(GetBitmapMargins,SetBitmapMargins) 
+    def SetBitmapPosition(*args, **kwargs):
+        """SetBitmapPosition(self, int dir)"""
+        return _controls_.Button_SetBitmapPosition(*args, **kwargs)
 
     def SetDefault(*args, **kwargs):
         """
@@ -203,108 +300,6 @@ class BitmapButton(Button):
         """
         return _controls_.BitmapButton_Create(*args, **kwargs)
 
-    def GetBitmapLabel(*args, **kwargs):
-        """
-        GetBitmapLabel(self) -> Bitmap
-
-        Returns the label bitmap (the one passed to the constructor).
-        """
-        return _controls_.BitmapButton_GetBitmapLabel(*args, **kwargs)
-
-    def GetBitmapDisabled(*args, **kwargs):
-        """
-        GetBitmapDisabled(self) -> Bitmap
-
-        Returns the bitmap for the disabled state.
-        """
-        return _controls_.BitmapButton_GetBitmapDisabled(*args, **kwargs)
-
-    def GetBitmapFocus(*args, **kwargs):
-        """
-        GetBitmapFocus(self) -> Bitmap
-
-        Returns the bitmap for the focused state.
-        """
-        return _controls_.BitmapButton_GetBitmapFocus(*args, **kwargs)
-
-    def GetBitmapSelected(*args, **kwargs):
-        """
-        GetBitmapSelected(self) -> Bitmap
-
-        Returns the bitmap for the selected state.
-        """
-        return _controls_.BitmapButton_GetBitmapSelected(*args, **kwargs)
-
-    def GetBitmapHover(*args, **kwargs):
-        """
-        GetBitmapHover(self) -> Bitmap
-
-        Returns the bitmap used when the mouse is over the button, may be invalid.
-        """
-        return _controls_.BitmapButton_GetBitmapHover(*args, **kwargs)
-
-    def SetBitmapDisabled(*args, **kwargs):
-        """
-        SetBitmapDisabled(self, Bitmap bitmap)
-
-        Sets the bitmap for the disabled button appearance.
-        """
-        return _controls_.BitmapButton_SetBitmapDisabled(*args, **kwargs)
-
-    def SetBitmapFocus(*args, **kwargs):
-        """
-        SetBitmapFocus(self, Bitmap bitmap)
-
-        Sets the bitmap for the button appearance when it has the keyboard focus.
-        """
-        return _controls_.BitmapButton_SetBitmapFocus(*args, **kwargs)
-
-    def SetBitmapSelected(*args, **kwargs):
-        """
-        SetBitmapSelected(self, Bitmap bitmap)
-
-        Sets the bitmap for the selected (depressed) button appearance.
-        """
-        return _controls_.BitmapButton_SetBitmapSelected(*args, **kwargs)
-
-    def SetBitmapLabel(*args, **kwargs):
-        """
-        SetBitmapLabel(self, Bitmap bitmap)
-
-        Sets the bitmap label for the button.  This is the bitmap used for the
-        unselected state, and for all other states if no other bitmaps are provided.
-        """
-        return _controls_.BitmapButton_SetBitmapLabel(*args, **kwargs)
-
-    def SetBitmapHover(*args, **kwargs):
-        """
-        SetBitmapHover(self, Bitmap hover)
-
-        Sets the bitmap to be shown when the mouse is over the button.  This function
-        is new since wxWidgets version 2.7.0 and the hover bitmap is currently only
-        supported in wxMSW.
-        """
-        return _controls_.BitmapButton_SetBitmapHover(*args, **kwargs)
-
-    def SetMargins(*args, **kwargs):
-        """SetMargins(self, int x, int y)"""
-        return _controls_.BitmapButton_SetMargins(*args, **kwargs)
-
-    def GetMarginX(*args, **kwargs):
-        """GetMarginX(self) -> int"""
-        return _controls_.BitmapButton_GetMarginX(*args, **kwargs)
-
-    def GetMarginY(*args, **kwargs):
-        """GetMarginY(self) -> int"""
-        return _controls_.BitmapButton_GetMarginY(*args, **kwargs)
-
-    BitmapDisabled = property(GetBitmapDisabled,SetBitmapDisabled,doc="See `GetBitmapDisabled` and `SetBitmapDisabled`") 
-    BitmapFocus = property(GetBitmapFocus,SetBitmapFocus,doc="See `GetBitmapFocus` and `SetBitmapFocus`") 
-    BitmapHover = property(GetBitmapHover,SetBitmapHover,doc="See `GetBitmapHover` and `SetBitmapHover`") 
-    BitmapLabel = property(GetBitmapLabel,SetBitmapLabel,doc="See `GetBitmapLabel` and `SetBitmapLabel`") 
-    BitmapSelected = property(GetBitmapSelected,SetBitmapSelected,doc="See `GetBitmapSelected` and `SetBitmapSelected`") 
-    MarginX = property(GetMarginX,doc="See `GetMarginX`") 
-    MarginY = property(GetMarginY,doc="See `GetMarginY`") 
 _controls_.BitmapButton_swigregister(BitmapButton)
 
 def PreBitmapButton(*args, **kwargs):
@@ -621,6 +616,14 @@ class ComboBox(Choice,_core.TextEntry):
     def IsEmpty(*args, **kwargs):
         """IsEmpty(self) -> bool"""
         return _controls_.ComboBox_IsEmpty(*args, **kwargs)
+
+    def Popup(*args, **kwargs):
+        """Popup(self)"""
+        return _controls_.ComboBox_Popup(*args, **kwargs)
+
+    def Dismiss(*args, **kwargs):
+        """Dismiss(self)"""
+        return _controls_.ComboBox_Dismiss(*args, **kwargs)
 
     def GetCurrentSelection(*args, **kwargs):
         """
@@ -2822,7 +2825,6 @@ SL_HORIZONTAL = _controls_.SL_HORIZONTAL
 SL_VERTICAL = _controls_.SL_VERTICAL
 SL_TICKS = _controls_.SL_TICKS
 SL_AUTOTICKS = _controls_.SL_AUTOTICKS
-SL_LABELS = _controls_.SL_LABELS
 SL_LEFT = _controls_.SL_LEFT
 SL_TOP = _controls_.SL_TOP
 SL_RIGHT = _controls_.SL_RIGHT
@@ -2830,6 +2832,9 @@ SL_BOTTOM = _controls_.SL_BOTTOM
 SL_BOTH = _controls_.SL_BOTH
 SL_SELRANGE = _controls_.SL_SELRANGE
 SL_INVERSE = _controls_.SL_INVERSE
+SL_MIN_MAX_LABELS = _controls_.SL_MIN_MAX_LABELS
+SL_VALUE_LABEL = _controls_.SL_VALUE_LABEL
+SL_LABELS = _controls_.SL_LABELS
 class Slider(_core.Control):
     """Proxy of C++ Slider class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -3693,6 +3698,10 @@ class ToolBarToolBase(_core.Object):
         """GetToolBar(self) -> ToolBarBase"""
         return _controls_.ToolBarToolBase_GetToolBar(*args, **kwargs)
 
+    def IsStretchable(*args, **kwargs):
+        """IsStretchable(self) -> bool"""
+        return _controls_.ToolBarToolBase_IsStretchable(*args, **kwargs)
+
     def IsButton(*args, **kwargs):
         """IsButton(self) -> int"""
         return _controls_.ToolBarToolBase_IsButton(*args, **kwargs)
@@ -3705,6 +3714,10 @@ class ToolBarToolBase(_core.Object):
         """IsSeparator(self) -> int"""
         return _controls_.ToolBarToolBase_IsSeparator(*args, **kwargs)
 
+    def IsStretchableSpace(*args, **kwargs):
+        """IsStretchableSpace(self) -> bool"""
+        return _controls_.ToolBarToolBase_IsStretchableSpace(*args, **kwargs)
+
     def GetStyle(*args, **kwargs):
         """GetStyle(self) -> int"""
         return _controls_.ToolBarToolBase_GetStyle(*args, **kwargs)
@@ -3712,6 +3725,10 @@ class ToolBarToolBase(_core.Object):
     def GetKind(*args, **kwargs):
         """GetKind(self) -> int"""
         return _controls_.ToolBarToolBase_GetKind(*args, **kwargs)
+
+    def MakeStretchable(*args, **kwargs):
+        """MakeStretchable(self)"""
+        return _controls_.ToolBarToolBase_MakeStretchable(*args, **kwargs)
 
     def IsEnabled(*args, **kwargs):
         """IsEnabled(self) -> bool"""
@@ -3998,6 +4015,14 @@ class ToolBarBase(_core.Control):
     def InsertSeparator(*args, **kwargs):
         """InsertSeparator(self, size_t pos) -> ToolBarToolBase"""
         return _controls_.ToolBarBase_InsertSeparator(*args, **kwargs)
+
+    def AddStretchableSpace(*args, **kwargs):
+        """AddStretchableSpace(self) -> ToolBarToolBase"""
+        return _controls_.ToolBarBase_AddStretchableSpace(*args, **kwargs)
+
+    def InsertStretchableSpace(*args, **kwargs):
+        """InsertStretchableSpace(self, size_t pos) -> ToolBarToolBase"""
+        return _controls_.ToolBarBase_InsertStretchableSpace(*args, **kwargs)
 
     def RemoveTool(*args, **kwargs):
         """RemoveTool(self, int id) -> ToolBarToolBase"""
@@ -5569,6 +5594,10 @@ class TreeCtrl(_core.Control):
         """GetSelections(self) -> PyObject"""
         return _controls_.TreeCtrl_GetSelections(*args, **kwargs)
 
+    def GetFocusedItem(*args, **kwargs):
+        """GetFocusedItem(self) -> TreeItemId"""
+        return _controls_.TreeCtrl_GetFocusedItem(*args, **kwargs)
+
     def GetItemParent(*args, **kwargs):
         """GetItemParent(self, TreeItemId item) -> TreeItemId"""
         return _controls_.TreeCtrl_GetItemParent(*args, **kwargs)
@@ -5697,6 +5726,10 @@ class TreeCtrl(_core.Control):
         """SelectItem(self, TreeItemId item, bool select=True)"""
         return _controls_.TreeCtrl_SelectItem(*args, **kwargs)
 
+    def SelectChildren(*args, **kwargs):
+        """SelectChildren(self, TreeItemId parent)"""
+        return _controls_.TreeCtrl_SelectChildren(*args, **kwargs)
+
     def ToggleItemSelection(*args, **kwargs):
         """ToggleItemSelection(self, TreeItemId item)"""
         return _controls_.TreeCtrl_ToggleItemSelection(*args, **kwargs)
@@ -5808,6 +5841,7 @@ DIRCTRL_SELECT_FIRST = _controls_.DIRCTRL_SELECT_FIRST
 DIRCTRL_SHOW_FILTERS = _controls_.DIRCTRL_SHOW_FILTERS
 DIRCTRL_3D_INTERNAL = _controls_.DIRCTRL_3D_INTERNAL
 DIRCTRL_EDIT_LABELS = _controls_.DIRCTRL_EDIT_LABELS
+DIRCTRL_MULTIPLE = _controls_.DIRCTRL_MULTIPLE
 class DirItemData(_core.Object):
     """Proxy of C++ DirItemData class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -5870,6 +5904,10 @@ class GenericDirCtrl(_core.Control):
         """GetPath(self) -> String"""
         return _controls_.GenericDirCtrl_GetPath(*args, **kwargs)
 
+    def GetPaths(*args, **kwargs):
+        """GetPaths(self) -> wxArrayString"""
+        return _controls_.GenericDirCtrl_GetPaths(*args, **kwargs)
+
     def GetFilePath(*args, **kwargs):
         """GetFilePath(self) -> String"""
         return _controls_.GenericDirCtrl_GetFilePath(*args, **kwargs)
@@ -5877,6 +5915,18 @@ class GenericDirCtrl(_core.Control):
     def SetPath(*args, **kwargs):
         """SetPath(self, String path)"""
         return _controls_.GenericDirCtrl_SetPath(*args, **kwargs)
+
+    def GetFilePaths(*args, **kwargs):
+        """GetFilePaths(self) -> wxArrayString"""
+        return _controls_.GenericDirCtrl_GetFilePaths(*args, **kwargs)
+
+    def SelectPath(*args, **kwargs):
+        """SelectPath(self, String path, bool select=True)"""
+        return _controls_.GenericDirCtrl_SelectPath(*args, **kwargs)
+
+    def SelectPaths(*args, **kwargs):
+        """SelectPaths(self, wxArrayString paths)"""
+        return _controls_.GenericDirCtrl_SelectPaths(*args, **kwargs)
 
     def ShowHidden(*args, **kwargs):
         """ShowHidden(self, bool show)"""
@@ -5913,6 +5963,10 @@ class GenericDirCtrl(_core.Control):
     def GetFilterListCtrl(*args, **kwargs):
         """GetFilterListCtrl(self) -> DirFilterListCtrl"""
         return _controls_.GenericDirCtrl_GetFilterListCtrl(*args, **kwargs)
+
+    def UnselectAll(*args, **kwargs):
+        """UnselectAll(self)"""
+        return _controls_.GenericDirCtrl_UnselectAll(*args, **kwargs)
 
     def GetDirItemData(*args, **kwargs):
         """GetDirItemData(self, TreeItemId id) -> DirItemData"""

@@ -300,6 +300,8 @@ def IsStockLabel(*args, **kwargs):
 STOCK_NOFLAGS = _misc_.STOCK_NOFLAGS
 STOCK_WITH_MNEMONIC = _misc_.STOCK_WITH_MNEMONIC
 STOCK_WITH_ACCELERATOR = _misc_.STOCK_WITH_ACCELERATOR
+STOCK_WITHOUT_ELLIPSIS = _misc_.STOCK_WITHOUT_ELLIPSIS
+STOCK_FOR_BUTTON = _misc_.STOCK_FOR_BUTTON
 
 def GetStockLabel(*args, **kwargs):
   """GetStockLabel(int id, long flags=STOCK_WITH_MNEMONIC) -> String"""
@@ -968,6 +970,10 @@ class SingleInstanceChecker(object):
         """Create(self, String name, String path=EmptyString) -> bool"""
         return _misc_.SingleInstanceChecker_Create(*args, **kwargs)
 
+    def CreateDefault(*args, **kwargs):
+        """CreateDefault(self) -> bool"""
+        return _misc_.SingleInstanceChecker_CreateDefault(*args, **kwargs)
+
     def IsAnotherRunning(*args, **kwargs):
         """IsAnotherRunning(self) -> bool"""
         return _misc_.SingleInstanceChecker_IsAnotherRunning(*args, **kwargs)
@@ -1023,6 +1029,17 @@ ENDIAN_BIG = _misc_.ENDIAN_BIG
 ENDIAN_LITTLE = _misc_.ENDIAN_LITTLE
 ENDIAN_PDP = _misc_.ENDIAN_PDP
 ENDIAN_MAX = _misc_.ENDIAN_MAX
+class LinuxDistributionInfo(object):
+    """Proxy of C++ LinuxDistributionInfo class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    Id = property(_misc_.LinuxDistributionInfo_Id_get, _misc_.LinuxDistributionInfo_Id_set)
+    Release = property(_misc_.LinuxDistributionInfo_Release_get, _misc_.LinuxDistributionInfo_Release_set)
+    CodeName = property(_misc_.LinuxDistributionInfo_CodeName_get, _misc_.LinuxDistributionInfo_CodeName_set)
+    Description = property(_misc_.LinuxDistributionInfo_Description_get, _misc_.LinuxDistributionInfo_Description_set)
+_misc_.LinuxDistributionInfo_swigregister(LinuxDistributionInfo)
+
 class PlatformInformation(object):
     """Proxy of C++ PlatformInformation class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -1070,6 +1087,10 @@ class PlatformInformation(object):
         """GetOperatingSystemId(self) -> int"""
         return _misc_.PlatformInformation_GetOperatingSystemId(*args, **kwargs)
 
+    def GetLinuxDistributionInfo(*args, **kwargs):
+        """GetLinuxDistributionInfo(self) -> LinuxDistributionInfo"""
+        return _misc_.PlatformInformation_GetLinuxDistributionInfo(*args, **kwargs)
+
     def GetPortId(*args, **kwargs):
         """GetPortId(self) -> int"""
         return _misc_.PlatformInformation_GetPortId(*args, **kwargs)
@@ -1106,6 +1127,19 @@ class PlatformInformation(object):
         """GetEndiannessName(self) -> String"""
         return _misc_.PlatformInformation_GetEndiannessName(*args, **kwargs)
 
+    def GetOperatingSystemDescription(*args, **kwargs):
+        """GetOperatingSystemDescription(self) -> String"""
+        return _misc_.PlatformInformation_GetOperatingSystemDescription(*args, **kwargs)
+
+    def GetDesktopEnvironment(*args, **kwargs):
+        """GetDesktopEnvironment(self) -> String"""
+        return _misc_.PlatformInformation_GetDesktopEnvironment(*args, **kwargs)
+
+    def GetOperatingSystemDirectory(*args, **kwargs):
+        """GetOperatingSystemDirectory() -> String"""
+        return _misc_.PlatformInformation_GetOperatingSystemDirectory(*args, **kwargs)
+
+    GetOperatingSystemDirectory = staticmethod(GetOperatingSystemDirectory)
     def SetOSVersion(*args, **kwargs):
         """SetOSVersion(self, int major, int minor)"""
         return _misc_.PlatformInformation_SetOSVersion(*args, **kwargs)
@@ -1118,6 +1152,10 @@ class PlatformInformation(object):
         """SetOperatingSystemId(self, int n)"""
         return _misc_.PlatformInformation_SetOperatingSystemId(*args, **kwargs)
 
+    def SetOperatingSystemDescription(*args, **kwargs):
+        """SetOperatingSystemDescription(self, String desc)"""
+        return _misc_.PlatformInformation_SetOperatingSystemDescription(*args, **kwargs)
+
     def SetPortId(*args, **kwargs):
         """SetPortId(self, int n)"""
         return _misc_.PlatformInformation_SetPortId(*args, **kwargs)
@@ -1129,6 +1167,14 @@ class PlatformInformation(object):
     def SetEndianness(*args, **kwargs):
         """SetEndianness(self, int n)"""
         return _misc_.PlatformInformation_SetEndianness(*args, **kwargs)
+
+    def SetDesktopEnvironment(*args, **kwargs):
+        """SetDesktopEnvironment(self, String de)"""
+        return _misc_.PlatformInformation_SetDesktopEnvironment(*args, **kwargs)
+
+    def SetLinuxDistributionInfo(*args, **kwargs):
+        """SetLinuxDistributionInfo(self, LinuxDistributionInfo di)"""
+        return _misc_.PlatformInformation_SetLinuxDistributionInfo(*args, **kwargs)
 
     def IsOk(*args, **kwargs):
         """IsOk(self) -> bool"""
@@ -1149,6 +1195,10 @@ class PlatformInformation(object):
     ToolkitMajorVersion = property(GetToolkitMajorVersion,doc="See `GetToolkitMajorVersion`") 
     ToolkitMinorVersion = property(GetToolkitMinorVersion,doc="See `GetToolkitMinorVersion`") 
 _misc_.PlatformInformation_swigregister(PlatformInformation)
+
+def PlatformInformation_GetOperatingSystemDirectory(*args):
+  """PlatformInformation_GetOperatingSystemDirectory() -> String"""
+  return _misc_.PlatformInformation_GetOperatingSystemDirectory(*args)
 
 class NotificationMessage(_core.EvtHandler):
     """Proxy of C++ NotificationMessage class"""
@@ -1377,6 +1427,25 @@ TraceMessages = _misc_.TraceMessages
 TraceResAlloc = _misc_.TraceResAlloc
 TraceRefCount = _misc_.TraceRefCount
 TraceOleCalls = _misc_.TraceOleCalls
+class LogRecordInfo(object):
+    """Proxy of C++ LogRecordInfo class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        """
+        __init__(self) -> LogRecordInfo
+        __init__(self, char filename_, int line_, char func_, char component_) -> LogRecordInfo
+        """
+        _misc_.LogRecordInfo_swiginit(self,_misc_.new_LogRecordInfo(*args))
+    __swig_destroy__ = _misc_.delete_LogRecordInfo
+    __del__ = lambda self : None;
+    filename = property(_misc_.LogRecordInfo_filename_get)
+    line = property(_misc_.LogRecordInfo_line_get)
+    func = property(_misc_.LogRecordInfo_func_get)
+    component = property(_misc_.LogRecordInfo_component_get)
+    timestamp = property(_misc_.LogRecordInfo_timestamp_get)
+_misc_.LogRecordInfo_swigregister(LogRecordInfo)
+
 class Log(object):
     """Proxy of C++ Log class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -1392,15 +1461,45 @@ class Log(object):
 
     IsEnabled = staticmethod(IsEnabled)
     def EnableLogging(*args, **kwargs):
-        """EnableLogging(bool doIt=True) -> bool"""
+        """EnableLogging(bool enable=True) -> bool"""
         return _misc_.Log_EnableLogging(*args, **kwargs)
 
     EnableLogging = staticmethod(EnableLogging)
-    def OnLog(*args, **kwargs):
-        """OnLog(LogLevel level, String szString, time_t t)"""
-        return _misc_.Log_OnLog(*args, **kwargs)
+    def GetLogLevel(*args, **kwargs):
+        """GetLogLevel() -> LogLevel"""
+        return _misc_.Log_GetLogLevel(*args, **kwargs)
 
-    OnLog = staticmethod(OnLog)
+    GetLogLevel = staticmethod(GetLogLevel)
+    def SetLogLevel(*args, **kwargs):
+        """SetLogLevel(LogLevel logLevel)"""
+        return _misc_.Log_SetLogLevel(*args, **kwargs)
+
+    SetLogLevel = staticmethod(SetLogLevel)
+    def SetComponentLevel(*args, **kwargs):
+        """SetComponentLevel(String component, LogLevel level)"""
+        return _misc_.Log_SetComponentLevel(*args, **kwargs)
+
+    SetComponentLevel = staticmethod(SetComponentLevel)
+    def GetComponentLevel(*args, **kwargs):
+        """GetComponentLevel(String component) -> LogLevel"""
+        return _misc_.Log_GetComponentLevel(*args, **kwargs)
+
+    GetComponentLevel = staticmethod(GetComponentLevel)
+    def IsLevelEnabled(*args, **kwargs):
+        """IsLevelEnabled(LogLevel level, String component) -> bool"""
+        return _misc_.Log_IsLevelEnabled(*args, **kwargs)
+
+    IsLevelEnabled = staticmethod(IsLevelEnabled)
+    def SetVerbose(*args, **kwargs):
+        """SetVerbose(bool bVerbose=True)"""
+        return _misc_.Log_SetVerbose(*args, **kwargs)
+
+    SetVerbose = staticmethod(SetVerbose)
+    def GetVerbose(*args, **kwargs):
+        """GetVerbose() -> bool"""
+        return _misc_.Log_GetVerbose(*args, **kwargs)
+
+    GetVerbose = staticmethod(GetVerbose)
     def Flush(*args, **kwargs):
         """Flush(self)"""
         return _misc_.Log_Flush(*args, **kwargs)
@@ -1430,16 +1529,6 @@ class Log(object):
         return _misc_.Log_Resume(*args, **kwargs)
 
     Resume = staticmethod(Resume)
-    def SetVerbose(*args, **kwargs):
-        """SetVerbose(bool bVerbose=True)"""
-        return _misc_.Log_SetVerbose(*args, **kwargs)
-
-    SetVerbose = staticmethod(SetVerbose)
-    def SetLogLevel(*args, **kwargs):
-        """SetLogLevel(LogLevel logLevel)"""
-        return _misc_.Log_SetLogLevel(*args, **kwargs)
-
-    SetLogLevel = staticmethod(SetLogLevel)
     def DontCreateOnDemand(*args, **kwargs):
         """DontCreateOnDemand()"""
         return _misc_.Log_DontCreateOnDemand(*args, **kwargs)
@@ -1490,11 +1579,6 @@ class Log(object):
         return _misc_.Log_SetTimestamp(*args, **kwargs)
 
     SetTimestamp = staticmethod(SetTimestamp)
-    def GetVerbose(*args, **kwargs):
-        """GetVerbose() -> bool"""
-        return _misc_.Log_GetVerbose(*args, **kwargs)
-
-    GetVerbose = staticmethod(GetVerbose)
     def GetTraceMask(*args, **kwargs):
         """GetTraceMask() -> TraceMask"""
         return _misc_.Log_GetTraceMask(*args, **kwargs)
@@ -1505,11 +1589,6 @@ class Log(object):
         return _misc_.Log_IsAllowedTraceMask(*args, **kwargs)
 
     IsAllowedTraceMask = staticmethod(IsAllowedTraceMask)
-    def GetLogLevel(*args, **kwargs):
-        """GetLogLevel() -> LogLevel"""
-        return _misc_.Log_GetLogLevel(*args, **kwargs)
-
-    GetLogLevel = staticmethod(GetLogLevel)
     def GetTimestamp(*args, **kwargs):
         """GetTimestamp() -> String"""
         return _misc_.Log_GetTimestamp(*args, **kwargs)
@@ -1520,6 +1599,18 @@ class Log(object):
         return _misc_.Log_TimeStamp(*args, **kwargs)
 
     TimeStamp = staticmethod(TimeStamp)
+    def LogRecord(*args, **kwargs):
+        """LogRecord(self, LogLevel level, String msg, LogRecordInfo info)"""
+        return _misc_.Log_LogRecord(*args, **kwargs)
+
+    def LogTextAtLevel(*args, **kwargs):
+        """LogTextAtLevel(self, LogLevel level, String msg)"""
+        return _misc_.Log_LogTextAtLevel(*args, **kwargs)
+
+    def LogText(*args, **kwargs):
+        """LogText(self, String msg)"""
+        return _misc_.Log_LogText(*args, **kwargs)
+
     def Destroy(*args, **kwargs):
         """Destroy(self)"""
         args[0].this.own(False)
@@ -1532,12 +1623,36 @@ def Log_IsEnabled(*args):
   return _misc_.Log_IsEnabled(*args)
 
 def Log_EnableLogging(*args, **kwargs):
-  """Log_EnableLogging(bool doIt=True) -> bool"""
+  """Log_EnableLogging(bool enable=True) -> bool"""
   return _misc_.Log_EnableLogging(*args, **kwargs)
 
-def Log_OnLog(*args, **kwargs):
-  """Log_OnLog(LogLevel level, String szString, time_t t)"""
-  return _misc_.Log_OnLog(*args, **kwargs)
+def Log_GetLogLevel(*args):
+  """Log_GetLogLevel() -> LogLevel"""
+  return _misc_.Log_GetLogLevel(*args)
+
+def Log_SetLogLevel(*args, **kwargs):
+  """Log_SetLogLevel(LogLevel logLevel)"""
+  return _misc_.Log_SetLogLevel(*args, **kwargs)
+
+def Log_SetComponentLevel(*args, **kwargs):
+  """Log_SetComponentLevel(String component, LogLevel level)"""
+  return _misc_.Log_SetComponentLevel(*args, **kwargs)
+
+def Log_GetComponentLevel(*args, **kwargs):
+  """Log_GetComponentLevel(String component) -> LogLevel"""
+  return _misc_.Log_GetComponentLevel(*args, **kwargs)
+
+def Log_IsLevelEnabled(*args, **kwargs):
+  """Log_IsLevelEnabled(LogLevel level, String component) -> bool"""
+  return _misc_.Log_IsLevelEnabled(*args, **kwargs)
+
+def Log_SetVerbose(*args, **kwargs):
+  """Log_SetVerbose(bool bVerbose=True)"""
+  return _misc_.Log_SetVerbose(*args, **kwargs)
+
+def Log_GetVerbose(*args):
+  """Log_GetVerbose() -> bool"""
+  return _misc_.Log_GetVerbose(*args)
 
 def Log_FlushActive(*args):
   """Log_FlushActive()"""
@@ -1558,14 +1673,6 @@ def Log_Suspend(*args):
 def Log_Resume(*args):
   """Log_Resume()"""
   return _misc_.Log_Resume(*args)
-
-def Log_SetVerbose(*args, **kwargs):
-  """Log_SetVerbose(bool bVerbose=True)"""
-  return _misc_.Log_SetVerbose(*args, **kwargs)
-
-def Log_SetLogLevel(*args, **kwargs):
-  """Log_SetLogLevel(LogLevel logLevel)"""
-  return _misc_.Log_SetLogLevel(*args, **kwargs)
 
 def Log_DontCreateOnDemand(*args):
   """Log_DontCreateOnDemand()"""
@@ -1607,10 +1714,6 @@ def Log_SetTimestamp(*args, **kwargs):
   """Log_SetTimestamp(String ts)"""
   return _misc_.Log_SetTimestamp(*args, **kwargs)
 
-def Log_GetVerbose(*args):
-  """Log_GetVerbose() -> bool"""
-  return _misc_.Log_GetVerbose(*args)
-
 def Log_GetTraceMask(*args):
   """Log_GetTraceMask() -> TraceMask"""
   return _misc_.Log_GetTraceMask(*args)
@@ -1618,10 +1721,6 @@ def Log_GetTraceMask(*args):
 def Log_IsAllowedTraceMask(*args, **kwargs):
   """Log_IsAllowedTraceMask(String mask) -> bool"""
   return _misc_.Log_IsAllowedTraceMask(*args, **kwargs)
-
-def Log_GetLogLevel(*args):
-  """Log_GetLogLevel() -> LogLevel"""
-  return _misc_.Log_GetLogLevel(*args)
 
 def Log_GetTimestamp(*args):
   """Log_GetTimestamp() -> String"""
@@ -5106,6 +5205,15 @@ class DataObjectComposite(DataObject):
         return _misc_.DataObjectComposite_GetReceivedFormat(*args, **kwargs)
 
     ReceivedFormat = property(GetReceivedFormat,doc="See `GetReceivedFormat`") 
+    def GetObject(*args, **kwargs):
+        """
+        GetObject(self, DataFormat format, wxDataObjectBase::Direction dir=Get) -> DataObjectSimple
+
+        Returns the pointer to the object which supports this format or None.
+        TODO: Fix this to use OOR and return the right object type.
+        """
+        return _misc_.DataObjectComposite_GetObject(*args, **kwargs)
+
 _misc_.DataObjectComposite_swigregister(DataObjectComposite)
 
 class TextDataObject(DataObjectSimple):

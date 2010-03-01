@@ -2813,7 +2813,6 @@ SWIG_AsVal_int (PyObject * obj, int *val)
   return res;
 }
 
- static const wxString wxPyCheckBoxNameStr(wxCheckBoxNameStr); 
 
 SWIGINTERN int
 SWIG_AsVal_bool (PyObject *obj, bool *val)
@@ -2832,6 +2831,7 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
   }
 }
 
+ static const wxString wxPyCheckBoxNameStr(wxCheckBoxNameStr); 
  static const wxString wxPyChoiceNameStr(wxChoiceNameStr); 
  static const wxString wxPyComboBoxNameStr(wxComboBoxNameStr); 
 SWIGINTERN void wxComboBox_SetMark(wxComboBox *self,long from,long to){
@@ -3279,6 +3279,16 @@ SWIGINTERN PyObject *wxPyTreeCtrl_GetBoundingRect(wxPyTreeCtrl *self,wxTreeItemI
                 RETURN_NONE();
         }
  static const wxString wxPyDirDialogDefaultFolderStr(wxDirDialogDefaultFolderStr); 
+SWIGINTERN wxArrayString wxGenericDirCtrl_GetPaths(wxGenericDirCtrl *self){
+            wxArrayString paths;
+            self->GetPaths(paths);
+            return paths;
+        }
+SWIGINTERN wxArrayString wxGenericDirCtrl_GetFilePaths(wxGenericDirCtrl *self){
+            wxArrayString paths;
+            self->GetFilePaths(paths);
+            return paths;
+        }
 SWIGINTERN wxDirItemData *wxGenericDirCtrl_GetDirItemData(wxGenericDirCtrl const *self,wxTreeItemId const &id){
             return (wxDirItemData*)self->GetTreeCtrl()->GetItemData(id);
         }
@@ -3817,6 +3827,796 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Button_SetAuthNeeded(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  bool arg2 = (bool) true ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "show", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:Button_SetAuthNeeded",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetAuthNeeded" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_bool(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Button_SetAuthNeeded" "', expected argument " "2"" of type '" "bool""'");
+    } 
+    arg2 = static_cast< bool >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetAuthNeeded(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_GetAuthNeeded(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_GetAuthNeeded" "', expected argument " "1"" of type '" "wxButton const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxButton const *)arg1)->GetAuthNeeded();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmap(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap *arg2 = 0 ;
+  wxDirection arg3 = (wxDirection) wxLEFT ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "bitmap",(char *) "dir", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:Button_SetBitmap",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmap" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Button_SetBitmap" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Button_SetBitmap" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Button_SetBitmap" "', expected argument " "3"" of type '" "wxDirection""'");
+    } 
+    arg3 = static_cast< wxDirection >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmap((wxBitmap const &)*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_GetBitmap(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_GetBitmap" "', expected argument " "1"" of type '" "wxButton const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxButton const *)arg1)->GetBitmap();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "bitmap", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Button_SetBitmapLabel",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmapLabel" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Button_SetBitmapLabel" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Button_SetBitmapLabel" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmapLabel((wxBitmap const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapPressed(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "bitmap", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Button_SetBitmapPressed",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmapPressed" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Button_SetBitmapPressed" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Button_SetBitmapPressed" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmapPressed((wxBitmap const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapDisabled(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "bitmap", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Button_SetBitmapDisabled",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmapDisabled" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Button_SetBitmapDisabled" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Button_SetBitmapDisabled" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmapDisabled((wxBitmap const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapCurrent(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "bitmap", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Button_SetBitmapCurrent",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmapCurrent" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Button_SetBitmapCurrent" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Button_SetBitmapCurrent" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmapCurrent((wxBitmap const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapFocus(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "bitmap", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Button_SetBitmapFocus",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmapFocus" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Button_SetBitmapFocus" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Button_SetBitmapFocus" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmapFocus((wxBitmap const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_GetBitmapLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_GetBitmapLabel" "', expected argument " "1"" of type '" "wxButton const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxButton const *)arg1)->GetBitmapLabel();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_GetBitmapPressed(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_GetBitmapPressed" "', expected argument " "1"" of type '" "wxButton const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxButton const *)arg1)->GetBitmapPressed();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_GetBitmapDisabled(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_GetBitmapDisabled" "', expected argument " "1"" of type '" "wxButton const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxButton const *)arg1)->GetBitmapDisabled();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_GetBitmapCurrent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_GetBitmapCurrent" "', expected argument " "1"" of type '" "wxButton const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxButton const *)arg1)->GetBitmapCurrent();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_GetBitmapFocus(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_GetBitmapFocus" "', expected argument " "1"" of type '" "wxButton const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxButton const *)arg1)->GetBitmapFocus();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_GetBitmapSelected(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_GetBitmapSelected" "', expected argument " "1"" of type '" "wxButton const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxButton const *)arg1)->GetBitmapSelected();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_GetBitmapHover(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_GetBitmapHover" "', expected argument " "1"" of type '" "wxButton const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxButton const *)arg1)->GetBitmapHover();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapSelected(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "bitmap", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Button_SetBitmapSelected",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmapSelected" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Button_SetBitmapSelected" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Button_SetBitmapSelected" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmapSelected((wxBitmap const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapHover(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxBitmap *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "bitmap", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Button_SetBitmapHover",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmapHover" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Button_SetBitmapHover" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Button_SetBitmapHover" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmapHover((wxBitmap const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapMargins__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  int arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmapMargins" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Button_SetBitmapMargins" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Button_SetBitmapMargins" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmapMargins(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapMargins__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxSize *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxSize temp2 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmapMargins" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxSize_helper(swig_obj[1], &arg2)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmapMargins((wxSize const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapMargins(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"Button_SetBitmapMargins",0,3,argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    return _wrap_Button_SetBitmapMargins__SWIG_1(self, argc, argv);
+  }
+  if (argc == 3) {
+    return _wrap_Button_SetBitmapMargins__SWIG_0(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'Button_SetBitmapMargins'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_GetBitmapMargins(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxSize result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_GetBitmapMargins" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (arg1)->GetBitmapMargins();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxSize(static_cast< const wxSize& >(result))), SWIGTYPE_p_wxSize, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Button_SetBitmapPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxButton *arg1 = (wxButton *) 0 ;
+  wxDirection arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "dir", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Button_SetBitmapPosition",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxButton, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Button_SetBitmapPosition" "', expected argument " "1"" of type '" "wxButton *""'"); 
+  }
+  arg1 = reinterpret_cast< wxButton * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Button_SetBitmapPosition" "', expected argument " "2"" of type '" "wxDirection""'");
+  } 
+  arg2 = static_cast< wxDirection >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetBitmapPosition(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Button_SetDefault(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxButton *arg1 = (wxButton *) 0 ;
@@ -4179,454 +4979,6 @@ fail:
     if (temp9)
     delete arg9;
   }
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_GetBitmapLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  wxBitmap result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_GetBitmapLabel" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetBitmapLabel();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_GetBitmapDisabled(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  wxBitmap result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_GetBitmapDisabled" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetBitmapDisabled();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_GetBitmapFocus(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  wxBitmap result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_GetBitmapFocus" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetBitmapFocus();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_GetBitmapSelected(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  wxBitmap result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_GetBitmapSelected" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetBitmapSelected();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_GetBitmapHover(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  wxBitmap result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_GetBitmapHover" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetBitmapHover();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxBitmap(static_cast< const wxBitmap& >(result))), SWIGTYPE_p_wxBitmap, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_SetBitmapDisabled(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  wxBitmap *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "bitmap", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:BitmapButton_SetBitmapDisabled",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_SetBitmapDisabled" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BitmapButton_SetBitmapDisabled" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "BitmapButton_SetBitmapDisabled" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
-  }
-  arg2 = reinterpret_cast< wxBitmap * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBitmapDisabled((wxBitmap const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_SetBitmapFocus(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  wxBitmap *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "bitmap", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:BitmapButton_SetBitmapFocus",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_SetBitmapFocus" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BitmapButton_SetBitmapFocus" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "BitmapButton_SetBitmapFocus" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
-  }
-  arg2 = reinterpret_cast< wxBitmap * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBitmapFocus((wxBitmap const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_SetBitmapSelected(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  wxBitmap *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "bitmap", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:BitmapButton_SetBitmapSelected",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_SetBitmapSelected" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BitmapButton_SetBitmapSelected" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "BitmapButton_SetBitmapSelected" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
-  }
-  arg2 = reinterpret_cast< wxBitmap * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBitmapSelected((wxBitmap const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_SetBitmapLabel(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  wxBitmap *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "bitmap", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:BitmapButton_SetBitmapLabel",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_SetBitmapLabel" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BitmapButton_SetBitmapLabel" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "BitmapButton_SetBitmapLabel" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
-  }
-  arg2 = reinterpret_cast< wxBitmap * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBitmapLabel((wxBitmap const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_SetBitmapHover(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  wxBitmap *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "hover", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:BitmapButton_SetBitmapHover",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_SetBitmapHover" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BitmapButton_SetBitmapHover" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "BitmapButton_SetBitmapHover" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
-  }
-  arg2 = reinterpret_cast< wxBitmap * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetBitmapHover((wxBitmap const &)*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_SetMargins(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
-  int val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "x",(char *) "y", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:BitmapButton_SetMargins",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_SetMargins" "', expected argument " "1"" of type '" "wxBitmapButton *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "BitmapButton_SetMargins" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "BitmapButton_SetMargins" "', expected argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetMargins(arg2,arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_GetMarginX(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_GetMarginX" "', expected argument " "1"" of type '" "wxBitmapButton const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxBitmapButton const *)arg1)->GetMarginX();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BitmapButton_GetMarginY(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxBitmapButton *arg1 = (wxBitmapButton *) 0 ;
-  int result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBitmapButton, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BitmapButton_GetMarginY" "', expected argument " "1"" of type '" "wxBitmapButton const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBitmapButton * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxBitmapButton const *)arg1)->GetMarginY();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_From_int(static_cast< int >(result));
-  return resultobj;
-fail:
   return NULL;
 }
 
@@ -6081,6 +6433,60 @@ SWIGINTERN PyObject *_wrap_ComboBox_IsEmpty(PyObject *SWIGUNUSEDPARM(self), PyOb
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ComboBox_Popup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxComboBox *arg1 = (wxComboBox *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxComboBox, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ComboBox_Popup" "', expected argument " "1"" of type '" "wxComboBox *""'"); 
+  }
+  arg1 = reinterpret_cast< wxComboBox * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->Popup();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ComboBox_Dismiss(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxComboBox *arg1 = (wxComboBox *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxComboBox, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ComboBox_Dismiss" "', expected argument " "1"" of type '" "wxComboBox *""'"); 
+  }
+  arg1 = reinterpret_cast< wxComboBox * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->Dismiss();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -23882,6 +24288,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ToolBarToolBase_IsStretchable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxToolBarToolBase *arg1 = (wxToolBarToolBase *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxToolBarToolBase, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToolBarToolBase_IsStretchable" "', expected argument " "1"" of type '" "wxToolBarToolBase const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxToolBarToolBase * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxToolBarToolBase const *)arg1)->IsStretchable();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ToolBarToolBase_IsButton(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxToolBarToolBase *arg1 = (wxToolBarToolBase *) 0 ;
@@ -23966,6 +24402,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ToolBarToolBase_IsStretchableSpace(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxToolBarToolBase *arg1 = (wxToolBarToolBase *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxToolBarToolBase, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToolBarToolBase_IsStretchableSpace" "', expected argument " "1"" of type '" "wxToolBarToolBase const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxToolBarToolBase * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxToolBarToolBase const *)arg1)->IsStretchableSpace();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ToolBarToolBase_GetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxToolBarToolBase *arg1 = (wxToolBarToolBase *) 0 ;
@@ -24016,6 +24482,33 @@ SWIGINTERN PyObject *_wrap_ToolBarToolBase_GetKind(PyObject *SWIGUNUSEDPARM(self
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToolBarToolBase_MakeStretchable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxToolBarToolBase *arg1 = (wxToolBarToolBase *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxToolBarToolBase, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToolBarToolBase_MakeStretchable" "', expected argument " "1"" of type '" "wxToolBarToolBase *""'"); 
+  }
+  arg1 = reinterpret_cast< wxToolBarToolBase * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->MakeStretchable();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -25447,6 +25940,77 @@ SWIGINTERN PyObject *_wrap_ToolBarBase_InsertSeparator(PyObject *SWIGUNUSEDPARM(
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxToolBarToolBase *)(arg1)->InsertSeparator(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)0); 
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToolBarBase_AddStretchableSpace(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxToolBarBase *arg1 = (wxToolBarBase *) 0 ;
+  wxToolBarToolBase *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxToolBarBase, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToolBarBase_AddStretchableSpace" "', expected argument " "1"" of type '" "wxToolBarBase *""'"); 
+  }
+  arg1 = reinterpret_cast< wxToolBarBase * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxToolBarToolBase *)(arg1)->AddStretchableSpace();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxPyMake_wxObject(result, (bool)0); 
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ToolBarBase_InsertStretchableSpace(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxToolBarBase *arg1 = (wxToolBarBase *) 0 ;
+  size_t arg2 ;
+  wxToolBarToolBase *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pos", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:ToolBarBase_InsertStretchableSpace",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxToolBarBase, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ToolBarBase_InsertStretchableSpace" "', expected argument " "1"" of type '" "wxToolBarBase *""'"); 
+  }
+  arg1 = reinterpret_cast< wxToolBarBase * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ToolBarBase_InsertStretchableSpace" "', expected argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxToolBarToolBase *)(arg1)->InsertStretchableSpace(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -36985,6 +37549,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TreeCtrl_GetFocusedItem(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyTreeCtrl *arg1 = (wxPyTreeCtrl *) 0 ;
+  wxTreeItemId result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyTreeCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TreeCtrl_GetFocusedItem" "', expected argument " "1"" of type '" "wxPyTreeCtrl const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyTreeCtrl * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxPyTreeCtrl const *)arg1)->GetFocusedItem();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxTreeItemId(static_cast< const wxTreeItemId& >(result))), SWIGTYPE_p_wxTreeItemId, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_TreeCtrl_GetItemParent(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPyTreeCtrl *arg1 = (wxPyTreeCtrl *) 0 ;
@@ -38366,6 +38958,47 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_TreeCtrl_SelectChildren(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyTreeCtrl *arg1 = (wxPyTreeCtrl *) 0 ;
+  wxTreeItemId *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "parent", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TreeCtrl_SelectChildren",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyTreeCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TreeCtrl_SelectChildren" "', expected argument " "1"" of type '" "wxPyTreeCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyTreeCtrl * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTreeItemId,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TreeCtrl_SelectChildren" "', expected argument " "2"" of type '" "wxTreeItemId const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "TreeCtrl_SelectChildren" "', expected argument " "2"" of type '" "wxTreeItemId const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxTreeItemId * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SelectChildren((wxTreeItemId const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_TreeCtrl_ToggleItemSelection(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPyTreeCtrl *arg1 = (wxPyTreeCtrl *) 0 ;
@@ -39694,6 +40327,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GenericDirCtrl_GetPaths(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGenericDirCtrl *arg1 = (wxGenericDirCtrl *) 0 ;
+  wxArrayString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGenericDirCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GenericDirCtrl_GetPaths" "', expected argument " "1"" of type '" "wxGenericDirCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGenericDirCtrl * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxGenericDirCtrl_GetPaths(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxArrayString2PyList_helper(result);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_GenericDirCtrl_GetFilePath(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxGenericDirCtrl *arg1 = (wxGenericDirCtrl *) 0 ;
@@ -39768,6 +40431,147 @@ fail:
   {
     if (temp2)
     delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GenericDirCtrl_GetFilePaths(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGenericDirCtrl *arg1 = (wxGenericDirCtrl *) 0 ;
+  wxArrayString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGenericDirCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GenericDirCtrl_GetFilePaths" "', expected argument " "1"" of type '" "wxGenericDirCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGenericDirCtrl * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxGenericDirCtrl_GetFilePaths(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxArrayString2PyList_helper(result);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GenericDirCtrl_SelectPath(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGenericDirCtrl *arg1 = (wxGenericDirCtrl *) 0 ;
+  wxString *arg2 = 0 ;
+  bool arg3 = (bool) true ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "path",(char *) "select", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:GenericDirCtrl_SelectPath",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGenericDirCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GenericDirCtrl_SelectPath" "', expected argument " "1"" of type '" "wxGenericDirCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGenericDirCtrl * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_bool(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "GenericDirCtrl_SelectPath" "', expected argument " "3"" of type '" "bool""'");
+    } 
+    arg3 = static_cast< bool >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SelectPath((wxString const &)*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GenericDirCtrl_SelectPaths(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGenericDirCtrl *arg1 = (wxGenericDirCtrl *) 0 ;
+  wxArrayString *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "paths", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GenericDirCtrl_SelectPaths",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGenericDirCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GenericDirCtrl_SelectPaths" "', expected argument " "1"" of type '" "wxGenericDirCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGenericDirCtrl * >(argp1);
+  {
+    if (! PySequence_Check(obj1)) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of strings expected.");
+      SWIG_fail;
+    }
+    arg2 = new wxArrayString;
+    temp2 = true;
+    int i, len=PySequence_Length(obj1);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(obj1, i);
+      wxString* s = wxString_in_helper(item);
+      if (PyErr_Occurred())  SWIG_fail;
+      arg2->Add(*s);
+      delete s;
+      Py_DECREF(item);
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SelectPaths((wxArrayString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  {
+    if (temp2) delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2) delete arg2;
   }
   return NULL;
 }
@@ -40066,6 +40870,33 @@ SWIGINTERN PyObject *_wrap_GenericDirCtrl_GetFilterListCtrl(PyObject *SWIGUNUSED
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxDirFilterListCtrl, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GenericDirCtrl_UnselectAll(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGenericDirCtrl *arg1 = (wxGenericDirCtrl *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGenericDirCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GenericDirCtrl_UnselectAll" "', expected argument " "1"" of type '" "wxGenericDirCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGenericDirCtrl * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->UnselectAll();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -50356,6 +51187,27 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_Button", (PyCFunction) _wrap_new_Button, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_PreButton", (PyCFunction)_wrap_new_PreButton, METH_NOARGS, NULL},
 	 { (char *)"Button_Create", (PyCFunction) _wrap_Button_Create, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Button_SetAuthNeeded", (PyCFunction) _wrap_Button_SetAuthNeeded, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Button_GetAuthNeeded", (PyCFunction)_wrap_Button_GetAuthNeeded, METH_O, NULL},
+	 { (char *)"Button_SetBitmap", (PyCFunction) _wrap_Button_SetBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Button_GetBitmap", (PyCFunction)_wrap_Button_GetBitmap, METH_O, NULL},
+	 { (char *)"Button_SetBitmapLabel", (PyCFunction) _wrap_Button_SetBitmapLabel, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Button_SetBitmapPressed", (PyCFunction) _wrap_Button_SetBitmapPressed, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Button_SetBitmapDisabled", (PyCFunction) _wrap_Button_SetBitmapDisabled, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Button_SetBitmapCurrent", (PyCFunction) _wrap_Button_SetBitmapCurrent, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Button_SetBitmapFocus", (PyCFunction) _wrap_Button_SetBitmapFocus, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Button_GetBitmapLabel", (PyCFunction)_wrap_Button_GetBitmapLabel, METH_O, NULL},
+	 { (char *)"Button_GetBitmapPressed", (PyCFunction)_wrap_Button_GetBitmapPressed, METH_O, NULL},
+	 { (char *)"Button_GetBitmapDisabled", (PyCFunction)_wrap_Button_GetBitmapDisabled, METH_O, NULL},
+	 { (char *)"Button_GetBitmapCurrent", (PyCFunction)_wrap_Button_GetBitmapCurrent, METH_O, NULL},
+	 { (char *)"Button_GetBitmapFocus", (PyCFunction)_wrap_Button_GetBitmapFocus, METH_O, NULL},
+	 { (char *)"Button_GetBitmapSelected", (PyCFunction)_wrap_Button_GetBitmapSelected, METH_O, NULL},
+	 { (char *)"Button_GetBitmapHover", (PyCFunction)_wrap_Button_GetBitmapHover, METH_O, NULL},
+	 { (char *)"Button_SetBitmapSelected", (PyCFunction) _wrap_Button_SetBitmapSelected, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Button_SetBitmapHover", (PyCFunction) _wrap_Button_SetBitmapHover, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Button_SetBitmapMargins", _wrap_Button_SetBitmapMargins, METH_VARARGS, NULL},
+	 { (char *)"Button_GetBitmapMargins", (PyCFunction)_wrap_Button_GetBitmapMargins, METH_O, NULL},
+	 { (char *)"Button_SetBitmapPosition", (PyCFunction) _wrap_Button_SetBitmapPosition, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Button_SetDefault", (PyCFunction)_wrap_Button_SetDefault, METH_O, NULL},
 	 { (char *)"Button_GetDefaultSize", (PyCFunction)_wrap_Button_GetDefaultSize, METH_NOARGS, NULL},
 	 { (char *)"Button_GetClassDefaultAttributes", (PyCFunction) _wrap_Button_GetClassDefaultAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -50364,19 +51216,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_BitmapButton", (PyCFunction) _wrap_new_BitmapButton, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_PreBitmapButton", (PyCFunction)_wrap_new_PreBitmapButton, METH_NOARGS, NULL},
 	 { (char *)"BitmapButton_Create", (PyCFunction) _wrap_BitmapButton_Create, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"BitmapButton_GetBitmapLabel", (PyCFunction)_wrap_BitmapButton_GetBitmapLabel, METH_O, NULL},
-	 { (char *)"BitmapButton_GetBitmapDisabled", (PyCFunction)_wrap_BitmapButton_GetBitmapDisabled, METH_O, NULL},
-	 { (char *)"BitmapButton_GetBitmapFocus", (PyCFunction)_wrap_BitmapButton_GetBitmapFocus, METH_O, NULL},
-	 { (char *)"BitmapButton_GetBitmapSelected", (PyCFunction)_wrap_BitmapButton_GetBitmapSelected, METH_O, NULL},
-	 { (char *)"BitmapButton_GetBitmapHover", (PyCFunction)_wrap_BitmapButton_GetBitmapHover, METH_O, NULL},
-	 { (char *)"BitmapButton_SetBitmapDisabled", (PyCFunction) _wrap_BitmapButton_SetBitmapDisabled, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"BitmapButton_SetBitmapFocus", (PyCFunction) _wrap_BitmapButton_SetBitmapFocus, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"BitmapButton_SetBitmapSelected", (PyCFunction) _wrap_BitmapButton_SetBitmapSelected, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"BitmapButton_SetBitmapLabel", (PyCFunction) _wrap_BitmapButton_SetBitmapLabel, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"BitmapButton_SetBitmapHover", (PyCFunction) _wrap_BitmapButton_SetBitmapHover, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"BitmapButton_SetMargins", (PyCFunction) _wrap_BitmapButton_SetMargins, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"BitmapButton_GetMarginX", (PyCFunction)_wrap_BitmapButton_GetMarginX, METH_O, NULL},
-	 { (char *)"BitmapButton_GetMarginY", (PyCFunction)_wrap_BitmapButton_GetMarginY, METH_O, NULL},
 	 { (char *)"BitmapButton_swigregister", BitmapButton_swigregister, METH_VARARGS, NULL},
 	 { (char *)"BitmapButton_swiginit", BitmapButton_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_CheckBox", (PyCFunction) _wrap_new_CheckBox, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -50405,6 +51244,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ComboBox_SetMark", (PyCFunction) _wrap_ComboBox_SetMark, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ComboBox_GetMark", (PyCFunction)_wrap_ComboBox_GetMark, METH_O, NULL},
 	 { (char *)"ComboBox_IsEmpty", (PyCFunction)_wrap_ComboBox_IsEmpty, METH_O, NULL},
+	 { (char *)"ComboBox_Popup", (PyCFunction)_wrap_ComboBox_Popup, METH_O, NULL},
+	 { (char *)"ComboBox_Dismiss", (PyCFunction)_wrap_ComboBox_Dismiss, METH_O, NULL},
 	 { (char *)"ComboBox_GetCurrentSelection", (PyCFunction)_wrap_ComboBox_GetCurrentSelection, METH_O, NULL},
 	 { (char *)"ComboBox_SetStringSelection", (PyCFunction) _wrap_ComboBox_SetStringSelection, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ComboBox_GetClassDefaultAttributes", (PyCFunction) _wrap_ComboBox_GetClassDefaultAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -50838,11 +51679,14 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ToolBarToolBase_GetId", (PyCFunction)_wrap_ToolBarToolBase_GetId, METH_O, NULL},
 	 { (char *)"ToolBarToolBase_GetControl", (PyCFunction)_wrap_ToolBarToolBase_GetControl, METH_O, NULL},
 	 { (char *)"ToolBarToolBase_GetToolBar", (PyCFunction)_wrap_ToolBarToolBase_GetToolBar, METH_O, NULL},
+	 { (char *)"ToolBarToolBase_IsStretchable", (PyCFunction)_wrap_ToolBarToolBase_IsStretchable, METH_O, NULL},
 	 { (char *)"ToolBarToolBase_IsButton", (PyCFunction)_wrap_ToolBarToolBase_IsButton, METH_O, NULL},
 	 { (char *)"ToolBarToolBase_IsControl", (PyCFunction)_wrap_ToolBarToolBase_IsControl, METH_O, NULL},
 	 { (char *)"ToolBarToolBase_IsSeparator", (PyCFunction)_wrap_ToolBarToolBase_IsSeparator, METH_O, NULL},
+	 { (char *)"ToolBarToolBase_IsStretchableSpace", (PyCFunction)_wrap_ToolBarToolBase_IsStretchableSpace, METH_O, NULL},
 	 { (char *)"ToolBarToolBase_GetStyle", (PyCFunction)_wrap_ToolBarToolBase_GetStyle, METH_O, NULL},
 	 { (char *)"ToolBarToolBase_GetKind", (PyCFunction)_wrap_ToolBarToolBase_GetKind, METH_O, NULL},
+	 { (char *)"ToolBarToolBase_MakeStretchable", (PyCFunction)_wrap_ToolBarToolBase_MakeStretchable, METH_O, NULL},
 	 { (char *)"ToolBarToolBase_IsEnabled", (PyCFunction)_wrap_ToolBarToolBase_IsEnabled, METH_O, NULL},
 	 { (char *)"ToolBarToolBase_IsToggled", (PyCFunction)_wrap_ToolBarToolBase_IsToggled, METH_O, NULL},
 	 { (char *)"ToolBarToolBase_CanBeToggled", (PyCFunction)_wrap_ToolBarToolBase_CanBeToggled, METH_O, NULL},
@@ -50876,6 +51720,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ToolBarBase_FindControl", (PyCFunction) _wrap_ToolBarBase_FindControl, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ToolBarBase_AddSeparator", (PyCFunction)_wrap_ToolBarBase_AddSeparator, METH_O, NULL},
 	 { (char *)"ToolBarBase_InsertSeparator", (PyCFunction) _wrap_ToolBarBase_InsertSeparator, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"ToolBarBase_AddStretchableSpace", (PyCFunction)_wrap_ToolBarBase_AddStretchableSpace, METH_O, NULL},
+	 { (char *)"ToolBarBase_InsertStretchableSpace", (PyCFunction) _wrap_ToolBarBase_InsertStretchableSpace, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ToolBarBase_RemoveTool", (PyCFunction) _wrap_ToolBarBase_RemoveTool, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ToolBarBase_DeleteToolByPos", (PyCFunction) _wrap_ToolBarBase_DeleteToolByPos, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ToolBarBase_DeleteTool", (PyCFunction) _wrap_ToolBarBase_DeleteTool, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -51185,6 +52031,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TreeCtrl_GetRootItem", (PyCFunction)_wrap_TreeCtrl_GetRootItem, METH_O, NULL},
 	 { (char *)"TreeCtrl_GetSelection", (PyCFunction)_wrap_TreeCtrl_GetSelection, METH_O, NULL},
 	 { (char *)"TreeCtrl_GetSelections", (PyCFunction)_wrap_TreeCtrl_GetSelections, METH_O, NULL},
+	 { (char *)"TreeCtrl_GetFocusedItem", (PyCFunction)_wrap_TreeCtrl_GetFocusedItem, METH_O, NULL},
 	 { (char *)"TreeCtrl_GetItemParent", (PyCFunction) _wrap_TreeCtrl_GetItemParent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TreeCtrl_GetFirstChild", (PyCFunction) _wrap_TreeCtrl_GetFirstChild, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TreeCtrl_GetNextChild", (PyCFunction) _wrap_TreeCtrl_GetNextChild, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -51214,6 +52061,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TreeCtrl_UnselectItem", (PyCFunction) _wrap_TreeCtrl_UnselectItem, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TreeCtrl_UnselectAll", (PyCFunction)_wrap_TreeCtrl_UnselectAll, METH_O, NULL},
 	 { (char *)"TreeCtrl_SelectItem", (PyCFunction) _wrap_TreeCtrl_SelectItem, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TreeCtrl_SelectChildren", (PyCFunction) _wrap_TreeCtrl_SelectChildren, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TreeCtrl_ToggleItemSelection", (PyCFunction) _wrap_TreeCtrl_ToggleItemSelection, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TreeCtrl_EnsureVisible", (PyCFunction) _wrap_TreeCtrl_EnsureVisible, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TreeCtrl_ScrollTo", (PyCFunction) _wrap_TreeCtrl_ScrollTo, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -51247,8 +52095,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GenericDirCtrl_GetDefaultPath", (PyCFunction)_wrap_GenericDirCtrl_GetDefaultPath, METH_O, NULL},
 	 { (char *)"GenericDirCtrl_SetDefaultPath", (PyCFunction) _wrap_GenericDirCtrl_SetDefaultPath, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GenericDirCtrl_GetPath", (PyCFunction)_wrap_GenericDirCtrl_GetPath, METH_O, NULL},
+	 { (char *)"GenericDirCtrl_GetPaths", (PyCFunction)_wrap_GenericDirCtrl_GetPaths, METH_O, NULL},
 	 { (char *)"GenericDirCtrl_GetFilePath", (PyCFunction)_wrap_GenericDirCtrl_GetFilePath, METH_O, NULL},
 	 { (char *)"GenericDirCtrl_SetPath", (PyCFunction) _wrap_GenericDirCtrl_SetPath, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GenericDirCtrl_GetFilePaths", (PyCFunction)_wrap_GenericDirCtrl_GetFilePaths, METH_O, NULL},
+	 { (char *)"GenericDirCtrl_SelectPath", (PyCFunction) _wrap_GenericDirCtrl_SelectPath, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GenericDirCtrl_SelectPaths", (PyCFunction) _wrap_GenericDirCtrl_SelectPaths, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GenericDirCtrl_ShowHidden", (PyCFunction) _wrap_GenericDirCtrl_ShowHidden, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GenericDirCtrl_GetShowHidden", (PyCFunction)_wrap_GenericDirCtrl_GetShowHidden, METH_O, NULL},
 	 { (char *)"GenericDirCtrl_GetFilter", (PyCFunction)_wrap_GenericDirCtrl_GetFilter, METH_O, NULL},
@@ -51258,6 +52110,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GenericDirCtrl_GetRootId", (PyCFunction)_wrap_GenericDirCtrl_GetRootId, METH_O, NULL},
 	 { (char *)"GenericDirCtrl_GetTreeCtrl", (PyCFunction)_wrap_GenericDirCtrl_GetTreeCtrl, METH_O, NULL},
 	 { (char *)"GenericDirCtrl_GetFilterListCtrl", (PyCFunction)_wrap_GenericDirCtrl_GetFilterListCtrl, METH_O, NULL},
+	 { (char *)"GenericDirCtrl_UnselectAll", (PyCFunction)_wrap_GenericDirCtrl_UnselectAll, METH_O, NULL},
 	 { (char *)"GenericDirCtrl_GetDirItemData", (PyCFunction) _wrap_GenericDirCtrl_GetDirItemData, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GenericDirCtrl_FindChild", (PyCFunction) _wrap_GenericDirCtrl_FindChild, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GenericDirCtrl_DoResize", (PyCFunction)_wrap_GenericDirCtrl_DoResize, METH_O, NULL},
@@ -54153,6 +55006,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "BU_ALIGN_MASK",SWIG_From_int(static_cast< int >(wxBU_ALIGN_MASK)));
   SWIG_Python_SetConstant(d, "BU_EXACTFIT",SWIG_From_int(static_cast< int >(wxBU_EXACTFIT)));
   SWIG_Python_SetConstant(d, "BU_AUTODRAW",SWIG_From_int(static_cast< int >(wxBU_AUTODRAW)));
+  SWIG_Python_SetConstant(d, "BU_NOTEXT",SWIG_From_int(static_cast< int >(wxBU_NOTEXT)));
   SWIG_addvarlink(SWIG_globals(),(char*)"CheckBoxNameStr",CheckBoxNameStr_get, CheckBoxNameStr_set);
   SWIG_Python_SetConstant(d, "CHK_2STATE",SWIG_From_int(static_cast< int >(wxCHK_2STATE)));
   SWIG_Python_SetConstant(d, "CHK_3STATE",SWIG_From_int(static_cast< int >(wxCHK_3STATE)));
@@ -54295,7 +55149,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "SL_VERTICAL",SWIG_From_int(static_cast< int >(wxSL_VERTICAL)));
   SWIG_Python_SetConstant(d, "SL_TICKS",SWIG_From_int(static_cast< int >(wxSL_TICKS)));
   SWIG_Python_SetConstant(d, "SL_AUTOTICKS",SWIG_From_int(static_cast< int >(wxSL_AUTOTICKS)));
-  SWIG_Python_SetConstant(d, "SL_LABELS",SWIG_From_int(static_cast< int >(wxSL_LABELS)));
   SWIG_Python_SetConstant(d, "SL_LEFT",SWIG_From_int(static_cast< int >(wxSL_LEFT)));
   SWIG_Python_SetConstant(d, "SL_TOP",SWIG_From_int(static_cast< int >(wxSL_TOP)));
   SWIG_Python_SetConstant(d, "SL_RIGHT",SWIG_From_int(static_cast< int >(wxSL_RIGHT)));
@@ -54303,6 +55156,9 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "SL_BOTH",SWIG_From_int(static_cast< int >(wxSL_BOTH)));
   SWIG_Python_SetConstant(d, "SL_SELRANGE",SWIG_From_int(static_cast< int >(wxSL_SELRANGE)));
   SWIG_Python_SetConstant(d, "SL_INVERSE",SWIG_From_int(static_cast< int >(wxSL_INVERSE)));
+  SWIG_Python_SetConstant(d, "SL_MIN_MAX_LABELS",SWIG_From_int(static_cast< int >(wxSL_MIN_MAX_LABELS)));
+  SWIG_Python_SetConstant(d, "SL_VALUE_LABEL",SWIG_From_int(static_cast< int >(wxSL_VALUE_LABEL)));
+  SWIG_Python_SetConstant(d, "SL_LABELS",SWIG_From_int(static_cast< int >(wxSL_LABELS)));
   SWIG_addvarlink(SWIG_globals(),(char*)"ToggleButtonNameStr",ToggleButtonNameStr_get, ToggleButtonNameStr_set);
   PyDict_SetItemString(d, "wxEVT_COMMAND_TOGGLEBUTTON_CLICKED", PyInt_FromLong(wxEVT_COMMAND_TOGGLEBUTTON_CLICKED));
   SWIG_addvarlink(SWIG_globals(),(char*)"NotebookNameStr",NotebookNameStr_get, NotebookNameStr_set);
@@ -54539,6 +55395,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "DIRCTRL_SHOW_FILTERS",SWIG_From_int(static_cast< int >(wxDIRCTRL_SHOW_FILTERS)));
   SWIG_Python_SetConstant(d, "DIRCTRL_3D_INTERNAL",SWIG_From_int(static_cast< int >(wxDIRCTRL_3D_INTERNAL)));
   SWIG_Python_SetConstant(d, "DIRCTRL_EDIT_LABELS",SWIG_From_int(static_cast< int >(wxDIRCTRL_EDIT_LABELS)));
+  SWIG_Python_SetConstant(d, "DIRCTRL_MULTIPLE",SWIG_From_int(static_cast< int >(wxDIRCTRL_MULTIPLE)));
   PyDict_SetItemString(d, "wxEVT_HELP", PyInt_FromLong(wxEVT_HELP));
   PyDict_SetItemString(d, "wxEVT_DETAILED_HELP", PyInt_FromLong(wxEVT_DETAILED_HELP));
   SWIG_Python_SetConstant(d, "HelpEvent_Origin_Unknown",SWIG_From_int(static_cast< int >(wxHelpEvent::Origin_Unknown)));

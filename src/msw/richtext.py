@@ -1956,6 +1956,34 @@ class RichTextCtrl(_core.TextCtrlBase,_windows.ScrollHelper):
         """
         return _richtext.RichTextCtrl_GetURLCursor(*args, **kwargs)
 
+    def GetCaretAtLineStart(*args, **kwargs):
+        """GetCaretAtLineStart(self) -> bool"""
+        return _richtext.RichTextCtrl_GetCaretAtLineStart(*args, **kwargs)
+
+    def SetCaretAtLineStart(*args, **kwargs):
+        """SetCaretAtLineStart(self, bool atStart)"""
+        return _richtext.RichTextCtrl_SetCaretAtLineStart(*args, **kwargs)
+
+    def GetDragging(*args, **kwargs):
+        """GetDragging(self) -> bool"""
+        return _richtext.RichTextCtrl_GetDragging(*args, **kwargs)
+
+    def SetDragging(*args, **kwargs):
+        """SetDragging(self, bool dragging)"""
+        return _richtext.RichTextCtrl_SetDragging(*args, **kwargs)
+
+    def GetDragStart(*args, **kwargs):
+        """GetDragStart(self) -> Point"""
+        return _richtext.RichTextCtrl_GetDragStart(*args, **kwargs)
+
+    def SetDragStart(*args, **kwargs):
+        """SetDragStart(self, Point pt)"""
+        return _richtext.RichTextCtrl_SetDragStart(*args, **kwargs)
+
+    def GetBufferBitmap(*args, **kwargs):
+        """GetBufferBitmap(self) -> Bitmap"""
+        return _richtext.RichTextCtrl_GetBufferBitmap(*args, **kwargs)
+
     def GetContextMenu(*args, **kwargs):
         """GetContextMenu(self) -> Menu"""
         return _richtext.RichTextCtrl_GetContextMenu(*args, **kwargs)
@@ -1963,6 +1991,14 @@ class RichTextCtrl(_core.TextCtrlBase,_windows.ScrollHelper):
     def SetContextMenu(*args, **kwargs):
         """SetContextMenu(self, Menu menu)"""
         return _richtext.RichTextCtrl_SetContextMenu(*args, **kwargs)
+
+    def GetSelectionAnchor(*args, **kwargs):
+        """GetSelectionAnchor(self) -> long"""
+        return _richtext.RichTextCtrl_GetSelectionAnchor(*args, **kwargs)
+
+    def SetSelectionAnchor(*args, **kwargs):
+        """SetSelectionAnchor(self, long anchor)"""
+        return _richtext.RichTextCtrl_SetSelectionAnchor(*args, **kwargs)
 
     def LoadFile(*args, **kwargs):
         """

@@ -379,6 +379,9 @@ FULLSCREEN_ALL = _windows_.FULLSCREEN_ALL
 TOPLEVEL_EX_DIALOG = _windows_.TOPLEVEL_EX_DIALOG
 USER_ATTENTION_INFO = _windows_.USER_ATTENTION_INFO
 USER_ATTENTION_ERROR = _windows_.USER_ATTENTION_ERROR
+DIALOG_MODALITY_NONE = _windows_.DIALOG_MODALITY_NONE
+DIALOG_MODALITY_WINDOW_MODAL = _windows_.DIALOG_MODALITY_WINDOW_MODAL
+DIALOG_MODALITY_APP_MODAL = _windows_.DIALOG_MODALITY_APP_MODAL
 class TopLevelWindow(_core.Window):
     """Proxy of C++ TopLevelWindow class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -423,6 +426,10 @@ class TopLevelWindow(_core.Window):
     def ShowFullScreen(*args, **kwargs):
         """ShowFullScreen(self, bool show, long style=FULLSCREEN_ALL) -> bool"""
         return _windows_.TopLevelWindow_ShowFullScreen(*args, **kwargs)
+
+    def ShowWithoutActivating(*args, **kwargs):
+        """ShowWithoutActivating(self)"""
+        return _windows_.TopLevelWindow_ShowWithoutActivating(*args, **kwargs)
 
     def IsFullScreen(*args, **kwargs):
         """IsFullScreen(self) -> bool"""
@@ -757,6 +764,14 @@ class Dialog(TopLevelWindow):
         """EndModal(self, int retCode)"""
         return _windows_.Dialog_EndModal(*args, **kwargs)
 
+    def ShowWindowModal(*args, **kwargs):
+        """ShowWindowModal(self)"""
+        return _windows_.Dialog_ShowWindowModal(*args, **kwargs)
+
+    def SendWindowModalDialogEvent(*args, **kwargs):
+        """SendWindowModalDialogEvent(self, EventType type)"""
+        return _windows_.Dialog_SendWindowModalDialogEvent(*args, **kwargs)
+
     def DoLayoutAdaptation(*args, **kwargs):
         """DoLayoutAdaptation(self) -> bool"""
         return _windows_.Dialog_DoLayoutAdaptation(*args, **kwargs)
@@ -825,6 +840,10 @@ class Dialog(TopLevelWindow):
         return _windows_.Dialog_EnableLayoutAdaptation(*args, **kwargs)
 
     EnableLayoutAdaptation = staticmethod(EnableLayoutAdaptation)
+    def GetModality(*args, **kwargs):
+        """GetModality(self) -> int"""
+        return _windows_.Dialog_GetModality(*args, **kwargs)
+
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -980,6 +999,28 @@ def StandardDialogLayoutAdapter_DoMustScroll(*args, **kwargs):
   """StandardDialogLayoutAdapter_DoMustScroll(Dialog dialog, Size windowSize, Size displaySize) -> int"""
   return _windows_.StandardDialogLayoutAdapter_DoMustScroll(*args, **kwargs)
 
+class WindowModalDialogEvent(_core.CommandEvent):
+    """Proxy of C++ WindowModalDialogEvent class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, EventType commandType=wxEVT_NULL, int id=0) -> WindowModalDialogEvent"""
+        _windows_.WindowModalDialogEvent_swiginit(self,_windows_.new_WindowModalDialogEvent(*args, **kwargs))
+    def GetDialog(*args, **kwargs):
+        """GetDialog(self) -> Dialog"""
+        return _windows_.WindowModalDialogEvent_GetDialog(*args, **kwargs)
+
+    def GetReturnCode(*args, **kwargs):
+        """GetReturnCode(self) -> int"""
+        return _windows_.WindowModalDialogEvent_GetReturnCode(*args, **kwargs)
+
+    Dialog = property(GetDialog) 
+    ReturnCode = property(GetReturnCode) 
+_windows_.WindowModalDialogEvent_swigregister(WindowModalDialogEvent)
+
+wxEVT_WINDOW_MODAL_DIALOG_CLOSED = _windows_.wxEVT_WINDOW_MODAL_DIALOG_CLOSED
+EVT_WINDOW_MODAL_DIALOG_CLOSED = wx.PyEventBinder(wxEVT_WINDOW_MODAL_DIALOG_CLOSED)
+
 #---------------------------------------------------------------------------
 
 DEFAULT_MINIFRAME_STYLE = _windows_.DEFAULT_MINIFRAME_STYLE
@@ -1082,6 +1123,7 @@ STB_ELLIPSIZE_START = _windows_.STB_ELLIPSIZE_START
 STB_ELLIPSIZE_MIDDLE = _windows_.STB_ELLIPSIZE_MIDDLE
 STB_ELLIPSIZE_END = _windows_.STB_ELLIPSIZE_END
 STB_DEFAULT_STYLE = _windows_.STB_DEFAULT_STYLE
+ST_SIZEGRIP = _windows_.ST_SIZEGRIP
 SB_NORMAL = _windows_.SB_NORMAL
 SB_FLAT = _windows_.SB_FLAT
 SB_RAISED = _windows_.SB_RAISED
@@ -3643,12 +3685,16 @@ class ProgressDialog(Dialog):
         """GetRange(self) -> int"""
         return _windows_.ProgressDialog_GetRange(*args, **kwargs)
 
+    def SetRange(*args, **kwargs):
+        """SetRange(self, int maximum)"""
+        return _windows_.ProgressDialog_SetRange(*args, **kwargs)
+
     def GetMessage(*args, **kwargs):
         """GetMessage(self) -> String"""
         return _windows_.ProgressDialog_GetMessage(*args, **kwargs)
 
     Value = property(GetValue) 
-    Range = property(GetRange) 
+    Range = property(GetRange,SetRange) 
     Message = property(GetMessage) 
 _windows_.ProgressDialog_swigregister(ProgressDialog)
 

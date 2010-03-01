@@ -180,14 +180,6 @@ class Colour(_core.Object):
         """
         return _gdi_.Colour_Set(*args, **kwargs)
 
-    def SetRGB(*args, **kwargs):
-        """
-        SetRGB(self, unsigned long colRGB)
-
-        Sets the RGB intensity values from a packed RGB value.
-        """
-        return _gdi_.Colour_SetRGB(*args, **kwargs)
-
     def SetFromString(self, colourName):
         """
         Sets the RGB intensity values using a colour name listed in
@@ -211,6 +203,33 @@ class Colour(_core.Object):
                     =================== ==================================
         """
         return _gdi_.Colour_GetAsString(*args, **kwargs)
+
+    def SetRGB(*args, **kwargs):
+        """
+        SetRGB(self, unsigned int colRGB)
+
+        Sets the RGB colour values from a single 32 bit value.
+
+        The argument colRGB should be of the form 0x00BBGGRR and where 0xRR,
+        0xGG and 0xBB are the values of the red, green and blue components.
+        """
+        return _gdi_.Colour_SetRGB(*args, **kwargs)
+
+    def SetRGBA(*args, **kwargs):
+        """
+        SetRGBA(self, unsigned int colRGBA)
+
+        Sets the RGBA colour values from a single 32 bit value.
+
+        The argument colRGBA should be of the form 0xAABBGGRR where 0xRR,
+        0xGG, 0xBB and 0xAA are the values of the red, green, blue and alpha
+        components.
+        """
+        return _gdi_.Colour_SetRGBA(*args, **kwargs)
+
+    def GetRGBA(*args, **kwargs):
+        """GetRGBA(self) -> unsigned int"""
+        return _gdi_.Colour_GetRGBA(*args, **kwargs)
 
     def GetPixel(*args, **kwargs):
         """
@@ -246,13 +265,14 @@ class Colour(_core.Object):
         """
         return _gdi_.Colour_Get(*args, **kwargs)
 
-    def GetRGB(*args, **kwargs):
+    def GetRGB(*args):
         """
+        GetRGB(self) -> unsigned int
         GetRGB(self) -> unsigned long
 
         Return the colour as a packed RGB value
         """
-        return _gdi_.Colour_GetRGB(*args, **kwargs)
+        return _gdi_.Colour_GetRGB(*args)
 
     asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                  return str(self.Get(True))
@@ -2369,6 +2389,46 @@ class Font(GDIObject):
     SetNoAntiAliasing = wx._deprecated(SetNoAntiAliasing)
     GetNoAntiAliasing = wx._deprecated(GetNoAntiAliasing)
 
+    def MakeBold(*args, **kwargs):
+        """MakeBold(self) -> Font"""
+        return _gdi_.Font_MakeBold(*args, **kwargs)
+
+    def MakeItalic(*args, **kwargs):
+        """MakeItalic(self) -> Font"""
+        return _gdi_.Font_MakeItalic(*args, **kwargs)
+
+    def MakeLarger(*args, **kwargs):
+        """MakeLarger(self) -> Font"""
+        return _gdi_.Font_MakeLarger(*args, **kwargs)
+
+    def MakeSmaller(*args, **kwargs):
+        """MakeSmaller(self) -> Font"""
+        return _gdi_.Font_MakeSmaller(*args, **kwargs)
+
+    def Scale(*args, **kwargs):
+        """Scale(self, float x) -> Font"""
+        return _gdi_.Font_Scale(*args, **kwargs)
+
+    def Bold(*args, **kwargs):
+        """Bold(self) -> Font"""
+        return _gdi_.Font_Bold(*args, **kwargs)
+
+    def Italic(*args, **kwargs):
+        """Italic(self) -> Font"""
+        return _gdi_.Font_Italic(*args, **kwargs)
+
+    def Larger(*args, **kwargs):
+        """Larger(self) -> Font"""
+        return _gdi_.Font_Larger(*args, **kwargs)
+
+    def Smaller(*args, **kwargs):
+        """Smaller(self) -> Font"""
+        return _gdi_.Font_Smaller(*args, **kwargs)
+
+    def Scaled(*args, **kwargs):
+        """Scaled(self, float x) -> Font"""
+        return _gdi_.Font_Scaled(*args, **kwargs)
+
     def GetPangoFontDescription(*args, **kwargs):
         """GetPangoFontDescription(self) -> void"""
         return _gdi_.Font_GetPangoFontDescription(*args, **kwargs)
@@ -2599,6 +2659,7 @@ LANGUAGE_ARABIC_UAE = _gdi_.LANGUAGE_ARABIC_UAE
 LANGUAGE_ARABIC_YEMEN = _gdi_.LANGUAGE_ARABIC_YEMEN
 LANGUAGE_ARMENIAN = _gdi_.LANGUAGE_ARMENIAN
 LANGUAGE_ASSAMESE = _gdi_.LANGUAGE_ASSAMESE
+LANGUAGE_ASTURIAN = _gdi_.LANGUAGE_ASTURIAN
 LANGUAGE_AYMARA = _gdi_.LANGUAGE_AYMARA
 LANGUAGE_AZERI = _gdi_.LANGUAGE_AZERI
 LANGUAGE_AZERI_CYRILLIC = _gdi_.LANGUAGE_AZERI_CYRILLIC
@@ -3151,12 +3212,16 @@ class DC(_core.Object):
     def EndDrawing(self):  pass
 
     def GetImpl(*args, **kwargs):
-        """GetImpl(self) -> wxDCImpl"""
+        """GetImpl(self) -> DCImpl"""
         return _gdi_.DC_GetImpl(*args, **kwargs)
 
     def GetWindow(*args, **kwargs):
         """GetWindow(self) -> Window"""
         return _gdi_.DC_GetWindow(*args, **kwargs)
+
+    def CopyAttributes(*args, **kwargs):
+        """CopyAttributes(self, DC dc)"""
+        return _gdi_.DC_CopyAttributes(*args, **kwargs)
 
     def FloodFill(*args, **kwargs):
         """
@@ -4806,6 +4871,10 @@ class DCFontChanger(object):
         _gdi_.DCFontChanger_swiginit(self,_gdi_.new_DCFontChanger(*args, **kwargs))
     __swig_destroy__ = _gdi_.delete_DCFontChanger
     __del__ = lambda self : None;
+    def Set(*args, **kwargs):
+        """Set(self, Font font)"""
+        return _gdi_.DCFontChanger_Set(*args, **kwargs)
+
 _gdi_.DCFontChanger_swigregister(DCFontChanger)
 
 #---------------------------------------------------------------------------
@@ -6252,6 +6321,11 @@ class GraphicsRenderer(_core.Object):
         return _gdi_.GraphicsRenderer_GetDefaultRenderer(*args, **kwargs)
 
     GetDefaultRenderer = staticmethod(GetDefaultRenderer)
+    def GetCairoRenderer(*args, **kwargs):
+        """GetCairoRenderer() -> GraphicsRenderer"""
+        return _gdi_.GraphicsRenderer_GetCairoRenderer(*args, **kwargs)
+
+    GetCairoRenderer = staticmethod(GetCairoRenderer)
     def CreateContext(*args):
         """
         CreateContext(self, WindowDC dc) -> GraphicsContext
@@ -6310,11 +6384,26 @@ class GraphicsRenderer(_core.Object):
         """CreateFont(self, Font font, Colour col=*wxBLACK) -> GraphicsFont"""
         return _gdi_.GraphicsRenderer_CreateFont(*args, **kwargs)
 
+    def CreateBitmap(*args, **kwargs):
+        """CreateBitmap(self, Bitmap bitmap) -> GraphicsBitmap"""
+        return _gdi_.GraphicsRenderer_CreateBitmap(*args, **kwargs)
+
+    def CreateSubBitmap(*args, **kwargs):
+        """
+        CreateSubBitmap(self, GraphicsBitmap bitmap, Double x, Double y, Double w, 
+            Double h) -> GraphicsBitmap
+        """
+        return _gdi_.GraphicsRenderer_CreateSubBitmap(*args, **kwargs)
+
 _gdi_.GraphicsRenderer_swigregister(GraphicsRenderer)
 
 def GraphicsRenderer_GetDefaultRenderer(*args):
   """GraphicsRenderer_GetDefaultRenderer() -> GraphicsRenderer"""
   return _gdi_.GraphicsRenderer_GetDefaultRenderer(*args)
+
+def GraphicsRenderer_GetCairoRenderer(*args):
+  """GraphicsRenderer_GetCairoRenderer() -> GraphicsRenderer"""
+  return _gdi_.GraphicsRenderer_GetCairoRenderer(*args)
 
 class GCDC(DC):
     """Proxy of C++ GCDC class"""
@@ -6457,6 +6546,7 @@ class StockGDI(object):
     BRUSH_BLUE = _gdi_.StockGDI_BRUSH_BLUE
     BRUSH_CYAN = _gdi_.StockGDI_BRUSH_CYAN
     BRUSH_GREEN = _gdi_.StockGDI_BRUSH_GREEN
+    BRUSH_YELLOW = _gdi_.StockGDI_BRUSH_YELLOW
     BRUSH_GREY = _gdi_.StockGDI_BRUSH_GREY
     BRUSH_LIGHTGREY = _gdi_.StockGDI_BRUSH_LIGHTGREY
     BRUSH_MEDIUMGREY = _gdi_.StockGDI_BRUSH_MEDIUMGREY
@@ -6467,6 +6557,7 @@ class StockGDI(object):
     COLOUR_BLUE = _gdi_.StockGDI_COLOUR_BLUE
     COLOUR_CYAN = _gdi_.StockGDI_COLOUR_CYAN
     COLOUR_GREEN = _gdi_.StockGDI_COLOUR_GREEN
+    COLOUR_YELLOW = _gdi_.StockGDI_COLOUR_YELLOW
     COLOUR_LIGHTGREY = _gdi_.StockGDI_COLOUR_LIGHTGREY
     COLOUR_RED = _gdi_.StockGDI_COLOUR_RED
     COLOUR_WHITE = _gdi_.StockGDI_COLOUR_WHITE
@@ -6482,6 +6573,7 @@ class StockGDI(object):
     PEN_BLUE = _gdi_.StockGDI_PEN_BLUE
     PEN_CYAN = _gdi_.StockGDI_PEN_CYAN
     PEN_GREEN = _gdi_.StockGDI_PEN_GREEN
+    PEN_YELLOW = _gdi_.StockGDI_PEN_YELLOW
     PEN_GREY = _gdi_.StockGDI_PEN_GREY
     PEN_LIGHTGREY = _gdi_.StockGDI_PEN_LIGHTGREY
     PEN_MEDIUMGREY = _gdi_.StockGDI_PEN_MEDIUMGREY
@@ -6540,6 +6632,7 @@ class StockGDI(object):
         wx.BLUE_PEN.this          = StockGDI.GetPen(StockGDI.PEN_BLUE).this
         wx.CYAN_PEN.this          = StockGDI.GetPen(StockGDI.PEN_CYAN).this
         wx.GREEN_PEN.this         = StockGDI.GetPen(StockGDI.PEN_GREEN).this
+        wx.YELLOW_PEN.this        = StockGDI.GetPen(StockGDI.PEN_YELLOW).this
         wx.GREY_PEN.this          = StockGDI.GetPen(StockGDI.PEN_GREY).this
         wx.LIGHT_GREY_PEN.this    = StockGDI.GetPen(StockGDI.PEN_LIGHTGREY).this
         wx.MEDIUM_GREY_PEN.this   = StockGDI.GetPen(StockGDI.PEN_MEDIUMGREY).this
@@ -6551,6 +6644,7 @@ class StockGDI(object):
         wx.BLUE_BRUSH.this         = StockGDI.GetBrush(StockGDI.BRUSH_BLUE).this
         wx.CYAN_BRUSH.this         = StockGDI.GetBrush(StockGDI.BRUSH_CYAN).this
         wx.GREEN_BRUSH.this        = StockGDI.GetBrush(StockGDI.BRUSH_GREEN).this
+        wx.YELLOW_BRUSH.this       = StockGDI.GetBrush(StockGDI.BRUSH_YELLOW).this
         wx.GREY_BRUSH.this         = StockGDI.GetBrush(StockGDI.BRUSH_GREY).this
         wx.LIGHT_GREY_BRUSH.this   = StockGDI.GetBrush(StockGDI.BRUSH_LIGHTGREY).this
         wx.MEDIUM_GREY_BRUSH.this  = StockGDI.GetBrush(StockGDI.BRUSH_MEDIUMGREY).this
@@ -6562,6 +6656,7 @@ class StockGDI(object):
         wx.BLUE.this        = StockGDI.GetColour(StockGDI.COLOUR_BLUE).this
         wx.CYAN.this        = StockGDI.GetColour(StockGDI.COLOUR_CYAN).this
         wx.GREEN.this       = StockGDI.GetColour(StockGDI.COLOUR_GREEN).this
+        wx.YELLOW.this       = StockGDI.GetColour(StockGDI.COLOUR_YELLOW).this
         wx.LIGHT_GREY.this  = StockGDI.GetColour(StockGDI.COLOUR_LIGHTGREY).this
         wx.RED.this         = StockGDI.GetColour(StockGDI.COLOUR_RED).this
         wx.WHITE.this       = StockGDI.GetColour(StockGDI.COLOUR_WHITE).this
@@ -6615,6 +6710,7 @@ BLACK_PEN         = Pen.__new__(Pen)
 BLUE_PEN          = Pen.__new__(Pen)                                               
 CYAN_PEN          = Pen.__new__(Pen)
 GREEN_PEN         = Pen.__new__(Pen)
+YELLOW_PEN        = Pen.__new__(Pen)                                                
 GREY_PEN          = Pen.__new__(Pen)
 LIGHT_GREY_PEN    = Pen.__new__(Pen)
 MEDIUM_GREY_PEN   = Pen.__new__(Pen)
@@ -6626,6 +6722,7 @@ BLACK_BRUSH        = Brush.__new__(Brush)
 BLUE_BRUSH         = Brush.__new__(Brush)
 CYAN_BRUSH         = Brush.__new__(Brush)
 GREEN_BRUSH        = Brush.__new__(Brush)
+YELLOW_BRUSH       = Brush.__new__(Brush)                                                
 GREY_BRUSH         = Brush.__new__(Brush)
 LIGHT_GREY_BRUSH   = Brush.__new__(Brush)
 MEDIUM_GREY_BRUSH  = Brush.__new__(Brush)
@@ -6637,6 +6734,7 @@ BLACK       = Colour.__new__(Colour)
 BLUE        = Colour.__new__(Colour)
 CYAN        = Colour.__new__(Colour)
 GREEN       = Colour.__new__(Colour)
+YELLOW      = Colour.__new__(Colour)                                                
 LIGHT_GREY  = Colour.__new__(Colour)
 RED         = Colour.__new__(Colour)
 WHITE       = Colour.__new__(Colour)
@@ -6757,78 +6855,6 @@ TheColourDatabase = ColourDatabase.__new__(ColourDatabase)
 
 #---------------------------------------------------------------------------
 
-class Effects(_core.Object):
-    """Proxy of C++ Effects class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self) -> Effects"""
-        _gdi_.Effects_swiginit(self,_gdi_.new_Effects(*args, **kwargs))
-    def GetHighlightColour(*args, **kwargs):
-        """GetHighlightColour(self) -> Colour"""
-        return _gdi_.Effects_GetHighlightColour(*args, **kwargs)
-
-    def GetLightShadow(*args, **kwargs):
-        """GetLightShadow(self) -> Colour"""
-        return _gdi_.Effects_GetLightShadow(*args, **kwargs)
-
-    def GetFaceColour(*args, **kwargs):
-        """GetFaceColour(self) -> Colour"""
-        return _gdi_.Effects_GetFaceColour(*args, **kwargs)
-
-    def GetMediumShadow(*args, **kwargs):
-        """GetMediumShadow(self) -> Colour"""
-        return _gdi_.Effects_GetMediumShadow(*args, **kwargs)
-
-    def GetDarkShadow(*args, **kwargs):
-        """GetDarkShadow(self) -> Colour"""
-        return _gdi_.Effects_GetDarkShadow(*args, **kwargs)
-
-    def SetHighlightColour(*args, **kwargs):
-        """SetHighlightColour(self, Colour c)"""
-        return _gdi_.Effects_SetHighlightColour(*args, **kwargs)
-
-    def SetLightShadow(*args, **kwargs):
-        """SetLightShadow(self, Colour c)"""
-        return _gdi_.Effects_SetLightShadow(*args, **kwargs)
-
-    def SetFaceColour(*args, **kwargs):
-        """SetFaceColour(self, Colour c)"""
-        return _gdi_.Effects_SetFaceColour(*args, **kwargs)
-
-    def SetMediumShadow(*args, **kwargs):
-        """SetMediumShadow(self, Colour c)"""
-        return _gdi_.Effects_SetMediumShadow(*args, **kwargs)
-
-    def SetDarkShadow(*args, **kwargs):
-        """SetDarkShadow(self, Colour c)"""
-        return _gdi_.Effects_SetDarkShadow(*args, **kwargs)
-
-    def Set(*args, **kwargs):
-        """
-        Set(self, Colour highlightColour, Colour lightShadow, Colour faceColour, 
-            Colour mediumShadow, Colour darkShadow)
-        """
-        return _gdi_.Effects_Set(*args, **kwargs)
-
-    def DrawSunkenEdge(*args, **kwargs):
-        """DrawSunkenEdge(self, DC dc, Rect rect, int borderSize=1)"""
-        return _gdi_.Effects_DrawSunkenEdge(*args, **kwargs)
-
-    def TileBitmap(*args, **kwargs):
-        """TileBitmap(self, Rect rect, DC dc, Bitmap bitmap) -> bool"""
-        return _gdi_.Effects_TileBitmap(*args, **kwargs)
-
-    DarkShadow = property(GetDarkShadow,SetDarkShadow,doc="See `GetDarkShadow` and `SetDarkShadow`") 
-    FaceColour = property(GetFaceColour,SetFaceColour,doc="See `GetFaceColour` and `SetFaceColour`") 
-    HighlightColour = property(GetHighlightColour,SetHighlightColour,doc="See `GetHighlightColour` and `SetHighlightColour`") 
-    LightShadow = property(GetLightShadow,SetLightShadow,doc="See `GetLightShadow` and `SetLightShadow`") 
-    MediumShadow = property(GetMediumShadow,SetMediumShadow,doc="See `GetMediumShadow` and `SetMediumShadow`") 
-_gdi_.Effects_swigregister(Effects)
-
-Effects = wx._deprecated(Effects) 
-#---------------------------------------------------------------------------
-
 CONTROL_DISABLED = _gdi_.CONTROL_DISABLED
 CONTROL_FOCUSED = _gdi_.CONTROL_FOCUSED
 CONTROL_PRESSED = _gdi_.CONTROL_PRESSED
@@ -6845,6 +6871,11 @@ CONTROL_CHECKABLE = _gdi_.CONTROL_CHECKABLE
 CONTROL_UNDETERMINED = _gdi_.CONTROL_UNDETERMINED
 CONTROL_FLAGS_MASK = _gdi_.CONTROL_FLAGS_MASK
 CONTROL_DIRTY = _gdi_.CONTROL_DIRTY
+TITLEBAR_BUTTON_CLOSE = _gdi_.TITLEBAR_BUTTON_CLOSE
+TITLEBAR_BUTTON_MAXIMIZE = _gdi_.TITLEBAR_BUTTON_MAXIMIZE
+TITLEBAR_BUTTON_ICONIZE = _gdi_.TITLEBAR_BUTTON_ICONIZE
+TITLEBAR_BUTTON_RESTORE = _gdi_.TITLEBAR_BUTTON_RESTORE
+TITLEBAR_BUTTON_HELP = _gdi_.TITLEBAR_BUTTON_HELP
 class SplitterRenderParams(object):
     """
     This is just a simple struct used as a return value of
@@ -7139,6 +7170,20 @@ class RendererNative(object):
 
     DrawRadioButton = wx._deprecated(DrawRadioBitmap,
         'DrawRadioButton is depracated, use `DrawRadioBitmap` instead.')
+
+    def DrawTitleBarBitmap(*args, **kwargs):
+        """
+        DrawTitleBarBitmap(self, Window win, DC dc, Rect rect, int button, int flags=0)
+
+        Draw one of the standard title bar buttons.
+
+        This is currently implemented only for MSW and OS X (for the close
+        button only) because there is no way to render standard title bar
+        buttons under the other platforms, the best can be done is to use
+        normal (only) images which wxArtProvider provides for wxART_HELP and
+        wxART_CLOSE (but not any other title bar buttons)
+        """
+        return _gdi_.RendererNative_DrawTitleBarBitmap(*args, **kwargs)
 
     def Get(*args, **kwargs):
         """
