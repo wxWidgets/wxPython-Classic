@@ -30,8 +30,12 @@ enum {
 // Constants for wxImage::Scale() for determining the level of quality
 enum wxImageResizeQuality
 {
-    wxIMAGE_QUALITY_NORMAL = 0,
-    wxIMAGE_QUALITY_HIGH = 1
+    wxIMAGE_QUALITY_NEAREST,
+    wxIMAGE_QUALITY_BILINEAR,
+    wxIMAGE_QUALITY_BICUBIC,
+
+    wxIMAGE_QUALITY_NORMAL,
+    wxIMAGE_QUALITY_HIGH,
 };
 
 //---------------------------------------------------------------------------
@@ -439,7 +443,9 @@ partially. Using the alpha channel will work.
 :see: `Rescale`");
 
     
+    wxImage ResampleNearest(int width, int height) const;
     wxImage ResampleBox(int width, int height) const;
+    wxImage ResampleBilinear(int width, int height) const;
     wxImage ResampleBicubic(int width, int height) const;
 
     DocDeclStr(
@@ -958,20 +964,24 @@ indicates the orientation.", "");
         "Replaces the colour specified by ``(r1,g1,b1)`` by the colour
 ``(r2,g2,b2)``.", "");
 
+    
+    %nokwargs ConvertToGreyscale;
+    wxImage ConvertToGreyscale();
     DocDeclStr(
-        wxImage , ConvertToGreyscale( double lr = 0.299,
-                                      double lg = 0.587,
-                                      double lb = 0.114 ) const,
+        wxImage , ConvertToGreyscale( double lr, double lg, double lb ) const,
         "Convert to greyscale image. Uses the luminance component (Y) of the
 image.  The luma value (YUV) is calculated using (R * lr) + (G * lg) + (B * lb),
 defaults to ITU-T BT.601", "");
-    
+
 
     DocDeclStr(
         wxImage , ConvertToMono( byte r, byte g, byte b ) const,
         "Returns monochromatic version of the image. The returned image has
 white colour where the original has ``(r,g,b)`` colour and black
 colour everywhere else.", "");
+
+    // Convert to disabled (dimmed) image.
+    wxImage ConvertToDisabled(unsigned char brightness = 255) const;
     
 
     DocDeclStr(

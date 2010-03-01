@@ -3,6 +3,57 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.9.1.0
+-------
+*
+
+wx.Bitmap:  Add ConvertToDisabled method.
+
+wx.AboutBox: Added support for setting a long version string in
+addition to the normal version string.
+
+wx.App: Add ScheduleForDestruction, which will allow you to cause a
+window to be destrpyed sometime in the near future.  (Most likely to
+be used to ensure that there are no more envents pending for the
+widget.) 
+
+More methods and properties moved from wx.MouseEvent to the
+wx.MouseState base class.  Same for wx.KeyEvent and wx.KeyboardState,
+which is used to hold modifier key states, and which is also a base
+class of wx.MouseState.
+
+wx.Button can now have both a text and a bitmap label (or just one or
+the other.)  wx.BitmapButton is pretty much redundant and will likely
+be phased out sometime in the future.  (The OSX Carbon build does not
+support this new feature, but the Cocoa build does.)
+
+wx.ComboBox:  Added Popup and Dismiss methods for programatically
+showing and hiding the popup, although they are not implemented for
+all platforms yet.
+
+wx.GenericDirCtrl can now select multiple paths.
+
+Removed the deprecated wx.Effects class.
+
+wx.Image: Added ConvertToGreyscale and ConvertToDisabled methods, also
+new resampling scaling methods.
+
+wx.Toolbar now suports inserting stretchable space between tools.
+
+wx.Dialog can now be Window-modal or the usual App-modal.  On Mac this
+results in the dialog sliding down in a sheet from the parent window's
+top edge.  For platforms that don't support Window-modal dialogs it
+will fall back to an App-modal behavior.  See
+wx.Dialog.ShowWindowModal and the wx.Dialog sample in the demo.
+
+wx.wizard.Wizard:  Add a new EVT_WIZARD_PAGE_SHOWN event.
+
+ 
+
+
+
+
+
 2.9.0.1
 -------
 * 22-Jan-2010
@@ -197,6 +248,55 @@ wxPython for the average user.  I now use it in my day-to-day builds
 as well as from the scripts which create the preview and release
 builds.  See the new BUILD.txt document for more information.
 
+
+
+
+
+2.8.11.0
+--------
+*
+
+Lots of bug fixes in both wxWidgets and wxPython.
+
+Added the context manager protocol methods to some wx classes so they
+can be used with the new Python 'with' statement.  (The with statement
+is always available starting in Python 2.6, and can also be used in
+Python 2.5 with a __future__ import statement.)  There are several
+wx classes where this is a natural fit, such as wx.BusyInfo.  The
+__enter__ and __exit__ methods have also been added to wx.Dialog where
+it will do the dialog.Destroy() call for you.  This means that you can
+use code like this::
+
+    with MyDialog(self, foo, bar) as dlg:
+    	 if dlg.ShowModal() == wx.ID_OK:
+	    # do something with dlg values
+
+The list of wx classes that can now be used as context managers is:
+
+  * wx.Dialog
+  * wx.BusyInfo
+  * wx.BusyCursor
+  * wx.WindowDisabler
+  * wx.LogNull
+  * wx.DCTextColourChanger
+  * wx.DCPenChanger
+  * wx.DCBrushChanger
+  * wx.DCClipper
+
+A new class has been added that is also a context manager, called
+wx.FrozenWindow.  It will freeze the window passed to it upon entry to
+the context, and will thaw the window upon exit from the context.
+
+Applied the final version of patch #10959 to the PyCrust code.  It
+adds many enhancements to the Py suite, inlcuding the ability to edit
+blocks of code (called slices) as a whole before executing them, and
+also the ability to execute some simple shell commands. 
+
+Replaced the wx.lib.pubsub module with the new pubsub package from
+http://pubsub.sf.net.  By default it is backwards compatible with the
+old pubsub module, but it also has a more advanced api available that
+can be switched on at import time.  See the pubsub web site for more
+details. 
 
 
 

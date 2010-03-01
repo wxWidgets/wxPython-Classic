@@ -894,13 +894,18 @@ abort.", "");
     DocDeclStr(
         int , GetRange() const,
         "", "");
+
+    DocDeclStr(
+        void , SetRange(int maximum),
+        "", "");
+    
     
     DocDeclStr(
         wxString , GetMessage() const,
         "", "");
 
     %property(Value, GetValue);
-    %property(Range, GetRange);
+    %property(Range, GetRange, SetRange);
     %property(Message, GetMessage);
 };
 

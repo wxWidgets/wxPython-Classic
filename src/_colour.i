@@ -143,11 +143,6 @@ initialised with RGB values).", "");
         void , Set(byte red, byte green, byte blue, byte alpha=wxALPHA_OPAQUE),
         "Sets the RGB intensity values.", "");
 
-    DocDeclStrName(
-        void , Set(unsigned long colRGB),
-        "Sets the RGB intensity values from a packed RGB value.", "",
-        SetRGB);
-
     %pythoncode {
         def SetFromString(self, colourName):
             """
@@ -171,7 +166,44 @@ initialised with RGB values).", "");
             wx.C2S_CSS_SYNTAX    return colour in rgb(r,g,b) syntax
             wx.C2S_HTML_SYNTAX   return colour in #rrggbb syntax     
             =================== ==================================", "");
+
     
+    DocDeclStr(
+        void , SetRGB(wxUint32 colRGB),
+        "Sets the RGB colour values from a single 32 bit value.
+
+The argument colRGB should be of the form 0x00BBGGRR and where 0xRR,
+0xGG and 0xBB are the values of the red, green and blue components.", "");
+    
+    DocDeclStr(
+        void , SetRGBA(wxUint32 colRGBA),
+        "Sets the RGBA colour values from a single 32 bit value.
+
+The argument colRGBA should be of the form 0xAABBGGRR where 0xRR,
+0xGG, 0xBB and 0xAA are the values of the red, green, blue and alpha
+components.", "");
+    
+    DocDeclStr(
+        wxUint32 , GetRGB() const,
+        "", "");
+    
+    DocDeclStr(
+        wxUint32 , GetRGBA() const,
+        "", "");
+    
+
+    
+    // TODO: deal with these...
+    
+    // static void MakeMono    (byte* r, byte* g, byte* b, bool on);
+    // static void MakeDisabled(byte* r, byte* g, byte* b, byte brightness = 255);
+    // static void MakeGrey    (byte* r, byte* g, byte* b); // integer version
+    // static void MakeGrey    (byte* r, byte* g, byte* b, 
+    //                          double weight_r, double weight_g, double weight_b); // floating point version
+    // static byte AlphaBlend  (byte fg, byte bg, double alpha);
+    // static void ChangeLightness(byte* r, byte* g, byte* b, int ialpha);
+    // wxColour ChangeLightness(int ialpha) const;
+
     
     DocDeclStr(
         long , GetPixel() const,

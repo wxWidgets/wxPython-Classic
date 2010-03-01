@@ -510,7 +510,7 @@ enum {
 //        %unref wxGridCellWorker "$this->DecRef();";
 //
 
-class  wxGridCellWorker
+class  wxGridCellWorker : public wxRefCounter
 {
 public:
     %extend {
@@ -526,8 +526,6 @@ public:
     }
 
     void SetParameters(const wxString& params);
-    void IncRef();
-    void DecRef();
 };
 
 
@@ -1031,7 +1029,7 @@ public:
 //---------------------------------------------------------------------------
 
 
-class wxGridCellAttr
+class wxGridCellAttr : public wxRefCounter
 {
 public:
     enum wxAttrKind
@@ -1065,9 +1063,6 @@ public:
     wxGridCellAttr *Clone() const;
     void MergeWith(wxGridCellAttr *mergefrom);
     
-    void IncRef();
-    void DecRef();
-    
     void SetTextColour(const wxColour& colText);
     void SetBackgroundColour(const wxColour& colBack);
     void SetFont(const wxFont& font);
@@ -1098,6 +1093,10 @@ public:
         "GetAlignment() -> (hAlign, vAlign)");
 
     DocDeclA(
+        void, GetNonDefaultAlignment(int *OUTPUT, int *OUTPUT) const,
+        "GetNonDefaultAlignment() -> (hAlign, vAlign)");
+
+    DocDeclA(
         void, GetSize(int *OUTPUT, int *OUTPUT) const,
         "GetSize() -> (num_rows, num_cols)");
 
@@ -1110,6 +1109,7 @@ public:
     void SetDefAttr(wxGridCellAttr* defAttr);
     
     %property(Alignment, GetAlignment, SetAlignment, doc="See `GetAlignment` and `SetAlignment`");
+    %property(NonDefaultAlignment, GetNonDefaultAlignment);
     %property(BackgroundColour, GetBackgroundColour, SetBackgroundColour, doc="See `GetBackgroundColour` and `SetBackgroundColour`");
     %property(Font, GetFont, SetFont, doc="See `GetFont` and `SetFont`");
     %property(Kind, GetKind, SetKind, doc="See `GetKind` and `SetKind`");
@@ -1953,10 +1953,15 @@ public:
 
     void     EnableDragRowSize( bool enable = true );
     void     DisableDragRowSize();
-    bool     CanDragRowSize();
     void     EnableDragColSize( bool enable = true );
     void     DisableDragColSize();
+
+    void DisableRowResize(int row);
+    void DisableColResize(int col);
+
+    bool     CanDragRowSize();
     bool     CanDragColSize();
+
     void     EnableDragColMove( bool enable = true );
     void     DisableDragColMove();
     bool     CanDragColMove();

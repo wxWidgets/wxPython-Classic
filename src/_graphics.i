@@ -778,7 +778,7 @@ pointer for GDIPlus or a cairo_t pointer for Cairo.  NOTE: For
 wxPython we still need a way to make this value usable.", "");
     
 
-    %newobject CreateFromNative;
+    %newobject CreateFromNativeWindow;
     DocDeclStr(
         static wxGraphicsContext* , CreateFromNativeWindow( void * window ) ,
         "Creates a wx.GraphicsContext from a native window.  NOTE: For wxPython
@@ -906,7 +906,6 @@ pointer for GDIPlus and cairo_t pointer for cairo).", "");
     DocDeclStr(
         virtual wxAntialiasMode , GetAntialiasMode() const,
         "Returns the current shape antialiasing mode", "");
-    
     
     DocDeclStr(
         virtual bool , SetAntialiasMode(wxAntialiasMode antialias),
@@ -1179,8 +1178,7 @@ public :
     // %newobject GetDefaultRenderer;  ???
     static wxGraphicsRenderer* GetDefaultRenderer();
 
-    // Not forward ported yet...
-    //static wxGraphicsRenderer* GetCairoRenderer();
+    static wxGraphicsRenderer* GetCairoRenderer();
 
     %nokwargs CreateContext;
     %newobject CreateContext;
@@ -1215,10 +1213,9 @@ public :
                                                         const wxColour &oColor, const wxColour &cColor);
 
     virtual wxGraphicsFont CreateFont( const wxFont &font , const wxColour &col = *wxBLACK );
-#ifndef __WXGTK__
+
     virtual wxGraphicsBitmap CreateBitmap( const wxBitmap &bitmap );
     virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &bitmap, wxDouble x, wxDouble y, wxDouble w, wxDouble h  );
-#endif
 };
 
 

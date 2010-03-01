@@ -1185,7 +1185,36 @@ public:
 
 
 
-// Keyboard input event class
+//---------------------------------------------------------------------------
+%newgroup;
+
+// key categories: the bit flags for IsKeyInCategory() function
+//
+// the enum values used may change in future version of wx
+// use the named constants only, or bitwise combinations thereof
+enum wxKeyCategoryFlags
+{
+    // arrow keys, on and off numeric keypads
+    WXK_CATEGORY_ARROW  = 1,
+
+    // page up and page down keys, on and off numeric keypads
+    WXK_CATEGORY_PAGING = 2,
+
+    // home and end keys, on and off numeric keypads
+    WXK_CATEGORY_JUMP   = 4,
+
+    // tab key, on and off numeric keypads
+    WXK_CATEGORY_TAB    = 8,
+
+    // backspace and delete keys, on and off numeric keypads
+    WXK_CATEGORY_CUT    = 16,
+
+    // all keys usually used for navigation
+    WXK_CATEGORY_NAVIGATION = WXK_CATEGORY_ARROW |
+                              WXK_CATEGORY_PAGING |
+                              WXK_CATEGORY_JUMP
+};
+
 
 DocStr(wxKeyEvent,
 "This event class contains information about keypress and character
@@ -1315,6 +1344,10 @@ character using `GetUnicodeKey`.", "");
 //    %pythoncode { KeyCode = GetKeyCode }  this will be hidden by the property
 
 
+    // returns true iff this event's key code is of a certain type
+    bool IsKeyInCategory(int category) const;
+
+    
     %extend {
         DocStr(
             GetUnicodeKey,

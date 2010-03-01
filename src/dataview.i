@@ -730,11 +730,14 @@ public:
     void SetItalic( bool set );
 
     bool HasColour() const;
-    const wxColour& GetColour() const;
+    const wxColour GetColour() const;
 
+    bool HasFont() const;
     bool GetBold() const;
     bool GetItalic() const;
 
+    bool IsDefault() const;
+    
     %property(Colour, GetColour, SetColour);
     %property(Bold, GetBold, SetBold);
     %property(Italic, GetItalic, SetItalic);
@@ -804,7 +807,7 @@ need to use the `PyDataViewModel` as your base class.
     ============= =======================
 ", "");
 
-class wxDataViewModel: public wxObjectRefData
+class wxDataViewModel: public wxRefCounter
 {
 public:
     // wxDataViewModel();     ****  It's an ABC
@@ -839,6 +842,14 @@ given column.  The type of the return value should match that given by
         }
     }
 
+    
+    DocDeclStr(
+        bool , HasValue(const wxDataViewItem& item, unsigned col) const,
+        "return true if the given item has a value to display in the given
+column: this is always true except for container items which by
+default only show their label in the first column (but see
+HasContainerColumns())", "");
+    
 
     DocDeclStr(
         virtual bool , SetValue( const wxVariant &variant,
@@ -849,7 +860,12 @@ user has changed some data in the view.  The model should then update
 whatever it is using for storing the data values and then call
 `ValueChanged` so proper notifications are performed.", "");
 
+    
+    bool ChangeValue(const wxVariant& variant,
+                     const wxDataViewItem& item,
+                     unsigned int col);
 
+        
     DocDeclStr(
         virtual bool , GetAttr( const wxDataViewItem &item, unsigned int col,
                                 wxDataViewItemAttr &attr ),
@@ -1412,7 +1428,7 @@ DocStr(wxDataViewRenderer,
 "This class is used by `DataViewCtrl` to render (or draw) the
 individual cells. One instance of a renderer class is owned by each
 `DataViewColumn`. There is a number of ready-to-use renderers
-provided: `DataViewTextRenderer`, `DataViewTextRendererAttr`,
+provided: `DataViewTextRenderer`, 
 `DataViewIconTextRenderer`, `DataViewToggleRenderer`,
 `DataViewProgressRenderer`, `DataViewBitmapRenderer`,
 `DataViewDateRenderer`, `DataViewSpinRenderer`,
@@ -1466,6 +1482,9 @@ public:
     virtual void SetAlignment( int align );
     virtual int GetAlignment() const;
 
+    virtual void EnableEllipsize(wxEllipsizeMode mode = wxELLIPSIZE_MIDDLE);
+    void DisableEllipsize();
+    virtual wxEllipsizeMode GetEllipsizeMode() const;
 
     // in-place editing
     virtual bool HasEditorCtrl();
@@ -1512,23 +1531,6 @@ class wxDataViewTextRenderer: public wxDataViewRenderer
 {
 public:
     wxDataViewTextRenderer(const wxString& varianttype="string",
-                           wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT,
-                           int align=wxDVR_DEFAULT_ALIGNMENT);
-};
-
-
-//---------------------------------------------------------------------------
-// wxDataViewTextRendererAttr
-
-DocStr(wxDataViewTextRendererAttr,
-"The same as `DataViewTextRenderer` but with support for font
-attributes. Font attributes are currently only supported under GTK+
-and MSW.", "");
-
-class wxDataViewTextRendererAttr: public wxDataViewTextRenderer
-{
-public:
-    wxDataViewTextRendererAttr(const wxString& varianttype="string",
                            wxDataViewCellMode mode=wxDATAVIEW_CELL_INERT,
                            int align=wxDVR_DEFAULT_ALIGNMENT);
 };
@@ -2221,6 +2223,10 @@ public:
     %property(SortingColumn, GetSortingColumn);
     %property(Indent, GetIndent, SetIndent);
     %property(Selection, GetSelection);
+
+    static wxVisualAttributes
+    GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
+
 };
 
 //---------------------------------------------------------------------------
@@ -2249,6 +2255,11 @@ public:
     wxPoint GetPosition() const;
     void SetPosition( int x, int y );
 
+    // For wxEVT_COMMAND_DATAVIEW_CACHE_HINT
+    int GetCacheFrom() const;
+    int GetCacheTo() const;
+    void SetCache(int from, int to);
+    
     // For drag operations
     void SetDataObject( wxDataObject *obj );
     wxDataObject *GetDataObject() const;
@@ -2292,6 +2303,7 @@ public:
 %constant wxEventType wxEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG;
 %constant wxEventType wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE;
 %constant wxEventType wxEVT_COMMAND_DATAVIEW_ITEM_DROP;           
+%constant wxEventType wxEVT_COMMAND_DATAVIEW_CACHE_HINT;
 
 
 %pythoncode {
@@ -2314,7 +2326,8 @@ EVT_DATAVIEW_COLUMN_REORDERED          = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
 EVT_DATAVIEW_ITEM_BEGIN_DRAG           = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_BEGIN_DRAG, 1)
 EVT_DATAVIEW_ITEM_DROP_POSSIBLE        = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_DROP_POSSIBLE, 1)      
 EVT_DATAVIEW_ITEM_DROP                 = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_ITEM_DROP, 1)
-
+EVT_DATAVIEW_CACHE_HINT                = wx.PyEventBinder( wxEVT_COMMAND_DATAVIEW_CACHE_HINT, 1 )
+    
 }
 
 
@@ -2625,6 +2638,7 @@ public:
                  const wxValidator& validator = wxDefaultValidator );
 
     wxDataViewTreeStore *GetStore();
+    bool IsContainer( const wxDataViewItem& item ) const;
 
     %disownarg( wxImageList *imagelist );
     void SetImageList( wxImageList *imagelist );

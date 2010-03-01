@@ -75,6 +75,7 @@ enum wxWindowVariant
 
 enum wxShowEffect
 {
+    wxSHOW_EFFECT_NONE,
     wxSHOW_EFFECT_ROLL_TO_LEFT,
     wxSHOW_EFFECT_ROLL_TO_RIGHT,
     wxSHOW_EFFECT_ROLL_TO_TOP,
@@ -1927,6 +1928,10 @@ integer.  On the other platforms this method returns zero.","");
     // scrollbars
     // ----------
 
+    DocDeclStr(
+        bool , CanScroll(int orient) const,
+        "Can the window have the scrollbar in this orientation?", "");
+    
     
     DocDeclStr(
         bool , HasScrollbar(int orient) const,
@@ -2261,6 +2266,12 @@ wxControl where it returns true.", "");
 
     // returns true if the platform should explicitly apply a theme border
     virtual bool CanApplyThemeBorder() const;
+
+    // returns the main window of composite control; this is the window
+    // that FindFocus returns if the focus is in one of composite control's
+    // windows
+    virtual wxWindow *GetMainWindowOfCompositeControl();
+
     
 //     // this allows you to implement standard control borders without
 //     // repeating the code in different classes that are not derived from

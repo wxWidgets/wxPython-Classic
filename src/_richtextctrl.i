@@ -176,11 +176,36 @@ during sizing.", "");
     DocDeclStr(
         wxCursor , GetURLCursor() const,
         "Get URL cursor", "");
-    
 
+    
+    /// Are we showing the caret position at the start of a line
+    /// instead of at the end of the previous one?
+    bool GetCaretAtLineStart() const;
+    void SetCaretAtLineStart(bool atStart);
+
+    /// Are we dragging a selection?
+    bool GetDragging() const;
+    void SetDragging(bool dragging);
+
+    /// Get/set drag start position
+    const wxPoint& GetDragStart() const;
+    void SetDragStart(const wxPoint& pt);
+
+#ifdef __WXMSW__
+    /// Get the buffer bitmap
+    wxBitmap& GetBufferBitmap();
+#endif
+
+    /// Get/set context menu
     wxMenu* GetContextMenu() const;
     void SetContextMenu(wxMenu* menu);
 
+    /// Anchor so we know how to extend the selection
+    /// It's a caret position since it's between two characters.
+    long GetSelectionAnchor() const;
+    void SetSelectionAnchor(long anchor);
+
+    
 
     DocDeclStr(
         virtual void , Clear(),

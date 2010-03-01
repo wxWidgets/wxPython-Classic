@@ -77,11 +77,14 @@ public:
     int GetId();
     wxControl *GetControl();
     wxToolBarBase *GetToolBar();
+    bool IsStretchable() const;
     int IsButton();
     int IsControl();
     int IsSeparator();
+    bool IsStretchableSpace() const;
     int GetStyle();
     wxItemKind GetKind();
+    void MakeStretchable();
     bool IsEnabled();
     bool IsToggled();
     bool CanBeToggled();
@@ -338,6 +341,12 @@ public:
 
     wxToolBarToolBase *AddSeparator();
     wxToolBarToolBase *InsertSeparator(size_t pos);
+
+    // add a stretchable space to the toolbar: this is similar to a separator
+    // except that it's always blank and that all the extra space the toolbar
+    // has is [equally] distributed among the stretchable spaces in it
+    virtual wxToolBarToolBase *AddStretchableSpace();
+    virtual wxToolBarToolBase *InsertStretchableSpace(size_t pos);
 
     wxToolBarToolBase *RemoveTool(int id);
 

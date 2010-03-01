@@ -555,6 +555,8 @@ public:
         }
     }
 
+    virtual wxTreeItemId GetFocusedItem() const;
+
     // get the parent of this item
     // wxTreeItemId.IsOk() will return False if there is no such item
     wxTreeItemId GetItemParent(const wxTreeItemId& item) const;
@@ -698,6 +700,7 @@ public:
 
     // select this item
     void SelectItem(const wxTreeItemId& item, bool select = true);
+    void SelectChildren(const wxTreeItemId& parent);
 
     // toggle the item selection
     void ToggleItemSelection(const wxTreeItemId& item);

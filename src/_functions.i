@@ -41,11 +41,20 @@ bool wxIsStockLabel(wxWindowID id, const wxString& label);
 
 enum wxStockLabelQueryFlag
 {
-    wxSTOCK_NOFLAGS = 0,
+    wxSTOCK_NOFLAGS,
 
-    wxSTOCK_WITH_MNEMONIC = 1,
-    wxSTOCK_WITH_ACCELERATOR = 2
+    wxSTOCK_WITH_MNEMONIC,
+    wxSTOCK_WITH_ACCELERATOR,
+
+    // by default, stock items text is returned with ellipsis, if appropriate,
+    // this flag allows to avoid having it
+    wxSTOCK_WITHOUT_ELLIPSIS,
+
+    // return label for button, not menu item: buttons should always use
+    // mnemonics and never use ellipsis
+    wxSTOCK_FOR_BUTTON,
 };
+
 
 // Returns label that should be used for given stock UI element (e.g. "&OK"
 // for wxID_OK):

@@ -900,7 +900,6 @@ enum {
     wxSB_HORIZONTAL,
     wxSB_VERTICAL,
     wxRB_USE_CHECKBOX,
-    wxST_SIZEGRIP,
     
     wxTOOL_TOP,
     wxTOOL_BOTTOM,
@@ -927,6 +926,7 @@ enum {
     wxICON_MASK,
     wxICON_WARNING,
     wxICON_ERROR,
+    wxICON_NONE,
 
     wxFORWARD,
     wxBACKWARD,
@@ -943,8 +943,6 @@ enum {
     wxSIZE_FORCE,
     wxSIZE_FORCE_EVENT,
     
-    wxPORTRAIT,
-    wxLANDSCAPE,
     wxPRINT_QUALITY_HIGH,
     wxPRINT_QUALITY_MEDIUM,
     wxPRINT_QUALITY_LOW,
@@ -1159,6 +1157,7 @@ enum wxDirection
 
 enum wxAlignment
 {
+    wxALIGN_INVALID,
     wxALIGN_NOT,
     wxALIGN_CENTER_HORIZONTAL,
     wxALIGN_CENTRE_HORIZONTAL,
@@ -1210,10 +1209,14 @@ enum wxBorder
 
 enum wxBackgroundStyle
 {
-  wxBG_STYLE_SYSTEM,
-  wxBG_STYLE_COLOUR,
-  wxBG_STYLE_CUSTOM,
-  wxBG_STYLE_TRANSPARENT
+    wxBG_STYLE_ERASE,
+    wxBG_STYLE_SYSTEM,
+    wxBG_STYLE_PAINT,
+    wxBG_STYLE_TRANSPARENT,
+
+    // these two are deprecated
+    wxBG_STYLE_COLOUR,
+    wxBG_STYLE_CUSTOM,
 };
 
 
@@ -1510,9 +1513,19 @@ typedef enum {
     wxPAPER_PENV_7_ROTATED,     /* PRC Envelope #7 Rotated 230 x 160 mm */
     wxPAPER_PENV_8_ROTATED,     /* PRC Envelope #8 Rotated 309 x 120 mm */
     wxPAPER_PENV_9_ROTATED,     /* PRC Envelope #9 Rotated 324 x 229 mm */
-    wxPAPER_PENV_10_ROTATED    /* PRC Envelope #10 Rotated 458 x 324 m */
+    wxPAPER_PENV_10_ROTATED,    /* PRC Envelope #10 Rotated 458 x 324 m */
+    wxPAPER_A0,                 /* A0 Sheet 841 x 1189 mm */
+    wxPAPER_A1                  /* A1 Sheet 594 x 841 mm */
    
-} wxPaperSize ;
+} wxPaperSize;
+
+
+/* Printing orientation */
+enum wxPrintOrientation
+{
+   wxPORTRAIT = 1,
+   wxLANDSCAPE
+};
 
 typedef enum {
     wxDUPLEX_SIMPLEX, // Non-duplex

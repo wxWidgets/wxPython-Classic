@@ -316,6 +316,19 @@ necessarily a wx.Button or wx.BitmapButton.", "");
     // wxTextCtrl methods - for readonly combo they should return
     // without errors.
 
+    // Hint functions mirrored from TextEntryBase
+    virtual bool SetHint(const wxString& hint);
+    virtual wxString GetHint() const;
+
+    // Margins functions mirrored from TextEntryBase
+    // (wxComboCtrl does not inherit from wxTextEntry, but may embed a
+    // wxTextCtrl, so we need these). Also note that these functions
+    // have replaced SetTextIndent() in wxWidgets 2.9.1 and later.
+    bool SetMargins(const wxPoint& pt);
+    bool SetMargins(wxCoord left, wxCoord top = -1);
+    wxPoint GetMargins() const;
+
+    
     DocDeclStr(
         virtual wxString , GetValue() const,
         "Returns text representation of the current value. For writable combo

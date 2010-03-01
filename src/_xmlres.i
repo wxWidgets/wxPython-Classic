@@ -169,9 +169,27 @@ public:
     // Load an object from the resource specifying both the resource name and
     // the classname.  This form lets you finish the creation of an existing
     // instance.
-    %Rename(LoadOnObject, bool,  LoadObject(wxObject *instance, wxWindow *parent, const wxString& name,
-                                       const wxString& classname));
+    %Rename(LoadOnObject,
+            bool,  LoadObject(wxObject *instance,
+                              wxWindow *parent,
+                              const wxString& name,
+                              const wxString& classname));
 
+    // These versions of LoadObject() look for the object with the given name
+    // recursively (breadth first) and can be used to instantiate an individual
+    // control defined anywhere in an XRC file. No check is done that the name
+    // is unique, it's up to the caller to ensure this.
+    wxObject *LoadObjectRecursively(wxWindow *parent,
+                                    const wxString& name,
+                                    const wxString& classname);
+
+    %Rename(LoadOnObjectRecursively,
+            bool , LoadObjectRecursively(wxObject *instance,
+                                         wxWindow *parent,
+                                         const wxString& name,
+                                         const wxString& classname));
+
+    
     // Loads a bitmap resource from a file.
     wxBitmap LoadBitmap(const wxString& name);
 

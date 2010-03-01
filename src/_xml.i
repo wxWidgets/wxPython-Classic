@@ -140,12 +140,14 @@ public:
     void SetProperties(wxXmlProperty *prop);
 
     void SetAttributes(wxXmlAttribute *attr);
+
+    %nokwargs AddAttribute;
     virtual void AddAttribute(wxXmlAttribute *attr);
+    void AddAttribute(const wxString& attrName, const wxString& value);
 
     wxString GetAttribute(const wxString& attrName,
                           const wxString& defaultVal) const;
     //bool GetAttribute(const wxString& attrName, wxString *value) const;
-    void AddAttribute(const wxString& attrName, const wxString& value);
     wxXmlProperty* GetAttributes() const;
 
     

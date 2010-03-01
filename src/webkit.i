@@ -225,10 +225,14 @@ public:
     bool IsEditable();
     
     wxString RunScript(const wxString& javascript);
-    
+
+    %nokwargs SetScrollPos;
+    %nokwargs GetScrollPos;
     void SetScrollPos(int pos);
     int GetScrollPos();
-    
+    void SetScrollPos( int orient, int pos, bool refresh = true );
+    int GetScrollPos( int orient ) const;
+ 
     
     %property(PageSource, GetPageSource, SetPageSource, doc="See `GetPageSource` and `SetPageSource`");
     %property(PageTitle, GetPageTitle, doc="See `GetPageTitle`");

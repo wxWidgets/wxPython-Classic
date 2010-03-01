@@ -25,6 +25,7 @@ public:
         BRUSH_BLUE,
         BRUSH_CYAN,
         BRUSH_GREEN,
+        BRUSH_YELLOW,
         BRUSH_GREY,
         BRUSH_LIGHTGREY,
         BRUSH_MEDIUMGREY,
@@ -35,6 +36,7 @@ public:
         COLOUR_BLUE,
         COLOUR_CYAN,
         COLOUR_GREEN,
+        COLOUR_YELLOW,
         COLOUR_LIGHTGREY,
         COLOUR_RED,
         COLOUR_WHITE,
@@ -50,6 +52,7 @@ public:
         PEN_BLUE,
         PEN_CYAN,
         PEN_GREEN,
+        PEN_YELLOW,
         PEN_GREY,
         PEN_LIGHTGREY,
         PEN_MEDIUMGREY,
@@ -85,6 +88,7 @@ public:
         wx.BLUE_PEN.this          = StockGDI.GetPen(StockGDI.PEN_BLUE).this
         wx.CYAN_PEN.this          = StockGDI.GetPen(StockGDI.PEN_CYAN).this
         wx.GREEN_PEN.this         = StockGDI.GetPen(StockGDI.PEN_GREEN).this
+        wx.YELLOW_PEN.this        = StockGDI.GetPen(StockGDI.PEN_YELLOW).this
         wx.GREY_PEN.this          = StockGDI.GetPen(StockGDI.PEN_GREY).this
         wx.LIGHT_GREY_PEN.this    = StockGDI.GetPen(StockGDI.PEN_LIGHTGREY).this
         wx.MEDIUM_GREY_PEN.this   = StockGDI.GetPen(StockGDI.PEN_MEDIUMGREY).this
@@ -96,6 +100,7 @@ public:
         wx.BLUE_BRUSH.this         = StockGDI.GetBrush(StockGDI.BRUSH_BLUE).this
         wx.CYAN_BRUSH.this         = StockGDI.GetBrush(StockGDI.BRUSH_CYAN).this
         wx.GREEN_BRUSH.this        = StockGDI.GetBrush(StockGDI.BRUSH_GREEN).this
+        wx.YELLOW_BRUSH.this       = StockGDI.GetBrush(StockGDI.BRUSH_YELLOW).this
         wx.GREY_BRUSH.this         = StockGDI.GetBrush(StockGDI.BRUSH_GREY).this
         wx.LIGHT_GREY_BRUSH.this   = StockGDI.GetBrush(StockGDI.BRUSH_LIGHTGREY).this
         wx.MEDIUM_GREY_BRUSH.this  = StockGDI.GetBrush(StockGDI.BRUSH_MEDIUMGREY).this
@@ -107,6 +112,7 @@ public:
         wx.BLUE.this        = StockGDI.GetColour(StockGDI.COLOUR_BLUE).this
         wx.CYAN.this        = StockGDI.GetColour(StockGDI.COLOUR_CYAN).this
         wx.GREEN.this       = StockGDI.GetColour(StockGDI.COLOUR_GREEN).this
+        wx.YELLOW.this       = StockGDI.GetColour(StockGDI.COLOUR_YELLOW).this
         wx.LIGHT_GREY.this  = StockGDI.GetColour(StockGDI.COLOUR_LIGHTGREY).this
         wx.RED.this         = StockGDI.GetColour(StockGDI.COLOUR_RED).this
         wx.WHITE.this       = StockGDI.GetColour(StockGDI.COLOUR_WHITE).this
@@ -138,6 +144,7 @@ BLACK_PEN         = Pen.__new__(Pen)
 BLUE_PEN          = Pen.__new__(Pen)                                               
 CYAN_PEN          = Pen.__new__(Pen)
 GREEN_PEN         = Pen.__new__(Pen)
+YELLOW_PEN        = Pen.__new__(Pen)                                                
 GREY_PEN          = Pen.__new__(Pen)
 LIGHT_GREY_PEN    = Pen.__new__(Pen)
 MEDIUM_GREY_PEN   = Pen.__new__(Pen)
@@ -149,6 +156,7 @@ BLACK_BRUSH        = Brush.__new__(Brush)
 BLUE_BRUSH         = Brush.__new__(Brush)
 CYAN_BRUSH         = Brush.__new__(Brush)
 GREEN_BRUSH        = Brush.__new__(Brush)
+YELLOW_BRUSH       = Brush.__new__(Brush)                                                
 GREY_BRUSH         = Brush.__new__(Brush)
 LIGHT_GREY_BRUSH   = Brush.__new__(Brush)
 MEDIUM_GREY_BRUSH  = Brush.__new__(Brush)
@@ -160,6 +168,7 @@ BLACK       = Colour.__new__(Colour)
 BLUE        = Colour.__new__(Colour)
 CYAN        = Colour.__new__(Colour)
 GREEN       = Colour.__new__(Colour)
+YELLOW      = Colour.__new__(Colour)                                                
 LIGHT_GREY  = Colour.__new__(Colour)
 RED         = Colour.__new__(Colour)
 WHITE       = Colour.__new__(Colour)

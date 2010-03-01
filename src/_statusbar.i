@@ -31,6 +31,8 @@ enum {
     wxSTB_ELLIPSIZE_END,
 
     wxSTB_DEFAULT_STYLE,
+
+    wxST_SIZEGRIP,
 };
 
 enum {

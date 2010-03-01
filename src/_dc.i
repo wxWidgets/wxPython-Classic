@@ -30,8 +30,10 @@
 //       2. Do the factory and wxDCImpl classes need to be exposed?
 
 //---------------------------------------------------------------------------
-
 %newgroup;
+
+class wxDCImpl;
+
 
 //  Logical ops
 enum wxRasterOperationMode
@@ -146,6 +148,9 @@ public:
     
 // TODO    virtual void DrawObject(wxDrawObject* drawobject);
 
+    
+    // copy attributes (font, colours and writing direction) from another DC
+    void CopyAttributes(const wxDC& dc);
 
     DocStr(
         FloodFill,
@@ -1143,6 +1148,8 @@ supported.", "");
             return 0;
 #endif
         }
+
+        // TODO: Do GetTempHDC ?
     }
 
 #ifdef __WXMAC__
@@ -1505,6 +1512,7 @@ class wxDCFontChanger
 public:
     wxDCFontChanger(wxDC& dc, const wxFont& font);
     ~wxDCFontChanger();
+    void Set(const wxFont& font);
 };
 
 

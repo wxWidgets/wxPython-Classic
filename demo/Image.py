@@ -14,16 +14,31 @@ def runTest(frame, nb, log):
     panel = wx.Panel(nb, -1)
 
     pos = 10
-    wx.StaticBitmap(panel, -1, bmp, (10, pos), (bmp.GetWidth(), bmp.GetHeight()))
+    wx.StaticBitmap(panel, -1, bmp, (10, pos))
 
     pos = pos + bmp.GetHeight() + 10
-    wx.StaticBitmap(panel, -1, gif, (10, pos), (gif.GetWidth(), gif.GetHeight()))
+    wx.StaticBitmap(panel, -1, gif, (10, pos))
 
     pos = pos + gif.GetHeight() + 10
-    wx.StaticBitmap(panel, -1, png, (10, pos), (png.GetWidth(), png.GetHeight()))
+    wx.StaticBitmap(panel, -1, png, (10, pos))
 
     pos = pos + png.GetHeight() + 10
-    wx.StaticBitmap(panel, -1, jpg, (10, pos), (jpg.GetWidth(), jpg.GetHeight()))
+    wx.StaticBitmap(panel, -1, jpg, (10, pos))
+
+
+    greyscale = wx.Image(opj('bitmaps/image.png'), wx.BITMAP_TYPE_PNG).ConvertToGreyscale().ConvertToBitmap()
+    disabled = wx.Image(opj('bitmaps/image.png'), wx.BITMAP_TYPE_PNG).ConvertToDisabled().ConvertToBitmap()
+    mono = wx.Image(opj('bitmaps/image.png'), wx.BITMAP_TYPE_PNG).ConvertToMono(0,255,255).ConvertToBitmap()
+    
+    pos = 10
+    wx.StaticBitmap(panel, -1, greyscale, (320, pos))
+    
+    pos = pos + greyscale.GetHeight() + 10
+    wx.StaticBitmap(panel, -1, disabled, (320, pos))
+
+    pos = pos + disabled.GetHeight() + 10
+    wx.StaticBitmap(panel, -1, mono, (320, pos))
+
 
     return panel
 

@@ -263,6 +263,13 @@ public:
     // instance is running - use IsAnotherRunning() to check it
     bool Create(const wxString& name, const wxString& path = wxPyEmptyString);
 
+    // use the default name, which is a combination of wxTheApp->GetAppName()
+    // and wxGetUserId() for mutex/lock file
+    //
+    // this is called implicitly by IsAnotherRunning() if the checker hadn't
+    // been created until then
+    bool CreateDefault();
+
     // is another copy of this program already running?
     bool IsAnotherRunning() const;
 };
@@ -357,6 +364,16 @@ enum wxEndianness
     wxENDIAN_MAX
 };
 
+struct wxLinuxDistributionInfo
+{
+    wxString Id;
+    wxString Release;
+    wxString CodeName;
+    wxString Description;
+};
+
+
+
 // Information about the toolkit that the app is running under and some basic
 // platform and architecture info
 
@@ -417,6 +434,8 @@ public:
     bool IsUsingUniversalWidgets() const;
 
     wxOperatingSystemId GetOperatingSystemId() const;
+    wxLinuxDistributionInfo GetLinuxDistributionInfo() const;
+
     wxPortId GetPortId() const;
     wxArchitecture GetArchitecture() const;
     wxEndianness GetEndianness() const;
@@ -431,6 +450,11 @@ public:
     wxString GetPortIdShortName() const;
     wxString GetArchName() const;
     wxString GetEndiannessName() const;
+    wxString GetOperatingSystemDescription() const;
+    wxString GetDesktopEnvironment() const;
+
+    static wxString GetOperatingSystemDirectory();
+
 
     // setters
     // -----------------
@@ -439,10 +463,15 @@ public:
     void SetToolkitVersion(int major, int minor);
 
     void SetOperatingSystemId(wxOperatingSystemId n);
+    void SetOperatingSystemDescription(const wxString& desc);
+
     void SetPortId(wxPortId n);
     void SetArchitecture(wxArchitecture n);
     void SetEndianness(wxEndianness n);
+    void SetDesktopEnvironment(const wxString& de);
+    void SetLinuxDistributionInfo(const wxLinuxDistributionInfo& di);
 
+    
     // miscellaneous
     // -----------------
 

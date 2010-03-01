@@ -61,6 +61,7 @@ public:
     // validators beep by default if invalid key is pressed, these functions
     // allow to change it
     static bool IsSilent();
+    static void SuppressBellOnError(bool suppress = true);
     static void SetBellOnError(int doIt = true);
 
     %property(Window, GetWindow, SetWindow, doc="See `GetWindow` and `SetWindow`");

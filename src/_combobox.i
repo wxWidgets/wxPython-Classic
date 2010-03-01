@@ -137,7 +137,10 @@ the combobox text field.", "",
         }
     }
     
-    
+
+    virtual void Popup();
+    virtual void Dismiss();
+
 
     DocDeclStr(
         int , GetCurrentSelection() const,

@@ -30,14 +30,16 @@ enum {
     wxSL_VERTICAL,
     wxSL_TICKS,
     wxSL_AUTOTICKS,
-    wxSL_LABELS,
     wxSL_LEFT,
     wxSL_TOP,
     wxSL_RIGHT,
     wxSL_BOTTOM,
     wxSL_BOTH,
     wxSL_SELRANGE,
-    wxSL_INVERSE
+    wxSL_INVERSE,
+    wxSL_MIN_MAX_LABELS,
+    wxSL_VALUE_LABEL,   
+    wxSL_LABELS,
 };
 
 

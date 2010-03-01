@@ -127,6 +127,12 @@ __init__ as a plain old wx.Control is not very useful.", "");
         static wxString , RemoveMnemonics(const wxString& str),
         "removes the mnemonics characters", "");
 
+
+    DocDeclStr(
+        static wxString , EscapeMnemonics(const wxString& str),
+        "escapes (by doubling them) the mnemonics", "");
+    
+
     DocDeclStr(
         static int , FindAccelIndex(const wxString& label), 
         "Return the accel index in the string or -1 if none.", "");
@@ -138,21 +144,15 @@ __init__ as a plain old wx.Control is not very useful.", "");
                               wxEllipsizeMode mode, int maxWidth,
                               int flags = wxELLIPSIZE_FLAGS_DEFAULT);
 
-//     // get the string without mnemonic characters ('&')
-//     static wxString GetLabelText(const wxString& label);
 
-    // escapes (by doubling them) the mnemonics
-    static wxString EscapeMnemonics(const wxString& str);
+    // this is a helper for the derived class GetClassDefaultAttributes()
+    // implementation: it returns the right colours for the classes which
+    // contain something else (e.g. wxListBox, wxTextCtrl, ...) instead of
+    // being simple controls (such as wxButton, wxCheckBox, ...)
+    static wxVisualAttributes
+        GetCompositeControlsDefaultAttributes(wxWindowVariant variant);
 
-
-    
-    
-// Link error...
-//     DocDeclStr(
-//         static wxString , EscapeMnemonics(const wxString& str),
-//         "escapes the mnemonics characters ('&') by doubling them", "");
-    
-     
+         
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
 
@@ -568,6 +568,12 @@ including) the character at the last position.  If both parameters are
         "Set the max number of characters which may be entered in a single line
 text control.", "");
     
+
+    virtual bool SetHint(const wxString& hint);
+    virtual wxString GetHint() const;
+
+    bool SetMargins(const wxPoint& pt);
+    wxPoint GetMargins() const;
 
 
     %property(InsertionPoint, GetInsertionPoint, SetInsertionPoint);

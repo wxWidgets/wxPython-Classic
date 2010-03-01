@@ -814,6 +814,31 @@ then for a font belonging to the same family.", "");
         GetNoAntiAliasing = wx._deprecated(GetNoAntiAliasing)
     }
 
+
+    // This typemap ensures that the returned object is the same Python
+    // instance as what was passed in as `self`, instead of creating a new
+    // proxy as SWIG would normally do.  This lets the method calls be chained
+    // together.
+    %typemap(out) wxFont& { $result = $self; Py_INCREF($result); }
+
+    wxFont& MakeBold(); 
+    wxFont& MakeItalic(); 
+    wxFont& MakeLarger();
+    wxFont& MakeSmaller();
+    wxFont& Scale(float x);
+
+    // Clear the typemap
+    %typemap(out) wxFont&;
+
+    
+    /* functions for creating new fonts based on this one */ 
+    wxFont Bold() const; 
+    wxFont Italic() const;
+    wxFont Larger() const;
+    wxFont Smaller() const;
+    wxFont Scaled(float x) const;
+    
+
     // Give access to the internal native font handle, ID, pointer, etc.
 #ifdef __WXMSW__
     void* GetHFONT();

@@ -49,6 +49,50 @@ enum
 #define wxTraceOleCalls 0x0100  // OLE interface calls
 
 //---------------------------------------------------------------------------
+class wxLogRecordInfo
+{
+public:
+    %nokwargs wxLogRecordInfo;
+    
+    wxLogRecordInfo();
+    wxLogRecordInfo(const char *filename_,
+                    int line_,
+                    const char *func_,
+                    const char *component_);
+
+    // dtor is non-virtual, this class is not meant to be derived from
+    ~wxLogRecordInfo();
+
+    %immutable;
+    // the file name and line number of the file where the log record was
+    // generated, if available or NULL and 0 otherwise
+    const char *filename;
+    int line;
+
+    // the name of the function where the log record was generated (may be NULL
+    // if the compiler doesn't support __FUNCTION__)
+    const char *func;
+
+    // the name of the component which generated this message, may be NULL if
+    // not set (i.e. wxLOG_COMPONENT not defined)
+    const char *component;
+
+    // time of record generation
+    time_t timestamp;
+
+    %mutable;
+    
+    // void StoreValue(const wxString& key, wxUIntPtr val);
+    // void StoreValue(const wxString& key, const wxString& val);
+
+    // // these functions retrieve the value of either numeric or string key,
+    // // return false if not found
+    // bool GetNumValue(const wxString& key, wxUIntPtr *val) const;
+    // bool GetStrValue(const wxString& key, wxString *val) const;
+};
+
+
+//---------------------------------------------------------------------------
 
 class wxLog
 {
@@ -61,11 +105,44 @@ public:
     static bool IsEnabled();
 
     // change the flag state, return the previous one
-    static bool EnableLogging(bool doIt = true);
+    static bool EnableLogging(bool enable = true);
 
-    // static sink function
-    static void OnLog(wxLogLevel level, const wxString& szString, time_t t);    
+    // return the current global log level
+    static wxLogLevel GetLogLevel();
 
+    // set global log level: messages with level > logLevel will not be logged
+    static void SetLogLevel(wxLogLevel logLevel);
+
+    // set the log level for the given component
+    static void SetComponentLevel(const wxString& component, wxLogLevel level);
+
+    // return the effective log level for this component, falling back to
+    // parent component and to the default global log level if necessary
+    //
+    // NB: component argument is passed by value and not const reference in an
+    //     attempt to encourage compiler to avoid an extra copy: as we modify
+    //     the component internally, we'd create one anyhow and like this it
+    //     can be avoided if the string is a temporary anyhow
+    static wxLogLevel GetComponentLevel(wxString component);
+
+
+    // is logging of messages from this component enabled at this level?
+    //
+    // usually always called with wxLOG_COMPONENT as second argument
+    static bool IsLevelEnabled(wxLogLevel level, wxString component);
+
+
+    // enable/disable messages at wxLOG_Verbose level (only relevant if the
+    // current log level is greater or equal to it)
+    //
+    // notice that verbose mode can be activated by the standard command-line
+    // '--verbose' option
+    static void SetVerbose(bool bVerbose = true);
+
+    // check if verbose messages are enabled
+    static bool GetVerbose();
+
+    
     // message buffering
     // flush shows all messages if they're not logged immediately (FILE
     // and iostream logs don't need it, but wxGuiLog does to avoid showing
@@ -94,13 +171,6 @@ public:
     // must be called for each Suspend()!
     static void Resume();
 
-
-    // verbose mode is activated by standard command-line '-verbose'
-    // option
-    static void SetVerbose(bool bVerbose = true);
-
-    // Set log level.  Log messages with level > logLevel will not be logged.
-    static void SetLogLevel(wxLogLevel logLevel);
 
     // should GetActiveTarget() try to create a new log object if the
     // current is NULL?
@@ -137,17 +207,11 @@ public:
     static void SetTimestamp(const wxString& ts);
 
 
-    // gets the verbose status
-    static bool GetVerbose();
-    
     // get trace mask
     static wxTraceMask GetTraceMask();
 
     // is this trace mask in the list?
     static bool IsAllowedTraceMask(const wxString& mask);
-
-    // return the current loglevel limit
-    static wxLogLevel GetLogLevel();
 
 
     // get the current timestamp format string (may be NULL)
@@ -161,6 +225,14 @@ public:
             return msg;
         }
     }
+
+
+    void LogRecord(wxLogLevel level,
+                   const wxString& msg,
+                   const wxLogRecordInfo& info);
+    void LogTextAtLevel(wxLogLevel level, const wxString& msg);  
+    void LogText(const wxString& msg);
+
 
     %pythonPrepend Destroy "args[0].this.own(False)";
     %extend { void Destroy() { delete self; } }
@@ -416,6 +488,54 @@ public:
         if (! found)
             wxLog::DoLogString(szString, t);
     }
+
+    
+    virtual void DoLogRecord(wxLogLevel level,
+                             const wxString& msg,
+                             const wxLogRecordInfo& info)
+    {
+        bool found;
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if ((found = wxPyCBH_findCallback(m_myInst, "DoLogRecord"))) {
+            PyObject* s = wx2PyString(msg);
+            PyObject* r = wxPyConstructObject((void*)&info, wxT("wxLogRecordInfo"), 0);
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iOO)", level, s, r));
+            Py_DECREF(s);
+            Py_DECREF(r);
+        }
+        wxPyEndBlockThreads(blocked);
+        if (! found)
+            wxLog::DoLogRecord(level, msg, info);
+    }
+
+    virtual void DoLogTextAtLevel(wxLogLevel level, const wxString& msg)
+    {
+        bool found;
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if ((found = wxPyCBH_findCallback(m_myInst, "DoLogTextAtLevel"))) {
+            PyObject* s = wx2PyString(msg);
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(iO)", level, s));
+            Py_DECREF(s);
+        }
+        wxPyEndBlockThreads(blocked);
+        if (! found)
+            wxLog::DoLogTextAtLevel(level, msg);
+    }
+
+    virtual void DoLogText(const wxString& msg)
+    {
+        bool found;
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        if ((found = wxPyCBH_findCallback(m_myInst, "DoLogText"))) {
+            PyObject* s = wx2PyString(msg);
+            wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", s));
+            Py_DECREF(s);
+        }
+        wxPyEndBlockThreads(blocked);
+        if (! found)
+            wxLog::DoLogText(msg);
+    }
+
 
     DEC_PYCALLBACK_VOID_(Flush);
     PYPRIVATE;

@@ -89,6 +89,14 @@ enum
     wxUSER_ATTENTION_ERROR = 2
 };
 
+
+enum wxDialogModality
+{
+    wxDIALOG_MODALITY_NONE = 0,
+    wxDIALOG_MODALITY_WINDOW_MODAL = 1,
+    wxDIALOG_MODALITY_APP_MODAL = 2
+};
+
 //---------------------------------------------------------------------------
 
 class  wxTopLevelWindow : public wxWindow
@@ -127,6 +135,10 @@ public:
 
     // maximize the window to cover entire screen
     virtual bool ShowFullScreen(bool show, long style = wxFULLSCREEN_ALL);
+
+    // shows the window, but doesn't activate it. If the base code is being run,
+    // it means the port doesn't implement this method yet and so alert the user.
+    virtual void ShowWithoutActivating(); 
 
     // return True if the frame is in fullscreen mode
     virtual bool IsFullScreen() const;
@@ -447,7 +459,13 @@ public:
     // may be called to terminate the dialog with the given return code
     virtual void EndModal(int retCode);
 
+    
+    // show the dialog frame-modally (needs a parent), using app-modal
+    // dialogs on platforms that don't support it
+    virtual void ShowWindowModal();
+    virtual void SendWindowModalDialogEvent( wxEventType type );
 
+    
     // Do layout adaptation
     virtual bool DoLayoutAdaptation();
 
@@ -487,6 +505,9 @@ public:
     // Global switch for layout adaptation
     static bool IsLayoutAdaptationEnabled();
     static void EnableLayoutAdaptation(bool enable);
+
+    // modality kind
+    virtual wxDialogModality GetModality() const;
 
     
     static wxVisualAttributes
@@ -575,6 +596,27 @@ public:
     virtual int MustScroll(wxDialog* dialog, wxSize& windowSize, wxSize& displaySize);
     static int DoMustScroll(wxDialog* dialog, wxSize& windowSize, wxSize& displaySize);
 };
+
+
+
+
+class wxWindowModalDialogEvent  : public wxCommandEvent
+{
+public:
+    wxWindowModalDialogEvent(wxEventType commandType = wxEVT_NULL, int id = 0);
+
+    wxDialog *GetDialog() const;
+    int GetReturnCode() const;
+
+    %property(Dialog, GetDialog);
+    %property(ReturnCode, GetReturnCode);
+};
+
+
+%constant wxEventType wxEVT_WINDOW_MODAL_DIALOG_CLOSED;
+%pythoncode {
+    EVT_WINDOW_MODAL_DIALOG_CLOSED = wx.PyEventBinder(wxEVT_WINDOW_MODAL_DIALOG_CLOSED)
+}
 
 
 //---------------------------------------------------------------------------

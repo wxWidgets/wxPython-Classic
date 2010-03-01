@@ -51,12 +51,12 @@ object.", "");
 
 
 
-class wxObjectRefData
+class wxRefCounter
 {
 public:
-    wxObjectRefData();
+    wxRefCounter();
     %extend {
-        ~wxObjectRefData() { self->DecRef(); }
+        ~wxRefCounter() { self->DecRef(); }
     }
     
     int GetRefCount() const;

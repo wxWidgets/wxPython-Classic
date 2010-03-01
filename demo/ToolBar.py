@@ -133,7 +133,7 @@ class TestToolBar(wx.Frame):
                 ))
         self.Bind(wx.EVT_COMBOBOX, self.OnCombo, id=cbID)
 
-        tb.AddSeparator()
+        tb.AddStretchableSpace()
         search = TestSearchCtrl(tb, size=(150,-1), doSearch=self.DoSearch)
         tb.AddControl(search)
 

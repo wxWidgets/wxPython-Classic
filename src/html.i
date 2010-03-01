@@ -712,7 +712,7 @@ public:
     void SetMinHeight(int h, int align = wxHTML_ALIGN_TOP);
     void SetBackgroundColour(const wxColour& clr);
     wxColour GetBackgroundColour();
-    void SetBorder(const wxColour& clr1, const wxColour& clr2);
+    void SetBorder(const wxColour& clr1, const wxColour& clr2, int border=1);
     wxHtmlCell* GetFirstChild();
     %pragma(python) addtoclass = "GetFirstCell = GetFirstChild"
 
@@ -1333,10 +1333,14 @@ public:
     wxWindow* GetParentWindow() const;
     void SetParentWindow(wxWindow* window);
 
+    const wxString& GetName() const;
+    void SetName(const wxString& name);
+    
     
     %property(PageSetupData, GetPageSetupData, doc="See `GetPageSetupData`");
     %property(PrintData, GetPrintData, doc="See `GetPrintData`");
     %property(ParentWindow, GetParentWindow, SetParentWindow);
+    %property(Name, GetName, SetName);
 };
 
 

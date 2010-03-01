@@ -1609,6 +1609,9 @@ define extra space between all children.", "");
         int , GetHGap(),
         "Returns the horizontal gap (in pixels) between cells in the sizer.", "");
 
+    int GetEffectiveColsCount() const;
+    int GetEffectiveRowsCount() const;
+
     %pythoncode {
         def CalcRowsCols(self):
             """

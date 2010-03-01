@@ -14,8 +14,9 @@
 
 
 //---------------------------------------------------------------------------
-// TODO: wxPyEventLoop that virtualizes all the methods...
-
+// TODO:
+//   * wxPyEventLoop that virtualizes all the methods
+//   * Add wxEventLoopSource when MSW gets an implementation    
 //---------------------------------------------------------------------------
 %newgroup
 

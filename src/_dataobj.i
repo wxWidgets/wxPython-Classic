@@ -546,6 +546,14 @@ the clipboard or the DnD operation.  You can use this method to find
 out what kind of data object was recieved.", "");
     
     %property(ReceivedFormat, GetReceivedFormat, doc="See `GetReceivedFormat`");
+
+    DocDeclStr(
+        wxDataObjectSimple *, GetObject(const wxDataFormat& format,
+                                        wxDataObjectBase::Direction dir = Get) const,
+        "Returns the pointer to the object which supports this format or None.
+TODO: Fix this to use OOR and return the right object type.", "");
+    
+    
 };
 
 //---------------------------------------------------------------------------
