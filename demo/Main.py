@@ -97,6 +97,7 @@ _treeList = [
         'PropertyGrid',
         'SystemSettings',
         'GridLabelRenderer',
+        'InfoBar',
         ]),
 
     # managed windows == things with a (optional) caption you can close

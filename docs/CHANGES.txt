@@ -48,7 +48,12 @@ wx.Dialog.ShowWindowModal and the wx.Dialog sample in the demo.
 
 wx.wizard.Wizard:  Add a new EVT_WIZARD_PAGE_SHOWN event.
 
- 
+Added wx.InfoBar, which is similar to the message bar in browser
+windows that is shown above or below the content window to display
+messages and/or buttons in a way that doesn't interupt the user's
+workflow like a modal message dialog does, but is much more noticeble
+than simply putting some text in the status bar.
+
 
 
 

@@ -303,6 +303,7 @@ swig_sources = run_swig(['controls.i'], 'src', GENDIR, PKGDIR,
                           'src/_srchctrl.i',
                           'src/_axbase.i',
                           'src/_filectrl.i',
+                          'src/_infobar.i',
                           ],
                         True)
 ext = Extension('_controls_', swig_sources,

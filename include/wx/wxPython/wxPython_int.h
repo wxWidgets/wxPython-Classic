@@ -46,6 +46,7 @@
 #include <wx/htmllbox.h>
 #include <wx/image.h>
 #include <wx/imaglist.h>
+#include <wx/infobar.h>
 #include <wx/intl.h>
 #include <wx/laywin.h>
 #include <wx/listbase.h>

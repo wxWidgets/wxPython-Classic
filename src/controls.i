@@ -65,6 +65,7 @@ MAKE_CONST_WXSTRING_NOSWIG(ControlNameStr);
 %include _srchctrl.i
 %include _axbase.i
 %include _filectrl.i
+%include _infobar.i
 
 
 //---------------------------------------------------------------------------
