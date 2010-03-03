@@ -179,6 +179,9 @@ class InspectionFrame(wx.Frame):
             config = wx.Config('wxpyinspector')
         self.config = config
         self.Bind(wx.EVT_CLOSE, self.OnClose)
+        if self.Parent:
+            tlw = self.Parent.GetTopLevelParent()
+            tlw.Bind(wx.EVT_CLOSE, self.OnClose)
         self.LoadSettings(self.config)
         self.crust.shell.lineNumbers = False
         self.crust.shell.setDisplayLineNumbers(False)
@@ -254,9 +257,13 @@ class InspectionFrame(wx.Frame):
 
     def OnClose(self, evt):
         self.SaveSettings(self.config)
-        self.mgr.UnInit()
-        del self.mgr
         evt.Skip()
+        if hasattr(self, 'mgr'):
+            self.mgr.UnInit()
+            del self.mgr
+            if self.Parent:
+                tlw = self.Parent.GetTopLevelParent()
+                tlw.Unbind(wx.EVT_CLOSE, handler=self.OnClose)
 
 
     def UpdateInfo(self):
