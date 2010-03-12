@@ -2032,7 +2032,10 @@ already on top/bottom and nothing was done.", "");
 
     virtual void AlwaysShowScrollbars(bool horz = true, bool vert = true);
     virtual bool IsScrollbarAlwaysShown(int orient) const;
-
+#ifdef __WXMAC__
+    bool MacIsWindowScrollbar( const wxWindow* sb );
+#endif
+ 
 
     // context-sensitive help
     // ----------------------
