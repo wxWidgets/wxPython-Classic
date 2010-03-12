@@ -146,7 +146,12 @@ public:
         return wxComboCtrl::GetMainWindowOfCompositeControl();
     }
 
-    
+    void DestroyPopup()
+    {
+        wxComboCtrlBase::DestroyPopup();
+    }
+        
+
     enum
     {
         ShowBelow       = 0x0000,  // Showing popup below the control
@@ -513,6 +518,7 @@ flags are the same as wx.RendererNative flags:
     // Set value returned by GetMainWindowOfCompositeControl
     void SetCtrlMainWnd( wxWindow* wnd );
     virtual wxWindow *GetMainWindowOfCompositeControl();
+    void DestroyPopup();
 
     DocDeclStr(
         static int , GetFeatures(),
