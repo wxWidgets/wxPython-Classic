@@ -702,7 +702,7 @@ pointer for GDIPlus or a cairo_t pointer for Cairo.  NOTE: For
 wxPython we still need a way to make this value usable.", "");
     
 
-    %newobject CreateFromNative;
+    %newobject CreateFromNativeWindow;
     DocDeclStr(
         static wxGraphicsContext* , CreateFromNativeWindow( void * window ) ,
         "Creates a wx.GraphicsContext from a native window.  NOTE: For wxPython
