@@ -153,8 +153,9 @@ class GenButton(wx.PyControl):
     
 
     def Enable(self, enable=True):
-        wx.PyControl.Enable(self, enable)
-        self.Refresh()
+        if enable != self.IsEnabled():
+            wx.PyControl.Enable(self, enable)
+            self.Refresh()
 
 
     def SetBezelWidth(self, width):
@@ -594,9 +595,9 @@ class GenBitmapTextToggleButton(__ToggleMixin, GenBitmapTextButton):
 
 #----------------------------------------------------------------------
 
-class ThemedGenButton(GenButton):
-    " A themed generic button, and base class for the other themed buttons "
 
+class __ThemedMixin:
+    """ Use the native renderer to draw the bezel, also handle mouse-overs"""
     def InitOtherEvents(self):
         self.Bind(wx.EVT_ENTER_WINDOW, self.OnMouse)
         self.Bind(wx.EVT_LEAVE_WINDOW, self.OnMouse)
@@ -617,25 +618,30 @@ class ThemedGenButton(GenButton):
         if self.GetClientRect().Contains(pt):
             state = wx.CONTROL_CURRENT
         wx.RendererNative.Get().DrawPushButton(self, dc, rect, state)
-        
- 
-class ThemedGenBitmapButton(ThemedGenButton, GenBitmapButton):
+    
+
+
+class ThemedGenButton(__ThemedMixin, GenButton):
+    """A themed generic button"""        
+    pass
+
+class ThemedGenBitmapButton(__ThemedMixin, GenBitmapButton):
     """A themed generic bitmap button."""
     pass
 
-class ThemedGenBitmapTextButton(ThemedGenButton, GenBitmapTextButton):
+class ThemedGenBitmapTextButton(__ThemedMixin, GenBitmapTextButton):
     """A themed generic bitmapped button with text label"""
     pass
     
-class ThemedGenToggleButton(ThemedGenButton, GenToggleButton):
+class ThemedGenToggleButton(__ThemedMixin, GenToggleButton):
     """A themed generic toggle button"""
     pass
 
-class ThemedGenBitmapToggleButton(ThemedGenButton, GenBitmapToggleButton):
+class ThemedGenBitmapToggleButton(__ThemedMixin, GenBitmapToggleButton):
     """A themed generic toggle bitmap button"""
     pass
 
-class ThemedGenBitmapTextToggleButton(ThemedGenButton, GenBitmapTextToggleButton):
+class ThemedGenBitmapTextToggleButton(__ThemedMixin, GenBitmapTextToggleButton):
     """A themed generic toggle bitmap button with text label"""
     pass
 
