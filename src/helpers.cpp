@@ -13,6 +13,8 @@
 
 #undef DEBUG
 #include <Python.h>
+
+#include <wx/wx.h>
 #include "wx/wxPython/wxPython_int.h"
 #include "wx/wxPython/pyistream.h"
 #include "wx/wxPython/swigver.h"
@@ -25,10 +27,7 @@
 #endif
 
 #ifdef __WXGTK__
-//#include <gdk/gdk.h>
 #include <gdk/gdkx.h>
-// #include <gtk/gtk.h>
-// #include <gdk/gdkprivate.h>
 #ifdef __WXGTK20__
 #include <wx/gtk/private/win_gtk.h>
 #else
