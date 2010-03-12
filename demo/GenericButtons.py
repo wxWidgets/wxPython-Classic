@@ -128,9 +128,17 @@ class TestPanel(wx.Panel):
         ##b.SetBackgroundColour("sky blue")
         ##b.SetBackgroundColour("pink")
 
+        vbox = wx.BoxSizer(wx.VERTICAL)
+        sizer.Add(vbox)
+
         b = buttons.ThemedGenButton(self, -1, 'Drawn with native renderer')
         self.Bind(wx.EVT_BUTTON, self.OnButton, b)
-        sizer.Add(b)
+        vbox.Add(b, 0, wx.ALL, 5)
+
+        b = buttons.ThemedGenToggleButton(self, -1, 'native renderered toggle')
+        self.Bind(wx.EVT_BUTTON, self.OnButton, b)
+        vbox.Add(b, 0, wx.ALL, 5)
+        
         
 
         border = wx.BoxSizer(wx.VERTICAL)
