@@ -1856,9 +1856,12 @@ already on top/bottom and nothing was done.", "");
     DocDeclStr(
         bool , PageDown(),
         "This is just a wrapper for ScrollPages(1).", "");
+
     
-
-
+#ifdef __WXMAC__
+    bool MacIsWindowScrollbar( const wxWindow* sb );
+#endif
+    
 
     // context-sensitive help
     // ----------------------
