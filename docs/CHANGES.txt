@@ -47,6 +47,8 @@ old pubsub module, but it also has a more advanced api available that
 can be switched on at import time.  See the pubsub web site for more
 details. 
 
+The wx.Effects class is deprecated.
+
 
 
 
