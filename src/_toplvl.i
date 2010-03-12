@@ -209,10 +209,14 @@ by pressing <Enter> such as the OK button on a wx.Dialog.", "");
         virtual wxWindow *, GetTmpDefaultItem() const,
         "Return the temporary default item, which can be None.", "");
 
+    bool OSXIsModified() const;
+    void OSXSetModified(bool modified);
+    
     %property(DefaultItem, GetDefaultItem, SetDefaultItem, doc="See `GetDefaultItem` and `SetDefaultItem`");
     %property(Icon, GetIcon, SetIcon, doc="See `GetIcon` and `SetIcon`");
     %property(Title, GetTitle, SetTitle, doc="See `GetTitle` and `SetTitle`");
     %property(TmpDefaultItem, GetTmpDefaultItem, SetTmpDefaultItem, doc="See `GetTmpDefaultItem` and `SetTmpDefaultItem`");
+    %property(OSXModified, OSXIsModified, OSXSetModified);
 };
 
 
