@@ -3885,6 +3885,20 @@ SWIG_AsVal_double (PyObject *obj, double* val)
 
   #define SWIG_From_double   PyFloat_FromDouble 
 
+SWIGINTERN PyObject *wxPGProperty_GetPyClientData(wxPGProperty *self){
+            wxPyClientData* data = (wxPyClientData*)self->GetClientObject();
+            if (data) {
+                Py_INCREF(data->m_obj);
+                return data->m_obj;
+            } else {
+                Py_INCREF(Py_None);
+                return Py_None;
+            }
+        }
+SWIGINTERN void wxPGProperty_SetPyClientData(wxPGProperty *self,PyObject *clientData){
+            wxPyClientData* data = new wxPyClientData(clientData);
+            self->SetClientObject(data);
+        }
 SWIGINTERN void wxPGMultiButton_AddBitmapButton(wxPGMultiButton *self,wxBitmap const &bitmap,int id=-2){
         return self->Add(bitmap, id);
     }
@@ -21209,6 +21223,66 @@ fail:
     if (temp2)
     delete arg2;
   }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_GetPyClientData(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  PyObject *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_GetPyClientData" "', expected argument " "1"" of type '" "wxPGProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (PyObject *)wxPGProperty_GetPyClientData(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = result;
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_SetPyClientData(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  PyObject *arg2 = (PyObject *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "clientData", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PGProperty_SetPyClientData",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_SetPyClientData" "', expected argument " "1"" of type '" "wxPGProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  arg2 = obj1;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxPGProperty_SetPyClientData(arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
   return NULL;
 }
 
@@ -46715,6 +46789,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PGProperty_GetImageOffset", (PyCFunction) _wrap_PGProperty_GetImageOffset, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetItemAtY", (PyCFunction) _wrap_PGProperty_GetItemAtY, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetPropertyByName", (PyCFunction) _wrap_PGProperty_GetPropertyByName, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PGProperty_GetPyClientData", (PyCFunction)_wrap_PGProperty_GetPyClientData, METH_O, NULL},
+	 { (char *)"PGProperty_SetPyClientData", (PyCFunction) _wrap_PGProperty_SetPyClientData, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_swigregister", PGProperty_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PGProperty_swiginit", PGProperty_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PropertyGridHitTestResult", (PyCFunction)_wrap_new_PropertyGridHitTestResult, METH_NOARGS, NULL},

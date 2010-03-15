@@ -842,8 +842,26 @@ class PGProperty(_core.Object):
         return _propgrid.PGProperty_GetPropertyByName(*args, **kwargs)
 
     m_value = property(GetValuePlain,SetValuePlain) 
-    GetClientObject = GetClientData
-    SetClientObject = SetClientData
+    def GetPyClientData(*args, **kwargs):
+        """
+        GetPyClientData(self) -> PyObject
+
+        Returns the client data object for a property
+        """
+        return _propgrid.PGProperty_GetPyClientData(*args, **kwargs)
+
+    def SetPyClientData(*args, **kwargs):
+        """
+        SetPyClientData(self, PyObject clientData)
+
+        Associate the given client data.
+        """
+        return _propgrid.PGProperty_SetPyClientData(*args, **kwargs)
+
+    GetClientObject = GetPyClientData
+    SetClientObject = SetPyClientData
+    GetClientData = GetPyClientData
+    SetClientData = SetPyClientData
 
 _propgrid.PGProperty_swigregister(PGProperty)
 

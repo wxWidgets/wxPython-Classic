@@ -1106,9 +1106,9 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 
         %property(m_value, GetValuePlain, SetValuePlain);
 
-        DocStr(GetClientData,
+        DocStr(GetPyClientData,
                "Returns the client data object for a property", "");
-        PyObject* GetClientData() {
+        PyObject* GetPyClientData() {
             wxPyClientData* data = (wxPyClientData*)self->GetClientObject();
             if (data) {
                 Py_INCREF(data->m_obj);
@@ -1119,16 +1119,18 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
             }
         }
 
-        DocStr(SetClientData,
+        DocStr(SetPyClientData,
                "Associate the given client data.", "");
-        void SetClientData(PyObject* clientData) {
+        void SetPyClientData(PyObject* clientData) {
             wxPyClientData* data = new wxPyClientData(clientData);
             self->SetClientObject(data);
         }
     }
     %pythoncode {
-         GetClientObject = GetClientData
-         SetClientObject = SetClientData
+         GetClientObject = GetPyClientData
+         SetClientObject = SetPyClientData
+         GetClientData = GetPyClientData
+         SetClientData = SetPyClientData
     }
 }
 
