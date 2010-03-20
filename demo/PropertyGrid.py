@@ -97,6 +97,21 @@ class IntProperty2(wxpg.PyProperty):
             return (True, v)
         return False
 
+    def ValidateValue(self, value, validationInfo):
+        """ Let's limit the value to range -10000 and 10000.
+        """
+        # Just test this function to make sure validationInfo and
+        # wxPGVFBFlags work properly.
+        oldvfb__ = validationInfo.GetFailureBehavior()
+
+        # Mark the cell if validaton failred
+        validationInfo.SetFailureBehavior(wxpg.PG_VFB_MARK_CELL)
+
+        if value < -10000 or value > 10000:
+            return False
+
+        return (True, value)
+
 
 class SizeProperty(wxpg.PyProperty):
     """ Demonstrates a property with few children.
