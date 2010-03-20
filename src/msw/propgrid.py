@@ -531,7 +531,7 @@ class PGProperty(_core.Object):
         return _propgrid.PGProperty_IsValueUnspecified(*args, **kwargs)
 
     def HasFlag(*args, **kwargs):
-        """HasFlag(self, FlagType flag) -> FlagType"""
+        """HasFlag(self, int flag) -> FlagType"""
         return _propgrid.PGProperty_HasFlag(*args, **kwargs)
 
     def GetAttributes(*args, **kwargs):
@@ -726,15 +726,15 @@ class PGProperty(_core.Object):
         return _propgrid.PGProperty_SetExpanded(*args, **kwargs)
 
     def SetFlag(*args, **kwargs):
-        """SetFlag(self, FlagType flag)"""
+        """SetFlag(self, int flag)"""
         return _propgrid.PGProperty_SetFlag(*args, **kwargs)
 
     def ChangeFlag(*args, **kwargs):
-        """ChangeFlag(self, FlagType flag, bool set)"""
+        """ChangeFlag(self, int flag, bool set)"""
         return _propgrid.PGProperty_ChangeFlag(*args, **kwargs)
 
     def SetFlagRecursively(*args, **kwargs):
-        """SetFlagRecursively(self, FlagType flag, bool set)"""
+        """SetFlagRecursively(self, int flag, bool set)"""
         return _propgrid.PGProperty_SetFlagRecursively(*args, **kwargs)
 
     def SetHelpString(*args, **kwargs):
@@ -1789,7 +1789,7 @@ class PGValidationInfo(object):
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
     def GetFailureBehavior(*args, **kwargs):
-        """GetFailureBehavior(self) -> PGVFBFlags"""
+        """GetFailureBehavior(self) -> char"""
         return _propgrid.PGValidationInfo_GetFailureBehavior(*args, **kwargs)
 
     def GetFailureMessage(*args, **kwargs):
@@ -1801,7 +1801,7 @@ class PGValidationInfo(object):
         return _propgrid.PGValidationInfo_GetValue(*args, **kwargs)
 
     def SetFailureBehavior(*args, **kwargs):
-        """SetFailureBehavior(self, PGVFBFlags failureBehavior)"""
+        """SetFailureBehavior(self, char failureBehavior)"""
         return _propgrid.PGValidationInfo_SetFailureBehavior(*args, **kwargs)
 
     def SetFailureMessage(*args, **kwargs):
@@ -2445,7 +2445,7 @@ class PropertyGridEvent(_core.CommandEvent):
         return _propgrid.PropertyGridEvent_GetValue(*args, **kwargs)
 
     def SetValidationFailureBehavior(*args, **kwargs):
-        """SetValidationFailureBehavior(self, PGVFBFlags flags)"""
+        """SetValidationFailureBehavior(self, char flags)"""
         return _propgrid.PropertyGridEvent_SetValidationFailureBehavior(*args, **kwargs)
 
     def SetValidationFailureMessage(*args, **kwargs):
