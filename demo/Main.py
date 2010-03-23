@@ -98,6 +98,7 @@ _treeList = [
         'SystemSettings',
         'GridLabelRenderer',
         'InfoBar',
+        'WrapSizer',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -226,6 +227,7 @@ _treeList = [
         'FloatBar',  
         'FloatCanvas',
         'HtmlWindow',
+        'InfoBar',
         'IntCtrl',
         'MVCTree',   
         'MaskedEditControls',
@@ -262,6 +264,7 @@ _treeList = [
         'ScrolledPanel',
         'SizedControls',
         'Sizers',
+        'WrapSizer',
         'XmlResource',
         'XmlResourceHandler',
         'XmlResourceSubclass',

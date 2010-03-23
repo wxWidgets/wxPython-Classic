@@ -874,8 +874,13 @@ class _InspectionHighlighter(object):
         # differently.
         dc.SetPen(wx.Pen(self.color2, 1))
 
+        if isinstance(sizer, wx.WrapSizer):
+            for item in sizer.GetChildren():
+                ir = self.AdjustRect(tlw, win, item.Rect)
+                dc.DrawRectangleRect(ir)
+        
         # wx.BoxSizer, wx.StaticBoxSizer
-        if isinstance(sizer, wx.BoxSizer):
+        elif isinstance(sizer, wx.BoxSizer):
             # NOTE: we have to do some reverse-engineering here for
             # borders because the sizer and sizer item don't give us
             # enough information to know for sure where item

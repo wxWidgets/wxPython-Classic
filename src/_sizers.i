@@ -1282,7 +1282,7 @@ constructor of the window itself if the window is resizable (as are
 many dialogs under Unix and frames on probably all platforms) in order
 to prevent the window from being sized smaller than the minimal size
 required by the sizer.", "");
-
+    
     DocDeclStr(
         void , SetVirtualSizeHints( wxWindow *window ),
         "Tell the sizer to set the minimal size of the window virtual area to

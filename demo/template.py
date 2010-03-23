@@ -19,7 +19,9 @@ def runTest(frame, nb, log):
 
 
 overview = """<html><body>
-<h2><center>Say something nice here</center></h2>
+<h2><center>DemoName</center></h2>
+
+Say something nice here
 
 </body></html>
 """
