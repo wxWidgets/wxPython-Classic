@@ -11,24 +11,65 @@ BASE  = 80.0    # sizes used in shapes drawn below
 BASE2 = BASE/2
 BASE4 = BASE/4
 
+USE_BUFFER = ('wxMSW' in wx.PlatformInfo) # use buffered drawing on Windows
+
 
 class TestPanel(wx.Panel):
     def __init__(self, parent, log):
         self.log = log
         wx.Panel.__init__(self, parent, -1)
-
         self.Bind(wx.EVT_PAINT, self.OnPaint)
+        if USE_BUFFER:
+            self.Bind(wx.EVT_SIZE, self.OnSize)
+
+
+    def OnSize(self, evt):
+        # When there is a size event then recreate the buffer to match
+        # the new size of the window.
+        self.InitBuffer()
+        evt.Skip()
+        
 
     def OnPaint(self, evt):
-        dc = wx.PaintDC(self)
+        if USE_BUFFER:
+            # The buffer already contains our drawing, so no need to
+            # do anything else but create the buffered DC.  When this
+            # method exits and dc is collected then the buffer will be
+            # blitted to the paint DC automagically
+            dc = wx.BufferedPaintDC(self, self._buffer)
+        else:
+            # Otherwise we need to draw our content to the paint DC at
+            # this time.
+            dc = wx.PaintDC(self)
+            gc = self.MakeGC(dc)
+            self.Draw(gc)
+
+
+    def InitBuffer(self):
+        sz = self.GetClientSize()
+        sz.width = max(1, sz.width)
+        sz.height = max(1, sz.height)
+        self._buffer = wx.EmptyBitmap(sz.width, sz.height, 32)
+
+        dc = wx.MemoryDC(self._buffer)
+        dc.SetBackground(wx.Brush(self.GetBackgroundColour()))
+        dc.Clear()
+        gc = self.MakeGC(dc)
+        self.Draw(gc)
+        
+
+    def MakeGC(self, dc):
         try:
             gc = wx.GraphicsContext.Create(dc)
         except NotImplementedError:
             dc.DrawText("This build of wxPython does not support the wx.GraphicsContext "
                         "family of classes.",
                         25, 25)
-            return
-
+            return None
+        return gc
+        
+        
+    def Draw(self, gc):
         font = wx.SystemSettings.GetFont(wx.SYS_DEFAULT_GUI_FONT)
         font.SetWeight(wx.BOLD)
         gc.SetFont(font)
@@ -125,7 +166,6 @@ class TestPanel(wx.Panel):
 
 
         gc.PopState()
-        
 
 #----------------------------------------------------------------------
 
