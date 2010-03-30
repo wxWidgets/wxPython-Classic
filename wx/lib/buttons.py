@@ -120,8 +120,8 @@ class GenButton(wx.PyControl):
         """
         w, h, useMin = self._GetLabelSize()
         if self.style & wx.BU_EXACTFIT:
-            width = w + 2 + 2 * self.bezelWidth + 2 * int(self.useFocusInd)
-            height = h + 2 + 2 * self.bezelWidth + 2 * int(self.useFocusInd)
+            width = w + 2 + 2 * self.bezelWidth + 4 * int(self.useFocusInd)
+            height = h + 2 + 2 * self.bezelWidth + 4 * int(self.useFocusInd)
         else:
             defSize = wx.Button.GetDefaultSize()
             width = 12 + w
@@ -262,8 +262,12 @@ class GenButton(wx.PyControl):
         focusIndPen  = wx.Pen(textClr, 1, wx.USER_DASH)
         focusIndPen.SetDashes([1,1])
         focusIndPen.SetCap(wx.CAP_BUTT)
-        
-        dc.SetLogicalFunction(wx.XOR)
+
+        if wx.Platform == "__WXMAC__":
+            dc.SetLogicalFunction(wx.XOR)
+        else:
+            focusIndPen.SetColour(self.focusClr)
+            dc.SetLogicalFunction(wx.INVERT)
         dc.SetPen(focusIndPen)
         dc.SetBrush(wx.TRANSPARENT_BRUSH)
         dc.DrawRectangle(bw+2,bw+2,  w-bw*2-4, h-bw*2-4)
