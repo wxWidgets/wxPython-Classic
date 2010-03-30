@@ -104,6 +104,9 @@ STC_MARK_DOTDOTDOT = _stc.STC_MARK_DOTDOTDOT
 STC_MARK_ARROWS = _stc.STC_MARK_ARROWS
 STC_MARK_PIXMAP = _stc.STC_MARK_PIXMAP
 STC_MARK_FULLRECT = _stc.STC_MARK_FULLRECT
+STC_MARK_LEFTRECT = _stc.STC_MARK_LEFTRECT
+STC_MARK_AVAILABLE = _stc.STC_MARK_AVAILABLE
+STC_MARK_UNDERLINE = _stc.STC_MARK_UNDERLINE
 STC_MARK_CHARACTER = _stc.STC_MARK_CHARACTER
 STC_MARKNUM_FOLDEREND = _stc.STC_MARKNUM_FOLDEREND
 STC_MARKNUM_FOLDEROPENMID = _stc.STC_MARKNUM_FOLDEROPENMID
@@ -117,6 +120,8 @@ STC_MARGIN_SYMBOL = _stc.STC_MARGIN_SYMBOL
 STC_MARGIN_NUMBER = _stc.STC_MARGIN_NUMBER
 STC_MARGIN_BACK = _stc.STC_MARGIN_BACK
 STC_MARGIN_FORE = _stc.STC_MARGIN_FORE
+STC_MARGIN_TEXT = _stc.STC_MARGIN_TEXT
+STC_MARGIN_RTEXT = _stc.STC_MARGIN_RTEXT
 STC_STYLE_DEFAULT = _stc.STC_STYLE_DEFAULT
 STC_STYLE_LINENUMBER = _stc.STC_STYLE_LINENUMBER
 STC_STYLE_BRACELIGHT = _stc.STC_STYLE_BRACELIGHT
@@ -181,17 +186,12 @@ STC_FIND_POSIX = _stc.STC_FIND_POSIX
 STC_FOLDLEVELBASE = _stc.STC_FOLDLEVELBASE
 STC_FOLDLEVELWHITEFLAG = _stc.STC_FOLDLEVELWHITEFLAG
 STC_FOLDLEVELHEADERFLAG = _stc.STC_FOLDLEVELHEADERFLAG
-STC_FOLDLEVELBOXHEADERFLAG = _stc.STC_FOLDLEVELBOXHEADERFLAG
-STC_FOLDLEVELBOXFOOTERFLAG = _stc.STC_FOLDLEVELBOXFOOTERFLAG
-STC_FOLDLEVELCONTRACTED = _stc.STC_FOLDLEVELCONTRACTED
-STC_FOLDLEVELUNINDENT = _stc.STC_FOLDLEVELUNINDENT
 STC_FOLDLEVELNUMBERMASK = _stc.STC_FOLDLEVELNUMBERMASK
 STC_FOLDFLAG_LINEBEFORE_EXPANDED = _stc.STC_FOLDFLAG_LINEBEFORE_EXPANDED
 STC_FOLDFLAG_LINEBEFORE_CONTRACTED = _stc.STC_FOLDFLAG_LINEBEFORE_CONTRACTED
 STC_FOLDFLAG_LINEAFTER_EXPANDED = _stc.STC_FOLDFLAG_LINEAFTER_EXPANDED
 STC_FOLDFLAG_LINEAFTER_CONTRACTED = _stc.STC_FOLDFLAG_LINEAFTER_CONTRACTED
 STC_FOLDFLAG_LEVELNUMBERS = _stc.STC_FOLDFLAG_LEVELNUMBERS
-STC_FOLDFLAG_BOX = _stc.STC_FOLDFLAG_BOX
 STC_TIME_FOREVER = _stc.STC_TIME_FOREVER
 STC_WRAP_NONE = _stc.STC_WRAP_NONE
 STC_WRAP_WORD = _stc.STC_WRAP_WORD
@@ -202,13 +202,24 @@ STC_WRAPVISUALFLAG_START = _stc.STC_WRAPVISUALFLAG_START
 STC_WRAPVISUALFLAGLOC_DEFAULT = _stc.STC_WRAPVISUALFLAGLOC_DEFAULT
 STC_WRAPVISUALFLAGLOC_END_BY_TEXT = _stc.STC_WRAPVISUALFLAGLOC_END_BY_TEXT
 STC_WRAPVISUALFLAGLOC_START_BY_TEXT = _stc.STC_WRAPVISUALFLAGLOC_START_BY_TEXT
+STC_WRAPINDENT_FIXED = _stc.STC_WRAPINDENT_FIXED
+STC_WRAPINDENT_SAME = _stc.STC_WRAPINDENT_SAME
+STC_WRAPINDENT_INDENT = _stc.STC_WRAPINDENT_INDENT
 STC_CACHE_NONE = _stc.STC_CACHE_NONE
 STC_CACHE_CARET = _stc.STC_CACHE_CARET
 STC_CACHE_PAGE = _stc.STC_CACHE_PAGE
 STC_CACHE_DOCUMENT = _stc.STC_CACHE_DOCUMENT
+STC_EFF_QUALITY_MASK = _stc.STC_EFF_QUALITY_MASK
+STC_EFF_QUALITY_DEFAULT = _stc.STC_EFF_QUALITY_DEFAULT
+STC_EFF_QUALITY_NON_ANTIALIASED = _stc.STC_EFF_QUALITY_NON_ANTIALIASED
+STC_EFF_QUALITY_ANTIALIASED = _stc.STC_EFF_QUALITY_ANTIALIASED
+STC_EFF_QUALITY_LCD_OPTIMIZED = _stc.STC_EFF_QUALITY_LCD_OPTIMIZED
 STC_EDGE_NONE = _stc.STC_EDGE_NONE
 STC_EDGE_LINE = _stc.STC_EDGE_LINE
 STC_EDGE_BACKGROUND = _stc.STC_EDGE_BACKGROUND
+STC_STATUS_OK = _stc.STC_STATUS_OK
+STC_STATUS_FAILURE = _stc.STC_STATUS_FAILURE
+STC_STATUS_BADALLOC = _stc.STC_STATUS_BADALLOC
 STC_CURSORNORMAL = _stc.STC_CURSORNORMAL
 STC_CURSORWAIT = _stc.STC_CURSORWAIT
 STC_VISIBLE_SLOP = _stc.STC_VISIBLE_SLOP
@@ -220,12 +231,20 @@ STC_CARET_EVEN = _stc.STC_CARET_EVEN
 STC_SEL_STREAM = _stc.STC_SEL_STREAM
 STC_SEL_RECTANGLE = _stc.STC_SEL_RECTANGLE
 STC_SEL_LINES = _stc.STC_SEL_LINES
+STC_SEL_THIN = _stc.STC_SEL_THIN
 STC_ALPHA_TRANSPARENT = _stc.STC_ALPHA_TRANSPARENT
 STC_ALPHA_OPAQUE = _stc.STC_ALPHA_OPAQUE
 STC_ALPHA_NOALPHA = _stc.STC_ALPHA_NOALPHA
 STC_CARETSTYLE_INVISIBLE = _stc.STC_CARETSTYLE_INVISIBLE
 STC_CARETSTYLE_LINE = _stc.STC_CARETSTYLE_LINE
 STC_CARETSTYLE_BLOCK = _stc.STC_CARETSTYLE_BLOCK
+STC_ANNOTATION_HIDDEN = _stc.STC_ANNOTATION_HIDDEN
+STC_ANNOTATION_STANDARD = _stc.STC_ANNOTATION_STANDARD
+STC_ANNOTATION_BOXED = _stc.STC_ANNOTATION_BOXED
+STC_UNDO_MAY_COALESCE = _stc.STC_UNDO_MAY_COALESCE
+STC_SCVS_NONE = _stc.STC_SCVS_NONE
+STC_SCVS_RECTANGULARSELECTION = _stc.STC_SCVS_RECTANGULARSELECTION
+STC_SCVS_USERACCESSIBLE = _stc.STC_SCVS_USERACCESSIBLE
 STC_KEYWORDSET_MAX = _stc.STC_KEYWORDSET_MAX
 STC_MOD_INSERTTEXT = _stc.STC_MOD_INSERTTEXT
 STC_MOD_DELETETEXT = _stc.STC_MOD_DELETETEXT
@@ -243,6 +262,9 @@ STC_MULTILINEUNDOREDO = _stc.STC_MULTILINEUNDOREDO
 STC_STARTACTION = _stc.STC_STARTACTION
 STC_MOD_CHANGEINDICATOR = _stc.STC_MOD_CHANGEINDICATOR
 STC_MOD_CHANGELINESTATE = _stc.STC_MOD_CHANGELINESTATE
+STC_MOD_CHANGEMARGIN = _stc.STC_MOD_CHANGEMARGIN
+STC_MOD_CHANGEANNOTATION = _stc.STC_MOD_CHANGEANNOTATION
+STC_MOD_CONTAINER = _stc.STC_MOD_CONTAINER
 STC_MODEVENTMASKALL = _stc.STC_MODEVENTMASKALL
 STC_KEY_DOWN = _stc.STC_KEY_DOWN
 STC_KEY_UP = _stc.STC_KEY_UP
@@ -268,6 +290,7 @@ STC_SCMOD_NORM = _stc.STC_SCMOD_NORM
 STC_SCMOD_SHIFT = _stc.STC_SCMOD_SHIFT
 STC_SCMOD_CTRL = _stc.STC_SCMOD_CTRL
 STC_SCMOD_ALT = _stc.STC_SCMOD_ALT
+STC_SCMOD_SUPER = _stc.STC_SCMOD_SUPER
 STC_LEX_CONTAINER = _stc.STC_LEX_CONTAINER
 STC_LEX_NULL = _stc.STC_LEX_NULL
 STC_LEX_PYTHON = _stc.STC_LEX_PYTHON
@@ -353,6 +376,18 @@ STC_LEX_PROGRESS = _stc.STC_LEX_PROGRESS
 STC_LEX_ABAQUS = _stc.STC_LEX_ABAQUS
 STC_LEX_ASYMPTOTE = _stc.STC_LEX_ASYMPTOTE
 STC_LEX_R = _stc.STC_LEX_R
+STC_LEX_MAGIK = _stc.STC_LEX_MAGIK
+STC_LEX_POWERSHELL = _stc.STC_LEX_POWERSHELL
+STC_LEX_MYSQL = _stc.STC_LEX_MYSQL
+STC_LEX_PO = _stc.STC_LEX_PO
+STC_LEX_TAL = _stc.STC_LEX_TAL
+STC_LEX_COBOL = _stc.STC_LEX_COBOL
+STC_LEX_TACL = _stc.STC_LEX_TACL
+STC_LEX_SORCUS = _stc.STC_LEX_SORCUS
+STC_LEX_POWERPRO = _stc.STC_LEX_POWERPRO
+STC_LEX_NIMROD = _stc.STC_LEX_NIMROD
+STC_LEX_SML = _stc.STC_LEX_SML
+STC_LEX_MARKDOWN = _stc.STC_LEX_MARKDOWN
 STC_LEX_AUTOMATIC = _stc.STC_LEX_AUTOMATIC
 STC_P_DEFAULT = _stc.STC_P_DEFAULT
 STC_P_COMMENTLINE = _stc.STC_P_COMMENTLINE
@@ -408,6 +443,11 @@ STC_D_IDENTIFIER = _stc.STC_D_IDENTIFIER
 STC_D_COMMENTLINEDOC = _stc.STC_D_COMMENTLINEDOC
 STC_D_COMMENTDOCKEYWORD = _stc.STC_D_COMMENTDOCKEYWORD
 STC_D_COMMENTDOCKEYWORDERROR = _stc.STC_D_COMMENTDOCKEYWORDERROR
+STC_D_STRINGB = _stc.STC_D_STRINGB
+STC_D_STRINGR = _stc.STC_D_STRINGR
+STC_D_WORD5 = _stc.STC_D_WORD5
+STC_D_WORD6 = _stc.STC_D_WORD6
+STC_D_WORD7 = _stc.STC_D_WORD7
 STC_TCL_DEFAULT = _stc.STC_TCL_DEFAULT
 STC_TCL_COMMENT = _stc.STC_TCL_COMMENT
 STC_TCL_COMMENTLINE = _stc.STC_TCL_COMMENTLINE
@@ -704,6 +744,7 @@ STC_DIFF_HEADER = _stc.STC_DIFF_HEADER
 STC_DIFF_POSITION = _stc.STC_DIFF_POSITION
 STC_DIFF_DELETED = _stc.STC_DIFF_DELETED
 STC_DIFF_ADDED = _stc.STC_DIFF_ADDED
+STC_DIFF_CHANGED = _stc.STC_DIFF_CHANGED
 STC_CONF_DEFAULT = _stc.STC_CONF_DEFAULT
 STC_CONF_COMMENT = _stc.STC_CONF_COMMENT
 STC_CONF_NUMBER = _stc.STC_CONF_NUMBER
@@ -868,6 +909,11 @@ STC_CSS_DOUBLESTRING = _stc.STC_CSS_DOUBLESTRING
 STC_CSS_SINGLESTRING = _stc.STC_CSS_SINGLESTRING
 STC_CSS_IDENTIFIER2 = _stc.STC_CSS_IDENTIFIER2
 STC_CSS_ATTRIBUTE = _stc.STC_CSS_ATTRIBUTE
+STC_CSS_IDENTIFIER3 = _stc.STC_CSS_IDENTIFIER3
+STC_CSS_PSEUDOELEMENT = _stc.STC_CSS_PSEUDOELEMENT
+STC_CSS_EXTENDED_IDENTIFIER = _stc.STC_CSS_EXTENDED_IDENTIFIER
+STC_CSS_EXTENDED_PSEUDOCLASS = _stc.STC_CSS_EXTENDED_PSEUDOCLASS
+STC_CSS_EXTENDED_PSEUDOELEMENT = _stc.STC_CSS_EXTENDED_PSEUDOELEMENT
 STC_POV_DEFAULT = _stc.STC_POV_DEFAULT
 STC_POV_COMMENT = _stc.STC_POV_COMMENT
 STC_POV_COMMENTLINE = _stc.STC_POV_COMMENTLINE
@@ -1020,8 +1066,19 @@ STC_ERLANG_FUNCTION_NAME = _stc.STC_ERLANG_FUNCTION_NAME
 STC_ERLANG_CHARACTER = _stc.STC_ERLANG_CHARACTER
 STC_ERLANG_MACRO = _stc.STC_ERLANG_MACRO
 STC_ERLANG_RECORD = _stc.STC_ERLANG_RECORD
-STC_ERLANG_SEPARATOR = _stc.STC_ERLANG_SEPARATOR
+STC_ERLANG_PREPROC = _stc.STC_ERLANG_PREPROC
 STC_ERLANG_NODE_NAME = _stc.STC_ERLANG_NODE_NAME
+STC_ERLANG_COMMENT_FUNCTION = _stc.STC_ERLANG_COMMENT_FUNCTION
+STC_ERLANG_COMMENT_MODULE = _stc.STC_ERLANG_COMMENT_MODULE
+STC_ERLANG_COMMENT_DOC = _stc.STC_ERLANG_COMMENT_DOC
+STC_ERLANG_COMMENT_DOC_MACRO = _stc.STC_ERLANG_COMMENT_DOC_MACRO
+STC_ERLANG_ATOM_QUOTED = _stc.STC_ERLANG_ATOM_QUOTED
+STC_ERLANG_MACRO_QUOTED = _stc.STC_ERLANG_MACRO_QUOTED
+STC_ERLANG_RECORD_QUOTED = _stc.STC_ERLANG_RECORD_QUOTED
+STC_ERLANG_NODE_NAME_QUOTED = _stc.STC_ERLANG_NODE_NAME_QUOTED
+STC_ERLANG_BIFS = _stc.STC_ERLANG_BIFS
+STC_ERLANG_MODULES = _stc.STC_ERLANG_MODULES
+STC_ERLANG_MODULES_ATT = _stc.STC_ERLANG_MODULES_ATT
 STC_ERLANG_UNKNOWN = _stc.STC_ERLANG_UNKNOWN
 STC_MSSQL_DEFAULT = _stc.STC_MSSQL_DEFAULT
 STC_MSSQL_COMMENT = _stc.STC_MSSQL_COMMENT
@@ -1170,6 +1227,7 @@ STC_CAML_LINENUM = _stc.STC_CAML_LINENUM
 STC_CAML_OPERATOR = _stc.STC_CAML_OPERATOR
 STC_CAML_NUMBER = _stc.STC_CAML_NUMBER
 STC_CAML_CHAR = _stc.STC_CAML_CHAR
+STC_CAML_WHITE = _stc.STC_CAML_WHITE
 STC_CAML_STRING = _stc.STC_CAML_STRING
 STC_CAML_COMMENT = _stc.STC_CAML_COMMENT
 STC_CAML_COMMENT1 = _stc.STC_CAML_COMMENT1
@@ -1327,7 +1385,7 @@ STC_INNO_KEYWORD = _stc.STC_INNO_KEYWORD
 STC_INNO_PARAMETER = _stc.STC_INNO_PARAMETER
 STC_INNO_SECTION = _stc.STC_INNO_SECTION
 STC_INNO_PREPROC = _stc.STC_INNO_PREPROC
-STC_INNO_PREPROC_INLINE = _stc.STC_INNO_PREPROC_INLINE
+STC_INNO_INLINE_EXPANSION = _stc.STC_INNO_INLINE_EXPANSION
 STC_INNO_COMMENT_PASCAL = _stc.STC_INNO_COMMENT_PASCAL
 STC_INNO_KEYWORD_PASCAL = _stc.STC_INNO_KEYWORD_PASCAL
 STC_INNO_KEYWORD_USER = _stc.STC_INNO_KEYWORD_USER
@@ -1457,6 +1515,144 @@ STC_R_OPERATOR = _stc.STC_R_OPERATOR
 STC_R_IDENTIFIER = _stc.STC_R_IDENTIFIER
 STC_R_INFIX = _stc.STC_R_INFIX
 STC_R_INFIXEOL = _stc.STC_R_INFIXEOL
+STC_MAGIK_DEFAULT = _stc.STC_MAGIK_DEFAULT
+STC_MAGIK_COMMENT = _stc.STC_MAGIK_COMMENT
+STC_MAGIK_HYPER_COMMENT = _stc.STC_MAGIK_HYPER_COMMENT
+STC_MAGIK_STRING = _stc.STC_MAGIK_STRING
+STC_MAGIK_CHARACTER = _stc.STC_MAGIK_CHARACTER
+STC_MAGIK_NUMBER = _stc.STC_MAGIK_NUMBER
+STC_MAGIK_IDENTIFIER = _stc.STC_MAGIK_IDENTIFIER
+STC_MAGIK_OPERATOR = _stc.STC_MAGIK_OPERATOR
+STC_MAGIK_FLOW = _stc.STC_MAGIK_FLOW
+STC_MAGIK_CONTAINER = _stc.STC_MAGIK_CONTAINER
+STC_MAGIK_BRACKET_BLOCK = _stc.STC_MAGIK_BRACKET_BLOCK
+STC_MAGIK_BRACE_BLOCK = _stc.STC_MAGIK_BRACE_BLOCK
+STC_MAGIK_SQBRACKET_BLOCK = _stc.STC_MAGIK_SQBRACKET_BLOCK
+STC_MAGIK_UNKNOWN_KEYWORD = _stc.STC_MAGIK_UNKNOWN_KEYWORD
+STC_MAGIK_KEYWORD = _stc.STC_MAGIK_KEYWORD
+STC_MAGIK_PRAGMA = _stc.STC_MAGIK_PRAGMA
+STC_MAGIK_SYMBOL = _stc.STC_MAGIK_SYMBOL
+STC_POWERSHELL_DEFAULT = _stc.STC_POWERSHELL_DEFAULT
+STC_POWERSHELL_COMMENT = _stc.STC_POWERSHELL_COMMENT
+STC_POWERSHELL_STRING = _stc.STC_POWERSHELL_STRING
+STC_POWERSHELL_CHARACTER = _stc.STC_POWERSHELL_CHARACTER
+STC_POWERSHELL_NUMBER = _stc.STC_POWERSHELL_NUMBER
+STC_POWERSHELL_VARIABLE = _stc.STC_POWERSHELL_VARIABLE
+STC_POWERSHELL_OPERATOR = _stc.STC_POWERSHELL_OPERATOR
+STC_POWERSHELL_IDENTIFIER = _stc.STC_POWERSHELL_IDENTIFIER
+STC_POWERSHELL_KEYWORD = _stc.STC_POWERSHELL_KEYWORD
+STC_POWERSHELL_CMDLET = _stc.STC_POWERSHELL_CMDLET
+STC_POWERSHELL_ALIAS = _stc.STC_POWERSHELL_ALIAS
+STC_MYSQL_DEFAULT = _stc.STC_MYSQL_DEFAULT
+STC_MYSQL_COMMENT = _stc.STC_MYSQL_COMMENT
+STC_MYSQL_COMMENTLINE = _stc.STC_MYSQL_COMMENTLINE
+STC_MYSQL_VARIABLE = _stc.STC_MYSQL_VARIABLE
+STC_MYSQL_SYSTEMVARIABLE = _stc.STC_MYSQL_SYSTEMVARIABLE
+STC_MYSQL_KNOWNSYSTEMVARIABLE = _stc.STC_MYSQL_KNOWNSYSTEMVARIABLE
+STC_MYSQL_NUMBER = _stc.STC_MYSQL_NUMBER
+STC_MYSQL_MAJORKEYWORD = _stc.STC_MYSQL_MAJORKEYWORD
+STC_MYSQL_KEYWORD = _stc.STC_MYSQL_KEYWORD
+STC_MYSQL_DATABASEOBJECT = _stc.STC_MYSQL_DATABASEOBJECT
+STC_MYSQL_PROCEDUREKEYWORD = _stc.STC_MYSQL_PROCEDUREKEYWORD
+STC_MYSQL_STRING = _stc.STC_MYSQL_STRING
+STC_MYSQL_SQSTRING = _stc.STC_MYSQL_SQSTRING
+STC_MYSQL_DQSTRING = _stc.STC_MYSQL_DQSTRING
+STC_MYSQL_OPERATOR = _stc.STC_MYSQL_OPERATOR
+STC_MYSQL_FUNCTION = _stc.STC_MYSQL_FUNCTION
+STC_MYSQL_IDENTIFIER = _stc.STC_MYSQL_IDENTIFIER
+STC_MYSQL_QUOTEDIDENTIFIER = _stc.STC_MYSQL_QUOTEDIDENTIFIER
+STC_MYSQL_USER1 = _stc.STC_MYSQL_USER1
+STC_MYSQL_USER2 = _stc.STC_MYSQL_USER2
+STC_MYSQL_USER3 = _stc.STC_MYSQL_USER3
+STC_MYSQL_HIDDENCOMMAND = _stc.STC_MYSQL_HIDDENCOMMAND
+STC_PO_DEFAULT = _stc.STC_PO_DEFAULT
+STC_PO_COMMENT = _stc.STC_PO_COMMENT
+STC_PO_MSGID = _stc.STC_PO_MSGID
+STC_PO_MSGID_TEXT = _stc.STC_PO_MSGID_TEXT
+STC_PO_MSGSTR = _stc.STC_PO_MSGSTR
+STC_PO_MSGSTR_TEXT = _stc.STC_PO_MSGSTR_TEXT
+STC_PO_MSGCTXT = _stc.STC_PO_MSGCTXT
+STC_PO_MSGCTXT_TEXT = _stc.STC_PO_MSGCTXT_TEXT
+STC_PO_FUZZY = _stc.STC_PO_FUZZY
+STC_PAS_DEFAULT = _stc.STC_PAS_DEFAULT
+STC_PAS_IDENTIFIER = _stc.STC_PAS_IDENTIFIER
+STC_PAS_COMMENT = _stc.STC_PAS_COMMENT
+STC_PAS_COMMENT2 = _stc.STC_PAS_COMMENT2
+STC_PAS_COMMENTLINE = _stc.STC_PAS_COMMENTLINE
+STC_PAS_PREPROCESSOR = _stc.STC_PAS_PREPROCESSOR
+STC_PAS_PREPROCESSOR2 = _stc.STC_PAS_PREPROCESSOR2
+STC_PAS_NUMBER = _stc.STC_PAS_NUMBER
+STC_PAS_HEXNUMBER = _stc.STC_PAS_HEXNUMBER
+STC_PAS_WORD = _stc.STC_PAS_WORD
+STC_PAS_STRING = _stc.STC_PAS_STRING
+STC_PAS_STRINGEOL = _stc.STC_PAS_STRINGEOL
+STC_PAS_CHARACTER = _stc.STC_PAS_CHARACTER
+STC_PAS_OPERATOR = _stc.STC_PAS_OPERATOR
+STC_PAS_ASM = _stc.STC_PAS_ASM
+STC_SORCUS_DEFAULT = _stc.STC_SORCUS_DEFAULT
+STC_SORCUS_COMMAND = _stc.STC_SORCUS_COMMAND
+STC_SORCUS_PARAMETER = _stc.STC_SORCUS_PARAMETER
+STC_SORCUS_COMMENTLINE = _stc.STC_SORCUS_COMMENTLINE
+STC_SORCUS_STRING = _stc.STC_SORCUS_STRING
+STC_SORCUS_STRINGEOL = _stc.STC_SORCUS_STRINGEOL
+STC_SORCUS_IDENTIFIER = _stc.STC_SORCUS_IDENTIFIER
+STC_SORCUS_OPERATOR = _stc.STC_SORCUS_OPERATOR
+STC_SORCUS_NUMBER = _stc.STC_SORCUS_NUMBER
+STC_SORCUS_CONSTANT = _stc.STC_SORCUS_CONSTANT
+STC_POWERPRO_DEFAULT = _stc.STC_POWERPRO_DEFAULT
+STC_POWERPRO_COMMENTBLOCK = _stc.STC_POWERPRO_COMMENTBLOCK
+STC_POWERPRO_COMMENTLINE = _stc.STC_POWERPRO_COMMENTLINE
+STC_POWERPRO_NUMBER = _stc.STC_POWERPRO_NUMBER
+STC_POWERPRO_WORD = _stc.STC_POWERPRO_WORD
+STC_POWERPRO_WORD2 = _stc.STC_POWERPRO_WORD2
+STC_POWERPRO_WORD3 = _stc.STC_POWERPRO_WORD3
+STC_POWERPRO_WORD4 = _stc.STC_POWERPRO_WORD4
+STC_POWERPRO_DOUBLEQUOTEDSTRING = _stc.STC_POWERPRO_DOUBLEQUOTEDSTRING
+STC_POWERPRO_SINGLEQUOTEDSTRING = _stc.STC_POWERPRO_SINGLEQUOTEDSTRING
+STC_POWERPRO_LINECONTINUE = _stc.STC_POWERPRO_LINECONTINUE
+STC_POWERPRO_OPERATOR = _stc.STC_POWERPRO_OPERATOR
+STC_POWERPRO_IDENTIFIER = _stc.STC_POWERPRO_IDENTIFIER
+STC_POWERPRO_STRINGEOL = _stc.STC_POWERPRO_STRINGEOL
+STC_POWERPRO_VERBATIM = _stc.STC_POWERPRO_VERBATIM
+STC_POWERPRO_ALTQUOTE = _stc.STC_POWERPRO_ALTQUOTE
+STC_POWERPRO_FUNCTION = _stc.STC_POWERPRO_FUNCTION
+STC_SML_DEFAULT = _stc.STC_SML_DEFAULT
+STC_SML_IDENTIFIER = _stc.STC_SML_IDENTIFIER
+STC_SML_TAGNAME = _stc.STC_SML_TAGNAME
+STC_SML_KEYWORD = _stc.STC_SML_KEYWORD
+STC_SML_KEYWORD2 = _stc.STC_SML_KEYWORD2
+STC_SML_KEYWORD3 = _stc.STC_SML_KEYWORD3
+STC_SML_LINENUM = _stc.STC_SML_LINENUM
+STC_SML_OPERATOR = _stc.STC_SML_OPERATOR
+STC_SML_NUMBER = _stc.STC_SML_NUMBER
+STC_SML_CHAR = _stc.STC_SML_CHAR
+STC_SML_STRING = _stc.STC_SML_STRING
+STC_SML_COMMENT = _stc.STC_SML_COMMENT
+STC_SML_COMMENT1 = _stc.STC_SML_COMMENT1
+STC_SML_COMMENT2 = _stc.STC_SML_COMMENT2
+STC_SML_COMMENT3 = _stc.STC_SML_COMMENT3
+STC_MARKDOWN_DEFAULT = _stc.STC_MARKDOWN_DEFAULT
+STC_MARKDOWN_LINE_BEGIN = _stc.STC_MARKDOWN_LINE_BEGIN
+STC_MARKDOWN_STRONG1 = _stc.STC_MARKDOWN_STRONG1
+STC_MARKDOWN_STRONG2 = _stc.STC_MARKDOWN_STRONG2
+STC_MARKDOWN_EM1 = _stc.STC_MARKDOWN_EM1
+STC_MARKDOWN_EM2 = _stc.STC_MARKDOWN_EM2
+STC_MARKDOWN_HEADER1 = _stc.STC_MARKDOWN_HEADER1
+STC_MARKDOWN_HEADER2 = _stc.STC_MARKDOWN_HEADER2
+STC_MARKDOWN_HEADER3 = _stc.STC_MARKDOWN_HEADER3
+STC_MARKDOWN_HEADER4 = _stc.STC_MARKDOWN_HEADER4
+STC_MARKDOWN_HEADER5 = _stc.STC_MARKDOWN_HEADER5
+STC_MARKDOWN_HEADER6 = _stc.STC_MARKDOWN_HEADER6
+STC_MARKDOWN_PRECHAR = _stc.STC_MARKDOWN_PRECHAR
+STC_MARKDOWN_ULIST_ITEM = _stc.STC_MARKDOWN_ULIST_ITEM
+STC_MARKDOWN_OLIST_ITEM = _stc.STC_MARKDOWN_OLIST_ITEM
+STC_MARKDOWN_BLOCKQUOTE = _stc.STC_MARKDOWN_BLOCKQUOTE
+STC_MARKDOWN_STRIKEOUT = _stc.STC_MARKDOWN_STRIKEOUT
+STC_MARKDOWN_HRULE = _stc.STC_MARKDOWN_HRULE
+STC_MARKDOWN_LINK = _stc.STC_MARKDOWN_LINK
+STC_MARKDOWN_CODE = _stc.STC_MARKDOWN_CODE
+STC_MARKDOWN_CODE2 = _stc.STC_MARKDOWN_CODE2
+STC_MARKDOWN_CODEBK = _stc.STC_MARKDOWN_CODEBK
 STC_CMD_REDO = _stc.STC_CMD_REDO
 STC_CMD_SELECTALL = _stc.STC_CMD_SELECTALL
 STC_CMD_UNDO = _stc.STC_CMD_UNDO
@@ -1612,7 +1808,7 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         """
         GetLength(self) -> int
 
-        Returns the number of characters in the document.
+        Returns the number of bytes in the document.
         """
         return _stc.StyledTextCtrl_GetLength(*args, **kwargs)
 
@@ -2224,7 +2420,7 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         """
         SetSelForeground(self, bool useSetting, Colour fore)
 
-        Set the foreground colour of the selection and whether to use this setting.
+        Set the foreground colour of the main and additional selections and whether to use this setting.
         """
         return _stc.StyledTextCtrl_SetSelForeground(*args, **kwargs)
 
@@ -2232,7 +2428,7 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         """
         SetSelBackground(self, bool useSetting, Colour back)
 
-        Set the background colour of the selection and whether to use this setting.
+        Set the background colour of the main and additional selections and whether to use this setting.
         """
         return _stc.StyledTextCtrl_SetSelBackground(*args, **kwargs)
 
@@ -2337,7 +2533,7 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         SetWordChars(self, String characters)
 
         Set the set of characters making up words for when moving or selecting by word.
-        First sets deaults like SetCharsDefault.
+        First sets defaults like SetCharsDefault.
         """
         return _stc.StyledTextCtrl_SetWordChars(*args, **kwargs)
 
@@ -2421,6 +2617,22 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         Set the background colour of all whitespace and whether to use this setting.
         """
         return _stc.StyledTextCtrl_SetWhitespaceBackground(*args, **kwargs)
+
+    def SetWhitespaceSize(*args, **kwargs):
+        """
+        SetWhitespaceSize(self, int size)
+
+        Set the size of the dots used to mark space characters.
+        """
+        return _stc.StyledTextCtrl_SetWhitespaceSize(*args, **kwargs)
+
+    def GetWhitespaceSize(*args, **kwargs):
+        """
+        GetWhitespaceSize(self) -> int
+
+        Get the size of the dots used to mark space characters.
+        """
+        return _stc.StyledTextCtrl_GetWhitespaceSize(*args, **kwargs)
 
     def SetStyleBits(*args, **kwargs):
         """
@@ -3596,6 +3808,22 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         """
         return _stc.StyledTextCtrl_GetWrapStartIndent(*args, **kwargs)
 
+    def SetWrapIndentMode(*args, **kwargs):
+        """
+        SetWrapIndentMode(self, int mode)
+
+        Sets how wrapped sublines are placed. Default is fixed.
+        """
+        return _stc.StyledTextCtrl_SetWrapIndentMode(*args, **kwargs)
+
+    def GetWrapIndentMode(*args, **kwargs):
+        """
+        GetWrapIndentMode(self) -> int
+
+        Retrieve how wrapped sublines are placed. Default is fixed.
+        """
+        return _stc.StyledTextCtrl_GetWrapIndentMode(*args, **kwargs)
+
     def SetLayoutCache(*args, **kwargs):
         """
         SetLayoutCache(self, int mode)
@@ -3713,6 +3941,14 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         and then the foreground. This avoids chopping off characters that overlap the next run.
         """
         return _stc.StyledTextCtrl_SetTwoPhaseDraw(*args, **kwargs)
+
+    def SetFirstVisibleLine(*args, **kwargs):
+        """
+        SetFirstVisibleLine(self, int lineDisplay)
+
+        Scroll so that a display line is at the top of the display.
+        """
+        return _stc.StyledTextCtrl_SetFirstVisibleLine(*args, **kwargs)
 
     def TargetFromSelection(*args, **kwargs):
         """
@@ -4220,7 +4456,7 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         """
         LineLength(self, int line) -> int
 
-        How many characters are on a line, not including end of line characters?
+        How many characters are on a line, including end of line characters?
         """
         return _stc.StyledTextCtrl_LineLength(*args, **kwargs)
 
@@ -4755,7 +4991,7 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         """
         SetSelectionMode(self, int mode)
 
-        Set the selection mode to stream (SC_SEL_STREAM) or rectangular (SC_SEL_RECTANGLE) or
+        Set the selection mode to stream (SC_SEL_STREAM) or rectangular (SC_SEL_RECTANGLE/SC_SEL_THIN) or
         by lines (SC_SEL_LINES).
         """
         return _stc.StyledTextCtrl_SetSelectionMode(*args, **kwargs)
@@ -5139,6 +5375,572 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         How many entries are allocated to the position cache?
         """
         return _stc.StyledTextCtrl_GetPositionCacheSize(*args, **kwargs)
+
+    def CopyAllowLine(*args, **kwargs):
+        """
+        CopyAllowLine(self)
+
+        Copy the selection, if selection empty copy the line with the caret
+        """
+        return _stc.StyledTextCtrl_CopyAllowLine(*args, **kwargs)
+
+    def SetKeysUnicode(*args, **kwargs):
+        """
+        SetKeysUnicode(self, bool keysUnicode)
+
+        Always interpret keyboard input as Unicode
+        """
+        return _stc.StyledTextCtrl_SetKeysUnicode(*args, **kwargs)
+
+    def GetKeysUnicode(*args, **kwargs):
+        """
+        GetKeysUnicode(self) -> bool
+
+        Are keys always interpreted as Unicode?
+        """
+        return _stc.StyledTextCtrl_GetKeysUnicode(*args, **kwargs)
+
+    def IndicatorSetAlpha(*args, **kwargs):
+        """
+        IndicatorSetAlpha(self, int indicator, int alpha)
+
+        Set the alpha fill colour of the given indicator.
+        """
+        return _stc.StyledTextCtrl_IndicatorSetAlpha(*args, **kwargs)
+
+    def IndicatorGetAlpha(*args, **kwargs):
+        """
+        IndicatorGetAlpha(self, int indicator) -> int
+
+        Get the alpha fill colour of the given indicator.
+        """
+        return _stc.StyledTextCtrl_IndicatorGetAlpha(*args, **kwargs)
+
+    def SetExtraAscent(*args, **kwargs):
+        """
+        SetExtraAscent(self, int extraAscent)
+
+        Set extra ascent for each line
+        """
+        return _stc.StyledTextCtrl_SetExtraAscent(*args, **kwargs)
+
+    def GetExtraAscent(*args, **kwargs):
+        """
+        GetExtraAscent(self) -> int
+
+        Get extra ascent for each line
+        """
+        return _stc.StyledTextCtrl_GetExtraAscent(*args, **kwargs)
+
+    def SetExtraDescent(*args, **kwargs):
+        """
+        SetExtraDescent(self, int extraDescent)
+
+        Set extra descent for each line
+        """
+        return _stc.StyledTextCtrl_SetExtraDescent(*args, **kwargs)
+
+    def GetExtraDescent(*args, **kwargs):
+        """
+        GetExtraDescent(self) -> int
+
+        Get extra descent for each line
+        """
+        return _stc.StyledTextCtrl_GetExtraDescent(*args, **kwargs)
+
+    def GetMarkerSymbolDefined(*args, **kwargs):
+        """
+        GetMarkerSymbolDefined(self, int markerNumber) -> int
+
+        Which symbol was defined for markerNumber with MarkerDefine
+        """
+        return _stc.StyledTextCtrl_GetMarkerSymbolDefined(*args, **kwargs)
+
+    def MarginSetText(*args, **kwargs):
+        """
+        MarginSetText(self, int line, String text)
+
+        Set the text in the text margin for a line
+        """
+        return _stc.StyledTextCtrl_MarginSetText(*args, **kwargs)
+
+    def MarginGetText(*args, **kwargs):
+        """
+        MarginGetText(self, int line) -> String
+
+        Get the text in the text margin for a line
+        """
+        return _stc.StyledTextCtrl_MarginGetText(*args, **kwargs)
+
+    def MarginSetStyle(*args, **kwargs):
+        """
+        MarginSetStyle(self, int line, int style)
+
+        Set the style number for the text margin for a line
+        """
+        return _stc.StyledTextCtrl_MarginSetStyle(*args, **kwargs)
+
+    def MarginGetStyle(*args, **kwargs):
+        """
+        MarginGetStyle(self, int line) -> int
+
+        Get the style number for the text margin for a line
+        """
+        return _stc.StyledTextCtrl_MarginGetStyle(*args, **kwargs)
+
+    def MarginSetStyles(*args, **kwargs):
+        """
+        MarginSetStyles(self, int line, String styles)
+
+        Set the style in the text margin for a line
+        """
+        return _stc.StyledTextCtrl_MarginSetStyles(*args, **kwargs)
+
+    def MarginGetStyles(*args, **kwargs):
+        """
+        MarginGetStyles(self, int line) -> String
+
+        Get the styles in the text margin for a line
+        """
+        return _stc.StyledTextCtrl_MarginGetStyles(*args, **kwargs)
+
+    def MarginTextClearAll(*args, **kwargs):
+        """
+        MarginTextClearAll(self)
+
+        Clear the margin text on all lines
+        """
+        return _stc.StyledTextCtrl_MarginTextClearAll(*args, **kwargs)
+
+    def MarginSetStyleOffset(*args, **kwargs):
+        """
+        MarginSetStyleOffset(self, int style)
+
+        Get the start of the range of style numbers used for margin text
+        """
+        return _stc.StyledTextCtrl_MarginSetStyleOffset(*args, **kwargs)
+
+    def MarginGetStyleOffset(*args, **kwargs):
+        """
+        MarginGetStyleOffset(self) -> int
+
+        Get the start of the range of style numbers used for margin text
+        """
+        return _stc.StyledTextCtrl_MarginGetStyleOffset(*args, **kwargs)
+
+    def AnnotationSetText(*args, **kwargs):
+        """
+        AnnotationSetText(self, int line, String text)
+
+        Set the annotation text for a line
+        """
+        return _stc.StyledTextCtrl_AnnotationSetText(*args, **kwargs)
+
+    def AnnotationGetText(*args, **kwargs):
+        """
+        AnnotationGetText(self, int line) -> String
+
+        Get the annotation text for a line
+        """
+        return _stc.StyledTextCtrl_AnnotationGetText(*args, **kwargs)
+
+    def AnnotationSetStyle(*args, **kwargs):
+        """
+        AnnotationSetStyle(self, int line, int style)
+
+        Set the style number for the annotations for a line
+        """
+        return _stc.StyledTextCtrl_AnnotationSetStyle(*args, **kwargs)
+
+    def AnnotationGetStyle(*args, **kwargs):
+        """
+        AnnotationGetStyle(self, int line) -> int
+
+        Get the style number for the annotations for a line
+        """
+        return _stc.StyledTextCtrl_AnnotationGetStyle(*args, **kwargs)
+
+    def AnnotationSetStyles(*args, **kwargs):
+        """
+        AnnotationSetStyles(self, int line, String styles)
+
+        Set the annotation styles for a line
+        """
+        return _stc.StyledTextCtrl_AnnotationSetStyles(*args, **kwargs)
+
+    def AnnotationGetStyles(*args, **kwargs):
+        """
+        AnnotationGetStyles(self, int line) -> String
+
+        Get the annotation styles for a line
+        """
+        return _stc.StyledTextCtrl_AnnotationGetStyles(*args, **kwargs)
+
+    def AnnotationGetLines(*args, **kwargs):
+        """
+        AnnotationGetLines(self, int line) -> int
+
+        Get the number of annotation lines for a line
+        """
+        return _stc.StyledTextCtrl_AnnotationGetLines(*args, **kwargs)
+
+    def AnnotationClearAll(*args, **kwargs):
+        """
+        AnnotationClearAll(self)
+
+        Clear the annotations from all lines
+        """
+        return _stc.StyledTextCtrl_AnnotationClearAll(*args, **kwargs)
+
+    def AnnotationSetVisible(*args, **kwargs):
+        """
+        AnnotationSetVisible(self, int visible)
+
+        Set the visibility for the annotations for a view
+        """
+        return _stc.StyledTextCtrl_AnnotationSetVisible(*args, **kwargs)
+
+    def AnnotationGetVisible(*args, **kwargs):
+        """
+        AnnotationGetVisible(self) -> int
+
+        Get the visibility for the annotations for a view
+        """
+        return _stc.StyledTextCtrl_AnnotationGetVisible(*args, **kwargs)
+
+    def AnnotationSetStyleOffset(*args, **kwargs):
+        """
+        AnnotationSetStyleOffset(self, int style)
+
+        Get the start of the range of style numbers used for annotations
+        """
+        return _stc.StyledTextCtrl_AnnotationSetStyleOffset(*args, **kwargs)
+
+    def AnnotationGetStyleOffset(*args, **kwargs):
+        """
+        AnnotationGetStyleOffset(self) -> int
+
+        Get the start of the range of style numbers used for annotations
+        """
+        return _stc.StyledTextCtrl_AnnotationGetStyleOffset(*args, **kwargs)
+
+    def AddUndoAction(*args, **kwargs):
+        """
+        AddUndoAction(self, int token, int flags)
+
+        Add a container action to the undo stack
+        """
+        return _stc.StyledTextCtrl_AddUndoAction(*args, **kwargs)
+
+    def CharPositionFromPoint(*args, **kwargs):
+        """
+        CharPositionFromPoint(self, int x, int y) -> int
+
+        Find the position of a character from a point within the window.
+        """
+        return _stc.StyledTextCtrl_CharPositionFromPoint(*args, **kwargs)
+
+    def CharPositionFromPointClose(*args, **kwargs):
+        """
+        CharPositionFromPointClose(self, int x, int y) -> int
+
+        Find the position of a character from a point within the window.
+        Return INVALID_POSITION if not close to text.
+        """
+        return _stc.StyledTextCtrl_CharPositionFromPointClose(*args, **kwargs)
+
+    def SetMultipleSelection(*args, **kwargs):
+        """
+        SetMultipleSelection(self, bool multipleSelection)
+
+        Set whether multiple selections can be made
+        """
+        return _stc.StyledTextCtrl_SetMultipleSelection(*args, **kwargs)
+
+    def GetMultipleSelection(*args, **kwargs):
+        """
+        GetMultipleSelection(self) -> bool
+
+        Whether multiple selections can be made
+        """
+        return _stc.StyledTextCtrl_GetMultipleSelection(*args, **kwargs)
+
+    def SetAdditionalSelectionTyping(*args, **kwargs):
+        """
+        SetAdditionalSelectionTyping(self, bool additionalSelectionTyping)
+
+        Set whether typing can be performed into multiple selections
+        """
+        return _stc.StyledTextCtrl_SetAdditionalSelectionTyping(*args, **kwargs)
+
+    def GetAdditionalSelectionTyping(*args, **kwargs):
+        """
+        GetAdditionalSelectionTyping(self) -> bool
+
+        Whether typing can be performed into multiple selections
+        """
+        return _stc.StyledTextCtrl_GetAdditionalSelectionTyping(*args, **kwargs)
+
+    def SetAdditionalCaretsBlink(*args, **kwargs):
+        """
+        SetAdditionalCaretsBlink(self, bool additionalCaretsBlink)
+
+        Set whether additional carets will blink
+        """
+        return _stc.StyledTextCtrl_SetAdditionalCaretsBlink(*args, **kwargs)
+
+    def GetAdditionalCaretsBlink(*args, **kwargs):
+        """
+        GetAdditionalCaretsBlink(self) -> bool
+
+        Whether additional carets will blink
+        """
+        return _stc.StyledTextCtrl_GetAdditionalCaretsBlink(*args, **kwargs)
+
+    def SetAdditionalCaretsVisible(*args, **kwargs):
+        """
+        SetAdditionalCaretsVisible(self, bool additionalCaretsBlink)
+
+        Set whether additional carets are visible
+        """
+        return _stc.StyledTextCtrl_SetAdditionalCaretsVisible(*args, **kwargs)
+
+    def GetAdditionalCaretsVisible(*args, **kwargs):
+        """
+        GetAdditionalCaretsVisible(self) -> bool
+
+        Whether additional carets are visible
+        """
+        return _stc.StyledTextCtrl_GetAdditionalCaretsVisible(*args, **kwargs)
+
+    def GetSelections(*args, **kwargs):
+        """
+        GetSelections(self) -> int
+
+        How many selections are there?
+        """
+        return _stc.StyledTextCtrl_GetSelections(*args, **kwargs)
+
+    def ClearSelections(*args, **kwargs):
+        """
+        ClearSelections(self)
+
+        Clear selections to a single empty stream selection
+        """
+        return _stc.StyledTextCtrl_ClearSelections(*args, **kwargs)
+
+    def AddSelection(*args, **kwargs):
+        """
+        AddSelection(self, int caret, int anchor) -> int
+
+        Add a selection
+        """
+        return _stc.StyledTextCtrl_AddSelection(*args, **kwargs)
+
+    def SetMainSelection(*args, **kwargs):
+        """
+        SetMainSelection(self, int selection)
+
+        Set the main selection
+        """
+        return _stc.StyledTextCtrl_SetMainSelection(*args, **kwargs)
+
+    def GetMainSelection(*args, **kwargs):
+        """
+        GetMainSelection(self) -> int
+
+        Which selection is the main selection
+        """
+        return _stc.StyledTextCtrl_GetMainSelection(*args, **kwargs)
+
+    def SetSelectionNCaret(*args, **kwargs):
+        """SetSelectionNCaret(self, int selection, int pos)"""
+        return _stc.StyledTextCtrl_SetSelectionNCaret(*args, **kwargs)
+
+    def GetSelectionNCaret(*args, **kwargs):
+        """GetSelectionNCaret(self, int selection) -> int"""
+        return _stc.StyledTextCtrl_GetSelectionNCaret(*args, **kwargs)
+
+    def SetSelectionNAnchor(*args, **kwargs):
+        """SetSelectionNAnchor(self, int selection, int posAnchor)"""
+        return _stc.StyledTextCtrl_SetSelectionNAnchor(*args, **kwargs)
+
+    def GetSelectionNAnchor(*args, **kwargs):
+        """GetSelectionNAnchor(self, int selection) -> int"""
+        return _stc.StyledTextCtrl_GetSelectionNAnchor(*args, **kwargs)
+
+    def SetSelectionNCaretVirtualSpace(*args, **kwargs):
+        """SetSelectionNCaretVirtualSpace(self, int selection, int space)"""
+        return _stc.StyledTextCtrl_SetSelectionNCaretVirtualSpace(*args, **kwargs)
+
+    def GetSelectionNCaretVirtualSpace(*args, **kwargs):
+        """GetSelectionNCaretVirtualSpace(self, int selection) -> int"""
+        return _stc.StyledTextCtrl_GetSelectionNCaretVirtualSpace(*args, **kwargs)
+
+    def SetSelectionNAnchorVirtualSpace(*args, **kwargs):
+        """SetSelectionNAnchorVirtualSpace(self, int selection, int space)"""
+        return _stc.StyledTextCtrl_SetSelectionNAnchorVirtualSpace(*args, **kwargs)
+
+    def GetSelectionNAnchorVirtualSpace(*args, **kwargs):
+        """GetSelectionNAnchorVirtualSpace(self, int selection) -> int"""
+        return _stc.StyledTextCtrl_GetSelectionNAnchorVirtualSpace(*args, **kwargs)
+
+    def SetSelectionNStart(*args, **kwargs):
+        """
+        SetSelectionNStart(self, int selection, int pos)
+
+        Sets the position that starts the selection - this becomes the anchor.
+        """
+        return _stc.StyledTextCtrl_SetSelectionNStart(*args, **kwargs)
+
+    def GetSelectionNStart(*args, **kwargs):
+        """
+        GetSelectionNStart(self, int selection) -> int
+
+        Returns the position at the start of the selection.
+        """
+        return _stc.StyledTextCtrl_GetSelectionNStart(*args, **kwargs)
+
+    def SetSelectionNEnd(*args, **kwargs):
+        """
+        SetSelectionNEnd(self, int selection, int pos)
+
+        Sets the position that ends the selection - this becomes the currentPosition.
+        """
+        return _stc.StyledTextCtrl_SetSelectionNEnd(*args, **kwargs)
+
+    def GetSelectionNEnd(*args, **kwargs):
+        """
+        GetSelectionNEnd(self, int selection) -> int
+
+        Returns the position at the end of the selection.
+        """
+        return _stc.StyledTextCtrl_GetSelectionNEnd(*args, **kwargs)
+
+    def SetRectangularSelectionCaret(*args, **kwargs):
+        """SetRectangularSelectionCaret(self, int pos)"""
+        return _stc.StyledTextCtrl_SetRectangularSelectionCaret(*args, **kwargs)
+
+    def GetRectangularSelectionCaret(*args, **kwargs):
+        """GetRectangularSelectionCaret(self) -> int"""
+        return _stc.StyledTextCtrl_GetRectangularSelectionCaret(*args, **kwargs)
+
+    def SetRectangularSelectionAnchor(*args, **kwargs):
+        """SetRectangularSelectionAnchor(self, int posAnchor)"""
+        return _stc.StyledTextCtrl_SetRectangularSelectionAnchor(*args, **kwargs)
+
+    def GetRectangularSelectionAnchor(*args, **kwargs):
+        """GetRectangularSelectionAnchor(self) -> int"""
+        return _stc.StyledTextCtrl_GetRectangularSelectionAnchor(*args, **kwargs)
+
+    def SetRectangularSelectionCaretVirtualSpace(*args, **kwargs):
+        """SetRectangularSelectionCaretVirtualSpace(self, int space)"""
+        return _stc.StyledTextCtrl_SetRectangularSelectionCaretVirtualSpace(*args, **kwargs)
+
+    def GetRectangularSelectionCaretVirtualSpace(*args, **kwargs):
+        """GetRectangularSelectionCaretVirtualSpace(self) -> int"""
+        return _stc.StyledTextCtrl_GetRectangularSelectionCaretVirtualSpace(*args, **kwargs)
+
+    def SetRectangularSelectionAnchorVirtualSpace(*args, **kwargs):
+        """SetRectangularSelectionAnchorVirtualSpace(self, int space)"""
+        return _stc.StyledTextCtrl_SetRectangularSelectionAnchorVirtualSpace(*args, **kwargs)
+
+    def GetRectangularSelectionAnchorVirtualSpace(*args, **kwargs):
+        """GetRectangularSelectionAnchorVirtualSpace(self) -> int"""
+        return _stc.StyledTextCtrl_GetRectangularSelectionAnchorVirtualSpace(*args, **kwargs)
+
+    def SetVirtualSpaceOptions(*args, **kwargs):
+        """SetVirtualSpaceOptions(self, int virtualSpaceOptions)"""
+        return _stc.StyledTextCtrl_SetVirtualSpaceOptions(*args, **kwargs)
+
+    def GetVirtualSpaceOptions(*args, **kwargs):
+        """GetVirtualSpaceOptions(self) -> int"""
+        return _stc.StyledTextCtrl_GetVirtualSpaceOptions(*args, **kwargs)
+
+    def SetRectangularSelectionModifier(*args, **kwargs):
+        """
+        SetRectangularSelectionModifier(self, int modifier)
+
+        On GTK+, allow selecting the modifier key to use for mouse-based
+        rectangular selection. Often the window manager requires Alt+Mouse Drag
+        for moving windows.
+        Valid values are SCMOD_CTRL(default), SCMOD_ALT, or SCMOD_SUPER.
+        """
+        return _stc.StyledTextCtrl_SetRectangularSelectionModifier(*args, **kwargs)
+
+    def GetRectangularSelectionModifier(*args, **kwargs):
+        """
+        GetRectangularSelectionModifier(self) -> int
+
+        Get the modifier key used for rectangular selection.
+        """
+        return _stc.StyledTextCtrl_GetRectangularSelectionModifier(*args, **kwargs)
+
+    def SetAdditionalSelForeground(*args, **kwargs):
+        """
+        SetAdditionalSelForeground(self, Colour fore)
+
+        Set the foreground colour of additional selections.
+        Must have previously called SetSelFore with non-zero first argument for this to have an effect.
+        """
+        return _stc.StyledTextCtrl_SetAdditionalSelForeground(*args, **kwargs)
+
+    def SetAdditionalSelBackground(*args, **kwargs):
+        """
+        SetAdditionalSelBackground(self, Colour back)
+
+        Set the background colour of additional selections.
+        Must have previously called SetSelBack with non-zero first argument for this to have an effect.
+        """
+        return _stc.StyledTextCtrl_SetAdditionalSelBackground(*args, **kwargs)
+
+    def SetAdditionalSelAlpha(*args, **kwargs):
+        """
+        SetAdditionalSelAlpha(self, int alpha)
+
+        Set the alpha of the selection.
+        """
+        return _stc.StyledTextCtrl_SetAdditionalSelAlpha(*args, **kwargs)
+
+    def GetAdditionalSelAlpha(*args, **kwargs):
+        """
+        GetAdditionalSelAlpha(self) -> int
+
+        Get the alpha of the selection.
+        """
+        return _stc.StyledTextCtrl_GetAdditionalSelAlpha(*args, **kwargs)
+
+    def SetAdditionalCaretForeground(*args, **kwargs):
+        """
+        SetAdditionalCaretForeground(self, Colour fore)
+
+        Set the foreground colour of additional carets.
+        """
+        return _stc.StyledTextCtrl_SetAdditionalCaretForeground(*args, **kwargs)
+
+    def GetAdditionalCaretForeground(*args, **kwargs):
+        """
+        GetAdditionalCaretForeground(self) -> Colour
+
+        Get the foreground colour of additional carets.
+        """
+        return _stc.StyledTextCtrl_GetAdditionalCaretForeground(*args, **kwargs)
+
+    def RotateSelection(*args, **kwargs):
+        """
+        RotateSelection(self)
+
+        Set the main selection to the next selection.
+        """
+        return _stc.StyledTextCtrl_RotateSelection(*args, **kwargs)
+
+    def SwapMainAnchorCaret(*args, **kwargs):
+        """
+        SwapMainAnchorCaret(self)
+
+        Swap that caret and anchor of the main selection.
+        """
+        return _stc.StyledTextCtrl_SwapMainAnchorCaret(*args, **kwargs)
 
     def StartRecord(*args, **kwargs):
         """
@@ -5957,6 +6759,8 @@ wxEVT_STC_CALLTIP_CLICK = _stc.wxEVT_STC_CALLTIP_CLICK
 wxEVT_STC_AUTOCOMP_SELECTION = _stc.wxEVT_STC_AUTOCOMP_SELECTION
 wxEVT_STC_INDICATOR_CLICK = _stc.wxEVT_STC_INDICATOR_CLICK
 wxEVT_STC_INDICATOR_RELEASE = _stc.wxEVT_STC_INDICATOR_RELEASE
+wxEVT_STC_AUTOCOMP_CANCELLED = _stc.wxEVT_STC_AUTOCOMP_CANCELLED
+wxEVT_STC_AUTOCOMP_CHAR_DELETED = _stc.wxEVT_STC_AUTOCOMP_CHAR_DELETED
 EVT_STC_CHANGE = wx.PyEventBinder( wxEVT_STC_CHANGE, 1 )
 EVT_STC_STYLENEEDED = wx.PyEventBinder( wxEVT_STC_STYLENEEDED, 1 )
 EVT_STC_CHARADDED = wx.PyEventBinder( wxEVT_STC_CHARADDED, 1 )
@@ -5984,7 +6788,9 @@ EVT_STC_HOTSPOT_DCLICK = wx.PyEventBinder( wxEVT_STC_HOTSPOT_DCLICK, 1 )
 EVT_STC_CALLTIP_CLICK = wx.PyEventBinder( wxEVT_STC_CALLTIP_CLICK, 1 )
 EVT_STC_AUTOCOMP_SELECTION = wx.PyEventBinder( wxEVT_STC_AUTOCOMP_SELECTION, 1 )
 EVT_STC_INDICATOR_CLICK = wx.PyEventBinder( wxEVT_STC_INDICATOR_CLICK, 1 )
-EVT_STC_INDICATOR_RELEASE = wx.PyEventBinder( wxEVT_STC_INDICATOR_RELEASE, 1 )    
+EVT_STC_INDICATOR_RELEASE = wx.PyEventBinder( wxEVT_STC_INDICATOR_RELEASE, 1 )
+EVT_STC_AUTOCOMP_CANCELLED = wx.PyEventBinder( wxEVT_STC_AUTOCOMP_CANCELLED, 1 )
+EVT_STC_AUTOCOMP_CHAR_DELETED = wx.PyEventBinder( wxEVT_STC_AUTOCOMP_CHAR_DELETED, 1 )    
 
 
 

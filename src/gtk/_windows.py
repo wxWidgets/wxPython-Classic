@@ -517,10 +517,19 @@ class TopLevelWindow(_core.Window):
         """
         return _windows_.TopLevelWindow_GetTmpDefaultItem(*args, **kwargs)
 
+    def OSXIsModified(*args, **kwargs):
+        """OSXIsModified(self) -> bool"""
+        return _windows_.TopLevelWindow_OSXIsModified(*args, **kwargs)
+
+    def OSXSetModified(*args, **kwargs):
+        """OSXSetModified(self, bool modified)"""
+        return _windows_.TopLevelWindow_OSXSetModified(*args, **kwargs)
+
     DefaultItem = property(GetDefaultItem,SetDefaultItem,doc="See `GetDefaultItem` and `SetDefaultItem`") 
     Icon = property(GetIcon,SetIcon,doc="See `GetIcon` and `SetIcon`") 
     Title = property(GetTitle,SetTitle,doc="See `GetTitle` and `SetTitle`") 
     TmpDefaultItem = property(GetTmpDefaultItem,SetTmpDefaultItem,doc="See `GetTmpDefaultItem` and `SetTmpDefaultItem`") 
+    OSXModified = property(OSXIsModified,OSXSetModified) 
 _windows_.TopLevelWindow_swigregister(TopLevelWindow)
 cvar = _windows_.cvar
 FrameNameStr = cvar.FrameNameStr

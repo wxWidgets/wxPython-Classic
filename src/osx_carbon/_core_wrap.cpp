@@ -45375,6 +45375,47 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Window_MacIsWindowScrollbar(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxWindow *arg1 = (wxWindow *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "sb", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Window_MacIsWindowScrollbar",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Window_MacIsWindowScrollbar" "', expected argument " "1"" of type '" "wxWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxWindow * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Window_MacIsWindowScrollbar" "', expected argument " "2"" of type '" "wxWindow const *""'"); 
+  }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->MacIsWindowScrollbar((wxWindow const *)arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Window_SetHelpText(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
@@ -69624,6 +69665,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Window_PageDown", (PyCFunction)_wrap_Window_PageDown, METH_O, NULL},
 	 { (char *)"Window_AlwaysShowScrollbars", (PyCFunction) _wrap_Window_AlwaysShowScrollbars, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_IsScrollbarAlwaysShown", (PyCFunction) _wrap_Window_IsScrollbarAlwaysShown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Window_MacIsWindowScrollbar", (PyCFunction) _wrap_Window_MacIsWindowScrollbar, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_SetHelpText", (PyCFunction) _wrap_Window_SetHelpText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_SetHelpTextForId", (PyCFunction) _wrap_Window_SetHelpTextForId, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_GetHelpTextAtPoint", (PyCFunction) _wrap_Window_GetHelpTextAtPoint, METH_VARARGS | METH_KEYWORDS, NULL},

@@ -2562,232 +2562,231 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxBitmap swig_types[96]
 #define SWIGTYPE_p_wxBoolProperty swig_types[97]
 #define SWIGTYPE_p_wxBoxSizer swig_types[98]
-#define SWIGTYPE_p_wxByte swig_types[99]
-#define SWIGTYPE_p_wxCURHandler swig_types[100]
-#define SWIGTYPE_p_wxCalculateLayoutEvent swig_types[101]
-#define SWIGTYPE_p_wxChar swig_types[102]
-#define SWIGTYPE_p_wxChildFocusEvent swig_types[103]
-#define SWIGTYPE_p_wxClipboardTextEvent swig_types[104]
-#define SWIGTYPE_p_wxCloseEvent swig_types[105]
-#define SWIGTYPE_p_wxColour swig_types[106]
-#define SWIGTYPE_p_wxColourData swig_types[107]
-#define SWIGTYPE_p_wxColourDialog swig_types[108]
-#define SWIGTYPE_p_wxColourProperty swig_types[109]
-#define SWIGTYPE_p_wxColourPropertyValue swig_types[110]
-#define SWIGTYPE_p_wxCommandEvent swig_types[111]
-#define SWIGTYPE_p_wxContextMenuEvent swig_types[112]
-#define SWIGTYPE_p_wxControl swig_types[113]
-#define SWIGTYPE_p_wxControlWithItems swig_types[114]
-#define SWIGTYPE_p_wxCursorProperty swig_types[115]
-#define SWIGTYPE_p_wxDC swig_types[116]
-#define SWIGTYPE_p_wxDateEvent swig_types[117]
-#define SWIGTYPE_p_wxDateTime swig_types[118]
-#define SWIGTYPE_p_wxDialog swig_types[119]
-#define SWIGTYPE_p_wxDialogLayoutAdapter swig_types[120]
-#define SWIGTYPE_p_wxDirDialog swig_types[121]
-#define SWIGTYPE_p_wxDirProperty swig_types[122]
-#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[123]
-#define SWIGTYPE_p_wxDropFilesEvent swig_types[124]
-#define SWIGTYPE_p_wxDuplexMode swig_types[125]
-#define SWIGTYPE_p_wxEditEnumProperty swig_types[126]
-#define SWIGTYPE_p_wxEnumProperty swig_types[127]
-#define SWIGTYPE_p_wxEraseEvent swig_types[128]
-#define SWIGTYPE_p_wxEvent swig_types[129]
-#define SWIGTYPE_p_wxEventBlocker swig_types[130]
-#define SWIGTYPE_p_wxEvtHandler swig_types[131]
-#define SWIGTYPE_p_wxFSFile swig_types[132]
-#define SWIGTYPE_p_wxFileDialog swig_types[133]
-#define SWIGTYPE_p_wxFileName swig_types[134]
-#define SWIGTYPE_p_wxFileProperty swig_types[135]
-#define SWIGTYPE_p_wxFileSystem swig_types[136]
-#define SWIGTYPE_p_wxFindDialogEvent swig_types[137]
-#define SWIGTYPE_p_wxFindReplaceData swig_types[138]
-#define SWIGTYPE_p_wxFindReplaceDialog swig_types[139]
-#define SWIGTYPE_p_wxFlagsProperty swig_types[140]
-#define SWIGTYPE_p_wxFlexGridSizer swig_types[141]
-#define SWIGTYPE_p_wxFloatProperty swig_types[142]
-#define SWIGTYPE_p_wxFocusEvent swig_types[143]
-#define SWIGTYPE_p_wxFont swig_types[144]
-#define SWIGTYPE_p_wxFontData swig_types[145]
-#define SWIGTYPE_p_wxFontDialog swig_types[146]
-#define SWIGTYPE_p_wxFontProperty swig_types[147]
-#define SWIGTYPE_p_wxFrame swig_types[148]
-#define SWIGTYPE_p_wxGBSizerItem swig_types[149]
-#define SWIGTYPE_p_wxGIFHandler swig_types[150]
-#define SWIGTYPE_p_wxGridBagSizer swig_types[151]
-#define SWIGTYPE_p_wxGridSizer swig_types[152]
-#define SWIGTYPE_p_wxICOHandler swig_types[153]
-#define SWIGTYPE_p_wxIconizeEvent swig_types[154]
-#define SWIGTYPE_p_wxIdleEvent swig_types[155]
-#define SWIGTYPE_p_wxImage swig_types[156]
-#define SWIGTYPE_p_wxImageFileProperty swig_types[157]
-#define SWIGTYPE_p_wxImageHandler swig_types[158]
-#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[159]
-#define SWIGTYPE_p_wxInitDialogEvent swig_types[160]
-#define SWIGTYPE_p_wxIntProperty swig_types[161]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[162]
-#define SWIGTYPE_p_wxKeyEvent swig_types[163]
-#define SWIGTYPE_p_wxLayoutAlgorithm swig_types[164]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[165]
-#define SWIGTYPE_p_wxLongLong swig_types[166]
-#define SWIGTYPE_p_wxLongLong_t swig_types[167]
-#define SWIGTYPE_p_wxLongStringProperty swig_types[168]
-#define SWIGTYPE_p_wxMDIChildFrame swig_types[169]
-#define SWIGTYPE_p_wxMDIClientWindow swig_types[170]
-#define SWIGTYPE_p_wxMDIParentFrame swig_types[171]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[172]
-#define SWIGTYPE_p_wxMenu swig_types[173]
-#define SWIGTYPE_p_wxMenuBar swig_types[174]
-#define SWIGTYPE_p_wxMenuEvent swig_types[175]
-#define SWIGTYPE_p_wxMenuItem swig_types[176]
-#define SWIGTYPE_p_wxMessageDialog swig_types[177]
-#define SWIGTYPE_p_wxMiniFrame swig_types[178]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[179]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[180]
-#define SWIGTYPE_p_wxMouseEvent swig_types[181]
-#define SWIGTYPE_p_wxMoveEvent swig_types[182]
-#define SWIGTYPE_p_wxMultiChoiceDialog swig_types[183]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[184]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[185]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[186]
-#define SWIGTYPE_p_wxNumberEntryDialog swig_types[187]
-#define SWIGTYPE_p_wxObject swig_types[188]
-#define SWIGTYPE_p_wxPCXHandler swig_types[189]
-#define SWIGTYPE_p_wxPGArrayStringEditorDialog swig_types[190]
-#define SWIGTYPE_p_wxPGAttributeStorage swig_types[191]
-#define SWIGTYPE_p_wxPGCell swig_types[192]
-#define SWIGTYPE_p_wxPGCellData swig_types[193]
-#define SWIGTYPE_p_wxPGCellRenderer swig_types[194]
-#define SWIGTYPE_p_wxPGCheckBoxEditor swig_types[195]
-#define SWIGTYPE_p_wxPGChoiceAndButtonEditor swig_types[196]
-#define SWIGTYPE_p_wxPGChoiceEditor swig_types[197]
-#define SWIGTYPE_p_wxPGChoiceEntry swig_types[198]
-#define SWIGTYPE_p_wxPGChoices swig_types[199]
-#define SWIGTYPE_p_wxPGChoicesData swig_types[200]
-#define SWIGTYPE_p_wxPGComboBoxEditor swig_types[201]
-#define SWIGTYPE_p_wxPGCommonValue swig_types[202]
-#define SWIGTYPE_p_wxPGDefaultRenderer swig_types[203]
-#define SWIGTYPE_p_wxPGEditor swig_types[204]
-#define SWIGTYPE_p_wxPGEditorDialogAdapter swig_types[205]
-#define SWIGTYPE_p_wxPGFileDialogAdapter swig_types[206]
-#define SWIGTYPE_p_wxPGLongStringDialogAdapter swig_types[207]
-#define SWIGTYPE_p_wxPGMultiButton swig_types[208]
-#define SWIGTYPE_p_wxPGPaintData swig_types[209]
-#define SWIGTYPE_p_wxPGPropArgCls swig_types[210]
-#define SWIGTYPE_p_wxPGProperty swig_types[211]
-#define SWIGTYPE_p_wxPGRootProperty swig_types[212]
-#define SWIGTYPE_p_wxPGSpinCtrlEditor swig_types[213]
-#define SWIGTYPE_p_wxPGTextCtrlAndButtonEditor swig_types[214]
-#define SWIGTYPE_p_wxPGTextCtrlEditor swig_types[215]
-#define SWIGTYPE_p_wxPGVIterator swig_types[216]
-#define SWIGTYPE_p_wxPGVIteratorBase swig_types[217]
-#define SWIGTYPE_p_wxPGValidationInfo swig_types[218]
-#define SWIGTYPE_p_wxPGWindowList swig_types[219]
-#define SWIGTYPE_p_wxPNGHandler swig_types[220]
-#define SWIGTYPE_p_wxPNMHandler swig_types[221]
-#define SWIGTYPE_p_wxPageSetupDialog swig_types[222]
-#define SWIGTYPE_p_wxPageSetupDialogData swig_types[223]
-#define SWIGTYPE_p_wxPaintEvent swig_types[224]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[225]
-#define SWIGTYPE_p_wxPanel swig_types[226]
-#define SWIGTYPE_p_wxPaperSize swig_types[227]
-#define SWIGTYPE_p_wxPasswordEntryDialog swig_types[228]
-#define SWIGTYPE_p_wxPoint swig_types[229]
-#define SWIGTYPE_p_wxPopupWindow swig_types[230]
-#define SWIGTYPE_p_wxPreviewCanvas swig_types[231]
-#define SWIGTYPE_p_wxPreviewControlBar swig_types[232]
-#define SWIGTYPE_p_wxPreviewFrame swig_types[233]
-#define SWIGTYPE_p_wxPrintData swig_types[234]
-#define SWIGTYPE_p_wxPrintDialog swig_types[235]
-#define SWIGTYPE_p_wxPrintDialogData swig_types[236]
-#define SWIGTYPE_p_wxPrintPreview swig_types[237]
-#define SWIGTYPE_p_wxPrinter swig_types[238]
-#define SWIGTYPE_p_wxProgressDialog swig_types[239]
-#define SWIGTYPE_p_wxPropertyCategory swig_types[240]
-#define SWIGTYPE_p_wxPropertyGrid swig_types[241]
-#define SWIGTYPE_p_wxPropertyGridConstIterator swig_types[242]
-#define SWIGTYPE_p_wxPropertyGridEvent swig_types[243]
-#define SWIGTYPE_p_wxPropertyGridHitTestResult swig_types[244]
-#define SWIGTYPE_p_wxPropertyGridInterface swig_types[245]
-#define SWIGTYPE_p_wxPropertyGridIterator swig_types[246]
-#define SWIGTYPE_p_wxPropertyGridIteratorBase swig_types[247]
-#define SWIGTYPE_p_wxPropertyGridManager swig_types[248]
-#define SWIGTYPE_p_wxPropertyGridPage swig_types[249]
-#define SWIGTYPE_p_wxPropertyGridPageState swig_types[250]
-#define SWIGTYPE_p_wxPropertyGridPopulator swig_types[251]
-#define SWIGTYPE_p_wxPyApp swig_types[252]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[253]
-#define SWIGTYPE_p_wxPyEvent swig_types[254]
-#define SWIGTYPE_p_wxPyEvtHandler swig_types[255]
-#define SWIGTYPE_p_wxPyHScrolledWindow swig_types[256]
-#define SWIGTYPE_p_wxPyHVScrolledWindow swig_types[257]
-#define SWIGTYPE_p_wxPyHtmlListBox swig_types[258]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[259]
-#define SWIGTYPE_p_wxPyPanel swig_types[260]
-#define SWIGTYPE_p_wxPyPopupTransientWindow swig_types[261]
-#define SWIGTYPE_p_wxPyPreviewControlBar swig_types[262]
-#define SWIGTYPE_p_wxPyPreviewFrame swig_types[263]
-#define SWIGTYPE_p_wxPyPrintPreview swig_types[264]
-#define SWIGTYPE_p_wxPyPrintout swig_types[265]
-#define SWIGTYPE_p_wxPyScrolledWindow swig_types[266]
-#define SWIGTYPE_p_wxPySizer swig_types[267]
-#define SWIGTYPE_p_wxPyTaskBarIcon swig_types[268]
-#define SWIGTYPE_p_wxPyVListBox swig_types[269]
-#define SWIGTYPE_p_wxPyVScrolledWindow swig_types[270]
-#define SWIGTYPE_p_wxPyValidator swig_types[271]
-#define SWIGTYPE_p_wxPyWindow swig_types[272]
-#define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[273]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[274]
-#define SWIGTYPE_p_wxRect swig_types[275]
-#define SWIGTYPE_p_wxSashEvent swig_types[276]
-#define SWIGTYPE_p_wxSashLayoutWindow swig_types[277]
-#define SWIGTYPE_p_wxSashWindow swig_types[278]
-#define SWIGTYPE_p_wxScrollEvent swig_types[279]
-#define SWIGTYPE_p_wxScrollHelper swig_types[280]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[281]
-#define SWIGTYPE_p_wxScrolledWindow swig_types[282]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[283]
-#define SWIGTYPE_p_wxShowEvent swig_types[284]
-#define SWIGTYPE_p_wxSimpleHtmlListBox swig_types[285]
-#define SWIGTYPE_p_wxSingleChoiceDialog swig_types[286]
-#define SWIGTYPE_p_wxSize swig_types[287]
-#define SWIGTYPE_p_wxSizeEvent swig_types[288]
-#define SWIGTYPE_p_wxSizer swig_types[289]
-#define SWIGTYPE_p_wxSizerItem swig_types[290]
-#define SWIGTYPE_p_wxSplashScreen swig_types[291]
-#define SWIGTYPE_p_wxSplashScreenWindow swig_types[292]
-#define SWIGTYPE_p_wxSplitterEvent swig_types[293]
-#define SWIGTYPE_p_wxSplitterWindow swig_types[294]
-#define SWIGTYPE_p_wxStandardDialogLayoutAdapter swig_types[295]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[296]
-#define SWIGTYPE_p_wxStatusBar swig_types[297]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[298]
-#define SWIGTYPE_p_wxString swig_types[299]
-#define SWIGTYPE_p_wxStringProperty swig_types[300]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[301]
-#define SWIGTYPE_p_wxSystemColourProperty swig_types[302]
-#define SWIGTYPE_p_wxTGAHandler swig_types[303]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[304]
-#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[305]
-#define SWIGTYPE_p_wxTextCtrlBase swig_types[306]
-#define SWIGTYPE_p_wxTextEntryDialog swig_types[307]
-#define SWIGTYPE_p_wxThreadEvent swig_types[308]
-#define SWIGTYPE_p_wxTipWindow swig_types[309]
-#define SWIGTYPE_p_wxTopLevelWindow swig_types[310]
-#define SWIGTYPE_p_wxUIntProperty swig_types[311]
-#define SWIGTYPE_p_wxULongLong swig_types[312]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[313]
-#define SWIGTYPE_p_wxValidator swig_types[314]
-#define SWIGTYPE_p_wxVariant swig_types[315]
-#define SWIGTYPE_p_wxWindow swig_types[316]
-#define SWIGTYPE_p_wxWindowBase swig_types[317]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[318]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[319]
-#define SWIGTYPE_p_wxWindowModalDialogEvent swig_types[320]
-#define SWIGTYPE_p_wxWrapSizer swig_types[321]
-#define SWIGTYPE_p_wxXPMHandler swig_types[322]
-static swig_type_info *swig_types[324];
-static swig_module_info swig_module = {swig_types, 323, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxCURHandler swig_types[99]
+#define SWIGTYPE_p_wxCalculateLayoutEvent swig_types[100]
+#define SWIGTYPE_p_wxChar swig_types[101]
+#define SWIGTYPE_p_wxChildFocusEvent swig_types[102]
+#define SWIGTYPE_p_wxClipboardTextEvent swig_types[103]
+#define SWIGTYPE_p_wxCloseEvent swig_types[104]
+#define SWIGTYPE_p_wxColour swig_types[105]
+#define SWIGTYPE_p_wxColourData swig_types[106]
+#define SWIGTYPE_p_wxColourDialog swig_types[107]
+#define SWIGTYPE_p_wxColourProperty swig_types[108]
+#define SWIGTYPE_p_wxColourPropertyValue swig_types[109]
+#define SWIGTYPE_p_wxCommandEvent swig_types[110]
+#define SWIGTYPE_p_wxContextMenuEvent swig_types[111]
+#define SWIGTYPE_p_wxControl swig_types[112]
+#define SWIGTYPE_p_wxControlWithItems swig_types[113]
+#define SWIGTYPE_p_wxCursorProperty swig_types[114]
+#define SWIGTYPE_p_wxDC swig_types[115]
+#define SWIGTYPE_p_wxDateEvent swig_types[116]
+#define SWIGTYPE_p_wxDateTime swig_types[117]
+#define SWIGTYPE_p_wxDialog swig_types[118]
+#define SWIGTYPE_p_wxDialogLayoutAdapter swig_types[119]
+#define SWIGTYPE_p_wxDirDialog swig_types[120]
+#define SWIGTYPE_p_wxDirProperty swig_types[121]
+#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[122]
+#define SWIGTYPE_p_wxDropFilesEvent swig_types[123]
+#define SWIGTYPE_p_wxDuplexMode swig_types[124]
+#define SWIGTYPE_p_wxEditEnumProperty swig_types[125]
+#define SWIGTYPE_p_wxEnumProperty swig_types[126]
+#define SWIGTYPE_p_wxEraseEvent swig_types[127]
+#define SWIGTYPE_p_wxEvent swig_types[128]
+#define SWIGTYPE_p_wxEventBlocker swig_types[129]
+#define SWIGTYPE_p_wxEvtHandler swig_types[130]
+#define SWIGTYPE_p_wxFSFile swig_types[131]
+#define SWIGTYPE_p_wxFileDialog swig_types[132]
+#define SWIGTYPE_p_wxFileName swig_types[133]
+#define SWIGTYPE_p_wxFileProperty swig_types[134]
+#define SWIGTYPE_p_wxFileSystem swig_types[135]
+#define SWIGTYPE_p_wxFindDialogEvent swig_types[136]
+#define SWIGTYPE_p_wxFindReplaceData swig_types[137]
+#define SWIGTYPE_p_wxFindReplaceDialog swig_types[138]
+#define SWIGTYPE_p_wxFlagsProperty swig_types[139]
+#define SWIGTYPE_p_wxFlexGridSizer swig_types[140]
+#define SWIGTYPE_p_wxFloatProperty swig_types[141]
+#define SWIGTYPE_p_wxFocusEvent swig_types[142]
+#define SWIGTYPE_p_wxFont swig_types[143]
+#define SWIGTYPE_p_wxFontData swig_types[144]
+#define SWIGTYPE_p_wxFontDialog swig_types[145]
+#define SWIGTYPE_p_wxFontProperty swig_types[146]
+#define SWIGTYPE_p_wxFrame swig_types[147]
+#define SWIGTYPE_p_wxGBSizerItem swig_types[148]
+#define SWIGTYPE_p_wxGIFHandler swig_types[149]
+#define SWIGTYPE_p_wxGridBagSizer swig_types[150]
+#define SWIGTYPE_p_wxGridSizer swig_types[151]
+#define SWIGTYPE_p_wxICOHandler swig_types[152]
+#define SWIGTYPE_p_wxIconizeEvent swig_types[153]
+#define SWIGTYPE_p_wxIdleEvent swig_types[154]
+#define SWIGTYPE_p_wxImage swig_types[155]
+#define SWIGTYPE_p_wxImageFileProperty swig_types[156]
+#define SWIGTYPE_p_wxImageHandler swig_types[157]
+#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[158]
+#define SWIGTYPE_p_wxInitDialogEvent swig_types[159]
+#define SWIGTYPE_p_wxIntProperty swig_types[160]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[161]
+#define SWIGTYPE_p_wxKeyEvent swig_types[162]
+#define SWIGTYPE_p_wxLayoutAlgorithm swig_types[163]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[164]
+#define SWIGTYPE_p_wxLongLong swig_types[165]
+#define SWIGTYPE_p_wxLongLong_t swig_types[166]
+#define SWIGTYPE_p_wxLongStringProperty swig_types[167]
+#define SWIGTYPE_p_wxMDIChildFrame swig_types[168]
+#define SWIGTYPE_p_wxMDIClientWindow swig_types[169]
+#define SWIGTYPE_p_wxMDIParentFrame swig_types[170]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[171]
+#define SWIGTYPE_p_wxMenu swig_types[172]
+#define SWIGTYPE_p_wxMenuBar swig_types[173]
+#define SWIGTYPE_p_wxMenuEvent swig_types[174]
+#define SWIGTYPE_p_wxMenuItem swig_types[175]
+#define SWIGTYPE_p_wxMessageDialog swig_types[176]
+#define SWIGTYPE_p_wxMiniFrame swig_types[177]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[178]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[179]
+#define SWIGTYPE_p_wxMouseEvent swig_types[180]
+#define SWIGTYPE_p_wxMoveEvent swig_types[181]
+#define SWIGTYPE_p_wxMultiChoiceDialog swig_types[182]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[183]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[184]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[185]
+#define SWIGTYPE_p_wxNumberEntryDialog swig_types[186]
+#define SWIGTYPE_p_wxObject swig_types[187]
+#define SWIGTYPE_p_wxPCXHandler swig_types[188]
+#define SWIGTYPE_p_wxPGArrayStringEditorDialog swig_types[189]
+#define SWIGTYPE_p_wxPGAttributeStorage swig_types[190]
+#define SWIGTYPE_p_wxPGCell swig_types[191]
+#define SWIGTYPE_p_wxPGCellData swig_types[192]
+#define SWIGTYPE_p_wxPGCellRenderer swig_types[193]
+#define SWIGTYPE_p_wxPGCheckBoxEditor swig_types[194]
+#define SWIGTYPE_p_wxPGChoiceAndButtonEditor swig_types[195]
+#define SWIGTYPE_p_wxPGChoiceEditor swig_types[196]
+#define SWIGTYPE_p_wxPGChoiceEntry swig_types[197]
+#define SWIGTYPE_p_wxPGChoices swig_types[198]
+#define SWIGTYPE_p_wxPGChoicesData swig_types[199]
+#define SWIGTYPE_p_wxPGComboBoxEditor swig_types[200]
+#define SWIGTYPE_p_wxPGCommonValue swig_types[201]
+#define SWIGTYPE_p_wxPGDefaultRenderer swig_types[202]
+#define SWIGTYPE_p_wxPGEditor swig_types[203]
+#define SWIGTYPE_p_wxPGEditorDialogAdapter swig_types[204]
+#define SWIGTYPE_p_wxPGFileDialogAdapter swig_types[205]
+#define SWIGTYPE_p_wxPGLongStringDialogAdapter swig_types[206]
+#define SWIGTYPE_p_wxPGMultiButton swig_types[207]
+#define SWIGTYPE_p_wxPGPaintData swig_types[208]
+#define SWIGTYPE_p_wxPGPropArgCls swig_types[209]
+#define SWIGTYPE_p_wxPGProperty swig_types[210]
+#define SWIGTYPE_p_wxPGRootProperty swig_types[211]
+#define SWIGTYPE_p_wxPGSpinCtrlEditor swig_types[212]
+#define SWIGTYPE_p_wxPGTextCtrlAndButtonEditor swig_types[213]
+#define SWIGTYPE_p_wxPGTextCtrlEditor swig_types[214]
+#define SWIGTYPE_p_wxPGVIterator swig_types[215]
+#define SWIGTYPE_p_wxPGVIteratorBase swig_types[216]
+#define SWIGTYPE_p_wxPGValidationInfo swig_types[217]
+#define SWIGTYPE_p_wxPGWindowList swig_types[218]
+#define SWIGTYPE_p_wxPNGHandler swig_types[219]
+#define SWIGTYPE_p_wxPNMHandler swig_types[220]
+#define SWIGTYPE_p_wxPageSetupDialog swig_types[221]
+#define SWIGTYPE_p_wxPageSetupDialogData swig_types[222]
+#define SWIGTYPE_p_wxPaintEvent swig_types[223]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[224]
+#define SWIGTYPE_p_wxPanel swig_types[225]
+#define SWIGTYPE_p_wxPaperSize swig_types[226]
+#define SWIGTYPE_p_wxPasswordEntryDialog swig_types[227]
+#define SWIGTYPE_p_wxPoint swig_types[228]
+#define SWIGTYPE_p_wxPopupWindow swig_types[229]
+#define SWIGTYPE_p_wxPreviewCanvas swig_types[230]
+#define SWIGTYPE_p_wxPreviewControlBar swig_types[231]
+#define SWIGTYPE_p_wxPreviewFrame swig_types[232]
+#define SWIGTYPE_p_wxPrintData swig_types[233]
+#define SWIGTYPE_p_wxPrintDialog swig_types[234]
+#define SWIGTYPE_p_wxPrintDialogData swig_types[235]
+#define SWIGTYPE_p_wxPrintPreview swig_types[236]
+#define SWIGTYPE_p_wxPrinter swig_types[237]
+#define SWIGTYPE_p_wxProgressDialog swig_types[238]
+#define SWIGTYPE_p_wxPropertyCategory swig_types[239]
+#define SWIGTYPE_p_wxPropertyGrid swig_types[240]
+#define SWIGTYPE_p_wxPropertyGridConstIterator swig_types[241]
+#define SWIGTYPE_p_wxPropertyGridEvent swig_types[242]
+#define SWIGTYPE_p_wxPropertyGridHitTestResult swig_types[243]
+#define SWIGTYPE_p_wxPropertyGridInterface swig_types[244]
+#define SWIGTYPE_p_wxPropertyGridIterator swig_types[245]
+#define SWIGTYPE_p_wxPropertyGridIteratorBase swig_types[246]
+#define SWIGTYPE_p_wxPropertyGridManager swig_types[247]
+#define SWIGTYPE_p_wxPropertyGridPage swig_types[248]
+#define SWIGTYPE_p_wxPropertyGridPageState swig_types[249]
+#define SWIGTYPE_p_wxPropertyGridPopulator swig_types[250]
+#define SWIGTYPE_p_wxPyApp swig_types[251]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[252]
+#define SWIGTYPE_p_wxPyEvent swig_types[253]
+#define SWIGTYPE_p_wxPyEvtHandler swig_types[254]
+#define SWIGTYPE_p_wxPyHScrolledWindow swig_types[255]
+#define SWIGTYPE_p_wxPyHVScrolledWindow swig_types[256]
+#define SWIGTYPE_p_wxPyHtmlListBox swig_types[257]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[258]
+#define SWIGTYPE_p_wxPyPanel swig_types[259]
+#define SWIGTYPE_p_wxPyPopupTransientWindow swig_types[260]
+#define SWIGTYPE_p_wxPyPreviewControlBar swig_types[261]
+#define SWIGTYPE_p_wxPyPreviewFrame swig_types[262]
+#define SWIGTYPE_p_wxPyPrintPreview swig_types[263]
+#define SWIGTYPE_p_wxPyPrintout swig_types[264]
+#define SWIGTYPE_p_wxPyScrolledWindow swig_types[265]
+#define SWIGTYPE_p_wxPySizer swig_types[266]
+#define SWIGTYPE_p_wxPyTaskBarIcon swig_types[267]
+#define SWIGTYPE_p_wxPyVListBox swig_types[268]
+#define SWIGTYPE_p_wxPyVScrolledWindow swig_types[269]
+#define SWIGTYPE_p_wxPyValidator swig_types[270]
+#define SWIGTYPE_p_wxPyWindow swig_types[271]
+#define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[272]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[273]
+#define SWIGTYPE_p_wxRect swig_types[274]
+#define SWIGTYPE_p_wxSashEvent swig_types[275]
+#define SWIGTYPE_p_wxSashLayoutWindow swig_types[276]
+#define SWIGTYPE_p_wxSashWindow swig_types[277]
+#define SWIGTYPE_p_wxScrollEvent swig_types[278]
+#define SWIGTYPE_p_wxScrollHelper swig_types[279]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[280]
+#define SWIGTYPE_p_wxScrolledWindow swig_types[281]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[282]
+#define SWIGTYPE_p_wxShowEvent swig_types[283]
+#define SWIGTYPE_p_wxSimpleHtmlListBox swig_types[284]
+#define SWIGTYPE_p_wxSingleChoiceDialog swig_types[285]
+#define SWIGTYPE_p_wxSize swig_types[286]
+#define SWIGTYPE_p_wxSizeEvent swig_types[287]
+#define SWIGTYPE_p_wxSizer swig_types[288]
+#define SWIGTYPE_p_wxSizerItem swig_types[289]
+#define SWIGTYPE_p_wxSplashScreen swig_types[290]
+#define SWIGTYPE_p_wxSplashScreenWindow swig_types[291]
+#define SWIGTYPE_p_wxSplitterEvent swig_types[292]
+#define SWIGTYPE_p_wxSplitterWindow swig_types[293]
+#define SWIGTYPE_p_wxStandardDialogLayoutAdapter swig_types[294]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[295]
+#define SWIGTYPE_p_wxStatusBar swig_types[296]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[297]
+#define SWIGTYPE_p_wxString swig_types[298]
+#define SWIGTYPE_p_wxStringProperty swig_types[299]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[300]
+#define SWIGTYPE_p_wxSystemColourProperty swig_types[301]
+#define SWIGTYPE_p_wxTGAHandler swig_types[302]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[303]
+#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[304]
+#define SWIGTYPE_p_wxTextCtrlBase swig_types[305]
+#define SWIGTYPE_p_wxTextEntryDialog swig_types[306]
+#define SWIGTYPE_p_wxThreadEvent swig_types[307]
+#define SWIGTYPE_p_wxTipWindow swig_types[308]
+#define SWIGTYPE_p_wxTopLevelWindow swig_types[309]
+#define SWIGTYPE_p_wxUIntProperty swig_types[310]
+#define SWIGTYPE_p_wxULongLong swig_types[311]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[312]
+#define SWIGTYPE_p_wxValidator swig_types[313]
+#define SWIGTYPE_p_wxVariant swig_types[314]
+#define SWIGTYPE_p_wxWindow swig_types[315]
+#define SWIGTYPE_p_wxWindowBase swig_types[316]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[317]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[318]
+#define SWIGTYPE_p_wxWindowModalDialogEvent swig_types[319]
+#define SWIGTYPE_p_wxWrapSizer swig_types[320]
+#define SWIGTYPE_p_wxXPMHandler swig_types[321]
+static swig_type_info *swig_types[323];
+static swig_module_info swig_module = {swig_types, 322, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3884,6 +3883,152 @@ SWIG_AsVal_double (PyObject *obj, double* val)
 
 
   #define SWIG_From_double   PyFloat_FromDouble 
+
+SWIGINTERN PyObject *wxPGProperty_GetPyClientData(wxPGProperty *self){
+            wxPyClientData* data = (wxPyClientData*)self->GetClientObject();
+            if (data) {
+                Py_INCREF(data->m_obj);
+                return data->m_obj;
+            } else {
+                Py_INCREF(Py_None);
+                return Py_None;
+            }
+        }
+SWIGINTERN void wxPGProperty_SetPyClientData(wxPGProperty *self,PyObject *clientData){
+            wxPyClientData* data = new wxPyClientData(clientData);
+            self->SetClientObject(data);
+        }
+
+SWIGINTERN swig_type_info*
+SWIG_pchar_descriptor()
+{
+  static int init = 0;
+  static swig_type_info* info = 0;
+  if (!init) {
+    info = SWIG_TypeQuery("_p_char");
+    init = 1;
+  }
+  return info;
+}
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_FromCharPtrAndSize(const char* carray, size_t size)
+{
+  if (carray) {
+    if (size > INT_MAX) {
+      swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
+      return pchar_descriptor ? 
+	SWIG_NewPointerObj(const_cast< char * >(carray), pchar_descriptor, 0) : SWIG_Py_Void();
+    } else {
+      return PyString_FromStringAndSize(carray, static_cast< int >(size));
+    }
+  } else {
+    return SWIG_Py_Void();
+  }
+}
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_From_char  (char c) 
+{ 
+  return SWIG_FromCharPtrAndSize(&c,1);
+}
+
+
+SWIGINTERN int
+SWIG_AsCharPtrAndSize(PyObject *obj, char** cptr, size_t* psize, int *alloc)
+{
+  if (PyString_Check(obj)) {
+    char *cstr; Py_ssize_t len;
+    PyString_AsStringAndSize(obj, &cstr, &len);
+    if (cptr)  {
+      if (alloc) {
+	/* 
+	   In python the user should not be able to modify the inner
+	   string representation. To warranty that, if you define
+	   SWIG_PYTHON_SAFE_CSTRINGS, a new/copy of the python string
+	   buffer is always returned.
+
+	   The default behavior is just to return the pointer value,
+	   so, be careful.
+	*/ 
+#if defined(SWIG_PYTHON_SAFE_CSTRINGS)
+	if (*alloc != SWIG_OLDOBJ) 
+#else
+	if (*alloc == SWIG_NEWOBJ) 
+#endif
+	  {
+	    *cptr = reinterpret_cast< char* >(memcpy((new char[len + 1]), cstr, sizeof(char)*(len + 1)));
+	    *alloc = SWIG_NEWOBJ;
+	  }
+	else {
+	  *cptr = cstr;
+	  *alloc = SWIG_OLDOBJ;
+	}
+      } else {
+	*cptr = PyString_AsString(obj);
+      }
+    }
+    if (psize) *psize = len + 1;
+    return SWIG_OK;
+  } else {
+    swig_type_info* pchar_descriptor = SWIG_pchar_descriptor();
+    if (pchar_descriptor) {
+      void* vptr = 0;
+      if (SWIG_ConvertPtr(obj, &vptr, pchar_descriptor, 0) == SWIG_OK) {
+	if (cptr) *cptr = (char *) vptr;
+	if (psize) *psize = vptr ? (strlen((char *)vptr) + 1) : 0;
+	if (alloc) *alloc = SWIG_OLDOBJ;
+	return SWIG_OK;
+      }
+    }
+  }
+  return SWIG_TypeError;
+}
+
+
+SWIGINTERN int
+SWIG_AsCharArray(PyObject * obj, char *val, size_t size)
+{ 
+  char* cptr = 0; size_t csize = 0; int alloc = SWIG_OLDOBJ;
+  int res = SWIG_AsCharPtrAndSize(obj, &cptr, &csize, &alloc);
+  if (SWIG_IsOK(res)) {
+    if ((csize == size + 1) && cptr && !(cptr[csize-1])) --csize;
+    if (csize <= size) {
+      if (val) {
+	if (csize) memcpy(val, cptr, csize*sizeof(char));
+	if (csize < size) memset(val + csize, 0, (size - csize)*sizeof(char));
+      }
+      if (alloc == SWIG_NEWOBJ) {
+	delete[] cptr;
+	res = SWIG_DelNewMask(res);
+      }      
+      return res;
+    }
+    if (alloc == SWIG_NEWOBJ) delete[] cptr;
+  }
+  return SWIG_TypeError;
+}
+
+
+SWIGINTERN int
+SWIG_AsVal_char (PyObject * obj, char *val)
+{    
+  int res = SWIG_AsCharArray(obj, val, 1);
+  if (!SWIG_IsOK(res)) {
+    long v;
+    res = SWIG_AddCast(SWIG_AsVal_long (obj, &v));
+    if (SWIG_IsOK(res)) {
+      if ((CHAR_MIN <= v) && (v <= CHAR_MAX)) {
+	if (val) *val = static_cast< char >(v);
+      } else {
+	res = SWIG_OverflowError;
+      }
+    }
+  }
+  return res;
+}
 
 SWIGINTERN void wxPGMultiButton_AddBitmapButton(wxPGMultiButton *self,wxBitmap const &bitmap,int id=-2){
         return self->Add(bitmap, id);
@@ -18133,7 +18278,7 @@ fail:
 SWIGINTERN PyObject *_wrap_PGProperty_HasFlag(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPGProperty *arg1 = (wxPGProperty *) 0 ;
-  wxPGProperty::FlagType arg2 ;
+  wxPGPropertyFlags arg2 ;
   wxPGProperty::FlagType result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -18153,9 +18298,9 @@ SWIGINTERN PyObject *_wrap_PGProperty_HasFlag(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPGProperty * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PGProperty_HasFlag" "', expected argument " "2"" of type '" "wxPGProperty::FlagType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PGProperty_HasFlag" "', expected argument " "2"" of type '" "wxPGPropertyFlags""'");
   } 
-  arg2 = static_cast< wxPGProperty::FlagType >(val2);
+  arg2 = static_cast< wxPGPropertyFlags >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxPGProperty::FlagType)((wxPGProperty const *)arg1)->HasFlag(arg2);
@@ -20055,7 +20200,7 @@ fail:
 SWIGINTERN PyObject *_wrap_PGProperty_SetFlag(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPGProperty *arg1 = (wxPGProperty *) 0 ;
-  wxPGProperty::FlagType arg2 ;
+  wxPGPropertyFlags arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -20074,9 +20219,9 @@ SWIGINTERN PyObject *_wrap_PGProperty_SetFlag(PyObject *SWIGUNUSEDPARM(self), Py
   arg1 = reinterpret_cast< wxPGProperty * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PGProperty_SetFlag" "', expected argument " "2"" of type '" "wxPGProperty::FlagType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PGProperty_SetFlag" "', expected argument " "2"" of type '" "wxPGPropertyFlags""'");
   } 
-  arg2 = static_cast< wxPGProperty::FlagType >(val2);
+  arg2 = static_cast< wxPGPropertyFlags >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetFlag(arg2);
@@ -20093,7 +20238,7 @@ fail:
 SWIGINTERN PyObject *_wrap_PGProperty_ChangeFlag(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPGProperty *arg1 = (wxPGProperty *) 0 ;
-  wxPGProperty::FlagType arg2 ;
+  wxPGPropertyFlags arg2 ;
   bool arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -20116,9 +20261,9 @@ SWIGINTERN PyObject *_wrap_PGProperty_ChangeFlag(PyObject *SWIGUNUSEDPARM(self),
   arg1 = reinterpret_cast< wxPGProperty * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PGProperty_ChangeFlag" "', expected argument " "2"" of type '" "wxPGProperty::FlagType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PGProperty_ChangeFlag" "', expected argument " "2"" of type '" "wxPGPropertyFlags""'");
   } 
-  arg2 = static_cast< wxPGProperty::FlagType >(val2);
+  arg2 = static_cast< wxPGPropertyFlags >(val2);
   ecode3 = SWIG_AsVal_bool(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PGProperty_ChangeFlag" "', expected argument " "3"" of type '" "bool""'");
@@ -20140,7 +20285,7 @@ fail:
 SWIGINTERN PyObject *_wrap_PGProperty_SetFlagRecursively(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPGProperty *arg1 = (wxPGProperty *) 0 ;
-  wxPGProperty::FlagType arg2 ;
+  wxPGPropertyFlags arg2 ;
   bool arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -20163,9 +20308,9 @@ SWIGINTERN PyObject *_wrap_PGProperty_SetFlagRecursively(PyObject *SWIGUNUSEDPAR
   arg1 = reinterpret_cast< wxPGProperty * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PGProperty_SetFlagRecursively" "', expected argument " "2"" of type '" "wxPGProperty::FlagType""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PGProperty_SetFlagRecursively" "', expected argument " "2"" of type '" "wxPGPropertyFlags""'");
   } 
-  arg2 = static_cast< wxPGProperty::FlagType >(val2);
+  arg2 = static_cast< wxPGPropertyFlags >(val2);
   ecode3 = SWIG_AsVal_bool(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PGProperty_SetFlagRecursively" "', expected argument " "3"" of type '" "bool""'");
@@ -21209,6 +21354,66 @@ fail:
     if (temp2)
     delete arg2;
   }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_GetPyClientData(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  PyObject *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_GetPyClientData" "', expected argument " "1"" of type '" "wxPGProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (PyObject *)wxPGProperty_GetPyClientData(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = result;
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_SetPyClientData(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  PyObject *arg2 = (PyObject *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "clientData", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PGProperty_SetPyClientData",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_SetPyClientData" "', expected argument " "1"" of type '" "wxPGProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  arg2 = obj1;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    wxPGProperty_SetPyClientData(arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
   return NULL;
 }
 
@@ -27759,7 +27964,7 @@ SWIGINTERN PyObject *PGCommonValue_swiginit(PyObject *SWIGUNUSEDPARM(self), PyOb
 SWIGINTERN PyObject *_wrap_PGValidationInfo_GetFailureBehavior(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPGValidationInfo *arg1 = (wxPGValidationInfo *) 0 ;
-  wxPGVFBFlags result;
+  char result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -27773,11 +27978,11 @@ SWIGINTERN PyObject *_wrap_PGValidationInfo_GetFailureBehavior(PyObject *SWIGUNU
   arg1 = reinterpret_cast< wxPGValidationInfo * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPGValidationInfo const *)arg1)->GetFailureBehavior();
+    result = (char)((wxPGValidationInfo const *)arg1)->GetFailureBehavior();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxPGVFBFlags(static_cast< const wxPGVFBFlags& >(result))), SWIGTYPE_p_wxByte, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_From_char(static_cast< char >(result));
   return resultobj;
 fail:
   return NULL;
@@ -27862,11 +28067,11 @@ fail:
 SWIGINTERN PyObject *_wrap_PGValidationInfo_SetFailureBehavior(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPGValidationInfo *arg1 = (wxPGValidationInfo *) 0 ;
-  wxPGVFBFlags arg2 ;
+  char arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 ;
-  int res2 = 0 ;
+  char val2 ;
+  int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
@@ -27879,19 +28084,11 @@ SWIGINTERN PyObject *_wrap_PGValidationInfo_SetFailureBehavior(PyObject *SWIGUNU
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGValidationInfo_SetFailureBehavior" "', expected argument " "1"" of type '" "wxPGValidationInfo *""'"); 
   }
   arg1 = reinterpret_cast< wxPGValidationInfo * >(argp1);
-  {
-    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxByte,  0  | 0);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PGValidationInfo_SetFailureBehavior" "', expected argument " "2"" of type '" "wxPGVFBFlags""'"); 
-    }  
-    if (!argp2) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PGValidationInfo_SetFailureBehavior" "', expected argument " "2"" of type '" "wxPGVFBFlags""'");
-    } else {
-      wxPGVFBFlags * temp = reinterpret_cast< wxPGVFBFlags * >(argp2);
-      arg2 = *temp;
-      if (SWIG_IsNewObj(res2)) delete temp;
-    }
-  }
+  ecode2 = SWIG_AsVal_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PGValidationInfo_SetFailureBehavior" "', expected argument " "2"" of type '" "char""'");
+  } 
+  arg2 = static_cast< char >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetFailureBehavior(arg2);
@@ -32841,11 +33038,11 @@ fail:
 SWIGINTERN PyObject *_wrap_PropertyGridEvent_SetValidationFailureBehavior(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPropertyGridEvent *arg1 = (wxPropertyGridEvent *) 0 ;
-  wxPGVFBFlags arg2 ;
+  char arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 ;
-  int res2 = 0 ;
+  char val2 ;
+  int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
@@ -32858,19 +33055,11 @@ SWIGINTERN PyObject *_wrap_PropertyGridEvent_SetValidationFailureBehavior(PyObje
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PropertyGridEvent_SetValidationFailureBehavior" "', expected argument " "1"" of type '" "wxPropertyGridEvent *""'"); 
   }
   arg1 = reinterpret_cast< wxPropertyGridEvent * >(argp1);
-  {
-    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxByte,  0  | 0);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PropertyGridEvent_SetValidationFailureBehavior" "', expected argument " "2"" of type '" "wxPGVFBFlags""'"); 
-    }  
-    if (!argp2) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PropertyGridEvent_SetValidationFailureBehavior" "', expected argument " "2"" of type '" "wxPGVFBFlags""'");
-    } else {
-      wxPGVFBFlags * temp = reinterpret_cast< wxPGVFBFlags * >(argp2);
-      arg2 = *temp;
-      if (SWIG_IsNewObj(res2)) delete temp;
-    }
-  }
+  ecode2 = SWIG_AsVal_char(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PropertyGridEvent_SetValidationFailureBehavior" "', expected argument " "2"" of type '" "char""'");
+  } 
+  arg2 = static_cast< char >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetValidationFailureBehavior(arg2);
@@ -46715,6 +46904,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PGProperty_GetImageOffset", (PyCFunction) _wrap_PGProperty_GetImageOffset, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetItemAtY", (PyCFunction) _wrap_PGProperty_GetItemAtY, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetPropertyByName", (PyCFunction) _wrap_PGProperty_GetPropertyByName, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PGProperty_GetPyClientData", (PyCFunction)_wrap_PGProperty_GetPyClientData, METH_O, NULL},
+	 { (char *)"PGProperty_SetPyClientData", (PyCFunction) _wrap_PGProperty_SetPyClientData, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_swigregister", PGProperty_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PGProperty_swiginit", PGProperty_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PropertyGridHitTestResult", (PyCFunction)_wrap_new_PropertyGridHitTestResult, METH_NOARGS, NULL},
@@ -49205,7 +49396,6 @@ static swig_type_info _swigt__p_wxArrayPGProperty = {"_p_wxArrayPGProperty", "wx
 static swig_type_info _swigt__p_wxArrayString = {"_p_wxArrayString", "wxArrayString *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxArrayStringProperty = {"_p_wxArrayStringProperty", "wxArrayStringProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxBitmap = {"_p_wxBitmap", "wxBitmap *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxByte = {"_p_wxByte", "wxByte *|wxPGVFBFlags *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxChar = {"_p_wxChar", "wxChar *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxColour = {"_p_wxColour", "wxColour *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxColourProperty = {"_p_wxColourProperty", "wxColourProperty *", 0, 0, (void*)0, 0};
@@ -49536,7 +49726,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxBitmap,
   &_swigt__p_wxBoolProperty,
   &_swigt__p_wxBoxSizer,
-  &_swigt__p_wxByte,
   &_swigt__p_wxCURHandler,
   &_swigt__p_wxCalculateLayoutEvent,
   &_swigt__p_wxChar,
@@ -49855,7 +50044,6 @@ static swig_cast_info _swigc__p_wxArrayPGProperty[] = {  {&_swigt__p_wxArrayPGPr
 static swig_cast_info _swigc__p_wxArrayString[] = {  {&_swigt__p_wxArrayString, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxArrayStringProperty[] = {  {&_swigt__p_wxArrayStringProperty, 0, 0, 0},  {&_swigt__p_PyArrayStringProperty, _p_PyArrayStringPropertyTo_p_wxArrayStringProperty, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxBitmap[] = {  {&_swigt__p_wxBitmap, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxByte[] = {  {&_swigt__p_wxByte, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxChar[] = {  {&_swigt__p_wxChar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxColour[] = {  {&_swigt__p_wxColour, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxColourProperty[] = {  {&_swigt__p_wxColourProperty, 0, 0, 0},  {&_swigt__p_PyColourProperty, _p_PyColourPropertyTo_p_wxColourProperty, 0, 0},{0, 0, 0, 0}};
@@ -50186,7 +50374,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxBitmap,
   _swigc__p_wxBoolProperty,
   _swigc__p_wxBoxSizer,
-  _swigc__p_wxByte,
   _swigc__p_wxCURHandler,
   _swigc__p_wxCalculateLayoutEvent,
   _swigc__p_wxChar,

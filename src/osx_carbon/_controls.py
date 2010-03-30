@@ -7974,5 +7974,83 @@ EVT_FILECTRL_SELECTIONCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_SELECTIONCHANGE
 EVT_FILECTRL_FILEACTIVATED = wx.PyEventBinder( wxEVT_FILECTRL_FILEACTIVATED, 1)
 EVT_FILECTRL_FOLDERCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_FOLDERCHANGED, 1)        
 
+#---------------------------------------------------------------------------
+
+class InfoBar(_core.Control):
+    """
+    An info bar is a transient window shown at top or bottom of its parent
+    window to display non-critical information to the user.  It works
+    similarly to message bars in current web browsers.
+    """
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int winid=ID_ANY) -> InfoBar
+
+        An info bar is a transient window shown at top or bottom of its parent
+        window to display non-critical information to the user.  It works
+        similarly to message bars in current web browsers.
+        """
+        _controls_.InfoBar_swiginit(self,_controls_.new_InfoBar(*args, **kwargs))
+        self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int winid=ID_ANY) -> bool
+
+        Do the 2nd phase and create the GUI control.
+        """
+        return _controls_.InfoBar_Create(*args, **kwargs)
+
+    def ShowMessage(*args, **kwargs):
+        """ShowMessage(self, String msg, int flags=ICON_INFORMATION)"""
+        return _controls_.InfoBar_ShowMessage(*args, **kwargs)
+
+    def Dismiss(*args, **kwargs):
+        """Dismiss(self)"""
+        return _controls_.InfoBar_Dismiss(*args, **kwargs)
+
+    def AddButton(*args, **kwargs):
+        """AddButton(self, int btnid, String label=wxEmptyString)"""
+        return _controls_.InfoBar_AddButton(*args, **kwargs)
+
+    def RemoveButton(*args, **kwargs):
+        """RemoveButton(self, int btnid)"""
+        return _controls_.InfoBar_RemoveButton(*args, **kwargs)
+
+    def SetShowHideEffects(*args, **kwargs):
+        """SetShowHideEffects(self, int showEffect, int hideEffect)"""
+        return _controls_.InfoBar_SetShowHideEffects(*args, **kwargs)
+
+    def GetShowEffect(*args, **kwargs):
+        """GetShowEffect(self) -> int"""
+        return _controls_.InfoBar_GetShowEffect(*args, **kwargs)
+
+    def GetHideEffect(*args, **kwargs):
+        """GetHideEffect(self) -> int"""
+        return _controls_.InfoBar_GetHideEffect(*args, **kwargs)
+
+    def SetEffectDuration(*args, **kwargs):
+        """SetEffectDuration(self, int duration)"""
+        return _controls_.InfoBar_SetEffectDuration(*args, **kwargs)
+
+    def GetEffectDuration(*args, **kwargs):
+        """GetEffectDuration(self) -> int"""
+        return _controls_.InfoBar_GetEffectDuration(*args, **kwargs)
+
+_controls_.InfoBar_swigregister(InfoBar)
+
+def PreInfoBar(*args, **kwargs):
+    """
+    PreInfoBar() -> InfoBar
+
+    An info bar is a transient window shown at top or bottom of its parent
+    window to display non-critical information to the user.  It works
+    similarly to message bars in current web browsers.
+    """
+    val = _controls_.new_PreInfoBar(*args, **kwargs)
+    return val
+
 
 

@@ -3451,7 +3451,7 @@ public:
     DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
     DEC_PYCALLBACK_SIZE_const(GetMaxSize);
 
-    DEC_PYCALLBACK_BOOL_(Enable);
+    DEC_PYCALLBACK_BOOL_BOOL(Enable);
 
     DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
     DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
@@ -3490,7 +3490,7 @@ IMP_PYCALLBACK_BOOL_const(wxPyWindow, wxWindow, AcceptsFocus);
 IMP_PYCALLBACK_BOOL_const(wxPyWindow, wxWindow, AcceptsFocusFromKeyboard);
 IMP_PYCALLBACK_SIZE_const(wxPyWindow, wxWindow, GetMaxSize);
 
-IMP_PYCALLBACK_BOOL_(wxPyWindow, wxWindow, Enable);
+IMP_PYCALLBACK_BOOL_BOOL(wxPyWindow, wxWindow, Enable);
 
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyWindow, wxWindow, AddChild);
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyWindow, wxWindow, RemoveChild);
@@ -3549,7 +3549,7 @@ public:
     DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
     DEC_PYCALLBACK_SIZE_const(GetMaxSize);
 
-    DEC_PYCALLBACK_BOOL_(Enable);
+    DEC_PYCALLBACK_BOOL_BOOL(Enable);
 
     DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
     DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
@@ -3589,7 +3589,7 @@ IMP_PYCALLBACK_BOOL_const(wxPyPanel, wxPanel, AcceptsFocus);
 IMP_PYCALLBACK_BOOL_const(wxPyPanel, wxPanel, AcceptsFocusFromKeyboard);
 IMP_PYCALLBACK_SIZE_const(wxPyPanel, wxPanel, GetMaxSize);
 
-IMP_PYCALLBACK_BOOL_(wxPyPanel, wxPanel, Enable);
+IMP_PYCALLBACK_BOOL_BOOL(wxPyPanel, wxPanel, Enable);
 
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyPanel, wxPanel, AddChild);
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyPanel, wxPanel, RemoveChild);
@@ -3647,7 +3647,7 @@ public:
     DEC_PYCALLBACK_BOOL_const(AcceptsFocusFromKeyboard);
     DEC_PYCALLBACK_SIZE_const(GetMaxSize);
 
-    DEC_PYCALLBACK_BOOL_(Enable);
+    DEC_PYCALLBACK_BOOL_BOOL(Enable);
 
     DEC_PYCALLBACK_VOID_WXWINBASE(AddChild);
     DEC_PYCALLBACK_VOID_WXWINBASE(RemoveChild);
@@ -3686,7 +3686,7 @@ IMP_PYCALLBACK_BOOL_const(wxPyScrolledWindow, wxScrolledWindow, AcceptsFocus);
 IMP_PYCALLBACK_BOOL_const(wxPyScrolledWindow, wxScrolledWindow, AcceptsFocusFromKeyboard);
 IMP_PYCALLBACK_SIZE_const(wxPyScrolledWindow, wxScrolledWindow, GetMaxSize);
 
-IMP_PYCALLBACK_BOOL_(wxPyScrolledWindow, wxScrolledWindow, Enable);
+IMP_PYCALLBACK_BOOL_BOOL(wxPyScrolledWindow, wxScrolledWindow, Enable);
 
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyScrolledWindow, wxScrolledWindow, AddChild);
 IMP_PYCALLBACK_VOID_WXWINBASE(wxPyScrolledWindow, wxScrolledWindow, RemoveChild);
@@ -6681,6 +6681,74 @@ SWIGINTERN PyObject *_wrap_TopLevelWindow_GetTmpDefaultItem(PyObject *SWIGUNUSED
   {
     resultobj = wxPyMake_wxObject(result, 0); 
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TopLevelWindow_OSXIsModified(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxTopLevelWindow *arg1 = (wxTopLevelWindow *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTopLevelWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TopLevelWindow_OSXIsModified" "', expected argument " "1"" of type '" "wxTopLevelWindow const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxTopLevelWindow const *)arg1)->OSXIsModified();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TopLevelWindow_OSXSetModified(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxTopLevelWindow *arg1 = (wxTopLevelWindow *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "modified", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TopLevelWindow_OSXSetModified",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTopLevelWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TopLevelWindow_OSXSetModified" "', expected argument " "1"" of type '" "wxTopLevelWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTopLevelWindow * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TopLevelWindow_OSXSetModified" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->OSXSetModified(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -37333,6 +37401,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TopLevelWindow_SetDefaultItem", (PyCFunction) _wrap_TopLevelWindow_SetDefaultItem, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TopLevelWindow_SetTmpDefaultItem", (PyCFunction) _wrap_TopLevelWindow_SetTmpDefaultItem, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TopLevelWindow_GetTmpDefaultItem", (PyCFunction)_wrap_TopLevelWindow_GetTmpDefaultItem, METH_O, NULL},
+	 { (char *)"TopLevelWindow_OSXIsModified", (PyCFunction)_wrap_TopLevelWindow_OSXIsModified, METH_O, NULL},
+	 { (char *)"TopLevelWindow_OSXSetModified", (PyCFunction) _wrap_TopLevelWindow_OSXSetModified, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TopLevelWindow_swigregister", TopLevelWindow_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_Frame", (PyCFunction) _wrap_new_Frame, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"new_PreFrame", (PyCFunction)_wrap_new_PreFrame, METH_NOARGS, NULL},

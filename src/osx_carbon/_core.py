@@ -11136,6 +11136,10 @@ class Window(EvtHandler):
         """IsScrollbarAlwaysShown(self, int orient) -> bool"""
         return _core_.Window_IsScrollbarAlwaysShown(*args, **kwargs)
 
+    def MacIsWindowScrollbar(*args, **kwargs):
+        """MacIsWindowScrollbar(self, Window sb) -> bool"""
+        return _core_.Window_MacIsWindowScrollbar(*args, **kwargs)
+
     def SetHelpText(*args, **kwargs):
         """
         SetHelpText(self, String text)
