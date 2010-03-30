@@ -19,7 +19,8 @@
 import wx
 import wx.py
 import wx.stc
-import wx.aui
+#import wx.aui as aui
+import wx.lib.agw.aui as aui
 import wx.lib.utils as utils
 import sys
 import inspect
@@ -127,10 +128,10 @@ class InspectionFrame(wx.Frame):
         panel = wx.Panel(self, size=self.GetClientSize())
 
         # tell FrameManager to manage this frame
-        self.mgr = wx.aui.AuiManager(panel,
-                                     wx.aui.AUI_MGR_DEFAULT
-                                     | wx.aui.AUI_MGR_TRANSPARENT_DRAG
-                                     | wx.aui.AUI_MGR_ALLOW_ACTIVE_PANE)
+        self.mgr = aui.AuiManager(panel,
+                                  aui.AUI_MGR_DEFAULT
+                                  | aui.AUI_MGR_TRANSPARENT_DRAG
+                                  | aui.AUI_MGR_ALLOW_ACTIVE_PANE)
 
         # make the child tools
         self.tree = InspectionTree(panel, size=(100,300))
@@ -158,17 +159,17 @@ class InspectionFrame(wx.Frame):
 
         # put the chlid tools in AUI panes
         self.mgr.AddPane(self.info,
-                         wx.aui.AuiPaneInfo().Name("info").Caption("Object Info").
+                         aui.AuiPaneInfo().Name("info").Caption("Object Info").
                          CenterPane().CaptionVisible(True).
                          CloseButton(False).MaximizeButton(True)
                          )
         self.mgr.AddPane(self.tree,
-                         wx.aui.AuiPaneInfo().Name("tree").Caption("Widget Tree").
+                         aui.AuiPaneInfo().Name("tree").Caption("Widget Tree").
                          CaptionVisible(True).Left().Dockable(True).Floatable(True).
                          BestSize((280,200)).CloseButton(False).MaximizeButton(True)
                          )
         self.mgr.AddPane(self.crust,
-                         wx.aui.AuiPaneInfo().Name("crust").Caption("PyCrust").
+                         aui.AuiPaneInfo().Name("crust").Caption("PyCrust").
                          CaptionVisible(True).Bottom().Dockable(True).Floatable(True).
                          BestSize((400,200)).CloseButton(False).MaximizeButton(True)
                          )
@@ -267,7 +268,7 @@ class InspectionFrame(wx.Frame):
 
 
     def UpdateInfo(self):
-        self.info.Update(self.obj)
+        self.info.UpdateInfo(self.obj)
 
 
     def SetObj(self, obj):
@@ -417,7 +418,7 @@ INCLUDE_INSPECTOR = True
 
 USE_CUSTOMTREECTRL = False
 if USE_CUSTOMTREECTRL:
-    import wx.lib.customtreectrl as CT
+    import wx.lib.agw.customtreectrl as CT
     TreeBaseClass = CT.CustomTreeCtrl
 else:
     TreeBaseClass = wx.TreeCtrl
@@ -461,8 +462,8 @@ class InspectionTree(TreeBaseClass):
             topItem = self.FindWidgetItem(top)
             if topItem:
                 self.ExpandAllChildren(topItem)
-        self.SelectObj(startWidget)
         self.built = True
+        self.SelectObj(startWidget)
 
 
     def _AddWidget(self, parentItem, widget, includeSizers):
@@ -590,7 +591,7 @@ class InspectionInfoPanel(wx.stc.StyledTextCtrl):
         config.WriteInt('View/Zoom/Info', self.GetZoom())
 
 
-    def Update(self, obj):
+    def UpdateInfo(self, obj):
         st = []
         if not obj:
             st.append("Item is None or has been destroyed.")
