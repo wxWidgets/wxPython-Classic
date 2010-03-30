@@ -23,6 +23,7 @@ import wx.lib.mixins.inspection
 import sys, os
 
 # stuff for debugging
+print "Python", sys.version
 print "wx.version:", wx.version()
 print "pid:", os.getpid()
 ##raw_input("Press Enter...")
