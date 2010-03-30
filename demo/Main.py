@@ -961,7 +961,7 @@ class DemoModules(object):
         
         for i in [modOriginal, modModified]:
             self.modules[i][0]['__file__'] = \
-                os.path.join(os.getcwd(), GetOriginalFilename(name))
+                os.path.join(os.getcwdu(), GetOriginalFilename(name))
             
         # load original module
         self.LoadFromFile(modOriginal, GetOriginalFilename(name))
