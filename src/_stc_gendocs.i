@@ -14,7 +14,7 @@ DocStr(wxStyledTextCtrl::ClearDocumentStyle,
 "Set all style bytes to 0, remove all folding information.", "");
 
 DocStr(wxStyledTextCtrl::GetLength,
-"Returns the number of characters in the document.", "");
+"Returns the number of bytes in the document.", "");
 
 DocStr(wxStyledTextCtrl::GetCharAt,
 "Returns the character byte at the position.", "");
@@ -259,10 +259,10 @@ DocStr(wxStyledTextCtrl::StyleSetHotSpot,
 "Set a style to be a hotspot or not.", "");
 
 DocStr(wxStyledTextCtrl::SetSelForeground,
-"Set the foreground colour of the selection and whether to use this setting.", "");
+"Set the foreground colour of the main and additional selections and whether to use this setting.", "");
 
 DocStr(wxStyledTextCtrl::SetSelBackground,
-"Set the background colour of the selection and whether to use this setting.", "");
+"Set the background colour of the main and additional selections and whether to use this setting.", "");
 
 DocStr(wxStyledTextCtrl::GetSelAlpha,
 "Get the alpha of the selection.", "");
@@ -302,7 +302,7 @@ DocStr(wxStyledTextCtrl::SetCaretPeriod,
 
 DocStr(wxStyledTextCtrl::SetWordChars,
 "Set the set of characters making up words for when moving or selecting by word.
-First sets deaults like SetCharsDefault.", "");
+First sets defaults like SetCharsDefault.", "");
 
 DocStr(wxStyledTextCtrl::BeginUndoAction,
 "Start a sequence of actions that is undone and redone as a unit.
@@ -334,6 +334,12 @@ DocStr(wxStyledTextCtrl::SetWhitespaceForeground,
 
 DocStr(wxStyledTextCtrl::SetWhitespaceBackground,
 "Set the background colour of all whitespace and whether to use this setting.", "");
+
+DocStr(wxStyledTextCtrl::SetWhitespaceSize,
+"Set the size of the dots used to mark space characters.", "");
+
+DocStr(wxStyledTextCtrl::GetWhitespaceSize,
+"Get the size of the dots used to mark space characters.", "");
 
 DocStr(wxStyledTextCtrl::SetStyleBits,
 "Divide each styling byte into lexical class bits (default: 5) and indicator
@@ -578,9 +584,6 @@ DocStr(wxStyledTextCtrl::GetMarginRight,
 DocStr(wxStyledTextCtrl::GetModify,
 "Is the document different from when it was last saved?", "");
 
-DocStr(wxStyledTextCtrl::SetSelection,
-"Select a range of text.", "");
-
 DocStr(wxStyledTextCtrl::GetSelectedText,
 "Retrieve the selected text.", "");
 
@@ -817,6 +820,12 @@ DocStr(wxStyledTextCtrl::SetWrapStartIndent,
 DocStr(wxStyledTextCtrl::GetWrapStartIndent,
 "Retrive the start indent for wrapped lines.", "");
 
+DocStr(wxStyledTextCtrl::SetWrapIndentMode,
+"Sets how wrapped sublines are placed. Default is fixed.", "");
+
+DocStr(wxStyledTextCtrl::GetWrapIndentMode,
+"Retrieve how wrapped sublines are placed. Default is fixed.", "");
+
 DocStr(wxStyledTextCtrl::SetLayoutCache,
 "Sets the degree of caching of layout information.", "");
 
@@ -867,6 +876,9 @@ DocStr(wxStyledTextCtrl::GetTwoPhaseDraw,
 DocStr(wxStyledTextCtrl::SetTwoPhaseDraw,
 "In twoPhaseDraw mode, drawing is performed in two phases, first the background
 and then the foreground. This avoids chopping off characters that overlap the next run.", "");
+
+DocStr(wxStyledTextCtrl::SetFirstVisibleLine,
+"Scroll so that a display line is at the top of the display.", "");
 
 DocStr(wxStyledTextCtrl::TargetFromSelection,
 "Make the target range start and end be the same as the selection range start and end.", "");
@@ -1071,7 +1083,7 @@ DocStr(wxStyledTextCtrl::MoveCaretInsideView,
 "Move the caret inside current view if it's not there already.", "");
 
 DocStr(wxStyledTextCtrl::LineLength,
-"How many characters are on a line, not including end of line characters?", "");
+"How many characters are on a line, including end of line characters?", "");
 
 DocStr(wxStyledTextCtrl::BraceHighlight,
 "Highlight the characters at two positions.", "");
@@ -1287,7 +1299,7 @@ DocStr(wxStyledTextCtrl::CopyText,
 "Copy argument text to the clipboard.", "");
 
 DocStr(wxStyledTextCtrl::SetSelectionMode,
-"Set the selection mode to stream (SC_SEL_STREAM) or rectangular (SC_SEL_RECTANGLE) or
+"Set the selection mode to stream (SC_SEL_STREAM) or rectangular (SC_SEL_RECTANGLE/SC_SEL_THIN) or
 by lines (SC_SEL_LINES).", "");
 
 DocStr(wxStyledTextCtrl::GetSelectionMode,
@@ -1434,6 +1446,253 @@ DocStr(wxStyledTextCtrl::SetPositionCacheSize,
 
 DocStr(wxStyledTextCtrl::GetPositionCacheSize,
 "How many entries are allocated to the position cache?", "");
+
+DocStr(wxStyledTextCtrl::CopyAllowLine,
+"Copy the selection, if selection empty copy the line with the caret", "");
+
+DocStr(wxStyledTextCtrl::GetCharacterPointer,
+"Compact the document buffer and return a read-only pointer to the
+characters in the document.", "");
+
+DocStr(wxStyledTextCtrl::SetKeysUnicode,
+"Always interpret keyboard input as Unicode", "");
+
+DocStr(wxStyledTextCtrl::GetKeysUnicode,
+"Are keys always interpreted as Unicode?", "");
+
+DocStr(wxStyledTextCtrl::IndicatorSetAlpha,
+"Set the alpha fill colour of the given indicator.", "");
+
+DocStr(wxStyledTextCtrl::IndicatorGetAlpha,
+"Get the alpha fill colour of the given indicator.", "");
+
+DocStr(wxStyledTextCtrl::SetExtraAscent,
+"Set extra ascent for each line", "");
+
+DocStr(wxStyledTextCtrl::GetExtraAscent,
+"Get extra ascent for each line", "");
+
+DocStr(wxStyledTextCtrl::SetExtraDescent,
+"Set extra descent for each line", "");
+
+DocStr(wxStyledTextCtrl::GetExtraDescent,
+"Get extra descent for each line", "");
+
+DocStr(wxStyledTextCtrl::GetMarkerSymbolDefined,
+"Which symbol was defined for markerNumber with MarkerDefine", "");
+
+DocStr(wxStyledTextCtrl::MarginSetText,
+"Set the text in the text margin for a line", "");
+
+DocStr(wxStyledTextCtrl::MarginGetText,
+"Get the text in the text margin for a line", "");
+
+DocStr(wxStyledTextCtrl::MarginSetStyle,
+"Set the style number for the text margin for a line", "");
+
+DocStr(wxStyledTextCtrl::MarginGetStyle,
+"Get the style number for the text margin for a line", "");
+
+DocStr(wxStyledTextCtrl::MarginSetStyles,
+"Set the style in the text margin for a line", "");
+
+DocStr(wxStyledTextCtrl::MarginGetStyles,
+"Get the styles in the text margin for a line", "");
+
+DocStr(wxStyledTextCtrl::MarginTextClearAll,
+"Clear the margin text on all lines", "");
+
+DocStr(wxStyledTextCtrl::MarginSetStyleOffset,
+"Get the start of the range of style numbers used for margin text", "");
+
+DocStr(wxStyledTextCtrl::MarginGetStyleOffset,
+"Get the start of the range of style numbers used for margin text", "");
+
+DocStr(wxStyledTextCtrl::AnnotationSetText,
+"Set the annotation text for a line", "");
+
+DocStr(wxStyledTextCtrl::AnnotationGetText,
+"Get the annotation text for a line", "");
+
+DocStr(wxStyledTextCtrl::AnnotationSetStyle,
+"Set the style number for the annotations for a line", "");
+
+DocStr(wxStyledTextCtrl::AnnotationGetStyle,
+"Get the style number for the annotations for a line", "");
+
+DocStr(wxStyledTextCtrl::AnnotationSetStyles,
+"Set the annotation styles for a line", "");
+
+DocStr(wxStyledTextCtrl::AnnotationGetStyles,
+"Get the annotation styles for a line", "");
+
+DocStr(wxStyledTextCtrl::AnnotationGetLines,
+"Get the number of annotation lines for a line", "");
+
+DocStr(wxStyledTextCtrl::AnnotationClearAll,
+"Clear the annotations from all lines", "");
+
+DocStr(wxStyledTextCtrl::AnnotationSetVisible,
+"Set the visibility for the annotations for a view", "");
+
+DocStr(wxStyledTextCtrl::AnnotationGetVisible,
+"Get the visibility for the annotations for a view", "");
+
+DocStr(wxStyledTextCtrl::AnnotationSetStyleOffset,
+"Get the start of the range of style numbers used for annotations", "");
+
+DocStr(wxStyledTextCtrl::AnnotationGetStyleOffset,
+"Get the start of the range of style numbers used for annotations", "");
+
+DocStr(wxStyledTextCtrl::AddUndoAction,
+"Add a container action to the undo stack", "");
+
+DocStr(wxStyledTextCtrl::CharPositionFromPoint,
+"Find the position of a character from a point within the window.", "");
+
+DocStr(wxStyledTextCtrl::CharPositionFromPointClose,
+"Find the position of a character from a point within the window.
+Return INVALID_POSITION if not close to text.", "");
+
+DocStr(wxStyledTextCtrl::SetMultipleSelection,
+"Set whether multiple selections can be made", "");
+
+DocStr(wxStyledTextCtrl::GetMultipleSelection,
+"Whether multiple selections can be made", "");
+
+DocStr(wxStyledTextCtrl::SetAdditionalSelectionTyping,
+"Set whether typing can be performed into multiple selections", "");
+
+DocStr(wxStyledTextCtrl::GetAdditionalSelectionTyping,
+"Whether typing can be performed into multiple selections", "");
+
+DocStr(wxStyledTextCtrl::SetAdditionalCaretsBlink,
+"Set whether additional carets will blink", "");
+
+DocStr(wxStyledTextCtrl::GetAdditionalCaretsBlink,
+"Whether additional carets will blink", "");
+
+DocStr(wxStyledTextCtrl::SetAdditionalCaretsVisible,
+"Set whether additional carets are visible", "");
+
+DocStr(wxStyledTextCtrl::GetAdditionalCaretsVisible,
+"Whether additional carets are visible", "");
+
+DocStr(wxStyledTextCtrl::GetSelections,
+"How many selections are there?", "");
+
+DocStr(wxStyledTextCtrl::ClearSelections,
+"Clear selections to a single empty stream selection", "");
+
+DocStr(wxStyledTextCtrl::AddSelection,
+"Add a selection", "");
+
+DocStr(wxStyledTextCtrl::SetMainSelection,
+"Set the main selection", "");
+
+DocStr(wxStyledTextCtrl::GetMainSelection,
+"Which selection is the main selection", "");
+
+DocStr(wxStyledTextCtrl::SetSelectionNCaret,
+"", "");
+
+DocStr(wxStyledTextCtrl::GetSelectionNCaret,
+"", "");
+
+DocStr(wxStyledTextCtrl::SetSelectionNAnchor,
+"", "");
+
+DocStr(wxStyledTextCtrl::GetSelectionNAnchor,
+"", "");
+
+DocStr(wxStyledTextCtrl::SetSelectionNCaretVirtualSpace,
+"", "");
+
+DocStr(wxStyledTextCtrl::GetSelectionNCaretVirtualSpace,
+"", "");
+
+DocStr(wxStyledTextCtrl::SetSelectionNAnchorVirtualSpace,
+"", "");
+
+DocStr(wxStyledTextCtrl::GetSelectionNAnchorVirtualSpace,
+"", "");
+
+DocStr(wxStyledTextCtrl::SetSelectionNStart,
+"Sets the position that starts the selection - this becomes the anchor.", "");
+
+DocStr(wxStyledTextCtrl::GetSelectionNStart,
+"Returns the position at the start of the selection.", "");
+
+DocStr(wxStyledTextCtrl::SetSelectionNEnd,
+"Sets the position that ends the selection - this becomes the currentPosition.", "");
+
+DocStr(wxStyledTextCtrl::GetSelectionNEnd,
+"Returns the position at the end of the selection.", "");
+
+DocStr(wxStyledTextCtrl::SetRectangularSelectionCaret,
+"", "");
+
+DocStr(wxStyledTextCtrl::GetRectangularSelectionCaret,
+"", "");
+
+DocStr(wxStyledTextCtrl::SetRectangularSelectionAnchor,
+"", "");
+
+DocStr(wxStyledTextCtrl::GetRectangularSelectionAnchor,
+"", "");
+
+DocStr(wxStyledTextCtrl::SetRectangularSelectionCaretVirtualSpace,
+"", "");
+
+DocStr(wxStyledTextCtrl::GetRectangularSelectionCaretVirtualSpace,
+"", "");
+
+DocStr(wxStyledTextCtrl::SetRectangularSelectionAnchorVirtualSpace,
+"", "");
+
+DocStr(wxStyledTextCtrl::GetRectangularSelectionAnchorVirtualSpace,
+"", "");
+
+DocStr(wxStyledTextCtrl::SetVirtualSpaceOptions,
+"", "");
+
+DocStr(wxStyledTextCtrl::GetVirtualSpaceOptions,
+"", "");
+
+DocStr(wxStyledTextCtrl::SetRectangularSelectionModifier,
+"On GTK+, allow selecting the modifier key to use for mouse-based
+rectangular selection. Often the window manager requires Alt+Mouse Drag
+for moving windows.
+Valid values are SCMOD_CTRL(default), SCMOD_ALT, or SCMOD_SUPER.", "");
+
+DocStr(wxStyledTextCtrl::GetRectangularSelectionModifier,
+"Get the modifier key used for rectangular selection.", "");
+
+DocStr(wxStyledTextCtrl::SetAdditionalSelForeground,
+"Set the foreground colour of additional selections.
+Must have previously called SetSelFore with non-zero first argument for this to have an effect.", "");
+
+DocStr(wxStyledTextCtrl::SetAdditionalSelBackground,
+"Set the background colour of additional selections.
+Must have previously called SetSelBack with non-zero first argument for this to have an effect.", "");
+
+DocStr(wxStyledTextCtrl::SetAdditionalSelAlpha,
+"Set the alpha of the selection.", "");
+
+DocStr(wxStyledTextCtrl::GetAdditionalSelAlpha,
+"Get the alpha of the selection.", "");
+
+DocStr(wxStyledTextCtrl::SetAdditionalCaretForeground,
+"Set the foreground colour of additional carets.", "");
+
+DocStr(wxStyledTextCtrl::GetAdditionalCaretForeground,
+"Get the foreground colour of additional carets.", "");
+
+DocStr(wxStyledTextCtrl::RotateSelection,
+"Set the main selection to the next selection.", "");
+
+DocStr(wxStyledTextCtrl::SwapMainAnchorCaret,
+"Swap that caret and anchor of the main selection.", "");
 
 DocStr(wxStyledTextCtrl::StartRecord,
 "Start notifying the container of all key presses and commands.", "");
