@@ -44,6 +44,7 @@ enum wxFontEncoding;  // forward declare
 MustHaveApp(wxStyledTextCtrl);
 
 %ignore wxStyledTextCtrl::HitTest;
+%ignore wxStyledTextCtrl::GetCharacterPointer;
 
 //---------------------------------------------------------------------------
 // Get all our defs from the REAL header file.
@@ -58,6 +59,16 @@ MustHaveApp(wxStyledTextCtrl);
 
 
 %extend wxStyledTextCtrl {
+    %extend {
+        PyObject* GetCharacterPointer() {
+            const char* ptr = self->GetCharacterPointer();
+            int len = self->GetLength();
+            PyObject* rv;
+            wxPyBLOCK_THREADS( rv = PyBuffer_FromMemory((void*)ptr, len) );
+            return rv;
+        }
+    }
+    
     %pythoncode {
         GetCaretLineBack = GetCaretLineBackground
         SetCaretLineBack = SetCaretLineBackground
@@ -223,7 +234,9 @@ EVT_STC_HOTSPOT_DCLICK = wx.PyEventBinder( wxEVT_STC_HOTSPOT_DCLICK, 1 )
 EVT_STC_CALLTIP_CLICK = wx.PyEventBinder( wxEVT_STC_CALLTIP_CLICK, 1 )
 EVT_STC_AUTOCOMP_SELECTION = wx.PyEventBinder( wxEVT_STC_AUTOCOMP_SELECTION, 1 )
 EVT_STC_INDICATOR_CLICK = wx.PyEventBinder( wxEVT_STC_INDICATOR_CLICK, 1 )
-EVT_STC_INDICATOR_RELEASE = wx.PyEventBinder( wxEVT_STC_INDICATOR_RELEASE, 1 )    
+EVT_STC_INDICATOR_RELEASE = wx.PyEventBinder( wxEVT_STC_INDICATOR_RELEASE, 1 )
+EVT_STC_AUTOCOMP_CANCELLED = wx.PyEventBinder( wxEVT_STC_AUTOCOMP_CANCELLED, 1 )
+EVT_STC_AUTOCOMP_CHAR_DELETED = wx.PyEventBinder( wxEVT_STC_AUTOCOMP_CHAR_DELETED, 1 )    
 }
 
 //---------------------------------------------------------------------------
