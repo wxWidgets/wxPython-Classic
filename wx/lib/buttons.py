@@ -119,15 +119,19 @@ class GenButton(wx.PyControl):
         button based on the label and bezel size.
         """
         w, h, useMin = self._GetLabelSize()
-        defSize = wx.Button.GetDefaultSize()
-        width = 12 + w
-        if useMin and width < defSize.width:
-            width = defSize.width
-        height = 11 + h
-        if useMin and height < defSize.height:
-            height = defSize.height
-        width = width + self.bezelWidth - 1
-        height = height + self.bezelWidth - 1
+        if self.style & wx.BU_EXACTFIT:
+            width = w + 2 + 2 * self.bezelWidth + 4 * int(self.useFocusInd)
+            height = h + 2 + 2 * self.bezelWidth + 4 * int(self.useFocusInd)
+        else:
+            defSize = wx.Button.GetDefaultSize()
+            width = 12 + w
+            if useMin and width < defSize.width:
+                width = defSize.width
+            height = 11 + h
+            if useMin and height < defSize.height:
+                height = defSize.height
+            width = width + self.bezelWidth - 1
+            height = height + self.bezelWidth - 1
         return (width, height)
 
 
@@ -185,16 +189,11 @@ class GenButton(wx.PyControl):
         fr, fg, fb = min(255,r+32), min(255,g+32), min(255,b+32)
         self.faceDnClr = wx.Colour(fr, fg, fb)
         sr, sg, sb = max(0,r-32), max(0,g-32), max(0,b-32)
-        self.shadowPen = wx.Pen(wx.Colour(sr,sg,sb), 1, wx.SOLID)
+        self.shadowPenClr = wx.Colour(sr,sg,sb)
         hr, hg, hb = min(255,r+64), min(255,g+64), min(255,b+64)
-        self.highlightPen = wx.Pen(wx.Colour(hr,hg,hb), 1, wx.SOLID)
+        self.highlightPenClr = wx.Colour(hr,hg,hb)
         self.focusClr = wx.Colour(hr, hg, hb)
 
-        textClr = self.GetForegroundColour()
-        self.focusIndPen  = wx.Pen(textClr, 1, wx.USER_DASH)
-        self.focusIndPen.SetDashes([1,1])
-        self.focusIndPen.SetCap(wx.CAP_BUTT)
-        
         
     def SetBackgroundColour(self, colour):
         wx.PyControl.SetBackgroundColour(self, colour)
@@ -227,18 +226,18 @@ class GenButton(wx.PyControl):
     def DrawBezel(self, dc, x1, y1, x2, y2):
         # draw the upper left sides
         if self.up:
-            dc.SetPen(self.highlightPen)
+            dc.SetPen(wx.Pen(self.highlightPenClr, 1, wx.SOLID))
         else:
-            dc.SetPen(self.shadowPen)
+            dc.SetPen(wx.Pen(self.shadowPenClr, 1, wx.SOLID))
         for i in range(self.bezelWidth):
             dc.DrawLine(x1+i, y1, x1+i, y2-i)
             dc.DrawLine(x1, y1+i, x2-i, y1+i)
 
         # draw the lower right sides
         if self.up:
-            dc.SetPen(self.shadowPen)
+            dc.SetPen(wx.Pen(self.shadowPenClr, 1, wx.SOLID))
         else:
-            dc.SetPen(self.highlightPen)
+            dc.SetPen(wx.Pen(self.highlightPenClr, 1, wx.SOLID))
         for i in range(self.bezelWidth):
             dc.DrawLine(x1+i, y2-i, x2+1, y2-i)
             dc.DrawLine(x2-i, y1+i, x2-i, y2)
@@ -259,13 +258,22 @@ class GenButton(wx.PyControl):
 
     def DrawFocusIndicator(self, dc, w, h):
         bw = self.bezelWidth
-        self.focusIndPen.SetColour(self.focusClr)
-        dc.SetLogicalFunction(wx.INVERT)
-        dc.SetPen(self.focusIndPen)
+        textClr = self.GetForegroundColour()
+        focusIndPen  = wx.Pen(textClr, 1, wx.USER_DASH)
+        focusIndPen.SetDashes([1,1])
+        focusIndPen.SetCap(wx.CAP_BUTT)
+
+        if wx.Platform == "__WXMAC__":
+            dc.SetLogicalFunction(wx.XOR)
+        else:
+            focusIndPen.SetColour(self.focusClr)
+            dc.SetLogicalFunction(wx.INVERT)
+        dc.SetPen(focusIndPen)
         dc.SetBrush(wx.TRANSPARENT_BRUSH)
         dc.DrawRectangle(bw+2,bw+2,  w-bw*2-4, h-bw*2-4)
         dc.SetLogicalFunction(wx.COPY)
 
+        
     def OnPaint(self, event):
         (width, height) = self.GetClientSizeTuple()
         x1 = y1 = 0
