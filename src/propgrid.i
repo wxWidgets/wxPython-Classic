@@ -577,6 +577,12 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
                                SWIGTYPE_p_wxColourPropertyValue,
                                SWIG_POINTER_OWN | 0 );
     }
+    else
+    {
+        // TODO: Allow converting arbitrary wxObject-based variant datas,
+        // including old-school wxObjectPtr (see wxPG 1.4), and new-style
+        // variant data classes generated using DECLARE_VARIANT_OBJECT().
+    }
 
     return NULL;
 }
