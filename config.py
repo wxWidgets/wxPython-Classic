@@ -819,6 +819,29 @@ distutils.cygwinccompiler.CygwinCCompiler._compile = _compile
 
 
 #----------------------------------------------------------------------
+# Yet another distutils hack, this time for the msvc9compiler.  There
+# is a bug in at least version distributed with Python 2.6 where it
+# adds '/pdb:None' to the linker command-line, but that just results
+# in a 'None' file being created instead of putting the debug info
+# into the .pyd files as expected.  So we'll strip out that option via
+# a monkey-patch of the msvc9compiler.MSVCCompiler.initialize method.
+
+if os.name == 'nt' and  COMPILER == 'msvc':
+    import distutils.msvc9compiler
+    _orig_initialize = distutils.msvc9compiler.MSVCCompiler.initialize
+
+    def _initialize(self, *args, **kw):
+        rv = _orig_initialize(self, *args, **kw)
+        try:
+            self.ldflags_shared_debug.remove('/pdb:None')
+        except ValueError:
+            pass
+        return rv
+
+    distutils.msvc9compiler.MSVCCompiler.initialize = _initialize
+
+
+#----------------------------------------------------------------------
 # sanity checks
 
 if CORE_ONLY:
