@@ -2638,18 +2638,19 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxTimerRunner swig_types[172]
 #define SWIGTYPE_p_wxTipProvider swig_types[173]
 #define SWIGTYPE_p_wxToolTip swig_types[174]
-#define SWIGTYPE_p_wxURLDataObject swig_types[175]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[176]
-#define SWIGTYPE_p_wxValidator swig_types[177]
-#define SWIGTYPE_p_wxVideoMode swig_types[178]
-#define SWIGTYPE_p_wxWindow swig_types[179]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[180]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[181]
-#define SWIGTYPE_p_wxWindowDisabler swig_types[182]
-#define SWIGTYPE_p_wxWrapSizer swig_types[183]
-#define SWIGTYPE_p_wxXPMHandler swig_types[184]
-static swig_type_info *swig_types[186];
-static swig_module_info swig_module = {swig_types, 185, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxUIActionSimulator swig_types[175]
+#define SWIGTYPE_p_wxURLDataObject swig_types[176]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[177]
+#define SWIGTYPE_p_wxValidator swig_types[178]
+#define SWIGTYPE_p_wxVideoMode swig_types[179]
+#define SWIGTYPE_p_wxWindow swig_types[180]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[181]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[182]
+#define SWIGTYPE_p_wxWindowDisabler swig_types[183]
+#define SWIGTYPE_p_wxWrapSizer swig_types[184]
+#define SWIGTYPE_p_wxXPMHandler swig_types[185]
+static swig_type_info *swig_types[187];
+static swig_module_info swig_module = {swig_types, 186, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -4280,6 +4281,32 @@ wxBatteryState wxGetBatteryState() { return wxBATTERY_UNKNOWN_STATE; }
 
 
 #include <wx/aboutdlg.h>
+
+
+#include <wx/uiaction.h>
+
+
+#if !wxUSE_UIACTIONSIMULATOR    
+class wxUIActionSimulator
+{
+public:
+    wxUIActionSimulator() {
+        wxPyRaiseNotImplementedMsg(
+            "wx.UIActionSimulator is not available in this build of wxWidgets.");
+    }
+    ~wxUIActionSimulator() {}
+
+    bool MouseMove(long, long) { return false; }
+    bool MouseDown(int) { return false; }
+    bool MouseUp(int) { return false; }
+    bool MouseClick(int) { return false; }
+    bool MouseDblClick(int) { return false; }
+    bool MouseDragDrop(long, long, long, long, int) { return false; }
+    bool KeyDown(int, bool, bool, bool) { return false; }
+    bool KeyUp(int, bool, bool, bool) { return false; }
+    bool Char(int, bool, bool, bool) { return false; }
+};
+#endif    
 
 #ifdef __cplusplus
 extern "C" {
@@ -41269,6 +41296,586 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_new_UIActionSimulator(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"new_UIActionSimulator",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxUIActionSimulator *)new wxUIActionSimulator();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxUIActionSimulator, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_UIActionSimulator(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *arg1 = (wxUIActionSimulator *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxUIActionSimulator, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_UIActionSimulator" "', expected argument " "1"" of type '" "wxUIActionSimulator *""'"); 
+  }
+  arg1 = reinterpret_cast< wxUIActionSimulator * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UIActionSimulator_MouseMove(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *arg1 = (wxUIActionSimulator *) 0 ;
+  long arg2 ;
+  long arg3 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "x",(char *) "y", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:UIActionSimulator_MouseMove",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxUIActionSimulator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UIActionSimulator_MouseMove" "', expected argument " "1"" of type '" "wxUIActionSimulator *""'"); 
+  }
+  arg1 = reinterpret_cast< wxUIActionSimulator * >(argp1);
+  ecode2 = SWIG_AsVal_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "UIActionSimulator_MouseMove" "', expected argument " "2"" of type '" "long""'");
+  } 
+  arg2 = static_cast< long >(val2);
+  ecode3 = SWIG_AsVal_long(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "UIActionSimulator_MouseMove" "', expected argument " "3"" of type '" "long""'");
+  } 
+  arg3 = static_cast< long >(val3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->MouseMove(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UIActionSimulator_MouseDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *arg1 = (wxUIActionSimulator *) 0 ;
+  int arg2 = (int) wxMOUSE_BTN_LEFT ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "button", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:UIActionSimulator_MouseDown",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxUIActionSimulator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UIActionSimulator_MouseDown" "', expected argument " "1"" of type '" "wxUIActionSimulator *""'"); 
+  }
+  arg1 = reinterpret_cast< wxUIActionSimulator * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "UIActionSimulator_MouseDown" "', expected argument " "2"" of type '" "int""'");
+    } 
+    arg2 = static_cast< int >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->MouseDown(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UIActionSimulator_MouseUp(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *arg1 = (wxUIActionSimulator *) 0 ;
+  int arg2 = (int) wxMOUSE_BTN_LEFT ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "button", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:UIActionSimulator_MouseUp",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxUIActionSimulator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UIActionSimulator_MouseUp" "', expected argument " "1"" of type '" "wxUIActionSimulator *""'"); 
+  }
+  arg1 = reinterpret_cast< wxUIActionSimulator * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "UIActionSimulator_MouseUp" "', expected argument " "2"" of type '" "int""'");
+    } 
+    arg2 = static_cast< int >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->MouseUp(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UIActionSimulator_MouseClick(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *arg1 = (wxUIActionSimulator *) 0 ;
+  int arg2 = (int) wxMOUSE_BTN_LEFT ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "button", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:UIActionSimulator_MouseClick",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxUIActionSimulator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UIActionSimulator_MouseClick" "', expected argument " "1"" of type '" "wxUIActionSimulator *""'"); 
+  }
+  arg1 = reinterpret_cast< wxUIActionSimulator * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "UIActionSimulator_MouseClick" "', expected argument " "2"" of type '" "int""'");
+    } 
+    arg2 = static_cast< int >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->MouseClick(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UIActionSimulator_MouseDblClick(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *arg1 = (wxUIActionSimulator *) 0 ;
+  int arg2 = (int) wxMOUSE_BTN_LEFT ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "button", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:UIActionSimulator_MouseDblClick",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxUIActionSimulator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UIActionSimulator_MouseDblClick" "', expected argument " "1"" of type '" "wxUIActionSimulator *""'"); 
+  }
+  arg1 = reinterpret_cast< wxUIActionSimulator * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "UIActionSimulator_MouseDblClick" "', expected argument " "2"" of type '" "int""'");
+    } 
+    arg2 = static_cast< int >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->MouseDblClick(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UIActionSimulator_MouseDragDrop(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *arg1 = (wxUIActionSimulator *) 0 ;
+  long arg2 ;
+  long arg3 ;
+  long arg4 ;
+  long arg5 ;
+  int arg6 = (int) wxMOUSE_BTN_LEFT ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  long val2 ;
+  int ecode2 = 0 ;
+  long val3 ;
+  int ecode3 = 0 ;
+  long val4 ;
+  int ecode4 = 0 ;
+  long val5 ;
+  int ecode5 = 0 ;
+  int val6 ;
+  int ecode6 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "x1",(char *) "y1",(char *) "x2",(char *) "y2",(char *) "button", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOO|O:UIActionSimulator_MouseDragDrop",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxUIActionSimulator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UIActionSimulator_MouseDragDrop" "', expected argument " "1"" of type '" "wxUIActionSimulator *""'"); 
+  }
+  arg1 = reinterpret_cast< wxUIActionSimulator * >(argp1);
+  ecode2 = SWIG_AsVal_long(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "UIActionSimulator_MouseDragDrop" "', expected argument " "2"" of type '" "long""'");
+  } 
+  arg2 = static_cast< long >(val2);
+  ecode3 = SWIG_AsVal_long(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "UIActionSimulator_MouseDragDrop" "', expected argument " "3"" of type '" "long""'");
+  } 
+  arg3 = static_cast< long >(val3);
+  ecode4 = SWIG_AsVal_long(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "UIActionSimulator_MouseDragDrop" "', expected argument " "4"" of type '" "long""'");
+  } 
+  arg4 = static_cast< long >(val4);
+  ecode5 = SWIG_AsVal_long(obj4, &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "UIActionSimulator_MouseDragDrop" "', expected argument " "5"" of type '" "long""'");
+  } 
+  arg5 = static_cast< long >(val5);
+  if (obj5) {
+    ecode6 = SWIG_AsVal_int(obj5, &val6);
+    if (!SWIG_IsOK(ecode6)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "UIActionSimulator_MouseDragDrop" "', expected argument " "6"" of type '" "int""'");
+    } 
+    arg6 = static_cast< int >(val6);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->MouseDragDrop(arg2,arg3,arg4,arg5,arg6);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UIActionSimulator_KeyDown(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *arg1 = (wxUIActionSimulator *) 0 ;
+  int arg2 ;
+  bool arg3 = (bool) false ;
+  bool arg4 = (bool) false ;
+  bool arg5 = (bool) false ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  bool val4 ;
+  int ecode4 = 0 ;
+  bool val5 ;
+  int ecode5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "keycode",(char *) "shiftDown",(char *) "cmdDown",(char *) "altDown", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOO:UIActionSimulator_KeyDown",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxUIActionSimulator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UIActionSimulator_KeyDown" "', expected argument " "1"" of type '" "wxUIActionSimulator *""'"); 
+  }
+  arg1 = reinterpret_cast< wxUIActionSimulator * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "UIActionSimulator_KeyDown" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_bool(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "UIActionSimulator_KeyDown" "', expected argument " "3"" of type '" "bool""'");
+    } 
+    arg3 = static_cast< bool >(val3);
+  }
+  if (obj3) {
+    ecode4 = SWIG_AsVal_bool(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "UIActionSimulator_KeyDown" "', expected argument " "4"" of type '" "bool""'");
+    } 
+    arg4 = static_cast< bool >(val4);
+  }
+  if (obj4) {
+    ecode5 = SWIG_AsVal_bool(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "UIActionSimulator_KeyDown" "', expected argument " "5"" of type '" "bool""'");
+    } 
+    arg5 = static_cast< bool >(val5);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->KeyDown(arg2,arg3,arg4,arg5);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UIActionSimulator_KeyUp(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *arg1 = (wxUIActionSimulator *) 0 ;
+  int arg2 ;
+  bool arg3 = (bool) false ;
+  bool arg4 = (bool) false ;
+  bool arg5 = (bool) false ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  bool val4 ;
+  int ecode4 = 0 ;
+  bool val5 ;
+  int ecode5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "keycode",(char *) "shiftDown",(char *) "cmdDown",(char *) "altDown", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOO:UIActionSimulator_KeyUp",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxUIActionSimulator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UIActionSimulator_KeyUp" "', expected argument " "1"" of type '" "wxUIActionSimulator *""'"); 
+  }
+  arg1 = reinterpret_cast< wxUIActionSimulator * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "UIActionSimulator_KeyUp" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_bool(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "UIActionSimulator_KeyUp" "', expected argument " "3"" of type '" "bool""'");
+    } 
+    arg3 = static_cast< bool >(val3);
+  }
+  if (obj3) {
+    ecode4 = SWIG_AsVal_bool(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "UIActionSimulator_KeyUp" "', expected argument " "4"" of type '" "bool""'");
+    } 
+    arg4 = static_cast< bool >(val4);
+  }
+  if (obj4) {
+    ecode5 = SWIG_AsVal_bool(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "UIActionSimulator_KeyUp" "', expected argument " "5"" of type '" "bool""'");
+    } 
+    arg5 = static_cast< bool >(val5);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->KeyUp(arg2,arg3,arg4,arg5);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_UIActionSimulator_Char(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxUIActionSimulator *arg1 = (wxUIActionSimulator *) 0 ;
+  int arg2 ;
+  bool arg3 = (bool) false ;
+  bool arg4 = (bool) false ;
+  bool arg5 = (bool) false ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  bool val4 ;
+  int ecode4 = 0 ;
+  bool val5 ;
+  int ecode5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "keycode",(char *) "shiftDown",(char *) "cmdDown",(char *) "altDown", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOO:UIActionSimulator_Char",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxUIActionSimulator, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "UIActionSimulator_Char" "', expected argument " "1"" of type '" "wxUIActionSimulator *""'"); 
+  }
+  arg1 = reinterpret_cast< wxUIActionSimulator * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "UIActionSimulator_Char" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_bool(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "UIActionSimulator_Char" "', expected argument " "3"" of type '" "bool""'");
+    } 
+    arg3 = static_cast< bool >(val3);
+  }
+  if (obj3) {
+    ecode4 = SWIG_AsVal_bool(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "UIActionSimulator_Char" "', expected argument " "4"" of type '" "bool""'");
+    } 
+    arg4 = static_cast< bool >(val4);
+  }
+  if (obj4) {
+    ecode5 = SWIG_AsVal_bool(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "UIActionSimulator_Char" "', expected argument " "5"" of type '" "bool""'");
+    } 
+    arg5 = static_cast< bool >(val5);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->Char(arg2,arg3,arg4,arg5);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *UIActionSimulator_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxUIActionSimulator, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *UIActionSimulator_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"SystemSettings_GetColour", (PyCFunction) _wrap_SystemSettings_GetColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SystemSettings_GetFont", (PyCFunction) _wrap_SystemSettings_GetFont, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -42325,6 +42932,19 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AboutDialogInfo_swigregister", AboutDialogInfo_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AboutDialogInfo_swiginit", AboutDialogInfo_swiginit, METH_VARARGS, NULL},
 	 { (char *)"AboutBox", (PyCFunction) _wrap_AboutBox, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"new_UIActionSimulator", (PyCFunction)_wrap_new_UIActionSimulator, METH_NOARGS, NULL},
+	 { (char *)"delete_UIActionSimulator", (PyCFunction)_wrap_delete_UIActionSimulator, METH_O, NULL},
+	 { (char *)"UIActionSimulator_MouseMove", (PyCFunction) _wrap_UIActionSimulator_MouseMove, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"UIActionSimulator_MouseDown", (PyCFunction) _wrap_UIActionSimulator_MouseDown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"UIActionSimulator_MouseUp", (PyCFunction) _wrap_UIActionSimulator_MouseUp, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"UIActionSimulator_MouseClick", (PyCFunction) _wrap_UIActionSimulator_MouseClick, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"UIActionSimulator_MouseDblClick", (PyCFunction) _wrap_UIActionSimulator_MouseDblClick, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"UIActionSimulator_MouseDragDrop", (PyCFunction) _wrap_UIActionSimulator_MouseDragDrop, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"UIActionSimulator_KeyDown", (PyCFunction) _wrap_UIActionSimulator_KeyDown, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"UIActionSimulator_KeyUp", (PyCFunction) _wrap_UIActionSimulator_KeyUp, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"UIActionSimulator_Char", (PyCFunction) _wrap_UIActionSimulator_Char, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"UIActionSimulator_swigregister", UIActionSimulator_swigregister, METH_VARARGS, NULL},
+	 { (char *)"UIActionSimulator_swiginit", UIActionSimulator_swiginit, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -43088,6 +43708,7 @@ static swig_type_info _swigt__p_wxTimerEvent = {"_p_wxTimerEvent", "wxTimerEvent
 static swig_type_info _swigt__p_wxTimerRunner = {"_p_wxTimerRunner", "wxTimerRunner *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTipProvider = {"_p_wxTipProvider", "wxTipProvider *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxToolTip = {"_p_wxToolTip", "wxToolTip *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxUIActionSimulator = {"_p_wxUIActionSimulator", "wxUIActionSimulator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxURLDataObject = {"_p_wxURLDataObject", "wxURLDataObject *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxVideoMode = {"_p_wxVideoMode", "wxVideoMode *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWindow = {"_p_wxWindow", "wxWindow *", 0, 0, (void*)0, 0};
@@ -43269,6 +43890,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxTimerRunner,
   &_swigt__p_wxTipProvider,
   &_swigt__p_wxToolTip,
+  &_swigt__p_wxUIActionSimulator,
   &_swigt__p_wxURLDataObject,
   &_swigt__p_wxUpdateUIEvent,
   &_swigt__p_wxValidator,
@@ -43462,6 +44084,7 @@ static swig_cast_info _swigc__p_wxTimerEvent[] = {  {&_swigt__p_wxTimerEvent, 0,
 static swig_cast_info _swigc__p_wxTimerRunner[] = {  {&_swigt__p_wxTimerRunner, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTipProvider[] = {  {&_swigt__p_wxTipProvider, 0, 0, 0},  {&_swigt__p_wxPyTipProvider, _p_wxPyTipProviderTo_p_wxTipProvider, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxToolTip[] = {  {&_swigt__p_wxToolTip, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxUIActionSimulator[] = {  {&_swigt__p_wxUIActionSimulator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxURLDataObject[] = {  {&_swigt__p_wxURLDataObject, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxVideoMode[] = {  {&_swigt__p_wxVideoMode, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxControl, _p_wxControlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxWindow, 0, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxWindow, 0, 0},{0, 0, 0, 0}};
@@ -43643,6 +44266,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxTimerRunner,
   _swigc__p_wxTipProvider,
   _swigc__p_wxToolTip,
+  _swigc__p_wxUIActionSimulator,
   _swigc__p_wxURLDataObject,
   _swigc__p_wxUpdateUIEvent,
   _swigc__p_wxValidator,

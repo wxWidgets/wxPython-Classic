@@ -51260,7 +51260,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PG_FL_GOOD_SIZE_SET",SWIG_From_int(static_cast< int >(0x00040000)));
   SWIG_Python_SetConstant(d, "PG_FL_IN_SELECT_PROPERTY",SWIG_From_int(static_cast< int >(0x00100000)));
   SWIG_Python_SetConstant(d, "PG_FL_STRING_IN_STATUSBAR",SWIG_From_int(static_cast< int >(0x00200000)));
-  SWIG_Python_SetConstant(d, "PG_FL_VALIDATION_FAILED",SWIG_From_int(static_cast< int >(0x00800000)));
   SWIG_Python_SetConstant(d, "PG_FL_CATMODE_AUTO_SORT",SWIG_From_int(static_cast< int >(0x01000000)));
   SWIG_Python_SetConstant(d, "PG_MAN_FL_PAGE_INSERTED",SWIG_From_int(static_cast< int >(0x02000000)));
   SWIG_Python_SetConstant(d, "PG_FL_ABNORMAL_EDITOR",SWIG_From_int(static_cast< int >(0x04000000)));

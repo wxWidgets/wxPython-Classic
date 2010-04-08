@@ -3169,6 +3169,17 @@ SWIGINTERN void wxPyHtmlWindow_SetFonts(wxPyHtmlWindow *self,wxString normal_fac
             if (temp)
                 delete [] temp;
         }
+
+SWIGINTERN int
+SWIG_AsVal_double (PyObject *obj, double* val)
+{
+    if (PyNumber_Check(obj)) {
+        if (val) *val = PyFloat_AsDouble(obj);
+        return SWIG_OK;
+    }
+    return SWIG_TypeError;
+}
+
 SWIGINTERN void wxHtmlDCRenderer_SetFonts(wxHtmlDCRenderer *self,wxString normal_face,wxString fixed_face,PyObject *sizes=NULL){
             int* temp = NULL;
             if (sizes) temp = int_LIST_helper(sizes);
@@ -3185,17 +3196,6 @@ SWIGINTERN void wxHtmlPrintout_SetFonts(wxHtmlPrintout *self,wxString normal_fac
         }
 
 #include <float.h>
-
-
-SWIGINTERN int
-SWIG_AsVal_double (PyObject *obj, double* val)
-{
-    if (PyNumber_Check(obj)) {
-        if (val) *val = PyFloat_AsDouble(obj);
-        return SWIG_OK;
-    }
-    return SWIG_TypeError;
-}
 
 
 SWIGINTERN int
@@ -11566,40 +11566,36 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_HtmlDCRenderer_SetDC(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_HtmlDCRenderer_SetDC__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxHtmlDCRenderer *arg1 = (wxHtmlDCRenderer *) 0 ;
   wxDC *arg2 = (wxDC *) 0 ;
-  int arg3 ;
+  double arg3 = (double) 1.0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  int val3 ;
+  double val3 ;
   int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "dc",(char *) "maxwidth", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:HtmlDCRenderer_SetDC",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxHtmlDCRenderer, 0 |  0 );
+  if ((nobjs < 2) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxHtmlDCRenderer, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HtmlDCRenderer_SetDC" "', expected argument " "1"" of type '" "wxHtmlDCRenderer *""'"); 
   }
   arg1 = reinterpret_cast< wxHtmlDCRenderer * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxDC, 0 |  0 );
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_wxDC, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HtmlDCRenderer_SetDC" "', expected argument " "2"" of type '" "wxDC *""'"); 
   }
   arg2 = reinterpret_cast< wxDC * >(argp2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "HtmlDCRenderer_SetDC" "', expected argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
+  if (swig_obj[2]) {
+    ecode3 = SWIG_AsVal_double(swig_obj[2], &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "HtmlDCRenderer_SetDC" "', expected argument " "3"" of type '" "double""'");
+    } 
+    arg3 = static_cast< double >(val3);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetDC(arg2,arg3);
@@ -11609,6 +11605,74 @@ SWIGINTERN PyObject *_wrap_HtmlDCRenderer_SetDC(PyObject *SWIGUNUSEDPARM(self), 
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_HtmlDCRenderer_SetDC__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxHtmlDCRenderer *arg1 = (wxHtmlDCRenderer *) 0 ;
+  wxDC *arg2 = (wxDC *) 0 ;
+  double arg3 ;
+  double arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  
+  if ((nobjs < 4) || (nobjs > 4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxHtmlDCRenderer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HtmlDCRenderer_SetDC" "', expected argument " "1"" of type '" "wxHtmlDCRenderer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxHtmlDCRenderer * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "HtmlDCRenderer_SetDC" "', expected argument " "2"" of type '" "wxDC *""'"); 
+  }
+  arg2 = reinterpret_cast< wxDC * >(argp2);
+  ecode3 = SWIG_AsVal_double(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "HtmlDCRenderer_SetDC" "', expected argument " "3"" of type '" "double""'");
+  } 
+  arg3 = static_cast< double >(val3);
+  ecode4 = SWIG_AsVal_double(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "HtmlDCRenderer_SetDC" "', expected argument " "4"" of type '" "double""'");
+  } 
+  arg4 = static_cast< double >(val4);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetDC(arg2,arg3,arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_HtmlDCRenderer_SetDC(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[5];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"HtmlDCRenderer_SetDC",0,4,argv))) SWIG_fail;
+  --argc;
+  if ((argc >= 2) && (argc <= 3)) {
+    return _wrap_HtmlDCRenderer_SetDC__SWIG_0(self, argc, argv);
+  }
+  if (argc == 4) {
+    return _wrap_HtmlDCRenderer_SetDC__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'HtmlDCRenderer_SetDC'");
   return NULL;
 }
 
@@ -18216,7 +18280,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"HtmlWindow_swiginit", HtmlWindow_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_HtmlDCRenderer", (PyCFunction)_wrap_new_HtmlDCRenderer, METH_NOARGS, NULL},
 	 { (char *)"delete_HtmlDCRenderer", (PyCFunction)_wrap_delete_HtmlDCRenderer, METH_O, NULL},
-	 { (char *)"HtmlDCRenderer_SetDC", (PyCFunction) _wrap_HtmlDCRenderer_SetDC, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"HtmlDCRenderer_SetDC", _wrap_HtmlDCRenderer_SetDC, METH_VARARGS, NULL},
 	 { (char *)"HtmlDCRenderer_SetSize", (PyCFunction) _wrap_HtmlDCRenderer_SetSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlDCRenderer_SetHtmlText", (PyCFunction) _wrap_HtmlDCRenderer_SetHtmlText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlDCRenderer_SetFonts", (PyCFunction) _wrap_HtmlDCRenderer_SetFonts, METH_VARARGS | METH_KEYWORDS, NULL},

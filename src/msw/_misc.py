@@ -6985,5 +6985,63 @@ def AboutBox(*args, **kwargs):
     function falls back to the generic wxWidgets version of the dialog.
     """
   return _misc_.AboutBox(*args, **kwargs)
+#---------------------------------------------------------------------------
+
+class UIActionSimulator(object):
+    """Proxy of C++ UIActionSimulator class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> UIActionSimulator"""
+        _misc_.UIActionSimulator_swiginit(self,_misc_.new_UIActionSimulator(*args, **kwargs))
+    __swig_destroy__ = _misc_.delete_UIActionSimulator
+    __del__ = lambda self : None;
+    def MouseMove(*args, **kwargs):
+        """MouseMove(self, long x, long y) -> bool"""
+        return _misc_.UIActionSimulator_MouseMove(*args, **kwargs)
+
+    def MouseDown(*args, **kwargs):
+        """MouseDown(self, int button=MOUSE_BTN_LEFT) -> bool"""
+        return _misc_.UIActionSimulator_MouseDown(*args, **kwargs)
+
+    def MouseUp(*args, **kwargs):
+        """MouseUp(self, int button=MOUSE_BTN_LEFT) -> bool"""
+        return _misc_.UIActionSimulator_MouseUp(*args, **kwargs)
+
+    def MouseClick(*args, **kwargs):
+        """MouseClick(self, int button=MOUSE_BTN_LEFT) -> bool"""
+        return _misc_.UIActionSimulator_MouseClick(*args, **kwargs)
+
+    def MouseDblClick(*args, **kwargs):
+        """MouseDblClick(self, int button=MOUSE_BTN_LEFT) -> bool"""
+        return _misc_.UIActionSimulator_MouseDblClick(*args, **kwargs)
+
+    def MouseDragDrop(*args, **kwargs):
+        """MouseDragDrop(self, long x1, long y1, long x2, long y2, int button=MOUSE_BTN_LEFT) -> bool"""
+        return _misc_.UIActionSimulator_MouseDragDrop(*args, **kwargs)
+
+    def KeyDown(*args, **kwargs):
+        """
+        KeyDown(self, int keycode, bool shiftDown=False, bool cmdDown=False, 
+            bool altDown=False) -> bool
+        """
+        return _misc_.UIActionSimulator_KeyDown(*args, **kwargs)
+
+    def KeyUp(*args, **kwargs):
+        """
+        KeyUp(self, int keycode, bool shiftDown=False, bool cmdDown=False, 
+            bool altDown=False) -> bool
+        """
+        return _misc_.UIActionSimulator_KeyUp(*args, **kwargs)
+
+    def Char(*args, **kwargs):
+        """
+        Char(self, int keycode, bool shiftDown=False, bool cmdDown=False, 
+            bool altDown=False) -> bool
+        """
+        return _misc_.UIActionSimulator_Char(*args, **kwargs)
+
+_misc_.UIActionSimulator_swigregister(UIActionSimulator)
+
 
 

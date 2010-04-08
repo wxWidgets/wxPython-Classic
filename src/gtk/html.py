@@ -1244,9 +1244,12 @@ class HtmlDCRenderer(_core.Object):
         _html.HtmlDCRenderer_swiginit(self,_html.new_HtmlDCRenderer(*args, **kwargs))
     __swig_destroy__ = _html.delete_HtmlDCRenderer
     __del__ = lambda self : None;
-    def SetDC(*args, **kwargs):
-        """SetDC(self, DC dc, int maxwidth)"""
-        return _html.HtmlDCRenderer_SetDC(*args, **kwargs)
+    def SetDC(*args):
+        """
+        SetDC(self, DC dc, double pixel_scale=1.0)
+        SetDC(self, DC dc, double pixel_scale, double font_scale)
+        """
+        return _html.HtmlDCRenderer_SetDC(*args)
 
     def SetSize(*args, **kwargs):
         """SetSize(self, int width, int height)"""
