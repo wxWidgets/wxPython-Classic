@@ -1211,7 +1211,10 @@ public:
     wxHtmlDCRenderer();
     ~wxHtmlDCRenderer();
 
-    void SetDC(wxDC *dc, int maxwidth);
+    %nokwargs SetDC;
+    void SetDC(wxDC *dc, double pixel_scale = 1.0);
+    void SetDC(wxDC *dc, double pixel_scale, double font_scale);
+    
     void SetSize(int width, int height);
     void SetHtmlText(const wxString& html,
                      const wxString& basepath = wxPyEmptyString,
