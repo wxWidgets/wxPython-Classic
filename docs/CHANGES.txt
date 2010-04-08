@@ -54,7 +54,11 @@ messages and/or buttons in a way that doesn't interupt the user's
 workflow like a modal message dialog does, but is much more noticeble
 than simply putting some text in the status bar.
 
+Updated the Scintilla code used by wxStyledTextCtrl to version 2.03. 
 
+Added wrappers for wx.UIActionSimulator, a class that allows key and
+mouse events to be fabricated programatically, useful for things like
+test-driving an application.
 
 
 

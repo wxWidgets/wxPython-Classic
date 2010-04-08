@@ -99,6 +99,7 @@ _treeList = [
         'GridLabelRenderer',
         'InfoBar',
         'WrapSizer',
+        'UIActionSimulator',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -331,6 +332,7 @@ _treeList = [
         'Sound',
         'StandardPaths',
         'SystemSettings',
+        'UIActionSimulator',
         'Unicode',
         ]),
 

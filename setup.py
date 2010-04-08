@@ -343,6 +343,7 @@ swig_sources = run_swig(['misc.i'], 'src', GENDIR, PKGDIR,
                           'src/_stdpaths.i',
                           'src/_power.i',
                           'src/_about.i',
+                          'src/_uiaction.i',
                           ],
                         True)
 ext = Extension('_misc_', swig_sources,
