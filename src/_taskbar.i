@@ -101,7 +101,7 @@ MustHaveApp(wxPyTaskBarIcon);
 class wxPyTaskBarIcon : public wxEvtHandler
 {
 public:
-    %pythonAppend wxPyTaskBarIcon   setCallbackInfo(TaskBarIcon)
+    %pythonAppend wxPyTaskBarIcon   "self._setOORInfo(self);" setCallbackInfo(TaskBarIcon)
 
     wxPyTaskBarIcon();
     ~wxPyTaskBarIcon();
