@@ -190,6 +190,7 @@ wxPyApp::wxPyApp() {
 
 
 wxPyApp::~wxPyApp() {
+    wxPyDoingCleanup = true;
     wxPythonApp = NULL;
     wxApp::SetInstance(NULL);
 }
