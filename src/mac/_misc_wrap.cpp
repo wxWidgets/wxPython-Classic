@@ -3012,7 +3012,7 @@ wxPyTimer::wxPyTimer(wxEvtHandler *owner, int id)
     : wxTimer(owner, id)
 {
     if (owner == NULL)
-        SetOwner(this);
+        SetOwner(this, id);
 }
 
 wxPyTimer::~wxPyTimer()

@@ -502,6 +502,10 @@ class ComboCtrl(_core.Control):
         """GetMainWindowOfCompositeControl(self) -> Window"""
         return _combo.ComboCtrl_GetMainWindowOfCompositeControl(*args, **kwargs)
 
+    def DestroyPopup(*args, **kwargs):
+        """DestroyPopup(self)"""
+        return _combo.ComboCtrl_DestroyPopup(*args, **kwargs)
+
     def GetFeatures(*args, **kwargs):
         """
         GetFeatures() -> int

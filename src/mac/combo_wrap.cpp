@@ -2800,7 +2800,12 @@ public:
         return wxComboCtrl::GetMainWindowOfCompositeControl();
     }
 
-    
+    void DestroyPopup()
+    {
+        wxComboCtrlBase::DestroyPopup();
+    }
+        
+
     enum
     {
         ShowBelow       = 0x0000,  // Showing popup below the control
@@ -5198,6 +5203,33 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ComboCtrl_DestroyPopup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyComboCtrl *arg1 = (wxPyComboCtrl *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyComboCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ComboCtrl_DestroyPopup" "', expected argument " "1"" of type '" "wxPyComboCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DestroyPopup();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ComboCtrl_GetFeatures(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   int result;
@@ -7342,6 +7374,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ComboCtrl_GetPopupWindowState", (PyCFunction)_wrap_ComboCtrl_GetPopupWindowState, METH_O, NULL},
 	 { (char *)"ComboCtrl_SetCtrlMainWnd", (PyCFunction) _wrap_ComboCtrl_SetCtrlMainWnd, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ComboCtrl_GetMainWindowOfCompositeControl", (PyCFunction)_wrap_ComboCtrl_GetMainWindowOfCompositeControl, METH_O, NULL},
+	 { (char *)"ComboCtrl_DestroyPopup", (PyCFunction)_wrap_ComboCtrl_DestroyPopup, METH_O, NULL},
 	 { (char *)"ComboCtrl_GetFeatures", (PyCFunction)_wrap_ComboCtrl_GetFeatures, METH_NOARGS, NULL},
 	 { (char *)"ComboCtrl_DoShowPopup", (PyCFunction) _wrap_ComboCtrl_DoShowPopup, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ComboCtrl_AnimateShow", (PyCFunction) _wrap_ComboCtrl_AnimateShow, METH_VARARGS | METH_KEYWORDS, NULL},

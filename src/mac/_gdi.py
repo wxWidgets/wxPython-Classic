@@ -4510,6 +4510,11 @@ class DCTextColourChanger(object):
         _gdi_.DCTextColourChanger_swiginit(self,_gdi_.new_DCTextColourChanger(*args, **kwargs))
     __swig_destroy__ = _gdi_.delete_DCTextColourChanger
     __del__ = lambda self : None;
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
 _gdi_.DCTextColourChanger_swigregister(DCTextColourChanger)
 
 class DCPenChanger(object):
@@ -4529,6 +4534,11 @@ class DCPenChanger(object):
         _gdi_.DCPenChanger_swiginit(self,_gdi_.new_DCPenChanger(*args, **kwargs))
     __swig_destroy__ = _gdi_.delete_DCPenChanger
     __del__ = lambda self : None;
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
 _gdi_.DCPenChanger_swigregister(DCPenChanger)
 
 class DCBrushChanger(object):
@@ -4548,6 +4558,11 @@ class DCBrushChanger(object):
         _gdi_.DCBrushChanger_swiginit(self,_gdi_.new_DCBrushChanger(*args, **kwargs))
     __swig_destroy__ = _gdi_.delete_DCBrushChanger
     __del__ = lambda self : None;
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
 _gdi_.DCBrushChanger_swigregister(DCBrushChanger)
 
 class DCClipper(object):
@@ -4571,6 +4586,11 @@ class DCClipper(object):
         _gdi_.DCClipper_swiginit(self,_gdi_.new_DCClipper(*args))
     __swig_destroy__ = _gdi_.delete_DCClipper
     __del__ = lambda self : None;
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
 _gdi_.DCClipper_swigregister(DCClipper)
 
 #---------------------------------------------------------------------------
@@ -6583,6 +6603,7 @@ class Effects(_core.Object):
     MediumShadow = property(GetMediumShadow,SetMediumShadow,doc="See `GetMediumShadow` and `SetMediumShadow`") 
 _gdi_.Effects_swigregister(Effects)
 
+Effects = wx._deprecated(Effects) 
 #---------------------------------------------------------------------------
 
 CONTROL_DISABLED = _gdi_.CONTROL_DISABLED

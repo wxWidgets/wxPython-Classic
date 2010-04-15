@@ -10401,6 +10401,10 @@ class Window(EvtHandler):
         """
         return _core_.Window_PageDown(*args, **kwargs)
 
+    def MacIsWindowScrollbar(*args, **kwargs):
+        """MacIsWindowScrollbar(self, Window sb) -> bool"""
+        return _core_.Window_MacIsWindowScrollbar(*args, **kwargs)
+
     def SetHelpText(*args, **kwargs):
         """
         SetHelpText(self, String text)
@@ -10891,6 +10895,20 @@ def GetTopLevelWindows(*args):
     dialogs, etc.)
     """
   return _core_.GetTopLevelWindows(*args)
+class FrozenWindow(object):
+    """
+    A context manager to be used with Python 'with' statements
+    that will freeze the given window for the duration of the
+    with block.
+    """
+    def __init__(self, window):
+        self._win = window
+    def __enter__(self):
+        self.Freeze()
+        return self
+    def __exit__(self):
+        self.Thaw()
+
 #---------------------------------------------------------------------------
 
 class Validator(EvtHandler):

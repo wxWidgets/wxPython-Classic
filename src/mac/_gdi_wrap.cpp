@@ -28526,7 +28526,7 @@ SWIGINTERN PyObject *_wrap_GraphicsContext_CreateFromNativeWindow(PyObject *SWIG
     result = (wxGraphicsContext *)wxGraphicsContext::CreateFromNativeWindow(arg1);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGraphicsContext, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;

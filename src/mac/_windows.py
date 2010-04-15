@@ -732,6 +732,11 @@ class Dialog(TopLevelWindow):
         return _windows_.Dialog_GetClassDefaultAttributes(*args, **kwargs)
 
     GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.Destroy()
+
     AffirmativeId = property(GetAffirmativeId,SetAffirmativeId,doc="See `GetAffirmativeId` and `SetAffirmativeId`") 
     EscapeId = property(GetEscapeId,SetEscapeId,doc="See `GetEscapeId` and `SetEscapeId`") 
     ReturnCode = property(GetReturnCode,SetReturnCode,doc="See `GetReturnCode` and `SetReturnCode`") 
@@ -2118,7 +2123,7 @@ class TaskBarIcon(_core.EvtHandler):
     def __init__(self, *args, **kwargs): 
         """__init__(self) -> TaskBarIcon"""
         _windows_.TaskBarIcon_swiginit(self,_windows_.new_TaskBarIcon(*args, **kwargs))
-        TaskBarIcon._setCallbackInfo(self, self, TaskBarIcon)
+        self._setOORInfo(self);TaskBarIcon._setCallbackInfo(self, self, TaskBarIcon)
 
     __swig_destroy__ = _windows_.delete_TaskBarIcon
     __del__ = lambda self : None;
