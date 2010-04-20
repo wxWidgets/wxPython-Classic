@@ -195,6 +195,9 @@ const wxIconBundle wxNullIconBundle;
 %threadWrapperOn;
 %mutable;
 
+%pythoncode {
+    TransparentColour = Colour(0,0,0,ALPHA_TRANSPARENT)
+}
 
 //---------------------------------------------------------------------------
 
