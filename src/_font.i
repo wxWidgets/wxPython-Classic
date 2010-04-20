@@ -308,7 +308,6 @@ struct wxNativeEncodingInfo
 };
 
 
-#ifndef __WXMSW__
 // translate a wxFontEncoding into native encoding parameter (defined above),
 // returning a wxNativeEncodingInfo if an (exact) match could be found, NULL
 // otherwise.
@@ -326,16 +325,6 @@ struct wxNativeEncodingInfo
 // return True if such font(s) exist, False otherwise
 bool wxTestFontEncoding(const wxNativeEncodingInfo& info);
 
-#else
-
-%inline %{
-    wxNativeEncodingInfo* wxGetNativeFontEncoding(wxFontEncoding encoding)
-        { wxPyRaiseNotImplemented(); return NULL; }
-
-    bool wxTestFontEncoding(const wxNativeEncodingInfo& info)
-        { wxPyRaiseNotImplemented(); return false; }
-%}
-#endif
 
 //---------------------------------------------------------------------------
 %newgroup
