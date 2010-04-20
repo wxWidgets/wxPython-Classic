@@ -809,7 +809,7 @@ public:
     float GetPosition() const;
     void SetPosition(float pos);
 
-    %property(Position, GetPosition, SetPostition);
+    %property(Position, GetPosition, SetPosition);
     %property(Colour, GetColour, SetColour);
 };
 
