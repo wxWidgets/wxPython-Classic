@@ -417,6 +417,7 @@ public:
     bool IsVertical();
 
     size_t GetToolsCount() const;
+    const wxToolBarToolBase *GetToolByPos(int pos);
 
     // Set dropdown menu
     bool SetDropdownMenu(int toolid, wxMenu *menu);
