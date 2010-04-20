@@ -566,6 +566,7 @@ the image already has alpha data. If it doesn't, alpha data will be by
 default initialized to all pixels being fully opaque. But if the image
 has a a mask colour, all mask pixels will be completely transparent.", "");
 
+    void ClearAlpha();
 
     DocDeclStr(
         bool , IsTransparent(int x, int y,
