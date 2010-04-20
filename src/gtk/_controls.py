@@ -4160,6 +4160,10 @@ class ToolBarBase(_core.Control):
         """GetToolsCount(self) -> size_t"""
         return _controls_.ToolBarBase_GetToolsCount(*args, **kwargs)
 
+    def GetToolByPos(*args, **kwargs):
+        """GetToolByPos(self, int pos) -> ToolBarToolBase"""
+        return _controls_.ToolBarBase_GetToolByPos(*args, **kwargs)
+
     def SetDropdownMenu(*args, **kwargs):
         """SetDropdownMenu(self, int toolid, Menu menu) -> bool"""
         return _controls_.ToolBarBase_SetDropdownMenu(*args, **kwargs)

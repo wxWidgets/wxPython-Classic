@@ -18710,6 +18710,33 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Image_ClearAlpha(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxImage *arg1 = (wxImage *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxImage, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Image_ClearAlpha" "', expected argument " "1"" of type '" "wxImage *""'"); 
+  }
+  arg1 = reinterpret_cast< wxImage * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->ClearAlpha();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Image_IsTransparent(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxImage *arg1 = (wxImage *) 0 ;
@@ -68775,6 +68802,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Image_GetAlpha", (PyCFunction) _wrap_Image_GetAlpha, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Image_HasAlpha", (PyCFunction)_wrap_Image_HasAlpha, METH_O, NULL},
 	 { (char *)"Image_InitAlpha", (PyCFunction)_wrap_Image_InitAlpha, METH_O, NULL},
+	 { (char *)"Image_ClearAlpha", (PyCFunction)_wrap_Image_ClearAlpha, METH_O, NULL},
 	 { (char *)"Image_IsTransparent", (PyCFunction) _wrap_Image_IsTransparent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Image_FindFirstUnusedColour", (PyCFunction) _wrap_Image_FindFirstUnusedColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Image_ConvertAlphaToMask", (PyCFunction) _wrap_Image_ConvertAlphaToMask, METH_VARARGS | METH_KEYWORDS, NULL},

@@ -2884,6 +2884,7 @@ LOCALE_SHORT_DATE_FMT = _gdi_.LOCALE_SHORT_DATE_FMT
 LOCALE_LONG_DATE_FMT = _gdi_.LOCALE_LONG_DATE_FMT
 LOCALE_DATE_TIME_FMT = _gdi_.LOCALE_DATE_TIME_FMT
 LOCALE_TIME_FMT = _gdi_.LOCALE_TIME_FMT
+LOCALE_DONT_LOAD_DEFAULT = _gdi_.LOCALE_DONT_LOAD_DEFAULT
 LOCALE_LOAD_DEFAULT = _gdi_.LOCALE_LOAD_DEFAULT
 LOCALE_CONV_ENCODING = _gdi_.LOCALE_CONV_ENCODING
 class Locale(object):
@@ -2898,12 +2899,12 @@ class Locale(object):
     def Init1(*args, **kwargs):
         """
         Init1(self, String name, String shortName=EmptyString, String locale=EmptyString, 
-            bool bLoadDefault=True, bool bConvertEncoding=False) -> bool
+            bool bLoadDefault=True) -> bool
         """
         return _gdi_.Locale_Init1(*args, **kwargs)
 
     def Init2(*args, **kwargs):
-        """Init2(self, int language=LANGUAGE_DEFAULT, int flags=wxLOCALE_LOAD_DEFAULT|wxLOCALE_CONV_ENCODING) -> bool"""
+        """Init2(self, int language=LANGUAGE_DEFAULT, int flags=LOCALE_LOAD_DEFAULT) -> bool"""
         return _gdi_.Locale_Init2(*args, **kwargs)
 
     def Init(self, *_args, **_kwargs):
@@ -5754,6 +5755,94 @@ class GraphicsPath(GraphicsObject):
 
 _gdi_.GraphicsPath_swigregister(GraphicsPath)
 
+class GraphicsGradientStop(object):
+    """Proxy of C++ GraphicsGradientStop class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, Colour col=wxTransparentColour, float pos=0.0) -> GraphicsGradientStop"""
+        _gdi_.GraphicsGradientStop_swiginit(self,_gdi_.new_GraphicsGradientStop(*args, **kwargs))
+    __swig_destroy__ = _gdi_.delete_GraphicsGradientStop
+    __del__ = lambda self : None;
+    def GetColour(*args, **kwargs):
+        """GetColour(self) -> Colour"""
+        return _gdi_.GraphicsGradientStop_GetColour(*args, **kwargs)
+
+    def SetColour(*args, **kwargs):
+        """SetColour(self, Colour col)"""
+        return _gdi_.GraphicsGradientStop_SetColour(*args, **kwargs)
+
+    def GetPosition(*args, **kwargs):
+        """GetPosition(self) -> float"""
+        return _gdi_.GraphicsGradientStop_GetPosition(*args, **kwargs)
+
+    def SetPosition(*args, **kwargs):
+        """SetPosition(self, float pos)"""
+        return _gdi_.GraphicsGradientStop_SetPosition(*args, **kwargs)
+
+    Position = property(GetPosition,SetPosition) 
+    Colour = property(GetColour,SetColour) 
+_gdi_.GraphicsGradientStop_swigregister(GraphicsGradientStop)
+cvar = _gdi_.cvar
+NullGraphicsPen = cvar.NullGraphicsPen
+NullGraphicsBrush = cvar.NullGraphicsBrush
+NullGraphicsFont = cvar.NullGraphicsFont
+NullGraphicsBitmap = cvar.NullGraphicsBitmap
+NullGraphicsMatrix = cvar.NullGraphicsMatrix
+NullGraphicsPath = cvar.NullGraphicsPath
+
+class GraphicsGradientStops(object):
+    """Proxy of C++ GraphicsGradientStops class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, Colour startCol=wxTransparentColour, Colour endCol=wxTransparentColour) -> GraphicsGradientStops"""
+        _gdi_.GraphicsGradientStops_swiginit(self,_gdi_.new_GraphicsGradientStops(*args, **kwargs))
+    __swig_destroy__ = _gdi_.delete_GraphicsGradientStops
+    __del__ = lambda self : None;
+    def Add(*args):
+        """
+        Add(self, GraphicsGradientStop stop)
+        Add(self, Colour col, float pos)
+        """
+        return _gdi_.GraphicsGradientStops_Add(*args)
+
+    def GetCount(*args, **kwargs):
+        """GetCount(self) -> unsigned int"""
+        return _gdi_.GraphicsGradientStops_GetCount(*args, **kwargs)
+
+    def Item(*args, **kwargs):
+        """Item(self, unsigned int n) -> GraphicsGradientStop"""
+        return _gdi_.GraphicsGradientStops_Item(*args, **kwargs)
+
+    def SetStartColour(*args, **kwargs):
+        """SetStartColour(self, Colour col)"""
+        return _gdi_.GraphicsGradientStops_SetStartColour(*args, **kwargs)
+
+    def GetStartColour(*args, **kwargs):
+        """GetStartColour(self) -> Colour"""
+        return _gdi_.GraphicsGradientStops_GetStartColour(*args, **kwargs)
+
+    def SetEndColour(*args, **kwargs):
+        """SetEndColour(self, Colour col)"""
+        return _gdi_.GraphicsGradientStops_SetEndColour(*args, **kwargs)
+
+    def GetEndColour(*args, **kwargs):
+        """GetEndColour(self) -> Colour"""
+        return _gdi_.GraphicsGradientStops_GetEndColour(*args, **kwargs)
+
+    def __len__(*args, **kwargs):
+        """__len__(self) -> unsigned int"""
+        return _gdi_.GraphicsGradientStops___len__(*args, **kwargs)
+
+    def __getitem__(*args, **kwargs):
+        """__getitem__(self, unsigned int n) -> GraphicsGradientStop"""
+        return _gdi_.GraphicsGradientStops___getitem__(*args, **kwargs)
+
+    StartColour = property(GetStartColour,SetStartColour) 
+    EndColour = property(GetEndColour,SetEndColour) 
+_gdi_.GraphicsGradientStops_swigregister(GraphicsGradientStops)
+
 class GraphicsContext(GraphicsObject):
     """
     A `wx.GraphicsContext` instance is the object that is drawn upon. It is
@@ -5879,26 +5968,29 @@ class GraphicsContext(GraphicsObject):
         """
         return _gdi_.GraphicsContext_CreateBrush(*args, **kwargs)
 
-    def CreateLinearGradientBrush(*args, **kwargs):
+    def CreateLinearGradientBrush(*args):
         """
         CreateLinearGradientBrush(self, Double x1, Double y1, Double x2, Double y2, Colour c1, 
             Colour c2) -> GraphicsBrush
+        CreateLinearGradientBrush(self, Double x1, Double y1, Double x2, Double y2, GraphicsGradientStops stops) -> GraphicsBrush
 
         Creates a native brush, having a linear gradient, starting at (x1,y1)
-        with color c1 to (x2,y2) with color c2.
+        to (x2,y2) with the given boundary colors or the specified stops.
         """
-        return _gdi_.GraphicsContext_CreateLinearGradientBrush(*args, **kwargs)
+        return _gdi_.GraphicsContext_CreateLinearGradientBrush(*args)
 
-    def CreateRadialGradientBrush(*args, **kwargs):
+    def CreateRadialGradientBrush(*args):
         """
         CreateRadialGradientBrush(self, Double xo, Double yo, Double xc, Double yc, Double radius, 
             Colour oColor, Colour cColor) -> GraphicsBrush
+        CreateRadialGradientBrush(self, Double xo, Double yo, Double xc, Double yc, Double radius, 
+            GraphicsGradientStops stops) -> GraphicsBrush
 
         Creates a native brush, having a radial gradient originating at point
-        (xo,yc) with color oColour and ends on a circle around (xc,yc) with
-        radius r and color cColour.
+        (xo,yc) and ending on a circle around (xc,yc) with the given radius; the colours may be
+        specified by just the two extremes or the full array of gradient stops.
         """
-        return _gdi_.GraphicsContext_CreateRadialGradientBrush(*args, **kwargs)
+        return _gdi_.GraphicsContext_CreateRadialGradientBrush(*args)
 
     def CreateFont(*args, **kwargs):
         """
@@ -6283,13 +6375,6 @@ class GraphicsContext(GraphicsObject):
         return _gdi_.GraphicsContext_ShouldOffset(*args, **kwargs)
 
 _gdi_.GraphicsContext_swigregister(GraphicsContext)
-cvar = _gdi_.cvar
-NullGraphicsPen = cvar.NullGraphicsPen
-NullGraphicsBrush = cvar.NullGraphicsBrush
-NullGraphicsFont = cvar.NullGraphicsFont
-NullGraphicsBitmap = cvar.NullGraphicsBitmap
-NullGraphicsMatrix = cvar.NullGraphicsMatrix
-NullGraphicsPath = cvar.NullGraphicsPath
 
 def GraphicsContext_Create(*args):
   """
@@ -6390,16 +6475,13 @@ class GraphicsRenderer(_core.Object):
         return _gdi_.GraphicsRenderer_CreateBrush(*args, **kwargs)
 
     def CreateLinearGradientBrush(*args, **kwargs):
-        """
-        CreateLinearGradientBrush(self, Double x1, Double y1, Double x2, Double y2, Colour c1, 
-            Colour c2) -> GraphicsBrush
-        """
+        """CreateLinearGradientBrush(self, Double x1, Double y1, Double x2, Double y2, GraphicsGradientStops stops) -> GraphicsBrush"""
         return _gdi_.GraphicsRenderer_CreateLinearGradientBrush(*args, **kwargs)
 
     def CreateRadialGradientBrush(*args, **kwargs):
         """
         CreateRadialGradientBrush(self, Double xo, Double yo, Double xc, Double yc, Double radius, 
-            Colour oColor, Colour cColor) -> GraphicsBrush
+            GraphicsGradientStops stops) -> GraphicsBrush
         """
         return _gdi_.GraphicsRenderer_CreateRadialGradientBrush(*args, **kwargs)
 
@@ -6765,6 +6847,8 @@ WHITE       = Colour.__new__(Colour)
 CROSS_CURSOR      = Cursor.__new__(Cursor)
 HOURGLASS_CURSOR  = Cursor.__new__(Cursor)
 STANDARD_CURSOR   = Cursor.__new__(Cursor)
+
+TransparentColour = Colour(0,0,0,ALPHA_TRANSPARENT)
 
 class GDIObjListBase(object):
     """Proxy of C++ GDIObjListBase class"""

@@ -738,9 +738,12 @@ class Dialog(TopLevelWindow):
         """GetEscapeId(self) -> int"""
         return _windows_.Dialog_GetEscapeId(*args, **kwargs)
 
-    def GetParentForModalDialog(*args, **kwargs):
-        """GetParentForModalDialog(self, Window parent=None) -> Window"""
-        return _windows_.Dialog_GetParentForModalDialog(*args, **kwargs)
+    def GetParentForModalDialog(*args):
+        """
+        GetParentForModalDialog(self, Window parent, long style) -> Window
+        GetParentForModalDialog(self) -> Window
+        """
+        return _windows_.Dialog_GetParentForModalDialog(*args)
 
     def CreateTextSizer(*args, **kwargs):
         """CreateTextSizer(self, String message) -> Sizer"""
@@ -2773,7 +2776,7 @@ class TaskBarIcon(_core.EvtHandler):
     def __init__(self, *args, **kwargs): 
         """__init__(self) -> TaskBarIcon"""
         _windows_.TaskBarIcon_swiginit(self,_windows_.new_TaskBarIcon(*args, **kwargs))
-        TaskBarIcon._setCallbackInfo(self, self, TaskBarIcon)
+        self._setOORInfo(self);TaskBarIcon._setCallbackInfo(self, self, TaskBarIcon)
 
     __swig_destroy__ = _windows_.delete_TaskBarIcon
     __del__ = lambda self : None;

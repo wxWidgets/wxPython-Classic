@@ -2986,6 +2986,10 @@ class Image(Object):
         """
         return _core_.Image_InitAlpha(*args, **kwargs)
 
+    def ClearAlpha(*args, **kwargs):
+        """ClearAlpha(self)"""
+        return _core_.Image_ClearAlpha(*args, **kwargs)
+
     def IsTransparent(*args, **kwargs):
         """
         IsTransparent(self, int x, int y, byte threshold=IMAGE_ALPHA_THRESHOLD) -> bool

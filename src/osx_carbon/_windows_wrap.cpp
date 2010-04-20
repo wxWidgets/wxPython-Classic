@@ -8364,37 +8364,38 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Dialog_GetParentForModalDialog(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_Dialog_GetParentForModalDialog__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxDialog *arg1 = (wxDialog *) 0 ;
-  wxWindow *arg2 = (wxWindow *) NULL ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  long arg3 ;
   wxWindow *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "parent", NULL 
-  };
+  long val3 ;
+  int ecode3 = 0 ;
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:Dialog_GetParentForModalDialog",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDialog, 0 |  0 );
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDialog, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dialog_GetParentForModalDialog" "', expected argument " "1"" of type '" "wxDialog const *""'"); 
   }
   arg1 = reinterpret_cast< wxDialog * >(argp1);
-  if (obj1) {
-    res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dialog_GetParentForModalDialog" "', expected argument " "2"" of type '" "wxWindow *""'"); 
-    }
-    arg2 = reinterpret_cast< wxWindow * >(argp2);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dialog_GetParentForModalDialog" "', expected argument " "2"" of type '" "wxWindow *""'"); 
   }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  ecode3 = SWIG_AsVal_long(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Dialog_GetParentForModalDialog" "', expected argument " "3"" of type '" "long""'");
+  } 
+  arg3 = static_cast< long >(val3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxWindow *)((wxDialog const *)arg1)->GetParentForModalDialog(arg2);
+    result = (wxWindow *)((wxDialog const *)arg1)->GetParentForModalDialog(arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8403,6 +8404,53 @@ SWIGINTERN PyObject *_wrap_Dialog_GetParentForModalDialog(PyObject *SWIGUNUSEDPA
   }
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dialog_GetParentForModalDialog__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxDialog *arg1 = (wxDialog *) 0 ;
+  wxWindow *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDialog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dialog_GetParentForModalDialog" "', expected argument " "1"" of type '" "wxDialog const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDialog * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxWindow *)((wxDialog const *)arg1)->GetParentForModalDialog();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxPyMake_wxObject(result, 0); 
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dialog_GetParentForModalDialog(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"Dialog_GetParentForModalDialog",0,3,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_Dialog_GetParentForModalDialog__SWIG_1(self, argc, argv);
+  }
+  if (argc == 3) {
+    return _wrap_Dialog_GetParentForModalDialog__SWIG_0(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'Dialog_GetParentForModalDialog'");
   return NULL;
 }
 
@@ -37370,7 +37418,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Dialog_GetAffirmativeId", (PyCFunction)_wrap_Dialog_GetAffirmativeId, METH_O, NULL},
 	 { (char *)"Dialog_SetEscapeId", (PyCFunction) _wrap_Dialog_SetEscapeId, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Dialog_GetEscapeId", (PyCFunction)_wrap_Dialog_GetEscapeId, METH_O, NULL},
-	 { (char *)"Dialog_GetParentForModalDialog", (PyCFunction) _wrap_Dialog_GetParentForModalDialog, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Dialog_GetParentForModalDialog", _wrap_Dialog_GetParentForModalDialog, METH_VARARGS, NULL},
 	 { (char *)"Dialog_CreateTextSizer", (PyCFunction) _wrap_Dialog_CreateTextSizer, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Dialog__CreateButtonSizer", (PyCFunction) _wrap_Dialog__CreateButtonSizer, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Dialog_CreateSeparatedButtonSizer", (PyCFunction) _wrap_Dialog_CreateSeparatedButtonSizer, METH_VARARGS | METH_KEYWORDS, NULL},

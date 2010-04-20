@@ -2531,117 +2531,119 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxGraphicsBrush swig_types[65]
 #define SWIGTYPE_p_wxGraphicsContext swig_types[66]
 #define SWIGTYPE_p_wxGraphicsFont swig_types[67]
-#define SWIGTYPE_p_wxGraphicsMatrix swig_types[68]
-#define SWIGTYPE_p_wxGraphicsObject swig_types[69]
-#define SWIGTYPE_p_wxGraphicsPath swig_types[70]
-#define SWIGTYPE_p_wxGraphicsPen swig_types[71]
-#define SWIGTYPE_p_wxGraphicsRenderer swig_types[72]
-#define SWIGTYPE_p_wxGridBagSizer swig_types[73]
-#define SWIGTYPE_p_wxGridSizer swig_types[74]
-#define SWIGTYPE_p_wxHeaderButtonParams swig_types[75]
-#define SWIGTYPE_p_wxICOHandler swig_types[76]
-#define SWIGTYPE_p_wxIcon swig_types[77]
-#define SWIGTYPE_p_wxIconBundle swig_types[78]
-#define SWIGTYPE_p_wxIconLocation swig_types[79]
-#define SWIGTYPE_p_wxIconizeEvent swig_types[80]
-#define SWIGTYPE_p_wxIdleEvent swig_types[81]
-#define SWIGTYPE_p_wxImage swig_types[82]
-#define SWIGTYPE_p_wxImageHandler swig_types[83]
-#define SWIGTYPE_p_wxImageList swig_types[84]
-#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[85]
-#define SWIGTYPE_p_wxInitDialogEvent swig_types[86]
-#define SWIGTYPE_p_wxInputStream swig_types[87]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[88]
-#define SWIGTYPE_p_wxKeyEvent swig_types[89]
-#define SWIGTYPE_p_wxLanguageInfo swig_types[90]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[91]
-#define SWIGTYPE_p_wxLocale swig_types[92]
-#define SWIGTYPE_p_wxMask swig_types[93]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[94]
-#define SWIGTYPE_p_wxMemoryDC swig_types[95]
-#define SWIGTYPE_p_wxMenu swig_types[96]
-#define SWIGTYPE_p_wxMenuBar swig_types[97]
-#define SWIGTYPE_p_wxMenuEvent swig_types[98]
-#define SWIGTYPE_p_wxMenuItem swig_types[99]
-#define SWIGTYPE_p_wxMetaFile swig_types[100]
-#define SWIGTYPE_p_wxMetaFileDC swig_types[101]
-#define SWIGTYPE_p_wxMirrorDC swig_types[102]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[103]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[104]
-#define SWIGTYPE_p_wxMouseEvent swig_types[105]
-#define SWIGTYPE_p_wxMoveEvent swig_types[106]
-#define SWIGTYPE_p_wxNativeEncodingInfo swig_types[107]
-#define SWIGTYPE_p_wxNativeFontInfo swig_types[108]
-#define SWIGTYPE_p_wxNativePixelData swig_types[109]
-#define SWIGTYPE_p_wxNativePixelData_Accessor swig_types[110]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[111]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[112]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[113]
-#define SWIGTYPE_p_wxObject swig_types[114]
-#define SWIGTYPE_p_wxOverlay swig_types[115]
-#define SWIGTYPE_p_wxPCXHandler swig_types[116]
-#define SWIGTYPE_p_wxPNGHandler swig_types[117]
-#define SWIGTYPE_p_wxPNMHandler swig_types[118]
-#define SWIGTYPE_p_wxPaintDC swig_types[119]
-#define SWIGTYPE_p_wxPaintEvent swig_types[120]
-#define SWIGTYPE_p_wxPalette swig_types[121]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[122]
-#define SWIGTYPE_p_wxPaperSize swig_types[123]
-#define SWIGTYPE_p_wxPen swig_types[124]
-#define SWIGTYPE_p_wxPenList swig_types[125]
-#define SWIGTYPE_p_wxPixelDataBase swig_types[126]
-#define SWIGTYPE_p_wxPoint swig_types[127]
-#define SWIGTYPE_p_wxPoint2D swig_types[128]
-#define SWIGTYPE_p_wxPostScriptDC swig_types[129]
-#define SWIGTYPE_p_wxPrintData swig_types[130]
-#define SWIGTYPE_p_wxPrinterDC swig_types[131]
-#define SWIGTYPE_p_wxPseudoDC swig_types[132]
-#define SWIGTYPE_p_wxPyApp swig_types[133]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[134]
-#define SWIGTYPE_p_wxPyEvent swig_types[135]
-#define SWIGTYPE_p_wxPyEvtHandler swig_types[136]
-#define SWIGTYPE_p_wxPyFontEnumerator swig_types[137]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[138]
-#define SWIGTYPE_p_wxPyLocale swig_types[139]
-#define SWIGTYPE_p_wxPySizer swig_types[140]
-#define SWIGTYPE_p_wxPyValidator swig_types[141]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[142]
-#define SWIGTYPE_p_wxRect swig_types[143]
-#define SWIGTYPE_p_wxRect2D swig_types[144]
-#define SWIGTYPE_p_wxRegion swig_types[145]
-#define SWIGTYPE_p_wxRegionIterator swig_types[146]
-#define SWIGTYPE_p_wxRendererNative swig_types[147]
-#define SWIGTYPE_p_wxRendererVersion swig_types[148]
-#define SWIGTYPE_p_wxSVGFileDC swig_types[149]
-#define SWIGTYPE_p_wxScreenDC swig_types[150]
-#define SWIGTYPE_p_wxScrollEvent swig_types[151]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[152]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[153]
-#define SWIGTYPE_p_wxShowEvent swig_types[154]
-#define SWIGTYPE_p_wxSize swig_types[155]
-#define SWIGTYPE_p_wxSizeEvent swig_types[156]
-#define SWIGTYPE_p_wxSizer swig_types[157]
-#define SWIGTYPE_p_wxSizerItem swig_types[158]
-#define SWIGTYPE_p_wxSplitterRenderParams swig_types[159]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[160]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[161]
-#define SWIGTYPE_p_wxStockGDI swig_types[162]
-#define SWIGTYPE_p_wxString swig_types[163]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[164]
-#define SWIGTYPE_p_wxTGAHandler swig_types[165]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[166]
-#define SWIGTYPE_p_wxTextCtrlBase swig_types[167]
-#define SWIGTYPE_p_wxThreadEvent swig_types[168]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[169]
-#define SWIGTYPE_p_wxValidator swig_types[170]
-#define SWIGTYPE_p_wxWindow swig_types[171]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[172]
-#define SWIGTYPE_p_wxWindowDC swig_types[173]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[174]
-#define SWIGTYPE_p_wxWrapSizer swig_types[175]
-#define SWIGTYPE_p_wxXPMHandler swig_types[176]
-static swig_type_info *swig_types[178];
-static swig_module_info swig_module = {swig_types, 177, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxGraphicsGradientStop swig_types[68]
+#define SWIGTYPE_p_wxGraphicsGradientStops swig_types[69]
+#define SWIGTYPE_p_wxGraphicsMatrix swig_types[70]
+#define SWIGTYPE_p_wxGraphicsObject swig_types[71]
+#define SWIGTYPE_p_wxGraphicsPath swig_types[72]
+#define SWIGTYPE_p_wxGraphicsPen swig_types[73]
+#define SWIGTYPE_p_wxGraphicsRenderer swig_types[74]
+#define SWIGTYPE_p_wxGridBagSizer swig_types[75]
+#define SWIGTYPE_p_wxGridSizer swig_types[76]
+#define SWIGTYPE_p_wxHeaderButtonParams swig_types[77]
+#define SWIGTYPE_p_wxICOHandler swig_types[78]
+#define SWIGTYPE_p_wxIcon swig_types[79]
+#define SWIGTYPE_p_wxIconBundle swig_types[80]
+#define SWIGTYPE_p_wxIconLocation swig_types[81]
+#define SWIGTYPE_p_wxIconizeEvent swig_types[82]
+#define SWIGTYPE_p_wxIdleEvent swig_types[83]
+#define SWIGTYPE_p_wxImage swig_types[84]
+#define SWIGTYPE_p_wxImageHandler swig_types[85]
+#define SWIGTYPE_p_wxImageList swig_types[86]
+#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[87]
+#define SWIGTYPE_p_wxInitDialogEvent swig_types[88]
+#define SWIGTYPE_p_wxInputStream swig_types[89]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[90]
+#define SWIGTYPE_p_wxKeyEvent swig_types[91]
+#define SWIGTYPE_p_wxLanguageInfo swig_types[92]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[93]
+#define SWIGTYPE_p_wxLocale swig_types[94]
+#define SWIGTYPE_p_wxMask swig_types[95]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[96]
+#define SWIGTYPE_p_wxMemoryDC swig_types[97]
+#define SWIGTYPE_p_wxMenu swig_types[98]
+#define SWIGTYPE_p_wxMenuBar swig_types[99]
+#define SWIGTYPE_p_wxMenuEvent swig_types[100]
+#define SWIGTYPE_p_wxMenuItem swig_types[101]
+#define SWIGTYPE_p_wxMetaFile swig_types[102]
+#define SWIGTYPE_p_wxMetaFileDC swig_types[103]
+#define SWIGTYPE_p_wxMirrorDC swig_types[104]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[105]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[106]
+#define SWIGTYPE_p_wxMouseEvent swig_types[107]
+#define SWIGTYPE_p_wxMoveEvent swig_types[108]
+#define SWIGTYPE_p_wxNativeEncodingInfo swig_types[109]
+#define SWIGTYPE_p_wxNativeFontInfo swig_types[110]
+#define SWIGTYPE_p_wxNativePixelData swig_types[111]
+#define SWIGTYPE_p_wxNativePixelData_Accessor swig_types[112]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[113]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[114]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[115]
+#define SWIGTYPE_p_wxObject swig_types[116]
+#define SWIGTYPE_p_wxOverlay swig_types[117]
+#define SWIGTYPE_p_wxPCXHandler swig_types[118]
+#define SWIGTYPE_p_wxPNGHandler swig_types[119]
+#define SWIGTYPE_p_wxPNMHandler swig_types[120]
+#define SWIGTYPE_p_wxPaintDC swig_types[121]
+#define SWIGTYPE_p_wxPaintEvent swig_types[122]
+#define SWIGTYPE_p_wxPalette swig_types[123]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[124]
+#define SWIGTYPE_p_wxPaperSize swig_types[125]
+#define SWIGTYPE_p_wxPen swig_types[126]
+#define SWIGTYPE_p_wxPenList swig_types[127]
+#define SWIGTYPE_p_wxPixelDataBase swig_types[128]
+#define SWIGTYPE_p_wxPoint swig_types[129]
+#define SWIGTYPE_p_wxPoint2D swig_types[130]
+#define SWIGTYPE_p_wxPostScriptDC swig_types[131]
+#define SWIGTYPE_p_wxPrintData swig_types[132]
+#define SWIGTYPE_p_wxPrinterDC swig_types[133]
+#define SWIGTYPE_p_wxPseudoDC swig_types[134]
+#define SWIGTYPE_p_wxPyApp swig_types[135]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[136]
+#define SWIGTYPE_p_wxPyEvent swig_types[137]
+#define SWIGTYPE_p_wxPyEvtHandler swig_types[138]
+#define SWIGTYPE_p_wxPyFontEnumerator swig_types[139]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[140]
+#define SWIGTYPE_p_wxPyLocale swig_types[141]
+#define SWIGTYPE_p_wxPySizer swig_types[142]
+#define SWIGTYPE_p_wxPyValidator swig_types[143]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[144]
+#define SWIGTYPE_p_wxRect swig_types[145]
+#define SWIGTYPE_p_wxRect2D swig_types[146]
+#define SWIGTYPE_p_wxRegion swig_types[147]
+#define SWIGTYPE_p_wxRegionIterator swig_types[148]
+#define SWIGTYPE_p_wxRendererNative swig_types[149]
+#define SWIGTYPE_p_wxRendererVersion swig_types[150]
+#define SWIGTYPE_p_wxSVGFileDC swig_types[151]
+#define SWIGTYPE_p_wxScreenDC swig_types[152]
+#define SWIGTYPE_p_wxScrollEvent swig_types[153]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[154]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[155]
+#define SWIGTYPE_p_wxShowEvent swig_types[156]
+#define SWIGTYPE_p_wxSize swig_types[157]
+#define SWIGTYPE_p_wxSizeEvent swig_types[158]
+#define SWIGTYPE_p_wxSizer swig_types[159]
+#define SWIGTYPE_p_wxSizerItem swig_types[160]
+#define SWIGTYPE_p_wxSplitterRenderParams swig_types[161]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[162]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[163]
+#define SWIGTYPE_p_wxStockGDI swig_types[164]
+#define SWIGTYPE_p_wxString swig_types[165]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[166]
+#define SWIGTYPE_p_wxTGAHandler swig_types[167]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[168]
+#define SWIGTYPE_p_wxTextCtrlBase swig_types[169]
+#define SWIGTYPE_p_wxThreadEvent swig_types[170]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[171]
+#define SWIGTYPE_p_wxValidator swig_types[172]
+#define SWIGTYPE_p_wxWindow swig_types[173]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[174]
+#define SWIGTYPE_p_wxWindowDC swig_types[175]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[176]
+#define SWIGTYPE_p_wxWrapSizer swig_types[177]
+#define SWIGTYPE_p_wxXPMHandler swig_types[178]
+static swig_type_info *swig_types[180];
+static swig_module_info swig_module = {swig_types, 179, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3735,8 +3737,10 @@ SWIGINTERN wxLocale *new_wxLocale(int language=-1,int flags=wxLOCALE_LOAD_DEFAUL
 #endif
             return loc;
         }
-SWIGINTERN bool wxLocale_Init1(wxLocale *self,wxString const &name,wxString const &shortName=wxPyEmptyString,wxString const &locale=wxPyEmptyString,bool bLoadDefault=true,bool bConvertEncoding=false){
-            bool rc = self->Init(name, shortName, locale, bLoadDefault, bConvertEncoding);
+SWIGINTERN bool wxLocale_Init1(wxLocale *self,wxString const &name,wxString const &shortName=wxPyEmptyString,wxString const &locale=wxPyEmptyString,bool bLoadDefault=true){
+            bool rc = self->Init(name, shortName, locale, bLoadDefault
+                                 //, bConvertEncoding
+                );
             // Python before 2.4 needs to have LC_NUMERIC set to "C" in order
             // for the floating point conversions and such to work right.
 #if PY_VERSION_HEX < 0x02040000
@@ -3744,7 +3748,7 @@ SWIGINTERN bool wxLocale_Init1(wxLocale *self,wxString const &name,wxString cons
 #endif
             return rc;
         }
-SWIGINTERN bool wxLocale_Init2(wxLocale *self,int language=wxLANGUAGE_DEFAULT,int flags=wxLOCALE_LOAD_DEFAULT|wxLOCALE_CONV_ENCODING){
+SWIGINTERN bool wxLocale_Init2(wxLocale *self,int language=wxLANGUAGE_DEFAULT,int flags=wxLOCALE_LOAD_DEFAULT){
             bool rc = self->Init(language, flags);
             // Python before 2.4 needs to have LC_NUMERIC set to "C" in order
             // for the floating point conversions and such to work right.
@@ -4135,6 +4139,38 @@ public :
 wxGraphicsMatrix wxNullGraphicsMatrix;
 
 
+class wxGraphicsGradientStop
+{
+public:
+    wxGraphicsGradientStop(wxColour col = wxTransparentColour,
+                           float pos = 0.0) {} 
+    ~wxGraphicsGradientStop() {}
+    
+    const wxColour& GetColour() const { return wxNullColour; }
+    void SetColour(const wxColour& col) {}
+
+    float GetPosition() const { return 0.0; }
+    void SetPosition(float pos) {}
+};
+
+class wxGraphicsGradientStops
+{
+public:
+    wxGraphicsGradientStops(wxColour, wxColour) {}
+    ~wxGraphicsGradientStops() {}
+    
+    void Add(const wxGraphicsGradientStop& stop) {}
+    void Add(wxColour col, float pos) {}
+    unsigned GetCount() { return 0; }
+    wxGraphicsGradientStop Item(unsigned n) const { return wxGraphicsGradientStop(); }
+    void SetStartColour(wxColour col) {}
+    wxColour GetStartColour() const { return wxNullColour; }
+    void SetEndColour(wxColour col) {}
+    wxColour GetEndColour() const { return wxNullColour; }
+};
+
+
+
 class wxGraphicsContext : public wxGraphicsObject
 {
 public:
@@ -4199,12 +4235,26 @@ public:
 
     virtual wxGraphicsBrush CreateBrush(const wxBrush& ) { return wxNullGraphicsBrush; }
 
-    virtual wxGraphicsBrush CreateLinearGradientBrush( wxDouble , wxDouble , wxDouble , wxDouble ,
-                                                        const wxColour&, const wxColour&) { return wxNullGraphicsBrush; }
+    wxGraphicsBrush CreateLinearGradientBrush(
+        wxDouble , wxDouble , wxDouble , wxDouble ,
+        const wxColour&, const wxColour&) { return wxNullGraphicsBrush; }
+    wxGraphicsBrush
+    CreateLinearGradientBrush(wxDouble x1, wxDouble y1,
+                              wxDouble x2, wxDouble y2,
+                              const wxGraphicsGradientStops& stops) const
+         { return wxNullGraphicsBrush; }
 
-    virtual wxGraphicsBrush CreateRadialGradientBrush( wxDouble xo, wxDouble yo,
-                                                        wxDouble xc, wxDouble yc, wxDouble radius,
-                                                        const wxColour &oColor, const wxColour &cColor) { return wxNullGraphicsBrush; }
+    wxGraphicsBrush
+    CreateRadialGradientBrush(wxDouble xo, wxDouble yo,
+                              wxDouble xc, wxDouble yc, wxDouble radius,
+                              const wxColour &oColor, const wxColour &cColor)
+        { return wxNullGraphicsBrush; }
+    
+    wxGraphicsBrush
+    CreateRadialGradientBrush(wxDouble xo, wxDouble yo,
+                              wxDouble xc, wxDouble yc, wxDouble radius,
+                              const wxGraphicsGradientStops& stops) const
+         { return wxNullGraphicsBrush; }
 
     virtual wxGraphicsFont CreateFont( const wxFont &, const wxColour & )  { return wxNullGraphicsFont; }
 
@@ -4306,10 +4356,19 @@ public :
 
     virtual wxGraphicsPen CreatePen(const wxPen& )  { return wxNullGraphicsPen; }
     virtual wxGraphicsBrush CreateBrush(const wxBrush&  )  { return wxNullGraphicsBrush; }
-    virtual wxGraphicsBrush CreateLinearGradientBrush(wxDouble , wxDouble , wxDouble , wxDouble ,
-                                                      const wxColour&, const wxColour&)  { return wxNullGraphicsBrush; }
-    virtual wxGraphicsBrush CreateRadialGradientBrush(wxDouble , wxDouble , wxDouble , wxDouble , wxDouble ,
-                                                      const wxColour &, const wxColour &)  { return wxNullGraphicsBrush; }
+
+    wxGraphicsBrush
+    CreateLinearGradientBrush(wxDouble x1, wxDouble y1,
+                              wxDouble x2, wxDouble y2,
+                              const wxGraphicsGradientStops& stops) const
+    { return wxNullGraphicsBrush; }
+    
+    wxGraphicsBrush
+    CreateRadialGradientBrush(wxDouble xo, wxDouble yo,
+                              wxDouble xc, wxDouble yc, wxDouble radius,
+                              const wxGraphicsGradientStops& stops) const
+    { return wxNullGraphicsBrush; }
+
     virtual wxGraphicsFont CreateFont( const wxFont & , const wxColour & ) { return wxNullGraphicsFont; }
     virtual wxGraphicsBitmap CreateBitmap( const wxBitmap & ) const { return wxNullGraphicsBitmap; }
     virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &, wxDouble, wxDouble, wxDouble, wxDouble ) const  { return wxNullGraphicsBitmap; }
@@ -4365,6 +4424,15 @@ public:
 
 #endif
 
+
+SWIGINTERNINLINE PyObject *
+SWIG_From_float  (float value)
+{    
+  return SWIG_From_double  (value);
+}
+
+SWIGINTERN unsigned int wxGraphicsGradientStops___len__(wxGraphicsGradientStops *self){ return self->GetCount(); }
+SWIGINTERN wxGraphicsGradientStop wxGraphicsGradientStops___getitem__(wxGraphicsGradientStops *self,unsigned int n){ return self->Item(n); }
 SWIGINTERN void wxGraphicsContext_DrawText(wxGraphicsContext *self,wxString const &str,wxDouble x,wxDouble y,wxGraphicsBrush const &backgroundBrush=wxNullGraphicsBrush){
             if ( !backgroundBrush.IsNull() )
                 self->DrawText(str, x, y, backgroundBrush);
@@ -17316,7 +17384,6 @@ SWIGINTERN PyObject *_wrap_Locale_Init1(PyObject *SWIGUNUSEDPARM(self), PyObject
   wxString const &arg4_defvalue = wxPyEmptyString ;
   wxString *arg4 = (wxString *) &arg4_defvalue ;
   bool arg5 = (bool) true ;
-  bool arg6 = (bool) false ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -17325,19 +17392,16 @@ SWIGINTERN PyObject *_wrap_Locale_Init1(PyObject *SWIGUNUSEDPARM(self), PyObject
   bool temp4 = false ;
   bool val5 ;
   int ecode5 = 0 ;
-  bool val6 ;
-  int ecode6 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   PyObject * obj4 = 0 ;
-  PyObject * obj5 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "name",(char *) "shortName",(char *) "locale",(char *) "bLoadDefault",(char *) "bConvertEncoding", NULL 
+    (char *) "self",(char *) "name",(char *) "shortName",(char *) "locale",(char *) "bLoadDefault", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOOO:Locale_Init1",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOO:Locale_Init1",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxLocale, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Locale_Init1" "', expected argument " "1"" of type '" "wxLocale *""'"); 
@@ -17369,16 +17433,9 @@ SWIGINTERN PyObject *_wrap_Locale_Init1(PyObject *SWIGUNUSEDPARM(self), PyObject
     } 
     arg5 = static_cast< bool >(val5);
   }
-  if (obj5) {
-    ecode6 = SWIG_AsVal_bool(obj5, &val6);
-    if (!SWIG_IsOK(ecode6)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "Locale_Init1" "', expected argument " "6"" of type '" "bool""'");
-    } 
-    arg6 = static_cast< bool >(val6);
-  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxLocale_Init1(arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4,arg5,arg6);
+    result = (bool)wxLocale_Init1(arg1,(wxString const &)*arg2,(wxString const &)*arg3,(wxString const &)*arg4,arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -17419,7 +17476,7 @@ SWIGINTERN PyObject *_wrap_Locale_Init2(PyObject *SWIGUNUSEDPARM(self), PyObject
   PyObject *resultobj = 0;
   wxLocale *arg1 = (wxLocale *) 0 ;
   int arg2 = (int) wxLANGUAGE_DEFAULT ;
-  int arg3 = (int) wxLOCALE_LOAD_DEFAULT|wxLOCALE_CONV_ENCODING ;
+  int arg3 = (int) wxLOCALE_LOAD_DEFAULT ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -29661,6 +29718,677 @@ SWIGINTERN PyObject *NullGraphicsPath_get(void) {
 }
 
 
+SWIGINTERN PyObject *_wrap_new_GraphicsGradientStop(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxColour arg1 = (wxColour) wxTransparentColour ;
+  float arg2 = (float) 0.0 ;
+  wxGraphicsGradientStop *result = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  float val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "col",(char *) "pos", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OO:new_GraphicsGradientStop",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (obj0) {
+    {
+      res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_wxColour,  0  | 0);
+      if (!SWIG_IsOK(res1)) {
+        SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GraphicsGradientStop" "', expected argument " "1"" of type '" "wxColour""'"); 
+      }  
+      if (!argp1) {
+        SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_GraphicsGradientStop" "', expected argument " "1"" of type '" "wxColour""'");
+      } else {
+        wxColour * temp = reinterpret_cast< wxColour * >(argp1);
+        arg1 = *temp;
+        if (SWIG_IsNewObj(res1)) delete temp;
+      }
+    }
+  }
+  if (obj1) {
+    ecode2 = SWIG_AsVal_float(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_GraphicsGradientStop" "', expected argument " "2"" of type '" "float""'");
+    } 
+    arg2 = static_cast< float >(val2);
+  }
+  {
+    result = (wxGraphicsGradientStop *)new wxGraphicsGradientStop(arg1,arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGraphicsGradientStop, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_GraphicsGradientStop(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStop *arg1 = (wxGraphicsGradientStop *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsGradientStop, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_GraphicsGradientStop" "', expected argument " "1"" of type '" "wxGraphicsGradientStop *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStop * >(argp1);
+  {
+    delete arg1;
+    
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStop_GetColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStop *arg1 = (wxGraphicsGradientStop *) 0 ;
+  wxColour *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsGradientStop, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStop_GetColour" "', expected argument " "1"" of type '" "wxGraphicsGradientStop const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStop * >(argp1);
+  {
+    {
+      wxColour const &_result_ref = ((wxGraphicsGradientStop const *)arg1)->GetColour();
+      result = (wxColour *) &_result_ref;
+    }
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColour, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStop_SetColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStop *arg1 = (wxGraphicsGradientStop *) 0 ;
+  wxColour *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxColour temp2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "col", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsGradientStop_SetColour",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsGradientStop, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStop_SetColour" "', expected argument " "1"" of type '" "wxGraphicsGradientStop *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStop * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    (arg1)->SetColour((wxColour const &)*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStop_GetPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStop *arg1 = (wxGraphicsGradientStop *) 0 ;
+  float result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsGradientStop, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStop_GetPosition" "', expected argument " "1"" of type '" "wxGraphicsGradientStop const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStop * >(argp1);
+  {
+    result = (float)((wxGraphicsGradientStop const *)arg1)->GetPosition();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_float(static_cast< float >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStop_SetPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStop *arg1 = (wxGraphicsGradientStop *) 0 ;
+  float arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  float val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pos", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsGradientStop_SetPosition",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsGradientStop, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStop_SetPosition" "', expected argument " "1"" of type '" "wxGraphicsGradientStop *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStop * >(argp1);
+  ecode2 = SWIG_AsVal_float(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsGradientStop_SetPosition" "', expected argument " "2"" of type '" "float""'");
+  } 
+  arg2 = static_cast< float >(val2);
+  {
+    (arg1)->SetPosition(arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *GraphicsGradientStop_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxGraphicsGradientStop, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *GraphicsGradientStop_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_new_GraphicsGradientStops(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxColour arg1 = (wxColour) wxTransparentColour ;
+  wxColour arg2 = (wxColour) wxTransparentColour ;
+  wxGraphicsGradientStops *result = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "startCol",(char *) "endCol", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OO:new_GraphicsGradientStops",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (obj0) {
+    {
+      res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_wxColour,  0  | 0);
+      if (!SWIG_IsOK(res1)) {
+        SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GraphicsGradientStops" "', expected argument " "1"" of type '" "wxColour""'"); 
+      }  
+      if (!argp1) {
+        SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_GraphicsGradientStops" "', expected argument " "1"" of type '" "wxColour""'");
+      } else {
+        wxColour * temp = reinterpret_cast< wxColour * >(argp1);
+        arg1 = *temp;
+        if (SWIG_IsNewObj(res1)) delete temp;
+      }
+    }
+  }
+  if (obj1) {
+    {
+      res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxColour,  0  | 0);
+      if (!SWIG_IsOK(res2)) {
+        SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_GraphicsGradientStops" "', expected argument " "2"" of type '" "wxColour""'"); 
+      }  
+      if (!argp2) {
+        SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_GraphicsGradientStops" "', expected argument " "2"" of type '" "wxColour""'");
+      } else {
+        wxColour * temp = reinterpret_cast< wxColour * >(argp2);
+        arg2 = *temp;
+        if (SWIG_IsNewObj(res2)) delete temp;
+      }
+    }
+  }
+  {
+    result = (wxGraphicsGradientStops *)new wxGraphicsGradientStops(arg1,arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGraphicsGradientStops, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_GraphicsGradientStops(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsGradientStops, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_GraphicsGradientStops" "', expected argument " "1"" of type '" "wxGraphicsGradientStops *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  {
+    delete arg1;
+    
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops_Add__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  wxGraphicsGradientStop *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsGradientStops, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStops_Add" "', expected argument " "1"" of type '" "wxGraphicsGradientStops *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_wxGraphicsGradientStop,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GraphicsGradientStops_Add" "', expected argument " "2"" of type '" "wxGraphicsGradientStop const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsGradientStops_Add" "', expected argument " "2"" of type '" "wxGraphicsGradientStop const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxGraphicsGradientStop * >(argp2);
+  {
+    (arg1)->Add((wxGraphicsGradientStop const &)*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops_Add__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  wxColour arg2 ;
+  float arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  float val3 ;
+  int ecode3 = 0 ;
+  
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsGradientStops, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStops_Add" "', expected argument " "1"" of type '" "wxGraphicsGradientStops *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_wxColour,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GraphicsGradientStops_Add" "', expected argument " "2"" of type '" "wxColour""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsGradientStops_Add" "', expected argument " "2"" of type '" "wxColour""'");
+    } else {
+      wxColour * temp = reinterpret_cast< wxColour * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  ecode3 = SWIG_AsVal_float(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "GraphicsGradientStops_Add" "', expected argument " "3"" of type '" "float""'");
+  } 
+  arg3 = static_cast< float >(val3);
+  {
+    (arg1)->Add(arg2,arg3);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops_Add(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"GraphicsGradientStops_Add",0,3,argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    return _wrap_GraphicsGradientStops_Add__SWIG_0(self, argc, argv);
+  }
+  if (argc == 3) {
+    return _wrap_GraphicsGradientStops_Add__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'GraphicsGradientStops_Add'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops_GetCount(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  unsigned int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsGradientStops, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStops_GetCount" "', expected argument " "1"" of type '" "wxGraphicsGradientStops *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  {
+    result = (unsigned int)(arg1)->GetCount();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops_Item(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  unsigned int arg2 ;
+  wxGraphicsGradientStop result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "n", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsGradientStops_Item",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsGradientStops, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStops_Item" "', expected argument " "1"" of type '" "wxGraphicsGradientStops const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsGradientStops_Item" "', expected argument " "2"" of type '" "unsigned int""'");
+  } 
+  arg2 = static_cast< unsigned int >(val2);
+  {
+    result = ((wxGraphicsGradientStops const *)arg1)->Item(arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxGraphicsGradientStop(static_cast< const wxGraphicsGradientStop& >(result))), SWIGTYPE_p_wxGraphicsGradientStop, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops_SetStartColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  wxColour arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "col", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsGradientStops_SetStartColour",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsGradientStops, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStops_SetStartColour" "', expected argument " "1"" of type '" "wxGraphicsGradientStops *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxColour,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GraphicsGradientStops_SetStartColour" "', expected argument " "2"" of type '" "wxColour""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsGradientStops_SetStartColour" "', expected argument " "2"" of type '" "wxColour""'");
+    } else {
+      wxColour * temp = reinterpret_cast< wxColour * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    (arg1)->SetStartColour(arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops_GetStartColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  wxColour result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsGradientStops, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStops_GetStartColour" "', expected argument " "1"" of type '" "wxGraphicsGradientStops const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  {
+    result = ((wxGraphicsGradientStops const *)arg1)->GetStartColour();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxColour(static_cast< const wxColour& >(result))), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops_SetEndColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  wxColour arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "col", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsGradientStops_SetEndColour",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsGradientStops, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStops_SetEndColour" "', expected argument " "1"" of type '" "wxGraphicsGradientStops *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxColour,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GraphicsGradientStops_SetEndColour" "', expected argument " "2"" of type '" "wxColour""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsGradientStops_SetEndColour" "', expected argument " "2"" of type '" "wxColour""'");
+    } else {
+      wxColour * temp = reinterpret_cast< wxColour * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  {
+    (arg1)->SetEndColour(arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops_GetEndColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  wxColour result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsGradientStops, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStops_GetEndColour" "', expected argument " "1"" of type '" "wxGraphicsGradientStops const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  {
+    result = ((wxGraphicsGradientStops const *)arg1)->GetEndColour();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxColour(static_cast< const wxColour& >(result))), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops___len__(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  unsigned int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsGradientStops, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStops___len__" "', expected argument " "1"" of type '" "wxGraphicsGradientStops *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  {
+    result = (unsigned int)wxGraphicsGradientStops___len__(arg1);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_unsigned_SS_int(static_cast< unsigned int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsGradientStops___getitem__(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsGradientStops *arg1 = (wxGraphicsGradientStops *) 0 ;
+  unsigned int arg2 ;
+  wxGraphicsGradientStop result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  unsigned int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "n", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsGradientStops___getitem__",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsGradientStops, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsGradientStops___getitem__" "', expected argument " "1"" of type '" "wxGraphicsGradientStops *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsGradientStops * >(argp1);
+  ecode2 = SWIG_AsVal_unsigned_SS_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsGradientStops___getitem__" "', expected argument " "2"" of type '" "unsigned int""'");
+  } 
+  arg2 = static_cast< unsigned int >(val2);
+  {
+    result = wxGraphicsGradientStops___getitem__(arg1,arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxGraphicsGradientStop(static_cast< const wxGraphicsGradientStop& >(result))), SWIGTYPE_p_wxGraphicsGradientStop, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *GraphicsGradientStops_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxGraphicsGradientStops, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *GraphicsGradientStops_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
 SWIGINTERN PyObject *_wrap_delete_GraphicsContext(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
@@ -30186,7 +30914,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_GraphicsContext_CreateLinearGradientBrush(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_GraphicsContext_CreateLinearGradientBrush__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
   wxDouble arg2 ;
@@ -30208,53 +30936,43 @@ SWIGINTERN PyObject *_wrap_GraphicsContext_CreateLinearGradientBrush(PyObject *S
   int ecode5 = 0 ;
   wxColour temp6 ;
   wxColour temp7 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  PyObject * obj5 = 0 ;
-  PyObject * obj6 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "x1",(char *) "y1",(char *) "x2",(char *) "y2",(char *) "c1",(char *) "c2", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOO:GraphicsContext_CreateLinearGradientBrush",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if ((nobjs < 7) || (nobjs > 7)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "1"" of type '" "wxGraphicsContext const *""'"); 
   }
   arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "2"" of type '" "wxDouble""'");
   } 
   arg2 = static_cast< wxDouble >(val2);
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  ecode3 = SWIG_AsVal_double(swig_obj[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "3"" of type '" "wxDouble""'");
   } 
   arg3 = static_cast< wxDouble >(val3);
-  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  ecode4 = SWIG_AsVal_double(swig_obj[3], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "4"" of type '" "wxDouble""'");
   } 
   arg4 = static_cast< wxDouble >(val4);
-  ecode5 = SWIG_AsVal_double(obj4, &val5);
+  ecode5 = SWIG_AsVal_double(swig_obj[4], &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "5"" of type '" "wxDouble""'");
   } 
   arg5 = static_cast< wxDouble >(val5);
   {
     arg6 = &temp6;
-    if ( ! wxColour_helper(obj5, &arg6)) SWIG_fail;
+    if ( ! wxColour_helper(swig_obj[5], &arg6)) SWIG_fail;
   }
   {
     arg7 = &temp7;
-    if ( ! wxColour_helper(obj6, &arg7)) SWIG_fail;
+    if ( ! wxColour_helper(swig_obj[6], &arg7)) SWIG_fail;
   }
   {
-    result = (arg1)->CreateLinearGradientBrush(arg2,arg3,arg4,arg5,(wxColour const &)*arg6,(wxColour const &)*arg7);
+    result = ((wxGraphicsContext const *)arg1)->CreateLinearGradientBrush(arg2,arg3,arg4,arg5,(wxColour const &)*arg6,(wxColour const &)*arg7);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxGraphicsBrush(static_cast< const wxGraphicsBrush& >(result))), SWIGTYPE_p_wxGraphicsBrush, SWIG_POINTER_OWN |  0 );
@@ -30264,7 +30982,93 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_GraphicsContext_CreateRadialGradientBrush(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_GraphicsContext_CreateLinearGradientBrush__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  wxDouble arg2 ;
+  wxDouble arg3 ;
+  wxDouble arg4 ;
+  wxDouble arg5 ;
+  wxGraphicsGradientStops *arg6 = 0 ;
+  wxGraphicsBrush result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  double val5 ;
+  int ecode5 = 0 ;
+  void *argp6 = 0 ;
+  int res6 = 0 ;
+  
+  if ((nobjs < 6) || (nobjs > 6)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "1"" of type '" "wxGraphicsContext const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "2"" of type '" "wxDouble""'");
+  } 
+  arg2 = static_cast< wxDouble >(val2);
+  ecode3 = SWIG_AsVal_double(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "3"" of type '" "wxDouble""'");
+  } 
+  arg3 = static_cast< wxDouble >(val3);
+  ecode4 = SWIG_AsVal_double(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "4"" of type '" "wxDouble""'");
+  } 
+  arg4 = static_cast< wxDouble >(val4);
+  ecode5 = SWIG_AsVal_double(swig_obj[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "5"" of type '" "wxDouble""'");
+  } 
+  arg5 = static_cast< wxDouble >(val5);
+  res6 = SWIG_ConvertPtr(swig_obj[5], &argp6, SWIGTYPE_p_wxGraphicsGradientStops,  0  | 0);
+  if (!SWIG_IsOK(res6)) {
+    SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "6"" of type '" "wxGraphicsGradientStops const &""'"); 
+  }
+  if (!argp6) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsContext_CreateLinearGradientBrush" "', expected argument " "6"" of type '" "wxGraphicsGradientStops const &""'"); 
+  }
+  arg6 = reinterpret_cast< wxGraphicsGradientStops * >(argp6);
+  {
+    result = ((wxGraphicsContext const *)arg1)->CreateLinearGradientBrush(arg2,arg3,arg4,arg5,(wxGraphicsGradientStops const &)*arg6);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxGraphicsBrush(static_cast< const wxGraphicsBrush& >(result))), SWIGTYPE_p_wxGraphicsBrush, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_CreateLinearGradientBrush(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[8];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"GraphicsContext_CreateLinearGradientBrush",0,7,argv))) SWIG_fail;
+  --argc;
+  if (argc == 6) {
+    return _wrap_GraphicsContext_CreateLinearGradientBrush__SWIG_1(self, argc, argv);
+  }
+  if (argc == 7) {
+    return _wrap_GraphicsContext_CreateLinearGradientBrush__SWIG_0(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'GraphicsContext_CreateLinearGradientBrush'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_CreateRadialGradientBrush__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
   wxDouble arg2 ;
@@ -30289,64 +31093,147 @@ SWIGINTERN PyObject *_wrap_GraphicsContext_CreateRadialGradientBrush(PyObject *S
   int ecode6 = 0 ;
   wxColour temp7 ;
   wxColour temp8 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  PyObject * obj4 = 0 ;
-  PyObject * obj5 = 0 ;
-  PyObject * obj6 = 0 ;
-  PyObject * obj7 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "xo",(char *) "yo",(char *) "xc",(char *) "yc",(char *) "radius",(char *) "oColor",(char *) "cColor", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOOO:GraphicsContext_CreateRadialGradientBrush",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if ((nobjs < 8) || (nobjs > 8)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "1"" of type '" "wxGraphicsContext const *""'"); 
   }
   arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
-  ecode2 = SWIG_AsVal_double(obj1, &val2);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "2"" of type '" "wxDouble""'");
   } 
   arg2 = static_cast< wxDouble >(val2);
-  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  ecode3 = SWIG_AsVal_double(swig_obj[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "3"" of type '" "wxDouble""'");
   } 
   arg3 = static_cast< wxDouble >(val3);
-  ecode4 = SWIG_AsVal_double(obj3, &val4);
+  ecode4 = SWIG_AsVal_double(swig_obj[3], &val4);
   if (!SWIG_IsOK(ecode4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "4"" of type '" "wxDouble""'");
   } 
   arg4 = static_cast< wxDouble >(val4);
-  ecode5 = SWIG_AsVal_double(obj4, &val5);
+  ecode5 = SWIG_AsVal_double(swig_obj[4], &val5);
   if (!SWIG_IsOK(ecode5)) {
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "5"" of type '" "wxDouble""'");
   } 
   arg5 = static_cast< wxDouble >(val5);
-  ecode6 = SWIG_AsVal_double(obj5, &val6);
+  ecode6 = SWIG_AsVal_double(swig_obj[5], &val6);
   if (!SWIG_IsOK(ecode6)) {
     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "6"" of type '" "wxDouble""'");
   } 
   arg6 = static_cast< wxDouble >(val6);
   {
     arg7 = &temp7;
-    if ( ! wxColour_helper(obj6, &arg7)) SWIG_fail;
+    if ( ! wxColour_helper(swig_obj[6], &arg7)) SWIG_fail;
   }
   {
     arg8 = &temp8;
-    if ( ! wxColour_helper(obj7, &arg8)) SWIG_fail;
+    if ( ! wxColour_helper(swig_obj[7], &arg8)) SWIG_fail;
   }
   {
-    result = (arg1)->CreateRadialGradientBrush(arg2,arg3,arg4,arg5,arg6,(wxColour const &)*arg7,(wxColour const &)*arg8);
+    result = ((wxGraphicsContext const *)arg1)->CreateRadialGradientBrush(arg2,arg3,arg4,arg5,arg6,(wxColour const &)*arg7,(wxColour const &)*arg8);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxGraphicsBrush(static_cast< const wxGraphicsBrush& >(result))), SWIGTYPE_p_wxGraphicsBrush, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_CreateRadialGradientBrush__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  wxDouble arg2 ;
+  wxDouble arg3 ;
+  wxDouble arg4 ;
+  wxDouble arg5 ;
+  wxDouble arg6 ;
+  wxGraphicsGradientStops *arg7 = 0 ;
+  wxGraphicsBrush result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  double val3 ;
+  int ecode3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  double val5 ;
+  int ecode5 = 0 ;
+  double val6 ;
+  int ecode6 = 0 ;
+  void *argp7 = 0 ;
+  int res7 = 0 ;
+  
+  if ((nobjs < 7) || (nobjs > 7)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "1"" of type '" "wxGraphicsContext const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "2"" of type '" "wxDouble""'");
+  } 
+  arg2 = static_cast< wxDouble >(val2);
+  ecode3 = SWIG_AsVal_double(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "3"" of type '" "wxDouble""'");
+  } 
+  arg3 = static_cast< wxDouble >(val3);
+  ecode4 = SWIG_AsVal_double(swig_obj[3], &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "4"" of type '" "wxDouble""'");
+  } 
+  arg4 = static_cast< wxDouble >(val4);
+  ecode5 = SWIG_AsVal_double(swig_obj[4], &val5);
+  if (!SWIG_IsOK(ecode5)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "5"" of type '" "wxDouble""'");
+  } 
+  arg5 = static_cast< wxDouble >(val5);
+  ecode6 = SWIG_AsVal_double(swig_obj[5], &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "6"" of type '" "wxDouble""'");
+  } 
+  arg6 = static_cast< wxDouble >(val6);
+  res7 = SWIG_ConvertPtr(swig_obj[6], &argp7, SWIGTYPE_p_wxGraphicsGradientStops,  0  | 0);
+  if (!SWIG_IsOK(res7)) {
+    SWIG_exception_fail(SWIG_ArgError(res7), "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "7"" of type '" "wxGraphicsGradientStops const &""'"); 
+  }
+  if (!argp7) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsContext_CreateRadialGradientBrush" "', expected argument " "7"" of type '" "wxGraphicsGradientStops const &""'"); 
+  }
+  arg7 = reinterpret_cast< wxGraphicsGradientStops * >(argp7);
+  {
+    result = ((wxGraphicsContext const *)arg1)->CreateRadialGradientBrush(arg2,arg3,arg4,arg5,arg6,(wxGraphicsGradientStops const &)*arg7);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxGraphicsBrush(static_cast< const wxGraphicsBrush& >(result))), SWIGTYPE_p_wxGraphicsBrush, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_CreateRadialGradientBrush(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[9];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"GraphicsContext_CreateRadialGradientBrush",0,8,argv))) SWIG_fail;
+  --argc;
+  if (argc == 7) {
+    return _wrap_GraphicsContext_CreateRadialGradientBrush__SWIG_1(self, argc, argv);
+  }
+  if (argc == 8) {
+    return _wrap_GraphicsContext_CreateRadialGradientBrush__SWIG_0(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'GraphicsContext_CreateRadialGradientBrush'");
   return NULL;
 }
 
@@ -33293,8 +34180,7 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateLinearGradientBrush(PyObject *
   wxDouble arg3 ;
   wxDouble arg4 ;
   wxDouble arg5 ;
-  wxColour *arg6 = 0 ;
-  wxColour *arg7 = 0 ;
+  wxGraphicsGradientStops *arg6 = 0 ;
   wxGraphicsBrush result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -33306,20 +34192,19 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateLinearGradientBrush(PyObject *
   int ecode4 = 0 ;
   double val5 ;
   int ecode5 = 0 ;
-  wxColour temp6 ;
-  wxColour temp7 ;
+  void *argp6 = 0 ;
+  int res6 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   PyObject * obj4 = 0 ;
   PyObject * obj5 = 0 ;
-  PyObject * obj6 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "x1",(char *) "y1",(char *) "x2",(char *) "y2",(char *) "c1",(char *) "c2", NULL 
+    (char *) "self",(char *) "x1",(char *) "y1",(char *) "x2",(char *) "y2",(char *) "stops", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOO:GraphicsRenderer_CreateLinearGradientBrush",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOO:GraphicsRenderer_CreateLinearGradientBrush",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsRenderer, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsRenderer_CreateLinearGradientBrush" "', expected argument " "1"" of type '" "wxGraphicsRenderer *""'"); 
@@ -33345,16 +34230,16 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateLinearGradientBrush(PyObject *
     SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "GraphicsRenderer_CreateLinearGradientBrush" "', expected argument " "5"" of type '" "wxDouble""'");
   } 
   arg5 = static_cast< wxDouble >(val5);
-  {
-    arg6 = &temp6;
-    if ( ! wxColour_helper(obj5, &arg6)) SWIG_fail;
+  res6 = SWIG_ConvertPtr(obj5, &argp6, SWIGTYPE_p_wxGraphicsGradientStops,  0  | 0);
+  if (!SWIG_IsOK(res6)) {
+    SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "GraphicsRenderer_CreateLinearGradientBrush" "', expected argument " "6"" of type '" "wxGraphicsGradientStops const &""'"); 
   }
-  {
-    arg7 = &temp7;
-    if ( ! wxColour_helper(obj6, &arg7)) SWIG_fail;
+  if (!argp6) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsRenderer_CreateLinearGradientBrush" "', expected argument " "6"" of type '" "wxGraphicsGradientStops const &""'"); 
   }
+  arg6 = reinterpret_cast< wxGraphicsGradientStops * >(argp6);
   {
-    result = (arg1)->CreateLinearGradientBrush(arg2,arg3,arg4,arg5,(wxColour const &)*arg6,(wxColour const &)*arg7);
+    result = (arg1)->CreateLinearGradientBrush(arg2,arg3,arg4,arg5,(wxGraphicsGradientStops const &)*arg6);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxGraphicsBrush(static_cast< const wxGraphicsBrush& >(result))), SWIGTYPE_p_wxGraphicsBrush, SWIG_POINTER_OWN |  0 );
@@ -33372,8 +34257,7 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateRadialGradientBrush(PyObject *
   wxDouble arg4 ;
   wxDouble arg5 ;
   wxDouble arg6 ;
-  wxColour *arg7 = 0 ;
-  wxColour *arg8 = 0 ;
+  wxGraphicsGradientStops *arg7 = 0 ;
   wxGraphicsBrush result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -33387,8 +34271,8 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateRadialGradientBrush(PyObject *
   int ecode5 = 0 ;
   double val6 ;
   int ecode6 = 0 ;
-  wxColour temp7 ;
-  wxColour temp8 ;
+  void *argp7 = 0 ;
+  int res7 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -33396,12 +34280,11 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateRadialGradientBrush(PyObject *
   PyObject * obj4 = 0 ;
   PyObject * obj5 = 0 ;
   PyObject * obj6 = 0 ;
-  PyObject * obj7 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "xo",(char *) "yo",(char *) "xc",(char *) "yc",(char *) "radius",(char *) "oColor",(char *) "cColor", NULL 
+    (char *) "self",(char *) "xo",(char *) "yo",(char *) "xc",(char *) "yc",(char *) "radius",(char *) "stops", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOOO:GraphicsRenderer_CreateRadialGradientBrush",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOO:GraphicsRenderer_CreateRadialGradientBrush",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsRenderer, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsRenderer_CreateRadialGradientBrush" "', expected argument " "1"" of type '" "wxGraphicsRenderer *""'"); 
@@ -33432,16 +34315,16 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateRadialGradientBrush(PyObject *
     SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "GraphicsRenderer_CreateRadialGradientBrush" "', expected argument " "6"" of type '" "wxDouble""'");
   } 
   arg6 = static_cast< wxDouble >(val6);
-  {
-    arg7 = &temp7;
-    if ( ! wxColour_helper(obj6, &arg7)) SWIG_fail;
+  res7 = SWIG_ConvertPtr(obj6, &argp7, SWIGTYPE_p_wxGraphicsGradientStops,  0  | 0);
+  if (!SWIG_IsOK(res7)) {
+    SWIG_exception_fail(SWIG_ArgError(res7), "in method '" "GraphicsRenderer_CreateRadialGradientBrush" "', expected argument " "7"" of type '" "wxGraphicsGradientStops const &""'"); 
   }
-  {
-    arg8 = &temp8;
-    if ( ! wxColour_helper(obj7, &arg8)) SWIG_fail;
+  if (!argp7) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsRenderer_CreateRadialGradientBrush" "', expected argument " "7"" of type '" "wxGraphicsGradientStops const &""'"); 
   }
+  arg7 = reinterpret_cast< wxGraphicsGradientStops * >(argp7);
   {
-    result = (arg1)->CreateRadialGradientBrush(arg2,arg3,arg4,arg5,arg6,(wxColour const &)*arg7,(wxColour const &)*arg8);
+    result = (arg1)->CreateRadialGradientBrush(arg2,arg3,arg4,arg5,arg6,(wxGraphicsGradientStops const &)*arg7);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxGraphicsBrush(static_cast< const wxGraphicsBrush& >(result))), SWIGTYPE_p_wxGraphicsBrush, SWIG_POINTER_OWN |  0 );
@@ -42013,6 +42896,27 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GraphicsPath_GetBox", (PyCFunction)_wrap_GraphicsPath_GetBox, METH_O, NULL},
 	 { (char *)"GraphicsPath_Contains", _wrap_GraphicsPath_Contains, METH_VARARGS, NULL},
 	 { (char *)"GraphicsPath_swigregister", GraphicsPath_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_GraphicsGradientStop", (PyCFunction) _wrap_new_GraphicsGradientStop, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_GraphicsGradientStop", (PyCFunction)_wrap_delete_GraphicsGradientStop, METH_O, NULL},
+	 { (char *)"GraphicsGradientStop_GetColour", (PyCFunction)_wrap_GraphicsGradientStop_GetColour, METH_O, NULL},
+	 { (char *)"GraphicsGradientStop_SetColour", (PyCFunction) _wrap_GraphicsGradientStop_SetColour, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsGradientStop_GetPosition", (PyCFunction)_wrap_GraphicsGradientStop_GetPosition, METH_O, NULL},
+	 { (char *)"GraphicsGradientStop_SetPosition", (PyCFunction) _wrap_GraphicsGradientStop_SetPosition, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsGradientStop_swigregister", GraphicsGradientStop_swigregister, METH_VARARGS, NULL},
+	 { (char *)"GraphicsGradientStop_swiginit", GraphicsGradientStop_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_GraphicsGradientStops", (PyCFunction) _wrap_new_GraphicsGradientStops, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_GraphicsGradientStops", (PyCFunction)_wrap_delete_GraphicsGradientStops, METH_O, NULL},
+	 { (char *)"GraphicsGradientStops_Add", _wrap_GraphicsGradientStops_Add, METH_VARARGS, NULL},
+	 { (char *)"GraphicsGradientStops_GetCount", (PyCFunction)_wrap_GraphicsGradientStops_GetCount, METH_O, NULL},
+	 { (char *)"GraphicsGradientStops_Item", (PyCFunction) _wrap_GraphicsGradientStops_Item, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsGradientStops_SetStartColour", (PyCFunction) _wrap_GraphicsGradientStops_SetStartColour, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsGradientStops_GetStartColour", (PyCFunction)_wrap_GraphicsGradientStops_GetStartColour, METH_O, NULL},
+	 { (char *)"GraphicsGradientStops_SetEndColour", (PyCFunction) _wrap_GraphicsGradientStops_SetEndColour, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsGradientStops_GetEndColour", (PyCFunction)_wrap_GraphicsGradientStops_GetEndColour, METH_O, NULL},
+	 { (char *)"GraphicsGradientStops___len__", (PyCFunction)_wrap_GraphicsGradientStops___len__, METH_O, NULL},
+	 { (char *)"GraphicsGradientStops___getitem__", (PyCFunction) _wrap_GraphicsGradientStops___getitem__, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsGradientStops_swigregister", GraphicsGradientStops_swigregister, METH_VARARGS, NULL},
+	 { (char *)"GraphicsGradientStops_swiginit", GraphicsGradientStops_swiginit, METH_VARARGS, NULL},
 	 { (char *)"delete_GraphicsContext", (PyCFunction)_wrap_delete_GraphicsContext, METH_O, NULL},
 	 { (char *)"GraphicsContext_Create", _wrap_GraphicsContext_Create, METH_VARARGS, NULL},
 	 { (char *)"GraphicsContext_CreateMeasuringContext", (PyCFunction)_wrap_GraphicsContext_CreateMeasuringContext, METH_NOARGS, NULL},
@@ -42026,8 +42930,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GraphicsContext_CreatePath", (PyCFunction)_wrap_GraphicsContext_CreatePath, METH_O, NULL},
 	 { (char *)"GraphicsContext_CreatePen", (PyCFunction) _wrap_GraphicsContext_CreatePen, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_CreateBrush", (PyCFunction) _wrap_GraphicsContext_CreateBrush, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"GraphicsContext_CreateLinearGradientBrush", (PyCFunction) _wrap_GraphicsContext_CreateLinearGradientBrush, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"GraphicsContext_CreateRadialGradientBrush", (PyCFunction) _wrap_GraphicsContext_CreateRadialGradientBrush, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsContext_CreateLinearGradientBrush", _wrap_GraphicsContext_CreateLinearGradientBrush, METH_VARARGS, NULL},
+	 { (char *)"GraphicsContext_CreateRadialGradientBrush", _wrap_GraphicsContext_CreateRadialGradientBrush, METH_VARARGS, NULL},
 	 { (char *)"GraphicsContext_CreateFont", (PyCFunction) _wrap_GraphicsContext_CreateFont, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_CreateBitmap", (PyCFunction) _wrap_GraphicsContext_CreateBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_CreateSubBitmap", (PyCFunction) _wrap_GraphicsContext_CreateSubBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -42846,6 +43750,8 @@ static swig_type_info _swigt__p_wxGraphicsBitmap = {"_p_wxGraphicsBitmap", "wxGr
 static swig_type_info _swigt__p_wxGraphicsBrush = {"_p_wxGraphicsBrush", "wxGraphicsBrush *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxGraphicsContext = {"_p_wxGraphicsContext", "wxGraphicsContext *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxGraphicsFont = {"_p_wxGraphicsFont", "wxGraphicsFont *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxGraphicsGradientStop = {"_p_wxGraphicsGradientStop", "wxGraphicsGradientStop *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxGraphicsGradientStops = {"_p_wxGraphicsGradientStops", "wxGraphicsGradientStops *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxGraphicsMatrix = {"_p_wxGraphicsMatrix", "wxGraphicsMatrix *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxGraphicsObject = {"_p_wxGraphicsObject", "wxGraphicsObject *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxGraphicsPath = {"_p_wxGraphicsPath", "wxGraphicsPath *", 0, 0, (void*)0, 0};
@@ -43051,6 +43957,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxGraphicsBrush,
   &_swigt__p_wxGraphicsContext,
   &_swigt__p_wxGraphicsFont,
+  &_swigt__p_wxGraphicsGradientStop,
+  &_swigt__p_wxGraphicsGradientStops,
   &_swigt__p_wxGraphicsMatrix,
   &_swigt__p_wxGraphicsObject,
   &_swigt__p_wxGraphicsPath,
@@ -43204,6 +44112,8 @@ static swig_cast_info _swigc__p_wxGraphicsBitmap[] = {  {&_swigt__p_wxGraphicsBi
 static swig_cast_info _swigc__p_wxGraphicsBrush[] = {  {&_swigt__p_wxGraphicsBrush, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGraphicsContext[] = {  {&_swigt__p_wxGraphicsContext, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGraphicsFont[] = {  {&_swigt__p_wxGraphicsFont, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxGraphicsGradientStop[] = {  {&_swigt__p_wxGraphicsGradientStop, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxGraphicsGradientStops[] = {  {&_swigt__p_wxGraphicsGradientStops, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGraphicsMatrix[] = {  {&_swigt__p_wxGraphicsMatrix, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGraphicsObject[] = {  {&_swigt__p_wxGraphicsPen, _p_wxGraphicsPenTo_p_wxGraphicsObject, 0, 0},  {&_swigt__p_wxGraphicsBrush, _p_wxGraphicsBrushTo_p_wxGraphicsObject, 0, 0},  {&_swigt__p_wxGraphicsObject, 0, 0, 0},  {&_swigt__p_wxGraphicsMatrix, _p_wxGraphicsMatrixTo_p_wxGraphicsObject, 0, 0},  {&_swigt__p_wxGraphicsFont, _p_wxGraphicsFontTo_p_wxGraphicsObject, 0, 0},  {&_swigt__p_wxGraphicsContext, _p_wxGraphicsContextTo_p_wxGraphicsObject, 0, 0},  {&_swigt__p_wxGraphicsBitmap, _p_wxGraphicsBitmapTo_p_wxGraphicsObject, 0, 0},  {&_swigt__p_wxGraphicsPath, _p_wxGraphicsPathTo_p_wxGraphicsObject, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGraphicsPath[] = {  {&_swigt__p_wxGraphicsPath, 0, 0, 0},{0, 0, 0, 0}};
@@ -43409,6 +44319,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxGraphicsBrush,
   _swigc__p_wxGraphicsContext,
   _swigc__p_wxGraphicsFont,
+  _swigc__p_wxGraphicsGradientStop,
+  _swigc__p_wxGraphicsGradientStops,
   _swigc__p_wxGraphicsMatrix,
   _swigc__p_wxGraphicsObject,
   _swigc__p_wxGraphicsPath,
@@ -44448,6 +45360,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "LOCALE_LONG_DATE_FMT",SWIG_From_int(static_cast< int >(wxLOCALE_LONG_DATE_FMT)));
   SWIG_Python_SetConstant(d, "LOCALE_DATE_TIME_FMT",SWIG_From_int(static_cast< int >(wxLOCALE_DATE_TIME_FMT)));
   SWIG_Python_SetConstant(d, "LOCALE_TIME_FMT",SWIG_From_int(static_cast< int >(wxLOCALE_TIME_FMT)));
+  SWIG_Python_SetConstant(d, "LOCALE_DONT_LOAD_DEFAULT",SWIG_From_int(static_cast< int >(wxLOCALE_DONT_LOAD_DEFAULT)));
   SWIG_Python_SetConstant(d, "LOCALE_LOAD_DEFAULT",SWIG_From_int(static_cast< int >(wxLOCALE_LOAD_DEFAULT)));
   SWIG_Python_SetConstant(d, "LOCALE_CONV_ENCODING",SWIG_From_int(static_cast< int >(wxLOCALE_CONV_ENCODING)));
   SWIG_Python_SetConstant(d, "CONVERT_STRICT",SWIG_From_int(static_cast< int >(wxCONVERT_STRICT)));
