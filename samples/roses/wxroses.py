@@ -110,7 +110,7 @@ class SpinPanel(wx.Panel):
         value = self.sc.GetValue()
         if verbose:
             print 'OnSpin', name, '=', value
-        self.callback(name, value)	# Call MyFrame.OnSpinback to call clroses
+        self.callback(name, value)      # Call MyFrame.OnSpinback to call clroses
 
 
 # This class is used to display the current rose diagram.  It keeps a
@@ -273,7 +273,7 @@ class MyFrame(wx.Frame, clroses.rose):
             if statictexts:
                 for name, text in statictexts:
                     st = wx.StaticText(panel, -1, text)
-                    spin_panels[name] = st	# Supposed to be a SpinPanel....
+                    spin_panels[name] = st      # Supposed to be a SpinPanel....
                     sizer.Add(st, 0, wx.EXPAND)
             panel.SetSizer(sizer)
             return panel
@@ -289,6 +289,7 @@ class MyFrame(wx.Frame, clroses.rose):
         # create a sub panel, layout the buttons there, then give that to
         # a higher panel that has the static box stuff.
         self.cmd_panel = wx.Panel(self.side_panel, -1)
+        box = wx.StaticBox(self.cmd_panel, -1, 'Command')
         self.sub_panel = wx.Panel(self.cmd_panel, -1)
         sizer = wx.GridSizer(rows = 2, cols = 2)
         global ctrl_buttons
@@ -306,7 +307,6 @@ class MyFrame(wx.Frame, clroses.rose):
         self.sub_panel.SetSizer(sizer)
 
         # Set up cmd_panel with StaticBox stuff
-        box = wx.StaticBox(self.cmd_panel, -1, 'Command')
         sizer = wx.StaticBoxSizer(box, wx.VERTICAL)
         sizer.Add(self.sub_panel)
         self.cmd_panel.SetSizer(sizer)
@@ -369,7 +369,7 @@ class MyFrame(wx.Frame, clroses.rose):
         rw, rh = self.rose_panel.GetSize()
         sw, sh = self.side_panel.GetSize()
         fw, fh = self.GetSize()
-        h = max(600, fh)	# Change 600 to desired minimum size
+        h = max(600, fh)        # Change 600 to desired minimum size
         w = h + fw - rw
         if verbose:
             print 'rose panel size', (rw, rh)
@@ -377,7 +377,7 @@ class MyFrame(wx.Frame, clroses.rose):
             print '     frame size', (fw, fh)
             print 'Want size', (w,h)
         self.SetSize((w, h))
-        self.SupplyControlValues()	# Ask clroses to tell us all the defaults
+        self.SupplyControlValues()      # Ask clroses to tell us all the defaults
         self.Show()
 
     # Command button event handlers.  These are relabled when changing between auto
@@ -485,7 +485,7 @@ class MyFrame(wx.Frame, clroses.rose):
         self.timer_callback = None
         # print 'OnTimer,', callback
         if callback:
-            callback()		# Often calls AppAfter() and sets the callback
+            callback()          # Often calls AppAfter() and sets the callback
         else:
             print 'OnTimer: no callback!'
 
@@ -532,9 +532,9 @@ class MyFrame(wx.Frame, clroses.rose):
         else:
             print 'OnSpinback: Don\'t recognize', name
 
-verbose = 0			# Need some command line options...
-spin_panels = {}		# Hooks to get from rose to panel labels
-ctrl_buttons = {}		# Button widgets for command (NE) panel
+verbose = 0                     # Need some command line options...
+spin_panels = {}                # Hooks to get from rose to panel labels
+ctrl_buttons = {}               # Button widgets for command (NE) panel
 
 app = wx.App(False)
 MyFrame()

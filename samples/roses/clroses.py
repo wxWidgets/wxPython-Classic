@@ -49,22 +49,22 @@ class rose:
     # The following data is accessible by callers, but there are set
     # methods for most everything and various method calls to client methods
     # to display current values.    
-    style = 100		# Angular distance along curve between points
-    sincr = -1		# Amount to increment style by in auto mode
-    petals = 2		# Lobes on the rose (even values have 2X lobes)
-    pincr = 1		# Amount to increment petals by in auto mode
-    nvec = 399		# Number of vectors to draw the rose
-    minvec = 0		# Minimum number acceptable in automatic mode
-    maxvec = 3600	# Maximum number acceptable in automatic mode
-    skipvec = 0		# Don't draw this many at the start (cheap animations)
-    drawvec = 3600	# Draw only this many (cheap animations)
-    step = 20		# Number of vectors to draw each clock tick
-    draw_delay = 50	# Time between roselet calls to watch pattern draw
-    wait_delay = 2000	# Time between roses in automatic mode
+    style = 100         # Angular distance along curve between points
+    sincr = -1          # Amount to increment style by in auto mode
+    petals = 2          # Lobes on the rose (even values have 2X lobes)
+    pincr = 1           # Amount to increment petals by in auto mode
+    nvec = 399          # Number of vectors to draw the rose
+    minvec = 0          # Minimum number acceptable in automatic mode
+    maxvec = 3600       # Maximum number acceptable in automatic mode
+    skipvec = 0         # Don't draw this many at the start (cheap animations)
+    drawvec = 3600      # Draw only this many (cheap animations)
+    step = 20           # Number of vectors to draw each clock tick
+    draw_delay = 50     # Time between roselet calls to watch pattern draw
+    wait_delay = 2000   # Time between roses in automatic mode
 
     # Other variables that the application shouldn't access.
-    verbose = 0		# No good way to set this at the moment.
-    nextpt = 0		# Next position to draw on next clock tick
+    verbose = 0         # No good way to set this at the moment.
+    nextpt = 0          # Next position to draw on next clock tick
     
     # Internal states:
     INT_IDLE, INT_DRAW, INT_SEARCH, INT_WAIT, INT_RESIZE = range(5)
@@ -168,14 +168,14 @@ class rose:
         self.nextpt = self.skipvec
         self.endpt = min(self.takesvec, self.skipvec + self.drawvec)
         old_state, self.int_state = self.int_state, new_state
-        if old_state == self.INT_IDLE:	# Clock not running
+        if old_state == self.INT_IDLE:  # Clock not running
             self.clock()
-        elif old_state == self.INT_WAIT:	# May be long delay, restart
+        elif old_state == self.INT_WAIT:        # May be long delay, restart
             self.AppCancelTimer()
             self.clock()
         else:
-            return 1		# If called by clock(), return and start clock
-        return 0		# We're in INT_IDLE or INT_WAIT, clock running
+            return 1            # If called by clock(), return and start clock
+        return 0                # We're in INT_IDLE or INT_WAIT, clock running
 
     # Called from App.  Recompute the center and scale values for the subsequent pattern.
     # Force us into INT_RESIZE state if not already there so that in 100 ms we'll start
@@ -206,7 +206,7 @@ class rose:
             self.style, self.petals = \
                         abs(self.petals) + 1, abs(self.style)
         if self.style >= self.nvec:
-            self.style %= self.nvec	# Don't bother defending against 0
+            self.style %= self.nvec     # Don't bother defending against 0
         if self.petals >= self.nvec:
             self.petals %= self.nvec
         self.AppSetParam(self.style, self.petals, self.nvec)
@@ -220,7 +220,7 @@ class rose:
     def cmd_go_stop(self):
         if self.cmd_state == self.CMD_STOP:
             self.cmd_state = self.CMD_GO
-            self.resume()		# Draw next pattern
+            self.resume()               # Draw next pattern
         elif self.cmd_state == self.CMD_GO:
             self.cmd_state = self.CMD_STOP
         self.update_labels()
@@ -231,12 +231,12 @@ class rose:
     def update_labels(self):
         if self.cmd_state == self.CMD_STOP:
             self.AppCmdLabels(('Go', 'Redraw', 'Backward', 'Forward'))
-        else:		# Must be in state CMD_GO
+        else:           # Must be in state CMD_GO
             self.AppCmdLabels(('Stop', 'Redraw', 'Reverse', 'Skip'))
 
     # Redraw/Redraw button
     def cmd_redraw(self):
-        self.restart()		# Redraw current pattern
+        self.restart()          # Redraw current pattern
 
     # Backward/Reverse button
     # Useful for when you see an interesting pattern and want
@@ -248,14 +248,14 @@ class rose:
         self.pincr = -self.pincr
         if self.cmd_state == self.CMD_STOP:
             self.resume();
-            self.sincr = -self.sincr	# Go forward again
+            self.sincr = -self.sincr    # Go forward again
             self.pincr = -self.pincr
         else:
             self.AppSetIncrs(self.sincr, self.pincr)
         
     # Forward/Skip button.  CMD_STOP & CMD_GO both just call resume.
     def cmd_step(self):
-        self.resume()		# Draw next pattern
+        self.resume()           # Draw next pattern
 
     # Handler called on each timer event.  This handles the metered drawing
     # of a rose and the delays between them.  It also registers for the next
@@ -278,19 +278,19 @@ class rose:
                     self.int_state = self.INT_IDLE
                     delay = 0
         elif self.int_state == self.INT_SEARCH:
-            delay = self.resume()	# May call us to start drawing
+            delay = self.resume()       # May call us to start drawing
             if self.int_state == self.INT_SEARCH:
-                delay = self.draw_delay	# but not if searching.
+                delay = self.draw_delay # but not if searching.
         elif self.int_state == self.INT_WAIT:
             if self.cmd_state == self.CMD_GO:
-                delay = self.resume()	# Calls us to start drawing
+                delay = self.resume()   # Calls us to start drawing
             else:
                 self.int_state = self.INT_IDLE
                 delay = 0
-        elif self.int_state == self.INT_RESIZE:	# Waiting for resize event stream to settle
+        elif self.int_state == self.INT_RESIZE: # Waiting for resize event stream to settle
             self.AppSetParam(self.style, self.petals, self.nvec)
             self.AppSetIncrs(self.sincr, self.pincr)
-            delay = self.restart()	# Calls us to start drawing
+            delay = self.restart()      # Calls us to start drawing
         
         if delay == 0:
             if self.verbose:
