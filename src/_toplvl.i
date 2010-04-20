@@ -425,7 +425,9 @@ public:
 
     // Returns the parent to use for modal dialogs if the user did not specify it
     // explicitly
-    wxWindow *GetParentForModalDialog(wxWindow *parent = NULL) const;
+    %nokwargs GetParentForModalDialog;
+    wxWindow *GetParentForModalDialog(wxWindow *parent, long style) const;
+    wxWindow *GetParentForModalDialog() const;
 
     // splits text up at newlines and places the
     // lines into a vertical wxBoxSizer
