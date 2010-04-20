@@ -309,6 +309,7 @@ enum wxLocaleInfo
 //           message catalogs, date, time and currency formats (TODO) &c
 enum wxLocaleInitFlags
 {
+    wxLOCALE_DONT_LOAD_DEFAULT = 0x0000,     // don't load wxwin.mo
     wxLOCALE_LOAD_DEFAULT  = 0x0001,     // load wxwin.mo?
     wxLOCALE_CONV_ENCODING = 0x0002      // convert encoding on the fly?
 };
@@ -345,9 +346,12 @@ public:
         bool Init1(const wxString& name,
                    const wxString& shortName = wxPyEmptyString,
                    const wxString& locale = wxPyEmptyString,
-                   bool bLoadDefault = true,
-                   bool bConvertEncoding = false) {
-            bool rc = self->Init(name, shortName, locale, bLoadDefault, bConvertEncoding);
+                   bool bLoadDefault = true
+                   //, bool bConvertEncoding = false
+            ) {
+            bool rc = self->Init(name, shortName, locale, bLoadDefault
+                                 //, bConvertEncoding
+                );
             // Python before 2.4 needs to have LC_NUMERIC set to "C" in order
             // for the floating point conversions and such to work right.
 %#if PY_VERSION_HEX < 0x02040000
@@ -357,7 +361,7 @@ public:
         }
 
         bool Init2(int language = wxLANGUAGE_DEFAULT,
-                   int flags = wxLOCALE_LOAD_DEFAULT | wxLOCALE_CONV_ENCODING) {
+                   int flags = wxLOCALE_LOAD_DEFAULT ) {
             bool rc = self->Init(language, flags);
             // Python before 2.4 needs to have LC_NUMERIC set to "C" in order
             // for the floating point conversions and such to work right.
