@@ -6848,7 +6848,7 @@ CROSS_CURSOR      = Cursor.__new__(Cursor)
 HOURGLASS_CURSOR  = Cursor.__new__(Cursor)
 STANDARD_CURSOR   = Cursor.__new__(Cursor)
 
-TransparentColour = wx.Colour(0,0,0,wx.ALPHA_TRANSPARENT)
+TransparentColour = Colour(0,0,0,ALPHA_TRANSPARENT)
 
 class GDIObjListBase(object):
     """Proxy of C++ GDIObjListBase class"""
