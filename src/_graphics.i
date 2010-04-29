@@ -848,6 +848,7 @@ public:
             { return self->Item(n); }
     }
 
+    %property(Count, GetCount);
     %property(StartColour, GetStartColour, SetStartColour);
     %property(EndColour, GetEndColour, SetEndColour);
 };
@@ -961,7 +962,7 @@ to (x2,y2) with the given boundary colors or the specified stops.", "");
     
     DocStr(CreateRadialGradientBrush,
         "Creates a native brush, having a radial gradient originating at point
-(xo,yc) and ending on a circle around (xc,yc) with the given radius; the colours may be
+(xo,yo) and ending on a circle around (xc,yc) with the given radius; the colours may be
 specified by just the two extremes or the full array of gradient stops.", "");
     %nokwargs CreateRadialGradientBrush;
     wxGraphicsBrush 
@@ -1038,7 +1039,7 @@ pointer for GDIPlus and cairo_t pointer for cairo).", "");
     
     DocDeclStr(
         virtual bool , SetAntialiasMode(wxAntialiasMode antialias),
-        "Sets the antialiasing mode, returns true if it supported", "");
+        "Sets the antialiasing mode, returns true if it is supported", "");
     
 
     DocDeclStr(
