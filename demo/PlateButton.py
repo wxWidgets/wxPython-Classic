@@ -12,8 +12,10 @@ import os
 import webbrowser
 import wx
 import wx.lib.scrolledpanel as scrolled
-#import wx.lib.platebtn as platebtn
-import platebtn
+try:
+    import wx.lib.platebtn as platebtn
+except ImportError:
+    import platebtn
 
 #-----------------------------------------------------------------------------#
 
