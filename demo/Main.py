@@ -100,6 +100,7 @@ _treeList = [
         'InfoBar',
         'WrapSizer',
         'UIActionSimulator',
+        'GraphicsGradient',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -319,6 +320,7 @@ _treeList = [
         'FileHistory',
         'FontEnumerator',
         'GraphicsContext',
+        'GraphicsGradient',
         'GLCanvas',
         'I18N',        
         'Joystick',

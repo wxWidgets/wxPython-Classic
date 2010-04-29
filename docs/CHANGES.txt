@@ -60,6 +60,12 @@ Added wrappers for wx.UIActionSimulator, a class that allows key and
 mouse events to be fabricated programatically, useful for things like
 test-driving an application.
 
+Added wx.GraphicsGradientStop[s] classes and updated the
+Create*GradientBrush APIs to allow gradients with more than two color
+stops.  Similar changes were also mare to the Cairo specfic classes in
+wx.lib.graphics to help maintain compatibility between the two.
+
+
 
 
 
