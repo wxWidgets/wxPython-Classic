@@ -20,7 +20,7 @@ will be created.
 """
 
 
-import sys, os, time
+import sys, os, time, glob
 
 KEEP_TEMPS = False
 
@@ -151,34 +151,8 @@ Source: "wx\tools\XRCed\plugins\*.crx";         DestDir: "{app}\%(PKGDIR)s\wx\to
 Source: "wx\tools\XRCed\plugins\bitmaps\*.png"; DestDir: "{app}\%(PKGDIR)s\wx\tools\XRCed\plugins\bitmaps"; Components: core
 
 Source: "wx\tools\Editra\docs\*.txt";                        DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\docs"; Components: core
-Source: "wx\tools\Editra\locale\ca_ES@valencia\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ca_ES@valencia\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\cs_CZ\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\cs_CZ\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\da_DK\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\da_DK\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\de_DE\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\de_DE\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\en_US\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\en_US\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\es_ES\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\es_ES\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\fr_FR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\fr_FR\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\gl_ES\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\gl_ES\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\hr_HR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\hr_HR\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\hu_HU\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\hu_HU\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\it_IT\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\it_IT\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\ja_JP\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ja_JP\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\lv_LV\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\lv_LV\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\nl_NL\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\nl_NL\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\nn_NO\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\nn_NO\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\pl_PL\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\pl_PL\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\pt_BR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\pt_BR\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\ro_RO\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ro_RO\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\ru_RU\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\ru_RU\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\sk_SK\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sk_SK\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\sl_SI\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sl_SI\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\sr_RS\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sr_RS\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\sv_SE\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\sv_SE\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\tr_TR\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\tr_TR\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\uk_UA\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\uk_UA\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\zh_CN\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\zh_CN\LC_MESSAGES"; Components: core
-Source: "wx\tools\Editra\locale\zh_TW\LC_MESSAGES\*.mo";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\locale\zh_TW\LC_MESSAGES"; Components: core
 
+%(EDITRA_LOCALE)s
 
 Source: "wx\tools\Editra\pixmaps\*.png";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps"; Components: core
 Source: "wx\tools\Editra\pixmaps\*.ico";                     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\pixmaps"; Components: core
@@ -409,10 +383,12 @@ begin
                                            'Software\Wow6432Node\Python\PythonCore\%(PYTHONVER)s\InstallPath',
                                            '', PythonDir) then begin
 
-            MsgBox('No installation of Python %(PYTHONVER)s found in registry.' + #13 +
-                   'Be sure to enter a pathname that places wxPython on the PYTHONPATH',
-                   mbConfirmation, MB_OK);
-            PythonDir := 'C:\Put a directory on PYTHONPATH here\';
+                    MsgBox('No installation of Python %(PYTHONVER)s found in registry.' + #13 +
+                           'Be sure to enter a pathname that places wxPython on the PYTHONPATH',
+                           mbConfirmation, MB_OK);
+                    PythonDir := 'C:\Put a directory on PYTHONPATH here\';
+                end;
+            end;
         end;
     end;
     InstallDir := PythonDir;
@@ -813,6 +789,16 @@ def build_locale_string(pkgdir):
     return '\n'.join(stringlst)
 
 
+def build_editra_locale(pkgdir):
+    template = r'Source: "%(lang)s\LC_MESSAGES\Editra.mo";  DestDir: "{app}\%(PKGDIR)s\%(lang)s\LC_MESSAGES"; Components: core'
+
+    stringlist = list()
+    for lang in glob.glob(r'wx\tools\Editra\locale\*'):
+        stringlist.append(template % dict(lang=lang, PKGDIR=pkgdir))
+
+    return '\n'.join(stringlist)
+ 
+
 def get_system_dir():
     for p in [r"C:\WINNT\SYSTEM32",
               r"C:\WINDOWS\SYSTEM32",
@@ -881,6 +867,7 @@ def main():
     UNINSTALL_BATCH = get_batch_files()
     PKGDIR          = open('src/wx.pth').read().strip()
     LOCALE          = build_locale_string(PKGDIR)
+    EDITRA_LOCALE   = build_editra_locale(PKGDIR)
     RTDLL,CPPDLL    = get_runtime_dlls(PYVER, PKGDIR)
 
     if os.environ.get('CPU', '') == 'AMD64':
@@ -937,6 +924,7 @@ Building Win32 installer for wxPython:
         TOOLS = r"c:\TOOLS"  # temporary hack until I convert everything over to bash
 
     os.system(ISCC % (TOOLS, ISSFILE))
+    time.sleep(1)
     os.system(ISCC % (TOOLS, ISSDEMOFILE))
 
     if not KEEP_TEMPS:

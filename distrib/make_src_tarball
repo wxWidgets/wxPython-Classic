@@ -114,7 +114,7 @@ cleanup "*~"
 cleanup "*.orig"
 cleanup "*.rej"
 cleanup "*.pyc"
-cleanup core
+##cleanup core  # pubsub has a "core" subpackage
 cleanup "core.[0-9]*"
 rm -f wxPython/samples/embedded/embedded
 rm -f wxPython/samples/embedded/embedded.o

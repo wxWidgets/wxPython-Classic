@@ -11,12 +11,14 @@ MAKE_FLAGS=$COMMON_FLAGS
 
 if [ "$CPU" == "AMD64" ]; then
     MSLU_VAL=0
-    EX_U="EXTRALIBS_FOR_BASE=bufferoverflowU.lib"
-    EX_A="EXTRALIBS_FOR_BASE=bufferoverflowA.lib"
+    # These don't seem to be needed with VC9
+    #EX_U="EXTRALIBS_FOR_BASE=bufferoverflowU.lib"
+    #EX_A="EXTRALIBS_FOR_BASE=bufferoverflowA.lib"
 else
     MSLU_VAL=1
 fi
 
+# Don't use MSLU at all anymore, Win98 is dead to me.
 MSLU_VAL=0
 
 #  set flags based on build type if given

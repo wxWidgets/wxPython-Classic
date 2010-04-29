@@ -16,7 +16,7 @@
 # ---------------------------------------------------------------------------
 
 set -o errexit
-set -o xtrace
+#set -o xtrace
 
 echo "-=-=-=-  Hello from $HOSTNAME  -=-=-=-"
 

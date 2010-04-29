@@ -35,6 +35,7 @@ if [ $skipwin != yes ]; then
     # test if the target machine is online
     if TestOnline $host; then 
 	hostAvailable=yes
+	hostStarted=no
     else
 	# Attempt to start the vm via its vmHost
 	if [ $vmHost != none ]; then 
@@ -57,6 +58,7 @@ if [ $skipwin != yes ]; then
 		if TestOnline $host; then
 		    echo "VMware start of $host on $vmHost successful."
 		    hostAvailable=yes
+		    hostStarted=yes
 		    sleep 60
 		fi
 	    else
@@ -88,8 +90,11 @@ if [ $skipwin != yes ]; then
      ssh $host "rm $WIN_BUILD/wxPython*-win*"
      ssh $host "rm -rf $WIN_BUILD/*"
 
-     ssh $vmHost "vmrun stop /work/VMs/$vmName/$vmName.vmx"
-     sleep 180
+     if [ $hostStarted = yes ]; then
+	 echo "Stopping VM..."
+	 ssh $vmHost "vmrun stop /work/VMs/$vmName/$vmName.vmx"
+	 sleep 180
+     fi
 
      echo "Done!"
 fi
