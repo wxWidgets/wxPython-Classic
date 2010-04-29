@@ -59,7 +59,7 @@ def _deprecated(callable, msg=None):
     before calling the callable.
     """
     if msg is None:
-        msg = "%s is deprecated" % callable
+        msg = "This item is deprecated, use %s instead" % callable
     def deprecatedWrapper(*args, **kwargs):
         import warnings
         warnings.warn(msg, DeprecationWarning, stacklevel=2)
