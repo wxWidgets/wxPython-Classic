@@ -2596,7 +2596,7 @@ class Image_HSVValue(object):
     """
     An object that contains values for hue, saturation and value which
     represent the value of a color.  It is used by `wx.Image.HSVtoRGB` and
-    `wx.Image.RGBtoHSV`, which +converts between HSV color space and RGB
+    `wx.Image.RGBtoHSV`, which converts between HSV color space and RGB
     color space.
     """
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')

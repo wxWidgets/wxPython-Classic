@@ -219,7 +219,7 @@ public:
 DocStr(wxImage_HSVValue,
 "An object that contains values for hue, saturation and value which
 represent the value of a color.  It is used by `wx.Image.HSVtoRGB` and
-`wx.Image.RGBtoHSV`, which +converts between HSV color space and RGB
+`wx.Image.RGBtoHSV`, which converts between HSV color space and RGB
 color space.", "");
 class wxImage_HSVValue
 {
