@@ -28,6 +28,7 @@ if  wx.PlatformInfo[1] == 'wxMSW':
     import wx.lib.activex
     import comtypes.client as cc
     import comtypes
+    import ctypes
 
     try:            # Adobe Reader >= 7.0
         cc.GetModule( ('{05BFD3F1-6319-4F30-B752-C7A22889BCC4}', 1, 0) )
@@ -47,8 +48,20 @@ if  wx.PlatformInfo[1] == 'wxMSW':
     class PDFWindow(wx.lib.activex.ActiveXCtrl):
         def __init__(self, parent, id=-1, pos=wx.DefaultPosition,
                      size=wx.DefaultSize, style=0, name='PDFWindow'):
-                wx.lib.activex.ActiveXCtrl.__init__(self, parent, progID,
+            wx.lib.activex.ActiveXCtrl.__init__(self, parent, progID,
                                                     id, pos, size, style, name)
+            self.Bind(wx.EVT_WINDOW_DESTROY, self.OnDestroyWindow)
+
+        def OnDestroyWindow(self, event):
+            wx.CallAfter(self.FreeDlls)
+
+        def FreeDlls(self):    
+            """
+            Unloads any DLLs that are no longer in use when all COM object instances are
+            released. This prevents the error 'The instruction at "0x0700609c" referenced
+            memory at "0x00000014". The memory could not be read' when application closes
+            """
+            ctypes.windll.ole32.CoFreeUnusedLibraries()
 
         def LoadFile(self, fileName):
             """
