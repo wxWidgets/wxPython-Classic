@@ -769,10 +769,6 @@ class PGProperty(_core.Object):
         """GetValidator(self) -> Validator"""
         return _propgrid.PGProperty_GetValidator(*args, **kwargs)
 
-    def SetChoices(*args, **kwargs):
-        """SetChoices(self, PGChoices choices) -> bool"""
-        return _propgrid.PGProperty_SetChoices(*args, **kwargs)
-
     def SetMaxLength(*args, **kwargs):
         """SetMaxLength(self, int maxLen) -> bool"""
         return _propgrid.PGProperty_SetMaxLength(*args, **kwargs)
@@ -841,6 +837,21 @@ class PGProperty(_core.Object):
         """GetPropertyByName(self, String name) -> PGProperty"""
         return _propgrid.PGProperty_GetPropertyByName(*args, **kwargs)
 
+    def SetPyChoices(*args):
+        """
+        SetPyChoices(self, PGChoices chs) -> bool
+        SetPyChoices(self, wxArrayString labels, wxArrayInt values=wxArrayInt()) -> bool
+        """
+        return _propgrid.PGProperty_SetPyChoices(*args)
+
+    def PyBase_StringToValue(*args, **kwargs):
+        """PyBase_StringToValue(self, String text, int argFlags=0) -> wxPGVariantAndBool"""
+        return _propgrid.PGProperty_PyBase_StringToValue(*args, **kwargs)
+
+    def PyBase_IntToValue(*args, **kwargs):
+        """PyBase_IntToValue(self, wxVariant value, int number, int argFlags=0) -> wxPGVariantAndBool"""
+        return _propgrid.PGProperty_PyBase_IntToValue(*args, **kwargs)
+
     m_value = property(GetValuePlain,SetValuePlain) 
     def GetPyClientData(*args, **kwargs):
         """
@@ -858,6 +869,9 @@ class PGProperty(_core.Object):
         """
         return _propgrid.PGProperty_SetPyClientData(*args, **kwargs)
 
+    SetChoices = SetPyChoices
+    StringToValue = PyBase_StringToValue
+    IntToValue = PyBase_IntToValue
     GetClientObject = GetPyClientData
     SetClientObject = SetPyClientData
     GetClientData = GetPyClientData

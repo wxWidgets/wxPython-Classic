@@ -1110,16 +1110,16 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
         // to add versions of them that return wxPGVariantAndBool instead.
         //
 
-        wxPGVariantAndBool StringToValue(const wxString& text,
-                                         int argFlags = 0)
+        wxPGVariantAndBool PyBase_StringToValue(const wxString& text,
+                                                int argFlags = 0)
         {
             wxVariant variant = self->GetValuePlain();
             bool res = self->StringToValue(variant, text, argFlags);
             return wxPGVariantAndBool(res, variant);
         }
 
-        wxPGVariantAndBool IntToValue(wxVariant& value, int number,
-                                      int argFlags = 0 ) const
+        wxPGVariantAndBool PyBase_IntToValue(wxVariant& value, int number,
+                                             int argFlags = 0 ) const
         {
             wxVariant variant = self->GetValuePlain();
             bool res = self->IntToValue(variant, number, argFlags);
@@ -1150,6 +1150,8 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
     }
     %pythoncode {
          SetChoices = SetPyChoices
+         StringToValue = PyBase_StringToValue
+         IntToValue = PyBase_IntToValue
          GetClientObject = GetPyClientData
          SetClientObject = SetPyClientData
          GetClientData = GetPyClientData
