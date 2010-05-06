@@ -973,6 +973,7 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 %ignore wxPGProperty::IntToValue;
 %ignore wxPGProperty::GetValueRef;
 %ignore wxPGProperty::SetEditor(const wxPGEditor*);
+%ignore wxPGProperty::SetChoices;
 %ignore wxPGProperty::GetClientData;
 %ignore wxPGProperty::SetClientData;
 %ignore wxPGProperty::GetClientObject;
@@ -1088,6 +1089,21 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 
 %extend wxPGProperty {
     %extend {
+        // We need to re-implement this in order to also allow the one below.
+        bool SetPyChoices( const wxPGChoices& chs )
+        {
+            return self->SetChoices(chs);
+        }
+
+        // Useful for setting choices directly from a list of strings. Also
+        // needed for wxPG 1.4 compatibility.
+        bool SetPyChoices( const wxArrayString& labels,
+                           const wxArrayInt& values=wxArrayInt() )
+        {
+            wxPGChoices chs(labels, values);
+            return self->SetChoices(chs);
+        }
+
         //
         // Some wxPGProperty member functions take a wxVariant write-back
         // argument, and as such are normally ignored by SWIG, and we need
@@ -1133,6 +1149,7 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
         }
     }
     %pythoncode {
+         SetChoices = SetPyChoices
          GetClientObject = GetPyClientData
          SetClientObject = SetPyClientData
          GetClientData = GetPyClientData
