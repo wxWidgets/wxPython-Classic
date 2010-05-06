@@ -39,7 +39,7 @@ def wordwrap(text, width, dc, breakLongWords=True, margin=0):
             # have we reached the max width?
             if pte[idx] - start > wid and (spcIdx != -1 or breakLongWords):
                 if spcIdx != -1:
-                    idx = spcIdx + 1
+                    idx = min(spcIdx + 1, len(pte) - 1)
                 wrapped_lines.append(' '*margin + line[startIdx : idx] + ' '*margin)
                 start = pte[idx]
                 startIdx = idx
