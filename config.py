@@ -476,6 +476,21 @@ class wx_extra_clean(distutils.command.clean.clean):
 
 
 
+# The Ubuntu Python adds a --install-layout option to distutils that
+# is used in our package build.  If we detect that the current
+# distutils does not have it then make sure that it is removed from
+# the command-line options, otherwise the build will fail.
+for item in distutils.command.install.install.user_options:
+    if item[0] == 'install-layout=':
+        break
+else:
+    for arg in sys.argv:
+        if arg.startswith('--install-layout'):
+            sys.argv.remove(arg)
+            break
+
+
+
 class wx_install(distutils.command.install.install):
     """
     Turns off install_path_file
@@ -483,7 +498,7 @@ class wx_install(distutils.command.install.install):
     def initialize_options(self):
         distutils.command.install.install.initialize_options(self)
         self.install_path_file = 0
-        
+
 
 class wx_install_headers(distutils.command.install_headers.install_headers):
     """

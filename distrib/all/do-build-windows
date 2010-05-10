@@ -63,7 +63,8 @@ else # Python 2.6 or later
     fi
 fi 
 echo "Using compiler located at:" `which cl.exe`
-
+echo "INCLUDE=" $INCLUDE
+echo "LIB=" $LIB
 
 # untar the source 
 echo "Unarchiving wxPython-src-$VERSION.tar.bz2"
@@ -145,6 +146,7 @@ case $PYVER in
     24 | 2.4) VER=24; shift ;;
     25 | 2.5) VER=25; shift ;;
     26 | 2.6) VER=26; shift ;;
+    27 | 2.7) VER=27; shift ;;
 
     *) 	VER=25
 esac

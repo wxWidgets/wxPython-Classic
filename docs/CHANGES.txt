@@ -49,6 +49,10 @@ details.
 
 The wx.Effects class is deprecated.
 
+Added Python 2.7 builds for Windows and Mac.  
+
+Added Debian package builds for Ubuntu 9.10 and 10.4.
+
 
 
 

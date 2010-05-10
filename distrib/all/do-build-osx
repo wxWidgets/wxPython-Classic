@@ -143,6 +143,9 @@ function do_universal_build {
     export WXROOT
     export BUILDPREFIX=$PREFIX
     export INSTALLDIR=$INSTALLROOT$PREFIX
+    if [ $PYVER = 2.7 ]; then
+	export PPC_USE_10_4=yes
+    fi
     $WXDIR/distrib/scripts/mac/macbuild-lipo wxpython $CTYPE
 
     # relink wx-config with a relative link
@@ -153,9 +156,15 @@ function do_universal_build {
     #-----------------------------------------------------------------
     # Now wxPython.  Build ppc, then i386
     ARCH=ppc
-    export CXX="g++-3.3 -arch $ARCH -DMAC_OS_X_VERSION_MAX_ALLOWED=1040"
-    export CC="gcc-3.3 -arch $ARCH -DMAC_OS_X_VERSION_MAX_ALLOWED=1040"
-    export MACOSX_DEPLOYMENT_TARGET=10.3
+    if [ $PYVER = 2.7 ]; then
+	export CXX="g++-4.0 -arch $ARCH"
+	export CC="gcc-4.0 -arch $ARCH"
+	export MACOSX_DEPLOYMENT_TARGET=10.4
+    else
+	export CXX="g++-3.3 -arch $ARCH -DMAC_OS_X_VERSION_MAX_ALLOWED=1040"
+	export CC="gcc-3.3 -arch $ARCH -DMAC_OS_X_VERSION_MAX_ALLOWED=1040"
+	export MACOSX_DEPLOYMENT_TARGET=10.3
+    fi
 #    mkdir -p $INSTALLROOT/$ARCH
     mkdir -p $BUILDROOT/$ARCH
         
@@ -194,9 +203,15 @@ function do_universal_build {
     # Install the two builds of wxPython
 
     ARCH=ppc
-    export CXX="g++-3.3 -arch $ARCH -DMAC_OS_X_VERSION_MAX_ALLOWED=1030"
-    export CC="gcc-3.3 -arch $ARCH -DMAC_OS_X_VERSION_MAX_ALLOWED=1030"
-    export MACOSX_DEPLOYMENT_TARGET=10.3
+    if [ $PYVER = 2.7 ]; then
+	export CXX="g++-4.0 -arch $ARCH"
+	export CC="gcc-4.0 -arch $ARCH"
+	export MACOSX_DEPLOYMENT_TARGET=10.4
+    else
+	export CXX="g++-3.3 -arch $ARCH -DMAC_OS_X_VERSION_MAX_ALLOWED=1030"
+	export CC="gcc-3.3 -arch $ARCH -DMAC_OS_X_VERSION_MAX_ALLOWED=1030"
+	export MACOSX_DEPLOYMENT_TARGET=10.3
+    fi
     cd $WXROOT/wxPython
     $PYTHON setup.py \
         UNICODE=$PYUNICODEOPT \
