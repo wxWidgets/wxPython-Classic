@@ -14,14 +14,18 @@ OTHER_OPTS="$OTHER_OPTS --disable-precomp-headers"
 
 do_lipo_build(){
     DIR="bld-$1"
-    
     if [ "$1" = "ppc" ]; then
-        export CXX="g++-3.3 -arch ppc -DMAC_OS_X_VERSION_MAX_ALLOWED=1040"
-        export CC="gcc-3.3 -arch ppc -DMAC_OS_X_VERSION_MAX_ALLOWED=1040"
+	ARCH=ppc
+    else
+	ARCH=i386
+    fi
+    if [ "$1" = "ppc" -a "$PPC_USE_10_4" = "" ]; then
+        export CXX="g++-3.3 -arch $ARCH -DMAC_OS_X_VERSION_MAX_ALLOWED=1040"
+        export CC="gcc-3.3 -arch $ARCH -DMAC_OS_X_VERSION_MAX_ALLOWED=1040"
         export MACOSX_DEPLOYMENT_TARGET=10.3
     else
-        export CXX="g++-4.0 -arch i386"
-        export CC="gcc-4.0 -arch i386"
+        export CXX="g++-4.0 -arch $ARCH"
+        export CC="gcc-4.0 -arch $ARCH"
         export MACOSX_DEPLOYMENT_TARGET=10.4
     fi
     
