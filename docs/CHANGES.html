@@ -12,6 +12,57 @@
 <h1 class="title">Recent Changes for wxPython</h1>
 
 <div class="section" id="id1">
+<h1>2.8.11.0</h1>
+<ul class="simple">
+<li>14-May-2010</li>
+</ul>
+<p>Lots of bug fixes in both wxWidgets and wxPython.</p>
+<p>Added the context manager protocol methods to some wx classes so they
+can be used with the new Python 'with' statement.  (The with statement
+is always available starting in Python 2.6, and can also be used in
+Python 2.5 with a __future__ import statement.)  There are several
+wx classes where this is a natural fit, such as wx.BusyInfo.  The
+__enter__ and __exit__ methods have also been added to wx.Dialog where
+it will do the dialog.Destroy() call for you.  This means that you can
+use code like this:</p>
+<pre class="literal-block">
+with MyDialog(self, foo, bar) as dlg:
+     if dlg.ShowModal() == wx.ID_OK:
+        # do something with dlg values
+</pre>
+<p>The list of wx classes that can now be used as context managers is:</p>
+<blockquote>
+<ul class="simple">
+<li>wx.Dialog</li>
+<li>wx.BusyInfo</li>
+<li>wx.BusyCursor</li>
+<li>wx.WindowDisabler</li>
+<li>wx.LogNull</li>
+<li>wx.DCTextColourChanger</li>
+<li>wx.DCPenChanger</li>
+<li>wx.DCBrushChanger</li>
+<li>wx.DCClipper</li>
+</ul>
+</blockquote>
+<p>A new class has been added that is also a context manager, called
+wx.FrozenWindow.  It will freeze the window passed to it upon entry to
+the context, and will thaw the window upon exit from the context.</p>
+<p>Applied the final version of patch #10959 to the PyCrust code.  It
+adds many enhancements to the Py suite, inlcuding the ability to edit
+blocks of code (called slices) as a whole before executing them, and
+also the ability to execute some simple shell commands.</p>
+<p>Replaced the wx.lib.pubsub module with the new pubsub package from
+<a class="reference external" href="http://pubsub.sf.net">http://pubsub.sf.net</a>.  By default it is backwards compatible with the
+old pubsub module, but it also has a more advanced API available that
+can be switched on at import time.  See the pubsub web site for more
+details.</p>
+<p>The wx.Effects class is deprecated.</p>
+<p>Added Python 2.7 builds for Windows and Mac.</p>
+<p>Added Debian package builds for Ubuntu 9.10 and 10.4.</p>
+<p>Many fixes and enhancements for the wx.lib.agw pacakge, including the
+addition of pybusyinfo, ribbon, ultimatelistctrl and zoombar.</p>
+</div>
+<div class="section" id="id2">
 <h1>2.8.10.1</h1>
 <ul class="simple">
 <li>14-May-2009</li>
@@ -36,7 +87,7 @@ new wx.lib.wxcairo is known to now work with PyCairo 1.6.4 and 1.8.4,
 and new binaries for Windows are available online at
 <a class="reference external" href="http://wxpython.org/cairo/">http://wxpython.org/cairo/</a></p>
 </div>
-<div class="section" id="id2">
+<div class="section" id="id3">
 <h1>2.8.9.2</h1>
 <ul class="simple">
 <li>16-Feb-2009</li>
@@ -61,14 +112,14 @@ instances.</p>
 the events passing through a widget.  It can also be used
 independently, see wx.lib.eventwatcher.</p>
 </div>
-<div class="section" id="id3">
+<div class="section" id="id4">
 <h1>2.8.9.1</h1>
 <ul class="simple">
 <li>28-Sep-2008</li>
 </ul>
 <p>Fixed a Python 2.4 compatibility issue in the Editra code.</p>
 </div>
-<div class="section" id="id4">
+<div class="section" id="id5">
 <h1>2.8.9.0</h1>
 <ul class="simple">
 <li>28-Sep-2008</li>
@@ -113,7 +164,7 @@ code as CopyFromBuffer.</p>
 <p>Add wx.lib.mixins.listctrl.ListRowHighlighter for automatic highlighting
 of rows in a wx.ListCtrl.</p>
 </div>
-<div class="section" id="id5">
+<div class="section" id="id6">
 <h1>2.8.8.1</h1>
 <ul class="simple">
 <li>18-July-2008</li>
@@ -128,7 +179,7 @@ unneccessary or incorrect scrolling.</p>
 part of the layout algorithm.</p>
 <p>Several other bugs also fixed.</p>
 </div>
-<div class="section" id="id6">
+<div class="section" id="id7">
 <h1>2.8.8.0</h1>
 <ul class="simple">
 <li>23-June-2008</li>
@@ -222,7 +273,7 @@ drags the resize handle the widget is resized accordingly, and an
 event is sent to notify parents that they should recalculate their
 layout.</p>
 </div>
-<div class="section" id="id7">
+<div class="section" id="id8">
 <h1>2.8.7.1</h1>
 <ul class="simple">
 <li>29-Nov-2007</li>
@@ -268,7 +319,7 @@ combo button in the PopupControl.</p>
 to the data object associated with an item in the control.  (Patch
 #1836326)</p>
 </div>
-<div class="section" id="id8">
+<div class="section" id="id9">
 <h1>2.8.6.1</h1>
 <ul class="simple">
 <li>26-Oct-2007</li>
@@ -295,7 +346,7 @@ the TLW's children instead.  This works around a feature of MS Windows
 that allowed windows beneath the frozen one in Z-order to paint
 through, and also mouse events clicking through to the lower window.</p>
 </div>
-<div class="section" id="id9">
+<div class="section" id="id10">
 <h1>2.8.6.0</h1>
 <ul class="simple">
 <li>27-Sept-2007</li>
@@ -321,7 +372,7 @@ looks like what is used by default on the native wx.TextCtrl or
 wx.ListBox.  Since there were not any more available bits for border
 styles, this style replaces wx.BORDER_DOUBLE.</p>
 </div>
-<div class="section" id="id10">
+<div class="section" id="id11">
 <h1>2.8.4.2</h1>
 <ul class="simple">
 <li>8-Aug-2007</li>
@@ -362,7 +413,7 @@ that contains a debug version of the wxPython extension modules, that
 can be used with the python-dbg package.  In addition the RPMs are now
 being built for Fedora Core 6 and Fedora Core 7.</p>
 </div>
-<div class="section" id="id11">
+<div class="section" id="id12">
 <h1>2.8.4.0</h1>
 <ul class="simple">
 <li>14-May-2007</li>
@@ -436,7 +487,7 @@ control, added in wxPython 2.7.1.1.</dd>
 menubars, and also creating attributes for menus, menubars and menu
 items.</p>
 </div>
-<div class="section" id="id12">
+<div class="section" id="id13">
 <h1>2.8.3.0</h1>
 <ul class="simple">
 <li>22-March-2007</li>
@@ -516,7 +567,7 @@ main window.</li>
 </ul>
 </blockquote>
 </div>
-<div class="section" id="id13">
+<div class="section" id="id14">
 <h1>2.8.1.1</h1>
 <ul class="simple">
 <li>19-Jan-2007</li>
@@ -546,7 +597,7 @@ just a few lines of code.</p>
 StyledTextCtrl (such as in PyShell) are now top-level float-on-parent
 windows so they are no longer clipped by the bounds of the stc window.</p>
 </div>
-<div class="section" id="id14">
+<div class="section" id="id15">
 <h1>2.8.1.0</h1>
 <ul class="simple">
 <li>8-Jan-2007</li>
@@ -568,7 +619,7 @@ GetPartialTextExtents.</p>
 essentially implement the MDI interface using a normal wx.Frame and a
 wx.aui.AuiNotebook.</p>
 </div>
-<div class="section" id="id15">
+<div class="section" id="id16">
 <h1>2.8.0.1</h1>
 <ul class="simple">
 <li>11-Dec-2006</li>
@@ -618,7 +669,7 @@ introduce native search widgets.</p>
 <p>Added a set of button classes to wx.lib.buttons from David Hughes that
 uses the native renderer to draw the button.</p>
 </div>
-<div class="section" id="id16">
+<div class="section" id="id17">
 <h1>2.7.2.0</h1>
 <ul class="simple">
 <li>7-Nov-2006</li>
@@ -658,7 +709,7 @@ again.  Just pass szBackend=wx.media.MEDIABACKEND_QUICKTIME to the
 constructor to use it instead of the default ActiveMovie backend,
 (assuming the quicktime DLLs are available on the system.)</p>
 </div>
-<div class="section" id="id17">
+<div class="section" id="id18">
 <h1>2.7.1.3</h1>
 <ul class="simple">
 <li>26-Oct-2006</li>
@@ -678,7 +729,7 @@ SystemOption to zero.  In a future release this will be the default.</p>
 <p>Added a sample to the demo that shows some of what can be done with
 the new wx.GraphicsContext and wx.GraphicsPath classes.</p>
 </div>
-<div class="section" id="id18">
+<div class="section" id="id19">
 <h1>2.7.1.2</h1>
 <ul class="simple">
 <li>21-Oct-2006</li>
@@ -705,7 +756,7 @@ correctly with this.</li>
 <p>Some improvements to the drawing code in CustomTreeCtrl.</p>
 <p>Fixed refcount leak in wx.Window.GetChildren.</p>
 </div>
-<div class="section" id="id19">
+<div class="section" id="id20">
 <h1>2.7.1.1</h1>
 <ul class="simple">
 <li>18-Oct-2006</li>
@@ -968,7 +1019,7 @@ double-buffering enabled and then decides whether to return a
 wx.PaintDC or wx.BufferedPaintDC.  This uses the new
 wx.Window.IsDoubleBuffered method.</p>
 </div>
-<div class="section" id="id20">
+<div class="section" id="id21">
 <h1>2.6.3.3</h1>
 <ul class="simple">
 <li>15-July-2006</li>
@@ -1005,7 +1056,7 @@ may still be some issues related to the new Py_ssize_t type and 64-bit
 machines, but at least all compile errors and warnings related to it
 have been resolved.</p>
 </div>
-<div class="section" id="id21">
+<div class="section" id="id22">
 <h1>2.6.3.2</h1>
 <ul class="simple">
 <li>3-April-2006</li>
@@ -1039,7 +1090,7 @@ already shown.</p>
 <p>wxMSW: Fixed wx.Choice/wx.ComboBox so they send events when a new item
 is selected only with the keyboard.</p>
 </div>
-<div class="section" id="id22">
+<div class="section" id="id23">
 <h1>2.6.3.0</h1>
 <ul class="simple">
 <li>27-March-2006</li>
@@ -1092,7 +1143,7 @@ you should use STC_LEX_HTML instead.</p>
 <p>wxSTC: Implemented Fix for SF Bug #1436503.  Delay the start of the
 DnD operation in case the user just intended to click, not drag.</p>
 <p>Updated the analogclock.py module to the new analogclock package from
-E. A. Tacao.</p>
+E. A. Tacão.</p>
 <p>Added the wx.lib.mixins.listctrl.CheckListCtrlMixin class from Bruce
 Who, which makes it easy to put checkboxes on list control items.</p>
 <p>Applied a patch from Christian Kristukat to wx.lib.plot that adds
@@ -1101,7 +1152,7 @@ zoomed plot and move it around with a mouse drag.</p>
 <p>XRCed updated to allow wxMenuBar to be created inside a wxFrame.</p>
 <p>Added wx.StandardPaths.GetDocumentsDir() (patch 1214360)</p>
 </div>
-<div class="section" id="id23">
+<div class="section" id="id24">
 <h1>2.6.2.1</h1>
 <ul class="simple">
 <li>10-Jan-2006</li>
@@ -1270,7 +1321,7 @@ ellipses to take (w,h) pair. This is an API change, but should
 be easy to accommodate, all you need to do is add a parenthesis
 pair:  (...x, y, ...) ---&gt;  (...(x,y), ...)</blockquote>
 </div>
-<div class="section" id="id24">
+<div class="section" id="id25">
 <h1>2.6.1.0</h1>
 <ul class="simple">
 <li>4-June-2005</li>
@@ -1298,7 +1349,7 @@ calls.</p>
 <p>wx.FileConfig: fixed DeleteEntry to set the dirty flag properly so the
 change will get written at the next flush.</p>
 </div>
-<div class="section" id="id25">
+<div class="section" id="id26">
 <h1>2.6.0.1</h1>
 <ul class="simple">
 <li>30-May-2005</li>
@@ -1411,7 +1462,7 @@ usual.</p>
 there is a range of allowed values (so a wx.SpinCtrl is used instead
 of a wx.TextCtrl.)</p>
 </div>
-<div class="section" id="id26">
+<div class="section" id="id27">
 <h1>2.6.0.0</h1>
 <ul class="simple">
 <li>26-Apr-2005</li>
@@ -1489,7 +1540,7 @@ EVT_KEY_UP and EVT_TEXT events from its embedded text control.</p>
 </dd>
 </dl>
 </div>
-<div class="section" id="id27">
+<div class="section" id="id28">
 <h1>2.5.5.1</h1>
 <ul class="simple">
 <li>8-Apr-2005</li>
@@ -1558,7 +1609,7 @@ list of top-level windows that currently exist in the application.</p>
 folks.</p>
 <p>Added the ActiveGrid IDE as a sample application.</p>
 </div>
-<div class="section" id="id28">
+<div class="section" id="id29">
 <h1>2.5.4.1</h1>
 <ul class="simple">
 <li>16-Mar-2005</li>
@@ -1792,7 +1843,7 @@ wx.Image.</p>
 </dd>
 </dl>
 </div>
-<div class="section" id="id29">
+<div class="section" id="id30">
 <h1>2.5.3.1</h1>
 <ul class="simple">
 <li>9-Nov-2004</li>
@@ -1949,7 +2000,7 @@ it.</p>
 <p>wxPython on OSX can now be built in Unicode mode, can support multiple
 version installs, and comes with an uninstaller script.</p>
 </div>
-<div class="section" id="id30">
+<div class="section" id="id31">
 <h1>2.5.2.8</h1>
 <ul class="simple">
 <li>27-Aug-2004</li>
@@ -1981,7 +2032,7 @@ wxCheckListBox.</li>
 </ul>
 </blockquote>
 </div>
-<div class="section" id="id31">
+<div class="section" id="id32">
 <h1>2.5.2.7</h1>
 <ul class="simple">
 <li>14-Aug-2004</li>
@@ -2165,7 +2216,7 @@ migrating away from using activexwrapper as well.  Please see the
 MigrationGuide for more details on using the new module.</p>
 <p>Floats are allowed again as function parameters where ints are expected.</p>
 </div>
-<div class="section" id="id33">
+<div class="section" id="id34">
 <h1>2.4.2.4</h1>
 <ul class="simple">
 <li>1-Oct-2003</li>
@@ -2178,7 +2229,7 @@ demonstrated in the Threads sample in the demo.</p>
 <p>Added wxMaskedNumCtrl.</p>
 <p>Added Chris Barker's FloatCanvas.</p>
 </div>
-<div class="section" id="id34">
+<div class="section" id="id35">
 <h1>2.4.1.2</h1>
 <ul class="simple">
 <li>19-Jun-2003</li>
@@ -2233,7 +2284,7 @@ release,) SetItemMinSize can now take a wxSize (or 2-tuple) parameter,
 and Spacers can be specified with a wxSize (or 2-tuple) parameter</p>
 <p>Added wxCursorFromBits.</p>
 </div>
-<div class="section" id="id35">
+<div class="section" id="id36">
 <h1>2.4.0.7</h1>
 <ul class="simple">
 <li>24-Mar-2003</li>
@@ -2273,7 +2324,7 @@ think I am testing in the future...</p>
 <p>Updated pycolourchooser.</p>
 <p>Updated to 0.9b of PyCrust.</p>
 </div>
-<div class="section" id="id36">
+<div class="section" id="id37">
 <h1>2.4.0.4</h1>
 <ul class="simple">
 <li>7-Mar-2003</li>
@@ -2334,7 +2385,7 @@ doesn't have a standard place for them.</p>
 <p>Fixed typemaps for wxGridCellCoordsArray.</p>
 <p>Updated to the 0.9a version of PyCrust</p>
 </div>
-<div class="section" id="id37">
+<div class="section" id="id38">
 <h1>2.4.0.2</h1>
 <ul class="simple">
 <li>23-Jan-2003</li>
@@ -2343,7 +2394,7 @@ doesn't have a standard place for them.</p>
 <p>Added wxIntCtrl from Will Sadkin.</p>
 <p>Added wxPyColourChooser by Michael Gilfix.</p>
 </div>
-<div class="section" id="id38">
+<div class="section" id="id39">
 <h1>2.4.0.1</h1>
 <ul class="simple">
 <li>10-Jan-2003</li>
@@ -2353,14 +2404,14 @@ enhancements.</p>
 <p>Added function wrappers for the common dialogs from Kevin Altis.  See
 wxPython/lib/dialogs.py for more details.</p>
 </div>
-<div class="section" id="id39">
+<div class="section" id="id40">
 <h1>2.3.4.2</h1>
 <ul class="simple">
 <li>21-Dec-2002</li>
 </ul>
 <p>Various bug fixes.</p>
 </div>
-<div class="section" id="id40">
+<div class="section" id="id41">
 <h1>2.3.4.1</h1>
 <ul class="simple">
 <li>18-Dec-2002</li>
@@ -2418,7 +2469,7 @@ windows when desired.</p>
 HTMLHelp viewer does.  Changed how the wxPythonDocs tarball is built
 and added a script to launch the doc viewer.</p>
 </div>
-<div class="section" id="id41">
+<div class="section" id="id42">
 <h1>2.3.3.1</h1>
 <ul class="simple">
 <li>19-Sep-2002</li>
@@ -2564,7 +2615,7 @@ example.</p>
 <p>Added wxPython.lib.mixins.rubberband module from Robb Shecter.</p>
 <p>Added wxTimeCtrl from Will Sadkin.</p>
 </div>
-<div class="section" id="id42">
+<div class="section" id="id43">
 <h1>2.3.2.1</h1>
 <ul class="simple">
 <li>20-Dec-2001</li>
@@ -2574,7 +2625,7 @@ well as the Python thread state.  This time it works on SMP machines
 without barfing and is also still compatible with Python debuggers.</p>
 <p>Added some patches from library contributors.</p>
 </div>
-<div class="section" id="id43">
+<div class="section" id="id44">
 <h1>2.3.2</h1>
 <ul class="simple">
 <li>11-Dec-2001</li>
@@ -2660,7 +2711,7 @@ SendCommand method, but it is still quite powerful.  See
 wxPython/contrib/dllwidget and wxPython/demo/dllwidget for more
 details.</p>
 </div>
-<div class="section" id="id44">
+<div class="section" id="id45">
 <h1>2.3.1</h1>
 <ul class="simple">
 <li>10-Jul-2001</li>
@@ -2677,7 +2728,7 @@ subclass wxXmlResourceHandler, etc...</p>
 <p>Fixed img2py to work correctly with Python 2.1.</p>
 <p>Added enhanced wxVTKRenderWindow by Prabhu Ramachandran</p>
 </div>
-<div class="section" id="id45">
+<div class="section" id="id46">
 <h1>2.3.0</h1>
 <ul class="simple">
 <li>22-May-2001</li>
@@ -2777,7 +2828,7 @@ please send it to me for inclusion in this package.</p>
 by having smaller functional apps to play with.  They can be found in
 wxPython/samples.</p>
 </div>
-<div class="section" id="id46">
+<div class="section" id="id47">
 <h1>2.2.7</h1>
 <ul class="simple">
 <li>19-Jun-2001</li>
@@ -2785,7 +2836,7 @@ wxPython/samples.</p>
 <p>No changes happened in the Python wrappers for this release, only
 changes and fixes in the wxWindows library.</p>
 </div>
-<div class="section" id="id47">
+<div class="section" id="id48">
 <h1>2.2.5</h1>
 <ul class="simple">
 <li>30-Jan-2001</li>

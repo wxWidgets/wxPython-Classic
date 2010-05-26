@@ -3,7 +3,7 @@ Recent Changes for wxPython
 
 2.8.11.0
 --------
-*
+* 14-May-2010
 
 Lots of bug fixes in both wxWidgets and wxPython.
 
@@ -53,6 +53,8 @@ Added Python 2.7 builds for Windows and Mac.
 
 Added Debian package builds for Ubuntu 9.10 and 10.4.
 
+Many fixes and enhancements for the wx.lib.agw pacakge, including the 
+addition of pybusyinfo, ribbon, ultimatelistctrl and zoombar.
 
 
 

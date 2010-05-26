@@ -27,7 +27,7 @@ class TestComboBox(wx.Panel):
         cb = wx.ComboBox(self, 500, "default value", (90, 50), 
                          (160, -1), sampleList,
                          wx.CB_DROPDOWN
-                         #| wx.TE_PROCESS_ENTER
+                         | wx.TE_PROCESS_ENTER
                          #| wx.CB_SORT
                          )
 

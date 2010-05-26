@@ -40,7 +40,7 @@ class TestPanel(wx.Panel):
 
         while keepGoing and count < max:
             count += 1
-            wx.MilliSleep(250)
+            wx.MilliSleep(250)  # simulate some time-consuming thing...
 
             if count >= max / 2:
                 (keepGoing, skip) = dlg.Update(count, "Half-time!")
