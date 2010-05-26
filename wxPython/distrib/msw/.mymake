@@ -1,0 +1,68 @@
+#! /bin/bash
+
+#set -o xtrace
+
+# /DISOLATION_AWARE_ENABLED
+
+CXXFLAGS="/D__NO_VC_CRTDBG__ /DNESTED_EXPORTS "
+COMMON_FLAGS="OFFICIAL_BUILD=1 SHARED=1 MONOLITHIC=0 USE_OPENGL=1 USE_GDIPLUS=1"
+HYBRID_FLAGS="DEBUG_FLAG=1 WXDEBUGFLAG=h"
+MAKE_FLAGS=$COMMON_FLAGS
+
+if [ "$CPU" == "AMD64" ]; then
+    MSLU_VAL=0
+    # These don't seem to be needed with VC9
+    #EX_U="EXTRALIBS_FOR_BASE=bufferoverflowU.lib"
+    #EX_A="EXTRALIBS_FOR_BASE=bufferoverflowA.lib"
+else
+    MSLU_VAL=1
+fi
+
+# Don't use MSLU at all anymore, Win98 is dead to me.
+MSLU_VAL=0
+
+#  set flags based on build type if given
+if [ "$1" = "debug" ]; then
+    MAKE_FLAGS="$COMMON_FLAGS BUILD=debug UNICODE=0 MSLU=0 $EX_A"
+    shift
+
+elif [ "$1" = "hybrid" ]; then
+    MAKE_FLAGS="$COMMON_FLAGS BUILD=release $HYBRID_FLAGS UNICODE=0 MSLU=0 $EX_A"
+    CXXFLAGS="$CXXFLAGS /UNDEBUG"
+    shift
+
+elif [ "$1" = "release" ]; then
+    MAKE_FLAGS="$COMMON_FLAGS BUILD=release UNICODE=0 MSLU=0 $EX_A"
+    shift
+
+elif [ "$1" = "debug-uni" ];  then
+    MAKE_FLAGS="$COMMON_FLAGS BUILD=debug UNICODE=1 MSLU=$MSLU_VAL $EX_U"
+    shift
+
+elif [ "$1" = "hybrid-uni" ]; then
+    MAKE_FLAGS="$COMMON_FLAGS BUILD=release $HYBRID_FLAGS UNICODE=1 MSLU=$MSLU_VAL $EX_U"
+    CXXFLAGS="$CXXFLAGS /UNDEBUG"
+    shift
+
+elif [ "$1" = "release-uni" ]; then
+    MAKE_FLAGS="$COMMON_FLAGS BUILD=release UNICODE=1 MSLU=$MSLU_VAL $EX_U"
+    shift
+else
+	echo "----------------------------------------------"
+	echo " Build type not specified"
+	echo "    debug"
+	echo "    hybrid"
+	echo "    release"
+	echo "    debug-uni"
+	echo "    hybrid-uni"
+	echo "    release-uni"
+	echo "----------------------------------------------"
+fi
+
+
+#  now run nmake, echoing the command-line first
+echo nmake -f makefile.vc $MAKE_FLAGS CXXFLAGS="$CXXFLAGS" $@
+nmake -f makefile.vc $MAKE_FLAGS CXXFLAGS="$CXXFLAGS" $@
+
+# quit with nmake's exit code
+exit $?
