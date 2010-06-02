@@ -1442,8 +1442,8 @@ class GraphicsContext(GraphicsObject):
         scaleX = w / float(bw)
         scaleY = h / float(bh)
 
-        self._context.scale(scaleX, scaleY)
         self._context.translate(x, y)
+        self._context.scale(scaleX, scaleY)
         self._context.set_source(pattern)
 
         # use the original size here since the context is scaled already...
