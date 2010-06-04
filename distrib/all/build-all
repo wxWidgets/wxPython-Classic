@@ -53,25 +53,28 @@ def getTasks(config_env):
     tigerTask =  Task([
         Job("smallfry.25", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.5", "both"], env=config_env),
         Job("smallfry.26", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.6", "both"], env=config_env),
+        Job("smallfry.27", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.7", "both"], env=config_env),
         ])
 
     
     beastTask1 = Task([
         Job("beast.25",     "distrib/all/build-windows", ["2.5"], env=config_env),
         Job("beast.26",     "distrib/all/build-windows", ["2.6"], env=config_env),
+        Job("beast.27",     "distrib/all/build-windows", ["2.7"], env=config_env),
         ])
     
 
     cyclopsTask1 = Task([
-        Job("cyclops.hardy",   "distrib/all/build-deb", ["cyclops", "/work/chroot/hardy",   "hardy"], env=config_env),
-        Job("cyclops.hardy64", "distrib/all/build-deb", ["cyclops", "/work/chroot/hardy64", "hardy64"], env=config_env),
-        Job("cyclops.intrepid",   "distrib/all/build-deb", ["cyclops", "/work/chroot/intrepid",   "intrepid"], env=config_env),
-        Job("cyclops.intrepid64", "distrib/all/build-deb", ["cyclops", "/work/chroot/intrepid64", "intrepid64"], env=config_env),
+        Job("cyclops.karmic",   "distrib/all/build-deb", ["cyclops", "/work/chroot/karmic",   "karmic"], env=config_env),
+        Job("cyclops.karmic64", "distrib/all/build-deb", ["cyclops", "/work/chroot/karmic64", "karmic64"], env=config_env),
+        Job("cyclops.lucid",   "distrib/all/build-deb", ["cyclops", "/work/chroot/lucid",   "lucid"], env=config_env),
+        Job("cyclops.lucid64", "distrib/all/build-deb", ["cyclops", "/work/chroot/lucid64", "lucid64"], env=config_env),
         ])
 
     cyclopsTask2 = Task([
         #Job("cyclops.win64-25", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.5", "AMD64"], env=config_env),
         Job("cyclops.win64-26", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.6", "AMD64"], env=config_env),
+        Job("cyclops.win64-27", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.7", "AMD64"], env=config_env),
         Job("cyclops.jaunty",   "distrib/all/build-deb", ["cyclops", "/work/chroot/jaunty",   "jaunty"], env=config_env),
         Job("cyclops.jaunty64", "distrib/all/build-deb", ["cyclops", "/work/chroot/jaunty64", "jaunty64"], env=config_env),
         ])
