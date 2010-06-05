@@ -225,6 +225,9 @@ public:
 
     int GetFontSize();
     void SetFontSize(int s);
+    // Try to map a font size in points to the HTML 1-7 font size range.
+    void SetFontPointSize(int pt);
+    
     int GetFontBold();
     void SetFontBold(int x);
     int GetFontItalic();

@@ -31727,18 +31727,22 @@ SWIGINTERN PyObject *_wrap_ListCtrl_GetItemText(PyObject *SWIGUNUSEDPARM(self), 
   PyObject *resultobj = 0;
   wxPyListCtrl *arg1 = (wxPyListCtrl *) 0 ;
   long arg2 ;
+  int arg3 = (int) 0 ;
   wxString result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   long val2 ;
   int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "item", NULL 
+    (char *) "self",(char *) "item",(char *) "col", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:ListCtrl_GetItemText",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:ListCtrl_GetItemText",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyListCtrl, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ListCtrl_GetItemText" "', expected argument " "1"" of type '" "wxPyListCtrl const *""'"); 
@@ -31749,9 +31753,16 @@ SWIGINTERN PyObject *_wrap_ListCtrl_GetItemText(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ListCtrl_GetItemText" "', expected argument " "2"" of type '" "long""'");
   } 
   arg2 = static_cast< long >(val2);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "ListCtrl_GetItemText" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxPyListCtrl const *)arg1)->GetItemText(arg2);
+    result = ((wxPyListCtrl const *)arg1)->GetItemText(arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -37738,6 +37749,74 @@ SWIGINTERN PyObject *_wrap_TreeCtrl_GetFocusedItem(PyObject *SWIGUNUSEDPARM(self
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxTreeItemId(static_cast< const wxTreeItemId& >(result))), SWIGTYPE_p_wxTreeItemId, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TreeCtrl_ClearFocusedItem(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyTreeCtrl *arg1 = (wxPyTreeCtrl *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyTreeCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TreeCtrl_ClearFocusedItem" "', expected argument " "1"" of type '" "wxPyTreeCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyTreeCtrl * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->ClearFocusedItem();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TreeCtrl_SetFocusedItem(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyTreeCtrl *arg1 = (wxPyTreeCtrl *) 0 ;
+  wxTreeItemId *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "item", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TreeCtrl_SetFocusedItem",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyTreeCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TreeCtrl_SetFocusedItem" "', expected argument " "1"" of type '" "wxPyTreeCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyTreeCtrl * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTreeItemId,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TreeCtrl_SetFocusedItem" "', expected argument " "2"" of type '" "wxTreeItemId const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "TreeCtrl_SetFocusedItem" "', expected argument " "2"" of type '" "wxTreeItemId const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxTreeItemId * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetFocusedItem((wxTreeItemId const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -51530,6 +51609,44 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_FileCtrlEvent_SetFilterIndex(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxFileCtrlEvent *arg1 = (wxFileCtrlEvent *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "filterIndex", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:FileCtrlEvent_SetFilterIndex",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxFileCtrlEvent, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FileCtrlEvent_SetFilterIndex" "', expected argument " "1"" of type '" "wxFileCtrlEvent *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFileCtrlEvent * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "FileCtrlEvent_SetFilterIndex" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetFilterIndex(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_FileCtrlEvent_GetFiles(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxFileCtrlEvent *arg1 = (wxFileCtrlEvent *) 0 ;
@@ -51588,6 +51705,34 @@ SWIGINTERN PyObject *_wrap_FileCtrlEvent_GetDirectory(PyObject *SWIGUNUSEDPARM(s
     resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
 #endif
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FileCtrlEvent_GetFilterIndex(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFileCtrlEvent *arg1 = (wxFileCtrlEvent *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFileCtrlEvent, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FileCtrlEvent_GetFilterIndex" "', expected argument " "1"" of type '" "wxFileCtrlEvent const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFileCtrlEvent * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)((wxFileCtrlEvent const *)arg1)->GetFilterIndex();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -52962,6 +53107,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TreeCtrl_GetSelection", (PyCFunction)_wrap_TreeCtrl_GetSelection, METH_O, NULL},
 	 { (char *)"TreeCtrl_GetSelections", (PyCFunction)_wrap_TreeCtrl_GetSelections, METH_O, NULL},
 	 { (char *)"TreeCtrl_GetFocusedItem", (PyCFunction)_wrap_TreeCtrl_GetFocusedItem, METH_O, NULL},
+	 { (char *)"TreeCtrl_ClearFocusedItem", (PyCFunction)_wrap_TreeCtrl_ClearFocusedItem, METH_O, NULL},
+	 { (char *)"TreeCtrl_SetFocusedItem", (PyCFunction) _wrap_TreeCtrl_SetFocusedItem, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TreeCtrl_GetItemParent", (PyCFunction) _wrap_TreeCtrl_GetItemParent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TreeCtrl_GetFirstChild", (PyCFunction) _wrap_TreeCtrl_GetFirstChild, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TreeCtrl_GetNextChild", (PyCFunction) _wrap_TreeCtrl_GetNextChild, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -53297,8 +53444,10 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_FileCtrlEvent", (PyCFunction) _wrap_new_FileCtrlEvent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"FileCtrlEvent_SetFiles", (PyCFunction) _wrap_FileCtrlEvent_SetFiles, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"FileCtrlEvent_SetDirectory", (PyCFunction) _wrap_FileCtrlEvent_SetDirectory, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"FileCtrlEvent_SetFilterIndex", (PyCFunction) _wrap_FileCtrlEvent_SetFilterIndex, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"FileCtrlEvent_GetFiles", (PyCFunction)_wrap_FileCtrlEvent_GetFiles, METH_O, NULL},
 	 { (char *)"FileCtrlEvent_GetDirectory", (PyCFunction)_wrap_FileCtrlEvent_GetDirectory, METH_O, NULL},
+	 { (char *)"FileCtrlEvent_GetFilterIndex", (PyCFunction)_wrap_FileCtrlEvent_GetFilterIndex, METH_O, NULL},
 	 { (char *)"FileCtrlEvent_GetFile", (PyCFunction)_wrap_FileCtrlEvent_GetFile, METH_O, NULL},
 	 { (char *)"FileCtrlEvent_swigregister", FileCtrlEvent_swigregister, METH_VARARGS, NULL},
 	 { (char *)"FileCtrlEvent_swiginit", FileCtrlEvent_swiginit, METH_VARARGS, NULL},
@@ -56450,5 +56599,6 @@ SWIGEXPORT void SWIG_init(void) {
   PyDict_SetItemString(d, "wxEVT_FILECTRL_SELECTIONCHANGED", PyInt_FromLong(wxEVT_FILECTRL_SELECTIONCHANGED));
   PyDict_SetItemString(d, "wxEVT_FILECTRL_FILEACTIVATED", PyInt_FromLong(wxEVT_FILECTRL_FILEACTIVATED));
   PyDict_SetItemString(d, "wxEVT_FILECTRL_FOLDERCHANGED", PyInt_FromLong(wxEVT_FILECTRL_FOLDERCHANGED));
+  PyDict_SetItemString(d, "wxEVT_FILECTRL_FILTERCHANGED", PyInt_FromLong(wxEVT_FILECTRL_FILTERCHANGED));
 }
 

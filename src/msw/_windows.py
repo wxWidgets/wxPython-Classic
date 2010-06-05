@@ -88,6 +88,25 @@ class Panel(_core.Window):
         """
         return _windows_.Panel_SetFocusIgnoringChildren(*args, **kwargs)
 
+    def MSWSetTransparentBackground(*args, **kwargs):
+        """MSWSetTransparentBackground(self, bool isTransparent=True)"""
+        return _windows_.Panel_MSWSetTransparentBackground(*args, **kwargs)
+
+    def HasTransparentBackground(*args, **kwargs):
+        """
+        HasTransparentBackground(self) -> bool
+
+        Returns True if this window's background is transparent (as, for
+        example, for `wx.StaticText`) and should show the parent window's
+        background.
+
+        This method is mostly used internally by the library itself and you
+        normally shouldn't have to call it. You may, however, have to override
+        it in your custom control classes to ensure that background is painted
+        correctly.
+        """
+        return _windows_.Panel_HasTransparentBackground(*args, **kwargs)
+
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -3705,6 +3724,14 @@ class ProgressDialog(Dialog):
         """GetMessage(self) -> String"""
         return _windows_.ProgressDialog_GetMessage(*args, **kwargs)
 
+    def WasCancelled(*args, **kwargs):
+        """WasCancelled(self) -> bool"""
+        return _windows_.ProgressDialog_WasCancelled(*args, **kwargs)
+
+    def WasSkipped(*args, **kwargs):
+        """WasSkipped(self) -> bool"""
+        return _windows_.ProgressDialog_WasSkipped(*args, **kwargs)
+
     Value = property(GetValue) 
     Range = property(GetRange,SetRange) 
     Message = property(GetMessage) 
@@ -5309,13 +5336,17 @@ class Printout(_core.Object):
         """GetPaperRectPixels(self) -> Rect"""
         return _windows_.Printout_GetPaperRectPixels(*args, **kwargs)
 
+    def SetPreview(*args, **kwargs):
+        """SetPreview(self, PrintPreview preview)"""
+        return _windows_.Printout_SetPreview(*args, **kwargs)
+
+    def GetPreview(*args, **kwargs):
+        """GetPreview(self) -> PrintPreview"""
+        return _windows_.Printout_GetPreview(*args, **kwargs)
+
     def IsPreview(*args, **kwargs):
         """IsPreview(self) -> bool"""
         return _windows_.Printout_IsPreview(*args, **kwargs)
-
-    def SetIsPreview(*args, **kwargs):
-        """SetIsPreview(self, bool p)"""
-        return _windows_.Printout_SetIsPreview(*args, **kwargs)
 
     def OnBeginDocument(*args, **kwargs):
         """OnBeginDocument(self, int startPage, int endPage) -> bool"""

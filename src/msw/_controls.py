@@ -4772,7 +4772,7 @@ class ListCtrl(_core.Control):
         return _controls_.ListCtrl_SetItemColumnImage(*args, **kwargs)
 
     def GetItemText(*args, **kwargs):
-        """GetItemText(self, long item) -> String"""
+        """GetItemText(self, long item, int col=0) -> String"""
         return _controls_.ListCtrl_GetItemText(*args, **kwargs)
 
     def SetItemText(*args, **kwargs):
@@ -5601,6 +5601,14 @@ class TreeCtrl(_core.Control):
     def GetFocusedItem(*args, **kwargs):
         """GetFocusedItem(self) -> TreeItemId"""
         return _controls_.TreeCtrl_GetFocusedItem(*args, **kwargs)
+
+    def ClearFocusedItem(*args, **kwargs):
+        """ClearFocusedItem(self)"""
+        return _controls_.TreeCtrl_ClearFocusedItem(*args, **kwargs)
+
+    def SetFocusedItem(*args, **kwargs):
+        """SetFocusedItem(self, TreeItemId item)"""
+        return _controls_.TreeCtrl_SetFocusedItem(*args, **kwargs)
 
     def GetItemParent(*args, **kwargs):
         """GetItemParent(self, TreeItemId item) -> TreeItemId"""
@@ -7910,6 +7918,10 @@ class FileCtrlEvent(_core.CommandEvent):
         """SetDirectory(self, String directory)"""
         return _controls_.FileCtrlEvent_SetDirectory(*args, **kwargs)
 
+    def SetFilterIndex(*args, **kwargs):
+        """SetFilterIndex(self, int filterIndex)"""
+        return _controls_.FileCtrlEvent_SetFilterIndex(*args, **kwargs)
+
     def GetFiles(*args, **kwargs):
         """GetFiles(self) -> wxArrayString"""
         return _controls_.FileCtrlEvent_GetFiles(*args, **kwargs)
@@ -7918,18 +7930,27 @@ class FileCtrlEvent(_core.CommandEvent):
         """GetDirectory(self) -> String"""
         return _controls_.FileCtrlEvent_GetDirectory(*args, **kwargs)
 
+    def GetFilterIndex(*args, **kwargs):
+        """GetFilterIndex(self) -> int"""
+        return _controls_.FileCtrlEvent_GetFilterIndex(*args, **kwargs)
+
     def GetFile(*args, **kwargs):
         """GetFile(self) -> String"""
         return _controls_.FileCtrlEvent_GetFile(*args, **kwargs)
 
+    Files = property(GetFiles,SetFiles) 
+    Directory = property(GetDirectory,SetDirectory) 
+    FilterIndex = property(GetFilterIndex,SetFilterIndex) 
 _controls_.FileCtrlEvent_swigregister(FileCtrlEvent)
 
 wxEVT_FILECTRL_SELECTIONCHANGED = _controls_.wxEVT_FILECTRL_SELECTIONCHANGED
 wxEVT_FILECTRL_FILEACTIVATED = _controls_.wxEVT_FILECTRL_FILEACTIVATED
 wxEVT_FILECTRL_FOLDERCHANGED = _controls_.wxEVT_FILECTRL_FOLDERCHANGED
+wxEVT_FILECTRL_FILTERCHANGED = _controls_.wxEVT_FILECTRL_FILTERCHANGED
 EVT_FILECTRL_SELECTIONCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_SELECTIONCHANGED, 1)
 EVT_FILECTRL_FILEACTIVATED = wx.PyEventBinder( wxEVT_FILECTRL_FILEACTIVATED, 1)
-EVT_FILECTRL_FOLDERCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_FOLDERCHANGED, 1)        
+EVT_FILECTRL_FOLDERCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_FOLDERCHANGED, 1)
+EVT_FILECTRL_FILTERCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_FILTERCHANGED, 1)
 
 #---------------------------------------------------------------------------
 

@@ -3443,6 +3443,12 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
                                SWIGTYPE_p_wxColourPropertyValue,
                                SWIG_POINTER_OWN | 0 );
     }
+    else
+    {
+        // TODO: Allow converting arbitrary wxObject-based variant datas,
+        // including old-school wxObjectPtr (see wxPG 1.4), and new-style
+        // variant data classes generated using DECLARE_VARIANT_OBJECT().
+    }
 
     return NULL;
 }
@@ -3884,6 +3890,23 @@ SWIG_AsVal_double (PyObject *obj, double* val)
 
   #define SWIG_From_double   PyFloat_FromDouble 
 
+SWIGINTERN bool wxPGProperty_SetPyChoices__SWIG_0(wxPGProperty *self,wxPGChoices const &chs){
+            return self->SetChoices(chs);
+        }
+SWIGINTERN bool wxPGProperty_SetPyChoices__SWIG_1(wxPGProperty *self,wxArrayString const &labels,wxArrayInt const &values=wxArrayInt()){
+            wxPGChoices chs(labels, values);
+            return self->SetChoices(chs);
+        }
+SWIGINTERN wxPGVariantAndBool wxPGProperty_PyBase_StringToValue(wxPGProperty *self,wxString const &text,int argFlags=0){
+            wxVariant variant = self->GetValuePlain();
+            bool res = self->StringToValue(variant, text, argFlags);
+            return wxPGVariantAndBool(res, variant);
+        }
+SWIGINTERN wxPGVariantAndBool wxPGProperty_PyBase_IntToValue(wxPGProperty const *self,wxVariant &value,int number,int argFlags=0){
+            wxVariant variant = self->GetValuePlain();
+            bool res = self->IntToValue(variant, number, argFlags);
+            return wxPGVariantAndBool(res, variant);
+        }
 SWIGINTERN PyObject *wxPGProperty_GetPyClientData(wxPGProperty *self){
             wxPyClientData* data = (wxPyClientData*)self->GetClientObject();
             if (data) {
@@ -20638,50 +20661,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PGProperty_SetChoices(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
-  wxPGChoices *arg2 = 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "choices", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PGProperty_SetChoices",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_SetChoices" "', expected argument " "1"" of type '" "wxPGProperty *""'"); 
-  }
-  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxPGChoices,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PGProperty_SetChoices" "', expected argument " "2"" of type '" "wxPGChoices &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PGProperty_SetChoices" "', expected argument " "2"" of type '" "wxPGChoices &""'"); 
-  }
-  arg2 = reinterpret_cast< wxPGChoices * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SetChoices(*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_PGProperty_SetMaxLength(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPGProperty *arg1 = (wxPGProperty *) 0 ;
@@ -21352,6 +21331,283 @@ SWIGINTERN PyObject *_wrap_PGProperty_GetPropertyByName(PyObject *SWIGUNUSEDPARM
 fail:
   {
     if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_SetPyChoices__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  wxPGChoices *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_SetPyChoices" "', expected argument " "1"" of type '" "wxPGProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_wxPGChoices,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PGProperty_SetPyChoices" "', expected argument " "2"" of type '" "wxPGChoices const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PGProperty_SetPyChoices" "', expected argument " "2"" of type '" "wxPGChoices const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxPGChoices * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxPGProperty_SetPyChoices__SWIG_0(arg1,(wxPGChoices const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_SetPyChoices__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  wxArrayString *arg2 = 0 ;
+  wxArrayInt const &arg3_defvalue = wxArrayInt() ;
+  wxArrayInt *arg3 = (wxArrayInt *) &arg3_defvalue ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  bool temp3 = false ;
+  
+  if ((nobjs < 2) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_SetPyChoices" "', expected argument " "1"" of type '" "wxPGProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  {
+    if (! PySequence_Check(swig_obj[1])) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of strings expected.");
+      SWIG_fail;
+    }
+    arg2 = new wxArrayString;
+    temp2 = true;
+    int i, len=PySequence_Length(swig_obj[1]);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(swig_obj[1], i);
+      wxString* s = wxString_in_helper(item);
+      if (PyErr_Occurred())  SWIG_fail;
+      arg2->Add(*s);
+      delete s;
+      Py_DECREF(item);
+    }
+  }
+  if (swig_obj[2]) {
+    {
+      if (! PySequence_Check(swig_obj[2])) {
+        PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+        SWIG_fail;
+      }
+      arg3 = new wxArrayInt;
+      temp3 = true;
+      int i, len=PySequence_Length(swig_obj[2]);
+      for (i=0; i<len; i++) {
+        PyObject* item = PySequence_GetItem(swig_obj[2], i);
+        PyObject* number  = PyNumber_Int(item);
+        if (!number) {
+          PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+          SWIG_fail;
+        }       
+        arg3->Add(PyInt_AS_LONG(number));
+        Py_DECREF(item);
+        Py_DECREF(number);
+      }
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxPGProperty_SetPyChoices__SWIG_1(arg1,(wxArrayString const &)*arg2,(wxArrayInt const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2) delete arg2;
+  }
+  {
+    if (temp3) delete arg3;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2) delete arg2;
+  }
+  {
+    if (temp3) delete arg3;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_SetPyChoices(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"PGProperty_SetPyChoices",0,3,argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    int _v = 0;
+    {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_wxPGChoices, 0);
+      _v = SWIG_CheckState(res);
+    }
+    if (!_v) goto check_1;
+    return _wrap_PGProperty_SetPyChoices__SWIG_0(self, argc, argv);
+  }
+check_1:
+  
+  if ((argc >= 2) && (argc <= 3)) {
+    return _wrap_PGProperty_SetPyChoices__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'PGProperty_SetPyChoices'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_PyBase_StringToValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  wxString *arg2 = 0 ;
+  int arg3 = (int) 0 ;
+  wxPGVariantAndBool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "text",(char *) "argFlags", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:PGProperty_PyBase_StringToValue",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_PyBase_StringToValue" "', expected argument " "1"" of type '" "wxPGProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PGProperty_PyBase_StringToValue" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxPGProperty_PyBase_StringToValue(arg1,(wxString const &)*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxPGVariantAndBool_to_PyObject(result);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PGProperty_PyBase_IntToValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPGProperty *arg1 = (wxPGProperty *) 0 ;
+  wxVariant *arg2 = 0 ;
+  int arg3 ;
+  int arg4 = (int) 0 ;
+  wxPGVariantAndBool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "value",(char *) "number",(char *) "argFlags", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|O:PGProperty_PyBase_IntToValue",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPGProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PGProperty_PyBase_IntToValue" "', expected argument " "1"" of type '" "wxPGProperty const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPGProperty * >(argp1);
+  {
+    arg2 = new wxVariant();
+    if ( !PyObject_to_wxVariant(obj1, arg2) ) {
+      PyErr_SetString(PyExc_TypeError,
+        "this Python type cannot be converted to wxVariant");
+      SWIG_fail;
+    }
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "PGProperty_PyBase_IntToValue" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  if (obj3) {
+    ecode4 = SWIG_AsVal_int(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PGProperty_PyBase_IntToValue" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxPGProperty_PyBase_IntToValue((wxPGProperty const *)arg1,*arg2,arg3,arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxPGVariantAndBool_to_PyObject(result);
+  }
+  {
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
     delete arg2;
   }
   return NULL;
@@ -46886,7 +47142,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PGProperty_SetValuePlain", (PyCFunction) _wrap_PGProperty_SetValuePlain, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_SetValidator", (PyCFunction) _wrap_PGProperty_SetValidator, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetValidator", (PyCFunction)_wrap_PGProperty_GetValidator, METH_O, NULL},
-	 { (char *)"PGProperty_SetChoices", (PyCFunction) _wrap_PGProperty_SetChoices, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_SetMaxLength", (PyCFunction) _wrap_PGProperty_SetMaxLength, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_SetWasModified", (PyCFunction) _wrap_PGProperty_SetWasModified, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetHelpString", (PyCFunction)_wrap_PGProperty_GetHelpString, METH_O, NULL},
@@ -46904,6 +47159,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PGProperty_GetImageOffset", (PyCFunction) _wrap_PGProperty_GetImageOffset, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetItemAtY", (PyCFunction) _wrap_PGProperty_GetItemAtY, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetPropertyByName", (PyCFunction) _wrap_PGProperty_GetPropertyByName, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PGProperty_SetPyChoices", _wrap_PGProperty_SetPyChoices, METH_VARARGS, NULL},
+	 { (char *)"PGProperty_PyBase_StringToValue", (PyCFunction) _wrap_PGProperty_PyBase_StringToValue, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PGProperty_PyBase_IntToValue", (PyCFunction) _wrap_PGProperty_PyBase_IntToValue, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_GetPyClientData", (PyCFunction)_wrap_PGProperty_GetPyClientData, METH_O, NULL},
 	 { (char *)"PGProperty_SetPyClientData", (PyCFunction) _wrap_PGProperty_SetPyClientData, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PGProperty_swigregister", PGProperty_swigregister, METH_VARARGS, NULL},

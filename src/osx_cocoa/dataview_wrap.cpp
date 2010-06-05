@@ -9526,6 +9526,84 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DataViewChoiceRenderer_GetChoice(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDataViewChoiceRenderer *arg1 = (wxDataViewChoiceRenderer *) 0 ;
+  size_t arg2 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  size_t val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "index", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:DataViewChoiceRenderer_GetChoice",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDataViewChoiceRenderer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewChoiceRenderer_GetChoice" "', expected argument " "1"" of type '" "wxDataViewChoiceRenderer const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewChoiceRenderer * >(argp1);
+  ecode2 = SWIG_AsVal_size_t(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataViewChoiceRenderer_GetChoice" "', expected argument " "2"" of type '" "size_t""'");
+  } 
+  arg2 = static_cast< size_t >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxDataViewChoiceRenderer const *)arg1)->GetChoice(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataViewChoiceRenderer_GetChoices(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDataViewChoiceRenderer *arg1 = (wxDataViewChoiceRenderer *) 0 ;
+  wxArrayString *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDataViewChoiceRenderer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewChoiceRenderer_GetChoices" "', expected argument " "1"" of type '" "wxDataViewChoiceRenderer const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewChoiceRenderer * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxArrayString const &_result_ref = ((wxDataViewChoiceRenderer const *)arg1)->GetChoices();
+      result = (wxArrayString *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxArrayString2PyList_helper(*result);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *DataViewChoiceRenderer_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -18946,6 +19024,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewSpinRenderer_swiginit", DataViewSpinRenderer_swiginit, METH_VARARGS, NULL},
 	 { (char *)"DataViewCustomRenderer_swigregister", DataViewCustomRenderer_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_DataViewChoiceRenderer", (PyCFunction) _wrap_new_DataViewChoiceRenderer, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DataViewChoiceRenderer_GetChoice", (PyCFunction) _wrap_DataViewChoiceRenderer_GetChoice, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DataViewChoiceRenderer_GetChoices", (PyCFunction)_wrap_DataViewChoiceRenderer_GetChoices, METH_O, NULL},
 	 { (char *)"DataViewChoiceRenderer_swigregister", DataViewChoiceRenderer_swigregister, METH_VARARGS, NULL},
 	 { (char *)"DataViewChoiceRenderer_swiginit", DataViewChoiceRenderer_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_DataViewDateRenderer", (PyCFunction) _wrap_new_DataViewDateRenderer, METH_VARARGS | METH_KEYWORDS, NULL},

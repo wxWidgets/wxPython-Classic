@@ -293,6 +293,10 @@ class HtmlWinParser(HtmlParser):
         """SetFontSize(self, int s)"""
         return _html.HtmlWinParser_SetFontSize(*args, **kwargs)
 
+    def SetFontPointSize(*args, **kwargs):
+        """SetFontPointSize(self, int pt)"""
+        return _html.HtmlWinParser_SetFontPointSize(*args, **kwargs)
+
     def GetFontBold(*args, **kwargs):
         """GetFontBold(self) -> int"""
         return _html.HtmlWinParser_GetFontBold(*args, **kwargs)

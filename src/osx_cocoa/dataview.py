@@ -1325,6 +1325,14 @@ class DataViewChoiceRenderer(DataViewCustomRenderer):
             int alignment=DVR_DEFAULT_ALIGNMENT) -> DataViewChoiceRenderer
         """
         _dataview.DataViewChoiceRenderer_swiginit(self,_dataview.new_DataViewChoiceRenderer(*args, **kwargs))
+    def GetChoice(*args, **kwargs):
+        """GetChoice(self, size_t index) -> String"""
+        return _dataview.DataViewChoiceRenderer_GetChoice(*args, **kwargs)
+
+    def GetChoices(*args, **kwargs):
+        """GetChoices(self) -> wxArrayString"""
+        return _dataview.DataViewChoiceRenderer_GetChoices(*args, **kwargs)
+
 _dataview.DataViewChoiceRenderer_swigregister(DataViewChoiceRenderer)
 
 class DataViewDateRenderer(DataViewRenderer):

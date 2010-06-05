@@ -17829,7 +17829,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Locale_AddCatalog(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_Locale_AddCatalog__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxLocale *arg1 = (wxLocale *) 0 ;
   wxString *arg2 = 0 ;
@@ -17837,20 +17837,15 @@ SWIGINTERN PyObject *_wrap_Locale_AddCatalog(PyObject *SWIGUNUSEDPARM(self), PyO
   void *argp1 = 0 ;
   int res1 = 0 ;
   bool temp2 = false ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "domain", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Locale_AddCatalog",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxLocale, 0 |  0 );
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLocale, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Locale_AddCatalog" "', expected argument " "1"" of type '" "wxLocale *""'"); 
   }
   arg1 = reinterpret_cast< wxLocale * >(argp1);
   {
-    arg2 = wxString_in_helper(obj1);
+    arg2 = wxString_in_helper(swig_obj[1]);
     if (arg2 == NULL) SWIG_fail;
     temp2 = true;
   }
@@ -17873,6 +17868,145 @@ fail:
     if (temp2)
     delete arg2;
   }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Locale_AddCatalog__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxLocale *arg1 = (wxLocale *) 0 ;
+  wxString *arg2 = 0 ;
+  wxLanguage arg3 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  int val3 ;
+  int ecode3 = 0 ;
+  
+  if ((nobjs < 3) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLocale, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Locale_AddCatalog" "', expected argument " "1"" of type '" "wxLocale *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLocale * >(argp1);
+  {
+    arg2 = wxString_in_helper(swig_obj[1]);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Locale_AddCatalog" "', expected argument " "3"" of type '" "wxLanguage""'");
+  } 
+  arg3 = static_cast< wxLanguage >(val3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->AddCatalog((wxString const &)*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Locale_AddCatalog__SWIG_2(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxLocale *arg1 = (wxLocale *) 0 ;
+  wxString *arg2 = 0 ;
+  wxLanguage arg3 ;
+  wxString *arg4 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  int val3 ;
+  int ecode3 = 0 ;
+  bool temp4 = false ;
+  
+  if ((nobjs < 4) || (nobjs > 4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxLocale, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Locale_AddCatalog" "', expected argument " "1"" of type '" "wxLocale *""'"); 
+  }
+  arg1 = reinterpret_cast< wxLocale * >(argp1);
+  {
+    arg2 = wxString_in_helper(swig_obj[1]);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Locale_AddCatalog" "', expected argument " "3"" of type '" "wxLanguage""'");
+  } 
+  arg3 = static_cast< wxLanguage >(val3);
+  {
+    arg4 = wxString_in_helper(swig_obj[3]);
+    if (arg4 == NULL) SWIG_fail;
+    temp4 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->AddCatalog((wxString const &)*arg2,arg3,(wxString const &)*arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  {
+    if (temp4)
+    delete arg4;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  {
+    if (temp4)
+    delete arg4;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Locale_AddCatalog(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[5];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"Locale_AddCatalog",0,4,argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    return _wrap_Locale_AddCatalog__SWIG_0(self, argc, argv);
+  }
+  if (argc == 3) {
+    return _wrap_Locale_AddCatalog__SWIG_1(self, argc, argv);
+  }
+  if (argc == 4) {
+    return _wrap_Locale_AddCatalog__SWIG_2(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'Locale_AddCatalog'");
   return NULL;
 }
 
@@ -18007,6 +18141,42 @@ SWIGINTERN PyObject *_wrap_Locale_GetLanguageName(PyObject *SWIGUNUSEDPARM(self)
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = wxLocale::GetLanguageName(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Locale_GetLanguageCanonicalName(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  int arg1 ;
+  wxString result;
+  int val1 ;
+  int ecode1 = 0 ;
+  PyObject * obj0 = 0 ;
+  char *  kwnames[] = {
+    (char *) "lang", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O:Locale_GetLanguageCanonicalName",kwnames,&obj0)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "Locale_GetLanguageCanonicalName" "', expected argument " "1"" of type '" "int""'");
+  } 
+  arg1 = static_cast< int >(val1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxLocale::GetLanguageCanonicalName(arg1);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -42592,11 +42762,12 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Locale_GetSysName", (PyCFunction)_wrap_Locale_GetSysName, METH_O, NULL},
 	 { (char *)"Locale_GetCanonicalName", (PyCFunction)_wrap_Locale_GetCanonicalName, METH_O, NULL},
 	 { (char *)"Locale_AddCatalogLookupPathPrefix", (PyCFunction) _wrap_Locale_AddCatalogLookupPathPrefix, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"Locale_AddCatalog", (PyCFunction) _wrap_Locale_AddCatalog, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Locale_AddCatalog", _wrap_Locale_AddCatalog, METH_VARARGS, NULL},
 	 { (char *)"Locale_IsAvailable", (PyCFunction) _wrap_Locale_IsAvailable, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Locale_IsLoaded", (PyCFunction) _wrap_Locale_IsLoaded, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Locale_GetLanguageInfo", (PyCFunction) _wrap_Locale_GetLanguageInfo, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Locale_GetLanguageName", (PyCFunction) _wrap_Locale_GetLanguageName, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Locale_GetLanguageCanonicalName", (PyCFunction) _wrap_Locale_GetLanguageCanonicalName, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Locale_FindLanguageInfo", (PyCFunction) _wrap_Locale_FindLanguageInfo, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Locale_AddLanguage", (PyCFunction) _wrap_Locale_AddLanguage, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Locale_GetString", (PyCFunction) _wrap_Locale_GetString, METH_VARARGS | METH_KEYWORDS, NULL},

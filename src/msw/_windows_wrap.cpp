@@ -2798,16 +2798,6 @@ SWIG_AsVal_int (PyObject * obj, int *val)
 }
 
 
-  #define SWIG_From_long   PyInt_FromLong 
-
-
-SWIGINTERNINLINE PyObject *
-SWIG_From_int  (int value)
-{    
-  return SWIG_From_long  (value);
-}
-
-
 SWIGINTERN int
 SWIG_AsVal_bool (PyObject *obj, bool *val)
 {
@@ -2823,6 +2813,16 @@ SWIG_AsVal_bool (PyObject *obj, bool *val)
     if (SWIG_IsOK(res) && val) *val = v ? true : false;
     return res;
   }
+}
+
+
+  #define SWIG_From_long   PyInt_FromLong 
+
+
+SWIGINTERNINLINE PyObject *
+SWIG_From_int  (int value)
+{    
+  return SWIG_From_long  (value);
 }
 
 
@@ -4145,6 +4145,76 @@ SWIGINTERN PyObject *_wrap_Panel_SetFocusIgnoringChildren(PyObject *SWIGUNUSEDPA
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Panel_MSWSetTransparentBackground(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPanel *arg1 = (wxPanel *) 0 ;
+  bool arg2 = (bool) true ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "isTransparent", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:Panel_MSWSetTransparentBackground",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPanel, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Panel_MSWSetTransparentBackground" "', expected argument " "1"" of type '" "wxPanel *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPanel * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_bool(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Panel_MSWSetTransparentBackground" "', expected argument " "2"" of type '" "bool""'");
+    } 
+    arg2 = static_cast< bool >(val2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->MSWSetTransparentBackground(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Panel_HasTransparentBackground(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPanel *arg1 = (wxPanel *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPanel, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Panel_HasTransparentBackground" "', expected argument " "1"" of type '" "wxPanel *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPanel * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->HasTransparentBackground();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -25490,6 +25560,66 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ProgressDialog_WasCancelled(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxProgressDialog *arg1 = (wxProgressDialog *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxProgressDialog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProgressDialog_WasCancelled" "', expected argument " "1"" of type '" "wxProgressDialog const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxProgressDialog * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxProgressDialog const *)arg1)->WasCancelled();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ProgressDialog_WasSkipped(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxProgressDialog *arg1 = (wxProgressDialog *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxProgressDialog, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ProgressDialog_WasSkipped" "', expected argument " "1"" of type '" "wxProgressDialog const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxProgressDialog * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxProgressDialog const *)arg1)->WasSkipped();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *ProgressDialog_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -34675,6 +34805,72 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Printout_SetPreview(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyPrintout *arg1 = (wxPyPrintout *) 0 ;
+  wxPrintPreview *arg2 = (wxPrintPreview *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "preview", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Printout_SetPreview",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyPrintout, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Printout_SetPreview" "', expected argument " "1"" of type '" "wxPyPrintout *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxPrintPreview, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Printout_SetPreview" "', expected argument " "2"" of type '" "wxPrintPreview *""'"); 
+  }
+  arg2 = reinterpret_cast< wxPrintPreview * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetPreview(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Printout_GetPreview(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyPrintout *arg1 = (wxPyPrintout *) 0 ;
+  wxPrintPreview *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyPrintout, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Printout_GetPreview" "', expected argument " "1"" of type '" "wxPyPrintout const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxPrintPreview *)((wxPyPrintout const *)arg1)->GetPreview();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxPrintPreview, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Printout_IsPreview(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPyPrintout *arg1 = (wxPyPrintout *) 0 ;
@@ -34699,44 +34895,6 @@ SWIGINTERN PyObject *_wrap_Printout_IsPreview(PyObject *SWIGUNUSEDPARM(self), Py
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Printout_SetIsPreview(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxPyPrintout *arg1 = (wxPyPrintout *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "p", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Printout_SetIsPreview",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyPrintout, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Printout_SetIsPreview" "', expected argument " "1"" of type '" "wxPyPrintout *""'"); 
-  }
-  arg1 = reinterpret_cast< wxPyPrintout * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Printout_SetIsPreview" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetIsPreview(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -37386,6 +37544,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_PrePanel", (PyCFunction)_wrap_new_PrePanel, METH_NOARGS, NULL},
 	 { (char *)"Panel_Create", (PyCFunction) _wrap_Panel_Create, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Panel_SetFocusIgnoringChildren", (PyCFunction)_wrap_Panel_SetFocusIgnoringChildren, METH_O, NULL},
+	 { (char *)"Panel_MSWSetTransparentBackground", (PyCFunction) _wrap_Panel_MSWSetTransparentBackground, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Panel_HasTransparentBackground", (PyCFunction)_wrap_Panel_HasTransparentBackground, METH_O, NULL},
 	 { (char *)"Panel_GetClassDefaultAttributes", (PyCFunction) _wrap_Panel_GetClassDefaultAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Panel_swigregister", Panel_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Panel_swiginit", Panel_swiginit, METH_VARARGS, NULL},
@@ -37957,6 +38117,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ProgressDialog_GetRange", (PyCFunction)_wrap_ProgressDialog_GetRange, METH_O, NULL},
 	 { (char *)"ProgressDialog_SetRange", (PyCFunction) _wrap_ProgressDialog_SetRange, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ProgressDialog_GetMessage", (PyCFunction)_wrap_ProgressDialog_GetMessage, METH_O, NULL},
+	 { (char *)"ProgressDialog_WasCancelled", (PyCFunction)_wrap_ProgressDialog_WasCancelled, METH_O, NULL},
+	 { (char *)"ProgressDialog_WasSkipped", (PyCFunction)_wrap_ProgressDialog_WasSkipped, METH_O, NULL},
 	 { (char *)"ProgressDialog_swigregister", ProgressDialog_swigregister, METH_VARARGS, NULL},
 	 { (char *)"ProgressDialog_swiginit", ProgressDialog_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_FindDialogEvent", (PyCFunction) _wrap_new_FindDialogEvent, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -38220,8 +38382,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Printout_GetPPIPrinter", (PyCFunction)_wrap_Printout_GetPPIPrinter, METH_O, NULL},
 	 { (char *)"Printout_SetPaperRectPixels", (PyCFunction) _wrap_Printout_SetPaperRectPixels, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Printout_GetPaperRectPixels", (PyCFunction)_wrap_Printout_GetPaperRectPixels, METH_O, NULL},
+	 { (char *)"Printout_SetPreview", (PyCFunction) _wrap_Printout_SetPreview, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Printout_GetPreview", (PyCFunction)_wrap_Printout_GetPreview, METH_O, NULL},
 	 { (char *)"Printout_IsPreview", (PyCFunction)_wrap_Printout_IsPreview, METH_O, NULL},
-	 { (char *)"Printout_SetIsPreview", (PyCFunction) _wrap_Printout_SetIsPreview, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Printout_OnBeginDocument", (PyCFunction) _wrap_Printout_OnBeginDocument, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Printout_OnEndDocument", (PyCFunction)_wrap_Printout_OnEndDocument, METH_O, NULL},
 	 { (char *)"Printout_OnBeginPrinting", (PyCFunction)_wrap_Printout_OnBeginPrinting, METH_O, NULL},

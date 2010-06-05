@@ -2960,9 +2960,13 @@ class Locale(object):
         return _gdi_.Locale_AddCatalogLookupPathPrefix(*args, **kwargs)
 
     AddCatalogLookupPathPrefix = staticmethod(AddCatalogLookupPathPrefix)
-    def AddCatalog(*args, **kwargs):
-        """AddCatalog(self, String domain) -> bool"""
-        return _gdi_.Locale_AddCatalog(*args, **kwargs)
+    def AddCatalog(*args):
+        """
+        AddCatalog(self, String domain) -> bool
+        AddCatalog(self, String domain, int msgIdLanguage) -> bool
+        AddCatalog(self, String domain, int msgIdLanguage, String msgIdCharset) -> bool
+        """
+        return _gdi_.Locale_AddCatalog(*args)
 
     def IsAvailable(*args, **kwargs):
         """IsAvailable(int lang) -> bool"""
@@ -2983,6 +2987,11 @@ class Locale(object):
         return _gdi_.Locale_GetLanguageName(*args, **kwargs)
 
     GetLanguageName = staticmethod(GetLanguageName)
+    def GetLanguageCanonicalName(*args, **kwargs):
+        """GetLanguageCanonicalName(int lang) -> String"""
+        return _gdi_.Locale_GetLanguageCanonicalName(*args, **kwargs)
+
+    GetLanguageCanonicalName = staticmethod(GetLanguageCanonicalName)
     def FindLanguageInfo(*args, **kwargs):
         """FindLanguageInfo(String locale) -> LanguageInfo"""
         return _gdi_.Locale_FindLanguageInfo(*args, **kwargs)
@@ -3040,6 +3049,10 @@ def Locale_GetLanguageInfo(*args, **kwargs):
 def Locale_GetLanguageName(*args, **kwargs):
   """Locale_GetLanguageName(int lang) -> String"""
   return _gdi_.Locale_GetLanguageName(*args, **kwargs)
+
+def Locale_GetLanguageCanonicalName(*args, **kwargs):
+  """Locale_GetLanguageCanonicalName(int lang) -> String"""
+  return _gdi_.Locale_GetLanguageCanonicalName(*args, **kwargs)
 
 def Locale_FindLanguageInfo(*args, **kwargs):
   """Locale_FindLanguageInfo(String locale) -> LanguageInfo"""
@@ -5839,6 +5852,7 @@ class GraphicsGradientStops(object):
         """__getitem__(self, unsigned int n) -> GraphicsGradientStop"""
         return _gdi_.GraphicsGradientStops___getitem__(*args, **kwargs)
 
+    Count = property(GetCount) 
     StartColour = property(GetStartColour,SetStartColour) 
     EndColour = property(GetEndColour,SetEndColour) 
 _gdi_.GraphicsGradientStops_swigregister(GraphicsGradientStops)
@@ -5987,7 +6001,7 @@ class GraphicsContext(GraphicsObject):
             GraphicsGradientStops stops) -> GraphicsBrush
 
         Creates a native brush, having a radial gradient originating at point
-        (xo,yc) and ending on a circle around (xc,yc) with the given radius; the colours may be
+        (xo,yo) and ending on a circle around (xc,yc) with the given radius; the colours may be
         specified by just the two extremes or the full array of gradient stops.
         """
         return _gdi_.GraphicsContext_CreateRadialGradientBrush(*args)
@@ -6089,7 +6103,7 @@ class GraphicsContext(GraphicsObject):
         """
         SetAntialiasMode(self, int antialias) -> bool
 
-        Sets the antialiasing mode, returns true if it supported
+        Sets the antialiasing mode, returns true if it is supported
         """
         return _gdi_.GraphicsContext_SetAntialiasMode(*args, **kwargs)
 

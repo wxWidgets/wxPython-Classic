@@ -75,7 +75,7 @@ def _deprecated(callable, msg=None):
     before calling the callable.
     """
     if msg is None:
-        msg = "%s is deprecated" % callable
+        msg = "This item is deprecated, use %s instead" % callable
     def deprecatedWrapper(*args, **kwargs):
         import warnings
         warnings.warn(msg, DeprecationWarning, stacklevel=2)
@@ -2727,7 +2727,7 @@ class Image_HSVValue(object):
     """
     An object that contains values for hue, saturation and value which
     represent the value of a color.  It is used by `wx.Image.HSVtoRGB` and
-    `wx.Image.RGBtoHSV`, which +converts between HSV color space and RGB
+    `wx.Image.RGBtoHSV`, which converts between HSV color space and RGB
     color space.
     """
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -4052,6 +4052,10 @@ class EvtHandler(Object):
         """SafelyProcessEvent(self, Event event) -> bool"""
         return _core_.EvtHandler_SafelyProcessEvent(*args, **kwargs)
 
+    def ProcessEventLocally(*args, **kwargs):
+        """ProcessEventLocally(self, Event event) -> bool"""
+        return _core_.EvtHandler_ProcessEventLocally(*args, **kwargs)
+
     def QueueEvent(*args, **kwargs):
         """QueueEvent(self, Event event)"""
         return _core_.EvtHandler_QueueEvent(*args, **kwargs)
@@ -4963,6 +4967,14 @@ class Event(Object):
         """WasProcessed(self) -> bool"""
         return _core_.Event_WasProcessed(*args, **kwargs)
 
+    def ShouldProcessOnlyIn(*args, **kwargs):
+        """ShouldProcessOnlyIn(self, EvtHandler h) -> bool"""
+        return _core_.Event_ShouldProcessOnlyIn(*args, **kwargs)
+
+    def DidntHonourProcessOnlyIn(*args, **kwargs):
+        """DidntHonourProcessOnlyIn(self)"""
+        return _core_.Event_DidntHonourProcessOnlyIn(*args, **kwargs)
+
     def Clone(*args, **kwargs):
         """Clone(self) -> Event"""
         return _core_.Event_Clone(*args, **kwargs)
@@ -4995,6 +5007,11 @@ class PropagationDisabler(object):
         _core_.PropagationDisabler_swiginit(self,_core_.new_PropagationDisabler(*args, **kwargs))
     __swig_destroy__ = _core_.delete_PropagationDisabler
     __del__ = lambda self : None;
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
 _core_.PropagationDisabler_swigregister(PropagationDisabler)
 
 class PropagateOnce(object):
@@ -5016,7 +5033,28 @@ class PropagateOnce(object):
         _core_.PropagateOnce_swiginit(self,_core_.new_PropagateOnce(*args, **kwargs))
     __swig_destroy__ = _core_.delete_PropagateOnce
     __del__ = lambda self : None;
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
 _core_.PropagateOnce_swigregister(PropagateOnce)
+
+class EventProcessInHandlerOnly(object):
+    """Proxy of C++ EventProcessInHandlerOnly class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, Event event, EvtHandler handler) -> EventProcessInHandlerOnly"""
+        _core_.EventProcessInHandlerOnly_swiginit(self,_core_.new_EventProcessInHandlerOnly(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_EventProcessInHandlerOnly
+    __del__ = lambda self : None;
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        return False
+
+_core_.EventProcessInHandlerOnly_swigregister(EventProcessInHandlerOnly)
 
 #---------------------------------------------------------------------------
 
@@ -12007,6 +12045,10 @@ class Menu(EvtHandler):
     def GetInvokingWindow(*args, **kwargs):
         """GetInvokingWindow(self) -> Window"""
         return _core_.Menu_GetInvokingWindow(*args, **kwargs)
+
+    def GetWindow(*args, **kwargs):
+        """GetWindow(self) -> Window"""
+        return _core_.Menu_GetWindow(*args, **kwargs)
 
     def GetStyle(*args, **kwargs):
         """GetStyle(self) -> long"""

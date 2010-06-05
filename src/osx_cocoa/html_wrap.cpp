@@ -4826,6 +4826,44 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_HtmlWinParser_SetFontPointSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxHtmlWinParser *arg1 = (wxHtmlWinParser *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pt", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:HtmlWinParser_SetFontPointSize",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxHtmlWinParser, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HtmlWinParser_SetFontPointSize" "', expected argument " "1"" of type '" "wxHtmlWinParser *""'"); 
+  }
+  arg1 = reinterpret_cast< wxHtmlWinParser * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HtmlWinParser_SetFontPointSize" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetFontPointSize(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_HtmlWinParser_GetFontBold(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxHtmlWinParser *arg1 = (wxHtmlWinParser *) 0 ;
@@ -18073,6 +18111,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"HtmlWinParser_CloseContainer", (PyCFunction)_wrap_HtmlWinParser_CloseContainer, METH_O, NULL},
 	 { (char *)"HtmlWinParser_GetFontSize", (PyCFunction)_wrap_HtmlWinParser_GetFontSize, METH_O, NULL},
 	 { (char *)"HtmlWinParser_SetFontSize", (PyCFunction) _wrap_HtmlWinParser_SetFontSize, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"HtmlWinParser_SetFontPointSize", (PyCFunction) _wrap_HtmlWinParser_SetFontPointSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlWinParser_GetFontBold", (PyCFunction)_wrap_HtmlWinParser_GetFontBold, METH_O, NULL},
 	 { (char *)"HtmlWinParser_SetFontBold", (PyCFunction) _wrap_HtmlWinParser_SetFontBold, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlWinParser_GetFontItalic", (PyCFunction)_wrap_HtmlWinParser_GetFontItalic, METH_O, NULL},
