@@ -904,6 +904,12 @@ abort.", "");
         wxString , GetMessage() const,
         "", "");
 
+    // Return whether "Cancel" or "Skip" button was pressed, always return
+    // false if the corresponding button is not shown.
+    bool WasCancelled() const;
+    bool WasSkipped() const;
+
+    
     %property(Value, GetValue);
     %property(Range, GetRange, SetRange);
     %property(Message, GetMessage);

@@ -48,6 +48,21 @@ public:
     // wouldn't correctly propagate to wxEventLoop.
     bool SafelyProcessEvent(wxEvent& event);
 
+    // This method tries to process the event in this event handler, including
+    // any preprocessing done by TryBefore() and all the handlers chained to
+    // it, but excluding the post-processing done in TryAfter().
+    //
+    // It is meant to be called from ProcessEvent() only and is not virtual,
+    // additional event handlers can be hooked into the normal event processing
+    // logic using TryBefore() and TryAfter() hooks.
+    //
+    // You can also call it yourself to forward an event to another handler but
+    // without propagating it upwards if it's unhandled (this is usually
+    // unwanted when forwarding as the original handler would already do it if
+    // needed normally).
+    bool ProcessEventLocally(wxEvent& event);
+
+    
     void QueueEvent(wxEvent *event);
     
     // add an event to be processed later

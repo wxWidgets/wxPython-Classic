@@ -880,6 +880,9 @@ public:
     static wxGraphicsContext* Create( const wxMemoryDC& dc);
     static wxGraphicsContext* Create( wxWindow* window ) ;
     static wxGraphicsContext* Create( const wxPrinterDC& dc) ;
+#ifdef __WXMSW__
+    static wxGraphicsContext* Create( const wxMetaFileDC& dc) ;
+#endif
 
     %pythonAppend Create "";
     DocDeclStrName(
@@ -1316,6 +1319,9 @@ public :
     virtual wxGraphicsContext * CreateContext( const wxMemoryDC& dc) ;
     virtual wxGraphicsContext * CreateContext( const wxPrinterDC& dc) ;
     virtual wxGraphicsContext * CreateContext( wxWindow* window );
+#ifdef __WXMSW__
+    virtual wxGraphicsContext * CreateContext( const wxMetaFileDC& dc) ;
+#endif
     
     // create a context that can be used for measuring texts only, no drawing allowed
     virtual wxGraphicsContext * CreateMeasuringContext();

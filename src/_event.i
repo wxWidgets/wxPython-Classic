@@ -541,6 +541,10 @@ example, you can use the value returned by an earlier call to
         "", "");
     
 
+    bool ShouldProcessOnlyIn(wxEvtHandler *h) const;
+    void DidntHonourProcessOnlyIn();
+    
+    
     // this function is used to create a copy of the event polymorphically and
     // all derived classes must implement it because otherwise wxPostEvent()
     // for them wouldn't work (it needs to do a copy of the event)
@@ -567,6 +571,14 @@ class  wxPropagationDisabler
 public:
     wxPropagationDisabler(wxEvent& event);
     ~wxPropagationDisabler();
+
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+    }  
 };
 
 
@@ -579,7 +591,34 @@ class  wxPropagateOnce
 public:
     wxPropagateOnce(wxEvent& event);
     ~wxPropagateOnce();
+
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+    }  
 };
+
+
+// A helper object used to temporarily make wxEvent::ShouldProcessOnlyIn()
+// return true for the handler passed to its ctor.
+class wxEventProcessInHandlerOnly
+{
+public:
+    wxEventProcessInHandlerOnly(wxEvent& event, wxEvtHandler *handler);
+    ~wxEventProcessInHandlerOnly();
+
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            return False
+    }  
+};
+
 
 //---------------------------------------------------------------------------
 %newgroup;

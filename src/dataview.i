@@ -1400,10 +1400,6 @@ class instead of `DataViewVirtualListModel`.", "");
 DECLARE_INDEX_MODEL(wxDataViewVirtualListModel, wxPyDataViewVirtualListModel);
 
 
-//---------------------------------------------------------------------------
-// TODO: should I wrap wxDataViewEditorCtrlEvtHandler ?
-
-
 
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
@@ -1657,8 +1653,28 @@ public:
     wxDataViewChoiceRenderer( const wxArrayString &choices,
                               wxDataViewCellMode mode = wxDATAVIEW_CELL_EDITABLE,
                               int alignment = wxDVR_DEFAULT_ALIGNMENT );
+
+    wxString GetChoice(size_t index) const;
+    const wxArrayString& GetChoices() const;
 };
 
+
+
+#ifndef __WXOSX_COCOA__
+//---------------------------------------------------------------------------
+// wxDataViewChoiceByIndexRenderer
+
+DocStr(wxDataViewChoiceByIndexRenderer,
+"","");
+
+class wxDataViewChoiceByIndexRenderer: public wxDataViewChoiceRenderer
+{
+public:
+    wxDataViewChoiceByIndexRenderer( const wxArrayString &choices,
+                                     wxDataViewCellMode mode = wxDATAVIEW_CELL_EDITABLE,
+                                     int alignment = wxDVR_DEFAULT_ALIGNMENT );
+};
+#endif
 
 //---------------------------------------------------------------------------
 // wxDataViewDateRenderer

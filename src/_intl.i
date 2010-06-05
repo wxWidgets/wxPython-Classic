@@ -432,7 +432,11 @@ public:
     // The loaded catalog will be used for message lookup by GetString().
     //
     // Returns 'True' if it was successfully loaded
+    %nokwargs AddCatalog;
     bool AddCatalog(const wxString& domain);
+    bool AddCatalog(const wxString& domain, wxLanguage msgIdLanguage);
+    bool AddCatalog(const wxString& domain,
+                    wxLanguage msgIdLanguage, const wxString& msgIdCharset);
 
     // check if the given locale is provided by OS and C run time
     static bool IsAvailable(int lang);
@@ -449,6 +453,10 @@ public:
     // is not in database
     static wxString GetLanguageName(int lang);
 
+    // Returns ISO code ("canonical name") of language or empty string if the
+    // language is not in database
+    static wxString GetLanguageCanonicalName(int lang);
+    
     // Find the language for the given locale string which may be either a
     // canonical ISO 2 letter language code ("xx"), a language code followed by
     // the country code ("xx_XX") or a Windows full language name ("Xxxxx...")

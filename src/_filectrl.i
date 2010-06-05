@@ -123,23 +123,31 @@ public:
 
     void SetFiles( const wxArrayString &files );
     void SetDirectory( const wxString &directory );
+    void SetFilterIndex(int filterIndex);
 
     wxArrayString GetFiles() const;
     wxString GetDirectory() const;
+    int GetFilterIndex() const;
 
     wxString GetFile() const;
+
+    %property(Files, GetFiles, SetFiles);
+    %property(Directory, GetDirectory, SetDirectory);
+    %property(FilterIndex, GetFilterIndex, SetFilterIndex);
 };
 
 
 %constant wxEventType wxEVT_FILECTRL_SELECTIONCHANGED;
 %constant wxEventType wxEVT_FILECTRL_FILEACTIVATED;
 %constant wxEventType wxEVT_FILECTRL_FOLDERCHANGED;
+%constant wxEventType wxEVT_FILECTRL_FILTERCHANGED;
 
 
 %pythoncode {
     EVT_FILECTRL_SELECTIONCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_SELECTIONCHANGED, 1)
     EVT_FILECTRL_FILEACTIVATED = wx.PyEventBinder( wxEVT_FILECTRL_FILEACTIVATED, 1)
-    EVT_FILECTRL_FOLDERCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_FOLDERCHANGED, 1)        
+    EVT_FILECTRL_FOLDERCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_FOLDERCHANGED, 1)
+    EVT_FILECTRL_FILTERCHANGED = wx.PyEventBinder( wxEVT_FILECTRL_FILTERCHANGED, 1)
 }
 
 //---------------------------------------------------------------------------

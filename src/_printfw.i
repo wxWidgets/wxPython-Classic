@@ -539,8 +539,10 @@ public:
     void SetPaperRectPixels(const wxRect& paperRectPixels);
     wxRect GetPaperRectPixels() const;
 
+
+    virtual void SetPreview(wxPrintPreview *preview);
+    wxPrintPreview *GetPreview() const;
     bool IsPreview();
-    void SetIsPreview(bool p);
 
     
     bool OnBeginDocument(int startPage, int endPage);

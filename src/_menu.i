@@ -210,6 +210,9 @@ public:
     void SetInvokingWindow(wxWindow *win);
     wxWindow *GetInvokingWindow() const;
 
+    wxWindow* GetWindow() const;
+
+    
     // style
     long GetStyle() const { return m_style; }
 
@@ -247,6 +250,9 @@ public:
     %property(Title, GetTitle, SetTitle, doc="See `GetTitle` and `SetTitle`");
     
 };
+
+//---------------------------------------------------------------------------
+
 
 //---------------------------------------------------------------------------
 %newgroup

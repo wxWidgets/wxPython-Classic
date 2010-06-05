@@ -556,6 +556,8 @@ public:
     }
 
     virtual wxTreeItemId GetFocusedItem() const;
+    virtual void ClearFocusedItem();
+    virtual void SetFocusedItem(const wxTreeItemId& item);
 
     // get the parent of this item
     // wxTreeItemId.IsOk() will return False if there is no such item
