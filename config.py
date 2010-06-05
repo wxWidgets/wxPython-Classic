@@ -886,6 +886,7 @@ if WXPORT != 'msw':
     # make sure we only use the compiler value on MSW builds
     COMPILER=None
 
+WXPLAT2 = None
 
 #----------------------------------------------------------------------
 # Setup some platform specific stuff
@@ -1026,8 +1027,10 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
         if WXPORT == 'osx_carbon':
         # Flags and such for a Darwin (Max OS X) build of Python
             GENDIR = 'osx_carbon'
+            WXPLAT2 = '__WXOSX_CARBON__'
         else:
             GENDIR = 'osx_cocoa'
+            WXPLAT2 = '__WXOSX_COCOA__'
 
         libs = ['stdc++']
         NO_SCRIPTS = 1
@@ -1177,6 +1180,7 @@ swig_args = ['-c++',
              '-new_repr',
              '-modern',
              '-D'+WXPLAT,
+             '-D'+WXPLAT2 if WXPLAT2 else '',
              ] + i_files_includes
 
 if USE_SWIG:
