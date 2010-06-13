@@ -215,6 +215,25 @@ class ComboCtrl(_core.Control):
         """GetMargins(self) -> Point"""
         return _combo.ComboCtrl_GetMargins(*args, **kwargs)
 
+    def SetTextCtrlStyle(*args, **kwargs):
+        """
+        SetTextCtrlStyle(self, int style)
+
+        Set a custom window style for the embedded wxTextCtrl. Usually you
+        will need to use this during two-step creation, just before Create().
+        For example::
+
+            class MyComboCtrl(wx.combo.ComboCtrl):
+                def __init__(self, *args, **kwargs):
+                    pre = wx.combo.PreComboCtrl()
+                    # Let's make the text right-aligned
+                    pre.SetTextCtrlStyle(wx.TE_RIGHT)
+                    pre.Create(*args, **kwargs);
+                    self.PostCreate(pre)
+
+        """
+        return _combo.ComboCtrl_SetTextCtrlStyle(*args, **kwargs)
+
     def GetValue(*args, **kwargs):
         """
         GetValue(self) -> String

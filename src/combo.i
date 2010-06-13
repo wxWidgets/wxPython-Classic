@@ -333,7 +333,21 @@ necessarily a wx.Button or wx.BitmapButton.", "");
     bool SetMargins(wxCoord left, wxCoord top = -1);
     wxPoint GetMargins() const;
 
-    
+    DocDeclStr(
+        void , SetTextCtrlStyle( int style ),
+        "Set a custom window style for the embedded wxTextCtrl. Usually you
+will need to use this during two-step creation, just before Create().
+For example::
+
+    class MyComboCtrl(wx.combo.ComboCtrl):
+        def __init__(self, *args, **kwargs):
+            pre = wx.combo.PreComboCtrl()
+            # Let's make the text right-aligned
+            pre.SetTextCtrlStyle(wx.TE_RIGHT)
+            pre.Create(*args, **kwargs);
+            self.PostCreate(pre)
+", "");
+
     DocDeclStr(
         virtual wxString , GetValue() const,
         "Returns text representation of the current value. For writable combo
