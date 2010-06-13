@@ -959,20 +959,29 @@ class TestPanel( wx.Panel ):
         except:
             pass
 
-        # Iterator
-
-        it = pg.GetPage(0).GetIterator(wxpg.PG_ITERATE_ALL)
-        while not it.AtEnd():
-            log.write('Iterating \'%s\'\n' % (it.GetProperty().GetName()))
-            it.Next()
+        # GetPyIterator
+        log.write('GetPage(0).GetPyIterator()\n')
+        it = pg.GetPage(0).GetPyIterator(wxpg.PG_ITERATE_ALL)
+        for prop in it:
+            log.write('Iterating \'%s\'\n' % (prop.GetName()))
 
         # VIterator
+        log.write('GetPyVIterator()\n')
+        it = pg.GetPyVIterator(wxpg.PG_ITERATE_ALL)
+        for prop in it:
+            log.write('Iterating \'%s\'\n' % (prop.GetName()))
 
-        it = pg.GetVIterator(wxpg.PG_ITERATE_ALL)
-        while not it.AtEnd():
-            log.write('Iterating \'%s\'\n' % (it.GetProperty().GetName()))
-            it.Next()
+        # Properties
+        log.write('GetPage(0).Properties\n')
+        it = pg.GetPage(0).Properties
+        for prop in it:
+            log.write('Iterating \'%s\'\n' % (prop.GetName()))
 
+        # Items
+        log.write('GetPage(0).Items\n')
+        it = pg.GetPage(0).Items
+        for prop in it:
+            log.write('Iterating \'%s\'\n' % (prop.GetName()))
 
 #---------------------------------------------------------------------------
 

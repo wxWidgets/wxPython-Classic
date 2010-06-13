@@ -1720,6 +1720,81 @@ class PropertyGridInterface(object):
             p = self.GetPropertyByName(p)
         return p.SetClientData(data)
 
+    def GetPyIterator(self, flags=PG_ITERATE_DEFAULT,
+                      firstProperty=None):
+        """
+        Returns a pythonic property iterator for a single `PropertyGrid`
+        or page in `PropertyGridManager`. Arguments are same as for
+        `GetIterator`. Following example demonstrates iterating absolutely
+        all items in a single grid::
+
+            iterator = propGrid.GetPyIterator(wx.propgrid.PG_ITERATE_ALL)
+            for prop in iterator:
+                print(prop)
+
+        :see: `wx.propgrid.PropertyGridInterface.Properties`
+              `wx.propgrid.PropertyGridInterface.Items`
+        """
+        it = self.GetIterator(flags, firstProperty)
+        while not it.AtEnd():
+            yield it.GetProperty()
+            it.Next()
+
+    def GetPyVIterator(self, flags=PG_ITERATE_DEFAULT):
+        """
+        Returns a pythonic property iterator for a single `PropertyGrid`
+        or entire `PropertyGridManager`. Arguments are same as for
+        `GetIterator`. Following example demonstrates iterating absolutely
+        all items in an entire `PropertyGridManager`::
+
+            iterator = propGridManager.GetPyVIterator(wx.propgrid.PG_ITERATE_ALL)
+            for prop in iterator:
+                print(prop)
+
+        :see: `wx.propgrid.PropertyGridInterface.Properties`
+              `wx.propgrid.PropertyGridInterface.Items`
+        """
+        it = self.GetVIterator(flags)
+        while not it.AtEnd():
+            yield it.GetProperty()
+            it.Next()
+
+    @property
+    def Properties(self):
+        """
+        This attribute is a pythonic iterator over all properties in
+        this `PropertyGrid` property container. It will only skip
+        categories and private child properties. Usage is simple::
+
+            for prop in propGrid.Properties:
+                print(prop)
+
+        :see: `wx.propgrid.PropertyGridInterface.Items`
+              `wx.propgrid.PropertyGridInterface.GetPyIterator`
+        """
+        it = self.GetVIterator(PG_ITERATE_NORMAL)
+        while not it.AtEnd():
+            yield it.GetProperty()
+            it.Next()
+
+    @property
+    def Items(self):
+        """
+        This attribute is a pythonic iterator over all items in this
+        `PropertyGrid` property container, excluding only private child
+        properties. Usage is simple::
+
+            for prop in propGrid.Items:
+                print(prop)
+
+        :see: `wx.propgrid.PropertyGridInterface.Properties`
+              `wx.propgrid.PropertyGridInterface.GetPyIterator`
+        """
+        it = self.GetVIterator(PG_ITERATE_NORMAL | PG_ITERATE_CATEGORIES)
+        while not it.AtEnd():
+            yield it.GetProperty()
+            it.Next()
+
 _propgrid.PropertyGridInterface_swigregister(PropertyGridInterface)
 
 def PropertyGridInterface_InitAllTypeHandlers(*args):
@@ -1898,6 +1973,10 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
     def AddActionTrigger(*args, **kwargs):
         """AddActionTrigger(self, int action, int keycode, int modifiers=0)"""
         return _propgrid.PropertyGrid_AddActionTrigger(*args, **kwargs)
+
+    def DedicateKey(*args, **kwargs):
+        """DedicateKey(self, int keycode)"""
+        return _propgrid.PropertyGrid_DedicateKey(*args, **kwargs)
 
     def AutoGetTranslation(*args, **kwargs):
         """AutoGetTranslation(bool enable)"""

@@ -28587,6 +28587,44 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PropertyGrid_DedicateKey(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPropertyGrid *arg1 = (wxPropertyGrid *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "keycode", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PropertyGrid_DedicateKey",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPropertyGrid, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PropertyGrid_DedicateKey" "', expected argument " "1"" of type '" "wxPropertyGrid *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPropertyGrid * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PropertyGrid_DedicateKey" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DedicateKey(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PropertyGrid_AutoGetTranslation(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   bool arg1 ;
@@ -47315,6 +47353,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_PropertyGrid", (PyCFunction) _wrap_new_PropertyGrid, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"delete_PropertyGrid", (PyCFunction)_wrap_delete_PropertyGrid, METH_O, NULL},
 	 { (char *)"PropertyGrid_AddActionTrigger", (PyCFunction) _wrap_PropertyGrid_AddActionTrigger, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PropertyGrid_DedicateKey", (PyCFunction) _wrap_PropertyGrid_DedicateKey, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PropertyGrid_AutoGetTranslation", (PyCFunction) _wrap_PropertyGrid_AutoGetTranslation, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PropertyGrid_ChangePropertyValue", (PyCFunction) _wrap_PropertyGrid_ChangePropertyValue, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PropertyGrid_CenterSplitter", (PyCFunction) _wrap_PropertyGrid_CenterSplitter, METH_VARARGS | METH_KEYWORDS, NULL},
