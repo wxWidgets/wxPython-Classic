@@ -3225,14 +3225,67 @@ class ColourPropertyValue(_core.Object):
         _propgrid.ColourPropertyValue_swiginit(self,_propgrid.new_ColourPropertyValue(*args))
 _propgrid.ColourPropertyValue_swigregister(ColourPropertyValue)
 
-class PGSpinCtrlEditor(PGTextCtrlEditor):
-    """Proxy of C++ PGSpinCtrlEditor class"""
+class FontProperty(PGProperty):
+    """Proxy of C++ FontProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
-    __swig_destroy__ = _propgrid.delete_PGSpinCtrlEditor
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            Font value=wxFont()) -> FontProperty
+        """
+        _propgrid.FontProperty_swiginit(self,_propgrid.new_FontProperty(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_FontProperty
     __del__ = lambda self : None;
-_propgrid.PGSpinCtrlEditor_swigregister(PGSpinCtrlEditor)
+_propgrid.FontProperty_swigregister(FontProperty)
+
+class SystemColourProperty(EnumProperty):
+    """Proxy of C++ SystemColourProperty class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            ColourPropertyValue value=wxColourPropertyValue()) -> SystemColourProperty
+        """
+        _propgrid.SystemColourProperty_swiginit(self,_propgrid.new_SystemColourProperty(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_SystemColourProperty
+    __del__ = lambda self : None;
+    def ColourToString(*args, **kwargs):
+        """ColourToString(self, Colour col, int index) -> String"""
+        return _propgrid.SystemColourProperty_ColourToString(*args, **kwargs)
+
+    def GetCustomColourIndex(*args, **kwargs):
+        """GetCustomColourIndex(self) -> int"""
+        return _propgrid.SystemColourProperty_GetCustomColourIndex(*args, **kwargs)
+
+    def QueryColourFromUser(*args, **kwargs):
+        """QueryColourFromUser(self, wxVariant variant) -> bool"""
+        return _propgrid.SystemColourProperty_QueryColourFromUser(*args, **kwargs)
+
+    def GetColour(*args, **kwargs):
+        """GetColour(self, int index) -> Colour"""
+        return _propgrid.SystemColourProperty_GetColour(*args, **kwargs)
+
+    def GetVal(*args, **kwargs):
+        """GetVal(self, wxVariant pVariant=None) -> ColourPropertyValue"""
+        return _propgrid.SystemColourProperty_GetVal(*args, **kwargs)
+
+_propgrid.SystemColourProperty_swigregister(SystemColourProperty)
+
+class ColourProperty(SystemColourProperty):
+    """Proxy of C++ ColourProperty class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            Colour value=*wxWHITE) -> ColourProperty
+        """
+        _propgrid.ColourProperty_swiginit(self,_propgrid.new_ColourProperty(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_ColourProperty
+    __del__ = lambda self : None;
+_propgrid.ColourProperty_swigregister(ColourProperty)
 
 class PropertyGridPage(_core.EvtHandler,PropertyGridInterface,):
     """Proxy of C++ PropertyGridPage class"""
@@ -3680,41 +3733,6 @@ def NewDateProperty(*args, **kwargs):
         DateTime value=wxDateTime()) -> PGProperty
     """
   return _propgrid.NewDateProperty(*args, **kwargs)
-class PyCheckBoxEditor(object):
-    """Proxy of C++ PyCheckBoxEditor class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self) -> PyCheckBoxEditor"""
-        _propgrid.PyCheckBoxEditor_swiginit(self,_propgrid.new_PyCheckBoxEditor(*args, **kwargs))
-        self._SetSelf(self); self._RegisterMethods()
-
-    def CallSuperMethod(self, *args, **kwargs):
-        funcname = args[0]
-        args2 = list(args)
-        args2[0] = self
-        self._super_call = True
-        try:
-            res = getattr(PyCheckBoxEditor, funcname)(*args2, **kwargs)
-        finally:
-            del self._super_call
-        return res
-
-    def _RegisterMethods(self):
-        cls = self.__class__
-        if not hasattr(cls,'_pyswig_methods_registered'):
-            cls._pyswig_methods_registered = True
-            ls = [ab for ab in cls.__dict__.iteritems()]
-            for a, b in ls:
-                if not a.startswith('_'):
-                    setattr(cls, '%s_t_'%a, b)
-
-    def _SetSelf(*args, **kwargs):
-        """_SetSelf(self, PyObject self)"""
-        return _propgrid.PyCheckBoxEditor__SetSelf(*args, **kwargs)
-
-_propgrid.PyCheckBoxEditor_swigregister(PyCheckBoxEditor)
-
 class PyFloatProperty(FloatProperty):
     """Proxy of C++ PyFloatProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -3974,6 +3992,41 @@ class PyStringProperty(StringProperty):
 
 _propgrid.PyStringProperty_swigregister(PyStringProperty)
 
+class PyLongStringDialogAdapter(PGLongStringDialogAdapter):
+    """Proxy of C++ PyLongStringDialogAdapter class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> PyLongStringDialogAdapter"""
+        _propgrid.PyLongStringDialogAdapter_swiginit(self,_propgrid.new_PyLongStringDialogAdapter(*args, **kwargs))
+        self._SetSelf(self); self._RegisterMethods()
+
+    def CallSuperMethod(self, *args, **kwargs):
+        funcname = args[0]
+        args2 = list(args)
+        args2[0] = self
+        self._super_call = True
+        try:
+            res = getattr(PyLongStringDialogAdapter, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
+        return res
+
+    def _RegisterMethods(self):
+        cls = self.__class__
+        if not hasattr(cls,'_pyswig_methods_registered'):
+            cls._pyswig_methods_registered = True
+            ls = [ab for ab in cls.__dict__.iteritems()]
+            for a, b in ls:
+                if not a.startswith('_'):
+                    setattr(cls, '%s_t_'%a, b)
+
+    def _SetSelf(*args, **kwargs):
+        """_SetSelf(self, PyObject self)"""
+        return _propgrid.PyLongStringDialogAdapter__SetSelf(*args, **kwargs)
+
+_propgrid.PyLongStringDialogAdapter_swigregister(PyLongStringDialogAdapter)
+
 class PyEditEnumProperty(EditEnumProperty):
     """Proxy of C++ PyEditEnumProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -4054,7 +4107,7 @@ class PyTextCtrlEditor(PGTextCtrlEditor):
 
 _propgrid.PyTextCtrlEditor_swigregister(PyTextCtrlEditor)
 
-class PySystemColourProperty(object):
+class PySystemColourProperty(SystemColourProperty):
     """Proxy of C++ PySystemColourProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -4136,7 +4189,45 @@ class PyFlagsProperty(FlagsProperty):
 
 _propgrid.PyFlagsProperty_swigregister(PyFlagsProperty)
 
-class PyColourProperty(object):
+class PyFontProperty(FontProperty):
+    """Proxy of C++ PyFontProperty class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            Font value=wxFont()) -> PyFontProperty
+        """
+        _propgrid.PyFontProperty_swiginit(self,_propgrid.new_PyFontProperty(*args, **kwargs))
+        self._SetSelf(self); self._RegisterMethods()
+
+    def CallSuperMethod(self, *args, **kwargs):
+        funcname = args[0]
+        args2 = list(args)
+        args2[0] = self
+        self._super_call = True
+        try:
+            res = getattr(PyFontProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
+        return res
+
+    def _RegisterMethods(self):
+        cls = self.__class__
+        if not hasattr(cls,'_pyswig_methods_registered'):
+            cls._pyswig_methods_registered = True
+            ls = [ab for ab in cls.__dict__.iteritems()]
+            for a, b in ls:
+                if not a.startswith('_'):
+                    setattr(cls, '%s_t_'%a, b)
+
+    def _SetSelf(*args, **kwargs):
+        """_SetSelf(self, PyObject self)"""
+        return _propgrid.PyFontProperty__SetSelf(*args, **kwargs)
+
+_propgrid.PyFontProperty_swigregister(PyFontProperty)
+
+class PyColourProperty(ColourProperty):
     """Proxy of C++ PyColourProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -4358,41 +4449,6 @@ class PyProperty(PGProperty):
         return _propgrid.PyProperty__SetSelf(*args, **kwargs)
 
 _propgrid.PyProperty_swigregister(PyProperty)
-
-class PyLongStringDialogAdapter(PGLongStringDialogAdapter):
-    """Proxy of C++ PyLongStringDialogAdapter class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self) -> PyLongStringDialogAdapter"""
-        _propgrid.PyLongStringDialogAdapter_swiginit(self,_propgrid.new_PyLongStringDialogAdapter(*args, **kwargs))
-        self._SetSelf(self); self._RegisterMethods()
-
-    def CallSuperMethod(self, *args, **kwargs):
-        funcname = args[0]
-        args2 = list(args)
-        args2[0] = self
-        self._super_call = True
-        try:
-            res = getattr(PyLongStringDialogAdapter, funcname)(*args2, **kwargs)
-        finally:
-            del self._super_call
-        return res
-
-    def _RegisterMethods(self):
-        cls = self.__class__
-        if not hasattr(cls,'_pyswig_methods_registered'):
-            cls._pyswig_methods_registered = True
-            ls = [ab for ab in cls.__dict__.iteritems()]
-            for a, b in ls:
-                if not a.startswith('_'):
-                    setattr(cls, '%s_t_'%a, b)
-
-    def _SetSelf(*args, **kwargs):
-        """_SetSelf(self, PyObject self)"""
-        return _propgrid.PyLongStringDialogAdapter__SetSelf(*args, **kwargs)
-
-_propgrid.PyLongStringDialogAdapter_swigregister(PyLongStringDialogAdapter)
 
 class PyUIntProperty(UIntProperty):
     """Proxy of C++ PyUIntProperty class"""

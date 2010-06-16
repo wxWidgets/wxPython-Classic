@@ -2465,18 +2465,18 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 
 #define SWIGTYPE_p_FlagType swig_types[0]
 #define SWIGTYPE_p_PyArrayStringProperty swig_types[1]
-#define SWIGTYPE_p_PyCheckBoxEditor swig_types[2]
-#define SWIGTYPE_p_PyChoiceEditor swig_types[3]
-#define SWIGTYPE_p_PyColourProperty swig_types[4]
-#define SWIGTYPE_p_PyComboBoxEditor swig_types[5]
-#define SWIGTYPE_p_PyEditEnumProperty swig_types[6]
-#define SWIGTYPE_p_PyEditor swig_types[7]
-#define SWIGTYPE_p_PyEditorDialogAdapter swig_types[8]
-#define SWIGTYPE_p_PyEnumProperty swig_types[9]
-#define SWIGTYPE_p_PyFileDialogAdapter swig_types[10]
-#define SWIGTYPE_p_PyFileProperty swig_types[11]
-#define SWIGTYPE_p_PyFlagsProperty swig_types[12]
-#define SWIGTYPE_p_PyFloatProperty swig_types[13]
+#define SWIGTYPE_p_PyChoiceEditor swig_types[2]
+#define SWIGTYPE_p_PyColourProperty swig_types[3]
+#define SWIGTYPE_p_PyComboBoxEditor swig_types[4]
+#define SWIGTYPE_p_PyEditEnumProperty swig_types[5]
+#define SWIGTYPE_p_PyEditor swig_types[6]
+#define SWIGTYPE_p_PyEditorDialogAdapter swig_types[7]
+#define SWIGTYPE_p_PyEnumProperty swig_types[8]
+#define SWIGTYPE_p_PyFileDialogAdapter swig_types[9]
+#define SWIGTYPE_p_PyFileProperty swig_types[10]
+#define SWIGTYPE_p_PyFlagsProperty swig_types[11]
+#define SWIGTYPE_p_PyFloatProperty swig_types[12]
+#define SWIGTYPE_p_PyFontProperty swig_types[13]
 #define SWIGTYPE_p_PyIntProperty swig_types[14]
 #define SWIGTYPE_p_PyLongStringDialogAdapter swig_types[15]
 #define SWIGTYPE_p_PyLongStringProperty swig_types[16]
@@ -4103,6 +4103,7 @@ static PyObject* gs_CanContainCustomImage_Name = NULL;
 static PyObject* gs_ChildChanged_Name = NULL;
 static PyObject* gs_ColourToString_Name = NULL;
 static PyObject* gs_CreateControls_Name = NULL;
+static PyObject* gs_CreateEditorDialog_Name = NULL;
 static PyObject* gs_DeleteItem_Name = NULL;
 static PyObject* gs_DoGetAttribute_Name = NULL;
 static PyObject* gs_DoGetValidator_Name = NULL;
@@ -4151,6 +4152,7 @@ static void _InitFuncNames()
     gs_ChildChanged_Name = PyString_FromString("ChildChanged_t_");
     gs_ColourToString_Name = PyString_FromString("ColourToString_t_");
     gs_CreateControls_Name = PyString_FromString("CreateControls_t_");
+    gs_CreateEditorDialog_Name = PyString_FromString("CreateEditorDialog_t_");
     gs_DeleteItem_Name = PyString_FromString("DeleteItem_t_");
     gs_DoGetAttribute_Name = PyString_FromString("DoGetAttribute_t_");
     gs_DoGetValidator_Name = PyString_FromString("DoGetValidator_t_");
@@ -4193,7 +4195,7 @@ static void _InitFuncNames()
 }
 
 
-void _CommonCallback3(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxDC& dc, const wxRect& rect, wxPGProperty* property, const wxString& text)
+void _CommonCallback27(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxDC& dc, const wxRect& rect, wxPGProperty* property, const wxString& text)
 {
     PyObject* res;
     PyObject* py_dc;
@@ -4223,7 +4225,7 @@ void _CommonCallback3(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wx
     wxPyEndBlockThreads(blocked);
 }
 
-wxString _CommonCallback34(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, const wxColour& col, int index)
+wxString _CommonCallback35(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, const wxColour& col, int index)
 {
     PyObject* res;
     PyObject* py_col;
@@ -4252,7 +4254,7 @@ wxString _CommonCallback34(wxPyBlock_t blocked, PyObject* self, PyObject* funcob
     return wxEmptyString;
 }
 
-wxSize _CommonCallback23(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int item)
+wxSize _CommonCallback11(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int item)
 {
     PyObject* res;
     PyObject* py_item;
@@ -4276,7 +4278,7 @@ wxSize _CommonCallback23(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj,
     return wxSize();
 }
 
-void _CommonCallback10(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPGProperty* property, wxWindow* ctrl, int value)
+void _CommonCallback33(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPGProperty* property, wxWindow* ctrl, int value)
 {
     PyObject* res;
     PyObject* py_property;
@@ -4300,7 +4302,7 @@ void _CommonCallback10(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, w
     wxPyEndBlockThreads(blocked);
 }
 
-int _CommonCallback18(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
+int _CommonCallback6(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
 {
     PyObject* res;
     res = PyObject_CallFunctionObjArgs(funcobj, self, NULL);
@@ -4319,7 +4321,7 @@ int _CommonCallback18(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
     return 0;
 }
 
-wxValidator* _CommonCallback14(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
+wxValidator* _CommonCallback2(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
 {
     PyObject* res;
     res = PyObject_CallFunctionObjArgs(funcobj, self, NULL);
@@ -4342,7 +4344,7 @@ wxValidator* _CommonCallback14(wxPyBlock_t blocked, PyObject* self, PyObject* fu
     return NULL;
 }
 
-wxPGVariantAndBool _CommonCallback26(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int number, int argFlags)
+wxPGVariantAndBool _CommonCallback15(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int number, int argFlags)
 {
     PyObject* res;
     PyObject* py_number;
@@ -4373,7 +4375,7 @@ wxPGVariantAndBool _CommonCallback26(wxPyBlock_t blocked, PyObject* self, PyObje
     return wxPGVariantAndBool();
 }
 
-wxColour _CommonCallback36(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int index)
+wxColour _CommonCallback37(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int index)
 {
     PyObject* res;
     PyObject* py_index;
@@ -4397,7 +4399,398 @@ wxColour _CommonCallback36(wxPyBlock_t blocked, PyObject* self, PyObject* funcob
     return wxColour();
 }
 
-wxVariant _CommonCallback12(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxVariant& thisValue, int childIndex, wxVariant& childValue)
+void _CommonCallback32(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPropertyGrid* pg, wxPGProperty* property, wxWindow* ctrl, const wxPGCell& appearance, const wxPGCell& oldAppearance, bool unspecified)
+{
+    PyObject* res;
+    PyObject* py_pg;
+    py_pg = SWIG_NewPointerObj((void*)pg, SWIGTYPE_p_wxPropertyGrid, 0);
+    PyObject* py_property;
+    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
+    PyObject* py_ctrl;
+    py_ctrl = wxPyMake_wxObject(ctrl, (bool)0);
+
+    PyObject* py_appearance;
+    py_appearance = SWIG_NewPointerObj((void*)&appearance, SWIGTYPE_p_wxPGCell, 0);
+    PyObject* py_oldAppearance;
+    py_oldAppearance = SWIG_NewPointerObj((void*)&oldAppearance, SWIGTYPE_p_wxPGCell, 0);
+    PyObject* py_unspecified;
+    py_unspecified = PyBool_FromLong((long)unspecified);
+
+    res = PyObject_CallFunctionObjArgs(funcobj, self, py_pg, py_property, py_ctrl, py_appearance, py_oldAppearance, py_unspecified, NULL);
+    Py_DECREF(funcobj);
+    Py_DECREF(py_unspecified);
+    Py_DECREF(py_oldAppearance);
+    Py_DECREF(py_appearance);
+    Py_DECREF(py_ctrl);
+    Py_DECREF(py_property);
+    Py_DECREF(py_pg);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    Py_DECREF(res);
+    }
+  fail:
+    wxPyEndBlockThreads(blocked);
+}
+
+wxVariant _CommonCallback3(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
+{
+    PyObject* res;
+    res = PyObject_CallFunctionObjArgs(funcobj, self, NULL);
+    Py_DECREF(funcobj);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    wxVariant retval;
+    if ( !PyObject_to_wxVariant(res, &retval) ) {
+            PyErr_SetString(PyExc_TypeError,
+                            "this Python type cannot be converted to wxVariant");
+            SWIG_fail;
+        }
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return wxVariant();
+}
+
+wxPGWindowList _CommonCallback25(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPropertyGrid* propgrid, wxPGProperty* property, const wxPoint& pos, const wxSize& size)
+{
+    PyObject* res;
+    PyObject* py_propgrid;
+    py_propgrid = SWIG_NewPointerObj((void*)propgrid, SWIGTYPE_p_wxPropertyGrid, 0);
+    PyObject* py_property;
+    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
+    PyObject* py_pos;
+    py_pos = wxPoint_to_PyObject((&pos));
+
+    PyObject* py_size;
+    py_size = wxSize_to_PyObject((&size));
+
+    res = PyObject_CallFunctionObjArgs(funcobj, self, py_propgrid, py_property, py_pos, py_size, NULL);
+    Py_DECREF(funcobj);
+    Py_DECREF(py_size);
+    Py_DECREF(py_pos);
+    Py_DECREF(py_property);
+    Py_DECREF(py_propgrid);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    wxPGWindowList retval;
+    if ( !PyObject_to_wxPGWindowList(res, &retval) ) {
+            PyErr_SetString(PyExc_TypeError,
+                "expected wxWindow or tuple of two wxWindows");
+            SWIG_fail;
+        }
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return wxPGWindowList();
+}
+
+wxString _CommonCallback18(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxVariant& value, int argFlags)
+{
+    PyObject* res;
+    PyObject* py_value;
+    py_value = wxVariant_to_PyObject((&value));
+        if ( !py_value ) {
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
+            SWIG_fail;
+        }
+
+    PyObject* py_argFlags;
+    py_argFlags = PyInt_FromLong((long)argFlags);
+
+    res = PyObject_CallFunctionObjArgs(funcobj, self, py_value, py_argFlags, NULL);
+    Py_DECREF(funcobj);
+    Py_DECREF(py_argFlags);
+    Py_DECREF(py_value);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    wxString retval;
+    wxString* sptr = wxString_in_helper(res);
+        if (sptr == NULL) SWIG_fail;
+        retval = *sptr;
+        delete sptr;
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return wxEmptyString;
+}
+
+bool _CommonCallback29(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPropertyGrid* propgrid, wxPGProperty* property, wxWindow* ctrl, wxEvent& event)
+{
+    PyObject* res;
+    PyObject* py_propgrid;
+    py_propgrid = SWIG_NewPointerObj((void*)propgrid, SWIGTYPE_p_wxPropertyGrid, 0);
+    PyObject* py_property;
+    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
+    PyObject* py_ctrl;
+    py_ctrl = wxPyMake_wxObject(ctrl, (bool)0);
+
+    PyObject* py_event;
+    py_event = SWIG_NewPointerObj((void*)&event, SWIGTYPE_p_wxEvent, 0);
+    res = PyObject_CallFunctionObjArgs(funcobj, self, py_propgrid, py_property, py_ctrl, py_event, NULL);
+    Py_DECREF(funcobj);
+    Py_DECREF(py_event);
+    Py_DECREF(py_ctrl);
+    Py_DECREF(py_property);
+    Py_DECREF(py_propgrid);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    bool retval;
+        if ( !SWIG_IsOK(SWIG_AsVal_bool(res, &retval)) ) {
+        PyErr_SetString(PyExc_TypeError,"expected bool");
+        SWIG_fail;
+    }
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return false;
+}
+
+bool _CommonCallback10(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPropertyGrid* propgrid, wxWindow* wnd_primary, wxEvent& event)
+{
+    PyObject* res;
+    PyObject* py_propgrid;
+    py_propgrid = SWIG_NewPointerObj((void*)propgrid, SWIGTYPE_p_wxPropertyGrid, 0);
+    PyObject* py_wnd_primary;
+    py_wnd_primary = wxPyMake_wxObject(wnd_primary, (bool)0);
+
+    PyObject* py_event;
+    py_event = SWIG_NewPointerObj((void*)&event, SWIGTYPE_p_wxEvent, 0);
+    res = PyObject_CallFunctionObjArgs(funcobj, self, py_propgrid, py_wnd_primary, py_event, NULL);
+    Py_DECREF(funcobj);
+    Py_DECREF(py_event);
+    Py_DECREF(py_wnd_primary);
+    Py_DECREF(py_propgrid);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    bool retval;
+        if ( !SWIG_IsOK(SWIG_AsVal_bool(res, &retval)) ) {
+        PyErr_SetString(PyExc_TypeError,"expected bool");
+        SWIG_fail;
+    }
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return false;
+}
+
+wxPGVariantAndBool _CommonCallback31(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPGProperty* property, wxWindow* ctrl)
+{
+    PyObject* res;
+    PyObject* py_property;
+    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
+    PyObject* py_ctrl;
+    py_ctrl = wxPyMake_wxObject(ctrl, (bool)0);
+
+    res = PyObject_CallFunctionObjArgs(funcobj, self, py_property, py_ctrl, NULL);
+    Py_DECREF(funcobj);
+    Py_DECREF(py_ctrl);
+    Py_DECREF(py_property);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    wxPGVariantAndBool retval;
+    if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
+            PyErr_SetString(PyExc_TypeError,
+                "this Python type cannot be converted to wxPGVariantAndBool");
+            SWIG_fail;
+        }
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return wxPGVariantAndBool();
+}
+
+wxPGVariantAndBool _CommonCallback16(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, const wxString& text, int argFlags)
+{
+    PyObject* res;
+    PyObject* py_text;
+    #if wxUSE_UNICODE
+        py_text = PyUnicode_FromWideChar((&text)->c_str(), (&text)->Len());
+    #else
+        py_text = PyString_FromStringAndSize((&text)->c_str(), (&text)->Len());
+    #endif
+
+    PyObject* py_argFlags;
+    py_argFlags = PyInt_FromLong((long)argFlags);
+
+    res = PyObject_CallFunctionObjArgs(funcobj, self, py_text, py_argFlags, NULL);
+    Py_DECREF(funcobj);
+    Py_DECREF(py_argFlags);
+    Py_DECREF(py_text);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    wxPGVariantAndBool retval;
+    if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
+            PyErr_SetString(PyExc_TypeError,
+                "this Python type cannot be converted to wxPGVariantAndBool");
+            SWIG_fail;
+        }
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return wxPGVariantAndBool();
+}
+
+bool _CommonCallback24(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
+{
+    PyObject* res;
+    res = PyObject_CallFunctionObjArgs(funcobj, self, NULL);
+    Py_DECREF(funcobj);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    bool retval;
+        if ( !SWIG_IsOK(SWIG_AsVal_bool(res, &retval)) ) {
+        PyErr_SetString(PyExc_TypeError,"expected bool");
+        SWIG_fail;
+    }
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return false;
+}
+
+void _CommonCallback34(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPGProperty* property, wxWindow* ctrl, const wxString& txt)
+{
+    PyObject* res;
+    PyObject* py_property;
+    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
+    PyObject* py_ctrl;
+    py_ctrl = wxPyMake_wxObject(ctrl, (bool)0);
+
+    PyObject* py_txt;
+    #if wxUSE_UNICODE
+        py_txt = PyUnicode_FromWideChar((&txt)->c_str(), (&txt)->Len());
+    #else
+        py_txt = PyString_FromStringAndSize((&txt)->c_str(), (&txt)->Len());
+    #endif
+
+    res = PyObject_CallFunctionObjArgs(funcobj, self, py_property, py_ctrl, py_txt, NULL);
+    Py_DECREF(funcobj);
+    Py_DECREF(py_txt);
+    Py_DECREF(py_ctrl);
+    Py_DECREF(py_property);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    Py_DECREF(res);
+    }
+  fail:
+    wxPyEndBlockThreads(blocked);
+}
+
+bool _CommonCallback4(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, const wxString& name, wxVariant& value)
+{
+    PyObject* res;
+    PyObject* py_name;
+    #if wxUSE_UNICODE
+        py_name = PyUnicode_FromWideChar((&name)->c_str(), (&name)->Len());
+    #else
+        py_name = PyString_FromStringAndSize((&name)->c_str(), (&name)->Len());
+    #endif
+
+    PyObject* py_value;
+    py_value = wxVariant_to_PyObject((&value));
+        if ( !py_value ) {
+            PyErr_SetString(PyExc_TypeError,
+                "this wxVariant type cannot be converted to Python object");
+            SWIG_fail;
+        }
+
+    res = PyObject_CallFunctionObjArgs(funcobj, self, py_name, py_value, NULL);
+    Py_DECREF(funcobj);
+    Py_DECREF(py_value);
+    Py_DECREF(py_name);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    bool retval;
+        if ( !SWIG_IsOK(SWIG_AsVal_bool(res, &retval)) ) {
+        PyErr_SetString(PyExc_TypeError,"expected bool");
+        SWIG_fail;
+    }
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return false;
+}
+
+void _CommonCallback30(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPGProperty* property, wxWindow* wnd)
+{
+    PyObject* res;
+    PyObject* py_property;
+    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
+    PyObject* py_wnd;
+    py_wnd = wxPyMake_wxObject(wnd, (bool)0);
+
+    res = PyObject_CallFunctionObjArgs(funcobj, self, py_property, py_wnd, NULL);
+    Py_DECREF(funcobj);
+    Py_DECREF(py_wnd);
+    Py_DECREF(py_property);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    Py_DECREF(res);
+    }
+  fail:
+    wxPyEndBlockThreads(blocked);
+}
+
+wxString _CommonCallback14(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
+{
+    PyObject* res;
+    res = PyObject_CallFunctionObjArgs(funcobj, self, NULL);
+    Py_DECREF(funcobj);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    wxString retval;
+    wxString* sptr = wxString_in_helper(res);
+        if (sptr == NULL) SWIG_fail;
+        retval = *sptr;
+        delete sptr;
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return wxEmptyString;
+}
+
+wxVariant _CommonCallback0(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxVariant& thisValue, int childIndex, wxVariant& childValue)
 {
     PyObject* res;
     PyObject* py_thisValue;
@@ -4442,398 +4835,7 @@ wxVariant _CommonCallback12(wxPyBlock_t blocked, PyObject* self, PyObject* funco
     return wxVariant();
 }
 
-wxVariant _CommonCallback15(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
-{
-    PyObject* res;
-    res = PyObject_CallFunctionObjArgs(funcobj, self, NULL);
-    Py_DECREF(funcobj);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    wxVariant retval;
-    if ( !PyObject_to_wxVariant(res, &retval) ) {
-            PyErr_SetString(PyExc_TypeError,
-                            "this Python type cannot be converted to wxVariant");
-            SWIG_fail;
-        }
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return wxVariant();
-}
-
-wxPGWindowList _CommonCallback1(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPropertyGrid* propgrid, wxPGProperty* property, const wxPoint& pos, const wxSize& size)
-{
-    PyObject* res;
-    PyObject* py_propgrid;
-    py_propgrid = SWIG_NewPointerObj((void*)propgrid, SWIGTYPE_p_wxPropertyGrid, 0);
-    PyObject* py_property;
-    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
-    PyObject* py_pos;
-    py_pos = wxPoint_to_PyObject((&pos));
-
-    PyObject* py_size;
-    py_size = wxSize_to_PyObject((&size));
-
-    res = PyObject_CallFunctionObjArgs(funcobj, self, py_propgrid, py_property, py_pos, py_size, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_size);
-    Py_DECREF(py_pos);
-    Py_DECREF(py_property);
-    Py_DECREF(py_propgrid);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    wxPGWindowList retval;
-    if ( !PyObject_to_wxPGWindowList(res, &retval) ) {
-            PyErr_SetString(PyExc_TypeError,
-                "expected wxWindow or tuple of two wxWindows");
-            SWIG_fail;
-        }
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return wxPGWindowList();
-}
-
-wxString _CommonCallback29(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxVariant& value, int argFlags)
-{
-    PyObject* res;
-    PyObject* py_value;
-    py_value = wxVariant_to_PyObject((&value));
-        if ( !py_value ) {
-            PyErr_SetString(PyExc_TypeError,
-                "this wxVariant type cannot be converted to Python object");
-            SWIG_fail;
-        }
-
-    PyObject* py_argFlags;
-    py_argFlags = PyInt_FromLong((long)argFlags);
-
-    res = PyObject_CallFunctionObjArgs(funcobj, self, py_value, py_argFlags, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_argFlags);
-    Py_DECREF(py_value);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    wxString retval;
-    wxString* sptr = wxString_in_helper(res);
-        if (sptr == NULL) SWIG_fail;
-        retval = *sptr;
-        delete sptr;
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return wxEmptyString;
-}
-
-bool _CommonCallback6(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPropertyGrid* propgrid, wxPGProperty* property, wxWindow* primaryCtrl, wxEvent& event)
-{
-    PyObject* res;
-    PyObject* py_propgrid;
-    py_propgrid = SWIG_NewPointerObj((void*)propgrid, SWIGTYPE_p_wxPropertyGrid, 0);
-    PyObject* py_property;
-    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
-    PyObject* py_primaryCtrl;
-    py_primaryCtrl = wxPyMake_wxObject(primaryCtrl, (bool)0);
-
-    PyObject* py_event;
-    py_event = SWIG_NewPointerObj((void*)&event, SWIGTYPE_p_wxEvent, 0);
-    res = PyObject_CallFunctionObjArgs(funcobj, self, py_propgrid, py_property, py_primaryCtrl, py_event, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_event);
-    Py_DECREF(py_primaryCtrl);
-    Py_DECREF(py_property);
-    Py_DECREF(py_propgrid);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    bool retval;
-        if ( !SWIG_IsOK(SWIG_AsVal_bool(res, &retval)) ) {
-        PyErr_SetString(PyExc_TypeError,"expected bool");
-        SWIG_fail;
-    }
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return false;
-}
-
-bool _CommonCallback22(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPropertyGrid* propgrid, wxWindow* wnd_primary, wxEvent& event)
-{
-    PyObject* res;
-    PyObject* py_propgrid;
-    py_propgrid = SWIG_NewPointerObj((void*)propgrid, SWIGTYPE_p_wxPropertyGrid, 0);
-    PyObject* py_wnd_primary;
-    py_wnd_primary = wxPyMake_wxObject(wnd_primary, (bool)0);
-
-    PyObject* py_event;
-    py_event = SWIG_NewPointerObj((void*)&event, SWIGTYPE_p_wxEvent, 0);
-    res = PyObject_CallFunctionObjArgs(funcobj, self, py_propgrid, py_wnd_primary, py_event, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_event);
-    Py_DECREF(py_wnd_primary);
-    Py_DECREF(py_propgrid);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    bool retval;
-        if ( !SWIG_IsOK(SWIG_AsVal_bool(res, &retval)) ) {
-        PyErr_SetString(PyExc_TypeError,"expected bool");
-        SWIG_fail;
-    }
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return false;
-}
-
-wxPGVariantAndBool _CommonCallback8(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPGProperty* property, wxWindow* ctrl)
-{
-    PyObject* res;
-    PyObject* py_property;
-    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
-    PyObject* py_ctrl;
-    py_ctrl = wxPyMake_wxObject(ctrl, (bool)0);
-
-    res = PyObject_CallFunctionObjArgs(funcobj, self, py_property, py_ctrl, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_ctrl);
-    Py_DECREF(py_property);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    wxPGVariantAndBool retval;
-    if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
-            PyErr_SetString(PyExc_TypeError,
-                "this Python type cannot be converted to wxPGVariantAndBool");
-            SWIG_fail;
-        }
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return wxPGVariantAndBool();
-}
-
-wxPGVariantAndBool _CommonCallback27(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, const wxString& text, int argFlags)
-{
-    PyObject* res;
-    PyObject* py_text;
-    #if wxUSE_UNICODE
-        py_text = PyUnicode_FromWideChar((&text)->c_str(), (&text)->Len());
-    #else
-        py_text = PyString_FromStringAndSize((&text)->c_str(), (&text)->Len());
-    #endif
-
-    PyObject* py_argFlags;
-    py_argFlags = PyInt_FromLong((long)argFlags);
-
-    res = PyObject_CallFunctionObjArgs(funcobj, self, py_text, py_argFlags, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_argFlags);
-    Py_DECREF(py_text);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    wxPGVariantAndBool retval;
-    if ( !PyObject_to_wxPGVariantAndBool(res, retval) ) {
-            PyErr_SetString(PyExc_TypeError,
-                "this Python type cannot be converted to wxPGVariantAndBool");
-            SWIG_fail;
-        }
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return wxPGVariantAndBool();
-}
-
-bool _CommonCallback0(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
-{
-    PyObject* res;
-    res = PyObject_CallFunctionObjArgs(funcobj, self, NULL);
-    Py_DECREF(funcobj);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    bool retval;
-        if ( !SWIG_IsOK(SWIG_AsVal_bool(res, &retval)) ) {
-        PyErr_SetString(PyExc_TypeError,"expected bool");
-        SWIG_fail;
-    }
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return false;
-}
-
-void _CommonCallback11(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPGProperty* property, wxWindow* ctrl, const wxString& txt)
-{
-    PyObject* res;
-    PyObject* py_property;
-    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
-    PyObject* py_ctrl;
-    py_ctrl = wxPyMake_wxObject(ctrl, (bool)0);
-
-    PyObject* py_txt;
-    #if wxUSE_UNICODE
-        py_txt = PyUnicode_FromWideChar((&txt)->c_str(), (&txt)->Len());
-    #else
-        py_txt = PyString_FromStringAndSize((&txt)->c_str(), (&txt)->Len());
-    #endif
-
-    res = PyObject_CallFunctionObjArgs(funcobj, self, py_property, py_ctrl, py_txt, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_txt);
-    Py_DECREF(py_ctrl);
-    Py_DECREF(py_property);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    Py_DECREF(res);
-    }
-  fail:
-    wxPyEndBlockThreads(blocked);
-}
-
-bool _CommonCallback16(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, const wxString& name, wxVariant& value)
-{
-    PyObject* res;
-    PyObject* py_name;
-    #if wxUSE_UNICODE
-        py_name = PyUnicode_FromWideChar((&name)->c_str(), (&name)->Len());
-    #else
-        py_name = PyString_FromStringAndSize((&name)->c_str(), (&name)->Len());
-    #endif
-
-    PyObject* py_value;
-    py_value = wxVariant_to_PyObject((&value));
-        if ( !py_value ) {
-            PyErr_SetString(PyExc_TypeError,
-                "this wxVariant type cannot be converted to Python object");
-            SWIG_fail;
-        }
-
-    res = PyObject_CallFunctionObjArgs(funcobj, self, py_name, py_value, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_value);
-    Py_DECREF(py_name);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    bool retval;
-        if ( !SWIG_IsOK(SWIG_AsVal_bool(res, &retval)) ) {
-        PyErr_SetString(PyExc_TypeError,"expected bool");
-        SWIG_fail;
-    }
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return false;
-}
-
-void _CommonCallback7(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPGProperty* property, wxWindow* wnd)
-{
-    PyObject* res;
-    PyObject* py_property;
-    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
-    PyObject* py_wnd;
-    py_wnd = wxPyMake_wxObject(wnd, (bool)0);
-
-    res = PyObject_CallFunctionObjArgs(funcobj, self, py_property, py_wnd, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_wnd);
-    Py_DECREF(py_property);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    Py_DECREF(res);
-    }
-  fail:
-    wxPyEndBlockThreads(blocked);
-}
-
-wxString _CommonCallback4(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
-{
-    PyObject* res;
-    res = PyObject_CallFunctionObjArgs(funcobj, self, NULL);
-    Py_DECREF(funcobj);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    wxString retval;
-    wxString* sptr = wxString_in_helper(res);
-        if (sptr == NULL) SWIG_fail;
-        retval = *sptr;
-        delete sptr;
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return wxEmptyString;
-}
-
-void _CommonCallback9(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPropertyGrid* pg, wxPGProperty* property, wxWindow* ctrl, const wxPGCell& appearance, const wxPGCell& oldAppearance, bool unspecified)
-{
-    PyObject* res;
-    PyObject* py_pg;
-    py_pg = SWIG_NewPointerObj((void*)pg, SWIGTYPE_p_wxPropertyGrid, 0);
-    PyObject* py_property;
-    py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
-    PyObject* py_ctrl;
-    py_ctrl = wxPyMake_wxObject(ctrl, (bool)0);
-
-    PyObject* py_appearance;
-    py_appearance = SWIG_NewPointerObj((void*)&appearance, SWIGTYPE_p_wxPGCell, 0);
-    PyObject* py_oldAppearance;
-    py_oldAppearance = SWIG_NewPointerObj((void*)&oldAppearance, SWIGTYPE_p_wxPGCell, 0);
-    PyObject* py_unspecified;
-    py_unspecified = PyBool_FromLong((long)unspecified);
-
-    res = PyObject_CallFunctionObjArgs(funcobj, self, py_pg, py_property, py_ctrl, py_appearance, py_oldAppearance, py_unspecified, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_unspecified);
-    Py_DECREF(py_oldAppearance);
-    Py_DECREF(py_appearance);
-    Py_DECREF(py_ctrl);
-    Py_DECREF(py_property);
-    Py_DECREF(py_pg);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    Py_DECREF(res);
-    }
-  fail:
-    wxPyEndBlockThreads(blocked);
-}
-
-void _CommonCallback24(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
+void _CommonCallback12(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
 {
     PyObject* res;
     res = PyObject_CallFunctionObjArgs(funcobj, self, NULL);
@@ -4846,7 +4848,7 @@ void _CommonCallback24(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
     wxPyEndBlockThreads(blocked);
 }
 
-wxVariant _CommonCallback13(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, const wxString& name)
+wxVariant _CommonCallback1(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, const wxString& name)
 {
     PyObject* res;
     PyObject* py_name;
@@ -4877,7 +4879,7 @@ wxVariant _CommonCallback13(wxPyBlock_t blocked, PyObject* self, PyObject* funco
     return wxVariant();
 }
 
-wxPGCellRenderer* _CommonCallback17(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int column)
+wxPGCellRenderer* _CommonCallback5(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int column)
 {
     PyObject* res;
     PyObject* py_column;
@@ -4904,7 +4906,7 @@ wxPGCellRenderer* _CommonCallback17(wxPyBlock_t blocked, PyObject* self, PyObjec
     return NULL;
 }
 
-bool _CommonCallback30(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPropertyGrid* propGrid, wxPGProperty* property)
+bool _CommonCallback19(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxPropertyGrid* propGrid, wxPGProperty* property)
 {
     PyObject* res;
     PyObject* py_propGrid;
@@ -4932,7 +4934,7 @@ bool _CommonCallback30(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, w
     return false;
 }
 
-int _CommonCallback31(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int value)
+int _CommonCallback20(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int value)
 {
     PyObject* res;
     PyObject* py_value;
@@ -4955,7 +4957,7 @@ int _CommonCallback31(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, in
     return 0;
 }
 
-wxVariant _CommonCallback35(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxColourPropertyValue& v)
+wxVariant _CommonCallback36(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxColourPropertyValue& v)
 {
     PyObject* res;
     PyObject* py_v;
@@ -4981,7 +4983,7 @@ wxVariant _CommonCallback35(wxPyBlock_t blocked, PyObject* self, PyObject* funco
     return wxVariant();
 }
 
-wxString _CommonCallback20(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int argFlags)
+wxString _CommonCallback8(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, int argFlags)
 {
     PyObject* res;
     PyObject* py_argFlags;
@@ -5007,7 +5009,7 @@ wxString _CommonCallback20(wxPyBlock_t blocked, PyObject* self, PyObject* funcob
     return wxEmptyString;
 }
 
-wxPGEditorDialogAdapter* _CommonCallback19(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
+wxPGEditorDialogAdapter* _CommonCallback7(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj)
 {
     PyObject* res;
     res = PyObject_CallFunctionObjArgs(funcobj, self, NULL);
@@ -5030,7 +5032,7 @@ wxPGEditorDialogAdapter* _CommonCallback19(wxPyBlock_t blocked, PyObject* self, 
     return NULL;
 }
 
-void _CommonCallback25(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxVariant& pendingValue)
+void _CommonCallback13(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxVariant& pendingValue)
 {
     PyObject* res;
     PyObject* py_pendingValue;
@@ -5052,7 +5054,7 @@ void _CommonCallback25(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, w
     wxPyEndBlockThreads(blocked);
 }
 
-void _CommonCallback2(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxWindow* ctrl, int index)
+void _CommonCallback26(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxWindow* ctrl, int index)
 {
     PyObject* res;
     PyObject* py_ctrl;
@@ -5073,7 +5075,7 @@ void _CommonCallback2(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wx
     wxPyEndBlockThreads(blocked);
 }
 
-void _CommonCallback21(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxDC& dc, const wxRect& rect, wxPGPaintData& paintdata)
+void _CommonCallback9(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxDC& dc, const wxRect& rect, wxPGPaintData& paintdata)
 {
     PyObject* res;
     PyObject* py_dc;
@@ -5095,7 +5097,7 @@ void _CommonCallback21(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, w
     wxPyEndBlockThreads(blocked);
 }
 
-wxPGVariantAndBool _CommonCallback28(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, const wxVariant& value, wxPGValidationInfo& validationInfo)
+wxPGVariantAndBool _CommonCallback17(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, const wxVariant& value, wxPGValidationInfo& validationInfo)
 {
     PyObject* res;
     PyObject* py_value;
@@ -5130,7 +5132,7 @@ wxPGVariantAndBool _CommonCallback28(wxPyBlock_t blocked, PyObject* self, PyObje
     return wxPGVariantAndBool();
 }
 
-int _CommonCallback5(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxWindow* ctrl, const wxString& label, int index)
+int _CommonCallback28(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxWindow* ctrl, const wxString& label, int index)
 {
     PyObject* res;
     PyObject* py_ctrl;
@@ -5165,348 +5167,10 @@ int _CommonCallback5(wxPyBlock_t blocked, PyObject* self, PyObject* funcobj, wxW
     return 0;
 }
 
-class PyCheckBoxEditor : public wxPGCheckBoxEditor {
-public:
-        PyCheckBoxEditor();
-    virtual ~PyCheckBoxEditor();
-    void _SetSelf(PyObject *self);
-    virtual bool GetValueFromControl(wxVariant& value, wxPGProperty* property, wxWindow* ctrl) const;
-    virtual bool CanContainCustomImage() const;
-    virtual wxPGWindowList CreateControls(wxPropertyGrid* propgrid,
-                                          wxPGProperty* property,
-                                          const wxPoint& pos,
-                                          const wxSize& size) const;
-    virtual void DeleteItem( wxWindow* ctrl, int index ) const;
-    virtual void DrawValue( wxDC& dc,
-                            const wxRect& rect,
-                            wxPGProperty* property,
-                            const wxString& text ) const;
-    virtual wxString GetName() const;
-    virtual int InsertItem( wxWindow* ctrl,
-                            const wxString& label,
-                            int index ) const;
-    virtual bool OnEvent( wxPropertyGrid* propgrid,
-                          wxPGProperty* property,
-                          wxWindow* primaryCtrl,
-                          wxEvent& event ) const;
-    virtual void OnFocus( wxPGProperty* property, wxWindow* wnd ) const;
-    virtual wxPGVariantAndBool PyGetValueFromControl( wxPGProperty* property, wxWindow* ctrl ) const;
-    virtual void SetControlAppearance( wxPropertyGrid* pg,
-                                       wxPGProperty* property,
-                                       wxWindow* ctrl,
-                                       const wxPGCell& appearance,
-                                       const wxPGCell& oldAppearance,
-                                       bool unspecified ) const;
-    virtual void SetControlIntValue( wxPGProperty* property,
-                                     wxWindow* ctrl,
-                                     int value ) const;
-    virtual void SetControlStringValue( wxPGProperty* property,
-                                        wxWindow* ctrl,
-                                        const wxString& txt ) const;
-    virtual void SetValueToUnspecified( wxPGProperty* property,
-                                        wxWindow* ctrl ) const;
-    virtual void UpdateControl( wxPGProperty* property,
-                                wxWindow* ctrl ) const;
-private:
-    void Init() { if ( !gs_funcNamesInitialized ) _InitFuncNames(); }
-};
-
-static PyObject* gs_PyCheckBoxEditor_pyClass = NULL;
-
-
-PyCheckBoxEditor::PyCheckBoxEditor()
-    : wxPGCheckBoxEditor()
-{
-    Init();
-}
-
-PyCheckBoxEditor::~PyCheckBoxEditor()
-{
-    if (m_clientData) { _deleteOwningObject(m_clientData); m_clientData = NULL; }
-}
-
-void PyCheckBoxEditor::_SetSelf(PyObject *self)
-{
-    if ( !gs_PyCheckBoxEditor_pyClass )
-    {
-        gs_PyCheckBoxEditor_pyClass = PyObject_GetAttr(self, gs___class___Name);
-        Py_DECREF(gs_PyCheckBoxEditor_pyClass);
-    }
-    if ( !m_clientData ) {
-        m_clientData = self;
-        Py_INCREF(self);
-    }
-}
-
-bool PyCheckBoxEditor::GetValueFromControl(wxVariant& value, wxPGProperty* property, wxWindow* ctrl) const
-{
-    if ( m_clientData )
-    {
-        wxPGVariantAndBool vab = PyGetValueFromControl(property, ctrl);
-        if ( vab.m_valueValid )
-            value = vab.m_value;
-        return vab.m_result;
-    }
-    return wxPGCheckBoxEditor::GetValueFromControl(value, property, ctrl);
-}
-
-
-bool PyCheckBoxEditor::CanContainCustomImage() const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_CanContainCustomImage_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_CanContainCustomImage_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        return wxPGCheckBoxEditor::CanContainCustomImage();
-    }
-    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj);
-}
-
-
-wxPGWindowList PyCheckBoxEditor::CreateControls(wxPropertyGrid* propgrid, wxPGProperty* property, const wxPoint& pos, const wxSize& size) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_CreateControls_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_CreateControls_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        return wxPGCheckBoxEditor::CreateControls(propgrid, property, pos, size);
-    }
-    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, pos, size);
-}
-
-
-void PyCheckBoxEditor::DeleteItem(wxWindow* ctrl, int index) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_DeleteItem_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_DeleteItem_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        wxPGCheckBoxEditor::DeleteItem(ctrl, index);
-        return;
-    }
-    _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj, ctrl, index);
-}
-
-
-void PyCheckBoxEditor::DrawValue(wxDC& dc, const wxRect& rect, wxPGProperty* property, const wxString& text) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_DrawValue_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_DrawValue_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        wxPGCheckBoxEditor::DrawValue(dc, rect, property, text);
-        return;
-    }
-    _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj, dc, rect, property, text);
-}
-
-
-wxString PyCheckBoxEditor::GetName() const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_GetName_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_GetName_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        return wxPGCheckBoxEditor::GetName();
-    }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
-}
-
-
-int PyCheckBoxEditor::InsertItem(wxWindow* ctrl, const wxString& label, int index) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_InsertItem_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_InsertItem_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        return wxPGCheckBoxEditor::InsertItem(ctrl, label, index);
-    }
-    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, ctrl, label, index);
-}
-
-
-bool PyCheckBoxEditor::OnEvent(wxPropertyGrid* propgrid, wxPGProperty* property, wxWindow* primaryCtrl, wxEvent& event) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_OnEvent_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_OnEvent_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        return wxPGCheckBoxEditor::OnEvent(propgrid, property, primaryCtrl, event);
-    }
-    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, primaryCtrl, event);
-}
-
-
-void PyCheckBoxEditor::OnFocus(wxPGProperty* property, wxWindow* wnd) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_OnFocus_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_OnFocus_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        wxPGCheckBoxEditor::OnFocus(property, wnd);
-        return;
-    }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, wnd);
-}
-
-
-wxPGVariantAndBool PyCheckBoxEditor::PyGetValueFromControl(wxPGProperty* property, wxWindow* ctrl) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_GetValueFromControl_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_GetValueFromControl_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        {
-            wxPGVariantAndBool vab;
-            vab.m_result = wxPGCheckBoxEditor::GetValueFromControl(vab.m_value, property, ctrl);
-            if ( vab.m_result )
-                vab.m_valueValid = true;
-            return vab;
-        }
-    }
-    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
-}
-
-
-void PyCheckBoxEditor::SetControlAppearance(wxPropertyGrid* pg, wxPGProperty* property, wxWindow* ctrl, const wxPGCell& appearance, const wxPGCell& oldAppearance, bool unspecified) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_SetControlAppearance_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_SetControlAppearance_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        wxPGCheckBoxEditor::SetControlAppearance(pg, property, ctrl, appearance, oldAppearance, unspecified);
-        return;
-    }
-    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, pg, property, ctrl, appearance, oldAppearance, unspecified);
-}
-
-
-void PyCheckBoxEditor::SetControlIntValue(wxPGProperty* property, wxWindow* ctrl, int value) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_SetControlIntValue_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_SetControlIntValue_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        wxPGCheckBoxEditor::SetControlIntValue(property, ctrl, value);
-        return;
-    }
-    _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, value);
-}
-
-
-void PyCheckBoxEditor::SetControlStringValue(wxPGProperty* property, wxWindow* ctrl, const wxString& txt) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_SetControlStringValue_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_SetControlStringValue_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        wxPGCheckBoxEditor::SetControlStringValue(property, ctrl, txt);
-        return;
-    }
-    _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, txt);
-}
-
-
-void PyCheckBoxEditor::SetValueToUnspecified(wxPGProperty* property, wxWindow* ctrl) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_SetValueToUnspecified_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_SetValueToUnspecified_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        wxPGCheckBoxEditor::SetValueToUnspecified(property, ctrl);
-        return;
-    }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
-}
-
-
-void PyCheckBoxEditor::UpdateControl(wxPGProperty* property, wxWindow* ctrl) const
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_UpdateControl_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_UpdateControl_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        wxPGCheckBoxEditor::UpdateControl(property, ctrl);
-        return;
-    }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
-}
-
-
 class PyFloatProperty : public wxFloatProperty {
 public:
-        PyFloatProperty( const wxString& label = wxPG_LABEL,
-                     const wxString& name = wxPG_LABEL,
+        PyFloatProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                     const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                      double value = 0.0 );
     virtual ~PyFloatProperty();
     void _SetSelf(PyObject *self);
@@ -5626,7 +5290,7 @@ wxVariant PyFloatProperty::ChildChanged(wxVariant& thisValue, int childIndex, wx
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -5643,7 +5307,7 @@ wxVariant PyFloatProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -5660,7 +5324,7 @@ wxValidator* PyFloatProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -5677,7 +5341,7 @@ wxVariant PyFloatProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -5694,7 +5358,7 @@ bool PyFloatProperty::DoSetAttribute(const wxString& name, wxVariant& value)
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -5711,7 +5375,7 @@ wxPGCellRenderer* PyFloatProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -5728,7 +5392,7 @@ int PyFloatProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -5745,7 +5409,7 @@ wxPGEditorDialogAdapter* PyFloatProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -5762,7 +5426,7 @@ wxString PyFloatProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -5780,7 +5444,7 @@ void PyFloatProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintData&
         wxFloatProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -5797,7 +5461,7 @@ bool PyFloatProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* wnd_primary, w
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::OnEvent(propgrid, wnd_primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
 }
 
 
@@ -5814,7 +5478,7 @@ wxSize PyFloatProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -5832,7 +5496,7 @@ void PyFloatProperty::OnSetValue()
         wxFloatProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -5850,7 +5514,7 @@ void PyFloatProperty::OnValidationFailure(wxVariant& pendingValue)
         wxFloatProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -5869,7 +5533,7 @@ wxString PyFloatProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -5892,7 +5556,7 @@ wxPGVariantAndBool PyFloatProperty::PyIntToValue(int number, int argFlags) const
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -5915,7 +5579,7 @@ wxPGVariantAndBool PyFloatProperty::PyStringToValue(const wxString& text, int ar
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -5938,7 +5602,7 @@ wxPGVariantAndBool PyFloatProperty::PyValidateValue(const wxVariant& value, wxPG
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -5956,7 +5620,7 @@ void PyFloatProperty::RefreshChildren()
         wxFloatProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -5973,7 +5637,7 @@ wxString PyFloatProperty::ValueToString(wxVariant& value, int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxFloatProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
@@ -6030,14 +5694,14 @@ bool PyEditorDialogAdapter::DoShowDialog(wxPropertyGrid* propGrid, wxPGProperty*
         PyErr_SetString(PyExc_TypeError,"this method must be implemented");
         return false;
     }
-    return _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, propGrid, property);
+    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj, propGrid, property);
 }
 
 
 class PyEnumProperty : public wxEnumProperty {
 public:
-        PyEnumProperty( const wxString& label = wxPG_LABEL,
-                    const wxString& name = wxPG_LABEL,
+        PyEnumProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                    const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                     const wxArrayString& labels = wxArrayString(),
                     const wxArrayInt& values = wxArrayInt(),
                     int value = 0 );
@@ -6160,7 +5824,7 @@ wxVariant PyEnumProperty::ChildChanged(wxVariant& thisValue, int childIndex, wxV
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -6177,7 +5841,7 @@ wxVariant PyEnumProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -6194,7 +5858,7 @@ wxValidator* PyEnumProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6211,7 +5875,7 @@ wxVariant PyEnumProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6228,7 +5892,7 @@ bool PyEnumProperty::DoSetAttribute(const wxString& name, wxVariant& value)
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -6245,7 +5909,7 @@ wxPGCellRenderer* PyEnumProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -6262,7 +5926,7 @@ int PyEnumProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6279,7 +5943,7 @@ wxPGEditorDialogAdapter* PyEnumProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6296,7 +5960,7 @@ int PyEnumProperty::GetIndexForValue(int value) const
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::GetIndexForValue(value);
     }
-    return _CommonCallback31(blocked, (PyObject*)m_clientData, funcobj, value);
+    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, value);
 }
 
 
@@ -6313,7 +5977,7 @@ wxString PyEnumProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -6331,7 +5995,7 @@ void PyEnumProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintData& 
         wxEnumProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -6348,7 +6012,7 @@ bool PyEnumProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* wnd_primary, wx
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::OnEvent(propgrid, wnd_primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
 }
 
 
@@ -6365,7 +6029,7 @@ wxSize PyEnumProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -6383,7 +6047,7 @@ void PyEnumProperty::OnSetValue()
         wxEnumProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6401,7 +6065,7 @@ void PyEnumProperty::OnValidationFailure(wxVariant& pendingValue)
         wxEnumProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -6420,7 +6084,7 @@ wxString PyEnumProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6443,7 +6107,7 @@ wxPGVariantAndBool PyEnumProperty::PyIntToValue(int number, int argFlags) const
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -6466,7 +6130,7 @@ wxPGVariantAndBool PyEnumProperty::PyStringToValue(const wxString& text, int arg
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -6489,7 +6153,7 @@ wxPGVariantAndBool PyEnumProperty::PyValidateValue(const wxVariant& value, wxPGV
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -6507,7 +6171,7 @@ void PyEnumProperty::RefreshChildren()
         wxEnumProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6524,14 +6188,14 @@ wxString PyEnumProperty::ValueToString(wxVariant& value, int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxEnumProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
 class PyArrayStringProperty : public wxArrayStringProperty {
 public:
-        PyArrayStringProperty( const wxString& label = wxPG_LABEL,
-                           const wxString& name = wxPG_LABEL,
+        PyArrayStringProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                           const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                            const wxArrayString& value = wxArrayString() );
     virtual ~PyArrayStringProperty();
     void _SetSelf(PyObject *self);
@@ -6542,6 +6206,7 @@ public:
     virtual wxVariant ChildChanged( wxVariant& thisValue,
                                     int childIndex,
                                     wxVariant& childValue ) const;
+    virtual wxArrayEditorDialog* CreateEditorDialog();
     virtual wxVariant DoGetAttribute( const wxString& name ) const;
     virtual wxValidator* DoGetValidator () const;
     virtual wxVariant DoGetValue() const;
@@ -6655,7 +6320,42 @@ wxVariant PyArrayStringProperty::ChildChanged(wxVariant& thisValue, int childInd
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+}
+
+
+wxArrayEditorDialog* PyArrayStringProperty::CreateEditorDialog()
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_CreateEditorDialog_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_CreateEditorDialog_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxArrayStringProperty::CreateEditorDialog();
+    }
+    PyObject* res;
+    res = PyObject_CallFunctionObjArgs(funcobj, ((PyObject*)m_clientData), NULL);
+    Py_DECREF(funcobj);
+    if (PyErr_Occurred()) SWIG_fail;
+    {
+    wxArrayEditorDialog* retval;
+    if ( !SWIG_IsOK(SWIG_ConvertPtr(res, (void**)&(retval), SWIGTYPE_p_wxArrayEditorDialog, 0)) ) {
+        PyErr_SetString(PyExc_TypeError,"expected wxArrayEditorDialog");
+        SWIG_fail;
+    }
+    PyObject_SetAttrString(res, "thisown", Py_False);
+    Py_DECREF(res);
+    wxPyEndBlockThreads(blocked);
+    return retval;
+    }
+  fail:
+    if ( PyErr_Occurred() ) PyErr_Print();
+    wxPyEndBlockThreads(blocked);
+    return NULL;
 }
 
 
@@ -6672,7 +6372,7 @@ wxVariant PyArrayStringProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -6689,7 +6389,7 @@ wxValidator* PyArrayStringProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6706,7 +6406,7 @@ wxVariant PyArrayStringProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6723,7 +6423,7 @@ bool PyArrayStringProperty::DoSetAttribute(const wxString& name, wxVariant& valu
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -6741,7 +6441,7 @@ void PyArrayStringProperty::GenerateValueAsString()
         wxArrayStringProperty::GenerateValueAsString();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6758,7 +6458,7 @@ wxPGCellRenderer* PyArrayStringProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -6775,7 +6475,7 @@ int PyArrayStringProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6792,7 +6492,7 @@ wxPGEditorDialogAdapter* PyArrayStringProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6809,7 +6509,7 @@ wxString PyArrayStringProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -6876,7 +6576,7 @@ void PyArrayStringProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPain
         wxArrayStringProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -6939,7 +6639,7 @@ bool PyArrayStringProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* primary,
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::OnEvent(propgrid, primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, primary, event);
 }
 
 
@@ -6956,7 +6656,7 @@ wxSize PyArrayStringProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -6974,7 +6674,7 @@ void PyArrayStringProperty::OnSetValue()
         wxArrayStringProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -6992,7 +6692,7 @@ void PyArrayStringProperty::OnValidationFailure(wxVariant& pendingValue)
         wxArrayStringProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -7011,7 +6711,7 @@ wxString PyArrayStringProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7034,7 +6734,7 @@ wxPGVariantAndBool PyArrayStringProperty::PyIntToValue(int number, int argFlags)
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -7057,7 +6757,7 @@ wxPGVariantAndBool PyArrayStringProperty::PyStringToValue(const wxString& text, 
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -7080,7 +6780,7 @@ wxPGVariantAndBool PyArrayStringProperty::PyValidateValue(const wxVariant& value
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -7098,7 +6798,7 @@ void PyArrayStringProperty::RefreshChildren()
         wxArrayStringProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7115,7 +6815,7 @@ wxString PyArrayStringProperty::ValueToString(wxVariant& value, int argFlags) co
         wxPyEndBlockThreads(blocked);
         return wxArrayStringProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
@@ -7215,7 +6915,7 @@ bool PyComboBoxEditor::CanContainCustomImage() const
         wxPyEndBlockThreads(blocked);
         return wxPGComboBoxEditor::CanContainCustomImage();
     }
-    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7232,7 +6932,7 @@ wxPGWindowList PyComboBoxEditor::CreateControls(wxPropertyGrid* propgrid, wxPGPr
         wxPyEndBlockThreads(blocked);
         return wxPGComboBoxEditor::CreateControls(propgrid, property, pos, size);
     }
-    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, pos, size);
+    return _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, pos, size);
 }
 
 
@@ -7250,7 +6950,7 @@ void PyComboBoxEditor::DeleteItem(wxWindow* ctrl, int index) const
         wxPGComboBoxEditor::DeleteItem(ctrl, index);
         return;
     }
-    _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj, ctrl, index);
+    _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, ctrl, index);
 }
 
 
@@ -7268,7 +6968,7 @@ void PyComboBoxEditor::DrawValue(wxDC& dc, const wxRect& rect, wxPGProperty* pro
         wxPGComboBoxEditor::DrawValue(dc, rect, property, text);
         return;
     }
-    _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj, dc, rect, property, text);
+    _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, dc, rect, property, text);
 }
 
 
@@ -7285,7 +6985,7 @@ wxString PyComboBoxEditor::GetName() const
         wxPyEndBlockThreads(blocked);
         return wxPGComboBoxEditor::GetName();
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7302,7 +7002,7 @@ int PyComboBoxEditor::InsertItem(wxWindow* ctrl, const wxString& label, int inde
         wxPyEndBlockThreads(blocked);
         return wxPGComboBoxEditor::InsertItem(ctrl, label, index);
     }
-    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, ctrl, label, index);
+    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, ctrl, label, index);
 }
 
 
@@ -7319,7 +7019,7 @@ bool PyComboBoxEditor::OnEvent(wxPropertyGrid* propgrid, wxPGProperty* property,
         wxPyEndBlockThreads(blocked);
         return wxPGComboBoxEditor::OnEvent(propgrid, property, ctrl, event);
     }
-    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, ctrl, event);
+    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, ctrl, event);
 }
 
 
@@ -7337,7 +7037,7 @@ void PyComboBoxEditor::OnFocus(wxPGProperty* property, wxWindow* wnd) const
         wxPGComboBoxEditor::OnFocus(property, wnd);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, wnd);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, wnd);
 }
 
 
@@ -7360,7 +7060,7 @@ wxPGVariantAndBool PyComboBoxEditor::PyGetValueFromControl(wxPGProperty* propert
             return vab;
         }
     }
-    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    return _CommonCallback31(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -7378,7 +7078,7 @@ void PyComboBoxEditor::SetControlAppearance(wxPropertyGrid* pg, wxPGProperty* pr
         wxPGComboBoxEditor::SetControlAppearance(pg, property, ctrl, appearance, oldAppearance, unspecified);
         return;
     }
-    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, pg, property, ctrl, appearance, oldAppearance, unspecified);
+    _CommonCallback32(blocked, (PyObject*)m_clientData, funcobj, pg, property, ctrl, appearance, oldAppearance, unspecified);
 }
 
 
@@ -7396,7 +7096,7 @@ void PyComboBoxEditor::SetControlIntValue(wxPGProperty* property, wxWindow* ctrl
         wxPGComboBoxEditor::SetControlIntValue(property, ctrl, value);
         return;
     }
-    _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, value);
+    _CommonCallback33(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, value);
 }
 
 
@@ -7414,7 +7114,7 @@ void PyComboBoxEditor::SetControlStringValue(wxPGProperty* property, wxWindow* c
         wxPGComboBoxEditor::SetControlStringValue(property, ctrl, txt);
         return;
     }
-    _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, txt);
+    _CommonCallback34(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, txt);
 }
 
 
@@ -7432,7 +7132,7 @@ void PyComboBoxEditor::SetValueToUnspecified(wxPGProperty* property, wxWindow* c
         wxPGComboBoxEditor::SetValueToUnspecified(property, ctrl);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -7450,7 +7150,7 @@ void PyComboBoxEditor::UpdateControl(wxPGProperty* property, wxWindow* ctrl) con
         wxPGComboBoxEditor::UpdateControl(property, ctrl);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -7506,14 +7206,14 @@ bool PyFileDialogAdapter::DoShowDialog(wxPropertyGrid* propGrid, wxPGProperty* p
         wxPyEndBlockThreads(blocked);
         return wxPGFileDialogAdapter::DoShowDialog(propGrid, property);
     }
-    return _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, propGrid, property);
+    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj, propGrid, property);
 }
 
 
 class PyStringProperty : public wxStringProperty {
 public:
-        PyStringProperty( const wxString& label = wxPG_LABEL,
-                      const wxString& name = wxPG_LABEL,
+        PyStringProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                      const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                       const wxString& value = wxEmptyString );
     virtual ~PyStringProperty();
     void _SetSelf(PyObject *self);
@@ -7633,7 +7333,7 @@ wxVariant PyStringProperty::ChildChanged(wxVariant& thisValue, int childIndex, w
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -7650,7 +7350,7 @@ wxVariant PyStringProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -7667,7 +7367,7 @@ wxValidator* PyStringProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7684,7 +7384,7 @@ wxVariant PyStringProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7701,7 +7401,7 @@ bool PyStringProperty::DoSetAttribute(const wxString& name, wxVariant& value)
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -7718,7 +7418,7 @@ wxPGCellRenderer* PyStringProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -7735,7 +7435,7 @@ int PyStringProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7752,7 +7452,7 @@ wxPGEditorDialogAdapter* PyStringProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7769,7 +7469,7 @@ wxString PyStringProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -7787,7 +7487,7 @@ void PyStringProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintData
         wxStringProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -7804,7 +7504,7 @@ bool PyStringProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* wnd_primary, 
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::OnEvent(propgrid, wnd_primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
 }
 
 
@@ -7821,7 +7521,7 @@ wxSize PyStringProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -7839,7 +7539,7 @@ void PyStringProperty::OnSetValue()
         wxStringProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7857,7 +7557,7 @@ void PyStringProperty::OnValidationFailure(wxVariant& pendingValue)
         wxStringProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -7876,7 +7576,7 @@ wxString PyStringProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7899,7 +7599,7 @@ wxPGVariantAndBool PyStringProperty::PyIntToValue(int number, int argFlags) cons
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -7922,7 +7622,7 @@ wxPGVariantAndBool PyStringProperty::PyStringToValue(const wxString& text, int a
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -7945,7 +7645,7 @@ wxPGVariantAndBool PyStringProperty::PyValidateValue(const wxVariant& value, wxP
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -7963,7 +7663,7 @@ void PyStringProperty::RefreshChildren()
         wxStringProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -7980,7 +7680,63 @@ wxString PyStringProperty::ValueToString(wxVariant& value, int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxStringProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+}
+
+
+class PyLongStringDialogAdapter : public wxPGLongStringDialogAdapter {
+public:
+        PyLongStringDialogAdapter();
+    virtual ~PyLongStringDialogAdapter();
+    void _SetSelf(PyObject *self);
+    virtual bool DoShowDialog( wxPropertyGrid* propGrid,
+                               wxPGProperty* property );
+private:
+    void Init() { if ( !gs_funcNamesInitialized ) _InitFuncNames(); }
+};
+
+static PyObject* gs_PyLongStringDialogAdapter_pyClass = NULL;
+
+
+PyLongStringDialogAdapter::PyLongStringDialogAdapter()
+    : wxPGLongStringDialogAdapter()
+{
+    Init();
+}
+
+PyLongStringDialogAdapter::~PyLongStringDialogAdapter()
+{
+    if (m_clientData) { _deleteOwningObject(m_clientData); m_clientData = NULL; }
+}
+
+void PyLongStringDialogAdapter::_SetSelf(PyObject *self)
+{
+    if ( !gs_PyLongStringDialogAdapter_pyClass )
+    {
+        gs_PyLongStringDialogAdapter_pyClass = PyObject_GetAttr(self, gs___class___Name);
+        Py_DECREF(gs_PyLongStringDialogAdapter_pyClass);
+    }
+    if ( !m_clientData ) {
+        m_clientData = self;
+        Py_INCREF(self);
+    }
+}
+
+
+bool PyLongStringDialogAdapter::DoShowDialog(wxPropertyGrid* propGrid, wxPGProperty* property)
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_DoShowDialog_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_DoShowDialog_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxPGLongStringDialogAdapter::DoShowDialog(propGrid, property);
+    }
+    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj, propGrid, property);
 }
 
 
@@ -7991,8 +7747,8 @@ public:
                         const wxChar* const* labels,
                         const long* values,
                         const wxString& value );
-    PyEditEnumProperty( const wxString& label = wxPG_LABEL,
-                        const wxString& name = wxPG_LABEL,
+    PyEditEnumProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                        const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                         const wxArrayString& labels = wxArrayString(),
                         const wxArrayInt& values = wxArrayInt(),
                         const wxString& value = wxEmptyString );
@@ -8143,7 +7899,7 @@ wxVariant PyEditEnumProperty::ChildChanged(wxVariant& thisValue, int childIndex,
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -8160,7 +7916,7 @@ wxVariant PyEditEnumProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -8177,7 +7933,7 @@ wxValidator* PyEditEnumProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -8194,7 +7950,7 @@ wxVariant PyEditEnumProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -8211,7 +7967,7 @@ bool PyEditEnumProperty::DoSetAttribute(const wxString& name, wxVariant& value)
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -8228,7 +7984,7 @@ wxPGCellRenderer* PyEditEnumProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -8245,7 +8001,7 @@ int PyEditEnumProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -8262,7 +8018,7 @@ wxPGEditorDialogAdapter* PyEditEnumProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -8279,7 +8035,7 @@ int PyEditEnumProperty::GetIndexForValue(int value) const
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::GetIndexForValue(value);
     }
-    return _CommonCallback31(blocked, (PyObject*)m_clientData, funcobj, value);
+    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, value);
 }
 
 
@@ -8296,7 +8052,7 @@ wxString PyEditEnumProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -8314,7 +8070,7 @@ void PyEditEnumProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintDa
         wxEditEnumProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -8331,7 +8087,7 @@ bool PyEditEnumProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* wnd_primary
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::OnEvent(propgrid, wnd_primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
 }
 
 
@@ -8348,7 +8104,7 @@ wxSize PyEditEnumProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -8366,7 +8122,7 @@ void PyEditEnumProperty::OnSetValue()
         wxEditEnumProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -8384,7 +8140,7 @@ void PyEditEnumProperty::OnValidationFailure(wxVariant& pendingValue)
         wxEditEnumProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -8403,7 +8159,7 @@ wxString PyEditEnumProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -8426,7 +8182,7 @@ wxPGVariantAndBool PyEditEnumProperty::PyIntToValue(int number, int argFlags) co
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -8449,7 +8205,7 @@ wxPGVariantAndBool PyEditEnumProperty::PyStringToValue(const wxString& text, int
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -8472,7 +8228,7 @@ wxPGVariantAndBool PyEditEnumProperty::PyValidateValue(const wxVariant& value, w
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -8490,7 +8246,7 @@ void PyEditEnumProperty::RefreshChildren()
         wxEditEnumProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -8507,7 +8263,7 @@ wxString PyEditEnumProperty::ValueToString(wxVariant& value, int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxEditEnumProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
@@ -8610,7 +8366,7 @@ bool PyTextCtrlEditor::CanContainCustomImage() const
         wxPyEndBlockThreads(blocked);
         return wxPGTextCtrlEditor::CanContainCustomImage();
     }
-    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -8627,7 +8383,7 @@ wxPGWindowList PyTextCtrlEditor::CreateControls(wxPropertyGrid* propgrid, wxPGPr
         wxPyEndBlockThreads(blocked);
         return wxPGTextCtrlEditor::CreateControls(propgrid, property, pos, size);
     }
-    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, pos, size);
+    return _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, pos, size);
 }
 
 
@@ -8645,7 +8401,7 @@ void PyTextCtrlEditor::DeleteItem(wxWindow* ctrl, int index) const
         wxPGTextCtrlEditor::DeleteItem(ctrl, index);
         return;
     }
-    _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj, ctrl, index);
+    _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, ctrl, index);
 }
 
 
@@ -8663,7 +8419,7 @@ void PyTextCtrlEditor::DrawValue(wxDC& dc, const wxRect& rect, wxPGProperty* pro
         wxPGTextCtrlEditor::DrawValue(dc, rect, property, text);
         return;
     }
-    _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj, dc, rect, property, text);
+    _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, dc, rect, property, text);
 }
 
 
@@ -8680,7 +8436,7 @@ wxString PyTextCtrlEditor::GetName() const
         wxPyEndBlockThreads(blocked);
         return wxPGTextCtrlEditor::GetName();
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -8697,7 +8453,7 @@ int PyTextCtrlEditor::InsertItem(wxWindow* ctrl, const wxString& label, int inde
         wxPyEndBlockThreads(blocked);
         return wxPGTextCtrlEditor::InsertItem(ctrl, label, index);
     }
-    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, ctrl, label, index);
+    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, ctrl, label, index);
 }
 
 
@@ -8714,7 +8470,7 @@ bool PyTextCtrlEditor::OnEvent(wxPropertyGrid* propgrid, wxPGProperty* property,
         wxPyEndBlockThreads(blocked);
         return wxPGTextCtrlEditor::OnEvent(propgrid, property, primaryCtrl, event);
     }
-    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, primaryCtrl, event);
+    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, primaryCtrl, event);
 }
 
 
@@ -8732,7 +8488,7 @@ void PyTextCtrlEditor::OnFocus(wxPGProperty* property, wxWindow* wnd) const
         wxPGTextCtrlEditor::OnFocus(property, wnd);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, wnd);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, wnd);
 }
 
 
@@ -8755,7 +8511,7 @@ wxPGVariantAndBool PyTextCtrlEditor::PyGetValueFromControl(wxPGProperty* propert
             return vab;
         }
     }
-    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    return _CommonCallback31(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -8773,7 +8529,7 @@ void PyTextCtrlEditor::SetControlAppearance(wxPropertyGrid* pg, wxPGProperty* pr
         wxPGTextCtrlEditor::SetControlAppearance(pg, property, ctrl, appearance, oldAppearance, unspecified);
         return;
     }
-    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, pg, property, ctrl, appearance, oldAppearance, unspecified);
+    _CommonCallback32(blocked, (PyObject*)m_clientData, funcobj, pg, property, ctrl, appearance, oldAppearance, unspecified);
 }
 
 
@@ -8791,7 +8547,7 @@ void PyTextCtrlEditor::SetControlIntValue(wxPGProperty* property, wxWindow* ctrl
         wxPGTextCtrlEditor::SetControlIntValue(property, ctrl, value);
         return;
     }
-    _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, value);
+    _CommonCallback33(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, value);
 }
 
 
@@ -8809,7 +8565,7 @@ void PyTextCtrlEditor::SetControlStringValue(wxPGProperty* property, wxWindow* c
         wxPGTextCtrlEditor::SetControlStringValue(property, ctrl, txt);
         return;
     }
-    _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, txt);
+    _CommonCallback34(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, txt);
 }
 
 
@@ -8827,7 +8583,7 @@ void PyTextCtrlEditor::SetValueToUnspecified(wxPGProperty* property, wxWindow* c
         wxPGTextCtrlEditor::SetValueToUnspecified(property, ctrl);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -8845,14 +8601,14 @@ void PyTextCtrlEditor::UpdateControl(wxPGProperty* property, wxWindow* ctrl) con
         wxPGTextCtrlEditor::UpdateControl(property, ctrl);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
 class PySystemColourProperty : public wxSystemColourProperty {
 public:
-        PySystemColourProperty( const wxString& label = wxPG_LABEL,
-                            const wxString& name = wxPG_LABEL,
+        PySystemColourProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                            const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                             const wxColourPropertyValue&
                                 value = wxColourPropertyValue() );
     PySystemColourProperty( const wxString& label, const wxString& name,
@@ -8994,7 +8750,7 @@ wxVariant PySystemColourProperty::ChildChanged(wxVariant& thisValue, int childIn
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -9011,7 +8767,7 @@ wxString PySystemColourProperty::ColourToString(const wxColour& col, int index) 
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::ColourToString(col, index);
     }
-    return _CommonCallback34(blocked, (PyObject*)m_clientData, funcobj, col, index);
+    return _CommonCallback35(blocked, (PyObject*)m_clientData, funcobj, col, index);
 }
 
 
@@ -9028,7 +8784,7 @@ wxVariant PySystemColourProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -9045,7 +8801,7 @@ wxValidator* PySystemColourProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9062,7 +8818,7 @@ wxVariant PySystemColourProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9079,7 +8835,7 @@ bool PySystemColourProperty::DoSetAttribute(const wxString& name, wxVariant& val
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -9096,7 +8852,7 @@ wxVariant PySystemColourProperty::DoTranslateVal(wxColourPropertyValue& v) const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::DoTranslateVal(v);
     }
-    return _CommonCallback35(blocked, (PyObject*)m_clientData, funcobj, v);
+    return _CommonCallback36(blocked, (PyObject*)m_clientData, funcobj, v);
 }
 
 
@@ -9113,7 +8869,7 @@ wxPGCellRenderer* PySystemColourProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -9130,7 +8886,7 @@ int PySystemColourProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9147,7 +8903,7 @@ wxColour PySystemColourProperty::GetColour(int index) const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::GetColour(index);
     }
-    return _CommonCallback36(blocked, (PyObject*)m_clientData, funcobj, index);
+    return _CommonCallback37(blocked, (PyObject*)m_clientData, funcobj, index);
 }
 
 
@@ -9164,7 +8920,7 @@ int PySystemColourProperty::GetCustomColourIndex() const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::GetCustomColourIndex();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9181,7 +8937,7 @@ wxPGEditorDialogAdapter* PySystemColourProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9198,7 +8954,7 @@ int PySystemColourProperty::GetIndexForValue(int value) const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::GetIndexForValue(value);
     }
-    return _CommonCallback31(blocked, (PyObject*)m_clientData, funcobj, value);
+    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, value);
 }
 
 
@@ -9215,7 +8971,7 @@ wxString PySystemColourProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -9233,7 +8989,7 @@ void PySystemColourProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPai
         wxSystemColourProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -9250,7 +9006,7 @@ bool PySystemColourProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* primary
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::OnEvent(propgrid, primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, primary, event);
 }
 
 
@@ -9267,7 +9023,7 @@ wxSize PySystemColourProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -9285,7 +9041,7 @@ void PySystemColourProperty::OnSetValue()
         wxSystemColourProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9303,7 +9059,7 @@ void PySystemColourProperty::OnValidationFailure(wxVariant& pendingValue)
         wxSystemColourProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -9322,7 +9078,7 @@ wxString PySystemColourProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9345,7 +9101,7 @@ wxPGVariantAndBool PySystemColourProperty::PyIntToValue(int number, int argFlags
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -9368,7 +9124,7 @@ wxPGVariantAndBool PySystemColourProperty::PyStringToValue(const wxString& text,
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -9391,7 +9147,7 @@ wxPGVariantAndBool PySystemColourProperty::PyValidateValue(const wxVariant& valu
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -9409,7 +9165,7 @@ void PySystemColourProperty::RefreshChildren()
         wxSystemColourProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9426,14 +9182,14 @@ wxString PySystemColourProperty::ValueToString(wxVariant& value, int argFlags) c
         wxPyEndBlockThreads(blocked);
         return wxSystemColourProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
 class PyFlagsProperty : public wxFlagsProperty {
 public:
-        PyFlagsProperty( const wxString& label = wxPG_LABEL,
-                     const wxString& name = wxPG_LABEL,
+        PyFlagsProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                     const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                      const wxArrayString& labels = wxArrayString(),
                      const wxArrayInt& values = wxArrayInt(),
                      int value = 0 );
@@ -9555,7 +9311,7 @@ wxVariant PyFlagsProperty::ChildChanged(wxVariant& thisValue, int childIndex, wx
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -9572,7 +9328,7 @@ wxVariant PyFlagsProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -9589,7 +9345,7 @@ wxValidator* PyFlagsProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9606,7 +9362,7 @@ wxVariant PyFlagsProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9623,7 +9379,7 @@ bool PyFlagsProperty::DoSetAttribute(const wxString& name, wxVariant& value)
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -9640,7 +9396,7 @@ wxPGCellRenderer* PyFlagsProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -9657,7 +9413,7 @@ int PyFlagsProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9674,7 +9430,7 @@ wxPGEditorDialogAdapter* PyFlagsProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9691,7 +9447,7 @@ wxString PyFlagsProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -9709,7 +9465,7 @@ void PyFlagsProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintData&
         wxFlagsProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -9726,7 +9482,7 @@ bool PyFlagsProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* wnd_primary, w
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::OnEvent(propgrid, wnd_primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
 }
 
 
@@ -9743,7 +9499,7 @@ wxSize PyFlagsProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -9761,7 +9517,7 @@ void PyFlagsProperty::OnSetValue()
         wxFlagsProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9779,7 +9535,7 @@ void PyFlagsProperty::OnValidationFailure(wxVariant& pendingValue)
         wxFlagsProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -9798,7 +9554,7 @@ wxString PyFlagsProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9821,7 +9577,7 @@ wxPGVariantAndBool PyFlagsProperty::PyIntToValue(int number, int argFlags) const
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -9844,7 +9600,7 @@ wxPGVariantAndBool PyFlagsProperty::PyStringToValue(const wxString& text, int ar
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -9867,7 +9623,7 @@ wxPGVariantAndBool PyFlagsProperty::PyValidateValue(const wxVariant& value, wxPG
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -9885,7 +9641,7 @@ void PyFlagsProperty::RefreshChildren()
         wxFlagsProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -9902,14 +9658,487 @@ wxString PyFlagsProperty::ValueToString(wxVariant& value, int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxFlagsProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+}
+
+
+class PyFontProperty : public wxFontProperty {
+public:
+        PyFontProperty(const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                   const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
+                   const wxFont& value = wxFont());
+    virtual ~PyFontProperty();
+    void _SetSelf(PyObject *self);
+    virtual const wxPGEditor* DoGetEditorClass() const;
+    virtual bool ValidateValue(wxVariant& value, wxPGValidationInfo& validationInfo) const;
+    virtual bool StringToValue(wxVariant& variant, const wxString& text, int argFlags) const;
+    virtual bool IntToValue(wxVariant& variant, int number, int argFlags) const;
+    virtual wxVariant ChildChanged( wxVariant& thisValue,
+                                    int childIndex,
+                                    wxVariant& childValue ) const;
+    virtual wxVariant DoGetAttribute( const wxString& name ) const;
+    virtual wxValidator* DoGetValidator () const;
+    virtual wxVariant DoGetValue() const;
+    virtual bool DoSetAttribute( const wxString& name, wxVariant& value );
+    virtual wxPGCellRenderer* GetCellRenderer( int column ) const;
+    virtual int GetChoiceSelection() const;
+    virtual wxPGEditorDialogAdapter* GetEditorDialog() const;
+    virtual wxString GetValueAsString( int argFlags = 0 ) const;
+    virtual void OnCustomPaint( wxDC& dc,
+                                const wxRect& rect,
+                                wxPGPaintData& paintdata );
+    virtual bool OnEvent( wxPropertyGrid* propgrid,
+                          wxWindow* primary, wxEvent& event );
+    virtual wxSize OnMeasureImage( int item = -1 ) const;
+    virtual void OnSetValue();
+    virtual void OnValidationFailure( wxVariant& pendingValue );
+    virtual wxString PyGetEditor() const;
+    virtual wxPGVariantAndBool PyIntToValue( int number, int argFlags ) const;
+    virtual wxPGVariantAndBool PyStringToValue( const wxString& text, int argFlags ) const;
+    virtual wxPGVariantAndBool PyValidateValue( const wxVariant& value, wxPGValidationInfo& validationInfo ) const;
+    virtual void RefreshChildren();
+    virtual wxString ValueToString( wxVariant& value, int argFlags = 0 ) const;
+private:
+    void Init() { if ( !gs_funcNamesInitialized ) _InitFuncNames(); }
+};
+
+static PyObject* gs_PyFontProperty_pyClass = NULL;
+
+
+PyFontProperty::PyFontProperty(const wxString& label, const wxString& name, const wxFont& value)
+    : wxFontProperty(label, name, value)
+{
+    Init();
+}
+
+PyFontProperty::~PyFontProperty()
+{
+    if (m_clientData) { _deleteOwningObject(m_clientData); m_clientData = NULL; }
+}
+
+void PyFontProperty::_SetSelf(PyObject *self)
+{
+    if ( !gs_PyFontProperty_pyClass )
+    {
+        gs_PyFontProperty_pyClass = PyObject_GetAttr(self, gs___class___Name);
+        Py_DECREF(gs_PyFontProperty_pyClass);
+    }
+    if ( !m_clientData ) {
+        m_clientData = self;
+        Py_INCREF(self);
+    }
+}
+
+const wxPGEditor* PyFontProperty::DoGetEditorClass() const
+{
+    return wxPropertyGridInterface::GetEditorByName(PyGetEditor());
+}
+
+bool PyFontProperty::ValidateValue(wxVariant& value, wxPGValidationInfo& validationInfo) const
+{
+    if ( m_clientData )
+    {
+        wxPGVariantAndBool vab = PyValidateValue(value, validationInfo);
+        if ( vab.m_valueValid )
+            value = vab.m_value;
+        return vab.m_result;
+    }
+    return wxFontProperty::ValidateValue(value, validationInfo);
+}
+
+bool PyFontProperty::StringToValue(wxVariant& variant, const wxString& text, int argFlags) const
+{
+    if ( m_clientData )
+    {
+        wxPGVariantAndBool vab = PyStringToValue(text, argFlags);
+        if ( vab.m_valueValid )
+            variant = vab.m_value;
+        return vab.m_result;
+    }
+    return wxFontProperty::StringToValue(variant, text, argFlags);
+}
+
+bool PyFontProperty::IntToValue(wxVariant& variant, int number, int argFlags) const
+{
+    if ( m_clientData )
+    {
+        wxPGVariantAndBool vab = PyIntToValue(number, argFlags);
+        if ( vab.m_valueValid )
+            variant = vab.m_value;
+        return vab.m_result;
+    }
+    return wxFontProperty::IntToValue(variant, number, argFlags);
+}
+
+
+wxVariant PyFontProperty::ChildChanged(wxVariant& thisValue, int childIndex, wxVariant& childValue) const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_ChildChanged_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_ChildChanged_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::ChildChanged(thisValue, childIndex, childValue);
+    }
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+}
+
+
+wxVariant PyFontProperty::DoGetAttribute(const wxString& name) const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_DoGetAttribute_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_DoGetAttribute_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::DoGetAttribute(name);
+    }
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
+}
+
+
+wxValidator* PyFontProperty::DoGetValidator() const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_DoGetValidator_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_DoGetValidator_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::DoGetValidator();
+    }
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
+}
+
+
+wxVariant PyFontProperty::DoGetValue() const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_DoGetValue_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_DoGetValue_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::DoGetValue();
+    }
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
+}
+
+
+bool PyFontProperty::DoSetAttribute(const wxString& name, wxVariant& value)
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_DoSetAttribute_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_DoSetAttribute_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::DoSetAttribute(name, value);
+    }
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
+}
+
+
+wxPGCellRenderer* PyFontProperty::GetCellRenderer(int column) const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_GetCellRenderer_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_GetCellRenderer_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::GetCellRenderer(column);
+    }
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
+}
+
+
+int PyFontProperty::GetChoiceSelection() const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_GetChoiceSelection_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_GetChoiceSelection_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::GetChoiceSelection();
+    }
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
+}
+
+
+wxPGEditorDialogAdapter* PyFontProperty::GetEditorDialog() const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_GetEditorDialog_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_GetEditorDialog_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::GetEditorDialog();
+    }
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
+}
+
+
+wxString PyFontProperty::GetValueAsString(int argFlags) const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_GetValueAsString_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_GetValueAsString_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::GetValueAsString(argFlags);
+    }
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+}
+
+
+void PyFontProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintData& paintdata)
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_OnCustomPaint_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_OnCustomPaint_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        wxFontProperty::OnCustomPaint(dc, rect, paintdata);
+        return;
+    }
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+}
+
+
+bool PyFontProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* primary, wxEvent& event)
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_OnEvent_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_OnEvent_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::OnEvent(propgrid, primary, event);
+    }
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, primary, event);
+}
+
+
+wxSize PyFontProperty::OnMeasureImage(int item) const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_OnMeasureImage_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_OnMeasureImage_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::OnMeasureImage(item);
+    }
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
+}
+
+
+void PyFontProperty::OnSetValue()
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_OnSetValue_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_OnSetValue_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        wxFontProperty::OnSetValue();
+        return;
+    }
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
+}
+
+
+void PyFontProperty::OnValidationFailure(wxVariant& pendingValue)
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_OnValidationFailure_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_OnValidationFailure_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        wxFontProperty::OnValidationFailure(pendingValue);
+        return;
+    }
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+}
+
+
+wxString PyFontProperty::PyGetEditor() const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_GetEditor_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_GetEditor_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        {
+            return wxT("TextCtrl");
+        }
+    }
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+}
+
+
+wxPGVariantAndBool PyFontProperty::PyIntToValue(int number, int argFlags) const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_IntToValue_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_IntToValue_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        {
+            wxPGVariantAndBool vab;
+            vab.m_result = wxFontProperty::IntToValue(vab.m_value, number, argFlags);
+            if ( vab.m_result )
+                vab.m_valueValid = true;
+            return vab;
+        }
+    }
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+}
+
+
+wxPGVariantAndBool PyFontProperty::PyStringToValue(const wxString& text, int argFlags) const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_StringToValue_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_StringToValue_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        {
+            wxPGVariantAndBool vab;
+            vab.m_result = wxFontProperty::StringToValue(vab.m_value, text, argFlags);
+            if ( vab.m_result )
+                vab.m_valueValid = true;
+            return vab;
+        }
+    }
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+}
+
+
+wxPGVariantAndBool PyFontProperty::PyValidateValue(const wxVariant& value, wxPGValidationInfo& validationInfo) const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_ValidateValue_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_ValidateValue_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        {
+            wxPGVariantAndBool vab;
+            vab.m_value = value;
+            vab.m_valueValid = true;
+            vab.m_result = wxFontProperty::ValidateValue(vab.m_value, validationInfo);
+            return vab;
+        }
+    }
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+}
+
+
+void PyFontProperty::RefreshChildren()
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_RefreshChildren_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_RefreshChildren_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        wxFontProperty::RefreshChildren();
+        return;
+    }
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
+}
+
+
+wxString PyFontProperty::ValueToString(wxVariant& value, int argFlags) const
+{
+    wxPyBlock_t blocked = wxPyBeginBlockThreads();
+
+    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
+    PyObject* funcobj = NULL;
+    if ( PyObject_HasAttr(cls_, gs_ValueToString_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_ValueToString_Name);
+    Py_DECREF(cls_);
+    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
+    {
+        wxPyEndBlockThreads(blocked);
+        return wxFontProperty::ValueToString(value, argFlags);
+    }
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
 class PyColourProperty : public wxColourProperty {
 public:
-        PyColourProperty( const wxString& label = wxPG_LABEL,
-                      const wxString& name = wxPG_LABEL,
+        PyColourProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                      const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                       const wxColour& value = *wxWHITE );
     virtual ~PyColourProperty();
     void _SetSelf(PyObject *self);
@@ -10032,7 +10261,7 @@ wxVariant PyColourProperty::ChildChanged(wxVariant& thisValue, int childIndex, w
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -10049,7 +10278,7 @@ wxString PyColourProperty::ColourToString(const wxColour& col, int index) const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::ColourToString(col, index);
     }
-    return _CommonCallback34(blocked, (PyObject*)m_clientData, funcobj, col, index);
+    return _CommonCallback35(blocked, (PyObject*)m_clientData, funcobj, col, index);
 }
 
 
@@ -10066,7 +10295,7 @@ wxVariant PyColourProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -10083,7 +10312,7 @@ wxValidator* PyColourProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10100,7 +10329,7 @@ wxVariant PyColourProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10117,7 +10346,7 @@ bool PyColourProperty::DoSetAttribute(const wxString& name, wxVariant& value)
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -10134,7 +10363,7 @@ wxVariant PyColourProperty::DoTranslateVal(wxColourPropertyValue& v) const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::DoTranslateVal(v);
     }
-    return _CommonCallback35(blocked, (PyObject*)m_clientData, funcobj, v);
+    return _CommonCallback36(blocked, (PyObject*)m_clientData, funcobj, v);
 }
 
 
@@ -10151,7 +10380,7 @@ wxPGCellRenderer* PyColourProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -10168,7 +10397,7 @@ int PyColourProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10185,7 +10414,7 @@ wxColour PyColourProperty::GetColour(int index) const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::GetColour(index);
     }
-    return _CommonCallback36(blocked, (PyObject*)m_clientData, funcobj, index);
+    return _CommonCallback37(blocked, (PyObject*)m_clientData, funcobj, index);
 }
 
 
@@ -10202,7 +10431,7 @@ int PyColourProperty::GetCustomColourIndex() const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::GetCustomColourIndex();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10219,7 +10448,7 @@ wxPGEditorDialogAdapter* PyColourProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10236,7 +10465,7 @@ int PyColourProperty::GetIndexForValue(int value) const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::GetIndexForValue(value);
     }
-    return _CommonCallback31(blocked, (PyObject*)m_clientData, funcobj, value);
+    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, value);
 }
 
 
@@ -10253,7 +10482,7 @@ wxString PyColourProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -10271,7 +10500,7 @@ void PyColourProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintData
         wxColourProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -10288,7 +10517,7 @@ bool PyColourProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* primary, wxEv
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::OnEvent(propgrid, primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, primary, event);
 }
 
 
@@ -10305,7 +10534,7 @@ wxSize PyColourProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -10323,7 +10552,7 @@ void PyColourProperty::OnSetValue()
         wxColourProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10341,7 +10570,7 @@ void PyColourProperty::OnValidationFailure(wxVariant& pendingValue)
         wxColourProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -10360,7 +10589,7 @@ wxString PyColourProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10383,7 +10612,7 @@ wxPGVariantAndBool PyColourProperty::PyIntToValue(int number, int argFlags) cons
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -10406,7 +10635,7 @@ wxPGVariantAndBool PyColourProperty::PyStringToValue(const wxString& text, int a
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -10429,7 +10658,7 @@ wxPGVariantAndBool PyColourProperty::PyValidateValue(const wxVariant& value, wxP
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -10447,7 +10676,7 @@ void PyColourProperty::RefreshChildren()
         wxColourProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10464,14 +10693,14 @@ wxString PyColourProperty::ValueToString(wxVariant& value, int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxColourProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
 class PyFileProperty : public wxFileProperty {
 public:
-        PyFileProperty( const wxString& label = wxPG_LABEL,
-                    const wxString& name = wxPG_LABEL,
+        PyFileProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                    const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                     const wxString& value = wxEmptyString );
     virtual ~PyFileProperty();
     void _SetSelf(PyObject *self);
@@ -10591,7 +10820,7 @@ wxVariant PyFileProperty::ChildChanged(wxVariant& thisValue, int childIndex, wxV
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -10608,7 +10837,7 @@ wxVariant PyFileProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -10625,7 +10854,7 @@ wxValidator* PyFileProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10642,7 +10871,7 @@ wxVariant PyFileProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10659,7 +10888,7 @@ bool PyFileProperty::DoSetAttribute(const wxString& name, wxVariant& value)
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -10676,7 +10905,7 @@ wxPGCellRenderer* PyFileProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -10693,7 +10922,7 @@ int PyFileProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10710,7 +10939,7 @@ wxPGEditorDialogAdapter* PyFileProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10727,7 +10956,7 @@ wxString PyFileProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -10745,7 +10974,7 @@ void PyFileProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintData& 
         wxFileProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -10762,7 +10991,7 @@ bool PyFileProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* wnd_primary, wx
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::OnEvent(propgrid, wnd_primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
 }
 
 
@@ -10779,7 +11008,7 @@ wxSize PyFileProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -10797,7 +11026,7 @@ void PyFileProperty::OnSetValue()
         wxFileProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10815,7 +11044,7 @@ void PyFileProperty::OnValidationFailure(wxVariant& pendingValue)
         wxFileProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -10834,7 +11063,7 @@ wxString PyFileProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10857,7 +11086,7 @@ wxPGVariantAndBool PyFileProperty::PyIntToValue(int number, int argFlags) const
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -10880,7 +11109,7 @@ wxPGVariantAndBool PyFileProperty::PyStringToValue(const wxString& text, int arg
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -10903,7 +11132,7 @@ wxPGVariantAndBool PyFileProperty::PyValidateValue(const wxVariant& value, wxPGV
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -10921,7 +11150,7 @@ void PyFileProperty::RefreshChildren()
         wxFileProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -10938,14 +11167,14 @@ wxString PyFileProperty::ValueToString(wxVariant& value, int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxFileProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
 class PyIntProperty : public wxIntProperty {
 public:
-        PyIntProperty( const wxString& label = wxPG_LABEL,
-                   const wxString& name = wxPG_LABEL,
+        PyIntProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                   const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                    long value = 0 );
     PyIntProperty( const wxString& label,
                    const wxString& name,
@@ -11074,7 +11303,7 @@ wxVariant PyIntProperty::ChildChanged(wxVariant& thisValue, int childIndex, wxVa
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -11091,7 +11320,7 @@ wxVariant PyIntProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -11108,7 +11337,7 @@ wxValidator* PyIntProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11125,7 +11354,7 @@ wxVariant PyIntProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11142,7 +11371,7 @@ bool PyIntProperty::DoSetAttribute(const wxString& name, wxVariant& value)
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -11159,7 +11388,7 @@ wxPGCellRenderer* PyIntProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -11176,7 +11405,7 @@ int PyIntProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11193,7 +11422,7 @@ wxPGEditorDialogAdapter* PyIntProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11210,7 +11439,7 @@ wxString PyIntProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -11228,7 +11457,7 @@ void PyIntProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintData& p
         wxIntProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -11245,7 +11474,7 @@ bool PyIntProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* wnd_primary, wxE
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::OnEvent(propgrid, wnd_primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
 }
 
 
@@ -11262,7 +11491,7 @@ wxSize PyIntProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -11280,7 +11509,7 @@ void PyIntProperty::OnSetValue()
         wxIntProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11298,7 +11527,7 @@ void PyIntProperty::OnValidationFailure(wxVariant& pendingValue)
         wxIntProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -11317,7 +11546,7 @@ wxString PyIntProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11340,7 +11569,7 @@ wxPGVariantAndBool PyIntProperty::PyIntToValue(int number, int argFlags) const
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -11363,7 +11592,7 @@ wxPGVariantAndBool PyIntProperty::PyStringToValue(const wxString& text, int argF
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -11386,7 +11615,7 @@ wxPGVariantAndBool PyIntProperty::PyValidateValue(const wxVariant& value, wxPGVa
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -11404,7 +11633,7 @@ void PyIntProperty::RefreshChildren()
         wxIntProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11421,7 +11650,7 @@ wxString PyIntProperty::ValueToString(wxVariant& value, int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxIntProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
@@ -11522,7 +11751,7 @@ bool PyEditor::CanContainCustomImage() const
         wxPyEndBlockThreads(blocked);
         return wxPGEditor::CanContainCustomImage();
     }
-    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11540,7 +11769,7 @@ wxPGWindowList PyEditor::CreateControls(wxPropertyGrid* propgrid, wxPGProperty* 
         PyErr_SetString(PyExc_TypeError,"this method must be implemented");
         return wxPGWindowList();
     }
-    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, pos, size);
+    return _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, pos, size);
 }
 
 
@@ -11558,7 +11787,7 @@ void PyEditor::DeleteItem(wxWindow* ctrl, int index) const
         wxPGEditor::DeleteItem(ctrl, index);
         return;
     }
-    _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj, ctrl, index);
+    _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, ctrl, index);
 }
 
 
@@ -11576,7 +11805,7 @@ void PyEditor::DrawValue(wxDC& dc, const wxRect& rect, wxPGProperty* property, c
         wxPGEditor::DrawValue(dc, rect, property, text);
         return;
     }
-    _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj, dc, rect, property, text);
+    _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, dc, rect, property, text);
 }
 
 
@@ -11593,7 +11822,7 @@ wxString PyEditor::GetName() const
         wxPyEndBlockThreads(blocked);
         return wxPGEditor::GetName();
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11610,7 +11839,7 @@ int PyEditor::InsertItem(wxWindow* ctrl, const wxString& label, int index) const
         wxPyEndBlockThreads(blocked);
         return wxPGEditor::InsertItem(ctrl, label, index);
     }
-    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, ctrl, label, index);
+    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, ctrl, label, index);
 }
 
 
@@ -11628,7 +11857,7 @@ bool PyEditor::OnEvent(wxPropertyGrid* propgrid, wxPGProperty* property, wxWindo
         PyErr_SetString(PyExc_TypeError,"this method must be implemented");
         return false;
     }
-    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, wnd_primary, event);
+    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, wnd_primary, event);
 }
 
 
@@ -11646,7 +11875,7 @@ void PyEditor::OnFocus(wxPGProperty* property, wxWindow* wnd) const
         wxPGEditor::OnFocus(property, wnd);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, wnd);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, wnd);
 }
 
 
@@ -11669,7 +11898,7 @@ wxPGVariantAndBool PyEditor::PyGetValueFromControl(wxPGProperty* property, wxWin
             return vab;
         }
     }
-    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    return _CommonCallback31(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -11687,7 +11916,7 @@ void PyEditor::SetControlAppearance(wxPropertyGrid* pg, wxPGProperty* property, 
         wxPGEditor::SetControlAppearance(pg, property, ctrl, appearance, oldAppearance, unspecified);
         return;
     }
-    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, pg, property, ctrl, appearance, oldAppearance, unspecified);
+    _CommonCallback32(blocked, (PyObject*)m_clientData, funcobj, pg, property, ctrl, appearance, oldAppearance, unspecified);
 }
 
 
@@ -11705,7 +11934,7 @@ void PyEditor::SetControlIntValue(wxPGProperty* property, wxWindow* ctrl, int va
         wxPGEditor::SetControlIntValue(property, ctrl, value);
         return;
     }
-    _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, value);
+    _CommonCallback33(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, value);
 }
 
 
@@ -11723,7 +11952,7 @@ void PyEditor::SetControlStringValue(wxPGProperty* property, wxWindow* ctrl, con
         wxPGEditor::SetControlStringValue(property, ctrl, txt);
         return;
     }
-    _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, txt);
+    _CommonCallback34(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, txt);
 }
 
 
@@ -11741,7 +11970,7 @@ void PyEditor::SetValueToUnspecified(wxPGProperty* property, wxWindow* ctrl) con
         wxPGEditor::SetValueToUnspecified(property, ctrl);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -11759,7 +11988,7 @@ void PyEditor::UpdateControl(wxPGProperty* property, wxWindow* ctrl) const
         PyErr_SetString(PyExc_TypeError,"this method must be implemented");
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -11862,7 +12091,7 @@ bool PyChoiceEditor::CanContainCustomImage() const
         wxPyEndBlockThreads(blocked);
         return wxPGChoiceEditor::CanContainCustomImage();
     }
-    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11879,7 +12108,7 @@ wxPGWindowList PyChoiceEditor::CreateControls(wxPropertyGrid* propgrid, wxPGProp
         wxPyEndBlockThreads(blocked);
         return wxPGChoiceEditor::CreateControls(propgrid, property, pos, size);
     }
-    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, pos, size);
+    return _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, pos, size);
 }
 
 
@@ -11897,7 +12126,7 @@ void PyChoiceEditor::DeleteItem(wxWindow* ctrl, int index) const
         wxPGChoiceEditor::DeleteItem(ctrl, index);
         return;
     }
-    _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj, ctrl, index);
+    _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, ctrl, index);
 }
 
 
@@ -11915,7 +12144,7 @@ void PyChoiceEditor::DrawValue(wxDC& dc, const wxRect& rect, wxPGProperty* prope
         wxPGChoiceEditor::DrawValue(dc, rect, property, text);
         return;
     }
-    _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj, dc, rect, property, text);
+    _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, dc, rect, property, text);
 }
 
 
@@ -11932,7 +12161,7 @@ wxString PyChoiceEditor::GetName() const
         wxPyEndBlockThreads(blocked);
         return wxPGChoiceEditor::GetName();
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -11949,7 +12178,7 @@ int PyChoiceEditor::InsertItem(wxWindow* ctrl, const wxString& label, int index)
         wxPyEndBlockThreads(blocked);
         return wxPGChoiceEditor::InsertItem(ctrl, label, index);
     }
-    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, ctrl, label, index);
+    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, ctrl, label, index);
 }
 
 
@@ -11966,7 +12195,7 @@ bool PyChoiceEditor::OnEvent(wxPropertyGrid* propgrid, wxPGProperty* property, w
         wxPyEndBlockThreads(blocked);
         return wxPGChoiceEditor::OnEvent(propgrid, property, primaryCtrl, event);
     }
-    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, primaryCtrl, event);
+    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, propgrid, property, primaryCtrl, event);
 }
 
 
@@ -11984,7 +12213,7 @@ void PyChoiceEditor::OnFocus(wxPGProperty* property, wxWindow* wnd) const
         wxPGChoiceEditor::OnFocus(property, wnd);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, wnd);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, wnd);
 }
 
 
@@ -12007,7 +12236,7 @@ wxPGVariantAndBool PyChoiceEditor::PyGetValueFromControl(wxPGProperty* property,
             return vab;
         }
     }
-    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    return _CommonCallback31(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -12025,7 +12254,7 @@ void PyChoiceEditor::SetControlAppearance(wxPropertyGrid* pg, wxPGProperty* prop
         wxPGChoiceEditor::SetControlAppearance(pg, property, ctrl, appearance, oldAppearance, unspecified);
         return;
     }
-    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, pg, property, ctrl, appearance, oldAppearance, unspecified);
+    _CommonCallback32(blocked, (PyObject*)m_clientData, funcobj, pg, property, ctrl, appearance, oldAppearance, unspecified);
 }
 
 
@@ -12043,7 +12272,7 @@ void PyChoiceEditor::SetControlIntValue(wxPGProperty* property, wxWindow* ctrl, 
         wxPGChoiceEditor::SetControlIntValue(property, ctrl, value);
         return;
     }
-    _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, value);
+    _CommonCallback33(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, value);
 }
 
 
@@ -12061,7 +12290,7 @@ void PyChoiceEditor::SetControlStringValue(wxPGProperty* property, wxWindow* ctr
         wxPGChoiceEditor::SetControlStringValue(property, ctrl, txt);
         return;
     }
-    _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, txt);
+    _CommonCallback34(blocked, (PyObject*)m_clientData, funcobj, property, ctrl, txt);
 }
 
 
@@ -12079,7 +12308,7 @@ void PyChoiceEditor::SetValueToUnspecified(wxPGProperty* property, wxWindow* ctr
         wxPGChoiceEditor::SetValueToUnspecified(property, ctrl);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -12097,7 +12326,7 @@ void PyChoiceEditor::UpdateControl(wxPGProperty* property, wxWindow* ctrl) const
         wxPGChoiceEditor::UpdateControl(property, ctrl);
         return;
     }
-    _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
+    _CommonCallback30(blocked, (PyObject*)m_clientData, funcobj, property, ctrl);
 }
 
 
@@ -12229,7 +12458,7 @@ wxVariant PyProperty::ChildChanged(wxVariant& thisValue, int childIndex, wxVaria
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -12246,7 +12475,7 @@ wxVariant PyProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -12263,7 +12492,7 @@ wxValidator* PyProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12280,7 +12509,7 @@ wxVariant PyProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12297,7 +12526,7 @@ bool PyProperty::DoSetAttribute(const wxString& name, wxVariant& value)
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -12314,7 +12543,7 @@ wxPGCellRenderer* PyProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -12331,7 +12560,7 @@ int PyProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12348,7 +12577,7 @@ wxPGEditorDialogAdapter* PyProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12365,7 +12594,7 @@ wxString PyProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -12383,7 +12612,7 @@ void PyProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintData& pain
         wxPGProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -12400,7 +12629,7 @@ bool PyProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* wnd_primary, wxEven
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::OnEvent(propgrid, wnd_primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
 }
 
 
@@ -12417,7 +12646,7 @@ wxSize PyProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -12435,7 +12664,7 @@ void PyProperty::OnSetValue()
         wxPGProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12453,7 +12682,7 @@ void PyProperty::OnValidationFailure(wxVariant& pendingValue)
         wxPGProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -12472,7 +12701,7 @@ wxString PyProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12495,7 +12724,7 @@ wxPGVariantAndBool PyProperty::PyIntToValue(int number, int argFlags) const
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -12518,7 +12747,7 @@ wxPGVariantAndBool PyProperty::PyStringToValue(const wxString& text, int argFlag
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -12541,7 +12770,7 @@ wxPGVariantAndBool PyProperty::PyValidateValue(const wxVariant& value, wxPGValid
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -12559,7 +12788,7 @@ void PyProperty::RefreshChildren()
         wxPGProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12576,98 +12805,15 @@ wxString PyProperty::ValueToString(wxVariant& value, int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxPGProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
-}
-
-
-class PyLongStringDialogAdapter : public wxPGLongStringDialogAdapter {
-public:
-        PyLongStringDialogAdapter();
-    virtual ~PyLongStringDialogAdapter();
-    void _SetSelf(PyObject *self);
-    virtual bool DoShowDialog( wxPropertyGrid* propGrid,
-                               wxPGProperty* property );
-private:
-    void Init() { if ( !gs_funcNamesInitialized ) _InitFuncNames(); }
-};
-
-static PyObject* gs_PyLongStringDialogAdapter_pyClass = NULL;
-
-
-PyLongStringDialogAdapter::PyLongStringDialogAdapter()
-    : wxPGLongStringDialogAdapter()
-{
-    Init();
-}
-
-PyLongStringDialogAdapter::~PyLongStringDialogAdapter()
-{
-    if (m_clientData) { _deleteOwningObject(m_clientData); m_clientData = NULL; }
-}
-
-void PyLongStringDialogAdapter::_SetSelf(PyObject *self)
-{
-    if ( !gs_PyLongStringDialogAdapter_pyClass )
-    {
-        gs_PyLongStringDialogAdapter_pyClass = PyObject_GetAttr(self, gs___class___Name);
-        Py_DECREF(gs_PyLongStringDialogAdapter_pyClass);
-    }
-    if ( !m_clientData ) {
-        m_clientData = self;
-        Py_INCREF(self);
-    }
-}
-
-
-bool PyLongStringDialogAdapter::DoShowDialog(wxPropertyGrid* propGrid, wxPGProperty* property)
-{
-    wxPyBlock_t blocked = wxPyBeginBlockThreads();
-
-    PyObject* cls_ = PyObject_GetAttr((PyObject*)m_clientData, gs___class___Name);
-    PyObject* funcobj = NULL;
-    if ( PyObject_HasAttr(cls_, gs_DoShowDialog_Name) == 1 ) funcobj = PyObject_GetAttr(cls_, gs_DoShowDialog_Name);
-    Py_DECREF(cls_);
-    if ( !funcobj || PyObject_HasAttr((PyObject*)m_clientData, gs__super_call_Name) == 1 )
-    {
-        wxPyEndBlockThreads(blocked);
-        return wxPGLongStringDialogAdapter::DoShowDialog(propGrid, property);
-    }
-    PyObject* res;
-    PyObject* py_propGrid;
-    py_propGrid = SWIG_NewPointerObj((void*)propGrid, SWIGTYPE_p_wxPropertyGrid, 0);
-    PyObject* py_property;
-        py_property = NULL;
-    if ( property->m_clientData ) py_property = (PyObject*)property->m_clientData;
-    if ( py_property ) Py_INCREF(py_property);
-    else py_property = SWIG_NewPointerObj((void*)property, SWIGTYPE_p_wxPGProperty, 0);
-
-    res = PyObject_CallFunctionObjArgs(funcobj, ((PyObject*)m_clientData), py_propGrid, py_property, NULL);
-    Py_DECREF(funcobj);
-    Py_DECREF(py_property);
-    Py_DECREF(py_propGrid);
-    if (PyErr_Occurred()) SWIG_fail;
-    {
-    bool retval;
-        if ( !SWIG_IsOK(SWIG_AsVal_bool(res, &retval)) ) {
-        PyErr_SetString(PyExc_TypeError,"expected bool");
-        SWIG_fail;
-    }
-    Py_DECREF(res);
-    wxPyEndBlockThreads(blocked);
-    return retval;
-    }
-  fail:
-    if ( PyErr_Occurred() ) PyErr_Print();
-    wxPyEndBlockThreads(blocked);
-    return false;
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
 class PyUIntProperty : public wxUIntProperty {
 public:
-        PyUIntProperty( const wxString& label = wxPG_LABEL,
-                    const wxString& name = wxPG_LABEL,
-                    unsigned long value = 0 );
+        PyUIntProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                    const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
+                     long value = 0 );
     PyUIntProperty( const wxString& label,
                     const wxString& name,
                     const wxULongLong& value );
@@ -12710,7 +12856,7 @@ private:
 static PyObject* gs_PyUIntProperty_pyClass = NULL;
 
 
-PyUIntProperty::PyUIntProperty(const wxString& label, const wxString& name, unsigned long value)
+PyUIntProperty::PyUIntProperty(const wxString& label, const wxString& name, long value)
     : wxUIntProperty(label, name, value)
 {
     Init();
@@ -12795,7 +12941,7 @@ wxVariant PyUIntProperty::ChildChanged(wxVariant& thisValue, int childIndex, wxV
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -12812,7 +12958,7 @@ wxVariant PyUIntProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -12829,7 +12975,7 @@ wxValidator* PyUIntProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12846,7 +12992,7 @@ wxVariant PyUIntProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12863,7 +13009,7 @@ bool PyUIntProperty::DoSetAttribute(const wxString& name, wxVariant& value)
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -12880,7 +13026,7 @@ wxPGCellRenderer* PyUIntProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -12897,7 +13043,7 @@ int PyUIntProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12914,7 +13060,7 @@ wxPGEditorDialogAdapter* PyUIntProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -12931,7 +13077,7 @@ wxString PyUIntProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -12949,7 +13095,7 @@ void PyUIntProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaintData& 
         wxUIntProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -12966,7 +13112,7 @@ bool PyUIntProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* wnd_primary, wx
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::OnEvent(propgrid, wnd_primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, wnd_primary, event);
 }
 
 
@@ -12983,7 +13129,7 @@ wxSize PyUIntProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -13001,7 +13147,7 @@ void PyUIntProperty::OnSetValue()
         wxUIntProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -13019,7 +13165,7 @@ void PyUIntProperty::OnValidationFailure(wxVariant& pendingValue)
         wxUIntProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -13038,7 +13184,7 @@ wxString PyUIntProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -13061,7 +13207,7 @@ wxPGVariantAndBool PyUIntProperty::PyIntToValue(int number, int argFlags) const
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -13084,7 +13230,7 @@ wxPGVariantAndBool PyUIntProperty::PyStringToValue(const wxString& text, int arg
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -13107,7 +13253,7 @@ wxPGVariantAndBool PyUIntProperty::PyValidateValue(const wxVariant& value, wxPGV
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -13125,7 +13271,7 @@ void PyUIntProperty::RefreshChildren()
         wxUIntProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -13142,14 +13288,14 @@ wxString PyUIntProperty::ValueToString(wxVariant& value, int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxUIntProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
 class PyLongStringProperty : public wxLongStringProperty {
 public:
-        PyLongStringProperty( const wxString& label = wxPG_LABEL,
-                          const wxString& name = wxPG_LABEL,
+        PyLongStringProperty( const wxString& label = (*wxPGProperty::sm_wxPG_LABEL),
+                          const wxString& name = (*wxPGProperty::sm_wxPG_LABEL),
                           const wxString& value = wxEmptyString );
     virtual ~PyLongStringProperty();
     void _SetSelf(PyObject *self);
@@ -13269,7 +13415,7 @@ wxVariant PyLongStringProperty::ChildChanged(wxVariant& thisValue, int childInde
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::ChildChanged(thisValue, childIndex, childValue);
     }
-    return _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
+    return _CommonCallback0(blocked, (PyObject*)m_clientData, funcobj, thisValue, childIndex, childValue);
 }
 
 
@@ -13286,7 +13432,7 @@ wxVariant PyLongStringProperty::DoGetAttribute(const wxString& name) const
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::DoGetAttribute(name);
     }
-    return _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, name);
+    return _CommonCallback1(blocked, (PyObject*)m_clientData, funcobj, name);
 }
 
 
@@ -13303,7 +13449,7 @@ wxValidator* PyLongStringProperty::DoGetValidator() const
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::DoGetValidator();
     }
-    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback2(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -13320,7 +13466,7 @@ wxVariant PyLongStringProperty::DoGetValue() const
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::DoGetValue();
     }
-    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback3(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -13337,7 +13483,7 @@ bool PyLongStringProperty::DoSetAttribute(const wxString& name, wxVariant& value
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::DoSetAttribute(name, value);
     }
-    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, name, value);
+    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj, name, value);
 }
 
 
@@ -13354,7 +13500,7 @@ wxPGCellRenderer* PyLongStringProperty::GetCellRenderer(int column) const
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::GetCellRenderer(column);
     }
-    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, column);
+    return _CommonCallback5(blocked, (PyObject*)m_clientData, funcobj, column);
 }
 
 
@@ -13371,7 +13517,7 @@ int PyLongStringProperty::GetChoiceSelection() const
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::GetChoiceSelection();
     }
-    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback6(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -13388,7 +13534,7 @@ wxPGEditorDialogAdapter* PyLongStringProperty::GetEditorDialog() const
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::GetEditorDialog();
     }
-    return _CommonCallback19(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback7(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -13405,7 +13551,7 @@ wxString PyLongStringProperty::GetValueAsString(int argFlags) const
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::GetValueAsString(argFlags);
     }
-    return _CommonCallback20(blocked, (PyObject*)m_clientData, funcobj, argFlags);
+    return _CommonCallback8(blocked, (PyObject*)m_clientData, funcobj, argFlags);
 }
 
 
@@ -13468,7 +13614,7 @@ void PyLongStringProperty::OnCustomPaint(wxDC& dc, const wxRect& rect, wxPGPaint
         wxLongStringProperty::OnCustomPaint(dc, rect, paintdata);
         return;
     }
-    _CommonCallback21(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
+    _CommonCallback9(blocked, (PyObject*)m_clientData, funcobj, dc, rect, paintdata);
 }
 
 
@@ -13485,7 +13631,7 @@ bool PyLongStringProperty::OnEvent(wxPropertyGrid* propgrid, wxWindow* primary, 
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::OnEvent(propgrid, primary, event);
     }
-    return _CommonCallback22(blocked, (PyObject*)m_clientData, funcobj, propgrid, primary, event);
+    return _CommonCallback10(blocked, (PyObject*)m_clientData, funcobj, propgrid, primary, event);
 }
 
 
@@ -13502,7 +13648,7 @@ wxSize PyLongStringProperty::OnMeasureImage(int item) const
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::OnMeasureImage(item);
     }
-    return _CommonCallback23(blocked, (PyObject*)m_clientData, funcobj, item);
+    return _CommonCallback11(blocked, (PyObject*)m_clientData, funcobj, item);
 }
 
 
@@ -13520,7 +13666,7 @@ void PyLongStringProperty::OnSetValue()
         wxLongStringProperty::OnSetValue();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -13538,7 +13684,7 @@ void PyLongStringProperty::OnValidationFailure(wxVariant& pendingValue)
         wxLongStringProperty::OnValidationFailure(pendingValue);
         return;
     }
-    _CommonCallback25(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
+    _CommonCallback13(blocked, (PyObject*)m_clientData, funcobj, pendingValue);
 }
 
 
@@ -13557,7 +13703,7 @@ wxString PyLongStringProperty::PyGetEditor() const
             return wxT("TextCtrl");
         }
     }
-    return _CommonCallback4(blocked, (PyObject*)m_clientData, funcobj);
+    return _CommonCallback14(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -13580,7 +13726,7 @@ wxPGVariantAndBool PyLongStringProperty::PyIntToValue(int number, int argFlags) 
             return vab;
         }
     }
-    return _CommonCallback26(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
+    return _CommonCallback15(blocked, (PyObject*)m_clientData, funcobj, number, argFlags);
 }
 
 
@@ -13603,7 +13749,7 @@ wxPGVariantAndBool PyLongStringProperty::PyStringToValue(const wxString& text, i
             return vab;
         }
     }
-    return _CommonCallback27(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
+    return _CommonCallback16(blocked, (PyObject*)m_clientData, funcobj, text, argFlags);
 }
 
 
@@ -13626,7 +13772,7 @@ wxPGVariantAndBool PyLongStringProperty::PyValidateValue(const wxVariant& value,
             return vab;
         }
     }
-    return _CommonCallback28(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
+    return _CommonCallback17(blocked, (PyObject*)m_clientData, funcobj, value, validationInfo);
 }
 
 
@@ -13644,7 +13790,7 @@ void PyLongStringProperty::RefreshChildren()
         wxLongStringProperty::RefreshChildren();
         return;
     }
-    _CommonCallback24(blocked, (PyObject*)m_clientData, funcobj);
+    _CommonCallback12(blocked, (PyObject*)m_clientData, funcobj);
 }
 
 
@@ -13661,7 +13807,7 @@ wxString PyLongStringProperty::ValueToString(wxVariant& value, int argFlags) con
         wxPyEndBlockThreads(blocked);
         return wxLongStringProperty::ValueToString(value, argFlags);
     }
-    return _CommonCallback29(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
+    return _CommonCallback18(blocked, (PyObject*)m_clientData, funcobj, value, argFlags);
 }
 
 
@@ -39733,20 +39879,94 @@ SWIGINTERN PyObject *ColourPropertyValue_swiginit(PyObject *SWIGUNUSEDPARM(self)
   return SWIG_Python_InitShadowInstance(args);
 }
 
-SWIGINTERN PyObject *_wrap_delete_PGSpinCtrlEditor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_FontProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
-  wxPGSpinCtrlEditor *arg1 = (wxPGSpinCtrlEditor *) 0 ;
+  wxString const &arg1_defvalue = (*wxPGProperty::sm_wxPG_LABEL) ;
+  wxString *arg1 = (wxString *) &arg1_defvalue ;
+  wxString const &arg2_defvalue = (*wxPGProperty::sm_wxPG_LABEL) ;
+  wxString *arg2 = (wxString *) &arg2_defvalue ;
+  wxFont const &arg3_defvalue = wxFont() ;
+  wxFont *arg3 = (wxFont *) &arg3_defvalue ;
+  wxFontProperty *result = 0 ;
+  bool temp1 = false ;
+  bool temp2 = false ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "label",(char *) "name",(char *) "value", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OOO:new_FontProperty",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (obj0) {
+    {
+      arg1 = wxString_in_helper(obj0);
+      if (arg1 == NULL) SWIG_fail;
+      temp1 = true;
+    }
+  }
+  if (obj1) {
+    {
+      arg2 = wxString_in_helper(obj1);
+      if (arg2 == NULL) SWIG_fail;
+      temp2 = true;
+    }
+  }
+  if (obj2) {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxFont,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_FontProperty" "', expected argument " "3"" of type '" "wxFont const &""'"); 
+    }
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_FontProperty" "', expected argument " "3"" of type '" "wxFont const &""'"); 
+    }
+    arg3 = reinterpret_cast< wxFont * >(argp3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxFontProperty *)new wxFontProperty((wxString const &)*arg1,(wxString const &)*arg2,(wxFont const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxFontProperty, SWIG_POINTER_NEW |  0 );
+  {
+    if (temp1)
+    delete arg1;
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp1)
+    delete arg1;
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_FontProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontProperty *arg1 = (wxFontProperty *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPGSpinCtrlEditor, SWIG_POINTER_DISOWN |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontProperty, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_PGSpinCtrlEditor" "', expected argument " "1"" of type '" "wxPGSpinCtrlEditor *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_FontProperty" "', expected argument " "1"" of type '" "wxFontProperty *""'"); 
   }
-  arg1 = reinterpret_cast< wxPGSpinCtrlEditor * >(argp1);
+  arg1 = reinterpret_cast< wxFontProperty * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     delete arg1;
@@ -39761,11 +39981,444 @@ fail:
 }
 
 
-SWIGINTERN PyObject *PGSpinCtrlEditor_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *FontProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_wxPGSpinCtrlEditor, SWIG_NewClientData(obj));
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxFontProperty, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *FontProperty_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_new_SystemColourProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxString const &arg1_defvalue = (*wxPGProperty::sm_wxPG_LABEL) ;
+  wxString *arg1 = (wxString *) &arg1_defvalue ;
+  wxString const &arg2_defvalue = (*wxPGProperty::sm_wxPG_LABEL) ;
+  wxString *arg2 = (wxString *) &arg2_defvalue ;
+  wxColourPropertyValue const &arg3_defvalue = wxColourPropertyValue() ;
+  wxColourPropertyValue *arg3 = (wxColourPropertyValue *) &arg3_defvalue ;
+  wxSystemColourProperty *result = 0 ;
+  bool temp1 = false ;
+  bool temp2 = false ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "label",(char *) "name",(char *) "value", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OOO:new_SystemColourProperty",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (obj0) {
+    {
+      arg1 = wxString_in_helper(obj0);
+      if (arg1 == NULL) SWIG_fail;
+      temp1 = true;
+    }
+  }
+  if (obj1) {
+    {
+      arg2 = wxString_in_helper(obj1);
+      if (arg2 == NULL) SWIG_fail;
+      temp2 = true;
+    }
+  }
+  if (obj2) {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxColourPropertyValue,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_SystemColourProperty" "', expected argument " "3"" of type '" "wxColourPropertyValue const &""'"); 
+    }
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_SystemColourProperty" "', expected argument " "3"" of type '" "wxColourPropertyValue const &""'"); 
+    }
+    arg3 = reinterpret_cast< wxColourPropertyValue * >(argp3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxSystemColourProperty *)new wxSystemColourProperty((wxString const &)*arg1,(wxString const &)*arg2,(wxColourPropertyValue const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxSystemColourProperty, SWIG_POINTER_NEW |  0 );
+  {
+    if (temp1)
+    delete arg1;
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp1)
+    delete arg1;
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_SystemColourProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxSystemColourProperty *arg1 = (wxSystemColourProperty *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxSystemColourProperty, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_SystemColourProperty" "', expected argument " "1"" of type '" "wxSystemColourProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSystemColourProperty * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SystemColourProperty_ColourToString(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxSystemColourProperty *arg1 = (wxSystemColourProperty *) 0 ;
+  wxColour *arg2 = 0 ;
+  int arg3 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxColour temp2 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "col",(char *) "index", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:SystemColourProperty_ColourToString",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSystemColourProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SystemColourProperty_ColourToString" "', expected argument " "1"" of type '" "wxSystemColourProperty const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSystemColourProperty * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "SystemColourProperty_ColourToString" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxSystemColourProperty const *)arg1)->ColourToString((wxColour const &)*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SystemColourProperty_GetCustomColourIndex(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxSystemColourProperty *arg1 = (wxSystemColourProperty *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxSystemColourProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SystemColourProperty_GetCustomColourIndex" "', expected argument " "1"" of type '" "wxSystemColourProperty const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSystemColourProperty * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)((wxSystemColourProperty const *)arg1)->GetCustomColourIndex();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SystemColourProperty_QueryColourFromUser(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxSystemColourProperty *arg1 = (wxSystemColourProperty *) 0 ;
+  wxVariant *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "variant", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:SystemColourProperty_QueryColourFromUser",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSystemColourProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SystemColourProperty_QueryColourFromUser" "', expected argument " "1"" of type '" "wxSystemColourProperty const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSystemColourProperty * >(argp1);
+  {
+    arg2 = new wxVariant();
+    if ( !PyObject_to_wxVariant(obj1, arg2) ) {
+      PyErr_SetString(PyExc_TypeError,
+        "this Python type cannot be converted to wxVariant");
+      SWIG_fail;
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxSystemColourProperty const *)arg1)->QueryColourFromUser(*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SystemColourProperty_GetColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxSystemColourProperty *arg1 = (wxSystemColourProperty *) 0 ;
+  int arg2 ;
+  wxColour result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "index", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:SystemColourProperty_GetColour",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSystemColourProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SystemColourProperty_GetColour" "', expected argument " "1"" of type '" "wxSystemColourProperty const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSystemColourProperty * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SystemColourProperty_GetColour" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxSystemColourProperty const *)arg1)->GetColour(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxColour(static_cast< const wxColour& >(result))), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_SystemColourProperty_GetVal(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxSystemColourProperty *arg1 = (wxSystemColourProperty *) 0 ;
+  wxVariant *arg2 = (wxVariant *) NULL ;
+  wxColourPropertyValue result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pVariant", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:SystemColourProperty_GetVal",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSystemColourProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SystemColourProperty_GetVal" "', expected argument " "1"" of type '" "wxSystemColourProperty const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxSystemColourProperty * >(argp1);
+  if (obj1) {
+    res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxVariant, 0 |  0 );
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SystemColourProperty_GetVal" "', expected argument " "2"" of type '" "wxVariant const *""'"); 
+    }
+    arg2 = reinterpret_cast< wxVariant * >(argp2);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxSystemColourProperty const *)arg1)->GetVal((wxVariant const *)arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxColourPropertyValue(static_cast< const wxColourPropertyValue& >(result))), SWIGTYPE_p_wxColourPropertyValue, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *SystemColourProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxSystemColourProperty, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *SystemColourProperty_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_new_ColourProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxString const &arg1_defvalue = (*wxPGProperty::sm_wxPG_LABEL) ;
+  wxString *arg1 = (wxString *) &arg1_defvalue ;
+  wxString const &arg2_defvalue = (*wxPGProperty::sm_wxPG_LABEL) ;
+  wxString *arg2 = (wxString *) &arg2_defvalue ;
+  wxColour const &arg3_defvalue = *wxWHITE ;
+  wxColour *arg3 = (wxColour *) &arg3_defvalue ;
+  wxColourProperty *result = 0 ;
+  bool temp1 = false ;
+  bool temp2 = false ;
+  wxColour temp3 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "label",(char *) "name",(char *) "value", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OOO:new_ColourProperty",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (obj0) {
+    {
+      arg1 = wxString_in_helper(obj0);
+      if (arg1 == NULL) SWIG_fail;
+      temp1 = true;
+    }
+  }
+  if (obj1) {
+    {
+      arg2 = wxString_in_helper(obj1);
+      if (arg2 == NULL) SWIG_fail;
+      temp2 = true;
+    }
+  }
+  if (obj2) {
+    {
+      arg3 = &temp3;
+      if ( ! wxColour_helper(obj2, &arg3)) SWIG_fail;
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxColourProperty *)new wxColourProperty((wxString const &)*arg1,(wxString const &)*arg2,(wxColour const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColourProperty, SWIG_POINTER_NEW |  0 );
+  {
+    if (temp1)
+    delete arg1;
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp1)
+    delete arg1;
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_ColourProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxColourProperty *arg1 = (wxColourProperty *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxColourProperty, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_ColourProperty" "', expected argument " "1"" of type '" "wxColourProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< wxColourProperty * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *ColourProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxColourProperty, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *ColourProperty_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
 }
 
 SWIGINTERN PyObject *_wrap_new_PropertyGridPage(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
@@ -44137,67 +44790,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_PyCheckBoxEditor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  PyCheckBoxEditor *result = 0 ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"new_PyCheckBoxEditor",0,0,0)) SWIG_fail;
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyCheckBoxEditor *)new PyCheckBoxEditor();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PyCheckBoxEditor, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_PyCheckBoxEditor__SetSelf(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  PyCheckBoxEditor *arg1 = (PyCheckBoxEditor *) 0 ;
-  PyObject *arg2 = (PyObject *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "self", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyCheckBoxEditor__SetSelf",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PyCheckBoxEditor, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyCheckBoxEditor__SetSelf" "', expected argument " "1"" of type '" "PyCheckBoxEditor *""'"); 
-  }
-  arg1 = reinterpret_cast< PyCheckBoxEditor * >(argp1);
-  arg2 = obj1;
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_SetSelf(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *PyCheckBoxEditor_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_PyCheckBoxEditor, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *PyCheckBoxEditor_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  return SWIG_Python_InitShadowInstance(args);
-}
-
 SWIGINTERN PyObject *_wrap_new_PyFloatProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxString const &arg1_defvalue = (*wxPGProperty::sm_wxPG_LABEL) ;
@@ -44917,6 +45509,67 @@ SWIGINTERN PyObject *PyStringProperty_swigregister(PyObject *SWIGUNUSEDPARM(self
 }
 
 SWIGINTERN PyObject *PyStringProperty_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_new_PyLongStringDialogAdapter(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  PyLongStringDialogAdapter *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"new_PyLongStringDialogAdapter",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (PyLongStringDialogAdapter *)new PyLongStringDialogAdapter();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PyLongStringDialogAdapter, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PyLongStringDialogAdapter__SetSelf(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  PyLongStringDialogAdapter *arg1 = (PyLongStringDialogAdapter *) 0 ;
+  PyObject *arg2 = (PyObject *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "self", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyLongStringDialogAdapter__SetSelf",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PyLongStringDialogAdapter, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyLongStringDialogAdapter__SetSelf" "', expected argument " "1"" of type '" "PyLongStringDialogAdapter *""'"); 
+  }
+  arg1 = reinterpret_cast< PyLongStringDialogAdapter * >(argp1);
+  arg2 = obj1;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->_SetSelf(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *PyLongStringDialogAdapter_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_PyLongStringDialogAdapter, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *PyLongStringDialogAdapter_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
@@ -45916,6 +46569,123 @@ SWIGINTERN PyObject *PyFlagsProperty_swiginit(PyObject *SWIGUNUSEDPARM(self), Py
   return SWIG_Python_InitShadowInstance(args);
 }
 
+SWIGINTERN PyObject *_wrap_new_PyFontProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxString const &arg1_defvalue = (*wxPGProperty::sm_wxPG_LABEL) ;
+  wxString *arg1 = (wxString *) &arg1_defvalue ;
+  wxString const &arg2_defvalue = (*wxPGProperty::sm_wxPG_LABEL) ;
+  wxString *arg2 = (wxString *) &arg2_defvalue ;
+  wxFont const &arg3_defvalue = wxFont() ;
+  wxFont *arg3 = (wxFont *) &arg3_defvalue ;
+  PyFontProperty *result = 0 ;
+  bool temp1 = false ;
+  bool temp2 = false ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "label",(char *) "name",(char *) "value", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OOO:new_PyFontProperty",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (obj0) {
+    {
+      arg1 = wxString_in_helper(obj0);
+      if (arg1 == NULL) SWIG_fail;
+      temp1 = true;
+    }
+  }
+  if (obj1) {
+    {
+      arg2 = wxString_in_helper(obj1);
+      if (arg2 == NULL) SWIG_fail;
+      temp2 = true;
+    }
+  }
+  if (obj2) {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxFont,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "new_PyFontProperty" "', expected argument " "3"" of type '" "wxFont const &""'"); 
+    }
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_PyFontProperty" "', expected argument " "3"" of type '" "wxFont const &""'"); 
+    }
+    arg3 = reinterpret_cast< wxFont * >(argp3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (PyFontProperty *)new PyFontProperty((wxString const &)*arg1,(wxString const &)*arg2,(wxFont const &)*arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PyFontProperty, SWIG_POINTER_NEW |  0 );
+  {
+    if (temp1)
+    delete arg1;
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp1)
+    delete arg1;
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PyFontProperty__SetSelf(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  PyFontProperty *arg1 = (PyFontProperty *) 0 ;
+  PyObject *arg2 = (PyObject *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "self", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyFontProperty__SetSelf",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PyFontProperty, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyFontProperty__SetSelf" "', expected argument " "1"" of type '" "PyFontProperty *""'"); 
+  }
+  arg1 = reinterpret_cast< PyFontProperty * >(argp1);
+  arg2 = obj1;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->_SetSelf(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *PyFontProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_PyFontProperty, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *PyFontProperty_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
 SWIGINTERN PyObject *_wrap_new_PyColourProperty(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxString const &arg1_defvalue = (*wxPGProperty::sm_wxPG_LABEL) ;
@@ -46593,67 +47363,6 @@ SWIGINTERN PyObject *PyProperty_swigregister(PyObject *SWIGUNUSEDPARM(self), PyO
 }
 
 SWIGINTERN PyObject *PyProperty_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  return SWIG_Python_InitShadowInstance(args);
-}
-
-SWIGINTERN PyObject *_wrap_new_PyLongStringDialogAdapter(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  PyLongStringDialogAdapter *result = 0 ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"new_PyLongStringDialogAdapter",0,0,0)) SWIG_fail;
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (PyLongStringDialogAdapter *)new PyLongStringDialogAdapter();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_PyLongStringDialogAdapter, SWIG_POINTER_NEW |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_PyLongStringDialogAdapter__SetSelf(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  PyLongStringDialogAdapter *arg1 = (PyLongStringDialogAdapter *) 0 ;
-  PyObject *arg2 = (PyObject *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "self", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyLongStringDialogAdapter__SetSelf",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_PyLongStringDialogAdapter, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyLongStringDialogAdapter__SetSelf" "', expected argument " "1"" of type '" "PyLongStringDialogAdapter *""'"); 
-  }
-  arg1 = reinterpret_cast< PyLongStringDialogAdapter * >(argp1);
-  arg2 = obj1;
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->_SetSelf(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *PyLongStringDialogAdapter_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *obj;
-  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
-  SWIG_TypeNewClientData(SWIGTYPE_p_PyLongStringDialogAdapter, SWIG_NewClientData(obj));
-  return SWIG_Py_Void();
-}
-
-SWIGINTERN PyObject *PyLongStringDialogAdapter_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
@@ -47644,8 +48353,23 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_ColourPropertyValue", _wrap_new_ColourPropertyValue, METH_VARARGS, NULL},
 	 { (char *)"ColourPropertyValue_swigregister", ColourPropertyValue_swigregister, METH_VARARGS, NULL},
 	 { (char *)"ColourPropertyValue_swiginit", ColourPropertyValue_swiginit, METH_VARARGS, NULL},
-	 { (char *)"delete_PGSpinCtrlEditor", (PyCFunction)_wrap_delete_PGSpinCtrlEditor, METH_O, NULL},
-	 { (char *)"PGSpinCtrlEditor_swigregister", PGSpinCtrlEditor_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_FontProperty", (PyCFunction) _wrap_new_FontProperty, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_FontProperty", (PyCFunction)_wrap_delete_FontProperty, METH_O, NULL},
+	 { (char *)"FontProperty_swigregister", FontProperty_swigregister, METH_VARARGS, NULL},
+	 { (char *)"FontProperty_swiginit", FontProperty_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_SystemColourProperty", (PyCFunction) _wrap_new_SystemColourProperty, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_SystemColourProperty", (PyCFunction)_wrap_delete_SystemColourProperty, METH_O, NULL},
+	 { (char *)"SystemColourProperty_ColourToString", (PyCFunction) _wrap_SystemColourProperty_ColourToString, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"SystemColourProperty_GetCustomColourIndex", (PyCFunction)_wrap_SystemColourProperty_GetCustomColourIndex, METH_O, NULL},
+	 { (char *)"SystemColourProperty_QueryColourFromUser", (PyCFunction) _wrap_SystemColourProperty_QueryColourFromUser, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"SystemColourProperty_GetColour", (PyCFunction) _wrap_SystemColourProperty_GetColour, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"SystemColourProperty_GetVal", (PyCFunction) _wrap_SystemColourProperty_GetVal, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"SystemColourProperty_swigregister", SystemColourProperty_swigregister, METH_VARARGS, NULL},
+	 { (char *)"SystemColourProperty_swiginit", SystemColourProperty_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_ColourProperty", (PyCFunction) _wrap_new_ColourProperty, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"delete_ColourProperty", (PyCFunction)_wrap_delete_ColourProperty, METH_O, NULL},
+	 { (char *)"ColourProperty_swigregister", ColourProperty_swigregister, METH_VARARGS, NULL},
+	 { (char *)"ColourProperty_swiginit", ColourProperty_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PropertyGridPage", (PyCFunction)_wrap_new_PropertyGridPage, METH_NOARGS, NULL},
 	 { (char *)"delete_PropertyGridPage", (PyCFunction)_wrap_delete_PropertyGridPage, METH_O, NULL},
 	 { (char *)"PropertyGridPage_FitColumns", (PyCFunction)_wrap_PropertyGridPage_FitColumns, METH_O, NULL},
@@ -47724,10 +48448,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"NewImageFileProperty", (PyCFunction) _wrap_NewImageFileProperty, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NewMultiChoiceProperty", (PyCFunction) _wrap_NewMultiChoiceProperty, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NewDateProperty", (PyCFunction) _wrap_NewDateProperty, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"new_PyCheckBoxEditor", (PyCFunction)_wrap_new_PyCheckBoxEditor, METH_NOARGS, NULL},
-	 { (char *)"PyCheckBoxEditor__SetSelf", (PyCFunction) _wrap_PyCheckBoxEditor__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"PyCheckBoxEditor_swigregister", PyCheckBoxEditor_swigregister, METH_VARARGS, NULL},
-	 { (char *)"PyCheckBoxEditor_swiginit", PyCheckBoxEditor_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PyFloatProperty", (PyCFunction) _wrap_new_PyFloatProperty, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyFloatProperty__SetSelf", (PyCFunction) _wrap_PyFloatProperty__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyFloatProperty_swigregister", PyFloatProperty_swigregister, METH_VARARGS, NULL},
@@ -47756,6 +48476,10 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyStringProperty__SetSelf", (PyCFunction) _wrap_PyStringProperty__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyStringProperty_swigregister", PyStringProperty_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PyStringProperty_swiginit", PyStringProperty_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_PyLongStringDialogAdapter", (PyCFunction)_wrap_new_PyLongStringDialogAdapter, METH_NOARGS, NULL},
+	 { (char *)"PyLongStringDialogAdapter__SetSelf", (PyCFunction) _wrap_PyLongStringDialogAdapter__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PyLongStringDialogAdapter_swigregister", PyLongStringDialogAdapter_swigregister, METH_VARARGS, NULL},
+	 { (char *)"PyLongStringDialogAdapter_swiginit", PyLongStringDialogAdapter_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PyEditEnumProperty", _wrap_new_PyEditEnumProperty, METH_VARARGS, NULL},
 	 { (char *)"PyEditEnumProperty__SetSelf", (PyCFunction) _wrap_PyEditEnumProperty__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyEditEnumProperty_swigregister", PyEditEnumProperty_swigregister, METH_VARARGS, NULL},
@@ -47772,6 +48496,10 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyFlagsProperty__SetSelf", (PyCFunction) _wrap_PyFlagsProperty__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyFlagsProperty_swigregister", PyFlagsProperty_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PyFlagsProperty_swiginit", PyFlagsProperty_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_PyFontProperty", (PyCFunction) _wrap_new_PyFontProperty, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PyFontProperty__SetSelf", (PyCFunction) _wrap_PyFontProperty__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PyFontProperty_swigregister", PyFontProperty_swigregister, METH_VARARGS, NULL},
+	 { (char *)"PyFontProperty_swiginit", PyFontProperty_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PyColourProperty", (PyCFunction) _wrap_new_PyColourProperty, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyColourProperty__SetSelf", (PyCFunction) _wrap_PyColourProperty__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyColourProperty_swigregister", PyColourProperty_swigregister, METH_VARARGS, NULL},
@@ -47796,10 +48524,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyProperty__SetSelf", (PyCFunction) _wrap_PyProperty__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyProperty_swigregister", PyProperty_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PyProperty_swiginit", PyProperty_swiginit, METH_VARARGS, NULL},
-	 { (char *)"new_PyLongStringDialogAdapter", (PyCFunction)_wrap_new_PyLongStringDialogAdapter, METH_NOARGS, NULL},
-	 { (char *)"PyLongStringDialogAdapter__SetSelf", (PyCFunction) _wrap_PyLongStringDialogAdapter__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"PyLongStringDialogAdapter_swigregister", PyLongStringDialogAdapter_swigregister, METH_VARARGS, NULL},
-	 { (char *)"PyLongStringDialogAdapter_swiginit", PyLongStringDialogAdapter_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PyUIntProperty", _wrap_new_PyUIntProperty, METH_VARARGS, NULL},
 	 { (char *)"PyUIntProperty__SetSelf", (PyCFunction) _wrap_PyUIntProperty__SetSelf, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyUIntProperty_swigregister", PyUIntProperty_swigregister, METH_VARARGS, NULL},
@@ -47823,9 +48547,6 @@ static void *_p_wxPGSpinCtrlEditorTo_p_wxPGTextCtrlEditor(void *x) {
 }
 static void *_p_PyTextCtrlEditorTo_p_wxPGTextCtrlEditor(void *x) {
     return (void *)((wxPGTextCtrlEditor *)  ((PyTextCtrlEditor *) x));
-}
-static void *_p_PyCheckBoxEditorTo_p_wxPGCheckBoxEditor(void *x) {
-    return (void *)((wxPGCheckBoxEditor *)  ((PyCheckBoxEditor *) x));
 }
 static void *_p_PyComboBoxEditorTo_p_wxPGComboBoxEditor(void *x) {
     return (void *)((wxPGComboBoxEditor *)  ((PyComboBoxEditor *) x));
@@ -47983,9 +48704,6 @@ static void *_p_wxPropertyGridConstIteratorTo_p_wxPropertyGridIteratorBase(void 
 static void *_p_wxPropertyGridPageTo_p_wxPropertyGridPageState(void *x) {
     return (void *)((wxPropertyGridPageState *)  ((wxPropertyGridPage *) x));
 }
-static void *_p_PyLongStringDialogAdapterTo_p_wxPGLongStringDialogAdapter(void *x) {
-    return (void *)((wxPGLongStringDialogAdapter *)  ((PyLongStringDialogAdapter *) x));
-}
 static void *_p_wxPGFileDialogAdapterTo_p_wxPGEditorDialogAdapter(void *x) {
     return (void *)((wxPGEditorDialogAdapter *)  ((wxPGFileDialogAdapter *) x));
 }
@@ -48004,6 +48722,9 @@ static void *_p_PyLongStringDialogAdapterTo_p_wxPGEditorDialogAdapter(void *x) {
 static void *_p_PyFileDialogAdapterTo_p_wxPGFileDialogAdapter(void *x) {
     return (void *)((wxPGFileDialogAdapter *)  ((PyFileDialogAdapter *) x));
 }
+static void *_p_PyLongStringDialogAdapterTo_p_wxPGLongStringDialogAdapter(void *x) {
+    return (void *)((wxPGLongStringDialogAdapter *)  ((PyLongStringDialogAdapter *) x));
+}
 static void *_p_wxPropertyGridTo_p_wxScrollHelper(void *x) {
     return (void *)((wxScrollHelper *) (wxScrolledWindow *) ((wxPropertyGrid *) x));
 }
@@ -48021,6 +48742,9 @@ static void *_p_PyUIntPropertyTo_p_wxUIntProperty(void *x) {
 }
 static void *_p_PyIntPropertyTo_p_wxIntProperty(void *x) {
     return (void *)((wxIntProperty *)  ((PyIntProperty *) x));
+}
+static void *_p_PyColourPropertyTo_p_wxColourProperty(void *x) {
+    return (void *)((wxColourProperty *)  ((PyColourProperty *) x));
 }
 static void *_p_wxArrayStringPropertyTo_p_wxPGProperty(void *x) {
     return (void *)((wxPGProperty *)  ((wxArrayStringProperty *) x));
@@ -48096,6 +48820,9 @@ static void *_p_PySystemColourPropertyTo_p_wxPGProperty(void *x) {
 }
 static void *_p_PyFlagsPropertyTo_p_wxPGProperty(void *x) {
     return (void *)((wxPGProperty *) (wxFlagsProperty *) ((PyFlagsProperty *) x));
+}
+static void *_p_PyFontPropertyTo_p_wxPGProperty(void *x) {
+    return (void *)((wxPGProperty *) (wxFontProperty *) ((PyFontProperty *) x));
 }
 static void *_p_PyColourPropertyTo_p_wxPGProperty(void *x) {
     return (void *)((wxPGProperty *) (wxEnumProperty *)(wxSystemColourProperty *)(wxColourProperty *) ((PyColourProperty *) x));
@@ -48178,8 +48905,8 @@ static void *_p_PyEditEnumPropertyTo_p_wxEditEnumProperty(void *x) {
 static void *_p_PyFlagsPropertyTo_p_wxFlagsProperty(void *x) {
     return (void *)((wxFlagsProperty *)  ((PyFlagsProperty *) x));
 }
-static void *_p_PyColourPropertyTo_p_wxColourProperty(void *x) {
-    return (void *)((wxColourProperty *)  ((PyColourProperty *) x));
+static void *_p_PyFontPropertyTo_p_wxFontProperty(void *x) {
+    return (void *)((wxFontProperty *)  ((PyFontProperty *) x));
 }
 static void *_p_wxSplashScreenTo_p_wxEvtHandler(void *x) {
     return (void *)((wxEvtHandler *) (wxWindow *)(wxTopLevelWindow *)(wxFrame *) ((wxSplashScreen *) x));
@@ -48394,9 +49121,6 @@ static void *_p_wxPGCheckBoxEditorTo_p_wxPGEditor(void *x) {
 static void *_p_wxPGSpinCtrlEditorTo_p_wxPGEditor(void *x) {
     return (void *)((wxPGEditor *) (wxPGTextCtrlEditor *) ((wxPGSpinCtrlEditor *) x));
 }
-static void *_p_PyCheckBoxEditorTo_p_wxPGEditor(void *x) {
-    return (void *)((wxPGEditor *) (wxPGCheckBoxEditor *) ((PyCheckBoxEditor *) x));
-}
 static void *_p_PyComboBoxEditorTo_p_wxPGEditor(void *x) {
     return (void *)((wxPGEditor *) (wxPGChoiceEditor *)(wxPGComboBoxEditor *) ((PyComboBoxEditor *) x));
 }
@@ -48528,6 +49252,9 @@ static void *_p_PySystemColourPropertyTo_p_wxObject(void *x) {
 }
 static void *_p_PyFlagsPropertyTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxPGProperty *)(wxFlagsProperty *) ((PyFlagsProperty *) x));
+}
+static void *_p_PyFontPropertyTo_p_wxObject(void *x) {
+    return (void *)((wxObject *) (wxPGProperty *)(wxFontProperty *) ((PyFontProperty *) x));
 }
 static void *_p_PyColourPropertyTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxPGProperty *)(wxEnumProperty *)(wxSystemColourProperty *)(wxColourProperty *) ((PyColourProperty *) x));
@@ -48936,9 +49663,6 @@ static void *_p_wxPGCheckBoxEditorTo_p_wxObject(void *x) {
 }
 static void *_p_wxPGSpinCtrlEditorTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxPGEditor *)(wxPGTextCtrlEditor *) ((wxPGSpinCtrlEditor *) x));
-}
-static void *_p_PyCheckBoxEditorTo_p_wxObject(void *x) {
-    return (void *)((wxObject *) (wxPGEditor *)(wxPGCheckBoxEditor *) ((PyCheckBoxEditor *) x));
 }
 static void *_p_PyComboBoxEditorTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxPGEditor *)(wxPGChoiceEditor *)(wxPGComboBoxEditor *) ((PyComboBoxEditor *) x));
@@ -49599,7 +50323,6 @@ static void *_p_wxPyValidatorTo_p_wxValidator(void *x) {
 }
 static swig_type_info _swigt__p_FlagType = {"_p_FlagType", "FlagType *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PyArrayStringProperty = {"_p_PyArrayStringProperty", "PyArrayStringProperty *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_PyCheckBoxEditor = {"_p_PyCheckBoxEditor", "PyCheckBoxEditor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PyChoiceEditor = {"_p_PyChoiceEditor", "PyChoiceEditor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PyColourProperty = {"_p_PyColourProperty", "PyColourProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PyComboBoxEditor = {"_p_PyComboBoxEditor", "PyComboBoxEditor *", 0, 0, (void*)0, 0};
@@ -49611,6 +50334,7 @@ static swig_type_info _swigt__p_PyFileDialogAdapter = {"_p_PyFileDialogAdapter",
 static swig_type_info _swigt__p_PyFileProperty = {"_p_PyFileProperty", "PyFileProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PyFlagsProperty = {"_p_PyFlagsProperty", "PyFlagsProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PyFloatProperty = {"_p_PyFloatProperty", "PyFloatProperty *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_PyFontProperty = {"_p_PyFontProperty", "PyFontProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PyIntProperty = {"_p_PyIntProperty", "PyIntProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PyLongStringDialogAdapter = {"_p_PyLongStringDialogAdapter", "PyLongStringDialogAdapter *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_PyLongStringProperty = {"_p_PyLongStringProperty", "PyLongStringProperty *", 0, 0, (void*)0, 0};
@@ -49804,6 +50528,7 @@ static swig_type_info _swigt__p_wxImageFileProperty = {"_p_wxImageFileProperty",
 static swig_type_info _swigt__p_wxFlagsProperty = {"_p_wxFlagsProperty", "wxFlagsProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxFloatProperty = {"_p_wxFloatProperty", "wxFloatProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxFont = {"_p_wxFont", "wxFont *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxFontProperty = {"_p_wxFontProperty", "wxFontProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxIdleEvent = {"_p_wxIdleEvent", "wxIdleEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxIntProperty = {"_p_wxIntProperty", "wxIntProperty *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxLongLong = {"_p_wxLongLong", "wxLongLong *", 0, 0, (void*)0, 0};
@@ -49814,7 +50539,6 @@ static swig_type_info _swigt__p_wxObject = {"_p_wxObject", "wxObject *", 0, 0, (
 static swig_type_info _swigt__p_wxIndividualLayoutConstraint = {"_p_wxIndividualLayoutConstraint", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPGRootProperty = {"_p_wxPGRootProperty", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxBoolProperty = {"_p_wxBoolProperty", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxFontProperty = {"_p_wxFontProperty", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxMenuItem = {"_p_wxMenuItem", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxImage = {"_p_wxImage", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPySizer = {"_p_wxPySizer", 0, 0, 0, 0, 0};
@@ -49862,14 +50586,15 @@ static swig_type_info _swigt__p_wxXPMHandler = {"_p_wxXPMHandler", 0, 0, 0, 0, 0
 static swig_type_info _swigt__p_wxTIFFHandler = {"_p_wxTIFFHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxTGAHandler = {"_p_wxTGAHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPGTextCtrlAndButtonEditor = {"_p_wxPGTextCtrlAndButtonEditor", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPGSpinCtrlEditor = {"_p_wxPGSpinCtrlEditor", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPGChoiceAndButtonEditor = {"_p_wxPGChoiceAndButtonEditor", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxPGCheckBoxEditor = {"_p_wxPGCheckBoxEditor", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPGArrayStringEditorDialog = {"_p_wxPGArrayStringEditorDialog", "wxPGArrayStringEditorDialog *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGAttributeStorage = {"_p_wxPGAttributeStorage", "wxPGAttributeStorage *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGCell = {"_p_wxPGCell", "wxPGCell *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGCellData = {"_p_wxPGCellData", "wxPGCellData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGCellRenderer = {"_p_wxPGCellRenderer", "wxPGCellRenderer *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGDefaultRenderer = {"_p_wxPGDefaultRenderer", 0, 0, 0, 0, 0};
-static swig_type_info _swigt__p_wxPGCheckBoxEditor = {"_p_wxPGCheckBoxEditor", "wxPGCheckBoxEditor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGChoiceEditor = {"_p_wxPGChoiceEditor", "wxPGChoiceEditor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGChoiceEntry = {"_p_wxPGChoiceEntry", "wxPGChoiceEntry *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGChoices = {"_p_wxPGChoices", "wxPGChoices *", 0, 0, (void*)0, 0};
@@ -49884,7 +50609,6 @@ static swig_type_info _swigt__p_wxPGMultiButton = {"_p_wxPGMultiButton", "wxPGMu
 static swig_type_info _swigt__p_wxPGPaintData = {"_p_wxPGPaintData", "wxPGPaintData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGPropArgCls = {"_p_wxPGPropArgCls", "wxPGPropArgCls *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGProperty = {"_p_wxPGProperty", "wxPGProperty *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxPGSpinCtrlEditor = {"_p_wxPGSpinCtrlEditor", "wxPGSpinCtrlEditor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGTextCtrlEditor = {"_p_wxPGTextCtrlEditor", "wxPGTextCtrlEditor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGVIterator = {"_p_wxPGVIterator", "wxPGVIterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPGVIteratorBase = {"_p_wxPGVIteratorBase", "wxPGVIteratorBase *", 0, 0, (void*)0, 0};
@@ -49923,7 +50647,6 @@ static swig_type_info _swigt__p_wxWindowBase = {"_p_wxWindowBase", "wxWindowBase
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FlagType,
   &_swigt__p_PyArrayStringProperty,
-  &_swigt__p_PyCheckBoxEditor,
   &_swigt__p_PyChoiceEditor,
   &_swigt__p_PyColourProperty,
   &_swigt__p_PyComboBoxEditor,
@@ -49935,6 +50658,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_PyFileProperty,
   &_swigt__p_PyFlagsProperty,
   &_swigt__p_PyFloatProperty,
+  &_swigt__p_PyFontProperty,
   &_swigt__p_PyIntProperty,
   &_swigt__p_PyLongStringDialogAdapter,
   &_swigt__p_PyLongStringProperty,
@@ -50247,7 +50971,6 @@ static swig_type_info *swig_type_initial[] = {
 
 static swig_cast_info _swigc__p_FlagType[] = {  {&_swigt__p_FlagType, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PyArrayStringProperty[] = {  {&_swigt__p_PyArrayStringProperty, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_PyCheckBoxEditor[] = {  {&_swigt__p_PyCheckBoxEditor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PyChoiceEditor[] = {  {&_swigt__p_PyChoiceEditor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PyColourProperty[] = {  {&_swigt__p_PyColourProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PyComboBoxEditor[] = {  {&_swigt__p_PyComboBoxEditor, 0, 0, 0},{0, 0, 0, 0}};
@@ -50259,6 +50982,7 @@ static swig_cast_info _swigc__p_PyFileDialogAdapter[] = {  {&_swigt__p_PyFileDia
 static swig_cast_info _swigc__p_PyFileProperty[] = {  {&_swigt__p_PyFileProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PyFlagsProperty[] = {  {&_swigt__p_PyFlagsProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PyFloatProperty[] = {  {&_swigt__p_PyFloatProperty, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_PyFontProperty[] = {  {&_swigt__p_PyFontProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PyIntProperty[] = {  {&_swigt__p_PyIntProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PyLongStringDialogAdapter[] = {  {&_swigt__p_PyLongStringDialogAdapter, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_PyLongStringProperty[] = {  {&_swigt__p_PyLongStringProperty, 0, 0, 0},{0, 0, 0, 0}};
@@ -50452,6 +51176,7 @@ static swig_cast_info _swigc__p_wxFileProperty[] = {  {&_swigt__p_wxFileProperty
 static swig_cast_info _swigc__p_wxFlagsProperty[] = {  {&_swigt__p_wxFlagsProperty, 0, 0, 0},  {&_swigt__p_PyFlagsProperty, _p_PyFlagsPropertyTo_p_wxFlagsProperty, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFloatProperty[] = {  {&_swigt__p_wxFloatProperty, 0, 0, 0},  {&_swigt__p_PyFloatProperty, _p_PyFloatPropertyTo_p_wxFloatProperty, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFont[] = {  {&_swigt__p_wxFont, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxFontProperty[] = {  {&_swigt__p_wxFontProperty, 0, 0, 0},  {&_swigt__p_PyFontProperty, _p_PyFontPropertyTo_p_wxFontProperty, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxIdleEvent[] = {  {&_swigt__p_wxIdleEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxIntProperty[] = {  {&_swigt__p_wxIntProperty, 0, 0, 0},  {&_swigt__p_PyIntProperty, _p_PyIntPropertyTo_p_wxIntProperty, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxLongLong[] = {  {&_swigt__p_wxLongLong, 0, 0, 0},{0, 0, 0, 0}};
@@ -50461,7 +51186,6 @@ static swig_cast_info _swigc__p_wxLongStringProperty[] = {  {&_swigt__p_wxLongSt
 static swig_cast_info _swigc__p_wxIndividualLayoutConstraint[] = {{&_swigt__p_wxIndividualLayoutConstraint, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGRootProperty[] = {{&_swigt__p_wxPGRootProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxBoolProperty[] = {{&_swigt__p_wxBoolProperty, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxFontProperty[] = {{&_swigt__p_wxFontProperty, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxMenuItem[] = {{&_swigt__p_wxMenuItem, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxImage[] = {{&_swigt__p_wxImage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPySizer[] = {{&_swigt__p_wxPySizer, 0, 0, 0},{0, 0, 0, 0}};
@@ -50509,30 +51233,30 @@ static swig_cast_info _swigc__p_wxXPMHandler[] = {{&_swigt__p_wxXPMHandler, 0, 0
 static swig_cast_info _swigc__p_wxTIFFHandler[] = {{&_swigt__p_wxTIFFHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTGAHandler[] = {{&_swigt__p_wxTGAHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGTextCtrlAndButtonEditor[] = {{&_swigt__p_wxPGTextCtrlAndButtonEditor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPGSpinCtrlEditor[] = {{&_swigt__p_wxPGSpinCtrlEditor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGChoiceAndButtonEditor[] = {{&_swigt__p_wxPGChoiceAndButtonEditor, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxObject[] = {  {&_swigt__p_wxUpdateUIEvent, _p_wxUpdateUIEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGChoiceEntry, _p_wxPGChoiceEntryTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvent, _p_wxEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindDialogEvent, _p_wxFindDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxInitDialogEvent, _p_wxInitDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowModalDialogEvent, _p_wxWindowModalDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIndividualLayoutConstraint, _p_wxIndividualLayoutConstraintTo_p_wxObject, 0, 0},  {&_swigt__p_PyProperty, _p_PyPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyUIntProperty, _p_PyUIntPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxUIntProperty, _p_wxUIntPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyIntProperty, _p_PyIntPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxIntProperty, _p_wxIntPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxStringProperty, _p_wxStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGProperty, _p_wxPGPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGRootProperty, _p_wxPGRootPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxFloatProperty, _p_wxFloatPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxBoolProperty, _p_wxBoolPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PySystemColourProperty, _p_PySystemColourPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyEditEnumProperty, _p_PyEditEnumPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyStringProperty, _p_PyStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyArrayStringProperty, _p_PyArrayStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyEnumProperty, _p_PyEnumPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyFloatProperty, _p_PyFloatPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageFileProperty, _p_wxImageFilePropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxCursorProperty, _p_wxCursorPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourProperty, _p_wxColourPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyColourProperty, _p_PyColourPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxSystemColourProperty, _p_wxSystemColourPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxFontProperty, _p_wxFontPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxArrayStringProperty, _p_wxArrayStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxDirProperty, _p_wxDirPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxLongStringProperty, _p_wxLongStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyLongStringProperty, _p_PyLongStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileProperty, _p_wxFilePropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyFileProperty, _p_PyFilePropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxFlagsProperty, _p_wxFlagsPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyFlagsProperty, _p_PyFlagsPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxEditEnumProperty, _p_wxEditEnumPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxEnumProperty, _p_wxEnumPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuItem, _p_wxMenuItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxImage, _p_wxImageTo_p_wxObject, 0, 0},  {&_swigt__p_wxPySizer, _p_wxPySizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyTaskBarIcon, _p_wxPyTaskBarIconTo_p_wxObject, 0, 0},  {&_swigt__p_wxLayoutAlgorithm, _p_wxLayoutAlgorithmTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxObject, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewControlBar, _p_wxPreviewControlBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPreviewControlBar, _p_wxPyPreviewControlBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindReplaceData, _p_wxFindReplaceDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxCloseEvent, _p_wxCloseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseEvent, _p_wxMouseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEraseEvent, _p_wxEraseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWrapSizer, _p_wxWrapSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollEvent, _p_wxScrollEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPageSetupDialogData, _p_wxPageSetupDialogDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintDialogData, _p_wxPrintDialogDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrinter, _p_wxPrinterTo_p_wxObject, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxObject, 0, 0},  {&_swigt__p_wxObject, 0, 0, 0},  {&_swigt__p_wxGridSizer, _p_wxGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxFlexGridSizer, _p_wxFlexGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxAcceleratorTable, _p_wxAcceleratorTableTo_p_wxObject, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourData, _p_wxColourDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowCreateEvent, _p_wxWindowCreateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryNewPaletteEvent, _p_wxQueryNewPaletteEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMaximizeEvent, _p_wxMaximizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIconizeEvent, _p_wxIconizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxActivateEvent, _p_wxActivateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizeEvent, _p_wxSizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMoveEvent, _p_wxMoveEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIdleEvent, _p_wxIdleEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDateEvent, _p_wxDateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureLostEvent, _p_wxMouseCaptureLostEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCalculateLayoutEvent, _p_wxCalculateLayoutEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPrintout, _p_wxPyPrintoutTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxStdDialogButtonSizer, _p_wxStdDialogButtonSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowDestroyEvent, _p_wxWindowDestroyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNavigationKeyEvent, _p_wxNavigationKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxKeyEvent, _p_wxKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashEvent, _p_wxSashEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSimpleHtmlListBox, _p_wxSimpleHtmlListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHtmlListBox, _p_wxPyHtmlListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyVListBox, _p_wxPyVListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintData, _p_wxPrintDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxFontData, _p_wxFontDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPanel, _p_wxPyPanelTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryLayoutInfoEvent, _p_wxQueryLayoutInfoEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileSystem, _p_wxFileSystemTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPrintPreview, _p_wxPyPrintPreviewTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintPreview, _p_wxPrintPreviewTo_p_wxObject, 0, 0},  {&_swigt__p_wxLayoutConstraints, _p_wxLayoutConstraintsTo_p_wxObject, 0, 0},  {&_swigt__p_wxStaticBoxSizer, _p_wxStaticBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBoxSizer, _p_wxBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizer, _p_wxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridBagSizer, _p_wxGridBagSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaintEvent, _p_wxPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNcPaintEvent, _p_wxNcPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxClipboardTextEvent, _p_wxClipboardTextEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFSFile, _p_wxFSFileTo_p_wxObject, 0, 0},  {&_swigt__p_wxStandardDialogLayoutAdapter, _p_wxStandardDialogLayoutAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_wxDialogLayoutAdapter, _p_wxDialogLayoutAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGEditorDialogAdapter, _p_wxPGEditorDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGFileDialogAdapter, _p_wxPGFileDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGLongStringDialogAdapter, _p_wxPGLongStringDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_PyEditorDialogAdapter, _p_PyEditorDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_PyFileDialogAdapter, _p_PyFileDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_PyLongStringDialogAdapter, _p_PyLongStringDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_wxSetCursorEvent, _p_wxSetCursorEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplitterEvent, _p_wxSplitterEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGMultiButton, _p_wxPGMultiButtonTo_p_wxObject, 0, 0},  {&_swigt__p_wxGBSizerItem, _p_wxGBSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizerItem, _p_wxSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxPageSetupDialog, _p_wxPageSetupDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxArrayEditorDialog, _p_wxArrayEditorDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGArrayStringEditorDialog, _p_wxPGArrayStringEditorDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxNotifyEvent, _p_wxNotifyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvent, _p_wxPyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintDialog, _p_wxPrintDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxShowEvent, _p_wxShowEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNMHandler, _p_wxPNMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxJPEGHandler, _p_wxJPEGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPCXHandler, _p_wxPCXHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGIFHandler, _p_wxGIFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNGHandler, _p_wxPNGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxANIHandler, _p_wxANIHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxCURHandler, _p_wxCURHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxICOHandler, _p_wxICOHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBMPHandler, _p_wxBMPHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyImageHandler, _p_wxPyImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageHandler, _p_wxImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxXPMHandler, _p_wxXPMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTIFFHandler, _p_wxTIFFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTGAHandler, _p_wxTGAHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvtHandler, _p_wxEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvtHandler, _p_wxPyEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyVScrolledWindow, _p_wxPyVScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHScrolledWindow, _p_wxPyHScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIClientWindow, _p_wxMDIClientWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplitterWindow, _p_wxSplitterWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplashScreenWindow, _p_wxSplashScreenWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxTopLevelWindow, _p_wxTopLevelWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashWindow, _p_wxSashWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashLayoutWindow, _p_wxSashLayoutWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPopupWindow, _p_wxPopupWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPopupTransientWindow, _p_wxPyPopupTransientWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxTipWindow, _p_wxTipWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGTextCtrlEditor, _p_wxPGTextCtrlEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGTextCtrlAndButtonEditor, _p_wxPGTextCtrlAndButtonEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGSpinCtrlEditor, _p_wxPGSpinCtrlEditorTo_p_wxObject, 0, 0},  {&_swigt__p_PyTextCtrlEditor, _p_PyTextCtrlEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGComboBoxEditor, _p_wxPGComboBoxEditorTo_p_wxObject, 0, 0},  {&_swigt__p_PyComboBoxEditor, _p_PyComboBoxEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGChoiceAndButtonEditor, _p_wxPGChoiceAndButtonEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGCheckBoxEditor, _p_wxPGCheckBoxEditorTo_p_wxObject, 0, 0},  {&_swigt__p_PyCheckBoxEditor, _p_PyCheckBoxEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPropertyGridPage, _p_wxPropertyGridPageTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGCell, _p_wxPGCellTo_p_wxObject, 0, 0},  {&_swigt__p_wxPropertyGrid, _p_wxPropertyGridTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyWindow, _p_wxPyWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSysColourChangedEvent, _p_wxSysColourChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxThreadEvent, _p_wxThreadEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureChangedEvent, _p_wxMouseCaptureChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDisplayChangedEvent, _p_wxDisplayChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaletteChangedEvent, _p_wxPaletteChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPropertyGridEvent, _p_wxPropertyGridEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGEditor, _p_wxPGEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGChoiceEditor, _p_wxPGChoiceEditorTo_p_wxObject, 0, 0},  {&_swigt__p_PyChoiceEditor, _p_PyChoiceEditorTo_p_wxObject, 0, 0},  {&_swigt__p_PyEditor, _p_PyEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourPropertyValue, _p_wxColourPropertyValueTo_p_wxObject, 0, 0},  {&_swigt__p_wxPanel, _p_wxPanelTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollWinEvent, _p_wxScrollWinEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxTaskBarIconEvent, _p_wxTaskBarIconEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxContextMenuEvent, _p_wxContextMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuEvent, _p_wxMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCommandEvent, _p_wxCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyCommandEvent, _p_wxPyCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPropertyGridManager, _p_wxPropertyGridManagerTo_p_wxObject, 0, 0},  {&_swigt__p_wxStatusBar, _p_wxStatusBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxDropFilesEvent, _p_wxDropFilesEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxChildFocusEvent, _p_wxChildFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFocusEvent, _p_wxFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPropertyCategory, _p_wxPropertyCategoryTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxObject, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPGCheckBoxEditor[] = {{&_swigt__p_wxPGCheckBoxEditor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxObject[] = {  {&_swigt__p_wxUpdateUIEvent, _p_wxUpdateUIEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGChoiceEntry, _p_wxPGChoiceEntryTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvent, _p_wxEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindDialogEvent, _p_wxFindDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxInitDialogEvent, _p_wxInitDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowModalDialogEvent, _p_wxWindowModalDialogEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIndividualLayoutConstraint, _p_wxIndividualLayoutConstraintTo_p_wxObject, 0, 0},  {&_swigt__p_wxStringProperty, _p_wxStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxIntProperty, _p_wxIntPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxUIntProperty, _p_wxUIntPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyIntProperty, _p_PyIntPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyProperty, _p_PyPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyUIntProperty, _p_PyUIntPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGProperty, _p_wxPGPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGRootProperty, _p_wxPGRootPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxFloatProperty, _p_wxFloatPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxBoolProperty, _p_wxBoolPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxEnumProperty, _p_wxEnumPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PySystemColourProperty, _p_PySystemColourPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyEditEnumProperty, _p_PyEditEnumPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyStringProperty, _p_PyStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyArrayStringProperty, _p_PyArrayStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyEnumProperty, _p_PyEnumPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyFloatProperty, _p_PyFloatPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageFileProperty, _p_wxImageFilePropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxCursorProperty, _p_wxCursorPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourProperty, _p_wxColourPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyColourProperty, _p_PyColourPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxSystemColourProperty, _p_wxSystemColourPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxFontProperty, _p_wxFontPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyFontProperty, _p_PyFontPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxArrayStringProperty, _p_wxArrayStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxDirProperty, _p_wxDirPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxLongStringProperty, _p_wxLongStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyLongStringProperty, _p_PyLongStringPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileProperty, _p_wxFilePropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyFileProperty, _p_PyFilePropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxFlagsProperty, _p_wxFlagsPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_PyFlagsProperty, _p_PyFlagsPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxEditEnumProperty, _p_wxEditEnumPropertyTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewFrame, _p_wxPreviewFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPreviewFrame, _p_wxPyPreviewFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuItem, _p_wxMenuItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxImage, _p_wxImageTo_p_wxObject, 0, 0},  {&_swigt__p_wxPySizer, _p_wxPySizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyTaskBarIcon, _p_wxPyTaskBarIconTo_p_wxObject, 0, 0},  {&_swigt__p_wxLayoutAlgorithm, _p_wxLayoutAlgorithmTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxObject, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxObject, 0, 0},  {&_swigt__p_wxPreviewControlBar, _p_wxPreviewControlBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPreviewControlBar, _p_wxPyPreviewControlBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindReplaceData, _p_wxFindReplaceDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxObject, 0, 0},  {&_swigt__p_wxCloseEvent, _p_wxCloseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseEvent, _p_wxMouseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEraseEvent, _p_wxEraseEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxWrapSizer, _p_wxWrapSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollEvent, _p_wxScrollEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPageSetupDialogData, _p_wxPageSetupDialogDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintDialogData, _p_wxPrintDialogDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrinter, _p_wxPrinterTo_p_wxObject, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxObject, 0, 0},  {&_swigt__p_wxObject, 0, 0, 0},  {&_swigt__p_wxGridSizer, _p_wxGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxFlexGridSizer, _p_wxFlexGridSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxAcceleratorTable, _p_wxAcceleratorTableTo_p_wxObject, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourData, _p_wxColourDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowCreateEvent, _p_wxWindowCreateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryNewPaletteEvent, _p_wxQueryNewPaletteEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMaximizeEvent, _p_wxMaximizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIconizeEvent, _p_wxIconizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxActivateEvent, _p_wxActivateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizeEvent, _p_wxSizeEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMoveEvent, _p_wxMoveEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxIdleEvent, _p_wxIdleEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDateEvent, _p_wxDateEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureLostEvent, _p_wxMouseCaptureLostEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCalculateLayoutEvent, _p_wxCalculateLayoutEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPrintout, _p_wxPyPrintoutTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIChildFrame, _p_wxMDIChildFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxStdDialogButtonSizer, _p_wxStdDialogButtonSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindowDestroyEvent, _p_wxWindowDestroyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNavigationKeyEvent, _p_wxNavigationKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxKeyEvent, _p_wxKeyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashEvent, _p_wxSashEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSimpleHtmlListBox, _p_wxSimpleHtmlListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHtmlListBox, _p_wxPyHtmlListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyVListBox, _p_wxPyVListBoxTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintData, _p_wxPrintDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxFontData, _p_wxFontDataTo_p_wxObject, 0, 0},  {&_swigt__p_wxMiniFrame, _p_wxMiniFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxFrame, _p_wxFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPanel, _p_wxPyPanelTo_p_wxObject, 0, 0},  {&_swigt__p_wxQueryLayoutInfoEvent, _p_wxQueryLayoutInfoEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplashScreen, _p_wxSplashScreenTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileSystem, _p_wxFileSystemTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPrintPreview, _p_wxPyPrintPreviewTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintPreview, _p_wxPrintPreviewTo_p_wxObject, 0, 0},  {&_swigt__p_wxLayoutConstraints, _p_wxLayoutConstraintsTo_p_wxObject, 0, 0},  {&_swigt__p_wxStaticBoxSizer, _p_wxStaticBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBoxSizer, _p_wxBoxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizer, _p_wxSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGridBagSizer, _p_wxGridBagSizerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaintEvent, _p_wxPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxNcPaintEvent, _p_wxNcPaintEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxClipboardTextEvent, _p_wxClipboardTextEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFSFile, _p_wxFSFileTo_p_wxObject, 0, 0},  {&_swigt__p_wxStandardDialogLayoutAdapter, _p_wxStandardDialogLayoutAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_wxDialogLayoutAdapter, _p_wxDialogLayoutAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGEditorDialogAdapter, _p_wxPGEditorDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGFileDialogAdapter, _p_wxPGFileDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGLongStringDialogAdapter, _p_wxPGLongStringDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_PyEditorDialogAdapter, _p_PyEditorDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_PyFileDialogAdapter, _p_PyFileDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_PyLongStringDialogAdapter, _p_PyLongStringDialogAdapterTo_p_wxObject, 0, 0},  {&_swigt__p_wxSetCursorEvent, _p_wxSetCursorEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplitterEvent, _p_wxSplitterEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGMultiButton, _p_wxPGMultiButtonTo_p_wxObject, 0, 0},  {&_swigt__p_wxGBSizerItem, _p_wxGBSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxSizerItem, _p_wxSizerItemTo_p_wxObject, 0, 0},  {&_swigt__p_wxFontDialog, _p_wxFontDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxDirDialog, _p_wxDirDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourDialog, _p_wxColourDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxDialog, _p_wxDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxArrayEditorDialog, _p_wxArrayEditorDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGArrayStringEditorDialog, _p_wxPGArrayStringEditorDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxNotifyEvent, _p_wxNotifyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvent, _p_wxPyEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPageSetupDialog, _p_wxPageSetupDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPrintDialog, _p_wxPrintDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxShowEvent, _p_wxShowEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNMHandler, _p_wxPNMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxJPEGHandler, _p_wxJPEGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPCXHandler, _p_wxPCXHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxGIFHandler, _p_wxGIFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPNGHandler, _p_wxPNGHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxANIHandler, _p_wxANIHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxCURHandler, _p_wxCURHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxICOHandler, _p_wxICOHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxBMPHandler, _p_wxBMPHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyImageHandler, _p_wxPyImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxImageHandler, _p_wxImageHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxXPMHandler, _p_wxXPMHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTIFFHandler, _p_wxTIFFHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxTGAHandler, _p_wxTGAHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxEvtHandler, _p_wxEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyEvtHandler, _p_wxPyEvtHandlerTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyVScrolledWindow, _p_wxPyVScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHScrolledWindow, _p_wxPyHScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyHVScrolledWindow, _p_wxPyHVScrolledWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIClientWindow, _p_wxMDIClientWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplitterWindow, _p_wxSplitterWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSplashScreenWindow, _p_wxSplashScreenWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxTopLevelWindow, _p_wxTopLevelWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashWindow, _p_wxSashWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSashLayoutWindow, _p_wxSashLayoutWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPopupWindow, _p_wxPopupWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyPopupTransientWindow, _p_wxPyPopupTransientWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxTipWindow, _p_wxTipWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGTextCtrlEditor, _p_wxPGTextCtrlEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGTextCtrlAndButtonEditor, _p_wxPGTextCtrlAndButtonEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGSpinCtrlEditor, _p_wxPGSpinCtrlEditorTo_p_wxObject, 0, 0},  {&_swigt__p_PyTextCtrlEditor, _p_PyTextCtrlEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGComboBoxEditor, _p_wxPGComboBoxEditorTo_p_wxObject, 0, 0},  {&_swigt__p_PyComboBoxEditor, _p_PyComboBoxEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGChoiceAndButtonEditor, _p_wxPGChoiceAndButtonEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGCheckBoxEditor, _p_wxPGCheckBoxEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPropertyGridPage, _p_wxPropertyGridPageTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGCell, _p_wxPGCellTo_p_wxObject, 0, 0},  {&_swigt__p_wxPropertyGrid, _p_wxPropertyGridTo_p_wxObject, 0, 0},  {&_swigt__p_wxFileDialog, _p_wxFileDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxFindReplaceDialog, _p_wxFindReplaceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxProgressDialog, _p_wxProgressDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxMessageDialog, _p_wxMessageDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxNumberEntryDialog, _p_wxNumberEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPasswordEntryDialog, _p_wxPasswordEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxTextEntryDialog, _p_wxTextEntryDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxSingleChoiceDialog, _p_wxSingleChoiceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxMultiChoiceDialog, _p_wxMultiChoiceDialogTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyWindow, _p_wxPyWindowTo_p_wxObject, 0, 0},  {&_swigt__p_wxSysColourChangedEvent, _p_wxSysColourChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxThreadEvent, _p_wxThreadEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMouseCaptureChangedEvent, _p_wxMouseCaptureChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxDisplayChangedEvent, _p_wxDisplayChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPaletteChangedEvent, _p_wxPaletteChangedEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPropertyGridEvent, _p_wxPropertyGridEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGEditor, _p_wxPGEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxPGChoiceEditor, _p_wxPGChoiceEditorTo_p_wxObject, 0, 0},  {&_swigt__p_PyChoiceEditor, _p_PyChoiceEditorTo_p_wxObject, 0, 0},  {&_swigt__p_PyEditor, _p_PyEditorTo_p_wxObject, 0, 0},  {&_swigt__p_wxColourPropertyValue, _p_wxColourPropertyValueTo_p_wxObject, 0, 0},  {&_swigt__p_wxPanel, _p_wxPanelTo_p_wxObject, 0, 0},  {&_swigt__p_wxScrollWinEvent, _p_wxScrollWinEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxTaskBarIconEvent, _p_wxTaskBarIconEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxContextMenuEvent, _p_wxContextMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuEvent, _p_wxMenuEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxCommandEvent, _p_wxCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPyCommandEvent, _p_wxPyCommandEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPropertyGridManager, _p_wxPropertyGridManagerTo_p_wxObject, 0, 0},  {&_swigt__p_wxStatusBar, _p_wxStatusBarTo_p_wxObject, 0, 0},  {&_swigt__p_wxDropFilesEvent, _p_wxDropFilesEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxChildFocusEvent, _p_wxChildFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxFocusEvent, _p_wxFocusEventTo_p_wxObject, 0, 0},  {&_swigt__p_wxPropertyCategory, _p_wxPropertyCategoryTo_p_wxObject, 0, 0},  {&_swigt__p_wxMDIParentFrame, _p_wxMDIParentFrameTo_p_wxObject, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxObject, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGArrayStringEditorDialog[] = {  {&_swigt__p_wxPGArrayStringEditorDialog, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGAttributeStorage[] = {  {&_swigt__p_wxPGAttributeStorage, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGCell[] = {  {&_swigt__p_wxPGChoiceEntry, _p_wxPGChoiceEntryTo_p_wxPGCell, 0, 0},  {&_swigt__p_wxPGCell, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGCellData[] = {  {&_swigt__p_wxPGCellData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGDefaultRenderer[] = {{&_swigt__p_wxPGDefaultRenderer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGCellRenderer[] = {  {&_swigt__p_wxPGCellRenderer, 0, 0, 0},  {&_swigt__p_wxPGDefaultRenderer, _p_wxPGDefaultRendererTo_p_wxPGCellRenderer, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPGCheckBoxEditor[] = {  {&_swigt__p_wxPGCheckBoxEditor, 0, 0, 0},  {&_swigt__p_PyCheckBoxEditor, _p_PyCheckBoxEditorTo_p_wxPGCheckBoxEditor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGChoiceEditor[] = {  {&_swigt__p_wxPGComboBoxEditor, _p_wxPGComboBoxEditorTo_p_wxPGChoiceEditor, 0, 0},  {&_swigt__p_PyComboBoxEditor, _p_PyComboBoxEditorTo_p_wxPGChoiceEditor, 0, 0},  {&_swigt__p_wxPGChoiceAndButtonEditor, _p_wxPGChoiceAndButtonEditorTo_p_wxPGChoiceEditor, 0, 0},  {&_swigt__p_wxPGChoiceEditor, 0, 0, 0},  {&_swigt__p_PyChoiceEditor, _p_PyChoiceEditorTo_p_wxPGChoiceEditor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGChoiceEntry[] = {  {&_swigt__p_wxPGChoiceEntry, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGChoices[] = {  {&_swigt__p_wxPGChoices, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGChoicesData[] = {  {&_swigt__p_wxPGChoicesData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGComboBoxEditor[] = {  {&_swigt__p_wxPGComboBoxEditor, 0, 0, 0},  {&_swigt__p_PyComboBoxEditor, _p_PyComboBoxEditorTo_p_wxPGComboBoxEditor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGCommonValue[] = {  {&_swigt__p_wxPGCommonValue, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPGEditor[] = {  {&_swigt__p_wxPGTextCtrlEditor, _p_wxPGTextCtrlEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGTextCtrlAndButtonEditor, _p_wxPGTextCtrlAndButtonEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGSpinCtrlEditor, _p_wxPGSpinCtrlEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_PyTextCtrlEditor, _p_PyTextCtrlEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGComboBoxEditor, _p_wxPGComboBoxEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_PyComboBoxEditor, _p_PyComboBoxEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGChoiceAndButtonEditor, _p_wxPGChoiceAndButtonEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGCheckBoxEditor, _p_wxPGCheckBoxEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_PyCheckBoxEditor, _p_PyCheckBoxEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGEditor, 0, 0, 0},  {&_swigt__p_wxPGChoiceEditor, _p_wxPGChoiceEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_PyChoiceEditor, _p_PyChoiceEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_PyEditor, _p_PyEditorTo_p_wxPGEditor, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPGEditor[] = {  {&_swigt__p_wxPGTextCtrlEditor, _p_wxPGTextCtrlEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGTextCtrlAndButtonEditor, _p_wxPGTextCtrlAndButtonEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGSpinCtrlEditor, _p_wxPGSpinCtrlEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_PyTextCtrlEditor, _p_PyTextCtrlEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGComboBoxEditor, _p_wxPGComboBoxEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_PyComboBoxEditor, _p_PyComboBoxEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGChoiceAndButtonEditor, _p_wxPGChoiceAndButtonEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGCheckBoxEditor, _p_wxPGCheckBoxEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_wxPGEditor, 0, 0, 0},  {&_swigt__p_wxPGChoiceEditor, _p_wxPGChoiceEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_PyChoiceEditor, _p_PyChoiceEditorTo_p_wxPGEditor, 0, 0},  {&_swigt__p_PyEditor, _p_PyEditorTo_p_wxPGEditor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGEditorDialogAdapter[] = {  {&_swigt__p_wxPGEditorDialogAdapter, 0, 0, 0},  {&_swigt__p_wxPGFileDialogAdapter, _p_wxPGFileDialogAdapterTo_p_wxPGEditorDialogAdapter, 0, 0},  {&_swigt__p_PyFileDialogAdapter, _p_PyFileDialogAdapterTo_p_wxPGEditorDialogAdapter, 0, 0},  {&_swigt__p_wxPGLongStringDialogAdapter, _p_wxPGLongStringDialogAdapterTo_p_wxPGEditorDialogAdapter, 0, 0},  {&_swigt__p_PyLongStringDialogAdapter, _p_PyLongStringDialogAdapterTo_p_wxPGEditorDialogAdapter, 0, 0},  {&_swigt__p_PyEditorDialogAdapter, _p_PyEditorDialogAdapterTo_p_wxPGEditorDialogAdapter, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGFileDialogAdapter[] = {  {&_swigt__p_wxPGFileDialogAdapter, 0, 0, 0},  {&_swigt__p_PyFileDialogAdapter, _p_PyFileDialogAdapterTo_p_wxPGFileDialogAdapter, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGLongStringDialogAdapter[] = {  {&_swigt__p_wxPGLongStringDialogAdapter, 0, 0, 0},  {&_swigt__p_PyLongStringDialogAdapter, _p_PyLongStringDialogAdapterTo_p_wxPGLongStringDialogAdapter, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGMultiButton[] = {  {&_swigt__p_wxPGMultiButton, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGPaintData[] = {  {&_swigt__p_wxPGPaintData, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGPropArgCls[] = {  {&_swigt__p_wxPGPropArgCls, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPGProperty[] = {  {&_swigt__p_PyEditEnumProperty, _p_PyEditEnumPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxEditEnumProperty, _p_wxEditEnumPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxEnumProperty, _p_wxEnumPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxBoolProperty, _p_wxBoolPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyFloatProperty, _p_PyFloatPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxFloatProperty, _p_wxFloatPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyUIntProperty, _p_PyUIntPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxUIntProperty, _p_wxUIntPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyIntProperty, _p_PyIntPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxIntProperty, _p_wxIntPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyStringProperty, _p_PyStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxStringProperty, _p_wxStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxPGRootProperty, _p_wxPGRootPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxPGProperty, 0, 0, 0},  {&_swigt__p_wxSystemColourProperty, _p_wxSystemColourPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxColourProperty, _p_wxColourPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyColourProperty, _p_PyColourPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PySystemColourProperty, _p_PySystemColourPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxCursorProperty, _p_wxCursorPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyEnumProperty, _p_PyEnumPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxFlagsProperty, _p_wxFlagsPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyFlagsProperty, _p_PyFlagsPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxFileProperty, _p_wxFilePropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxImageFileProperty, _p_wxImageFilePropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyFileProperty, _p_PyFilePropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxLongStringProperty, _p_wxLongStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxDirProperty, _p_wxDirPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyLongStringProperty, _p_PyLongStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxArrayStringProperty, _p_wxArrayStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyArrayStringProperty, _p_PyArrayStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxFontProperty, _p_wxFontPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyProperty, _p_PyPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxPropertyCategory, _p_wxPropertyCategoryTo_p_wxPGProperty, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxPGSpinCtrlEditor[] = {  {&_swigt__p_wxPGSpinCtrlEditor, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxPGProperty[] = {  {&_swigt__p_wxPGRootProperty, _p_wxPGRootPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxStringProperty, _p_wxStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxIntProperty, _p_wxIntPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxUIntProperty, _p_wxUIntPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxFloatProperty, _p_wxFloatPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxBoolProperty, _p_wxBoolPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxEnumProperty, _p_wxEnumPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxEditEnumProperty, _p_wxEditEnumPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxFlagsProperty, _p_wxFlagsPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxFileProperty, _p_wxFilePropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxLongStringProperty, _p_wxLongStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxDirProperty, _p_wxDirPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxArrayStringProperty, _p_wxArrayStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxFontProperty, _p_wxFontPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxSystemColourProperty, _p_wxSystemColourPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxColourProperty, _p_wxColourPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxCursorProperty, _p_wxCursorPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxImageFileProperty, _p_wxImageFilePropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyFloatProperty, _p_PyFloatPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxPGProperty, 0, 0, 0},  {&_swigt__p_PyLongStringProperty, _p_PyLongStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyUIntProperty, _p_PyUIntPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyProperty, _p_PyPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyIntProperty, _p_PyIntPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyFileProperty, _p_PyFilePropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyColourProperty, _p_PyColourPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyFontProperty, _p_PyFontPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyFlagsProperty, _p_PyFlagsPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PySystemColourProperty, _p_PySystemColourPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyEditEnumProperty, _p_PyEditEnumPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyStringProperty, _p_PyStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyArrayStringProperty, _p_PyArrayStringPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_PyEnumProperty, _p_PyEnumPropertyTo_p_wxPGProperty, 0, 0},  {&_swigt__p_wxPropertyCategory, _p_wxPropertyCategoryTo_p_wxPGProperty, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGTextCtrlEditor[] = {  {&_swigt__p_wxPGTextCtrlEditor, 0, 0, 0},  {&_swigt__p_wxPGTextCtrlAndButtonEditor, _p_wxPGTextCtrlAndButtonEditorTo_p_wxPGTextCtrlEditor, 0, 0},  {&_swigt__p_wxPGSpinCtrlEditor, _p_wxPGSpinCtrlEditorTo_p_wxPGTextCtrlEditor, 0, 0},  {&_swigt__p_PyTextCtrlEditor, _p_PyTextCtrlEditorTo_p_wxPGTextCtrlEditor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGVIterator[] = {  {&_swigt__p_wxPGVIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPGVIteratorBase[] = {  {&_swigt__p_wxPGVIteratorBase, 0, 0, 0},{0, 0, 0, 0}};
@@ -50571,7 +51295,6 @@ static swig_cast_info _swigc__p_wxWindowBase[] = {  {&_swigt__p_wxWindowBase, 0,
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FlagType,
   _swigc__p_PyArrayStringProperty,
-  _swigc__p_PyCheckBoxEditor,
   _swigc__p_PyChoiceEditor,
   _swigc__p_PyColourProperty,
   _swigc__p_PyComboBoxEditor,
@@ -50583,6 +51306,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_PyFileProperty,
   _swigc__p_PyFlagsProperty,
   _swigc__p_PyFloatProperty,
+  _swigc__p_PyFontProperty,
   _swigc__p_PyIntProperty,
   _swigc__p_PyLongStringDialogAdapter,
   _swigc__p_PyLongStringProperty,
