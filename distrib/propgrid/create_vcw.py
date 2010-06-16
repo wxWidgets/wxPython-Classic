@@ -45,6 +45,7 @@ ALLOWED_CLS_CONFIG_KEYS = frozenset(['excluded_methods',
 
 
 re_cdefine = re.compile('^\s*#\s*define\s+.+$', re.I | re.M)
+re_swig_ignore = re.compile('^\s*%\s*ignore\s+(.+?)\;*$', re.I | re.M)
 
 
 #
@@ -87,6 +88,9 @@ class creator_app:
 
         # List C defines found in the included .i files
         self.c_define_lines = []
+
+        # Set of SWIG ignore directives found
+        self.swig_ignores = set()
 
         # Keys are types ('in', 'out', etc.) keys are first_arg_type:content dicts.
         self.typemaps = {'in':{},'out':{},'freearg':{},'varout':{},'typecheck':{},
@@ -566,6 +570,12 @@ class creator_app:
                     self.c_define_lines.append(c_define)
                 #}
 
+                # Find SWIG ignore directives
+                for m in re_swig_ignore.finditer(s):
+                #{
+                    self.swig_ignores.add(m.group(1).strip())
+                #}
+
                 s = cpp_header_parser.process_and_run_macros(s,
                     settings.include_paths,
                     is_swig=True)
@@ -750,6 +760,8 @@ def main():
     #if settings.logging:
     #else:
 
+    swig_ignores = app.swig_ignores
+
     for class_name, cls in classes.iteritems():
 
         cls_config = cls.cls_config
@@ -767,7 +779,8 @@ def main():
             if fscls:
                 base_cb_class = fscls
 
-        if not class_name in settings.classes and not base_cb_class:
+        if ((not class_name in settings.classes and not base_cb_class) or
+             class_name in swig_ignores):
             continue
 
         class_name_orig = class_name
