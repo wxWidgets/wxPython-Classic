@@ -1072,8 +1072,6 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 %ignore operator==(const wxArrayInt& array1, const wxArrayInt& array2);
 %ignore operator==(const wxColourPropertyValue&,const wxColourPropertyValue&);
 %ignore wxFontProperty;
-%ignore wxSystemColourProperty;
-%ignore wxColourProperty;
 %ignore wxCursorProperty;
 %ignore wxPGGetDefaultImageWildcard;
 %ignore wxImageFileProperty;
