@@ -2,8 +2,10 @@
 # Configuration file for create_vcw.py
 #
 
+import os
+
 # NOTE! You may need to change this to get the script working.
-WX_BASE = '../../../wx'
+WX_BASE = os.environ['WXWIN']
 
 
 projname = 'propgrid'
