@@ -44,6 +44,9 @@ ALLOWED_CLS_CONFIG_KEYS = frozenset(['excluded_methods',
                                      'script_object_member'])
 
 
+re_cdefine = re.compile('^\s*#\s*define\s+.+$', re.I | re.M)
+
+
 #
 # Define some typemap templates
 #
@@ -81,6 +84,9 @@ typemap_in_bool = """\
 class creator_app:
     def __init__(self):
         self.callback_classes = set()  # Set of classes that have virtual method callbacks
+
+        # List C defines found in the included .i files
+        self.c_define_lines = []
 
         # Keys are types ('in', 'out', etc.) keys are first_arg_type:content dicts.
         self.typemaps = {'in':{},'out':{},'freearg':{},'varout':{},'typecheck':{},
@@ -531,7 +537,6 @@ class creator_app:
 
         return None
 
-
     def process_include_files(self):
         from cpp_header_parser import split_argument_list, indent
         from cpp_header_parser import find_balanced_parenthesis
@@ -544,6 +549,19 @@ class creator_app:
 
             if s:
                 s = cpp_header_parser.purge_comments(s)
+
+                # Find C++ defines
+                for m in re_cdefine.finditer(s):
+                #{
+                    s = m.group(0).strip()
+                    if s[-1] == '\\':
+                    #{
+                        raise NotImplementedError('Multi-line defines not '
+                                                  'yet supported')
+                    #}
+                    self.c_define_lines.append(s)
+                #}
+
                 s = cpp_header_parser.process_and_run_macros(s,
                     settings.include_paths,
                     is_swig=True)
@@ -632,6 +650,9 @@ def main():
 
     for s in settings.defines:
         temp_cpp_ss.append('#define %s'%s)
+
+    for s in app.c_define_lines:
+        temp_cpp_ss.append(s)
 
     for fn in settings.files:
         # Create private copies with culled headers
