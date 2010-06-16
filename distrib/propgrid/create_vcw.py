@@ -425,6 +425,8 @@ class creator_app:
             print 'ERROR: Empty tm_datatypes (%s, %s, %s, %s...)'%(tm_type, tm_datatypes, tm_tempdata, tm_content[:32])
             return
 
+        print("Adding '%s' typemap for %s" % (tm_type, tm_datatypes))
+
         dt_count = len(tm_datatypes)
         base_t = tm_datatypes[0][0]
 
@@ -545,6 +547,8 @@ class creator_app:
 
         for fn in settings.includes:
 
+            print("Loading include '%s'" % fn)
+
             s = self.load_file(fn)
 
             if s:
@@ -553,13 +557,13 @@ class creator_app:
                 # Find C++ defines
                 for m in re_cdefine.finditer(s):
                 #{
-                    s = m.group(0).strip()
-                    if s[-1] == '\\':
+                    c_define = m.group(0).strip()
+                    if c_define[-1] == '\\':
                     #{
                         raise NotImplementedError('Multi-line defines not '
                                                   'yet supported')
                     #}
-                    self.c_define_lines.append(s)
+                    self.c_define_lines.append(c_define)
                 #}
 
                 s = cpp_header_parser.process_and_run_macros(s,
