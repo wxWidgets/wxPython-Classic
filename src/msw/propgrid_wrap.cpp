@@ -3199,15 +3199,27 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
         *v = PyFloat_AsDouble(input);
         return true;
     }
-    else if ( PyDateTime_Check(input) )
+    else if ( PyDate_Check(input) )
     {
+        // Both date and datetime have these
         int year = PyDateTime_GET_YEAR(input);
-        int month = PyDateTime_GET_MONTH(input);
+        // Month is enumeration, make sure to match its first entry
+        int month = PyDateTime_GET_MONTH(input) - 1 + (int) wxDateTime::Jan;
         int day = PyDateTime_GET_DAY(input);
-        int hour = PyDateTime_DATE_GET_HOUR(input);
-        int minute = PyDateTime_DATE_GET_MINUTE(input);
-        int second = PyDateTime_DATE_GET_SECOND(input);
-        int microsecond = PyDateTime_DATE_GET_MICROSECOND(input);
+
+        // Only datetime.datetime has the following
+        int hour = 0;
+        int minute = 0;
+        int second = 0;
+        int microsecond = 0;
+        if ( PyDateTime_Check(input) )
+        {
+            hour = PyDateTime_DATE_GET_HOUR(input);
+            minute = PyDateTime_DATE_GET_MINUTE(input);
+            second = PyDateTime_DATE_GET_SECOND(input);
+            microsecond = PyDateTime_DATE_GET_MICROSECOND(input);
+        }
+
         wxDateTime wx_dateTime(day, (wxDateTime::Month)month, year,
                                hour, minute, second,
                                microsecond/1000);  // wx uses milliseconds
@@ -3385,7 +3397,8 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
     {
         wxDateTime dt = v->GetDateTime();
         int year = dt.GetYear();
-        int month = dt.GetMonth();
+        // Month is enumeration, make sure to match its first entry
+        int month = dt.GetMonth() + 1 - (int) wxDateTime::Jan;
         int day = dt.GetDay();
         int hour = dt.GetHour();
         int minute = dt.GetMinute();
