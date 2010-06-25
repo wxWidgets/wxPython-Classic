@@ -2530,10 +2530,10 @@ dialogs, etc.)", "");
         def __init__(self, window):
             self._win = window
         def __enter__(self):
-            self.Freeze()
+            self._win.Freeze()
             return self
         def __exit__(self):
-            self.Thaw()
+            self._win.Thaw()
 }
 
 

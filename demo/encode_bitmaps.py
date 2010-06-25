@@ -124,8 +124,19 @@ command_lines = [
     "-a -F -c bmp_source/recent.png            images.py",
     "-a -F -c bmp_source/saveperspective.png   images.py",
     "-a -F -c bmp_source/customcontrol.png     images.py",
-
-
+    
+    "-a -F -c bmp_source/deletedocs.png     images.py",
+    
+    "-a -F -c -n spinning_nb0 bmp_source/FRM_0.png images.py",
+    "-a -F -c -n spinning_nb1 bmp_source/FRM_1.png images.py",
+    "-a -F -c -n spinning_nb2 bmp_source/FRM_2.png images.py",
+    "-a -F -c -n spinning_nb3 bmp_source/FRM_3.png images.py",
+    "-a -F -c -n spinning_nb4 bmp_source/FRM_4.png images.py",
+    "-a -F -c -n spinning_nb5 bmp_source/FRM_5.png images.py",
+    "-a -F -c -n spinning_nb6 bmp_source/FRM_6.png images.py",
+    "-a -F -c -n spinning_nb7 bmp_source/FRM_7.png images.py",
+    "-a -F -c -n spinning_nb8 bmp_source/FRM_8.png images.py",
+    
     "   -F -c bmp_source/001.png throbImages.py",
     "-a -F -c bmp_source/002.png throbImages.py",
     "-a -F -c bmp_source/003.png throbImages.py",

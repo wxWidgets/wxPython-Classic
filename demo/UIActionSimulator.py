@@ -88,7 +88,7 @@ class TestPanel(wx.Panel):
     def _setNextKeyEvent(self):
         evtType, key, shift, cmd, alt, milli = self._playbackEvents.pop(0)
         milli = max(milli, 1)
-        #print (evtType, key, shift, cmd, alt, milli)
+        print (evtType, key, shift, cmd, alt, milli)
         wx.CallLater(milli, self._playbackKey, evtType, key, shift, cmd, alt)
             
     
@@ -97,7 +97,7 @@ class TestPanel(wx.Panel):
         if not self.recordingKeys:
             return
         evtInfo = ( evtType,
-                    evt.KeyCode,
+                    evt.RawKeyCode,
                     evt.shiftDown,
                     evt.cmdDown,
                     evt.altDown,

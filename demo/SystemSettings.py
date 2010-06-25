@@ -61,7 +61,7 @@ class TestPanel(wx.Panel):
 
 class SysPanelBase(wx.PyPanel):
     def __init__(self, parent, log):
-        wx.PyPanel.__init__(self, parent, size=(500, 500))
+        wx.PyPanel.__init__(self, parent)#, size=(500, 500))
 
         # Attributes
         self.log = log
@@ -73,6 +73,7 @@ class SysPanelBase(wx.PyPanel):
         self.Bind(wx.EVT_SIZE, self.OnSize)
         self.Bind(wx.EVT_SCROLLWIN, self.OnScroll)
 
+       
     def DoGetBestSize(self):
         """Return the best size for this panel"""
         maxw = 0
@@ -83,7 +84,7 @@ class SysPanelBase(wx.PyPanel):
 
         self._maxw = maxw
         maxw += 75
-        maxh = len(self._vals) * 22
+        maxh = (len(self._vals) + 1) * 22
         return (maxw, maxh)
 
     def SetupPaintDC(self, dc):
@@ -124,15 +125,13 @@ class SysColorPanel(SysPanelBase):
         self._box = (50, 15) # Color box dimensions
         self._maxw = 0
         self._vals = [ color for color in dir(wx)
-                       if color.startswith('SYS_COLOUR_') ]
+                       if color.startswith('SYS_COLOUR_') ]               
         
     def OnPaint(self, evt):
         dc = wx.AutoBufferedPaintDCFactory(self)
         self.SetupPaintDC(dc)
 
         # Draw a sample box for each system color
-        mwidth = 0
-        mheight = 0
         nextx = 10
         nexty = 10
         column = 0
@@ -142,14 +141,10 @@ class SysColorPanel(SysPanelBase):
             dc.SetBrush(wx.Brush(syscolor))
 
             # Draw label
-            twidth = dc.GetTextExtent(val)
-            if twidth[0] > mwidth:
-                mwidth = twidth[0]
             dc.DrawText(val, nextx, nexty)
 
             # Calculate box position
-            diff = (self._maxw - twidth[0])
-            nextx += (diff + twidth[0] + 8)
+            nextx += self._maxw + 8
             dc.DrawRectangle(nextx, nexty, self._box[0], self._box[1])
 
             nextx = 10
@@ -168,16 +163,12 @@ class SysFontPanel(SysPanelBase):
                       'SYS_ICONTITLE_FONT', 'SYS_OEM_FIXED_FONT',
                       'SYS_SYSTEM_FIXED_FONT', 'SYS_SYSTEM_FONT']
 
-        # Event Handlers
-        self.Bind(wx.EVT_PAINT, self.OnPaint)
 
     def OnPaint(self, evt):
         dc = wx.AutoBufferedPaintDCFactory(self)
         self.SetupPaintDC(dc)
 
         # Draw a sample box for each system color
-        mwidth = 0
-        mheight = 0
         nextx = 10
         nexty = 10
         column = 0
@@ -187,14 +178,10 @@ class SysFontPanel(SysPanelBase):
             sysfont = wx.SystemSettings.GetFont(getattr(wx, val))
 
             # Draw label
-            twidth = dc.GetTextExtent(val)
-            if twidth[0] > mwidth:
-                mwidth = twidth[0]
             dc.DrawText(val, nextx, nexty)
 
             # Calculate box position
-            diff = (self._maxw - twidth[0])
-            nextx += (diff + twidth[0] + 8)
+            nextx += self._maxw + 8
             dc.SetFont(sysfont)
             dc.DrawText(sysfont.GetFaceName(), nextx, nexty)
 
@@ -225,16 +212,12 @@ class SysMetricPanel(SysPanelBase):
                       'SYS_SHOW_SOUNDS', 'SYS_SWAP_BUTTONS']
         self._vals.sort()
 
-        # Event Handlers
-        self.Bind(wx.EVT_PAINT, self.OnPaint)
 
     def OnPaint(self, evt):
         dc = wx.AutoBufferedPaintDCFactory(self)
         self.SetupPaintDC(dc)
 
         # Draw a sample box for each system color
-        mwidth = 0
-        mheight = 0
         nextx = 10
         nexty = 10
         column = 0
@@ -243,14 +226,10 @@ class SysMetricPanel(SysPanelBase):
             sysmetric = wx.SystemSettings.GetMetric(getattr(wx, val))
 
             # Draw label
-            twidth = dc.GetTextExtent(val)
-            if twidth[0] > mwidth:
-                mwidth = twidth[0]
             dc.DrawText(val, nextx, nexty)
 
             # Calculate box position
-            diff = (self._maxw - twidth[0])
-            nextx += (diff + twidth[0] + 8)
+            nextx += self._maxw + 8
             dc.DrawText(repr(sysmetric), nextx, nexty)
 
             nextx = 10
@@ -268,16 +247,12 @@ class SysFeaturePanel(SysPanelBase):
                       'SYS_CAN_ICONIZE_FRAME',
                       'SYS_TABLET_PRESENT' ]
 
-        # Event Handlers
-        self.Bind(wx.EVT_PAINT, self.OnPaint)
 
     def OnPaint(self, evt):
         dc = wx.AutoBufferedPaintDCFactory(self)
         self.SetupPaintDC(dc)
 
         # Draw a sample box for each system color
-        mwidth = 0
-        mheight = 0
         nextx = 10
         nexty = 10
         column = 0
@@ -286,14 +261,10 @@ class SysFeaturePanel(SysPanelBase):
             sysfeature = wx.SystemSettings.HasFeature(getattr(wx, val))
 
             # Draw label
-            twidth = dc.GetTextExtent(val)
-            if twidth[0] > mwidth:
-                mwidth = twidth[0]
             dc.DrawText(val, nextx, nexty)
 
             # Calculate box position
-            diff = (self._maxw - twidth[0])
-            nextx += (diff + twidth[0] + 8)
+            nextx += self._maxw + 8
             dc.DrawText(repr(sysfeature), nextx, nexty)
 
             nextx = 10
@@ -311,6 +282,7 @@ class ScrolledWrapper(scrolled.ScrolledPanel):
 
         # Layout
         sizer = wx.BoxSizer(wx.VERTICAL)
+
         sizer.Add(self._panel, 1, wx.EXPAND)
         self.SetSizer(sizer)
         self.SetAutoLayout(True)

@@ -136,8 +136,8 @@ class App(wx.PyApp):
             
             if wx.Platform == "__WXMAC__":
                 msg = """This program needs access to the screen.
-Please run with 'pythonw', not 'python', and only when you are logged
-in on the main display of your Mac."""
+Please run with a Framework build of python, and only when you are
+logged in on the main display of your Mac."""
                 
             elif wx.Platform == "__WXGTK__":
                 msg ="Unable to access the X Display, is $DISPLAY set properly?"

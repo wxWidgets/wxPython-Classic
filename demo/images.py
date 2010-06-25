@@ -6690,3 +6690,123 @@ customcontrol = PyEmbeddedImage(
     "MX3bKEOBCKjmgI47XoIXgFIUBX/3bp3////2P/QGWsxIJsvdP+sAAAAASUVORK5CYII=")
 index.append('customcontrol')
 catalog['customcontrol'] = customcontrol
+
+#----------------------------------------------------------------------
+deletedocs = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QAAAAAAAD5Q7t/AAAA"
+    "CXBIWXMAAA3WAAAN1gGQb3mcAAACTUlEQVQ4y82SPUxTURTH/6f3fb9a2tDSIqSPhIogMSom"
+    "TNVB487o4qCLm0bdJEad1MnNxN1FIw6ExagkJn4UURI+JA0fBQyg0DxqGyTl9r17HbBAkcXN"
+    "311ucs755fxvLmEPzwdeQ4UAh1InIDuEkCd8ITqFkAc5598Wl5bvElC4feMyAECpDva/eo9A"
+    "gAIVz++sCNEjhTwnheiQQFjTNMUyDORdt+S6a88URf1QnVMA4OHjJxgbn2CtqdQ1xth1IWWC"
+    "iMg0DUQjITQnouCco7iWH3fz3/O2bW9vzADAh8TsTDbqCXogibVpmk6hoIloOIiQrQPCh/Ar"
+    "En7lDfzy23t3eguF0jqGMh9BAHD0ZDeE8NONTU5/On06crgtBcvQEI9GkIjHIaSE73lQFQbO"
+    "eYaIzuu6vpBMJrciEAGln2sjXd2nBtoPtV5ItTRjcmoGRECl4qFcLoMpCgzThmHoLGTpqHmD"
+    "Rqcd6bM9G1LwpdFsDosrLlqcJBoSCdiGinAoCMuyMJbNYXAwM9J79dLCxSu3AAABAJBSgogA"
+    "CQSYivpYAqZlgbEAgsEgwnV1W/UtJAB4vtgR7EXW3KunlqpwX8G/8L8IJPZJ+Te0O/xuwdzU"
+    "KB7dv4lyeUMlItS2/Gkkgud5KBULKhGxL+9eAsDOR9JtU8lNT46pmpaL1UecyAGLCSEgfAHO"
+    "OX6srIoXfU/l8OfhziPHu1oYo9ltQfHXOhBr8qazE32lYmF2dWn+jOM4xxrjDTHbMuF7FXdu"
+    "fv7r0KfMMt/cXFYUZaW62W+bkO7zu6lNiAAAACJ6VFh0U29mdHdhcmUAAHjaKy8v18vMyy5O"
+    "TixI1csvSgcANtgGWBBTylwAAAAASUVORK5CYII=")
+index.append('deletedocs')
+catalog['deletedocs'] = deletedocs
+
+#----------------------------------------------------------------------
+#----------------------------------------------------------------------
+spinning_nb0 = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAANBJ"
+    "REFUOI21kmGOAyEIRh+b3sheqUyPtHCllSuV/TGa6saZNmmWhBjRDx6oCMf2gASQ3ZdXv070"
+    "+NlhM/kXghvkA3IbYgmZLeGMcODWBIMwl3c/beE0QUc/Ek8Jvs0yIqBAiUIQ+0Hfl3jGW+zu"
+    "m4gAN9VU1UOKiKCUMgTAcXxzMLP1cE7czFJVE8hLRPBTa46V/q7drn6FMhOJmSUwI75oJSKI"
+    "CNydSxe7+7L6imYiU9Wstb49h1prqmo28hRrz/dO9XF1dwT2Z1z+8RfWP9cvJcCY3mA4ykUA"
+    "AAAASUVORK5CYII=")
+index.append('spinning_nb0')
+catalog['spinning_nb0'] = spinning_nb0
+
+#----------------------------------------------------------------------
+spinning_nb1 = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAANJJ"
+    "REFUOI21klFuw0AIRN9WuRG5UnCPVLhSd64U+hE7iS1vHCkqElqJHWAYoAEjd6iCAmqIa4zt"
+    "ektewLvQrxf55KvP2f6HwQXqCjU9xeqhx4bCwGNOqCMhPx3hXuAnoiRhZki6AzKT8EAmTIYQ"
+    "GJiM75xaa8DFvdx9yGQp/AhAkuSUEBHjIxnpE1HuXkCdJPHbez132r6LnfMMtmbUIqKANcWD"
+    "USQhiczktCRn5m73PTYrZu5evfe3dei9l7vXzLxabNb37puZNLitcfdED2w5rD84JJ1LvGPz"
+    "hQAAAABJRU5ErkJggg==")
+index.append('spinning_nb1')
+catalog['spinning_nb1'] = spinning_nb1
+
+#----------------------------------------------------------------------
+spinning_nb2 = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAANJJ"
+    "REFUOI21k2FuwzAIRh9Tb0SuVLIrwZUGVyr7kTRqVMebNA0JWYIP84xtEf5mH7PkHfoB3dBX"
+    "GpkRPPZC2XwonRLELPmvBM+zry+xvpqFXLjvBS+FPdLdjq7urVWUKlRRABFHEzPbQQAFLeUz"
+    "VhEB7ma9C95sWRYy8xwsCIJYA9x9iDZzd28za6BvVcVXZgNUFar6th40sYByiou7N3ASXtnr"
+    "xlVFRGxDVFUiYth9RHMiM7POzF/PITPbzHonb3H3/qnraI0IBLZrnP22K3s+7W83QZdyusVt"
+    "lAAAAABJRU5ErkJggg==")
+index.append('spinning_nb2')
+catalog['spinning_nb2'] = spinning_nb2
+
+#----------------------------------------------------------------------
+spinning_nb3 = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAANNJ"
+    "REFUOI21k1uOwzAIRQ+j7sjZUsksqbClwpbKfCRNXSXxfFRFQrZ53ottET6Tnw/zxwWuUA+o"
+    "gjqLkRGFx5ooix6GDhHMI+dXEdxW7t7Z6mQWG4KbamVrtEwSwB3rAwFVXQ4NWjZ+fRYR4Kpa"
+    "m7OTNk1bckS8HAmO47ODmZW8eO4U2PnNrFS1gLpkJveIAshMWmu7lZX75BM0ejtiZgVshpH0"
+    "hTMTd+fyTHb3w+4HaN72qGpFxHAOvUZEqWqtyEvMrP7rerS6OwLLNY4+y5k8X+YflwSO08m0"
+    "TxoAAAAASUVORK5CYII=")
+index.append('spinning_nb3')
+catalog['spinning_nb3'] = spinning_nb3
+
+#----------------------------------------------------------------------
+spinning_nb4 = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAANdJ"
+    "REFUOI21kk1ywzAIhT91fCN8paAeqXClwpVCF7acOBM7i6TMMCzE+9GTWuO9+noT/88EP1BX"
+    "qII62mlnGVxXYFv66eqpg352+CkHG8HFrCSTBHDHAAeUPVJVARARvntvE8BFtVQERJBliz7P"
+    "2AqqlSQiNiJ3p6Aws2o3m7uu2wvsdsysVLWAmjKT34gCyExEZJueSe99KNcsMwDZl3OAZmY1"
+    "7vSq7gUyE3dnGmB336kfzXuikWpFxGEOjx0Rpaq1Oq9mZvVK9dl0dxq0NtJ+GcBDjY/1B8KZ"
+    "jqC9Dj6pAAAAAElFTkSuQmCC")
+index.append('spinning_nb4')
+catalog['spinning_nb4'] = spinning_nb4
+
+#----------------------------------------------------------------------
+spinning_nb5 = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAANNJ"
+    "REFUOI21k1uOwzAIRQ+j7sjZUsksqbClwpbKfCRNXSXxfFRFQrZ53ottET6Tnw/zxwWuUA+o"
+    "gjqLkRGFx5ooix6GDhHMI+dXEdxW7t7Z6mQWG4KbamVrtEwSwB3rAwFVXQ4NWjZ+fRYR4Kpa"
+    "m7OTNk1bckS8HAmO47ODmZW8eO4U2PnNrFS1gLpkJveIAshMWmu7lZX75BM0ejtiZgVshpH0"
+    "hTMTd+fyTHb3w+4HaN72qGpFxHAOvUZEqWqtyEvMrP7rerS6OwLLNY4+y5k8X+YflwSO08m0"
+    "TxoAAAAASUVORK5CYII=")
+index.append('spinning_nb5')
+catalog['spinning_nb5'] = spinning_nb5
+
+#----------------------------------------------------------------------
+spinning_nb6 = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAANJJ"
+    "REFUOI21k2FuwzAIRh9Tb0SuVLIrwZUGVyr7kTRqVMebNA0JWYIP84xtEf5mH7PkHfoB3dBX"
+    "GpkRPPZC2XwonRLELPmvBM+zry+xvpqFXLjvBS+FPdLdjq7urVWUKlRRABFHEzPbQQAFLeUz"
+    "VhEB7ma9C95sWRYy8xwsCIJYA9x9iDZzd28za6BvVcVXZgNUFar6th40sYByiou7N3ASXtnr"
+    "xlVFRGxDVFUiYth9RHMiM7POzF/PITPbzHonb3H3/qnraI0IBLZrnP22K3s+7W83QZdyusVt"
+    "lAAAAABJRU5ErkJggg==")
+index.append('spinning_nb6')
+catalog['spinning_nb6'] = spinning_nb6
+
+#----------------------------------------------------------------------
+spinning_nb7 = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAANJJ"
+    "REFUOI21klFuw0AIRN9WuRG5UnCPVLhSd64U+hE7iS1vHCkqElqJHWAYoAEjd6iCAmqIa4zt"
+    "ektewLvQrxf55KvP2f6HwQXqCjU9xeqhx4bCwGNOqCMhPx3hXuAnoiRhZki6AzKT8EAmTIYQ"
+    "GJiM75xaa8DFvdx9yGQp/AhAkuSUEBHjIxnpE1HuXkCdJPHbez132r6LnfMMtmbUIqKANcWD"
+    "USQhiczktCRn5m73PTYrZu5evfe3dei9l7vXzLxabNb37puZNLitcfdED2w5rD84JJ1LvGPz"
+    "hQAAAABJRU5ErkJggg==")
+index.append('spinning_nb7')
+catalog['spinning_nb7'] = spinning_nb7
+
+#----------------------------------------------------------------------
+spinning_nb8 = PyEmbeddedImage(
+    "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAANBJ"
+    "REFUOI21kmGOAyEIRh+b3sheqUyPtHCllSuV/TGa6saZNmmWhBjRDx6oCMf2gASQ3ZdXv070"
+    "+NlhM/kXghvkA3IbYgmZLeGMcODWBIMwl3c/beE0QUc/Ek8Jvs0yIqBAiUIQ+0Hfl3jGW+zu"
+    "m4gAN9VU1UOKiKCUMgTAcXxzMLP1cE7czFJVE8hLRPBTa46V/q7drn6FMhOJmSUwI75oJSKI"
+    "CNydSxe7+7L6imYiU9Wstb49h1prqmo28hRrz/dO9XF1dwT2Z1z+8RfWP9cvJcCY3mA4ykUA"
+    "AAAASUVORK5CYII=")
+index.append('spinning_nb8')
+catalog['spinning_nb8'] = spinning_nb8
+

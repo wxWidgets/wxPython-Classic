@@ -3845,6 +3845,44 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ComboCtrl_SetTextCtrlStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyComboCtrl *arg1 = (wxPyComboCtrl *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "style", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:ComboCtrl_SetTextCtrlStyle",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyComboCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ComboCtrl_SetTextCtrlStyle" "', expected argument " "1"" of type '" "wxPyComboCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyComboCtrl * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ComboCtrl_SetTextCtrlStyle" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetTextCtrlStyle(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ComboCtrl_GetValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPyComboCtrl *arg1 = (wxPyComboCtrl *) 0 ;
@@ -7643,6 +7681,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ComboCtrl_GetHint", (PyCFunction)_wrap_ComboCtrl_GetHint, METH_O, NULL},
 	 { (char *)"ComboCtrl_SetMargins", _wrap_ComboCtrl_SetMargins, METH_VARARGS, NULL},
 	 { (char *)"ComboCtrl_GetMargins", (PyCFunction)_wrap_ComboCtrl_GetMargins, METH_O, NULL},
+	 { (char *)"ComboCtrl_SetTextCtrlStyle", (PyCFunction) _wrap_ComboCtrl_SetTextCtrlStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ComboCtrl_GetValue", (PyCFunction)_wrap_ComboCtrl_GetValue, METH_O, NULL},
 	 { (char *)"ComboCtrl_SetValue", (PyCFunction) _wrap_ComboCtrl_SetValue, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ComboCtrl_Copy", (PyCFunction)_wrap_ComboCtrl_Copy, METH_O, NULL},
