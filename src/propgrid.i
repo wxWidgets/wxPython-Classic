@@ -31,6 +31,9 @@ properties such as strings, numbers, colours, and string lists."
 #include <wx/propgrid/manager.h>
 #include <wx/propgrid/editors.h>
 
+#include <wx/editlbox.h>
+#include <wx/listctrl.h>
+
 #if !defined(__WXMSW__) && !defined(OutputDebugString)
   #define OutputDebugString(A)
 #endif
@@ -897,6 +900,8 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 // Preprocessor stuff so SWIG doesn't get confused when %include-ing
 // the .h files.
 #define WXDLLIMPEXP_PROPGRID
+#define WXDLLIMPEXP_FWD_CORE
+#define WXDLLIMPEXP_FWD_ADV
 #define WXDLLIMPEXP_FWD_PROPGRID
 #define WXDLLIMPEXP_DATA_PROPGRID(decl) decl
 
@@ -909,6 +914,7 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 %ignore wxUSE_IMAGE;
 %ignore wxUSE_LONGLONG_NATIVE;
 %ignore wxUSE_SPINBTN;
+%ignore wxUSE_EDITABLELISTBOX;
 %ignore wxUSE_STL;
 %ignore wxUSE_THREADS;
 %ignore wxUSE_TOOLBAR;
@@ -924,6 +930,7 @@ bool PyObject_to_wxPGWindowList( PyObject* o, wxPGWindowList* p )
 #define wxUSE_IMAGE 1
 #define wxUSE_LONGLONG_NATIVE 1
 #define wxUSE_SPINBTN 1
+#define wxUSE_EDITABLELISTBOX 1
 #define wxUSE_STL 0
 #define wxUSE_TOOLBAR 1
 #define wxUSE_TOOLTIPS 1

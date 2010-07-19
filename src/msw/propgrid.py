@@ -1870,13 +1870,19 @@ PG_VFB_STAY_IN_PROPERTY = _propgrid.PG_VFB_STAY_IN_PROPERTY
 PG_VFB_BEEP = _propgrid.PG_VFB_BEEP
 PG_VFB_MARK_CELL = _propgrid.PG_VFB_MARK_CELL
 PG_VFB_SHOW_MESSAGE = _propgrid.PG_VFB_SHOW_MESSAGE
+PG_VFB_SHOW_MESSAGEBOX = _propgrid.PG_VFB_SHOW_MESSAGEBOX
+PG_VFB_SHOW_MESSAGE_ON_STATUSBAR = _propgrid.PG_VFB_SHOW_MESSAGE_ON_STATUSBAR
 PG_VFB_DEFAULT = _propgrid.PG_VFB_DEFAULT
 PG_VFB_UNDEFINED = _propgrid.PG_VFB_UNDEFINED
 class PGValidationInfo(object):
     """Proxy of C++ PGValidationInfo class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> PGValidationInfo"""
+        _propgrid.PGValidationInfo_swiginit(self,_propgrid.new_PGValidationInfo(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_PGValidationInfo
+    __del__ = lambda self : None;
     def GetFailureBehavior(*args, **kwargs):
         """GetFailureBehavior(self) -> char"""
         return _propgrid.PGValidationInfo_GetFailureBehavior(*args, **kwargs)
@@ -2422,6 +2428,10 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
     def IsMainButtonEvent(*args, **kwargs):
         """IsMainButtonEvent(self, Event event) -> bool"""
         return _propgrid.PropertyGrid_IsMainButtonEvent(*args, **kwargs)
+
+    def DoHidePropertyError(*args, **kwargs):
+        """DoHidePropertyError(self, PGProperty property)"""
+        return _propgrid.PropertyGrid_DoHidePropertyError(*args, **kwargs)
 
     def GetSpacingY(*args, **kwargs):
         """GetSpacingY(self) -> int"""
@@ -3097,9 +3107,9 @@ class ArrayStringProperty(PGProperty):
         _propgrid.ArrayStringProperty_swiginit(self,_propgrid.new_ArrayStringProperty(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_ArrayStringProperty
     __del__ = lambda self : None;
-    def GenerateValueAsString(*args, **kwargs):
-        """GenerateValueAsString(self)"""
-        return _propgrid.ArrayStringProperty_GenerateValueAsString(*args, **kwargs)
+    def ConvertArrayToString(*args, **kwargs):
+        """ConvertArrayToString(self, wxArrayString arr, String pString, wxUniChar delimiter)"""
+        return _propgrid.ArrayStringProperty_ConvertArrayToString(*args, **kwargs)
 
     def OnCustomStringEdit(*args, **kwargs):
         """OnCustomStringEdit(self, Window parent, String value) -> bool"""
@@ -3109,18 +3119,35 @@ class ArrayStringProperty(PGProperty):
         """OnButtonClick(self, PropertyGrid propgrid, Window primary, wxChar cbt) -> bool"""
         return _propgrid.ArrayStringProperty_OnButtonClick(*args, **kwargs)
 
+    Escape = _propgrid.ArrayStringProperty_Escape
+    QuoteStrings = _propgrid.ArrayStringProperty_QuoteStrings
+    def ArrayStringToString(*args, **kwargs):
+        """
+        ArrayStringToString(String dst, wxArrayString src, wxUniChar delimiter, 
+            int flags)
+        """
+        return _propgrid.ArrayStringProperty_ArrayStringToString(*args, **kwargs)
+
+    ArrayStringToString = staticmethod(ArrayStringToString)
 _propgrid.ArrayStringProperty_swigregister(ArrayStringProperty)
 
-class ArrayEditorDialog(_windows.Dialog):
-    """Proxy of C++ ArrayEditorDialog class"""
+def ArrayStringProperty_ArrayStringToString(*args, **kwargs):
+  """
+    ArrayStringProperty_ArrayStringToString(String dst, wxArrayString src, wxUniChar delimiter, 
+        int flags)
+    """
+  return _propgrid.ArrayStringProperty_ArrayStringToString(*args, **kwargs)
+
+class PGArrayEditorDialog(_windows.Dialog):
+    """Proxy of C++ PGArrayEditorDialog class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
-    __swig_destroy__ = _propgrid.delete_ArrayEditorDialog
+    __swig_destroy__ = _propgrid.delete_PGArrayEditorDialog
     __del__ = lambda self : None;
     def Init(*args, **kwargs):
         """Init(self)"""
-        return _propgrid.ArrayEditorDialog_Init(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_Init(*args, **kwargs)
 
     def Create(*args, **kwargs):
         """
@@ -3128,55 +3155,59 @@ class ArrayEditorDialog(_windows.Dialog):
             Point pos=DefaultPosition, 
             Size sz=DefaultSize) -> bool
         """
-        return _propgrid.ArrayEditorDialog_Create(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_Create(*args, **kwargs)
+
+    def EnableCustomNewAction(*args, **kwargs):
+        """EnableCustomNewAction(self)"""
+        return _propgrid.PGArrayEditorDialog_EnableCustomNewAction(*args, **kwargs)
 
     def SetDialogValue(*args, **kwargs):
         """SetDialogValue(self, wxVariant value)"""
-        return _propgrid.ArrayEditorDialog_SetDialogValue(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_SetDialogValue(*args, **kwargs)
 
     def GetDialogValue(*args, **kwargs):
         """GetDialogValue(self) -> wxVariant"""
-        return _propgrid.ArrayEditorDialog_GetDialogValue(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_GetDialogValue(*args, **kwargs)
 
     def GetTextCtrlValidator(*args, **kwargs):
         """GetTextCtrlValidator(self) -> Validator"""
-        return _propgrid.ArrayEditorDialog_GetTextCtrlValidator(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_GetTextCtrlValidator(*args, **kwargs)
 
     def IsModified(*args, **kwargs):
         """IsModified(self) -> bool"""
-        return _propgrid.ArrayEditorDialog_IsModified(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_IsModified(*args, **kwargs)
 
-    def OnUpdateClick(*args, **kwargs):
-        """OnUpdateClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnUpdateClick(*args, **kwargs)
+    def GetSelection(*args, **kwargs):
+        """GetSelection(self) -> int"""
+        return _propgrid.PGArrayEditorDialog_GetSelection(*args, **kwargs)
 
     def OnAddClick(*args, **kwargs):
         """OnAddClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnAddClick(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_OnAddClick(*args, **kwargs)
 
     def OnDeleteClick(*args, **kwargs):
         """OnDeleteClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnDeleteClick(*args, **kwargs)
-
-    def OnListBoxClick(*args, **kwargs):
-        """OnListBoxClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnListBoxClick(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_OnDeleteClick(*args, **kwargs)
 
     def OnUpClick(*args, **kwargs):
         """OnUpClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnUpClick(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_OnUpClick(*args, **kwargs)
 
     def OnDownClick(*args, **kwargs):
         """OnDownClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnDownClick(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_OnDownClick(*args, **kwargs)
+
+    def OnEndLabelEdit(*args, **kwargs):
+        """OnEndLabelEdit(self, ListEvent event)"""
+        return _propgrid.PGArrayEditorDialog_OnEndLabelEdit(*args, **kwargs)
 
     def OnIdle(*args, **kwargs):
         """OnIdle(self, IdleEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnIdle(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_OnIdle(*args, **kwargs)
 
-_propgrid.ArrayEditorDialog_swigregister(ArrayEditorDialog)
+_propgrid.PGArrayEditorDialog_swigregister(PGArrayEditorDialog)
 
-class PGArrayStringEditorDialog(ArrayEditorDialog):
+class PGArrayStringEditorDialog(PGArrayEditorDialog):
     """Proxy of C++ PGArrayStringEditorDialog class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -3190,12 +3221,12 @@ class PGArrayStringEditorDialog(ArrayEditorDialog):
         return _propgrid.PGArrayStringEditorDialog_Init(*args, **kwargs)
 
     def SetCustomButton(*args, **kwargs):
-        """SetCustomButton(self, wxChar custBtText, ArrayStringProperty pcc)"""
+        """SetCustomButton(self, String custBtText, ArrayStringProperty pcc)"""
         return _propgrid.PGArrayStringEditorDialog_SetCustomButton(*args, **kwargs)
 
-    def OnCustomEditClick(*args, **kwargs):
-        """OnCustomEditClick(self, CommandEvent event)"""
-        return _propgrid.PGArrayStringEditorDialog_OnCustomEditClick(*args, **kwargs)
+    def OnCustomNewAction(*args, **kwargs):
+        """OnCustomNewAction(self, String resString) -> bool"""
+        return _propgrid.PGArrayStringEditorDialog_OnCustomNewAction(*args, **kwargs)
 
 _propgrid.PGArrayStringEditorDialog_swigregister(PGArrayStringEditorDialog)
 
