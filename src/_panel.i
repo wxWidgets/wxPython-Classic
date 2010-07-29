@@ -147,7 +147,18 @@ public:
         wxPoint, GetViewStart() const,
         "Get the view start", "");
     
+    // Disable use of keyboard keys for scrolling. By default cursor movement
+    // keys (including Home, End, Page Up and Down) are used to scroll the
+    // window appropriately. If the derived class uses these keys for something
+    // else, e.g. changing the currently selected item, this function can be
+    // used to disable this behaviour as it's not only not necessary then but
+    // can actually be actively harmful if another object forwards a keyboard
+    // event corresponding to one of the above keys to us using
+    // ProcessWindowEvent() because the event will always be processed which
+    // can be undesirable.
+    void DisableKeyboardScrolling();
 
+    
     // Set the scale factor, used in PrepareDC
     void SetScale(double xs, double ys);
     double GetScaleX() const;
