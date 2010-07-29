@@ -215,6 +215,10 @@ class ScrollHelper(object):
         """
         return _windows_.ScrollHelper_GetViewStart(*args, **kwargs)
 
+    def DisableKeyboardScrolling(*args, **kwargs):
+        """DisableKeyboardScrolling(self)"""
+        return _windows_.ScrollHelper_DisableKeyboardScrolling(*args, **kwargs)
+
     def SetScale(*args, **kwargs):
         """SetScale(self, double xs, double ys)"""
         return _windows_.ScrollHelper_SetScale(*args, **kwargs)

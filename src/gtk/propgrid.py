@@ -1720,6 +1720,81 @@ class PropertyGridInterface(object):
             p = self.GetPropertyByName(p)
         return p.SetClientData(data)
 
+    def GetPyIterator(self, flags=PG_ITERATE_DEFAULT,
+                      firstProperty=None):
+        """
+        Returns a pythonic property iterator for a single `PropertyGrid`
+        or page in `PropertyGridManager`. Arguments are same as for
+        `GetIterator`. Following example demonstrates iterating absolutely
+        all items in a single grid::
+
+            iterator = propGrid.GetPyIterator(wx.propgrid.PG_ITERATE_ALL)
+            for prop in iterator:
+                print(prop)
+
+        :see: `wx.propgrid.PropertyGridInterface.Properties`
+              `wx.propgrid.PropertyGridInterface.Items`
+        """
+        it = self.GetIterator(flags, firstProperty)
+        while not it.AtEnd():
+            yield it.GetProperty()
+            it.Next()
+
+    def GetPyVIterator(self, flags=PG_ITERATE_DEFAULT):
+        """
+        Returns a pythonic property iterator for a single `PropertyGrid`
+        or entire `PropertyGridManager`. Arguments are same as for
+        `GetIterator`. Following example demonstrates iterating absolutely
+        all items in an entire `PropertyGridManager`::
+
+            iterator = propGridManager.GetPyVIterator(wx.propgrid.PG_ITERATE_ALL)
+            for prop in iterator:
+                print(prop)
+
+        :see: `wx.propgrid.PropertyGridInterface.Properties`
+              `wx.propgrid.PropertyGridInterface.Items`
+        """
+        it = self.GetVIterator(flags)
+        while not it.AtEnd():
+            yield it.GetProperty()
+            it.Next()
+
+    @property
+    def Properties(self):
+        """
+        This attribute is a pythonic iterator over all properties in
+        this `PropertyGrid` property container. It will only skip
+        categories and private child properties. Usage is simple::
+
+            for prop in propGrid.Properties:
+                print(prop)
+
+        :see: `wx.propgrid.PropertyGridInterface.Items`
+              `wx.propgrid.PropertyGridInterface.GetPyIterator`
+        """
+        it = self.GetVIterator(PG_ITERATE_NORMAL)
+        while not it.AtEnd():
+            yield it.GetProperty()
+            it.Next()
+
+    @property
+    def Items(self):
+        """
+        This attribute is a pythonic iterator over all items in this
+        `PropertyGrid` property container, excluding only private child
+        properties. Usage is simple::
+
+            for prop in propGrid.Items:
+                print(prop)
+
+        :see: `wx.propgrid.PropertyGridInterface.Properties`
+              `wx.propgrid.PropertyGridInterface.GetPyIterator`
+        """
+        it = self.GetVIterator(PG_ITERATE_NORMAL | PG_ITERATE_CATEGORIES)
+        while not it.AtEnd():
+            yield it.GetProperty()
+            it.Next()
+
 _propgrid.PropertyGridInterface_swigregister(PropertyGridInterface)
 
 def PropertyGridInterface_InitAllTypeHandlers(*args):
@@ -1795,13 +1870,19 @@ PG_VFB_STAY_IN_PROPERTY = _propgrid.PG_VFB_STAY_IN_PROPERTY
 PG_VFB_BEEP = _propgrid.PG_VFB_BEEP
 PG_VFB_MARK_CELL = _propgrid.PG_VFB_MARK_CELL
 PG_VFB_SHOW_MESSAGE = _propgrid.PG_VFB_SHOW_MESSAGE
+PG_VFB_SHOW_MESSAGEBOX = _propgrid.PG_VFB_SHOW_MESSAGEBOX
+PG_VFB_SHOW_MESSAGE_ON_STATUSBAR = _propgrid.PG_VFB_SHOW_MESSAGE_ON_STATUSBAR
 PG_VFB_DEFAULT = _propgrid.PG_VFB_DEFAULT
 PG_VFB_UNDEFINED = _propgrid.PG_VFB_UNDEFINED
 class PGValidationInfo(object):
     """Proxy of C++ PGValidationInfo class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> PGValidationInfo"""
+        _propgrid.PGValidationInfo_swiginit(self,_propgrid.new_PGValidationInfo(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_PGValidationInfo
+    __del__ = lambda self : None;
     def GetFailureBehavior(*args, **kwargs):
         """GetFailureBehavior(self) -> char"""
         return _propgrid.PGValidationInfo_GetFailureBehavior(*args, **kwargs)
@@ -1898,6 +1979,10 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
     def AddActionTrigger(*args, **kwargs):
         """AddActionTrigger(self, int action, int keycode, int modifiers=0)"""
         return _propgrid.PropertyGrid_AddActionTrigger(*args, **kwargs)
+
+    def DedicateKey(*args, **kwargs):
+        """DedicateKey(self, int keycode)"""
+        return _propgrid.PropertyGrid_DedicateKey(*args, **kwargs)
 
     def AutoGetTranslation(*args, **kwargs):
         """AutoGetTranslation(bool enable)"""
@@ -2343,6 +2428,10 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
     def IsMainButtonEvent(*args, **kwargs):
         """IsMainButtonEvent(self, Event event) -> bool"""
         return _propgrid.PropertyGrid_IsMainButtonEvent(*args, **kwargs)
+
+    def DoHidePropertyError(*args, **kwargs):
+        """DoHidePropertyError(self, PGProperty property)"""
+        return _propgrid.PropertyGrid_DoHidePropertyError(*args, **kwargs)
 
     def GetSpacingY(*args, **kwargs):
         """GetSpacingY(self) -> int"""
@@ -3018,9 +3107,9 @@ class ArrayStringProperty(PGProperty):
         _propgrid.ArrayStringProperty_swiginit(self,_propgrid.new_ArrayStringProperty(*args, **kwargs))
     __swig_destroy__ = _propgrid.delete_ArrayStringProperty
     __del__ = lambda self : None;
-    def GenerateValueAsString(*args, **kwargs):
-        """GenerateValueAsString(self)"""
-        return _propgrid.ArrayStringProperty_GenerateValueAsString(*args, **kwargs)
+    def ConvertArrayToString(*args, **kwargs):
+        """ConvertArrayToString(self, wxArrayString arr, String pString, wxUniChar delimiter)"""
+        return _propgrid.ArrayStringProperty_ConvertArrayToString(*args, **kwargs)
 
     def OnCustomStringEdit(*args, **kwargs):
         """OnCustomStringEdit(self, Window parent, String value) -> bool"""
@@ -3030,18 +3119,35 @@ class ArrayStringProperty(PGProperty):
         """OnButtonClick(self, PropertyGrid propgrid, Window primary, wxChar cbt) -> bool"""
         return _propgrid.ArrayStringProperty_OnButtonClick(*args, **kwargs)
 
+    Escape = _propgrid.ArrayStringProperty_Escape
+    QuoteStrings = _propgrid.ArrayStringProperty_QuoteStrings
+    def ArrayStringToString(*args, **kwargs):
+        """
+        ArrayStringToString(String dst, wxArrayString src, wxUniChar delimiter, 
+            int flags)
+        """
+        return _propgrid.ArrayStringProperty_ArrayStringToString(*args, **kwargs)
+
+    ArrayStringToString = staticmethod(ArrayStringToString)
 _propgrid.ArrayStringProperty_swigregister(ArrayStringProperty)
 
-class ArrayEditorDialog(_windows.Dialog):
-    """Proxy of C++ ArrayEditorDialog class"""
+def ArrayStringProperty_ArrayStringToString(*args, **kwargs):
+  """
+    ArrayStringProperty_ArrayStringToString(String dst, wxArrayString src, wxUniChar delimiter, 
+        int flags)
+    """
+  return _propgrid.ArrayStringProperty_ArrayStringToString(*args, **kwargs)
+
+class PGArrayEditorDialog(_windows.Dialog):
+    """Proxy of C++ PGArrayEditorDialog class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
-    __swig_destroy__ = _propgrid.delete_ArrayEditorDialog
+    __swig_destroy__ = _propgrid.delete_PGArrayEditorDialog
     __del__ = lambda self : None;
     def Init(*args, **kwargs):
         """Init(self)"""
-        return _propgrid.ArrayEditorDialog_Init(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_Init(*args, **kwargs)
 
     def Create(*args, **kwargs):
         """
@@ -3049,55 +3155,59 @@ class ArrayEditorDialog(_windows.Dialog):
             Point pos=DefaultPosition, 
             Size sz=DefaultSize) -> bool
         """
-        return _propgrid.ArrayEditorDialog_Create(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_Create(*args, **kwargs)
+
+    def EnableCustomNewAction(*args, **kwargs):
+        """EnableCustomNewAction(self)"""
+        return _propgrid.PGArrayEditorDialog_EnableCustomNewAction(*args, **kwargs)
 
     def SetDialogValue(*args, **kwargs):
         """SetDialogValue(self, wxVariant value)"""
-        return _propgrid.ArrayEditorDialog_SetDialogValue(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_SetDialogValue(*args, **kwargs)
 
     def GetDialogValue(*args, **kwargs):
         """GetDialogValue(self) -> wxVariant"""
-        return _propgrid.ArrayEditorDialog_GetDialogValue(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_GetDialogValue(*args, **kwargs)
 
     def GetTextCtrlValidator(*args, **kwargs):
         """GetTextCtrlValidator(self) -> Validator"""
-        return _propgrid.ArrayEditorDialog_GetTextCtrlValidator(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_GetTextCtrlValidator(*args, **kwargs)
 
     def IsModified(*args, **kwargs):
         """IsModified(self) -> bool"""
-        return _propgrid.ArrayEditorDialog_IsModified(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_IsModified(*args, **kwargs)
 
-    def OnUpdateClick(*args, **kwargs):
-        """OnUpdateClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnUpdateClick(*args, **kwargs)
+    def GetSelection(*args, **kwargs):
+        """GetSelection(self) -> int"""
+        return _propgrid.PGArrayEditorDialog_GetSelection(*args, **kwargs)
 
     def OnAddClick(*args, **kwargs):
         """OnAddClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnAddClick(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_OnAddClick(*args, **kwargs)
 
     def OnDeleteClick(*args, **kwargs):
         """OnDeleteClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnDeleteClick(*args, **kwargs)
-
-    def OnListBoxClick(*args, **kwargs):
-        """OnListBoxClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnListBoxClick(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_OnDeleteClick(*args, **kwargs)
 
     def OnUpClick(*args, **kwargs):
         """OnUpClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnUpClick(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_OnUpClick(*args, **kwargs)
 
     def OnDownClick(*args, **kwargs):
         """OnDownClick(self, CommandEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnDownClick(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_OnDownClick(*args, **kwargs)
+
+    def OnEndLabelEdit(*args, **kwargs):
+        """OnEndLabelEdit(self, ListEvent event)"""
+        return _propgrid.PGArrayEditorDialog_OnEndLabelEdit(*args, **kwargs)
 
     def OnIdle(*args, **kwargs):
         """OnIdle(self, IdleEvent event)"""
-        return _propgrid.ArrayEditorDialog_OnIdle(*args, **kwargs)
+        return _propgrid.PGArrayEditorDialog_OnIdle(*args, **kwargs)
 
-_propgrid.ArrayEditorDialog_swigregister(ArrayEditorDialog)
+_propgrid.PGArrayEditorDialog_swigregister(PGArrayEditorDialog)
 
-class PGArrayStringEditorDialog(ArrayEditorDialog):
+class PGArrayStringEditorDialog(PGArrayEditorDialog):
     """Proxy of C++ PGArrayStringEditorDialog class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -3111,12 +3221,12 @@ class PGArrayStringEditorDialog(ArrayEditorDialog):
         return _propgrid.PGArrayStringEditorDialog_Init(*args, **kwargs)
 
     def SetCustomButton(*args, **kwargs):
-        """SetCustomButton(self, wxChar custBtText, ArrayStringProperty pcc)"""
+        """SetCustomButton(self, String custBtText, ArrayStringProperty pcc)"""
         return _propgrid.PGArrayStringEditorDialog_SetCustomButton(*args, **kwargs)
 
-    def OnCustomEditClick(*args, **kwargs):
-        """OnCustomEditClick(self, CommandEvent event)"""
-        return _propgrid.PGArrayStringEditorDialog_OnCustomEditClick(*args, **kwargs)
+    def OnCustomNewAction(*args, **kwargs):
+        """OnCustomNewAction(self, String resString) -> bool"""
+        return _propgrid.PGArrayStringEditorDialog_OnCustomNewAction(*args, **kwargs)
 
 _propgrid.PGArrayStringEditorDialog_swigregister(PGArrayStringEditorDialog)
 
@@ -3146,14 +3256,67 @@ class ColourPropertyValue(_core.Object):
         _propgrid.ColourPropertyValue_swiginit(self,_propgrid.new_ColourPropertyValue(*args))
 _propgrid.ColourPropertyValue_swigregister(ColourPropertyValue)
 
-class PGSpinCtrlEditor(PGTextCtrlEditor):
-    """Proxy of C++ PGSpinCtrlEditor class"""
+class FontProperty(PGProperty):
+    """Proxy of C++ FontProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
-    __swig_destroy__ = _propgrid.delete_PGSpinCtrlEditor
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            Font value=wxFont()) -> FontProperty
+        """
+        _propgrid.FontProperty_swiginit(self,_propgrid.new_FontProperty(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_FontProperty
     __del__ = lambda self : None;
-_propgrid.PGSpinCtrlEditor_swigregister(PGSpinCtrlEditor)
+_propgrid.FontProperty_swigregister(FontProperty)
+
+class SystemColourProperty(EnumProperty):
+    """Proxy of C++ SystemColourProperty class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            ColourPropertyValue value=wxColourPropertyValue()) -> SystemColourProperty
+        """
+        _propgrid.SystemColourProperty_swiginit(self,_propgrid.new_SystemColourProperty(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_SystemColourProperty
+    __del__ = lambda self : None;
+    def ColourToString(*args, **kwargs):
+        """ColourToString(self, Colour col, int index) -> String"""
+        return _propgrid.SystemColourProperty_ColourToString(*args, **kwargs)
+
+    def GetCustomColourIndex(*args, **kwargs):
+        """GetCustomColourIndex(self) -> int"""
+        return _propgrid.SystemColourProperty_GetCustomColourIndex(*args, **kwargs)
+
+    def QueryColourFromUser(*args, **kwargs):
+        """QueryColourFromUser(self, wxVariant variant) -> bool"""
+        return _propgrid.SystemColourProperty_QueryColourFromUser(*args, **kwargs)
+
+    def GetColour(*args, **kwargs):
+        """GetColour(self, int index) -> Colour"""
+        return _propgrid.SystemColourProperty_GetColour(*args, **kwargs)
+
+    def GetVal(*args, **kwargs):
+        """GetVal(self, wxVariant pVariant=None) -> ColourPropertyValue"""
+        return _propgrid.SystemColourProperty_GetVal(*args, **kwargs)
+
+_propgrid.SystemColourProperty_swigregister(SystemColourProperty)
+
+class ColourProperty(SystemColourProperty):
+    """Proxy of C++ ColourProperty class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            Colour value=*wxWHITE) -> ColourProperty
+        """
+        _propgrid.ColourProperty_swiginit(self,_propgrid.new_ColourProperty(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_ColourProperty
+    __del__ = lambda self : None;
+_propgrid.ColourProperty_swigregister(ColourProperty)
 
 class PropertyGridPage(_core.EvtHandler,PropertyGridInterface,):
     """Proxy of C++ PropertyGridPage class"""
@@ -3601,41 +3764,6 @@ def NewDateProperty(*args, **kwargs):
         DateTime value=wxDateTime()) -> PGProperty
     """
   return _propgrid.NewDateProperty(*args, **kwargs)
-class PyCheckBoxEditor(object):
-    """Proxy of C++ PyCheckBoxEditor class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self) -> PyCheckBoxEditor"""
-        _propgrid.PyCheckBoxEditor_swiginit(self,_propgrid.new_PyCheckBoxEditor(*args, **kwargs))
-        self._SetSelf(self); self._RegisterMethods()
-
-    def CallSuperMethod(self, *args, **kwargs):
-        funcname = args[0]
-        args2 = list(args)
-        args2[0] = self
-        self._super_call = True
-        try:
-            res = getattr(PyCheckBoxEditor, funcname)(*args2, **kwargs)
-        finally:
-            del self._super_call
-        return res
-
-    def _RegisterMethods(self):
-        cls = self.__class__
-        if not hasattr(cls,'_pyswig_methods_registered'):
-            cls._pyswig_methods_registered = True
-            ls = [ab for ab in cls.__dict__.iteritems()]
-            for a, b in ls:
-                if not a.startswith('_'):
-                    setattr(cls, '%s_t_'%a, b)
-
-    def _SetSelf(*args, **kwargs):
-        """_SetSelf(self, PyObject self)"""
-        return _propgrid.PyCheckBoxEditor__SetSelf(*args, **kwargs)
-
-_propgrid.PyCheckBoxEditor_swigregister(PyCheckBoxEditor)
-
 class PyFloatProperty(FloatProperty):
     """Proxy of C++ PyFloatProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -3895,6 +4023,41 @@ class PyStringProperty(StringProperty):
 
 _propgrid.PyStringProperty_swigregister(PyStringProperty)
 
+class PyLongStringDialogAdapter(PGLongStringDialogAdapter):
+    """Proxy of C++ PyLongStringDialogAdapter class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> PyLongStringDialogAdapter"""
+        _propgrid.PyLongStringDialogAdapter_swiginit(self,_propgrid.new_PyLongStringDialogAdapter(*args, **kwargs))
+        self._SetSelf(self); self._RegisterMethods()
+
+    def CallSuperMethod(self, *args, **kwargs):
+        funcname = args[0]
+        args2 = list(args)
+        args2[0] = self
+        self._super_call = True
+        try:
+            res = getattr(PyLongStringDialogAdapter, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
+        return res
+
+    def _RegisterMethods(self):
+        cls = self.__class__
+        if not hasattr(cls,'_pyswig_methods_registered'):
+            cls._pyswig_methods_registered = True
+            ls = [ab for ab in cls.__dict__.iteritems()]
+            for a, b in ls:
+                if not a.startswith('_'):
+                    setattr(cls, '%s_t_'%a, b)
+
+    def _SetSelf(*args, **kwargs):
+        """_SetSelf(self, PyObject self)"""
+        return _propgrid.PyLongStringDialogAdapter__SetSelf(*args, **kwargs)
+
+_propgrid.PyLongStringDialogAdapter_swigregister(PyLongStringDialogAdapter)
+
 class PyEditEnumProperty(EditEnumProperty):
     """Proxy of C++ PyEditEnumProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -3975,7 +4138,7 @@ class PyTextCtrlEditor(PGTextCtrlEditor):
 
 _propgrid.PyTextCtrlEditor_swigregister(PyTextCtrlEditor)
 
-class PySystemColourProperty(object):
+class PySystemColourProperty(SystemColourProperty):
     """Proxy of C++ PySystemColourProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -4057,7 +4220,45 @@ class PyFlagsProperty(FlagsProperty):
 
 _propgrid.PyFlagsProperty_swigregister(PyFlagsProperty)
 
-class PyColourProperty(object):
+class PyFontProperty(FontProperty):
+    """Proxy of C++ PyFontProperty class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, String label=(*wxPGProperty::sm_wxPG_LABEL), String name=(*wxPGProperty::sm_wxPG_LABEL), 
+            Font value=wxFont()) -> PyFontProperty
+        """
+        _propgrid.PyFontProperty_swiginit(self,_propgrid.new_PyFontProperty(*args, **kwargs))
+        self._SetSelf(self); self._RegisterMethods()
+
+    def CallSuperMethod(self, *args, **kwargs):
+        funcname = args[0]
+        args2 = list(args)
+        args2[0] = self
+        self._super_call = True
+        try:
+            res = getattr(PyFontProperty, funcname)(*args2, **kwargs)
+        finally:
+            del self._super_call
+        return res
+
+    def _RegisterMethods(self):
+        cls = self.__class__
+        if not hasattr(cls,'_pyswig_methods_registered'):
+            cls._pyswig_methods_registered = True
+            ls = [ab for ab in cls.__dict__.iteritems()]
+            for a, b in ls:
+                if not a.startswith('_'):
+                    setattr(cls, '%s_t_'%a, b)
+
+    def _SetSelf(*args, **kwargs):
+        """_SetSelf(self, PyObject self)"""
+        return _propgrid.PyFontProperty__SetSelf(*args, **kwargs)
+
+_propgrid.PyFontProperty_swigregister(PyFontProperty)
+
+class PyColourProperty(ColourProperty):
     """Proxy of C++ PyColourProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -4279,41 +4480,6 @@ class PyProperty(PGProperty):
         return _propgrid.PyProperty__SetSelf(*args, **kwargs)
 
 _propgrid.PyProperty_swigregister(PyProperty)
-
-class PyLongStringDialogAdapter(PGLongStringDialogAdapter):
-    """Proxy of C++ PyLongStringDialogAdapter class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """__init__(self) -> PyLongStringDialogAdapter"""
-        _propgrid.PyLongStringDialogAdapter_swiginit(self,_propgrid.new_PyLongStringDialogAdapter(*args, **kwargs))
-        self._SetSelf(self); self._RegisterMethods()
-
-    def CallSuperMethod(self, *args, **kwargs):
-        funcname = args[0]
-        args2 = list(args)
-        args2[0] = self
-        self._super_call = True
-        try:
-            res = getattr(PyLongStringDialogAdapter, funcname)(*args2, **kwargs)
-        finally:
-            del self._super_call
-        return res
-
-    def _RegisterMethods(self):
-        cls = self.__class__
-        if not hasattr(cls,'_pyswig_methods_registered'):
-            cls._pyswig_methods_registered = True
-            ls = [ab for ab in cls.__dict__.iteritems()]
-            for a, b in ls:
-                if not a.startswith('_'):
-                    setattr(cls, '%s_t_'%a, b)
-
-    def _SetSelf(*args, **kwargs):
-        """_SetSelf(self, PyObject self)"""
-        return _propgrid.PyLongStringDialogAdapter__SetSelf(*args, **kwargs)
-
-_propgrid.PyLongStringDialogAdapter_swigregister(PyLongStringDialogAdapter)
 
 class PyUIntProperty(UIntProperty):
     """Proxy of C++ PyUIntProperty class"""

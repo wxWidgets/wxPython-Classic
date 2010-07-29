@@ -4825,6 +4825,33 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ScrollHelper_DisableKeyboardScrolling(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxScrollHelper *arg1 = (wxScrollHelper *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxScrollHelper, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ScrollHelper_DisableKeyboardScrolling" "', expected argument " "1"" of type '" "wxScrollHelper *""'"); 
+  }
+  arg1 = reinterpret_cast< wxScrollHelper * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DisableKeyboardScrolling();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ScrollHelper_SetScale(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxScrollHelper *arg1 = (wxScrollHelper *) 0 ;
@@ -37560,6 +37587,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ScrollHelper_ShowScrollbars", (PyCFunction) _wrap_ScrollHelper_ShowScrollbars, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ScrollHelper_EnableScrolling", (PyCFunction) _wrap_ScrollHelper_EnableScrolling, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ScrollHelper_GetViewStart", (PyCFunction)_wrap_ScrollHelper_GetViewStart, METH_O, NULL},
+	 { (char *)"ScrollHelper_DisableKeyboardScrolling", (PyCFunction)_wrap_ScrollHelper_DisableKeyboardScrolling, METH_O, NULL},
 	 { (char *)"ScrollHelper_SetScale", (PyCFunction) _wrap_ScrollHelper_SetScale, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ScrollHelper_GetScaleX", (PyCFunction)_wrap_ScrollHelper_GetScaleX, METH_O, NULL},
 	 { (char *)"ScrollHelper_GetScaleY", (PyCFunction)_wrap_ScrollHelper_GetScaleY, METH_O, NULL},

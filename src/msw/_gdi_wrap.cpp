@@ -24926,7 +24926,7 @@ fail:
 SWIGINTERN PyObject *_wrap_DC_GetTextBackground(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxDC *arg1 = (wxDC *) 0 ;
-  wxColour *result = 0 ;
+  wxColour result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -24940,14 +24940,11 @@ SWIGINTERN PyObject *_wrap_DC_GetTextBackground(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxDC * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxColour const &_result_ref = ((wxDC const *)arg1)->GetTextBackground();
-      result = (wxColour *) &_result_ref;
-    }
+    result = ((wxDC const *)arg1)->GetTextBackground();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColour, 0 |  0 );
+  resultobj = SWIG_NewPointerObj((new wxColour(static_cast< const wxColour& >(result))), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -24957,7 +24954,7 @@ fail:
 SWIGINTERN PyObject *_wrap_DC_GetTextForeground(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxDC *arg1 = (wxDC *) 0 ;
-  wxColour *result = 0 ;
+  wxColour result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -24971,14 +24968,11 @@ SWIGINTERN PyObject *_wrap_DC_GetTextForeground(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxDC * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxColour const &_result_ref = ((wxDC const *)arg1)->GetTextForeground();
-      result = (wxColour *) &_result_ref;
-    }
+    result = ((wxDC const *)arg1)->GetTextForeground();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColour, 0 |  0 );
+  resultobj = SWIG_NewPointerObj((new wxColour(static_cast< const wxColour& >(result))), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
