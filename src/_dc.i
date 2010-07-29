@@ -885,11 +885,11 @@ converting a height, for example.", "");
         "Gets the current pen", "");
     
     DocDeclStr(
-        const wxColour& , GetTextBackground() const,
+        const wxColour , GetTextBackground() const,
         "Gets the current text background colour", "");
     
     DocDeclStr(
-        const wxColour& , GetTextForeground() const,
+        const wxColour , GetTextForeground() const,
         "Gets the current text foreground colour", "");
     
 
