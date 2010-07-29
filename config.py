@@ -1144,9 +1144,6 @@ except:
 # post platform setup checks and tweaks, create the full version string
 #----------------------------------------------------------------------
 
-if UNICODE:
-    BUILD_BASE = BUILD_BASE + '.unicode'
-
 if os.path.exists('DAILY_BUILD'):
     VER_FLAGS += '.b' + open('DAILY_BUILD').read().strip()
 
@@ -1180,8 +1177,11 @@ swig_args = ['-c++',
              '-new_repr',
              '-modern',
              '-D'+WXPLAT,
-             '-D'+WXPLAT2 if WXPLAT2 else '',
-             ] + i_files_includes
+             ]
+if WXPLAT2:
+    swig_args.append('-D' + WXPLAT2)
+    
+swig_args += i_files_includes
 
 if USE_SWIG:
     SVER = swig_version()
