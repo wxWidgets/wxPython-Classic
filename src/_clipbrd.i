@@ -126,6 +126,13 @@ normal clipboard, if primary is True.", "");
         static wxClipboard *, Get(),
         "Returns global instance (wxTheClipboard) of the object.", "");
 
+    // for the 'with' statement
+    %pythoncode { 
+        def __enter__(self):
+            return self
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            self.Close()
+    }
 };
 
 
