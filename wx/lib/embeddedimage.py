@@ -48,6 +48,7 @@ class PyEmbeddedImage(object):
         return wx.BitmapFromImage(self.GetImage())
 
     def GetData(self):
+        data = self.data
         if self.isBase64:
             data = b64decode(self.data)
         return data
