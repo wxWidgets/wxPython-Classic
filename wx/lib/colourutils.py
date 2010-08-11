@@ -49,21 +49,24 @@ def AdjustColour(color, percent, alpha=wx.ALPHA_OPAQUE):
     return wx.Colour(red, green, blue, alpha)
 
 
-def BestLabelColour(color):
+def BestLabelColour(color, bw=False):
     """Get the best color to use for the label that will be drawn on
     top of the given color.
+    
     @param color: background color that text will be drawn on
-
+    @param bw: If True, only return black or white
     """
     avg = sum(color.Get()) / 3
     if avg > 192:
         txt_color = wx.BLACK
     elif avg > 128:
-        txt_color = AdjustColour(color, -95)
+        if bw: txt_color = wx.BLACK
+        else: txt_color = AdjustColour(color, -95)
     elif avg < 64:
         txt_color = wx.WHITE
     else:
-        txt_color = AdjustColour(color, 95)
+        if bw: txt_color = wx.WHITE
+        else: txt_color = AdjustColour(color, 95)
     return txt_color
 
 def GetHighlightColour():
