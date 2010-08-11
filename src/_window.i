@@ -2532,7 +2532,7 @@ dialogs, etc.)", "");
         def __enter__(self):
             self._win.Freeze()
             return self
-        def __exit__(self):
+        def __exit__(self, exc_type, exc_val, exc_tb):
             self._win.Thaw()
 }
 
