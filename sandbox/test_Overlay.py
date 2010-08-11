@@ -16,6 +16,8 @@ class TestPanel(wx.Panel):
 
         self.startPos = None
         self.overlay = wx.Overlay()
+
+        wx.TextCtrl(self, pos=(140,20))
         
 
     def OnPaint(self, evt):
