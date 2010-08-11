@@ -35,10 +35,10 @@ Supported platforms: wxMSW and wxMAC natively, wxGTK by means of a
 workaround.
 
 Author: Frank Niessink <frank@niessink.com>
-Copyright 2006, 2008, Frank Niessink
+Copyright 2006, 2008, 2010, Frank Niessink
 License: wxWidgets license
-Version: 1.0
-Date: May 2, 2008
+Version: 1.1
+Date: August 1, 2010
 """
 
 import wx
@@ -189,8 +189,9 @@ class BasePopupFrame(wx.Frame):
 
     def OnKillFocus(self, event):
         # We hide the frame rather than destroy it, so it can be 
-        # popped up again later:
-        self.Hide()
+        # popped up again later. Use CallAfter so that clicking the combobox
+        # button doesn't immediately popup the frame again.     
+        wx.CallAfter(self.Hide)
         self.GetParent().NotifyNoItemSelected()
         event.Skip()
 
@@ -328,7 +329,10 @@ class BaseComboTreeBox(object):
     # Event handlers
 
     def OnMouseClick(self, event):
-        self.Popup()
+        if self._popupFrame.IsShown():
+            self.Hide()
+        else:
+            self.Popup()
         # Note that we don't call event.Skip() to prevent popping up the
         # ComboBox's own box.
 
@@ -413,6 +417,14 @@ class BaseComboTreeBox(object):
         # to SetMinSize is needed to force a resize of the popupFrame: 
         self._popupFrame.SetMinSize((width, height)) 
         self._popupFrame.Show()
+        
+    def Hide(self):
+        """
+        Hide(self)
+        
+        Hide the popped up frame with the tree.
+        """
+        self._popupFrame.Hide()
  
     def GetTree(self):
         """
