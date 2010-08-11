@@ -795,7 +795,16 @@ class _InspectionHighlighter(object):
     color3 = '#00008B'     # for items in sizers
 
     highlightTime = 3000   # how long to display the highlights
-
+    
+                           # how to draw it
+    useOverlay = 'wxMac' in wx.PlatformInfo
+    
+    
+    def __init__(self):
+        if self.useOverlay:
+            self.overlay = wx.Overlay()
+            
+    
     def HighlightCurrentItem(self, tree):
         """
         Draw a highlight rectangle around the item represented by the
@@ -826,9 +835,9 @@ class _InspectionHighlighter(object):
             self.FlickerTLW(win)
             return
         else:
-            pos, useWinDC = self.FindHighlightPos(tlw, win.ClientToScreen((0,0)))
+            pos = self.FindHighlightPos(tlw, win.ClientToScreen((0,0)))
             rect.SetPosition(pos)
-            self.DoHighlight(tlw, rect, self.color1, useWinDC)
+            self.DoHighlight(tlw, rect, self.color1)
 
 
     def HighlightSizerItem(self, item, sizer, penWidth=2):
@@ -836,11 +845,11 @@ class _InspectionHighlighter(object):
         tlw = win.GetTopLevelParent()
         rect = item.GetRect()
         pos = rect.GetPosition()
-        pos, useWinDC = self.FindHighlightPos(tlw, win.ClientToScreen(pos))
+        pos = self.FindHighlightPos(tlw, win.ClientToScreen(pos))
         rect.SetPosition(pos)
         if rect.width < 1: rect.width = 1
         if rect.width < 1: rect.width = 1
-        self.DoHighlight(tlw, rect, self.color1, useWinDC, penWidth)
+        self.DoHighlight(tlw, rect, self.color1, penWidth)
 
 
     def HighlightSizer(self, sizer):
@@ -848,9 +857,9 @@ class _InspectionHighlighter(object):
         win = sizer.GetContainingWindow()
         tlw = win.GetTopLevelParent()
         pos = sizer.GetPosition()
-        pos, useWinDC = self.FindHighlightPos(tlw, win.ClientToScreen(pos))
+        pos = self.FindHighlightPos(tlw, win.ClientToScreen(pos))
         rect = wx.RectPS(pos, sizer.GetSize())
-        dc = self.DoHighlight(tlw, rect, self.color1, useWinDC)
+        dc, dco = self.DoHighlight(tlw, rect, self.color1)
 
         # Now highlight the actual items within the sizer.  This may
         # get overdrawn by the code below for item boundaries, but if
@@ -954,33 +963,37 @@ class _InspectionHighlighter(object):
 
         # Anything else is probably a custom sizer, just highlight the items
         else:
-            del dc
+            del dc, odc
             for item in sizer.GetChildren():
                 self.HighlightSizerItem(item, sizer, 1)
 
 
     def FindHighlightPos(self, tlw, pos):
-        if 'wxMac' in wx.PlatformInfo:
-            # We'll be using a WindowDC in this case so adjust the
+        if self.useOverlay:
+            # We'll be using a ClientDC in this case so adjust the
             # position accordingly
             pos = tlw.ScreenToClient(pos)
-            useWinDC = True
-        else:
-            useWinDC = False
-        return pos, useWinDC
+        return pos
 
 
     def AdjustRect(self, tlw, win,  rect):
-        pos, j = self.FindHighlightPos(tlw, win.ClientToScreen(rect.Position))
+        pos = self.FindHighlightPos(tlw, win.ClientToScreen(rect.Position))
         rect.Position = pos
         return wx.RectPS(pos, rect.Size)
 
 
-    def DoHighlight(self, tlw, rect, colour, useWinDC, penWidth=2):
-        if useWinDC:
-            dc = wx.WindowDC(tlw)
+    def DoHighlight(self, tlw, rect, colour, penWidth=2):
+        if not tlw.IsFrozen():
+            tlw.Freeze()
+
+        if self.useOverlay:
+            dc = wx.ClientDC(tlw)
+            dco = wx.DCOverlay(self.overlay, dc)
+            dco.Clear()
         else:
             dc = wx.ScreenDC()
+            dco = None
+            
         dc.SetPen(wx.Pen(colour, penWidth))
         dc.SetBrush(wx.TRANSPARENT_BRUSH)
 
@@ -988,13 +1001,28 @@ class _InspectionHighlighter(object):
         dc.DrawRectangleRect(drawRect)
 
         drawRect.Inflate(2,2)
-        if not useWinDC:
+        if not self.useOverlay:
             pos = tlw.ScreenToClient(drawRect.GetPosition())
             drawRect.SetPosition(pos)
-        wx.CallLater(self.highlightTime, tlw.RefreshRect, drawRect)
+        wx.CallLater(self.highlightTime, self.DoUnhighlight, tlw, drawRect)
 
-        return dc
+        return dc, dco
 
+    
+    def DoUnhighlight(self, tlw, rect):
+        if not tlw:
+            return
+        if tlw.IsFrozen():
+            tlw.Thaw()
+        if self.useOverlay:
+            dc = wx.ClientDC(tlw)
+            dco = wx.DCOverlay(self.overlay, dc)
+            dco.Clear()
+            del dc, dco
+            self.overlay.Reset()
+        else:
+            tlw.RefreshRect(rect)
+            
 
     def FlickerTLW(self, tlw):
         """
@@ -1006,6 +1034,7 @@ class _InspectionHighlighter(object):
         tlw.Hide()
         self.cl = wx.CallLater(300, self._Toggle, tlw)
 
+        
     def _Toggle(self, tlw):
         if tlw.IsShown():
             tlw.Hide()
