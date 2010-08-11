@@ -664,6 +664,7 @@ class CalDraw:
     def SetColor(self, name, value):
         self.colors[name] = MakeColor(value)
 
+
 class PrtCalDraw(CalDraw):
     def InitValues(self):
         self.rg = {}
@@ -685,8 +686,10 @@ class PrtCalDraw(CalDraw):
     def SetPreview(self, preview):
         self.preview = preview
 
+
+
 class Calendar( wx.PyControl ):
-    def __init__(self, parent, id, pos=wx.DefaultPosition, size=wx.Size(200,200),
+    def __init__(self, parent, id=-1, pos=wx.DefaultPosition, size=wx.Size(200,200),
                    style= 0, validator=wx.DefaultValidator,
                    name= "calendar"):
         wx.PyControl.__init__(self, parent, id, pos, size, style | wx.WANTS_CHARS, validator, name)
