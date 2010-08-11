@@ -64,7 +64,7 @@ class RunDemoApp(wx.App, wx.lib.mixins.inspection.InspectionMixin):
         menu = wx.Menu()
         item = menu.Append(-1, "&Widget Inspector\tF6", "Show the wxPython Widget Inspection Tool")
         self.Bind(wx.EVT_MENU, self.OnWidgetInspector, item)
-        item = menu.Append(-1, "E&xit\tCtrl-Q", "Exit demo")
+        item = menu.Append(wx.ID_EXIT, "E&xit\tCtrl-Q", "Exit demo")
         self.Bind(wx.EVT_MENU, self.OnExitApp, item)
         menuBar.Append(menu, "&File")
 
