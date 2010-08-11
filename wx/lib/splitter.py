@@ -57,7 +57,6 @@ class MultiSplitterWindow(wx.PyPanel):
     def __init__(self, parent, id=-1,
                  pos = wx.DefaultPosition, size = wx.DefaultSize,
                  style = 0, name="multiSplitter"):
-        
         # always turn on tab traversal
         style |= wx.TAB_TRAVERSAL
 
@@ -86,7 +85,8 @@ class MultiSplitterWindow(wx.PyPanel):
         self._sashTrackerPen = wx.Pen(wx.BLACK, 2, wx.SOLID)
         self._needUpdating = False
         self._isHot = False
-
+        self._drawSashInBackgroundColour = False
+        
         # Bind event handlers
         self.Bind(wx.EVT_PAINT,        self._OnPaint)
         self.Bind(wx.EVT_IDLE,         self._OnIdle)
@@ -111,7 +111,13 @@ class MultiSplitterWindow(wx.PyPanel):
         """
         return self._orient
 
-
+    def SetBackgroundColour(self,color):
+        wx.PyPanel.SetBackgroundColour(self,color)
+        self._drawSashInBackgroundColour = True
+        if  wx.NullColour == color:
+            self._drawSashInBackgroundColour = False
+            
+        
     def SetMinimumPaneSize(self, minSize):
         """
         Set the smallest size that any pane will be allowed to be
@@ -588,7 +594,7 @@ class MultiSplitterWindow(wx.PyPanel):
         pos = 0
         for sash in self._sashes[:-1]:
             pos += sash
-            if wx.VERSION >= _RENDER_VER:
+            if wx.VERSION >= _RENDER_VER and not self._drawSashInBackgroundColour:
                 wx.RendererNative.Get().DrawSplitterSash(self, dc,
                                                          self.GetClientSize(),
                                                          pos, orient, flag)
