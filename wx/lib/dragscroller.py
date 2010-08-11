@@ -47,7 +47,8 @@ class DragScroller:
         
         self.pos = pos
         self.scrollwin.SetCursor(wx.StockCursor(wx.CURSOR_SIZING))
-        self.scrollwin.CaptureMouse()
+        if not self.scrollwin.HasCapture():
+            self.scrollwin.CaptureMouse()
 
         self.timer = wx.Timer(self.scrollwin)
         self.scrollwin.Bind(wx.EVT_TIMER, self.OnTimerDoScroll, id=self.timer.GetId())
@@ -62,7 +63,8 @@ class DragScroller:
             self.timer = None
 
             self.scrollwin.SetCursor(wx.STANDARD_CURSOR)
-            self.scrollwin.ReleaseMouse()
+            if self.scrollwin.HasCapture():
+                self.scrollwin.ReleaseMouse()
 
     def OnTimerDoScroll(self, event):
         if self.pos is None or not self.timer or not self.scrollwin: 
