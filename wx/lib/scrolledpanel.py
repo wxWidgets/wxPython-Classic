@@ -38,12 +38,13 @@ class ScrolledPanel( wx.PyScrolledWindow ):
         wx.PyScrolledWindow.__init__(self, parent, id,
                                      pos=pos, size=size,
                                      style=style, name=name)
+        self.scrollIntoView = True
         self.SetInitialSize(size)
         self.Bind(wx.EVT_CHILD_FOCUS, self.OnChildFocus)
 
 
     def SetupScrolling(self, scroll_x=True, scroll_y=True, rate_x=20, rate_y=20, 
-                       scrollToTop=True):
+                       scrollToTop=True, scrollIntoView=True):
         """
         This function sets up the event handling necessary to handle
         scrolling properly. It should be called within the __init__
@@ -52,8 +53,9 @@ class ScrolledPanel( wx.PyScrolledWindow ):
         thus the size of the scrolling area can be determined.
 
         """
-        # The following is all that is needed to integrate the sizer and the
-        # scrolled window.
+        self.scrollIntoView = scrollIntoView
+
+        # The following is all that is needed to integrate the sizer and the scrolled window
         if not scroll_x: rate_x = 0
         if not scroll_y: rate_y = 0
 
@@ -77,17 +79,22 @@ class ScrolledPanel( wx.PyScrolledWindow ):
 
 
     def OnChildFocus(self, evt):
-        # If the child window that gets the focus is not visible,
-        # this handler will try to scroll enough to see it.
-        evt.Skip()
+        """
+        If the child window that gets the focus is not fully visible,
+        this handler will try to scroll enough to see it.
+        """
         child = evt.GetWindow()
-        self.ScrollChildIntoView(child)
+        if self.scrollIntoView:
+            self.ScrollChildIntoView(child)
+            evt.Skip()
         
 
     def ScrollChildIntoView(self, child):
         """
-        Scrolls the panel such that the specified child window is in view.
-        """        
+        Scroll the panel so that the specified child window is in view.
+        NOTE. This method looks redundant if evt.Skip() is called as well 
+        - the base wx.ScrolledWindow widget seems to do the same thing anyway
+        """ 
         sppu_x, sppu_y = self.GetScrollPixelsPerUnit()
         vs_x, vs_y   = self.GetViewStart()
         cr = child.GetRect()
