@@ -199,6 +199,8 @@ if options.clean in ['all', 'py']:
     
 if options.clean in ['all', 'py', 'pyext']:
     files = glob.glob(os.path.join(WXPYDIR, "wx", "*.so"))
+    files += glob.glob(os.path.join(WXPYDIR, "wx", "*.py"))
+    files += glob.glob(os.path.join(WXPYDIR, "wx", "*.pyc"))
     if options.debug:
         files += glob.glob(os.path.join(WXPYDIR, "wx", "*_d.pyd"))
     else:
