@@ -80,7 +80,7 @@ class TestPanel(wx.Panel):
         # clear the dots
         self.win.Refresh()
 
-        choice = evt.GetString() #self.cb.GetStringSelection()
+        choice = self.cb.GetStringSelection()
         self.log.write("Selecting the %s cursor\n" % choice)
 
         cnum = cursors[choice]
