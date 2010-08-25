@@ -47,7 +47,7 @@ class GradientStopPanel(wx.Panel):
         wx.Panel.__init__(self, parent)
 
         # make some widgets
-        self.pos = wx.SpinCtrlDouble(self, value='%2f' % posVal, size=(50,-1),
+        self.pos = wx.SpinCtrlDouble(self, value='%2f' % posVal, size=(65,-1),
                                      min=0.0, max=1.0, initial=posVal, inc=0.01)
         self.pos.SetToolTipString(
             "A value between 0 and 1 representing the distance between (x1,y1) "
