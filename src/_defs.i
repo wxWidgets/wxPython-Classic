@@ -840,6 +840,8 @@ enum {
 //     wxMINOR_VERSION,
 //     wxRELEASE_NUMBER,
 
+    wxDefaultCoord,
+    
     wxNOT_FOUND,
     wxNO_LEN,
 
