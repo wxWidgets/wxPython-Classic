@@ -1,3 +1,9 @@
+# NOTE: This module is in the demo because I started adding support
+# for the UIAction class but found that it was not fully implemented
+# at the time and now its API is going to be having big changes in
+# 2.9.2 so for now wxPython support for the class is on hold.  Just
+# ignore this module for now...
+
 
 import wx
 import wx.lib.buttons as buttons
