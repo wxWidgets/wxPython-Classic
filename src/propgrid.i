@@ -597,7 +597,7 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
     }
     else if ( variantType == wxT("wxRect") )
     {
-        const wxRect& rect = wxRectFromVariant(*v);
+        const wxRect& rect = wxRectRefFromVariant(*v);
         return SWIG_NewPointerObj(SWIG_as_voidptr(new wxRect(rect)),
                                   SWIGTYPE_p_wxRect,
                                   SWIG_POINTER_OWN | 0 );
