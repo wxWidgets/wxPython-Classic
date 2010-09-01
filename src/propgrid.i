@@ -402,7 +402,7 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
 
         // Then wxRect
         wxRect* rect_ptr;
-        if ( wxPyConvertSwigPtr(input, (void **)&rect_ptr, wxT("wxRect")))
+        if ( wxPyConvertSwigPtr(input, (void **)&rect_ptr, wxS("wxRect")))
         {
             *v << *rect_ptr;
             return true;
@@ -595,7 +595,7 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
                                   SWIGTYPE_p_wxFont,
                                   SWIG_POINTER_OWN | 0 );
     }
-    else if ( variantType == wxT("wxRect") )
+    else if ( variantType == wxS("wxRect") )
     {
         const wxRect& rect = wxRectRefFromVariant(*v);
         return SWIG_NewPointerObj(SWIG_as_voidptr(new wxRect(rect)),
