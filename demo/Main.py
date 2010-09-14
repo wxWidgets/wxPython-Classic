@@ -101,8 +101,9 @@ _treeList = [
         'GridLabelRenderer',
         'InfoBar',
         'WrapSizer',
-        'UIActionSimulator',
+        ##'UIActionSimulator',
         'GraphicsGradient',
+        'PDFViewer',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -329,6 +330,7 @@ _treeList = [
         'MimeTypesManager',
         'MouseGestures',
         'OGL',
+        'PDFViewer',
         'PrintFramework',
         'PseudoDC',
         'RendererNative',
@@ -336,13 +338,12 @@ _treeList = [
         'Sound',
         'StandardPaths',
         'SystemSettings',
-        'UIActionSimulator',
+        ##'UIActionSimulator',
         'Unicode',
         ]),
 
 
-    ('Check out the samples dir too', [
-        ]),
+    ('Check out the samples dir too', [] ),
 
 ]
 
@@ -1990,8 +1991,7 @@ class wxPythonDemo(wx.Frame):
         menu.AppendItem(inspToolItem)
         if 'wxMac' not in wx.PlatformInfo:
             menu.AppendSeparator()
-        helpItem = menu.Append(-1, '&About wxPython Demo', 'wxPython RULES!!!')
-        wx.App.SetMacAboutMenuItemId(helpItem.GetId())
+        helpItem = menu.Append(wx.ID_ABOUT, '&About wxPython Demo', 'wxPython RULES!!!')
 
         self.Bind(wx.EVT_MENU, self.OnOpenShellWindow, shellItem)
         self.Bind(wx.EVT_MENU, self.OnOpenWidgetInspector, inspToolItem)
@@ -2465,7 +2465,7 @@ class wxPythonDemo(wx.Frame):
 
         self.StopDownload()
         self.ovr.SetPage(text)
-        print "load time: ", time.time() - start
+        #print "load time: ", time.time() - start
         
     # Menu methods
     def OnFileExit(self, *event):
