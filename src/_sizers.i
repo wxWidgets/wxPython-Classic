@@ -968,6 +968,24 @@ the item to be found.", "");
                 return NULL;
         }
 
+        %pythoncode {
+            def GetItemIndex(self, item):
+                """
+                Returns the index of the given *item* within the sizer. Does not
+                search recursivly.  The *item* parameter can be either a window
+                or a sizer.  An assertion is raised if the item is not found in
+                the sizer.
+                """
+                sItem = self.GetItem(item)
+                assert sItem is not None, "Item not found in the sizer."
+                allItems = self.Children
+                idx = 0
+                for i in allItems:
+                    if i.this == sItem.this:
+                        break
+                    idx += 1
+                return idx
+        }
 
         void _SetItemMinSize(PyObject* item, const wxSize& size) {
             wxPyBlock_t blocked = wxPyBeginBlockThreads();
