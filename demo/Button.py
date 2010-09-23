@@ -19,7 +19,7 @@ class TestPanel(wx.Panel):
         self.Bind(wx.EVT_BUTTON, self.OnClick, b)
         b.SetToolTipString("This is a Hello button...")
 
-        b = wx.Button(self, 40, "Flat Button?", (20,150), style=wx.NO_BORDER)
+        b = wx.Button(self, 40, "Flat Button?", (20,160), style=wx.NO_BORDER)
         b.SetToolTipString("This button has a style flag of wx.NO_BORDER.\n"
                            "On some platforms that will give it a flattened look.")
         self.Bind(wx.EVT_BUTTON, self.OnClick, b)
@@ -42,6 +42,9 @@ class TestPanel(wx.Panel):
         # example which would have taken care of this for us.
         b.SetInitialSize()  
 
+        #b = wx.Button(self, 60, "Multi-line\nbutton", (20, 280))
+        #b = wx.Button(self, 70, pos=(160, 280))
+        #b.SetLabel("Another\nmulti-line")
         
     def OnClick(self, event):
         self.log.write("Click! (%d)\n" % event.GetId())
