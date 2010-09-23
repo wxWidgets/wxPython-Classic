@@ -72379,6 +72379,7 @@ SWIGEXPORT void SWIG_init(void) {
   Py_XDECREF(cobj);
 #endif
   
+  SWIG_Python_SetConstant(d, "DefaultCoord",SWIG_From_int(static_cast< int >(wxDefaultCoord)));
   SWIG_Python_SetConstant(d, "NOT_FOUND",SWIG_From_int(static_cast< int >(wxNOT_FOUND)));
   SWIG_Python_SetConstant(d, "NO_LEN",SWIG_From_int(static_cast< int >(wxNO_LEN)));
   SWIG_Python_SetConstant(d, "VSCROLL",SWIG_From_int(static_cast< int >(wxVSCROLL)));

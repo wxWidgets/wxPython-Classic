@@ -3714,7 +3714,7 @@ class DC(_core.Object):
         StretchBlit(self, int dstX, int dstY, int dstWidth, int dstHeight, DC source, 
             int srcX, int srcY, int srcWidth, int srcHeight, 
             int rop=COPY, bool useMask=False, 
-            int srcMaskX=wxDefaultCoord, int srcMaskY=wxDefaultCoord) -> bool
+            int srcMaskX=DefaultCoord, int srcMaskY=DefaultCoord) -> bool
 
         Copy from a source DC to this DC, specifying the destination
         coordinates, destination size, source DC, source coordinates, size of

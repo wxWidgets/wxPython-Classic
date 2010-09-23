@@ -86,6 +86,7 @@ def _deprecated(callable, msg=None):
                    
 #----------------------------------------------------------------------------
 
+DefaultCoord = _core_.DefaultCoord
 NOT_FOUND = _core_.NOT_FOUND
 NO_LEN = _core_.NO_LEN
 VSCROLL = _core_.VSCROLL
@@ -11690,7 +11691,7 @@ class FrozenWindow(object):
     def __enter__(self):
         self._win.Freeze()
         return self
-    def __exit__(self):
+    def __exit__(self, exc_type, exc_val, exc_tb):
         self._win.Thaw()
 
 #---------------------------------------------------------------------------
@@ -14109,6 +14110,23 @@ class Sizer(Object):
         the item to be found.
         """
         return _core_.Sizer_GetItem(*args, **kwargs)
+
+    def GetItemIndex(self, item):
+        """
+        Returns the index of the given *item* within the sizer. Does not
+        search recursivly.  The *item* parameter can be either a window
+        or a sizer.  An assertion is raised if the item is not found in
+        the sizer.
+        """
+        sItem = self.GetItem(item)
+        assert sItem is not None, "Item not found in the sizer."
+        allItems = self.Children
+        idx = 0
+        for i in allItems:
+            if i.this == sItem.this:
+                break
+            idx += 1
+        return idx
 
     def _SetItemMinSize(*args, **kwargs):
         """_SetItemMinSize(self, PyObject item, Size size)"""
