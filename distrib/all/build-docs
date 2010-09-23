@@ -10,6 +10,7 @@ if [ $skipdocs != yes ]; then
     for x in *.txt; do
 	rst2html $x `basename $x .txt`.html
     done
+    rm -f *.orig
     cd -
     for doc in CHANGES BUILD default; do
 	cp docs/$doc.* $STAGING_DIR

@@ -21,7 +21,7 @@ set -o errexit
 echo "-=-=-=-  Hello from $HOSTNAME  -=-=-=-"
 
 if [ $# -lt 6 ]; then
-    echo "Usage: $0 WXDIR DESTDIR SKIPCLEAN VERSION PYVER CHARTYPE [FLAGS]"
+    echo "Usage: $0 WXDIR DESTDIR SKIPCLEAN VERSION PYVER [carbon|cocoa]"
     exit 1
 fi
 
@@ -30,7 +30,7 @@ DESTDIR=$2
 SKIPCLEAN=$3
 VERSION=$4
 PYVER=$5
-CHARTYPE=$6
+PORT=$6
 
 
 export PATH=/sw/bin:/sw/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:.:/usr/X11R6/bin
@@ -54,7 +54,9 @@ mkdir -p dist
 
 OSX_VERSION=`sw_vers -productVersion`
 OSX_VERSION=${OSX_VERSION:0:4}
-TAG=universal
+if [ "$PORT" = "cocoa" ]; then
+    COCOA="--osx_cocoa"
+fi
 PYTHON=python$PYVER
 PYTHONW=pythonw$PYVER
 SHORTVER=${VERSION:0:3}
@@ -87,15 +89,10 @@ fi
 
 function do_universal_build {
 
-    CTYPE=$1
-    if [ $CTYPE = unicode ]; then 
-	PYUNICODEOPT="--unicode"
-    else
-	PYUNICODEOPT=
-    fi
-
-    PREFIX=/usr/local/lib/wxPython-$CTYPE-$VERSION
-    PREFIX_LINK=/usr/local/lib/wxPython-$CTYPE
+    PYUNICODEOPT="--unicode"
+    
+    PREFIX=/usr/local/lib/wxPython-$VERSION
+    PREFIX_LINK=/usr/local/lib/wxPython
     SITEPACKAGES=$PREFIX/lib/python$PYVER/site-packages
     BINPREFIX=/usr/local/bin
     WXROOT=$WXDIR
@@ -130,7 +127,7 @@ function do_universal_build {
     pushd $WXROOT/wxPython
     $PYTHON -u ./build-wxpython.py \
 	$PYUNICODEOPT \
-	--mac_universal_binary \
+	--mac_universal_binary $COCOA \
 	--build_dir=$BUILDROOT \
 	--install \
 	--prefix=$PREFIX \
@@ -180,7 +177,7 @@ EOF
     cat > $RESOURCEDIR/Welcome.txt <<EOF
 Welcome!
 
-This Installer package will install the wxPython $CTYPE runtime $VERSION for the Universal version of MacPython $PYVER.  This includes:
+This Installer package will install the wxPython runtime $VERSION for the Universal version of MacPython $PYVER.  This includes:
 
     * The wxPython extension modules and library packages
     * The wxWidgets shared libraries and headers
@@ -259,12 +256,12 @@ EOF
 
 
     # Build the main Installer Package...
-    PKGNAME=wxPython${SHORTVER}-osx-$CTYPE-$TAG-py$PYVER
+    PKGNAME=wxPython${SHORTVER}-osx-$PORT-py$PYVER
     rm -rf $PKGNAME.pkg
     $PYTHON $PROGDIR/buildpkg.py \
         --Title=$PKGNAME \
         --Version=$VERSION \
-        --Description="wxPython $CTYPE runtime $VERSION for the Universal version of MacPython $PYVER" \
+        --Description="wxPython runtime $VERSION for the Universal version of MacPython $PYVER" \
         --NeedsAuthorization="YES" \
         --Relocatable="NO" \
         --InstallOnly="YES" \
@@ -283,12 +280,11 @@ Welcome to wxPython!
 
 This disk image contains the following items:
 
-    wxPython${SHORTVER}-osx-$CTYPE-$VERSION-$TAG
+    wxPython${SHORTVER}-osx-$VERSION-$PORT
 
-        This Installer contains the wxPython runtime, built using the
-        $CTYPE build of the wxWidgets library.  It includes the
-        Python modules and extension modules for wxPython, as well as
-        the wxWidgets libraries.
+        This Installer contains the wxPython runtime version $VERSION.
+        It includes all the Python modules and extension modules for
+        wxPython, as well as the wxWidgets libraries.
 
         It is possible to have more than one version of the runtime
         installed at once if you wish.  The most recently installed
@@ -316,7 +312,7 @@ EOF
     cp $PROGDIR/uninstall_wxPython.py $DMGROOT
 
     # Make a disk image to hold these files
-    dmgname=wxPython${SHORTVER}-osx-$CTYPE-$VERSION-$TAG-py$PYVER
+    dmgname=wxPython${SHORTVER}-osx-$VERSION-$PORT-py$PYVER
     $PROGDIR/makedmg $DMGROOT $DMGDIR $dmgname
 
     echo Moving $DMGDIR/$dmgname.dmg to $DESTDIR
@@ -373,9 +369,6 @@ installed wxPython runtime to be able to use any of them.
 
 Happy Hacking!
 EOF
-
-#   PyAlaMode            An extension of PyCrust that includes source
-#                        file editing capabilities.
 
 
     # wxDocs
@@ -510,7 +503,7 @@ EOF
 
 
     # and then finally make a disk image containing everything
-    dmgname=wxPython${SHORTVER}-osx-docs-demos-$VERSION-$TAG-py$PYVER
+    dmgname=wxPython${SHORTVER}-osx-docs-demos-$VERSION-$PORT-py$PYVER
     $PROGDIR/makedmg $DMGAPPS $DMGDIR $dmgname
 
     echo Moving $DMGDIR/$dmgname.dmg to $DESTDIR
@@ -519,12 +512,8 @@ EOF
 }
 
 
-if [ $CHARTYPE = both ]; then
-    do_universal_build ansi 
-    do_universal_build unicode 
-else
-    do_universal_build $CHARTYPE 
-fi
+do_universal_build
+
 
 
 #----------------------------------------------------------------------

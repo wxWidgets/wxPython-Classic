@@ -13,6 +13,7 @@ if [ "$PYTHON" = "" ]; then
 	24 | 2.4) VER=24; PYVER=2.4; shift ;;
 	25 | 2.5) VER=25; PYVER=2.5; shift ;;
 	26 | 2.6) VER=26; PYVER=2.6; shift ;;
+	27 | 2.7) VER=27; PYVER=2.7; shift ;;
 	30 | 3.0) VER=30; PYVER=3.0; shift ;;
 	
 	*) VER=25; PYVER=2.5
@@ -44,17 +45,17 @@ function show_help {
     echo "    cp      clean only wxPython"
     echo "    ce      clean only extension modules"
     echo ""
-    echo "    cb      clean both debug and hybrid"
+    echo "    cb      clean both debug and release (MSW)"
     echo ""
     echo "    d       build debug (default)"
-    echo "    h       build hybrid"
-    echo "    b       build both debug and hybrid"
+    echo "    r       build release"
+    echo "    b       build both debug and release (MSW)"
     echo ""
     echo "    t       touch all *.i files"
 }
 
 
-ARGS="--reswig --unicode --build_dir=../bld"
+ARGS="--reswig --unicode --build_dir=../bld --prefix=/opt/wx/2.9"
 DEBUG="--debug"
 BOTH="no"
 
@@ -70,7 +71,7 @@ case $1 in
     cbe) BOTH="yes"; ARGS="$ARGS --clean=pyext";  shift ;;
 
       d) DEBUG="--debug";            shift ;;
-      h) DEBUG="";                   shift ;;
+      r) DEBUG="";                   shift ;;
       b) BOTH="yes";                 shift ;;
 
       t) find . -name "*.i" | xargs -t touch; echo "*.i files touched"; exit 0 ;;

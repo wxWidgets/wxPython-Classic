@@ -21,12 +21,6 @@ version3_nodot = version3.replace(".", "")
 
 CPU = os.environ.get('CPU', '')
 
-# Should we make this conditional?
-if sys.platform.startswith("darwin"):
-    os.environ["CXX"] = "g++-4.0"
-    os.environ["CC"]  = "gcc-4.0"
-    os.environ["CPP"] = "cpp-4.0"
-
 
 def optionCleanCallback(option, opt_str, value, parser):
     if value is None:
@@ -49,13 +43,14 @@ option_dict = {
     "mac_lipo"      : (False, "EXPERIMENTAL: Create a universal binary by merging a PPC and Intel build together."),
     "mac_framework" : (False, "Build wxWidgets as a Mac framework."),
     "mac_universal_binary" : (False, "Build Mac version as a universal binary"),
+    "mac_arch"      : ("", "Build just the specified architecture on Mac"),
     "force_config"  : (False, "Run configure when building even if the script determines it's not necessary."),
     "no_config"     : (False, "Turn off configure step on autoconf builds"),
     "prefix"        : ("/usr/local", "Prefix value to pass to the wx build."),
     "install"       : (False, "Install the built wxPython into installdir or standard location"),
     "installdir"    : ("", "Installation root for wxWidgets, files will go to {installdir}/{prefix}"),
     "build_dir"     : ("", "Directory to store wx build files. (Not used on Windows)"),
-    "wxpy_installdir" : ("", "Installation root for wxPython, defaults to Python's site-packages."),
+    "wxpy_installdir":("", "Installation root for wxPython, defaults to Python's site-packages."),
     "extra_setup"   : ("", "Extra args to pass on setup.py's command line."),
     "extra_make"    : ("", "Extra args to pass on [n]make's command line."),
 }
@@ -264,6 +259,10 @@ else:
         
     if options.mac_universal_binary:
         build_options.append("--mac_universal_binary")
+    if  options.mac_arch: 
+        build_options.append("--mac_arch=%s" % options.mac_arch)
+        wxpy_build_options.append("ARCH=%s" % options.mac_arch)
+        
 
 # now that we've done platform setup, start the common build process
 if options.unicode:
@@ -320,6 +319,7 @@ if not sys.platform.startswith("win"):
     # because they may be specified as relative paths.)
     os.chdir(WXPY_BUILD_DIR)
 
+
 try:
     # Import and run the wxWidgets build script
     wxscript = os.path.join(WXWIN, "build/tools/build-wxwidgets.py")
@@ -373,13 +373,16 @@ def doMacLipoBuild(arch, installDir, build_options,
             del os.environ[key]
 
 
-def macFixDependencyInstallName(destdir, prefix, extension):
+def macFixDependencyInstallName(destdir, prefix, extension, buildDir):
+    print "**** macFixDependencyInstallName(%s, %s, %s, %s)" % (destdir, prefix, extension, buildDir)
     pwd = os.getcwd()
     os.chdir(destdir+prefix+'/lib')
     dylibs = glob.glob('*.dylib')   
     for lib in dylibs:
+        #cmd = 'install_name_tool -change %s/lib/%s %s/lib/%s %s' % \
+        #      (destdir+prefix,lib,  prefix,lib,  extension)
         cmd = 'install_name_tool -change %s/lib/%s %s/lib/%s %s' % \
-              (destdir+prefix,lib,  prefix,lib,  extension)
+              (buildDir,lib,  prefix,lib,  extension)
         print cmd
         os.system(cmd)        
     os.chdir(pwd)
@@ -447,13 +450,13 @@ else:
         if sys.platform.startswith("darwin") and DESTDIR:
             # Now that we are finished with the build fix the ids and
             # names in the wx .dylibs
-            wxbuild.macFixupInstallNames(DESTDIR, PREFIX)
+            wxbuild.macFixupInstallNames(DESTDIR, PREFIX, WXPY_BUILD_DIR)
 
             # and also adjust the dependency names in the wxPython extensions
             for line in file("installed_files.txt"):
                 line = line.strip()
                 if line.endswith('.so'):
-                    macFixDependencyInstallName(DESTDIR, PREFIX, line)
+                    macFixDependencyInstallName(DESTDIR, PREFIX, line, WXPY_BUILD_DIR)
                     
 
         

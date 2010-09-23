@@ -36,12 +36,12 @@ if os.environ.has_key("INNO5"):
 ISS_Template = r'''
 
 [Setup]
-AppName = wxPython%(SHORTVER)s-%(CHARTYPE)s-%(PYVER)s
-AppVerName = wxPython %(VERSION)s (%(CHARTYPE)s) for Python %(PYTHONVER)s
-OutputBaseFilename = wxPython%(SHORTVER)s-win%(BITS)s-%(CHARTYPE)s-%(VERSION)s-%(PYVER)s
-AppCopyright = Copyright 2009 Total Control Software
+AppName = wxPython%(SHORTVER)s-%(PYVER)s
+AppVerName = wxPython %(VERSION)s for Python %(PYTHONVER)s
+OutputBaseFilename = wxPython%(SHORTVER)s-win%(BITS)s-%(VERSION)s-%(PYVER)s
+AppCopyright = Copyright 2010 Total Control Software
 DefaultDirName = {code:GetInstallDir|c:\DoNotInstallHere}
-DefaultGroupName = wxPython %(VERSION)s (%(CHARTYPE)s) for Python %(PYTHONVER)s
+DefaultGroupName = wxPython %(VERSION)s for Python %(PYTHONVER)s
 PrivilegesRequired = %(PRIV)s
 OutputDir = dist
 DisableStartupPrompt = true
@@ -61,7 +61,7 @@ AppPublisher = Total Control Software
 AppPublisherURL = http://wxPython.org/
 AppSupportURL = http://wxPython.org/maillist.php
 AppUpdatesURL = http://wxPython.org/download.php
-AppVersion = %(VERSION)s-%(CHARTYPE)s
+AppVersion = %(VERSION)s
 
 UninstallFilesDir = {app}\%(PKGDIR)s
 LicenseFile = licence\licence.txt
@@ -124,6 +124,7 @@ Source: "wx\lib\editor\*.txt";                  DestDir: "{app}\%(PKGDIR)s\wx\li
 Source: "wx\lib\mixins\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\lib\mixins"; Components: core
 Source: "wx\lib\masked\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\lib\masked"; Components: core
 Source: "wx\lib\ogl\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\ogl"; Components: core
+Source: "wx\lib\pdfviewer\*.py";                DestDir: "{app}\%(PKGDIR)s\wx\lib\pdfviewer"; Components: core
 Source: "wx\lib\floatcanvas\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\floatcanvas"; Components: core
 Source: "wx\lib\floatcanvas\Utilities\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\lib\floatcanvas\Utilities"; Components: core
 Source: "wx\lib\pubsub\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\lib\pubsub"; Components: core
@@ -267,6 +268,8 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\masked\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\masked\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\ogl\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\ogl\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pdfviewer\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pdfviewer\*.pyo";
 
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\pubsub\*.pyo";
@@ -884,9 +887,6 @@ Building Win32 installer for wxPython:
         IF22 = ""
 
     MSLU=''
-    CHARTYPE='ansi'
-    if "UNICODE=1" in sys.argv:
-        CHARTYPE='unicode'
 
     f = open(ISSFILE, "w")
     f.write(ISS_Template % vars())

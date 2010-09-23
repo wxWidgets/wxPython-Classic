@@ -121,6 +121,8 @@ wx/lib/floatcanvas/Utilities
 wx/lib/masked
 wx/lib/mixins
 wx/lib/ogl
+wx/lib/pdfviewer
+wx/lib/pdfviewer/bitmaps
 wx/lib/pubsub
 wx/lib/pubsub/core
 wx/lib/pubsub/core/arg1

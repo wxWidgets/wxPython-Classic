@@ -50,10 +50,14 @@ def getTasks(config_env):
     # task.
     
 
-    tigerTask =  Task([
-        Job("smallfry.25", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.5", "both"], env=config_env),
-        Job("smallfry.26", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.6", "both"], env=config_env),
-        Job("smallfry.27", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.7", "both"], env=config_env),
+    carbonTask =  Task([
+        Job("carbon.25", "distrib/all/build-osx", [config.OSX_HOST_carbon, "2.5", "carbon"], env=config_env),
+        Job("carbon.26", "distrib/all/build-osx", [config.OSX_HOST_carbon, "2.6", "carbon"], env=config_env),
+        Job("carbon.27", "distrib/all/build-osx", [config.OSX_HOST_carbon, "2.7", "carbon"], env=config_env),
+        ])
+
+    cocoaTask =  Task([
+        Job("cocoa.27", "distrib/all/build-osx", [config.OSX_HOST_cocoa, "2.7", "cocoa"], env=config_env),
         ])
 
     
@@ -72,7 +76,6 @@ def getTasks(config_env):
         ])
 
     cyclopsTask2 = Task([
-        #Job("cyclops.win64-25", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.5", "AMD64"], env=config_env),
         Job("cyclops.win64-26", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.6", "AMD64"], env=config_env),
         Job("cyclops.win64-27", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.7", "AMD64"], env=config_env),
         Job("cyclops.jaunty",   "distrib/all/build-deb", ["cyclops", "/work/chroot/jaunty",   "jaunty"], env=config_env),
@@ -86,7 +89,8 @@ def getTasks(config_env):
         Job("cyclops.lenny64", "distrib/all/build-deb", ["cyclops", "/work/chroot/lenny64",   "lenny64"], env=config_env),
         ])
     
-    buildTasks = [ tigerTask,
+    buildTasks = [ carbonTask,
+                   cocoaTask,
                    beastTask1,
                    cyclopsTask1,
                    cyclopsTask2,
@@ -123,7 +127,6 @@ def usage():
     print "   skipdeb      Don't do the remote Linux (DEB) build"
     print "   skipclean    Don't do the cleanup step on the remote builds"
     print "   skipupload   Don't upload the builds to starship"
-    print "   ansi         Also do the ansi builds"
     print ""
     print "   nocohost     Don't start the coLinux sessions if they are"
     print "                not already online"
@@ -176,9 +179,6 @@ def main(args):
             
         elif flag == "skipupload":
             config.skipupload = "yes"
-
-        elif flag == "ansi":
-            config.buildansi = "yes"
 
         elif flag == "nocohost":
             config.startcohost = "no"

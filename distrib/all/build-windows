@@ -2,15 +2,11 @@
 #----------------------------------------------------------------------
 
 set -o errexit
+##set -o xtrace
 
 
 PYVER=$1
-
-if [ $buildansi = yes ]; then
-    CHARTYPE=both
-else
-    CHARTYPE=unicode
-fi
+CHARTYPE=unicode
 
 
 if [ $skipwin != yes ]; then

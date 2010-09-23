@@ -49,6 +49,9 @@ class Config:
                 self.__dict__[data[0].strip()] = data[1].strip()
         myfile.close()
 
+
+#----------------------------------------------------------------------
+
 class Job(object):
     """
     Each Job is a monitor wrapped around an externally executing

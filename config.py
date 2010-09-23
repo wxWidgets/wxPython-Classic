@@ -191,16 +191,6 @@ MONOLITHIC = 0     # The core wxWidgets lib can be built as either a
                    # on Windows.  (For other platforms it is automatic
                    # via using wx-config.)
 
-FINAL = 0          # Will use the release version of the wxWidgets libs on MSW.
-
-HYBRID = 1         # Will use the "hybrid" version of the wxWidgets
-                   # libs on MSW.  A "hybrid" build is one that is
-                   # basically a release build, but that also defines
-                   # __WXDEBUG__ to activate the runtime checks and
-                   # assertions in the library.  When any of these is
-                   # triggered it is turned into a Python exception so
-                   # this is a very useful feature to have turned on.
-                   
                    # Version part of wxWidgets LIB/DLL names
 WXDLLVER = '%d%d' % (VER_MAJOR, VER_MINOR)
 
@@ -232,10 +222,8 @@ def opj(*args):
 
 
 def libFlag():
-    if FINAL:
+    if not debug:
         rv = ''
-    elif HYBRID:
-        rv = 'h'
     else:
         rv = 'd'
     if UNICODE:
@@ -277,7 +265,7 @@ for flag in [ 'BUILD_ACTIVEX', 'BUILD_DLLWIDGET',
              'CORE_ONLY', 'PREP_ONLY', 'USE_SWIG', 'UNICODE',
              'UNDEF_NDEBUG', 'NO_SCRIPTS', 'NO_HEADERS', 'BUILD_RENAMERS',
              'FULL_DOCS', 'INSTALL_MULTIVERSION', 'EP_ADD_OPTS', 'EP_FULL_VER',
-             'MONOLITHIC', 'FINAL', 'HYBRID', ]:
+             'MONOLITHIC', ]:
     for x in range(len(sys.argv)):
         if sys.argv[x].find(flag) == 0:
             pos = sys.argv[x].find('=') + 1
@@ -337,7 +325,13 @@ def Verify_WX_CONFIG():
 
         # TODO:  execute WX_CONFIG --list and verify a matching config is found
     
-    
+
+
+def getWxConfigValue(flag):
+    cmd = "%s %s" % (WX_CONFIG, flag)
+    value = os.popen(cmd, 'r').read()[:-1]
+    return value
+
 
 def run_swig(files, dir, gendir, package, USE_SWIG, force, swig_args,
              swig_deps=[], add_under=False):
@@ -602,7 +596,7 @@ def makeLibName(name):
 def findLib(name, libdirs):
     name = makeLibName(name)[0]
     if os.name == 'posix' or COMPILER == 'mingw32':
-        lflags = os.popen(WX_CONFIG + ' --libs', 'r').read()[:-1]
+        lflags = getWxConfigValue('--libs')
         lflags = lflags.split()
         
         # if wx-config --libs output does not start with -L, wx is
@@ -683,8 +677,6 @@ def getExtraPath(shortVer=True, addOpts=False, addRelease=True):
         if addRelease and VER_MINOR % 2 == 1:
             ep += ".%d" % VER_RELEASE
             
-        ##ep = "wx-%d.%d.%d" % (VER_MAJOR, VER_MINOR, VER_RELEASE)
-        
     else:
         # long version, full version 
         ep = "wx-%d.%d.%d.%d" % (VER_MAJOR, VER_MINOR, VER_RELEASE, VER_SUBREL)
@@ -692,7 +684,9 @@ def getExtraPath(shortVer=True, addOpts=False, addRelease=True):
     if addOpts:
         port = WXPORT
         if port == "msw": port = "win32"
-        ep += "-%s-%s" % (WXPORT, (UNICODE and 'unicode' or 'ansi'))
+        #ep += "-%s-%s" % (WXPORT, (UNICODE and 'unicode' or 'ansi'))
+        # no more ansi builds, so no need to include chartype in the path any more
+        ep += '-' + WXPORT
         
     if FLAVOUR:
         ep += "-" + FLAVOUR
@@ -841,7 +835,7 @@ distutils.cygwinccompiler.CygwinCCompiler._compile = _compile
 # into the .pyd files as expected.  So we'll strip out that option via
 # a monkey-patch of the msvc9compiler.MSVCCompiler.initialize method.
 
-if os.name == 'nt' and  COMPILER == 'msvc':
+if os.name == 'nt' and  COMPILER == 'msvc' and sys.version >= (2,6):
     import distutils.msvc9compiler
     _orig_initialize = distutils.msvc9compiler.MSVCCompiler.initialize
 
@@ -866,12 +860,6 @@ if CORE_ONLY:
     BUILD_DLLWIDGET = 0
     BUILD_ACTIVEX = 0
 
-if debug:
-    FINAL  = 0
-    HYBRID = 0
-
-if FINAL:
-    HYBRID = 0
 
 if UNICODE and WXPORT not in ['msw', 'gtk2', 'osx_carbon', 'osx_cocoa']:
     raise SystemExit, "UNICODE mode not currently supported on this WXPORT: "+WXPORT
@@ -932,12 +920,6 @@ if os.name == 'nt' and  COMPILER == 'msvc':
 
     if UNDEF_NDEBUG:
         defines.append( ('NDEBUG',) )  # using a 1-tuple makes it do an undef
-
-    if HYBRID:
-        defines.append( ('__NO_VC_CRTDBG__', None) )
-
-    if not FINAL or HYBRID:
-        defines.append( ('__WXDEBUG__', None) )
 
     if UNICODE:
         defines.append( ('wxUSE_UNICODE', 1) )
@@ -1004,7 +986,7 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
     ##     libs.append('gcc')
     ##     libdirs.append(commands.getoutput("gcc -print-search-dirs | grep '^install' | awk '{print $2}'")[:-1])
 
-    cflags = os.popen(WX_CONFIG + ' --cxxflags', 'r').read()[:-1]
+    cflags = getWxConfigValue('--cxxflags')
     cflags = cflags.split()
     if debug:
         cflags.append('-ggdb')
@@ -1012,13 +994,13 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
     else:
         cflags.append('-O3')
 
-    lflags = os.popen(WX_CONFIG + ' --libs', 'r').read()[:-1]
+    lflags = getWxConfigValue('--libs')
     MONOLITHIC = (lflags.find("_xrc") == -1)
     lflags = lflags.split()
 
-    WXBASENAME = os.popen(WX_CONFIG + ' --basename').read()[:-1]
-    WXRELEASE  = os.popen(WX_CONFIG + ' --release').read()[:-1]
-    WXPREFIX   = os.popen(WX_CONFIG + ' --prefix').read()[:-1]
+    WXBASENAME = getWxConfigValue('--basename')
+    WXRELEASE  = getWxConfigValue('--release')
+    WXPREFIX   = getWxConfigValue('--prefix')
 
 
     if sys.platform[:6] == "darwin":
@@ -1039,14 +1021,11 @@ elif os.name == 'posix' or COMPILER == 'mingw32':
             cflags.append(ARCH)
             lflags.append("-arch")
             lflags.append(ARCH)
-            #if ARCH == "ppc":
-            #    cflags.append("-isysroot")
-            #    cflags.append("/Developer/SDKs/MacOSX10.3.9.sdk")
 
         if not os.environ.get('CC') or not os.environ.get('CXX'):
-            os.environ["CXX"] = "g++-4.0"
-            os.environ["CC"]  = "gcc-4.0"
-            os.environ["CPP"] = "cpp-4.0"
+            os.environ["CXX"] = getWxConfigValue('--cxx')
+            os.environ["CC"]  = getWxConfigValue('--cc')
+            #os.environ["CPP"] = "cpp-4.0"
 
     else:
         # Set flags for other Unix type platforms
@@ -1122,10 +1101,8 @@ EP_FULL_VER=%d
 WX_CONFIG="%s"
 WXPORT="%s"
 MONOLITHIC=%d
-FINAL=%d
-HYBRID=%d
 """ % (UNICODE, UNDEF_NDEBUG, INSTALL_MULTIVERSION, FLAVOUR, EP_ADD_OPTS,
-       EP_FULL_VER, SYS_WX_CONFIG, WXPORT, MONOLITHIC, FINAL, HYBRID)
+       EP_FULL_VER, SYS_WX_CONFIG, WXPORT, MONOLITHIC)
 
 try: 
     from build_options import *
