@@ -218,7 +218,14 @@ public:
     {
         wxToolBarToolBase::SetLabel(label);
         UpdateLabel();
-     }
+    }
+     
+    virtual bool SetShortHelp(const wxString& help)
+    {
+        bool result=wxToolBarToolBase::SetShortHelp(help);
+        UpdateLabel();
+        return result;
+    }     
 #endif // wxOSX_USE_NATIVE_TOOLBAR
 
 private:
