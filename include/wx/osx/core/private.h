@@ -756,7 +756,7 @@ public :
         return false ;
     }
 
-    bool CanSetTransparent()
+    virtual bool CanSetTransparent()
     {
         return false;
     }
