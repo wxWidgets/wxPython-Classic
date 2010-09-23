@@ -3,7 +3,7 @@
 Recent Changes for wxPython
 =====================================================================
 
-2.9.1.0
+2.9.1.1
 -------
 *
 
@@ -48,22 +48,34 @@ wx.Dialog.ShowWindowModal and the wx.Dialog sample in the demo.
 
 wx.wizard.Wizard:  Add a new EVT_WIZARD_PAGE_SHOWN event.
 
-Added wx.InfoBar, which is similar to the message bar in browser
-windows that is shown above or below the content window to display
-messages and/or buttons in a way that doesn't interupt the user's
-workflow like a modal message dialog does, but is much more noticeble
-than simply putting some text in the status bar.
+Added wx.InfoBar, which is similar to the message bar used in some web
+browser windows that is shown above or below the content window to
+display messages and/or buttons in a way that doesn't interupt the
+user's workflow like a modal message dialog does, but is much more
+noticeble than simply putting some text in the status bar.
 
 Updated the Scintilla code used by wxStyledTextCtrl to version 2.03. 
-
-Added wrappers for wx.UIActionSimulator, a class that allows key and
-mouse events to be fabricated programatically, useful for things like
-test-driving an application.
 
 Added wx.GraphicsGradientStop[s] classes and updated the
 Create*GradientBrush APIs to allow gradients with more than two color
 stops.  Similar changes were also mare to the Cairo specfic classes in
 wx.lib.graphics to help maintain compatibility between the two.
+
+Added the wx.lib.pdfviewer package which is a contribution from David
+Hughes.  It implements a simple cross-platform PDF viewer widget using
+the 3rd party pyPdf package for parseing the PDF file.  It's not super
+fast nor is it feature complete, but for simple and small PDF files
+(such as those produced by ReportLab) it works well.
+
+Probably the most notable change in this release is the addition of
+the OSX-Cocoa build, including a 64-bit architecture in the fat
+binaries.  The Cocoa port requires at least OSX 10.5, and the Carbon
+port requires 10.4 or better.  There are still some rough edges in the
+Cocoa port, but a lot does work and works well.  If you run into
+issues that seem to be Cocoa specific then be sure to create tickets
+for them at http://trac.wxwidgets.org with the component set to
+wxOSX-Cocoa, after having searched for any existing tickets for the
+same issue of course.
 
 
 
