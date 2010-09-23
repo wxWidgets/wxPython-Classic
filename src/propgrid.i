@@ -50,8 +50,9 @@ properties such as strings, numbers, colours, and string lists."
 #endif
 
 // Following is necessary for proper wxRect support in property values
-WX_PG_DECLARE_VARIANT_DATA_EXPORTED(wxRect, WXDLLIMPEXP_PROPGRID)
-
+WX_PG_DECLARE_VARIANT_DATA(wxRect)
+WX_PG_IMPLEMENT_VARIANT_DATA(wxRect)
+    
 //
 // wxVariant PyObject container
 
