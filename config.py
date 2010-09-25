@@ -835,7 +835,7 @@ distutils.cygwinccompiler.CygwinCCompiler._compile = _compile
 # into the .pyd files as expected.  So we'll strip out that option via
 # a monkey-patch of the msvc9compiler.MSVCCompiler.initialize method.
 
-if os.name == 'nt' and  COMPILER == 'msvc' and sys.version >= (2,6):
+if os.name == 'nt' and  COMPILER == 'msvc' and sys.version_info >= (2,6):
     import distutils.msvc9compiler
     _orig_initialize = distutils.msvc9compiler.MSVCCompiler.initialize
 
