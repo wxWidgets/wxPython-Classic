@@ -324,7 +324,7 @@ public:
     // -----------
     %extend {
         wxLocale(int language = -1,
-                 int flags = wxLOCALE_LOAD_DEFAULT | wxLOCALE_CONV_ENCODING) {
+                 int flags = wxLOCALE_LOAD_DEFAULT) {
             wxLocale* loc;
             if (language == -1)
                 loc = new wxLocale();
@@ -509,7 +509,7 @@ public:
              bool bConvertEncoding = false);                 // convert Win<->Unix if necessary?
 
     wxPyLocale(int language, // wxLanguage id or custom language
-               int flags = wxLOCALE_LOAD_DEFAULT | wxLOCALE_CONV_ENCODING);
+               int flags = wxLOCALE_LOAD_DEFAULT);
              
     ~wxPyLocale();
 
@@ -628,7 +628,7 @@ public:
     // -----------
     %extend {
         wxPyLocale(int language = -1,
-                   int flags = wxLOCALE_LOAD_DEFAULT | wxLOCALE_CONV_ENCODING) {
+                   int flags = wxLOCALE_LOAD_DEFAULT) {
             wxPyLocale* loc;
             if (language == -1)
                 loc = new wxPyLocale();
