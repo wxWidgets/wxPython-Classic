@@ -523,7 +523,7 @@ wxFontFamily wxNativeFontInfo::GetFamily() const
     switch ( lf.lfPitchAndFamily & ~PITCH_MASK )
     {
         case 0:
-            family = wxFONTFAMILY_UNKNOWN;
+            family = wxFONTFAMILY_DEFAULT; //wxFONTFAMILY_UNKNOWN;
             break;
 
         case FF_ROMAN:
