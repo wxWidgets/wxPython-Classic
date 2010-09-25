@@ -26,7 +26,7 @@ MustHaveApp(wxIcon);
 class wxIcon : public wxGDIObject
 {
 public:
-    wxIcon(const wxString& name, wxBitmapType type,
+    wxIcon(const wxString& name, wxBitmapType type=wxBITMAP_TYPE_ANY,
            int desiredWidth = -1, int desiredHeight = -1);
     ~wxIcon();
 
