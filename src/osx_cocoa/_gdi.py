@@ -1258,7 +1258,10 @@ class Icon(GDIObject):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, String name, int type, int desiredWidth=-1, int desiredHeight=-1) -> Icon"""
+        """
+        __init__(self, String name, int type=BITMAP_TYPE_ANY, int desiredWidth=-1, 
+            int desiredHeight=-1) -> Icon
+        """
         _gdi_.Icon_swiginit(self,_gdi_.new_Icon(*args, **kwargs))
     __swig_destroy__ = _gdi_.delete_Icon
     __del__ = lambda self : None;
@@ -2892,7 +2895,7 @@ class Locale(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, int language=-1, int flags=wxLOCALE_LOAD_DEFAULT|wxLOCALE_CONV_ENCODING) -> Locale"""
+        """__init__(self, int language=-1, int flags=LOCALE_LOAD_DEFAULT) -> Locale"""
         _gdi_.Locale_swiginit(self,_gdi_.new_Locale(*args, **kwargs))
     __swig_destroy__ = _gdi_.delete_Locale
     __del__ = lambda self : None;
@@ -3067,7 +3070,7 @@ class PyLocale(Locale):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, int language=-1, int flags=wxLOCALE_LOAD_DEFAULT|wxLOCALE_CONV_ENCODING) -> PyLocale"""
+        """__init__(self, int language=-1, int flags=LOCALE_LOAD_DEFAULT) -> PyLocale"""
         _gdi_.PyLocale_swiginit(self,_gdi_.new_PyLocale(*args, **kwargs))
         PyLocale._setCallbackInfo(self, self, PyLocale)
 

@@ -3724,7 +3724,7 @@ SWIGINTERN PyObject *wxPyFontEnumerator_GetFacenames(){
 
 #include <locale.h>
 
-SWIGINTERN wxLocale *new_wxLocale(int language=-1,int flags=wxLOCALE_LOAD_DEFAULT|wxLOCALE_CONV_ENCODING){
+SWIGINTERN wxLocale *new_wxLocale(int language=-1,int flags=wxLOCALE_LOAD_DEFAULT){
             wxLocale* loc;
             if (language == -1)
                 loc = new wxLocale();
@@ -3770,7 +3770,7 @@ public:
              bool bConvertEncoding = false);                 // convert Win<->Unix if necessary?
 
     wxPyLocale(int language, // wxLanguage id or custom language
-               int flags = wxLOCALE_LOAD_DEFAULT | wxLOCALE_CONV_ENCODING);
+               int flags = wxLOCALE_LOAD_DEFAULT);
              
     ~wxPyLocale();
 
@@ -3878,7 +3878,7 @@ const wxString& wxPyLocale::GetPluralString(const wxString& origString,
     return (found ? str : wxLocale::GetString(origString, origString2, n, domain) );
 }
 
-SWIGINTERN wxPyLocale *new_wxPyLocale(int language=-1,int flags=wxLOCALE_LOAD_DEFAULT|wxLOCALE_CONV_ENCODING){
+SWIGINTERN wxPyLocale *new_wxPyLocale(int language=-1,int flags=wxLOCALE_LOAD_DEFAULT){
             wxPyLocale* loc;
             if (language == -1)
                 loc = new wxPyLocale();
@@ -9790,7 +9790,7 @@ SWIGINTERN PyObject *Mask_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *arg
 SWIGINTERN PyObject *_wrap_new_Icon(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxString *arg1 = 0 ;
-  wxBitmapType arg2 ;
+  wxBitmapType arg2 = (wxBitmapType) wxBITMAP_TYPE_ANY ;
   int arg3 = (int) -1 ;
   int arg4 = (int) -1 ;
   wxIcon *result = 0 ;
@@ -9809,17 +9809,19 @@ SWIGINTERN PyObject *_wrap_new_Icon(PyObject *SWIGUNUSEDPARM(self), PyObject *ar
     (char *) "name",(char *) "type",(char *) "desiredWidth",(char *) "desiredHeight", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OO:new_Icon",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|OOO:new_Icon",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   {
     arg1 = wxString_in_helper(obj0);
     if (arg1 == NULL) SWIG_fail;
     temp1 = true;
   }
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Icon" "', expected argument " "2"" of type '" "wxBitmapType""'");
-  } 
-  arg2 = static_cast< wxBitmapType >(val2);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_Icon" "', expected argument " "2"" of type '" "wxBitmapType""'");
+    } 
+    arg2 = static_cast< wxBitmapType >(val2);
+  }
   if (obj2) {
     ecode3 = SWIG_AsVal_int(obj2, &val3);
     if (!SWIG_IsOK(ecode3)) {
@@ -17307,7 +17309,7 @@ SWIGINTERN PyObject *LanguageInfo_swigregister(PyObject *SWIGUNUSEDPARM(self), P
 SWIGINTERN PyObject *_wrap_new_Locale(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   int arg1 = (int) -1 ;
-  int arg2 = (int) wxLOCALE_LOAD_DEFAULT|wxLOCALE_CONV_ENCODING ;
+  int arg2 = (int) wxLOCALE_LOAD_DEFAULT ;
   wxLocale *result = 0 ;
   int val1 ;
   int ecode1 = 0 ;
@@ -18384,7 +18386,7 @@ SWIGINTERN PyObject *Locale_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *a
 SWIGINTERN PyObject *_wrap_new_PyLocale(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   int arg1 = (int) -1 ;
-  int arg2 = (int) wxLOCALE_LOAD_DEFAULT|wxLOCALE_CONV_ENCODING ;
+  int arg2 = (int) wxLOCALE_LOAD_DEFAULT ;
   wxPyLocale *result = 0 ;
   int val1 ;
   int ecode1 = 0 ;
