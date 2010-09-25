@@ -34,12 +34,8 @@ class MimeTypesDemoPanel(wx.Panel):
         wx.Panel.__init__(self, parent, -1)
 
         # This will be used for all of the labels that follow (bold label)
-        bfont = wx.Font(
-                    self.GetFont().GetPointSize(), 
-                    self.GetFont().GetFamily(),
-                    self.GetFont().GetStyle(),
-                    wx.BOLD
-                    )
+        bfont = self.GetFont()
+        bfont.SetWeight(wx.BOLD)
         
         # Contains everything
         tsizer = wx.BoxSizer(wx.VERTICAL)
@@ -71,13 +67,11 @@ class MimeTypesDemoPanel(wx.Panel):
 
         # StaticBox with larger label than usual
         lbox = wx.StaticBox(self, -1, 'wx.FileType')
-        lbox.SetFont(
-            wx.Font(
-                self.GetFont().GetPointSize() * 2, 
-                self.GetFont().GetFamily(),
-                self.GetFont().GetStyle(),
-                wx.BOLD
-                ))
+
+        f = self.GetFont()
+        f.SetPointSize(f.GetPointSize() * 2)
+        f.SetWeight(wx.BOLD)
+        lbox.SetFont(f)
 
         lsizer = wx.StaticBoxSizer(lbox, wx.HORIZONTAL)
 

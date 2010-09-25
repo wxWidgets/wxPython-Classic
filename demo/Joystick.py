@@ -33,13 +33,9 @@ class Label(wx.StaticText):
     def __init__(self, parent, label):
         wx.StaticText.__init__(self, parent, -1, label, style=wx.ALIGN_RIGHT)
 
-        self.SetFont(
-            wx.Font(
-                parent.GetFont().GetPointSize(),
-                parent.GetFont().GetFamily(),
-                parent.GetFont().GetStyle(),
-                wx.BOLD
-                ))
+        f = parent.GetFont()
+        f.SetWeight(wx.BOLD)
+        self.SetFont(f)
 
 #----------------------------------------------------------------------------
 
@@ -167,12 +163,9 @@ class JoyPanel(wx.Panel):
 
         sizer = wx.BoxSizer(wx.VERTICAL)
 
-        fn = wx.Font(
-                parent.GetFont().GetPointSize() + 3,
-                parent.GetFont().GetFamily(),
-                parent.GetFont().GetStyle(),
-                wx.BOLD
-                )
+        fn = parent.GetFont()
+        fn.SetPointSize(fn.GetPointSize() + 3)
+        fn.SetWeight(wx.BOLD)
 
         t = wx.StaticText(self, -1, "X - Y Axes", style = wx.ALIGN_CENTRE)
         t.SetFont(fn)
@@ -372,12 +365,10 @@ class POVPanel(wx.Panel):
 
         sizer.Add((25,25))
         
-        fn = wx.Font(
-                parent.GetFont().GetPointSize() + 3,
-                parent.GetFont().GetFamily(),
-                parent.GetFont().GetStyle(),
-                wx.BOLD
-                )
+        fn = parent.GetFont()
+        fn.SetPointSize(fn.GetPointSize() + 3)
+        fn.SetWeight(wx.BOLD)
+
         t = wx.StaticText(self, -1, "POV Control", style = wx.ALIGN_CENTER)
         t.SetFont(fn)
         gsizer.Add(t, 0, wx.ALL | wx.EXPAND, 1)
@@ -411,13 +402,11 @@ class LED(wx.Panel):
         self.size = (20, 20)
         self.number = number
 
-        self.fn = wx.Font(
-                parent.GetFont().GetPointSize() - 1,
-                parent.GetFont().GetFamily(),
-                parent.GetFont().GetStyle(),
-                wx.BOLD
-                )
-
+        fn = parent.GetFont()
+        fn.SetPointSize(fn.GetPointSize() - 1)
+        fn.SetWeight(wx.BOLD)
+        self.fn = fn
+        
         wx.Panel.__init__(self, parent, -1, size=self.size)
 
         self.Bind(wx.EVT_PAINT, self.OnPaint)
@@ -520,12 +509,9 @@ class JoyButtons(wx.Panel):
 
         tsizer = wx.BoxSizer(wx.VERTICAL)
 
-        fn = wx.Font(
-                parent.GetFont().GetPointSize() + 3,
-                parent.GetFont().GetFamily(),
-                parent.GetFont().GetStyle(),
-                wx.BOLD
-                )
+        fn = parent.GetFont()
+        fn.SetPointSize(fn.GetPointSize() + 3)
+        fn.SetWeight(wx.BOLD)
 
         t = wx.StaticText(self, -1, "Buttons", style = wx.ALIGN_LEFT)
         t.SetFont(fn)
@@ -695,12 +681,8 @@ class AxisBar(wx.Gauge):
         txt = str(self.rawvalue)
 
         # Copy the default font, make it bold.
-        fn = wx.Font(
-                self.GetFont().GetPointSize(),
-                self.GetFont().GetFamily(),
-                self.GetFont().GetStyle(),
-                wx.BOLD
-                )
+        fn = parent.GetFont()
+        fn.SetWeight(wx.BOLD)
 
         # Set the font for the DC ...
         dc.SetFont(fn)

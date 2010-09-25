@@ -54,10 +54,10 @@ class TestPanel(wx.Panel):
             self.AddLine(box)
 
         else:
-            f = self.GetFont()
-            font = wx.Font(14, f.GetFamily(), f.GetStyle(), wx.BOLD, False,
-                          f.GetFaceName(), f.GetEncoding())
-
+            font = self.GetFont()
+            font.SetPointSize(14)
+            font.SetWeight(wx.BOLD)
+            
             self.AddLine(box)
             self.AddText(box, chi_uni[0], chi_uni[1], 'Chinese:', font)
             self.AddLine(box)
