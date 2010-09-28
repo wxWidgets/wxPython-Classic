@@ -367,6 +367,48 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
         *v = wx_dateTime;
         return true;
     }
+    else if ( PyTuple_CheckExact(input) || PyList_CheckExact(input) )
+    {
+        int len = PySequence_Length(input);
+
+        if ( len )
+        {
+            int i;
+            PyObject* item = PySequence_GetItem(input, 0);
+            if ( PyString_Check(item) || PyUnicode_Check(item) )
+            {
+                wxArrayString arr;
+                for (i=0; i<len; i++)
+                {
+                    PyObject* item = PySequence_GetItem(input, i);
+                    wxString* s = wxString_in_helper(item);
+                    if (PyErr_Occurred()) return false;
+                    arr.Add(*s);
+                    delete s;
+                    Py_DECREF(item);
+                }
+                *v = arr;
+            }
+            else
+            {
+                wxArrayInt arr;
+                for (i=0; i<len; i++)
+                {
+                    PyObject* item = PySequence_GetItem(input, i);
+                    if ( !PyInt_Check(item) )
+                        return false;
+                    arr.Add(PyInt_AS_LONG(item));
+                    Py_DECREF(item);
+                }
+                *v = WXVARIANT(arr);
+            }
+        }
+        else
+        {
+            *v = wxArrayString();
+        }
+        return true;
+    }
     else if ( wxPySwigInstance_Check(input) )
     {
         // First try if it is a wxColour
@@ -417,52 +459,6 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
             *v << *cpv_ptr;
             return true;
         }
-    }
-
-    //
-    // Because some of the above types may implement sequence interface
-    // as well, we must check sequences here at the bottom.
-    if ( PySequence_Check(input) )
-    {
-        int len = PySequence_Length(input);
-
-        if ( len )
-        {
-            int i;
-            PyObject* item = PySequence_GetItem(input, 0);
-            if ( PyString_Check(item) || PyUnicode_Check(item) )
-            {
-                wxArrayString arr;
-                for (i=0; i<len; i++)
-                {
-                    PyObject* item = PySequence_GetItem(input, i);
-                    wxString* s = wxString_in_helper(item);
-                    if (PyErr_Occurred()) return false;
-                    arr.Add(*s);
-                    delete s;
-                    Py_DECREF(item);
-                }
-                *v = arr;
-            }
-            else
-            {
-                wxArrayInt arr;
-                for (i=0; i<len; i++)
-                {
-                    PyObject* item = PySequence_GetItem(input, i);
-                    if ( !PyInt_Check(item) )
-                        return false;
-                    arr.Add(PyInt_AS_LONG(item));
-                    Py_DECREF(item);
-                }
-                *v = WXVARIANT(arr);
-            }
-        }
-        else
-        {
-            *v = wxArrayString();
-        }
-        return true;
     }
 
     //Py_TrackObject(input);
