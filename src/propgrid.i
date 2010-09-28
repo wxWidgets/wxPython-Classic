@@ -371,39 +371,67 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
         {
             int i;
             PyObject* item = PySequence_GetItem(input, 0);
-            if ( PyString_Check(item) || PyUnicode_Check(item) )
+            bool failed = false;
+            if ( PyString_CheckExact(item) || PyUnicode_CheckExact(item) )
             {
                 wxArrayString arr;
                 for (i=0; i<len; i++)
                 {
-                    PyObject* item = PySequence_GetItem(input, i);
+                    item = PySequence_GetItem(input, i);
                     wxString* s = wxString_in_helper(item);
-                    if (PyErr_Occurred()) return false;
+                    if ( PyErr_Occurred() )
+                    {
+                        delete s;
+                        failed = true;
+                        break;
+                    }
                     arr.Add(*s);
                     delete s;
                     Py_DECREF(item);
                 }
-                *v = arr;
+
+                if ( !failed )
+                {
+                    *v = arr;
+                    return true;
+                }
             }
-            else
+            else if ( PyInt_CheckExact(item) || PyLong_CheckExact(item) )
             {
                 wxArrayInt arr;
                 for (i=0; i<len; i++)
                 {
-                    PyObject* item = PySequence_GetItem(input, i);
-                    if ( !PyInt_Check(item) )
-                        return false;
-                    arr.Add(PyInt_AS_LONG(item));
+                    item = PySequence_GetItem(input, i);
+                    long val;
+                    if ( PyInt_CheckExact(item) )
+                    {
+                        val = PyInt_AS_LONG(item);
+                    }
+                    else if ( PyLong_CheckExact(item) )
+                    {
+                        val = PyLong_AsLong(item);
+                    }
+                    else
+                    {
+                        failed = true;
+                        break;
+                    }
+                    arr.Add(val);
                     Py_DECREF(item);
                 }
-                *v = WXVARIANT(arr);
+
+                if ( !failed )
+                {
+                    *v = WXVARIANT(arr);
+                    return true;
+                }
             }
         }
         else
         {
             *v = wxArrayString();
+            return true;
         }
-        return true;
     }
     else if ( wxPySwigInstance_Check(input) )
     {
