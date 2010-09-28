@@ -49,10 +49,6 @@ properties such as strings, numbers, colours, and string lists."
     #define Py_RETURN_NONE return Py_INCREF(Py_None), Py_None
 #endif
 
-// Following is necessary for proper wxRect support in property values
-WX_PG_DECLARE_VARIANT_DATA(wxRect)
-WX_PG_IMPLEMENT_VARIANT_DATA(wxRect)
-    
 //
 // wxVariant PyObject container
 
@@ -443,14 +439,6 @@ bool PyObject_to_wxVariant( PyObject* input, wxVariant* v )
             return true;
         }
 
-        // Then wxRect
-        wxRect* rect_ptr;
-        if ( wxPyConvertSwigPtr(input, (void **)&rect_ptr, wxS("wxRect")))
-        {
-            *v << *rect_ptr;
-            return true;
-        }
-
         // Then wxColourPropertyValue
         wxColourPropertyValue* cpv_ptr;
         if ( wxPyConvertSwigPtr(input, (void **)&cpv_ptr,
@@ -590,13 +578,6 @@ PyObject* wxVariant_to_PyObject( const wxVariant* v )
         font << *v;
         return SWIG_NewPointerObj(SWIG_as_voidptr(new wxFont(font)),
                                   SWIGTYPE_p_wxFont,
-                                  SWIG_POINTER_OWN | 0 );
-    }
-    else if ( variantType == wxS("wxRect") )
-    {
-        const wxRect& rect = wxRectRefFromVariant(*v);
-        return SWIG_NewPointerObj(SWIG_as_voidptr(new wxRect(rect)),
-                                  SWIGTYPE_p_wxRect,
                                   SWIG_POINTER_OWN | 0 );
     }
     else if ( variantType == wxS("wxColourPropertyValue") )
