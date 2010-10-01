@@ -317,7 +317,7 @@ Only wxCONTROL_SELECTED makes sense in flags here", "");
             "Draw a native wxRadioButton (just the button image, not the text)", "");
     %pythoncode {
         DrawRadioButton = wx._deprecated(DrawRadioBitmap,
-            'DrawRadioButton is depracated, use `DrawRadioBitmap` instead.')
+            'DrawRadioButton is deprecated, use `DrawRadioBitmap` instead.')
     }
 
 
