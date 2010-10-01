@@ -7270,7 +7270,7 @@ class RendererNative(object):
         return _gdi_.RendererNative_DrawRadioBitmap(*args, **kwargs)
 
     DrawRadioButton = wx._deprecated(DrawRadioBitmap,
-        'DrawRadioButton is depracated, use `DrawRadioBitmap` instead.')
+        'DrawRadioButton is deprecated, use `DrawRadioBitmap` instead.')
 
     def DrawTitleBarBitmap(*args, **kwargs):
         """
