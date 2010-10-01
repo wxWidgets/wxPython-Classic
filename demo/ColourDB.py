@@ -50,9 +50,8 @@ class TestWindow(wx.ScrolledWindow):
             self.cellWidth, self.lineHeight, numCells, len(self.clrList) + 2
             )
             
-        # Event handlers - moved here so events won't fire before init is 
-        # finished.
-        self.SetBackgroundStyle(wx.BG_STYLE_CUSTOM)
+        # Bind event handlers
+        self.SetBackgroundStyle(wx.BG_STYLE_ERASE)
         self.Bind(wx.EVT_PAINT, self.OnPaint)
         self.Bind(wx.EVT_ERASE_BACKGROUND, self.OnEraseBackground)
 
