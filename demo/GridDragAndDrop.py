@@ -23,11 +23,6 @@ class GridFileDropTarget(wx.FileDropTarget):
         x, y = self.grid.CalcUnscrolledPosition(x, y)
 
         # now we need to get the row and column from the grid
-        # but we need to first remove the RowLabel and ColumnLabel
-        # bounding boxes
-        # Why this isn't done for us, I'll never know...
-        x = x - self.grid.GetGridRowLabelWindow().GetRect().width
-        y = y - self.grid.GetGridColLabelWindow().GetRect().height
         col = self.grid.XToCol(x)
         row = self.grid.YToRow(y)
 
