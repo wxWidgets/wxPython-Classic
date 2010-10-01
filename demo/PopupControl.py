@@ -18,7 +18,7 @@ class TestDateControl(pop.PopupControl):
         self.SetPopupContent(self.win)
 
         # Event registration for date selection
-        self.cal.Bind(cal.EVT_CALENDAR_DAY, self.OnCalSelected)
+        self.cal.Bind(cal.EVT_CALENDAR,     self.OnCalSelected)
 
 
     # Method called when a day is selected in the calendar
@@ -56,7 +56,7 @@ class TestDateControl(pop.PopupControl):
                         didSet = True
 
         if not didSet:
-            self.cal.SetDate(wx.DateTime_Today())
+            self.cal.SetDate(wx.DateTime.Today())
 
 
 #---------------------------------------------------------------------------
