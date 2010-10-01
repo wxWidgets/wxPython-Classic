@@ -63,12 +63,16 @@ class ColourSelect(wx.BitmapButton):
     def __init__(self, parent, id=wx.ID_ANY, label="", colour=wx.BLACK,
                  pos=wx.DefaultPosition, size=wx.DefaultSize,
                  callback=None, style=0):
+        size = wx.Size(*size)
         if label:
-            w, h = parent.GetTextExtent(label)
+            mdc = wx.MemoryDC(wx.EmptyBitmap(1,1))
+            w, h = mdc.GetTextExtent(label)
             w += 6
             h += 6
         else:
             w, h = 20, 20
+        size.width = size.width if size.width != -1 else w
+        size.height = size.height if size.height != -1 else h
         wx.BitmapButton.__init__(self, parent, id, wx.EmptyBitmap(w,h),
                                  pos=pos, size=size, style=style|wx.BU_AUTODRAW)
 
