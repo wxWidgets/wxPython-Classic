@@ -32,6 +32,8 @@ class CalcBarThread:
 
     def Run(self):
         while self.keepGoing:
+            # We communicate with the UI by sending events to it. There can be
+            # no manipulation of UI objects from the worker thread.
             evt = UpdateBarEvent(barNum = self.barNum, value = int(self.val))
             wx.PostEvent(self.win, evt)
  
@@ -145,7 +147,7 @@ class TestFrame(wx.Frame):
 
         self.graph = GraphWindow(self, ['Zero', 'One', 'Two', 'Three', 'Four',
                                         'Five', 'Six', 'Seven'])
-        self.graph.SetSize((450, self.graph.GetBestHeight()))
+        self.graph.SetMinSize((450, self.graph.GetBestHeight()))
 
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(panel, 0, wx.EXPAND)
