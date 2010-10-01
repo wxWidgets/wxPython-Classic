@@ -709,7 +709,8 @@ class PlotCanvas(wx.Panel):
                 dlg1.Destroy()
                 return False
 
-        dlg1.Destroy()
+        if dlg1:
+            dlg1.Destroy()
 
         # Save Bitmap
         res= self._Buffer.SaveFile(fileName, extensions[fType])
