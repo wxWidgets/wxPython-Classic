@@ -440,9 +440,10 @@ public:
     static wxString GetLabelText(const wxString& label);
 
     %pythoncode {
-        GetLabel = GetLabelText
+        GetLabel = GetItemLabelText
         GetText = GetItemLabel
         SetText = SetItemLabel
+        GetLabelFromText = GetLabelText
     }
 
     // what kind of menu item we are
