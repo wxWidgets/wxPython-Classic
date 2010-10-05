@@ -12313,9 +12313,10 @@ class MenuItem(Object):
         return _core_.MenuItem_GetLabelText(*args, **kwargs)
 
     GetLabelText = staticmethod(GetLabelText)
-    GetLabel = GetLabelText
+    GetLabel = GetItemLabelText
     GetText = GetItemLabel
     SetText = SetItemLabel
+    GetLabelFromText = GetLabelText
 
     def GetKind(*args, **kwargs):
         """GetKind(self) -> int"""
