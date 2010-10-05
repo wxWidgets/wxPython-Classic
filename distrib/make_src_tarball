@@ -2,7 +2,7 @@
 #----------------------------------------------------------------------
 # Build a source tarball for wxWidgets and wxPython
 
-set -o xtrace
+#set -o xtrace
 ##set -o errexit
 
 spectemplate=distrib/wxPythonFull.spec.in
