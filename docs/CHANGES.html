@@ -15,7 +15,7 @@
 <div class="section" id="id1">
 <h1>2.9.1.1</h1>
 <ul class="simple">
-<li></li>
+<li>14-Oct-2010</li>
 </ul>
 <p>wx.Bitmap:  Add ConvertToDisabled method.</p>
 <p>wx.AboutBox: Added support for setting a long version string in
@@ -61,6 +61,15 @@ Hughes.  It implements a simple cross-platform PDF viewer widget using
 the 3rd party pyPdf package for parseing the PDF file.  It's not super
 fast nor is it feature complete, but for simple and small PDF files
 (such as those produced by ReportLab) it works well.</p>
+<p>Probably the most notable change in this release is the addition of
+the OSX-Cocoa build, including a 64-bit architecture in the fat
+binaries.  The Cocoa port requires at least OSX 10.5, and the Carbon
+port requires 10.4 or better.  There are still some rough edges in the
+Cocoa port, but a lot does work and works well.  If you run into
+issues that seem to be Cocoa specific then be sure to create tickets
+for them at <a class="reference external" href="http://trac.wxwidgets.org">http://trac.wxwidgets.org</a> with the component set to
+wxOSX-Cocoa, after having searched for any existing tickets for the
+same issue of course.</p>
 </div>
 <div class="section" id="id2">
 <h1>2.9.0.1</h1>
