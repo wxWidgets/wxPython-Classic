@@ -25,7 +25,7 @@ if [ "$PYTHON" = "" ]; then
 	PYTHON=python$PYVER
     fi
 fi
-echo "Using:" $PYTHON
+echo "Using:" `which $PYTHON`
 $PYTHON -c "import sys;print sys.version, '\n'"
 
 
