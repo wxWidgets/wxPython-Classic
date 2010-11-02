@@ -119,7 +119,10 @@ uninitialised bitmap (`wx.Bitmap.Ok` returns False).", "");
     DocDeclStr(
         bool , IsHatch() const,
         "Is the current style a hatch type?", "");
-    
+
+    bool IsTransparent() const;
+    bool IsNonTransparent() const;
+
 
     DocDeclStr(
         bool , IsOk(),

@@ -1257,6 +1257,8 @@ enum {
 
 
 enum wxKeyCode {
+    WXK_NONE,
+    
     WXK_BACK    =    8,
     WXK_TAB     =    9,
     WXK_RETURN  =    13,

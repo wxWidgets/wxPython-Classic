@@ -182,16 +182,6 @@ enum wxTextAttrLineSpacing {
 };
 
 
-enum wxTextCtrlHitTestResult
-{
-    wxTE_HT_UNKNOWN = -2,   // this means HitTest() is simply not implemented
-    wxTE_HT_BEFORE,         // either to the left or upper
-    wxTE_HT_ON_TEXT,        // directly on
-    wxTE_HT_BELOW,          // below [the last line]
-    wxTE_HT_BEYOND          // after [the end of line]
-};
-
-
 enum {
     wxOutOfRangeTextCoord,
     wxInvalidTextCoord,
@@ -221,8 +211,8 @@ public:
 
     void Copy(const wxTextAttr& attr);
 
-    // Partial equality test taking flags into account
-    bool EqPartial(const wxTextAttr& attr, int flags) const;
+    // Partial equality test
+    bool EqPartial(const wxTextAttr& attr) const;
 
     // Get attributes from font.
     bool GetFontAttributes(const wxFont& font, int flags = wxTEXT_ATTR_FONT);
@@ -346,6 +336,8 @@ public:
     bool HasOutlineLevel() const;
 
     bool HasFlag(long flag) const;
+    void RemoveFlag(long flag);
+    void AddFlag(long flag);
 
     // Is this a character style?
     bool IsCharacterStyle() const;

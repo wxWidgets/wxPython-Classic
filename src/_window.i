@@ -1516,12 +1516,6 @@ times that Freeze was before the window will be updated.", "");
     
 
     DocDeclStr(
-        virtual void , PrepareDC( wxDC & dc ),
-        "Call this function to prepare the device context for drawing a
-scrolled image. It sets the device origin according to the current
-scroll position.", "");
-
-    DocDeclStr(
         virtual bool , IsDoubleBuffered() const,
         "Returns ``True`` if the window contents is double-buffered by the
 system, i.e. if any drawing done on the window is really done on a
@@ -1869,7 +1863,8 @@ mouse cursor will be used.", "");
 
     
     DocDeclStr(
-        int , GetPopupMenuSelectionFromUser(wxMenu& menu, const wxPoint& pos),
+        int , GetPopupMenuSelectionFromUser(wxMenu& menu,
+                                            const wxPoint& pos=wxDefaultPosition),
         "Simply return the id of the selected item or wxID_NONE without
 generating any events.", "");
     

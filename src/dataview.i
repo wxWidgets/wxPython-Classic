@@ -659,6 +659,10 @@ changes in sub-elements of an item, not just the whole item (row).", "");
         "Override this to be informed that all data has been cleared.  The
 control will read the visible data items from the model again.", "");
 
+    virtual bool BeforeReset();
+    virtual bool AfterReset();
+
+    
     DocDeclStr(
         virtual void , Resort(),
         "Override this to be informed that a resort has been initiated after
@@ -693,6 +697,8 @@ public:
     PYCALLBACK_BOOL_DVIA(wxDataViewModelNotifier, ItemsChanged)
 
     PYCALLBACK_BOOL_DVIUINT_pure(wxDataViewModelNotifier, ValueChanged)
+    PYCALLBACK_BOOL_(wxDataViewModelNotifier, BeforeReset)
+    PYCALLBACK_BOOL_(wxDataViewModelNotifier, AfterReset)
     PYCALLBACK_BOOL__pure(wxDataViewModelNotifier, Cleared)
     PYCALLBACK_VOID__pure(wxDataViewModelNotifier, Resort)
 
@@ -903,48 +909,53 @@ given item, and the number of children should be returned.", "");
 
 
     DocDeclStr(
-        virtual bool , ItemAdded( const wxDataViewItem &parent, const wxDataViewItem &item ),
+        bool , ItemAdded( const wxDataViewItem &parent, const wxDataViewItem &item ),
         "Call this to inform the registered notifiers that an item has been
 added to the model.", "");
 
     DocDeclStr(
-        virtual bool , ItemsAdded( const wxDataViewItem &parent, const wxDataViewItemArray &items ),
+        bool , ItemsAdded( const wxDataViewItem &parent, const wxDataViewItemArray &items ),
         "Call this to inform the registered notifiers that multiple items have
 been added to the data model.", "");
 
     DocDeclStr(
-        virtual bool , ItemDeleted( const wxDataViewItem &parent, const wxDataViewItem &item ),
+        bool , ItemDeleted( const wxDataViewItem &parent, const wxDataViewItem &item ),
         "Call this to inform the registered notifiers that an item has been
 deleted from the model.", "");
 
     DocDeclStr(
-        virtual bool , ItemsDeleted( const wxDataViewItem &parent, const wxDataViewItemArray &items ),
+        bool , ItemsDeleted( const wxDataViewItem &parent, const wxDataViewItemArray &items ),
         "Call this to inform the registered notifiers that multiple items have
 been deleted from the data model.", "");
 
     DocDeclStr(
-        virtual bool , ItemChanged( const wxDataViewItem &item ),
+        bool , ItemChanged( const wxDataViewItem &item ),
         "Call this to inform the registered notifiers that an item has changed.
 This will eventually result in a EVT_DATAVIEW_ITEM_VALUE_CHANGED
 event, in which the column field will not be set.", "");
 
     DocDeclStr(
-        virtual bool , ItemsChanged( const wxDataViewItemArray &items ),
+        bool , ItemsChanged( const wxDataViewItemArray &items ),
         "Call this to inform the registered notifiers that multiple items have
 changed.  This will eventually result in EVT_DATAVIEW_ITEM_VALUE_CHANGED
 events, in which the column field will not be set.", "");
 
     DocDeclStr(
-        virtual bool , ValueChanged( const wxDataViewItem &item, unsigned int col ),
+        bool , ValueChanged( const wxDataViewItem &item, unsigned int col ),
         "Call this to inform the registered notifiers that a value in the model
 has been changed.  This will eventually result in a EVT_DATAVIEW_ITEM_VALUE_CHANGED
 event.", "");
 
     DocDeclStr(
-        virtual bool , Cleared(),
+        bool , Cleared(),
         "Call this to inform the registered notifiers that all data has been
 cleared.  The control will then reread the data from the model again.", "");
 
+    
+    bool BeforeReset();
+    bool AfterReset();
+
+    
     DocDeclStr(
         virtual void , Resort(),
         "Call this to initiate a resort after the sort function has been changed.", "");
@@ -975,7 +986,9 @@ index or order of appearance) is required, then this should be used.", "");
 
 
     // internal
+    virtual bool IsListModel() const;
     virtual bool IsVirtualListModel() const;
+    
 };
 
 
@@ -1966,13 +1979,21 @@ public:
                    const wxPoint& pos = wxDefaultPosition,
                    const wxSize& size = wxDefaultSize,
                    long style = 0,
-                   const wxValidator& validator = wxDefaultValidator);
+                   const wxValidator& validator = wxDefaultValidator,
+                   const wxString& name = wxDataViewCtrlNameStr);
     %RenameCtor(PreDataViewCtrl, wxDataViewCtrl());
 
     // Turn it back on again
     %typemap(out) wxDataViewCtrl* { $result = wxPyMake_wxObject($1, $owner); }
 
+    bool Create(wxWindow *parent,
+                wxWindowID id=-1,
+                const wxPoint& pos = wxDefaultPosition,
+                const wxSize& size = wxDefaultSize, long style = 0,
+                const wxValidator& validator = wxDefaultValidator,
+                const wxString& name = wxDataViewCtrlNameStr);
 
+    
     virtual bool AssociateModel( wxDataViewModel *model );
     wxDataViewModel* GetModel();
     //%pythoncode { SetModel = AssociateModel }
@@ -2195,6 +2216,9 @@ public:
     void SetIndent( int indent );
     int GetIndent() const;
 
+    wxDataViewItem GetCurrentItem() const;
+    void SetCurrentItem(const wxDataViewItem& item);
+        
     virtual wxDataViewItem GetSelection() const;
 
     //virtual int GetSelections( wxDataViewItemArray & sel ) const;
@@ -2423,6 +2447,15 @@ public:
 
     wxDataViewListStore *GetStore();
 
+    int ItemToRow(const wxDataViewItem &item) const;
+    wxDataViewItem RowToItem(int row) const;
+
+    int GetSelectedRow() const;
+    void SelectRow(unsigned row);
+    void UnselectRow(unsigned row);
+    bool IsRowSelected(unsigned row) const;
+
+    
     bool AppendColumn( wxDataViewColumn *column, const wxString &varianttype="string" );
     bool PrependColumn( wxDataViewColumn *column, const wxString &varianttype="string" );
     bool InsertColumn( unsigned int pos, wxDataViewColumn *column,

@@ -51,8 +51,9 @@ public:
 
     // Constructor.
     wxHyperlinkCtrl(wxWindow *parent,
-                    wxWindowID id,
-                    const wxString& label, const wxString& url,
+                    wxWindowID id=-1,
+                    const wxString& label = wxEmptyString,
+                    const wxString& url = wxEmptyString,
                     const wxPoint& pos = wxDefaultPosition,
                     const wxSize& size = wxDefaultSize,
                     long style = wxHL_DEFAULT_STYLE,
@@ -61,8 +62,9 @@ public:
 
     // Creation function (for two-step construction).
     bool Create(wxWindow *parent,
-                wxWindowID id,
-                const wxString& label, const wxString& url,
+                wxWindowID id=-1,
+                const wxString& label = wxEmptyString,
+                const wxString& url = wxEmptyString,
                 const wxPoint& pos = wxDefaultPosition,
                 const wxSize& size = wxDefaultSize,
                 long style = wxHL_DEFAULT_STYLE,

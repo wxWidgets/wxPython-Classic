@@ -192,6 +192,11 @@ public:
     %pythoncode { CentreOnScreen = CenterOnScreen }
 
 
+    // Get the default size for a new top level window. This is used when
+    // creating a wxTLW under some platforms if no explicit size given.
+    static wxSize GetDefaultSize();
+    
+
     DocDeclStr(
         virtual wxWindow *, GetDefaultItem() const,
         "Get the default child of this parent, i.e. the one which is activated
@@ -432,7 +437,14 @@ public:
     // splits text up at newlines and places the
     // lines into a vertical wxBoxSizer
     wxSizer* CreateTextSizer( const wxString &message );
+    
+    // TODO:  wxSizer *CreateTextSizer( const wxString& message,
+    //                           wxTextSizerWrapper& wrapper );
 
+
+    // returns a sizer containing the given one and a static line separating it
+    // from the preceding elements if it's appropriate for the current platform
+    wxSizer *CreateSeparatedSizer(wxSizer *sizer);
 
     // returns a horizontal wxBoxSizer containing the given buttons
     //

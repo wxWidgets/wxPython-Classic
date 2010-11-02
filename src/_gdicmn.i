@@ -381,6 +381,13 @@ public:
 
     ~wxPoint();
 
+
+    // check if both components are set/initialized
+    bool IsFullySpecified() const;
+
+    // fill in the unset components with the values from the other point
+    void SetDefaults(const wxPoint& pt);
+    
     
     %extend {
         DocStr(__eq__, "Test for equality of wx.Point objects.", "");

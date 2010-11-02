@@ -19,6 +19,7 @@
 %{
 #include "wx/wxPython/wxPython.h"
 #include "wx/wxPython/pyclasses.h"
+#include "wx/wxPython/pytree.h"
 #include "wx/wxPython/printfw.h"
 #include "wx/wxPython/twoitem.h"
 
@@ -31,11 +32,13 @@ class wxBufferedPaintDC;
 class wxMetaFile;
 class wxMetaFileDC;
 class wxPrinterDC;
+class wxPyTreeCtrl;
 %}
 
 //----------------------------------------------------------------------
 
 %import windows.i
+%import controls.i
 
 %pythoncode { wx = _core }
 %pythoncode { __docfilter__ = wx.__DocFilter(globals()) }

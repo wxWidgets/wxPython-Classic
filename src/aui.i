@@ -144,6 +144,7 @@ The following example shows a simple implementation that utilizes
 
 #define WXDLLIMPEXP_AUI
 #define WXDLLIMPEXP_FWD_AUI
+#define WXDLLIMPEXP_FWD_CORE
 #define unsigned
 #define wxDEPRECATED(decl)
 #define DECLARE_EVENT_TABLE()

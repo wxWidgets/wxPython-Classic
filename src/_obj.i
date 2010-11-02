@@ -65,6 +65,7 @@ public:
 };
 
 
+typedef wxRefCounter wxObjectRefData;
 
 
 

@@ -158,7 +158,10 @@ public:
     %property(Stipple, GetStipple, SetStipple, doc="See `GetStipple` and `SetStipple`");
 #endif
 
+    bool IsTransparent() const;
+    bool IsNonTransparent() const;
     
+
     %extend {
         bool __eq__(const wxPen* other) { return other ? (*self == *other) : false; }
         bool __ne__(const wxPen* other) { return other ? (*self != *other) : true;  }

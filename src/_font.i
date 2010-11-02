@@ -210,7 +210,11 @@ enum wxFontEncoding
     wxFONTENCODING_BIG5 = wxFONTENCODING_CP950,   // Traditional Chinese
 
         // Japanese (see http://zsigri.tripod.com/fontboard/cjk/jis.html)
-    wxFONTENCODING_SHIFT_JIS = wxFONTENCODING_CP932 // Shift JIS
+    wxFONTENCODING_SHIFT_JIS = wxFONTENCODING_CP932, // Shift JIS
+
+        // Korean (CP 949 not actually the same but close enough)
+    wxFONTENCODING_EUC_KR = wxFONTENCODING_CP949
+    
 };
 
 //---------------------------------------------------------------------------
