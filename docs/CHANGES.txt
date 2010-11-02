@@ -14,7 +14,9 @@ other platforms it is a generic implementation using wx.Button.
 Added wx.lib.itemspicker.  This class allows items to be selected from
 a list by moving them to another list.
 
-
+Added wx.UIActionSimulator, which is able to programatically generate
+platform specific keyboard and mouse events, (with varying degrees of
+success depending on platform.)
 
 
 

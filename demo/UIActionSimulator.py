@@ -1,9 +1,3 @@
-# NOTE: This module is in the demo because I started adding support
-# for the UIAction class but found that it was not fully implemented
-# at the time and now its API is going to be having big changes in
-# 2.9.2 so for now wxPython support for the class is on hold.  Just
-# ignore this module for now...
-
 
 import wx
 import wx.lib.buttons as buttons
@@ -79,11 +73,11 @@ class TestPanel(wx.Panel):
             self._setNextKeyEvent()
             
             
-    def _playbackKey(self, evtType, key, shift, cmd, alt):
+    def _playbackKey(self, evtType, key, modifiers):
         if evtType == 'down':
-            self.uisim.KeyDown(key, shift, cmd, alt)
+            self.uisim.KeyDown(key, modifiers)
         elif evtType == 'up':
-            self.uisim.KeyUp(key, shift, cmd, alt)
+            self.uisim.KeyUp(key, modifiers)
 
         if self._playbackEvents:
             self._setNextKeyEvent()
@@ -92,10 +86,10 @@ class TestPanel(wx.Panel):
             
 
     def _setNextKeyEvent(self):
-        evtType, key, shift, cmd, alt, milli = self._playbackEvents.pop(0)
-        milli = max(milli, 1)
-        print (evtType, key, shift, cmd, alt, milli)
-        wx.CallLater(milli, self._playbackKey, evtType, key, shift, cmd, alt)
+        evtType, key, modifiers, milli = self._playbackEvents.pop(0)
+        milli = max(milli/2, 1)
+        print (evtType, key, modifiers, milli)
+        wx.CallLater(milli, self._playbackKey, evtType, key, modifiers)
             
     
     def _onKeyEvent(self, evt, evtType):
@@ -103,10 +97,8 @@ class TestPanel(wx.Panel):
         if not self.recordingKeys:
             return
         evtInfo = ( evtType,
-                    evt.RawKeyCode,
-                    evt.shiftDown,
-                    evt.cmdDown,
-                    evt.altDown,
+                    evt.KeyCode,
+                    evt.Modifiers,
                     self.stopwatchKeys.Time(),
                     )
         self.keyEvents.append(evtInfo)
