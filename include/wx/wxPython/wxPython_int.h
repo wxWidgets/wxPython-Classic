@@ -102,6 +102,7 @@
 #include <wx/generic/datectrl.h>
 #include <wx/filectrl.h>
 #include <wx/notifmsg.h>
+#include <wx/commandlinkbutton.h>
 
 #ifdef _MSC_VER
 # pragma warning(disable:4800)
