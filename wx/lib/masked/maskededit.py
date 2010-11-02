@@ -3876,7 +3876,7 @@ class MaskedEditMixin:
 ##                    dbg('cursor before 1st field; go to start of field')
                     wx.CallAfter(self._SetInsertionPoint, field_start)
                     if field._selectOnFieldEntry:
-                        wx.CallAfter(self._SetSelection, field_start, field_end)
+                        wx.CallAfter(self._SetSelection, field_end, field_start)
                     else:
                         wx.CallAfter(self._SetSelection, field_start, field_start)
                     return False
@@ -3922,7 +3922,7 @@ class MaskedEditMixin:
                             wx.CallAfter(self._SetInsertionPoint, next_pos)
                             edit_start, edit_end = self._FindFieldExtent(next_pos)
 ##                            dbg('queuing select', edit_start, edit_end)
-                            wx.CallAfter(self._SetSelection, edit_start, edit_end)
+                            wx.CallAfter(self._SetSelection, edit_end, edit_start)
                         else:
                             if field._insertRight:
                                 next_pos = field._extent[1]
@@ -3961,7 +3961,7 @@ class MaskedEditMixin:
             wx.CallAfter(self._SetInsertionPoint, start)
             if fraction._selectOnFieldEntry:
 ##                dbg('queuing selection after decimal point to:', (start, end))
-                wx.CallAfter(self._SetSelection, start, end)
+                wx.CallAfter(self._SetSelection, end, start)
             else:
                 wx.CallAfter(self._SetSelection, start, start)
             keep_processing = False
