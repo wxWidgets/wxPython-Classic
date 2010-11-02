@@ -117,7 +117,8 @@ class BaseMaskedTextCtrl( wx.TextCtrl, MaskedEditMixin ):
         REQUIRED by any class derived from MaskedEditMixin.
         """
 ####        dbg("MaskedTextCtrl::_SetSelection(%(sel_start)d, %(sel_to)d)" % locals())
-        return self.SetSelection( sel_start, sel_to )
+        if self:
+            return self.SetSelection( sel_start, sel_to )
 
 ##    def SetSelection(self, sel_start, sel_to):
 ##        """
@@ -132,7 +133,8 @@ class BaseMaskedTextCtrl( wx.TextCtrl, MaskedEditMixin ):
 
     def _SetInsertionPoint(self, pos):
 ####        dbg("MaskedTextCtrl::_SetInsertionPoint(%(pos)d)" % locals())
-        self.SetInsertionPoint(pos)
+        if self:
+            self.SetInsertionPoint(pos)
 
 ##    def SetInsertionPoint(self, pos):
 ##        """
