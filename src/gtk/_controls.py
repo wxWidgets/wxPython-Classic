@@ -1508,11 +1508,6 @@ TEXT_ATTR_EFFECT_SUBSCRIPT = _controls_.TEXT_ATTR_EFFECT_SUBSCRIPT
 TEXT_ATTR_LINE_SPACING_NORMAL = _controls_.TEXT_ATTR_LINE_SPACING_NORMAL
 TEXT_ATTR_LINE_SPACING_HALF = _controls_.TEXT_ATTR_LINE_SPACING_HALF
 TEXT_ATTR_LINE_SPACING_TWICE = _controls_.TEXT_ATTR_LINE_SPACING_TWICE
-TE_HT_UNKNOWN = _controls_.TE_HT_UNKNOWN
-TE_HT_BEFORE = _controls_.TE_HT_BEFORE
-TE_HT_ON_TEXT = _controls_.TE_HT_ON_TEXT
-TE_HT_BELOW = _controls_.TE_HT_BELOW
-TE_HT_BEYOND = _controls_.TE_HT_BEYOND
 OutOfRangeTextCoord = _controls_.OutOfRangeTextCoord
 InvalidTextCoord = _controls_.InvalidTextCoord
 TEXT_TYPE_ANY = _controls_.TEXT_TYPE_ANY
@@ -1537,7 +1532,7 @@ class TextAttr(object):
         return _controls_.TextAttr_Copy(*args, **kwargs)
 
     def EqPartial(*args, **kwargs):
-        """EqPartial(self, TextAttr attr, int flags) -> bool"""
+        """EqPartial(self, TextAttr attr) -> bool"""
         return _controls_.TextAttr_EqPartial(*args, **kwargs)
 
     def GetFontAttributes(*args, **kwargs):
@@ -1912,6 +1907,14 @@ class TextAttr(object):
     def HasFlag(*args, **kwargs):
         """HasFlag(self, long flag) -> bool"""
         return _controls_.TextAttr_HasFlag(*args, **kwargs)
+
+    def RemoveFlag(*args, **kwargs):
+        """RemoveFlag(self, long flag)"""
+        return _controls_.TextAttr_RemoveFlag(*args, **kwargs)
+
+    def AddFlag(*args, **kwargs):
+        """AddFlag(self, long flag)"""
+        return _controls_.TextAttr_AddFlag(*args, **kwargs)
 
     def IsCharacterStyle(*args, **kwargs):
         """IsCharacterStyle(self) -> bool"""
@@ -6823,9 +6826,10 @@ class HyperlinkCtrl(_core.Control):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, Window parent, int id, String label, String url, Point pos=DefaultPosition, 
-            Size size=DefaultSize, 
-            long style=HL_DEFAULT_STYLE, String name=HyperlinkCtrlNameStr) -> HyperlinkCtrl
+        __init__(self, Window parent, int id=-1, String label=wxEmptyString, 
+            String url=wxEmptyString, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=HL_DEFAULT_STYLE, 
+            String name=HyperlinkCtrlNameStr) -> HyperlinkCtrl
 
         A static text control that emulates a hyperlink. The link is displayed
         in an appropriate text style, derived from the control's normal font.
@@ -6842,9 +6846,10 @@ class HyperlinkCtrl(_core.Control):
 
     def Create(*args, **kwargs):
         """
-        Create(self, Window parent, int id, String label, String url, Point pos=DefaultPosition, 
-            Size size=DefaultSize, 
-            long style=HL_DEFAULT_STYLE, String name=HyperlinkCtrlNameStr) -> bool
+        Create(self, Window parent, int id=-1, String label=wxEmptyString, 
+            String url=wxEmptyString, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=HL_DEFAULT_STYLE, 
+            String name=HyperlinkCtrlNameStr) -> bool
         """
         return _controls_.HyperlinkCtrl_Create(*args, **kwargs)
 
@@ -7984,6 +7989,66 @@ def PreInfoBar(*args, **kwargs):
     similarly to message bars in current web browsers.
     """
     val = _controls_.new_PreInfoBar(*args, **kwargs)
+    return val
+
+#---------------------------------------------------------------------------
+
+class CommandLinkButton(Button):
+    """Proxy of C++ CommandLinkButton class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int id=-1, String mainLabel=wxEmptyString, 
+            String note=wxEmptyString, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=0, 
+            Validator validator=DefaultValidator, 
+            String name=wxButtonNameStr) -> CommandLinkButton
+        """
+        _controls_.CommandLinkButton_swiginit(self,_controls_.new_CommandLinkButton(*args, **kwargs))
+        self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int id=-1, String mainLabel=wxEmptyString, 
+            String note=wxEmptyString, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=0, 
+            Validator validator=DefaultValidator, 
+            String name=wxButtonNameStr) -> bool
+        """
+        return _controls_.CommandLinkButton_Create(*args, **kwargs)
+
+    def SetMainLabelAndNote(*args, **kwargs):
+        """SetMainLabelAndNote(self, String mainLabel, String note)"""
+        return _controls_.CommandLinkButton_SetMainLabelAndNote(*args, **kwargs)
+
+    def SetMainLabel(*args, **kwargs):
+        """SetMainLabel(self, String mainLabel)"""
+        return _controls_.CommandLinkButton_SetMainLabel(*args, **kwargs)
+
+    def SetNote(*args, **kwargs):
+        """SetNote(self, String note)"""
+        return _controls_.CommandLinkButton_SetNote(*args, **kwargs)
+
+    def GetMainLabel(*args, **kwargs):
+        """GetMainLabel(self) -> String"""
+        return _controls_.CommandLinkButton_GetMainLabel(*args, **kwargs)
+
+    def GetNote(*args, **kwargs):
+        """GetNote(self) -> String"""
+        return _controls_.CommandLinkButton_GetNote(*args, **kwargs)
+
+    MainLabel = property(GetMainLabel,SetMainLabel) 
+    Note = property(GetNote,SetNote) 
+_controls_.CommandLinkButton_swigregister(CommandLinkButton)
+
+def PreCommandLinkButton(*args, **kwargs):
+    """
+    PreCommandLinkButton() -> CommandLinkButton
+
+    Precreate a Button for 2-phase creation.
+    """
+    val = _controls_.new_PreCommandLinkButton(*args, **kwargs)
     return val
 
 

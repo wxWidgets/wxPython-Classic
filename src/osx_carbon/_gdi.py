@@ -460,6 +460,14 @@ class Pen(GDIObject):
         """
         self._SetDashes(self, dashes)
 
+    def IsTransparent(*args, **kwargs):
+        """IsTransparent(self) -> bool"""
+        return _gdi_.Pen_IsTransparent(*args, **kwargs)
+
+    def IsNonTransparent(*args, **kwargs):
+        """IsNonTransparent(self) -> bool"""
+        return _gdi_.Pen_IsNonTransparent(*args, **kwargs)
+
     def __eq__(*args, **kwargs):
         """__eq__(self, Pen other) -> bool"""
         return _gdi_.Pen___eq__(*args, **kwargs)
@@ -568,6 +576,14 @@ class Brush(GDIObject):
         Is the current style a hatch type?
         """
         return _gdi_.Brush_IsHatch(*args, **kwargs)
+
+    def IsTransparent(*args, **kwargs):
+        """IsTransparent(self) -> bool"""
+        return _gdi_.Brush_IsTransparent(*args, **kwargs)
+
+    def IsNonTransparent(*args, **kwargs):
+        """IsNonTransparent(self) -> bool"""
+        return _gdi_.Brush_IsNonTransparent(*args, **kwargs)
 
     def IsOk(*args, **kwargs):
         """
@@ -1829,6 +1845,7 @@ FONTENCODING_UNICODE = _gdi_.FONTENCODING_UNICODE
 FONTENCODING_GB2312 = _gdi_.FONTENCODING_GB2312
 FONTENCODING_BIG5 = _gdi_.FONTENCODING_BIG5
 FONTENCODING_SHIFT_JIS = _gdi_.FONTENCODING_SHIFT_JIS
+FONTENCODING_EUC_KR = _gdi_.FONTENCODING_EUC_KR
 #---------------------------------------------------------------------------
 
 class NativeFontInfo(object):

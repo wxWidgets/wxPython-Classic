@@ -559,6 +559,10 @@ class AuiPaneInfo(object):
     dock_proportion = property(_aui.AuiPaneInfo_dock_proportion_get, _aui.AuiPaneInfo_dock_proportion_set)
     buttons = property(_aui.AuiPaneInfo_buttons_get, _aui.AuiPaneInfo_buttons_set)
     rect = property(_aui.AuiPaneInfo_rect_get, _aui.AuiPaneInfo_rect_set)
+    def IsValid(*args, **kwargs):
+        """IsValid(self) -> bool"""
+        return _aui.AuiPaneInfo_IsValid(*args, **kwargs)
+
 _aui.AuiPaneInfo_swigregister(AuiPaneInfo)
 cvar = _aui.cvar
 
@@ -1787,7 +1791,9 @@ AUI_TB_GRIPPER = _aui.AUI_TB_GRIPPER
 AUI_TB_OVERFLOW = _aui.AUI_TB_OVERFLOW
 AUI_TB_VERTICAL = _aui.AUI_TB_VERTICAL
 AUI_TB_HORZ_LAYOUT = _aui.AUI_TB_HORZ_LAYOUT
+AUI_TB_HORIZONTAL = _aui.AUI_TB_HORIZONTAL
 AUI_TB_HORZ_TEXT = _aui.AUI_TB_HORZ_TEXT
+AUI_ORIENTATION_MASK = _aui.AUI_ORIENTATION_MASK
 AUI_TB_DEFAULT_STYLE = _aui.AUI_TB_DEFAULT_STYLE
 AUI_TBART_SEPARATOR_SIZE = _aui.AUI_TBART_SEPARATOR_SIZE
 AUI_TBART_GRIPPER_SIZE = _aui.AUI_TBART_GRIPPER_SIZE
@@ -2361,6 +2367,14 @@ class AuiToolBar(_core.Control):
     def SetCustomOverflowItems(*args, **kwargs):
         """SetCustomOverflowItems(self, wxAuiToolBarItemArray prepend, wxAuiToolBarItemArray append)"""
         return _aui.AuiToolBar_SetCustomOverflowItems(*args, **kwargs)
+
+    def GetHintSize(*args, **kwargs):
+        """GetHintSize(self, int dock_direction) -> Size"""
+        return _aui.AuiToolBar_GetHintSize(*args, **kwargs)
+
+    def IsPaneValid(*args, **kwargs):
+        """IsPaneValid(self, AuiPaneInfo pane) -> bool"""
+        return _aui.AuiToolBar_IsPaneValid(*args, **kwargs)
 
 _aui.AuiToolBar_swigregister(AuiToolBar)
 

@@ -6571,6 +6571,68 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Point_IsFullySpecified(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPoint *arg1 = (wxPoint *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPoint, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Point_IsFullySpecified" "', expected argument " "1"" of type '" "wxPoint const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPoint * >(argp1);
+  {
+    result = (bool)((wxPoint const *)arg1)->IsFullySpecified();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Point_SetDefaults(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPoint *arg1 = (wxPoint *) 0 ;
+  wxPoint *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxPoint temp2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pt", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Point_SetDefaults",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPoint, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Point_SetDefaults" "', expected argument " "1"" of type '" "wxPoint *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPoint * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxPoint_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    (arg1)->SetDefaults((wxPoint const &)*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Point___eq__(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPoint *arg1 = (wxPoint *) 0 ;
@@ -42973,47 +43035,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Window_PrepareDC(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxWindow *arg1 = (wxWindow *) 0 ;
-  wxDC *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "dc", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Window_PrepareDC",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Window_PrepareDC" "', expected argument " "1"" of type '" "wxWindow *""'"); 
-  }
-  arg1 = reinterpret_cast< wxWindow * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDC,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Window_PrepareDC" "', expected argument " "2"" of type '" "wxDC &""'"); 
-  }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Window_PrepareDC" "', expected argument " "2"" of type '" "wxDC &""'"); 
-  }
-  arg2 = reinterpret_cast< wxDC * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->PrepareDC(*arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_Window_IsDoubleBuffered(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
@@ -44717,7 +44738,8 @@ SWIGINTERN PyObject *_wrap_Window_GetPopupMenuSelectionFromUser(PyObject *SWIGUN
   PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
   wxMenu *arg2 = 0 ;
-  wxPoint *arg3 = 0 ;
+  wxPoint const &arg3_defvalue = wxDefaultPosition ;
+  wxPoint *arg3 = (wxPoint *) &arg3_defvalue ;
   int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -44731,7 +44753,7 @@ SWIGINTERN PyObject *_wrap_Window_GetPopupMenuSelectionFromUser(PyObject *SWIGUN
     (char *) "self",(char *) "menu",(char *) "pos", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:Window_GetPopupMenuSelectionFromUser",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:Window_GetPopupMenuSelectionFromUser",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Window_GetPopupMenuSelectionFromUser" "', expected argument " "1"" of type '" "wxWindow *""'"); 
@@ -44745,9 +44767,11 @@ SWIGINTERN PyObject *_wrap_Window_GetPopupMenuSelectionFromUser(PyObject *SWIGUN
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Window_GetPopupMenuSelectionFromUser" "', expected argument " "2"" of type '" "wxMenu &""'"); 
   }
   arg2 = reinterpret_cast< wxMenu * >(argp2);
-  {
-    arg3 = &temp3;
-    if ( ! wxPoint_helper(obj2, &arg3)) SWIG_fail;
+  if (obj2) {
+    {
+      arg3 = &temp3;
+      if ( ! wxPoint_helper(obj2, &arg3)) SWIG_fail;
+    }
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -68712,6 +68736,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Point_y_get", (PyCFunction)_wrap_Point_y_get, METH_O, NULL},
 	 { (char *)"new_Point", (PyCFunction) _wrap_new_Point, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"delete_Point", (PyCFunction)_wrap_delete_Point, METH_O, NULL},
+	 { (char *)"Point_IsFullySpecified", (PyCFunction)_wrap_Point_IsFullySpecified, METH_O, NULL},
+	 { (char *)"Point_SetDefaults", (PyCFunction) _wrap_Point_SetDefaults, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Point___eq__", (PyCFunction) _wrap_Point___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Point___ne__", (PyCFunction) _wrap_Point___ne__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Point___add__", (PyCFunction) _wrap_Point___add__, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -69860,7 +69886,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Window_Freeze", (PyCFunction)_wrap_Window_Freeze, METH_O, NULL},
 	 { (char *)"Window_IsFrozen", (PyCFunction)_wrap_Window_IsFrozen, METH_O, NULL},
 	 { (char *)"Window_Thaw", (PyCFunction)_wrap_Window_Thaw, METH_O, NULL},
-	 { (char *)"Window_PrepareDC", (PyCFunction) _wrap_Window_PrepareDC, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_IsDoubleBuffered", (PyCFunction)_wrap_Window_IsDoubleBuffered, METH_O, NULL},
 	 { (char *)"Window_SetDoubleBuffered", (PyCFunction) _wrap_Window_SetDoubleBuffered, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_GetUpdateRegion", (PyCFunction)_wrap_Window_GetUpdateRegion, METH_O, NULL},
@@ -71311,7 +71336,7 @@ static swig_type_info _swigt__p_wxQueryNewPaletteEvent = {"_p_wxQueryNewPaletteE
 static swig_type_info _swigt__p_wxRealPoint = {"_p_wxRealPoint", "wxRealPoint *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRect = {"_p_wxRect", "wxRect *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRect2D = {"_p_wxRect2D", "wxRect2D *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxRefCounter = {"_p_wxRefCounter", "wxRefCounter *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxRefCounter = {"_p_wxRefCounter", "wxRefCounter *|wxObjectRefData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRegion = {"_p_wxRegion", "wxRegion *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxScrollEvent = {"_p_wxScrollEvent", "wxScrollEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxScrollWinEvent = {"_p_wxScrollWinEvent", "wxScrollWinEvent *", 0, 0, (void*)0, 0};
@@ -72695,6 +72720,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "CROSS_HATCH",SWIG_From_int(static_cast< int >(wxCROSS_HATCH)));
   SWIG_Python_SetConstant(d, "HORIZONTAL_HATCH",SWIG_From_int(static_cast< int >(wxHORIZONTAL_HATCH)));
   SWIG_Python_SetConstant(d, "VERTICAL_HATCH",SWIG_From_int(static_cast< int >(wxVERTICAL_HATCH)));
+  SWIG_Python_SetConstant(d, "WXK_NONE",SWIG_From_int(static_cast< int >(WXK_NONE)));
   SWIG_Python_SetConstant(d, "WXK_BACK",SWIG_From_int(static_cast< int >(WXK_BACK)));
   SWIG_Python_SetConstant(d, "WXK_TAB",SWIG_From_int(static_cast< int >(WXK_TAB)));
   SWIG_Python_SetConstant(d, "WXK_RETURN",SWIG_From_int(static_cast< int >(WXK_RETURN)));

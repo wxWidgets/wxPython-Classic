@@ -256,6 +256,14 @@ class DataViewModelNotifier(object):
         """
         return _dataview.DataViewModelNotifier_Cleared(*args, **kwargs)
 
+    def BeforeReset(*args, **kwargs):
+        """BeforeReset(self) -> bool"""
+        return _dataview.DataViewModelNotifier_BeforeReset(*args, **kwargs)
+
+    def AfterReset(*args, **kwargs):
+        """AfterReset(self) -> bool"""
+        return _dataview.DataViewModelNotifier_AfterReset(*args, **kwargs)
+
     def Resort(*args, **kwargs):
         """
         Resort(self)
@@ -605,6 +613,14 @@ class DataViewModel(_core.RefCounter):
         """
         return _dataview.DataViewModel_Cleared(*args, **kwargs)
 
+    def BeforeReset(*args, **kwargs):
+        """BeforeReset(self) -> bool"""
+        return _dataview.DataViewModel_BeforeReset(*args, **kwargs)
+
+    def AfterReset(*args, **kwargs):
+        """AfterReset(self) -> bool"""
+        return _dataview.DataViewModel_AfterReset(*args, **kwargs)
+
     def Resort(*args, **kwargs):
         """
         Resort(self)
@@ -645,6 +661,10 @@ class DataViewModel(_core.RefCounter):
         index or order of appearance) is required, then this should be used.
         """
         return _dataview.DataViewModel_HasDefaultCompare(*args, **kwargs)
+
+    def IsListModel(*args, **kwargs):
+        """IsListModel(self) -> bool"""
+        return _dataview.DataViewModel_IsListModel(*args, **kwargs)
 
     def IsVirtualListModel(*args, **kwargs):
         """IsVirtualListModel(self) -> bool"""
@@ -1482,10 +1502,21 @@ class DataViewCtrl(_core.Control):
     def __init__(self, *args, **kwargs): 
         """
         __init__(self, Window parent, int id=ID_ANY, Point pos=DefaultPosition, 
-            Size size=DefaultSize, long style=0, Validator validator=DefaultValidator) -> DataViewCtrl
+            Size size=DefaultSize, long style=0, Validator validator=DefaultValidator, 
+            String name=wxDataViewCtrlNameStr) -> DataViewCtrl
         """
         _dataview.DataViewCtrl_swiginit(self,_dataview.new_DataViewCtrl(*args, **kwargs))
         self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=0, Validator validator=DefaultValidator, 
+            String name=wxDataViewCtrlNameStr) -> bool
+
+        Do the 2nd phase and create the GUI control.
+        """
+        return _dataview.DataViewCtrl_Create(*args, **kwargs)
 
     def AssociateModel(*args, **kwargs):
         """AssociateModel(self, DataViewModel model) -> bool"""
@@ -1648,6 +1679,14 @@ class DataViewCtrl(_core.Control):
     def GetIndent(*args, **kwargs):
         """GetIndent(self) -> int"""
         return _dataview.DataViewCtrl_GetIndent(*args, **kwargs)
+
+    def GetCurrentItem(*args, **kwargs):
+        """GetCurrentItem(self) -> DataViewItem"""
+        return _dataview.DataViewCtrl_GetCurrentItem(*args, **kwargs)
+
+    def SetCurrentItem(*args, **kwargs):
+        """SetCurrentItem(self, DataViewItem item)"""
+        return _dataview.DataViewCtrl_SetCurrentItem(*args, **kwargs)
 
     def GetSelection(*args, **kwargs):
         """GetSelection(self) -> DataViewItem"""
@@ -1949,6 +1988,30 @@ class DataViewListCtrl(DataViewCtrl):
     def GetStore(*args, **kwargs):
         """GetStore(self) -> DataViewListStore"""
         return _dataview.DataViewListCtrl_GetStore(*args, **kwargs)
+
+    def ItemToRow(*args, **kwargs):
+        """ItemToRow(self, DataViewItem item) -> int"""
+        return _dataview.DataViewListCtrl_ItemToRow(*args, **kwargs)
+
+    def RowToItem(*args, **kwargs):
+        """RowToItem(self, int row) -> DataViewItem"""
+        return _dataview.DataViewListCtrl_RowToItem(*args, **kwargs)
+
+    def GetSelectedRow(*args, **kwargs):
+        """GetSelectedRow(self) -> int"""
+        return _dataview.DataViewListCtrl_GetSelectedRow(*args, **kwargs)
+
+    def SelectRow(*args, **kwargs):
+        """SelectRow(self, unsigned int row)"""
+        return _dataview.DataViewListCtrl_SelectRow(*args, **kwargs)
+
+    def UnselectRow(*args, **kwargs):
+        """UnselectRow(self, unsigned int row)"""
+        return _dataview.DataViewListCtrl_UnselectRow(*args, **kwargs)
+
+    def IsRowSelected(*args, **kwargs):
+        """IsRowSelected(self, unsigned int row) -> bool"""
+        return _dataview.DataViewListCtrl_IsRowSelected(*args, **kwargs)
 
     def AppendColumn(*args, **kwargs):
         """AppendColumn(self, DataViewColumn column, String varianttype="string") -> bool"""

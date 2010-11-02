@@ -2610,40 +2610,41 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[144]
 #define SWIGTYPE_p_wxRect swig_types[145]
 #define SWIGTYPE_p_wxRect2D swig_types[146]
-#define SWIGTYPE_p_wxRegion swig_types[147]
-#define SWIGTYPE_p_wxRegionIterator swig_types[148]
-#define SWIGTYPE_p_wxRendererNative swig_types[149]
-#define SWIGTYPE_p_wxRendererVersion swig_types[150]
-#define SWIGTYPE_p_wxSVGFileDC swig_types[151]
-#define SWIGTYPE_p_wxScreenDC swig_types[152]
-#define SWIGTYPE_p_wxScrollEvent swig_types[153]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[154]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[155]
-#define SWIGTYPE_p_wxShowEvent swig_types[156]
-#define SWIGTYPE_p_wxSize swig_types[157]
-#define SWIGTYPE_p_wxSizeEvent swig_types[158]
-#define SWIGTYPE_p_wxSizer swig_types[159]
-#define SWIGTYPE_p_wxSizerItem swig_types[160]
-#define SWIGTYPE_p_wxSplitterRenderParams swig_types[161]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[162]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[163]
-#define SWIGTYPE_p_wxStockGDI swig_types[164]
-#define SWIGTYPE_p_wxString swig_types[165]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[166]
-#define SWIGTYPE_p_wxTGAHandler swig_types[167]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[168]
-#define SWIGTYPE_p_wxTextCtrlBase swig_types[169]
-#define SWIGTYPE_p_wxThreadEvent swig_types[170]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[171]
-#define SWIGTYPE_p_wxValidator swig_types[172]
-#define SWIGTYPE_p_wxWindow swig_types[173]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[174]
-#define SWIGTYPE_p_wxWindowDC swig_types[175]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[176]
-#define SWIGTYPE_p_wxWrapSizer swig_types[177]
-#define SWIGTYPE_p_wxXPMHandler swig_types[178]
-static swig_type_info *swig_types[180];
-static swig_module_info swig_module = {swig_types, 179, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxRefCounter swig_types[147]
+#define SWIGTYPE_p_wxRegion swig_types[148]
+#define SWIGTYPE_p_wxRegionIterator swig_types[149]
+#define SWIGTYPE_p_wxRendererNative swig_types[150]
+#define SWIGTYPE_p_wxRendererVersion swig_types[151]
+#define SWIGTYPE_p_wxSVGFileDC swig_types[152]
+#define SWIGTYPE_p_wxScreenDC swig_types[153]
+#define SWIGTYPE_p_wxScrollEvent swig_types[154]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[155]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[156]
+#define SWIGTYPE_p_wxShowEvent swig_types[157]
+#define SWIGTYPE_p_wxSize swig_types[158]
+#define SWIGTYPE_p_wxSizeEvent swig_types[159]
+#define SWIGTYPE_p_wxSizer swig_types[160]
+#define SWIGTYPE_p_wxSizerItem swig_types[161]
+#define SWIGTYPE_p_wxSplitterRenderParams swig_types[162]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[163]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[164]
+#define SWIGTYPE_p_wxStockGDI swig_types[165]
+#define SWIGTYPE_p_wxString swig_types[166]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[167]
+#define SWIGTYPE_p_wxTGAHandler swig_types[168]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[169]
+#define SWIGTYPE_p_wxTextCtrlBase swig_types[170]
+#define SWIGTYPE_p_wxThreadEvent swig_types[171]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[172]
+#define SWIGTYPE_p_wxValidator swig_types[173]
+#define SWIGTYPE_p_wxWindow swig_types[174]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[175]
+#define SWIGTYPE_p_wxWindowDC swig_types[176]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[177]
+#define SWIGTYPE_p_wxWrapSizer swig_types[178]
+#define SWIGTYPE_p_wxXPMHandler swig_types[179]
+static swig_type_info *swig_types[181];
+static swig_module_info swig_module = {swig_types, 180, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -6237,6 +6238,66 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Pen_IsTransparent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPen *arg1 = (wxPen *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPen, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Pen_IsTransparent" "', expected argument " "1"" of type '" "wxPen const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPen * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxPen const *)arg1)->IsTransparent();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Pen_IsNonTransparent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPen *arg1 = (wxPen *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPen, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Pen_IsNonTransparent" "', expected argument " "1"" of type '" "wxPen const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPen * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxPen const *)arg1)->IsNonTransparent();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Pen___eq__(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxPen *arg1 = (wxPen *) 0 ;
@@ -6649,6 +6710,66 @@ SWIGINTERN PyObject *_wrap_Brush_IsHatch(PyObject *SWIGUNUSEDPARM(self), PyObjec
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)((wxBrush const *)arg1)->IsHatch();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Brush_IsTransparent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxBrush *arg1 = (wxBrush *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBrush, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Brush_IsTransparent" "', expected argument " "1"" of type '" "wxBrush const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxBrush * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxBrush const *)arg1)->IsTransparent();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Brush_IsNonTransparent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxBrush *arg1 = (wxBrush *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBrush, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Brush_IsNonTransparent" "', expected argument " "1"" of type '" "wxBrush const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxBrush * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxBrush const *)arg1)->IsNonTransparent();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -42419,6 +42540,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Pen_SetDashes", (PyCFunction) _wrap_Pen_SetDashes, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Pen_GetDashes", (PyCFunction)_wrap_Pen_GetDashes, METH_O, NULL},
 	 { (char *)"Pen__SetDashes", (PyCFunction) _wrap_Pen__SetDashes, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Pen_IsTransparent", (PyCFunction)_wrap_Pen_IsTransparent, METH_O, NULL},
+	 { (char *)"Pen_IsNonTransparent", (PyCFunction)_wrap_Pen_IsNonTransparent, METH_O, NULL},
 	 { (char *)"Pen___eq__", (PyCFunction) _wrap_Pen___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Pen___ne__", (PyCFunction) _wrap_Pen___ne__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Pen_swigregister", Pen_swigregister, METH_VARARGS, NULL},
@@ -42433,6 +42556,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Brush_GetStyle", (PyCFunction)_wrap_Brush_GetStyle, METH_O, NULL},
 	 { (char *)"Brush_GetStipple", (PyCFunction)_wrap_Brush_GetStipple, METH_O, NULL},
 	 { (char *)"Brush_IsHatch", (PyCFunction)_wrap_Brush_IsHatch, METH_O, NULL},
+	 { (char *)"Brush_IsTransparent", (PyCFunction)_wrap_Brush_IsTransparent, METH_O, NULL},
+	 { (char *)"Brush_IsNonTransparent", (PyCFunction)_wrap_Brush_IsNonTransparent, METH_O, NULL},
 	 { (char *)"Brush_IsOk", (PyCFunction)_wrap_Brush_IsOk, METH_O, NULL},
 	 { (char *)"Brush_swigregister", Brush_swigregister, METH_VARARGS, NULL},
 	 { (char *)"Brush_swiginit", Brush_swiginit, METH_VARARGS, NULL},
@@ -44042,6 +44167,7 @@ static swig_type_info _swigt__p_wxPyFontEnumerator = {"_p_wxPyFontEnumerator", "
 static swig_type_info _swigt__p_wxPyLocale = {"_p_wxPyLocale", "wxPyLocale *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRect = {"_p_wxRect", "wxRect *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRect2D = {"_p_wxRect2D", "wxRect2D *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxRefCounter = {"_p_wxRefCounter", "wxRefCounter *|wxObjectRefData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRegion = {"_p_wxRegion", "wxRegion *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRegionIterator = {"_p_wxRegionIterator", "wxRegionIterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRendererNative = {"_p_wxRendererNative", "wxRendererNative *", 0, 0, (void*)0, 0};
@@ -44203,6 +44329,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxQueryNewPaletteEvent,
   &_swigt__p_wxRect,
   &_swigt__p_wxRect2D,
+  &_swigt__p_wxRefCounter,
   &_swigt__p_wxRegion,
   &_swigt__p_wxRegionIterator,
   &_swigt__p_wxRendererNative,
@@ -44404,6 +44531,7 @@ static swig_cast_info _swigc__p_wxPyFontEnumerator[] = {  {&_swigt__p_wxPyFontEn
 static swig_cast_info _swigc__p_wxPyLocale[] = {  {&_swigt__p_wxPyLocale, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRect[] = {  {&_swigt__p_wxRect, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRect2D[] = {  {&_swigt__p_wxRect2D, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxRefCounter[] = {  {&_swigt__p_wxRefCounter, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRegion[] = {  {&_swigt__p_wxRegion, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRegionIterator[] = {  {&_swigt__p_wxRegionIterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRendererNative[] = {  {&_swigt__p_wxRendererNative, 0, 0, 0},{0, 0, 0, 0}};
@@ -44565,6 +44693,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxQueryNewPaletteEvent,
   _swigc__p_wxRect,
   _swigc__p_wxRect2D,
+  _swigc__p_wxRefCounter,
   _swigc__p_wxRegion,
   _swigc__p_wxRegionIterator,
   _swigc__p_wxRendererNative,
@@ -45279,6 +45408,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "FONTENCODING_GB2312",SWIG_From_int(static_cast< int >(wxFONTENCODING_GB2312)));
   SWIG_Python_SetConstant(d, "FONTENCODING_BIG5",SWIG_From_int(static_cast< int >(wxFONTENCODING_BIG5)));
   SWIG_Python_SetConstant(d, "FONTENCODING_SHIFT_JIS",SWIG_From_int(static_cast< int >(wxFONTENCODING_SHIFT_JIS)));
+  SWIG_Python_SetConstant(d, "FONTENCODING_EUC_KR",SWIG_From_int(static_cast< int >(wxFONTENCODING_EUC_KR)));
   
   wxPyPtrTypeMap_Add("wxFontEnumerator", "wxPyFontEnumerator");
   

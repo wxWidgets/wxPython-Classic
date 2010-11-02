@@ -415,6 +415,7 @@ FDIAGONAL_HATCH = _core_.FDIAGONAL_HATCH
 CROSS_HATCH = _core_.CROSS_HATCH
 HORIZONTAL_HATCH = _core_.HORIZONTAL_HATCH
 VERTICAL_HATCH = _core_.VERTICAL_HATCH
+WXK_NONE = _core_.WXK_NONE
 WXK_BACK = _core_.WXK_BACK
 WXK_TAB = _core_.WXK_TAB
 WXK_RETURN = _core_.WXK_RETURN
@@ -1088,6 +1089,14 @@ class Point(object):
         _core_.Point_swiginit(self,_core_.new_Point(*args, **kwargs))
     __swig_destroy__ = _core_.delete_Point
     __del__ = lambda self : None;
+    def IsFullySpecified(*args, **kwargs):
+        """IsFullySpecified(self) -> bool"""
+        return _core_.Point_IsFullySpecified(*args, **kwargs)
+
+    def SetDefaults(*args, **kwargs):
+        """SetDefaults(self, Point pt)"""
+        return _core_.Point_SetDefaults(*args, **kwargs)
+
     def __eq__(*args, **kwargs):
         """
         __eq__(self, PyObject other) -> bool
@@ -10590,16 +10599,6 @@ class Window(EvtHandler):
         """
         return _core_.Window_Thaw(*args, **kwargs)
 
-    def PrepareDC(*args, **kwargs):
-        """
-        PrepareDC(self, DC dc)
-
-        Call this function to prepare the device context for drawing a
-        scrolled image. It sets the device origin according to the current
-        scroll position.
-        """
-        return _core_.Window_PrepareDC(*args, **kwargs)
-
     def IsDoubleBuffered(*args, **kwargs):
         """
         IsDoubleBuffered(self) -> bool
@@ -11003,7 +11002,7 @@ class Window(EvtHandler):
 
     def GetPopupMenuSelectionFromUser(*args, **kwargs):
         """
-        GetPopupMenuSelectionFromUser(self, Menu menu, Point pos) -> int
+        GetPopupMenuSelectionFromUser(self, Menu menu, Point pos=DefaultPosition) -> int
 
         Simply return the id of the selected item or wxID_NONE without
         generating any events.

@@ -1705,6 +1705,10 @@ class Grid(_windows.ScrolledWindow):
         """SetColAttr(self, int col, GridCellAttr attr)"""
         return _grid.Grid_SetColAttr(*args, **kwargs)
 
+    def RefreshAttr(*args, **kwargs):
+        """RefreshAttr(self, int row, int col)"""
+        return _grid.Grid_RefreshAttr(*args, **kwargs)
+
     def GetOrCreateCellAttr(*args, **kwargs):
         """GetOrCreateCellAttr(self, int row, int col) -> GridCellAttr"""
         return _grid.Grid_GetOrCreateCellAttr(*args, **kwargs)

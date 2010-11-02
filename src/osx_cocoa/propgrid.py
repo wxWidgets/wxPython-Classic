@@ -69,7 +69,6 @@ PG_DOUBLE_BUFFER = _propgrid.PG_DOUBLE_BUFFER
 PG_SUPPORT_TOOLTIPS = _propgrid.PG_SUPPORT_TOOLTIPS
 PG_CUSTOM_IMAGE_WIDTH = _propgrid.PG_CUSTOM_IMAGE_WIDTH
 PG_NO_CHILD_EVT_MOTION = _propgrid.PG_NO_CHILD_EVT_MOTION
-PG_ALLOW_EMPTY_TOOLTIPS = _propgrid.PG_ALLOW_EMPTY_TOOLTIPS
 PG_NAT_BUTTON_BORDER_ANY = _propgrid.PG_NAT_BUTTON_BORDER_ANY
 PG_NAT_BUTTON_BORDER_X = _propgrid.PG_NAT_BUTTON_BORDER_X
 PG_NAT_BUTTON_BORDER_Y = _propgrid.PG_NAT_BUTTON_BORDER_Y
@@ -190,6 +189,10 @@ class PGCell(_core.Object):
     def GetBgCol(*args, **kwargs):
         """GetBgCol(self) -> Colour"""
         return _propgrid.PGCell_GetBgCol(*args, **kwargs)
+
+    def IsInvalid(*args, **kwargs):
+        """IsInvalid(self) -> bool"""
+        return _propgrid.PGCell_IsInvalid(*args, **kwargs)
 
 _propgrid.PGCell_swigregister(PGCell)
 
@@ -444,6 +447,10 @@ class PGProperty(_core.Object):
         """DeleteChoice(self, int index)"""
         return _propgrid.PGProperty_DeleteChoice(*args, **kwargs)
 
+    def Enable(*args, **kwargs):
+        """Enable(self, bool enable=True)"""
+        return _propgrid.PGProperty_Enable(*args, **kwargs)
+
     def EnableCommonValue(*args, **kwargs):
         """EnableCommonValue(self, bool enable=True)"""
         return _propgrid.PGProperty_EnableCommonValue(*args, **kwargs)
@@ -674,6 +681,10 @@ class PGProperty(_core.Object):
         """SetAttributes(self,  attributes)"""
         return _propgrid.PGProperty_SetAttributes(*args, **kwargs)
 
+    def SetAutoUnspecified(*args, **kwargs):
+        """SetAutoUnspecified(self, bool enable=True)"""
+        return _propgrid.PGProperty_SetAutoUnspecified(*args, **kwargs)
+
     def SetBackgroundColour(*args, **kwargs):
         """SetBackgroundColour(self, Colour colour, int flags=PG_RECURSE)"""
         return _propgrid.PGProperty_SetBackgroundColour(*args, **kwargs)
@@ -726,10 +737,6 @@ class PGProperty(_core.Object):
         """SetExpanded(self, bool expanded)"""
         return _propgrid.PGProperty_SetExpanded(*args, **kwargs)
 
-    def SetFlag(*args, **kwargs):
-        """SetFlag(self, int flag)"""
-        return _propgrid.PGProperty_SetFlag(*args, **kwargs)
-
     def ChangeFlag(*args, **kwargs):
         """ChangeFlag(self, int flag, bool set)"""
         return _propgrid.PGProperty_ChangeFlag(*args, **kwargs)
@@ -781,10 +788,6 @@ class PGProperty(_core.Object):
     def GetHelpString(*args, **kwargs):
         """GetHelpString(self) -> String"""
         return _propgrid.PGProperty_GetHelpString(*args, **kwargs)
-
-    def ClearFlag(*args, **kwargs):
-        """ClearFlag(self, FlagType flag)"""
-        return _propgrid.PGProperty_ClearFlag(*args, **kwargs)
 
     def IsSomeParent(*args, **kwargs):
         """IsSomeParent(self, PGProperty candidate_parent) -> bool"""
@@ -1955,7 +1958,7 @@ PG_FL_VALUE_CHANGE_IN_EVENT = _propgrid.PG_FL_VALUE_CHANGE_IN_EVENT
 PG_FL_FIXED_WIDTH_EDITOR = _propgrid.PG_FL_FIXED_WIDTH_EDITOR
 PG_FL_HAS_VIRTUAL_WIDTH = _propgrid.PG_FL_HAS_VIRTUAL_WIDTH
 PG_FL_RECALCULATING_VIRTUAL_SIZE = _propgrid.PG_FL_RECALCULATING_VIRTUAL_SIZE
-class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
+class PropertyGrid(_core.Control,_windows.ScrollHelper,PropertyGridInterface):
     """Proxy of C++ PropertyGrid class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -2458,14 +2461,6 @@ class PropertyGrid(_windows.ScrolledWindow,PropertyGridInterface):
         """GetItemAtY(self, int y) -> PGProperty"""
         return _propgrid.PropertyGrid_GetItemAtY(*args, **kwargs)
 
-    def SetToolTipString(*args, **kwargs):
-        """
-        SetToolTipString(self, String tipString)
-
-        Attach a tooltip to the window.
-        """
-        return _propgrid.PropertyGrid_SetToolTipString(*args, **kwargs)
-
 _propgrid.PropertyGrid_swigregister(PropertyGrid)
 
 def PropertyGrid_AutoGetTranslation(*args, **kwargs):
@@ -2876,6 +2871,27 @@ class StringProperty(PGProperty):
     __del__ = lambda self : None;
 _propgrid.StringProperty_swigregister(StringProperty)
 
+PG_PROPERTY_VALIDATION_ERROR_MESSAGE = _propgrid.PG_PROPERTY_VALIDATION_ERROR_MESSAGE
+PG_PROPERTY_VALIDATION_SATURATE = _propgrid.PG_PROPERTY_VALIDATION_SATURATE
+PG_PROPERTY_VALIDATION_WRAP = _propgrid.PG_PROPERTY_VALIDATION_WRAP
+class NumericPropertyValidator(object):
+    """Proxy of C++ NumericPropertyValidator class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    Signed = _propgrid.NumericPropertyValidator_Signed
+    Unsigned = _propgrid.NumericPropertyValidator_Unsigned
+    Float = _propgrid.NumericPropertyValidator_Float
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, int numericType, int base=10) -> NumericPropertyValidator"""
+        _propgrid.NumericPropertyValidator_swiginit(self,_propgrid.new_NumericPropertyValidator(*args, **kwargs))
+    __swig_destroy__ = _propgrid.delete_NumericPropertyValidator
+    __del__ = lambda self : None;
+    def Validate(*args, **kwargs):
+        """Validate(self, Window parent) -> bool"""
+        return _propgrid.NumericPropertyValidator_Validate(*args, **kwargs)
+
+_propgrid.NumericPropertyValidator_swigregister(NumericPropertyValidator)
+
 class IntProperty(PGProperty):
     """Proxy of C++ IntProperty class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -2950,6 +2966,11 @@ class FloatProperty(PGProperty):
         return _propgrid.FloatProperty_DoValidation(*args, **kwargs)
 
     DoValidation = staticmethod(DoValidation)
+    def GetClassValidator(*args, **kwargs):
+        """GetClassValidator() -> Validator"""
+        return _propgrid.FloatProperty_GetClassValidator(*args, **kwargs)
+
+    GetClassValidator = staticmethod(GetClassValidator)
 _propgrid.FloatProperty_swigregister(FloatProperty)
 
 def FloatProperty_DoValidation(*args, **kwargs):
@@ -2958,6 +2979,10 @@ def FloatProperty_DoValidation(*args, **kwargs):
         int mode=PG_PROPERTY_VALIDATION_ERROR_MESSAGE) -> bool
     """
   return _propgrid.FloatProperty_DoValidation(*args, **kwargs)
+
+def FloatProperty_GetClassValidator(*args):
+  """FloatProperty_GetClassValidator() -> Validator"""
+  return _propgrid.FloatProperty_GetClassValidator(*args)
 
 class EnumProperty(PGProperty):
     """Proxy of C++ EnumProperty class"""

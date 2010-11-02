@@ -88,25 +88,6 @@ class Panel(_core.Window):
         """
         return _windows_.Panel_SetFocusIgnoringChildren(*args, **kwargs)
 
-    def MSWSetTransparentBackground(*args, **kwargs):
-        """MSWSetTransparentBackground(self, bool isTransparent=True)"""
-        return _windows_.Panel_MSWSetTransparentBackground(*args, **kwargs)
-
-    def HasTransparentBackground(*args, **kwargs):
-        """
-        HasTransparentBackground(self) -> bool
-
-        Returns True if this window's background is transparent (as, for
-        example, for `wx.StaticText`) and should show the parent window's
-        background.
-
-        This method is mostly used internally by the library itself and you
-        normally shouldn't have to call it. You may, however, have to override
-        it in your custom control classes to ensure that background is painted
-        correctly.
-        """
-        return _windows_.Panel_HasTransparentBackground(*args, **kwargs)
-
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -285,6 +266,17 @@ class ScrollHelper(object):
         """SendAutoScrollEvents(self, ScrollWinEvent event) -> bool"""
         return _windows_.ScrollHelper_SendAutoScrollEvents(*args, **kwargs)
 
+    def DoPrepareDC(*args, **kwargs):
+        """
+        DoPrepareDC(self, DC dc)
+
+        Call this function to prepare the device context for drawing a
+        scrolled image. It sets the device origin according to the current
+        scroll position.
+        """
+        return _windows_.ScrollHelper_DoPrepareDC(*args, **kwargs)
+
+    PrepareDC = DoPrepareDC 
     ScaleX = property(GetScaleX) 
     ScaleY = property(GetScaleY) 
     TargetWindow = property(GetTargetWindow,SetTargetWindow) 
@@ -507,6 +499,11 @@ class TopLevelWindow(_core.Window):
         return _windows_.TopLevelWindow_CenterOnScreen(*args, **kwargs)
 
     CentreOnScreen = CenterOnScreen 
+    def GetDefaultSize(*args, **kwargs):
+        """GetDefaultSize() -> Size"""
+        return _windows_.TopLevelWindow_GetDefaultSize(*args, **kwargs)
+
+    GetDefaultSize = staticmethod(GetDefaultSize)
     def GetDefaultItem(*args, **kwargs):
         """
         GetDefaultItem(self) -> Window
@@ -559,6 +556,10 @@ FrameNameStr = cvar.FrameNameStr
 DialogNameStr = cvar.DialogNameStr
 StatusLineNameStr = cvar.StatusLineNameStr
 ToolBarNameStr = cvar.ToolBarNameStr
+
+def TopLevelWindow_GetDefaultSize(*args):
+  """TopLevelWindow_GetDefaultSize() -> Size"""
+  return _windows_.TopLevelWindow_GetDefaultSize(*args)
 
 #---------------------------------------------------------------------------
 
@@ -771,6 +772,10 @@ class Dialog(TopLevelWindow):
     def CreateTextSizer(*args, **kwargs):
         """CreateTextSizer(self, String message) -> Sizer"""
         return _windows_.Dialog_CreateTextSizer(*args, **kwargs)
+
+    def CreateSeparatedSizer(*args, **kwargs):
+        """CreateSeparatedSizer(self, Sizer sizer) -> Sizer"""
+        return _windows_.Dialog_CreateSeparatedSizer(*args, **kwargs)
 
     def _CreateButtonSizer(*args, **kwargs):
         """_CreateButtonSizer(self, long flags) -> Sizer"""
@@ -3646,13 +3651,13 @@ class MessageDialog(Dialog):
 
 _windows_.MessageDialog_swigregister(MessageDialog)
 
-PD_AUTO_HIDE = _windows_.PD_AUTO_HIDE
-PD_APP_MODAL = _windows_.PD_APP_MODAL
 PD_CAN_ABORT = _windows_.PD_CAN_ABORT
+PD_APP_MODAL = _windows_.PD_APP_MODAL
+PD_AUTO_HIDE = _windows_.PD_AUTO_HIDE
 PD_ELAPSED_TIME = _windows_.PD_ELAPSED_TIME
 PD_ESTIMATED_TIME = _windows_.PD_ESTIMATED_TIME
-PD_REMAINING_TIME = _windows_.PD_REMAINING_TIME
 PD_SMOOTH = _windows_.PD_SMOOTH
+PD_REMAINING_TIME = _windows_.PD_REMAINING_TIME
 PD_CAN_SKIP = _windows_.PD_CAN_SKIP
 class ProgressDialog(Dialog):
     """
@@ -3697,7 +3702,7 @@ class ProgressDialog(Dialog):
         Pulse(self, String newmsg) --> (continue, skip)
 
         Just like `Update` but switches the dialog to use a gauge in
-        interminante mode and calls `wx.Gauge.Pulse` to show the user a bit of
+        indeterminate mode and calls `wx.Gauge.Pulse` to show the user a bit of
         progress.
         """
         return _windows_.ProgressDialog_Pulse(*args, **kwargs)

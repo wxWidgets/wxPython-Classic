@@ -6606,13 +6606,17 @@ class StyledTextEvent(_core.CommandEvent):
         """SetDragText(self, String val)"""
         return _stc.StyledTextEvent_SetDragText(*args, **kwargs)
 
-    def SetDragAllowMove(*args, **kwargs):
-        """SetDragAllowMove(self, bool val)"""
-        return _stc.StyledTextEvent_SetDragAllowMove(*args, **kwargs)
+    def SetDragFlags(*args, **kwargs):
+        """SetDragFlags(self, int flags)"""
+        return _stc.StyledTextEvent_SetDragFlags(*args, **kwargs)
 
     def SetDragResult(*args, **kwargs):
         """SetDragResult(self, int val)"""
         return _stc.StyledTextEvent_SetDragResult(*args, **kwargs)
+
+    def SetDragAllowMove(*args, **kwargs):
+        """SetDragAllowMove(self, bool allow)"""
+        return _stc.StyledTextEvent_SetDragAllowMove(*args, **kwargs)
 
     def GetPosition(*args, **kwargs):
         """GetPosition(self) -> int"""
@@ -6686,13 +6690,17 @@ class StyledTextEvent(_core.CommandEvent):
         """GetDragText(self) -> String"""
         return _stc.StyledTextEvent_GetDragText(*args, **kwargs)
 
-    def GetDragAllowMove(*args, **kwargs):
-        """GetDragAllowMove(self) -> bool"""
-        return _stc.StyledTextEvent_GetDragAllowMove(*args, **kwargs)
+    def GetDragFlags(*args, **kwargs):
+        """GetDragFlags(self) -> int"""
+        return _stc.StyledTextEvent_GetDragFlags(*args, **kwargs)
 
     def GetDragResult(*args, **kwargs):
         """GetDragResult(self) -> int"""
         return _stc.StyledTextEvent_GetDragResult(*args, **kwargs)
+
+    def GetDragAllowMove(*args, **kwargs):
+        """GetDragAllowMove(self) -> bool"""
+        return _stc.StyledTextEvent_GetDragAllowMove(*args, **kwargs)
 
     def GetShift(*args, **kwargs):
         """GetShift(self) -> bool"""
