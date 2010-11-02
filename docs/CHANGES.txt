@@ -7,7 +7,13 @@ Recent Changes for wxPython
 -------
 *
 
-Added wx.CommandLinkButton
+Added wx.CommandLinkButton.  This button has both a label and a note
+displayed on it.  On Windows 7 it is a new native widget type, on the
+other platforms it is a generic implementation using wx.Button.
+
+Added wx.lib.itemspicker.  This class allows items to be selected from
+a list by moving them to another list.
+
 
 
 
