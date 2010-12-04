@@ -32664,6 +32664,7 @@ SWIGINTERN PyObject *_wrap_PropertyGrid_HandleCustomEditorEvent(PyObject *SWIGUN
   PyObject *resultobj = 0;
   wxPropertyGrid *arg1 = (wxPropertyGrid *) 0 ;
   wxEvent *arg2 = 0 ;
+  bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -32690,11 +32691,13 @@ SWIGINTERN PyObject *_wrap_PropertyGrid_HandleCustomEditorEvent(PyObject *SWIGUN
   arg2 = reinterpret_cast< wxEvent * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->HandleCustomEditorEvent(*arg2);
+    result = (bool)(arg1)->HandleCustomEditorEvent(*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   return resultobj;
 fail:
   return NULL;

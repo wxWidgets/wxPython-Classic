@@ -313,6 +313,11 @@ ID_MDI_WINDOW_ARRANGE_ICONS = _core_.ID_MDI_WINDOW_ARRANGE_ICONS
 ID_MDI_WINDOW_PREV = _core_.ID_MDI_WINDOW_PREV
 ID_MDI_WINDOW_NEXT = _core_.ID_MDI_WINDOW_NEXT
 ID_MDI_WINDOW_LAST = _core_.ID_MDI_WINDOW_LAST
+ID_OSX_MENU_FIRST = _core_.ID_OSX_MENU_FIRST
+ID_OSX_HIDE = _core_.ID_OSX_HIDE
+ID_OSX_HIDEOTHERS = _core_.ID_OSX_HIDEOTHERS
+ID_OSX_SHOWALL = _core_.ID_OSX_SHOWALL
+ID_OSX_MENU_LAST = _core_.ID_OSX_MENU_LAST
 ID_FILEDLGG = _core_.ID_FILEDLGG
 ID_FILECTRL = _core_.ID_FILECTRL
 ID_HIGHEST = _core_.ID_HIGHEST
@@ -3423,6 +3428,10 @@ class Image(Object):
         indicated by ``clockwise``.
         """
         return _core_.Image_Rotate90(*args, **kwargs)
+
+    def Rotate180(*args, **kwargs):
+        """Rotate180(self) -> Image"""
+        return _core_.Image_Rotate180(*args, **kwargs)
 
     def Mirror(*args, **kwargs):
         """
@@ -8071,7 +8080,7 @@ class PyApp(EvtHandler):
         This will mean different things on the different platforms.
 
            * On X Windows systems this function will return ``False`` if it is
-             not able to open a connection to the X display, which can happen
+             not able to open a connection to the X server, which can happen
              if $DISPLAY is not set, or is not set correctly.
 
            * On Mac OS X a ``False`` return value will mean that wx is not
@@ -8185,7 +8194,7 @@ def PyApp_IsDisplayAvailable(*args):
     This will mean different things on the different platforms.
 
        * On X Windows systems this function will return ``False`` if it is
-         not able to open a connection to the X display, which can happen
+         not able to open a connection to the X server, which can happen
          if $DISPLAY is not set, or is not set correctly.
 
        * On Mac OS X a ``False`` return value will mean that wx is not
@@ -12889,6 +12898,11 @@ _core_.ControlWithItems_swigregister(ControlWithItems)
 
 #---------------------------------------------------------------------------
 
+TE_HT_UNKNOWN = _core_.TE_HT_UNKNOWN
+TE_HT_BEFORE = _core_.TE_HT_BEFORE
+TE_HT_ON_TEXT = _core_.TE_HT_ON_TEXT
+TE_HT_BELOW = _core_.TE_HT_BELOW
+TE_HT_BEYOND = _core_.TE_HT_BEYOND
 class TextEntryBase(object):
     """Proxy of C++ TextEntryBase class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -14115,6 +14129,10 @@ class Sizer(Object):
         """
         return _core_.Sizer_GetItem(*args, **kwargs)
 
+    def _SetItemMinSize(*args, **kwargs):
+        """_SetItemMinSize(self, PyObject item, Size size)"""
+        return _core_.Sizer__SetItemMinSize(*args, **kwargs)
+
     def GetItemIndex(self, item):
         """
         Returns the index of the given *item* within the sizer. Does not
@@ -14131,10 +14149,6 @@ class Sizer(Object):
                 break
             idx += 1
         return idx
-
-    def _SetItemMinSize(*args, **kwargs):
-        """_SetItemMinSize(self, PyObject item, Size size)"""
-        return _core_.Sizer__SetItemMinSize(*args, **kwargs)
 
     def GetItemById(*args, **kwargs):
         """GetItemById(self, int id, bool recursive=False) -> SizerItem"""
@@ -15941,6 +15955,7 @@ _core_.LayoutConstraints_swigregister(LayoutConstraints)
 #---------------------------------------------------------------------------
 
 COL_WIDTH_DEFAULT = _core_.COL_WIDTH_DEFAULT
+COL_WIDTH_AUTOSIZE = _core_.COL_WIDTH_AUTOSIZE
 COL_RESIZABLE = _core_.COL_RESIZABLE
 COL_SORTABLE = _core_.COL_SORTABLE
 COL_REORDERABLE = _core_.COL_REORDERABLE
@@ -16125,6 +16140,60 @@ class HeaderColumnSimple(SettableHeaderColumn):
         """
         _core_.HeaderColumnSimple_swiginit(self,_core_.new_HeaderColumnSimple(*args, **kwargs))
 _core_.HeaderColumnSimple_swigregister(HeaderColumnSimple)
+
+#---------------------------------------------------------------------------
+
+class VersionInfo(object):
+    """Proxy of C++ VersionInfo class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, String name, int major, int minor, int micro=0, String description=wxEmptyString, 
+            String copyright=wxEmptyString) -> VersionInfo
+        """
+        _core_.VersionInfo_swiginit(self,_core_.new_VersionInfo(*args, **kwargs))
+    def GetName(*args, **kwargs):
+        """GetName(self) -> String"""
+        return _core_.VersionInfo_GetName(*args, **kwargs)
+
+    def GetMajor(*args, **kwargs):
+        """GetMajor(self) -> int"""
+        return _core_.VersionInfo_GetMajor(*args, **kwargs)
+
+    def GetMinor(*args, **kwargs):
+        """GetMinor(self) -> int"""
+        return _core_.VersionInfo_GetMinor(*args, **kwargs)
+
+    def GetMicro(*args, **kwargs):
+        """GetMicro(self) -> int"""
+        return _core_.VersionInfo_GetMicro(*args, **kwargs)
+
+    def ToString(*args, **kwargs):
+        """ToString(self) -> String"""
+        return _core_.VersionInfo_ToString(*args, **kwargs)
+
+    def GetVersionString(*args, **kwargs):
+        """GetVersionString(self) -> String"""
+        return _core_.VersionInfo_GetVersionString(*args, **kwargs)
+
+    def HasDescription(*args, **kwargs):
+        """HasDescription(self) -> bool"""
+        return _core_.VersionInfo_HasDescription(*args, **kwargs)
+
+    def GetDescription(*args, **kwargs):
+        """GetDescription(self) -> String"""
+        return _core_.VersionInfo_GetDescription(*args, **kwargs)
+
+    def HasCopyright(*args, **kwargs):
+        """HasCopyright(self) -> bool"""
+        return _core_.VersionInfo_HasCopyright(*args, **kwargs)
+
+    def GetCopyright(*args, **kwargs):
+        """GetCopyright(self) -> String"""
+        return _core_.VersionInfo_GetCopyright(*args, **kwargs)
+
+_core_.VersionInfo_swigregister(VersionInfo)
 
 #----------------------------------------------------------------------------
 

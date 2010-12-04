@@ -56129,11 +56129,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "TEXT_ATTR_LINE_SPACING_NORMAL",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_LINE_SPACING_NORMAL)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_LINE_SPACING_HALF",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_LINE_SPACING_HALF)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_LINE_SPACING_TWICE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_LINE_SPACING_TWICE)));
-  SWIG_Python_SetConstant(d, "TE_HT_UNKNOWN",SWIG_From_int(static_cast< int >(wxTE_HT_UNKNOWN)));
-  SWIG_Python_SetConstant(d, "TE_HT_BEFORE",SWIG_From_int(static_cast< int >(wxTE_HT_BEFORE)));
-  SWIG_Python_SetConstant(d, "TE_HT_ON_TEXT",SWIG_From_int(static_cast< int >(wxTE_HT_ON_TEXT)));
-  SWIG_Python_SetConstant(d, "TE_HT_BELOW",SWIG_From_int(static_cast< int >(wxTE_HT_BELOW)));
-  SWIG_Python_SetConstant(d, "TE_HT_BEYOND",SWIG_From_int(static_cast< int >(wxTE_HT_BEYOND)));
   SWIG_Python_SetConstant(d, "OutOfRangeTextCoord",SWIG_From_int(static_cast< int >(wxOutOfRangeTextCoord)));
   SWIG_Python_SetConstant(d, "InvalidTextCoord",SWIG_From_int(static_cast< int >(wxInvalidTextCoord)));
   SWIG_Python_SetConstant(d, "TEXT_TYPE_ANY",SWIG_From_int(static_cast< int >(wxTEXT_TYPE_ANY)));

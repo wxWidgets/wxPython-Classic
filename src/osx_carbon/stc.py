@@ -6420,6 +6420,11 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         """PositionToXY(long pos) -> (x, y)"""
         return _stc.StyledTextCtrl_PositionToXY(*args, **kwargs)
 
+    def GetLibraryVersionInfo(*args, **kwargs):
+        """GetLibraryVersionInfo() -> VersionInfo"""
+        return _stc.StyledTextCtrl_GetLibraryVersionInfo(*args, **kwargs)
+
+    GetLibraryVersionInfo = staticmethod(GetLibraryVersionInfo)
     GetCaretLineBack = GetCaretLineBackground
     SetCaretLineBack = SetCaretLineBackground
 
@@ -6524,6 +6529,10 @@ def PreStyledTextCtrl(*args, **kwargs):
     """PreStyledTextCtrl() -> StyledTextCtrl"""
     val = _stc.new_PreStyledTextCtrl(*args, **kwargs)
     return val
+
+def StyledTextCtrl_GetLibraryVersionInfo(*args):
+  """StyledTextCtrl_GetLibraryVersionInfo() -> VersionInfo"""
+  return _stc.StyledTextCtrl_GetLibraryVersionInfo(*args)
 
 class StyledTextEvent(_core.CommandEvent):
     """Proxy of C++ StyledTextEvent class"""

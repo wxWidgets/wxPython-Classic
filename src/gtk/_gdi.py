@@ -5336,8 +5336,10 @@ _gdi_.PrinterDC_swigregister(PrinterDC)
 class SVGFileDC(DC):
     """Proxy of C++ SVGFileDC class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, String filename, int width=320, int height=240, double dpi=72.0) -> SVGFileDC"""
+        _gdi_.SVGFileDC_swiginit(self,_gdi_.new_SVGFileDC(*args, **kwargs))
 _gdi_.SVGFileDC_swigregister(SVGFileDC)
 
 #---------------------------------------------------------------------------
@@ -7142,6 +7144,10 @@ class RendererNative(object):
         height if available, or a generic height based on the window's font.
         """
         return _gdi_.RendererNative_GetHeaderButtonHeight(*args, **kwargs)
+
+    def GetHeaderButtonMargin(*args, **kwargs):
+        """GetHeaderButtonMargin(self, Window win) -> int"""
+        return _gdi_.RendererNative_GetHeaderButtonMargin(*args, **kwargs)
 
     def DrawTreeItemButton(*args, **kwargs):
         """

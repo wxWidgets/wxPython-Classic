@@ -1036,7 +1036,7 @@ def PropertyGridConstIterator_OneStep(*args, **kwargs):
     """
   return _propgrid.PropertyGridConstIterator_OneStep(*args, **kwargs)
 
-class PGVIteratorBase(object):
+class PGVIteratorBase(_core.RefCounter):
     """Proxy of C++ PGVIteratorBase class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"
@@ -2394,7 +2394,7 @@ class PropertyGrid(_core.Control,_windows.ScrollHelper,PropertyGridInterface):
         return _propgrid.PropertyGrid_RefreshEditor(*args, **kwargs)
 
     def HandleCustomEditorEvent(*args, **kwargs):
-        """HandleCustomEditorEvent(self, Event event)"""
+        """HandleCustomEditorEvent(self, Event event) -> bool"""
         return _propgrid.PropertyGrid_HandleCustomEditorEvent(*args, **kwargs)
 
     def GetInternalFlags(*args, **kwargs):

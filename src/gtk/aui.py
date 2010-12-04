@@ -271,6 +271,10 @@ class AuiPaneInfo(object):
         """IsRightDockable(self) -> bool"""
         return _aui.AuiPaneInfo_IsRightDockable(*args, **kwargs)
 
+    def IsDockable(*args, **kwargs):
+        """IsDockable(self) -> bool"""
+        return _aui.AuiPaneInfo_IsDockable(*args, **kwargs)
+
     def IsFloatable(*args, **kwargs):
         """IsFloatable(self) -> bool"""
         return _aui.AuiPaneInfo_IsFloatable(*args, **kwargs)

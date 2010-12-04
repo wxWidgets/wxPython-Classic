@@ -2582,13 +2582,14 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxToolTip swig_types[116]
 #define SWIGTYPE_p_wxUpdateUIEvent swig_types[117]
 #define SWIGTYPE_p_wxValidator swig_types[118]
-#define SWIGTYPE_p_wxWindow swig_types[119]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[120]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[121]
-#define SWIGTYPE_p_wxWrapSizer swig_types[122]
-#define SWIGTYPE_p_wxXPMHandler swig_types[123]
-static swig_type_info *swig_types[125];
-static swig_module_info swig_module = {swig_types, 124, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxVersionInfo swig_types[119]
+#define SWIGTYPE_p_wxWindow swig_types[120]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[121]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[122]
+#define SWIGTYPE_p_wxWrapSizer swig_types[123]
+#define SWIGTYPE_p_wxXPMHandler swig_types[124]
+static swig_type_info *swig_types[126];
+static swig_module_info swig_module = {swig_types, 125, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -23868,6 +23869,24 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_StyledTextCtrl_GetLibraryVersionInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"StyledTextCtrl_GetLibraryVersionInfo",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxStyledTextCtrl::GetLibraryVersionInfo();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxVersionInfo(static_cast< const wxVersionInfo& >(result))), SWIGTYPE_p_wxVersionInfo, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *StyledTextCtrl_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -26037,6 +26056,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"StyledTextCtrl_GetTextRaw", (PyCFunction)_wrap_StyledTextCtrl_GetTextRaw, METH_O, NULL},
 	 { (char *)"StyledTextCtrl_AppendTextRaw", (PyCFunction) _wrap_StyledTextCtrl_AppendTextRaw, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"StyledTextCtrl_PositionToXY", (PyCFunction) _wrap_StyledTextCtrl_PositionToXY, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"StyledTextCtrl_GetLibraryVersionInfo", (PyCFunction)_wrap_StyledTextCtrl_GetLibraryVersionInfo, METH_NOARGS, NULL},
 	 { (char *)"StyledTextCtrl_swigregister", StyledTextCtrl_swigregister, METH_VARARGS, NULL},
 	 { (char *)"StyledTextCtrl_swiginit", StyledTextCtrl_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_StyledTextEvent", (PyCFunction) _wrap_new_StyledTextEvent, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -26778,6 +26798,7 @@ static swig_type_info _swigt__p_wxTextAreaBase = {"_p_wxTextAreaBase", "wxTextAr
 static swig_type_info _swigt__p_wxTextCtrlIface = {"_p_wxTextCtrlIface", "wxTextCtrlIface *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextEntryBase = {"_p_wxTextEntryBase", "wxTextEntryBase *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextEntry = {"_p_wxTextEntry", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxVersionInfo = {"_p_wxVersionInfo", "wxVersionInfo *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWindow = {"_p_wxWindow", "wxWindow *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
@@ -26900,6 +26921,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxToolTip,
   &_swigt__p_wxUpdateUIEvent,
   &_swigt__p_wxValidator,
+  &_swigt__p_wxVersionInfo,
   &_swigt__p_wxWindow,
   &_swigt__p_wxWindowCreateEvent,
   &_swigt__p_wxWindowDestroyEvent,
@@ -27030,6 +27052,7 @@ static swig_cast_info _swigc__p_wxTextAreaBase[] = {  {&_swigt__p_wxTextAreaBase
 static swig_cast_info _swigc__p_wxTextCtrlIface[] = {  {&_swigt__p_wxStyledTextCtrl, _p_wxStyledTextCtrlTo_p_wxTextCtrlIface, 0, 0},  {&_swigt__p_wxTextCtrlIface, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextEntry[] = {{&_swigt__p_wxTextEntry, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextEntryBase[] = {  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxStyledTextCtrl, _p_wxStyledTextCtrlTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextEntry, _p_wxTextEntryTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextCtrlIface, _p_wxTextCtrlIfaceTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextEntryBase, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxVersionInfo[] = {  {&_swigt__p_wxVersionInfo, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxControl, _p_wxControlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxWindow, 0, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxStyledTextCtrl, _p_wxStyledTextCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxWindow, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
@@ -27152,6 +27175,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxToolTip,
   _swigc__p_wxUpdateUIEvent,
   _swigc__p_wxValidator,
+  _swigc__p_wxVersionInfo,
   _swigc__p_wxWindow,
   _swigc__p_wxWindowCreateEvent,
   _swigc__p_wxWindowDestroyEvent,

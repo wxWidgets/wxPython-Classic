@@ -2534,87 +2534,88 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxFileSystem swig_types[68]
 #define SWIGTYPE_p_wxFlexGridSizer swig_types[69]
 #define SWIGTYPE_p_wxFocusEvent swig_types[70]
-#define SWIGTYPE_p_wxGBSizerItem swig_types[71]
-#define SWIGTYPE_p_wxGIFHandler swig_types[72]
-#define SWIGTYPE_p_wxGridBagSizer swig_types[73]
-#define SWIGTYPE_p_wxGridSizer swig_types[74]
-#define SWIGTYPE_p_wxHeaderColumn swig_types[75]
-#define SWIGTYPE_p_wxHeaderColumnSimple swig_types[76]
-#define SWIGTYPE_p_wxICOHandler swig_types[77]
-#define SWIGTYPE_p_wxIcon swig_types[78]
-#define SWIGTYPE_p_wxIconizeEvent swig_types[79]
-#define SWIGTYPE_p_wxIdleEvent swig_types[80]
-#define SWIGTYPE_p_wxImage swig_types[81]
-#define SWIGTYPE_p_wxImageHandler swig_types[82]
-#define SWIGTYPE_p_wxImageList swig_types[83]
-#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[84]
-#define SWIGTYPE_p_wxInitDialogEvent swig_types[85]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[86]
-#define SWIGTYPE_p_wxKeyEvent swig_types[87]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[88]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[89]
-#define SWIGTYPE_p_wxMenu swig_types[90]
-#define SWIGTYPE_p_wxMenuBar swig_types[91]
-#define SWIGTYPE_p_wxMenuEvent swig_types[92]
-#define SWIGTYPE_p_wxMenuItem swig_types[93]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[94]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[95]
-#define SWIGTYPE_p_wxMouseEvent swig_types[96]
-#define SWIGTYPE_p_wxMoveEvent swig_types[97]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[98]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[99]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[100]
-#define SWIGTYPE_p_wxObject swig_types[101]
-#define SWIGTYPE_p_wxPCXHandler swig_types[102]
-#define SWIGTYPE_p_wxPNGHandler swig_types[103]
-#define SWIGTYPE_p_wxPNMHandler swig_types[104]
-#define SWIGTYPE_p_wxPaintEvent swig_types[105]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[106]
-#define SWIGTYPE_p_wxPaperSize swig_types[107]
-#define SWIGTYPE_p_wxPoint swig_types[108]
-#define SWIGTYPE_p_wxPyApp swig_types[109]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[110]
-#define SWIGTYPE_p_wxPyDataViewCustomRenderer swig_types[111]
-#define SWIGTYPE_p_wxPyDataViewIndexListModel swig_types[112]
-#define SWIGTYPE_p_wxPyDataViewModel swig_types[113]
-#define SWIGTYPE_p_wxPyDataViewModelNotifier swig_types[114]
-#define SWIGTYPE_p_wxPyDataViewVirtualListModel swig_types[115]
-#define SWIGTYPE_p_wxPyEvent swig_types[116]
-#define SWIGTYPE_p_wxPyEvtHandler swig_types[117]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[118]
-#define SWIGTYPE_p_wxPySizer swig_types[119]
-#define SWIGTYPE_p_wxPyValidator swig_types[120]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[121]
-#define SWIGTYPE_p_wxRect swig_types[122]
-#define SWIGTYPE_p_wxRefCounter swig_types[123]
-#define SWIGTYPE_p_wxScrollEvent swig_types[124]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[125]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[126]
-#define SWIGTYPE_p_wxSettableHeaderColumn swig_types[127]
-#define SWIGTYPE_p_wxShowEvent swig_types[128]
-#define SWIGTYPE_p_wxSize swig_types[129]
-#define SWIGTYPE_p_wxSizeEvent swig_types[130]
-#define SWIGTYPE_p_wxSizer swig_types[131]
-#define SWIGTYPE_p_wxSizerItem swig_types[132]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[133]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[134]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[135]
-#define SWIGTYPE_p_wxTGAHandler swig_types[136]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[137]
-#define SWIGTYPE_p_wxTextCtrlBase swig_types[138]
-#define SWIGTYPE_p_wxThreadEvent swig_types[139]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[140]
-#define SWIGTYPE_p_wxValidator swig_types[141]
-#define SWIGTYPE_p_wxVariant swig_types[142]
-#define SWIGTYPE_p_wxVariantVector swig_types[143]
-#define SWIGTYPE_p_wxVisualAttributes swig_types[144]
-#define SWIGTYPE_p_wxWindow swig_types[145]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[146]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[147]
-#define SWIGTYPE_p_wxWrapSizer swig_types[148]
-#define SWIGTYPE_p_wxXPMHandler swig_types[149]
-static swig_type_info *swig_types[151];
-static swig_module_info swig_module = {swig_types, 150, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxFont swig_types[71]
+#define SWIGTYPE_p_wxGBSizerItem swig_types[72]
+#define SWIGTYPE_p_wxGIFHandler swig_types[73]
+#define SWIGTYPE_p_wxGridBagSizer swig_types[74]
+#define SWIGTYPE_p_wxGridSizer swig_types[75]
+#define SWIGTYPE_p_wxHeaderColumn swig_types[76]
+#define SWIGTYPE_p_wxHeaderColumnSimple swig_types[77]
+#define SWIGTYPE_p_wxICOHandler swig_types[78]
+#define SWIGTYPE_p_wxIcon swig_types[79]
+#define SWIGTYPE_p_wxIconizeEvent swig_types[80]
+#define SWIGTYPE_p_wxIdleEvent swig_types[81]
+#define SWIGTYPE_p_wxImage swig_types[82]
+#define SWIGTYPE_p_wxImageHandler swig_types[83]
+#define SWIGTYPE_p_wxImageList swig_types[84]
+#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[85]
+#define SWIGTYPE_p_wxInitDialogEvent swig_types[86]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[87]
+#define SWIGTYPE_p_wxKeyEvent swig_types[88]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[89]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[90]
+#define SWIGTYPE_p_wxMenu swig_types[91]
+#define SWIGTYPE_p_wxMenuBar swig_types[92]
+#define SWIGTYPE_p_wxMenuEvent swig_types[93]
+#define SWIGTYPE_p_wxMenuItem swig_types[94]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[95]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[96]
+#define SWIGTYPE_p_wxMouseEvent swig_types[97]
+#define SWIGTYPE_p_wxMoveEvent swig_types[98]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[99]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[100]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[101]
+#define SWIGTYPE_p_wxObject swig_types[102]
+#define SWIGTYPE_p_wxPCXHandler swig_types[103]
+#define SWIGTYPE_p_wxPNGHandler swig_types[104]
+#define SWIGTYPE_p_wxPNMHandler swig_types[105]
+#define SWIGTYPE_p_wxPaintEvent swig_types[106]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[107]
+#define SWIGTYPE_p_wxPaperSize swig_types[108]
+#define SWIGTYPE_p_wxPoint swig_types[109]
+#define SWIGTYPE_p_wxPyApp swig_types[110]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[111]
+#define SWIGTYPE_p_wxPyDataViewCustomRenderer swig_types[112]
+#define SWIGTYPE_p_wxPyDataViewIndexListModel swig_types[113]
+#define SWIGTYPE_p_wxPyDataViewModel swig_types[114]
+#define SWIGTYPE_p_wxPyDataViewModelNotifier swig_types[115]
+#define SWIGTYPE_p_wxPyDataViewVirtualListModel swig_types[116]
+#define SWIGTYPE_p_wxPyEvent swig_types[117]
+#define SWIGTYPE_p_wxPyEvtHandler swig_types[118]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[119]
+#define SWIGTYPE_p_wxPySizer swig_types[120]
+#define SWIGTYPE_p_wxPyValidator swig_types[121]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[122]
+#define SWIGTYPE_p_wxRect swig_types[123]
+#define SWIGTYPE_p_wxRefCounter swig_types[124]
+#define SWIGTYPE_p_wxScrollEvent swig_types[125]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[126]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[127]
+#define SWIGTYPE_p_wxSettableHeaderColumn swig_types[128]
+#define SWIGTYPE_p_wxShowEvent swig_types[129]
+#define SWIGTYPE_p_wxSize swig_types[130]
+#define SWIGTYPE_p_wxSizeEvent swig_types[131]
+#define SWIGTYPE_p_wxSizer swig_types[132]
+#define SWIGTYPE_p_wxSizerItem swig_types[133]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[134]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[135]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[136]
+#define SWIGTYPE_p_wxTGAHandler swig_types[137]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[138]
+#define SWIGTYPE_p_wxTextCtrlBase swig_types[139]
+#define SWIGTYPE_p_wxThreadEvent swig_types[140]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[141]
+#define SWIGTYPE_p_wxValidator swig_types[142]
+#define SWIGTYPE_p_wxVariant swig_types[143]
+#define SWIGTYPE_p_wxVariantVector swig_types[144]
+#define SWIGTYPE_p_wxVisualAttributes swig_types[145]
+#define SWIGTYPE_p_wxWindow swig_types[146]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[147]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[148]
+#define SWIGTYPE_p_wxWrapSizer swig_types[149]
+#define SWIGTYPE_p_wxXPMHandler swig_types[150]
+static swig_type_info *swig_types[152];
+static swig_module_info swig_module = {swig_types, 151, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -5470,6 +5471,48 @@ SWIGINTERN PyObject *_wrap_DataViewItemAttr_IsDefault(PyObject *SWIGUNUSEDPARM(s
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataViewItemAttr_GetEffectiveFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDataViewItemAttr *arg1 = (wxDataViewItemAttr *) 0 ;
+  wxFont *arg2 = 0 ;
+  wxFont result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "font", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:DataViewItemAttr_GetEffectiveFont",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDataViewItemAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewItemAttr_GetEffectiveFont" "', expected argument " "1"" of type '" "wxDataViewItemAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewItemAttr * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxFont,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewItemAttr_GetEffectiveFont" "', expected argument " "2"" of type '" "wxFont const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataViewItemAttr_GetEffectiveFont" "', expected argument " "2"" of type '" "wxFont const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxFont * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxDataViewItemAttr const *)arg1)->GetEffectiveFont((wxFont const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxFont(static_cast< const wxFont& >(result))), SWIGTYPE_p_wxFont, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -8402,6 +8445,65 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_GetVariantType(PyObject *SWIGUNUSEDP
     resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
 #endif
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataViewRenderer_PrepareForItem(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDataViewRenderer *arg1 = (wxDataViewRenderer *) 0 ;
+  wxDataViewModel *arg2 = (wxDataViewModel *) 0 ;
+  wxDataViewItem *arg3 = 0 ;
+  unsigned int arg4 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  unsigned int val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "model",(char *) "item",(char *) "column", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:DataViewRenderer_PrepareForItem",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDataViewRenderer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewRenderer_PrepareForItem" "', expected argument " "1"" of type '" "wxDataViewRenderer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewRenderer * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxDataViewModel, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewRenderer_PrepareForItem" "', expected argument " "2"" of type '" "wxDataViewModel const *""'"); 
+  }
+  arg2 = reinterpret_cast< wxDataViewModel * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxDataViewItem,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataViewRenderer_PrepareForItem" "', expected argument " "3"" of type '" "wxDataViewItem const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataViewRenderer_PrepareForItem" "', expected argument " "3"" of type '" "wxDataViewItem const &""'"); 
+  }
+  arg3 = reinterpret_cast< wxDataViewItem * >(argp3);
+  ecode4 = SWIG_AsVal_unsigned_SS_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "DataViewRenderer_PrepareForItem" "', expected argument " "4"" of type '" "unsigned int""'");
+  } 
+  arg4 = static_cast< unsigned int >(val4);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->PrepareForItem((wxDataViewModel const *)arg2,(wxDataViewItem const &)*arg3,arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -19490,6 +19592,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewItemAttr_GetBold", (PyCFunction)_wrap_DataViewItemAttr_GetBold, METH_O, NULL},
 	 { (char *)"DataViewItemAttr_GetItalic", (PyCFunction)_wrap_DataViewItemAttr_GetItalic, METH_O, NULL},
 	 { (char *)"DataViewItemAttr_IsDefault", (PyCFunction)_wrap_DataViewItemAttr_IsDefault, METH_O, NULL},
+	 { (char *)"DataViewItemAttr_GetEffectiveFont", (PyCFunction) _wrap_DataViewItemAttr_GetEffectiveFont, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewItemAttr_swigregister", DataViewItemAttr_swigregister, METH_VARARGS, NULL},
 	 { (char *)"DataViewItemAttr_swiginit", DataViewItemAttr_swiginit, METH_VARARGS, NULL},
 	 { (char *)"DataViewModel_GetColumnCount", (PyCFunction)_wrap_DataViewModel_GetColumnCount, METH_O, NULL},
@@ -19570,6 +19673,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewRenderer_SetValue", (PyCFunction) _wrap_DataViewRenderer_SetValue, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewRenderer_GetValue", (PyCFunction)_wrap_DataViewRenderer_GetValue, METH_O, NULL},
 	 { (char *)"DataViewRenderer_GetVariantType", (PyCFunction)_wrap_DataViewRenderer_GetVariantType, METH_O, NULL},
+	 { (char *)"DataViewRenderer_PrepareForItem", (PyCFunction) _wrap_DataViewRenderer_PrepareForItem, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewRenderer_SetMode", (PyCFunction) _wrap_DataViewRenderer_SetMode, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewRenderer_GetMode", (PyCFunction)_wrap_DataViewRenderer_GetMode, METH_O, NULL},
 	 { (char *)"DataViewRenderer_SetAlignment", (PyCFunction) _wrap_DataViewRenderer_SetAlignment, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -20591,6 +20695,7 @@ static swig_type_info _swigt__p_wxPyValidator = {"_p_wxPyValidator", 0, 0, 0, 0,
 static swig_type_info _swigt__p_wxPyEvtHandler = {"_p_wxPyEvtHandler", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxMenuBar = {"_p_wxMenuBar", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxPyApp = {"_p_wxPyApp", 0, 0, 0, 0, 0};
+static swig_type_info _swigt__p_wxFont = {"_p_wxFont", "wxFont *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxHeaderColumn = {"_p_wxHeaderColumn", "wxHeaderColumn *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxHeaderColumnSimple = {"_p_wxHeaderColumnSimple", 0, 0, 0, 0, 0};
 static swig_type_info _swigt__p_wxIcon = {"_p_wxIcon", "wxIcon *", 0, 0, (void*)0, 0};
@@ -20637,7 +20742,7 @@ static swig_type_info _swigt__p_wxPyDataViewModel = {"_p_wxPyDataViewModel", "wx
 static swig_type_info _swigt__p_wxPyDataViewModelNotifier = {"_p_wxPyDataViewModelNotifier", "wxPyDataViewModelNotifier *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPyDataViewVirtualListModel = {"_p_wxPyDataViewVirtualListModel", "wxPyDataViewVirtualListModel *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRect = {"_p_wxRect", "wxRect *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxRefCounter = {"_p_wxRefCounter", "wxRefCounter *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxRefCounter = {"_p_wxRefCounter", "wxRefCounter *|wxObjectRefData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxSettableHeaderColumn = {"_p_wxSettableHeaderColumn", "wxSettableHeaderColumn *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxSize = {"_p_wxSize", "wxSize *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxValidator = {"_p_wxValidator", "wxValidator *", 0, 0, (void*)0, 0};
@@ -20718,6 +20823,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxFileSystem,
   &_swigt__p_wxFlexGridSizer,
   &_swigt__p_wxFocusEvent,
+  &_swigt__p_wxFont,
   &_swigt__p_wxGBSizerItem,
   &_swigt__p_wxGIFHandler,
   &_swigt__p_wxGridBagSizer,
@@ -20895,6 +21001,7 @@ static swig_cast_info _swigc__p_wxPyEvtHandler[] = {{&_swigt__p_wxPyEvtHandler, 
 static swig_cast_info _swigc__p_wxMenuBar[] = {{&_swigt__p_wxMenuBar, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyApp[] = {{&_swigt__p_wxPyApp, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxEvtHandler[] = {  {&_swigt__p_wxEventBlocker, _p_wxEventBlockerTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxDataViewTreeCtrl, _p_wxDataViewTreeCtrlTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMenu, _p_wxMenuTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxDataViewListCtrl, _p_wxDataViewListCtrlTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxValidator, _p_wxValidatorTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxWindow, _p_wxWindowTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxDataViewCtrl, _p_wxDataViewCtrlTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyEvtHandler, _p_wxPyEvtHandlerTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxEvtHandler, 0, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxEvtHandler, 0, 0},  {&_swigt__p_wxPyApp, _p_wxPyAppTo_p_wxEvtHandler, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxFont[] = {  {&_swigt__p_wxFont, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxHeaderColumnSimple[] = {{&_swigt__p_wxHeaderColumnSimple, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxHeaderColumn[] = {  {&_swigt__p_wxHeaderColumn, 0, 0, 0},  {&_swigt__p_wxSettableHeaderColumn, _p_wxSettableHeaderColumnTo_p_wxHeaderColumn, 0, 0},  {&_swigt__p_wxHeaderColumnSimple, _p_wxHeaderColumnSimpleTo_p_wxHeaderColumn, 0, 0},  {&_swigt__p_wxDataViewColumn, _p_wxDataViewColumnTo_p_wxHeaderColumn, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxIcon[] = {  {&_swigt__p_wxIcon, 0, 0, 0},{0, 0, 0, 0}};
@@ -21022,6 +21129,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxFileSystem,
   _swigc__p_wxFlexGridSizer,
   _swigc__p_wxFocusEvent,
+  _swigc__p_wxFont,
   _swigc__p_wxGBSizerItem,
   _swigc__p_wxGIFHandler,
   _swigc__p_wxGridBagSizer,

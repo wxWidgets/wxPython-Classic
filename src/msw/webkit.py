@@ -168,7 +168,6 @@ class WebKitCtrl(_core.Control):
     PageSource = property(GetPageSource,SetPageSource,doc="See `GetPageSource` and `SetPageSource`") 
     PageTitle = property(GetPageTitle,doc="See `GetPageTitle`") 
     PageURL = property(GetPageURL,doc="See `GetPageURL`") 
-    ScrollPos = property(GetScrollPos,SetScrollPos,doc="See `GetScrollPos and SetScrollPos`") 
     Selection = property(GetSelection,doc="See `GetSelection`") 
 _webkit.WebKitCtrl_swigregister(WebKitCtrl)
 cvar = _webkit.cvar

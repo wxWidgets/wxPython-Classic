@@ -7912,36 +7912,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_IsDefault(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_IsDefault" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextBoxAttr const *)arg1)->IsDefault();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_TextBoxAttr_GetFloatMode(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
@@ -34101,7 +34071,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextBoxAttr_HasFlag", (PyCFunction) _wrap_TextBoxAttr_HasFlag, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextBoxAttr_RemoveFlag", (PyCFunction) _wrap_TextBoxAttr_RemoveFlag, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextBoxAttr_AddFlag", (PyCFunction) _wrap_TextBoxAttr_AddFlag, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextBoxAttr_IsDefault", (PyCFunction)_wrap_TextBoxAttr_IsDefault, METH_O, NULL},
 	 { (char *)"TextBoxAttr_GetFloatMode", (PyCFunction)_wrap_TextBoxAttr_GetFloatMode, METH_O, NULL},
 	 { (char *)"TextBoxAttr_SetFloatMode", (PyCFunction) _wrap_TextBoxAttr_SetFloatMode, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextBoxAttr_HasFloatMode", (PyCFunction)_wrap_TextBoxAttr_HasFloatMode, METH_O, NULL},

@@ -2749,7 +2749,7 @@ namespace swig {
  static const wxString wxPyEmptyString(wxEmptyString); 
 
 #ifdef __WXMAC__
-#include <wx/osx/carbon/private.h>
+#include <wx/osx/private.h>
 #endif
 
 
@@ -3903,6 +3903,7 @@ SWIGINTERN wxPyLocale *new_wxPyLocale(int language=-1,int flags=wxLOCALE_LOAD_DE
 #ifdef __WXGTK__
 #include <wx/gtk/dc.h>
 #endif
+#include <wx/dcgraph.h>
 
 SWIGINTERN wxColour wxDC_GetPixel(wxDC *self,int x,int y){
             wxColour col;
@@ -27571,11 +27572,77 @@ SWIGINTERN PyObject *PrinterDC_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject
   return SWIG_Python_InitShadowInstance(args);
 }
 
+SWIGINTERN PyObject *_wrap_new_SVGFileDC(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxString arg1 ;
+  int arg2 = (int) 320 ;
+  int arg3 = (int) 240 ;
+  double arg4 = (double) 72.0 ;
+  wxSVGFileDC *result = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  double val4 ;
+  int ecode4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  char *  kwnames[] = {
+    (char *) "filename",(char *) "width",(char *) "height",(char *) "dpi", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|OOO:new_SVGFileDC",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  {
+    wxString* sptr = wxString_in_helper(obj0);
+    if (sptr == NULL) SWIG_fail;
+    arg1 = *sptr;
+    delete sptr;
+  }
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_SVGFileDC" "', expected argument " "2"" of type '" "int""'");
+    } 
+    arg2 = static_cast< int >(val2);
+  }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_SVGFileDC" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
+  if (obj3) {
+    ecode4 = SWIG_AsVal_double(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_SVGFileDC" "', expected argument " "4"" of type '" "double""'");
+    } 
+    arg4 = static_cast< double >(val4);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxSVGFileDC *)new wxSVGFileDC(arg1,arg2,arg3,arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxSVGFileDC, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *SVGFileDC_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
   SWIG_TypeNewClientData(SWIGTYPE_p_wxSVGFileDC, SWIG_NewClientData(obj));
   return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *SVGFileDC_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
 }
 
 SWIGINTERN PyObject *_wrap_new_GraphicsObject(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
@@ -37734,6 +37801,45 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_RendererNative_GetHeaderButtonMargin(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxRendererNative *arg1 = (wxRendererNative *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "win", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RendererNative_GetHeaderButtonMargin",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRendererNative, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RendererNative_GetHeaderButtonMargin" "', expected argument " "1"" of type '" "wxRendererNative *""'"); 
+  }
+  arg1 = reinterpret_cast< wxRendererNative * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RendererNative_GetHeaderButtonMargin" "', expected argument " "2"" of type '" "wxWindow *""'"); 
+  }
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)(arg1)->GetHeaderButtonMargin(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_RendererNative_DrawTreeItemButton(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRendererNative *arg1 = (wxRendererNative *) 0 ;
@@ -42899,7 +43005,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_PrinterDC", (PyCFunction) _wrap_new_PrinterDC, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PrinterDC_swigregister", PrinterDC_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PrinterDC_swiginit", PrinterDC_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_SVGFileDC", (PyCFunction) _wrap_new_SVGFileDC, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SVGFileDC_swigregister", SVGFileDC_swigregister, METH_VARARGS, NULL},
+	 { (char *)"SVGFileDC_swiginit", SVGFileDC_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_GraphicsObject", (PyCFunction) _wrap_new_GraphicsObject, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"delete_GraphicsObject", (PyCFunction)_wrap_delete_GraphicsObject, METH_O, NULL},
 	 { (char *)"GraphicsObject_IsNull", (PyCFunction)_wrap_GraphicsObject_IsNull, METH_O, NULL},
@@ -43154,6 +43262,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RendererNative_DrawHeaderButton", (PyCFunction) _wrap_RendererNative_DrawHeaderButton, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawHeaderButtonContents", (PyCFunction) _wrap_RendererNative_DrawHeaderButtonContents, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_GetHeaderButtonHeight", (PyCFunction) _wrap_RendererNative_GetHeaderButtonHeight, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"RendererNative_GetHeaderButtonMargin", (PyCFunction) _wrap_RendererNative_GetHeaderButtonMargin, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawTreeItemButton", (PyCFunction) _wrap_RendererNative_DrawTreeItemButton, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawSplitterBorder", (PyCFunction) _wrap_RendererNative_DrawSplitterBorder, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RendererNative_DrawSplitterSash", (PyCFunction) _wrap_RendererNative_DrawSplitterSash, METH_VARARGS | METH_KEYWORDS, NULL},

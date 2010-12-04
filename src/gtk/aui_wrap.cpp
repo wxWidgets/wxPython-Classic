@@ -3917,6 +3917,36 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiPaneInfo_IsDockable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiPaneInfo *arg1 = (wxAuiPaneInfo *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiPaneInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiPaneInfo_IsDockable" "', expected argument " "1"" of type '" "wxAuiPaneInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiPaneInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxAuiPaneInfo const *)arg1)->IsDockable();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_AuiPaneInfo_IsFloatable(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxAuiPaneInfo *arg1 = (wxAuiPaneInfo *) 0 ;
@@ -24753,6 +24783,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiPaneInfo_IsBottomDockable", (PyCFunction)_wrap_AuiPaneInfo_IsBottomDockable, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_IsLeftDockable", (PyCFunction)_wrap_AuiPaneInfo_IsLeftDockable, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_IsRightDockable", (PyCFunction)_wrap_AuiPaneInfo_IsRightDockable, METH_O, NULL},
+	 { (char *)"AuiPaneInfo_IsDockable", (PyCFunction)_wrap_AuiPaneInfo_IsDockable, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_IsFloatable", (PyCFunction)_wrap_AuiPaneInfo_IsFloatable, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_IsMovable", (PyCFunction)_wrap_AuiPaneInfo_IsMovable, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_IsDestroyOnClose", (PyCFunction)_wrap_AuiPaneInfo_IsDestroyOnClose, METH_O, NULL},

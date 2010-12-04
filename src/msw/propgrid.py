@@ -2393,7 +2393,7 @@ class PropertyGrid(_core.Control,_windows.ScrollHelper,PropertyGridInterface):
         return _propgrid.PropertyGrid_RefreshEditor(*args, **kwargs)
 
     def HandleCustomEditorEvent(*args, **kwargs):
-        """HandleCustomEditorEvent(self, Event event)"""
+        """HandleCustomEditorEvent(self, Event event) -> bool"""
         return _propgrid.PropertyGrid_HandleCustomEditorEvent(*args, **kwargs)
 
     def GetInternalFlags(*args, **kwargs):

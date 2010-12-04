@@ -552,10 +552,6 @@ class TextBoxAttr(object):
         """AddFlag(self, int flag)"""
         return _richtext.TextBoxAttr_AddFlag(*args, **kwargs)
 
-    def IsDefault(*args, **kwargs):
-        """IsDefault(self) -> bool"""
-        return _richtext.TextBoxAttr_IsDefault(*args, **kwargs)
-
     def GetFloatMode(*args, **kwargs):
         """GetFloatMode(self) -> short"""
         return _richtext.TextBoxAttr_GetFloatMode(*args, **kwargs)

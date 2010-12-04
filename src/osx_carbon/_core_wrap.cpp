@@ -2612,14 +2612,14 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxTextAreaBase swig_types[146]
 #define SWIGTYPE_p_wxTextAttr swig_types[147]
 #define SWIGTYPE_p_wxTextCtrlBase swig_types[148]
-#define SWIGTYPE_p_wxTextCtrlHitTestResult swig_types[149]
-#define SWIGTYPE_p_wxTextCtrlIface swig_types[150]
-#define SWIGTYPE_p_wxTextEntry swig_types[151]
-#define SWIGTYPE_p_wxTextEntryBase swig_types[152]
-#define SWIGTYPE_p_wxThreadEvent swig_types[153]
-#define SWIGTYPE_p_wxToolTip swig_types[154]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[155]
-#define SWIGTYPE_p_wxValidator swig_types[156]
+#define SWIGTYPE_p_wxTextCtrlIface swig_types[149]
+#define SWIGTYPE_p_wxTextEntry swig_types[150]
+#define SWIGTYPE_p_wxTextEntryBase swig_types[151]
+#define SWIGTYPE_p_wxThreadEvent swig_types[152]
+#define SWIGTYPE_p_wxToolTip swig_types[153]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[154]
+#define SWIGTYPE_p_wxValidator swig_types[155]
+#define SWIGTYPE_p_wxVersionInfo swig_types[156]
 #define SWIGTYPE_p_wxVisualAttributes swig_types[157]
 #define SWIGTYPE_p_wxWindow swig_types[158]
 #define SWIGTYPE_p_wxWindowCreateEvent swig_types[159]
@@ -4070,9 +4070,6 @@ SWIG_AsVal_unsigned_SS_int (PyObject * obj, unsigned int *val)
   return res;
 }
 
-SWIGINTERN void wxSizeEvent_SetSize(wxSizeEvent *self,wxSize size){
-            self->m_size = size;
-        }
 SWIGINTERN PyObject *wxDropFilesEvent_GetFiles(wxDropFilesEvent *self){
             int         count = self->GetNumberOfFiles();
             wxString*   files = self->GetFiles();
@@ -20884,6 +20881,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Image_Rotate180(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxImage *arg1 = (wxImage *) 0 ;
+  SwigValueWrapper<wxImage > result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxImage, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Image_Rotate180" "', expected argument " "1"" of type '" "wxImage const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxImage * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxImage const *)arg1)->Rotate180();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxImage(static_cast< const wxImage& >(result))), SWIGTYPE_p_wxImage, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Image_Mirror(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxImage *arg1 = (wxImage *) 0 ;
@@ -28874,7 +28899,7 @@ SWIGINTERN PyObject *_wrap_SizeEvent_SetSize(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxSizeEvent_SetSize(arg1,arg2);
+    (arg1)->SetSize(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -57035,11 +57060,11 @@ SWIGINTERN PyObject *_wrap_TextAreaBase_HitTest(PyObject *SWIGUNUSEDPARM(self), 
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxTextAreaBase const *)arg1)->HitTest((wxPoint const &)*arg2,arg3,arg4);
+    result = (wxTextCtrlHitTestResult)((wxTextAreaBase const *)arg1)->HitTest((wxPoint const &)*arg2,arg3,arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxTextCtrlHitTestResult(static_cast< const wxTextCtrlHitTestResult& >(result))), SWIGTYPE_p_wxTextCtrlHitTestResult, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_From_int(static_cast< int >(result));
   if (SWIG_IsTmpObj(res3)) {
     resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg3)));
   } else {
@@ -57088,11 +57113,11 @@ SWIGINTERN PyObject *_wrap_TextAreaBase_HitTestPos(PyObject *SWIGUNUSEDPARM(self
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxTextAreaBase const *)arg1)->HitTest((wxPoint const &)*arg2,arg3);
+    result = (wxTextCtrlHitTestResult)((wxTextAreaBase const *)arg1)->HitTest((wxPoint const &)*arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj((new wxTextCtrlHitTestResult(static_cast< const wxTextCtrlHitTestResult& >(result))), SWIGTYPE_p_wxTextCtrlHitTestResult, SWIG_POINTER_OWN |  0 );
+  resultobj = SWIG_From_int(static_cast< int >(result));
   if (SWIG_IsTmpObj(res3)) {
     resultobj = SWIG_Python_AppendOutput(resultobj, SWIG_From_long((*arg3)));
   } else {
@@ -68678,6 +68703,444 @@ SWIGINTERN PyObject *HeaderColumnSimple_swiginit(PyObject *SWIGUNUSEDPARM(self),
   return SWIG_Python_InitShadowInstance(args);
 }
 
+SWIGINTERN PyObject *_wrap_new_VersionInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxString *arg1 = 0 ;
+  int arg2 ;
+  int arg3 ;
+  int arg4 = (int) 0 ;
+  wxString const &arg5_defvalue = wxEmptyString ;
+  wxString *arg5 = (wxString *) &arg5_defvalue ;
+  wxString const &arg6_defvalue = wxEmptyString ;
+  wxString *arg6 = (wxString *) &arg6_defvalue ;
+  wxVersionInfo *result = 0 ;
+  bool temp1 = false ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  bool temp5 = false ;
+  bool temp6 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  char *  kwnames[] = {
+    (char *) "name",(char *) "major",(char *) "minor",(char *) "micro",(char *) "description",(char *) "copyright", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|OOO:new_VersionInfo",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  {
+    arg1 = wxString_in_helper(obj0);
+    if (arg1 == NULL) SWIG_fail;
+    temp1 = true;
+  }
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_VersionInfo" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_VersionInfo" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  if (obj3) {
+    ecode4 = SWIG_AsVal_int(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_VersionInfo" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
+  if (obj4) {
+    {
+      arg5 = wxString_in_helper(obj4);
+      if (arg5 == NULL) SWIG_fail;
+      temp5 = true;
+    }
+  }
+  if (obj5) {
+    {
+      arg6 = wxString_in_helper(obj5);
+      if (arg6 == NULL) SWIG_fail;
+      temp6 = true;
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxVersionInfo *)new wxVersionInfo((wxString const &)*arg1,arg2,arg3,arg4,(wxString const &)*arg5,(wxString const &)*arg6);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxVersionInfo, SWIG_POINTER_NEW |  0 );
+  {
+    if (temp1)
+    delete arg1;
+  }
+  {
+    if (temp5)
+    delete arg5;
+  }
+  {
+    if (temp6)
+    delete arg6;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp1)
+    delete arg1;
+  }
+  {
+    if (temp5)
+    delete arg5;
+  }
+  {
+    if (temp6)
+    delete arg6;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_VersionInfo_GetName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo *arg1 = (wxVersionInfo *) 0 ;
+  wxString *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVersionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VersionInfo_GetName" "', expected argument " "1"" of type '" "wxVersionInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVersionInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxString const &_result_ref = ((wxVersionInfo const *)arg1)->GetName();
+      result = (wxString *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
+#else
+    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_VersionInfo_GetMajor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo *arg1 = (wxVersionInfo *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVersionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VersionInfo_GetMajor" "', expected argument " "1"" of type '" "wxVersionInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVersionInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)((wxVersionInfo const *)arg1)->GetMajor();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_VersionInfo_GetMinor(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo *arg1 = (wxVersionInfo *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVersionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VersionInfo_GetMinor" "', expected argument " "1"" of type '" "wxVersionInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVersionInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)((wxVersionInfo const *)arg1)->GetMinor();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_VersionInfo_GetMicro(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo *arg1 = (wxVersionInfo *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVersionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VersionInfo_GetMicro" "', expected argument " "1"" of type '" "wxVersionInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVersionInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)((wxVersionInfo const *)arg1)->GetMicro();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_VersionInfo_ToString(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo *arg1 = (wxVersionInfo *) 0 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVersionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VersionInfo_ToString" "', expected argument " "1"" of type '" "wxVersionInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVersionInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxVersionInfo const *)arg1)->ToString();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_VersionInfo_GetVersionString(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo *arg1 = (wxVersionInfo *) 0 ;
+  wxString result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVersionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VersionInfo_GetVersionString" "', expected argument " "1"" of type '" "wxVersionInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVersionInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxVersionInfo const *)arg1)->GetVersionString();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar((&result)->c_str(), (&result)->Len());
+#else
+    resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_VersionInfo_HasDescription(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo *arg1 = (wxVersionInfo *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVersionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VersionInfo_HasDescription" "', expected argument " "1"" of type '" "wxVersionInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVersionInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxVersionInfo const *)arg1)->HasDescription();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_VersionInfo_GetDescription(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo *arg1 = (wxVersionInfo *) 0 ;
+  wxString *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVersionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VersionInfo_GetDescription" "', expected argument " "1"" of type '" "wxVersionInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVersionInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxString const &_result_ref = ((wxVersionInfo const *)arg1)->GetDescription();
+      result = (wxString *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
+#else
+    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_VersionInfo_HasCopyright(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo *arg1 = (wxVersionInfo *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVersionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VersionInfo_HasCopyright" "', expected argument " "1"" of type '" "wxVersionInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVersionInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxVersionInfo const *)arg1)->HasCopyright();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_VersionInfo_GetCopyright(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxVersionInfo *arg1 = (wxVersionInfo *) 0 ;
+  wxString *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxVersionInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "VersionInfo_GetCopyright" "', expected argument " "1"" of type '" "wxVersionInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxVersionInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxString const &_result_ref = ((wxVersionInfo const *)arg1)->GetCopyright();
+      result = (wxString *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
+#else
+    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
+#endif
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *VersionInfo_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxVersionInfo, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *VersionInfo_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"_wxPySetDictionary", __wxPySetDictionary, METH_VARARGS, NULL},
 	 { (char *)"Object_GetClassName", (PyCFunction)_wrap_Object_GetClassName, METH_O, NULL},
@@ -69134,6 +69597,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Image_HasMask", (PyCFunction)_wrap_Image_HasMask, METH_O, NULL},
 	 { (char *)"Image_Rotate", (PyCFunction) _wrap_Image_Rotate, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Image_Rotate90", (PyCFunction) _wrap_Image_Rotate90, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Image_Rotate180", (PyCFunction)_wrap_Image_Rotate180, METH_O, NULL},
 	 { (char *)"Image_Mirror", (PyCFunction) _wrap_Image_Mirror, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Image_Replace", (PyCFunction) _wrap_Image_Replace, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Image_ConvertToGreyscale", _wrap_Image_ConvertToGreyscale, METH_VARARGS, NULL},
@@ -70583,6 +71047,19 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_HeaderColumnSimple", (PyCFunction) _wrap_new_HeaderColumnSimple, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HeaderColumnSimple_swigregister", HeaderColumnSimple_swigregister, METH_VARARGS, NULL},
 	 { (char *)"HeaderColumnSimple_swiginit", HeaderColumnSimple_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_VersionInfo", (PyCFunction) _wrap_new_VersionInfo, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"VersionInfo_GetName", (PyCFunction)_wrap_VersionInfo_GetName, METH_O, NULL},
+	 { (char *)"VersionInfo_GetMajor", (PyCFunction)_wrap_VersionInfo_GetMajor, METH_O, NULL},
+	 { (char *)"VersionInfo_GetMinor", (PyCFunction)_wrap_VersionInfo_GetMinor, METH_O, NULL},
+	 { (char *)"VersionInfo_GetMicro", (PyCFunction)_wrap_VersionInfo_GetMicro, METH_O, NULL},
+	 { (char *)"VersionInfo_ToString", (PyCFunction)_wrap_VersionInfo_ToString, METH_O, NULL},
+	 { (char *)"VersionInfo_GetVersionString", (PyCFunction)_wrap_VersionInfo_GetVersionString, METH_O, NULL},
+	 { (char *)"VersionInfo_HasDescription", (PyCFunction)_wrap_VersionInfo_HasDescription, METH_O, NULL},
+	 { (char *)"VersionInfo_GetDescription", (PyCFunction)_wrap_VersionInfo_GetDescription, METH_O, NULL},
+	 { (char *)"VersionInfo_HasCopyright", (PyCFunction)_wrap_VersionInfo_HasCopyright, METH_O, NULL},
+	 { (char *)"VersionInfo_GetCopyright", (PyCFunction)_wrap_VersionInfo_GetCopyright, METH_O, NULL},
+	 { (char *)"VersionInfo_swigregister", VersionInfo_swigregister, METH_VARARGS, NULL},
+	 { (char *)"VersionInfo_swiginit", VersionInfo_swiginit, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -71359,7 +71836,6 @@ static swig_type_info _swigt__p_wxTIFFHandler = {"_p_wxTIFFHandler", "wxTIFFHand
 static swig_type_info _swigt__p_wxTextAreaBase = {"_p_wxTextAreaBase", "wxTextAreaBase *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextAttr = {"_p_wxTextAttr", "wxTextAttr *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextCtrlBase = {"_p_wxTextCtrlBase", "wxTextCtrlBase *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxTextCtrlHitTestResult = {"_p_wxTextCtrlHitTestResult", "wxTextCtrlHitTestResult *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextCtrlIface = {"_p_wxTextCtrlIface", "wxTextCtrlIface *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextEntry = {"_p_wxTextEntry", "wxTextEntry *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextEntryBase = {"_p_wxTextEntryBase", "wxTextEntryBase *", 0, 0, (void*)0, 0};
@@ -71367,6 +71843,7 @@ static swig_type_info _swigt__p_wxThreadEvent = {"_p_wxThreadEvent", "wxThreadEv
 static swig_type_info _swigt__p_wxToolTip = {"_p_wxToolTip", "wxToolTip *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxUpdateUIEvent = {"_p_wxUpdateUIEvent", "wxUpdateUIEvent *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxValidator = {"_p_wxValidator", "wxValidator *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxVersionInfo = {"_p_wxVersionInfo", "wxVersionInfo *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxVisualAttributes = {"_p_wxVisualAttributes", "wxVisualAttributes *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWindow = {"_p_wxWindow", "wxWindow *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWindowCreateEvent = {"_p_wxWindowCreateEvent", "wxWindowCreateEvent *", 0, 0, (void*)0, 0};
@@ -71527,7 +72004,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxTextAreaBase,
   &_swigt__p_wxTextAttr,
   &_swigt__p_wxTextCtrlBase,
-  &_swigt__p_wxTextCtrlHitTestResult,
   &_swigt__p_wxTextCtrlIface,
   &_swigt__p_wxTextEntry,
   &_swigt__p_wxTextEntryBase,
@@ -71535,6 +72011,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxToolTip,
   &_swigt__p_wxUpdateUIEvent,
   &_swigt__p_wxValidator,
+  &_swigt__p_wxVersionInfo,
   &_swigt__p_wxVisualAttributes,
   &_swigt__p_wxWindow,
   &_swigt__p_wxWindowCreateEvent,
@@ -71695,7 +72172,6 @@ static swig_cast_info _swigc__p_wxTIFFHandler[] = {  {&_swigt__p_wxTIFFHandler, 
 static swig_cast_info _swigc__p_wxTextAreaBase[] = {  {&_swigt__p_wxTextAreaBase, 0, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxTextAreaBase, 0, 0},  {&_swigt__p_wxTextCtrlIface, _p_wxTextCtrlIfaceTo_p_wxTextAreaBase, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextAttr[] = {  {&_swigt__p_wxTextAttr, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextCtrlBase[] = {  {&_swigt__p_wxTextCtrlBase, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxTextCtrlHitTestResult[] = {  {&_swigt__p_wxTextCtrlHitTestResult, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextCtrlIface[] = {  {&_swigt__p_wxTextCtrlIface, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextEntry[] = {  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxTextEntry, 0, 0},  {&_swigt__p_wxTextEntry, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextEntryBase[] = {  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextEntry, _p_wxTextEntryTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextCtrlIface, _p_wxTextCtrlIfaceTo_p_wxTextEntryBase, 0, 0},  {&_swigt__p_wxTextEntryBase, 0, 0, 0},{0, 0, 0, 0}};
@@ -71703,6 +72179,7 @@ static swig_cast_info _swigc__p_wxThreadEvent[] = {  {&_swigt__p_wxThreadEvent, 
 static swig_cast_info _swigc__p_wxToolTip[] = {  {&_swigt__p_wxToolTip, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxUpdateUIEvent[] = {  {&_swigt__p_wxUpdateUIEvent, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxValidator[] = {  {&_swigt__p_wxValidator, 0, 0, 0},  {&_swigt__p_wxPyValidator, _p_wxPyValidatorTo_p_wxValidator, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxVersionInfo[] = {  {&_swigt__p_wxVersionInfo, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxVisualAttributes[] = {  {&_swigt__p_wxVisualAttributes, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxControl, _p_wxControlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxWindow, 0, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxWindow, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWindowCreateEvent[] = {  {&_swigt__p_wxWindowCreateEvent, 0, 0, 0},{0, 0, 0, 0}};
@@ -71863,7 +72340,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxTextAreaBase,
   _swigc__p_wxTextAttr,
   _swigc__p_wxTextCtrlBase,
-  _swigc__p_wxTextCtrlHitTestResult,
   _swigc__p_wxTextCtrlIface,
   _swigc__p_wxTextEntry,
   _swigc__p_wxTextEntryBase,
@@ -71871,6 +72347,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxToolTip,
   _swigc__p_wxUpdateUIEvent,
   _swigc__p_wxValidator,
+  _swigc__p_wxVersionInfo,
   _swigc__p_wxVisualAttributes,
   _swigc__p_wxWindow,
   _swigc__p_wxWindowCreateEvent,
@@ -72619,6 +73096,11 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "ID_MDI_WINDOW_PREV",SWIG_From_int(static_cast< int >(wxID_MDI_WINDOW_PREV)));
   SWIG_Python_SetConstant(d, "ID_MDI_WINDOW_NEXT",SWIG_From_int(static_cast< int >(wxID_MDI_WINDOW_NEXT)));
   SWIG_Python_SetConstant(d, "ID_MDI_WINDOW_LAST",SWIG_From_int(static_cast< int >(wxID_MDI_WINDOW_LAST)));
+  SWIG_Python_SetConstant(d, "ID_OSX_MENU_FIRST",SWIG_From_int(static_cast< int >(wxID_OSX_MENU_FIRST)));
+  SWIG_Python_SetConstant(d, "ID_OSX_HIDE",SWIG_From_int(static_cast< int >(wxID_OSX_HIDE)));
+  SWIG_Python_SetConstant(d, "ID_OSX_HIDEOTHERS",SWIG_From_int(static_cast< int >(wxID_OSX_HIDEOTHERS)));
+  SWIG_Python_SetConstant(d, "ID_OSX_SHOWALL",SWIG_From_int(static_cast< int >(wxID_OSX_SHOWALL)));
+  SWIG_Python_SetConstant(d, "ID_OSX_MENU_LAST",SWIG_From_int(static_cast< int >(wxID_OSX_MENU_LAST)));
   SWIG_Python_SetConstant(d, "ID_FILEDLGG",SWIG_From_int(static_cast< int >(wxID_FILEDLGG)));
   SWIG_Python_SetConstant(d, "ID_FILECTRL",SWIG_From_int(static_cast< int >(wxID_FILECTRL)));
   SWIG_Python_SetConstant(d, "ID_HIGHEST",SWIG_From_int(static_cast< int >(wxID_HIGHEST)));
@@ -73314,6 +73796,11 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "ELLIPSIZE_START",SWIG_From_int(static_cast< int >(wxELLIPSIZE_START)));
   SWIG_Python_SetConstant(d, "ELLIPSIZE_MIDDLE",SWIG_From_int(static_cast< int >(wxELLIPSIZE_MIDDLE)));
   SWIG_Python_SetConstant(d, "ELLIPSIZE_END",SWIG_From_int(static_cast< int >(wxELLIPSIZE_END)));
+  SWIG_Python_SetConstant(d, "TE_HT_UNKNOWN",SWIG_From_int(static_cast< int >(wxTE_HT_UNKNOWN)));
+  SWIG_Python_SetConstant(d, "TE_HT_BEFORE",SWIG_From_int(static_cast< int >(wxTE_HT_BEFORE)));
+  SWIG_Python_SetConstant(d, "TE_HT_ON_TEXT",SWIG_From_int(static_cast< int >(wxTE_HT_ON_TEXT)));
+  SWIG_Python_SetConstant(d, "TE_HT_BELOW",SWIG_From_int(static_cast< int >(wxTE_HT_BELOW)));
+  SWIG_Python_SetConstant(d, "TE_HT_BEYOND",SWIG_From_int(static_cast< int >(wxTE_HT_BEYOND)));
   SWIG_Python_SetConstant(d, "EXTEND_LAST_ON_EACH_LINE",SWIG_From_int(static_cast< int >(wxEXTEND_LAST_ON_EACH_LINE)));
   SWIG_Python_SetConstant(d, "FLEX_GROWMODE_NONE",SWIG_From_int(static_cast< int >(wxFLEX_GROWMODE_NONE)));
   SWIG_Python_SetConstant(d, "FLEX_GROWMODE_SPECIFIED",SWIG_From_int(static_cast< int >(wxFLEX_GROWMODE_SPECIFIED)));
@@ -73339,6 +73826,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "SameAs",SWIG_From_int(static_cast< int >(wxSameAs)));
   SWIG_Python_SetConstant(d, "Absolute",SWIG_From_int(static_cast< int >(wxAbsolute)));
   SWIG_Python_SetConstant(d, "COL_WIDTH_DEFAULT",SWIG_From_int(static_cast< int >(wxCOL_WIDTH_DEFAULT)));
+  SWIG_Python_SetConstant(d, "COL_WIDTH_AUTOSIZE",SWIG_From_int(static_cast< int >(wxCOL_WIDTH_AUTOSIZE)));
   SWIG_Python_SetConstant(d, "COL_RESIZABLE",SWIG_From_int(static_cast< int >(wxCOL_RESIZABLE)));
   SWIG_Python_SetConstant(d, "COL_SORTABLE",SWIG_From_int(static_cast< int >(wxCOL_SORTABLE)));
   SWIG_Python_SetConstant(d, "COL_REORDERABLE",SWIG_From_int(static_cast< int >(wxCOL_REORDERABLE)));

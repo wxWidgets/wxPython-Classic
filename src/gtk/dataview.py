@@ -366,6 +366,10 @@ class DataViewItemAttr(object):
         """IsDefault(self) -> bool"""
         return _dataview.DataViewItemAttr_IsDefault(*args, **kwargs)
 
+    def GetEffectiveFont(*args, **kwargs):
+        """GetEffectiveFont(self, Font font) -> Font"""
+        return _dataview.DataViewItemAttr_GetEffectiveFont(*args, **kwargs)
+
     Colour = property(GetColour,SetColour) 
     Bold = property(GetBold,SetBold) 
     Italic = property(GetItalic,SetItalic) 
@@ -1128,6 +1132,10 @@ class DataViewRenderer(_core.Object):
     def GetVariantType(*args, **kwargs):
         """GetVariantType(self) -> String"""
         return _dataview.DataViewRenderer_GetVariantType(*args, **kwargs)
+
+    def PrepareForItem(*args, **kwargs):
+        """PrepareForItem(self, DataViewModel model, DataViewItem item, unsigned int column)"""
+        return _dataview.DataViewRenderer_PrepareForItem(*args, **kwargs)
 
     def SetMode(*args, **kwargs):
         """SetMode(self, int mode)"""
