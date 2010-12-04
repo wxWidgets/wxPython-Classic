@@ -100,6 +100,16 @@ Miscellaneous Other Stuff
 Upcoming Changes in Project Phoenix
 ===================================
 
+The remainder of this document describes some migration issues for
+Project Phoenix, which will one day replace the current wxPython
+implementation.   These changes do not yet apply to any released
+version of Python and are currently provided for information purposes
+and for a glimpse into the future.  For more information about Project
+Phoenix please see the ProjectPhoenix_ pages in the wiki.
+
+.. _ProjectPhoenix: http://wiki.wxpython.org/ProjectPhoenix
+
+
 
 Overloaded Functions
 --------------------
