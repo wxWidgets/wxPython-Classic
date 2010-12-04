@@ -349,19 +349,19 @@ begin
     (* -------------------------------------------------------------- *)
     (* Figure out what to use as a default installation dir           *)
 
-    if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
+    if not RegQueryStringValue(HKEY_CURRENT_USER,
                                'Software\Python\PythonCore\%(PYTHONVER)s\InstallPath',
                                '', PythonDir) then begin
 
-        if not RegQueryStringValue(HKEY_CURRENT_USER,
+        if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
                                    'Software\Python\PythonCore\%(PYTHONVER)s\InstallPath',
                                    '', PythonDir) then begin
 
-            if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
+            if not RegQueryStringValue(HKEY_CURRENT_USER,
                                        'Software\Wow6432Node\Python\PythonCore\%(PYTHONVER)s\InstallPath',
                                        '', PythonDir) then begin
 
-                if not RegQueryStringValue(HKEY_CURRENT_USER,
+                if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
                                            'Software\Wow6432Node\Python\PythonCore\%(PYTHONVER)s\InstallPath',
                                            '', PythonDir) then begin
 
