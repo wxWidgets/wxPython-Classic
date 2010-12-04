@@ -15,8 +15,8 @@
 # o wxScrolledPanel -> ScrolledPanel
 #
 
-import  wx
-
+import wx
+import math
 
 class ScrolledPanel( wx.PyScrolledWindow ):
 
@@ -91,9 +91,10 @@ class ScrolledPanel( wx.PyScrolledWindow ):
 
     def ScrollChildIntoView(self, child):
         """
-        Scroll the panel so that the specified child window is in view.
-        NOTE. This method looks redundant if evt.Skip() is called as well 
-        - the base wx.ScrolledWindow widget seems to do the same thing anyway
+        Scroll the panel so that the specified child window is in
+        view.  NOTE. This method looks redundant if evt.Skip() is
+        called as well - the base wx.ScrolledWindow widget now seems
+        to be doing the same thing anyway
         """ 
         sppu_x, sppu_y = self.GetScrollPixelsPerUnit()
         vs_x, vs_y   = self.GetViewStart()
@@ -115,7 +116,7 @@ class ScrolledPanel( wx.PyScrolledWindow ):
 
         # is it past the right edge ?
         if cr.right > clntsz.width and sppu_x > 0:
-            diff = (cr.right - clntsz.width + 1) / sppu_x
+            diff = math.ceil(1.0 * (cr.right - clntsz.width + 1) / sppu_x)
             if cr.x - diff * sppu_x > 0:
                 new_vs_x = vs_x + diff
             else:
@@ -123,7 +124,7 @@ class ScrolledPanel( wx.PyScrolledWindow ):
                 
         # is it below the bottom ?
         if cr.bottom > clntsz.height and sppu_y > 0:
-            diff = (cr.bottom - clntsz.height + 1) / sppu_y
+            diff = math.ceil(1.0 * (cr.bottom - clntsz.height + 1) / sppu_y)
             if cr.y - diff * sppu_y > 0:
                 new_vs_y = vs_y + diff
             else:
