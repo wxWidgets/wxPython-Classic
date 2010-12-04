@@ -1505,11 +1505,7 @@ event.", "");
     wxRect GetRect() const;
     void SetRect(wxRect rect);
 
-    %extend {
-        void SetSize(wxSize size) {
-            self->m_size = size;
-        }
-    }
+    void SetSize(wxSize size);
 
     wxSize m_size;
     wxRect m_rect;

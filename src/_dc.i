@@ -24,6 +24,7 @@
 #ifdef __WXGTK__
 #include <wx/gtk/dc.h>
 #endif
+#include <wx/dcgraph.h>
 %}
 
 // TODO: 1. wrappers for wxDrawObject and wxDC::DrawObject
@@ -2064,6 +2065,7 @@ public:
 
 class wxSVGFileDC : public wxDC
 {
+public:
     wxSVGFileDC(wxString filename,
                 int width=320,
                 int height=240,

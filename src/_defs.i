@@ -1099,6 +1099,12 @@ enum {
     wxID_MDI_WINDOW_NEXT,
     wxID_MDI_WINDOW_LAST,
 
+    wxID_OSX_MENU_FIRST,
+    wxID_OSX_HIDE,
+    wxID_OSX_HIDEOTHERS,
+    wxID_OSX_SHOWALL,
+    wxID_OSX_MENU_LAST,
+
     wxID_FILEDLGG,
     wxID_FILECTRL,
     wxID_HIGHEST,

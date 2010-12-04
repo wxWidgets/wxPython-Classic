@@ -17,7 +17,6 @@
 %module(package="wx", docstring=DOCSTRING) webkit
 
 %{
-
 #include "wx/wxPython/wxPython.h"
 #include "wx/wxPython/pyclasses.h"
 #include "wx/wxPython/pyistream.h"
@@ -98,9 +97,6 @@ public:
     bool IsEditable() { return false; }
     
     wxString RunScript(const wxString& javascript) { return wxEmptyString; }
-    
-    void SetScrollPos(int pos) { }
-    int GetScrollPos() { return 0; }
     
 };
 
@@ -226,18 +222,10 @@ public:
     
     wxString RunScript(const wxString& javascript);
 
-    %nokwargs SetScrollPos;
-    %nokwargs GetScrollPos;
-    void SetScrollPos(int pos);
-    int GetScrollPos();
-    void SetScrollPos( int orient, int pos, bool refresh = true );
-    int GetScrollPos( int orient ) const;
- 
     
     %property(PageSource, GetPageSource, SetPageSource, doc="See `GetPageSource` and `SetPageSource`");
     %property(PageTitle, GetPageTitle, doc="See `GetPageTitle`");
     %property(PageURL, GetPageURL, doc="See `GetPageURL`");    
-    %property(ScrollPos, GetScrollPos, SetScrollPos, doc="See `GetScrollPos and SetScrollPos`");
     %property(Selection, GetSelection, doc="See `GetSelection`");
 };
 

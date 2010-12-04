@@ -597,7 +597,7 @@ If the image image doesn't have alpha channel, ConvertAlphaToMask does
 nothing.", "");
 
     // TODO
-    //void ConvertAlphaToMask(unsigned char mr, unsigned char mg, unsigned char mb,
+    //bool ConvertAlphaToMask(unsigned char mr, unsigned char mg, unsigned char mb,
     //                        unsigned char threshold = wxIMAGE_ALPHA_THRESHOLD);
 
 
@@ -952,6 +952,8 @@ Returns the rotated image, leaving this image intact.", "");
         wxImage , Rotate90( bool clockwise = true ) ,
         "Returns a copy of the image rotated 90 degrees in the direction
 indicated by ``clockwise``.", "");
+
+    wxImage Rotate180() const;
     
     DocDeclStr(
         wxImage , Mirror( bool horizontally = true ) ,

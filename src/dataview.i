@@ -743,7 +743,10 @@ public:
     bool GetItalic() const;
 
     bool IsDefault() const;
-    
+
+    // Return the font based on the given one with this attribute applied to it.
+    wxFont GetEffectiveFont(const wxFont& font) const;
+
     %property(Colour, GetColour, SetColour);
     %property(Bold, GetBold, SetBold);
     %property(Italic, GetItalic, SetItalic);
@@ -1484,6 +1487,10 @@ public:
     }
 
     wxString GetVariantType() const;
+
+    // helper that calls SetValue and SetAttr:
+    void PrepareForItem(const wxDataViewModel *model,
+                        const wxDataViewItem& item, unsigned column);
 
     virtual void SetMode( wxDataViewCellMode mode );
     virtual wxDataViewCellMode GetMode() const;

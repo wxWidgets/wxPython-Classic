@@ -458,7 +458,7 @@ it wasn't found at all.  Raises an exception on non-Windows platforms.", "");
 This will mean different things on the different platforms.
 
    * On X Windows systems this function will return ``False`` if it is
-     not able to open a connection to the X display, which can happen
+     not able to open a connection to the X server, which can happen
      if $DISPLAY is not set, or is not set correctly.
 
    * On Mac OS X a ``False`` return value will mean that wx is not

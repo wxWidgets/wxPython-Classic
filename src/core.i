@@ -110,6 +110,7 @@ MAKE_CONST_WXSTRING(EmptyString);
 
 // other
 %include _headercol.i
+%include _versioninfo.i
 
 
 %pythoncode "_core_ex.py"

@@ -190,6 +190,9 @@ arrows, etc.)  Normally this is only called by `DrawHeaderButton`.", "");
         "Returns the default height of a header button, either a fixed platform
 height if available, or a generic height based on the window's font.", "");    
 
+    // Returns the margin on left and right sides of header button's label
+    virtual int GetHeaderButtonMargin(wxWindow *win);
+
 
     DocDeclStr(
         virtual void , DrawTreeItemButton(wxWindow *win,
