@@ -103,6 +103,7 @@
 #include <wx/filectrl.h>
 #include <wx/notifmsg.h>
 #include <wx/commandlinkbutton.h>
+#include <wx/versioninfo.h>
 
 #ifdef _MSC_VER
 # pragma warning(disable:4800)
