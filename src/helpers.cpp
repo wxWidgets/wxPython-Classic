@@ -543,27 +543,29 @@ void wxPyApp::_BootstrapApp()
 
     // Only initialize wxWidgets once
     if (! haveInitialized) {
-        // Get any command-line args passed to this program from the sys module
+
+        // Copy the values in Python's sys.argv list to a C array of char* to
+        // be passed to the wxEntryStart function below.
         int    argc = 0;
         char** argv = NULL;
         blocked = wxPyBeginBlockThreads();
-        
         PyObject* sysargv = PySys_GetObject("argv");
-        PyObject* executable = PySys_GetObject("executable");
-        
-        if (sysargv != NULL && executable != NULL) {
-            argc = PyList_Size(sysargv) + 1;
+        if (sysargv != NULL) {            
+            argc = PyList_Size(sysargv);
             argv = new char*[argc+1];
-            argv[0] = strdup(PyString_AsString(executable));
             int x;
-            for(x=1; x<argc; x++) {
-                PyObject *pyArg = PyList_GetItem(sysargv, x-1);
+            for(x=0; x<argc; x++) {
+                PyObject *pyArg = PyList_GetItem(sysargv, x); // borrowed reference
+                // if there isn't anything in sys.argv[0] then set it to the python executable
+                if (x == 0 && PyObject_Length(pyArg) < 1) 
+                    pyArg = PySys_GetObject("executable");
                 argv[x] = strdup(PyString_AsString(pyArg));
             }
             argv[argc] = NULL;
         }
         wxPyEndBlockThreads(blocked);
 
+        
         // Initialize wxWidgets
 #ifdef __WXOSX__
         wxMacAutoreleasePool autoreleasePool;
