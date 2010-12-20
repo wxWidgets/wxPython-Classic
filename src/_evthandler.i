@@ -149,6 +149,8 @@ public:
             :param id2: Used when it is desirable to bind a handler
                           to a range of IDs, such as with EVT_MENU_RANGE.
             """
+            assert isinstance(event, wx.PyEventBinder)
+            assert callable(handler)
             if source is not None:
                 id  = source.GetId()
             event.Bind(self, id, id2, handler)              
