@@ -151,6 +151,7 @@ public:
             """
             assert isinstance(event, wx.PyEventBinder)
             assert callable(handler)
+            assert source is None or hasattr(source, 'GetId')
             if source is not None:
                 id  = source.GetId()
             event.Bind(self, id, id2, handler)              
