@@ -1110,8 +1110,6 @@ class Calendar( wx.PyControl ):
         # store last used by
         self.sel_key = key
 
-    def ClearDsp(self):
-        self.Clear()
     def SetMargin(self, xmarg, ymarg):
         self.set_x_mrg = xmarg
         self.set_y_mrg = ymarg
