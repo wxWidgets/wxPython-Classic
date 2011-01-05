@@ -37,7 +37,8 @@ elif sys.platform == "darwin":
 
     APP = ['superdoodle.py']
     DATA_FILES = []
-    OPTIONS = {'argv_emulation': True}
+    OPTIONS = {##'argv_emulation': True
+               }
 
     setup( app=APP,
            data_files=DATA_FILES,
