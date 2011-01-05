@@ -143,7 +143,7 @@ elif sys.platform.startswith("win"):
     SWIG_BIN = 'C:\\SWIG-1.3.29\\swig.exe'
 else:
     # WARNING: This is may not be the patched version of SWIG if the
-    # user has installed a stock pacakge
+    # user has installed a stock package
     SWIG_BIN = commands.getoutput("which swig")  
     
 if options.reswig:
@@ -169,7 +169,7 @@ else:
     
 
 # Windows extension build stuff
-build_type_ext = "h"
+build_type_ext = ""
 if options.debug:
     build_type_ext = "d"
     
@@ -411,7 +411,7 @@ if options.mac_lipo and sys.platform.startswith("darwin"):
 
 else:    
     if sys.platform.startswith("win"):
-        # Copy the wxWidgets DLLs to the wxPython pacakge folder
+        # Copy the wxWidgets DLLs to the wxPython package folder
         dlls = glob.glob(os.path.join(dllDir, "wx*" + version2_nodot + dll_type + "*.dll")) + \
                glob.glob(os.path.join(dllDir, "wx*" + version3_nodot + dll_type + "*.dll")) 
         for dll in dlls:
