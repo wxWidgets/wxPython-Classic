@@ -15,6 +15,8 @@ class TestVirtualList(wx.ListCtrl):
 
         self.il = wx.ImageList(16, 16)
         self.idx1 = self.il.Add(images.Smiles.GetBitmap())
+        empty = self.makeBlank()
+        self.idx2 = self.il.Add(empty)
         self.SetImageList(self.il, wx.IMAGE_LIST_SMALL)
 
 
@@ -38,6 +40,15 @@ class TestVirtualList(wx.ListCtrl):
         self.Bind(wx.EVT_LIST_ITEM_DESELECTED, self.OnItemDeselected)
 
 
+    def makeBlank(self):
+        empty = wx.EmptyBitmap(16,16,32)
+        dc = wx.MemoryDC(empty)
+        dc.SetBackground(wx.Brush((0,0,0,0)))
+        dc.Clear()
+        del dc
+        return empty
+    
+
     def OnItemSelected(self, event):
         self.currentItem = event.m_itemIndex
         self.log.WriteText('OnItemSelected: "%s", "%s", "%s", "%s"\n' %
@@ -59,12 +70,11 @@ class TestVirtualList(wx.ListCtrl):
         self.log.WriteText("OnItemDeselected: %s" % evt.m_itemIndex)
 
 
-    #---------------------------------------------------
-    # These methods are callbacks for implementing the
-    # "virtualness" of the list...  Normally you would
-    # determine the text, attributes and/or image based
-    # on values from some external data source, but for
-    # this demo we'll just calculate them
+    #-----------------------------------------------------------------
+    # These methods are callbacks for implementing the "virtualness"
+    # of the list...  Normally you would determine the text,
+    # attributes and/or image based on values from some external data
+    # source, but for this demo we'll just calculate them
     def OnGetItemText(self, item, col):
         return "Item %d, column %d" % (item, col)
 
@@ -72,7 +82,7 @@ class TestVirtualList(wx.ListCtrl):
         if item % 3 == 0:
             return self.idx1
         else:
-            return -1
+            return self.idx2
 
     def OnGetItemAttr(self, item):
         if item % 3 == 1:
