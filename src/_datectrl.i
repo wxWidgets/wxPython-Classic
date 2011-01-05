@@ -50,7 +50,7 @@ Styles
                        valid date.
 
     wx.DP_SHOWCENTURY  Forces display of the century in the default
-                       date format. Without this flas the century
+                       date format. Without this flag the century
                        could be displayed or not depending on the
                        default date representation in the system.
     =================  ======================================================

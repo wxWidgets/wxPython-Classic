@@ -411,7 +411,7 @@ if options.mac_lipo and sys.platform.startswith("darwin"):
 
 else:    
     if sys.platform.startswith("win"):
-        # Copy the wxWidgets DLLs to the wx Python pacakge folder
+        # Copy the wxWidgets DLLs to the wxPython pacakge folder
         dlls = glob.glob(os.path.join(dllDir, "wx*" + version2_nodot + dll_type + "*.dll")) + \
                glob.glob(os.path.join(dllDir, "wx*" + version3_nodot + dll_type + "*.dll")) 
         for dll in dlls:

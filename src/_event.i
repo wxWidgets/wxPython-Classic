@@ -2624,7 +2624,7 @@ public:
 
 DocStr(wxPyCommandEvent,
 "wx.PyCommandEvent can be used as a base class for implementing custom
-event types in Python, where the event shoudl travel up to parent
+event types in Python, where the event should travel up to parent
 windows looking for a handler.  You should derived from this class
 instead of `wx.CommandEvent` because this class is Python-aware and is
 able to transport its Python bits safely through the wxWidgets event
