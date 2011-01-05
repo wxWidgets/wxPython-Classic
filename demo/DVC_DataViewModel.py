@@ -13,6 +13,7 @@ class Song(object):
         self.artist = artist
         self.title = title
         self.genre = genre
+        self.date = wx.DateTime.Today()
 
 class Genre(object):
     def __init__(self, name):
@@ -47,13 +48,16 @@ class MyTreeListModel(dv.PyDataViewModel):
         
     # Report how many columns this model provides data for.
     def GetColumnCount(self):
-        return 4
+        return 5
 
     # All of our columns are strings. If the model or the renderers in the
     # view for some columns are actually other types then that should be
     # reflected here.
     def GetColumnType(self, col):
-        return 'string'
+        if col == 4:
+            return 'datetime' # values will be wx.DateTime instances
+        else:
+            return 'string'
     
     
     
@@ -64,7 +68,7 @@ class MyTreeListModel(dv.PyDataViewModel):
         # simply provides all items as children of this hidden root. A Tree
         # view adds additional items as children of the other items as needed
         # to provide the tree hierachy.
-        self.log.write("GetChildren\n")
+        ##self.log.write("GetChildren\n")
         
         # If the parent item is invalid then it represents the hidden root
         # item, so we'll use the genre objects as its children and they will
@@ -86,7 +90,7 @@ class MyTreeListModel(dv.PyDataViewModel):
 
     def IsContainer(self, item):
         # Return True if the item has children, False otherwise.
-        self.log.write("IsContainer\n")
+        ##self.log.write("IsContainer\n")
         
         # The hidden root is a container
         if not item:
@@ -101,7 +105,7 @@ class MyTreeListModel(dv.PyDataViewModel):
     
     def GetParent(self, item):
         # Return the item which is this item's parent.
-        self.log.write("GetParent\n")
+        ##self.log.write("GetParent\n")
         
         if not item:
             return dv.NullDataViewItem
@@ -134,17 +138,29 @@ class MyTreeListModel(dv.PyDataViewModel):
                 return node.artist
             elif col == 2:
                 return node.title
-            else:
+            elif col == 3:
                 return node.id
+            else:
+                return node.date
         else:
             return ""
-        
+
+
+    def GetAttr(self, item, col, attr):
+        ##self.log.write('GetAttr')
+        node = self.ItemToObject(item)
+        if isinstance(node, Genre):
+            attr.SetColour('blue')
+            attr.SetBold(True)
+            return True
+        return False
+    
     
     def SetValue(self, value, item, col):
         self.log.write("SetValue: %s\n" % value)
         
         # We're not allowing edits in column zero (see below) so we just need
-        # to deal with Song objects and cols 1, 2 and 3 
+        # to deal with Song objects and cols 1 - 4
         
         node = self.ItemToObject(item)
         if isinstance(node, Song):
@@ -154,7 +170,8 @@ class MyTreeListModel(dv.PyDataViewModel):
                 node.title = value
             elif col == 3:
                 node.id = value
-    
+            elif col == 4:
+                node.date = value
     
 
 #----------------------------------------------------------------------
@@ -182,16 +199,23 @@ class TestPanel(wx.Panel):
         # Tel the DVC to use the model
         self.dvc.AssociateModel(self.model)
 
-        # Define the columns that we want in the view. Notice the 2nd
+        # Define the columns that we want in the view.  Notice the 
         # parameter which tells the view which col in the data model to pull
         # values from for each view column.
-        self.dvc.AppendTextColumn("Genre",   0, width=80)
+        if 1:
+            self.tr = tr = dv.DataViewTextRenderer()
+            c0 = dv.DataViewColumn("Genre", tr, 0, width=80)
+            self.dvc.AppendColumn(c0)
+        else:
+            self.dvc.AppendTextColumn("Genre",   0, width=80)
+            
         self.dvc.AppendTextColumn("Artist",  1, width=170, mode=dv.DATAVIEW_CELL_EDITABLE)
         self.dvc.AppendTextColumn("Title",   2, width=260, mode=dv.DATAVIEW_CELL_EDITABLE)
         c3 = self.dvc.AppendTextColumn("id", 3, width=40,  mode=dv.DATAVIEW_CELL_EDITABLE)
         c3.Alignment = wx.ALIGN_RIGHT
+        c4 = self.dvc.AppendDateColumn('Date', 4, width=75, mode=dv.DATAVIEW_CELL_EDITABLE)
         
-        # Set some additional attributes for the columns
+        # Set some additional attributes for all the columns
         for c in self.dvc.Columns:
             c.Sortable = True
             c.Reorderable = True

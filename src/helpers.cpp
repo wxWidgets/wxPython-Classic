@@ -3359,24 +3359,37 @@ wxVariant wxVariant_in_helper(PyObject* source)
         ret = PyFloat_AS_DOUBLE(source);
     else if (PyString_Check(source) || PyUnicode_Check(source))
         ret = Py2wxString(source);
+    else if (wxPySimple_typecheck(source, wxT("wxDateTime"), 0)) {
+        wxDateTime* ptr;
+        wxPyConvertSwigPtr(source, (void**)&ptr, wxT("wxDateTime"));
+        ret = *ptr;
+    }
+    else if (wxPySimple_typecheck(source, wxT("wxBitmap"), 0)) {
+        wxBitmap* ptr;
+        wxPyConvertSwigPtr(source, (void**)&ptr, wxT("wxBitmap"));
+        ret << *ptr;
+    }  
+    else if (wxPySimple_typecheck(source, wxT("wxIcon"), 0)) {
+        wxIcon* ptr;
+        wxPyConvertSwigPtr(source, (void**)&ptr, wxT("wxIcon"));
+        ret << *ptr;
+    }  
     else
         ret = new wxVariantDataPyObject(source);
 
     return ret;
 }
 
+
 PyObject* wxVariant_out_helper(const wxVariant& value)
 {
     PyObject* ret;
 
-// TODO:  These too?  "char", "datetime", "arrstring", "wxObject"
+// TODO:  These too?  "char", "arrstring", "wxObject"
     
     if ( value.IsType("bool") )
     {
-        if ( value.GetBool() )
-            ret = Py_True;
-        else
-            ret = Py_False;
+        ret = value.GetBool() ? Py_True : Py_False;
         Py_INCREF(ret);
     }
     else if ( value.IsType("long") )
@@ -3390,6 +3403,23 @@ PyObject* wxVariant_out_helper(const wxVariant& value)
     else if ( value.IsType("string") )
     {
         ret = wx2PyString(value.GetString());
+    } 
+    else if ( value.IsType("datetime") )
+    {
+        wxDateTime val = value.GetDateTime();
+        ret = wxPyConstructObject(new wxDateTime(val), wxT("wxDateTime"));
+    }
+    else if ( value.IsType("wxBitmap") )
+    {
+        wxBitmap val;
+        val << value;
+        ret = wxPyConstructObject(new wxBitmap(val), wxT("wxBitmap"));
+    }
+    else if ( value.IsType("wxIcon") )
+    {
+        wxIcon val;
+        val << value;
+        ret = wxPyConstructObject(new wxIcon(val), wxT("wxIcon"));
     }
     else if ( value.IsType("PyObject") )
     {

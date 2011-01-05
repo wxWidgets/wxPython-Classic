@@ -46,10 +46,46 @@ enum {
     wxDVR_DEFAULT_ALIGNMENT
 };
 
+
+//---------------------------------------------------------------------------
+// Variant helpers that know about the wxDVC types
+
+%{
+
+wxVariant wxDVCVariant_in_helper(PyObject* source)
+{
+    wxVariant ret;
+
+    if (wxPySimple_typecheck(source, wxT("wxDataViewIconText"), 0)) {
+        wxDataViewIconText* ptr;
+        wxPyConvertSwigPtr(source, (void**)&ptr, wxT("wxDataViewIconText"));
+        ret << *ptr;
+    }  
+    else
+        ret = wxVariant_in_helper(source);
+    return ret;
+}
+
+PyObject* wxDVCVariant_out_helper(const wxVariant& value)
+{
+    PyObject* ret;
+
+    if ( value.IsType("wxDataViewIconText") )
+    {
+        wxDataViewIconText val;
+        val << value;
+        ret = wxPyConstructObject(new wxDataViewIconText(val), wxT("wxDataViewIconText"), 0);
+    }
+    else
+        ret = wxVariant_out_helper(value);
+    return ret;
+}
+
+%}
+    
 //---------------------------------------------------------------------------
 // Macros, similar to what's in wxPython_int.h, to aid in the creation of
 // virtual methods that are able to make callbacks to Python.
-
 
 %{
 #define PYCALLBACK_BOOL_DVIDVI_pure(PCLASS, CBNAME)                             \
@@ -877,9 +913,9 @@ whatever it is using for storing the data values and then call
         
     DocDeclStr(
         virtual bool , GetAttr( const wxDataViewItem &item, unsigned int col,
-                                wxDataViewItemAttr &attr ),
+                                wxDataViewItemAttr &attr ) const,
         "Override this to indicate that the item has special font
-attributes. This only affects the `DataViewTextRendererText` renderer.
+attributes. This only affects the `DataViewTextRenderer` renderer.
 Return ``False`` if the default attributes should be used.", "");
 
 
@@ -1029,7 +1065,7 @@ public:
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(Oi)", io, col));
             Py_DECREF(io);
             if (ro) {
-                variant = wxVariant_in_helper(ro);
+                variant = wxDVCVariant_in_helper(ro);
                 Py_DECREF(ro);
             }
         }
@@ -1048,7 +1084,7 @@ public:
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
-            PyObject* vo = wxVariant_out_helper(variant);
+            PyObject* vo = wxDVCVariant_out_helper(variant);
             PyObject* io = wxPyConstructObject((void*)&item, wxT("wxDataViewItem"), 0);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOi)", vo, io, col));
             Py_DECREF(vo);
@@ -1062,7 +1098,7 @@ public:
         return rval;
     }
 
-    bool GetAttr( const wxDataViewItem &item, unsigned int col, wxDataViewItemAttr &attr )
+    bool GetAttr( const wxDataViewItem &item, unsigned int col, wxDataViewItemAttr &attr ) const
     {
         bool rval = false;
         bool found;
@@ -1075,8 +1111,7 @@ public:
             Py_DECREF(ao);
         }
         else {
-            PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
+            rval = wxDataViewModel::GetAttr(item, col, attr);
         }
         wxPyEndBlockThreads(blocked);
         return rval;
@@ -1096,7 +1131,7 @@ class DataViewItemObjectMapper(object):
     DataViewItem objects used by the DataViewModel for tacking the items in
     the view. The ID used for the item is the id() of the Python object. Use
     `ObjectToItem` to create a DataViewItem using a Python object as its ID,
-    and use `ItemToObject` to fetch that Python object again later for a give
+    and use `ItemToObject` to fetch that Python object again later for a given
     DataViewItem.
     
     By default a regular dictionary is used to implement the ID to object
@@ -1212,7 +1247,7 @@ at the given row and column.", "")
         virtual bool , GetAttrByRow( unsigned int row, unsigned int col,
                                 wxDataViewItemAttr &attr ),
         "Override this to indicate that the item has special font
-attributes. This only affects the `DataViewTextRendererText` renderer.
+attributes. This only affects the `DataViewTextRenderer` renderer.
 Return ``False`` if the default attributes should be used.", "");
 
 
@@ -1296,7 +1331,7 @@ public:
             PyObject* ro;
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)", row, col));
             if (ro) {
-                variant = wxVariant_in_helper(ro);
+                variant = wxDVCVariant_in_helper(ro);
                 Py_DECREF(ro);
             }
         }
@@ -1315,7 +1350,7 @@ public:
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "SetValueByRow"))) {
-            PyObject* vo = wxVariant_out_helper(variant);
+            PyObject* vo = wxDVCVariant_out_helper(variant);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oii)", vo, row, col));
             Py_DECREF(vo);
         }
@@ -1360,8 +1395,8 @@ public:
 class PyClassName: public ClassName
 {
 public:
-    %pythonAppend PyClassName
-         setCallbackInfo(PyDataViewIndexListModel);
+    %pythonAppend PyClassName  setCallbackInfo(PyClassName);
+     //         setCallbackInfo(PyDataViewIndexListModel);
 
     PyClassName(unsigned int initial_size = 0);
     void _setCallbackInfo(PyObject* self, PyObject* _class);
@@ -1407,7 +1442,7 @@ the Carbon API under OS X).
 To implement a custom list-based data model derive a new class from
 `PyDataViewVirtualListModel` and implement the required methods.", "");
 
-DocStr(PyClassName,
+DocStr(wxPyDataViewVirtualListModel,
 "This class is a version of `DataViewVirtualListModel` that has been
 engineered to know how to reflect the C++ virtual method calls to
 Python methods in the derived class.  Use this class as your base
@@ -1481,7 +1516,7 @@ public:
         {
             wxVariant var;
             if (! self->GetValue(var))
-                var = wxVariant_in_helper(Py_None);
+                var = wxDVCVariant_in_helper(Py_None);
             return var;
         }
     }
@@ -1516,7 +1551,7 @@ public:
         {
             wxVariant var;
             if (! self->GetValueFromEditorCtrl(editor, var))
-                var = wxVariant_in_helper(Py_None);
+                var = wxDVCVariant_in_helper(Py_None);
             return var;
         }
     }
@@ -1738,7 +1773,7 @@ public:
         bool rval = false;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
-            PyObject* v = wxVariant_out_helper(value);
+            PyObject* v = wxDVCVariant_out_helper(value);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", v));
             Py_DECREF(v);
         }
@@ -1761,7 +1796,7 @@ public:
             PyObject* ro;
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
             if (ro) {
-                value = wxVariant_in_helper(ro);
+                value = wxDVCVariant_in_helper(ro);
                 Py_DECREF(ro);
             }
         }
@@ -1786,7 +1821,7 @@ public:
             PyObject* ro;
             PyObject* po = wxPyConstructObject((void*)parent, wxT("wxWindow"), 0);
             PyObject* rto = wxPyConstructObject((void*)&labelRect, wxT("wxRect"), 0);
-            PyObject* vo = wxVariant_out_helper(value);
+            PyObject* vo = wxDVCVariant_out_helper(value);
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OOO)", po, rto, vo));
             Py_DECREF(po);
             Py_DECREF(rto);
@@ -1816,7 +1851,7 @@ public:
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(O)", io));
             Py_DECREF(io);
             if (ro) {
-                value = wxVariant_in_helper(ro);
+                value = wxDVCVariant_in_helper(ro);
                 Py_DECREF(ro);
             }
         }
@@ -1922,6 +1957,7 @@ class wxDataViewColumn: public wxSettableHeaderColumn
 {
 public:
     // make a custom overloading of the ctor to be able to keep the kw args
+    %disownarg(wxDataViewRenderer* renderer);
     %extend {
         wxDataViewColumn(PyObject* title_or_bitmap,
                          wxDataViewRenderer* renderer,
@@ -1940,7 +1976,7 @@ public:
                 :  new wxDataViewColumn(bitmap, renderer, model_column, width, align, flags);
         }
     }
-
+    %cleardisown(wxDataViewRenderer* renderer);
 
 
     virtual void SetOwner( wxDataViewCtrl *owner );
@@ -2198,9 +2234,11 @@ public:
     }
 
 
+    %disownarg( wxDataViewColumn *col );
     virtual bool PrependColumn( wxDataViewColumn *col );
     virtual bool InsertColumn( unsigned int pos, wxDataViewColumn *col );
     virtual bool AppendColumn( wxDataViewColumn *col );
+    %cleardisown( wxDataViewColumn *col );
 
     
     virtual unsigned int GetColumnCount() const;
@@ -2395,7 +2433,7 @@ EVT_DATAVIEW_CACHE_HINT                = wx.PyEventBinder( wxEVT_COMMAND_DATAVIE
     Py_ssize_t idx;
     for (idx=0; idx<size; idx+=1) {
         PyObject* item = PySequence_GetItem($input, idx);
-        temp.push_back( wxVariant_in_helper(item) );
+        temp.push_back( wxDVCVariant_in_helper(item) );
         Py_DECREF(item);
     }
     $1 = &temp;
