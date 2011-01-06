@@ -4134,6 +4134,9 @@ class EvtHandler(Object):
         :param id2: Used when it is desirable to bind a handler
                       to a range of IDs, such as with EVT_MENU_RANGE.
         """
+        assert isinstance(event, wx.PyEventBinder)
+        assert callable(handler)
+        assert source is None or hasattr(source, 'GetId')
         if source is not None:
             id  = source.GetId()
         event.Bind(self, id, id2, handler)              
@@ -7448,7 +7451,7 @@ _core_.PyEvent_swigregister(PyEvent)
 class PyCommandEvent(CommandEvent):
     """
     wx.PyCommandEvent can be used as a base class for implementing custom
-    event types in Python, where the event shoudl travel up to parent
+    event types in Python, where the event should travel up to parent
     windows looking for a handler.  You should derived from this class
     instead of `wx.CommandEvent` because this class is Python-aware and is
     able to transport its Python bits safely through the wxWidgets event

@@ -4026,6 +4026,38 @@ public:
 // C++ stub classes for platforms or build configurations that don't have
 // wxGraphicsContext yet.
 
+enum wxAntialiasMode
+{
+    wxANTIALIAS_NONE, // should be 0
+    wxANTIALIAS_DEFAULT,
+};
+
+enum wxCompositionMode
+{
+    // R = Result, S = Source, D = Destination, premultiplied with alpha
+    // Ra, Sa, Da their alpha components
+    
+    // classic Porter-Duff compositions
+    // http://keithp.com/~keithp/porterduff/p253-porter.pdf
+    
+    wxCOMPOSITION_CLEAR, /* R = 0 */
+    wxCOMPOSITION_SOURCE, /* R = S */
+    wxCOMPOSITION_OVER, /* R = S + D*(1 - Sa) */
+    wxCOMPOSITION_IN, /* R = S*Da */
+    wxCOMPOSITION_OUT, /* R = S*(1 - Da) */
+    wxCOMPOSITION_ATOP, /* R = S*Da + D*(1 - Sa) */
+
+    wxCOMPOSITION_DEST, /* R = D, essentially a noop */
+    wxCOMPOSITION_DEST_OVER, /* R = S*(1 - Da) + D */
+    wxCOMPOSITION_DEST_IN, /* R = D*Sa */
+    wxCOMPOSITION_DEST_OUT, /* R = D*(1 - Sa) */
+    wxCOMPOSITION_DEST_ATOP, /* R = S*(1 - Da) + D*Sa */
+    wxCOMPOSITION_XOR, /* R = S*(1 - Da) + D*(1 - Sa) */
+    
+    // mathematical compositions
+    wxCOMPOSITION_ADD, /* R = S + D */
+};
+    
 class wxGraphicsRenderer;
 class wxGraphicsMatrix;
 

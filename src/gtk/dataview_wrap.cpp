@@ -2733,6 +2733,38 @@ SWIG_From_int  (int value)
 }
 
 
+
+wxVariant wxDVCVariant_in_helper(PyObject* source)
+{
+    wxVariant ret;
+
+    if (wxPySimple_typecheck(source, wxT("wxDataViewIconText"), 0)) {
+        wxDataViewIconText* ptr;
+        wxPyConvertSwigPtr(source, (void**)&ptr, wxT("wxDataViewIconText"));
+        ret << *ptr;
+    }  
+    else
+        ret = wxVariant_in_helper(source);
+    return ret;
+}
+
+PyObject* wxDVCVariant_out_helper(const wxVariant& value)
+{
+    PyObject* ret;
+
+    if ( value.IsType("wxDataViewIconText") )
+    {
+        wxDataViewIconText val;
+        val << value;
+        ret = wxPyConstructObject(new wxDataViewIconText(val), wxT("wxDataViewIconText"), 0);
+    }
+    else
+        ret = wxVariant_out_helper(value);
+    return ret;
+}
+
+
+
 #define PYCALLBACK_BOOL_DVIDVI_pure(PCLASS, CBNAME)                             \
     bool CBNAME(const wxDataViewItem &a, const wxDataViewItem &b) {             \
         bool rval = false;                                                      \
@@ -3436,7 +3468,7 @@ public:
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(Oi)", io, col));
             Py_DECREF(io);
             if (ro) {
-                variant = wxVariant_in_helper(ro);
+                variant = wxDVCVariant_in_helper(ro);
                 Py_DECREF(ro);
             }
         }
@@ -3455,7 +3487,7 @@ public:
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
-            PyObject* vo = wxVariant_out_helper(variant);
+            PyObject* vo = wxDVCVariant_out_helper(variant);
             PyObject* io = wxPyConstructObject((void*)&item, wxT("wxDataViewItem"), 0);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(OOi)", vo, io, col));
             Py_DECREF(vo);
@@ -3469,7 +3501,7 @@ public:
         return rval;
     }
 
-    bool GetAttr( const wxDataViewItem &item, unsigned int col, wxDataViewItemAttr &attr )
+    bool GetAttr( const wxDataViewItem &item, unsigned int col, wxDataViewItemAttr &attr ) const
     {
         bool rval = false;
         bool found;
@@ -3482,8 +3514,7 @@ public:
             Py_DECREF(ao);
         }
         else {
-            PyErr_SetString(PyExc_NotImplementedError,
-              "The SetValue method should be implemented in derived class");
+            rval = wxDataViewModel::GetAttr(item, col, attr);
         }
         wxPyEndBlockThreads(blocked);
         return rval;
@@ -3530,7 +3561,7 @@ public:
             PyObject* ro;
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)", row, col));
             if (ro) {
-                variant = wxVariant_in_helper(ro);
+                variant = wxDVCVariant_in_helper(ro);
                 Py_DECREF(ro);
             }
         }
@@ -3549,7 +3580,7 @@ public:
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "SetValueByRow"))) {
-            PyObject* vo = wxVariant_out_helper(variant);
+            PyObject* vo = wxDVCVariant_out_helper(variant);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oii)", vo, row, col));
             Py_DECREF(vo);
         }
@@ -3625,7 +3656,7 @@ public:
             PyObject* ro;
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(ii)", row, col));
             if (ro) {
-                variant = wxVariant_in_helper(ro);
+                variant = wxDVCVariant_in_helper(ro);
                 Py_DECREF(ro);
             }
         }
@@ -3644,7 +3675,7 @@ public:
         bool found;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "SetValueByRow"))) {
-            PyObject* vo = wxVariant_out_helper(variant);
+            PyObject* vo = wxDVCVariant_out_helper(variant);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(Oii)", vo, row, col));
             Py_DECREF(vo);
         }
@@ -3686,7 +3717,7 @@ public:
 SWIGINTERN wxVariant wxDataViewRenderer_GetValue(wxDataViewRenderer const *self){
             wxVariant var;
             if (! self->GetValue(var))
-                var = wxVariant_in_helper(Py_None);
+                var = wxDVCVariant_in_helper(Py_None);
             return var;
         }
 
@@ -3708,7 +3739,7 @@ SWIG_AsVal_int (PyObject * obj, int *val)
 SWIGINTERN wxVariant wxDataViewRenderer_GetValueFromEditorCtrl(wxDataViewRenderer *self,wxControl *editor){
             wxVariant var;
             if (! self->GetValueFromEditorCtrl(editor, var))
-                var = wxVariant_in_helper(Py_None);
+                var = wxDVCVariant_in_helper(Py_None);
             return var;
         }
  // Derive from the class in C++ for virtualization
@@ -3735,7 +3766,7 @@ public:
         bool rval = false;
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
         if ((found = wxPyCBH_findCallback(m_myInst, "SetValue"))) {
-            PyObject* v = wxVariant_out_helper(value);
+            PyObject* v = wxDVCVariant_out_helper(value);
             rval = wxPyCBH_callCallback(m_myInst, Py_BuildValue("(O)", v));
             Py_DECREF(v);
         }
@@ -3758,7 +3789,7 @@ public:
             PyObject* ro;
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("()"));
             if (ro) {
-                value = wxVariant_in_helper(ro);
+                value = wxDVCVariant_in_helper(ro);
                 Py_DECREF(ro);
             }
         }
@@ -3783,7 +3814,7 @@ public:
             PyObject* ro;
             PyObject* po = wxPyConstructObject((void*)parent, wxT("wxWindow"), 0);
             PyObject* rto = wxPyConstructObject((void*)&labelRect, wxT("wxRect"), 0);
-            PyObject* vo = wxVariant_out_helper(value);
+            PyObject* vo = wxDVCVariant_out_helper(value);
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(OOO)", po, rto, vo));
             Py_DECREF(po);
             Py_DECREF(rto);
@@ -3813,7 +3844,7 @@ public:
             ro = wxPyCBH_callCallbackObj(m_myInst, Py_BuildValue("(O)", io));
             Py_DECREF(io);
             if (ro) {
-                value = wxVariant_in_helper(ro);
+                value = wxDVCVariant_in_helper(ro);
                 Py_DECREF(ro);
             }
         }
@@ -5856,7 +5887,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_GetAttr(PyObject *SWIGUNUSEDPARM(self),
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:DataViewModel_GetAttr",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDataViewModel, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewModel_GetAttr" "', expected argument " "1"" of type '" "wxDataViewModel *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewModel_GetAttr" "', expected argument " "1"" of type '" "wxDataViewModel const *""'"); 
   }
   arg1 = reinterpret_cast< wxDataViewModel * >(argp1);
   res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDataViewItem,  0  | 0);
@@ -5882,7 +5913,7 @@ SWIGINTERN PyObject *_wrap_DataViewModel_GetAttr(PyObject *SWIGUNUSEDPARM(self),
   arg4 = reinterpret_cast< wxDataViewItemAttr * >(argp4);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->GetAttr((wxDataViewItem const &)*arg2,arg3,*arg4);
+    result = (bool)((wxDataViewModel const *)arg1)->GetAttr((wxDataViewItem const &)*arg2,arg3,*arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -10590,7 +10621,6 @@ SWIGINTERN PyObject *_wrap_new_DataViewColumn(PyObject *SWIGUNUSEDPARM(self), Py
   wxAlignment arg5 = (wxAlignment) wxALIGN_CENTER ;
   int arg6 = (int) wxDATAVIEW_COL_RESIZABLE ;
   wxDataViewColumn *result = 0 ;
-  void *argp2 = 0 ;
   int res2 = 0 ;
   unsigned int val3 ;
   int ecode3 = 0 ;
@@ -10612,11 +10642,10 @@ SWIGINTERN PyObject *_wrap_new_DataViewColumn(PyObject *SWIGUNUSEDPARM(self), Py
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|OOO:new_DataViewColumn",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   arg1 = obj0;
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxDataViewRenderer, 0 |  0 );
+  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxDataViewRenderer, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_DataViewColumn" "', expected argument " "2"" of type '" "wxDataViewRenderer *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_DataViewColumn" "', expected argument " "2"" of type '" "wxDataViewRenderer *""'");
   }
-  arg2 = reinterpret_cast< wxDataViewRenderer * >(argp2);
   ecode3 = SWIG_AsVal_unsigned_SS_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_DataViewColumn" "', expected argument " "3"" of type '" "unsigned int""'");
@@ -12138,7 +12167,6 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_PrependColumn(PyObject *SWIGUNUSEDPARM(s
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -12152,11 +12180,10 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_PrependColumn(PyObject *SWIGUNUSEDPARM(s
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewCtrl_PrependColumn" "', expected argument " "1"" of type '" "wxDataViewCtrl *""'"); 
   }
   arg1 = reinterpret_cast< wxDataViewCtrl * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxDataViewColumn, 0 |  0 );
+  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxDataViewColumn, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewCtrl_PrependColumn" "', expected argument " "2"" of type '" "wxDataViewColumn *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewCtrl_PrependColumn" "', expected argument " "2"" of type '" "wxDataViewColumn *""'");
   }
-  arg2 = reinterpret_cast< wxDataViewColumn * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->PrependColumn(arg2);
@@ -12182,7 +12209,6 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_InsertColumn(PyObject *SWIGUNUSEDPARM(se
   int res1 = 0 ;
   unsigned int val2 ;
   int ecode2 = 0 ;
-  void *argp3 = 0 ;
   int res3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -12202,11 +12228,10 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_InsertColumn(PyObject *SWIGUNUSEDPARM(se
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataViewCtrl_InsertColumn" "', expected argument " "2"" of type '" "unsigned int""'");
   } 
   arg2 = static_cast< unsigned int >(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxDataViewColumn, 0 |  0 );
+  res3 = SWIG_ConvertPtr(obj2, SWIG_as_voidptrptr(&arg3), SWIGTYPE_p_wxDataViewColumn, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataViewCtrl_InsertColumn" "', expected argument " "3"" of type '" "wxDataViewColumn *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataViewCtrl_InsertColumn" "', expected argument " "3"" of type '" "wxDataViewColumn *""'");
   }
-  arg3 = reinterpret_cast< wxDataViewColumn * >(argp3);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->InsertColumn(arg2,arg3);
@@ -12229,7 +12254,6 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_AppendColumn(PyObject *SWIGUNUSEDPARM(se
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -12243,11 +12267,10 @@ SWIGINTERN PyObject *_wrap_DataViewCtrl_AppendColumn(PyObject *SWIGUNUSEDPARM(se
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewCtrl_AppendColumn" "', expected argument " "1"" of type '" "wxDataViewCtrl *""'"); 
   }
   arg1 = reinterpret_cast< wxDataViewCtrl * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxDataViewColumn, 0 |  0 );
+  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxDataViewColumn, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewCtrl_AppendColumn" "', expected argument " "2"" of type '" "wxDataViewColumn *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewCtrl_AppendColumn" "', expected argument " "2"" of type '" "wxDataViewColumn *""'");
   }
-  arg2 = reinterpret_cast< wxDataViewColumn * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)(arg1)->AppendColumn(arg2);
@@ -15306,7 +15329,7 @@ SWIGINTERN PyObject *_wrap_DataViewListCtrl_AppendItem(PyObject *SWIGUNUSEDPARM(
     Py_ssize_t idx;
     for (idx=0; idx<size; idx+=1) {
       PyObject* item = PySequence_GetItem(obj1, idx);
-      temp2.push_back( wxVariant_in_helper(item) );
+      temp2.push_back( wxDVCVariant_in_helper(item) );
       Py_DECREF(item);
     }
     arg2 = &temp2;
@@ -15359,7 +15382,7 @@ SWIGINTERN PyObject *_wrap_DataViewListCtrl_PrependItem(PyObject *SWIGUNUSEDPARM
     Py_ssize_t idx;
     for (idx=0; idx<size; idx+=1) {
       PyObject* item = PySequence_GetItem(obj1, idx);
-      temp2.push_back( wxVariant_in_helper(item) );
+      temp2.push_back( wxDVCVariant_in_helper(item) );
       Py_DECREF(item);
     }
     arg2 = &temp2;
@@ -15421,7 +15444,7 @@ SWIGINTERN PyObject *_wrap_DataViewListCtrl_InsertItem(PyObject *SWIGUNUSEDPARM(
     Py_ssize_t idx;
     for (idx=0; idx<size; idx+=1) {
       PyObject* item = PySequence_GetItem(obj2, idx);
-      temp3.push_back( wxVariant_in_helper(item) );
+      temp3.push_back( wxDVCVariant_in_helper(item) );
       Py_DECREF(item);
     }
     arg3 = &temp3;

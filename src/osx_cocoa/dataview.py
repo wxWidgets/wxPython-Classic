@@ -498,7 +498,7 @@ class DataViewModel(_core.RefCounter):
         GetAttr(self, DataViewItem item, unsigned int col, DataViewItemAttr attr) -> bool
 
         Override this to indicate that the item has special font
-        attributes. This only affects the `DataViewTextRendererText` renderer.
+        attributes. This only affects the `DataViewTextRenderer` renderer.
         Return ``False`` if the default attributes should be used.
         """
         return _dataview.DataViewModel_GetAttr(*args, **kwargs)
@@ -682,7 +682,7 @@ class DataViewItemObjectMapper(object):
     DataViewItem objects used by the DataViewModel for tacking the items in
     the view. The ID used for the item is the id() of the Python object. Use
     `ObjectToItem` to create a DataViewItem using a Python object as its ID,
-    and use `ItemToObject` to fetch that Python object again later for a give
+    and use `ItemToObject` to fetch that Python object again later for a given
     DataViewItem.
     
     By default a regular dictionary is used to implement the ID to object
@@ -809,7 +809,7 @@ class DataViewIndexListModel(DataViewModel):
         GetAttrByRow(self, unsigned int row, unsigned int col, DataViewItemAttr attr) -> bool
 
         Override this to indicate that the item has special font
-        attributes. This only affects the `DataViewTextRendererText` renderer.
+        attributes. This only affects the `DataViewTextRenderer` renderer.
         Return ``False`` if the default attributes should be used.
         """
         return _dataview.DataViewIndexListModel_GetAttrByRow(*args, **kwargs)
@@ -919,7 +919,7 @@ class PyDataViewIndexListModel(DataViewIndexListModel):
         class instead of `DataViewIndexListModel`.
         """
         _dataview.PyDataViewIndexListModel_swiginit(self,_dataview.new_PyDataViewIndexListModel(*args, **kwargs))
-        PyDataViewIndexListModel._setCallbackInfo(self, self, PyDataViewIndexListModel)
+        wxPyDataViewIndexListModel._setCallbackInfo(self, self, wxPyDataViewIndexListModel)
 
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
@@ -968,7 +968,7 @@ class DataViewVirtualListModel(DataViewModel):
         GetAttrByRow(self, unsigned int row, unsigned int col, DataViewItemAttr attr) -> bool
 
         Override this to indicate that the item has special font
-        attributes. This only affects the `DataViewTextRendererText` renderer.
+        attributes. This only affects the `DataViewTextRenderer` renderer.
         Return ``False`` if the default attributes should be used.
         """
         return _dataview.DataViewVirtualListModel_GetAttrByRow(*args, **kwargs)
@@ -1060,13 +1060,25 @@ class DataViewVirtualListModel(DataViewModel):
 _dataview.DataViewVirtualListModel_swigregister(DataViewVirtualListModel)
 
 class PyDataViewVirtualListModel(DataViewVirtualListModel):
-    """Proxy of C++ PyDataViewVirtualListModel class"""
+    """
+    This class is a version of `DataViewVirtualListModel` that has been
+    engineered to know how to reflect the C++ virtual method calls to
+    Python methods in the derived class.  Use this class as your base
+    class instead of `DataViewVirtualListModel`.
+    """
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, unsigned int initial_size=0) -> PyDataViewVirtualListModel"""
+        """
+        __init__(self, unsigned int initial_size=0) -> PyDataViewVirtualListModel
+
+        This class is a version of `DataViewVirtualListModel` that has been
+        engineered to know how to reflect the C++ virtual method calls to
+        Python methods in the derived class.  Use this class as your base
+        class instead of `DataViewVirtualListModel`.
+        """
         _dataview.PyDataViewVirtualListModel_swiginit(self,_dataview.new_PyDataViewVirtualListModel(*args, **kwargs))
-        PyDataViewIndexListModel._setCallbackInfo(self, self, PyDataViewIndexListModel)
+        wxPyDataViewVirtualListModel._setCallbackInfo(self, self, wxPyDataViewVirtualListModel)
 
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""

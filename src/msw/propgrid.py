@@ -2415,7 +2415,7 @@ class PropertyGrid(_core.Control,_windows.ScrollHelper,PropertyGridInterface):
     def DoubleToString(*args, **kwargs):
         """
         DoubleToString(String target, double value, int precision, bool removeZeroes, 
-            String precTemplate)
+            String precTemplate=None) -> String
         """
         return _propgrid.PropertyGrid_DoubleToString(*args, **kwargs)
 
@@ -2477,7 +2477,7 @@ def PropertyGrid_CreateEscapeSequences(*args, **kwargs):
 def PropertyGrid_DoubleToString(*args, **kwargs):
   """
     PropertyGrid_DoubleToString(String target, double value, int precision, bool removeZeroes, 
-        String precTemplate)
+        String precTemplate=None) -> String
     """
   return _propgrid.PropertyGrid_DoubleToString(*args, **kwargs)
 

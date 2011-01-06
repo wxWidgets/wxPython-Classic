@@ -32855,7 +32855,8 @@ SWIGINTERN PyObject *_wrap_PropertyGrid_DoubleToString(PyObject *SWIGUNUSEDPARM(
   double arg2 ;
   int arg3 ;
   bool arg4 ;
-  wxString *arg5 = (wxString *) 0 ;
+  wxString *arg5 = (wxString *) NULL ;
+  wxString *result = 0 ;
   bool temp1 = false ;
   double val2 ;
   int ecode2 = 0 ;
@@ -32873,7 +32874,7 @@ SWIGINTERN PyObject *_wrap_PropertyGrid_DoubleToString(PyObject *SWIGUNUSEDPARM(
     (char *) "target",(char *) "value",(char *) "precision",(char *) "removeZeroes",(char *) "precTemplate", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOO:PropertyGrid_DoubleToString",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|O:PropertyGrid_DoubleToString",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   {
     arg1 = wxString_in_helper(obj0);
     if (arg1 == NULL) SWIG_fail;
@@ -32894,18 +32895,29 @@ SWIGINTERN PyObject *_wrap_PropertyGrid_DoubleToString(PyObject *SWIGUNUSEDPARM(
     SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "PropertyGrid_DoubleToString" "', expected argument " "4"" of type '" "bool""'");
   } 
   arg4 = static_cast< bool >(val4);
-  {
-    arg5 = wxString_in_helper(obj4);
-    if (arg5 == NULL) SWIG_fail;
-    temp5 = true;
+  if (obj4) {
+    {
+      arg5 = wxString_in_helper(obj4);
+      if (arg5 == NULL) SWIG_fail;
+      temp5 = true;
+    }
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    wxPropertyGrid::DoubleToString(*arg1,arg2,arg3,arg4,arg5);
+    {
+      wxString const &_result_ref = wxPropertyGrid::DoubleToString(*arg1,arg2,arg3,arg4,arg5);
+      result = (wxString *) &_result_ref;
+    }
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_Py_Void();
+  {
+#if wxUSE_UNICODE
+    resultobj = PyUnicode_FromWideChar(result->c_str(), result->Len());
+#else
+    resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
+#endif
+  }
   {
     if (temp1)
     delete arg1;
