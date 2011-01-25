@@ -6468,7 +6468,7 @@ def _makeDate( year, month, day, dateFmt, dateStr):
     elif dateFmt == "YMD":
         return "%s%s%s%s%s" % (year,sep,month,sep,day)  ## year, month, date parts
     else:
-        return none
+        return None
 
 
 def _getYear(dateStr,dateFmt):
