@@ -1,9 +1,23 @@
 
 import wx
 import wx.dataview as dv
+import images
+
+import random
 
 #----------------------------------------------------------------------
 
+def makeBlank(self):
+    # Just a little helper function to make an empty image for our
+    # model to use.
+    empty = wx.EmptyBitmap(16,16,32)
+    dc = wx.MemoryDC(empty)
+    dc.SetBackground(wx.Brush((0,0,0,0)))
+    dc.Clear()
+    del dc
+    return empty
+
+#----------------------------------------------------------------------
 # We'll use instaces of these classes to hold our music data. Items in the
 # tree will get associated back to the coresponding Song or Genre object.
 
@@ -13,12 +27,24 @@ class Song(object):
         self.artist = artist
         self.title = title
         self.genre = genre
-        self.date = wx.DateTime.Today()
+        self.like = False
+        # get a random date value
+        d = random.choice(range(27))+1
+        m = random.choice(range(12))
+        y = random.choice(range(1980, 2005))
+        self.date = wx.DateTimeFromDMY(d,m,y)
+        
+    def __repr__(self):
+        return 'Song: %s-%s' % (self.artist, self.title)
+    
 
 class Genre(object):
     def __init__(self, name):
         self.name = name
         self.songs = []
+        
+    def __repr__(self):
+        return 'Genre: ' + self.name
 
 #----------------------------------------------------------------------
 
@@ -28,13 +54,22 @@ class Genre(object):
 # how to reflect the C++ virtual methods to the Python methods in the derived
 # class.
 
-        
+# This model provides these data columns:
+#
+#     0. Genre :  string
+#     1. Artist:  string
+#     2. Title:   string
+#     3. id:      integer
+#     4. Aquired: date
+#     5. Liked:   bool
+#
+
 class MyTreeListModel(dv.PyDataViewModel):
     def __init__(self, data, log):
         dv.PyDataViewModel.__init__(self)
         self.data = data
         self.log = log
-        
+       
         # The objmapper is an instance of DataViewItemObjectMapper and is used
         # to help associate Python objects with DataViewItem objects. Normally
         # a dictionary is used so any Python object can be used as data nodes.
@@ -44,29 +79,30 @@ class MyTreeListModel(dv.PyDataViewModel):
         # self.objmapper is used by the self.ObjectToItem and
         # self.ItemToObject methods used below.
         self.objmapper.UseWeakRefs(True)
-        
-        
+
+                
     # Report how many columns this model provides data for.
     def GetColumnCount(self):
-        return 5
+        return 6
 
-    # All of our columns are strings. If the model or the renderers in the
-    # view for some columns are actually other types then that should be
-    # reflected here.
+    # Map the data column numbers to the data type
     def GetColumnType(self, col):
-        if col == 4:
-            return 'datetime' # values will be wx.DateTime instances
-        else:
-            return 'string'
-    
-    
+        mapper = { 0 : 'string',
+                   1 : 'string',
+                   2 : 'string',
+                   3.: 'string', # the real value is an int, but the renderer should convert it okay
+                   4 : 'datatime',
+                   5 : 'bool',
+                   }
+        return mapper[col]
+        
     
     def GetChildren(self, parent, children):  
         # The view calls this method to find the children of any node in the
         # control. There is an implicit hidden root node, and the top level
         # item(s) should be reported as children of this node. A List view
         # simply provides all items as children of this hidden root. A Tree
-        # view adds additional items as children of the other items as needed
+        # view adds additional items as children of the other items, as needed,
         # to provide the tree hierachy.
         ##self.log.write("GetChildren\n")
         
@@ -102,6 +138,11 @@ class MyTreeListModel(dv.PyDataViewModel):
         # but everything else (the song objects) are not
         return False    
 
+
+    #def HasContainerColumns(self, item):
+    #    self.log.write('HasContainerColumns\n')
+    #    return True
+
     
     def GetParent(self, item):
         # Return the item which is this item's parent.
@@ -120,30 +161,39 @@ class MyTreeListModel(dv.PyDataViewModel):
             
         
     def GetValue(self, item, col):
-        # Return the string to be displayed for this item and column. For this
+        # Return the value to be displayed for this item and column. For this
         # example we'll just pull the values from the data objects we
         # associated with the items in GetChildren.
         
         # Fetch the data object for this item.
         node = self.ItemToObject(item)
+        
         if isinstance(node, Genre):
-            # we'll only use the first column for the Genre objects
-            if col == 0:
-                return node.name
-            return ""
+            # We'll only use the first column for the Genre objects,
+            # for the other columns lets just return empty values
+            mapper = { 0 : node.name,
+                       1 : "",
+                       2 : "",
+                       3 : "",
+                       4 : wx.DateTimeFromTimeT(0),  # TODO: There should be some way to indicate a null value...
+                       5 : False,
+                       }
+            return mapper[col]
+            
+        
         elif isinstance(node, Song):
-            if col == 0:
-                return node.genre
-            elif col == 1:
-                return node.artist
-            elif col == 2:
-                return node.title
-            elif col == 3:
-                return node.id
-            else:
-                return node.date
+            mapper = { 0 : node.genre,
+                       1 : node.artist,
+                       2 : node.title,
+                       3 : node.id,
+                       4 : node.date,
+                       5 : node.like,
+                       }
+            return mapper[col]
+        
         else:
-            return ""
+            raise RuntimeError("unknown node type")
+        
 
 
     def GetAttr(self, item, col, attr):
@@ -160,7 +210,7 @@ class MyTreeListModel(dv.PyDataViewModel):
         self.log.write("SetValue: %s\n" % value)
         
         # We're not allowing edits in column zero (see below) so we just need
-        # to deal with Song objects and cols 1 - 4
+        # to deal with Song objects and cols 1 - 5
         
         node = self.ItemToObject(item)
         if isinstance(node, Song):
@@ -172,6 +222,8 @@ class MyTreeListModel(dv.PyDataViewModel):
                 node.id = value
             elif col == 4:
                 node.date = value
+            elif col == 5:
+                node.like = value
     
 
 #----------------------------------------------------------------------
@@ -204,16 +256,24 @@ class TestPanel(wx.Panel):
         # values from for each view column.
         if 1:
             self.tr = tr = dv.DataViewTextRenderer()
-            c0 = dv.DataViewColumn("Genre", tr, 0, width=80)
+            c0 = dv.DataViewColumn("Genre",   # title
+                                   tr,        # renderer
+                                   0,         # data model column
+                                   width=80)
             self.dvc.AppendColumn(c0)
         else:
             self.dvc.AppendTextColumn("Genre",   0, width=80)
             
-        self.dvc.AppendTextColumn("Artist",  1, width=170, mode=dv.DATAVIEW_CELL_EDITABLE)
-        self.dvc.AppendTextColumn("Title",   2, width=260, mode=dv.DATAVIEW_CELL_EDITABLE)
-        c3 = self.dvc.AppendTextColumn("id", 3, width=40,  mode=dv.DATAVIEW_CELL_EDITABLE)
-        c3.Alignment = wx.ALIGN_RIGHT
-        c4 = self.dvc.AppendDateColumn('Date', 4, width=75, mode=dv.DATAVIEW_CELL_EDITABLE)
+        c1 = self.dvc.AppendTextColumn("Artist",   1, width=170, mode=dv.DATAVIEW_CELL_EDITABLE)
+        c2 = self.dvc.AppendTextColumn("Title",    2, width=260, mode=dv.DATAVIEW_CELL_EDITABLE)
+        c3 = self.dvc.AppendDateColumn('Acquired', 4, width=100, mode=dv.DATAVIEW_CELL_ACTIVATABLE)
+        c4 = self.dvc.AppendToggleColumn('Like',   5, width=40, mode=dv.DATAVIEW_CELL_ACTIVATABLE)
+        
+        # Notice how we pull the data from col 3, but this is the 6th col
+        # added to the DVC. The order of the view columns is not dependent on
+        # the order of the model columns at all.
+        c5 = self.dvc.AppendTextColumn("id", 3, width=40,  mode=dv.DATAVIEW_CELL_EDITABLE)
+        c5.Alignment = wx.ALIGN_RIGHT
         
         # Set some additional attributes for all the columns
         for c in self.dvc.Columns:

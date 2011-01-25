@@ -42,6 +42,22 @@ class TestModel(dv.PyDataViewIndexListModel):
     def GetColumnCount(self):
         return len(self.data[0])
 
+    # Report the number of rows in the model
+    def GetCount(self):
+        #self.log.write('GetCount')
+        return len(self.data)
+    
+    # Called to check if non-standard attributes should be used in the
+    # cell at (row, col)
+    def GetAttrByRow(self, row, col, attr):
+        ##self.log.write('GetAttrByRow: (%d, %d)' % (row, col))
+        if col == 3:
+            attr.SetColour('blue')
+            attr.SetBold(True)
+            return True
+        return False
+
+
     # This is called to assist with sorting the data in the view.  The
     # first two args are instances of the DataViewItem class, so we
     # need to convert them to row numbers with the GetRow method.

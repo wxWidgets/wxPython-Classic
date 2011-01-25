@@ -91,6 +91,7 @@ _treeList = [
         'PDFViewer',
         'ItemsPicker',
         'CommandLinkButton',
+        'DVC_CustomRenderer',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -136,6 +137,7 @@ _treeList = [
         'Choice',
         'ComboBox',
         'CommandLinkButton',
+        'DVC_CustomRenderer',
         'DVC_ListCtrl',
         'DVC_DataViewModel.py',
         'DVC_IndexListModel',
