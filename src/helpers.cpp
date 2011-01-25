@@ -2915,7 +2915,7 @@ bool wxPySimple_typecheck(PyObject* source, const wxChar* classname, int seqLen)
         return true;
 
     PyErr_Clear();
-    if (PySequence_Check(source) && PySequence_Length(source) == seqLen)
+    if (seqLen > -1 && PySequence_Check(source) && PySequence_Length(source) == seqLen)
         return true;
 
     return false;
@@ -3359,17 +3359,17 @@ wxVariant wxVariant_in_helper(PyObject* source)
         ret = PyFloat_AS_DOUBLE(source);
     else if (PyString_Check(source) || PyUnicode_Check(source))
         ret = Py2wxString(source);
-    else if (wxPySimple_typecheck(source, wxT("wxDateTime"), 0)) {
+    else if (wxPySimple_typecheck(source, wxT("wxDateTime"), -1)) {
         wxDateTime* ptr;
         wxPyConvertSwigPtr(source, (void**)&ptr, wxT("wxDateTime"));
         ret = *ptr;
     }
-    else if (wxPySimple_typecheck(source, wxT("wxBitmap"), 0)) {
+    else if (wxPySimple_typecheck(source, wxT("wxBitmap"), -1)) {
         wxBitmap* ptr;
         wxPyConvertSwigPtr(source, (void**)&ptr, wxT("wxBitmap"));
         ret << *ptr;
     }  
-    else if (wxPySimple_typecheck(source, wxT("wxIcon"), 0)) {
+    else if (wxPySimple_typecheck(source, wxT("wxIcon"), -1)) {
         wxIcon* ptr;
         wxPyConvertSwigPtr(source, (void**)&ptr, wxT("wxIcon"));
         ret << *ptr;

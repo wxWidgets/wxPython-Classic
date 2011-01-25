@@ -285,12 +285,6 @@ parties.  Returns True if more idle events are needed, False if not.", "");
 
     
     DocDeclStr(
-        virtual bool, SendIdleEvents(wxWindow* win, wxIdleEvent& event),
-        "Send idle event to window and all subwindows.  Returns True if more
-idle time is requested.", "");
-
-
-    DocDeclStr(
         virtual bool, IsActive() const,
         "Return True if our app has focus.", "");
 

@@ -1872,6 +1872,12 @@ generating any events.", "");
     DocDeclStr(
         virtual bool , HasMultiplePages() const,
         "", "");
+
+    
+    DocDeclStr(
+        virtual bool, SendIdleEvents(wxIdleEvent& event),
+        "Send idle event to window and all subwindows.  Returns True if more
+idle time is requested.", "");
     
     
     %extend {

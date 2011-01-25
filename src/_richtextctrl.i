@@ -31,11 +31,12 @@ enum {
     wxRICHTEXT_CTRL_DOWN,
     wxRICHTEXT_ALT_DOWN,
 
+#if 0
     wxRICHTEXT_SELECTED,
     wxRICHTEXT_TAGGED,
     wxRICHTEXT_FOCUSSED,
     wxRICHTEXT_IS_FOCUS,
-
+#endif
 };
 
 

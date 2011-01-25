@@ -230,7 +230,7 @@ Window Styles
 MustHaveApp(wxPyComboCtrl);
 %rename(ComboCtrl) wxPyComboCtrl;
 
-class wxPyComboCtrl : public wxControl
+class wxPyComboCtrl : public wxControl, public wxTextEntry
 {
 public:
     %pythonAppend wxPyComboCtrl      "self._setOORInfo(self);" setCallbackInfo(ComboCtrl)
@@ -255,6 +255,10 @@ public:
 
     void _setCallbackInfo(PyObject* self, PyObject* _class);
 
+    
+    virtual void Popup();
+    virtual void Dismiss();
+    
     DocDeclStr(
         virtual void , ShowPopup(),
         "Show the popup window.", "");
@@ -360,6 +364,11 @@ with wx.CB_READONLY style the string must be accepted by the popup (for
 instance, exist in the dropdown list), otherwise the call to
 SetValue is ignored.", "");
 
+    virtual void ChangeValue(const wxString& value);
+    virtual void WriteText(const wxString& text);
+    virtual void AppendText(const wxString& text);
+    virtual wxString GetRange(long from, long to) const;
+    
     virtual void Copy();
     virtual void Cut();
     virtual void Paste();
@@ -370,6 +379,17 @@ SetValue is ignored.", "");
     virtual void Replace(long from, long to, const wxString& value);
     virtual void Remove(long from, long to);
     virtual void Undo();
+    virtual void Redo();
+    virtual bool CanUndo() const;
+    virtual bool CanRedo() const;
+
+    virtual void GetSelection(long *OUTPUT, long *OUTPUT) const;
+
+    virtual bool IsEditable() const;
+    virtual void SetEditable(bool editable);
+
+    virtual bool SetHint(const wxString& hint);
+    virtual wxString GetHint() const;
 
     %Rename(SetMark, void , SetSelection(long from, long to));
 
@@ -385,6 +405,7 @@ wx.CB_READONLY style.", "");
         void , SetValueWithEvent(const wxString& value, bool withEvent = true),
         "Same as `SetValue`, but also sends a EVT_TEXT event if withEvent is true.", "");
 
+    void SetValueByUser(const wxString& value);
 
     //
     // Popup customization methods
@@ -601,8 +622,7 @@ derived class calls `DoShowPopup`.  Flags are same as for `DoShowPopup`.
     %property(PopupWindow, GetPopupWindow);
     %property(TextCtrl, GetTextCtrl);
     %property(Button, GetButton);
-    %property(Value, GetValue, SetValue);
-    %property(InsertionPoint, GetInsertionPoint);
+//    %property(InsertionPoint, GetInsertionPoint);
     %property(CustomPaintWidth, GetCustomPaintWidth, SetCustomPaintWidth);
     %property(ButtonSize, GetButtonSize);
     %property(TextIndent, GetTextIndent, SetTextIndent);

@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////
-// Name:        _????.i
-// Purpose:     SWIG interface for wx????
+// Name:        _printfw.i
+// Purpose:     SWIG interface for Print Framework classes
 //
 // Author:      Robin Dunn
 //
@@ -657,12 +657,6 @@ public:
     int GetZoomControl();
     void SetZoomControl(int zoom);
     wxPrintPreview* GetPrintPreview();
-
-    void OnNext();
-    void OnPrevious();
-    void OnFirst();
-    void OnLast();
-    void OnGoto();
 
     %property(PrintPreview, GetPrintPreview, doc="See `GetPrintPreview`");
     %property(ZoomControl, GetZoomControl, SetZoomControl, doc="See `GetZoomControl` and `SetZoomControl`");    
