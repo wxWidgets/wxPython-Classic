@@ -46,6 +46,7 @@ class TestVirtualList(wx.ListCtrl):
         dc.SetBackground(wx.Brush((0,0,0,0)))
         dc.Clear()
         del dc
+        empty.SetMaskColour((0,0,0))
         return empty
     
 
