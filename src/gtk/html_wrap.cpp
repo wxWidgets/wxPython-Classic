@@ -2633,49 +2633,50 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxPyWindow swig_types[167]
 #define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[168]
 #define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[169]
-#define SWIGTYPE_p_wxSashEvent swig_types[170]
-#define SWIGTYPE_p_wxSashLayoutWindow swig_types[171]
-#define SWIGTYPE_p_wxSashWindow swig_types[172]
-#define SWIGTYPE_p_wxScrollEvent swig_types[173]
-#define SWIGTYPE_p_wxScrollHelper swig_types[174]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[175]
-#define SWIGTYPE_p_wxScrolledWindow swig_types[176]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[177]
-#define SWIGTYPE_p_wxShowEvent swig_types[178]
-#define SWIGTYPE_p_wxSimpleHtmlListBox swig_types[179]
-#define SWIGTYPE_p_wxSingleChoiceDialog swig_types[180]
-#define SWIGTYPE_p_wxSizeEvent swig_types[181]
-#define SWIGTYPE_p_wxSizer swig_types[182]
-#define SWIGTYPE_p_wxSizerItem swig_types[183]
-#define SWIGTYPE_p_wxSplashScreen swig_types[184]
-#define SWIGTYPE_p_wxSplashScreenWindow swig_types[185]
-#define SWIGTYPE_p_wxSplitterEvent swig_types[186]
-#define SWIGTYPE_p_wxSplitterWindow swig_types[187]
-#define SWIGTYPE_p_wxStandardDialogLayoutAdapter swig_types[188]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[189]
-#define SWIGTYPE_p_wxStatusBar swig_types[190]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[191]
-#define SWIGTYPE_p_wxString swig_types[192]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[193]
-#define SWIGTYPE_p_wxTGAHandler swig_types[194]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[195]
-#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[196]
-#define SWIGTYPE_p_wxTextCtrlBase swig_types[197]
-#define SWIGTYPE_p_wxTextEntryDialog swig_types[198]
-#define SWIGTYPE_p_wxThreadEvent swig_types[199]
-#define SWIGTYPE_p_wxTipWindow swig_types[200]
-#define SWIGTYPE_p_wxTopLevelWindow swig_types[201]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[202]
-#define SWIGTYPE_p_wxValidator swig_types[203]
-#define SWIGTYPE_p_wxVisualAttributes swig_types[204]
-#define SWIGTYPE_p_wxWindow swig_types[205]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[206]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[207]
-#define SWIGTYPE_p_wxWindowModalDialogEvent swig_types[208]
-#define SWIGTYPE_p_wxWrapSizer swig_types[209]
-#define SWIGTYPE_p_wxXPMHandler swig_types[210]
-static swig_type_info *swig_types[212];
-static swig_module_info swig_module = {swig_types, 211, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxRefCounter swig_types[170]
+#define SWIGTYPE_p_wxSashEvent swig_types[171]
+#define SWIGTYPE_p_wxSashLayoutWindow swig_types[172]
+#define SWIGTYPE_p_wxSashWindow swig_types[173]
+#define SWIGTYPE_p_wxScrollEvent swig_types[174]
+#define SWIGTYPE_p_wxScrollHelper swig_types[175]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[176]
+#define SWIGTYPE_p_wxScrolledWindow swig_types[177]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[178]
+#define SWIGTYPE_p_wxShowEvent swig_types[179]
+#define SWIGTYPE_p_wxSimpleHtmlListBox swig_types[180]
+#define SWIGTYPE_p_wxSingleChoiceDialog swig_types[181]
+#define SWIGTYPE_p_wxSizeEvent swig_types[182]
+#define SWIGTYPE_p_wxSizer swig_types[183]
+#define SWIGTYPE_p_wxSizerItem swig_types[184]
+#define SWIGTYPE_p_wxSplashScreen swig_types[185]
+#define SWIGTYPE_p_wxSplashScreenWindow swig_types[186]
+#define SWIGTYPE_p_wxSplitterEvent swig_types[187]
+#define SWIGTYPE_p_wxSplitterWindow swig_types[188]
+#define SWIGTYPE_p_wxStandardDialogLayoutAdapter swig_types[189]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[190]
+#define SWIGTYPE_p_wxStatusBar swig_types[191]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[192]
+#define SWIGTYPE_p_wxString swig_types[193]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[194]
+#define SWIGTYPE_p_wxTGAHandler swig_types[195]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[196]
+#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[197]
+#define SWIGTYPE_p_wxTextCtrlBase swig_types[198]
+#define SWIGTYPE_p_wxTextEntryDialog swig_types[199]
+#define SWIGTYPE_p_wxThreadEvent swig_types[200]
+#define SWIGTYPE_p_wxTipWindow swig_types[201]
+#define SWIGTYPE_p_wxTopLevelWindow swig_types[202]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[203]
+#define SWIGTYPE_p_wxValidator swig_types[204]
+#define SWIGTYPE_p_wxVisualAttributes swig_types[205]
+#define SWIGTYPE_p_wxWindow swig_types[206]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[207]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[208]
+#define SWIGTYPE_p_wxWindowModalDialogEvent swig_types[209]
+#define SWIGTYPE_p_wxWrapSizer swig_types[210]
+#define SWIGTYPE_p_wxXPMHandler swig_types[211]
+static swig_type_info *swig_types[213];
+static swig_module_info swig_module = {swig_types, 212, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -19973,6 +19974,7 @@ static swig_type_info _swigt__p_wxPyHtmlTagHandler = {"_p_wxPyHtmlTagHandler", "
 static swig_type_info _swigt__p_wxPyHtmlWinTagHandler = {"_p_wxPyHtmlWinTagHandler", "wxPyHtmlWinTagHandler *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPyHtmlWindow = {"_p_wxPyHtmlWindow", "wxPyHtmlWindow *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPyPrintout = {"_p_wxPyPrintout", "wxPyPrintout *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxRefCounter = {"_p_wxRefCounter", "wxRefCounter *|wxObjectRefData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxScrollHelper = {"_p_wxScrollHelper", "wxScrollHelper *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxScrolledWindow = {"_p_wxScrolledWindow", "wxScrolledWindow *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxSplitterWindow = {"_p_wxSplitterWindow", "wxSplitterWindow *", 0, 0, (void*)0, 0};
@@ -20153,6 +20155,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxPyWindow,
   &_swigt__p_wxQueryLayoutInfoEvent,
   &_swigt__p_wxQueryNewPaletteEvent,
+  &_swigt__p_wxRefCounter,
   &_swigt__p_wxSashEvent,
   &_swigt__p_wxSashLayoutWindow,
   &_swigt__p_wxSashWindow,
@@ -20399,6 +20402,7 @@ static swig_cast_info _swigc__p_wxPyHtmlTagHandler[] = {  {&_swigt__p_wxPyHtmlTa
 static swig_cast_info _swigc__p_wxPyHtmlWinTagHandler[] = {  {&_swigt__p_wxPyHtmlWinTagHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyHtmlWindow[] = {  {&_swigt__p_wxPyHtmlWindow, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyPrintout[] = {  {&_swigt__p_wxPyPrintout, 0, 0, 0},  {&_swigt__p_wxHtmlPrintout, _p_wxHtmlPrintoutTo_p_wxPyPrintout, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxRefCounter[] = {  {&_swigt__p_wxRefCounter, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxScrollHelper[] = {  {&_swigt__p_wxScrolledWindow, _p_wxScrolledWindowTo_p_wxScrollHelper, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxScrollHelper, 0, 0},  {&_swigt__p_wxPyHtmlWindow, _p_wxPyHtmlWindowTo_p_wxScrollHelper, 0, 0},  {&_swigt__p_wxScrollHelper, 0, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxScrollHelper, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxScrolledWindow[] = {  {&_swigt__p_wxScrolledWindow, 0, 0, 0},  {&_swigt__p_wxPyScrolledWindow, _p_wxPyScrolledWindowTo_p_wxScrolledWindow, 0, 0},  {&_swigt__p_wxPyHtmlWindow, _p_wxPyHtmlWindowTo_p_wxScrolledWindow, 0, 0},  {&_swigt__p_wxPreviewCanvas, _p_wxPreviewCanvasTo_p_wxScrolledWindow, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSplitterWindow[] = {  {&_swigt__p_wxSplitterWindow, 0, 0, 0},{0, 0, 0, 0}};
@@ -20579,6 +20583,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxPyWindow,
   _swigc__p_wxQueryLayoutInfoEvent,
   _swigc__p_wxQueryNewPaletteEvent,
+  _swigc__p_wxRefCounter,
   _swigc__p_wxSashEvent,
   _swigc__p_wxSashLayoutWindow,
   _swigc__p_wxSashWindow,

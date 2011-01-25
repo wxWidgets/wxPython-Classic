@@ -3621,6 +3621,8 @@ SWIGINTERN PyObject *wxMimeTypesManager_EnumAllFileTypes(wxMimeTypesManager *sel
  static const wxString wxPyART_GO_DOWN(wxART_GO_DOWN); 
  static const wxString wxPyART_GO_TO_PARENT(wxART_GO_TO_PARENT); 
  static const wxString wxPyART_GO_HOME(wxART_GO_HOME); 
+ static const wxString wxPyART_GOTO_FIRST(wxART_GOTO_FIRST); 
+ static const wxString wxPyART_GOTO_LAST(wxART_GOTO_LAST); 
  static const wxString wxPyART_FILE_OPEN(wxART_FILE_OPEN); 
  static const wxString wxPyART_FILE_SAVE(wxART_FILE_SAVE); 
  static const wxString wxPyART_FILE_SAVE_AS(wxART_FILE_SAVE_AS); 
@@ -3653,6 +3655,8 @@ SWIGINTERN PyObject *wxMimeTypesManager_EnumAllFileTypes(wxMimeTypesManager *sel
  static const wxString wxPyART_NEW(wxART_NEW); 
  static const wxString wxPyART_UNDO(wxART_UNDO); 
  static const wxString wxPyART_REDO(wxART_REDO); 
+ static const wxString wxPyART_PLUS(wxART_PLUS); 
+ static const wxString wxPyART_MINUS(wxART_MINUS); 
  static const wxString wxPyART_CLOSE(wxART_CLOSE); 
  static const wxString wxPyART_QUIT(wxART_QUIT); 
  static const wxString wxPyART_FIND(wxART_FIND); 
@@ -20828,6 +20832,46 @@ SWIGINTERN PyObject *ART_GO_HOME_get(void) {
 }
 
 
+SWIGINTERN int ART_GOTO_FIRST_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable ART_GOTO_FIRST is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *ART_GOTO_FIRST_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyART_GOTO_FIRST)->c_str(), (&wxPyART_GOTO_FIRST)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyART_GOTO_FIRST)->c_str(), (&wxPyART_GOTO_FIRST)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
+SWIGINTERN int ART_GOTO_LAST_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable ART_GOTO_LAST is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *ART_GOTO_LAST_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyART_GOTO_LAST)->c_str(), (&wxPyART_GOTO_LAST)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyART_GOTO_LAST)->c_str(), (&wxPyART_GOTO_LAST)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
 SWIGINTERN int ART_FILE_OPEN_set(PyObject *) {
   SWIG_Error(SWIG_AttributeError,"Variable ART_FILE_OPEN is read-only.");
   return 1;
@@ -21462,6 +21506,46 @@ SWIGINTERN PyObject *ART_REDO_get(void) {
     pyobj = PyUnicode_FromWideChar((&wxPyART_REDO)->c_str(), (&wxPyART_REDO)->Len());
 #else
     pyobj = PyString_FromStringAndSize((&wxPyART_REDO)->c_str(), (&wxPyART_REDO)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
+SWIGINTERN int ART_PLUS_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable ART_PLUS is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *ART_PLUS_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyART_PLUS)->c_str(), (&wxPyART_PLUS)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyART_PLUS)->c_str(), (&wxPyART_PLUS)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
+SWIGINTERN int ART_MINUS_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable ART_MINUS is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *ART_MINUS_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyART_MINUS)->c_str(), (&wxPyART_MINUS)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyART_MINUS)->c_str(), (&wxPyART_MINUS)->Len());
 #endif
   }
   return pyobj;
@@ -45078,6 +45162,8 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_GO_DOWN",ART_GO_DOWN_get, ART_GO_DOWN_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_GO_TO_PARENT",ART_GO_TO_PARENT_get, ART_GO_TO_PARENT_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_GO_HOME",ART_GO_HOME_get, ART_GO_HOME_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"ART_GOTO_FIRST",ART_GOTO_FIRST_get, ART_GOTO_FIRST_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"ART_GOTO_LAST",ART_GOTO_LAST_get, ART_GOTO_LAST_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_FILE_OPEN",ART_FILE_OPEN_get, ART_FILE_OPEN_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_FILE_SAVE",ART_FILE_SAVE_get, ART_FILE_SAVE_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_FILE_SAVE_AS",ART_FILE_SAVE_AS_get, ART_FILE_SAVE_AS_set);
@@ -45110,6 +45196,8 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_NEW",ART_NEW_get, ART_NEW_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_UNDO",ART_UNDO_get, ART_UNDO_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_REDO",ART_REDO_get, ART_REDO_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"ART_PLUS",ART_PLUS_get, ART_PLUS_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"ART_MINUS",ART_MINUS_get, ART_MINUS_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_CLOSE",ART_CLOSE_get, ART_CLOSE_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_QUIT",ART_QUIT_get, ART_QUIT_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ART_FIND",ART_FIND_get, ART_FIND_set);

@@ -4453,6 +4453,53 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiPaneInfo_Icon(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiPaneInfo *arg1 = (wxAuiPaneInfo *) 0 ;
+  wxBitmap *arg2 = 0 ;
+  wxAuiPaneInfo *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "b", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiPaneInfo_Icon",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiPaneInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiPaneInfo_Icon" "', expected argument " "1"" of type '" "wxAuiPaneInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiPaneInfo * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxBitmap,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiPaneInfo_Icon" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "AuiPaneInfo_Icon" "', expected argument " "2"" of type '" "wxBitmap const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxAuiPaneInfo &_result_ref = (arg1)->Icon((wxBitmap const &)*arg2);
+      result = (wxAuiPaneInfo *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = obj0; Py_INCREF(resultobj); 
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_AuiPaneInfo_Left(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxAuiPaneInfo *arg1 = (wxAuiPaneInfo *) 0 ;
@@ -6461,6 +6508,59 @@ SWIGINTERN PyObject *_wrap_AuiPaneInfo_caption_get(PyObject *SWIGUNUSEDPARM(self
     resultobj = PyString_FromStringAndSize(result->c_str(), result->Len());
 #endif
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiPaneInfo_icon_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiPaneInfo *arg1 = (wxAuiPaneInfo *) 0 ;
+  wxBitmap *arg2 = (wxBitmap *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"AuiPaneInfo_icon_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiPaneInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiPaneInfo_icon_set" "', expected argument " "1"" of type '" "wxAuiPaneInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiPaneInfo * >(argp1);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_wxBitmap, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiPaneInfo_icon_set" "', expected argument " "2"" of type '" "wxBitmap *""'"); 
+  }
+  arg2 = reinterpret_cast< wxBitmap * >(argp2);
+  if (arg1) (arg1)->icon = *arg2;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiPaneInfo_icon_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxAuiPaneInfo *arg1 = (wxAuiPaneInfo *) 0 ;
+  wxBitmap *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiPaneInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiPaneInfo_icon_get" "', expected argument " "1"" of type '" "wxAuiPaneInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiPaneInfo * >(argp1);
+  result = (wxBitmap *)& ((arg1)->icon);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxBitmap, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -11881,6 +11981,66 @@ SWIGINTERN PyObject *_wrap_new_AuiDefaultDockArt(PyObject *SWIGUNUSEDPARM(self),
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiDefaultDockArt, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiDefaultDockArt_DrawIcon(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiDefaultDockArt *arg1 = (wxAuiDefaultDockArt *) 0 ;
+  wxDC *arg2 = 0 ;
+  wxRect *arg3 = 0 ;
+  wxAuiPaneInfo *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  wxRect temp3 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "dc",(char *) "rect",(char *) "pane", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:AuiDefaultDockArt_DrawIcon",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiDefaultDockArt, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiDefaultDockArt_DrawIcon" "', expected argument " "1"" of type '" "wxAuiDefaultDockArt *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiDefaultDockArt * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiDefaultDockArt_DrawIcon" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "AuiDefaultDockArt_DrawIcon" "', expected argument " "2"" of type '" "wxDC &""'"); 
+  }
+  arg2 = reinterpret_cast< wxDC * >(argp2);
+  {
+    arg3 = &temp3;
+    if ( ! wxRect_helper(obj2, &arg3)) SWIG_fail;
+  }
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxAuiPaneInfo,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "AuiDefaultDockArt_DrawIcon" "', expected argument " "4"" of type '" "wxAuiPaneInfo &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "AuiDefaultDockArt_DrawIcon" "', expected argument " "4"" of type '" "wxAuiPaneInfo &""'"); 
+  }
+  arg4 = reinterpret_cast< wxAuiPaneInfo * >(argp4);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DrawIcon(*arg2,(wxRect const &)*arg3,*arg4);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -18995,7 +19155,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBarEvent_SetToolId(PyObject *SWIGUNUSEDPARM(se
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "id", NULL 
+    (char *) "self",(char *) "toolid", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBarEvent_SetToolId",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -24799,6 +24959,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiPaneInfo_Window", (PyCFunction) _wrap_AuiPaneInfo_Window, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiPaneInfo_Name", (PyCFunction) _wrap_AuiPaneInfo_Name, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiPaneInfo_Caption", (PyCFunction) _wrap_AuiPaneInfo_Caption, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiPaneInfo_Icon", (PyCFunction) _wrap_AuiPaneInfo_Icon, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiPaneInfo_Left", (PyCFunction)_wrap_AuiPaneInfo_Left, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_Right", (PyCFunction)_wrap_AuiPaneInfo_Right, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_Top", (PyCFunction)_wrap_AuiPaneInfo_Top, METH_O, NULL},
@@ -24849,6 +25010,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiPaneInfo_name_get", (PyCFunction)_wrap_AuiPaneInfo_name_get, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_caption_set", _wrap_AuiPaneInfo_caption_set, METH_VARARGS, NULL},
 	 { (char *)"AuiPaneInfo_caption_get", (PyCFunction)_wrap_AuiPaneInfo_caption_get, METH_O, NULL},
+	 { (char *)"AuiPaneInfo_icon_set", _wrap_AuiPaneInfo_icon_set, METH_VARARGS, NULL},
+	 { (char *)"AuiPaneInfo_icon_get", (PyCFunction)_wrap_AuiPaneInfo_icon_get, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_window_set", _wrap_AuiPaneInfo_window_set, METH_VARARGS, NULL},
 	 { (char *)"AuiPaneInfo_window_get", (PyCFunction)_wrap_AuiPaneInfo_window_get, METH_O, NULL},
 	 { (char *)"AuiPaneInfo_frame_set", _wrap_AuiPaneInfo_frame_set, METH_VARARGS, NULL},
@@ -25019,6 +25182,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiDockArt_DrawPaneButton", (PyCFunction) _wrap_AuiDockArt_DrawPaneButton, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiDockArt_swigregister", AuiDockArt_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_AuiDefaultDockArt", (PyCFunction)_wrap_new_AuiDefaultDockArt, METH_NOARGS, NULL},
+	 { (char *)"AuiDefaultDockArt_DrawIcon", (PyCFunction) _wrap_AuiDefaultDockArt_DrawIcon, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiDefaultDockArt_swigregister", AuiDefaultDockArt_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiDefaultDockArt_swiginit", AuiDefaultDockArt_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_AuiFloatingFrame", (PyCFunction) _wrap_new_AuiFloatingFrame, METH_VARARGS | METH_KEYWORDS, NULL},

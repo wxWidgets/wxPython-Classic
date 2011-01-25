@@ -40594,20 +40594,24 @@ SWIGINTERN PyObject *_wrap_SystemColourProperty_ColourToString(PyObject *SWIGUNU
   wxSystemColourProperty *arg1 = (wxSystemColourProperty *) 0 ;
   wxColour *arg2 = 0 ;
   int arg3 ;
+  int arg4 = (int) 0 ;
   wxString result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   wxColour temp2 ;
   int val3 ;
   int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "col",(char *) "index", NULL 
+    (char *) "self",(char *) "col",(char *) "index",(char *) "argFlags", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:SystemColourProperty_ColourToString",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|O:SystemColourProperty_ColourToString",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSystemColourProperty, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SystemColourProperty_ColourToString" "', expected argument " "1"" of type '" "wxSystemColourProperty const *""'"); 
@@ -40622,9 +40626,16 @@ SWIGINTERN PyObject *_wrap_SystemColourProperty_ColourToString(PyObject *SWIGUNU
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "SystemColourProperty_ColourToString" "', expected argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
+  if (obj3) {
+    ecode4 = SWIG_AsVal_int(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "SystemColourProperty_ColourToString" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxSystemColourProperty const *)arg1)->ColourToString((wxColour const &)*arg2,arg3);
+    result = ((wxSystemColourProperty const *)arg1)->ColourToString((wxColour const &)*arg2,arg3,arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -52786,6 +52797,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PG_ACTION_EXPAND_PROPERTY",SWIG_From_int(static_cast< int >(wxPG_ACTION_EXPAND_PROPERTY)));
   SWIG_Python_SetConstant(d, "PG_ACTION_COLLAPSE_PROPERTY",SWIG_From_int(static_cast< int >(wxPG_ACTION_COLLAPSE_PROPERTY)));
   SWIG_Python_SetConstant(d, "PG_ACTION_CANCEL_EDIT",SWIG_From_int(static_cast< int >(wxPG_ACTION_CANCEL_EDIT)));
+  SWIG_Python_SetConstant(d, "PG_ACTION_EDIT",SWIG_From_int(static_cast< int >(wxPG_ACTION_EDIT)));
   SWIG_Python_SetConstant(d, "PG_ACTION_PRESS_BUTTON",SWIG_From_int(static_cast< int >(wxPG_ACTION_PRESS_BUTTON)));
   SWIG_Python_SetConstant(d, "PG_ACTION_MAX",SWIG_From_int(static_cast< int >(wxPG_ACTION_MAX)));
   SWIG_Python_SetConstant(d, "PG_SEL_FOCUS",SWIG_From_int(static_cast< int >(0x0001)));

@@ -92,11 +92,12 @@ RICHTEXT_HITTEST_BEFORE = _richtext.RICHTEXT_HITTEST_BEFORE
 RICHTEXT_HITTEST_AFTER = _richtext.RICHTEXT_HITTEST_AFTER
 RICHTEXT_HITTEST_ON = _richtext.RICHTEXT_HITTEST_ON
 RICHTEXT_HITTEST_OUTSIDE = _richtext.RICHTEXT_HITTEST_OUTSIDE
+RICHTEXT_HITTEST_NO_NESTED_OBJECTS = _richtext.RICHTEXT_HITTEST_NO_NESTED_OBJECTS
+RICHTEXT_HITTEST_NO_FLOATING_OBJECTS = _richtext.RICHTEXT_HITTEST_NO_FLOATING_OBJECTS
 TEXT_BOX_ATTR_FLOAT = _richtext.TEXT_BOX_ATTR_FLOAT
 TEXT_BOX_ATTR_CLEAR = _richtext.TEXT_BOX_ATTR_CLEAR
 TEXT_BOX_ATTR_COLLAPSE_BORDERS = _richtext.TEXT_BOX_ATTR_COLLAPSE_BORDERS
-TEXT_ATTR_VALUE_PRESENT = _richtext.TEXT_ATTR_VALUE_PRESENT
-TEXT_ATTR_VALUE_PRESENT_MASK = _richtext.TEXT_ATTR_VALUE_PRESENT_MASK
+TEXT_BOX_ATTR_VERTICAL_ALIGNMENT = _richtext.TEXT_BOX_ATTR_VERTICAL_ALIGNMENT
 TEXT_ATTR_UNITS_TENTHS_MM = _richtext.TEXT_ATTR_UNITS_TENTHS_MM
 TEXT_ATTR_UNITS_PIXELS = _richtext.TEXT_ATTR_UNITS_PIXELS
 TEXT_ATTR_UNITS_PERCENTAGE = _richtext.TEXT_ATTR_UNITS_PERCENTAGE
@@ -115,7 +116,7 @@ class TextAttrDimension(object):
     def __init__(self, *args): 
         """
         __init__(self) -> TextAttrDimension
-        __init__(self, int value, TextAttrDimensionFlags flags=wxTEXT_ATTR_VALUE_PRESENT|wxTEXT_ATTR_UNITS_TENTHS_MM) -> TextAttrDimension
+        __init__(self, int value, int units=TEXT_ATTR_UNITS_TENTHS_MM) -> TextAttrDimension
         """
         _richtext.TextAttrDimension_swiginit(self,_richtext.new_TextAttrDimension(*args))
     __swig_destroy__ = _richtext.delete_TextAttrDimension
@@ -178,14 +179,6 @@ class TextAttrDimension(object):
     def SetPosition(*args, **kwargs):
         """SetPosition(self, int pos)"""
         return _richtext.TextAttrDimension_SetPosition(*args, **kwargs)
-
-    def IsPresent(*args, **kwargs):
-        """IsPresent(self) -> bool"""
-        return _richtext.TextAttrDimension_IsPresent(*args, **kwargs)
-
-    def SetPresent(*args, **kwargs):
-        """SetPresent(self, bool b)"""
-        return _richtext.TextAttrDimension_SetPresent(*args, **kwargs)
 
     def GetFlags(*args, **kwargs):
         """GetFlags(self) -> TextAttrDimensionFlags"""
@@ -313,6 +306,10 @@ TEXT_BOX_ATTR_CLEAR_RIGHT = _richtext.TEXT_BOX_ATTR_CLEAR_RIGHT
 TEXT_BOX_ATTR_CLEAR_BOTH = _richtext.TEXT_BOX_ATTR_CLEAR_BOTH
 TEXT_BOX_ATTR_COLLAPSE_NONE = _richtext.TEXT_BOX_ATTR_COLLAPSE_NONE
 TEXT_BOX_ATTR_COLLAPSE_FULL = _richtext.TEXT_BOX_ATTR_COLLAPSE_FULL
+TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_NONE = _richtext.TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_NONE
+TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_TOP = _richtext.TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_TOP
+TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_CENTRE = _richtext.TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_CENTRE
+TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_BOTTOM = _richtext.TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_BOTTOM
 class TextAttrBorder(object):
     """Proxy of C++ TextAttrBorder class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -320,8 +317,6 @@ class TextAttrBorder(object):
     def __init__(self, *args, **kwargs): 
         """__init__(self) -> TextAttrBorder"""
         _richtext.TextAttrBorder_swiginit(self,_richtext.new_TextAttrBorder(*args, **kwargs))
-    __swig_destroy__ = _richtext.delete_TextAttrBorder
-    __del__ = lambda self : None;
     def __eq__(*args, **kwargs):
         """__eq__(self, TextAttrBorder border) -> bool"""
         return _richtext.TextAttrBorder___eq__(*args, **kwargs)
@@ -369,13 +364,19 @@ class TextAttrBorder(object):
         """GetColour(self) -> Colour"""
         return _richtext.TextAttrBorder_GetColour(*args, **kwargs)
 
-    def GetWidth(*args, **kwargs):
-        """GetWidth(self) -> TextAttrDimension"""
-        return _richtext.TextAttrBorder_GetWidth(*args, **kwargs)
+    def GetWidth(*args):
+        """
+        GetWidth(self) -> TextAttrDimension
+        GetWidth(self) -> TextAttrDimension
+        """
+        return _richtext.TextAttrBorder_GetWidth(*args)
 
-    def SetWidth(*args, **kwargs):
-        """SetWidth(self, TextAttrDimension width)"""
-        return _richtext.TextAttrBorder_SetWidth(*args, **kwargs)
+    def SetWidth(*args):
+        """
+        SetWidth(self, TextAttrDimension width)
+        SetWidth(self, int value, int units=TEXT_ATTR_UNITS_TENTHS_MM)
+        """
+        return _richtext.TextAttrBorder_SetWidth(*args)
 
     def HasStyle(*args, **kwargs):
         """HasStyle(self) -> bool"""
@@ -392,6 +393,10 @@ class TextAttrBorder(object):
     def IsValid(*args, **kwargs):
         """IsValid(self) -> bool"""
         return _richtext.TextAttrBorder_IsValid(*args, **kwargs)
+
+    def MakeValid(*args, **kwargs):
+        """MakeValid(self)"""
+        return _richtext.TextAttrBorder_MakeValid(*args, **kwargs)
 
     def GetFlags(*args, **kwargs):
         """GetFlags(self) -> int"""
@@ -422,8 +427,6 @@ class TextAttrBorders(object):
     def __init__(self, *args, **kwargs): 
         """__init__(self) -> TextAttrBorders"""
         _richtext.TextAttrBorders_swiginit(self,_richtext.new_TextAttrBorders(*args, **kwargs))
-    __swig_destroy__ = _richtext.delete_TextAttrBorders
-    __del__ = lambda self : None;
     def __eq__(*args, **kwargs):
         """__eq__(self, TextAttrBorders borders) -> bool"""
         return _richtext.TextAttrBorders___eq__(*args, **kwargs)
@@ -439,9 +442,12 @@ class TextAttrBorders(object):
         """
         return _richtext.TextAttrBorders_SetColour(*args)
 
-    def SetWidth(*args, **kwargs):
-        """SetWidth(self, TextAttrDimension width)"""
-        return _richtext.TextAttrBorders_SetWidth(*args, **kwargs)
+    def SetWidth(*args):
+        """
+        SetWidth(self, TextAttrDimension width)
+        SetWidth(self, int value, int units=TEXT_ATTR_UNITS_TENTHS_MM)
+        """
+        return _richtext.TextAttrBorders_SetWidth(*args)
 
     def Reset(*args, **kwargs):
         """Reset(self)"""
@@ -466,25 +472,37 @@ class TextAttrBorders(object):
         """
         return _richtext.TextAttrBorders_CollectCommonAttributes(*args, **kwargs)
 
-    def HasBorder(*args, **kwargs):
-        """HasBorder(self) -> bool"""
-        return _richtext.TextAttrBorders_HasBorder(*args, **kwargs)
+    def IsValid(*args, **kwargs):
+        """IsValid(self) -> bool"""
+        return _richtext.TextAttrBorders_IsValid(*args, **kwargs)
 
-    def GetLeft(*args, **kwargs):
-        """GetLeft(self) -> TextAttrBorder"""
-        return _richtext.TextAttrBorders_GetLeft(*args, **kwargs)
+    def GetLeft(*args):
+        """
+        GetLeft(self) -> TextAttrBorder
+        GetLeft(self) -> TextAttrBorder
+        """
+        return _richtext.TextAttrBorders_GetLeft(*args)
 
-    def GetRight(*args, **kwargs):
-        """GetRight(self) -> TextAttrBorder"""
-        return _richtext.TextAttrBorders_GetRight(*args, **kwargs)
+    def GetRight(*args):
+        """
+        GetRight(self) -> TextAttrBorder
+        GetRight(self) -> TextAttrBorder
+        """
+        return _richtext.TextAttrBorders_GetRight(*args)
 
-    def GetTop(*args, **kwargs):
-        """GetTop(self) -> TextAttrBorder"""
-        return _richtext.TextAttrBorders_GetTop(*args, **kwargs)
+    def GetTop(*args):
+        """
+        GetTop(self) -> TextAttrBorder
+        GetTop(self) -> TextAttrBorder
+        """
+        return _richtext.TextAttrBorders_GetTop(*args)
 
-    def GetBottom(*args, **kwargs):
-        """GetBottom(self) -> TextAttrBorder"""
-        return _richtext.TextAttrBorders_GetBottom(*args, **kwargs)
+    def GetBottom(*args):
+        """
+        GetBottom(self) -> TextAttrBorder
+        GetBottom(self) -> TextAttrBorder
+        """
+        return _richtext.TextAttrBorders_GetBottom(*args)
 
     m_left = property(_richtext.TextAttrBorders_m_left_get, _richtext.TextAttrBorders_m_left_set)
     m_right = property(_richtext.TextAttrBorders_m_right_get, _richtext.TextAttrBorders_m_right_set)
@@ -502,8 +520,6 @@ class TextBoxAttr(object):
         __init__(self, TextBoxAttr attr) -> TextBoxAttr
         """
         _richtext.TextBoxAttr_swiginit(self,_richtext.new_TextBoxAttr(*args))
-    __swig_destroy__ = _richtext.delete_TextBoxAttr
-    __del__ = lambda self : None;
     def Init(*args, **kwargs):
         """Init(self)"""
         return _richtext.TextBoxAttr_Init(*args, **kwargs)
@@ -553,11 +569,11 @@ class TextBoxAttr(object):
         return _richtext.TextBoxAttr_AddFlag(*args, **kwargs)
 
     def GetFloatMode(*args, **kwargs):
-        """GetFloatMode(self) -> short"""
+        """GetFloatMode(self) -> int"""
         return _richtext.TextBoxAttr_GetFloatMode(*args, **kwargs)
 
     def SetFloatMode(*args, **kwargs):
-        """SetFloatMode(self, short mode)"""
+        """SetFloatMode(self, int mode)"""
         return _richtext.TextBoxAttr_SetFloatMode(*args, **kwargs)
 
     def HasFloatMode(*args, **kwargs):
@@ -569,11 +585,11 @@ class TextBoxAttr(object):
         return _richtext.TextBoxAttr_IsFloating(*args, **kwargs)
 
     def GetClearMode(*args, **kwargs):
-        """GetClearMode(self) -> short"""
+        """GetClearMode(self) -> int"""
         return _richtext.TextBoxAttr_GetClearMode(*args, **kwargs)
 
     def SetClearMode(*args, **kwargs):
-        """SetClearMode(self, short mode)"""
+        """SetClearMode(self, int mode)"""
         return _richtext.TextBoxAttr_SetClearMode(*args, **kwargs)
 
     def HasClearMode(*args, **kwargs):
@@ -592,125 +608,229 @@ class TextBoxAttr(object):
         """HasCollapseBorders(self) -> bool"""
         return _richtext.TextBoxAttr_HasCollapseBorders(*args, **kwargs)
 
-    def GetMargins(*args, **kwargs):
-        """GetMargins(self) -> TextAttrDimensions"""
-        return _richtext.TextBoxAttr_GetMargins(*args, **kwargs)
+    def GetVerticalAlignment(*args, **kwargs):
+        """GetVerticalAlignment(self) -> int"""
+        return _richtext.TextBoxAttr_GetVerticalAlignment(*args, **kwargs)
 
-    def GetLeftMargin(*args, **kwargs):
-        """GetLeftMargin(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetLeftMargin(*args, **kwargs)
+    def SetVerticalAlignment(*args, **kwargs):
+        """SetVerticalAlignment(self, int verticalAlignment)"""
+        return _richtext.TextBoxAttr_SetVerticalAlignment(*args, **kwargs)
 
-    def GetRightMargin(*args, **kwargs):
-        """GetRightMargin(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetRightMargin(*args, **kwargs)
+    def HasVerticalAlignment(*args, **kwargs):
+        """HasVerticalAlignment(self) -> bool"""
+        return _richtext.TextBoxAttr_HasVerticalAlignment(*args, **kwargs)
 
-    def GetTopMargin(*args, **kwargs):
-        """GetTopMargin(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetTopMargin(*args, **kwargs)
+    def GetMargins(*args):
+        """
+        GetMargins(self) -> TextAttrDimensions
+        GetMargins(self) -> TextAttrDimensions
+        """
+        return _richtext.TextBoxAttr_GetMargins(*args)
 
-    def GetBottomMargin(*args, **kwargs):
-        """GetBottomMargin(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetBottomMargin(*args, **kwargs)
+    def GetLeftMargin(*args):
+        """
+        GetLeftMargin(self) -> TextAttrDimension
+        GetLeftMargin(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetLeftMargin(*args)
 
-    def GetPosition(*args, **kwargs):
-        """GetPosition(self) -> TextAttrDimensions"""
-        return _richtext.TextBoxAttr_GetPosition(*args, **kwargs)
+    def GetRightMargin(*args):
+        """
+        GetRightMargin(self) -> TextAttrDimension
+        GetRightMargin(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetRightMargin(*args)
 
-    def GetLeft(*args, **kwargs):
-        """GetLeft(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetLeft(*args, **kwargs)
+    def GetTopMargin(*args):
+        """
+        GetTopMargin(self) -> TextAttrDimension
+        GetTopMargin(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetTopMargin(*args)
 
-    def GetRight(*args, **kwargs):
-        """GetRight(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetRight(*args, **kwargs)
+    def GetBottomMargin(*args):
+        """
+        GetBottomMargin(self) -> TextAttrDimension
+        GetBottomMargin(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetBottomMargin(*args)
 
-    def GetTop(*args, **kwargs):
-        """GetTop(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetTop(*args, **kwargs)
+    def GetPosition(*args):
+        """
+        GetPosition(self) -> TextAttrDimensions
+        GetPosition(self) -> TextAttrDimensions
+        """
+        return _richtext.TextBoxAttr_GetPosition(*args)
 
-    def GetBottom(*args, **kwargs):
-        """GetBottom(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetBottom(*args, **kwargs)
+    def GetLeft(*args):
+        """
+        GetLeft(self) -> TextAttrDimension
+        GetLeft(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetLeft(*args)
 
-    def GetPadding(*args, **kwargs):
-        """GetPadding(self) -> TextAttrDimensions"""
-        return _richtext.TextBoxAttr_GetPadding(*args, **kwargs)
+    def GetRight(*args):
+        """
+        GetRight(self) -> TextAttrDimension
+        GetRight(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetRight(*args)
 
-    def GetLeftPadding(*args, **kwargs):
-        """GetLeftPadding(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetLeftPadding(*args, **kwargs)
+    def GetTop(*args):
+        """
+        GetTop(self) -> TextAttrDimension
+        GetTop(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetTop(*args)
 
-    def GetRightPadding(*args, **kwargs):
-        """GetRightPadding(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetRightPadding(*args, **kwargs)
+    def GetBottom(*args):
+        """
+        GetBottom(self) -> TextAttrDimension
+        GetBottom(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetBottom(*args)
 
-    def GetTopPadding(*args, **kwargs):
-        """GetTopPadding(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetTopPadding(*args, **kwargs)
+    def GetPadding(*args):
+        """
+        GetPadding(self) -> TextAttrDimensions
+        GetPadding(self) -> TextAttrDimensions
+        """
+        return _richtext.TextBoxAttr_GetPadding(*args)
 
-    def GetBottomPadding(*args, **kwargs):
-        """GetBottomPadding(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetBottomPadding(*args, **kwargs)
+    def GetLeftPadding(*args):
+        """
+        GetLeftPadding(self) -> TextAttrDimension
+        GetLeftPadding(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetLeftPadding(*args)
 
-    def GetBorder(*args, **kwargs):
-        """GetBorder(self) -> TextAttrBorders"""
-        return _richtext.TextBoxAttr_GetBorder(*args, **kwargs)
+    def GetRightPadding(*args):
+        """
+        GetRightPadding(self) -> TextAttrDimension
+        GetRightPadding(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetRightPadding(*args)
 
-    def GetLeftBorder(*args, **kwargs):
-        """GetLeftBorder(self) -> TextAttrBorder"""
-        return _richtext.TextBoxAttr_GetLeftBorder(*args, **kwargs)
+    def GetTopPadding(*args):
+        """
+        GetTopPadding(self) -> TextAttrDimension
+        GetTopPadding(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetTopPadding(*args)
 
-    def GetTopBorder(*args, **kwargs):
-        """GetTopBorder(self) -> TextAttrBorder"""
-        return _richtext.TextBoxAttr_GetTopBorder(*args, **kwargs)
+    def GetBottomPadding(*args):
+        """
+        GetBottomPadding(self) -> TextAttrDimension
+        GetBottomPadding(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetBottomPadding(*args)
 
-    def GetRightBorder(*args, **kwargs):
-        """GetRightBorder(self) -> TextAttrBorder"""
-        return _richtext.TextBoxAttr_GetRightBorder(*args, **kwargs)
+    def GetBorder(*args):
+        """
+        GetBorder(self) -> TextAttrBorders
+        GetBorder(self) -> TextAttrBorders
+        """
+        return _richtext.TextBoxAttr_GetBorder(*args)
 
-    def GetBottomBorder(*args, **kwargs):
-        """GetBottomBorder(self) -> TextAttrBorder"""
-        return _richtext.TextBoxAttr_GetBottomBorder(*args, **kwargs)
+    def GetLeftBorder(*args):
+        """
+        GetLeftBorder(self) -> TextAttrBorder
+        GetLeftBorder(self) -> TextAttrBorder
+        """
+        return _richtext.TextBoxAttr_GetLeftBorder(*args)
 
-    def GetOutline(*args, **kwargs):
-        """GetOutline(self) -> TextAttrBorders"""
-        return _richtext.TextBoxAttr_GetOutline(*args, **kwargs)
+    def GetTopBorder(*args):
+        """
+        GetTopBorder(self) -> TextAttrBorder
+        GetTopBorder(self) -> TextAttrBorder
+        """
+        return _richtext.TextBoxAttr_GetTopBorder(*args)
 
-    def GetLeftOutline(*args, **kwargs):
-        """GetLeftOutline(self) -> TextAttrBorder"""
-        return _richtext.TextBoxAttr_GetLeftOutline(*args, **kwargs)
+    def GetRightBorder(*args):
+        """
+        GetRightBorder(self) -> TextAttrBorder
+        GetRightBorder(self) -> TextAttrBorder
+        """
+        return _richtext.TextBoxAttr_GetRightBorder(*args)
 
-    def GetTopOutline(*args, **kwargs):
-        """GetTopOutline(self) -> TextAttrBorder"""
-        return _richtext.TextBoxAttr_GetTopOutline(*args, **kwargs)
+    def GetBottomBorder(*args):
+        """
+        GetBottomBorder(self) -> TextAttrBorder
+        GetBottomBorder(self) -> TextAttrBorder
+        """
+        return _richtext.TextBoxAttr_GetBottomBorder(*args)
 
-    def GetRightOutline(*args, **kwargs):
-        """GetRightOutline(self) -> TextAttrBorder"""
-        return _richtext.TextBoxAttr_GetRightOutline(*args, **kwargs)
+    def GetOutline(*args):
+        """
+        GetOutline(self) -> TextAttrBorders
+        GetOutline(self) -> TextAttrBorders
+        """
+        return _richtext.TextBoxAttr_GetOutline(*args)
 
-    def GetBottomOutline(*args, **kwargs):
-        """GetBottomOutline(self) -> TextAttrBorder"""
-        return _richtext.TextBoxAttr_GetBottomOutline(*args, **kwargs)
+    def GetLeftOutline(*args):
+        """
+        GetLeftOutline(self) -> TextAttrBorder
+        GetLeftOutline(self) -> TextAttrBorder
+        """
+        return _richtext.TextBoxAttr_GetLeftOutline(*args)
 
-    def GetWidth(*args, **kwargs):
-        """GetWidth(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetWidth(*args, **kwargs)
+    def GetTopOutline(*args):
+        """
+        GetTopOutline(self) -> TextAttrBorder
+        GetTopOutline(self) -> TextAttrBorder
+        """
+        return _richtext.TextBoxAttr_GetTopOutline(*args)
 
-    def GetHeight(*args, **kwargs):
-        """GetHeight(self) -> TextAttrDimension"""
-        return _richtext.TextBoxAttr_GetHeight(*args, **kwargs)
+    def GetRightOutline(*args):
+        """
+        GetRightOutline(self) -> TextAttrBorder
+        GetRightOutline(self) -> TextAttrBorder
+        """
+        return _richtext.TextBoxAttr_GetRightOutline(*args)
+
+    def GetBottomOutline(*args):
+        """
+        GetBottomOutline(self) -> TextAttrBorder
+        GetBottomOutline(self) -> TextAttrBorder
+        """
+        return _richtext.TextBoxAttr_GetBottomOutline(*args)
+
+    def GetSize(*args):
+        """
+        GetSize(self) -> wxTextAttrSize
+        GetSize(self) -> wxTextAttrSize
+        """
+        return _richtext.TextBoxAttr_GetSize(*args)
+
+    def SetSize(*args, **kwargs):
+        """SetSize(self, wxTextAttrSize sz)"""
+        return _richtext.TextBoxAttr_SetSize(*args, **kwargs)
+
+    def GetWidth(*args):
+        """
+        GetWidth(self) -> TextAttrDimension
+        GetWidth(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetWidth(*args)
+
+    def GetHeight(*args):
+        """
+        GetHeight(self) -> TextAttrDimension
+        GetHeight(self) -> TextAttrDimension
+        """
+        return _richtext.TextBoxAttr_GetHeight(*args)
 
     m_flags = property(_richtext.TextBoxAttr_m_flags_get, _richtext.TextBoxAttr_m_flags_set)
     m_margins = property(_richtext.TextBoxAttr_m_margins_get, _richtext.TextBoxAttr_m_margins_set)
     m_padding = property(_richtext.TextBoxAttr_m_padding_get, _richtext.TextBoxAttr_m_padding_set)
     m_position = property(_richtext.TextBoxAttr_m_position_get, _richtext.TextBoxAttr_m_position_set)
-    m_width = property(_richtext.TextBoxAttr_m_width_get, _richtext.TextBoxAttr_m_width_set)
-    m_height = property(_richtext.TextBoxAttr_m_height_get, _richtext.TextBoxAttr_m_height_set)
+    m_size = property(_richtext.TextBoxAttr_m_size_get, _richtext.TextBoxAttr_m_size_set)
     m_border = property(_richtext.TextBoxAttr_m_border_get, _richtext.TextBoxAttr_m_border_set)
     m_outline = property(_richtext.TextBoxAttr_m_outline_get, _richtext.TextBoxAttr_m_outline_set)
     m_floatMode = property(_richtext.TextBoxAttr_m_floatMode_get, _richtext.TextBoxAttr_m_floatMode_set)
     m_clearMode = property(_richtext.TextBoxAttr_m_clearMode_get, _richtext.TextBoxAttr_m_clearMode_set)
     m_collapseMode = property(_richtext.TextBoxAttr_m_collapseMode_get, _richtext.TextBoxAttr_m_collapseMode_set)
+    m_verticalAlignment = property(_richtext.TextBoxAttr_m_verticalAlignment_get, _richtext.TextBoxAttr_m_verticalAlignment_set)
 _richtext.TextBoxAttr_swigregister(TextBoxAttr)
 
 #---------------------------------------------------------------------------
@@ -996,7 +1116,7 @@ class RichTextObject(_core.Object):
     __del__ = lambda self : None;
     def Draw(*args, **kwargs):
         """
-        Draw(self, DC dc, RichTextRange range, RichTextRange selectionRange, 
+        Draw(self, DC dc, RichTextRange range, wxRichTextSelection selection, 
             Rect rect, int descent, int style) -> bool
         """
         return _richtext.RichTextObject_Draw(*args, **kwargs)
@@ -1006,7 +1126,10 @@ class RichTextObject(_core.Object):
         return _richtext.RichTextObject_Layout(*args, **kwargs)
 
     def HitTest(*args, **kwargs):
-        """HitTest(self, DC dc, Point pt, long OUTPUT) -> int"""
+        """
+        HitTest(self, DC dc, Point pt, long OUTPUT, RichTextObject obj, RichTextObject contextObj, 
+            int flags=0) -> int
+        """
         return _richtext.RichTextObject_HitTest(*args, **kwargs)
 
     def FindPosition(*args, **kwargs):
@@ -1081,7 +1204,10 @@ class RichTextObject(_core.Object):
         return _richtext.RichTextObject_EditProperties(*args, **kwargs)
 
     def ImportFromXML(*args, **kwargs):
-        """ImportFromXML(self, RichTextBuffer buffer, wxXmlNode node, RichTextXMLHandler handler) -> bool"""
+        """
+        ImportFromXML(self, RichTextBuffer buffer, wxXmlNode node, RichTextXMLHandler handler, 
+            bool recurse) -> bool
+        """
         return _richtext.RichTextObject_ImportFromXML(*args, **kwargs)
 
     def ExportXML(*args):
@@ -1131,15 +1257,6 @@ class RichTextObject(_core.Object):
         return _richtext.RichTextObject_GetRange(*args, **kwargs)
 
     Range = property(GetRange,SetRange) 
-    def GetDirty(*args, **kwargs):
-        """GetDirty(self) -> bool"""
-        return _richtext.RichTextObject_GetDirty(*args, **kwargs)
-
-    def SetDirty(*args, **kwargs):
-        """SetDirty(self, bool dirty)"""
-        return _richtext.RichTextObject_SetDirty(*args, **kwargs)
-
-    Dirty = property(GetDirty,SetDirty) 
     def IsComposite(*args, **kwargs):
         """IsComposite(self) -> bool"""
         return _richtext.RichTextObject_IsComposite(*args, **kwargs)
@@ -1233,24 +1350,47 @@ class RichTextObject(_core.Object):
 
     ConvertPixelsToTenthsMM = staticmethod(ConvertPixelsToTenthsMM)
     def DrawBoxAttributes(*args, **kwargs):
-        """DrawBoxAttributes(DC dc, RichTextAttr attr, Rect boxRect) -> bool"""
+        """
+        DrawBoxAttributes(DC dc, RichTextBuffer buffer, RichTextAttr attr, Rect boxRect, 
+            int flags=0) -> bool
+        """
         return _richtext.RichTextObject_DrawBoxAttributes(*args, **kwargs)
 
     DrawBoxAttributes = staticmethod(DrawBoxAttributes)
     def DrawBorder(*args, **kwargs):
-        """DrawBorder(DC dc, TextAttrBorders attr, Rect rect) -> bool"""
+        """
+        DrawBorder(DC dc, RichTextBuffer buffer, TextAttrBorders attr, 
+            Rect rect, int flags=0) -> bool
+        """
         return _richtext.RichTextObject_DrawBorder(*args, **kwargs)
 
     DrawBorder = staticmethod(DrawBorder)
     def GetBoxRects(*args, **kwargs):
         """
-        GetBoxRects(DC dc, RichTextAttr attr, Rect marginRect, Rect borderRect, 
-            Rect contentRect, Rect paddingRect, 
-            Rect outlineRect) -> bool
+        GetBoxRects(DC dc, RichTextBuffer buffer, RichTextAttr attr, Rect marginRect, 
+            Rect borderRect, Rect contentRect, 
+            Rect paddingRect, Rect outlineRect) -> bool
         """
         return _richtext.RichTextObject_GetBoxRects(*args, **kwargs)
 
     GetBoxRects = staticmethod(GetBoxRects)
+    def GetTotalMargin(*args, **kwargs):
+        """
+        GetTotalMargin(DC dc, RichTextBuffer buffer, RichTextAttr attr, int leftMargin, 
+            int rightMargin, int topMargin, 
+            int bottomMargin) -> bool
+        """
+        return _richtext.RichTextObject_GetTotalMargin(*args, **kwargs)
+
+    GetTotalMargin = staticmethod(GetTotalMargin)
+    def AdjustAvailableSpace(*args, **kwargs):
+        """
+        AdjustAvailableSpace(DC dc, RichTextBuffer buffer, RichTextAttr parentAttr, 
+            RichTextAttr childAttr, Rect availableParentSpace) -> Rect
+        """
+        return _richtext.RichTextObject_AdjustAvailableSpace(*args, **kwargs)
+
+    AdjustAvailableSpace = staticmethod(AdjustAvailableSpace)
 _richtext.RichTextObject_swigregister(RichTextObject)
 cvar = _richtext.cvar
 RICHTEXT_ALL = cvar.RICHTEXT_ALL
@@ -1268,20 +1408,41 @@ def RichTextObject_ConvertPixelsToTenthsMM(*args):
   return _richtext.RichTextObject_ConvertPixelsToTenthsMM(*args)
 
 def RichTextObject_DrawBoxAttributes(*args, **kwargs):
-  """RichTextObject_DrawBoxAttributes(DC dc, RichTextAttr attr, Rect boxRect) -> bool"""
+  """
+    RichTextObject_DrawBoxAttributes(DC dc, RichTextBuffer buffer, RichTextAttr attr, Rect boxRect, 
+        int flags=0) -> bool
+    """
   return _richtext.RichTextObject_DrawBoxAttributes(*args, **kwargs)
 
 def RichTextObject_DrawBorder(*args, **kwargs):
-  """RichTextObject_DrawBorder(DC dc, TextAttrBorders attr, Rect rect) -> bool"""
+  """
+    RichTextObject_DrawBorder(DC dc, RichTextBuffer buffer, TextAttrBorders attr, 
+        Rect rect, int flags=0) -> bool
+    """
   return _richtext.RichTextObject_DrawBorder(*args, **kwargs)
 
 def RichTextObject_GetBoxRects(*args, **kwargs):
   """
-    RichTextObject_GetBoxRects(DC dc, RichTextAttr attr, Rect marginRect, Rect borderRect, 
-        Rect contentRect, Rect paddingRect, 
-        Rect outlineRect) -> bool
+    RichTextObject_GetBoxRects(DC dc, RichTextBuffer buffer, RichTextAttr attr, Rect marginRect, 
+        Rect borderRect, Rect contentRect, 
+        Rect paddingRect, Rect outlineRect) -> bool
     """
   return _richtext.RichTextObject_GetBoxRects(*args, **kwargs)
+
+def RichTextObject_GetTotalMargin(*args, **kwargs):
+  """
+    RichTextObject_GetTotalMargin(DC dc, RichTextBuffer buffer, RichTextAttr attr, int leftMargin, 
+        int rightMargin, int topMargin, 
+        int bottomMargin) -> bool
+    """
+  return _richtext.RichTextObject_GetTotalMargin(*args, **kwargs)
+
+def RichTextObject_AdjustAvailableSpace(*args, **kwargs):
+  """
+    RichTextObject_AdjustAvailableSpace(DC dc, RichTextBuffer buffer, RichTextAttr parentAttr, 
+        RichTextAttr childAttr, Rect availableParentSpace) -> Rect
+    """
+  return _richtext.RichTextObject_AdjustAvailableSpace(*args, **kwargs)
 
 class RichTextObjectList_iterator(object):
     """This class serves as an iterator for a wxRichTextObjectList object."""
@@ -1422,7 +1583,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
 
     def DrawFloats(*args, **kwargs):
         """
-        DrawFloats(self, DC dc, RichTextRange range, RichTextRange selectionRange, 
+        DrawFloats(self, DC dc, RichTextRange range, wxRichTextSelection selection, 
             Rect rect, int descent, int style)
         """
         return _richtext.RichTextParagraphLayoutBox_DrawFloats(*args, **kwargs)
@@ -1518,10 +1679,6 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
     def SetStyle(*args, **kwargs):
         """SetStyle(self, RichTextRange range, RichTextAttr style, int flags=RICHTEXT_SETSTYLE_WITH_UNDO) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_SetStyle(*args, **kwargs)
-
-    def SetImageStyle(*args, **kwargs):
-        """SetImageStyle(self, RichTextImage image, RichTextAttr textAttr, int flags=RICHTEXT_SETSTYLE_WITH_UNDO)"""
-        return _richtext.RichTextParagraphLayoutBox_SetImageStyle(*args, **kwargs)
 
     def GetStyle(*args, **kwargs):
         """GetStyle(self, long position, RichTextAttr style) -> bool"""
@@ -1646,7 +1803,7 @@ class RichTextParagraphLayoutBox(RichTextCompositeObject):
         return _richtext.RichTextParagraphLayoutBox_Invalidate(*args, **kwargs)
 
     def UpdateFloatingObjects(*args, **kwargs):
-        """UpdateFloatingObjects(self, int width, RichTextObject untilObj=None) -> bool"""
+        """UpdateFloatingObjects(self, Rect availableRect, RichTextObject untilObj=None) -> bool"""
         return _richtext.RichTextParagraphLayoutBox_UpdateFloatingObjects(*args, **kwargs)
 
     def GetInvalidRange(*args, **kwargs):
@@ -1794,7 +1951,7 @@ class RichTextParagraph(RichTextBox):
         return _richtext.RichTextParagraph_ClearLines(*args, **kwargs)
 
     def ApplyParagraphStyle(*args, **kwargs):
-        """ApplyParagraphStyle(self, RichTextAttr attr, Rect rect, DC ?)"""
+        """ApplyParagraphStyle(self, RichTextLine line, RichTextAttr attr, Rect rect, DC dc)"""
         return _richtext.RichTextParagraph_ApplyParagraphStyle(*args, **kwargs)
 
     def InsertText(*args, **kwargs):
@@ -2346,7 +2503,10 @@ class RichTextBuffer(RichTextParagraphLayoutBox):
         return _richtext.RichTextBuffer_IsModified(*args, **kwargs)
 
     def GetStyleForNewParagraph(*args, **kwargs):
-        """GetStyleForNewParagraph(self, long pos, bool caretPosition=False, bool lookUpNewParaStyle=False) -> RichTextAttr"""
+        """
+        GetStyleForNewParagraph(self, RichTextBuffer buffer, long pos, bool caretPosition=False, 
+            bool lookUpNewParaStyle=False) -> RichTextAttr
+        """
         return _richtext.RichTextBuffer_GetStyleForNewParagraph(*args, **kwargs)
 
     def GetHandlers(*args, **kwargs):
@@ -2687,10 +2847,6 @@ RE_CENTRE_CARET = _richtext.RE_CENTRE_CARET
 RICHTEXT_SHIFT_DOWN = _richtext.RICHTEXT_SHIFT_DOWN
 RICHTEXT_CTRL_DOWN = _richtext.RICHTEXT_CTRL_DOWN
 RICHTEXT_ALT_DOWN = _richtext.RICHTEXT_ALT_DOWN
-RICHTEXT_SELECTED = _richtext.RICHTEXT_SELECTED
-RICHTEXT_TAGGED = _richtext.RICHTEXT_TAGGED
-RICHTEXT_FOCUSSED = _richtext.RICHTEXT_FOCUSSED
-RICHTEXT_IS_FOCUS = _richtext.RICHTEXT_IS_FOCUS
 class RichTextCtrl(_core.TextCtrlBase,_windows.ScrollHelper):
     """Proxy of C++ RichTextCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')

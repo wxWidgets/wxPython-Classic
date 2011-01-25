@@ -503,6 +503,14 @@ class DataViewModel(_core.RefCounter):
         """
         return _dataview.DataViewModel_GetAttr(*args, **kwargs)
 
+    def IsEnabled(*args, **kwargs):
+        """
+        IsEnabled(self, DataViewItem item, unsigned int col) -> bool
+
+        Override this if you want to disable specific items
+        """
+        return _dataview.DataViewModel_IsEnabled(*args, **kwargs)
+
     def GetParent(*args, **kwargs):
         """
         GetParent(self, DataViewItem item) -> DataViewItem
@@ -814,6 +822,10 @@ class DataViewIndexListModel(DataViewModel):
         """
         return _dataview.DataViewIndexListModel_GetAttrByRow(*args, **kwargs)
 
+    def IsEnabledByRow(*args, **kwargs):
+        """IsEnabledByRow(self, unsigned int row, unsigned int col) -> bool"""
+        return _dataview.DataViewIndexListModel_IsEnabledByRow(*args, **kwargs)
+
     def RowPrepended(*args, **kwargs):
         """
         RowPrepended(self)
@@ -890,6 +902,14 @@ class DataViewIndexListModel(DataViewModel):
         """
         return _dataview.DataViewIndexListModel_GetRow(*args, **kwargs)
 
+    def GetCount(*args, **kwargs):
+        """
+        GetCount(self) -> unsigned int
+
+        returns the number of rows
+        """
+        return _dataview.DataViewIndexListModel_GetCount(*args, **kwargs)
+
     def GetItem(*args, **kwargs):
         """
         GetItem(self, unsigned int row) -> DataViewItem
@@ -901,25 +921,13 @@ class DataViewIndexListModel(DataViewModel):
 _dataview.DataViewIndexListModel_swigregister(DataViewIndexListModel)
 
 class PyDataViewIndexListModel(DataViewIndexListModel):
-    """
-    This class is a version of `DataViewIndexListModel` that has been
-    engineered to know how to reflect the C++ virtual method calls to
-    Python methods in the derived class.  Use this class as your base
-    class instead of `DataViewIndexListModel`.
-    """
+    """Proxy of C++ PyDataViewIndexListModel class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, unsigned int initial_size=0) -> PyDataViewIndexListModel
-
-        This class is a version of `DataViewIndexListModel` that has been
-        engineered to know how to reflect the C++ virtual method calls to
-        Python methods in the derived class.  Use this class as your base
-        class instead of `DataViewIndexListModel`.
-        """
+        """__init__(self, unsigned int initial_size=0) -> PyDataViewIndexListModel"""
         _dataview.PyDataViewIndexListModel_swiginit(self,_dataview.new_PyDataViewIndexListModel(*args, **kwargs))
-        wxPyDataViewIndexListModel._setCallbackInfo(self, self, wxPyDataViewIndexListModel)
+        PyDataViewIndexListModel._setCallbackInfo(self, self, PyDataViewIndexListModel)
 
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
@@ -972,6 +980,10 @@ class DataViewVirtualListModel(DataViewModel):
         Return ``False`` if the default attributes should be used.
         """
         return _dataview.DataViewVirtualListModel_GetAttrByRow(*args, **kwargs)
+
+    def IsEnabledByRow(*args, **kwargs):
+        """IsEnabledByRow(self, unsigned int row, unsigned int col) -> bool"""
+        return _dataview.DataViewVirtualListModel_IsEnabledByRow(*args, **kwargs)
 
     def RowPrepended(*args, **kwargs):
         """
@@ -1049,6 +1061,14 @@ class DataViewVirtualListModel(DataViewModel):
         """
         return _dataview.DataViewVirtualListModel_GetRow(*args, **kwargs)
 
+    def GetCount(*args, **kwargs):
+        """
+        GetCount(self) -> unsigned int
+
+        returns the number of rows
+        """
+        return _dataview.DataViewVirtualListModel_GetCount(*args, **kwargs)
+
     def GetItem(*args, **kwargs):
         """
         GetItem(self, unsigned int row) -> DataViewItem
@@ -1060,25 +1080,13 @@ class DataViewVirtualListModel(DataViewModel):
 _dataview.DataViewVirtualListModel_swigregister(DataViewVirtualListModel)
 
 class PyDataViewVirtualListModel(DataViewVirtualListModel):
-    """
-    This class is a version of `DataViewVirtualListModel` that has been
-    engineered to know how to reflect the C++ virtual method calls to
-    Python methods in the derived class.  Use this class as your base
-    class instead of `DataViewVirtualListModel`.
-    """
+    """Proxy of C++ PyDataViewVirtualListModel class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, unsigned int initial_size=0) -> PyDataViewVirtualListModel
-
-        This class is a version of `DataViewVirtualListModel` that has been
-        engineered to know how to reflect the C++ virtual method calls to
-        Python methods in the derived class.  Use this class as your base
-        class instead of `DataViewVirtualListModel`.
-        """
+        """__init__(self, unsigned int initial_size=0) -> PyDataViewVirtualListModel"""
         _dataview.PyDataViewVirtualListModel_swiginit(self,_dataview.new_PyDataViewVirtualListModel(*args, **kwargs))
-        wxPyDataViewVirtualListModel._setCallbackInfo(self, self, wxPyDataViewVirtualListModel)
+        PyDataViewVirtualListModel._setCallbackInfo(self, self, PyDataViewVirtualListModel)
 
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
@@ -1140,6 +1148,14 @@ class DataViewRenderer(_core.Object):
     def GetValue(*args, **kwargs):
         """GetValue(self) -> wxVariant"""
         return _dataview.DataViewRenderer_GetValue(*args, **kwargs)
+
+    def SetAttr(*args, **kwargs):
+        """SetAttr(self, DataViewItemAttr attr)"""
+        return _dataview.DataViewRenderer_SetAttr(*args, **kwargs)
+
+    def SetEnabled(*args, **kwargs):
+        """SetEnabled(self, bool enabled)"""
+        return _dataview.DataViewRenderer_SetEnabled(*args, **kwargs)
 
     def GetVariantType(*args, **kwargs):
         """GetVariantType(self) -> String"""
@@ -1353,6 +1369,14 @@ class DataViewCustomRenderer(DataViewRenderer):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
+    def GetAttr(*args, **kwargs):
+        """GetAttr(self) -> DataViewItemAttr"""
+        return _dataview.DataViewCustomRenderer_GetAttr(*args, **kwargs)
+
+    def GetEnabled(*args, **kwargs):
+        """GetEnabled(self) -> bool"""
+        return _dataview.DataViewCustomRenderer_GetEnabled(*args, **kwargs)
+
 _dataview.DataViewCustomRenderer_swigregister(DataViewCustomRenderer)
 
 class DataViewChoiceRenderer(DataViewCustomRenderer):
@@ -1397,6 +1421,12 @@ class PyDataViewCustomRenderer(DataViewCustomRenderer):
             int align=DVR_DEFAULT_ALIGNMENT) -> PyDataViewCustomRenderer
         """
         _dataview.PyDataViewCustomRenderer_swiginit(self,_dataview.new_PyDataViewCustomRenderer(*args, **kwargs))
+        PyDataViewCustomRenderer._setCallbackInfo(self, self, PyDataViewCustomRenderer)
+
+    def _setCallbackInfo(*args, **kwargs):
+        """_setCallbackInfo(self, PyObject self, PyObject _class)"""
+        return _dataview.PyDataViewCustomRenderer__setCallbackInfo(*args, **kwargs)
+
     def RenderText(*args, **kwargs):
         """
         RenderText(self, String text, int xoffset, Rect cell, DC dc, int state)
@@ -1457,6 +1487,14 @@ class PyDataViewCustomRenderer(DataViewCustomRenderer):
     def GetDC(*args, **kwargs):
         """GetDC(self) -> DC"""
         return _dataview.PyDataViewCustomRenderer_GetDC(*args, **kwargs)
+
+    def GetTextExtent(*args, **kwargs):
+        """GetTextExtent(self, String str) -> Size"""
+        return _dataview.PyDataViewCustomRenderer_GetTextExtent(*args, **kwargs)
+
+    def GetView(*args, **kwargs):
+        """GetView(self) -> DataViewCtrl"""
+        return _dataview.PyDataViewCustomRenderer_GetView(*args, **kwargs)
 
 _dataview.PyDataViewCustomRenderer_swigregister(PyDataViewCustomRenderer)
 

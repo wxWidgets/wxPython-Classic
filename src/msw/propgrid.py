@@ -1914,6 +1914,7 @@ PG_ACTION_PREV_PROPERTY = _propgrid.PG_ACTION_PREV_PROPERTY
 PG_ACTION_EXPAND_PROPERTY = _propgrid.PG_ACTION_EXPAND_PROPERTY
 PG_ACTION_COLLAPSE_PROPERTY = _propgrid.PG_ACTION_COLLAPSE_PROPERTY
 PG_ACTION_CANCEL_EDIT = _propgrid.PG_ACTION_CANCEL_EDIT
+PG_ACTION_EDIT = _propgrid.PG_ACTION_EDIT
 PG_ACTION_PRESS_BUTTON = _propgrid.PG_ACTION_PRESS_BUTTON
 PG_ACTION_MAX = _propgrid.PG_ACTION_MAX
 PG_SEL_FOCUS = _propgrid.PG_SEL_FOCUS
@@ -3308,7 +3309,7 @@ class SystemColourProperty(EnumProperty):
     __swig_destroy__ = _propgrid.delete_SystemColourProperty
     __del__ = lambda self : None;
     def ColourToString(*args, **kwargs):
-        """ColourToString(self, Colour col, int index) -> String"""
+        """ColourToString(self, Colour col, int index, int argFlags=0) -> String"""
         return _propgrid.SystemColourProperty_ColourToString(*args, **kwargs)
 
     def GetCustomColourIndex(*args, **kwargs):

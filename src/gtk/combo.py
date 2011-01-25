@@ -89,7 +89,7 @@ class ComboCtrlFeatures(object):
     All = _combo.ComboCtrlFeatures_All
 _combo.ComboCtrlFeatures_swigregister(ComboCtrlFeatures)
 
-class ComboCtrl(_core.Control):
+class ComboCtrl(_core.Control,_core.TextEntry):
     """
     A combo control is a generic combobox that allows for a totally custom
     popup. In addition it has other customization features. For instance,
@@ -118,6 +118,14 @@ class ComboCtrl(_core.Control):
     def _setCallbackInfo(*args, **kwargs):
         """_setCallbackInfo(self, PyObject self, PyObject _class)"""
         return _combo.ComboCtrl__setCallbackInfo(*args, **kwargs)
+
+    def Popup(*args, **kwargs):
+        """Popup(self)"""
+        return _combo.ComboCtrl_Popup(*args, **kwargs)
+
+    def Dismiss(*args, **kwargs):
+        """Dismiss(self)"""
+        return _combo.ComboCtrl_Dismiss(*args, **kwargs)
 
     def ShowPopup(*args, **kwargs):
         """
@@ -196,14 +204,6 @@ class ComboCtrl(_core.Control):
         """
         return _combo.ComboCtrl_GetButton(*args, **kwargs)
 
-    def SetHint(*args, **kwargs):
-        """SetHint(self, String hint) -> bool"""
-        return _combo.ComboCtrl_SetHint(*args, **kwargs)
-
-    def GetHint(*args, **kwargs):
-        """GetHint(self) -> String"""
-        return _combo.ComboCtrl_GetHint(*args, **kwargs)
-
     def SetMargins(*args):
         """
         SetMargins(self, Point pt) -> bool
@@ -243,61 +243,6 @@ class ComboCtrl(_core.Control):
         """
         return _combo.ComboCtrl_GetValue(*args, **kwargs)
 
-    def SetValue(*args, **kwargs):
-        """
-        SetValue(self, String value)
-
-        Sets the text for the combo control text field.  For a combo control
-        with wx.CB_READONLY style the string must be accepted by the popup (for
-        instance, exist in the dropdown list), otherwise the call to
-        SetValue is ignored.
-        """
-        return _combo.ComboCtrl_SetValue(*args, **kwargs)
-
-    def Copy(*args, **kwargs):
-        """Copy(self)"""
-        return _combo.ComboCtrl_Copy(*args, **kwargs)
-
-    def Cut(*args, **kwargs):
-        """Cut(self)"""
-        return _combo.ComboCtrl_Cut(*args, **kwargs)
-
-    def Paste(*args, **kwargs):
-        """Paste(self)"""
-        return _combo.ComboCtrl_Paste(*args, **kwargs)
-
-    def SetInsertionPoint(*args, **kwargs):
-        """SetInsertionPoint(self, long pos)"""
-        return _combo.ComboCtrl_SetInsertionPoint(*args, **kwargs)
-
-    def SetInsertionPointEnd(*args, **kwargs):
-        """SetInsertionPointEnd(self)"""
-        return _combo.ComboCtrl_SetInsertionPointEnd(*args, **kwargs)
-
-    def GetInsertionPoint(*args, **kwargs):
-        """GetInsertionPoint(self) -> long"""
-        return _combo.ComboCtrl_GetInsertionPoint(*args, **kwargs)
-
-    def GetLastPosition(*args, **kwargs):
-        """GetLastPosition(self) -> long"""
-        return _combo.ComboCtrl_GetLastPosition(*args, **kwargs)
-
-    def Replace(*args, **kwargs):
-        """Replace(self, long from, long to, String value)"""
-        return _combo.ComboCtrl_Replace(*args, **kwargs)
-
-    def Remove(*args, **kwargs):
-        """Remove(self, long from, long to)"""
-        return _combo.ComboCtrl_Remove(*args, **kwargs)
-
-    def Undo(*args, **kwargs):
-        """Undo(self)"""
-        return _combo.ComboCtrl_Undo(*args, **kwargs)
-
-    def SetMark(*args, **kwargs):
-        """SetMark(self, long from, long to)"""
-        return _combo.ComboCtrl_SetMark(*args, **kwargs)
-
     def SetText(*args, **kwargs):
         """
         SetText(self, String value)
@@ -315,6 +260,10 @@ class ComboCtrl(_core.Control):
         Same as `SetValue`, but also sends a EVT_TEXT event if withEvent is true.
         """
         return _combo.ComboCtrl_SetValueWithEvent(*args, **kwargs)
+
+    def SetValueByUser(*args, **kwargs):
+        """SetValueByUser(self, String value)"""
+        return _combo.ComboCtrl_SetValueByUser(*args, **kwargs)
 
     def SetPopupMinWidth(*args, **kwargs):
         """
@@ -589,8 +538,6 @@ class ComboCtrl(_core.Control):
     PopupWindow = property(GetPopupWindow) 
     TextCtrl = property(GetTextCtrl) 
     Button = property(GetButton) 
-    Value = property(GetValue,SetValue) 
-    InsertionPoint = property(GetInsertionPoint) 
     CustomPaintWidth = property(GetCustomPaintWidth,SetCustomPaintWidth) 
     ButtonSize = property(GetButtonSize) 
     TextIndent = property(GetTextIndent,SetTextIndent) 
@@ -889,10 +836,6 @@ class OwnerDrawnComboBox(ComboCtrl,_core.ItemContainer):
         Return the index of the widest item (recalculating it if necessary.)
         """
         return _combo.OwnerDrawnComboBox_GetWidestItem(*args, **kwargs)
-
-    def SetMark(*args, **kwargs):
-        """SetMark(self, long from, long to)"""
-        return _combo.OwnerDrawnComboBox_SetMark(*args, **kwargs)
 
     def OnDrawItem(*args, **kwargs):
         """

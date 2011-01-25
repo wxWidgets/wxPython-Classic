@@ -5507,26 +5507,6 @@ class PreviewControlBar(Panel):
         """GetPrintPreview(self) -> PrintPreview"""
         return _windows_.PreviewControlBar_GetPrintPreview(*args, **kwargs)
 
-    def OnNext(*args, **kwargs):
-        """OnNext(self)"""
-        return _windows_.PreviewControlBar_OnNext(*args, **kwargs)
-
-    def OnPrevious(*args, **kwargs):
-        """OnPrevious(self)"""
-        return _windows_.PreviewControlBar_OnPrevious(*args, **kwargs)
-
-    def OnFirst(*args, **kwargs):
-        """OnFirst(self)"""
-        return _windows_.PreviewControlBar_OnFirst(*args, **kwargs)
-
-    def OnLast(*args, **kwargs):
-        """OnLast(self)"""
-        return _windows_.PreviewControlBar_OnLast(*args, **kwargs)
-
-    def OnGoto(*args, **kwargs):
-        """OnGoto(self)"""
-        return _windows_.PreviewControlBar_OnGoto(*args, **kwargs)
-
     PrintPreview = property(GetPrintPreview,doc="See `GetPrintPreview`") 
     ZoomControl = property(GetZoomControl,SetZoomControl,doc="See `GetZoomControl` and `SetZoomControl`") 
 _windows_.PreviewControlBar_swigregister(PreviewControlBar)

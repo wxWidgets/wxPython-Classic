@@ -335,6 +335,10 @@ class AuiPaneInfo(object):
         """Caption(self, String c) -> AuiPaneInfo"""
         return _aui.AuiPaneInfo_Caption(*args, **kwargs)
 
+    def Icon(*args, **kwargs):
+        """Icon(self, Bitmap b) -> AuiPaneInfo"""
+        return _aui.AuiPaneInfo_Icon(*args, **kwargs)
+
     def Left(*args, **kwargs):
         """Left(self) -> AuiPaneInfo"""
         return _aui.AuiPaneInfo_Left(*args, **kwargs)
@@ -548,6 +552,7 @@ class AuiPaneInfo(object):
     actionPane = _aui.AuiPaneInfo_actionPane
     name = property(_aui.AuiPaneInfo_name_get, _aui.AuiPaneInfo_name_set)
     caption = property(_aui.AuiPaneInfo_caption_get, _aui.AuiPaneInfo_caption_set)
+    icon = property(_aui.AuiPaneInfo_icon_get, _aui.AuiPaneInfo_icon_set)
     window = property(_aui.AuiPaneInfo_window_get, _aui.AuiPaneInfo_window_set)
     frame = property(_aui.AuiPaneInfo_frame_get, _aui.AuiPaneInfo_frame_set)
     state = property(_aui.AuiPaneInfo_state_get, _aui.AuiPaneInfo_state_set)
@@ -1017,6 +1022,10 @@ class AuiDefaultDockArt(AuiDockArt):
     def __init__(self, *args, **kwargs): 
         """__init__(self) -> AuiDefaultDockArt"""
         _aui.AuiDefaultDockArt_swiginit(self,_aui.new_AuiDefaultDockArt(*args, **kwargs))
+    def DrawIcon(*args, **kwargs):
+        """DrawIcon(self, DC dc, Rect rect, AuiPaneInfo pane)"""
+        return _aui.AuiDefaultDockArt_DrawIcon(*args, **kwargs)
+
 _aui.AuiDefaultDockArt_swigregister(AuiDefaultDockArt)
 
 class AuiFloatingFrame(_windows.Frame):
@@ -1842,7 +1851,7 @@ class AuiToolBarEvent(_core.NotifyEvent):
         return _aui.AuiToolBarEvent_GetToolId(*args, **kwargs)
 
     def SetToolId(*args, **kwargs):
-        """SetToolId(self, int id)"""
+        """SetToolId(self, int toolid)"""
         return _aui.AuiToolBarEvent_SetToolId(*args, **kwargs)
 
 _aui.AuiToolBarEvent_swigregister(AuiToolBarEvent)

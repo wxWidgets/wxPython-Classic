@@ -7892,15 +7892,6 @@ class PyApp(EvtHandler):
         """
         return _core_.PyApp_ProcessIdle(*args, **kwargs)
 
-    def SendIdleEvents(*args, **kwargs):
-        """
-        SendIdleEvents(self, Window win, IdleEvent event) -> bool
-
-        Send idle event to window and all subwindows.  Returns True if more
-        idle time is requested.
-        """
-        return _core_.PyApp_SendIdleEvents(*args, **kwargs)
-
     def IsActive(*args, **kwargs):
         """
         IsActive(self) -> bool
@@ -11024,6 +11015,15 @@ class Window(EvtHandler):
     def HasMultiplePages(*args, **kwargs):
         """HasMultiplePages(self) -> bool"""
         return _core_.Window_HasMultiplePages(*args, **kwargs)
+
+    def SendIdleEvents(*args, **kwargs):
+        """
+        SendIdleEvents(self, IdleEvent event) -> bool
+
+        Send idle event to window and all subwindows.  Returns True if more
+        idle time is requested.
+        """
+        return _core_.Window_SendIdleEvents(*args, **kwargs)
 
     def GetHandle(*args, **kwargs):
         """

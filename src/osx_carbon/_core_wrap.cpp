@@ -34258,59 +34258,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PyApp_SendIdleEvents(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxPyApp *arg1 = (wxPyApp *) 0 ;
-  wxWindow *arg2 = (wxWindow *) 0 ;
-  wxIdleEvent *arg3 = 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "win",(char *) "event", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:PyApp_SendIdleEvents",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyApp, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyApp_SendIdleEvents" "', expected argument " "1"" of type '" "wxPyApp *""'"); 
-  }
-  arg1 = reinterpret_cast< wxPyApp * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "PyApp_SendIdleEvents" "', expected argument " "2"" of type '" "wxWindow *""'"); 
-  }
-  arg2 = reinterpret_cast< wxWindow * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxIdleEvent,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "PyApp_SendIdleEvents" "', expected argument " "3"" of type '" "wxIdleEvent &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "PyApp_SendIdleEvents" "', expected argument " "3"" of type '" "wxIdleEvent &""'"); 
-  }
-  arg3 = reinterpret_cast< wxIdleEvent * >(argp3);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->SendIdleEvents(arg2,*arg3);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_PyApp_IsActive(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPyApp *arg1 = (wxPyApp *) 0 ;
@@ -44829,6 +44776,50 @@ SWIGINTERN PyObject *_wrap_Window_HasMultiplePages(PyObject *SWIGUNUSEDPARM(self
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)((wxWindow const *)arg1)->HasMultiplePages();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Window_SendIdleEvents(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxWindow *arg1 = (wxWindow *) 0 ;
+  wxIdleEvent *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "event", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Window_SendIdleEvents",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Window_SendIdleEvents" "', expected argument " "1"" of type '" "wxWindow *""'"); 
+  }
+  arg1 = reinterpret_cast< wxWindow * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxIdleEvent,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Window_SendIdleEvents" "', expected argument " "2"" of type '" "wxIdleEvent &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Window_SendIdleEvents" "', expected argument " "2"" of type '" "wxIdleEvent &""'"); 
+  }
+  arg2 = reinterpret_cast< wxIdleEvent * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->SendIdleEvents(*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -70083,7 +70074,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyApp_Pending", (PyCFunction)_wrap_PyApp_Pending, METH_O, NULL},
 	 { (char *)"PyApp_Dispatch", (PyCFunction)_wrap_PyApp_Dispatch, METH_O, NULL},
 	 { (char *)"PyApp_ProcessIdle", (PyCFunction)_wrap_PyApp_ProcessIdle, METH_O, NULL},
-	 { (char *)"PyApp_SendIdleEvents", (PyCFunction) _wrap_PyApp_SendIdleEvents, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_IsActive", (PyCFunction)_wrap_PyApp_IsActive, METH_O, NULL},
 	 { (char *)"PyApp_SetTopWindow", (PyCFunction) _wrap_PyApp_SetTopWindow, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyApp_GetTopWindow", (PyCFunction)_wrap_PyApp_GetTopWindow, METH_O, NULL},
@@ -70393,6 +70383,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Window_PopupMenu", (PyCFunction) _wrap_Window_PopupMenu, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_GetPopupMenuSelectionFromUser", (PyCFunction) _wrap_Window_GetPopupMenuSelectionFromUser, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_HasMultiplePages", (PyCFunction)_wrap_Window_HasMultiplePages, METH_O, NULL},
+	 { (char *)"Window_SendIdleEvents", (PyCFunction) _wrap_Window_SendIdleEvents, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_GetHandle", (PyCFunction)_wrap_Window_GetHandle, METH_O, NULL},
 	 { (char *)"Window_AssociateHandle", (PyCFunction) _wrap_Window_AssociateHandle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Window_DissociateHandle", (PyCFunction)_wrap_Window_DissociateHandle, METH_O, NULL},

@@ -2463,310 +2463,313 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 
 /* -------- TYPES TABLE (BEGIN) -------- */
 
-#define SWIGTYPE_p_char swig_types[0]
-#define SWIGTYPE_p_double swig_types[1]
-#define SWIGTYPE_p_int swig_types[2]
-#define SWIGTYPE_p_long swig_types[3]
-#define SWIGTYPE_p_p_wxRichTextBox swig_types[4]
-#define SWIGTYPE_p_p_wxRichTextBuffer swig_types[5]
-#define SWIGTYPE_p_p_wxRichTextCompositeObject swig_types[6]
-#define SWIGTYPE_p_p_wxRichTextImage swig_types[7]
-#define SWIGTYPE_p_p_wxRichTextObject swig_types[8]
-#define SWIGTYPE_p_p_wxRichTextParagraph swig_types[9]
-#define SWIGTYPE_p_p_wxRichTextParagraphLayoutBox swig_types[10]
-#define SWIGTYPE_p_p_wxRichTextPlainText swig_types[11]
-#define SWIGTYPE_p_unsigned_char swig_types[12]
-#define SWIGTYPE_p_unsigned_int swig_types[13]
-#define SWIGTYPE_p_unsigned_long swig_types[14]
-#define SWIGTYPE_p_unsigned_short swig_types[15]
-#define SWIGTYPE_p_wxANIHandler swig_types[16]
-#define SWIGTYPE_p_wxAcceleratorTable swig_types[17]
-#define SWIGTYPE_p_wxActivateEvent swig_types[18]
-#define SWIGTYPE_p_wxArrayInt swig_types[19]
-#define SWIGTYPE_p_wxArrayString swig_types[20]
-#define SWIGTYPE_p_wxBMPHandler swig_types[21]
-#define SWIGTYPE_p_wxBitmap swig_types[22]
-#define SWIGTYPE_p_wxBitmapButton swig_types[23]
-#define SWIGTYPE_p_wxBookCtrlBase swig_types[24]
-#define SWIGTYPE_p_wxBookCtrlEvent swig_types[25]
-#define SWIGTYPE_p_wxBoxSizer swig_types[26]
-#define SWIGTYPE_p_wxButton swig_types[27]
-#define SWIGTYPE_p_wxCURHandler swig_types[28]
-#define SWIGTYPE_p_wxCalculateLayoutEvent swig_types[29]
-#define SWIGTYPE_p_wxChar swig_types[30]
-#define SWIGTYPE_p_wxCheckBox swig_types[31]
-#define SWIGTYPE_p_wxCheckListBox swig_types[32]
-#define SWIGTYPE_p_wxChildFocusEvent swig_types[33]
-#define SWIGTYPE_p_wxChoice swig_types[34]
-#define SWIGTYPE_p_wxChoicebook swig_types[35]
-#define SWIGTYPE_p_wxClipboardTextEvent swig_types[36]
-#define SWIGTYPE_p_wxCloseEvent swig_types[37]
-#define SWIGTYPE_p_wxCollapsiblePane swig_types[38]
-#define SWIGTYPE_p_wxCollapsiblePaneEvent swig_types[39]
-#define SWIGTYPE_p_wxColour swig_types[40]
-#define SWIGTYPE_p_wxColourData swig_types[41]
-#define SWIGTYPE_p_wxColourDialog swig_types[42]
-#define SWIGTYPE_p_wxColourPickerCtrl swig_types[43]
-#define SWIGTYPE_p_wxColourPickerEvent swig_types[44]
-#define SWIGTYPE_p_wxComboBox swig_types[45]
-#define SWIGTYPE_p_wxCommandEvent swig_types[46]
-#define SWIGTYPE_p_wxCommandLinkButton swig_types[47]
-#define SWIGTYPE_p_wxCommandProcessor swig_types[48]
-#define SWIGTYPE_p_wxContextHelp swig_types[49]
-#define SWIGTYPE_p_wxContextHelpButton swig_types[50]
-#define SWIGTYPE_p_wxContextMenuEvent swig_types[51]
-#define SWIGTYPE_p_wxControl swig_types[52]
-#define SWIGTYPE_p_wxControlWithItems swig_types[53]
-#define SWIGTYPE_p_wxCursor swig_types[54]
-#define SWIGTYPE_p_wxDC swig_types[55]
-#define SWIGTYPE_p_wxDateEvent swig_types[56]
-#define SWIGTYPE_p_wxDatePickerCtrl swig_types[57]
-#define SWIGTYPE_p_wxDatePickerCtrlBase swig_types[58]
-#define SWIGTYPE_p_wxDatePickerCtrlGeneric swig_types[59]
-#define SWIGTYPE_p_wxDialog swig_types[60]
-#define SWIGTYPE_p_wxDialogLayoutAdapter swig_types[61]
-#define SWIGTYPE_p_wxDirDialog swig_types[62]
-#define SWIGTYPE_p_wxDirFilterListCtrl swig_types[63]
-#define SWIGTYPE_p_wxDirItemData swig_types[64]
-#define SWIGTYPE_p_wxDirPickerCtrl swig_types[65]
-#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[66]
-#define SWIGTYPE_p_wxDropFilesEvent swig_types[67]
-#define SWIGTYPE_p_wxDuplexMode swig_types[68]
-#define SWIGTYPE_p_wxEraseEvent swig_types[69]
-#define SWIGTYPE_p_wxEvent swig_types[70]
-#define SWIGTYPE_p_wxEventBlocker swig_types[71]
-#define SWIGTYPE_p_wxEvtHandler swig_types[72]
-#define SWIGTYPE_p_wxFSFile swig_types[73]
-#define SWIGTYPE_p_wxFileCtrl swig_types[74]
-#define SWIGTYPE_p_wxFileCtrlEvent swig_types[75]
-#define SWIGTYPE_p_wxFileDialog swig_types[76]
-#define SWIGTYPE_p_wxFileDirPickerEvent swig_types[77]
-#define SWIGTYPE_p_wxFilePickerCtrl swig_types[78]
-#define SWIGTYPE_p_wxFileSystem swig_types[79]
-#define SWIGTYPE_p_wxFindDialogEvent swig_types[80]
-#define SWIGTYPE_p_wxFindReplaceData swig_types[81]
-#define SWIGTYPE_p_wxFindReplaceDialog swig_types[82]
-#define SWIGTYPE_p_wxFlexGridSizer swig_types[83]
-#define SWIGTYPE_p_wxFocusEvent swig_types[84]
-#define SWIGTYPE_p_wxFont swig_types[85]
-#define SWIGTYPE_p_wxFontData swig_types[86]
-#define SWIGTYPE_p_wxFontDialog swig_types[87]
-#define SWIGTYPE_p_wxFontPickerCtrl swig_types[88]
-#define SWIGTYPE_p_wxFontPickerEvent swig_types[89]
-#define SWIGTYPE_p_wxFrame swig_types[90]
-#define SWIGTYPE_p_wxGBSizerItem swig_types[91]
-#define SWIGTYPE_p_wxGIFHandler swig_types[92]
-#define SWIGTYPE_p_wxGauge swig_types[93]
-#define SWIGTYPE_p_wxGenericDirCtrl swig_types[94]
-#define SWIGTYPE_p_wxGenericDragImage swig_types[95]
-#define SWIGTYPE_p_wxGridBagSizer swig_types[96]
-#define SWIGTYPE_p_wxGridSizer swig_types[97]
-#define SWIGTYPE_p_wxHelpEvent swig_types[98]
-#define SWIGTYPE_p_wxHyperlinkCtrl swig_types[99]
-#define SWIGTYPE_p_wxHyperlinkEvent swig_types[100]
-#define SWIGTYPE_p_wxICOHandler swig_types[101]
-#define SWIGTYPE_p_wxIconizeEvent swig_types[102]
-#define SWIGTYPE_p_wxIdleEvent swig_types[103]
-#define SWIGTYPE_p_wxImage swig_types[104]
-#define SWIGTYPE_p_wxImageHandler swig_types[105]
-#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[106]
-#define SWIGTYPE_p_wxInfoBar swig_types[107]
-#define SWIGTYPE_p_wxInitDialogEvent swig_types[108]
-#define SWIGTYPE_p_wxInputStream swig_types[109]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[110]
-#define SWIGTYPE_p_wxKeyEvent swig_types[111]
-#define SWIGTYPE_p_wxLayoutAlgorithm swig_types[112]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[113]
-#define SWIGTYPE_p_wxList swig_types[114]
-#define SWIGTYPE_p_wxListBox swig_types[115]
-#define SWIGTYPE_p_wxListEvent swig_types[116]
-#define SWIGTYPE_p_wxListItem swig_types[117]
-#define SWIGTYPE_p_wxListView swig_types[118]
-#define SWIGTYPE_p_wxListbook swig_types[119]
-#define SWIGTYPE_p_wxMDIChildFrame swig_types[120]
-#define SWIGTYPE_p_wxMDIClientWindow swig_types[121]
-#define SWIGTYPE_p_wxMDIParentFrame swig_types[122]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[123]
-#define SWIGTYPE_p_wxMenu swig_types[124]
-#define SWIGTYPE_p_wxMenuBar swig_types[125]
-#define SWIGTYPE_p_wxMenuEvent swig_types[126]
-#define SWIGTYPE_p_wxMenuItem swig_types[127]
-#define SWIGTYPE_p_wxMessageDialog swig_types[128]
-#define SWIGTYPE_p_wxMiniFrame swig_types[129]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[130]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[131]
-#define SWIGTYPE_p_wxMouseEvent swig_types[132]
-#define SWIGTYPE_p_wxMoveEvent swig_types[133]
-#define SWIGTYPE_p_wxMultiChoiceDialog swig_types[134]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[135]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[136]
-#define SWIGTYPE_p_wxNotebook swig_types[137]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[138]
-#define SWIGTYPE_p_wxNumberEntryDialog swig_types[139]
-#define SWIGTYPE_p_wxObject swig_types[140]
-#define SWIGTYPE_p_wxOutputStream swig_types[141]
-#define SWIGTYPE_p_wxPCXHandler swig_types[142]
-#define SWIGTYPE_p_wxPNGHandler swig_types[143]
-#define SWIGTYPE_p_wxPNMHandler swig_types[144]
-#define SWIGTYPE_p_wxPageSetupDialog swig_types[145]
-#define SWIGTYPE_p_wxPageSetupDialogData swig_types[146]
-#define SWIGTYPE_p_wxPaintEvent swig_types[147]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[148]
-#define SWIGTYPE_p_wxPanel swig_types[149]
-#define SWIGTYPE_p_wxPaperSize swig_types[150]
-#define SWIGTYPE_p_wxPasswordEntryDialog swig_types[151]
-#define SWIGTYPE_p_wxPickerBase swig_types[152]
-#define SWIGTYPE_p_wxPoint swig_types[153]
-#define SWIGTYPE_p_wxPopupWindow swig_types[154]
-#define SWIGTYPE_p_wxPreviewCanvas swig_types[155]
-#define SWIGTYPE_p_wxPreviewControlBar swig_types[156]
-#define SWIGTYPE_p_wxPreviewFrame swig_types[157]
-#define SWIGTYPE_p_wxPrintData swig_types[158]
-#define SWIGTYPE_p_wxPrintDialog swig_types[159]
-#define SWIGTYPE_p_wxPrintDialogData swig_types[160]
-#define SWIGTYPE_p_wxPrintPreview swig_types[161]
-#define SWIGTYPE_p_wxPrinter swig_types[162]
-#define SWIGTYPE_p_wxProgressDialog swig_types[163]
-#define SWIGTYPE_p_wxPyApp swig_types[164]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[165]
-#define SWIGTYPE_p_wxPyControl swig_types[166]
-#define SWIGTYPE_p_wxPyEvent swig_types[167]
-#define SWIGTYPE_p_wxPyEvtHandler swig_types[168]
-#define SWIGTYPE_p_wxPyHScrolledWindow swig_types[169]
-#define SWIGTYPE_p_wxPyHVScrolledWindow swig_types[170]
-#define SWIGTYPE_p_wxPyHtmlListBox swig_types[171]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[172]
-#define SWIGTYPE_p_wxPyListCtrl swig_types[173]
-#define SWIGTYPE_p_wxPyPanel swig_types[174]
-#define SWIGTYPE_p_wxPyPickerBase swig_types[175]
-#define SWIGTYPE_p_wxPyPopupTransientWindow swig_types[176]
-#define SWIGTYPE_p_wxPyPreviewControlBar swig_types[177]
-#define SWIGTYPE_p_wxPyPreviewFrame swig_types[178]
-#define SWIGTYPE_p_wxPyPrintPreview swig_types[179]
-#define SWIGTYPE_p_wxPyPrintout swig_types[180]
-#define SWIGTYPE_p_wxPyScrolledWindow swig_types[181]
-#define SWIGTYPE_p_wxPySizer swig_types[182]
-#define SWIGTYPE_p_wxPyTaskBarIcon swig_types[183]
-#define SWIGTYPE_p_wxPyTreeCtrl swig_types[184]
-#define SWIGTYPE_p_wxPyVListBox swig_types[185]
-#define SWIGTYPE_p_wxPyVScrolledWindow swig_types[186]
-#define SWIGTYPE_p_wxPyValidator swig_types[187]
-#define SWIGTYPE_p_wxPyWindow swig_types[188]
-#define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[189]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[190]
-#define SWIGTYPE_p_wxRadioBox swig_types[191]
-#define SWIGTYPE_p_wxRadioButton swig_types[192]
-#define SWIGTYPE_p_wxRect swig_types[193]
-#define SWIGTYPE_p_wxRefCounter swig_types[194]
-#define SWIGTYPE_p_wxRichTextAction swig_types[195]
-#define SWIGTYPE_p_wxRichTextAttr swig_types[196]
-#define SWIGTYPE_p_wxRichTextBox swig_types[197]
-#define SWIGTYPE_p_wxRichTextBuffer swig_types[198]
-#define SWIGTYPE_p_wxRichTextCommand swig_types[199]
-#define SWIGTYPE_p_wxRichTextCompositeObject swig_types[200]
-#define SWIGTYPE_p_wxRichTextCtrl swig_types[201]
-#define SWIGTYPE_p_wxRichTextEvent swig_types[202]
-#define SWIGTYPE_p_wxRichTextFileHandler swig_types[203]
-#define SWIGTYPE_p_wxRichTextFileHandlerList swig_types[204]
-#define SWIGTYPE_p_wxRichTextFileHandlerList_iterator swig_types[205]
-#define SWIGTYPE_p_wxRichTextFloatCollector swig_types[206]
-#define SWIGTYPE_p_wxRichTextFontTable swig_types[207]
-#define SWIGTYPE_p_wxRichTextHTMLHandler swig_types[208]
-#define SWIGTYPE_p_wxRichTextImage swig_types[209]
-#define SWIGTYPE_p_wxRichTextImageBlock swig_types[210]
-#define SWIGTYPE_p_wxRichTextLine swig_types[211]
-#define SWIGTYPE_p_wxRichTextLineList swig_types[212]
-#define SWIGTYPE_p_wxRichTextListStyleDefinition swig_types[213]
-#define SWIGTYPE_p_wxRichTextObject swig_types[214]
-#define SWIGTYPE_p_wxRichTextObjectList swig_types[215]
-#define SWIGTYPE_p_wxRichTextObjectList_iterator swig_types[216]
-#define SWIGTYPE_p_wxRichTextParagraph swig_types[217]
-#define SWIGTYPE_p_wxRichTextParagraphLayoutBox swig_types[218]
-#define SWIGTYPE_p_wxRichTextPlainText swig_types[219]
-#define SWIGTYPE_p_wxRichTextPlainTextHandler swig_types[220]
-#define SWIGTYPE_p_wxRichTextRange swig_types[221]
-#define SWIGTYPE_p_wxRichTextRenderer swig_types[222]
-#define SWIGTYPE_p_wxRichTextStdRenderer swig_types[223]
-#define SWIGTYPE_p_wxRichTextStyleDefinition swig_types[224]
-#define SWIGTYPE_p_wxRichTextStyleSheet swig_types[225]
-#define SWIGTYPE_p_wxRichTextXMLHandler swig_types[226]
-#define SWIGTYPE_p_wxSashEvent swig_types[227]
-#define SWIGTYPE_p_wxSashLayoutWindow swig_types[228]
-#define SWIGTYPE_p_wxSashWindow swig_types[229]
-#define SWIGTYPE_p_wxScrollBar swig_types[230]
-#define SWIGTYPE_p_wxScrollEvent swig_types[231]
-#define SWIGTYPE_p_wxScrollHelper swig_types[232]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[233]
-#define SWIGTYPE_p_wxScrolledWindow swig_types[234]
-#define SWIGTYPE_p_wxSearchCtrl swig_types[235]
-#define SWIGTYPE_p_wxSearchCtrlBase swig_types[236]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[237]
-#define SWIGTYPE_p_wxShowEvent swig_types[238]
-#define SWIGTYPE_p_wxSimpleHtmlListBox swig_types[239]
-#define SWIGTYPE_p_wxSingleChoiceDialog swig_types[240]
-#define SWIGTYPE_p_wxSize swig_types[241]
-#define SWIGTYPE_p_wxSizeEvent swig_types[242]
-#define SWIGTYPE_p_wxSizer swig_types[243]
-#define SWIGTYPE_p_wxSizerItem swig_types[244]
-#define SWIGTYPE_p_wxSlider swig_types[245]
-#define SWIGTYPE_p_wxSpinButton swig_types[246]
-#define SWIGTYPE_p_wxSpinCtrl swig_types[247]
-#define SWIGTYPE_p_wxSpinCtrlDouble swig_types[248]
-#define SWIGTYPE_p_wxSpinDoubleEvent swig_types[249]
-#define SWIGTYPE_p_wxSpinEvent swig_types[250]
-#define SWIGTYPE_p_wxSplashScreen swig_types[251]
-#define SWIGTYPE_p_wxSplashScreenWindow swig_types[252]
-#define SWIGTYPE_p_wxSplitterEvent swig_types[253]
-#define SWIGTYPE_p_wxSplitterWindow swig_types[254]
-#define SWIGTYPE_p_wxStandardDialogLayoutAdapter swig_types[255]
-#define SWIGTYPE_p_wxStaticBitmap swig_types[256]
-#define SWIGTYPE_p_wxStaticBox swig_types[257]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[258]
-#define SWIGTYPE_p_wxStaticLine swig_types[259]
-#define SWIGTYPE_p_wxStaticText swig_types[260]
-#define SWIGTYPE_p_wxStatusBar swig_types[261]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[262]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[263]
-#define SWIGTYPE_p_wxTGAHandler swig_types[264]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[265]
-#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[266]
-#define SWIGTYPE_p_wxTextAreaBase swig_types[267]
-#define SWIGTYPE_p_wxTextAttr swig_types[268]
-#define SWIGTYPE_p_wxTextAttrBorder swig_types[269]
-#define SWIGTYPE_p_wxTextAttrBorders swig_types[270]
-#define SWIGTYPE_p_wxTextAttrDimension swig_types[271]
-#define SWIGTYPE_p_wxTextAttrDimensionConverter swig_types[272]
-#define SWIGTYPE_p_wxTextAttrDimensions swig_types[273]
-#define SWIGTYPE_p_wxTextBoxAttr swig_types[274]
-#define SWIGTYPE_p_wxTextCoord swig_types[275]
-#define SWIGTYPE_p_wxTextCtrl swig_types[276]
-#define SWIGTYPE_p_wxTextCtrlBase swig_types[277]
-#define SWIGTYPE_p_wxTextCtrlIface swig_types[278]
-#define SWIGTYPE_p_wxTextEntry swig_types[279]
-#define SWIGTYPE_p_wxTextEntryBase swig_types[280]
-#define SWIGTYPE_p_wxTextEntryDialog swig_types[281]
-#define SWIGTYPE_p_wxTextUrlEvent swig_types[282]
-#define SWIGTYPE_p_wxThreadEvent swig_types[283]
-#define SWIGTYPE_p_wxTipWindow swig_types[284]
-#define SWIGTYPE_p_wxToggleButton swig_types[285]
-#define SWIGTYPE_p_wxToolBar swig_types[286]
-#define SWIGTYPE_p_wxToolBarBase swig_types[287]
-#define SWIGTYPE_p_wxToolBarToolBase swig_types[288]
-#define SWIGTYPE_p_wxToolbook swig_types[289]
-#define SWIGTYPE_p_wxTopLevelWindow swig_types[290]
-#define SWIGTYPE_p_wxTreeEvent swig_types[291]
-#define SWIGTYPE_p_wxTreebook swig_types[292]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[293]
-#define SWIGTYPE_p_wxValidator swig_types[294]
-#define SWIGTYPE_p_wxWindow swig_types[295]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[296]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[297]
-#define SWIGTYPE_p_wxWindowModalDialogEvent swig_types[298]
-#define SWIGTYPE_p_wxWrapSizer swig_types[299]
-#define SWIGTYPE_p_wxXPMHandler swig_types[300]
-#define SWIGTYPE_p_wxXmlNode swig_types[301]
-static swig_type_info *swig_types[303];
-static swig_module_info swig_module = {swig_types, 302, 0, 0, 0, 0};
+#define SWIGTYPE_p_bool swig_types[0]
+#define SWIGTYPE_p_char swig_types[1]
+#define SWIGTYPE_p_double swig_types[2]
+#define SWIGTYPE_p_int swig_types[3]
+#define SWIGTYPE_p_long swig_types[4]
+#define SWIGTYPE_p_p_wxRichTextBox swig_types[5]
+#define SWIGTYPE_p_p_wxRichTextBuffer swig_types[6]
+#define SWIGTYPE_p_p_wxRichTextCompositeObject swig_types[7]
+#define SWIGTYPE_p_p_wxRichTextImage swig_types[8]
+#define SWIGTYPE_p_p_wxRichTextObject swig_types[9]
+#define SWIGTYPE_p_p_wxRichTextParagraph swig_types[10]
+#define SWIGTYPE_p_p_wxRichTextParagraphLayoutBox swig_types[11]
+#define SWIGTYPE_p_p_wxRichTextPlainText swig_types[12]
+#define SWIGTYPE_p_unsigned_char swig_types[13]
+#define SWIGTYPE_p_unsigned_int swig_types[14]
+#define SWIGTYPE_p_unsigned_long swig_types[15]
+#define SWIGTYPE_p_unsigned_short swig_types[16]
+#define SWIGTYPE_p_wxANIHandler swig_types[17]
+#define SWIGTYPE_p_wxAcceleratorTable swig_types[18]
+#define SWIGTYPE_p_wxActivateEvent swig_types[19]
+#define SWIGTYPE_p_wxArrayInt swig_types[20]
+#define SWIGTYPE_p_wxArrayString swig_types[21]
+#define SWIGTYPE_p_wxBMPHandler swig_types[22]
+#define SWIGTYPE_p_wxBitmap swig_types[23]
+#define SWIGTYPE_p_wxBitmapButton swig_types[24]
+#define SWIGTYPE_p_wxBookCtrlBase swig_types[25]
+#define SWIGTYPE_p_wxBookCtrlEvent swig_types[26]
+#define SWIGTYPE_p_wxBoxSizer swig_types[27]
+#define SWIGTYPE_p_wxButton swig_types[28]
+#define SWIGTYPE_p_wxCURHandler swig_types[29]
+#define SWIGTYPE_p_wxCalculateLayoutEvent swig_types[30]
+#define SWIGTYPE_p_wxChar swig_types[31]
+#define SWIGTYPE_p_wxCheckBox swig_types[32]
+#define SWIGTYPE_p_wxCheckListBox swig_types[33]
+#define SWIGTYPE_p_wxChildFocusEvent swig_types[34]
+#define SWIGTYPE_p_wxChoice swig_types[35]
+#define SWIGTYPE_p_wxChoicebook swig_types[36]
+#define SWIGTYPE_p_wxClipboardTextEvent swig_types[37]
+#define SWIGTYPE_p_wxCloseEvent swig_types[38]
+#define SWIGTYPE_p_wxCollapsiblePane swig_types[39]
+#define SWIGTYPE_p_wxCollapsiblePaneEvent swig_types[40]
+#define SWIGTYPE_p_wxColour swig_types[41]
+#define SWIGTYPE_p_wxColourData swig_types[42]
+#define SWIGTYPE_p_wxColourDialog swig_types[43]
+#define SWIGTYPE_p_wxColourPickerCtrl swig_types[44]
+#define SWIGTYPE_p_wxColourPickerEvent swig_types[45]
+#define SWIGTYPE_p_wxComboBox swig_types[46]
+#define SWIGTYPE_p_wxCommandEvent swig_types[47]
+#define SWIGTYPE_p_wxCommandLinkButton swig_types[48]
+#define SWIGTYPE_p_wxCommandProcessor swig_types[49]
+#define SWIGTYPE_p_wxContextHelp swig_types[50]
+#define SWIGTYPE_p_wxContextHelpButton swig_types[51]
+#define SWIGTYPE_p_wxContextMenuEvent swig_types[52]
+#define SWIGTYPE_p_wxControl swig_types[53]
+#define SWIGTYPE_p_wxControlWithItems swig_types[54]
+#define SWIGTYPE_p_wxCursor swig_types[55]
+#define SWIGTYPE_p_wxDC swig_types[56]
+#define SWIGTYPE_p_wxDateEvent swig_types[57]
+#define SWIGTYPE_p_wxDatePickerCtrl swig_types[58]
+#define SWIGTYPE_p_wxDatePickerCtrlBase swig_types[59]
+#define SWIGTYPE_p_wxDatePickerCtrlGeneric swig_types[60]
+#define SWIGTYPE_p_wxDialog swig_types[61]
+#define SWIGTYPE_p_wxDialogLayoutAdapter swig_types[62]
+#define SWIGTYPE_p_wxDirDialog swig_types[63]
+#define SWIGTYPE_p_wxDirFilterListCtrl swig_types[64]
+#define SWIGTYPE_p_wxDirItemData swig_types[65]
+#define SWIGTYPE_p_wxDirPickerCtrl swig_types[66]
+#define SWIGTYPE_p_wxDisplayChangedEvent swig_types[67]
+#define SWIGTYPE_p_wxDropFilesEvent swig_types[68]
+#define SWIGTYPE_p_wxDuplexMode swig_types[69]
+#define SWIGTYPE_p_wxEraseEvent swig_types[70]
+#define SWIGTYPE_p_wxEvent swig_types[71]
+#define SWIGTYPE_p_wxEventBlocker swig_types[72]
+#define SWIGTYPE_p_wxEvtHandler swig_types[73]
+#define SWIGTYPE_p_wxFSFile swig_types[74]
+#define SWIGTYPE_p_wxFileCtrl swig_types[75]
+#define SWIGTYPE_p_wxFileCtrlEvent swig_types[76]
+#define SWIGTYPE_p_wxFileDialog swig_types[77]
+#define SWIGTYPE_p_wxFileDirPickerEvent swig_types[78]
+#define SWIGTYPE_p_wxFilePickerCtrl swig_types[79]
+#define SWIGTYPE_p_wxFileSystem swig_types[80]
+#define SWIGTYPE_p_wxFindDialogEvent swig_types[81]
+#define SWIGTYPE_p_wxFindReplaceData swig_types[82]
+#define SWIGTYPE_p_wxFindReplaceDialog swig_types[83]
+#define SWIGTYPE_p_wxFlexGridSizer swig_types[84]
+#define SWIGTYPE_p_wxFocusEvent swig_types[85]
+#define SWIGTYPE_p_wxFont swig_types[86]
+#define SWIGTYPE_p_wxFontData swig_types[87]
+#define SWIGTYPE_p_wxFontDialog swig_types[88]
+#define SWIGTYPE_p_wxFontPickerCtrl swig_types[89]
+#define SWIGTYPE_p_wxFontPickerEvent swig_types[90]
+#define SWIGTYPE_p_wxFrame swig_types[91]
+#define SWIGTYPE_p_wxGBSizerItem swig_types[92]
+#define SWIGTYPE_p_wxGIFHandler swig_types[93]
+#define SWIGTYPE_p_wxGauge swig_types[94]
+#define SWIGTYPE_p_wxGenericDirCtrl swig_types[95]
+#define SWIGTYPE_p_wxGenericDragImage swig_types[96]
+#define SWIGTYPE_p_wxGridBagSizer swig_types[97]
+#define SWIGTYPE_p_wxGridSizer swig_types[98]
+#define SWIGTYPE_p_wxHelpEvent swig_types[99]
+#define SWIGTYPE_p_wxHyperlinkCtrl swig_types[100]
+#define SWIGTYPE_p_wxHyperlinkEvent swig_types[101]
+#define SWIGTYPE_p_wxICOHandler swig_types[102]
+#define SWIGTYPE_p_wxIconizeEvent swig_types[103]
+#define SWIGTYPE_p_wxIdleEvent swig_types[104]
+#define SWIGTYPE_p_wxImage swig_types[105]
+#define SWIGTYPE_p_wxImageHandler swig_types[106]
+#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[107]
+#define SWIGTYPE_p_wxInfoBar swig_types[108]
+#define SWIGTYPE_p_wxInitDialogEvent swig_types[109]
+#define SWIGTYPE_p_wxInputStream swig_types[110]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[111]
+#define SWIGTYPE_p_wxKeyEvent swig_types[112]
+#define SWIGTYPE_p_wxLayoutAlgorithm swig_types[113]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[114]
+#define SWIGTYPE_p_wxList swig_types[115]
+#define SWIGTYPE_p_wxListBox swig_types[116]
+#define SWIGTYPE_p_wxListEvent swig_types[117]
+#define SWIGTYPE_p_wxListItem swig_types[118]
+#define SWIGTYPE_p_wxListView swig_types[119]
+#define SWIGTYPE_p_wxListbook swig_types[120]
+#define SWIGTYPE_p_wxMDIChildFrame swig_types[121]
+#define SWIGTYPE_p_wxMDIClientWindow swig_types[122]
+#define SWIGTYPE_p_wxMDIParentFrame swig_types[123]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[124]
+#define SWIGTYPE_p_wxMenu swig_types[125]
+#define SWIGTYPE_p_wxMenuBar swig_types[126]
+#define SWIGTYPE_p_wxMenuEvent swig_types[127]
+#define SWIGTYPE_p_wxMenuItem swig_types[128]
+#define SWIGTYPE_p_wxMessageDialog swig_types[129]
+#define SWIGTYPE_p_wxMiniFrame swig_types[130]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[131]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[132]
+#define SWIGTYPE_p_wxMouseEvent swig_types[133]
+#define SWIGTYPE_p_wxMoveEvent swig_types[134]
+#define SWIGTYPE_p_wxMultiChoiceDialog swig_types[135]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[136]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[137]
+#define SWIGTYPE_p_wxNotebook swig_types[138]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[139]
+#define SWIGTYPE_p_wxNumberEntryDialog swig_types[140]
+#define SWIGTYPE_p_wxObject swig_types[141]
+#define SWIGTYPE_p_wxOutputStream swig_types[142]
+#define SWIGTYPE_p_wxPCXHandler swig_types[143]
+#define SWIGTYPE_p_wxPNGHandler swig_types[144]
+#define SWIGTYPE_p_wxPNMHandler swig_types[145]
+#define SWIGTYPE_p_wxPageSetupDialog swig_types[146]
+#define SWIGTYPE_p_wxPageSetupDialogData swig_types[147]
+#define SWIGTYPE_p_wxPaintEvent swig_types[148]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[149]
+#define SWIGTYPE_p_wxPanel swig_types[150]
+#define SWIGTYPE_p_wxPaperSize swig_types[151]
+#define SWIGTYPE_p_wxPasswordEntryDialog swig_types[152]
+#define SWIGTYPE_p_wxPickerBase swig_types[153]
+#define SWIGTYPE_p_wxPoint swig_types[154]
+#define SWIGTYPE_p_wxPopupWindow swig_types[155]
+#define SWIGTYPE_p_wxPreviewCanvas swig_types[156]
+#define SWIGTYPE_p_wxPreviewControlBar swig_types[157]
+#define SWIGTYPE_p_wxPreviewFrame swig_types[158]
+#define SWIGTYPE_p_wxPrintData swig_types[159]
+#define SWIGTYPE_p_wxPrintDialog swig_types[160]
+#define SWIGTYPE_p_wxPrintDialogData swig_types[161]
+#define SWIGTYPE_p_wxPrintPreview swig_types[162]
+#define SWIGTYPE_p_wxPrinter swig_types[163]
+#define SWIGTYPE_p_wxProgressDialog swig_types[164]
+#define SWIGTYPE_p_wxPyApp swig_types[165]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[166]
+#define SWIGTYPE_p_wxPyControl swig_types[167]
+#define SWIGTYPE_p_wxPyEvent swig_types[168]
+#define SWIGTYPE_p_wxPyEvtHandler swig_types[169]
+#define SWIGTYPE_p_wxPyHScrolledWindow swig_types[170]
+#define SWIGTYPE_p_wxPyHVScrolledWindow swig_types[171]
+#define SWIGTYPE_p_wxPyHtmlListBox swig_types[172]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[173]
+#define SWIGTYPE_p_wxPyListCtrl swig_types[174]
+#define SWIGTYPE_p_wxPyPanel swig_types[175]
+#define SWIGTYPE_p_wxPyPickerBase swig_types[176]
+#define SWIGTYPE_p_wxPyPopupTransientWindow swig_types[177]
+#define SWIGTYPE_p_wxPyPreviewControlBar swig_types[178]
+#define SWIGTYPE_p_wxPyPreviewFrame swig_types[179]
+#define SWIGTYPE_p_wxPyPrintPreview swig_types[180]
+#define SWIGTYPE_p_wxPyPrintout swig_types[181]
+#define SWIGTYPE_p_wxPyScrolledWindow swig_types[182]
+#define SWIGTYPE_p_wxPySizer swig_types[183]
+#define SWIGTYPE_p_wxPyTaskBarIcon swig_types[184]
+#define SWIGTYPE_p_wxPyTreeCtrl swig_types[185]
+#define SWIGTYPE_p_wxPyVListBox swig_types[186]
+#define SWIGTYPE_p_wxPyVScrolledWindow swig_types[187]
+#define SWIGTYPE_p_wxPyValidator swig_types[188]
+#define SWIGTYPE_p_wxPyWindow swig_types[189]
+#define SWIGTYPE_p_wxQueryLayoutInfoEvent swig_types[190]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[191]
+#define SWIGTYPE_p_wxRadioBox swig_types[192]
+#define SWIGTYPE_p_wxRadioButton swig_types[193]
+#define SWIGTYPE_p_wxRect swig_types[194]
+#define SWIGTYPE_p_wxRefCounter swig_types[195]
+#define SWIGTYPE_p_wxRichTextAction swig_types[196]
+#define SWIGTYPE_p_wxRichTextAttr swig_types[197]
+#define SWIGTYPE_p_wxRichTextBox swig_types[198]
+#define SWIGTYPE_p_wxRichTextBuffer swig_types[199]
+#define SWIGTYPE_p_wxRichTextCommand swig_types[200]
+#define SWIGTYPE_p_wxRichTextCompositeObject swig_types[201]
+#define SWIGTYPE_p_wxRichTextCtrl swig_types[202]
+#define SWIGTYPE_p_wxRichTextEvent swig_types[203]
+#define SWIGTYPE_p_wxRichTextFileHandler swig_types[204]
+#define SWIGTYPE_p_wxRichTextFileHandlerList swig_types[205]
+#define SWIGTYPE_p_wxRichTextFileHandlerList_iterator swig_types[206]
+#define SWIGTYPE_p_wxRichTextFloatCollector swig_types[207]
+#define SWIGTYPE_p_wxRichTextFontTable swig_types[208]
+#define SWIGTYPE_p_wxRichTextHTMLHandler swig_types[209]
+#define SWIGTYPE_p_wxRichTextImage swig_types[210]
+#define SWIGTYPE_p_wxRichTextImageBlock swig_types[211]
+#define SWIGTYPE_p_wxRichTextLine swig_types[212]
+#define SWIGTYPE_p_wxRichTextLineList swig_types[213]
+#define SWIGTYPE_p_wxRichTextListStyleDefinition swig_types[214]
+#define SWIGTYPE_p_wxRichTextObject swig_types[215]
+#define SWIGTYPE_p_wxRichTextObjectList swig_types[216]
+#define SWIGTYPE_p_wxRichTextObjectList_iterator swig_types[217]
+#define SWIGTYPE_p_wxRichTextParagraph swig_types[218]
+#define SWIGTYPE_p_wxRichTextParagraphLayoutBox swig_types[219]
+#define SWIGTYPE_p_wxRichTextPlainText swig_types[220]
+#define SWIGTYPE_p_wxRichTextPlainTextHandler swig_types[221]
+#define SWIGTYPE_p_wxRichTextRange swig_types[222]
+#define SWIGTYPE_p_wxRichTextRenderer swig_types[223]
+#define SWIGTYPE_p_wxRichTextSelection swig_types[224]
+#define SWIGTYPE_p_wxRichTextStdRenderer swig_types[225]
+#define SWIGTYPE_p_wxRichTextStyleDefinition swig_types[226]
+#define SWIGTYPE_p_wxRichTextStyleSheet swig_types[227]
+#define SWIGTYPE_p_wxRichTextXMLHandler swig_types[228]
+#define SWIGTYPE_p_wxSashEvent swig_types[229]
+#define SWIGTYPE_p_wxSashLayoutWindow swig_types[230]
+#define SWIGTYPE_p_wxSashWindow swig_types[231]
+#define SWIGTYPE_p_wxScrollBar swig_types[232]
+#define SWIGTYPE_p_wxScrollEvent swig_types[233]
+#define SWIGTYPE_p_wxScrollHelper swig_types[234]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[235]
+#define SWIGTYPE_p_wxScrolledWindow swig_types[236]
+#define SWIGTYPE_p_wxSearchCtrl swig_types[237]
+#define SWIGTYPE_p_wxSearchCtrlBase swig_types[238]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[239]
+#define SWIGTYPE_p_wxShowEvent swig_types[240]
+#define SWIGTYPE_p_wxSimpleHtmlListBox swig_types[241]
+#define SWIGTYPE_p_wxSingleChoiceDialog swig_types[242]
+#define SWIGTYPE_p_wxSize swig_types[243]
+#define SWIGTYPE_p_wxSizeEvent swig_types[244]
+#define SWIGTYPE_p_wxSizer swig_types[245]
+#define SWIGTYPE_p_wxSizerItem swig_types[246]
+#define SWIGTYPE_p_wxSlider swig_types[247]
+#define SWIGTYPE_p_wxSpinButton swig_types[248]
+#define SWIGTYPE_p_wxSpinCtrl swig_types[249]
+#define SWIGTYPE_p_wxSpinCtrlDouble swig_types[250]
+#define SWIGTYPE_p_wxSpinDoubleEvent swig_types[251]
+#define SWIGTYPE_p_wxSpinEvent swig_types[252]
+#define SWIGTYPE_p_wxSplashScreen swig_types[253]
+#define SWIGTYPE_p_wxSplashScreenWindow swig_types[254]
+#define SWIGTYPE_p_wxSplitterEvent swig_types[255]
+#define SWIGTYPE_p_wxSplitterWindow swig_types[256]
+#define SWIGTYPE_p_wxStandardDialogLayoutAdapter swig_types[257]
+#define SWIGTYPE_p_wxStaticBitmap swig_types[258]
+#define SWIGTYPE_p_wxStaticBox swig_types[259]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[260]
+#define SWIGTYPE_p_wxStaticLine swig_types[261]
+#define SWIGTYPE_p_wxStaticText swig_types[262]
+#define SWIGTYPE_p_wxStatusBar swig_types[263]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[264]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[265]
+#define SWIGTYPE_p_wxTGAHandler swig_types[266]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[267]
+#define SWIGTYPE_p_wxTaskBarIconEvent swig_types[268]
+#define SWIGTYPE_p_wxTextAreaBase swig_types[269]
+#define SWIGTYPE_p_wxTextAttr swig_types[270]
+#define SWIGTYPE_p_wxTextAttrBorder swig_types[271]
+#define SWIGTYPE_p_wxTextAttrBorders swig_types[272]
+#define SWIGTYPE_p_wxTextAttrDimension swig_types[273]
+#define SWIGTYPE_p_wxTextAttrDimensionConverter swig_types[274]
+#define SWIGTYPE_p_wxTextAttrDimensions swig_types[275]
+#define SWIGTYPE_p_wxTextAttrSize swig_types[276]
+#define SWIGTYPE_p_wxTextBoxAttr swig_types[277]
+#define SWIGTYPE_p_wxTextCoord swig_types[278]
+#define SWIGTYPE_p_wxTextCtrl swig_types[279]
+#define SWIGTYPE_p_wxTextCtrlBase swig_types[280]
+#define SWIGTYPE_p_wxTextCtrlIface swig_types[281]
+#define SWIGTYPE_p_wxTextEntry swig_types[282]
+#define SWIGTYPE_p_wxTextEntryBase swig_types[283]
+#define SWIGTYPE_p_wxTextEntryDialog swig_types[284]
+#define SWIGTYPE_p_wxTextUrlEvent swig_types[285]
+#define SWIGTYPE_p_wxThreadEvent swig_types[286]
+#define SWIGTYPE_p_wxTipWindow swig_types[287]
+#define SWIGTYPE_p_wxToggleButton swig_types[288]
+#define SWIGTYPE_p_wxToolBar swig_types[289]
+#define SWIGTYPE_p_wxToolBarBase swig_types[290]
+#define SWIGTYPE_p_wxToolBarToolBase swig_types[291]
+#define SWIGTYPE_p_wxToolbook swig_types[292]
+#define SWIGTYPE_p_wxTopLevelWindow swig_types[293]
+#define SWIGTYPE_p_wxTreeEvent swig_types[294]
+#define SWIGTYPE_p_wxTreebook swig_types[295]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[296]
+#define SWIGTYPE_p_wxValidator swig_types[297]
+#define SWIGTYPE_p_wxWindow swig_types[298]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[299]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[300]
+#define SWIGTYPE_p_wxWindowModalDialogEvent swig_types[301]
+#define SWIGTYPE_p_wxWrapSizer swig_types[302]
+#define SWIGTYPE_p_wxXPMHandler swig_types[303]
+#define SWIGTYPE_p_wxXmlNode swig_types[304]
+static swig_type_info *swig_types[306];
+static swig_module_info swig_module = {swig_types, 305, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2936,38 +2939,6 @@ SWIG_AsVal_int (PyObject * obj, int *val)
 }
 
 
-SWIGINTERN int 
-SWIG_AsVal_unsigned_SS_long (PyObject* obj, unsigned long* val)
-{
-    long v = 0;
-    int res = SWIG_AsVal_long(obj, &v);
-    if (SWIG_IsOK(res)) {
-        if ( v < 0) {
-            return SWIG_ValueError;
-        }
-        else if (val)
-            *val = (unsigned long)v;
-    }
-    return res;
-}
-
-
-SWIGINTERN int
-SWIG_AsVal_unsigned_SS_short (PyObject * obj, unsigned short *val)
-{
-  unsigned long v;
-  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
-  if (SWIG_IsOK(res)) {
-    if ((v > USHRT_MAX)) {
-      return SWIG_OverflowError;
-    } else {
-      if (val) *val = static_cast< unsigned short >(v);
-    }
-  }  
-  return res;
-}
-
-
   #define SWIG_From_double   PyFloat_FromDouble 
 
 
@@ -3008,21 +2979,35 @@ SWIG_AsVal_float (PyObject * obj, float *val)
 }
 
 
-SWIGINTERN int
-SWIG_AsVal_bool (PyObject *obj, bool *val)
+SWIGINTERN int 
+SWIG_AsVal_unsigned_SS_long (PyObject* obj, unsigned long* val)
 {
-  if (obj == Py_True) {
-    if (val) *val = true;
-    return SWIG_OK;
-  } else if (obj == Py_False) {
-    if (val) *val = false;
-    return SWIG_OK;
-  } else {
     long v = 0;
-    int res = SWIG_AddCast(SWIG_AsVal_long (obj, val ? &v : 0));
-    if (SWIG_IsOK(res) && val) *val = v ? true : false;
+    int res = SWIG_AsVal_long(obj, &v);
+    if (SWIG_IsOK(res)) {
+        if ( v < 0) {
+            return SWIG_ValueError;
+        }
+        else if (val)
+            *val = (unsigned long)v;
+    }
     return res;
-  }
+}
+
+
+SWIGINTERN int
+SWIG_AsVal_unsigned_SS_short (PyObject * obj, unsigned short *val)
+{
+  unsigned long v;
+  int res = SWIG_AsVal_unsigned_SS_long (obj, &v);
+  if (SWIG_IsOK(res)) {
+    if ((v > USHRT_MAX)) {
+      return SWIG_OverflowError;
+    } else {
+      if (val) *val = static_cast< unsigned short >(v);
+    }
+  }  
+  return res;
 }
 
 
@@ -3038,29 +3023,6 @@ SWIGINTERNINLINE PyObject *
 SWIG_From_unsigned_SS_short  (unsigned short value)
 {    
   return SWIG_From_unsigned_SS_long  (value);
-}
-
-
-SWIGINTERNINLINE PyObject *
-SWIG_From_short  (short value)
-{    
-  return SWIG_From_long  (value);
-}
-
-
-SWIGINTERN int
-SWIG_AsVal_short (PyObject * obj, short *val)
-{
-  long v;
-  int res = SWIG_AsVal_long (obj, &v);
-  if (SWIG_IsOK(res)) {
-    if ((v < SHRT_MIN || v > SHRT_MAX)) {
-      return SWIG_OverflowError;
-    } else {
-      if (val) *val = static_cast< short >(v);
-    }
-  }  
-  return res;
 }
 
 
@@ -3091,6 +3053,24 @@ SWIGINTERN PyObject *wxRichTextRange_Get(wxRichTextRange *self){
 
     wxRichTextRange wxPy_RTR_ALL(wxRICHTEXT_ALL);
     wxRichTextRange wxPy_RTR_NONE(wxRICHTEXT_NONE);
+
+
+SWIGINTERN int
+SWIG_AsVal_bool (PyObject *obj, bool *val)
+{
+  if (obj == Py_True) {
+    if (val) *val = true;
+    return SWIG_OK;
+  } else if (obj == Py_False) {
+    if (val) *val = false;
+    return SWIG_OK;
+  } else {
+    long v = 0;
+    int res = SWIG_AddCast(SWIG_AsVal_long (obj, val ? &v : 0));
+    if (SWIG_IsOK(res) && val) *val = v ? true : false;
+    return res;
+  }
+}
 
 SWIGINTERN wxString wxRichTextObject_Dump(wxRichTextObject *self){
             wxStringOutputStream strstream;
@@ -3265,11 +3245,11 @@ fail:
 SWIGINTERN PyObject *_wrap_new_TextAttrDimension__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   int arg1 ;
-  wxTextAttrDimensionFlags arg2 = (wxTextAttrDimensionFlags) wxTEXT_ATTR_VALUE_PRESENT|wxTEXT_ATTR_UNITS_TENTHS_MM ;
+  wxTextAttrUnits arg2 = (wxTextAttrUnits) wxTEXT_ATTR_UNITS_TENTHS_MM ;
   wxTextAttrDimension *result = 0 ;
   int val1 ;
   int ecode1 = 0 ;
-  unsigned short val2 ;
+  int val2 ;
   int ecode2 = 0 ;
   
   if ((nobjs < 1) || (nobjs > 2)) SWIG_fail;
@@ -3279,11 +3259,11 @@ SWIGINTERN PyObject *_wrap_new_TextAttrDimension__SWIG_1(PyObject *SWIGUNUSEDPAR
   } 
   arg1 = static_cast< int >(val1);
   if (swig_obj[1]) {
-    ecode2 = SWIG_AsVal_unsigned_SS_short(swig_obj[1], &val2);
+    ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
     if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_TextAttrDimension" "', expected argument " "2"" of type '" "wxTextAttrDimensionFlags""'");
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_TextAttrDimension" "', expected argument " "2"" of type '" "wxTextAttrUnits""'");
     } 
-    arg2 = static_cast< wxTextAttrDimensionFlags >(val2);
+    arg2 = static_cast< wxTextAttrUnits >(val2);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -3936,74 +3916,6 @@ SWIGINTERN PyObject *_wrap_TextAttrDimension_SetPosition(PyObject *SWIGUNUSEDPAR
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetPosition(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrDimension_IsPresent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrDimension *arg1 = (wxTextAttrDimension *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrDimension_IsPresent" "', expected argument " "1"" of type '" "wxTextAttrDimension const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrDimension * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrDimension const *)arg1)->IsPresent();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextAttrDimension_SetPresent(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxTextAttrDimension *arg1 = (wxTextAttrDimension *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "b", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrDimension_SetPresent",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrDimension_SetPresent" "', expected argument " "1"" of type '" "wxTextAttrDimension *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrDimension * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrDimension_SetPresent" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetPresent(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5379,34 +5291,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_TextAttrBorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrBorder *arg1 = (wxTextAttrBorder *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorder, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_TextAttrBorder" "', expected argument " "1"" of type '" "wxTextAttrBorder *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrBorder * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_TextAttrBorder___eq__(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxTextAttrBorder *arg1 = (wxTextAttrBorder *) 0 ;
@@ -5900,16 +5784,14 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextAttrBorder_GetWidth(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextAttrBorder_GetWidth__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextAttrBorder *arg1 = (wxTextAttrBorder *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorder_GetWidth" "', expected argument " "1"" of type '" "wxTextAttrBorder *""'"); 
@@ -5931,7 +5813,55 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextAttrBorder_SetWidth(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextAttrBorder_GetWidth__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextAttrBorder *arg1 = (wxTextAttrBorder *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorder_GetWidth" "', expected argument " "1"" of type '" "wxTextAttrBorder const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrBorder * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextAttrBorder const *)arg1)->GetWidth();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorder_GetWidth(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextAttrBorder_GetWidth",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextAttrBorder_GetWidth__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextAttrBorder_GetWidth__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextAttrBorder_GetWidth'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorder_SetWidth__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextAttrBorder *arg1 = (wxTextAttrBorder *) 0 ;
   wxTextAttrDimension *arg2 = 0 ;
@@ -5939,19 +5869,14 @@ SWIGINTERN PyObject *_wrap_TextAttrBorder_SetWidth(PyObject *SWIGUNUSEDPARM(self
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "width", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrBorder_SetWidth",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorder_SetWidth" "', expected argument " "1"" of type '" "wxTextAttrBorder *""'"); 
   }
   arg1 = reinterpret_cast< wxTextAttrBorder * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrDimension,  0  | 0);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_wxTextAttrDimension,  0  | 0);
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TextAttrBorder_SetWidth" "', expected argument " "2"" of type '" "wxTextAttrDimension const &""'"); 
   }
@@ -5968,6 +5893,76 @@ SWIGINTERN PyObject *_wrap_TextAttrBorder_SetWidth(PyObject *SWIGUNUSEDPARM(self
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorder_SetWidth__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextAttrBorder *arg1 = (wxTextAttrBorder *) 0 ;
+  int arg2 ;
+  wxTextAttrUnits arg3 = (wxTextAttrUnits) wxTEXT_ATTR_UNITS_TENTHS_MM ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  
+  if ((nobjs < 2) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorder_SetWidth" "', expected argument " "1"" of type '" "wxTextAttrBorder *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrBorder * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrBorder_SetWidth" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (swig_obj[2]) {
+    ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextAttrBorder_SetWidth" "', expected argument " "3"" of type '" "wxTextAttrUnits""'");
+    } 
+    arg3 = static_cast< wxTextAttrUnits >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetWidth(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorder_SetWidth(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextAttrBorder_SetWidth",0,3,argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    int _v = 0;
+    {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_wxTextAttrDimension, 0);
+      _v = SWIG_CheckState(res);
+    }
+    if (!_v) goto check_1;
+    return _wrap_TextAttrBorder_SetWidth__SWIG_0(self, argc, argv);
+  }
+check_1:
+  
+  if ((argc >= 2) && (argc <= 3)) {
+    return _wrap_TextAttrBorder_SetWidth__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextAttrBorder_SetWidth'");
   return NULL;
 }
 
@@ -6086,6 +6081,33 @@ SWIGINTERN PyObject *_wrap_TextAttrBorder_IsValid(PyObject *SWIGUNUSEDPARM(self)
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorder_MakeValid(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxTextAttrBorder *arg1 = (wxTextAttrBorder *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorder_MakeValid" "', expected argument " "1"" of type '" "wxTextAttrBorder *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrBorder * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->MakeValid();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -6475,34 +6497,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_TextAttrBorders(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_TextAttrBorders" "', expected argument " "1"" of type '" "wxTextAttrBorders *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextAttrBorders * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_TextAttrBorders___eq__(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
@@ -6677,7 +6671,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextAttrBorders_SetWidth(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_TextAttrBorders_SetWidth__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
   wxTextAttrDimension *arg2 = 0 ;
@@ -6685,19 +6679,14 @@ SWIGINTERN PyObject *_wrap_TextAttrBorders_SetWidth(PyObject *SWIGUNUSEDPARM(sel
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "width", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextAttrBorders_SetWidth",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
+  if ((nobjs < 2) || (nobjs > 2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_SetWidth" "', expected argument " "1"" of type '" "wxTextAttrBorders *""'"); 
   }
   arg1 = reinterpret_cast< wxTextAttrBorders * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrDimension,  0  | 0);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_wxTextAttrDimension,  0  | 0);
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TextAttrBorders_SetWidth" "', expected argument " "2"" of type '" "wxTextAttrDimension const &""'"); 
   }
@@ -6714,6 +6703,76 @@ SWIGINTERN PyObject *_wrap_TextAttrBorders_SetWidth(PyObject *SWIGUNUSEDPARM(sel
   resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorders_SetWidth__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
+  int arg2 ;
+  wxTextAttrUnits arg3 = (wxTextAttrUnits) wxTEXT_ATTR_UNITS_TENTHS_MM ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  
+  if ((nobjs < 2) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_SetWidth" "', expected argument " "1"" of type '" "wxTextAttrBorders *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrBorders * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextAttrBorders_SetWidth" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (swig_obj[2]) {
+    ecode3 = SWIG_AsVal_int(swig_obj[2], &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "TextAttrBorders_SetWidth" "', expected argument " "3"" of type '" "wxTextAttrUnits""'");
+    } 
+    arg3 = static_cast< wxTextAttrUnits >(val3);
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetWidth(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorders_SetWidth(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextAttrBorders_SetWidth",0,3,argv))) SWIG_fail;
+  --argc;
+  if (argc == 2) {
+    int _v = 0;
+    {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_wxTextAttrDimension, 0);
+      _v = SWIG_CheckState(res);
+    }
+    if (!_v) goto check_1;
+    return _wrap_TextAttrBorders_SetWidth__SWIG_0(self, argc, argv);
+  }
+check_1:
+  
+  if ((argc >= 2) && (argc <= 3)) {
+    return _wrap_TextAttrBorders_SetWidth__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextAttrBorders_SetWidth'");
   return NULL;
 }
 
@@ -6953,7 +7012,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextAttrBorders_HasBorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextAttrBorders_IsValid(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
   bool result;
@@ -6965,12 +7024,12 @@ SWIGINTERN PyObject *_wrap_TextAttrBorders_HasBorder(PyObject *SWIGUNUSEDPARM(se
   swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_HasBorder" "', expected argument " "1"" of type '" "wxTextAttrBorders const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_IsValid" "', expected argument " "1"" of type '" "wxTextAttrBorders const *""'"); 
   }
   arg1 = reinterpret_cast< wxTextAttrBorders * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxTextAttrBorders const *)arg1)->HasBorder();
+    result = (bool)((wxTextAttrBorders const *)arg1)->IsValid();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -6983,16 +7042,43 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextAttrBorders_GetLeft(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetLeft__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_GetLeft" "', expected argument " "1"" of type '" "wxTextAttrBorders const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrBorders * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextAttrBorders const *)arg1)->GetLeft();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetLeft__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_GetLeft" "', expected argument " "1"" of type '" "wxTextAttrBorders *""'"); 
@@ -7014,16 +7100,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextAttrBorders_GetRight(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetLeft(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextAttrBorders_GetLeft",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextAttrBorders_GetLeft__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextAttrBorders_GetLeft__SWIG_0(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextAttrBorders_GetLeft'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetRight__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_GetRight" "', expected argument " "1"" of type '" "wxTextAttrBorders const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrBorders * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextAttrBorders const *)arg1)->GetRight();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetRight__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_GetRight" "', expected argument " "1"" of type '" "wxTextAttrBorders *""'"); 
@@ -7045,16 +7177,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextAttrBorders_GetTop(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetRight(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextAttrBorders_GetRight",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextAttrBorders_GetRight__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextAttrBorders_GetRight__SWIG_0(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextAttrBorders_GetRight'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetTop__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_GetTop" "', expected argument " "1"" of type '" "wxTextAttrBorders const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrBorders * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextAttrBorders const *)arg1)->GetTop();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetTop__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_GetTop" "', expected argument " "1"" of type '" "wxTextAttrBorders *""'"); 
@@ -7076,16 +7254,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextAttrBorders_GetBottom(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetTop(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextAttrBorders_GetTop",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextAttrBorders_GetTop__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextAttrBorders_GetTop__SWIG_0(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextAttrBorders_GetTop'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetBottom__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_GetBottom" "', expected argument " "1"" of type '" "wxTextAttrBorders const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextAttrBorders * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextAttrBorders const *)arg1)->GetBottom();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetBottom__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextAttrBorders *arg1 = (wxTextAttrBorders *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextAttrBorders_GetBottom" "', expected argument " "1"" of type '" "wxTextAttrBorders *""'"); 
@@ -7103,6 +7327,25 @@ SWIGINTERN PyObject *_wrap_TextAttrBorders_GetBottom(PyObject *SWIGUNUSEDPARM(se
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextAttrBorders_GetBottom(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextAttrBorders_GetBottom",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextAttrBorders_GetBottom__SWIG_1(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextAttrBorders_GetBottom__SWIG_0(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextAttrBorders_GetBottom'");
   return NULL;
 }
 
@@ -7392,34 +7635,6 @@ SWIGINTERN PyObject *_wrap_new_TextBoxAttr(PyObject *self, PyObject *args) {
   
 fail:
   SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'new_TextBoxAttr'");
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_delete_TextBoxAttr(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_TextBoxAttr" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    delete arg1;
-    
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
   return NULL;
 }
 
@@ -7916,7 +8131,7 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_GetFloatMode(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  short result;
+  wxTextBoxAttrFloatStyle result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -7930,11 +8145,11 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_GetFloatMode(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (short)((wxTextBoxAttr const *)arg1)->GetFloatMode();
+    result = (wxTextBoxAttrFloatStyle)((wxTextBoxAttr const *)arg1)->GetFloatMode();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_From_short(static_cast< short >(result));
+  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -7944,10 +8159,10 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_SetFloatMode(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  short arg2 ;
+  wxTextBoxAttrFloatStyle arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  short val2 ;
+  int val2 ;
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -7961,11 +8176,11 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_SetFloatMode(PyObject *SWIGUNUSEDPARM(sel
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_SetFloatMode" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
   }
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  ecode2 = SWIG_AsVal_short(obj1, &val2);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_SetFloatMode" "', expected argument " "2"" of type '" "short""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_SetFloatMode" "', expected argument " "2"" of type '" "wxTextBoxAttrFloatStyle""'");
   } 
-  arg2 = static_cast< short >(val2);
+  arg2 = static_cast< wxTextBoxAttrFloatStyle >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetFloatMode(arg2);
@@ -8042,7 +8257,7 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_GetClearMode(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  short result;
+  wxTextBoxAttrClearStyle result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8056,11 +8271,11 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_GetClearMode(PyObject *SWIGUNUSEDPARM(sel
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (short)((wxTextBoxAttr const *)arg1)->GetClearMode();
+    result = (wxTextBoxAttrClearStyle)((wxTextBoxAttr const *)arg1)->GetClearMode();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_From_short(static_cast< short >(result));
+  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -8070,10 +8285,10 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_SetClearMode(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  short arg2 ;
+  wxTextBoxAttrClearStyle arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  short val2 ;
+  int val2 ;
   int ecode2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -8087,11 +8302,11 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_SetClearMode(PyObject *SWIGUNUSEDPARM(sel
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_SetClearMode" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
   }
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  ecode2 = SWIG_AsVal_short(obj1, &val2);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_SetClearMode" "', expected argument " "2"" of type '" "short""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_SetClearMode" "', expected argument " "2"" of type '" "wxTextBoxAttrClearStyle""'");
   } 
-  arg2 = static_cast< short >(val2);
+  arg2 = static_cast< wxTextBoxAttrClearStyle >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetClearMode(arg2);
@@ -8138,7 +8353,7 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_GetCollapseBorders(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  int result;
+  wxTextBoxAttrCollapseMode result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -8152,7 +8367,7 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_GetCollapseBorders(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)((wxTextBoxAttr const *)arg1)->GetCollapseBorders();
+    result = (wxTextBoxAttrCollapseMode)((wxTextBoxAttr const *)arg1)->GetCollapseBorders();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -8166,7 +8381,7 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_SetCollapseBorders(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  int arg2 ;
+  wxTextBoxAttrCollapseMode arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -8185,9 +8400,9 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_SetCollapseBorders(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
   ecode2 = SWIG_AsVal_int(obj1, &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_SetCollapseBorders" "', expected argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_SetCollapseBorders" "', expected argument " "2"" of type '" "wxTextBoxAttrCollapseMode""'");
   } 
-  arg2 = static_cast< int >(val2);
+  arg2 = static_cast< wxTextBoxAttrCollapseMode >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetCollapseBorders(arg2);
@@ -8231,16 +8446,110 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetMargins(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetVerticalAlignment(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  wxTextAttrDimensions *result = 0 ;
+  wxTextBoxAttrVerticalAlignment result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
   
   if (!args) SWIG_fail;
   swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetVerticalAlignment" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxTextBoxAttrVerticalAlignment)((wxTextBoxAttr const *)arg1)->GetVerticalAlignment();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_SetVerticalAlignment(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextBoxAttrVerticalAlignment arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "verticalAlignment", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextBoxAttr_SetVerticalAlignment",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_SetVerticalAlignment" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_SetVerticalAlignment" "', expected argument " "2"" of type '" "wxTextBoxAttrVerticalAlignment""'");
+  } 
+  arg2 = static_cast< wxTextBoxAttrVerticalAlignment >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetVerticalAlignment(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_HasVerticalAlignment(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_HasVerticalAlignment" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxTextBoxAttr const *)arg1)->HasVerticalAlignment();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetMargins__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimensions *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetMargins" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8262,16 +8571,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftMargin(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetMargins__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimensions *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetMargins" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimensions const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetMargins();
+      result = (wxTextAttrDimensions *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimensions, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetMargins(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetMargins",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetMargins__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetMargins__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetMargins'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftMargin__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetLeftMargin" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8293,16 +8648,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightMargin(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftMargin__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetLeftMargin" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetLeftMargin();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftMargin(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetLeftMargin",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetLeftMargin__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetLeftMargin__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetLeftMargin'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightMargin__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetRightMargin" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8324,16 +8725,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopMargin(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightMargin__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetRightMargin" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetRightMargin();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightMargin(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetRightMargin",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetRightMargin__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetRightMargin__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetRightMargin'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopMargin__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetTopMargin" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8355,16 +8802,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomMargin(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopMargin__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetTopMargin" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetTopMargin();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopMargin(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetTopMargin",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetTopMargin__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetTopMargin__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetTopMargin'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomMargin__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBottomMargin" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8386,16 +8879,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetPosition(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomMargin__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBottomMargin" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetBottomMargin();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomMargin(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetBottomMargin",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBottomMargin__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBottomMargin__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetBottomMargin'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetPosition__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimensions *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetPosition" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8417,16 +8956,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeft(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetPosition__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimensions *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetPosition" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimensions const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetPosition();
+      result = (wxTextAttrDimensions *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimensions, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetPosition(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetPosition",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetPosition__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetPosition__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetPosition'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeft__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetLeft" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8448,16 +9033,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRight(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeft__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetLeft" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetLeft();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeft(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetLeft",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetLeft__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetLeft__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetLeft'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRight__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetRight" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8479,16 +9110,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTop(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRight__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetRight" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetRight();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRight(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetRight",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetRight__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetRight__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetRight'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTop__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetTop" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8510,16 +9187,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottom(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTop__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetTop" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetTop();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTop(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetTop",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetTop__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetTop__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetTop'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottom__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBottom" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8541,16 +9264,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetPadding(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottom__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBottom" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetBottom();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottom(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetBottom",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBottom__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBottom__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetBottom'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetPadding__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimensions *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetPadding" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8572,16 +9341,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftPadding(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetPadding__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimensions *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetPadding" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimensions const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetPadding();
+      result = (wxTextAttrDimensions *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimensions, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetPadding(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetPadding",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetPadding__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetPadding__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetPadding'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftPadding__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetLeftPadding" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8603,16 +9418,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightPadding(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftPadding__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetLeftPadding" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetLeftPadding();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftPadding(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetLeftPadding",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetLeftPadding__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetLeftPadding__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetLeftPadding'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightPadding__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetRightPadding" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8634,16 +9495,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopPadding(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightPadding__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetRightPadding" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetRightPadding();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightPadding(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetRightPadding",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetRightPadding__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetRightPadding__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetRightPadding'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopPadding__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetTopPadding" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8665,16 +9572,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomPadding(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopPadding__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetTopPadding" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetTopPadding();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopPadding(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetTopPadding",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetTopPadding__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetTopPadding__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetTopPadding'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomPadding__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBottomPadding" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8696,16 +9649,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomPadding__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBottomPadding" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetBottomPadding();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomPadding(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetBottomPadding",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBottomPadding__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBottomPadding__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetBottomPadding'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBorder__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrBorders *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBorder" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8727,16 +9726,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftBorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBorder__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrBorders *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBorder" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorders const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetBorder();
+      result = (wxTextAttrBorders *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBorder(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetBorder",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBorder__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBorder__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetBorder'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftBorder__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetLeftBorder" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8758,16 +9803,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopBorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftBorder__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetLeftBorder" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetLeftBorder();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftBorder(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetLeftBorder",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetLeftBorder__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetLeftBorder__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetLeftBorder'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopBorder__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetTopBorder" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8789,16 +9880,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightBorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopBorder__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetTopBorder" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetTopBorder();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopBorder(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetTopBorder",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetTopBorder__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetTopBorder__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetTopBorder'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightBorder__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetRightBorder" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8820,16 +9957,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomBorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightBorder__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetRightBorder" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetRightBorder();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightBorder(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetRightBorder",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetRightBorder__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetRightBorder__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetRightBorder'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomBorder__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBottomBorder" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8851,16 +10034,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetOutline(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomBorder__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBottomBorder" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetBottomBorder();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomBorder(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetBottomBorder",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBottomBorder__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBottomBorder__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetBottomBorder'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetOutline__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrBorders *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetOutline" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8882,16 +10111,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftOutline(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetOutline__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrBorders *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetOutline" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorders const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetOutline();
+      result = (wxTextAttrBorders *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorders, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetOutline(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetOutline",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetOutline__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetOutline__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetOutline'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftOutline__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetLeftOutline" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8913,16 +10188,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopOutline(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftOutline__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetLeftOutline" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetLeftOutline();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetLeftOutline(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetLeftOutline",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetLeftOutline__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetLeftOutline__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetLeftOutline'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopOutline__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetTopOutline" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8944,16 +10265,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightOutline(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopOutline__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetTopOutline" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetTopOutline();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetTopOutline(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetTopOutline",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetTopOutline__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetTopOutline__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetTopOutline'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightOutline__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetRightOutline" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -8975,16 +10342,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomOutline(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightOutline__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrBorder *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetRightOutline" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetRightOutline();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetRightOutline(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetRightOutline",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetRightOutline__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetRightOutline__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetRightOutline'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomOutline__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBottomOutline" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -9006,16 +10419,180 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetWidth(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomOutline__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrBorder *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetBottomOutline" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrBorder const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetBottomOutline();
+      result = (wxTextAttrBorder *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrBorder, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetBottomOutline(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetBottomOutline",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBottomOutline__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetBottomOutline__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetBottomOutline'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetSize__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrSize *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetSize" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrSize &_result_ref = (arg1)->GetSize();
+      result = (wxTextAttrSize *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrSize, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetSize__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrSize *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetSize" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrSize const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetSize();
+      result = (wxTextAttrSize *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrSize, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetSize(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetSize",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetSize__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetSize__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetSize'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_SetSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrSize *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "sz", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:TextBoxAttr_SetSize",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_SetSize" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrSize,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TextBoxAttr_SetSize" "', expected argument " "2"" of type '" "wxTextAttrSize const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "TextBoxAttr_SetSize" "', expected argument " "2"" of type '" "wxTextAttrSize const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxTextAttrSize * >(argp2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetSize((wxTextAttrSize const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetWidth__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetWidth" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -9037,16 +10614,62 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_GetHeight(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetWidth__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
   wxTextAttrDimension *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  PyObject *swig_obj[1] ;
   
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetWidth" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetWidth();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetWidth(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetWidth",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetWidth__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetWidth__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetWidth'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetHeight__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetHeight" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
@@ -9064,6 +10687,54 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_GetHeight(PyObject *SWIGUNUSEDPARM(self),
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetHeight__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextAttrDimension *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_GetHeight" "', expected argument " "1"" of type '" "wxTextBoxAttr const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxTextAttrDimension const &_result_ref = ((wxTextBoxAttr const *)arg1)->GetHeight();
+      result = (wxTextAttrDimension *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_GetHeight(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"TextBoxAttr_GetHeight",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetHeight__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_TextBoxAttr_GetHeight__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'TextBoxAttr_GetHeight'");
   return NULL;
 }
 
@@ -9280,28 +10951,36 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_m_width_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_m_size_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  wxTextAttrDimension *arg2 = (wxTextAttrDimension *) 0 ;
+  wxTextAttrSize arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
+  void *argp2 ;
   int res2 = 0 ;
   PyObject *swig_obj[2] ;
   
-  if (!SWIG_Python_UnpackTuple(args,"TextBoxAttr_m_width_set",2,2,swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args,"TextBoxAttr_m_size_set",2,2,swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_width_set" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_size_set" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
   }
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TextBoxAttr_m_width_set" "', expected argument " "2"" of type '" "wxTextAttrDimension *""'"); 
+  {
+    res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_wxTextAttrSize,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TextBoxAttr_m_size_set" "', expected argument " "2"" of type '" "wxTextAttrSize""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "TextBoxAttr_m_size_set" "', expected argument " "2"" of type '" "wxTextAttrSize""'");
+    } else {
+      wxTextAttrSize * temp = reinterpret_cast< wxTextAttrSize * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
   }
-  arg2 = reinterpret_cast< wxTextAttrDimension * >(argp2);
-  if (arg1) (arg1)->m_width = *arg2;
+  if (arg1) (arg1)->m_size = arg2;
   
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -9310,10 +10989,10 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_TextBoxAttr_m_width_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_TextBoxAttr_m_size_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  wxTextAttrDimension *result = 0 ;
+  wxTextAttrSize result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9322,64 +11001,11 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_m_width_get(PyObject *SWIGUNUSEDPARM(self
   swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_width_get" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_size_get" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
   }
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  result = (wxTextAttrDimension *)& ((arg1)->m_width);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextBoxAttr_m_height_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  wxTextAttrDimension *arg2 = (wxTextAttrDimension *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"TextBoxAttr_m_height_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_height_set" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "TextBoxAttr_m_height_set" "', expected argument " "2"" of type '" "wxTextAttrDimension *""'"); 
-  }
-  arg2 = reinterpret_cast< wxTextAttrDimension * >(argp2);
-  if (arg1) (arg1)->m_height = *arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_TextBoxAttr_m_height_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  wxTextAttrDimension *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_height_get" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
-  }
-  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  result = (wxTextAttrDimension *)& ((arg1)->m_height);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxTextAttrDimension, 0 |  0 );
+  result =  ((arg1)->m_size);
+  resultobj = SWIG_NewPointerObj((new wxTextAttrSize(static_cast< const wxTextAttrSize& >(result))), SWIGTYPE_p_wxTextAttrSize, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -9495,10 +11121,10 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_m_floatMode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  short arg2 ;
+  wxTextBoxAttrFloatStyle arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  short val2 ;
+  int val2 ;
   int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   
@@ -9508,11 +11134,11 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_m_floatMode_set(PyObject *SWIGUNUSEDPARM(
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_floatMode_set" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
   }
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  ecode2 = SWIG_AsVal_short(swig_obj[1], &val2);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_m_floatMode_set" "', expected argument " "2"" of type '" "short""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_m_floatMode_set" "', expected argument " "2"" of type '" "wxTextBoxAttrFloatStyle""'");
   } 
-  arg2 = static_cast< short >(val2);
+  arg2 = static_cast< wxTextBoxAttrFloatStyle >(val2);
   if (arg1) (arg1)->m_floatMode = arg2;
   
   resultobj = SWIG_Py_Void();
@@ -9525,7 +11151,7 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_m_floatMode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  short result;
+  wxTextBoxAttrFloatStyle result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9537,8 +11163,8 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_m_floatMode_get(PyObject *SWIGUNUSEDPARM(
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_floatMode_get" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
   }
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  result = (short) ((arg1)->m_floatMode);
-  resultobj = SWIG_From_short(static_cast< short >(result));
+  result = (wxTextBoxAttrFloatStyle) ((arg1)->m_floatMode);
+  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -9548,10 +11174,10 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_m_clearMode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  short arg2 ;
+  wxTextBoxAttrClearStyle arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  short val2 ;
+  int val2 ;
   int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   
@@ -9561,11 +11187,11 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_m_clearMode_set(PyObject *SWIGUNUSEDPARM(
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_clearMode_set" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
   }
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  ecode2 = SWIG_AsVal_short(swig_obj[1], &val2);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_m_clearMode_set" "', expected argument " "2"" of type '" "short""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_m_clearMode_set" "', expected argument " "2"" of type '" "wxTextBoxAttrClearStyle""'");
   } 
-  arg2 = static_cast< short >(val2);
+  arg2 = static_cast< wxTextBoxAttrClearStyle >(val2);
   if (arg1) (arg1)->m_clearMode = arg2;
   
   resultobj = SWIG_Py_Void();
@@ -9578,7 +11204,7 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_m_clearMode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  short result;
+  wxTextBoxAttrClearStyle result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9590,8 +11216,8 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_m_clearMode_get(PyObject *SWIGUNUSEDPARM(
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_clearMode_get" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
   }
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  result = (short) ((arg1)->m_clearMode);
-  resultobj = SWIG_From_short(static_cast< short >(result));
+  result = (wxTextBoxAttrClearStyle) ((arg1)->m_clearMode);
+  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -9601,10 +11227,10 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_m_collapseMode_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  short arg2 ;
+  wxTextBoxAttrCollapseMode arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  short val2 ;
+  int val2 ;
   int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   
@@ -9614,11 +11240,11 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_m_collapseMode_set(PyObject *SWIGUNUSEDPA
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_collapseMode_set" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
   }
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  ecode2 = SWIG_AsVal_short(swig_obj[1], &val2);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_m_collapseMode_set" "', expected argument " "2"" of type '" "short""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_m_collapseMode_set" "', expected argument " "2"" of type '" "wxTextBoxAttrCollapseMode""'");
   } 
-  arg2 = static_cast< short >(val2);
+  arg2 = static_cast< wxTextBoxAttrCollapseMode >(val2);
   if (arg1) (arg1)->m_collapseMode = arg2;
   
   resultobj = SWIG_Py_Void();
@@ -9631,7 +11257,7 @@ fail:
 SWIGINTERN PyObject *_wrap_TextBoxAttr_m_collapseMode_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
-  short result;
+  wxTextBoxAttrCollapseMode result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9643,8 +11269,61 @@ SWIGINTERN PyObject *_wrap_TextBoxAttr_m_collapseMode_get(PyObject *SWIGUNUSEDPA
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_collapseMode_get" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
   }
   arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
-  result = (short) ((arg1)->m_collapseMode);
-  resultobj = SWIG_From_short(static_cast< short >(result));
+  result = (wxTextBoxAttrCollapseMode) ((arg1)->m_collapseMode);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_m_verticalAlignment_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextBoxAttrVerticalAlignment arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"TextBoxAttr_m_verticalAlignment_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_verticalAlignment_set" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "TextBoxAttr_m_verticalAlignment_set" "', expected argument " "2"" of type '" "wxTextBoxAttrVerticalAlignment""'");
+  } 
+  arg2 = static_cast< wxTextBoxAttrVerticalAlignment >(val2);
+  if (arg1) (arg1)->m_verticalAlignment = arg2;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_TextBoxAttr_m_verticalAlignment_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxTextBoxAttr *arg1 = (wxTextBoxAttr *) 0 ;
+  wxTextBoxAttrVerticalAlignment result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxTextBoxAttr, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "TextBoxAttr_m_verticalAlignment_get" "', expected argument " "1"" of type '" "wxTextBoxAttr *""'"); 
+  }
+  arg1 = reinterpret_cast< wxTextBoxAttr * >(argp1);
+  result = (wxTextBoxAttrVerticalAlignment) ((arg1)->m_verticalAlignment);
+  resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
   return NULL;
@@ -11117,7 +12796,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Draw(PyObject *SWIGUNUSEDPARM(self), P
   wxRichTextObject *arg1 = (wxRichTextObject *) 0 ;
   wxDC *arg2 = 0 ;
   wxRichTextRange *arg3 = 0 ;
-  wxRichTextRange *arg4 = 0 ;
+  wxRichTextSelection *arg4 = 0 ;
   wxRect *arg5 = 0 ;
   int arg6 ;
   int arg7 ;
@@ -11127,7 +12806,8 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Draw(PyObject *SWIGUNUSEDPARM(self), P
   void *argp2 = 0 ;
   int res2 = 0 ;
   wxRichTextRange temp3 ;
-  wxRichTextRange temp4 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
   wxRect temp5 ;
   int val6 ;
   int ecode6 = 0 ;
@@ -11141,7 +12821,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Draw(PyObject *SWIGUNUSEDPARM(self), P
   PyObject * obj5 = 0 ;
   PyObject * obj6 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "dc",(char *) "range",(char *) "selectionRange",(char *) "rect",(char *) "descent",(char *) "style", NULL 
+    (char *) "self",(char *) "dc",(char *) "range",(char *) "selection",(char *) "rect",(char *) "descent",(char *) "style", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOO:RichTextObject_Draw",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
@@ -11162,10 +12842,14 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Draw(PyObject *SWIGUNUSEDPARM(self), P
     arg3 = &temp3;
     if ( ! wxRichTextRange_helper(obj2, &arg3)) SWIG_fail;
   }
-  {
-    arg4 = &temp4;
-    if ( ! wxRichTextRange_helper(obj3, &arg4)) SWIG_fail;
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxRichTextSelection,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextObject_Draw" "', expected argument " "4"" of type '" "wxRichTextSelection const &""'"); 
   }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_Draw" "', expected argument " "4"" of type '" "wxRichTextSelection const &""'"); 
+  }
+  arg4 = reinterpret_cast< wxRichTextSelection * >(argp4);
   {
     arg5 = &temp5;
     if ( ! wxRect_helper(obj4, &arg5)) SWIG_fail;
@@ -11182,7 +12866,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_Draw(PyObject *SWIGUNUSEDPARM(self), P
   arg7 = static_cast< int >(val7);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->Draw(*arg2,(wxRichTextRange const &)*arg3,(wxRichTextRange const &)*arg4,(wxRect const &)*arg5,arg6,arg7);
+    result = (bool)(arg1)->Draw(*arg2,(wxRichTextRange const &)*arg3,(wxRichTextSelection const &)*arg4,(wxRect const &)*arg5,arg6,arg7);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -11261,6 +12945,9 @@ SWIGINTERN PyObject *_wrap_RichTextObject_HitTest(PyObject *SWIGUNUSEDPARM(self)
   wxDC *arg2 = 0 ;
   wxPoint *arg3 = 0 ;
   long *arg4 = 0 ;
+  wxRichTextObject **arg5 = (wxRichTextObject **) 0 ;
+  wxRichTextObject **arg6 = (wxRichTextObject **) 0 ;
+  int arg7 = (int) 0 ;
   int result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -11269,15 +12956,24 @@ SWIGINTERN PyObject *_wrap_RichTextObject_HitTest(PyObject *SWIGUNUSEDPARM(self)
   wxPoint temp3 ;
   long temp4 ;
   int res4 = SWIG_TMPOBJ ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  void *argp6 = 0 ;
+  int res6 = 0 ;
+  int val7 ;
+  int ecode7 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "dc",(char *) "pt", NULL 
+    (char *) "self",(char *) "dc",(char *) "pt",(char *) "obj",(char *) "contextObj",(char *) "flags", NULL 
   };
   
   arg4 = &temp4;
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:RichTextObject_HitTest",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOO|O:RichTextObject_HitTest",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextObject, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_HitTest" "', expected argument " "1"" of type '" "wxRichTextObject *""'"); 
@@ -11295,9 +12991,26 @@ SWIGINTERN PyObject *_wrap_RichTextObject_HitTest(PyObject *SWIGUNUSEDPARM(self)
     arg3 = &temp3;
     if ( ! wxPoint_helper(obj2, &arg3)) SWIG_fail;
   }
+  res5 = SWIG_ConvertPtr(obj3, &argp5,SWIGTYPE_p_p_wxRichTextObject, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "RichTextObject_HitTest" "', expected argument " "5"" of type '" "wxRichTextObject **""'"); 
+  }
+  arg5 = reinterpret_cast< wxRichTextObject ** >(argp5);
+  res6 = SWIG_ConvertPtr(obj4, &argp6,SWIGTYPE_p_p_wxRichTextObject, 0 |  0 );
+  if (!SWIG_IsOK(res6)) {
+    SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "RichTextObject_HitTest" "', expected argument " "6"" of type '" "wxRichTextObject **""'"); 
+  }
+  arg6 = reinterpret_cast< wxRichTextObject ** >(argp6);
+  if (obj5) {
+    ecode7 = SWIG_AsVal_int(obj5, &val7);
+    if (!SWIG_IsOK(ecode7)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "RichTextObject_HitTest" "', expected argument " "7"" of type '" "int""'");
+    } 
+    arg7 = static_cast< int >(val7);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (int)(arg1)->HitTest(*arg2,(wxPoint const &)*arg3,*arg4);
+    result = (int)(arg1)->HitTest(*arg2,(wxPoint const &)*arg3,*arg4,arg5,arg6,arg7);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12002,6 +13715,7 @@ SWIGINTERN PyObject *_wrap_RichTextObject_ImportFromXML(PyObject *SWIGUNUSEDPARM
   wxRichTextBuffer *arg2 = (wxRichTextBuffer *) 0 ;
   wxXmlNode *arg3 = (wxXmlNode *) 0 ;
   wxRichTextXMLHandler *arg4 = (wxRichTextXMLHandler *) 0 ;
+  bool *arg5 = (bool *) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -12011,15 +13725,18 @@ SWIGINTERN PyObject *_wrap_RichTextObject_ImportFromXML(PyObject *SWIGUNUSEDPARM
   int res3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "buffer",(char *) "node",(char *) "handler", NULL 
+    (char *) "self",(char *) "buffer",(char *) "node",(char *) "handler",(char *) "recurse", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:RichTextObject_ImportFromXML",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOO:RichTextObject_ImportFromXML",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextObject, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_ImportFromXML" "', expected argument " "1"" of type '" "wxRichTextObject *""'"); 
@@ -12040,9 +13757,14 @@ SWIGINTERN PyObject *_wrap_RichTextObject_ImportFromXML(PyObject *SWIGUNUSEDPARM
     SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextObject_ImportFromXML" "', expected argument " "4"" of type '" "wxRichTextXMLHandler *""'"); 
   }
   arg4 = reinterpret_cast< wxRichTextXMLHandler * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5,SWIGTYPE_p_bool, 0 |  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "RichTextObject_ImportFromXML" "', expected argument " "5"" of type '" "bool *""'"); 
+  }
+  arg5 = reinterpret_cast< bool * >(argp5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->ImportFromXML(arg2,arg3,arg4);
+    result = (bool)(arg1)->ImportFromXML(arg2,arg3,arg4,arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -12463,74 +14185,6 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetRange(PyObject *SWIGUNUSEDPARM(self
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxRichTextRange(static_cast< const wxRichTextRange& >(result))), SWIGTYPE_p_wxRichTextRange, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextObject_GetDirty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxRichTextObject *arg1 = (wxRichTextObject *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxRichTextObject, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_GetDirty" "', expected argument " "1"" of type '" "wxRichTextObject const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextObject * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxRichTextObject const *)arg1)->GetDirty();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextObject_SetDirty(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextObject *arg1 = (wxRichTextObject *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "dirty", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:RichTextObject_SetDirty",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextObject, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_SetDirty" "', expected argument " "1"" of type '" "wxRichTextObject *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextObject * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextObject_SetDirty" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetDirty(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -13376,22 +15030,30 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextObject_DrawBoxAttributes(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDC *arg1 = 0 ;
-  wxRichTextAttr *arg2 = 0 ;
-  wxRect *arg3 = 0 ;
+  wxRichTextBuffer *arg2 = (wxRichTextBuffer *) 0 ;
+  wxRichTextAttr *arg3 = 0 ;
+  wxRect *arg4 = 0 ;
+  int arg5 = (int) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  wxRect temp3 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  wxRect temp4 ;
+  int val5 ;
+  int ecode5 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
   char *  kwnames[] = {
-    (char *) "dc",(char *) "attr",(char *) "boxRect", NULL 
+    (char *) "dc",(char *) "buffer",(char *) "attr",(char *) "boxRect",(char *) "flags", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:RichTextObject_DrawBoxAttributes",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|O:RichTextObject_DrawBoxAttributes",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_wxDC,  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_DrawBoxAttributes" "', expected argument " "1"" of type '" "wxDC &""'"); 
@@ -13400,21 +15062,33 @@ SWIGINTERN PyObject *_wrap_RichTextObject_DrawBoxAttributes(PyObject *SWIGUNUSED
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_DrawBoxAttributes" "', expected argument " "1"" of type '" "wxDC &""'"); 
   }
   arg1 = reinterpret_cast< wxDC * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxRichTextAttr,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRichTextBuffer, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_DrawBoxAttributes" "', expected argument " "2"" of type '" "wxRichTextAttr const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_DrawBoxAttributes" "', expected argument " "2"" of type '" "wxRichTextBuffer *""'"); 
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_DrawBoxAttributes" "', expected argument " "2"" of type '" "wxRichTextAttr const &""'"); 
+  arg2 = reinterpret_cast< wxRichTextBuffer * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxRichTextAttr,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextObject_DrawBoxAttributes" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
   }
-  arg2 = reinterpret_cast< wxRichTextAttr * >(argp2);
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_DrawBoxAttributes" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
+  }
+  arg3 = reinterpret_cast< wxRichTextAttr * >(argp3);
   {
-    arg3 = &temp3;
-    if ( ! wxRect_helper(obj2, &arg3)) SWIG_fail;
+    arg4 = &temp4;
+    if ( ! wxRect_helper(obj3, &arg4)) SWIG_fail;
+  }
+  if (obj4) {
+    ecode5 = SWIG_AsVal_int(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "RichTextObject_DrawBoxAttributes" "', expected argument " "5"" of type '" "int""'");
+    } 
+    arg5 = static_cast< int >(val5);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxRichTextObject::DrawBoxAttributes(*arg1,(wxRichTextAttr const &)*arg2,(wxRect const &)*arg3);
+    result = (bool)wxRichTextObject::DrawBoxAttributes(*arg1,arg2,(wxRichTextAttr const &)*arg3,(wxRect const &)*arg4,arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13430,22 +15104,30 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextObject_DrawBorder(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDC *arg1 = 0 ;
-  wxTextAttrBorders *arg2 = 0 ;
-  wxRect *arg3 = 0 ;
+  wxRichTextBuffer *arg2 = (wxRichTextBuffer *) 0 ;
+  wxTextAttrBorders *arg3 = 0 ;
+  wxRect *arg4 = 0 ;
+  int arg5 = (int) 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  wxRect temp3 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  wxRect temp4 ;
+  int val5 ;
+  int ecode5 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
   char *  kwnames[] = {
-    (char *) "dc",(char *) "attr",(char *) "rect", NULL 
+    (char *) "dc",(char *) "buffer",(char *) "attr",(char *) "rect",(char *) "flags", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:RichTextObject_DrawBorder",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|O:RichTextObject_DrawBorder",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_wxDC,  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_DrawBorder" "', expected argument " "1"" of type '" "wxDC &""'"); 
@@ -13454,21 +15136,33 @@ SWIGINTERN PyObject *_wrap_RichTextObject_DrawBorder(PyObject *SWIGUNUSEDPARM(se
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_DrawBorder" "', expected argument " "1"" of type '" "wxDC &""'"); 
   }
   arg1 = reinterpret_cast< wxDC * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxTextAttrBorders,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRichTextBuffer, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_DrawBorder" "', expected argument " "2"" of type '" "wxTextAttrBorders const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_DrawBorder" "', expected argument " "2"" of type '" "wxRichTextBuffer *""'"); 
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_DrawBorder" "', expected argument " "2"" of type '" "wxTextAttrBorders const &""'"); 
+  arg2 = reinterpret_cast< wxRichTextBuffer * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxTextAttrBorders,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextObject_DrawBorder" "', expected argument " "3"" of type '" "wxTextAttrBorders const &""'"); 
   }
-  arg2 = reinterpret_cast< wxTextAttrBorders * >(argp2);
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_DrawBorder" "', expected argument " "3"" of type '" "wxTextAttrBorders const &""'"); 
+  }
+  arg3 = reinterpret_cast< wxTextAttrBorders * >(argp3);
   {
-    arg3 = &temp3;
-    if ( ! wxRect_helper(obj2, &arg3)) SWIG_fail;
+    arg4 = &temp4;
+    if ( ! wxRect_helper(obj3, &arg4)) SWIG_fail;
+  }
+  if (obj4) {
+    ecode5 = SWIG_AsVal_int(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "RichTextObject_DrawBorder" "', expected argument " "5"" of type '" "int""'");
+    } 
+    arg5 = static_cast< int >(val5);
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxRichTextObject::DrawBorder(*arg1,(wxTextAttrBorders const &)*arg2,(wxRect const &)*arg3);
+    result = (bool)wxRichTextObject::DrawBorder(*arg1,arg2,(wxTextAttrBorders const &)*arg3,(wxRect const &)*arg4,arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -13484,22 +15178,25 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextObject_GetBoxRects(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDC *arg1 = 0 ;
-  wxRichTextAttr *arg2 = 0 ;
-  wxRect *arg3 = 0 ;
+  wxRichTextBuffer *arg2 = (wxRichTextBuffer *) 0 ;
+  wxRichTextAttr *arg3 = 0 ;
   wxRect *arg4 = 0 ;
   wxRect *arg5 = 0 ;
   wxRect *arg6 = 0 ;
   wxRect *arg7 = 0 ;
+  wxRect *arg8 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  wxRect temp3 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
   wxRect temp4 ;
   wxRect temp5 ;
   wxRect temp6 ;
   wxRect temp7 ;
+  wxRect temp8 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -13507,11 +15204,12 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetBoxRects(PyObject *SWIGUNUSEDPARM(s
   PyObject * obj4 = 0 ;
   PyObject * obj5 = 0 ;
   PyObject * obj6 = 0 ;
+  PyObject * obj7 = 0 ;
   char *  kwnames[] = {
-    (char *) "dc",(char *) "attr",(char *) "marginRect",(char *) "borderRect",(char *) "contentRect",(char *) "paddingRect",(char *) "outlineRect", NULL 
+    (char *) "dc",(char *) "buffer",(char *) "attr",(char *) "marginRect",(char *) "borderRect",(char *) "contentRect",(char *) "paddingRect",(char *) "outlineRect", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOO:RichTextObject_GetBoxRects",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOOO:RichTextObject_GetBoxRects",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6,&obj7)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_wxDC,  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_GetBoxRects" "', expected argument " "1"" of type '" "wxDC &""'"); 
@@ -13520,18 +15218,19 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetBoxRects(PyObject *SWIGUNUSEDPARM(s
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_GetBoxRects" "', expected argument " "1"" of type '" "wxDC &""'"); 
   }
   arg1 = reinterpret_cast< wxDC * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxRichTextAttr,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRichTextBuffer, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_GetBoxRects" "', expected argument " "2"" of type '" "wxRichTextAttr const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_GetBoxRects" "', expected argument " "2"" of type '" "wxRichTextBuffer *""'"); 
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_GetBoxRects" "', expected argument " "2"" of type '" "wxRichTextAttr const &""'"); 
+  arg2 = reinterpret_cast< wxRichTextBuffer * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxRichTextAttr,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextObject_GetBoxRects" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
   }
-  arg2 = reinterpret_cast< wxRichTextAttr * >(argp2);
-  {
-    arg3 = &temp3;
-    if ( ! wxRect_helper(obj2, &arg3)) SWIG_fail;
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_GetBoxRects" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
   }
+  arg3 = reinterpret_cast< wxRichTextAttr * >(argp3);
   {
     arg4 = &temp4;
     if ( ! wxRect_helper(obj3, &arg4)) SWIG_fail;
@@ -13549,14 +15248,195 @@ SWIGINTERN PyObject *_wrap_RichTextObject_GetBoxRects(PyObject *SWIGUNUSEDPARM(s
     if ( ! wxRect_helper(obj6, &arg7)) SWIG_fail;
   }
   {
+    arg8 = &temp8;
+    if ( ! wxRect_helper(obj7, &arg8)) SWIG_fail;
+  }
+  {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)wxRichTextObject::GetBoxRects(*arg1,(wxRichTextAttr const &)*arg2,*arg3,*arg4,*arg5,*arg6,*arg7);
+    result = (bool)wxRichTextObject::GetBoxRects(*arg1,arg2,(wxRichTextAttr const &)*arg3,*arg4,*arg5,*arg6,*arg7,*arg8);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RichTextObject_GetTotalMargin(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = 0 ;
+  wxRichTextBuffer *arg2 = (wxRichTextBuffer *) 0 ;
+  wxRichTextAttr *arg3 = 0 ;
+  int *arg4 = 0 ;
+  int *arg5 = 0 ;
+  int *arg6 = 0 ;
+  int *arg7 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  void *argp6 = 0 ;
+  int res6 = 0 ;
+  void *argp7 = 0 ;
+  int res7 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  PyObject * obj5 = 0 ;
+  PyObject * obj6 = 0 ;
+  char *  kwnames[] = {
+    (char *) "dc",(char *) "buffer",(char *) "attr",(char *) "leftMargin",(char *) "rightMargin",(char *) "topMargin",(char *) "bottomMargin", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOO:RichTextObject_GetTotalMargin",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "1"" of type '" "wxDC &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "1"" of type '" "wxDC &""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRichTextBuffer, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "2"" of type '" "wxRichTextBuffer *""'"); 
+  }
+  arg2 = reinterpret_cast< wxRichTextBuffer * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxRichTextAttr,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
+  }
+  arg3 = reinterpret_cast< wxRichTextAttr * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "4"" of type '" "int &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "4"" of type '" "int &""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "5"" of type '" "int &""'"); 
+  }
+  if (!argp5) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "5"" of type '" "int &""'"); 
+  }
+  arg5 = reinterpret_cast< int * >(argp5);
+  res6 = SWIG_ConvertPtr(obj5, &argp6, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res6)) {
+    SWIG_exception_fail(SWIG_ArgError(res6), "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "6"" of type '" "int &""'"); 
+  }
+  if (!argp6) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "6"" of type '" "int &""'"); 
+  }
+  arg6 = reinterpret_cast< int * >(argp6);
+  res7 = SWIG_ConvertPtr(obj6, &argp7, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res7)) {
+    SWIG_exception_fail(SWIG_ArgError(res7), "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "7"" of type '" "int &""'"); 
+  }
+  if (!argp7) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_GetTotalMargin" "', expected argument " "7"" of type '" "int &""'"); 
+  }
+  arg7 = reinterpret_cast< int * >(argp7);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxRichTextObject::GetTotalMargin(*arg1,arg2,(wxRichTextAttr const &)*arg3,*arg4,*arg5,*arg6,*arg7);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_RichTextObject_AdjustAvailableSpace(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = 0 ;
+  wxRichTextBuffer *arg2 = (wxRichTextBuffer *) 0 ;
+  wxRichTextAttr *arg3 = 0 ;
+  wxRichTextAttr *arg4 = 0 ;
+  wxRect *arg5 = 0 ;
+  wxRect result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  wxRect temp5 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  char *  kwnames[] = {
+    (char *) "dc",(char *) "buffer",(char *) "parentAttr",(char *) "childAttr",(char *) "availableParentSpace", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOO:RichTextObject_AdjustAvailableSpace",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextObject_AdjustAvailableSpace" "', expected argument " "1"" of type '" "wxDC &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_AdjustAvailableSpace" "', expected argument " "1"" of type '" "wxDC &""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRichTextBuffer, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextObject_AdjustAvailableSpace" "', expected argument " "2"" of type '" "wxRichTextBuffer *""'"); 
+  }
+  arg2 = reinterpret_cast< wxRichTextBuffer * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxRichTextAttr,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextObject_AdjustAvailableSpace" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_AdjustAvailableSpace" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
+  }
+  arg3 = reinterpret_cast< wxRichTextAttr * >(argp3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxRichTextAttr,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextObject_AdjustAvailableSpace" "', expected argument " "4"" of type '" "wxRichTextAttr const &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextObject_AdjustAvailableSpace" "', expected argument " "4"" of type '" "wxRichTextAttr const &""'"); 
+  }
+  arg4 = reinterpret_cast< wxRichTextAttr * >(argp4);
+  {
+    arg5 = &temp5;
+    if ( ! wxRect_helper(obj4, &arg5)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxRichTextObject::AdjustAvailableSpace(*arg1,arg2,(wxRichTextAttr const &)*arg3,(wxRichTextAttr const &)*arg4,(wxRect const &)*arg5);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxRect(static_cast< const wxRect& >(result))), SWIGTYPE_p_wxRect, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -14611,7 +16491,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_DrawFloats(PyObject *SWIGU
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
   wxDC *arg2 = 0 ;
   wxRichTextRange *arg3 = 0 ;
-  wxRichTextRange *arg4 = 0 ;
+  wxRichTextSelection *arg4 = 0 ;
   wxRect *arg5 = 0 ;
   int arg6 ;
   int arg7 ;
@@ -14620,7 +16500,8 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_DrawFloats(PyObject *SWIGU
   void *argp2 = 0 ;
   int res2 = 0 ;
   wxRichTextRange temp3 ;
-  wxRichTextRange temp4 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
   wxRect temp5 ;
   int val6 ;
   int ecode6 = 0 ;
@@ -14634,7 +16515,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_DrawFloats(PyObject *SWIGU
   PyObject * obj5 = 0 ;
   PyObject * obj6 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "dc",(char *) "range",(char *) "selectionRange",(char *) "rect",(char *) "descent",(char *) "style", NULL 
+    (char *) "self",(char *) "dc",(char *) "range",(char *) "selection",(char *) "rect",(char *) "descent",(char *) "style", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOO:RichTextParagraphLayoutBox_DrawFloats",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
@@ -14655,10 +16536,14 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_DrawFloats(PyObject *SWIGU
     arg3 = &temp3;
     if ( ! wxRichTextRange_helper(obj2, &arg3)) SWIG_fail;
   }
-  {
-    arg4 = &temp4;
-    if ( ! wxRichTextRange_helper(obj3, &arg4)) SWIG_fail;
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxRichTextSelection,  0  | 0);
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextParagraphLayoutBox_DrawFloats" "', expected argument " "4"" of type '" "wxRichTextSelection const &""'"); 
   }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_DrawFloats" "', expected argument " "4"" of type '" "wxRichTextSelection const &""'"); 
+  }
+  arg4 = reinterpret_cast< wxRichTextSelection * >(argp4);
   {
     arg5 = &temp5;
     if ( ! wxRect_helper(obj4, &arg5)) SWIG_fail;
@@ -14675,7 +16560,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_DrawFloats(PyObject *SWIGU
   arg7 = static_cast< int >(val7);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->DrawFloats(*arg2,(wxRichTextRange const &)*arg3,(wxRichTextRange const &)*arg4,(wxRect const &)*arg5,arg6,arg7);
+    (arg1)->DrawFloats(*arg2,(wxRichTextRange const &)*arg3,(wxRichTextSelection const &)*arg4,(wxRect const &)*arg5,arg6,arg7);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -15701,67 +17586,6 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetStyle(PyObject *SWIGUNU
   {
     resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
   }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_SetImageStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
-  wxRichTextImage *arg2 = (wxRichTextImage *) 0 ;
-  wxRichTextAttr *arg3 = 0 ;
-  int arg4 = (int) wxRICHTEXT_SETSTYLE_WITH_UNDO ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
-  int val4 ;
-  int ecode4 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  PyObject * obj3 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "image",(char *) "textAttr",(char *) "flags", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|O:RichTextParagraphLayoutBox_SetImageStyle",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextParagraphLayoutBox, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextParagraphLayoutBox_SetImageStyle" "', expected argument " "1"" of type '" "wxRichTextParagraphLayoutBox *""'"); 
-  }
-  arg1 = reinterpret_cast< wxRichTextParagraphLayoutBox * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRichTextImage, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraphLayoutBox_SetImageStyle" "', expected argument " "2"" of type '" "wxRichTextImage *""'"); 
-  }
-  arg2 = reinterpret_cast< wxRichTextImage * >(argp2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxRichTextAttr,  0  | 0);
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraphLayoutBox_SetImageStyle" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
-  }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraphLayoutBox_SetImageStyle" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
-  }
-  arg3 = reinterpret_cast< wxRichTextAttr * >(argp3);
-  if (obj3) {
-    ecode4 = SWIG_AsVal_int(obj3, &val4);
-    if (!SWIG_IsOK(ecode4)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "RichTextParagraphLayoutBox_SetImageStyle" "', expected argument " "4"" of type '" "int""'");
-    } 
-    arg4 = static_cast< int >(val4);
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetImageStyle(arg2,(wxRichTextAttr const &)*arg3,arg4);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -17348,20 +19172,19 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_UpdateFloatingObjects(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextParagraphLayoutBox *arg1 = (wxRichTextParagraphLayoutBox *) 0 ;
-  int arg2 ;
+  wxRect *arg2 = 0 ;
   wxRichTextObject *arg3 = (wxRichTextObject *) NULL ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int val2 ;
-  int ecode2 = 0 ;
+  wxRect temp2 ;
   void *argp3 = 0 ;
   int res3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "width",(char *) "untilObj", NULL 
+    (char *) "self",(char *) "availableRect",(char *) "untilObj", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:RichTextParagraphLayoutBox_UpdateFloatingObjects",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -17370,11 +19193,10 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_UpdateFloatingObjects(PyOb
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextParagraphLayoutBox_UpdateFloatingObjects" "', expected argument " "1"" of type '" "wxRichTextParagraphLayoutBox *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextParagraphLayoutBox * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextParagraphLayoutBox_UpdateFloatingObjects" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
+  {
+    arg2 = &temp2;
+    if ( ! wxRect_helper(obj1, &arg2)) SWIG_fail;
+  }
   if (obj2) {
     res3 = SWIG_ConvertPtr(obj2, &argp3,SWIGTYPE_p_wxRichTextObject, 0 |  0 );
     if (!SWIG_IsOK(res3)) {
@@ -17384,7 +19206,7 @@ SWIGINTERN PyObject *_wrap_RichTextParagraphLayoutBox_UpdateFloatingObjects(PyOb
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)(arg1)->UpdateFloatingObjects(arg2,arg3);
+    result = (bool)(arg1)->UpdateFloatingObjects((wxRect const &)*arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -18471,53 +20293,62 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextParagraph_ApplyParagraphStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextParagraph *arg1 = (wxRichTextParagraph *) 0 ;
-  wxRichTextAttr *arg2 = 0 ;
-  wxRect *arg3 = 0 ;
-  wxDC *arg4 = 0 ;
+  wxRichTextLine *arg2 = (wxRichTextLine *) 0 ;
+  wxRichTextAttr *arg3 = 0 ;
+  wxRect *arg4 = 0 ;
+  wxDC *arg5 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
   int res2 = 0 ;
-  wxRect temp3 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  wxRect temp4 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "attr",(char *) "rect",(char *)"arg4", NULL 
+    (char *) "self",(char *) "line",(char *) "attr",(char *) "rect",(char *) "dc", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:RichTextParagraph_ApplyParagraphStyle",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOO:RichTextParagraph_ApplyParagraphStyle",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextParagraph, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "1"" of type '" "wxRichTextParagraph *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextParagraph * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxRichTextAttr,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRichTextLine, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "2"" of type '" "wxRichTextAttr const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "2"" of type '" "wxRichTextLine *""'"); 
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "2"" of type '" "wxRichTextAttr const &""'"); 
+  arg2 = reinterpret_cast< wxRichTextLine * >(argp2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_wxRichTextAttr,  0  | 0);
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
   }
-  arg2 = reinterpret_cast< wxRichTextAttr * >(argp2);
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "3"" of type '" "wxRichTextAttr const &""'"); 
+  }
+  arg3 = reinterpret_cast< wxRichTextAttr * >(argp3);
   {
-    arg3 = &temp3;
-    if ( ! wxRect_helper(obj2, &arg3)) SWIG_fail;
+    arg4 = &temp4;
+    if ( ! wxRect_helper(obj3, &arg4)) SWIG_fail;
   }
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_wxDC,  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "4"" of type '" "wxDC &""'"); 
+  res5 = SWIG_ConvertPtr(obj4, &argp5, SWIGTYPE_p_wxDC,  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "5"" of type '" "wxDC &""'"); 
   }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "4"" of type '" "wxDC &""'"); 
+  if (!argp5) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "RichTextParagraph_ApplyParagraphStyle" "', expected argument " "5"" of type '" "wxDC &""'"); 
   }
-  arg4 = reinterpret_cast< wxDC * >(argp4);
+  arg5 = reinterpret_cast< wxDC * >(argp5);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->ApplyParagraphStyle((wxRichTextAttr const &)*arg2,(wxRect const &)*arg3,*arg4);
+    (arg1)->ApplyParagraphStyle(arg2,(wxRichTextAttr const &)*arg3,(wxRect const &)*arg4,*arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -23522,44 +25353,46 @@ fail:
 SWIGINTERN PyObject *_wrap_RichTextBuffer_GetStyleForNewParagraph(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxRichTextBuffer *arg1 = (wxRichTextBuffer *) 0 ;
-  long arg2 ;
-  bool arg3 = (bool) false ;
+  wxRichTextBuffer *arg2 = (wxRichTextBuffer *) 0 ;
+  long arg3 ;
   bool arg4 = (bool) false ;
+  bool arg5 = (bool) false ;
   wxRichTextAttr result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  long val2 ;
-  int ecode2 = 0 ;
-  bool val3 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  long val3 ;
   int ecode3 = 0 ;
   bool val4 ;
   int ecode4 = 0 ;
+  bool val5 ;
+  int ecode5 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "pos",(char *) "caretPosition",(char *) "lookUpNewParaStyle", NULL 
+    (char *) "self",(char *) "buffer",(char *) "pos",(char *) "caretPosition",(char *) "lookUpNewParaStyle", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OO:RichTextBuffer_GetStyleForNewParagraph",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|OO:RichTextBuffer_GetStyleForNewParagraph",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxRichTextBuffer, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "RichTextBuffer_GetStyleForNewParagraph" "', expected argument " "1"" of type '" "wxRichTextBuffer const *""'"); 
   }
   arg1 = reinterpret_cast< wxRichTextBuffer * >(argp1);
-  ecode2 = SWIG_AsVal_long(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "RichTextBuffer_GetStyleForNewParagraph" "', expected argument " "2"" of type '" "long""'");
-  } 
-  arg2 = static_cast< long >(val2);
-  if (obj2) {
-    ecode3 = SWIG_AsVal_bool(obj2, &val3);
-    if (!SWIG_IsOK(ecode3)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "RichTextBuffer_GetStyleForNewParagraph" "', expected argument " "3"" of type '" "bool""'");
-    } 
-    arg3 = static_cast< bool >(val3);
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxRichTextBuffer, 0 |  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "RichTextBuffer_GetStyleForNewParagraph" "', expected argument " "2"" of type '" "wxRichTextBuffer *""'"); 
   }
+  arg2 = reinterpret_cast< wxRichTextBuffer * >(argp2);
+  ecode3 = SWIG_AsVal_long(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "RichTextBuffer_GetStyleForNewParagraph" "', expected argument " "3"" of type '" "long""'");
+  } 
+  arg3 = static_cast< long >(val3);
   if (obj3) {
     ecode4 = SWIG_AsVal_bool(obj3, &val4);
     if (!SWIG_IsOK(ecode4)) {
@@ -23567,9 +25400,16 @@ SWIGINTERN PyObject *_wrap_RichTextBuffer_GetStyleForNewParagraph(PyObject *SWIG
     } 
     arg4 = static_cast< bool >(val4);
   }
+  if (obj4) {
+    ecode5 = SWIG_AsVal_bool(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "RichTextBuffer_GetStyleForNewParagraph" "', expected argument " "5"" of type '" "bool""'");
+    } 
+    arg5 = static_cast< bool >(val5);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = ((wxRichTextBuffer const *)arg1)->GetStyleForNewParagraph(arg2,arg3,arg4);
+    result = ((wxRichTextBuffer const *)arg1)->GetStyleForNewParagraph(arg2,arg3,arg4,arg5);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -33889,8 +35729,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextAttrDimension_SetUnits", (PyCFunction) _wrap_TextAttrDimension_SetUnits, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrDimension_GetPosition", (PyCFunction)_wrap_TextAttrDimension_GetPosition, METH_O, NULL},
 	 { (char *)"TextAttrDimension_SetPosition", (PyCFunction) _wrap_TextAttrDimension_SetPosition, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrDimension_IsPresent", (PyCFunction)_wrap_TextAttrDimension_IsPresent, METH_O, NULL},
-	 { (char *)"TextAttrDimension_SetPresent", (PyCFunction) _wrap_TextAttrDimension_SetPresent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrDimension_GetFlags", (PyCFunction)_wrap_TextAttrDimension_GetFlags, METH_O, NULL},
 	 { (char *)"TextAttrDimension_SetFlags", (PyCFunction) _wrap_TextAttrDimension_SetFlags, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrDimension_m_value_set", _wrap_TextAttrDimension_m_value_set, METH_VARARGS, NULL},
@@ -33936,7 +35774,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextAttrDimensionConverter_swigregister", TextAttrDimensionConverter_swigregister, METH_VARARGS, NULL},
 	 { (char *)"TextAttrDimensionConverter_swiginit", TextAttrDimensionConverter_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_TextAttrBorder", (PyCFunction)_wrap_new_TextAttrBorder, METH_NOARGS, NULL},
-	 { (char *)"delete_TextAttrBorder", (PyCFunction)_wrap_delete_TextAttrBorder, METH_O, NULL},
 	 { (char *)"TextAttrBorder___eq__", (PyCFunction) _wrap_TextAttrBorder___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrBorder_Reset", (PyCFunction)_wrap_TextAttrBorder_Reset, METH_O, NULL},
 	 { (char *)"TextAttrBorder_EqPartial", (PyCFunction) _wrap_TextAttrBorder_EqPartial, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -33948,12 +35785,13 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextAttrBorder_SetColour", _wrap_TextAttrBorder_SetColour, METH_VARARGS, NULL},
 	 { (char *)"TextAttrBorder_GetColourLong", (PyCFunction)_wrap_TextAttrBorder_GetColourLong, METH_O, NULL},
 	 { (char *)"TextAttrBorder_GetColour", (PyCFunction)_wrap_TextAttrBorder_GetColour, METH_O, NULL},
-	 { (char *)"TextAttrBorder_GetWidth", (PyCFunction)_wrap_TextAttrBorder_GetWidth, METH_O, NULL},
-	 { (char *)"TextAttrBorder_SetWidth", (PyCFunction) _wrap_TextAttrBorder_SetWidth, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextAttrBorder_GetWidth", _wrap_TextAttrBorder_GetWidth, METH_VARARGS, NULL},
+	 { (char *)"TextAttrBorder_SetWidth", _wrap_TextAttrBorder_SetWidth, METH_VARARGS, NULL},
 	 { (char *)"TextAttrBorder_HasStyle", (PyCFunction)_wrap_TextAttrBorder_HasStyle, METH_O, NULL},
 	 { (char *)"TextAttrBorder_HasColour", (PyCFunction)_wrap_TextAttrBorder_HasColour, METH_O, NULL},
 	 { (char *)"TextAttrBorder_HasWidth", (PyCFunction)_wrap_TextAttrBorder_HasWidth, METH_O, NULL},
 	 { (char *)"TextAttrBorder_IsValid", (PyCFunction)_wrap_TextAttrBorder_IsValid, METH_O, NULL},
+	 { (char *)"TextAttrBorder_MakeValid", (PyCFunction)_wrap_TextAttrBorder_MakeValid, METH_O, NULL},
 	 { (char *)"TextAttrBorder_GetFlags", (PyCFunction)_wrap_TextAttrBorder_GetFlags, METH_O, NULL},
 	 { (char *)"TextAttrBorder_SetFlags", (PyCFunction) _wrap_TextAttrBorder_SetFlags, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrBorder_AddFlag", (PyCFunction) _wrap_TextAttrBorder_AddFlag, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -33969,21 +35807,20 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextAttrBorder_swigregister", TextAttrBorder_swigregister, METH_VARARGS, NULL},
 	 { (char *)"TextAttrBorder_swiginit", TextAttrBorder_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_TextAttrBorders", (PyCFunction)_wrap_new_TextAttrBorders, METH_NOARGS, NULL},
-	 { (char *)"delete_TextAttrBorders", (PyCFunction)_wrap_delete_TextAttrBorders, METH_O, NULL},
 	 { (char *)"TextAttrBorders___eq__", (PyCFunction) _wrap_TextAttrBorders___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrBorders_SetStyle", (PyCFunction) _wrap_TextAttrBorders_SetStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrBorders_SetColour", _wrap_TextAttrBorders_SetColour, METH_VARARGS, NULL},
-	 { (char *)"TextAttrBorders_SetWidth", (PyCFunction) _wrap_TextAttrBorders_SetWidth, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextAttrBorders_SetWidth", _wrap_TextAttrBorders_SetWidth, METH_VARARGS, NULL},
 	 { (char *)"TextAttrBorders_Reset", (PyCFunction)_wrap_TextAttrBorders_Reset, METH_O, NULL},
 	 { (char *)"TextAttrBorders_EqPartial", (PyCFunction) _wrap_TextAttrBorders_EqPartial, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrBorders_Apply", (PyCFunction) _wrap_TextAttrBorders_Apply, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrBorders_RemoveStyle", (PyCFunction) _wrap_TextAttrBorders_RemoveStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextAttrBorders_CollectCommonAttributes", (PyCFunction) _wrap_TextAttrBorders_CollectCommonAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"TextAttrBorders_HasBorder", (PyCFunction)_wrap_TextAttrBorders_HasBorder, METH_O, NULL},
-	 { (char *)"TextAttrBorders_GetLeft", (PyCFunction)_wrap_TextAttrBorders_GetLeft, METH_O, NULL},
-	 { (char *)"TextAttrBorders_GetRight", (PyCFunction)_wrap_TextAttrBorders_GetRight, METH_O, NULL},
-	 { (char *)"TextAttrBorders_GetTop", (PyCFunction)_wrap_TextAttrBorders_GetTop, METH_O, NULL},
-	 { (char *)"TextAttrBorders_GetBottom", (PyCFunction)_wrap_TextAttrBorders_GetBottom, METH_O, NULL},
+	 { (char *)"TextAttrBorders_IsValid", (PyCFunction)_wrap_TextAttrBorders_IsValid, METH_O, NULL},
+	 { (char *)"TextAttrBorders_GetLeft", _wrap_TextAttrBorders_GetLeft, METH_VARARGS, NULL},
+	 { (char *)"TextAttrBorders_GetRight", _wrap_TextAttrBorders_GetRight, METH_VARARGS, NULL},
+	 { (char *)"TextAttrBorders_GetTop", _wrap_TextAttrBorders_GetTop, METH_VARARGS, NULL},
+	 { (char *)"TextAttrBorders_GetBottom", _wrap_TextAttrBorders_GetBottom, METH_VARARGS, NULL},
 	 { (char *)"TextAttrBorders_m_left_set", _wrap_TextAttrBorders_m_left_set, METH_VARARGS, NULL},
 	 { (char *)"TextAttrBorders_m_left_get", (PyCFunction)_wrap_TextAttrBorders_m_left_get, METH_O, NULL},
 	 { (char *)"TextAttrBorders_m_right_set", _wrap_TextAttrBorders_m_right_set, METH_VARARGS, NULL},
@@ -33995,7 +35832,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextAttrBorders_swigregister", TextAttrBorders_swigregister, METH_VARARGS, NULL},
 	 { (char *)"TextAttrBorders_swiginit", TextAttrBorders_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_TextBoxAttr", _wrap_new_TextBoxAttr, METH_VARARGS, NULL},
-	 { (char *)"delete_TextBoxAttr", (PyCFunction)_wrap_delete_TextBoxAttr, METH_O, NULL},
 	 { (char *)"TextBoxAttr_Init", (PyCFunction)_wrap_TextBoxAttr_Init, METH_O, NULL},
 	 { (char *)"TextBoxAttr_Reset", (PyCFunction)_wrap_TextBoxAttr_Reset, METH_O, NULL},
 	 { (char *)"TextBoxAttr___eq__", (PyCFunction) _wrap_TextBoxAttr___eq__, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -34018,33 +35854,38 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextBoxAttr_GetCollapseBorders", (PyCFunction)_wrap_TextBoxAttr_GetCollapseBorders, METH_O, NULL},
 	 { (char *)"TextBoxAttr_SetCollapseBorders", (PyCFunction) _wrap_TextBoxAttr_SetCollapseBorders, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"TextBoxAttr_HasCollapseBorders", (PyCFunction)_wrap_TextBoxAttr_HasCollapseBorders, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetMargins", (PyCFunction)_wrap_TextBoxAttr_GetMargins, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetLeftMargin", (PyCFunction)_wrap_TextBoxAttr_GetLeftMargin, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetRightMargin", (PyCFunction)_wrap_TextBoxAttr_GetRightMargin, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetTopMargin", (PyCFunction)_wrap_TextBoxAttr_GetTopMargin, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetBottomMargin", (PyCFunction)_wrap_TextBoxAttr_GetBottomMargin, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetPosition", (PyCFunction)_wrap_TextBoxAttr_GetPosition, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetLeft", (PyCFunction)_wrap_TextBoxAttr_GetLeft, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetRight", (PyCFunction)_wrap_TextBoxAttr_GetRight, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetTop", (PyCFunction)_wrap_TextBoxAttr_GetTop, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetBottom", (PyCFunction)_wrap_TextBoxAttr_GetBottom, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetPadding", (PyCFunction)_wrap_TextBoxAttr_GetPadding, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetLeftPadding", (PyCFunction)_wrap_TextBoxAttr_GetLeftPadding, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetRightPadding", (PyCFunction)_wrap_TextBoxAttr_GetRightPadding, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetTopPadding", (PyCFunction)_wrap_TextBoxAttr_GetTopPadding, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetBottomPadding", (PyCFunction)_wrap_TextBoxAttr_GetBottomPadding, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetBorder", (PyCFunction)_wrap_TextBoxAttr_GetBorder, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetLeftBorder", (PyCFunction)_wrap_TextBoxAttr_GetLeftBorder, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetTopBorder", (PyCFunction)_wrap_TextBoxAttr_GetTopBorder, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetRightBorder", (PyCFunction)_wrap_TextBoxAttr_GetRightBorder, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetBottomBorder", (PyCFunction)_wrap_TextBoxAttr_GetBottomBorder, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetOutline", (PyCFunction)_wrap_TextBoxAttr_GetOutline, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetLeftOutline", (PyCFunction)_wrap_TextBoxAttr_GetLeftOutline, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetTopOutline", (PyCFunction)_wrap_TextBoxAttr_GetTopOutline, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetRightOutline", (PyCFunction)_wrap_TextBoxAttr_GetRightOutline, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetBottomOutline", (PyCFunction)_wrap_TextBoxAttr_GetBottomOutline, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetWidth", (PyCFunction)_wrap_TextBoxAttr_GetWidth, METH_O, NULL},
-	 { (char *)"TextBoxAttr_GetHeight", (PyCFunction)_wrap_TextBoxAttr_GetHeight, METH_O, NULL},
+	 { (char *)"TextBoxAttr_GetVerticalAlignment", (PyCFunction)_wrap_TextBoxAttr_GetVerticalAlignment, METH_O, NULL},
+	 { (char *)"TextBoxAttr_SetVerticalAlignment", (PyCFunction) _wrap_TextBoxAttr_SetVerticalAlignment, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextBoxAttr_HasVerticalAlignment", (PyCFunction)_wrap_TextBoxAttr_HasVerticalAlignment, METH_O, NULL},
+	 { (char *)"TextBoxAttr_GetMargins", _wrap_TextBoxAttr_GetMargins, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetLeftMargin", _wrap_TextBoxAttr_GetLeftMargin, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetRightMargin", _wrap_TextBoxAttr_GetRightMargin, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetTopMargin", _wrap_TextBoxAttr_GetTopMargin, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetBottomMargin", _wrap_TextBoxAttr_GetBottomMargin, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetPosition", _wrap_TextBoxAttr_GetPosition, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetLeft", _wrap_TextBoxAttr_GetLeft, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetRight", _wrap_TextBoxAttr_GetRight, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetTop", _wrap_TextBoxAttr_GetTop, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetBottom", _wrap_TextBoxAttr_GetBottom, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetPadding", _wrap_TextBoxAttr_GetPadding, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetLeftPadding", _wrap_TextBoxAttr_GetLeftPadding, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetRightPadding", _wrap_TextBoxAttr_GetRightPadding, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetTopPadding", _wrap_TextBoxAttr_GetTopPadding, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetBottomPadding", _wrap_TextBoxAttr_GetBottomPadding, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetBorder", _wrap_TextBoxAttr_GetBorder, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetLeftBorder", _wrap_TextBoxAttr_GetLeftBorder, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetTopBorder", _wrap_TextBoxAttr_GetTopBorder, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetRightBorder", _wrap_TextBoxAttr_GetRightBorder, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetBottomBorder", _wrap_TextBoxAttr_GetBottomBorder, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetOutline", _wrap_TextBoxAttr_GetOutline, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetLeftOutline", _wrap_TextBoxAttr_GetLeftOutline, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetTopOutline", _wrap_TextBoxAttr_GetTopOutline, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetRightOutline", _wrap_TextBoxAttr_GetRightOutline, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetBottomOutline", _wrap_TextBoxAttr_GetBottomOutline, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetSize", _wrap_TextBoxAttr_GetSize, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_SetSize", (PyCFunction) _wrap_TextBoxAttr_SetSize, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"TextBoxAttr_GetWidth", _wrap_TextBoxAttr_GetWidth, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_GetHeight", _wrap_TextBoxAttr_GetHeight, METH_VARARGS, NULL},
 	 { (char *)"TextBoxAttr_m_flags_set", _wrap_TextBoxAttr_m_flags_set, METH_VARARGS, NULL},
 	 { (char *)"TextBoxAttr_m_flags_get", (PyCFunction)_wrap_TextBoxAttr_m_flags_get, METH_O, NULL},
 	 { (char *)"TextBoxAttr_m_margins_set", _wrap_TextBoxAttr_m_margins_set, METH_VARARGS, NULL},
@@ -34053,10 +35894,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextBoxAttr_m_padding_get", (PyCFunction)_wrap_TextBoxAttr_m_padding_get, METH_O, NULL},
 	 { (char *)"TextBoxAttr_m_position_set", _wrap_TextBoxAttr_m_position_set, METH_VARARGS, NULL},
 	 { (char *)"TextBoxAttr_m_position_get", (PyCFunction)_wrap_TextBoxAttr_m_position_get, METH_O, NULL},
-	 { (char *)"TextBoxAttr_m_width_set", _wrap_TextBoxAttr_m_width_set, METH_VARARGS, NULL},
-	 { (char *)"TextBoxAttr_m_width_get", (PyCFunction)_wrap_TextBoxAttr_m_width_get, METH_O, NULL},
-	 { (char *)"TextBoxAttr_m_height_set", _wrap_TextBoxAttr_m_height_set, METH_VARARGS, NULL},
-	 { (char *)"TextBoxAttr_m_height_get", (PyCFunction)_wrap_TextBoxAttr_m_height_get, METH_O, NULL},
+	 { (char *)"TextBoxAttr_m_size_set", _wrap_TextBoxAttr_m_size_set, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_m_size_get", (PyCFunction)_wrap_TextBoxAttr_m_size_get, METH_O, NULL},
 	 { (char *)"TextBoxAttr_m_border_set", _wrap_TextBoxAttr_m_border_set, METH_VARARGS, NULL},
 	 { (char *)"TextBoxAttr_m_border_get", (PyCFunction)_wrap_TextBoxAttr_m_border_get, METH_O, NULL},
 	 { (char *)"TextBoxAttr_m_outline_set", _wrap_TextBoxAttr_m_outline_set, METH_VARARGS, NULL},
@@ -34067,6 +35906,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"TextBoxAttr_m_clearMode_get", (PyCFunction)_wrap_TextBoxAttr_m_clearMode_get, METH_O, NULL},
 	 { (char *)"TextBoxAttr_m_collapseMode_set", _wrap_TextBoxAttr_m_collapseMode_set, METH_VARARGS, NULL},
 	 { (char *)"TextBoxAttr_m_collapseMode_get", (PyCFunction)_wrap_TextBoxAttr_m_collapseMode_get, METH_O, NULL},
+	 { (char *)"TextBoxAttr_m_verticalAlignment_set", _wrap_TextBoxAttr_m_verticalAlignment_set, METH_VARARGS, NULL},
+	 { (char *)"TextBoxAttr_m_verticalAlignment_get", (PyCFunction)_wrap_TextBoxAttr_m_verticalAlignment_get, METH_O, NULL},
 	 { (char *)"TextBoxAttr_swigregister", TextBoxAttr_swigregister, METH_VARARGS, NULL},
 	 { (char *)"TextBoxAttr_swiginit", TextBoxAttr_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_RichTextAttr", _wrap_new_RichTextAttr, METH_VARARGS, NULL},
@@ -34142,8 +35983,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RichTextObject_GetRect", (PyCFunction)_wrap_RichTextObject_GetRect, METH_O, NULL},
 	 { (char *)"RichTextObject_SetRange", (PyCFunction) _wrap_RichTextObject_SetRange, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextObject_GetRange", (PyCFunction)_wrap_RichTextObject_GetRange, METH_O, NULL},
-	 { (char *)"RichTextObject_GetDirty", (PyCFunction)_wrap_RichTextObject_GetDirty, METH_O, NULL},
-	 { (char *)"RichTextObject_SetDirty", (PyCFunction) _wrap_RichTextObject_SetDirty, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextObject_IsComposite", (PyCFunction)_wrap_RichTextObject_IsComposite, METH_O, NULL},
 	 { (char *)"RichTextObject_GetParent", (PyCFunction)_wrap_RichTextObject_GetParent, METH_O, NULL},
 	 { (char *)"RichTextObject_SetParent", (PyCFunction) _wrap_RichTextObject_SetParent, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -34168,6 +36007,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RichTextObject_DrawBoxAttributes", (PyCFunction) _wrap_RichTextObject_DrawBoxAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextObject_DrawBorder", (PyCFunction) _wrap_RichTextObject_DrawBorder, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextObject_GetBoxRects", (PyCFunction) _wrap_RichTextObject_GetBoxRects, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"RichTextObject_GetTotalMargin", (PyCFunction) _wrap_RichTextObject_GetTotalMargin, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"RichTextObject_AdjustAvailableSpace", (PyCFunction) _wrap_RichTextObject_AdjustAvailableSpace, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextObject_swigregister", RichTextObject_swigregister, METH_VARARGS, NULL},
 	 { (char *)"delete_RichTextObjectList_iterator", (PyCFunction)_wrap_delete_RichTextObjectList_iterator, METH_O, NULL},
 	 { (char *)"RichTextObjectList_iterator_next", (PyCFunction)_wrap_RichTextObjectList_iterator_next, METH_O, NULL},
@@ -34222,7 +36063,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RichTextParagraphLayoutBox_XYToPosition", (PyCFunction) _wrap_RichTextParagraphLayoutBox_XYToPosition, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextParagraphLayoutBox_PositionToXY", (PyCFunction) _wrap_RichTextParagraphLayoutBox_PositionToXY, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextParagraphLayoutBox_SetStyle", (PyCFunction) _wrap_RichTextParagraphLayoutBox_SetStyle, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"RichTextParagraphLayoutBox_SetImageStyle", (PyCFunction) _wrap_RichTextParagraphLayoutBox_SetImageStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextParagraphLayoutBox_GetStyle", (PyCFunction) _wrap_RichTextParagraphLayoutBox_GetStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextParagraphLayoutBox_GetUncombinedStyle", (PyCFunction) _wrap_RichTextParagraphLayoutBox_GetUncombinedStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextParagraphLayoutBox_DoGetStyle", (PyCFunction) _wrap_RichTextParagraphLayoutBox_DoGetStyle, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -35473,6 +37313,27 @@ static void *_p_wxRichTextPlainTextTo_p_wxRichTextObject(void *x) {
 static void *_p_wxRichTextCompositeObjectTo_p_wxRichTextObject(void *x) {
     return (void *)((wxRichTextObject *)  ((wxRichTextCompositeObject *) x));
 }
+static void *_p_p_wxRichTextParagraphLayoutBoxTo_p_p_wxRichTextObject(void *x) {
+    return (void *)((wxRichTextObject **) (wxRichTextCompositeObject *) ((wxRichTextParagraphLayoutBox **) x));
+}
+static void *_p_p_wxRichTextBoxTo_p_p_wxRichTextObject(void *x) {
+    return (void *)((wxRichTextObject **) (wxRichTextCompositeObject *) ((wxRichTextBox **) x));
+}
+static void *_p_p_wxRichTextParagraphTo_p_p_wxRichTextObject(void *x) {
+    return (void *)((wxRichTextObject **) (wxRichTextCompositeObject *)(wxRichTextBox *) ((wxRichTextParagraph **) x));
+}
+static void *_p_p_wxRichTextImageTo_p_p_wxRichTextObject(void *x) {
+    return (void *)((wxRichTextObject **)  ((wxRichTextImage **) x));
+}
+static void *_p_p_wxRichTextBufferTo_p_p_wxRichTextObject(void *x) {
+    return (void *)((wxRichTextObject **) (wxRichTextCompositeObject *)(wxRichTextParagraphLayoutBox *) ((wxRichTextBuffer **) x));
+}
+static void *_p_p_wxRichTextPlainTextTo_p_p_wxRichTextObject(void *x) {
+    return (void *)((wxRichTextObject **)  ((wxRichTextPlainText **) x));
+}
+static void *_p_p_wxRichTextCompositeObjectTo_p_p_wxRichTextObject(void *x) {
+    return (void *)((wxRichTextObject **)  ((wxRichTextCompositeObject **) x));
+}
 static void *_p_wxUpdateUIEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *)(wxCommandEvent *) ((wxUpdateUIEvent *) x));
 }
@@ -36187,27 +38048,6 @@ static void *_p_wxMDIParentFrameTo_p_wxObject(void *x) {
 static void *_p_wxMenuBarTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *) ((wxMenuBar *) x));
 }
-static void *_p_p_wxRichTextParagraphLayoutBoxTo_p_p_wxRichTextObject(void *x) {
-    return (void *)((wxRichTextObject **) (wxRichTextCompositeObject *) ((wxRichTextParagraphLayoutBox **) x));
-}
-static void *_p_p_wxRichTextBoxTo_p_p_wxRichTextObject(void *x) {
-    return (void *)((wxRichTextObject **) (wxRichTextCompositeObject *) ((wxRichTextBox **) x));
-}
-static void *_p_p_wxRichTextParagraphTo_p_p_wxRichTextObject(void *x) {
-    return (void *)((wxRichTextObject **) (wxRichTextCompositeObject *)(wxRichTextBox *) ((wxRichTextParagraph **) x));
-}
-static void *_p_p_wxRichTextImageTo_p_p_wxRichTextObject(void *x) {
-    return (void *)((wxRichTextObject **)  ((wxRichTextImage **) x));
-}
-static void *_p_p_wxRichTextBufferTo_p_p_wxRichTextObject(void *x) {
-    return (void *)((wxRichTextObject **) (wxRichTextCompositeObject *)(wxRichTextParagraphLayoutBox *) ((wxRichTextBuffer **) x));
-}
-static void *_p_p_wxRichTextPlainTextTo_p_p_wxRichTextObject(void *x) {
-    return (void *)((wxRichTextObject **)  ((wxRichTextPlainText **) x));
-}
-static void *_p_p_wxRichTextCompositeObjectTo_p_p_wxRichTextObject(void *x) {
-    return (void *)((wxRichTextObject **)  ((wxRichTextCompositeObject **) x));
-}
 static void *_p_wxToolbookTo_p_wxWindow(void *x) {
     return (void *)((wxWindow *) (wxControl *)(wxBookCtrlBase *) ((wxToolbook *) x));
 }
@@ -36619,6 +38459,7 @@ static void *_p_wxSearchCtrlTo_p_wxTextAreaBase(void *x) {
 static void *_p_wxPyValidatorTo_p_wxValidator(void *x) {
     return (void *)((wxValidator *)  ((wxPyValidator *) x));
 }
+static swig_type_info _swigt__p_bool = {"_p_bool", "bool *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_double = {"_p_double", "double *|wxDouble *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
@@ -36899,6 +38740,7 @@ static swig_type_info _swigt__p_wxRichTextPlainText = {"_p_wxRichTextPlainText",
 static swig_type_info _swigt__p_wxRichTextPlainTextHandler = {"_p_wxRichTextPlainTextHandler", "wxRichTextPlainTextHandler *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextRange = {"_p_wxRichTextRange", "wxRichTextRange *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextRenderer = {"_p_wxRichTextRenderer", "wxRichTextRenderer *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxRichTextSelection = {"_p_wxRichTextSelection", "wxRichTextSelection *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextStdRenderer = {"_p_wxRichTextStdRenderer", "wxRichTextStdRenderer *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextStyleDefinition = {"_p_wxRichTextStyleDefinition", "wxRichTextStyleDefinition *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxRichTextStyleSheet = {"_p_wxRichTextStyleSheet", "wxRichTextStyleSheet *", 0, 0, (void*)0, 0};
@@ -36913,6 +38755,7 @@ static swig_type_info _swigt__p_wxTextAttrBorders = {"_p_wxTextAttrBorders", "wx
 static swig_type_info _swigt__p_wxTextAttrDimension = {"_p_wxTextAttrDimension", "wxTextAttrDimension *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextAttrDimensionConverter = {"_p_wxTextAttrDimensionConverter", "wxTextAttrDimensionConverter *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextAttrDimensions = {"_p_wxTextAttrDimensions", "wxTextAttrDimensions *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxTextAttrSize = {"_p_wxTextAttrSize", "wxTextAttrSize *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextBoxAttr = {"_p_wxTextBoxAttr", "wxTextBoxAttr *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextCoord = {"_p_wxTextCoord", "wxTextCoord *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxTextCtrlBase = {"_p_wxTextCtrlBase", "wxTextCtrlBase *", 0, 0, (void*)0, 0};
@@ -36923,6 +38766,7 @@ static swig_type_info _swigt__p_wxWindow = {"_p_wxWindow", "wxWindow *", 0, 0, (
 static swig_type_info _swigt__p_wxXmlNode = {"_p_wxXmlNode", "wxXmlNode *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
+  &_swigt__p_bool,
   &_swigt__p_char,
   &_swigt__p_double,
   &_swigt__p_int,
@@ -37146,6 +38990,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxRichTextPlainTextHandler,
   &_swigt__p_wxRichTextRange,
   &_swigt__p_wxRichTextRenderer,
+  &_swigt__p_wxRichTextSelection,
   &_swigt__p_wxRichTextStdRenderer,
   &_swigt__p_wxRichTextStyleDefinition,
   &_swigt__p_wxRichTextStyleSheet,
@@ -37197,6 +39042,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxTextAttrDimension,
   &_swigt__p_wxTextAttrDimensionConverter,
   &_swigt__p_wxTextAttrDimensions,
+  &_swigt__p_wxTextAttrSize,
   &_swigt__p_wxTextBoxAttr,
   &_swigt__p_wxTextCoord,
   &_swigt__p_wxTextCtrl,
@@ -37227,6 +39073,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxXmlNode,
 };
 
+static swig_cast_info _swigc__p_bool[] = {  {&_swigt__p_bool, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_double[] = {  {&_swigt__p_double, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
@@ -37507,6 +39354,7 @@ static swig_cast_info _swigc__p_wxRichTextPlainText[] = {  {&_swigt__p_wxRichTex
 static swig_cast_info _swigc__p_wxRichTextPlainTextHandler[] = {  {&_swigt__p_wxRichTextPlainTextHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextRange[] = {  {&_swigt__p_wxRichTextRange, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextRenderer[] = {  {&_swigt__p_wxRichTextRenderer, 0, 0, 0},  {&_swigt__p_wxRichTextStdRenderer, _p_wxRichTextStdRendererTo_p_wxRichTextRenderer, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxRichTextSelection[] = {  {&_swigt__p_wxRichTextSelection, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextStdRenderer[] = {  {&_swigt__p_wxRichTextStdRenderer, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextStyleDefinition[] = {  {&_swigt__p_wxRichTextStyleDefinition, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxRichTextStyleSheet[] = {  {&_swigt__p_wxRichTextStyleSheet, 0, 0, 0},{0, 0, 0, 0}};
@@ -37521,6 +39369,7 @@ static swig_cast_info _swigc__p_wxTextAttrBorders[] = {  {&_swigt__p_wxTextAttrB
 static swig_cast_info _swigc__p_wxTextAttrDimension[] = {  {&_swigt__p_wxTextAttrDimension, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextAttrDimensionConverter[] = {  {&_swigt__p_wxTextAttrDimensionConverter, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextAttrDimensions[] = {  {&_swigt__p_wxTextAttrDimensions, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxTextAttrSize[] = {  {&_swigt__p_wxTextAttrSize, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextBoxAttr[] = {  {&_swigt__p_wxTextBoxAttr, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextCoord[] = {  {&_swigt__p_wxTextCoord, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxTextCtrlBase[] = {  {&_swigt__p_wxTextCtrlBase, 0, 0, 0},  {&_swigt__p_wxTextCtrl, _p_wxTextCtrlTo_p_wxTextCtrlBase, 0, 0},  {&_swigt__p_wxRichTextCtrl, _p_wxRichTextCtrlTo_p_wxTextCtrlBase, 0, 0},{0, 0, 0, 0}};
@@ -37531,6 +39380,7 @@ static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxToolbook, _p_wxToo
 static swig_cast_info _swigc__p_wxXmlNode[] = {  {&_swigt__p_wxXmlNode, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
+  _swigc__p_bool,
   _swigc__p_char,
   _swigc__p_double,
   _swigc__p_int,
@@ -37754,6 +39604,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxRichTextPlainTextHandler,
   _swigc__p_wxRichTextRange,
   _swigc__p_wxRichTextRenderer,
+  _swigc__p_wxRichTextSelection,
   _swigc__p_wxRichTextStdRenderer,
   _swigc__p_wxRichTextStyleDefinition,
   _swigc__p_wxRichTextStyleSheet,
@@ -37805,6 +39656,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxTextAttrDimension,
   _swigc__p_wxTextAttrDimensionConverter,
   _swigc__p_wxTextAttrDimensions,
+  _swigc__p_wxTextAttrSize,
   _swigc__p_wxTextBoxAttr,
   _swigc__p_wxTextCoord,
   _swigc__p_wxTextCtrl,
@@ -38370,11 +40222,12 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_AFTER",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_AFTER)));
   SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_ON",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_ON)));
   SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_OUTSIDE",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_OUTSIDE)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_NO_NESTED_OBJECTS",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_NO_NESTED_OBJECTS)));
+  SWIG_Python_SetConstant(d, "RICHTEXT_HITTEST_NO_FLOATING_OBJECTS",SWIG_From_int(static_cast< int >(wxRICHTEXT_HITTEST_NO_FLOATING_OBJECTS)));
   SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_FLOAT",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_FLOAT)));
   SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_CLEAR",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_CLEAR)));
   SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_COLLAPSE_BORDERS",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_COLLAPSE_BORDERS)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_VALUE_PRESENT",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_VALUE_PRESENT)));
-  SWIG_Python_SetConstant(d, "TEXT_ATTR_VALUE_PRESENT_MASK",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_VALUE_PRESENT_MASK)));
+  SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_VERTICAL_ALIGNMENT",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_UNITS_TENTHS_MM",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_UNITS_TENTHS_MM)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_UNITS_PIXELS",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_UNITS_PIXELS)));
   SWIG_Python_SetConstant(d, "TEXT_ATTR_UNITS_PERCENTAGE",SWIG_From_int(static_cast< int >(wxTEXT_ATTR_UNITS_PERCENTAGE)));
@@ -38407,6 +40260,10 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_CLEAR_BOTH",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_CLEAR_BOTH)));
   SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_COLLAPSE_NONE",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_COLLAPSE_NONE)));
   SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_COLLAPSE_FULL",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_COLLAPSE_FULL)));
+  SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_NONE",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_NONE)));
+  SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_TOP",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_TOP)));
+  SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_CENTRE",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_CENTRE)));
+  SWIG_Python_SetConstant(d, "TEXT_BOX_ATTR_VERTICAL_ALIGNMENT_BOTTOM",SWIG_From_int(static_cast< int >(wxTEXT_BOX_ATTR_VERTICAL_ALIGNMENT_BOTTOM)));
   PyDict_SetItemString(d,(char*)"cvar", SWIG_globals());
   SWIG_addvarlink(SWIG_globals(),(char*)"RICHTEXT_ALL",RICHTEXT_ALL_get, RICHTEXT_ALL_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"RICHTEXT_NONE",RICHTEXT_NONE_get, RICHTEXT_NONE_set);
@@ -38425,10 +40282,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "RICHTEXT_SHIFT_DOWN",SWIG_From_int(static_cast< int >(wxRICHTEXT_SHIFT_DOWN)));
   SWIG_Python_SetConstant(d, "RICHTEXT_CTRL_DOWN",SWIG_From_int(static_cast< int >(wxRICHTEXT_CTRL_DOWN)));
   SWIG_Python_SetConstant(d, "RICHTEXT_ALT_DOWN",SWIG_From_int(static_cast< int >(wxRICHTEXT_ALT_DOWN)));
-  SWIG_Python_SetConstant(d, "RICHTEXT_SELECTED",SWIG_From_int(static_cast< int >(wxRICHTEXT_SELECTED)));
-  SWIG_Python_SetConstant(d, "RICHTEXT_TAGGED",SWIG_From_int(static_cast< int >(wxRICHTEXT_TAGGED)));
-  SWIG_Python_SetConstant(d, "RICHTEXT_FOCUSSED",SWIG_From_int(static_cast< int >(wxRICHTEXT_FOCUSSED)));
-  SWIG_Python_SetConstant(d, "RICHTEXT_IS_FOCUS",SWIG_From_int(static_cast< int >(wxRICHTEXT_IS_FOCUS)));
   SWIG_addvarlink(SWIG_globals(),(char*)"RichTextCtrlNameStr",RichTextCtrlNameStr_get, RichTextCtrlNameStr_set);
   PyDict_SetItemString(d, "wxEVT_COMMAND_RICHTEXT_LEFT_CLICK", PyInt_FromLong(wxEVT_COMMAND_RICHTEXT_LEFT_CLICK));
   PyDict_SetItemString(d, "wxEVT_COMMAND_RICHTEXT_RIGHT_CLICK", PyInt_FromLong(wxEVT_COMMAND_RICHTEXT_RIGHT_CLICK));
