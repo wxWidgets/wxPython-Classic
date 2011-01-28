@@ -161,9 +161,9 @@ wxWizardPageSimple class can easily be used for the pages."""))
         page4.sizer.Add(wx.StaticText(page4, -1, "\nThis is the last page."))
 
         # Use the convenience Chain function to connect the pages
-        wiz.WizardPageSimple_Chain(page1, page2)
-        wiz.WizardPageSimple_Chain(page2, page3)
-        wiz.WizardPageSimple_Chain(page3, page4)
+        wiz.WizardPageSimple.Chain(page1, page2)
+        wiz.WizardPageSimple.Chain(page2, page3)
+        wiz.WizardPageSimple.Chain(page3, page4)
 
         wizard.GetPageAreaSizer().Add(page1)
         if wizard.RunWizard(page1):
