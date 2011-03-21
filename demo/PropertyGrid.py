@@ -670,6 +670,9 @@ class LargeImageEditor(wxpg.PyEditor):
 ############################################################################
 
 class TestPanel( wx.Panel ):
+
+    AreEditorsRegistered = False
+
     def __init__( self, parent, log ):
         wx.Panel.__init__(self, parent, wx.ID_ANY)
         self.log = log
@@ -700,9 +703,11 @@ class TestPanel( wx.Panel ):
         #
         # NOTE: Editor must be registered *before* adding a property that
         # uses it.
-        pg.RegisterEditor(TrivialPropertyEditor)
-        pg.RegisterEditor(SampleMultiButtonEditor)
-        pg.RegisterEditor(LargeImageEditor)
+        if not TestPanel.AreEditorsRegistered:
+            pg.RegisterEditor(TrivialPropertyEditor)
+            pg.RegisterEditor(SampleMultiButtonEditor)
+            pg.RegisterEditor(LargeImageEditor)
+            TestPanel.AreEditorsRegistered = True
 
         #
         # Add properties
