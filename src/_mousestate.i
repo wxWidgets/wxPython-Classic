@@ -81,6 +81,8 @@ public:
     %pythoncode {
         x = property(GetX, SetX)
         y = property(GetY, SetY)
+        X = property(GetX, SetX)  # uppercase versions for 2.8 compatibility
+        Y = property(GetY, SetY)
         leftIsDown = property(LeftIsDown, SetLeftDown)
         middleIsDown = property(MiddleIsDown, SetMiddleDown)
         rightIsDown = property(RightIsDown, SetRightDown)
