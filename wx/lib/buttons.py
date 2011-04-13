@@ -618,12 +618,12 @@ class __ThemedMixin:
         if self.up:
             state = 0
         else:
-            state = wx.CONTROL_PRESSED
+            state = wx.CONTROL_PRESSED | wx.CONTROL_SELECTED
         if not self.IsEnabled():
             state = wx.CONTROL_DISABLED
         pt = self.ScreenToClient(wx.GetMousePosition())
         if self.GetClientRect().Contains(pt):
-            state = wx.CONTROL_CURRENT
+            state |= wx.CONTROL_CURRENT
         wx.RendererNative.Get().DrawPushButton(self, dc, rect, state)
     
 
