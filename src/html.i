@@ -1667,6 +1667,8 @@ public:
 
     void AddGrabIfNeeded();
 
+    void SetShouldPreventAppExit(bool enable);
+
     /// Returns the help controller associated with the window.
     wxHtmlHelpController* GetController() const;
 
@@ -1837,6 +1839,8 @@ public:
 
     wxHtmlHelpController(int style = wxHF_DEFAULT_STYLE, wxWindow* parentWindow = NULL);
     ~wxHtmlHelpController();
+
+    void SetShouldPreventAppExit(bool enable);
 
     wxHtmlHelpWindow* GetHelpWindow();
     void SetHelpWindow(wxHtmlHelpWindow* helpWindow);
