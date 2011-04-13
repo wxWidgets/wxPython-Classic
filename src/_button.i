@@ -39,6 +39,7 @@ indeed almost any other window.", "
 
 Window Styles
 -------------
+
     ==============   ==========================================
     wx.BU_LEFT       Left-justifies the label. Windows and GTK+ only.
     wx.BU_TOP        Aligns the label to the top of the button.
@@ -53,6 +54,7 @@ Window Styles
 
 Events
 ------
+
     ============     ==========================================
     EVT_BUTTON       Sent when the button is clicked.
     ============     ==========================================
