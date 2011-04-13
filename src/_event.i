@@ -1357,7 +1357,7 @@ character using `GetUnicodeKey`.", "");
         DocStr(
             GetUnicodeKey,
             "Returns the Unicode character corresponding to this key event.  This
-function is only meaningfule in a Unicode build of wxPython.", "");
+function is only meaningful in a Unicode build of wxPython.", "");
         int GetUnicodeKey() {
         %#if wxUSE_UNICODE
             return self->GetUnicodeKey();
