@@ -2331,10 +2331,10 @@ dialogs, etc.)", "");
         def __init__(self, window):
             self._win = window
         def __enter__(self):
-            self.Freeze()
+            self._win.Freeze()
             return self
-        def __exit__(self):
-            self.Thaw()
+        def __exit__(self, exc_type, exc_val, exc_tb):
+            self._win.Thaw()
 }
 
 
