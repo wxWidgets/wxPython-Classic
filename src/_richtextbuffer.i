@@ -1437,7 +1437,11 @@ class wxRichTextAction;
 class wxRichTextBuffer: public wxRichTextParagraphLayoutBox
 {
 public:
+    %nokwargs wxRichTextBuffer;
+    
     wxRichTextBuffer();
+    wxRichTextBuffer(const wxRichTextBuffer& obj);
+
     virtual ~wxRichTextBuffer() ;
 
 // Accessors
