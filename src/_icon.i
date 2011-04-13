@@ -170,7 +170,7 @@ public:
     // returns the first icon in the bundle
     const wxIcon& GetIcon( const wxSize& size ) const;
 
-    %property(Icon, GetIcon, doc="See `GetIcon`");
+//    %property(Icon, GetIcon, doc="See `GetIcon`");
 };
 
 //---------------------------------------------------------------------------
