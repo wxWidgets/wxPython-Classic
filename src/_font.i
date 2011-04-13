@@ -57,6 +57,19 @@ enum wxFontWeight
 };
 
 
+// Symbolic font sizes as defined in CSS specification.
+enum wxFontSymbolicSize
+{
+    wxFONTSIZE_XX_SMALL = -3,
+    wxFONTSIZE_X_SMALL,
+    wxFONTSIZE_SMALL,
+    wxFONTSIZE_MEDIUM,
+    wxFONTSIZE_LARGE,
+    wxFONTSIZE_X_LARGE,
+    wxFONTSIZE_XX_LARGE
+};
+
+
 // the font flag bits for the new font ctor accepting one combined flags word
 enum wxFontFlag
 {
@@ -260,6 +273,7 @@ public:
     void SetFamily(wxFontFamily family);
     void SetEncoding(wxFontEncoding encoding);
 
+    
 // TODO:     
 //     // sets the first facename in the given array which is found
 //     // to be valid. If no valid facename is given, sets the
@@ -783,7 +797,17 @@ then for a font belonging to the same family.", "");
         bool , SetNativeFontInfoUserDesc(const wxString& info),
         "Set the font's attributes from a string formerly returned from
 `GetNativeFontInfoDesc`.", "");
-    
+
+    // Symbolic font sizes support: set the font size to "large" or "very
+    // small" either absolutely (i.e. compared to the default font size) or
+    // relatively to the given font size.
+    void SetSymbolicSize(wxFontSymbolicSize size);
+    void SetSymbolicSizeRelativeTo(wxFontSymbolicSize size, int base);
+
+    // Adjust the base size in points according to symbolic size.
+    static int AdjustToSymbolicSize(wxFontSymbolicSize size, int base);
+
+
 
     DocDeclStr(
         wxString , GetFamilyString() const,
@@ -815,7 +839,8 @@ then for a font belonging to the same family.", "");
     %typemap(out) wxFont& { $result = $self; Py_INCREF($result); }
 
     wxFont& MakeBold(); 
-    wxFont& MakeItalic(); 
+    wxFont& MakeItalic();
+    wxFont& MakeUnderlined();
     wxFont& MakeLarger();
     wxFont& MakeSmaller();
     wxFont& Scale(float x);
@@ -827,6 +852,7 @@ then for a font belonging to the same family.", "");
     /* functions for creating new fonts based on this one */ 
     wxFont Bold() const; 
     wxFont Italic() const;
+    wxFont Underlined() const;
     wxFont Larger() const;
     wxFont Smaller() const;
     wxFont Scaled(float x) const;
