@@ -47,9 +47,6 @@ overview = """\
 wx.ToggleButton is a button that stays pressed when clicked by the user. 
 In other words, it is similar to wxCheckBox in functionality but looks like a 
 wxButton.
-
-This class is only available under wxMSW and wxGTK currently.
-
 """
 
 

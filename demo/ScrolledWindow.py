@@ -2,6 +2,9 @@
 import  wx
 import  images
 
+# There are two different approaches to drawing, buffered or direct.
+# This sample shows both approaches so you can easily compare and
+# contrast the two by changing this value.
 BUFFERED = 1
 
 #---------------------------------------------------------------------------
