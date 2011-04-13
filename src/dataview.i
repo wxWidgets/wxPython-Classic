@@ -532,7 +532,7 @@ PyObject* wxDVCVariant_out_helper(const wxVariant& value)
 
 
 #define PYCALLBACK_BOOL_RECTDVMDVIUINT(PCLASS, CBNAME)                         \
-    bool CBNAME(wxRect a, wxDataViewModel* b, const wxDataViewItem& c, unsigned int d) { \
+    bool CBNAME(const wxRect& a, wxDataViewModel* b, const wxDataViewItem& c, unsigned int d) { \
         bool found;                                                             \
         bool rval = false;                                                      \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
@@ -553,7 +553,7 @@ PyObject* wxDVCVariant_out_helper(const wxVariant& value)
 
 
 #define PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(PCLASS, CBNAME)                     \
-    bool CBNAME(wxPoint a, wxRect b, wxDataViewModel* c, const wxDataViewItem& d, unsigned int e) { \
+    bool CBNAME(const wxPoint& a, const wxRect& b, wxDataViewModel* c, const wxDataViewItem& d, unsigned int e) { \
         bool found;                                                             \
         bool rval = false;                                                      \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
@@ -1153,7 +1153,7 @@ public:
 class DataViewItemObjectMapper(object):
     """
     This class provides a mechanism for mapping between Python objects and the
-    DataViewItem objects used by the DataViewModel for tacking the items in
+    DataViewItem objects used by the DataViewModel for tracking the items in
     the view. The ID used for the item is the id() of the Python object. Use
     `ObjectToItem` to create a DataViewItem using a Python object as its ID,
     and use `ItemToObject` to fetch that Python object again later for a given
