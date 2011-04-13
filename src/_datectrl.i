@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////
 // Name:        _datectrl.i
-// Purpose:     SWIG interface defs for wxwxDatePickerCtrl
+// Purpose:     SWIG interface defs for wxDatePickerCtrl
 //
 // Author:      Robin Dunn
 //
