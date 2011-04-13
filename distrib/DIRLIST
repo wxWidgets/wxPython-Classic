@@ -235,6 +235,7 @@ wx/tools/Editra/src/extern/pygments
 wx/tools/Editra/src/extern/pygments/filters
 wx/tools/Editra/src/extern/pygments/formatters
 wx/tools/Editra/src/extern/pygments/lexers
+wx/tools/Editra/src/extern/pygments/styles
 wx/tools/Editra/src/syntax
 wx/tools/Editra/styles
 wx/tools/Editra/templates

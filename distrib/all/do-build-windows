@@ -114,6 +114,10 @@ esac
 # export DISTUTILS_DEBUG=1
 
 PYTHON=$TOOLS/python$VER/python.exe
+if [ "$CPU" == "AMD64" -a -d $TOOLS/amd64 ]; then
+    PYTHON=$TOOLS/amd64/python$VER/python.exe
+fi
+
 mkdir -p dist
 
 $PYTHON -u ./build-wxpython.py --unicode
