@@ -632,7 +632,7 @@ public:
 
     // select this item
     void SelectItem(const wxTreeItemId& item,
-                    const wxTreeItemId& last = NULL,
+                    const wxTreeItemId& last = wxTreeItemId(),
                     bool unselect_others=true);
 
     void SelectAll();
