@@ -173,6 +173,8 @@ Source: "wx\tools\Editra\src\ebmlib\*.py";                   DestDir: "{app}\%(P
 Source: "wx\tools\Editra\src\extern\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
 Source: "wx\tools\Editra\src\extern\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern"; Components: core
 Source: "wx\tools\Editra\src\extern\aui\*.py";               DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\aui"; Components: core
+Source: "wx\tools\Editra\src\extern\dexml\*.py";               DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\dexml"; Components: core
+Source: "wx\tools\Editra\src\extern\dexml\*.txt";               DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\dexml"; Components: core
 Source: "wx\tools\Editra\src\extern\pygments\*.py";          DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments"; Components: core
 Source: "wx\tools\Editra\src\extern\pygments\filters\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\filters"; Components: core
 Source: "wx\tools\Editra\src\extern\pygments\formatters\*.py"; DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\formatters"; Components: core
@@ -314,6 +316,10 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\aui\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\aui\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\dexml\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\dexml\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\*.pyc";      
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\*.pyo";      
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\filters\*.pyc"; 
