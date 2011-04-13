@@ -2313,25 +2313,26 @@ class MaskedEditMixin:
         # marking the appropriate positions for field boundaries:
         ismasked = {}
         explicit_field_boundaries = []
+        s = list(s)
         i = 0
         while i < len(s):
             if s[i] == '\\':            # if escaped character:
                 ismasked[i] = False     #     mark position as not a mask char
                 if i+1 < len(s):        #     if another char follows...
-                    s = s[:i] + s[i+1:] #         elide the '\'
-                    if i+2 < len(s) and s[i+1] == '\\':
-                        # if next char also a '\', char is a literal '\'
-                        s = s[:i] + s[i+1:]     # elide the 2nd '\' as well
-                i += 1                      # increment to next char
+                    del s[i]            #         elide the '\'
+                    if s[i] == '\\':    #         if next char also a '\', char is a literal '\'
+                        del s[i]        #             elide the 2nd '\' as well
+                i += 1                  # increment to next char
             elif s[i] == '|':
-                s = s[:i] + s[i+1:] #         elide the '|'
+                del s[i]                    #         elide the '|'
                 explicit_field_boundaries.append(i)
-                # keep index where it is:
+                                            # keep index where it is:
             else:                       # else if special char, mark position accordingly
                 ismasked[i] = s[i] in maskchars
-####                dbg('ismasked[%d]:' % i, ismasked[i], s)
+####                dbg('ismasked[%d]:' % i, ismasked[i], ''.join(s))
                 i += 1                      # increment to next char
 ####        dbg('ismasked:', ismasked)
+        s = ''.join(s)
 ##        dbg('new mask: "%s"' % s, indent=0)
 
         return s, ismasked, explicit_field_boundaries
