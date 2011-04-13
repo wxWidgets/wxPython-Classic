@@ -19,8 +19,11 @@ class TestPanel(wx.Panel):
         sizer.Add(dpc, 0, wx.ALL, 50)
 
         if 'wxMSW' in wx.PlatformInfo:
+            # In this case the widget used above will be a native date
+            # picker, so show the generic one too.            
             dpc = wx.GenericDatePickerCtrl(self, size=(120,-1),
-                                           style = wx.DP_DROPDOWN
+                                           style = wx.TAB_TRAVERSAL
+                                               | wx.DP_DROPDOWN
                                                | wx.DP_SHOWCENTURY
                                                | wx.DP_ALLOWNONE )
             self.Bind(wx.EVT_DATE_CHANGED, self.OnDateChanged, dpc)
