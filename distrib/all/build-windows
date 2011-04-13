@@ -2,9 +2,10 @@
 #----------------------------------------------------------------------
 
 set -o errexit
-
+#set -o xtrace
 
 PYVER=$1
+CPU=$2
 
 if [ $buildansi = yes ]; then
     CHARTYPE=both
@@ -31,7 +32,7 @@ if [ $skipwin != yes ]; then
      echo "Running build script on $WIN_HOST..."
      wxdir=$WIN_BUILD/wxPython-src-$VERSION
      cmd=./do-build-windows
-     ssh $WIN_HOST "cd $WIN_BUILD && $cmd $wxdir $WIN_BUILD $skipclean $VERSION $PYVER $CHARTYPE && rm $cmd"
+     ssh $WIN_HOST "cd $WIN_BUILD && $cmd $wxdir $WIN_BUILD $skipclean $VERSION $PYVER $CHARTYPE $CPU && rm $cmd"
 
      echo "Fetching the results..."
      scp "$WIN_HOST:$WIN_BUILD/wxPython*-win*"  $STAGING_DIR

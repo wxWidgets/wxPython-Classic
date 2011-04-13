@@ -51,45 +51,43 @@ def getTasks(config_env):
     
 
     tigerTask =  Task([
-        Job("smallfry.25", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.5", "both"], env=config_env),
         Job("smallfry.26", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.6", "both"], env=config_env),
         Job("smallfry.27", "distrib/all/build-osx", [config.OSX_HOST_tiger, "2.7", "both"], env=config_env),
         ])
 
     
-    beastTask1 = Task([
-        Job("beast.25",     "distrib/all/build-windows", ["2.5"], env=config_env),
-        Job("beast.26",     "distrib/all/build-windows", ["2.6"], env=config_env),
-        Job("beast.27",     "distrib/all/build-windows", ["2.7"], env=config_env),
+    cyclopsTask0 = Task([
+        Job("win32-26", "distrib/all/build-windows", ["2.6"], env=config_env),
+        Job("win32-27", "distrib/all/build-windows", ["2.7"], env=config_env),
+        Job("win64-26", "distrib/all/build-windows", ["2.6", "AMD64"], env=config_env),
+        Job("win64-27", "distrib/all/build-windows", ["2.7", "AMD64"], env=config_env),
         ])
     
 
     cyclopsTask1 = Task([
-        Job("cyclops.karmic",   "distrib/all/build-deb", ["cyclops", "/work/chroot/karmic",   "karmic"], env=config_env),
-        Job("cyclops.karmic64", "distrib/all/build-deb", ["cyclops", "/work/chroot/karmic64", "karmic64"], env=config_env),
-        Job("cyclops.lucid",   "distrib/all/build-deb", ["cyclops", "/work/chroot/lucid",   "lucid"], env=config_env),
-        Job("cyclops.lucid64", "distrib/all/build-deb", ["cyclops", "/work/chroot/lucid64", "lucid64"], env=config_env),
+        Job("lucid",   "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/lucid",   "lucid"], env=config_env),
+        Job("lucid64", "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/lucid64", "lucid64"], env=config_env),
+        Job("maverick",   "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/maverick",   "maverick"], env=config_env),
+        Job("maverick64", "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/maverick64", "maverick64"], env=config_env),
         ])
 
-    cyclopsTask2 = Task([
-        #Job("cyclops.win64-25", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.5", "AMD64"], env=config_env),
-        Job("cyclops.win64-26", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.6", "AMD64"], env=config_env),
-        Job("cyclops.win64-27", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.7", "AMD64"], env=config_env),
-        Job("cyclops.jaunty",   "distrib/all/build-deb", ["cyclops", "/work/chroot/jaunty",   "jaunty"], env=config_env),
-        Job("cyclops.jaunty64", "distrib/all/build-deb", ["cyclops", "/work/chroot/jaunty64", "jaunty64"], env=config_env),
+    cyclopsTask2 = Task([  # 64-bit builds are now handled w/o a VM, see above
+        #Job("win64-26", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.6", "AMD64"], env=config_env),
+        #Job("win64-27", "distrib/all/build-vmwin", ["cyclops", "WinXP-x64-1", "cy-win64", "2.7", "AMD64"], env=config_env),
         ])
 
     cyclopsTask3 = Task([
-        Job("cyclops.etch",   "distrib/all/build-deb", ["cyclops", "/work/chroot/etch",     "etch"], env=config_env),
-        Job("cyclops.etch64", "distrib/all/build-deb", ["cyclops", "/work/chroot/etch64",   "etch64"], env=config_env),
-        Job("cyclops.lenny",   "distrib/all/build-deb", ["cyclops", "/work/chroot/lenny",     "lenny"], env=config_env),
-        Job("cyclops.lenny64", "distrib/all/build-deb", ["cyclops", "/work/chroot/lenny64",   "lenny64"], env=config_env),
+        Job("etch",   "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/etch",     "etch"], env=config_env),
+        Job("etch64", "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/etch64",   "etch64"], env=config_env),
+        Job("lenny",   "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/lenny",   "lenny"], env=config_env),
+        Job("lenny64", "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/lenny64", "lenny64"], env=config_env),
         ])
+
     
     buildTasks = [ tigerTask,
-                   beastTask1,
+                   cyclopsTask0,
                    cyclopsTask1,
-                   cyclopsTask2,
+                   #cyclopsTask2,
                    cyclopsTask3,
                    ]
     

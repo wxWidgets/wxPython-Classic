@@ -41,7 +41,8 @@ if [ $skipwin != yes ]; then
 	if [ $vmHost != none ]; then 
 	    if TestOnline $vmHost; then
 		echo "Attempting to start $host on $vmHost..."
-		ssh $vmHost "vmrun start /work/VMs/$vmName/$vmName.vmx nogui"
+		#ssh $vmHost "vmrun start /work/VMs/$vmName/$vmName.vmx nogui"
+		ssh $vmHost "VBoxManage startvm c:/Users/robind/Documents/VMs/$vmName/$vmName.vbox --type headless"
 
 		# Give it time to boot and be ready for conenctions,
 		# and then test with ssh, limiting retries.
@@ -56,13 +57,13 @@ if [ $skipwin != yes ]; then
 		
                 # test if the host is ready
 		if TestOnline $host; then
-		    echo "VMware start of $host on $vmHost successful."
+		    echo "VirtualBox start of $host on $vmHost successful."
 		    hostAvailable=yes
 		    hostStarted=yes
 		    sleep 60
 		fi
 	    else
-		echo "The $vmHost machine is offline, unable to start VMware for $host"
+		echo "The $vmHost machine is offline, unable to start VirtualBox for $host"
 	    fi
 	fi
     fi
@@ -92,7 +93,12 @@ if [ $skipwin != yes ]; then
 
      if [ $hostStarted = yes ]; then
 	 echo "Stopping VM..."
-	 ssh $vmHost "vmrun stop /work/VMs/$vmName/$vmName.vmx"
+	 #ssh $vmHost "vmrun stop /work/VMs/$vmName/$vmName.vmx"
+	 #VMCMD=poweroff
+	 #VMCMD=savestate
+	 VMCMD=acpipowerbutton
+	 ssh $vmHost "VBoxManage controlvm c:/Users/robind/Documents/VMs/$vmName/$vmName.vbox $VMCMD"
+
 	 sleep 180
      fi
 

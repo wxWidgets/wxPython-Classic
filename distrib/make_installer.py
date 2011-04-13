@@ -177,6 +177,7 @@ Source: "wx\tools\Editra\src\extern\pygments\*.py";          DestDir: "{app}\%(P
 Source: "wx\tools\Editra\src\extern\pygments\filters\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\filters"; Components: core
 Source: "wx\tools\Editra\src\extern\pygments\formatters\*.py"; DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\formatters"; Components: core
 Source: "wx\tools\Editra\src\extern\pygments\lexers\*.py";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\lexers"; Components: core
+Source: "wx\tools\Editra\src\extern\pygments\styles\*.py";     DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\styles"; Components: core
 Source: "wx\tools\Editra\src\syntax\*.py";                   DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
 Source: "wx\tools\Editra\src\syntax\README";                 DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\src\syntax"; Components: core
 Source: "wx\tools\Editra\styles\*.ess";                      DestDir: "{app}\%(PKGDIR)s\wx\tools\Editra\styles"; Components: core
@@ -321,6 +322,8 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\formatt
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\formatters\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\lexers\*.pyc";    
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\lexers\*.pyo";    
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\styles\*.pyc";    
+Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\extern\pygments\styles\*.pyo";    
 
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\tools\Editra\src\autocomp\*.pyo";
@@ -367,19 +370,19 @@ begin
     (* -------------------------------------------------------------- *)
     (* Figure out what to use as a default installation dir           *)
 
-    if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
+    if not RegQueryStringValue(HKEY_CURRENT_USER,
                                'Software\Python\PythonCore\%(PYTHONVER)s\InstallPath',
                                '', PythonDir) then begin
 
-        if not RegQueryStringValue(HKEY_CURRENT_USER,
+        if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
                                    'Software\Python\PythonCore\%(PYTHONVER)s\InstallPath',
                                    '', PythonDir) then begin
 
-            if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
-                                        'Software\Wow6432Node\Python\PythonCore\%(PYTHONVER)s\InstallPath',
+            if not RegQueryStringValue(HKEY_CURRENT_USER,
+                                       'Software\Wow6432Node\Python\PythonCore\%(PYTHONVER)s\InstallPath',
                                        '', PythonDir) then begin
 
-                if not RegQueryStringValue(HKEY_CURRENT_USER,
+                if not RegQueryStringValue(HKEY_LOCAL_MACHINE,
                                            'Software\Wow6432Node\Python\PythonCore\%(PYTHONVER)s\InstallPath',
                                            '', PythonDir) then begin
 

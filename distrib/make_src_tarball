@@ -30,7 +30,7 @@ builddir=${wxpdir}/_build_
 pythonbin=/usr/bin/python
 tarname=wxPython-src
 
-pyver=2.4
+pyver=2.6
 ver2=`echo ${version} | cut -c 1,2,3`
 tarver=${tarname}-${version}
 pythonbin=/usr/bin/python

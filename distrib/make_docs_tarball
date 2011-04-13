@@ -7,6 +7,7 @@ if [ ! -d wxPython ]; then  # TODO: make this test more robust
     exit 1
 fi
 
+#set -o xtrace
 
 VERSION=`python -c "import setup;print setup.VERSION"`
 #CONTRIBS="gizmos"
