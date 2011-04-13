@@ -112,6 +112,20 @@ enum wxMappingMode
     wxMM_METRIC
 };
 
+
+struct wxFontMetrics
+{
+    wxFontMetrics();
+    ~wxFontMetrics();
+    
+    int height,             // Total character height.
+        ascent,             // Part of the height above the baseline.
+        descent,            // Part of the height below the baseline.
+        internalLeading,    // Intra-line spacing.
+        externalLeading,    // Inter-line spacing.
+        averageWidth;       // Average font width, a.k.a. "x-width".
+};
+
 //---------------------------------------------------------------------------
 
 DocStr(wxDC,
@@ -707,6 +721,7 @@ clipped.", "
         virtual wxCoord , GetCharWidth() const,
         "Gets the average character width of the currently set font.", "");
     
+    wxFontMetrics GetFontMetrics() const;
 
 
     DocDeclAStr(
