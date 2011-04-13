@@ -102,6 +102,7 @@ SYS_COLOUR_GRADIENTINACTIVECAPTION = _misc_.SYS_COLOUR_GRADIENTINACTIVECAPTION
 SYS_COLOUR_MENUHILIGHT = _misc_.SYS_COLOUR_MENUHILIGHT
 SYS_COLOUR_MENUBAR = _misc_.SYS_COLOUR_MENUBAR
 SYS_COLOUR_LISTBOXTEXT = _misc_.SYS_COLOUR_LISTBOXTEXT
+SYS_COLOUR_LISTBOXHIGHLIGHTTEXT = _misc_.SYS_COLOUR_LISTBOXHIGHLIGHTTEXT
 SYS_COLOUR_MAX = _misc_.SYS_COLOUR_MAX
 SYS_MOUSE_BUTTONS = _misc_.SYS_MOUSE_BUTTONS
 SYS_BORDER_X = _misc_.SYS_BORDER_X
@@ -5715,6 +5716,11 @@ class Clipboard(_core.Object):
         return _misc_.Clipboard_Get(*args, **kwargs)
 
     Get = staticmethod(Get)
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.Close()
+
 _misc_.Clipboard_swigregister(Clipboard)
 
 def Clipboard_Get(*args):

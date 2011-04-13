@@ -1316,7 +1316,6 @@ class IconBundle(object):
         """GetIcon(self, Size size) -> Icon"""
         return _gdi_.IconBundle_GetIcon(*args, **kwargs)
 
-    Icon = property(GetIcon,doc="See `GetIcon`") 
 _gdi_.IconBundle_swigregister(IconBundle)
 
 def IconBundleFromFile(*args, **kwargs):

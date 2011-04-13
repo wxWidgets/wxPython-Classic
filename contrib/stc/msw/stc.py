@@ -4989,7 +4989,7 @@ class StyledTextCtrl(_core.Control):
 
     def SendMsg(*args, **kwargs):
         """
-        SendMsg(self, int msg, long wp=0, long lp=0) -> long
+        SendMsg(self, int msg, UIntPtr wp=0, wxIntPtr lp=0) -> wxIntPtr
 
         Send a message to Scintilla.
         """

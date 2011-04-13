@@ -3298,14 +3298,14 @@ enum wxBitmapBufferFormat {
                 
                 CHECK_BUFFERSIZE(stride * height);
                 
-                if (depth == 24) {
-                    MAKE_PIXDATA(wxNativePixelData);
+                if (useAlpha && depth == 32) {
+                    MAKE_PIXDATA(wxAlphaPixelData);
                     for (int y=0; y<height; y++) {
                         p.MoveTo(pixData, 0, y);
                         bufptr = (wxUint32*)dataRow;
                         for (int x=0; x<width; x++) {
                             value =
-                                (wxALPHA_OPAQUE << 24) |
+                                (p.Alpha() << 24) |
                                 (p.Red() << 16) |
                                 (p.Green() << 8) |
                                 (p.Blue());
@@ -3316,16 +3316,15 @@ enum wxBitmapBufferFormat {
                         dataRow += stride;
                     }
                 }
-                if (depth == 32) {
-                    MAKE_PIXDATA(wxAlphaPixelData);
-                    if (useAlpha)
-                        pixData.UseAlpha();
+                else // if (!useAlpha /*depth == 24*/)
+                {
+                    MAKE_PIXDATA(wxNativePixelData);
                     for (int y=0; y<height; y++) {
                         p.MoveTo(pixData, 0, y);
                         bufptr = (wxUint32*)dataRow;
                         for (int x=0; x<width; x++) {
                             value =
-                                (p.Alpha() << 24) |
+                                (wxALPHA_OPAQUE << 24) |
                                 (p.Red() << 16) |
                                 (p.Green() << 8) |
                                 (p.Blue());
@@ -22650,7 +22649,7 @@ fail:
 SWIGINTERN PyObject *_wrap_DC_GetTextBackground(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxDC *arg1 = (wxDC *) 0 ;
-  wxColour *result = 0 ;
+  wxColour result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -22664,14 +22663,11 @@ SWIGINTERN PyObject *_wrap_DC_GetTextBackground(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxDC * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxColour const &_result_ref = ((wxDC const *)arg1)->GetTextBackground();
-      result = (wxColour *) &_result_ref;
-    }
+    result = ((wxDC const *)arg1)->GetTextBackground();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColour, 0 |  0 );
+  resultobj = SWIG_NewPointerObj((new wxColour(static_cast< const wxColour& >(result))), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -22681,7 +22677,7 @@ fail:
 SWIGINTERN PyObject *_wrap_DC_GetTextForeground(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxDC *arg1 = (wxDC *) 0 ;
-  wxColour *result = 0 ;
+  wxColour result;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -22695,14 +22691,11 @@ SWIGINTERN PyObject *_wrap_DC_GetTextForeground(PyObject *SWIGUNUSEDPARM(self), 
   arg1 = reinterpret_cast< wxDC * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    {
-      wxColour const &_result_ref = ((wxDC const *)arg1)->GetTextForeground();
-      result = (wxColour *) &_result_ref;
-    }
+    result = ((wxDC const *)arg1)->GetTextForeground();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxColour, 0 |  0 );
+  resultobj = SWIG_NewPointerObj((new wxColour(static_cast< const wxColour& >(result))), SWIGTYPE_p_wxColour, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;

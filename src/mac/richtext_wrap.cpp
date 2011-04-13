@@ -13922,11 +13922,11 @@ SWIGINTERN PyObject *RichTextFileHandlerList_swigregister(PyObject *SWIGUNUSEDPA
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_new_RichTextBuffer(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_RichTextBuffer__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **SWIGUNUSEDPARM(swig_obj)) {
   PyObject *resultobj = 0;
   wxRichTextBuffer *result = 0 ;
   
-  if (!SWIG_Python_UnpackTuple(args,"new_RichTextBuffer",0,0,0)) SWIG_fail;
+  if ((nobjs < 0) || (nobjs > 0)) SWIG_fail;
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxRichTextBuffer *)new wxRichTextBuffer();
@@ -13936,6 +13936,54 @@ SWIGINTERN PyObject *_wrap_new_RichTextBuffer(PyObject *SWIGUNUSEDPARM(self), Py
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextBuffer, SWIG_POINTER_NEW |  0 );
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_RichTextBuffer__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxRichTextBuffer *arg1 = 0 ;
+  wxRichTextBuffer *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_wxRichTextBuffer,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_RichTextBuffer" "', expected argument " "1"" of type '" "wxRichTextBuffer const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_RichTextBuffer" "', expected argument " "1"" of type '" "wxRichTextBuffer const &""'"); 
+  }
+  arg1 = reinterpret_cast< wxRichTextBuffer * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxRichTextBuffer *)new wxRichTextBuffer((wxRichTextBuffer const &)*arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxRichTextBuffer, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_RichTextBuffer(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"new_RichTextBuffer",0,1,argv))) SWIG_fail;
+  --argc;
+  if (argc == 0) {
+    return _wrap_new_RichTextBuffer__SWIG_0(self, argc, argv);
+  }
+  if (argc == 1) {
+    return _wrap_new_RichTextBuffer__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'new_RichTextBuffer'");
   return NULL;
 }
 
@@ -30940,7 +30988,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"RichTextFileHandlerList___contains__", (PyCFunction) _wrap_RichTextFileHandlerList___contains__, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"RichTextFileHandlerList___iter__", (PyCFunction)_wrap_RichTextFileHandlerList___iter__, METH_O, NULL},
 	 { (char *)"RichTextFileHandlerList_swigregister", RichTextFileHandlerList_swigregister, METH_VARARGS, NULL},
-	 { (char *)"new_RichTextBuffer", (PyCFunction)_wrap_new_RichTextBuffer, METH_NOARGS, NULL},
+	 { (char *)"new_RichTextBuffer", _wrap_new_RichTextBuffer, METH_VARARGS, NULL},
 	 { (char *)"delete_RichTextBuffer", (PyCFunction)_wrap_delete_RichTextBuffer, METH_O, NULL},
 	 { (char *)"RichTextBuffer_GetCommandProcessor", (PyCFunction)_wrap_RichTextBuffer_GetCommandProcessor, METH_O, NULL},
 	 { (char *)"RichTextBuffer_SetStyleSheet", (PyCFunction) _wrap_RichTextBuffer_SetStyleSheet, METH_VARARGS | METH_KEYWORDS, NULL},

@@ -3913,6 +3913,9 @@ class EvtHandler(Object):
         :param id2: Used when it is desirable to bind a handler
                       to a range of IDs, such as with EVT_MENU_RANGE.
         """
+        assert isinstance(event, wx.PyEventBinder)
+        assert callable(handler)
+        assert source is None or hasattr(source, 'GetId')
         if source is not None:
             id  = source.GetId()
         event.Bind(self, id, id2, handler)              
@@ -5477,7 +5480,7 @@ class KeyEvent(Event):
         GetUnicodeKey(self) -> int
 
         Returns the Unicode character corresponding to this key event.  This
-        function is only meaningfule in a Unicode build of wxPython.
+        function is only meaningful in a Unicode build of wxPython.
         """
         return _core_.KeyEvent_GetUnicodeKey(*args, **kwargs)
 
@@ -10900,10 +10903,10 @@ class FrozenWindow(object):
     def __init__(self, window):
         self._win = window
     def __enter__(self):
-        self.Freeze()
+        self._win.Freeze()
         return self
-    def __exit__(self):
-        self.Thaw()
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self._win.Thaw()
 
 #---------------------------------------------------------------------------
 
@@ -12765,6 +12768,23 @@ class Sizer(Object):
     def _SetItemMinSize(*args, **kwargs):
         """_SetItemMinSize(self, PyObject item, Size size)"""
         return _core_.Sizer__SetItemMinSize(*args, **kwargs)
+
+    def GetItemIndex(self, item):
+        """
+        Returns the index of the given *item* within the sizer. Does not
+        search recursivly.  The *item* parameter can be either a window
+        or a sizer.  An assertion is raised if the item is not found in
+        the sizer.
+        """
+        sItem = self.GetItem(item)
+        assert sItem is not None, "Item not found in the sizer."
+        allItems = self.Children
+        idx = 0
+        for i in allItems:
+            if i.this == sItem.this:
+                break
+            idx += 1
+        return idx
 
     def _ReplaceWin(*args, **kwargs):
         """_ReplaceWin(self, Window oldwin, Window newwin, bool recursive=False) -> bool"""
