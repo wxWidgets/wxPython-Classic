@@ -51,7 +51,7 @@ class RunDemoApp(wx.App, wx.lib.mixins.inspection.InspectionMixin):
 
 
     def OnInit(self):
-        wx.Log_SetActiveTarget(wx.LogStderr())
+        wx.Log.SetActiveTarget(wx.LogStderr())
 
         self.SetAssertMode(assertMode)
         self.Init()  # InspectionMixin

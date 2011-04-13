@@ -125,6 +125,7 @@ class TestPrintPanel(wx.Panel):
 
     def OnPageSetup(self, evt):
         psdd = wx.PageSetupDialogData(self.printData)
+        psdd.EnablePrinter(True)
         psdd.CalculatePaperSizeFromId()
         dlg = wx.PageSetupDialog(self, psdd)
         dlg.ShowModal()

@@ -15,6 +15,7 @@ class TestPanel(wx.Panel):
     def __init__(self, parent, log):
         wx.Panel.__init__(self, parent, -1)
         self.log = log
+        self.findData = wx.FindReplaceData()
 
         self.fbtn = wx.Button(self, -1, "Show Find Dialog", (25, 50))
         self.Bind(wx.EVT_BUTTON, self.OnShowFind, self.fbtn)
@@ -38,21 +39,18 @@ class TestPanel(wx.Panel):
 
     def OnShowFind(self, evt):
         self.DisableButtons()
-        data = wx.FindReplaceData()
-        dlg = wx.FindReplaceDialog(self, data, "Find")
-        dlg.data = data  # save a reference to it...
+        dlg = wx.FindReplaceDialog(self, self.findData, "Find")
         dlg.Show(True)
 
 
     def OnShowFindReplace(self, evt):
         self.DisableButtons()
-        data = wx.FindReplaceData()
-        dlg = wx.FindReplaceDialog(self, data, "Find & Replace", wx.FR_REPLACEDIALOG)
-        dlg.data = data  # save a reference to it...
+        dlg = wx.FindReplaceDialog(self, self.findData, "Find & Replace", wx.FR_REPLACEDIALOG)
         dlg.Show(True)
 
 
     def OnFind(self, evt):
+        #print repr(evt.GetFindString()), repr(self.findData.GetFindString())
         map = {
             wx.wxEVT_COMMAND_FIND : "FIND",
             wx.wxEVT_COMMAND_FIND_NEXT : "FIND_NEXT",

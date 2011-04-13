@@ -98,18 +98,26 @@ class TestPanel(wx.Panel):
 
         # Drawing a bitmap.  Note that we can easily load a PNG file
         # into a surface, but I wanted to show how to convert from a
-        # wx.Bitmap here instead.
+        # wx.Bitmap here instead.  This is how to do it using just cairo:
         #img = cairo.ImageSurface.create_from_png(opj('bitmaps/toucan.png'))
+
+        # And this is how to convert a wx.Btmap to a cairo image
+        # surface.  NOTE: currently on Mac there appears to be a
+        # problem using conversions of some types of images.  They
+        # show up totally transparent when used. The conversion itself
+        # appears to be working okay, because converting back to
+        # wx.Bitmap or writing the image surface to a file produces
+        # the expected result.  The other platforms are okay.
         bmp = wx.Bitmap(opj('bitmaps/toucan.png'))
         #bmp = wx.Bitmap(opj('bitmaps/splash.png'))
-        #print 'depth:', bmp.GetDepth()
-        #print 'alpha:', bmp.HasAlpha()
         img = wx.lib.wxcairo.ImageSurfaceFromBitmap(bmp)
+        
         ctx.set_source_surface(img, 70, 230)
         ctx.paint()
 
-        #bmp = wx.lib.wxcairo.BitmapFromImageSurface(img)
-        #dc.DrawBitmap(bmp, 280, 300)
+        # this is how to convert an image surface to a wx.Bitmap
+        bmp2 = wx.lib.wxcairo.BitmapFromImageSurface(img)
+        dc.DrawBitmap(bmp2, 280, 300)
         
         
     def warpPath(self, ctx, tw, th, dx, dy):

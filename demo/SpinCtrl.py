@@ -15,10 +15,15 @@ class TestPanel(wx.Panel):
         self.sc = sc
 
         self.Bind(wx.EVT_SPINCTRL, self.OnSpin, sc)
-
+        self.Bind(wx.EVT_TEXT, self.OnText, sc)
+        
 
     def OnSpin(self, evt):
-        self.log.write('OnSpinCtrl: %d\n' % self.sc.GetValue())
+        self.log.write('OnSpin: %d\n' % self.sc.GetValue())
+
+    def OnText(self, evt):
+        self.log.write('OnText: %d\n' % self.sc.GetValue())
+        
 
 #----------------------------------------------------------------------
 
