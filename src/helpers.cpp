@@ -3265,7 +3265,7 @@ int wxPyImageHandler::GetImageCount( wxInputStream& stream ) {
 //----------------------------------------------------------------------
 // Function to test if the Display (or whatever is the platform equivallent)
 // can be connected to.  This is accessable from wxPython as a staticmethod of
-// wx.App called DisplayAvailable().
+// wx.App called IsDisplayAvailable().
 
 
 bool wxPyTestDisplayAvailable()
