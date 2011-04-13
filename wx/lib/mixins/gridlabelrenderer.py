@@ -98,6 +98,8 @@ class GridWithLabelRenderersMixin(object):
         dc = wx.PaintDC(window)
                 
         rows = self.CalcRowLabelsExposed(window.GetUpdateRegion())
+        if rows == [-1]:
+            return
 
         x, y = self.CalcUnscrolledPosition((0,0))
         pt = dc.GetDeviceOrigin()
@@ -120,6 +122,8 @@ class GridWithLabelRenderersMixin(object):
         dc = wx.PaintDC(window)
 
         cols = self.CalcColLabelsExposed(window.GetUpdateRegion())
+        if cols == [-1]:
+            return
 
         x, y = self.CalcUnscrolledPosition((0,0))
         pt = dc.GetDeviceOrigin()
