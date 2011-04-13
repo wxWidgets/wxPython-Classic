@@ -352,14 +352,14 @@ enum wxBitmapBufferFormat {
                 
                 CHECK_BUFFERSIZE(stride * height);
                 
-                if (depth == 24) {
-                    MAKE_PIXDATA(wxNativePixelData);
+                if (useAlpha && depth == 32) {
+                    MAKE_PIXDATA(wxAlphaPixelData);
                     for (int y=0; y<height; y++) {
                         p.MoveTo(pixData, 0, y);
                         bufptr = (wxUint32*)dataRow;
                         for (int x=0; x<width; x++) {
                             value =
-                                (wxALPHA_OPAQUE << 24) |
+                                (p.Alpha() << 24) |
                                 (p.Red() << 16) |
                                 (p.Green() << 8) |
                                 (p.Blue());
@@ -370,16 +370,15 @@ enum wxBitmapBufferFormat {
                         dataRow += stride;
                     }
                 }
-                if (depth == 32) {
-                    MAKE_PIXDATA(wxAlphaPixelData);
-                    if (useAlpha)
-                        pixData.UseAlpha();
+                else // if (!useAlpha /*depth == 24*/)
+                {
+                    MAKE_PIXDATA(wxNativePixelData);
                     for (int y=0; y<height; y++) {
                         p.MoveTo(pixData, 0, y);
                         bufptr = (wxUint32*)dataRow;
                         for (int x=0; x<width; x++) {
                             value =
-                                (p.Alpha() << 24) |
+                                (wxALPHA_OPAQUE << 24) |
                                 (p.Red() << 16) |
                                 (p.Green() << 8) |
                                 (p.Blue());
