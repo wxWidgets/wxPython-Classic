@@ -1198,9 +1198,9 @@ alpha channel then a alpha channel will be added.", "");
 
 
 
-// Make an image from buffer objects.  Not that this is here instead of in the
+// Make an image from buffer objects.  Note that this is here instead of in the
 // wxImage class (as a constructor) because there is already another one with
-// the exact same signature, so there woudl be ambiguities in the generated
+// the exact same signature, so there would be ambiguities in the generated
 // C++.  Doing it as an independent factory function like this accomplishes
 // the same thing however.
 %newobject _ImageFromBuffer;
