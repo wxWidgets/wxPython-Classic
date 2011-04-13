@@ -360,7 +360,10 @@ class Pycairo_CAPI(ctypes.Structure):
                                                       ctypes.py_object)),
             ('Check_Status', ctypes.PYFUNCTYPE(ctypes.c_int, ctypes.c_int))]
 
-    elif cairo.version_info < (1,9):  # This structure is known good with pycairo 1.8.4
+    # This structure is known good with pycairo 1.8.4.
+    # We have to also test for (1,10,8) because pycairo 1.8.10 has an
+    # incorrect version_info value
+    elif cairo.version_info < (1,9) or cairo.version_info == (1,10,8):  
         _fields_ = [
             ('Context_Type', ctypes.py_object),
             ('Context_FromContext', ctypes.PYFUNCTYPE(ctypes.py_object,
