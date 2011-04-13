@@ -45,6 +45,7 @@ __all__ = ('Sender', 'SenderNoWx', 'SenderWxEvent', 'SenderCallAfter',
 
 import wx
 import threading
+import traceback
 
 
 class Struct:
@@ -111,7 +112,7 @@ class Sender:
         delayedResult = DelayedResult(result, jobID=self.__jobID)
         self._sendImpl(delayedResult)
 
-    def sendException(self, exception, extraInfo = None):
+    def sendException(self, exception, extraInfo = None, originalTb = None):
         """Use this when the worker function raised an exception.
         The *exception* is the instance of Exception caught. The extraInfo
         could be anything you want (e.g. locals or traceback etc), 
@@ -119,7 +120,7 @@ class Sender:
         exception will be raised when DelayedResult.get() is called."""
         assert exception is not None
         delayedResult = DelayedResult(extraInfo, 
-            exception=exception, jobID=self.__jobID)
+            exception=exception, jobID=self.__jobID, originalTb=originalTb)
         self._sendImpl(delayedResult)
 
     def _sendImpl(self, delayedResult):
@@ -204,11 +205,12 @@ class DelayedResult:
     called. 
     """
     
-    def __init__(self, result, jobID=None, exception = None):
+    def __init__(self, result, jobID=None, exception = None, originalTb = None):
         """You should never have to call this yourself. A DelayedResult 
         is created by a concrete Sender for you."""
         self.__result = result
         self.__exception = exception
+        self.__original_traceback = originalTb
         self.__jobID = jobID
 
     def getJobID(self):
@@ -218,10 +220,15 @@ class DelayedResult:
     
     def get(self):
         """Get the result. If an exception was sent instead of a result, 
-        (via Sender's sendExcept()), that **exception is raised**.
-        Otherwise the result is simply returned. """
+        (via Sender's sendExcept()), that **exception is raised**, and
+        the original traceback is available as the 'originalTraceback'
+        variable in the exception object.
+
+        Otherwise, the result is simply returned. 
+        """
         if self.__exception: # exception was raised!
             self.__exception.extraInfo = self.__result
+            self.__exception.originalTraceback = self.__original_traceback
             raise self.__exception
         
         return self.__result
@@ -261,8 +268,9 @@ class Producer(threading.Thread):
             except AbortedException:
                 pass
             except Exception, exc:
+                originalTb = traceback.format_exc()
                 extraInfo = self._extraInfo(exc)
-                sender.sendException(exc, extraInfo)
+                sender.sendException(exc, extraInfo, originalTb)
             else:
                 if sendReturn:
                     sender.sendResult(result)
