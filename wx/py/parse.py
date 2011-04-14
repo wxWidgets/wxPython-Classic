@@ -56,7 +56,7 @@ def testForContinuations(codeBlock,ignoreErrors=False):
                 while currentIndentation<indentNumber[-1]:
                     indentNumber.pop() # This is the end of an indentation block
             elif not ignoreErrors:
-                print 'Invalid Indentation!!'
+                #print 'Invalid Indentation!!'
                 return ['Invalid Indentation Error',i]
         
         firstWord = re.match(' *\w*',l).group().lstrip()
@@ -87,7 +87,7 @@ def testForContinuations(codeBlock,ignoreErrors=False):
                         if paraMarkDict[paraList[-1]]==j:
                             paraList.pop()
                         elif not ignoreErrors:
-                            print 'Invalid Syntax!!'
+                            #print 'Invalid Syntax!!'
                             return ['Invalid Syntax Error',i]
                     if j in openMarks:
                         paraList.append(j)
@@ -116,11 +116,11 @@ def testForContinuations(codeBlock,ignoreErrors=False):
     if (stringContinuationList[-1] or indentationBlockList[-1] or \
        lineContinuationList[-1] or parentheticalContinuationList[-1]) \
        and not ignoreErrors:
-        print 'Incomplete Syntax!!'
+        #print 'Incomplete Syntax!!'
         return ['Incomplete Syntax Error',i]
     
     if newIndent and not ignoreErrors:
-        print 'Incomplete Indentation!'
+        #print 'Incomplete Indentation!'
         return ['Incomplete Indentation Error',i]
     
     # Note that if one of these errors above gets thrown, the best solution is to pass the resulting block
