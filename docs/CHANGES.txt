@@ -1,6 +1,15 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.8.12.0
+--------
+* 16-April-2011
+
+This release is mostly just bug and typo fixes.  There are no new
+major features or enhancements in the core library.
+
+
+
 2.8.11.0
 --------
 * 14-May-2010

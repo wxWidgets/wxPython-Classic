@@ -3,8 +3,8 @@ Building wxPython 2.8 for Development and Testing
 
 This file describes how I build wxWidgets and wxPython while doing
 development and testing, and is meant to help other people that want
-to do the same thing.  I'll assume that you are using either a CVS
-snapshot from http://wxWidgets.org/snapshots/, a checkout from CVS, or
+to do the same thing.  I'll assume that you are using either a SVN
+snapshot from http://wxWidgets.org/snapshots/, a checkout from SVN, or
 one of the released wxPython-src-2.8.* tarballs.  I'll also assume that
 you know your way around your system, the compiler, etc. and most
 importantly, that you know what you are doing!  ;-)
@@ -443,7 +443,7 @@ accordingly if you are using the bash shell.
 
 
 9. To run code with the development version of wxPython, just set the
-   PYTHONPATH to the wxPython dir in the CVS tree.  For example::
+   PYTHONPATH to the wxPython dir in the source tree.  For example::
 
         set PYTHONPATH=%WXDIR%\wxPython
         cd %WXDIR\wxPython\demo

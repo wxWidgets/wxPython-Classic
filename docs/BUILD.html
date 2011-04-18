@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
 <title>Building wxPython 2.8 for Development and Testing</title>
 <link rel="stylesheet" href="default.css" type="text/css" />
 </head>
@@ -13,8 +13,8 @@
 
 <p>This file describes how I build wxWidgets and wxPython while doing
 development and testing, and is meant to help other people that want
-to do the same thing.  I'll assume that you are using either a CVS
-snapshot from <a class="reference external" href="http://wxWidgets.org/snapshots/">http://wxWidgets.org/snapshots/</a>, a checkout from CVS, or
+to do the same thing.  I'll assume that you are using either a SVN
+snapshot from <a class="reference external" href="http://wxWidgets.org/snapshots/">http://wxWidgets.org/snapshots/</a>, a checkout from SVN, or
 one of the released wxPython-src-2.8.* tarballs.  I'll also assume that
 you know your way around your system, the compiler, etc. and most
 importantly, that you know what you are doing!  ;-)</p>
@@ -26,7 +26,7 @@ you only use the instructions in this <a class="reference external" href="BUILD.
 will end up with a separate installation of wxPython and you can
 switch back and forth between this and the release version that you
 may already have installed.</p>
-<p>If you want to make changes to any of the <tt class="docutils literal"><span class="pre">*.i</span></tt> files, (SWIG
+<p>If you want to make changes to any of the <tt class="docutils literal">*.i</tt> files, (SWIG
 interface definition files,) or to regenerate the extension sources or
 renamer modules, then you will need an up to date version of SWIG,
 plus some patches.  Get the sources for version 1.3.29, and then apply
@@ -135,7 +135,7 @@ can add these flags to the configure command:</p>
 command but there are a couple other libraries besides the main
 wxWidgets libs that also need to be built so again I make a script
 to do it all for me so I don't forget anything.  This time it is
-called &quot;.make&quot; (I use the leading &quot;.&quot;  so when I do <tt class="docutils literal"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">*</span></tt> in
+called &quot;.make&quot; (I use the leading &quot;.&quot;  so when I do <tt class="docutils literal">rm <span class="pre">-r</span> *</tt> in
 my build dir I don't lose my scripts too.)  This is what it looks
 like:</p>
 <pre class="literal-block">
@@ -195,7 +195,7 @@ of wxWidgets.  If not then you can use this flag:</p>
 UNICODE=0
 </pre>
 <p>If you are wanting to have the source files regenerated with swig,
-(only neccessary if you make modifications to the <tt class="docutils literal"><span class="pre">*.i</span></tt> files,)
+(only neccessary if you make modifications to the <tt class="docutils literal">*.i</tt> files,)
 then you need to turn on the USE_SWIG flag and optionally tell it
 where to find the new swig executable, so add these flags:</p>
 <pre class="literal-block">
@@ -396,7 +396,7 @@ cd %WXDIR%\wxPython
 python setup.py build_ext --inplace MONOLITHIC=0
 </pre>
 <p>If you are wanting to have the source files regenerated with swig,
-(only neccessary if you make modifications to the <tt class="docutils literal"><span class="pre">*.i</span></tt> files,)
+(only neccessary if you make modifications to the <tt class="docutils literal">*.i</tt> files,)
 then you need to turn on the USE_SWIG flag and optionally tell it
 where to find the new swig executable, so add these flags:</p>
 <pre class="literal-block">
@@ -409,16 +409,16 @@ UNICODE=1
 </pre>
 <p>If you have a debug version of Python and wxWidgets and want to
 build a debug version of wxPython too, add the --debug flag to the
-command line.  You should then end up with a set of <tt class="docutils literal"><span class="pre">*_d.pyd</span></tt>
-files in the wx package and you'll have to run <tt class="docutils literal"><span class="pre">python_d.exe</span></tt> to
+command line.  You should then end up with a set of <tt class="docutils literal">*_d.pyd</tt>
+files in the wx package and you'll have to run <tt class="docutils literal">python_d.exe</tt> to
 use them.  The debug and hybrid(release) versions can coexist.</p>
 <p>When the setup.py command is done you should have fully populated
 wxPython and wx packages locally in %WXDIR%/wxPython/wxPython and
-%WXDIR%/wxPython/wx, with all the extension modules (<tt class="docutils literal"><span class="pre">*.pyd</span></tt>
+%WXDIR%/wxPython/wx, with all the extension modules (<tt class="docutils literal">*.pyd</tt>
 files) located in the wx package.</p>
 </li>
 <li><p class="first">To run code with the development version of wxPython, just set the
-PYTHONPATH to the wxPython dir in the CVS tree.  For example:</p>
+PYTHONPATH to the wxPython dir in the source tree.  For example:</p>
 <pre class="literal-block">
 set PYTHONPATH=%WXDIR%\wxPython
 cd %WXDIR\wxPython\demo
