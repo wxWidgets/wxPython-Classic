@@ -1,13 +1,13 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 #----------------------------------------------------------------------------
 # Name:         basic.py
 # Purpose:      The basic OGL shapes
 #
-# Author:       Pierre Hj‰lm (from C++ original by Julian Smart)
+# Author:       Pierre Hj√§lm (from C++ original by Julian Smart)
 #
 # Created:      2004-05-08
 # RCS-ID:       $Id$
-# Copyright:    (c) 2004 Pierre Hj‰lm - 1998 Julian Smart
+# Copyright:    (c) 2004 Pierre Hj√§lm - 1998 Julian Smart
 # Licence:      wxWindows license
 #----------------------------------------------------------------------------
 
@@ -2726,7 +2726,7 @@ class PolygonShape(Shape):
 
             self._originalPoints[i] = x1 * cosTheta - y1 * sinTheta + x * (1 - cosTheta) + y * sinTheta, x1 * sinTheta + y1 * cosTheta + y * (1 - cosTheta) + x * sinTheta
 
-        # Added by Pierre Hj‰lm. If we don't do this the outline will be
+        # Added by Pierre Hj√§lm. If we don't do this the outline will be
         # the wrong size. Hopefully it won't have any ill effects.
         self.UpdateOriginalPoints()
         
@@ -2991,7 +2991,7 @@ class ShapeRegion(object):
             self._actualColourObject = wx.TheColourDatabase.Find("BLACK")
             self._actualPenObject = None
 
-        self._formattedText = []
+            self._formattedText = []
 
     def ClearText(self):
         self._formattedText = []
