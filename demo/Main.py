@@ -114,6 +114,7 @@ _treeList = [
         'Cairo_Snippets',
         'SystemSettings',
         'GridLabelRenderer',
+        'ItemsPicker',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -207,6 +208,7 @@ _treeList = [
         'Editor',
         'GenericButtons',
         'GenericDirCtrl',
+        'ItemsPicker',
         'LEDNumberCtrl',
         'MultiSash',
         'PlateButton',
