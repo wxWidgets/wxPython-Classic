@@ -27,7 +27,8 @@ function TestOnline {
     fi
 }
 
-
+#user=root
+user=robind
 
 if [ $skipdeb != yes ]; then
     # We use a chroot environment on the build machine for the debian
@@ -40,17 +41,17 @@ if [ $skipdeb != yes ]; then
 	echo "The $host machine is online, build continuing..."
 
 	echo "Copying source files and build script..."
-	ssh root@$host "mkdir -p $chRootRoot/$LINUX_BUILD && rm -rf $chRootRoot/$LINUX_BUILD/*"
+	ssh $user@$host "mkdir -p $chRootRoot/$LINUX_BUILD && rm -rf $chRootRoot/$LINUX_BUILD/*"
 	scp $STAGING_DIR/wxwidgets*.orig.tar.gz distrib/all/do-build-deb \
-            root@$host:$chRootRoot/$LINUX_BUILD
+            $user@$host:$chRootRoot/$LINUX_BUILD
     
-	ssh root@$host "dchroot --chroot $chRootName --directory $LINUX_BUILD \"./do-build-deb $VERSION $VER2 $CHARTYPE\""
+	ssh $user@$host "dchroot --chroot $chRootName --directory $LINUX_BUILD \"./do-build-deb $VERSION $VER2 $CHARTYPE\""
 
 	echo "Fetching the results..."
 	mkdir -p $STAGING_DIR/$chRootName
-	ssh root@$host "rm $chRootRoot/$LINUX_BUILD/do-build-deb"
-	scp "root@$host:$chRootRoot/$LINUX_BUILD/*"  $STAGING_DIR/$chRootName
-	ssh root@$host "rm $chRootRoot/$LINUX_BUILD/*"
+	ssh $user@$host "rm $chRootRoot/$LINUX_BUILD/do-build-deb"
+	scp "$user@$host:$chRootRoot/$LINUX_BUILD/*"  $STAGING_DIR/$chRootName
+	ssh $user@$host "rm $chRootRoot/$LINUX_BUILD/*"
 	echo "Done!"
     else
 	echo "The $host machine is **OFFLINE**, skipping the binary DEB build."
