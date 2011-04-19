@@ -10,9 +10,11 @@ VERSION=$1
 VER2=$2
 CHARTYPE=$3
 
-#tar xjf wxPython-src-$VERSION.tar.bz2
-#rm wxPython-src-$VERSION.tar.bz2
-#mv wxPython-src-$VERSION wxwidgets$VER2-$VERSION
+
+export DEBFULLNAME="Robin Dunn"
+export DEBEMAIL=robin@alldunn.com
+export DEBSIGN_KEYID="Robin Dunn <robin@alldunn.com>"
+export DEBUILD_DPKG_BUILDPACKAGE_OPTS="-i -ICVS -I.svn"
 
 tar xzf wxwidgets${VER2}_${VERSION}.orig.tar.gz
 
@@ -27,14 +29,13 @@ fi
 if [ $CHARTYPE = both ]; then
     touch debian/control.in
     WX_UNICODE=0 debian/rules debian/control
-    WX_UNICODE=0 dpkg-buildpackage -rfakeroot -us -uc
+    WX_UNICODE=0 dpkg-buildpackage -rfakeroot
     fakeroot ./debian/rules clean
 fi
 
 touch debian/control.in
 debian/rules debian/control
-dpkg-buildpackage -rfakeroot -us -uc
-
+dpkg-buildpackage -rfakeroot 
 
 cd ..
 rm -r wxwidgets$VER2-$VERSION
