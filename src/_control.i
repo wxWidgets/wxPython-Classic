@@ -585,6 +585,9 @@ including) the character at the last position.  If both parameters are
     virtual bool AutoComplete(const wxArrayString& choices);
     virtual bool AutoCompleteFileNames();
 
+    // TODO
+    // bool AutoComplete(wxTextCompleter *completer);
+
 
     // status
     // ------
