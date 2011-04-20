@@ -961,7 +961,6 @@ def StaticLine_GetClassDefaultAttributes(*args, **kwargs):
 #---------------------------------------------------------------------------
 
 ST_NO_AUTORESIZE = _controls_.ST_NO_AUTORESIZE
-ST_MARKUP = _controls_.ST_MARKUP
 ST_ELLIPSIZE_START = _controls_.ST_ELLIPSIZE_START
 ST_ELLIPSIZE_MIDDLE = _controls_.ST_ELLIPSIZE_MIDDLE
 ST_ELLIPSIZE_END = _controls_.ST_ELLIPSIZE_END
@@ -1001,37 +1000,6 @@ class StaticText(_core.Control):
         """IsEllipsized(self) -> bool"""
         return _controls_.StaticText_IsEllipsized(*args, **kwargs)
 
-    def RemoveMarkup(*args, **kwargs):
-        """
-        RemoveMarkup(String str) -> String
-
-        Removes the markup accepted by wx.StaticText when wx.ST_MARKUP is
-        used, and then returns the cleaned string.
-            
-        """
-        return _controls_.StaticText_RemoveMarkup(*args, **kwargs)
-
-    RemoveMarkup = staticmethod(RemoveMarkup)
-    def EscapeMarkup(*args, **kwargs):
-        """
-        EscapeMarkup(String str) -> String
-
-        Escapes the alls special symbols (<>"'&) present inside the given
-        string using the corresponding entities (&lt; &gt; &quot; &apos;
-        &amp;)
-        """
-        return _controls_.StaticText_EscapeMarkup(*args, **kwargs)
-
-    EscapeMarkup = staticmethod(EscapeMarkup)
-    def GetLabelText(*args, **kwargs):
-        """
-        GetLabelText(self) -> String
-
-        Get the string without mnemonic characters ('&') and without markup (if
-        wxST_MARKUP is being used)
-        """
-        return _controls_.StaticText_GetLabelText(*args, **kwargs)
-
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -1056,26 +1024,6 @@ def PreStaticText(*args, **kwargs):
     """PreStaticText() -> StaticText"""
     val = _controls_.new_PreStaticText(*args, **kwargs)
     return val
-
-def StaticText_RemoveMarkup(*args, **kwargs):
-  """
-    StaticText_RemoveMarkup(String str) -> String
-
-    Removes the markup accepted by wx.StaticText when wx.ST_MARKUP is
-    used, and then returns the cleaned string.
-        
-    """
-  return _controls_.StaticText_RemoveMarkup(*args, **kwargs)
-
-def StaticText_EscapeMarkup(*args, **kwargs):
-  """
-    StaticText_EscapeMarkup(String str) -> String
-
-    Escapes the alls special symbols (<>"'&) present inside the given
-    string using the corresponding entities (&lt; &gt; &quot; &apos;
-    &amp;)
-    """
-  return _controls_.StaticText_EscapeMarkup(*args, **kwargs)
 
 def StaticText_GetClassDefaultAttributes(*args, **kwargs):
   """

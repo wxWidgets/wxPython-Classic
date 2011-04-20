@@ -13522,6 +13522,78 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_AuiTabArt_SetColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiTabArt *arg1 = (wxAuiTabArt *) 0 ;
+  wxColour *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxColour temp2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "colour", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiTabArt_SetColour",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiTabArt, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabArt_SetColour" "', expected argument " "1"" of type '" "wxAuiTabArt *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiTabArt * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetColour((wxColour const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiTabArt_SetActiveColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiTabArt *arg1 = (wxAuiTabArt *) 0 ;
+  wxColour *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxColour temp2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "colour", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiTabArt_SetActiveColour",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiTabArt, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabArt_SetActiveColour" "', expected argument " "1"" of type '" "wxAuiTabArt *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiTabArt * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetActiveColour((wxColour const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_AuiTabArt_DrawBackground(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxAuiTabArt *arg1 = (wxAuiTabArt *) 0 ;
@@ -15056,6 +15128,78 @@ SWIGINTERN PyObject *_wrap_AuiTabContainer_SetMeasuringFont(PyObject *SWIGUNUSED
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetMeasuringFont((wxFont const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiTabContainer_SetColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiTabContainer *arg1 = (wxAuiTabContainer *) 0 ;
+  wxColour *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxColour temp2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "colour", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiTabContainer_SetColour",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiTabContainer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainer_SetColour" "', expected argument " "1"" of type '" "wxAuiTabContainer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiTabContainer * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetColour((wxColour const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_AuiTabContainer_SetActiveColour(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxAuiTabContainer *arg1 = (wxAuiTabContainer *) 0 ;
+  wxColour *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxColour temp2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "colour", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiTabContainer_SetActiveColour",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxAuiTabContainer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainer_SetActiveColour" "', expected argument " "1"" of type '" "wxAuiTabContainer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxAuiTabContainer * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxColour_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetActiveColour((wxColour const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -25237,6 +25381,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiTabArt_SetNormalFont", (PyCFunction) _wrap_AuiTabArt_SetNormalFont, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabArt_SetSelectedFont", (PyCFunction) _wrap_AuiTabArt_SetSelectedFont, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabArt_SetMeasuringFont", (PyCFunction) _wrap_AuiTabArt_SetMeasuringFont, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiTabArt_SetColour", (PyCFunction) _wrap_AuiTabArt_SetColour, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiTabArt_SetActiveColour", (PyCFunction) _wrap_AuiTabArt_SetActiveColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabArt_DrawBackground", (PyCFunction) _wrap_AuiTabArt_DrawBackground, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabArt_ShowDropDown", (PyCFunction) _wrap_AuiTabArt_ShowDropDown, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabArt_GetIndentSize", (PyCFunction)_wrap_AuiTabArt_GetIndentSize, METH_O, NULL},
@@ -25276,6 +25422,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiTabContainer_SetNormalFont", (PyCFunction) _wrap_AuiTabContainer_SetNormalFont, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabContainer_SetSelectedFont", (PyCFunction) _wrap_AuiTabContainer_SetSelectedFont, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabContainer_SetMeasuringFont", (PyCFunction) _wrap_AuiTabContainer_SetMeasuringFont, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiTabContainer_SetColour", (PyCFunction) _wrap_AuiTabContainer_SetColour, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"AuiTabContainer_SetActiveColour", (PyCFunction) _wrap_AuiTabContainer_SetActiveColour, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabContainer_DoShowHide", (PyCFunction)_wrap_AuiTabContainer_DoShowHide, METH_O, NULL},
 	 { (char *)"AuiTabContainer_SetRect", (PyCFunction) _wrap_AuiTabContainer_SetRect, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiTabContainer_RemoveButton", (PyCFunction) _wrap_AuiTabContainer_RemoveButton, METH_VARARGS | METH_KEYWORDS, NULL},

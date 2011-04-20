@@ -5413,6 +5413,33 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ComboPopup_DestroyPopup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyComboPopup *arg1 = (wxPyComboPopup *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyComboPopup, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ComboPopup_DestroyPopup" "', expected argument " "1"" of type '" "wxPyComboPopup *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyComboPopup * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DestroyPopup();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ComboPopup_GetControl(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPyComboPopup *arg1 = (wxPyComboPopup *) 0 ;
@@ -7270,6 +7297,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ComboPopup__setCallbackInfo", (PyCFunction) _wrap_ComboPopup__setCallbackInfo, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ComboPopup_Init", (PyCFunction)_wrap_ComboPopup_Init, METH_O, NULL},
 	 { (char *)"ComboPopup_Create", (PyCFunction) _wrap_ComboPopup_Create, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"ComboPopup_DestroyPopup", (PyCFunction)_wrap_ComboPopup_DestroyPopup, METH_O, NULL},
 	 { (char *)"ComboPopup_GetControl", (PyCFunction)_wrap_ComboPopup_GetControl, METH_O, NULL},
 	 { (char *)"ComboPopup_OnPopup", (PyCFunction)_wrap_ComboPopup_OnPopup, METH_O, NULL},
 	 { (char *)"ComboPopup_OnDismiss", (PyCFunction)_wrap_ComboPopup_OnDismiss, METH_O, NULL},

@@ -15980,6 +15980,44 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_HtmlHelpFrame_SetShouldPreventAppExit(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxHtmlHelpFrame *arg1 = (wxHtmlHelpFrame *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "enable", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:HtmlHelpFrame_SetShouldPreventAppExit",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxHtmlHelpFrame, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HtmlHelpFrame_SetShouldPreventAppExit" "', expected argument " "1"" of type '" "wxHtmlHelpFrame *""'"); 
+  }
+  arg1 = reinterpret_cast< wxHtmlHelpFrame * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HtmlHelpFrame_SetShouldPreventAppExit" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetShouldPreventAppExit(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_HtmlHelpFrame_GetController(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxHtmlHelpFrame *arg1 = (wxHtmlHelpFrame *) 0 ;
@@ -17295,6 +17333,44 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_HtmlHelpController_SetShouldPreventAppExit(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxHtmlHelpController *arg1 = (wxHtmlHelpController *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "enable", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:HtmlHelpController_SetShouldPreventAppExit",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxHtmlHelpController, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "HtmlHelpController_SetShouldPreventAppExit" "', expected argument " "1"" of type '" "wxHtmlHelpController *""'"); 
+  }
+  arg1 = reinterpret_cast< wxHtmlHelpController * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "HtmlHelpController_SetShouldPreventAppExit" "', expected argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetShouldPreventAppExit(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_HtmlHelpController_GetHelpWindow(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxHtmlHelpController *arg1 = (wxHtmlHelpController *) 0 ;
@@ -18430,6 +18506,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"HtmlHelpFrame_GetData", (PyCFunction)_wrap_HtmlHelpFrame_GetData, METH_O, NULL},
 	 { (char *)"HtmlHelpFrame_SetTitleFormat", (PyCFunction) _wrap_HtmlHelpFrame_SetTitleFormat, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlHelpFrame_AddGrabIfNeeded", (PyCFunction)_wrap_HtmlHelpFrame_AddGrabIfNeeded, METH_O, NULL},
+	 { (char *)"HtmlHelpFrame_SetShouldPreventAppExit", (PyCFunction) _wrap_HtmlHelpFrame_SetShouldPreventAppExit, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlHelpFrame_GetController", (PyCFunction)_wrap_HtmlHelpFrame_GetController, METH_O, NULL},
 	 { (char *)"HtmlHelpFrame_SetController", (PyCFunction) _wrap_HtmlHelpFrame_SetController, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlHelpFrame_GetHelpWindow", (PyCFunction)_wrap_HtmlHelpFrame_GetHelpWindow, METH_O, NULL},
@@ -18462,6 +18539,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"HelpControllerBase_swigregister", HelpControllerBase_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_HtmlHelpController", (PyCFunction) _wrap_new_HtmlHelpController, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"delete_HtmlHelpController", (PyCFunction)_wrap_delete_HtmlHelpController, METH_O, NULL},
+	 { (char *)"HtmlHelpController_SetShouldPreventAppExit", (PyCFunction) _wrap_HtmlHelpController_SetShouldPreventAppExit, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlHelpController_GetHelpWindow", (PyCFunction)_wrap_HtmlHelpController_GetHelpWindow, METH_O, NULL},
 	 { (char *)"HtmlHelpController_SetHelpWindow", (PyCFunction) _wrap_HtmlHelpController_SetHelpWindow, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"HtmlHelpController_GetFrame", (PyCFunction)_wrap_HtmlHelpController_GetFrame, METH_O, NULL},

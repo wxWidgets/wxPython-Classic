@@ -23871,7 +23871,7 @@ fail:
 
 SWIGINTERN PyObject *_wrap_StyledTextCtrl_GetLibraryVersionInfo(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
-  wxVersionInfo result;
+  SwigValueWrapper<wxVersionInfo > result;
   
   if (!SWIG_Python_UnpackTuple(args,"StyledTextCtrl_GetLibraryVersionInfo",0,0,0)) SWIG_fail;
   {

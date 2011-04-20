@@ -52672,7 +52672,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PG_TEXTCTRLXADJUST",SWIG_From_int(static_cast< int >(0)));
   SWIG_Python_SetConstant(d, "PG_ICON_WIDTH",SWIG_From_int(static_cast< int >(11)));
   SWIG_Python_SetConstant(d, "PG_USE_RENDERER_NATIVE",SWIG_From_int(static_cast< int >(1)));
-  SWIG_Python_SetConstant(d, "PG_DOUBLE_BUFFER",SWIG_From_int(static_cast< int >(0)));
   SWIG_Python_SetConstant(d, "PG_SUPPORT_TOOLTIPS",SWIG_From_int(static_cast< int >(1)));
   SWIG_Python_SetConstant(d, "PG_CUSTOM_IMAGE_WIDTH",SWIG_From_int(static_cast< int >(20)));
   SWIG_Python_SetConstant(d, "PG_NO_CHILD_EVT_MOTION",SWIG_From_int(static_cast< int >(0)));

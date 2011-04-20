@@ -2550,35 +2550,36 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxPyXmlResourceHandler swig_types[84]
 #define SWIGTYPE_p_wxPyXmlSubclassFactory swig_types[85]
 #define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[86]
-#define SWIGTYPE_p_wxScrollEvent swig_types[87]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[88]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[89]
-#define SWIGTYPE_p_wxShowEvent swig_types[90]
-#define SWIGTYPE_p_wxSize swig_types[91]
-#define SWIGTYPE_p_wxSizeEvent swig_types[92]
-#define SWIGTYPE_p_wxSizer swig_types[93]
-#define SWIGTYPE_p_wxSizerItem swig_types[94]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[95]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[96]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[97]
-#define SWIGTYPE_p_wxTGAHandler swig_types[98]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[99]
-#define SWIGTYPE_p_wxTextCtrlBase swig_types[100]
-#define SWIGTYPE_p_wxThreadEvent swig_types[101]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[102]
-#define SWIGTYPE_p_wxValidator swig_types[103]
-#define SWIGTYPE_p_wxWindow swig_types[104]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[105]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[106]
-#define SWIGTYPE_p_wxWrapSizer swig_types[107]
-#define SWIGTYPE_p_wxXPMHandler swig_types[108]
-#define SWIGTYPE_p_wxXmlAttribute swig_types[109]
-#define SWIGTYPE_p_wxXmlDocument swig_types[110]
-#define SWIGTYPE_p_wxXmlNode swig_types[111]
-#define SWIGTYPE_p_wxXmlProperty swig_types[112]
-#define SWIGTYPE_p_wxXmlResource swig_types[113]
-static swig_type_info *swig_types[115];
-static swig_module_info swig_module = {swig_types, 114, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxRefCounter swig_types[87]
+#define SWIGTYPE_p_wxScrollEvent swig_types[88]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[89]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[90]
+#define SWIGTYPE_p_wxShowEvent swig_types[91]
+#define SWIGTYPE_p_wxSize swig_types[92]
+#define SWIGTYPE_p_wxSizeEvent swig_types[93]
+#define SWIGTYPE_p_wxSizer swig_types[94]
+#define SWIGTYPE_p_wxSizerItem swig_types[95]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[96]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[97]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[98]
+#define SWIGTYPE_p_wxTGAHandler swig_types[99]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[100]
+#define SWIGTYPE_p_wxTextCtrlBase swig_types[101]
+#define SWIGTYPE_p_wxThreadEvent swig_types[102]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[103]
+#define SWIGTYPE_p_wxValidator swig_types[104]
+#define SWIGTYPE_p_wxWindow swig_types[105]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[106]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[107]
+#define SWIGTYPE_p_wxWrapSizer swig_types[108]
+#define SWIGTYPE_p_wxXPMHandler swig_types[109]
+#define SWIGTYPE_p_wxXmlAttribute swig_types[110]
+#define SWIGTYPE_p_wxXmlDocument swig_types[111]
+#define SWIGTYPE_p_wxXmlNode swig_types[112]
+#define SWIGTYPE_p_wxXmlProperty swig_types[113]
+#define SWIGTYPE_p_wxXmlResource swig_types[114]
+static swig_type_info *swig_types[116];
+static swig_module_info swig_module = {swig_types, 115, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -9916,6 +9917,7 @@ static swig_type_info _swigt__p_wxPaperSize = {"_p_wxPaperSize", "enum wxPaperSi
 static swig_type_info _swigt__p_wxPoint = {"_p_wxPoint", "wxPoint *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPyXmlResourceHandler = {"_p_wxPyXmlResourceHandler", "wxPyXmlResourceHandler *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxPyXmlSubclassFactory = {"_p_wxPyXmlSubclassFactory", "wxPyXmlSubclassFactory *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxRefCounter = {"_p_wxRefCounter", "wxRefCounter *|wxObjectRefData *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxSize = {"_p_wxSize", "wxSize *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWindow = {"_p_wxWindow", "wxWindow *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxXmlAttribute = {"_p_wxXmlAttribute", "wxXmlAttribute *", 0, 0, (void*)0, 0};
@@ -10012,6 +10014,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxPyXmlResourceHandler,
   &_swigt__p_wxPyXmlSubclassFactory,
   &_swigt__p_wxQueryNewPaletteEvent,
+  &_swigt__p_wxRefCounter,
   &_swigt__p_wxScrollEvent,
   &_swigt__p_wxScrollWinEvent,
   &_swigt__p_wxSetCursorEvent,
@@ -10148,6 +10151,7 @@ static swig_cast_info _swigc__p_wxPaperSize[] = {  {&_swigt__p_wxPaperSize, 0, 0
 static swig_cast_info _swigc__p_wxPoint[] = {  {&_swigt__p_wxPoint, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyXmlResourceHandler[] = {  {&_swigt__p_wxPyXmlResourceHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxPyXmlSubclassFactory[] = {  {&_swigt__p_wxPyXmlSubclassFactory, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxRefCounter[] = {  {&_swigt__p_wxRefCounter, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSize[] = {  {&_swigt__p_wxSize, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxControl, _p_wxControlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxWindow, 0, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxWindow, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxXmlAttribute[] = {  {&_swigt__p_wxXmlAttribute, 0, 0, 0},{0, 0, 0, 0}};
@@ -10244,6 +10248,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxPyXmlResourceHandler,
   _swigc__p_wxPyXmlSubclassFactory,
   _swigc__p_wxQueryNewPaletteEvent,
+  _swigc__p_wxRefCounter,
   _swigc__p_wxScrollEvent,
   _swigc__p_wxScrollWinEvent,
   _swigc__p_wxSetCursorEvent,

@@ -617,6 +617,10 @@ class ComboPopup(object):
         """
         return _combo.ComboPopup_Create(*args, **kwargs)
 
+    def DestroyPopup(*args, **kwargs):
+        """DestroyPopup(self)"""
+        return _combo.ComboPopup_DestroyPopup(*args, **kwargs)
+
     def GetControl(*args, **kwargs):
         """
         GetControl(self) -> Window

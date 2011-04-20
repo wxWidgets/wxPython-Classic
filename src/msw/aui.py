@@ -1164,6 +1164,14 @@ class AuiTabArt(object):
         """SetMeasuringFont(self, Font font)"""
         return _aui.AuiTabArt_SetMeasuringFont(*args, **kwargs)
 
+    def SetColour(*args, **kwargs):
+        """SetColour(self, Colour colour)"""
+        return _aui.AuiTabArt_SetColour(*args, **kwargs)
+
+    def SetActiveColour(*args, **kwargs):
+        """SetActiveColour(self, Colour colour)"""
+        return _aui.AuiTabArt_SetActiveColour(*args, **kwargs)
+
     def DrawBackground(*args, **kwargs):
         """DrawBackground(self, DC dc, Window wnd, Rect rect)"""
         return _aui.AuiTabArt_DrawBackground(*args, **kwargs)
@@ -1320,6 +1328,14 @@ class AuiTabContainer(object):
     def SetMeasuringFont(*args, **kwargs):
         """SetMeasuringFont(self, Font measuring_font)"""
         return _aui.AuiTabContainer_SetMeasuringFont(*args, **kwargs)
+
+    def SetColour(*args, **kwargs):
+        """SetColour(self, Colour colour)"""
+        return _aui.AuiTabContainer_SetColour(*args, **kwargs)
+
+    def SetActiveColour(*args, **kwargs):
+        """SetActiveColour(self, Colour colour)"""
+        return _aui.AuiTabContainer_SetActiveColour(*args, **kwargs)
 
     def DoShowHide(*args, **kwargs):
         """DoShowHide(self)"""

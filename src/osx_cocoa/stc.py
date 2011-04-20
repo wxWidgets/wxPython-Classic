@@ -6421,7 +6421,7 @@ class StyledTextCtrl(_core.Control,_core.TextCtrlIface):
         return _stc.StyledTextCtrl_PositionToXY(*args, **kwargs)
 
     def GetLibraryVersionInfo(*args, **kwargs):
-        """GetLibraryVersionInfo() -> wxVersionInfo"""
+        """GetLibraryVersionInfo() -> VersionInfo"""
         return _stc.StyledTextCtrl_GetLibraryVersionInfo(*args, **kwargs)
 
     GetLibraryVersionInfo = staticmethod(GetLibraryVersionInfo)
@@ -6531,7 +6531,7 @@ def PreStyledTextCtrl(*args, **kwargs):
     return val
 
 def StyledTextCtrl_GetLibraryVersionInfo(*args):
-  """StyledTextCtrl_GetLibraryVersionInfo() -> wxVersionInfo"""
+  """StyledTextCtrl_GetLibraryVersionInfo() -> VersionInfo"""
   return _stc.StyledTextCtrl_GetLibraryVersionInfo(*args)
 
 class StyledTextEvent(_core.CommandEvent):

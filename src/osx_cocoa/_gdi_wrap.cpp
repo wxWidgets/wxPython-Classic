@@ -2522,129 +2522,130 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxFont swig_types[56]
 #define SWIGTYPE_p_wxFontList swig_types[57]
 #define SWIGTYPE_p_wxFontMapper swig_types[58]
-#define SWIGTYPE_p_wxGBSizerItem swig_types[59]
-#define SWIGTYPE_p_wxGCDC swig_types[60]
-#define SWIGTYPE_p_wxGDIObjListBase swig_types[61]
-#define SWIGTYPE_p_wxGDIObject swig_types[62]
-#define SWIGTYPE_p_wxGIFHandler swig_types[63]
-#define SWIGTYPE_p_wxGraphicsBitmap swig_types[64]
-#define SWIGTYPE_p_wxGraphicsBrush swig_types[65]
-#define SWIGTYPE_p_wxGraphicsContext swig_types[66]
-#define SWIGTYPE_p_wxGraphicsFont swig_types[67]
-#define SWIGTYPE_p_wxGraphicsGradientStop swig_types[68]
-#define SWIGTYPE_p_wxGraphicsGradientStops swig_types[69]
-#define SWIGTYPE_p_wxGraphicsMatrix swig_types[70]
-#define SWIGTYPE_p_wxGraphicsObject swig_types[71]
-#define SWIGTYPE_p_wxGraphicsPath swig_types[72]
-#define SWIGTYPE_p_wxGraphicsPen swig_types[73]
-#define SWIGTYPE_p_wxGraphicsRenderer swig_types[74]
-#define SWIGTYPE_p_wxGridBagSizer swig_types[75]
-#define SWIGTYPE_p_wxGridSizer swig_types[76]
-#define SWIGTYPE_p_wxHeaderButtonParams swig_types[77]
-#define SWIGTYPE_p_wxICOHandler swig_types[78]
-#define SWIGTYPE_p_wxIcon swig_types[79]
-#define SWIGTYPE_p_wxIconBundle swig_types[80]
-#define SWIGTYPE_p_wxIconLocation swig_types[81]
-#define SWIGTYPE_p_wxIconizeEvent swig_types[82]
-#define SWIGTYPE_p_wxIdleEvent swig_types[83]
-#define SWIGTYPE_p_wxImage swig_types[84]
-#define SWIGTYPE_p_wxImageHandler swig_types[85]
-#define SWIGTYPE_p_wxImageList swig_types[86]
-#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[87]
-#define SWIGTYPE_p_wxInitDialogEvent swig_types[88]
-#define SWIGTYPE_p_wxInputStream swig_types[89]
-#define SWIGTYPE_p_wxJPEGHandler swig_types[90]
-#define SWIGTYPE_p_wxKeyEvent swig_types[91]
-#define SWIGTYPE_p_wxLanguageInfo swig_types[92]
-#define SWIGTYPE_p_wxLayoutConstraints swig_types[93]
-#define SWIGTYPE_p_wxLocale swig_types[94]
-#define SWIGTYPE_p_wxMask swig_types[95]
-#define SWIGTYPE_p_wxMaximizeEvent swig_types[96]
-#define SWIGTYPE_p_wxMemoryDC swig_types[97]
-#define SWIGTYPE_p_wxMenu swig_types[98]
-#define SWIGTYPE_p_wxMenuBar swig_types[99]
-#define SWIGTYPE_p_wxMenuEvent swig_types[100]
-#define SWIGTYPE_p_wxMenuItem swig_types[101]
-#define SWIGTYPE_p_wxMetaFile swig_types[102]
-#define SWIGTYPE_p_wxMetaFileDC swig_types[103]
-#define SWIGTYPE_p_wxMirrorDC swig_types[104]
-#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[105]
-#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[106]
-#define SWIGTYPE_p_wxMouseEvent swig_types[107]
-#define SWIGTYPE_p_wxMoveEvent swig_types[108]
-#define SWIGTYPE_p_wxNativeEncodingInfo swig_types[109]
-#define SWIGTYPE_p_wxNativeFontInfo swig_types[110]
-#define SWIGTYPE_p_wxNativePixelData swig_types[111]
-#define SWIGTYPE_p_wxNativePixelData_Accessor swig_types[112]
-#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[113]
-#define SWIGTYPE_p_wxNcPaintEvent swig_types[114]
-#define SWIGTYPE_p_wxNotifyEvent swig_types[115]
-#define SWIGTYPE_p_wxObject swig_types[116]
-#define SWIGTYPE_p_wxOverlay swig_types[117]
-#define SWIGTYPE_p_wxPCXHandler swig_types[118]
-#define SWIGTYPE_p_wxPNGHandler swig_types[119]
-#define SWIGTYPE_p_wxPNMHandler swig_types[120]
-#define SWIGTYPE_p_wxPaintDC swig_types[121]
-#define SWIGTYPE_p_wxPaintEvent swig_types[122]
-#define SWIGTYPE_p_wxPalette swig_types[123]
-#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[124]
-#define SWIGTYPE_p_wxPaperSize swig_types[125]
-#define SWIGTYPE_p_wxPen swig_types[126]
-#define SWIGTYPE_p_wxPenList swig_types[127]
-#define SWIGTYPE_p_wxPixelDataBase swig_types[128]
-#define SWIGTYPE_p_wxPoint swig_types[129]
-#define SWIGTYPE_p_wxPoint2D swig_types[130]
-#define SWIGTYPE_p_wxPostScriptDC swig_types[131]
-#define SWIGTYPE_p_wxPrintData swig_types[132]
-#define SWIGTYPE_p_wxPrinterDC swig_types[133]
-#define SWIGTYPE_p_wxPseudoDC swig_types[134]
-#define SWIGTYPE_p_wxPyApp swig_types[135]
-#define SWIGTYPE_p_wxPyCommandEvent swig_types[136]
-#define SWIGTYPE_p_wxPyEvent swig_types[137]
-#define SWIGTYPE_p_wxPyEvtHandler swig_types[138]
-#define SWIGTYPE_p_wxPyFontEnumerator swig_types[139]
-#define SWIGTYPE_p_wxPyImageHandler swig_types[140]
-#define SWIGTYPE_p_wxPyLocale swig_types[141]
-#define SWIGTYPE_p_wxPySizer swig_types[142]
-#define SWIGTYPE_p_wxPyValidator swig_types[143]
-#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[144]
-#define SWIGTYPE_p_wxRect swig_types[145]
-#define SWIGTYPE_p_wxRect2D swig_types[146]
-#define SWIGTYPE_p_wxRefCounter swig_types[147]
-#define SWIGTYPE_p_wxRegion swig_types[148]
-#define SWIGTYPE_p_wxRegionIterator swig_types[149]
-#define SWIGTYPE_p_wxRendererNative swig_types[150]
-#define SWIGTYPE_p_wxRendererVersion swig_types[151]
-#define SWIGTYPE_p_wxSVGFileDC swig_types[152]
-#define SWIGTYPE_p_wxScreenDC swig_types[153]
-#define SWIGTYPE_p_wxScrollEvent swig_types[154]
-#define SWIGTYPE_p_wxScrollWinEvent swig_types[155]
-#define SWIGTYPE_p_wxSetCursorEvent swig_types[156]
-#define SWIGTYPE_p_wxShowEvent swig_types[157]
-#define SWIGTYPE_p_wxSize swig_types[158]
-#define SWIGTYPE_p_wxSizeEvent swig_types[159]
-#define SWIGTYPE_p_wxSizer swig_types[160]
-#define SWIGTYPE_p_wxSizerItem swig_types[161]
-#define SWIGTYPE_p_wxSplitterRenderParams swig_types[162]
-#define SWIGTYPE_p_wxStaticBoxSizer swig_types[163]
-#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[164]
-#define SWIGTYPE_p_wxStockGDI swig_types[165]
-#define SWIGTYPE_p_wxString swig_types[166]
-#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[167]
-#define SWIGTYPE_p_wxTGAHandler swig_types[168]
-#define SWIGTYPE_p_wxTIFFHandler swig_types[169]
-#define SWIGTYPE_p_wxTextCtrlBase swig_types[170]
-#define SWIGTYPE_p_wxThreadEvent swig_types[171]
-#define SWIGTYPE_p_wxUpdateUIEvent swig_types[172]
-#define SWIGTYPE_p_wxValidator swig_types[173]
-#define SWIGTYPE_p_wxWindow swig_types[174]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[175]
-#define SWIGTYPE_p_wxWindowDC swig_types[176]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[177]
-#define SWIGTYPE_p_wxWrapSizer swig_types[178]
-#define SWIGTYPE_p_wxXPMHandler swig_types[179]
-static swig_type_info *swig_types[181];
-static swig_module_info swig_module = {swig_types, 180, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxFontMetrics swig_types[59]
+#define SWIGTYPE_p_wxGBSizerItem swig_types[60]
+#define SWIGTYPE_p_wxGCDC swig_types[61]
+#define SWIGTYPE_p_wxGDIObjListBase swig_types[62]
+#define SWIGTYPE_p_wxGDIObject swig_types[63]
+#define SWIGTYPE_p_wxGIFHandler swig_types[64]
+#define SWIGTYPE_p_wxGraphicsBitmap swig_types[65]
+#define SWIGTYPE_p_wxGraphicsBrush swig_types[66]
+#define SWIGTYPE_p_wxGraphicsContext swig_types[67]
+#define SWIGTYPE_p_wxGraphicsFont swig_types[68]
+#define SWIGTYPE_p_wxGraphicsGradientStop swig_types[69]
+#define SWIGTYPE_p_wxGraphicsGradientStops swig_types[70]
+#define SWIGTYPE_p_wxGraphicsMatrix swig_types[71]
+#define SWIGTYPE_p_wxGraphicsObject swig_types[72]
+#define SWIGTYPE_p_wxGraphicsPath swig_types[73]
+#define SWIGTYPE_p_wxGraphicsPen swig_types[74]
+#define SWIGTYPE_p_wxGraphicsRenderer swig_types[75]
+#define SWIGTYPE_p_wxGridBagSizer swig_types[76]
+#define SWIGTYPE_p_wxGridSizer swig_types[77]
+#define SWIGTYPE_p_wxHeaderButtonParams swig_types[78]
+#define SWIGTYPE_p_wxICOHandler swig_types[79]
+#define SWIGTYPE_p_wxIcon swig_types[80]
+#define SWIGTYPE_p_wxIconBundle swig_types[81]
+#define SWIGTYPE_p_wxIconLocation swig_types[82]
+#define SWIGTYPE_p_wxIconizeEvent swig_types[83]
+#define SWIGTYPE_p_wxIdleEvent swig_types[84]
+#define SWIGTYPE_p_wxImage swig_types[85]
+#define SWIGTYPE_p_wxImageHandler swig_types[86]
+#define SWIGTYPE_p_wxImageList swig_types[87]
+#define SWIGTYPE_p_wxIndividualLayoutConstraint swig_types[88]
+#define SWIGTYPE_p_wxInitDialogEvent swig_types[89]
+#define SWIGTYPE_p_wxInputStream swig_types[90]
+#define SWIGTYPE_p_wxJPEGHandler swig_types[91]
+#define SWIGTYPE_p_wxKeyEvent swig_types[92]
+#define SWIGTYPE_p_wxLanguageInfo swig_types[93]
+#define SWIGTYPE_p_wxLayoutConstraints swig_types[94]
+#define SWIGTYPE_p_wxLocale swig_types[95]
+#define SWIGTYPE_p_wxMask swig_types[96]
+#define SWIGTYPE_p_wxMaximizeEvent swig_types[97]
+#define SWIGTYPE_p_wxMemoryDC swig_types[98]
+#define SWIGTYPE_p_wxMenu swig_types[99]
+#define SWIGTYPE_p_wxMenuBar swig_types[100]
+#define SWIGTYPE_p_wxMenuEvent swig_types[101]
+#define SWIGTYPE_p_wxMenuItem swig_types[102]
+#define SWIGTYPE_p_wxMetaFile swig_types[103]
+#define SWIGTYPE_p_wxMetaFileDC swig_types[104]
+#define SWIGTYPE_p_wxMirrorDC swig_types[105]
+#define SWIGTYPE_p_wxMouseCaptureChangedEvent swig_types[106]
+#define SWIGTYPE_p_wxMouseCaptureLostEvent swig_types[107]
+#define SWIGTYPE_p_wxMouseEvent swig_types[108]
+#define SWIGTYPE_p_wxMoveEvent swig_types[109]
+#define SWIGTYPE_p_wxNativeEncodingInfo swig_types[110]
+#define SWIGTYPE_p_wxNativeFontInfo swig_types[111]
+#define SWIGTYPE_p_wxNativePixelData swig_types[112]
+#define SWIGTYPE_p_wxNativePixelData_Accessor swig_types[113]
+#define SWIGTYPE_p_wxNavigationKeyEvent swig_types[114]
+#define SWIGTYPE_p_wxNcPaintEvent swig_types[115]
+#define SWIGTYPE_p_wxNotifyEvent swig_types[116]
+#define SWIGTYPE_p_wxObject swig_types[117]
+#define SWIGTYPE_p_wxOverlay swig_types[118]
+#define SWIGTYPE_p_wxPCXHandler swig_types[119]
+#define SWIGTYPE_p_wxPNGHandler swig_types[120]
+#define SWIGTYPE_p_wxPNMHandler swig_types[121]
+#define SWIGTYPE_p_wxPaintDC swig_types[122]
+#define SWIGTYPE_p_wxPaintEvent swig_types[123]
+#define SWIGTYPE_p_wxPalette swig_types[124]
+#define SWIGTYPE_p_wxPaletteChangedEvent swig_types[125]
+#define SWIGTYPE_p_wxPaperSize swig_types[126]
+#define SWIGTYPE_p_wxPen swig_types[127]
+#define SWIGTYPE_p_wxPenList swig_types[128]
+#define SWIGTYPE_p_wxPixelDataBase swig_types[129]
+#define SWIGTYPE_p_wxPoint swig_types[130]
+#define SWIGTYPE_p_wxPoint2D swig_types[131]
+#define SWIGTYPE_p_wxPostScriptDC swig_types[132]
+#define SWIGTYPE_p_wxPrintData swig_types[133]
+#define SWIGTYPE_p_wxPrinterDC swig_types[134]
+#define SWIGTYPE_p_wxPseudoDC swig_types[135]
+#define SWIGTYPE_p_wxPyApp swig_types[136]
+#define SWIGTYPE_p_wxPyCommandEvent swig_types[137]
+#define SWIGTYPE_p_wxPyEvent swig_types[138]
+#define SWIGTYPE_p_wxPyEvtHandler swig_types[139]
+#define SWIGTYPE_p_wxPyFontEnumerator swig_types[140]
+#define SWIGTYPE_p_wxPyImageHandler swig_types[141]
+#define SWIGTYPE_p_wxPyLocale swig_types[142]
+#define SWIGTYPE_p_wxPySizer swig_types[143]
+#define SWIGTYPE_p_wxPyValidator swig_types[144]
+#define SWIGTYPE_p_wxQueryNewPaletteEvent swig_types[145]
+#define SWIGTYPE_p_wxRect swig_types[146]
+#define SWIGTYPE_p_wxRect2D swig_types[147]
+#define SWIGTYPE_p_wxRefCounter swig_types[148]
+#define SWIGTYPE_p_wxRegion swig_types[149]
+#define SWIGTYPE_p_wxRegionIterator swig_types[150]
+#define SWIGTYPE_p_wxRendererNative swig_types[151]
+#define SWIGTYPE_p_wxRendererVersion swig_types[152]
+#define SWIGTYPE_p_wxSVGFileDC swig_types[153]
+#define SWIGTYPE_p_wxScreenDC swig_types[154]
+#define SWIGTYPE_p_wxScrollEvent swig_types[155]
+#define SWIGTYPE_p_wxScrollWinEvent swig_types[156]
+#define SWIGTYPE_p_wxSetCursorEvent swig_types[157]
+#define SWIGTYPE_p_wxShowEvent swig_types[158]
+#define SWIGTYPE_p_wxSize swig_types[159]
+#define SWIGTYPE_p_wxSizeEvent swig_types[160]
+#define SWIGTYPE_p_wxSizer swig_types[161]
+#define SWIGTYPE_p_wxSizerItem swig_types[162]
+#define SWIGTYPE_p_wxSplitterRenderParams swig_types[163]
+#define SWIGTYPE_p_wxStaticBoxSizer swig_types[164]
+#define SWIGTYPE_p_wxStdDialogButtonSizer swig_types[165]
+#define SWIGTYPE_p_wxStockGDI swig_types[166]
+#define SWIGTYPE_p_wxString swig_types[167]
+#define SWIGTYPE_p_wxSysColourChangedEvent swig_types[168]
+#define SWIGTYPE_p_wxTGAHandler swig_types[169]
+#define SWIGTYPE_p_wxTIFFHandler swig_types[170]
+#define SWIGTYPE_p_wxTextCtrlBase swig_types[171]
+#define SWIGTYPE_p_wxThreadEvent swig_types[172]
+#define SWIGTYPE_p_wxUpdateUIEvent swig_types[173]
+#define SWIGTYPE_p_wxValidator swig_types[174]
+#define SWIGTYPE_p_wxWindow swig_types[175]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[176]
+#define SWIGTYPE_p_wxWindowDC swig_types[177]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[178]
+#define SWIGTYPE_p_wxWrapSizer swig_types[179]
+#define SWIGTYPE_p_wxXPMHandler swig_types[180]
+static swig_type_info *swig_types[182];
+static swig_module_info swig_module = {swig_types, 181, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -3315,14 +3316,14 @@ enum wxBitmapBufferFormat {
                 
                 CHECK_BUFFERSIZE(stride * height);
                 
-                if (depth == 24) {
-                    MAKE_PIXDATA(wxNativePixelData);
+                if (useAlpha && depth == 32) {
+                    MAKE_PIXDATA(wxAlphaPixelData);
                     for (int y=0; y<height; y++) {
                         p.MoveTo(pixData, 0, y);
                         bufptr = (wxUint32*)dataRow;
                         for (int x=0; x<width; x++) {
                             value =
-                                (wxALPHA_OPAQUE << 24) |
+                                (p.Alpha() << 24) |
                                 (p.Red() << 16) |
                                 (p.Green() << 8) |
                                 (p.Blue());
@@ -3333,15 +3334,15 @@ enum wxBitmapBufferFormat {
                         dataRow += stride;
                     }
                 }
-                if (depth == 32) {
-                    MAKE_PIXDATA(wxAlphaPixelData);
-                    if (useAlpha)
+                else // if (!useAlpha /*depth == 24*/)
+                {
+                    MAKE_PIXDATA(wxNativePixelData);
                     for (int y=0; y<height; y++) {
                         p.MoveTo(pixData, 0, y);
                         bufptr = (wxUint32*)dataRow;
                         for (int x=0; x<width; x++) {
                             value =
-                                (p.Alpha() << 24) |
+                                (wxALPHA_OPAQUE << 24) |
                                 (p.Red() << 16) |
                                 (p.Green() << 8) |
                                 (p.Blue());
@@ -4351,6 +4352,11 @@ public:
     virtual void DrawEllipse( wxDouble , wxDouble , wxDouble , wxDouble ) {}
     virtual void DrawRoundedRectangle( wxDouble , wxDouble , wxDouble , wxDouble , wxDouble ) {}
     virtual bool ShouldOffset() const { return false; }
+
+    virtual void EnableOffset(bool enable = true) {}
+    void DisableOffset() { }
+    bool OffsetEnabled() { return false; }
+  
 };
 
 
@@ -16310,6 +16316,130 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Font_SetSymbolicSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxFont *arg1 = (wxFont *) 0 ;
+  wxFontSymbolicSize arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "size", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Font_SetSymbolicSize",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxFont, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Font_SetSymbolicSize" "', expected argument " "1"" of type '" "wxFont *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFont * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Font_SetSymbolicSize" "', expected argument " "2"" of type '" "wxFontSymbolicSize""'");
+  } 
+  arg2 = static_cast< wxFontSymbolicSize >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetSymbolicSize(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Font_SetSymbolicSizeRelativeTo(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxFont *arg1 = (wxFont *) 0 ;
+  wxFontSymbolicSize arg2 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "size",(char *) "base", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:Font_SetSymbolicSizeRelativeTo",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxFont, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Font_SetSymbolicSizeRelativeTo" "', expected argument " "1"" of type '" "wxFont *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFont * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Font_SetSymbolicSizeRelativeTo" "', expected argument " "2"" of type '" "wxFontSymbolicSize""'");
+  } 
+  arg2 = static_cast< wxFontSymbolicSize >(val2);
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Font_SetSymbolicSizeRelativeTo" "', expected argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetSymbolicSizeRelativeTo(arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Font_AdjustToSymbolicSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxFontSymbolicSize arg1 ;
+  int arg2 ;
+  int result;
+  int val1 ;
+  int ecode1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "size",(char *) "base", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Font_AdjustToSymbolicSize",kwnames,&obj0,&obj1)) SWIG_fail;
+  ecode1 = SWIG_AsVal_int(obj0, &val1);
+  if (!SWIG_IsOK(ecode1)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "Font_AdjustToSymbolicSize" "', expected argument " "1"" of type '" "wxFontSymbolicSize""'");
+  } 
+  arg1 = static_cast< wxFontSymbolicSize >(val1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "Font_AdjustToSymbolicSize" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)wxFont::AdjustToSymbolicSize(arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Font_GetFamilyString(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxFont *arg1 = (wxFont *) 0 ;
@@ -16548,6 +16678,39 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Font_MakeUnderlined(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFont *arg1 = (wxFont *) 0 ;
+  wxFont *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFont, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Font_MakeUnderlined" "', expected argument " "1"" of type '" "wxFont *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFont * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    {
+      wxFont &_result_ref = (arg1)->MakeUnderlined();
+      result = (wxFont *) &_result_ref;
+    }
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = swig_obj[0]; Py_INCREF(resultobj); 
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Font_MakeLarger(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxFont *arg1 = (wxFont *) 0 ;
@@ -16704,6 +16867,34 @@ SWIGINTERN PyObject *_wrap_Font_Italic(PyObject *SWIGUNUSEDPARM(self), PyObject 
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = ((wxFont const *)arg1)->Italic();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxFont(static_cast< const wxFont& >(result))), SWIGTYPE_p_wxFont, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Font_Underlined(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFont *arg1 = (wxFont *) 0 ;
+  SwigValueWrapper<wxFont > result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFont, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Font_Underlined" "', expected argument " "1"" of type '" "wxFont const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFont * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxFont const *)arg1)->Underlined();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -19395,6 +19586,381 @@ SWIGINTERN PyObject *EncodingConverter_swigregister(PyObject *SWIGUNUSEDPARM(sel
 }
 
 SWIGINTERN PyObject *EncodingConverter_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  return SWIG_Python_InitShadowInstance(args);
+}
+
+SWIGINTERN PyObject *_wrap_new_FontMetrics(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *result = 0 ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"new_FontMetrics",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxFontMetrics *)new wxFontMetrics();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxFontMetrics, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_FontMetrics(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_FontMetrics" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    delete arg1;
+    
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_height_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"FontMetrics_height_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_height_set" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "FontMetrics_height_set" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (arg1) (arg1)->height = arg2;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_height_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_height_get" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  result = (int) ((arg1)->height);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_ascent_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"FontMetrics_ascent_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_ascent_set" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "FontMetrics_ascent_set" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (arg1) (arg1)->ascent = arg2;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_ascent_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_ascent_get" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  result = (int) ((arg1)->ascent);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_descent_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"FontMetrics_descent_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_descent_set" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "FontMetrics_descent_set" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (arg1) (arg1)->descent = arg2;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_descent_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_descent_get" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  result = (int) ((arg1)->descent);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_internalLeading_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"FontMetrics_internalLeading_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_internalLeading_set" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "FontMetrics_internalLeading_set" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (arg1) (arg1)->internalLeading = arg2;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_internalLeading_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_internalLeading_get" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  result = (int) ((arg1)->internalLeading);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_externalLeading_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"FontMetrics_externalLeading_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_externalLeading_set" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "FontMetrics_externalLeading_set" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (arg1) (arg1)->externalLeading = arg2;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_externalLeading_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_externalLeading_get" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  result = (int) ((arg1)->externalLeading);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_averageWidth_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject *swig_obj[2] ;
+  
+  if (!SWIG_Python_UnpackTuple(args,"FontMetrics_averageWidth_set",2,2,swig_obj)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_averageWidth_set" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "FontMetrics_averageWidth_set" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  if (arg1) (arg1)->averageWidth = arg2;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_FontMetrics_averageWidth_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxFontMetrics *arg1 = (wxFontMetrics *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxFontMetrics, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FontMetrics_averageWidth_get" "', expected argument " "1"" of type '" "wxFontMetrics *""'"); 
+  }
+  arg1 = reinterpret_cast< wxFontMetrics * >(argp1);
+  result = (int) ((arg1)->averageWidth);
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *FontMetrics_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_wxFontMetrics, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
+SWIGINTERN PyObject *FontMetrics_swiginit(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   return SWIG_Python_InitShadowInstance(args);
 }
 
@@ -23218,6 +23784,34 @@ SWIGINTERN PyObject *_wrap_DC_GetCharWidth(PyObject *SWIGUNUSEDPARM(self), PyObj
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DC_GetFontMetrics(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxDC *arg1 = (wxDC *) 0 ;
+  wxFontMetrics result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxDC, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DC_GetFontMetrics" "', expected argument " "1"" of type '" "wxDC const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDC * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxDC const *)arg1)->GetFontMetrics();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxFontMetrics(static_cast< const wxFontMetrics& >(result))), SWIGTYPE_p_wxFontMetrics, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -34012,6 +34606,97 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GraphicsContext_EnableOffset(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  bool arg2 = (bool) true ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "enable", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:GraphicsContext_EnableOffset",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_EnableOffset" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_bool(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsContext_EnableOffset" "', expected argument " "2"" of type '" "bool""'");
+    } 
+    arg2 = static_cast< bool >(val2);
+  }
+  {
+    (arg1)->EnableOffset(arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_DisableOffset(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_DisableOffset" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  {
+    (arg1)->DisableOffset();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_OffsetEnabled(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_OffsetEnabled" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  {
+    result = (bool)(arg1)->OffsetEnabled();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *GraphicsContext_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!SWIG_Python_UnpackTuple(args,(char*)"swigregister", 1, 1,&obj)) return NULL;
@@ -42967,6 +43652,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Font_SetNativeFontInfo", (PyCFunction) _wrap_Font_SetNativeFontInfo, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_SetNativeFontInfoFromString", (PyCFunction) _wrap_Font_SetNativeFontInfoFromString, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_SetNativeFontInfoUserDesc", (PyCFunction) _wrap_Font_SetNativeFontInfoUserDesc, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Font_SetSymbolicSize", (PyCFunction) _wrap_Font_SetSymbolicSize, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Font_SetSymbolicSizeRelativeTo", (PyCFunction) _wrap_Font_SetSymbolicSizeRelativeTo, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Font_AdjustToSymbolicSize", (PyCFunction) _wrap_Font_AdjustToSymbolicSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_GetFamilyString", (PyCFunction)_wrap_Font_GetFamilyString, METH_O, NULL},
 	 { (char *)"Font_GetStyleString", (PyCFunction)_wrap_Font_GetStyleString, METH_O, NULL},
 	 { (char *)"Font_GetWeightString", (PyCFunction)_wrap_Font_GetWeightString, METH_O, NULL},
@@ -42974,11 +43662,13 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Font_GetNoAntiAliasing", (PyCFunction)_wrap_Font_GetNoAntiAliasing, METH_O, NULL},
 	 { (char *)"Font_MakeBold", (PyCFunction)_wrap_Font_MakeBold, METH_O, NULL},
 	 { (char *)"Font_MakeItalic", (PyCFunction)_wrap_Font_MakeItalic, METH_O, NULL},
+	 { (char *)"Font_MakeUnderlined", (PyCFunction)_wrap_Font_MakeUnderlined, METH_O, NULL},
 	 { (char *)"Font_MakeLarger", (PyCFunction)_wrap_Font_MakeLarger, METH_O, NULL},
 	 { (char *)"Font_MakeSmaller", (PyCFunction)_wrap_Font_MakeSmaller, METH_O, NULL},
 	 { (char *)"Font_Scale", (PyCFunction) _wrap_Font_Scale, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Font_Bold", (PyCFunction)_wrap_Font_Bold, METH_O, NULL},
 	 { (char *)"Font_Italic", (PyCFunction)_wrap_Font_Italic, METH_O, NULL},
+	 { (char *)"Font_Underlined", (PyCFunction)_wrap_Font_Underlined, METH_O, NULL},
 	 { (char *)"Font_Larger", (PyCFunction)_wrap_Font_Larger, METH_O, NULL},
 	 { (char *)"Font_Smaller", (PyCFunction)_wrap_Font_Smaller, METH_O, NULL},
 	 { (char *)"Font_Scaled", (PyCFunction) _wrap_Font_Scaled, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -43051,6 +43741,22 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"EncodingConverter_CanConvert", (PyCFunction) _wrap_EncodingConverter_CanConvert, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"EncodingConverter_swigregister", EncodingConverter_swigregister, METH_VARARGS, NULL},
 	 { (char *)"EncodingConverter_swiginit", EncodingConverter_swiginit, METH_VARARGS, NULL},
+	 { (char *)"new_FontMetrics", (PyCFunction)_wrap_new_FontMetrics, METH_NOARGS, NULL},
+	 { (char *)"delete_FontMetrics", (PyCFunction)_wrap_delete_FontMetrics, METH_O, NULL},
+	 { (char *)"FontMetrics_height_set", _wrap_FontMetrics_height_set, METH_VARARGS, NULL},
+	 { (char *)"FontMetrics_height_get", (PyCFunction)_wrap_FontMetrics_height_get, METH_O, NULL},
+	 { (char *)"FontMetrics_ascent_set", _wrap_FontMetrics_ascent_set, METH_VARARGS, NULL},
+	 { (char *)"FontMetrics_ascent_get", (PyCFunction)_wrap_FontMetrics_ascent_get, METH_O, NULL},
+	 { (char *)"FontMetrics_descent_set", _wrap_FontMetrics_descent_set, METH_VARARGS, NULL},
+	 { (char *)"FontMetrics_descent_get", (PyCFunction)_wrap_FontMetrics_descent_get, METH_O, NULL},
+	 { (char *)"FontMetrics_internalLeading_set", _wrap_FontMetrics_internalLeading_set, METH_VARARGS, NULL},
+	 { (char *)"FontMetrics_internalLeading_get", (PyCFunction)_wrap_FontMetrics_internalLeading_get, METH_O, NULL},
+	 { (char *)"FontMetrics_externalLeading_set", _wrap_FontMetrics_externalLeading_set, METH_VARARGS, NULL},
+	 { (char *)"FontMetrics_externalLeading_get", (PyCFunction)_wrap_FontMetrics_externalLeading_get, METH_O, NULL},
+	 { (char *)"FontMetrics_averageWidth_set", _wrap_FontMetrics_averageWidth_set, METH_VARARGS, NULL},
+	 { (char *)"FontMetrics_averageWidth_get", (PyCFunction)_wrap_FontMetrics_averageWidth_get, METH_O, NULL},
+	 { (char *)"FontMetrics_swigregister", FontMetrics_swigregister, METH_VARARGS, NULL},
+	 { (char *)"FontMetrics_swiginit", FontMetrics_swiginit, METH_VARARGS, NULL},
 	 { (char *)"delete_DC", (PyCFunction)_wrap_delete_DC, METH_O, NULL},
 	 { (char *)"DC_GetImpl", (PyCFunction)_wrap_DC_GetImpl, METH_O, NULL},
 	 { (char *)"DC_GetWindow", (PyCFunction)_wrap_DC_GetWindow, METH_O, NULL},
@@ -43123,6 +43829,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DC_GetClippingRect", (PyCFunction)_wrap_DC_GetClippingRect, METH_O, NULL},
 	 { (char *)"DC_GetCharHeight", (PyCFunction)_wrap_DC_GetCharHeight, METH_O, NULL},
 	 { (char *)"DC_GetCharWidth", (PyCFunction)_wrap_DC_GetCharWidth, METH_O, NULL},
+	 { (char *)"DC_GetFontMetrics", (PyCFunction)_wrap_DC_GetFontMetrics, METH_O, NULL},
 	 { (char *)"DC_GetTextExtent", (PyCFunction) _wrap_DC_GetTextExtent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_GetFullTextExtent", (PyCFunction) _wrap_DC_GetFullTextExtent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DC_GetMultiLineTextExtent", (PyCFunction) _wrap_DC_GetMultiLineTextExtent, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -43409,6 +44116,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GraphicsContext_DrawEllipse", (PyCFunction) _wrap_GraphicsContext_DrawEllipse, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_DrawRoundedRectangle", (PyCFunction) _wrap_GraphicsContext_DrawRoundedRectangle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_ShouldOffset", (PyCFunction)_wrap_GraphicsContext_ShouldOffset, METH_O, NULL},
+	 { (char *)"GraphicsContext_EnableOffset", (PyCFunction) _wrap_GraphicsContext_EnableOffset, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsContext_DisableOffset", (PyCFunction)_wrap_GraphicsContext_DisableOffset, METH_O, NULL},
+	 { (char *)"GraphicsContext_OffsetEnabled", (PyCFunction)_wrap_GraphicsContext_OffsetEnabled, METH_O, NULL},
 	 { (char *)"GraphicsContext_swigregister", GraphicsContext_swigregister, METH_VARARGS, NULL},
 	 { (char *)"delete_GraphicsRenderer", (PyCFunction)_wrap_delete_GraphicsRenderer, METH_O, NULL},
 	 { (char *)"GraphicsRenderer_GetDefaultRenderer", (PyCFunction)_wrap_GraphicsRenderer_GetDefaultRenderer, METH_NOARGS, NULL},
@@ -44176,6 +44886,7 @@ static swig_type_info _swigt__p_wxEncodingConverter = {"_p_wxEncodingConverter",
 static swig_type_info _swigt__p_wxFont = {"_p_wxFont", "wxFont *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxFontList = {"_p_wxFontList", "wxFontList *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxFontMapper = {"_p_wxFontMapper", "wxFontMapper *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxFontMetrics = {"_p_wxFontMetrics", "wxFontMetrics *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxGCDC = {"_p_wxGCDC", "wxGCDC *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxGDIObjListBase = {"_p_wxGDIObjListBase", "wxGDIObjListBase *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxGDIObject = {"_p_wxGDIObject", "wxGDIObject *", 0, 0, (void*)0, 0};
@@ -44382,6 +45093,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxFont,
   &_swigt__p_wxFontList,
   &_swigt__p_wxFontMapper,
+  &_swigt__p_wxFontMetrics,
   &_swigt__p_wxGBSizerItem,
   &_swigt__p_wxGCDC,
   &_swigt__p_wxGDIObjListBase,
@@ -44540,6 +45252,7 @@ static swig_cast_info _swigc__p_wxEncodingConverter[] = {  {&_swigt__p_wxEncodin
 static swig_cast_info _swigc__p_wxFont[] = {  {&_swigt__p_wxFont, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFontList[] = {  {&_swigt__p_wxFontList, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxFontMapper[] = {  {&_swigt__p_wxFontMapper, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxFontMetrics[] = {  {&_swigt__p_wxFontMetrics, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGCDC[] = {  {&_swigt__p_wxGCDC, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGDIObjListBase[] = {  {&_swigt__p_wxGDIObjListBase, 0, 0, 0},  {&_swigt__p_wxBrushList, _p_wxBrushListTo_p_wxGDIObjListBase, 0, 0},  {&_swigt__p_wxFontList, _p_wxFontListTo_p_wxGDIObjListBase, 0, 0},  {&_swigt__p_wxPenList, _p_wxPenListTo_p_wxGDIObjListBase, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxGDIObject[] = {  {&_swigt__p_wxIcon, _p_wxIconTo_p_wxGDIObject, 0, 0},  {&_swigt__p_wxPen, _p_wxPenTo_p_wxGDIObject, 0, 0},  {&_swigt__p_wxFont, _p_wxFontTo_p_wxGDIObject, 0, 0},  {&_swigt__p_wxPalette, _p_wxPaletteTo_p_wxGDIObject, 0, 0},  {&_swigt__p_wxGDIObject, 0, 0, 0},  {&_swigt__p_wxCursor, _p_wxCursorTo_p_wxGDIObject, 0, 0},  {&_swigt__p_wxBitmap, _p_wxBitmapTo_p_wxGDIObject, 0, 0},  {&_swigt__p_wxRegion, _p_wxRegionTo_p_wxGDIObject, 0, 0},  {&_swigt__p_wxBrush, _p_wxBrushTo_p_wxGDIObject, 0, 0},{0, 0, 0, 0}};
@@ -44746,6 +45459,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxFont,
   _swigc__p_wxFontList,
   _swigc__p_wxFontMapper,
+  _swigc__p_wxFontMetrics,
   _swigc__p_wxGBSizerItem,
   _swigc__p_wxGCDC,
   _swigc__p_wxGDIObjListBase,
@@ -45441,6 +46155,13 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "FONTWEIGHT_LIGHT",SWIG_From_int(static_cast< int >(wxFONTWEIGHT_LIGHT)));
   SWIG_Python_SetConstant(d, "FONTWEIGHT_BOLD",SWIG_From_int(static_cast< int >(wxFONTWEIGHT_BOLD)));
   SWIG_Python_SetConstant(d, "FONTWEIGHT_MAX",SWIG_From_int(static_cast< int >(wxFONTWEIGHT_MAX)));
+  SWIG_Python_SetConstant(d, "FONTSIZE_XX_SMALL",SWIG_From_int(static_cast< int >(wxFONTSIZE_XX_SMALL)));
+  SWIG_Python_SetConstant(d, "FONTSIZE_X_SMALL",SWIG_From_int(static_cast< int >(wxFONTSIZE_X_SMALL)));
+  SWIG_Python_SetConstant(d, "FONTSIZE_SMALL",SWIG_From_int(static_cast< int >(wxFONTSIZE_SMALL)));
+  SWIG_Python_SetConstant(d, "FONTSIZE_MEDIUM",SWIG_From_int(static_cast< int >(wxFONTSIZE_MEDIUM)));
+  SWIG_Python_SetConstant(d, "FONTSIZE_LARGE",SWIG_From_int(static_cast< int >(wxFONTSIZE_LARGE)));
+  SWIG_Python_SetConstant(d, "FONTSIZE_X_LARGE",SWIG_From_int(static_cast< int >(wxFONTSIZE_X_LARGE)));
+  SWIG_Python_SetConstant(d, "FONTSIZE_XX_LARGE",SWIG_From_int(static_cast< int >(wxFONTSIZE_XX_LARGE)));
   SWIG_Python_SetConstant(d, "FONTFLAG_DEFAULT",SWIG_From_int(static_cast< int >(wxFONTFLAG_DEFAULT)));
   SWIG_Python_SetConstant(d, "FONTFLAG_ITALIC",SWIG_From_int(static_cast< int >(wxFONTFLAG_ITALIC)));
   SWIG_Python_SetConstant(d, "FONTFLAG_SLANT",SWIG_From_int(static_cast< int >(wxFONTFLAG_SLANT)));

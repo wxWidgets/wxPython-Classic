@@ -53579,6 +53579,54 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Control_SetLabelMarkup(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxControl *arg1 = (wxControl *) 0 ;
+  wxString *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "markup", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:Control_SetLabelMarkup",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxControl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Control_SetLabelMarkup" "', expected argument " "1"" of type '" "wxControl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxControl * >(argp1);
+  {
+    arg2 = wxString_in_helper(obj1);
+    if (arg2 == NULL) SWIG_fail;
+    temp2 = true;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->SetLabelMarkup((wxString const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2)
+    delete arg2;
+  }
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Control_Command(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxControl *arg1 = (wxControl *) 0 ;
@@ -70571,6 +70619,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Control_GetAlignment", (PyCFunction)_wrap_Control_GetAlignment, METH_O, NULL},
 	 { (char *)"Control_GetLabelText", (PyCFunction)_wrap_Control_GetLabelText, METH_O, NULL},
 	 { (char *)"Control_SetLabelText", (PyCFunction) _wrap_Control_SetLabelText, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"Control_SetLabelMarkup", (PyCFunction) _wrap_Control_SetLabelMarkup, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Control_Command", (PyCFunction) _wrap_Control_Command, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Control_RemoveMnemonics", (PyCFunction) _wrap_Control_RemoveMnemonics, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"Control_EscapeMnemonics", (PyCFunction) _wrap_Control_EscapeMnemonics, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -73156,6 +73205,32 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "HORIZONTAL_HATCH",SWIG_From_int(static_cast< int >(wxHORIZONTAL_HATCH)));
   SWIG_Python_SetConstant(d, "VERTICAL_HATCH",SWIG_From_int(static_cast< int >(wxVERTICAL_HATCH)));
   SWIG_Python_SetConstant(d, "WXK_NONE",SWIG_From_int(static_cast< int >(WXK_NONE)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_A",SWIG_From_int(static_cast< int >(WXK_CONTROL_A)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_B",SWIG_From_int(static_cast< int >(WXK_CONTROL_B)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_C",SWIG_From_int(static_cast< int >(WXK_CONTROL_C)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_D",SWIG_From_int(static_cast< int >(WXK_CONTROL_D)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_E",SWIG_From_int(static_cast< int >(WXK_CONTROL_E)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_F",SWIG_From_int(static_cast< int >(WXK_CONTROL_F)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_G",SWIG_From_int(static_cast< int >(WXK_CONTROL_G)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_H",SWIG_From_int(static_cast< int >(WXK_CONTROL_H)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_I",SWIG_From_int(static_cast< int >(WXK_CONTROL_I)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_J",SWIG_From_int(static_cast< int >(WXK_CONTROL_J)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_K",SWIG_From_int(static_cast< int >(WXK_CONTROL_K)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_L",SWIG_From_int(static_cast< int >(WXK_CONTROL_L)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_M",SWIG_From_int(static_cast< int >(WXK_CONTROL_M)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_N",SWIG_From_int(static_cast< int >(WXK_CONTROL_N)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_O",SWIG_From_int(static_cast< int >(WXK_CONTROL_O)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_P",SWIG_From_int(static_cast< int >(WXK_CONTROL_P)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_Q",SWIG_From_int(static_cast< int >(WXK_CONTROL_Q)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_R",SWIG_From_int(static_cast< int >(WXK_CONTROL_R)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_S",SWIG_From_int(static_cast< int >(WXK_CONTROL_S)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_T",SWIG_From_int(static_cast< int >(WXK_CONTROL_T)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_U",SWIG_From_int(static_cast< int >(WXK_CONTROL_U)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_V",SWIG_From_int(static_cast< int >(WXK_CONTROL_V)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_W",SWIG_From_int(static_cast< int >(WXK_CONTROL_W)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_X",SWIG_From_int(static_cast< int >(WXK_CONTROL_X)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_Y",SWIG_From_int(static_cast< int >(WXK_CONTROL_Y)));
+  SWIG_Python_SetConstant(d, "WXK_CONTROL_Z",SWIG_From_int(static_cast< int >(WXK_CONTROL_Z)));
   SWIG_Python_SetConstant(d, "WXK_BACK",SWIG_From_int(static_cast< int >(WXK_BACK)));
   SWIG_Python_SetConstant(d, "WXK_TAB",SWIG_From_int(static_cast< int >(WXK_TAB)));
   SWIG_Python_SetConstant(d, "WXK_RETURN",SWIG_From_int(static_cast< int >(WXK_RETURN)));
@@ -73523,6 +73598,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "IMAGE_QUALITY_NEAREST",SWIG_From_int(static_cast< int >(wxIMAGE_QUALITY_NEAREST)));
   SWIG_Python_SetConstant(d, "IMAGE_QUALITY_BILINEAR",SWIG_From_int(static_cast< int >(wxIMAGE_QUALITY_BILINEAR)));
   SWIG_Python_SetConstant(d, "IMAGE_QUALITY_BICUBIC",SWIG_From_int(static_cast< int >(wxIMAGE_QUALITY_BICUBIC)));
+  SWIG_Python_SetConstant(d, "IMAGE_QUALITY_BOX_AVERAGE",SWIG_From_int(static_cast< int >(wxIMAGE_QUALITY_BOX_AVERAGE)));
   SWIG_Python_SetConstant(d, "IMAGE_QUALITY_NORMAL",SWIG_From_int(static_cast< int >(wxIMAGE_QUALITY_NORMAL)));
   SWIG_Python_SetConstant(d, "IMAGE_QUALITY_HIGH",SWIG_From_int(static_cast< int >(wxIMAGE_QUALITY_HIGH)));
   SWIG_addvarlink(SWIG_globals(),(char*)"NullImage",NullImage_get, NullImage_set);

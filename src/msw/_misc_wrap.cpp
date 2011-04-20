@@ -44937,6 +44937,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "SYS_COLOUR_MENUHILIGHT",SWIG_From_int(static_cast< int >(wxSYS_COLOUR_MENUHILIGHT)));
   SWIG_Python_SetConstant(d, "SYS_COLOUR_MENUBAR",SWIG_From_int(static_cast< int >(wxSYS_COLOUR_MENUBAR)));
   SWIG_Python_SetConstant(d, "SYS_COLOUR_LISTBOXTEXT",SWIG_From_int(static_cast< int >(wxSYS_COLOUR_LISTBOXTEXT)));
+  SWIG_Python_SetConstant(d, "SYS_COLOUR_LISTBOXHIGHLIGHTTEXT",SWIG_From_int(static_cast< int >(wxSYS_COLOUR_LISTBOXHIGHLIGHTTEXT)));
   SWIG_Python_SetConstant(d, "SYS_COLOUR_MAX",SWIG_From_int(static_cast< int >(wxSYS_COLOUR_MAX)));
   SWIG_Python_SetConstant(d, "SYS_COLOUR_DESKTOP",SWIG_From_int(static_cast< int >(wxSYS_COLOUR_DESKTOP)));
   SWIG_Python_SetConstant(d, "SYS_COLOUR_3DFACE",SWIG_From_int(static_cast< int >(wxSYS_COLOUR_3DFACE)));

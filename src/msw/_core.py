@@ -421,6 +421,32 @@ CROSS_HATCH = _core_.CROSS_HATCH
 HORIZONTAL_HATCH = _core_.HORIZONTAL_HATCH
 VERTICAL_HATCH = _core_.VERTICAL_HATCH
 WXK_NONE = _core_.WXK_NONE
+WXK_CONTROL_A = _core_.WXK_CONTROL_A
+WXK_CONTROL_B = _core_.WXK_CONTROL_B
+WXK_CONTROL_C = _core_.WXK_CONTROL_C
+WXK_CONTROL_D = _core_.WXK_CONTROL_D
+WXK_CONTROL_E = _core_.WXK_CONTROL_E
+WXK_CONTROL_F = _core_.WXK_CONTROL_F
+WXK_CONTROL_G = _core_.WXK_CONTROL_G
+WXK_CONTROL_H = _core_.WXK_CONTROL_H
+WXK_CONTROL_I = _core_.WXK_CONTROL_I
+WXK_CONTROL_J = _core_.WXK_CONTROL_J
+WXK_CONTROL_K = _core_.WXK_CONTROL_K
+WXK_CONTROL_L = _core_.WXK_CONTROL_L
+WXK_CONTROL_M = _core_.WXK_CONTROL_M
+WXK_CONTROL_N = _core_.WXK_CONTROL_N
+WXK_CONTROL_O = _core_.WXK_CONTROL_O
+WXK_CONTROL_P = _core_.WXK_CONTROL_P
+WXK_CONTROL_Q = _core_.WXK_CONTROL_Q
+WXK_CONTROL_R = _core_.WXK_CONTROL_R
+WXK_CONTROL_S = _core_.WXK_CONTROL_S
+WXK_CONTROL_T = _core_.WXK_CONTROL_T
+WXK_CONTROL_U = _core_.WXK_CONTROL_U
+WXK_CONTROL_V = _core_.WXK_CONTROL_V
+WXK_CONTROL_W = _core_.WXK_CONTROL_W
+WXK_CONTROL_X = _core_.WXK_CONTROL_X
+WXK_CONTROL_Y = _core_.WXK_CONTROL_Y
+WXK_CONTROL_Z = _core_.WXK_CONTROL_Z
 WXK_BACK = _core_.WXK_BACK
 WXK_TAB = _core_.WXK_TAB
 WXK_RETURN = _core_.WXK_RETURN
@@ -2521,6 +2547,7 @@ IMAGE_ALPHA_OPAQUE = _core_.IMAGE_ALPHA_OPAQUE
 IMAGE_QUALITY_NEAREST = _core_.IMAGE_QUALITY_NEAREST
 IMAGE_QUALITY_BILINEAR = _core_.IMAGE_QUALITY_BILINEAR
 IMAGE_QUALITY_BICUBIC = _core_.IMAGE_QUALITY_BICUBIC
+IMAGE_QUALITY_BOX_AVERAGE = _core_.IMAGE_QUALITY_BOX_AVERAGE
 IMAGE_QUALITY_NORMAL = _core_.IMAGE_QUALITY_NORMAL
 IMAGE_QUALITY_HIGH = _core_.IMAGE_QUALITY_HIGH
 #---------------------------------------------------------------------------
@@ -4416,6 +4443,8 @@ class MouseState(KeyboardState):
 
     x = property(GetX, SetX)
     y = property(GetY, SetY)
+    X = property(GetX, SetX)  # uppercase versions for 2.8 compatibility
+    Y = property(GetY, SetY)
     leftIsDown = property(LeftIsDown, SetLeftDown)
     middleIsDown = property(MiddleIsDown, SetMiddleDown)
     rightIsDown = property(RightIsDown, SetRightDown)
@@ -5882,7 +5911,7 @@ class KeyEvent(Event,KeyboardState):
         GetUnicodeKey(self) -> int
 
         Returns the Unicode character corresponding to this key event.  This
-        function is only meaningfule in a Unicode build of wxPython.
+        function is only meaningful in a Unicode build of wxPython.
         """
         return _core_.KeyEvent_GetUnicodeKey(*args, **kwargs)
 
@@ -12544,6 +12573,10 @@ class Control(Window):
     def SetLabelText(*args, **kwargs):
         """SetLabelText(self, String text)"""
         return _core_.Control_SetLabelText(*args, **kwargs)
+
+    def SetLabelMarkup(*args, **kwargs):
+        """SetLabelMarkup(self, String markup) -> bool"""
+        return _core_.Control_SetLabelMarkup(*args, **kwargs)
 
     def Command(*args, **kwargs):
         """

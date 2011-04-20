@@ -687,7 +687,7 @@ _dataview.DataViewModel_swigregister(DataViewModel)
 class DataViewItemObjectMapper(object):
     """
     This class provides a mechanism for mapping between Python objects and the
-    DataViewItem objects used by the DataViewModel for tacking the items in
+    DataViewItem objects used by the DataViewModel for tracking the items in
     the view. The ID used for the item is the id() of the Python object. Use
     `ObjectToItem` to create a DataViewItem using a Python object as its ID,
     and use `ItemToObject` to fetch that Python object again later for a given

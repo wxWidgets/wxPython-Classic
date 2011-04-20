@@ -1745,6 +1745,13 @@ FONTWEIGHT_NORMAL = _gdi_.FONTWEIGHT_NORMAL
 FONTWEIGHT_LIGHT = _gdi_.FONTWEIGHT_LIGHT
 FONTWEIGHT_BOLD = _gdi_.FONTWEIGHT_BOLD
 FONTWEIGHT_MAX = _gdi_.FONTWEIGHT_MAX
+FONTSIZE_XX_SMALL = _gdi_.FONTSIZE_XX_SMALL
+FONTSIZE_X_SMALL = _gdi_.FONTSIZE_X_SMALL
+FONTSIZE_SMALL = _gdi_.FONTSIZE_SMALL
+FONTSIZE_MEDIUM = _gdi_.FONTSIZE_MEDIUM
+FONTSIZE_LARGE = _gdi_.FONTSIZE_LARGE
+FONTSIZE_X_LARGE = _gdi_.FONTSIZE_X_LARGE
+FONTSIZE_XX_LARGE = _gdi_.FONTSIZE_XX_LARGE
 FONTFLAG_DEFAULT = _gdi_.FONTFLAG_DEFAULT
 FONTFLAG_ITALIC = _gdi_.FONTFLAG_ITALIC
 FONTFLAG_SLANT = _gdi_.FONTFLAG_SLANT
@@ -2372,6 +2379,19 @@ class Font(GDIObject):
         """
         return _gdi_.Font_SetNativeFontInfoUserDesc(*args, **kwargs)
 
+    def SetSymbolicSize(*args, **kwargs):
+        """SetSymbolicSize(self, int size)"""
+        return _gdi_.Font_SetSymbolicSize(*args, **kwargs)
+
+    def SetSymbolicSizeRelativeTo(*args, **kwargs):
+        """SetSymbolicSizeRelativeTo(self, int size, int base)"""
+        return _gdi_.Font_SetSymbolicSizeRelativeTo(*args, **kwargs)
+
+    def AdjustToSymbolicSize(*args, **kwargs):
+        """AdjustToSymbolicSize(int size, int base) -> int"""
+        return _gdi_.Font_AdjustToSymbolicSize(*args, **kwargs)
+
+    AdjustToSymbolicSize = staticmethod(AdjustToSymbolicSize)
     def GetFamilyString(*args, **kwargs):
         """
         GetFamilyString(self) -> String
@@ -2417,6 +2437,10 @@ class Font(GDIObject):
         """MakeItalic(self) -> Font"""
         return _gdi_.Font_MakeItalic(*args, **kwargs)
 
+    def MakeUnderlined(*args, **kwargs):
+        """MakeUnderlined(self) -> Font"""
+        return _gdi_.Font_MakeUnderlined(*args, **kwargs)
+
     def MakeLarger(*args, **kwargs):
         """MakeLarger(self) -> Font"""
         return _gdi_.Font_MakeLarger(*args, **kwargs)
@@ -2436,6 +2460,10 @@ class Font(GDIObject):
     def Italic(*args, **kwargs):
         """Italic(self) -> Font"""
         return _gdi_.Font_Italic(*args, **kwargs)
+
+    def Underlined(*args, **kwargs):
+        """Underlined(self) -> Font"""
+        return _gdi_.Font_Underlined(*args, **kwargs)
 
     def Larger(*args, **kwargs):
         """Larger(self) -> Font"""
@@ -2567,6 +2595,10 @@ def FFontFromPixelSize(*args, **kwargs):
     if kwargs.has_key('faceName'): kwargs['face'] = kwargs['faceName'];del kwargs['faceName']
     val = _gdi_.new_FFontFromPixelSize(*args, **kwargs)
     return val
+
+def Font_AdjustToSymbolicSize(*args, **kwargs):
+  """Font_AdjustToSymbolicSize(int size, int base) -> int"""
+  return _gdi_.Font_AdjustToSymbolicSize(*args, **kwargs)
 
 def Font_GetDefaultEncoding(*args):
   """
@@ -3219,6 +3251,23 @@ MM_TEXT = _gdi_.MM_TEXT
 MM_TWIPS = _gdi_.MM_TWIPS
 MM_POINTS = _gdi_.MM_POINTS
 MM_METRIC = _gdi_.MM_METRIC
+class FontMetrics(object):
+    """Proxy of C++ FontMetrics class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> FontMetrics"""
+        _gdi_.FontMetrics_swiginit(self,_gdi_.new_FontMetrics(*args, **kwargs))
+    __swig_destroy__ = _gdi_.delete_FontMetrics
+    __del__ = lambda self : None;
+    height = property(_gdi_.FontMetrics_height_get, _gdi_.FontMetrics_height_set)
+    ascent = property(_gdi_.FontMetrics_ascent_get, _gdi_.FontMetrics_ascent_set)
+    descent = property(_gdi_.FontMetrics_descent_get, _gdi_.FontMetrics_descent_set)
+    internalLeading = property(_gdi_.FontMetrics_internalLeading_get, _gdi_.FontMetrics_internalLeading_set)
+    externalLeading = property(_gdi_.FontMetrics_externalLeading_get, _gdi_.FontMetrics_externalLeading_set)
+    averageWidth = property(_gdi_.FontMetrics_averageWidth_get, _gdi_.FontMetrics_averageWidth_set)
+_gdi_.FontMetrics_swigregister(FontMetrics)
+
 class DC(_core.Object):
     """
     A wx.DC is a device context onto which graphics and text can be
@@ -4040,6 +4089,10 @@ class DC(_core.Object):
         Gets the average character width of the currently set font.
         """
         return _gdi_.DC_GetCharWidth(*args, **kwargs)
+
+    def GetFontMetrics(*args, **kwargs):
+        """GetFontMetrics(self) -> FontMetrics"""
+        return _gdi_.DC_GetFontMetrics(*args, **kwargs)
 
     def GetTextExtent(*args, **kwargs):
         """

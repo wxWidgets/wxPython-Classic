@@ -3209,7 +3209,7 @@ PyObject* wxDVCVariant_out_helper(const wxVariant& value)
 
 
 #define PYCALLBACK_BOOL_RECTDVMDVIUINT(PCLASS, CBNAME)                         \
-    bool CBNAME(wxRect a, wxDataViewModel* b, const wxDataViewItem& c, unsigned int d) { \
+    bool CBNAME(const wxRect& a, wxDataViewModel* b, const wxDataViewItem& c, unsigned int d) { \
         bool found;                                                             \
         bool rval = false;                                                      \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
@@ -3230,7 +3230,7 @@ PyObject* wxDVCVariant_out_helper(const wxVariant& value)
 
 
 #define PYCALLBACK_BOOL_POINTRECTDVMDVIUINT(PCLASS, CBNAME)                     \
-    bool CBNAME(wxPoint a, wxRect b, wxDataViewModel* c, const wxDataViewItem& d, unsigned int e) { \
+    bool CBNAME(const wxPoint& a, const wxRect& b, wxDataViewModel* c, const wxDataViewItem& d, unsigned int e) { \
         bool found;                                                             \
         bool rval = false;                                                      \
         wxPyBlock_t blocked = wxPyBeginBlockThreads();                          \
