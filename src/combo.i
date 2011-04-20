@@ -639,7 +639,7 @@ derived class calls `DoShowPopup`.  Flags are same as for `DoShowPopup`.
 %newgroup
 
 
-// C++ implemetation of Python aware wxComboCtrl
+// C++ implemetation of Python aware wxComboPopup
 %{
 class wxPyComboPopup : public wxComboPopup
 {
@@ -805,6 +805,13 @@ style, etc.  Return ``True`` for success, ``False`` otherwise.  (NOTE:
 this return value is not currently checked...)", "");
 
 
+    // Calls Destroy() for the popup control (i.e. one returned by
+    // GetControl()) and makes sure that 'this' is deleted at the end.
+    // Default implementation works for both cases where popup control
+    // class is multiple inherited or created on heap as a separate
+    // object.
+    virtual void DestroyPopup();
+    
     DocDeclStr(
         virtual wxWindow *, GetControl(),
         "The derived class must implement this method and it should return a
