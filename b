@@ -7,6 +7,13 @@
 set -o errexit
 #set -o xtrace
 
+# Why are these not being translated already like they used to be? 
+if [ "$OSTYPE" = "cygwin" ]; then
+    TOOLS=`cygpath -u $TOOLS`
+    #PROJECTS=`cygpath -u $PROJECTS`
+fi
+
+
 if [ "$PYTHON" = "" ]; then
     case $1 in 
 	23 | 2.3) VER=23; PYVER=2.3; shift ;;
