@@ -404,6 +404,11 @@ public:
     virtual void DrawEllipse( wxDouble , wxDouble , wxDouble , wxDouble ) {}
     virtual void DrawRoundedRectangle( wxDouble , wxDouble , wxDouble , wxDouble , wxDouble ) {}
     virtual bool ShouldOffset() const { return false; }
+
+    virtual void EnableOffset(bool enable = true) {}
+    void DisableOffset() { }
+    bool OffsetEnabled() { return false; }
+  
 };
 
 
@@ -1327,7 +1332,14 @@ and the current brush is used for filling.", "");
     DocDeclStr(
         virtual bool , ShouldOffset() const,
         "helper to determine if a 0.5 offset should be applied for the drawing operation", "");
-    
+
+
+    // indicates whether the context should try to offset for pixel boundaries, this only makes sense on 
+    // bitmap devices like screen, by default this is turned off
+    virtual void EnableOffset(bool enable = true);
+    void DisableOffset() { EnableOffset(false); }
+    bool OffsetEnabled() { return m_enableOffset; }
+      
 };
 
 
