@@ -6,7 +6,7 @@ import wx
 class TestPanel(wx.Panel):
     def __init__(self, parent, log):
         self.log = log
-        wx.Panel.__init__(self, parent, -1, style=0)
+        wx.Panel.__init__(self, parent)
 
         # Create controls
         sb = wx.StaticBox(self, -1, "Options")
