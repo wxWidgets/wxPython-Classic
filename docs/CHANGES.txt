@@ -16,7 +16,7 @@ a list by moving them to another list.
 
 Added wx.UIActionSimulator, which is able to programatically generate
 platform specific keyboard and mouse events, (with varying degrees of
-success depending on platform.)
+success depending on the platform.)
 
 
 
@@ -36,9 +36,11 @@ be used to ensure that there are no more envents pending for the
 widget.) 
 
 More methods and properties moved from wx.MouseEvent to the
-wx.MouseState base class.  Same for wx.KeyEvent and wx.KeyboardState,
+wx.MouseState base class. Same for wx.KeyEvent and wx.KeyboardState,
 which is used to hold modifier key states, and which is also a base
-class of wx.MouseState.
+class of wx.MouseState.  Note that properties rightDown, leftDown and
+middleDown have been changed to rightIsDown, leftIsDown and
+middleIsDown. 
 
 wx.Button can now have both a text and a bitmap label (or just one or
 the other.)  wx.BitmapButton is pretty much redundant and will likely
@@ -293,6 +295,16 @@ wxPython for the average user.  I now use it in my day-to-day builds
 as well as from the scripts which create the preview and release
 builds.  See the new BUILD.txt document for more information.
 
+
+
+
+
+2.8.12.0
+--------
+* 16-April-2011
+
+This release is mostly just bug and typo fixes.  There are no new
+major features or enhancements in the core library.
 
 
 
