@@ -306,6 +306,13 @@ def runTest(frame, nb, log):
     import ListCtrl
     musicdata = ListCtrl.musicdata.items()
     musicdata.sort()
+
+    ## For testing Unicode
+    #musicdata = {
+    #    1 : (u'BE \u662f', u'Python \u662f\u6700\u597d\u7684\u7de8\u7a0b\u8a9e\u8a00\uff01', u"Rock \u662f"),
+    #}
+    #musicdata = musicdata.items()
+
     # our data structure will be a collection of Genres, each of which is a
     # collection of Songs
     data = dict()

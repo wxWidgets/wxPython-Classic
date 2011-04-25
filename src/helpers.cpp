@@ -2302,7 +2302,7 @@ wxString Py2wxString(PyObject* source)
             return wxEmptyString;
         }
         str = PyUnicode_AsUTF8String(uni);
-        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+        PyString_AsStringAndSize(str, &tmpPtr, &tmpSize);
     }
     else if (!PyUnicode_Check(source)) {
         uni = PyObject_Unicode(source); 
@@ -2311,11 +2311,11 @@ wxString Py2wxString(PyObject* source)
             return wxEmptyString;
         }
         str = PyUnicode_AsUTF8String(uni);
-        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+        PyString_AsStringAndSize(str, &tmpPtr, &tmpSize);
     }    
     else {
         str = PyUnicode_AsUTF8String(source);
-        PyString_AsStringAndSize(source, &tmpPtr, &tmpSize);
+        PyString_AsStringAndSize(str, &tmpPtr, &tmpSize);
     }
     target = wxString(tmpPtr, tmpSize);
     Py_XDECREF(str);
