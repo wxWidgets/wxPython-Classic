@@ -51,7 +51,6 @@ def getTasks(config_env):
     
 
     carbonTask =  Task([
-        #Job("carbon.25", "distrib/all/build-osx", [config.OSX_HOST_carbon, "2.5", "carbon"], env=config_env),
         Job("carbon.26", "distrib/all/build-osx", [config.OSX_HOST_carbon, "2.6", "carbon"], env=config_env),
         Job("carbon.27", "distrib/all/build-osx", [config.OSX_HOST_carbon, "2.7", "carbon"], env=config_env),
         ])
@@ -92,9 +91,9 @@ def getTasks(config_env):
     buildTasks = [ carbonTask,
                    cocoaTask,
                    cyclopsTask0,
-                   cyclopsTask1,
-                   #cyclopsTask2,
-                   cyclopsTask3,
+                   #cyclopsTask1,
+                   ##cyclopsTask2,
+                   #cyclopsTask3,
                    ]
     
     # Finalization.  This is for things that must wait until all the

@@ -33,7 +33,7 @@ PYVER=$5
 PORT=$6
 
 
-export PATH=/sw/bin:/sw/sbin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:.:/usr/X11R6/bin
+export PATH=/sw/bin:/sw/sbin:/mp/bin:/usr/local/bin:/bin:/sbin:/usr/bin:/usr/sbin:.:/usr/X11R6/bin
 
 # untar the source 
 echo "Unarchiving wxPython-src-$VERSION.tar.bz2"
@@ -85,6 +85,14 @@ fi
 
 
 
+function my_makedmg {
+    DMGROOTDIR=$1
+    DMGDIR=$2
+    dmgname=$3
+    echo my_makedmg $DMGROOTDIR $DMGDIR $dmgname
+    hdiutil create -format UDZO -volname $dmgname -imagekey zlib-level=9 \
+                   -srcfolder $DMGROOTDIR   $DMGDIR/$dmgname.dmg
+}
 
 
 function do_universal_build {
@@ -313,7 +321,9 @@ EOF
 
     # Make a disk image to hold these files
     dmgname=wxPython${SHORTVER}-osx-$VERSION-$PORT-py$PYVER
-    $PROGDIR/makedmg $DMGROOT $DMGDIR $dmgname
+    #$PROGDIR/makedmg $DMGROOT $DMGDIR $dmgname
+    my_makedmg $DMGROOT $DMGDIR $dmgname
+
 
     echo Moving $DMGDIR/$dmgname.dmg to $DESTDIR
     mv $DMGDIR/$dmgname.dmg  $DESTDIR/$dmgname.dmg
@@ -504,7 +514,8 @@ EOF
 
     # and then finally make a disk image containing everything
     dmgname=wxPython${SHORTVER}-osx-docs-demos-$VERSION-$PORT-py$PYVER
-    $PROGDIR/makedmg $DMGAPPS $DMGDIR $dmgname
+    #$PROGDIR/makedmg $DMGAPPS $DMGDIR $dmgname
+    my_makedmg $DMGAPPS $DMGDIR $dmgname
 
     echo Moving $DMGDIR/$dmgname.dmg to $DESTDIR
     mv $DMGDIR/$dmgname.dmg  $DESTDIR/$dmgname.dmg
