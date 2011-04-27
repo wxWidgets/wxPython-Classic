@@ -1610,7 +1610,7 @@ public:
 
     // in-place editing
     virtual bool HasEditorCtrl();
-    virtual wxControl* CreateEditorCtrl(wxWindow * parent,
+    virtual wxWindow* CreateEditorCtrl(wxWindow * parent,
                                         wxRect labelRect,
                                         const wxVariant& value);
 
@@ -1899,7 +1899,7 @@ public:
 
     PYCALLBACK_BOOL__const(wxDataViewCustomRenderer, HasEditorCtrl);
 
-    virtual wxControl* CreateEditorCtrl(wxWindow * parent,
+    virtual wxWindow* CreateEditorCtrl(wxWindow * parent,
                                         wxRect labelRect,
                                         const wxVariant& value)
     {
