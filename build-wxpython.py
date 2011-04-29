@@ -330,13 +330,9 @@ if options.mac_framework and sys.platform.startswith("darwin"):
     if "--install" not in build_options:
         build_options.append("--install")
 
-    wxpy_build_options.append("MAC_FRAMEWORK=%s" % wxbuild.getFrameworkName(options))
-    wxpy_build_options.append("MAC_FRAMEWORK_PREFIX=%s" % options.mac_framework_prefix)
-        
     PREFIX = wxbuild.getPrefixInFramework(options, WXWIN)
     
-    
-    
+        
 if not sys.platform.startswith("win"):
     build_options.append('--builddir=%s' % WXPY_BUILD_DIR)
     
@@ -477,12 +473,15 @@ exitIfError(runCmd(command), "ERROR: failed generating language files")
 
 print "------------ BUILD FINISHED ------------"
 print ""
-print "To run the wxPython demo:"
-print ""
-print " - Set your PYTHONPATH variable to %s." % WXPYDIR
-# TODO: Print something about DYLD_FRAMEWORK_PATH here for framework builds
-if not sys.platform.startswith("win") and not options.install:
-    print " - Set your (DY)LD_LIBRARY_PATH to %s" % WXPY_BUILD_DIR + "/lib"
+print "To run the wxPython demo you may need to:"
+print " - set your PYTHONPATH variable to %s" % WXPYDIR
+if options.mac_framework:
+    print " - set your DYLD_FRAMEWORK_PATH to %s" % options.mac_framework_prefix
+elif sys.platform.startswith("darwin"):
+    print " - set your DYLD_LIBRARY_PATH to %s" % WXPY_BUILD_DIR + "/lib"
+elif not sys.platform.startswith("win") and not options.install:
+    print " - set your LD_LIBRARY_PATH to %s" % WXPY_BUILD_DIR + "/lib"
+print "\nAnd then:"
 print " - Run python demo/demo.py"
 print ""
 
