@@ -158,6 +158,18 @@ during sizing.", "");
         "Get the threshold in character positions for doing layout optimization
 during sizing.", "");
 
+    bool GetFullLayoutRequired() const;
+    void SetFullLayoutRequired(bool b);
+
+    wxLongLong GetFullLayoutTime() const;
+    void SetFullLayoutTime(wxLongLong t);
+
+    long GetFullLayoutSavedPosition() const;
+    void SetFullLayoutSavedPosition(long p);
+
+    // Force any pending layout due to large buffer
+    void ForceDelayedLayout();
+
 
     DocDeclStr(
         void , SetTextCursor(const wxCursor& cursor ),

@@ -1615,10 +1615,10 @@ public:
                                         const wxVariant& value);
 
     // Change this to return the value or None (maybe it should raise an exception?)
-    //virtual bool GetValueFromEditorCtrl(wxControl * editor,
+    //virtual bool GetValueFromEditorCtrl(wxWindow * editor,
     //                                    wxVariant& value);
     %extend {
-        virtual wxVariant GetValueFromEditorCtrl(wxControl * editor)
+        virtual wxVariant GetValueFromEditorCtrl(wxWindow * editor)
         {
             wxVariant var;
             if (! self->GetValueFromEditorCtrl(editor, var))
@@ -1631,7 +1631,7 @@ public:
     virtual void CancelEditing();
     virtual bool FinishEditing();
 
-    wxControl *GetEditorCtrl();
+    wxWindow *GetEditorCtrl();
 
     %property(Owner, GetOwner, SetOwner);
     %property(Value, GetValue, SetValue);

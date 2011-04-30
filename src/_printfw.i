@@ -390,6 +390,19 @@ enum wxPrinterError
 };
 
 
+enum wxPreviewFrameModalityKind
+{
+    // Disable all the other top level windows while the preview is shown.
+    wxPreviewFrame_AppModal,
+
+    // Disable only the parent window while the preview is shown.
+    wxPreviewFrame_WindowModal,
+
+    // Don't disable any windows.
+    wxPreviewFrame_NonModal
+};
+
+
 MustHaveApp(wxPrinter);
 
 class wxPrinter : public wxObject {
@@ -608,7 +621,8 @@ public:
 
     %cleardisown(wxPrintPreview*);
 
-    void Initialize();
+    void Initialize(wxPreviewFrameModalityKind kind
+                                = wxPreviewFrame_AppModal);
     void CreateControlBar();
     void CreateCanvas();
 
@@ -654,6 +668,7 @@ public:
                         long style = wxTAB_TRAVERSAL,
                         const wxString& name = wxPyPanelNameStr);
 
+    void SetPageInfo(int minPage, int maxPage);
     int GetZoomControl();
     void SetZoomControl(int zoom);
     wxPrintPreview* GetPrintPreview();

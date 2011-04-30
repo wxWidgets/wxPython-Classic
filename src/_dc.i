@@ -1005,6 +1005,15 @@ highest values on the axis). The default orientation is the natural
 orientation, e.g. x axis from left to right and y axis from bottom up.", "");
 
 
+    
+    // TODO
+    //bool CanUseTransformMatrix() const;
+    //bool SetTransformMatrix(const wxAffineMatrix2D &matrix);
+    //wxAffineMatrix2D GetTransformMatrix() const;
+    //void ResetTransformMatrix();
+
+    
+
     DocDeclStr(
         wxRasterOperationMode , GetLogicalFunction() const,
         "Gets the current logical function (set by `SetLogicalFunction`).", "");
