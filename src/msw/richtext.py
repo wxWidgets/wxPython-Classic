@@ -2908,6 +2908,34 @@ class RichTextCtrl(_core.TextCtrlBase,_windows.ScrollHelper):
         """
         return _richtext.RichTextCtrl_GetDelayedLayoutThreshold(*args, **kwargs)
 
+    def GetFullLayoutRequired(*args, **kwargs):
+        """GetFullLayoutRequired(self) -> bool"""
+        return _richtext.RichTextCtrl_GetFullLayoutRequired(*args, **kwargs)
+
+    def SetFullLayoutRequired(*args, **kwargs):
+        """SetFullLayoutRequired(self, bool b)"""
+        return _richtext.RichTextCtrl_SetFullLayoutRequired(*args, **kwargs)
+
+    def GetFullLayoutTime(*args, **kwargs):
+        """GetFullLayoutTime(self) -> wxLongLong"""
+        return _richtext.RichTextCtrl_GetFullLayoutTime(*args, **kwargs)
+
+    def SetFullLayoutTime(*args, **kwargs):
+        """SetFullLayoutTime(self, wxLongLong t)"""
+        return _richtext.RichTextCtrl_SetFullLayoutTime(*args, **kwargs)
+
+    def GetFullLayoutSavedPosition(*args, **kwargs):
+        """GetFullLayoutSavedPosition(self) -> long"""
+        return _richtext.RichTextCtrl_GetFullLayoutSavedPosition(*args, **kwargs)
+
+    def SetFullLayoutSavedPosition(*args, **kwargs):
+        """SetFullLayoutSavedPosition(self, long p)"""
+        return _richtext.RichTextCtrl_SetFullLayoutSavedPosition(*args, **kwargs)
+
+    def ForceDelayedLayout(*args, **kwargs):
+        """ForceDelayedLayout(self)"""
+        return _richtext.RichTextCtrl_ForceDelayedLayout(*args, **kwargs)
+
     def SetTextCursor(*args, **kwargs):
         """
         SetTextCursor(self, Cursor cursor)

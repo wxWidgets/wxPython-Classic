@@ -1554,7 +1554,7 @@ class SplitterWindow(_core.Window):
         """
         SetSashPosition(self, int position, bool redraw=True)
 
-        Sets the sash position, in pixels.  If redraw is Ttrue then the panes
+        Sets the sash position, in pixels.  If redraw is True then the panes
         are resized and the sash and border are redrawn.
         """
         return _windows_.SplitterWindow_SetSashPosition(*args, **kwargs)
@@ -5172,6 +5172,9 @@ _windows_.PrintDialog_swigregister(PrintDialog)
 PRINTER_NO_ERROR = _windows_.PRINTER_NO_ERROR
 PRINTER_CANCELLED = _windows_.PRINTER_CANCELLED
 PRINTER_ERROR = _windows_.PRINTER_ERROR
+PreviewFrame_AppModal = _windows_.PreviewFrame_AppModal
+PreviewFrame_WindowModal = _windows_.PreviewFrame_WindowModal
+PreviewFrame_NonModal = _windows_.PreviewFrame_NonModal
 class Printer(_core.Object):
     """Proxy of C++ Printer class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -5448,7 +5451,7 @@ class PreviewFrame(Frame):
         self._setOORInfo(self)
 
     def Initialize(*args, **kwargs):
-        """Initialize(self)"""
+        """Initialize(self, int kind=PreviewFrame_AppModal)"""
         return _windows_.PreviewFrame_Initialize(*args, **kwargs)
 
     def CreateControlBar(*args, **kwargs):
@@ -5494,6 +5497,10 @@ class PreviewControlBar(Panel):
         """
         _windows_.PreviewControlBar_swiginit(self,_windows_.new_PreviewControlBar(*args, **kwargs))
         self._setOORInfo(self)
+
+    def SetPageInfo(*args, **kwargs):
+        """SetPageInfo(self, int minPage, int maxPage)"""
+        return _windows_.PreviewControlBar_SetPageInfo(*args, **kwargs)
 
     def GetZoomControl(*args, **kwargs):
         """GetZoomControl(self) -> int"""

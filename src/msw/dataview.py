@@ -1198,11 +1198,11 @@ class DataViewRenderer(_core.Object):
         return _dataview.DataViewRenderer_HasEditorCtrl(*args, **kwargs)
 
     def CreateEditorCtrl(*args, **kwargs):
-        """CreateEditorCtrl(self, Window parent, Rect labelRect, wxVariant value) -> Control"""
+        """CreateEditorCtrl(self, Window parent, Rect labelRect, wxVariant value) -> Window"""
         return _dataview.DataViewRenderer_CreateEditorCtrl(*args, **kwargs)
 
     def GetValueFromEditorCtrl(*args, **kwargs):
-        """GetValueFromEditorCtrl(self, Control editor) -> wxVariant"""
+        """GetValueFromEditorCtrl(self, Window editor) -> wxVariant"""
         return _dataview.DataViewRenderer_GetValueFromEditorCtrl(*args, **kwargs)
 
     def StartEditing(*args, **kwargs):
@@ -1218,7 +1218,7 @@ class DataViewRenderer(_core.Object):
         return _dataview.DataViewRenderer_FinishEditing(*args, **kwargs)
 
     def GetEditorCtrl(*args, **kwargs):
-        """GetEditorCtrl(self) -> Control"""
+        """GetEditorCtrl(self) -> Window"""
         return _dataview.DataViewRenderer_GetEditorCtrl(*args, **kwargs)
 
     Owner = property(GetOwner,SetOwner) 

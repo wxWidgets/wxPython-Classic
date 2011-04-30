@@ -6561,6 +6561,18 @@ class GraphicsContext(GraphicsObject):
         """
         return _gdi_.GraphicsContext_ShouldOffset(*args, **kwargs)
 
+    def EnableOffset(*args, **kwargs):
+        """EnableOffset(self, bool enable=True)"""
+        return _gdi_.GraphicsContext_EnableOffset(*args, **kwargs)
+
+    def DisableOffset(*args, **kwargs):
+        """DisableOffset(self)"""
+        return _gdi_.GraphicsContext_DisableOffset(*args, **kwargs)
+
+    def OffsetEnabled(*args, **kwargs):
+        """OffsetEnabled(self) -> bool"""
+        return _gdi_.GraphicsContext_OffsetEnabled(*args, **kwargs)
+
 _gdi_.GraphicsContext_swigregister(GraphicsContext)
 
 def GraphicsContext_Create(*args):

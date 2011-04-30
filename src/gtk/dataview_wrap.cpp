@@ -3821,7 +3821,7 @@ SWIG_AsVal_int (PyObject * obj, int *val)
   return res;
 }
 
-SWIGINTERN wxVariant wxDataViewRenderer_GetValueFromEditorCtrl(wxDataViewRenderer *self,wxControl *editor){
+SWIGINTERN wxVariant wxDataViewRenderer_GetValueFromEditorCtrl(wxDataViewRenderer *self,wxWindow *editor){
             wxVariant var;
             if (! self->GetValueFromEditorCtrl(editor, var))
                 var = wxDVCVariant_in_helper(Py_None);
@@ -3900,7 +3900,7 @@ public:
 
     PYCALLBACK_BOOL__const(wxDataViewCustomRenderer, HasEditorCtrl);
 
-    virtual wxControl* CreateEditorCtrl(wxWindow * parent,
+    virtual wxWindow* CreateEditorCtrl(wxWindow * parent,
                                         wxRect labelRect,
                                         const wxVariant& value)
     {
@@ -9215,7 +9215,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_CreateEditorCtrl(PyObject *SWIGUNUSE
   wxWindow *arg2 = (wxWindow *) 0 ;
   wxRect arg3 ;
   wxVariant *arg4 = 0 ;
-  wxControl *result = 0 ;
+  wxWindow *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -9261,7 +9261,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_CreateEditorCtrl(PyObject *SWIGUNUSE
   }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxControl *)(arg1)->CreateEditorCtrl(arg2,arg3,(wxVariant const &)*arg4);
+    result = (wxWindow *)(arg1)->CreateEditorCtrl(arg2,arg3,(wxVariant const &)*arg4);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -9277,7 +9277,7 @@ fail:
 SWIGINTERN PyObject *_wrap_DataViewRenderer_GetValueFromEditorCtrl(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDataViewRenderer *arg1 = (wxDataViewRenderer *) 0 ;
-  wxControl *arg2 = (wxControl *) 0 ;
+  wxWindow *arg2 = (wxWindow *) 0 ;
   wxVariant result;
   void *argp1 = 0 ;
   int res1 = 0 ;
@@ -9295,11 +9295,11 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_GetValueFromEditorCtrl(PyObject *SWI
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewRenderer_GetValueFromEditorCtrl" "', expected argument " "1"" of type '" "wxDataViewRenderer *""'"); 
   }
   arg1 = reinterpret_cast< wxDataViewRenderer * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxControl, 0 |  0 );
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxWindow, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewRenderer_GetValueFromEditorCtrl" "', expected argument " "2"" of type '" "wxControl *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewRenderer_GetValueFromEditorCtrl" "', expected argument " "2"" of type '" "wxWindow *""'"); 
   }
-  arg2 = reinterpret_cast< wxControl * >(argp2);
+  arg2 = reinterpret_cast< wxWindow * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = wxDataViewRenderer_GetValueFromEditorCtrl(arg1,arg2);
@@ -9436,7 +9436,7 @@ fail:
 SWIGINTERN PyObject *_wrap_DataViewRenderer_GetEditorCtrl(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxDataViewRenderer *arg1 = (wxDataViewRenderer *) 0 ;
-  wxControl *result = 0 ;
+  wxWindow *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject *swig_obj[1] ;
@@ -9450,7 +9450,7 @@ SWIGINTERN PyObject *_wrap_DataViewRenderer_GetEditorCtrl(PyObject *SWIGUNUSEDPA
   arg1 = reinterpret_cast< wxDataViewRenderer * >(argp1);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxControl *)(arg1)->GetEditorCtrl();
+    result = (wxWindow *)(arg1)->GetEditorCtrl();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
