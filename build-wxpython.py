@@ -476,7 +476,7 @@ print ""
 print "To run the wxPython demo you may need to:"
 print " - set your PYTHONPATH variable to %s" % WXPYDIR
 if options.mac_framework:
-    print " - set your DYLD_FRAMEWORK_PATH to %s" % options.mac_framework_prefix
+    print " - set your DYLD_FRAMEWORK_PATH to %s" % os.path.abspath(options.mac_framework_prefix)
 elif sys.platform.startswith("darwin"):
     print " - set your DYLD_LIBRARY_PATH to %s" % WXPY_BUILD_DIR + "/lib"
 elif not sys.platform.startswith("win") and not options.install:
