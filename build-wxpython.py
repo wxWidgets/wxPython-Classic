@@ -383,12 +383,11 @@ def macFixDependencyInstallName(destdir, prefix, extension, buildDir):
     os.chdir(destdir+prefix+'/lib')
     dylibs = glob.glob('*.dylib')   
     for lib in dylibs:
-        #cmd = 'install_name_tool -change %s/lib/%s %s/lib/%s %s' % \
-        #      (destdir+prefix,lib,  prefix,lib,  extension)
         cmd = 'install_name_tool -change %s/lib/%s %s/lib/%s %s' % \
-              (buildDir,lib,  prefix,lib,  extension)
-        print cmd
-        os.system(cmd)        
+              (destdir+prefix,lib,  prefix,lib,  extension)
+        #cmd = 'install_name_tool -change %s/lib/%s %s/lib/%s %s' % \
+        #      (buildDir,lib,  prefix,lib,  extension)
+        runCmd(cmd)        
     os.chdir(pwd)
     
 

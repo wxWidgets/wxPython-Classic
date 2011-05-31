@@ -108,7 +108,7 @@ case $PYVER in
     26 | 2.6) VER=26;;
     27 | 2.7) VER=27;;
 
-    *) 	VER=25
+    *) 	VER=26
 esac
 
 # export DISTUTILS_DEBUG=1
@@ -128,11 +128,18 @@ echo "Building the developer package..."
 WXWIN=`cygpath -w $WXDIR`
 export WXWIN
 export CPU
-$TOOLS/4dos/4nt.exe /c distrib/makedev.bat $VERSION
+#$TOOLS/4dos/4nt.exe /c distrib/makedev.bat $VERSION
+cd $WXDIR
+cp -R wxPython/include/wx/*           include/wx
+mkdir -p include/wx/wxPython/i_files
+cp wxPython/src/*.i                   include/wx/wxPython/i_files
+cp wxPython/src/*.py                  include/wx/wxPython/i_files
+cd $WXDIR/wxPython
+$PYTHON -u distrib/make_wxMSW_cpp_installer.py 
 
 
 echo "Copying installers to $DESTDIR..."
-mv dist/wxPython* $DESTDIR
+mv dist/wx*.exe $DESTDIR
 cd $DESTDIR
 
 

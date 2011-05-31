@@ -31,13 +31,12 @@ if os.environ.has_key("INNO5"):
 #----------------------------------------------------------------------
 
 ISS_Template = r'''
-
 [Setup]
-AppName = wxWidgets-msw-%(SHORTVER)s
+AppName = wxWidgets-msw-devel-%(SHORTVER)s
 AppVerName = wxWidgets %(VERSION)s
-OutputBaseFilename = wxWidgets%(SHORTVER)s-win%(BITS)s-%(VERSION)s
-AppCopyright = Copyright 2010 Total Control Software
-DefaultDirName = {code:GetInstallDir|c:\DoNotInstallHere}
+OutputBaseFilename = wxWidgets%(SHORTVER)s-devel-win%(BITS)s-%(VERSION)s
+AppCopyright = Copyright 2011 Total Control Software
+DefaultDirName = c:\wxWidgets\%(VERSION)s-win%(BITS)s
 DefaultGroupName = wxWidgets %(VERSION)s
 PrivilegesRequired = %(PRIV)s
 OutputDir = dist
@@ -60,29 +59,18 @@ AppSupportURL = http://www.wxwidgets.org/support/
 AppUpdatesURL = http://www.wxwidgets.org/downloads/
 AppVersion = %(VERSION)s
 
-UninstallFilesDir = {app}\%(PKGDIR)s
+UninstallFilesDir = {app}
 LicenseFile = licence\licence.txt
 
 
 ;;------------------------------------------------------------
 
-[Components]
-Name: core;     Description: "wxWidgets binaries";              Types: full custom;  Flags: fixed
-
-;;------------------------------------------------------------
-
 [Files]
-Source: "%(WXDIR)s\*";  DestDir: "{app}"; Components: core; Flags: replacesameversion, recursesubdirs; Excludes: %(WXDIR)s\wxPython\*;
+Source: "%(WXDIR)s\*";  DestDir: "{app}"; Flags: replacesameversion recursesubdirs; Excludes: \wxPython, out, *.obj, *.pch, *.ilk, *.res;
 
 ;;------------------------------------------------------------
 
-[UninstallDelete]
-Type: files; Name: "{app}\*."; Flags: recursesubdirs
-
-''' + """
-;----------------------------------------------------------------------
-
-"""
+'''
 
 
 #----------------------------------------------------------------------
@@ -96,7 +84,6 @@ def main():
     SHORTVER   = VERSION[:3]
 
     WXDIR           = os.environ["WXWIN"]
-    SYSDIR          = get_system_dir()
     ISSFILE         = "__wxWidgets-win32.iss"
 
     if os.environ.get('CPU', '') == 'AMD64':
@@ -120,7 +107,6 @@ Building Win32 installer for wxWidgets:
     VERSION    = %(VERSION)s
     SHORTVER   = %(SHORTVER)s
     WXDIR      = %(WXDIR)s
-    SYSDIR     = %(SYSDIR)s
     """ % vars()
 
     f = open(ISSFILE, "w")
@@ -136,7 +122,6 @@ Building Win32 installer for wxWidgets:
     if not KEEP_TEMPS:
         time.sleep(1)
         os.remove(ISSFILE)
-        os.remove(ISSDEMOFILE)
 
 
 #----------------------------------------------------------------------

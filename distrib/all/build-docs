@@ -12,7 +12,7 @@ if [ $skipdocs != yes ]; then
     done
     rm -f *.orig
     cd -
-    for doc in CHANGES BUILD default; do
+    for doc in CHANGES BUILD MigrationGuide default; do
 	cp docs/$doc.* $STAGING_DIR
     done
 	
