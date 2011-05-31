@@ -5330,7 +5330,7 @@ class BufferedPaintDC(BufferedDC):
     of `wx.PaintDC` and that's all you have to do to (mostly) avoid
     flicker. The only thing to watch out for is that if you are using this
     class together with `wx.ScrolledWindow`, you probably do **not** want
-    to call `wx.Window.PrepareDC` on it as it already does this internally
+    to call `wx.ScrolledWindow.PrepareDC` on it as it already does this internally
     for the real underlying `wx.PaintDC`.
 
     If your window is already fully buffered in a `wx.Bitmap` then your

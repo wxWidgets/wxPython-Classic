@@ -1794,6 +1794,10 @@ class DataViewCtrl(_core.Control):
         """GetItemRect(self, DataViewItem item, DataViewColumn column=None) -> Rect"""
         return _dataview.DataViewCtrl_GetItemRect(*args, **kwargs)
 
+    def StartEditor(*args, **kwargs):
+        """StartEditor(self, DataViewItem item, unsigned int column)"""
+        return _dataview.DataViewCtrl_StartEditor(*args, **kwargs)
+
     def EnableDragSource(*args, **kwargs):
         """EnableDragSource(self, wxDataFormat format) -> bool"""
         return _dataview.DataViewCtrl_EnableDragSource(*args, **kwargs)

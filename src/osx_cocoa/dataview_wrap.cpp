@@ -13800,6 +13800,56 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DataViewCtrl_StartEditor(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDataViewCtrl *arg1 = (wxDataViewCtrl *) 0 ;
+  wxDataViewItem *arg2 = 0 ;
+  unsigned int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  unsigned int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "item",(char *) "column", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:DataViewCtrl_StartEditor",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDataViewCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewCtrl_StartEditor" "', expected argument " "1"" of type '" "wxDataViewCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewCtrl * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxDataViewItem,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataViewCtrl_StartEditor" "', expected argument " "2"" of type '" "wxDataViewItem const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataViewCtrl_StartEditor" "', expected argument " "2"" of type '" "wxDataViewItem const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxDataViewItem * >(argp2);
+  ecode3 = SWIG_AsVal_unsigned_SS_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataViewCtrl_StartEditor" "', expected argument " "3"" of type '" "unsigned int""'");
+  } 
+  arg3 = static_cast< unsigned int >(val3);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->StartEditor((wxDataViewItem const &)*arg2,arg3);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DataViewCtrl_EnableDragSource(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDataViewCtrl *arg1 = (wxDataViewCtrl *) 0 ;
@@ -20402,6 +20452,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewCtrl_EnsureVisible", (PyCFunction) _wrap_DataViewCtrl_EnsureVisible, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_HitTest", (PyCFunction) _wrap_DataViewCtrl_HitTest, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_GetItemRect", (PyCFunction) _wrap_DataViewCtrl_GetItemRect, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DataViewCtrl_StartEditor", (PyCFunction) _wrap_DataViewCtrl_StartEditor, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_EnableDragSource", (PyCFunction) _wrap_DataViewCtrl_EnableDragSource, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_EnableDropTarget", (PyCFunction) _wrap_DataViewCtrl_EnableDropTarget, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_GetClassDefaultAttributes", (PyCFunction) _wrap_DataViewCtrl_GetClassDefaultAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
