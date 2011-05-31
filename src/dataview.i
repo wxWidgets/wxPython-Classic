@@ -2419,8 +2419,7 @@ public:
     
     virtual wxRect GetItemRect( const wxDataViewItem & item, const wxDataViewColumn *column = NULL ) const;
 
-// This is only in the generic version ???
-//    void StartEditor( const wxDataViewItem & item, unsigned int column );
+    virtual void StartEditor( const wxDataViewItem & item, unsigned int column );
     
     virtual bool EnableDragSource(const wxDataFormat& format);
     virtual bool EnableDropTarget(const wxDataFormat& format);
