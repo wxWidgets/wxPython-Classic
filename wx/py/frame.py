@@ -860,7 +860,7 @@ class ShellFrameMixin:
                 f.close()
             except:
                 d = wx.MessageDialog(self, "Error saving history file.",
-                                     "Error", wx.ICON_EXCLAMATION)
+                                     "Error", wx.ICON_EXCLAMATION|wx.OK)
                 d.ShowModal()
                 d.Destroy()
                 raise
@@ -878,7 +878,7 @@ class ShellFrameMixin:
                                     history=self.shell.history)
                 except:
                     d = wx.MessageDialog(self, "Error loading history file.",
-                                         "Error", wx.ICON_EXCLAMATION)
+                                         "Error", wx.ICON_EXCLAMATION|wx.OK)
                     d.ShowModal()
                     d.Destroy()
 
@@ -937,7 +937,7 @@ class ShellFrameMixin:
                 f.close()
             except:
                 d = wx.MessageDialog(self, "Error saving startup file.",
-                                     "Error", wx.ICON_EXCLAMATION)
+                                     "Error", wx.ICON_EXCLAMATION|wx.OK)
                 d.ShowModal()
                 d.Destroy()
 
