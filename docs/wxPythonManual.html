@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<meta name="generator" content="Docutils 0.5: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.6: http://docutils.sourceforge.net/" />
 <title>The wxPython Manual</title>
 <meta name="author" content="Patrick K. O'Brien" />
 <meta name="organization" content="Orbtech" />
@@ -601,15 +601,15 @@ wx.GROW flag is not used, the item can be aligned within available
 space.  wx.ALIGN_LEFT, wx.ALIGN_TOP, wx.ALIGN_RIGHT, wx.ALIGN_BOTTOM,
 wx.ALIGN_CENTER_HORIZONTAL and wx.ALIGN_CENTER_VERTICAL do what they
 say.  wx.ALIGN_CENTRE (same as wx.ALIGN_CENTER) is defined as
-(<tt class="docutils literal"><span class="pre">wx.ALIGN_CENTER_HORIZONTAL</span> <span class="pre">|</span> <span class="pre">wx.ALIGN_CENTER_VERTICAL</span></tt>).  Default
-alignment is <tt class="docutils literal"><span class="pre">wx.ALIGN_LEFT</span> <span class="pre">|</span> <span class="pre">wx.ALIGN_TOP</span></tt>.</p>
+(<tt class="docutils literal">wx.ALIGN_CENTER_HORIZONTAL | wx.ALIGN_CENTER_VERTICAL</tt>).  Default
+alignment is <tt class="docutils literal">wx.ALIGN_LEFT | wx.ALIGN_TOP</tt>.</p>
 <p>As mentioned above, any window belonging to a sizer may have border,
 and it can be specified which of the four sides may have this border,
 using the wx.TOP, wx.LEFT, wx.RIGHT and wx.BOTTOM constants or wx.ALL
 for all directions (and you may also use wx.NORTH, wx.WEST etc
 instead).  These flags can be used in combination with the alignment
 flags above as the second parameter of the Add() method using the
-binary or operator (<tt class="docutils literal"><span class="pre">|</span></tt>).  The sizer of the border also must be made
+binary or operator (<tt class="docutils literal">|</tt>).  The sizer of the border also must be made
 known, and it is the third parameter in the Add() method.  This means,
 that the entire behaviour of a sizer and its children can be
 controlled by the three parameters of the Add() method.</p>

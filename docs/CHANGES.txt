@@ -18,6 +18,21 @@ Added wx.UIActionSimulator, which is able to programatically generate
 platform specific keyboard and mouse events, (with varying degrees of
 success depending on the platform.)
 
+Added the ability to the build tools to make a Mac Framework for
+wxWidgets, and use it in the wxPython build.  (We're still ironing out
+some issues so it's not part of the release builds yet.)
+
+Added an installer EXE for the wxWidgets source tree, including the
+LIBs and DLLs that were used for the wxPython build on Windows.  This
+enables 3rd party extension developers to build their libraries and
+extensions such that they will use the same options and the same libs
+as wxPython, and will replace the -devel tarball included with prior
+releases.
+
+There have been many improvements to the wxOSX-Cocoa port, making it
+a more usable port.  The other ports have also improved as well.
+
+
 
 
 
