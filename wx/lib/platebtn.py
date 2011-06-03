@@ -365,7 +365,12 @@ class PlateButton(wx.PyControl):
         width = 4
         height = 6
         if self.GetLabel():
-            lsize = self.GetTextExtent(self.GetLabel())
+            # Need to use GraphicsContext to measure text so
+            # that it will be correct when it comes time to draw.
+            gc = wx.GraphicsContext.Create(self)
+            gc.SetFont(self.Font)
+            lsize = gc.GetFullTextExtent(self.GetLabel())
+            gc.Destroy()
             width += lsize[0]
             height += lsize[1]
             
