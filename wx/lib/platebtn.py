@@ -73,8 +73,8 @@ Requirements:
 """
 
 __author__ = "Cody Precord <cprecord@editra.org>"
-__svnid__ = "$Id: platebtn.py 67756 2011-05-17 01:11:52Z CJP $"
-__revision__ = "$Revision: 67756 $"
+__svnid__ = "$Id: platebtn.py 67852 2011-06-04 15:24:27Z CJP $"
+__revision__ = "$Revision: 67852 $"
 
 __all__ = ["PlateButton",
            "PLATE_NORMAL", "PLATE_PRESSED", "PLATE_HIGHLIGHT", 
@@ -102,10 +102,10 @@ PLATE_HIGHLIGHT = 2
 PB_STYLE_DEFAULT  = 1   # Normal Flat Background
 PB_STYLE_GRADIENT = 2   # Gradient Filled Background
 PB_STYLE_SQUARE   = 4   # Use square corners instead of rounded
-PB_STYLE_NOBG     = 8   # Usefull on Windows to get a transparent appearance
+PB_STYLE_NOBG     = 8   # Useful on Windows to get a transparent appearance
                         # when the control is shown on a non solid background
 PB_STYLE_DROPARROW = 16 # Draw drop arrow and fire EVT_PLATEBTN_DROPRROW_PRESSED event
-PB_STYLE_TOGGLE   = 32  # Stay pressed untill clicked again
+PB_STYLE_TOGGLE   = 32  # Stay pressed until clicked again
 
 #-----------------------------------------------------------------------------#
 
@@ -151,7 +151,7 @@ class PlateButton(wx.PyControl):
         self._pressed = False
 
         # Setup Initial Size
-        self.SetInitialSize()
+        self.SetInitialSize(size)
 
         # Event Handlers
         self.Bind(wx.EVT_PAINT, lambda evt: self.__DrawButton())
@@ -267,7 +267,8 @@ class PlateButton(wx.PyControl):
         # Setup
         dc.SetBrush(wx.TRANSPARENT_BRUSH)
         gc.SetBrush(wx.TRANSPARENT_BRUSH)
-        gc.SetFont(self.GetFont())
+        gc.SetFont(self.Font)
+        dc.SetFont(self.Font)
         gc.SetBackgroundMode(wx.TRANSPARENT)
 
         # The background needs some help to look transparent on
@@ -278,7 +279,10 @@ class PlateButton(wx.PyControl):
 
         # Calc Object Positions
         width, height = self.GetSize()
-        tw, th = gc.GetTextExtent(self.GetLabel())
+        if wx.Platform == '__WXGTK__':
+            tw, th = dc.GetTextExtent(self.Label)
+        else:
+            tw, th = gc.GetTextExtent(self.Label)
         txt_y = max((height - th) // 2, 1)
 
         if self._state['cur'] == PLATE_HIGHLIGHT:
@@ -296,7 +300,10 @@ class PlateButton(wx.PyControl):
 
             self.__DrawHighlight(gc, width, height)
             txt_x = self.__DrawBitmap(gc)
-            gc.DrawText(self.GetLabel(), txt_x + 2, txt_y)
+            if wx.Platform == '__WXGTK__':
+                dc.DrawText(self.Label, txt_x + 2, txt_y)
+            else:
+                gc.DrawText(self.Label, txt_x + 2, txt_y)
             self.__DrawDropArrow(gc, txt_x + tw + 6, (height // 2) - 2)
 
         else:
@@ -309,7 +316,10 @@ class PlateButton(wx.PyControl):
         # Draw bitmap and text
         if self._state['cur'] != PLATE_PRESSED:
             txt_x = self.__DrawBitmap(gc)
-            gc.DrawText(self.GetLabel(), txt_x + 2, txt_y)
+            if wx.Platform == '__WXGTK__':
+                dc.DrawText(self.Label, txt_x + 2, txt_y)
+            else:
+                gc.DrawText(self.Label, txt_x + 2, txt_y)
             self.__DrawDropArrow(gc, txt_x + tw + 6, (height // 2) - 2)
 
     def __InitColors(self):
@@ -364,13 +374,11 @@ class PlateButton(wx.PyControl):
         """
         width = 4
         height = 6
-        if self.GetLabel():
-            # Need to use GraphicsContext to measure text so
-            # that it will be correct when it comes time to draw.
-            gc = wx.GraphicsContext.Create(self)
-            gc.SetFont(self.Font)
-            lsize = gc.GetFullTextExtent(self.GetLabel())
-            gc.Destroy()
+        if self.Label:
+            # NOTE: Should measure with a GraphicsContext to get right
+            #       size, but due to random segfaults on linux special
+            #       handling is done in the drawing instead...
+            lsize = self.GetFullTextExtent(self.Label)
             width += lsize[0]
             height += lsize[1]
             
