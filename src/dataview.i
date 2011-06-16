@@ -2419,6 +2419,8 @@ public:
     
     virtual wxRect GetItemRect( const wxDataViewItem & item, const wxDataViewColumn *column = NULL ) const;
 
+    virtual bool SetRowHeight( int rowHeight );
+
     virtual void StartEditor( const wxDataViewItem & item, unsigned int column );
     
     virtual bool EnableDragSource(const wxDataFormat& format);
