@@ -33,6 +33,82 @@ enum {
 
 //---------------------------------------------------------------------------
 
+class wxAnyButton : public wxControl
+{
+public:
+    // wxAnyButtonBase();   **** it's an ABC, hide the ctor
+
+
+    // show the image in the button in addition to the label: this method is
+    // supported on all (major) platforms
+    void SetBitmap(const wxBitmap& bitmap, wxDirection dir = wxLEFT);
+    wxBitmap GetBitmap() const;
+    %property(Bitmap, GetBitmap, SetBitmap);
+    
+
+    // Methods for setting individual images for different states: normal,
+    // selected (meaning pushed or pressed), focused (meaning normal state for
+    // a focused button), disabled or hover (a.k.a. hot or current).
+    //
+    // Remember that SetBitmap() itself must be called before any other
+    // SetBitmapXXX() methods (except for SetBitmapLabel() which is a synonym
+    // for it anyhow) and that all bitmaps passed to these functions should be
+    // of the same size.
+    void SetBitmapLabel(const wxBitmap& bitmap);
+    void SetBitmapPressed(const wxBitmap& bitmap);
+    void SetBitmapDisabled(const wxBitmap& bitmap);
+    void SetBitmapCurrent(const wxBitmap& bitmap);
+    void SetBitmapFocus(const wxBitmap& bitmap);
+    
+
+    wxBitmap GetBitmapLabel() const;
+    wxBitmap GetBitmapPressed() const;
+    wxBitmap GetBitmapDisabled() const;
+    wxBitmap GetBitmapCurrent() const;
+    wxBitmap GetBitmapFocus() const;
+
+    %property(BitmapLabel, GetBitmapLabel, SetBitmapLabel );
+    %property(BitmapPressed, GetBitmapPressed, SetBitmapPressed );
+    %property(BitmapDisabled, GetBitmapDisabled, SetBitmapDisabled );
+    %property(BitmapCurrent, GetBitmapCurrent, SetBitmapCurrent );
+    %property(BitmapFocus, GetBitmapFocus, SetBitmapFocus );
+
+    // backwards compatible names
+    wxBitmap GetBitmapSelected() const { return GetBitmapPressed(); }
+    wxBitmap GetBitmapHover() const { return GetBitmapCurrent(); }
+    void SetBitmapSelected(const wxBitmap& bitmap) { SetBitmapPressed(bitmap); }
+    void SetBitmapHover(const wxBitmap& bitmap) { SetBitmapCurrent(bitmap); }
+    %property(BitmapSelected, GetBitmapSelected, SetBitmapSelected);
+    %property(BitmapHover, GetBitmapHover, SetBitmapHover);
+
+    
+    // set the margins around the image
+    %nokwargs SetBitmapMargins;
+    void SetBitmapMargins(wxCoord x, wxCoord y);
+    void SetBitmapMargins(const wxSize& sz);
+    wxSize GetBitmapMargins();
+    %property(BitmapMargins, GetBitmapMargins, SetBitmapMargins);
+    
+
+    // set the image position relative to the text, i.e. wxLEFT means that the
+    // image is to the left of the text (this is the default)
+    void SetBitmapPosition(wxDirection dir);
+
+    // return true if this button shouldn't show the text label, either because
+    // it doesn't have it or because it was explicitly disabled with wxBU_NOTEXT
+    bool DontShowLabel() const;
+    bool ShowsLabel() const;
+
+
+
+
+    
+
+    
+};
+
+//---------------------------------------------------------------------------
+
 DocStr(wxButton,
 "A button is a control that contains a text string, and is one of the most
 common elements of a GUI.  It may be placed on a dialog box or panel, or
@@ -66,7 +142,7 @@ Events
 MustHaveApp(wxButton);
 MustHaveApp(wxButton::GetDefaultSize);
 
-class wxButton : public wxControl
+class wxButton : public wxAnyButton
 {
 public:
     %pythonAppend wxButton         "self._setOORInfo(self)"
@@ -176,61 +252,7 @@ The stock IDs and sample labels are
     void SetAuthNeeded(bool show = true);
     bool GetAuthNeeded() const;
 
-    // show the image in the button in addition to the label: this method is
-    // supported on all (major) platforms
-    void SetBitmap(const wxBitmap& bitmap, wxDirection dir = wxLEFT);
-    wxBitmap GetBitmap() const;
-    %property(Bitmap, GetBitmap, SetBitmap);
     
-    
-    // Methods for setting individual images for different states: normal,
-    // selected (meaning pushed or pressed), focused (meaning normal state for
-    // a focused button), disabled or hover (a.k.a. hot or current).
-    //
-    // Remember that SetBitmap() itself must be called before any other
-    // SetBitmapXXX() methods (except for SetBitmapLabel() which is a synonym
-    // for it anyhow) and that all bitmaps passed to these functions should be
-    // of the same size.
-    void SetBitmapLabel(const wxBitmap& bitmap);
-    void SetBitmapPressed(const wxBitmap& bitmap);
-    void SetBitmapDisabled(const wxBitmap& bitmap);
-    void SetBitmapCurrent(const wxBitmap& bitmap);
-    void SetBitmapFocus(const wxBitmap& bitmap);
-    
-
-    wxBitmap GetBitmapLabel() const;
-    wxBitmap GetBitmapPressed() const;
-    wxBitmap GetBitmapDisabled() const;
-    wxBitmap GetBitmapCurrent() const;
-    wxBitmap GetBitmapFocus() const;
-
-    %property(BitmapLabel, GetBitmapLabel, SetBitmapLabel );
-    %property(BitmapPressed, GetBitmapPressed, SetBitmapPressed );
-    %property(BitmapDisabled, GetBitmapDisabled, SetBitmapDisabled );
-    %property(BitmapCurrent, GetBitmapCurrent, SetBitmapCurrent );
-    %property(BitmapFocus, GetBitmapFocus, SetBitmapFocus );
-
-    // backwards compatible names
-    wxBitmap GetBitmapSelected() const { return GetBitmapPressed(); }
-    wxBitmap GetBitmapHover() const { return GetBitmapCurrent(); }
-    void SetBitmapSelected(const wxBitmap& bitmap) { SetBitmapPressed(bitmap); }
-    void SetBitmapHover(const wxBitmap& bitmap) { SetBitmapCurrent(bitmap); }
-    %property(BitmapSelected, GetBitmapSelected, SetBitmapSelected);
-    %property(BitmapHover, GetBitmapHover, SetBitmapHover);
-
-    
-    // set the margins around the image
-    %nokwargs SetBitmapMargins;
-    void SetBitmapMargins(wxCoord x, wxCoord y);
-    void SetBitmapMargins(const wxSize& sz);
-    wxSize GetBitmapMargins();
-    %property(BitmapMargins, GetBitmapMargins, SetBitmapMargins);
-    
-    // set the image position relative to the text, i.e. wxLEFT means that the
-    // image is to the left of the text (this is the default)
-    void SetBitmapPosition(wxDirection dir);
-
-
     DocDeclStr(
         wxWindow* , SetDefault(),
         "This sets the button to be the default item for the panel or dialog box.", "");
