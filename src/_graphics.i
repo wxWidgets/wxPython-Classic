@@ -26,6 +26,21 @@ enum wxAntialiasMode
     wxANTIALIAS_DEFAULT,
 };
 
+enum wxInterpolationQuality
+{
+    // default interpolation
+    wxINTERPOLATION_DEFAULT,
+    // no interpolation
+    wxINTERPOLATION_NONE, 
+    // fast interpolation, suited for interactivity
+    wxINTERPOLATION_FAST,
+    // better quality
+    wxINTERPOLATION_GOOD,
+    // best quality, not suited for interactivity
+    wxINTERPOLATION_BEST
+};
+
+
 enum wxCompositionMode
 {
     // R = Result, S = Source, D = Destination, premultiplied with alpha
@@ -69,6 +84,20 @@ enum wxAntialiasMode
 {
     wxANTIALIAS_NONE, // should be 0
     wxANTIALIAS_DEFAULT,
+};
+
+enum wxInterpolationQuality
+{
+    // default interpolation
+    wxINTERPOLATION_DEFAULT,
+    // no interpolation
+    wxINTERPOLATION_NONE, 
+    // fast interpolation, suited for interactivity
+    wxINTERPOLATION_FAST,
+    // better quality
+    wxINTERPOLATION_GOOD,
+    // best quality, not suited for interactivity
+    wxINTERPOLATION_BEST
 };
 
 enum wxCompositionMode
@@ -359,6 +388,10 @@ public:
     virtual void * GetNativeContext() { return NULL; }
     virtual int GetAntialiasMode() const { return 0; }
     virtual bool SetAntialiasMode(wxAntialiasMode antialias) { return false; }
+
+    virtual wxInterpolationQuality GetInterpolationQuality() const { return wxINTERPOLATION_DEFAULT; }
+    virtual bool SetInterpolationQuality(wxInterpolationQuality) { return false; };
+
     virtual int GetCompositionMode() const { return 0; }
     virtual bool SetCompositionMode(wxCompositionMode op) { return false; }
     virtual void GetSize( wxDouble*, wxDouble* );
@@ -1081,6 +1114,11 @@ pointer for GDIPlus and cairo_t pointer for cairo).", "");
         virtual bool , SetAntialiasMode(wxAntialiasMode antialias),
         "Sets the antialiasing mode, returns true if it is supported", "");
     
+    // returns the current interpolation quality
+    virtual wxInterpolationQuality GetInterpolationQuality() const;
+    
+    // sets the interpolation quality, returns true if it supported
+    virtual bool SetInterpolationQuality(wxInterpolationQuality interpolation);
 
     DocDeclStr(
         virtual wxCompositionMode , GetCompositionMode() const,
