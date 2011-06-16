@@ -1,9 +1,6 @@
 
 import  wx
-
-haveToggleBtn = 1
-if wx.Platform == "__WXX11__":
-    haveToggleBtn = 0
+import images
 
 #----------------------------------------------------------------------
 
@@ -24,21 +21,20 @@ class TestPanel(wx.Panel):
         buttons.Fit(panel)
         panel.Move((50,50))
 
+        b = wx.ToggleButton(self, -1, "can have bitmaps too", pos=(50,125))
+        b.SetBitmap(images.Mondrian.Bitmap)
+        b.SetInitialSize() # adjust default size for the bitmap
+        self.Bind(wx.EVT_TOGGLEBUTTON, self.OnToggle, b)
+    
     def OnToggle(self, evt):
         self.log.write("Button %d toggled\n" % evt.GetId())
 
 #----------------------------------------------------------------------
 
 def runTest(frame, nb, log):
-    if haveToggleBtn:
-        win = TestPanel(nb, log)
-        return win
-    else:
-        from wx.lib.msgpanel import MessagePanel
-        win = MessagePanel(nb, 'wx.ToggleButton is not available on this platform.',
-                           'Sorry', wx.ICON_WARNING)
-        return win
-
+    win = TestPanel(nb, log)
+    return win
+    
 
 #----------------------------------------------------------------------
 
