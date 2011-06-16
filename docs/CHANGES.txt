@@ -32,6 +32,16 @@ releases.
 There have been many improvements to the wxOSX-Cocoa port, making it
 a more usable port.  The other ports have also improved as well.
 
+The wx.TaskBarIcon in the wxOSX-cocoa port can now either be a custom
+dock icon as before, or a status icon in the menu bar, and can be
+selected by passing wx.TBI_DOCK or wx.TBI_CUSTOM_STATUSITEM to the
+wx.TaskBarIcon constructor.  The default is menubar status item.  The
+type flag is ignored on the other ports.
+
+wx.ToggleButtons are now part of the new common button class hierarchy
+and so they can now have bitmaps instead of or in addition to their
+text labels.
+
 
 
 

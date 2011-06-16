@@ -23,13 +23,22 @@
 
 
 %{
+enum wxPyTaskBarIconType
+{
+    wxTBI_DOCK,
+    wxTBI_CUSTOM_STATUS_ITEM,
+    wxTBI_DEFAULT = wxTBI_CUSTOM_STATUS_ITEM
+};
+
+    
 #ifndef wxHAS_TASK_BAR_ICON
 // implement dummy classes for platforms that don't have it
 
 class wxTaskBarIcon : public wxEvtHandler
 {
 public:
-    wxTaskBarIcon()  { wxPyRaiseNotImplemented(); }
+    wxTaskBarIcon(wxPyTaskBarIconType iconType=wxTBI_DEFAULT)
+    { wxPyRaiseNotImplemented(); }
 };
 
 
@@ -44,7 +53,12 @@ public:
     bool SetIcon(const wxIcon& icon, const wxString& tooltip = wxPyEmptyString) { return false; }
     bool RemoveIcon() { return false; }
     bool PopupMenu(wxMenu *menu) { return false; }
-
+#ifdef __WXMSW__
+    bool ShowBalloon(const wxString& title,
+                     const wxString& text,
+                     unsigned msec = 0, 
+                     int flags = 0)   { return false; }
+#endif  
     static bool IsAvailable() { return false; };
 };
 
@@ -65,9 +79,13 @@ class wxPyTaskBarIcon : public wxTaskBarIcon
 {
     DECLARE_ABSTRACT_CLASS(wxPyTaskBarIcon)
 public:
-    wxPyTaskBarIcon() : wxTaskBarIcon()
-    {}
-
+    wxPyTaskBarIcon(wxPyTaskBarIconType iconType=wxTBI_DEFAULT) :
+#ifdef __WXOSX_COCOA__
+        wxTaskBarIcon((wxTaskBarIconType)iconType) {}
+#else
+        wxTaskBarIcon() {}
+#endif
+    
     wxMenu* CreatePopupMenu() {
         wxMenu *rval = NULL;
         bool found;
@@ -97,6 +115,14 @@ IMPLEMENT_ABSTRACT_CLASS(wxPyTaskBarIcon, wxTaskBarIcon);
 %}
 
 
+enum wxPyTaskBarIconType
+{
+    wxTBI_DOCK,
+    wxTBI_CUSTOM_STATUS_ITEM,
+    wxTBI_DEFAULT = wxTBI_CUSTOM_STATUS_ITEM
+};
+
+
 MustHaveApp(wxPyTaskBarIcon);
 
 %rename(TaskBarIcon) wxPyTaskBarIcon;
@@ -105,7 +131,7 @@ class wxPyTaskBarIcon : public wxEvtHandler
 public:
     %pythonAppend wxPyTaskBarIcon   "self._setOORInfo(self);" setCallbackInfo(TaskBarIcon)
 
-    wxPyTaskBarIcon();
+    wxPyTaskBarIcon(wxPyTaskBarIconType iconType=wxTBI_DEFAULT);
     ~wxPyTaskBarIcon();
 
     void _setCallbackInfo(PyObject* self, PyObject* _class, int incref=0);

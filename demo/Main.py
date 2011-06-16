@@ -1543,7 +1543,7 @@ class DemoTaskBarIcon(wx.TaskBarIcon):
     TBMENU_REMOVE  = wx.NewId()
     
     def __init__(self, frame):
-        wx.TaskBarIcon.__init__(self)
+        wx.TaskBarIcon.__init__(self, wx.TBI_DOCK) # wx.TBI_CUSTOM_STATUSITEM
         self.frame = frame
 
         # Set the image
