@@ -4019,6 +4019,20 @@ enum wxAntialiasMode
     wxANTIALIAS_DEFAULT,
 };
 
+enum wxInterpolationQuality
+{
+    // default interpolation
+    wxINTERPOLATION_DEFAULT,
+    // no interpolation
+    wxINTERPOLATION_NONE, 
+    // fast interpolation, suited for interactivity
+    wxINTERPOLATION_FAST,
+    // better quality
+    wxINTERPOLATION_GOOD,
+    // best quality, not suited for interactivity
+    wxINTERPOLATION_BEST
+};
+
 enum wxCompositionMode
 {
     // R = Result, S = Source, D = Destination, premultiplied with alpha
@@ -4307,6 +4321,10 @@ public:
     virtual void * GetNativeContext() { return NULL; }
     virtual int GetAntialiasMode() const { return 0; }
     virtual bool SetAntialiasMode(wxAntialiasMode antialias) { return false; }
+
+    virtual wxInterpolationQuality GetInterpolationQuality() const { return wxINTERPOLATION_DEFAULT; }
+    virtual bool SetInterpolationQuality(wxInterpolationQuality) { return false; };
+
     virtual int GetCompositionMode() const { return 0; }
     virtual bool SetCompositionMode(wxCompositionMode op) { return false; }
     virtual void GetSize( wxDouble*, wxDouble* );
@@ -33556,6 +33574,71 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GraphicsContext_GetInterpolationQuality(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  wxInterpolationQuality result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_GetInterpolationQuality" "', expected argument " "1"" of type '" "wxGraphicsContext const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  {
+    result = (wxInterpolationQuality)((wxGraphicsContext const *)arg1)->GetInterpolationQuality();
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_SetInterpolationQuality(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  wxInterpolationQuality arg2 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "interpolation", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsContext_SetInterpolationQuality",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_SetInterpolationQuality" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsContext_SetInterpolationQuality" "', expected argument " "2"" of type '" "wxInterpolationQuality""'");
+  } 
+  arg2 = static_cast< wxInterpolationQuality >(val2);
+  {
+    result = (bool)(arg1)->SetInterpolationQuality(arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_GraphicsContext_GetCompositionMode(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
@@ -44962,6 +45045,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GraphicsContext_GetNativeContext", (PyCFunction)_wrap_GraphicsContext_GetNativeContext, METH_O, NULL},
 	 { (char *)"GraphicsContext_GetAntialiasMode", (PyCFunction)_wrap_GraphicsContext_GetAntialiasMode, METH_O, NULL},
 	 { (char *)"GraphicsContext_SetAntialiasMode", (PyCFunction) _wrap_GraphicsContext_SetAntialiasMode, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsContext_GetInterpolationQuality", (PyCFunction)_wrap_GraphicsContext_GetInterpolationQuality, METH_O, NULL},
+	 { (char *)"GraphicsContext_SetInterpolationQuality", (PyCFunction) _wrap_GraphicsContext_SetInterpolationQuality, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_GetCompositionMode", (PyCFunction)_wrap_GraphicsContext_GetCompositionMode, METH_O, NULL},
 	 { (char *)"GraphicsContext_SetCompositionMode", (PyCFunction) _wrap_GraphicsContext_SetCompositionMode, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_GetSize", (PyCFunction)_wrap_GraphicsContext_GetSize, METH_O, NULL},
@@ -47435,6 +47520,11 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "BUFFER_USES_SHARED_BUFFER",SWIG_From_int(static_cast< int >(wxBUFFER_USES_SHARED_BUFFER)));
   SWIG_Python_SetConstant(d, "ANTIALIAS_NONE",SWIG_From_int(static_cast< int >(wxANTIALIAS_NONE)));
   SWIG_Python_SetConstant(d, "ANTIALIAS_DEFAULT",SWIG_From_int(static_cast< int >(wxANTIALIAS_DEFAULT)));
+  SWIG_Python_SetConstant(d, "INTERPOLATION_DEFAULT",SWIG_From_int(static_cast< int >(wxINTERPOLATION_DEFAULT)));
+  SWIG_Python_SetConstant(d, "INTERPOLATION_NONE",SWIG_From_int(static_cast< int >(wxINTERPOLATION_NONE)));
+  SWIG_Python_SetConstant(d, "INTERPOLATION_FAST",SWIG_From_int(static_cast< int >(wxINTERPOLATION_FAST)));
+  SWIG_Python_SetConstant(d, "INTERPOLATION_GOOD",SWIG_From_int(static_cast< int >(wxINTERPOLATION_GOOD)));
+  SWIG_Python_SetConstant(d, "INTERPOLATION_BEST",SWIG_From_int(static_cast< int >(wxINTERPOLATION_BEST)));
   SWIG_Python_SetConstant(d, "COMPOSITION_CLEAR",SWIG_From_int(static_cast< int >(wxCOMPOSITION_CLEAR)));
   SWIG_Python_SetConstant(d, "COMPOSITION_SOURCE",SWIG_From_int(static_cast< int >(wxCOMPOSITION_SOURCE)));
   SWIG_Python_SetConstant(d, "COMPOSITION_OVER",SWIG_From_int(static_cast< int >(wxCOMPOSITION_OVER)));

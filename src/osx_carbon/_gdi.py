@@ -5237,7 +5237,7 @@ class BufferedPaintDC(BufferedDC):
     of `wx.PaintDC` and that's all you have to do to (mostly) avoid
     flicker. The only thing to watch out for is that if you are using this
     class together with `wx.ScrolledWindow`, you probably do **not** want
-    to call `wx.Window.PrepareDC` on it as it already does this internally
+    to call `wx.ScrolledWindow.PrepareDC` on it as it already does this internally
     for the real underlying `wx.PaintDC`.
 
     If your window is already fully buffered in a `wx.Bitmap` then your
@@ -5421,6 +5421,11 @@ _gdi_.SVGFileDC_swigregister(SVGFileDC)
 
 ANTIALIAS_NONE = _gdi_.ANTIALIAS_NONE
 ANTIALIAS_DEFAULT = _gdi_.ANTIALIAS_DEFAULT
+INTERPOLATION_DEFAULT = _gdi_.INTERPOLATION_DEFAULT
+INTERPOLATION_NONE = _gdi_.INTERPOLATION_NONE
+INTERPOLATION_FAST = _gdi_.INTERPOLATION_FAST
+INTERPOLATION_GOOD = _gdi_.INTERPOLATION_GOOD
+INTERPOLATION_BEST = _gdi_.INTERPOLATION_BEST
 COMPOSITION_CLEAR = _gdi_.COMPOSITION_CLEAR
 COMPOSITION_SOURCE = _gdi_.COMPOSITION_SOURCE
 COMPOSITION_OVER = _gdi_.COMPOSITION_OVER
@@ -6181,6 +6186,14 @@ class GraphicsContext(GraphicsObject):
         Sets the antialiasing mode, returns true if it is supported
         """
         return _gdi_.GraphicsContext_SetAntialiasMode(*args, **kwargs)
+
+    def GetInterpolationQuality(*args, **kwargs):
+        """GetInterpolationQuality(self) -> int"""
+        return _gdi_.GraphicsContext_GetInterpolationQuality(*args, **kwargs)
+
+    def SetInterpolationQuality(*args, **kwargs):
+        """SetInterpolationQuality(self, int interpolation) -> bool"""
+        return _gdi_.GraphicsContext_SetInterpolationQuality(*args, **kwargs)
 
     def GetCompositionMode(*args, **kwargs):
         """

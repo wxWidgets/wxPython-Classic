@@ -13800,6 +13800,47 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_DataViewCtrl_SetRowHeight(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxDataViewCtrl *arg1 = (wxDataViewCtrl *) 0 ;
+  int arg2 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "rowHeight", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:DataViewCtrl_SetRowHeight",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxDataViewCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataViewCtrl_SetRowHeight" "', expected argument " "1"" of type '" "wxDataViewCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxDataViewCtrl * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataViewCtrl_SetRowHeight" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->SetRowHeight(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_DataViewCtrl_StartEditor(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxDataViewCtrl *arg1 = (wxDataViewCtrl *) 0 ;
@@ -20452,6 +20493,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"DataViewCtrl_EnsureVisible", (PyCFunction) _wrap_DataViewCtrl_EnsureVisible, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_HitTest", (PyCFunction) _wrap_DataViewCtrl_HitTest, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_GetItemRect", (PyCFunction) _wrap_DataViewCtrl_GetItemRect, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"DataViewCtrl_SetRowHeight", (PyCFunction) _wrap_DataViewCtrl_SetRowHeight, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_StartEditor", (PyCFunction) _wrap_DataViewCtrl_StartEditor, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_EnableDragSource", (PyCFunction) _wrap_DataViewCtrl_EnableDragSource, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"DataViewCtrl_EnableDropTarget", (PyCFunction) _wrap_DataViewCtrl_EnableDropTarget, METH_VARARGS | METH_KEYWORDS, NULL},

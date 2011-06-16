@@ -63,7 +63,112 @@ BU_ALIGN_MASK = _controls_.BU_ALIGN_MASK
 BU_EXACTFIT = _controls_.BU_EXACTFIT
 BU_AUTODRAW = _controls_.BU_AUTODRAW
 BU_NOTEXT = _controls_.BU_NOTEXT
-class Button(_core.Control):
+class AnyButton(_core.Control):
+    """Proxy of C++ AnyButton class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    def SetBitmap(*args, **kwargs):
+        """SetBitmap(self, Bitmap bitmap, int dir=LEFT)"""
+        return _controls_.AnyButton_SetBitmap(*args, **kwargs)
+
+    def GetBitmap(*args, **kwargs):
+        """GetBitmap(self) -> Bitmap"""
+        return _controls_.AnyButton_GetBitmap(*args, **kwargs)
+
+    Bitmap = property(GetBitmap,SetBitmap) 
+    def SetBitmapLabel(*args, **kwargs):
+        """SetBitmapLabel(self, Bitmap bitmap)"""
+        return _controls_.AnyButton_SetBitmapLabel(*args, **kwargs)
+
+    def SetBitmapPressed(*args, **kwargs):
+        """SetBitmapPressed(self, Bitmap bitmap)"""
+        return _controls_.AnyButton_SetBitmapPressed(*args, **kwargs)
+
+    def SetBitmapDisabled(*args, **kwargs):
+        """SetBitmapDisabled(self, Bitmap bitmap)"""
+        return _controls_.AnyButton_SetBitmapDisabled(*args, **kwargs)
+
+    def SetBitmapCurrent(*args, **kwargs):
+        """SetBitmapCurrent(self, Bitmap bitmap)"""
+        return _controls_.AnyButton_SetBitmapCurrent(*args, **kwargs)
+
+    def SetBitmapFocus(*args, **kwargs):
+        """SetBitmapFocus(self, Bitmap bitmap)"""
+        return _controls_.AnyButton_SetBitmapFocus(*args, **kwargs)
+
+    def GetBitmapLabel(*args, **kwargs):
+        """GetBitmapLabel(self) -> Bitmap"""
+        return _controls_.AnyButton_GetBitmapLabel(*args, **kwargs)
+
+    def GetBitmapPressed(*args, **kwargs):
+        """GetBitmapPressed(self) -> Bitmap"""
+        return _controls_.AnyButton_GetBitmapPressed(*args, **kwargs)
+
+    def GetBitmapDisabled(*args, **kwargs):
+        """GetBitmapDisabled(self) -> Bitmap"""
+        return _controls_.AnyButton_GetBitmapDisabled(*args, **kwargs)
+
+    def GetBitmapCurrent(*args, **kwargs):
+        """GetBitmapCurrent(self) -> Bitmap"""
+        return _controls_.AnyButton_GetBitmapCurrent(*args, **kwargs)
+
+    def GetBitmapFocus(*args, **kwargs):
+        """GetBitmapFocus(self) -> Bitmap"""
+        return _controls_.AnyButton_GetBitmapFocus(*args, **kwargs)
+
+    BitmapLabel = property(GetBitmapLabel,SetBitmapLabel) 
+    BitmapPressed = property(GetBitmapPressed,SetBitmapPressed) 
+    BitmapDisabled = property(GetBitmapDisabled,SetBitmapDisabled) 
+    BitmapCurrent = property(GetBitmapCurrent,SetBitmapCurrent) 
+    BitmapFocus = property(GetBitmapFocus,SetBitmapFocus) 
+    def GetBitmapSelected(*args, **kwargs):
+        """GetBitmapSelected(self) -> Bitmap"""
+        return _controls_.AnyButton_GetBitmapSelected(*args, **kwargs)
+
+    def GetBitmapHover(*args, **kwargs):
+        """GetBitmapHover(self) -> Bitmap"""
+        return _controls_.AnyButton_GetBitmapHover(*args, **kwargs)
+
+    def SetBitmapSelected(*args, **kwargs):
+        """SetBitmapSelected(self, Bitmap bitmap)"""
+        return _controls_.AnyButton_SetBitmapSelected(*args, **kwargs)
+
+    def SetBitmapHover(*args, **kwargs):
+        """SetBitmapHover(self, Bitmap bitmap)"""
+        return _controls_.AnyButton_SetBitmapHover(*args, **kwargs)
+
+    BitmapSelected = property(GetBitmapSelected,SetBitmapSelected) 
+    BitmapHover = property(GetBitmapHover,SetBitmapHover) 
+    def SetBitmapMargins(*args):
+        """
+        SetBitmapMargins(self, int x, int y)
+        SetBitmapMargins(self, Size sz)
+        """
+        return _controls_.AnyButton_SetBitmapMargins(*args)
+
+    def GetBitmapMargins(*args, **kwargs):
+        """GetBitmapMargins(self) -> Size"""
+        return _controls_.AnyButton_GetBitmapMargins(*args, **kwargs)
+
+    BitmapMargins = property(GetBitmapMargins,SetBitmapMargins) 
+    def SetBitmapPosition(*args, **kwargs):
+        """SetBitmapPosition(self, int dir)"""
+        return _controls_.AnyButton_SetBitmapPosition(*args, **kwargs)
+
+    def DontShowLabel(*args, **kwargs):
+        """DontShowLabel(self) -> bool"""
+        return _controls_.AnyButton_DontShowLabel(*args, **kwargs)
+
+    def ShowsLabel(*args, **kwargs):
+        """ShowsLabel(self) -> bool"""
+        return _controls_.AnyButton_ShowsLabel(*args, **kwargs)
+
+_controls_.AnyButton_swigregister(AnyButton)
+cvar = _controls_.cvar
+ButtonNameStr = cvar.ButtonNameStr
+
+class Button(AnyButton):
     """
     A button is a control that contains a text string, and is one of the most
     common elements of a GUI.  It may be placed on a dialog box or panel, or
@@ -107,94 +212,6 @@ class Button(_core.Control):
         """GetAuthNeeded(self) -> bool"""
         return _controls_.Button_GetAuthNeeded(*args, **kwargs)
 
-    def SetBitmap(*args, **kwargs):
-        """SetBitmap(self, Bitmap bitmap, int dir=LEFT)"""
-        return _controls_.Button_SetBitmap(*args, **kwargs)
-
-    def GetBitmap(*args, **kwargs):
-        """GetBitmap(self) -> Bitmap"""
-        return _controls_.Button_GetBitmap(*args, **kwargs)
-
-    Bitmap = property(GetBitmap,SetBitmap) 
-    def SetBitmapLabel(*args, **kwargs):
-        """SetBitmapLabel(self, Bitmap bitmap)"""
-        return _controls_.Button_SetBitmapLabel(*args, **kwargs)
-
-    def SetBitmapPressed(*args, **kwargs):
-        """SetBitmapPressed(self, Bitmap bitmap)"""
-        return _controls_.Button_SetBitmapPressed(*args, **kwargs)
-
-    def SetBitmapDisabled(*args, **kwargs):
-        """SetBitmapDisabled(self, Bitmap bitmap)"""
-        return _controls_.Button_SetBitmapDisabled(*args, **kwargs)
-
-    def SetBitmapCurrent(*args, **kwargs):
-        """SetBitmapCurrent(self, Bitmap bitmap)"""
-        return _controls_.Button_SetBitmapCurrent(*args, **kwargs)
-
-    def SetBitmapFocus(*args, **kwargs):
-        """SetBitmapFocus(self, Bitmap bitmap)"""
-        return _controls_.Button_SetBitmapFocus(*args, **kwargs)
-
-    def GetBitmapLabel(*args, **kwargs):
-        """GetBitmapLabel(self) -> Bitmap"""
-        return _controls_.Button_GetBitmapLabel(*args, **kwargs)
-
-    def GetBitmapPressed(*args, **kwargs):
-        """GetBitmapPressed(self) -> Bitmap"""
-        return _controls_.Button_GetBitmapPressed(*args, **kwargs)
-
-    def GetBitmapDisabled(*args, **kwargs):
-        """GetBitmapDisabled(self) -> Bitmap"""
-        return _controls_.Button_GetBitmapDisabled(*args, **kwargs)
-
-    def GetBitmapCurrent(*args, **kwargs):
-        """GetBitmapCurrent(self) -> Bitmap"""
-        return _controls_.Button_GetBitmapCurrent(*args, **kwargs)
-
-    def GetBitmapFocus(*args, **kwargs):
-        """GetBitmapFocus(self) -> Bitmap"""
-        return _controls_.Button_GetBitmapFocus(*args, **kwargs)
-
-    BitmapLabel = property(GetBitmapLabel,SetBitmapLabel) 
-    BitmapPressed = property(GetBitmapPressed,SetBitmapPressed) 
-    BitmapDisabled = property(GetBitmapDisabled,SetBitmapDisabled) 
-    BitmapCurrent = property(GetBitmapCurrent,SetBitmapCurrent) 
-    BitmapFocus = property(GetBitmapFocus,SetBitmapFocus) 
-    def GetBitmapSelected(*args, **kwargs):
-        """GetBitmapSelected(self) -> Bitmap"""
-        return _controls_.Button_GetBitmapSelected(*args, **kwargs)
-
-    def GetBitmapHover(*args, **kwargs):
-        """GetBitmapHover(self) -> Bitmap"""
-        return _controls_.Button_GetBitmapHover(*args, **kwargs)
-
-    def SetBitmapSelected(*args, **kwargs):
-        """SetBitmapSelected(self, Bitmap bitmap)"""
-        return _controls_.Button_SetBitmapSelected(*args, **kwargs)
-
-    def SetBitmapHover(*args, **kwargs):
-        """SetBitmapHover(self, Bitmap bitmap)"""
-        return _controls_.Button_SetBitmapHover(*args, **kwargs)
-
-    BitmapSelected = property(GetBitmapSelected,SetBitmapSelected) 
-    BitmapHover = property(GetBitmapHover,SetBitmapHover) 
-    def SetBitmapMargins(*args):
-        """
-        SetBitmapMargins(self, int x, int y)
-        SetBitmapMargins(self, Size sz)
-        """
-        return _controls_.Button_SetBitmapMargins(*args)
-
-    def GetBitmapMargins(*args, **kwargs):
-        """GetBitmapMargins(self) -> Size"""
-        return _controls_.Button_GetBitmapMargins(*args, **kwargs)
-
-    BitmapMargins = property(GetBitmapMargins,SetBitmapMargins) 
-    def SetBitmapPosition(*args, **kwargs):
-        """SetBitmapPosition(self, int dir)"""
-        return _controls_.Button_SetBitmapPosition(*args, **kwargs)
-
     def SetDefault(*args, **kwargs):
         """
         SetDefault(self) -> Window
@@ -231,8 +248,6 @@ class Button(_core.Control):
 
     GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
 _controls_.Button_swigregister(Button)
-cvar = _controls_.cvar
-ButtonNameStr = cvar.ButtonNameStr
 
 def PreButton(*args, **kwargs):
     """
@@ -2948,7 +2963,7 @@ def Slider_GetClassDefaultAttributes(*args, **kwargs):
 wxEVT_COMMAND_TOGGLEBUTTON_CLICKED = _controls_.wxEVT_COMMAND_TOGGLEBUTTON_CLICKED
 EVT_TOGGLEBUTTON = wx.PyEventBinder( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, 1)
 
-class ToggleButton(_core.Control):
+class ToggleButton(AnyButton):
     """Proxy of C++ ToggleButton class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
