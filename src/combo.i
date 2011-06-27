@@ -470,8 +470,8 @@ most appropriate side is used (which, currently, is always wx.LEFT).", "");
 
     :param bmpNormal:  Default button image
     :param pushButtonBg: If ``True``, blank push button background is painted below the image.
-    :param bmpPressed:  Depressed butotn image.
-    :param bmpHover:  Button imate to use when the mouse hovers over it.
+    :param bmpPressed:  Depressed button image.
+    :param bmpHover:  Button image to use when the mouse hovers over it.
     :param bmpDisabled: Disabled button image.
 ", "");
 
@@ -1037,6 +1037,10 @@ public:
 
     void SetSelection(int n);
     %Rename(SetMark, void , SetSelection(long from, long to));
+
+    // Implemented in wxItemContainer, but hidden in wxPyComboCtrl, so list
+    // it explicitly here.
+    %pythoncode { GetString = wx.ItemContainer.GetString }
 
 
     // Callback for drawing. Font, background and text colour have been
