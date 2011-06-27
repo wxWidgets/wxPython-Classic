@@ -4667,6 +4667,9 @@ PRINTBIN_LARGECAPACITY = _windows_.PRINTBIN_LARGECAPACITY
 PRINTBIN_CASSETTE = _windows_.PRINTBIN_CASSETTE
 PRINTBIN_FORMSOURCE = _windows_.PRINTBIN_FORMSOURCE
 PRINTBIN_USER = _windows_.PRINTBIN_USER
+PreviewFrame_AppModal = _windows_.PreviewFrame_AppModal
+PreviewFrame_WindowModal = _windows_.PreviewFrame_WindowModal
+PreviewFrame_NonModal = _windows_.PreviewFrame_NonModal
 class PrintData(_core.Object):
     """Proxy of C++ PrintData class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -5175,9 +5178,6 @@ _windows_.PrintDialog_swigregister(PrintDialog)
 PRINTER_NO_ERROR = _windows_.PRINTER_NO_ERROR
 PRINTER_CANCELLED = _windows_.PRINTER_CANCELLED
 PRINTER_ERROR = _windows_.PRINTER_ERROR
-PreviewFrame_AppModal = _windows_.PreviewFrame_AppModal
-PreviewFrame_WindowModal = _windows_.PreviewFrame_WindowModal
-PreviewFrame_NonModal = _windows_.PreviewFrame_NonModal
 class Printer(_core.Object):
     """Proxy of C++ Printer class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -5454,8 +5454,12 @@ class PreviewFrame(Frame):
         self._setOORInfo(self)
 
     def Initialize(*args, **kwargs):
-        """Initialize(self, int kind=PreviewFrame_AppModal)"""
+        """Initialize(self)"""
         return _windows_.PreviewFrame_Initialize(*args, **kwargs)
+
+    def InitializeWithModality(*args, **kwargs):
+        """InitializeWithModality(self, int kind)"""
+        return _windows_.PreviewFrame_InitializeWithModality(*args, **kwargs)
 
     def CreateControlBar(*args, **kwargs):
         """CreateControlBar(self)"""
@@ -5719,6 +5723,10 @@ class PyPreviewFrame(PreviewFrame):
     def Initialize(*args, **kwargs):
         """Initialize(self)"""
         return _windows_.PyPreviewFrame_Initialize(*args, **kwargs)
+
+    def InitializeWithModality(*args, **kwargs):
+        """InitializeWithModality(self, int kind)"""
+        return _windows_.PyPreviewFrame_InitializeWithModality(*args, **kwargs)
 
     def CreateCanvas(*args, **kwargs):
         """CreateCanvas(self)"""

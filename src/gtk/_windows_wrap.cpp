@@ -35444,10 +35444,37 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_PreviewFrame_Initialize(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_PreviewFrame_Initialize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPreviewFrame *arg1 = (wxPreviewFrame *) 0 ;
-  wxPreviewFrameModalityKind arg2 = (wxPreviewFrameModalityKind) wxPreviewFrame_AppModal ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPreviewFrame, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PreviewFrame_Initialize" "', expected argument " "1"" of type '" "wxPreviewFrame *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPreviewFrame * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->Initialize();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_PreviewFrame_InitializeWithModality(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPreviewFrame *arg1 = (wxPreviewFrame *) 0 ;
+  wxPreviewFrameModalityKind arg2 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int val2 ;
@@ -35458,22 +35485,20 @@ SWIGINTERN PyObject *_wrap_PreviewFrame_Initialize(PyObject *SWIGUNUSEDPARM(self
     (char *) "self",(char *) "kind", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:PreviewFrame_Initialize",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PreviewFrame_InitializeWithModality",kwnames,&obj0,&obj1)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPreviewFrame, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PreviewFrame_Initialize" "', expected argument " "1"" of type '" "wxPreviewFrame *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PreviewFrame_InitializeWithModality" "', expected argument " "1"" of type '" "wxPreviewFrame *""'"); 
   }
   arg1 = reinterpret_cast< wxPreviewFrame * >(argp1);
-  if (obj1) {
-    ecode2 = SWIG_AsVal_int(obj1, &val2);
-    if (!SWIG_IsOK(ecode2)) {
-      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PreviewFrame_Initialize" "', expected argument " "2"" of type '" "wxPreviewFrameModalityKind""'");
-    } 
-    arg2 = static_cast< wxPreviewFrameModalityKind >(val2);
-  }
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PreviewFrame_InitializeWithModality" "', expected argument " "2"" of type '" "wxPreviewFrameModalityKind""'");
+  } 
+  arg2 = static_cast< wxPreviewFrameModalityKind >(val2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->Initialize(arg2);
+    (arg1)->InitializeWithModality(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -37178,6 +37203,44 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_PyPreviewFrame_InitializeWithModality(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyPreviewFrame *arg1 = (wxPyPreviewFrame *) 0 ;
+  wxPreviewFrameModalityKind arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "kind", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:PyPreviewFrame_InitializeWithModality",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyPreviewFrame, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "PyPreviewFrame_InitializeWithModality" "', expected argument " "1"" of type '" "wxPyPreviewFrame *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyPreviewFrame * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "PyPreviewFrame_InitializeWithModality" "', expected argument " "2"" of type '" "wxPreviewFrameModalityKind""'");
+  } 
+  arg2 = static_cast< wxPreviewFrameModalityKind >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->InitializeWithModality(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_PyPreviewFrame_CreateCanvas(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPyPreviewFrame *arg1 = (wxPyPreviewFrame *) 0 ;
@@ -38347,7 +38410,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PreviewCanvas_swigregister", PreviewCanvas_swigregister, METH_VARARGS, NULL},
 	 { (char *)"PreviewCanvas_swiginit", PreviewCanvas_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_PreviewFrame", (PyCFunction) _wrap_new_PreviewFrame, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"PreviewFrame_Initialize", (PyCFunction) _wrap_PreviewFrame_Initialize, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"PreviewFrame_Initialize", (PyCFunction)_wrap_PreviewFrame_Initialize, METH_O, NULL},
+	 { (char *)"PreviewFrame_InitializeWithModality", (PyCFunction) _wrap_PreviewFrame_InitializeWithModality, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PreviewFrame_CreateControlBar", (PyCFunction)_wrap_PreviewFrame_CreateControlBar, METH_O, NULL},
 	 { (char *)"PreviewFrame_CreateCanvas", (PyCFunction)_wrap_PreviewFrame_CreateCanvas, METH_O, NULL},
 	 { (char *)"PreviewFrame_GetControlBar", (PyCFunction)_wrap_PreviewFrame_GetControlBar, METH_O, NULL},
@@ -38396,6 +38460,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"PyPreviewFrame_SetPreviewCanvas", (PyCFunction) _wrap_PyPreviewFrame_SetPreviewCanvas, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyPreviewFrame_SetControlBar", (PyCFunction) _wrap_PyPreviewFrame_SetControlBar, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyPreviewFrame_Initialize", (PyCFunction)_wrap_PyPreviewFrame_Initialize, METH_O, NULL},
+	 { (char *)"PyPreviewFrame_InitializeWithModality", (PyCFunction) _wrap_PyPreviewFrame_InitializeWithModality, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"PyPreviewFrame_CreateCanvas", (PyCFunction)_wrap_PyPreviewFrame_CreateCanvas, METH_O, NULL},
 	 { (char *)"PyPreviewFrame_CreateControlBar", (PyCFunction)_wrap_PyPreviewFrame_CreateControlBar, METH_O, NULL},
 	 { (char *)"PyPreviewFrame_swigregister", PyPreviewFrame_swigregister, METH_VARARGS, NULL},
@@ -41157,12 +41222,12 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "PRINTBIN_CASSETTE",SWIG_From_int(static_cast< int >(wxPRINTBIN_CASSETTE)));
   SWIG_Python_SetConstant(d, "PRINTBIN_FORMSOURCE",SWIG_From_int(static_cast< int >(wxPRINTBIN_FORMSOURCE)));
   SWIG_Python_SetConstant(d, "PRINTBIN_USER",SWIG_From_int(static_cast< int >(wxPRINTBIN_USER)));
-  SWIG_Python_SetConstant(d, "PRINTER_NO_ERROR",SWIG_From_int(static_cast< int >(wxPRINTER_NO_ERROR)));
-  SWIG_Python_SetConstant(d, "PRINTER_CANCELLED",SWIG_From_int(static_cast< int >(wxPRINTER_CANCELLED)));
-  SWIG_Python_SetConstant(d, "PRINTER_ERROR",SWIG_From_int(static_cast< int >(wxPRINTER_ERROR)));
   SWIG_Python_SetConstant(d, "PreviewFrame_AppModal",SWIG_From_int(static_cast< int >(wxPreviewFrame_AppModal)));
   SWIG_Python_SetConstant(d, "PreviewFrame_WindowModal",SWIG_From_int(static_cast< int >(wxPreviewFrame_WindowModal)));
   SWIG_Python_SetConstant(d, "PreviewFrame_NonModal",SWIG_From_int(static_cast< int >(wxPreviewFrame_NonModal)));
+  SWIG_Python_SetConstant(d, "PRINTER_NO_ERROR",SWIG_From_int(static_cast< int >(wxPRINTER_NO_ERROR)));
+  SWIG_Python_SetConstant(d, "PRINTER_CANCELLED",SWIG_From_int(static_cast< int >(wxPRINTER_CANCELLED)));
+  SWIG_Python_SetConstant(d, "PRINTER_ERROR",SWIG_From_int(static_cast< int >(wxPRINTER_ERROR)));
   SWIG_Python_SetConstant(d, "PREVIEW_PRINT",SWIG_From_int(static_cast< int >(wxPREVIEW_PRINT)));
   SWIG_Python_SetConstant(d, "PREVIEW_PREVIOUS",SWIG_From_int(static_cast< int >(wxPREVIEW_PREVIOUS)));
   SWIG_Python_SetConstant(d, "PREVIEW_NEXT",SWIG_From_int(static_cast< int >(wxPREVIEW_NEXT)));
