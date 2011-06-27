@@ -344,8 +344,8 @@ class ComboCtrl(_core.Control,_core.TextEntry):
 
             :param bmpNormal:  Default button image
             :param pushButtonBg: If ``True``, blank push button background is painted below the image.
-            :param bmpPressed:  Depressed butotn image.
-            :param bmpHover:  Button imate to use when the mouse hovers over it.
+            :param bmpPressed:  Depressed button image.
+            :param bmpHover:  Button image to use when the mouse hovers over it.
             :param bmpDisabled: Disabled button image.
 
         """
@@ -841,6 +841,7 @@ class OwnerDrawnComboBox(ComboCtrl,_core.ItemContainer):
         """
         return _combo.OwnerDrawnComboBox_GetWidestItem(*args, **kwargs)
 
+    GetString = wx.ItemContainer.GetString 
     def OnDrawItem(*args, **kwargs):
         """
         OnDrawItem(self, DC dc, Rect rect, int item, int flags)
