@@ -70,7 +70,7 @@ class ListCtrlComboPopup(wx.ListCtrl, wx.combo.ComboPopup):
         wx.ListCtrl.Create(self, parent,
                            style=wx.LC_LIST|wx.LC_SINGLE_SEL|wx.SIMPLE_BORDER)
         #self.Bind(wx.EVT_MOTION, self.OnMotion)
-        #self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)
+        self.Bind(wx.EVT_LEFT_DOWN, self.OnLeftDown)
         return True
 
 

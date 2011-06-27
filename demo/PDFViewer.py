@@ -52,7 +52,7 @@ def runTest(frame, nb, log):
     else:
         from Main import MessagePanel
         win = MessagePanel(nb, 
-                           'This demo requires the pyPdf pacakge to be installed.\n'
+                           'This demo requires the pyPdf package to be installed.\n'
                            'See: http://pybrary.net/pyPdf/', 
                            'Sorry', wx.ICON_WARNING)
         return win

@@ -47,8 +47,8 @@ class PenStyleComboBox(wx.combo.OwnerDrawnComboBox):
         dc.SetPen(pen)
 
         if flags & wx.combo.ODCB_PAINTING_CONTROL:
-           # for painting the control itself
-           dc.DrawLine( r.x+5, r.y+r.height/2, r.x+r.width - 5, r.y+r.height/2 )
+            # for painting the control itself
+            dc.DrawLine( r.x+5, r.y+r.height/2, r.x+r.width - 5, r.y+r.height/2 )
 
         else:
             # for painting the items in the popup

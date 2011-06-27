@@ -25,11 +25,16 @@ class TestPanel(wx.Panel):
 
         # Create some controls
         try:
-            self.mc = wx.media.MediaCtrl(self, style=wx.SIMPLE_BORDER,
-                                         #szBackend=wx.media.MEDIABACKEND_DIRECTSHOW
-                                         #szBackend=wx.media.MEDIABACKEND_QUICKTIME
-                                         #szBackend=wx.media.MEDIABACKEND_WMP10
-                                         )
+            backend = ""
+            if 'wxMSW' in wx.PlatformInfo:
+                # the default backend doesn't always send the EVT_MEDIA_LOADED
+                # event which we depend upon, so use a different backend by
+                # default for this demo.
+                backend = wx.media.MEDIABACKEND_QUICKTIME
+                
+            self.mc = wx.media.MediaCtrl(self, 
+                                         style=wx.SIMPLE_BORDER,
+                                         szBackend=backend)
         except NotImplementedError:
             self.Destroy()
             raise
@@ -49,7 +54,7 @@ class TestPanel(wx.Panel):
         btn4 = wx.Button(self, -1, "Stop")
         self.Bind(wx.EVT_BUTTON, self.OnStop, btn4)
 
-        slider = wx.Slider(self, -1, 0, 0, 0)
+        slider = wx.Slider(self, -1, 0, 0, 10)
         self.slider = slider
         slider.SetMinSize((150, -1))
         self.Bind(wx.EVT_SLIDER, self.OnSeek, slider)
@@ -93,7 +98,6 @@ class TestPanel(wx.Panel):
 
     def DoLoadFile(self, path):
         self.playBtn.Disable()
-        #noLog = wx.LogNull()
         if not self.mc.Load(path):
             wx.MessageBox("Unable to load %s: Unsupported format?" % path,
                           "ERROR",
