@@ -57,6 +57,19 @@ enum wxPrintBin
     wxPRINTBIN_USER,
 };
 
+// Preview frame modality kind used with wxPreviewFrame::Initialize()
+enum wxPreviewFrameModalityKind
+{
+    // Disable all the other top level windows while the preview is shown.
+    wxPreviewFrame_AppModal,
+
+    // Disable only the parent window while the preview is shown.
+    wxPreviewFrame_WindowModal,
+
+    // Don't disable any windows.
+    wxPreviewFrame_NonModal
+};
+
 
 class wxPrintData : public wxObject {
 public:
@@ -390,19 +403,6 @@ enum wxPrinterError
 };
 
 
-enum wxPreviewFrameModalityKind
-{
-    // Disable all the other top level windows while the preview is shown.
-    wxPreviewFrame_AppModal,
-
-    // Disable only the parent window while the preview is shown.
-    wxPreviewFrame_WindowModal,
-
-    // Don't disable any windows.
-    wxPreviewFrame_NonModal
-};
-
-
 MustHaveApp(wxPrinter);
 
 class wxPrinter : public wxObject {
@@ -621,8 +621,9 @@ public:
 
     %cleardisown(wxPrintPreview*);
 
-    void Initialize(wxPreviewFrameModalityKind kind
-                                = wxPreviewFrame_AppModal);
+    void Initialize();
+    void InitializeWithModality(wxPreviewFrameModalityKind kind);
+    
     void CreateControlBar();
     void CreateCanvas();
 
@@ -927,6 +928,7 @@ public:
     void SetControlBar(wxPreviewControlBar* bar);
 
     void Initialize();
+    void InitializeWithModality(wxPreviewFrameModalityKind kind);
     void CreateCanvas();
     void CreateControlBar();
 
