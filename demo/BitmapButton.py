@@ -41,7 +41,11 @@ class TestPanel(wx.Panel):
                             style = wx.NO_BORDER)
         
         # hide a little surprise in the button...
-        b.SetBitmapSelected(images.Robin.GetBitmap())
+        img = images.Robin.GetImage()
+        # we need to make it be the same size as the primary image, so
+        # grab a subsection of this new image
+        cropped = img.GetSubImage((20, 20, bmp.GetWidth(), bmp.GetHeight()))
+        b.SetBitmapSelected(cropped.ConvertToBitmap())
 
         b.SetToolTipString("This is a bitmap button with \nwx.NO_BORDER style.")
         self.Bind(wx.EVT_BUTTON, self.OnClick, b)
