@@ -113,6 +113,7 @@ Source: "wx\lib\*.idl";                         DestDir: "{app}\%(PKGDIR)s\wx\li
 Source: "wx\lib\*.tlb";                         DestDir: "{app}\%(PKGDIR)s\wx\lib"; Components: core
 Source: "wx\lib\agw\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\agw"; Components: core
 Source: "wx\lib\agw\aui\*.py";                  DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\aui"; Components: core
+Source: "wx\lib\agw\persist\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\persist"; Components: core
 Source: "wx\lib\agw\ribbon\*.py";               DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\ribbon"; Components: core
 Source: "wx\lib\agw\*.png";                     DestDir: "{app}\%(PKGDIR)s\wx\lib\agw"; Components: core
 Source: "wx\lib\analogclock\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock"; Components: core
@@ -251,6 +252,8 @@ Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\aui\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\aui\*.pyo";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\persist\*.pyc";
+Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\persist\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\ribbon\*.pyc";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\agw\ribbon\*.pyo";
 Type: files; Name: "{app}\%(PKGDIR)s\wx\lib\analogclock\*.pyc";
