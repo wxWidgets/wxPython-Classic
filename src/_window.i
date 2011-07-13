@@ -2092,8 +2092,17 @@ window.  Note that the text is actually stored by the current
     DocDeclStr(
         wxToolTip* , GetToolTip() const,
         "get the associated tooltip or None if none", "");
-    
-    // LINK ERROR --> wxString GetToolTipText() const;
+
+    %pythoncode {
+        def GetToolTipString(self):
+            tip = self.GetToolTip()
+            if tip:
+                return tip.GetTip()
+            else:
+                return None
+
+        ToolTipString = property(GetToolTipString, SetToolTipString)
+    }
 #endif
 
 
