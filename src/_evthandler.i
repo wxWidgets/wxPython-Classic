@@ -150,7 +150,7 @@ public:
                           to a range of IDs, such as with EVT_MENU_RANGE.
             """
             assert isinstance(event, wx.PyEventBinder)
-            assert callable(handler)
+            assert handler is None or callable(handler)
             assert source is None or hasattr(source, 'GetId')
             if source is not None:
                 id  = source.GetId()
