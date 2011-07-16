@@ -1,6 +1,19 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.8.12.1
+--------
+* 16-July-2011
+
+Relax an assert that was added to Bind() in the previous release so
+None will be an acceptable value for the handler parameter again.
+
+Added ToolTipString property to wx.Window.
+
+Other minor fixes.
+
+
+
 2.8.12.0
 --------
 * 16-April-2011

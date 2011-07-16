@@ -92,8 +92,8 @@ tar cvf ../dist/wxPython2.8-%PLATFORM%-devel-%1%EXT%-msvc%MSVCVER%.tar wxPython-
 bzip2 -9 ../dist/wxPython2.8-%PLATFORM%-devel-%1%EXT%-msvc%MSVCVER%.tar
 
 rem *** cleanup
-cd ..
-rm -rf _distrib_zip
+rem cd ..
+rem rm -rf _distrib_zip
 
 endlocal
 
