@@ -18,6 +18,10 @@ class TestPanel(wx.Panel):
 
         slider.SetTickFreq(5, 1)
 
+        slider.Bind(wx.EVT_SCROLL_CHANGED, self.onChanged)
+
+    def onChanged(self, evt):
+        self.log.write('changed: %d' % evt.EventObject.GetValue())
 
 
 #----------------------------------------------------------------------
