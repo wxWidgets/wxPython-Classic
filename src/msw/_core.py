@@ -3914,7 +3914,7 @@ class EvtHandler(Object):
                       to a range of IDs, such as with EVT_MENU_RANGE.
         """
         assert isinstance(event, wx.PyEventBinder)
-        assert callable(handler)
+        assert handler is None or callable(handler)
         assert source is None or hasattr(source, 'GetId')
         if source is not None:
             id  = source.GetId()
@@ -10472,6 +10472,15 @@ class Window(EvtHandler):
         get the associated tooltip or None if none
         """
         return _core_.Window_GetToolTip(*args, **kwargs)
+
+    def GetToolTipString(self):
+        tip = self.GetToolTip()
+        if tip:
+            return tip.GetTip()
+        else:
+            return None
+
+    ToolTipString = property(GetToolTipString, SetToolTipString)
 
     def SetDropTarget(*args, **kwargs):
         """

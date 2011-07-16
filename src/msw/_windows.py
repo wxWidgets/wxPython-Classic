@@ -1184,7 +1184,7 @@ class SplitterWindow(_core.Window):
         """
         SetSashPosition(self, int position, bool redraw=True)
 
-        Sets the sash position, in pixels.  If redraw is Ttrue then the panes
+        Sets the sash position, in pixels.  If redraw is True then the panes
         are resized and the sash and border are redrawn.
         """
         return _windows_.SplitterWindow_SetSashPosition(*args, **kwargs)
