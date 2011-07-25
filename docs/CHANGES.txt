@@ -3,9 +3,21 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.9.2.1
+-------
+* 23-July-2011
+
+Just before release of 2.9.2.0 an important bug was discovered in the
+wxMSW printing code related to converting to and from native printer
+definitions. To correct that glitch this .1 release was made with just
+that one additional difference from the official wxWidgets 2.9.2
+source tree.  
+
+
+
 2.9.2.0
 -------
-*
+* (not released)
 
 Added wx.CommandLinkButton.  This button has both a label and a note
 displayed on it.  On Windows 7 it is a new native widget type, on the
@@ -42,6 +54,7 @@ wx.ToggleButtons are now part of the new common button class hierarchy
 and so they can now have bitmaps instead of or in addition to their
 text labels.
 
+Udpates from the AGW and Editra projects.
 
 
 
@@ -321,6 +334,21 @@ as well as from the scripts which create the preview and release
 builds.  See the new BUILD.txt document for more information.
 
 
+
+
+
+2.8.12.1
+--------
+* 23-July-2011
+
+Relax an assert that was added to Bind() in the previous release so
+None will be an acceptable value for the handler parameter again.
+
+Added ToolTipString property to wx.Window.
+
+Other minor fixes.
+
+Udpates from the AGW and Editra projects.
 
 
 
