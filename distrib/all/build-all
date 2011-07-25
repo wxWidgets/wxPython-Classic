@@ -81,6 +81,8 @@ def getTasks(config_env):
         Job("etch64", "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/etch64",   "etch64"], env=config_env),
         Job("lenny",   "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/lenny",   "lenny"], env=config_env),
         Job("lenny64", "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/lenny64", "lenny64"], env=config_env),
+        Job("squeeze",   "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/squeeze",   "squeeze"], env=config_env),
+        Job("squeeze64", "distrib/all/build-deb", ["cy-ubuntu-opd", "/work/chroot/squeeze64", "squeeze64"], env=config_env),
         ])
 
     
