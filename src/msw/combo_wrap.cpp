@@ -8455,7 +8455,7 @@ static void *_p_wxPyAxBaseWindowTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *) ((wxPyAxBaseWindow *) x));
 }
 static void *_p_wxThreadEventTo_p_wxObject(void *x) {
-    return (void *)((wxObject *) (wxEvent *)(wxCommandEvent *) ((wxThreadEvent *) x));
+    return (void *)((wxObject *) (wxEvent *) ((wxThreadEvent *) x));
 }
 static void *_p_wxSysColourChangedEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *) ((wxSysColourChangedEvent *) x));

@@ -8448,7 +8448,7 @@ static void *_p_wxFontPickerCtrlTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxControl *)(wxPickerBase *) ((wxFontPickerCtrl *) x));
 }
 static void *_p_wxThreadEventTo_p_wxObject(void *x) {
-    return (void *)((wxObject *) (wxEvent *)(wxCommandEvent *) ((wxThreadEvent *) x));
+    return (void *)((wxObject *) (wxEvent *) ((wxThreadEvent *) x));
 }
 static void *_p_wxSysColourChangedEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *) ((wxSysColourChangedEvent *) x));

@@ -4162,7 +4162,7 @@ class EvtHandler(Object):
                       to a range of IDs, such as with EVT_MENU_RANGE.
         """
         assert isinstance(event, wx.PyEventBinder)
-        assert callable(handler)
+        assert handler is None or callable(handler)
         assert source is None or hasattr(source, 'GetId')
         if source is not None:
             id  = source.GetId()
@@ -4581,7 +4581,7 @@ wxEVT_COMMAND_TOOL_ENTER = _core_.wxEVT_COMMAND_TOOL_ENTER
 wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED = _core_.wxEVT_COMMAND_TOOL_DROPDOWN_CLICKED
 wxEVT_COMMAND_COMBOBOX_DROPDOWN = _core_.wxEVT_COMMAND_COMBOBOX_DROPDOWN
 wxEVT_COMMAND_COMBOBOX_CLOSEUP = _core_.wxEVT_COMMAND_COMBOBOX_CLOSEUP
-wxEVT_COMMAND_THREAD = _core_.wxEVT_COMMAND_THREAD
+wxEVT_THREAD = _core_.wxEVT_THREAD
 wxEVT_LEFT_DOWN = _core_.wxEVT_LEFT_DOWN
 wxEVT_LEFT_UP = _core_.wxEVT_LEFT_UP
 wxEVT_MIDDLE_DOWN = _core_.wxEVT_MIDDLE_DOWN
@@ -4871,7 +4871,7 @@ EVT_TEXT_CUT   =  wx.PyEventBinder( wxEVT_COMMAND_TEXT_CUT )
 EVT_TEXT_COPY  =  wx.PyEventBinder( wxEVT_COMMAND_TEXT_COPY )
 EVT_TEXT_PASTE =  wx.PyEventBinder( wxEVT_COMMAND_TEXT_PASTE )
 
-EVT_THREAD = wx.PyEventBinder( wxEVT_COMMAND_THREAD )
+EVT_THREAD = wx.PyEventBinder( wxEVT_THREAD )
 
 #---------------------------------------------------------------------------
 
@@ -5289,13 +5289,40 @@ _core_.NotifyEvent_swigregister(NotifyEvent)
 
 #---------------------------------------------------------------------------
 
-class ThreadEvent(CommandEvent):
+class ThreadEvent(Event):
     """Proxy of C++ ThreadEvent class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, EventType eventType=wxEVT_COMMAND_THREAD, int id=ID_ANY) -> ThreadEvent"""
+        """__init__(self, EventType eventType=wxEVT_THREAD, int id=ID_ANY) -> ThreadEvent"""
         _core_.ThreadEvent_swiginit(self,_core_.new_ThreadEvent(*args, **kwargs))
+    def GetExtraLong(*args, **kwargs):
+        """GetExtraLong(self) -> long"""
+        return _core_.ThreadEvent_GetExtraLong(*args, **kwargs)
+
+    def GetInt(*args, **kwargs):
+        """GetInt(self) -> int"""
+        return _core_.ThreadEvent_GetInt(*args, **kwargs)
+
+    def GetString(*args, **kwargs):
+        """GetString(self) -> String"""
+        return _core_.ThreadEvent_GetString(*args, **kwargs)
+
+    def SetExtraLong(*args, **kwargs):
+        """SetExtraLong(self, long extraLong)"""
+        return _core_.ThreadEvent_SetExtraLong(*args, **kwargs)
+
+    def SetInt(*args, **kwargs):
+        """SetInt(self, int intCommand)"""
+        return _core_.ThreadEvent_SetInt(*args, **kwargs)
+
+    def SetString(*args, **kwargs):
+        """SetString(self, String string)"""
+        return _core_.ThreadEvent_SetString(*args, **kwargs)
+
+    ExtraLong = property(GetExtraLong,SetExtraLong,doc="See `GetExtraLong` and `SetExtraLong`") 
+    Int = property(GetInt,SetInt,doc="See `GetInt` and `SetInt`") 
+    String = property(GetString,SetString,doc="See `GetString` and `SetString`") 
 _core_.ThreadEvent_swigregister(ThreadEvent)
 
 #---------------------------------------------------------------------------
@@ -11293,6 +11320,15 @@ class Window(EvtHandler):
         get the associated tooltip or None if none
         """
         return _core_.Window_GetToolTip(*args, **kwargs)
+
+    def GetToolTipString(self):
+        tip = self.GetToolTip()
+        if tip:
+            return tip.GetTip()
+        else:
+            return None
+
+    ToolTipString = property(GetToolTipString, SetToolTipString)
 
     def SetDropTarget(*args, **kwargs):
         """

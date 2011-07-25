@@ -4041,6 +4041,8 @@ enum wxCompositionMode
     // classic Porter-Duff compositions
     // http://keithp.com/~keithp/porterduff/p253-porter.pdf
     
+    wxCOMPOSITION_INVALID,
+
     wxCOMPOSITION_CLEAR, /* R = 0 */
     wxCOMPOSITION_SOURCE, /* R = S */
     wxCOMPOSITION_OVER, /* R = S + D*(1 - Sa) */
@@ -44628,7 +44630,7 @@ static void *_p_wxSysColourChangedEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *) ((wxSysColourChangedEvent *) x));
 }
 static void *_p_wxThreadEventTo_p_wxObject(void *x) {
-    return (void *)((wxObject *) (wxEvent *)(wxCommandEvent *) ((wxThreadEvent *) x));
+    return (void *)((wxObject *) (wxEvent *) ((wxThreadEvent *) x));
 }
 static void *_p_wxControlTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *) ((wxControl *) x));
@@ -46646,6 +46648,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "INTERPOLATION_FAST",SWIG_From_int(static_cast< int >(wxINTERPOLATION_FAST)));
   SWIG_Python_SetConstant(d, "INTERPOLATION_GOOD",SWIG_From_int(static_cast< int >(wxINTERPOLATION_GOOD)));
   SWIG_Python_SetConstant(d, "INTERPOLATION_BEST",SWIG_From_int(static_cast< int >(wxINTERPOLATION_BEST)));
+  SWIG_Python_SetConstant(d, "COMPOSITION_INVALID",SWIG_From_int(static_cast< int >(wxCOMPOSITION_INVALID)));
   SWIG_Python_SetConstant(d, "COMPOSITION_CLEAR",SWIG_From_int(static_cast< int >(wxCOMPOSITION_CLEAR)));
   SWIG_Python_SetConstant(d, "COMPOSITION_SOURCE",SWIG_From_int(static_cast< int >(wxCOMPOSITION_SOURCE)));
   SWIG_Python_SetConstant(d, "COMPOSITION_OVER",SWIG_From_int(static_cast< int >(wxCOMPOSITION_OVER)));

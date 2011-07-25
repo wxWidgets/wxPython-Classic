@@ -43162,7 +43162,7 @@ static void *_p_wxSysColourChangedEventTo_p_wxEvent(void *x) {
     return (void *)((wxEvent *)  ((wxSysColourChangedEvent *) x));
 }
 static void *_p_wxThreadEventTo_p_wxEvent(void *x) {
-    return (void *)((wxEvent *) (wxCommandEvent *) ((wxThreadEvent *) x));
+    return (void *)((wxEvent *)  ((wxThreadEvent *) x));
 }
 static void *_p_wxDropFilesEventTo_p_wxEvent(void *x) {
     return (void *)((wxEvent *)  ((wxDropFilesEvent *) x));
@@ -43384,7 +43384,7 @@ static void *_p_wxSysColourChangedEventTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvent *) ((wxSysColourChangedEvent *) x));
 }
 static void *_p_wxThreadEventTo_p_wxObject(void *x) {
-    return (void *)((wxObject *) (wxEvent *)(wxCommandEvent *) ((wxThreadEvent *) x));
+    return (void *)((wxObject *) (wxEvent *) ((wxThreadEvent *) x));
 }
 static void *_p_wxControlTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *) ((wxControl *) x));
