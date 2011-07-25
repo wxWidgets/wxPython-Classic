@@ -78,7 +78,7 @@ rm wxPython-src-$VERSION.tar.bz2
 echo "Converting wxPython line endings to CRLF..."
 cd $WXDIR
 names=`find wxPython -name "*.py" -o -name "*.txt" -o -name "*.htm*" -o -name "*.css" -o -name "*.xml" `
-unix2dos -D $names
+unix2dos $names
 
 . $WXDIR/wxPython/distrib/all/functions.inc
 
