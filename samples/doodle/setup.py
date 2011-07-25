@@ -11,16 +11,12 @@
 
 
 import sys, os
+##from esky import bdist_esky
 from setuptools import setup
 
 if sys.platform == "win32":
     
 
-    ## if sys.version_info > (2, 4):
-    ##     DATA =  [("", os.path.join(sys.exec_prefix, 'msvcr71.dll'))]
-    ## else:
-    ##     DATA = []
-    
 
     setup( name = "superdoodle",
            #console = ["superdoodle.py"]
@@ -34,13 +30,18 @@ if sys.platform == "win32":
            )
 
 elif sys.platform == "darwin":
+    
 
     APP = ['superdoodle.py']
     DATA_FILES = []
     OPTIONS = {##'argv_emulation': True
                }
 
-    setup( app=APP,
+    setup( name='SuperDoodle',
+           version='1.2.3',
+           scripts=APP,
+
+           app=APP,
            data_files=DATA_FILES,
            options={'py2app': OPTIONS},
            setup_requires=['py2app'],

@@ -182,7 +182,7 @@ class ControlPanel(wx.Panel):
     BMP_BORDER = 3
 
     def __init__(self, parent, ID, doodle):
-        wx.Panel.__init__(self, parent, ID, style=wx.RAISED_BORDER, size=(20,20))
+        wx.Panel.__init__(self, parent, ID, style=wx.RAISED_BORDER)
 
         numCols = 4
         spacing = 4
@@ -296,7 +296,7 @@ class ColourIndicator(wx.Window):
     def __init__(self, parent):
         wx.Window.__init__(self, parent, -1, style=wx.SUNKEN_BORDER)
         self.SetBackgroundColour(wx.WHITE)
-        self.SetSize( (45, 45) )
+        self.SetMinSize( (45, 45) )
         self.colour = self.thickness = None
         self.Bind(wx.EVT_PAINT, self.OnPaint)
 
@@ -353,7 +353,7 @@ instructions: </p>
 
 <p><b>SuperDoodle</b> and <b>wxPython</b> are brought to you by
 <b>Robin Dunn</b> and <b>Total Control Software</b>, Copyright
-&copy; 1997-2006.</p>
+&copy; 1997-2011.</p>
 </body>
 </html>
 '''
@@ -394,6 +394,8 @@ class DoodleApp(wx.App):
         frame = DoodleFrame(None)
         frame.Show(True)
         self.SetTopWindow(frame)
+        #import wx.lib.inspection
+        #wx.lib.inspection.InspectionTool().Show()
         return True
 
 

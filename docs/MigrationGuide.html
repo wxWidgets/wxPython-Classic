@@ -83,6 +83,9 @@ working with wxPython 2.8.</p>
 </div>
 <div class="section" id="miscellaneous-other-stuff">
 <h2>Miscellaneous Other Stuff</h2>
+<p>DoPrepareDC and PrepareDC are no longer in wx.Window.  They are only
+in wx.ScrolledWindow since that is the only place (and in derived
+classes) where the methods have any effect.</p>
 </div>
 </div>
 <div class="section" id="upcoming-changes-in-project-phoenix">
@@ -119,9 +122,9 @@ remove them in a later release.</p>
 </div>
 <div class="section" id="unicode-and-auto-converting-strings">
 <h2>Unicode and Auto-Converting Strings</h2>
-<p>As mentioned easlier, there are no longer separate ansi/unicode builds
+<p>As mentioned earlier, there are no longer separate ansi/Unicode builds
 of wxPython starting with the first 2.9.x releases.  All wxPython
-builds are now essentially the same as the old unicode builds. This
+builds are now essentially the same as the old Unicode builds. This
 means that all string objects passed to wx API functions or methods
 are converted to Unicode before calling the C++ function or method.
 By default wxPython would use the encoding specified by the locale
@@ -135,17 +138,19 @@ their code with.</p>
 stipulating that only the utf-8 encoding will be used for
 auto-converting string objects to the Unicode objects that will be
 passed on to the wx APIs.  If you need to deal with text using a
-different encoding then you will need to convert it to unicode
+different encoding then you will need to convert it to Unicode
 yourself before passing the text to the wx API.  For the most part this
 should not be much of a problem for well written programs that support
 Unicode because they will typically only convert to/from Unicode when
-reading/writing text to a file or database, and will use unicode objects
+reading/writing text to a file or database, and will use Unicode objects
 throughout the rest of the code.  The common exception to this is that
 string-literals are often used in the code for specifying labels,
 etc. for UI elements.  If your text for the string literals in your
 code are all ascii or utf-8 then you should not need to make any
 changes at all.  If you have literals with some other encoding then
-you'll want to deal with them one way or another.</p>
+you'll need to deal with them one way or another, either change the
+encoding of your source file to utf-8, or convert the literals from
+your encoding to Unicode before passing the text to the wx API.</p>
 </div>
 <div class="section" id="wx-platform-wx-platforminfo-wx-use-unicode-and-wx-wxdebug">
 <h2>wx.Platform, wx.PlatformInfo, wx.USE_UNICODE and wx.__WXDEBUG__</h2>
