@@ -116,7 +116,7 @@ wxEventType wxNewEventType();
 %constant wxEventType wxEVT_COMMAND_COMBOBOX_DROPDOWN;
 %constant wxEventType wxEVT_COMMAND_COMBOBOX_CLOSEUP;
 
-%constant wxEventType wxEVT_COMMAND_THREAD;
+%constant wxEventType wxEVT_THREAD;
 
 
 // Mouse event types
@@ -437,7 +437,7 @@ EVT_TEXT_CUT   =  wx.PyEventBinder( wxEVT_COMMAND_TEXT_CUT )
 EVT_TEXT_COPY  =  wx.PyEventBinder( wxEVT_COMMAND_TEXT_COPY )
 EVT_TEXT_PASTE =  wx.PyEventBinder( wxEVT_COMMAND_TEXT_PASTE )
 
-EVT_THREAD = wx.PyEventBinder( wxEVT_COMMAND_THREAD )
+EVT_THREAD = wx.PyEventBinder( wxEVT_THREAD )
 }
 
 //---------------------------------------------------------------------------
@@ -623,6 +623,11 @@ public:
 //---------------------------------------------------------------------------
 %newgroup;
 
+// TODO: wxCommandEvent now has an additional base class,
+// wxEventBasicPayloadMixin handling the common int, string, etc. data
+// methods.  Decide if that should be visible in the Python API too.
+
+
 DocStr(wxCommandEvent,
 "This event class contains information about command events, which
 originate from a variety of simple controls, as well as menus and
@@ -769,10 +774,22 @@ false otherwise (if it was).", "");
 //---------------------------------------------------------------------------
 %newgroup;
 
-class wxThreadEvent : public wxCommandEvent
+
+class wxThreadEvent : public wxEvent
 {
 public:
-    wxThreadEvent(wxEventType eventType = wxEVT_COMMAND_THREAD, int id = wxID_ANY);
+    wxThreadEvent(wxEventType eventType = wxEVT_THREAD, int id = wxID_ANY);
+
+    long GetExtraLong() const;
+    int GetInt() const;
+    wxString GetString() const;
+    void SetExtraLong(long extraLong);
+    void SetInt(int intCommand);   
+    void SetString(const wxString& string);
+
+    %property(ExtraLong, GetExtraLong, SetExtraLong, doc="See `GetExtraLong` and `SetExtraLong`");
+    %property(Int, GetInt, SetInt, doc="See `GetInt` and `SetInt`");
+    %property(String, GetString, SetString, doc="See `GetString` and `SetString`");
 };
 
 
