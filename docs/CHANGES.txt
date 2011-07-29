@@ -69,7 +69,7 @@ wx.AboutBox: Added support for setting a long version string in
 addition to the normal version string.
 
 wx.App: Add ScheduleForDestruction, which will allow you to cause a
-window to be destrpyed sometime in the near future.  (Most likely to
+window to be destroyed sometime in the near future.  (Most likely to
 be used to ensure that there are no more envents pending for the
 widget.) 
 
@@ -96,7 +96,7 @@ Removed the deprecated wx.Effects class.
 wx.Image: Added ConvertToGreyscale and ConvertToDisabled methods, also
 new resampling scaling methods.
 
-wx.Toolbar now suports inserting stretchable space between tools.
+wx.Toolbar now supports inserting stretchable space between tools.
 
 wx.Dialog can now be Window-modal or the usual App-modal.  On Mac this
 results in the dialog sliding down in a sheet from the parent window's
@@ -116,7 +116,7 @@ Updated the Scintilla code used by wxStyledTextCtrl to version 2.03.
 
 Added wx.GraphicsGradientStop[s] classes and updated the
 Create*GradientBrush APIs to allow gradients with more than two color
-stops.  Similar changes were also mare to the Cairo specfic classes in
+stops.  Similar changes were also mare to the Cairo specific classes in
 wx.lib.graphics to help maintain compatibility between the two.
 
 Added the wx.lib.pdfviewer package which is a contribution from David
