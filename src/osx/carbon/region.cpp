@@ -191,6 +191,8 @@ bool wxRegion::DoOffset(wxCoord x, wxCoord y)
         // nothing to do
         return true;
 
+    AllocExclusive();
+
     verify_noerr( HIShapeOffset( M_REGION , x , y ) ) ;
 
     return true ;
@@ -202,17 +204,7 @@ bool wxRegion::DoCombine(const wxRegion& region, wxRegionOp op)
 {
     wxCHECK_MSG( region.IsOk(), false, wxT("invalid wxRegion") );
 
-    // Don't change shared data
-    if (!m_refData)
-    {
-        m_refData = new wxRegionRefData();
-    }
-    else if (m_refData->GetRefCount() > 1)
-    {
-        wxRegionRefData* ref = (wxRegionRefData*)m_refData;
-        UnRef();
-        m_refData = new wxRegionRefData(*ref);
-    }
+    AllocExclusive();
 
     switch (op)
     {
