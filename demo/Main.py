@@ -61,6 +61,8 @@ import wx.aui
 import wx.html
 from wx.lib.msgpanel import MessagePanel
 
+import wx.lib.mixins.inspection
+
 import version
 
 # We won't import the images module yet, but we'll assign it to this
@@ -138,8 +140,7 @@ _treeList = [
         'ComboBox',
         'CommandLinkButton',
         'DVC_CustomRenderer',
-        'DVC_ListCtrl',
-        'DVC_DataViewModel.py',
+        'DVC_DataViewModel',
         'DVC_IndexListModel',
         'DVC_ListCtrl',
         'DVC_TreeCtrl',
@@ -1884,11 +1885,11 @@ class wxPythonDemo(wx.Frame):
                            wx.ITEM_CHECK)
         self.Bind(wx.EVT_MENU, self.OnToggleRedirect, item)
  
-        exitItem = wx.MenuItem(menu, -1, 'E&xit\tCtrl-Q', 'Get the heck outta here!')
+        wx.App.SetMacExitMenuItemId(9123)
+        exitItem = wx.MenuItem(menu, 9123, 'E&xit\tCtrl-Q', 'Get the heck outta here!')
         exitItem.SetBitmap(images.catalog['exit'].GetBitmap())
         menu.AppendItem(exitItem)
         self.Bind(wx.EVT_MENU, self.OnFileExit, exitItem)
-        wx.App.SetMacExitMenuItemId(exitItem.GetId())
         self.mainmenu.Append(menu, '&File')
 
         # Make a Demo menu
@@ -2882,7 +2883,7 @@ class wxPythonDemoTree(ExpansionState, TreeBaseClass):
 
 #---------------------------------------------------------------------------
 
-class MyApp(wx.App):
+class MyApp(wx.App, wx.lib.mixins.inspection.InspectionMixin):
     def OnInit(self):
 
         # Check runtime version
@@ -2891,6 +2892,8 @@ class MyApp(wx.App):
                           message="You're using version %s of wxPython, but this copy of the demo was written for version %s.\n"
                           "There may be some version incompatibilities..."
                           % (wx.VERSION_STRING, version.VERSION_STRING))
+
+        self.InitInspection()  # for the InspectionMixin base class
 
         # Now that we've warned the user about possibile problems,
         # lets import images
