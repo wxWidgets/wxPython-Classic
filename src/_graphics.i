@@ -1394,9 +1394,7 @@ public :
 
     virtual ~wxGraphicsRenderer();
 
-    // %newobject GetDefaultRenderer;  ???
     static wxGraphicsRenderer* GetDefaultRenderer();
-
     static wxGraphicsRenderer* GetCairoRenderer();
 
     %nokwargs CreateContext;
@@ -1463,6 +1461,8 @@ public:
     wxGCDC(const wxMemoryDC& dc);
     wxGCDC(const wxPrinterDC& dc);
     wxGCDC(wxWindow* window);
+    wxGCDC(wxGraphicsContext* ctx);
+    
     //wxGCDC();
     virtual ~wxGCDC();
 
