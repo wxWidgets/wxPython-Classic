@@ -36,7 +36,7 @@ normal 'python setup.py install' dance.
 
 On Windows you can get a Cairo DLL from here:
 
-    http://www.gtk.org/download-windows.html
+    http://www.gtk.org/download/win32.php
 
 You'll also want to get the zlib and libpng binaries from the same
 page.  Once you get those files extract the DLLs from each of the zip
