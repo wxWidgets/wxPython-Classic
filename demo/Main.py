@@ -94,6 +94,7 @@ _treeList = [
         'ItemsPicker',
         'CommandLinkButton',
         'DVC_CustomRenderer',
+        'PenAndBrushStyles',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -323,6 +324,7 @@ _treeList = [
         'MouseGestures',
         'OGL',
         'PDFViewer',
+        'PenAndBrushStyles',
         'PrintFramework',
         'PseudoDC',
         'RendererNative',
