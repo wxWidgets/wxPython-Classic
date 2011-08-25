@@ -1,3 +1,16 @@
+#---------------------------------------------------------------------------
+# This setup file serves as a model for how to structure your
+# distutils setup files for making self-updating applications using
+# Esky.  When you run this script use
+#
+#    python setup.py bdist_esky
+#
+# Esky will then use py2app or py2exe as appropriate to create the
+# bundled application and also its own shell that will help manage
+# doign the updates.  See wx.lib.softwareupdate for the class you can
+# use to add self-updates to your applications, and you can see how
+# that code is used here in the superdoodle.py module.
+#---------------------------------------------------------------------------
 
 
 import sys, os
