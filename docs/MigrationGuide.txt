@@ -86,6 +86,32 @@ preparing for the move to 2.9.x by making the changes now while still
 working with wxPython 2.8.
 
 
+wx.TextAttr.Merge
+-----------------
+
+I don't remember exactly why I did this but in 2.9 I commented out the
+static version of wxTextAttr::Merge and uncommented the non-static
+method.  So in other words what we have now is a wrapper for::
+
+    void Merge(const wxTextAttr& overlay)
+
+instead of::
+
+    static wxTextAttr Merge(const wxTextAttr& base, const wxTextAttr& overlay)
+
+The non-static version will still do a merge, but will merge it into
+self instead of making a new instance of the wx.TextAttr::
+
+    base.Merge(overlay) # base is modified
+
+If you prefer the old semantics then you can use the new Combine
+static method like this::
+
+    newAttr = wx.TextAttr.Combine(overlay, base, None)
+
+
+
+
 
 
 Miscellaneous Other Stuff
