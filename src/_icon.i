@@ -149,8 +149,9 @@ public:
     wxIconBundle();
 
     // initializes the bundle with the icon(s) found in the file
-    %RenameCtor(IconBundleFromFile, wxIconBundle( const wxString& file,
-                                                  wxBitmapType type ));
+    %RenameCtor(IconBundleFromFile, wxIconBundle(
+                    const wxString& file, wxBitmapType type = wxBITMAP_TYPE_ANY
+                    ));
 
     // initializes the bundle with a single icon
     %RenameCtor(IconBundleFromIcon, wxIconBundle( const wxIcon& icon ));
