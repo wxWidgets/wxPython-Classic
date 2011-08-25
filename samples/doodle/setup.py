@@ -7,7 +7,7 @@
 #
 # Esky will then use py2app or py2exe as appropriate to create the
 # bundled application and also its own shell that will help manage
-# doign the updates.  See wx.lib.softwareupdate for the class you can
+# doing the updates.  See wx.lib.softwareupdate for the class you can
 # use to add self-updates to your applications, and you can see how
 # that code is used here in the superdoodle.py module.
 #---------------------------------------------------------------------------
