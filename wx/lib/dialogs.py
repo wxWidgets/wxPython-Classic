@@ -21,7 +21,7 @@
 #
 
 import  wx
-import  layoutf
+import  wx.lib.layoutf as layoutf
 
 #----------------------------------------------------------------------
 
@@ -436,3 +436,170 @@ if __name__ == '__main__':
     app.MainLoop()
 
 
+#---------------------------------------------------------------------------
+
+try:
+    wx.CANCEL_DEFAULT
+    wx.OK_DEFAULT
+except AttributeError:
+    wx.CANCEL_DEFAULT = 0
+    wx.OK_DEFAULT = 0
+    
+    
+
+class MultiMessageDialog(wx.Dialog):
+    """
+    A dialog like wx.MessageDialog, but with an optional 2nd message string
+    that is shown in a scrolled window, and also allows passing in the icon to
+    be shown instead of the stock error, question, etc. icons. The btnLabels
+    can be used if you'd like to change the stock labels on the buttons, it's
+    a dictionary mapping stock IDs to label strings.
+    """
+    CONTENT_MAX_W = 550
+    CONTENT_MAX_H = 350
+    
+    def __init__(self, parent, message, caption = "Message Box", msg2="",
+                 style = wx.OK | wx.CANCEL, pos = wx.DefaultPosition, icon=None,
+                 btnLabels=None):
+        if 'wxMac' not in wx.PlatformInfo:
+            title = caption  # the caption will be displayed inside the dialog on Macs
+        else:
+            title = ""
+            
+        wx.Dialog.__init__(self, parent, -1, title, pos, 
+                           style = wx.DEFAULT_DIALOG_STYLE | style & (wx.STAY_ON_TOP | wx.DIALOG_NO_PARENT))
+        
+        bitmap = None
+        isize = (32,32)
+            
+        # was an icon passed to us?
+        if icon is not None:
+            if isinstance(icon, wx.Icon):
+                bitmap = wx.BitmapFromIcon(icon)
+            elif isinstance(icon, wx.Image):
+                bitmap = wx.BitmapFromImage(icon)
+            else:
+                assert isinstance(icon, wx.Bitmap)
+                bitmap = icon
+                
+        else:
+            # check for icons in the style flags
+            artid = None
+            if style & wx.ICON_ERROR or style & wx.ICON_HAND:
+                artid = wx.ART_ERROR
+            elif style & wx.ICON_EXCLAMATION:
+                artid = wx.ART_WARNING
+            elif style & wx.ICON_QUESTION:
+                artid = wx.ART_QUESTION
+            elif style & wx.ICON_INFORMATION:
+                artid = wx.ART_INFORMATION
+
+            if artid is not None:
+                bitmap = wx.ArtProvider.GetBitmap(artid, wx.ART_MESSAGE_BOX, isize)
+                
+        if bitmap:
+            bitmap = wx.StaticBitmap(self, -1, bitmap)
+        else:
+            bitmap = isize # will be a spacer when added to the sizer
+            
+        # Sizer to contain the icon, text area and buttons
+        sizer = wx.BoxSizer(wx.HORIZONTAL)
+        sizer.Add(bitmap, 0, wx.TOP|wx.LEFT, 12)
+        sizer.Add((10,10))
+        
+        # Make the text area
+        messageSizer = wx.BoxSizer(wx.VERTICAL)
+        if 'wxMac' in wx.PlatformInfo and caption:
+            caption = wx.StaticText(self, -1, caption)
+            caption.SetFont(wx.Font(18, wx.SWISS, wx.NORMAL, wx.BOLD))
+            messageSizer.Add(caption)
+            messageSizer.Add((10,10))
+        
+        stext = wx.StaticText(self, -1, message)
+        #stext.SetLabelMarkup(message)  Wrap() causes all markup to be lost, so don't try to use it yet...
+        stext.Wrap(self.CONTENT_MAX_W)
+        messageSizer.Add(stext)
+
+        if msg2:
+            messageSizer.Add((15,15))
+            t = wx.TextCtrl(self, style=wx.TE_MULTILINE|wx.TE_READONLY|wx.TE_RICH|wx.TE_DONTWRAP)
+            t.SetValue(msg2)
+            
+            # Set size to be used by the sizer based on the message content,
+            # with good maximums
+            dc = wx.ClientDC(t)
+            dc.SetFont(t.GetFont())
+            w,h,lh = dc.GetMultiLineTextExtent(msg2)
+            w = min(self.CONTENT_MAX_W, 10 + w + wx.SystemSettings.GetMetric(wx.SYS_VSCROLL_X))
+            h = min(self.CONTENT_MAX_H, 10 + h)
+            t.SetMinSize((w,h))
+            messageSizer.Add(t, 0, wx.EXPAND)
+            
+        # Make the buttons
+        buttonSizer = self.CreateStdDialogButtonSizer(
+            style & (wx.OK | wx.CANCEL | wx.YES_NO | wx.NO_DEFAULT 
+                     | wx.CANCEL_DEFAULT | wx.YES_DEFAULT | wx.OK_DEFAULT
+                     ))
+        self.Bind(wx.EVT_BUTTON, self.OnButton)
+        if btnLabels:
+            for sid, label in btnLabels.iteritems():
+                btn = self.FindWindowById(sid)
+                if btn:
+                    btn.SetLabel(label)
+        messageSizer.Add(wx.Size(1, 15))
+        messageSizer.Add(buttonSizer, 0, wx.LEFT | wx.RIGHT | wx.BOTTOM | wx.EXPAND, 12)
+        
+        sizer.Add(messageSizer, 0, wx.LEFT | wx.RIGHT | wx.TOP, 12)
+        self.SetSizer(sizer)
+        self.Fit()
+        if parent:
+            self.CenterOnParent()
+        else:
+            self.CenterOnScreen()
+                    
+        for c in self.Children:
+            if isinstance(c, wx.Button):
+                wx.CallAfter(c.SetFocus)
+                break
+
+            
+    def OnButton(self, evt):
+        if self.IsModal():
+            self.EndModal(evt.EventObject.Id)
+        else:
+            self.Close()
+        
+        
+        
+            
+def MultiMessageBox(message, caption, msg2="", style=wx.OK, parent=None, 
+                    icon=None, btnLabels=None):
+    """
+    A function like wx.MessageBox which uses MultiMessageDialog.
+    """
+    #if not style & wx.ICON_NONE and not style & wx.ICON_MASK:
+    if not style & wx.ICON_MASK:
+        if style & wx.YES:
+            style |= wx.ICON_QUESTION
+        else:
+            style |= wx.ICON_INFORMATION
+
+    dlg = MultiMessageDialog(parent, message, caption, msg2, style, 
+                             icon=icon, btnLabels=btnLabels)
+    ans = dlg.ShowModal()
+    dlg.Destroy()
+    
+    if ans == wx.ID_OK:
+        return wx.OK
+    elif ans == wx.ID_YES:
+        return wx.YES
+    elif ans == wx.ID_NO:
+        return wx.NO
+    elif ans == wx.ID_CANCEL:
+        return wx.CANCEL
+
+    print "unexpected return code from MultiMessageDialog??"
+    return wx.CANCEL
+            
+            
+#---------------------------------------------------------------------------
