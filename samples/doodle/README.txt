@@ -13,27 +13,9 @@ and much more.
                     in a more full featured application with a control
                     panel, and the ability to save and load doodles.
 
-    setup.py        A distutils script to make a standalone .exe of
-                    superdoodle for Windows platforms.  You can get
-                    py2exe from http://py2exe.sourceforge.net/.  Use
-                    this command to build the .exe and collect the
-                    other needed files:
-
-		        python setup.py py2exe
-
-
-    superdoodle.iss  NOTE: This .iss file needs updating!
-		     An InnoSetup script to build a self-installer of
-                     the superdoodle standalone executable created
-                     with py2exe.  You can get InnoSetup from
-                     http://www.jrsoftware.org/.  You may have to edit
-                     this file to make it work for your environment
-                     and python installation.		     
-		     
-
-    cxfreeze.bat     An example of creating an executable with the
-                     cx_Freeze utility, downloadable from 
-		     http://starship.python.net/crew/atuining/cx_Freeze/
-
-    installer.bat    An example of creating an executable with Gordon
-                     McMillan's Installer utility.
+    setup.py        This sample also shows you how make you
+                    applications automatically self-update when new
+		    releases are available.  There is a bit of code in
+                    the superdoodle module to use the softwareupdate
+                    module from the library, but the real magic
+                    happens here in the distutils setup module.

@@ -1,5 +1,4 @@
 # superdoodle.py
-
 """
 This module implements the SuperDoodle demo application.  It takes the
 DoodleWindow previously presented and reuses it in a much more
@@ -10,13 +9,15 @@ menu that DoodleWindow provides.  There is also a nice About dialog
 implmented using an wx.html.HtmlWindow.
 """
 
-import wx                  # This module uses the new wx namespace
+import sys, os, cPickle
+
+import wx    
 import wx.html
 from wx.lib import buttons # for generic button classes
 from doodle import DoodleWindow
 
-import os, cPickle
-
+from wx.lib.mixins.inspection import InspectionMixin
+from wx.lib.softwareupdate import SoftwareUpdate
 
 #----------------------------------------------------------------------
 
@@ -44,6 +45,7 @@ class DoodleFrame(wx.Frame):
     def __init__(self, parent):
         wx.Frame.__init__(self, parent, -1, self.title, size=(800,600),
                          style=wx.DEFAULT_FRAME_STYLE | wx.NO_FULL_REPAINT_ON_RESIZE)
+        self.SetIcon(wx.Icon('mondrian.ico'))
         self.CreateStatusBar()
         self.MakeMenu()
         self.filename = None
@@ -100,6 +102,10 @@ class DoodleFrame(wx.Frame):
 
         # and the help menu
         menu2 = wx.Menu()
+        if hasattr(sys, 'frozen'):
+            item = menu2.Append(-1, "Check for Update...")
+            self.Bind(wx.EVT_MENU, self.OnMenuCheckForUpdate, item)
+            
         menu2.Append(idABOUT, "&About\tCtrl-H", "Display the gratuitous 'about this app' thingamajig")
 
         # and add them to a menubar
@@ -164,7 +170,8 @@ class DoodleFrame(wx.Frame):
         dlg.ShowModal()
         dlg.Destroy()
 
-
+    def OnMenuCheckForUpdate(self, event):
+        wx.GetApp().CheckForUpdate(parentWindow=self)
 
 #----------------------------------------------------------------------
 
@@ -334,10 +341,10 @@ class DoodleAbout(wx.Dialog):
     text = '''
 <html>
 <body bgcolor="#ACAA60">
-<center><table bgcolor="#455481" width="100%" cellspacing="0"
+<center><table bgcolor="#455481" width="100%%" cellspacing="0"
 cellpadding="0" border="1">
 <tr>
-    <td align="center"><h1>SuperDoodle</h1></td>
+    <td align="center"><h1>SuperDoodle %s</h1></td>
 </tr>
 </table>
 </center>
@@ -356,14 +363,15 @@ instructions: </p>
 &copy; 1997-2011.</p>
 </body>
 </html>
-'''
+''' 
 
     def __init__(self, parent):
         wx.Dialog.__init__(self, parent, -1, 'About SuperDoodle',
                           size=(420, 380) )
 
         html = wx.html.HtmlWindow(self, -1)
-        html.SetPage(self.text)
+        import version
+        html.SetPage(self.text % version.VERSION)
         button = wx.Button(self, wx.ID_OK, "Okay")
 
         # constraints for the html window
@@ -388,19 +396,25 @@ instructions: </p>
 
 
 #----------------------------------------------------------------------
+#----------------------------------------------------------------------
 
-class DoodleApp(wx.App):
+class DoodleApp(wx.App, InspectionMixin, SoftwareUpdate):
     def OnInit(self):
+        BASEURL='http://wxPython.org/software-update-test/'
+        self.InitUpdates(BASEURL, 
+                         BASEURL + 'ChangeLog.txt',
+                         icon=wx.Icon('mondrian.ico'))
+        self.Init() # for InspectionMixin
+        
         frame = DoodleFrame(None)
         frame.Show(True)
         self.SetTopWindow(frame)
-        #import wx.lib.inspection
-        #wx.lib.inspection.InspectionTool().Show()
+        self.SetAppDisplayName('SuperDoodle')
         return True
-
 
 #----------------------------------------------------------------------
 
 if __name__ == '__main__':
-    app = DoodleApp(redirect=True)
+    app = DoodleApp(redirect=False)
     app.MainLoop()
+    

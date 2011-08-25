@@ -1,50 +1,60 @@
-# A distutils script to make a standalone .exe or .zpp of superdoodle
-# for Windows or OS X platforms.  You need the py2exe or py2app
-# package installed to use this script (see google for pointers if you
-# don't already have them) and then use this command to build the .exe
-# and collect the other needed files:
-#
-#       python setup.py py2exe
-# or
-#       python setup.py py2app
-#
 
 
 import sys, os
-##from esky import bdist_esky
+from esky import bdist_esky
 from setuptools import setup
 
+import version
+
+
+# platform specific settings for Windows/py2exe
 if sys.platform == "win32":
+    import py2exe
     
-
-
-    setup( name = "superdoodle",
-           #console = ["superdoodle.py"]
-           windows = ["superdoodle.py"],
-           #data_files = DATA,
-           options = {"py2exe" : { "compressed": 0,
-                                   "optimize": 2,
-                                   "bundle_files": 1,
-                                   }},
-           zipfile = None
-           )
-
+    FREEZER = 'py2exe'
+    FREEZER_OPTIONS = dict(compressed = 0,
+                           optimize = 0,
+                           bundle_files = 3,
+                           dll_excludes = ['MSVCP90.dll',
+                                           'mswsock.dll',
+                                           'powrprof.dll', 
+                                           'USP10.dll',],
+                        )
+    exeICON = 'mondrian.ico'
+    
+                 
+# platform specific settings for Mac/py2app
 elif sys.platform == "darwin":
+    import py2app
+    
+    FREEZER = 'py2app'
+    FREEZER_OPTIONS = dict(argv_emulation = False, 
+                           iconfile = 'mondrian.icns',
+                           )
+    exeICON = None
     
 
-    APP = ['superdoodle.py']
-    DATA_FILES = []
-    OPTIONS = {##'argv_emulation': True
-               }
+    
+# Common settings    
+NAME = "SuperDoodle"
+APP = [bdist_esky.Executable("superdoodle.py", 
+                             gui_only=True,
+                             icon=exeICON,
+                             )]
+DATA_FILES = [ 'mondrian.ico' ]
+ESKY_OPTIONS = dict( freezer_module     = FREEZER,
+                     freezer_options    = FREEZER_OPTIONS,
+                     enable_appdata_dir = True,
+                     bundle_msvcrt      = True,
+                     )
+    
 
-    setup( name='SuperDoodle',
-           version='1.2.3',
-           scripts=APP,
-
-           app=APP,
-           data_files=DATA_FILES,
-           options={'py2app': OPTIONS},
-           setup_requires=['py2app'],
-           )
+# Build the app and the esky bundle
+setup( name       = NAME,
+       scripts    = APP,
+       version    = version.VERSION,
+       data_files = DATA_FILES,
+       options    = dict(bdist_esky=ESKY_OPTIONS),
+       )
 
 
