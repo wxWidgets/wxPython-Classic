@@ -1469,7 +1469,7 @@ class IconBundle(object):
 _gdi_.IconBundle_swigregister(IconBundle)
 
 def IconBundleFromFile(*args, **kwargs):
-    """IconBundleFromFile(String file, int type) -> IconBundle"""
+    """IconBundleFromFile(String file, int type=BITMAP_TYPE_ANY) -> IconBundle"""
     val = _gdi_.new_IconBundleFromFile(*args, **kwargs)
     return val
 
@@ -2424,8 +2424,6 @@ class Font(GDIObject):
         """GetNoAntiAliasing(self) -> bool"""
         return _gdi_.Font_GetNoAntiAliasing(*args, **kwargs)
 
-    def SetNoAntiAliasing(self, no=True): pass
-    def GetNoAntiAliasing(self): pass
     SetNoAntiAliasing = wx._deprecated(SetNoAntiAliasing)
     GetNoAntiAliasing = wx._deprecated(GetNoAntiAliasing)
 
@@ -6612,6 +6610,7 @@ class GCDC(DC):
         __init__(self, MemoryDC dc) -> GCDC
         __init__(self, PrinterDC dc) -> GCDC
         __init__(self, Window window) -> GCDC
+        __init__(self, GraphicsContext ctx) -> GCDC
         """
         _gdi_.GCDC_swiginit(self,_gdi_.new_GCDC(*args))
         self.__dc = args[0] # save a ref so the other dc will not be deleted before self

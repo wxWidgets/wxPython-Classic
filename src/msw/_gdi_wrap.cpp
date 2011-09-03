@@ -11145,7 +11145,7 @@ fail:
 SWIGINTERN PyObject *_wrap_new_IconBundleFromFile(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxString *arg1 = 0 ;
-  wxBitmapType arg2 ;
+  wxBitmapType arg2 = (wxBitmapType) wxBITMAP_TYPE_ANY ;
   wxIconBundle *result = 0 ;
   bool temp1 = false ;
   int val2 ;
@@ -11156,17 +11156,19 @@ SWIGINTERN PyObject *_wrap_new_IconBundleFromFile(PyObject *SWIGUNUSEDPARM(self)
     (char *) "file",(char *) "type", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:new_IconBundleFromFile",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|O:new_IconBundleFromFile",kwnames,&obj0,&obj1)) SWIG_fail;
   {
     arg1 = wxString_in_helper(obj0);
     if (arg1 == NULL) SWIG_fail;
     temp1 = true;
   }
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_IconBundleFromFile" "', expected argument " "2"" of type '" "wxBitmapType""'");
-  } 
-  arg2 = static_cast< wxBitmapType >(val2);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_IconBundleFromFile" "', expected argument " "2"" of type '" "wxBitmapType""'");
+    } 
+    arg2 = static_cast< wxBitmapType >(val2);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (wxIconBundle *)new wxIconBundle((wxString const &)*arg1,arg2);
@@ -36637,6 +36639,33 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_new_GCDC__SWIG_4(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  wxGCDC *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GCDC" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  {
+    if (!wxPyCheckForApp()) SWIG_fail;
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (wxGCDC *)new wxGCDC(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGCDC, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_new_GCDC(PyObject *self, PyObject *args) {
   int argc;
   PyObject *argv[2];
@@ -36677,7 +36706,19 @@ check_2:
 check_3:
   
   if (argc == 1) {
+    int _v = 0;
+    {
+      void *vptr = 0;
+      int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_wxWindow, 0);
+      _v = SWIG_CheckState(res);
+    }
+    if (!_v) goto check_4;
     return _wrap_new_GCDC__SWIG_3(self, argc, argv);
+  }
+check_4:
+  
+  if (argc == 1) {
+    return _wrap_new_GCDC__SWIG_4(self, argc, argv);
   }
   
 fail:
