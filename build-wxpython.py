@@ -77,6 +77,7 @@ option_dict = {
                     : (defFwPrefix, "Prefix where the framework should be installed. Default: %s" % defFwPrefix),    
     "mac_universal_binary" 
                     : (False, "Build Mac version as a universal binary"),
+    "cairo"         : (False, "Enable dynamicly loading the Cairo lib for wxGraphicsContext on MSW"),
     "force_config"  : (False, "Run configure when building even if the script determines it's not necessary."),
     "no_config"     : (False, "Turn off wx configure step on autoconf builds"),
     "no_wxbuild"    : (False, "Turn off the wx build step (assumes that wx is already "
@@ -236,6 +237,11 @@ if sys.platform.startswith("win"):
         dllDir = os.path.join(WXWIN, "lib", "vc_dll")
     buildDir = os.path.join(WXWIN, "build", "msw")
     
+    if options.cairo:
+        build_options.append("--cairo")
+        if not os.environ.get("CAIRO_ROOT"):
+            print "WARNING: Expected CAIRO_ROOT set in the environment!"
+
     if options.clean in ['all', 'wx']:    
         deleteIfExists(os.path.join(dllDir, "msw" + dll_type + ""))
         delFiles(glob.glob(os.path.join(dllDir, "wx*" + version2_nodot + dll_type + "*.*")))
@@ -278,7 +284,7 @@ else:
     if  options.mac_arch: 
         build_options.append("--mac_arch=%s" % options.mac_arch)
         wxpy_build_options.append("ARCH=%s" % options.mac_arch)
-        
+
 
 # now that we've done platform setup, start the common build process
 if options.unicode:
@@ -406,8 +412,14 @@ if sys.platform.startswith("win"):
     # Copy the wxWidgets DLLs to the wxPython package folder
     dlls = glob.glob(os.path.join(dllDir, "wx*" + version2_nodot + dll_type + "*.dll")) + \
            glob.glob(os.path.join(dllDir, "wx*" + version3_nodot + dll_type + "*.dll")) 
+
+    # Also copy the cairo DLLs if needed
+    if options.cairo:
+        dlls += glob.glob(os.path.join(os.environ['CAIRO_ROOT'], 'bin', '*.dll'))
+
     for dll in dlls:
         shutil.copyfile(dll, os.path.join(WXPYDIR, "wx", os.path.basename(dll)))
+
 
 wxpy_build_options.append("BUILD_BASE=%s" % build_base)
 build_mode = "build_ext --inplace"
