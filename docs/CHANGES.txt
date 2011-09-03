@@ -3,6 +3,64 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.9.2.2
+-------
+*
+
+Fixed a problem with wx.ListCtrl.InsertStringItem when an imageIndex
+was not passed.  Change the listctrl to not always assume that there
+is an image.
+
+Several fixes for the wx.lib.agw modules.
+
+Fixed a problem in wxGrid on OSX-cocoa where it would close the cell
+editor immediately because of extra kill focus events.
+
+Added an OSX implementation for the wxRegion constructor taking a
+sequence of points.
+
+Added the ability to use the Cairo backend for wx.GraphicsContext on
+Windows.  The Cairo libraries are loaded dynamically on-demand, so
+there is not a runtime dependency on Cairo for applications that do
+not use it.  The Cairo DLL and its dependencies are bundled with the
+wxPython installers.  We expect to be able to also add dynamic loading
+of Cairo for OSX soon.  To create a Cairo grpahics context you first
+have to get the Cairo GraphicsRenderer and then use it to create the
+context, like this::
+
+    cr = wx.GraphicsRenderer.GetCairoRenderer()
+    ctx = cr.CreateContext(dc)
+
+If either GetCairoRenderer or CreateContext fails (either it's not
+supported or the Cairo shared libraries can not be found) then None
+will be returned, so be sure to check the return values.
+
+The wx.GCDC class can now be constructed with an already exisiting
+wx.GraphicsContext. 
+
+The wx.lib.softwareupdate module has been added.  It implements a
+class designed to be mixed with wx.App in a derived class and provides
+code for enabling your applications to update themselves when new
+releases are made available (very similar to how most applications on
+the Mac will prompt you to allow it to self-update.)  This is based on
+the Esky library available from the Python package index at
+http://pypi.python.org/pypi/esky.  To enable your application to be
+self-updatable it must be packaged as an Esky bundle, which is a .zip
+file with a certain structure and meta-data, which means that you will
+have to modify your setup.py files to enable this.  There is an
+example of this in the samples/doodle folder of the wxPython source
+tarball or the docs and demos package.
+
+Added a MultiMessageDialog class to wx.lib.dialogs that is similar to
+the stock wx.MessageDialog, but is additionally able to have a
+scrollable message area, custom icons, and customized button labels,
+(although they will still use the stock IDs).  There is also a
+MultiMessageBox Function that is like the wx.MessageBox function.
+
+
+
+
+
 2.9.2.1
 -------
 * 23-July-2011
