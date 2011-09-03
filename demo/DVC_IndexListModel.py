@@ -198,14 +198,14 @@ class TestPanel(wx.Panel):
 
         
     def OnAddRow(self, evt):
-        # Add some bogus data to a new row in the model
-        curcount = len(self.model.data)
-        value = [str(curcount),
-                 'new artist %d' % curcount,
-                 'new title %d' % curcount,
-                 'genre %d' % curcount]
+        # Add some bogus data to a new row in the model's data
+        id = len(self.model.data) + 1
+        value = [str(id),
+                 'new artist %d' % id,
+                 'new title %d' % id,
+                 'genre %d' % id]
         self.model.AddRow(value)
-                 
+                
 
     def OnEditingDone(self, evt):
         self.log.write("OnEditingDone\n")

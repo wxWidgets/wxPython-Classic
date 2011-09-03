@@ -28,11 +28,14 @@ class TestPanel(wx.Panel):
                                "An informative message",
                                maximum = max,
                                parent=self,
-                               style = wx.PD_CAN_ABORT
+                               style = 0
                                 | wx.PD_APP_MODAL
-                                | wx.PD_ELAPSED_TIME
-                                #| wx.PD_ESTIMATED_TIME
+                                | wx.PD_CAN_ABORT
+                                #| wx.PD_CAN_SKIP
+                                #| wx.PD_ELAPSED_TIME
+                                | wx.PD_ESTIMATED_TIME
                                 | wx.PD_REMAINING_TIME
+                                #| wx.PD_AUTO_HIDE
                                 )
 
         keepGoing = True
@@ -41,7 +44,8 @@ class TestPanel(wx.Panel):
         while keepGoing and count < max:
             count += 1
             wx.MilliSleep(250)
-
+            wx.Yield()
+            
             if count >= max / 2:
                 (keepGoing, skip) = dlg.Update(count, "Half-time!")
             else:

@@ -60,7 +60,23 @@ class TestPanel(wx.Panel):
 
     def MakeGC(self, dc):
         try:
-            gc = wx.GraphicsContext.Create(dc)
+            if False:
+                # If you want to force the use of Cairo instead of the
+                # native GraphicsContext backend then create the
+                # context like this.  It works on Windows so far, (on
+                # wxGTK the Cairo context is already being used as the
+                # native default.)
+                gcr = wx.GraphicsRenderer.GetCairoRenderer
+                gc = gcr() and gcr().CreateContext(dc)
+                if gc is None:
+                    wx.MessageBox("Unable to create Cairo Context.", "Oops")
+                    gc = wx.GraphicsContext.Create(dc)
+            else:
+                # Otherwise, creating it this way will use the native
+                # backend, (GDI+ on Windows, CoreGraphics on Mac, or
+                # Cairo on GTK).
+                gc = wx.GraphicsContext.Create(dc)
+                
         except NotImplementedError:
             dc.DrawText("This build of wxPython does not support the wx.GraphicsContext "
                         "family of classes.",
