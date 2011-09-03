@@ -7,7 +7,7 @@
 # Author:      Robin Dunn
 #
 # Created:     1-Aug-2011
-# RCS-ID:      $Id: $
+# RCS-ID:      $Id$
 # Copyright:   (c) 2011 by Total Control Software
 # Licence:     wxWindows license
 #----------------------------------------------------------------------
@@ -218,20 +218,27 @@ class SoftwareUpdate(object):
                     w.Close(True) # force close (can't be cancelled)
             wx.Yield()
             
-            # ...find the path of the esky wrapper program...
+            # ...find the path of the esky bootstrap/wrapper program...
             exe = esky.util.appexe_from_executable(sys.executable)
             
             # ...and tell our RestartInfo object about it.
             info.exe = exe
-            
+
+            # Make sure the CWD not in the current version's appdir, so it can
+            # hopefully be cleaned up either as we exit or as the next verison
+            # is starting.
+            os.chdir(os.path.dirname(exe))
+
             # With all the top level windows closed the MainLoop should exit
             # automatically, but just in case tell it to exit so we can have a
-            # normal shutdown of this process. Hopefully there isn't anything
-            # happening after we return from this function that matters.
+            # normal-as-possible shutdown of this process. Hopefully there
+            # isn't anything happening after we return from this function that
+            # matters.
             self.ExitMainLoop()
             
         return True
-                        
+                   
+    
     def _updateProgress(self, status):
         # Show progress of the download and install. This function is passed to Esky
         # functions to use as a callback.
