@@ -825,8 +825,6 @@ then for a font belonging to the same family.", "");
     virtual void SetNoAntiAliasing( bool no = true );
     virtual bool GetNoAntiAliasing() const;
     %pythoncode {
-        def SetNoAntiAliasing(self, no=True): pass
-        def GetNoAntiAliasing(self): pass
         SetNoAntiAliasing = wx._deprecated(SetNoAntiAliasing)
         GetNoAntiAliasing = wx._deprecated(GetNoAntiAliasing)
     }
