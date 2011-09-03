@@ -36,8 +36,24 @@ public:
     wxGCDC( const wxPrinterDC& dc );
 
     /**
+       Construct a wxGCDC from an existing grtaphics context.
+    */
+    wxGCDC(wxGraphicsContext* context);
+
+    
+    wxGCDC();
+    virtual ~wxGCDC();
+
+
+    /**
        Retrieves associated wxGraphicsContext
     */
-    wxGraphicsContext* GetGraphicsContext();
+    wxGraphicsContext* GetGraphicsContext() const;
+
+    /**
+       Set the grpahics context to be used for this wxGCDC.
+    */
+    void SetGraphicsContext( wxGraphicsContext* ctx );
+
 };
 
