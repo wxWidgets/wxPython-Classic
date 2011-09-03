@@ -13,7 +13,7 @@ and much more.
                     in a more full featured application with a control
                     panel, and the ability to save and load doodles.
 
-    setup.py        This sample also shows you how make you
+    setup.py        This sample also shows you how to make your
                     applications automatically self-update when new
 		    releases are available.  There is a bit of code in
                     the superdoodle module to use the softwareupdate
