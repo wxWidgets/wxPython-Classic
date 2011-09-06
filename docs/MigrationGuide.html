@@ -81,6 +81,29 @@ decoded at run-time.</p>
 preparing for the move to 2.9.x by making the changes now while still
 working with wxPython 2.8.</p>
 </div>
+<div class="section" id="wx-textattr-merge">
+<h2>wx.TextAttr.Merge</h2>
+<p>I don't remember exactly why I did this but in 2.9 I commented out the
+static version of wxTextAttr::Merge and uncommented the non-static
+method.  So in other words what we have now is a wrapper for:</p>
+<pre class="literal-block">
+void Merge(const wxTextAttr&amp; overlay)
+</pre>
+<p>instead of:</p>
+<pre class="literal-block">
+static wxTextAttr Merge(const wxTextAttr&amp; base, const wxTextAttr&amp; overlay)
+</pre>
+<p>The non-static version will still do a merge, but will merge it into
+self instead of making a new instance of the wx.TextAttr:</p>
+<pre class="literal-block">
+base.Merge(overlay) # base is modified
+</pre>
+<p>If you prefer the old semantics then you can use the new Combine
+static method like this:</p>
+<pre class="literal-block">
+newAttr = wx.TextAttr.Combine(overlay, base, None)
+</pre>
+</div>
 <div class="section" id="miscellaneous-other-stuff">
 <h2>Miscellaneous Other Stuff</h2>
 <p>DoPrepareDC and PrepareDC are no longer in wx.Window.  They are only
@@ -92,10 +115,11 @@ classes) where the methods have any effect.</p>
 <h1>Upcoming Changes in Project Phoenix</h1>
 <p>The remainder of this document describes some migration issues for
 Project Phoenix, which will one day replace the current wxPython
-implementation.   These changes do not yet apply to any released
-version of Python and are currently provided for information purposes
-and for a glimpse into the future.  For more information about Project
-Phoenix please see the <a class="reference external" href="http://wiki.wxpython.org/ProjectPhoenix">ProjectPhoenix</a> pages in the wiki.</p>
+implementation.  These changes do not yet apply to any released
+version of Python and are currently provided only for informational
+purposes and for a glimpse into the future.  For more information
+about Project Phoenix please see the <a class="reference external" href="http://wiki.wxpython.org/ProjectPhoenix">ProjectPhoenix</a> pages in the
+wiki.</p>
 <div class="section" id="overloaded-functions">
 <h2>Overloaded Functions</h2>
 <p>Up to this point in order to support more than one of the versions of
@@ -115,10 +139,10 @@ class name with &quot;Pre&quot; prepended to it.  For example, wx.PreWindow(),
 wx.PreFrame(), etc.  Now in the Phoenix build of wxPython that is no
 longer neccessary and you can just call the class with no parameters
 like normal.</p>
-<p>For those renamed items that are more commonly used I'll add some
-alias that will issue a DeprecationWarning for the first release or
-two after we switch over to the Phoenix version of the code, and then
-remove them in a later release.</p>
+<p>For those renamed items that are more commonly used in the old
+wxPython I'll add some alias that will issue a DeprecationWarning for
+the first release or two after we switch over to the Phoenix version
+of the code, and then remove them in a later release.</p>
 </div>
 <div class="section" id="unicode-and-auto-converting-strings">
 <h2>Unicode and Auto-Converting Strings</h2>

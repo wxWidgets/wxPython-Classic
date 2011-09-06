@@ -120,7 +120,7 @@ fi
 
 mkdir -p dist
 
-$PYTHON -u ./build-wxpython.py --unicode
+$PYTHON -u ./build-wxpython.py --unicode --cairo
 $PYTHON -u distrib/make_installer.py UNICODE=1
 
 
