@@ -29,6 +29,8 @@ public:
 #if wxUSE_PRINTING_ARCHITECTURE
     wxGCDC( const wxPrinterDC& dc );
 #endif
+    wxGCDC(wxGraphicsContext* context);
+    
     wxGCDC();
     virtual ~wxGCDC();
 

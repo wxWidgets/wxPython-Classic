@@ -214,6 +214,8 @@ private:
             model->Resort();
 
         owner->OnColumnChange(idx);
+
+        SendEvent(wxEVT_COMMAND_DATAVIEW_COLUMN_SORTED, idx);
     }
 
     void OnRClick(wxHeaderCtrlEvent& event)
@@ -1771,8 +1773,11 @@ void wxDataViewMainWindow::OnPaint( wxPaintEvent &WXUNUSED(event) )
 
                 dataitem = node->GetItem();
 
-                if ((i > 0) && model->IsContainer(dataitem) &&
-                    !model->HasContainerColumns(dataitem))
+                // Skip all columns of "container" rows except the expander
+                // column itself unless HasContainerColumns() overrides this.
+                if ( col != GetOwner()->GetExpanderColumn() &&
+                        model->IsContainer(dataitem) &&
+                            !model->HasContainerColumns(dataitem) )
                     continue;
             }
             else
@@ -3374,7 +3379,7 @@ void wxDataViewMainWindow::OnChar( wxKeyEvent &event )
             break;
 
         case WXK_DOWN:
-            if ( m_currentRow < GetRowCount() - 1 )
+            if ( m_currentRow + 1 < GetRowCount() )
                 OnArrowChar( m_currentRow + 1, event );
             break;
         // Add the process for tree expanding/collapsing
@@ -3723,8 +3728,10 @@ void wxDataViewMainWindow::OnMouse( wxMouseEvent &event )
         if (!IsRowSelected(current))
         {
             SelectAllRows(false);
+            const unsigned oldCurrent = m_currentRow;
             ChangeCurrentRow(current);
             SelectRow(m_currentRow,true);
+            RefreshRow(oldCurrent);
             SendSelectionChangedEvent(GetItemByRow( m_currentRow ) );
         }
     }
