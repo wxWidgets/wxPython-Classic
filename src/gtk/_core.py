@@ -16298,7 +16298,6 @@ if RELEASE_VERSION != _core_.RELEASE_VERSION:
 
 def version():
     """Returns a string containing version and port info"""
-    ctype = wx.USE_UNICODE and 'unicode' or 'ansi'
     if wx.Platform == '__WXMSW__':
         port = 'msw'
     elif wx.Platform == '__WXMAC__':
@@ -16313,8 +16312,8 @@ def version():
     else:
         port = '?'
 
-    return "%s (%s-%s)" % (wx.VERSION_STRING, port, ctype)
-                       
+    return "%s %s (classic)" % (wx.VERSION_STRING, port)
+                      
     
 #----------------------------------------------------------------------------
 

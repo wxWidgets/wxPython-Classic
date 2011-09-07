@@ -71,6 +71,7 @@ LicenseFile = licence\licence.txt
 
 [Components]
 Name: core;     Description: "wxPython modules and library";              Types: full custom;  Flags: fixed
+Name: cairo;    Description: "Cairo runtime DLLs";                        Types: full
 Name: pthfile;  Description: "Make this install be the default wxPython"; Types: full
 
 ;;------------------------------------------------------------
@@ -81,6 +82,7 @@ Source: "%(WXDIR)s\lib\%(VCDLLDIR)s\wx*%(WXDLLVER)s_*.dll";  DestDir: "{app}\%(P
 %(GDIPLUS)s
 %(CPPDLL)s
 %(MSLU)s
+Source: "%(CAIRO_ROOT)s\bin\*.dll";            DestDir: "{app}\%(PKGDIR)s\wx"; Components: cairo; Flags: replacesameversion
 
 
 Source: "wx\_activex.pyd";                     DestDir: "{app}\%(PKGDIR)s\wx"; Components: core; Flags: comparetimestamp
@@ -115,7 +117,7 @@ Source: "wx\lib\agw\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\li
 Source: "wx\lib\agw\aui\*.py";                  DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\aui"; Components: core
 Source: "wx\lib\agw\persist\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\persist"; Components: core
 Source: "wx\lib\agw\ribbon\*.py";               DestDir: "{app}\%(PKGDIR)s\wx\lib\agw\ribbon"; Components: core
-Source: "wx\lib\agw\*.png";                     DestDir: "{app}\%(PKGDIR)s\wx\lib\agw"; Components: core
+;;Source: "wx\lib\agw\*.png";                     DestDir: "{app}\%(PKGDIR)s\wx\lib\agw"; Components: core
 Source: "wx\lib\analogclock\*.py";              DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock"; Components: core
 Source: "wx\lib\analogclock\lib_setup\*.py";    DestDir: "{app}\%(PKGDIR)s\wx\lib\analogclock\lib_setup"; Components: core
 Source: "wx\lib\art\*.py";                      DestDir: "{app}\%(PKGDIR)s\wx\lib\art"; Components: core
@@ -556,9 +558,9 @@ Source: "docs\screenshots\*.png";           DestDir: "{app}\docs\screenshots";
 
 Source: "samples\doodle\*.py";              DestDir: "{app}\samples\doodle";
 Source: "samples\doodle\*.txt";             DestDir: "{app}\samples\doodle";
-Source: "samples\doodle\*.bat";             DestDir: "{app}\samples\doodle";
+Source: "samples\doodle\*.ico";             DestDir: "{app}\samples\doodle";
+Source: "samples\doodle\*.icns";            DestDir: "{app}\samples\doodle";
 Source: "samples\doodle\sample.ddl";        DestDir: "{app}\samples\doodle";
-Source: "samples\doodle\superdoodle.iss";   DestDir: "{app}\samples\doodle";
 
 Source: "samples\docview\*.py";                DestDir: "{app}\samples\docview";
 Source: "samples\pydocview\*.py";              DestDir: "{app}\samples\pydocview";
@@ -859,6 +861,7 @@ def main():
     LOCALE          = build_locale_string(PKGDIR)
     EDITRA_LOCALE   = build_editra_locale(PKGDIR)
     RTDLL,CPPDLL    = get_runtime_dlls(PYVER, PKGDIR)
+    CAIRO_ROOT      = os.environ["CAIRO_ROOT"]
 
     if os.environ.get('CPU', '') == 'AMD64':
         BITS        = '64'
@@ -887,6 +890,7 @@ Building Win32 installer for wxPython:
     WXDIR      = %(WXDIR)s
     WXPYDIR    = %(WXPYDIR)s
     SYSDIR     = %(SYSDIR)s
+    CAIRO_ROOT = %(CAIRO_ROOT)s
     """ % vars()
 
     if PYTHONVER >= "2.2":

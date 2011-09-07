@@ -5,7 +5,7 @@ Recent Changes for wxPython
 
 2.9.2.2
 -------
-*
+* 5-Sept-2011
 
 Fixed a problem with wx.ListCtrl.InsertStringItem when an imageIndex
 was not passed.  Change the listctrl to not always assume that there
@@ -24,7 +24,8 @@ Windows.  The Cairo libraries are loaded dynamically on-demand, so
 there is not a runtime dependency on Cairo for applications that do
 not use it.  The Cairo DLL and its dependencies are bundled with the
 wxPython installers.  We expect to be able to also add dynamic loading
-of Cairo for OSX soon.  To create a Cairo grpahics context you first
+of Cairo for OSX soon, (but if anybody would like to volunteer that
+would be nice too.)  To create a Cairo graphics context you first
 have to get the Cairo GraphicsRenderer and then use it to create the
 context, like this::
 
@@ -33,7 +34,9 @@ context, like this::
 
 If either GetCairoRenderer or CreateContext fails (either it's not
 supported or the Cairo shared libraries can not be found) then None
-will be returned, so be sure to check the return values.
+will be returned, so be sure to check the return values.  Using Cairo
+on Windows is usually faster and seems to be of better quality than
+using the GDI+ backend.
 
 The wx.GCDC class can now be constructed with an already exisiting
 wx.GraphicsContext. 
@@ -48,8 +51,8 @@ http://pypi.python.org/pypi/esky.  To enable your application to be
 self-updatable it must be packaged as an Esky bundle, which is a .zip
 file with a certain structure and meta-data, which means that you will
 have to modify your setup.py files to enable this.  There is an
-example of this in the samples/doodle folder of the wxPython source
-tarball or the docs and demos package.
+example showing how to do this in the samples/doodle folder of the
+wxPython source tarball or the docs and demos package.
 
 Added a MultiMessageDialog class to wx.lib.dialogs that is similar to
 the stock wx.MessageDialog, but is additionally able to have a

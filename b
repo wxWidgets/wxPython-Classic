@@ -23,7 +23,7 @@ if [ "$PYTHON" = "" ]; then
 	27 | 2.7) VER=27; PYVER=2.7; shift ;;
 	30 | 3.0) VER=30; PYVER=3.0; shift ;;
 	
-	*) VER=25; PYVER=2.5
+	*) VER=27; PYVER=2.7
     esac
 	
     if [ "$OSTYPE" = "cygwin" ]; then
