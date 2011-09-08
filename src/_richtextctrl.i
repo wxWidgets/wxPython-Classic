@@ -51,7 +51,8 @@ DocStr(wxRichTextCtrl,
 "", "");
 
 
-class wxRichTextCtrl : public wxTextCtrlBase,
+class wxRichTextCtrl : public wxControl,
+                       public wxTextCtrlIface,
                        public wxScrollHelper
 {
 public:
