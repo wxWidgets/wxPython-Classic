@@ -47,7 +47,7 @@ enum {
 MustHaveApp(wxBookCtrlBase);
 
 //  Common base class for wxList/Tree/Notebook
-class wxBookCtrlBase : public wxControl
+class wxBookCtrlBase : public wxControl, public wxWithImage
 {
 public:
     // This is an ABC, it can't be constructed...
@@ -83,20 +83,6 @@ public:
     virtual bool SetPageText(size_t n, const wxString& strText)/* = 0*/;
     virtual wxString GetPageText(size_t n) const/* = 0*/;
 
-
-    // image list stuff: each page may have an image associated with it (all
-    // images belong to the same image list)
-
-    // sets the image list to use, it is *not* deleted by the control
-    virtual void SetImageList(wxImageList *imageList);
-
-    // as SetImageList() but we will delete the image list ourselves
-    %disownarg( wxImageList *imageList );
-    void AssignImageList(wxImageList *imageList);
-    %cleardisown( wxImageList *imageList );
-
-    // get pointer (may be NULL) to the associated image list
-    wxImageList* GetImageList() const;
 
     // sets/returns item's image index in the current image list
     virtual int GetPageImage(size_t n) const/* = 0*/;
@@ -177,7 +163,6 @@ wx.NB_HITTEST flags.", "");
     %property(ControlSizer, GetControlSizer, doc="See `GetControlSizer`");
     %property(CurrentPage, GetCurrentPage, doc="See `GetCurrentPage`");
     %property(FitToCurrentPage, GetFitToCurrentPage, SetFitToCurrentPage, doc="See `GetFitToCurrentPage` and `SetFitToCurrentPage`");
-    %property(ImageList, GetImageList, SetImageList, doc="See `GetImageList` and `SetImageList`");
     %property(InternalBorder, GetInternalBorder, SetInternalBorder, doc="See `GetInternalBorder` and `SetInternalBorder`");
     %property(Page, GetPage, doc="See `GetPage`");
     %property(PageCount, GetPageCount, doc="See `GetPageCount`");

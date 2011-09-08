@@ -35,6 +35,7 @@ enum wxAcceleratorEntryFlags {
     wxACCEL_CTRL,
     wxACCEL_SHIFT,
     wxACCEL_NORMAL,
+    wxACCEL_RAW_CTRL,
     wxACCEL_CMD,
 };
 

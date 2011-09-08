@@ -136,7 +136,9 @@ the combobox text field.", "",
             return self->wxItemContainer::IsEmpty();
         }
     }
-    
+
+    bool IsListEmpty() const;
+    bool IsTextEmpty() const;
 
     virtual void Popup();
     virtual void Dismiss();

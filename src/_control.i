@@ -582,8 +582,9 @@ including) the character at the last position.  If both parameters are
     // commonly meaning that this functionality is not available under the
     // current platform)
 
-    virtual bool AutoComplete(const wxArrayString& choices);
-    virtual bool AutoCompleteFileNames();
+    bool AutoComplete(const wxArrayString& choices);
+    bool AutoCompleteFileNames();
+    bool AutoCompleteDirectories();
 
     // TODO
     // bool AutoComplete(wxTextCompleter *completer);
@@ -674,6 +675,10 @@ public:
     DocDeclA(
         virtual /*bool*/ void, PositionToXY(long pos, long *OUTPUT, long *OUTPUT) const,
         "PositionToXY(long pos) -> (x, y)");
+
+    // translate the given position (which is just an index in the text control)
+    // to client coordinates
+    wxPoint PositionToCoords(long pos) const;
 
     virtual void ShowPosition(long pos);
 

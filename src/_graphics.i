@@ -535,6 +535,15 @@ public:
         wxPyEndBlockThreads(blocked);
      }
     
+    wxGCDC(const wxGraphicsContext& ctx)
+        : wxDC(NULL)
+    {
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wxGCDC is not available on this platform.");
+        wxPyEndBlockThreads(blocked);
+     }
+
     wxGCDC()
         : wxDC(NULL)
     {
@@ -546,7 +555,7 @@ public:
 
     virtual ~wxGCDC() {}
 
-    wxGraphicsContext* GetGraphicsContext() { return NULL; }
+    wxGraphicsContext* GetGraphicsContext() const { return NULL; }
     void SetGraphicsContext( wxGraphicsContext* ) {}
     void Flush() {}
 };
@@ -1466,7 +1475,7 @@ public:
     //wxGCDC();
     virtual ~wxGCDC();
 
-    wxGraphicsContext* GetGraphicsContext();
+    wxGraphicsContext* GetGraphicsContext() const; 
     virtual void SetGraphicsContext( wxGraphicsContext* ctx );
 
     %property(GraphicsContext, GetGraphicsContext, SetGraphicsContext);

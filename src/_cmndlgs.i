@@ -770,6 +770,10 @@ public:
     virtual bool SetOKCancelLabels(const wxString& ok,
                                    const wxString& cancel);
 
+    virtual bool SetHelpLabel(const wxString& help);
+    
+    wxString GetHelpLabel() const;
+    
     virtual void SetMessage(const wxString& message);
 
     virtual void SetExtendedMessage(const wxString& extendedMessage);

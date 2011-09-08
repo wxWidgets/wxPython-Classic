@@ -1397,7 +1397,7 @@ enum wxKeyCode {
     WXK_WINDOWS_LEFT,
     WXK_WINDOWS_RIGHT,
     WXK_WINDOWS_MENU,
-
+    WXK_RAW_CONTROL,
     WXK_COMMAND,
 
     // Hardware-specific buttons
@@ -1584,6 +1584,13 @@ enum wxItemKind
 };
 
 
+enum wxCheckBoxState
+{
+    wxCHK_UNCHECKED,
+    wxCHK_CHECKED,
+    wxCHK_UNDETERMINED /* 3-state checkbox only */
+};
+
 enum wxHitTest
 {
     wxHT_NOWHERE,
@@ -1620,6 +1627,7 @@ enum wxKeyModifier
     wxMOD_SHIFT,
     wxMOD_META,
     wxMOD_WIN,
+    wxMOD_RAW_CONTROL,
     wxMOD_CMD,
     wxMOD_ALL       
 };

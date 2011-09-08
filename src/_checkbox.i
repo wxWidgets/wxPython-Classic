@@ -34,13 +34,6 @@ enum {
     wxCHK_ALLOW_3RD_STATE_FOR_USER,
 };
 
-enum wxCheckBoxState
-{
-    wxCHK_UNCHECKED,
-    wxCHK_CHECKED,
-    wxCHK_UNDETERMINED /* 3-state checkbox only */
-};
-
 
 //---------------------------------------------------------------------------
 

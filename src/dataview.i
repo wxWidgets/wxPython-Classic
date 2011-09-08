@@ -2387,7 +2387,9 @@ public:
 
     wxDataViewItem GetCurrentItem() const;
     void SetCurrentItem(const wxDataViewItem& item);
-        
+
+    virtual int GetSelectedItemsCount() const;
+    bool HasSelection() const;    
     virtual wxDataViewItem GetSelection() const;
 
     //virtual int GetSelections( wxDataViewItemArray & sel ) const;
@@ -2456,6 +2458,10 @@ public:
 
     const wxVariant &GetValue() const;
     void SetValue( const wxVariant &value );
+
+    // for wxEVT_COMMAND_DATAVIEW_ITEM_EDITING_DONE only
+    bool IsEditCancelled() const;
+    void SetEditCanceled(bool editCancelled);
 
     // for wxEVT_DATAVIEW_COLUMN_HEADER_CLICKED only
     void SetDataViewColumn( wxDataViewColumn *col );
@@ -2836,7 +2842,7 @@ public:
 
 
 
-class wxDataViewTreeCtrl: public wxDataViewCtrl
+class wxDataViewTreeCtrl: public wxDataViewCtrl, public wxWithImages
 {
 public:
     %pythonAppend wxDataViewTreeCtrl         "self._setOORInfo(self)"
@@ -2859,12 +2865,7 @@ public:
     wxDataViewTreeStore *GetStore();
     bool IsContainer( const wxDataViewItem& item ) const;
 
-    %disownarg( wxImageList *imagelist );
-    void SetImageList( wxImageList *imagelist );
-    %cleardisown( wxImageList *imageList );
-
-    wxImageList* GetImageList();
-
+    
     wxDataViewItem AppendItem( const wxDataViewItem& parent,
                                const wxString &text,
                                int icon = -1,
