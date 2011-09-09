@@ -2847,7 +2847,7 @@ RE_CENTRE_CARET = _richtext.RE_CENTRE_CARET
 RICHTEXT_SHIFT_DOWN = _richtext.RICHTEXT_SHIFT_DOWN
 RICHTEXT_CTRL_DOWN = _richtext.RICHTEXT_CTRL_DOWN
 RICHTEXT_ALT_DOWN = _richtext.RICHTEXT_ALT_DOWN
-class RichTextCtrl(_core.TextCtrlBase,_windows.ScrollHelper):
+class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
     """Proxy of C++ RichTextCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr

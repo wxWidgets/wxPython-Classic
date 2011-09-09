@@ -142,7 +142,7 @@ class PyGridCellRenderer(GridCellRenderer):
 
     def base_SetParameters(*args, **kw):
         return PyGridCellRenderer.SetParameters(*args, **kw)
-    base_SetParameters = wx._deprecated(base_SetParameters,
+    base_SetParameters = wx.deprecated(base_SetParameters,
                                    "Please use PyGridCellRenderer.SetParameters instead.")
 
 _grid.PyGridCellRenderer_swigregister(PyGridCellRenderer)
@@ -351,47 +351,47 @@ class PyGridCellEditor(GridCellEditor):
 
     def base_SetSize(*args, **kw):
         return PyGridCellEditor.SetSize(*args, **kw)
-    base_SetSize = wx._deprecated(base_SetSize,
+    base_SetSize = wx.deprecated(base_SetSize,
                                    "Please use PyGridCellEditor.SetSize instead.")
 
     def base_Show(*args, **kw):
         return PyGridCellEditor.Show(*args, **kw)
-    base_Show = wx._deprecated(base_Show,
+    base_Show = wx.deprecated(base_Show,
                                    "Please use PyGridCellEditor.Show instead.")
 
     def base_PaintBackground(*args, **kw):
         return PyGridCellEditor.PaintBackground(*args, **kw)
-    base_PaintBackground = wx._deprecated(base_PaintBackground,
+    base_PaintBackground = wx.deprecated(base_PaintBackground,
                                    "Please use PyGridCellEditor.PaintBackground instead.")
 
     def base_IsAcceptedKey(*args, **kw):
         return PyGridCellEditor.IsAcceptedKey(*args, **kw)
-    base_IsAcceptedKey = wx._deprecated(base_IsAcceptedKey,
+    base_IsAcceptedKey = wx.deprecated(base_IsAcceptedKey,
                                    "Please use PyGridCellEditor.IsAcceptedKey instead.")
 
     def base_StartingKey(*args, **kw):
         return PyGridCellEditor.StartingKey(*args, **kw)
-    base_StartingKey = wx._deprecated(base_StartingKey,
+    base_StartingKey = wx.deprecated(base_StartingKey,
                                    "Please use PyGridCellEditor.StartingKey instead.")
 
     def base_StartingClick(*args, **kw):
         return PyGridCellEditor.StartingClick(*args, **kw)
-    base_StartingClick = wx._deprecated(base_StartingClick,
+    base_StartingClick = wx.deprecated(base_StartingClick,
                                    "Please use PyGridCellEditor.StartingClick instead.")
 
     def base_HandleReturn(*args, **kw):
         return PyGridCellEditor.HandleReturn(*args, **kw)
-    base_HandleReturn = wx._deprecated(base_HandleReturn,
+    base_HandleReturn = wx.deprecated(base_HandleReturn,
                                    "Please use PyGridCellEditor.HandleReturn instead.")
 
     def base_Destroy(*args, **kw):
         return PyGridCellEditor.Destroy(*args, **kw)
-    base_Destroy = wx._deprecated(base_Destroy,
+    base_Destroy = wx.deprecated(base_Destroy,
                                    "Please use PyGridCellEditor.Destroy instead.")
 
     def base_SetParameters(*args, **kw):
         return PyGridCellEditor.SetParameters(*args, **kw)
-    base_SetParameters = wx._deprecated(base_SetParameters,
+    base_SetParameters = wx.deprecated(base_SetParameters,
                                    "Please use PyGridCellEditor.SetParameters instead.")
 
 _grid.PyGridCellEditor_swigregister(PyGridCellEditor)
@@ -726,22 +726,22 @@ class PyGridCellAttrProvider(GridCellAttrProvider):
 
     def base_GetAttr(*args, **kw):
         return PyGridCellAttrProvider.GetAttr(*args, **kw)
-    base_GetAttr = wx._deprecated(base_GetAttr,
+    base_GetAttr = wx.deprecated(base_GetAttr,
                                    "Please use PyGridCellAttrProvider.GetAttr instead.")
 
     def base_SetAttr(*args, **kw):
         return PyGridCellAttrProvider.SetAttr(*args, **kw)
-    base_SetAttr = wx._deprecated(base_SetAttr,
+    base_SetAttr = wx.deprecated(base_SetAttr,
                                    "Please use PyGridCellAttrProvider.SetAttr instead.")
 
     def base_SetRowAttr(*args, **kw):
         return PyGridCellAttrProvider.SetRowAttr(*args, **kw)
-    base_SetRowAttr = wx._deprecated(base_SetRowAttr,
+    base_SetRowAttr = wx.deprecated(base_SetRowAttr,
                                    "Please use PyGridCellAttrProvider.SetRowAttr instead.")
 
     def base_SetColAttr(*args, **kw):
         return PyGridCellAttrProvider.SetColAttr(*args, **kw)
-    base_SetColAttr = wx._deprecated(base_SetColAttr,
+    base_SetColAttr = wx.deprecated(base_SetColAttr,
                                    "Please use PyGridCellAttrProvider.SetColAttr instead.")
 
 _grid.PyGridCellAttrProvider_swigregister(PyGridCellAttrProvider)
@@ -935,97 +935,97 @@ class PyGridTableBase(GridTableBase):
 
     def base_GetTypeName(*args, **kw):
         return PyGridTableBase.GetTypeName(*args, **kw)
-    base_GetTypeName = wx._deprecated(base_GetTypeName,
+    base_GetTypeName = wx.deprecated(base_GetTypeName,
                                    "Please use PyGridTableBase.GetTypeName instead.")
 
     def base_CanGetValueAs(*args, **kw):
         return PyGridTableBase.CanGetValueAs(*args, **kw)
-    base_CanGetValueAs = wx._deprecated(base_CanGetValueAs,
+    base_CanGetValueAs = wx.deprecated(base_CanGetValueAs,
                                    "Please use PyGridTableBase.CanGetValueAs instead.")
 
     def base_CanSetValueAs(*args, **kw):
         return PyGridTableBase.CanSetValueAs(*args, **kw)
-    base_CanSetValueAs = wx._deprecated(base_CanSetValueAs,
+    base_CanSetValueAs = wx.deprecated(base_CanSetValueAs,
                                    "Please use PyGridTableBase.CanSetValueAs instead.")
 
     def base_Clear(*args, **kw):
         return PyGridTableBase.Clear(*args, **kw)
-    base_Clear = wx._deprecated(base_Clear,
+    base_Clear = wx.deprecated(base_Clear,
                                    "Please use PyGridTableBase.Clear instead.")
 
     def base_InsertRows(*args, **kw):
         return PyGridTableBase.InsertRows(*args, **kw)
-    base_InsertRows = wx._deprecated(base_InsertRows,
+    base_InsertRows = wx.deprecated(base_InsertRows,
                                    "Please use PyGridTableBase.InsertRows instead.")
 
     def base_AppendRows(*args, **kw):
         return PyGridTableBase.AppendRows(*args, **kw)
-    base_AppendRows = wx._deprecated(base_AppendRows,
+    base_AppendRows = wx.deprecated(base_AppendRows,
                                    "Please use PyGridTableBase.AppendRows instead.")
 
     def base_DeleteRows(*args, **kw):
         return PyGridTableBase.DeleteRows(*args, **kw)
-    base_DeleteRows = wx._deprecated(base_DeleteRows,
+    base_DeleteRows = wx.deprecated(base_DeleteRows,
                                    "Please use PyGridTableBase.DeleteRows instead.")
 
     def base_InsertCols(*args, **kw):
         return PyGridTableBase.InsertCols(*args, **kw)
-    base_InsertCols = wx._deprecated(base_InsertCols,
+    base_InsertCols = wx.deprecated(base_InsertCols,
                                    "Please use PyGridTableBase.InsertCols instead.")
 
     def base_AppendCols(*args, **kw):
         return PyGridTableBase.AppendCols(*args, **kw)
-    base_AppendCols = wx._deprecated(base_AppendCols,
+    base_AppendCols = wx.deprecated(base_AppendCols,
                                    "Please use PyGridTableBase.AppendCols instead.")
 
     def base_DeleteCols(*args, **kw):
         return PyGridTableBase.DeleteCols(*args, **kw)
-    base_DeleteCols = wx._deprecated(base_DeleteCols,
+    base_DeleteCols = wx.deprecated(base_DeleteCols,
                                    "Please use PyGridTableBase.DeleteCols instead.")
 
     def base_GetRowLabelValue(*args, **kw):
         return PyGridTableBase.GetRowLabelValue(*args, **kw)
-    base_GetRowLabelValue = wx._deprecated(base_GetRowLabelValue,
+    base_GetRowLabelValue = wx.deprecated(base_GetRowLabelValue,
                                    "Please use PyGridTableBase.GetRowLabelValue instead.")
 
     def base_GetColLabelValue(*args, **kw):
         return PyGridTableBase.GetColLabelValue(*args, **kw)
-    base_GetColLabelValue = wx._deprecated(base_GetColLabelValue,
+    base_GetColLabelValue = wx.deprecated(base_GetColLabelValue,
                                    "Please use PyGridTableBase.GetColLabelValue instead.")
 
     def base_SetRowLabelValue(*args, **kw):
         return PyGridTableBase.SetRowLabelValue(*args, **kw)
-    base_SetRowLabelValue = wx._deprecated(base_SetRowLabelValue,
+    base_SetRowLabelValue = wx.deprecated(base_SetRowLabelValue,
                                    "Please use PyGridTableBase.SetRowLabelValue instead.")
 
     def base_SetColLabelValue(*args, **kw):
         return PyGridTableBase.SetColLabelValue(*args, **kw)
-    base_SetColLabelValue = wx._deprecated(base_SetColLabelValue,
+    base_SetColLabelValue = wx.deprecated(base_SetColLabelValue,
                                    "Please use PyGridTableBase.SetColLabelValue instead.")
 
     def base_CanHaveAttributes(*args, **kw):
         return PyGridTableBase.CanHaveAttributes(*args, **kw)
-    base_CanHaveAttributes = wx._deprecated(base_CanHaveAttributes,
+    base_CanHaveAttributes = wx.deprecated(base_CanHaveAttributes,
                                    "Please use PyGridTableBase.CanHaveAttributes instead.")
 
     def base_GetAttr(*args, **kw):
         return PyGridTableBase.GetAttr(*args, **kw)
-    base_GetAttr = wx._deprecated(base_GetAttr,
+    base_GetAttr = wx.deprecated(base_GetAttr,
                                    "Please use PyGridTableBase.GetAttr instead.")
 
     def base_SetAttr(*args, **kw):
         return PyGridTableBase.SetAttr(*args, **kw)
-    base_SetAttr = wx._deprecated(base_SetAttr,
+    base_SetAttr = wx.deprecated(base_SetAttr,
                                    "Please use PyGridTableBase.SetAttr instead.")
 
     def base_SetRowAttr(*args, **kw):
         return PyGridTableBase.SetRowAttr(*args, **kw)
-    base_SetRowAttr = wx._deprecated(base_SetRowAttr,
+    base_SetRowAttr = wx.deprecated(base_SetRowAttr,
                                    "Please use PyGridTableBase.SetRowAttr instead.")
 
     def base_SetColAttr(*args, **kw):
         return PyGridTableBase.SetColAttr(*args, **kw)
-    base_SetColAttr = wx._deprecated(base_SetColAttr,
+    base_SetColAttr = wx.deprecated(base_SetColAttr,
                                    "Please use PyGridTableBase.SetColAttr instead.")
 
 _grid.PyGridTableBase_swigregister(PyGridTableBase)
@@ -1145,7 +1145,7 @@ class GridCellCoords(object):
         """Get(self) -> PyObject"""
         return _grid.GridCellCoords_Get(*args, **kwargs)
 
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wxGridCellCoords'+str(self.Get())
     def __len__(self):                   return len(self.Get())

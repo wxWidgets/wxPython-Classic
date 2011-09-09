@@ -192,107 +192,107 @@ class PyWizardPage(WizardPage):
 
     def base_DoMoveWindow(*args, **kw):
         return PyWizardPage.DoMoveWindow(*args, **kw)
-    base_DoMoveWindow = wx._deprecated(base_DoMoveWindow,
+    base_DoMoveWindow = wx.deprecated(base_DoMoveWindow,
                                    "Please use PyWizardPage.DoMoveWindow instead.")
 
     def base_DoSetSize(*args, **kw):
         return PyWizardPage.DoSetSize(*args, **kw)
-    base_DoSetSize = wx._deprecated(base_DoSetSize,
+    base_DoSetSize = wx.deprecated(base_DoSetSize,
                                    "Please use PyWizardPage.DoSetSize instead.")
 
     def base_DoSetClientSize(*args, **kw):
         return PyWizardPage.DoSetClientSize(*args, **kw)
-    base_DoSetClientSize = wx._deprecated(base_DoSetClientSize,
+    base_DoSetClientSize = wx.deprecated(base_DoSetClientSize,
                                    "Please use PyWizardPage.DoSetClientSize instead.")
 
     def base_DoSetVirtualSize(*args, **kw):
         return PyWizardPage.DoSetVirtualSize(*args, **kw)
-    base_DoSetVirtualSize = wx._deprecated(base_DoSetVirtualSize,
+    base_DoSetVirtualSize = wx.deprecated(base_DoSetVirtualSize,
                                    "Please use PyWizardPage.DoSetVirtualSize instead.")
 
     def base_DoGetSize(*args, **kw):
         return PyWizardPage.DoGetSize(*args, **kw)
-    base_DoGetSize = wx._deprecated(base_DoGetSize,
+    base_DoGetSize = wx.deprecated(base_DoGetSize,
                                    "Please use PyWizardPage.DoGetSize instead.")
 
     def base_DoGetClientSize(*args, **kw):
         return PyWizardPage.DoGetClientSize(*args, **kw)
-    base_DoGetClientSize = wx._deprecated(base_DoGetClientSize,
+    base_DoGetClientSize = wx.deprecated(base_DoGetClientSize,
                                    "Please use PyWizardPage.DoGetClientSize instead.")
 
     def base_DoGetPosition(*args, **kw):
         return PyWizardPage.DoGetPosition(*args, **kw)
-    base_DoGetPosition = wx._deprecated(base_DoGetPosition,
+    base_DoGetPosition = wx.deprecated(base_DoGetPosition,
                                    "Please use PyWizardPage.DoGetPosition instead.")
 
     def base_DoGetVirtualSize(*args, **kw):
         return PyWizardPage.DoGetVirtualSize(*args, **kw)
-    base_DoGetVirtualSize = wx._deprecated(base_DoGetVirtualSize,
+    base_DoGetVirtualSize = wx.deprecated(base_DoGetVirtualSize,
                                    "Please use PyWizardPage.DoGetVirtualSize instead.")
 
     def base_DoGetBestSize(*args, **kw):
         return PyWizardPage.DoGetBestSize(*args, **kw)
-    base_DoGetBestSize = wx._deprecated(base_DoGetBestSize,
+    base_DoGetBestSize = wx.deprecated(base_DoGetBestSize,
                                    "Please use PyWizardPage.DoGetBestSize instead.")
 
     def base_InitDialog(*args, **kw):
         return PyWizardPage.InitDialog(*args, **kw)
-    base_InitDialog = wx._deprecated(base_InitDialog,
+    base_InitDialog = wx.deprecated(base_InitDialog,
                                    "Please use PyWizardPage.InitDialog instead.")
 
     def base_TransferDataToWindow(*args, **kw):
         return PyWizardPage.TransferDataToWindow(*args, **kw)
-    base_TransferDataToWindow = wx._deprecated(base_TransferDataToWindow,
+    base_TransferDataToWindow = wx.deprecated(base_TransferDataToWindow,
                                    "Please use PyWizardPage.TransferDataToWindow instead.")
 
     def base_TransferDataFromWindow(*args, **kw):
         return PyWizardPage.TransferDataFromWindow(*args, **kw)
-    base_TransferDataFromWindow = wx._deprecated(base_TransferDataFromWindow,
+    base_TransferDataFromWindow = wx.deprecated(base_TransferDataFromWindow,
                                    "Please use PyWizardPage.TransferDataFromWindow instead.")
 
     def base_Validate(*args, **kw):
         return PyWizardPage.Validate(*args, **kw)
-    base_Validate = wx._deprecated(base_Validate,
+    base_Validate = wx.deprecated(base_Validate,
                                    "Please use PyWizardPage.Validate instead.")
 
     def base_AcceptsFocus(*args, **kw):
         return PyWizardPage.AcceptsFocus(*args, **kw)
-    base_AcceptsFocus = wx._deprecated(base_AcceptsFocus,
+    base_AcceptsFocus = wx.deprecated(base_AcceptsFocus,
                                    "Please use PyWizardPage.AcceptsFocus instead.")
 
     def base_AcceptsFocusFromKeyboard(*args, **kw):
         return PyWizardPage.AcceptsFocusFromKeyboard(*args, **kw)
-    base_AcceptsFocusFromKeyboard = wx._deprecated(base_AcceptsFocusFromKeyboard,
+    base_AcceptsFocusFromKeyboard = wx.deprecated(base_AcceptsFocusFromKeyboard,
                                    "Please use PyWizardPage.AcceptsFocusFromKeyboard instead.")
 
     def base_GetMaxSize(*args, **kw):
         return PyWizardPage.GetMaxSize(*args, **kw)
-    base_GetMaxSize = wx._deprecated(base_GetMaxSize,
+    base_GetMaxSize = wx.deprecated(base_GetMaxSize,
                                    "Please use PyWizardPage.GetMaxSize instead.")
 
     def base_AddChild(*args, **kw):
         return PyWizardPage.AddChild(*args, **kw)
-    base_AddChild = wx._deprecated(base_AddChild,
+    base_AddChild = wx.deprecated(base_AddChild,
                                    "Please use PyWizardPage.AddChild instead.")
 
     def base_RemoveChild(*args, **kw):
         return PyWizardPage.RemoveChild(*args, **kw)
-    base_RemoveChild = wx._deprecated(base_RemoveChild,
+    base_RemoveChild = wx.deprecated(base_RemoveChild,
                                    "Please use PyWizardPage.RemoveChild instead.")
 
     def base_ShouldInheritColours(*args, **kw):
         return PyWizardPage.ShouldInheritColours(*args, **kw)
-    base_ShouldInheritColours = wx._deprecated(base_ShouldInheritColours,
+    base_ShouldInheritColours = wx.deprecated(base_ShouldInheritColours,
                                    "Please use PyWizardPage.ShouldInheritColours instead.")
 
     def base_GetDefaultAttributes(*args, **kw):
         return PyWizardPage.GetDefaultAttributes(*args, **kw)
-    base_GetDefaultAttributes = wx._deprecated(base_GetDefaultAttributes,
+    base_GetDefaultAttributes = wx.deprecated(base_GetDefaultAttributes,
                                    "Please use PyWizardPage.GetDefaultAttributes instead.")
 
     def base_OnInternalIdle(*args, **kw):
         return PyWizardPage.OnInternalIdle(*args, **kw)
-    base_OnInternalIdle = wx._deprecated(base_OnInternalIdle,
+    base_OnInternalIdle = wx.deprecated(base_OnInternalIdle,
                                    "Please use PyWizardPage.OnInternalIdle instead.")
 
 _wizard.PyWizardPage_swigregister(PyWizardPage)

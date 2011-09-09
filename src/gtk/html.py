@@ -1155,22 +1155,22 @@ class HtmlWindow(_windows.ScrolledWindow):
 
     def base_OnLinkClicked(*args, **kw):
         return HtmlWindow.OnLinkClicked(*args, **kw)
-    base_OnLinkClicked = wx._deprecated(base_OnLinkClicked,
+    base_OnLinkClicked = wx.deprecated(base_OnLinkClicked,
                                    "Please use HtmlWindow.OnLinkClicked instead.")
 
     def base_OnSetTitle(*args, **kw):
         return HtmlWindow.OnSetTitle(*args, **kw)
-    base_OnSetTitle = wx._deprecated(base_OnSetTitle,
+    base_OnSetTitle = wx.deprecated(base_OnSetTitle,
                                    "Please use HtmlWindow.OnSetTitle instead.")
 
     def base_OnCellMouseHover(*args, **kw):
         return HtmlWindow.OnCellMouseHover(*args, **kw)
-    base_OnCellMouseHover = wx._deprecated(base_OnCellMouseHover,
+    base_OnCellMouseHover = wx.deprecated(base_OnCellMouseHover,
                                    "Please use HtmlWindow.OnCellMouseHover instead.")
 
     def base_OnCellClicked(*args, **kw):
         return HtmlWindow.OnCellClicked(*args, **kw)
-    base_OnCellClicked = wx._deprecated(base_OnCellClicked,
+    base_OnCellClicked = wx.deprecated(base_OnCellClicked,
                                    "Please use HtmlWindow.OnCellClicked instead.")
 
     def GetClassDefaultAttributes(*args, **kwargs):

@@ -1999,7 +1999,7 @@ class Process(_core.EvtHandler):
 
     def base_OnTerminate(*args, **kw):
         return Process.OnTerminate(*args, **kw)
-    base_OnTerminate = wx._deprecated(base_OnTerminate,
+    base_OnTerminate = wx.deprecated(base_OnTerminate,
                                    "Please use Process.OnTerminate instead.")
 
     def Redirect(*args, **kwargs):
@@ -5564,7 +5564,7 @@ class DropSource(object):
 
     def base_GiveFeedback(*args, **kw):
         return DropSource.GiveFeedback(*args, **kw)
-    base_GiveFeedback = wx._deprecated(base_GiveFeedback,
+    base_GiveFeedback = wx.deprecated(base_GiveFeedback,
                                    "Please use DropSource.GiveFeedback instead.")
 
     DataObject = property(GetDataObject,SetData,doc="See `GetDataObject` and `SetData`") 
@@ -5623,22 +5623,22 @@ class DropTarget(object):
 
     def base_OnEnter(*args, **kw):
         return DropTarget.OnEnter(*args, **kw)
-    base_OnEnter = wx._deprecated(base_OnEnter,
+    base_OnEnter = wx.deprecated(base_OnEnter,
                                    "Please use DropTarget.OnEnter instead.")
 
     def base_OnDragOver(*args, **kw):
         return DropTarget.OnDragOver(*args, **kw)
-    base_OnDragOver = wx._deprecated(base_OnDragOver,
+    base_OnDragOver = wx.deprecated(base_OnDragOver,
                                    "Please use DropTarget.OnDragOver instead.")
 
     def base_OnLeave(*args, **kw):
         return DropTarget.OnLeave(*args, **kw)
-    base_OnLeave = wx._deprecated(base_OnLeave,
+    base_OnLeave = wx.deprecated(base_OnLeave,
                                    "Please use DropTarget.OnLeave instead.")
 
     def base_OnDrop(*args, **kw):
         return DropTarget.OnDrop(*args, **kw)
-    base_OnDrop = wx._deprecated(base_OnDrop,
+    base_OnDrop = wx.deprecated(base_OnDrop,
                                    "Please use DropTarget.OnDrop instead.")
 
     def GetData(*args, **kwargs):
@@ -5697,32 +5697,32 @@ class TextDropTarget(DropTarget):
 
     def base_OnDropText(*args, **kw):
         return TextDropTarget.OnDropText(*args, **kw)
-    base_OnDropText = wx._deprecated(base_OnDropText,
+    base_OnDropText = wx.deprecated(base_OnDropText,
                                    "Please use TextDropTarget.OnDropText instead.")
 
     def base_OnEnter(*args, **kw):
         return TextDropTarget.OnEnter(*args, **kw)
-    base_OnEnter = wx._deprecated(base_OnEnter,
+    base_OnEnter = wx.deprecated(base_OnEnter,
                                    "Please use TextDropTarget.OnEnter instead.")
 
     def base_OnDragOver(*args, **kw):
         return TextDropTarget.OnDragOver(*args, **kw)
-    base_OnDragOver = wx._deprecated(base_OnDragOver,
+    base_OnDragOver = wx.deprecated(base_OnDragOver,
                                    "Please use TextDropTarget.OnDragOver instead.")
 
     def base_OnLeave(*args, **kw):
         return TextDropTarget.OnLeave(*args, **kw)
-    base_OnLeave = wx._deprecated(base_OnLeave,
+    base_OnLeave = wx.deprecated(base_OnLeave,
                                    "Please use TextDropTarget.OnLeave instead.")
 
     def base_OnDrop(*args, **kw):
         return TextDropTarget.OnDrop(*args, **kw)
-    base_OnDrop = wx._deprecated(base_OnDrop,
+    base_OnDrop = wx.deprecated(base_OnDrop,
                                    "Please use TextDropTarget.OnDrop instead.")
 
     def base_OnData(*args, **kw):
         return TextDropTarget.OnData(*args, **kw)
-    base_OnData = wx._deprecated(base_OnData,
+    base_OnData = wx.deprecated(base_OnData,
                                    "Please use TextDropTarget.OnData instead.")
 
 _misc_.TextDropTarget_swigregister(TextDropTarget)
@@ -5766,32 +5766,32 @@ class FileDropTarget(DropTarget):
 
     def base_OnDropFiles(*args, **kw):
         return FileDropTarget.OnDropFiles(*args, **kw)
-    base_OnDropFiles = wx._deprecated(base_OnDropFiles,
+    base_OnDropFiles = wx.deprecated(base_OnDropFiles,
                                    "Please use FileDropTarget.OnDropFiles instead.")
 
     def base_OnEnter(*args, **kw):
         return FileDropTarget.OnEnter(*args, **kw)
-    base_OnEnter = wx._deprecated(base_OnEnter,
+    base_OnEnter = wx.deprecated(base_OnEnter,
                                    "Please use FileDropTarget.OnEnter instead.")
 
     def base_OnDragOver(*args, **kw):
         return FileDropTarget.OnDragOver(*args, **kw)
-    base_OnDragOver = wx._deprecated(base_OnDragOver,
+    base_OnDragOver = wx.deprecated(base_OnDragOver,
                                    "Please use FileDropTarget.OnDragOver instead.")
 
     def base_OnLeave(*args, **kw):
         return FileDropTarget.OnLeave(*args, **kw)
-    base_OnLeave = wx._deprecated(base_OnLeave,
+    base_OnLeave = wx.deprecated(base_OnLeave,
                                    "Please use FileDropTarget.OnLeave instead.")
 
     def base_OnDrop(*args, **kw):
         return FileDropTarget.OnDrop(*args, **kw)
-    base_OnDrop = wx._deprecated(base_OnDrop,
+    base_OnDrop = wx.deprecated(base_OnDrop,
                                    "Please use FileDropTarget.OnDrop instead.")
 
     def base_OnData(*args, **kw):
         return FileDropTarget.OnData(*args, **kw)
-    base_OnData = wx._deprecated(base_OnData,
+    base_OnData = wx.deprecated(base_OnData,
                                    "Please use FileDropTarget.OnData instead.")
 
 _misc_.FileDropTarget_swigregister(FileDropTarget)
