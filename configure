@@ -2593,7 +2593,7 @@ fi
 wx_major_version_number=2
 wx_minor_version_number=9
 wx_release_number=2
-wx_subrelease_number=2
+wx_subrelease_number=3
 
 WX_RELEASE=$wx_major_version_number.$wx_minor_version_number
 WX_VERSION=$WX_RELEASE.$wx_release_number
