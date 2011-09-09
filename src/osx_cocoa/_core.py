@@ -4332,6 +4332,10 @@ class KeyboardState(object):
     metaDown = property(MetaDown, SetMetaDown)
     cmdDown = property(CmdDown)
 
+    m_controlDown = property(_core_.KeyboardState_m_controlDown_get, _core_.KeyboardState_m_controlDown_set)
+    m_shiftDown = property(_core_.KeyboardState_m_shiftDown_get, _core_.KeyboardState_m_shiftDown_set)
+    m_altDown = property(_core_.KeyboardState_m_altDown_get, _core_.KeyboardState_m_altDown_set)
+    m_metaDown = property(_core_.KeyboardState_m_metaDown_get, _core_.KeyboardState_m_metaDown_set)
 _core_.KeyboardState_swigregister(KeyboardState)
 
 #---------------------------------------------------------------------------
@@ -4452,6 +4456,13 @@ class MouseState(KeyboardState):
     aux2IsDown = property(Aux2IsDown, SetAux2Down)
 
     Position = property(GetPosition,doc="See `GetPosition`") 
+    m_leftDown = property(_core_.MouseState_m_leftDown_get, _core_.MouseState_m_leftDown_set)
+    m_middleDown = property(_core_.MouseState_m_middleDown_get, _core_.MouseState_m_middleDown_set)
+    m_rightDown = property(_core_.MouseState_m_rightDown_get, _core_.MouseState_m_rightDown_set)
+    m_aux1Down = property(_core_.MouseState_m_aux1Down_get, _core_.MouseState_m_aux1Down_set)
+    m_aux2Down = property(_core_.MouseState_m_aux2Down_get, _core_.MouseState_m_aux2Down_set)
+    m_x = property(_core_.MouseState_m_x_get, _core_.MouseState_m_x_set)
+    m_y = property(_core_.MouseState_m_y_get, _core_.MouseState_m_y_set)
 _core_.MouseState_swigregister(MouseState)
 
 

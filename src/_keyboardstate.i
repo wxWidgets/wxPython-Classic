@@ -97,10 +97,10 @@ normally).", "");
     }
 
 
-public:
-//     bool m_controlDown : 1;
-//     bool m_shiftDown   : 1;
-//     bool m_altDown     : 1;
-//     bool m_metaDown    : 1;
+    // TODO: deprecate these
+    bool m_controlDown;
+    bool m_shiftDown;
+    bool m_altDown;
+    bool m_metaDown;
 };
 

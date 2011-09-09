@@ -90,6 +90,16 @@ public:
         aux2IsDown = property(Aux2IsDown, SetAux2Down)
     }
     %property(Position, GetPosition, doc="See `GetPosition`");
+
+    // TODO: deprecate these.
+    bool m_leftDown;
+    bool m_middleDown;
+    bool m_rightDown;
+    bool m_aux1Down;
+    bool m_aux2Down;
+    wxCoord m_x;
+    wxCoord m_y;
+
 };
 
 
