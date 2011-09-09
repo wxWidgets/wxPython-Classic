@@ -1,0 +1,151 @@
+#!/bin/bash
+# ---------------------------------------------------------------------------
+# Build wxWidgets and wxPython on a Windows box.  This is normally called 
+# from build-all but it should be able to be used standalone too...
+# 
+# The command line must have the following parameters:
+#
+#    1. the path to the base of the wx source tree
+#    2. the path of where to put the resulting installers
+#    3. skipclean flag (yes|no)
+#    4. the VERSION
+#    5. the remaining args are the versions of Python to build for
+#
+# ---------------------------------------------------------------------------
+
+set -o errexit
+##set -o xtrace
+
+echo "-=-=-=-  Hello from $HOSTNAME  -=-=-=-"
+
+if [ $# -lt 6 ]; then
+    echo "Usage: $0 WXDIR DESTDIR SKIPCLEAN VERSION PYVER CHARTYPE"
+    exit 1
+fi
+
+WXDIR=$1
+DESTDIR=$2
+SKIPCLEAN=$3
+VERSION=$4
+PYVER=$5
+CHARTYPE=$6
+CPU=$7
+
+# WXDIR is the cygwin path, WXWIN is the DOS path
+WXWIN=`cygpath -w $WXDIR`
+export WXWIN
+export WXDIR
+export TOOLS=/cygdrive/c/TOOLS
+export CPU
+
+
+# setup the environment for the right compiler
+if [ $PYVER = 2.3 ]; then
+    echo "Using MSVC ver 6"
+    . msvcset local 6
+
+elif [ $PYVER = 2.4 -o $PYVER = 2.5 ]; then    
+    if [ "$CPU" = "AMD64" ]; then
+	echo "Using MSVC ver 7x64"
+	. msvcset local 7x64
+    else
+	echo "Using MSVC ver 7"
+	. msvcset local 7
+    fi
+
+else # Python 2.6 or later
+    if [ "$CPU" = "AMD64" ]; then
+	echo "Using MSVC ver 9x64"
+	. msvcset local 9x64
+    else
+	echo "Using MSVC ver 9"
+	. msvcset local 9
+    fi
+fi 
+echo "Using compiler located at:" `which cl.exe`
+echo "INCLUDE=" $INCLUDE
+echo "LIB=" $LIB
+
+
+# untar the source 
+echo "Unarchiving wxPython-src-$VERSION.tar.bz2"
+cd $DESTDIR
+tar xjf wxPython-src-$VERSION.tar.bz2
+rm wxPython-src-$VERSION.tar.bz2
+
+
+# Fix line endings
+echo "Converting wxPython line endings to CRLF..."
+cd $WXDIR
+names=`find wxPython -name "*.py" -o -name "*.txt" -o -name "*.htm*" -o -name "*.css" -o -name "*.xml" `
+unix2dos $names
+
+. $WXDIR/wxPython/distrib/all/functions.inc
+
+# change to the right spot in the source tree and copy our build scripts
+echo "Setting up for the build..."
+#cd $WXDIR/build/msw
+#cp $WXDIR/wxPython/distrib/msw/.m* .
+#chmod +x .m*
+
+echo "Building the HTMLHelp file..."
+cd $WXDIR/docs/doxygen/out/html
+##cp $DOCDIR/latex/wx/wx.css .
+$TOOLS/HTMLHelpWorkshop/hhc.exe index.hhp || true
+mkdir -p $WXDIR/docs/htmlhelp
+mv ../wx.chm $WXDIR/docs/htmlhelp/wx.chm
+
+
+echo "Building wxPython and installers..."
+cd $WXDIR/wxPython
+
+case $PYVER in
+    21 | 2.1) VER=21;;
+    22 | 2.2) VER=22;;
+    23 | 2.3) VER=23;;
+    24 | 2.4) VER=24;;
+    25 | 2.5) VER=25;;
+    26 | 2.6) VER=26;;
+    27 | 2.7) VER=27;;
+
+    *) 	VER=26
+esac
+
+# export DISTUTILS_DEBUG=1
+
+PYTHON=$TOOLS/python$VER/python.exe
+if [ "$CPU" == "AMD64" -a -d $TOOLS/amd64 ]; then
+    PYTHON=$TOOLS/amd64/python$VER/python.exe
+fi
+
+mkdir -p dist
+
+$PYTHON -u ./build-wxpython.py --unicode --cairo
+$PYTHON -u distrib/make_installer.py UNICODE=1
+
+
+echo "Building the developer package..."
+WXWIN=`cygpath -w $WXDIR`
+export WXWIN
+export CPU
+#$TOOLS/4dos/4nt.exe /c distrib/makedev.bat $VERSION
+cd $WXDIR
+cp -R wxPython/include/wx/*           include/wx
+mkdir -p include/wx/wxPython/i_files
+cp wxPython/src/*.i                   include/wx/wxPython/i_files
+cp wxPython/src/*.py                  include/wx/wxPython/i_files
+cd $WXDIR/wxPython
+$PYTHON -u distrib/make_wxMSW_cpp_installer.py 
+
+
+echo "Copying installers to $DESTDIR..."
+mv dist/wx*.exe $DESTDIR
+cd $DESTDIR
+
+
+if [ $SKIPCLEAN != yes ]; then 
+    echo "Cleaning up..."
+    rm -fr $WXDIR || true
+fi
+
+echo "-=-=-=-  Goodbye!  -=-=-=-"
