@@ -3,6 +3,16 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.9.2.3
+-------
+* 8-Sept-2011
+
+Fixed a bug that was causing the base class methods of
+wx.richtext.RichTextCtrl to be called incorrectly, causing a crash.
+
+
+
+
 2.9.2.2
 -------
 * 5-Sept-2011
