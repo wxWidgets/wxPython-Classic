@@ -1,13 +1,13 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 #----------------------------------------------------------------------------
 # Name:         composit.py
 # Purpose:      Composite class
 #
-# Author:       Pierre Hj‰lm (from C++ original by Julian Smart)
+# Author:       Pierre Hj√§lm (from C++ original by Julian Smart)
 #
 # Created:      2004-05-08
 # RCS-ID:       $Id$
-# Copyright:    (c) 2004 Pierre Hj‰lm - 1998 Julian Smart
+# Copyright:    (c) 2004 Pierre Hj√§lm - 1998 Julian Smart
 # Licence:      wxWindows license
 #----------------------------------------------------------------------------
 
@@ -369,7 +369,7 @@ class Constraint(object):
         
         return False
     
-OGLConstraint = wx._core._deprecated(Constraint,
+OGLConstraint = wx._core.deprecated(Constraint,
                      "The OGLConstraint name is deprecated, use `ogl.Constraint` instead.")
 
 

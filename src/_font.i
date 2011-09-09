@@ -825,8 +825,8 @@ then for a font belonging to the same family.", "");
     virtual void SetNoAntiAliasing( bool no = true );
     virtual bool GetNoAntiAliasing() const;
     %pythoncode {
-        SetNoAntiAliasing = wx._deprecated(SetNoAntiAliasing)
-        GetNoAntiAliasing = wx._deprecated(GetNoAntiAliasing)
+        SetNoAntiAliasing = wx.deprecated(SetNoAntiAliasing)
+        GetNoAntiAliasing = wx.deprecated(GetNoAntiAliasing)
     }
 
 
@@ -904,7 +904,7 @@ then for a font belonging to the same family.", "");
     
 };
 
-%pythoncode { Font2 = wx._deprecated(FFont, "Use `wx.FFont` instead.") }
+%pythoncode { Font2 = wx.deprecated(FFont, "Use `wx.FFont` instead.") }
 
 //---------------------------------------------------------------------------
 %newgroup

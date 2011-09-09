@@ -444,7 +444,7 @@ text.  Will reset the selection if any.", "");
         "Returns a subset of the value in the text field.", "");
 
     // Just for backwards compatibility
-    %pythoncode { GetString = wx._deprecated(GetRange, "Use `GetRange` instead.") }
+    %pythoncode { GetString = wx.deprecated(GetRange, "Use `GetRange` instead.") }
     
     DocDeclStr(
         bool , IsEmpty() const,

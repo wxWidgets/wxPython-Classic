@@ -361,9 +361,9 @@ The following example shows a simple implementation that utilizes
 
     // For backwards compatibility
     %pythoncode {
-         SetFrame = wx._deprecated(SetManagedWindow,
+         SetFrame = wx.deprecated(SetManagedWindow,
                                    "SetFrame is deprecated, use `SetManagedWindow` instead.")
-         GetFrame = wx._deprecated(GetManagedWindow,
+         GetFrame = wx.deprecated(GetManagedWindow,
                                    "GetFrame is deprecated, use `GetManagedWindow` instead.")
     }
 }

@@ -971,7 +971,7 @@ public:
     PixelData##_Accessor GetPixels() const;
     %pythoncode {
         def UseAlpha(self): pass
-        UseAlpha = wx._deprecated(UseAlpha)
+        UseAlpha = wx.deprecated(UseAlpha)
     }
 
     %extend {
@@ -1165,7 +1165,7 @@ passed then BLACK is used.
     ~wxMask();
 };
 
-%pythoncode { MaskColour = wx._deprecated(Mask, "wx.MaskColour is deprecated, use `wx.Mask` instead.") }
+%pythoncode { MaskColour = wx.deprecated(Mask, "wx.MaskColour is deprecated, use `wx.Mask` instead.") }
 
 //---------------------------------------------------------------------------
 //---------------------------------------------------------------------------

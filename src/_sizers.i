@@ -349,8 +349,8 @@ added, if needed.", "");
         int , GetProportion(),
         "Get the proportion value for this item.", "");
 
-    %pythoncode { SetOption = wx._deprecated(SetProportion, "Please use `SetProportion` instead.") }
-    %pythoncode { GetOption = wx._deprecated(GetProportion, "Please use `GetProportion` instead.") }
+    %pythoncode { SetOption = wx.deprecated(SetProportion, "Please use `SetProportion` instead.") }
+    %pythoncode { GetOption = wx.deprecated(GetProportion, "Please use `GetProportion` instead.") }
 
 
     DocDeclStr(
@@ -403,9 +403,9 @@ added, if needed.", "");
         "Set the size of the spacer to be managed by this sizer item.", "");
 
     %pythoncode {
-        SetWindow = wx._deprecated(SetWindow, "Use `AssignWindow` instead.")
-        SetSizer = wx._deprecated(SetSizer,   "Use `AssignSizer` instead.")
-        SetSpacer = wx._deprecated(SetSpacer, "Use `AssignSpacer` instead.")
+        SetWindow = wx.deprecated(SetWindow, "Use `AssignWindow` instead.")
+        SetSizer = wx.deprecated(SetSizer,   "Use `AssignSizer` instead.")
+        SetSpacer = wx.deprecated(SetSpacer, "Use `AssignSpacer` instead.")
     }
 
 
@@ -1309,7 +1309,7 @@ this will set them appropriately.
 
 :see: `wx.ScrolledWindow.SetScrollbars`
 ", "");
-    %pythoncode { SetVirtualSizeHints = wx._deprecated(SetVirtualSizeHints) }
+    %pythoncode { SetVirtualSizeHints = wx.deprecated(SetVirtualSizeHints) }
 
 
     DocDeclStr(

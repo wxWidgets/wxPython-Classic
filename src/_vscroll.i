@@ -365,7 +365,7 @@ public:
     // get the total height of the lines between lineMin (inclusive) and
     // lineMax (exclusive)
     wxCoord GetRowsHeight(size_t lineMin, size_t lineMax) const;
-    %pythoncode { GetLinesHeight = wx._deprecated(GetRowsHeight,
+    %pythoncode { GetLinesHeight = wx.deprecated(GetRowsHeight,
                                                   "Use GetRowsHeight instead.") }
                                                   
     virtual wxCoord EstimateTotalHeight() const;
@@ -379,39 +379,39 @@ public:
     %pythoncode {
         def GetFirstVisibleLine(self):
             return self.GetVisibleRowsBegin()
-        GetFirstVisibleLine = wx._deprecated(GetFirstVisibleLine, "Use GetVisibleRowsBegin instead" )
+        GetFirstVisibleLine = wx.deprecated(GetFirstVisibleLine, "Use GetVisibleRowsBegin instead" )
 
         def GetLastVisibleLine(self):
             return self.GetVisibleRowsEnd() - 1
-        GetLastVisibleLine = wx._deprecated(GetLastVisibleLine, "Use GetVisibleRowsEnd instead")
+        GetLastVisibleLine = wx.deprecated(GetLastVisibleLine, "Use GetVisibleRowsEnd instead")
 
         def GetLineCount(self):
             return self.GetRowCount()
-        GetLineCount = wx._deprecated(GetLineCount, "Use GetRowCount instead")
+        GetLineCount = wx.deprecated(GetLineCount, "Use GetRowCount instead")
 
         def SetLineCount(self, count):
             self.SetRowCount(count)
-        SetLineCount = wx._deprecated(SetLineCount, "Use SetRowCount instead")
+        SetLineCount = wx.deprecated(SetLineCount, "Use SetRowCount instead")
 
         def RefreshLine(self, line):
             self.RefreshRow(line)
-        RefreshLine = wx._deprecated(RefreshLine, "Use RefreshRow instead")
+        RefreshLine = wx.deprecated(RefreshLine, "Use RefreshRow instead")
 
         def RefreshLines(self, frm, to):
             self.RefreshRows(frm, to)
-        RefreshLines = wx._deprecated(RefreshLines, "Use RefreshRows instead")
+        RefreshLines = wx.deprecated(RefreshLines, "Use RefreshRows instead")
             
         def ScrollToLine(self, line):
             return self.ScrollToRow(line)
-        ScrollToLine = wx._deprecated(ScrollToLine, "Use RefreshRow instead")
+        ScrollToLine = wx.deprecated(ScrollToLine, "Use RefreshRow instead")
 
         def ScrollLines(self, lines):
             return self.ScrollRows(lines)
-        ScrollLines = wx._deprecated(ScrollLines, "Use ScrollRows instead")
+        ScrollLines = wx.deprecated(ScrollLines, "Use ScrollRows instead")
 
         def ScrollPages(self, pages):
             return self.ScrollRowPages(pages)
-        ScrollPages = wx._deprecated(ScrollPages, "Use ScrollRowPages instead")
+        ScrollPages = wx.deprecated(ScrollPages, "Use ScrollRowPages instead")
     }
     
 };

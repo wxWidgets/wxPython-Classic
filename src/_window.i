@@ -499,7 +499,7 @@ equal to -1.
         void , SetInitialSize(const wxSize& size=wxDefaultSize),
         "A 'Smart' SetSize that will fill in default size components with the
 window's *best size* values.  Also set's the minsize for use with sizers.", "");
-    %pythoncode { SetBestFittingSize = wx._deprecated(SetInitialSize, 'Use `SetInitialSize`') }
+    %pythoncode { SetBestFittingSize = wx.deprecated(SetInitialSize, 'Use `SetInitialSize`') }
 
     
     DocDeclStr(
@@ -645,14 +645,14 @@ some properties of the window change.)", "");
 minimum size, giving priority to the min size components, and returns
 the results.
 ", "");
-    %pythoncode { GetBestFittingSize = wx._deprecated(GetEffectiveMinSize, 'Use `GetEffectiveMinSize` instead.') }
+    %pythoncode { GetBestFittingSize = wx.deprecated(GetEffectiveMinSize, 'Use `GetEffectiveMinSize` instead.') }
 
     %pythoncode {
         def GetAdjustedBestSize(self):
             s = self.GetBestSize()
             return wx.Size(max(s.width,  self.GetMinWidth()),
                            max(s.height, self.GetMinHeight()))
-        GetAdjustedBestSize = wx._deprecated(GetAdjustedBestSize, 'Use `GetEffectiveMinSize` instead.')
+        GetAdjustedBestSize = wx.deprecated(GetAdjustedBestSize, 'Use `GetEffectiveMinSize` instead.')
     }
     
 
@@ -724,8 +724,8 @@ The resizing increments are only significant under Motif or Xt.", "
                 const wxSize& minSize, const wxSize& maxSize=wxDefaultSize));
 
     %pythoncode {
-        SetVirtualSizeHints = wx._deprecated(SetVirtualSizeHints)
-        SetVirtualSizeHintsSz = wx._deprecated(SetVirtualSizeHintsSz)
+        SetVirtualSizeHints = wx.deprecated(SetVirtualSizeHints)
+        SetVirtualSizeHintsSz = wx.deprecated(SetVirtualSizeHintsSz)
     }
 
     
@@ -2052,7 +2052,7 @@ window.  Note that the text is actually stored by the current
         void , SetHelpTextForId(const wxString& text),
         "Associate this help text with all windows with the same id as this
 one.", "");
-    %pythoncode { SetHelpTextForId = wx._deprecated(SetHelpTextForId,
+    %pythoncode { SetHelpTextForId = wx.deprecated(SetHelpTextForId,
                                                     'Use wx.HelpProvider.Get().AddHelp(id, text)') }
    
     

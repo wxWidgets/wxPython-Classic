@@ -1648,7 +1648,7 @@ public:
         }
     }
     %pythoncode {
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wxGridCellCoords'+str(self.Get())
     def __len__(self):                   return len(self.Get())

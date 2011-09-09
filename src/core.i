@@ -53,20 +53,6 @@ wx = _sys.modules[__name__]
 %pythoncode {
 %#----------------------------------------------------------------------------
 
-def _deprecated(callable, msg=None):
-    """
-    Create a wrapper function that will raise a DeprecationWarning
-    before calling the callable.
-    """
-    if msg is None:
-        msg = "This item is deprecated, use %s instead" % callable
-    def deprecatedWrapper(*args, **kwargs):
-        import warnings
-        warnings.warn(msg, DeprecationWarning, stacklevel=2)
-        return callable(*args, **kwargs)
-    deprecatedWrapper.__doc__ = msg
-    return deprecatedWrapper
-
             
 import warnings
 class wxPyDeprecationWarning(DeprecationWarning):
@@ -76,8 +62,9 @@ del warnings
 
 def deprecated(item, msg=''):
     """
-    Create a wrapper that raises a deprecation warning.  Can be used with
-    callable objects (functions, methods, classes) or with properties.
+    Create a delegating wrapper that raises a deprecation warning.  Can be
+    used with callable objects (functions, methods, classes) or with
+    properties.
     """
     import warnings
     if callable(item):

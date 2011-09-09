@@ -449,7 +449,7 @@ typedef double          wxDouble;
     %pythoncode {
         def base_##Method(*args, **kw):
             return Class.Method(*args, **kw)
-        base_##Method = wx._deprecated(base_##Method,
+        base_##Method = wx.deprecated(base_##Method,
                                        "Please use Class.Method instead.")
     }
 %enddef    
