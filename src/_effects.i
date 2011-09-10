@@ -58,7 +58,7 @@
     
 // };
 
-// %pythoncode { Effects = wx._deprecated(Effects) }
+// %pythoncode { Effects = wx.deprecated(Effects) }
 
 //---------------------------------------------------------------------------
 

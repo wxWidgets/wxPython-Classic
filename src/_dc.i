@@ -1087,8 +1087,8 @@ colour.
         def GetOptimization(self):
             return False
 
-        SetOptimization = wx._deprecated(SetOptimization)
-        GetOptimization = wx._deprecated(GetOptimization)
+        SetOptimization = wx.deprecated(SetOptimization)
+        GetOptimization = wx.deprecated(GetOptimization)
    }
 
     

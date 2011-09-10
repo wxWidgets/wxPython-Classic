@@ -275,7 +275,7 @@ is returned if the pixel is invalid (on X, unallocated).", "");
 
 
     %pythoncode {
-        asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+        asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
         def __str__(self):                  return str(self.Get(True))
 
         %# help() can access the stock colors before they are created,  

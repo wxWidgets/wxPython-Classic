@@ -255,7 +255,7 @@ of this object (i.e. equal to -1) with those of the other.", "");
         }
     }
     %pythoncode {
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.Size'+str(self.Get())
     def __len__(self):                   return len(self.Get())
@@ -346,7 +346,7 @@ public:
     }
 
     %pythoncode {
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.RealPoint'+str(self.Get())
     def __len__(self):                   return len(self.Get())
@@ -446,7 +446,7 @@ public:
     }
 
     %pythoncode {
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.Point'+str(self.Get())
     def __len__(self):                   return len(self.Get())
@@ -687,9 +687,9 @@ rectangle or touches its boundary.", "",
         ContainsRect);
     
     %pythoncode {
-        %#Inside = wx._deprecated(Contains, "Use `Contains` instead.")
-        %#InsideXY = wx._deprecated(ContainsXY, "Use `ContainsXY` instead.")
-        %#InsideRect = wx._deprecated(ContainsRect, "Use `ContainsRect` instead.")
+        %#Inside = wx.deprecated(Contains, "Use `Contains` instead.")
+        %#InsideXY = wx.deprecated(ContainsXY, "Use `ContainsXY` instead.")
+        %#InsideRect = wx.deprecated(ContainsRect, "Use `ContainsRect` instead.")
         Inside = Contains
         InsideXY = ContainsXY
         InsideRect = ContainsRect
@@ -734,7 +734,7 @@ usually, but not necessarily, the larger one.", "");
     }
 
     %pythoncode {
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.Rect'+str(self.Get())
     def __len__(self):                   return len(self.Get())
@@ -938,7 +938,7 @@ public:
     }
 
     %pythoncode {
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.Point2D'+str(self.Get())
     def __len__(self):                   return len(self.Get())

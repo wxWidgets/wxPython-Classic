@@ -502,6 +502,13 @@ class IntCtrl(wx.TextCtrl):
         self._colorValue()
 
 
+    def ChangeValue(self, value):
+        "Change the value without sending an EVT_TEXT event."""
+        wx.TextCtrl.ChangeValue(self, self._toGUI(value))
+        self.__oldvalue = self.GetValue() # record for next event
+        self._colorValue()
+
+        
     def SetMin(self, min=None):
         """
         Sets the minimum value of the control.  If a value of None

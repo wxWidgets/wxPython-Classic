@@ -53,20 +53,60 @@ wx = _sys.modules[__name__]
 %pythoncode {
 %#----------------------------------------------------------------------------
 
-def _deprecated(callable, msg=None):
+            
+import warnings
+class wxPyDeprecationWarning(DeprecationWarning):
+    pass
+warnings.simplefilter('default', wxPyDeprecationWarning)
+del warnings
+
+def deprecated(item, msg=''):
     """
-    Create a wrapper function that will raise a DeprecationWarning
-    before calling the callable.
+    Create a delegating wrapper that raises a deprecation warning.  Can be
+    used with callable objects (functions, methods, classes) or with
+    properties.
     """
-    if msg is None:
-        msg = "This item is deprecated, use %s instead" % callable
-    def deprecatedWrapper(*args, **kwargs):
-        import warnings
-        warnings.warn(msg, DeprecationWarning, stacklevel=2)
-        return callable(*args, **kwargs)
-    deprecatedWrapper.__doc__ = msg
-    return deprecatedWrapper
-    
+    import warnings
+    if callable(item):
+        # wrap a new function around the callable
+        def deprecated_func(*args, **kw):
+            warnings.warn("Call to deprecated item '%s'. %s" % (item.__name__, msg),
+                          wxPyDeprecationWarning, stacklevel=2)
+            return item(*args, **kw)
+        deprecated_func.__name__ = item.__name__
+        deprecated_func.__doc__ = item.__doc__
+        deprecated_func.__dict__.update(item.__dict__)
+        return deprecated_func
+        
+    elif hasattr(item, '__get__'):
+        # it should be a property if there is a getter
+        class DepGetProp(object):
+            def __init__(self,item, msg):
+                self.item = item
+                self.msg = msg
+            def __get__(self, inst, klass):
+                warnings.warn("Accessing deprecated property. %s" % msg,
+                              wxPyDeprecationWarning, stacklevel=2)
+                return self.item.__get__(inst, klass)
+        class DepGetSetProp(DepGetProp):
+            def __set__(self, inst, val):
+                warnings.warn("Accessing deprecated property. %s" % msg,
+                              wxPyDeprecationWarning, stacklevel=2)
+                return self.item.__set__(inst, val)
+        class DepGetSetDelProp(DepGetSetProp):
+            def __delete__(self, inst):
+                warnings.warn("Accessing deprecated property. %s" % msg,
+                              wxPyDeprecationWarning, stacklevel=2)
+                return self.item.__delete__(inst)
+        
+        if hasattr(item, '__set__') and hasattr(item, '__delete__'):
+            return DepGetSetDelProp(item, msg)
+        elif hasattr(item, '__set__'):
+            return DepGetSetProp(item, msg)
+        else:
+            return DepGetProp(item, msg)
+    else:
+        raise TypeError, "unsupported type %s" % type(item)
                    
 %#----------------------------------------------------------------------------
 }

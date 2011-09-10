@@ -179,7 +179,7 @@ class FillingTree(wx.TreeCtrl):
             value = ''
         if otype is types.StringType or otype is types.UnicodeType:
             value = repr(obj)
-        text += '\n\nValue: ' + value
+        text += u'\n\nValue: ' + value
         if otype not in SIMPLETYPES:
             try:
                 text += '\n\nDocstring:\n\n"""' + \

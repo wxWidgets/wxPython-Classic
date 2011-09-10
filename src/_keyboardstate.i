@@ -94,13 +94,12 @@ normally).", "");
         altDown = property(AltDown, SetAltDown)
         metaDown = property(MetaDown, SetMetaDown)
         cmdDown = property(CmdDown)
+
+        # For 2.8 compatibility
+        m_controlDown = wx.deprecated(controlDown)
+        m_shiftDown = wx.deprecated(shiftDown)
+        m_altDown = wx.deprecated(altDown)
+        m_metaDown = wx.deprecated(metaDown)            
     }
-
-
-public:
-//     bool m_controlDown : 1;
-//     bool m_shiftDown   : 1;
-//     bool m_altDown     : 1;
-//     bool m_metaDown    : 1;
 };
 
