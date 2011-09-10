@@ -779,9 +779,9 @@ class AuiManager(_core.EvtHandler):
                 caption = ""
             return self._AddPane2(window, info, caption)
 
-    SetFrame = wx._deprecated(SetManagedWindow,
+    SetFrame = wx.deprecated(SetManagedWindow,
                               "SetFrame is deprecated, use `SetManagedWindow` instead.")
-    GetFrame = wx._deprecated(GetManagedWindow,
+    GetFrame = wx.deprecated(GetManagedWindow,
                               "GetFrame is deprecated, use `GetManagedWindow` instead.")
 
     AllPanes = property(GetAllPanes,doc="See `GetAllPanes`") 
@@ -1397,7 +1397,7 @@ class AuiTabCtrl(_core.Control,AuiTabContainer):
 
 _aui.AuiTabCtrl_swigregister(AuiTabCtrl)
 
-class AuiNotebook(_core.Control):
+class AuiNotebook(object):
     """Proxy of C++ AuiNotebook class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -1415,10 +1415,12 @@ class AuiNotebook(_core.Control):
         """
         Create(self, Window parent, int id=ID_ANY, Point pos=DefaultPosition, 
             Size size=DefaultSize, long style=0) -> bool
-
-        Do the 2nd phase and create the GUI control.
         """
         return _aui.AuiNotebook_Create(*args, **kwargs)
+
+    def SetWindowStyleFlag(*args, **kwargs):
+        """SetWindowStyleFlag(self, long style)"""
+        return _aui.AuiNotebook_SetWindowStyleFlag(*args, **kwargs)
 
     def SetArtProvider(*args, **kwargs):
         """SetArtProvider(self, AuiTabArt art)"""
@@ -1511,6 +1513,10 @@ class AuiNotebook(_core.Control):
         """SetMeasuringFont(self, Font font)"""
         return _aui.AuiNotebook_SetMeasuringFont(*args, **kwargs)
 
+    def SetFont(*args, **kwargs):
+        """SetFont(self, Font font) -> bool"""
+        return _aui.AuiNotebook_SetFont(*args, **kwargs)
+
     def GetTabCtrlHeight(*args, **kwargs):
         """GetTabCtrlHeight(self) -> int"""
         return _aui.AuiNotebook_GetTabCtrlHeight(*args, **kwargs)
@@ -1527,14 +1533,12 @@ class AuiNotebook(_core.Control):
         """ShowWindowMenu(self) -> bool"""
         return _aui.AuiNotebook_ShowWindowMenu(*args, **kwargs)
 
-    def Thaw(*args, **kwargs):
-        """
-        Thaw(self)
+    def HasMultiplePages(*args, **kwargs):
+        """HasMultiplePages(self) -> bool"""
+        return _aui.AuiNotebook_HasMultiplePages(*args, **kwargs)
 
-        Reenables window updating after a previous call to Freeze.  Calls to
-        Freeze/Thaw may be nested, so Thaw must be called the same number of
-        times that Freeze was before the window will be updated.
-        """
+    def Thaw(*args, **kwargs):
+        """Thaw(self)"""
         return _aui.AuiNotebook_Thaw(*args, **kwargs)
 
     PageCount = property(GetPageCount,doc="See `GetPageCount`") 

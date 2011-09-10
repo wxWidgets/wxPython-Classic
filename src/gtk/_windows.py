@@ -2434,7 +2434,7 @@ class VScrolledWindow(Panel,VarVScrollHelper):
         """GetRowsHeight(self, size_t lineMin, size_t lineMax) -> int"""
         return _windows_.VScrolledWindow_GetRowsHeight(*args, **kwargs)
 
-    GetLinesHeight = wx._deprecated(GetRowsHeight,
+    GetLinesHeight = wx.deprecated(GetRowsHeight,
                                                      "Use GetRowsHeight instead.") 
     def EstimateTotalHeight(*args, **kwargs):
         """EstimateTotalHeight(self) -> int"""
@@ -2450,39 +2450,39 @@ class VScrolledWindow(Panel,VarVScrollHelper):
 
     def GetFirstVisibleLine(self):
         return self.GetVisibleRowsBegin()
-    GetFirstVisibleLine = wx._deprecated(GetFirstVisibleLine, "Use GetVisibleRowsBegin instead" )
+    GetFirstVisibleLine = wx.deprecated(GetFirstVisibleLine, "Use GetVisibleRowsBegin instead" )
 
     def GetLastVisibleLine(self):
         return self.GetVisibleRowsEnd() - 1
-    GetLastVisibleLine = wx._deprecated(GetLastVisibleLine, "Use GetVisibleRowsEnd instead")
+    GetLastVisibleLine = wx.deprecated(GetLastVisibleLine, "Use GetVisibleRowsEnd instead")
 
     def GetLineCount(self):
         return self.GetRowCount()
-    GetLineCount = wx._deprecated(GetLineCount, "Use GetRowCount instead")
+    GetLineCount = wx.deprecated(GetLineCount, "Use GetRowCount instead")
 
     def SetLineCount(self, count):
         self.SetRowCount(count)
-    SetLineCount = wx._deprecated(SetLineCount, "Use SetRowCount instead")
+    SetLineCount = wx.deprecated(SetLineCount, "Use SetRowCount instead")
 
     def RefreshLine(self, line):
         self.RefreshRow(line)
-    RefreshLine = wx._deprecated(RefreshLine, "Use RefreshRow instead")
+    RefreshLine = wx.deprecated(RefreshLine, "Use RefreshRow instead")
 
     def RefreshLines(self, frm, to):
         self.RefreshRows(frm, to)
-    RefreshLines = wx._deprecated(RefreshLines, "Use RefreshRows instead")
+    RefreshLines = wx.deprecated(RefreshLines, "Use RefreshRows instead")
         
     def ScrollToLine(self, line):
         return self.ScrollToRow(line)
-    ScrollToLine = wx._deprecated(ScrollToLine, "Use RefreshRow instead")
+    ScrollToLine = wx.deprecated(ScrollToLine, "Use RefreshRow instead")
 
     def ScrollLines(self, lines):
         return self.ScrollRows(lines)
-    ScrollLines = wx._deprecated(ScrollLines, "Use ScrollRows instead")
+    ScrollLines = wx.deprecated(ScrollLines, "Use ScrollRows instead")
 
     def ScrollPages(self, pages):
         return self.ScrollRowPages(pages)
-    ScrollPages = wx._deprecated(ScrollPages, "Use ScrollRowPages instead")
+    ScrollPages = wx.deprecated(ScrollPages, "Use ScrollRowPages instead")
 
 _windows_.VScrolledWindow_swigregister(VScrolledWindow)
 
@@ -3644,6 +3644,14 @@ class MessageDialog(Dialog):
         """SetOKCancelLabels(self, String ok, String cancel) -> bool"""
         return _windows_.MessageDialog_SetOKCancelLabels(*args, **kwargs)
 
+    def SetHelpLabel(*args, **kwargs):
+        """SetHelpLabel(self, String help) -> bool"""
+        return _windows_.MessageDialog_SetHelpLabel(*args, **kwargs)
+
+    def GetHelpLabel(*args, **kwargs):
+        """GetHelpLabel(self) -> String"""
+        return _windows_.MessageDialog_GetHelpLabel(*args, **kwargs)
+
     def SetMessage(*args, **kwargs):
         """SetMessage(self, String message)"""
         return _windows_.MessageDialog_SetMessage(*args, **kwargs)
@@ -3662,7 +3670,7 @@ PD_ESTIMATED_TIME = _windows_.PD_ESTIMATED_TIME
 PD_SMOOTH = _windows_.PD_SMOOTH
 PD_REMAINING_TIME = _windows_.PD_REMAINING_TIME
 PD_CAN_SKIP = _windows_.PD_CAN_SKIP
-class ProgressDialog(Dialog):
+class GenericProgressDialog(Dialog):
     """
     A dialog that shows a short message and a progress bar. Optionally, it
     can display an ABORT button.
@@ -3672,13 +3680,13 @@ class ProgressDialog(Dialog):
     def __init__(self, *args, **kwargs): 
         """
         __init__(self, String title, String message, int maximum=100, Window parent=None, 
-            int style=wxPD_AUTO_HIDE|wxPD_APP_MODAL) -> ProgressDialog
+            int style=wxPD_AUTO_HIDE|wxPD_APP_MODAL) -> GenericProgressDialog
 
         Constructor. Creates the dialog, displays it and disables user input
         for other windows, or, if wx.PD_APP_MODAL flag is not given, for its
         parent window only.
         """
-        _windows_.ProgressDialog_swiginit(self,_windows_.new_ProgressDialog(*args, **kwargs))
+        _windows_.GenericProgressDialog_swiginit(self,_windows_.new_GenericProgressDialog(*args, **kwargs))
         self._setOORInfo(self)
 
     def Update(*args, **kwargs):
@@ -3698,7 +3706,7 @@ class ProgressDialog(Dialog):
         abort is not confirmed the dialog may be resumed with `Resume` function.
 
         """
-        return _windows_.ProgressDialog_Update(*args, **kwargs)
+        return _windows_.GenericProgressDialog_Update(*args, **kwargs)
 
     def Pulse(*args, **kwargs):
         """
@@ -3708,7 +3716,7 @@ class ProgressDialog(Dialog):
         indeterminate mode and calls `wx.Gauge.Pulse` to show the user a bit of
         progress.
         """
-        return _windows_.ProgressDialog_Pulse(*args, **kwargs)
+        return _windows_.GenericProgressDialog_Pulse(*args, **kwargs)
 
     UpdatePulse =  Pulse 
     def Resume(*args, **kwargs):
@@ -3718,35 +3726,49 @@ class ProgressDialog(Dialog):
         Can be used to continue with the dialog, after the user had chosen to
         abort.
         """
-        return _windows_.ProgressDialog_Resume(*args, **kwargs)
+        return _windows_.GenericProgressDialog_Resume(*args, **kwargs)
 
     def GetValue(*args, **kwargs):
         """GetValue(self) -> int"""
-        return _windows_.ProgressDialog_GetValue(*args, **kwargs)
+        return _windows_.GenericProgressDialog_GetValue(*args, **kwargs)
 
     def GetRange(*args, **kwargs):
         """GetRange(self) -> int"""
-        return _windows_.ProgressDialog_GetRange(*args, **kwargs)
+        return _windows_.GenericProgressDialog_GetRange(*args, **kwargs)
 
     def SetRange(*args, **kwargs):
         """SetRange(self, int maximum)"""
-        return _windows_.ProgressDialog_SetRange(*args, **kwargs)
+        return _windows_.GenericProgressDialog_SetRange(*args, **kwargs)
 
     def GetMessage(*args, **kwargs):
         """GetMessage(self) -> String"""
-        return _windows_.ProgressDialog_GetMessage(*args, **kwargs)
+        return _windows_.GenericProgressDialog_GetMessage(*args, **kwargs)
 
     def WasCancelled(*args, **kwargs):
         """WasCancelled(self) -> bool"""
-        return _windows_.ProgressDialog_WasCancelled(*args, **kwargs)
+        return _windows_.GenericProgressDialog_WasCancelled(*args, **kwargs)
 
     def WasSkipped(*args, **kwargs):
         """WasSkipped(self) -> bool"""
-        return _windows_.ProgressDialog_WasSkipped(*args, **kwargs)
+        return _windows_.GenericProgressDialog_WasSkipped(*args, **kwargs)
 
     Value = property(GetValue) 
     Range = property(GetRange,SetRange) 
     Message = property(GetMessage) 
+_windows_.GenericProgressDialog_swigregister(GenericProgressDialog)
+
+class ProgressDialog(GenericProgressDialog):
+    """Proxy of C++ ProgressDialog class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, String title, String message, int maximum=100, Window parent=None, 
+            int style=wxPD_APP_MODAL|wxPD_AUTO_HIDE) -> ProgressDialog
+        """
+        _windows_.ProgressDialog_swiginit(self,_windows_.new_ProgressDialog(*args, **kwargs))
+        self._setOORInfo(self)
+
 _windows_.ProgressDialog_swigregister(ProgressDialog)
 
 FR_DOWN = _windows_.FR_DOWN
@@ -4164,112 +4186,112 @@ class PyWindow(_core.Window):
 
     def base_DoMoveWindow(*args, **kw):
         return PyWindow.DoMoveWindow(*args, **kw)
-    base_DoMoveWindow = wx._deprecated(base_DoMoveWindow,
+    base_DoMoveWindow = wx.deprecated(base_DoMoveWindow,
                                    "Please use PyWindow.DoMoveWindow instead.")
 
     def base_DoSetSize(*args, **kw):
         return PyWindow.DoSetSize(*args, **kw)
-    base_DoSetSize = wx._deprecated(base_DoSetSize,
+    base_DoSetSize = wx.deprecated(base_DoSetSize,
                                    "Please use PyWindow.DoSetSize instead.")
 
     def base_DoSetClientSize(*args, **kw):
         return PyWindow.DoSetClientSize(*args, **kw)
-    base_DoSetClientSize = wx._deprecated(base_DoSetClientSize,
+    base_DoSetClientSize = wx.deprecated(base_DoSetClientSize,
                                    "Please use PyWindow.DoSetClientSize instead.")
 
     def base_DoSetVirtualSize(*args, **kw):
         return PyWindow.DoSetVirtualSize(*args, **kw)
-    base_DoSetVirtualSize = wx._deprecated(base_DoSetVirtualSize,
+    base_DoSetVirtualSize = wx.deprecated(base_DoSetVirtualSize,
                                    "Please use PyWindow.DoSetVirtualSize instead.")
 
     def base_DoGetSize(*args, **kw):
         return PyWindow.DoGetSize(*args, **kw)
-    base_DoGetSize = wx._deprecated(base_DoGetSize,
+    base_DoGetSize = wx.deprecated(base_DoGetSize,
                                    "Please use PyWindow.DoGetSize instead.")
 
     def base_DoGetClientSize(*args, **kw):
         return PyWindow.DoGetClientSize(*args, **kw)
-    base_DoGetClientSize = wx._deprecated(base_DoGetClientSize,
+    base_DoGetClientSize = wx.deprecated(base_DoGetClientSize,
                                    "Please use PyWindow.DoGetClientSize instead.")
 
     def base_DoGetPosition(*args, **kw):
         return PyWindow.DoGetPosition(*args, **kw)
-    base_DoGetPosition = wx._deprecated(base_DoGetPosition,
+    base_DoGetPosition = wx.deprecated(base_DoGetPosition,
                                    "Please use PyWindow.DoGetPosition instead.")
 
     def base_DoGetVirtualSize(*args, **kw):
         return PyWindow.DoGetVirtualSize(*args, **kw)
-    base_DoGetVirtualSize = wx._deprecated(base_DoGetVirtualSize,
+    base_DoGetVirtualSize = wx.deprecated(base_DoGetVirtualSize,
                                    "Please use PyWindow.DoGetVirtualSize instead.")
 
     def base_DoGetBestSize(*args, **kw):
         return PyWindow.DoGetBestSize(*args, **kw)
-    base_DoGetBestSize = wx._deprecated(base_DoGetBestSize,
+    base_DoGetBestSize = wx.deprecated(base_DoGetBestSize,
                                    "Please use PyWindow.DoGetBestSize instead.")
 
     def base_InitDialog(*args, **kw):
         return PyWindow.InitDialog(*args, **kw)
-    base_InitDialog = wx._deprecated(base_InitDialog,
+    base_InitDialog = wx.deprecated(base_InitDialog,
                                    "Please use PyWindow.InitDialog instead.")
 
     def base_TransferDataToWindow(*args, **kw):
         return PyWindow.TransferDataToWindow(*args, **kw)
-    base_TransferDataToWindow = wx._deprecated(base_TransferDataToWindow,
+    base_TransferDataToWindow = wx.deprecated(base_TransferDataToWindow,
                                    "Please use PyWindow.TransferDataToWindow instead.")
 
     def base_TransferDataFromWindow(*args, **kw):
         return PyWindow.TransferDataFromWindow(*args, **kw)
-    base_TransferDataFromWindow = wx._deprecated(base_TransferDataFromWindow,
+    base_TransferDataFromWindow = wx.deprecated(base_TransferDataFromWindow,
                                    "Please use PyWindow.TransferDataFromWindow instead.")
 
     def base_Validate(*args, **kw):
         return PyWindow.Validate(*args, **kw)
-    base_Validate = wx._deprecated(base_Validate,
+    base_Validate = wx.deprecated(base_Validate,
                                    "Please use PyWindow.Validate instead.")
 
     def base_AcceptsFocus(*args, **kw):
         return PyWindow.AcceptsFocus(*args, **kw)
-    base_AcceptsFocus = wx._deprecated(base_AcceptsFocus,
+    base_AcceptsFocus = wx.deprecated(base_AcceptsFocus,
                                    "Please use PyWindow.AcceptsFocus instead.")
 
     def base_AcceptsFocusFromKeyboard(*args, **kw):
         return PyWindow.AcceptsFocusFromKeyboard(*args, **kw)
-    base_AcceptsFocusFromKeyboard = wx._deprecated(base_AcceptsFocusFromKeyboard,
+    base_AcceptsFocusFromKeyboard = wx.deprecated(base_AcceptsFocusFromKeyboard,
                                    "Please use PyWindow.AcceptsFocusFromKeyboard instead.")
 
     def base_GetMaxSize(*args, **kw):
         return PyWindow.GetMaxSize(*args, **kw)
-    base_GetMaxSize = wx._deprecated(base_GetMaxSize,
+    base_GetMaxSize = wx.deprecated(base_GetMaxSize,
                                    "Please use PyWindow.GetMaxSize instead.")
 
     def base_Enable(*args, **kw):
         return PyWindow.Enable(*args, **kw)
-    base_Enable = wx._deprecated(base_Enable,
+    base_Enable = wx.deprecated(base_Enable,
                                    "Please use PyWindow.Enable instead.")
 
     def base_AddChild(*args, **kw):
         return PyWindow.AddChild(*args, **kw)
-    base_AddChild = wx._deprecated(base_AddChild,
+    base_AddChild = wx.deprecated(base_AddChild,
                                    "Please use PyWindow.AddChild instead.")
 
     def base_RemoveChild(*args, **kw):
         return PyWindow.RemoveChild(*args, **kw)
-    base_RemoveChild = wx._deprecated(base_RemoveChild,
+    base_RemoveChild = wx.deprecated(base_RemoveChild,
                                    "Please use PyWindow.RemoveChild instead.")
 
     def base_ShouldInheritColours(*args, **kw):
         return PyWindow.ShouldInheritColours(*args, **kw)
-    base_ShouldInheritColours = wx._deprecated(base_ShouldInheritColours,
+    base_ShouldInheritColours = wx.deprecated(base_ShouldInheritColours,
                                    "Please use PyWindow.ShouldInheritColours instead.")
 
     def base_GetDefaultAttributes(*args, **kw):
         return PyWindow.GetDefaultAttributes(*args, **kw)
-    base_GetDefaultAttributes = wx._deprecated(base_GetDefaultAttributes,
+    base_GetDefaultAttributes = wx.deprecated(base_GetDefaultAttributes,
                                    "Please use PyWindow.GetDefaultAttributes instead.")
 
     def base_OnInternalIdle(*args, **kw):
         return PyWindow.OnInternalIdle(*args, **kw)
-    base_OnInternalIdle = wx._deprecated(base_OnInternalIdle,
+    base_OnInternalIdle = wx.deprecated(base_OnInternalIdle,
                                    "Please use PyWindow.OnInternalIdle instead.")
 
 _windows_.PyWindow_swigregister(PyWindow)
@@ -4347,112 +4369,112 @@ class PyPanel(Panel):
 
     def base_DoMoveWindow(*args, **kw):
         return PyPanel.DoMoveWindow(*args, **kw)
-    base_DoMoveWindow = wx._deprecated(base_DoMoveWindow,
+    base_DoMoveWindow = wx.deprecated(base_DoMoveWindow,
                                    "Please use PyPanel.DoMoveWindow instead.")
 
     def base_DoSetSize(*args, **kw):
         return PyPanel.DoSetSize(*args, **kw)
-    base_DoSetSize = wx._deprecated(base_DoSetSize,
+    base_DoSetSize = wx.deprecated(base_DoSetSize,
                                    "Please use PyPanel.DoSetSize instead.")
 
     def base_DoSetClientSize(*args, **kw):
         return PyPanel.DoSetClientSize(*args, **kw)
-    base_DoSetClientSize = wx._deprecated(base_DoSetClientSize,
+    base_DoSetClientSize = wx.deprecated(base_DoSetClientSize,
                                    "Please use PyPanel.DoSetClientSize instead.")
 
     def base_DoSetVirtualSize(*args, **kw):
         return PyPanel.DoSetVirtualSize(*args, **kw)
-    base_DoSetVirtualSize = wx._deprecated(base_DoSetVirtualSize,
+    base_DoSetVirtualSize = wx.deprecated(base_DoSetVirtualSize,
                                    "Please use PyPanel.DoSetVirtualSize instead.")
 
     def base_DoGetSize(*args, **kw):
         return PyPanel.DoGetSize(*args, **kw)
-    base_DoGetSize = wx._deprecated(base_DoGetSize,
+    base_DoGetSize = wx.deprecated(base_DoGetSize,
                                    "Please use PyPanel.DoGetSize instead.")
 
     def base_DoGetClientSize(*args, **kw):
         return PyPanel.DoGetClientSize(*args, **kw)
-    base_DoGetClientSize = wx._deprecated(base_DoGetClientSize,
+    base_DoGetClientSize = wx.deprecated(base_DoGetClientSize,
                                    "Please use PyPanel.DoGetClientSize instead.")
 
     def base_DoGetPosition(*args, **kw):
         return PyPanel.DoGetPosition(*args, **kw)
-    base_DoGetPosition = wx._deprecated(base_DoGetPosition,
+    base_DoGetPosition = wx.deprecated(base_DoGetPosition,
                                    "Please use PyPanel.DoGetPosition instead.")
 
     def base_DoGetVirtualSize(*args, **kw):
         return PyPanel.DoGetVirtualSize(*args, **kw)
-    base_DoGetVirtualSize = wx._deprecated(base_DoGetVirtualSize,
+    base_DoGetVirtualSize = wx.deprecated(base_DoGetVirtualSize,
                                    "Please use PyPanel.DoGetVirtualSize instead.")
 
     def base_DoGetBestSize(*args, **kw):
         return PyPanel.DoGetBestSize(*args, **kw)
-    base_DoGetBestSize = wx._deprecated(base_DoGetBestSize,
+    base_DoGetBestSize = wx.deprecated(base_DoGetBestSize,
                                    "Please use PyPanel.DoGetBestSize instead.")
 
     def base_InitDialog(*args, **kw):
         return PyPanel.InitDialog(*args, **kw)
-    base_InitDialog = wx._deprecated(base_InitDialog,
+    base_InitDialog = wx.deprecated(base_InitDialog,
                                    "Please use PyPanel.InitDialog instead.")
 
     def base_TransferDataToWindow(*args, **kw):
         return PyPanel.TransferDataToWindow(*args, **kw)
-    base_TransferDataToWindow = wx._deprecated(base_TransferDataToWindow,
+    base_TransferDataToWindow = wx.deprecated(base_TransferDataToWindow,
                                    "Please use PyPanel.TransferDataToWindow instead.")
 
     def base_TransferDataFromWindow(*args, **kw):
         return PyPanel.TransferDataFromWindow(*args, **kw)
-    base_TransferDataFromWindow = wx._deprecated(base_TransferDataFromWindow,
+    base_TransferDataFromWindow = wx.deprecated(base_TransferDataFromWindow,
                                    "Please use PyPanel.TransferDataFromWindow instead.")
 
     def base_Validate(*args, **kw):
         return PyPanel.Validate(*args, **kw)
-    base_Validate = wx._deprecated(base_Validate,
+    base_Validate = wx.deprecated(base_Validate,
                                    "Please use PyPanel.Validate instead.")
 
     def base_AcceptsFocus(*args, **kw):
         return PyPanel.AcceptsFocus(*args, **kw)
-    base_AcceptsFocus = wx._deprecated(base_AcceptsFocus,
+    base_AcceptsFocus = wx.deprecated(base_AcceptsFocus,
                                    "Please use PyPanel.AcceptsFocus instead.")
 
     def base_AcceptsFocusFromKeyboard(*args, **kw):
         return PyPanel.AcceptsFocusFromKeyboard(*args, **kw)
-    base_AcceptsFocusFromKeyboard = wx._deprecated(base_AcceptsFocusFromKeyboard,
+    base_AcceptsFocusFromKeyboard = wx.deprecated(base_AcceptsFocusFromKeyboard,
                                    "Please use PyPanel.AcceptsFocusFromKeyboard instead.")
 
     def base_GetMaxSize(*args, **kw):
         return PyPanel.GetMaxSize(*args, **kw)
-    base_GetMaxSize = wx._deprecated(base_GetMaxSize,
+    base_GetMaxSize = wx.deprecated(base_GetMaxSize,
                                    "Please use PyPanel.GetMaxSize instead.")
 
     def base_Enable(*args, **kw):
         return PyPanel.Enable(*args, **kw)
-    base_Enable = wx._deprecated(base_Enable,
+    base_Enable = wx.deprecated(base_Enable,
                                    "Please use PyPanel.Enable instead.")
 
     def base_AddChild(*args, **kw):
         return PyPanel.AddChild(*args, **kw)
-    base_AddChild = wx._deprecated(base_AddChild,
+    base_AddChild = wx.deprecated(base_AddChild,
                                    "Please use PyPanel.AddChild instead.")
 
     def base_RemoveChild(*args, **kw):
         return PyPanel.RemoveChild(*args, **kw)
-    base_RemoveChild = wx._deprecated(base_RemoveChild,
+    base_RemoveChild = wx.deprecated(base_RemoveChild,
                                    "Please use PyPanel.RemoveChild instead.")
 
     def base_ShouldInheritColours(*args, **kw):
         return PyPanel.ShouldInheritColours(*args, **kw)
-    base_ShouldInheritColours = wx._deprecated(base_ShouldInheritColours,
+    base_ShouldInheritColours = wx.deprecated(base_ShouldInheritColours,
                                    "Please use PyPanel.ShouldInheritColours instead.")
 
     def base_GetDefaultAttributes(*args, **kw):
         return PyPanel.GetDefaultAttributes(*args, **kw)
-    base_GetDefaultAttributes = wx._deprecated(base_GetDefaultAttributes,
+    base_GetDefaultAttributes = wx.deprecated(base_GetDefaultAttributes,
                                    "Please use PyPanel.GetDefaultAttributes instead.")
 
     def base_OnInternalIdle(*args, **kw):
         return PyPanel.OnInternalIdle(*args, **kw)
-    base_OnInternalIdle = wx._deprecated(base_OnInternalIdle,
+    base_OnInternalIdle = wx.deprecated(base_OnInternalIdle,
                                    "Please use PyPanel.OnInternalIdle instead.")
 
 _windows_.PyPanel_swigregister(PyPanel)
@@ -4530,112 +4552,112 @@ class PyScrolledWindow(ScrolledWindow):
 
     def base_DoMoveWindow(*args, **kw):
         return PyScrolledWindow.DoMoveWindow(*args, **kw)
-    base_DoMoveWindow = wx._deprecated(base_DoMoveWindow,
+    base_DoMoveWindow = wx.deprecated(base_DoMoveWindow,
                                    "Please use PyScrolledWindow.DoMoveWindow instead.")
 
     def base_DoSetSize(*args, **kw):
         return PyScrolledWindow.DoSetSize(*args, **kw)
-    base_DoSetSize = wx._deprecated(base_DoSetSize,
+    base_DoSetSize = wx.deprecated(base_DoSetSize,
                                    "Please use PyScrolledWindow.DoSetSize instead.")
 
     def base_DoSetClientSize(*args, **kw):
         return PyScrolledWindow.DoSetClientSize(*args, **kw)
-    base_DoSetClientSize = wx._deprecated(base_DoSetClientSize,
+    base_DoSetClientSize = wx.deprecated(base_DoSetClientSize,
                                    "Please use PyScrolledWindow.DoSetClientSize instead.")
 
     def base_DoSetVirtualSize(*args, **kw):
         return PyScrolledWindow.DoSetVirtualSize(*args, **kw)
-    base_DoSetVirtualSize = wx._deprecated(base_DoSetVirtualSize,
+    base_DoSetVirtualSize = wx.deprecated(base_DoSetVirtualSize,
                                    "Please use PyScrolledWindow.DoSetVirtualSize instead.")
 
     def base_DoGetSize(*args, **kw):
         return PyScrolledWindow.DoGetSize(*args, **kw)
-    base_DoGetSize = wx._deprecated(base_DoGetSize,
+    base_DoGetSize = wx.deprecated(base_DoGetSize,
                                    "Please use PyScrolledWindow.DoGetSize instead.")
 
     def base_DoGetClientSize(*args, **kw):
         return PyScrolledWindow.DoGetClientSize(*args, **kw)
-    base_DoGetClientSize = wx._deprecated(base_DoGetClientSize,
+    base_DoGetClientSize = wx.deprecated(base_DoGetClientSize,
                                    "Please use PyScrolledWindow.DoGetClientSize instead.")
 
     def base_DoGetPosition(*args, **kw):
         return PyScrolledWindow.DoGetPosition(*args, **kw)
-    base_DoGetPosition = wx._deprecated(base_DoGetPosition,
+    base_DoGetPosition = wx.deprecated(base_DoGetPosition,
                                    "Please use PyScrolledWindow.DoGetPosition instead.")
 
     def base_DoGetVirtualSize(*args, **kw):
         return PyScrolledWindow.DoGetVirtualSize(*args, **kw)
-    base_DoGetVirtualSize = wx._deprecated(base_DoGetVirtualSize,
+    base_DoGetVirtualSize = wx.deprecated(base_DoGetVirtualSize,
                                    "Please use PyScrolledWindow.DoGetVirtualSize instead.")
 
     def base_DoGetBestSize(*args, **kw):
         return PyScrolledWindow.DoGetBestSize(*args, **kw)
-    base_DoGetBestSize = wx._deprecated(base_DoGetBestSize,
+    base_DoGetBestSize = wx.deprecated(base_DoGetBestSize,
                                    "Please use PyScrolledWindow.DoGetBestSize instead.")
 
     def base_InitDialog(*args, **kw):
         return PyScrolledWindow.InitDialog(*args, **kw)
-    base_InitDialog = wx._deprecated(base_InitDialog,
+    base_InitDialog = wx.deprecated(base_InitDialog,
                                    "Please use PyScrolledWindow.InitDialog instead.")
 
     def base_TransferDataToWindow(*args, **kw):
         return PyScrolledWindow.TransferDataToWindow(*args, **kw)
-    base_TransferDataToWindow = wx._deprecated(base_TransferDataToWindow,
+    base_TransferDataToWindow = wx.deprecated(base_TransferDataToWindow,
                                    "Please use PyScrolledWindow.TransferDataToWindow instead.")
 
     def base_TransferDataFromWindow(*args, **kw):
         return PyScrolledWindow.TransferDataFromWindow(*args, **kw)
-    base_TransferDataFromWindow = wx._deprecated(base_TransferDataFromWindow,
+    base_TransferDataFromWindow = wx.deprecated(base_TransferDataFromWindow,
                                    "Please use PyScrolledWindow.TransferDataFromWindow instead.")
 
     def base_Validate(*args, **kw):
         return PyScrolledWindow.Validate(*args, **kw)
-    base_Validate = wx._deprecated(base_Validate,
+    base_Validate = wx.deprecated(base_Validate,
                                    "Please use PyScrolledWindow.Validate instead.")
 
     def base_AcceptsFocus(*args, **kw):
         return PyScrolledWindow.AcceptsFocus(*args, **kw)
-    base_AcceptsFocus = wx._deprecated(base_AcceptsFocus,
+    base_AcceptsFocus = wx.deprecated(base_AcceptsFocus,
                                    "Please use PyScrolledWindow.AcceptsFocus instead.")
 
     def base_AcceptsFocusFromKeyboard(*args, **kw):
         return PyScrolledWindow.AcceptsFocusFromKeyboard(*args, **kw)
-    base_AcceptsFocusFromKeyboard = wx._deprecated(base_AcceptsFocusFromKeyboard,
+    base_AcceptsFocusFromKeyboard = wx.deprecated(base_AcceptsFocusFromKeyboard,
                                    "Please use PyScrolledWindow.AcceptsFocusFromKeyboard instead.")
 
     def base_GetMaxSize(*args, **kw):
         return PyScrolledWindow.GetMaxSize(*args, **kw)
-    base_GetMaxSize = wx._deprecated(base_GetMaxSize,
+    base_GetMaxSize = wx.deprecated(base_GetMaxSize,
                                    "Please use PyScrolledWindow.GetMaxSize instead.")
 
     def base_Enable(*args, **kw):
         return PyScrolledWindow.Enable(*args, **kw)
-    base_Enable = wx._deprecated(base_Enable,
+    base_Enable = wx.deprecated(base_Enable,
                                    "Please use PyScrolledWindow.Enable instead.")
 
     def base_AddChild(*args, **kw):
         return PyScrolledWindow.AddChild(*args, **kw)
-    base_AddChild = wx._deprecated(base_AddChild,
+    base_AddChild = wx.deprecated(base_AddChild,
                                    "Please use PyScrolledWindow.AddChild instead.")
 
     def base_RemoveChild(*args, **kw):
         return PyScrolledWindow.RemoveChild(*args, **kw)
-    base_RemoveChild = wx._deprecated(base_RemoveChild,
+    base_RemoveChild = wx.deprecated(base_RemoveChild,
                                    "Please use PyScrolledWindow.RemoveChild instead.")
 
     def base_ShouldInheritColours(*args, **kw):
         return PyScrolledWindow.ShouldInheritColours(*args, **kw)
-    base_ShouldInheritColours = wx._deprecated(base_ShouldInheritColours,
+    base_ShouldInheritColours = wx.deprecated(base_ShouldInheritColours,
                                    "Please use PyScrolledWindow.ShouldInheritColours instead.")
 
     def base_GetDefaultAttributes(*args, **kw):
         return PyScrolledWindow.GetDefaultAttributes(*args, **kw)
-    base_GetDefaultAttributes = wx._deprecated(base_GetDefaultAttributes,
+    base_GetDefaultAttributes = wx.deprecated(base_GetDefaultAttributes,
                                    "Please use PyScrolledWindow.GetDefaultAttributes instead.")
 
     def base_OnInternalIdle(*args, **kw):
         return PyScrolledWindow.OnInternalIdle(*args, **kw)
-    base_OnInternalIdle = wx._deprecated(base_OnInternalIdle,
+    base_OnInternalIdle = wx.deprecated(base_OnInternalIdle,
                                    "Please use PyScrolledWindow.OnInternalIdle instead.")
 
 _windows_.PyScrolledWindow_swigregister(PyScrolledWindow)
@@ -5385,32 +5407,32 @@ class Printout(_core.Object):
 
     def base_OnBeginDocument(*args, **kw):
         return Printout.OnBeginDocument(*args, **kw)
-    base_OnBeginDocument = wx._deprecated(base_OnBeginDocument,
+    base_OnBeginDocument = wx.deprecated(base_OnBeginDocument,
                                    "Please use Printout.OnBeginDocument instead.")
 
     def base_OnEndDocument(*args, **kw):
         return Printout.OnEndDocument(*args, **kw)
-    base_OnEndDocument = wx._deprecated(base_OnEndDocument,
+    base_OnEndDocument = wx.deprecated(base_OnEndDocument,
                                    "Please use Printout.OnEndDocument instead.")
 
     def base_OnBeginPrinting(*args, **kw):
         return Printout.OnBeginPrinting(*args, **kw)
-    base_OnBeginPrinting = wx._deprecated(base_OnBeginPrinting,
+    base_OnBeginPrinting = wx.deprecated(base_OnBeginPrinting,
                                    "Please use Printout.OnBeginPrinting instead.")
 
     def base_OnEndPrinting(*args, **kw):
         return Printout.OnEndPrinting(*args, **kw)
-    base_OnEndPrinting = wx._deprecated(base_OnEndPrinting,
+    base_OnEndPrinting = wx.deprecated(base_OnEndPrinting,
                                    "Please use Printout.OnEndPrinting instead.")
 
     def base_OnPreparePrinting(*args, **kw):
         return Printout.OnPreparePrinting(*args, **kw)
-    base_OnPreparePrinting = wx._deprecated(base_OnPreparePrinting,
+    base_OnPreparePrinting = wx.deprecated(base_OnPreparePrinting,
                                    "Please use Printout.OnPreparePrinting instead.")
 
     def base_GetPageInfo(*args, **kw):
         return Printout.GetPageInfo(*args, **kw)
-    base_GetPageInfo = wx._deprecated(base_GetPageInfo,
+    base_GetPageInfo = wx.deprecated(base_GetPageInfo,
                                    "Please use Printout.GetPageInfo instead.")
 
     DC = property(GetDC,SetDC,doc="See `GetDC` and `SetDC`") 
@@ -5660,37 +5682,37 @@ class PyPrintPreview(PrintPreview):
 
     def base_SetCurrentPage(*args, **kw):
         return PyPrintPreview.SetCurrentPage(*args, **kw)
-    base_SetCurrentPage = wx._deprecated(base_SetCurrentPage,
+    base_SetCurrentPage = wx.deprecated(base_SetCurrentPage,
                                    "Please use PyPrintPreview.SetCurrentPage instead.")
 
     def base_PaintPage(*args, **kw):
         return PyPrintPreview.PaintPage(*args, **kw)
-    base_PaintPage = wx._deprecated(base_PaintPage,
+    base_PaintPage = wx.deprecated(base_PaintPage,
                                    "Please use PyPrintPreview.PaintPage instead.")
 
     def base_DrawBlankPage(*args, **kw):
         return PyPrintPreview.DrawBlankPage(*args, **kw)
-    base_DrawBlankPage = wx._deprecated(base_DrawBlankPage,
+    base_DrawBlankPage = wx.deprecated(base_DrawBlankPage,
                                    "Please use PyPrintPreview.DrawBlankPage instead.")
 
     def base_RenderPage(*args, **kw):
         return PyPrintPreview.RenderPage(*args, **kw)
-    base_RenderPage = wx._deprecated(base_RenderPage,
+    base_RenderPage = wx.deprecated(base_RenderPage,
                                    "Please use PyPrintPreview.RenderPage instead.")
 
     def base_SetZoom(*args, **kw):
         return PyPrintPreview.SetZoom(*args, **kw)
-    base_SetZoom = wx._deprecated(base_SetZoom,
+    base_SetZoom = wx.deprecated(base_SetZoom,
                                    "Please use PyPrintPreview.SetZoom instead.")
 
     def base_Print(*args, **kw):
         return PyPrintPreview.Print(*args, **kw)
-    base_Print = wx._deprecated(base_Print,
+    base_Print = wx.deprecated(base_Print,
                                    "Please use PyPrintPreview.Print instead.")
 
     def base_DetermineScaling(*args, **kw):
         return PyPrintPreview.DetermineScaling(*args, **kw)
-    base_DetermineScaling = wx._deprecated(base_DetermineScaling,
+    base_DetermineScaling = wx.deprecated(base_DetermineScaling,
                                    "Please use PyPrintPreview.DetermineScaling instead.")
 
 _windows_.PyPrintPreview_swigregister(PyPrintPreview)
@@ -5738,17 +5760,17 @@ class PyPreviewFrame(PreviewFrame):
 
     def base_Initialize(*args, **kw):
         return PyPreviewFrame.Initialize(*args, **kw)
-    base_Initialize = wx._deprecated(base_Initialize,
+    base_Initialize = wx.deprecated(base_Initialize,
                                    "Please use PyPreviewFrame.Initialize instead.")
 
     def base_CreateCanvas(*args, **kw):
         return PyPreviewFrame.CreateCanvas(*args, **kw)
-    base_CreateCanvas = wx._deprecated(base_CreateCanvas,
+    base_CreateCanvas = wx.deprecated(base_CreateCanvas,
                                    "Please use PyPreviewFrame.CreateCanvas instead.")
 
     def base_CreateControlBar(*args, **kw):
         return PyPreviewFrame.CreateControlBar(*args, **kw)
-    base_CreateControlBar = wx._deprecated(base_CreateControlBar,
+    base_CreateControlBar = wx.deprecated(base_CreateControlBar,
                                    "Please use PyPreviewFrame.CreateControlBar instead.")
 
 _windows_.PyPreviewFrame_swigregister(PyPreviewFrame)
@@ -5784,12 +5806,12 @@ class PyPreviewControlBar(PreviewControlBar):
 
     def base_CreateButtons(*args, **kw):
         return PreviewControlBar.CreateButtons(*args, **kw)
-    base_CreateButtons = wx._deprecated(base_CreateButtons,
+    base_CreateButtons = wx.deprecated(base_CreateButtons,
                                    "Please use PreviewControlBar.CreateButtons instead.")
 
     def base_SetZoomControl(*args, **kw):
         return PreviewControlBar.SetZoomControl(*args, **kw)
-    base_SetZoomControl = wx._deprecated(base_SetZoomControl,
+    base_SetZoomControl = wx.deprecated(base_SetZoomControl,
                                    "Please use PreviewControlBar.SetZoomControl instead.")
 
 _windows_.PyPreviewControlBar_swigregister(PyPreviewControlBar)

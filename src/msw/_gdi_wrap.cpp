@@ -4466,6 +4466,15 @@ public:
         wxPyEndBlockThreads(blocked);
      }
     
+    wxGCDC(const wxGraphicsContext& ctx)
+        : wxDC(NULL)
+    {
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wxGCDC is not available on this platform.");
+        wxPyEndBlockThreads(blocked);
+     }
+
     wxGCDC()
         : wxDC(NULL)
     {
@@ -4477,7 +4486,7 @@ public:
 
     virtual ~wxGCDC() {}
 
-    wxGraphicsContext* GetGraphicsContext() { return NULL; }
+    wxGraphicsContext* GetGraphicsContext() const { return NULL; }
     void SetGraphicsContext( wxGraphicsContext* ) {}
     void Flush() {}
 };
@@ -36765,11 +36774,11 @@ SWIGINTERN PyObject *_wrap_GCDC_GetGraphicsContext(PyObject *SWIGUNUSEDPARM(self
   swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGCDC, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GCDC_GetGraphicsContext" "', expected argument " "1"" of type '" "wxGCDC *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GCDC_GetGraphicsContext" "', expected argument " "1"" of type '" "wxGCDC const *""'"); 
   }
   arg1 = reinterpret_cast< wxGCDC * >(argp1);
   {
-    result = (wxGraphicsContext *)(arg1)->GetGraphicsContext();
+    result = (wxGraphicsContext *)((wxGCDC const *)arg1)->GetGraphicsContext();
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGraphicsContext, 0 |  0 );

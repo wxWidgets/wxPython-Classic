@@ -331,9 +331,6 @@ def PreBitmapButton(*args, **kwargs):
 CHK_2STATE = _controls_.CHK_2STATE
 CHK_3STATE = _controls_.CHK_3STATE
 CHK_ALLOW_3RD_STATE_FOR_USER = _controls_.CHK_ALLOW_3RD_STATE_FOR_USER
-CHK_UNCHECKED = _controls_.CHK_UNCHECKED
-CHK_CHECKED = _controls_.CHK_CHECKED
-CHK_UNDETERMINED = _controls_.CHK_UNDETERMINED
 class CheckBox(_core.Control):
     """
     A checkbox is a labelled box which by default is either on (the
@@ -631,6 +628,14 @@ class ComboBox(_core.Control,_core.ItemContainer,_core.TextEntry):
     def IsEmpty(*args, **kwargs):
         """IsEmpty(self) -> bool"""
         return _controls_.ComboBox_IsEmpty(*args, **kwargs)
+
+    def IsListEmpty(*args, **kwargs):
+        """IsListEmpty(self) -> bool"""
+        return _controls_.ComboBox_IsListEmpty(*args, **kwargs)
+
+    def IsTextEmpty(*args, **kwargs):
+        """IsTextEmpty(self) -> bool"""
+        return _controls_.ComboBox_IsTextEmpty(*args, **kwargs)
 
     def Popup(*args, **kwargs):
         """Popup(self)"""
@@ -3054,7 +3059,7 @@ BK_HITTEST_ONICON = _controls_.BK_HITTEST_ONICON
 BK_HITTEST_ONLABEL = _controls_.BK_HITTEST_ONLABEL
 BK_HITTEST_ONITEM = _controls_.BK_HITTEST_ONITEM
 BK_HITTEST_ONPAGE = _controls_.BK_HITTEST_ONPAGE
-class BookCtrlBase(_core.Control):
+class BookCtrlBase(_core.Control,_core.WithImages):
     """Proxy of C++ BookCtrlBase class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     def __init__(self): raise AttributeError, "No constructor defined"
@@ -3082,18 +3087,6 @@ class BookCtrlBase(_core.Control):
     def GetPageText(*args, **kwargs):
         """GetPageText(self, size_t n) -> String"""
         return _controls_.BookCtrlBase_GetPageText(*args, **kwargs)
-
-    def SetImageList(*args, **kwargs):
-        """SetImageList(self, ImageList imageList)"""
-        return _controls_.BookCtrlBase_SetImageList(*args, **kwargs)
-
-    def AssignImageList(*args, **kwargs):
-        """AssignImageList(self, ImageList imageList)"""
-        return _controls_.BookCtrlBase_AssignImageList(*args, **kwargs)
-
-    def GetImageList(*args, **kwargs):
-        """GetImageList(self) -> ImageList"""
-        return _controls_.BookCtrlBase_GetImageList(*args, **kwargs)
 
     def GetPageImage(*args, **kwargs):
         """GetPageImage(self, size_t n) -> int"""
@@ -3209,7 +3202,6 @@ class BookCtrlBase(_core.Control):
     ControlSizer = property(GetControlSizer,doc="See `GetControlSizer`") 
     CurrentPage = property(GetCurrentPage,doc="See `GetCurrentPage`") 
     FitToCurrentPage = property(GetFitToCurrentPage,SetFitToCurrentPage,doc="See `GetFitToCurrentPage` and `SetFitToCurrentPage`") 
-    ImageList = property(GetImageList,SetImageList,doc="See `GetImageList` and `SetImageList`") 
     InternalBorder = property(GetInternalBorder,SetInternalBorder,doc="See `GetInternalBorder` and `SetInternalBorder`") 
     Page = property(GetPage,doc="See `GetPage`") 
     PageCount = property(GetPageCount,doc="See `GetPageCount`") 
@@ -4769,12 +4761,12 @@ class ListCtrl(_core.Control):
         """GetItemSpacing(self) -> Size"""
         return _controls_.ListCtrl_GetItemSpacing(*args, **kwargs)
 
-    GetItemSpacing = wx._deprecated(GetItemSpacing) 
+    GetItemSpacing = wx.deprecated(GetItemSpacing) 
     def SetItemSpacing(*args, **kwargs):
         """SetItemSpacing(self, int spacing, bool isSmall=False)"""
         return _controls_.ListCtrl_SetItemSpacing(*args, **kwargs)
 
-    SetItemSpacing = wx._deprecated(SetItemSpacing) 
+    SetItemSpacing = wx.deprecated(SetItemSpacing) 
     def GetSelectedItemCount(*args, **kwargs):
         """GetSelectedItemCount(self) -> int"""
         return _controls_.ListCtrl_GetSelectedItemCount(*args, **kwargs)
@@ -6074,112 +6066,112 @@ class PyControl(_core.Control):
 
     def base_DoMoveWindow(*args, **kw):
         return PyControl.DoMoveWindow(*args, **kw)
-    base_DoMoveWindow = wx._deprecated(base_DoMoveWindow,
+    base_DoMoveWindow = wx.deprecated(base_DoMoveWindow,
                                    "Please use PyControl.DoMoveWindow instead.")
 
     def base_DoSetSize(*args, **kw):
         return PyControl.DoSetSize(*args, **kw)
-    base_DoSetSize = wx._deprecated(base_DoSetSize,
+    base_DoSetSize = wx.deprecated(base_DoSetSize,
                                    "Please use PyControl.DoSetSize instead.")
 
     def base_DoSetClientSize(*args, **kw):
         return PyControl.DoSetClientSize(*args, **kw)
-    base_DoSetClientSize = wx._deprecated(base_DoSetClientSize,
+    base_DoSetClientSize = wx.deprecated(base_DoSetClientSize,
                                    "Please use PyControl.DoSetClientSize instead.")
 
     def base_DoSetVirtualSize(*args, **kw):
         return PyControl.DoSetVirtualSize(*args, **kw)
-    base_DoSetVirtualSize = wx._deprecated(base_DoSetVirtualSize,
+    base_DoSetVirtualSize = wx.deprecated(base_DoSetVirtualSize,
                                    "Please use PyControl.DoSetVirtualSize instead.")
 
     def base_DoGetSize(*args, **kw):
         return PyControl.DoGetSize(*args, **kw)
-    base_DoGetSize = wx._deprecated(base_DoGetSize,
+    base_DoGetSize = wx.deprecated(base_DoGetSize,
                                    "Please use PyControl.DoGetSize instead.")
 
     def base_DoGetClientSize(*args, **kw):
         return PyControl.DoGetClientSize(*args, **kw)
-    base_DoGetClientSize = wx._deprecated(base_DoGetClientSize,
+    base_DoGetClientSize = wx.deprecated(base_DoGetClientSize,
                                    "Please use PyControl.DoGetClientSize instead.")
 
     def base_DoGetPosition(*args, **kw):
         return PyControl.DoGetPosition(*args, **kw)
-    base_DoGetPosition = wx._deprecated(base_DoGetPosition,
+    base_DoGetPosition = wx.deprecated(base_DoGetPosition,
                                    "Please use PyControl.DoGetPosition instead.")
 
     def base_DoGetVirtualSize(*args, **kw):
         return PyControl.DoGetVirtualSize(*args, **kw)
-    base_DoGetVirtualSize = wx._deprecated(base_DoGetVirtualSize,
+    base_DoGetVirtualSize = wx.deprecated(base_DoGetVirtualSize,
                                    "Please use PyControl.DoGetVirtualSize instead.")
 
     def base_DoGetBestSize(*args, **kw):
         return PyControl.DoGetBestSize(*args, **kw)
-    base_DoGetBestSize = wx._deprecated(base_DoGetBestSize,
+    base_DoGetBestSize = wx.deprecated(base_DoGetBestSize,
                                    "Please use PyControl.DoGetBestSize instead.")
 
     def base_InitDialog(*args, **kw):
         return PyControl.InitDialog(*args, **kw)
-    base_InitDialog = wx._deprecated(base_InitDialog,
+    base_InitDialog = wx.deprecated(base_InitDialog,
                                    "Please use PyControl.InitDialog instead.")
 
     def base_TransferDataToWindow(*args, **kw):
         return PyControl.TransferDataToWindow(*args, **kw)
-    base_TransferDataToWindow = wx._deprecated(base_TransferDataToWindow,
+    base_TransferDataToWindow = wx.deprecated(base_TransferDataToWindow,
                                    "Please use PyControl.TransferDataToWindow instead.")
 
     def base_TransferDataFromWindow(*args, **kw):
         return PyControl.TransferDataFromWindow(*args, **kw)
-    base_TransferDataFromWindow = wx._deprecated(base_TransferDataFromWindow,
+    base_TransferDataFromWindow = wx.deprecated(base_TransferDataFromWindow,
                                    "Please use PyControl.TransferDataFromWindow instead.")
 
     def base_Validate(*args, **kw):
         return PyControl.Validate(*args, **kw)
-    base_Validate = wx._deprecated(base_Validate,
+    base_Validate = wx.deprecated(base_Validate,
                                    "Please use PyControl.Validate instead.")
 
     def base_AcceptsFocus(*args, **kw):
         return PyControl.AcceptsFocus(*args, **kw)
-    base_AcceptsFocus = wx._deprecated(base_AcceptsFocus,
+    base_AcceptsFocus = wx.deprecated(base_AcceptsFocus,
                                    "Please use PyControl.AcceptsFocus instead.")
 
     def base_AcceptsFocusFromKeyboard(*args, **kw):
         return PyControl.AcceptsFocusFromKeyboard(*args, **kw)
-    base_AcceptsFocusFromKeyboard = wx._deprecated(base_AcceptsFocusFromKeyboard,
+    base_AcceptsFocusFromKeyboard = wx.deprecated(base_AcceptsFocusFromKeyboard,
                                    "Please use PyControl.AcceptsFocusFromKeyboard instead.")
 
     def base_GetMaxSize(*args, **kw):
         return PyControl.GetMaxSize(*args, **kw)
-    base_GetMaxSize = wx._deprecated(base_GetMaxSize,
+    base_GetMaxSize = wx.deprecated(base_GetMaxSize,
                                    "Please use PyControl.GetMaxSize instead.")
 
     def base_Enable(*args, **kw):
         return PyControl.Enable(*args, **kw)
-    base_Enable = wx._deprecated(base_Enable,
+    base_Enable = wx.deprecated(base_Enable,
                                    "Please use PyControl.Enable instead.")
 
     def base_AddChild(*args, **kw):
         return PyControl.AddChild(*args, **kw)
-    base_AddChild = wx._deprecated(base_AddChild,
+    base_AddChild = wx.deprecated(base_AddChild,
                                    "Please use PyControl.AddChild instead.")
 
     def base_RemoveChild(*args, **kw):
         return PyControl.RemoveChild(*args, **kw)
-    base_RemoveChild = wx._deprecated(base_RemoveChild,
+    base_RemoveChild = wx.deprecated(base_RemoveChild,
                                    "Please use PyControl.RemoveChild instead.")
 
     def base_ShouldInheritColours(*args, **kw):
         return PyControl.ShouldInheritColours(*args, **kw)
-    base_ShouldInheritColours = wx._deprecated(base_ShouldInheritColours,
+    base_ShouldInheritColours = wx.deprecated(base_ShouldInheritColours,
                                    "Please use PyControl.ShouldInheritColours instead.")
 
     def base_GetDefaultAttributes(*args, **kw):
         return PyControl.GetDefaultAttributes(*args, **kw)
-    base_GetDefaultAttributes = wx._deprecated(base_GetDefaultAttributes,
+    base_GetDefaultAttributes = wx.deprecated(base_GetDefaultAttributes,
                                    "Please use PyControl.GetDefaultAttributes instead.")
 
     def base_OnInternalIdle(*args, **kw):
         return PyControl.OnInternalIdle(*args, **kw)
-    base_OnInternalIdle = wx._deprecated(base_OnInternalIdle,
+    base_OnInternalIdle = wx.deprecated(base_OnInternalIdle,
                                    "Please use PyControl.OnInternalIdle instead.")
 
 _controls_.PyControl_swigregister(PyControl)
@@ -7271,8 +7263,10 @@ FLP_SAVE = _controls_.FLP_SAVE
 FLP_OVERWRITE_PROMPT = _controls_.FLP_OVERWRITE_PROMPT
 FLP_FILE_MUST_EXIST = _controls_.FLP_FILE_MUST_EXIST
 FLP_CHANGE_DIR = _controls_.FLP_CHANGE_DIR
+FLP_SMALL = _controls_.FLP_SMALL
 DIRP_DIR_MUST_EXIST = _controls_.DIRP_DIR_MUST_EXIST
 DIRP_CHANGE_DIR = _controls_.DIRP_CHANGE_DIR
+DIRP_SMALL = _controls_.DIRP_SMALL
 FLP_USE_TEXTCTRL = _controls_.FLP_USE_TEXTCTRL
 FLP_DEFAULT_STYLE = _controls_.FLP_DEFAULT_STYLE
 DIRP_USE_TEXTCTRL = _controls_.DIRP_USE_TEXTCTRL

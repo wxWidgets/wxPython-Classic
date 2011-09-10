@@ -274,7 +274,7 @@ class Colour(_core.Object):
         """
         return _gdi_.Colour_GetRGB(*args)
 
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                  return str(self.Get(True))
 
     # help() can access the stock colors before they are created,  
@@ -1058,7 +1058,7 @@ class NativePixelData(PixelDataBase):
         return _gdi_.NativePixelData_GetPixels(*args, **kwargs)
 
     def UseAlpha(self): pass
-    UseAlpha = wx._deprecated(UseAlpha)
+    UseAlpha = wx.deprecated(UseAlpha)
 
     def __nonzero__(*args, **kwargs):
         """__nonzero__(self) -> bool"""
@@ -1171,7 +1171,7 @@ class AlphaPixelData(PixelDataBase):
         return _gdi_.AlphaPixelData_GetPixels(*args, **kwargs)
 
     def UseAlpha(self): pass
-    UseAlpha = wx._deprecated(UseAlpha)
+    UseAlpha = wx.deprecated(UseAlpha)
 
     def __nonzero__(*args, **kwargs):
         """__nonzero__(self) -> bool"""
@@ -1297,7 +1297,7 @@ class Mask(_core.Object):
     __del__ = lambda self : None;
 _gdi_.Mask_swigregister(Mask)
 
-MaskColour = wx._deprecated(Mask, "wx.MaskColour is deprecated, use `wx.Mask` instead.") 
+MaskColour = wx.deprecated(Mask, "wx.MaskColour is deprecated, use `wx.Mask` instead.") 
 class Icon(GDIObject):
     """Proxy of C++ Icon class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
@@ -2513,8 +2513,8 @@ class Font(GDIObject):
         """GetNoAntiAliasing(self) -> bool"""
         return _gdi_.Font_GetNoAntiAliasing(*args, **kwargs)
 
-    SetNoAntiAliasing = wx._deprecated(SetNoAntiAliasing)
-    GetNoAntiAliasing = wx._deprecated(GetNoAntiAliasing)
+    SetNoAntiAliasing = wx.deprecated(SetNoAntiAliasing)
+    GetNoAntiAliasing = wx.deprecated(GetNoAntiAliasing)
 
     def MakeBold(*args, **kwargs):
         """MakeBold(self) -> Font"""
@@ -2704,7 +2704,7 @@ def Font_SetDefaultEncoding(*args, **kwargs):
     """
   return _gdi_.Font_SetDefaultEncoding(*args, **kwargs)
 
-Font2 = wx._deprecated(FFont, "Use `wx.FFont` instead.") 
+Font2 = wx.deprecated(FFont, "Use `wx.FFont` instead.") 
 #---------------------------------------------------------------------------
 
 class FontEnumerator(object):
@@ -4610,8 +4610,8 @@ class DC(_core.Object):
     def GetOptimization(self):
         return False
 
-    SetOptimization = wx._deprecated(SetOptimization)
-    GetOptimization = wx._deprecated(GetOptimization)
+    SetOptimization = wx.deprecated(SetOptimization)
+    GetOptimization = wx.deprecated(GetOptimization)
 
     def CalcBoundingBox(*args, **kwargs):
         """
@@ -7493,7 +7493,7 @@ class RendererNative(object):
         """
         return _gdi_.RendererNative_DrawRadioBitmap(*args, **kwargs)
 
-    DrawRadioButton = wx._deprecated(DrawRadioBitmap,
+    DrawRadioButton = wx.deprecated(DrawRadioBitmap,
         'DrawRadioButton is deprecated, use `DrawRadioBitmap` instead.')
 
     def DrawTitleBarBitmap(*args, **kwargs):

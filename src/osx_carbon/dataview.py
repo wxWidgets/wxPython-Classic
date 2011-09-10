@@ -1746,6 +1746,14 @@ class DataViewCtrl(_core.Control):
         """SetCurrentItem(self, DataViewItem item)"""
         return _dataview.DataViewCtrl_SetCurrentItem(*args, **kwargs)
 
+    def GetSelectedItemsCount(*args, **kwargs):
+        """GetSelectedItemsCount(self) -> int"""
+        return _dataview.DataViewCtrl_GetSelectedItemsCount(*args, **kwargs)
+
+    def HasSelection(*args, **kwargs):
+        """HasSelection(self) -> bool"""
+        return _dataview.DataViewCtrl_HasSelection(*args, **kwargs)
+
     def GetSelection(*args, **kwargs):
         """GetSelection(self) -> DataViewItem"""
         return _dataview.DataViewCtrl_GetSelection(*args, **kwargs)
@@ -1909,6 +1917,14 @@ class DataViewEvent(_core.NotifyEvent):
     def SetValue(*args, **kwargs):
         """SetValue(self, wxVariant value)"""
         return _dataview.DataViewEvent_SetValue(*args, **kwargs)
+
+    def IsEditCancelled(*args, **kwargs):
+        """IsEditCancelled(self) -> bool"""
+        return _dataview.DataViewEvent_IsEditCancelled(*args, **kwargs)
+
+    def SetEditCanceled(*args, **kwargs):
+        """SetEditCanceled(self, bool editCancelled)"""
+        return _dataview.DataViewEvent_SetEditCanceled(*args, **kwargs)
 
     def SetDataViewColumn(*args, **kwargs):
         """SetDataViewColumn(self, DataViewColumn col)"""
@@ -2420,7 +2436,7 @@ class DataViewTreeStore(DataViewModel):
 
 _dataview.DataViewTreeStore_swigregister(DataViewTreeStore)
 
-class DataViewTreeCtrl(DataViewCtrl):
+class DataViewTreeCtrl(DataViewCtrl,_core.WithImages):
     """Proxy of C++ DataViewTreeCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -2450,14 +2466,6 @@ class DataViewTreeCtrl(DataViewCtrl):
     def IsContainer(*args, **kwargs):
         """IsContainer(self, DataViewItem item) -> bool"""
         return _dataview.DataViewTreeCtrl_IsContainer(*args, **kwargs)
-
-    def SetImageList(*args, **kwargs):
-        """SetImageList(self, ImageList imagelist)"""
-        return _dataview.DataViewTreeCtrl_SetImageList(*args, **kwargs)
-
-    def GetImageList(*args, **kwargs):
-        """GetImageList(self) -> ImageList"""
-        return _dataview.DataViewTreeCtrl_GetImageList(*args, **kwargs)
 
     def AppendItem(*args, **kwargs):
         """AppendItem(self, DataViewItem parent, String text, int icon=-1, wxClientData data=None) -> DataViewItem"""

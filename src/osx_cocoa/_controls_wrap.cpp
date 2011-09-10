@@ -2656,10 +2656,11 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxWindowBase swig_types[190]
 #define SWIGTYPE_p_wxWindowCreateEvent swig_types[191]
 #define SWIGTYPE_p_wxWindowDestroyEvent swig_types[192]
-#define SWIGTYPE_p_wxWrapSizer swig_types[193]
-#define SWIGTYPE_p_wxXPMHandler swig_types[194]
-static swig_type_info *swig_types[196];
-static swig_module_info swig_module = {swig_types, 195, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxWithImages swig_types[193]
+#define SWIGTYPE_p_wxWrapSizer swig_types[194]
+#define SWIGTYPE_p_wxXPMHandler swig_types[195]
+static swig_type_info *swig_types[197];
+static swig_module_info swig_module = {swig_types, 196, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -6499,6 +6500,66 @@ SWIGINTERN PyObject *_wrap_ComboBox_IsEmpty(PyObject *SWIGUNUSEDPARM(self), PyOb
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     result = (bool)wxComboBox_IsEmpty(arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ComboBox_IsListEmpty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxComboBox *arg1 = (wxComboBox *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxComboBox, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ComboBox_IsListEmpty" "', expected argument " "1"" of type '" "wxComboBox const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxComboBox * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxComboBox const *)arg1)->IsListEmpty();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ComboBox_IsTextEmpty(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxComboBox *arg1 = (wxComboBox *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxComboBox, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ComboBox_IsTextEmpty" "', expected argument " "1"" of type '" "wxComboBox const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxComboBox * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)((wxComboBox const *)arg1)->IsTextEmpty();
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -21154,110 +21215,6 @@ SWIGINTERN PyObject *_wrap_BookCtrlBase_GetPageText(PyObject *SWIGUNUSEDPARM(sel
 #else
     resultobj = PyString_FromStringAndSize((&result)->c_str(), (&result)->Len());
 #endif
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BookCtrlBase_SetImageList(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxBookCtrlBase *arg1 = (wxBookCtrlBase *) 0 ;
-  wxImageList *arg2 = (wxImageList *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "imageList", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:BookCtrlBase_SetImageList",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBookCtrlBase, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BookCtrlBase_SetImageList" "', expected argument " "1"" of type '" "wxBookCtrlBase *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBookCtrlBase * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxImageList, 0 |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BookCtrlBase_SetImageList" "', expected argument " "2"" of type '" "wxImageList *""'"); 
-  }
-  arg2 = reinterpret_cast< wxImageList * >(argp2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetImageList(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BookCtrlBase_AssignImageList(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxBookCtrlBase *arg1 = (wxBookCtrlBase *) 0 ;
-  wxImageList *arg2 = (wxImageList *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "imageList", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:BookCtrlBase_AssignImageList",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxBookCtrlBase, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BookCtrlBase_AssignImageList" "', expected argument " "1"" of type '" "wxBookCtrlBase *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBookCtrlBase * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxImageList, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "BookCtrlBase_AssignImageList" "', expected argument " "2"" of type '" "wxImageList *""'");
-  }
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->AssignImageList(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_BookCtrlBase_GetImageList(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxBookCtrlBase *arg1 = (wxBookCtrlBase *) 0 ;
-  wxImageList *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxBookCtrlBase, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "BookCtrlBase_GetImageList" "', expected argument " "1"" of type '" "wxBookCtrlBase const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxBookCtrlBase * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxImageList *)((wxBookCtrlBase const *)arg1)->GetImageList();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = wxPyMake_wxObject(result, (bool)0); 
   }
   return resultobj;
 fail:
@@ -52150,6 +52107,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ComboBox_SetMark", (PyCFunction) _wrap_ComboBox_SetMark, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ComboBox_GetMark", (PyCFunction)_wrap_ComboBox_GetMark, METH_O, NULL},
 	 { (char *)"ComboBox_IsEmpty", (PyCFunction)_wrap_ComboBox_IsEmpty, METH_O, NULL},
+	 { (char *)"ComboBox_IsListEmpty", (PyCFunction)_wrap_ComboBox_IsListEmpty, METH_O, NULL},
+	 { (char *)"ComboBox_IsTextEmpty", (PyCFunction)_wrap_ComboBox_IsTextEmpty, METH_O, NULL},
 	 { (char *)"ComboBox_Popup", (PyCFunction)_wrap_ComboBox_Popup, METH_O, NULL},
 	 { (char *)"ComboBox_Dismiss", (PyCFunction)_wrap_ComboBox_Dismiss, METH_O, NULL},
 	 { (char *)"ComboBox_GetCurrentSelection", (PyCFunction)_wrap_ComboBox_GetCurrentSelection, METH_O, NULL},
@@ -52505,9 +52464,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"BookCtrlBase_GetSelection", (PyCFunction)_wrap_BookCtrlBase_GetSelection, METH_O, NULL},
 	 { (char *)"BookCtrlBase_SetPageText", (PyCFunction) _wrap_BookCtrlBase_SetPageText, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"BookCtrlBase_GetPageText", (PyCFunction) _wrap_BookCtrlBase_GetPageText, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"BookCtrlBase_SetImageList", (PyCFunction) _wrap_BookCtrlBase_SetImageList, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"BookCtrlBase_AssignImageList", (PyCFunction) _wrap_BookCtrlBase_AssignImageList, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"BookCtrlBase_GetImageList", (PyCFunction)_wrap_BookCtrlBase_GetImageList, METH_O, NULL},
 	 { (char *)"BookCtrlBase_GetPageImage", (PyCFunction) _wrap_BookCtrlBase_GetPageImage, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"BookCtrlBase_SetPageImage", (PyCFunction) _wrap_BookCtrlBase_SetPageImage, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"BookCtrlBase_SetPageSize", (PyCFunction) _wrap_BookCtrlBase_SetPageSize, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -54425,6 +54381,24 @@ static void *_p_wxPyValidatorTo_p_wxObject(void *x) {
 static void *_p_wxValidatorTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *) ((wxValidator *) x));
 }
+static void *_p_wxChoicebookTo_p_wxWithImages(void *x) {
+    return (void *)((wxWithImages *) (wxBookCtrlBase *) ((wxChoicebook *) x));
+}
+static void *_p_wxListbookTo_p_wxWithImages(void *x) {
+    return (void *)((wxWithImages *) (wxBookCtrlBase *) ((wxListbook *) x));
+}
+static void *_p_wxBookCtrlBaseTo_p_wxWithImages(void *x) {
+    return (void *)((wxWithImages *)  ((wxBookCtrlBase *) x));
+}
+static void *_p_wxToolbookTo_p_wxWithImages(void *x) {
+    return (void *)((wxWithImages *) (wxBookCtrlBase *) ((wxToolbook *) x));
+}
+static void *_p_wxTreebookTo_p_wxWithImages(void *x) {
+    return (void *)((wxWithImages *) (wxBookCtrlBase *) ((wxTreebook *) x));
+}
+static void *_p_wxNotebookTo_p_wxWithImages(void *x) {
+    return (void *)((wxWithImages *) (wxBookCtrlBase *) ((wxNotebook *) x));
+}
 static void *_p_wxCollapsiblePaneTo_p_wxWindow(void *x) {
     return (void *)((wxWindow *) (wxControl *) ((wxCollapsiblePane *) x));
 }
@@ -54890,6 +54864,7 @@ static swig_type_info _swigt__p_wxValidator = {"_p_wxValidator", "wxValidator *"
 static swig_type_info _swigt__p_wxVisualAttributes = {"_p_wxVisualAttributes", "wxVisualAttributes *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWindow = {"_p_wxWindow", "wxWindow *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWindowBase = {"_p_wxWindowBase", "wxWindowBase *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_wxWithImages = {"_p_wxWithImages", "wxWithImages *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_bool,
@@ -55085,6 +55060,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxWindowBase,
   &_swigt__p_wxWindowCreateEvent,
   &_swigt__p_wxWindowDestroyEvent,
+  &_swigt__p_wxWithImages,
   &_swigt__p_wxWrapSizer,
   &_swigt__p_wxXPMHandler,
 };
@@ -55284,6 +55260,7 @@ static swig_cast_info _swigc__p_wxValidator[] = {  {&_swigt__p_wxValidator, 0, 0
 static swig_cast_info _swigc__p_wxVisualAttributes[] = {  {&_swigt__p_wxVisualAttributes, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWindow[] = {  {&_swigt__p_wxCollapsiblePane, _p_wxCollapsiblePaneTo_p_wxWindow, 0, 0},  {&_swigt__p_wxDatePickerCtrlGeneric, _p_wxDatePickerCtrlGenericTo_p_wxWindow, 0, 0},  {&_swigt__p_wxMenuBar, _p_wxMenuBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxDatePickerCtrlBase, _p_wxDatePickerCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxBookCtrlBase, _p_wxBookCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTextCtrlBase, _p_wxTextCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSearchCtrlBase, _p_wxSearchCtrlBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxInfoBar, _p_wxInfoBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFileCtrl, _p_wxFileCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxToolBar, _p_wxToolBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyPickerBase, _p_wxPyPickerBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPickerBase, _p_wxPickerBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxRadioButton, _p_wxRadioButtonTo_p_wxWindow, 0, 0},  {&_swigt__p_wxToggleButton, _p_wxToggleButtonTo_p_wxWindow, 0, 0},  {&_swigt__p_wxAnyButton, _p_wxAnyButtonTo_p_wxWindow, 0, 0},  {&_swigt__p_wxCommandLinkButton, _p_wxCommandLinkButtonTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSearchCtrl, _p_wxSearchCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxToolbook, _p_wxToolbookTo_p_wxWindow, 0, 0},  {&_swigt__p_wxWindow, 0, 0, 0},  {&_swigt__p_wxSpinCtrlDouble, _p_wxSpinCtrlDoubleTo_p_wxWindow, 0, 0},  {&_swigt__p_wxControl, _p_wxControlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyControl, _p_wxPyControlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxToolBarBase, _p_wxToolBarBaseTo_p_wxWindow, 0, 0},  {&_swigt__p_wxDirFilterListCtrl, _p_wxDirFilterListCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyListCtrl, _p_wxPyListCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxComboBox, _p_wxComboBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxGenericDirCtrl, _p_wxGenericDirCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxScrollBar, _p_wxScrollBarTo_p_wxWindow, 0, 0},  {&_swigt__p_wxControlWithItems, _p_wxControlWithItemsTo_p_wxWindow, 0, 0},  {&_swigt__p_wxGauge, _p_wxGaugeTo_p_wxWindow, 0, 0},  {&_swigt__p_wxChoicebook, _p_wxChoicebookTo_p_wxWindow, 0, 0},  {&_swigt__p_wxStaticLine, _p_wxStaticLineTo_p_wxWindow, 0, 0},  {&_swigt__p_wxListbook, _p_wxListbookTo_p_wxWindow, 0, 0},  {&_swigt__p_wxHyperlinkCtrl, _p_wxHyperlinkCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxPyTreeCtrl, _p_wxPyTreeCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxCheckBox, _p_wxCheckBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxRadioBox, _p_wxRadioBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxChoice, _p_wxChoiceTo_p_wxWindow, 0, 0},  {&_swigt__p_wxListBox, _p_wxListBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxCheckListBox, _p_wxCheckListBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxNotebook, _p_wxNotebookTo_p_wxWindow, 0, 0},  {&_swigt__p_wxListView, _p_wxListViewTo_p_wxWindow, 0, 0},  {&_swigt__p_wxStaticBitmap, _p_wxStaticBitmapTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSpinCtrl, _p_wxSpinCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxStaticText, _p_wxStaticTextTo_p_wxWindow, 0, 0},  {&_swigt__p_wxStaticBox, _p_wxStaticBoxTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSlider, _p_wxSliderTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTreebook, _p_wxTreebookTo_p_wxWindow, 0, 0},  {&_swigt__p_wxContextHelpButton, _p_wxContextHelpButtonTo_p_wxWindow, 0, 0},  {&_swigt__p_wxBitmapButton, _p_wxBitmapButtonTo_p_wxWindow, 0, 0},  {&_swigt__p_wxButton, _p_wxButtonTo_p_wxWindow, 0, 0},  {&_swigt__p_wxSpinButton, _p_wxSpinButtonTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFontPickerCtrl, _p_wxFontPickerCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxDirPickerCtrl, _p_wxDirPickerCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxFilePickerCtrl, _p_wxFilePickerCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxDatePickerCtrl, _p_wxDatePickerCtrlTo_p_wxWindow, 0, 0},  {&_swigt__p_wxTextCtrl, _p_wxTextCtrlTo_p_wxWindow, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWindowBase[] = {  {&_swigt__p_wxWindowBase, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxWithImages[] = {  {&_swigt__p_wxChoicebook, _p_wxChoicebookTo_p_wxWithImages, 0, 0},  {&_swigt__p_wxListbook, _p_wxListbookTo_p_wxWithImages, 0, 0},  {&_swigt__p_wxWithImages, 0, 0, 0},  {&_swigt__p_wxBookCtrlBase, _p_wxBookCtrlBaseTo_p_wxWithImages, 0, 0},  {&_swigt__p_wxToolbook, _p_wxToolbookTo_p_wxWithImages, 0, 0},  {&_swigt__p_wxTreebook, _p_wxTreebookTo_p_wxWithImages, 0, 0},  {&_swigt__p_wxNotebook, _p_wxNotebookTo_p_wxWithImages, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_bool,
@@ -55479,6 +55456,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxWindowBase,
   _swigc__p_wxWindowCreateEvent,
   _swigc__p_wxWindowDestroyEvent,
+  _swigc__p_wxWithImages,
   _swigc__p_wxWrapSizer,
   _swigc__p_wxXPMHandler,
 };
@@ -55998,9 +55976,6 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "CHK_2STATE",SWIG_From_int(static_cast< int >(wxCHK_2STATE)));
   SWIG_Python_SetConstant(d, "CHK_3STATE",SWIG_From_int(static_cast< int >(wxCHK_3STATE)));
   SWIG_Python_SetConstant(d, "CHK_ALLOW_3RD_STATE_FOR_USER",SWIG_From_int(static_cast< int >(wxCHK_ALLOW_3RD_STATE_FOR_USER)));
-  SWIG_Python_SetConstant(d, "CHK_UNCHECKED",SWIG_From_int(static_cast< int >(wxCHK_UNCHECKED)));
-  SWIG_Python_SetConstant(d, "CHK_CHECKED",SWIG_From_int(static_cast< int >(wxCHK_CHECKED)));
-  SWIG_Python_SetConstant(d, "CHK_UNDETERMINED",SWIG_From_int(static_cast< int >(wxCHK_UNDETERMINED)));
   SWIG_addvarlink(SWIG_globals(),(char*)"ChoiceNameStr",ChoiceNameStr_get, ChoiceNameStr_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"ComboBoxNameStr",ComboBoxNameStr_get, ComboBoxNameStr_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"GaugeNameStr",GaugeNameStr_get, GaugeNameStr_set);
@@ -56414,8 +56389,10 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "FLP_OVERWRITE_PROMPT",SWIG_From_int(static_cast< int >(wxFLP_OVERWRITE_PROMPT)));
   SWIG_Python_SetConstant(d, "FLP_FILE_MUST_EXIST",SWIG_From_int(static_cast< int >(wxFLP_FILE_MUST_EXIST)));
   SWIG_Python_SetConstant(d, "FLP_CHANGE_DIR",SWIG_From_int(static_cast< int >(wxFLP_CHANGE_DIR)));
+  SWIG_Python_SetConstant(d, "FLP_SMALL",SWIG_From_int(static_cast< int >(wxFLP_SMALL)));
   SWIG_Python_SetConstant(d, "DIRP_DIR_MUST_EXIST",SWIG_From_int(static_cast< int >(wxDIRP_DIR_MUST_EXIST)));
   SWIG_Python_SetConstant(d, "DIRP_CHANGE_DIR",SWIG_From_int(static_cast< int >(wxDIRP_CHANGE_DIR)));
+  SWIG_Python_SetConstant(d, "DIRP_SMALL",SWIG_From_int(static_cast< int >(wxDIRP_SMALL)));
   SWIG_Python_SetConstant(d, "FLP_USE_TEXTCTRL",SWIG_From_int(static_cast< int >(wxFLP_USE_TEXTCTRL)));
   SWIG_Python_SetConstant(d, "FLP_DEFAULT_STYLE",SWIG_From_int(static_cast< int >(wxFLP_DEFAULT_STYLE)));
   SWIG_Python_SetConstant(d, "DIRP_USE_TEXTCTRL",SWIG_From_int(static_cast< int >(wxDIRP_USE_TEXTCTRL)));

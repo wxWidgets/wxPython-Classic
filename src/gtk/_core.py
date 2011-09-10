@@ -69,20 +69,60 @@ wx = _sys.modules[__name__]
 
 #----------------------------------------------------------------------------
 
-def _deprecated(callable, msg=None):
+            
+import warnings
+class wxPyDeprecationWarning(DeprecationWarning):
+    pass
+warnings.simplefilter('default', wxPyDeprecationWarning)
+del warnings
+
+def deprecated(item, msg=''):
     """
-    Create a wrapper function that will raise a DeprecationWarning
-    before calling the callable.
+    Create a delegating wrapper that raises a deprecation warning.  Can be
+    used with callable objects (functions, methods, classes) or with
+    properties.
     """
-    if msg is None:
-        msg = "This item is deprecated, use %s instead" % callable
-    def deprecatedWrapper(*args, **kwargs):
-        import warnings
-        warnings.warn(msg, DeprecationWarning, stacklevel=2)
-        return callable(*args, **kwargs)
-    deprecatedWrapper.__doc__ = msg
-    return deprecatedWrapper
-    
+    import warnings
+    if callable(item):
+        
+        def deprecated_func(*args, **kw):
+            warnings.warn("Call to deprecated item '%s'. %s" % (item.__name__, msg),
+                          wxPyDeprecationWarning, stacklevel=2)
+            return item(*args, **kw)
+        deprecated_func.__name__ = item.__name__
+        deprecated_func.__doc__ = item.__doc__
+        deprecated_func.__dict__.update(item.__dict__)
+        return deprecated_func
+        
+    elif hasattr(item, '__get__'):
+        
+        class DepGetProp(object):
+            def __init__(self,item, msg):
+                self.item = item
+                self.msg = msg
+            def __get__(self, inst, klass):
+                warnings.warn("Accessing deprecated property. %s" % msg,
+                              wxPyDeprecationWarning, stacklevel=2)
+                return self.item.__get__(inst, klass)
+        class DepGetSetProp(DepGetProp):
+            def __set__(self, inst, val):
+                warnings.warn("Accessing deprecated property. %s" % msg,
+                              wxPyDeprecationWarning, stacklevel=2)
+                return self.item.__set__(inst, val)
+        class DepGetSetDelProp(DepGetSetProp):
+            def __delete__(self, inst):
+                warnings.warn("Accessing deprecated property. %s" % msg,
+                              wxPyDeprecationWarning, stacklevel=2)
+                return self.item.__delete__(inst)
+        
+        if hasattr(item, '__set__') and hasattr(item, '__delete__'):
+            return DepGetSetDelProp(item, msg)
+        elif hasattr(item, '__set__'):
+            return DepGetSetProp(item, msg)
+        else:
+            return DepGetProp(item, msg)
+    else:
+        raise TypeError, "unsupported type %s" % type(item)
                    
 #----------------------------------------------------------------------------
 
@@ -549,6 +589,7 @@ WXK_NUMPAD_DIVIDE = _core_.WXK_NUMPAD_DIVIDE
 WXK_WINDOWS_LEFT = _core_.WXK_WINDOWS_LEFT
 WXK_WINDOWS_RIGHT = _core_.WXK_WINDOWS_RIGHT
 WXK_WINDOWS_MENU = _core_.WXK_WINDOWS_MENU
+WXK_RAW_CONTROL = _core_.WXK_RAW_CONTROL
 WXK_COMMAND = _core_.WXK_COMMAND
 WXK_SPECIAL1 = _core_.WXK_SPECIAL1
 WXK_SPECIAL2 = _core_.WXK_SPECIAL2
@@ -705,6 +746,9 @@ ITEM_CHECK = _core_.ITEM_CHECK
 ITEM_RADIO = _core_.ITEM_RADIO
 ITEM_DROPDOWN = _core_.ITEM_DROPDOWN
 ITEM_MAX = _core_.ITEM_MAX
+CHK_UNCHECKED = _core_.CHK_UNCHECKED
+CHK_CHECKED = _core_.CHK_CHECKED
+CHK_UNDETERMINED = _core_.CHK_UNDETERMINED
 HT_NOWHERE = _core_.HT_NOWHERE
 HT_SCROLLBAR_FIRST = _core_.HT_SCROLLBAR_FIRST
 HT_SCROLLBAR_ARROW_LINE_1 = _core_.HT_SCROLLBAR_ARROW_LINE_1
@@ -728,6 +772,7 @@ MOD_ALTGR = _core_.MOD_ALTGR
 MOD_SHIFT = _core_.MOD_SHIFT
 MOD_META = _core_.MOD_META
 MOD_WIN = _core_.MOD_WIN
+MOD_RAW_CONTROL = _core_.MOD_RAW_CONTROL
 MOD_CMD = _core_.MOD_CMD
 MOD_ALL = _core_.MOD_ALL
 UPDATE_UI_NONE = _core_.UPDATE_UI_NONE
@@ -813,6 +858,7 @@ BITMAP_TYPE_XBM_DATA = _core_.BITMAP_TYPE_XBM_DATA
 BITMAP_TYPE_XPM = _core_.BITMAP_TYPE_XPM
 BITMAP_TYPE_XPM_DATA = _core_.BITMAP_TYPE_XPM_DATA
 BITMAP_TYPE_TIF = _core_.BITMAP_TYPE_TIF
+BITMAP_TYPE_TIFF = _core_.BITMAP_TYPE_TIFF
 BITMAP_TYPE_GIF = _core_.BITMAP_TYPE_GIF
 BITMAP_TYPE_PNG = _core_.BITMAP_TYPE_PNG
 BITMAP_TYPE_JPEG = _core_.BITMAP_TYPE_JPEG
@@ -1000,7 +1046,7 @@ class Size(object):
         """
         return _core_.Size_Get(*args, **kwargs)
 
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.Size'+str(self.Get())
     def __len__(self):                   return len(self.Get())
@@ -1084,7 +1130,7 @@ class RealPoint(object):
         """
         return _core_.RealPoint_Get(*args, **kwargs)
 
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.RealPoint'+str(self.Get())
     def __len__(self):                   return len(self.Get())
@@ -1176,7 +1222,7 @@ class Point(object):
         """
         return _core_.Point_Get(*args, **kwargs)
 
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.Point'+str(self.Get())
     def __len__(self):                   return len(self.Get())
@@ -1467,9 +1513,9 @@ class Rect(object):
         """
         return _core_.Rect_ContainsRect(*args, **kwargs)
 
-    #Inside = wx._deprecated(Contains, "Use `Contains` instead.")
-    #InsideXY = wx._deprecated(ContainsXY, "Use `ContainsXY` instead.")
-    #InsideRect = wx._deprecated(ContainsRect, "Use `ContainsRect` instead.")
+    #Inside = wx.deprecated(Contains, "Use `Contains` instead.")
+    #InsideXY = wx.deprecated(ContainsXY, "Use `ContainsXY` instead.")
+    #InsideRect = wx.deprecated(ContainsRect, "Use `ContainsRect` instead.")
     Inside = Contains
     InsideXY = ContainsXY
     InsideRect = ContainsRect
@@ -1512,7 +1558,7 @@ class Rect(object):
         """
         return _core_.Rect_Get(*args, **kwargs)
 
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.Rect'+str(self.Get())
     def __len__(self):                   return len(self.Get())
@@ -1727,7 +1773,7 @@ class Point2D(object):
         """
         return _core_.Point2D_Get(*args, **kwargs)
 
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.Point2D'+str(self.Get())
     def __len__(self):                   return len(self.Get())
@@ -4332,6 +4378,12 @@ class KeyboardState(object):
     metaDown = property(MetaDown, SetMetaDown)
     cmdDown = property(CmdDown)
 
+
+    m_controlDown = wx.deprecated(controlDown)
+    m_shiftDown = wx.deprecated(shiftDown)
+    m_altDown = wx.deprecated(altDown)
+    m_metaDown = wx.deprecated(metaDown)            
+
 _core_.KeyboardState_swigregister(KeyboardState)
 
 #---------------------------------------------------------------------------
@@ -4401,9 +4453,9 @@ class MouseState(KeyboardState):
         """ButtonIsDown(self, int but) -> bool"""
         return _core_.MouseState_ButtonIsDown(*args, **kwargs)
 
-    LeftDown = wx._deprecated(LeftIsDown)
-    MiddleDown = wx._deprecated(MiddleIsDown)
-    RightDown = wx._deprecated(RightIsDown)            
+    LeftDown = wx.deprecated(LeftIsDown)
+    MiddleDown = wx.deprecated(MiddleIsDown)
+    RightDown = wx.deprecated(RightIsDown)            
 
     def SetX(*args, **kwargs):
         """SetX(self, int x)"""
@@ -4450,6 +4502,15 @@ class MouseState(KeyboardState):
     rightIsDown = property(RightIsDown, SetRightDown)
     aux1IsDown = property(Aux1IsDown, SetAux1Down)
     aux2IsDown = property(Aux2IsDown, SetAux2Down)
+
+
+    m_leftDown = wx.deprecated(leftIsDown)
+    m_middleDown = wx.deprecated(middleIsDown)
+    m_rightDown = wx.deprecated(rightIsDown)
+    m_aux1Down = wx.deprecated(aux1IsDown)
+    m_aux2Down = wx.deprecated(aux2IsDown)
+    m_x = wx.deprecated(x)
+    m_y = wx.deprecated(y)
 
     Position = property(GetPosition,doc="See `GetPosition`") 
 _core_.MouseState_swigregister(MouseState)
@@ -8616,6 +8677,7 @@ App_GetComCtl32Version           = _core_.PyApp_GetComCtl32Version
 
 #----------------------------------------------------------------------------
 
+@wx.deprecated
 class PySimpleApp(wx.App):
     """
     A simple application class.  You can just create one of these and
@@ -8806,6 +8868,7 @@ ACCEL_ALT = _core_.ACCEL_ALT
 ACCEL_CTRL = _core_.ACCEL_CTRL
 ACCEL_SHIFT = _core_.ACCEL_SHIFT
 ACCEL_NORMAL = _core_.ACCEL_NORMAL
+ACCEL_RAW_CTRL = _core_.ACCEL_RAW_CTRL
 ACCEL_CMD = _core_.ACCEL_CMD
 class AcceleratorEntry(object):
     """
@@ -9312,7 +9375,7 @@ class Window(EvtHandler):
         """
         return _core_.Window_SetInitialSize(*args, **kwargs)
 
-    SetBestFittingSize = wx._deprecated(SetInitialSize, 'Use `SetInitialSize`') 
+    SetBestFittingSize = wx.deprecated(SetInitialSize, 'Use `SetInitialSize`') 
     def Raise(*args, **kwargs):
         """
         Raise(self)
@@ -9561,12 +9624,12 @@ class Window(EvtHandler):
         """
         return _core_.Window_GetEffectiveMinSize(*args, **kwargs)
 
-    GetBestFittingSize = wx._deprecated(GetEffectiveMinSize, 'Use `GetEffectiveMinSize` instead.') 
+    GetBestFittingSize = wx.deprecated(GetEffectiveMinSize, 'Use `GetEffectiveMinSize` instead.') 
     def GetAdjustedBestSize(self):
         s = self.GetBestSize()
         return wx.Size(max(s.width,  self.GetMinWidth()),
                        max(s.height, self.GetMinHeight()))
-    GetAdjustedBestSize = wx._deprecated(GetAdjustedBestSize, 'Use `GetEffectiveMinSize` instead.')
+    GetAdjustedBestSize = wx.deprecated(GetAdjustedBestSize, 'Use `GetEffectiveMinSize` instead.')
 
     def Center(*args, **kwargs):
         """
@@ -9656,8 +9719,8 @@ class Window(EvtHandler):
         """SetVirtualSizeHintsSz(self, Size minSize, Size maxSize=DefaultSize)"""
         return _core_.Window_SetVirtualSizeHintsSz(*args, **kwargs)
 
-    SetVirtualSizeHints = wx._deprecated(SetVirtualSizeHints)
-    SetVirtualSizeHintsSz = wx._deprecated(SetVirtualSizeHintsSz)
+    SetVirtualSizeHints = wx.deprecated(SetVirtualSizeHints)
+    SetVirtualSizeHintsSz = wx.deprecated(SetVirtualSizeHintsSz)
 
     def GetMaxSize(*args, **kwargs):
         """GetMaxSize(self) -> Size"""
@@ -11265,7 +11328,7 @@ class Window(EvtHandler):
         """
         return _core_.Window_SetHelpTextForId(*args, **kwargs)
 
-    SetHelpTextForId = wx._deprecated(SetHelpTextForId,
+    SetHelpTextForId = wx.deprecated(SetHelpTextForId,
                                                        'Use wx.HelpProvider.Get().AddHelp(id, text)') 
     def GetHelpTextAtPoint(*args, **kwargs):
         """
@@ -13028,7 +13091,7 @@ class TextEntryBase(object):
         """
         return _core_.TextEntryBase_GetRange(*args, **kwargs)
 
-    GetString = wx._deprecated(GetRange, "Use `GetRange` instead.") 
+    GetString = wx.deprecated(GetRange, "Use `GetRange` instead.") 
     def IsEmpty(*args, **kwargs):
         """
         IsEmpty(self) -> bool
@@ -13233,6 +13296,10 @@ class TextEntryBase(object):
         """AutoCompleteFileNames(self) -> bool"""
         return _core_.TextEntryBase_AutoCompleteFileNames(*args, **kwargs)
 
+    def AutoCompleteDirectories(*args, **kwargs):
+        """AutoCompleteDirectories(self) -> bool"""
+        return _core_.TextEntryBase_AutoCompleteDirectories(*args, **kwargs)
+
     def IsEditable(*args, **kwargs):
         """IsEditable(self) -> bool"""
         return _core_.TextEntryBase_IsEditable(*args, **kwargs)
@@ -13345,6 +13412,10 @@ class TextAreaBase(object):
         """PositionToXY(long pos) -> (x, y)"""
         return _core_.TextAreaBase_PositionToXY(*args, **kwargs)
 
+    def PositionToCoords(*args, **kwargs):
+        """PositionToCoords(self, long pos) -> Point"""
+        return _core_.TextAreaBase_PositionToCoords(*args, **kwargs)
+
     def ShowPosition(*args, **kwargs):
         """ShowPosition(self, long pos)"""
         return _core_.TextAreaBase_ShowPosition(*args, **kwargs)
@@ -13386,6 +13457,33 @@ class TextCtrlBase(Control,TextAreaBase,TextEntry):
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
 _core_.TextCtrlBase_swigregister(TextCtrlBase)
+
+#---------------------------------------------------------------------------
+
+class WithImages(object):
+    """Proxy of C++ WithImages class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    NO_IMAGE = _core_.WithImages_NO_IMAGE
+    def __init__(self, *args, **kwargs): 
+        """__init__(self) -> WithImages"""
+        _core_.WithImages_swiginit(self,_core_.new_WithImages(*args, **kwargs))
+    __swig_destroy__ = _core_.delete_WithImages
+    __del__ = lambda self : None;
+    def SetImageList(*args, **kwargs):
+        """SetImageList(self, ImageList imageList)"""
+        return _core_.WithImages_SetImageList(*args, **kwargs)
+
+    def AssignImageList(*args, **kwargs):
+        """AssignImageList(self, ImageList imageList)"""
+        return _core_.WithImages_AssignImageList(*args, **kwargs)
+
+    def GetImageList(*args, **kwargs):
+        """GetImageList(self) -> ImageList"""
+        return _core_.WithImages_GetImageList(*args, **kwargs)
+
+    ImageList = property(GetImageList,SetImageList,doc="See `GetImageList` and `SetImageList`") 
+_core_.WithImages_swigregister(WithImages)
 
 #---------------------------------------------------------------------------
 
@@ -13857,8 +13955,8 @@ class SizerItem(Object):
         """
         return _core_.SizerItem_GetProportion(*args, **kwargs)
 
-    SetOption = wx._deprecated(SetProportion, "Please use `SetProportion` instead.") 
-    GetOption = wx._deprecated(GetProportion, "Please use `GetProportion` instead.") 
+    SetOption = wx.deprecated(SetProportion, "Please use `SetProportion` instead.") 
+    GetOption = wx.deprecated(GetProportion, "Please use `GetProportion` instead.") 
     def SetFlag(*args, **kwargs):
         """
         SetFlag(self, int flag)
@@ -13939,9 +14037,9 @@ class SizerItem(Object):
         """
         return _core_.SizerItem_SetSpacer(*args, **kwargs)
 
-    SetWindow = wx._deprecated(SetWindow, "Use `AssignWindow` instead.")
-    SetSizer = wx._deprecated(SetSizer,   "Use `AssignSizer` instead.")
-    SetSpacer = wx._deprecated(SetSpacer, "Use `AssignSpacer` instead.")
+    SetWindow = wx.deprecated(SetWindow, "Use `AssignWindow` instead.")
+    SetSizer = wx.deprecated(SetSizer,   "Use `AssignSizer` instead.")
+    SetSpacer = wx.deprecated(SetSpacer, "Use `AssignSpacer` instead.")
 
     def AssignWindow(*args, **kwargs):
         """
@@ -14581,7 +14679,7 @@ class Sizer(Object):
         """
         return _core_.Sizer_SetVirtualSizeHints(*args, **kwargs)
 
-    SetVirtualSizeHints = wx._deprecated(SetVirtualSizeHints) 
+    SetVirtualSizeHints = wx.deprecated(SetVirtualSizeHints) 
     def Clear(*args, **kwargs):
         """
         Clear(self, bool deleteWindows=False)
@@ -15268,7 +15366,7 @@ class GBPosition(object):
         """Get(self) -> PyObject"""
         return _core_.GBPosition_Get(*args, **kwargs)
 
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.GBPosition'+str(self.Get())
     def __len__(self):                   return len(self.Get())
@@ -15348,7 +15446,7 @@ class GBSpan(object):
         """Get(self) -> PyObject"""
         return _core_.GBSpan_Get(*args, **kwargs)
 
-    asTuple = wx._deprecated(Get, "asTuple is deprecated, use `Get` instead")
+    asTuple = wx.deprecated(Get, "asTuple is deprecated, use `Get` instead")
     def __str__(self):                   return str(self.Get())
     def __repr__(self):                  return 'wx.GBSpan'+str(self.Get())
     def __len__(self):                   return len(self.Get())
