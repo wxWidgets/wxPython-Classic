@@ -259,6 +259,7 @@ App_GetComCtl32Version           = _core_.PyApp_GetComCtl32Version
 
 #----------------------------------------------------------------------------
 
+@wx.deprecated
 class PySimpleApp(wx.App):
     """
     A simple application class.  You can just create one of these and
