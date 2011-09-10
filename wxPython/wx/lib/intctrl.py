@@ -509,7 +509,7 @@ class IntCtrl(wx.TextCtrl):
         self._colorValue()
 
         
-     def SetMin(self, min=None):
+    def SetMin(self, min=None):
         """
         Sets the minimum value of the control.  If a value of None
         is provided, then the control will have no explicit minimum value.

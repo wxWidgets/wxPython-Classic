@@ -3,6 +3,15 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.9.2.4
+-------
+* 9-Sept-2011
+
+Try, try again...  Fixed an indentation bug that crept in somewhere
+along the way.
+
+
+
 2.9.2.3
 -------
 * 8-Sept-2011
