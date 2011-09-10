@@ -795,7 +795,7 @@ enum {
 };
 
 
-DocStr(wxProgressDialog,
+DocStr(wxGenericProgressDialog,
 "A dialog that shows a short message and a progress bar. Optionally, it
 can display an ABORT button.", "
 
@@ -839,14 +839,14 @@ Window Styles
 
 // TODO: wxPD_CAN_SKIP
 
-MustHaveApp(wxProgressDialog);
+MustHaveApp(wxGenericProgressDialog);
 
-class wxProgressDialog : public wxDialog {
+class wxGenericProgressDialog : public wxDialog {
 public:
-    %pythonAppend wxProgressDialog   "self._setOORInfo(self)"
+    %pythonAppend wxGenericProgressDialog   "self._setOORInfo(self)"
 
     DocCtorStr(
-        wxProgressDialog(const wxString& title,
+        wxGenericProgressDialog(const wxString& title,
                          const wxString& message,
                          int maximum = 100,
                          wxWindow* parent = NULL,
@@ -932,6 +932,21 @@ abort.", "");
     %property(Range, GetRange, SetRange);
     %property(Message, GetMessage);
 };
+
+
+MustHaveApp(wxProgressDialog);
+
+class wxProgressDialog : public wxGenericProgressDialog
+{
+public:
+    %pythonAppend wxProgressDialog   "self._setOORInfo(self)"
+    
+    wxProgressDialog( const wxString& title, const wxString& message,
+                      int maximum = 100,
+                      wxWindow *parent = NULL,
+                      int style = wxPD_APP_MODAL | wxPD_AUTO_HIDE );
+};
+
 
 //---------------------------------------------------------------------------
 
