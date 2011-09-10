@@ -47,7 +47,7 @@ enum {
 MustHaveApp(wxBookCtrlBase);
 
 //  Common base class for wxList/Tree/Notebook
-class wxBookCtrlBase : public wxControl, public wxWithImage
+class wxBookCtrlBase : public wxControl, public wxWithImages
 {
 public:
     // This is an ABC, it can't be constructed...

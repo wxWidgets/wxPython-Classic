@@ -152,6 +152,7 @@ swig_sources = run_swig(['core.i'], 'src', GENDIR, PKGDIR,
                           'src/_swigtype.i',
                           'src/_headercol.i',
                           'src/_versioninfo.i',
+                          'src/_withimages.i',
                           ],
                         True)
 
