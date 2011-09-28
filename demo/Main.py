@@ -646,7 +646,7 @@ class InternetThread(Thread):
                 return
             
             wx.CallAfter(self.notifyWindow.LoadDocumentation, data)
-        except IOError, e:
+        except (IOError, urllib2.HTTPError):
             # Unable to get to the internet
             t, v = sys.exc_info()[:2]
             message = traceback.format_exception_only(t, v)
@@ -656,8 +656,6 @@ class InternetThread(Thread):
             t, v = sys.exc_info()[:2]
             message = traceback.format_exception_only(t, v)
             wx.CallAfter(self.notifyWindow.StopDownload, message)
-
-        return
 
 
 #---------------------------------------------------------------------------
@@ -2385,6 +2383,10 @@ class wxPythonDemo(wx.Frame):
         text = self.curOverview
         text += "<br><p><b>Checking for documentation on the wxWidgets website, please stand by...</b><br>"
 
+        lead = text[:6]
+        if lead != '<html>' and lead != '<HTML>':
+            text = '<br>'.join(text.split('\n'))
+
         self.ovr.SetPage(text)
 
         self.downloadTimer.Start(100)
@@ -2405,6 +2407,7 @@ class wxPythonDemo(wx.Frame):
         if error:
             if self.sendDownloadError:
                 self.log.write("Warning: problems in downloading documentation from the wxWidgets website.\n")
+                self.log.write("Error message from the documentation downloader was:\n")
                 self.log.write("\n".join(error))
                 self.sendDownloadError = False
 
@@ -2418,21 +2421,22 @@ class wxPythonDemo(wx.Frame):
         self.Reposition()
 
         text = self.curOverview
+
+        lead = text[:6]
+        if lead != '<html>' and lead != '<HTML>':
+            text = '<br>'.join(text.split('\n'))
+        
         self.ovr.SetPage(text)
 
     #---------------------------------------------
 
     def LoadDocumentation(self, data):
-        import time
-        start = time.time()
         
         text = self.curOverview
         addHtml = False
         
         if '<html>' not in text and '<HTML>' not in text:
             text = '<br>'.join(text.split('\n'))
-            text = "<html>\n<body>\n" + text
-            addHtml = True
 
         styles, events, extra, appearance = data
 
@@ -2445,9 +2449,6 @@ class wxPythonDemo(wx.Frame):
 
             headers = (names == "Events" and [2] or [3])[0]
             text += "<p>" + FormatDocs(names, values, headers)
-
-        if addHtml:
-            text += "\n</body>\n</html>\n"
 
         item = self.tree.GetSelection()
         itemText = self.tree.GetItemText(item)
