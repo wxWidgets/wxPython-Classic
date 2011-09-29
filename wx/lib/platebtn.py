@@ -73,8 +73,8 @@ Requirements:
 """
 
 __author__ = "Cody Precord <cprecord@editra.org>"
-__svnid__ = "$Id: platebtn.py 67852 2011-06-04 15:24:27Z CJP $"
-__revision__ = "$Revision: 67852 $"
+__svnid__ = "$Id: platebtn.py 69230 2011-09-29 15:23:52Z CJP $"
+__revision__ = "$Revision: 69230 $"
 
 __all__ = ["PlateButton",
            "PLATE_NORMAL", "PLATE_PRESSED", "PLATE_HIGHLIGHT", 
@@ -141,7 +141,7 @@ class PlateButton(wx.PyControl):
             self._bmp['enable'] = bmp
             img = bmp.ConvertToImage()
             img = img.ConvertToGreyscale(.795, .073, .026) #(.634, .224, .143)
-            self._bmp['disable'] = img.ConvertToBitmap()
+            self._bmp['disable'] = wx.BitmapFromImage(img)
 
         self._menu = None
         self.SetLabel(label)
@@ -304,7 +304,7 @@ class PlateButton(wx.PyControl):
                 dc.DrawText(self.Label, txt_x + 2, txt_y)
             else:
                 gc.DrawText(self.Label, txt_x + 2, txt_y)
-            self.__DrawDropArrow(gc, txt_x + tw + 6, (height // 2) - 2)
+            self.__DrawDropArrow(gc, width - 10, (height // 2) - 2)
 
         else:
             if self.IsEnabled():
@@ -320,7 +320,7 @@ class PlateButton(wx.PyControl):
                 dc.DrawText(self.Label, txt_x + 2, txt_y)
             else:
                 gc.DrawText(self.Label, txt_x + 2, txt_y)
-            self.__DrawDropArrow(gc, txt_x + tw + 6, (height // 2) - 2)
+            self.__DrawDropArrow(gc, width - 10, (height // 2) - 2)
 
     def __InitColors(self):
         """Initialize the default colors"""
@@ -340,27 +340,50 @@ class PlateButton(wx.PyControl):
             self._SetState(PLATE_NORMAL)
             self._pressed = False
 
+    def _SetState(self, state):
+        """Manually set the state of the button
+        @param state: one of the PLATE_* values
+        @note: the state may be altered by mouse actions
+        @note: Internal use only!
+
+        """
+        self._state['pre'] = self._state['cur']
+        self._state['cur'] = state
+        if wx.Platform == '__WXMSW__':
+            self.Parent.RefreshRect(self.Rect, False)
+        else:
+            self.Refresh()
+
+    def _ToggleState(self):
+        """Toggle button state
+        @note: Internal Use Only!
+
+        """
+        if self._state['cur'] != PLATE_PRESSED:
+            self._SetState(PLATE_PRESSED)
+        else:
+            self._SetState(PLATE_HIGHLIGHT)
+
     #---- End Private Member Function ----#
 
     #---- Public Member Functions ----#
-    def AcceptsFocus(self):
-        """Can this window have the focus?"""
-        return self.IsEnabled()
 
-    @property
-    def BitmapDisabled(self):
-        """Property for accessing the bitmap for the disabled state"""
-        return self._bmp['disable']
-
-    @property
-    def BitmapLabel(self):
-        """Property for accessing the default bitmap"""
-        return self._bmp['enable']
+    BitmapDisabled = property(lambda self: self.GetBitmapDisabled(),
+                              lambda self, bmp: self.SetBitmapDisabled(bmp))
+    BitmapLabel = property(lambda self: self.GetBitmapLabel(),
+                           lambda self, bmp: self.SetBitmap(bmp))
 
     # Aliases
     BitmapFocus = BitmapLabel
     BitmapHover = BitmapLabel
     BitmapSelected = BitmapLabel
+
+    LabelText = property(lambda self: self.GetLabel(),
+                         lambda self, lbl: self.SetLabel(lbl))
+
+    def AcceptsFocus(self):
+        """Can this window have the focus?"""
+        return self.IsEnabled()
 
     def Disable(self):
         """Disable the control"""
@@ -383,7 +406,7 @@ class PlateButton(wx.PyControl):
             height += lsize[1]
             
         if self._bmp['enable'] is not None:
-            bsize = self._bmp['enable'].GetSize()
+            bsize = self._bmp['enable'].Size
             width += (bsize[0] + 10)
             if height <= bsize[1]:
                 height = bsize[1] + 6
@@ -416,11 +439,11 @@ class PlateButton(wx.PyControl):
         bkgrd = self.GetBackgroundColour()
         brush = wx.Brush(bkgrd, wx.SOLID)
         my_attr = self.GetDefaultAttributes()
-        p_attr = self.GetParent().GetDefaultAttributes()
+        p_attr = self.Parent.GetDefaultAttributes()
         my_def = bkgrd == my_attr.colBg
-        p_def = self.GetParent().GetBackgroundColour() == p_attr.colBg
+        p_def = self.Parent.GetBackgroundColour() == p_attr.colBg
         if my_def and not p_def:
-            bkgrd = self.GetParent().GetBackgroundColour()
+            bkgrd = self.Parent.GetBackgroundColour()
             brush = wx.Brush(bkgrd, wx.SOLID)
         return brush
 
@@ -429,14 +452,14 @@ class PlateButton(wx.PyControl):
         @return: wx.Bitmap or None
 
         """
-        return self._bmp['disable']
+        return self.BitmapDisabled
 
     def GetBitmapLabel(self):
         """Get the label bitmap
         @return: wx.Bitmap or None
 
         """
-        return self._bmp['enable']
+        return self.BitmapLabel
 
     # GetBitmap Aliases for BitmapButton api
     GetBitmapFocus = GetBitmapLabel
@@ -450,7 +473,7 @@ class PlateButton(wx.PyControl):
         menu is associated with it.
 
         """
-        return getattr(self, '_menu', None)
+        return self._menu
 
     def GetState(self):
         """Get the current state of the button
@@ -470,11 +493,6 @@ class PlateButton(wx.PyControl):
 
         """
         return self._pressed
-
-    @property
-    def LabelText(self):
-        """Property for getting the label of the button"""
-        return self.GetLabel()
 
     #---- Event Handlers ----#
 
@@ -532,7 +550,7 @@ class PlateButton(wx.PyControl):
             elif self._style & PB_STYLE_DROPARROW:
                 event = PlateBtnDropArrowPressed()
                 event.SetEventObject(self)
-                wx.PostEvent(self, event)
+                self.EventHandler.ProcessEvent(event)
         
         self.SetFocus()
 
@@ -636,7 +654,7 @@ class PlateButton(wx.PyControl):
                 self._color['htxt'] = BestLabelColour(normal)
 
         if wx.Platform == '__WXMSW__':
-            self.GetParent().RefreshRect(self.GetRect(), False)
+            self.Parent.RefreshRect(self.GetRect(), False)
         else:
             self.Refresh()
 
@@ -668,20 +686,6 @@ class PlateButton(wx.PyControl):
         self._color['press'] = AdjustColour(color, -10, 160)
         self._color['htxt'] = BestLabelColour(self._color['hlight'])
         self.Refresh()
-
-    def _SetState(self, state):
-        """Manually set the state of the button
-        @param state: one of the PLATE_* values
-        @note: the state may be altered by mouse actions
-        @note: Internal use only!
-
-        """
-        self._state['pre'] = self._state['cur']
-        self._state['cur'] = state
-        if wx.Platform == '__WXMSW__':
-            self.GetParent().RefreshRect(self.GetRect(), False)
-        else:
-            self.Refresh()
 
     def SetWindowStyle(self, style):
         """Sets the window style bytes, the updates take place
@@ -716,15 +720,5 @@ class PlateButton(wx.PyControl):
                 xpos = size[1] / 2
 
             self.PopupMenu(self._menu, (xpos, size[1] + adj))
-
-    def _ToggleState(self):
-        """Toggle button state
-        @note: Internal Use Only!
-
-        """
-        if self._state['cur'] != PLATE_PRESSED:
-            self._SetState(PLATE_PRESSED)
-        else:
-            self._SetState(PLATE_HIGHLIGHT)
 
     #---- End Public Member Functions ----#
