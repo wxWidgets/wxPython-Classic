@@ -734,7 +734,6 @@ format details.", "");
     %property(Mask, GetMask, SetMask, doc="See `GetMask` and `SetMask`");
     %property(Palette, GetPalette, doc="See `GetPalette`");
     %property(Size, GetSize, SetSize, doc="See `GetSize` and `SetSize`");
-    %property(SubBitmap, GetSubBitmap, doc="See `GetSubBitmap`");
     %property(Width, GetWidth, SetWidth, doc="See `GetWidth` and `SetWidth`");
 
 };
