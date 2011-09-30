@@ -52,7 +52,6 @@ wx = _sys.modules[__name__]
 
 %pythoncode {
 %#----------------------------------------------------------------------------
-
             
 import warnings
 class wxPyDeprecationWarning(DeprecationWarning):
@@ -68,29 +67,29 @@ def deprecated(item, msg=''):
     """
     import warnings
     if isinstance(item, type):
-        # It's a class.  Make a subclass that raises a warning.
+        %# It is a class.  Make a subclass that raises a warning.
         class DeprecatedClassProxy(item):
             def __init__(*args, **kw):
                 warnings.warn("Using deprecated class. %s" % msg,
                           wxPyDeprecationWarning, stacklevel=2)
                 item.__init__(*args, **kw)
         DeprecatedClassProxy.__name__ = item.__name__
-        DeprecatedClassProxy.__doc__ = item.__doc__
         return DeprecatedClassProxy
     
     elif callable(item):
-        # wrap a new function around the callable
+        %# wrap a new function around the callable
         def deprecated_func(*args, **kw):
             warnings.warn("Call to deprecated item '%s'. %s" % (item.__name__, msg),
                           wxPyDeprecationWarning, stacklevel=2)
             return item(*args, **kw)
         deprecated_func.__name__ = item.__name__
         deprecated_func.__doc__ = item.__doc__
-        deprecated_func.__dict__.update(item.__dict__)
+        if hasattr(item, '__dict__'):
+            deprecated_func.__dict__.update(item.__dict__)
         return deprecated_func
         
     elif hasattr(item, '__get__'):
-        # it should be a property if there is a getter
+        %# it should be a property if there is a getter
         class DepGetProp(object):
             def __init__(self,item, msg):
                 self.item = item
@@ -118,6 +117,8 @@ def deprecated(item, msg=''):
             return DepGetProp(item, msg)
     else:
         raise TypeError, "unsupported type %s" % type(item)
+                   
+         
                    
 %#----------------------------------------------------------------------------
 }
