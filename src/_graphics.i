@@ -1470,13 +1470,19 @@ public:
     wxGCDC(const wxMemoryDC& dc);
     wxGCDC(const wxPrinterDC& dc);
     wxGCDC(wxWindow* window);
+
+    %disownarg( wxGraphicsContext* ctx );
     wxGCDC(wxGraphicsContext* ctx);
+    %cleardisown( wxGraphicsContext* ctx );
     
     //wxGCDC();
     virtual ~wxGCDC();
 
     wxGraphicsContext* GetGraphicsContext() const; 
+
+    %disownarg( wxGraphicsContext* ctx );
     virtual void SetGraphicsContext( wxGraphicsContext* ctx );
+    %cleardisown( wxGraphicsContext* ctx );
 
     %property(GraphicsContext, GetGraphicsContext, SetGraphicsContext);
 };
