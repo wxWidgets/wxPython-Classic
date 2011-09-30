@@ -171,7 +171,6 @@ public:
     virtual void SetReorderable(bool reorderable);
     virtual void SetHidden(bool hidden);
 
-    virtual void SetAsSortKey(bool sort = true);
     void UnsetAsSortKey();
 
     virtual void SetSortOrder(bool ascending);
