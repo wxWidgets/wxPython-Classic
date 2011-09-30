@@ -401,7 +401,7 @@ class Pycairo_CAPI(ctypes.Structure):
                                                       ctypes.py_object)),
             ('Check_Status', ctypes.PYFUNCTYPE(ctypes.c_int, ctypes.c_int))]
 
-    # This structure is known good with pycairo 1.10.0. The keep adding stuff
+    # This structure is known good with pycairo 1.10.0. They keep adding stuff
     # to the middle of the structure instead of only adding to the end!
     elif cairo.version_info < (1,11):  
         _fields_ = [
@@ -411,7 +411,7 @@ class Pycairo_CAPI(ctypes.Structure):
                                                       ctypes.py_object,
                                                       ctypes.py_object)),
             ('FontFace_Type', ctypes.py_object),
-            ('ToyFontFace_Type', ctypes.py_object),  #** new in 1.8.4
+            ('ToyFontFace_Type', ctypes.py_object),  
             ('FontFace_FromFontFace', ctypes.PYFUNCTYPE(ctypes.py_object, ctypes.c_void_p)),
             ('FontOptions_Type', ctypes.py_object),
             ('FontOptions_FromFontOptions', ctypes.PYFUNCTYPE(ctypes.py_object, ctypes.c_void_p)),
@@ -435,8 +435,8 @@ class Pycairo_CAPI(ctypes.Structure):
             ('PSSurface_Type', ctypes.py_object),
             ('SVGSurface_Type', ctypes.py_object),
             ('Win32Surface_Type', ctypes.py_object),
-            ('Win32PrintingSurface_Type', ctypes.py_object),
-            ('XCBSurface_Type', ctypes.py_object),
+            ('Win32PrintingSurface_Type', ctypes.py_object),  #** new
+            ('XCBSurface_Type', ctypes.py_object),            #** new
             ('XlibSurface_Type', ctypes.py_object),
             ('Surface_FromSurface', ctypes.PYFUNCTYPE(ctypes.py_object,
                                                       ctypes.c_void_p,
