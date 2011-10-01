@@ -187,7 +187,7 @@ public:
     %property(Sortable, HeaderColumn.IsSortable, SetSortable);
     %property(Reorderable, HeaderColumn.IsReorderable, SetReorderable);
     %property(Hidden, HeaderColumn.IsHidden, SetHidden);
-    %property(SortKey, HeaderColumn.IsSortKey, SetAsSortKey);
+    %property(SortKey, HeaderColumn.IsSortKey);
 };
 
 // ----------------------------------------------------------------------------
