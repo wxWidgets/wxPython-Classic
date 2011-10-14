@@ -445,6 +445,11 @@ public:
     // ------------------------------------------------------------------------
     // Set methods
 
+    // This typemap ensures that the returned object is the same
+    // Python instance as what was passed in as `self`, instead of
+    // creating a new proxy as SWIG would normally do.
+    %typemap(out) wxDateTime& { $result = $self; Py_INCREF($result); }
+    
     wxDateTime& SetToCurrent();
 
         // set to given time_t value
@@ -611,6 +616,8 @@ public:
         // the information is not available (this is compatible with ANSI C)
     int IsDST(Country country = Country_Default);
 
+    // Clear the typemap
+    %typemap(out) wxDateTime& ;
 
 
     // ------------------------------------------------------------------------
@@ -963,6 +970,11 @@ public:
     // ------------------------------------------------------------------------
     // arithmetics with time spans
 
+    // This typemap ensures that the returned object is the same
+    // Python instance as what was passed in as `self`, instead of
+    // creating a new proxy as SWIG would normally do.
+    %typemap(out) wxTimeSpan& { $result = $self; Py_INCREF($result); }
+
         // add two timespans together
     inline wxTimeSpan& Add(const wxTimeSpan& diff);
 
@@ -985,6 +997,9 @@ public:
     wxTimeSpan& operator*=(int n);
     wxTimeSpan& operator-();
 
+    // Clear the typemap
+    %typemap(out) wxTimeSpan& ;
+    
     %extend {
         wxTimeSpan __add__(const wxTimeSpan& other) { return *self + other; }
         wxTimeSpan __sub__(const wxTimeSpan& other) { return *self - other; }
@@ -1139,6 +1154,11 @@ public:
 
     // ------------------------------------------------------------------------
 
+    // This typemap ensures that the returned object is the same
+    // Python instance as what was passed in as `self`, instead of
+    // creating a new proxy as SWIG would normally do.
+    %typemap(out) wxDateSpan& { $result = $self; Py_INCREF($result); }
+
         // set number of years
     wxDateSpan& SetYears(int n);
         // set number of months
@@ -1179,6 +1199,9 @@ public:
     wxDateSpan& operator-() { return Neg(); }
     inline wxDateSpan& operator*=(int factor) { return Multiply(factor); }
 
+    // Clear the typemap
+    %typemap(out) wxDateSpan& ;
+    
     %extend {
         wxDateSpan __add__(const wxDateSpan& other) { return *self + other; }
         wxDateSpan __sub__(const wxDateSpan& other) { return *self - other; }
