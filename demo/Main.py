@@ -95,6 +95,7 @@ _treeList = [
         'CommandLinkButton',
         'DVC_CustomRenderer',
         'PenAndBrushStyles',
+        'InfoBar',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -1537,6 +1538,21 @@ class DemoErrorPanel(wx.Panel):
 
 #---------------------------------------------------------------------------
 
+class MainPanel(wx.Panel):
+    """
+    Just a simple derived panel where we override Freeze and Thaw to work
+    around an issue on wxGTK.
+    """
+    def Freeze(self):
+        if not 'wxGTK' in wx.PlatformInfo:
+            return super(MainPanel, self).Freeze()
+                         
+    def Thaw(self):
+        if not 'wxGTK' in wx.PlatformInfo:
+            return super(MainPanel, self).Thaw()
+                         
+#---------------------------------------------------------------------------
+
 class DemoTaskBarIcon(wx.TaskBarIcon):
     TBMENU_RESTORE = wx.NewId()
     TBMENU_CLOSE   = wx.NewId()
@@ -1630,10 +1646,7 @@ class wxPythonDemo(wx.Frame):
 
         self.SetMinSize((640,480))
 
-        # Use a panel under the AUI panes in order to work around a
-        # bug on PPC Macs
-        pnl = wx.Panel(self)
-        self.pnl = pnl
+        self.pnl = pnl = MainPanel(self)
         
         self.mgr = wx.aui.AuiManager()
         self.mgr.SetManagedWindow(pnl)
@@ -1817,7 +1830,7 @@ class wxPythonDemo(wx.Frame):
         self.mgr.AddPane(leftPanel,
                          wx.aui.AuiPaneInfo().
                          Left().Layer(2).BestSize((240, -1)).
-                         MinSize((160, -1)).
+                         MinSize((240, -1)).
                          Floatable(self.allowAuiFloating).FloatingSize((240, 700)).
                          Caption("wxPython Demos").
                          CloseButton(False).
@@ -1825,7 +1838,7 @@ class wxPythonDemo(wx.Frame):
         self.mgr.AddPane(self.log,
                          wx.aui.AuiPaneInfo().
                          Bottom().BestSize((-1, 150)).
-                         MinSize((-1, 60)).
+                         MinSize((-1, 140)).
                          Floatable(self.allowAuiFloating).FloatingSize((500, 160)).
                          Caption("Demo Log Messages").
                          CloseButton(False).
