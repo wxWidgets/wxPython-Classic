@@ -1415,8 +1415,6 @@ supported.", "");
     %property(PPI, GetPPI, doc="See `GetPPI`");
     %property(PartialTextExtents, GetPartialTextExtents, doc="See `GetPartialTextExtents`");
     %property(Pen, GetPen, SetPen, doc="See `GetPen` and `SetPen`");
-    %property(Pixel, GetPixel, doc="See `GetPixel`");
-    %property(PixelPoint, GetPixelPoint, doc="See `GetPixelPoint`");
     %property(Size, GetSize, doc="See `GetSize`");
     %property(SizeMM, GetSizeMM, doc="See `GetSizeMM`");
     %property(TextBackground, GetTextBackground, SetTextBackground, doc="See `GetTextBackground` and `SetTextBackground`");
