@@ -657,6 +657,7 @@ class InspectionInfoPanel(wx.stc.StyledTextCtrl):
         st.append(self.Fmt('virtual size',obj.GetVirtualSize()))
         st.append(self.Fmt('IsEnabled',   obj.IsEnabled()))
         st.append(self.Fmt('IsShown',     obj.IsShown()))
+        st.append(self.Fmt('IsFrozen',    obj.IsFrozen()))        
         st.append(self.Fmt('fg color',    obj.GetForegroundColour()))
         st.append(self.Fmt('bg color',    obj.GetBackgroundColour()))
         st.append(self.Fmt('label',       obj.GetLabel()))
