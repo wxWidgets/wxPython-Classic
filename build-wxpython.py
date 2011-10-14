@@ -411,7 +411,10 @@ if options.install:
 if sys.platform.startswith("win"):
     # Copy the wxWidgets DLLs to the wxPython package folder
     dlls = glob.glob(os.path.join(dllDir, "wx*" + version2_nodot + dll_type + "*.dll")) + \
-           glob.glob(os.path.join(dllDir, "wx*" + version3_nodot + dll_type + "*.dll")) 
+           glob.glob(os.path.join(dllDir, "wx*" + version3_nodot + dll_type + "*.dll"))
+
+    if options.debug:
+        dlls += glob.glob(os.path.join(dllDir, "wx*" + "*.pdb"))
 
     # Also copy the cairo DLLs if needed
     if options.cairo:
