@@ -196,8 +196,10 @@ class ExpandoTextCtrl(wx.TextCtrl):
         def _wrapLine(self, line, dc, width):
             # Estimate where the control will wrap the lines and
             # return the count of extra lines needed.
-            pte = dc.GetPartialTextExtents(line)            
+            pte = dc.GetPartialTextExtents(line)  
             width -= wx.SystemSettings.GetMetric(wx.SYS_VSCROLL_X)
+            if not pte or width < pte[0]:
+                return 1
             idx = 0
             start = 0
             count = 0
@@ -212,8 +214,10 @@ class ExpandoTextCtrl(wx.TextCtrl):
                     if spc != -1:
                         idx = spc + 1
                         spc = -1
-                    if idx < len(pte):
+                    try:
                         start = pte[idx]
+                    except IndexError:
+                        start = pte[-1]
                 else:
                     idx += 1
             return count
