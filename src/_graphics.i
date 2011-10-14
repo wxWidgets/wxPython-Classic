@@ -343,6 +343,12 @@ public:
         return NULL;
     }
 
+    static wxGraphicsContext* Create(wxImage& ) {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.GraphicsContext is not available on this platform.");
+        return NULL;
+    }
+    
     virtual bool StartDoc( const wxString& message ) { return false; }
     virtual void EndDoc() {}
     virtual void StartPage( wxDouble, wxDouble) {}
@@ -377,8 +383,13 @@ public:
          { return wxNullGraphicsBrush; }
 
     virtual wxGraphicsFont CreateFont( const wxFont &, const wxColour & )  { return wxNullGraphicsFont; }
+    virtual wxGraphicsFont CreateFont(double sizeInPixels,
+                                      const wxString& facename,
+                                      int flags = wxFONTFLAG_DEFAULT,
+                                      const wxColour& col = *wxBLACK) const { return wxNullGraphicsFont; }
 
     virtual wxGraphicsBitmap CreateBitmap( const wxBitmap & ) const { return wxNullGraphicsBitmap; }
+    wxGraphicsBitmap CreateBitmapFromImage(const wxImage& image) const { return wxNullGraphicsBitmap; }
     virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &, wxDouble, wxDouble, wxDouble, wxDouble ) const  { return wxNullGraphicsBitmap; }
     
     virtual wxGraphicsMatrix CreateMatrix( wxDouble, wxDouble, wxDouble, wxDouble,
@@ -476,6 +487,7 @@ public :
     virtual wxGraphicsContext * CreateContextFromNativeContext( void *  ) { return NULL; }
     virtual wxGraphicsContext * CreateContextFromNativeWindow( void *  )  { return NULL; }
     virtual wxGraphicsContext * CreateContext( wxWindow*  ) { return NULL; }
+    virtual wxGraphicsContext * CreateContextFromImage(wxImage&) { return NULL; }
     virtual wxGraphicsContext * CreateMeasuringContext() { return NULL; }
 
     virtual wxGraphicsPath CreatePath()  { return wxNullGraphicsPath; }
@@ -499,7 +511,13 @@ public :
     { return wxNullGraphicsBrush; }
 
     virtual wxGraphicsFont CreateFont( const wxFont & , const wxColour & ) { return wxNullGraphicsFont; }
+    virtual wxGraphicsFont CreateFont(double,
+                                      const wxString&,
+                                      int flags,
+                                      const wxColour&)  { return wxNullGraphicsFont; }
+
     virtual wxGraphicsBitmap CreateBitmap( const wxBitmap & ) const { return wxNullGraphicsBitmap; }
+    virtual wxGraphicsBitmap CreateBitmapFromImage(const wxImage&) { return wxNullGraphicsBitmap; }
     virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &, wxDouble, wxDouble, wxDouble, wxDouble ) const  { return wxNullGraphicsBitmap; }
 };
 
@@ -966,7 +984,8 @@ public:
 #ifdef __WXMSW__
     static wxGraphicsContext* Create( const wxMetaFileDC& dc) ;
 #endif
-
+    static wxGraphicsContext* Create(wxImage& );
+    
     %pythonAppend Create "";
     DocDeclStrName(
         static wxGraphicsContext* , Create(),
@@ -1061,16 +1080,22 @@ specified by just the two extremes or the full array of gradient stops.", "");
                               const wxGraphicsGradientStops& stops) const;
 
 
-
+    %nokwargs CreateFont;   
     DocDeclStr(
         virtual wxGraphicsFont , CreateFont( const wxFont &font , const wxColour &col = *wxBLACK ),
         "Creates a native graphics font from a `wx.Font` and a text colour.", "");
 
+    virtual wxGraphicsFont CreateFont(double sizeInPixels,
+                                      const wxString& facename,
+                                      int flags = wxFONTFLAG_DEFAULT,
+                                      const wxColour& col = *wxBLACK) const;
 
     DocDeclStr(
         virtual wxGraphicsBitmap , CreateBitmap( const wxBitmap &bitmap ) const,
         "Create a native bitmap representation.", "");
-    
+
+    wxGraphicsBitmap CreateBitmapFromImage(const wxImage& image) const;
+
     
     DocDeclStr(
         virtual wxGraphicsBitmap , CreateSubBitmap( const wxGraphicsBitmap &bitmap, wxDouble x, wxDouble y, wxDouble w, wxDouble h  ) const,
@@ -1415,6 +1440,8 @@ public :
 #ifdef __WXMSW__
     virtual wxGraphicsContext * CreateContext( const wxMetaFileDC& dc) ;
 #endif
+
+    virtual wxGraphicsContext * CreateContextFromImage(wxImage& image);
     
     // create a context that can be used for measuring texts only, no drawing allowed
     virtual wxGraphicsContext * CreateMeasuringContext();
@@ -1447,8 +1474,13 @@ public :
 
 
     virtual wxGraphicsFont CreateFont( const wxFont &font , const wxColour &col = *wxBLACK );
+    virtual wxGraphicsFont CreateFont(double sizeInPixels,
+                                      const wxString& facename,
+                                      int flags = wxFONTFLAG_DEFAULT,
+                                      const wxColour& col = *wxBLACK);
 
     virtual wxGraphicsBitmap CreateBitmap( const wxBitmap &bitmap );
+    virtual wxGraphicsBitmap CreateBitmapFromImage(const wxImage& image);
     virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &bitmap, wxDouble x, wxDouble y, wxDouble w, wxDouble h  );
 };
 
