@@ -617,6 +617,10 @@ class NumCtrl(BaseMaskedTextCtrl, NumCtrlAccessorsMixin):
         # Establish any additional parameters, with appropriate error checking
         self.SetParameters(**init_args)
 
+        # right alignment with prefixed blanks doesn't work with wxPython 2.9+
+        if wx.Platform == "__WXMSW__":
+            self.SetWindowStyleFlag(self.GetWindowStyleFlag() | wx.TE_RIGHT)
+
         # Set the value requested (if possible)
 ##        wxCallAfter(self.SetValue, value)
         self.SetValue(value)

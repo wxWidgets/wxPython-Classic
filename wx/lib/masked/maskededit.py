@@ -2876,14 +2876,23 @@ class MaskedEditMixin:
         cont = (size is None or size == wx.DefaultSize)
 
         if cont and self._autofit:
-            sizing_text = 'M' * self._masklength
+####            dbg('isinstance(self, wx.lib.masked.numctrl.NumCtrl): "%s"' % self.__class__)
+            # sizing of numctrl when using proportional font and
+            # wxPython 2.9 is not working when using "M"
+            # GetTextExtent returns a width which is way to large
+            if isinstance(self, wx.lib.masked.numctrl.NumCtrl):
+                sizing_text = '9' * self._masklength
+                wAdjust = 8
+            else:
+                sizing_text = 'M' * self._masklength
+                wAdjust = 4
             if wx.Platform != "__WXMSW__":   # give it a little extra space
                 sizing_text += 'M'
             if wx.Platform == "__WXMAC__":   # give it even a little more...
                 sizing_text += 'M'
 ####            dbg('len(sizing_text):', len(sizing_text), 'sizing_text: "%s"' % sizing_text)
             w, h = self.GetTextExtent(sizing_text)
-            size = (w+4, self.GetSize().height)
+            size = (w+wAdjust, self.GetSize().height)
 ####            dbg('size:', size, indent=0)
         return size
 
@@ -6485,7 +6494,7 @@ def _getDay(dateStr,dateFmt):
     return parts[2]
 
 ## ---------- ---------- ---------- ---------- ---------- ---------- ----------
-class __test(wx.PySimpleApp):
+class __test(wx.App):
         def OnInit(self):
             from wx.lib.rcsizer import RowColSizer
             self.frame = wx.Frame( None, -1, "MaskedEditMixin 0.0.7 Demo Page #1", size = (700,600))
