@@ -873,8 +873,8 @@ class NumCtrl(BaseMaskedTextCtrl, NumCtrlAccessorsMixin):
                 # when going to the GUI:
                 text = text.replace('.', self._decimalChar)
             newtext = self._toGUI(text)
-##            dbg('calling wx.TextCtrl.SetValue(self, %s)' % newtext)
-            wx.TextCtrl.SetValue(self, newtext)
+##            dbg('calling wx.TextCtrl.ChangeValue(self, %s)' % newtext)
+            wx.TextCtrl.ChangeValue(self, newtext)
 
         value = self.GetValue()
 
@@ -893,16 +893,16 @@ class NumCtrl(BaseMaskedTextCtrl, NumCtrlAccessorsMixin):
         sel_start, sel_to = self.GetSelection()
         if self.IsLimited() and self._min is not None and value < self._min:
 ##            dbg('Set to min value:', self._min)
-            self._SetValue(self._toGUI(self._min))
+            self._ChangeValue(self._toGUI(self._min))
 
         elif self.IsLimited() and self._max is not None and value > self._max:
 ##            dbg('Setting to max value:', self._max)
-            self._SetValue(self._toGUI(self._max))
+            self._ChangeValue(self._toGUI(self._max))
         else:
             # reformat current value as appropriate to possibly new conditions
 ##            dbg('Reformatting value:', value)
             sel_start, sel_to = self.GetSelection()
-            self._SetValue(self._toGUI(value))
+            self._ChangeValue(self._toGUI(value))
         self.Refresh() # recolor as appropriate
 ##        dbg('finished NumCtrl::SetParameters', indent=0)
 
