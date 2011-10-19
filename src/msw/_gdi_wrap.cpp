@@ -4274,6 +4274,12 @@ public:
         return NULL;
     }
 
+    static wxGraphicsContext* Create(wxImage& ) {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.GraphicsContext is not available on this platform.");
+        return NULL;
+    }
+    
     virtual bool StartDoc( const wxString& message ) { return false; }
     virtual void EndDoc() {}
     virtual void StartPage( wxDouble, wxDouble) {}
@@ -4308,8 +4314,13 @@ public:
          { return wxNullGraphicsBrush; }
 
     virtual wxGraphicsFont CreateFont( const wxFont &, const wxColour & )  { return wxNullGraphicsFont; }
+    virtual wxGraphicsFont CreateFont(double sizeInPixels,
+                                      const wxString& facename,
+                                      int flags = wxFONTFLAG_DEFAULT,
+                                      const wxColour& col = *wxBLACK) const { return wxNullGraphicsFont; }
 
     virtual wxGraphicsBitmap CreateBitmap( const wxBitmap & ) const { return wxNullGraphicsBitmap; }
+    wxGraphicsBitmap CreateBitmapFromImage(const wxImage& image) const { return wxNullGraphicsBitmap; }
     virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &, wxDouble, wxDouble, wxDouble, wxDouble ) const  { return wxNullGraphicsBitmap; }
     
     virtual wxGraphicsMatrix CreateMatrix( wxDouble, wxDouble, wxDouble, wxDouble,
@@ -4407,6 +4418,7 @@ public :
     virtual wxGraphicsContext * CreateContextFromNativeContext( void *  ) { return NULL; }
     virtual wxGraphicsContext * CreateContextFromNativeWindow( void *  )  { return NULL; }
     virtual wxGraphicsContext * CreateContext( wxWindow*  ) { return NULL; }
+    virtual wxGraphicsContext * CreateContextFromImage(wxImage&) { return NULL; }
     virtual wxGraphicsContext * CreateMeasuringContext() { return NULL; }
 
     virtual wxGraphicsPath CreatePath()  { return wxNullGraphicsPath; }
@@ -4430,7 +4442,13 @@ public :
     { return wxNullGraphicsBrush; }
 
     virtual wxGraphicsFont CreateFont( const wxFont & , const wxColour & ) { return wxNullGraphicsFont; }
+    virtual wxGraphicsFont CreateFont(double,
+                                      const wxString&,
+                                      int flags,
+                                      const wxColour&)  { return wxNullGraphicsFont; }
+
     virtual wxGraphicsBitmap CreateBitmap( const wxBitmap & ) const { return wxNullGraphicsBitmap; }
+    virtual wxGraphicsBitmap CreateBitmapFromImage(const wxImage&) { return wxNullGraphicsBitmap; }
     virtual wxGraphicsBitmap CreateSubBitmap( const wxGraphicsBitmap &, wxDouble, wxDouble, wxDouble, wxDouble ) const  { return wxNullGraphicsBitmap; }
 };
 
@@ -32330,6 +32348,33 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GraphicsContext_Create__SWIG_5(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxImage *arg1 = 0 ;
+  wxGraphicsContext *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  
+  if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1, SWIGTYPE_p_wxImage,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_Create" "', expected argument " "1"" of type '" "wxImage &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsContext_Create" "', expected argument " "1"" of type '" "wxImage &""'"); 
+  }
+  arg1 = reinterpret_cast< wxImage * >(argp1);
+  {
+    result = (wxGraphicsContext *)wxGraphicsContext::Create(*arg1);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGraphicsContext, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_GraphicsContext_Create(PyObject *self, PyObject *args) {
   int argc;
   PyObject *argv[2];
@@ -32382,7 +32427,18 @@ check_3:
 check_4:
   
   if (argc == 1) {
+    int _v = 0;
+    {
+      int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_wxMetaFileDC, 0);
+      _v = SWIG_CheckState(res);
+    }
+    if (!_v) goto check_5;
     return _wrap_GraphicsContext_Create__SWIG_4(self, argc, argv);
+  }
+check_5:
+  
+  if (argc == 1) {
+    return _wrap_GraphicsContext_Create__SWIG_5(self, argc, argv);
   }
   
 fail:
@@ -33059,7 +33115,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_GraphicsContext_CreateFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_GraphicsContext_CreateFont__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
   wxFont *arg2 = 0 ;
@@ -33071,20 +33127,14 @@ SWIGINTERN PyObject *_wrap_GraphicsContext_CreateFont(PyObject *SWIGUNUSEDPARM(s
   void *argp2 = 0 ;
   int res2 = 0 ;
   wxColour temp3 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "font",(char *) "col", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:GraphicsContext_CreateFont",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if ((nobjs < 2) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_CreateFont" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
   }
   arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxFont,  0  | 0);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_wxFont,  0  | 0);
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GraphicsContext_CreateFont" "', expected argument " "2"" of type '" "wxFont const &""'"); 
   }
@@ -33092,10 +33142,10 @@ SWIGINTERN PyObject *_wrap_GraphicsContext_CreateFont(PyObject *SWIGUNUSEDPARM(s
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsContext_CreateFont" "', expected argument " "2"" of type '" "wxFont const &""'"); 
   }
   arg2 = reinterpret_cast< wxFont * >(argp2);
-  if (obj2) {
+  if (swig_obj[2]) {
     {
       arg3 = &temp3;
-      if ( ! wxColour_helper(obj2, &arg3)) SWIG_fail;
+      if ( ! wxColour_helper(swig_obj[2], &arg3)) SWIG_fail;
     }
   }
   {
@@ -33105,6 +33155,107 @@ SWIGINTERN PyObject *_wrap_GraphicsContext_CreateFont(PyObject *SWIGUNUSEDPARM(s
   resultobj = SWIG_NewPointerObj((new wxGraphicsFont(static_cast< const wxGraphicsFont& >(result))), SWIGTYPE_p_wxGraphicsFont, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_CreateFont__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  double arg2 ;
+  wxString *arg3 = 0 ;
+  int arg4 = (int) wxFONTFLAG_DEFAULT ;
+  wxColour const &arg5_defvalue = *wxBLACK ;
+  wxColour *arg5 = (wxColour *) &arg5_defvalue ;
+  wxGraphicsFont result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  bool temp3 = false ;
+  int val4 ;
+  int ecode4 = 0 ;
+  wxColour temp5 ;
+  
+  if ((nobjs < 3) || (nobjs > 5)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_CreateFont" "', expected argument " "1"" of type '" "wxGraphicsContext const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsContext_CreateFont" "', expected argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  {
+    arg3 = wxString_in_helper(swig_obj[2]);
+    if (arg3 == NULL) SWIG_fail;
+    temp3 = true;
+  }
+  if (swig_obj[3]) {
+    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "GraphicsContext_CreateFont" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
+  if (swig_obj[4]) {
+    {
+      arg5 = &temp5;
+      if ( ! wxColour_helper(swig_obj[4], &arg5)) SWIG_fail;
+    }
+  }
+  {
+    result = ((wxGraphicsContext const *)arg1)->CreateFont(arg2,(wxString const &)*arg3,arg4,(wxColour const &)*arg5);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxGraphicsFont(static_cast< const wxGraphicsFont& >(result))), SWIGTYPE_p_wxGraphicsFont, SWIG_POINTER_OWN |  0 );
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_CreateFont(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[6];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"GraphicsContext_CreateFont",0,5,argv))) SWIG_fail;
+  --argc;
+  if ((argc >= 2) && (argc <= 3)) {
+    int _v = 0;
+    {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_wxFont, 0);
+      _v = SWIG_CheckState(res);
+    }
+    if (!_v) goto check_1;
+    if (argc > 2) {
+      {
+        {
+          _v = wxColour_typecheck(argv[2]);
+        }
+      }
+      if (!_v) goto check_1;
+    }
+    return _wrap_GraphicsContext_CreateFont__SWIG_0(self, argc, argv);
+  }
+check_1:
+  
+  if ((argc >= 3) && (argc <= 5)) {
+    return _wrap_GraphicsContext_CreateFont__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'GraphicsContext_CreateFont'");
   return NULL;
 }
 
@@ -33140,6 +33291,46 @@ SWIGINTERN PyObject *_wrap_GraphicsContext_CreateBitmap(PyObject *SWIGUNUSEDPARM
   arg2 = reinterpret_cast< wxBitmap * >(argp2);
   {
     result = ((wxGraphicsContext const *)arg1)->CreateBitmap((wxBitmap const &)*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxGraphicsBitmap(static_cast< const wxGraphicsBitmap& >(result))), SWIGTYPE_p_wxGraphicsBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsContext_CreateBitmapFromImage(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
+  wxImage *arg2 = 0 ;
+  wxGraphicsBitmap result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "image", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsContext_CreateBitmapFromImage",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsContext_CreateBitmapFromImage" "', expected argument " "1"" of type '" "wxGraphicsContext const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxImage,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GraphicsContext_CreateBitmapFromImage" "', expected argument " "2"" of type '" "wxImage const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsContext_CreateBitmapFromImage" "', expected argument " "2"" of type '" "wxImage const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxImage * >(argp2);
+  {
+    result = ((wxGraphicsContext const *)arg1)->CreateBitmapFromImage((wxImage const &)*arg2);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxGraphicsBitmap(static_cast< const wxGraphicsBitmap& >(result))), SWIGTYPE_p_wxGraphicsBitmap, SWIG_POINTER_OWN |  0 );
@@ -35901,6 +36092,46 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateContextFromImage(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsRenderer *arg1 = (wxGraphicsRenderer *) 0 ;
+  wxImage *arg2 = 0 ;
+  wxGraphicsContext *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "image", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsRenderer_CreateContextFromImage",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsRenderer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsRenderer_CreateContextFromImage" "', expected argument " "1"" of type '" "wxGraphicsRenderer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsRenderer * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxImage,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GraphicsRenderer_CreateContextFromImage" "', expected argument " "2"" of type '" "wxImage &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsRenderer_CreateContextFromImage" "', expected argument " "2"" of type '" "wxImage &""'"); 
+  }
+  arg2 = reinterpret_cast< wxImage * >(argp2);
+  {
+    result = (wxGraphicsContext *)(arg1)->CreateContextFromImage(*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateMeasuringContext(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxGraphicsRenderer *arg1 = (wxGraphicsRenderer *) 0 ;
@@ -36358,7 +36589,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateFont(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateFont__SWIG_0(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   wxGraphicsRenderer *arg1 = (wxGraphicsRenderer *) 0 ;
   wxFont *arg2 = 0 ;
@@ -36370,20 +36601,14 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateFont(PyObject *SWIGUNUSEDPARM(
   void *argp2 = 0 ;
   int res2 = 0 ;
   wxColour temp3 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "font",(char *) "col", NULL 
-  };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|O:GraphicsRenderer_CreateFont",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsRenderer, 0 |  0 );
+  if ((nobjs < 2) || (nobjs > 3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsRenderer, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsRenderer_CreateFont" "', expected argument " "1"" of type '" "wxGraphicsRenderer *""'"); 
   }
   arg1 = reinterpret_cast< wxGraphicsRenderer * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxFont,  0  | 0);
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_wxFont,  0  | 0);
   if (!SWIG_IsOK(res2)) {
     SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GraphicsRenderer_CreateFont" "', expected argument " "2"" of type '" "wxFont const &""'"); 
   }
@@ -36391,10 +36616,10 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateFont(PyObject *SWIGUNUSEDPARM(
     SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsRenderer_CreateFont" "', expected argument " "2"" of type '" "wxFont const &""'"); 
   }
   arg2 = reinterpret_cast< wxFont * >(argp2);
-  if (obj2) {
+  if (swig_obj[2]) {
     {
       arg3 = &temp3;
-      if ( ! wxColour_helper(obj2, &arg3)) SWIG_fail;
+      if ( ! wxColour_helper(swig_obj[2], &arg3)) SWIG_fail;
     }
   }
   {
@@ -36404,6 +36629,107 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateFont(PyObject *SWIGUNUSEDPARM(
   resultobj = SWIG_NewPointerObj((new wxGraphicsFont(static_cast< const wxGraphicsFont& >(result))), SWIGTYPE_p_wxGraphicsFont, SWIG_POINTER_OWN |  0 );
   return resultobj;
 fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateFont__SWIG_1(PyObject *SWIGUNUSEDPARM(self), int nobjs, PyObject **swig_obj) {
+  PyObject *resultobj = 0;
+  wxGraphicsRenderer *arg1 = (wxGraphicsRenderer *) 0 ;
+  double arg2 ;
+  wxString *arg3 = 0 ;
+  int arg4 = (int) wxFONTFLAG_DEFAULT ;
+  wxColour const &arg5_defvalue = *wxBLACK ;
+  wxColour *arg5 = (wxColour *) &arg5_defvalue ;
+  wxGraphicsFont result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  double val2 ;
+  int ecode2 = 0 ;
+  bool temp3 = false ;
+  int val4 ;
+  int ecode4 = 0 ;
+  wxColour temp5 ;
+  
+  if ((nobjs < 3) || (nobjs > 5)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsRenderer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsRenderer_CreateFont" "', expected argument " "1"" of type '" "wxGraphicsRenderer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsRenderer * >(argp1);
+  ecode2 = SWIG_AsVal_double(swig_obj[1], &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GraphicsRenderer_CreateFont" "', expected argument " "2"" of type '" "double""'");
+  } 
+  arg2 = static_cast< double >(val2);
+  {
+    arg3 = wxString_in_helper(swig_obj[2]);
+    if (arg3 == NULL) SWIG_fail;
+    temp3 = true;
+  }
+  if (swig_obj[3]) {
+    ecode4 = SWIG_AsVal_int(swig_obj[3], &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "GraphicsRenderer_CreateFont" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
+  if (swig_obj[4]) {
+    {
+      arg5 = &temp5;
+      if ( ! wxColour_helper(swig_obj[4], &arg5)) SWIG_fail;
+    }
+  }
+  {
+    result = (arg1)->CreateFont(arg2,(wxString const &)*arg3,arg4,(wxColour const &)*arg5);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxGraphicsFont(static_cast< const wxGraphicsFont& >(result))), SWIGTYPE_p_wxGraphicsFont, SWIG_POINTER_OWN |  0 );
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp3)
+    delete arg3;
+  }
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateFont(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[6];
+  
+  if (!(argc = SWIG_Python_UnpackTuple(args,"GraphicsRenderer_CreateFont",0,5,argv))) SWIG_fail;
+  --argc;
+  if ((argc >= 2) && (argc <= 3)) {
+    int _v = 0;
+    {
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_wxFont, 0);
+      _v = SWIG_CheckState(res);
+    }
+    if (!_v) goto check_1;
+    if (argc > 2) {
+      {
+        {
+          _v = wxColour_typecheck(argv[2]);
+        }
+      }
+      if (!_v) goto check_1;
+    }
+    return _wrap_GraphicsRenderer_CreateFont__SWIG_0(self, argc, argv);
+  }
+check_1:
+  
+  if ((argc >= 3) && (argc <= 5)) {
+    return _wrap_GraphicsRenderer_CreateFont__SWIG_1(self, argc, argv);
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'GraphicsRenderer_CreateFont'");
   return NULL;
 }
 
@@ -36439,6 +36765,46 @@ SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateBitmap(PyObject *SWIGUNUSEDPAR
   arg2 = reinterpret_cast< wxBitmap * >(argp2);
   {
     result = (arg1)->CreateBitmap((wxBitmap const &)*arg2);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxGraphicsBitmap(static_cast< const wxGraphicsBitmap& >(result))), SWIGTYPE_p_wxGraphicsBitmap, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GraphicsRenderer_CreateBitmapFromImage(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGraphicsRenderer *arg1 = (wxGraphicsRenderer *) 0 ;
+  wxImage *arg2 = 0 ;
+  wxGraphicsBitmap result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "image", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GraphicsRenderer_CreateBitmapFromImage",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGraphicsRenderer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GraphicsRenderer_CreateBitmapFromImage" "', expected argument " "1"" of type '" "wxGraphicsRenderer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGraphicsRenderer * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_wxImage,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GraphicsRenderer_CreateBitmapFromImage" "', expected argument " "2"" of type '" "wxImage const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "GraphicsRenderer_CreateBitmapFromImage" "', expected argument " "2"" of type '" "wxImage const &""'"); 
+  }
+  arg2 = reinterpret_cast< wxImage * >(argp2);
+  {
+    result = (arg1)->CreateBitmapFromImage((wxImage const &)*arg2);
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_NewPointerObj((new wxGraphicsBitmap(static_cast< const wxGraphicsBitmap& >(result))), SWIGTYPE_p_wxGraphicsBitmap, SWIG_POINTER_OWN |  0 );
@@ -36652,15 +37018,13 @@ SWIGINTERN PyObject *_wrap_new_GCDC__SWIG_4(PyObject *SWIGUNUSEDPARM(self), int 
   PyObject *resultobj = 0;
   wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
   wxGCDC *result = 0 ;
-  void *argp1 = 0 ;
   int res1 = 0 ;
   
   if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], SWIG_as_voidptrptr(&arg1), SWIGTYPE_p_wxGraphicsContext, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GCDC" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GCDC" "', expected argument " "1"" of type '" "wxGraphicsContext *""'");
   }
-  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
   {
     if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -36794,7 +37158,6 @@ SWIGINTERN PyObject *_wrap_GCDC_SetGraphicsContext(PyObject *SWIGUNUSEDPARM(self
   wxGraphicsContext *arg2 = (wxGraphicsContext *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -36808,11 +37171,10 @@ SWIGINTERN PyObject *_wrap_GCDC_SetGraphicsContext(PyObject *SWIGUNUSEDPARM(self
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GCDC_SetGraphicsContext" "', expected argument " "1"" of type '" "wxGCDC *""'"); 
   }
   arg1 = reinterpret_cast< wxGCDC * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxGraphicsContext, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GCDC_SetGraphicsContext" "', expected argument " "2"" of type '" "wxGraphicsContext *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GCDC_SetGraphicsContext" "', expected argument " "2"" of type '" "wxGraphicsContext *""'");
   }
-  arg2 = reinterpret_cast< wxGraphicsContext * >(argp2);
   {
     (arg1)->SetGraphicsContext(arg2);
     if (PyErr_Occurred()) SWIG_fail;
@@ -45085,8 +45447,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GraphicsContext_CreateBrush", (PyCFunction) _wrap_GraphicsContext_CreateBrush, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_CreateLinearGradientBrush", _wrap_GraphicsContext_CreateLinearGradientBrush, METH_VARARGS, NULL},
 	 { (char *)"GraphicsContext_CreateRadialGradientBrush", _wrap_GraphicsContext_CreateRadialGradientBrush, METH_VARARGS, NULL},
-	 { (char *)"GraphicsContext_CreateFont", (PyCFunction) _wrap_GraphicsContext_CreateFont, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsContext_CreateFont", _wrap_GraphicsContext_CreateFont, METH_VARARGS, NULL},
 	 { (char *)"GraphicsContext_CreateBitmap", (PyCFunction) _wrap_GraphicsContext_CreateBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsContext_CreateBitmapFromImage", (PyCFunction) _wrap_GraphicsContext_CreateBitmapFromImage, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_CreateSubBitmap", (PyCFunction) _wrap_GraphicsContext_CreateSubBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_CreateMatrix", (PyCFunction) _wrap_GraphicsContext_CreateMatrix, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsContext_PushState", (PyCFunction)_wrap_GraphicsContext_PushState, METH_O, NULL},
@@ -45140,6 +45503,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GraphicsRenderer_GetDefaultRenderer", (PyCFunction)_wrap_GraphicsRenderer_GetDefaultRenderer, METH_NOARGS, NULL},
 	 { (char *)"GraphicsRenderer_GetCairoRenderer", (PyCFunction)_wrap_GraphicsRenderer_GetCairoRenderer, METH_NOARGS, NULL},
 	 { (char *)"GraphicsRenderer_CreateContext", _wrap_GraphicsRenderer_CreateContext, METH_VARARGS, NULL},
+	 { (char *)"GraphicsRenderer_CreateContextFromImage", (PyCFunction) _wrap_GraphicsRenderer_CreateContextFromImage, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsRenderer_CreateMeasuringContext", (PyCFunction)_wrap_GraphicsRenderer_CreateMeasuringContext, METH_O, NULL},
 	 { (char *)"GraphicsRenderer_CreateContextFromNativeContext", (PyCFunction) _wrap_GraphicsRenderer_CreateContextFromNativeContext, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsRenderer_CreateContextFromNativeWindow", (PyCFunction) _wrap_GraphicsRenderer_CreateContextFromNativeWindow, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -45149,8 +45513,9 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GraphicsRenderer_CreateBrush", (PyCFunction) _wrap_GraphicsRenderer_CreateBrush, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsRenderer_CreateLinearGradientBrush", (PyCFunction) _wrap_GraphicsRenderer_CreateLinearGradientBrush, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsRenderer_CreateRadialGradientBrush", (PyCFunction) _wrap_GraphicsRenderer_CreateRadialGradientBrush, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"GraphicsRenderer_CreateFont", (PyCFunction) _wrap_GraphicsRenderer_CreateFont, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsRenderer_CreateFont", _wrap_GraphicsRenderer_CreateFont, METH_VARARGS, NULL},
 	 { (char *)"GraphicsRenderer_CreateBitmap", (PyCFunction) _wrap_GraphicsRenderer_CreateBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GraphicsRenderer_CreateBitmapFromImage", (PyCFunction) _wrap_GraphicsRenderer_CreateBitmapFromImage, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsRenderer_CreateSubBitmap", (PyCFunction) _wrap_GraphicsRenderer_CreateSubBitmap, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GraphicsRenderer_swigregister", GraphicsRenderer_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_GCDC", _wrap_new_GCDC, METH_VARARGS, NULL},

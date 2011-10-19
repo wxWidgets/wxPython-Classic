@@ -1065,33 +1065,16 @@ AUI_NB_CLOSE_ON_ACTIVE_TAB = _aui.AUI_NB_CLOSE_ON_ACTIVE_TAB
 AUI_NB_CLOSE_ON_ALL_TABS = _aui.AUI_NB_CLOSE_ON_ALL_TABS
 AUI_NB_MIDDLE_CLICK_CLOSE = _aui.AUI_NB_MIDDLE_CLICK_CLOSE
 AUI_NB_DEFAULT_STYLE = _aui.AUI_NB_DEFAULT_STYLE
-class AuiNotebookEvent(_core.NotifyEvent):
+class AuiNotebookEvent(object):
     """Proxy of C++ AuiNotebookEvent class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """__init__(self, EventType command_type=wxEVT_NULL, int win_id=0) -> AuiNotebookEvent"""
         _aui.AuiNotebookEvent_swiginit(self,_aui.new_AuiNotebookEvent(*args, **kwargs))
-    def SetSelection(*args, **kwargs):
-        """SetSelection(self, int s)"""
-        return _aui.AuiNotebookEvent_SetSelection(*args, **kwargs)
-
-    def GetSelection(*args, **kwargs):
-        """
-        GetSelection(self) -> int
-
-        Returns item index for a listbox or choice selection event (not valid
-        for a deselection).
-        """
-        return _aui.AuiNotebookEvent_GetSelection(*args, **kwargs)
-
-    def SetOldSelection(*args, **kwargs):
-        """SetOldSelection(self, int s)"""
-        return _aui.AuiNotebookEvent_SetOldSelection(*args, **kwargs)
-
-    def GetOldSelection(*args, **kwargs):
-        """GetOldSelection(self) -> int"""
-        return _aui.AuiNotebookEvent_GetOldSelection(*args, **kwargs)
+    def Clone(*args, **kwargs):
+        """Clone(self) -> Event"""
+        return _aui.AuiNotebookEvent_Clone(*args, **kwargs)
 
     def SetDragSource(*args, **kwargs):
         """SetDragSource(self, AuiNotebook s)"""
@@ -1101,8 +1084,6 @@ class AuiNotebookEvent(_core.NotifyEvent):
         """GetDragSource(self) -> AuiNotebook"""
         return _aui.AuiNotebookEvent_GetDragSource(*args, **kwargs)
 
-    old_selection = property(_aui.AuiNotebookEvent_old_selection_get, _aui.AuiNotebookEvent_old_selection_set)
-    selection = property(_aui.AuiNotebookEvent_selection_get, _aui.AuiNotebookEvent_selection_set)
     drag_source = property(_aui.AuiNotebookEvent_drag_source_get, _aui.AuiNotebookEvent_drag_source_set)
     OldSelection = property(GetOldSelection,SetOldSelection,doc="See `GetOldSelection` and `SetOldSelection`") 
     Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
@@ -1438,17 +1419,6 @@ class AuiNotebook(object):
         """SetTabCtrlHeight(self, int height)"""
         return _aui.AuiNotebook_SetTabCtrlHeight(*args, **kwargs)
 
-    def AddPage(*args, **kwargs):
-        """AddPage(self, Window page, String caption, bool select=False, Bitmap bitmap=wxNullBitmap) -> bool"""
-        return _aui.AuiNotebook_AddPage(*args, **kwargs)
-
-    def InsertPage(*args, **kwargs):
-        """
-        InsertPage(self, size_t page_idx, Window page, String caption, bool select=False, 
-            Bitmap bitmap=wxNullBitmap) -> bool
-        """
-        return _aui.AuiNotebook_InsertPage(*args, **kwargs)
-
     def DeletePage(*args, **kwargs):
         """DeletePage(self, size_t page) -> bool"""
         return _aui.AuiNotebook_DeletePage(*args, **kwargs)
@@ -1486,7 +1456,7 @@ class AuiNotebook(object):
         return _aui.AuiNotebook_GetPageBitmap(*args, **kwargs)
 
     def SetSelection(*args, **kwargs):
-        """SetSelection(self, size_t new_page) -> size_t"""
+        """SetSelection(self, size_t new_page) -> int"""
         return _aui.AuiNotebook_SetSelection(*args, **kwargs)
 
     def GetSelection(*args, **kwargs):
@@ -1540,6 +1510,50 @@ class AuiNotebook(object):
     def Thaw(*args, **kwargs):
         """Thaw(self)"""
         return _aui.AuiNotebook_Thaw(*args, **kwargs)
+
+    def SetPageSize(*args, **kwargs):
+        """SetPageSize(self, Size size)"""
+        return _aui.AuiNotebook_SetPageSize(*args, **kwargs)
+
+    def HitTest(*args, **kwargs):
+        """HitTest(self, Point pt, long flags=None) -> int"""
+        return _aui.AuiNotebook_HitTest(*args, **kwargs)
+
+    def GetPageImage(*args, **kwargs):
+        """GetPageImage(self, size_t n) -> int"""
+        return _aui.AuiNotebook_GetPageImage(*args, **kwargs)
+
+    def SetPageImage(*args, **kwargs):
+        """SetPageImage(self, size_t n, int imageId) -> bool"""
+        return _aui.AuiNotebook_SetPageImage(*args, **kwargs)
+
+    def GetCurrentPage(*args, **kwargs):
+        """GetCurrentPage(self) -> Window"""
+        return _aui.AuiNotebook_GetCurrentPage(*args, **kwargs)
+
+    def ChangeSelection(*args, **kwargs):
+        """ChangeSelection(self, size_t n) -> int"""
+        return _aui.AuiNotebook_ChangeSelection(*args, **kwargs)
+
+    def AddPage(*args):
+        """
+        AddPage(self, Window page, String caption, bool select=False, Bitmap bitmap=wxNullBitmap) -> bool
+        AddPage(self, Window page, String text, bool select, int imageId) -> bool
+        """
+        return _aui.AuiNotebook_AddPage(*args)
+
+    def DeleteAllPages(*args, **kwargs):
+        """DeleteAllPages(self) -> bool"""
+        return _aui.AuiNotebook_DeleteAllPages(*args, **kwargs)
+
+    def InsertPage(*args):
+        """
+        InsertPage(self, size_t page_idx, Window page, String caption, bool select=False, 
+            Bitmap bitmap=wxNullBitmap) -> bool
+        InsertPage(self, size_t index, Window page, String text, bool select=False, 
+            int imageId=NO_IMAGE) -> bool
+        """
+        return _aui.AuiNotebook_InsertPage(*args)
 
     PageCount = property(GetPageCount,doc="See `GetPageCount`") 
     Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 

@@ -68,7 +68,6 @@ wx = _sys.modules[__name__]
 
 
 #----------------------------------------------------------------------------
-
             
 import warnings
 class wxPyDeprecationWarning(DeprecationWarning):
@@ -83,19 +82,30 @@ def deprecated(item, msg=''):
     properties.
     """
     import warnings
-    if callable(item):
-        
+    if isinstance(item, type):
+        # It is a class.  Make a subclass that raises a warning.
+        class DeprecatedClassProxy(item):
+            def __init__(*args, **kw):
+                warnings.warn("Using deprecated class. %s" % msg,
+                          wxPyDeprecationWarning, stacklevel=2)
+                item.__init__(*args, **kw)
+        DeprecatedClassProxy.__name__ = item.__name__
+        return DeprecatedClassProxy
+    
+    elif callable(item):
+        # wrap a new function around the callable
         def deprecated_func(*args, **kw):
             warnings.warn("Call to deprecated item '%s'. %s" % (item.__name__, msg),
                           wxPyDeprecationWarning, stacklevel=2)
             return item(*args, **kw)
         deprecated_func.__name__ = item.__name__
         deprecated_func.__doc__ = item.__doc__
-        deprecated_func.__dict__.update(item.__dict__)
+        if hasattr(item, '__dict__'):
+            deprecated_func.__dict__.update(item.__dict__)
         return deprecated_func
         
     elif hasattr(item, '__get__'):
-        
+        # it should be a property if there is a getter
         class DepGetProp(object):
             def __init__(self,item, msg):
                 self.item = item
@@ -123,6 +133,8 @@ def deprecated(item, msg=''):
             return DepGetProp(item, msg)
     else:
         raise TypeError, "unsupported type %s" % type(item)
+                   
+         
                    
 #----------------------------------------------------------------------------
 
@@ -16270,10 +16282,6 @@ class SettableHeaderColumn(HeaderColumn):
         """SetHidden(self, bool hidden)"""
         return _core_.SettableHeaderColumn_SetHidden(*args, **kwargs)
 
-    def SetAsSortKey(*args, **kwargs):
-        """SetAsSortKey(self, bool sort=True)"""
-        return _core_.SettableHeaderColumn_SetAsSortKey(*args, **kwargs)
-
     def UnsetAsSortKey(*args, **kwargs):
         """UnsetAsSortKey(self)"""
         return _core_.SettableHeaderColumn_UnsetAsSortKey(*args, **kwargs)
@@ -16296,7 +16304,7 @@ class SettableHeaderColumn(HeaderColumn):
     Sortable = property(HeaderColumn.IsSortable,SetSortable) 
     Reorderable = property(HeaderColumn.IsReorderable,SetReorderable) 
     Hidden = property(HeaderColumn.IsHidden,SetHidden) 
-    SortKey = property(HeaderColumn.IsSortKey,SetAsSortKey) 
+    SortKey = property(HeaderColumn.IsSortKey) 
 _core_.SettableHeaderColumn_swigregister(SettableHeaderColumn)
 
 class HeaderColumnSimple(SettableHeaderColumn):

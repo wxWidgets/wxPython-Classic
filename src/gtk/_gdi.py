@@ -848,7 +848,6 @@ class Bitmap(GDIObject):
     Mask = property(GetMask,SetMask,doc="See `GetMask` and `SetMask`") 
     Palette = property(GetPalette,doc="See `GetPalette`") 
     Size = property(GetSize,SetSize,doc="See `GetSize` and `SetSize`") 
-    SubBitmap = property(GetSubBitmap,doc="See `GetSubBitmap`") 
     Width = property(GetWidth,SetWidth,doc="See `GetWidth` and `SetWidth`") 
 _gdi_.Bitmap_swigregister(Bitmap)
 
@@ -1884,6 +1883,10 @@ class NativeFontInfo(object):
         """GetPointSize(self) -> int"""
         return _gdi_.NativeFontInfo_GetPointSize(*args, **kwargs)
 
+    def GetPixelSize(*args, **kwargs):
+        """GetPixelSize(self) -> Size"""
+        return _gdi_.NativeFontInfo_GetPixelSize(*args, **kwargs)
+
     def GetStyle(*args, **kwargs):
         """GetStyle(self) -> int"""
         return _gdi_.NativeFontInfo_GetStyle(*args, **kwargs)
@@ -1911,6 +1914,10 @@ class NativeFontInfo(object):
     def SetPointSize(*args, **kwargs):
         """SetPointSize(self, int pointsize)"""
         return _gdi_.NativeFontInfo_SetPointSize(*args, **kwargs)
+
+    def SetPixelSize(*args, **kwargs):
+        """SetPixelSize(self, Size pixelSize)"""
+        return _gdi_.NativeFontInfo_SetPixelSize(*args, **kwargs)
 
     def SetStyle(*args, **kwargs):
         """SetStyle(self, int style)"""
@@ -4826,8 +4833,6 @@ class DC(_core.Object):
     PPI = property(GetPPI,doc="See `GetPPI`") 
     PartialTextExtents = property(GetPartialTextExtents,doc="See `GetPartialTextExtents`") 
     Pen = property(GetPen,SetPen,doc="See `GetPen` and `SetPen`") 
-    Pixel = property(GetPixel,doc="See `GetPixel`") 
-    PixelPoint = property(GetPixelPoint,doc="See `GetPixelPoint`") 
     Size = property(GetSize,doc="See `GetSize`") 
     SizeMM = property(GetSizeMM,doc="See `GetSizeMM`") 
     TextBackground = property(GetTextBackground,SetTextBackground,doc="See `GetTextBackground` and `SetTextBackground`") 

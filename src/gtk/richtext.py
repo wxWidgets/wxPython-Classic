@@ -4339,5 +4339,172 @@ _richtext.RichTextXMLHandler_swigregister(RichTextXMLHandler)
 XmlName = cvar.XmlName
 XmlExt = cvar.XmlExt
 
+#---------------------------------------------------------------------------
+
+RICHTEXT_PRINT_MAX_PAGES = _richtext.RICHTEXT_PRINT_MAX_PAGES
+RICHTEXT_PAGE_ODD = _richtext.RICHTEXT_PAGE_ODD
+RICHTEXT_PAGE_EVEN = _richtext.RICHTEXT_PAGE_EVEN
+RICHTEXT_PAGE_ALL = _richtext.RICHTEXT_PAGE_ALL
+RICHTEXT_PAGE_LEFT = _richtext.RICHTEXT_PAGE_LEFT
+RICHTEXT_PAGE_CENTRE = _richtext.RICHTEXT_PAGE_CENTRE
+RICHTEXT_PAGE_RIGHT = _richtext.RICHTEXT_PAGE_RIGHT
+class RichTextPrintout(_windows.Printout):
+    """Proxy of C++ RichTextPrintout class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, String title=wxT("Printout")) -> RichTextPrintout"""
+        _richtext.RichTextPrintout_swiginit(self,_richtext.new_RichTextPrintout(*args, **kwargs))
+    __swig_destroy__ = _richtext.delete_RichTextPrintout
+    __del__ = lambda self : None;
+    def SetRichTextBuffer(*args, **kwargs):
+        """SetRichTextBuffer(self, RichTextBuffer buffer)"""
+        return _richtext.RichTextPrintout_SetRichTextBuffer(*args, **kwargs)
+
+    def GetRichTextBuffer(*args, **kwargs):
+        """GetRichTextBuffer(self) -> RichTextBuffer"""
+        return _richtext.RichTextPrintout_GetRichTextBuffer(*args, **kwargs)
+
+    def SetHeaderFooterData(*args, **kwargs):
+        """SetHeaderFooterData(self, wxRichTextHeaderFooterData data)"""
+        return _richtext.RichTextPrintout_SetHeaderFooterData(*args, **kwargs)
+
+    def GetHeaderFooterData(*args, **kwargs):
+        """GetHeaderFooterData(self) -> wxRichTextHeaderFooterData"""
+        return _richtext.RichTextPrintout_GetHeaderFooterData(*args, **kwargs)
+
+    def SetMargins(*args, **kwargs):
+        """SetMargins(self, int top=254, int bottom=254, int left=254, int right=254)"""
+        return _richtext.RichTextPrintout_SetMargins(*args, **kwargs)
+
+    def CalculateScaling(*args, **kwargs):
+        """CalculateScaling(self, DC dc, Rect textRect, Rect headerRect, Rect footerRect)"""
+        return _richtext.RichTextPrintout_CalculateScaling(*args, **kwargs)
+
+_richtext.RichTextPrintout_swigregister(RichTextPrintout)
+
+class RichTextPrinting(_core.Object):
+    """Proxy of C++ RichTextPrinting class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """__init__(self, String name=wxT("Printing"), Window parentWindow=None) -> RichTextPrinting"""
+        _richtext.RichTextPrinting_swiginit(self,_richtext.new_RichTextPrinting(*args, **kwargs))
+    __swig_destroy__ = _richtext.delete_RichTextPrinting
+    __del__ = lambda self : None;
+    def PreviewFile(*args, **kwargs):
+        """PreviewFile(self, String richTextFile) -> bool"""
+        return _richtext.RichTextPrinting_PreviewFile(*args, **kwargs)
+
+    def PreviewBuffer(*args, **kwargs):
+        """PreviewBuffer(self, RichTextBuffer buffer) -> bool"""
+        return _richtext.RichTextPrinting_PreviewBuffer(*args, **kwargs)
+
+    def PrintFile(*args, **kwargs):
+        """PrintFile(self, String richTextFile) -> bool"""
+        return _richtext.RichTextPrinting_PrintFile(*args, **kwargs)
+
+    def PrintBuffer(*args, **kwargs):
+        """PrintBuffer(self, RichTextBuffer buffer) -> bool"""
+        return _richtext.RichTextPrinting_PrintBuffer(*args, **kwargs)
+
+    def PageSetup(*args, **kwargs):
+        """PageSetup(self)"""
+        return _richtext.RichTextPrinting_PageSetup(*args, **kwargs)
+
+    def SetHeaderFooterData(*args, **kwargs):
+        """SetHeaderFooterData(self, wxRichTextHeaderFooterData data)"""
+        return _richtext.RichTextPrinting_SetHeaderFooterData(*args, **kwargs)
+
+    def GetHeaderFooterData(*args, **kwargs):
+        """GetHeaderFooterData(self) -> wxRichTextHeaderFooterData"""
+        return _richtext.RichTextPrinting_GetHeaderFooterData(*args, **kwargs)
+
+    def SetHeaderText(*args, **kwargs):
+        """SetHeaderText(self, String text, int page=RICHTEXT_PAGE_ALL, int location=RICHTEXT_PAGE_CENTRE)"""
+        return _richtext.RichTextPrinting_SetHeaderText(*args, **kwargs)
+
+    def GetHeaderText(*args, **kwargs):
+        """GetHeaderText(self, int page=RICHTEXT_PAGE_EVEN, int location=RICHTEXT_PAGE_CENTRE) -> String"""
+        return _richtext.RichTextPrinting_GetHeaderText(*args, **kwargs)
+
+    def SetFooterText(*args, **kwargs):
+        """SetFooterText(self, String text, int page=RICHTEXT_PAGE_ALL, int location=RICHTEXT_PAGE_CENTRE)"""
+        return _richtext.RichTextPrinting_SetFooterText(*args, **kwargs)
+
+    def GetFooterText(*args, **kwargs):
+        """GetFooterText(self, int page=RICHTEXT_PAGE_EVEN, int location=RICHTEXT_PAGE_CENTRE) -> String"""
+        return _richtext.RichTextPrinting_GetFooterText(*args, **kwargs)
+
+    def SetShowOnFirstPage(*args, **kwargs):
+        """SetShowOnFirstPage(self, bool show)"""
+        return _richtext.RichTextPrinting_SetShowOnFirstPage(*args, **kwargs)
+
+    def SetHeaderFooterFont(*args, **kwargs):
+        """SetHeaderFooterFont(self, Font font)"""
+        return _richtext.RichTextPrinting_SetHeaderFooterFont(*args, **kwargs)
+
+    def SetHeaderFooterTextColour(*args, **kwargs):
+        """SetHeaderFooterTextColour(self, Colour font)"""
+        return _richtext.RichTextPrinting_SetHeaderFooterTextColour(*args, **kwargs)
+
+    def GetPrintData(*args, **kwargs):
+        """GetPrintData(self) -> PrintData"""
+        return _richtext.RichTextPrinting_GetPrintData(*args, **kwargs)
+
+    def GetPageSetupData(*args, **kwargs):
+        """GetPageSetupData(self) -> PageSetupDialogData"""
+        return _richtext.RichTextPrinting_GetPageSetupData(*args, **kwargs)
+
+    def SetPrintData(*args, **kwargs):
+        """SetPrintData(self, PrintData printData)"""
+        return _richtext.RichTextPrinting_SetPrintData(*args, **kwargs)
+
+    def SetPageSetupData(*args, **kwargs):
+        """SetPageSetupData(self, wxPageSetupData pageSetupData)"""
+        return _richtext.RichTextPrinting_SetPageSetupData(*args, **kwargs)
+
+    def SetRichTextBufferPreview(*args, **kwargs):
+        """SetRichTextBufferPreview(self, RichTextBuffer buf)"""
+        return _richtext.RichTextPrinting_SetRichTextBufferPreview(*args, **kwargs)
+
+    def GetRichTextBufferPreview(*args, **kwargs):
+        """GetRichTextBufferPreview(self) -> RichTextBuffer"""
+        return _richtext.RichTextPrinting_GetRichTextBufferPreview(*args, **kwargs)
+
+    def SetRichTextBufferPrinting(*args, **kwargs):
+        """SetRichTextBufferPrinting(self, RichTextBuffer buf)"""
+        return _richtext.RichTextPrinting_SetRichTextBufferPrinting(*args, **kwargs)
+
+    def GetRichTextBufferPrinting(*args, **kwargs):
+        """GetRichTextBufferPrinting(self) -> RichTextBuffer"""
+        return _richtext.RichTextPrinting_GetRichTextBufferPrinting(*args, **kwargs)
+
+    def SetParentWindow(*args, **kwargs):
+        """SetParentWindow(self, Window parent)"""
+        return _richtext.RichTextPrinting_SetParentWindow(*args, **kwargs)
+
+    def GetParentWindow(*args, **kwargs):
+        """GetParentWindow(self) -> Window"""
+        return _richtext.RichTextPrinting_GetParentWindow(*args, **kwargs)
+
+    def SetTitle(*args, **kwargs):
+        """SetTitle(self, String title)"""
+        return _richtext.RichTextPrinting_SetTitle(*args, **kwargs)
+
+    def GetTitle(*args, **kwargs):
+        """GetTitle(self) -> String"""
+        return _richtext.RichTextPrinting_GetTitle(*args, **kwargs)
+
+    def SetPreviewRect(*args, **kwargs):
+        """SetPreviewRect(self, Rect rect)"""
+        return _richtext.RichTextPrinting_SetPreviewRect(*args, **kwargs)
+
+    def GetPreviewRect(*args, **kwargs):
+        """GetPreviewRect(self) -> Rect"""
+        return _richtext.RichTextPrinting_GetPreviewRect(*args, **kwargs)
+
+_richtext.RichTextPrinting_swigregister(RichTextPrinting)
+
 
 

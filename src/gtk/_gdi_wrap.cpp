@@ -13468,6 +13468,34 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_NativeFontInfo_GetPixelSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxNativeFontInfo *arg1 = (wxNativeFontInfo *) 0 ;
+  wxSize result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxNativeFontInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NativeFontInfo_GetPixelSize" "', expected argument " "1"" of type '" "wxNativeFontInfo const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxNativeFontInfo * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = ((wxNativeFontInfo const *)arg1)->GetPixelSize();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_NewPointerObj((new wxSize(static_cast< const wxSize& >(result))), SWIGTYPE_p_wxSize, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_NativeFontInfo_GetStyle(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxNativeFontInfo *arg1 = (wxNativeFontInfo *) 0 ;
@@ -13672,6 +13700,42 @@ SWIGINTERN PyObject *_wrap_NativeFontInfo_SetPointSize(PyObject *SWIGUNUSEDPARM(
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetPointSize(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_NativeFontInfo_SetPixelSize(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxNativeFontInfo *arg1 = (wxNativeFontInfo *) 0 ;
+  wxSize *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  wxSize temp2 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "pixelSize", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:NativeFontInfo_SetPixelSize",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxNativeFontInfo, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "NativeFontInfo_SetPixelSize" "', expected argument " "1"" of type '" "wxNativeFontInfo *""'"); 
+  }
+  arg1 = reinterpret_cast< wxNativeFontInfo * >(argp1);
+  {
+    arg2 = &temp2;
+    if ( ! wxSize_helper(obj1, &arg2)) SWIG_fail;
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetPixelSize((wxSize const &)*arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -35568,15 +35632,13 @@ SWIGINTERN PyObject *_wrap_new_GCDC__SWIG_4(PyObject *SWIGUNUSEDPARM(self), int 
   PyObject *resultobj = 0;
   wxGraphicsContext *arg1 = (wxGraphicsContext *) 0 ;
   wxGCDC *result = 0 ;
-  void *argp1 = 0 ;
   int res1 = 0 ;
   
   if ((nobjs < 1) || (nobjs > 1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  res1 = SWIG_ConvertPtr(swig_obj[0], SWIG_as_voidptrptr(&arg1), SWIGTYPE_p_wxGraphicsContext, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GCDC" "', expected argument " "1"" of type '" "wxGraphicsContext *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GCDC" "', expected argument " "1"" of type '" "wxGraphicsContext *""'");
   }
-  arg1 = reinterpret_cast< wxGraphicsContext * >(argp1);
   {
     if (!wxPyCheckForApp()) SWIG_fail;
     PyThreadState* __tstate = wxPyBeginAllowThreads();
@@ -35710,7 +35772,6 @@ SWIGINTERN PyObject *_wrap_GCDC_SetGraphicsContext(PyObject *SWIGUNUSEDPARM(self
   wxGraphicsContext *arg2 = (wxGraphicsContext *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
@@ -35724,11 +35785,10 @@ SWIGINTERN PyObject *_wrap_GCDC_SetGraphicsContext(PyObject *SWIGUNUSEDPARM(self
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GCDC_SetGraphicsContext" "', expected argument " "1"" of type '" "wxGCDC *""'"); 
   }
   arg1 = reinterpret_cast< wxGCDC * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxGraphicsContext, 0 |  0 );
+  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxGraphicsContext, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GCDC_SetGraphicsContext" "', expected argument " "2"" of type '" "wxGraphicsContext *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "GCDC_SetGraphicsContext" "', expected argument " "2"" of type '" "wxGraphicsContext *""'");
   }
-  arg2 = reinterpret_cast< wxGraphicsContext * >(argp2);
   {
     (arg1)->SetGraphicsContext(arg2);
     if (PyErr_Occurred()) SWIG_fail;
@@ -43478,6 +43538,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"NativeFontInfo_Init", (PyCFunction)_wrap_NativeFontInfo_Init, METH_O, NULL},
 	 { (char *)"NativeFontInfo_InitFromFont", (PyCFunction) _wrap_NativeFontInfo_InitFromFont, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NativeFontInfo_GetPointSize", (PyCFunction)_wrap_NativeFontInfo_GetPointSize, METH_O, NULL},
+	 { (char *)"NativeFontInfo_GetPixelSize", (PyCFunction)_wrap_NativeFontInfo_GetPixelSize, METH_O, NULL},
 	 { (char *)"NativeFontInfo_GetStyle", (PyCFunction)_wrap_NativeFontInfo_GetStyle, METH_O, NULL},
 	 { (char *)"NativeFontInfo_GetWeight", (PyCFunction)_wrap_NativeFontInfo_GetWeight, METH_O, NULL},
 	 { (char *)"NativeFontInfo_GetUnderlined", (PyCFunction)_wrap_NativeFontInfo_GetUnderlined, METH_O, NULL},
@@ -43485,6 +43546,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"NativeFontInfo_GetFamily", (PyCFunction)_wrap_NativeFontInfo_GetFamily, METH_O, NULL},
 	 { (char *)"NativeFontInfo_GetEncoding", (PyCFunction)_wrap_NativeFontInfo_GetEncoding, METH_O, NULL},
 	 { (char *)"NativeFontInfo_SetPointSize", (PyCFunction) _wrap_NativeFontInfo_SetPointSize, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"NativeFontInfo_SetPixelSize", (PyCFunction) _wrap_NativeFontInfo_SetPixelSize, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NativeFontInfo_SetStyle", (PyCFunction) _wrap_NativeFontInfo_SetStyle, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NativeFontInfo_SetWeight", (PyCFunction) _wrap_NativeFontInfo_SetWeight, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"NativeFontInfo_SetUnderlined", (PyCFunction) _wrap_NativeFontInfo_SetUnderlined, METH_VARARGS | METH_KEYWORDS, NULL},

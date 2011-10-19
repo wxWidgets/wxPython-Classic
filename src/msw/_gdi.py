@@ -873,7 +873,6 @@ class Bitmap(GDIObject):
     Mask = property(GetMask,SetMask,doc="See `GetMask` and `SetMask`") 
     Palette = property(GetPalette,doc="See `GetPalette`") 
     Size = property(GetSize,SetSize,doc="See `GetSize` and `SetSize`") 
-    SubBitmap = property(GetSubBitmap,doc="See `GetSubBitmap`") 
     Width = property(GetWidth,SetWidth,doc="See `GetWidth` and `SetWidth`") 
 _gdi_.Bitmap_swigregister(Bitmap)
 
@@ -4911,8 +4910,6 @@ class DC(_core.Object):
     PPI = property(GetPPI,doc="See `GetPPI`") 
     PartialTextExtents = property(GetPartialTextExtents,doc="See `GetPartialTextExtents`") 
     Pen = property(GetPen,SetPen,doc="See `GetPen` and `SetPen`") 
-    Pixel = property(GetPixel,doc="See `GetPixel`") 
-    PixelPoint = property(GetPixelPoint,doc="See `GetPixelPoint`") 
     Size = property(GetSize,doc="See `GetSize`") 
     SizeMM = property(GetSizeMM,doc="See `GetSizeMM`") 
     TextBackground = property(GetTextBackground,SetTextBackground,doc="See `GetTextBackground` and `SetTextBackground`") 
@@ -6053,6 +6050,7 @@ class GraphicsContext(GraphicsObject):
         Create(Window window) -> GraphicsContext
         Create(PrinterDC dc) -> GraphicsContext
         Create(MetaFileDC dc) -> GraphicsContext
+        Create(Image ?) -> GraphicsContext
 
         Creates a wx.GraphicsContext either from a window or a DC.
         """
@@ -6183,13 +6181,13 @@ class GraphicsContext(GraphicsObject):
         """
         return _gdi_.GraphicsContext_CreateRadialGradientBrush(*args)
 
-    def CreateFont(*args, **kwargs):
+    def CreateFont(*args):
         """
         CreateFont(self, Font font, Colour col=*wxBLACK) -> GraphicsFont
-
-        Creates a native graphics font from a `wx.Font` and a text colour.
+        CreateFont(self, double sizeInPixels, String facename, int flags=FONTFLAG_DEFAULT, 
+            Colour col=*wxBLACK) -> GraphicsFont
         """
-        return _gdi_.GraphicsContext_CreateFont(*args, **kwargs)
+        return _gdi_.GraphicsContext_CreateFont(*args)
 
     def CreateBitmap(*args, **kwargs):
         """
@@ -6198,6 +6196,10 @@ class GraphicsContext(GraphicsObject):
         Create a native bitmap representation.
         """
         return _gdi_.GraphicsContext_CreateBitmap(*args, **kwargs)
+
+    def CreateBitmapFromImage(*args, **kwargs):
+        """CreateBitmapFromImage(self, Image image) -> GraphicsBitmap"""
+        return _gdi_.GraphicsContext_CreateBitmapFromImage(*args, **kwargs)
 
     def CreateSubBitmap(*args, **kwargs):
         """
@@ -6593,7 +6595,8 @@ def GraphicsContext_Create(*args):
     Create(MemoryDC dc) -> GraphicsContext
     Create(Window window) -> GraphicsContext
     Create(PrinterDC dc) -> GraphicsContext
-    GraphicsContext_Create(MetaFileDC dc) -> GraphicsContext
+    Create(MetaFileDC dc) -> GraphicsContext
+    GraphicsContext_Create(Image ?) -> GraphicsContext
 
     Creates a wx.GraphicsContext either from a window or a DC.
     """
@@ -6656,6 +6659,10 @@ class GraphicsRenderer(_core.Object):
         """
         return _gdi_.GraphicsRenderer_CreateContext(*args)
 
+    def CreateContextFromImage(*args, **kwargs):
+        """CreateContextFromImage(self, Image image) -> GraphicsContext"""
+        return _gdi_.GraphicsRenderer_CreateContextFromImage(*args, **kwargs)
+
     def CreateMeasuringContext(*args, **kwargs):
         """CreateMeasuringContext(self) -> GraphicsContext"""
         return _gdi_.GraphicsRenderer_CreateMeasuringContext(*args, **kwargs)
@@ -6698,13 +6705,21 @@ class GraphicsRenderer(_core.Object):
         """
         return _gdi_.GraphicsRenderer_CreateRadialGradientBrush(*args, **kwargs)
 
-    def CreateFont(*args, **kwargs):
-        """CreateFont(self, Font font, Colour col=*wxBLACK) -> GraphicsFont"""
-        return _gdi_.GraphicsRenderer_CreateFont(*args, **kwargs)
+    def CreateFont(*args):
+        """
+        CreateFont(self, Font font, Colour col=*wxBLACK) -> GraphicsFont
+        CreateFont(self, double sizeInPixels, String facename, int flags=FONTFLAG_DEFAULT, 
+            Colour col=*wxBLACK) -> GraphicsFont
+        """
+        return _gdi_.GraphicsRenderer_CreateFont(*args)
 
     def CreateBitmap(*args, **kwargs):
         """CreateBitmap(self, Bitmap bitmap) -> GraphicsBitmap"""
         return _gdi_.GraphicsRenderer_CreateBitmap(*args, **kwargs)
+
+    def CreateBitmapFromImage(*args, **kwargs):
+        """CreateBitmapFromImage(self, Image image) -> GraphicsBitmap"""
+        return _gdi_.GraphicsRenderer_CreateBitmapFromImage(*args, **kwargs)
 
     def CreateSubBitmap(*args, **kwargs):
         """
