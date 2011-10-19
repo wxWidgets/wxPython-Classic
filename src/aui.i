@@ -118,6 +118,8 @@ The following example shows a simple implementation that utilizes
 #include "wx/wxPython/wxPython.h"
 #include "wx/wxPython/pyclasses.h"
 #include <wx/aui/aui.h>
+
+#define NO_IMAGE -1
 %}
 
 //---------------------------------------------------------------------------
