@@ -181,7 +181,8 @@ creation.", "");
 };
 
 
-
+// Disabled for MSW temporarily until some build issues are worked out
+#ifndef __WXMSW__
 
 MustHaveApp(wxDatePickerCtrlGeneric);
 
@@ -224,6 +225,8 @@ public:
 creation.", "");
     
 };
+
+#endif
 
 //---------------------------------------------------------------------------
 
