@@ -127,11 +127,37 @@ The following example shows a simple implementation that utilizes
 %import core.i
 %import windows.i
 
+
 %pythoncode { wx = _core }
 %pythoncode { __docfilter__ = wx.__DocFilter(globals()) }
 
 
 %include _aui_docstrings.i
+
+//---------------------------------------------------------------------------
+
+
+ // TODO: This should be moved to its own module, but this is the only place
+ // it is needed so far.
+template <class W>
+class wxNavigationEnabled : public W
+{
+public:
+
+    //wxNavigationEnabled();
+    
+    //virtual bool AcceptsFocus() const;
+    //virtual bool AcceptsFocusRecursively() const;
+    //virtual bool AcceptsFocusFromKeyboard() const;
+    //virtual void AddChild(wxWindowBase *child);
+    //virtual void RemoveChild(wxWindowBase *child);
+    //virtual void SetFocus();
+    //void SetFocusIgnoringChildren();
+    //void AcceptFocus(bool acceptFocus);
+};
+
+%rename(wxNavigationEnabled_BookCtrlBase)  wxNavigationEnabled<wxBookCtrlBase>;
+%template(wxNavigationEnabled_BookCtrlBase) wxNavigationEnabled<wxBookCtrlBase>;
 
 //---------------------------------------------------------------------------
 
@@ -601,17 +627,6 @@ public:
 
 
 //---------------------------------------------------------------------------
-
-%extend wxAuiNotebook {
-    %property(PageCount, GetPageCount, doc="See `GetPageCount`");
-    %property(Selection, GetSelection, SetSelection, doc="See `GetSelection` and `SetSelection`");
-}
-
-
-%extend wxAuiNotebookEvent {
-    %property(OldSelection, GetOldSelection, SetOldSelection, doc="See `GetOldSelection` and `SetOldSelection`");
-    %property(Selection, GetSelection, SetSelection, doc="See `GetSelection` and `SetSelection`");
-}
 
 
 %extend wxAuiTabContainer {
