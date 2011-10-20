@@ -13499,6 +13499,225 @@ _core_.WithImages_swigregister(WithImages)
 
 #---------------------------------------------------------------------------
 
+BK_DEFAULT = _core_.BK_DEFAULT
+BK_TOP = _core_.BK_TOP
+BK_BOTTOM = _core_.BK_BOTTOM
+BK_LEFT = _core_.BK_LEFT
+BK_RIGHT = _core_.BK_RIGHT
+BK_ALIGN_MASK = _core_.BK_ALIGN_MASK
+BK_BUTTONBAR = _core_.BK_BUTTONBAR
+TBK_BUTTONBAR = _core_.TBK_BUTTONBAR
+TBK_HORZ_LAYOUT = _core_.TBK_HORZ_LAYOUT
+BK_HITTEST_NOWHERE = _core_.BK_HITTEST_NOWHERE
+BK_HITTEST_ONICON = _core_.BK_HITTEST_ONICON
+BK_HITTEST_ONLABEL = _core_.BK_HITTEST_ONLABEL
+BK_HITTEST_ONITEM = _core_.BK_HITTEST_ONITEM
+BK_HITTEST_ONPAGE = _core_.BK_HITTEST_ONPAGE
+class BookCtrlBase(Control,WithImages):
+    """Proxy of C++ BookCtrlBase class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+    def GetPageCount(*args, **kwargs):
+        """GetPageCount(self) -> size_t"""
+        return _core_.BookCtrlBase_GetPageCount(*args, **kwargs)
+
+    def GetPage(*args, **kwargs):
+        """GetPage(self, size_t n) -> Window"""
+        return _core_.BookCtrlBase_GetPage(*args, **kwargs)
+
+    def GetCurrentPage(*args, **kwargs):
+        """GetCurrentPage(self) -> Window"""
+        return _core_.BookCtrlBase_GetCurrentPage(*args, **kwargs)
+
+    def GetSelection(*args, **kwargs):
+        """GetSelection(self) -> int"""
+        return _core_.BookCtrlBase_GetSelection(*args, **kwargs)
+
+    def SetPageText(*args, **kwargs):
+        """SetPageText(self, size_t n, String strText) -> bool"""
+        return _core_.BookCtrlBase_SetPageText(*args, **kwargs)
+
+    def GetPageText(*args, **kwargs):
+        """GetPageText(self, size_t n) -> String"""
+        return _core_.BookCtrlBase_GetPageText(*args, **kwargs)
+
+    def GetPageImage(*args, **kwargs):
+        """GetPageImage(self, size_t n) -> int"""
+        return _core_.BookCtrlBase_GetPageImage(*args, **kwargs)
+
+    def SetPageImage(*args, **kwargs):
+        """SetPageImage(self, size_t n, int imageId) -> bool"""
+        return _core_.BookCtrlBase_SetPageImage(*args, **kwargs)
+
+    def SetPageSize(*args, **kwargs):
+        """SetPageSize(self, Size size)"""
+        return _core_.BookCtrlBase_SetPageSize(*args, **kwargs)
+
+    def CalcSizeFromPage(*args, **kwargs):
+        """CalcSizeFromPage(self, Size sizePage) -> Size"""
+        return _core_.BookCtrlBase_CalcSizeFromPage(*args, **kwargs)
+
+    def GetInternalBorder(*args, **kwargs):
+        """GetInternalBorder(self) -> unsigned int"""
+        return _core_.BookCtrlBase_GetInternalBorder(*args, **kwargs)
+
+    def SetInternalBorder(*args, **kwargs):
+        """SetInternalBorder(self, unsigned int internalBorder)"""
+        return _core_.BookCtrlBase_SetInternalBorder(*args, **kwargs)
+
+    def IsVertical(*args, **kwargs):
+        """IsVertical(self) -> bool"""
+        return _core_.BookCtrlBase_IsVertical(*args, **kwargs)
+
+    def SetControlMargin(*args, **kwargs):
+        """SetControlMargin(self, int margin)"""
+        return _core_.BookCtrlBase_SetControlMargin(*args, **kwargs)
+
+    def GetControlMargin(*args, **kwargs):
+        """GetControlMargin(self) -> int"""
+        return _core_.BookCtrlBase_GetControlMargin(*args, **kwargs)
+
+    def SetFitToCurrentPage(*args, **kwargs):
+        """SetFitToCurrentPage(self, bool fit)"""
+        return _core_.BookCtrlBase_SetFitToCurrentPage(*args, **kwargs)
+
+    def GetFitToCurrentPage(*args, **kwargs):
+        """GetFitToCurrentPage(self) -> bool"""
+        return _core_.BookCtrlBase_GetFitToCurrentPage(*args, **kwargs)
+
+    def GetControlSizer(*args, **kwargs):
+        """GetControlSizer(self) -> Sizer"""
+        return _core_.BookCtrlBase_GetControlSizer(*args, **kwargs)
+
+    def DeletePage(*args, **kwargs):
+        """DeletePage(self, size_t n) -> bool"""
+        return _core_.BookCtrlBase_DeletePage(*args, **kwargs)
+
+    def RemovePage(*args, **kwargs):
+        """RemovePage(self, size_t n) -> bool"""
+        return _core_.BookCtrlBase_RemovePage(*args, **kwargs)
+
+    def DeleteAllPages(*args, **kwargs):
+        """DeleteAllPages(self) -> bool"""
+        return _core_.BookCtrlBase_DeleteAllPages(*args, **kwargs)
+
+    def AddPage(*args, **kwargs):
+        """AddPage(self, Window page, String text, bool select=False, int imageId=-1) -> bool"""
+        return _core_.BookCtrlBase_AddPage(*args, **kwargs)
+
+    def InsertPage(*args, **kwargs):
+        """
+        InsertPage(self, size_t n, Window page, String text, bool select=False, 
+            int imageId=-1) -> bool
+        """
+        return _core_.BookCtrlBase_InsertPage(*args, **kwargs)
+
+    def SetSelection(*args, **kwargs):
+        """SetSelection(self, size_t n) -> int"""
+        return _core_.BookCtrlBase_SetSelection(*args, **kwargs)
+
+    def ChangeSelection(*args, **kwargs):
+        """ChangeSelection(self, size_t n) -> int"""
+        return _core_.BookCtrlBase_ChangeSelection(*args, **kwargs)
+
+    def AdvanceSelection(*args, **kwargs):
+        """AdvanceSelection(self, bool forward=True)"""
+        return _core_.BookCtrlBase_AdvanceSelection(*args, **kwargs)
+
+    def HitTest(*args, **kwargs):
+        """
+        HitTest(Point pt) -> (tab, where)
+
+        Returns the page/tab which is hit, and flags indicating where using
+        wx.NB_HITTEST flags.
+        """
+        return _core_.BookCtrlBase_HitTest(*args, **kwargs)
+
+    def GetClassDefaultAttributes(*args, **kwargs):
+        """
+        GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
+
+        Get the default attributes for this class.  This is useful if you want
+        to use the same font or colour in your own control as in a standard
+        control -- which is a much better idea than hard coding specific
+        colours or fonts which might look completely out of place on the
+        user's system, especially if it uses themes.
+
+        The variant parameter is only relevant under Mac currently and is
+        ignore under other platforms. Under Mac, it will change the size of
+        the returned font. See `wx.Window.SetWindowVariant` for more about
+        this.
+        """
+        return _core_.BookCtrlBase_GetClassDefaultAttributes(*args, **kwargs)
+
+    GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
+    ControlMargin = property(GetControlMargin,SetControlMargin,doc="See `GetControlMargin` and `SetControlMargin`") 
+    ControlSizer = property(GetControlSizer,doc="See `GetControlSizer`") 
+    CurrentPage = property(GetCurrentPage,doc="See `GetCurrentPage`") 
+    FitToCurrentPage = property(GetFitToCurrentPage,SetFitToCurrentPage,doc="See `GetFitToCurrentPage` and `SetFitToCurrentPage`") 
+    InternalBorder = property(GetInternalBorder,SetInternalBorder,doc="See `GetInternalBorder` and `SetInternalBorder`") 
+    Page = property(GetPage,doc="See `GetPage`") 
+    PageCount = property(GetPageCount,doc="See `GetPageCount`") 
+    PageImage = property(GetPageImage,SetPageImage,doc="See `GetPageImage` and `SetPageImage`") 
+    PageText = property(GetPageText,SetPageText,doc="See `GetPageText` and `SetPageText`") 
+    Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
+_core_.BookCtrlBase_swigregister(BookCtrlBase)
+
+def BookCtrlBase_GetClassDefaultAttributes(*args, **kwargs):
+  """
+    BookCtrlBase_GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
+
+    Get the default attributes for this class.  This is useful if you want
+    to use the same font or colour in your own control as in a standard
+    control -- which is a much better idea than hard coding specific
+    colours or fonts which might look completely out of place on the
+    user's system, especially if it uses themes.
+
+    The variant parameter is only relevant under Mac currently and is
+    ignore under other platforms. Under Mac, it will change the size of
+    the returned font. See `wx.Window.SetWindowVariant` for more about
+    this.
+    """
+  return _core_.BookCtrlBase_GetClassDefaultAttributes(*args, **kwargs)
+
+class BookCtrlEvent(NotifyEvent):
+    """Proxy of C++ BookCtrlEvent class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, EventType commandType=wxEVT_NULL, int id=0, int nSel=-1, 
+            int nOldSel=-1) -> BookCtrlEvent
+        """
+        _core_.BookCtrlEvent_swiginit(self,_core_.new_BookCtrlEvent(*args, **kwargs))
+    def GetSelection(*args, **kwargs):
+        """
+        GetSelection(self) -> int
+
+        Returns item index for a listbox or choice selection event (not valid
+        for a deselection).
+        """
+        return _core_.BookCtrlEvent_GetSelection(*args, **kwargs)
+
+    def SetSelection(*args, **kwargs):
+        """SetSelection(self, int nSel)"""
+        return _core_.BookCtrlEvent_SetSelection(*args, **kwargs)
+
+    def GetOldSelection(*args, **kwargs):
+        """GetOldSelection(self) -> int"""
+        return _core_.BookCtrlEvent_GetOldSelection(*args, **kwargs)
+
+    def SetOldSelection(*args, **kwargs):
+        """SetOldSelection(self, int nOldSel)"""
+        return _core_.BookCtrlEvent_SetOldSelection(*args, **kwargs)
+
+    OldSelection = property(GetOldSelection,SetOldSelection,doc="See `GetOldSelection` and `SetOldSelection`") 
+    Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
+_core_.BookCtrlEvent_swigregister(BookCtrlEvent)
+
+#---------------------------------------------------------------------------
+
 class SizerFlags(object):
     """
     Normally, when you add an item to a sizer via `wx.Sizer.Add`, you have

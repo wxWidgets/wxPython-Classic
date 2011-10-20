@@ -3045,226 +3045,6 @@ def ToggleButton_GetClassDefaultAttributes(*args, **kwargs):
 
 #---------------------------------------------------------------------------
 
-BK_DEFAULT = _controls_.BK_DEFAULT
-BK_TOP = _controls_.BK_TOP
-BK_BOTTOM = _controls_.BK_BOTTOM
-BK_LEFT = _controls_.BK_LEFT
-BK_RIGHT = _controls_.BK_RIGHT
-BK_ALIGN_MASK = _controls_.BK_ALIGN_MASK
-BK_BUTTONBAR = _controls_.BK_BUTTONBAR
-TBK_BUTTONBAR = _controls_.TBK_BUTTONBAR
-TBK_HORZ_LAYOUT = _controls_.TBK_HORZ_LAYOUT
-BK_HITTEST_NOWHERE = _controls_.BK_HITTEST_NOWHERE
-BK_HITTEST_ONICON = _controls_.BK_HITTEST_ONICON
-BK_HITTEST_ONLABEL = _controls_.BK_HITTEST_ONLABEL
-BK_HITTEST_ONITEM = _controls_.BK_HITTEST_ONITEM
-BK_HITTEST_ONPAGE = _controls_.BK_HITTEST_ONPAGE
-class BookCtrlBase(_core.Control,_core.WithImages):
-    """Proxy of C++ BookCtrlBase class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    def __init__(self): raise AttributeError, "No constructor defined"
-    __repr__ = _swig_repr
-    def GetPageCount(*args, **kwargs):
-        """GetPageCount(self) -> size_t"""
-        return _controls_.BookCtrlBase_GetPageCount(*args, **kwargs)
-
-    def GetPage(*args, **kwargs):
-        """GetPage(self, size_t n) -> Window"""
-        return _controls_.BookCtrlBase_GetPage(*args, **kwargs)
-
-    def GetCurrentPage(*args, **kwargs):
-        """GetCurrentPage(self) -> Window"""
-        return _controls_.BookCtrlBase_GetCurrentPage(*args, **kwargs)
-
-    def GetSelection(*args, **kwargs):
-        """GetSelection(self) -> int"""
-        return _controls_.BookCtrlBase_GetSelection(*args, **kwargs)
-
-    def SetPageText(*args, **kwargs):
-        """SetPageText(self, size_t n, String strText) -> bool"""
-        return _controls_.BookCtrlBase_SetPageText(*args, **kwargs)
-
-    def GetPageText(*args, **kwargs):
-        """GetPageText(self, size_t n) -> String"""
-        return _controls_.BookCtrlBase_GetPageText(*args, **kwargs)
-
-    def GetPageImage(*args, **kwargs):
-        """GetPageImage(self, size_t n) -> int"""
-        return _controls_.BookCtrlBase_GetPageImage(*args, **kwargs)
-
-    def SetPageImage(*args, **kwargs):
-        """SetPageImage(self, size_t n, int imageId) -> bool"""
-        return _controls_.BookCtrlBase_SetPageImage(*args, **kwargs)
-
-    def SetPageSize(*args, **kwargs):
-        """SetPageSize(self, Size size)"""
-        return _controls_.BookCtrlBase_SetPageSize(*args, **kwargs)
-
-    def CalcSizeFromPage(*args, **kwargs):
-        """CalcSizeFromPage(self, Size sizePage) -> Size"""
-        return _controls_.BookCtrlBase_CalcSizeFromPage(*args, **kwargs)
-
-    def GetInternalBorder(*args, **kwargs):
-        """GetInternalBorder(self) -> unsigned int"""
-        return _controls_.BookCtrlBase_GetInternalBorder(*args, **kwargs)
-
-    def SetInternalBorder(*args, **kwargs):
-        """SetInternalBorder(self, unsigned int internalBorder)"""
-        return _controls_.BookCtrlBase_SetInternalBorder(*args, **kwargs)
-
-    def IsVertical(*args, **kwargs):
-        """IsVertical(self) -> bool"""
-        return _controls_.BookCtrlBase_IsVertical(*args, **kwargs)
-
-    def SetControlMargin(*args, **kwargs):
-        """SetControlMargin(self, int margin)"""
-        return _controls_.BookCtrlBase_SetControlMargin(*args, **kwargs)
-
-    def GetControlMargin(*args, **kwargs):
-        """GetControlMargin(self) -> int"""
-        return _controls_.BookCtrlBase_GetControlMargin(*args, **kwargs)
-
-    def SetFitToCurrentPage(*args, **kwargs):
-        """SetFitToCurrentPage(self, bool fit)"""
-        return _controls_.BookCtrlBase_SetFitToCurrentPage(*args, **kwargs)
-
-    def GetFitToCurrentPage(*args, **kwargs):
-        """GetFitToCurrentPage(self) -> bool"""
-        return _controls_.BookCtrlBase_GetFitToCurrentPage(*args, **kwargs)
-
-    def GetControlSizer(*args, **kwargs):
-        """GetControlSizer(self) -> Sizer"""
-        return _controls_.BookCtrlBase_GetControlSizer(*args, **kwargs)
-
-    def DeletePage(*args, **kwargs):
-        """DeletePage(self, size_t n) -> bool"""
-        return _controls_.BookCtrlBase_DeletePage(*args, **kwargs)
-
-    def RemovePage(*args, **kwargs):
-        """RemovePage(self, size_t n) -> bool"""
-        return _controls_.BookCtrlBase_RemovePage(*args, **kwargs)
-
-    def DeleteAllPages(*args, **kwargs):
-        """DeleteAllPages(self) -> bool"""
-        return _controls_.BookCtrlBase_DeleteAllPages(*args, **kwargs)
-
-    def AddPage(*args, **kwargs):
-        """AddPage(self, Window page, String text, bool select=False, int imageId=-1) -> bool"""
-        return _controls_.BookCtrlBase_AddPage(*args, **kwargs)
-
-    def InsertPage(*args, **kwargs):
-        """
-        InsertPage(self, size_t n, Window page, String text, bool select=False, 
-            int imageId=-1) -> bool
-        """
-        return _controls_.BookCtrlBase_InsertPage(*args, **kwargs)
-
-    def SetSelection(*args, **kwargs):
-        """SetSelection(self, size_t n) -> int"""
-        return _controls_.BookCtrlBase_SetSelection(*args, **kwargs)
-
-    def ChangeSelection(*args, **kwargs):
-        """ChangeSelection(self, size_t n) -> int"""
-        return _controls_.BookCtrlBase_ChangeSelection(*args, **kwargs)
-
-    def AdvanceSelection(*args, **kwargs):
-        """AdvanceSelection(self, bool forward=True)"""
-        return _controls_.BookCtrlBase_AdvanceSelection(*args, **kwargs)
-
-    def HitTest(*args, **kwargs):
-        """
-        HitTest(Point pt) -> (tab, where)
-
-        Returns the page/tab which is hit, and flags indicating where using
-        wx.NB_HITTEST flags.
-        """
-        return _controls_.BookCtrlBase_HitTest(*args, **kwargs)
-
-    def GetClassDefaultAttributes(*args, **kwargs):
-        """
-        GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
-
-        Get the default attributes for this class.  This is useful if you want
-        to use the same font or colour in your own control as in a standard
-        control -- which is a much better idea than hard coding specific
-        colours or fonts which might look completely out of place on the
-        user's system, especially if it uses themes.
-
-        The variant parameter is only relevant under Mac currently and is
-        ignore under other platforms. Under Mac, it will change the size of
-        the returned font. See `wx.Window.SetWindowVariant` for more about
-        this.
-        """
-        return _controls_.BookCtrlBase_GetClassDefaultAttributes(*args, **kwargs)
-
-    GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
-    ControlMargin = property(GetControlMargin,SetControlMargin,doc="See `GetControlMargin` and `SetControlMargin`") 
-    ControlSizer = property(GetControlSizer,doc="See `GetControlSizer`") 
-    CurrentPage = property(GetCurrentPage,doc="See `GetCurrentPage`") 
-    FitToCurrentPage = property(GetFitToCurrentPage,SetFitToCurrentPage,doc="See `GetFitToCurrentPage` and `SetFitToCurrentPage`") 
-    InternalBorder = property(GetInternalBorder,SetInternalBorder,doc="See `GetInternalBorder` and `SetInternalBorder`") 
-    Page = property(GetPage,doc="See `GetPage`") 
-    PageCount = property(GetPageCount,doc="See `GetPageCount`") 
-    PageImage = property(GetPageImage,SetPageImage,doc="See `GetPageImage` and `SetPageImage`") 
-    PageText = property(GetPageText,SetPageText,doc="See `GetPageText` and `SetPageText`") 
-    Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
-_controls_.BookCtrlBase_swigregister(BookCtrlBase)
-NotebookNameStr = cvar.NotebookNameStr
-
-def BookCtrlBase_GetClassDefaultAttributes(*args, **kwargs):
-  """
-    BookCtrlBase_GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
-
-    Get the default attributes for this class.  This is useful if you want
-    to use the same font or colour in your own control as in a standard
-    control -- which is a much better idea than hard coding specific
-    colours or fonts which might look completely out of place on the
-    user's system, especially if it uses themes.
-
-    The variant parameter is only relevant under Mac currently and is
-    ignore under other platforms. Under Mac, it will change the size of
-    the returned font. See `wx.Window.SetWindowVariant` for more about
-    this.
-    """
-  return _controls_.BookCtrlBase_GetClassDefaultAttributes(*args, **kwargs)
-
-class BookCtrlEvent(_core.NotifyEvent):
-    """Proxy of C++ BookCtrlEvent class"""
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
-    __repr__ = _swig_repr
-    def __init__(self, *args, **kwargs): 
-        """
-        __init__(self, EventType commandType=wxEVT_NULL, int id=0, int nSel=-1, 
-            int nOldSel=-1) -> BookCtrlEvent
-        """
-        _controls_.BookCtrlEvent_swiginit(self,_controls_.new_BookCtrlEvent(*args, **kwargs))
-    def GetSelection(*args, **kwargs):
-        """
-        GetSelection(self) -> int
-
-        Returns item index for a listbox or choice selection event (not valid
-        for a deselection).
-        """
-        return _controls_.BookCtrlEvent_GetSelection(*args, **kwargs)
-
-    def SetSelection(*args, **kwargs):
-        """SetSelection(self, int nSel)"""
-        return _controls_.BookCtrlEvent_SetSelection(*args, **kwargs)
-
-    def GetOldSelection(*args, **kwargs):
-        """GetOldSelection(self) -> int"""
-        return _controls_.BookCtrlEvent_GetOldSelection(*args, **kwargs)
-
-    def SetOldSelection(*args, **kwargs):
-        """SetOldSelection(self, int nOldSel)"""
-        return _controls_.BookCtrlEvent_SetOldSelection(*args, **kwargs)
-
-    OldSelection = property(GetOldSelection,SetOldSelection,doc="See `GetOldSelection` and `SetOldSelection`") 
-    Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
-_controls_.BookCtrlEvent_swigregister(BookCtrlEvent)
-
-#---------------------------------------------------------------------------
-
 NB_FIXEDWIDTH = _controls_.NB_FIXEDWIDTH
 NB_TOP = _controls_.NB_TOP
 NB_LEFT = _controls_.NB_LEFT
@@ -3277,7 +3057,7 @@ NB_HITTEST_ONICON = _controls_.NB_HITTEST_ONICON
 NB_HITTEST_ONLABEL = _controls_.NB_HITTEST_ONLABEL
 NB_HITTEST_ONITEM = _controls_.NB_HITTEST_ONITEM
 NB_HITTEST_ONPAGE = _controls_.NB_HITTEST_ONPAGE
-class Notebook(BookCtrlBase):
+class Notebook(_core.BookCtrlBase):
     """Proxy of C++ Notebook class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -3341,6 +3121,7 @@ class Notebook(BookCtrlBase):
     RowCount = property(GetRowCount,doc="See `GetRowCount`") 
     ThemeBackgroundColour = property(GetThemeBackgroundColour,doc="See `GetThemeBackgroundColour`") 
 _controls_.Notebook_swigregister(Notebook)
+NotebookNameStr = cvar.NotebookNameStr
 
 def PreNotebook(*args, **kwargs):
     """PreNotebook() -> Notebook"""
@@ -3364,7 +3145,7 @@ def Notebook_GetClassDefaultAttributes(*args, **kwargs):
     """
   return _controls_.Notebook_GetClassDefaultAttributes(*args, **kwargs)
 
-NotebookEvent = BookCtrlEvent
+NotebookEvent = wx.BookCtrlEvent
 
 wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED = _controls_.wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED
 wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGING = _controls_.wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGING
@@ -3410,7 +3191,7 @@ LB_BOTTOM = _controls_.LB_BOTTOM
 LB_LEFT = _controls_.LB_LEFT
 LB_RIGHT = _controls_.LB_RIGHT
 LB_ALIGN_MASK = _controls_.LB_ALIGN_MASK
-class Listbook(BookCtrlBase):
+class Listbook(_core.BookCtrlBase):
     """Proxy of C++ Listbook class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -3441,7 +3222,7 @@ def PreListbook(*args, **kwargs):
     val = _controls_.new_PreListbook(*args, **kwargs)
     return val
 
-ListbookEvent = BookCtrlEvent
+ListbookEvent = wx.BookCtrlEvent
 
 wxEVT_COMMAND_LISTBOOK_PAGE_CHANGED = _controls_.wxEVT_COMMAND_LISTBOOK_PAGE_CHANGED
 wxEVT_COMMAND_LISTBOOK_PAGE_CHANGING = _controls_.wxEVT_COMMAND_LISTBOOK_PAGE_CHANGING
@@ -3454,7 +3235,7 @@ CHB_BOTTOM = _controls_.CHB_BOTTOM
 CHB_LEFT = _controls_.CHB_LEFT
 CHB_RIGHT = _controls_.CHB_RIGHT
 CHB_ALIGN_MASK = _controls_.CHB_ALIGN_MASK
-class Choicebook(BookCtrlBase):
+class Choicebook(_core.BookCtrlBase):
     """Proxy of C++ Choicebook class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -3485,7 +3266,7 @@ def PreChoicebook(*args, **kwargs):
     val = _controls_.new_PreChoicebook(*args, **kwargs)
     return val
 
-ChoicebookEvent = BookCtrlEvent
+ChoicebookEvent = wx.BookCtrlEvent
 
 wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGED = _controls_.wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGED
 wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGING = _controls_.wxEVT_COMMAND_CHOICEBOOK_PAGE_CHANGING
@@ -3494,7 +3275,7 @@ EVT_CHOICEBOOK_PAGE_CHANGING = wx.PyEventBinder( wxEVT_COMMAND_CHOICEBOOK_PAGE_C
 
 #---------------------------------------------------------------------------
 
-class Treebook(BookCtrlBase):
+class Treebook(_core.BookCtrlBase):
     """Proxy of C++ Treebook class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -3554,7 +3335,7 @@ def PreTreebook(*args, **kwargs):
     val = _controls_.new_PreTreebook(*args, **kwargs)
     return val
 
-TreebookEvent = BookCtrlEvent
+TreebookEvent = wx.BookCtrlEvent
 
 wxEVT_COMMAND_TREEBOOK_PAGE_CHANGED = _controls_.wxEVT_COMMAND_TREEBOOK_PAGE_CHANGED
 wxEVT_COMMAND_TREEBOOK_PAGE_CHANGING = _controls_.wxEVT_COMMAND_TREEBOOK_PAGE_CHANGING
@@ -3567,7 +3348,7 @@ EVT_TREEBOOK_NODE_EXPANDED = wx.PyEventBinder( wxEVT_COMMAND_TREEBOOK_NODE_EXPAN
 
 #---------------------------------------------------------------------------
 
-class Toolbook(BookCtrlBase):
+class Toolbook(_core.BookCtrlBase):
     """Proxy of C++ Toolbook class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -3603,7 +3384,7 @@ def PreToolbook(*args, **kwargs):
     val = _controls_.new_PreToolbook(*args, **kwargs)
     return val
 
-ToolbookEvent = BookCtrlEvent
+ToolbookEvent = wx.BookCtrlEvent
 
 wxEVT_COMMAND_TOOLBOOK_PAGE_CHANGED = _controls_.wxEVT_COMMAND_TOOLBOOK_PAGE_CHANGED
 wxEVT_COMMAND_TOOLBOOK_PAGE_CHANGING = _controls_.wxEVT_COMMAND_TOOLBOOK_PAGE_CHANGING

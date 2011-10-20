@@ -155,6 +155,13 @@ import _core
 import _windows
 wx = _core 
 __docfilter__ = wx.__DocFilter(globals()) 
+class wxNavigationEnabled_BookCtrlBase(_core.BookCtrlBase):
+    """Proxy of C++ wxNavigationEnabled_BookCtrlBase class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    def __init__(self): raise AttributeError, "No constructor defined"
+    __repr__ = _swig_repr
+_aui.wxNavigationEnabled_BookCtrlBase_swigregister(wxNavigationEnabled_BookCtrlBase)
+
 AUI_DOCK_NONE = _aui.AUI_DOCK_NONE
 AUI_DOCK_TOP = _aui.AUI_DOCK_TOP
 AUI_DOCK_RIGHT = _aui.AUI_DOCK_RIGHT
@@ -1065,17 +1072,13 @@ AUI_NB_CLOSE_ON_ACTIVE_TAB = _aui.AUI_NB_CLOSE_ON_ACTIVE_TAB
 AUI_NB_CLOSE_ON_ALL_TABS = _aui.AUI_NB_CLOSE_ON_ALL_TABS
 AUI_NB_MIDDLE_CLICK_CLOSE = _aui.AUI_NB_MIDDLE_CLICK_CLOSE
 AUI_NB_DEFAULT_STYLE = _aui.AUI_NB_DEFAULT_STYLE
-class AuiNotebookEvent(object):
+class AuiNotebookEvent(_core.BookCtrlEvent):
     """Proxy of C++ AuiNotebookEvent class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """__init__(self, EventType command_type=wxEVT_NULL, int win_id=0) -> AuiNotebookEvent"""
         _aui.AuiNotebookEvent_swiginit(self,_aui.new_AuiNotebookEvent(*args, **kwargs))
-    def Clone(*args, **kwargs):
-        """Clone(self) -> Event"""
-        return _aui.AuiNotebookEvent_Clone(*args, **kwargs)
-
     def SetDragSource(*args, **kwargs):
         """SetDragSource(self, AuiNotebook s)"""
         return _aui.AuiNotebookEvent_SetDragSource(*args, **kwargs)
@@ -1085,8 +1088,6 @@ class AuiNotebookEvent(object):
         return _aui.AuiNotebookEvent_GetDragSource(*args, **kwargs)
 
     drag_source = property(_aui.AuiNotebookEvent_drag_source_get, _aui.AuiNotebookEvent_drag_source_set)
-    OldSelection = property(GetOldSelection,SetOldSelection,doc="See `GetOldSelection` and `SetOldSelection`") 
-    Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
 _aui.AuiNotebookEvent_swigregister(AuiNotebookEvent)
 
 class AuiNotebookPage(object):
@@ -1378,7 +1379,7 @@ class AuiTabCtrl(_core.Control,AuiTabContainer):
 
 _aui.AuiTabCtrl_swigregister(AuiTabCtrl)
 
-class AuiNotebook(object):
+class AuiNotebook(wxNavigationEnabled_BookCtrlBase):
     """Proxy of C++ AuiNotebook class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
@@ -1396,12 +1397,10 @@ class AuiNotebook(object):
         """
         Create(self, Window parent, int id=ID_ANY, Point pos=DefaultPosition, 
             Size size=DefaultSize, long style=0) -> bool
+
+        Do the 2nd phase and create the GUI control.
         """
         return _aui.AuiNotebook_Create(*args, **kwargs)
-
-    def SetWindowStyleFlag(*args, **kwargs):
-        """SetWindowStyleFlag(self, long style)"""
-        return _aui.AuiNotebook_SetWindowStyleFlag(*args, **kwargs)
 
     def SetArtProvider(*args, **kwargs):
         """SetArtProvider(self, AuiTabArt art)"""
@@ -1419,18 +1418,6 @@ class AuiNotebook(object):
         """SetTabCtrlHeight(self, int height)"""
         return _aui.AuiNotebook_SetTabCtrlHeight(*args, **kwargs)
 
-    def DeletePage(*args, **kwargs):
-        """DeletePage(self, size_t page) -> bool"""
-        return _aui.AuiNotebook_DeletePage(*args, **kwargs)
-
-    def RemovePage(*args, **kwargs):
-        """RemovePage(self, size_t page) -> bool"""
-        return _aui.AuiNotebook_RemovePage(*args, **kwargs)
-
-    def GetPageCount(*args, **kwargs):
-        """GetPageCount(self) -> size_t"""
-        return _aui.AuiNotebook_GetPageCount(*args, **kwargs)
-
     def GetPage(*args, **kwargs):
         """GetPage(self, size_t page_idx) -> Window"""
         return _aui.AuiNotebook_GetPage(*args, **kwargs)
@@ -1439,14 +1426,6 @@ class AuiNotebook(object):
         """GetPageIndex(self, Window page_wnd) -> int"""
         return _aui.AuiNotebook_GetPageIndex(*args, **kwargs)
 
-    def SetPageText(*args, **kwargs):
-        """SetPageText(self, size_t page, String text) -> bool"""
-        return _aui.AuiNotebook_SetPageText(*args, **kwargs)
-
-    def GetPageText(*args, **kwargs):
-        """GetPageText(self, size_t page_idx) -> String"""
-        return _aui.AuiNotebook_GetPageText(*args, **kwargs)
-
     def SetPageBitmap(*args, **kwargs):
         """SetPageBitmap(self, size_t page, Bitmap bitmap) -> bool"""
         return _aui.AuiNotebook_SetPageBitmap(*args, **kwargs)
@@ -1454,14 +1433,6 @@ class AuiNotebook(object):
     def GetPageBitmap(*args, **kwargs):
         """GetPageBitmap(self, size_t page_idx) -> Bitmap"""
         return _aui.AuiNotebook_GetPageBitmap(*args, **kwargs)
-
-    def SetSelection(*args, **kwargs):
-        """SetSelection(self, size_t new_page) -> int"""
-        return _aui.AuiNotebook_SetSelection(*args, **kwargs)
-
-    def GetSelection(*args, **kwargs):
-        """GetSelection(self) -> int"""
-        return _aui.AuiNotebook_GetSelection(*args, **kwargs)
 
     def Split(*args, **kwargs):
         """Split(self, size_t page, int direction)"""
@@ -1483,10 +1454,6 @@ class AuiNotebook(object):
         """SetMeasuringFont(self, Font font)"""
         return _aui.AuiNotebook_SetMeasuringFont(*args, **kwargs)
 
-    def SetFont(*args, **kwargs):
-        """SetFont(self, Font font) -> bool"""
-        return _aui.AuiNotebook_SetFont(*args, **kwargs)
-
     def GetTabCtrlHeight(*args, **kwargs):
         """GetTabCtrlHeight(self) -> int"""
         return _aui.AuiNotebook_GetTabCtrlHeight(*args, **kwargs)
@@ -1503,60 +1470,20 @@ class AuiNotebook(object):
         """ShowWindowMenu(self) -> bool"""
         return _aui.AuiNotebook_ShowWindowMenu(*args, **kwargs)
 
-    def HasMultiplePages(*args, **kwargs):
-        """HasMultiplePages(self) -> bool"""
-        return _aui.AuiNotebook_HasMultiplePages(*args, **kwargs)
-
     def Thaw(*args, **kwargs):
-        """Thaw(self)"""
+        """
+        Thaw(self)
+
+        Reenables window updating after a previous call to Freeze.  Calls to
+        Freeze/Thaw may be nested, so Thaw must be called the same number of
+        times that Freeze was before the window will be updated.
+        """
         return _aui.AuiNotebook_Thaw(*args, **kwargs)
-
-    def SetPageSize(*args, **kwargs):
-        """SetPageSize(self, Size size)"""
-        return _aui.AuiNotebook_SetPageSize(*args, **kwargs)
-
-    def HitTest(*args, **kwargs):
-        """HitTest(self, Point pt, long flags=None) -> int"""
-        return _aui.AuiNotebook_HitTest(*args, **kwargs)
-
-    def GetPageImage(*args, **kwargs):
-        """GetPageImage(self, size_t n) -> int"""
-        return _aui.AuiNotebook_GetPageImage(*args, **kwargs)
-
-    def SetPageImage(*args, **kwargs):
-        """SetPageImage(self, size_t n, int imageId) -> bool"""
-        return _aui.AuiNotebook_SetPageImage(*args, **kwargs)
 
     def GetCurrentPage(*args, **kwargs):
         """GetCurrentPage(self) -> Window"""
         return _aui.AuiNotebook_GetCurrentPage(*args, **kwargs)
 
-    def ChangeSelection(*args, **kwargs):
-        """ChangeSelection(self, size_t n) -> int"""
-        return _aui.AuiNotebook_ChangeSelection(*args, **kwargs)
-
-    def AddPage(*args):
-        """
-        AddPage(self, Window page, String caption, bool select=False, Bitmap bitmap=wxNullBitmap) -> bool
-        AddPage(self, Window page, String text, bool select, int imageId) -> bool
-        """
-        return _aui.AuiNotebook_AddPage(*args)
-
-    def DeleteAllPages(*args, **kwargs):
-        """DeleteAllPages(self) -> bool"""
-        return _aui.AuiNotebook_DeleteAllPages(*args, **kwargs)
-
-    def InsertPage(*args):
-        """
-        InsertPage(self, size_t page_idx, Window page, String caption, bool select=False, 
-            Bitmap bitmap=wxNullBitmap) -> bool
-        InsertPage(self, size_t index, Window page, String text, bool select=False, 
-            int imageId=NO_IMAGE) -> bool
-        """
-        return _aui.AuiNotebook_InsertPage(*args)
-
-    PageCount = property(GetPageCount,doc="See `GetPageCount`") 
-    Selection = property(GetSelection,SetSelection,doc="See `GetSelection` and `SetSelection`") 
 _aui.AuiNotebook_swigregister(AuiNotebook)
 
 def PreAuiNotebook(*args, **kwargs):
@@ -1818,10 +1745,6 @@ class AuiMDIClientWindow(AuiNotebook):
     def CreateClient(*args, **kwargs):
         """CreateClient(self, AuiMDIParentFrame parent, long style=wxVSCROLL|wxHSCROLL) -> bool"""
         return _aui.AuiMDIClientWindow_CreateClient(*args, **kwargs)
-
-    def SetSelection(*args, **kwargs):
-        """SetSelection(self, size_t page) -> int"""
-        return _aui.AuiMDIClientWindow_SetSelection(*args, **kwargs)
 
 _aui.AuiMDIClientWindow_swigregister(AuiMDIClientWindow)
 
