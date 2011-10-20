@@ -154,6 +154,7 @@ MAKE_CONST_WXSTRING(EmptyString);
 %include _menu.i
 %include _control.i
 %include _withimages.i
+%include _bookctrl.i
 
 // Layout
 %include _sizers.i

@@ -153,6 +153,7 @@ swig_sources = run_swig(['core.i'], 'src', GENDIR, PKGDIR,
                           'src/_headercol.i',
                           'src/_versioninfo.i',
                           'src/_withimages.i',
+                          'src/_bookctrl.i',
                           ],
                         True)
 
