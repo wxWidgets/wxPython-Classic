@@ -360,15 +360,11 @@ the window may be unsplit even if minimum size is non-zero.", "");
         "Resizes subwindows", "");
     
 
-    void SetNeedUpdating(bool needUpdating);
-    bool GetNeedUpdating() const;
-
     static wxVisualAttributes
     GetClassDefaultAttributes(wxWindowVariant variant = wxWINDOW_VARIANT_NORMAL);
     
     %property(BorderSize, GetBorderSize, SetBorderSize, doc="See `GetBorderSize` and `SetBorderSize`");
     %property(MinimumPaneSize, GetMinimumPaneSize, SetMinimumPaneSize, doc="See `GetMinimumPaneSize` and `SetMinimumPaneSize`");
-    %property(NeedUpdating, GetNeedUpdating, SetNeedUpdating, doc="See `GetNeedUpdating` and `SetNeedUpdating`");
     %property(SashGravity, GetSashGravity, SetSashGravity, doc="See `GetSashGravity` and `SetSashGravity`");
     %property(SashPosition, GetSashPosition, SetSashPosition, doc="See `GetSashPosition` and `SetSashPosition`");
     %property(SashSize, GetSashSize, SetSashSize, doc="See `GetSashSize` and `SetSashSize`");

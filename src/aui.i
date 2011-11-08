@@ -971,9 +971,9 @@ public:
 //                                    const wxSize& required_bmp_size);
 
 
-    wxFont GetNormalFont() const { return m_normal_font; }
-    wxFont GetSelectedFont() const { return m_selected_font; }
-    wxFont GetMeasuringFont() const { return m_measuring_font; }
+    wxFont GetNormalFont() const { return m_normalFont; }
+    wxFont GetSelectedFont() const { return m_selectedFont; }
+    wxFont GetMeasuringFont() const { return m_measuringFont; }
 
     int GetFlags() const { return (int)m_flags; }
 
