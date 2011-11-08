@@ -79,6 +79,7 @@ class SoftwareUpdate(object):
             self._changelogURL = changelogURL
             self._icon = icon
             self._pd = None
+            self._checkInProgress = False
             try:
                 # get rid of the prior version if it is still here.
                 if self._esky.needs_cleanup():
@@ -107,14 +108,10 @@ class SoftwareUpdate(object):
         
         if (today - lastCheck >= frequencyInDays
             or lastCheckVersion != active):
-                ok = self.CheckForUpdate(True, parentWindow)
-                if ok:
-                    cfg.WriteInt('lastCheck', today)
-                    cfg.Write('lastCheckVersion', active)
-                    cfg.Flush()
+                self.CheckForUpdate(True, parentWindow, cfg)
         
         
-    def CheckForUpdate(self, silentUnlessUpdate=False, parentWindow=None):
+    def CheckForUpdate(self, silentUnlessUpdate=False, parentWindow=None, cfg=None):
         """
         This method will check for the availability of a new update, and will
         prompt the user with details if there is one there. By default it will
@@ -123,127 +120,154 @@ class SoftwareUpdate(object):
         update available.
         
         This method should be called from an event handler for a "Check for
-        updates" menu item, or something similar.
+        updates" menu item, or something similar. The actual update check
+        will be run in a background thread and this function will return
+        immediately after starting the thread so the application is not
+        blocked if there is network communication problems. A callback to the
+        GUI thread will be made to do the update or report problems as
+        needed.
         """
-        if not isFrozenApp:
-            return False
-        active = self._esky.active_version
-        try:
-            newest = self._esky.find_update()
-        except urllib2.URLError:
-            if not silentUnlessUpdate:
-                MultiMessageBox("Unable to connect to %s to check for updates." % 
-                                self._updatesURL,
-                                self._caption, parent=parentWindow, icon=self._icon)
-            return False
-            
-        if newest is None:
-            if not silentUnlessUpdate:
-                MultiMessageBox("You are already running the newest verison of %s." % 
-                                self.GetAppDisplayName(),
-                                self._caption, parent=parentWindow, icon=self._icon)
-            return True
-        self._parentWindow = parentWindow
-        
-        chLogTxt = ""
-        if self._changelogURL:
-            # if self._changelogURL is not None then fetch it and display the
-            # text in the next dialog
+        if not isFrozenApp or self._checkInProgress:
+            return
+        self._checkInProgress = True
+
+
+        def doFindUpdate():
             try:
-                req = urllib2.urlopen(self._changelogURL, timeout=4)
-                chLogTxt = req.read()
-                req.close()
-            except:
-                pass
+                newest = self._esky.find_update()
+                chLogTxt = ''
+                if newest is not None and self._changelogURL:
+                    req = urllib2.urlopen(self._changelogURL, timeout=4)
+                    chLogTxt = req.read()
+                    req.close()
+                return (newest, chLogTxt)
             
-        resp = MultiMessageBox("A new version of %s is available.\n\n"
-               "You are currently running verison %s, version %s is now "
-               "available for download.  Do you wish to install it now?"
-               % (self.GetAppDisplayName(), active, newest),
-               self._caption, msg2=chLogTxt, style=wx.YES_NO, 
-               parent=parentWindow, icon=self._icon, 
-               btnLabels={wx.ID_YES:"Yes, install now", 
-                          wx.ID_NO:"No, maybe later"})
-        if resp != wx.YES:
-            return True
+            except urllib2.URLError:
+                return 'URLError'
+
+
+        def processResults(result):
+            result = result.get()
+            self._checkInProgress = False
+            if result == 'URLError':
+                if not silentUnlessUpdate:
+                    MultiMessageBox("Unable to connect to %s to check for updates." % 
+                                    self._updatesURL,
+                                    self._caption, parent=parentWindow, icon=self._icon)
+                return
         
-        # Ok, there is a little trickery going on here. We don't know yet if
-        # the user wants to restart the application after the update is
-        # complete, but since atexit functions are executed in a LIFO order we
-        # need to registar our function before we call auto_update and Esky
-        # possibly registers its own atexit function, because we want ours to
-        # be run *after* theirs. So we'll create an instance of an info object
-        # and register its method now, and then fill in the details below
-        # once we decide what we want to do.
-        class RestartInfo(object):
-            def __init__(self):
-                self.exe = None
-            def restart(self):
-                if self.exe is not None:
-                    # Execute the program, replacing this process
-                    os.execv(self.exe, [self.exe] + sys.argv[1:])
-        info = RestartInfo()
-        atexit.register(info.restart)
+            active = self._esky.active_version
+            if cfg:
+                today = int(wx.DateTime.Today().GetJulianDayNumber())
+                cfg.WriteInt('lastCheck', today)
+                cfg.Write('lastCheckVersion', active)
+                cfg.Flush()
+            
+            newest, chLogTxt = result
+            if newest is None:
+                if not silentUnlessUpdate:
+                    MultiMessageBox("You are already running the newest verison of %s." % 
+                                    self.GetAppDisplayName(),
+                                    self._caption, parent=parentWindow, icon=self._icon)
+                return 
+            self._parentWindow = parentWindow
         
-        try:
-            # Let Esky handle all the rest of the update process so we can
-            # take advantage of the error checking and priviledge elevation
-            # (if neccessary) that they have done so we don't have to worry
-            # about that ourselves like we would if we broke down the proccess
-            # into component steps.
-            self._esky.auto_update(self._updateProgress)
+            resp = MultiMessageBox("A new version of %s is available.\n\n"
+                   "You are currently running verison %s, version %s is now "
+                   "available for download.  Do you wish to install it now?"
+                   % (self.GetAppDisplayName(), active, newest),
+                   self._caption, msg2=chLogTxt, style=wx.YES_NO, 
+                   parent=parentWindow, icon=self._icon, 
+                   btnLabels={wx.ID_YES:"Yes, install now", 
+                              wx.ID_NO:"No, maybe later"})
+            if resp != wx.YES:
+                return 
+        
+            # Ok, there is a little trickery going on here. We don't know yet if
+            # the user wants to restart the application after the update is
+            # complete, but since atexit functions are executed in a LIFO order we
+            # need to registar our function before we call auto_update and Esky
+            # possibly registers its own atexit function, because we want ours to
+            # be run *after* theirs. So we'll create an instance of an info object
+            # and register its method now, and then fill in the details below
+            # once we decide what we want to do.
+            class RestartInfo(object):
+                def __init__(self):
+                    self.exe = None
+                def restart(self):
+                    if self.exe is not None:
+                        # Execute the program, replacing this process
+                        os.execv(self.exe, [self.exe] + sys.argv[1:])
+            info = RestartInfo()
+            atexit.register(info.restart)
             
-        except UpdateAbortedError:
-            self._esky.cleanup()
-            MultiMessageBox("Update aborted.", self._caption, 
-                            parent=parentWindow, icon=self._icon)
-            return False             
-
-        # Ask the user if they want the application to be restarted.
-        resp = MultiMessageBox("The upgrade to %s %s is ready to use, the application will "
-                               "need to be restarted to begin using the new release.\n\n"
-                               "Restart %s now?"
-                               % (self.GetAppDisplayName(), newest, self.GetAppDisplayName()),
-                               self._caption, style=wx.YES_NO, 
-                               parent=parentWindow, icon=self._icon,
-                               btnLabels={wx.ID_YES:"Yes, restart now", 
-                                          wx.ID_NO:"No, I'll restart later"})
-
-        if resp == wx.YES:
-            # Close all windows in this application...
-            for w in wx.GetTopLevelWindows():
-                if isinstance(w, wx.Dialog):
-                    w.Destroy()
-                elif isinstance(w, wx.Frame):
-                    w.Close(True) # force close (can't be cancelled)
-            wx.Yield()
-            
-            # ...find the path of the esky bootstrap/wrapper program...
-            exe = esky.util.appexe_from_executable(sys.executable)
-            
-            # ...and tell our RestartInfo object about it.
-            info.exe = exe
-
-            # Make sure the CWD not in the current version's appdir, so it can
-            # hopefully be cleaned up either as we exit or as the next verison
-            # is starting.
-            os.chdir(os.path.dirname(exe))
-
-            # With all the top level windows closed the MainLoop should exit
-            # automatically, but just in case tell it to exit so we can have a
-            # normal-as-possible shutdown of this process. Hopefully there
-            # isn't anything happening after we return from this function that
-            # matters.
-            self.ExitMainLoop()
-            
-        return True
+            try:
+                # Let Esky handle all the rest of the update process so we can
+                # take advantage of the error checking and priviledge elevation
+                # (if neccessary) that they have done so we don't have to worry
+                # about that ourselves like we would if we broke down the proccess
+                # into component steps.
+                self._esky.auto_update(self._updateProgress)
+                
+            except UpdateAbortedError:
+                self._esky.cleanup()
+                MultiMessageBox("Update canceled.", self._caption, 
+                                parent=parentWindow, icon=self._icon)
+                if self._pd:
+                    self._pd.Destroy()
+                return              
+    
+            # Ask the user if they want the application to be restarted.
+            resp = MultiMessageBox("The upgrade to %s %s is ready to use, the application will "
+                                   "need to be restarted to begin using the new release.\n\n"
+                                   "Restart %s now?"
+                                   % (self.GetAppDisplayName(), newest, self.GetAppDisplayName()),
+                                   self._caption, style=wx.YES_NO, 
+                                   parent=parentWindow, icon=self._icon,
+                                   btnLabels={wx.ID_YES:"Yes, restart now", 
+                                              wx.ID_NO:"No, I'll restart later"})
+    
+            if resp == wx.YES:
+                # Close all windows in this application...
+                for w in wx.GetTopLevelWindows():
+                    if isinstance(w, wx.Dialog):
+                        w.Destroy()
+                    elif isinstance(w, wx.Frame):
+                        w.Close(True) # force close (can't be cancelled)
+                wx.Yield()
+                
+                # ...find the path of the esky bootstrap/wrapper program...
+                exe = esky.util.appexe_from_executable(sys.executable)
+                
+                # ...and tell our RestartInfo object about it.
+                info.exe = exe
+    
+                # Make sure the CWD not in the current version's appdir, so it can
+                # hopefully be cleaned up either as we exit or as the next verison
+                # is starting.
+                os.chdir(os.path.dirname(exe))
+    
+                # With all the top level windows closed the MainLoop should exit
+                # automatically, but just in case tell it to exit so we can have a
+                # normal-as-possible shutdown of this process. Hopefully there
+                # isn't anything happening after we return from this function that
+                # matters.
+                self.ExitMainLoop()
+                
+            return
+        
+        # Start the worker thread that will check for an update, it will call
+        # processResults when it is finished.
+        import wx.lib.delayedresult as dr
+        dr.startWorker(processResults, doFindUpdate)
+                   
                    
     
     def _updateProgress(self, status):
         # Show progress of the download and install. This function is passed to Esky
         # functions to use as a callback.
         if self._pd is None and status.get('status') != 'done':
-            self._pd = wx.ProgressDialog('Software Update', 'X'*40, 
+            self._pd = wx.ProgressDialog('Software Update', ' '*40, 
                                           style=wx.PD_CAN_ABORT|wx.PD_APP_MODAL,
                                           parent=self._parentWindow)
             self._pd.Update(0, '')
