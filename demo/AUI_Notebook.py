@@ -30,7 +30,8 @@ class TestPanel(wx.Panel):
         sizer = wx.BoxSizer()
         sizer.Add(self.nb, 1, wx.EXPAND)
         self.SetSizer(sizer)
-
+        wx.CallAfter(self.nb.SendSizeEvent)
+        
 #----------------------------------------------------------------------
 
 def runTest(frame, nb, log):
