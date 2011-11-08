@@ -13328,74 +13328,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_SplitterWindow_SetNeedUpdating(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
-  PyObject *resultobj = 0;
-  wxSplitterWindow *arg1 = (wxSplitterWindow *) 0 ;
-  bool arg2 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  bool val2 ;
-  int ecode2 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  char *  kwnames[] = {
-    (char *) "self",(char *) "needUpdating", NULL 
-  };
-  
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:SplitterWindow_SetNeedUpdating",kwnames,&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxSplitterWindow, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SplitterWindow_SetNeedUpdating" "', expected argument " "1"" of type '" "wxSplitterWindow *""'"); 
-  }
-  arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
-  ecode2 = SWIG_AsVal_bool(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "SplitterWindow_SetNeedUpdating" "', expected argument " "2"" of type '" "bool""'");
-  } 
-  arg2 = static_cast< bool >(val2);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    (arg1)->SetNeedUpdating(arg2);
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_SplitterWindow_GetNeedUpdating(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxSplitterWindow *arg1 = (wxSplitterWindow *) 0 ;
-  bool result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxSplitterWindow, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SplitterWindow_GetNeedUpdating" "', expected argument " "1"" of type '" "wxSplitterWindow const *""'"); 
-  }
-  arg1 = reinterpret_cast< wxSplitterWindow * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (bool)((wxSplitterWindow const *)arg1)->GetNeedUpdating();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  {
-    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
-  }
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_SplitterWindow_GetClassDefaultAttributes(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxWindowVariant arg1 = (wxWindowVariant) wxWINDOW_VARIANT_NORMAL ;
@@ -37970,8 +37902,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"SplitterWindow_GetMinimumPaneSize", (PyCFunction)_wrap_SplitterWindow_GetMinimumPaneSize, METH_O, NULL},
 	 { (char *)"SplitterWindow_SashHitTest", (PyCFunction) _wrap_SplitterWindow_SashHitTest, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SplitterWindow_SizeWindows", (PyCFunction)_wrap_SplitterWindow_SizeWindows, METH_O, NULL},
-	 { (char *)"SplitterWindow_SetNeedUpdating", (PyCFunction) _wrap_SplitterWindow_SetNeedUpdating, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"SplitterWindow_GetNeedUpdating", (PyCFunction)_wrap_SplitterWindow_GetNeedUpdating, METH_O, NULL},
 	 { (char *)"SplitterWindow_GetClassDefaultAttributes", (PyCFunction) _wrap_SplitterWindow_GetClassDefaultAttributes, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"SplitterWindow_swigregister", SplitterWindow_swigregister, METH_VARARGS, NULL},
 	 { (char *)"SplitterWindow_swiginit", SplitterWindow_swiginit, METH_VARARGS, NULL},

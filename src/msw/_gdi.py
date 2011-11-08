@@ -6050,6 +6050,7 @@ class GraphicsContext(GraphicsObject):
         Create(Window window) -> GraphicsContext
         Create(PrinterDC dc) -> GraphicsContext
         Create(MetaFileDC dc) -> GraphicsContext
+        Create(wxEnhMetaFileDC dc) -> GraphicsContext
         Create(Image ?) -> GraphicsContext
 
         Creates a wx.GraphicsContext either from a window or a DC.
@@ -6596,6 +6597,7 @@ def GraphicsContext_Create(*args):
     Create(Window window) -> GraphicsContext
     Create(PrinterDC dc) -> GraphicsContext
     Create(MetaFileDC dc) -> GraphicsContext
+    Create(wxEnhMetaFileDC dc) -> GraphicsContext
     GraphicsContext_Create(Image ?) -> GraphicsContext
 
     Creates a wx.GraphicsContext either from a window or a DC.
@@ -6656,6 +6658,7 @@ class GraphicsRenderer(_core.Object):
         CreateContext(self, PrinterDC dc) -> GraphicsContext
         CreateContext(self, Window window) -> GraphicsContext
         CreateContext(self, MetaFileDC dc) -> GraphicsContext
+        CreateContext(self, wxEnhMetaFileDC dc) -> GraphicsContext
         """
         return _gdi_.GraphicsRenderer_CreateContext(*args)
 

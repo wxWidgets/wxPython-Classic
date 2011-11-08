@@ -1628,14 +1628,6 @@ class SplitterWindow(_core.Window):
         """
         return _windows_.SplitterWindow_SizeWindows(*args, **kwargs)
 
-    def SetNeedUpdating(*args, **kwargs):
-        """SetNeedUpdating(self, bool needUpdating)"""
-        return _windows_.SplitterWindow_SetNeedUpdating(*args, **kwargs)
-
-    def GetNeedUpdating(*args, **kwargs):
-        """GetNeedUpdating(self) -> bool"""
-        return _windows_.SplitterWindow_GetNeedUpdating(*args, **kwargs)
-
     def GetClassDefaultAttributes(*args, **kwargs):
         """
         GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
@@ -1656,7 +1648,6 @@ class SplitterWindow(_core.Window):
     GetClassDefaultAttributes = staticmethod(GetClassDefaultAttributes)
     BorderSize = property(GetBorderSize,SetBorderSize,doc="See `GetBorderSize` and `SetBorderSize`") 
     MinimumPaneSize = property(GetMinimumPaneSize,SetMinimumPaneSize,doc="See `GetMinimumPaneSize` and `SetMinimumPaneSize`") 
-    NeedUpdating = property(GetNeedUpdating,SetNeedUpdating,doc="See `GetNeedUpdating` and `SetNeedUpdating`") 
     SashGravity = property(GetSashGravity,SetSashGravity,doc="See `GetSashGravity` and `SetSashGravity`") 
     SashPosition = property(GetSashPosition,SetSashPosition,doc="See `GetSashPosition` and `SetSashPosition`") 
     SashSize = property(GetSashSize,SetSashSize,doc="See `GetSashSize` and `SetSashSize`") 

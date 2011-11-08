@@ -3867,6 +3867,10 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
         """
         return _richtext.RichTextCtrl_IsSelectionUnderlined(*args, **kwargs)
 
+    def DoesSelectionHaveTextEffectFlag(*args, **kwargs):
+        """DoesSelectionHaveTextEffectFlag(self, int flag) -> bool"""
+        return _richtext.RichTextCtrl_DoesSelectionHaveTextEffectFlag(*args, **kwargs)
+
     def IsSelectionAligned(*args, **kwargs):
         """
         IsSelectionAligned(self, int alignment) -> bool
@@ -3898,6 +3902,10 @@ class RichTextCtrl(_core.Control,_core.TextCtrlIface,_windows.ScrollHelper):
         Apply underline to the selection
         """
         return _richtext.RichTextCtrl_ApplyUnderlineToSelection(*args, **kwargs)
+
+    def ApplyTextEffectToSelection(*args, **kwargs):
+        """ApplyTextEffectToSelection(self, int flags) -> bool"""
+        return _richtext.RichTextCtrl_ApplyTextEffectToSelection(*args, **kwargs)
 
     def ApplyAlignmentToSelection(*args, **kwargs):
         """

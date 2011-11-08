@@ -4003,6 +4003,27 @@ static void wxDC_GetBoundingBox(wxDC* dc, int* x1, int* y1, int* x2, int* y2) {
 #include <wx/dcps.h>
 
 
+#if !wxUSE_POSTSCRIPT
+class wxPostScriptDC : public wxDC
+{
+public:
+    wxPostScriptDC()
+        : wxDC(NULL)
+    {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.PostScriptDC is not available on this platform.");
+    };
+
+    wxPostScriptDC(const wxPrintData&)
+        : wxDC(NULL)
+    {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.PostScriptDC is not available on this platform.");
+    };
+};
+#endif
+
+
 class wxMetaFile : public wxObject {
 public:
     wxMetaFile(const wxString&)
@@ -4254,6 +4275,13 @@ public:
                         "wx.GraphicsContext is not available on this platform.");
         return NULL;
     }
+
+    static wxGraphicsContext* Create( const wxEnhMetaFileDC& )  {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.GraphicsContext is not available on this platform.");
+        return NULL;
+    }
+
     static wxGraphicsContext* Create( const wxWindowDC& )  {
         PyErr_SetString(PyExc_NotImplementedError,
                         "wx.GraphicsContext is not available on this platform.");
@@ -4301,6 +4329,8 @@ public:
     virtual void StartPage( wxDouble, wxDouble) {}
     virtual void EndPage() {}
     virtual void Flush() {}
+    virtual void BeginLayer(wxDouble) {}
+    virtual void EndLayer() {}
 
     wxGraphicsPath CreatePath()  { return wxNullGraphicsPath; }
 
@@ -4310,7 +4340,7 @@ public:
 
     wxGraphicsBrush CreateLinearGradientBrush(
         wxDouble , wxDouble , wxDouble , wxDouble ,
-        const wxColour&, const wxColour&) { return wxNullGraphicsBrush; }
+        const wxColour&, const wxColour&) const { return wxNullGraphicsBrush; }
     wxGraphicsBrush
     CreateLinearGradientBrush(wxDouble x1, wxDouble y1,
                               wxDouble x2, wxDouble y2,
@@ -4320,7 +4350,7 @@ public:
     wxGraphicsBrush
     CreateRadialGradientBrush(wxDouble xo, wxDouble yo,
                               wxDouble xc, wxDouble yc, wxDouble radius,
-                              const wxColour &oColor, const wxColour &cColor)
+                              const wxColour &oColor, const wxColour &cColor) const
         { return wxNullGraphicsBrush; }
     
     wxGraphicsBrush
@@ -4428,6 +4458,7 @@ public :
         return NULL;
     }   
 
+    virtual wxGraphicsContext * CreateContext( const wxEnhMetaFileDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContext( const wxWindowDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContext( const wxMemoryDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContext( const wxPrinterDC& ) { return NULL; }
@@ -4492,6 +4523,15 @@ public:
      }
 
     wxGCDC(const wxPrinterDC& dc)
+        : wxDC(NULL)
+    {
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wxGCDC is not available on this platform.");
+        wxPyEndBlockThreads(blocked);
+     }
+
+    wxGCDC(wxGraphicsContext*&)
         : wxDC(NULL)
     {
         wxPyBlock_t blocked = wxPyBeginBlockThreads();

@@ -4468,6 +4468,27 @@ class ListCtrl(_core.Control):
         """SetColumnWidth(self, int col, int width) -> bool"""
         return _controls_.ListCtrl_SetColumnWidth(*args, **kwargs)
 
+    def HasColumnOrderSupport(*args, **kwargs):
+        """HasColumnOrderSupport() -> bool"""
+        return _controls_.ListCtrl_HasColumnOrderSupport(*args, **kwargs)
+
+    HasColumnOrderSupport = staticmethod(HasColumnOrderSupport)
+    def GetColumnOrder(*args, **kwargs):
+        """GetColumnOrder(self, int col) -> int"""
+        return _controls_.ListCtrl_GetColumnOrder(*args, **kwargs)
+
+    def GetColumnIndexFromOrder(*args, **kwargs):
+        """GetColumnIndexFromOrder(self, int order) -> int"""
+        return _controls_.ListCtrl_GetColumnIndexFromOrder(*args, **kwargs)
+
+    def GetColumnsOrder(*args, **kwargs):
+        """GetColumnsOrder(self) -> wxArrayInt"""
+        return _controls_.ListCtrl_GetColumnsOrder(*args, **kwargs)
+
+    def SetColumnsOrder(*args, **kwargs):
+        """SetColumnsOrder(self, wxArrayInt orders) -> bool"""
+        return _controls_.ListCtrl_SetColumnsOrder(*args, **kwargs)
+
     def GetCountPerPage(*args, **kwargs):
         """GetCountPerPage(self) -> int"""
         return _controls_.ListCtrl_GetCountPerPage(*args, **kwargs)
@@ -4831,6 +4852,10 @@ def PreListCtrl(*args, **kwargs):
     """PreListCtrl() -> ListCtrl"""
     val = _controls_.new_PreListCtrl(*args, **kwargs)
     return val
+
+def ListCtrl_HasColumnOrderSupport(*args):
+  """ListCtrl_HasColumnOrderSupport() -> bool"""
+  return _controls_.ListCtrl_HasColumnOrderSupport(*args)
 
 def ListCtrl_GetClassDefaultAttributes(*args, **kwargs):
   """

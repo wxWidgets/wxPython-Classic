@@ -3423,9 +3423,9 @@ public:
 //                                    const wxSize& required_bmp_size);
 
 
-    wxFont GetNormalFont() const { return m_normal_font; }
-    wxFont GetSelectedFont() const { return m_selected_font; }
-    wxFont GetMeasuringFont() const { return m_measuring_font; }
+    wxFont GetNormalFont() const { return m_normalFont; }
+    wxFont GetSelectedFont() const { return m_selectedFont; }
+    wxFont GetMeasuringFont() const { return m_measuringFont; }
 
     int GetFlags() const { return (int)m_flags; }
 
@@ -7442,7 +7442,7 @@ SWIGINTERN PyObject *_wrap_new_AuiManager(PyObject *SWIGUNUSEDPARM(self), PyObje
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "managed_wnd",(char *) "flags", NULL 
+    (char *) "managedWnd",(char *) "flags", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OO:new_AuiManager",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -7605,7 +7605,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_SetManagedWindow(PyObject *SWIGUNUSEDPARM(
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "managed_wnd", NULL 
+    (char *) "self",(char *) "managedWnd", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiManager_SetManagedWindow",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -7698,11 +7698,12 @@ SWIGINTERN PyObject *_wrap_AuiManager_SetArtProvider(PyObject *SWIGUNUSEDPARM(se
   wxAuiDockArt *arg2 = (wxAuiDockArt *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
+  void *argp2 = 0 ;
   int res2 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "art_provider", NULL 
+    (char *) "self",(char *) "artProvider", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiManager_SetArtProvider",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -7711,10 +7712,11 @@ SWIGINTERN PyObject *_wrap_AuiManager_SetArtProvider(PyObject *SWIGUNUSEDPARM(se
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiManager_SetArtProvider" "', expected argument " "1"" of type '" "wxAuiManager *""'"); 
   }
   arg1 = reinterpret_cast< wxAuiManager * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, SWIG_as_voidptrptr(&arg2), SWIGTYPE_p_wxAuiDockArt, SWIG_POINTER_DISOWN |  0 );
+  res2 = SWIG_ConvertPtr(obj1, &argp2,SWIGTYPE_p_wxAuiDockArt, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiManager_SetArtProvider" "', expected argument " "2"" of type '" "wxAuiDockArt *""'");
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiManager_SetArtProvider" "', expected argument " "2"" of type '" "wxAuiDockArt *""'"); 
   }
+  arg2 = reinterpret_cast< wxAuiDockArt * >(argp2);
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetArtProvider(arg2);
@@ -7900,7 +7902,7 @@ SWIGINTERN PyObject *_wrap_AuiManager__AddPane1(PyObject *SWIGUNUSEDPARM(self), 
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "window",(char *) "pane_info", NULL 
+    (char *) "self",(char *) "window",(char *) "paneInfo", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiManager__AddPane1",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -7956,7 +7958,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_AddPane(PyObject *SWIGUNUSEDPARM(self), Py
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "window",(char *) "pane_info",(char *) "drop_pos", NULL 
+    (char *) "self",(char *) "window",(char *) "paneInfo",(char *) "dropPos", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:AuiManager_AddPane",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
@@ -8088,7 +8090,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_InsertPane(PyObject *SWIGUNUSEDPARM(self),
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "window",(char *) "insert_location",(char *) "insert_level", NULL 
+    (char *) "self",(char *) "window",(char *) "insertLocation",(char *) "insertLevel", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|O:AuiManager_InsertPane",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
@@ -8261,7 +8263,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_LoadPaneInfo(PyObject *SWIGUNUSEDPARM(self
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "pane_part",(char *) "pane", NULL 
+    (char *) "self",(char *) "panePart",(char *) "pane", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiManager_LoadPaneInfo",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -8405,7 +8407,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_SetDockSizeConstraint(PyObject *SWIGUNUSED
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "width_pct",(char *) "height_pct", NULL 
+    (char *) "self",(char *) "widthPct",(char *) "heightPct", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiManager_SetDockSizeConstraint",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -8452,7 +8454,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_GetDockSizeConstraint(PyObject *SWIGUNUSED
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "width_pct",(char *) "height_pct", NULL 
+    (char *) "self",(char *) "widthPct",(char *) "heightPct", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiManager_GetDockSizeConstraint",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -8495,7 +8497,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_ClosePane(PyObject *SWIGUNUSEDPARM(self), 
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "pane_info", NULL 
+    (char *) "self",(char *) "paneInfo", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiManager_ClosePane",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -8536,7 +8538,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_MaximizePane(PyObject *SWIGUNUSEDPARM(self
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "pane_info", NULL 
+    (char *) "self",(char *) "paneInfo", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiManager_MaximizePane",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -8577,7 +8579,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_RestorePane(PyObject *SWIGUNUSEDPARM(self)
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "pane_info", NULL 
+    (char *) "self",(char *) "paneInfo", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiManager_RestorePane",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -8743,7 +8745,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_StartPaneDrag(PyObject *SWIGUNUSEDPARM(sel
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "pane_window",(char *) "offset", NULL 
+    (char *) "self",(char *) "paneWindow",(char *) "offset", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiManager_StartPaneDrag",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -8792,7 +8794,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_CalculateHintRect(PyObject *SWIGUNUSEDPARM
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "pane_window",(char *) "pt",(char *) "offset", NULL 
+    (char *) "self",(char *) "paneWindow",(char *) "pt",(char *) "offset", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:AuiManager_CalculateHintRect",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
@@ -8844,7 +8846,7 @@ SWIGINTERN PyObject *_wrap_AuiManager_DrawHintRect(PyObject *SWIGUNUSEDPARM(self
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "pane_window",(char *) "pt",(char *) "offset", NULL 
+    (char *) "self",(char *) "paneWindow",(char *) "pt",(char *) "offset", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:AuiManager_DrawHintRect",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
@@ -11248,7 +11250,7 @@ SWIGINTERN PyObject *_wrap_AuiDockArt_SetMetric(PyObject *SWIGUNUSEDPARM(self), 
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "id",(char *) "new_val", NULL 
+    (char *) "self",(char *) "id",(char *) "newVal", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiDockArt_SetMetric",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -11922,7 +11924,7 @@ SWIGINTERN PyObject *_wrap_AuiDockArt_DrawPaneButton(PyObject *SWIGUNUSEDPARM(se
   PyObject * obj5 = 0 ;
   PyObject * obj6 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "dc",(char *) "window",(char *) "button",(char *) "button_state",(char *) "rect",(char *) "pane", NULL 
+    (char *) "self",(char *) "dc",(char *) "window",(char *) "button",(char *) "buttonState",(char *) "rect",(char *) "pane", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOOO:AuiDockArt_DrawPaneButton",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
@@ -12099,7 +12101,7 @@ SWIGINTERN PyObject *_wrap_new_AuiFloatingFrame(PyObject *SWIGUNUSEDPARM(self), 
   PyObject * obj3 = 0 ;
   PyObject * obj4 = 0 ;
   char *  kwnames[] = {
-    (char *) "parent",(char *) "owner_mgr",(char *) "pane",(char *) "id",(char *) "style", NULL 
+    (char *) "parent",(char *) "ownerMgr",(char *) "pane",(char *) "id",(char *) "style", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|OO:new_AuiFloatingFrame",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
@@ -12268,7 +12270,7 @@ SWIGINTERN PyObject *_wrap_new_AuiNotebookEvent(PyObject *SWIGUNUSEDPARM(self), 
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "command_type",(char *) "win_id", NULL 
+    (char *) "commandType",(char *) "winId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OO:new_AuiNotebookEvent",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -12358,59 +12360,6 @@ SWIGINTERN PyObject *_wrap_AuiNotebookEvent_GetDragSource(PyObject *SWIGUNUSEDPA
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiNotebook, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_AuiNotebookEvent_drag_source_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxAuiNotebookEvent *arg1 = (wxAuiNotebookEvent *) 0 ;
-  wxAuiNotebook *arg2 = (wxAuiNotebook *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
-  PyObject *swig_obj[2] ;
-  
-  if (!SWIG_Python_UnpackTuple(args,"AuiNotebookEvent_drag_source_set",2,2,swig_obj)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiNotebookEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiNotebookEvent_drag_source_set" "', expected argument " "1"" of type '" "wxAuiNotebookEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxAuiNotebookEvent * >(argp1);
-  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_wxAuiNotebook, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiNotebookEvent_drag_source_set" "', expected argument " "2"" of type '" "wxAuiNotebook *""'"); 
-  }
-  arg2 = reinterpret_cast< wxAuiNotebook * >(argp2);
-  if (arg1) (arg1)->drag_source = arg2;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_AuiNotebookEvent_drag_source_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxAuiNotebookEvent *arg1 = (wxAuiNotebookEvent *) 0 ;
-  wxAuiNotebook *result = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiNotebookEvent, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiNotebookEvent_drag_source_get" "', expected argument " "1"" of type '" "wxAuiNotebookEvent *""'"); 
-  }
-  arg1 = reinterpret_cast< wxAuiNotebookEvent * >(argp1);
-  result = (wxAuiNotebook *) ((arg1)->drag_source);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxAuiNotebook, 0 |  0 );
   return resultobj;
 fail:
@@ -12769,7 +12718,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_AuiTabContainerButton_cur_state_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_AuiTabContainerButton_curState_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxAuiTabContainerButton *arg1 = (wxAuiTabContainerButton *) 0 ;
   int arg2 ;
@@ -12779,18 +12728,18 @@ SWIGINTERN PyObject *_wrap_AuiTabContainerButton_cur_state_set(PyObject *SWIGUNU
   int ecode2 = 0 ;
   PyObject *swig_obj[2] ;
   
-  if (!SWIG_Python_UnpackTuple(args,"AuiTabContainerButton_cur_state_set",2,2,swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args,"AuiTabContainerButton_curState_set",2,2,swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiTabContainerButton, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainerButton_cur_state_set" "', expected argument " "1"" of type '" "wxAuiTabContainerButton *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainerButton_curState_set" "', expected argument " "1"" of type '" "wxAuiTabContainerButton *""'"); 
   }
   arg1 = reinterpret_cast< wxAuiTabContainerButton * >(argp1);
   ecode2 = SWIG_AsVal_int(swig_obj[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "AuiTabContainerButton_cur_state_set" "', expected argument " "2"" of type '" "int""'");
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "AuiTabContainerButton_curState_set" "', expected argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  if (arg1) (arg1)->cur_state = arg2;
+  if (arg1) (arg1)->curState = arg2;
   
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -12799,7 +12748,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_AuiTabContainerButton_cur_state_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_AuiTabContainerButton_curState_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxAuiTabContainerButton *arg1 = (wxAuiTabContainerButton *) 0 ;
   int result;
@@ -12811,10 +12760,10 @@ SWIGINTERN PyObject *_wrap_AuiTabContainerButton_cur_state_get(PyObject *SWIGUNU
   swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiTabContainerButton, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainerButton_cur_state_get" "', expected argument " "1"" of type '" "wxAuiTabContainerButton *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainerButton_curState_get" "', expected argument " "1"" of type '" "wxAuiTabContainerButton *""'"); 
   }
   arg1 = reinterpret_cast< wxAuiTabContainerButton * >(argp1);
-  result = (int) ((arg1)->cur_state);
+  result = (int) ((arg1)->curState);
   resultobj = SWIG_From_int(static_cast< int >(result));
   return resultobj;
 fail:
@@ -12928,7 +12877,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_AuiTabContainerButton_dis_bitmap_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_AuiTabContainerButton_disBitmap_set(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxAuiTabContainerButton *arg1 = (wxAuiTabContainerButton *) 0 ;
   wxBitmap *arg2 = (wxBitmap *) 0 ;
@@ -12938,18 +12887,18 @@ SWIGINTERN PyObject *_wrap_AuiTabContainerButton_dis_bitmap_set(PyObject *SWIGUN
   int res2 = 0 ;
   PyObject *swig_obj[2] ;
   
-  if (!SWIG_Python_UnpackTuple(args,"AuiTabContainerButton_dis_bitmap_set",2,2,swig_obj)) SWIG_fail;
+  if (!SWIG_Python_UnpackTuple(args,"AuiTabContainerButton_disBitmap_set",2,2,swig_obj)) SWIG_fail;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiTabContainerButton, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainerButton_dis_bitmap_set" "', expected argument " "1"" of type '" "wxAuiTabContainerButton *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainerButton_disBitmap_set" "', expected argument " "1"" of type '" "wxAuiTabContainerButton *""'"); 
   }
   arg1 = reinterpret_cast< wxAuiTabContainerButton * >(argp1);
   res2 = SWIG_ConvertPtr(swig_obj[1], &argp2,SWIGTYPE_p_wxBitmap, 0 |  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiTabContainerButton_dis_bitmap_set" "', expected argument " "2"" of type '" "wxBitmap *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "AuiTabContainerButton_disBitmap_set" "', expected argument " "2"" of type '" "wxBitmap *""'"); 
   }
   arg2 = reinterpret_cast< wxBitmap * >(argp2);
-  if (arg1) (arg1)->dis_bitmap = *arg2;
+  if (arg1) (arg1)->disBitmap = *arg2;
   
   resultobj = SWIG_Py_Void();
   return resultobj;
@@ -12958,7 +12907,7 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_AuiTabContainerButton_dis_bitmap_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_AuiTabContainerButton_disBitmap_get(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxAuiTabContainerButton *arg1 = (wxAuiTabContainerButton *) 0 ;
   wxBitmap *result = 0 ;
@@ -12970,10 +12919,10 @@ SWIGINTERN PyObject *_wrap_AuiTabContainerButton_dis_bitmap_get(PyObject *SWIGUN
   swig_obj[0] = args;
   res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxAuiTabContainerButton, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainerButton_dis_bitmap_get" "', expected argument " "1"" of type '" "wxAuiTabContainerButton *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "AuiTabContainerButton_disBitmap_get" "', expected argument " "1"" of type '" "wxAuiTabContainerButton *""'"); 
   }
   arg1 = reinterpret_cast< wxAuiTabContainerButton * >(argp1);
-  result = (wxBitmap *)& ((arg1)->dis_bitmap);
+  result = (wxBitmap *)& ((arg1)->disBitmap);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_wxBitmap, 0 |  0 );
   return resultobj;
 fail:
@@ -13147,7 +13096,7 @@ SWIGINTERN PyObject *_wrap_AuiTabArt_SetSizingInfo(PyObject *SWIGUNUSEDPARM(self
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tab_ctrl_size",(char *) "tab_count", NULL 
+    (char *) "self",(char *) "tabCtrlSize",(char *) "tabCount", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiTabArt_SetSizingInfo",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -13450,7 +13399,7 @@ SWIGINTERN PyObject *_wrap_AuiTabArt_ShowDropDown(PyObject *SWIGUNUSEDPARM(self)
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "wnd",(char *) "items",(char *) "active_idx", NULL 
+    (char *) "self",(char *) "wnd",(char *) "items",(char *) "activeIdx", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:AuiTabArt_ShowDropDown",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
@@ -13537,7 +13486,7 @@ SWIGINTERN PyObject *_wrap_AuiTabArt_GetBestTabCtrlSize(PyObject *SWIGUNUSEDPARM
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "wnd",(char *) "pages",(char *) "required_bmp_size", NULL 
+    (char *) "self",(char *) "wnd",(char *) "pages",(char *) "requiredBmpSize", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO:AuiTabArt_GetBestTabCtrlSize",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
@@ -14265,7 +14214,7 @@ SWIGINTERN PyObject *_wrap_AuiTabContainer_MovePage(PyObject *SWIGUNUSEDPARM(sel
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "page",(char *) "new_idx", NULL 
+    (char *) "self",(char *) "page",(char *) "newIdx", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiTabContainer_MovePage",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -14805,7 +14754,7 @@ SWIGINTERN PyObject *_wrap_AuiTabContainer_SetNormalFont(PyObject *SWIGUNUSEDPAR
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "normal_font", NULL 
+    (char *) "self",(char *) "normalFont", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiTabContainer_SetNormalFont",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -14846,7 +14795,7 @@ SWIGINTERN PyObject *_wrap_AuiTabContainer_SetSelectedFont(PyObject *SWIGUNUSEDP
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "selected_font", NULL 
+    (char *) "self",(char *) "selectedFont", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiTabContainer_SetSelectedFont",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -14887,7 +14836,7 @@ SWIGINTERN PyObject *_wrap_AuiTabContainer_SetMeasuringFont(PyObject *SWIGUNUSED
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "measuring_font", NULL 
+    (char *) "self",(char *) "measuringFont", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiTabContainer_SetMeasuringFont",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -15115,7 +15064,7 @@ SWIGINTERN PyObject *_wrap_AuiTabContainer_AddButton(PyObject *SWIGUNUSEDPARM(se
   PyObject * obj3 = 0 ;
   PyObject * obj4 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "id",(char *) "location",(char *) "normal_bitmap",(char *) "disabled_bitmap", NULL 
+    (char *) "self",(char *) "id",(char *) "location",(char *) "normalBitmap",(char *) "disabledBitmap", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|OO:AuiTabContainer_AddButton",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
@@ -16009,7 +15958,7 @@ SWIGINTERN PyObject *_wrap_AuiNotebook_GetPage(PyObject *SWIGUNUSEDPARM(self), P
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "page_idx", NULL 
+    (char *) "self",(char *) "pageIdx", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiNotebook_GetPage",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -16050,7 +15999,7 @@ SWIGINTERN PyObject *_wrap_AuiNotebook_GetPageIndex(PyObject *SWIGUNUSEDPARM(sel
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "page_wnd", NULL 
+    (char *) "self",(char *) "pageWnd", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiNotebook_GetPageIndex",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -16142,7 +16091,7 @@ SWIGINTERN PyObject *_wrap_AuiNotebook_GetPageBitmap(PyObject *SWIGUNUSEDPARM(se
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "page_idx", NULL 
+    (char *) "self",(char *) "pageIdx", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiNotebook_GetPageBitmap",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -17551,7 +17500,7 @@ SWIGINTERN PyObject *_wrap_AuiMDIChildFrame_SetMenuBar(PyObject *SWIGUNUSEDPARM(
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "menu_bar", NULL 
+    (char *) "self",(char *) "menuBar", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiMDIChildFrame_SetMenuBar",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -18507,7 +18456,7 @@ SWIGINTERN PyObject *_wrap_new_AuiToolBarEvent(PyObject *SWIGUNUSEDPARM(self), P
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "command_type",(char *) "win_id", NULL 
+    (char *) "commandType",(char *) "winId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OO:new_AuiToolBarEvent",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -18773,7 +18722,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBarEvent_SetToolId(PyObject *SWIGUNUSEDPARM(se
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "toolid", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBarEvent_SetToolId",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -18997,7 +18946,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBarItem_SetId(PyObject *SWIGUNUSEDPARM(self), 
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "new_id", NULL 
+    (char *) "self",(char *) "newId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBarItem_SetId",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -19063,7 +19012,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBarItem_SetKind(PyObject *SWIGUNUSEDPARM(self)
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "new_kind", NULL 
+    (char *) "self",(char *) "newKind", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBarItem_SetKind",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -19129,7 +19078,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBarItem_SetState(PyObject *SWIGUNUSEDPARM(self
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "new_state", NULL 
+    (char *) "self",(char *) "newState", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBarItem_SetState",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -21175,7 +21124,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBarArt_GetElementSize(PyObject *SWIGUNUSEDPARM
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "element_id", NULL 
+    (char *) "self",(char *) "elementId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBarArt_GetElementSize",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -21217,7 +21166,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBarArt_SetElementSize(PyObject *SWIGUNUSEDPARM
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "element_id",(char *) "size", NULL 
+    (char *) "self",(char *) "elementId",(char *) "size", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiToolBarArt_SetElementSize",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -21915,7 +21864,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_AddLabel(PyObject *SWIGUNUSEDPARM(self), P
   PyObject * obj2 = 0 ;
   PyObject * obj3 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id",(char *) "label",(char *) "width", NULL 
+    (char *) "self",(char *) "toolId",(char *) "label",(char *) "width", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OO:AuiToolBar_AddLabel",kwnames,&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
@@ -22172,7 +22121,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_FindControl(PyObject *SWIGUNUSEDPARM(self)
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "window_id", NULL 
+    (char *) "self",(char *) "windowId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_FindControl",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -22300,7 +22249,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_FindTool(PyObject *SWIGUNUSEDPARM(self), P
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_FindTool",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -22393,7 +22342,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_DeleteTool(PyObject *SWIGUNUSEDPARM(self),
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_DeleteTool",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -22434,7 +22383,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_DeleteByIndex(PyObject *SWIGUNUSEDPARM(sel
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_DeleteByIndex",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -22503,7 +22452,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolPos(PyObject *SWIGUNUSEDPARM(self),
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolPos",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -22542,7 +22491,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolIndex(PyObject *SWIGUNUSEDPARM(self
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolIndex",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -22581,7 +22530,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolFits(PyObject *SWIGUNUSEDPARM(self)
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolFits",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -22622,7 +22571,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolRect(PyObject *SWIGUNUSEDPARM(self)
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolRect",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -22661,7 +22610,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolFitsByIndex(PyObject *SWIGUNUSEDPAR
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolFitsByIndex",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -23086,7 +23035,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_ToggleTool(PyObject *SWIGUNUSEDPARM(self),
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id",(char *) "state", NULL 
+    (char *) "self",(char *) "toolId",(char *) "state", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiToolBar_ToggleTool",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -23130,7 +23079,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolToggled(PyObject *SWIGUNUSEDPARM(se
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolToggled",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -23174,7 +23123,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_EnableTool(PyObject *SWIGUNUSEDPARM(self),
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id",(char *) "state", NULL 
+    (char *) "self",(char *) "toolId",(char *) "state", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiToolBar_EnableTool",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -23218,7 +23167,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolEnabled(PyObject *SWIGUNUSEDPARM(se
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolEnabled",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -23262,7 +23211,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_SetToolDropDown(PyObject *SWIGUNUSEDPARM(s
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id",(char *) "dropdown", NULL 
+    (char *) "self",(char *) "toolId",(char *) "dropdown", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiToolBar_SetToolDropDown",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -23306,7 +23255,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolDropDown(PyObject *SWIGUNUSEDPARM(s
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolDropDown",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -23548,7 +23497,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_SetToolProportion(PyObject *SWIGUNUSEDPARM
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id",(char *) "proportion", NULL 
+    (char *) "self",(char *) "toolId",(char *) "proportion", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiToolBar_SetToolProportion",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -23592,7 +23541,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolProportion(PyObject *SWIGUNUSEDPARM
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolProportion",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -23700,7 +23649,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_SetToolSticky(PyObject *SWIGUNUSEDPARM(sel
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id",(char *) "sticky", NULL 
+    (char *) "self",(char *) "toolId",(char *) "sticky", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiToolBar_SetToolSticky",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -23744,7 +23693,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolSticky(PyObject *SWIGUNUSEDPARM(sel
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolSticky",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -23785,7 +23734,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolLabel(PyObject *SWIGUNUSEDPARM(self
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolLabel",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -23832,7 +23781,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_SetToolLabel(PyObject *SWIGUNUSEDPARM(self
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id",(char *) "label", NULL 
+    (char *) "self",(char *) "toolId",(char *) "label", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiToolBar_SetToolLabel",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -23884,7 +23833,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolBitmap(PyObject *SWIGUNUSEDPARM(sel
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolBitmap",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -23926,7 +23875,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_SetToolBitmap(PyObject *SWIGUNUSEDPARM(sel
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id",(char *) "bitmap", NULL 
+    (char *) "self",(char *) "toolId",(char *) "bitmap", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiToolBar_SetToolBitmap",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -23973,7 +23922,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolShortHelp(PyObject *SWIGUNUSEDPARM(
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolShortHelp",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -24020,7 +23969,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_SetToolShortHelp(PyObject *SWIGUNUSEDPARM(
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id",(char *) "help_string", NULL 
+    (char *) "self",(char *) "toolId",(char *) "helpString", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiToolBar_SetToolShortHelp",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -24072,7 +24021,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetToolLongHelp(PyObject *SWIGUNUSEDPARM(s
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id", NULL 
+    (char *) "self",(char *) "toolId", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetToolLongHelp",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -24119,7 +24068,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_SetToolLongHelp(PyObject *SWIGUNUSEDPARM(s
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "tool_id",(char *) "help_string", NULL 
+    (char *) "self",(char *) "toolId",(char *) "helpString", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO:AuiToolBar_SetToolLongHelp",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
@@ -24224,7 +24173,7 @@ SWIGINTERN PyObject *_wrap_AuiToolBar_GetHintSize(PyObject *SWIGUNUSEDPARM(self)
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   char *  kwnames[] = {
-    (char *) "self",(char *) "dock_direction", NULL 
+    (char *) "self",(char *) "dockDirection", NULL 
   };
   
   if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:AuiToolBar_GetHintSize",kwnames,&obj0,&obj1)) SWIG_fail;
@@ -24813,8 +24762,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_AuiNotebookEvent", (PyCFunction) _wrap_new_AuiNotebookEvent, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiNotebookEvent_SetDragSource", (PyCFunction) _wrap_AuiNotebookEvent_SetDragSource, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"AuiNotebookEvent_GetDragSource", (PyCFunction)_wrap_AuiNotebookEvent_GetDragSource, METH_O, NULL},
-	 { (char *)"AuiNotebookEvent_drag_source_set", _wrap_AuiNotebookEvent_drag_source_set, METH_VARARGS, NULL},
-	 { (char *)"AuiNotebookEvent_drag_source_get", (PyCFunction)_wrap_AuiNotebookEvent_drag_source_get, METH_O, NULL},
 	 { (char *)"AuiNotebookEvent_swigregister", AuiNotebookEvent_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiNotebookEvent_swiginit", AuiNotebookEvent_swiginit, METH_VARARGS, NULL},
 	 { (char *)"AuiNotebookPage_window_set", _wrap_AuiNotebookPage_window_set, METH_VARARGS, NULL},
@@ -24830,14 +24777,14 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"AuiNotebookPage_swigregister", AuiNotebookPage_swigregister, METH_VARARGS, NULL},
 	 { (char *)"AuiTabContainerButton_id_set", _wrap_AuiTabContainerButton_id_set, METH_VARARGS, NULL},
 	 { (char *)"AuiTabContainerButton_id_get", (PyCFunction)_wrap_AuiTabContainerButton_id_get, METH_O, NULL},
-	 { (char *)"AuiTabContainerButton_cur_state_set", _wrap_AuiTabContainerButton_cur_state_set, METH_VARARGS, NULL},
-	 { (char *)"AuiTabContainerButton_cur_state_get", (PyCFunction)_wrap_AuiTabContainerButton_cur_state_get, METH_O, NULL},
+	 { (char *)"AuiTabContainerButton_curState_set", _wrap_AuiTabContainerButton_curState_set, METH_VARARGS, NULL},
+	 { (char *)"AuiTabContainerButton_curState_get", (PyCFunction)_wrap_AuiTabContainerButton_curState_get, METH_O, NULL},
 	 { (char *)"AuiTabContainerButton_location_set", _wrap_AuiTabContainerButton_location_set, METH_VARARGS, NULL},
 	 { (char *)"AuiTabContainerButton_location_get", (PyCFunction)_wrap_AuiTabContainerButton_location_get, METH_O, NULL},
 	 { (char *)"AuiTabContainerButton_bitmap_set", _wrap_AuiTabContainerButton_bitmap_set, METH_VARARGS, NULL},
 	 { (char *)"AuiTabContainerButton_bitmap_get", (PyCFunction)_wrap_AuiTabContainerButton_bitmap_get, METH_O, NULL},
-	 { (char *)"AuiTabContainerButton_dis_bitmap_set", _wrap_AuiTabContainerButton_dis_bitmap_set, METH_VARARGS, NULL},
-	 { (char *)"AuiTabContainerButton_dis_bitmap_get", (PyCFunction)_wrap_AuiTabContainerButton_dis_bitmap_get, METH_O, NULL},
+	 { (char *)"AuiTabContainerButton_disBitmap_set", _wrap_AuiTabContainerButton_disBitmap_set, METH_VARARGS, NULL},
+	 { (char *)"AuiTabContainerButton_disBitmap_get", (PyCFunction)_wrap_AuiTabContainerButton_disBitmap_get, METH_O, NULL},
 	 { (char *)"AuiTabContainerButton_rect_set", _wrap_AuiTabContainerButton_rect_set, METH_VARARGS, NULL},
 	 { (char *)"AuiTabContainerButton_rect_get", (PyCFunction)_wrap_AuiTabContainerButton_rect_get, METH_O, NULL},
 	 { (char *)"AuiTabContainerButton_swigregister", AuiTabContainerButton_swigregister, METH_VARARGS, NULL},

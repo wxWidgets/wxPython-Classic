@@ -14533,7 +14533,7 @@ class Sizer(Object):
     def GetItemIndex(self, item):
         """
         Returns the index of the given *item* within the sizer. Does not
-        search recursivly.  The *item* parameter can be either a window
+        search recursively.  The *item* parameter can be either a window
         or a sizer.  An assertion is raised if the item is not found in
         the sizer.
         """

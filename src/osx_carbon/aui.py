@@ -587,7 +587,7 @@ class AuiManager(_core.EvtHandler):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, Window managed_wnd=None, int flags=AUI_MGR_DEFAULT) -> AuiManager"""
+        """__init__(self, Window managedWnd=None, int flags=AUI_MGR_DEFAULT) -> AuiManager"""
         _aui.AuiManager_swiginit(self,_aui.new_AuiManager(*args, **kwargs))
     __swig_destroy__ = _aui.delete_AuiManager
     __del__ = lambda self : None;
@@ -604,7 +604,7 @@ class AuiManager(_core.EvtHandler):
         return _aui.AuiManager_GetFlags(*args, **kwargs)
 
     def SetManagedWindow(*args, **kwargs):
-        """SetManagedWindow(self, Window managed_wnd)"""
+        """SetManagedWindow(self, Window managedWnd)"""
         return _aui.AuiManager_SetManagedWindow(*args, **kwargs)
 
     def GetManagedWindow(*args, **kwargs):
@@ -617,7 +617,7 @@ class AuiManager(_core.EvtHandler):
 
     GetManager = staticmethod(GetManager)
     def SetArtProvider(*args, **kwargs):
-        """SetArtProvider(self, AuiDockArt art_provider)"""
+        """SetArtProvider(self, AuiDockArt artProvider)"""
         return _aui.AuiManager_SetArtProvider(*args, **kwargs)
 
     def GetArtProvider(*args, **kwargs):
@@ -637,11 +637,11 @@ class AuiManager(_core.EvtHandler):
         return _aui.AuiManager_GetAllPanes(*args, **kwargs)
 
     def _AddPane1(*args, **kwargs):
-        """_AddPane1(self, Window window, AuiPaneInfo pane_info) -> bool"""
+        """_AddPane1(self, Window window, AuiPaneInfo paneInfo) -> bool"""
         return _aui.AuiManager__AddPane1(*args, **kwargs)
 
     def AddPane(*args, **kwargs):
-        """AddPane(self, Window window, AuiPaneInfo pane_info, Point drop_pos) -> bool"""
+        """AddPane(self, Window window, AuiPaneInfo paneInfo, Point dropPos) -> bool"""
         return _aui.AuiManager_AddPane(*args, **kwargs)
 
     def _AddPane2(*args, **kwargs):
@@ -649,7 +649,7 @@ class AuiManager(_core.EvtHandler):
         return _aui.AuiManager__AddPane2(*args, **kwargs)
 
     def InsertPane(*args, **kwargs):
-        """InsertPane(self, Window window, AuiPaneInfo insert_location, int insert_level=AUI_INSERT_PANE) -> bool"""
+        """InsertPane(self, Window window, AuiPaneInfo insertLocation, int insertLevel=AUI_INSERT_PANE) -> bool"""
         return _aui.AuiManager_InsertPane(*args, **kwargs)
 
     def DetachPane(*args, **kwargs):
@@ -665,7 +665,7 @@ class AuiManager(_core.EvtHandler):
         return _aui.AuiManager_SavePaneInfo(*args, **kwargs)
 
     def LoadPaneInfo(*args, **kwargs):
-        """LoadPaneInfo(self, String pane_part, AuiPaneInfo pane)"""
+        """LoadPaneInfo(self, String panePart, AuiPaneInfo pane)"""
         return _aui.AuiManager_LoadPaneInfo(*args, **kwargs)
 
     def SavePerspective(*args, **kwargs):
@@ -677,23 +677,23 @@ class AuiManager(_core.EvtHandler):
         return _aui.AuiManager_LoadPerspective(*args, **kwargs)
 
     def SetDockSizeConstraint(*args, **kwargs):
-        """SetDockSizeConstraint(self, double width_pct, double height_pct)"""
+        """SetDockSizeConstraint(self, double widthPct, double heightPct)"""
         return _aui.AuiManager_SetDockSizeConstraint(*args, **kwargs)
 
     def GetDockSizeConstraint(*args, **kwargs):
-        """GetDockSizeConstraint(self, double width_pct, double height_pct)"""
+        """GetDockSizeConstraint(self, double widthPct, double heightPct)"""
         return _aui.AuiManager_GetDockSizeConstraint(*args, **kwargs)
 
     def ClosePane(*args, **kwargs):
-        """ClosePane(self, AuiPaneInfo pane_info)"""
+        """ClosePane(self, AuiPaneInfo paneInfo)"""
         return _aui.AuiManager_ClosePane(*args, **kwargs)
 
     def MaximizePane(*args, **kwargs):
-        """MaximizePane(self, AuiPaneInfo pane_info)"""
+        """MaximizePane(self, AuiPaneInfo paneInfo)"""
         return _aui.AuiManager_MaximizePane(*args, **kwargs)
 
     def RestorePane(*args, **kwargs):
-        """RestorePane(self, AuiPaneInfo pane_info)"""
+        """RestorePane(self, AuiPaneInfo paneInfo)"""
         return _aui.AuiManager_RestorePane(*args, **kwargs)
 
     def RestoreMaximizedPane(*args, **kwargs):
@@ -709,15 +709,15 @@ class AuiManager(_core.EvtHandler):
         return _aui.AuiManager_CanDockPanel(*args, **kwargs)
 
     def StartPaneDrag(*args, **kwargs):
-        """StartPaneDrag(self, Window pane_window, Point offset)"""
+        """StartPaneDrag(self, Window paneWindow, Point offset)"""
         return _aui.AuiManager_StartPaneDrag(*args, **kwargs)
 
     def CalculateHintRect(*args, **kwargs):
-        """CalculateHintRect(self, Window pane_window, Point pt, Point offset) -> Rect"""
+        """CalculateHintRect(self, Window paneWindow, Point pt, Point offset) -> Rect"""
         return _aui.AuiManager_CalculateHintRect(*args, **kwargs)
 
     def DrawHintRect(*args, **kwargs):
-        """DrawHintRect(self, Window pane_window, Point pt, Point offset)"""
+        """DrawHintRect(self, Window paneWindow, Point pt, Point offset)"""
         return _aui.AuiManager_DrawHintRect(*args, **kwargs)
 
     def ShowHint(*args, **kwargs):
@@ -966,7 +966,7 @@ class AuiDockArt(object):
         return _aui.AuiDockArt_GetMetric(*args, **kwargs)
 
     def SetMetric(*args, **kwargs):
-        """SetMetric(self, int id, int new_val)"""
+        """SetMetric(self, int id, int newVal)"""
         return _aui.AuiDockArt_SetMetric(*args, **kwargs)
 
     def SetFont(*args, **kwargs):
@@ -1015,7 +1015,7 @@ class AuiDockArt(object):
 
     def DrawPaneButton(*args, **kwargs):
         """
-        DrawPaneButton(self, DC dc, Window window, int button, int button_state, 
+        DrawPaneButton(self, DC dc, Window window, int button, int buttonState, 
             Rect rect, AuiPaneInfo pane)
         """
         return _aui.AuiDockArt_DrawPaneButton(*args, **kwargs)
@@ -1041,7 +1041,7 @@ class AuiFloatingFrame(_windows.Frame):
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
         """
-        __init__(self, Window parent, AuiManager owner_mgr, AuiPaneInfo pane, 
+        __init__(self, Window parent, AuiManager ownerMgr, AuiPaneInfo pane, 
             int id=ID_ANY, long style=wxRESIZE_BORDER|wxSYSTEM_MENU|wxCAPTION|wxFRAME_NO_TASKBAR|wxFRAME_FLOAT_ON_PARENT|wxCLIP_CHILDREN) -> AuiFloatingFrame
         """
         _aui.AuiFloatingFrame_swiginit(self,_aui.new_AuiFloatingFrame(*args, **kwargs))
@@ -1077,7 +1077,7 @@ class AuiNotebookEvent(_core.BookCtrlEvent):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, EventType command_type=wxEVT_NULL, int win_id=0) -> AuiNotebookEvent"""
+        """__init__(self, EventType commandType=wxEVT_NULL, int winId=0) -> AuiNotebookEvent"""
         _aui.AuiNotebookEvent_swiginit(self,_aui.new_AuiNotebookEvent(*args, **kwargs))
     def SetDragSource(*args, **kwargs):
         """SetDragSource(self, AuiNotebook s)"""
@@ -1087,7 +1087,6 @@ class AuiNotebookEvent(_core.BookCtrlEvent):
         """GetDragSource(self) -> AuiNotebook"""
         return _aui.AuiNotebookEvent_GetDragSource(*args, **kwargs)
 
-    drag_source = property(_aui.AuiNotebookEvent_drag_source_get, _aui.AuiNotebookEvent_drag_source_set)
 _aui.AuiNotebookEvent_swigregister(AuiNotebookEvent)
 
 class AuiNotebookPage(object):
@@ -1108,10 +1107,10 @@ class AuiTabContainerButton(object):
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
     id = property(_aui.AuiTabContainerButton_id_get, _aui.AuiTabContainerButton_id_set)
-    cur_state = property(_aui.AuiTabContainerButton_cur_state_get, _aui.AuiTabContainerButton_cur_state_set)
+    curState = property(_aui.AuiTabContainerButton_curState_get, _aui.AuiTabContainerButton_curState_set)
     location = property(_aui.AuiTabContainerButton_location_get, _aui.AuiTabContainerButton_location_set)
     bitmap = property(_aui.AuiTabContainerButton_bitmap_get, _aui.AuiTabContainerButton_bitmap_set)
-    dis_bitmap = property(_aui.AuiTabContainerButton_dis_bitmap_get, _aui.AuiTabContainerButton_dis_bitmap_set)
+    disBitmap = property(_aui.AuiTabContainerButton_disBitmap_get, _aui.AuiTabContainerButton_disBitmap_set)
     rect = property(_aui.AuiTabContainerButton_rect_get, _aui.AuiTabContainerButton_rect_set)
 _aui.AuiTabContainerButton_swigregister(AuiTabContainerButton)
 
@@ -1131,7 +1130,7 @@ class AuiTabArt(object):
         return _aui.AuiTabArt_SetFlags(*args, **kwargs)
 
     def SetSizingInfo(*args, **kwargs):
-        """SetSizingInfo(self, Size tab_ctrl_size, size_t tab_count)"""
+        """SetSizingInfo(self, Size tabCtrlSize, size_t tabCount)"""
         return _aui.AuiTabArt_SetSizingInfo(*args, **kwargs)
 
     def SetNormalFont(*args, **kwargs):
@@ -1159,7 +1158,7 @@ class AuiTabArt(object):
         return _aui.AuiTabArt_DrawBackground(*args, **kwargs)
 
     def ShowDropDown(*args, **kwargs):
-        """ShowDropDown(self, Window wnd, wxAuiNotebookPageArray items, int active_idx) -> int"""
+        """ShowDropDown(self, Window wnd, wxAuiNotebookPageArray items, int activeIdx) -> int"""
         return _aui.AuiTabArt_ShowDropDown(*args, **kwargs)
 
     def GetIndentSize(*args, **kwargs):
@@ -1167,7 +1166,7 @@ class AuiTabArt(object):
         return _aui.AuiTabArt_GetIndentSize(*args, **kwargs)
 
     def GetBestTabCtrlSize(*args, **kwargs):
-        """GetBestTabCtrlSize(self, Window wnd, wxAuiNotebookPageArray pages, Size required_bmp_size) -> int"""
+        """GetBestTabCtrlSize(self, Window wnd, wxAuiNotebookPageArray pages, Size requiredBmpSize) -> int"""
         return _aui.AuiTabArt_GetBestTabCtrlSize(*args, **kwargs)
 
     def DrawTab(*args, **kwargs):
@@ -1249,7 +1248,7 @@ class AuiTabContainer(object):
         return _aui.AuiTabContainer_InsertPage(*args, **kwargs)
 
     def MovePage(*args, **kwargs):
-        """MovePage(self, Window page, size_t new_idx) -> bool"""
+        """MovePage(self, Window page, size_t newIdx) -> bool"""
         return _aui.AuiTabContainer_MovePage(*args, **kwargs)
 
     def RemovePage(*args, **kwargs):
@@ -1300,15 +1299,15 @@ class AuiTabContainer(object):
         return _aui.AuiTabContainer_GetPages(*args, **kwargs)
 
     def SetNormalFont(*args, **kwargs):
-        """SetNormalFont(self, Font normal_font)"""
+        """SetNormalFont(self, Font normalFont)"""
         return _aui.AuiTabContainer_SetNormalFont(*args, **kwargs)
 
     def SetSelectedFont(*args, **kwargs):
-        """SetSelectedFont(self, Font selected_font)"""
+        """SetSelectedFont(self, Font selectedFont)"""
         return _aui.AuiTabContainer_SetSelectedFont(*args, **kwargs)
 
     def SetMeasuringFont(*args, **kwargs):
-        """SetMeasuringFont(self, Font measuring_font)"""
+        """SetMeasuringFont(self, Font measuringFont)"""
         return _aui.AuiTabContainer_SetMeasuringFont(*args, **kwargs)
 
     def SetColour(*args, **kwargs):
@@ -1333,8 +1332,8 @@ class AuiTabContainer(object):
 
     def AddButton(*args, **kwargs):
         """
-        AddButton(self, int id, int location, Bitmap normal_bitmap=wxNullBitmap, 
-            Bitmap disabled_bitmap=wxNullBitmap)
+        AddButton(self, int id, int location, Bitmap normalBitmap=wxNullBitmap, 
+            Bitmap disabledBitmap=wxNullBitmap)
         """
         return _aui.AuiTabContainer_AddButton(*args, **kwargs)
 
@@ -1419,11 +1418,11 @@ class AuiNotebook(wxNavigationEnabled_BookCtrlBase):
         return _aui.AuiNotebook_SetTabCtrlHeight(*args, **kwargs)
 
     def GetPage(*args, **kwargs):
-        """GetPage(self, size_t page_idx) -> Window"""
+        """GetPage(self, size_t pageIdx) -> Window"""
         return _aui.AuiNotebook_GetPage(*args, **kwargs)
 
     def GetPageIndex(*args, **kwargs):
-        """GetPageIndex(self, Window page_wnd) -> int"""
+        """GetPageIndex(self, Window pageWnd) -> int"""
         return _aui.AuiNotebook_GetPageIndex(*args, **kwargs)
 
     def SetPageBitmap(*args, **kwargs):
@@ -1431,7 +1430,7 @@ class AuiNotebook(wxNavigationEnabled_BookCtrlBase):
         return _aui.AuiNotebook_SetPageBitmap(*args, **kwargs)
 
     def GetPageBitmap(*args, **kwargs):
-        """GetPageBitmap(self, size_t page_idx) -> Bitmap"""
+        """GetPageBitmap(self, size_t pageIdx) -> Bitmap"""
         return _aui.AuiNotebook_GetPageBitmap(*args, **kwargs)
 
     def Split(*args, **kwargs):
@@ -1634,7 +1633,7 @@ class AuiMDIChildFrame(_windows.Panel):
         return _aui.AuiMDIChildFrame_Create(*args, **kwargs)
 
     def SetMenuBar(*args, **kwargs):
-        """SetMenuBar(self, MenuBar menu_bar)"""
+        """SetMenuBar(self, MenuBar menuBar)"""
         return _aui.AuiMDIChildFrame_SetMenuBar(*args, **kwargs)
 
     def GetMenuBar(*args, **kwargs):
@@ -1777,7 +1776,7 @@ class AuiToolBarEvent(_core.NotifyEvent):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, EventType command_type=wxEVT_NULL, int win_id=0) -> AuiToolBarEvent"""
+        """__init__(self, EventType commandType=wxEVT_NULL, int winId=0) -> AuiToolBarEvent"""
         _aui.AuiToolBarEvent_swiginit(self,_aui.new_AuiToolBarEvent(*args, **kwargs))
     def IsDropDownClicked(*args, **kwargs):
         """IsDropDownClicked(self) -> bool"""
@@ -1808,7 +1807,7 @@ class AuiToolBarEvent(_core.NotifyEvent):
         return _aui.AuiToolBarEvent_GetToolId(*args, **kwargs)
 
     def SetToolId(*args, **kwargs):
-        """SetToolId(self, int toolid)"""
+        """SetToolId(self, int toolId)"""
         return _aui.AuiToolBarEvent_SetToolId(*args, **kwargs)
 
 _aui.AuiToolBarEvent_swigregister(AuiToolBarEvent)
@@ -1836,7 +1835,7 @@ class AuiToolBarItem(object):
         return _aui.AuiToolBarItem_GetWindow(*args, **kwargs)
 
     def SetId(*args, **kwargs):
-        """SetId(self, int new_id)"""
+        """SetId(self, int newId)"""
         return _aui.AuiToolBarItem_SetId(*args, **kwargs)
 
     def GetId(*args, **kwargs):
@@ -1844,7 +1843,7 @@ class AuiToolBarItem(object):
         return _aui.AuiToolBarItem_GetId(*args, **kwargs)
 
     def SetKind(*args, **kwargs):
-        """SetKind(self, int new_kind)"""
+        """SetKind(self, int newKind)"""
         return _aui.AuiToolBarItem_SetKind(*args, **kwargs)
 
     def GetKind(*args, **kwargs):
@@ -1852,7 +1851,7 @@ class AuiToolBarItem(object):
         return _aui.AuiToolBarItem_GetKind(*args, **kwargs)
 
     def SetState(*args, **kwargs):
-        """SetState(self, int new_state)"""
+        """SetState(self, int newState)"""
         return _aui.AuiToolBarItem_SetState(*args, **kwargs)
 
     def GetState(*args, **kwargs):
@@ -2057,11 +2056,11 @@ class AuiToolBarArt(object):
         return _aui.AuiToolBarArt_GetToolSize(*args, **kwargs)
 
     def GetElementSize(*args, **kwargs):
-        """GetElementSize(self, int element_id) -> int"""
+        """GetElementSize(self, int elementId) -> int"""
         return _aui.AuiToolBarArt_GetElementSize(*args, **kwargs)
 
     def SetElementSize(*args, **kwargs):
-        """SetElementSize(self, int element_id, int size)"""
+        """SetElementSize(self, int elementId, int size)"""
         return _aui.AuiToolBarArt_SetElementSize(*args, **kwargs)
 
     def ShowDropDown(*args, **kwargs):
@@ -2103,19 +2102,19 @@ class AuiToolBar(_core.Control):
 
     def AddTool(*args):
         """
-        AddTool(self, int tool_id, String label, Bitmap bitmap, String short_help_string=wxEmptyString, 
+        AddTool(self, int toolId, String label, Bitmap bitmap, String shortHelpString=wxEmptyString, 
             int kind=ITEM_NORMAL) -> AuiToolBarItem
-        AddTool(self, int tool_id, String label, Bitmap bitmap, Bitmap disabled_bitmap, 
-            int kind, String short_help_string, 
-            String long_help_string, Object client_data) -> AuiToolBarItem
-        AddTool(self, int tool_id, Bitmap bitmap, Bitmap disabled_bitmap, 
-            bool toggle=False, Object client_data=None, 
-            String short_help_string=wxEmptyString, String long_help_string=wxEmptyString) -> AuiToolBarItem
+        AddTool(self, int toolId, String label, Bitmap bitmap, Bitmap disabledBitmap, 
+            int kind, String shortHelpString, 
+            String longHelpString, Object clientData) -> AuiToolBarItem
+        AddTool(self, int toolId, Bitmap bitmap, Bitmap disabledBitmap, bool toggle=False, 
+            Object clientData=None, String shortHelpString=wxEmptyString, 
+            String longHelpString=wxEmptyString) -> AuiToolBarItem
         """
         return _aui.AuiToolBar_AddTool(*args)
 
     def AddLabel(*args, **kwargs):
-        """AddLabel(self, int tool_id, String label=wxEmptyString, int width=-1) -> AuiToolBarItem"""
+        """AddLabel(self, int toolId, String label=wxEmptyString, int width=-1) -> AuiToolBarItem"""
         return _aui.AuiToolBar_AddLabel(*args, **kwargs)
 
     def AddControl(*args, **kwargs):
@@ -2139,7 +2138,7 @@ class AuiToolBar(_core.Control):
         return _aui.AuiToolBar_Realize(*args, **kwargs)
 
     def FindControl(*args, **kwargs):
-        """FindControl(self, int window_id) -> Control"""
+        """FindControl(self, int windowId) -> Control"""
         return _aui.AuiToolBar_FindControl(*args, **kwargs)
 
     def FindToolByPosition(*args, **kwargs):
@@ -2151,7 +2150,7 @@ class AuiToolBar(_core.Control):
         return _aui.AuiToolBar_FindToolByIndex(*args, **kwargs)
 
     def FindTool(*args, **kwargs):
-        """FindTool(self, int tool_id) -> AuiToolBarItem"""
+        """FindTool(self, int toolId) -> AuiToolBarItem"""
         return _aui.AuiToolBar_FindTool(*args, **kwargs)
 
     def ClearTools(*args, **kwargs):
@@ -2163,11 +2162,11 @@ class AuiToolBar(_core.Control):
         return _aui.AuiToolBar_Clear(*args, **kwargs)
 
     def DeleteTool(*args, **kwargs):
-        """DeleteTool(self, int tool_id) -> bool"""
+        """DeleteTool(self, int toolId) -> bool"""
         return _aui.AuiToolBar_DeleteTool(*args, **kwargs)
 
     def DeleteByIndex(*args, **kwargs):
-        """DeleteByIndex(self, int tool_id) -> bool"""
+        """DeleteByIndex(self, int toolId) -> bool"""
         return _aui.AuiToolBar_DeleteByIndex(*args, **kwargs)
 
     def GetToolCount(*args, **kwargs):
@@ -2175,23 +2174,23 @@ class AuiToolBar(_core.Control):
         return _aui.AuiToolBar_GetToolCount(*args, **kwargs)
 
     def GetToolPos(*args, **kwargs):
-        """GetToolPos(self, int tool_id) -> int"""
+        """GetToolPos(self, int toolId) -> int"""
         return _aui.AuiToolBar_GetToolPos(*args, **kwargs)
 
     def GetToolIndex(*args, **kwargs):
-        """GetToolIndex(self, int tool_id) -> int"""
+        """GetToolIndex(self, int toolId) -> int"""
         return _aui.AuiToolBar_GetToolIndex(*args, **kwargs)
 
     def GetToolFits(*args, **kwargs):
-        """GetToolFits(self, int tool_id) -> bool"""
+        """GetToolFits(self, int toolId) -> bool"""
         return _aui.AuiToolBar_GetToolFits(*args, **kwargs)
 
     def GetToolRect(*args, **kwargs):
-        """GetToolRect(self, int tool_id) -> Rect"""
+        """GetToolRect(self, int toolId) -> Rect"""
         return _aui.AuiToolBar_GetToolRect(*args, **kwargs)
 
     def GetToolFitsByIndex(*args, **kwargs):
-        """GetToolFitsByIndex(self, int tool_id) -> bool"""
+        """GetToolFitsByIndex(self, int toolId) -> bool"""
         return _aui.AuiToolBar_GetToolFitsByIndex(*args, **kwargs)
 
     def GetToolBarFits(*args, **kwargs):
@@ -2231,27 +2230,27 @@ class AuiToolBar(_core.Control):
         return _aui.AuiToolBar_SetGripperVisible(*args, **kwargs)
 
     def ToggleTool(*args, **kwargs):
-        """ToggleTool(self, int tool_id, bool state)"""
+        """ToggleTool(self, int toolId, bool state)"""
         return _aui.AuiToolBar_ToggleTool(*args, **kwargs)
 
     def GetToolToggled(*args, **kwargs):
-        """GetToolToggled(self, int tool_id) -> bool"""
+        """GetToolToggled(self, int toolId) -> bool"""
         return _aui.AuiToolBar_GetToolToggled(*args, **kwargs)
 
     def EnableTool(*args, **kwargs):
-        """EnableTool(self, int tool_id, bool state)"""
+        """EnableTool(self, int toolId, bool state)"""
         return _aui.AuiToolBar_EnableTool(*args, **kwargs)
 
     def GetToolEnabled(*args, **kwargs):
-        """GetToolEnabled(self, int tool_id) -> bool"""
+        """GetToolEnabled(self, int toolId) -> bool"""
         return _aui.AuiToolBar_GetToolEnabled(*args, **kwargs)
 
     def SetToolDropDown(*args, **kwargs):
-        """SetToolDropDown(self, int tool_id, bool dropdown)"""
+        """SetToolDropDown(self, int toolId, bool dropdown)"""
         return _aui.AuiToolBar_SetToolDropDown(*args, **kwargs)
 
     def GetToolDropDown(*args, **kwargs):
-        """GetToolDropDown(self, int tool_id) -> bool"""
+        """GetToolDropDown(self, int toolId) -> bool"""
         return _aui.AuiToolBar_GetToolDropDown(*args, **kwargs)
 
     def SetToolBorderPadding(*args, **kwargs):
@@ -2279,11 +2278,11 @@ class AuiToolBar(_core.Control):
         return _aui.AuiToolBar_GetToolPacking(*args, **kwargs)
 
     def SetToolProportion(*args, **kwargs):
-        """SetToolProportion(self, int tool_id, int proportion)"""
+        """SetToolProportion(self, int toolId, int proportion)"""
         return _aui.AuiToolBar_SetToolProportion(*args, **kwargs)
 
     def GetToolProportion(*args, **kwargs):
-        """GetToolProportion(self, int tool_id) -> int"""
+        """GetToolProportion(self, int toolId) -> int"""
         return _aui.AuiToolBar_GetToolProportion(*args, **kwargs)
 
     def SetToolSeparation(*args, **kwargs):
@@ -2295,43 +2294,43 @@ class AuiToolBar(_core.Control):
         return _aui.AuiToolBar_GetToolSeparation(*args, **kwargs)
 
     def SetToolSticky(*args, **kwargs):
-        """SetToolSticky(self, int tool_id, bool sticky)"""
+        """SetToolSticky(self, int toolId, bool sticky)"""
         return _aui.AuiToolBar_SetToolSticky(*args, **kwargs)
 
     def GetToolSticky(*args, **kwargs):
-        """GetToolSticky(self, int tool_id) -> bool"""
+        """GetToolSticky(self, int toolId) -> bool"""
         return _aui.AuiToolBar_GetToolSticky(*args, **kwargs)
 
     def GetToolLabel(*args, **kwargs):
-        """GetToolLabel(self, int tool_id) -> String"""
+        """GetToolLabel(self, int toolId) -> String"""
         return _aui.AuiToolBar_GetToolLabel(*args, **kwargs)
 
     def SetToolLabel(*args, **kwargs):
-        """SetToolLabel(self, int tool_id, String label)"""
+        """SetToolLabel(self, int toolId, String label)"""
         return _aui.AuiToolBar_SetToolLabel(*args, **kwargs)
 
     def GetToolBitmap(*args, **kwargs):
-        """GetToolBitmap(self, int tool_id) -> Bitmap"""
+        """GetToolBitmap(self, int toolId) -> Bitmap"""
         return _aui.AuiToolBar_GetToolBitmap(*args, **kwargs)
 
     def SetToolBitmap(*args, **kwargs):
-        """SetToolBitmap(self, int tool_id, Bitmap bitmap)"""
+        """SetToolBitmap(self, int toolId, Bitmap bitmap)"""
         return _aui.AuiToolBar_SetToolBitmap(*args, **kwargs)
 
     def GetToolShortHelp(*args, **kwargs):
-        """GetToolShortHelp(self, int tool_id) -> String"""
+        """GetToolShortHelp(self, int toolId) -> String"""
         return _aui.AuiToolBar_GetToolShortHelp(*args, **kwargs)
 
     def SetToolShortHelp(*args, **kwargs):
-        """SetToolShortHelp(self, int tool_id, String help_string)"""
+        """SetToolShortHelp(self, int toolId, String helpString)"""
         return _aui.AuiToolBar_SetToolShortHelp(*args, **kwargs)
 
     def GetToolLongHelp(*args, **kwargs):
-        """GetToolLongHelp(self, int tool_id) -> String"""
+        """GetToolLongHelp(self, int toolId) -> String"""
         return _aui.AuiToolBar_GetToolLongHelp(*args, **kwargs)
 
     def SetToolLongHelp(*args, **kwargs):
-        """SetToolLongHelp(self, int tool_id, String help_string)"""
+        """SetToolLongHelp(self, int toolId, String helpString)"""
         return _aui.AuiToolBar_SetToolLongHelp(*args, **kwargs)
 
     def SetCustomOverflowItems(*args, **kwargs):
@@ -2339,7 +2338,7 @@ class AuiToolBar(_core.Control):
         return _aui.AuiToolBar_SetCustomOverflowItems(*args, **kwargs)
 
     def GetHintSize(*args, **kwargs):
-        """GetHintSize(self, int dock_direction) -> Size"""
+        """GetHintSize(self, int dockDirection) -> Size"""
         return _aui.AuiToolBar_GetHintSize(*args, **kwargs)
 
     def IsPaneValid(*args, **kwargs):

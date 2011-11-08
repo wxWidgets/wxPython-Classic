@@ -3126,6 +3126,45 @@ SWIGINTERN wxListItem *wxPyListCtrl_GetColumn(wxPyListCtrl *self,int col){
             else
                 return NULL;
         }
+SWIGINTERN bool wxPyListCtrl_HasColumnOrderSupport(){
+        #ifdef wxHAS_LISTCTRL_COLUMN_ORDER
+            return true;
+        #else
+            return false;
+        #endif
+        }
+SWIGINTERN int wxPyListCtrl_GetColumnOrder(wxPyListCtrl const *self,int col){
+        #ifdef wxHAS_LISTCTRL_COLUMN_ORDER
+            return self->GetColumnOrder(col);
+        #else
+            wxPyRaiseNotImplemented();
+            return 0;
+        #endif
+        }
+SWIGINTERN int wxPyListCtrl_GetColumnIndexFromOrder(wxPyListCtrl const *self,int order){
+        #ifdef wxHAS_LISTCTRL_COLUMN_ORDER
+            return self->GetColumnIndexFromOrder(order);
+        #else
+            wxPyRaiseNotImplemented();
+            return 0;
+        #endif
+        }
+SWIGINTERN wxArrayInt wxPyListCtrl_GetColumnsOrder(wxPyListCtrl const *self){
+        #ifdef wxHAS_LISTCTRL_COLUMN_ORDER
+            return self->GetColumnsOrder();
+        #else
+            wxPyRaiseNotImplemented();
+            return wxArrayInt();
+        #endif
+        }
+SWIGINTERN bool wxPyListCtrl_SetColumnsOrder(wxPyListCtrl *self,wxArrayInt const &orders){
+        #ifdef wxHAS_LISTCTRL_COLUMN_ORDER
+            return self->SetColumnsOrder(orders);
+        #else
+            wxPyRaiseNotImplemented();
+            return false;
+        #endif
+        }
 SWIGINTERN wxListItem *wxPyListCtrl_GetItem(wxPyListCtrl *self,long itemId,int col=0){
             wxListItem* info = new wxListItem;
             info->m_itemId = itemId;
@@ -29740,6 +29779,195 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_ListCtrl_HasColumnOrderSupport(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  bool result;
+  
+  if (!SWIG_Python_UnpackTuple(args,"ListCtrl_HasColumnOrderSupport",0,0,0)) SWIG_fail;
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxPyListCtrl_HasColumnOrderSupport();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ListCtrl_GetColumnOrder(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyListCtrl *arg1 = (wxPyListCtrl *) 0 ;
+  int arg2 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "col", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:ListCtrl_GetColumnOrder",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyListCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ListCtrl_GetColumnOrder" "', expected argument " "1"" of type '" "wxPyListCtrl const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyListCtrl * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ListCtrl_GetColumnOrder" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)wxPyListCtrl_GetColumnOrder((wxPyListCtrl const *)arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ListCtrl_GetColumnIndexFromOrder(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyListCtrl *arg1 = (wxPyListCtrl *) 0 ;
+  int arg2 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "order", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:ListCtrl_GetColumnIndexFromOrder",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyListCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ListCtrl_GetColumnIndexFromOrder" "', expected argument " "1"" of type '" "wxPyListCtrl const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyListCtrl * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "ListCtrl_GetColumnIndexFromOrder" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)wxPyListCtrl_GetColumnIndexFromOrder((wxPyListCtrl const *)arg1,arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ListCtrl_GetColumnsOrder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxPyListCtrl *arg1 = (wxPyListCtrl *) 0 ;
+  wxArrayInt result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxPyListCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ListCtrl_GetColumnsOrder" "', expected argument " "1"" of type '" "wxPyListCtrl const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyListCtrl * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = wxPyListCtrl_GetColumnsOrder((wxPyListCtrl const *)arg1);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = wxArrayInt2PyList_helper(result);
+  }
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_ListCtrl_SetColumnsOrder(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxPyListCtrl *arg1 = (wxPyListCtrl *) 0 ;
+  wxArrayInt *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool temp2 = false ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "orders", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:ListCtrl_SetColumnsOrder",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxPyListCtrl, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "ListCtrl_SetColumnsOrder" "', expected argument " "1"" of type '" "wxPyListCtrl *""'"); 
+  }
+  arg1 = reinterpret_cast< wxPyListCtrl * >(argp1);
+  {
+    if (! PySequence_Check(obj1)) {
+      PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+      SWIG_fail;
+    }
+    arg2 = new wxArrayInt;
+    temp2 = true;
+    int i, len=PySequence_Length(obj1);
+    for (i=0; i<len; i++) {
+      PyObject* item = PySequence_GetItem(obj1, i);
+      PyObject* number  = PyNumber_Int(item);
+      if (!number) {
+        PyErr_SetString(PyExc_TypeError, "Sequence of integers expected.");
+        SWIG_fail;
+      }       
+      arg2->Add(PyInt_AS_LONG(number));
+      Py_DECREF(item);
+      Py_DECREF(number);
+    }
+  }
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)wxPyListCtrl_SetColumnsOrder(arg1,(wxArrayInt const &)*arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
+  {
+    if (temp2) delete arg2;
+  }
+  return resultobj;
+fail:
+  {
+    if (temp2) delete arg2;
+  }
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_ListCtrl_GetCountPerPage(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxPyListCtrl *arg1 = (wxPyListCtrl *) 0 ;
@@ -51690,6 +51918,11 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"ListCtrl_SetColumn", (PyCFunction) _wrap_ListCtrl_SetColumn, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ListCtrl_GetColumnWidth", (PyCFunction) _wrap_ListCtrl_GetColumnWidth, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ListCtrl_SetColumnWidth", (PyCFunction) _wrap_ListCtrl_SetColumnWidth, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"ListCtrl_HasColumnOrderSupport", (PyCFunction)_wrap_ListCtrl_HasColumnOrderSupport, METH_NOARGS, NULL},
+	 { (char *)"ListCtrl_GetColumnOrder", (PyCFunction) _wrap_ListCtrl_GetColumnOrder, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"ListCtrl_GetColumnIndexFromOrder", (PyCFunction) _wrap_ListCtrl_GetColumnIndexFromOrder, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"ListCtrl_GetColumnsOrder", (PyCFunction)_wrap_ListCtrl_GetColumnsOrder, METH_O, NULL},
+	 { (char *)"ListCtrl_SetColumnsOrder", (PyCFunction) _wrap_ListCtrl_SetColumnsOrder, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"ListCtrl_GetCountPerPage", (PyCFunction)_wrap_ListCtrl_GetCountPerPage, METH_O, NULL},
 	 { (char *)"ListCtrl_GetViewRect", (PyCFunction)_wrap_ListCtrl_GetViewRect, METH_O, NULL},
 	 { (char *)"ListCtrl_GetEditControl", (PyCFunction)_wrap_ListCtrl_GetEditControl, METH_O, NULL},
