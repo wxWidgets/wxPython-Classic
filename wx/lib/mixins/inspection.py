@@ -82,7 +82,7 @@ class InspectableApp(wx.App, InspectionMixin):
     """
 
     def OnInit(self):
-        self.Init()
+        self.InitInspection()
         return True
 
 #---------------------------------------------------------------------------
