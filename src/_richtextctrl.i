@@ -967,6 +967,8 @@ of interest.
         virtual bool , IsSelectionUnderlined(),
         "Is all of the selection underlined?", "");
 
+        virtual bool DoesSelectionHaveTextEffectFlag(int flag);
+
 
     DocDeclStr(
         virtual bool , IsSelectionAligned(wxTextAttrAlignment alignment),
@@ -987,6 +989,7 @@ of interest.
         virtual bool , ApplyUnderlineToSelection(),
         "Apply underline to the selection", "");
 
+    virtual bool ApplyTextEffectToSelection(int flags);
 
     DocDeclStr(
         virtual bool , ApplyAlignmentToSelection(wxTextAttrAlignment alignment),
