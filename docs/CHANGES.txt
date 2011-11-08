@@ -3,6 +3,23 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.9.3.0
+-------
+*
+
+wx.ListCtrl:  Added a static method named HasColumnOrderSupport which
+returns a boolen value indicating if the column ordering APIs (see
+next item) are implemented for the current platform.
+
+Added methods for querying and manipulating the ordering of the
+columns (in wx.LC_REPORT mode only.)  This is not implemented on all
+platforms so use HasColumnOrderSupport to find out if the APIs are
+supported.  The new APIs are: GetColumnOrder, GetColumnIndexFromOrder,
+GetColumnsOrder and SetColumnsOrder.
+
+
+
+
 2.9.2.4
 -------
 * 9-Sept-2011
