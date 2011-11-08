@@ -363,7 +363,7 @@ public:
 
     wxGraphicsBrush CreateLinearGradientBrush(
         wxDouble , wxDouble , wxDouble , wxDouble ,
-        const wxColour&, const wxColour&) { return wxNullGraphicsBrush; }
+        const wxColour&, const wxColour&) const { return wxNullGraphicsBrush; }
     wxGraphicsBrush
     CreateLinearGradientBrush(wxDouble x1, wxDouble y1,
                               wxDouble x2, wxDouble y2,
@@ -373,7 +373,7 @@ public:
     wxGraphicsBrush
     CreateRadialGradientBrush(wxDouble xo, wxDouble yo,
                               wxDouble xc, wxDouble yc, wxDouble radius,
-                              const wxColour &oColor, const wxColour &cColor)
+                              const wxColour &oColor, const wxColour &cColor) const
         { return wxNullGraphicsBrush; }
     
     wxGraphicsBrush
