@@ -1953,6 +1953,28 @@ on the wx.MirrorDC will appear on the *dc*, and will be mirrored if
 #include <wx/dcps.h>
 %}
 
+%{
+#if !wxUSE_POSTSCRIPT
+class wxPostScriptDC : public wxDC
+{
+public:
+    wxPostScriptDC()
+        : wxDC(NULL)
+    {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.PostScriptDC is not available on this platform.");
+    };
+
+    wxPostScriptDC(const wxPrintData&)
+        : wxDC(NULL)
+    {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.PostScriptDC is not available on this platform.");
+    };
+};
+#endif
+%}
+
 MustHaveApp(wxPostScriptDC);
 
 DocStr(wxPostScriptDC,
@@ -1965,19 +1987,6 @@ public:
         "Constructs a PostScript printer device context from a `wx.PrintData`
 object.", "");
 
-//     wxPrintData& GetPrintData();
-//     void SetPrintData(const wxPrintData& data);
-
-//     DocDeclStr(
-//         static void , SetResolution(int ppi),
-//         "Set resolution (in pixels per inch) that will be used in PostScript
-// output. Default is 720ppi.", "");
-    
-//     DocDeclStr(
-//         static int , GetResolution(),
-//         "Return resolution used in PostScript output.", "");
-
-//     %property(PrintData, GetPrintData, SetPrintData, doc="See `GetPrintData` and `SetPrintData`");
 };
 
 //---------------------------------------------------------------------------

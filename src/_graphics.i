@@ -307,6 +307,13 @@ public:
                         "wx.GraphicsContext is not available on this platform.");
         return NULL;
     }
+
+    static wxGraphicsContext* Create( const wxEnhMetaFileDC& )  {
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wx.GraphicsContext is not available on this platform.");
+        return NULL;
+    }
+
     static wxGraphicsContext* Create( const wxWindowDC& )  {
         PyErr_SetString(PyExc_NotImplementedError,
                         "wx.GraphicsContext is not available on this platform.");
@@ -354,6 +361,8 @@ public:
     virtual void StartPage( wxDouble, wxDouble) {}
     virtual void EndPage() {}
     virtual void Flush() {}
+    virtual void BeginLayer(wxDouble) {}
+    virtual void EndLayer() {}
 
     wxGraphicsPath CreatePath()  { return wxNullGraphicsPath; }
 
@@ -481,6 +490,7 @@ public :
         return NULL;
     }   
 
+    virtual wxGraphicsContext * CreateContext( const wxEnhMetaFileDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContext( const wxWindowDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContext( const wxMemoryDC& ) { return NULL; }
     virtual wxGraphicsContext * CreateContext( const wxPrinterDC& ) { return NULL; }
@@ -545,6 +555,15 @@ public:
      }
 
     wxGCDC(const wxPrinterDC& dc)
+        : wxDC(NULL)
+    {
+        wxPyBlock_t blocked = wxPyBeginBlockThreads();
+        PyErr_SetString(PyExc_NotImplementedError,
+                        "wxGCDC is not available on this platform.");
+        wxPyEndBlockThreads(blocked);
+     }
+
+    wxGCDC(wxGraphicsContext*&)
         : wxDC(NULL)
     {
         wxPyBlock_t blocked = wxPyBeginBlockThreads();
@@ -983,6 +1002,7 @@ public:
     static wxGraphicsContext* Create( const wxPrinterDC& dc) ;
 #ifdef __WXMSW__
     static wxGraphicsContext* Create( const wxMetaFileDC& dc) ;
+    static wxGraphicsContext* Create( const wxEnhMetaFileDC& dc) ;
 #endif
     static wxGraphicsContext* Create(wxImage& );
     
@@ -1035,8 +1055,6 @@ size in points (if both are null the default page size will be used)
         virtual void , Flush(),
         "Make sure that the current content of this context is immediately visible", "");
     
-
-
     DocDeclStr(
         virtual wxGraphicsPath , CreatePath(),
         "Creates a native graphics path which is initially empty.", "");
@@ -1439,6 +1457,7 @@ public :
     virtual wxGraphicsContext * CreateContext( wxWindow* window );
 #ifdef __WXMSW__
     virtual wxGraphicsContext * CreateContext( const wxMetaFileDC& dc) ;
+    virtual wxGraphicsContext * CreateContext( const wxEnhMetaFileDC& dc) ;
 #endif
 
     virtual wxGraphicsContext * CreateContextFromImage(wxImage& image);
