@@ -1,15 +1,3 @@
-#-------------------------------------------------------------------
-# essaimenu.py
-#
-# menus in wxPython 2.3.3
-#
-#-------------------------------------------------------------------
-#
-# o Debug message when adding a menu item (see last menu):
-#
-#   Debug: ..\..\src\msw\menuitem.cpp(370): 'GetMenuState' failed with 
-#   error 0x00000002 (the system cannot find the file specified.). 
-#
 
 import  time
 import  wx
