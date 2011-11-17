@@ -106,6 +106,7 @@ _treeList = [
         'DVC_CustomRenderer',
         'PenAndBrushStyles',
         'InfoBar',
+        'HTML2_WebView',
         ]),
 
     # managed windows == things with a (optional) caption you can close
@@ -236,6 +237,7 @@ _treeList = [
         'FloatBar',  
         'FloatCanvas',
         'HtmlWindow',
+        'HTML2_WebView',
         'InfoBar',
         'IntCtrl',
         'MVCTree',   

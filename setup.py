@@ -611,6 +611,25 @@ ext = Extension('_propgrid', swig_sources,
 wxpExtensions.append(ext)
 
 
+swig_sources = run_swig(['html2.i'], 'src', GENDIR, PKGDIR,
+                        USE_SWIG, swig_force, swig_args, swig_deps)
+if not MONOLITHIC and findLib('webview', libdirs):
+    webviewLib = makeLibName('webview')
+else:
+    webviewLib = []
+ext = Extension('_html2', swig_sources,
+                include_dirs =  includes,
+                define_macros = defines,
+                library_dirs = libdirs,
+                libraries = libs + webviewLib,
+                extra_compile_args = cflags,
+                extra_link_args = lflags,
+                **depends
+                )
+wxpExtensions.append(ext)
+
+
+
 if BUILD_STC:
     msg('Preparing STC...')
     STC_H = opj(WXDIR, 'include/wx/stc')
