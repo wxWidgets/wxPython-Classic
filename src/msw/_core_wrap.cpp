@@ -3904,6 +3904,8 @@ SWIGINTERN wxImage wxImage_AdjustChannels(wxImage *self,double factor_red,double
  static const wxString wxPyIMAGE_OPTION_QUALITY(wxIMAGE_OPTION_QUALITY); 
  static const wxString wxPyIMAGE_OPTION_MAX_WIDTH(wxIMAGE_OPTION_MAX_WIDTH); 
  static const wxString wxPyIMAGE_OPTION_MAX_HEIGHT(wxIMAGE_OPTION_MAX_HEIGHT); 
+ static const wxString wxPyIMAGE_OPTION_ORIGINAL_WIDTH(wxIMAGE_OPTION_ORIGINAL_WIDTH); 
+ static const wxString wxPyIMAGE_OPTION_ORIGINAL_HEIGHT(wxIMAGE_OPTION_ORIGINAL_HEIGHT); 
  static const wxString wxPyIMAGE_OPTION_BITSPERSAMPLE(wxIMAGE_OPTION_BITSPERSAMPLE); 
  static const wxString wxPyIMAGE_OPTION_SAMPLESPERPIXEL(wxIMAGE_OPTION_SAMPLESPERPIXEL); 
  static const wxString wxPyIMAGE_OPTION_COMPRESSION(wxIMAGE_OPTION_COMPRESSION); 
@@ -22286,6 +22288,46 @@ SWIGINTERN PyObject *IMAGE_OPTION_MAX_HEIGHT_get(void) {
     pyobj = PyUnicode_FromWideChar((&wxPyIMAGE_OPTION_MAX_HEIGHT)->c_str(), (&wxPyIMAGE_OPTION_MAX_HEIGHT)->Len());
 #else
     pyobj = PyString_FromStringAndSize((&wxPyIMAGE_OPTION_MAX_HEIGHT)->c_str(), (&wxPyIMAGE_OPTION_MAX_HEIGHT)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
+SWIGINTERN int IMAGE_OPTION_ORIGINAL_WIDTH_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable IMAGE_OPTION_ORIGINAL_WIDTH is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *IMAGE_OPTION_ORIGINAL_WIDTH_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyIMAGE_OPTION_ORIGINAL_WIDTH)->c_str(), (&wxPyIMAGE_OPTION_ORIGINAL_WIDTH)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyIMAGE_OPTION_ORIGINAL_WIDTH)->c_str(), (&wxPyIMAGE_OPTION_ORIGINAL_WIDTH)->Len());
+#endif
+  }
+  return pyobj;
+}
+
+
+SWIGINTERN int IMAGE_OPTION_ORIGINAL_HEIGHT_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable IMAGE_OPTION_ORIGINAL_HEIGHT is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *IMAGE_OPTION_ORIGINAL_HEIGHT_get(void) {
+  PyObject *pyobj = 0;
+  
+  {
+#if wxUSE_UNICODE
+    pyobj = PyUnicode_FromWideChar((&wxPyIMAGE_OPTION_ORIGINAL_HEIGHT)->c_str(), (&wxPyIMAGE_OPTION_ORIGINAL_HEIGHT)->Len());
+#else
+    pyobj = PyString_FromStringAndSize((&wxPyIMAGE_OPTION_ORIGINAL_HEIGHT)->c_str(), (&wxPyIMAGE_OPTION_ORIGINAL_HEIGHT)->Len());
 #endif
   }
   return pyobj;
@@ -75510,6 +75552,8 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_addvarlink(SWIG_globals(),(char*)"IMAGE_OPTION_QUALITY",IMAGE_OPTION_QUALITY_get, IMAGE_OPTION_QUALITY_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"IMAGE_OPTION_MAX_WIDTH",IMAGE_OPTION_MAX_WIDTH_get, IMAGE_OPTION_MAX_WIDTH_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"IMAGE_OPTION_MAX_HEIGHT",IMAGE_OPTION_MAX_HEIGHT_get, IMAGE_OPTION_MAX_HEIGHT_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"IMAGE_OPTION_ORIGINAL_WIDTH",IMAGE_OPTION_ORIGINAL_WIDTH_get, IMAGE_OPTION_ORIGINAL_WIDTH_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"IMAGE_OPTION_ORIGINAL_HEIGHT",IMAGE_OPTION_ORIGINAL_HEIGHT_get, IMAGE_OPTION_ORIGINAL_HEIGHT_set);
   SWIG_Python_SetConstant(d, "IMAGE_RESOLUTION_NONE",SWIG_From_int(static_cast< int >(wxIMAGE_RESOLUTION_NONE)));
   SWIG_Python_SetConstant(d, "IMAGE_RESOLUTION_INCHES",SWIG_From_int(static_cast< int >(wxIMAGE_RESOLUTION_INCHES)));
   SWIG_Python_SetConstant(d, "IMAGE_RESOLUTION_CM",SWIG_From_int(static_cast< int >(wxIMAGE_RESOLUTION_CM)));
