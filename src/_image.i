@@ -1297,6 +1297,7 @@ def ImageFromBuffer(width, height, dataBuffer, alphaBuffer=None):
 ///void wxInitAllImageHandlers();
 
 %pythoncode {
+    @wx.deprecated
     def InitAllImageHandlers():
         """
         The former functionality of InitAllImageHanders is now done internal to
@@ -1325,6 +1326,8 @@ MAKE_CONST_WXSTRING(IMAGE_OPTION_QUALITY);
 
 MAKE_CONST_WXSTRING(IMAGE_OPTION_MAX_WIDTH);
 MAKE_CONST_WXSTRING(IMAGE_OPTION_MAX_HEIGHT);
+MAKE_CONST_WXSTRING(IMAGE_OPTION_ORIGINAL_WIDTH);
+MAKE_CONST_WXSTRING(IMAGE_OPTION_ORIGINAL_HEIGHT);
 
 
 // constants used with wxIMAGE_OPTION_RESOLUTIONUNIT
