@@ -672,6 +672,8 @@ wxDataViewRendererBase::wxDataViewRendererBase( const wxString &varianttype,
 
 wxDataViewRendererBase::~wxDataViewRendererBase()
 {
+    if ( m_editorCtrl )
+        DestroyEditControl();
 }
 
 wxDataViewCtrl* wxDataViewRendererBase::GetView() const
