@@ -449,21 +449,21 @@ public:
     const wxPoint& GetFromPos() const;
     const wxPoint& GetToPos() const;
 
-    // these are From/ToCell's private data
-    const wxPoint& GetFromPrivPos() const;
-    const wxPoint& GetToPrivPos() const;
-    void SetFromPrivPos(const wxPoint& pos);
-    void SetToPrivPos(const wxPoint& pos);
-    void ClearPrivPos();
+    // // these are From/ToCell's private data
+    // const wxPoint& GetFromPrivPos() const;
+    // const wxPoint& GetToPrivPos() const;
+    // void SetFromPrivPos(const wxPoint& pos);
+    // void SetToPrivPos(const wxPoint& pos);
+    // void ClearPrivPos();
 
     const bool IsEmpty() const;
 
     %property(FromCell, GetFromCell, doc="See `GetFromCell`");
     %property(FromPos, GetFromPos, doc="See `GetFromPos`");
-    %property(FromPrivPos, GetFromPrivPos, SetFromPrivPos, doc="See `GetFromPrivPos` and `SetFromPrivPos`");
+    // %property(FromPrivPos, GetFromPrivPos, SetFromPrivPos, doc="See `GetFromPrivPos` and `SetFromPrivPos`");
     %property(ToCell, GetToCell, doc="See `GetToCell`");
     %property(ToPos, GetToPos, doc="See `GetToPos`");
-    %property(ToPrivPos, GetToPrivPos, SetToPrivPos, doc="See `GetToPrivPos` and `SetToPrivPos`");
+    // %property(ToPrivPos, GetToPrivPos, SetToPrivPos, doc="See `GetToPrivPos` and `SetToPrivPos`");
 };
 
 

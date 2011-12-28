@@ -181,7 +181,7 @@ enum
     // under Windows, don't hide the child even if it's IO is redirected (this
     // is done by default)
     wxEXEC_NOHIDE   = 2,
-
+    
     // under Unix, if the process is the group leader then killing -pid kills
     // all children as well as pid
     wxEXEC_MAKE_GROUP_LEADER = 4,
@@ -197,7 +197,10 @@ enum
     wxEXEC_NOEVENTS = 16,
 
     // convenient synonym for flags given system()-like behaviour
-    wxEXEC_BLOCK = wxEXEC_SYNC | wxEXEC_NOEVENTS
+    wxEXEC_BLOCK = wxEXEC_SYNC | wxEXEC_NOEVENTS,
+
+    wxEXEC_SHOW_CONSOLE,
+    wxEXEC_HIDE_CONSOLE
 };
 
 

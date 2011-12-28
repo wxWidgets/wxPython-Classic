@@ -213,8 +213,8 @@ methods are called.
                          int border, PyObject* userData=NULL ),
             "Constructs a `wx.SizerItem` for tracking a window.", "");
 
-        %RenameCtor(SizerItemWindow, wxSizerItem( wxWindow *window, int proportion, int flag,
-                                                  int border, PyObject* userData=NULL ))
+        %RenameCtor(SizerItemWindow, wxSizerItem( wxWindow *window, int proportion=0, int flag=0,
+                                                  int border=0, PyObject* userData=NULL ))
         {
             wxPyUserData* data = NULL;
             if ( userData ) {
@@ -231,8 +231,8 @@ methods are called.
                          int border, PyObject* userData=NULL),
             "Constructs a `wx.SizerItem` for tracking a spacer.", "");
 
-        %RenameCtor(SizerItemSpacer,  wxSizerItem( int width, int height, int proportion, int flag,
-                                                   int border, PyObject* userData=NULL))
+        %RenameCtor(SizerItemSpacer,  wxSizerItem( int width, int height, int proportion=0, int flag=0,
+                                                   int border=0, PyObject* userData=NULL))
         {
             wxPyUserData* data = NULL;
             if ( userData ) {
@@ -249,8 +249,8 @@ methods are called.
             "Constructs a `wx.SizerItem` for tracking a subsizer", "");
 
         %disownarg( wxSizer *sizer );
-        %RenameCtor(SizerItemSizer,  wxSizerItem( wxSizer *sizer, int proportion, int flag,
-                                                  int border, PyObject* userData=NULL ))
+        %RenameCtor(SizerItemSizer,  wxSizerItem( wxSizer *sizer, int proportion=0, int flag=0,
+                                                  int border=0, PyObject* userData=NULL ))
         {
             wxPyUserData* data = NULL;
             if ( userData ) {

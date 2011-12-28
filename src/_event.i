@@ -1469,6 +1469,15 @@ applicable.", "");
 applicable.", "");
 
 
+    // Can be called from wxEVT_CHAR_HOOK handler to allow generation of normal
+    // key events even though the event had been handled (by default they would
+    // not be generated in this case).
+    void DoAllowNextEvent();
+
+    // Return the value of the "allow next" flag, for internal use only.
+    bool IsNextEventAllowed();
+
+
 public:
     wxCoord       m_x, m_y;
     long          m_keyCode;

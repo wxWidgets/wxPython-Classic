@@ -272,9 +272,9 @@ are created automatically when the sizer's Add method is called.", "");
         
         %RenameCtor(GBSizerItemWindow, wxGBSizerItem( wxWindow *window,
                                                       const wxGBPosition& pos,
-                                                      const wxGBSpan& span,
-                                                      int flag,
-                                                      int border,
+                                                      const wxGBSpan& span=wxDefaultSpan,
+                                                      int flag=0,
+                                                      int border=0,
                                                       PyObject* userData=NULL ))
             {
                 wxPyUserData* data = NULL;
@@ -292,9 +292,9 @@ are created automatically when the sizer's Add method is called.", "");
         %disownarg( wxSizer *sizer );
         %RenameCtor(GBSizerItemSizer, wxGBSizerItem( wxSizer *sizer,
                                                      const wxGBPosition& pos,
-                                                     const wxGBSpan& span,
-                                                     int flag,
-                                                     int border,
+                                                     const wxGBSpan& span=wxDefaultSpan,
+                                                     int flag=0,
+                                                     int border=0,
                                                      PyObject* userData=NULL ))
             {
                 wxPyUserData* data = NULL;
@@ -313,9 +313,9 @@ are created automatically when the sizer's Add method is called.", "");
         %RenameCtor(GBSizerItemSpacer, wxGBSizerItem( int width,
                                                       int height,
                                                       const wxGBPosition& pos,
-                                                      const wxGBSpan& span,
-                                                      int flag,
-                                                      int border,
+                                                      const wxGBSpan& span=wxDefaultSpan,
+                                                      int flag=0,
+                                                      int border=0,
                                                       PyObject* userData=NULL))
             {
                 wxPyUserData* data = NULL;

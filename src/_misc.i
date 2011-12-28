@@ -191,6 +191,9 @@ public:
     // resume it
     void Resume();
 
+    // Get elapsed time since the last Start() in microseconds.
+    wxLongLong TimeInMicro() const;
+
     // get elapsed time since the last Start() in milliseconds
     long Time() const;
 };
