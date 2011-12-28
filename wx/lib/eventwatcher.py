@@ -78,7 +78,13 @@ def _makeSourceString(wdgt):
     if wdgt is None:
         return "None"
     else:
-        return '%s "%s" (%d)' % (wdgt.__class__.__name__, wdgt.GetName(), wdgt.GetId())
+        name = ''
+        id = 0
+        if hasattr(wdgt, 'GetName'):
+            name = wdgt.GetName()
+        if hasattr(wdgt, 'GetId'):
+            id = wdgt.GetId()
+        return '%s "%s" (%d)' % (wdgt.__class__.__name__, name, id)
 
 def _makeAttribString(evt):
     "Find all the getters"
