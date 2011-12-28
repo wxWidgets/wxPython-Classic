@@ -30,10 +30,10 @@ if wx.Platform == "__WXMAC__":
 class GenStaticText(wx.PyControl):
     labelDelta = 1
 
-    def __init__(self, parent, ID, label,
-                 pos = wx.DefaultPosition, size = wx.DefaultSize,
-                 style = 0,
-                 name = "genstattext"):
+    def __init__(self, parent, ID=-1, label="",
+                 pos=wx.DefaultPosition, size=wx.DefaultSize,
+                 style=0,
+                 name="genstattext"):
         wx.PyControl.__init__(self, parent, ID, pos, size, style|wx.NO_BORDER,
                              wx.DefaultValidator, name)
 
