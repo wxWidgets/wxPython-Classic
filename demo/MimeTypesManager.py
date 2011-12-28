@@ -176,7 +176,7 @@ class MimeTypesDemoPanel(wx.Panel):
         t.SetFont(bfont)
         lrsizer.Add(t, 0, wx.ALL | wx.EXPAND | wx.ALIGN_CENTER, 4)
 
-        self.mimelist = wx.ListBox(self, -1, choices=[], style = wx.LB_SINGLE | wx.LB_SORT)
+        self.mimelist = wx.ListBox(self, -1, choices=[], style = wx.LB_SINGLE)# | wx.LB_SORT)
         lrsizer.Add(self.mimelist, 1, wx.ALL | wx.EXPAND | wx.ALIGN_CENTER | wx.FIXED_MINSIZE, 4)
         self.Bind(wx.EVT_LISTBOX, self.OnListbox, self.mimelist)
 
@@ -208,9 +208,12 @@ class MimeTypesDemoPanel(wx.Panel):
         mimes = []
         for mt in mtypes:
             if mt not in mimes:
-                self.mimelist.Append(mt)
+                #self.mimelist.Append(mt)
                 mimes.append(mt)
-
+        if mimes:
+            mimes.sort()
+            self.mimelist.AppendItems(mimes)
+            
         # Do a lookup of *.wav for a starting position
         self.OnLookup()
 
