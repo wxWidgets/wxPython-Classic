@@ -435,13 +435,23 @@ if options.debug:
 if not sys.platform.startswith("win"):
     if options.install:
         wxlocation = DESTDIR + PREFIX
+        wxcfg = "%s/bin/wx-config" % wxlocation
+        wxcfgsrc = glob.glob(wxlocation + '/lib/wx/config/*')[0]
         print '-='*20
         print 'DESTDIR:', DESTDIR
         print 'PREFIX:', PREFIX
         print 'wxlocation:', wxlocation
+        print 'wxcfg:', wxcfg
+        print 'wxcfgsrc:', wxcfgsrc
         print '-='*20
-        wxpy_build_options.append('WX_CONFIG="%s/bin/wx-config --prefix=%s"' %
-                                  (wxlocation, wxlocation))
+        
+        try:
+            os.unlink(wxcfg)
+        except IOError:
+            pass
+        os.symlink(wxcfgsrc.replace(wxlocation, '..'), wxcfg)  
+        wxpy_build_options.append('WX_CONFIG="%s --prefix=%s"' %
+                                  (wxcfg, wxlocation))
         
     elif options.mac_framework:
         wxpy_build_options.append("WX_CONFIG=%s/bin/wx-config" % PREFIX)        
