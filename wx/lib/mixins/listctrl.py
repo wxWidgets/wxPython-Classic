@@ -1,5 +1,5 @@
 #----------------------------------------------------------------------------
-# Name:        wxPython.lib.mixins.listctrl
+# Name:        wx.lib.mixins.listctrl
 # Purpose:     Helpful mix-in classes for wxListCtrl
 #
 # Author:      Robin Dunn
