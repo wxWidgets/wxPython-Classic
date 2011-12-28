@@ -4416,7 +4416,7 @@ SWIGINTERN int wxSizerItemList_index(wxSizerItemList *self,wxSizerItem *obj){
                                 "sequence.index(x): x not in sequence");
             return idx;
         }
-SWIGINTERN wxSizerItem *new_wxSizerItem(wxWindow *window,int proportion,int flag,int border,PyObject *userData=NULL){
+SWIGINTERN wxSizerItem *new_wxSizerItem(wxWindow *window,int proportion=0,int flag=0,int border=0,PyObject *userData=NULL){
             wxPyUserData* data = NULL;
             if ( userData ) {
                 wxPyBlock_t blocked = wxPyBeginBlockThreads();
@@ -4425,7 +4425,7 @@ SWIGINTERN wxSizerItem *new_wxSizerItem(wxWindow *window,int proportion,int flag
             }
             return new wxSizerItem(window, proportion, flag, border, data);
         }
-SWIGINTERN wxSizerItem *new_wxSizerItem(int width,int height,int proportion,int flag,int border,PyObject *userData=NULL){
+SWIGINTERN wxSizerItem *new_wxSizerItem(int width,int height,int proportion=0,int flag=0,int border=0,PyObject *userData=NULL){
             wxPyUserData* data = NULL;
             if ( userData ) {
                 wxPyBlock_t blocked = wxPyBeginBlockThreads();
@@ -4434,7 +4434,7 @@ SWIGINTERN wxSizerItem *new_wxSizerItem(int width,int height,int proportion,int 
             }
             return new wxSizerItem(width, height, proportion, flag, border, data);
         }
-SWIGINTERN wxSizerItem *new_wxSizerItem(wxSizer *sizer,int proportion,int flag,int border,PyObject *userData=NULL){
+SWIGINTERN wxSizerItem *new_wxSizerItem(wxSizer *sizer,int proportion=0,int flag=0,int border=0,PyObject *userData=NULL){
             wxPyUserData* data = NULL;
             if ( userData ) {
                 wxPyBlock_t blocked = wxPyBeginBlockThreads();
@@ -4830,7 +4830,7 @@ SWIGINTERN PyObject *wxGBSpan_Get(wxGBSpan *self){
             wxPyEndBlockThreads(blocked);
             return tup;
         }
-SWIGINTERN wxGBSizerItem *new_wxGBSizerItem(wxWindow *window,wxGBPosition const &pos,wxGBSpan const &span,int flag,int border,PyObject *userData=NULL){
+SWIGINTERN wxGBSizerItem *new_wxGBSizerItem(wxWindow *window,wxGBPosition const &pos,wxGBSpan const &span=wxDefaultSpan,int flag=0,int border=0,PyObject *userData=NULL){
                 wxPyUserData* data = NULL;
                 if ( userData ) {
                     wxPyBlock_t blocked = wxPyBeginBlockThreads();
@@ -4839,7 +4839,7 @@ SWIGINTERN wxGBSizerItem *new_wxGBSizerItem(wxWindow *window,wxGBPosition const 
                 }
                 return new wxGBSizerItem(window, pos, span, flag, border, data);
             }
-SWIGINTERN wxGBSizerItem *new_wxGBSizerItem(wxSizer *sizer,wxGBPosition const &pos,wxGBSpan const &span,int flag,int border,PyObject *userData=NULL){
+SWIGINTERN wxGBSizerItem *new_wxGBSizerItem(wxSizer *sizer,wxGBPosition const &pos,wxGBSpan const &span=wxDefaultSpan,int flag=0,int border=0,PyObject *userData=NULL){
                 wxPyUserData* data = NULL;
                 if ( userData ) {
                     wxPyBlock_t blocked = wxPyBeginBlockThreads();
@@ -4848,7 +4848,7 @@ SWIGINTERN wxGBSizerItem *new_wxGBSizerItem(wxSizer *sizer,wxGBPosition const &p
                 }
                 return new wxGBSizerItem(sizer, pos, span, flag, border, data);
             }
-SWIGINTERN wxGBSizerItem *new_wxGBSizerItem(int width,int height,wxGBPosition const &pos,wxGBSpan const &span,int flag,int border,PyObject *userData=NULL){
+SWIGINTERN wxGBSizerItem *new_wxGBSizerItem(int width,int height,wxGBPosition const &pos,wxGBSpan const &span=wxDefaultSpan,int flag=0,int border=0,PyObject *userData=NULL){
                 wxPyUserData* data = NULL;
                 if ( userData ) {
                     wxPyBlock_t blocked = wxPyBeginBlockThreads();
@@ -28686,6 +28686,63 @@ SWIGINTERN PyObject *_wrap_KeyEvent_GetY(PyObject *SWIGUNUSEDPARM(self), PyObjec
     if (PyErr_Occurred()) SWIG_fail;
   }
   resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyEvent_DoAllowNextEvent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyEvent *arg1 = (wxKeyEvent *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyEvent, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyEvent_DoAllowNextEvent" "', expected argument " "1"" of type '" "wxKeyEvent *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyEvent * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->DoAllowNextEvent();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_KeyEvent_IsNextEventAllowed(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxKeyEvent *arg1 = (wxKeyEvent *) 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxKeyEvent, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "KeyEvent_IsNextEventAllowed" "', expected argument " "1"" of type '" "wxKeyEvent *""'"); 
+  }
+  arg1 = reinterpret_cast< wxKeyEvent * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (bool)(arg1)->IsNextEventAllowed();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  {
+    resultobj = result ? Py_True : Py_False; Py_INCREF(resultobj);
+  }
   return resultobj;
 fail:
   return NULL;
@@ -60151,9 +60208,9 @@ fail:
 SWIGINTERN PyObject *_wrap_new_SizerItemWindow(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  int arg4 ;
+  int arg2 = (int) 0 ;
+  int arg3 = (int) 0 ;
+  int arg4 = (int) 0 ;
   PyObject *arg5 = (PyObject *) NULL ;
   wxSizerItem *result = 0 ;
   void *argp1 = 0 ;
@@ -60173,27 +60230,33 @@ SWIGINTERN PyObject *_wrap_new_SizerItemWindow(PyObject *SWIGUNUSEDPARM(self), P
     (char *) "window",(char *) "proportion",(char *) "flag",(char *) "border",(char *) "userData", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|O:new_SizerItemWindow",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|OOOO:new_SizerItemWindow",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_SizerItemWindow" "', expected argument " "1"" of type '" "wxWindow *""'"); 
   }
   arg1 = reinterpret_cast< wxWindow * >(argp1);
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_SizerItemWindow" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_SizerItemWindow" "', expected argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_SizerItemWindow" "', expected argument " "4"" of type '" "int""'");
-  } 
-  arg4 = static_cast< int >(val4);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_SizerItemWindow" "', expected argument " "2"" of type '" "int""'");
+    } 
+    arg2 = static_cast< int >(val2);
+  }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_SizerItemWindow" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
+  if (obj3) {
+    ecode4 = SWIG_AsVal_int(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_SizerItemWindow" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
   if (obj4) {
     arg5 = obj4;
   }
@@ -60214,9 +60277,9 @@ SWIGINTERN PyObject *_wrap_new_SizerItemSpacer(PyObject *SWIGUNUSEDPARM(self), P
   PyObject *resultobj = 0;
   int arg1 ;
   int arg2 ;
-  int arg3 ;
-  int arg4 ;
-  int arg5 ;
+  int arg3 = (int) 0 ;
+  int arg4 = (int) 0 ;
+  int arg5 = (int) 0 ;
   PyObject *arg6 = (PyObject *) NULL ;
   wxSizerItem *result = 0 ;
   int val1 ;
@@ -60239,7 +60302,7 @@ SWIGINTERN PyObject *_wrap_new_SizerItemSpacer(PyObject *SWIGUNUSEDPARM(self), P
     (char *) "width",(char *) "height",(char *) "proportion",(char *) "flag",(char *) "border",(char *) "userData", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOO|O:new_SizerItemSpacer",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOOO:new_SizerItemSpacer",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(obj0, &val1);
   if (!SWIG_IsOK(ecode1)) {
     SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_SizerItemSpacer" "', expected argument " "1"" of type '" "int""'");
@@ -60250,21 +60313,27 @@ SWIGINTERN PyObject *_wrap_new_SizerItemSpacer(PyObject *SWIGUNUSEDPARM(self), P
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_SizerItemSpacer" "', expected argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_SizerItemSpacer" "', expected argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_SizerItemSpacer" "', expected argument " "4"" of type '" "int""'");
-  } 
-  arg4 = static_cast< int >(val4);
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_SizerItemSpacer" "', expected argument " "5"" of type '" "int""'");
-  } 
-  arg5 = static_cast< int >(val5);
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_SizerItemSpacer" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
+  if (obj3) {
+    ecode4 = SWIG_AsVal_int(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_SizerItemSpacer" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
+  if (obj4) {
+    ecode5 = SWIG_AsVal_int(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_SizerItemSpacer" "', expected argument " "5"" of type '" "int""'");
+    } 
+    arg5 = static_cast< int >(val5);
+  }
   if (obj5) {
     arg6 = obj5;
   }
@@ -60284,9 +60353,9 @@ fail:
 SWIGINTERN PyObject *_wrap_new_SizerItemSizer(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
   PyObject *resultobj = 0;
   wxSizer *arg1 = (wxSizer *) 0 ;
-  int arg2 ;
-  int arg3 ;
-  int arg4 ;
+  int arg2 = (int) 0 ;
+  int arg3 = (int) 0 ;
+  int arg4 = (int) 0 ;
   PyObject *arg5 = (PyObject *) NULL ;
   wxSizerItem *result = 0 ;
   int res1 = 0 ;
@@ -60305,26 +60374,32 @@ SWIGINTERN PyObject *_wrap_new_SizerItemSizer(PyObject *SWIGUNUSEDPARM(self), Py
     (char *) "sizer",(char *) "proportion",(char *) "flag",(char *) "border",(char *) "userData", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOO|O:new_SizerItemSizer",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"O|OOOO:new_SizerItemSizer",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, SWIG_as_voidptrptr(&arg1), SWIGTYPE_p_wxSizer, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_SizerItemSizer" "', expected argument " "1"" of type '" "wxSizer *""'");
   }
-  ecode2 = SWIG_AsVal_int(obj1, &val2);
-  if (!SWIG_IsOK(ecode2)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_SizerItemSizer" "', expected argument " "2"" of type '" "int""'");
-  } 
-  arg2 = static_cast< int >(val2);
-  ecode3 = SWIG_AsVal_int(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_SizerItemSizer" "', expected argument " "3"" of type '" "int""'");
-  } 
-  arg3 = static_cast< int >(val3);
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_SizerItemSizer" "', expected argument " "4"" of type '" "int""'");
-  } 
-  arg4 = static_cast< int >(val4);
+  if (obj1) {
+    ecode2 = SWIG_AsVal_int(obj1, &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "new_SizerItemSizer" "', expected argument " "2"" of type '" "int""'");
+    } 
+    arg2 = static_cast< int >(val2);
+  }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_SizerItemSizer" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
+  if (obj3) {
+    ecode4 = SWIG_AsVal_int(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_SizerItemSizer" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
   if (obj4) {
     arg5 = obj4;
   }
@@ -65994,9 +66069,10 @@ SWIGINTERN PyObject *_wrap_new_GBSizerItemWindow(PyObject *SWIGUNUSEDPARM(self),
   PyObject *resultobj = 0;
   wxWindow *arg1 = (wxWindow *) 0 ;
   wxGBPosition *arg2 = 0 ;
-  wxGBSpan *arg3 = 0 ;
-  int arg4 ;
-  int arg5 ;
+  wxGBSpan const &arg3_defvalue = wxDefaultSpan ;
+  wxGBSpan *arg3 = (wxGBSpan *) &arg3_defvalue ;
+  int arg4 = (int) 0 ;
+  int arg5 = (int) 0 ;
   PyObject *arg6 = (PyObject *) NULL ;
   wxGBSizerItem *result = 0 ;
   void *argp1 = 0 ;
@@ -66017,7 +66093,7 @@ SWIGINTERN PyObject *_wrap_new_GBSizerItemWindow(PyObject *SWIGUNUSEDPARM(self),
     (char *) "window",(char *) "pos",(char *) "span",(char *) "flag",(char *) "border",(char *) "userData", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOO|O:new_GBSizerItemWindow",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOOO:new_GBSizerItemWindow",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxWindow, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GBSizerItemWindow" "', expected argument " "1"" of type '" "wxWindow *""'"); 
@@ -66027,20 +66103,26 @@ SWIGINTERN PyObject *_wrap_new_GBSizerItemWindow(PyObject *SWIGUNUSEDPARM(self),
     arg2 = &temp2;
     if ( ! wxGBPosition_helper(obj1, &arg2)) SWIG_fail;
   }
-  {
-    arg3 = &temp3;
-    if ( ! wxGBSpan_helper(obj2, &arg3)) SWIG_fail;
+  if (obj2) {
+    {
+      arg3 = &temp3;
+      if ( ! wxGBSpan_helper(obj2, &arg3)) SWIG_fail;
+    }
   }
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_GBSizerItemWindow" "', expected argument " "4"" of type '" "int""'");
-  } 
-  arg4 = static_cast< int >(val4);
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_GBSizerItemWindow" "', expected argument " "5"" of type '" "int""'");
-  } 
-  arg5 = static_cast< int >(val5);
+  if (obj3) {
+    ecode4 = SWIG_AsVal_int(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_GBSizerItemWindow" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
+  if (obj4) {
+    ecode5 = SWIG_AsVal_int(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_GBSizerItemWindow" "', expected argument " "5"" of type '" "int""'");
+    } 
+    arg5 = static_cast< int >(val5);
+  }
   if (obj5) {
     arg6 = obj5;
   }
@@ -66061,9 +66143,10 @@ SWIGINTERN PyObject *_wrap_new_GBSizerItemSizer(PyObject *SWIGUNUSEDPARM(self), 
   PyObject *resultobj = 0;
   wxSizer *arg1 = (wxSizer *) 0 ;
   wxGBPosition *arg2 = 0 ;
-  wxGBSpan *arg3 = 0 ;
-  int arg4 ;
-  int arg5 ;
+  wxGBSpan const &arg3_defvalue = wxDefaultSpan ;
+  wxGBSpan *arg3 = (wxGBSpan *) &arg3_defvalue ;
+  int arg4 = (int) 0 ;
+  int arg5 = (int) 0 ;
   PyObject *arg6 = (PyObject *) NULL ;
   wxGBSizerItem *result = 0 ;
   int res1 = 0 ;
@@ -66083,7 +66166,7 @@ SWIGINTERN PyObject *_wrap_new_GBSizerItemSizer(PyObject *SWIGUNUSEDPARM(self), 
     (char *) "sizer",(char *) "pos",(char *) "span",(char *) "flag",(char *) "border",(char *) "userData", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOO|O:new_GBSizerItemSizer",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO|OOOO:new_GBSizerItemSizer",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, SWIG_as_voidptrptr(&arg1), SWIGTYPE_p_wxSizer, SWIG_POINTER_DISOWN |  0 );
   if (!SWIG_IsOK(res1)) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_GBSizerItemSizer" "', expected argument " "1"" of type '" "wxSizer *""'");
@@ -66092,20 +66175,26 @@ SWIGINTERN PyObject *_wrap_new_GBSizerItemSizer(PyObject *SWIGUNUSEDPARM(self), 
     arg2 = &temp2;
     if ( ! wxGBPosition_helper(obj1, &arg2)) SWIG_fail;
   }
-  {
-    arg3 = &temp3;
-    if ( ! wxGBSpan_helper(obj2, &arg3)) SWIG_fail;
+  if (obj2) {
+    {
+      arg3 = &temp3;
+      if ( ! wxGBSpan_helper(obj2, &arg3)) SWIG_fail;
+    }
   }
-  ecode4 = SWIG_AsVal_int(obj3, &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_GBSizerItemSizer" "', expected argument " "4"" of type '" "int""'");
-  } 
-  arg4 = static_cast< int >(val4);
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_GBSizerItemSizer" "', expected argument " "5"" of type '" "int""'");
-  } 
-  arg5 = static_cast< int >(val5);
+  if (obj3) {
+    ecode4 = SWIG_AsVal_int(obj3, &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "new_GBSizerItemSizer" "', expected argument " "4"" of type '" "int""'");
+    } 
+    arg4 = static_cast< int >(val4);
+  }
+  if (obj4) {
+    ecode5 = SWIG_AsVal_int(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_GBSizerItemSizer" "', expected argument " "5"" of type '" "int""'");
+    } 
+    arg5 = static_cast< int >(val5);
+  }
   if (obj5) {
     arg6 = obj5;
   }
@@ -66127,9 +66216,10 @@ SWIGINTERN PyObject *_wrap_new_GBSizerItemSpacer(PyObject *SWIGUNUSEDPARM(self),
   int arg1 ;
   int arg2 ;
   wxGBPosition *arg3 = 0 ;
-  wxGBSpan *arg4 = 0 ;
-  int arg5 ;
-  int arg6 ;
+  wxGBSpan const &arg4_defvalue = wxDefaultSpan ;
+  wxGBSpan *arg4 = (wxGBSpan *) &arg4_defvalue ;
+  int arg5 = (int) 0 ;
+  int arg6 = (int) 0 ;
   PyObject *arg7 = (PyObject *) NULL ;
   wxGBSizerItem *result = 0 ;
   int val1 ;
@@ -66153,7 +66243,7 @@ SWIGINTERN PyObject *_wrap_new_GBSizerItemSpacer(PyObject *SWIGUNUSEDPARM(self),
     (char *) "width",(char *) "height",(char *) "pos",(char *) "span",(char *) "flag",(char *) "border",(char *) "userData", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOOOOO|O:new_GBSizerItemSpacer",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OOO|OOOO:new_GBSizerItemSpacer",kwnames,&obj0,&obj1,&obj2,&obj3,&obj4,&obj5,&obj6)) SWIG_fail;
   ecode1 = SWIG_AsVal_int(obj0, &val1);
   if (!SWIG_IsOK(ecode1)) {
     SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_GBSizerItemSpacer" "', expected argument " "1"" of type '" "int""'");
@@ -66168,20 +66258,26 @@ SWIGINTERN PyObject *_wrap_new_GBSizerItemSpacer(PyObject *SWIGUNUSEDPARM(self),
     arg3 = &temp3;
     if ( ! wxGBPosition_helper(obj2, &arg3)) SWIG_fail;
   }
-  {
-    arg4 = &temp4;
-    if ( ! wxGBSpan_helper(obj3, &arg4)) SWIG_fail;
+  if (obj3) {
+    {
+      arg4 = &temp4;
+      if ( ! wxGBSpan_helper(obj3, &arg4)) SWIG_fail;
+    }
   }
-  ecode5 = SWIG_AsVal_int(obj4, &val5);
-  if (!SWIG_IsOK(ecode5)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_GBSizerItemSpacer" "', expected argument " "5"" of type '" "int""'");
-  } 
-  arg5 = static_cast< int >(val5);
-  ecode6 = SWIG_AsVal_int(obj5, &val6);
-  if (!SWIG_IsOK(ecode6)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "new_GBSizerItemSpacer" "', expected argument " "6"" of type '" "int""'");
-  } 
-  arg6 = static_cast< int >(val6);
+  if (obj4) {
+    ecode5 = SWIG_AsVal_int(obj4, &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "new_GBSizerItemSpacer" "', expected argument " "5"" of type '" "int""'");
+    } 
+    arg5 = static_cast< int >(val5);
+  }
+  if (obj5) {
+    ecode6 = SWIG_AsVal_int(obj5, &val6);
+    if (!SWIG_IsOK(ecode6)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "new_GBSizerItemSpacer" "', expected argument " "6"" of type '" "int""'");
+    } 
+    arg6 = static_cast< int >(val6);
+  }
   if (obj6) {
     arg7 = obj6;
   }
@@ -71703,6 +71799,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"KeyEvent_GetPositionTuple", (PyCFunction)_wrap_KeyEvent_GetPositionTuple, METH_O, NULL},
 	 { (char *)"KeyEvent_GetX", (PyCFunction)_wrap_KeyEvent_GetX, METH_O, NULL},
 	 { (char *)"KeyEvent_GetY", (PyCFunction)_wrap_KeyEvent_GetY, METH_O, NULL},
+	 { (char *)"KeyEvent_DoAllowNextEvent", (PyCFunction)_wrap_KeyEvent_DoAllowNextEvent, METH_O, NULL},
+	 { (char *)"KeyEvent_IsNextEventAllowed", (PyCFunction)_wrap_KeyEvent_IsNextEventAllowed, METH_O, NULL},
 	 { (char *)"KeyEvent_m_x_set", _wrap_KeyEvent_m_x_set, METH_VARARGS, NULL},
 	 { (char *)"KeyEvent_m_x_get", (PyCFunction)_wrap_KeyEvent_m_x_get, METH_O, NULL},
 	 { (char *)"KeyEvent_m_y_set", _wrap_KeyEvent_m_y_set, METH_VARARGS, NULL},

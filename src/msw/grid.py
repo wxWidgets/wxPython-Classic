@@ -169,12 +169,18 @@ class GridCellNumberRenderer(GridCellStringRenderer):
 
 _grid.GridCellNumberRenderer_swigregister(GridCellNumberRenderer)
 
+GRID_FLOAT_FORMAT_FIXED = _grid.GRID_FLOAT_FORMAT_FIXED
+GRID_FLOAT_FORMAT_SCIENTIFIC = _grid.GRID_FLOAT_FORMAT_SCIENTIFIC
+GRID_FLOAT_FORMAT_COMPACT = _grid.GRID_FLOAT_FORMAT_COMPACT
+GRID_FLOAT_FORMAT_UPPER = _grid.GRID_FLOAT_FORMAT_UPPER
+GRID_FLOAT_FORMAT_DEFAULT = _grid.GRID_FLOAT_FORMAT_DEFAULT
+GRID_FLOAT_FORMAT_MASK = _grid.GRID_FLOAT_FORMAT_MASK
 class GridCellFloatRenderer(GridCellStringRenderer):
     """Proxy of C++ GridCellFloatRenderer class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, int width=-1, int precision=-1) -> GridCellFloatRenderer"""
+        """__init__(self, int width=-1, int precision=-1, int format=GRID_FLOAT_FORMAT_DEFAULT) -> GridCellFloatRenderer"""
         _grid.GridCellFloatRenderer_swiginit(self,_grid.new_GridCellFloatRenderer(*args, **kwargs))
         self._setOORInfo(self)
 
@@ -193,6 +199,14 @@ class GridCellFloatRenderer(GridCellStringRenderer):
     def SetPrecision(*args, **kwargs):
         """SetPrecision(self, int precision)"""
         return _grid.GridCellFloatRenderer_SetPrecision(*args, **kwargs)
+
+    def GetFormat(*args, **kwargs):
+        """GetFormat(self) -> int"""
+        return _grid.GridCellFloatRenderer_GetFormat(*args, **kwargs)
+
+    def SetFormat(*args, **kwargs):
+        """SetFormat(self, int format)"""
+        return _grid.GridCellFloatRenderer_SetFormat(*args, **kwargs)
 
     Precision = property(GetPrecision,SetPrecision,doc="See `GetPrecision` and `SetPrecision`") 
     Width = property(GetWidth,SetWidth,doc="See `GetWidth` and `SetWidth`") 
@@ -428,7 +442,7 @@ class GridCellFloatEditor(GridCellTextEditor):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr
     def __init__(self, *args, **kwargs): 
-        """__init__(self, int width=-1, int precision=-1) -> GridCellFloatEditor"""
+        """__init__(self, int width=-1, int precision=-1, int format=GRID_FLOAT_FORMAT_DEFAULT) -> GridCellFloatEditor"""
         _grid.GridCellFloatEditor_swiginit(self,_grid.new_GridCellFloatEditor(*args, **kwargs))
         self._setOORInfo(self)
 

@@ -4381,18 +4381,22 @@ SWIGINTERN PyObject *_wrap_new_GridCellFloatRenderer(PyObject *SWIGUNUSEDPARM(se
   PyObject *resultobj = 0;
   int arg1 = (int) -1 ;
   int arg2 = (int) -1 ;
+  int arg3 = (int) wxGRID_FLOAT_FORMAT_DEFAULT ;
   wxGridCellFloatRenderer *result = 0 ;
   int val1 ;
   int ecode1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "width",(char *) "precision", NULL 
+    (char *) "width",(char *) "precision",(char *) "format", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OO:new_GridCellFloatRenderer",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OOO:new_GridCellFloatRenderer",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   if (obj0) {
     ecode1 = SWIG_AsVal_int(obj0, &val1);
     if (!SWIG_IsOK(ecode1)) {
@@ -4407,9 +4411,16 @@ SWIGINTERN PyObject *_wrap_new_GridCellFloatRenderer(PyObject *SWIGUNUSEDPARM(se
     } 
     arg2 = static_cast< int >(val2);
   }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_GridCellFloatRenderer" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellFloatRenderer *)new wxGridCellFloatRenderer(arg1,arg2);
+    result = (wxGridCellFloatRenderer *)new wxGridCellFloatRenderer(arg1,arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -4542,6 +4553,72 @@ SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_SetPrecision(PyObject *SWIGUNUS
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
     (arg1)->SetPrecision(arg2);
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_GetFormat(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  wxGridCellFloatRenderer *arg1 = (wxGridCellFloatRenderer *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject *swig_obj[1] ;
+  
+  if (!args) SWIG_fail;
+  swig_obj[0] = args;
+  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxGridCellFloatRenderer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GridCellFloatRenderer_GetFormat" "', expected argument " "1"" of type '" "wxGridCellFloatRenderer const *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGridCellFloatRenderer * >(argp1);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    result = (int)((wxGridCellFloatRenderer const *)arg1)->GetFormat();
+    wxPyEndAllowThreads(__tstate);
+    if (PyErr_Occurred()) SWIG_fail;
+  }
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_GridCellFloatRenderer_SetFormat(PyObject *SWIGUNUSEDPARM(self), PyObject *args, PyObject *kwargs) {
+  PyObject *resultobj = 0;
+  wxGridCellFloatRenderer *arg1 = (wxGridCellFloatRenderer *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  char *  kwnames[] = {
+    (char *) "self",(char *) "format", NULL 
+  };
+  
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"OO:GridCellFloatRenderer_SetFormat",kwnames,&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_wxGridCellFloatRenderer, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "GridCellFloatRenderer_SetFormat" "', expected argument " "1"" of type '" "wxGridCellFloatRenderer *""'"); 
+  }
+  arg1 = reinterpret_cast< wxGridCellFloatRenderer * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "GridCellFloatRenderer_SetFormat" "', expected argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    PyThreadState* __tstate = wxPyBeginAllowThreads();
+    (arg1)->SetFormat(arg2);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -5787,18 +5864,22 @@ SWIGINTERN PyObject *_wrap_new_GridCellFloatEditor(PyObject *SWIGUNUSEDPARM(self
   PyObject *resultobj = 0;
   int arg1 = (int) -1 ;
   int arg2 = (int) -1 ;
+  int arg3 = (int) wxGRID_FLOAT_FORMAT_DEFAULT ;
   wxGridCellFloatEditor *result = 0 ;
   int val1 ;
   int ecode1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
+  int val3 ;
+  int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
   char *  kwnames[] = {
-    (char *) "width",(char *) "precision", NULL 
+    (char *) "width",(char *) "precision",(char *) "format", NULL 
   };
   
-  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OO:new_GridCellFloatEditor",kwnames,&obj0,&obj1)) SWIG_fail;
+  if (!PyArg_ParseTupleAndKeywords(args,kwargs,(char *)"|OOO:new_GridCellFloatEditor",kwnames,&obj0,&obj1,&obj2)) SWIG_fail;
   if (obj0) {
     ecode1 = SWIG_AsVal_int(obj0, &val1);
     if (!SWIG_IsOK(ecode1)) {
@@ -5813,9 +5894,16 @@ SWIGINTERN PyObject *_wrap_new_GridCellFloatEditor(PyObject *SWIGUNUSEDPARM(self
     } 
     arg2 = static_cast< int >(val2);
   }
+  if (obj2) {
+    ecode3 = SWIG_AsVal_int(obj2, &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_GridCellFloatEditor" "', expected argument " "3"" of type '" "int""'");
+    } 
+    arg3 = static_cast< int >(val3);
+  }
   {
     PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (wxGridCellFloatEditor *)new wxGridCellFloatEditor(arg1,arg2);
+    result = (wxGridCellFloatEditor *)new wxGridCellFloatEditor(arg1,arg2,arg3);
     wxPyEndAllowThreads(__tstate);
     if (PyErr_Occurred()) SWIG_fail;
   }
@@ -22598,6 +22686,8 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"GridCellFloatRenderer_SetWidth", (PyCFunction) _wrap_GridCellFloatRenderer_SetWidth, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GridCellFloatRenderer_GetPrecision", (PyCFunction)_wrap_GridCellFloatRenderer_GetPrecision, METH_O, NULL},
 	 { (char *)"GridCellFloatRenderer_SetPrecision", (PyCFunction) _wrap_GridCellFloatRenderer_SetPrecision, METH_VARARGS | METH_KEYWORDS, NULL},
+	 { (char *)"GridCellFloatRenderer_GetFormat", (PyCFunction)_wrap_GridCellFloatRenderer_GetFormat, METH_O, NULL},
+	 { (char *)"GridCellFloatRenderer_SetFormat", (PyCFunction) _wrap_GridCellFloatRenderer_SetFormat, METH_VARARGS | METH_KEYWORDS, NULL},
 	 { (char *)"GridCellFloatRenderer_swigregister", GridCellFloatRenderer_swigregister, METH_VARARGS, NULL},
 	 { (char *)"GridCellFloatRenderer_swiginit", GridCellFloatRenderer_swiginit, METH_VARARGS, NULL},
 	 { (char *)"new_GridCellBoolRenderer", (PyCFunction)_wrap_new_GridCellBoolRenderer, METH_NOARGS, NULL},
@@ -25799,6 +25889,12 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_Python_SetConstant(d, "GRID_MIN_ROW_HEIGHT",SWIG_From_int(static_cast< int >(wxGRID_MIN_ROW_HEIGHT)));
   SWIG_Python_SetConstant(d, "GRID_MIN_COL_WIDTH",SWIG_From_int(static_cast< int >(wxGRID_MIN_COL_WIDTH)));
   SWIG_Python_SetConstant(d, "GRID_DEFAULT_SCROLLBAR_WIDTH",SWIG_From_int(static_cast< int >(wxGRID_DEFAULT_SCROLLBAR_WIDTH)));
+  SWIG_Python_SetConstant(d, "GRID_FLOAT_FORMAT_FIXED",SWIG_From_int(static_cast< int >(wxGRID_FLOAT_FORMAT_FIXED)));
+  SWIG_Python_SetConstant(d, "GRID_FLOAT_FORMAT_SCIENTIFIC",SWIG_From_int(static_cast< int >(wxGRID_FLOAT_FORMAT_SCIENTIFIC)));
+  SWIG_Python_SetConstant(d, "GRID_FLOAT_FORMAT_COMPACT",SWIG_From_int(static_cast< int >(wxGRID_FLOAT_FORMAT_COMPACT)));
+  SWIG_Python_SetConstant(d, "GRID_FLOAT_FORMAT_UPPER",SWIG_From_int(static_cast< int >(wxGRID_FLOAT_FORMAT_UPPER)));
+  SWIG_Python_SetConstant(d, "GRID_FLOAT_FORMAT_DEFAULT",SWIG_From_int(static_cast< int >(wxGRID_FLOAT_FORMAT_DEFAULT)));
+  SWIG_Python_SetConstant(d, "GRID_FLOAT_FORMAT_MASK",SWIG_From_int(static_cast< int >(wxGRID_FLOAT_FORMAT_MASK)));
   SWIG_addvarlink(SWIG_globals(),(char*)"OneString",OneString_get, OneString_set);
   SWIG_Python_SetConstant(d, "GridCellAttr_Any",SWIG_From_int(static_cast< int >(wxGridCellAttr::Any)));
   SWIG_Python_SetConstant(d, "GridCellAttr_Default",SWIG_From_int(static_cast< int >(wxGridCellAttr::Default)));

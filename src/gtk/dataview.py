@@ -2436,7 +2436,7 @@ class DataViewTreeStore(DataViewModel):
 
 _dataview.DataViewTreeStore_swigregister(DataViewTreeStore)
 
-class DataViewTreeCtrl(DataViewCtrl):
+class DataViewTreeCtrl(DataViewCtrl,_core.WithImages):
     """Proxy of C++ DataViewTreeCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr

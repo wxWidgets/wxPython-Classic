@@ -892,6 +892,10 @@ class StopWatch(object):
         """Resume(self)"""
         return _misc_.StopWatch_Resume(*args, **kwargs)
 
+    def TimeInMicro(*args, **kwargs):
+        """TimeInMicro(self) -> wxLongLong"""
+        return _misc_.StopWatch_TimeInMicro(*args, **kwargs)
+
     def Time(*args, **kwargs):
         """Time(self) -> long"""
         return _misc_.StopWatch_Time(*args, **kwargs)
@@ -2093,6 +2097,8 @@ EXEC_MAKE_GROUP_LEADER = _misc_.EXEC_MAKE_GROUP_LEADER
 EXEC_NODISABLE = _misc_.EXEC_NODISABLE
 EXEC_NOEVENTS = _misc_.EXEC_NOEVENTS
 EXEC_BLOCK = _misc_.EXEC_BLOCK
+EXEC_SHOW_CONSOLE = _misc_.EXEC_SHOW_CONSOLE
+EXEC_HIDE_CONSOLE = _misc_.EXEC_HIDE_CONSOLE
 
 def Execute(*args, **kwargs):
   """Execute(String command, int flags=EXEC_ASYNC, Process process=None) -> long"""

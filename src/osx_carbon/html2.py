@@ -226,14 +226,6 @@ class WebView(_core.Control):
         """EnableHistory(self, bool enable=True)"""
         return _html2.WebView_EnableHistory(*args, **kwargs)
 
-    def GetBackwardHistory(*args, **kwargs):
-        """GetBackwardHistory(self) -> wxVector<(wxSharedPtr<(wxWebViewHistoryItem)>)>"""
-        return _html2.WebView_GetBackwardHistory(*args, **kwargs)
-
-    def GetForwardHistory(*args, **kwargs):
-        """GetForwardHistory(self) -> wxVector<(wxSharedPtr<(wxWebViewHistoryItem)>)>"""
-        return _html2.WebView_GetForwardHistory(*args, **kwargs)
-
     def GoBack(*args, **kwargs):
         """GoBack(self)"""
         return _html2.WebView_GoBack(*args, **kwargs)

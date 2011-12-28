@@ -6083,6 +6083,14 @@ class KeyEvent(Event,KeyboardState):
         """
         return _core_.KeyEvent_GetY(*args, **kwargs)
 
+    def DoAllowNextEvent(*args, **kwargs):
+        """DoAllowNextEvent(self)"""
+        return _core_.KeyEvent_DoAllowNextEvent(*args, **kwargs)
+
+    def IsNextEventAllowed(*args, **kwargs):
+        """IsNextEventAllowed(self) -> bool"""
+        return _core_.KeyEvent_IsNextEventAllowed(*args, **kwargs)
+
     m_x = property(_core_.KeyEvent_m_x_get, _core_.KeyEvent_m_x_set)
     m_y = property(_core_.KeyEvent_m_y_get, _core_.KeyEvent_m_y_set)
     m_keyCode = property(_core_.KeyEvent_m_keyCode_get, _core_.KeyEvent_m_keyCode_set)
@@ -14375,7 +14383,7 @@ _core_.SizerItem_swigregister(SizerItem)
 
 def SizerItemWindow(*args, **kwargs):
     """
-    SizerItemWindow(Window window, int proportion, int flag, int border, 
+    SizerItemWindow(Window window, int proportion=0, int flag=0, int border=0, 
         PyObject userData=None) -> SizerItem
 
     Constructs a `wx.SizerItem` for tracking a window.
@@ -14385,8 +14393,8 @@ def SizerItemWindow(*args, **kwargs):
 
 def SizerItemSpacer(*args, **kwargs):
     """
-    SizerItemSpacer(int width, int height, int proportion, int flag, int border, 
-        PyObject userData=None) -> SizerItem
+    SizerItemSpacer(int width, int height, int proportion=0, int flag=0, 
+        int border=0, PyObject userData=None) -> SizerItem
 
     Constructs a `wx.SizerItem` for tracking a spacer.
     """
@@ -14395,7 +14403,7 @@ def SizerItemSpacer(*args, **kwargs):
 
 def SizerItemSizer(*args, **kwargs):
     """
-    SizerItemSizer(Sizer sizer, int proportion, int flag, int border, 
+    SizerItemSizer(Sizer sizer, int proportion=0, int flag=0, int border=0, 
         PyObject userData=None) -> SizerItem
 
     Constructs a `wx.SizerItem` for tracking a subsizer
@@ -15815,8 +15823,8 @@ DefaultSpan = cvar.DefaultSpan
 
 def GBSizerItemWindow(*args, **kwargs):
     """
-    GBSizerItemWindow(Window window, GBPosition pos, GBSpan span, int flag, 
-        int border, PyObject userData=None) -> GBSizerItem
+    GBSizerItemWindow(Window window, GBPosition pos, GBSpan span=DefaultSpan, 
+        int flag=0, int border=0, PyObject userData=None) -> GBSizerItem
 
     Construct a `wx.GBSizerItem` for a window.
     """
@@ -15825,8 +15833,8 @@ def GBSizerItemWindow(*args, **kwargs):
 
 def GBSizerItemSizer(*args, **kwargs):
     """
-    GBSizerItemSizer(Sizer sizer, GBPosition pos, GBSpan span, int flag, 
-        int border, PyObject userData=None) -> GBSizerItem
+    GBSizerItemSizer(Sizer sizer, GBPosition pos, GBSpan span=DefaultSpan, 
+        int flag=0, int border=0, PyObject userData=None) -> GBSizerItem
 
     Construct a `wx.GBSizerItem` for a sizer
     """
@@ -15835,8 +15843,8 @@ def GBSizerItemSizer(*args, **kwargs):
 
 def GBSizerItemSpacer(*args, **kwargs):
     """
-    GBSizerItemSpacer(int width, int height, GBPosition pos, GBSpan span, 
-        int flag, int border, PyObject userData=None) -> GBSizerItem
+    GBSizerItemSpacer(int width, int height, GBPosition pos, GBSpan span=DefaultSpan, 
+        int flag=0, int border=0, PyObject userData=None) -> GBSizerItem
 
     Construct a `wx.GBSizerItem` for a spacer.
     """

@@ -484,26 +484,6 @@ class HtmlSelection(object):
         """GetToPos(self) -> Point"""
         return _html.HtmlSelection_GetToPos(*args, **kwargs)
 
-    def GetFromPrivPos(*args, **kwargs):
-        """GetFromPrivPos(self) -> Point"""
-        return _html.HtmlSelection_GetFromPrivPos(*args, **kwargs)
-
-    def GetToPrivPos(*args, **kwargs):
-        """GetToPrivPos(self) -> Point"""
-        return _html.HtmlSelection_GetToPrivPos(*args, **kwargs)
-
-    def SetFromPrivPos(*args, **kwargs):
-        """SetFromPrivPos(self, Point pos)"""
-        return _html.HtmlSelection_SetFromPrivPos(*args, **kwargs)
-
-    def SetToPrivPos(*args, **kwargs):
-        """SetToPrivPos(self, Point pos)"""
-        return _html.HtmlSelection_SetToPrivPos(*args, **kwargs)
-
-    def ClearPrivPos(*args, **kwargs):
-        """ClearPrivPos(self)"""
-        return _html.HtmlSelection_ClearPrivPos(*args, **kwargs)
-
     def IsEmpty(*args, **kwargs):
         """IsEmpty(self) -> bool"""
         return _html.HtmlSelection_IsEmpty(*args, **kwargs)
