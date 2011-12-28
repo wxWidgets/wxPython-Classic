@@ -36,6 +36,175 @@
 %pythoncode { __docfilter__ = wx.__DocFilter(globals()) }
 
 //---------------------------------------------------------------------------
+
+%{
+#if !wxUSE_WEBVIEW
+// Add some C++ stubs for when wxWebView is not available
+
+#include <wx/sharedptr.h>
+#include <wx/vector.h>
+
+
+
+enum wxWebViewZoom
+{
+    wxWEB_VIEW_ZOOM_TINY,
+    wxWEB_VIEW_ZOOM_SMALL,
+    wxWEB_VIEW_ZOOM_MEDIUM, 
+    wxWEB_VIEW_ZOOM_LARGE,
+    wxWEB_VIEW_ZOOM_LARGEST
+};
+
+enum wxWebViewZoomType
+{
+    wxWEB_VIEW_ZOOM_TYPE_LAYOUT,
+    wxWEB_VIEW_ZOOM_TYPE_TEXT
+};
+
+
+enum wxWebViewNavigationError
+{
+    wxWEB_NAV_ERR_CONNECTION,
+    wxWEB_NAV_ERR_CERTIFICATE,
+    wxWEB_NAV_ERR_AUTH,
+    wxWEB_NAV_ERR_SECURITY,
+    wxWEB_NAV_ERR_NOT_FOUND,
+    wxWEB_NAV_ERR_REQUEST,
+    wxWEB_NAV_ERR_USER_CANCELLED,
+    wxWEB_NAV_ERR_OTHER
+};
+
+enum wxWebViewReloadFlags
+{
+    wxWEB_VIEW_RELOAD_DEFAULT,
+    wxWEB_VIEW_RELOAD_NO_CACHE 
+};
+
+enum wxWebViewBackend
+{
+    wxWEB_VIEW_BACKEND_DEFAULT,
+    wxWEB_VIEW_BACKEND_WEBKIT,
+    wxWEB_VIEW_BACKEND_IE
+};
+
+wxString wxWebViewDefaultURLStr("");
+wxString wxWebViewNameStr("");
+
+inline void _RaiseError()
+{
+    wxPyRaiseNotImplementedMsg("wx.html2 is not available on this platform.");
+}
+
+
+class wxWebViewHandler
+{
+public:
+    wxWebViewHandler(const wxString& scheme) {};
+    virtual wxFSFile* GetFile(const wxString &uri) {return NULL;}
+    virtual wxString GetName() const { return wxEmptyString; }
+};
+
+
+class wxWebViewArchiveHandler : public wxWebViewHandler
+{
+public:
+    wxWebViewArchiveHandler(const wxString& scheme)  : wxWebViewHandler(scheme) {}
+    virtual wxFSFile* GetFile(const wxString &uri) { return NULL; }
+};
+
+
+class wxWebViewHistoryItem
+{
+public:
+    wxWebViewHistoryItem(const wxString&, const wxString&) { _RaiseError(); }
+    wxString GetUrl() { return wxEmptyString; }
+    wxString GetTitle() { return wxEmptyString; }
+};
+
+
+class wxWebView : public wxControl
+{
+public:
+    virtual bool Create(wxWindow*, wxWindowID, const wxString&, const wxPoint&,
+                        const wxSize&, long style, const wxString&) { _RaiseError(); return false; }
+    static wxWebView* New(wxWebViewBackend) { _RaiseError(); return NULL; }
+    static wxWebView* New(wxWindow*, wxWindowID, const wxString&, const wxPoint& ,
+                          const wxSize& , wxWebViewBackend, long style,
+                          const wxString&) { _RaiseError(); return NULL; }
+
+    virtual wxString GetCurrentTitle() const { return wxEmptyString; }
+    virtual wxString GetCurrentURL() const { return wxEmptyString; }
+    virtual wxString GetPageSource() const { return wxEmptyString; }
+    virtual wxString GetPageText() const { return wxEmptyString; }
+    virtual bool IsBusy() const { return false; }
+    virtual bool IsEditable() const { return false; }
+    virtual void LoadURL(const wxString& url) {}
+    virtual void Print() {}
+    virtual void RegisterHandler(wxSharedPtr<wxWebViewHandler> handler) {}
+    virtual void Reload(wxWebViewReloadFlags flags = wxWEB_VIEW_RELOAD_DEFAULT) {}
+    virtual void RunScript(const wxString& javascript) {}
+    virtual void SetEditable(bool enable = true) {}
+    virtual void SetPage(const wxString& html, const wxString& baseUrl) {}
+    virtual void SetPage(wxInputStream& html, wxString baseUrl) {}
+    virtual void Stop() {}
+    virtual bool CanCopy() const { return false; }
+    virtual bool CanCut() const { return false; }
+    virtual bool CanPaste() const { return false; }
+    virtual void Copy() {}
+    virtual void Cut() {}
+    virtual void Paste() {}
+    virtual bool CanGoBack() const { return false; }
+    virtual bool CanGoForward() const { return false; }
+    virtual void ClearHistory() {}
+    virtual void EnableHistory(bool enable = true) {}
+    //virtual wxVector<wxSharedPtr<wxWebViewHistoryItem> > GetBackwardHistory();
+    //virtual wxVector<wxSharedPtr<wxWebViewHistoryItem> > GetForwardHistory();
+    virtual void GoBack() {}
+    virtual void GoForward() {}
+    virtual void LoadHistoryItem(wxSharedPtr<wxWebViewHistoryItem> item) {}
+    virtual void ClearSelection() {}
+    virtual void DeleteSelection() {}
+    virtual wxString GetSelectedSource() const { return wxEmptyString; }
+    virtual wxString GetSelectedText() const  { return wxEmptyString; }
+    virtual bool HasSelection() const { return false; }
+    virtual void SelectAll() {}
+    virtual bool CanRedo() const { return false; }
+    virtual bool CanUndo() const { return false; }
+    virtual void Redo() {}
+    virtual void Undo() {}
+    virtual bool CanSetZoomType(wxWebViewZoomType type) const { return false; }
+    virtual wxWebViewZoom GetZoom() const { return wxWEB_VIEW_ZOOM_MEDIUM; }
+    virtual wxWebViewZoomType GetZoomType() const { return wxWEB_VIEW_ZOOM_TYPE_LAYOUT; }
+    virtual void SetZoom(wxWebViewZoom zoom) {}
+    virtual void SetZoomType(wxWebViewZoomType zoomType) {}
+};
+
+
+
+class wxWebViewEvent : public wxNotifyEvent
+{
+public:
+    wxWebViewEvent(wxEventType type, int id, const wxString href,
+                   const wxString target) { _RaiseError(); }
+    const wxString& GetTarget() const { return wxEmptyString; }
+    const wxString& GetURL() const { return wxEmptyString; }
+};
+
+
+
+wxEventType wxEVT_COMMAND_WEB_VIEW_NAVIGATING;
+wxEventType wxEVT_COMMAND_WEB_VIEW_NAVIGATED;
+wxEventType wxEVT_COMMAND_WEB_VIEW_LOADED;
+wxEventType wxEVT_COMMAND_WEB_VIEW_ERROR;
+wxEventType wxEVT_COMMAND_WEB_VIEW_NEWWINDOW;
+wxEventType wxEVT_COMMAND_WEB_VIEW_TITLE_CHANGED;
+
+
+#endif  // !wxUSE_WEBVIEW
+%}
+
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 %newgroup
 
 
@@ -44,64 +213,40 @@ enum wxWebViewZoom
 {
     wxWEB_VIEW_ZOOM_TINY,
     wxWEB_VIEW_ZOOM_SMALL,
-    wxWEB_VIEW_ZOOM_MEDIUM, //!< default size
+    wxWEB_VIEW_ZOOM_MEDIUM, 
     wxWEB_VIEW_ZOOM_LARGE,
     wxWEB_VIEW_ZOOM_LARGEST
 };
 
 enum wxWebViewZoomType
 {
-    /** 
-        The entire layout scales when zooming, including images 
-    */
     wxWEB_VIEW_ZOOM_TYPE_LAYOUT,
-    /** 
-        Only the text changes in size when zooming, images and other layout
-        elements retain their initial size 
-    */
     wxWEB_VIEW_ZOOM_TYPE_TEXT
 };
 
 
 enum wxWebViewNavigationError
 {
-    /** Connection error (timeout, etc.) */
     wxWEB_NAV_ERR_CONNECTION,
-    /** Invalid certificate */
     wxWEB_NAV_ERR_CERTIFICATE,
-    /** Authentication required */
     wxWEB_NAV_ERR_AUTH,
-    /** Other security error */
     wxWEB_NAV_ERR_SECURITY,
-    /** Requested resource not found */
     wxWEB_NAV_ERR_NOT_FOUND,
-    /** Invalid request/parameters (e.g. bad URL, bad protocol,
-        unsupported resource type) */
     wxWEB_NAV_ERR_REQUEST,
-    /** The user cancelled (e.g. in a dialog) */
     wxWEB_NAV_ERR_USER_CANCELLED,
-    /** Another (exotic) type of error that didn't fit in other categories*/
     wxWEB_NAV_ERR_OTHER
 };
 
 enum wxWebViewReloadFlags
 {
-    /** Default reload, will access cache */
     wxWEB_VIEW_RELOAD_DEFAULT,
-    /** Reload the current view without accessing the cache */
     wxWEB_VIEW_RELOAD_NO_CACHE 
 };
 
 enum wxWebViewBackend
 {
-    /** Value that may be passed to wxWebView to let it pick an appropriate
-     * engine for the current platform*/
     wxWEB_VIEW_BACKEND_DEFAULT,
-
-    /** The WebKit web engine */
     wxWEB_VIEW_BACKEND_WEBKIT,
-
-    /** Use Microsoft Internet Explorer as web engine */
     wxWEB_VIEW_BACKEND_IE
 };
 
@@ -349,14 +494,14 @@ public:
         Returns a list of items in the back history. The first item in the
         vector is the first page that was loaded by the control.
     */
-    virtual wxVector<wxSharedPtr<wxWebViewHistoryItem> > GetBackwardHistory();
+//    virtual wxVector<wxSharedPtr<wxWebViewHistoryItem> > GetBackwardHistory();
 
     /**
         Returns a list of items in the forward history. The first item in the 
         vector is the next item in the history with respect to the curently 
         loaded page.
     */
-    virtual wxVector<wxSharedPtr<wxWebViewHistoryItem> > GetForwardHistory();
+//    virtual wxVector<wxSharedPtr<wxWebViewHistoryItem> > GetForwardHistory();
 
     /** 
         Navigate back in the history of visited pages.
