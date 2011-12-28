@@ -1,0 +1,107 @@
+#!/bin/bash
+#----------------------------------------------------------------------
+
+set -o errexit
+#set -o xtrace
+
+vmHost=$1
+vmName=$2
+host=$3
+PYVER=$4
+CPU=$5
+
+if [ $buildansi = yes ]; then
+    CHARTYPE=both
+else
+    CHARTYPE=unicode
+fi
+
+
+function TestOnline {
+    local host=$1
+
+    if ping -q -c1 -w1 $host > /dev/null; then
+	return 0
+    else
+	return 1
+    fi
+}
+
+
+if [ $skipwin != yes ]; then
+
+    hostAvailable=no
+
+    # test if the target machine is online
+    if TestOnline $host; then 
+	hostAvailable=yes
+	hostStarted=no
+    else
+	# Attempt to start the vm via its vmHost
+	if [ $vmHost != none ]; then 
+	    if TestOnline $vmHost; then
+		echo "Attempting to start $host on $vmHost..."
+		#ssh $vmHost "vmrun start /work/VMs/$vmName/$vmName.vmx nogui"
+		ssh $vmHost "VBoxManage startvm c:/Users/robind/Documents/VMs/$vmName/$vmName.vbox --type headless"
+
+		# Give it time to boot and be ready for conenctions,
+		# and then test with ssh, limiting retries.
+		for x in `seq 120`; do
+		    sleep 5
+		    echo "checking..."
+		    if ssh $host "true" >/dev/null 2>&1; then
+			# success! the host is ready so we can break out of the loop
+			break;
+		    fi
+		done
+		
+                # test if the host is ready
+		if TestOnline $host; then
+		    echo "VirtualBox start of $host on $vmHost successful."
+		    hostAvailable=yes
+		    hostStarted=yes
+		    sleep 60
+		fi
+	    else
+		echo "The $vmHost machine is offline, unable to start VirtualBox for $host"
+	    fi
+	fi
+    fi
+
+    if [ $hostAvailable = yes ]; then
+	echo "The $host machine is online, build continuing..."
+    else
+	echo "The $host machine is **OFFLINE**, skipping the build."
+	exit 0
+    fi
+
+    echo "Copying source, docs and build script..."
+    scp $STAGING_DIR/wxPython-src-$VERSION.tar.bz2 \
+	$STAGING_DIR/wxPython-docs-$VERSION.tar.bz2 \
+	distrib/all/do-build-windows \
+	$host:$WIN_BUILD
+    
+     echo "Running build script on $host..."
+     wxdir=$WIN_BUILD/wxPython-src-$VERSION
+     cmd=./do-build-windows
+     ssh $host "cd $WIN_BUILD && $cmd $wxdir $WIN_BUILD $skipclean $VERSION $PYVER $CHARTYPE $CPU && rm $cmd"
+
+     echo "Fetching the results..."
+     scp "$host:$WIN_BUILD/wxPython*-win*"  $STAGING_DIR
+     ssh $host "rm $WIN_BUILD/wxPython*-win*"
+     ssh $host "rm -rf $WIN_BUILD/*"
+
+     if [ $hostStarted = yes ]; then
+	 echo "Stopping VM..."
+	 #ssh $vmHost "vmrun stop /work/VMs/$vmName/$vmName.vmx"
+	 #VMCMD=poweroff
+	 #VMCMD=savestate
+	 VMCMD=acpipowerbutton
+	 ssh $vmHost "VBoxManage controlvm c:/Users/robind/Documents/VMs/$vmName/$vmName.vbox $VMCMD"
+
+	 sleep 180
+     fi
+
+     echo "Done!"
+fi
+
