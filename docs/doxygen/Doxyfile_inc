@@ -370,8 +370,8 @@ QHG_LOCATION           =
 GENERATE_DOCSET        = NO # Only change in format output configs
 DOCSET_FEEDNAME        = "wxWidgets 2.9"
 DOCSET_BUNDLE_ID       = org.wxwidgets.doxygen.wx29
-DOCSET_PUBLISHER_ID    = org.wxwidgets.doxygen
-DOCSET_PUBLISHER_NAME  = wxWidgets Team
+#DOCSET_PUBLISHER_ID    = org.wxwidgets.doxygen
+#DOCSET_PUBLISHER_NAME  = wxWidgets Team
 
 #---------------------------------------------------------------------------
 # LaTeX Output Options
