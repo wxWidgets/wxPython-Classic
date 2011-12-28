@@ -1,5 +1,0 @@
-#!/bin/bash
-
-echo Starting build job in the background...
-(distrib/all/build-all dryrun $* > tmp/dryrun.log 2>&1 & )
-
