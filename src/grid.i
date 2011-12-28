@@ -684,16 +684,43 @@ public:
 };
 
 
+enum wxGridCellFloatFormat
+{
+    // Decimal floating point (%f)
+    wxGRID_FLOAT_FORMAT_FIXED      = 0x0010,
+
+    // Scientific notation (mantise/exponent) using e character (%e)
+    wxGRID_FLOAT_FORMAT_SCIENTIFIC = 0x0020,
+
+    // Use the shorter of %e or %f (%g)
+    wxGRID_FLOAT_FORMAT_COMPACT    = 0x0040,
+
+    // To use in combination with one of the above formats (%F/%E/%G)
+    wxGRID_FLOAT_FORMAT_UPPER      = 0x0080,
+
+    // Format used by default.
+    wxGRID_FLOAT_FORMAT_DEFAULT    = wxGRID_FLOAT_FORMAT_FIXED,
+
+    // A mask to extract format from the combination of flags.
+    wxGRID_FLOAT_FORMAT_MASK       = wxGRID_FLOAT_FORMAT_FIXED |
+                                     wxGRID_FLOAT_FORMAT_SCIENTIFIC |
+                                     wxGRID_FLOAT_FORMAT_COMPACT |
+                                     wxGRID_FLOAT_FORMAT_UPPER
+};
+
 class  wxGridCellFloatRenderer : public wxGridCellStringRenderer
 {
 public:
     %pythonAppend wxGridCellFloatRenderer "self._setOORInfo(self)"
-    wxGridCellFloatRenderer(int width = -1, int precision = -1);
+    wxGridCellFloatRenderer(int width = -1, int precision = -1,
+                            int format = wxGRID_FLOAT_FORMAT_DEFAULT);
 
     int GetWidth() const;
     void SetWidth(int width);
     int GetPrecision() const;
     void SetPrecision(int precision);
+    int GetFormat() const;
+    void SetFormat(int format);
 
     %property(Precision, GetPrecision, SetPrecision, doc="See `GetPrecision` and `SetPrecision`");
     %property(Width, GetWidth, SetWidth, doc="See `GetWidth` and `SetWidth`");
@@ -977,7 +1004,8 @@ class wxGridCellFloatEditor : public wxGridCellTextEditor
 {
 public:
     %pythonAppend wxGridCellFloatEditor  "self._setOORInfo(self)"
-    wxGridCellFloatEditor(int width = -1, int precision = -1);
+    wxGridCellFloatEditor(int width = -1, int precision = -1,
+                          int format = wxGRID_FLOAT_FORMAT_DEFAULT);
 };
 
 
