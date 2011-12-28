@@ -35,22 +35,22 @@ wxColour &MakeColourGrey(const wxColour &c)
 }
 wxBrush &GetGreyBrush(wxBrush &brush)
 {
-	static wxBrush b;
-	wxColour c;
-	b = brush;
-	c = MakeColourGrey(brush.GetColour());
-	b.SetColour(c);
-	return b;
+    static wxBrush b;
+    wxColour c;
+    b = brush;
+    c = MakeColourGrey(brush.GetColour());
+    b.SetColour(c);
+    return b;
 }
 
 wxPen &GetGreyPen(wxPen &pen)
 {
-	static wxPen p;
-	wxColour c;
-	p = pen;
-	c = MakeColourGrey(pen.GetColour());
-	p.SetColour(c);
-	return p;
+    static wxPen p;
+    wxColour c;
+    p = pen;
+    c = MakeColourGrey(pen.GetColour());
+    p.SetColour(c);
+    return p;
 }
 
 void GreyOutImage(wxImage &img)
@@ -292,8 +292,8 @@ void pdcObject::SetGreyedOut(bool greyout)
 wxPseudoDC::~wxPseudoDC()
 {
     // delete all the nodes in the list
-	RemoveAll();
-	
+    RemoveAll();
+    
 }
 
 // ----------------------------------------------------------------------------
@@ -304,7 +304,7 @@ void wxPseudoDC::RemoveAll(void)
     m_objectlist.Clear();
     m_objectIndex.clear();
     m_currId = -1;
-	m_lastObject = NULL;
+    m_lastObject = NULL;
     
 }
 
@@ -339,7 +339,7 @@ pdcObject *wxPseudoDC::FindObject(int id, bool create)
         if (create) {
             m_lastObject = new pdcObject(id);
             m_objectlist.Append(m_lastObject);
-			pdcObjectHash::value_type insert(id, m_lastObject);
+            pdcObjectHash::value_type insert(id, m_lastObject);
             m_objectIndex.insert(insert);
             return m_lastObject;
         } else {
@@ -398,10 +398,10 @@ void wxPseudoDC::SetIdBounds(int id, wxRect& rect)
 void wxPseudoDC::GetIdBounds(int id, wxRect& rect)
 {
     pdcObject *obj = FindObject(id);
-	if (obj && obj->IsBounded())
-		rect = obj->GetBounds();
-	else
-		rect.x = rect.y = rect.width = rect.height = 0;
+    if (obj && obj->IsBounded())
+        rect = obj->GetBounds();
+    else
+        rect.x = rect.y = rect.width = rect.height = 0;
 }
 
 // ----------------------------------------------------------------------------
@@ -438,7 +438,7 @@ bool wxPseudoDC::GetIdGreyedOut(int id)
 {
     pdcObject *obj = FindObject(id);
     if (obj) return obj->GetGreyedOut();
-	else return false;
+    else return false;
 }
 
 // ----------------------------------------------------------------------------
@@ -605,7 +605,7 @@ void wxPseudoDC::DrawToDCClippedRgn(wxDC *dc, const wxRegion& region)
     {
         obj = pt->GetData();
         if (!obj->IsBounded() || 
-		    (region.Contains(obj->GetBounds()) != wxOutRegion))
+            (region.Contains(obj->GetBounds()) != wxOutRegion))
             obj->DrawToDC(dc);
         pt = pt->GetNext();
     }
