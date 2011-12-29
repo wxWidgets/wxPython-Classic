@@ -30,6 +30,7 @@ contrib/gizmos/wxCode/src/gizmos
 demo
 demo/agw
 demo/agw/bitmaps
+demo/agw/data
 demo/bitmaps
 demo/bmp_source
 demo/data
