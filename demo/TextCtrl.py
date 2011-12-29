@@ -5,15 +5,15 @@ import  wx
 #---------------------------------------------------------------------------
 
 class TestPanel(wx.Panel):
-    def OnSetFocus(self, evt):
-        print "OnSetFocus"
-        evt.Skip()
-    def OnKillFocus(self, evt):
-        print "OnKillFocus"
-        evt.Skip()
-    def OnWindowDestroy(self, evt):
-        print "OnWindowDestroy"
-        evt.Skip()
+    # def OnSetFocus(self, evt):
+    #     print "OnSetFocus"
+    #     evt.Skip()
+    # def OnKillFocus(self, evt):
+    #     print "OnKillFocus"
+    #     evt.Skip()
+    # def OnWindowDestroy(self, evt):
+    #     print "OnWindowDestroy"
+    #     evt.Skip()
 
 
     def __init__(self, parent, log):
@@ -27,9 +27,9 @@ class TestPanel(wx.Panel):
 
         self.Bind(wx.EVT_TEXT, self.EvtText, t1)
         t1.Bind(wx.EVT_CHAR, self.EvtChar)
-        t1.Bind(wx.EVT_SET_FOCUS, self.OnSetFocus)
-        t1.Bind(wx.EVT_KILL_FOCUS, self.OnKillFocus)
-        t1.Bind(wx.EVT_WINDOW_DESTROY, self.OnWindowDestroy)
+        # t1.Bind(wx.EVT_SET_FOCUS, self.OnSetFocus)
+        # t1.Bind(wx.EVT_KILL_FOCUS, self.OnKillFocus)
+        # t1.Bind(wx.EVT_WINDOW_DESTROY, self.OnWindowDestroy)
 
         l2 = wx.StaticText(self, -1, "Password")
         t2 = wx.TextCtrl(self, -1, "", size=(125, -1), style=wx.TE_PASSWORD)
