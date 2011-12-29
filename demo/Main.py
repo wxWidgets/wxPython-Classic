@@ -105,7 +105,6 @@ _treeList = [
         'DVC_TreeCtrl',
         'DVC_CustomRenderer',
         'PenAndBrushStyles',
-        'InfoBar',
         'HTML2_WebView',
         ]),
 
