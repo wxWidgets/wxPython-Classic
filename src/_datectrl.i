@@ -181,14 +181,12 @@ creation.", "");
 };
 
 
-// Disabled for MSW temporarily until some build issues are worked out
-#ifndef __WXMSW__
 
 MustHaveApp(wxDatePickerCtrlGeneric);
 
 %rename(GenericDatePickerCtrl) wxDatePickerCtrlGeneric;
 
-class wxDatePickerCtrlGeneric : public wxDatePickerCtrl
+class wxDatePickerCtrlGeneric : public wxDatePickerCtrlBase
 {
 public:
     %pythonAppend wxDatePickerCtrlGeneric         "self._setOORInfo(self)";
@@ -211,7 +209,7 @@ public:
         "Precreate a GenericDatePickerCtrl for use in 2-phase creation.", "",
         PreGenericDatePickerCtrl);
     
-
+ 
     DocDeclStr(
         bool , Create(wxWindow *parent,
                       wxWindowID id=-1,
@@ -225,8 +223,6 @@ public:
 creation.", "");
     
 };
-
-#endif
 
 //---------------------------------------------------------------------------
 
