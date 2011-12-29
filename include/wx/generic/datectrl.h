@@ -69,6 +69,10 @@ public:
     // overridden base class methods
     virtual bool Destroy();
 
+#ifdef __WXOSX_COCOA__
+    virtual void OSXGenerateEvent(const wxDateTime& dt) {}
+#endif
+
 protected:
     virtual wxSize DoGetBestSize() const;
 
