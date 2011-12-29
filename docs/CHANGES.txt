@@ -3,6 +3,23 @@
 Recent Changes for wxPython
 =====================================================================
 
+2.9.3.1
+-------
+* 29-Dec-2011
+
+Corrected some problems in the installer scripts that were not
+including some new files.
+
+Re-enabled the wrappers for the wx.GenericDatePickerCtrl class.
+
+Applied some patches from Werner Bruhin for the sized controls classes
+and demo, and which also adds the SizedScrolledPanel class.
+
+Fixed several other minor bugs discovered in the last release.
+
+
+
+
 2.9.3.0
 -------
 * 26-Dec-2011
