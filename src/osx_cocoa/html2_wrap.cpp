@@ -2559,19 +2559,18 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_wxThreadEvent swig_types[93]
 #define SWIGTYPE_p_wxUpdateUIEvent swig_types[94]
 #define SWIGTYPE_p_wxValidator swig_types[95]
-#define SWIGTYPE_p_wxVectorTwxSharedPtrTwxWebViewHistoryItem_t_t swig_types[96]
-#define SWIGTYPE_p_wxWebView swig_types[97]
-#define SWIGTYPE_p_wxWebViewArchiveHandler swig_types[98]
-#define SWIGTYPE_p_wxWebViewEvent swig_types[99]
-#define SWIGTYPE_p_wxWebViewHandler swig_types[100]
-#define SWIGTYPE_p_wxWebViewHistoryItem swig_types[101]
-#define SWIGTYPE_p_wxWindow swig_types[102]
-#define SWIGTYPE_p_wxWindowCreateEvent swig_types[103]
-#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[104]
-#define SWIGTYPE_p_wxWrapSizer swig_types[105]
-#define SWIGTYPE_p_wxXPMHandler swig_types[106]
-static swig_type_info *swig_types[108];
-static swig_module_info swig_module = {swig_types, 107, 0, 0, 0, 0};
+#define SWIGTYPE_p_wxWebView swig_types[96]
+#define SWIGTYPE_p_wxWebViewArchiveHandler swig_types[97]
+#define SWIGTYPE_p_wxWebViewEvent swig_types[98]
+#define SWIGTYPE_p_wxWebViewHandler swig_types[99]
+#define SWIGTYPE_p_wxWebViewHistoryItem swig_types[100]
+#define SWIGTYPE_p_wxWindow swig_types[101]
+#define SWIGTYPE_p_wxWindowCreateEvent swig_types[102]
+#define SWIGTYPE_p_wxWindowDestroyEvent swig_types[103]
+#define SWIGTYPE_p_wxWrapSizer swig_types[104]
+#define SWIGTYPE_p_wxXPMHandler swig_types[105]
+static swig_type_info *swig_types[107];
+static swig_module_info swig_module = {swig_types, 106, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2675,6 +2674,171 @@ namespace swig {
     
 #include <wx/webview.h>
 #include <wx/webviewarchivehandler.h>
+
+
+#if !wxUSE_WEBVIEW
+// Add some C++ stubs for when wxWebView is not available
+
+#include <wx/sharedptr.h>
+#include <wx/vector.h>
+
+
+
+enum wxWebViewZoom
+{
+    wxWEB_VIEW_ZOOM_TINY,
+    wxWEB_VIEW_ZOOM_SMALL,
+    wxWEB_VIEW_ZOOM_MEDIUM, 
+    wxWEB_VIEW_ZOOM_LARGE,
+    wxWEB_VIEW_ZOOM_LARGEST
+};
+
+enum wxWebViewZoomType
+{
+    wxWEB_VIEW_ZOOM_TYPE_LAYOUT,
+    wxWEB_VIEW_ZOOM_TYPE_TEXT
+};
+
+
+enum wxWebViewNavigationError
+{
+    wxWEB_NAV_ERR_CONNECTION,
+    wxWEB_NAV_ERR_CERTIFICATE,
+    wxWEB_NAV_ERR_AUTH,
+    wxWEB_NAV_ERR_SECURITY,
+    wxWEB_NAV_ERR_NOT_FOUND,
+    wxWEB_NAV_ERR_REQUEST,
+    wxWEB_NAV_ERR_USER_CANCELLED,
+    wxWEB_NAV_ERR_OTHER
+};
+
+enum wxWebViewReloadFlags
+{
+    wxWEB_VIEW_RELOAD_DEFAULT,
+    wxWEB_VIEW_RELOAD_NO_CACHE 
+};
+
+enum wxWebViewBackend
+{
+    wxWEB_VIEW_BACKEND_DEFAULT,
+    wxWEB_VIEW_BACKEND_WEBKIT,
+    wxWEB_VIEW_BACKEND_IE
+};
+
+wxString wxWebViewDefaultURLStr("");
+wxString wxWebViewNameStr("");
+
+inline void _RaiseError()
+{
+    wxPyRaiseNotImplementedMsg("wx.html2 is not available on this platform.");
+}
+
+
+class wxWebViewHandler
+{
+public:
+    wxWebViewHandler(const wxString& scheme) {};
+    virtual wxFSFile* GetFile(const wxString &uri) {return NULL;}
+    virtual wxString GetName() const { return wxEmptyString; }
+};
+
+
+class wxWebViewArchiveHandler : public wxWebViewHandler
+{
+public:
+    wxWebViewArchiveHandler(const wxString& scheme)  : wxWebViewHandler(scheme) {}
+    virtual wxFSFile* GetFile(const wxString &uri) { return NULL; }
+};
+
+
+class wxWebViewHistoryItem
+{
+public:
+    wxWebViewHistoryItem(const wxString&, const wxString&) { _RaiseError(); }
+    wxString GetUrl() { return wxEmptyString; }
+    wxString GetTitle() { return wxEmptyString; }
+};
+
+
+class wxWebView : public wxControl
+{
+public:
+    virtual bool Create(wxWindow*, wxWindowID, const wxString&, const wxPoint&,
+                        const wxSize&, long style, const wxString&) { _RaiseError(); return false; }
+    static wxWebView* New(wxWebViewBackend) { _RaiseError(); return NULL; }
+    static wxWebView* New(wxWindow*, wxWindowID, const wxString&, const wxPoint& ,
+                          const wxSize& , wxWebViewBackend, long style,
+                          const wxString&) { _RaiseError(); return NULL; }
+
+    virtual wxString GetCurrentTitle() const { return wxEmptyString; }
+    virtual wxString GetCurrentURL() const { return wxEmptyString; }
+    virtual wxString GetPageSource() const { return wxEmptyString; }
+    virtual wxString GetPageText() const { return wxEmptyString; }
+    virtual bool IsBusy() const { return false; }
+    virtual bool IsEditable() const { return false; }
+    virtual void LoadURL(const wxString& url) {}
+    virtual void Print() {}
+    virtual void RegisterHandler(wxSharedPtr<wxWebViewHandler> handler) {}
+    virtual void Reload(wxWebViewReloadFlags flags = wxWEB_VIEW_RELOAD_DEFAULT) {}
+    virtual void RunScript(const wxString& javascript) {}
+    virtual void SetEditable(bool enable = true) {}
+    virtual void SetPage(const wxString& html, const wxString& baseUrl) {}
+    virtual void SetPage(wxInputStream& html, wxString baseUrl) {}
+    virtual void Stop() {}
+    virtual bool CanCopy() const { return false; }
+    virtual bool CanCut() const { return false; }
+    virtual bool CanPaste() const { return false; }
+    virtual void Copy() {}
+    virtual void Cut() {}
+    virtual void Paste() {}
+    virtual bool CanGoBack() const { return false; }
+    virtual bool CanGoForward() const { return false; }
+    virtual void ClearHistory() {}
+    virtual void EnableHistory(bool enable = true) {}
+    //virtual wxVector<wxSharedPtr<wxWebViewHistoryItem> > GetBackwardHistory();
+    //virtual wxVector<wxSharedPtr<wxWebViewHistoryItem> > GetForwardHistory();
+    virtual void GoBack() {}
+    virtual void GoForward() {}
+    virtual void LoadHistoryItem(wxSharedPtr<wxWebViewHistoryItem> item) {}
+    virtual void ClearSelection() {}
+    virtual void DeleteSelection() {}
+    virtual wxString GetSelectedSource() const { return wxEmptyString; }
+    virtual wxString GetSelectedText() const  { return wxEmptyString; }
+    virtual bool HasSelection() const { return false; }
+    virtual void SelectAll() {}
+    virtual bool CanRedo() const { return false; }
+    virtual bool CanUndo() const { return false; }
+    virtual void Redo() {}
+    virtual void Undo() {}
+    virtual bool CanSetZoomType(wxWebViewZoomType type) const { return false; }
+    virtual wxWebViewZoom GetZoom() const { return wxWEB_VIEW_ZOOM_MEDIUM; }
+    virtual wxWebViewZoomType GetZoomType() const { return wxWEB_VIEW_ZOOM_TYPE_LAYOUT; }
+    virtual void SetZoom(wxWebViewZoom zoom) {}
+    virtual void SetZoomType(wxWebViewZoomType zoomType) {}
+};
+
+
+
+class wxWebViewEvent : public wxNotifyEvent
+{
+public:
+    wxWebViewEvent(wxEventType type, int id, const wxString href,
+                   const wxString target) { _RaiseError(); }
+    const wxString& GetTarget() const { return wxEmptyString; }
+    const wxString& GetURL() const { return wxEmptyString; }
+};
+
+
+
+wxEventType wxEVT_COMMAND_WEB_VIEW_NAVIGATING;
+wxEventType wxEVT_COMMAND_WEB_VIEW_NAVIGATED;
+wxEventType wxEVT_COMMAND_WEB_VIEW_LOADED;
+wxEventType wxEVT_COMMAND_WEB_VIEW_ERROR;
+wxEventType wxEVT_COMMAND_WEB_VIEW_NEWWINDOW;
+wxEventType wxEVT_COMMAND_WEB_VIEW_TITLE_CHANGED;
+
+
+#endif  // !wxUSE_WEBVIEW
 
 
   #define SWIG_From_long   PyInt_FromLong 
@@ -4103,62 +4267,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_WebView_GetBackwardHistory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxWebView *arg1 = (wxWebView *) 0 ;
-  SwigValueWrapper<wxVector<wxSharedPtr<wxWebViewHistoryItem > > > result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWebView, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WebView_GetBackwardHistory" "', expected argument " "1"" of type '" "wxWebView *""'"); 
-  }
-  arg1 = reinterpret_cast< wxWebView * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetBackwardHistory();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxVector<wxSharedPtr<wxWebViewHistoryItem > >(static_cast< const wxVector<wxSharedPtr<wxWebViewHistoryItem > >& >(result))), SWIGTYPE_p_wxVectorTwxSharedPtrTwxWebViewHistoryItem_t_t, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_WebView_GetForwardHistory(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  wxWebView *arg1 = (wxWebView *) 0 ;
-  SwigValueWrapper<wxVector<wxSharedPtr<wxWebViewHistoryItem > > > result;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject *swig_obj[1] ;
-  
-  if (!args) SWIG_fail;
-  swig_obj[0] = args;
-  res1 = SWIG_ConvertPtr(swig_obj[0], &argp1,SWIGTYPE_p_wxWebView, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "WebView_GetForwardHistory" "', expected argument " "1"" of type '" "wxWebView *""'"); 
-  }
-  arg1 = reinterpret_cast< wxWebView * >(argp1);
-  {
-    PyThreadState* __tstate = wxPyBeginAllowThreads();
-    result = (arg1)->GetForwardHistory();
-    wxPyEndAllowThreads(__tstate);
-    if (PyErr_Occurred()) SWIG_fail;
-  }
-  resultobj = SWIG_NewPointerObj((new wxVector<wxSharedPtr<wxWebViewHistoryItem > >(static_cast< const wxVector<wxSharedPtr<wxWebViewHistoryItem > >& >(result))), SWIGTYPE_p_wxVectorTwxSharedPtrTwxWebViewHistoryItem_t_t, SWIG_POINTER_OWN |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *_wrap_WebView_GoBack(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   wxWebView *arg1 = (wxWebView *) 0 ;
@@ -5084,8 +5192,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"WebView_CanGoForward", (PyCFunction)_wrap_WebView_CanGoForward, METH_O, NULL},
 	 { (char *)"WebView_ClearHistory", (PyCFunction)_wrap_WebView_ClearHistory, METH_O, NULL},
 	 { (char *)"WebView_EnableHistory", (PyCFunction) _wrap_WebView_EnableHistory, METH_VARARGS | METH_KEYWORDS, NULL},
-	 { (char *)"WebView_GetBackwardHistory", (PyCFunction)_wrap_WebView_GetBackwardHistory, METH_O, NULL},
-	 { (char *)"WebView_GetForwardHistory", (PyCFunction)_wrap_WebView_GetForwardHistory, METH_O, NULL},
 	 { (char *)"WebView_GoBack", (PyCFunction)_wrap_WebView_GoBack, METH_O, NULL},
 	 { (char *)"WebView_GoForward", (PyCFunction)_wrap_WebView_GoForward, METH_O, NULL},
 	 { (char *)"WebView_LoadHistoryItem", (PyCFunction) _wrap_WebView_LoadHistoryItem, METH_VARARGS | METH_KEYWORDS, NULL},
@@ -5728,7 +5834,6 @@ static swig_type_info _swigt__p_wxRefCounter = {"_p_wxRefCounter", "wxRefCounter
 static swig_type_info _swigt__p_wxSharedPtrTwxWebViewHandler_t = {"_p_wxSharedPtrTwxWebViewHandler_t", "wxSharedPtr<wxWebViewHandler > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxSharedPtrTwxWebViewHistoryItem_t = {"_p_wxSharedPtrTwxWebViewHistoryItem_t", "wxSharedPtr<wxWebViewHistoryItem > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxString = {"_p_wxString", "wxString *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_wxVectorTwxSharedPtrTwxWebViewHistoryItem_t_t = {"_p_wxVectorTwxSharedPtrTwxWebViewHistoryItem_t_t", "wxVector<wxSharedPtr<wxWebViewHistoryItem > > *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWebView = {"_p_wxWebView", "wxWebView *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWebViewArchiveHandler = {"_p_wxWebViewArchiveHandler", "wxWebViewArchiveHandler *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_wxWebViewEvent = {"_p_wxWebViewEvent", "wxWebViewEvent *", 0, 0, (void*)0, 0};
@@ -5833,7 +5938,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_wxThreadEvent,
   &_swigt__p_wxUpdateUIEvent,
   &_swigt__p_wxValidator,
-  &_swigt__p_wxVectorTwxSharedPtrTwxWebViewHistoryItem_t_t,
   &_swigt__p_wxWebView,
   &_swigt__p_wxWebViewArchiveHandler,
   &_swigt__p_wxWebViewEvent,
@@ -5946,7 +6050,6 @@ static swig_cast_info _swigc__p_wxRefCounter[] = {  {&_swigt__p_wxRefCounter, 0,
 static swig_cast_info _swigc__p_wxSharedPtrTwxWebViewHandler_t[] = {  {&_swigt__p_wxSharedPtrTwxWebViewHandler_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxSharedPtrTwxWebViewHistoryItem_t[] = {  {&_swigt__p_wxSharedPtrTwxWebViewHistoryItem_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxString[] = {  {&_swigt__p_wxString, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxVectorTwxSharedPtrTwxWebViewHistoryItem_t_t[] = {  {&_swigt__p_wxVectorTwxSharedPtrTwxWebViewHistoryItem_t_t, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWebView[] = {  {&_swigt__p_wxWebView, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWebViewArchiveHandler[] = {  {&_swigt__p_wxWebViewArchiveHandler, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxWebViewEvent[] = {  {&_swigt__p_wxWebViewEvent, 0, 0, 0},{0, 0, 0, 0}};
@@ -6051,7 +6154,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_wxThreadEvent,
   _swigc__p_wxUpdateUIEvent,
   _swigc__p_wxValidator,
-  _swigc__p_wxVectorTwxSharedPtrTwxWebViewHistoryItem_t_t,
   _swigc__p_wxWebView,
   _swigc__p_wxWebViewArchiveHandler,
   _swigc__p_wxWebViewEvent,

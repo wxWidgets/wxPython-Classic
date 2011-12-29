@@ -9023,7 +9023,8 @@ _core_.AcceleratorTable_swigregister(AcceleratorTable)
 
 def GetAccelFromString(label):
     entry = AcceleratorEntry()
-    entry.FromString(label)
+    if '\t' in label:
+        entry.FromString(label)
     return entry
 
 #---------------------------------------------------------------------------

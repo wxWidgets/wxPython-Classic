@@ -6534,6 +6534,47 @@ def PreDatePickerCtrl(*args, **kwargs):
     val = _controls_.new_PreDatePickerCtrl(*args, **kwargs)
     return val
 
+class GenericDatePickerCtrl(DatePickerCtrlBase):
+    """Proxy of C++ GenericDatePickerCtrl class"""
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
+    __repr__ = _swig_repr
+    def __init__(self, *args, **kwargs): 
+        """
+        __init__(self, Window parent, int id=-1, DateTime dt=wxDefaultDateTime, 
+            Point pos=DefaultPosition, Size size=DefaultSize, 
+            long style=wxDP_DEFAULT|wxDP_SHOWCENTURY, 
+            Validator validator=DefaultValidator, 
+            String name=DatePickerCtrlNameStr) -> GenericDatePickerCtrl
+
+        Create a new GenericDatePickerCtrl.
+        """
+        _controls_.GenericDatePickerCtrl_swiginit(self,_controls_.new_GenericDatePickerCtrl(*args, **kwargs))
+        self._setOORInfo(self)
+
+    def Create(*args, **kwargs):
+        """
+        Create(self, Window parent, int id=-1, DateTime dt=wxDefaultDateTime, 
+            Point pos=DefaultPosition, Size size=DefaultSize, 
+            long style=wxDP_DEFAULT|wxDP_SHOWCENTURY, 
+            Validator validator=DefaultValidator, 
+            String name=DatePickerCtrlNameStr) -> bool
+
+        Create the GUI parts of the GenericDatePickerCtrl, for use in 2-phase
+        creation.
+        """
+        return _controls_.GenericDatePickerCtrl_Create(*args, **kwargs)
+
+_controls_.GenericDatePickerCtrl_swigregister(GenericDatePickerCtrl)
+
+def PreGenericDatePickerCtrl(*args, **kwargs):
+    """
+    PreGenericDatePickerCtrl() -> GenericDatePickerCtrl
+
+    Precreate a GenericDatePickerCtrl for use in 2-phase creation.
+    """
+    val = _controls_.new_PreGenericDatePickerCtrl(*args, **kwargs)
+    return val
+
 HL_CONTEXTMENU = _controls_.HL_CONTEXTMENU
 HL_ALIGN_LEFT = _controls_.HL_ALIGN_LEFT
 HL_ALIGN_RIGHT = _controls_.HL_ALIGN_RIGHT

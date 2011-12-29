@@ -490,10 +490,8 @@ class HtmlSelection(object):
 
     FromCell = property(GetFromCell,doc="See `GetFromCell`") 
     FromPos = property(GetFromPos,doc="See `GetFromPos`") 
-    FromPrivPos = property(GetFromPrivPos,SetFromPrivPos,doc="See `GetFromPrivPos` and `SetFromPrivPos`") 
     ToCell = property(GetToCell,doc="See `GetToCell`") 
     ToPos = property(GetToPos,doc="See `GetToPos`") 
-    ToPrivPos = property(GetToPrivPos,SetToPrivPos,doc="See `GetToPrivPos` and `SetToPrivPos`") 
 _html.HtmlSelection_swigregister(HtmlSelection)
 
 HTML_SEL_OUT = _html.HTML_SEL_OUT
