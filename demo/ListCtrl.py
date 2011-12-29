@@ -280,6 +280,9 @@ class TestListCtrlPanel(wx.Panel, listmix.ColumnSorterMixin):
         self.log.WriteText("OnColRightClick: %d %s\n" %
                            (event.GetColumn(), (item.GetText(), item.GetAlign(),
                                                 item.GetWidth(), item.GetImage())))
+        if self.list.HasColumnOrderSupport():
+            self.log.WriteText("OnColRightClick: column order: %d\n" %
+                               self.list.GetColumnOrder(event.GetColumn()))
 
     def OnColBeginDrag(self, event):
         self.log.WriteText("OnColBeginDrag\n")
