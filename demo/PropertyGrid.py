@@ -671,8 +671,6 @@ class LargeImageEditor(wxpg.PyEditor):
 
 class TestPanel( wx.Panel ):
 
-    AreEditorsRegistered = False
-
     def __init__( self, parent, log ):
         wx.Panel.__init__(self, parent, wx.ID_ANY)
         self.log = log
@@ -695,19 +693,17 @@ class TestPanel( wx.Panel ):
         pg.Bind( wxpg.EVT_PG_SELECTED, self.OnPropGridSelect )
         pg.Bind( wxpg.EVT_PG_RIGHT_CLICK, self.OnPropGridRightClick )
 
-        # Needed by custom image editor
-        wx.InitAllImageHandlers()
 
         #
         # Let's use some simple custom editor
         #
         # NOTE: Editor must be registered *before* adding a property that
         # uses it.
-        if not TestPanel.AreEditorsRegistered:
+        if not getattr(sys, '_PropGridEditorsRegistered', False):
             pg.RegisterEditor(TrivialPropertyEditor)
             pg.RegisterEditor(SampleMultiButtonEditor)
             pg.RegisterEditor(LargeImageEditor)
-            TestPanel.AreEditorsRegistered = True
+            sys._PropGridEditorsRegistered = True
 
         #
         # Add properties
