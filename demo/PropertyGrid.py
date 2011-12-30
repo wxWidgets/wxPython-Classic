@@ -703,6 +703,7 @@ class TestPanel( wx.Panel ):
             pg.RegisterEditor(TrivialPropertyEditor)
             pg.RegisterEditor(SampleMultiButtonEditor)
             pg.RegisterEditor(LargeImageEditor)
+            # ensure we only do it once
             sys._PropGridEditorsRegistered = True
 
         #
