@@ -6523,7 +6523,7 @@ def PreDatePickerCtrl(*args, **kwargs):
     val = _controls_.new_PreDatePickerCtrl(*args, **kwargs)
     return val
 
-class GenericDatePickerCtrl(DatePickerCtrl):
+class GenericDatePickerCtrl(DatePickerCtrlBase):
     """Proxy of C++ GenericDatePickerCtrl class"""
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc='The membership flag')
     __repr__ = _swig_repr

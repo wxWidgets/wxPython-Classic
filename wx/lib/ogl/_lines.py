@@ -1,13 +1,13 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 #----------------------------------------------------------------------------
 # Name:         lines.py
 # Purpose:      LineShape class
 #
-# Author:       Pierre Hj‰lm (from C++ original by Julian Smart)
+# Author:       Pierre Hj√§lm (from C++ original by Julian Smart)
 #
 # Created:      2004-05-08
 # RCS-ID:       $Id$
-# Copyright:    (c) 2004 Pierre Hj‰lm - 1998 Julian Smart
+# Copyright:    (c) 2004 Pierre Hj√§lm - 1998 Julian Smart
 # Licence:      wxWindows license
 #----------------------------------------------------------------------------
 

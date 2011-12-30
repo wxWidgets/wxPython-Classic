@@ -52348,7 +52348,7 @@ static void *_p_wxDatePickerCtrlBaseTo_p_wxControl(void *x) {
     return (void *)((wxControl *)  ((wxDatePickerCtrlBase *) x));
 }
 static void *_p_wxDatePickerCtrlGenericTo_p_wxControl(void *x) {
-    return (void *)((wxControl *) (wxDatePickerCtrlBase *)(wxDatePickerCtrl *) ((wxDatePickerCtrlGeneric *) x));
+    return (void *)((wxControl *) (wxDatePickerCtrlBase *) ((wxDatePickerCtrlGeneric *) x));
 }
 static void *_p_wxSearchCtrlBaseTo_p_wxControl(void *x) {
     return (void *)((wxControl *) (wxTextCtrlBase *)(wxTextCtrl *) ((wxSearchCtrlBase *) x));
@@ -52558,7 +52558,7 @@ static void *_p_wxNotebookTo_p_wxBookCtrlBase(void *x) {
     return (void *)((wxBookCtrlBase *)  ((wxNotebook *) x));
 }
 static void *_p_wxDatePickerCtrlGenericTo_p_wxDatePickerCtrlBase(void *x) {
-    return (void *)((wxDatePickerCtrlBase *) (wxDatePickerCtrl *) ((wxDatePickerCtrlGeneric *) x));
+    return (void *)((wxDatePickerCtrlBase *)  ((wxDatePickerCtrlGeneric *) x));
 }
 static void *_p_wxDatePickerCtrlTo_p_wxDatePickerCtrlBase(void *x) {
     return (void *)((wxDatePickerCtrlBase *)  ((wxDatePickerCtrl *) x));
@@ -52594,7 +52594,7 @@ static void *_p_wxDatePickerCtrlBaseTo_p_wxEvtHandler(void *x) {
     return (void *)((wxEvtHandler *) (wxWindow *)(wxControl *) ((wxDatePickerCtrlBase *) x));
 }
 static void *_p_wxDatePickerCtrlGenericTo_p_wxEvtHandler(void *x) {
-    return (void *)((wxEvtHandler *) (wxWindow *)(wxControl *)(wxDatePickerCtrlBase *)(wxDatePickerCtrl *) ((wxDatePickerCtrlGeneric *) x));
+    return (void *)((wxEvtHandler *) (wxWindow *)(wxControl *)(wxDatePickerCtrlBase *) ((wxDatePickerCtrlGeneric *) x));
 }
 static void *_p_wxSearchCtrlBaseTo_p_wxEvtHandler(void *x) {
     return (void *)((wxEvtHandler *) (wxWindow *)(wxControl *)(wxTextCtrlBase *)(wxTextCtrl *) ((wxSearchCtrlBase *) x));
@@ -52960,7 +52960,7 @@ static void *_p_wxChoicebookTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxControl *)(wxBookCtrlBase *) ((wxChoicebook *) x));
 }
 static void *_p_wxDatePickerCtrlGenericTo_p_wxObject(void *x) {
-    return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxControl *)(wxDatePickerCtrlBase *)(wxDatePickerCtrl *) ((wxDatePickerCtrlGeneric *) x));
+    return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxControl *)(wxDatePickerCtrlBase *) ((wxDatePickerCtrlGeneric *) x));
 }
 static void *_p_wxListbookTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxControl *)(wxBookCtrlBase *) ((wxListbook *) x));
@@ -53272,7 +53272,7 @@ static void *_p_wxDatePickerCtrlBaseTo_p_wxWindow(void *x) {
     return (void *)((wxWindow *) (wxControl *) ((wxDatePickerCtrlBase *) x));
 }
 static void *_p_wxDatePickerCtrlGenericTo_p_wxWindow(void *x) {
-    return (void *)((wxWindow *) (wxControl *)(wxDatePickerCtrlBase *)(wxDatePickerCtrl *) ((wxDatePickerCtrlGeneric *) x));
+    return (void *)((wxWindow *) (wxControl *)(wxDatePickerCtrlBase *) ((wxDatePickerCtrlGeneric *) x));
 }
 static void *_p_wxSearchCtrlBaseTo_p_wxWindow(void *x) {
     return (void *)((wxWindow *) (wxControl *)(wxTextCtrlBase *)(wxTextCtrl *) ((wxSearchCtrlBase *) x));
@@ -53504,9 +53504,6 @@ static void *_p_wxTextCtrlIfaceTo_p_wxTextAreaBase(void *x) {
 }
 static void *_p_wxSearchCtrlTo_p_wxTextAreaBase(void *x) {
     return (void *)((wxTextAreaBase *) (wxTextCtrlBase *)(wxTextCtrl *)(wxSearchCtrlBase *) ((wxSearchCtrl *) x));
-}
-static void *_p_wxDatePickerCtrlGenericTo_p_wxDatePickerCtrl(void *x) {
-    return (void *)((wxDatePickerCtrl *)  ((wxDatePickerCtrlGeneric *) x));
 }
 static void *_p_wxDirFilterListCtrlTo_p_wxControlWithItems(void *x) {
     return (void *)((wxControlWithItems *) (wxChoice *) ((wxDirFilterListCtrl *) x));
@@ -53962,7 +53959,7 @@ static swig_cast_info _swigc__p_wxControl[] = {  {&_swigt__p_wxCollapsiblePane, 
 static swig_cast_info _swigc__p_wxControlWithItems[] = {  {&_swigt__p_wxDirFilterListCtrl, _p_wxDirFilterListCtrlTo_p_wxControlWithItems, 0, 0},  {&_swigt__p_wxChoice, _p_wxChoiceTo_p_wxControlWithItems, 0, 0},  {&_swigt__p_wxControlWithItems, 0, 0, 0},  {&_swigt__p_wxListBox, _p_wxListBoxTo_p_wxControlWithItems, 0, 0},  {&_swigt__p_wxCheckListBox, _p_wxCheckListBoxTo_p_wxControlWithItems, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxCursor[] = {  {&_swigt__p_wxCursor, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDC[] = {  {&_swigt__p_wxDC, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_wxDatePickerCtrl[] = {  {&_swigt__p_wxDatePickerCtrlGeneric, _p_wxDatePickerCtrlGenericTo_p_wxDatePickerCtrl, 0, 0},  {&_swigt__p_wxDatePickerCtrl, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_wxDatePickerCtrl[] = {  {&_swigt__p_wxDatePickerCtrl, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDatePickerCtrlBase[] = {  {&_swigt__p_wxDatePickerCtrlBase, 0, 0, 0},  {&_swigt__p_wxDatePickerCtrlGeneric, _p_wxDatePickerCtrlGenericTo_p_wxDatePickerCtrlBase, 0, 0},  {&_swigt__p_wxDatePickerCtrl, _p_wxDatePickerCtrlTo_p_wxDatePickerCtrlBase, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDatePickerCtrlGeneric[] = {  {&_swigt__p_wxDatePickerCtrlGeneric, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_wxDateTime[] = {  {&_swigt__p_wxDateTime, 0, 0, 0},{0, 0, 0, 0}};

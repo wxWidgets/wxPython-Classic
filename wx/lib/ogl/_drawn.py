@@ -1,13 +1,13 @@
-# -*- coding: iso-8859-1 -*-
+# -*- coding: utf-8 -*-
 #----------------------------------------------------------------------------
 # Name:         drawn.py
 # Purpose:      DrawnShape class
 #
-# Author:       Pierre Hj‰lm (from C++ original by Julian Smart)
+# Author:       Pierre Hj√§lm (from C++ original by Julian Smart)
 #
 # Created:      2004-08-25
 # RCS-ID:       $Id$
-# Copyright:    (c) 2004 Pierre Hj‰lm - 1998 Julian Smart
+# Copyright:    (c) 2004 Pierre Hj√§lm - 1998 Julian Smart
 # License:      wxWindows license
 #----------------------------------------------------------------------------
 
@@ -487,7 +487,7 @@ class PseudoMetaFile(object):
     def CalculateSize(self, shape):
         boundMinX, boundMinY, boundMaxX, boundMaxY = self.GetBounds()
 
-        # By Pierre Hj‰lm: This is NOT in the old version, which
+        # By Pierre Hj√§lm: This is NOT in the old version, which
         # gets this totally wrong. Since the drawing is centered, we
         # cannot get the width by measuring from left to right, we
         # must instead make enough room to handle the largest

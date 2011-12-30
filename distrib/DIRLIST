@@ -30,6 +30,7 @@ contrib/gizmos/wxCode/src/gizmos
 demo
 demo/agw
 demo/agw/bitmaps
+demo/agw/data
 demo/bitmaps
 demo/bmp_source
 demo/data
@@ -73,6 +74,11 @@ samples/embedded
 samples/frogedit
 samples/hangman
 samples/mainloop
+samples/pubsub
+samples/pubsub/advanced
+samples/pubsub/basic_arg1
+samples/pubsub/basic_kwargs
+samples/pubsub/basic_v1
 samples/pySketch
 samples/pySketch/images
 samples/simple

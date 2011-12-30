@@ -12000,7 +12000,7 @@ static void *_p_wxSplashScreenTo_p_wxWindow(void *x) {
     return (void *)((wxWindow *) (wxTopLevelWindow *)(wxFrame *) ((wxSplashScreen *) x));
 }
 static void *_p_wxDatePickerCtrlGenericTo_p_wxWindow(void *x) {
-    return (void *)((wxWindow *) (wxControl *)(wxDatePickerCtrlBase *)(wxDatePickerCtrl *) ((wxDatePickerCtrlGeneric *) x));
+    return (void *)((wxWindow *) (wxControl *)(wxDatePickerCtrlBase *) ((wxDatePickerCtrlGeneric *) x));
 }
 static void *_p_wxListbookTo_p_wxWindow(void *x) {
     return (void *)((wxWindow *) (wxControl *)(wxBookCtrlBase *) ((wxListbook *) x));
@@ -12252,7 +12252,7 @@ static void *_p_wxDatePickerCtrlBaseTo_p_wxControl(void *x) {
     return (void *)((wxControl *)  ((wxDatePickerCtrlBase *) x));
 }
 static void *_p_wxDatePickerCtrlGenericTo_p_wxControl(void *x) {
-    return (void *)((wxControl *) (wxDatePickerCtrlBase *)(wxDatePickerCtrl *) ((wxDatePickerCtrlGeneric *) x));
+    return (void *)((wxControl *) (wxDatePickerCtrlBase *) ((wxDatePickerCtrlGeneric *) x));
 }
 static void *_p_wxSearchCtrlBaseTo_p_wxControl(void *x) {
     return (void *)((wxControl *) (wxTextCtrlBase *)(wxTextCtrl *) ((wxSearchCtrlBase *) x));
@@ -12939,7 +12939,7 @@ static void *_p_wxSizerTo_p_wxObject(void *x) {
     return (void *)((wxObject *)  ((wxSizer *) x));
 }
 static void *_p_wxDatePickerCtrlGenericTo_p_wxObject(void *x) {
-    return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxControl *)(wxDatePickerCtrlBase *)(wxDatePickerCtrl *) ((wxDatePickerCtrlGeneric *) x));
+    return (void *)((wxObject *) (wxEvtHandler *)(wxWindow *)(wxControl *)(wxDatePickerCtrlBase *) ((wxDatePickerCtrlGeneric *) x));
 }
 static void *_p_wxGridBagSizerTo_p_wxObject(void *x) {
     return (void *)((wxObject *) (wxSizer *)(wxGridSizer *)(wxFlexGridSizer *) ((wxGridBagSizer *) x));
@@ -13404,7 +13404,7 @@ static void *_p_wxSplashScreenTo_p_wxEvtHandler(void *x) {
     return (void *)((wxEvtHandler *) (wxWindow *)(wxTopLevelWindow *)(wxFrame *) ((wxSplashScreen *) x));
 }
 static void *_p_wxDatePickerCtrlGenericTo_p_wxEvtHandler(void *x) {
-    return (void *)((wxEvtHandler *) (wxWindow *)(wxControl *)(wxDatePickerCtrlBase *)(wxDatePickerCtrl *) ((wxDatePickerCtrlGeneric *) x));
+    return (void *)((wxEvtHandler *) (wxWindow *)(wxControl *)(wxDatePickerCtrlBase *) ((wxDatePickerCtrlGeneric *) x));
 }
 static void *_p_wxFindReplaceDialogTo_p_wxEvtHandler(void *x) {
     return (void *)((wxEvtHandler *) (wxWindow *)(wxTopLevelWindow *)(wxDialog *) ((wxFindReplaceDialog *) x));
