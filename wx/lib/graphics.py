@@ -1288,7 +1288,7 @@ class GraphicsContext(GraphicsObject):
 
     def GetFont(self): return (self._font, self._fontColour)
     def _SetFont(self, *both): self.SetFont(*both)
-    Font = property(GetFont, SetFont)
+    Font = property(GetFont, _SetFont)
     
 
     def StrokePath(self, path):
