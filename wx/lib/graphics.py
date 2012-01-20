@@ -1129,11 +1129,13 @@ class GraphicsContext(GraphicsObject):
 
     def PushState(self):
         """
-        Makes a copy of the current state of the context and saves it
-        on an internal stack of saved states.  The saved state will be
-        restored when PopState is called.
+        Makes a copy of the current state of the context (ie the
+        transformation matrix) and saves it on an internal stack of
+        saved states.  The saved state will be restored when PopState
+        is called.
         """
         self._context.save()
+
 
     def PopState(self):
         """
@@ -1249,7 +1251,10 @@ class GraphicsContext(GraphicsObject):
             else:
                 pen = GraphicsPen.CreateFromPen(pen)
         self._pen = pen
-        
+
+    def GetPen(self): return self._pen
+    Pen = property(GetPen, SetPen)
+
 
     def SetBrush(self, brush):
         """
@@ -1264,6 +1269,9 @@ class GraphicsContext(GraphicsObject):
                 brush = GraphicsBrush.CreateFromBrush(brush)
         self._brush = brush
 
+    def GetBrush(self): return self._brush
+    Brush = property(GetBrush, SetBrush)
+    
 
     def SetFont(self, font, colour=None):
         """
@@ -1277,7 +1285,11 @@ class GraphicsContext(GraphicsObject):
             self._fontColour = _makeColour(colour)
         else:
             self._fontColour = font._colour
-        
+
+    def GetFont(self): return (self._font, self._fontColour)
+    def _SetFont(self, *both): self.SetFont(*both)
+    Font = property(GetFont, SetFont)
+    
 
     def StrokePath(self, path):
         """
